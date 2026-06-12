@@ -1,0 +1,11 @@
+schema_version: 1
+artifact_kind: training_run
+model_family: track2h_quantile_probabilistic_gaussian_nll_bw
+base_model_family: track2h_quantile_probabilistic_gaussian_nll_bw
+training_variant: Bw
+direction_scope_label: backward_only
+use_forward_direction: false
+use_backward_direction: true
+run_name: te_track2h_gaussian_nll_bw
+run_instance_id: 2026-06-12-13-25-53__te_track2h_gaussian_nll_bw
+output_directory: output\training_runs\track2h_quantile_probabilistic_gaussian_nll_bw\2026-06-12-13-25-53__te_track2h_gaussian_nll_bw

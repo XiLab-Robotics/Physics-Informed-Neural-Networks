@@ -1,0 +1,11 @@
+schema_version: 1
+artifact_kind: training_run
+model_family: track2h_quantile_probabilistic_quantile_p10_p50_p90_global
+base_model_family: track2h_quantile_probabilistic_quantile_p10_p50_p90_global
+training_variant: global
+direction_scope_label: bidirectional
+use_forward_direction: true
+use_backward_direction: true
+run_name: te_track2h_quantile_p10_p50_p90_global
+run_instance_id: 2026-06-12-11-16-18__te_track2h_quantile_p10_p50_p90_global
+output_directory: output\training_runs\track2h_quantile_probabilistic_quantile_p10_p50_p90_global\2026-06-12-11-16-18__te_track2h_quantile_p10_p50_p90_global

@@ -1,0 +1,38 @@
+schema_version: 1
+model_family: track2h_quantile_probabilistic_quantile_p10_p50_p90_bw
+selection_policy:
+  primary_metric: test_mae
+  first_tie_breaker: test_rmse
+  second_tie_breaker: val_mae
+  third_tie_breaker: trainable_parameter_count
+  direction: minimize
+updated_at: '2026-06-12T12:10:23'
+best_entry:
+  run_instance_id: 2026-06-12-11-43-50__te_track2h_quantile_p10_p50_p90_bw
+  run_name: te_track2h_quantile_p10_p50_p90_bw
+  output_run_name: te_track2h_quantile_p10_p50_p90_bw
+  output_artifact_kind: training_run
+  model_family: track2h_quantile_probabilistic_quantile_p10_p50_p90_bw
+  base_model_family: track2h_quantile_probabilistic_quantile_p10_p50_p90_bw
+  model_type: curve_aware_harmonic_residual_offset_probe
+  training_variant: Bw
+  direction_scope_label: backward_only
+  use_forward_direction: false
+  use_backward_direction: true
+  trainable_parameter_count: 86169
+  total_parameter_count: 86169
+  val_mae: 0.0034355325624346733
+  val_rmse: 0.004112405702471733
+  test_mae: 0.0029270444065332413
+  test_rmse: 0.003519478952512145
+  output_directory: output\training_runs\track2h_quantile_probabilistic_quantile_p10_p50_p90_bw\2026-06-12-11-43-50__te_track2h_quantile_p10_p50_p90_bw
+  best_checkpoint_path: output\training_runs\track2h_quantile_probabilistic_quantile_p10_p50_p90_bw\2026-06-12-11-43-50__te_track2h_quantile_p10_p50_p90_bw\checkpoints\curve_aware_harmonic_residual_offset_probe-epoch=206-val_mae=0.00343553.ckpt
+  metrics_path: output\training_runs\track2h_quantile_probabilistic_quantile_p10_p50_p90_bw\2026-06-12-11-43-50__te_track2h_quantile_p10_p50_p90_bw/metrics_summary.yaml
+  report_path: output\training_runs\track2h_quantile_probabilistic_quantile_p10_p50_p90_bw\2026-06-12-11-43-50__te_track2h_quantile_p10_p50_p90_bw/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-06-12T12:10:23'

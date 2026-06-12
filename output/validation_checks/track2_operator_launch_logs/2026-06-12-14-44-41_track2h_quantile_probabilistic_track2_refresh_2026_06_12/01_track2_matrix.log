@@ -1,0 +1,80 @@
+W0612 14:44:45.105000 33628 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+[INFO] Running incremental Track 2 matrix refresh | baseline_candidates=111 | new_candidates=36
+[INFO] Track 2 grouped report plots are limited to current incremental candidates.
+[INFO] Building Track 2 held-out curve records
+[INFO] Built Track 2 held-out curve records | curve_count=194
+[INFO] Loading Track 2 candidate | 1/36 | sequential_residual_offset_probe_global
+[INFO] Evaluating Track 2 candidate | 1/36 | sequential_residual_offset_probe_global
+[INFO] Loading Track 2 candidate | 2/36 | sequential_residual_offset_probe_Fw
+[INFO] Evaluating Track 2 candidate | 2/36 | sequential_residual_offset_probe_Fw
+[INFO] Loading Track 2 candidate | 3/36 | sequential_residual_offset_probe_Bw
+[INFO] Evaluating Track 2 candidate | 3/36 | sequential_residual_offset_probe_Bw
+[INFO] Loading Track 2 candidate | 4/36 | track2f_bis_clean_sequential_residual_offset_global
+[INFO] Evaluating Track 2 candidate | 4/36 | track2f_bis_clean_sequential_residual_offset_global
+[INFO] Loading Track 2 candidate | 5/36 | track2f_bis_clean_sequential_residual_offset_Fw
+[INFO] Evaluating Track 2 candidate | 5/36 | track2f_bis_clean_sequential_residual_offset_Fw
+[INFO] Loading Track 2 candidate | 6/36 | track2f_bis_clean_sequential_residual_offset_Bw
+[INFO] Evaluating Track 2 candidate | 6/36 | track2f_bis_clean_sequential_residual_offset_Bw
+[INFO] Loading Track 2 candidate | 7/36 | track2f_bis_harmonic_residual_offset_global
+[INFO] Evaluating Track 2 candidate | 7/36 | track2f_bis_harmonic_residual_offset_global
+[INFO] Loading Track 2 candidate | 8/36 | track2f_bis_harmonic_residual_offset_Fw
+[INFO] Evaluating Track 2 candidate | 8/36 | track2f_bis_harmonic_residual_offset_Fw
+[INFO] Loading Track 2 candidate | 9/36 | track2f_bis_harmonic_residual_offset_Bw
+[INFO] Evaluating Track 2 candidate | 9/36 | track2f_bis_harmonic_residual_offset_Bw
+[INFO] Loading Track 2 candidate | 10/36 | track2g_curve_aware_pointwise_control_global
+[INFO] Evaluating Track 2 candidate | 10/36 | track2g_curve_aware_pointwise_control_global
+[INFO] Loading Track 2 candidate | 11/36 | track2g_curve_aware_pointwise_control_Fw
+[INFO] Evaluating Track 2 candidate | 11/36 | track2g_curve_aware_pointwise_control_Fw
+[INFO] Loading Track 2 candidate | 12/36 | track2g_curve_aware_pointwise_control_Bw
+[INFO] Evaluating Track 2 candidate | 12/36 | track2g_curve_aware_pointwise_control_Bw
+[INFO] Loading Track 2 candidate | 13/36 | track2g_curve_aware_raw_centered_shape_global
+[INFO] Evaluating Track 2 candidate | 13/36 | track2g_curve_aware_raw_centered_shape_global
+[INFO] Loading Track 2 candidate | 14/36 | track2g_curve_aware_raw_centered_shape_Fw
+[INFO] Evaluating Track 2 candidate | 14/36 | track2g_curve_aware_raw_centered_shape_Fw
+[INFO] Loading Track 2 candidate | 15/36 | track2g_curve_aware_raw_centered_shape_Bw
+[INFO] Evaluating Track 2 candidate | 15/36 | track2g_curve_aware_raw_centered_shape_Bw
+[INFO] Loading Track 2 candidate | 16/36 | track2g_curve_aware_raw_offset_global
+[INFO] Evaluating Track 2 candidate | 16/36 | track2g_curve_aware_raw_offset_global
+[INFO] Loading Track 2 candidate | 17/36 | track2g_curve_aware_raw_offset_Fw
+[INFO] Evaluating Track 2 candidate | 17/36 | track2g_curve_aware_raw_offset_Fw
+[INFO] Loading Track 2 candidate | 18/36 | track2g_curve_aware_raw_offset_Bw
+[INFO] Evaluating Track 2 candidate | 18/36 | track2g_curve_aware_raw_offset_Bw
+[INFO] Loading Track 2 candidate | 19/36 | track2g_curve_aware_full_curve_composite_global
+[INFO] Evaluating Track 2 candidate | 19/36 | track2g_curve_aware_full_curve_composite_global
+[INFO] Loading Track 2 candidate | 20/36 | track2g_curve_aware_full_curve_composite_Fw
+[INFO] Evaluating Track 2 candidate | 20/36 | track2g_curve_aware_full_curve_composite_Fw
+[INFO] Loading Track 2 candidate | 21/36 | track2g_curve_aware_full_curve_composite_Bw
+[INFO] Evaluating Track 2 candidate | 21/36 | track2g_curve_aware_full_curve_composite_Bw
+[INFO] Loading Track 2 candidate | 22/36 | track2h_mae_robust_global
+[INFO] Evaluating Track 2 candidate | 22/36 | track2h_mae_robust_global
+[INFO] Loading Track 2 candidate | 23/36 | track2h_mae_robust_Fw
+[INFO] Evaluating Track 2 candidate | 23/36 | track2h_mae_robust_Fw
+[INFO] Loading Track 2 candidate | 24/36 | track2h_mae_robust_Bw
+[INFO] Evaluating Track 2 candidate | 24/36 | track2h_mae_robust_Bw
+[INFO] Loading Track 2 candidate | 25/36 | track2h_smooth_l1_robust_global
+[INFO] Evaluating Track 2 candidate | 25/36 | track2h_smooth_l1_robust_global
+[INFO] Loading Track 2 candidate | 26/36 | track2h_smooth_l1_robust_Fw
+[INFO] Evaluating Track 2 candidate | 26/36 | track2h_smooth_l1_robust_Fw
+[INFO] Loading Track 2 candidate | 27/36 | track2h_smooth_l1_robust_Bw
+[INFO] Evaluating Track 2 candidate | 27/36 | track2h_smooth_l1_robust_Bw
+[INFO] Loading Track 2 candidate | 28/36 | track2h_log_cosh_robust_global
+[INFO] Evaluating Track 2 candidate | 28/36 | track2h_log_cosh_robust_global
+[INFO] Loading Track 2 candidate | 29/36 | track2h_log_cosh_robust_Fw
+[INFO] Evaluating Track 2 candidate | 29/36 | track2h_log_cosh_robust_Fw
+[INFO] Loading Track 2 candidate | 30/36 | track2h_log_cosh_robust_Bw
+[INFO] Evaluating Track 2 candidate | 30/36 | track2h_log_cosh_robust_Bw
+[INFO] Loading Track 2 candidate | 31/36 | track2h_quantile_p10_p50_p90_global
+[INFO] Evaluating Track 2 candidate | 31/36 | track2h_quantile_p10_p50_p90_global
+[INFO] Loading Track 2 candidate | 32/36 | track2h_quantile_p10_p50_p90_Fw
+[INFO] Evaluating Track 2 candidate | 32/36 | track2h_quantile_p10_p50_p90_Fw
+[INFO] Loading Track 2 candidate | 33/36 | track2h_quantile_p10_p50_p90_Bw
+[INFO] Evaluating Track 2 candidate | 33/36 | track2h_quantile_p10_p50_p90_Bw
+[INFO] Loading Track 2 candidate | 34/36 | track2h_gaussian_nll_global
+[INFO] Evaluating Track 2 candidate | 34/36 | track2h_gaussian_nll_global
+[INFO] Loading Track 2 candidate | 35/36 | track2h_gaussian_nll_Fw
+[INFO] Evaluating Track 2 candidate | 35/36 | track2h_gaussian_nll_Fw
+[INFO] Loading Track 2 candidate | 36/36 | track2h_gaussian_nll_Bw
+[INFO] Evaluating Track 2 candidate | 36/36 | track2h_gaussian_nll_Bw
+[DONE] Reference family comparison summary written | output\validation_checks\track2_reference_comparison\2026-06-12-14-44-45__track2_full_directional_family_matrix_track2h_quantile_probabilistic_track2_refresh_2026_06_12\validation_summary.yaml
+[DONE] Reference family comparison report written | doc\reports\analysis\validation_checks\track2\2026-06-12-14-57-15_track2_full_directional_family_matrix_track2h_quantile_probabilistic_track2_refresh_2026_06_12_report.md
+[DONE] Canonical Track 2 report written | doc\reports\analysis\track2\Track 2 Directional Model Comparison.md

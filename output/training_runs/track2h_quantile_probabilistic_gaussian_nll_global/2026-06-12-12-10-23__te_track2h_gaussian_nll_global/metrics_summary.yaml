@@ -1,0 +1,92 @@
+schema_version: 1
+config_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\config\training\queue\running\2026-06-12-11-16-18_004_04_gaussian_nll_global.yaml
+experiment:
+  model_family: track2h_quantile_probabilistic_gaussian_nll_global
+  model_type: curve_aware_harmonic_residual_offset_probe
+  run_name: te_track2h_gaussian_nll_global
+  output_run_name: te_track2h_gaussian_nll_global
+  run_instance_id: 2026-06-12-12-10-23__te_track2h_gaussian_nll_global
+  output_artifact_kind: training_run
+  base_model_family: track2h_quantile_probabilistic_gaussian_nll_global
+  training_variant: global
+  direction_scope_label: bidirectional
+  use_forward_direction: true
+  use_backward_direction: true
+artifacts:
+  output_directory: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_runs\track2h_quantile_probabilistic_gaussian_nll_global\2026-06-12-12-10-23__te_track2h_gaussian_nll_global
+  best_checkpoint_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_runs\track2h_quantile_probabilistic_gaussian_nll_global\2026-06-12-12-10-23__te_track2h_gaussian_nll_global\checkpoints\curve_aware_harmonic_residual_offset_probe-epoch=230-val_mae=0.00326664.ckpt
+dataset_split:
+  train_curve_count: 1356
+  validation_curve_count: 388
+  test_curve_count: 194
+model_summary:
+  backbone_name: HarmonicResidualOffsetNetwork
+  trainable_parameter_count: 85958
+  frozen_parameter_count: 0
+  total_parameter_count: 85958
+runtime_config:
+  accelerator: auto
+  devices: auto
+  precision: '32'
+  benchmark: true
+  use_non_blocking_transfer: true
+normalization_statistics:
+  input_feature_mean:
+  - 179.98074340820312
+  - 497.8580017089844
+  - 896.0145263671875
+  - 30.364091873168945
+  - -4.3438788566163566e-07
+  input_feature_std:
+  - 103.92313385009766
+  - 466.8042297363281
+  - 543.8323974609375
+  - 4.080519676208496
+  - 1.0
+  target_mean:
+  - -0.01724020391702652
+  target_std:
+  - 0.0465201772749424
+validation_metrics:
+  val_loss: -0.9964938163757324
+  val_mae: 0.0032666365150362253
+  val_rmse: 0.0037493575364351273
+  val_pointwise_loss: -0.9964938163757324
+  val_centered_curve_shape_loss: 0.006509114988148212
+  val_curve_offset_loss: 0.0039044527802616358
+  val_curve_amplitude_loss: 0.049118541181087494
+  val_sparse_harmonic_shape_loss: 0.00015446296310983598
+  val_interval_coverage: 0.7790082693099976
+  val_interval_width: 0.010252467356622219
+  val_mean_sigma: 0.004000021610409021
+  val_structured_mae: 0.048377592116594315
+  val_structured_rmse: 0.06395931541919708
+  val_residual_offset_mean_abs: 0.03258925676345825
+test_metrics:
+  test_loss: -0.9385823011398315
+  test_mae: 0.003013107692822814
+  test_rmse: 0.0033875920344144106
+  test_pointwise_loss: -0.9385823011398315
+  test_centered_curve_shape_loss: 0.003203067695721984
+  test_curve_offset_loss: 0.004478171467781067
+  test_curve_amplitude_loss: 0.02158106118440628
+  test_sparse_harmonic_shape_loss: 6.934624980203807e-05
+  test_interval_coverage: 0.7468857169151306
+  test_interval_width: 0.008760988712310791
+  test_mean_sigma: 0.0034181177616119385
+  test_structured_mae: 0.05000142380595207
+  test_structured_rmse: 0.06594356894493103
+  test_residual_offset_mean_abs: 0.03538764268159866
+comparison_payload:
+  model_family: track2h_quantile_probabilistic_gaussian_nll_global
+  model_type: curve_aware_harmonic_residual_offset_probe
+  run_name: te_track2h_gaussian_nll_global
+  backbone_name: HarmonicResidualOffsetNetwork
+  trainable_parameter_count: 85958
+  total_parameter_count: 85958
+  val_mae: 0.0032666365150362253
+  val_rmse: 0.0037493575364351273
+  test_mae: 0.003013107692822814
+  test_rmse: 0.0033875920344144106
+  deployment_notes: ''
+  interpretability_notes: ''

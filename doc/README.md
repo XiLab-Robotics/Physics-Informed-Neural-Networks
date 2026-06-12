@@ -230,6 +230,22 @@ This folder contains the internal project documents derived from the reference P
   mixture-density, and latent-state / hysteresis-aware modeling probes before
   the integrated multi-task / multi-head branch.
 
+- [reports/campaign_plans/track2/2026-06-12-00-01-04_track2h_quantile_probabilistic_campaign_plan_report.md](./reports/campaign_plans/track2/2026-06-12-00-01-04_track2h_quantile_probabilistic_campaign_plan_report.md)
+  Preliminary campaign plan for the second `Track 2H` package, focused on
+  quantile and Gaussian probabilistic regression candidates across `global`,
+  `Fw`, and `Bw`.
+
+- [reports/campaign_results/track2/2026-06-12-13-54-57_track2h_quantile_probabilistic_campaign_results_report.md](./reports/campaign_results/track2/2026-06-12-13-54-57_track2h_quantile_probabilistic_campaign_results_report.md)
+  Final results report for the completed second `Track 2H`
+  quantile/probabilistic campaign, including scalar branch winners,
+  calibration diagnostics, robust-loss comparison, and the boundary that
+  official `Track 2` curve verification remains separate.
+
+- [reports/analysis/track2/official_model_verification_report/[2026-06-12]/track2_official_model_verification_report.md](./reports/analysis/track2/official_model_verification_report/%5B2026-06-12%5D/track2_official_model_verification_report.md)
+  Official `Track 2` verification decision for the completed `Track 2H`
+  quantile/probabilistic candidates, verified as an exploratory baseline and
+  not promoted over the accepted direction-parallel leaders.
+
 - [reports/analysis/wave3/Wave 3 Hybrid Structured Models.md](./reports/analysis/wave3/Wave%203%20Hybrid%20Structured%20Models.md)
   Design report for `Wave 3` hybrid structured TE models, covering harmonic
   prior residual learners, grouped harmonic heads, condition-conditioned
@@ -360,12 +376,23 @@ This folder contains the internal project documents derived from the reference P
   skeleton while the separate `Track 2H` quantile / probabilistic campaign
   runs elsewhere.
 
+- [technical/2026-06/2026-06-12/2026-06-12-14-30-46_track2h_quantile_probabilistic_track2_verification_refresh.md](./technical/2026-06/2026-06-12/2026-06-12-14-30-46_track2h_quantile_probabilistic_track2_verification_refresh.md)
+  Technical note for preparing the separate operator-launched official
+  `Track 2` verification refresh for the six completed `Track 2H`
+  quantile/probabilistic candidates, including deterministic `p50` / `mu`
+  playback handling.
+
 - [technical/2026-06/2026-06-12/2026-06-12-13-04-05_wave4b_mmt_feature_generator_skeleton.md](./technical/2026-06/2026-06-12/2026-06-12-13-04-05_wave4b_mmt_feature_generator_skeleton.md)
   Technical note for preparing a non-campaign `Wave 4B` MMT feature-generator
   skeleton while the separate `Track 2H` quantile / probabilistic campaign
   runs elsewhere.
 
 #### 2026-06-11
+
+- [technical/2026-06/2026-06-11/2026-06-11-23-49-15_track2h_quantile_probabilistic_package.md](./technical/2026-06/2026-06-11/2026-06-11-23-49-15_track2h_quantile_probabilistic_package.md)
+  Technical note for preparing the second `Track 2H` dispersion-aware package
+  around quantile and Gaussian probabilistic regression candidates before the
+  later mixture-density, latent-state, and multi-head stages.
 
 - [technical/2026-06/2026-06-11/2026-06-11-14-57-02_track2h_track2_verification_refresh.md](./technical/2026-06/2026-06-11/2026-06-11-14-57-02_track2h_track2_verification_refresh.md)
   Plan the separate operator-launched official `Track 2` verification refresh
@@ -2413,6 +2440,15 @@ This folder contains the internal project documents derived from the reference P
   `Track 2` verification refresh across all nine robust-loss candidates for
   `global`, `Fw`, and `Bw`.
 
+- [scripts/campaigns/track2/run_track2h_quantile_probabilistic_campaign.md](./scripts/campaigns/track2/run_track2h_quantile_probabilistic_campaign.md)
+  Script-level documentation for the prepared `Track 2H`
+  quantile/probabilistic campaign launcher across `global`, `Fw`, and `Bw`.
+
+- [scripts/campaigns/track2/run_track2h_quantile_probabilistic_track2_verification_refresh.md](./scripts/campaigns/track2/run_track2h_quantile_probabilistic_track2_verification_refresh.md)
+  Script-level documentation for the operator-launched `Track 2H`
+  quantile/probabilistic official `Track 2` verification refresh across all
+  six probabilistic candidates for `global`, `Fw`, and `Bw`.
+
 - [scripts/training/validate_training_setup.md](./scripts/training/validate_training_setup.md)
   Script-level documentation for the one-batch validation check used by the shared Wave 0 training infrastructure.
 
@@ -2611,6 +2647,11 @@ This folder contains the internal project documents derived from the reference P
 
 #### Latest Campaign Plans
 
+- [reports/campaign_plans/track2/2026-06-12-00-01-04_track2h_quantile_probabilistic_campaign_plan_report.md](./reports/campaign_plans/track2/2026-06-12-00-01-04_track2h_quantile_probabilistic_campaign_plan_report.md)
+  Preliminary campaign plan for the second `Track 2H` package, focused on
+  quantile and Gaussian probabilistic regression candidates across `global`,
+  `Fw`, and `Bw`.
+
 - [reports/campaign_plans/track2/2026-06-10-16-56-36_track2h_dispersion_aware_modeling_probe_campaign_plan_report.md](./reports/campaign_plans/track2/2026-06-10-16-56-36_track2h_dispersion_aware_modeling_probe_campaign_plan_report.md)
   Preliminary campaign plan for the `Track 2H` dispersion-aware modeling
   probes across robust, probabilistic, mixture, and causal latent-state
@@ -2808,6 +2849,12 @@ This folder contains the internal project documents derived from the reference P
   Technical rule document for the new `doc/reports/` topic-root, dated-bundle, and readable-filename convention.
 
 #### Campaign Results
+
+- [reports/campaign_results/track2/2026-06-12-13-54-57_track2h_quantile_probabilistic_campaign_results_report.md](./reports/campaign_results/track2/2026-06-12-13-54-57_track2h_quantile_probabilistic_campaign_results_report.md)
+  Final results report for the completed second `Track 2H`
+  quantile/probabilistic campaign, including scalar branch winners,
+  calibration diagnostics, robust-loss comparison, and the boundary that
+  official `Track 2` curve verification remains separate.
 
 - [reports/campaign_results/track2/2026-06-11-14-01-57_track2h_dispersion_aware_modeling_campaign_results_report.md](./reports/campaign_results/track2/2026-06-11-14-01-57_track2h_dispersion_aware_modeling_campaign_results_report.md)
   Final results report for the completed `Track 2H` robust-loss

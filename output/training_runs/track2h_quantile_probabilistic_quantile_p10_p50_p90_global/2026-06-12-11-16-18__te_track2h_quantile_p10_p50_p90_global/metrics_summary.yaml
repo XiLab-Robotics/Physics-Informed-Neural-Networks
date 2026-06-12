@@ -1,0 +1,92 @@
+schema_version: 1
+config_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\config\training\queue\running\2026-06-12-11-16-18_001_01_quantile_p10_p50_p90_global.yaml
+experiment:
+  model_family: track2h_quantile_probabilistic_quantile_p10_p50_p90_global
+  model_type: curve_aware_harmonic_residual_offset_probe
+  run_name: te_track2h_quantile_p10_p50_p90_global
+  output_run_name: te_track2h_quantile_p10_p50_p90_global
+  run_instance_id: 2026-06-12-11-16-18__te_track2h_quantile_p10_p50_p90_global
+  output_artifact_kind: training_run
+  base_model_family: track2h_quantile_probabilistic_quantile_p10_p50_p90_global
+  training_variant: global
+  direction_scope_label: bidirectional
+  use_forward_direction: true
+  use_backward_direction: true
+artifacts:
+  output_directory: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_runs\track2h_quantile_probabilistic_quantile_p10_p50_p90_global\2026-06-12-11-16-18__te_track2h_quantile_p10_p50_p90_global
+  best_checkpoint_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_runs\track2h_quantile_probabilistic_quantile_p10_p50_p90_global\2026-06-12-11-16-18__te_track2h_quantile_p10_p50_p90_global\checkpoints\curve_aware_harmonic_residual_offset_probe-epoch=030-val_mae=0.00360589.ckpt
+dataset_split:
+  train_curve_count: 1356
+  validation_curve_count: 388
+  test_curve_count: 194
+model_summary:
+  backbone_name: HarmonicResidualOffsetNetwork
+  trainable_parameter_count: 86169
+  frozen_parameter_count: 0
+  total_parameter_count: 86169
+runtime_config:
+  accelerator: auto
+  devices: auto
+  precision: '32'
+  benchmark: true
+  use_non_blocking_transfer: true
+normalization_statistics:
+  input_feature_mean:
+  - 179.98074340820312
+  - 497.8580017089844
+  - 896.0145263671875
+  - 30.364091873168945
+  - -4.3438788566163566e-07
+  input_feature_std:
+  - 103.92313385009766
+  - 466.8042297363281
+  - 543.8323974609375
+  - 4.080519676208496
+  - 1.0
+  target_mean:
+  - -0.01724020391702652
+  target_std:
+  - 0.0465201772749424
+validation_metrics:
+  val_loss: 0.0241951122879982
+  val_mae: 0.003605893813073635
+  val_rmse: 0.0040936958976089954
+  val_pointwise_loss: 0.0241951122879982
+  val_centered_curve_shape_loss: 0.0068053193390369415
+  val_curve_offset_loss: 0.0044978102669119835
+  val_curve_amplitude_loss: 0.04605987295508385
+  val_sparse_harmonic_shape_loss: 0.0001626381854293868
+  val_interval_coverage: 0.831709086894989
+  val_interval_width: 0.011369908228516579
+  val_quantile_crossing_rate: 0.0
+  val_structured_mae: 0.026859158650040627
+  val_structured_rmse: 0.029636409133672714
+  val_residual_offset_mean_abs: 0.02646731026470661
+test_metrics:
+  test_loss: 0.022225910797715187
+  test_mae: 0.003382835304364562
+  test_rmse: 0.003764052176848054
+  test_pointwise_loss: 0.022225910797715187
+  test_centered_curve_shape_loss: 0.0033860146068036556
+  test_curve_offset_loss: 0.005241784267127514
+  test_curve_amplitude_loss: 0.019878657534718513
+  test_sparse_harmonic_shape_loss: 7.439520413754508e-05
+  test_interval_coverage: 0.8492268323898315
+  test_interval_width: 0.011449231766164303
+  test_quantile_crossing_rate: 0.0
+  test_structured_mae: 0.02937857061624527
+  test_structured_rmse: 0.03182762861251831
+  test_residual_offset_mean_abs: 0.02904946729540825
+comparison_payload:
+  model_family: track2h_quantile_probabilistic_quantile_p10_p50_p90_global
+  model_type: curve_aware_harmonic_residual_offset_probe
+  run_name: te_track2h_quantile_p10_p50_p90_global
+  backbone_name: HarmonicResidualOffsetNetwork
+  trainable_parameter_count: 86169
+  total_parameter_count: 86169
+  val_mae: 0.003605893813073635
+  val_rmse: 0.0040936958976089954
+  test_mae: 0.003382835304364562
+  test_rmse: 0.003764052176848054
+  deployment_notes: ''
+  interpretability_notes: ''

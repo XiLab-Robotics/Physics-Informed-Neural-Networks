@@ -78,11 +78,35 @@ class TransmissionErrorRegressionModule(LightningModule):
         weight_dictionary = dict(loss_configuration.get("weights", {}))
         harmonic_index_list = list(loss_configuration.get("harmonic_index_list", []))
         huber_delta = float(loss_configuration.get("huber_delta", loss_configuration.get("smooth_l1_beta", 1.0)))
+        quantile_level_list = [
+            float(quantile_level)
+            for quantile_level in loss_configuration.get("quantile_level_list", [0.1, 0.5, 0.9])
+        ]
+        deterministic_output_index = int(loss_configuration.get("deterministic_output_index", 0))
+        gaussian_log_sigma_min = float(loss_configuration.get("gaussian_log_sigma_min", -7.0))
+        gaussian_log_sigma_max = float(loss_configuration.get("gaussian_log_sigma_max", 5.0))
+        gaussian_sigma_min = float(loss_configuration.get("gaussian_sigma_min", 1.0e-4))
+        quantile_crossing_penalty_weight = float(loss_configuration.get("quantile_crossing_penalty_weight", 0.0))
+
+        assert deterministic_output_index >= 0, f"Deterministic Output Index must be non-negative | {deterministic_output_index}"
+        assert gaussian_log_sigma_min < gaussian_log_sigma_max, (
+            f"Gaussian log-sigma bounds must be ordered | {gaussian_log_sigma_min} vs {gaussian_log_sigma_max}"
+        )
+        assert gaussian_sigma_min > 0.0, f"Gaussian Sigma Min must be positive | {gaussian_sigma_min}"
+        assert all(0.0 < quantile_level < 1.0 for quantile_level in quantile_level_list), (
+            f"Quantile levels must be inside (0, 1) | {quantile_level_list}"
+        )
 
         return {
             "profile": loss_profile,
             "pointwise_loss": pointwise_loss_name,
             "huber_delta": huber_delta,
+            "quantile_level_list": quantile_level_list,
+            "deterministic_output_index": deterministic_output_index,
+            "gaussian_log_sigma_min": gaussian_log_sigma_min,
+            "gaussian_log_sigma_max": gaussian_log_sigma_max,
+            "gaussian_sigma_min": gaussian_sigma_min,
+            "quantile_crossing_penalty_weight": quantile_crossing_penalty_weight,
             "point_weight": float(weight_dictionary.get("point", 1.0)),
             "centered_weight": float(weight_dictionary.get("centered", 0.0)),
             "offset_weight": float(weight_dictionary.get("offset", 0.0)),
@@ -115,7 +139,128 @@ class TransmissionErrorRegressionModule(LightningModule):
             absolute_error_tensor = torch.abs(error_tensor)
             return torch.mean(absolute_error_tensor + torch_functional.softplus(-2.0 * absolute_error_tensor) - torch.log(torch.tensor(2.0, device=absolute_error_tensor.device)))
 
+        if pointwise_loss_name in ["quantile_pinball", "pinball", "quantile"]:
+            return self.compute_quantile_pinball_loss(prediction_tensor, target_tensor)
+
+        if pointwise_loss_name in ["gaussian_nll", "gaussian_negative_log_likelihood"]:
+            return self.compute_gaussian_negative_log_likelihood_loss(prediction_tensor, target_tensor)
+
         raise ValueError(f"Unsupported pointwise loss | {pointwise_loss_name}")
+
+    def compute_quantile_pinball_loss(self, prediction_tensor: torch.Tensor, target_tensor: torch.Tensor) -> torch.Tensor:
+
+        """Compute multi-quantile pinball loss in normalized target space."""
+
+        quantile_level_list = list(self.loss_configuration["quantile_level_list"])
+        assert prediction_tensor.shape[-1] == len(quantile_level_list), (
+            f"Quantile output size mismatch | {prediction_tensor.shape[-1]} vs {len(quantile_level_list)}"
+        )
+
+        quantile_level_tensor = torch.as_tensor(
+            quantile_level_list,
+            device=prediction_tensor.device,
+            dtype=prediction_tensor.dtype,
+        ).reshape(1, -1)
+        error_tensor = target_tensor - prediction_tensor
+        pinball_loss_tensor = torch.maximum(
+            quantile_level_tensor * error_tensor,
+            (quantile_level_tensor - 1.0) * error_tensor,
+        )
+        pinball_loss = torch.mean(pinball_loss_tensor)
+
+        crossing_penalty_weight = float(self.loss_configuration["quantile_crossing_penalty_weight"])
+        if crossing_penalty_weight > 0.0 and prediction_tensor.shape[-1] > 1:
+            quantile_delta_tensor = prediction_tensor[:, :-1] - prediction_tensor[:, 1:]
+            crossing_penalty = torch.mean(torch_functional.relu(quantile_delta_tensor))
+            pinball_loss = pinball_loss + crossing_penalty_weight * crossing_penalty
+
+        return pinball_loss
+
+    def compute_gaussian_negative_log_likelihood_loss(
+        self,
+        prediction_tensor: torch.Tensor,
+        target_tensor: torch.Tensor,
+    ) -> torch.Tensor:
+
+        """Compute guarded Gaussian NLL in normalized target space."""
+
+        assert prediction_tensor.shape[-1] == 2, f"Gaussian output must contain mu and log_sigma | {prediction_tensor.shape[-1]}"
+        mu_tensor = prediction_tensor[:, 0:1]
+        raw_log_sigma_tensor = prediction_tensor[:, 1:2]
+        log_sigma_tensor = torch.clamp(
+            raw_log_sigma_tensor,
+            min=float(self.loss_configuration["gaussian_log_sigma_min"]),
+            max=float(self.loss_configuration["gaussian_log_sigma_max"]),
+        )
+        sigma_tensor = torch.clamp(torch.exp(log_sigma_tensor), min=float(self.loss_configuration["gaussian_sigma_min"]))
+        normalized_residual_tensor = (target_tensor - mu_tensor) / sigma_tensor
+        log_two_pi_tensor = torch.log(torch.as_tensor(2.0 * torch.pi, device=prediction_tensor.device, dtype=prediction_tensor.dtype))
+        return torch.mean(0.5 * torch.square(normalized_residual_tensor) + log_sigma_tensor + 0.5 * log_two_pi_tensor)
+
+    def extract_deterministic_prediction_tensor(self, model_output_tensor: torch.Tensor) -> torch.Tensor:
+
+        """Select the deterministic channel used for MAE/RMSE and Track 2 playback."""
+
+        pointwise_loss_name = str(self.loss_configuration["pointwise_loss"])
+        if pointwise_loss_name in ["gaussian_nll", "gaussian_negative_log_likelihood"]:
+            assert model_output_tensor.shape[-1] >= 1, "Gaussian output must expose mu at index 0"
+            return model_output_tensor[:, 0:1]
+
+        if pointwise_loss_name in ["quantile_pinball", "pinball", "quantile"]:
+            deterministic_output_index = int(self.loss_configuration["deterministic_output_index"])
+            assert deterministic_output_index < model_output_tensor.shape[-1], (
+                f"Deterministic Output Index out of range | {deterministic_output_index} vs {model_output_tensor.shape[-1]}"
+            )
+            return model_output_tensor[:, deterministic_output_index:deterministic_output_index + 1]
+
+        assert model_output_tensor.shape[-1] == self.target_mean.numel(), (
+            f"Deterministic output size mismatch | {model_output_tensor.shape[-1]} vs {self.target_mean.numel()}"
+        )
+        return model_output_tensor
+
+    def compute_probabilistic_metric_dictionary(
+        self,
+        model_output_tensor: torch.Tensor,
+        normalized_target_tensor: torch.Tensor,
+    ) -> dict[str, torch.Tensor]:
+
+        """Compute optional uncertainty diagnostics from raw model outputs."""
+
+        pointwise_loss_name = str(self.loss_configuration["pointwise_loss"])
+        metric_dictionary: dict[str, torch.Tensor] = {}
+
+        if pointwise_loss_name in ["quantile_pinball", "pinball", "quantile"]:
+            assert model_output_tensor.shape[-1] >= 3, "Quantile diagnostics require lower, median, and upper channels"
+            lower_quantile_tensor = model_output_tensor[:, 0:1]
+            upper_quantile_tensor = model_output_tensor[:, -1:]
+            interval_width_tensor = self.denormalize_target_tensor(upper_quantile_tensor) - self.denormalize_target_tensor(lower_quantile_tensor)
+            coverage_tensor = (
+                (normalized_target_tensor >= lower_quantile_tensor)
+                & (normalized_target_tensor <= upper_quantile_tensor)
+            ).float()
+            crossing_tensor = (lower_quantile_tensor > upper_quantile_tensor).float()
+            metric_dictionary["interval_coverage"] = torch.mean(coverage_tensor)
+            metric_dictionary["interval_width"] = torch.mean(torch.abs(interval_width_tensor))
+            metric_dictionary["quantile_crossing_rate"] = torch.mean(crossing_tensor)
+
+        if pointwise_loss_name in ["gaussian_nll", "gaussian_negative_log_likelihood"]:
+            mu_tensor = model_output_tensor[:, 0:1]
+            log_sigma_tensor = torch.clamp(
+                model_output_tensor[:, 1:2],
+                min=float(self.loss_configuration["gaussian_log_sigma_min"]),
+                max=float(self.loss_configuration["gaussian_log_sigma_max"]),
+            )
+            sigma_tensor = torch.clamp(torch.exp(log_sigma_tensor), min=float(self.loss_configuration["gaussian_sigma_min"]))
+            z80_value = 1.2815515655446004
+            lower_tensor = mu_tensor - z80_value * sigma_tensor
+            upper_tensor = mu_tensor + z80_value * sigma_tensor
+            interval_width_tensor = self.denormalize_target_tensor(upper_tensor) - self.denormalize_target_tensor(lower_tensor)
+            coverage_tensor = ((normalized_target_tensor >= lower_tensor) & (normalized_target_tensor <= upper_tensor)).float()
+            metric_dictionary["interval_coverage"] = torch.mean(coverage_tensor)
+            metric_dictionary["interval_width"] = torch.mean(torch.abs(interval_width_tensor))
+            metric_dictionary["mean_sigma"] = torch.mean(sigma_tensor * self.target_std)
+
+        return metric_dictionary
 
     def compute_curve_aware_loss_dictionary(
         self,
@@ -377,7 +522,8 @@ class TransmissionErrorRegressionModule(LightningModule):
         normalized_target_tensor = self.normalize_target_tensor(target_tensor)
 
         # Forward Pass
-        normalized_prediction_tensor, auxiliary_output_dictionary = self.forward_regression_model(input_tensor, normalized_input_tensor)
+        normalized_model_output_tensor, auxiliary_output_dictionary = self.forward_regression_model(input_tensor, normalized_input_tensor)
+        normalized_prediction_tensor = self.extract_deterministic_prediction_tensor(normalized_model_output_tensor)
 
         # Denormalize Predictions For Interpretable Metrics
         prediction_tensor = self.denormalize_target_tensor(normalized_prediction_tensor)
@@ -385,7 +531,7 @@ class TransmissionErrorRegressionModule(LightningModule):
         rmse = torch.sqrt(torch.mean(torch.square(prediction_tensor - target_tensor)))
 
         # Compute Pointwise And Optional Curve-Aware Loss Terms
-        pointwise_loss = self.compute_pointwise_prediction_loss(normalized_prediction_tensor, normalized_target_tensor)
+        pointwise_loss = self.compute_pointwise_prediction_loss(normalized_model_output_tensor, normalized_target_tensor)
         loss_dictionary = self.compute_curve_aware_loss_dictionary(
             batch_dictionary=batch_dictionary,
             batch_output_dictionary={
@@ -401,6 +547,7 @@ class TransmissionErrorRegressionModule(LightningModule):
             "target_tensor": target_tensor,
             "normalized_input_tensor": normalized_input_tensor,
             "normalized_target_tensor": normalized_target_tensor,
+            "normalized_model_output_tensor": normalized_model_output_tensor,
             "normalized_prediction_tensor": normalized_prediction_tensor,
             "prediction_tensor": prediction_tensor,
             "mae": mae,
@@ -410,6 +557,7 @@ class TransmissionErrorRegressionModule(LightningModule):
         # Merge Optional Auxiliary Prediction Tensors Returned By Structured Models
         batch_output_dictionary.update(auxiliary_output_dictionary)
         batch_output_dictionary.update(loss_dictionary)
+        batch_output_dictionary.update(self.compute_probabilistic_metric_dictionary(normalized_model_output_tensor, normalized_target_tensor))
         return batch_output_dictionary
 
     def compute_loss(self, batch_dictionary: dict[str, torch.Tensor], log_prefix: str) -> torch.Tensor:
@@ -442,6 +590,10 @@ class TransmissionErrorRegressionModule(LightningModule):
         self.log(f"{log_prefix}_curve_offset_loss", batch_output_dictionary["curve_offset_loss"], on_step=False, on_epoch=True, prog_bar=False, batch_size=batch_size)
         self.log(f"{log_prefix}_curve_amplitude_loss", batch_output_dictionary["curve_amplitude_loss"], on_step=False, on_epoch=True, prog_bar=False, batch_size=batch_size)
         self.log(f"{log_prefix}_sparse_harmonic_shape_loss", batch_output_dictionary["sparse_harmonic_shape_loss"], on_step=False, on_epoch=True, prog_bar=False, batch_size=batch_size)
+        for probabilistic_metric_name in ["interval_coverage", "interval_width", "quantile_crossing_rate", "mean_sigma"]:
+            probabilistic_metric_value = batch_output_dictionary.get(probabilistic_metric_name)
+            if isinstance(probabilistic_metric_value, torch.Tensor):
+                self.log(f"{log_prefix}_{probabilistic_metric_name}", probabilistic_metric_value, on_step=False, on_epoch=True, prog_bar=False, batch_size=batch_size)
 
         # Log Structured-Only Diagnostics When Available
         structured_prediction_tensor = batch_output_dictionary.get("structured_prediction_tensor")

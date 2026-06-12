@@ -1,0 +1,38 @@
+schema_version: 1
+model_family: track2h_quantile_probabilistic_quantile_p10_p50_p90_global
+selection_policy:
+  primary_metric: test_mae
+  first_tie_breaker: test_rmse
+  second_tie_breaker: val_mae
+  third_tie_breaker: trainable_parameter_count
+  direction: minimize
+updated_at: '2026-06-12T11:34:56'
+best_entry:
+  run_instance_id: 2026-06-12-11-16-18__te_track2h_quantile_p10_p50_p90_global
+  run_name: te_track2h_quantile_p10_p50_p90_global
+  output_run_name: te_track2h_quantile_p10_p50_p90_global
+  output_artifact_kind: training_run
+  model_family: track2h_quantile_probabilistic_quantile_p10_p50_p90_global
+  base_model_family: track2h_quantile_probabilistic_quantile_p10_p50_p90_global
+  model_type: curve_aware_harmonic_residual_offset_probe
+  training_variant: global
+  direction_scope_label: bidirectional
+  use_forward_direction: true
+  use_backward_direction: true
+  trainable_parameter_count: 86169
+  total_parameter_count: 86169
+  val_mae: 0.003605893813073635
+  val_rmse: 0.0040936958976089954
+  test_mae: 0.003382835304364562
+  test_rmse: 0.003764052176848054
+  output_directory: output\training_runs\track2h_quantile_probabilistic_quantile_p10_p50_p90_global\2026-06-12-11-16-18__te_track2h_quantile_p10_p50_p90_global
+  best_checkpoint_path: output\training_runs\track2h_quantile_probabilistic_quantile_p10_p50_p90_global\2026-06-12-11-16-18__te_track2h_quantile_p10_p50_p90_global\checkpoints\curve_aware_harmonic_residual_offset_probe-epoch=030-val_mae=0.00360589.ckpt
+  metrics_path: output\training_runs\track2h_quantile_probabilistic_quantile_p10_p50_p90_global\2026-06-12-11-16-18__te_track2h_quantile_p10_p50_p90_global/metrics_summary.yaml
+  report_path: output\training_runs\track2h_quantile_probabilistic_quantile_p10_p50_p90_global\2026-06-12-11-16-18__te_track2h_quantile_p10_p50_p90_global/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-06-12T11:34:56'

@@ -1,0 +1,11 @@
+schema_version: 1
+artifact_kind: training_run
+model_family: track2h_quantile_probabilistic_quantile_p10_p50_p90_bw
+base_model_family: track2h_quantile_probabilistic_quantile_p10_p50_p90_bw
+training_variant: Bw
+direction_scope_label: backward_only
+use_forward_direction: false
+use_backward_direction: true
+run_name: te_track2h_quantile_p10_p50_p90_bw
+run_instance_id: 2026-06-12-11-43-50__te_track2h_quantile_p10_p50_p90_bw
+output_directory: output\training_runs\track2h_quantile_probabilistic_quantile_p10_p50_p90_bw\2026-06-12-11-43-50__te_track2h_quantile_p10_p50_p90_bw

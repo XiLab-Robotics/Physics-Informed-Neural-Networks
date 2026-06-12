@@ -26,8 +26,9 @@ class HarmonicRegression(nn.Module):
         Args:
             input_size: Total input feature count including angular position and
                 operating-condition features.
-            output_size: Regression target count. The current implementation
-                supports scalar TE output only.
+            output_size: Regression target count. Scalar output keeps the
+                legacy parameter layout for checkpoint compatibility; larger
+                values use one harmonic coefficient set per output channel.
             harmonic_order: Highest harmonic order used in the Fourier-style
                 expansion of the angular position.
             coefficient_mode: Coefficient parameterization mode. Supported
@@ -42,7 +43,7 @@ class HarmonicRegression(nn.Module):
 
         # Validate Architecture Parameters
         assert input_size >= 5, f"Input Size must expose the TE operating-condition features | {input_size}"
-        assert output_size == 1, f"Harmonic Regression currently supports scalar TE output only | {output_size}"
+        assert output_size > 0, f"Output Size must be positive | {output_size}"
         assert harmonic_order > 0, f"Harmonic Order must be positive | {harmonic_order}"
         resolved_harmonic_index_list = self.resolve_harmonic_index_list(harmonic_order, harmonic_index_list)
         positive_harmonic_index_list = [harmonic_index for harmonic_index in resolved_harmonic_index_list if harmonic_index > 0]
@@ -67,12 +68,17 @@ class HarmonicRegression(nn.Module):
         self.register_buffer("positive_harmonic_index_tensor", positive_harmonic_index_tensor, persistent=False)
 
         # Initialize Coefficient Parameterization
-        self.base_coefficient_tensor = nn.Parameter(torch.zeros(self.harmonic_feature_count, dtype=torch.float32))
+        if self.output_size == 1:
+            self.base_coefficient_tensor = nn.Parameter(torch.zeros(self.harmonic_feature_count, dtype=torch.float32))
+        else:
+            self.base_coefficient_tensor = nn.Parameter(
+                torch.zeros(self.harmonic_feature_count, self.output_size, dtype=torch.float32)
+            )
         self.conditioning_projection = None
 
         # Initialize Linear Conditioning Projection
         if self.coefficient_mode == "linear_conditioned":
-            self.conditioning_projection = nn.Linear(input_size - 1, self.harmonic_feature_count)
+            self.conditioning_projection = nn.Linear(input_size - 1, self.harmonic_feature_count * self.output_size)
 
     @staticmethod
     def resolve_harmonic_index_list(harmonic_order: int, harmonic_index_list: Sequence[int] | None) -> list[int]:
@@ -151,10 +157,21 @@ class HarmonicRegression(nn.Module):
 
         # Use Shared Global Coefficients In Static Mode
         if self.conditioning_projection is None:
-            return self.base_coefficient_tensor.unsqueeze(0).expand(normalized_condition_tensor.shape[0], -1)
+            if self.output_size == 1:
+                return self.base_coefficient_tensor.unsqueeze(0).expand(normalized_condition_tensor.shape[0], -1)
+            return self.base_coefficient_tensor.unsqueeze(0).expand(normalized_condition_tensor.shape[0], -1, -1)
 
         # Add Linear Condition-Dependent Coefficient Adjustment
-        return self.base_coefficient_tensor.unsqueeze(0) + self.conditioning_projection(normalized_condition_tensor)
+        projected_coefficient_tensor = self.conditioning_projection(normalized_condition_tensor)
+        if self.output_size == 1:
+            return self.base_coefficient_tensor.unsqueeze(0) + projected_coefficient_tensor
+
+        projected_coefficient_tensor = projected_coefficient_tensor.reshape(
+            normalized_condition_tensor.shape[0],
+            self.harmonic_feature_count,
+            self.output_size,
+        )
+        return self.base_coefficient_tensor.unsqueeze(0) + projected_coefficient_tensor
 
     def forward_with_input_context(self, input_tensor: torch.Tensor, normalized_input_tensor: torch.Tensor) -> torch.Tensor:
 
@@ -167,8 +184,8 @@ class HarmonicRegression(nn.Module):
                 conditioning features.
 
         Returns:
-            torch.Tensor: Scalar TE prediction tensor with shape
-            `(batch_size, 1)`.
+            torch.Tensor: TE prediction tensor with shape
+            `(batch_size, output_size)`.
         """
 
         # Extract Angular Position And Condition
@@ -182,4 +199,7 @@ class HarmonicRegression(nn.Module):
         coefficient_tensor = self.resolve_coefficient_tensor(normalized_condition_tensor)
 
         # Compute Harmonic Regression
-        return torch.sum(harmonic_feature_tensor * coefficient_tensor, dim=-1, keepdim=True)
+        if self.output_size == 1:
+            return torch.sum(harmonic_feature_tensor * coefficient_tensor, dim=-1, keepdim=True)
+
+        return torch.sum(harmonic_feature_tensor.unsqueeze(-1) * coefficient_tensor, dim=1)

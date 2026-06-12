@@ -2,15 +2,12 @@
 
 ## Executive Snapshot
 
-- Generated At: `2026-06-11T21:58:38`
+- Generated At: `2026-06-12T17:48:35`
 - Program State: active.
-- Current Completed Wave: `Track 2H` robust-loss dispersion-aware campaign
-  closeout and official `Track 2` verification refresh are complete.
-- Current Focus: prepare the next dispersion-aware package around quantile or
-  probabilistic regression while preserving the pre-implemented `Wave 3` and
-  `Wave 4A` resume points.
+- Current Completed Wave: `Track 2H` quantile/probabilistic campaign closeout
+- Current Focus: prepare the next dispersion-aware modeling package around
 - Active Campaign Status: `none`
-- Active Campaign Name: `none`
+- Active Campaign Name: `N/A`
 - Current Program Winner: `te_periodic_gru_sequence_remote_Bw` | Family `periodic_gru_sequence_bw` | Test MAE `0.002344`
 
 ## Main Takeaways
@@ -18,13 +15,7 @@
 - Strongest current neural family: `periodic_gru_sequence_bw`
 - Current plain MLP anchor: `te_feedforward_stride1_high_compute_long_remote_global`
 - Active family-improvement branch count: `0`
-- Implemented and benchmarked family count: `83`
-- Latest campaign closeout: `Track 2H` robust losses completed `9/9` runs with
-  `0` failures; best scalar run is `te_track2h_smooth_l1_robust_bw` with test
-  MAE `0.003074`.
-- Latest official Track 2 refresh: `Track 2H` robust losses were accepted into
-  the `141`-candidate matrix as a verified exploratory baseline; they were not
-  promoted over the current direction-parallel leaders.
+- Implemented and benchmarked family count: `89`
 
 ## Current Project Status
 
@@ -39,12 +30,14 @@
 | `periodic_gru_sequence` | Implemented Benchmark | `te_periodic_gru_sequence_remote_global` | `periodic_gru_sequence` | 0.002681 | 157,953 | `2026-05-25 17:27:07` |
 | `periodic_lstm_sequence` | Implemented Benchmark | `te_periodic_lstm_sequence_remote_global` | `periodic_lstm_sequence` | 0.002682 | 210,561 | `2026-05-25 19:20:56` |
 | `tree` | Implemented Benchmark | `te_hist_gbr_tabular_global_grid_depth10_lr008_leaf10` | `hist_gradient_boosting` | 0.002782 | 5 | `2026-05-11 20:38:56` |
+| `track2h_quantile_probabilistic_gaussian_nll_global` | Implemented Benchmark | `te_track2h_gaussian_nll_global` | `curve_aware_harmonic_residual_offset_probe` | 0.003013 | 85,958 | `2026-06-12 13:12:35` |
 | `residual_harmonic_mlp` | Implemented Benchmark | `te_residual_h12_deep_joint_wave1_global_optuna_t0006` | `residual_harmonic_mlp` | 0.003034 | 26,266 | `2026-05-20 11:41:03` |
 | `feedforward` | Current Plain MLP Anchor | `te_feedforward_stride1_high_compute_long_remote_global` | `feedforward` | 0.003150 | 109,953 | `2026-05-13 13:25:56` |
 | `periodic_mlp` | Implemented Benchmark | `te_periodic_mlp_h04_standard_global_optuna_t0010` | `periodic_mlp` | 0.003186 | 27,265 | `2026-05-21 08:12:57` |
 | `track2g_curve_aware_harmonic_residual_offset_full_curve_composite_global` | Implemented Benchmark | `te_track2g_curve_aware_full_curve_composite_global` | `curve_aware_harmonic_residual_offset_probe` | 0.003345 | 85,747 | `2026-06-08 21:39:11` |
 | `track2g_curve_aware_harmonic_residual_offset_raw_centered_shape_global` | Implemented Benchmark | `te_track2g_curve_aware_raw_centered_shape_global` | `curve_aware_harmonic_residual_offset_probe` | 0.003350 | 85,747 | `2026-06-08 19:45:16` |
 | `residual_harmonic_lstm_sequence_sparse_rcim` | Implemented Benchmark | `te_residual_harmonic_lstm_sequence_remote_global_sparse_rcim` | `residual_harmonic_lstm_sequence` | 0.003368 | 201,364 | `2026-05-27 20:55:58` |
+| `track2h_quantile_probabilistic_quantile_p10_p50_p90_global` | Implemented Benchmark | `te_track2h_quantile_p10_p50_p90_global` | `curve_aware_harmonic_residual_offset_probe` | 0.003383 | 86,169 | `2026-06-12 11:34:56` |
 | `track2h_dispersion_aware_mae_robust_global` | Implemented Benchmark | `te_track2h_mae_robust_global` | `curve_aware_harmonic_residual_offset_probe` | 0.003406 | 85,747 | `2026-06-11 12:07:43` |
 | `track2h_dispersion_aware_smooth_l1_robust_global` | Implemented Benchmark | `te_track2h_smooth_l1_robust_global` | `curve_aware_harmonic_residual_offset_probe` | 0.003422 | 85,747 | `2026-06-11 12:48:44` |
 | `residual_harmonic_gru_sequence_sparse_rcim` | Implemented Benchmark | `te_residual_harmonic_gru_sequence_remote_global_sparse_rcim` | `residual_harmonic_gru_sequence` | 0.003440 | 151,060 | `2026-05-27 19:07:31` |
@@ -76,6 +69,7 @@
 | `periodic_mlp_fw` | Implemented Benchmark | `te_periodic_mlp_dense240_tracking_Fw` | `periodic_mlp` | 0.003055 | 87,681 | `2026-05-21 08:48:01` |
 | `residual_harmonic_mlp_fw` | Implemented Benchmark | `te_residual_harmonic_rcim_sparse_tracking_Fw` | `residual_harmonic_mlp` | 0.003089 | 26,260 | `2026-05-20 11:57:15` |
 | `track2h_dispersion_aware_mae_robust_fw` | Implemented Benchmark | `te_track2h_mae_robust_fw` | `curve_aware_harmonic_residual_offset_probe` | 0.003146 | 85,747 | `2026-06-11 12:14:52` |
+| `track2h_quantile_probabilistic_gaussian_nll_fw` | Implemented Benchmark | `te_track2h_gaussian_nll_fw` | `curve_aware_harmonic_residual_offset_probe` | 0.003165 | 85,958 | `2026-06-12 13:25:53` |
 | `track2g_curve_aware_harmonic_residual_offset_raw_centered_shape_fw` | Implemented Benchmark | `te_track2g_curve_aware_raw_centered_shape_fw` | `curve_aware_harmonic_residual_offset_probe` | 0.003181 | 85,747 | `2026-06-08 19:56:04` |
 | `periodic_gru_sequence_fw` | Implemented Benchmark | `te_periodic_gru_sequence_remote_Fw` | `periodic_gru_sequence` | 0.003193 | 157,953 | `2026-05-25 17:38:18` |
 | `residual_harmonic_gru_sequence_fw_sparse_rcim` | Implemented Benchmark | `te_residual_harmonic_gru_sequence_remote_Fw_sparse_rcim` | `residual_harmonic_gru_sequence` | 0.003200 | 151,060 | `2026-05-27 19:12:38` |
@@ -87,6 +81,7 @@
 | `residual_harmonic_lstm_sequence_fw_dense240` | Implemented Benchmark | `te_residual_harmonic_lstm_sequence_remote_Fw_dense240` | `residual_harmonic_lstm_sequence` | 0.003262 | 201,826 | `2026-05-27 21:29:55` |
 | `periodic_lstm_sequence_fw` | Implemented Benchmark | `te_periodic_lstm_sequence_remote_Fw` | `periodic_lstm_sequence` | 0.003274 | 210,561 | `2026-05-25 19:30:17` |
 | `track2g_curve_aware_harmonic_residual_offset_raw_offset_fw` | Implemented Benchmark | `te_track2g_curve_aware_raw_offset_fw` | `curve_aware_harmonic_residual_offset_probe` | 0.003279 | 85,747 | `2026-06-08 20:51:34` |
+| `track2h_quantile_probabilistic_quantile_p10_p50_p90_fw` | Implemented Benchmark | `te_track2h_quantile_p10_p50_p90_fw` | `curve_aware_harmonic_residual_offset_probe` | 0.003285 | 86,169 | `2026-06-12 11:43:50` |
 | `track2h_dispersion_aware_smooth_l1_robust_fw` | Implemented Benchmark | `te_track2h_smooth_l1_robust_fw` | `curve_aware_harmonic_residual_offset_probe` | 0.003314 | 85,747 | `2026-06-11 12:56:26` |
 | `gru_sequence_fw` | Implemented Benchmark | `te_gru_sequence_remote_Fw` | `gru_sequence` | 0.003333 | 151,041 | `2026-05-24 12:00:05` |
 | `periodic_temporal_convolution_fw` | Implemented Benchmark | `te_periodic_temporal_convolution_sequence_remote_Fw` | `periodic_temporal_convolution` | 0.003337 | 158,529 | `2026-05-25 16:18:28` |
@@ -104,7 +99,9 @@
 | --- | --- | --- | --- | ---: | ---: | --- |
 | `periodic_gru_sequence_bw` | Current Program Winner | `te_periodic_gru_sequence_remote_Bw` | `periodic_gru_sequence` | 0.002344 | 157,953 | `2026-05-25 18:09:44` |
 | `periodic_lstm_sequence_bw` | Implemented Benchmark | `te_periodic_lstm_sequence_remote_Bw` | `periodic_lstm_sequence` | 0.002556 | 210,561 | `2026-05-25 20:05:38` |
+| `track2h_quantile_probabilistic_quantile_p10_p50_p90_bw` | Implemented Benchmark | `te_track2h_quantile_p10_p50_p90_bw` | `curve_aware_harmonic_residual_offset_probe` | 0.002927 | 86,169 | `2026-06-12 12:10:23` |
 | `tree_bw` | Implemented Benchmark | `te_hist_gbr_tabular_Bw_grid_depth6_lr008_leaf10` | `hist_gradient_boosting` | 0.002954 | 5 | `2026-05-11 21:18:29` |
+| `track2h_quantile_probabilistic_gaussian_nll_bw` | Implemented Benchmark | `te_track2h_gaussian_nll_bw` | `curve_aware_harmonic_residual_offset_probe` | 0.002998 | 85,958 | `2026-06-12 13:53:26` |
 | `residual_harmonic_mlp_bw` | Implemented Benchmark | `te_residual_harmonic_rcim_sparse_tracking_Bw` | `residual_harmonic_mlp` | 0.003042 | 26,260 | `2026-05-20 12:25:49` |
 | `track2h_dispersion_aware_smooth_l1_robust_bw` | Implemented Benchmark | `te_track2h_smooth_l1_robust_bw` | `curve_aware_harmonic_residual_offset_probe` | 0.003074 | 85,747 | `2026-06-11 13:24:47` |
 | `feedforward_bw` | Implemented Benchmark | `te_feedforward_stride1_high_compute_long_remote_Bw_optuna_t0005` | `feedforward` | 0.003099 | 167,937 | `2026-05-14 13:49:53` |
@@ -137,52 +134,168 @@
 
 ### Roadmap And Planned Work
 
-| Wave Or Track | Current State | Next Resume Point |
-| --- | --- | --- |
-| Wave 0. Shared Infrastructure | completed | Keep shared training and validation infrastructure stable. |
-| Wave 1. Structured Static Baselines | closed after directional HPO and exports | Reference benchmark only. |
-| Track 1. RCIM Paper-Faithful Model Bank | closed as faithful full-bank reproduction, not all-green | Reference benchmark only. |
-| Track 2. Directional Offline Comparison | official matrix, `Track 2G`, and `Track 2H` refreshes completed | Continue using separate operator-approved refreshes after campaign closeout. |
-| Track 2H. Dispersion-Aware Modeling Probes | robust-loss campaign completed and accepted as verified exploratory baseline, not promoted | Prepare quantile or probabilistic dispersion-aware package, then use robust-loss evidence for `Wave 3` defaults. |
-| Wave 3. Hybrid Structured Models | pre-implemented; `wave3_harmonic_prior_residual` is training-smoke-ready and not campaign-ready | After `Track 2H` closeout, package real `global`, `Fw`, and `Bw` campaign entries from the validation-only scaffold. |
-| Wave 4A. MMT Equation Diagnostic | diagnostic report and parameter inventory generated; diagnostic-only and not campaign-ready | Run dataset-aligned calibration checks before `Wave 4B` or `Wave 4C`. |
-| Wave 4. PINN Formulation And First PINN | design package exists; training implementation waits on `Wave 4A` and `Wave 3` evidence | Decide whether MMT stays diagnostic-only, becomes features in `Wave 4B`, or becomes a weak soft loss in `Wave 4C`. |
-| Integrated multi-task / multi-head branch | deferred | Integrate only mechanisms supported by `Track 2H`, `Wave 3`, and `Wave 4A` evidence. |
-| Wave 5. Cross-Wave Comparison And Best Solution | pending | Compare closed offline waves and `Track 3` results when available. |
-| Track 3. Online Compensation And Deployment Evaluation | future implementation branch | Keep online and TwinCAT work separate until explicitly promoted. |
+| Wave Or Track | Status |
+| --- | --- |
+| Wave 0. Shared Infrastructure | completed. |
 
-Current non-campaign pre-implementation anchors:
+Low-priority exploratory families currently listed in the backlog:
 
-- Wave 3 skeleton:
-  `scripts/models/wave3_harmonic_prior_residual_network.py`;
-- Wave 3 training-smoke validation:
-  `output/validation_checks/wave3_harmonic_prior_residual/2026-06-11-19-44-20__te_wave3_harmonic_prior_residual_training_smoke_ready_wave3_training_smoke_ready_final/validation_summary.yaml`;
-- Wave 4A diagnostic report:
-  `doc/reports/analysis/wave4/mmt_equation_diagnostic/[2026-06-11]/wave4a_mmt_equation_diagnostic.md`;
-- Wave 4A companion artifacts:
-  `output/validation_checks/wave4_mmt_equation_diagnostic/2026-06-11-19-25-32__wave4a_mmt_equation_diagnostic/`.
-- Wave 4A parameter-inventory report:
-  `doc/reports/analysis/wave4/mmt_parameter_inventory/[2026-06-11]/wave4a_mmt_parameter_inventory.md`;
-- Wave 4A parameter-inventory artifacts:
-  `output/validation_checks/wave4_mmt_parameter_inventory/2026-06-11-20-29-51__wave4a_mmt_parameter_inventory/`.
-
-Low-priority exploratory families remain deferred:
-
+- `low priority.`
 - `Lightweight Transformer`
 - `State-Space Sequence Model`
 - `Neural ODE`
 - `Hamiltonian-Inspired Model`
-- optional Kernel Ridge / Gaussian Process benchmark
+- `optional Kernel Ridge / Gaussian Process benchmark`
+| Wave 1. Structured Static Baselines | planning report: completed;; implementation: completed;; smoke tests: completed;; validation checks: completed;; campaign execution: completed;; directional HPO closeout: completed;; exported `global`, `forward`, and `backward` surfaces: completed;; results report: completed;; status: closed. |
+
+Low-priority exploratory families currently listed in the backlog:
+
+- `low priority.`
+- `Lightweight Transformer`
+- `State-Space Sequence Model`
+- `Neural ODE`
+- `Hamiltonian-Inspired Model`
+- `optional Kernel Ridge / Gaussian Process benchmark`
+| Track 1. RCIM Paper-Faithful Model Bank | recovered original workflow: preserved;; original-dataset reimplementation: completed;; retuned reference archive: completed;; forward campaign: completed;; backward campaign: completed;; paper-reference archives: refreshed;; Tables `2`-`5`: repopulated;; status: closed as faithful full-bank reproduction, not all-green |
+
+Low-priority exploratory families currently listed in the backlog:
+
+- `low priority.`
+- `Lightweight Transformer`
+- `State-Space Sequence Model`
+- `Neural ODE`
+- `Hamiltonian-Inspired Model`
+- `optional Kernel Ridge / Gaussian Process benchmark`
+| Track 2. Directional Offline Comparison | direction-aware loader and candidate matrix: completed;; recovered original forward candidates: included;; retuned forward and backward candidates: included;; `Track 1` forward and backward candidates: included;; `Wave 1` `global`, `forward`, and `backward` exports: included;; `Wave 2` temporal `global`, `forward`, and `backward` registry candidates:; grouped source tables: completed;; composite best-reference visibility: completed;; direction/truth and preview audit: completed;; official model-verification report: completed;; curve-first reranking policy: planned as the next analysis branch;; status: closed. |
+
+Low-priority exploratory families currently listed in the backlog:
+
+- `low priority.`
+- `Lightweight Transformer`
+- `State-Space Sequence Model`
+- `Neural ODE`
+- `Hamiltonian-Inspired Model`
+- `optional Kernel Ridge / Gaussian Process benchmark`
+| Wave 2. Temporal Models | status: entry campaign completed; closeout report prepared; official; initial families: `temporal_convolution`, `gru_sequence`, `lstm_sequence`;; configuration root: `config/training/hydra/wave2/`;; preliminary campaign plan:; closeout report:; campaign winner: `te_gru_sequence_remote_Fw` from family; refresh plan:; official verification report:; Track 2 decision: verified exploratory baselines, not promoted over `tree`;; mandatory rule: prepare or justify `global`, `forward`, and `backward`; baseline comparison: Track 2 plus closed Wave 1. |
+
+Low-priority exploratory families currently listed in the backlog:
+
+- `low priority.`
+- `Lightweight Transformer`
+- `State-Space Sequence Model`
+- `Neural ODE`
+- `Hamiltonian-Inspired Model`
+- `optional Kernel Ridge / Gaussian Process benchmark`
+| Wave 2B. Harmonic Temporal Hybrid Models | status: harmonic-temporal hybrid campaign completed; normal closeout report; families: `periodic_temporal_convolution`, `periodic_gru_sequence`,; configuration root:; preliminary campaign plan:; closeout report:; campaign winner: `te_periodic_gru_sequence_remote_Bw` from family; strongest bidirectional candidate: `te_periodic_gru_sequence_remote_global`; Track 2 decision: strongest repository-owned neural branch after official; mandatory rule: prepare or justify `global`, `forward`, and `backward`; baseline comparison: official Track 2 matrix plus visual collage and overlay |
+
+Low-priority exploratory families currently listed in the backlog:
+
+- `low priority.`
+- `Lightweight Transformer`
+- `State-Space Sequence Model`
+- `Neural ODE`
+- `Hamiltonian-Inspired Model`
+- `optional Kernel Ridge / Gaussian Process benchmark`
+| Wave 2C. Residual Harmonic Temporal Hybrid Models | status: residual harmonic temporal hybrid campaign completed; official; families: `residual_harmonic_gru_sequence`,; harmonic banks: sparse `RCIM`, dense `240`, dense `360`;; closeout report:; official verification report:; strongest Wave 2C forward candidate:; strongest Wave 2C backward candidate:; strongest Wave 2C global candidate:; Track 2 decision: verified exploratory baseline, not promoted over the; design conclusion: sparse `RCIM` harmonics remain useful, while dense `240` |
+
+Low-priority exploratory families currently listed in the backlog:
+
+- `low priority.`
+- `Lightweight Transformer`
+- `State-Space Sequence Model`
+- `Neural ODE`
+- `Hamiltonian-Inspired Model`
+- `optional Kernel Ridge / Gaussian Process benchmark`
+| Track 2F. Offset-Aware Sequential Residual Probe | status: offset-aware probe campaign completed; official `Track 2` matrix; family: `sequential_residual_offset_probe`;; official verification report:; strongest Track 2F forward candidate:; strongest Track 2F backward candidate:; strongest Track 2F global candidate:; Track 2 decision: verified exploratory baseline, not promoted over the; design conclusion: a sequential residual offset head alone does not solve |
+
+Low-priority exploratory families currently listed in the backlog:
+
+- `low priority.`
+- `Lightweight Transformer`
+- `State-Space Sequence Model`
+- `Neural ODE`
+- `Hamiltonian-Inspired Model`
+- `optional Kernel Ridge / Gaussian Process benchmark`
+| Track 2F-Bis. Harmonic-Offset Probe | status: campaign completed after runner registration repair; official; families:; `track2f_bis_clean_sequential_residual_offset_global`;; `track2f_bis_clean_sequential_residual_offset_fw`;; `track2f_bis_clean_sequential_residual_offset_bw`;; `track2f_bis_harmonic_residual_offset_global`;; `track2f_bis_harmonic_residual_offset_fw`;; `track2f_bis_harmonic_residual_offset_bw`;; closeout report:; official verification report:; clean global candidate:; harmonic global candidate:; clean forward candidate:; harmonic forward candidate:; clean backward candidate:; harmonic backward candidate:; strongest Track 2F-bis forward candidate:; strongest Track 2F-bis backward candidate:; strongest Track 2F-bis global candidate:; Track 2 decision: verified exploratory baseline, not promoted over the; design conclusion: harmonic forcing helps the direction-specific `Fw` and |
+
+Low-priority exploratory families currently listed in the backlog:
+
+- `low priority.`
+- `Lightweight Transformer`
+- `State-Space Sequence Model`
+- `Neural ODE`
+- `Hamiltonian-Inspired Model`
+- `optional Kernel Ridge / Gaussian Process benchmark`
+| Track 2H. Dispersion-Aware Robust-Loss Probe | status: robust-loss campaign completed; official `Track 2` matrix refresh; families:; `track2h_dispersion_aware_mae_robust_global`;; `track2h_dispersion_aware_mae_robust_fw`;; `track2h_dispersion_aware_mae_robust_bw`;; `track2h_dispersion_aware_smooth_l1_robust_global`;; `track2h_dispersion_aware_smooth_l1_robust_fw`;; `track2h_dispersion_aware_smooth_l1_robust_bw`;; `track2h_dispersion_aware_log_cosh_robust_global`;; `track2h_dispersion_aware_log_cosh_robust_fw`;; `track2h_dispersion_aware_log_cosh_robust_bw`;; closeout report:; official verification report:; robust global candidate:; robust forward candidate:; robust backward candidate:; campaign scalar winner:; Track 2 strongest forward candidate:; Track 2 strongest backward candidate:; Track 2 strongest global candidate:; Track 2 decision: verified exploratory baseline, not promoted over the; design conclusion: robust losses are useful enough to keep in the |
+
+Low-priority exploratory families currently listed in the backlog:
+
+- `low priority.`
+- `Lightweight Transformer`
+- `State-Space Sequence Model`
+- `Neural ODE`
+- `Hamiltonian-Inspired Model`
+- `optional Kernel Ridge / Gaussian Process benchmark`
+| Track 2H. Quantile Probabilistic Probe | status: quantile/probabilistic campaign completed; official `Track 2` matrix; families:; `track2h_quantile_probabilistic_quantile_p10_p50_p90_global`;; `track2h_quantile_probabilistic_quantile_p10_p50_p90_fw`;; `track2h_quantile_probabilistic_quantile_p10_p50_p90_bw`;; `track2h_quantile_probabilistic_gaussian_nll_global`;; `track2h_quantile_probabilistic_gaussian_nll_fw`;; `track2h_quantile_probabilistic_gaussian_nll_bw`;; closeout report:; official verification report:; strongest probabilistic global candidate:; strongest probabilistic forward-only candidate:; strongest probabilistic forward-evaluated candidate:; strongest probabilistic backward candidate:; Track 2 decision: verified exploratory baseline, not promoted over the; design conclusion: probabilistic losses improve over robust losses on the |
+
+Low-priority exploratory families currently listed in the backlog:
+
+- `low priority.`
+- `Lightweight Transformer`
+- `State-Space Sequence Model`
+- `Neural ODE`
+- `Hamiltonian-Inspired Model`
+- `optional Kernel Ridge / Gaussian Process benchmark`
+| Wave 3. Hybrid Structured Models | status: pre-implemented, training-smoke-ready, not campaign-ready;; current scaffold:; model type: `wave3_harmonic_prior_residual`;; model class:; dry-run skeleton checker:; training-smoke-ready checker:; final one-batch validation artifact:; updated priority: after `Track 2H` closeout, package the first real Wave 3; mandatory rule: prepare or justify `global`, `forward`, and `backward`; paper-reproduction scope:; compare hybrid structured predictors against the paper-style harmonic stack;; test condition-conditioned residual structure and separate treatment of; prepare the repository-owned deployable predictor package after the; next implementation steps:; consume `Track 2H` results to choose the robust-loss default or confirm; prepare real `global`, `Fw`, and `Bw` campaign YAMLs only after the; preserve the validation-only config under; keep `active_training_campaign.yaml` unchanged until an approved Wave 3 |
+
+Low-priority exploratory families currently listed in the backlog:
+
+- `low priority.`
+- `Lightweight Transformer`
+- `State-Space Sequence Model`
+- `Neural ODE`
+- `Hamiltonian-Inspired Model`
+- `optional Kernel Ridge / Gaussian Process benchmark`
+| Wave 4. PINN Formulation And First PINN | status: pre-implemented at `Wave 4A` diagnostic level, not campaign-ready;; current scaffold:; diagnostic adapter:; diagnostic report builder:; parameter-inventory report builder:; generated diagnostic report:; generated parameter-inventory report:; companion artifacts:; parameter-inventory artifacts:; updated priority: execute dataset-aligned diagnostic calibration after the; mandatory rule: prepare or justify `global`, `forward`, and `backward`; paper-reproduction scope:; prepare PINN-side model and loss formulations for later offline and; test whether soft physics, periodicity, smoothness, harmonic-consistency,; keep online compensation execution out of Wave 4 unless Track 3 is; completed inventory conclusions:; known geometry constants are safe for diagnostics and feature generation;; operating metadata can be used for stratification and causal conditioning;; five equivalent-error groups are train-only calibratable;; contact geometry remains unavailable or ambiguous and blocks calibrated; measured TE remains target-only and must not become an inference input.; next implementation steps:; compare MMT diagnostic signatures against dataset-aligned curve summaries; design a train-only equivalent-error calibration policy for candidate; decide whether the MMT path remains diagnostic-only, becomes a feature; do not treat the current demonstration harmonic summary as dataset |
+
+Low-priority exploratory families currently listed in the backlog:
+
+- `low priority.`
+- `Lightweight Transformer`
+- `State-Space Sequence Model`
+- `Neural ODE`
+- `Hamiltonian-Inspired Model`
+- `optional Kernel Ridge / Gaussian Process benchmark`
+| Wave 5. Cross-Wave Comparison And Best Solution | status: pending;; mandatory rule: preserve direction-separated reporting;; paper-reproduction scope:; compare closed offline waves and Track 3 results when available;; finalize the real `paper vs repository` comparison only after Track 3 |
+
+Low-priority exploratory families currently listed in the backlog:
+
+- `low priority.`
+- `Lightweight Transformer`
+- `State-Space Sequence Model`
+- `Neural ODE`
+- `Hamiltonian-Inspired Model`
+- `optional Kernel Ridge / Gaussian Process benchmark`
+| Track 3. Online Compensation And Deployment Evaluation | status: future implementation branch;; canonical objective: close `Target B`;; scope:; online compensation loop in the TestRig / TwinCAT path;; old future Pipelines `8-10`;; `Robot` and `Cycloidal` motion-profile validation;; uncompensated versus compensated `TE RMS` and `TE max`;; final paper-style `Table 9` report;; deployment-readiness interpretation for the selected repository model path. |
+
+Low-priority exploratory families currently listed in the backlog:
+
+- `low priority.`
+- `Lightweight Transformer`
+- `State-Space Sequence Model`
+- `Neural ODE`
+- `Hamiltonian-Inspired Model`
+- `optional Kernel Ridge / Gaussian Process benchmark`
 
 ## Recent Campaign Changes
 
 | Campaign | Generated At | Completed | Failed | Winner | Impact |
 | --- | --- | ---: | ---: | --- | --- |
+| `track2h_quantile_probabilistic_campaign_2026_06_12` | `2026-06-12 13:53:26` | 6 | 0 | `te_track2h_quantile_p10_p50_p90_bw` | Updated track2h_quantile_probabilistic_quantile_p10_p50_p90_bw family best |
 | `track2h_dispersion_aware_modeling_campaign_2026_06_10` | `2026-06-11 14:01:57` | 9 | 0 | `te_track2h_smooth_l1_robust_bw` | Updated track2h_dispersion_aware_smooth_l1_robust_bw family best |
 | `track2g_curve_aware_training_campaign_2026_06_08` | `2026-06-08 22:05:10` | 12 | 0 | `te_track2g_curve_aware_raw_centered_shape_fw` | Updated track2g_curve_aware_harmonic_residual_offset_raw_centered_shape_fw family best |
 | `track2f_bis_harmonic_offset_probe_repair_2026_06_05` | `2026-06-05 16:44:49` | 3 | 0 | `te_track2f_bis_harmonic_residual_offset_fw` | Updated track2f_bis_harmonic_residual_offset_fw family best |
 | `track2f_bis_harmonic_offset_probe_campaign_2026_06_04` | `2026-06-04 23:58:31` | 3 | 3 | `te_track2f_bis_clean_residual_offset_fw` | Updated track2f_bis_clean_sequential_residual_offset_fw family best |
-| `track2f_offset_aware_probe_campaign_2026_06_03` | `2026-06-04 12:04:47` | 3 | 0 | `te_sequential_residual_offset_probe_remote_fw` | Updated sequential_residual_offset_probe_fw family best |
 
 ## Ranking Policy
 
@@ -203,12 +316,14 @@ Low-priority exploratory families remain deferred:
 | `periodic_gru_sequence` | `te_periodic_gru_sequence_remote_global` | `periodic_gru_sequence` | 0.002507 | 0.002681 | 0.002971 | 157,953 | 1.82 MB | High | Implemented Benchmark |
 | `periodic_lstm_sequence` | `te_periodic_lstm_sequence_remote_global` | `periodic_lstm_sequence` | 0.002526 | 0.002682 | 0.002969 | 210,561 | 2.43 MB | High | Implemented Benchmark |
 | `tree` | `te_hist_gbr_tabular_global_grid_depth10_lr008_leaf10` | `hist_gradient_boosting` | 0.002655 | 0.002782 | 0.003520 | 5 | 0.48 MB | Unknown | Implemented Benchmark |
+| `track2h_quantile_probabilistic_gaussian_nll_global` | `te_track2h_gaussian_nll_global` | `curve_aware_harmonic_residual_offset_probe` | 0.003267 | 0.003013 | 0.003388 | 85,958 | 1.00 MB | High | Implemented Benchmark |
 | `residual_harmonic_mlp` | `te_residual_h12_deep_joint_wave1_global_optuna_t0006` | `residual_harmonic_mlp` | 0.002895 | 0.003034 | 0.003550 | 26,266 | 0.32 MB | Unknown | Implemented Benchmark |
 | `feedforward` | `te_feedforward_stride1_high_compute_long_remote_global` | `feedforward` | 0.003056 | 0.003150 | 0.003603 | 109,953 | 1.28 MB | Unknown | Current Plain MLP Anchor |
 | `periodic_mlp` | `te_periodic_mlp_h04_standard_global_optuna_t0010` | `periodic_mlp` | 0.002994 | 0.003186 | 0.003690 | 27,265 | 0.33 MB | Unknown | Implemented Benchmark |
 | `track2g_curve_aware_harmonic_residual_offset_full_curve_composite_global` | `te_track2g_curve_aware_full_curve_composite_global` | `curve_aware_harmonic_residual_offset_probe` | 0.003616 | 0.003345 | 0.003713 | 85,747 | 1.00 MB | Medium | Implemented Benchmark |
 | `track2g_curve_aware_harmonic_residual_offset_raw_centered_shape_global` | `te_track2g_curve_aware_raw_centered_shape_global` | `curve_aware_harmonic_residual_offset_probe` | 0.003636 | 0.003350 | 0.003753 | 85,747 | 1.00 MB | Medium | Implemented Benchmark |
 | `residual_harmonic_lstm_sequence_sparse_rcim` | `te_residual_harmonic_lstm_sequence_remote_global_sparse_rcim` | `residual_harmonic_lstm_sequence` | 0.003632 | 0.003368 | 0.003808 | 201,364 | 2.32 MB | Low | Implemented Benchmark |
+| `track2h_quantile_probabilistic_quantile_p10_p50_p90_global` | `te_track2h_quantile_p10_p50_p90_global` | `curve_aware_harmonic_residual_offset_probe` | 0.003606 | 0.003383 | 0.003764 | 86,169 | 1.01 MB | Medium | Implemented Benchmark |
 | `track2h_dispersion_aware_mae_robust_global` | `te_track2h_mae_robust_global` | `curve_aware_harmonic_residual_offset_probe` | 0.003645 | 0.003406 | 0.003807 | 85,747 | 1.00 MB | Medium | Implemented Benchmark |
 | `track2h_dispersion_aware_smooth_l1_robust_global` | `te_track2h_smooth_l1_robust_global` | `curve_aware_harmonic_residual_offset_probe` | 0.003641 | 0.003422 | 0.003810 | 85,747 | 1.00 MB | Medium | Implemented Benchmark |
 | `residual_harmonic_gru_sequence_sparse_rcim` | `te_residual_harmonic_gru_sequence_remote_global_sparse_rcim` | `residual_harmonic_gru_sequence` | 0.003607 | 0.003440 | 0.003848 | 151,060 | 1.75 MB | Low | Implemented Benchmark |
@@ -240,6 +355,7 @@ Low-priority exploratory families remain deferred:
 | `periodic_mlp_fw` | `te_periodic_mlp_dense240_tracking_Fw` | `periodic_mlp` | 0.002541 | 0.003055 | 0.003537 | 87,681 | 1.03 MB | Low | Implemented Benchmark |
 | `residual_harmonic_mlp_fw` | `te_residual_harmonic_rcim_sparse_tracking_Fw` | `residual_harmonic_mlp` | 0.002704 | 0.003089 | 0.003498 | 26,260 | 0.32 MB | Low | Implemented Benchmark |
 | `track2h_dispersion_aware_mae_robust_fw` | `te_track2h_mae_robust_fw` | `curve_aware_harmonic_residual_offset_probe` | 0.003258 | 0.003146 | 0.003527 | 85,747 | 1.00 MB | Low | Implemented Benchmark |
+| `track2h_quantile_probabilistic_gaussian_nll_fw` | `te_track2h_gaussian_nll_fw` | `curve_aware_harmonic_residual_offset_probe` | 0.003293 | 0.003165 | 0.003548 | 85,958 | 1.00 MB | Low | Implemented Benchmark |
 | `track2g_curve_aware_harmonic_residual_offset_raw_centered_shape_fw` | `te_track2g_curve_aware_raw_centered_shape_fw` | `curve_aware_harmonic_residual_offset_probe` | 0.003251 | 0.003181 | 0.003571 | 85,747 | 1.00 MB | Low | Implemented Benchmark |
 | `periodic_gru_sequence_fw` | `te_periodic_gru_sequence_remote_Fw` | `periodic_gru_sequence` | 0.003227 | 0.003193 | 0.003583 | 157,953 | 1.82 MB | Low | Implemented Benchmark |
 | `residual_harmonic_gru_sequence_fw_sparse_rcim` | `te_residual_harmonic_gru_sequence_remote_Fw_sparse_rcim` | `residual_harmonic_gru_sequence` | 0.003309 | 0.003200 | 0.003635 | 151,060 | 1.75 MB | Low | Implemented Benchmark |
@@ -251,6 +367,7 @@ Low-priority exploratory families remain deferred:
 | `residual_harmonic_lstm_sequence_fw_dense240` | `te_residual_harmonic_lstm_sequence_remote_Fw_dense240` | `residual_harmonic_lstm_sequence` | 0.003307 | 0.003262 | 0.003706 | 201,826 | 2.33 MB | Low | Implemented Benchmark |
 | `periodic_lstm_sequence_fw` | `te_periodic_lstm_sequence_remote_Fw` | `periodic_lstm_sequence` | 0.003254 | 0.003274 | 0.003651 | 210,561 | 2.43 MB | Low | Implemented Benchmark |
 | `track2g_curve_aware_harmonic_residual_offset_raw_offset_fw` | `te_track2g_curve_aware_raw_offset_fw` | `curve_aware_harmonic_residual_offset_probe` | 0.003328 | 0.003279 | 0.003698 | 85,747 | 1.00 MB | Low | Implemented Benchmark |
+| `track2h_quantile_probabilistic_quantile_p10_p50_p90_fw` | `te_track2h_quantile_p10_p50_p90_fw` | `curve_aware_harmonic_residual_offset_probe` | 0.003269 | 0.003285 | 0.003668 | 86,169 | 1.01 MB | Low | Implemented Benchmark |
 | `track2h_dispersion_aware_smooth_l1_robust_fw` | `te_track2h_smooth_l1_robust_fw` | `curve_aware_harmonic_residual_offset_probe` | 0.003235 | 0.003314 | 0.003679 | 85,747 | 1.00 MB | Low | Implemented Benchmark |
 | `gru_sequence_fw` | `te_gru_sequence_remote_Fw` | `gru_sequence` | 0.003409 | 0.003333 | 0.003881 | 151,041 | 1.74 MB | Low | Implemented Benchmark |
 | `periodic_temporal_convolution_fw` | `te_periodic_temporal_convolution_sequence_remote_Fw` | `periodic_temporal_convolution` | 0.003321 | 0.003337 | 0.003830 | 158,529 | 1.83 MB | Low | Implemented Benchmark |
@@ -268,7 +385,9 @@ Low-priority exploratory families remain deferred:
 | --- | --- | --- | ---: | ---: | ---: | ---: | --- | --- | --- |
 | `periodic_gru_sequence_bw` | `te_periodic_gru_sequence_remote_Bw` | `periodic_gru_sequence` | 0.002523 | 0.002344 | 0.002747 | 157,953 | 1.82 MB | Medium | Current Program Winner |
 | `periodic_lstm_sequence_bw` | `te_periodic_lstm_sequence_remote_Bw` | `periodic_lstm_sequence` | 0.002432 | 0.002556 | 0.002953 | 210,561 | 2.43 MB | Medium | Implemented Benchmark |
+| `track2h_quantile_probabilistic_quantile_p10_p50_p90_bw` | `te_track2h_quantile_p10_p50_p90_bw` | `curve_aware_harmonic_residual_offset_probe` | 0.003436 | 0.002927 | 0.003519 | 86,169 | 1.01 MB | Medium | Implemented Benchmark |
 | `tree_bw` | `te_hist_gbr_tabular_Bw_grid_depth6_lr008_leaf10` | `hist_gradient_boosting` | 0.002681 | 0.002954 | 0.003749 | 5 | 0.45 MB | Unknown | Implemented Benchmark |
+| `track2h_quantile_probabilistic_gaussian_nll_bw` | `te_track2h_gaussian_nll_bw` | `curve_aware_harmonic_residual_offset_probe` | 0.003298 | 0.002998 | 0.003608 | 85,958 | 1.00 MB | Medium | Implemented Benchmark |
 | `residual_harmonic_mlp_bw` | `te_residual_harmonic_rcim_sparse_tracking_Bw` | `residual_harmonic_mlp` | 0.002953 | 0.003042 | 0.003548 | 26,260 | 0.32 MB | Low | Implemented Benchmark |
 | `track2h_dispersion_aware_smooth_l1_robust_bw` | `te_track2h_smooth_l1_robust_bw` | `curve_aware_harmonic_residual_offset_probe` | 0.003372 | 0.003074 | 0.003662 | 85,747 | 1.00 MB | Medium | Implemented Benchmark |
 | `feedforward_bw` | `te_feedforward_stride1_high_compute_long_remote_Bw_optuna_t0005` | `feedforward` | 0.003018 | 0.003099 | 0.003630 | 167,937 | 1.95 MB | Unknown | Implemented Benchmark |
@@ -693,6 +812,28 @@ Known failed campaign attempts for this family:
 | --- | --- | --- | ---: | ---: | ---: | ---: | --- | --- | --- | --- | --- |
 | 1 | `te_track2h_smooth_l1_robust_global` | `curve_aware_harmonic_residual_offset_probe` | 0.003422 | 0.003810 | 0.003641 | 85,747 | 15m 30s | 1.00 MB | High | Medium | `track2h_dispersion_aware_modeling_campaign_2026_06_10` |
 
+#### track2h_quantile_probabilistic_gaussian_nll_global
+
+- Best run: `te_track2h_gaussian_nll_global`
+- Best test MAE: `0.003013`
+- Completed tracked runs: `1`
+- Known failed campaign attempts: `0`
+
+| Rank | Run | Model Type | Test MAE [deg] | Test RMSE [deg] | Val MAE [deg] | Params | Duration | Artifact Size | Model Complexity | Training Heaviness | Campaign |
+| --- | --- | --- | ---: | ---: | ---: | ---: | --- | --- | --- | --- | --- |
+| 1 | `te_track2h_gaussian_nll_global` | `curve_aware_harmonic_residual_offset_probe` | 0.003013 | 0.003388 | 0.003267 | 85,958 | 1h 02m 12s | 1.00 MB | High | High | `track2h_quantile_probabilistic_campaign_2026_06_12` |
+
+#### track2h_quantile_probabilistic_quantile_p10_p50_p90_global
+
+- Best run: `te_track2h_quantile_p10_p50_p90_global`
+- Best test MAE: `0.003383`
+- Completed tracked runs: `1`
+- Known failed campaign attempts: `0`
+
+| Rank | Run | Model Type | Test MAE [deg] | Test RMSE [deg] | Val MAE [deg] | Params | Duration | Artifact Size | Model Complexity | Training Heaviness | Campaign |
+| --- | --- | --- | ---: | ---: | ---: | ---: | --- | --- | --- | --- | --- |
+| 1 | `te_track2h_quantile_p10_p50_p90_global` | `curve_aware_harmonic_residual_offset_probe` | 0.003383 | 0.003764 | 0.003606 | 86,169 | 18m 38s | 1.01 MB | High | Medium | `track2h_quantile_probabilistic_campaign_2026_06_12` |
+
 #### tree
 
 - Best run: `te_hist_gbr_tabular_global_grid_depth10_lr008_leaf10`
@@ -1015,6 +1156,28 @@ Known failed campaign attempts for this family:
 | --- | --- | --- | ---: | ---: | ---: | ---: | --- | --- | --- | --- | --- |
 | 1 | `te_track2h_smooth_l1_robust_fw` | `curve_aware_harmonic_residual_offset_probe` | 0.003314 | 0.003679 | 0.003235 | 85,747 | 7m 42s | 1.00 MB | High | Low | `track2h_dispersion_aware_modeling_campaign_2026_06_10` |
 
+#### track2h_quantile_probabilistic_gaussian_nll_fw
+
+- Best run: `te_track2h_gaussian_nll_fw`
+- Best test MAE: `0.003165`
+- Completed tracked runs: `1`
+- Known failed campaign attempts: `0`
+
+| Rank | Run | Model Type | Test MAE [deg] | Test RMSE [deg] | Val MAE [deg] | Params | Duration | Artifact Size | Model Complexity | Training Heaviness | Campaign |
+| --- | --- | --- | ---: | ---: | ---: | ---: | --- | --- | --- | --- | --- |
+| 1 | `te_track2h_gaussian_nll_fw` | `curve_aware_harmonic_residual_offset_probe` | 0.003165 | 0.003548 | 0.003293 | 85,958 | 13m 18s | 1.00 MB | High | Low | `track2h_quantile_probabilistic_campaign_2026_06_12` |
+
+#### track2h_quantile_probabilistic_quantile_p10_p50_p90_fw
+
+- Best run: `te_track2h_quantile_p10_p50_p90_fw`
+- Best test MAE: `0.003285`
+- Completed tracked runs: `1`
+- Known failed campaign attempts: `0`
+
+| Rank | Run | Model Type | Test MAE [deg] | Test RMSE [deg] | Val MAE [deg] | Params | Duration | Artifact Size | Model Complexity | Training Heaviness | Campaign |
+| --- | --- | --- | ---: | ---: | ---: | ---: | --- | --- | --- | --- | --- |
+| 1 | `te_track2h_quantile_p10_p50_p90_fw` | `curve_aware_harmonic_residual_offset_probe` | 0.003285 | 0.003668 | 0.003269 | 86,169 | 8m 53s | 1.01 MB | High | Low | `track2h_quantile_probabilistic_campaign_2026_06_12` |
+
 #### tree_fw
 
 - Best run: `te_hist_gbr_tabular_Fw_grid_depth6_lr008_leaf10`
@@ -1336,6 +1499,28 @@ Known failed campaign attempts for this family:
 | Rank | Run | Model Type | Test MAE [deg] | Test RMSE [deg] | Val MAE [deg] | Params | Duration | Artifact Size | Model Complexity | Training Heaviness | Campaign |
 | --- | --- | --- | ---: | ---: | ---: | ---: | --- | --- | --- | --- | --- |
 | 1 | `te_track2h_smooth_l1_robust_bw` | `curve_aware_harmonic_residual_offset_probe` | 0.003074 | 0.003662 | 0.003372 | 85,747 | 28m 21s | 1.00 MB | High | Medium | `track2h_dispersion_aware_modeling_campaign_2026_06_10` |
+
+#### track2h_quantile_probabilistic_gaussian_nll_bw
+
+- Best run: `te_track2h_gaussian_nll_bw`
+- Best test MAE: `0.002998`
+- Completed tracked runs: `1`
+- Known failed campaign attempts: `0`
+
+| Rank | Run | Model Type | Test MAE [deg] | Test RMSE [deg] | Val MAE [deg] | Params | Duration | Artifact Size | Model Complexity | Training Heaviness | Campaign |
+| --- | --- | --- | ---: | ---: | ---: | ---: | --- | --- | --- | --- | --- |
+| 1 | `te_track2h_gaussian_nll_bw` | `curve_aware_harmonic_residual_offset_probe` | 0.002998 | 0.003608 | 0.003298 | 85,958 | 27m 33s | 1.00 MB | High | Medium | `track2h_quantile_probabilistic_campaign_2026_06_12` |
+
+#### track2h_quantile_probabilistic_quantile_p10_p50_p90_bw
+
+- Best run: `te_track2h_quantile_p10_p50_p90_bw`
+- Best test MAE: `0.002927`
+- Completed tracked runs: `1`
+- Known failed campaign attempts: `0`
+
+| Rank | Run | Model Type | Test MAE [deg] | Test RMSE [deg] | Val MAE [deg] | Params | Duration | Artifact Size | Model Complexity | Training Heaviness | Campaign |
+| --- | --- | --- | ---: | ---: | ---: | ---: | --- | --- | --- | --- | --- |
+| 1 | `te_track2h_quantile_p10_p50_p90_bw` | `curve_aware_harmonic_residual_offset_probe` | 0.002927 | 0.003519 | 0.003436 | 86,169 | 26m 33s | 1.01 MB | High | Medium | `track2h_quantile_probabilistic_campaign_2026_06_12` |
 
 #### tree_bw
 

@@ -790,7 +790,10 @@ def predict_temporal_sequence_curve_in_batches(
                 input_tensor,
                 normalized_input_tensor,
             )
-            predicted_curve_tensor = model_object.denormalize_target_tensor(normalized_prediction_tensor)
+            deterministic_prediction_tensor = model_object.extract_deterministic_prediction_tensor(
+                normalized_prediction_tensor
+            )
+            predicted_curve_tensor = model_object.denormalize_target_tensor(deterministic_prediction_tensor)
             prediction_tensor_list.append(predicted_curve_tensor.detach().cpu())
 
     return torch.cat(prediction_tensor_list, dim=0).numpy().reshape(-1).astype(np.float32)
@@ -811,7 +814,10 @@ def predict_feedforward_curve(
             input_tensor,
             normalized_input_tensor,
         )
-        predicted_curve_tensor = regression_module.denormalize_target_tensor(normalized_prediction_tensor)
+        deterministic_prediction_tensor = regression_module.extract_deterministic_prediction_tensor(
+            normalized_prediction_tensor
+        )
+        predicted_curve_tensor = regression_module.denormalize_target_tensor(deterministic_prediction_tensor)
     return predicted_curve_tensor.detach().cpu().numpy().reshape(-1).astype(np.float32)
 
 
@@ -847,7 +853,10 @@ def predict_wave1_registry_curve(
             input_tensor,
             normalized_input_tensor,
         )
-        predicted_curve_tensor = model_object.denormalize_target_tensor(normalized_prediction_tensor)
+        deterministic_prediction_tensor = model_object.extract_deterministic_prediction_tensor(
+            normalized_prediction_tensor
+        )
+        predicted_curve_tensor = model_object.denormalize_target_tensor(deterministic_prediction_tensor)
     return predicted_curve_tensor.detach().cpu().numpy().reshape(-1).astype(np.float32)
 
 
@@ -1123,6 +1132,18 @@ def build_generated_candidate_configuration_list(training_config: dict[str, Any]
             build_registry_candidate_configuration_list(
                 track2h_configuration,
                 "track2h_dispersion_aware_modeling_registry",
+            )
+        )
+
+    track2h_quantile_probabilistic_configuration = generation_configuration.get(
+        "track2h_quantile_probabilistic_registry_models",
+        {},
+    )
+    if track2h_quantile_probabilistic_configuration:
+        candidate_configuration_list.extend(
+            build_registry_candidate_configuration_list(
+                track2h_quantile_probabilistic_configuration,
+                "track2h_quantile_probabilistic_registry",
             )
         )
 
@@ -2366,6 +2387,13 @@ def build_track2_directional_comparison_report_markdown(comparison_summary: dict
         "track2h_dispersion_aware_modeling_registry",
         include_global_models=True,
     )
+    append_grouped_direction_table(
+        report_line_list,
+        "Track 2H Quantile Probabilistic Forward And Global Models",
+        "forward",
+        "track2h_quantile_probabilistic_registry",
+        include_global_models=True,
+    )
 
     report_line_list.extend(
         [
@@ -2422,6 +2450,13 @@ def build_track2_directional_comparison_report_markdown(comparison_summary: dict
         "Track 2H Robust-Loss Backward And Global Models",
         "backward",
         "track2h_dispersion_aware_modeling_registry",
+        include_global_models=True,
+    )
+    append_grouped_direction_table(
+        report_line_list,
+        "Track 2H Quantile Probabilistic Backward And Global Models",
+        "backward",
+        "track2h_quantile_probabilistic_registry",
         include_global_models=True,
     )
 

@@ -36,7 +36,10 @@ class HarmonicResidualOffsetNetwork(nn.Module):
         Args:
             input_size: Raw sequence feature count, including angular position
                 as the first feature.
-            output_size: Regression target count.
+            output_size: Regression target count. Scalar output is used for
+                deterministic runs; probabilistic Track 2H heads use multiple
+                output channels while still selecting one deterministic curve
+                in the training module.
             harmonic_order: Contiguous harmonic order used when no explicit
                 harmonic index list is provided.
             coefficient_mode: Harmonic coefficient parameterization mode.
@@ -64,7 +67,7 @@ class HarmonicResidualOffsetNetwork(nn.Module):
 
         # Validate Architecture Parameters
         assert input_size >= 5, f"Input Size must expose TE operating features | {input_size}"
-        assert output_size == 1, f"Harmonic residual-offset supports scalar TE output only | {output_size}"
+        assert output_size > 0, f"Output Size must be positive | {output_size}"
         assert harmonic_order > 0, f"Harmonic Order must be positive | {harmonic_order}"
         assert offset_hidden_size > 0, f"Offset Hidden Size must be positive | {offset_hidden_size}"
         assert offset_num_layers > 0, f"Offset Num Layers must be positive | {offset_num_layers}"

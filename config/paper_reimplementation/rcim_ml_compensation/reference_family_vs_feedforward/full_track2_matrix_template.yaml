@@ -327,6 +327,20 @@ comparison:
           global_family: track2h_dispersion_aware_log_cosh_robust_global
           fw_family: track2h_dispersion_aware_log_cosh_robust_fw
           bw_family: track2h_dispersion_aware_log_cosh_robust_bw
+    track2h_quantile_probabilistic_registry_models:
+      family_registry_root: output/registries/families
+      source_label: track2h_quantile_probabilistic_registry
+      base_family_list:
+        - candidate_id_prefix: track2h_quantile_p10_p50_p90
+          candidate_family: track2h_quantile_p10_p50_p90
+          global_family: track2h_quantile_probabilistic_quantile_p10_p50_p90_global
+          fw_family: track2h_quantile_probabilistic_quantile_p10_p50_p90_fw
+          bw_family: track2h_quantile_probabilistic_quantile_p10_p50_p90_bw
+        - candidate_id_prefix: track2h_gaussian_nll
+          candidate_family: track2h_gaussian_nll
+          global_family: track2h_quantile_probabilistic_gaussian_nll_global
+          fw_family: track2h_quantile_probabilistic_gaussian_nll_fw
+          bw_family: track2h_quantile_probabilistic_gaussian_nll_bw
 evaluation:
   selected_harmonics:
     - 0
