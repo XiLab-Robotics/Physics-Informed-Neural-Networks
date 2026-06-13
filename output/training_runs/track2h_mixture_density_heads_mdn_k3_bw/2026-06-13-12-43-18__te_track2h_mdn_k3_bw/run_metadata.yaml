@@ -1,0 +1,11 @@
+schema_version: 1
+artifact_kind: training_run
+model_family: track2h_mixture_density_heads_mdn_k3_bw
+base_model_family: track2h_mixture_density_heads_mdn_k3_bw
+training_variant: Bw
+direction_scope_label: backward_only
+use_forward_direction: false
+use_backward_direction: true
+run_name: te_track2h_mdn_k3_bw
+run_instance_id: 2026-06-13-12-43-18__te_track2h_mdn_k3_bw
+output_directory: output\training_runs\track2h_mixture_density_heads_mdn_k3_bw\2026-06-13-12-43-18__te_track2h_mdn_k3_bw

@@ -1,0 +1,94 @@
+schema_version: 1
+config_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\config\training\queue\running\2026-06-13-11-11-47_006_06_mdn_k3_bw.yaml
+experiment:
+  model_family: track2h_mixture_density_heads_mdn_k3_bw
+  model_type: curve_aware_harmonic_residual_offset_probe
+  run_name: te_track2h_mdn_k3_bw
+  output_run_name: te_track2h_mdn_k3_bw
+  run_instance_id: 2026-06-13-12-43-18__te_track2h_mdn_k3_bw
+  output_artifact_kind: training_run
+  base_model_family: track2h_mixture_density_heads_mdn_k3_bw
+  training_variant: Bw
+  direction_scope_label: backward_only
+  use_forward_direction: false
+  use_backward_direction: true
+artifacts:
+  output_directory: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_runs\track2h_mixture_density_heads_mdn_k3_bw\2026-06-13-12-43-18__te_track2h_mdn_k3_bw
+  best_checkpoint_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_runs\track2h_mixture_density_heads_mdn_k3_bw\2026-06-13-12-43-18__te_track2h_mdn_k3_bw\checkpoints\curve_aware_harmonic_residual_offset_probe-epoch=166-val_mae=0.00277494.ckpt
+dataset_split:
+  train_curve_count: 678
+  validation_curve_count: 194
+  test_curve_count: 97
+model_summary:
+  backbone_name: HarmonicResidualOffsetNetwork
+  trainable_parameter_count: 87435
+  frozen_parameter_count: 0
+  total_parameter_count: 87435
+runtime_config:
+  accelerator: auto
+  devices: auto
+  precision: '32'
+  benchmark: true
+  use_non_blocking_transfer: true
+normalization_statistics:
+  input_feature_mean:
+  - 179.98097229003906
+  - 497.85809326171875
+  - 896.0145874023438
+  - 30.364091873168945
+  - -1.0
+  input_feature_std:
+  - 103.92329406738281
+  - 466.8043212890625
+  - 543.8323974609375
+  - 4.080519199371338
+  - 9.999999974752427e-07
+  target_mean:
+  - 0.022425448521971703
+  target_std:
+  - 0.024957336485385895
+validation_metrics:
+  val_loss: -0.6210508346557617
+  val_mae: 0.0027749391738325357
+  val_rmse: 0.0033077900297939777
+  val_pointwise_loss: -0.6210508346557617
+  val_centered_curve_shape_loss: 0.015850402414798737
+  val_curve_offset_loss: 0.011294792406260967
+  val_curve_amplitude_loss: 0.06913583725690842
+  val_sparse_harmonic_shape_loss: 0.0003184445376973599
+  val_mixture_weight_entropy: 0.0615902803838253
+  val_mixture_effective_components: 1.0785731077194214
+  val_mixture_mean_sigma: 0.013125225901603699
+  val_mixture_component_separation: 0.03513303026556969
+  val_structured_mae: 0.031101778149604797
+  val_structured_rmse: 0.042972151190042496
+  val_residual_offset_mean_abs: 0.054074693471193314
+test_metrics:
+  test_loss: -0.13961277902126312
+  test_mae: 0.0027206498198211193
+  test_rmse: 0.003250048728659749
+  test_pointwise_loss: -0.13961277902126312
+  test_centered_curve_shape_loss: 0.007810280658304691
+  test_curve_offset_loss: 0.014764934778213501
+  test_curve_amplitude_loss: 0.028436854481697083
+  test_sparse_harmonic_shape_loss: 0.00013787305215373635
+  test_mixture_weight_entropy: 0.032688822597265244
+  test_mixture_effective_components: 1.0408796072006226
+  test_mixture_mean_sigma: 0.012380789965391159
+  test_mixture_component_separation: 0.036077577620744705
+  test_structured_mae: 0.030788620933890343
+  test_structured_rmse: 0.0423344261944294
+  test_residual_offset_mean_abs: 0.05876747518777847
+comparison_payload:
+  model_family: track2h_mixture_density_heads_mdn_k3_bw
+  model_type: curve_aware_harmonic_residual_offset_probe
+  run_name: te_track2h_mdn_k3_bw
+  backbone_name: HarmonicResidualOffsetNetwork
+  trainable_parameter_count: 87435
+  total_parameter_count: 87435
+  val_mae: 0.0027749391738325357
+  val_rmse: 0.0033077900297939777
+  test_mae: 0.0027206498198211193
+  test_rmse: 0.003250048728659749
+  deployment_notes: ''
+  interpretability_notes: ''

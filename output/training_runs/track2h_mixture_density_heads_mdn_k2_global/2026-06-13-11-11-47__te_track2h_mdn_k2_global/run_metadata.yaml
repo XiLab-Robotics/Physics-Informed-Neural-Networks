@@ -1,0 +1,11 @@
+schema_version: 1
+artifact_kind: training_run
+model_family: track2h_mixture_density_heads_mdn_k2_global
+base_model_family: track2h_mixture_density_heads_mdn_k2_global
+training_variant: global
+direction_scope_label: bidirectional
+use_forward_direction: true
+use_backward_direction: true
+run_name: te_track2h_mdn_k2_global
+run_instance_id: 2026-06-13-11-11-47__te_track2h_mdn_k2_global
+output_directory: output\training_runs\track2h_mixture_density_heads_mdn_k2_global\2026-06-13-11-11-47__te_track2h_mdn_k2_global

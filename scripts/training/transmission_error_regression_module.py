@@ -86,6 +86,10 @@ class TransmissionErrorRegressionModule(LightningModule):
         gaussian_log_sigma_min = float(loss_configuration.get("gaussian_log_sigma_min", -7.0))
         gaussian_log_sigma_max = float(loss_configuration.get("gaussian_log_sigma_max", 5.0))
         gaussian_sigma_min = float(loss_configuration.get("gaussian_sigma_min", 1.0e-4))
+        mixture_component_count = int(loss_configuration.get("mixture_component_count", 1))
+        mixture_log_sigma_min = float(loss_configuration.get("mixture_log_sigma_min", -7.0))
+        mixture_log_sigma_max = float(loss_configuration.get("mixture_log_sigma_max", 5.0))
+        mixture_sigma_min = float(loss_configuration.get("mixture_sigma_min", 1.0e-4))
         quantile_crossing_penalty_weight = float(loss_configuration.get("quantile_crossing_penalty_weight", 0.0))
 
         assert deterministic_output_index >= 0, f"Deterministic Output Index must be non-negative | {deterministic_output_index}"
@@ -93,6 +97,11 @@ class TransmissionErrorRegressionModule(LightningModule):
             f"Gaussian log-sigma bounds must be ordered | {gaussian_log_sigma_min} vs {gaussian_log_sigma_max}"
         )
         assert gaussian_sigma_min > 0.0, f"Gaussian Sigma Min must be positive | {gaussian_sigma_min}"
+        assert mixture_component_count > 0, f"Mixture Component Count must be positive | {mixture_component_count}"
+        assert mixture_log_sigma_min < mixture_log_sigma_max, (
+            f"Mixture log-sigma bounds must be ordered | {mixture_log_sigma_min} vs {mixture_log_sigma_max}"
+        )
+        assert mixture_sigma_min > 0.0, f"Mixture Sigma Min must be positive | {mixture_sigma_min}"
         assert all(0.0 < quantile_level < 1.0 for quantile_level in quantile_level_list), (
             f"Quantile levels must be inside (0, 1) | {quantile_level_list}"
         )
@@ -106,6 +115,10 @@ class TransmissionErrorRegressionModule(LightningModule):
             "gaussian_log_sigma_min": gaussian_log_sigma_min,
             "gaussian_log_sigma_max": gaussian_log_sigma_max,
             "gaussian_sigma_min": gaussian_sigma_min,
+            "mixture_component_count": mixture_component_count,
+            "mixture_log_sigma_min": mixture_log_sigma_min,
+            "mixture_log_sigma_max": mixture_log_sigma_max,
+            "mixture_sigma_min": mixture_sigma_min,
             "quantile_crossing_penalty_weight": quantile_crossing_penalty_weight,
             "point_weight": float(weight_dictionary.get("point", 1.0)),
             "centered_weight": float(weight_dictionary.get("centered", 0.0)),
@@ -144,6 +157,9 @@ class TransmissionErrorRegressionModule(LightningModule):
 
         if pointwise_loss_name in ["gaussian_nll", "gaussian_negative_log_likelihood"]:
             return self.compute_gaussian_negative_log_likelihood_loss(prediction_tensor, target_tensor)
+
+        if pointwise_loss_name in ["mixture_density_nll", "mdn_nll", "mixture_gaussian_nll"]:
+            return self.compute_mixture_density_negative_log_likelihood_loss(prediction_tensor, target_tensor)
 
         raise ValueError(f"Unsupported pointwise loss | {pointwise_loss_name}")
 
@@ -197,6 +213,70 @@ class TransmissionErrorRegressionModule(LightningModule):
         log_two_pi_tensor = torch.log(torch.as_tensor(2.0 * torch.pi, device=prediction_tensor.device, dtype=prediction_tensor.dtype))
         return torch.mean(0.5 * torch.square(normalized_residual_tensor) + log_sigma_tensor + 0.5 * log_two_pi_tensor)
 
+    def split_mixture_density_output_tensor(
+        self,
+        prediction_tensor: torch.Tensor,
+    ) -> tuple[torch.Tensor, torch.Tensor, torch.Tensor]:
+
+        """Split MDN output into logits, means, and guarded log-sigmas."""
+
+        component_count = int(self.loss_configuration["mixture_component_count"])
+        expected_output_size = component_count * 3
+        assert prediction_tensor.shape[-1] == expected_output_size, (
+            f"MDN output size mismatch | {prediction_tensor.shape[-1]} vs {expected_output_size}"
+        )
+
+        mixture_logit_tensor = prediction_tensor[:, 0:component_count]
+        component_mean_tensor = prediction_tensor[:, component_count:2 * component_count]
+        raw_log_sigma_tensor = prediction_tensor[:, 2 * component_count:3 * component_count]
+        log_sigma_tensor = torch.clamp(
+            raw_log_sigma_tensor,
+            min=float(self.loss_configuration["mixture_log_sigma_min"]),
+            max=float(self.loss_configuration["mixture_log_sigma_max"]),
+        )
+        return mixture_logit_tensor, component_mean_tensor, log_sigma_tensor
+
+    def compute_mixture_density_negative_log_likelihood_loss(
+        self,
+        prediction_tensor: torch.Tensor,
+        target_tensor: torch.Tensor,
+    ) -> torch.Tensor:
+
+        """Compute stable Gaussian-mixture NLL in normalized target space."""
+
+        mixture_logit_tensor, component_mean_tensor, log_sigma_tensor = self.split_mixture_density_output_tensor(
+            prediction_tensor
+        )
+        sigma_tensor = torch.clamp(
+            torch.exp(log_sigma_tensor),
+            min=float(self.loss_configuration["mixture_sigma_min"]),
+        )
+        normalized_residual_tensor = (target_tensor - component_mean_tensor) / sigma_tensor
+        log_two_pi_tensor = torch.log(
+            torch.as_tensor(2.0 * torch.pi, device=prediction_tensor.device, dtype=prediction_tensor.dtype)
+        )
+        component_log_probability_tensor = (
+            -0.5 * torch.square(normalized_residual_tensor)
+            - log_sigma_tensor
+            - 0.5 * log_two_pi_tensor
+        )
+        mixture_log_weight_tensor = torch_functional.log_softmax(mixture_logit_tensor, dim=-1)
+        sample_log_probability_tensor = torch.logsumexp(
+            mixture_log_weight_tensor + component_log_probability_tensor,
+            dim=-1,
+        )
+        return torch.mean(-sample_log_probability_tensor)
+
+    def compute_mixture_expectation_tensor(self, model_output_tensor: torch.Tensor) -> torch.Tensor:
+
+        """Compute deterministic MDN playback as the mixture expectation."""
+
+        mixture_logit_tensor, component_mean_tensor, _log_sigma_tensor = self.split_mixture_density_output_tensor(
+            model_output_tensor
+        )
+        mixture_weight_tensor = torch.softmax(mixture_logit_tensor, dim=-1)
+        return torch.sum(mixture_weight_tensor * component_mean_tensor, dim=-1, keepdim=True)
+
     def extract_deterministic_prediction_tensor(self, model_output_tensor: torch.Tensor) -> torch.Tensor:
 
         """Select the deterministic channel used for MAE/RMSE and Track 2 playback."""
@@ -212,6 +292,9 @@ class TransmissionErrorRegressionModule(LightningModule):
                 f"Deterministic Output Index out of range | {deterministic_output_index} vs {model_output_tensor.shape[-1]}"
             )
             return model_output_tensor[:, deterministic_output_index:deterministic_output_index + 1]
+
+        if pointwise_loss_name in ["mixture_density_nll", "mdn_nll", "mixture_gaussian_nll"]:
+            return self.compute_mixture_expectation_tensor(model_output_tensor)
 
         assert model_output_tensor.shape[-1] == self.target_mean.numel(), (
             f"Deterministic output size mismatch | {model_output_tensor.shape[-1]} vs {self.target_mean.numel()}"
@@ -259,6 +342,29 @@ class TransmissionErrorRegressionModule(LightningModule):
             metric_dictionary["interval_coverage"] = torch.mean(coverage_tensor)
             metric_dictionary["interval_width"] = torch.mean(torch.abs(interval_width_tensor))
             metric_dictionary["mean_sigma"] = torch.mean(sigma_tensor * self.target_std)
+
+        if pointwise_loss_name in ["mixture_density_nll", "mdn_nll", "mixture_gaussian_nll"]:
+            mixture_logit_tensor, component_mean_tensor, log_sigma_tensor = self.split_mixture_density_output_tensor(
+                model_output_tensor
+            )
+            mixture_weight_tensor = torch.softmax(mixture_logit_tensor, dim=-1)
+            log_mixture_weight_tensor = torch_functional.log_softmax(mixture_logit_tensor, dim=-1)
+            sigma_tensor = torch.clamp(
+                torch.exp(log_sigma_tensor),
+                min=float(self.loss_configuration["mixture_sigma_min"]),
+            )
+            entropy_tensor = -torch.sum(mixture_weight_tensor * log_mixture_weight_tensor, dim=-1)
+            effective_component_tensor = torch.exp(entropy_tensor)
+            component_mean_physical_tensor = self.denormalize_target_tensor(component_mean_tensor)
+            component_scale_physical_tensor = sigma_tensor * self.target_std
+            component_separation_tensor = (
+                torch.max(component_mean_physical_tensor, dim=-1).values
+                - torch.min(component_mean_physical_tensor, dim=-1).values
+            )
+            metric_dictionary["mixture_weight_entropy"] = torch.mean(entropy_tensor)
+            metric_dictionary["mixture_effective_components"] = torch.mean(effective_component_tensor)
+            metric_dictionary["mixture_mean_sigma"] = torch.mean(component_scale_physical_tensor)
+            metric_dictionary["mixture_component_separation"] = torch.mean(torch.abs(component_separation_tensor))
 
         return metric_dictionary
 
@@ -590,7 +696,16 @@ class TransmissionErrorRegressionModule(LightningModule):
         self.log(f"{log_prefix}_curve_offset_loss", batch_output_dictionary["curve_offset_loss"], on_step=False, on_epoch=True, prog_bar=False, batch_size=batch_size)
         self.log(f"{log_prefix}_curve_amplitude_loss", batch_output_dictionary["curve_amplitude_loss"], on_step=False, on_epoch=True, prog_bar=False, batch_size=batch_size)
         self.log(f"{log_prefix}_sparse_harmonic_shape_loss", batch_output_dictionary["sparse_harmonic_shape_loss"], on_step=False, on_epoch=True, prog_bar=False, batch_size=batch_size)
-        for probabilistic_metric_name in ["interval_coverage", "interval_width", "quantile_crossing_rate", "mean_sigma"]:
+        for probabilistic_metric_name in [
+            "interval_coverage",
+            "interval_width",
+            "quantile_crossing_rate",
+            "mean_sigma",
+            "mixture_weight_entropy",
+            "mixture_effective_components",
+            "mixture_mean_sigma",
+            "mixture_component_separation",
+        ]:
             probabilistic_metric_value = batch_output_dictionary.get(probabilistic_metric_name)
             if isinstance(probabilistic_metric_value, torch.Tensor):
                 self.log(f"{log_prefix}_{probabilistic_metric_name}", probabilistic_metric_value, on_step=False, on_epoch=True, prog_bar=False, batch_size=batch_size)

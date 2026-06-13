@@ -2718,14 +2718,17 @@ Operational rule:
 - when the user says the campaign is finished, use the stored state to gather artifacts for the final results report;
 - when the user cancels the campaign, inspect completed, failed, running, and pending items before deciding what to keep or stop.
 
-Current prepared Track 2F-bis harmonic-offset probe:
+Most recent completed Track 2H mixture-density heads campaign:
 
-- campaign name: `track2f_bis_harmonic_offset_probe_campaign_2026_06_04`
-- planning report: `doc/reports/campaign_plans/track2/2026-06-04-22-57-04_track2f_bis_harmonic_offset_probe_campaign_plan_report.md`
-- config package: `config/training/track2f_bis_harmonic_offset_probe/campaigns/2026-06-04_track2f_bis_harmonic_offset_probe_campaign/`
-- canonical launcher: `scripts/campaigns/track2/run_track2f_bis_harmonic_offset_probe_campaign.ps1`
-- local command: `.\scripts\campaigns\track2\run_track2f_bis_harmonic_offset_probe_campaign.ps1`
-- remote command: `.\scripts\campaigns\track2\run_track2f_bis_harmonic_offset_probe_campaign.ps1 -Remote`
+- campaign name: `track2h_mixture_density_heads_campaign_2026_06_13`
+- planning report: `doc/reports/campaign_plans/track2/2026-06-13-10-40-25_track2h_mixture_density_heads_campaign_plan_report.md`
+- closeout report: `doc/reports/campaign_results/track2/2026-06-13-13-24-37_track2h_mixture_density_heads_campaign_results_report.md`
+- config package: `config/training/track2h_mixture_density_heads/campaigns/2026-06-13_track2h_mixture_density_heads_campaign/`
+- canonical launcher: `scripts/campaigns/track2/run_track2h_mixture_density_heads_campaign.ps1`
+- local command: `.\scripts\campaigns\track2\run_track2h_mixture_density_heads_campaign.ps1`
+- remote command: `.\scripts\campaigns\track2\run_track2h_mixture_density_heads_campaign.ps1 -Remote`
+- status: normal campaign closeout completed; optional official `Track 2`
+  verification refresh remains separate.
 
 Current finished Wave 1 residual-family follow-up campaign:
 

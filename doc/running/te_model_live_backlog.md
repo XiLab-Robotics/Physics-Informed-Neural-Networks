@@ -24,17 +24,18 @@ Historical rationale and approval history remain in:
 - Program State: active.
 - Active Campaign State: no prepared or active campaign is currently protected
   in `doc/running/active_training_campaign.yaml`.
-- Current Completed Wave: `Track 2H` quantile/probabilistic campaign closeout
-  and official `Track 2` verification refresh are complete.
+- Current Completed Wave: `Track 2H` mixture-density heads campaign closeout
+  is complete; official `Track 2` verification refresh for MDN candidates is
+  pending as a separate optional workflow.
 - Current Completed Track: `Track 1` RCIM paper-faithful model bank, closed as
   a faithful full-bank reproduction surface for Tables `2`-`5`.
 - Current Completed Track: `Track 2` official offline model-verification
   report, closed as the canonical direction-aware verification surface for new
   model families.
-- Current Focus: prepare the next dispersion-aware modeling package around
-  mixture-density heads or latent-state / hysteresis-aware variants, while
-  preserving the validated robust-loss and probabilistic evidence as candidate
-  ingredients for the later integrated multi-task / multi-head branch.
+- Current Focus: prepare a separate official `Track 2` verification refresh
+  for the six MDN candidates, then decide whether to continue with
+  latent-state / hysteresis-aware variants or package the first real `Wave 3`
+  hybrid structured campaign.
 - Parallel Diagnostic Focus: component-offset, `Track 2D` h0 cross-check, and
   predicted-mean versus measured-h0 diagnostics are complete; `h0` is the
   correct mean-like channel to inspect, but not the confirmed sole cause of the
@@ -62,6 +63,7 @@ Current canonical status reports:
 - `doc/reports/analysis/track2/component_offset_identification/[2026-06-10]/track2d_predicted_mean_h0_surface_diagnostic.md`
 - `doc/reports/campaign_results/track2/2026-06-11-14-01-57_track2h_dispersion_aware_modeling_campaign_results_report.md`
 - `doc/reports/campaign_results/track2/2026-06-12-13-54-57_track2h_quantile_probabilistic_campaign_results_report.md`
+- `doc/reports/campaign_results/track2/2026-06-13-13-24-37_track2h_mixture_density_heads_campaign_results_report.md`
 - `doc/reports/campaign_results/track2/2026-06-09-01-56-25_track2g_curve_aware_training_campaign_results_report.md`
 - `doc/reports/analysis/wave1/Wave 1 - Closeout Status.md`
 - `doc/reports/analysis/te_modeling/Curve-First TE Training Strategy.md`
@@ -211,8 +213,8 @@ Next planned diagnostic and training decision branches:
 | Offset-aware checkpoint selection | Monitor curve-bias, centered-shape, P95, harmonic phase, then scalar `val_mae`. | next decision candidate |
 | Curve-aware loss branch | Add pointwise, bias, centered-shape, slope, harmonic amplitude, and harmonic phase terms while preserving causal inputs. | next decision candidate |
 | Component-offset identification | Test whether curve offset is dominated by `a_0` / `Component 0`, multiple components, condition/regime behavior, or experimental repeatability limits. | measured `h0`, signed-offset cross-check, and predicted-mean surface diagnostics completed; `h0` is the right mean channel, but the actionable issue is model-side mean-surface bias/compression |
-| `Track 2H` dispersion-aware modeling probes | Test robust losses, quantile or probabilistic heads, mixture-density heads, and latent-state or hysteresis-aware features on the offset and fragile-harmonic problem. | robust-loss and quantile/probabilistic campaigns plus official Track 2 refreshes completed; both verified exploratory baselines, not promoted |
-| `Wave 3` hybrid structured models | Combine harmonic structure, condition-conditioned residual learning, and explicit grouped treatment of stable and fragile harmonic bands. | `wave3_harmonic_prior_residual` skeleton is training-smoke-ready; real campaign packaging waits for `Track 2H` closeout |
+| `Track 2H` dispersion-aware modeling probes | Test robust losses, quantile or probabilistic heads, mixture-density heads, and latent-state or hysteresis-aware features on the offset and fragile-harmonic problem. | robust-loss and quantile/probabilistic campaigns plus official Track 2 refreshes completed; MDN campaign closeout completed with a strong scalar `Bw` result and official Track 2 refresh pending |
+| `Wave 3` hybrid structured models | Combine harmonic structure, condition-conditioned residual learning, and explicit grouped treatment of stable and fragile harmonic bands. | `wave3_harmonic_prior_residual` skeleton is training-smoke-ready; real campaign packaging waits for the MDN Track 2 refresh or an explicit decision to skip directly to Wave 3 |
 | `Wave 4` PINN formulation and first PINN | Test soft physics, periodicity, smoothness, harmonic-consistency, and operating-condition constraints in a first narrow PINN branch. | `Wave 4A` MMT diagnostic and parameter inventory are generated; dataset-aligned calibration and `Wave 4B` / `Wave 4C` decision gates remain open |
 | Integrated multi-task / multi-head model branch | Shared causal trunk with separate offset, low-frequency, centered-shape, uncertainty or mixture, and optional structured-residual heads. | deferred until `Track 2H`, `Wave 3`, and `Wave 4` identify which mechanisms should be integrated |
 | Sequential residual calibration branch | Current best causal model plus second causal residual or offset calibrator trained on model error. | candidate after audit |
@@ -232,8 +234,9 @@ Current `Track 2E` observations:
 
 Recommended next gate:
 
-- prepare the next `Track 2H` package in staged order: mixture-density heads,
-  then latent-state / hysteresis-aware models;
+- prepare the separate official `Track 2` refresh for the completed MDN
+  candidates, then decide whether to run latent-state / hysteresis-aware
+  probes before `Wave 3`;
 - treat `Wave 3` hybrid structured models and `Wave 4` first-PINN formulation
   as evidence-generating branches before the integrated multi-task /
   multi-head architecture; `Wave 3` now resumes from the
@@ -978,9 +981,39 @@ Entry rule:
 - design conclusion: probabilistic losses improve over robust losses on the
   best `global` and `Bw` Track 2 surfaces, and the quantile `Bw` branch beats
   `tree_Bw` on Track 2 MAE, but the accepted periodic temporal branch remains
-  stronger; the next package should test mixture-density heads and
-  latent-state / hysteresis-aware variants before integrating mechanisms into
-  a multi-task / multi-head architecture.
+  stronger; mixture-density heads have now been tested as the next staged
+  probe, while latent-state / hysteresis-aware variants remain conditional on
+  the MDN Track 2 refresh decision.
+
+### Track 2H. Mixture Density Heads Probe
+
+- status: mixture-density heads campaign completed; official `Track 2` matrix
+  refresh pending as a separate optional workflow;
+- families:
+  - `track2h_mixture_density_heads_mdn_k2_global`;
+  - `track2h_mixture_density_heads_mdn_k2_fw`;
+  - `track2h_mixture_density_heads_mdn_k2_bw`;
+  - `track2h_mixture_density_heads_mdn_k3_global`;
+  - `track2h_mixture_density_heads_mdn_k3_fw`;
+  - `track2h_mixture_density_heads_mdn_k3_bw`;
+- closeout report:
+  `doc/reports/campaign_results/track2/2026-06-13-13-24-37_track2h_mixture_density_heads_campaign_results_report.md`;
+- strongest MDN global candidate:
+  `te_track2h_mdn_k2_global`, scalar test MAE `0.003503 deg`;
+- strongest MDN forward candidate:
+  `te_track2h_mdn_k3_fw`, scalar test MAE `0.003235 deg`;
+- strongest MDN backward candidate:
+  `te_track2h_mdn_k2_bw`, scalar test MAE `0.002658 deg`;
+- campaign scalar winner:
+  `te_track2h_mdn_k2_bw`;
+- program scalar winner changed: no, `te_periodic_gru_sequence_remote_Bw`
+  remains stronger with test MAE `0.002344 deg`;
+- design conclusion: MDN improves the scalar `Bw` dispersion-aware branch by
+  `9.19%` versus the previous best probabilistic `Bw` result and by about
+  `13.5%` versus the robust-loss `Bw` result, but it is weaker on `global` and
+  `Fw`; mixture diagnostics show effective component counts near `1.0`, so the
+  result should be treated as useful MDN training pressure, not confirmed
+  learned multimodality.
 
 ### Wave 3. Hybrid Structured Models
 
@@ -995,9 +1028,10 @@ Entry rule:
     `scripts/campaigns/wave3/run_wave3_training_smoke_ready_checks.ps1`;
   - final one-batch validation artifact:
     `output/validation_checks/wave3_harmonic_prior_residual/2026-06-11-19-44-20__te_wave3_harmonic_prior_residual_training_smoke_ready_wave3_training_smoke_ready_final/validation_summary.yaml`;
-- updated priority: after `Track 2H` closeout, package the first real Wave 3
-  campaign from the training-smoke-ready scaffold before the integrated
-  multi-task / multi-head campaign;
+- updated priority: after the optional MDN `Track 2` refresh, package the first
+  real Wave 3 campaign from the training-smoke-ready scaffold before the
+  integrated multi-task / multi-head campaign, unless the refresh strongly
+  favors a latent-state / hysteresis-aware Track 2H probe first;
 - mandatory rule: prepare or justify `global`, `forward`, and `backward`
   surfaces;
 - paper-reproduction scope:
@@ -1007,8 +1041,8 @@ Entry rule:
   - prepare the repository-owned deployable predictor package after the
     research branch has identified a viable structure.
 - next implementation steps:
-  - consume `Track 2H` results to choose the robust-loss default or confirm
-    pointwise control;
+  - consume `Track 2H` robust, probabilistic, and MDN results to choose the
+    training-loss default or confirm pointwise control;
   - prepare real `global`, `Fw`, and `Bw` campaign YAMLs only after the
     campaign-plan gate;
   - preserve the validation-only config under

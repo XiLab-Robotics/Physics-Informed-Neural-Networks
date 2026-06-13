@@ -1,0 +1,1 @@
+C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_runs\track2h_mixture_density_heads_mdn_k3_global\2026-06-13-12-14-13__te_track2h_mdn_k3_global\checkpoints\curve_aware_harmonic_residual_offset_probe-epoch=034-val_mae=0.00361697.ckpt

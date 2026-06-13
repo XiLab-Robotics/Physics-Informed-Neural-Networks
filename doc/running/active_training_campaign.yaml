@@ -1,40 +1,30 @@
 status: none
-updated_at: '2026-06-12T15:56:16+02:00'
-notes: No prepared or active training campaign is currently protected. Track 2H quantile/probabilistic closeout and official Track 2 verification refresh are complete.
+updated_at: '2026-06-13T13:24:37+02:00'
+notes: No prepared or active training campaign is currently protected. Track 2H mixture-density heads closeout is complete; official Track 2 verification refresh is pending as a separate optional step.
 last_completed_campaign:
-  campaign_name: track2h_quantile_probabilistic_campaign_2026_06_12
-  completed_at: '2026-06-12T13:53:26+02:00'
-  campaign_output_directory: output/training_campaigns/2026-06-12-11-16-18_track2h_quantile_probabilistic_campaign_2026_06_12
-  closeout_report_path: doc/reports/campaign_results/track2/2026-06-12-13-54-57_track2h_quantile_probabilistic_campaign_results_report.md
-  planning_report_path: doc/reports/campaign_plans/track2/2026-06-12-00-01-04_track2h_quantile_probabilistic_campaign_plan_report.md
-  technical_document_path: doc/technical/2026-06/2026-06-11/2026-06-11-23-49-15_track2h_quantile_probabilistic_package.md
+  campaign_name: track2h_mixture_density_heads_campaign_2026_06_13
+  completed_at: '2026-06-13T13:24:37+02:00'
+  campaign_output_directory: output/training_campaigns/2026-06-13-11-11-47_track2h_mixture_density_heads_campaign_2026_06_13
+  closeout_report_path: doc/reports/campaign_results/track2/2026-06-13-13-24-37_track2h_mixture_density_heads_campaign_results_report.md
+  planning_report_path: doc/reports/campaign_plans/track2/2026-06-13-10-40-25_track2h_mixture_density_heads_campaign_plan_report.md
+  technical_document_path: doc/technical/2026-06/2026-06-13/2026-06-13-10-40-25_track2h_mixture_density_heads_package.md
   completed_run_count: 6
   failed_run_count: 0
-  best_scalar_run_name: te_track2h_quantile_p10_p50_p90_bw
-  best_scalar_family: track2h_quantile_probabilistic_quantile_p10_p50_p90_bw
-  best_scalar_test_mae: 0.0029270444065332413
+  best_scalar_run_name: te_track2h_mdn_k2_bw
+  best_scalar_family: track2h_mixture_density_heads_mdn_k2_bw
+  best_scalar_test_mae: 0.002658107550814748
   program_winner_changed: false
   branch_best_list:
   - surface: global
-    run_name: te_track2h_gaussian_nll_global
-    family: track2h_quantile_probabilistic_gaussian_nll_global
-    test_mae: 0.003013107692822814
-    deterministic_curve: mu
+    run_name: te_track2h_mdn_k2_global
+    model_family: track2h_mixture_density_heads_mdn_k2_global
+    test_mae: 0.0035025011748075485
   - surface: Fw
-    run_name: te_track2h_gaussian_nll_fw
-    family: track2h_quantile_probabilistic_gaussian_nll_fw
-    test_mae: 0.0031647486612200737
-    deterministic_curve: mu
+    run_name: te_track2h_mdn_k3_fw
+    model_family: track2h_mixture_density_heads_mdn_k3_fw
+    test_mae: 0.00323542975820601
   - surface: Bw
-    run_name: te_track2h_quantile_p10_p50_p90_bw
-    family: track2h_quantile_probabilistic_quantile_p10_p50_p90_bw
-    test_mae: 0.0029270444065332413
-    deterministic_curve: p50
-  track2_status: completed_official_refresh
-  track2_completed_at: '2026-06-12T15:56:16+02:00'
-  track2_matrix_output_directory: output/validation_checks/track2_reference_comparison/2026-06-12-14-44-45__track2_full_directional_family_matrix_track2h_quantile_probabilistic_track2_refresh_2026_06_12
-  track2_official_report_path: doc/reports/analysis/track2/official_model_verification_report/[2026-06-12]/track2_official_model_verification_report.md
-  track2_decision: verified_exploratory_baseline_not_promoted
-  track2_strongest_probabilistic_global: track2h_gaussian_nll_global
-  track2_strongest_probabilistic_forward: track2h_gaussian_nll_global
-  track2_strongest_probabilistic_backward: track2h_quantile_p10_p50_p90_Bw
+    run_name: te_track2h_mdn_k2_bw
+    model_family: track2h_mixture_density_heads_mdn_k2_bw
+    test_mae: 0.002658107550814748
+  track2_status: pending_optional_refresh

@@ -1,0 +1,38 @@
+schema_version: 1
+model_family: track2h_mixture_density_heads_mdn_k3_bw
+selection_policy:
+  primary_metric: test_mae
+  first_tie_breaker: test_rmse
+  second_tie_breaker: val_mae
+  third_tie_breaker: trainable_parameter_count
+  direction: minimize
+updated_at: '2026-06-13T13:10:07'
+best_entry:
+  run_instance_id: 2026-06-13-12-43-18__te_track2h_mdn_k3_bw
+  run_name: te_track2h_mdn_k3_bw
+  output_run_name: te_track2h_mdn_k3_bw
+  output_artifact_kind: training_run
+  model_family: track2h_mixture_density_heads_mdn_k3_bw
+  base_model_family: track2h_mixture_density_heads_mdn_k3_bw
+  model_type: curve_aware_harmonic_residual_offset_probe
+  training_variant: Bw
+  direction_scope_label: backward_only
+  use_forward_direction: false
+  use_backward_direction: true
+  trainable_parameter_count: 87435
+  total_parameter_count: 87435
+  val_mae: 0.0027749391738325357
+  val_rmse: 0.0033077900297939777
+  test_mae: 0.0027206498198211193
+  test_rmse: 0.003250048728659749
+  output_directory: output\training_runs\track2h_mixture_density_heads_mdn_k3_bw\2026-06-13-12-43-18__te_track2h_mdn_k3_bw
+  best_checkpoint_path: output\training_runs\track2h_mixture_density_heads_mdn_k3_bw\2026-06-13-12-43-18__te_track2h_mdn_k3_bw\checkpoints\curve_aware_harmonic_residual_offset_probe-epoch=166-val_mae=0.00277494.ckpt
+  metrics_path: output\training_runs\track2h_mixture_density_heads_mdn_k3_bw\2026-06-13-12-43-18__te_track2h_mdn_k3_bw/metrics_summary.yaml
+  report_path: output\training_runs\track2h_mixture_density_heads_mdn_k3_bw\2026-06-13-12-43-18__te_track2h_mdn_k3_bw/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-06-13T13:10:07'

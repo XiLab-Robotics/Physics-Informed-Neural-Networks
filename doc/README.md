@@ -230,6 +230,11 @@ This folder contains the internal project documents derived from the reference P
   mixture-density, and latent-state / hysteresis-aware modeling probes before
   the integrated multi-task / multi-head branch.
 
+- [reports/campaign_plans/track2/2026-06-13-10-40-25_track2h_mixture_density_heads_campaign_plan_report.md](./reports/campaign_plans/track2/2026-06-13-10-40-25_track2h_mixture_density_heads_campaign_plan_report.md)
+  Preliminary campaign plan for the next `Track 2H` package, focused on
+  two- and three-component mixture-density heads across `global`, `Fw`, and
+  `Bw`.
+
 - [reports/campaign_plans/track2/2026-06-12-00-01-04_track2h_quantile_probabilistic_campaign_plan_report.md](./reports/campaign_plans/track2/2026-06-12-00-01-04_track2h_quantile_probabilistic_campaign_plan_report.md)
   Preliminary campaign plan for the second `Track 2H` package, focused on
   quantile and Gaussian probabilistic regression candidates across `global`,
@@ -239,6 +244,12 @@ This folder contains the internal project documents derived from the reference P
   Final results report for the completed second `Track 2H`
   quantile/probabilistic campaign, including scalar branch winners,
   calibration diagnostics, robust-loss comparison, and the boundary that
+  official `Track 2` curve verification remains separate.
+
+- [reports/campaign_results/track2/2026-06-13-13-24-37_track2h_mixture_density_heads_campaign_results_report.md](./reports/campaign_results/track2/2026-06-13-13-24-37_track2h_mixture_density_heads_campaign_results_report.md)
+  Final results report for the completed third `Track 2H` mixture-density
+  campaign, including scalar branch winners, mixture-collapse diagnostics,
+  comparison against robust/probabilistic probes, and the boundary that
   official `Track 2` curve verification remains separate.
 
 - [reports/analysis/track2/official_model_verification_report/[2026-06-12]/track2_official_model_verification_report.md](./reports/analysis/track2/official_model_verification_report/%5B2026-06-12%5D/track2_official_model_verification_report.md)
@@ -370,6 +381,11 @@ This folder contains the internal project documents derived from the reference P
 ### Technical Documents
 
 #### 2026-06-13
+
+- [technical/2026-06/2026-06-13/2026-06-13-10-40-25_track2h_mixture_density_heads_package.md](./technical/2026-06/2026-06-13/2026-06-13-10-40-25_track2h_mixture_density_heads_package.md)
+  Technical note for preparing the next `Track 2H` dispersion-aware package
+  around mixture-density heads before latent-state, `Wave 3`, `Wave 4`, or
+  integrated multi-head stages.
 
 - [technical/2026-06/2026-06-13/2026-06-13-10-13-17_track2_visual_builder_auto_group_coverage.md](./technical/2026-06/2026-06-13/2026-06-13-10-13-17_track2_visual_builder_auto_group_coverage.md)
   Technical note for making `Track 2` visual builders cover newly added
@@ -2451,6 +2467,10 @@ This folder contains the internal project documents derived from the reference P
   Script-level documentation for the prepared `Track 2H`
   quantile/probabilistic campaign launcher across `global`, `Fw`, and `Bw`.
 
+- [scripts/campaigns/track2/run_track2h_mixture_density_heads_campaign.md](./scripts/campaigns/track2/run_track2h_mixture_density_heads_campaign.md)
+  Script-level documentation for the prepared `Track 2H` mixture-density heads
+  campaign launcher across `global`, `Fw`, and `Bw`.
+
 - [scripts/campaigns/track2/run_track2h_quantile_probabilistic_track2_verification_refresh.md](./scripts/campaigns/track2/run_track2h_quantile_probabilistic_track2_verification_refresh.md)
   Script-level documentation for the operator-launched `Track 2H`
   quantile/probabilistic official `Track 2` verification refresh across all
@@ -2856,6 +2876,12 @@ This folder contains the internal project documents derived from the reference P
   Technical rule document for the new `doc/reports/` topic-root, dated-bundle, and readable-filename convention.
 
 #### Campaign Results
+
+- [reports/campaign_results/track2/2026-06-13-13-24-37_track2h_mixture_density_heads_campaign_results_report.md](./reports/campaign_results/track2/2026-06-13-13-24-37_track2h_mixture_density_heads_campaign_results_report.md)
+  Final results report for the completed third `Track 2H` mixture-density
+  campaign, including scalar branch winners, mixture-collapse diagnostics,
+  comparison against robust/probabilistic probes, and the boundary that
+  official `Track 2` curve verification remains separate.
 
 - [reports/campaign_results/track2/2026-06-12-13-54-57_track2h_quantile_probabilistic_campaign_results_report.md](./reports/campaign_results/track2/2026-06-12-13-54-57_track2h_quantile_probabilistic_campaign_results_report.md)
   Final results report for the completed second `Track 2H`
