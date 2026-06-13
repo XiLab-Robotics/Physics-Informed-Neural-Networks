@@ -58,10 +58,13 @@ The launcher runs:
 1. the official full direction-aware `Track 2` matrix;
 2. the best-model collage report generation;
 3. the multi-model curve-comparison report generation;
-4. the PDF export for the two visual reports.
+4. the visual source-coverage validation against the matrix candidate list;
+5. the PDF export for the two visual reports.
 
 Use `-SkipVisualReports` to run only the matrix, or `-SkipPdfExport` to leave
-the generated visual reports as Markdown plus image artifacts.
+the generated visual reports as Markdown plus image artifacts. When visual
+reports are enabled, the launcher fails before PDF export if a registry-backed
+matrix source is not visible in the collage and overlay Markdown reports.
 
 The matrix compares the deterministic scalar curve exposed by each
 probabilistic checkpoint: `p50` for quantile candidates and `mu` for Gaussian
@@ -92,6 +95,11 @@ Visual report bundles are written under:
 Operator launch logs are written under:
 
 - `output/validation_checks/track2_operator_launch_logs/`
+
+The visual coverage step writes the `04_track2_visual_source_coverage.log`
+file in the same operator log directory. A successful run confirms that every
+registry-backed source resolved from the matrix configuration is exposed by
+the visual Markdown reports before PDF export.
 
 Remote source synchronization sends:
 

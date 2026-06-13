@@ -747,7 +747,7 @@ def resolve_report_candidate_configuration_list(
         "Could not resolve every requested Track 2 reference best candidate."
     )
 
-    return (
+    explicit_candidate_configuration_list = (
         reference_candidate_configuration_list
         + build_wave1_registry_candidate_configuration_list(family_registry_root)
         + build_wave2_registry_candidate_configuration_list(family_registry_root)
@@ -762,9 +762,119 @@ def resolve_report_candidate_configuration_list(
             output_directory,
         )
     )
+    explicit_candidate_id_set = {
+        str(candidate_configuration["candidate_id"])
+        for candidate_configuration in explicit_candidate_configuration_list
+    }
+    auto_registry_candidate_configuration_list = [
+        candidate_configuration
+        for candidate_configuration in all_candidate_configuration_list
+        if str(candidate_configuration.get("candidate_kind", "")).strip() == "wave1_registry_model"
+        and str(candidate_configuration["candidate_id"]) not in explicit_candidate_id_set
+    ]
+
+    return explicit_candidate_configuration_list + auto_registry_candidate_configuration_list
 
 
-def build_report_group_list() -> list[ReportCandidateGroup]:
+def format_auto_registry_group_title(source_label: str) -> str:
+
+    """Format a registry source label into a readable report group title."""
+
+    acronym_dictionary = {
+        "rcim": "RCIM",
+        "mlp": "MLP",
+        "gru": "GRU",
+        "lstm": "LSTM",
+        "pinn": "PINN",
+        "pinns": "PINNs",
+        "te": "TE",
+    }
+    title_part_list: list[str] = []
+    for raw_part in str(source_label).replace("-", "_").split("_"):
+        if not raw_part:
+            continue
+        lowered_part = raw_part.lower()
+        if lowered_part in acronym_dictionary:
+            title_part_list.append(acronym_dictionary[lowered_part])
+        elif lowered_part.startswith("track") and lowered_part[5:].isdigit():
+            title_part_list.append(f"Track {lowered_part[5:]}")
+        elif lowered_part.startswith("wave") and lowered_part[4:].isdigit():
+            title_part_list.append(f"Wave {lowered_part[4:]}")
+        else:
+            title_part_list.append(lowered_part.capitalize())
+    return " ".join(title_part_list)
+
+
+def build_candidate_id_list_by_surface(
+    source_candidate_configuration_list: list[dict[str, Any]],
+    surface_label: str,
+) -> list[str]:
+
+    """Build a stable candidate-id list for one source and candidate surface."""
+
+    return [
+        str(candidate_configuration["candidate_id"])
+        for candidate_configuration in source_candidate_configuration_list
+        if str(candidate_configuration.get("candidate_surface", "")).strip() == surface_label
+    ]
+
+
+def append_auto_registry_group_list(
+    group_list: list[ReportCandidateGroup],
+    candidate_configuration_list: list[dict[str, Any]],
+) -> list[ReportCandidateGroup]:
+
+    """Append matrix-discovered registry groups that are not explicitly curated."""
+
+    covered_source_label_set: set[str] = set()
+    candidate_source_lookup = {
+        str(candidate_configuration["candidate_id"]): str(candidate_configuration.get("candidate_source_label", "")).strip()
+        for candidate_configuration in candidate_configuration_list
+    }
+    for group in group_list:
+        for candidate_id in group.candidate_id_list:
+            source_label = candidate_source_lookup.get(candidate_id)
+            if source_label:
+                covered_source_label_set.add(source_label)
+
+    source_candidate_dictionary: dict[str, list[dict[str, Any]]] = {}
+    for candidate_configuration in candidate_configuration_list:
+        if str(candidate_configuration.get("candidate_kind", "")).strip() != "wave1_registry_model":
+            continue
+        source_label = str(candidate_configuration.get("candidate_source_label", "")).strip()
+        if not source_label or source_label in covered_source_label_set:
+            continue
+        source_candidate_dictionary.setdefault(source_label, []).append(candidate_configuration)
+
+    for source_label, source_candidate_configuration_list in source_candidate_dictionary.items():
+        title_label = format_auto_registry_group_title(source_label)
+        source_fragment = sanitize_filename_fragment(source_label)
+        for surface_label, selection_mode, direction_title in [
+            ("Fw", "forward", "Forward"),
+            ("Bw", "backward", "Backward"),
+            ("global", "mixed", "Global"),
+        ]:
+            candidate_id_list = build_candidate_id_list_by_surface(
+                source_candidate_configuration_list,
+                surface_label,
+            )
+            if not candidate_id_list:
+                continue
+            group_list.append(
+                ReportCandidateGroup(
+                    group_id=f"auto_{selection_mode}_{source_fragment}",
+                    group_title=f"{direction_title} {title_label} Models",
+                    candidate_id_list=candidate_id_list,
+                    selection_mode=selection_mode,
+                )
+            )
+
+    return group_list
+
+
+def build_report_group_list(
+    candidate_configuration_list: list[dict[str, Any]],
+) -> list[ReportCandidateGroup]:
 
     """Build the ordered report groups."""
 
@@ -850,7 +960,7 @@ def build_report_group_list() -> list[ReportCandidateGroup]:
         for family_configuration in TRACK2H_QUANTILE_PROBABILISTIC_FAMILY_CONFIGURATION_LIST
     ]
 
-    return [
+    group_list = [
         ReportCandidateGroup(
             group_id="forward_reference",
             group_title="Forward Reference Best Models",
@@ -1008,6 +1118,7 @@ def build_report_group_list() -> list[ReportCandidateGroup]:
             selection_mode="mixed",
         ),
     ]
+    return append_auto_registry_group_list(group_list, candidate_configuration_list)
 
 
 def sort_curve_entry_list(entry_list: list[dict[str, Any]]) -> list[dict[str, Any]]:
@@ -1362,7 +1473,7 @@ def run_track2_best_model_collage_report(arguments: argparse.Namespace) -> dict[
         per_candidate_entry_list,
         "direction_label",
     )
-    group_list = build_report_group_list()
+    group_list = build_report_group_list(candidate_configuration_list)
     candidate_summary_list: list[dict[str, Any]] = []
 
     def build_curve_key(entry_dictionary: dict[str, Any]) -> tuple[str, str]:

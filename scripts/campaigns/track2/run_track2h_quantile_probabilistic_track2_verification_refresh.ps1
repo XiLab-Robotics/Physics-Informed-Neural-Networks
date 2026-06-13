@@ -20,6 +20,7 @@ $track2ConfigPath = "config\paper_reimplementation\rcim_ml_compensation\referenc
 $matrixRunnerPath = "scripts\paper_reimplementation\rcim_ml_compensation\reference_family_vs_feedforward\run_reference_family_vs_feedforward_comparison.py"
 $collageRunnerPath = "scripts\reports\analysis\build_track2_best_model_collage_report.py"
 $overlayRunnerPath = "scripts\reports\analysis\build_track2_multi_model_curve_comparison_report.py"
+$visualCoverageValidatorPath = "scripts\reports\analysis\validate_track2_visual_source_coverage.py"
 $pdfPipelinePath = "scripts\reports\pdf\run_report_pipeline.py"
 $collageReportPath = "doc\reports\analysis\track2\best_model_collage_report\[$ReportDate]\track2_best_model_collage_report.md"
 $overlayReportPath = "doc\reports\analysis\track2\multi_model_curve_comparison_report\[$ReportDate]\track2_multi_model_curve_comparison_report.md"
@@ -423,9 +424,23 @@ if (-not $SkipVisualReports) {
         )
     Add-LatestArtifactDirectory -RelativeRootPath $overlayOutputRoot -NamePattern "*__track2_multi_model_curve_comparison_report"
 
+    Invoke-LoggedCondaPython `
+        -StepName "04_track2_visual_source_coverage" `
+        -ArgumentList @(
+            "-B",
+            $visualCoverageValidatorPath,
+            "--config-path",
+            $track2ConfigPath,
+            "--collage-report-path",
+            $collageReportPath,
+            "--overlay-report-path",
+            $overlayReportPath,
+            "--windows"
+        )
+
     if (-not $SkipPdfExport) {
         Invoke-LoggedCondaPython `
-            -StepName "04_track2_visual_report_pdf_export" `
+            -StepName "05_track2_visual_report_pdf_export" `
             -ArgumentList @(
                 "-B",
                 $pdfPipelinePath,

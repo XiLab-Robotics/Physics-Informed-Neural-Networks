@@ -369,6 +369,13 @@ This folder contains the internal project documents derived from the reference P
 
 ### Technical Documents
 
+#### 2026-06-13
+
+- [technical/2026-06/2026-06-13/2026-06-13-10-13-17_track2_visual_builder_auto_group_coverage.md](./technical/2026-06/2026-06-13/2026-06-13-10-13-17_track2_visual_builder_auto_group_coverage.md)
+  Technical note for making `Track 2` visual builders cover newly added
+  registry-model source groups automatically and fail operator launchers when
+  matrix candidates are missing from collage or overlay reports.
+
 #### 2026-06-12
 
 - [technical/2026-06/2026-06-12/2026-06-12-14-56-27_wave3_grouped_harmonic_heads_skeleton.md](./technical/2026-06/2026-06-12/2026-06-12-14-56-27_wave3_grouped_harmonic_heads_skeleton.md)
