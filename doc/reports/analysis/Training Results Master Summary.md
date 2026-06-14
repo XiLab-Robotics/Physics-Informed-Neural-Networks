@@ -2,12 +2,13 @@
 
 ## Executive Snapshot
 
-- Generated At: `2026-06-13T13:10:09`
+- Generated At: `2026-06-14T12:12:03`
 - Program State: active.
 - Current Completed Wave: `Track 2H` mixture-density heads campaign closeout
-- Current Focus: prepare a separate official `Track 2` verification refresh
-  for the six MDN candidates before choosing latent-state / hysteresis-aware
-  probes or the first real `Wave 3` hybrid structured campaign.
+  and official `Track 2` verification refresh
+- Current Focus: package the first real `Wave 3` hybrid structured campaign,
+  while keeping latent-state / hysteresis-aware variants as the alternate next
+  `Track 2H` probe.
 - Active Campaign Status: `none`
 - Active Campaign Name: `N/A`
 - Current Program Winner: `te_periodic_gru_sequence_remote_Bw` | Family `periodic_gru_sequence_bw` | Test MAE `0.002344`
@@ -254,7 +255,7 @@ Low-priority exploratory families currently listed in the backlog:
 - `Neural ODE`
 - `Hamiltonian-Inspired Model`
 - `optional Kernel Ridge / Gaussian Process benchmark`
-| Track 2H. Mixture Density Heads Probe | status: mixture-density heads campaign completed; official `Track 2` matrix refresh pending as a separate optional workflow; strongest MDN global candidate: `te_track2h_mdn_k2_global`, scalar test MAE `0.003503 deg`; strongest MDN forward candidate: `te_track2h_mdn_k3_fw`, scalar test MAE `0.003235 deg`; strongest MDN backward candidate and campaign scalar winner: `te_track2h_mdn_k2_bw`, scalar test MAE `0.002658 deg`; design conclusion: MDN improves the scalar `Bw` dispersion-aware branch but mixture diagnostics show effective component counts near `1.0`, so this is useful training pressure, not confirmed learned multimodality. |
+| Track 2H. Mixture Density Heads Probe | status: mixture-density heads campaign completed; official `Track 2` matrix refresh completed; official verification report: `doc/reports/analysis/track2/official_model_verification_report/[2026-06-13]/track2_official_model_verification_report.md`; strongest scalar MDN global candidate: `te_track2h_mdn_k2_global`, scalar test MAE `0.003503 deg`; strongest scalar MDN forward candidate: `te_track2h_mdn_k3_fw`, scalar test MAE `0.003235 deg`; strongest scalar MDN backward candidate and campaign scalar winner: `te_track2h_mdn_k2_bw`, scalar test MAE `0.002658 deg`; strongest Track 2 MDN forward candidate: `track2h_mdn_k3_Fw`, curve MAE `0.003226 deg`; strongest Track 2 MDN backward candidate: `track2h_mdn_k2_Bw`, curve MAE `0.002668 deg`; strongest Track 2 MDN global candidate: `track2h_mdn_k2_global`, combined curve MAE `0.003499 deg`; Track 2 decision: verified exploratory baseline, not promoted over the accepted direction-parallel leaders; design conclusion: MDN improves the `Bw` dispersion-aware branch but mixture diagnostics show effective component counts near `1.0`, so this is useful training pressure, not confirmed learned multimodality. |
 
 Low-priority exploratory families currently listed in the backlog:
 

@@ -1147,6 +1147,18 @@ def build_generated_candidate_configuration_list(training_config: dict[str, Any]
             )
         )
 
+    track2h_mixture_density_heads_configuration = generation_configuration.get(
+        "track2h_mixture_density_heads_registry_models",
+        {},
+    )
+    if track2h_mixture_density_heads_configuration:
+        candidate_configuration_list.extend(
+            build_registry_candidate_configuration_list(
+                track2h_mixture_density_heads_configuration,
+                "track2h_mixture_density_heads_registry",
+            )
+        )
+
     wave1_export_configuration = generation_configuration.get("wave1_exported_models", {})
     if wave1_export_configuration:
         exported_model_root = str(wave1_export_configuration["exported_model_root"]).rstrip("/")
@@ -2394,6 +2406,13 @@ def build_track2_directional_comparison_report_markdown(comparison_summary: dict
         "track2h_quantile_probabilistic_registry",
         include_global_models=True,
     )
+    append_grouped_direction_table(
+        report_line_list,
+        "Track 2H Mixture Density Heads Forward And Global Models",
+        "forward",
+        "track2h_mixture_density_heads_registry",
+        include_global_models=True,
+    )
 
     report_line_list.extend(
         [
@@ -2457,6 +2476,13 @@ def build_track2_directional_comparison_report_markdown(comparison_summary: dict
         "Track 2H Quantile Probabilistic Backward And Global Models",
         "backward",
         "track2h_quantile_probabilistic_registry",
+        include_global_models=True,
+    )
+    append_grouped_direction_table(
+        report_line_list,
+        "Track 2H Mixture Density Heads Backward And Global Models",
+        "backward",
+        "track2h_mixture_density_heads_registry",
         include_global_models=True,
     )
 

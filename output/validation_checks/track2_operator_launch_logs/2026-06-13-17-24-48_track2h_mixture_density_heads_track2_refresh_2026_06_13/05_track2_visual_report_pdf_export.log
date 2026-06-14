@@ -1,0 +1,140 @@
+
+================================================================================================
+Report Pipeline Summary
+================================================================================================
+Selected Reports                    2
+Temp Root                           C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\.temp\report_pipeline
+Tool Env                            C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\.tools\report_pdf_env
+Validation Python                   C:\Users\Martina Salami\.conda\envs\pinns_env\python.exe
+
+- Markdown                          C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\doc\reports\analysis\track2\best_model_collage_report\[2026-06-13]\track2_best_model_collage_report.md
+  PDF                               C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\doc\reports\analysis\track2\best_model_collage_report\[2026-06-13]\track2_best_model_collage_report.pdf
+  Validation Images                 C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\.temp\report_pipeline\pdf_validation\track2_best_model_collage_report
+
+- Markdown                          C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\doc\reports\analysis\track2\multi_model_curve_comparison_report\[2026-06-13]\track2_multi_model_curve_comparison_report.md
+  PDF                               C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\doc\reports\analysis\track2\multi_model_curve_comparison_report\[2026-06-13]\track2_multi_model_curve_comparison_report.pdf
+  Validation Images                 C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\.temp\report_pipeline\pdf_validation\track2_multi_model_curve_comparison_report
+
+[RUN] Export styled PDF | track2_best_model_collage_report.pdf
+Styled PDF generated at: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\doc\reports\analysis\track2\best_model_collage_report\[2026-06-13]\track2_best_model_collage_report.pdf
+[RUN] Validate exported PDF | track2_best_model_collage_report.pdf
+
+================================================================================================
+PDF Validation Summary
+================================================================================================
+Input PDF Path                     C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\doc\reports\analysis\track2\best_model_collage_report\[2026-06-13]\track2_best_model_collage_report.pdf
+Output Image Directory            C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\.temp\report_pipeline\pdf_validation\track2_best_model_collage_report
+Render Scale                      1.80
+Rendered Pages                    61
+
+Validation Images
+-----------------
+C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\.temp\report_pipeline\pdf_validation\track2_best_model_collage_report\page_001.png
+C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\.temp\report_pipeline\pdf_validation\track2_best_model_collage_report\page_002.png
+C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\.temp\report_pipeline\pdf_validation\track2_best_model_collage_report\page_003.png
+C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\.temp\report_pipeline\pdf_validation\track2_best_model_collage_report\page_004.png
+C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\.temp\report_pipeline\pdf_validation\track2_best_model_collage_report\page_005.png
+C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\.temp\report_pipeline\pdf_validation\track2_best_model_collage_report\page_006.png
+C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\.temp\report_pipeline\pdf_validation\track2_best_model_collage_report\page_007.png
+C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\.temp\report_pipeline\pdf_validation\track2_best_model_collage_report\page_008.png
+C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\.temp\report_pipeline\pdf_validation\track2_best_model_collage_report\page_009.png
+C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\.temp\report_pipeline\pdf_validation\track2_best_model_collage_report\page_010.png
+C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\.temp\report_pipeline\pdf_validation\track2_best_model_collage_report\page_011.png
+C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\.temp\report_pipeline\pdf_validation\track2_best_model_collage_report\page_012.png
+C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\.temp\report_pipeline\pdf_validation\track2_best_model_collage_report\page_013.png
+C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\.temp\report_pipeline\pdf_validation\track2_best_model_collage_report\page_014.png
+C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\.temp\report_pipeline\pdf_validation\track2_best_model_collage_report\page_015.png
+C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\.temp\report_pipeline\pdf_validation\track2_best_model_collage_report\page_016.png
+C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\.temp\report_pipeline\pdf_validation\track2_best_model_collage_report\page_017.png
+C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\.temp\report_pipeline\pdf_validation\track2_best_model_collage_report\page_018.png
+C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\.temp\report_pipeline\pdf_validation\track2_best_model_collage_report\page_019.png
+C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\.temp\report_pipeline\pdf_validation\track2_best_model_collage_report\page_020.png
+C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\.temp\report_pipeline\pdf_validation\track2_best_model_collage_report\page_021.png
+C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\.temp\report_pipeline\pdf_validation\track2_best_model_collage_report\page_022.png
+C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\.temp\report_pipeline\pdf_validation\track2_best_model_collage_report\page_023.png
+C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\.temp\report_pipeline\pdf_validation\track2_best_model_collage_report\page_024.png
+C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\.temp\report_pipeline\pdf_validation\track2_best_model_collage_report\page_025.png
+C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\.temp\report_pipeline\pdf_validation\track2_best_model_collage_report\page_026.png
+C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\.temp\report_pipeline\pdf_validation\track2_best_model_collage_report\page_027.png
+C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\.temp\report_pipeline\pdf_validation\track2_best_model_collage_report\page_028.png
+C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\.temp\report_pipeline\pdf_validation\track2_best_model_collage_report\page_029.png
+C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\.temp\report_pipeline\pdf_validation\track2_best_model_collage_report\page_030.png
+C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\.temp\report_pipeline\pdf_validation\track2_best_model_collage_report\page_031.png
+C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\.temp\report_pipeline\pdf_validation\track2_best_model_collage_report\page_032.png
+C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\.temp\report_pipeline\pdf_validation\track2_best_model_collage_report\page_033.png
+C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\.temp\report_pipeline\pdf_validation\track2_best_model_collage_report\page_034.png
+C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\.temp\report_pipeline\pdf_validation\track2_best_model_collage_report\page_035.png
+C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\.temp\report_pipeline\pdf_validation\track2_best_model_collage_report\page_036.png
+C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\.temp\report_pipeline\pdf_validation\track2_best_model_collage_report\page_037.png
+C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\.temp\report_pipeline\pdf_validation\track2_best_model_collage_report\page_038.png
+C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\.temp\report_pipeline\pdf_validation\track2_best_model_collage_report\page_039.png
+C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\.temp\report_pipeline\pdf_validation\track2_best_model_collage_report\page_040.png
+C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\.temp\report_pipeline\pdf_validation\track2_best_model_collage_report\page_041.png
+C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\.temp\report_pipeline\pdf_validation\track2_best_model_collage_report\page_042.png
+C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\.temp\report_pipeline\pdf_validation\track2_best_model_collage_report\page_043.png
+C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\.temp\report_pipeline\pdf_validation\track2_best_model_collage_report\page_044.png
+C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\.temp\report_pipeline\pdf_validation\track2_best_model_collage_report\page_045.png
+C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\.temp\report_pipeline\pdf_validation\track2_best_model_collage_report\page_046.png
+C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\.temp\report_pipeline\pdf_validation\track2_best_model_collage_report\page_047.png
+C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\.temp\report_pipeline\pdf_validation\track2_best_model_collage_report\page_048.png
+C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\.temp\report_pipeline\pdf_validation\track2_best_model_collage_report\page_049.png
+C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\.temp\report_pipeline\pdf_validation\track2_best_model_collage_report\page_050.png
+C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\.temp\report_pipeline\pdf_validation\track2_best_model_collage_report\page_051.png
+C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\.temp\report_pipeline\pdf_validation\track2_best_model_collage_report\page_052.png
+C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\.temp\report_pipeline\pdf_validation\track2_best_model_collage_report\page_053.png
+C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\.temp\report_pipeline\pdf_validation\track2_best_model_collage_report\page_054.png
+C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\.temp\report_pipeline\pdf_validation\track2_best_model_collage_report\page_055.png
+C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\.temp\report_pipeline\pdf_validation\track2_best_model_collage_report\page_056.png
+C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\.temp\report_pipeline\pdf_validation\track2_best_model_collage_report\page_057.png
+C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\.temp\report_pipeline\pdf_validation\track2_best_model_collage_report\page_058.png
+C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\.temp\report_pipeline\pdf_validation\track2_best_model_collage_report\page_059.png
+C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\.temp\report_pipeline\pdf_validation\track2_best_model_collage_report\page_060.png
+C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\.temp\report_pipeline\pdf_validation\track2_best_model_collage_report\page_061.png
+
+[DONE] PDF validation rasterization completed
+[RUN] Export styled PDF | track2_multi_model_curve_comparison_report.pdf
+Styled PDF generated at: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\doc\reports\analysis\track2\multi_model_curve_comparison_report\[2026-06-13]\track2_multi_model_curve_comparison_report.pdf
+[RUN] Validate exported PDF | track2_multi_model_curve_comparison_report.pdf
+
+================================================================================================
+PDF Validation Summary
+================================================================================================
+Input PDF Path                     C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\doc\reports\analysis\track2\multi_model_curve_comparison_report\[2026-06-13]\track2_multi_model_curve_comparison_report.pdf
+Output Image Directory            C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\.temp\report_pipeline\pdf_validation\track2_multi_model_curve_comparison_report
+Render Scale                      1.80
+Rendered Pages                    29
+
+Validation Images
+-----------------
+C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\.temp\report_pipeline\pdf_validation\track2_multi_model_curve_comparison_report\page_001.png
+C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\.temp\report_pipeline\pdf_validation\track2_multi_model_curve_comparison_report\page_002.png
+C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\.temp\report_pipeline\pdf_validation\track2_multi_model_curve_comparison_report\page_003.png
+C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\.temp\report_pipeline\pdf_validation\track2_multi_model_curve_comparison_report\page_004.png
+C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\.temp\report_pipeline\pdf_validation\track2_multi_model_curve_comparison_report\page_005.png
+C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\.temp\report_pipeline\pdf_validation\track2_multi_model_curve_comparison_report\page_006.png
+C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\.temp\report_pipeline\pdf_validation\track2_multi_model_curve_comparison_report\page_007.png
+C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\.temp\report_pipeline\pdf_validation\track2_multi_model_curve_comparison_report\page_008.png
+C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\.temp\report_pipeline\pdf_validation\track2_multi_model_curve_comparison_report\page_009.png
+C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\.temp\report_pipeline\pdf_validation\track2_multi_model_curve_comparison_report\page_010.png
+C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\.temp\report_pipeline\pdf_validation\track2_multi_model_curve_comparison_report\page_011.png
+C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\.temp\report_pipeline\pdf_validation\track2_multi_model_curve_comparison_report\page_012.png
+C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\.temp\report_pipeline\pdf_validation\track2_multi_model_curve_comparison_report\page_013.png
+C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\.temp\report_pipeline\pdf_validation\track2_multi_model_curve_comparison_report\page_014.png
+C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\.temp\report_pipeline\pdf_validation\track2_multi_model_curve_comparison_report\page_015.png
+C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\.temp\report_pipeline\pdf_validation\track2_multi_model_curve_comparison_report\page_016.png
+C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\.temp\report_pipeline\pdf_validation\track2_multi_model_curve_comparison_report\page_017.png
+C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\.temp\report_pipeline\pdf_validation\track2_multi_model_curve_comparison_report\page_018.png
+C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\.temp\report_pipeline\pdf_validation\track2_multi_model_curve_comparison_report\page_019.png
+C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\.temp\report_pipeline\pdf_validation\track2_multi_model_curve_comparison_report\page_020.png
+C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\.temp\report_pipeline\pdf_validation\track2_multi_model_curve_comparison_report\page_021.png
+C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\.temp\report_pipeline\pdf_validation\track2_multi_model_curve_comparison_report\page_022.png
+C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\.temp\report_pipeline\pdf_validation\track2_multi_model_curve_comparison_report\page_023.png
+C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\.temp\report_pipeline\pdf_validation\track2_multi_model_curve_comparison_report\page_024.png
+C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\.temp\report_pipeline\pdf_validation\track2_multi_model_curve_comparison_report\page_025.png
+C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\.temp\report_pipeline\pdf_validation\track2_multi_model_curve_comparison_report\page_026.png
+C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\.temp\report_pipeline\pdf_validation\track2_multi_model_curve_comparison_report\page_027.png
+C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\.temp\report_pipeline\pdf_validation\track2_multi_model_curve_comparison_report\page_028.png
+C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\.temp\report_pipeline\pdf_validation\track2_multi_model_curve_comparison_report\page_029.png
+
+[DONE] PDF validation rasterization completed
+[DONE] Report pipeline completed

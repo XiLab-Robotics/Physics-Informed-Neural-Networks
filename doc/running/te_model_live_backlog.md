@@ -25,17 +25,15 @@ Historical rationale and approval history remain in:
 - Active Campaign State: no prepared or active campaign is currently protected
   in `doc/running/active_training_campaign.yaml`.
 - Current Completed Wave: `Track 2H` mixture-density heads campaign closeout
-  is complete; official `Track 2` verification refresh for MDN candidates is
-  pending as a separate optional workflow.
+  and official `Track 2` verification refresh are complete.
 - Current Completed Track: `Track 1` RCIM paper-faithful model bank, closed as
   a faithful full-bank reproduction surface for Tables `2`-`5`.
 - Current Completed Track: `Track 2` official offline model-verification
   report, closed as the canonical direction-aware verification surface for new
   model families.
-- Current Focus: prepare a separate official `Track 2` verification refresh
-  for the six MDN candidates, then decide whether to continue with
-  latent-state / hysteresis-aware variants or package the first real `Wave 3`
-  hybrid structured campaign.
+- Current Focus: package the first real `Wave 3` hybrid structured campaign,
+  while keeping a latent-state / hysteresis-aware `Track 2H` branch as the
+  alternate next probe if experimental-state compensation is prioritized.
 - Parallel Diagnostic Focus: component-offset, `Track 2D` h0 cross-check, and
   predicted-mean versus measured-h0 diagnostics are complete; `h0` is the
   correct mean-like channel to inspect, but not the confirmed sole cause of the
@@ -48,9 +46,9 @@ Historical rationale and approval history remain in:
 Current canonical status reports:
 
 - `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
-- `doc/reports/analysis/track2/official_model_verification_report/[2026-06-12]/track2_official_model_verification_report.md`
-- `doc/reports/analysis/track2/best_model_collage_report/[2026-06-12]/track2_best_model_collage_report.md`
-- `doc/reports/analysis/track2/multi_model_curve_comparison_report/[2026-06-12]/track2_multi_model_curve_comparison_report.md`
+- `doc/reports/analysis/track2/official_model_verification_report/[2026-06-13]/track2_official_model_verification_report.md`
+- `doc/reports/analysis/track2/best_model_collage_report/[2026-06-13]/track2_best_model_collage_report.md`
+- `doc/reports/analysis/track2/multi_model_curve_comparison_report/[2026-06-13]/track2_multi_model_curve_comparison_report.md`
 - `doc/reports/analysis/track2/Track 2 Directional Model Comparison.md`
 - `doc/reports/analysis/track2/curve_first_reranking_report/[2026-05-28]/track2_curve_first_reranking_report.md`
 - `doc/reports/analysis/track2/curve_payload_diagnostics_report/[2026-05-28]/track2_curve_payload_diagnostics_report.md`
@@ -979,16 +977,16 @@ Entry rule:
 - Track 2 decision: verified exploratory baseline, not promoted over the
   accepted direction-parallel leaders;
 - design conclusion: probabilistic losses improve over robust losses on the
-  best `global` and `Bw` Track 2 surfaces, and the quantile `Bw` branch beats
-  `tree_Bw` on Track 2 MAE, but the accepted periodic temporal branch remains
-  stronger; mixture-density heads have now been tested as the next staged
-  probe, while latent-state / hysteresis-aware variants remain conditional on
-  the MDN Track 2 refresh decision.
+  best `global` and `Bw` Track 2 surfaces, and MDN improves the best Track 2H
+  `Bw` branch further, but the accepted periodic temporal branch remains
+  stronger; MDN is a verified exploratory baseline, so the next default branch
+  is the first real `Wave 3` hybrid structured campaign unless
+  latent-state / hysteresis-aware compensation is explicitly prioritized.
 
 ### Track 2H. Mixture Density Heads Probe
 
 - status: mixture-density heads campaign completed; official `Track 2` matrix
-  refresh pending as a separate optional workflow;
+  refresh completed;
 - families:
   - `track2h_mixture_density_heads_mdn_k2_global`;
   - `track2h_mixture_density_heads_mdn_k2_fw`;
@@ -998,20 +996,33 @@ Entry rule:
   - `track2h_mixture_density_heads_mdn_k3_bw`;
 - closeout report:
   `doc/reports/campaign_results/track2/2026-06-13-13-24-37_track2h_mixture_density_heads_campaign_results_report.md`;
+- official verification report:
+  `doc/reports/analysis/track2/official_model_verification_report/[2026-06-13]/track2_official_model_verification_report.md`;
+- matrix output:
+  `output/validation_checks/track2_reference_comparison/2026-06-13-17-24-53__track2_full_directional_family_matrix_track2h_mixture_density_heads_track2_refresh_2026_06_13/`;
 - strongest MDN global candidate:
   `te_track2h_mdn_k2_global`, scalar test MAE `0.003503 deg`;
 - strongest MDN forward candidate:
   `te_track2h_mdn_k3_fw`, scalar test MAE `0.003235 deg`;
 - strongest MDN backward candidate:
   `te_track2h_mdn_k2_bw`, scalar test MAE `0.002658 deg`;
+- strongest Track 2 forward MDN candidate:
+  `track2h_mdn_k3_Fw`, curve MAE `0.003226 deg`;
+- strongest Track 2 backward MDN candidate:
+  `track2h_mdn_k2_Bw`, curve MAE `0.002668 deg`;
+- strongest Track 2 global MDN candidate:
+  `track2h_mdn_k2_global`, combined curve MAE `0.003499 deg`;
 - campaign scalar winner:
   `te_track2h_mdn_k2_bw`;
 - program scalar winner changed: no, `te_periodic_gru_sequence_remote_Bw`
   remains stronger with test MAE `0.002344 deg`;
+- Track 2 decision: verified exploratory baseline, not promoted over the
+  accepted direction-parallel leaders;
 - design conclusion: MDN improves the scalar `Bw` dispersion-aware branch by
   `9.19%` versus the previous best probabilistic `Bw` result and by about
-  `13.5%` versus the robust-loss `Bw` result, but it is weaker on `global` and
-  `Fw`; mixture diagnostics show effective component counts near `1.0`, so the
+  `13.5%` versus the robust-loss `Bw` result; the official Track 2 matrix
+  confirms the same backward advantage, but MDN is weaker on `global` and `Fw`;
+  mixture diagnostics show effective component counts near `1.0`, so the
   result should be treated as useful MDN training pressure, not confirmed
   learned multimodality.
 
@@ -1028,10 +1039,10 @@ Entry rule:
     `scripts/campaigns/wave3/run_wave3_training_smoke_ready_checks.ps1`;
   - final one-batch validation artifact:
     `output/validation_checks/wave3_harmonic_prior_residual/2026-06-11-19-44-20__te_wave3_harmonic_prior_residual_training_smoke_ready_wave3_training_smoke_ready_final/validation_summary.yaml`;
-- updated priority: after the optional MDN `Track 2` refresh, package the first
-  real Wave 3 campaign from the training-smoke-ready scaffold before the
-  integrated multi-task / multi-head campaign, unless the refresh strongly
-  favors a latent-state / hysteresis-aware Track 2H probe first;
+- updated priority: package the first real Wave 3 campaign from the
+  training-smoke-ready scaffold before the integrated multi-task / multi-head
+  campaign, unless latent-state / hysteresis-aware compensation is explicitly
+  prioritized as the next Track 2H branch;
 - mandatory rule: prepare or justify `global`, `forward`, and `backward`
   surfaces;
 - paper-reproduction scope:

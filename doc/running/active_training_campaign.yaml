@@ -1,6 +1,6 @@
 status: none
-updated_at: '2026-06-13T13:24:37+02:00'
-notes: No prepared or active training campaign is currently protected. Track 2H mixture-density heads closeout is complete; official Track 2 verification refresh is pending as a separate optional step.
+updated_at: '2026-06-14T12:12:03+02:00'
+notes: No prepared or active training campaign is currently protected. Track 2H mixture-density heads closeout and official Track 2 verification refresh are complete.
 last_completed_campaign:
   campaign_name: track2h_mixture_density_heads_campaign_2026_06_13
   completed_at: '2026-06-13T13:24:37+02:00'
@@ -27,4 +27,11 @@ last_completed_campaign:
     run_name: te_track2h_mdn_k2_bw
     model_family: track2h_mixture_density_heads_mdn_k2_bw
     test_mae: 0.002658107550814748
-  track2_status: pending_optional_refresh
+  track2_status: completed_verified_exploratory_baseline
+  track2_launcher_path: scripts/campaigns/track2/run_track2h_mixture_density_heads_track2_verification_refresh.ps1
+  track2_official_report_path: doc/reports/analysis/track2/official_model_verification_report/[2026-06-13]/track2_official_model_verification_report.md
+  track2_matrix_output_directory: output/validation_checks/track2_reference_comparison/2026-06-13-17-24-53__track2_full_directional_family_matrix_track2h_mixture_density_heads_track2_refresh_2026_06_13
+  track2_decision: verified exploratory baseline; not promoted over the accepted direction-parallel leaders
+  track2_strongest_forward_candidate: track2h_mdn_k3_Fw
+  track2_strongest_backward_candidate: track2h_mdn_k2_Bw
+  track2_strongest_global_candidate: track2h_mdn_k2_global

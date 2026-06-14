@@ -2727,8 +2727,16 @@ Most recent completed Track 2H mixture-density heads campaign:
 - canonical launcher: `scripts/campaigns/track2/run_track2h_mixture_density_heads_campaign.ps1`
 - local command: `.\scripts\campaigns\track2\run_track2h_mixture_density_heads_campaign.ps1`
 - remote command: `.\scripts\campaigns\track2\run_track2h_mixture_density_heads_campaign.ps1 -Remote`
-- status: normal campaign closeout completed; optional official `Track 2`
-  verification refresh remains separate.
+- optional official `Track 2` refresh launcher:
+  `scripts/campaigns/track2/run_track2h_mixture_density_heads_track2_verification_refresh.ps1`
+- optional official `Track 2` local command:
+  `.\scripts\campaigns\track2\run_track2h_mixture_density_heads_track2_verification_refresh.ps1`
+- optional official `Track 2` remote command:
+  `.\scripts\campaigns\track2\run_track2h_mixture_density_heads_track2_verification_refresh.ps1 -Remote`
+- official `Track 2` report:
+  `doc/reports/analysis/track2/official_model_verification_report/[2026-06-13]/track2_official_model_verification_report.md`
+- status: normal campaign closeout and official `Track 2` verification
+  refresh completed; MDN is a verified exploratory baseline, not promoted.
 
 Current finished Wave 1 residual-family follow-up campaign:
 

@@ -12,7 +12,7 @@ the current direction-aware comparison matrix.
 - dataset config: `config/datasets/transmission_error_dataset.yaml`;
 - dataset root: `data\datasets`;
 - comparison mode: `full_directional_candidate_matrix`;
-- candidate count: `147`;
+- candidate count: `153`;
 - held-out curve count before candidate filtering: `194`;
 - percentage-error denominator: `peak_to_peak_truth`;
 - `Fw` candidates are evaluated only on forward curves;
@@ -171,6 +171,12 @@ the current direction-aware comparison matrix.
 | `track2h_gaussian_nll_global` | `track2h_gaussian_nll` | `track2h_quantile_probabilistic_registry` | `wave1_registry_model` | `global` | `forward, backward` | `output\registries\families\track2h_quantile_probabilistic_gaussian_nll_global\latest_family_best.yaml` |
 | `track2h_gaussian_nll_Fw` | `track2h_gaussian_nll` | `track2h_quantile_probabilistic_registry` | `wave1_registry_model` | `Fw` | `forward` | `output\registries\families\track2h_quantile_probabilistic_gaussian_nll_fw\latest_family_best.yaml` |
 | `track2h_gaussian_nll_Bw` | `track2h_gaussian_nll` | `track2h_quantile_probabilistic_registry` | `wave1_registry_model` | `Bw` | `backward` | `output\registries\families\track2h_quantile_probabilistic_gaussian_nll_bw\latest_family_best.yaml` |
+| `track2h_mdn_k2_global` | `track2h_mdn_k2` | `track2h_mixture_density_heads_registry` | `wave1_registry_model` | `global` | `forward, backward` | `output\registries\families\track2h_mixture_density_heads_mdn_k2_global\latest_family_best.yaml` |
+| `track2h_mdn_k2_Fw` | `track2h_mdn_k2` | `track2h_mixture_density_heads_registry` | `wave1_registry_model` | `Fw` | `forward` | `output\registries\families\track2h_mixture_density_heads_mdn_k2_fw\latest_family_best.yaml` |
+| `track2h_mdn_k2_Bw` | `track2h_mdn_k2` | `track2h_mixture_density_heads_registry` | `wave1_registry_model` | `Bw` | `backward` | `output\registries\families\track2h_mixture_density_heads_mdn_k2_bw\latest_family_best.yaml` |
+| `track2h_mdn_k3_global` | `track2h_mdn_k3` | `track2h_mixture_density_heads_registry` | `wave1_registry_model` | `global` | `forward, backward` | `output\registries\families\track2h_mixture_density_heads_mdn_k3_global\latest_family_best.yaml` |
+| `track2h_mdn_k3_Fw` | `track2h_mdn_k3` | `track2h_mixture_density_heads_registry` | `wave1_registry_model` | `Fw` | `forward` | `output\registries\families\track2h_mixture_density_heads_mdn_k3_fw\latest_family_best.yaml` |
+| `track2h_mdn_k3_Bw` | `track2h_mdn_k3` | `track2h_mixture_density_heads_registry` | `wave1_registry_model` | `Bw` | `backward` | `output\registries\families\track2h_mixture_density_heads_mdn_k3_bw\latest_family_best.yaml` |
 
 ## Best Composite Reference Models
 
@@ -338,6 +344,15 @@ composed models explicit.
 | `track2h_quantile_p10_p50_p90_global` | 0.003188 | 0.003469 | 7.059 | 12.765 |
 | `track2h_quantile_p10_p50_p90_Fw` | 0.003276 | 0.003545 | 7.279 | 12.393 |
 
+### Track 2H Mixture Density Heads Forward And Global Models
+
+| Candidate | Curve MAE [deg] | Curve RMSE [deg] | Mean Percentage Error [%] | P95 Mean Percentage Error [%] |
+| --- | ---: | ---: | ---: | ---: |
+| `track2h_mdn_k3_Fw` | 0.003226 | 0.003487 | 7.164 | 11.702 |
+| `track2h_mdn_k2_global` | 0.003263 | 0.003582 | 7.261 | 14.354 |
+| `track2h_mdn_k2_Fw` | 0.003329 | 0.003593 | 7.388 | 12.771 |
+| `track2h_mdn_k3_global` | 0.003415 | 0.003713 | 7.594 | 15.012 |
+
 ## Backward Comparison
 
 ### Retuned Backward Models
@@ -472,6 +487,15 @@ composed models explicit.
 | `track2h_gaussian_nll_global` | 0.003068 | 0.003372 | 6.627 | 15.928 |
 | `track2h_quantile_p10_p50_p90_global` | 0.003563 | 0.003909 | 7.816 | 15.378 |
 
+### Track 2H Mixture Density Heads Backward And Global Models
+
+| Candidate | Curve MAE [deg] | Curve RMSE [deg] | Mean Percentage Error [%] | P95 Mean Percentage Error [%] |
+| --- | ---: | ---: | ---: | ---: |
+| `track2h_mdn_k2_Bw` | 0.002668 | 0.002947 | 5.880 | 15.593 |
+| `track2h_mdn_k3_Bw` | 0.002730 | 0.003009 | 6.049 | 15.512 |
+| `track2h_mdn_k3_global` | 0.003701 | 0.004023 | 8.129 | 16.261 |
+| `track2h_mdn_k2_global` | 0.003735 | 0.004073 | 8.194 | 15.436 |
+
 ## Global Model Direction Breakdown
 
 | Candidate | Direction | Curve MAE [deg] | Curve RMSE [deg] | Mean Percentage Error [%] | P95 Mean Percentage Error [%] |
@@ -554,6 +578,12 @@ composed models explicit.
 | `track2h_mae_robust_global` | `forward` | 0.003235 | 0.003544 | 7.189 | 12.856 |
 | `track2h_mae_robust_global` | `backward` | 0.003568 | 0.003886 | 7.818 | 14.652 |
 | `track2h_mae_robust_global` | `combined` | 0.003401 | 0.003715 | 7.504 | 13.873 |
+| `track2h_mdn_k2_global` | `forward` | 0.003263 | 0.003582 | 7.261 | 14.354 |
+| `track2h_mdn_k2_global` | `backward` | 0.003735 | 0.004073 | 8.194 | 15.436 |
+| `track2h_mdn_k2_global` | `combined` | 0.003499 | 0.003828 | 7.727 | 14.956 |
+| `track2h_mdn_k3_global` | `forward` | 0.003415 | 0.003713 | 7.594 | 15.012 |
+| `track2h_mdn_k3_global` | `backward` | 0.003701 | 0.004023 | 8.129 | 16.261 |
+| `track2h_mdn_k3_global` | `combined` | 0.003558 | 0.003868 | 7.861 | 15.990 |
 | `track2h_quantile_p10_p50_p90_global` | `forward` | 0.003188 | 0.003469 | 7.059 | 12.765 |
 | `track2h_quantile_p10_p50_p90_global` | `backward` | 0.003563 | 0.003909 | 7.816 | 15.378 |
 | `track2h_quantile_p10_p50_p90_global` | `combined` | 0.003375 | 0.003689 | 7.438 | 14.851 |
@@ -566,8 +596,8 @@ composed models explicit.
 
 ## Artifacts
 
-- summary YAML: `output\validation_checks\track2_reference_comparison\2026-06-12-14-44-45__track2_full_directional_family_matrix_track2h_quantile_probabilistic_track2_refresh_2026_06_12/validation_summary.yaml`;
-- per-condition CSV: `output\validation_checks\track2_reference_comparison\2026-06-12-14-44-45__track2_full_directional_family_matrix_track2h_quantile_probabilistic_track2_refresh_2026_06_12\per_condition_metrics.csv`;
+- summary YAML: `output\validation_checks\track2_reference_comparison\2026-06-13-17-24-53__track2_full_directional_family_matrix_track2h_mixture_density_heads_track2_refresh_2026_06_13/validation_summary.yaml`;
+- per-condition CSV: `output\validation_checks\track2_reference_comparison\2026-06-13-17-24-53__track2_full_directional_family_matrix_track2h_mixture_density_heads_track2_refresh_2026_06_13\per_condition_metrics.csv`;
 - grouped report plot root: `doc\reports\campaign_results\track 2`;
 - grouped report plot count: `0`;
 

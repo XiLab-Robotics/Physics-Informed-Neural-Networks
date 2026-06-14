@@ -341,6 +341,20 @@ comparison:
           global_family: track2h_quantile_probabilistic_gaussian_nll_global
           fw_family: track2h_quantile_probabilistic_gaussian_nll_fw
           bw_family: track2h_quantile_probabilistic_gaussian_nll_bw
+    track2h_mixture_density_heads_registry_models:
+      family_registry_root: output/registries/families
+      source_label: track2h_mixture_density_heads_registry
+      base_family_list:
+        - candidate_id_prefix: track2h_mdn_k2
+          candidate_family: track2h_mdn_k2
+          global_family: track2h_mixture_density_heads_mdn_k2_global
+          fw_family: track2h_mixture_density_heads_mdn_k2_fw
+          bw_family: track2h_mixture_density_heads_mdn_k2_bw
+        - candidate_id_prefix: track2h_mdn_k3
+          candidate_family: track2h_mdn_k3
+          global_family: track2h_mixture_density_heads_mdn_k3_global
+          fw_family: track2h_mixture_density_heads_mdn_k3_fw
+          bw_family: track2h_mixture_density_heads_mdn_k3_bw
 evaluation:
   selected_harmonics:
     - 0

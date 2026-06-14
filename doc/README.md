@@ -257,6 +257,12 @@ This folder contains the internal project documents derived from the reference P
   quantile/probabilistic candidates, verified as an exploratory baseline and
   not promoted over the accepted direction-parallel leaders.
 
+- [reports/analysis/track2/official_model_verification_report/[2026-06-13]/track2_official_model_verification_report.md](./reports/analysis/track2/official_model_verification_report/%5B2026-06-13%5D/track2_official_model_verification_report.md)
+  Official `Track 2` verification decision for the completed `Track 2H`
+  mixture-density heads candidates, verified as an exploratory baseline with
+  a strong backward branch but not promoted over the accepted
+  direction-parallel leaders.
+
 - [reports/analysis/wave3/Wave 3 Hybrid Structured Models.md](./reports/analysis/wave3/Wave%203%20Hybrid%20Structured%20Models.md)
   Design report for `Wave 3` hybrid structured TE models, covering harmonic
   prior residual learners, grouped harmonic heads, condition-conditioned
@@ -381,6 +387,12 @@ This folder contains the internal project documents derived from the reference P
 ### Technical Documents
 
 #### 2026-06-13
+
+- [technical/2026-06/2026-06-13/2026-06-13-15-15-12_track2h_mixture_density_heads_track2_verification_refresh.md](./technical/2026-06/2026-06-13/2026-06-13-15-15-12_track2h_mixture_density_heads_track2_verification_refresh.md)
+  Technical note for preparing the separate operator-launched official
+  `Track 2` verification refresh for the six completed `Track 2H`
+  mixture-density heads candidates, including deterministic mixture-expectation
+  playback handling.
 
 - [technical/2026-06/2026-06-13/2026-06-13-10-40-25_track2h_mixture_density_heads_package.md](./technical/2026-06/2026-06-13/2026-06-13-10-40-25_track2h_mixture_density_heads_package.md)
   Technical note for preparing the next `Track 2H` dispersion-aware package
@@ -2475,6 +2487,11 @@ This folder contains the internal project documents derived from the reference P
   Script-level documentation for the operator-launched `Track 2H`
   quantile/probabilistic official `Track 2` verification refresh across all
   six probabilistic candidates for `global`, `Fw`, and `Bw`.
+
+- [scripts/campaigns/track2/run_track2h_mixture_density_heads_track2_verification_refresh.md](./scripts/campaigns/track2/run_track2h_mixture_density_heads_track2_verification_refresh.md)
+  Script-level documentation for the operator-launched `Track 2H`
+  mixture-density heads official `Track 2` verification refresh across all
+  six MDN candidates for `global`, `Fw`, and `Bw`.
 
 - [scripts/training/validate_training_setup.md](./scripts/training/validate_training_setup.md)
   Script-level documentation for the one-batch validation check used by the shared Wave 0 training infrastructure.

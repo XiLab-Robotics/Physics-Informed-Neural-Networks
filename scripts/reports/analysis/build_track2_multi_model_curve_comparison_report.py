@@ -6,6 +6,7 @@ from __future__ import annotations
 import argparse
 import csv
 import os
+import shutil
 import sys
 from dataclasses import dataclass
 from datetime import datetime
@@ -1620,6 +1621,12 @@ def run_track2_multi_model_curve_comparison_report(arguments: argparse.Namespace
             / "comparisons"
             / f"{sanitize_filename_fragment(group.group_id)}.png"
         )
+        report_asset_path = (
+            report_path.parent
+            / "assets"
+            / "comparisons"
+            / f"{sanitize_filename_fragment(group.group_id)}.png"
+        )
         save_comparison_collage(
             comparison_path,
             group.group_title,
@@ -1627,6 +1634,8 @@ def run_track2_multi_model_curve_comparison_report(arguments: argparse.Namespace
             selected_reference_entry_list,
             entry_lookup_by_candidate_and_curve,
         )
+        report_asset_path.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(comparison_path, report_asset_path)
         comparison_summary_list.append(
             {
                 "group_id": group.group_id,
@@ -1639,7 +1648,7 @@ def run_track2_multi_model_curve_comparison_report(arguments: argparse.Namespace
                     direction_metric_summary,
                 ),
                 "comparison_path": shared_training_infrastructure.format_project_relative_path(comparison_path),
-                "comparison_markdown_path": build_relative_markdown_path(comparison_path, report_path.parent),
+                "comparison_markdown_path": build_relative_markdown_path(report_asset_path, report_path.parent),
                 "selected_curve_list": [
                     {
                         "source_file_path": entry["source_file_path"],

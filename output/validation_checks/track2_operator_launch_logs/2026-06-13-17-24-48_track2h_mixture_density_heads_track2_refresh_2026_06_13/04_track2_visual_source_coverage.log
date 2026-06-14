@@ -1,0 +1,9 @@
+W0613 19:56:59.259000 27864 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+Track 2 visual source coverage passed | registry_source_count=7
+ - track2f_bis_harmonic_offset_probe_registry: collage=6, overlay_forward=2, overlay_backward=2
+ - track2f_offset_aware_probe_registry: collage=3, overlay_forward=1, overlay_backward=1
+ - track2g_curve_aware_training_registry: collage=12, overlay_forward=4, overlay_backward=4
+ - track2h_dispersion_aware_modeling_registry: collage=9, overlay_forward=3, overlay_backward=3
+ - track2h_mixture_density_heads_registry: collage=6, overlay_forward=2, overlay_backward=2
+ - track2h_quantile_probabilistic_registry: collage=6, overlay_forward=2, overlay_backward=2
+ - wave2c_residual_harmonic_temporal_registry: collage=18, overlay_forward=6, overlay_backward=6
