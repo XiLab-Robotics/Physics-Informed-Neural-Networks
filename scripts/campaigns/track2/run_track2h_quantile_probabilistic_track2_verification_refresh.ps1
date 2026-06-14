@@ -21,9 +21,11 @@ $matrixRunnerPath = "scripts\paper_reimplementation\rcim_ml_compensation\referen
 $collageRunnerPath = "scripts\reports\analysis\build_track2_best_model_collage_report.py"
 $overlayRunnerPath = "scripts\reports\analysis\build_track2_multi_model_curve_comparison_report.py"
 $visualCoverageValidatorPath = "scripts\reports\analysis\validate_track2_visual_source_coverage.py"
+$officialReportBuilderPath = "scripts\reports\analysis\build_track2_official_model_verification_report.py"
 $pdfPipelinePath = "scripts\reports\pdf\run_report_pipeline.py"
 $collageReportPath = "doc\reports\analysis\track2\best_model_collage_report\[$ReportDate]\track2_best_model_collage_report.md"
 $overlayReportPath = "doc\reports\analysis\track2\multi_model_curve_comparison_report\[$ReportDate]\track2_multi_model_curve_comparison_report.md"
+$officialReportPath = "doc\reports\analysis\track2\official_model_verification_report\[$ReportDate]\track2_official_model_verification_report.md"
 $logRoot = Join-Path $projectRoot ("output\validation_checks\track2_operator_launch_logs\{0}_{1}" -f (Get-Date -Format "yyyy-MM-dd-HH-mm-ss"), $OutputSuffix)
 $matrixOutputRoot = "output\validation_checks\track2_reference_comparison"
 $collageOutputRoot = "output\validation_checks\track2_best_model_collage_report"
@@ -31,6 +33,7 @@ $overlayOutputRoot = "output\validation_checks\track2_multi_model_curve_comparis
 $canonicalTrack2ReportPath = "doc\reports\analysis\track2\Track 2 Directional Model Comparison.md"
 $collageReportDirectory = "doc\reports\analysis\track2\best_model_collage_report\[$ReportDate]"
 $overlayReportDirectory = "doc\reports\analysis\track2\multi_model_curve_comparison_report\[$ReportDate]"
+$officialReportDirectory = "doc\reports\analysis\track2\official_model_verification_report\[$ReportDate]"
 $newCandidateCampaignResultPlotDirectory = "doc\reports\campaign_results\track 2\track2h_quantile_probabilistic_registry"
 $artifactSyncManifestPath = Join-Path $logRoot "artifact_sync_manifest.txt"
 $artifactSyncRelativePathList = [System.Collections.Generic.List[string]]::new()
@@ -123,11 +126,34 @@ function Add-LatestArtifactDirectory {
     Add-ArtifactSyncRelativePath -RelativePath (Join-Path $RelativeRootPath $latestDirectory.Name)
 }
 
+function Get-LatestArtifactDirectory {
+    param(
+        [string]$RelativeRootPath,
+        [string]$NamePattern
+    )
+
+    $absoluteRootPath = Join-Path $projectRoot $RelativeRootPath
+    if (-not (Test-Path -LiteralPath $absoluteRootPath)) {
+        throw ("Missing artifact root | {0}" -f $RelativeRootPath)
+    }
+
+    $latestDirectory = Get-ChildItem -LiteralPath $absoluteRootPath -Directory |
+        Where-Object { $_.Name -like $NamePattern } |
+        Sort-Object LastWriteTime -Descending |
+        Select-Object -First 1
+    if ($null -eq $latestDirectory) {
+        throw ("Missing generated artifact directory | root={0} | pattern={1}" -f $RelativeRootPath, $NamePattern)
+    }
+
+    return $latestDirectory.FullName
+}
+
 function Save-ArtifactSyncManifest {
     New-Item -ItemType Directory -Force -Path $logRoot | Out-Null
     Add-ArtifactSyncRelativePath -RelativePath $canonicalTrack2ReportPath
     Add-ArtifactSyncRelativePath -RelativePath $collageReportDirectory
     Add-ArtifactSyncRelativePath -RelativePath $overlayReportDirectory
+    Add-ArtifactSyncRelativePath -RelativePath $officialReportDirectory
     if ($SyncFullTrack2CampaignResultPlots) {
         Add-ArtifactSyncRelativePath -RelativePath "doc\reports\campaign_results\track 2"
     }
@@ -438,9 +464,43 @@ if (-not $SkipVisualReports) {
             "--windows"
         )
 
+    $matrixArtifactDirectory = Get-LatestArtifactDirectory -RelativeRootPath $matrixOutputRoot -NamePattern ("*{0}" -f $OutputSuffix)
+    $collageArtifactDirectory = Get-LatestArtifactDirectory -RelativeRootPath $collageOutputRoot -NamePattern "*__track2_best_model_collage_report"
+    $overlayArtifactDirectory = Get-LatestArtifactDirectory -RelativeRootPath $overlayOutputRoot -NamePattern "*__track2_multi_model_curve_comparison_report"
+    $matrixSummaryPath = Join-Path $matrixArtifactDirectory "validation_summary.yaml"
+    $collageSummaryPath = Join-Path $collageArtifactDirectory "track2_best_model_collage_summary.yaml"
+    $overlaySummaryPath = Join-Path $overlayArtifactDirectory "track2_multi_model_curve_comparison_summary.yaml"
+
+    Invoke-LoggedCondaPython `
+        -StepName "05_track2_official_verification_report" `
+        -ArgumentList @(
+            "-B",
+            $officialReportBuilderPath,
+            "--matrix-summary-path",
+            $matrixSummaryPath,
+            "--collage-summary-path",
+            $collageSummaryPath,
+            "--overlay-summary-path",
+            $overlaySummaryPath,
+            "--report-date",
+            $ReportDate,
+            "--refresh-label",
+            "Track 2H quantile/probabilistic refresh",
+            "--candidate-source-label",
+            "track2h_quantile_probabilistic_registry",
+            "--decision",
+            "verified exploratory baseline; not promoted over the accepted direction-parallel leaders",
+            "--next-step",
+            "Compare this probabilistic branch with the next dispersion-aware families before selecting ingredients for multi-task or multi-head integration.",
+            "--output-report-path",
+            $officialReportPath,
+            "--operator-log-root",
+            $logRoot
+        )
+
     if (-not $SkipPdfExport) {
         Invoke-LoggedCondaPython `
-            -StepName "05_track2_visual_report_pdf_export" `
+            -StepName "06_track2_visual_report_pdf_export" `
             -ArgumentList @(
                 "-B",
                 $pdfPipelinePath,
@@ -448,6 +508,8 @@ if (-not $SkipVisualReports) {
                 $collageReportPath,
                 "--input-markdown-path",
                 $overlayReportPath,
+                "--input-markdown-path",
+                $officialReportPath,
                 "--clean-temp",
                 "--windows"
             )

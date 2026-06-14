@@ -146,6 +146,11 @@ The current usage flow mainly relies on these folders:
   Track 2 visual report builder that overlays original TE curves, reference
   best models, and screened Wave 1 family-best models on shared axes.
 
+- `scripts/reports/analysis/build_track2_official_model_verification_report.py`
+  Track 2 official decision-report builder used by verification-refresh
+  launchers to include the latest matrix, collage, overlay, and official
+  report in one PDF export package.
+
 - `scripts/reports/analysis/build_track2_curve_first_reranking_report.py`
   Track 2B metric report builder that reranks accepted Track 2 candidates by
   full-curve mean percentage error, P95, worst-condition error, and curve

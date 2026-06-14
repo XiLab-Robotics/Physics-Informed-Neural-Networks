@@ -386,6 +386,13 @@ This folder contains the internal project documents derived from the reference P
 
 ### Technical Documents
 
+#### 2026-06-14
+
+- [technical/2026-06/2026-06-14/2026-06-14-16-49-23_track2_refresh_self_contained_report_closure.md](./technical/2026-06/2026-06-14/2026-06-14-16-49-23_track2_refresh_self_contained_report_closure.md)
+  Technical plan for making `Track 2` verification refresh launchers generate
+  the official decision report and PDF package directly, so completed operator
+  runs do not require manual report regeneration during closure.
+
 #### 2026-06-13
 
 - [technical/2026-06/2026-06-13/2026-06-13-15-15-12_track2h_mixture_density_heads_track2_verification_refresh.md](./technical/2026-06/2026-06-13/2026-06-13-15-15-12_track2h_mixture_density_heads_track2_verification_refresh.md)
@@ -2370,6 +2377,10 @@ This folder contains the internal project documents derived from the reference P
 - [scripts/reports/analysis/build_track2_mean_centered_collage_report.md](./scripts/reports/analysis/build_track2_mean_centered_collage_report.md)
   Script-level documentation for the `Track 2` mean-centered collage
   diagnostics report builder.
+
+- [scripts/reports/analysis/build_track2_official_model_verification_report.md](./scripts/reports/analysis/build_track2_official_model_verification_report.md)
+  Script-level documentation for the official `Track 2` verification report
+  builder used by self-contained verification-refresh launchers.
 
 - [scripts/reports/analysis/build_track2d_mean_offset_full_matrix_audit.md](./scripts/reports/analysis/build_track2d_mean_offset_full_matrix_audit.md)
   Script-level documentation for the `Track 2D` full-matrix mean-offset audit

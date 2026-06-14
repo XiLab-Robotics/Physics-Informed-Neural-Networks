@@ -58,10 +58,15 @@ The launcher runs:
 1. the official full direction-aware `Track 2` matrix;
 2. the best-model collage report generation;
 3. the multi-model curve-comparison report generation;
-4. the PDF export for the two visual reports.
+4. the visual source-coverage validation against the matrix candidate list;
+5. the official model-verification report generation;
+6. the PDF export for the collage, overlay, and official verification reports.
 
 Use `-SkipVisualReports` to run only the matrix, or `-SkipPdfExport` to leave
-the generated visual reports as Markdown plus image artifacts.
+the generated visual and official reports as Markdown plus image artifacts.
+When visual reports are enabled, the launcher fails before PDF export if a
+registry-backed matrix source is not visible in the collage and overlay
+Markdown reports.
 
 By default, the matrix uses the completed `Wave 2B` refresh as the configured
 baseline summary and only evaluates incremental current candidates. The new
@@ -84,6 +89,7 @@ Visual report bundles are written under:
 
 - `doc/reports/analysis/track2/best_model_collage_report/[2026-06-04]/`
 - `doc/reports/analysis/track2/multi_model_curve_comparison_report/[2026-06-04]/`
+- `doc/reports/analysis/track2/official_model_verification_report/[2026-06-04]/`
 
 Operator launch logs are written under:
 
@@ -92,6 +98,7 @@ Operator launch logs are written under:
 ## Follow-Up
 
 After the launcher completes, report completion back to Codex. Codex should
-then inspect the matrix summary, update or create the official model
-verification decision report, validate the real PDFs, and synchronize the live
-backlog and master summary.
+then inspect the matrix summary, review the launcher-generated official model
+verification report, validate the real PDFs, and synchronize the live backlog
+and master summary. The normal launcher path already generates the official
+report and includes it in the PDF export.
