@@ -390,6 +390,12 @@ This folder contains the internal project documents derived from the reference P
 
 ### Technical Documents
 
+#### 2026-06-15
+
+- [technical/2026-06/2026-06-15/2026-06-15-13-27-18_remote_conda_utf8_no_capture_hardening.md](./technical/2026-06/2026-06-15/2026-06-15-13-27-18_remote_conda_utf8_no_capture_hardening.md)
+  Technical plan for hardening shared remote campaign Conda execution against
+  Windows CP1252 stdout replay failures by using UTF-8 and no-capture output.
+
 #### 2026-06-14
 
 - [technical/2026-06/2026-06-14/2026-06-14-19-54-55_wave3_harmonic_prior_residual_campaign_package.md](./technical/2026-06/2026-06-14/2026-06-14-19-54-55_wave3_harmonic_prior_residual_campaign_package.md)

@@ -31,4 +31,4 @@ protected_file_list:
 launch_command_list:
 - .\scripts\campaigns\wave3\run_wave3_harmonic_prior_residual_campaign.ps1
 - .\scripts\campaigns\wave3\run_wave3_harmonic_prior_residual_campaign.ps1 -Remote
-notes: Prepared Wave 3 harmonic-prior residual package. Training execution requires explicit operator launch approval.
+notes: Prepared Wave 3 harmonic-prior residual package. The first remote launch failed inside Conda stdout encoding before an accepted campaign closeout; retry after remote UTF-8 no-capture hardening.

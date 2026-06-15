@@ -102,7 +102,21 @@ function New-RemotePowerShellScriptText {
         [string]$ScriptText
     )
 
-    return ("`$ProgressPreference = 'SilentlyContinue'`n{0}" -f $ScriptText)
+    $encodingBootstrap = @"
+`$ProgressPreference = 'SilentlyContinue'
+`$env:PYTHONIOENCODING = 'utf-8'
+`$env:PYTHONUTF8 = '1'
+try {
+    [Console]::OutputEncoding = [System.Text.UTF8Encoding]::new()
+    `$OutputEncoding = [System.Text.UTF8Encoding]::new()
+    & chcp.com 65001 | Out-Null
+}
+catch {
+    Write-Output ('REMOTE_UTF8_BOOTSTRAP_WARNING::{0}' -f `$_.Exception.Message)
+}
+"@
+
+    return ("{0}`n{1}" -f $encodingBootstrap, $ScriptText)
 }
 
 function Get-RemotePowerShellCommand {
@@ -534,7 +548,7 @@ sys.exit(0)
 '@
 
 Set-Content -LiteralPath `$remoteVerificationScriptPath -Value `$pythonFinalizeScriptText -Encoding UTF8
-& conda run -n $RemoteCondaEnvironmentName python `$remoteVerificationScriptPath
+& conda run --no-capture-output -n $RemoteCondaEnvironmentName python `$remoteVerificationScriptPath
 `$finalizeExitCode = `$LASTEXITCODE
 Remove-Item -LiteralPath `$remoteVerificationScriptPath -Force -ErrorAction SilentlyContinue
 Remove-Item -LiteralPath `$remoteTemporaryFilePath -Force -ErrorAction SilentlyContinue
@@ -602,7 +616,7 @@ sys.exit(0)
 '@
 
 Set-Content -LiteralPath `$pythonVerificationScriptPath -Value `$pythonVerificationScriptText -Encoding UTF8
-& conda run -n $RemoteCondaEnvironmentName python `$pythonVerificationScriptPath
+& conda run --no-capture-output -n $RemoteCondaEnvironmentName python `$pythonVerificationScriptPath
 `$verificationExitCode = `$LASTEXITCODE
 Remove-Item -LiteralPath `$pythonVerificationScriptPath -Force -ErrorAction SilentlyContinue
 exit `$verificationExitCode
@@ -727,7 +741,7 @@ New-Item -ItemType Directory -Force -Path '$remoteStagingRootPath' | Out-Null
 Set-Location -LiteralPath '$remoteExecutionRoot'
 Write-Output ('REMOTE_EXECUTION_ROOT::{0}' -f (Get-Location).Path)
 & tar.exe --version | Out-Null
-& conda run -n $RemoteCondaEnvironmentName python -c "import sys; print(sys.version)"
+& conda run --no-capture-output -n $RemoteCondaEnvironmentName python -c "import sys; print(sys.version)"
 exit `$LASTEXITCODE
 "@
 
@@ -784,7 +798,7 @@ $remoteRunScript += @"
     ,'$resolvedPlanningReportPath'
 )
 
-& conda run -n $RemoteCondaEnvironmentName python @argumentList
+& conda run --no-capture-output -n $RemoteCondaEnvironmentName python @argumentList
 `$remoteExitCode = `$LASTEXITCODE
 Write-Output ('REMOTE_RUN_EXIT_CODE::{0}' -f `$remoteExitCode)
 if (`$remoteExitCode -ne 0) {
@@ -830,7 +844,7 @@ function Resolve-WindowsRelativePath {
 Write-Output ('REMOTE_RUN_MANIFEST_CANDIDATE::{0}' -f `$relativeManifestPath)
 Write-Output ('REMOTE_RUN_SYNC_MANIFEST_CANDIDATE::{0}' -f `$relativeSyncManifestPath)
 
-& conda run -n $RemoteCondaEnvironmentName python -B scripts/training/build_remote_training_sync_manifest.py --campaign-manifest-path `$relativeManifestPath --output-path `$relativeSyncManifestPath
+& conda run --no-capture-output -n $RemoteCondaEnvironmentName python -B scripts/training/build_remote_training_sync_manifest.py --campaign-manifest-path `$relativeManifestPath --output-path `$relativeSyncManifestPath
 `$syncManifestExitCode = `$LASTEXITCODE
 Write-Output ('REMOTE_RUN_SYNC_MANIFEST_EXIT_CODE::{0}' -f `$syncManifestExitCode)
 if (`$syncManifestExitCode -ne 0) {

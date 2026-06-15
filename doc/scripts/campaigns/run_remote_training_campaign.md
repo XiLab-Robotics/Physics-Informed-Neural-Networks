@@ -39,7 +39,7 @@ The launcher:
 3. verifies that the synchronized campaign YAML files and planning report are
    actually present on the remote repository clone after sync;
 4. starts `scripts/training/run_training_campaign.py` on the remote machine
-   through SSH and `conda run`;
+   through SSH and `conda run --no-capture-output`;
 5. copies back the resulting campaign manifest, training-run artifacts,
    campaign outputs, queue end state, and affected registries into the local
    repository;
@@ -118,6 +118,11 @@ Use these files to inspect:
 Remote warning lines emitted on `stderr` are still streamed into the local
 terminal and local remote-run log, but they are no longer treated as fatal by
 the local wrapper unless the real remote exit code is non-zero.
+
+Remote Python calls are launched with `PYTHONIOENCODING=utf-8`,
+`PYTHONUTF8=1`, a UTF-8 console code page where available, and
+`conda run --no-capture-output`. This avoids the Windows Conda CP1252 stdout
+replay path that can fail when training output contains non-CP1252 characters.
 
 If one of the required remote campaign source paths is still missing after the
 sync-up stage, the launcher now fails immediately during `sync_up` with the
