@@ -1,0 +1,38 @@
+schema_version: 1
+model_family: wave3_harmonic_prior_residual_pointwise_control_fw
+selection_policy:
+  primary_metric: test_mae
+  first_tie_breaker: test_rmse
+  second_tie_breaker: val_mae
+  third_tie_breaker: trainable_parameter_count
+  direction: minimize
+updated_at: '2026-06-15T14:34:34'
+best_entry:
+  run_instance_id: 2026-06-15-14-27-23__te_wave3_harmonic_prior_residual_pointwise_control_fw
+  run_name: te_wave3_harmonic_prior_residual_pointwise_control_fw
+  output_run_name: te_wave3_harmonic_prior_residual_pointwise_control_fw
+  output_artifact_kind: training_run
+  model_family: wave3_harmonic_prior_residual_pointwise_control_fw
+  base_model_family: wave3_harmonic_prior_residual_pointwise_control_fw
+  model_type: wave3_harmonic_prior_residual
+  training_variant: Fw
+  direction_scope_label: forward_only
+  use_forward_direction: true
+  use_backward_direction: false
+  trainable_parameter_count: 7283
+  total_parameter_count: 7283
+  val_mae: 0.0033150590024888515
+  val_rmse: 0.003845448838546872
+  test_mae: 0.00338164484128356
+  test_rmse: 0.0037789091002196074
+  output_directory: output\training_runs\wave3_harmonic_prior_residual_pointwise_control_fw\2026-06-15-14-27-23__te_wave3_harmonic_prior_residual_pointwise_control_fw
+  best_checkpoint_path: output\training_runs\wave3_harmonic_prior_residual_pointwise_control_fw\2026-06-15-14-27-23__te_wave3_harmonic_prior_residual_pointwise_control_fw\checkpoints\wave3_harmonic_prior_residual-epoch=013-val_mae=0.00331506.ckpt
+  metrics_path: output\training_runs\wave3_harmonic_prior_residual_pointwise_control_fw\2026-06-15-14-27-23__te_wave3_harmonic_prior_residual_pointwise_control_fw/metrics_summary.yaml
+  report_path: output\training_runs\wave3_harmonic_prior_residual_pointwise_control_fw\2026-06-15-14-27-23__te_wave3_harmonic_prior_residual_pointwise_control_fw/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-06-15T14:34:34'

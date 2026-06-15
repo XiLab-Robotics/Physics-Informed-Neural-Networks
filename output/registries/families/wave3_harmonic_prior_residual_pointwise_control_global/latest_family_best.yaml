@@ -1,0 +1,38 @@
+schema_version: 1
+model_family: wave3_harmonic_prior_residual_pointwise_control_global
+selection_policy:
+  primary_metric: test_mae
+  first_tie_breaker: test_rmse
+  second_tie_breaker: val_mae
+  third_tie_breaker: trainable_parameter_count
+  direction: minimize
+updated_at: '2026-06-15T14:27:23'
+best_entry:
+  run_instance_id: 2026-06-15-14-01-15__te_wave3_harmonic_prior_residual_pointwise_control_global
+  run_name: te_wave3_harmonic_prior_residual_pointwise_control_global
+  output_run_name: te_wave3_harmonic_prior_residual_pointwise_control_global
+  output_artifact_kind: training_run
+  model_family: wave3_harmonic_prior_residual_pointwise_control_global
+  base_model_family: wave3_harmonic_prior_residual_pointwise_control_global
+  model_type: wave3_harmonic_prior_residual
+  training_variant: global
+  direction_scope_label: bidirectional
+  use_forward_direction: true
+  use_backward_direction: true
+  trainable_parameter_count: 7283
+  total_parameter_count: 7283
+  val_mae: 0.0036107231862843037
+  val_rmse: 0.004117682576179504
+  test_mae: 0.003451181808486581
+  test_rmse: 0.003851145040243864
+  output_directory: output\training_runs\wave3_harmonic_prior_residual_pointwise_control_global\2026-06-15-14-01-15__te_wave3_harmonic_prior_residual_pointwise_control_global
+  best_checkpoint_path: output\training_runs\wave3_harmonic_prior_residual_pointwise_control_global\2026-06-15-14-01-15__te_wave3_harmonic_prior_residual_pointwise_control_global\checkpoints\wave3_harmonic_prior_residual-epoch=085-val_mae=0.00361072.ckpt
+  metrics_path: output\training_runs\wave3_harmonic_prior_residual_pointwise_control_global\2026-06-15-14-01-15__te_wave3_harmonic_prior_residual_pointwise_control_global/metrics_summary.yaml
+  report_path: output\training_runs\wave3_harmonic_prior_residual_pointwise_control_global\2026-06-15-14-01-15__te_wave3_harmonic_prior_residual_pointwise_control_global/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-06-15T14:27:23'

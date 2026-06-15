@@ -1,0 +1,11 @@
+schema_version: 1
+artifact_kind: training_run
+model_family: wave3_harmonic_prior_residual_smooth_l1_structured_fw
+base_model_family: wave3_harmonic_prior_residual_smooth_l1_structured_fw
+training_variant: Fw
+direction_scope_label: forward_only
+use_forward_direction: true
+use_backward_direction: false
+run_name: te_wave3_harmonic_prior_residual_smooth_l1_structured_fw
+run_instance_id: 2026-06-15-15-08-57__te_wave3_harmonic_prior_residual_smooth_l1_structured_fw
+output_directory: output\training_runs\wave3_harmonic_prior_residual_smooth_l1_structured_fw\2026-06-15-15-08-57__te_wave3_harmonic_prior_residual_smooth_l1_structured_fw

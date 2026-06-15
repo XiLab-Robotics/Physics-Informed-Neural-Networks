@@ -1,0 +1,38 @@
+schema_version: 1
+campaign_name: wave3_harmonic_prior_residual_campaign_2026_06_14
+selection_policy:
+  primary_metric: test_mae
+  first_tie_breaker: test_rmse
+  second_tie_breaker: val_mae
+  third_tie_breaker: trainable_parameter_count
+  direction: minimize
+updated_at: '2026-06-15T15:30:20'
+best_entry:
+  run_instance_id: 2026-06-15-14-34-34__te_wave3_harmonic_prior_residual_pointwise_control_bw
+  run_name: te_wave3_harmonic_prior_residual_pointwise_control_bw
+  output_run_name: te_wave3_harmonic_prior_residual_pointwise_control_bw
+  output_artifact_kind: training_run
+  model_family: wave3_harmonic_prior_residual_pointwise_control_bw
+  base_model_family: wave3_harmonic_prior_residual_pointwise_control_bw
+  model_type: wave3_harmonic_prior_residual
+  training_variant: Bw
+  direction_scope_label: backward_only
+  use_forward_direction: false
+  use_backward_direction: true
+  trainable_parameter_count: 7283
+  total_parameter_count: 7283
+  val_mae: 0.0036341524682939053
+  val_rmse: 0.004206067882478237
+  test_mae: 0.003363456577062607
+  test_rmse: 0.0039021591655910015
+  output_directory: output\training_runs\wave3_harmonic_prior_residual_pointwise_control_bw\2026-06-15-14-34-34__te_wave3_harmonic_prior_residual_pointwise_control_bw
+  best_checkpoint_path: output\training_runs\wave3_harmonic_prior_residual_pointwise_control_bw\2026-06-15-14-34-34__te_wave3_harmonic_prior_residual_pointwise_control_bw\checkpoints\wave3_harmonic_prior_residual-epoch=123-val_mae=0.00363415.ckpt
+  metrics_path: output\training_runs\wave3_harmonic_prior_residual_pointwise_control_bw\2026-06-15-14-34-34__te_wave3_harmonic_prior_residual_pointwise_control_bw/metrics_summary.yaml
+  report_path: output\training_runs\wave3_harmonic_prior_residual_pointwise_control_bw\2026-06-15-14-34-34__te_wave3_harmonic_prior_residual_pointwise_control_bw/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-06-15T15:30:20'

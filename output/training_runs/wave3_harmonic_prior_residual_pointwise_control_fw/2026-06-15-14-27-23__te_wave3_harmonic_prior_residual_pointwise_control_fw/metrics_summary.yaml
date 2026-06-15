@@ -1,0 +1,84 @@
+schema_version: 1
+config_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\config\training\queue\running\2026-06-15-14-01-15_002_02_pointwise_control_fw.yaml
+experiment:
+  model_family: wave3_harmonic_prior_residual_pointwise_control_fw
+  model_type: wave3_harmonic_prior_residual
+  run_name: te_wave3_harmonic_prior_residual_pointwise_control_fw
+  output_run_name: te_wave3_harmonic_prior_residual_pointwise_control_fw
+  run_instance_id: 2026-06-15-14-27-23__te_wave3_harmonic_prior_residual_pointwise_control_fw
+  output_artifact_kind: training_run
+  base_model_family: wave3_harmonic_prior_residual_pointwise_control_fw
+  training_variant: Fw
+  direction_scope_label: forward_only
+  use_forward_direction: true
+  use_backward_direction: false
+artifacts:
+  output_directory: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_runs\wave3_harmonic_prior_residual_pointwise_control_fw\2026-06-15-14-27-23__te_wave3_harmonic_prior_residual_pointwise_control_fw
+  best_checkpoint_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_runs\wave3_harmonic_prior_residual_pointwise_control_fw\2026-06-15-14-27-23__te_wave3_harmonic_prior_residual_pointwise_control_fw\checkpoints\wave3_harmonic_prior_residual-epoch=013-val_mae=0.00331506.ckpt
+dataset_split:
+  train_curve_count: 678
+  validation_curve_count: 194
+  test_curve_count: 97
+model_summary:
+  backbone_name: Wave3HarmonicPriorResidualNetwork
+  trainable_parameter_count: 7283
+  frozen_parameter_count: 0
+  total_parameter_count: 7283
+runtime_config:
+  accelerator: auto
+  devices: auto
+  precision: '32'
+  benchmark: true
+  use_non_blocking_transfer: true
+normalization_statistics:
+  input_feature_mean:
+  - 179.9805145263672
+  - 497.85791015625
+  - 896.0144653320312
+  - 30.364091873168945
+  - 1.0
+  input_feature_std:
+  - 103.9229736328125
+  - 466.8041076660156
+  - 543.8323974609375
+  - 4.080519676208496
+  - 9.999999974752427e-07
+  target_mean:
+  - -0.05690589174628258
+  target_std:
+  - 0.02363586612045765
+validation_metrics:
+  val_loss: 0.03286616504192352
+  val_mae: 0.0033150590024888515
+  val_rmse: 0.003845448838546872
+  val_pointwise_loss: 0.03286616504192352
+  val_centered_curve_shape_loss: 0.01575418934226036
+  val_curve_offset_loss: 0.017111986875534058
+  val_curve_amplitude_loss: 0.1017138659954071
+  val_sparse_harmonic_shape_loss: 0.0003423052257858217
+  val_structured_mae: 0.018768224865198135
+  val_structured_rmse: 0.020856328308582306
+test_metrics:
+  test_loss: 0.028909867629408836
+  test_mae: 0.00338164484128356
+  test_rmse: 0.0037789091002196074
+  test_pointwise_loss: 0.028909867629408836
+  test_centered_curve_shape_loss: 0.008203523233532906
+  test_curve_offset_loss: 0.02070634439587593
+  test_curve_amplitude_loss: 0.03851771727204323
+  test_sparse_harmonic_shape_loss: 0.00015225257084239274
+  test_structured_mae: 0.020046519115567207
+  test_structured_rmse: 0.022384243085980415
+comparison_payload:
+  model_family: wave3_harmonic_prior_residual_pointwise_control_fw
+  model_type: wave3_harmonic_prior_residual
+  run_name: te_wave3_harmonic_prior_residual_pointwise_control_fw
+  backbone_name: Wave3HarmonicPriorResidualNetwork
+  trainable_parameter_count: 7283
+  total_parameter_count: 7283
+  val_mae: 0.0033150590024888515
+  val_rmse: 0.003845448838546872
+  test_mae: 0.00338164484128356
+  test_rmse: 0.0037789091002196074
+  deployment_notes: ''
+  interpretability_notes: ''

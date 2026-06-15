@@ -1,0 +1,132 @@
+campaign_name: wave3_harmonic_prior_residual_campaign_2026_06_14
+generated_at: '2026-06-15T15:30:20'
+queue_root: config/training/queue
+campaign_output_directory: output/training_campaigns/2026-06-15-14-01-15_wave3_harmonic_prior_residual_campaign_2026_06_14
+planning_report_path: doc/reports/campaign_plans/wave3_wave4/2026-06-14-19-54-55_wave3_harmonic_prior_residual_campaign_plan_report.md
+run_list:
+- original_queue_config_path: config/training/queue/pending/2026-06-15-14-01-15_001_01_pointwise_control_global.yaml
+  final_queue_config_path: config/training/queue/completed/2026-06-15-14-01-15_001_01_pointwise_control_global.yaml
+  source_config_path: config/training/wave3_harmonic_prior_residual/campaigns/2026-06-14_wave3_harmonic_prior_residual_campaign/queue/01_pointwise_control_global.yaml
+  run_name: te_wave3_harmonic_prior_residual_pointwise_control_global
+  run_instance_id: 2026-06-15-14-01-15__te_wave3_harmonic_prior_residual_pointwise_control_global
+  model_type: wave3_harmonic_prior_residual
+  queue_status: completed
+  start_time: '2026-06-15T14:01:15'
+  end_time: '2026-06-15T14:27:23'
+  duration_seconds: 1568.423
+  process_return_code: 0
+  output_directory: output/training_runs/wave3_harmonic_prior_residual_pointwise_control_global/2026-06-15-14-01-15__te_wave3_harmonic_prior_residual_pointwise_control_global
+  config_snapshot_path: output/training_runs/wave3_harmonic_prior_residual_pointwise_control_global/2026-06-15-14-01-15__te_wave3_harmonic_prior_residual_pointwise_control_global/training_config.yaml
+  best_checkpoint_reference_path: output/training_runs/wave3_harmonic_prior_residual_pointwise_control_global/2026-06-15-14-01-15__te_wave3_harmonic_prior_residual_pointwise_control_global/best_checkpoint_path.txt
+  best_checkpoint_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_runs\wave3_harmonic_prior_residual_pointwise_control_global\2026-06-15-14-01-15__te_wave3_harmonic_prior_residual_pointwise_control_global\checkpoints\wave3_harmonic_prior_residual-epoch=085-val_mae=0.00361072.ckpt
+  metrics_path: output/training_runs/wave3_harmonic_prior_residual_pointwise_control_global/2026-06-15-14-01-15__te_wave3_harmonic_prior_residual_pointwise_control_global/metrics_summary.yaml
+  training_report_path: output/training_runs/wave3_harmonic_prior_residual_pointwise_control_global/2026-06-15-14-01-15__te_wave3_harmonic_prior_residual_pointwise_control_global/training_test_report.md
+  log_path: output/training_campaigns/2026-06-15-14-01-15_wave3_harmonic_prior_residual_campaign_2026_06_14/logs/001_te_wave3_harmonic_prior_residual_pointwise_contr.log
+  planning_report_path: doc/reports/campaign_plans/wave3_wave4/2026-06-14-19-54-55_wave3_harmonic_prior_residual_campaign_plan_report.md
+  campaign_name: wave3_harmonic_prior_residual_campaign_2026_06_14
+  error_message: null
+- original_queue_config_path: config/training/queue/pending/2026-06-15-14-01-15_002_02_pointwise_control_fw.yaml
+  final_queue_config_path: config/training/queue/completed/2026-06-15-14-01-15_002_02_pointwise_control_fw.yaml
+  source_config_path: config/training/wave3_harmonic_prior_residual/campaigns/2026-06-14_wave3_harmonic_prior_residual_campaign/queue/02_pointwise_control_fw.yaml
+  run_name: te_wave3_harmonic_prior_residual_pointwise_control_fw
+  run_instance_id: 2026-06-15-14-27-23__te_wave3_harmonic_prior_residual_pointwise_control_fw
+  model_type: wave3_harmonic_prior_residual
+  queue_status: completed
+  start_time: '2026-06-15T14:27:23'
+  end_time: '2026-06-15T14:34:34'
+  duration_seconds: 430.2
+  process_return_code: 0
+  output_directory: output/training_runs/wave3_harmonic_prior_residual_pointwise_control_fw/2026-06-15-14-27-23__te_wave3_harmonic_prior_residual_pointwise_control_fw
+  config_snapshot_path: output/training_runs/wave3_harmonic_prior_residual_pointwise_control_fw/2026-06-15-14-27-23__te_wave3_harmonic_prior_residual_pointwise_control_fw/training_config.yaml
+  best_checkpoint_reference_path: output/training_runs/wave3_harmonic_prior_residual_pointwise_control_fw/2026-06-15-14-27-23__te_wave3_harmonic_prior_residual_pointwise_control_fw/best_checkpoint_path.txt
+  best_checkpoint_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_runs\wave3_harmonic_prior_residual_pointwise_control_fw\2026-06-15-14-27-23__te_wave3_harmonic_prior_residual_pointwise_control_fw\checkpoints\wave3_harmonic_prior_residual-epoch=013-val_mae=0.00331506.ckpt
+  metrics_path: output/training_runs/wave3_harmonic_prior_residual_pointwise_control_fw/2026-06-15-14-27-23__te_wave3_harmonic_prior_residual_pointwise_control_fw/metrics_summary.yaml
+  training_report_path: output/training_runs/wave3_harmonic_prior_residual_pointwise_control_fw/2026-06-15-14-27-23__te_wave3_harmonic_prior_residual_pointwise_control_fw/training_test_report.md
+  log_path: output/training_campaigns/2026-06-15-14-01-15_wave3_harmonic_prior_residual_campaign_2026_06_14/logs/002_te_wave3_harmonic_prior_residual_pointwise_contr.log
+  planning_report_path: doc/reports/campaign_plans/wave3_wave4/2026-06-14-19-54-55_wave3_harmonic_prior_residual_campaign_plan_report.md
+  campaign_name: wave3_harmonic_prior_residual_campaign_2026_06_14
+  error_message: null
+- original_queue_config_path: config/training/queue/pending/2026-06-15-14-01-15_003_03_pointwise_control_bw.yaml
+  final_queue_config_path: config/training/queue/completed/2026-06-15-14-01-15_003_03_pointwise_control_bw.yaml
+  source_config_path: config/training/wave3_harmonic_prior_residual/campaigns/2026-06-14_wave3_harmonic_prior_residual_campaign/queue/03_pointwise_control_bw.yaml
+  run_name: te_wave3_harmonic_prior_residual_pointwise_control_bw
+  run_instance_id: 2026-06-15-14-34-34__te_wave3_harmonic_prior_residual_pointwise_control_bw
+  model_type: wave3_harmonic_prior_residual
+  queue_status: completed
+  start_time: '2026-06-15T14:34:34'
+  end_time: '2026-06-15T14:49:19'
+  duration_seconds: 885.186
+  process_return_code: 0
+  output_directory: output/training_runs/wave3_harmonic_prior_residual_pointwise_control_bw/2026-06-15-14-34-34__te_wave3_harmonic_prior_residual_pointwise_control_bw
+  config_snapshot_path: output/training_runs/wave3_harmonic_prior_residual_pointwise_control_bw/2026-06-15-14-34-34__te_wave3_harmonic_prior_residual_pointwise_control_bw/training_config.yaml
+  best_checkpoint_reference_path: output/training_runs/wave3_harmonic_prior_residual_pointwise_control_bw/2026-06-15-14-34-34__te_wave3_harmonic_prior_residual_pointwise_control_bw/best_checkpoint_path.txt
+  best_checkpoint_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_runs\wave3_harmonic_prior_residual_pointwise_control_bw\2026-06-15-14-34-34__te_wave3_harmonic_prior_residual_pointwise_control_bw\checkpoints\wave3_harmonic_prior_residual-epoch=123-val_mae=0.00363415.ckpt
+  metrics_path: output/training_runs/wave3_harmonic_prior_residual_pointwise_control_bw/2026-06-15-14-34-34__te_wave3_harmonic_prior_residual_pointwise_control_bw/metrics_summary.yaml
+  training_report_path: output/training_runs/wave3_harmonic_prior_residual_pointwise_control_bw/2026-06-15-14-34-34__te_wave3_harmonic_prior_residual_pointwise_control_bw/training_test_report.md
+  log_path: output/training_campaigns/2026-06-15-14-01-15_wave3_harmonic_prior_residual_campaign_2026_06_14/logs/003_te_wave3_harmonic_prior_residual_pointwise_contr.log
+  planning_report_path: doc/reports/campaign_plans/wave3_wave4/2026-06-14-19-54-55_wave3_harmonic_prior_residual_campaign_plan_report.md
+  campaign_name: wave3_harmonic_prior_residual_campaign_2026_06_14
+  error_message: null
+- original_queue_config_path: config/training/queue/pending/2026-06-15-14-01-15_004_04_smooth_l1_structured_global.yaml
+  final_queue_config_path: config/training/queue/completed/2026-06-15-14-01-15_004_04_smooth_l1_structured_global.yaml
+  source_config_path: config/training/wave3_harmonic_prior_residual/campaigns/2026-06-14_wave3_harmonic_prior_residual_campaign/queue/04_smooth_l1_structured_global.yaml
+  run_name: te_wave3_harmonic_prior_residual_smooth_l1_structured_global
+  run_instance_id: 2026-06-15-14-49-19__te_wave3_harmonic_prior_residual_smooth_l1_structured_global
+  model_type: wave3_harmonic_prior_residual
+  queue_status: completed
+  start_time: '2026-06-15T14:49:19'
+  end_time: '2026-06-15T15:08:57'
+  duration_seconds: 1177.988
+  process_return_code: 0
+  output_directory: output/training_runs/wave3_harmonic_prior_residual_smooth_l1_structured_global/2026-06-15-14-49-19__te_wave3_harmonic_prior_residual_smooth_l1_structured_global
+  config_snapshot_path: output/training_runs/wave3_harmonic_prior_residual_smooth_l1_structured_global/2026-06-15-14-49-19__te_wave3_harmonic_prior_residual_smooth_l1_structured_global/training_config.yaml
+  best_checkpoint_reference_path: output/training_runs/wave3_harmonic_prior_residual_smooth_l1_structured_global/2026-06-15-14-49-19__te_wave3_harmonic_prior_residual_smooth_l1_structured_global/best_checkpoint_path.txt
+  best_checkpoint_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_runs\wave3_harmonic_prior_residual_smooth_l1_structured_global\2026-06-15-14-49-19__te_wave3_harmonic_prior_residual_smooth_l1_structured_global\checkpoints\wave3_harmonic_prior_residual-epoch=050-val_mae=0.00363290.ckpt
+  metrics_path: output/training_runs/wave3_harmonic_prior_residual_smooth_l1_structured_global/2026-06-15-14-49-19__te_wave3_harmonic_prior_residual_smooth_l1_structured_global/metrics_summary.yaml
+  training_report_path: output/training_runs/wave3_harmonic_prior_residual_smooth_l1_structured_global/2026-06-15-14-49-19__te_wave3_harmonic_prior_residual_smooth_l1_structured_global/training_test_report.md
+  log_path: output/training_campaigns/2026-06-15-14-01-15_wave3_harmonic_prior_residual_campaign_2026_06_14/logs/004_te_wave3_harmonic_prior_residual_smooth_l1_struc.log
+  planning_report_path: doc/reports/campaign_plans/wave3_wave4/2026-06-14-19-54-55_wave3_harmonic_prior_residual_campaign_plan_report.md
+  campaign_name: wave3_harmonic_prior_residual_campaign_2026_06_14
+  error_message: null
+- original_queue_config_path: config/training/queue/pending/2026-06-15-14-01-15_005_05_smooth_l1_structured_fw.yaml
+  final_queue_config_path: config/training/queue/completed/2026-06-15-14-01-15_005_05_smooth_l1_structured_fw.yaml
+  source_config_path: config/training/wave3_harmonic_prior_residual/campaigns/2026-06-14_wave3_harmonic_prior_residual_campaign/queue/05_smooth_l1_structured_fw.yaml
+  run_name: te_wave3_harmonic_prior_residual_smooth_l1_structured_fw
+  run_instance_id: 2026-06-15-15-08-57__te_wave3_harmonic_prior_residual_smooth_l1_structured_fw
+  model_type: wave3_harmonic_prior_residual
+  queue_status: completed
+  start_time: '2026-06-15T15:08:57'
+  end_time: '2026-06-15T15:16:24'
+  duration_seconds: 447.541
+  process_return_code: 0
+  output_directory: output/training_runs/wave3_harmonic_prior_residual_smooth_l1_structured_fw/2026-06-15-15-08-57__te_wave3_harmonic_prior_residual_smooth_l1_structured_fw
+  config_snapshot_path: output/training_runs/wave3_harmonic_prior_residual_smooth_l1_structured_fw/2026-06-15-15-08-57__te_wave3_harmonic_prior_residual_smooth_l1_structured_fw/training_config.yaml
+  best_checkpoint_reference_path: output/training_runs/wave3_harmonic_prior_residual_smooth_l1_structured_fw/2026-06-15-15-08-57__te_wave3_harmonic_prior_residual_smooth_l1_structured_fw/best_checkpoint_path.txt
+  best_checkpoint_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_runs\wave3_harmonic_prior_residual_smooth_l1_structured_fw\2026-06-15-15-08-57__te_wave3_harmonic_prior_residual_smooth_l1_structured_fw\checkpoints\wave3_harmonic_prior_residual-epoch=016-val_mae=0.00331004.ckpt
+  metrics_path: output/training_runs/wave3_harmonic_prior_residual_smooth_l1_structured_fw/2026-06-15-15-08-57__te_wave3_harmonic_prior_residual_smooth_l1_structured_fw/metrics_summary.yaml
+  training_report_path: output/training_runs/wave3_harmonic_prior_residual_smooth_l1_structured_fw/2026-06-15-15-08-57__te_wave3_harmonic_prior_residual_smooth_l1_structured_fw/training_test_report.md
+  log_path: output/training_campaigns/2026-06-15-14-01-15_wave3_harmonic_prior_residual_campaign_2026_06_14/logs/005_te_wave3_harmonic_prior_residual_smooth_l1_struc.log
+  planning_report_path: doc/reports/campaign_plans/wave3_wave4/2026-06-14-19-54-55_wave3_harmonic_prior_residual_campaign_plan_report.md
+  campaign_name: wave3_harmonic_prior_residual_campaign_2026_06_14
+  error_message: null
+- original_queue_config_path: config/training/queue/pending/2026-06-15-14-01-15_006_06_smooth_l1_structured_bw.yaml
+  final_queue_config_path: config/training/queue/completed/2026-06-15-14-01-15_006_06_smooth_l1_structured_bw.yaml
+  source_config_path: config/training/wave3_harmonic_prior_residual/campaigns/2026-06-14_wave3_harmonic_prior_residual_campaign/queue/06_smooth_l1_structured_bw.yaml
+  run_name: te_wave3_harmonic_prior_residual_smooth_l1_structured_bw
+  run_instance_id: 2026-06-15-15-16-24__te_wave3_harmonic_prior_residual_smooth_l1_structured_bw
+  model_type: wave3_harmonic_prior_residual
+  queue_status: completed
+  start_time: '2026-06-15T15:16:24'
+  end_time: '2026-06-15T15:30:20'
+  duration_seconds: 835.81
+  process_return_code: 0
+  output_directory: output/training_runs/wave3_harmonic_prior_residual_smooth_l1_structured_bw/2026-06-15-15-16-24__te_wave3_harmonic_prior_residual_smooth_l1_structured_bw
+  config_snapshot_path: output/training_runs/wave3_harmonic_prior_residual_smooth_l1_structured_bw/2026-06-15-15-16-24__te_wave3_harmonic_prior_residual_smooth_l1_structured_bw/training_config.yaml
+  best_checkpoint_reference_path: output/training_runs/wave3_harmonic_prior_residual_smooth_l1_structured_bw/2026-06-15-15-16-24__te_wave3_harmonic_prior_residual_smooth_l1_structured_bw/best_checkpoint_path.txt
+  best_checkpoint_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_runs\wave3_harmonic_prior_residual_smooth_l1_structured_bw\2026-06-15-15-16-24__te_wave3_harmonic_prior_residual_smooth_l1_structured_bw\checkpoints\wave3_harmonic_prior_residual-epoch=114-val_mae=0.00364433.ckpt
+  metrics_path: output/training_runs/wave3_harmonic_prior_residual_smooth_l1_structured_bw/2026-06-15-15-16-24__te_wave3_harmonic_prior_residual_smooth_l1_structured_bw/metrics_summary.yaml
+  training_report_path: output/training_runs/wave3_harmonic_prior_residual_smooth_l1_structured_bw/2026-06-15-15-16-24__te_wave3_harmonic_prior_residual_smooth_l1_structured_bw/training_test_report.md
+  log_path: output/training_campaigns/2026-06-15-14-01-15_wave3_harmonic_prior_residual_campaign_2026_06_14/logs/006_te_wave3_harmonic_prior_residual_smooth_l1_struc.log
+  planning_report_path: doc/reports/campaign_plans/wave3_wave4/2026-06-14-19-54-55_wave3_harmonic_prior_residual_campaign_plan_report.md
+  campaign_name: wave3_harmonic_prior_residual_campaign_2026_06_14
+  error_message: null
