@@ -2,49 +2,60 @@
 
 ## Overview
 
-Add CPU-oriented Aries Slurm examples to the existing cluster user guide. The
+Add corrected Aries Slurm examples to the existing cluster user guide. The
 current guide documents the validated GPU/MIG `srun` and `sbatch` path, but it
-does not show how to request CPU resources intentionally or how to interpret
-the CPU limits exposed by the `gpus` QoS note.
+does not clearly separate interactive compute-node shells, `srun` script
+execution, CPU-only allocations, GPU allocations, and queue inspection
+commands.
 
 ## Technical Approach
 
-Update `doc/guide/aries_cluster_user_guide.md` with a small, explicit CPU
-section near the existing first interactive GPU session and first `sbatch`
-template. Use the existing Aries defaults already recorded in the guide:
-`aries.hpc.unimo.it`, account `xilab`, partition `ice4hpc`, QoS `gpus`, and
-the call-note limit that the GPU QoS allows `cpu=8`, `gres/gpu=4`, and
-`mem=100G` per job.
+Update `doc/guide/aries_cluster_user_guide.md` with explicit, separate Slurm
+operator sections. Use the existing Aries defaults already recorded in the
+guide: `aries.hpc.unimo.it`, account `xilab`, GPU partition `ice4hpc`, GPU QoS
+`gpus`, CPU QoS values `normal`/`high`/`low`, and the call-note limit that the
+GPU QoS allows `cpu=8`, `gres/gpu=4`, and `mem=100G` per job.
 
 The user-provided batch note confirms the practical pattern used on Aries:
 `#SBATCH -A xilab`, `#SBATCH -p ice4hpc`, `#SBATCH --qos=gpus`,
 `#SBATCH --ntasks-per-node=8`, `#SBATCH --mem=20g`, and a MIG GPU request such
-as `#SBATCH --gpus=1g.20gb:1`. The guide update should therefore distinguish
-between:
+as `#SBATCH --gpus=1g.20gb:1` for GPU-partition work. The live terminal
+evidence also confirms that `sq` is not available, `squeue --me` is available,
+`squeue -me` is invalid, and `showqos` can be unavailable inside a compute-node
+shell while available on the login node.
 
-- CPU-heavy work inside the validated `ice4hpc`/`gpus` QoS allocation pattern,
-  where the documented CPU cap is eight CPUs per job unless `showqos` reports a
-  different current limit.
-- True CPU-only work, which should omit `--gpus` only if `sinfo` and `showqos`
-  show a CPU-capable partition/QoS combination that accepts CPU-only jobs.
+The guide update should therefore distinguish between:
+
+- Interactive `srun --pty /bin/bash` sessions for manual terminal work on a
+  compute node.
+- `srun` script execution, where resources are passed on the `srun` command
+  line and `#SBATCH` directives are only comments.
+- CPU-only allocations on CPU partitions such as `user-debug`, `low`, `high`,
+  or `ulow` with CPU QoS values such as `normal`.
+- GPU allocations on `ice4hpc` with QoS `gpus` and an explicit MIG GPU request.
+- Queue inspection and cancellation commands using full Slurm commands instead
+  of unavailable aliases.
 
 No subagent use is planned.
 
 ## Involved Components
 
 - `doc/guide/aries_cluster_user_guide.md`
-- `site/guide/aries_cluster_user_guide.md`
+- `site/guide/aries_cluster_user_guide.md`, which includes the guide from
+  `doc/guide/`
 - `doc/README.md`
 
 ## Implementation Steps
 
-1. Add an interactive CPU-oriented `srun` example that requests up to the known
-   eight-CPU limit and sets common numerical-library thread variables from
-   `SLURM_CPUS_PER_TASK`.
-2. Add a CPU-oriented `sbatch` template adapted from the user's Aries notes,
-   preserving the validated account, partition, QoS, memory, and MIG request.
-3. Add a short CPU-only caveat explaining when to remove `--gpus` and replace
-   partition/QoS values based on live `sinfo` and `showqos` output.
-4. Mirror the same guide content into the Sphinx guide source under `site/`.
-5. Run Markdown QA on the touched Markdown files and fix any warnings in the
+1. Replace alias-style queue examples with full `squeue`, `squeue --me`,
+   `squeue -u "$USER"`, `scontrol show job`, and `scancel` examples.
+2. Add interactive GPU and CPU compute-node sections that show when
+   `srun --pty /bin/bash` opens a manual shell on a node.
+3. Add a dedicated `srun` script section with CPU and GPU hello-world checks,
+   making clear that `#SBATCH` directives are not consumed by `srun`.
+4. Add a CPU-only `sbatch` template that uses CPU partitions and QoS values
+   without a GPU request.
+5. Keep the existing GPU `sbatch` path for `ice4hpc`/`gpus` work and update
+   the resource rule-of-thumb table.
+6. Run Markdown QA on the touched Markdown files and fix any warnings in the
    touched scope.

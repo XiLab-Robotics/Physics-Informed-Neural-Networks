@@ -300,14 +300,32 @@ Show only your jobs:
 squeue -u "$USER"
 ```
 
-The call notes also mention local aliases or helper commands:
+On Aries, `squeue --me` is also available and is the shortest reliable way to
+show only your jobs:
 
 ```bash
-sq
-sq --me
-sq -u dferrari
+squeue --me
+```
+
+The shell may define `sq` shorthand.
+
+Show QoS limits from the login node:
+
+```bash
 showqos
 ```
+
+If `showqos` is missing, first confirm that you are on the login node and that
+Slurm is loaded:
+
+```bash
+hostname
+module load slurm
+showqos
+```
+
+`showqos` can be unavailable inside an allocated compute-node shell. Exit back
+to the login node before using it for quota checks.
 
 Common Slurm states:
 
@@ -332,7 +350,35 @@ Cancel all of your jobs only when you really intend to stop them:
 scancel -u "$USER"
 ```
 
-## First Interactive GPU Session With srun
+Show details for one job:
+
+```bash
+scontrol show job <job_id>
+```
+
+Replace `<job_id>` with the numeric job id printed by `srun`, `sbatch`, or
+`squeue`.
+
+## Interactive Compute-Node Sessions With srun
+
+Use interactive `srun --pty /bin/bash` only when you want to land on a compute
+node and run commands manually from the terminal. This is useful for short
+checks, debugging, and confirming that modules, Conda, CUDA, and paths work.
+If the SSH session dies, the interactive work can die with it.
+
+The interactive shell can start with a different Conda prompt, for example
+`(base)` even if the login-node shell was already in `pinns_env`. Always load
+modules and activate the intended Conda environment again inside the allocated
+node shell.
+
+The prompt tells you where you are:
+
+```text
+[dferrari@fe03 Physics-Informed-Neural-Networks]$   # login node
+[dferrari@gnode01 Physics-Informed-Neural-Networks]$ # compute node
+```
+
+### Interactive GPU Node
 
 Start with a modest request. This matches the Aries call notes and avoids
 asking for more CPU or memory than the first check needs:
@@ -378,20 +424,80 @@ Exit the interactive allocation when finished:
 exit
 ```
 
-## CPU-Oriented Interactive Session With srun
+### Interactive CPU Node
 
-The Aries notes captured for this project describe the validated allocation
-surface as account `xilab`, partition `ice4hpc`, and QoS `gpus`. That QoS was
-reported with a per-job CPU limit of `cpu=8`, so use at most eight CPU tasks
-unless `showqos` reports a newer limit.
+For work without GPU acceleration, use a CPU partition and a CPU QoS. The call
+notes say that CPU work should use QoS `normal`, `high`, or `low`; if no QoS is
+specified, Aries can select the default QoS. The live `sinfo` output shown in
+the validated session exposed CPU-oriented partitions such as `ulow`, `low`,
+`high`, and `user-debug`.
 
-For CPU-heavy debugging inside the validated Aries allocation pattern, keep the
-MIG GPU request and spend the allocation mainly on CPU work:
+Use `user-debug` only for short checks because its time limit is 30 minutes:
+
+```bash
+srun \
+  --nodes=1 \
+  --ntasks=1 \
+  --cpus-per-task=4 \
+  --time=00:30:00 \
+  --mem=20g \
+  --partition=user-debug \
+  --account=xilab \
+  --qos=normal \
+  --pty \
+  --mpi=pmix \
+  /bin/bash
+```
+
+For a longer CPU session, use a longer CPU partition such as `low`, then keep
+the requested time within the partition time limit:
+
+```bash
+srun \
+  --nodes=1 \
+  --ntasks=1 \
+  --cpus-per-task=8 \
+  --time=02:00:00 \
+  --mem=20g \
+  --partition=low \
+  --account=xilab \
+  --qos=normal \
+  --pty \
+  --mpi=pmix \
+  /bin/bash
+```
+
+Once the shell opens on the allocated CPU node, bind common numerical-library
+thread counts to the CPU request before running Python:
+
+```bash
+module load Anaconda3
+conda activate pinns_env
+
+export OMP_NUM_THREADS="${SLURM_CPUS_PER_TASK:-1}"
+export MKL_NUM_THREADS="${SLURM_CPUS_PER_TASK:-1}"
+export OPENBLAS_NUM_THREADS="${SLURM_CPUS_PER_TASK:-1}"
+export NUMEXPR_NUM_THREADS="${SLURM_CPUS_PER_TASK:-1}"
+
+hostname
+python -c "import os; print('cpu_count=', os.cpu_count()); print('threads=', os.environ.get('OMP_NUM_THREADS'))"
+```
+
+### CPU Work Inside A GPU Allocation
+
+The `ice4hpc` partition is the GPU partition. Use it when you need the GPU node
+or when you are preparing GPU training. The call notes say the `gpus` QoS has a
+per-job limit of `cpu=8`, `gres/gpu=4`, and `mem=100G`, with a per-user limit
+of `cpu=16`, `gres/gpu=4`, `mem=202G`, and `node=1`.
+
+For a CPU-heavy check that still allocates the GPU node, keep the MIG GPU
+request:
 
 ```bash
 srun \
   --ntasks=8 \
   --nodes=1 \
+  --time=02:00:00 \
   --mem=20g \
   --partition=ice4hpc \
   --account=xilab \
@@ -402,69 +508,155 @@ srun \
   /bin/bash
 ```
 
-Once the shell opens on the allocated node, bind common numerical-library thread
-counts to the Slurm CPU request before running Python:
+For this GPU-partition case, do not remove `--gpus=1g.20gb:1`: the notes say
+that omitting the GPU request can place the interactive shell on a non-GPU
+node. Use a CPU partition instead when you want a true CPU-only node.
+
+## Run A Script With srun
+
+Use `srun` without `--pty` when you want Slurm to allocate resources and then
+execute one command or one shell script. This is useful for short tests and
+debug jobs. The terminal remains attached to the job; if the SSH session dies,
+the job can die too. Use `sbatch` for long unattended runs.
+
+Important distinction:
+
+- `srun` resource requests go on the `srun` command line.
+- `#SBATCH` directives inside a script are for `sbatch`; `srun bash script.sh`
+  treats them as shell comments.
+
+### CPU Hello-World Script With srun
+
+Create a small shell script:
 
 ```bash
+nano aries_hello_srun.sh
+```
+
+Use this content:
+
+```bash
+#!/bin/bash -l
+set -euo pipefail
+
+echo "[INFO] Host: $(hostname)"
+echo "[INFO] Workdir: $(pwd)"
+echo "[INFO] SLURM job: ${SLURM_JOB_ID:-none}"
+echo "[INFO] SLURM CPUs per task: ${SLURM_CPUS_PER_TASK:-unset}"
+
 module load Anaconda3
 conda activate pinns_env
 
-export OMP_NUM_THREADS="${SLURM_NTASKS:-8}"
-export MKL_NUM_THREADS="${SLURM_NTASKS:-8}"
-export OPENBLAS_NUM_THREADS="${SLURM_NTASKS:-8}"
-export NUMEXPR_NUM_THREADS="${SLURM_NTASKS:-8}"
+export OMP_NUM_THREADS="${SLURM_CPUS_PER_TASK:-1}"
+export MKL_NUM_THREADS="${SLURM_CPUS_PER_TASK:-1}"
+export OPENBLAS_NUM_THREADS="${SLURM_CPUS_PER_TASK:-1}"
+export NUMEXPR_NUM_THREADS="${SLURM_CPUS_PER_TASK:-1}"
 
-python -c "import os; print('cpu_count=', os.cpu_count()); print('slurm_ntasks=', os.environ.get('SLURM_NTASKS'))"
+python -c "import os, platform; print('hello_from=', platform.node()); print('threads=', os.environ.get('OMP_NUM_THREADS'))"
 ```
 
-For true CPU-only work, first verify that Aries exposes a CPU partition or CPU
-QoS that accepts jobs without GPUs:
+Make it executable:
 
 ```bash
-sinfo
-showqos
+chmod +x aries_hello_srun.sh
 ```
 
-Then remove the GPU request and replace the partition and QoS values with the
-CPU-capable values shown by the live cluster commands:
+Run it on a short CPU allocation:
 
 ```bash
 srun \
-  --ntasks=8 \
   --nodes=1 \
-  --mem=20g \
-  --partition=<cpu_partition> \
+  --ntasks=1 \
+  --cpus-per-task=2 \
+  --time=00:05:00 \
+  --mem=4g \
+  --partition=user-debug \
   --account=xilab \
-  --qos=<cpu_qos> \
-  --pty \
-  --mpi=pmix \
-  /bin/bash
+  --qos=normal \
+  ./aries_hello_srun.sh
 ```
 
-If Slurm rejects the CPU-only request, return to the validated
-`ice4hpc`/`gpus` pattern above or ask the cluster operator which CPU partition
-is enabled for account `xilab`.
+If `user-debug` is busy or not appropriate, inspect `sinfo` and use another CPU
+partition such as `low`, `high`, or `ulow` with a matching time limit and QoS.
 
-## First Repository Test Under srun
+### GPU Check Script With srun
+
+Create a GPU check script:
+
+```bash
+nano aries_gpu_check_srun.sh
+```
+
+Use this content:
+
+```bash
+#!/bin/bash -l
+set -euo pipefail
+
+module load cuda
+module load Anaconda3
+conda activate pinns_env
+
+echo "[INFO] Host: $(hostname)"
+echo "[INFO] SLURM job: ${SLURM_JOB_ID:-none}"
+
+nvidia-smi
+python -c "import torch; print('cuda_available=', torch.cuda.is_available()); print('device_count=', torch.cuda.device_count()); print('device_name=', torch.cuda.get_device_name(0) if torch.cuda.is_available() else 'cpu')"
+```
+
+Run it on the GPU partition:
+
+```bash
+chmod +x aries_gpu_check_srun.sh
+srun \
+  --nodes=1 \
+  --ntasks=4 \
+  --time=00:10:00 \
+  --mem=20g \
+  --partition=ice4hpc \
+  --account=xilab \
+  --qos=gpus \
+  --gpus=1g.20gb:1 \
+  --mpi=pmix \
+  ./aries_gpu_check_srun.sh
+```
+
+### Repository Test With srun
 
 Use the repository's lightweight setup validation before launching training:
 
 ```bash
 cd /scratch1/$USER/Physics-Informed-Neural-Networks
-conda activate pinns_env
-python -B scripts/training/validate_training_setup.py \
-  --config-path config/training/feedforward/presets/baseline.yaml \
-  --platform linux
 ```
 
-Then run the minimal smoke test:
+Run the validation script through Slurm:
 
 ```bash
-python -B scripts/training/run_training_smoke_test.py \
-  --config-path config/training/feedforward/presets/baseline.yaml \
-  --output-suffix aries_first_smoke_test \
-  --fast-dev-run-batches 1 \
-  --platform linux
+srun \
+  --nodes=1 \
+  --ntasks=1 \
+  --cpus-per-task=2 \
+  --time=00:10:00 \
+  --mem=8g \
+  --partition=user-debug \
+  --account=xilab \
+  --qos=normal \
+  bash -lc "module load Anaconda3; conda activate pinns_env; python -B scripts/training/validate_training_setup.py --config-path config/training/feedforward/presets/baseline.yaml --platform linux"
+```
+
+Then run the minimal smoke test through Slurm:
+
+```bash
+srun \
+  --nodes=1 \
+  --ntasks=1 \
+  --cpus-per-task=2 \
+  --time=00:10:00 \
+  --mem=8g \
+  --partition=user-debug \
+  --account=xilab \
+  --qos=normal \
+  bash -lc "module load Anaconda3; conda activate pinns_env; python -B scripts/training/run_training_smoke_test.py --config-path config/training/feedforward/presets/baseline.yaml --output-suffix aries_first_smoke_test --fast-dev-run-batches 1 --platform linux"
 ```
 
 These commands are still tests, not full campaigns. They create validation or
@@ -543,21 +735,21 @@ tail -n 100 aries_smoke_<job_id>.err
 
 Replace `<job_id>` with the numeric job id printed by `sbatch`.
 
-## CPU-Oriented sbatch Script
+## CPU-Only sbatch Script
 
-Use this template when the job mainly needs CPU tasks but should follow the
-validated Aries `ice4hpc`/`gpus` allocation pattern from the project notes:
+Use this template when the job does not need GPU acceleration. It uses a CPU
+partition, a CPU QoS, and no `--gpus` directive:
 
 ```bash
 #!/bin/bash -l
 #SBATCH -A xilab
-#SBATCH -p ice4hpc
-#SBATCH --qos=gpus
+#SBATCH -p low
+#SBATCH --qos=normal
 #SBATCH --time=24:00:00
 #SBATCH -N 1
-#SBATCH --ntasks-per-node=8
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=8
 #SBATCH --mem=20g
-#SBATCH --gpus=1g.20gb:1
 #SBATCH --job-name=test_cpu
 #SBATCH --output=cpu_%j.out
 #SBATCH --error=cpu_%j.err
@@ -570,16 +762,16 @@ conda activate pinns_env
 
 cd /scratch1/${USER}/Physics-Informed-Neural-Networks
 
-export OMP_NUM_THREADS="${SLURM_NTASKS_PER_NODE:-8}"
-export MKL_NUM_THREADS="${SLURM_NTASKS_PER_NODE:-8}"
-export OPENBLAS_NUM_THREADS="${SLURM_NTASKS_PER_NODE:-8}"
-export NUMEXPR_NUM_THREADS="${SLURM_NTASKS_PER_NODE:-8}"
+export OMP_NUM_THREADS="${SLURM_CPUS_PER_TASK:-1}"
+export MKL_NUM_THREADS="${SLURM_CPUS_PER_TASK:-1}"
+export OPENBLAS_NUM_THREADS="${SLURM_CPUS_PER_TASK:-1}"
+export NUMEXPR_NUM_THREADS="${SLURM_CPUS_PER_TASK:-1}"
 
 echo "[INFO] Host: $(hostname)"
 echo "[INFO] Workdir: $(pwd)"
 echo "[INFO] Python: $(which python)"
 echo "[INFO] SLURM job: ${SLURM_JOB_ID}"
-echo "[INFO] SLURM tasks per node: ${SLURM_NTASKS_PER_NODE}"
+echo "[INFO] SLURM CPUs per task: ${SLURM_CPUS_PER_TASK}"
 
 python -c "import os; print('cpu_count=', os.cpu_count()); print('threads=', os.environ.get('OMP_NUM_THREADS'))"
 
@@ -592,9 +784,9 @@ Submit it with:
 sbatch test_cpu.sbatch
 ```
 
-For a true CPU-only `sbatch` script, remove `#SBATCH --gpus=1g.20gb:1` only
-after `sinfo` and `showqos` confirm the CPU partition and QoS to use for
-account `xilab`.
+For short tests, replace `#SBATCH -p low`, `#SBATCH --qos=normal`, and
+`#SBATCH --time=24:00:00` with `#SBATCH -p user-debug`,
+`#SBATCH --qos=normal`, and `#SBATCH --time=00:30:00`.
 
 ## Resource Request Rules Of Thumb
 
@@ -604,11 +796,13 @@ Start smaller than the maximum and scale only after a successful smoke test.
 | --- | --- |
 | Shell and import checks | login node, no Slurm job |
 | Interactive GPU check | `--ntasks=4 --mem=40g --gpus=1g.20gb:1` |
-| Interactive CPU-heavy check | `--ntasks=8 --mem=20g --gpus=1g.20gb:1` |
+| Interactive CPU-only short check | `--partition=user-debug --qos=normal --cpus-per-task=4` |
+| Interactive CPU-only longer check | `--partition=low --qos=normal --cpus-per-task=8` |
+| Interactive GPU-partition CPU-heavy check | `--partition=ice4hpc --qos=gpus --ntasks=8 --gpus=1g.20gb:1` |
 | First smoke test | `--ntasks-per-node=4 --mem=40g --gpus=1g.20gb:1` |
-| First CPU-heavy batch job | `--ntasks-per-node=8 --mem=20g --gpus=1g.20gb:1` |
+| First CPU-only batch job | `#SBATCH -p low`, `#SBATCH --qos=normal`, `#SBATCH --cpus-per-task=8` |
+| First GPU batch job | `#SBATCH -p ice4hpc`, `#SBATCH --qos=gpus`, `#SBATCH --gpus=1g.20gb:1` |
 | Heavier GPU training | Increase time first, then memory or CPU only if needed |
-| True CPU-only job | Use live `sinfo` and `showqos` CPU partition/QoS values |
 
 The call notes say the GPU QoS allows up to `cpu=8`, `gres/gpu=4`, and
 `mem=100G` per job, with a per-user GPU limit visible through `showqos`.
