@@ -378,6 +378,73 @@ Exit the interactive allocation when finished:
 exit
 ```
 
+## CPU-Oriented Interactive Session With srun
+
+The Aries notes captured for this project describe the validated allocation
+surface as account `xilab`, partition `ice4hpc`, and QoS `gpus`. That QoS was
+reported with a per-job CPU limit of `cpu=8`, so use at most eight CPU tasks
+unless `showqos` reports a newer limit.
+
+For CPU-heavy debugging inside the validated Aries allocation pattern, keep the
+MIG GPU request and spend the allocation mainly on CPU work:
+
+```bash
+srun \
+  --ntasks=8 \
+  --nodes=1 \
+  --mem=20g \
+  --partition=ice4hpc \
+  --account=xilab \
+  --qos=gpus \
+  --gpus=1g.20gb:1 \
+  --pty \
+  --mpi=pmix \
+  /bin/bash
+```
+
+Once the shell opens on the allocated node, bind common numerical-library thread
+counts to the Slurm CPU request before running Python:
+
+```bash
+module load Anaconda3
+conda activate pinns_env
+
+export OMP_NUM_THREADS="${SLURM_NTASKS:-8}"
+export MKL_NUM_THREADS="${SLURM_NTASKS:-8}"
+export OPENBLAS_NUM_THREADS="${SLURM_NTASKS:-8}"
+export NUMEXPR_NUM_THREADS="${SLURM_NTASKS:-8}"
+
+python -c "import os; print('cpu_count=', os.cpu_count()); print('slurm_ntasks=', os.environ.get('SLURM_NTASKS'))"
+```
+
+For true CPU-only work, first verify that Aries exposes a CPU partition or CPU
+QoS that accepts jobs without GPUs:
+
+```bash
+sinfo
+showqos
+```
+
+Then remove the GPU request and replace the partition and QoS values with the
+CPU-capable values shown by the live cluster commands:
+
+```bash
+srun \
+  --ntasks=8 \
+  --nodes=1 \
+  --mem=20g \
+  --partition=<cpu_partition> \
+  --account=xilab \
+  --qos=<cpu_qos> \
+  --pty \
+  --mpi=pmix \
+  /bin/bash
+```
+
+If Slurm rejects the CPU-only request, return to the validated
+`ice4hpc`/`gpus` pattern above or ask the cluster operator which CPU partition
+is enabled for account `xilab`.
+
 ## First Repository Test Under srun
 
 Use the repository's lightweight setup validation before launching training:
@@ -476,6 +543,59 @@ tail -n 100 aries_smoke_<job_id>.err
 
 Replace `<job_id>` with the numeric job id printed by `sbatch`.
 
+## CPU-Oriented sbatch Script
+
+Use this template when the job mainly needs CPU tasks but should follow the
+validated Aries `ice4hpc`/`gpus` allocation pattern from the project notes:
+
+```bash
+#!/bin/bash -l
+#SBATCH -A xilab
+#SBATCH -p ice4hpc
+#SBATCH --qos=gpus
+#SBATCH --time=24:00:00
+#SBATCH -N 1
+#SBATCH --ntasks-per-node=8
+#SBATCH --mem=20g
+#SBATCH --gpus=1g.20gb:1
+#SBATCH --job-name=test_cpu
+#SBATCH --output=cpu_%j.out
+#SBATCH --error=cpu_%j.err
+
+set -euo pipefail
+
+module load Anaconda3
+
+conda activate pinns_env
+
+cd /scratch1/${USER}/Physics-Informed-Neural-Networks
+
+export OMP_NUM_THREADS="${SLURM_NTASKS_PER_NODE:-8}"
+export MKL_NUM_THREADS="${SLURM_NTASKS_PER_NODE:-8}"
+export OPENBLAS_NUM_THREADS="${SLURM_NTASKS_PER_NODE:-8}"
+export NUMEXPR_NUM_THREADS="${SLURM_NTASKS_PER_NODE:-8}"
+
+echo "[INFO] Host: $(hostname)"
+echo "[INFO] Workdir: $(pwd)"
+echo "[INFO] Python: $(which python)"
+echo "[INFO] SLURM job: ${SLURM_JOB_ID}"
+echo "[INFO] SLURM tasks per node: ${SLURM_NTASKS_PER_NODE}"
+
+python -c "import os; print('cpu_count=', os.cpu_count()); print('threads=', os.environ.get('OMP_NUM_THREADS'))"
+
+python ./job01/miojob.py
+```
+
+Submit it with:
+
+```bash
+sbatch test_cpu.sbatch
+```
+
+For a true CPU-only `sbatch` script, remove `#SBATCH --gpus=1g.20gb:1` only
+after `sinfo` and `showqos` confirm the CPU partition and QoS to use for
+account `xilab`.
+
 ## Resource Request Rules Of Thumb
 
 Start smaller than the maximum and scale only after a successful smoke test.
@@ -484,8 +604,11 @@ Start smaller than the maximum and scale only after a successful smoke test.
 | --- | --- |
 | Shell and import checks | login node, no Slurm job |
 | Interactive GPU check | `--ntasks=4 --mem=40g --gpus=1g.20gb:1` |
+| Interactive CPU-heavy check | `--ntasks=8 --mem=20g --gpus=1g.20gb:1` |
 | First smoke test | `--ntasks-per-node=4 --mem=40g --gpus=1g.20gb:1` |
+| First CPU-heavy batch job | `--ntasks-per-node=8 --mem=20g --gpus=1g.20gb:1` |
 | Heavier GPU training | Increase time first, then memory or CPU only if needed |
+| True CPU-only job | Use live `sinfo` and `showqos` CPU partition/QoS values |
 
 The call notes say the GPU QoS allows up to `cpu=8`, `gres/gpu=4`, and
 `mem=100G` per job, with a per-user GPU limit visible through `showqos`.
