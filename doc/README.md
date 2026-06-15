@@ -234,6 +234,12 @@ This folder contains the internal project documents derived from the reference P
   Preliminary and prepared campaign plan for the first real `Wave 3`
   harmonic-prior residual package across `global`, `Fw`, and `Bw`.
 
+- [reports/campaign_results/wave3_wave4/2026-06-15-15-30-20_wave3_harmonic_prior_residual_campaign_results_report.md](./reports/campaign_results/wave3_wave4/2026-06-15-15-30-20_wave3_harmonic_prior_residual_campaign_results_report.md)
+  Final results report for the completed first real `Wave 3`
+  harmonic-prior residual campaign, including scalar branch winners,
+  profile comparison, registry effects, and the boundary that official
+  `Track 2` curve verification remains separate.
+
 - [reports/campaign_plans/track2/2026-06-13-10-40-25_track2h_mixture_density_heads_campaign_plan_report.md](./reports/campaign_plans/track2/2026-06-13-10-40-25_track2h_mixture_density_heads_campaign_plan_report.md)
   Preliminary campaign plan for the next `Track 2H` package, focused on
   two- and three-component mixture-density heads across `global`, `Fw`, and
@@ -391,6 +397,11 @@ This folder contains the internal project documents derived from the reference P
 ### Technical Documents
 
 #### 2026-06-15
+
+- [technical/2026-06/2026-06-15/2026-06-15-15-42-48_wave3_harmonic_prior_residual_closeout.md](./technical/2026-06/2026-06-15/2026-06-15-15-42-48_wave3_harmonic_prior_residual_closeout.md)
+  Technical closeout note for the completed first real `Wave 3`
+  harmonic-prior residual campaign, including report, PDF, active-state
+  cleanup, and separate `Track 2` boundary.
 
 - [technical/2026-06/2026-06-15/2026-06-15-13-27-18_remote_conda_utf8_no_capture_hardening.md](./technical/2026-06/2026-06-15/2026-06-15-13-27-18_remote_conda_utf8_no_capture_hardening.md)
   Technical plan for hardening shared remote campaign Conda execution against
@@ -2927,6 +2938,12 @@ This folder contains the internal project documents derived from the reference P
   Technical rule document for the new `doc/reports/` topic-root, dated-bundle, and readable-filename convention.
 
 #### Campaign Results
+
+- [reports/campaign_results/wave3_wave4/2026-06-15-15-30-20_wave3_harmonic_prior_residual_campaign_results_report.md](./reports/campaign_results/wave3_wave4/2026-06-15-15-30-20_wave3_harmonic_prior_residual_campaign_results_report.md)
+  Final results report for the completed first real `Wave 3`
+  harmonic-prior residual campaign, including scalar branch winners,
+  profile comparison, registry effects, and the boundary that official
+  `Track 2` curve verification remains separate.
 
 - [reports/campaign_results/track2/2026-06-13-13-24-37_track2h_mixture_density_heads_campaign_results_report.md](./reports/campaign_results/track2/2026-06-13-13-24-37_track2h_mixture_density_heads_campaign_results_report.md)
   Final results report for the completed third `Track 2H` mixture-density

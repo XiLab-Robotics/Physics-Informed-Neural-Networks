@@ -2,12 +2,13 @@
 
 ## Executive Snapshot
 
-- Generated At: `2026-06-15T15:30:21`
+- Generated At: `2026-06-15T15:42:48`
 - Program State: active.
-- Current Completed Wave: `Track 2H` mixture-density heads campaign closeout
-- Current Focus: operator launch of the prepared first real `Wave 3`
-- Active Campaign Status: `prepared`
-- Active Campaign Name: `wave3_harmonic_prior_residual_campaign_2026_06_14`
+- Current Completed Wave: `Wave 3` harmonic-prior residual campaign closeout
+- Current Focus: separate official `Track 2` verification refresh for the
+  completed `Wave 3` harmonic-prior residual candidates
+- Active Campaign Status: `none`
+- Active Campaign Name: `N/A`
 - Current Program Winner: `te_periodic_gru_sequence_remote_Bw` | Family `periodic_gru_sequence_bw` | Test MAE `0.002344`
 
 ## Main Takeaways
@@ -141,10 +142,15 @@
 
 ### Active Training Or Improvement Branches
 
-- Current campaign: `wave3_harmonic_prior_residual_campaign_2026_06_14`
+- Current campaign: `N/A`
 - Launch mode: `N/A`
 - Families under active improvement: `residual_harmonic_mlp`
-- Planning report: `doc/reports/campaign_plans/wave3_wave4/2026-06-14-19-54-55_wave3_harmonic_prior_residual_campaign_plan_report.md`
+- Last completed campaign:
+  `wave3_harmonic_prior_residual_campaign_2026_06_14`
+- Last closeout report:
+  `doc/reports/campaign_results/wave3_wave4/2026-06-15-15-30-20_wave3_harmonic_prior_residual_campaign_results_report.md`
+- Next acceptance gate: separate official `Track 2` verification refresh for
+  the six completed `Wave 3` candidates.
 
 ### Roadmap And Planned Work
 
@@ -270,7 +276,7 @@ Low-priority exploratory families currently listed in the backlog:
 - `Neural ODE`
 - `Hamiltonian-Inspired Model`
 - `optional Kernel Ridge / Gaussian Process benchmark`
-| Wave 3. Hybrid Structured Models | status: pre-implemented, training-smoke-ready, not campaign-ready;; current scaffold:; model type: `wave3_harmonic_prior_residual`;; model class:; dry-run skeleton checker:; training-smoke-ready checker:; final one-batch validation artifact:; prepared package:; prepared launcher:; updated priority: launch and close the prepared first real Wave 3 campaign; mandatory rule: prepare or justify `global`, `forward`, and `backward`; paper-reproduction scope:; compare hybrid structured predictors against the paper-style harmonic stack;; test condition-conditioned residual structure and separate treatment of; prepare the repository-owned deployable predictor package after the; next implementation steps:; operator launches the prepared local or `-Remote` command;; after completion, close out the campaign with results report, PDF,; propose official `Track 2` verification refresh as a separate step after |
+| Wave 3. Hybrid Structured Models | status: first real `wave3_harmonic_prior_residual` campaign closed successfully as a scalar training benchmark; scalar winner: `te_wave3_harmonic_prior_residual_pointwise_control_bw` with test MAE `0.003363`; program-best promotion: no; closeout report: `doc/reports/campaign_results/wave3_wave4/2026-06-15-15-30-20_wave3_harmonic_prior_residual_campaign_results_report.md`; next gate: separate official `Track 2` verification refresh before integration or promotion decisions |
 
 Low-priority exploratory families currently listed in the backlog:
 
