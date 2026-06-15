@@ -1159,6 +1159,18 @@ def build_generated_candidate_configuration_list(training_config: dict[str, Any]
             )
         )
 
+    wave3_harmonic_prior_residual_configuration = generation_configuration.get(
+        "wave3_harmonic_prior_residual_registry_models",
+        {},
+    )
+    if wave3_harmonic_prior_residual_configuration:
+        candidate_configuration_list.extend(
+            build_registry_candidate_configuration_list(
+                wave3_harmonic_prior_residual_configuration,
+                "wave3_harmonic_prior_residual_registry",
+            )
+        )
+
     wave1_export_configuration = generation_configuration.get("wave1_exported_models", {})
     if wave1_export_configuration:
         exported_model_root = str(wave1_export_configuration["exported_model_root"]).rstrip("/")

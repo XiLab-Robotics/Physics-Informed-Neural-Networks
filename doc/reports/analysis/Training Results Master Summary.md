@@ -5,8 +5,9 @@
 - Generated At: `2026-06-15T15:42:48`
 - Program State: active.
 - Current Completed Wave: `Wave 3` harmonic-prior residual campaign closeout
-- Current Focus: separate official `Track 2` verification refresh for the
-  completed `Wave 3` harmonic-prior residual candidates
+- Current Focus: operator launch of the prepared separate official `Track 2`
+  verification refresh for the completed `Wave 3` harmonic-prior residual
+  candidates
 - Active Campaign Status: `none`
 - Active Campaign Name: `N/A`
 - Current Program Winner: `te_periodic_gru_sequence_remote_Bw` | Family `periodic_gru_sequence_bw` | Test MAE `0.002344`
@@ -149,8 +150,8 @@
   `wave3_harmonic_prior_residual_campaign_2026_06_14`
 - Last closeout report:
   `doc/reports/campaign_results/wave3_wave4/2026-06-15-15-30-20_wave3_harmonic_prior_residual_campaign_results_report.md`
-- Next acceptance gate: separate official `Track 2` verification refresh for
-  the six completed `Wave 3` candidates.
+- Next acceptance gate: operator-launched separate official `Track 2`
+  verification refresh for the six completed `Wave 3` candidates.
 
 ### Roadmap And Planned Work
 
@@ -276,7 +277,7 @@ Low-priority exploratory families currently listed in the backlog:
 - `Neural ODE`
 - `Hamiltonian-Inspired Model`
 - `optional Kernel Ridge / Gaussian Process benchmark`
-| Wave 3. Hybrid Structured Models | status: first real `wave3_harmonic_prior_residual` campaign closed successfully as a scalar training benchmark; scalar winner: `te_wave3_harmonic_prior_residual_pointwise_control_bw` with test MAE `0.003363`; program-best promotion: no; closeout report: `doc/reports/campaign_results/wave3_wave4/2026-06-15-15-30-20_wave3_harmonic_prior_residual_campaign_results_report.md`; next gate: separate official `Track 2` verification refresh before integration or promotion decisions |
+| Wave 3. Hybrid Structured Models | status: first real `wave3_harmonic_prior_residual` campaign closed successfully as a scalar training benchmark; scalar winner: `te_wave3_harmonic_prior_residual_pointwise_control_bw` with test MAE `0.003363`; program-best promotion: no; closeout report: `doc/reports/campaign_results/wave3_wave4/2026-06-15-15-30-20_wave3_harmonic_prior_residual_campaign_results_report.md`; next gate: prepared operator-launched official `Track 2` verification refresh before integration or promotion decisions |
 
 Low-priority exploratory families currently listed in the backlog:
 

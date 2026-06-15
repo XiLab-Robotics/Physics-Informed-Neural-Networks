@@ -398,6 +398,11 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-06-15
 
+- [technical/2026-06/2026-06-15/2026-06-15-17-54-41_wave3_track2_verification_refresh.md](./technical/2026-06/2026-06-15/2026-06-15-17-54-41_wave3_track2_verification_refresh.md)
+  Technical plan for preparing the separate official `Track 2` verification
+  refresh for the completed first real `Wave 3` harmonic-prior residual
+  candidates.
+
 - [technical/2026-06/2026-06-15/2026-06-15-16-45-47_aries_cpu_slurm_guide_update.md](./technical/2026-06/2026-06-15/2026-06-15-16-45-47_aries_cpu_slurm_guide_update.md)
   Technical plan for adding CPU-oriented Aries `srun` and `sbatch` examples to
   the cluster user guide.
@@ -2533,6 +2538,11 @@ This folder contains the internal project documents derived from the reference P
   Script-level documentation for the operator-launched `Track 2H`
   mixture-density heads official `Track 2` verification refresh across all
   six MDN candidates for `global`, `Fw`, and `Bw`.
+
+- [scripts/campaigns/track2/run_wave3_harmonic_prior_residual_track2_verification_refresh.md](./scripts/campaigns/track2/run_wave3_harmonic_prior_residual_track2_verification_refresh.md)
+  Script-level documentation for the operator-launched `Wave 3`
+  harmonic-prior residual official `Track 2` verification refresh across all
+  six completed candidates for `global`, `Fw`, and `Bw`.
 
 - [scripts/campaigns/wave3/run_wave3_harmonic_prior_residual_campaign.md](./scripts/campaigns/wave3/run_wave3_harmonic_prior_residual_campaign.md)
   Script-level documentation for the prepared first real `Wave 3`

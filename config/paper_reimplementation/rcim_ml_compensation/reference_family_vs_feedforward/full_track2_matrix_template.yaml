@@ -355,6 +355,20 @@ comparison:
           global_family: track2h_mixture_density_heads_mdn_k3_global
           fw_family: track2h_mixture_density_heads_mdn_k3_fw
           bw_family: track2h_mixture_density_heads_mdn_k3_bw
+    wave3_harmonic_prior_residual_registry_models:
+      family_registry_root: output/registries/families
+      source_label: wave3_harmonic_prior_residual_registry
+      base_family_list:
+        - candidate_id_prefix: wave3_harmonic_prior_residual_pointwise_control
+          candidate_family: wave3_harmonic_prior_residual_pointwise_control
+          global_family: wave3_harmonic_prior_residual_pointwise_control_global
+          fw_family: wave3_harmonic_prior_residual_pointwise_control_fw
+          bw_family: wave3_harmonic_prior_residual_pointwise_control_bw
+        - candidate_id_prefix: wave3_harmonic_prior_residual_smooth_l1_structured
+          candidate_family: wave3_harmonic_prior_residual_smooth_l1_structured
+          global_family: wave3_harmonic_prior_residual_smooth_l1_structured_global
+          fw_family: wave3_harmonic_prior_residual_smooth_l1_structured_fw
+          bw_family: wave3_harmonic_prior_residual_smooth_l1_structured_bw
 evaluation:
   selected_harmonics:
     - 0
