@@ -1,37 +1,34 @@
-status: none
-updated_at: '2026-06-14T12:12:03+02:00'
-notes: No prepared or active training campaign is currently protected. Track 2H mixture-density heads closeout and official Track 2 verification refresh are complete.
-last_completed_campaign:
-  campaign_name: track2h_mixture_density_heads_campaign_2026_06_13
-  completed_at: '2026-06-13T13:24:37+02:00'
-  campaign_output_directory: output/training_campaigns/2026-06-13-11-11-47_track2h_mixture_density_heads_campaign_2026_06_13
-  closeout_report_path: doc/reports/campaign_results/track2/2026-06-13-13-24-37_track2h_mixture_density_heads_campaign_results_report.md
-  planning_report_path: doc/reports/campaign_plans/track2/2026-06-13-10-40-25_track2h_mixture_density_heads_campaign_plan_report.md
-  technical_document_path: doc/technical/2026-06/2026-06-13/2026-06-13-10-40-25_track2h_mixture_density_heads_package.md
-  completed_run_count: 6
-  failed_run_count: 0
-  best_scalar_run_name: te_track2h_mdn_k2_bw
-  best_scalar_family: track2h_mixture_density_heads_mdn_k2_bw
-  best_scalar_test_mae: 0.002658107550814748
-  program_winner_changed: false
-  branch_best_list:
-  - surface: global
-    run_name: te_track2h_mdn_k2_global
-    model_family: track2h_mixture_density_heads_mdn_k2_global
-    test_mae: 0.0035025011748075485
-  - surface: Fw
-    run_name: te_track2h_mdn_k3_fw
-    model_family: track2h_mixture_density_heads_mdn_k3_fw
-    test_mae: 0.00323542975820601
-  - surface: Bw
-    run_name: te_track2h_mdn_k2_bw
-    model_family: track2h_mixture_density_heads_mdn_k2_bw
-    test_mae: 0.002658107550814748
-  track2_status: completed_verified_exploratory_baseline
-  track2_launcher_path: scripts/campaigns/track2/run_track2h_mixture_density_heads_track2_verification_refresh.ps1
-  track2_official_report_path: doc/reports/analysis/track2/official_model_verification_report/[2026-06-13]/track2_official_model_verification_report.md
-  track2_matrix_output_directory: output/validation_checks/track2_reference_comparison/2026-06-13-17-24-53__track2_full_directional_family_matrix_track2h_mixture_density_heads_track2_refresh_2026_06_13
-  track2_decision: verified exploratory baseline; not promoted over the accepted direction-parallel leaders
-  track2_strongest_forward_candidate: track2h_mdn_k3_Fw
-  track2_strongest_backward_candidate: track2h_mdn_k2_Bw
-  track2_strongest_global_candidate: track2h_mdn_k2_global
+status: prepared
+campaign_name: wave3_harmonic_prior_residual_campaign_2026_06_14
+prepared_at: '2026-06-14T19:54:55+02:00'
+campaign_output_directory: output/training_campaigns/wave3_harmonic_prior_residual_campaign_2026_06_14
+planning_report_path: doc/reports/campaign_plans/wave3_wave4/2026-06-14-19-54-55_wave3_harmonic_prior_residual_campaign_plan_report.md
+technical_document_path: doc/technical/2026-06/2026-06-14/2026-06-14-19-54-55_wave3_harmonic_prior_residual_campaign_package.md
+queue_config_path_list:
+- config/training/wave3_harmonic_prior_residual/campaigns/2026-06-14_wave3_harmonic_prior_residual_campaign/queue/01_pointwise_control_global.yaml
+- config/training/wave3_harmonic_prior_residual/campaigns/2026-06-14_wave3_harmonic_prior_residual_campaign/queue/02_pointwise_control_fw.yaml
+- config/training/wave3_harmonic_prior_residual/campaigns/2026-06-14_wave3_harmonic_prior_residual_campaign/queue/03_pointwise_control_bw.yaml
+- config/training/wave3_harmonic_prior_residual/campaigns/2026-06-14_wave3_harmonic_prior_residual_campaign/queue/04_smooth_l1_structured_global.yaml
+- config/training/wave3_harmonic_prior_residual/campaigns/2026-06-14_wave3_harmonic_prior_residual_campaign/queue/05_smooth_l1_structured_fw.yaml
+- config/training/wave3_harmonic_prior_residual/campaigns/2026-06-14_wave3_harmonic_prior_residual_campaign/queue/06_smooth_l1_structured_bw.yaml
+protected_file_list:
+- config/training/wave3_harmonic_prior_residual/campaigns/2026-06-14_wave3_harmonic_prior_residual_campaign
+- doc/reports/campaign_plans/wave3_wave4/2026-06-14-19-54-55_wave3_harmonic_prior_residual_campaign_plan_report.md
+- doc/technical/2026-06/2026-06-14/2026-06-14-19-54-55_wave3_harmonic_prior_residual_campaign_package.md
+- scripts/campaigns/wave3/run_wave3_harmonic_prior_residual_campaign.ps1
+- scripts/campaigns/wave3/validate_wave3_harmonic_prior_residual_campaign.py
+- doc/scripts/campaigns/wave3/run_wave3_harmonic_prior_residual_campaign.md
+- config/training/wave3_harmonic_prior_residual/campaigns/2026-06-14_wave3_harmonic_prior_residual_campaign/README.md
+- config/training/wave3_harmonic_prior_residual/campaigns/2026-06-14_wave3_harmonic_prior_residual_campaign/queue/01_pointwise_control_global.yaml
+- config/training/wave3_harmonic_prior_residual/campaigns/2026-06-14_wave3_harmonic_prior_residual_campaign/queue/02_pointwise_control_fw.yaml
+- config/training/wave3_harmonic_prior_residual/campaigns/2026-06-14_wave3_harmonic_prior_residual_campaign/queue/03_pointwise_control_bw.yaml
+- config/training/wave3_harmonic_prior_residual/campaigns/2026-06-14_wave3_harmonic_prior_residual_campaign/queue/04_smooth_l1_structured_global.yaml
+- config/training/wave3_harmonic_prior_residual/campaigns/2026-06-14_wave3_harmonic_prior_residual_campaign/queue/05_smooth_l1_structured_fw.yaml
+- config/training/wave3_harmonic_prior_residual/campaigns/2026-06-14_wave3_harmonic_prior_residual_campaign/queue/06_smooth_l1_structured_bw.yaml
+- config/training/wave3_harmonic_prior_residual/campaigns/2026-06-14_wave3_harmonic_prior_residual_campaign/dataset_variants/transmission_error_dataset_global.yaml
+- config/training/wave3_harmonic_prior_residual/campaigns/2026-06-14_wave3_harmonic_prior_residual_campaign/dataset_variants/transmission_error_dataset_fw.yaml
+- config/training/wave3_harmonic_prior_residual/campaigns/2026-06-14_wave3_harmonic_prior_residual_campaign/dataset_variants/transmission_error_dataset_bw.yaml
+launch_command_list:
+- .\scripts\campaigns\wave3\run_wave3_harmonic_prior_residual_campaign.ps1
+- .\scripts\campaigns\wave3\run_wave3_harmonic_prior_residual_campaign.ps1 -Remote
+notes: Prepared Wave 3 harmonic-prior residual package. Training execution requires explicit operator launch approval.

@@ -230,6 +230,10 @@ This folder contains the internal project documents derived from the reference P
   mixture-density, and latent-state / hysteresis-aware modeling probes before
   the integrated multi-task / multi-head branch.
 
+- [reports/campaign_plans/wave3_wave4/2026-06-14-19-54-55_wave3_harmonic_prior_residual_campaign_plan_report.md](./reports/campaign_plans/wave3_wave4/2026-06-14-19-54-55_wave3_harmonic_prior_residual_campaign_plan_report.md)
+  Preliminary and prepared campaign plan for the first real `Wave 3`
+  harmonic-prior residual package across `global`, `Fw`, and `Bw`.
+
 - [reports/campaign_plans/track2/2026-06-13-10-40-25_track2h_mixture_density_heads_campaign_plan_report.md](./reports/campaign_plans/track2/2026-06-13-10-40-25_track2h_mixture_density_heads_campaign_plan_report.md)
   Preliminary campaign plan for the next `Track 2H` package, focused on
   two- and three-component mixture-density heads across `global`, `Fw`, and
@@ -387,6 +391,11 @@ This folder contains the internal project documents derived from the reference P
 ### Technical Documents
 
 #### 2026-06-14
+
+- [technical/2026-06/2026-06-14/2026-06-14-19-54-55_wave3_harmonic_prior_residual_campaign_package.md](./technical/2026-06/2026-06-14/2026-06-14-19-54-55_wave3_harmonic_prior_residual_campaign_package.md)
+  Technical plan for preparing the first real `Wave 3`
+  harmonic-prior residual campaign package after completed `Track 2H`
+  dispersion-aware verification.
 
 - [technical/2026-06/2026-06-14/2026-06-14-16-49-23_track2_refresh_self_contained_report_closure.md](./technical/2026-06/2026-06-14/2026-06-14-16-49-23_track2_refresh_self_contained_report_closure.md)
   Technical plan for making `Track 2` verification refresh launchers generate
@@ -2504,6 +2513,10 @@ This folder contains the internal project documents derived from the reference P
   mixture-density heads official `Track 2` verification refresh across all
   six MDN candidates for `global`, `Fw`, and `Bw`.
 
+- [scripts/campaigns/wave3/run_wave3_harmonic_prior_residual_campaign.md](./scripts/campaigns/wave3/run_wave3_harmonic_prior_residual_campaign.md)
+  Script-level documentation for the prepared first real `Wave 3`
+  harmonic-prior residual campaign launcher across `global`, `Fw`, and `Bw`.
+
 - [scripts/training/validate_training_setup.md](./scripts/training/validate_training_setup.md)
   Script-level documentation for the one-batch validation check used by the shared Wave 0 training infrastructure.
 
@@ -2701,6 +2714,10 @@ This folder contains the internal project documents derived from the reference P
   Styled PDF export of the unified residual-harmonic network guide.
 
 #### Latest Campaign Plans
+
+- [reports/campaign_plans/wave3_wave4/2026-06-14-19-54-55_wave3_harmonic_prior_residual_campaign_plan_report.md](./reports/campaign_plans/wave3_wave4/2026-06-14-19-54-55_wave3_harmonic_prior_residual_campaign_plan_report.md)
+  Preliminary and prepared campaign plan for the first real `Wave 3`
+  harmonic-prior residual package across `global`, `Fw`, and `Bw`.
 
 - [reports/campaign_plans/track2/2026-06-12-00-01-04_track2h_quantile_probabilistic_campaign_plan_report.md](./reports/campaign_plans/track2/2026-06-12-00-01-04_track2h_quantile_probabilistic_campaign_plan_report.md)
   Preliminary campaign plan for the second `Track 2H` package, focused on
@@ -3018,6 +3035,10 @@ This folder contains the internal project documents derived from the reference P
   Final results report for the completed Wave 1 residual-harmonic family optimization campaign, including familywise ranking and the promoted residual-family winner.
 
 #### Campaign Plans
+
+- [reports/campaign_plans/wave3_wave4/2026-06-14-19-54-55_wave3_harmonic_prior_residual_campaign_plan_report.md](./reports/campaign_plans/wave3_wave4/2026-06-14-19-54-55_wave3_harmonic_prior_residual_campaign_plan_report.md)
+  Preliminary and prepared campaign plan for the first real `Wave 3`
+  harmonic-prior residual package across `global`, `Fw`, and `Bw`.
 
 - [reports/campaign_plans/wave3_wave4/2026-06-12-14-56-27_wave3_grouped_harmonic_heads_skeleton_plan_report.md](./reports/campaign_plans/wave3_wave4/2026-06-12-14-56-27_wave3_grouped_harmonic_heads_skeleton_plan_report.md)
   Preliminary plan for a non-campaign `Wave 3` grouped harmonic-heads skeleton

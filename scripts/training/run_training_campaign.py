@@ -48,6 +48,7 @@ SUPPORTED_MODEL_ENTRYPOINT_NAME_DICTIONARY = {
     "sequential_residual_offset_probe": "scripts/training/train_feedforward_network.py",
     "harmonic_residual_offset_probe": "scripts/training/train_feedforward_network.py",
     "curve_aware_harmonic_residual_offset_probe": "scripts/training/train_feedforward_network.py",
+    "wave3_harmonic_prior_residual": "scripts/training/train_feedforward_network.py",
     "random_forest": "scripts/training/train_tree_regressor.py",
     "hist_gradient_boosting": "scripts/training/train_tree_regressor.py",
 }
@@ -551,6 +552,7 @@ def resolve_training_handler(model_type: str) -> Callable[[str | Path], None]:
         "sequential_residual_offset_probe": run_feedforward_training,
         "harmonic_residual_offset_probe": run_feedforward_training,
         "curve_aware_harmonic_residual_offset_probe": run_feedforward_training,
+        "wave3_harmonic_prior_residual": run_feedforward_training,
         "random_forest": run_tree_regression_training,
         "hist_gradient_boosting": run_tree_regression_training,
     }

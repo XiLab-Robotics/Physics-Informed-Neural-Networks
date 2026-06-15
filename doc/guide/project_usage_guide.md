@@ -34,6 +34,8 @@ At the moment, the implemented workflows are:
   without creating a campaign;
 - a dry-run `Wave 3` grouped harmonic-heads check that validates the second
   grouped-head model interface without creating a campaign;
+- a prepared first real `Wave 3` harmonic-prior residual campaign launcher
+  with local and `-Remote` execution paths;
 - a `Wave 4A` MMT equation diagnostic report generator for harmonic-summary
   inspection before PINN integration;
 - a dry-run `Wave 4B` MMT feature-generator check that writes leakage-aware
@@ -211,6 +213,11 @@ The current usage flow mainly relies on these folders:
   Dry-run check launcher for the second `Wave 3` grouped harmonic-heads
   skeleton. It compiles the model, validates factory construction, and runs
   point/sequence forward checks without queueing or launching training.
+
+- `scripts/campaigns/wave3/run_wave3_harmonic_prior_residual_campaign.ps1`
+  Prepared first real `Wave 3` harmonic-prior residual campaign launcher. It
+  validates six queue entries across `global`, `Fw`, and `Bw`, then launches
+  locally or delegates to the repository-owned remote campaign runner.
 
 - `scripts/campaigns/wave4/run_wave4_embryonic_skeleton_checks.ps1`
   Dry-run check launcher for the embryonic `Wave 4A` MMT diagnostic adapter.
@@ -2742,6 +2749,23 @@ Most recent completed Track 2H mixture-density heads campaign:
   `doc/reports/analysis/track2/official_model_verification_report/[2026-06-13]/track2_official_model_verification_report.md`
 - status: normal campaign closeout and official `Track 2` verification
   refresh completed; MDN is a verified exploratory baseline, not promoted.
+
+Current prepared Wave 3 harmonic-prior residual campaign:
+
+- campaign name: `wave3_harmonic_prior_residual_campaign_2026_06_14`
+- planning report:
+  `doc/reports/campaign_plans/wave3_wave4/2026-06-14-19-54-55_wave3_harmonic_prior_residual_campaign_plan_report.md`
+- config package:
+  `config/training/wave3_harmonic_prior_residual/campaigns/2026-06-14_wave3_harmonic_prior_residual_campaign/`
+- canonical launcher:
+  `scripts/campaigns/wave3/run_wave3_harmonic_prior_residual_campaign.ps1`
+- local command:
+  `.\scripts\campaigns\wave3\run_wave3_harmonic_prior_residual_campaign.ps1`
+- remote command:
+  `.\scripts\campaigns\wave3\run_wave3_harmonic_prior_residual_campaign.ps1 -Remote`
+- preflight command:
+  `.\scripts\campaigns\wave3\run_wave3_harmonic_prior_residual_campaign.ps1 -PreflightOnly`
+- status: prepared, not launched.
 
 Current finished Wave 1 residual-family follow-up campaign:
 

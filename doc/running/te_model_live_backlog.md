@@ -22,8 +22,8 @@ Historical rationale and approval history remain in:
 ## Current Status
 
 - Program State: active.
-- Active Campaign State: no prepared or active campaign is currently protected
-  in `doc/running/active_training_campaign.yaml`.
+- Active Campaign State: `wave3_harmonic_prior_residual_campaign_2026_06_14`
+  is prepared and protected in `doc/running/active_training_campaign.yaml`.
 - Current Completed Wave: `Track 2H` mixture-density heads campaign closeout
   and official `Track 2` verification refresh are complete.
 - Current Completed Track: `Track 1` RCIM paper-faithful model bank, closed as
@@ -31,9 +31,10 @@ Historical rationale and approval history remain in:
 - Current Completed Track: `Track 2` official offline model-verification
   report, closed as the canonical direction-aware verification surface for new
   model families.
-- Current Focus: package the first real `Wave 3` hybrid structured campaign,
-  while keeping a latent-state / hysteresis-aware `Track 2H` branch as the
-  alternate next probe if experimental-state compensation is prioritized.
+- Current Focus: operator launch of the prepared first real `Wave 3`
+  harmonic-prior residual campaign, while keeping a latent-state /
+  hysteresis-aware `Track 2H` branch as the alternate next probe if
+  experimental-state compensation is prioritized.
 - Parallel Diagnostic Focus: component-offset, `Track 2D` h0 cross-check, and
   predicted-mean versus measured-h0 diagnostics are complete; `h0` is the
   correct mean-like channel to inspect, but not the confirmed sole cause of the
@@ -211,8 +212,8 @@ Next planned diagnostic and training decision branches:
 | Offset-aware checkpoint selection | Monitor curve-bias, centered-shape, P95, harmonic phase, then scalar `val_mae`. | next decision candidate |
 | Curve-aware loss branch | Add pointwise, bias, centered-shape, slope, harmonic amplitude, and harmonic phase terms while preserving causal inputs. | next decision candidate |
 | Component-offset identification | Test whether curve offset is dominated by `a_0` / `Component 0`, multiple components, condition/regime behavior, or experimental repeatability limits. | measured `h0`, signed-offset cross-check, and predicted-mean surface diagnostics completed; `h0` is the right mean channel, but the actionable issue is model-side mean-surface bias/compression |
-| `Track 2H` dispersion-aware modeling probes | Test robust losses, quantile or probabilistic heads, mixture-density heads, and latent-state or hysteresis-aware features on the offset and fragile-harmonic problem. | robust-loss and quantile/probabilistic campaigns plus official Track 2 refreshes completed; MDN campaign closeout completed with a strong scalar `Bw` result and official Track 2 refresh pending |
-| `Wave 3` hybrid structured models | Combine harmonic structure, condition-conditioned residual learning, and explicit grouped treatment of stable and fragile harmonic bands. | `wave3_harmonic_prior_residual` skeleton is training-smoke-ready; real campaign packaging waits for the MDN Track 2 refresh or an explicit decision to skip directly to Wave 3 |
+| `Track 2H` dispersion-aware modeling probes | Test robust losses, quantile or probabilistic heads, mixture-density heads, and latent-state or hysteresis-aware features on the offset and fragile-harmonic problem. | robust-loss, quantile/probabilistic, and MDN campaigns plus official Track 2 refreshes completed; latent-state / hysteresis-aware remains an optional alternate branch |
+| `Wave 3` hybrid structured models | Combine harmonic structure, condition-conditioned residual learning, and explicit grouped treatment of stable and fragile harmonic bands. | `wave3_harmonic_prior_residual` skeleton is training-smoke-ready; the first real Wave 3 campaign package is the active next step |
 | `Wave 4` PINN formulation and first PINN | Test soft physics, periodicity, smoothness, harmonic-consistency, and operating-condition constraints in a first narrow PINN branch. | `Wave 4A` MMT diagnostic and parameter inventory are generated; dataset-aligned calibration and `Wave 4B` / `Wave 4C` decision gates remain open |
 | Integrated multi-task / multi-head model branch | Shared causal trunk with separate offset, low-frequency, centered-shape, uncertainty or mixture, and optional structured-residual heads. | deferred until `Track 2H`, `Wave 3`, and `Wave 4` identify which mechanisms should be integrated |
 | Sequential residual calibration branch | Current best causal model plus second causal residual or offset calibrator trained on model error. | candidate after audit |
@@ -232,15 +233,14 @@ Current `Track 2E` observations:
 
 Recommended next gate:
 
-- prepare the separate official `Track 2` refresh for the completed MDN
-  candidates, then decide whether to run latent-state / hysteresis-aware
-  probes before `Wave 3`;
+- package the first real `Wave 3` harmonic-prior residual campaign from the
+  `wave3_harmonic_prior_residual` training-smoke-ready scaffold;
+- keep latent-state / hysteresis-aware modeling as an optional alternate
+  `Track 2H` branch only if explicitly prioritized before `Wave 3`;
 - treat `Wave 3` hybrid structured models and `Wave 4` first-PINN formulation
   as evidence-generating branches before the integrated multi-task /
-  multi-head architecture; `Wave 3` now resumes from the
-  `wave3_harmonic_prior_residual` training-smoke-ready scaffold, while
-  `Wave 4` resumes from the `Wave 4A` MMT diagnostic report, completed
-  parameter inventory, and dataset-aligned calibration gate;
+  multi-head architecture; `Wave 4` resumes from the `Wave 4A` MMT diagnostic
+  report, completed parameter inventory, and dataset-aligned calibration gate;
 - do not document `a_0` / `Component 0` as the confirmed sole cause unless
   repeatability, component-level error, and model-side surface diagnostics
   support that conclusion.
@@ -501,17 +501,18 @@ Official closeout package:
 ### Planned Next Step
 
 After the completed `Track 2B`, `Track 2C`, mean-centered collage,
-`Track 2D` full-matrix, h0/error cross-check, and predicted-mean h0 surface
-diagnostics, the active next step is:
+`Track 2D` full-matrix, h0/error cross-check, predicted-mean h0 surface
+diagnostics, and completed `Track 2H` robust/probabilistic/MDN refreshes, the
+active next step is:
 
-- prepare a new `Track 2H` quantile or probabilistic regression package before
-  any integrated multi-head campaign;
-- test quantile or probabilistic regression, mixture-density heads, and
-  latent-state / hysteresis-aware models on the same direction-separated
-  promotion surface, with robust losses retained as the first verified
-  dispersion-aware baseline;
-- then execute `Wave 3` hybrid structured models and `Wave 4` first-PINN work
-  as separate evidence-generating branches;
+- prepare the first real `Wave 3` harmonic-prior residual campaign before any
+  integrated multi-head campaign;
+- use the completed `Track 2H` probes as loss-policy evidence, not as the
+  final architecture;
+- keep latent-state / hysteresis-aware modeling available as an alternate
+  branch if preload or protocol-state behavior is explicitly prioritized;
+- then execute `Wave 4` first-PINN work as a separate evidence-generating
+  branch;
 - only after those probes decide which mechanisms belong in the integrated
   multi-task / multi-head architecture.
 
@@ -1039,10 +1040,14 @@ Entry rule:
     `scripts/campaigns/wave3/run_wave3_training_smoke_ready_checks.ps1`;
   - final one-batch validation artifact:
     `output/validation_checks/wave3_harmonic_prior_residual/2026-06-11-19-44-20__te_wave3_harmonic_prior_residual_training_smoke_ready_wave3_training_smoke_ready_final/validation_summary.yaml`;
-- updated priority: package the first real Wave 3 campaign from the
-  training-smoke-ready scaffold before the integrated multi-task / multi-head
-  campaign, unless latent-state / hysteresis-aware compensation is explicitly
-  prioritized as the next Track 2H branch;
+- prepared package:
+  `config/training/wave3_harmonic_prior_residual/campaigns/2026-06-14_wave3_harmonic_prior_residual_campaign/`;
+- prepared launcher:
+  `scripts/campaigns/wave3/run_wave3_harmonic_prior_residual_campaign.ps1`;
+- updated priority: launch and close the prepared first real Wave 3 campaign
+  before the integrated multi-task / multi-head campaign, unless
+  latent-state / hysteresis-aware compensation is explicitly prioritized as
+  the next Track 2H branch;
 - mandatory rule: prepare or justify `global`, `forward`, and `backward`
   surfaces;
 - paper-reproduction scope:
@@ -1052,15 +1057,12 @@ Entry rule:
   - prepare the repository-owned deployable predictor package after the
     research branch has identified a viable structure.
 - next implementation steps:
-  - consume `Track 2H` robust, probabilistic, and MDN results to choose the
-    training-loss default or confirm pointwise control;
-  - prepare real `global`, `Fw`, and `Bw` campaign YAMLs only after the
-    campaign-plan gate;
-  - preserve the validation-only config under
-    `output/validation_checks/wave3_training_smoke_ready/generated_configs/`
-    as the starting template, not as a queue file;
-  - keep `active_training_campaign.yaml` unchanged until an approved Wave 3
-    campaign package exists.
+  - operator launches the prepared local or `-Remote` command;
+  - after completion, close out the campaign with results report, PDF,
+    registries, backlog/master-summary synchronization, and active-state
+    cleanup;
+  - propose official `Track 2` verification refresh as a separate step after
+    normal campaign closeout.
 
 ### Wave 4. PINN Formulation And First PINN
 
