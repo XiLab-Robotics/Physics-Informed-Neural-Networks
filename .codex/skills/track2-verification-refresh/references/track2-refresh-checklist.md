@@ -112,10 +112,19 @@ Create or update:
 Record:
 
 - matrix candidate count before and after refresh;
-- strongest new candidate per direction/surface;
+- strongest new candidate per direction/surface for raw error, shape fidelity,
+  offset / continuity, harmonic / phase fidelity, robustness, and final
+  recommendation when the required diagnostics exist;
 - comparison to accepted `tree` and paper-derived baselines;
 - final decision: promoted, rejected, or verified exploratory baseline;
 - current matrix, collage, overlay, PDF, and validation paths.
+
+Apply the canonical policy in:
+
+`doc/reports/analysis/track2/multi_index_curve_first_selection_policy/[2026-06-16]/track2_multi_index_curve_first_selection_policy.md`
+
+Do not promote or reject a candidate from scalar `MAE`, matrix MPE, or campaign
+leaderboard rank alone.
 
 Do not embed raw Markdown images in the official report unless the PDF exporter
 is known to render them correctly. Prefer text pointers when the visual

@@ -20,6 +20,12 @@ path. That commit does not replace the standard `Track 2` reconstruction path;
 it adds a post-prediction diagnostic view that subtracts the measured and
 predicted per-curve means separately.
 
+As of the `2026-06-16` policy update, collage and overlay evidence are required
+inputs to the official multi-index curve-first selection process. The visual
+reports do not override raw metrics by themselves, but they must be considered
+when scalar error, centered-shape metrics, offset diagnostics, and harmonic /
+phase diagnostics disagree.
+
 ## Key Takeaways
 
 - The standard collage report does not read curve data back from the report
@@ -38,6 +44,10 @@ predicted per-curve means separately.
   or DC-component problem, not by itself evidence that the curve shape is wrong.
 - A phase/sign-convention problem would usually remain visible after
   mean-centering because subtracting the mean cannot repair harmonic phase.
+- Official `Track 2` promotion decisions must not be made from `MAE`, `RMSE`,
+  or mean percentage error alone. They must preserve separate raw-error,
+  shape-fidelity, offset / continuity, harmonic / phase, robustness, visual,
+  and deployment-readiness evidence per `global`, `Fw`, and `Bw` surface.
 
 ## Source Map
 
@@ -1371,6 +1381,9 @@ When investigating a suspicious `Track 2` collage or a `Track 2B` through
    harmonics, direction filtering, and condition feature mapping.
 9. Keep standard and diagnostic plots separate: the mean-centered plot is not a
    replacement for the official raw-curve evaluation.
+10. For official selection, summarize raw error, mean-centered shape, offset /
+    continuity, harmonic / phase, robustness, visual evidence, and deployment
+    readiness before recommending promotion or rejection.
 
 ## Current Interpretation Of The 940a16b9 Diagnostic
 

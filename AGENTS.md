@@ -161,6 +161,17 @@
   user approves it, generate a repository-owned PowerShell launcher that can be
   run locally or with `-Remote`, then wait for the user to run it and report
   completion before inspecting or accepting `Track 2` artifacts.
+- Official `Track 2` decisions must use the repository's multi-index
+  curve-first selection policy, not scalar `MAE` or campaign leaderboard rank
+  alone. Future verification reports must distinguish raw error, mean-centered
+  shape fidelity, offset / continuity behavior, harmonic / phase fidelity,
+  robustness, visual evidence, and deployment readiness.
+- Every future `Track 2` refresh must keep separate `global`, `Fw`, and `Bw`
+  surfaces visible and should report best raw-error, best shape-fidelity, best
+  offset-behavior, best robustness, and recommended candidates per surface when
+  the required artifacts are available.
+- Treat `doc/reports/analysis/track2/multi_index_curve_first_selection_policy/[2026-06-16]/track2_multi_index_curve_first_selection_policy.md`
+  as the canonical selection policy for official `Track 2` model evaluation.
 - Keep family-level and program-level best-result registries updated after
   training or campaign completion.
 - Keep `doc/reports/analysis/Training Results Master Summary.md` synchronized

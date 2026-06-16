@@ -7,6 +7,13 @@ This report is the canonical `Track 2` offline comparison between
 repository-owned `Wave 1` and `Wave 2` model candidates. It starts from
 the current direction-aware comparison matrix.
 
+The tables in this report are the canonical raw-error matrix, not the complete
+model-promotion rule. Official `Track 2` decisions must also use the
+multi-index curve-first policy in
+`multi_index_curve_first_selection_policy/[2026-06-16]/track2_multi_index_curve_first_selection_policy.md`,
+including mean-centered shape, offset / continuity, harmonic / phase,
+robustness, visual evidence, and deployment-readiness checks.
+
 ## Dataset And Split
 
 - dataset config: `config/datasets/transmission_error_dataset.yaml`;
@@ -620,6 +627,10 @@ and direction. Directional paper-reference, Wave 1, and Wave 2
 models are never evaluated on the opposite direction. Global Wave
 models remain valid on both directions and are therefore shown in
 the directional sections and again in the global breakdown.
+The ranking order in these tables should be read as raw matrix evidence only.
+Future official reports must preserve the raw matrix while also exposing
+multi-index per-surface winners for raw error, shape fidelity, offset behavior,
+harmonic / phase fidelity, robustness, and final recommendation.
 The `rcim_track1` forward reference banks use the opposite stored
 `h0` sign convention relative to the Track 2 reconstruction
 contract, so the Track 2 comparison applies the documented

@@ -123,14 +123,17 @@ Update or create the dated official report bundle:
 The official report must state:
 
 - which candidates were added;
-- which candidate is strongest for `global`, `Fw`, and `Bw`;
+- which candidates are strongest for `global`, `Fw`, and `Bw` by raw error,
+  mean-centered shape fidelity, offset / continuity behavior, harmonic / phase
+  fidelity, robustness, and final recommendation when those artifacts exist;
 - whether the new family is promoted, rejected, or kept as a verified
   exploratory baseline;
 - whether the accepted `tree` or paper-derived baseline changes;
 - where the matrix, collage, overlay, and validation artifacts live.
 
-Do not infer promotion from campaign leaderboard metrics alone. Use the
-direction-aware Track 2 matrix and the visual companion PDFs.
+Do not infer promotion from campaign leaderboard metrics, scalar `MAE`, or
+matrix mean percentage error alone. Use the direction-aware Track 2 matrix,
+the multi-index curve-first selection policy, and the visual companion PDFs.
 
 ## Status Synchronization
 

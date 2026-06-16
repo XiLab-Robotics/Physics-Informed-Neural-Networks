@@ -146,6 +146,12 @@ This folder contains the internal project documents derived from the reference P
   original, retuned paper-reference banks, and exported `Wave 1` models from
   `models/`, split into forward, backward, and global direction sections.
 
+- [reports/analysis/track2/multi_index_curve_first_selection_policy/[2026-06-16]/track2_multi_index_curve_first_selection_policy.md](./reports/analysis/track2/multi_index_curve_first_selection_policy/%5B2026-06-16%5D/track2_multi_index_curve_first_selection_policy.md)
+  Canonical policy for official `Track 2` model selection after the
+  curve-first shift, requiring raw-error, mean-centered shape, offset /
+  continuity, harmonic / phase, robustness, visual-evidence, and
+  deployment-readiness axes instead of scalar `MAE` alone.
+
 - [reports/analysis/TE Program Status And Closeout Ledger.md](./reports/analysis/TE%20Program%20Status%20And%20Closeout%20Ledger.md)
   Maintained official TE modeling status ledger covering `Wave 1` through
   `Wave 3`, `Track 2B` through `Track 2H`, current direction-parallel leaders,
@@ -3210,6 +3216,12 @@ This folder contains the internal project documents derived from the reference P
 
 - [technical/2026-04/2026-04-09/2026-04-09-12-47-17_harmonic_wise_pipeline_guide_and_notebooklm_package.md](./technical/2026-04/2026-04-09/2026-04-09-12-47-17_harmonic_wise_pipeline_guide_and_notebooklm_package.md)
   Technical plan for the guide-local documentation, diagrams, PDF companion, and NotebookLM source packages for the harmonic-wise paper-reimplementation pipeline.
+
+- [technical/2026-06/2026-06-16/2026-06-16-16-55-46_track2_multi_index_curve_first_selection_policy.md](./technical/2026-06/2026-06-16/2026-06-16-16-55-46_track2_multi_index_curve_first_selection_policy.md)
+  Technical plan for shifting official `Track 2` model selection from
+  scalar-error-first ranking to multi-index curve-first selection across
+  raw error, mean-centered shape, offset, harmonic / phase, robustness, and
+  recommended per-surface candidates.
 
 - [technical/2026-04/2026-04-09/2026-04-09-16-42-43_notebooklm_export_integration_for_harmonic_wise_guide.md](./technical/2026-04/2026-04-09/2026-04-09-16-42-43_notebooklm_export_integration_for_harmonic_wise_guide.md)
   Technical plan for importing, renaming, and canonically placing the generated NotebookLM concept and project exports for the harmonic-wise guide.

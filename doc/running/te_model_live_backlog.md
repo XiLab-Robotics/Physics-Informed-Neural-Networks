@@ -50,6 +50,7 @@ Current canonical status reports:
 - `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
 - `doc/reports/analysis/TE Program Status And Closeout Ledger.md`
 - `doc/reports/analysis/track2/official_model_verification_report/[2026-06-15]/track2_official_model_verification_report.md`
+- `doc/reports/analysis/track2/multi_index_curve_first_selection_policy/[2026-06-16]/track2_multi_index_curve_first_selection_policy.md`
 - `doc/reports/analysis/track2/best_model_collage_report/[2026-06-15]/track2_best_model_collage_report.md`
 - `doc/reports/analysis/track2/multi_model_curve_comparison_report/[2026-06-15]/track2_multi_model_curve_comparison_report.md`
 - `doc/reports/analysis/track2/Track 2 Directional Model Comparison.md`
@@ -118,7 +119,7 @@ Input constraint:
   complete-curve normalization unavailable at runtime are not valid deployment
   inputs.
 
-The immediate rule is:
+The immediate rule is now a multi-index selection policy:
 
 - scalar `MAE` and `RMSE` remain required sanity metrics;
 - `Track 2` direction-valid full-curve metrics are the canonical promotion
@@ -130,7 +131,15 @@ The immediate rule is:
 - raw curve error, curve-bias / `DC` offset error, centered-shape error,
   amplitude error, and harmonic phase error should be tracked separately;
 - harmonic amplitude, harmonic phase, P95, and worst-condition diagnostics
-  should be added before new training losses are treated as canonical.
+  should be added before new training losses are treated as canonical;
+- official `Track 2` reports should expose best raw-error, best
+  shape-fidelity, best offset-behavior, best robustness, and recommended
+  candidates per `global`, `Fw`, and `Bw` surface when the required evidence is
+  available.
+
+The canonical policy is:
+
+- `doc/reports/analysis/track2/multi_index_curve_first_selection_policy/[2026-06-16]/track2_multi_index_curve_first_selection_policy.md`
 
 This rule does not reopen closed campaigns. It changes how future branches
 interpret their evidence and defines future work as three parallel
@@ -139,6 +148,12 @@ direction-valid selection surfaces while preserving the causal input contract.
 The first standardized reranking pass is complete in:
 
 - `doc/reports/analysis/track2/curve_first_reranking_report/[2026-05-28]/track2_curve_first_reranking_report.md`
+
+The next required evaluation task is a complete multi-index reranking over the
+current official `Track 2` candidate set, including `Wave 1`, `Wave 2`,
+`Track 2B` through `Track 2H`, and `Wave 3`. That reranking must produce
+per-surface tables for raw error, centered-shape fidelity, offset / continuity,
+harmonic / phase fidelity, robustness, and final recommendation.
 
 Current `Track 2B` curve-first leaders by parallel surface:
 
@@ -772,7 +787,9 @@ Entry rule:
 - composite best-reference visibility: completed;
 - direction/truth and preview audit: completed;
 - official model-verification report: completed;
-- curve-first reranking policy: planned as the next analysis branch;
+- multi-index curve-first selection policy: adopted;
+- complete multi-index reranking over all current official candidates:
+  next analysis branch;
 - status: closed.
 
 ### Wave 2. Temporal Models

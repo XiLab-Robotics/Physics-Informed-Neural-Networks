@@ -11,6 +11,8 @@
 - Active Campaign Status: `none`
 - Active Campaign Name: `N/A`
 - Current Program Winner: `te_periodic_gru_sequence_remote_Bw` | Family `periodic_gru_sequence_bw` | Test MAE `0.002344`
+- Current Track 2 Selection Policy: multi-index curve-first selection; scalar
+  `MAE` is a required raw-error metric, not the sole promotion rule.
 
 ## Main Takeaways
 
@@ -153,9 +155,9 @@
 - Last official `Track 2` decision:
   `Wave 3` harmonic-prior residual candidates are verified exploratory
   baselines, not promoted over the accepted direction-parallel leaders.
-- Next acceptance gate: prepare `Track 2H-L` latent-state /
-  hysteresis-aware modeling to test whether causal history captures preload,
-  elastic-release, and protocol-state dispersion before wider integration.
+- Next acceptance gate: complete the multi-index `Track 2` reranking over all
+  current official candidates before using `Track 2H-L`, `Wave 4`, or any
+  integrated branch as a promotion candidate.
 
 ### Roadmap And Planned Work
 
@@ -191,7 +193,7 @@ Low-priority exploratory families currently listed in the backlog:
 - `Neural ODE`
 - `Hamiltonian-Inspired Model`
 - `optional Kernel Ridge / Gaussian Process benchmark`
-| Track 2. Directional Offline Comparison | direction-aware loader and candidate matrix: completed;; recovered original forward candidates: included;; retuned forward and backward candidates: included;; `Track 1` forward and backward candidates: included;; `Wave 1` `global`, `forward`, and `backward` exports: included;; `Wave 2` temporal `global`, `forward`, and `backward` registry candidates:; grouped source tables: completed;; composite best-reference visibility: completed;; direction/truth and preview audit: completed;; official model-verification report: completed;; curve-first reranking policy: planned as the next analysis branch;; status: closed. |
+| Track 2. Directional Offline Comparison | direction-aware loader and candidate matrix: completed;; recovered original forward candidates: included;; retuned forward and backward candidates: included;; `Track 1` forward and backward candidates: included;; `Wave 1` `global`, `forward`, and `backward` exports: included;; `Wave 2` temporal `global`, `forward`, and `backward` registry candidates:; grouped source tables: completed;; composite best-reference visibility: completed;; direction/truth and preview audit: completed;; official model-verification report: completed;; multi-index curve-first selection policy: adopted;; next analysis branch: complete multi-index reranking for `Wave 1`, `Wave 2`, `Track 2B` through `Track 2H`, and `Wave 3`;; status: closed. |
 
 Low-priority exploratory families currently listed in the backlog:
 

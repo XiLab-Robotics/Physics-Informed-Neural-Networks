@@ -30,6 +30,7 @@ of these surfaces:
 | Latest normal campaign closeout | `Wave 3` harmonic-prior residual campaign |
 | Latest official Track 2 refresh | `Wave 3` harmonic-prior residual refresh, dated `2026-06-15` |
 | Latest Track 2 decision | verified exploratory baseline; not promoted |
+| Current Track 2 selection policy | multi-index curve-first selection, dated `2026-06-16` |
 | Next modeling decision | use `Wave 3` curve evidence to decide between more `Wave 3`, `Wave 4`, or latent-state / hysteresis-aware work |
 
 The repository remains direction-parallel. `Fw`, `Bw`, and `global` are not a
@@ -51,6 +52,13 @@ The central modeling boundary has not changed:
 This means that curve-first evaluation is valid and required, while
 full-curve-dependent runtime corrections are not deployable unless they are
 reformulated as causal predictors.
+
+Official `Track 2` decisions now use the multi-index curve-first policy in
+`doc/reports/analysis/track2/multi_index_curve_first_selection_policy/[2026-06-16]/track2_multi_index_curve_first_selection_policy.md`.
+Raw `MAE`, `RMSE`, and mean percentage error remain required evidence, but they
+do not by themselves decide promotion. Future reports must keep separate
+raw-error, mean-centered shape, offset / continuity, harmonic / phase,
+robustness, visual-evidence, and deployment-readiness axes visible.
 
 ## Current Direction-Parallel Leaders
 
@@ -94,6 +102,12 @@ reformulated as causal predictors.
 pointwise scalar regression metrics as the only model-selection objective.
 The practical target is TE compensation along continuous motor-curve sequences,
 while preserving causal runtime inputs.
+
+The `2026-06-16` multi-index policy formalizes that shift. Future official
+reports should identify best raw-error, best shape-fidelity, best
+offset-behavior, best robustness, and recommended candidates per `global`,
+`Fw`, and `Bw` surface. A candidate can be valuable on one axis without being
+the final recommended compensator.
 
 `Track 2C` made the curve payload diagnostic rather than only aggregate. It
 added physical curve-quality measures such as peak-to-peak behavior, harmonic
@@ -164,8 +178,9 @@ models.
 ## Current Next Steps
 
 1. Use the completed Wave 3 Track 2 curve, offset, collage, and overlay
-   evidence to decide whether to continue Wave 3, move to Wave 4, or reopen
-   latent-state / hysteresis-aware modeling.
+   evidence inside the multi-index reranking pass before deciding whether to
+   continue Wave 3, move to Wave 4, or reopen latent-state / hysteresis-aware
+   modeling.
 2. Keep `Track 2H` robust, probabilistic, and MDN branches as evidence for
    later multi-head integration, not as current promoted leaders.
 3. Keep `Wave 4` MMT/PINN work behind its dataset-aligned diagnostic and
@@ -182,6 +197,8 @@ declared complete. Update it when the closeout:
   verification refresh;
 - changes the scalar program winner, a direction-parallel accepted leader, or
   an exploratory branch leader;
+- changes the multi-index raw-error, shape-fidelity, offset-behavior,
+  robustness, or recommended candidate for any `Track 2` surface;
 - adds evidence about offset, centered shape, amplitude, phase, dispersion,
   harmonic grouping, latent state, physics constraints, or deployment
   readiness;
@@ -196,6 +213,7 @@ that the ledger was checked and did not require a content change.
 - `doc/running/te_model_live_backlog.md`
 - `doc/reports/analysis/Training Results Master Summary.md`
 - `doc/reports/analysis/track2/Track 2 Directional Model Comparison.md`
+- `doc/reports/analysis/track2/multi_index_curve_first_selection_policy/[2026-06-16]/track2_multi_index_curve_first_selection_policy.md`
 - `doc/reports/analysis/track2/official_model_verification_report/[2026-06-15]/track2_official_model_verification_report.md`
 - `doc/reports/campaign_results/wave3_wave4/2026-06-15-15-30-20_wave3_harmonic_prior_residual_campaign_results_report.md`
 - `doc/reports/campaign_results/track2/2026-06-09-01-56-25_track2g_curve_aware_training_campaign_results_report.md`
