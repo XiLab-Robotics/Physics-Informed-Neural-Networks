@@ -396,6 +396,12 @@ This folder contains the internal project documents derived from the reference P
 
 ### Technical Documents
 
+#### 2026-06-16
+
+- [technical/2026-06/2026-06-16/2026-06-16-12-37-49_wave3_track2_pdf_asset_path_repair.md](./technical/2026-06/2026-06-16/2026-06-16-12-37-49_wave3_track2_pdf_asset_path_repair.md)
+  Technical plan for shortening verbose `Wave 3` `Track 2` visual-report asset
+  paths and regenerating the styled PDFs after the failed image render.
+
 #### 2026-06-15
 
 - [technical/2026-06/2026-06-15/2026-06-15-17-54-41_wave3_track2_verification_refresh.md](./technical/2026-06/2026-06-15/2026-06-15-17-54-41_wave3_track2_verification_refresh.md)

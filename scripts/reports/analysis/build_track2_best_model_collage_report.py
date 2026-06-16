@@ -5,6 +5,7 @@ from __future__ import annotations
 # Import Python Utilities
 import argparse
 import csv
+import hashlib
 import os
 import shutil
 import sys
@@ -52,6 +53,7 @@ DEFAULT_PERIODIC_MLP_HARMONIC_CAMPAIGN_LEADERBOARD_PATH = (
 SUMMARY_FILENAME = "track2_best_model_collage_summary.yaml"
 METRICS_FILENAME = "track2_best_model_collage_metrics.csv"
 REPORT_FILENAME = "track2_best_model_collage_report.md"
+MAX_REPORT_ASSET_FRAGMENT_LENGTH = 48
 
 WAVE1_BASE_FAMILY_LIST = [
     "feedforward",
@@ -1244,6 +1246,47 @@ def build_relative_markdown_path(target_path: Path, markdown_directory: Path) ->
     return relative_path.replace("\\", "/")
 
 
+def build_compact_report_asset_fragment(identifier_text: str) -> str:
+
+    """Build a deterministic short filesystem fragment for report assets."""
+
+    sanitized_identifier = sanitize_filename_fragment(identifier_text)
+    if len(sanitized_identifier) <= MAX_REPORT_ASSET_FRAGMENT_LENGTH:
+        return sanitized_identifier
+
+    digest_text = hashlib.sha1(sanitized_identifier.encode("utf-8")).hexdigest()[:10]
+    token_alias_dictionary = {
+        "auto": "a",
+        "forward": "fw",
+        "backward": "bw",
+        "mixed": "mix",
+        "global": "glb",
+        "harmonic": "harm",
+        "prior": "pri",
+        "residual": "res",
+        "registry": "reg",
+    }
+    compact_token_list: list[str] = []
+    for token in sanitized_identifier.split("_"):
+        if not token:
+            continue
+        lowered_token = token.lower()
+        if lowered_token in token_alias_dictionary:
+            compact_token_list.append(token_alias_dictionary[lowered_token])
+        elif lowered_token.startswith("wave") and lowered_token[4:].isdigit():
+            compact_token_list.append(f"w{lowered_token[4:]}")
+        elif lowered_token.startswith("track") and lowered_token[5:].isdigit():
+            compact_token_list.append(f"t{lowered_token[5:]}")
+        else:
+            compact_token_list.append(lowered_token[:4])
+
+    suffix_text = f"_{digest_text}"
+    compact_identifier = "_".join(compact_token_list)
+    maximum_prefix_length = MAX_REPORT_ASSET_FRAGMENT_LENGTH - len(suffix_text)
+    compact_identifier = compact_identifier[:maximum_prefix_length].rstrip("_")
+    return f"{compact_identifier}{suffix_text}"
+
+
 def save_candidate_metrics_csv(
     csv_path: Path,
     candidate_summary_list: list[dict[str, Any]],
@@ -1525,7 +1568,7 @@ def run_track2_best_model_collage_report(arguments: argparse.Namespace) -> dict[
             report_asset_path = (
                 report_path.parent
                 / "assets"
-                / group.group_id
+                / build_compact_report_asset_fragment(group.group_id)
                 / f"{sanitize_filename_fragment(candidate_id)}.png"
             )
             save_candidate_collage(collage_path, candidate_id, selected_entry_list)

@@ -1,0 +1,8 @@
+doc\reports\analysis\track2\best_model_collage_report\[2026-06-15]
+doc\reports\analysis\track2\multi_model_curve_comparison_report\[2026-06-15]
+doc\reports\analysis\track2\official_model_verification_report\[2026-06-15]
+doc\reports\analysis\track2\Track 2 Directional Model Comparison.md
+output\validation_checks\track2_best_model_collage_report\2026-06-15-20-52-54__track2_best_model_collage_report
+output\validation_checks\track2_multi_model_curve_comparison_report\2026-06-15-22-15-13__track2_multi_model_curve_comparison_report
+output\validation_checks\track2_operator_launch_logs\2026-06-15-20-25-26_wave3_harmonic_prior_residual_track2_refresh_2026_06_15
+output\validation_checks\track2_reference_comparison\2026-06-15-20-25-36__track2_full_directional_family_matrix_wave3_harmonic_prior_residual_track2_refresh_2026_06_15
