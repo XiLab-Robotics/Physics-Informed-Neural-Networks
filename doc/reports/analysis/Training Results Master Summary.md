@@ -2,14 +2,14 @@
 
 ## Executive Snapshot
 
-- Generated At: `2026-06-16T16:00:57`
+- Generated At: `2026-06-16T16:58:30`
 - Program State: active.
 - Current Completed Wave: `Wave 3` harmonic-prior residual campaign closeout
-- Current Focus: prepare `Track 2H-L` latent-state / hysteresis-aware modeling
-  as the next narrow causal-history probe after completed `Wave 3` official
-  `Track 2` verification
-- Active Campaign Status: `none`
-- Active Campaign Name: `N/A`
+- Current Focus: launch the prepared `Track 2H-L` latent-state /
+  hysteresis-aware campaign as the next narrow causal-history probe after
+  completed `Wave 3` official `Track 2` verification
+- Active Campaign Status: `prepared`
+- Active Campaign Name: `track2h_latent_state_hysteresis_campaign_2026_06_16`
 - Current Program Winner: `te_periodic_gru_sequence_remote_Bw` | Family `periodic_gru_sequence_bw` | Test MAE `0.002344`
 - Current Track 2 Selection Policy: multi-index curve-first selection; scalar
   `MAE` is a required raw-error metric, not the sole promotion rule.
@@ -145,8 +145,8 @@
 
 ### Active Training Or Improvement Branches
 
-- Current campaign: `N/A`
-- Launch mode: `N/A`
+- Current campaign: `track2h_latent_state_hysteresis_campaign_2026_06_16`
+- Launch mode: `prepared local or -Remote operator launch`
 - Families under active improvement: `residual_harmonic_mlp`
 - Last completed campaign:
   `wave3_harmonic_prior_residual_campaign_2026_06_14`
@@ -155,8 +155,11 @@
 - Last official `Track 2` decision:
   `Wave 3` harmonic-prior residual candidates are verified exploratory
   baselines, not promoted over the accepted direction-parallel leaders.
-- Next acceptance gate: complete the multi-index `Track 2` reranking over all
-  current official candidates before using `Track 2H-L`, `Wave 4`, or any
+- Next acceptance gate: launch and close the prepared `Track 2H-L`
+  latent-state / hysteresis-aware campaign to test whether causal history
+  captures preload, elastic-release, and protocol-state dispersion before
+  wider integration. Then complete the multi-index `Track 2` reranking over all
+  current official candidates before using `Wave 4`, or any
   integrated branch as a promotion candidate.
 
 ### Roadmap And Planned Work
@@ -283,7 +286,7 @@ Low-priority exploratory families currently listed in the backlog:
 - `Neural ODE`
 - `Hamiltonian-Inspired Model`
 - `optional Kernel Ridge / Gaussian Process benchmark`
-| Wave 3. Hybrid Structured Models | status: first real `wave3_harmonic_prior_residual` campaign closed successfully as a scalar training benchmark and completed official `Track 2` verification refresh; scalar winner: `te_wave3_harmonic_prior_residual_pointwise_control_bw` with test MAE `0.003363`; strongest refreshed Track 2 candidate: `wave3_harmonic_prior_residual_pointwise_control_Bw`; refreshed Track 2 decision: verified exploratory baseline, not promoted over the accepted direction-parallel leaders; program-best promotion: no; closeout report: `doc/reports/campaign_results/wave3_wave4/2026-06-15-15-30-20_wave3_harmonic_prior_residual_campaign_results_report.md`; official Track 2 report: `doc/reports/analysis/track2/official_model_verification_report/[2026-06-15]/track2_official_model_verification_report.md`; next gate: prepare `Track 2H-L` causal latent-state / hysteresis-aware probe before broader integration |
+| Wave 3. Hybrid Structured Models | status: first real `wave3_harmonic_prior_residual` campaign closed successfully as a scalar training benchmark and completed official `Track 2` verification refresh; scalar winner: `te_wave3_harmonic_prior_residual_pointwise_control_bw` with test MAE `0.003363`; strongest refreshed Track 2 candidate: `wave3_harmonic_prior_residual_pointwise_control_Bw`; refreshed Track 2 decision: verified exploratory baseline, not promoted over the accepted direction-parallel leaders; program-best promotion: no; closeout report: `doc/reports/campaign_results/wave3_wave4/2026-06-15-15-30-20_wave3_harmonic_prior_residual_campaign_results_report.md`; official Track 2 report: `doc/reports/analysis/track2/official_model_verification_report/[2026-06-15]/track2_official_model_verification_report.md`; next gate: launch the prepared `Track 2H-L` causal latent-state / hysteresis-aware probe before broader integration |
 
 Low-priority exploratory families currently listed in the backlog:
 

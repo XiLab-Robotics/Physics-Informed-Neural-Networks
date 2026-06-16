@@ -36,6 +36,8 @@ At the moment, the implemented workflows are:
   grouped-head model interface without creating a campaign;
 - a prepared first real `Wave 3` harmonic-prior residual campaign launcher
   with local and `-Remote` execution paths;
+- a prepared `Track 2H-L` latent-state / hysteresis-aware campaign launcher
+  with local and `-Remote` execution paths;
 - a `Wave 4A` MMT equation diagnostic report generator for harmonic-summary
   inspection before PINN integration;
 - a dry-run `Wave 4B` MMT feature-generator check that writes leakage-aware
@@ -218,6 +220,12 @@ The current usage flow mainly relies on these folders:
   Prepared first real `Wave 3` harmonic-prior residual campaign launcher. It
   validates six queue entries across `global`, `Fw`, and `Bw`, then launches
   locally or delegates to the repository-owned remote campaign runner.
+
+- `scripts/campaigns/track2/run_track2h_latent_state_hysteresis_campaign.ps1`
+  Prepared `Track 2H-L` latent-state / hysteresis-aware campaign launcher. It
+  validates six causal-history queue entries across `global`, `Fw`, and `Bw`,
+  then launches locally or delegates to the repository-owned remote campaign
+  runner.
 
 - `scripts/campaigns/wave4/run_wave4_embryonic_skeleton_checks.ps1`
   Dry-run check launcher for the embryonic `Wave 4A` MMT diagnostic adapter.
@@ -2750,21 +2758,21 @@ Most recent completed Track 2H mixture-density heads campaign:
 - status: normal campaign closeout and official `Track 2` verification
   refresh completed; MDN is a verified exploratory baseline, not promoted.
 
-Current prepared Wave 3 harmonic-prior residual campaign:
+Current prepared Track 2H-L latent-state hysteresis campaign:
 
-- campaign name: `wave3_harmonic_prior_residual_campaign_2026_06_14`
+- campaign name: `track2h_latent_state_hysteresis_campaign_2026_06_16`
 - planning report:
-  `doc/reports/campaign_plans/wave3_wave4/2026-06-14-19-54-55_wave3_harmonic_prior_residual_campaign_plan_report.md`
+  `doc/reports/campaign_plans/track2/2026-06-16-16-00-57_track2h_latent_state_hysteresis_campaign_plan_report.md`
 - config package:
-  `config/training/wave3_harmonic_prior_residual/campaigns/2026-06-14_wave3_harmonic_prior_residual_campaign/`
+  `config/training/track2h_latent_state_hysteresis/campaigns/2026-06-16_track2h_latent_state_hysteresis_campaign/`
 - canonical launcher:
-  `scripts/campaigns/wave3/run_wave3_harmonic_prior_residual_campaign.ps1`
+  `scripts/campaigns/track2/run_track2h_latent_state_hysteresis_campaign.ps1`
 - local command:
-  `.\scripts\campaigns\wave3\run_wave3_harmonic_prior_residual_campaign.ps1`
+  `.\scripts\campaigns\track2\run_track2h_latent_state_hysteresis_campaign.ps1`
 - remote command:
-  `.\scripts\campaigns\wave3\run_wave3_harmonic_prior_residual_campaign.ps1 -Remote`
+  `.\scripts\campaigns\track2\run_track2h_latent_state_hysteresis_campaign.ps1 -Remote`
 - preflight command:
-  `.\scripts\campaigns\wave3\run_wave3_harmonic_prior_residual_campaign.ps1 -PreflightOnly`
+  `.\scripts\campaigns\track2\run_track2h_latent_state_hysteresis_campaign.ps1 -PreflightOnly`
 - status: prepared, not launched.
 
 Current finished Wave 1 residual-family follow-up campaign:

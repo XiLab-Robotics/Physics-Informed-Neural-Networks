@@ -12,6 +12,7 @@ import torch.nn as nn
 from scripts.models.feedforward_network import FeedForwardNetwork
 from scripts.models.harmonic_regression import HarmonicRegression
 from scripts.models.harmonic_residual_offset_network import HarmonicResidualOffsetNetwork
+from scripts.models.latent_state_hysteresis_network import LatentStateHysteresisNetwork
 from scripts.models.periodic_feature_network import PeriodicFeatureNetwork
 from scripts.models.periodic_temporal_sequence_network import PeriodicTemporalSequenceNetwork
 from scripts.models.residual_harmonic_network import ResidualHarmonicNetwork
@@ -232,6 +233,28 @@ def create_model(model_type: str, model_configuration: dict[str, Any]) -> nn.Mod
             offset_readout_position=str(model_configuration.get("offset_readout_position", "center")),
             offset_scale=float(model_configuration.get("offset_scale", 1.0)),
             freeze_structured_branch=bool(model_configuration.get("freeze_structured_branch", False)),
+        )
+
+    # Create Track 2H-L Latent-State Hysteresis Probe
+    if normalized_model_type == "latent_state_hysteresis_probe":
+        return LatentStateHysteresisNetwork(
+            input_size=int(model_configuration["input_size"]),
+            output_size=int(model_configuration.get("output_size", 1)),
+            latent_encoder_type=str(model_configuration.get("latent_encoder_type", "gru")),
+            latent_hidden_size=int(model_configuration.get("latent_hidden_size", 96)),
+            latent_num_layers=int(model_configuration.get("latent_num_layers", 2)),
+            latent_dropout_probability=float(model_configuration.get("latent_dropout_probability", 0.10)),
+            latent_channel_size=model_configuration.get("latent_channel_size"),
+            latent_kernel_size=int(model_configuration.get("latent_kernel_size", 5)),
+            latent_activation_name=str(model_configuration.get("latent_activation_name", "GELU")),
+            readout_position=str(model_configuration.get("readout_position", "last")),
+            base_hidden_size=list(model_configuration.get("base_hidden_size", [96, 64])),
+            head_hidden_size=list(model_configuration.get("head_hidden_size", [96, 64])),
+            head_activation_name=str(model_configuration.get("head_activation_name", "GELU")),
+            head_dropout_probability=float(model_configuration.get("head_dropout_probability", 0.05)),
+            use_layer_norm=bool(model_configuration.get("use_layer_norm", True)),
+            offset_scale=float(model_configuration.get("offset_scale", 1.0)),
+            residual_scale=float(model_configuration.get("residual_scale", 1.0)),
         )
 
     # Create Embryonic Wave 3 Harmonic-Prior Residual Skeleton

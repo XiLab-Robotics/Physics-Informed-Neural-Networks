@@ -295,6 +295,7 @@ def print_training_configuration_summary(training_config: dict) -> None:
             "residual_harmonic_lstm_sequence",
             "sequential_residual_offset_probe",
             "curve_aware_harmonic_residual_offset_probe",
+            "latent_state_hysteresis_probe",
         ]:
         if normalized_model_type in [
             "periodic_gru_sequence",
@@ -331,6 +332,18 @@ def print_training_configuration_summary(training_config: dict) -> None:
             print_key_value("Offset Readout Position", model_config.get("offset_readout_position", "center"), value_color=Fore.YELLOW)
             print_key_value("Offset Scale", model_config.get("offset_scale", 1.0), value_color=Fore.YELLOW)
             print_key_value("Freeze Structured Branch", model_config.get("freeze_structured_branch", False), value_color=Fore.YELLOW)
+        elif normalized_model_type == "latent_state_hysteresis_probe":
+            print_key_value("Latent Encoder Type", model_config.get("latent_encoder_type", "gru"), value_color=Fore.YELLOW)
+            print_key_value("Latent Hidden Size", model_config.get("latent_hidden_size", 96), value_color=Fore.YELLOW)
+            print_key_value("Latent Num Layers", model_config.get("latent_num_layers", 2), value_color=Fore.YELLOW)
+            print_key_value("Latent Dropout Probability", model_config.get("latent_dropout_probability", 0.10), value_color=Fore.YELLOW)
+            print_key_value("Latent Channel Size", model_config.get("latent_channel_size"), value_color=Fore.YELLOW)
+            print_key_value("Latent Kernel Size", model_config.get("latent_kernel_size", 5), value_color=Fore.YELLOW)
+            print_key_value("Readout Position", model_config.get("readout_position", "last"), value_color=Fore.YELLOW)
+            print_key_value("Base Hidden Layers", model_config.get("base_hidden_size", [96, 64]), value_color=Fore.YELLOW)
+            print_key_value("Head Hidden Layers", model_config.get("head_hidden_size", [96, 64]), value_color=Fore.YELLOW)
+            print_key_value("Offset Scale", model_config.get("offset_scale", 1.0), value_color=Fore.YELLOW)
+            print_key_value("Residual Scale", model_config.get("residual_scale", 1.0), value_color=Fore.YELLOW)
         else:
             print_key_value("Hidden Size", model_config["hidden_size"], value_color=Fore.YELLOW)
             print_key_value("Num Layers", model_config.get("num_layers", 2), value_color=Fore.YELLOW)

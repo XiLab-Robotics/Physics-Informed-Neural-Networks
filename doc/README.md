@@ -236,6 +236,12 @@ This folder contains the internal project documents derived from the reference P
   structured models, and `Wave 4` first-PINN work before the integrated
   multi-task / multi-head architecture.
 
+- [reports/analysis/track2/Track 2H-L Latent-State Hysteresis Probe Model.md](./reports/analysis/track2/Track%202H-L%20Latent-State%20Hysteresis%20Probe%20Model.md)
+  Explanatory report for the `Track 2H-L`
+  `latent_state_hysteresis_probe` model, covering causal latent-state
+  encoding, base/offset/residual heads, campaign profiles, risks, and
+  implemented files.
+
 - [reports/campaign_plans/track2/2026-06-10-16-56-36_track2h_dispersion_aware_modeling_probe_campaign_plan_report.md](./reports/campaign_plans/track2/2026-06-10-16-56-36_track2h_dispersion_aware_modeling_probe_campaign_plan_report.md)
   Preliminary `Track 2H` campaign plan for robust, quantile/probabilistic,
   mixture-density, and latent-state / hysteresis-aware modeling probes before
@@ -2568,6 +2574,10 @@ This folder contains the internal project documents derived from the reference P
 - [scripts/campaigns/track2/run_track2h_mixture_density_heads_campaign.md](./scripts/campaigns/track2/run_track2h_mixture_density_heads_campaign.md)
   Script-level documentation for the prepared `Track 2H` mixture-density heads
   campaign launcher across `global`, `Fw`, and `Bw`.
+
+- [scripts/campaigns/track2/run_track2h_latent_state_hysteresis_campaign.md](./scripts/campaigns/track2/run_track2h_latent_state_hysteresis_campaign.md)
+  Script-level documentation for the prepared `Track 2H-L` latent-state /
+  hysteresis-aware campaign launcher across `global`, `Fw`, and `Bw`.
 
 - [scripts/campaigns/track2/run_track2h_quantile_probabilistic_track2_verification_refresh.md](./scripts/campaigns/track2/run_track2h_quantile_probabilistic_track2_verification_refresh.md)
   Script-level documentation for the operator-launched `Track 2H`
