@@ -1,0 +1,86 @@
+schema_version: 1
+config_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\config\training\queue\running\2026-06-16-18-06-11_002_02_gru_offset_residual_fw.yaml
+experiment:
+  model_family: track2h_latent_state_hysteresis_gru_offset_residual_fw
+  model_type: latent_state_hysteresis_probe
+  run_name: te_track2h_l_gru_offset_residual_fw
+  output_run_name: te_track2h_l_gru_offset_residual_fw
+  run_instance_id: 2026-06-16-18-23-39__te_track2h_l_gru_offset_residual_fw
+  output_artifact_kind: training_run
+  base_model_family: track2h_latent_state_hysteresis_gru_offset_residual_fw
+  training_variant: Fw
+  direction_scope_label: forward_only
+  use_forward_direction: true
+  use_backward_direction: false
+artifacts:
+  output_directory: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_runs\track2h_latent_state_hysteresis_gru_offset_residual_fw\2026-06-16-18-23-39__te_track2h_l_gru_offset_residual_fw
+  best_checkpoint_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_runs\track2h_latent_state_hysteresis_gru_offset_residual_fw\2026-06-16-18-23-39__te_track2h_l_gru_offset_residual_fw\checkpoints\latent_state_hysteresis_probe-epoch=109-val_mae=0.00346843.ckpt
+dataset_split:
+  train_curve_count: 678
+  validation_curve_count: 194
+  test_curve_count: 97
+model_summary:
+  backbone_name: LatentStateHysteresisNetwork
+  trainable_parameter_count: 125475
+  frozen_parameter_count: 0
+  total_parameter_count: 125475
+runtime_config:
+  accelerator: auto
+  devices: auto
+  precision: '32'
+  benchmark: true
+  use_non_blocking_transfer: true
+normalization_statistics:
+  input_feature_mean:
+  - 179.9805145263672
+  - 497.85791015625
+  - 896.0144653320312
+  - 30.364091873168945
+  - 1.0
+  input_feature_std:
+  - 103.9229736328125
+  - 466.8041076660156
+  - 543.8323974609375
+  - 4.080519676208496
+  - 9.999999974752427e-07
+  target_mean:
+  - -0.05690589174628258
+  target_std:
+  - 0.02363586612045765
+validation_metrics:
+  val_loss: 0.03055289387702942
+  val_mae: 0.003468429436907172
+  val_rmse: 0.004100278485566378
+  val_pointwise_loss: 0.018109139055013657
+  val_centered_curve_shape_loss: 0.020389480516314507
+  val_curve_offset_loss: 0.015944616869091988
+  val_curve_amplitude_loss: 0.10353884845972061
+  val_sparse_harmonic_shape_loss: 0.0
+  val_base_mae: 0.01132182963192463
+  val_base_rmse: 0.013784628361463547
+  val_residual_offset_mean_abs: 0.005727367475628853
+test_metrics:
+  test_loss: 0.026621056720614433
+  test_mae: 0.0035372755955904722
+  test_rmse: 0.004109515808522701
+  test_pointwise_loss: 0.016698570922017097
+  test_centered_curve_shape_loss: 0.012420721352100372
+  test_curve_offset_loss: 0.020981665700674057
+  test_curve_amplitude_loss: 0.06484020501375198
+  test_sparse_harmonic_shape_loss: 0.0
+  test_base_mae: 0.011131537146866322
+  test_base_rmse: 0.01358373835682869
+  test_residual_offset_mean_abs: 0.006107713561505079
+comparison_payload:
+  model_family: track2h_latent_state_hysteresis_gru_offset_residual_fw
+  model_type: latent_state_hysteresis_probe
+  run_name: te_track2h_l_gru_offset_residual_fw
+  backbone_name: LatentStateHysteresisNetwork
+  trainable_parameter_count: 125475
+  total_parameter_count: 125475
+  val_mae: 0.003468429436907172
+  val_rmse: 0.004100278485566378
+  test_mae: 0.0035372755955904722
+  test_rmse: 0.004109515808522701
+  deployment_notes: ''
+  interpretability_notes: ''

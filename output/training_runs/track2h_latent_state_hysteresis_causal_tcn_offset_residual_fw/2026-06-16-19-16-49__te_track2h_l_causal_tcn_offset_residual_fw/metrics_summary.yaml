@@ -1,0 +1,86 @@
+schema_version: 1
+config_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\config\training\queue\running\2026-06-16-18-06-11_005_05_causal_tcn_offset_residual_fw.yaml
+experiment:
+  model_family: track2h_latent_state_hysteresis_causal_tcn_offset_residual_fw
+  model_type: latent_state_hysteresis_probe
+  run_name: te_track2h_l_causal_tcn_offset_residual_fw
+  output_run_name: te_track2h_l_causal_tcn_offset_residual_fw
+  run_instance_id: 2026-06-16-19-16-49__te_track2h_l_causal_tcn_offset_residual_fw
+  output_artifact_kind: training_run
+  base_model_family: track2h_latent_state_hysteresis_causal_tcn_offset_residual_fw
+  training_variant: Fw
+  direction_scope_label: forward_only
+  use_forward_direction: true
+  use_backward_direction: false
+artifacts:
+  output_directory: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_runs\track2h_latent_state_hysteresis_causal_tcn_offset_residual_fw\2026-06-16-19-16-49__te_track2h_l_causal_tcn_offset_residual_fw
+  best_checkpoint_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_runs\track2h_latent_state_hysteresis_causal_tcn_offset_residual_fw\2026-06-16-19-16-49__te_track2h_l_causal_tcn_offset_residual_fw\checkpoints\latent_state_hysteresis_probe-epoch=037-val_mae=0.00356529.ckpt
+dataset_split:
+  train_curve_count: 678
+  validation_curve_count: 194
+  test_curve_count: 97
+model_summary:
+  backbone_name: LatentStateHysteresisNetwork
+  trainable_parameter_count: 97923
+  frozen_parameter_count: 0
+  total_parameter_count: 97923
+runtime_config:
+  accelerator: auto
+  devices: auto
+  precision: '32'
+  benchmark: true
+  use_non_blocking_transfer: true
+normalization_statistics:
+  input_feature_mean:
+  - 179.9805145263672
+  - 497.85791015625
+  - 896.0144653320312
+  - 30.364091873168945
+  - 1.0
+  input_feature_std:
+  - 103.9229736328125
+  - 466.8041076660156
+  - 543.8323974609375
+  - 4.080519676208496
+  - 9.999999974752427e-07
+  target_mean:
+  - -0.05690589174628258
+  target_std:
+  - 0.02363586612045765
+validation_metrics:
+  val_loss: 0.03143411874771118
+  val_mae: 0.0035652867518365383
+  val_rmse: 0.004216661211103201
+  val_pointwise_loss: 0.01910588890314102
+  val_centered_curve_shape_loss: 0.020640423521399498
+  val_curve_offset_loss: 0.017649943009018898
+  val_curve_amplitude_loss: 0.09340319782495499
+  val_sparse_harmonic_shape_loss: 0.0
+  val_base_mae: 0.010455857031047344
+  val_base_rmse: 0.012699063867330551
+  val_residual_offset_mean_abs: 0.005744612775743008
+test_metrics:
+  test_loss: 0.025295568630099297
+  test_mae: 0.003469612915068865
+  test_rmse: 0.004067606758326292
+  test_pointwise_loss: 0.016220731660723686
+  test_centered_curve_shape_loss: 0.012905613519251347
+  test_curve_offset_loss: 0.01954059675335884
+  test_curve_amplitude_loss: 0.05171184986829758
+  test_sparse_harmonic_shape_loss: 0.0
+  test_base_mae: 0.010384310968220234
+  test_base_rmse: 0.012664303183555603
+  test_residual_offset_mean_abs: 0.005806914530694485
+comparison_payload:
+  model_family: track2h_latent_state_hysteresis_causal_tcn_offset_residual_fw
+  model_type: latent_state_hysteresis_probe
+  run_name: te_track2h_l_causal_tcn_offset_residual_fw
+  backbone_name: LatentStateHysteresisNetwork
+  trainable_parameter_count: 97923
+  total_parameter_count: 97923
+  val_mae: 0.0035652867518365383
+  val_rmse: 0.004216661211103201
+  test_mae: 0.003469612915068865
+  test_rmse: 0.004067606758326292
+  deployment_notes: ''
+  interpretability_notes: ''

@@ -1,0 +1,1 @@
+C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_runs\track2h_latent_state_hysteresis_causal_tcn_offset_residual_global\2026-06-16-18-48-13__te_track2h_l_causal_tcn_offset_residual_global\checkpoints\latent_state_hysteresis_probe-epoch=152-val_mae=0.00354330.ckpt

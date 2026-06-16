@@ -1,0 +1,11 @@
+schema_version: 1
+artifact_kind: training_run
+model_family: track2h_latent_state_hysteresis_causal_tcn_offset_residual_bw
+base_model_family: track2h_latent_state_hysteresis_causal_tcn_offset_residual_bw
+training_variant: Bw
+direction_scope_label: backward_only
+use_forward_direction: false
+use_backward_direction: true
+run_name: te_track2h_l_causal_tcn_offset_residual_bw
+run_instance_id: 2026-06-16-19-22-13__te_track2h_l_causal_tcn_offset_residual_bw
+output_directory: output\training_runs\track2h_latent_state_hysteresis_causal_tcn_offset_residual_bw\2026-06-16-19-22-13__te_track2h_l_causal_tcn_offset_residual_bw

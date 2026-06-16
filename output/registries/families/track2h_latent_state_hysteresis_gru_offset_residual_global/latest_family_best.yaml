@@ -1,0 +1,38 @@
+schema_version: 1
+model_family: track2h_latent_state_hysteresis_gru_offset_residual_global
+selection_policy:
+  primary_metric: test_mae
+  first_tie_breaker: test_rmse
+  second_tie_breaker: val_mae
+  third_tie_breaker: trainable_parameter_count
+  direction: minimize
+updated_at: '2026-06-16T18:23:39'
+best_entry:
+  run_instance_id: 2026-06-16-18-06-11__te_track2h_l_gru_offset_residual_global
+  run_name: te_track2h_l_gru_offset_residual_global
+  output_run_name: te_track2h_l_gru_offset_residual_global
+  output_artifact_kind: training_run
+  model_family: track2h_latent_state_hysteresis_gru_offset_residual_global
+  base_model_family: track2h_latent_state_hysteresis_gru_offset_residual_global
+  model_type: latent_state_hysteresis_probe
+  training_variant: global
+  direction_scope_label: bidirectional
+  use_forward_direction: true
+  use_backward_direction: true
+  trainable_parameter_count: 125475
+  total_parameter_count: 125475
+  val_mae: 0.0037171656731516123
+  val_rmse: 0.004312534816563129
+  test_mae: 0.003589523723348975
+  test_rmse: 0.004073617979884148
+  output_directory: output\training_runs\track2h_latent_state_hysteresis_gru_offset_residual_global\2026-06-16-18-06-11__te_track2h_l_gru_offset_residual_global
+  best_checkpoint_path: output\training_runs\track2h_latent_state_hysteresis_gru_offset_residual_global\2026-06-16-18-06-11__te_track2h_l_gru_offset_residual_global\checkpoints\latent_state_hysteresis_probe-epoch=064-val_mae=0.00371717.ckpt
+  metrics_path: output\training_runs\track2h_latent_state_hysteresis_gru_offset_residual_global\2026-06-16-18-06-11__te_track2h_l_gru_offset_residual_global/metrics_summary.yaml
+  report_path: output\training_runs\track2h_latent_state_hysteresis_gru_offset_residual_global\2026-06-16-18-06-11__te_track2h_l_gru_offset_residual_global/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-06-16T18:23:39'

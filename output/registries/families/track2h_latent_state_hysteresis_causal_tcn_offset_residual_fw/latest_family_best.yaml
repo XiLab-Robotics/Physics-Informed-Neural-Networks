@@ -1,0 +1,38 @@
+schema_version: 1
+model_family: track2h_latent_state_hysteresis_causal_tcn_offset_residual_fw
+selection_policy:
+  primary_metric: test_mae
+  first_tie_breaker: test_rmse
+  second_tie_breaker: val_mae
+  third_tie_breaker: trainable_parameter_count
+  direction: minimize
+updated_at: '2026-06-16T19:22:12'
+best_entry:
+  run_instance_id: 2026-06-16-19-16-49__te_track2h_l_causal_tcn_offset_residual_fw
+  run_name: te_track2h_l_causal_tcn_offset_residual_fw
+  output_run_name: te_track2h_l_causal_tcn_offset_residual_fw
+  output_artifact_kind: training_run
+  model_family: track2h_latent_state_hysteresis_causal_tcn_offset_residual_fw
+  base_model_family: track2h_latent_state_hysteresis_causal_tcn_offset_residual_fw
+  model_type: latent_state_hysteresis_probe
+  training_variant: Fw
+  direction_scope_label: forward_only
+  use_forward_direction: true
+  use_backward_direction: false
+  trainable_parameter_count: 97923
+  total_parameter_count: 97923
+  val_mae: 0.0035652867518365383
+  val_rmse: 0.004216661211103201
+  test_mae: 0.003469612915068865
+  test_rmse: 0.004067606758326292
+  output_directory: output\training_runs\track2h_latent_state_hysteresis_causal_tcn_offset_residual_fw\2026-06-16-19-16-49__te_track2h_l_causal_tcn_offset_residual_fw
+  best_checkpoint_path: output\training_runs\track2h_latent_state_hysteresis_causal_tcn_offset_residual_fw\2026-06-16-19-16-49__te_track2h_l_causal_tcn_offset_residual_fw\checkpoints\latent_state_hysteresis_probe-epoch=037-val_mae=0.00356529.ckpt
+  metrics_path: output\training_runs\track2h_latent_state_hysteresis_causal_tcn_offset_residual_fw\2026-06-16-19-16-49__te_track2h_l_causal_tcn_offset_residual_fw/metrics_summary.yaml
+  report_path: output\training_runs\track2h_latent_state_hysteresis_causal_tcn_offset_residual_fw\2026-06-16-19-16-49__te_track2h_l_causal_tcn_offset_residual_fw/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-06-16T19:22:12'
