@@ -166,6 +166,12 @@
 - Keep `doc/reports/analysis/Training Results Master Summary.md` synchronized
   after completed campaigns and after tasks that materially change registries,
   active family status, or roadmap status.
+- Keep `doc/reports/analysis/TE Program Status And Closeout Ledger.md`
+  synchronized after every campaign or `Track 2` closeout that changes
+  modeling status, accepted or exploratory leaders, official verification
+  state, roadmap position, or next-step decisions. If no update is needed,
+  state in the closeout that the ledger was checked and did not require a
+  content change.
 - Keep `doc/reports/analysis/RCIM Paper Reference Benchmark.md` synchronized
   when repository-owned online compensation results become available.
 

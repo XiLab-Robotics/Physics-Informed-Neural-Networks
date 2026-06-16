@@ -146,6 +146,11 @@ This folder contains the internal project documents derived from the reference P
   original, retuned paper-reference banks, and exported `Wave 1` models from
   `models/`, split into forward, backward, and global direction sections.
 
+- [reports/analysis/TE Program Status And Closeout Ledger.md](./reports/analysis/TE%20Program%20Status%20And%20Closeout%20Ledger.md)
+  Maintained official TE modeling status ledger covering `Wave 1` through
+  `Wave 3`, `Track 2B` through `Track 2H`, current direction-parallel leaders,
+  and the required update rule for future campaign and `Track 2` closeouts.
+
 - [reports/analysis/track2/Track 2 Curve Reconstruction And Collage Pipeline.md](./reports/analysis/track2/Track%202%20Curve%20Reconstruction%20And%20Collage%20Pipeline.md)
   Implementation-facing `Track 2` curve-reconstruction guide covering the
   standard best-model collage path, repository models such as
@@ -239,6 +244,11 @@ This folder contains the internal project documents derived from the reference P
   harmonic-prior residual campaign, including scalar branch winners,
   profile comparison, registry effects, and the boundary that official
   `Track 2` curve verification remains separate.
+
+- [reports/analysis/track2/official_model_verification_report/[2026-06-15]/track2_official_model_verification_report.md](./reports/analysis/track2/official_model_verification_report/%5B2026-06-15%5D/track2_official_model_verification_report.md)
+  Official `Track 2` verification decision for the completed `Wave 3`
+  harmonic-prior residual candidates, verified as an exploratory baseline and
+  not promoted over the accepted direction-parallel leaders.
 
 - [reports/campaign_plans/track2/2026-06-13-10-40-25_track2h_mixture_density_heads_campaign_plan_report.md](./reports/campaign_plans/track2/2026-06-13-10-40-25_track2h_mixture_density_heads_campaign_plan_report.md)
   Preliminary campaign plan for the next `Track 2H` package, focused on
@@ -397,6 +407,10 @@ This folder contains the internal project documents derived from the reference P
 ### Technical Documents
 
 #### 2026-06-16
+
+- [technical/2026-06/2026-06-16/2026-06-16-15-51-03_te_program_status_closeout_ledger.md](./technical/2026-06/2026-06-16/2026-06-16-15-51-03_te_program_status_closeout_ledger.md)
+  Technical plan for creating the maintained TE program-status ledger and
+  adding it to future campaign closeout governance.
 
 - [technical/2026-06/2026-06-16/2026-06-16-12-37-49_wave3_track2_pdf_asset_path_repair.md](./technical/2026-06/2026-06-16/2026-06-16-12-37-49_wave3_track2_pdf_asset_path_repair.md)
   Technical plan for shortening verbose `Wave 3` `Track 2` visual-report asset
