@@ -235,6 +235,11 @@ This folder contains the internal project documents derived from the reference P
   mixture-density, and latent-state / hysteresis-aware modeling probes before
   the integrated multi-task / multi-head branch.
 
+- [reports/campaign_plans/track2/2026-06-16-16-00-57_track2h_latent_state_hysteresis_campaign_plan_report.md](./reports/campaign_plans/track2/2026-06-16-16-00-57_track2h_latent_state_hysteresis_campaign_plan_report.md)
+  Preliminary campaign plan for the `Track 2H-L` latent-state /
+  hysteresis-aware package, focused on causal-history state encoders for
+  preload, elastic release, direction-transition, and protocol-state effects.
+
 - [reports/campaign_plans/wave3_wave4/2026-06-14-19-54-55_wave3_harmonic_prior_residual_campaign_plan_report.md](./reports/campaign_plans/wave3_wave4/2026-06-14-19-54-55_wave3_harmonic_prior_residual_campaign_plan_report.md)
   Preliminary and prepared campaign plan for the first real `Wave 3`
   harmonic-prior residual package across `global`, `Fw`, and `Bw`.
@@ -242,8 +247,8 @@ This folder contains the internal project documents derived from the reference P
 - [reports/campaign_results/wave3_wave4/2026-06-15-15-30-20_wave3_harmonic_prior_residual_campaign_results_report.md](./reports/campaign_results/wave3_wave4/2026-06-15-15-30-20_wave3_harmonic_prior_residual_campaign_results_report.md)
   Final results report for the completed first real `Wave 3`
   harmonic-prior residual campaign, including scalar branch winners,
-  profile comparison, registry effects, and the boundary that official
-  `Track 2` curve verification remains separate.
+  profile comparison, registry effects, and the normal-closeout boundary that
+  kept official `Track 2` curve verification as a separate follow-up step.
 
 - [reports/analysis/track2/official_model_verification_report/[2026-06-15]/track2_official_model_verification_report.md](./reports/analysis/track2/official_model_verification_report/%5B2026-06-15%5D/track2_official_model_verification_report.md)
   Official `Track 2` verification decision for the completed `Wave 3`
@@ -282,6 +287,11 @@ This folder contains the internal project documents derived from the reference P
   mixture-density heads candidates, verified as an exploratory baseline with
   a strong backward branch but not promoted over the accepted
   direction-parallel leaders.
+
+- [reports/analysis/track2/official_model_verification_report/[2026-06-15]/track2_official_model_verification_report.md](./reports/analysis/track2/official_model_verification_report/%5B2026-06-15%5D/track2_official_model_verification_report.md)
+  Official `Track 2` verification decision for the completed first real
+  `Wave 3` harmonic-prior residual candidates, verified as an exploratory
+  baseline and not promoted over the accepted direction-parallel leaders.
 
 - [reports/analysis/wave3/Wave 3 Hybrid Structured Models.md](./reports/analysis/wave3/Wave%203%20Hybrid%20Structured%20Models.md)
   Design report for `Wave 3` hybrid structured TE models, covering harmonic
@@ -411,6 +421,10 @@ This folder contains the internal project documents derived from the reference P
 - [technical/2026-06/2026-06-16/2026-06-16-15-51-03_te_program_status_closeout_ledger.md](./technical/2026-06/2026-06-16/2026-06-16-15-51-03_te_program_status_closeout_ledger.md)
   Technical plan for creating the maintained TE program-status ledger and
   adding it to future campaign closeout governance.
+
+- [technical/2026-06/2026-06-16/2026-06-16-16-00-57_track2h_latent_state_hysteresis_package.md](./technical/2026-06/2026-06-16/2026-06-16-16-00-57_track2h_latent_state_hysteresis_package.md)
+  Technical plan for aligning post-`Wave 3` `Track 2` status and preparing
+  the next `Track 2H-L` latent-state / hysteresis-aware campaign package.
 
 - [technical/2026-06/2026-06-16/2026-06-16-12-37-49_wave3_track2_pdf_asset_path_repair.md](./technical/2026-06/2026-06-16/2026-06-16-12-37-49_wave3_track2_pdf_asset_path_repair.md)
   Technical plan for shortening verbose `Wave 3` `Track 2` visual-report asset
@@ -2766,6 +2780,11 @@ This folder contains the internal project documents derived from the reference P
 
 #### Latest Campaign Plans
 
+- [reports/campaign_plans/track2/2026-06-16-16-00-57_track2h_latent_state_hysteresis_campaign_plan_report.md](./reports/campaign_plans/track2/2026-06-16-16-00-57_track2h_latent_state_hysteresis_campaign_plan_report.md)
+  Preliminary campaign plan for the next `Track 2H-L` package, focused on
+  causal latent-state / hysteresis-aware candidates across `global`, `Fw`,
+  and `Bw`.
+
 - [reports/campaign_plans/wave3_wave4/2026-06-14-19-54-55_wave3_harmonic_prior_residual_campaign_plan_report.md](./reports/campaign_plans/wave3_wave4/2026-06-14-19-54-55_wave3_harmonic_prior_residual_campaign_plan_report.md)
   Preliminary and prepared campaign plan for the first real `Wave 3`
   harmonic-prior residual package across `global`, `Fw`, and `Bw`.
@@ -2976,8 +2995,8 @@ This folder contains the internal project documents derived from the reference P
 - [reports/campaign_results/wave3_wave4/2026-06-15-15-30-20_wave3_harmonic_prior_residual_campaign_results_report.md](./reports/campaign_results/wave3_wave4/2026-06-15-15-30-20_wave3_harmonic_prior_residual_campaign_results_report.md)
   Final results report for the completed first real `Wave 3`
   harmonic-prior residual campaign, including scalar branch winners,
-  profile comparison, registry effects, and the boundary that official
-  `Track 2` curve verification remains separate.
+  profile comparison, registry effects, and the normal-closeout boundary that
+  kept official `Track 2` curve verification as a separate follow-up step.
 
 - [reports/campaign_results/track2/2026-06-13-13-24-37_track2h_mixture_density_heads_campaign_results_report.md](./reports/campaign_results/track2/2026-06-13-13-24-37_track2h_mixture_density_heads_campaign_results_report.md)
   Final results report for the completed third `Track 2H` mixture-density
@@ -3092,6 +3111,10 @@ This folder contains the internal project documents derived from the reference P
   Final results report for the completed Wave 1 residual-harmonic family optimization campaign, including familywise ranking and the promoted residual-family winner.
 
 #### Campaign Plans
+
+- [reports/campaign_plans/track2/2026-06-16-16-00-57_track2h_latent_state_hysteresis_campaign_plan_report.md](./reports/campaign_plans/track2/2026-06-16-16-00-57_track2h_latent_state_hysteresis_campaign_plan_report.md)
+  Preliminary campaign plan for the `Track 2H-L` latent-state /
+  hysteresis-aware package across `global`, `Fw`, and `Bw`.
 
 - [reports/campaign_plans/wave3_wave4/2026-06-14-19-54-55_wave3_harmonic_prior_residual_campaign_plan_report.md](./reports/campaign_plans/wave3_wave4/2026-06-14-19-54-55_wave3_harmonic_prior_residual_campaign_plan_report.md)
   Preliminary and prepared campaign plan for the first real `Wave 3`

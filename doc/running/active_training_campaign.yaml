@@ -18,7 +18,13 @@ last_completed_campaign:
   best_scalar_test_rmse: 0.0039021591655910015
   program_winner_changed: false
   current_program_winner: te_periodic_gru_sequence_remote_Bw
-  track2_status: not_run_normal_closeout
+  track2_status: completed_verified_exploratory_baseline
+  track2_official_report_path: doc/reports/analysis/track2/official_model_verification_report/[2026-06-15]/track2_official_model_verification_report.md
+  track2_matrix_output_directory: output/validation_checks/track2_reference_comparison/2026-06-15-20-25-36__track2_full_directional_family_matrix_wave3_harmonic_prior_residual_track2_refresh_2026_06_15
+  track2_decision: verified exploratory baseline; not promoted over the accepted direction-parallel leaders
+  track2_strongest_forward_candidate: wave3_harmonic_prior_residual_pointwise_control_Fw
+  track2_strongest_backward_candidate: wave3_harmonic_prior_residual_pointwise_control_Bw
+  track2_strongest_global_candidate: wave3_harmonic_prior_residual_smooth_l1_structured_global
   branch_best_list:
   - surface: global
     run_name: te_wave3_harmonic_prior_residual_smooth_l1_structured_global
@@ -32,4 +38,4 @@ last_completed_campaign:
     run_name: te_wave3_harmonic_prior_residual_pointwise_control_bw
     profile: pointwise_control
     test_mae: 0.003363456577062607
-notes: No active or prepared campaign is protected. Wave 3 harmonic-prior residual training closeout is complete; official Track 2 verification remains a separate optional next step.
+notes: No active or prepared campaign is protected. Wave 3 harmonic-prior residual training closeout and official Track 2 verification refresh are complete; Track 2H-L latent-state/hysteresis planning is the next gate.

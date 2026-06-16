@@ -2,12 +2,12 @@
 
 ## Executive Snapshot
 
-- Generated At: `2026-06-15T15:42:48`
+- Generated At: `2026-06-16T16:00:57`
 - Program State: active.
 - Current Completed Wave: `Wave 3` harmonic-prior residual campaign closeout
-- Current Focus: operator launch of the prepared separate official `Track 2`
-  verification refresh for the completed `Wave 3` harmonic-prior residual
-  candidates
+- Current Focus: prepare `Track 2H-L` latent-state / hysteresis-aware modeling
+  as the next narrow causal-history probe after completed `Wave 3` official
+  `Track 2` verification
 - Active Campaign Status: `none`
 - Active Campaign Name: `N/A`
 - Current Program Winner: `te_periodic_gru_sequence_remote_Bw` | Family `periodic_gru_sequence_bw` | Test MAE `0.002344`
@@ -150,8 +150,12 @@
   `wave3_harmonic_prior_residual_campaign_2026_06_14`
 - Last closeout report:
   `doc/reports/campaign_results/wave3_wave4/2026-06-15-15-30-20_wave3_harmonic_prior_residual_campaign_results_report.md`
-- Next acceptance gate: operator-launched separate official `Track 2`
-  verification refresh for the six completed `Wave 3` candidates.
+- Last official `Track 2` decision:
+  `Wave 3` harmonic-prior residual candidates are verified exploratory
+  baselines, not promoted over the accepted direction-parallel leaders.
+- Next acceptance gate: prepare `Track 2H-L` latent-state /
+  hysteresis-aware modeling to test whether causal history captures preload,
+  elastic-release, and protocol-state dispersion before wider integration.
 
 ### Roadmap And Planned Work
 
@@ -277,7 +281,7 @@ Low-priority exploratory families currently listed in the backlog:
 - `Neural ODE`
 - `Hamiltonian-Inspired Model`
 - `optional Kernel Ridge / Gaussian Process benchmark`
-| Wave 3. Hybrid Structured Models | status: first real `wave3_harmonic_prior_residual` campaign closed successfully as a scalar training benchmark; scalar winner: `te_wave3_harmonic_prior_residual_pointwise_control_bw` with test MAE `0.003363`; program-best promotion: no; closeout report: `doc/reports/campaign_results/wave3_wave4/2026-06-15-15-30-20_wave3_harmonic_prior_residual_campaign_results_report.md`; next gate: prepared operator-launched official `Track 2` verification refresh before integration or promotion decisions |
+| Wave 3. Hybrid Structured Models | status: first real `wave3_harmonic_prior_residual` campaign closed successfully as a scalar training benchmark and completed official `Track 2` verification refresh; scalar winner: `te_wave3_harmonic_prior_residual_pointwise_control_bw` with test MAE `0.003363`; strongest refreshed Track 2 candidate: `wave3_harmonic_prior_residual_pointwise_control_Bw`; refreshed Track 2 decision: verified exploratory baseline, not promoted over the accepted direction-parallel leaders; program-best promotion: no; closeout report: `doc/reports/campaign_results/wave3_wave4/2026-06-15-15-30-20_wave3_harmonic_prior_residual_campaign_results_report.md`; official Track 2 report: `doc/reports/analysis/track2/official_model_verification_report/[2026-06-15]/track2_official_model_verification_report.md`; next gate: prepare `Track 2H-L` causal latent-state / hysteresis-aware probe before broader integration |
 
 Low-priority exploratory families currently listed in the backlog:
 
