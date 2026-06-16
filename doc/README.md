@@ -252,6 +252,12 @@ This folder contains the internal project documents derived from the reference P
   hysteresis-aware package, focused on causal-history state encoders for
   preload, elastic release, direction-transition, and protocol-state effects.
 
+- [reports/campaign_results/track2/2026-06-17-01-27-10_track2h_latent_state_hysteresis_campaign_results_report.md](./reports/campaign_results/track2/2026-06-17-01-27-10_track2h_latent_state_hysteresis_campaign_results_report.md)
+  Final results report for the completed `Track 2H-L` latent-state /
+  hysteresis-aware campaign, including scalar branch winners, comparison
+  against robust/probabilistic/MDN baselines, registry effects, and the
+  boundary that official `Track 2` curve verification remains separate.
+
 - [reports/campaign_plans/wave3_wave4/2026-06-14-19-54-55_wave3_harmonic_prior_residual_campaign_plan_report.md](./reports/campaign_plans/wave3_wave4/2026-06-14-19-54-55_wave3_harmonic_prior_residual_campaign_plan_report.md)
   Preliminary and prepared campaign plan for the first real `Wave 3`
   harmonic-prior residual package across `global`, `Fw`, and `Bw`.
@@ -437,6 +443,12 @@ This folder contains the internal project documents derived from the reference P
 - [technical/2026-06/2026-06-16/2026-06-16-16-00-57_track2h_latent_state_hysteresis_package.md](./technical/2026-06/2026-06-16/2026-06-16-16-00-57_track2h_latent_state_hysteresis_package.md)
   Technical plan for aligning post-`Wave 3` `Track 2` status and preparing
   the next `Track 2H-L` latent-state / hysteresis-aware campaign package.
+
+- [technical/2026-06/2026-06-17/2026-06-17-01-27-10_track2h_latent_state_hysteresis_closeout.md](./technical/2026-06/2026-06-17/2026-06-17-01-27-10_track2h_latent_state_hysteresis_closeout.md)
+  Technical closeout note for accepting the completed `Track 2H-L`
+  latent-state / hysteresis-aware campaign results, producing the final report
+  and PDF, and clearing active campaign state while keeping official
+  `Track 2` curve verification separate.
 
 - [technical/2026-06/2026-06-16/2026-06-16-12-37-49_wave3_track2_pdf_asset_path_repair.md](./technical/2026-06/2026-06-16/2026-06-16-12-37-49_wave3_track2_pdf_asset_path_repair.md)
   Technical plan for shortening verbose `Wave 3` `Track 2` visual-report asset
@@ -3007,6 +3019,12 @@ This folder contains the internal project documents derived from the reference P
   Technical rule document for the new `doc/reports/` topic-root, dated-bundle, and readable-filename convention.
 
 #### Campaign Results
+
+- [reports/campaign_results/track2/2026-06-17-01-27-10_track2h_latent_state_hysteresis_campaign_results_report.md](./reports/campaign_results/track2/2026-06-17-01-27-10_track2h_latent_state_hysteresis_campaign_results_report.md)
+  Final results report for the completed `Track 2H-L` latent-state /
+  hysteresis-aware campaign, including scalar branch winners, comparison
+  against robust/probabilistic/MDN baselines, registry effects, and the
+  boundary that official `Track 2` curve verification remains separate.
 
 - [reports/campaign_results/wave3_wave4/2026-06-15-15-30-20_wave3_harmonic_prior_residual_campaign_results_report.md](./reports/campaign_results/wave3_wave4/2026-06-15-15-30-20_wave3_harmonic_prior_residual_campaign_results_report.md)
   Final results report for the completed first real `Wave 3`

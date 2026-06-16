@@ -27,11 +27,11 @@ of these surfaces:
 | Current accepted forward Track 2 leader | `rcim_retuned_GBM19_Fw` |
 | Current accepted backward Track 2 leader | `periodic_gru_sequence_Bw` |
 | Current accepted global neural Track 2 leader | `periodic_gru_sequence_global` |
-| Latest normal campaign closeout | `Wave 3` harmonic-prior residual campaign |
+| Latest normal campaign closeout | `Track 2H-L` latent-state hysteresis campaign |
 | Latest official Track 2 refresh | `Wave 3` harmonic-prior residual refresh, dated `2026-06-15` |
 | Latest Track 2 decision | verified exploratory baseline; not promoted |
 | Current Track 2 selection policy | multi-index curve-first selection, dated `2026-06-16` |
-| Next modeling decision | use `Wave 3` curve evidence to decide between more `Wave 3`, `Wave 4`, or latent-state / hysteresis-aware work |
+| Next modeling decision | either run optional `Track 2H-L` official Track 2 refresh or move to `Wave 4` / integrated multi-head planning |
 
 The repository remains direction-parallel. `Fw`, `Bw`, and `global` are not a
 single destructive competition. Each surface keeps its own best candidate and
@@ -91,6 +91,7 @@ robustness, visual-evidence, and deployment-readiness axes visible.
 | Track 2H robust-loss probes | closed | `MAE`, `SmoothL1`, and `log-cosh` robust losses tested. | Verified exploratory baseline; backward robust loss was useful but not promoted. |
 | Track 2H quantile / probabilistic probes | closed | Quantile `p10/p50/p90` and Gaussian NLL heads tested. | Verified exploratory baseline; global and backward scalar signals improved but not promoted. |
 | Track 2H mixture-density heads | closed | `mdn_k2` and `mdn_k3` heads tested. | Verified exploratory baseline; best Track 2H backward branch so far, but not promoted. |
+| Track 2H-L latent-state hysteresis probes | normal campaign closed | GRU and causal-TCN offset-residual probes completed across `global`, `Fw`, and `Bw`. | Scalar global signal improved versus MDN and robust global baselines, but not versus Gaussian NLL; `Fw` and `Bw` remained weaker than existing dispersion-aware leaders. Official Track 2 refresh is optional and not yet run. |
 | Wave 3 harmonic-prior residual campaign | closed | First real lightweight harmonic-prior residual campaign completed six runs. | Normal campaign closeout accepted; scalar program winner unchanged. |
 | Wave 3 official Track 2 refresh | closed | Six Wave 3 candidates added to the `159`-candidate official Track 2 matrix. | Verified exploratory baseline; not promoted. |
 | Wave 4 PINN / MMT track | open design branch | MMT diagnostic and parameter inventory exist; feature and soft-constraint gates remain open. | Not campaign-ready. |
@@ -151,11 +152,21 @@ training pressure:
 | robust losses | 9 | `te_track2h_smooth_l1_robust_bw`, test MAE `0.003074` | exploratory, not promoted |
 | quantile / probabilistic | 6 | `te_track2h_quantile_p10_p50_p90_bw`, test MAE `0.002927` | exploratory, not promoted |
 | mixture density heads | 6 | `te_track2h_mdn_k2_bw`, test MAE `0.002658` | exploratory, not promoted |
+| latent-state hysteresis | 6 | `te_track2h_l_causal_tcn_offset_residual_global`, test MAE `0.003368` | optional Track 2 refresh pending |
 
 The strongest Track 2H result is backward and useful, but MDN diagnostics
 mostly collapsed toward one effective component. The evidence supports keeping
 MDN and probabilistic heads as later ingredients, not treating them as a
 confirmed multimodal TE solution.
+
+`Track 2H-L` added the causal latent-state / hysteresis-aware probe. The best
+scalar branch was `te_track2h_l_causal_tcn_offset_residual_global` with test
+MAE `0.003368 deg`. That is useful causal-history evidence for the `global`
+surface, but it is weaker than the Gaussian-NLL global result and does not
+improve the current `Fw` or `Bw` dispersion-aware leaders. The normal campaign
+closeout is complete; official `Track 2` curve verification remains a separate
+optional gate if curve-level offset or continuity behavior must be checked
+before moving on.
 
 ## Wave 3 Interpretation
 
@@ -177,12 +188,11 @@ models.
 
 ## Current Next Steps
 
-1. Use the completed Wave 3 Track 2 curve, offset, collage, and overlay
-   evidence inside the multi-index reranking pass before deciding whether to
-   continue Wave 3, move to Wave 4, or reopen latent-state / hysteresis-aware
-   modeling.
-2. Keep `Track 2H` robust, probabilistic, and MDN branches as evidence for
-   later multi-head integration, not as current promoted leaders.
+1. Decide whether the six completed `Track 2H-L` candidates need a separate
+   official `Track 2` verification refresh before the next model-design
+   branch.
+2. Keep `Track 2H` robust, probabilistic, MDN, and latent-state branches as
+   evidence for later multi-head integration, not as current promoted leaders.
 3. Keep `Wave 4` MMT/PINN work behind its dataset-aligned diagnostic and
    calibration gates.
 4. Do not open the integrated multi-task / multi-head campaign until the

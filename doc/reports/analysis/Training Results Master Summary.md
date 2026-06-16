@@ -2,12 +2,14 @@
 
 ## Executive Snapshot
 
-- Generated At: `2026-06-16T19:34:06`
+- Generated At: `2026-06-17T01:27:10`
 - Program State: active.
 - Current Completed Wave: `Wave 3` harmonic-prior residual campaign closeout
-- Current Focus: launch the prepared `Track 2H-L` latent-state /
-- Active Campaign Status: `prepared`
-- Active Campaign Name: `track2h_latent_state_hysteresis_campaign_2026_06_16`
+- Current Focus: `Track 2H-L` normal campaign closeout is complete; decide
+  whether to run the separate official `Track 2` refresh for these six
+  candidates or move to `Wave 4` / integrated multi-head planning.
+- Active Campaign Status: `none`
+- Active Campaign Name: `N/A`
 - Current Program Winner: `te_periodic_gru_sequence_remote_Bw` | Family `periodic_gru_sequence_bw` | Test MAE `0.002344`
 
 ## Main Takeaways

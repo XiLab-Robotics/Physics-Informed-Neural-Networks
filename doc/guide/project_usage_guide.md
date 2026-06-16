@@ -2738,6 +2738,24 @@ Operational rule:
 - when the user says the campaign is finished, use the stored state to gather artifacts for the final results report;
 - when the user cancels the campaign, inspect completed, failed, running, and pending items before deciding what to keep or stop.
 
+Most recent completed Track 2H-L latent-state hysteresis campaign:
+
+- campaign name: `track2h_latent_state_hysteresis_campaign_2026_06_16`
+- planning report:
+  `doc/reports/campaign_plans/track2/2026-06-16-16-00-57_track2h_latent_state_hysteresis_campaign_plan_report.md`
+- closeout report:
+  `doc/reports/campaign_results/track2/2026-06-17-01-27-10_track2h_latent_state_hysteresis_campaign_results_report.md`
+- config package:
+  `config/training/track2h_latent_state_hysteresis/campaigns/2026-06-16_track2h_latent_state_hysteresis_campaign/`
+- canonical launcher:
+  `scripts/campaigns/track2/run_track2h_latent_state_hysteresis_campaign.ps1`
+- local command:
+  `.\scripts\campaigns\track2\run_track2h_latent_state_hysteresis_campaign.ps1`
+- remote command:
+  `.\scripts\campaigns\track2\run_track2h_latent_state_hysteresis_campaign.ps1 -Remote`
+- status: normal campaign closeout completed; optional official `Track 2`
+  verification refresh remains a separate follow-up.
+
 Most recent completed Track 2H mixture-density heads campaign:
 
 - campaign name: `track2h_mixture_density_heads_campaign_2026_06_13`
@@ -2757,23 +2775,6 @@ Most recent completed Track 2H mixture-density heads campaign:
   `doc/reports/analysis/track2/official_model_verification_report/[2026-06-13]/track2_official_model_verification_report.md`
 - status: normal campaign closeout and official `Track 2` verification
   refresh completed; MDN is a verified exploratory baseline, not promoted.
-
-Current prepared Track 2H-L latent-state hysteresis campaign:
-
-- campaign name: `track2h_latent_state_hysteresis_campaign_2026_06_16`
-- planning report:
-  `doc/reports/campaign_plans/track2/2026-06-16-16-00-57_track2h_latent_state_hysteresis_campaign_plan_report.md`
-- config package:
-  `config/training/track2h_latent_state_hysteresis/campaigns/2026-06-16_track2h_latent_state_hysteresis_campaign/`
-- canonical launcher:
-  `scripts/campaigns/track2/run_track2h_latent_state_hysteresis_campaign.ps1`
-- local command:
-  `.\scripts\campaigns\track2\run_track2h_latent_state_hysteresis_campaign.ps1`
-- remote command:
-  `.\scripts\campaigns\track2\run_track2h_latent_state_hysteresis_campaign.ps1 -Remote`
-- preflight command:
-  `.\scripts\campaigns\track2\run_track2h_latent_state_hysteresis_campaign.ps1 -PreflightOnly`
-- status: prepared, not launched.
 
 Current finished Wave 1 residual-family follow-up campaign:
 
