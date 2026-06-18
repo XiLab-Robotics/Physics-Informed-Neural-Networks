@@ -59,8 +59,8 @@ The benchmark reset is handled as part of the approved implementation:
 - `scripts/paper_reimplementation/rcim_ml_compensation/exact_paper_model_bank_support.py`
 - `config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/`
 - `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
-- `doc/reports/campaign_plans/track1/exact_paper/`
-- `scripts/campaigns/track1/exact_paper/`
+- `doc/reports/campaign_plans/track_1/exact_paper/`
+- `scripts/campaigns/track_1/exact_paper/`
 - `doc/scripts/campaigns/`
 - `doc/running/active_training_campaign.yaml`
 

@@ -36,7 +36,7 @@ The intended implementation path after approval is:
 2. generate one dedicated config root under
    `config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/`;
 3. generate one dedicated preparer and one dedicated remote launcher under
-   `scripts/campaigns/track1/exact_paper/`;
+   `scripts/campaigns/track_1/exact_paper/`;
 4. generate the matching launcher note under `doc/scripts/campaigns/`;
 5. update `doc/running/active_training_campaign.yaml` with the prepared queue;
 6. after execution, run the normal forward closeout path and refresh the
@@ -50,9 +50,9 @@ useful later, it must be proposed explicitly and approved before use.
 
 - `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
 - `doc/reports/analysis/Training Results Master Summary.md`
-- `doc/reports/campaign_plans/track1/exact_paper/`
+- `doc/reports/campaign_plans/track_1/exact_paper/`
 - `doc/running/active_training_campaign.yaml`
-- `scripts/campaigns/track1/exact_paper/`
+- `scripts/campaigns/track_1/exact_paper/`
 - `scripts/reports/closeout/track1/closeout_track1_forward_open_cell_repair_campaign.py`
 - `config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/`
 - `models/paper_reference/rcim_track1/forward/`

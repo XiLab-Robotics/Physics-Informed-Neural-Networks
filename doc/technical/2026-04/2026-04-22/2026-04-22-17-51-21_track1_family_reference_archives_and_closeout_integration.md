@@ -90,8 +90,8 @@ and validation artifacts already used to refresh:
 
 - `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
 - `doc/reports/analysis/Training Results Master Summary.md`
-- `doc/reports/campaign_results/track1/exact_paper/forward/`
-- `doc/reports/campaign_plans/track1/exact_paper/2026-04-22-01-40-43_track1_remaining_yellow_cell_multi_family_campaign_bundle_plan_report.md`
+- `doc/reports/campaign_results/track_1/exact_paper/forward/`
+- `doc/reports/campaign_plans/track_1/exact_paper/2026-04-22-01-40-43_track1_remaining_yellow_cell_multi_family_campaign_bundle_plan_report.md`
 - `doc/running/active_training_campaign.yaml`
 - `models/README.md`
 - `models/paper_reference/README.md`

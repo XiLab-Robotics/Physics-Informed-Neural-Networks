@@ -45,7 +45,7 @@ The harmonic-offset follow-up should combine:
 - `scripts/models/periodic_feature_network.py`
 - `scripts/models/residual_harmonic_temporal_sequence_network.py`
 - `config/training/track2f_offset_aware_probe/`
-- `doc/reports/campaign_results/track2/`
+- `doc/reports/campaign_results/track_2/campaign_closeouts/`
 - `doc/reports/analysis/te_modeling/Curve-First TE Training Strategy.md`
 - `doc/reports/analysis/Training Results Master Summary.md`
 

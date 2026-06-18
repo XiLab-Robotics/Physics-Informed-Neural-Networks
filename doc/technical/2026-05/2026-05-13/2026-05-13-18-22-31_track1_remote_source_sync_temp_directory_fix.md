@@ -43,7 +43,7 @@ but the upload path must no longer depend on them.
 
 ## Involved Components
 
-- `scripts/campaigns/track1/exact_paper/run_exact_paper_campaign_remote.ps1`
+- `scripts/campaigns/track_1/exact_paper/run_exact_paper_campaign_remote.ps1`
   Remote exact-paper wrapper that builds the source archive, uploads it over
   `scp`, extracts it on the remote repository, and then launches the canonical
   exact-paper campaign launcher.

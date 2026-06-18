@@ -58,7 +58,7 @@ artifacts rather than the filename itself.
 - `doc/scripts/campaigns/run_track1_forward_last_three_open_cells_overnight_mega_campaign.md`
   Launcher note that may need a short operator-facing note if the recovery or
   relaunch flow changes.
-- `doc/reports/campaign_plans/track1/exact_paper/2026-04-29-17-59-02_track1_forward_last_three_open_cells_overnight_mega_campaign_plan_report.md`
+- `doc/reports/campaign_plans/track_1/exact_paper/2026-04-29-17-59-02_track1_forward_last_three_open_cells_overnight_mega_campaign_plan_report.md`
   Approved plan for the affected overnight campaign.
 
 Subagents:

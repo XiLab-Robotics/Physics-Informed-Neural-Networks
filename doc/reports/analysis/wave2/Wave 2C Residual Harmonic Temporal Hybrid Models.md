@@ -76,7 +76,7 @@ Python files:
 - `scripts/models/check_harmonic_basis_configuration.py`
 - `scripts/training/run_training_campaign.py`
 - `scripts/training/train_feedforward_network.py`
-- `scripts/campaigns/wave2/prepare_wave2c_residual_harmonic_temporal_hybrid_campaign.py`
+- `scripts/campaigns/wave_2/prepare_wave2c_residual_harmonic_temporal_hybrid_campaign.py`
 
 Model classes and functions:
 
@@ -106,7 +106,7 @@ The prepared campaign contains `18` queue files:
 The campaign launcher is:
 
 ```powershell
-.\scripts\campaigns\wave2\run_wave2c_residual_harmonic_temporal_hybrid_campaign.ps1
+.\scripts\campaigns\wave_2\run_wave2c_residual_harmonic_temporal_hybrid_campaign.ps1
 ```
 
 Training remains operator-launched. The prepared package does not execute

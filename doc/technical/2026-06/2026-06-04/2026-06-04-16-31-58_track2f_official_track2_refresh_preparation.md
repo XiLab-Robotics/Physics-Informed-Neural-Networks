@@ -44,8 +44,8 @@ No subagent use is planned for this preparation.
 - `config/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/full_track2_matrix_template.yaml`
 - `scripts/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/reference_family_vs_feedforward_support.py`
 - `scripts/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/run_reference_family_vs_feedforward_comparison.py`
-- `scripts/campaigns/track2/`
-- `doc/scripts/campaigns/track2/`
+- `scripts/campaigns/track_2/`
+- `doc/scripts/campaigns/track_2/`
 - `doc/reports/analysis/track2/Track 2 Directional Model Comparison.md`
 
 ## Implementation Steps
@@ -57,9 +57,9 @@ No subagent use is planned for this preparation.
    editing the canonical template directly during preparation.
 3. Patch inference support only if `sequential_residual_offset_probe` is not
    already loadable by the shared registry-backed `Track 2` path.
-4. Create a dedicated PowerShell launcher under `scripts/campaigns/track2/`
+4. Create a dedicated PowerShell launcher under `scripts/campaigns/track_2/`
    with local and `-Remote` modes.
-5. Create the matching launcher note under `doc/scripts/campaigns/track2/`
+5. Create the matching launcher note under `doc/scripts/campaigns/track_2/`
    with exact local and remote commands.
 6. Ensure the launcher writes a distinct output suffix for the `Track 2F`
    refresh and does not start automatically during preparation.

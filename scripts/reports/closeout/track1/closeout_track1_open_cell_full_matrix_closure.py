@@ -798,7 +798,7 @@ def build_results_report_markdown(
         "This report closes the exact-paper `Track 1` open-cell full-matrix closure",
         "wave prepared in:",
         "",
-        "- `doc/reports/campaign_plans/track1/exact_paper/2026-04-20-23-50-13_track1_open_cell_full_matrix_closure_campaigns_plan_report.md`",
+        "- `doc/reports/campaign_plans/track_1/exact_paper/2026-04-20-23-50-13_track1_open_cell_full_matrix_closure_campaigns_plan_report.md`",
         "",
         "The batch targeted only the still-open family-target pairs in the canonical",
         "`Track 1` progress surface:",

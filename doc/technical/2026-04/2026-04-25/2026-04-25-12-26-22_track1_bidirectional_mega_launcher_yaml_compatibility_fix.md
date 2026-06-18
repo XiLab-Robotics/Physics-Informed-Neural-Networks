@@ -3,7 +3,7 @@
 ## Overview
 
 The current launcher
-`scripts/campaigns/track1/exact_paper/run_track1_bidirectional_original_dataset_mega_campaign.ps1`
+`scripts/campaigns/track_1/exact_paper/run_track1_bidirectional_original_dataset_mega_campaign.ps1`
 fails at startup on the local workstation because it reads
 `doc/running/active_training_campaign.yaml` through `ConvertFrom-Yaml`, and
 that cmdlet is not available in the active PowerShell environment.
@@ -31,7 +31,7 @@ reusing the same Python environment already needed for the training runner.
 
 ## Involved Components
 
-- `scripts/campaigns/track1/exact_paper/run_track1_bidirectional_original_dataset_mega_campaign.ps1`
+- `scripts/campaigns/track_1/exact_paper/run_track1_bidirectional_original_dataset_mega_campaign.ps1`
 - `doc/scripts/campaigns/run_track1_bidirectional_original_dataset_mega_campaign.md`
 - `doc/guide/project_usage_guide.md`
 - `site/` documentation only if the user-facing launcher behavior description

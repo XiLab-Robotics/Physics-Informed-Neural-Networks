@@ -977,15 +977,15 @@ def update_doc_index_with_campaign_report(campaign_results_report_path: Path) ->
 
     doc_index_text = DOC_INDEX_PATH.read_text(encoding="utf-8")
     doc_index_text = doc_index_text.replace(
-        "- [doc/reports/campaign_results/wave1/",
-        "- [reports/campaign_results/wave1/",
+        "- [doc/reports/campaign_results/wave_1/",
+        "- [reports/campaign_results/wave_1/",
     )
     doc_index_text = doc_index_text.replace(
-        "(./doc/reports/campaign_results/wave1/",
-        "(./reports/campaign_results/wave1/",
+        "(./doc/reports/campaign_results/wave_1/",
+        "(./reports/campaign_results/wave_1/",
     )
     doc_index_text = re.sub(
-        r"- \[(?:doc/)?reports/campaign_results/wave1/.*?_wave1_directional_retraining_campaign_results_report\.md\]\(\./(?:doc/)?reports/campaign_results/wave1/.*?_wave1_directional_retraining_campaign_results_report\.md\)\n  Final results report for the completed Wave 1 directional retraining campaign, including repaired directional registry metadata, the consolidated 15-run ranking, and the exported Python plus ONNX archive under `models/exported/`\.\n",
+        r"- \[(?:doc/)?reports/campaign_results/wave_1/.*?_wave1_directional_retraining_campaign_results_report\.md\]\(\./(?:doc/)?reports/campaign_results/wave_1/.*?_wave1_directional_retraining_campaign_results_report\.md\)\n  Final results report for the completed Wave 1 directional retraining campaign, including repaired directional registry metadata, the consolidated 15-run ranking, and the exported Python plus ONNX archive under `models/exported/`\.\n",
         "",
         doc_index_text,
     )

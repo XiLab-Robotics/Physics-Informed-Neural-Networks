@@ -21,7 +21,7 @@ inputs.
 ## Launch Commands
 
 ```powershell
-.\scripts\campaigns\track2\run_track2h_mixture_density_heads_campaign.ps1 -PreflightOnly
-.\scripts\campaigns\track2\run_track2h_mixture_density_heads_campaign.ps1
-.\scripts\campaigns\track2\run_track2h_mixture_density_heads_campaign.ps1 -Remote
+.\scripts\campaigns\track_2\run_track2h_mixture_density_heads_campaign.ps1 -PreflightOnly
+.\scripts\campaigns\track_2\run_track2h_mixture_density_heads_campaign.ps1
+.\scripts\campaigns\track_2\run_track2h_mixture_density_heads_campaign.ps1 -Remote
 ```

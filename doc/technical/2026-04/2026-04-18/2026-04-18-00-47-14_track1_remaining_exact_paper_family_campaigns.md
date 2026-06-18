@@ -73,7 +73,7 @@ Therefore the implementation should follow a hybrid launcher pattern:
 
 ## Involved Components
 
-- `doc/reports/campaign_plans/track1/exact_paper/`
+- `doc/reports/campaign_plans/track_1/exact_paper/`
 - `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/`
 - `scripts/campaigns/`
 - `doc/scripts/campaigns/`

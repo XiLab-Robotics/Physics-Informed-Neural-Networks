@@ -56,9 +56,9 @@ latent-state / hysteresis-aware modeling remain later branches.
 - `doc/technical/2026-06/2026-06-13/2026-06-13-10-40-25_track2h_mixture_density_heads_package.md`
   records this technical gate.
 - `doc/README.md` registers the new technical document.
-- `doc/reports/campaign_plans/track2/2026-06-13-10-40-25_track2h_mixture_density_heads_campaign_plan_report.md`
+- `doc/reports/campaign_plans/track_2/2026-06-13-10-40-25_track2h_mixture_density_heads_campaign_plan_report.md`
   records the matching campaign plan.
-- `scripts/campaigns/track2/prepare_track2h_quantile_probabilistic_campaign.py`
+- `scripts/campaigns/track_2/prepare_track2h_quantile_probabilistic_campaign.py`
   and `config/training/track2h_quantile_probabilistic_modeling/` provide the
   closest package structure to reuse.
 - `scripts/models/model_factory.py`,
@@ -78,7 +78,7 @@ No subagent is planned for this work.
 ## Implementation Steps
 
 1. Create this technical document and register it in `doc/README.md`.
-2. Create the paired campaign plan under `doc/reports/campaign_plans/track2/`.
+2. Create the paired campaign plan under `doc/reports/campaign_plans/track_2/`.
 3. Stop for explicit user approval before implementation changes.
 4. After approval, inspect the existing Track 2H probabilistic implementation
    and choose whether MDN support is a configuration extension or a narrow new

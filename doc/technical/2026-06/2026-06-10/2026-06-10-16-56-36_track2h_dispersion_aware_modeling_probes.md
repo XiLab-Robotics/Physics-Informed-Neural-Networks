@@ -55,7 +55,7 @@ normalization, or truth-curve means may enter inference.
 Expected documentation and planning components:
 
 - this technical document;
-- `doc/reports/campaign_plans/track2/2026-06-10-16-56-36_track2h_dispersion_aware_modeling_probe_campaign_plan_report.md`;
+- `doc/reports/campaign_plans/track_2/2026-06-10-16-56-36_track2h_dispersion_aware_modeling_probe_campaign_plan_report.md`;
 - `doc/running/te_model_live_backlog.md`;
 - `doc/reports/analysis/Training Results Master Summary.md`;
 - `doc/README.md`.
@@ -63,10 +63,10 @@ Expected documentation and planning components:
 Expected implementation components after approval:
 
 - one or more narrow model/loss extensions in the existing TE training stack;
-- campaign preparation script under `scripts/campaigns/track2/`;
-- package validation script under `scripts/campaigns/track2/`;
-- local and `-Remote` PowerShell launcher under `scripts/campaigns/track2/`;
-- launcher note under `doc/scripts/campaigns/track2/`;
+- campaign preparation script under `scripts/campaigns/track_2/`;
+- package validation script under `scripts/campaigns/track_2/`;
+- local and `-Remote` PowerShell launcher under `scripts/campaigns/track_2/`;
+- launcher note under `doc/scripts/campaigns/track_2/`;
 - campaign YAML package under `config/training/track2h_dispersion_aware_modeling/`;
 - prepared campaign state in `doc/running/active_training_campaign.yaml`.
 
@@ -78,9 +78,9 @@ Prepared first implementation package:
 - package root:
   `config/training/track2h_dispersion_aware_modeling/campaigns/2026-06-10_track2h_dispersion_aware_modeling_campaign/`;
 - launcher:
-  `scripts/campaigns/track2/run_track2h_dispersion_aware_modeling_campaign.ps1`;
+  `scripts/campaigns/track_2/run_track2h_dispersion_aware_modeling_campaign.ps1`;
 - validator:
-  `scripts/campaigns/track2/validate_track2h_dispersion_aware_modeling_package.py`;
+  `scripts/campaigns/track_2/validate_track2h_dispersion_aware_modeling_package.py`;
 - active campaign state: `prepared`.
 
 Expected evaluation components after training:

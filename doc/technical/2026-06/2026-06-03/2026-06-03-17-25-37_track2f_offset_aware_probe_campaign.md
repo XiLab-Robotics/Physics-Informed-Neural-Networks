@@ -56,19 +56,19 @@ multi-head, loss-reweighted, or non-offset-first.
 Expected planning and future implementation surfaces:
 
 - campaign plan:
-  `doc/reports/campaign_plans/track2/2026-06-03-17-25-37_track2f_offset_aware_probe_campaign_plan_report.md`;
+  `doc/reports/campaign_plans/track_2/2026-06-03-17-25-37_track2f_offset_aware_probe_campaign_plan_report.md`;
 - future campaign configuration root:
   `config/training/track2f_offset_aware_probe/`;
 - future dedicated launcher:
-  `scripts/campaigns/track2/run_track2f_offset_aware_probe_campaign.ps1`;
+  `scripts/campaigns/track_2/run_track2f_offset_aware_probe_campaign.ps1`;
 - future launcher note:
-  `doc/scripts/campaigns/track2/run_track2f_offset_aware_probe_campaign.md`;
+  `doc/scripts/campaigns/track_2/run_track2f_offset_aware_probe_campaign.md`;
 - active campaign state:
   `doc/running/active_training_campaign.yaml`;
 - future campaign output root:
   `output/training_campaigns/<run_instance_id>_track2f_offset_aware_probe_campaign`;
 - post-campaign result report root:
-  `doc/reports/campaign_results/track2/`.
+  `doc/reports/campaign_results/track_2/campaign_closeouts/`.
 
 Reference inputs:
 
@@ -82,7 +82,7 @@ Reference inputs:
 ## Implementation Steps
 
 1. Create the preliminary `Track 2F` campaign plan report under
-   `doc/reports/campaign_plans/track2/`.
+   `doc/reports/campaign_plans/track_2/`.
 2. Register the technical document and campaign plan from `doc/README.md`.
 3. Wait for explicit user approval before preparing any campaign YAML files,
    launchers, launcher notes, active campaign state, or model/training code.

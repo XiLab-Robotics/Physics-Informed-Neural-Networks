@@ -93,7 +93,7 @@ good; it must refresh the direction-aware matrix, visual reports, and official
   Current shared training entry point for neural TE model families.
 - `config/training/hydra/wave2/`
   Existing Wave 2 Hydra config root to extend or mirror for Wave 2B.
-- `doc/reports/campaign_plans/wave2/`
+- `doc/reports/campaign_plans/wave_2/`
   Required later for the campaign package before any training launch.
 - `output/training_runs/`, `output/validation_checks/`,
   `output/training_campaigns/`, and `output/registries/`
@@ -123,7 +123,7 @@ good; it must refresh the direction-aware matrix, visual reports, and official
 10. Run a no-training setup validation or minimal smoke test for each new
     family before preparing the campaign package.
 11. Create a preliminary campaign plan under
-    `doc/reports/campaign_plans/wave2/` before any full training execution.
+    `doc/reports/campaign_plans/wave_2/` before any full training execution.
 12. For the first Wave 2B campaign, keep the run count narrow:
     three model families across `global`, `Fw`, and `Bw`, for `9` candidates.
 13. After campaign approval and execution, route the results through:

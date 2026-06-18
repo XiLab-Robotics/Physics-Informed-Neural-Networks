@@ -7,7 +7,7 @@ original-dataset campaign package.
 
 The script is stored in:
 
-- `scripts/campaigns/track1/exact_paper/run_track1_bidirectional_original_dataset_mega_campaign.ps1`
+- `scripts/campaigns/track_1/exact_paper/run_track1_bidirectional_original_dataset_mega_campaign.ps1`
 
 ## Main Role
 
@@ -49,13 +49,13 @@ root under:
 Generate the package and update the active campaign state with:
 
 ```powershell
-conda run -n pinns_env python scripts/campaigns/track1/exact_paper/prepare_track1_bidirectional_original_dataset_mega_campaign.py
+conda run -n pinns_env python scripts/campaigns/track_1/exact_paper/prepare_track1_bidirectional_original_dataset_mega_campaign.py
 ```
 
 ## Launch Command
 
 ```powershell
-.\scripts\campaigns\track1\exact_paper\run_track1_bidirectional_original_dataset_mega_campaign.ps1 -Remote
+.\scripts\campaigns\track_1\exact_paper\run_track1_bidirectional_original_dataset_mega_campaign.ps1 -Remote
 ```
 
 ## Operator View

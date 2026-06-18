@@ -45,9 +45,9 @@ campaign starts from a clean and truthful operational state.
 ## Involved Components
 
 - `doc/running/active_training_campaign.yaml`
-- `doc/reports/campaign_plans/track1/exact_paper/2026-04-25-12-02-54_track1_bidirectional_original_dataset_mega_campaign_plan_report.md`
-- `scripts/campaigns/track1/exact_paper/prepare_track1_bidirectional_original_dataset_mega_campaign.py`
-- `scripts/campaigns/track1/exact_paper/run_track1_bidirectional_original_dataset_mega_campaign.ps1`
+- `doc/reports/campaign_plans/track_1/exact_paper/2026-04-25-12-02-54_track1_bidirectional_original_dataset_mega_campaign_plan_report.md`
+- `scripts/campaigns/track_1/exact_paper/prepare_track1_bidirectional_original_dataset_mega_campaign.py`
+- `scripts/campaigns/track_1/exact_paper/run_track1_bidirectional_original_dataset_mega_campaign.ps1`
 - `doc/scripts/campaigns/run_track1_bidirectional_original_dataset_mega_campaign.md`
 - any shared remote exact-paper launcher helper reused by the corrected wrapper
 - `doc/guide/project_usage_guide.md` if the user-facing launch contract changes

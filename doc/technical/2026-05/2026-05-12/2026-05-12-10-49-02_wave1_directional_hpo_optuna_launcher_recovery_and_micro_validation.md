@@ -53,12 +53,12 @@ Third, resume the blocked production campaign:
 
 ## Involved Components
 
-- `scripts/campaigns/wave1/run_wave1_directional_best_hyperparameter_search_campaign.ps1`
+- `scripts/campaigns/wave_1/run_wave1_directional_best_hyperparameter_search_campaign.ps1`
 - `scripts/training/run_optuna_neural_hpo_study.py`
 - `scripts/training/optuna_hpo_support.py`
 - `requirements.txt`
-- `doc/reports/campaign_plans/wave1/2026-05-11-19-41-11_wave1_directional_best_hyperparameter_search_campaign_plan_report.md`
-- `doc/reports/campaign_plans/wave1/*wave1_directional_optuna_recovery_micro_campaign_plan_report.md`
+- `doc/reports/campaign_plans/wave_1/2026-05-11-19-41-11_wave1_directional_best_hyperparameter_search_campaign_plan_report.md`
+- `doc/reports/campaign_plans/wave_1/*wave1_directional_optuna_recovery_micro_campaign_plan_report.md`
 - `output/training_campaigns/wave1/directional_best_hyperparameter_search/`
 - `output/training_runs/feedforward*`
 - `output/training_runs/periodic_mlp*`

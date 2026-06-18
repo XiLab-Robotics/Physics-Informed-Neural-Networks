@@ -7,7 +7,7 @@ experiment:
   model_type: residual_harmonic_gru_sequence
 metadata:
   campaign_name: wave2c_residual_harmonic_temporal_hybrid_campaign_2026_05_27
-  planning_report_path: doc/reports/campaign_plans/wave2/2026-05-27-18-08-32_wave2c_residual_harmonic_temporal_hybrid_campaign_plan_report.md
+  planning_report_path: doc/reports/campaign_plans/wave_2/2026-05-27-18-08-32_wave2c_residual_harmonic_temporal_hybrid_campaign_plan_report.md
   phase_name: wave2c_residual_harmonic_temporal_hybrid_preparation
   campaign_config_id: residual_harmonic_gru_sequence_fw_dense360
   notes: Wave 2C residual harmonic temporal hybrid campaign | family=residual_harmonic_gru_sequence

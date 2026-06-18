@@ -53,10 +53,10 @@ Expected source components:
 Expected new or updated implementation components after approval:
 
 - `scripts/features/wave4b_mmt_feature_generator.py`;
-- `scripts/campaigns/wave4/validate_wave4b_mmt_feature_generator_package.py`;
-- `scripts/campaigns/wave4/run_wave4b_mmt_feature_generator_checks.ps1`;
+- `scripts/campaigns/wave_4/validate_wave4b_mmt_feature_generator_package.py`;
+- `scripts/campaigns/wave_4/run_wave4b_mmt_feature_generator_checks.ps1`;
 - `config/training/wave4_embryonic_skeleton/wave4b_mmt_feature_generator_template.yaml`;
-- `doc/scripts/campaigns/wave4/wave4b_mmt_feature_generator_checks.md`;
+- `doc/scripts/campaigns/wave_4/wave4b_mmt_feature_generator_checks.md`;
 - optional Sphinx API entries if the new user-facing scripts fall within the
   portal scope.
 

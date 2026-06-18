@@ -43,8 +43,8 @@ training status documents.
 ## Involved Components
 
 - `doc/running/active_training_campaign.yaml`
-- `doc/reports/campaign_results/wave2/2026-05-28-11-35-34_wave2c_residual_harmonic_temporal_hybrid_campaign_results_report.md`
-- `doc/reports/campaign_plans/wave2/2026-05-27-18-08-32_wave2c_residual_harmonic_temporal_hybrid_campaign_plan_report.md`
+- `doc/reports/campaign_results/wave_2/2026-05-28-11-35-34_wave2c_residual_harmonic_temporal_hybrid_campaign_results_report.md`
+- `doc/reports/campaign_plans/wave_2/2026-05-27-18-08-32_wave2c_residual_harmonic_temporal_hybrid_campaign_plan_report.md`
 - `output/registries/families/residual_harmonic_gru_sequence_*`
 - `output/registries/families/residual_harmonic_lstm_sequence_*`
 - `config/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/full_track2_matrix_template.yaml`

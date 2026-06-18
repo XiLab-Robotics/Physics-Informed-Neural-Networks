@@ -102,7 +102,7 @@ delegated scope, and approval requirement must be documented before launch.
 Expected documentation and planning components:
 
 - this technical document;
-- a future campaign planning report under `doc/reports/campaign_plans/track2/`;
+- a future campaign planning report under `doc/reports/campaign_plans/track_2/`;
 - `doc/running/active_training_campaign.yaml`;
 - `doc/reports/analysis/Training Results Master Summary.md`;
 - a future Track 2G explanatory model report under
@@ -114,9 +114,9 @@ Expected implementation components after approval:
   owned by the TE training stack;
 - candidate model registration in the existing model factory if the multi-head
   branch is implemented;
-- campaign preparation script under `scripts/campaigns/track2/`;
-- local and `-Remote` PowerShell launcher under `scripts/campaigns/track2/`;
-- launcher note under `doc/scripts/campaigns/track2/`;
+- campaign preparation script under `scripts/campaigns/track_2/`;
+- local and `-Remote` PowerShell launcher under `scripts/campaigns/track_2/`;
+- launcher note under `doc/scripts/campaigns/track_2/`;
 - queue YAMLs under `config/training/track2g_curve_aware/`;
 - validation or preflight script for the generated campaign package.
 

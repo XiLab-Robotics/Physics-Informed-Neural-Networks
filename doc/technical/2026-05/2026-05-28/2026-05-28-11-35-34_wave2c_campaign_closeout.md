@@ -27,7 +27,7 @@ The workflow will:
   `campaign_best_run.yaml` from the completed campaign output directory;
 - assert that all planned queue entries completed with return code `0`;
 - generate a final campaign-results report under
-  `doc/reports/campaign_results/wave2/`;
+  `doc/reports/campaign_results/wave_2/`;
 - export and validate the styled PDF companion;
 - update `doc/README.md`, `doc/running/active_training_campaign.yaml`, and
   the training summary/report surfaces that must reflect completed campaign
@@ -37,13 +37,13 @@ The workflow will:
 ## Involved Components
 
 - `doc/running/active_training_campaign.yaml`
-- `doc/reports/campaign_plans/wave2/2026-05-27-18-08-32_wave2c_residual_harmonic_temporal_hybrid_campaign_plan_report.md`
+- `doc/reports/campaign_plans/wave_2/2026-05-27-18-08-32_wave2c_residual_harmonic_temporal_hybrid_campaign_plan_report.md`
 - `output/training_campaigns/2026-05-27-18-55-47_wave2c_residual_harmonic_temporal_hybrid_campaign_2026_05_27/`
 - `output/training_runs/residual_harmonic_*`
 - `output/registries/families/residual_harmonic_*`
 - `output/registries/program/current_best_solution.yaml`
 - `doc/reports/analysis/Training Results Master Summary.md`
-- `doc/reports/campaign_results/wave2/`
+- `doc/reports/campaign_results/wave_2/`
 - `scripts/reports/pdf/`
 
 ## Implementation Steps

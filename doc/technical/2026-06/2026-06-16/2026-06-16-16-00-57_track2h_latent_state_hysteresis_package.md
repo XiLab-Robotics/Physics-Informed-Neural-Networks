@@ -64,7 +64,7 @@ Context7 must be consulted before implementation.
 
 - `doc/technical/2026-06/2026-06-16/2026-06-16-16-00-57_track2h_latent_state_hysteresis_package.md`
   records this technical gate.
-- `doc/reports/campaign_plans/track2/2026-06-16-16-00-57_track2h_latent_state_hysteresis_campaign_plan_report.md`
+- `doc/reports/campaign_plans/track_2/2026-06-16-16-00-57_track2h_latent_state_hysteresis_campaign_plan_report.md`
   records the matching preliminary campaign plan.
 - `doc/running/te_model_live_backlog.md` records the post-`Wave 3` status
   alignment and the new active next gate.
@@ -82,16 +82,16 @@ Context7 must be consulted before implementation.
   - `scripts/training/transmission_error_regression_module.py`;
   - `scripts/models/model_factory.py`.
 - Existing campaign-package precedents include:
-  - `scripts/campaigns/track2/prepare_track2h_mixture_density_heads_campaign.py`;
-  - `scripts/campaigns/track2/validate_track2h_mixture_density_heads_package.py`;
-  - `scripts/campaigns/track2/run_track2h_mixture_density_heads_campaign.ps1`.
+  - `scripts/campaigns/track_2/prepare_track2h_mixture_density_heads_campaign.py`;
+  - `scripts/campaigns/track_2/validate_track2h_mixture_density_heads_package.py`;
+  - `scripts/campaigns/track_2/run_track2h_mixture_density_heads_campaign.ps1`.
 
 No subagent is planned.
 
 ## Implementation Steps
 
 1. Create this technical document and register it from `doc/README.md`.
-2. Create the paired campaign plan under `doc/reports/campaign_plans/track2/`.
+2. Create the paired campaign plan under `doc/reports/campaign_plans/track_2/`.
 3. Align status documents so `Wave 3` official `Track 2` verification is no
    longer described as pending.
 4. Stop for explicit user approval before implementation changes.

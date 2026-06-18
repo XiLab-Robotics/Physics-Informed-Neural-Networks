@@ -51,7 +51,7 @@ to the user.
 - `doc/running/active_training_campaign.yaml`
 - `scripts/paper_reimplementation/rcim_ml_compensation/exact_paper_model_bank_support.py`
 - `scripts/paper_reimplementation/rcim_ml_compensation/run_exact_paper_model_bank_validation.py`
-- `scripts/campaigns/track1/exact_paper/run_exact_paper_faithful_reproduction_campaign.ps1`
+- `scripts/campaigns/track_1/exact_paper/run_exact_paper_faithful_reproduction_campaign.ps1`
 - `config/paper_reimplementation/rcim_ml_compensation/paper_faithful_reproduction/campaigns/2026-04-10_exact_paper_faithful_reproduction_campaign/02_exact_paper_amplitude_phase_reference.yaml`
 - `output/training_campaigns/track1/exact_paper/forward/exact_paper_faithful_reproduction_campaign_2026_04_10_21_47_55/logs/`
 

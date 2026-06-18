@@ -242,27 +242,27 @@ This folder contains the internal project documents derived from the reference P
   encoding, base/offset/residual heads, campaign profiles, risks, and
   implemented files.
 
-- [reports/campaign_plans/track2/2026-06-10-16-56-36_track2h_dispersion_aware_modeling_probe_campaign_plan_report.md](./reports/campaign_plans/track2/2026-06-10-16-56-36_track2h_dispersion_aware_modeling_probe_campaign_plan_report.md)
+- [reports/campaign_plans/track_2/2026-06-10-16-56-36_track2h_dispersion_aware_modeling_probe_campaign_plan_report.md](./reports/campaign_plans/track_2/2026-06-10-16-56-36_track2h_dispersion_aware_modeling_probe_campaign_plan_report.md)
   Preliminary `Track 2H` campaign plan for robust, quantile/probabilistic,
   mixture-density, and latent-state / hysteresis-aware modeling probes before
   the integrated multi-task / multi-head branch.
 
-- [reports/campaign_plans/track2/2026-06-16-16-00-57_track2h_latent_state_hysteresis_campaign_plan_report.md](./reports/campaign_plans/track2/2026-06-16-16-00-57_track2h_latent_state_hysteresis_campaign_plan_report.md)
+- [reports/campaign_plans/track_2/2026-06-16-16-00-57_track2h_latent_state_hysteresis_campaign_plan_report.md](./reports/campaign_plans/track_2/2026-06-16-16-00-57_track2h_latent_state_hysteresis_campaign_plan_report.md)
   Preliminary campaign plan for the `Track 2H-L` latent-state /
   hysteresis-aware package, focused on causal-history state encoders for
   preload, elastic release, direction-transition, and protocol-state effects.
 
-- [reports/campaign_results/track2/2026-06-17-01-27-10_track2h_latent_state_hysteresis_campaign_results_report.md](./reports/campaign_results/track2/2026-06-17-01-27-10_track2h_latent_state_hysteresis_campaign_results_report.md)
+- [reports/campaign_results/track_2/campaign_closeouts/2026-06-17-01-27-10_track2h_latent_state_hysteresis_campaign_results_report.md](./reports/campaign_results/track_2/campaign_closeouts/2026-06-17-01-27-10_track2h_latent_state_hysteresis_campaign_results_report.md)
   Final results report for the completed `Track 2H-L` latent-state /
   hysteresis-aware campaign, including scalar branch winners, comparison
   against robust/probabilistic/MDN baselines, registry effects, and the
   boundary that official `Track 2` curve verification remains separate.
 
-- [reports/campaign_plans/wave3_wave4/2026-06-14-19-54-55_wave3_harmonic_prior_residual_campaign_plan_report.md](./reports/campaign_plans/wave3_wave4/2026-06-14-19-54-55_wave3_harmonic_prior_residual_campaign_plan_report.md)
+- [reports/campaign_plans/wave_3/2026-06-14-19-54-55_wave3_harmonic_prior_residual_campaign_plan_report.md](./reports/campaign_plans/wave_3/2026-06-14-19-54-55_wave3_harmonic_prior_residual_campaign_plan_report.md)
   Preliminary and prepared campaign plan for the first real `Wave 3`
   harmonic-prior residual package across `global`, `Fw`, and `Bw`.
 
-- [reports/campaign_results/wave3_wave4/2026-06-15-15-30-20_wave3_harmonic_prior_residual_campaign_results_report.md](./reports/campaign_results/wave3_wave4/2026-06-15-15-30-20_wave3_harmonic_prior_residual_campaign_results_report.md)
+- [reports/campaign_results/wave_3/2026-06-15-15-30-20_wave3_harmonic_prior_residual_campaign_results_report.md](./reports/campaign_results/wave_3/2026-06-15-15-30-20_wave3_harmonic_prior_residual_campaign_results_report.md)
   Final results report for the completed first real `Wave 3`
   harmonic-prior residual campaign, including scalar branch winners,
   profile comparison, registry effects, and the normal-closeout boundary that
@@ -273,23 +273,23 @@ This folder contains the internal project documents derived from the reference P
   harmonic-prior residual candidates, verified as an exploratory baseline and
   not promoted over the accepted direction-parallel leaders.
 
-- [reports/campaign_plans/track2/2026-06-13-10-40-25_track2h_mixture_density_heads_campaign_plan_report.md](./reports/campaign_plans/track2/2026-06-13-10-40-25_track2h_mixture_density_heads_campaign_plan_report.md)
+- [reports/campaign_plans/track_2/2026-06-13-10-40-25_track2h_mixture_density_heads_campaign_plan_report.md](./reports/campaign_plans/track_2/2026-06-13-10-40-25_track2h_mixture_density_heads_campaign_plan_report.md)
   Preliminary campaign plan for the next `Track 2H` package, focused on
   two- and three-component mixture-density heads across `global`, `Fw`, and
   `Bw`.
 
-- [reports/campaign_plans/track2/2026-06-12-00-01-04_track2h_quantile_probabilistic_campaign_plan_report.md](./reports/campaign_plans/track2/2026-06-12-00-01-04_track2h_quantile_probabilistic_campaign_plan_report.md)
+- [reports/campaign_plans/track_2/2026-06-12-00-01-04_track2h_quantile_probabilistic_campaign_plan_report.md](./reports/campaign_plans/track_2/2026-06-12-00-01-04_track2h_quantile_probabilistic_campaign_plan_report.md)
   Preliminary campaign plan for the second `Track 2H` package, focused on
   quantile and Gaussian probabilistic regression candidates across `global`,
   `Fw`, and `Bw`.
 
-- [reports/campaign_results/track2/2026-06-12-13-54-57_track2h_quantile_probabilistic_campaign_results_report.md](./reports/campaign_results/track2/2026-06-12-13-54-57_track2h_quantile_probabilistic_campaign_results_report.md)
+- [reports/campaign_results/track_2/campaign_closeouts/2026-06-12-13-54-57_track2h_quantile_probabilistic_campaign_results_report.md](./reports/campaign_results/track_2/campaign_closeouts/2026-06-12-13-54-57_track2h_quantile_probabilistic_campaign_results_report.md)
   Final results report for the completed second `Track 2H`
   quantile/probabilistic campaign, including scalar branch winners,
   calibration diagnostics, robust-loss comparison, and the boundary that
   official `Track 2` curve verification remains separate.
 
-- [reports/campaign_results/track2/2026-06-13-13-24-37_track2h_mixture_density_heads_campaign_results_report.md](./reports/campaign_results/track2/2026-06-13-13-24-37_track2h_mixture_density_heads_campaign_results_report.md)
+- [reports/campaign_results/track_2/campaign_closeouts/2026-06-13-13-24-37_track2h_mixture_density_heads_campaign_results_report.md](./reports/campaign_results/track_2/campaign_closeouts/2026-06-13-13-24-37_track2h_mixture_density_heads_campaign_results_report.md)
   Final results report for the completed third `Track 2H` mixture-density
   campaign, including scalar branch winners, mixture-collapse diagnostics,
   comparison against robust/probabilistic probes, and the boundary that
@@ -433,6 +433,13 @@ This folder contains the internal project documents derived from the reference P
   Technical sum-up of the completed remote-strong `large-v3` plus `openai/gpt-oss-20b` video campaign across the 11 canonical TwinCAT/TestRig videos.
 
 ### Technical Documents
+
+#### 2026-06-18
+
+- [technical/2026-06/2026-06-18/2026-06-18-14-50-13_campaign_artifact_naming_reorganization.md](./technical/2026-06/2026-06-18/2026-06-18-14-50-13_campaign_artifact_naming_reorganization.md)
+  Technical plan for consolidating campaign-result and `Track 2` artifact
+  naming around canonical filesystem slugs, display names, migration manifests,
+  and verified reference updates.
 
 #### 2026-06-16
 
@@ -950,7 +957,7 @@ This folder contains the internal project documents derived from the reference P
 
 - [technical/2026-05/2026-05-18/2026-05-18-12-20-17_track2_direction_truth_and_preview_audit.md](./technical/2026-05/2026-05-18/2026-05-18-12-20-17_track2_direction_truth_and_preview_audit.md)
   Plan the `Track 2` direction/truth audit after preview-curve sign concerns,
-  plus complete grouped PNG generation under `doc/reports/campaign_results/track 2/`.
+  plus complete grouped PNG generation under `doc/reports/campaign_results/track_2/verification_plots/`.
 
 - [technical/2026-05/2026-05-18/2026-05-18-11-50-19_track2_report_grouped_source_tables.md](./technical/2026-05/2026-05-18/2026-05-18-11-50-19_track2_report_grouped_source_tables.md)
   Plan the `Track 2` report readability refinement that groups comparison
@@ -2513,16 +2520,16 @@ This folder contains the internal project documents derived from the reference P
 - [scripts/campaigns/run_wave1_directional_best_hyperparameter_search_campaign.md](./scripts/campaigns/run_wave1_directional_best_hyperparameter_search_campaign.md)
   Script-level documentation for the mixed bounded-grid plus Optuna Wave 1 directional best-hyperparameter search launcher.
 
-- [scripts/campaigns/wave3/wave3_embryonic_skeleton_checks.md](./scripts/campaigns/wave3/wave3_embryonic_skeleton_checks.md)
+- [scripts/campaigns/wave_3/wave3_embryonic_skeleton_checks.md](./scripts/campaigns/wave_3/wave3_embryonic_skeleton_checks.md)
   Script-level documentation for the dry-run `Wave 3` embryonic skeleton
   checker. It validates implementation readiness without queueing or launching
   training.
 
-- [scripts/campaigns/wave3/wave3_training_smoke_ready_checks.md](./scripts/campaigns/wave3/wave3_training_smoke_ready_checks.md)
+- [scripts/campaigns/wave_3/wave3_training_smoke_ready_checks.md](./scripts/campaigns/wave_3/wave3_training_smoke_ready_checks.md)
   Script-level documentation for the dry-run `Wave 3` training-smoke-ready
   checker. It runs one-batch validation without creating a campaign queue.
 
-- [scripts/campaigns/wave4/wave4_embryonic_skeleton_checks.md](./scripts/campaigns/wave4/wave4_embryonic_skeleton_checks.md)
+- [scripts/campaigns/wave_4/wave4_embryonic_skeleton_checks.md](./scripts/campaigns/wave_4/wave4_embryonic_skeleton_checks.md)
   Script-level documentation for the dry-run `Wave 4A` embryonic skeleton
   checker. It validates implementation readiness without queueing or launching
   training.
@@ -2549,64 +2556,64 @@ This folder contains the internal project documents derived from the reference P
   Script-level documentation for the prepared Wave 2 temporal-model entry
   launcher across temporal convolution, `GRU`, and `LSTM` sequence baselines.
 
-- [scripts/campaigns/wave2/run_wave2b_harmonic_temporal_hybrid_campaign.md](./scripts/campaigns/wave2/run_wave2b_harmonic_temporal_hybrid_campaign.md)
+- [scripts/campaigns/wave_2/run_wave2b_harmonic_temporal_hybrid_campaign.md](./scripts/campaigns/wave_2/run_wave2b_harmonic_temporal_hybrid_campaign.md)
   Script-level documentation for the prepared Wave 2B harmonic-temporal
   hybrid launcher across periodic temporal convolution, periodic `GRU`, and
   periodic `LSTM` sequence models.
 
-- [scripts/campaigns/track2/run_track2f_bis_harmonic_offset_probe_campaign.md](./scripts/campaigns/track2/run_track2f_bis_harmonic_offset_probe_campaign.md)
+- [scripts/campaigns/track_2/run_track2f_bis_harmonic_offset_probe_campaign.md](./scripts/campaigns/track_2/run_track2f_bis_harmonic_offset_probe_campaign.md)
   Script-level documentation for the prepared Track 2F-bis harmonic-offset
   launcher across clean non-harmonic controls and explicit harmonic-offset
   probes for `global`, `Fw`, and `Bw`.
 
-- [scripts/campaigns/track2/run_track2f_bis_track2_verification_refresh.md](./scripts/campaigns/track2/run_track2f_bis_track2_verification_refresh.md)
+- [scripts/campaigns/track_2/run_track2f_bis_track2_verification_refresh.md](./scripts/campaigns/track_2/run_track2f_bis_track2_verification_refresh.md)
   Script-level documentation for the operator-launched Track 2F-bis official
   `Track 2` verification refresh across clean and harmonic candidates for
   `global`, `Fw`, and `Bw`.
 
-- [scripts/campaigns/track2/run_track2g_curve_aware_training_campaign.md](./scripts/campaigns/track2/run_track2g_curve_aware_training_campaign.md)
+- [scripts/campaigns/track_2/run_track2g_curve_aware_training_campaign.md](./scripts/campaigns/track_2/run_track2g_curve_aware_training_campaign.md)
   Script-level documentation for the prepared Track 2G curve-aware training
   launcher across pointwise-control, centered-shape, offset, and full
   composite loss profiles for `global`, `Fw`, and `Bw`.
 
-- [scripts/campaigns/track2/run_track2g_track2_verification_refresh.md](./scripts/campaigns/track2/run_track2g_track2_verification_refresh.md)
+- [scripts/campaigns/track_2/run_track2g_track2_verification_refresh.md](./scripts/campaigns/track_2/run_track2g_track2_verification_refresh.md)
   Script-level documentation for the operator-launched Track 2G official
   `Track 2` verification refresh across all twelve curve-aware candidates for
   `global`, `Fw`, and `Bw`.
 
-- [scripts/campaigns/track2/run_track2h_track2_verification_refresh.md](./scripts/campaigns/track2/run_track2h_track2_verification_refresh.md)
+- [scripts/campaigns/track_2/run_track2h_track2_verification_refresh.md](./scripts/campaigns/track_2/run_track2h_track2_verification_refresh.md)
   Script-level documentation for the operator-launched Track 2H official
   `Track 2` verification refresh across all nine robust-loss candidates for
   `global`, `Fw`, and `Bw`.
 
-- [scripts/campaigns/track2/run_track2h_quantile_probabilistic_campaign.md](./scripts/campaigns/track2/run_track2h_quantile_probabilistic_campaign.md)
+- [scripts/campaigns/track_2/run_track2h_quantile_probabilistic_campaign.md](./scripts/campaigns/track_2/run_track2h_quantile_probabilistic_campaign.md)
   Script-level documentation for the prepared `Track 2H`
   quantile/probabilistic campaign launcher across `global`, `Fw`, and `Bw`.
 
-- [scripts/campaigns/track2/run_track2h_mixture_density_heads_campaign.md](./scripts/campaigns/track2/run_track2h_mixture_density_heads_campaign.md)
+- [scripts/campaigns/track_2/run_track2h_mixture_density_heads_campaign.md](./scripts/campaigns/track_2/run_track2h_mixture_density_heads_campaign.md)
   Script-level documentation for the prepared `Track 2H` mixture-density heads
   campaign launcher across `global`, `Fw`, and `Bw`.
 
-- [scripts/campaigns/track2/run_track2h_latent_state_hysteresis_campaign.md](./scripts/campaigns/track2/run_track2h_latent_state_hysteresis_campaign.md)
+- [scripts/campaigns/track_2/run_track2h_latent_state_hysteresis_campaign.md](./scripts/campaigns/track_2/run_track2h_latent_state_hysteresis_campaign.md)
   Script-level documentation for the prepared `Track 2H-L` latent-state /
   hysteresis-aware campaign launcher across `global`, `Fw`, and `Bw`.
 
-- [scripts/campaigns/track2/run_track2h_quantile_probabilistic_track2_verification_refresh.md](./scripts/campaigns/track2/run_track2h_quantile_probabilistic_track2_verification_refresh.md)
+- [scripts/campaigns/track_2/run_track2h_quantile_probabilistic_track2_verification_refresh.md](./scripts/campaigns/track_2/run_track2h_quantile_probabilistic_track2_verification_refresh.md)
   Script-level documentation for the operator-launched `Track 2H`
   quantile/probabilistic official `Track 2` verification refresh across all
   six probabilistic candidates for `global`, `Fw`, and `Bw`.
 
-- [scripts/campaigns/track2/run_track2h_mixture_density_heads_track2_verification_refresh.md](./scripts/campaigns/track2/run_track2h_mixture_density_heads_track2_verification_refresh.md)
+- [scripts/campaigns/track_2/run_track2h_mixture_density_heads_track2_verification_refresh.md](./scripts/campaigns/track_2/run_track2h_mixture_density_heads_track2_verification_refresh.md)
   Script-level documentation for the operator-launched `Track 2H`
   mixture-density heads official `Track 2` verification refresh across all
   six MDN candidates for `global`, `Fw`, and `Bw`.
 
-- [scripts/campaigns/track2/run_wave3_harmonic_prior_residual_track2_verification_refresh.md](./scripts/campaigns/track2/run_wave3_harmonic_prior_residual_track2_verification_refresh.md)
+- [scripts/campaigns/track_2/run_wave3_harmonic_prior_residual_track2_verification_refresh.md](./scripts/campaigns/track_2/run_wave3_harmonic_prior_residual_track2_verification_refresh.md)
   Script-level documentation for the operator-launched `Wave 3`
   harmonic-prior residual official `Track 2` verification refresh across all
   six completed candidates for `global`, `Fw`, and `Bw`.
 
-- [scripts/campaigns/wave3/run_wave3_harmonic_prior_residual_campaign.md](./scripts/campaigns/wave3/run_wave3_harmonic_prior_residual_campaign.md)
+- [scripts/campaigns/wave_3/run_wave3_harmonic_prior_residual_campaign.md](./scripts/campaigns/wave_3/run_wave3_harmonic_prior_residual_campaign.md)
   Script-level documentation for the prepared first real `Wave 3`
   harmonic-prior residual campaign launcher across `global`, `Fw`, and `Bw`.
 
@@ -2808,55 +2815,55 @@ This folder contains the internal project documents derived from the reference P
 
 #### Latest Campaign Plans
 
-- [reports/campaign_plans/track2/2026-06-16-16-00-57_track2h_latent_state_hysteresis_campaign_plan_report.md](./reports/campaign_plans/track2/2026-06-16-16-00-57_track2h_latent_state_hysteresis_campaign_plan_report.md)
+- [reports/campaign_plans/track_2/2026-06-16-16-00-57_track2h_latent_state_hysteresis_campaign_plan_report.md](./reports/campaign_plans/track_2/2026-06-16-16-00-57_track2h_latent_state_hysteresis_campaign_plan_report.md)
   Preliminary campaign plan for the next `Track 2H-L` package, focused on
   causal latent-state / hysteresis-aware candidates across `global`, `Fw`,
   and `Bw`.
 
-- [reports/campaign_plans/wave3_wave4/2026-06-14-19-54-55_wave3_harmonic_prior_residual_campaign_plan_report.md](./reports/campaign_plans/wave3_wave4/2026-06-14-19-54-55_wave3_harmonic_prior_residual_campaign_plan_report.md)
+- [reports/campaign_plans/wave_3/2026-06-14-19-54-55_wave3_harmonic_prior_residual_campaign_plan_report.md](./reports/campaign_plans/wave_3/2026-06-14-19-54-55_wave3_harmonic_prior_residual_campaign_plan_report.md)
   Preliminary and prepared campaign plan for the first real `Wave 3`
   harmonic-prior residual package across `global`, `Fw`, and `Bw`.
 
-- [reports/campaign_plans/track2/2026-06-12-00-01-04_track2h_quantile_probabilistic_campaign_plan_report.md](./reports/campaign_plans/track2/2026-06-12-00-01-04_track2h_quantile_probabilistic_campaign_plan_report.md)
+- [reports/campaign_plans/track_2/2026-06-12-00-01-04_track2h_quantile_probabilistic_campaign_plan_report.md](./reports/campaign_plans/track_2/2026-06-12-00-01-04_track2h_quantile_probabilistic_campaign_plan_report.md)
   Preliminary campaign plan for the second `Track 2H` package, focused on
   quantile and Gaussian probabilistic regression candidates across `global`,
   `Fw`, and `Bw`.
 
-- [reports/campaign_plans/track2/2026-06-10-16-56-36_track2h_dispersion_aware_modeling_probe_campaign_plan_report.md](./reports/campaign_plans/track2/2026-06-10-16-56-36_track2h_dispersion_aware_modeling_probe_campaign_plan_report.md)
+- [reports/campaign_plans/track_2/2026-06-10-16-56-36_track2h_dispersion_aware_modeling_probe_campaign_plan_report.md](./reports/campaign_plans/track_2/2026-06-10-16-56-36_track2h_dispersion_aware_modeling_probe_campaign_plan_report.md)
   Preliminary campaign plan for the `Track 2H` dispersion-aware modeling
   probes across robust, probabilistic, mixture, and causal latent-state
   candidate groups.
 
-- [reports/campaign_plans/wave3_wave4/2026-06-11-19-25-32_wave3_wave4_parallel_hardening_plan_report.md](./reports/campaign_plans/wave3_wave4/2026-06-11-19-25-32_wave3_wave4_parallel_hardening_plan_report.md)
+- [reports/campaign_plans/cross_wave/wave_3_wave_4/2026-06-11-19-25-32_wave3_wave4_parallel_hardening_plan_report.md](./reports/campaign_plans/cross_wave/wave_3_wave_4/2026-06-11-19-25-32_wave3_wave4_parallel_hardening_plan_report.md)
   Preliminary plan for a non-campaign `Wave 3` training-smoke-ready hardening
   pass plus the first `Wave 4A` MMT equation diagnostic report generator.
 
-- [reports/campaign_plans/wave3_wave4/2026-06-11-15-10-02_wave3_wave4_embryonic_skeleton_plan_report.md](./reports/campaign_plans/wave3_wave4/2026-06-11-15-10-02_wave3_wave4_embryonic_skeleton_plan_report.md)
+- [reports/campaign_plans/cross_wave/wave_3_wave_4/2026-06-11-15-10-02_wave3_wave4_embryonic_skeleton_plan_report.md](./reports/campaign_plans/cross_wave/wave_3_wave_4/2026-06-11-15-10-02_wave3_wave4_embryonic_skeleton_plan_report.md)
   Preliminary plan for preparing `Wave 3` and `Wave 4` embryonic model,
   diagnostic, validator, dry-run launcher, and configuration skeletons without
   making either wave campaign-ready.
 
-- [reports/campaign_plans/track2/2026-06-08-18-01-40_track2g_curve_aware_training_campaign_plan_report.md](./reports/campaign_plans/track2/2026-06-08-18-01-40_track2g_curve_aware_training_campaign_plan_report.md)
+- [reports/campaign_plans/track_2/2026-06-08-18-01-40_track2g_curve_aware_training_campaign_plan_report.md](./reports/campaign_plans/track_2/2026-06-08-18-01-40_track2g_curve_aware_training_campaign_plan_report.md)
   Preliminary campaign plan for the `Track 2G` curve-aware training probe,
   testing pointwise-control, centered-shape, offset, and full composite loss
   profiles across `global`, `Fw`, and `Bw`.
 
-- [reports/campaign_plans/track2/2026-06-04-22-57-04_track2f_bis_harmonic_offset_probe_campaign_plan_report.md](./reports/campaign_plans/track2/2026-06-04-22-57-04_track2f_bis_harmonic_offset_probe_campaign_plan_report.md)
+- [reports/campaign_plans/track_2/2026-06-04-22-57-04_track2f_bis_harmonic_offset_probe_campaign_plan_report.md](./reports/campaign_plans/track_2/2026-06-04-22-57-04_track2f_bis_harmonic_offset_probe_campaign_plan_report.md)
   Preliminary campaign plan for the `Track 2F-bis` harmonic-offset probe that
   compares clean non-harmonic Track 2F-like controls against explicit
   harmonic-offset candidates across `global`, `Fw`, and `Bw`.
 
-- [reports/campaign_plans/track2/2026-06-03-17-25-37_track2f_offset_aware_probe_campaign_plan_report.md](./reports/campaign_plans/track2/2026-06-03-17-25-37_track2f_offset_aware_probe_campaign_plan_report.md)
+- [reports/campaign_plans/track_2/2026-06-03-17-25-37_track2f_offset_aware_probe_campaign_plan_report.md](./reports/campaign_plans/track_2/2026-06-03-17-25-37_track2f_offset_aware_probe_campaign_plan_report.md)
   Preliminary campaign plan for the `Track 2F` offset-aware probe comparing
   post-hoc causal offset calibration, sequential residual-offset modeling, and
   multi-head shape/offset training across `global`, `Fw`, and `Bw`.
 
-- [reports/campaign_plans/wave2/2026-05-25-13-34-12_wave2b_harmonic_temporal_hybrid_campaign_plan_report.md](./reports/campaign_plans/wave2/2026-05-25-13-34-12_wave2b_harmonic_temporal_hybrid_campaign_plan_report.md)
+- [reports/campaign_plans/wave_2/2026-05-25-13-34-12_wave2b_harmonic_temporal_hybrid_campaign_plan_report.md](./reports/campaign_plans/wave_2/2026-05-25-13-34-12_wave2b_harmonic_temporal_hybrid_campaign_plan_report.md)
   Preliminary campaign plan for the `Wave 2B` harmonic-temporal hybrid
   campaign, comparing periodic temporal convolution, periodic `GRU`, and
   periodic `LSTM` sequence models across `global`, `Fw`, and `Bw`.
 
-- [reports/campaign_plans/wave2/2026-05-21-16-46-08_wave2_temporal_model_entry_campaign_plan_report.md](./reports/campaign_plans/wave2/2026-05-21-16-46-08_wave2_temporal_model_entry_campaign_plan_report.md)
+- [reports/campaign_plans/wave_2/2026-05-21-16-46-08_wave2_temporal_model_entry_campaign_plan_report.md](./reports/campaign_plans/wave_2/2026-05-21-16-46-08_wave2_temporal_model_entry_campaign_plan_report.md)
   Preliminary campaign plan for the first `Wave 2` temporal-model entry
   campaign, comparing temporal convolution, `GRU`, and `LSTM` sequence
   baselines across `global`, `Fw`, and `Bw`.
@@ -2873,20 +2880,20 @@ This folder contains the internal project documents derived from the reference P
 - [reports/campaign_plans/2026-03-26-13-52-00_wave1_residual_harmonic_family_campaign_plan_report.md](./reports/campaign_plans/2026-03-26-13-52-00_wave1_residual_harmonic_family_campaign_plan_report.md)
   Historical-filename planning report for the Wave 1 residual-harmonic familywise follow-up campaign, focused on a broad hyperparameter search inside the residual harmonic MLP family.
 
-- [reports/campaign_plans/wave1/2026-05-11-19-41-11_wave1_directional_best_hyperparameter_search_campaign_plan_report.md](./reports/campaign_plans/wave1/2026-05-11-19-41-11_wave1_directional_best_hyperparameter_search_campaign_plan_report.md)
+- [reports/campaign_plans/wave_1/2026-05-11-19-41-11_wave1_directional_best_hyperparameter_search_campaign_plan_report.md](./reports/campaign_plans/wave_1/2026-05-11-19-41-11_wave1_directional_best_hyperparameter_search_campaign_plan_report.md)
   Campaign-planning report for the mixed bounded-grid plus Optuna refinement pass across all `15` directional `Wave 1` winner surfaces.
 
-- [reports/campaign_plans/wave1/2026-05-12-10-49-02_wave1_directional_optuna_recovery_micro_campaign_plan_report.md](./reports/campaign_plans/wave1/2026-05-12-10-49-02_wave1_directional_optuna_recovery_micro_campaign_plan_report.md)
+- [reports/campaign_plans/wave_1/2026-05-12-10-49-02_wave1_directional_optuna_recovery_micro_campaign_plan_report.md](./reports/campaign_plans/wave_1/2026-05-12-10-49-02_wave1_directional_optuna_recovery_micro_campaign_plan_report.md)
   Lightweight recovery-campaign plan for reproducing and validating the blocked
   neural `Optuna` launcher path before resuming the full directional HPO
   campaign.
 
-- [reports/campaign_plans/wave1/2026-05-20-22-42-49_wave1_periodic_mlp_explicit_harmonic_tracking_campaign_plan_report.md](./reports/campaign_plans/wave1/2026-05-20-22-42-49_wave1_periodic_mlp_explicit_harmonic_tracking_campaign_plan_report.md)
+- [reports/campaign_plans/wave_1/2026-05-20-22-42-49_wave1_periodic_mlp_explicit_harmonic_tracking_campaign_plan_report.md](./reports/campaign_plans/wave_1/2026-05-20-22-42-49_wave1_periodic_mlp_explicit_harmonic_tracking_campaign_plan_report.md)
   Planning report for the `periodic_mlp` fixed-feature follow-up campaign
   that mirrors the high-order harmonic bank comparison with `9` directional
   sparse and dense periodic-feature runs.
 
-- [reports/campaign_plans/track1/exact_paper/2026-05-13-17-33-38_track1_paper_faithful_elm_queue_addendum_plan_report.md](./reports/campaign_plans/track1/exact_paper/2026-05-13-17-33-38_track1_paper_faithful_elm_queue_addendum_plan_report.md)
+- [reports/campaign_plans/track_1/exact_paper/2026-05-13-17-33-38_track1_paper_faithful_elm_queue_addendum_plan_report.md](./reports/campaign_plans/track_1/exact_paper/2026-05-13-17-33-38_track1_paper_faithful_elm_queue_addendum_plan_report.md)
   Addendum for extending the Track 1 paper-faithful campaign queue with one
   `ELM` search run per direction.
 
@@ -3020,76 +3027,76 @@ This folder contains the internal project documents derived from the reference P
 
 #### Campaign Results
 
-- [reports/campaign_results/track2/2026-06-17-01-27-10_track2h_latent_state_hysteresis_campaign_results_report.md](./reports/campaign_results/track2/2026-06-17-01-27-10_track2h_latent_state_hysteresis_campaign_results_report.md)
+- [reports/campaign_results/track_2/campaign_closeouts/2026-06-17-01-27-10_track2h_latent_state_hysteresis_campaign_results_report.md](./reports/campaign_results/track_2/campaign_closeouts/2026-06-17-01-27-10_track2h_latent_state_hysteresis_campaign_results_report.md)
   Final results report for the completed `Track 2H-L` latent-state /
   hysteresis-aware campaign, including scalar branch winners, comparison
   against robust/probabilistic/MDN baselines, registry effects, and the
   boundary that official `Track 2` curve verification remains separate.
 
-- [reports/campaign_results/wave3_wave4/2026-06-15-15-30-20_wave3_harmonic_prior_residual_campaign_results_report.md](./reports/campaign_results/wave3_wave4/2026-06-15-15-30-20_wave3_harmonic_prior_residual_campaign_results_report.md)
+- [reports/campaign_results/wave_3/2026-06-15-15-30-20_wave3_harmonic_prior_residual_campaign_results_report.md](./reports/campaign_results/wave_3/2026-06-15-15-30-20_wave3_harmonic_prior_residual_campaign_results_report.md)
   Final results report for the completed first real `Wave 3`
   harmonic-prior residual campaign, including scalar branch winners,
   profile comparison, registry effects, and the normal-closeout boundary that
   kept official `Track 2` curve verification as a separate follow-up step.
 
-- [reports/campaign_results/track2/2026-06-13-13-24-37_track2h_mixture_density_heads_campaign_results_report.md](./reports/campaign_results/track2/2026-06-13-13-24-37_track2h_mixture_density_heads_campaign_results_report.md)
+- [reports/campaign_results/track_2/campaign_closeouts/2026-06-13-13-24-37_track2h_mixture_density_heads_campaign_results_report.md](./reports/campaign_results/track_2/campaign_closeouts/2026-06-13-13-24-37_track2h_mixture_density_heads_campaign_results_report.md)
   Final results report for the completed third `Track 2H` mixture-density
   campaign, including scalar branch winners, mixture-collapse diagnostics,
   comparison against robust/probabilistic probes, and the boundary that
   official `Track 2` curve verification remains separate.
 
-- [reports/campaign_results/track2/2026-06-12-13-54-57_track2h_quantile_probabilistic_campaign_results_report.md](./reports/campaign_results/track2/2026-06-12-13-54-57_track2h_quantile_probabilistic_campaign_results_report.md)
+- [reports/campaign_results/track_2/campaign_closeouts/2026-06-12-13-54-57_track2h_quantile_probabilistic_campaign_results_report.md](./reports/campaign_results/track_2/campaign_closeouts/2026-06-12-13-54-57_track2h_quantile_probabilistic_campaign_results_report.md)
   Final results report for the completed second `Track 2H`
   quantile/probabilistic campaign, including scalar branch winners,
   calibration diagnostics, robust-loss comparison, and the boundary that
   official `Track 2` curve verification remains separate.
 
-- [reports/campaign_results/track2/2026-06-11-14-01-57_track2h_dispersion_aware_modeling_campaign_results_report.md](./reports/campaign_results/track2/2026-06-11-14-01-57_track2h_dispersion_aware_modeling_campaign_results_report.md)
+- [reports/campaign_results/track_2/campaign_closeouts/2026-06-11-14-01-57_track2h_dispersion_aware_modeling_campaign_results_report.md](./reports/campaign_results/track_2/campaign_closeouts/2026-06-11-14-01-57_track2h_dispersion_aware_modeling_campaign_results_report.md)
   Final results report for the completed `Track 2H` robust-loss
   dispersion-aware campaign, including separate `global`, `Fw`, and `Bw`
   branch winners, robust-loss interpretation, registry effects, and the
   boundary that official `Track 2` curve verification remains a separate
   operator-launched workflow.
 
-- [reports/campaign_results/track2/2026-06-09-01-56-25_track2g_curve_aware_training_campaign_results_report.md](./reports/campaign_results/track2/2026-06-09-01-56-25_track2g_curve_aware_training_campaign_results_report.md)
+- [reports/campaign_results/track_2/campaign_closeouts/2026-06-09-01-56-25_track2g_curve_aware_training_campaign_results_report.md](./reports/campaign_results/track_2/campaign_closeouts/2026-06-09-01-56-25_track2g_curve_aware_training_campaign_results_report.md)
   Final results report for the completed `Track 2G` curve-aware training
   campaign, including separate `global`, `Fw`, and `Bw` branch winners,
   loss-profile interpretation, registry effects, and the boundary that
   official `Track 2` curve verification remains a separate
   operator-launched workflow.
 
-- [reports/campaign_results/track2/2026-06-05-16-49-50_track2f_bis_harmonic_offset_probe_campaign_results_report.md](./reports/campaign_results/track2/2026-06-05-16-49-50_track2f_bis_harmonic_offset_probe_campaign_results_report.md)
+- [reports/campaign_results/track_2/campaign_closeouts/2026-06-05-16-49-50_track2f_bis_harmonic_offset_probe_campaign_results_report.md](./reports/campaign_results/track_2/campaign_closeouts/2026-06-05-16-49-50_track2f_bis_harmonic_offset_probe_campaign_results_report.md)
   Final results report for the completed-after-repair `Track 2F-bis`
   harmonic-offset probe campaign, including clean and harmonic candidates
   for `global`, `Fw`, and `Bw`, the runner registration repair, launcher
   wrapper hardening, registry effects, and the boundary that official
   `Track 2` curve verification remains a separate operator-launched workflow.
 
-- [reports/campaign_results/track2/2026-06-04-12-28-46_track2f_offset_aware_probe_campaign_results_report.md](./reports/campaign_results/track2/2026-06-04-12-28-46_track2f_offset_aware_probe_campaign_results_report.md)
+- [reports/campaign_results/track_2/campaign_closeouts/2026-06-04-12-28-46_track2f_offset_aware_probe_campaign_results_report.md](./reports/campaign_results/track_2/campaign_closeouts/2026-06-04-12-28-46_track2f_offset_aware_probe_campaign_results_report.md)
   Final results report for the completed `Track 2F` offset-aware
   probe campaign, including separate `global`, `Fw`, and `Bw`
   branch results, runner-wrapper diagnostics, registry effects, and
   the boundary that official `Track 2` verification remains a
   separate operator-launched workflow.
 
-- [reports/campaign_results/wave2/2026-05-28-11-35-34_wave2c_residual_harmonic_temporal_hybrid_campaign_results_report.md](./reports/campaign_results/wave2/2026-05-28-11-35-34_wave2c_residual_harmonic_temporal_hybrid_campaign_results_report.md)
+- [reports/campaign_results/wave_2/2026-05-28-11-35-34_wave2c_residual_harmonic_temporal_hybrid_campaign_results_report.md](./reports/campaign_results/wave_2/2026-05-28-11-35-34_wave2c_residual_harmonic_temporal_hybrid_campaign_results_report.md)
   Final results report for the completed `Wave 2C` residual harmonic
   temporal hybrid campaign, including the 18-run sparse/dense
   harmonic-basis leaderboard, registry effects, and the explicit
   boundary that `Track 2` remains a separate optional workflow.
 
-- [reports/campaign_results/wave2/2026-05-26-14-01-40_wave2b_harmonic_temporal_hybrid_campaign_results_report.md](./reports/campaign_results/wave2/2026-05-26-14-01-40_wave2b_harmonic_temporal_hybrid_campaign_results_report.md)
+- [reports/campaign_results/wave_2/2026-05-26-14-01-40_wave2b_harmonic_temporal_hybrid_campaign_results_report.md](./reports/campaign_results/wave_2/2026-05-26-14-01-40_wave2b_harmonic_temporal_hybrid_campaign_results_report.md)
   Final results report for the completed `Wave 2B` harmonic-temporal
   hybrid campaign, including the 9-run leaderboard, registry effects,
   and the explicit boundary that `Track 2` remains a separate
   operator-launched workflow.
 
-- [reports/campaign_results/wave2/2026-05-24-12-36-49_wave2_temporal_model_entry_campaign_results_report.md](./reports/campaign_results/wave2/2026-05-24-12-36-49_wave2_temporal_model_entry_campaign_results_report.md)
+- [reports/campaign_results/wave_2/2026-05-24-12-36-49_wave2_temporal_model_entry_campaign_results_report.md](./reports/campaign_results/wave_2/2026-05-24-12-36-49_wave2_temporal_model_entry_campaign_results_report.md)
   Final results report for the completed `Wave 2` temporal-model entry
   campaign, including temporal convolution, `GRU`, and `LSTM` candidates
   across `global`, `Fw`, and `Bw`.
 
-- [reports/campaign_results/wave1/2026-05-21-09-38-37_wave1_periodic_mlp_explicit_harmonic_tracking_campaign_results_report.md](./reports/campaign_results/wave1/2026-05-21-09-38-37_wave1_periodic_mlp_explicit_harmonic_tracking_campaign_results_report.md)
+- [reports/campaign_results/wave_1/2026-05-21-09-38-37_wave1_periodic_mlp_explicit_harmonic_tracking_campaign_results_report.md](./reports/campaign_results/wave_1/2026-05-21-09-38-37_wave1_periodic_mlp_explicit_harmonic_tracking_campaign_results_report.md)
   Final results report for the completed `Wave 1` `periodic_mlp` explicit
   harmonic tracking campaign, including the 9-run leaderboard and
   registry-impact summary.
@@ -3099,7 +3106,7 @@ This folder contains the internal project documents derived from the reference P
   attempt on the residual `SVM` yellow cells, including the repeated plateau
   confirmation and the validated PDF closeout.
 
-- [reports/campaign_results/track1/exact_paper/2026-05-08-19-53-19_track1_forward_dt_paper_faithful_search_campaign_results_report.md](./reports/campaign_results/track1/exact_paper/2026-05-08-19-53-19_track1_forward_dt_paper_faithful_search_campaign_results_report.md)
+- [reports/campaign_results/track_1/exact_paper/2026-05-08-19-53-19_track1_forward_dt_paper_faithful_search_campaign_results_report.md](./reports/campaign_results/track_1/exact_paper/2026-05-08-19-53-19_track1_forward_dt_paper_faithful_search_campaign_results_report.md)
   Final results report for the completed single-run `forward + DT + search`
   exact-paper subset closeout, including the paper-faithful search replay
   outcome, validated PDF export, and subset bookkeeping artifacts.
@@ -3127,16 +3134,16 @@ This folder contains the internal project documents derived from the reference P
 - [reports/campaign_results/2026-03-24-15-49-42_wave1_structured_baseline_recovery_campaign_results_report.md](./reports/campaign_results/2026-03-24-15-49-42_wave1_structured_baseline_recovery_campaign_results_report.md)
   Final results report for the completed Wave 1 recovery campaign, including campaign ranking, family-level outcomes, and program-level context.
 
-- [reports/campaign_results/wave1/2026-05-07-13-29-12_wave1_directional_retraining_campaign_results_report.md](./reports/campaign_results/wave1/2026-05-07-13-29-12_wave1_directional_retraining_campaign_results_report.md)
+- [reports/campaign_results/wave_1/2026-05-07-13-29-12_wave1_directional_retraining_campaign_results_report.md](./reports/campaign_results/wave_1/2026-05-07-13-29-12_wave1_directional_retraining_campaign_results_report.md)
   Final results report for the completed Wave 1 directional retraining campaign, including repaired directional registry metadata, the consolidated 15-run ranking, and the provenance-rich Python plus ONNX archive under `models/exported/`.
 
-- [reports/campaign_results/wave1/2026-05-17-11-40-42_wave1_directional_best_hyperparameter_search_campaign_results_report.md](./reports/campaign_results/wave1/2026-05-17-11-40-42_wave1_directional_best_hyperparameter_search_campaign_results_report.md)
+- [reports/campaign_results/wave_1/2026-05-17-11-40-42_wave1_directional_best_hyperparameter_search_campaign_results_report.md](./reports/campaign_results/wave_1/2026-05-17-11-40-42_wave1_directional_best_hyperparameter_search_campaign_results_report.md)
   Final results report for the completed Wave 1 directional best-hyperparameter
   search campaign, including the bounded-grid and Optuna surfaces, verified best
   hyperparameters, and refreshed Python plus ONNX exports under
   `models/exported/`.
 
-- [reports/campaign_results/wave1/2026-05-20-12-25-49_wave1_high_order_harmonic_tracking_campaign_results_report.md](./reports/campaign_results/wave1/2026-05-20-12-25-49_wave1_high_order_harmonic_tracking_campaign_results_report.md)
+- [reports/campaign_results/wave_1/2026-05-20-12-25-49_wave1_high_order_harmonic_tracking_campaign_results_report.md](./reports/campaign_results/wave_1/2026-05-20-12-25-49_wave1_high_order_harmonic_tracking_campaign_results_report.md)
   Final results report for the completed Wave 1 high-order harmonic tracking
   campaign, including the `RCIM` sparse, dense `0..240`, and dense `0..360`
   harmonic-bank comparison and the validated closeout artifact set.
@@ -3146,48 +3153,48 @@ This folder contains the internal project documents derived from the reference P
 
 #### Campaign Plans
 
-- [reports/campaign_plans/track2/2026-06-16-16-00-57_track2h_latent_state_hysteresis_campaign_plan_report.md](./reports/campaign_plans/track2/2026-06-16-16-00-57_track2h_latent_state_hysteresis_campaign_plan_report.md)
+- [reports/campaign_plans/track_2/2026-06-16-16-00-57_track2h_latent_state_hysteresis_campaign_plan_report.md](./reports/campaign_plans/track_2/2026-06-16-16-00-57_track2h_latent_state_hysteresis_campaign_plan_report.md)
   Preliminary campaign plan for the `Track 2H-L` latent-state /
   hysteresis-aware package across `global`, `Fw`, and `Bw`.
 
-- [reports/campaign_plans/wave3_wave4/2026-06-14-19-54-55_wave3_harmonic_prior_residual_campaign_plan_report.md](./reports/campaign_plans/wave3_wave4/2026-06-14-19-54-55_wave3_harmonic_prior_residual_campaign_plan_report.md)
+- [reports/campaign_plans/wave_3/2026-06-14-19-54-55_wave3_harmonic_prior_residual_campaign_plan_report.md](./reports/campaign_plans/wave_3/2026-06-14-19-54-55_wave3_harmonic_prior_residual_campaign_plan_report.md)
   Preliminary and prepared campaign plan for the first real `Wave 3`
   harmonic-prior residual package across `global`, `Fw`, and `Bw`.
 
-- [reports/campaign_plans/wave3_wave4/2026-06-12-14-56-27_wave3_grouped_harmonic_heads_skeleton_plan_report.md](./reports/campaign_plans/wave3_wave4/2026-06-12-14-56-27_wave3_grouped_harmonic_heads_skeleton_plan_report.md)
+- [reports/campaign_plans/wave_3/2026-06-12-14-56-27_wave3_grouped_harmonic_heads_skeleton_plan_report.md](./reports/campaign_plans/wave_3/2026-06-12-14-56-27_wave3_grouped_harmonic_heads_skeleton_plan_report.md)
   Preliminary plan for a non-campaign `Wave 3` grouped harmonic-heads skeleton
   with factory construction, point/sequence forward checks, and a dry-run
   launcher.
 
-- [reports/campaign_plans/wave3_wave4/2026-06-12-13-04-05_wave4b_mmt_feature_generator_skeleton_plan_report.md](./reports/campaign_plans/wave3_wave4/2026-06-12-13-04-05_wave4b_mmt_feature_generator_skeleton_plan_report.md)
+- [reports/campaign_plans/wave_4/2026-06-12-13-04-05_wave4b_mmt_feature_generator_skeleton_plan_report.md](./reports/campaign_plans/wave_4/2026-06-12-13-04-05_wave4b_mmt_feature_generator_skeleton_plan_report.md)
   Preliminary plan for a non-campaign `Wave 4B` MMT feature-generator skeleton
   with leakage-aware metadata, validation outputs, and a dry-run launcher.
 
-- [reports/campaign_plans/wave3_wave4/2026-06-11-19-25-32_wave3_wave4_parallel_hardening_plan_report.md](./reports/campaign_plans/wave3_wave4/2026-06-11-19-25-32_wave3_wave4_parallel_hardening_plan_report.md)
+- [reports/campaign_plans/cross_wave/wave_3_wave_4/2026-06-11-19-25-32_wave3_wave4_parallel_hardening_plan_report.md](./reports/campaign_plans/cross_wave/wave_3_wave_4/2026-06-11-19-25-32_wave3_wave4_parallel_hardening_plan_report.md)
   Preliminary plan for hardening the `Wave 3` skeleton with one-batch
   training-stack validation and generating the first `Wave 4A` MMT equation
   diagnostic report.
 
-- [reports/campaign_plans/wave3_wave4/2026-06-11-15-10-02_wave3_wave4_embryonic_skeleton_plan_report.md](./reports/campaign_plans/wave3_wave4/2026-06-11-15-10-02_wave3_wave4_embryonic_skeleton_plan_report.md)
+- [reports/campaign_plans/cross_wave/wave_3_wave_4/2026-06-11-15-10-02_wave3_wave4_embryonic_skeleton_plan_report.md](./reports/campaign_plans/cross_wave/wave_3_wave_4/2026-06-11-15-10-02_wave3_wave4_embryonic_skeleton_plan_report.md)
   Preliminary plan for preparing `Wave 3` and `Wave 4` embryonic skeletons as
   implementation-ready but not campaign-ready scaffolds.
 
-- [reports/campaign_plans/wave2/2026-05-25-13-34-12_wave2b_harmonic_temporal_hybrid_campaign_plan_report.md](./reports/campaign_plans/wave2/2026-05-25-13-34-12_wave2b_harmonic_temporal_hybrid_campaign_plan_report.md)
+- [reports/campaign_plans/wave_2/2026-05-25-13-34-12_wave2b_harmonic_temporal_hybrid_campaign_plan_report.md](./reports/campaign_plans/wave_2/2026-05-25-13-34-12_wave2b_harmonic_temporal_hybrid_campaign_plan_report.md)
   Preliminary campaign plan for the `Wave 2B` harmonic-temporal hybrid
   campaign, comparing periodic temporal convolution, periodic `GRU`, and
   periodic `LSTM` sequence models across `global`, `Fw`, and `Bw`.
 
-- [reports/campaign_plans/wave2/2026-05-21-16-46-08_wave2_temporal_model_entry_campaign_plan_report.md](./reports/campaign_plans/wave2/2026-05-21-16-46-08_wave2_temporal_model_entry_campaign_plan_report.md)
+- [reports/campaign_plans/wave_2/2026-05-21-16-46-08_wave2_temporal_model_entry_campaign_plan_report.md](./reports/campaign_plans/wave_2/2026-05-21-16-46-08_wave2_temporal_model_entry_campaign_plan_report.md)
   Preliminary campaign plan for the first `Wave 2` temporal-model entry
   campaign, comparing temporal convolution, `GRU`, and `LSTM` sequence
   baselines across `global`, `Fw`, and `Bw`.
 
-- [reports/campaign_plans/wave1/2026-05-20-22-42-49_wave1_periodic_mlp_explicit_harmonic_tracking_campaign_plan_report.md](./reports/campaign_plans/wave1/2026-05-20-22-42-49_wave1_periodic_mlp_explicit_harmonic_tracking_campaign_plan_report.md)
+- [reports/campaign_plans/wave_1/2026-05-20-22-42-49_wave1_periodic_mlp_explicit_harmonic_tracking_campaign_plan_report.md](./reports/campaign_plans/wave_1/2026-05-20-22-42-49_wave1_periodic_mlp_explicit_harmonic_tracking_campaign_plan_report.md)
   Preliminary campaign plan for the `Wave 1` `periodic_mlp` explicit harmonic
   tracking follow-up, comparing RCIM sparse, dense `0..240`, and dense
   `0..360` fixed periodic-feature banks across `global`, `fw`, and `bw`.
 
-- [reports/campaign_plans/wave1/2026-05-19-17-40-01_wave1_high_order_harmonic_tracking_campaign_plan_report.md](./reports/campaign_plans/wave1/2026-05-19-17-40-01_wave1_high_order_harmonic_tracking_campaign_plan_report.md)
+- [reports/campaign_plans/wave_1/2026-05-19-17-40-01_wave1_high_order_harmonic_tracking_campaign_plan_report.md](./reports/campaign_plans/wave_1/2026-05-19-17-40-01_wave1_high_order_harmonic_tracking_campaign_plan_report.md)
   Preliminary campaign plan for the `Wave 1` high-order harmonic tracking
   follow-up, comparing baseline, RCIM sparse, dense `0..240`, and dense
   `0..360` harmonic banks for `harmonic_regression` and

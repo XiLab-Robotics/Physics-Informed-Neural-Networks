@@ -85,9 +85,9 @@ The expected implementation pattern is:
 3. Patch the support code only if the current inference path does not reuse the
    training module's deterministic `p50` or `mu` selection.
 4. Create a dedicated operator launcher:
-   `scripts/campaigns/track2/run_track2h_quantile_probabilistic_track2_verification_refresh.ps1`.
+   `scripts/campaigns/track_2/run_track2h_quantile_probabilistic_track2_verification_refresh.ps1`.
 5. Create the matching launcher note:
-   `doc/scripts/campaigns/track2/run_track2h_quantile_probabilistic_track2_verification_refresh.md`.
+   `doc/scripts/campaigns/track_2/run_track2h_quantile_probabilistic_track2_verification_refresh.md`.
 6. The launcher will run the official matrix locally by default and expose a
    `-Remote` option using the repository remote-campaign conventions.
 7. After the operator reports completion, inspect the generated matrix,
@@ -111,9 +111,9 @@ The implementation will involve these repository components:
   for the official candidate matrix.
 - `scripts/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/reference_family_vs_feedforward_support.py`
   if deterministic output selection for probabilistic heads needs support.
-- `scripts/campaigns/track2/run_track2h_quantile_probabilistic_track2_verification_refresh.ps1`
+- `scripts/campaigns/track_2/run_track2h_quantile_probabilistic_track2_verification_refresh.ps1`
   for the operator-facing launcher.
-- `doc/scripts/campaigns/track2/run_track2h_quantile_probabilistic_track2_verification_refresh.md`
+- `doc/scripts/campaigns/track_2/run_track2h_quantile_probabilistic_track2_verification_refresh.md`
   for the launcher usage note.
 - `output/registries/families/track2h_quantile_probabilistic_*` as the source
   of completed model pointers.

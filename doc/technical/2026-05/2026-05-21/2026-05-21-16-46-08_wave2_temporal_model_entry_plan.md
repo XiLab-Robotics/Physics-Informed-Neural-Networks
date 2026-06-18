@@ -96,7 +96,7 @@ Track 2 update ledger when promoted.
 4. Add Wave 2 Hydra configuration roots under `config/training/hydra/wave2/`
    using the existing Wave 1 pattern where practical.
 5. Prepare a preliminary campaign report under
-   `doc/reports/campaign_plans/wave2/` before any training execution.
+   `doc/reports/campaign_plans/wave_2/` before any training execution.
 6. For the first campaign, keep the run count narrow:
    - three `temporal_convolution` surfaces;
    - three `gru_sequence` surfaces;

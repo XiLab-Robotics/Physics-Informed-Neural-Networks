@@ -77,14 +77,14 @@ already formalized in:
 ## Involved Components
 
 - `doc/running/active_training_campaign.yaml`
-- `scripts/campaigns/track1/exact_paper/run_track1_bidirectional_paper_faithful_grid_search_campaign.ps1`
-- `scripts/campaigns/track1/exact_paper/run_exact_paper_campaign_remote.ps1`
-- `scripts/campaigns/track1/exact_paper/invoke_exact_paper_campaign_local.ps1`
+- `scripts/campaigns/track_1/exact_paper/run_track1_bidirectional_paper_faithful_grid_search_campaign.ps1`
+- `scripts/campaigns/track_1/exact_paper/run_exact_paper_campaign_remote.ps1`
+- `scripts/campaigns/track_1/exact_paper/invoke_exact_paper_campaign_local.ps1`
 - `scripts/campaigns/infrastructure/shared_streaming_campaign_launcher.ps1`
 - `scripts/paper_reimplementation/rcim_ml_compensation/exact_paper_model_bank/exact_paper_model_bank_support.py`
 - `scripts/paper_reimplementation/rcim_ml_compensation/exact_paper_model_bank/run_exact_paper_model_bank_validation.py`
 - `scripts/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/run_original_dataset_exact_model_bank_validation.py`
-- `scripts/campaigns/track1/exact_paper/prepare_track1_bidirectional_paper_faithful_grid_search_campaign.py`
+- `scripts/campaigns/track_1/exact_paper/prepare_track1_bidirectional_paper_faithful_grid_search_campaign.py`
 - `doc/scripts/campaigns/run_track1_bidirectional_paper_faithful_grid_search_campaign.md`
 - `scripts/paper_reimplementation/rcim_ml_compensation/README.md`
 

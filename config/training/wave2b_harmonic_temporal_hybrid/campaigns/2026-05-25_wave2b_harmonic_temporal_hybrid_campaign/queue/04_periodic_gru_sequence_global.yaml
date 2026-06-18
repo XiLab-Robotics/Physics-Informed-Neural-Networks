@@ -7,7 +7,7 @@ experiment:
   model_type: periodic_gru_sequence
 metadata:
   campaign_name: wave2b_harmonic_temporal_hybrid_campaign_2026_05_25
-  planning_report_path: doc/reports/campaign_plans/wave2/2026-05-25-13-34-12_wave2b_harmonic_temporal_hybrid_campaign_plan_report.md
+  planning_report_path: doc/reports/campaign_plans/wave_2/2026-05-25-13-34-12_wave2b_harmonic_temporal_hybrid_campaign_plan_report.md
   phase_name: wave2b_harmonic_temporal_hybrid_preparation
   campaign_config_id: periodic_gru_sequence
   notes: Wave 2B harmonic-temporal hybrid campaign | family=periodic_gru_sequence | direction=global. Candidate must return through official Track 2 verification.

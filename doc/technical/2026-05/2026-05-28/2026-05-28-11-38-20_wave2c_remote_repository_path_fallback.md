@@ -31,9 +31,9 @@ other prepared campaign launchers:
 
 ## Involved Components
 
-- `scripts/campaigns/wave2/run_wave2c_residual_harmonic_temporal_hybrid_campaign.ps1`
-- `scripts/campaigns/wave2/prepare_wave2c_residual_harmonic_temporal_hybrid_campaign.py`
-- `doc/scripts/campaigns/wave2/run_wave2c_residual_harmonic_temporal_hybrid_campaign.md`
+- `scripts/campaigns/wave_2/run_wave2c_residual_harmonic_temporal_hybrid_campaign.ps1`
+- `scripts/campaigns/wave_2/prepare_wave2c_residual_harmonic_temporal_hybrid_campaign.py`
+- `doc/scripts/campaigns/wave_2/run_wave2c_residual_harmonic_temporal_hybrid_campaign.md`
 - `doc/running/active_training_campaign.yaml`
 - `doc/README.md`
 

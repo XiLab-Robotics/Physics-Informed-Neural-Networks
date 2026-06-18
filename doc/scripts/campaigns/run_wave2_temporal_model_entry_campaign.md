@@ -30,20 +30,20 @@ Families:
 
 This launcher is tied to:
 
-- `doc/reports/campaign_plans/wave2/2026-05-21-16-46-08_wave2_temporal_model_entry_campaign_plan_report.md`
+- `doc/reports/campaign_plans/wave_2/2026-05-21-16-46-08_wave2_temporal_model_entry_campaign_plan_report.md`
 
 ## Practical Use
 
 Run the full prepared campaign from the repository root:
 
 ```powershell
-.\scripts\campaigns\wave2\run_wave2_temporal_model_entry_campaign.ps1
+.\scripts\campaigns\wave_2\run_wave2_temporal_model_entry_campaign.ps1
 ```
 
 Optional Python executable override:
 
 ```powershell
-.\scripts\campaigns\wave2\run_wave2_temporal_model_entry_campaign.ps1 -PythonExecutable python
+.\scripts\campaigns\wave_2\run_wave2_temporal_model_entry_campaign.ps1 -PythonExecutable python
 ```
 
 ## Expected Outputs

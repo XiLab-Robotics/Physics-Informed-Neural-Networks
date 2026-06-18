@@ -1,5 +1,5 @@
 campaign_name: wave1_directional_retraining_campaign_2026_05_06_16_07_16
-planning_report_path: doc/reports/campaign_plans/wave1/2026-05-06-16-07-16_wave1_directional_retraining_campaign_plan_report.md
+planning_report_path: doc/reports/campaign_plans/wave_1/2026-05-06-16-07-16_wave1_directional_retraining_campaign_plan_report.md
 base_family_order:
 - tree
 - residual_harmonic_mlp

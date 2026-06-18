@@ -418,7 +418,7 @@ composed models explicit.
 
 - summary YAML: `output\validation_checks\track2_reference_comparison\2026-06-04-16-59-02__track2_full_directional_family_matrix_track2f_offset_aware_probe_track2_refresh_2026_06_04/validation_summary.yaml`;
 - per-condition CSV: `output\validation_checks\track2_reference_comparison\2026-06-04-16-59-02__track2_full_directional_family_matrix_track2f_offset_aware_probe_track2_refresh_2026_06_04\per_condition_metrics.csv`;
-- grouped report plot root: `doc\reports\campaign_results\track 2`;
+- grouped report plot root: `doc\reports\campaign_results\track_2\verification_plots`;
 - grouped report plot count: `0`;
 
 ## Interpretation

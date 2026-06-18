@@ -7,7 +7,7 @@ experiment:
   model_type: hist_gradient_boosting
 metadata:
   campaign_name: wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_11
-  planning_report_path: doc/reports/campaign_plans/wave1/2026-05-11-19-41-11_wave1_directional_best_hyperparameter_search_campaign_plan_report.md
+  planning_report_path: doc/reports/campaign_plans/wave_1/2026-05-11-19-41-11_wave1_directional_best_hyperparameter_search_campaign_plan_report.md
   phase_name: wave1_directional_best_hyperparameter_search
   campaign_config_id: tree_bw_grid_001
   notes: Histogram gradient boosting tabular benchmark on the static TE features.

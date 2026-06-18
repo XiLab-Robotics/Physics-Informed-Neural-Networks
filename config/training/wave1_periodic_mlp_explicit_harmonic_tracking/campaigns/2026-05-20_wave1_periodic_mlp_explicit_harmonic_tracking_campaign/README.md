@@ -6,7 +6,7 @@ Prepared campaign package for:
 
 Planning report:
 
-- `doc/reports/campaign_plans/wave1/2026-05-20-22-42-49_wave1_periodic_mlp_explicit_harmonic_tracking_campaign_plan_report.md`
+- `doc/reports/campaign_plans/wave_1/2026-05-20-22-42-49_wave1_periodic_mlp_explicit_harmonic_tracking_campaign_plan_report.md`
 
 Queue files:
 

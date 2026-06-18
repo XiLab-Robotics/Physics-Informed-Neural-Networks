@@ -6,7 +6,7 @@
 - Remote repository path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks
 - Remote Conda environment: pinns_env
 - Campaign name: wave3_harmonic_prior_residual_campaign_2026_06_14
-- Planning report path: doc\reports\campaign_plans\wave3_wave4\2026-06-14-19-54-55_wave3_harmonic_prior_residual_campaign_plan_report.md
+- Planning report path: doc\reports\campaign_plans\wave_3\2026-06-14-19-54-55_wave3_harmonic_prior_residual_campaign_plan_report.md
 - Local log path: C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\.temp\remote_training_campaigns\2026-06-15-10-13-57_wave3_harmonic_prior_residual_campaign_2026_06_14\remote_training_campaign.log
 - Remote campaign output directory:
 - Remote manifest path:

@@ -241,18 +241,18 @@ scripts:
   has_windows_specific_markers: true
   portability_status: linux_launcher_present
   note: Bash launcher is available.
-- relative_path: scripts/campaigns/track1/exact_paper/invoke_exact_paper_campaign_local.ps1
+- relative_path: scripts/campaigns/track_1/exact_paper/invoke_exact_paper_campaign_local.ps1
   suffix: .ps1
   script_domain: campaigns
   script_kind: launcher
   has_cli_surface: true
   has_platform_flags: false
   has_linux_equivalent: true
-  linux_equivalent_path: scripts/campaigns/track1/exact_paper/invoke_exact_paper_campaign_local.sh
+  linux_equivalent_path: scripts/campaigns/track_1/exact_paper/invoke_exact_paper_campaign_local.sh
   has_windows_specific_markers: true
   portability_status: linux_equivalent_present
   note: PowerShell launcher has a sibling Bash launcher.
-- relative_path: scripts/campaigns/track1/exact_paper/invoke_exact_paper_campaign_local.sh
+- relative_path: scripts/campaigns/track_1/exact_paper/invoke_exact_paper_campaign_local.sh
   suffix: .sh
   script_domain: campaigns
   script_kind: launcher
@@ -263,7 +263,7 @@ scripts:
   has_windows_specific_markers: false
   portability_status: linux_launcher_present
   note: Bash launcher is available.
-- relative_path: scripts/campaigns/track1/exact_paper/prepare_track1_bidirectional_literal_workflow_refresh_mega_campaign.py
+- relative_path: scripts/campaigns/track_1/exact_paper/prepare_track1_bidirectional_literal_workflow_refresh_mega_campaign.py
   suffix: .py
   script_domain: campaigns
   script_kind: python_entrypoint
@@ -274,7 +274,7 @@ scripts:
   has_windows_specific_markers: true
   portability_status: missing_platform_flags
   note: Python CLI entry point lacks --linux/--windows.
-- relative_path: scripts/campaigns/track1/exact_paper/prepare_track1_bidirectional_original_dataset_mega_campaign.py
+- relative_path: scripts/campaigns/track_1/exact_paper/prepare_track1_bidirectional_original_dataset_mega_campaign.py
   suffix: .py
   script_domain: campaigns
   script_kind: python_entrypoint
@@ -285,7 +285,7 @@ scripts:
   has_windows_specific_markers: true
   portability_status: missing_platform_flags
   note: Python CLI entry point lacks --linux/--windows.
-- relative_path: scripts/campaigns/track1/exact_paper/prepare_track1_bidirectional_paper_faithful_grid_search_campaign.py
+- relative_path: scripts/campaigns/track_1/exact_paper/prepare_track1_bidirectional_paper_faithful_grid_search_campaign.py
   suffix: .py
   script_domain: campaigns
   script_kind: python_entrypoint
@@ -296,7 +296,7 @@ scripts:
   has_windows_specific_markers: true
   portability_status: needs_review
   note: Script contains Windows-specific markers.
-- relative_path: scripts/campaigns/track1/exact_paper/prepare_track1_forward_final_open_cells_campaign.py
+- relative_path: scripts/campaigns/track_1/exact_paper/prepare_track1_forward_final_open_cells_campaign.py
   suffix: .py
   script_domain: campaigns
   script_kind: python_entrypoint
@@ -307,7 +307,7 @@ scripts:
   has_windows_specific_markers: true
   portability_status: missing_platform_flags
   note: Python CLI entry point lacks --linux/--windows.
-- relative_path: scripts/campaigns/track1/exact_paper/prepare_track1_forward_last_four_open_cells_campaign.py
+- relative_path: scripts/campaigns/track_1/exact_paper/prepare_track1_forward_last_four_open_cells_campaign.py
   suffix: .py
   script_domain: campaigns
   script_kind: python_entrypoint
@@ -318,7 +318,7 @@ scripts:
   has_windows_specific_markers: true
   portability_status: missing_platform_flags
   note: Python CLI entry point lacks --linux/--windows.
-- relative_path: scripts/campaigns/track1/exact_paper/prepare_track1_forward_last_non_green_cells_campaign.py
+- relative_path: scripts/campaigns/track_1/exact_paper/prepare_track1_forward_last_non_green_cells_campaign.py
   suffix: .py
   script_domain: campaigns
   script_kind: python_entrypoint
@@ -329,7 +329,7 @@ scripts:
   has_windows_specific_markers: true
   portability_status: missing_platform_flags
   note: Python CLI entry point lacks --linux/--windows.
-- relative_path: scripts/campaigns/track1/exact_paper/prepare_track1_forward_last_three_open_cells_campaign.py
+- relative_path: scripts/campaigns/track_1/exact_paper/prepare_track1_forward_last_three_open_cells_campaign.py
   suffix: .py
   script_domain: campaigns
   script_kind: python_entrypoint
@@ -340,7 +340,7 @@ scripts:
   has_windows_specific_markers: true
   portability_status: missing_platform_flags
   note: Python CLI entry point lacks --linux/--windows.
-- relative_path: scripts/campaigns/track1/exact_paper/prepare_track1_forward_last_three_open_cells_overnight_mega_campaign.py
+- relative_path: scripts/campaigns/track_1/exact_paper/prepare_track1_forward_last_three_open_cells_overnight_mega_campaign.py
   suffix: .py
   script_domain: campaigns
   script_kind: python_entrypoint
@@ -351,7 +351,7 @@ scripts:
   has_windows_specific_markers: true
   portability_status: missing_platform_flags
   note: Python CLI entry point lacks --linux/--windows.
-- relative_path: scripts/campaigns/track1/exact_paper/prepare_track1_forward_maxi_last_non_green_cells_campaign.py
+- relative_path: scripts/campaigns/track_1/exact_paper/prepare_track1_forward_maxi_last_non_green_cells_campaign.py
   suffix: .py
   script_domain: campaigns
   script_kind: python_entrypoint
@@ -362,7 +362,7 @@ scripts:
   has_windows_specific_markers: true
   portability_status: missing_platform_flags
   note: Python CLI entry point lacks --linux/--windows.
-- relative_path: scripts/campaigns/track1/exact_paper/prepare_track1_forward_open_cell_repair_campaign.py
+- relative_path: scripts/campaigns/track_1/exact_paper/prepare_track1_forward_open_cell_repair_campaign.py
   suffix: .py
   script_domain: campaigns
   script_kind: python_entrypoint
@@ -373,7 +373,7 @@ scripts:
   has_windows_specific_markers: true
   portability_status: missing_platform_flags
   note: Python CLI entry point lacks --linux/--windows.
-- relative_path: scripts/campaigns/track1/exact_paper/prepare_track1_forward_original_dataset_remote_diagnostic_campaign.py
+- relative_path: scripts/campaigns/track_1/exact_paper/prepare_track1_forward_original_dataset_remote_diagnostic_campaign.py
   suffix: .py
   script_domain: campaigns
   script_kind: python_entrypoint
@@ -384,7 +384,7 @@ scripts:
   has_windows_specific_markers: true
   portability_status: missing_platform_flags
   note: Python CLI entry point lacks --linux/--windows.
-- relative_path: scripts/campaigns/track1/exact_paper/prepare_track1_forward_original_dataset_remote_micro_campaign.py
+- relative_path: scripts/campaigns/track_1/exact_paper/prepare_track1_forward_original_dataset_remote_micro_campaign.py
   suffix: .py
   script_domain: campaigns
   script_kind: python_entrypoint
@@ -395,7 +395,7 @@ scripts:
   has_windows_specific_markers: true
   portability_status: missing_platform_flags
   note: Python CLI entry point lacks --linux/--windows.
-- relative_path: scripts/campaigns/track1/exact_paper/run_exact_paper_campaign_from_powershell_metadata.sh
+- relative_path: scripts/campaigns/track_1/exact_paper/run_exact_paper_campaign_from_powershell_metadata.sh
   suffix: .sh
   script_domain: campaigns
   script_kind: launcher
@@ -406,18 +406,18 @@ scripts:
   has_windows_specific_markers: true
   portability_status: linux_launcher_present
   note: Bash launcher is available.
-- relative_path: scripts/campaigns/track1/exact_paper/run_exact_paper_campaign_remote.ps1
+- relative_path: scripts/campaigns/track_1/exact_paper/run_exact_paper_campaign_remote.ps1
   suffix: .ps1
   script_domain: campaigns
   script_kind: launcher
   has_cli_surface: true
   has_platform_flags: false
   has_linux_equivalent: true
-  linux_equivalent_path: scripts/campaigns/track1/exact_paper/run_exact_paper_campaign_remote.sh
+  linux_equivalent_path: scripts/campaigns/track_1/exact_paper/run_exact_paper_campaign_remote.sh
   has_windows_specific_markers: true
   portability_status: linux_equivalent_present
   note: PowerShell launcher has a sibling Bash launcher.
-- relative_path: scripts/campaigns/track1/exact_paper/run_exact_paper_campaign_remote.sh
+- relative_path: scripts/campaigns/track_1/exact_paper/run_exact_paper_campaign_remote.sh
   suffix: .sh
   script_domain: campaigns
   script_kind: launcher
@@ -428,18 +428,18 @@ scripts:
   has_windows_specific_markers: false
   portability_status: linux_launcher_present
   note: Bash launcher is available.
-- relative_path: scripts/campaigns/track1/exact_paper/run_exact_paper_faithful_reproduction_campaign.ps1
+- relative_path: scripts/campaigns/track_1/exact_paper/run_exact_paper_faithful_reproduction_campaign.ps1
   suffix: .ps1
   script_domain: campaigns
   script_kind: launcher
   has_cli_surface: true
   has_platform_flags: false
   has_linux_equivalent: true
-  linux_equivalent_path: scripts/campaigns/track1/exact_paper/run_exact_paper_faithful_reproduction_campaign.sh
+  linux_equivalent_path: scripts/campaigns/track_1/exact_paper/run_exact_paper_faithful_reproduction_campaign.sh
   has_windows_specific_markers: true
   portability_status: linux_equivalent_present
   note: PowerShell launcher has a sibling Bash launcher.
-- relative_path: scripts/campaigns/track1/exact_paper/run_exact_paper_faithful_reproduction_campaign.sh
+- relative_path: scripts/campaigns/track_1/exact_paper/run_exact_paper_faithful_reproduction_campaign.sh
   suffix: .sh
   script_domain: campaigns
   script_kind: launcher
@@ -450,18 +450,18 @@ scripts:
   has_windows_specific_markers: true
   portability_status: linux_launcher_present
   note: Bash launcher is available.
-- relative_path: scripts/campaigns/track1/exact_paper/run_exact_paper_model_bank_campaign.ps1
+- relative_path: scripts/campaigns/track_1/exact_paper/run_exact_paper_model_bank_campaign.ps1
   suffix: .ps1
   script_domain: campaigns
   script_kind: launcher
   has_cli_surface: true
   has_platform_flags: false
   has_linux_equivalent: true
-  linux_equivalent_path: scripts/campaigns/track1/exact_paper/run_exact_paper_model_bank_campaign.sh
+  linux_equivalent_path: scripts/campaigns/track_1/exact_paper/run_exact_paper_model_bank_campaign.sh
   has_windows_specific_markers: true
   portability_status: linux_equivalent_present
   note: PowerShell launcher has a sibling Bash launcher.
-- relative_path: scripts/campaigns/track1/exact_paper/run_exact_paper_model_bank_campaign.sh
+- relative_path: scripts/campaigns/track_1/exact_paper/run_exact_paper_model_bank_campaign.sh
   suffix: .sh
   script_domain: campaigns
   script_kind: launcher
@@ -472,7 +472,7 @@ scripts:
   has_windows_specific_markers: true
   portability_status: linux_launcher_present
   note: Bash launcher is available.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_bidirectional_literal_workflow_refresh_mega_campaign.ps1
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_bidirectional_literal_workflow_refresh_mega_campaign.ps1
   suffix: .ps1
   script_domain: campaigns
   script_kind: launcher
@@ -483,7 +483,7 @@ scripts:
   has_windows_specific_markers: true
   portability_status: missing_linux_equivalent
   note: PowerShell launcher has no sibling Bash launcher.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_bidirectional_original_dataset_mega_campaign.ps1
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_bidirectional_original_dataset_mega_campaign.ps1
   suffix: .ps1
   script_domain: campaigns
   script_kind: launcher
@@ -494,7 +494,7 @@ scripts:
   has_windows_specific_markers: true
   portability_status: missing_linux_equivalent
   note: PowerShell launcher has no sibling Bash launcher.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_bidirectional_original_dataset_smoke_validation.ps1
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_bidirectional_original_dataset_smoke_validation.ps1
   suffix: .ps1
   script_domain: campaigns
   script_kind: launcher
@@ -505,18 +505,18 @@ scripts:
   has_windows_specific_markers: true
   portability_status: missing_linux_equivalent
   note: PowerShell launcher has no sibling Bash launcher.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_bidirectional_paper_faithful_grid_search_campaign.ps1
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_bidirectional_paper_faithful_grid_search_campaign.ps1
   suffix: .ps1
   script_domain: campaigns
   script_kind: launcher
   has_cli_surface: true
   has_platform_flags: false
   has_linux_equivalent: true
-  linux_equivalent_path: scripts/campaigns/track1/exact_paper/run_track1_bidirectional_paper_faithful_grid_search_campaign.sh
+  linux_equivalent_path: scripts/campaigns/track_1/exact_paper/run_track1_bidirectional_paper_faithful_grid_search_campaign.sh
   has_windows_specific_markers: true
   portability_status: linux_equivalent_present
   note: PowerShell launcher has a sibling Bash launcher.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_bidirectional_paper_faithful_grid_search_campaign.sh
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_bidirectional_paper_faithful_grid_search_campaign.sh
   suffix: .sh
   script_domain: campaigns
   script_kind: launcher
@@ -527,18 +527,18 @@ scripts:
   has_windows_specific_markers: false
   portability_status: linux_launcher_present
   note: Bash launcher is available.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_dt_cellwise_reference_campaign.ps1
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_dt_cellwise_reference_campaign.ps1
   suffix: .ps1
   script_domain: campaigns
   script_kind: launcher
   has_cli_surface: true
   has_platform_flags: false
   has_linux_equivalent: true
-  linux_equivalent_path: scripts/campaigns/track1/exact_paper/run_track1_dt_cellwise_reference_campaign.sh
+  linux_equivalent_path: scripts/campaigns/track_1/exact_paper/run_track1_dt_cellwise_reference_campaign.sh
   has_windows_specific_markers: true
   portability_status: linux_equivalent_present
   note: PowerShell launcher has a sibling Bash launcher.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_dt_cellwise_reference_campaign.sh
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_dt_cellwise_reference_campaign.sh
   suffix: .sh
   script_domain: campaigns
   script_kind: launcher
@@ -549,18 +549,18 @@ scripts:
   has_windows_specific_markers: true
   portability_status: linux_launcher_present
   note: Bash launcher is available.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_dt_full_matrix_campaign.ps1
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_dt_full_matrix_campaign.ps1
   suffix: .ps1
   script_domain: campaigns
   script_kind: launcher
   has_cli_surface: true
   has_platform_flags: false
   has_linux_equivalent: true
-  linux_equivalent_path: scripts/campaigns/track1/exact_paper/run_track1_dt_full_matrix_campaign.sh
+  linux_equivalent_path: scripts/campaigns/track_1/exact_paper/run_track1_dt_full_matrix_campaign.sh
   has_windows_specific_markers: true
   portability_status: linux_equivalent_present
   note: PowerShell launcher has a sibling Bash launcher.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_dt_full_matrix_campaign.sh
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_dt_full_matrix_campaign.sh
   suffix: .sh
   script_domain: campaigns
   script_kind: launcher
@@ -571,18 +571,18 @@ scripts:
   has_windows_specific_markers: true
   portability_status: linux_launcher_present
   note: Bash launcher is available.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_dt_open_cell_full_matrix_closure_campaign.ps1
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_dt_open_cell_full_matrix_closure_campaign.ps1
   suffix: .ps1
   script_domain: campaigns
   script_kind: launcher
   has_cli_surface: true
   has_platform_flags: false
   has_linux_equivalent: true
-  linux_equivalent_path: scripts/campaigns/track1/exact_paper/run_track1_dt_open_cell_full_matrix_closure_campaign.sh
+  linux_equivalent_path: scripts/campaigns/track_1/exact_paper/run_track1_dt_open_cell_full_matrix_closure_campaign.sh
   has_windows_specific_markers: true
   portability_status: linux_equivalent_present
   note: PowerShell launcher has a sibling Bash launcher.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_dt_open_cell_full_matrix_closure_campaign.sh
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_dt_open_cell_full_matrix_closure_campaign.sh
   suffix: .sh
   script_domain: campaigns
   script_kind: launcher
@@ -593,18 +593,18 @@ scripts:
   has_windows_specific_markers: true
   portability_status: linux_launcher_present
   note: Bash launcher is available.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_dt_residual_cellwise_closure_campaign.ps1
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_dt_residual_cellwise_closure_campaign.ps1
   suffix: .ps1
   script_domain: campaigns
   script_kind: launcher
   has_cli_surface: true
   has_platform_flags: false
   has_linux_equivalent: true
-  linux_equivalent_path: scripts/campaigns/track1/exact_paper/run_track1_dt_residual_cellwise_closure_campaign.sh
+  linux_equivalent_path: scripts/campaigns/track_1/exact_paper/run_track1_dt_residual_cellwise_closure_campaign.sh
   has_windows_specific_markers: true
   portability_status: linux_equivalent_present
   note: PowerShell launcher has a sibling Bash launcher.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_dt_residual_cellwise_closure_campaign.sh
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_dt_residual_cellwise_closure_campaign.sh
   suffix: .sh
   script_domain: campaigns
   script_kind: launcher
@@ -615,18 +615,18 @@ scripts:
   has_windows_specific_markers: true
   portability_status: linux_launcher_present
   note: Bash launcher is available.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_ert_cellwise_reference_campaign.ps1
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_ert_cellwise_reference_campaign.ps1
   suffix: .ps1
   script_domain: campaigns
   script_kind: launcher
   has_cli_surface: true
   has_platform_flags: false
   has_linux_equivalent: true
-  linux_equivalent_path: scripts/campaigns/track1/exact_paper/run_track1_ert_cellwise_reference_campaign.sh
+  linux_equivalent_path: scripts/campaigns/track_1/exact_paper/run_track1_ert_cellwise_reference_campaign.sh
   has_windows_specific_markers: true
   portability_status: linux_equivalent_present
   note: PowerShell launcher has a sibling Bash launcher.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_ert_cellwise_reference_campaign.sh
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_ert_cellwise_reference_campaign.sh
   suffix: .sh
   script_domain: campaigns
   script_kind: launcher
@@ -637,18 +637,18 @@ scripts:
   has_windows_specific_markers: true
   portability_status: linux_launcher_present
   note: Bash launcher is available.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_ert_full_matrix_campaign.ps1
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_ert_full_matrix_campaign.ps1
   suffix: .ps1
   script_domain: campaigns
   script_kind: launcher
   has_cli_surface: true
   has_platform_flags: false
   has_linux_equivalent: true
-  linux_equivalent_path: scripts/campaigns/track1/exact_paper/run_track1_ert_full_matrix_campaign.sh
+  linux_equivalent_path: scripts/campaigns/track_1/exact_paper/run_track1_ert_full_matrix_campaign.sh
   has_windows_specific_markers: true
   portability_status: linux_equivalent_present
   note: PowerShell launcher has a sibling Bash launcher.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_ert_full_matrix_campaign.sh
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_ert_full_matrix_campaign.sh
   suffix: .sh
   script_domain: campaigns
   script_kind: launcher
@@ -659,18 +659,18 @@ scripts:
   has_windows_specific_markers: true
   portability_status: linux_launcher_present
   note: Bash launcher is available.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_ert_open_cell_full_matrix_closure_campaign.ps1
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_ert_open_cell_full_matrix_closure_campaign.ps1
   suffix: .ps1
   script_domain: campaigns
   script_kind: launcher
   has_cli_surface: true
   has_platform_flags: false
   has_linux_equivalent: true
-  linux_equivalent_path: scripts/campaigns/track1/exact_paper/run_track1_ert_open_cell_full_matrix_closure_campaign.sh
+  linux_equivalent_path: scripts/campaigns/track_1/exact_paper/run_track1_ert_open_cell_full_matrix_closure_campaign.sh
   has_windows_specific_markers: true
   portability_status: linux_equivalent_present
   note: PowerShell launcher has a sibling Bash launcher.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_ert_open_cell_full_matrix_closure_campaign.sh
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_ert_open_cell_full_matrix_closure_campaign.sh
   suffix: .sh
   script_domain: campaigns
   script_kind: launcher
@@ -681,18 +681,18 @@ scripts:
   has_windows_specific_markers: true
   portability_status: linux_launcher_present
   note: Bash launcher is available.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_ert_remaining_yellow_cell_campaign.ps1
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_ert_remaining_yellow_cell_campaign.ps1
   suffix: .ps1
   script_domain: campaigns
   script_kind: launcher
   has_cli_surface: true
   has_platform_flags: false
   has_linux_equivalent: true
-  linux_equivalent_path: scripts/campaigns/track1/exact_paper/run_track1_ert_remaining_yellow_cell_campaign.sh
+  linux_equivalent_path: scripts/campaigns/track_1/exact_paper/run_track1_ert_remaining_yellow_cell_campaign.sh
   has_windows_specific_markers: true
   portability_status: linux_equivalent_present
   note: PowerShell launcher has a sibling Bash launcher.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_ert_remaining_yellow_cell_campaign.sh
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_ert_remaining_yellow_cell_campaign.sh
   suffix: .sh
   script_domain: campaigns
   script_kind: launcher
@@ -703,18 +703,18 @@ scripts:
   has_windows_specific_markers: true
   portability_status: linux_launcher_present
   note: Bash launcher is available.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_ert_residual_cellwise_closure_campaign.ps1
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_ert_residual_cellwise_closure_campaign.ps1
   suffix: .ps1
   script_domain: campaigns
   script_kind: launcher
   has_cli_surface: true
   has_platform_flags: false
   has_linux_equivalent: true
-  linux_equivalent_path: scripts/campaigns/track1/exact_paper/run_track1_ert_residual_cellwise_closure_campaign.sh
+  linux_equivalent_path: scripts/campaigns/track_1/exact_paper/run_track1_ert_residual_cellwise_closure_campaign.sh
   has_windows_specific_markers: true
   portability_status: linux_equivalent_present
   note: PowerShell launcher has a sibling Bash launcher.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_ert_residual_cellwise_closure_campaign.sh
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_ert_residual_cellwise_closure_campaign.sh
   suffix: .sh
   script_domain: campaigns
   script_kind: launcher
@@ -725,18 +725,18 @@ scripts:
   has_windows_specific_markers: true
   portability_status: linux_launcher_present
   note: Bash launcher is available.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_et_cellwise_reference_campaign.ps1
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_et_cellwise_reference_campaign.ps1
   suffix: .ps1
   script_domain: campaigns
   script_kind: launcher
   has_cli_surface: true
   has_platform_flags: false
   has_linux_equivalent: true
-  linux_equivalent_path: scripts/campaigns/track1/exact_paper/run_track1_et_cellwise_reference_campaign.sh
+  linux_equivalent_path: scripts/campaigns/track_1/exact_paper/run_track1_et_cellwise_reference_campaign.sh
   has_windows_specific_markers: true
   portability_status: linux_equivalent_present
   note: PowerShell launcher has a sibling Bash launcher.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_et_cellwise_reference_campaign.sh
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_et_cellwise_reference_campaign.sh
   suffix: .sh
   script_domain: campaigns
   script_kind: launcher
@@ -747,18 +747,18 @@ scripts:
   has_windows_specific_markers: true
   portability_status: linux_launcher_present
   note: Bash launcher is available.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_et_full_matrix_campaign.ps1
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_et_full_matrix_campaign.ps1
   suffix: .ps1
   script_domain: campaigns
   script_kind: launcher
   has_cli_surface: true
   has_platform_flags: false
   has_linux_equivalent: true
-  linux_equivalent_path: scripts/campaigns/track1/exact_paper/run_track1_et_full_matrix_campaign.sh
+  linux_equivalent_path: scripts/campaigns/track_1/exact_paper/run_track1_et_full_matrix_campaign.sh
   has_windows_specific_markers: true
   portability_status: linux_equivalent_present
   note: PowerShell launcher has a sibling Bash launcher.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_et_full_matrix_campaign.sh
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_et_full_matrix_campaign.sh
   suffix: .sh
   script_domain: campaigns
   script_kind: launcher
@@ -769,18 +769,18 @@ scripts:
   has_windows_specific_markers: true
   portability_status: linux_launcher_present
   note: Bash launcher is available.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_et_open_cell_full_matrix_closure_campaign.ps1
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_et_open_cell_full_matrix_closure_campaign.ps1
   suffix: .ps1
   script_domain: campaigns
   script_kind: launcher
   has_cli_surface: true
   has_platform_flags: false
   has_linux_equivalent: true
-  linux_equivalent_path: scripts/campaigns/track1/exact_paper/run_track1_et_open_cell_full_matrix_closure_campaign.sh
+  linux_equivalent_path: scripts/campaigns/track_1/exact_paper/run_track1_et_open_cell_full_matrix_closure_campaign.sh
   has_windows_specific_markers: true
   portability_status: linux_equivalent_present
   note: PowerShell launcher has a sibling Bash launcher.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_et_open_cell_full_matrix_closure_campaign.sh
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_et_open_cell_full_matrix_closure_campaign.sh
   suffix: .sh
   script_domain: campaigns
   script_kind: launcher
@@ -791,18 +791,18 @@ scripts:
   has_windows_specific_markers: true
   portability_status: linux_launcher_present
   note: Bash launcher is available.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_et_remaining_yellow_cell_campaign.ps1
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_et_remaining_yellow_cell_campaign.ps1
   suffix: .ps1
   script_domain: campaigns
   script_kind: launcher
   has_cli_surface: true
   has_platform_flags: false
   has_linux_equivalent: true
-  linux_equivalent_path: scripts/campaigns/track1/exact_paper/run_track1_et_remaining_yellow_cell_campaign.sh
+  linux_equivalent_path: scripts/campaigns/track_1/exact_paper/run_track1_et_remaining_yellow_cell_campaign.sh
   has_windows_specific_markers: true
   portability_status: linux_equivalent_present
   note: PowerShell launcher has a sibling Bash launcher.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_et_remaining_yellow_cell_campaign.sh
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_et_remaining_yellow_cell_campaign.sh
   suffix: .sh
   script_domain: campaigns
   script_kind: launcher
@@ -813,18 +813,18 @@ scripts:
   has_windows_specific_markers: true
   portability_status: linux_launcher_present
   note: Bash launcher is available.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_et_residual_cellwise_closure_campaign.ps1
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_et_residual_cellwise_closure_campaign.ps1
   suffix: .ps1
   script_domain: campaigns
   script_kind: launcher
   has_cli_surface: true
   has_platform_flags: false
   has_linux_equivalent: true
-  linux_equivalent_path: scripts/campaigns/track1/exact_paper/run_track1_et_residual_cellwise_closure_campaign.sh
+  linux_equivalent_path: scripts/campaigns/track_1/exact_paper/run_track1_et_residual_cellwise_closure_campaign.sh
   has_windows_specific_markers: true
   portability_status: linux_equivalent_present
   note: PowerShell launcher has a sibling Bash launcher.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_et_residual_cellwise_closure_campaign.sh
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_et_residual_cellwise_closure_campaign.sh
   suffix: .sh
   script_domain: campaigns
   script_kind: launcher
@@ -835,18 +835,18 @@ scripts:
   has_windows_specific_markers: true
   portability_status: linux_launcher_present
   note: Bash launcher is available.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_exact_paper_open_cell_repair_campaign.ps1
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_exact_paper_open_cell_repair_campaign.ps1
   suffix: .ps1
   script_domain: campaigns
   script_kind: launcher
   has_cli_surface: true
   has_platform_flags: false
   has_linux_equivalent: true
-  linux_equivalent_path: scripts/campaigns/track1/exact_paper/run_track1_exact_paper_open_cell_repair_campaign.sh
+  linux_equivalent_path: scripts/campaigns/track_1/exact_paper/run_track1_exact_paper_open_cell_repair_campaign.sh
   has_windows_specific_markers: true
   portability_status: linux_equivalent_present
   note: PowerShell launcher has a sibling Bash launcher.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_exact_paper_open_cell_repair_campaign.sh
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_exact_paper_open_cell_repair_campaign.sh
   suffix: .sh
   script_domain: campaigns
   script_kind: launcher
@@ -857,7 +857,7 @@ scripts:
   has_windows_specific_markers: true
   portability_status: linux_launcher_present
   note: Bash launcher is available.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_forward_final_open_cells_campaign.ps1
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_forward_final_open_cells_campaign.ps1
   suffix: .ps1
   script_domain: campaigns
   script_kind: launcher
@@ -868,7 +868,7 @@ scripts:
   has_windows_specific_markers: true
   portability_status: missing_linux_equivalent
   note: PowerShell launcher has no sibling Bash launcher.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_forward_last_four_open_cells_campaign.ps1
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_forward_last_four_open_cells_campaign.ps1
   suffix: .ps1
   script_domain: campaigns
   script_kind: launcher
@@ -879,7 +879,7 @@ scripts:
   has_windows_specific_markers: true
   portability_status: missing_linux_equivalent
   note: PowerShell launcher has no sibling Bash launcher.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_forward_last_non_green_cells_campaign.ps1
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_forward_last_non_green_cells_campaign.ps1
   suffix: .ps1
   script_domain: campaigns
   script_kind: launcher
@@ -890,7 +890,7 @@ scripts:
   has_windows_specific_markers: true
   portability_status: missing_linux_equivalent
   note: PowerShell launcher has no sibling Bash launcher.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_forward_last_three_open_cells_campaign.ps1
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_forward_last_three_open_cells_campaign.ps1
   suffix: .ps1
   script_domain: campaigns
   script_kind: launcher
@@ -901,7 +901,7 @@ scripts:
   has_windows_specific_markers: true
   portability_status: missing_linux_equivalent
   note: PowerShell launcher has no sibling Bash launcher.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_forward_last_three_open_cells_overnight_mega_campaign.ps1
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_forward_last_three_open_cells_overnight_mega_campaign.ps1
   suffix: .ps1
   script_domain: campaigns
   script_kind: launcher
@@ -912,7 +912,7 @@ scripts:
   has_windows_specific_markers: true
   portability_status: missing_linux_equivalent
   note: PowerShell launcher has no sibling Bash launcher.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_forward_maxi_last_non_green_cells_campaign.ps1
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_forward_maxi_last_non_green_cells_campaign.ps1
   suffix: .ps1
   script_domain: campaigns
   script_kind: launcher
@@ -923,7 +923,7 @@ scripts:
   has_windows_specific_markers: true
   portability_status: missing_linux_equivalent
   note: PowerShell launcher has no sibling Bash launcher.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_forward_open_cell_repair_campaign.ps1
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_forward_open_cell_repair_campaign.ps1
   suffix: .ps1
   script_domain: campaigns
   script_kind: launcher
@@ -934,7 +934,7 @@ scripts:
   has_windows_specific_markers: true
   portability_status: missing_linux_equivalent
   note: PowerShell launcher has no sibling Bash launcher.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_forward_original_dataset_remote_diagnostic_campaign.ps1
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_forward_original_dataset_remote_diagnostic_campaign.ps1
   suffix: .ps1
   script_domain: campaigns
   script_kind: launcher
@@ -945,7 +945,7 @@ scripts:
   has_windows_specific_markers: true
   portability_status: missing_linux_equivalent
   note: PowerShell launcher has no sibling Bash launcher.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_forward_original_dataset_remote_micro_campaign.ps1
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_forward_original_dataset_remote_micro_campaign.ps1
   suffix: .ps1
   script_domain: campaigns
   script_kind: launcher
@@ -956,18 +956,18 @@ scripts:
   has_windows_specific_markers: true
   portability_status: missing_linux_equivalent
   note: PowerShell launcher has no sibling Bash launcher.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_full_matrix_family_reproduction_campaign.ps1
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_full_matrix_family_reproduction_campaign.ps1
   suffix: .ps1
   script_domain: campaigns
   script_kind: launcher
   has_cli_surface: true
   has_platform_flags: false
   has_linux_equivalent: true
-  linux_equivalent_path: scripts/campaigns/track1/exact_paper/run_track1_full_matrix_family_reproduction_campaign.sh
+  linux_equivalent_path: scripts/campaigns/track_1/exact_paper/run_track1_full_matrix_family_reproduction_campaign.sh
   has_windows_specific_markers: true
   portability_status: linux_equivalent_present
   note: PowerShell launcher has a sibling Bash launcher.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_full_matrix_family_reproduction_campaign.sh
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_full_matrix_family_reproduction_campaign.sh
   suffix: .sh
   script_domain: campaigns
   script_kind: launcher
@@ -978,18 +978,18 @@ scripts:
   has_windows_specific_markers: true
   portability_status: linux_launcher_present
   note: Bash launcher is available.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_gbm_cellwise_reference_campaign.ps1
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_gbm_cellwise_reference_campaign.ps1
   suffix: .ps1
   script_domain: campaigns
   script_kind: launcher
   has_cli_surface: true
   has_platform_flags: false
   has_linux_equivalent: true
-  linux_equivalent_path: scripts/campaigns/track1/exact_paper/run_track1_gbm_cellwise_reference_campaign.sh
+  linux_equivalent_path: scripts/campaigns/track_1/exact_paper/run_track1_gbm_cellwise_reference_campaign.sh
   has_windows_specific_markers: true
   portability_status: linux_equivalent_present
   note: PowerShell launcher has a sibling Bash launcher.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_gbm_cellwise_reference_campaign.sh
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_gbm_cellwise_reference_campaign.sh
   suffix: .sh
   script_domain: campaigns
   script_kind: launcher
@@ -1000,18 +1000,18 @@ scripts:
   has_windows_specific_markers: true
   portability_status: linux_launcher_present
   note: Bash launcher is available.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_gbm_full_matrix_campaign.ps1
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_gbm_full_matrix_campaign.ps1
   suffix: .ps1
   script_domain: campaigns
   script_kind: launcher
   has_cli_surface: true
   has_platform_flags: false
   has_linux_equivalent: true
-  linux_equivalent_path: scripts/campaigns/track1/exact_paper/run_track1_gbm_full_matrix_campaign.sh
+  linux_equivalent_path: scripts/campaigns/track_1/exact_paper/run_track1_gbm_full_matrix_campaign.sh
   has_windows_specific_markers: true
   portability_status: linux_equivalent_present
   note: PowerShell launcher has a sibling Bash launcher.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_gbm_full_matrix_campaign.sh
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_gbm_full_matrix_campaign.sh
   suffix: .sh
   script_domain: campaigns
   script_kind: launcher
@@ -1022,18 +1022,18 @@ scripts:
   has_windows_specific_markers: true
   portability_status: linux_launcher_present
   note: Bash launcher is available.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_gbm_open_cell_full_matrix_closure_campaign.ps1
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_gbm_open_cell_full_matrix_closure_campaign.ps1
   suffix: .ps1
   script_domain: campaigns
   script_kind: launcher
   has_cli_surface: true
   has_platform_flags: false
   has_linux_equivalent: true
-  linux_equivalent_path: scripts/campaigns/track1/exact_paper/run_track1_gbm_open_cell_full_matrix_closure_campaign.sh
+  linux_equivalent_path: scripts/campaigns/track_1/exact_paper/run_track1_gbm_open_cell_full_matrix_closure_campaign.sh
   has_windows_specific_markers: true
   portability_status: linux_equivalent_present
   note: PowerShell launcher has a sibling Bash launcher.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_gbm_open_cell_full_matrix_closure_campaign.sh
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_gbm_open_cell_full_matrix_closure_campaign.sh
   suffix: .sh
   script_domain: campaigns
   script_kind: launcher
@@ -1044,18 +1044,18 @@ scripts:
   has_windows_specific_markers: true
   portability_status: linux_launcher_present
   note: Bash launcher is available.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_gbm_residual_cellwise_closure_campaign.ps1
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_gbm_residual_cellwise_closure_campaign.ps1
   suffix: .ps1
   script_domain: campaigns
   script_kind: launcher
   has_cli_surface: true
   has_platform_flags: false
   has_linux_equivalent: true
-  linux_equivalent_path: scripts/campaigns/track1/exact_paper/run_track1_gbm_residual_cellwise_closure_campaign.sh
+  linux_equivalent_path: scripts/campaigns/track_1/exact_paper/run_track1_gbm_residual_cellwise_closure_campaign.sh
   has_windows_specific_markers: true
   portability_status: linux_equivalent_present
   note: PowerShell launcher has a sibling Bash launcher.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_gbm_residual_cellwise_closure_campaign.sh
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_gbm_residual_cellwise_closure_campaign.sh
   suffix: .sh
   script_domain: campaigns
   script_kind: launcher
@@ -1066,18 +1066,18 @@ scripts:
   has_windows_specific_markers: true
   portability_status: linux_launcher_present
   note: Bash launcher is available.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_hgbm_cellwise_reference_campaign.ps1
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_hgbm_cellwise_reference_campaign.ps1
   suffix: .ps1
   script_domain: campaigns
   script_kind: launcher
   has_cli_surface: true
   has_platform_flags: false
   has_linux_equivalent: true
-  linux_equivalent_path: scripts/campaigns/track1/exact_paper/run_track1_hgbm_cellwise_reference_campaign.sh
+  linux_equivalent_path: scripts/campaigns/track_1/exact_paper/run_track1_hgbm_cellwise_reference_campaign.sh
   has_windows_specific_markers: true
   portability_status: linux_equivalent_present
   note: PowerShell launcher has a sibling Bash launcher.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_hgbm_cellwise_reference_campaign.sh
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_hgbm_cellwise_reference_campaign.sh
   suffix: .sh
   script_domain: campaigns
   script_kind: launcher
@@ -1088,18 +1088,18 @@ scripts:
   has_windows_specific_markers: true
   portability_status: linux_launcher_present
   note: Bash launcher is available.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_hgbm_full_matrix_campaign.ps1
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_hgbm_full_matrix_campaign.ps1
   suffix: .ps1
   script_domain: campaigns
   script_kind: launcher
   has_cli_surface: true
   has_platform_flags: false
   has_linux_equivalent: true
-  linux_equivalent_path: scripts/campaigns/track1/exact_paper/run_track1_hgbm_full_matrix_campaign.sh
+  linux_equivalent_path: scripts/campaigns/track_1/exact_paper/run_track1_hgbm_full_matrix_campaign.sh
   has_windows_specific_markers: true
   portability_status: linux_equivalent_present
   note: PowerShell launcher has a sibling Bash launcher.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_hgbm_full_matrix_campaign.sh
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_hgbm_full_matrix_campaign.sh
   suffix: .sh
   script_domain: campaigns
   script_kind: launcher
@@ -1110,18 +1110,18 @@ scripts:
   has_windows_specific_markers: true
   portability_status: linux_launcher_present
   note: Bash launcher is available.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_hgbm_open_cell_full_matrix_closure_campaign.ps1
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_hgbm_open_cell_full_matrix_closure_campaign.ps1
   suffix: .ps1
   script_domain: campaigns
   script_kind: launcher
   has_cli_surface: true
   has_platform_flags: false
   has_linux_equivalent: true
-  linux_equivalent_path: scripts/campaigns/track1/exact_paper/run_track1_hgbm_open_cell_full_matrix_closure_campaign.sh
+  linux_equivalent_path: scripts/campaigns/track_1/exact_paper/run_track1_hgbm_open_cell_full_matrix_closure_campaign.sh
   has_windows_specific_markers: true
   portability_status: linux_equivalent_present
   note: PowerShell launcher has a sibling Bash launcher.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_hgbm_open_cell_full_matrix_closure_campaign.sh
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_hgbm_open_cell_full_matrix_closure_campaign.sh
   suffix: .sh
   script_domain: campaigns
   script_kind: launcher
@@ -1132,18 +1132,18 @@ scripts:
   has_windows_specific_markers: true
   portability_status: linux_launcher_present
   note: Bash launcher is available.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_hgbm_remaining_yellow_cell_campaign.ps1
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_hgbm_remaining_yellow_cell_campaign.ps1
   suffix: .ps1
   script_domain: campaigns
   script_kind: launcher
   has_cli_surface: true
   has_platform_flags: false
   has_linux_equivalent: true
-  linux_equivalent_path: scripts/campaigns/track1/exact_paper/run_track1_hgbm_remaining_yellow_cell_campaign.sh
+  linux_equivalent_path: scripts/campaigns/track_1/exact_paper/run_track1_hgbm_remaining_yellow_cell_campaign.sh
   has_windows_specific_markers: true
   portability_status: linux_equivalent_present
   note: PowerShell launcher has a sibling Bash launcher.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_hgbm_remaining_yellow_cell_campaign.sh
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_hgbm_remaining_yellow_cell_campaign.sh
   suffix: .sh
   script_domain: campaigns
   script_kind: launcher
@@ -1154,18 +1154,18 @@ scripts:
   has_windows_specific_markers: true
   portability_status: linux_launcher_present
   note: Bash launcher is available.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_hgbm_residual_cellwise_closure_campaign.ps1
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_hgbm_residual_cellwise_closure_campaign.ps1
   suffix: .ps1
   script_domain: campaigns
   script_kind: launcher
   has_cli_surface: true
   has_platform_flags: false
   has_linux_equivalent: true
-  linux_equivalent_path: scripts/campaigns/track1/exact_paper/run_track1_hgbm_residual_cellwise_closure_campaign.sh
+  linux_equivalent_path: scripts/campaigns/track_1/exact_paper/run_track1_hgbm_residual_cellwise_closure_campaign.sh
   has_windows_specific_markers: true
   portability_status: linux_equivalent_present
   note: PowerShell launcher has a sibling Bash launcher.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_hgbm_residual_cellwise_closure_campaign.sh
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_hgbm_residual_cellwise_closure_campaign.sh
   suffix: .sh
   script_domain: campaigns
   script_kind: launcher
@@ -1176,18 +1176,18 @@ scripts:
   has_windows_specific_markers: true
   portability_status: linux_launcher_present
   note: Bash launcher is available.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_lgbm_cellwise_reference_campaign.ps1
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_lgbm_cellwise_reference_campaign.ps1
   suffix: .ps1
   script_domain: campaigns
   script_kind: launcher
   has_cli_surface: true
   has_platform_flags: false
   has_linux_equivalent: true
-  linux_equivalent_path: scripts/campaigns/track1/exact_paper/run_track1_lgbm_cellwise_reference_campaign.sh
+  linux_equivalent_path: scripts/campaigns/track_1/exact_paper/run_track1_lgbm_cellwise_reference_campaign.sh
   has_windows_specific_markers: true
   portability_status: linux_equivalent_present
   note: PowerShell launcher has a sibling Bash launcher.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_lgbm_cellwise_reference_campaign.sh
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_lgbm_cellwise_reference_campaign.sh
   suffix: .sh
   script_domain: campaigns
   script_kind: launcher
@@ -1198,18 +1198,18 @@ scripts:
   has_windows_specific_markers: true
   portability_status: linux_launcher_present
   note: Bash launcher is available.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_lgbm_full_matrix_campaign.ps1
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_lgbm_full_matrix_campaign.ps1
   suffix: .ps1
   script_domain: campaigns
   script_kind: launcher
   has_cli_surface: true
   has_platform_flags: false
   has_linux_equivalent: true
-  linux_equivalent_path: scripts/campaigns/track1/exact_paper/run_track1_lgbm_full_matrix_campaign.sh
+  linux_equivalent_path: scripts/campaigns/track_1/exact_paper/run_track1_lgbm_full_matrix_campaign.sh
   has_windows_specific_markers: true
   portability_status: linux_equivalent_present
   note: PowerShell launcher has a sibling Bash launcher.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_lgbm_full_matrix_campaign.sh
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_lgbm_full_matrix_campaign.sh
   suffix: .sh
   script_domain: campaigns
   script_kind: launcher
@@ -1220,18 +1220,18 @@ scripts:
   has_windows_specific_markers: true
   portability_status: linux_launcher_present
   note: Bash launcher is available.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_lgbm_open_cell_full_matrix_closure_campaign.ps1
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_lgbm_open_cell_full_matrix_closure_campaign.ps1
   suffix: .ps1
   script_domain: campaigns
   script_kind: launcher
   has_cli_surface: true
   has_platform_flags: false
   has_linux_equivalent: true
-  linux_equivalent_path: scripts/campaigns/track1/exact_paper/run_track1_lgbm_open_cell_full_matrix_closure_campaign.sh
+  linux_equivalent_path: scripts/campaigns/track_1/exact_paper/run_track1_lgbm_open_cell_full_matrix_closure_campaign.sh
   has_windows_specific_markers: true
   portability_status: linux_equivalent_present
   note: PowerShell launcher has a sibling Bash launcher.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_lgbm_open_cell_full_matrix_closure_campaign.sh
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_lgbm_open_cell_full_matrix_closure_campaign.sh
   suffix: .sh
   script_domain: campaigns
   script_kind: launcher
@@ -1242,18 +1242,18 @@ scripts:
   has_windows_specific_markers: true
   portability_status: linux_launcher_present
   note: Bash launcher is available.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_lgbm_residual_cellwise_closure_campaign.ps1
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_lgbm_residual_cellwise_closure_campaign.ps1
   suffix: .ps1
   script_domain: campaigns
   script_kind: launcher
   has_cli_surface: true
   has_platform_flags: false
   has_linux_equivalent: true
-  linux_equivalent_path: scripts/campaigns/track1/exact_paper/run_track1_lgbm_residual_cellwise_closure_campaign.sh
+  linux_equivalent_path: scripts/campaigns/track_1/exact_paper/run_track1_lgbm_residual_cellwise_closure_campaign.sh
   has_windows_specific_markers: true
   portability_status: linux_equivalent_present
   note: PowerShell launcher has a sibling Bash launcher.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_lgbm_residual_cellwise_closure_campaign.sh
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_lgbm_residual_cellwise_closure_campaign.sh
   suffix: .sh
   script_domain: campaigns
   script_kind: launcher
@@ -1264,18 +1264,18 @@ scripts:
   has_windows_specific_markers: true
   portability_status: linux_launcher_present
   note: Bash launcher is available.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_mlp_cellwise_reference_campaign.ps1
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_mlp_cellwise_reference_campaign.ps1
   suffix: .ps1
   script_domain: campaigns
   script_kind: launcher
   has_cli_surface: true
   has_platform_flags: false
   has_linux_equivalent: true
-  linux_equivalent_path: scripts/campaigns/track1/exact_paper/run_track1_mlp_cellwise_reference_campaign.sh
+  linux_equivalent_path: scripts/campaigns/track_1/exact_paper/run_track1_mlp_cellwise_reference_campaign.sh
   has_windows_specific_markers: true
   portability_status: linux_equivalent_present
   note: PowerShell launcher has a sibling Bash launcher.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_mlp_cellwise_reference_campaign.sh
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_mlp_cellwise_reference_campaign.sh
   suffix: .sh
   script_domain: campaigns
   script_kind: launcher
@@ -1286,18 +1286,18 @@ scripts:
   has_windows_specific_markers: true
   portability_status: linux_launcher_present
   note: Bash launcher is available.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_mlp_family_full_matrix_repair_campaign.ps1
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_mlp_family_full_matrix_repair_campaign.ps1
   suffix: .ps1
   script_domain: campaigns
   script_kind: launcher
   has_cli_surface: true
   has_platform_flags: false
   has_linux_equivalent: true
-  linux_equivalent_path: scripts/campaigns/track1/exact_paper/run_track1_mlp_family_full_matrix_repair_campaign.sh
+  linux_equivalent_path: scripts/campaigns/track_1/exact_paper/run_track1_mlp_family_full_matrix_repair_campaign.sh
   has_windows_specific_markers: true
   portability_status: linux_equivalent_present
   note: PowerShell launcher has a sibling Bash launcher.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_mlp_family_full_matrix_repair_campaign.sh
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_mlp_family_full_matrix_repair_campaign.sh
   suffix: .sh
   script_domain: campaigns
   script_kind: launcher
@@ -1308,18 +1308,18 @@ scripts:
   has_windows_specific_markers: true
   portability_status: linux_launcher_present
   note: Bash launcher is available.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_mlp_full_matrix_campaign.ps1
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_mlp_full_matrix_campaign.ps1
   suffix: .ps1
   script_domain: campaigns
   script_kind: launcher
   has_cli_surface: true
   has_platform_flags: false
   has_linux_equivalent: true
-  linux_equivalent_path: scripts/campaigns/track1/exact_paper/run_track1_mlp_full_matrix_campaign.sh
+  linux_equivalent_path: scripts/campaigns/track_1/exact_paper/run_track1_mlp_full_matrix_campaign.sh
   has_windows_specific_markers: true
   portability_status: linux_equivalent_present
   note: PowerShell launcher has a sibling Bash launcher.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_mlp_full_matrix_campaign.sh
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_mlp_full_matrix_campaign.sh
   suffix: .sh
   script_domain: campaigns
   script_kind: launcher
@@ -1330,18 +1330,18 @@ scripts:
   has_windows_specific_markers: true
   portability_status: linux_launcher_present
   note: Bash launcher is available.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_mlp_open_cell_full_matrix_closure_campaign.ps1
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_mlp_open_cell_full_matrix_closure_campaign.ps1
   suffix: .ps1
   script_domain: campaigns
   script_kind: launcher
   has_cli_surface: true
   has_platform_flags: false
   has_linux_equivalent: true
-  linux_equivalent_path: scripts/campaigns/track1/exact_paper/run_track1_mlp_open_cell_full_matrix_closure_campaign.sh
+  linux_equivalent_path: scripts/campaigns/track_1/exact_paper/run_track1_mlp_open_cell_full_matrix_closure_campaign.sh
   has_windows_specific_markers: true
   portability_status: linux_equivalent_present
   note: PowerShell launcher has a sibling Bash launcher.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_mlp_open_cell_full_matrix_closure_campaign.sh
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_mlp_open_cell_full_matrix_closure_campaign.sh
   suffix: .sh
   script_domain: campaigns
   script_kind: launcher
@@ -1352,18 +1352,18 @@ scripts:
   has_windows_specific_markers: true
   portability_status: linux_launcher_present
   note: Bash launcher is available.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_mlp_remaining_yellow_cell_campaign.ps1
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_mlp_remaining_yellow_cell_campaign.ps1
   suffix: .ps1
   script_domain: campaigns
   script_kind: launcher
   has_cli_surface: true
   has_platform_flags: false
   has_linux_equivalent: true
-  linux_equivalent_path: scripts/campaigns/track1/exact_paper/run_track1_mlp_remaining_yellow_cell_campaign.sh
+  linux_equivalent_path: scripts/campaigns/track_1/exact_paper/run_track1_mlp_remaining_yellow_cell_campaign.sh
   has_windows_specific_markers: true
   portability_status: linux_equivalent_present
   note: PowerShell launcher has a sibling Bash launcher.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_mlp_remaining_yellow_cell_campaign.sh
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_mlp_remaining_yellow_cell_campaign.sh
   suffix: .sh
   script_domain: campaigns
   script_kind: launcher
@@ -1374,18 +1374,18 @@ scripts:
   has_windows_specific_markers: true
   portability_status: linux_launcher_present
   note: Bash launcher is available.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_mlp_residual_cell_final_closure_campaign.ps1
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_mlp_residual_cell_final_closure_campaign.ps1
   suffix: .ps1
   script_domain: campaigns
   script_kind: launcher
   has_cli_surface: true
   has_platform_flags: false
   has_linux_equivalent: true
-  linux_equivalent_path: scripts/campaigns/track1/exact_paper/run_track1_mlp_residual_cell_final_closure_campaign.sh
+  linux_equivalent_path: scripts/campaigns/track_1/exact_paper/run_track1_mlp_residual_cell_final_closure_campaign.sh
   has_windows_specific_markers: true
   portability_status: linux_equivalent_present
   note: PowerShell launcher has a sibling Bash launcher.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_mlp_residual_cell_final_closure_campaign.sh
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_mlp_residual_cell_final_closure_campaign.sh
   suffix: .sh
   script_domain: campaigns
   script_kind: launcher
@@ -1396,18 +1396,18 @@ scripts:
   has_windows_specific_markers: true
   portability_status: linux_launcher_present
   note: Bash launcher is available.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_mlp_residual_cellwise_closure_campaign.ps1
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_mlp_residual_cellwise_closure_campaign.ps1
   suffix: .ps1
   script_domain: campaigns
   script_kind: launcher
   has_cli_surface: true
   has_platform_flags: false
   has_linux_equivalent: true
-  linux_equivalent_path: scripts/campaigns/track1/exact_paper/run_track1_mlp_residual_cellwise_closure_campaign.sh
+  linux_equivalent_path: scripts/campaigns/track_1/exact_paper/run_track1_mlp_residual_cellwise_closure_campaign.sh
   has_windows_specific_markers: true
   portability_status: linux_equivalent_present
   note: PowerShell launcher has a sibling Bash launcher.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_mlp_residual_cellwise_closure_campaign.sh
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_mlp_residual_cellwise_closure_campaign.sh
   suffix: .sh
   script_domain: campaigns
   script_kind: launcher
@@ -1418,18 +1418,18 @@ scripts:
   has_windows_specific_markers: true
   portability_status: linux_launcher_present
   note: Bash launcher is available.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_open_cell_full_matrix_closure_campaigns.ps1
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_open_cell_full_matrix_closure_campaigns.ps1
   suffix: .ps1
   script_domain: campaigns
   script_kind: launcher
   has_cli_surface: true
   has_platform_flags: false
   has_linux_equivalent: true
-  linux_equivalent_path: scripts/campaigns/track1/exact_paper/run_track1_open_cell_full_matrix_closure_campaigns.sh
+  linux_equivalent_path: scripts/campaigns/track_1/exact_paper/run_track1_open_cell_full_matrix_closure_campaigns.sh
   has_windows_specific_markers: true
   portability_status: linux_equivalent_present
   note: PowerShell launcher has a sibling Bash launcher.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_open_cell_full_matrix_closure_campaigns.sh
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_open_cell_full_matrix_closure_campaigns.sh
   suffix: .sh
   script_domain: campaigns
   script_kind: launcher
@@ -1440,18 +1440,18 @@ scripts:
   has_windows_specific_markers: true
   portability_status: linux_launcher_present
   note: Bash launcher is available.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_open_cell_full_matrix_closure_campaigns_resume_after_mlp.ps1
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_open_cell_full_matrix_closure_campaigns_resume_after_mlp.ps1
   suffix: .ps1
   script_domain: campaigns
   script_kind: launcher
   has_cli_surface: true
   has_platform_flags: false
   has_linux_equivalent: true
-  linux_equivalent_path: scripts/campaigns/track1/exact_paper/run_track1_open_cell_full_matrix_closure_campaigns_resume_after_mlp.sh
+  linux_equivalent_path: scripts/campaigns/track_1/exact_paper/run_track1_open_cell_full_matrix_closure_campaigns_resume_after_mlp.sh
   has_windows_specific_markers: true
   portability_status: linux_equivalent_present
   note: PowerShell launcher has a sibling Bash launcher.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_open_cell_full_matrix_closure_campaigns_resume_after_mlp.sh
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_open_cell_full_matrix_closure_campaigns_resume_after_mlp.sh
   suffix: .sh
   script_domain: campaigns
   script_kind: launcher
@@ -1462,18 +1462,18 @@ scripts:
   has_windows_specific_markers: true
   portability_status: linux_launcher_present
   note: Bash launcher is available.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_remaining_family_cellwise_reference_campaigns.ps1
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_remaining_family_cellwise_reference_campaigns.ps1
   suffix: .ps1
   script_domain: campaigns
   script_kind: launcher
   has_cli_surface: true
   has_platform_flags: false
   has_linux_equivalent: true
-  linux_equivalent_path: scripts/campaigns/track1/exact_paper/run_track1_remaining_family_cellwise_reference_campaigns.sh
+  linux_equivalent_path: scripts/campaigns/track_1/exact_paper/run_track1_remaining_family_cellwise_reference_campaigns.sh
   has_windows_specific_markers: true
   portability_status: linux_equivalent_present
   note: PowerShell launcher has a sibling Bash launcher.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_remaining_family_cellwise_reference_campaigns.sh
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_remaining_family_cellwise_reference_campaigns.sh
   suffix: .sh
   script_domain: campaigns
   script_kind: launcher
@@ -1484,18 +1484,18 @@ scripts:
   has_windows_specific_markers: true
   portability_status: linux_launcher_present
   note: Bash launcher is available.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_remaining_family_full_matrix_campaigns.ps1
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_remaining_family_full_matrix_campaigns.ps1
   suffix: .ps1
   script_domain: campaigns
   script_kind: launcher
   has_cli_surface: true
   has_platform_flags: false
   has_linux_equivalent: true
-  linux_equivalent_path: scripts/campaigns/track1/exact_paper/run_track1_remaining_family_full_matrix_campaigns.sh
+  linux_equivalent_path: scripts/campaigns/track_1/exact_paper/run_track1_remaining_family_full_matrix_campaigns.sh
   has_windows_specific_markers: true
   portability_status: linux_equivalent_present
   note: PowerShell launcher has a sibling Bash launcher.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_remaining_family_full_matrix_campaigns.sh
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_remaining_family_full_matrix_campaigns.sh
   suffix: .sh
   script_domain: campaigns
   script_kind: launcher
@@ -1506,18 +1506,18 @@ scripts:
   has_windows_specific_markers: true
   portability_status: linux_launcher_present
   note: Bash launcher is available.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_remaining_family_residual_cellwise_closure_campaigns.ps1
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_remaining_family_residual_cellwise_closure_campaigns.ps1
   suffix: .ps1
   script_domain: campaigns
   script_kind: launcher
   has_cli_surface: true
   has_platform_flags: false
   has_linux_equivalent: true
-  linux_equivalent_path: scripts/campaigns/track1/exact_paper/run_track1_remaining_family_residual_cellwise_closure_campaigns.sh
+  linux_equivalent_path: scripts/campaigns/track_1/exact_paper/run_track1_remaining_family_residual_cellwise_closure_campaigns.sh
   has_windows_specific_markers: true
   portability_status: linux_equivalent_present
   note: PowerShell launcher has a sibling Bash launcher.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_remaining_family_residual_cellwise_closure_campaigns.sh
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_remaining_family_residual_cellwise_closure_campaigns.sh
   suffix: .sh
   script_domain: campaigns
   script_kind: launcher
@@ -1528,18 +1528,18 @@ scripts:
   has_windows_specific_markers: true
   portability_status: linux_launcher_present
   note: Bash launcher is available.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_remaining_yellow_cell_campaigns.ps1
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_remaining_yellow_cell_campaigns.ps1
   suffix: .ps1
   script_domain: campaigns
   script_kind: launcher
   has_cli_surface: true
   has_platform_flags: false
   has_linux_equivalent: true
-  linux_equivalent_path: scripts/campaigns/track1/exact_paper/run_track1_remaining_yellow_cell_campaigns.sh
+  linux_equivalent_path: scripts/campaigns/track_1/exact_paper/run_track1_remaining_yellow_cell_campaigns.sh
   has_windows_specific_markers: true
   portability_status: linux_equivalent_present
   note: PowerShell launcher has a sibling Bash launcher.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_remaining_yellow_cell_campaigns.sh
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_remaining_yellow_cell_campaigns.sh
   suffix: .sh
   script_domain: campaigns
   script_kind: launcher
@@ -1550,18 +1550,18 @@ scripts:
   has_windows_specific_markers: true
   portability_status: linux_launcher_present
   note: Bash launcher is available.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_rf_cellwise_reference_campaign.ps1
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_rf_cellwise_reference_campaign.ps1
   suffix: .ps1
   script_domain: campaigns
   script_kind: launcher
   has_cli_surface: true
   has_platform_flags: false
   has_linux_equivalent: true
-  linux_equivalent_path: scripts/campaigns/track1/exact_paper/run_track1_rf_cellwise_reference_campaign.sh
+  linux_equivalent_path: scripts/campaigns/track_1/exact_paper/run_track1_rf_cellwise_reference_campaign.sh
   has_windows_specific_markers: true
   portability_status: linux_equivalent_present
   note: PowerShell launcher has a sibling Bash launcher.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_rf_cellwise_reference_campaign.sh
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_rf_cellwise_reference_campaign.sh
   suffix: .sh
   script_domain: campaigns
   script_kind: launcher
@@ -1572,18 +1572,18 @@ scripts:
   has_windows_specific_markers: true
   portability_status: linux_launcher_present
   note: Bash launcher is available.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_rf_full_matrix_campaign.ps1
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_rf_full_matrix_campaign.ps1
   suffix: .ps1
   script_domain: campaigns
   script_kind: launcher
   has_cli_surface: true
   has_platform_flags: false
   has_linux_equivalent: true
-  linux_equivalent_path: scripts/campaigns/track1/exact_paper/run_track1_rf_full_matrix_campaign.sh
+  linux_equivalent_path: scripts/campaigns/track_1/exact_paper/run_track1_rf_full_matrix_campaign.sh
   has_windows_specific_markers: true
   portability_status: linux_equivalent_present
   note: PowerShell launcher has a sibling Bash launcher.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_rf_full_matrix_campaign.sh
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_rf_full_matrix_campaign.sh
   suffix: .sh
   script_domain: campaigns
   script_kind: launcher
@@ -1594,18 +1594,18 @@ scripts:
   has_windows_specific_markers: true
   portability_status: linux_launcher_present
   note: Bash launcher is available.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_rf_open_cell_full_matrix_closure_campaign.ps1
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_rf_open_cell_full_matrix_closure_campaign.ps1
   suffix: .ps1
   script_domain: campaigns
   script_kind: launcher
   has_cli_surface: true
   has_platform_flags: false
   has_linux_equivalent: true
-  linux_equivalent_path: scripts/campaigns/track1/exact_paper/run_track1_rf_open_cell_full_matrix_closure_campaign.sh
+  linux_equivalent_path: scripts/campaigns/track_1/exact_paper/run_track1_rf_open_cell_full_matrix_closure_campaign.sh
   has_windows_specific_markers: true
   portability_status: linux_equivalent_present
   note: PowerShell launcher has a sibling Bash launcher.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_rf_open_cell_full_matrix_closure_campaign.sh
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_rf_open_cell_full_matrix_closure_campaign.sh
   suffix: .sh
   script_domain: campaigns
   script_kind: launcher
@@ -1616,18 +1616,18 @@ scripts:
   has_windows_specific_markers: true
   portability_status: linux_launcher_present
   note: Bash launcher is available.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_rf_residual_cellwise_closure_campaign.ps1
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_rf_residual_cellwise_closure_campaign.ps1
   suffix: .ps1
   script_domain: campaigns
   script_kind: launcher
   has_cli_surface: true
   has_platform_flags: false
   has_linux_equivalent: true
-  linux_equivalent_path: scripts/campaigns/track1/exact_paper/run_track1_rf_residual_cellwise_closure_campaign.sh
+  linux_equivalent_path: scripts/campaigns/track_1/exact_paper/run_track1_rf_residual_cellwise_closure_campaign.sh
   has_windows_specific_markers: true
   portability_status: linux_equivalent_present
   note: PowerShell launcher has a sibling Bash launcher.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_rf_residual_cellwise_closure_campaign.sh
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_rf_residual_cellwise_closure_campaign.sh
   suffix: .sh
   script_domain: campaigns
   script_kind: launcher
@@ -1638,18 +1638,18 @@ scripts:
   has_windows_specific_markers: true
   portability_status: linux_launcher_present
   note: Bash launcher is available.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_svm_remaining_yellow_cell_campaign.ps1
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_svm_remaining_yellow_cell_campaign.ps1
   suffix: .ps1
   script_domain: campaigns
   script_kind: launcher
   has_cli_surface: true
   has_platform_flags: false
   has_linux_equivalent: true
-  linux_equivalent_path: scripts/campaigns/track1/exact_paper/run_track1_svm_remaining_yellow_cell_campaign.sh
+  linux_equivalent_path: scripts/campaigns/track_1/exact_paper/run_track1_svm_remaining_yellow_cell_campaign.sh
   has_windows_specific_markers: true
   portability_status: linux_equivalent_present
   note: PowerShell launcher has a sibling Bash launcher.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_svm_remaining_yellow_cell_campaign.sh
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_svm_remaining_yellow_cell_campaign.sh
   suffix: .sh
   script_domain: campaigns
   script_kind: launcher
@@ -1660,18 +1660,18 @@ scripts:
   has_windows_specific_markers: true
   portability_status: linux_launcher_present
   note: Bash launcher is available.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_xgbm_cellwise_reference_campaign.ps1
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_xgbm_cellwise_reference_campaign.ps1
   suffix: .ps1
   script_domain: campaigns
   script_kind: launcher
   has_cli_surface: true
   has_platform_flags: false
   has_linux_equivalent: true
-  linux_equivalent_path: scripts/campaigns/track1/exact_paper/run_track1_xgbm_cellwise_reference_campaign.sh
+  linux_equivalent_path: scripts/campaigns/track_1/exact_paper/run_track1_xgbm_cellwise_reference_campaign.sh
   has_windows_specific_markers: true
   portability_status: linux_equivalent_present
   note: PowerShell launcher has a sibling Bash launcher.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_xgbm_cellwise_reference_campaign.sh
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_xgbm_cellwise_reference_campaign.sh
   suffix: .sh
   script_domain: campaigns
   script_kind: launcher
@@ -1682,18 +1682,18 @@ scripts:
   has_windows_specific_markers: true
   portability_status: linux_launcher_present
   note: Bash launcher is available.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_xgbm_full_matrix_campaign.ps1
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_xgbm_full_matrix_campaign.ps1
   suffix: .ps1
   script_domain: campaigns
   script_kind: launcher
   has_cli_surface: true
   has_platform_flags: false
   has_linux_equivalent: true
-  linux_equivalent_path: scripts/campaigns/track1/exact_paper/run_track1_xgbm_full_matrix_campaign.sh
+  linux_equivalent_path: scripts/campaigns/track_1/exact_paper/run_track1_xgbm_full_matrix_campaign.sh
   has_windows_specific_markers: true
   portability_status: linux_equivalent_present
   note: PowerShell launcher has a sibling Bash launcher.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_xgbm_full_matrix_campaign.sh
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_xgbm_full_matrix_campaign.sh
   suffix: .sh
   script_domain: campaigns
   script_kind: launcher
@@ -1704,18 +1704,18 @@ scripts:
   has_windows_specific_markers: true
   portability_status: linux_launcher_present
   note: Bash launcher is available.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_xgbm_open_cell_full_matrix_closure_campaign.ps1
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_xgbm_open_cell_full_matrix_closure_campaign.ps1
   suffix: .ps1
   script_domain: campaigns
   script_kind: launcher
   has_cli_surface: true
   has_platform_flags: false
   has_linux_equivalent: true
-  linux_equivalent_path: scripts/campaigns/track1/exact_paper/run_track1_xgbm_open_cell_full_matrix_closure_campaign.sh
+  linux_equivalent_path: scripts/campaigns/track_1/exact_paper/run_track1_xgbm_open_cell_full_matrix_closure_campaign.sh
   has_windows_specific_markers: true
   portability_status: linux_equivalent_present
   note: PowerShell launcher has a sibling Bash launcher.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_xgbm_open_cell_full_matrix_closure_campaign.sh
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_xgbm_open_cell_full_matrix_closure_campaign.sh
   suffix: .sh
   script_domain: campaigns
   script_kind: launcher
@@ -1726,18 +1726,18 @@ scripts:
   has_windows_specific_markers: true
   portability_status: linux_launcher_present
   note: Bash launcher is available.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_xgbm_remaining_yellow_cell_campaign.ps1
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_xgbm_remaining_yellow_cell_campaign.ps1
   suffix: .ps1
   script_domain: campaigns
   script_kind: launcher
   has_cli_surface: true
   has_platform_flags: false
   has_linux_equivalent: true
-  linux_equivalent_path: scripts/campaigns/track1/exact_paper/run_track1_xgbm_remaining_yellow_cell_campaign.sh
+  linux_equivalent_path: scripts/campaigns/track_1/exact_paper/run_track1_xgbm_remaining_yellow_cell_campaign.sh
   has_windows_specific_markers: true
   portability_status: linux_equivalent_present
   note: PowerShell launcher has a sibling Bash launcher.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_xgbm_remaining_yellow_cell_campaign.sh
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_xgbm_remaining_yellow_cell_campaign.sh
   suffix: .sh
   script_domain: campaigns
   script_kind: launcher
@@ -1748,18 +1748,18 @@ scripts:
   has_windows_specific_markers: true
   portability_status: linux_launcher_present
   note: Bash launcher is available.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_xgbm_residual_cellwise_closure_campaign.ps1
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_xgbm_residual_cellwise_closure_campaign.ps1
   suffix: .ps1
   script_domain: campaigns
   script_kind: launcher
   has_cli_surface: true
   has_platform_flags: false
   has_linux_equivalent: true
-  linux_equivalent_path: scripts/campaigns/track1/exact_paper/run_track1_xgbm_residual_cellwise_closure_campaign.sh
+  linux_equivalent_path: scripts/campaigns/track_1/exact_paper/run_track1_xgbm_residual_cellwise_closure_campaign.sh
   has_windows_specific_markers: true
   portability_status: linux_equivalent_present
   note: PowerShell launcher has a sibling Bash launcher.
-- relative_path: scripts/campaigns/track1/exact_paper/run_track1_xgbm_residual_cellwise_closure_campaign.sh
+- relative_path: scripts/campaigns/track_1/exact_paper/run_track1_xgbm_residual_cellwise_closure_campaign.sh
   suffix: .sh
   script_domain: campaigns
   script_kind: launcher
@@ -1770,7 +1770,7 @@ scripts:
   has_windows_specific_markers: true
   portability_status: linux_launcher_present
   note: Bash launcher is available.
-- relative_path: scripts/campaigns/track1/exact_paper/sync_track1_interrupted_remaining_yellow_cell_campaign_artifacts.ps1
+- relative_path: scripts/campaigns/track_1/exact_paper/sync_track1_interrupted_remaining_yellow_cell_campaign_artifacts.ps1
   suffix: .ps1
   script_domain: campaigns
   script_kind: launcher
@@ -1781,7 +1781,7 @@ scripts:
   has_windows_specific_markers: true
   portability_status: missing_linux_equivalent
   note: PowerShell launcher has no sibling Bash launcher.
-- relative_path: scripts/campaigns/track1/exact_paper/watch_track1_remaining_yellow_cell_campaign_progress.ps1
+- relative_path: scripts/campaigns/track_1/exact_paper/watch_track1_remaining_yellow_cell_campaign_progress.ps1
   suffix: .ps1
   script_domain: campaigns
   script_kind: launcher
@@ -1792,18 +1792,18 @@ scripts:
   has_windows_specific_markers: true
   portability_status: missing_linux_equivalent
   note: PowerShell launcher has no sibling Bash launcher.
-- relative_path: scripts/campaigns/track1/harmonic_wise/run_track1_extended_overnight_campaign.ps1
+- relative_path: scripts/campaigns/track_1/harmonic_wise/run_track1_extended_overnight_campaign.ps1
   suffix: .ps1
   script_domain: campaigns
   script_kind: launcher
   has_cli_surface: true
   has_platform_flags: false
   has_linux_equivalent: true
-  linux_equivalent_path: scripts/campaigns/track1/harmonic_wise/run_track1_extended_overnight_campaign.sh
+  linux_equivalent_path: scripts/campaigns/track_1/harmonic_wise/run_track1_extended_overnight_campaign.sh
   has_windows_specific_markers: true
   portability_status: linux_equivalent_present
   note: PowerShell launcher has a sibling Bash launcher.
-- relative_path: scripts/campaigns/track1/harmonic_wise/run_track1_extended_overnight_campaign.sh
+- relative_path: scripts/campaigns/track_1/harmonic_wise/run_track1_extended_overnight_campaign.sh
   suffix: .sh
   script_domain: campaigns
   script_kind: launcher
@@ -1814,7 +1814,7 @@ scripts:
   has_windows_specific_markers: false
   portability_status: linux_launcher_present
   note: Bash launcher is available.
-- relative_path: scripts/campaigns/track1/harmonic_wise/run_track1_harmonic_wise_campaign_bundle.sh
+- relative_path: scripts/campaigns/track_1/harmonic_wise/run_track1_harmonic_wise_campaign_bundle.sh
   suffix: .sh
   script_domain: campaigns
   script_kind: launcher
@@ -1825,18 +1825,18 @@ scripts:
   has_windows_specific_markers: false
   portability_status: linux_launcher_present
   note: Bash launcher is available.
-- relative_path: scripts/campaigns/track1/harmonic_wise/run_track1_overnight_gap_closure_campaign.ps1
+- relative_path: scripts/campaigns/track_1/harmonic_wise/run_track1_overnight_gap_closure_campaign.ps1
   suffix: .ps1
   script_domain: campaigns
   script_kind: launcher
   has_cli_surface: true
   has_platform_flags: false
   has_linux_equivalent: true
-  linux_equivalent_path: scripts/campaigns/track1/harmonic_wise/run_track1_overnight_gap_closure_campaign.sh
+  linux_equivalent_path: scripts/campaigns/track_1/harmonic_wise/run_track1_overnight_gap_closure_campaign.sh
   has_windows_specific_markers: true
   portability_status: linux_equivalent_present
   note: PowerShell launcher has a sibling Bash launcher.
-- relative_path: scripts/campaigns/track1/harmonic_wise/run_track1_overnight_gap_closure_campaign.sh
+- relative_path: scripts/campaigns/track_1/harmonic_wise/run_track1_overnight_gap_closure_campaign.sh
   suffix: .sh
   script_domain: campaigns
   script_kind: launcher
@@ -1847,18 +1847,18 @@ scripts:
   has_windows_specific_markers: false
   portability_status: linux_launcher_present
   note: Bash launcher is available.
-- relative_path: scripts/campaigns/track1/harmonic_wise/run_track1_second_iteration_harmonic_wise_campaign.ps1
+- relative_path: scripts/campaigns/track_1/harmonic_wise/run_track1_second_iteration_harmonic_wise_campaign.ps1
   suffix: .ps1
   script_domain: campaigns
   script_kind: launcher
   has_cli_surface: true
   has_platform_flags: false
   has_linux_equivalent: true
-  linux_equivalent_path: scripts/campaigns/track1/harmonic_wise/run_track1_second_iteration_harmonic_wise_campaign.sh
+  linux_equivalent_path: scripts/campaigns/track_1/harmonic_wise/run_track1_second_iteration_harmonic_wise_campaign.sh
   has_windows_specific_markers: true
   portability_status: linux_equivalent_present
   note: PowerShell launcher has a sibling Bash launcher.
-- relative_path: scripts/campaigns/track1/harmonic_wise/run_track1_second_iteration_harmonic_wise_campaign.sh
+- relative_path: scripts/campaigns/track_1/harmonic_wise/run_track1_second_iteration_harmonic_wise_campaign.sh
   suffix: .sh
   script_domain: campaigns
   script_kind: launcher
@@ -1869,7 +1869,7 @@ scripts:
   has_windows_specific_markers: false
   portability_status: linux_launcher_present
   note: Bash launcher is available.
-- relative_path: scripts/campaigns/track1/svm/run_track1_svm_campaign_bundle.sh
+- relative_path: scripts/campaigns/track_1/svm/run_track1_svm_campaign_bundle.sh
   suffix: .sh
   script_domain: campaigns
   script_kind: launcher
@@ -1880,18 +1880,18 @@ scripts:
   has_windows_specific_markers: false
   portability_status: linux_launcher_present
   note: Bash launcher is available.
-- relative_path: scripts/campaigns/track1/svm/run_track1_svm_exact_faithful_final_attempt_campaign.ps1
+- relative_path: scripts/campaigns/track_1/svm/run_track1_svm_exact_faithful_final_attempt_campaign.ps1
   suffix: .ps1
   script_domain: campaigns
   script_kind: launcher
   has_cli_surface: true
   has_platform_flags: false
   has_linux_equivalent: true
-  linux_equivalent_path: scripts/campaigns/track1/svm/run_track1_svm_exact_faithful_final_attempt_campaign.sh
+  linux_equivalent_path: scripts/campaigns/track_1/svm/run_track1_svm_exact_faithful_final_attempt_campaign.sh
   has_windows_specific_markers: true
   portability_status: linux_equivalent_present
   note: PowerShell launcher has a sibling Bash launcher.
-- relative_path: scripts/campaigns/track1/svm/run_track1_svm_exact_faithful_final_attempt_campaign.sh
+- relative_path: scripts/campaigns/track_1/svm/run_track1_svm_exact_faithful_final_attempt_campaign.sh
   suffix: .sh
   script_domain: campaigns
   script_kind: launcher
@@ -1902,18 +1902,18 @@ scripts:
   has_windows_specific_markers: false
   portability_status: linux_launcher_present
   note: Bash launcher is available.
-- relative_path: scripts/campaigns/track1/svm/run_track1_svm_exact_faithful_final_attempt_campaign_remote.ps1
+- relative_path: scripts/campaigns/track_1/svm/run_track1_svm_exact_faithful_final_attempt_campaign_remote.ps1
   suffix: .ps1
   script_domain: campaigns
   script_kind: launcher
   has_cli_surface: true
   has_platform_flags: false
   has_linux_equivalent: true
-  linux_equivalent_path: scripts/campaigns/track1/svm/run_track1_svm_exact_faithful_final_attempt_campaign_remote.sh
+  linux_equivalent_path: scripts/campaigns/track_1/svm/run_track1_svm_exact_faithful_final_attempt_campaign_remote.sh
   has_windows_specific_markers: true
   portability_status: linux_equivalent_present
   note: PowerShell launcher has a sibling Bash launcher.
-- relative_path: scripts/campaigns/track1/svm/run_track1_svm_exact_faithful_final_attempt_campaign_remote.sh
+- relative_path: scripts/campaigns/track_1/svm/run_track1_svm_exact_faithful_final_attempt_campaign_remote.sh
   suffix: .sh
   script_domain: campaigns
   script_kind: launcher
@@ -1924,18 +1924,18 @@ scripts:
   has_windows_specific_markers: false
   portability_status: linux_launcher_present
   note: Bash launcher is available.
-- relative_path: scripts/campaigns/track1/svm/run_track1_svm_final_closure_campaign.ps1
+- relative_path: scripts/campaigns/track_1/svm/run_track1_svm_final_closure_campaign.ps1
   suffix: .ps1
   script_domain: campaigns
   script_kind: launcher
   has_cli_surface: true
   has_platform_flags: false
   has_linux_equivalent: true
-  linux_equivalent_path: scripts/campaigns/track1/svm/run_track1_svm_final_closure_campaign.sh
+  linux_equivalent_path: scripts/campaigns/track_1/svm/run_track1_svm_final_closure_campaign.sh
   has_windows_specific_markers: true
   portability_status: linux_equivalent_present
   note: PowerShell launcher has a sibling Bash launcher.
-- relative_path: scripts/campaigns/track1/svm/run_track1_svm_final_closure_campaign.sh
+- relative_path: scripts/campaigns/track_1/svm/run_track1_svm_final_closure_campaign.sh
   suffix: .sh
   script_domain: campaigns
   script_kind: launcher
@@ -1946,18 +1946,18 @@ scripts:
   has_windows_specific_markers: false
   portability_status: linux_launcher_present
   note: Bash launcher is available.
-- relative_path: scripts/campaigns/track1/svm/run_track1_svm_micro_closure_campaign.ps1
+- relative_path: scripts/campaigns/track_1/svm/run_track1_svm_micro_closure_campaign.ps1
   suffix: .ps1
   script_domain: campaigns
   script_kind: launcher
   has_cli_surface: true
   has_platform_flags: false
   has_linux_equivalent: true
-  linux_equivalent_path: scripts/campaigns/track1/svm/run_track1_svm_micro_closure_campaign.sh
+  linux_equivalent_path: scripts/campaigns/track_1/svm/run_track1_svm_micro_closure_campaign.sh
   has_windows_specific_markers: true
   portability_status: linux_equivalent_present
   note: PowerShell launcher has a sibling Bash launcher.
-- relative_path: scripts/campaigns/track1/svm/run_track1_svm_micro_closure_campaign.sh
+- relative_path: scripts/campaigns/track_1/svm/run_track1_svm_micro_closure_campaign.sh
   suffix: .sh
   script_domain: campaigns
   script_kind: launcher
@@ -1968,18 +1968,18 @@ scripts:
   has_windows_specific_markers: false
   portability_status: linux_launcher_present
   note: Bash launcher is available.
-- relative_path: scripts/campaigns/track1/svm/run_track1_svm_open_cell_repair_campaign.ps1
+- relative_path: scripts/campaigns/track_1/svm/run_track1_svm_open_cell_repair_campaign.ps1
   suffix: .ps1
   script_domain: campaigns
   script_kind: launcher
   has_cli_surface: true
   has_platform_flags: false
   has_linux_equivalent: true
-  linux_equivalent_path: scripts/campaigns/track1/svm/run_track1_svm_open_cell_repair_campaign.sh
+  linux_equivalent_path: scripts/campaigns/track_1/svm/run_track1_svm_open_cell_repair_campaign.sh
   has_windows_specific_markers: true
   portability_status: linux_equivalent_present
   note: PowerShell launcher has a sibling Bash launcher.
-- relative_path: scripts/campaigns/track1/svm/run_track1_svm_open_cell_repair_campaign.sh
+- relative_path: scripts/campaigns/track_1/svm/run_track1_svm_open_cell_repair_campaign.sh
   suffix: .sh
   script_domain: campaigns
   script_kind: launcher
@@ -1990,18 +1990,18 @@ scripts:
   has_windows_specific_markers: false
   portability_status: linux_launcher_present
   note: Bash launcher is available.
-- relative_path: scripts/campaigns/track1/svm/run_track1_svr_reference_grid_search_repair_campaign.ps1
+- relative_path: scripts/campaigns/track_1/svm/run_track1_svr_reference_grid_search_repair_campaign.ps1
   suffix: .ps1
   script_domain: campaigns
   script_kind: launcher
   has_cli_surface: true
   has_platform_flags: false
   has_linux_equivalent: true
-  linux_equivalent_path: scripts/campaigns/track1/svm/run_track1_svr_reference_grid_search_repair_campaign.sh
+  linux_equivalent_path: scripts/campaigns/track_1/svm/run_track1_svr_reference_grid_search_repair_campaign.sh
   has_windows_specific_markers: true
   portability_status: linux_equivalent_present
   note: PowerShell launcher has a sibling Bash launcher.
-- relative_path: scripts/campaigns/track1/svm/run_track1_svr_reference_grid_search_repair_campaign.sh
+- relative_path: scripts/campaigns/track_1/svm/run_track1_svr_reference_grid_search_repair_campaign.sh
   suffix: .sh
   script_domain: campaigns
   script_kind: launcher
@@ -2012,18 +2012,18 @@ scripts:
   has_windows_specific_markers: false
   portability_status: linux_launcher_present
   note: Bash launcher is available.
-- relative_path: scripts/campaigns/track1/svm/run_track1_svr_reference_grid_search_repair_campaign_remote.ps1
+- relative_path: scripts/campaigns/track_1/svm/run_track1_svr_reference_grid_search_repair_campaign_remote.ps1
   suffix: .ps1
   script_domain: campaigns
   script_kind: launcher
   has_cli_surface: true
   has_platform_flags: false
   has_linux_equivalent: true
-  linux_equivalent_path: scripts/campaigns/track1/svm/run_track1_svr_reference_grid_search_repair_campaign_remote.sh
+  linux_equivalent_path: scripts/campaigns/track_1/svm/run_track1_svr_reference_grid_search_repair_campaign_remote.sh
   has_windows_specific_markers: true
   portability_status: linux_equivalent_present
   note: PowerShell launcher has a sibling Bash launcher.
-- relative_path: scripts/campaigns/track1/svm/run_track1_svr_reference_grid_search_repair_campaign_remote.sh
+- relative_path: scripts/campaigns/track_1/svm/run_track1_svr_reference_grid_search_repair_campaign_remote.sh
   suffix: .sh
   script_domain: campaigns
   script_kind: launcher
@@ -2034,18 +2034,18 @@ scripts:
   has_windows_specific_markers: false
   portability_status: linux_launcher_present
   note: Bash launcher is available.
-- relative_path: scripts/campaigns/track1/svm/run_track1_svr_reference_grid_smoke_campaign.ps1
+- relative_path: scripts/campaigns/track_1/svm/run_track1_svr_reference_grid_smoke_campaign.ps1
   suffix: .ps1
   script_domain: campaigns
   script_kind: launcher
   has_cli_surface: true
   has_platform_flags: false
   has_linux_equivalent: true
-  linux_equivalent_path: scripts/campaigns/track1/svm/run_track1_svr_reference_grid_smoke_campaign.sh
+  linux_equivalent_path: scripts/campaigns/track_1/svm/run_track1_svr_reference_grid_smoke_campaign.sh
   has_windows_specific_markers: true
   portability_status: linux_equivalent_present
   note: PowerShell launcher has a sibling Bash launcher.
-- relative_path: scripts/campaigns/track1/svm/run_track1_svr_reference_grid_smoke_campaign.sh
+- relative_path: scripts/campaigns/track_1/svm/run_track1_svr_reference_grid_smoke_campaign.sh
   suffix: .sh
   script_domain: campaigns
   script_kind: launcher
@@ -2056,18 +2056,18 @@ scripts:
   has_windows_specific_markers: false
   portability_status: linux_launcher_present
   note: Bash launcher is available.
-- relative_path: scripts/campaigns/track1/svm/run_track1_svr_reference_grid_smoke_campaign_remote.ps1
+- relative_path: scripts/campaigns/track_1/svm/run_track1_svr_reference_grid_smoke_campaign_remote.ps1
   suffix: .ps1
   script_domain: campaigns
   script_kind: launcher
   has_cli_surface: true
   has_platform_flags: false
   has_linux_equivalent: true
-  linux_equivalent_path: scripts/campaigns/track1/svm/run_track1_svr_reference_grid_smoke_campaign_remote.sh
+  linux_equivalent_path: scripts/campaigns/track_1/svm/run_track1_svr_reference_grid_smoke_campaign_remote.sh
   has_windows_specific_markers: true
   portability_status: linux_equivalent_present
   note: PowerShell launcher has a sibling Bash launcher.
-- relative_path: scripts/campaigns/track1/svm/run_track1_svr_reference_grid_smoke_campaign_remote.sh
+- relative_path: scripts/campaigns/track_1/svm/run_track1_svr_reference_grid_smoke_campaign_remote.sh
   suffix: .sh
   script_domain: campaigns
   script_kind: launcher
@@ -2078,7 +2078,7 @@ scripts:
   has_windows_specific_markers: false
   portability_status: linux_launcher_present
   note: Bash launcher is available.
-- relative_path: scripts/campaigns/wave1/prepare_wave1_directional_best_hyperparameter_search_campaign.py
+- relative_path: scripts/campaigns/wave_1/prepare_wave1_directional_best_hyperparameter_search_campaign.py
   suffix: .py
   script_domain: campaigns
   script_kind: python_entrypoint
@@ -2089,7 +2089,7 @@ scripts:
   has_windows_specific_markers: false
   portability_status: missing_platform_flags
   note: Python CLI entry point lacks --linux/--windows.
-- relative_path: scripts/campaigns/wave1/prepare_wave1_directional_optuna_recovery_micro_campaign.py
+- relative_path: scripts/campaigns/wave_1/prepare_wave1_directional_optuna_recovery_micro_campaign.py
   suffix: .py
   script_domain: campaigns
   script_kind: python_entrypoint
@@ -2100,7 +2100,7 @@ scripts:
   has_windows_specific_markers: false
   portability_status: missing_platform_flags
   note: Python CLI entry point lacks --linux/--windows.
-- relative_path: scripts/campaigns/wave1/prepare_wave1_directional_retraining_campaign.py
+- relative_path: scripts/campaigns/wave_1/prepare_wave1_directional_retraining_campaign.py
   suffix: .py
   script_domain: campaigns
   script_kind: python_entrypoint
@@ -2111,18 +2111,18 @@ scripts:
   has_windows_specific_markers: false
   portability_status: missing_platform_flags
   note: Python CLI entry point lacks --linux/--windows.
-- relative_path: scripts/campaigns/wave1/run_wave1_directional_best_hyperparameter_search_campaign.ps1
+- relative_path: scripts/campaigns/wave_1/run_wave1_directional_best_hyperparameter_search_campaign.ps1
   suffix: .ps1
   script_domain: campaigns
   script_kind: launcher
   has_cli_surface: true
   has_platform_flags: false
   has_linux_equivalent: true
-  linux_equivalent_path: scripts/campaigns/wave1/run_wave1_directional_best_hyperparameter_search_campaign.sh
+  linux_equivalent_path: scripts/campaigns/wave_1/run_wave1_directional_best_hyperparameter_search_campaign.sh
   has_windows_specific_markers: true
   portability_status: linux_equivalent_present
   note: PowerShell launcher has a sibling Bash launcher.
-- relative_path: scripts/campaigns/wave1/run_wave1_directional_best_hyperparameter_search_campaign.sh
+- relative_path: scripts/campaigns/wave_1/run_wave1_directional_best_hyperparameter_search_campaign.sh
   suffix: .sh
   script_domain: campaigns
   script_kind: launcher
@@ -2133,18 +2133,18 @@ scripts:
   has_windows_specific_markers: false
   portability_status: linux_launcher_present
   note: Bash launcher is available.
-- relative_path: scripts/campaigns/wave1/run_wave1_directional_optuna_recovery_micro_campaign.ps1
+- relative_path: scripts/campaigns/wave_1/run_wave1_directional_optuna_recovery_micro_campaign.ps1
   suffix: .ps1
   script_domain: campaigns
   script_kind: launcher
   has_cli_surface: true
   has_platform_flags: false
   has_linux_equivalent: true
-  linux_equivalent_path: scripts/campaigns/wave1/run_wave1_directional_optuna_recovery_micro_campaign.sh
+  linux_equivalent_path: scripts/campaigns/wave_1/run_wave1_directional_optuna_recovery_micro_campaign.sh
   has_windows_specific_markers: true
   portability_status: linux_equivalent_present
   note: PowerShell launcher has a sibling Bash launcher.
-- relative_path: scripts/campaigns/wave1/run_wave1_directional_optuna_recovery_micro_campaign.sh
+- relative_path: scripts/campaigns/wave_1/run_wave1_directional_optuna_recovery_micro_campaign.sh
   suffix: .sh
   script_domain: campaigns
   script_kind: launcher
@@ -2155,18 +2155,18 @@ scripts:
   has_windows_specific_markers: false
   portability_status: linux_launcher_present
   note: Bash launcher is available.
-- relative_path: scripts/campaigns/wave1/run_wave1_directional_retraining_campaign.ps1
+- relative_path: scripts/campaigns/wave_1/run_wave1_directional_retraining_campaign.ps1
   suffix: .ps1
   script_domain: campaigns
   script_kind: launcher
   has_cli_surface: true
   has_platform_flags: false
   has_linux_equivalent: true
-  linux_equivalent_path: scripts/campaigns/wave1/run_wave1_directional_retraining_campaign.sh
+  linux_equivalent_path: scripts/campaigns/wave_1/run_wave1_directional_retraining_campaign.sh
   has_windows_specific_markers: true
   portability_status: linux_equivalent_present
   note: PowerShell launcher has a sibling Bash launcher.
-- relative_path: scripts/campaigns/wave1/run_wave1_directional_retraining_campaign.sh
+- relative_path: scripts/campaigns/wave_1/run_wave1_directional_retraining_campaign.sh
   suffix: .sh
   script_domain: campaigns
   script_kind: launcher
@@ -2177,18 +2177,18 @@ scripts:
   has_windows_specific_markers: false
   portability_status: linux_launcher_present
   note: Bash launcher is available.
-- relative_path: scripts/campaigns/wave1/run_wave1_residual_harmonic_family_campaign.ps1
+- relative_path: scripts/campaigns/wave_1/run_wave1_residual_harmonic_family_campaign.ps1
   suffix: .ps1
   script_domain: campaigns
   script_kind: launcher
   has_cli_surface: true
   has_platform_flags: false
   has_linux_equivalent: true
-  linux_equivalent_path: scripts/campaigns/wave1/run_wave1_residual_harmonic_family_campaign.sh
+  linux_equivalent_path: scripts/campaigns/wave_1/run_wave1_residual_harmonic_family_campaign.sh
   has_windows_specific_markers: true
   portability_status: linux_equivalent_present
   note: PowerShell launcher has a sibling Bash launcher.
-- relative_path: scripts/campaigns/wave1/run_wave1_residual_harmonic_family_campaign.sh
+- relative_path: scripts/campaigns/wave_1/run_wave1_residual_harmonic_family_campaign.sh
   suffix: .sh
   script_domain: campaigns
   script_kind: launcher
@@ -2199,18 +2199,18 @@ scripts:
   has_windows_specific_markers: false
   portability_status: linux_launcher_present
   note: Bash launcher is available.
-- relative_path: scripts/campaigns/wave1/run_wave1_structured_baseline_recovery_campaign.ps1
+- relative_path: scripts/campaigns/wave_1/run_wave1_structured_baseline_recovery_campaign.ps1
   suffix: .ps1
   script_domain: campaigns
   script_kind: launcher
   has_cli_surface: true
   has_platform_flags: false
   has_linux_equivalent: true
-  linux_equivalent_path: scripts/campaigns/wave1/run_wave1_structured_baseline_recovery_campaign.sh
+  linux_equivalent_path: scripts/campaigns/wave_1/run_wave1_structured_baseline_recovery_campaign.sh
   has_windows_specific_markers: true
   portability_status: linux_equivalent_present
   note: PowerShell launcher has a sibling Bash launcher.
-- relative_path: scripts/campaigns/wave1/run_wave1_structured_baseline_recovery_campaign.sh
+- relative_path: scripts/campaigns/wave_1/run_wave1_structured_baseline_recovery_campaign.sh
   suffix: .sh
   script_domain: campaigns
   script_kind: launcher

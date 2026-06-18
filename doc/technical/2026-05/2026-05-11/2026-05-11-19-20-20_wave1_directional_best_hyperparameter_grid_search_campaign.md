@@ -66,8 +66,8 @@ two execution classes:
 
 ## Involved Components
 
-- `doc/reports/campaign_plans/wave1/`
-- `scripts/campaigns/wave1/`
+- `doc/reports/campaign_plans/wave_1/`
+- `scripts/campaigns/wave_1/`
 - `doc/scripts/campaigns/`
 - `config/training/wave1_directional_retraining/`
 - `output/registries/families/*/latest_family_best.yaml`

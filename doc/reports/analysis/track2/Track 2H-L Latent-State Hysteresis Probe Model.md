@@ -102,14 +102,14 @@ Each profile is trained on `global`, `Fw`, and `Bw` surfaces.
   - prints model-specific `Track 2H-L` configuration fields
 - `scripts/training/run_training_campaign.py`
   - routes `latent_state_hysteresis_probe` through the standard neural trainer
-- `scripts/campaigns/track2/prepare_track2h_latent_state_hysteresis_campaign.py`
+- `scripts/campaigns/track_2/prepare_track2h_latent_state_hysteresis_campaign.py`
   - generates the campaign package and prepared active state
-- `scripts/campaigns/track2/validate_track2h_latent_state_hysteresis_package.py`
+- `scripts/campaigns/track_2/validate_track2h_latent_state_hysteresis_package.py`
   - validates queue matrix, causal contract, model construction, and optional
     one-batch loss/output behavior
-- `scripts/campaigns/track2/run_track2h_latent_state_hysteresis_campaign.ps1`
+- `scripts/campaigns/track_2/run_track2h_latent_state_hysteresis_campaign.ps1`
   - launches local, `-Remote`, `-PreflightOnly`, and `-EnqueueOnly` workflows
-- `doc/scripts/campaigns/track2/run_track2h_latent_state_hysteresis_campaign.md`
+- `doc/scripts/campaigns/track_2/run_track2h_latent_state_hysteresis_campaign.md`
   - documents operator-facing commands
 
 ## Interpretation Rule

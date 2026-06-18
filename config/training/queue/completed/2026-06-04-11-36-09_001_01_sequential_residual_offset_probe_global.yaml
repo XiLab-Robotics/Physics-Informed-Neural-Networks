@@ -7,7 +7,7 @@ experiment:
   model_type: sequential_residual_offset_probe
 metadata:
   campaign_name: track2f_offset_aware_probe_campaign_2026_06_03
-  planning_report_path: doc/reports/campaign_plans/track2/2026-06-03-17-25-37_track2f_offset_aware_probe_campaign_plan_report.md
+  planning_report_path: doc/reports/campaign_plans/track_2/2026-06-03-17-25-37_track2f_offset_aware_probe_campaign_plan_report.md
   technical_document_path: doc/technical/2026-06/2026-06-03/2026-06-03-18-18-20_track2f_sequential_residual_offset_probe.md
   parent_technical_document_path: doc/technical/2026-06/2026-06-03/2026-06-03-17-25-37_track2f_offset_aware_probe_campaign.md
   phase_name: track2f_sequential_residual_offset_probe_training

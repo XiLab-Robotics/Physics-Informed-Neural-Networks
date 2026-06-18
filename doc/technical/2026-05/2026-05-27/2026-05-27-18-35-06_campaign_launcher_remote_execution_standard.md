@@ -57,11 +57,11 @@ required source inputs before launch and campaign artifacts after completion.
 
 ## Involved Components
 
-- `scripts/campaigns/wave2/run_wave2c_residual_harmonic_temporal_hybrid_campaign.ps1`
+- `scripts/campaigns/wave_2/run_wave2c_residual_harmonic_temporal_hybrid_campaign.ps1`
   Protected prepared launcher to retrofit with `-Remote`.
-- `doc/scripts/campaigns/wave2/run_wave2c_residual_harmonic_temporal_hybrid_campaign.md`
+- `doc/scripts/campaigns/wave_2/run_wave2c_residual_harmonic_temporal_hybrid_campaign.md`
   Protected operator note to update with local and remote commands.
-- `scripts/campaigns/wave2/prepare_wave2c_residual_harmonic_temporal_hybrid_campaign.py`
+- `scripts/campaigns/wave_2/prepare_wave2c_residual_harmonic_temporal_hybrid_campaign.py`
   Campaign package generator to update so regenerated launchers preserve
   `-Remote` support.
 - `scripts/campaigns/infrastructure/run_remote_training_campaign.ps1`

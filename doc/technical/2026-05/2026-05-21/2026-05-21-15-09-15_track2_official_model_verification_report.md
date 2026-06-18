@@ -68,7 +68,7 @@ breaks, and right-edge pressure.
 - `scripts/reports/pdf/validate_report_pdf.py`
 - `output/validation_checks/track2_best_model_collage_report/`
 - `output/validation_checks/track2_multi_model_curve_comparison_report/`
-- future `doc/reports/campaign_results/track2/` reports, when `Track 2`
+- future `doc/reports/campaign_results/track_2/campaign_closeouts/` reports, when `Track 2`
   campaigns are introduced.
 
 ## Implementation Steps

@@ -19,7 +19,7 @@ Keep the default `Track 2` refresh focused on new candidate artifacts:
 - keep an explicit opt-in path for full baseline visual regeneration;
 - narrow remote artifact synchronization so it downloads the current refresh
   outputs and the new candidate plot source instead of the entire historical
-  `doc/reports/campaign_results/track 2` tree;
+  `doc/reports/campaign_results/track_2/verification_plots` tree;
 - document the default so future operator-launched `Track 2` runs do not
   unexpectedly churn closed `Wave 1` visual assets.
 
@@ -28,8 +28,8 @@ Keep the default `Track 2` refresh focused on new candidate artifacts:
 - `config/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/full_track2_matrix_template.yaml`
 - `scripts/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/run_reference_family_vs_feedforward_comparison.py`
 - `scripts/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/reference_family_vs_feedforward_support.py`
-- `scripts/campaigns/track2/run_wave2b_track2_verification_refresh.ps1`
-- `doc/scripts/campaigns/track2/run_wave2b_track2_verification_refresh.md`
+- `scripts/campaigns/track_2/run_wave2b_track2_verification_refresh.ps1`
+- `doc/scripts/campaigns/track_2/run_wave2b_track2_verification_refresh.md`
 - `doc/README.md`
 
 ## Implementation Steps

@@ -44,14 +44,14 @@ reports.
 
 ## Involved Components
 
-- `scripts/campaigns/track2/run_track2h_mixture_density_heads_track2_verification_refresh.ps1`
-- `scripts/campaigns/track2/run_track2h_quantile_probabilistic_track2_verification_refresh.ps1`
-- `scripts/campaigns/track2/run_track2h_track2_verification_refresh.ps1`
+- `scripts/campaigns/track_2/run_track2h_mixture_density_heads_track2_verification_refresh.ps1`
+- `scripts/campaigns/track_2/run_track2h_quantile_probabilistic_track2_verification_refresh.ps1`
+- `scripts/campaigns/track_2/run_track2h_track2_verification_refresh.ps1`
 - shared `Track 2` refresh launchers for earlier branches where the same
   pattern exists
 - `scripts/reports/analysis/` official `Track 2` report builder to add
 - `scripts/reports/pdf/run_report_pipeline.py`
-- `doc/scripts/campaigns/track2/` launcher notes
+- `doc/scripts/campaigns/track_2/` launcher notes
 - `doc/README.md`
 - `doc/guide/project_usage_guide.md`
 

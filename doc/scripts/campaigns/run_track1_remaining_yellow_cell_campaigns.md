@@ -21,11 +21,11 @@ Family order:
 Remote command:
 
 ```powershell
-.\scripts\campaigns\track1\exact_paper\run_track1_remaining_yellow_cell_campaigns.ps1 -Remote
+.\scripts\campaigns\track_1\exact_paper\run_track1_remaining_yellow_cell_campaigns.ps1 -Remote
 ```
 
 Explicit remote form:
 
 ```powershell
-.\scripts\campaigns\track1\exact_paper\run_track1_remaining_yellow_cell_campaigns.ps1 -Remote -RemoteHostAlias "xilab-remote" -RemoteRepositoryPath "C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks" -RemoteCondaEnvironmentName "pinns_lan_env"
+.\scripts\campaigns\track_1\exact_paper\run_track1_remaining_yellow_cell_campaigns.ps1 -Remote -RemoteHostAlias "xilab-remote" -RemoteRepositoryPath "C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks" -RemoteCondaEnvironmentName "pinns_lan_env"
 ```

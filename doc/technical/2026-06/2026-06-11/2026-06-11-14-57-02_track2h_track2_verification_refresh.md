@@ -77,9 +77,9 @@ The expected implementation pattern is:
    receive the same point or causal short-history data shape supported by the
    current Track 2 inference path.
 3. Create a dedicated operator launcher:
-   `scripts/campaigns/track2/run_track2h_track2_verification_refresh.ps1`.
+   `scripts/campaigns/track_2/run_track2h_track2_verification_refresh.ps1`.
 4. Create the matching launcher note:
-   `doc/scripts/campaigns/track2/run_track2h_track2_verification_refresh.md`.
+   `doc/scripts/campaigns/track_2/run_track2h_track2_verification_refresh.md`.
 5. The launcher will run the official matrix locally by default and expose a
    `-Remote` option using the repository remote-campaign conventions.
 6. After the operator reports completion, inspect the generated matrix,
@@ -104,9 +104,9 @@ The implementation will involve these repository components:
 - `scripts/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/reference_family_vs_feedforward_support.py`
   only if model-loading or inference-shape support needs a small compatibility
   patch.
-- `scripts/campaigns/track2/run_track2h_track2_verification_refresh.ps1` for
+- `scripts/campaigns/track_2/run_track2h_track2_verification_refresh.ps1` for
   the operator-facing launcher.
-- `doc/scripts/campaigns/track2/run_track2h_track2_verification_refresh.md` for
+- `doc/scripts/campaigns/track_2/run_track2h_track2_verification_refresh.md` for
   the launcher usage note.
 - `output/registries/families/track2h_dispersion_aware_*` as the source of the
   completed model pointers.

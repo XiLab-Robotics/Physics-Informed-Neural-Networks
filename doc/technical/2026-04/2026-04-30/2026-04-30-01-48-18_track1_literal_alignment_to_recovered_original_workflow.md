@@ -65,7 +65,7 @@ that same family behavior rather than replacing it with a nearby alternative.
 - `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
 - `doc/reports/analysis/Training Results Master Summary.md`
 - `doc/running/active_training_campaign.yaml`
-- future planning artifact under `doc/reports/campaign_plans/track1/exact_paper/`
+- future planning artifact under `doc/reports/campaign_plans/track_1/exact_paper/`
 
 Subagents:
 

@@ -326,25 +326,25 @@ note lives in:
 
 The main PowerShell launcher is:
 
-- `scripts/campaigns/track1/exact_paper/run_track1_bidirectional_paper_faithful_grid_search_campaign.ps1`
+- `scripts/campaigns/track_1/exact_paper/run_track1_bidirectional_paper_faithful_grid_search_campaign.ps1`
 
 Preparation command:
 
 ```powershell
-conda run -n pinns_env python scripts/campaigns/track1/exact_paper/prepare_track1_bidirectional_paper_faithful_grid_search_campaign.py
+conda run -n pinns_env python scripts/campaigns/track_1/exact_paper/prepare_track1_bidirectional_paper_faithful_grid_search_campaign.py
 ```
 
 Canonical remote launch:
 
 ```powershell
-.\scripts\campaigns\track1\exact_paper\run_track1_bidirectional_paper_faithful_grid_search_campaign.ps1 -Remote
+.\scripts\campaigns\track_1\exact_paper\run_track1_bidirectional_paper_faithful_grid_search_campaign.ps1 -Remote
 ```
 
 One family at a time, with the exact-paper equivalent of the original
 `Retune` stage:
 
 ```powershell
-.\scripts\campaigns\track1\exact_paper\run_track1_bidirectional_paper_faithful_grid_search_campaign.ps1 `
+.\scripts\campaigns\track_1\exact_paper\run_track1_bidirectional_paper_faithful_grid_search_campaign.ps1 `
   -Direction Forward `
   -Families "MLP" `
   -Stage Search `
@@ -354,7 +354,7 @@ One family at a time, with the exact-paper equivalent of the original
 Observed launch with verbose search monitoring:
 
 ```powershell
-.\scripts\campaigns\track1\exact_paper\run_track1_bidirectional_paper_faithful_grid_search_campaign.ps1 `
+.\scripts\campaigns\track_1\exact_paper\run_track1_bidirectional_paper_faithful_grid_search_campaign.ps1 `
   -Direction Forward `
   -Families "RF" `
   -Stage Search `
@@ -366,7 +366,7 @@ Observed launch with verbose search monitoring:
 Registry-backed replay without repeating search:
 
 ```powershell
-.\scripts\campaigns\track1\exact_paper\run_track1_bidirectional_paper_faithful_grid_search_campaign.ps1 `
+.\scripts\campaigns\track_1\exact_paper\run_track1_bidirectional_paper_faithful_grid_search_campaign.ps1 `
   -Direction Backward `
   -Families "RF" `
   -Stage LoadBest `
@@ -377,7 +377,7 @@ Registry-backed replay without repeating search:
 Multiple families in one invocation:
 
 ```powershell
-.\scripts\campaigns\track1\exact_paper\run_track1_bidirectional_paper_faithful_grid_search_campaign.ps1 `
+.\scripts\campaigns\track_1\exact_paper\run_track1_bidirectional_paper_faithful_grid_search_campaign.ps1 `
   -Direction Forward `
   -Families "MLP,RF,GBM" `
   -Stage Search `

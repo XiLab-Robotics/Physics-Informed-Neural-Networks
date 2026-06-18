@@ -7,7 +7,7 @@ experiment:
   model_type: temporal_convolution
 metadata:
   campaign_name: wave2_temporal_model_entry_campaign_2026_05_24_11_01_15
-  planning_report_path: doc/reports/campaign_plans/wave2/2026-05-21-16-46-08_wave2_temporal_model_entry_campaign_plan_report.md
+  planning_report_path: doc/reports/campaign_plans/wave_2/2026-05-21-16-46-08_wave2_temporal_model_entry_campaign_plan_report.md
   phase_name: wave2_temporal_model_entry
   campaign_config_id: temporal_convolution
   notes: Wave 2 temporal model entry campaign | family=temporal_convolution | direction=global.

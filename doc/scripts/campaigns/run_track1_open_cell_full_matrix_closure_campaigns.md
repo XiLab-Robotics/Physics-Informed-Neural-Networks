@@ -14,17 +14,17 @@ during artifact reconciliation, use the dedicated resume launcher instead of
 replaying the full sequence:
 
 ```powershell
-.\scripts\campaigns\track1\exact_paper\run_track1_open_cell_full_matrix_closure_campaigns_resume_after_mlp.ps1 -Remote
+.\scripts\campaigns\track_1\exact_paper\run_track1_open_cell_full_matrix_closure_campaigns_resume_after_mlp.ps1 -Remote
 ```
 
 Remote command:
 
 ```powershell
-.\scripts\campaigns\track1\exact_paper\run_track1_open_cell_full_matrix_closure_campaigns.ps1 -Remote
+.\scripts\campaigns\track_1\exact_paper\run_track1_open_cell_full_matrix_closure_campaigns.ps1 -Remote
 ```
 
 Explicit remote form:
 
 ```powershell
-.\scripts\campaigns\track1\exact_paper\run_track1_open_cell_full_matrix_closure_campaigns.ps1 -Remote -RemoteHostAlias "xilab-remote" -RemoteRepositoryPath "C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks" -RemoteCondaEnvironmentName "pinns_lan_env"
+.\scripts\campaigns\track_1\exact_paper\run_track1_open_cell_full_matrix_closure_campaigns.ps1 -Remote -RemoteHostAlias "xilab-remote" -RemoteRepositoryPath "C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks" -RemoteCondaEnvironmentName "pinns_lan_env"
 ```

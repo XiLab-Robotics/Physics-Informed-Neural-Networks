@@ -73,15 +73,15 @@ Expected implementation targets:
 - `scripts/training/run_training_smoke_test.py`;
 - `config/training/hydra/wave2/model_family/`;
 - `config/training/track2f_offset_aware_probe/campaigns/2026-06-03_track2f_offset_aware_probe_campaign/`;
-- `scripts/campaigns/track2/prepare_track2f_offset_aware_probe_campaign.py`;
-- `scripts/campaigns/track2/run_track2f_offset_aware_probe_campaign.ps1`;
-- `scripts/campaigns/track2/validate_track2f_offset_aware_probe_package.py`;
-- `doc/scripts/campaigns/track2/run_track2f_offset_aware_probe_campaign.md`;
+- `scripts/campaigns/track_2/prepare_track2f_offset_aware_probe_campaign.py`;
+- `scripts/campaigns/track_2/run_track2f_offset_aware_probe_campaign.ps1`;
+- `scripts/campaigns/track_2/validate_track2f_offset_aware_probe_package.py`;
+- `doc/scripts/campaigns/track_2/run_track2f_offset_aware_probe_campaign.md`;
 - `doc/running/active_training_campaign.yaml`.
 
 Reference inputs:
 
-- `doc/reports/campaign_plans/track2/2026-06-03-17-25-37_track2f_offset_aware_probe_campaign_plan_report.md`;
+- `doc/reports/campaign_plans/track_2/2026-06-03-17-25-37_track2f_offset_aware_probe_campaign_plan_report.md`;
 - `doc/technical/2026-06/2026-06-03/2026-06-03-17-25-37_track2f_offset_aware_probe_campaign.md`;
 - `doc/reports/analysis/track2/offset_predictability_feasibility/[2026-06-03]/track2e_offset_predictability_feasibility.md`;
 - `output/validation_checks/track2f_offset_aware_probe/2026-06-03_track2f_offset_aware_probe_prelaunch/track2f_probe_entry_status.csv`;

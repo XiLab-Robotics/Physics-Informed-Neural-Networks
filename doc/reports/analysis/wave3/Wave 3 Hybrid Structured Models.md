@@ -95,8 +95,8 @@ scaffolding, but it remains explicitly not campaign-ready.
 | Model class | `scripts/models/wave3_harmonic_prior_residual_network.py` exposes `Wave3HarmonicPriorResidualNetwork`. |
 | Factory key | `wave3_harmonic_prior_residual` is registered for construction smoke checks. |
 | Config template | `config/training/wave3_embryonic_skeleton/wave3_harmonic_prior_residual_template.yaml` records `implementation_ready` and `not_campaign_ready`. |
-| Validator | `scripts/campaigns/wave3/validate_wave3_embryonic_skeleton_package.py` checks metadata, factory construction, and point/sequence forward passes. |
-| Dry-run launcher | `scripts/campaigns/wave3/run_wave3_embryonic_skeleton_checks.ps1` runs compile and validator checks only. |
+| Validator | `scripts/campaigns/wave_3/validate_wave3_embryonic_skeleton_package.py` checks metadata, factory construction, and point/sequence forward passes. |
+| Dry-run launcher | `scripts/campaigns/wave_3/run_wave3_embryonic_skeleton_checks.ps1` runs compile and validator checks only. |
 
 ## Grouped Harmonic-Heads Skeleton Status
 
@@ -108,8 +108,8 @@ interface skeleton. It remains explicitly not campaign-ready.
 | Model class | `scripts/models/wave3_grouped_harmonic_heads_network.py` exposes `Wave3GroupedHarmonicHeadsNetwork`. |
 | Factory key | `wave3_grouped_harmonic_heads` is registered for construction smoke checks. |
 | Config template | `config/training/wave3_embryonic_skeleton/wave3_grouped_harmonic_heads_template.yaml` records `implementation_ready` and `not_campaign_ready`. |
-| Validator | `scripts/campaigns/wave3/validate_wave3_grouped_harmonic_heads_package.py` checks metadata, factory construction, point/sequence forward passes, and auxiliary tensors. |
-| Dry-run launcher | `scripts/campaigns/wave3/run_wave3_grouped_harmonic_heads_checks.ps1` runs compile and validator checks only. |
+| Validator | `scripts/campaigns/wave_3/validate_wave3_grouped_harmonic_heads_package.py` checks metadata, factory construction, point/sequence forward passes, and auxiliary tensors. |
+| Dry-run launcher | `scripts/campaigns/wave_3/run_wave3_grouped_harmonic_heads_checks.ps1` runs compile and validator checks only. |
 
 The grouped-head path separates low-order, stable-middle, and high-order
 harmonic branches before adding a residual shape branch. It is intended to
@@ -123,8 +123,8 @@ one-batch training setup using a validation-only generated config.
 
 | Item | Status |
 | --- | --- |
-| Training-stack validator | `scripts/campaigns/wave3/validate_wave3_training_smoke_ready.py` generates a complete validation-only config and calls `validate_training_setup.py`. |
-| Dry-run wrapper | `scripts/campaigns/wave3/run_wave3_training_smoke_ready_checks.ps1` runs compile plus one-batch validation only. |
+| Training-stack validator | `scripts/campaigns/wave_3/validate_wave3_training_smoke_ready.py` generates a complete validation-only config and calls `validate_training_setup.py`. |
+| Dry-run wrapper | `scripts/campaigns/wave_3/run_wave3_training_smoke_ready_checks.ps1` runs compile plus one-batch validation only. |
 | Final validation artifact | `output/validation_checks/wave3_harmonic_prior_residual/2026-06-11-19-44-20__te_wave3_harmonic_prior_residual_training_smoke_ready_wave3_training_smoke_ready_final/validation_summary.yaml`. |
 | Final validation report | `doc/reports/analysis/validation_checks/2026-06-11-19-44-47_wave3_ha_e99d96f1_te_wave3_harmonic_prior_r_2d4f1fe7_validation_setup_report.md`. |
 | Batch mode | sequence batch, `384` samples, sequence length `33`, input feature dimension `5`, target dimension `1`. |

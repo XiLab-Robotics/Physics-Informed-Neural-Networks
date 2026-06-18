@@ -50,8 +50,8 @@ state recorded in the campaign plan.
 ## Involved Components
 
 - `doc/running/active_training_campaign.yaml`
-- `doc/reports/campaign_plans/track1/exact_paper/2026-04-28-11-21-25_track1_forward_last_non_green_cells_campaign_plan_report.md`
-- `doc/reports/campaign_results/track1/exact_paper/`
+- `doc/reports/campaign_plans/track_1/exact_paper/2026-04-28-11-21-25_track1_forward_last_non_green_cells_campaign_plan_report.md`
+- `doc/reports/campaign_results/track_1/exact_paper/`
 - `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
 - `doc/reports/analysis/Training Results Master Summary.md`
 - `models/paper_reference/rcim_track1/forward/`

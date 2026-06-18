@@ -44,11 +44,11 @@ Attempt matrix:
 Local command:
 
 ```powershell
-.\scripts\campaigns\track1\exact_paper\run_track1_hgbm_open_cell_full_matrix_closure_campaign.ps1
+.\scripts\campaigns\track_1\exact_paper\run_track1_hgbm_open_cell_full_matrix_closure_campaign.ps1
 ```
 
 Remote command:
 
 ```powershell
-.\scripts\campaigns\track1\exact_paper\run_track1_hgbm_open_cell_full_matrix_closure_campaign.ps1 -Remote
+.\scripts\campaigns\track_1\exact_paper\run_track1_hgbm_open_cell_full_matrix_closure_campaign.ps1 -Remote
 ```

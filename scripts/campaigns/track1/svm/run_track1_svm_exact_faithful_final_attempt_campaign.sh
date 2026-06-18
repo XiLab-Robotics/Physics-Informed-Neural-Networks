@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-set -euo pipefail
-SCRIPT_DIRECTORY="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-bash "${SCRIPT_DIRECTORY}/run_track1_svm_campaign_bundle.sh" \
-  --campaign-config-root "config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/track1/exact_paper/forward/svm_targeted_closure/svm/2026-04-17_track1_svm_exact_faithful_final_attempt_campaign" \
-  --planning-report-path "doc/reports/campaign_plans/track1/svm/2026-04-17-11-44-20_track1_svm_exact_faithful_final_attempt_campaign_plan_report.md" \
-  --campaign-name "track1_svm_exact_faithful_final_attempt_campaign_2026_04_17_11_44_20" \
-  "$@"

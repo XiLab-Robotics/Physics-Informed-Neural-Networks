@@ -53,14 +53,14 @@ Phase `3` is gated mega-campaign re-preparation:
 ## Involved Components
 
 - `doc/running/active_training_campaign.yaml`
-- `doc/reports/campaign_results/track1/exact_paper/`
-- `doc/reports/campaign_plans/track1/exact_paper/`
+- `doc/reports/campaign_results/track_1/exact_paper/`
+- `doc/reports/campaign_plans/track_1/exact_paper/`
 - `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
-- `scripts/campaigns/track1/exact_paper/run_exact_paper_campaign_remote.ps1`
-- `scripts/campaigns/track1/exact_paper/run_track1_bidirectional_original_dataset_mega_campaign.ps1`
-- `scripts/campaigns/track1/exact_paper/prepare_track1_bidirectional_original_dataset_mega_campaign.py`
-- `scripts/campaigns/track1/exact_paper/prepare_track1_forward_original_dataset_remote_diagnostic_campaign.py`
-- `scripts/campaigns/track1/exact_paper/run_track1_forward_original_dataset_remote_diagnostic_campaign.ps1`
+- `scripts/campaigns/track_1/exact_paper/run_exact_paper_campaign_remote.ps1`
+- `scripts/campaigns/track_1/exact_paper/run_track1_bidirectional_original_dataset_mega_campaign.ps1`
+- `scripts/campaigns/track_1/exact_paper/prepare_track1_bidirectional_original_dataset_mega_campaign.py`
+- `scripts/campaigns/track_1/exact_paper/prepare_track1_forward_original_dataset_remote_diagnostic_campaign.py`
+- `scripts/campaigns/track_1/exact_paper/run_track1_forward_original_dataset_remote_diagnostic_campaign.ps1`
 - `doc/scripts/campaigns/`
 
 Subagent use:

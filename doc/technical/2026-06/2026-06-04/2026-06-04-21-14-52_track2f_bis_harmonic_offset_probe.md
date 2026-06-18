@@ -74,9 +74,9 @@ No scalar result may collapse these three surfaces into one winner.
 - `scripts/training/transmission_error_regression_module.py`
 - `scripts/training/train_feedforward_network.py`
 - `config/training/`
-- `scripts/campaigns/track2/`
-- `doc/scripts/campaigns/track2/`
-- `doc/reports/campaign_plans/track2/`
+- `scripts/campaigns/track_2/`
+- `doc/scripts/campaigns/track_2/`
+- `doc/reports/campaign_plans/track_2/`
 - `doc/running/active_training_campaign.yaml`
 - `doc/reports/analysis/te_modeling/Curve-First TE Training Strategy.md`
 - `doc/reports/analysis/Training Results Master Summary.md`
@@ -88,7 +88,7 @@ launch.
 ## Implementation Steps
 
 1. Create a preliminary Track 2F-bis campaign planning report under
-   `doc/reports/campaign_plans/track2/` and wait for explicit approval before
+   `doc/reports/campaign_plans/track_2/` and wait for explicit approval before
    preparing runnable training entries.
 2. Add a narrow harmonic-offset PyTorch model type, tentatively named
    `harmonic_residual_offset_probe`, that exposes:
@@ -101,9 +101,9 @@ launch.
    `config/training/track2f_bis_harmonic_offset_probe/`.
 6. Materialize queue YAMLs for `global`, `Fw`, and `Bw` for both:
    the clean Track 2F-like baseline and the harmonic-offset branch.
-7. Create a dedicated PowerShell launcher under `scripts/campaigns/track2/`
+7. Create a dedicated PowerShell launcher under `scripts/campaigns/track_2/`
    with both local and `-Remote` execution paths.
-8. Create the matching launcher note under `doc/scripts/campaigns/track2/`.
+8. Create the matching launcher note under `doc/scripts/campaigns/track_2/`.
 9. Update `doc/running/active_training_campaign.yaml` with protected files,
    local command, and `-Remote` command.
 10. Run compile, package validation, one-batch validation, and a focused smoke

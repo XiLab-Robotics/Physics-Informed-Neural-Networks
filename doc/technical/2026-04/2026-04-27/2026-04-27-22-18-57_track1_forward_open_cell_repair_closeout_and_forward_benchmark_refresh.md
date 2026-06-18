@@ -28,7 +28,7 @@ the new improvements apply only to `forward`.
 ## Involved Components
 
 - `doc/running/active_training_campaign.yaml`
-- `doc/reports/campaign_results/track1/exact_paper/`
+- `doc/reports/campaign_results/track_1/exact_paper/`
 - `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
 - `doc/reports/analysis/Training Results Master Summary.md`
 - `output/training_campaigns/track1/exact_paper/forward_open_cell_repair/track1_forward_open_cell_repair_campaign_2026-04-27_13_08_10/`

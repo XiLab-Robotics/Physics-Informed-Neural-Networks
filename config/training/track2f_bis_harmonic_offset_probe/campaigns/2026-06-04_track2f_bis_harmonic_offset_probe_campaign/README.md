@@ -16,17 +16,17 @@ It contains six runnable queue YAML files:
 Preflight validation:
 
 ```powershell
-.\scripts\campaigns\track2\run_track2f_bis_harmonic_offset_probe_campaign.ps1 -PreflightOnly
+.\scripts\campaigns\track_2\run_track2f_bis_harmonic_offset_probe_campaign.ps1 -PreflightOnly
 ```
 
 Local training:
 
 ```powershell
-.\scripts\campaigns\track2\run_track2f_bis_harmonic_offset_probe_campaign.ps1
+.\scripts\campaigns\track_2\run_track2f_bis_harmonic_offset_probe_campaign.ps1
 ```
 
 Remote training:
 
 ```powershell
-.\scripts\campaigns\track2\run_track2f_bis_harmonic_offset_probe_campaign.ps1 -Remote
+.\scripts\campaigns\track_2\run_track2f_bis_harmonic_offset_probe_campaign.ps1 -Remote
 ```

@@ -17,9 +17,9 @@ renderer rather than editing Markdown content to fake layout.
 
 ## Involved Components
 
-- `doc/reports/campaign_results/track1/exact_paper/2026-05-08-19-53-19_track1_forward_dt_paper_faithful_search_campaign_results_report.md`
+- `doc/reports/campaign_results/track_1/exact_paper/2026-05-08-19-53-19_track1_forward_dt_paper_faithful_search_campaign_results_report.md`
 - `scripts/reports/pdf/generate_styled_report_pdf.py`
-- `doc/reports/campaign_results/track1/exact_paper/2026-05-08-19-53-19_track1_forward_dt_paper_faithful_search_campaign_results_report.pdf`
+- `doc/reports/campaign_results/track_1/exact_paper/2026-05-08-19-53-19_track1_forward_dt_paper_faithful_search_campaign_results_report.pdf`
 - `doc/technical/2026-05/2026-05-09/README.md`
 - `doc/README.md`
 

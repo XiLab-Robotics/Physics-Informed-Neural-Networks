@@ -30,20 +30,20 @@ Harmonic banks:
 
 This launcher is tied to:
 
-- `doc/reports/campaign_plans/wave1/2026-05-19-17-40-01_wave1_high_order_harmonic_tracking_campaign_plan_report.md`
+- `doc/reports/campaign_plans/wave_1/2026-05-19-17-40-01_wave1_high_order_harmonic_tracking_campaign_plan_report.md`
 
 ## Practical Use
 
 Run the full prepared campaign from the repository root:
 
 ```powershell
-.\scripts\campaigns\wave1\run_wave1_high_order_harmonic_tracking_campaign.ps1
+.\scripts\campaigns\wave_1\run_wave1_high_order_harmonic_tracking_campaign.ps1
 ```
 
 Optional Python executable override:
 
 ```powershell
-.\scripts\campaigns\wave1\run_wave1_high_order_harmonic_tracking_campaign.ps1 -PythonExecutable python
+.\scripts\campaigns\wave_1\run_wave1_high_order_harmonic_tracking_campaign.ps1 -PythonExecutable python
 ```
 
 ## Expected Outputs

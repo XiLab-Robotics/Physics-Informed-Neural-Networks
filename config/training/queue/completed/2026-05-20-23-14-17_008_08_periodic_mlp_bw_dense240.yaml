@@ -7,7 +7,7 @@ experiment:
   model_type: periodic_mlp
 metadata:
   campaign_name: wave1_periodic_mlp_explicit_harmonic_tracking_campaign_2026_05_20_22_42_49
-  planning_report_path: doc/reports/campaign_plans/wave1/2026-05-20-22-42-49_wave1_periodic_mlp_explicit_harmonic_tracking_campaign_plan_report.md
+  planning_report_path: doc/reports/campaign_plans/wave_1/2026-05-20-22-42-49_wave1_periodic_mlp_explicit_harmonic_tracking_campaign_plan_report.md
   phase_name: wave1_periodic_mlp_explicit_harmonic_tracking
   campaign_config_id: periodic_mlp_bw_dense240
   notes: Wave 1 periodic MLP explicit harmonic tracking follow-up | dense paper-maximum

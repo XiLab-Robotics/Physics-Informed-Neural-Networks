@@ -13,7 +13,7 @@ This change will complete the prepared queue so the existing launcher command
 can run the `11` supported operational families:
 
 ```powershell
-.\scripts\campaigns\track1\exact_paper\run_track1_bidirectional_paper_faithful_grid_search_campaign.ps1 `
+.\scripts\campaigns\track_1\exact_paper\run_track1_bidirectional_paper_faithful_grid_search_campaign.ps1 `
   -Direction Forward `
   -Families "SVR, MLP, RF, DT, ET, ERT, GBM, HGBM, LGBM, XGBM, ELM" `
   -Stage Search `
@@ -59,7 +59,7 @@ launching training.
 - `config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_paper_faithful_grid_search/`
   Existing prepared Track 1 paper-faithful campaign config root that needs
   forward and backward `ELM` YAML entries.
-- `scripts/campaigns/track1/exact_paper/run_track1_bidirectional_paper_faithful_grid_search_campaign.ps1`
+- `scripts/campaigns/track_1/exact_paper/run_track1_bidirectional_paper_faithful_grid_search_campaign.ps1`
   Protected launcher requested by the operator. It already accepts `ELM`, but
   will be inspected for queue-selection consistency.
 - `doc/scripts/campaigns/run_track1_bidirectional_paper_faithful_grid_search_campaign.md`
@@ -68,7 +68,7 @@ launching training.
   Persistent campaign state. It is protected and must be updated only after
   explicit approval because the current file still records the previous
   cancelled campaign and its protected-file list.
-- `doc/reports/campaign_plans/track1/exact_paper/2026-05-04-12-13-07_track1_paper_faithful_search_protocol_and_campaign_replacement_plan_report.md`
+- `doc/reports/campaign_plans/track_1/exact_paper/2026-05-04-12-13-07_track1_paper_faithful_search_protocol_and_campaign_replacement_plan_report.md`
   Existing campaign planning report used by the prepared bidirectional
   paper-faithful queue.
 

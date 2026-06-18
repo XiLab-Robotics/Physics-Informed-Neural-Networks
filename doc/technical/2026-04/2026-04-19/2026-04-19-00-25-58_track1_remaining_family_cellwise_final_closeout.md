@@ -68,7 +68,7 @@ The final pass must cover four surfaces together:
      values improved;
 4. final deliverables:
    - write the campaign-results report in
-     `doc/reports/campaign_results/track1/exact_paper/forward/`;
+     `doc/reports/campaign_results/track_1/exact_paper/forward/`;
    - export the PDF companion;
    - validate the real PDF output.
 
@@ -94,7 +94,7 @@ The closeout should also explicitly acknowledge the current artifact gap:
 - `output/training_campaigns/track1/exact_paper/forward/uncategorized/xgbm/track1_xgbm_cellwise_reference_campaign_2026_04_18_22_28_04/`
 - `output/training_campaigns/track1/exact_paper/forward/uncategorized/lgbm/track1_lgbm_cellwise_reference_campaign_2026_04_18_22_28_04/`
 - `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/`
-- `doc/reports/campaign_results/track1/exact_paper/forward/`
+- `doc/reports/campaign_results/track_1/exact_paper/forward/`
 - `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
 - `doc/reports/analysis/Training Results Master Summary.md`
 
@@ -106,7 +106,7 @@ The closeout should also explicitly acknowledge the current artifact gap:
    `campaign_best_run.yaml`, and `campaign_best_run.md` files for the `9`
    family campaign roots and for the aggregate batch root.
 3. Write the final campaign-results report in Markdown under
-   `doc/reports/campaign_results/track1/exact_paper/forward/`.
+   `doc/reports/campaign_results/track_1/exact_paper/forward/`.
 4. Export and validate the PDF companion.
 5. Refresh the canonical benchmark and master-summary surfaces, including the
    colored `Tables 2-5` when accepted values changed.

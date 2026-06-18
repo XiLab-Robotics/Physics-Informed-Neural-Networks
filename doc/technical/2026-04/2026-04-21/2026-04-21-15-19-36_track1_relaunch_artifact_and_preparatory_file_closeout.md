@@ -18,7 +18,7 @@ made that closeout possible:
 - the family campaign YAML directories under
   `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/`;
 - the family and aggregate launchers under
-  `scripts/campaigns/track1/exact_paper/`;
+  `scripts/campaigns/track_1/exact_paper/`;
 - the matching launcher notes under `doc/scripts/campaigns/`;
 - the raw relaunch validation artifacts under
   `doc/reports/analysis/validation_checks/` and
@@ -61,7 +61,7 @@ recovery will not be approximated or backfilled during this pass.
 
 ## Involved Components
 
-- `doc/reports/campaign_plans/track1/exact_paper/2026-04-20-23-50-13_track1_open_cell_full_matrix_closure_campaigns_plan_report.md`
+- `doc/reports/campaign_plans/track_1/exact_paper/2026-04-20-23-50-13_track1_open_cell_full_matrix_closure_campaigns_plan_report.md`
 - `doc/running/active_training_campaign.yaml`
 - `doc/scripts/campaigns/run_track1_open_cell_full_matrix_closure_campaigns.md`
 - `doc/scripts/campaigns/run_track1_open_cell_full_matrix_closure_campaigns_resume_after_mlp.md`
@@ -74,17 +74,17 @@ recovery will not be approximated or backfilled during this pass.
 - `doc/scripts/campaigns/run_track1_hgbm_open_cell_full_matrix_closure_campaign.md`
 - `doc/scripts/campaigns/run_track1_xgbm_open_cell_full_matrix_closure_campaign.md`
 - `doc/scripts/campaigns/run_track1_lgbm_open_cell_full_matrix_closure_campaign.md`
-- `scripts/campaigns/track1/exact_paper/run_track1_open_cell_full_matrix_closure_campaigns.ps1`
-- `scripts/campaigns/track1/exact_paper/run_track1_open_cell_full_matrix_closure_campaigns_resume_after_mlp.ps1`
-- `scripts/campaigns/track1/exact_paper/run_track1_mlp_open_cell_full_matrix_closure_campaign.ps1`
-- `scripts/campaigns/track1/exact_paper/run_track1_rf_open_cell_full_matrix_closure_campaign.ps1`
-- `scripts/campaigns/track1/exact_paper/run_track1_dt_open_cell_full_matrix_closure_campaign.ps1`
-- `scripts/campaigns/track1/exact_paper/run_track1_et_open_cell_full_matrix_closure_campaign.ps1`
-- `scripts/campaigns/track1/exact_paper/run_track1_ert_open_cell_full_matrix_closure_campaign.ps1`
-- `scripts/campaigns/track1/exact_paper/run_track1_gbm_open_cell_full_matrix_closure_campaign.ps1`
-- `scripts/campaigns/track1/exact_paper/run_track1_hgbm_open_cell_full_matrix_closure_campaign.ps1`
-- `scripts/campaigns/track1/exact_paper/run_track1_xgbm_open_cell_full_matrix_closure_campaign.ps1`
-- `scripts/campaigns/track1/exact_paper/run_track1_lgbm_open_cell_full_matrix_closure_campaign.ps1`
+- `scripts/campaigns/track_1/exact_paper/run_track1_open_cell_full_matrix_closure_campaigns.ps1`
+- `scripts/campaigns/track_1/exact_paper/run_track1_open_cell_full_matrix_closure_campaigns_resume_after_mlp.ps1`
+- `scripts/campaigns/track_1/exact_paper/run_track1_mlp_open_cell_full_matrix_closure_campaign.ps1`
+- `scripts/campaigns/track_1/exact_paper/run_track1_rf_open_cell_full_matrix_closure_campaign.ps1`
+- `scripts/campaigns/track_1/exact_paper/run_track1_dt_open_cell_full_matrix_closure_campaign.ps1`
+- `scripts/campaigns/track_1/exact_paper/run_track1_et_open_cell_full_matrix_closure_campaign.ps1`
+- `scripts/campaigns/track_1/exact_paper/run_track1_ert_open_cell_full_matrix_closure_campaign.ps1`
+- `scripts/campaigns/track_1/exact_paper/run_track1_gbm_open_cell_full_matrix_closure_campaign.ps1`
+- `scripts/campaigns/track_1/exact_paper/run_track1_hgbm_open_cell_full_matrix_closure_campaign.ps1`
+- `scripts/campaigns/track_1/exact_paper/run_track1_xgbm_open_cell_full_matrix_closure_campaign.ps1`
+- `scripts/campaigns/track_1/exact_paper/run_track1_lgbm_open_cell_full_matrix_closure_campaign.ps1`
 - `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-20_track1_*_open_cell_full_matrix_closure_campaign/`
 - `doc/reports/analysis/validation_checks/`
 - `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/`

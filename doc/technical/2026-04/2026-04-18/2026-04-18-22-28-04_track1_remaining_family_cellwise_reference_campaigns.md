@@ -114,7 +114,7 @@ strictly structured:
 - `doc/technical/2026-04/2026-04-17/2026-04-17-19-43-39_track1_reference_family_archive_standardization.md`
 - `doc/technical/2026-04/2026-04-18/2026-04-18-00-47-14_track1_remaining_exact_paper_family_campaigns.md`
 - `doc/technical/2026-04/2026-04-18/2026-04-18-00-54-22_hybrid_campaign_launcher_remote_flag_standard.md`
-- `doc/reports/campaign_plans/track1/exact_paper/`
+- `doc/reports/campaign_plans/track_1/exact_paper/`
 - `doc/running/active_training_campaign.yaml`
 - `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/`
 - `scripts/paper_reimplementation/rcim_ml_compensation/run_exact_paper_model_bank_validation.py`

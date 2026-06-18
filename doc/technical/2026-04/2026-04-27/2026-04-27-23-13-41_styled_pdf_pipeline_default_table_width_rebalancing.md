@@ -33,7 +33,7 @@ first-pass table balancing.
 
 - `scripts/reports/generate_styled_report_pdf.py`
 - `scripts/reports/validate_report_pdf.py`
-- `doc/reports/campaign_results/track1/exact_paper/`
+- `doc/reports/campaign_results/track_1/exact_paper/`
 - `doc/reports/analysis/`
 - `site/`
 

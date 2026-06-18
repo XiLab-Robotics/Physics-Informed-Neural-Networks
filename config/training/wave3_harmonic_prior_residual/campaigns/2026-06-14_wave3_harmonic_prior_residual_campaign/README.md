@@ -21,7 +21,7 @@ MDN is not used as the default Wave 3 loss in this package.
 ## Launch Commands
 
 ```powershell
-.\scripts\campaigns\wave3\run_wave3_harmonic_prior_residual_campaign.ps1 -PreflightOnly
-.\scripts\campaigns\wave3\run_wave3_harmonic_prior_residual_campaign.ps1
-.\scripts\campaigns\wave3\run_wave3_harmonic_prior_residual_campaign.ps1 -Remote
+.\scripts\campaigns\wave_3\run_wave3_harmonic_prior_residual_campaign.ps1 -PreflightOnly
+.\scripts\campaigns\wave_3\run_wave3_harmonic_prior_residual_campaign.ps1
+.\scripts\campaigns\wave_3\run_wave3_harmonic_prior_residual_campaign.ps1 -Remote
 ```

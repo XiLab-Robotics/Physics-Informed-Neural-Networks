@@ -89,9 +89,9 @@ The expected implementation pattern is:
 4. Patch the support code only if the current inference path does not reuse the
    training module's mixture-expectation selection.
 5. Create a dedicated operator launcher:
-   `scripts/campaigns/track2/run_track2h_mixture_density_heads_track2_verification_refresh.ps1`.
+   `scripts/campaigns/track_2/run_track2h_mixture_density_heads_track2_verification_refresh.ps1`.
 6. Create the matching launcher note:
-   `doc/scripts/campaigns/track2/run_track2h_mixture_density_heads_track2_verification_refresh.md`.
+   `doc/scripts/campaigns/track_2/run_track2h_mixture_density_heads_track2_verification_refresh.md`.
 7. The launcher will run the official matrix locally by default and expose a
    `-Remote` option using the repository remote-campaign conventions.
 8. The launcher will also regenerate the best-model collage and multi-model
@@ -119,9 +119,9 @@ The implementation will involve these repository components:
   for the official candidate matrix.
 - `scripts/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/reference_family_vs_feedforward_support.py`
   if deterministic output selection for MDN heads needs support.
-- `scripts/campaigns/track2/run_track2h_mixture_density_heads_track2_verification_refresh.ps1`
+- `scripts/campaigns/track_2/run_track2h_mixture_density_heads_track2_verification_refresh.ps1`
   for the operator-facing launcher.
-- `doc/scripts/campaigns/track2/run_track2h_mixture_density_heads_track2_verification_refresh.md`
+- `doc/scripts/campaigns/track_2/run_track2h_mixture_density_heads_track2_verification_refresh.md`
   for the launcher usage note.
 - `output/registries/families/track2h_mixture_density_heads_*` as the source
   of completed model pointers.

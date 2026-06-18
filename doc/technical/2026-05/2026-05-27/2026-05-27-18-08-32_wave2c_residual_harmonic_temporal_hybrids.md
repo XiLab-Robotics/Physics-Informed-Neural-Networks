@@ -73,7 +73,7 @@ branch and the convolutional branch as the weaker candidate.
 
 ## Involved Components
 
-- `doc/reports/campaign_plans/wave2/2026-05-27-18-08-32_wave2c_residual_harmonic_temporal_hybrid_campaign_plan_report.md`
+- `doc/reports/campaign_plans/wave_2/2026-05-27-18-08-32_wave2c_residual_harmonic_temporal_hybrid_campaign_plan_report.md`
   Matching preliminary campaign plan.
 - `scripts/models/residual_harmonic_network.py`
   Existing static residual harmonic reference pattern.
@@ -88,9 +88,9 @@ branch and the convolutional branch as the weaker candidate.
   Existing Hydra surface to mirror for model-family and direction profiles.
 - `config/training/wave2c_residual_harmonic_temporal_hybrid/`
   Proposed materialized campaign package root after approval.
-- `scripts/campaigns/wave2/`
+- `scripts/campaigns/wave_2/`
   Proposed launcher location after approval.
-- `doc/scripts/campaigns/wave2/`
+- `doc/scripts/campaigns/wave_2/`
   Proposed launcher-note location after approval.
 - `doc/running/active_training_campaign.yaml`
   Campaign state file to update only during approved campaign preparation.

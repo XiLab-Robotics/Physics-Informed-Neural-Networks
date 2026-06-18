@@ -605,7 +605,7 @@ def build_results_report_markdown(
             "This report closes the dedicated exact-paper `MLP` family repair wave",
             "prepared in:",
             "",
-            "- `doc/reports/campaign_plans/track1/exact_paper/2026-04-21-17-20-12_track1_mlp_family_full_matrix_repair_campaign_plan_report.md`",
+            "- `doc/reports/campaign_plans/track_1/exact_paper/2026-04-21-17-20-12_track1_mlp_family_full_matrix_repair_campaign_plan_report.md`",
             "",
             "The campaign targeted only the `MLP` family-target pairs selected for the",
             "post-relaunch repair pass across the canonical `Track 1` full-matrix",
@@ -718,7 +718,7 @@ def main() -> None:
     updated_benchmark_text = patch_benchmark_addendum(
         updated_benchmark_text,
         report_relative_path=(
-            "doc/reports/campaign_results/track1/exact_paper/forward/"
+            "doc/reports/campaign_results/track_1/exact_paper/forward/"
             f"{report_timestamp}_track1_mlp_family_full_matrix_repair_campaign_results_report.md"
         ),
         promoted_pair_count=improvement_summary_dictionary["promoted_pair_count"],

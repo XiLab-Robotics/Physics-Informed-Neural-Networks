@@ -33,11 +33,11 @@ Optional PowerShell usage:
 Linux Bash equivalent:
 
 ```bash
-bash scripts/campaigns/wave1/run_wave1_structured_baseline_recovery_campaign.sh
+bash scripts/campaigns/wave_1/run_wave1_structured_baseline_recovery_campaign.sh
 ```
 
 Queue-resolution dry run without launching training or cleaning queue files:
 
 ```bash
-bash scripts/campaigns/wave1/run_wave1_structured_baseline_recovery_campaign.sh --dry-run
+bash scripts/campaigns/wave_1/run_wave1_structured_baseline_recovery_campaign.sh --dry-run
 ```

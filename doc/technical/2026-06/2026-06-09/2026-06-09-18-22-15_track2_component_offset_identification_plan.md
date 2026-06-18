@@ -56,7 +56,7 @@ The first pass should:
   Current full-matrix raw / centered / offset diagnostic baseline.
 - `doc/reports/analysis/track2/offset_predictability_feasibility/[2026-06-03]/track2e_offset_predictability_feasibility.md`
   Current causal offset-grouping feasibility baseline.
-- `doc/reports/campaign_results/track2/2026-06-09-01-56-25_track2g_curve_aware_training_campaign_results_report.md`
+- `doc/reports/campaign_results/track_2/campaign_closeouts/2026-06-09-01-56-25_track2g_curve_aware_training_campaign_results_report.md`
   Current completed curve-aware training closeout that must remain separate
   from this diagnostic branch.
 - `data/datasets`

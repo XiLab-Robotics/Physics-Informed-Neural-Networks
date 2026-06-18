@@ -58,9 +58,9 @@ aware training is worth carrying into the later multi-task / multi-head branch.
 - `doc/technical/2026-06/2026-06-11/2026-06-11-23-49-15_track2h_quantile_probabilistic_package.md`
   records this technical gate.
 - `doc/README.md` registers the new technical document.
-- `doc/reports/campaign_plans/track2/` will receive the matching preliminary
+- `doc/reports/campaign_plans/track_2/` will receive the matching preliminary
   campaign plan after this technical document is approved.
-- `scripts/campaigns/track2/prepare_track2h_dispersion_aware_modeling_campaign.py`
+- `scripts/campaigns/track_2/prepare_track2h_dispersion_aware_modeling_campaign.py`
   provides the reference robust-loss package structure.
 - A new Track 2 campaign-preparation script will generate the quantile and
   probabilistic YAML queue without modifying the completed robust-loss package.
@@ -69,7 +69,7 @@ aware training is worth carrying into the later multi-task / multi-head branch.
   execution where feasible.
 - A new dedicated PowerShell launcher will expose local and `-Remote` execution
   paths.
-- `doc/scripts/campaigns/track2/` will receive the matching launcher note.
+- `doc/scripts/campaigns/track_2/` will receive the matching launcher note.
 - `doc/running/active_training_campaign.yaml` will be updated only after the
   package is approved and generated.
 
@@ -79,7 +79,7 @@ No subagent is planned for this work.
 
 1. Create this technical document and register it in `doc/README.md`.
 2. After approval, create the campaign plan for the quantile/probabilistic
-   package under `doc/reports/campaign_plans/track2/`.
+   package under `doc/reports/campaign_plans/track_2/`.
 3. Inspect the existing causal sequence model, training objective, registry,
    and candidate-generation code paths to choose the least invasive output-head
    implementation.

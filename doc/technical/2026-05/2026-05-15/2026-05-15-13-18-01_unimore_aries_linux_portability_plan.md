@@ -8,7 +8,7 @@ preserving the existing Windows behavior as the default operator path.
 
 The immediate operational target is the Track 1 exact-paper launcher pair:
 
-- `scripts/campaigns/track1/exact_paper/run_track1_bidirectional_paper_faithful_grid_search_campaign.ps1`
+- `scripts/campaigns/track_1/exact_paper/run_track1_bidirectional_paper_faithful_grid_search_campaign.ps1`
 - a new Linux-equivalent Bash launcher under the same campaign folder
 
 The broader target is to make repository-owned Python entry points consume
@@ -41,7 +41,7 @@ per-script string replacements.
    The priority files are:
    - `scripts/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/run_original_dataset_exact_model_bank_validation.py`
    - `scripts/training/shared_training_infrastructure.py`
-   - `scripts/campaigns/track1/exact_paper/prepare_track1_bidirectional_paper_faithful_grid_search_campaign.py`
+   - `scripts/campaigns/track_1/exact_paper/prepare_track1_bidirectional_paper_faithful_grid_search_campaign.py`
 
 3. Replace Windows-only launcher assumptions with Bash equivalents.
    The Linux launcher should be a sibling of the PowerShell launcher and keep
@@ -74,20 +74,20 @@ per-script string replacements.
   - `doc/running/active_training_campaign.yaml`
 
 - Protected Track 1 launcher files:
-  - `scripts/campaigns/track1/exact_paper/run_track1_bidirectional_paper_faithful_grid_search_campaign.ps1`
-  - `scripts/campaigns/track1/exact_paper/run_exact_paper_campaign_remote.ps1`
-  - `scripts/campaigns/track1/exact_paper/invoke_exact_paper_campaign_local.ps1`
+  - `scripts/campaigns/track_1/exact_paper/run_track1_bidirectional_paper_faithful_grid_search_campaign.ps1`
+  - `scripts/campaigns/track_1/exact_paper/run_exact_paper_campaign_remote.ps1`
+  - `scripts/campaigns/track_1/exact_paper/invoke_exact_paper_campaign_local.ps1`
   - `scripts/campaigns/infrastructure/shared_streaming_campaign_launcher.ps1`
 
 - New Linux launcher targets:
-  - `scripts/campaigns/track1/exact_paper/run_track1_bidirectional_paper_faithful_grid_search_campaign.sh`
-  - `scripts/campaigns/track1/exact_paper/invoke_exact_paper_campaign_local.sh`
+  - `scripts/campaigns/track_1/exact_paper/run_track1_bidirectional_paper_faithful_grid_search_campaign.sh`
+  - `scripts/campaigns/track_1/exact_paper/invoke_exact_paper_campaign_local.sh`
   - optional shared Bash helper under `scripts/campaigns/infrastructure/`
 
 - Python path handling targets:
   - `scripts/training/shared_training_infrastructure.py`
   - Track 1 exact-paper campaign preparers under
-    `scripts/campaigns/track1/exact_paper/`
+    `scripts/campaigns/track_1/exact_paper/`
   - exact-paper validation runners under
     `scripts/paper_reimplementation/rcim_ml_compensation/`
 

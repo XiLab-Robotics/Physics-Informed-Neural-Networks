@@ -7,7 +7,7 @@ open-cell repair campaign.
 
 The script is stored in:
 
-- `scripts/campaigns/track1/exact_paper/run_track1_forward_open_cell_repair_campaign.ps1`
+- `scripts/campaigns/track_1/exact_paper/run_track1_forward_open_cell_repair_campaign.ps1`
 
 ## Main Role
 
@@ -33,7 +33,7 @@ The campaign purpose is residual closure, not a fresh full-bank sweep:
 Generate the package and update the active campaign state with:
 
 ```powershell
-conda run -n pinns_env python scripts/campaigns/track1/exact_paper/prepare_track1_forward_open_cell_repair_campaign.py
+conda run -n pinns_env python scripts/campaigns/track_1/exact_paper/prepare_track1_forward_open_cell_repair_campaign.py
 ```
 
 ## Queue Design
@@ -64,5 +64,5 @@ than retraining unrelated harmonic outputs.
 ## Launch Command
 
 ```powershell
-.\scripts\campaigns\track1\exact_paper\run_track1_forward_open_cell_repair_campaign.ps1 -Remote
+.\scripts\campaigns\track_1\exact_paper\run_track1_forward_open_cell_repair_campaign.ps1 -Remote
 ```

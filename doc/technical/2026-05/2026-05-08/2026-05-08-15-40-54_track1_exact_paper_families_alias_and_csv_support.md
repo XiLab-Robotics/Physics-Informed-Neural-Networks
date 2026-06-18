@@ -39,7 +39,7 @@ documented in the launcher note, the exact-paper README, and the user guide.
 
 ## Involved Components
 
-- `scripts/campaigns/track1/exact_paper/run_track1_bidirectional_paper_faithful_grid_search_campaign.ps1`
+- `scripts/campaigns/track_1/exact_paper/run_track1_bidirectional_paper_faithful_grid_search_campaign.ps1`
 - `doc/scripts/campaigns/run_track1_bidirectional_paper_faithful_grid_search_campaign.md`
 - `scripts/paper_reimplementation/rcim_ml_compensation/README.md`
 - `doc/guide/project_usage_guide.md`

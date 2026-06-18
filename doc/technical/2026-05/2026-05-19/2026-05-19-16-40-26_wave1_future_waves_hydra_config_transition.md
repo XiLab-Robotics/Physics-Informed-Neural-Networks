@@ -58,7 +58,7 @@ boundary and explicit approval requirement must be added before launch.
 - `config/training/wave1_*`
 - future `config/training/wave*/` roots
 - `scripts/training/`
-- `scripts/campaigns/wave1/`
+- `scripts/campaigns/wave_1/`
 - `scripts/campaigns/infrastructure/`
 - `doc/reports/campaign_plans/`
 - `doc/reports/campaign_results/`

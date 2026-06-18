@@ -13,7 +13,7 @@ campaign itself.
 ## Technical Approach
 
 Add one repository-owned PowerShell status script under
-`scripts/campaigns/track1/exact_paper/` that reports the live aggregate
+`scripts/campaigns/track_1/exact_paper/` that reports the live aggregate
 progress of the prepared bundle launched through:
 
 - `run_track1_remaining_yellow_cell_campaigns.ps1 -Remote`
@@ -32,7 +32,7 @@ terminal no longer exists.
 
 ## Involved Components
 
-- `scripts/campaigns/track1/exact_paper/`
+- `scripts/campaigns/track_1/exact_paper/`
 - `doc/scripts/campaigns/`
 - `doc/running/active_training_campaign.yaml`
 

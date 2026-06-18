@@ -36,11 +36,11 @@ Optional PowerShell usage:
 Linux Bash equivalent:
 
 ```bash
-bash scripts/campaigns/wave1/run_wave1_residual_harmonic_family_campaign.sh
+bash scripts/campaigns/wave_1/run_wave1_residual_harmonic_family_campaign.sh
 ```
 
 Queue-resolution dry run without launching training or cleaning queue files:
 
 ```bash
-bash scripts/campaigns/wave1/run_wave1_residual_harmonic_family_campaign.sh --dry-run
+bash scripts/campaigns/wave_1/run_wave1_residual_harmonic_family_campaign.sh --dry-run
 ```

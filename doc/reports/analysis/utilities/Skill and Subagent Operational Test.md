@@ -21,9 +21,9 @@ support.
 ### Campaign-Review Scope
 
 - Planning report:
-  `doc/reports/campaign_plans/wave1/2026-03-26-13-52-00_wave1_residual_harmonic_family_campaign_plan_report.md`
+  `doc/reports/campaign_plans/wave_1/2026-03-26-13-52-00_wave1_residual_harmonic_family_campaign_plan_report.md`
 - Launcher:
-  `scripts/campaigns/wave1/run_wave1_residual_harmonic_family_campaign.ps1`
+  `scripts/campaigns/wave_1/run_wave1_residual_harmonic_family_campaign.ps1`
 - Launcher note:
   `doc/scripts/campaigns/run_wave1_residual_harmonic_family_campaign.md`
 - Active campaign state:

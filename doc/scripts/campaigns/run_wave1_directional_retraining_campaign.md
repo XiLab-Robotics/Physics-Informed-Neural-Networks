@@ -34,37 +34,37 @@ The launcher assumes the campaign package has already been prepared under:
 If the package is missing, rebuild it first with:
 
 ```powershell
-python -B .\scripts\campaigns\wave1\prepare_wave1_directional_retraining_campaign.py
+python -B .\scripts\campaigns\wave_1\prepare_wave1_directional_retraining_campaign.py
 ```
 
 ## Planning Report
 
 This launcher is tied to:
 
-- `doc/reports/campaign_plans/wave1/2026-05-06-16-07-16_wave1_directional_retraining_campaign_plan_report.md`
+- `doc/reports/campaign_plans/wave_1/2026-05-06-16-07-16_wave1_directional_retraining_campaign_plan_report.md`
 
 ## Practical Use
 
 Run the full campaign from the repository root:
 
 ```powershell
-.\scripts\campaigns\wave1\run_wave1_directional_retraining_campaign.ps1
+.\scripts\campaigns\wave_1\run_wave1_directional_retraining_campaign.ps1
 ```
 
 Optional PowerShell usage:
 
 ```powershell
-.\scripts\campaigns\wave1\run_wave1_directional_retraining_campaign.ps1 -PythonExecutable python
+.\scripts\campaigns\wave_1\run_wave1_directional_retraining_campaign.ps1 -PythonExecutable python
 ```
 
 Linux Bash equivalent:
 
 ```bash
-bash scripts/campaigns/wave1/run_wave1_directional_retraining_campaign.sh
+bash scripts/campaigns/wave_1/run_wave1_directional_retraining_campaign.sh
 ```
 
 Queue-resolution dry run without launching training or cleaning queue files:
 
 ```bash
-bash scripts/campaigns/wave1/run_wave1_directional_retraining_campaign.sh --dry-run
+bash scripts/campaigns/wave_1/run_wave1_directional_retraining_campaign.sh --dry-run
 ```

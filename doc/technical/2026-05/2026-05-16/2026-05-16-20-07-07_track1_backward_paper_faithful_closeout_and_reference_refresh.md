@@ -6,7 +6,7 @@ This technical note plans the closeout for the completed Track 1 backward
 paper-faithful grid-search campaign launched with:
 
 ```powershell
-.\scripts\campaigns\track1\exact_paper\run_track1_bidirectional_paper_faithful_grid_search_campaign.ps1 `
+.\scripts\campaigns\track_1\exact_paper\run_track1_bidirectional_paper_faithful_grid_search_campaign.ps1 `
   -Direction Backward `
   -Families "SVR, MLP, RF, DT, ET, ERT, GBM, HGBM, LGBM, XGBM, ELM" `
   -Stage Search `
@@ -38,7 +38,7 @@ added for the forward closeout where the same table shapes appear.
 - `doc/running/active_training_campaign.yaml`
 - `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
 - `doc/reports/analysis/Training Results Master Summary.md`
-- `doc/reports/campaign_results/track1/exact_paper/backward/`
+- `doc/reports/campaign_results/track_1/exact_paper/backward/`
 - `models/paper_reference/rcim_track1/backward/`
 - `output/training_campaigns/track1/exact_paper/bidirectional_paper_faithful_grid_search/`
 - `output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/`

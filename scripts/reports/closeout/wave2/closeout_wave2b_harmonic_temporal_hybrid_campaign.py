@@ -289,8 +289,8 @@ def update_doc_index() -> None:
 
     doc_index_text = DOC_INDEX_PATH.read_text(encoding="utf-8")
     result_entry = (
-        "- [reports/campaign_results/wave2/2026-05-26-14-01-40_wave2b_harmonic_temporal_hybrid_campaign_results_report.md]"
-        "(./reports/campaign_results/wave2/2026-05-26-14-01-40_wave2b_harmonic_temporal_hybrid_campaign_results_report.md)\n"
+        "- [reports/campaign_results/wave_2/2026-05-26-14-01-40_wave2b_harmonic_temporal_hybrid_campaign_results_report.md]"
+        "(./reports/campaign_results/wave_2/2026-05-26-14-01-40_wave2b_harmonic_temporal_hybrid_campaign_results_report.md)\n"
         "  Final results report for the completed `Wave 2B` harmonic-temporal\n"
         "  hybrid campaign, including the 9-run leaderboard, registry effects,\n"
         "  and the explicit boundary that `Track 2` remains a separate\n"

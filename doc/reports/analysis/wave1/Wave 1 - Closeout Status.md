@@ -10,7 +10,7 @@ the directional best-hyperparameter search campaign.
 - Leader family: `tree_fw`
 - Leader scope: `forward`
 - Leader test MAE: `0.002743 deg`
-- Full HPO closeout report: `doc\reports\campaign_results\wave1\2026-05-17-11-40-42_wave1_directional_best_hyperparameter_search_campaign_results_report.md`
+- Full HPO closeout report: `doc\reports\campaign_results\wave_1\2026-05-17-11-40-42_wave1_directional_best_hyperparameter_search_campaign_results_report.md`
 
 Curve-first interpretation:
 

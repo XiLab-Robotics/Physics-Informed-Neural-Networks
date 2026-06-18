@@ -6,7 +6,7 @@ Prepared campaign package for:
 
 Planning report:
 
-- `doc/reports/campaign_plans/wave2/2026-05-21-16-46-08_wave2_temporal_model_entry_campaign_plan_report.md`
+- `doc/reports/campaign_plans/wave_2/2026-05-21-16-46-08_wave2_temporal_model_entry_campaign_plan_report.md`
 
 Queue files:
 

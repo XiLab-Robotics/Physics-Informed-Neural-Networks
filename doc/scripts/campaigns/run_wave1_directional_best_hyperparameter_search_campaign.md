@@ -36,52 +36,52 @@ The launcher assumes the campaign package already exists under:
 If the package is missing, rebuild it first with:
 
 ```powershell
-python -B .\scripts\campaigns\wave1\prepare_wave1_directional_best_hyperparameter_search_campaign.py
+python -B .\scripts\campaigns\wave_1\prepare_wave1_directional_best_hyperparameter_search_campaign.py
 ```
 
 ## Planning Report
 
 This launcher is tied to:
 
-- `doc/reports/campaign_plans/wave1/2026-05-11-19-41-11_wave1_directional_best_hyperparameter_search_campaign_plan_report.md`
+- `doc/reports/campaign_plans/wave_1/2026-05-11-19-41-11_wave1_directional_best_hyperparameter_search_campaign_plan_report.md`
 
 ## Practical Use
 
 Run the full mixed campaign with two visible GPU slots:
 
 ```powershell
-.\scripts\campaigns\wave1\run_wave1_directional_best_hyperparameter_search_campaign.ps1 -GpuIdList 0,1
+.\scripts\campaigns\wave_1\run_wave1_directional_best_hyperparameter_search_campaign.ps1 -GpuIdList 0,1
 ```
 
 Minimal single-GPU usage:
 
 ```powershell
-.\scripts\campaigns\wave1\run_wave1_directional_best_hyperparameter_search_campaign.ps1 -GpuIdList 0
+.\scripts\campaigns\wave_1\run_wave1_directional_best_hyperparameter_search_campaign.ps1 -GpuIdList 0
 ```
 
 Single-GPU resume of the neural phase only, with live terminal streaming:
 
 ```powershell
-.\scripts\campaigns\wave1\run_wave1_directional_best_hyperparameter_search_campaign.ps1 -SkipGridPhase -GpuIdList 0
+.\scripts\campaigns\wave_1\run_wave1_directional_best_hyperparameter_search_campaign.ps1 -SkipGridPhase -GpuIdList 0
 ```
 
 Explicit Python executable:
 
 ```powershell
-.\scripts\campaigns\wave1\run_wave1_directional_best_hyperparameter_search_campaign.ps1 -PythonExecutable python -GpuIdList 0,1
+.\scripts\campaigns\wave_1\run_wave1_directional_best_hyperparameter_search_campaign.ps1 -PythonExecutable python -GpuIdList 0,1
 ```
 
 Linux Bash equivalent:
 
 ```bash
-bash scripts/campaigns/wave1/run_wave1_directional_best_hyperparameter_search_campaign.sh \
+bash scripts/campaigns/wave_1/run_wave1_directional_best_hyperparameter_search_campaign.sh \
   --gpu-id-list 0,1
 ```
 
 Neural-phase dry run without launching grid or Optuna jobs:
 
 ```bash
-bash scripts/campaigns/wave1/run_wave1_directional_best_hyperparameter_search_campaign.sh \
+bash scripts/campaigns/wave_1/run_wave1_directional_best_hyperparameter_search_campaign.sh \
   --skip-grid-phase \
   --gpu-id-list 0 \
   --dry-run

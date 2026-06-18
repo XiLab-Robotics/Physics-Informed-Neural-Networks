@@ -132,8 +132,8 @@ diagnostic scaffolding, but it remains explicitly not campaign-ready.
 | --- | --- |
 | Diagnostic adapter | `scripts/models/wave4_mmt_diagnostic_adapter.py` exposes `Wave4MMTDiagnosticAdapter`. |
 | Config template | `config/training/wave4_embryonic_skeleton/wave4a_mmt_equation_diagnostic_template.yaml` records `implementation_ready` and `not_campaign_ready`. |
-| Validator | `scripts/campaigns/wave4/validate_wave4_embryonic_skeleton_package.py` checks metadata and MMT demonstration-summary generation. |
-| Dry-run launcher | `scripts/campaigns/wave4/run_wave4_embryonic_skeleton_checks.ps1` runs compile and validator checks only. |
+| Validator | `scripts/campaigns/wave_4/validate_wave4_embryonic_skeleton_package.py` checks metadata and MMT demonstration-summary generation. |
+| Dry-run launcher | `scripts/campaigns/wave_4/run_wave4_embryonic_skeleton_checks.ps1` runs compile and validator checks only. |
 
 ## Wave 4A Diagnostic Status
 

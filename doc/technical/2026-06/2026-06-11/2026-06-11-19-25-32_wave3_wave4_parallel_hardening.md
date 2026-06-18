@@ -74,7 +74,7 @@ interpretability and readiness check.
 Expected documentation components:
 
 - this technical document;
-- `doc/reports/campaign_plans/wave3_wave4/2026-06-11-19-25-32_wave3_wave4_parallel_hardening_plan_report.md`;
+- `doc/reports/campaign_plans/cross_wave/wave_3_wave_4/2026-06-11-19-25-32_wave3_wave4_parallel_hardening_plan_report.md`;
 - `doc/reports/analysis/wave3/Wave 3 Hybrid Structured Models.md`;
 - `doc/reports/analysis/wave4/Wave 4 PINN Formulation And First PINN.md`;
 - `doc/README.md`;
@@ -83,9 +83,9 @@ Expected documentation components:
 
 Expected Wave 3 implementation components after approval:
 
-- a Wave 3 training-smoke validator under `scripts/campaigns/wave3/`;
-- a dry-run PowerShell wrapper under `scripts/campaigns/wave3/`;
-- a launcher note under `doc/scripts/campaigns/wave3/`;
+- a Wave 3 training-smoke validator under `scripts/campaigns/wave_3/`;
+- a dry-run PowerShell wrapper under `scripts/campaigns/wave_3/`;
+- a launcher note under `doc/scripts/campaigns/wave_3/`;
 - optional template metadata additions under
   `config/training/wave3_embryonic_skeleton/`.
 

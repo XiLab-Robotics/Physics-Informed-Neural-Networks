@@ -680,7 +680,7 @@ def build_results_report_markdown(
             "This report closes the dedicated exact-paper residual-cell `MLP` wave",
             "prepared in:",
             "",
-            "- `doc/reports/campaign_plans/track1/exact_paper/2026-04-21-23-32-36_track1_mlp_residual_cell_final_closure_campaign_plan_report.md`",
+            "- `doc/reports/campaign_plans/track_1/exact_paper/2026-04-21-23-32-36_track1_mlp_residual_cell_final_closure_campaign_plan_report.md`",
             "",
             "The campaign targeted only the last four distinct accepted `MLP`",
             "family-target pairs that were still non-green in the canonical `Track 1`",
@@ -790,7 +790,7 @@ def main() -> None:
     )
 
     report_relative_path = (
-        "doc/reports/campaign_results/track1/exact_paper/forward/"
+        "doc/reports/campaign_results/track_1/exact_paper/forward/"
         f"{report_timestamp}_track1_mlp_residual_cell_final_closure_campaign_results_report.md"
     )
     updated_benchmark_text = "\n".join(benchmark_line_list) + "\n"

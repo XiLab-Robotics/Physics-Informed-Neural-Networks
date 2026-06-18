@@ -16,7 +16,7 @@ migration.
 
 ## Technical Approach
 
-Implement one repository-owned local helper under `scripts/campaigns/track1/`
+Implement one repository-owned local helper under `scripts/campaigns/track_1/`
 or `scripts/training/` that:
 
 1. reads the canonical remote assumptions from

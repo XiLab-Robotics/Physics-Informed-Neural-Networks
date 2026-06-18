@@ -52,7 +52,7 @@ Second, extend preview generation after the audit:
 - group report-facing images under:
 
 ```text
-doc/reports/campaign_results/track 2/
+doc/reports/campaign_results/track_2/verification_plots/
 ```
 
 - use source folders:
@@ -86,7 +86,7 @@ comparison.
   - regenerate validation artifacts if the comparison logic changes.
 - `doc/reports/analysis/track2/Track 2 Directional Model Comparison.md`
   - update results and artifact pointers after any corrected run.
-- `doc/reports/campaign_results/track 2/`
+- `doc/reports/campaign_results/track_2/verification_plots/`
   - store grouped report-facing PNG overlays.
 
 ## Implementation Steps
@@ -103,7 +103,7 @@ comparison.
 5. If a direction or sign-convention defect is found, fix the comparison logic
    and rerun the Track 2 validation matrix.
 6. Extend image generation so each candidate emits grouped PNGs under
-   `doc/reports/campaign_results/track 2/<source>/<family>/`.
+   `doc/reports/campaign_results/track_2/verification_plots/<source>/<family>/`.
 7. Regenerate the canonical Track 2 report and validation artifacts after any
    logic or image-output change.
 8. Run Python syntax checks and a focused Track 2 validation run.

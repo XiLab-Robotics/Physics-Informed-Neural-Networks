@@ -49,11 +49,11 @@ Scoped target pairs:
 Local command:
 
 ```powershell
-.\scripts\campaigns\track1\exact_paper\run_track1_mlp_family_full_matrix_repair_campaign.ps1
+.\scripts\campaigns\track_1\exact_paper\run_track1_mlp_family_full_matrix_repair_campaign.ps1
 ```
 
 Remote command:
 
 ```powershell
-.\scripts\campaigns\track1\exact_paper\run_track1_mlp_family_full_matrix_repair_campaign.ps1 -Remote
+.\scripts\campaigns\track_1\exact_paper\run_track1_mlp_family_full_matrix_repair_campaign.ps1 -Remote
 ```

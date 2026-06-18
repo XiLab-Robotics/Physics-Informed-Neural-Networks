@@ -53,11 +53,11 @@ must be recorded and approved before use.
 ## Involved Components
 
 - `doc/running/active_training_campaign.yaml`
-- `doc/reports/campaign_plans/track1/exact_paper/2026-04-29-11-56-05_track1_forward_last_four_open_cells_campaign_plan_report.md`
+- `doc/reports/campaign_plans/track_1/exact_paper/2026-04-29-11-56-05_track1_forward_last_four_open_cells_campaign_plan_report.md`
 - `scripts/reports/closeout/track1/closeout_track1_forward_open_cell_repair_campaign.py`
 - `output/training_campaigns/track1/exact_paper/forward_last_four_open_cells/`
 - `output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank_forward_last_four_open_cells/`
-- `doc/reports/campaign_results/track1/exact_paper/`
+- `doc/reports/campaign_results/track_1/exact_paper/`
 - `scripts/reports/pdf/generate_styled_report_pdf.py`
 - `scripts/reports/pdf/validate_report_pdf.py`
 - `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`

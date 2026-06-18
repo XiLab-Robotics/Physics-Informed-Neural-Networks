@@ -37,15 +37,15 @@ the implementation requires explicit approval before touching those files.
 ## Involved Components
 
 - `doc/running/active_training_campaign.yaml`
-- `scripts/campaigns/track1/exact_paper/run_track1_forward_original_dataset_remote_micro_campaign.ps1`
-- `scripts/campaigns/track1/exact_paper/invoke_exact_paper_campaign_local.ps1`
-- `scripts/campaigns/track1/exact_paper/run_exact_paper_campaign_remote.ps1`
+- `scripts/campaigns/track_1/exact_paper/run_track1_forward_original_dataset_remote_micro_campaign.ps1`
+- `scripts/campaigns/track_1/exact_paper/invoke_exact_paper_campaign_local.ps1`
+- `scripts/campaigns/track_1/exact_paper/run_exact_paper_campaign_remote.ps1`
 - `scripts/campaigns/infrastructure/shared_streaming_campaign_launcher.ps1`
 - `scripts/paper_reimplementation/rcim_ml_compensation/run_original_dataset_exact_model_bank_validation.py`
 - `scripts/paper_reimplementation/rcim_ml_compensation/run_exact_paper_model_bank_validation.py`
-- `scripts/campaigns/track1/exact_paper/prepare_track1_forward_original_dataset_remote_micro_campaign.py`
+- `scripts/campaigns/track_1/exact_paper/prepare_track1_forward_original_dataset_remote_micro_campaign.py`
 - `doc/scripts/campaigns/run_track1_forward_original_dataset_remote_micro_campaign.md`
-- `doc/reports/campaign_plans/track1/exact_paper/2026-04-25-23-00-02_track1_forward_remote_micro_runner_repair_and_remote_bringup_plan_report.md`
+- `doc/reports/campaign_plans/track_1/exact_paper/2026-04-25-23-00-02_track1_forward_remote_micro_runner_repair_and_remote_bringup_plan_report.md`
 
 ## Implementation Steps
 

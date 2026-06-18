@@ -59,7 +59,7 @@ The `Track 2` refresh plan should require:
 - `output/registries/families/lstm_sequence*/`
 - `output/registries/program/current_best_solution.yaml`
 - `doc/reports/analysis/Training Results Master Summary.md`
-- `doc/reports/campaign_results/wave2/`
+- `doc/reports/campaign_results/wave_2/`
 - `doc/reports/analysis/track2/Track 2 Directional Model Comparison.md`
 - `doc/reports/analysis/track2/official_model_verification_report/[2026-05-21]/`
 - `doc/reports/analysis/track2/best_model_collage_report/`
@@ -72,7 +72,7 @@ The `Track 2` refresh plan should require:
 1. Verify the campaign manifest, leaderboard, best-run file, and family
    registries for all `9` Wave 2 runs.
 2. Create the Wave 2 closeout report under
-   `doc/reports/campaign_results/wave2/`.
+   `doc/reports/campaign_results/wave_2/`.
 3. Export the closeout report to PDF and validate the real PDF deliverable.
 4. Update `Training Results Master Summary.md`, `te_model_live_backlog.md`,
    and `doc/README.md` with the closeout interpretation.

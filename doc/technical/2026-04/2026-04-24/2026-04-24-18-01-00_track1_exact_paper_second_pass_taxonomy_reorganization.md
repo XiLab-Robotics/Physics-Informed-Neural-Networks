@@ -78,10 +78,10 @@ No subagent use is planned for this task.
 - `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/`
 - `output/validation_checks/paper_reimplementation_rcim_harmonic_wise/forward/`
 - `doc/running/active_training_campaign.yaml`
-- `scripts/campaigns/track1/exact_paper/`
+- `scripts/campaigns/track_1/exact_paper/`
 - `scripts/reports/`
 - `doc/reports/analysis/validation_checks/track1/exact_paper/forward/`
-- `doc/reports/campaign_results/track1/exact_paper/forward/`
+- `doc/reports/campaign_results/track_1/exact_paper/forward/`
 
 ## Implementation Steps
 

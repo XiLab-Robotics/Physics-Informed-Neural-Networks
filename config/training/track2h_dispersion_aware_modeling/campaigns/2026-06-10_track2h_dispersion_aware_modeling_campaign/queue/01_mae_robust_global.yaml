@@ -7,7 +7,7 @@ experiment:
   model_type: curve_aware_harmonic_residual_offset_probe
 metadata:
   campaign_name: track2h_dispersion_aware_modeling_campaign_2026_06_10
-  planning_report_path: doc/reports/campaign_plans/track2/2026-06-10-16-56-36_track2h_dispersion_aware_modeling_probe_campaign_plan_report.md
+  planning_report_path: doc/reports/campaign_plans/track_2/2026-06-10-16-56-36_track2h_dispersion_aware_modeling_probe_campaign_plan_report.md
   technical_document_path: doc/technical/2026-06/2026-06-10/2026-06-10-16-56-36_track2h_dispersion_aware_modeling_probes.md
   phase_name: track2h_dispersion_aware_modeling
   campaign_config_id: track2h_dispersion_aware_mae_robust_global

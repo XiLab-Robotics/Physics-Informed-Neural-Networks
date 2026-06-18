@@ -71,9 +71,9 @@ campaign preparation flow in the main rollout.
 
 - `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
 - `doc/reports/analysis/Training Results Master Summary.md`
-- `doc/reports/campaign_plans/track1/exact_paper/`
+- `doc/reports/campaign_plans/track_1/exact_paper/`
 - `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/`
-- `scripts/campaigns/track1/exact_paper/`
+- `scripts/campaigns/track_1/exact_paper/`
 - `doc/scripts/campaigns/`
 - `doc/running/active_training_campaign.yaml`
 - `output/training_campaigns/track1/exact_paper/forward/`
@@ -83,7 +83,7 @@ After approval, the expected implementation outputs are:
 - one new campaign planning report for the multi-family yellow-cell overnight
   bundle;
 - one exact-paper config directory per targeted family;
-- one launcher per family under `scripts/campaigns/track1/exact_paper/`;
+- one launcher per family under `scripts/campaigns/track_1/exact_paper/`;
 - one matching launcher note per family under `doc/scripts/campaigns/`;
 - one aggregate overnight launcher plus aggregate launcher note;
 - one updated `doc/running/active_training_campaign.yaml` entry that points to

@@ -33,7 +33,7 @@ artifact sync phase and will not reinterpret the completed training results.
 
 ## Involved Components
 
-- `scripts/campaigns/track1/exact_paper/run_exact_paper_campaign_remote.ps1`
+- `scripts/campaigns/track_1/exact_paper/run_exact_paper_campaign_remote.ps1`
 - `doc/running/active_training_campaign.yaml`
 - `doc/scripts/campaigns/run_track1_forward_open_cell_repair_campaign.md`
 - `output/training_campaigns/track1/exact_paper/forward_open_cell_repair/`

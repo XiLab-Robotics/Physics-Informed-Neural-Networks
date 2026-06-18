@@ -5,7 +5,7 @@
 This document closes the completed overnight `Track 1`
 remaining-family residual-cell closure campaign wave prepared under:
 
-- `doc/reports/campaign_plans/track1/exact_paper/2026-04-19-01-04-28_track1_remaining_family_residual_cellwise_closure_campaigns_plan_report.md`
+- `doc/reports/campaign_plans/track_1/exact_paper/2026-04-19-01-04-28_track1_remaining_family_residual_cellwise_closure_campaigns_plan_report.md`
 
 The executed batch produced `1026` target-local exact-paper closure-attempt
 runs across the nine non-`SVM` families.
@@ -58,7 +58,7 @@ closure-first bookkeeping convention:
 - `doc/running/active_training_campaign.yaml`
 - `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
 - `doc/reports/analysis/Training Results Master Summary.md`
-- `doc/reports/campaign_results/track1/exact_paper/forward/`
+- `doc/reports/campaign_results/track_1/exact_paper/forward/`
 - `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/`
 - `output/training_campaigns/`
 - `scripts/reports/generate_styled_report_pdf.py`

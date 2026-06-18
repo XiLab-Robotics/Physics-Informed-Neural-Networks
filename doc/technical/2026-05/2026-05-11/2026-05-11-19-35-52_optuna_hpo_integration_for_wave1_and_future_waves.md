@@ -63,8 +63,8 @@ and inspectable optimization history.
 - `requirements.txt`
 - `scripts/training/`
 - `scripts/campaigns/infrastructure/`
-- `scripts/campaigns/wave1/`
-- `doc/reports/campaign_plans/wave1/`
+- `scripts/campaigns/wave_1/`
+- `doc/reports/campaign_plans/wave_1/`
 - `doc/scripts/campaigns/`
 - `config/training/`
 - future wave campaign-preparation and closeout surfaces

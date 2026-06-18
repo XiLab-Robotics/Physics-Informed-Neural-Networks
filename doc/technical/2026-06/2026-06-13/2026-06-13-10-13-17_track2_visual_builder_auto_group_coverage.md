@@ -52,10 +52,10 @@ before closure.
   is the canonical source for matrix registry groups and their
   `source_label`, `candidate_id_prefix`, `global_family`, `fw_family`, and
   `bw_family` fields.
-- `scripts/campaigns/track2/run_track2h_quantile_probabilistic_track2_verification_refresh.ps1`
+- `scripts/campaigns/track_2/run_track2h_quantile_probabilistic_track2_verification_refresh.ps1`
   is the concrete launcher where the issue was observed and should gain a
   generic coverage check that future launchers can copy or reuse.
-- `doc/scripts/campaigns/track2/run_track2h_quantile_probabilistic_track2_verification_refresh.md`
+- `doc/scripts/campaigns/track_2/run_track2h_quantile_probabilistic_track2_verification_refresh.md`
   should document that visual coverage is validated during the operator run.
 
 No subagent is planned for this implementation.

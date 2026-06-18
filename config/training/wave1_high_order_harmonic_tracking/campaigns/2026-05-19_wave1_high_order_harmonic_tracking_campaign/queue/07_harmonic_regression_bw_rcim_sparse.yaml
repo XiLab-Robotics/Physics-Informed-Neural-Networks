@@ -7,7 +7,7 @@ experiment:
   model_type: harmonic_regression
 metadata:
   campaign_name: wave1_high_order_harmonic_tracking_campaign_2026_05_19_17_40_01
-  planning_report_path: doc/reports/campaign_plans/wave1/2026-05-19-17-40-01_wave1_high_order_harmonic_tracking_campaign_plan_report.md
+  planning_report_path: doc/reports/campaign_plans/wave_1/2026-05-19-17-40-01_wave1_high_order_harmonic_tracking_campaign_plan_report.md
   phase_name: wave1_high_order_harmonic_tracking
   campaign_config_id: harmonic_regression_bw_rcim_sparse
   notes: Wave 1 high-order harmonic tracking follow-up | RCIM selected sparse harmonic bank | model=harmonic_regression | scope=bw. Baseline comparison uses existing Wave 1 directional best-hyperparameter results.

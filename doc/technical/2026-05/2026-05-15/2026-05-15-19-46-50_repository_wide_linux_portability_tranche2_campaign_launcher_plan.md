@@ -58,18 +58,18 @@ without launching model training.
   - `doc/running/active_training_campaign.yaml`
 
 - Protected Track 1 campaign launcher files:
-  - `scripts/campaigns/track1/exact_paper/run_track1_bidirectional_paper_faithful_grid_search_campaign.ps1`
-  - `scripts/campaigns/track1/exact_paper/run_exact_paper_campaign_remote.ps1`
-  - `scripts/campaigns/track1/exact_paper/invoke_exact_paper_campaign_local.ps1`
+  - `scripts/campaigns/track_1/exact_paper/run_track1_bidirectional_paper_faithful_grid_search_campaign.ps1`
+  - `scripts/campaigns/track_1/exact_paper/run_exact_paper_campaign_remote.ps1`
+  - `scripts/campaigns/track_1/exact_paper/invoke_exact_paper_campaign_local.ps1`
   - `scripts/campaigns/infrastructure/shared_streaming_campaign_launcher.ps1`
   - `doc/scripts/campaigns/run_track1_bidirectional_paper_faithful_grid_search_campaign.md`
 
 - Existing Linux launcher from tranche 1:
-  - `scripts/campaigns/track1/exact_paper/run_track1_bidirectional_paper_faithful_grid_search_campaign.sh`
+  - `scripts/campaigns/track_1/exact_paper/run_track1_bidirectional_paper_faithful_grid_search_campaign.sh`
 
 - Candidate new Bash helper surfaces:
   - `scripts/campaigns/infrastructure/shared_streaming_campaign_launcher.sh`
-  - `scripts/campaigns/track1/exact_paper/invoke_exact_paper_campaign_local.sh`
+  - `scripts/campaigns/track_1/exact_paper/invoke_exact_paper_campaign_local.sh`
   - selected adjacent `.sh` siblings for campaign `.ps1` launchers
 
 - Inventory and documentation:

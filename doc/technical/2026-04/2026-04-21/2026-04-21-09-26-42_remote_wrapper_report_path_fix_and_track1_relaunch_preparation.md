@@ -54,18 +54,18 @@ protected-file edit.
 
 ## Involved Components
 
-- `scripts/campaigns/track1/exact_paper/run_exact_paper_campaign_remote.ps1`
-- `scripts/campaigns/track1/exact_paper/run_track1_open_cell_full_matrix_closure_campaigns.ps1`
-- `scripts/campaigns/track1/exact_paper/run_track1_rf_open_cell_full_matrix_closure_campaign.ps1`
-- `scripts/campaigns/track1/exact_paper/run_track1_dt_open_cell_full_matrix_closure_campaign.ps1`
-- `scripts/campaigns/track1/exact_paper/run_track1_et_open_cell_full_matrix_closure_campaign.ps1`
-- `scripts/campaigns/track1/exact_paper/run_track1_ert_open_cell_full_matrix_closure_campaign.ps1`
-- `scripts/campaigns/track1/exact_paper/run_track1_gbm_open_cell_full_matrix_closure_campaign.ps1`
-- `scripts/campaigns/track1/exact_paper/run_track1_hgbm_open_cell_full_matrix_closure_campaign.ps1`
-- `scripts/campaigns/track1/exact_paper/run_track1_xgbm_open_cell_full_matrix_closure_campaign.ps1`
-- `scripts/campaigns/track1/exact_paper/run_track1_lgbm_open_cell_full_matrix_closure_campaign.ps1`
+- `scripts/campaigns/track_1/exact_paper/run_exact_paper_campaign_remote.ps1`
+- `scripts/campaigns/track_1/exact_paper/run_track1_open_cell_full_matrix_closure_campaigns.ps1`
+- `scripts/campaigns/track_1/exact_paper/run_track1_rf_open_cell_full_matrix_closure_campaign.ps1`
+- `scripts/campaigns/track_1/exact_paper/run_track1_dt_open_cell_full_matrix_closure_campaign.ps1`
+- `scripts/campaigns/track_1/exact_paper/run_track1_et_open_cell_full_matrix_closure_campaign.ps1`
+- `scripts/campaigns/track_1/exact_paper/run_track1_ert_open_cell_full_matrix_closure_campaign.ps1`
+- `scripts/campaigns/track_1/exact_paper/run_track1_gbm_open_cell_full_matrix_closure_campaign.ps1`
+- `scripts/campaigns/track_1/exact_paper/run_track1_hgbm_open_cell_full_matrix_closure_campaign.ps1`
+- `scripts/campaigns/track_1/exact_paper/run_track1_xgbm_open_cell_full_matrix_closure_campaign.ps1`
+- `scripts/campaigns/track_1/exact_paper/run_track1_lgbm_open_cell_full_matrix_closure_campaign.ps1`
 - `doc/scripts/campaigns/run_track1_open_cell_full_matrix_closure_campaigns.md`
-- `doc/reports/campaign_plans/track1/exact_paper/2026-04-20-23-50-13_track1_open_cell_full_matrix_closure_campaigns_plan_report.md`
+- `doc/reports/campaign_plans/track_1/exact_paper/2026-04-20-23-50-13_track1_open_cell_full_matrix_closure_campaigns_plan_report.md`
 - `doc/running/active_training_campaign.yaml`
 
 ## Implementation Steps

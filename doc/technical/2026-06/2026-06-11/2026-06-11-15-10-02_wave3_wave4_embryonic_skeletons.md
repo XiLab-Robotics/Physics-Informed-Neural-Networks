@@ -43,13 +43,13 @@ Potential implementation components after approval:
 - `scripts/models/wave3_harmonic_prior_residual_network.py`
 - `scripts/models/wave4_mmt_diagnostic_adapter.py`
 - `scripts/models/model_factory.py`
-- `scripts/campaigns/wave3/`
-- `scripts/campaigns/wave4/`
-- `doc/scripts/campaigns/wave3/`
-- `doc/scripts/campaigns/wave4/`
+- `scripts/campaigns/wave_3/`
+- `scripts/campaigns/wave_4/`
+- `doc/scripts/campaigns/wave_3/`
+- `doc/scripts/campaigns/wave_4/`
 - `config/training/wave3_embryonic_skeleton/`
 - `config/training/wave4_embryonic_skeleton/`
-- `doc/reports/campaign_plans/wave3_wave4/2026-06-11-15-10-02_wave3_wave4_embryonic_skeleton_plan_report.md`
+- `doc/reports/campaign_plans/cross_wave/wave_3_wave_4/2026-06-11-15-10-02_wave3_wave4_embryonic_skeleton_plan_report.md`
 - `doc/running/te_model_live_backlog.md`
 - `doc/README.md`
 

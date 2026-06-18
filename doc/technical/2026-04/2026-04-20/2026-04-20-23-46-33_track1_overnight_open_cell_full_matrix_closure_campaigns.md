@@ -62,9 +62,9 @@ preparation flow and remains in the main rollout.
 
 - `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
 - `doc/reports/analysis/Training Results Master Summary.md`
-- `doc/reports/campaign_plans/track1/exact_paper/`
+- `doc/reports/campaign_plans/track_1/exact_paper/`
 - `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/`
-- `scripts/campaigns/track1/exact_paper/`
+- `scripts/campaigns/track_1/exact_paper/`
 - `doc/scripts/campaigns/`
 - `doc/running/active_training_campaign.yaml`
 - `output/training_campaigns/track1/exact_paper/forward/`
@@ -72,10 +72,10 @@ preparation flow and remains in the main rollout.
 The implementation is expected to create after approval:
 
 - one new campaign planning report under
-  `doc/reports/campaign_plans/track1/exact_paper/`;
+  `doc/reports/campaign_plans/track_1/exact_paper/`;
 - one new exact-paper campaign config folder under
   `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/`;
-- family-local launchers under `scripts/campaigns/track1/exact_paper/`;
+- family-local launchers under `scripts/campaigns/track_1/exact_paper/`;
 - matching launcher notes under `doc/scripts/campaigns/`;
 - one aggregate launcher;
 - one refreshed `active_training_campaign.yaml` entry for the prepared wave.

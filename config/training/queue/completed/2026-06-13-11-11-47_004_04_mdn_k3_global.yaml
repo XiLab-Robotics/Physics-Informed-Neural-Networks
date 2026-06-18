@@ -7,7 +7,7 @@ experiment:
   model_type: curve_aware_harmonic_residual_offset_probe
 metadata:
   campaign_name: track2h_mixture_density_heads_campaign_2026_06_13
-  planning_report_path: doc/reports/campaign_plans/track2/2026-06-13-10-40-25_track2h_mixture_density_heads_campaign_plan_report.md
+  planning_report_path: doc/reports/campaign_plans/track_2/2026-06-13-10-40-25_track2h_mixture_density_heads_campaign_plan_report.md
   technical_document_path: doc/technical/2026-06/2026-06-13/2026-06-13-10-40-25_track2h_mixture_density_heads_package.md
   phase_name: track2h_mixture_density_heads
   campaign_config_id: track2h_mixture_density_heads_mdn_k3_global

@@ -15,7 +15,7 @@ launcher semantics.
 
 ## Involved Components
 
-- `scripts/campaigns/track1/exact_paper/run_exact_paper_campaign_remote.ps1`
+- `scripts/campaigns/track_1/exact_paper/run_exact_paper_campaign_remote.ps1`
 - `doc/technical/2026-05/2026-05-08/README.md`
 - `doc/README.md`
 

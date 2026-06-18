@@ -21,7 +21,7 @@ the current and previous operating-state samples in the window.
 ## Launch Commands
 
 ```powershell
-.\scripts\campaigns\track2\run_track2h_latent_state_hysteresis_campaign.ps1 -PreflightOnly
-.\scripts\campaigns\track2\run_track2h_latent_state_hysteresis_campaign.ps1
-.\scripts\campaigns\track2\run_track2h_latent_state_hysteresis_campaign.ps1 -Remote
+.\scripts\campaigns\track_2\run_track2h_latent_state_hysteresis_campaign.ps1 -PreflightOnly
+.\scripts\campaigns\track_2\run_track2h_latent_state_hysteresis_campaign.ps1
+.\scripts\campaigns\track_2\run_track2h_latent_state_hysteresis_campaign.ps1 -Remote
 ```

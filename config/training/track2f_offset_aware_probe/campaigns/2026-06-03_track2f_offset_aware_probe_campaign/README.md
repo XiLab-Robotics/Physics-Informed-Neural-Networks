@@ -25,17 +25,17 @@ introduced through a later technical gate.
 Preflight validation:
 
 ```powershell
-.\scripts\campaigns\track2\run_track2f_offset_aware_probe_campaign.ps1 -PreflightOnly
+.\scripts\campaigns\track_2\run_track2f_offset_aware_probe_campaign.ps1 -PreflightOnly
 ```
 
 Sequential probe training:
 
 ```powershell
-.\scripts\campaigns\track2\run_track2f_offset_aware_probe_campaign.ps1
+.\scripts\campaigns\track_2\run_track2f_offset_aware_probe_campaign.ps1
 ```
 
 Remote sequential probe training:
 
 ```powershell
-.\scripts\campaigns\track2\run_track2f_offset_aware_probe_campaign.ps1 -Remote
+.\scripts\campaigns\track_2\run_track2f_offset_aware_probe_campaign.ps1 -Remote
 ```

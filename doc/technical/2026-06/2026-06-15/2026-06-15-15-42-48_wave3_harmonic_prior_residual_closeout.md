@@ -26,7 +26,7 @@ campaign-results report and state synchronization are complete.
 ## Involved Components
 
 - `output/training_campaigns/2026-06-15-14-01-15_wave3_harmonic_prior_residual_campaign_2026_06_14/`
-- `doc/reports/campaign_results/wave3_wave4/`
+- `doc/reports/campaign_results/wave_3/`
 - `doc/running/active_training_campaign.yaml`
 - `doc/running/te_model_live_backlog.md`
 - `doc/reports/analysis/Training Results Master Summary.md`

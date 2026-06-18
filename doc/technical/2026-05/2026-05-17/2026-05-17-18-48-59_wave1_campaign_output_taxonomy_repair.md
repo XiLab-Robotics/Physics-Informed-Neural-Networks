@@ -39,7 +39,7 @@ the task boundary and approval requirement must be documented here before use.
 - `output/training_campaigns/`
 - `output/training_campaigns/wave1/`
 - `doc/running/active_training_campaign.yaml`
-- `doc/reports/campaign_plans/wave1/`
+- `doc/reports/campaign_plans/wave_1/`
 - Campaign-local metadata files inside the two moved output bundles
 - Canonical documentation references discovered by targeted search
 

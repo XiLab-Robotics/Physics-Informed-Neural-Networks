@@ -14,19 +14,19 @@ This helper performs only the manual artifact recovery step. It does not:
 ## Command
 
 ```powershell
-.\scripts\campaigns\track1\exact_paper\sync_track1_interrupted_remaining_yellow_cell_campaign_artifacts.ps1
+.\scripts\campaigns\track_1\exact_paper\sync_track1_interrupted_remaining_yellow_cell_campaign_artifacts.ps1
 ```
 
 Optional explicit remote form:
 
 ```powershell
-.\scripts\campaigns\track1\exact_paper\sync_track1_interrupted_remaining_yellow_cell_campaign_artifacts.ps1 -RemoteHostAlias "xilab-remote" -RemoteRepositoryPath "C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks"
+.\scripts\campaigns\track_1\exact_paper\sync_track1_interrupted_remaining_yellow_cell_campaign_artifacts.ps1 -RemoteHostAlias "xilab-remote" -RemoteRepositoryPath "C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks"
 ```
 
 Optional keep-remote-archives form:
 
 ```powershell
-.\scripts\campaigns\track1\exact_paper\sync_track1_interrupted_remaining_yellow_cell_campaign_artifacts.ps1 -SkipRemoteCleanup
+.\scripts\campaigns\track_1\exact_paper\sync_track1_interrupted_remaining_yellow_cell_campaign_artifacts.ps1 -SkipRemoteCleanup
 ```
 
 ## What It Pulls

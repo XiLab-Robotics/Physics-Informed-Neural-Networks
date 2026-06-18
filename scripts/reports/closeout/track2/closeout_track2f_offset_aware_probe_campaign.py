@@ -386,8 +386,8 @@ def update_doc_index() -> None:
 
     index_text = DOC_INDEX_PATH.read_text(encoding="utf-8")
     report_entry = (
-        "- [reports/campaign_results/track2/2026-06-04-12-28-46_track2f_offset_aware_probe_campaign_results_report.md]"
-        "(./reports/campaign_results/track2/2026-06-04-12-28-46_track2f_offset_aware_probe_campaign_results_report.md)\n"
+        "- [reports/campaign_results/track_2/campaign_closeouts/2026-06-04-12-28-46_track2f_offset_aware_probe_campaign_results_report.md]"
+        "(./reports/campaign_results/track_2/campaign_closeouts/2026-06-04-12-28-46_track2f_offset_aware_probe_campaign_results_report.md)\n"
         "  Final results report for the completed `Track 2F` offset-aware\n"
         "  probe campaign, including separate `global`, `Fw`, and `Bw`\n"
         "  branch results, runner-wrapper diagnostics, registry effects, and\n"

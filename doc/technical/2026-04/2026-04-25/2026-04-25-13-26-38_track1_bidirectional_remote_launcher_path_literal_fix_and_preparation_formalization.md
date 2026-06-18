@@ -46,9 +46,9 @@ documented as using temporary Python helpers rather than inline code.
 
 ## Involved Components
 
-- `scripts/campaigns/track1/exact_paper/run_track1_bidirectional_original_dataset_mega_campaign.ps1`
-- `scripts/campaigns/track1/exact_paper/run_exact_paper_campaign_remote.ps1`
-- `scripts/campaigns/track1/exact_paper/prepare_track1_bidirectional_original_dataset_mega_campaign.py`
+- `scripts/campaigns/track_1/exact_paper/run_track1_bidirectional_original_dataset_mega_campaign.ps1`
+- `scripts/campaigns/track_1/exact_paper/run_exact_paper_campaign_remote.ps1`
+- `scripts/campaigns/track_1/exact_paper/prepare_track1_bidirectional_original_dataset_mega_campaign.py`
 - `doc/scripts/campaigns/run_track1_bidirectional_original_dataset_mega_campaign.md`
 - `doc/running/active_training_campaign.yaml`
 

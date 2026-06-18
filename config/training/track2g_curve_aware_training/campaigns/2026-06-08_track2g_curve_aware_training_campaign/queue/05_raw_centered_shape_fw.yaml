@@ -7,7 +7,7 @@ experiment:
   model_type: curve_aware_harmonic_residual_offset_probe
 metadata:
   campaign_name: track2g_curve_aware_training_campaign_2026_06_08
-  planning_report_path: doc/reports/campaign_plans/track2/2026-06-08-18-01-40_track2g_curve_aware_training_campaign_plan_report.md
+  planning_report_path: doc/reports/campaign_plans/track_2/2026-06-08-18-01-40_track2g_curve_aware_training_campaign_plan_report.md
   technical_document_path: doc/technical/2026-06/2026-06-08/2026-06-08-17-59-03_track2g_curve_aware_training_plan.md
   phase_name: track2g_curve_aware_training
   campaign_config_id: track2g_curve_aware_harmonic_residual_offset_raw_centered_shape_fw

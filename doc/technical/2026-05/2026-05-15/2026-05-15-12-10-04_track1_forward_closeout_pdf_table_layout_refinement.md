@@ -9,7 +9,7 @@ closeout can be read cleanly and future closeout exports inherit the same
 layout rules automatically.
 
 The target report is
-`doc/reports/campaign_results/track1/exact_paper/forward/2026-05-15-11-11-35_track1_forward_paper_faithful_grid_search_closeout_report.md`.
+`doc/reports/campaign_results/track_1/exact_paper/forward/2026-05-15-11-11-35_track1_forward_paper_faithful_grid_search_closeout_report.md`.
 
 ## Technical Approach
 
@@ -36,8 +36,8 @@ same table shapes.
 - `scripts/reports/pdf/generate_styled_report_pdf.py`
 - `scripts/reports/pdf/run_report_pipeline.py`
 - `scripts/reports/pdf/validate_report_pdf.py`
-- `doc/reports/campaign_results/track1/exact_paper/forward/2026-05-15-11-11-35_track1_forward_paper_faithful_grid_search_closeout_report.md`
-- `doc/reports/campaign_results/track1/exact_paper/forward/2026-05-15-11-11-35_track1_forward_paper_faithful_grid_search_closeout_report.pdf`
+- `doc/reports/campaign_results/track_1/exact_paper/forward/2026-05-15-11-11-35_track1_forward_paper_faithful_grid_search_closeout_report.md`
+- `doc/reports/campaign_results/track_1/exact_paper/forward/2026-05-15-11-11-35_track1_forward_paper_faithful_grid_search_closeout_report.pdf`
 
 No subagent is planned for this narrow renderer fix.
 

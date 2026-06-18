@@ -15,7 +15,7 @@ The current state already records:
 - `finished_at: '2026-05-16T19:04:25+02:00'`;
 - `completion_recorded_at: '2026-05-16T20:20:45+02:00'`;
 - a canonical results report at
-  `doc/reports/campaign_results/track1/exact_paper/backward/2026-05-16-20-07-07_track1_backward_paper_faithful_grid_search_closeout_report.md`;
+  `doc/reports/campaign_results/track_1/exact_paper/backward/2026-05-16-20-07-07_track1_backward_paper_faithful_grid_search_closeout_report.md`;
 - the expected campaign output directory under
   `output/training_campaigns/track1/exact_paper/bidirectional_paper_faithful_grid_search/`.
 
@@ -38,7 +38,7 @@ to an empty list.
 - Current Track 1 paper-faithful campaign output under
   `output/training_campaigns/track1/exact_paper/bidirectional_paper_faithful_grid_search/`
 - Planning report:
-  `doc/reports/campaign_plans/track1/exact_paper/2026-05-13-17-33-38_track1_paper_faithful_elm_queue_addendum_plan_report.md`
+  `doc/reports/campaign_plans/track_1/exact_paper/2026-05-13-17-33-38_track1_paper_faithful_elm_queue_addendum_plan_report.md`
 
 ## Implementation Steps
 

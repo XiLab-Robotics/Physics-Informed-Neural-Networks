@@ -62,7 +62,7 @@ runtime approval request will be raised before launch.
 Active campaign state and operator-facing execution surface:
 
 - `doc/running/active_training_campaign.yaml`
-- `scripts/campaigns/track1/exact_paper/run_exact_paper_model_bank_campaign.ps1`
+- `scripts/campaigns/track_1/exact_paper/run_exact_paper_model_bank_campaign.ps1`
 - `output/training_campaigns/track1/exact_paper/forward/exact_paper_model_bank_campaign_2026_04_10_17_04_41/logs/02_exact_full_bank_strict_reference.log`
 
 Primary implementation surface expected to be inspected or modified:
@@ -76,7 +76,7 @@ Reference and project context that should remain in scope:
 - `doc/reference_summaries/03_RCIM_ML_Compensation_Project_Summary.md`
 - `doc/reference_summaries/07_RCIM_Recovered_Assets_Project_Summary.md`
 - `doc/reports/analysis/rcim_paper_reference/RCIM Exact Paper Model Bank Workflow.md`
-- `doc/reports/campaign_plans/track1/exact_paper/2026-04-10-17-04-41_exact_paper_model_bank_campaign_plan_report.md`
+- `doc/reports/campaign_plans/track_1/exact_paper/2026-04-10-17-04-41_exact_paper_model_bank_campaign_plan_report.md`
 - `reference/rcim_ml_compensation_recovered_assets/models/exact_onnx_paper_release/`
 
 Potential follow-up workflow surface if local debug proves insufficient:

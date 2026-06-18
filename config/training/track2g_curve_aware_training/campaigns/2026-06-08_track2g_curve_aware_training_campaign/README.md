@@ -25,7 +25,7 @@ used only for training-loss aggregation and offline verification.
 ## Launch Commands
 
 ```powershell
-.\scripts\campaigns\track2\run_track2g_curve_aware_training_campaign.ps1 -PreflightOnly
-.\scripts\campaigns\track2\run_track2g_curve_aware_training_campaign.ps1
-.\scripts\campaigns\track2\run_track2g_curve_aware_training_campaign.ps1 -Remote
+.\scripts\campaigns\track_2\run_track2g_curve_aware_training_campaign.ps1 -PreflightOnly
+.\scripts\campaigns\track_2\run_track2g_curve_aware_training_campaign.ps1
+.\scripts\campaigns\track_2\run_track2g_curve_aware_training_campaign.ps1 -Remote
 ```

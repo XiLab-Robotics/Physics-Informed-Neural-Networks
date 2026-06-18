@@ -15,10 +15,10 @@ last_completed_campaign:
   completed_at: '2026-06-16T19:34:05+02:00'
   closeout_at: '2026-06-17T01:27:10+02:00'
   campaign_output_directory: output/training_campaigns/2026-06-16-18-06-11_track2h_latent_state_hysteresis_campaign_2026_06_16
-  planning_report_path: doc/reports/campaign_plans/track2/2026-06-16-16-00-57_track2h_latent_state_hysteresis_campaign_plan_report.md
+  planning_report_path: doc/reports/campaign_plans/track_2/2026-06-16-16-00-57_track2h_latent_state_hysteresis_campaign_plan_report.md
   technical_document_path: doc/technical/2026-06/2026-06-16/2026-06-16-16-00-57_track2h_latent_state_hysteresis_package.md
   closeout_technical_document_path: doc/technical/2026-06/2026-06-17/2026-06-17-01-27-10_track2h_latent_state_hysteresis_closeout.md
-  closeout_report_path: doc/reports/campaign_results/track2/2026-06-17-01-27-10_track2h_latent_state_hysteresis_campaign_results_report.md
+  closeout_report_path: doc/reports/campaign_results/track_2/campaign_closeouts/2026-06-17-01-27-10_track2h_latent_state_hysteresis_campaign_results_report.md
   completed_run_count: 6
   failed_run_count: 0
   best_scalar_run_name: te_track2h_l_causal_tcn_offset_residual_global

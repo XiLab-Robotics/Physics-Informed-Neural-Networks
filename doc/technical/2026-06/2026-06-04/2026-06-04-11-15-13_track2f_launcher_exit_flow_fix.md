@@ -5,7 +5,7 @@
 The local command:
 
 ```powershell
-.\scripts\campaigns\track2\run_track2f_offset_aware_probe_campaign.ps1
+.\scripts\campaigns\track_2\run_track2f_offset_aware_probe_campaign.ps1
 ```
 
 currently writes the Track 2F prelaunch status YAML/CSV and then stops before
@@ -40,9 +40,9 @@ No model code or campaign YAML semantics need to change.
 
 Protected Track 2F campaign files:
 
-- `scripts/campaigns/track2/run_track2f_offset_aware_probe_campaign.ps1`;
-- `scripts/campaigns/track2/prepare_track2f_offset_aware_probe_campaign.py`;
-- `doc/scripts/campaigns/track2/run_track2f_offset_aware_probe_campaign.md`.
+- `scripts/campaigns/track_2/run_track2f_offset_aware_probe_campaign.ps1`;
+- `scripts/campaigns/track_2/prepare_track2f_offset_aware_probe_campaign.py`;
+- `doc/scripts/campaigns/track_2/run_track2f_offset_aware_probe_campaign.md`.
 
 Supporting state and verification files:
 

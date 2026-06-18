@@ -65,12 +65,12 @@ Current canonical status reports:
 - `doc/reports/analysis/track2/component_offset_identification/[2026-06-09]/track2_component_offset_identification_diagnostic.md`
 - `doc/reports/analysis/track2/component_offset_identification/[2026-06-09]/track2d_h0_offset_crosscheck.md`
 - `doc/reports/analysis/track2/component_offset_identification/[2026-06-10]/track2d_predicted_mean_h0_surface_diagnostic.md`
-- `doc/reports/campaign_results/track2/2026-06-11-14-01-57_track2h_dispersion_aware_modeling_campaign_results_report.md`
-- `doc/reports/campaign_results/track2/2026-06-12-13-54-57_track2h_quantile_probabilistic_campaign_results_report.md`
-- `doc/reports/campaign_results/track2/2026-06-13-13-24-37_track2h_mixture_density_heads_campaign_results_report.md`
-- `doc/reports/campaign_results/track2/2026-06-17-01-27-10_track2h_latent_state_hysteresis_campaign_results_report.md`
-- `doc/reports/campaign_results/wave3_wave4/2026-06-15-15-30-20_wave3_harmonic_prior_residual_campaign_results_report.md`
-- `doc/reports/campaign_results/track2/2026-06-09-01-56-25_track2g_curve_aware_training_campaign_results_report.md`
+- `doc/reports/campaign_results/track_2/campaign_closeouts/2026-06-11-14-01-57_track2h_dispersion_aware_modeling_campaign_results_report.md`
+- `doc/reports/campaign_results/track_2/campaign_closeouts/2026-06-12-13-54-57_track2h_quantile_probabilistic_campaign_results_report.md`
+- `doc/reports/campaign_results/track_2/campaign_closeouts/2026-06-13-13-24-37_track2h_mixture_density_heads_campaign_results_report.md`
+- `doc/reports/campaign_results/track_2/campaign_closeouts/2026-06-17-01-27-10_track2h_latent_state_hysteresis_campaign_results_report.md`
+- `doc/reports/campaign_results/wave_3/2026-06-15-15-30-20_wave3_harmonic_prior_residual_campaign_results_report.md`
+- `doc/reports/campaign_results/track_2/campaign_closeouts/2026-06-09-01-56-25_track2g_curve_aware_training_campaign_results_report.md`
 - `doc/reports/analysis/wave1/Wave 1 - Closeout Status.md`
 - `doc/reports/analysis/te_modeling/Curve-First TE Training Strategy.md`
 - `doc/reports/analysis/Training Results Master Summary.md`
@@ -801,9 +801,9 @@ Entry rule:
 - initial families: `temporal_convolution`, `gru_sequence`, `lstm_sequence`;
 - configuration root: `config/training/hydra/wave2/`;
 - preliminary campaign plan:
-  `doc/reports/campaign_plans/wave2/2026-05-21-16-46-08_wave2_temporal_model_entry_campaign_plan_report.md`;
+  `doc/reports/campaign_plans/wave_2/2026-05-21-16-46-08_wave2_temporal_model_entry_campaign_plan_report.md`;
 - closeout report:
-  `doc/reports/campaign_results/wave2/2026-05-24-12-36-49_wave2_temporal_model_entry_campaign_results_report.md`;
+  `doc/reports/campaign_results/wave_2/2026-05-24-12-36-49_wave2_temporal_model_entry_campaign_results_report.md`;
 - campaign winner: `te_gru_sequence_remote_Fw` from family
   `gru_sequence_fw`, with test MAE `0.003333 deg`;
 - refresh plan:
@@ -824,9 +824,9 @@ Entry rule:
 - configuration root:
   `config/training/wave2b_harmonic_temporal_hybrid/`;
 - preliminary campaign plan:
-  `doc/reports/campaign_plans/wave2/2026-05-25-13-34-12_wave2b_harmonic_temporal_hybrid_campaign_plan_report.md`;
+  `doc/reports/campaign_plans/wave_2/2026-05-25-13-34-12_wave2b_harmonic_temporal_hybrid_campaign_plan_report.md`;
 - closeout report:
-  `doc/reports/campaign_results/wave2/2026-05-26-14-01-40_wave2b_harmonic_temporal_hybrid_campaign_results_report.md`;
+  `doc/reports/campaign_results/wave_2/2026-05-26-14-01-40_wave2b_harmonic_temporal_hybrid_campaign_results_report.md`;
 - campaign winner: `te_periodic_gru_sequence_remote_Bw` from family
   `periodic_gru_sequence_bw`, with test MAE `0.002344 deg`;
 - strongest bidirectional candidate: `te_periodic_gru_sequence_remote_global`
@@ -848,7 +848,7 @@ Entry rule:
   `residual_harmonic_lstm_sequence`;
 - harmonic banks: sparse `RCIM`, dense `240`, dense `360`;
 - closeout report:
-  `doc/reports/campaign_results/wave2/2026-05-28-11-35-34_wave2c_residual_harmonic_temporal_hybrid_campaign_results_report.md`;
+  `doc/reports/campaign_results/wave_2/2026-05-28-11-35-34_wave2c_residual_harmonic_temporal_hybrid_campaign_results_report.md`;
 - official verification report:
   `doc/reports/analysis/track2/official_model_verification_report/[2026-05-28]/track2_official_model_verification_report.md`;
 - strongest Wave 2C forward candidate:
@@ -898,7 +898,7 @@ Entry rule:
   - `track2f_bis_harmonic_residual_offset_fw`;
   - `track2f_bis_harmonic_residual_offset_bw`;
 - closeout report:
-  `doc/reports/campaign_results/track2/2026-06-05-16-49-50_track2f_bis_harmonic_offset_probe_campaign_results_report.md`;
+  `doc/reports/campaign_results/track_2/campaign_closeouts/2026-06-05-16-49-50_track2f_bis_harmonic_offset_probe_campaign_results_report.md`;
 - official verification report:
   `doc/reports/analysis/track2/official_model_verification_report/[2026-06-08]/track2_official_model_verification_report.md`;
 - clean global candidate:
@@ -949,7 +949,7 @@ Entry rule:
   - `track2h_dispersion_aware_log_cosh_robust_fw`;
   - `track2h_dispersion_aware_log_cosh_robust_bw`;
 - closeout report:
-  `doc/reports/campaign_results/track2/2026-06-11-14-01-57_track2h_dispersion_aware_modeling_campaign_results_report.md`;
+  `doc/reports/campaign_results/track_2/campaign_closeouts/2026-06-11-14-01-57_track2h_dispersion_aware_modeling_campaign_results_report.md`;
 - official verification report:
   `doc/reports/analysis/track2/official_model_verification_report/[2026-06-11]/track2_official_model_verification_report.md`;
 - robust global candidate:
@@ -985,7 +985,7 @@ Entry rule:
   - `track2h_quantile_probabilistic_gaussian_nll_fw`;
   - `track2h_quantile_probabilistic_gaussian_nll_bw`;
 - closeout report:
-  `doc/reports/campaign_results/track2/2026-06-12-13-54-57_track2h_quantile_probabilistic_campaign_results_report.md`;
+  `doc/reports/campaign_results/track_2/campaign_closeouts/2026-06-12-13-54-57_track2h_quantile_probabilistic_campaign_results_report.md`;
 - official verification report:
   `doc/reports/analysis/track2/official_model_verification_report/[2026-06-12]/track2_official_model_verification_report.md`;
 - strongest probabilistic global candidate:
@@ -1017,7 +1017,7 @@ Entry rule:
   - `track2h_mixture_density_heads_mdn_k3_fw`;
   - `track2h_mixture_density_heads_mdn_k3_bw`;
 - closeout report:
-  `doc/reports/campaign_results/track2/2026-06-13-13-24-37_track2h_mixture_density_heads_campaign_results_report.md`;
+  `doc/reports/campaign_results/track_2/campaign_closeouts/2026-06-13-13-24-37_track2h_mixture_density_heads_campaign_results_report.md`;
 - official verification report:
   `doc/reports/analysis/track2/official_model_verification_report/[2026-06-13]/track2_official_model_verification_report.md`;
 - matrix output:
@@ -1060,7 +1060,7 @@ Entry rule:
   - `track2h_latent_state_hysteresis_causal_tcn_offset_residual_fw`;
   - `track2h_latent_state_hysteresis_causal_tcn_offset_residual_bw`;
 - closeout report:
-  `doc/reports/campaign_results/track2/2026-06-17-01-27-10_track2h_latent_state_hysteresis_campaign_results_report.md`;
+  `doc/reports/campaign_results/track_2/campaign_closeouts/2026-06-17-01-27-10_track2h_latent_state_hysteresis_campaign_results_report.md`;
 - strongest `2H-L` global candidate:
   `te_track2h_l_causal_tcn_offset_residual_global`, scalar test MAE
   `0.003368 deg`;
@@ -1093,24 +1093,24 @@ Entry rule:
   - model class:
     `scripts/models/wave3_harmonic_prior_residual_network.py`;
   - dry-run skeleton checker:
-    `scripts/campaigns/wave3/run_wave3_embryonic_skeleton_checks.ps1`;
+    `scripts/campaigns/wave_3/run_wave3_embryonic_skeleton_checks.ps1`;
   - training-smoke-ready checker:
-    `scripts/campaigns/wave3/run_wave3_training_smoke_ready_checks.ps1`;
+    `scripts/campaigns/wave_3/run_wave3_training_smoke_ready_checks.ps1`;
   - final one-batch validation artifact:
     `output/validation_checks/wave3_harmonic_prior_residual/2026-06-11-19-44-20__te_wave3_harmonic_prior_residual_training_smoke_ready_wave3_training_smoke_ready_final/validation_summary.yaml`;
 - prepared package:
   `config/training/wave3_harmonic_prior_residual/campaigns/2026-06-14_wave3_harmonic_prior_residual_campaign/`;
 - prepared launcher:
-  `scripts/campaigns/wave3/run_wave3_harmonic_prior_residual_campaign.ps1`;
+  `scripts/campaigns/wave_3/run_wave3_harmonic_prior_residual_campaign.ps1`;
 - campaign closeout report:
-  `doc/reports/campaign_results/wave3_wave4/2026-06-15-15-30-20_wave3_harmonic_prior_residual_campaign_results_report.md`;
+  `doc/reports/campaign_results/wave_3/2026-06-15-15-30-20_wave3_harmonic_prior_residual_campaign_results_report.md`;
 - scalar training winner:
   `te_wave3_harmonic_prior_residual_pointwise_control_bw`
   (`test_mae=0.003363`, `test_rmse=0.003902`);
 - scalar decision: no program-best promotion; the current program winner
   remains `te_periodic_gru_sequence_remote_Bw` (`test_mae=0.002344`);
 - official Track 2 launcher:
-  `scripts/campaigns/track2/run_wave3_harmonic_prior_residual_track2_verification_refresh.ps1`;
+  `scripts/campaigns/track_2/run_wave3_harmonic_prior_residual_track2_verification_refresh.ps1`;
 - official Track 2 report:
   `doc/reports/analysis/track2/official_model_verification_report/[2026-06-15]/track2_official_model_verification_report.md`;
 - strongest Wave 3 Track 2 candidate:

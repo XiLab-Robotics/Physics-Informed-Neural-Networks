@@ -62,8 +62,8 @@ campaign files and requires explicit approval before implementation.
 ## Involved Components
 
 - `doc/running/active_training_campaign.yaml`
-- `scripts/campaigns/track1/exact_paper/run_exact_paper_campaign_remote.ps1`
-- `scripts/campaigns/track1/exact_paper/run_track1_bidirectional_original_dataset_mega_campaign.ps1`
+- `scripts/campaigns/track_1/exact_paper/run_exact_paper_campaign_remote.ps1`
+- `scripts/campaigns/track_1/exact_paper/run_track1_bidirectional_original_dataset_mega_campaign.ps1`
 - `doc/scripts/campaigns/run_track1_bidirectional_original_dataset_mega_campaign.md`
 
 ## Implementation Steps

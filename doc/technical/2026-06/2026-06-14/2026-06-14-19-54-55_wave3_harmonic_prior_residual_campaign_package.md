@@ -49,7 +49,7 @@ remain downstream evidence-integration stages.
 
 - `doc/technical/2026-06/2026-06-14/2026-06-14-19-54-55_wave3_harmonic_prior_residual_campaign_package.md`
   records this technical gate.
-- `doc/reports/campaign_plans/wave3_wave4/2026-06-14-19-54-55_wave3_harmonic_prior_residual_campaign_plan_report.md`
+- `doc/reports/campaign_plans/wave_3/2026-06-14-19-54-55_wave3_harmonic_prior_residual_campaign_plan_report.md`
   records the matching campaign plan.
 - `doc/README.md` registers the new technical document and campaign plan.
 - `doc/running/te_model_live_backlog.md` records the current next-step
@@ -58,8 +58,8 @@ remain downstream evidence-integration stages.
   design source for `Wave 3` architecture boundaries.
 - `scripts/models/wave3_harmonic_prior_residual_network.py` contains the first
   `Wave 3` model candidate.
-- `scripts/campaigns/wave3/validate_wave3_training_smoke_ready.py` and
-  `scripts/campaigns/wave3/run_wave3_training_smoke_ready_checks.ps1` provide
+- `scripts/campaigns/wave_3/validate_wave3_training_smoke_ready.py` and
+  `scripts/campaigns/wave_3/run_wave3_training_smoke_ready_checks.ps1` provide
   the existing one-batch validation precedent.
 - `output/validation_checks/wave3_training_smoke_ready/generated_configs/`
   provides the validation-only template source for later campaign YAMLs.
@@ -84,9 +84,9 @@ No subagent is planned for this work.
 7. Add a package validator that checks metadata, queue resolution, output
    directories, model construction, finite one-batch loss, and required
    auxiliary harmonic/residual outputs.
-8. Add a dedicated PowerShell launcher under `scripts/campaigns/wave3/` with
+8. Add a dedicated PowerShell launcher under `scripts/campaigns/wave_3/` with
    local execution and `-Remote` support.
-9. Add the matching launcher note under `doc/scripts/campaigns/wave3/`.
+9. Add the matching launcher note under `doc/scripts/campaigns/wave_3/`.
 10. Update `doc/running/active_training_campaign.yaml` to prepared state only
     after package generation is approved.
 11. Run compile checks, package validation, Markdown QA, and Sphinx QA when

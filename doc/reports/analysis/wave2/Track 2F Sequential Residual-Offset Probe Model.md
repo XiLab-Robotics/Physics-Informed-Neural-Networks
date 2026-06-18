@@ -119,9 +119,9 @@ Model and training registration:
 
 Campaign preparation and launcher:
 
-- `scripts/campaigns/track2/prepare_track2f_offset_aware_probe_campaign.py`
-- `scripts/campaigns/track2/run_track2f_offset_aware_probe_campaign.ps1`
-- `scripts/campaigns/track2/validate_track2f_offset_aware_probe_package.py`
+- `scripts/campaigns/track_2/prepare_track2f_offset_aware_probe_campaign.py`
+- `scripts/campaigns/track_2/run_track2f_offset_aware_probe_campaign.ps1`
+- `scripts/campaigns/track_2/validate_track2f_offset_aware_probe_package.py`
 - `config/training/track2f_offset_aware_probe/campaigns/2026-06-03_track2f_offset_aware_probe_campaign/queue/`
 
 ## Verification Status

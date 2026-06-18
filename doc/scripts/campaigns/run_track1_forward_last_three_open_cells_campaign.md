@@ -7,7 +7,7 @@ original-dataset residual repair campaign.
 
 The script is stored in:
 
-- `scripts/campaigns/track1/exact_paper/run_track1_forward_last_three_open_cells_campaign.ps1`
+- `scripts/campaigns/track_1/exact_paper/run_track1_forward_last_three_open_cells_campaign.ps1`
 
 ## Main Role
 
@@ -35,7 +35,7 @@ family-bank sweep:
 Generate the package and update the active campaign state with:
 
 ```powershell
-conda run -n pinns_env python scripts/campaigns/track1/exact_paper/prepare_track1_forward_last_three_open_cells_campaign.py
+conda run -n pinns_env python scripts/campaigns/track_1/exact_paper/prepare_track1_forward_last_three_open_cells_campaign.py
 ```
 
 ## Queue Design
@@ -71,5 +71,5 @@ instead of reopening already-green forward targets.
 ## Launch Command
 
 ```powershell
-.\scripts\campaigns\track1\exact_paper\run_track1_forward_last_three_open_cells_campaign.ps1 -Remote
+.\scripts\campaigns\track_1\exact_paper\run_track1_forward_last_three_open_cells_campaign.ps1 -Remote
 ```

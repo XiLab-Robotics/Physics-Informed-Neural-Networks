@@ -286,8 +286,8 @@ def update_doc_index() -> None:
 
     doc_index_text = DOC_INDEX_PATH.read_text(encoding="utf-8")
     result_entry = (
-        "- [reports/campaign_results/wave1/2026-05-21-09-38-37_wave1_periodic_mlp_explicit_harmonic_tracking_campaign_results_report.md]"
-        "(./reports/campaign_results/wave1/2026-05-21-09-38-37_wave1_periodic_mlp_explicit_harmonic_tracking_campaign_results_report.md)\n"
+        "- [reports/campaign_results/wave_1/2026-05-21-09-38-37_wave1_periodic_mlp_explicit_harmonic_tracking_campaign_results_report.md]"
+        "(./reports/campaign_results/wave_1/2026-05-21-09-38-37_wave1_periodic_mlp_explicit_harmonic_tracking_campaign_results_report.md)\n"
         "  Final results report for the completed `Wave 1` `periodic_mlp` explicit\n"
         "  harmonic tracking campaign, including the 9-run leaderboard and\n"
         "  registry-impact summary.\n"

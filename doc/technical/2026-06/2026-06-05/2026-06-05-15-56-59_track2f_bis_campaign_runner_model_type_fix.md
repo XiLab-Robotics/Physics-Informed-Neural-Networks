@@ -46,7 +46,7 @@ failed campaign entries.
 - `config/training/queue/failed/2026-06-04-23-31-57_006_06_harmonic_residual_offset_probe_bw.yaml`
 - `doc/running/active_training_campaign.yaml`
 - `output/training_campaigns/2026-06-04-23-31-57_track2f_bis_harmonic_offset_probe_campaign_2026_06_04/`
-- later closeout report under `doc/reports/campaign_results/track2/`
+- later closeout report under `doc/reports/campaign_results/track_2/campaign_closeouts/`
 
 ## Implementation Steps
 

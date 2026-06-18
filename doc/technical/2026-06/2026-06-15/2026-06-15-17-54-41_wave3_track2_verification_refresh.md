@@ -57,8 +57,8 @@ from the template.
 
 - `config/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/full_track2_matrix_template.yaml`
 - `scripts/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/reference_family_vs_feedforward_support.py`
-- `scripts/campaigns/track2/run_wave3_harmonic_prior_residual_track2_verification_refresh.ps1`
-- `doc/scripts/campaigns/track2/run_wave3_harmonic_prior_residual_track2_verification_refresh.md`
+- `scripts/campaigns/track_2/run_wave3_harmonic_prior_residual_track2_verification_refresh.ps1`
+- `doc/scripts/campaigns/track_2/run_wave3_harmonic_prior_residual_track2_verification_refresh.md`
 - `output/registries/families/wave3_harmonic_prior_residual_*`
 - `output/training_runs/wave3_harmonic_prior_residual_*`
 - `doc/reports/analysis/track2/Track 2 Directional Model Comparison.md`

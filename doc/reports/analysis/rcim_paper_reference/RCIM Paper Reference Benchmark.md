@@ -48,8 +48,8 @@ near-literal deviations rather than silent changes.
 - Track 1 backward family archives refreshed: `11`
 - Track 1 forward archive root: `models/paper_reference/rcim_track1/forward/`
 - Track 1 backward archive root: `models/paper_reference/rcim_track1/backward/`
-- Track 1 forward closeout report: `doc/reports/campaign_results/track1/exact_paper/forward/2026-05-15-11-11-35_track1_forward_paper_faithful_grid_search_closeout_report.md`
-- Track 1 backward closeout report: `doc/reports/campaign_results/track1/exact_paper/backward/2026-05-16-20-07-07_track1_backward_paper_faithful_grid_search_closeout_report.md`
+- Track 1 forward closeout report: `doc/reports/campaign_results/track_1/exact_paper/forward/2026-05-15-11-11-35_track1_forward_paper_faithful_grid_search_closeout_report.md`
+- Track 1 backward closeout report: `doc/reports/campaign_results/track_1/exact_paper/backward/2026-05-16-20-07-07_track1_backward_paper_faithful_grid_search_closeout_report.md`
 - Track 1 backward completion timestamp: `2026-05-16T19:04:25+02:00`
 - `ELM` is archived as an operational Track 1 family but remains outside the original paper-family order.
 - Closure criterion: both directions were run, accepted model archives were
@@ -96,7 +96,7 @@ Output artifacts:
 `output/validation_checks/track2_reference_comparison/2026-05-18-16-35-26__track2_full_directional_family_matrix_composite_best_reference_validation/`.
 
 Grouped curve previews:
-`doc/reports/campaign_results/track 2/`.
+`doc/reports/campaign_results/track_2/verification_plots/`.
 
 The matrix evaluates:
 

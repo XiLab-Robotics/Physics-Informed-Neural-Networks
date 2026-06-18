@@ -46,8 +46,8 @@ The campaign policy must explicitly mirror the paper-faithful interpretation:
 ## Involved Components
 
 - `doc/running/active_training_campaign.yaml`
-- `doc/reports/campaign_plans/track1/exact_paper/`
-- `scripts/campaigns/track1/exact_paper/`
+- `doc/reports/campaign_plans/track_1/exact_paper/`
+- `scripts/campaigns/track_1/exact_paper/`
 - `doc/scripts/campaigns/`
 - `config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/`
 - `scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/training_models.py`

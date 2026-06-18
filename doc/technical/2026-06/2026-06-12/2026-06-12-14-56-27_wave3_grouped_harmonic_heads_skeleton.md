@@ -52,7 +52,7 @@ Expected source components:
 - `scripts/models/harmonic_regression.py`;
 - `scripts/models/feedforward_network.py`;
 - `scripts/models/model_factory.py`;
-- `scripts/campaigns/wave3/validate_wave3_embryonic_skeleton_package.py`;
+- `scripts/campaigns/wave_3/validate_wave3_embryonic_skeleton_package.py`;
 - `config/training/wave3_embryonic_skeleton/wave3_harmonic_prior_residual_template.yaml`;
 - `doc/reference_summaries/06_Programming_Style_Guide.md`.
 
@@ -60,10 +60,10 @@ Expected new or updated implementation components after approval:
 
 - `scripts/models/wave3_grouped_harmonic_heads_network.py`;
 - `scripts/models/model_factory.py`;
-- `scripts/campaigns/wave3/validate_wave3_grouped_harmonic_heads_package.py`;
-- `scripts/campaigns/wave3/run_wave3_grouped_harmonic_heads_checks.ps1`;
+- `scripts/campaigns/wave_3/validate_wave3_grouped_harmonic_heads_package.py`;
+- `scripts/campaigns/wave_3/run_wave3_grouped_harmonic_heads_checks.ps1`;
 - `config/training/wave3_embryonic_skeleton/wave3_grouped_harmonic_heads_template.yaml`;
-- `doc/scripts/campaigns/wave3/wave3_grouped_harmonic_heads_checks.md`;
+- `doc/scripts/campaigns/wave_3/wave3_grouped_harmonic_heads_checks.md`;
 - `doc/reports/analysis/wave3/Wave 3 Hybrid Structured Models.md`;
 - optional Sphinx model API entries if the new model is exposed in the portal.
 

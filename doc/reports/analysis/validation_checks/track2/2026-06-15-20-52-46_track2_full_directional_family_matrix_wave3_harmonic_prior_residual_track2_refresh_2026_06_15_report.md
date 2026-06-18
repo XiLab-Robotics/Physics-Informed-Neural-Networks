@@ -610,7 +610,7 @@ composed models explicit.
 
 - summary YAML: `output\validation_checks\track2_reference_comparison\2026-06-15-20-25-36__track2_full_directional_family_matrix_wave3_harmonic_prior_residual_track2_refresh_2026_06_15/validation_summary.yaml`;
 - per-condition CSV: `output\validation_checks\track2_reference_comparison\2026-06-15-20-25-36__track2_full_directional_family_matrix_wave3_harmonic_prior_residual_track2_refresh_2026_06_15\per_condition_metrics.csv`;
-- grouped report plot root: `doc\reports\campaign_results\track 2`;
+- grouped report plot root: `doc\reports\campaign_results\track_2\verification_plots`;
 - grouped report plot count: `0`;
 
 ## Interpretation

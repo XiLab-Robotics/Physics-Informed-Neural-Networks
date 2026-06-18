@@ -63,8 +63,8 @@ post-alignment family banks would no longer be canonically defensible.
 
 - `scripts/paper_reimplementation/rcim_ml_compensation/exact_paper_model_bank/exact_paper_model_bank_support.py`
 - `scripts/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/original_dataset_exact_model_bank_support.py`
-- `scripts/campaigns/track1/exact_paper/`
-- `doc/reports/campaign_plans/track1/exact_paper/`
+- `scripts/campaigns/track_1/exact_paper/`
+- `doc/reports/campaign_plans/track_1/exact_paper/`
 - `doc/scripts/campaigns/`
 - `doc/running/active_training_campaign.yaml`
 - `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`

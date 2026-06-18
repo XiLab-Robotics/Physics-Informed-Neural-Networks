@@ -47,7 +47,7 @@ campaign-results report and PDF are complete.
 ## Involved Components
 
 - `doc/running/active_training_campaign.yaml`
-- `doc/reports/campaign_plans/track2/2026-06-03-17-25-37_track2f_offset_aware_probe_campaign_plan_report.md`
+- `doc/reports/campaign_plans/track_2/2026-06-03-17-25-37_track2f_offset_aware_probe_campaign_plan_report.md`
 - `output/training_campaigns/2026-06-04-11-36-09_track2f_offset_aware_probe_campaign_2026_06_03/`
 - `output/training_runs/sequential_residual_offset_probe*/`
 - `output/registries/families/sequential_residual_offset_probe*/`

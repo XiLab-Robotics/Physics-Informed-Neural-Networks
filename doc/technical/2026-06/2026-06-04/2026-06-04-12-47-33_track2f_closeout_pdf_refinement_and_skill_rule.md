@@ -34,8 +34,8 @@ This does not change campaign results or training artifacts.
 
 ## Involved Components
 
-- `doc/reports/campaign_results/track2/2026-06-04-12-28-46_track2f_offset_aware_probe_campaign_results_report.md`
-- `doc/reports/campaign_results/track2/2026-06-04-12-28-46_track2f_offset_aware_probe_campaign_results_report.pdf`
+- `doc/reports/campaign_results/track_2/campaign_closeouts/2026-06-04-12-28-46_track2f_offset_aware_probe_campaign_results_report.md`
+- `doc/reports/campaign_results/track_2/campaign_closeouts/2026-06-04-12-28-46_track2f_offset_aware_probe_campaign_results_report.pdf`
 - `scripts/reports/pdf/generate_styled_report_pdf.py`
 - `.codex/skills/campaign-architect/SKILL.md`
 - `.codex/skills/styled-report-pdf-qa/SKILL.md`

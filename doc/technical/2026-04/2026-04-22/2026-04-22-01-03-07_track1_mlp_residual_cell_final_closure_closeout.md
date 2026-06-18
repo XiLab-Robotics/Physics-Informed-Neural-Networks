@@ -10,7 +10,7 @@ active-campaign state has already been marked `completed`. The repository
 still lacks the canonical closeout artifacts for this wave:
 
 - the final campaign-results Markdown report under
-  `doc/reports/campaign_results/track1/exact_paper/forward/`;
+  `doc/reports/campaign_results/track_1/exact_paper/forward/`;
 - the matching validated PDF export;
 - the `results_report_path` backlink in
   `doc/running/active_training_campaign.yaml`;
@@ -66,8 +66,8 @@ closeout flow in the main rollout.
 ## Involved Components
 
 - `doc/running/active_training_campaign.yaml`
-- `doc/reports/campaign_plans/track1/exact_paper/2026-04-21-23-32-36_track1_mlp_residual_cell_final_closure_campaign_plan_report.md`
-- `doc/reports/campaign_results/track1/exact_paper/forward/`
+- `doc/reports/campaign_plans/track_1/exact_paper/2026-04-21-23-32-36_track1_mlp_residual_cell_final_closure_campaign_plan_report.md`
+- `doc/reports/campaign_results/track_1/exact_paper/forward/`
 - `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
 - `doc/reports/analysis/Training Results Master Summary.md`
 - `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/track1/exact_paper/forward/family_repair/mlp/2026-04-21_track1_mlp_residual_cell_final_closure_campaign/`

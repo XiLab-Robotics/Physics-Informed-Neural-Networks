@@ -53,8 +53,8 @@ Expected files to inspect:
 - `doc/reports/analysis/Training Results Master Summary.md`;
 - `doc/reports/analysis/wave3/Wave 3 Hybrid Structured Models.md`;
 - `doc/reports/analysis/wave4/Wave 4 PINN Formulation And First PINN.md`;
-- `doc/reports/campaign_plans/wave3_wave4/2026-06-11-15-10-02_wave3_wave4_embryonic_skeleton_plan_report.md`;
-- `doc/reports/campaign_plans/wave3_wave4/2026-06-11-19-25-32_wave3_wave4_parallel_hardening_plan_report.md`;
+- `doc/reports/campaign_plans/cross_wave/wave_3_wave_4/2026-06-11-15-10-02_wave3_wave4_embryonic_skeleton_plan_report.md`;
+- `doc/reports/campaign_plans/cross_wave/wave_3_wave_4/2026-06-11-19-25-32_wave3_wave4_parallel_hardening_plan_report.md`;
 - `doc/README.md`.
 
 Expected files to modify after approval:

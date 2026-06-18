@@ -48,8 +48,8 @@ repository command surface is uniform.
 The planned scope is the Python portion of the portability inventory:
 
 - `scripts/campaigns/paper_reference/rcim_original/`
-- `scripts/campaigns/track1/exact_paper/`
-- `scripts/campaigns/wave1/`
+- `scripts/campaigns/track_1/exact_paper/`
+- `scripts/campaigns/wave_1/`
 - `scripts/datasets/`
 - `scripts/paper_reimplementation/rcim_ml_compensation/`
 - `scripts/reports/analysis/`

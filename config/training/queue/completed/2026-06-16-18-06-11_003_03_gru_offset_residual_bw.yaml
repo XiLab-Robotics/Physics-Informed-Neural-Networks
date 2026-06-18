@@ -7,7 +7,7 @@ experiment:
   model_type: latent_state_hysteresis_probe
 metadata:
   campaign_name: track2h_latent_state_hysteresis_campaign_2026_06_16
-  planning_report_path: doc/reports/campaign_plans/track2/2026-06-16-16-00-57_track2h_latent_state_hysteresis_campaign_plan_report.md
+  planning_report_path: doc/reports/campaign_plans/track_2/2026-06-16-16-00-57_track2h_latent_state_hysteresis_campaign_plan_report.md
   technical_document_path: doc/technical/2026-06/2026-06-16/2026-06-16-16-00-57_track2h_latent_state_hysteresis_package.md
   phase_name: track2h_latent_state_hysteresis
   campaign_config_id: track2h_latent_state_hysteresis_gru_offset_residual_bw

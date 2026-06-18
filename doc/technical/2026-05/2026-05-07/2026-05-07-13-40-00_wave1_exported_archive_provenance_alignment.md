@@ -57,7 +57,7 @@ paper-reference surfaces.
 - `models/exported/`
 - `models/README.md`
 - `scripts/reports/closeout/wave1/closeout_wave1_directional_retraining_campaign.py`
-- `doc/reports/campaign_results/wave1/`
+- `doc/reports/campaign_results/wave_1/`
 - `doc/reports/analysis/wave1/Wave 1 - Closeout Status.md`
 - `doc/reports/analysis/Training Results Master Summary.md`
 - `output/training_runs/*`

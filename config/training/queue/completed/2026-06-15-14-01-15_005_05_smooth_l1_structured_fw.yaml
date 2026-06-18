@@ -7,7 +7,7 @@ experiment:
   model_type: wave3_harmonic_prior_residual
 metadata:
   campaign_name: wave3_harmonic_prior_residual_campaign_2026_06_14
-  planning_report_path: doc/reports/campaign_plans/wave3_wave4/2026-06-14-19-54-55_wave3_harmonic_prior_residual_campaign_plan_report.md
+  planning_report_path: doc/reports/campaign_plans/wave_3/2026-06-14-19-54-55_wave3_harmonic_prior_residual_campaign_plan_report.md
   technical_document_path: doc/technical/2026-06/2026-06-14/2026-06-14-19-54-55_wave3_harmonic_prior_residual_campaign_package.md
   phase_name: wave3_harmonic_prior_residual
   campaign_config_id: wave3_harmonic_prior_residual_smooth_l1_structured_fw

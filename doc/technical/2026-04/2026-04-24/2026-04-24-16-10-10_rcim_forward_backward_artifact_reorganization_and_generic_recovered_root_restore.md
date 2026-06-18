@@ -55,7 +55,7 @@ The intended design is:
 - direction-specific validation report branches under
   `doc/reports/analysis/validation_checks/`;
 - direction-specific campaign-result branches under
-  `doc/reports/campaign_results/track1/`;
+  `doc/reports/campaign_results/track_1/`;
 - direction-specific paper-reference model branches under
   `models/paper_reference/rcim_track1/`;
 - direction-specific output branches under
@@ -80,7 +80,7 @@ be prepared for that future branch now.
 - `reference/rcim_ml_compensation_recovered_assets/README.md`
 - `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/`
 - `doc/reports/analysis/validation_checks/`
-- `doc/reports/campaign_results/track1/`
+- `doc/reports/campaign_results/track_1/`
 - `models/paper_reference/rcim_track1/`
 - `output/training_campaigns/`
 - `output/validation_checks/`
@@ -111,7 +111,7 @@ be prepared for that future branch now.
    are grouped into sensible subfolders, and further split
    `track1/exact_paper/` into a more navigable hierarchy with explicit
    forward/backward space.
-5. Reorganize `doc/reports/campaign_results/track1/` to propagate the same
+5. Reorganize `doc/reports/campaign_results/track_1/` to propagate the same
    forward/backward distinction used for exact-paper campaign closeouts.
 6. Reorganize `models/paper_reference/rcim_track1/` so the current `10 x 19`
    ONNX and Python model banks are explicitly stored as the forward branch,

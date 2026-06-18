@@ -7,7 +7,7 @@ experiment:
   model_type: sequential_residual_offset_probe
 metadata:
   campaign_name: track2f_bis_harmonic_offset_probe_campaign_2026_06_04
-  planning_report_path: doc/reports/campaign_plans/track2/2026-06-04-22-57-04_track2f_bis_harmonic_offset_probe_campaign_plan_report.md
+  planning_report_path: doc/reports/campaign_plans/track_2/2026-06-04-22-57-04_track2f_bis_harmonic_offset_probe_campaign_plan_report.md
   technical_document_path: doc/technical/2026-06/2026-06-04/2026-06-04-21-14-52_track2f_bis_harmonic_offset_probe.md
   phase_name: track2f_bis_harmonic_offset_probe_training
   campaign_config_id: track2f_bis_clean_sequential_residual_offset_bw

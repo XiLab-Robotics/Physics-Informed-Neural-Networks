@@ -12,8 +12,8 @@ approved campaigns rather than as unfinished closure work.
 
 The script is stored in:
 
-- `scripts/campaigns/track1/exact_paper/run_track1_bidirectional_paper_faithful_grid_search_campaign.ps1`
-- `scripts/campaigns/track1/exact_paper/run_track1_bidirectional_paper_faithful_grid_search_campaign.sh`
+- `scripts/campaigns/track_1/exact_paper/run_track1_bidirectional_paper_faithful_grid_search_campaign.ps1`
+- `scripts/campaigns/track_1/exact_paper/run_track1_bidirectional_paper_faithful_grid_search_campaign.sh`
 
 The Linux launcher uses the shared Bash streaming helper:
 
@@ -21,8 +21,8 @@ The Linux launcher uses the shared Bash streaming helper:
 
 The exact-paper local and remote helper equivalents are:
 
-- `scripts/campaigns/track1/exact_paper/invoke_exact_paper_campaign_local.sh`
-- `scripts/campaigns/track1/exact_paper/run_exact_paper_campaign_remote.sh`
+- `scripts/campaigns/track_1/exact_paper/invoke_exact_paper_campaign_local.sh`
+- `scripts/campaigns/track_1/exact_paper/run_exact_paper_campaign_remote.sh`
 
 ## Main Role
 
@@ -58,14 +58,14 @@ under:
 Generate the package and update the active campaign state with:
 
 ```powershell
-conda run -n pinns_env python scripts/campaigns/track1/exact_paper/prepare_track1_bidirectional_paper_faithful_grid_search_campaign.py
+conda run -n pinns_env python scripts/campaigns/track_1/exact_paper/prepare_track1_bidirectional_paper_faithful_grid_search_campaign.py
 ```
 
 On Linux, prepare a new package with Linux-formatted repository-relative path
 surfaces:
 
 ```bash
-conda run -n pinns_env python scripts/campaigns/track1/exact_paper/prepare_track1_bidirectional_paper_faithful_grid_search_campaign.py --linux
+conda run -n pinns_env python scripts/campaigns/track_1/exact_paper/prepare_track1_bidirectional_paper_faithful_grid_search_campaign.py --linux
 ```
 
 ## Launch Command
@@ -73,19 +73,19 @@ conda run -n pinns_env python scripts/campaigns/track1/exact_paper/prepare_track
 Windows PowerShell:
 
 ```powershell
-.\scripts\campaigns\track1\exact_paper\run_track1_bidirectional_paper_faithful_grid_search_campaign.ps1 -Remote
+.\scripts\campaigns\track_1\exact_paper\run_track1_bidirectional_paper_faithful_grid_search_campaign.ps1 -Remote
 ```
 
 Linux Bash on the Unimore Aries clone:
 
 ```bash
-bash scripts/campaigns/track1/exact_paper/run_track1_bidirectional_paper_faithful_grid_search_campaign.sh --linux
+bash scripts/campaigns/track_1/exact_paper/run_track1_bidirectional_paper_faithful_grid_search_campaign.sh --linux
 ```
 
 Linux Bash remote dry run:
 
 ```bash
-bash scripts/campaigns/track1/exact_paper/run_track1_bidirectional_paper_faithful_grid_search_campaign.sh \
+bash scripts/campaigns/track_1/exact_paper/run_track1_bidirectional_paper_faithful_grid_search_campaign.sh \
   --direction Forward \
   --families MLP \
   --stage Search \
@@ -141,7 +141,7 @@ arguments:
 Examples:
 
 ```powershell
-.\scripts\campaigns\track1\exact_paper\run_track1_bidirectional_paper_faithful_grid_search_campaign.ps1 `
+.\scripts\campaigns\track_1\exact_paper\run_track1_bidirectional_paper_faithful_grid_search_campaign.ps1 `
   -Direction Forward `
   -Families "MLP" `
   -Stage Search `
@@ -151,7 +151,7 @@ Examples:
 ```
 
 ```powershell
-.\scripts\campaigns\track1\exact_paper\run_track1_bidirectional_paper_faithful_grid_search_campaign.ps1 `
+.\scripts\campaigns\track_1\exact_paper\run_track1_bidirectional_paper_faithful_grid_search_campaign.ps1 `
   -Direction Forward `
   -Families "RF" `
   -Stage LoadBest `
@@ -162,7 +162,7 @@ Examples:
 Multiple families in one sliced invocation:
 
 ```powershell
-.\scripts\campaigns\track1\exact_paper\run_track1_bidirectional_paper_faithful_grid_search_campaign.ps1 `
+.\scripts\campaigns\track_1\exact_paper\run_track1_bidirectional_paper_faithful_grid_search_campaign.ps1 `
   -Direction Forward `
   -Families "MLP,RF,GBM" `
   -Stage Search `
@@ -172,7 +172,7 @@ Multiple families in one sliced invocation:
 Linux equivalent:
 
 ```bash
-bash scripts/campaigns/track1/exact_paper/run_track1_bidirectional_paper_faithful_grid_search_campaign.sh \
+bash scripts/campaigns/track_1/exact_paper/run_track1_bidirectional_paper_faithful_grid_search_campaign.sh \
   --direction Forward \
   --families "MLP,RF,GBM" \
   --stage Search \
@@ -182,7 +182,7 @@ bash scripts/campaigns/track1/exact_paper/run_track1_bidirectional_paper_faithfu
 Queue-selection dry run without launching training:
 
 ```bash
-bash scripts/campaigns/track1/exact_paper/run_track1_bidirectional_paper_faithful_grid_search_campaign.sh \
+bash scripts/campaigns/track_1/exact_paper/run_track1_bidirectional_paper_faithful_grid_search_campaign.sh \
   --direction Forward \
   --families "MLP,RF" \
   --stage Search \
@@ -193,7 +193,7 @@ bash scripts/campaigns/track1/exact_paper/run_track1_bidirectional_paper_faithfu
 Remote command dry run without SSH, sync, or training:
 
 ```bash
-bash scripts/campaigns/track1/exact_paper/run_track1_bidirectional_paper_faithful_grid_search_campaign.sh \
+bash scripts/campaigns/track_1/exact_paper/run_track1_bidirectional_paper_faithful_grid_search_campaign.sh \
   --direction Forward \
   --families "MLP" \
   --stage Search \
@@ -208,7 +208,7 @@ bash scripts/campaigns/track1/exact_paper/run_track1_bidirectional_paper_faithfu
 Full forward operational family queue, including `ELM`:
 
 ```powershell
-.\scripts\campaigns\track1\exact_paper\run_track1_bidirectional_paper_faithful_grid_search_campaign.ps1 `
+.\scripts\campaigns\track_1\exact_paper\run_track1_bidirectional_paper_faithful_grid_search_campaign.ps1 `
   -Direction Forward `
   -Families "SVR, MLP, RF, DT, ET, ERT, GBM, HGBM, LGBM, XGBM, ELM" `
   -Stage Search `
@@ -220,7 +220,7 @@ Full forward operational family queue, including `ELM`:
 Linux equivalent:
 
 ```bash
-bash scripts/campaigns/track1/exact_paper/run_track1_bidirectional_paper_faithful_grid_search_campaign.sh \
+bash scripts/campaigns/track_1/exact_paper/run_track1_bidirectional_paper_faithful_grid_search_campaign.sh \
   --direction Forward \
   --families "SVR,MLP,RF,DT,ET,ERT,GBM,HGBM,LGBM,XGBM,ELM" \
   --stage Search \

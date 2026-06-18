@@ -52,7 +52,7 @@ interactive `CTRL+C` stop control from the caller terminal.
 
 ## Involved Components
 
-- `scripts/campaigns/wave1/run_wave1_directional_best_hyperparameter_search_campaign.ps1`
+- `scripts/campaigns/wave_1/run_wave1_directional_best_hyperparameter_search_campaign.ps1`
 - `doc/scripts/campaigns/run_wave1_directional_best_hyperparameter_search_campaign.md`
 - `doc/README.md`
 - `doc/technical/2026-05/2026-05-12/README.md`

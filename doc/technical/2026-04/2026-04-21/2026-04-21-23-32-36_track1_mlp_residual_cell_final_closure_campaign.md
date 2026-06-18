@@ -67,9 +67,9 @@ campaign preparation flow in the main rollout.
 
 - `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
 - `doc/reports/analysis/Training Results Master Summary.md`
-- `doc/reports/campaign_plans/track1/exact_paper/`
+- `doc/reports/campaign_plans/track_1/exact_paper/`
 - `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/`
-- `scripts/campaigns/track1/exact_paper/`
+- `scripts/campaigns/track_1/exact_paper/`
 - `doc/scripts/campaigns/`
 - `doc/running/active_training_campaign.yaml`
 - `output/training_campaigns/track1/exact_paper/forward/`
@@ -80,7 +80,7 @@ After approval, the expected implementation outputs are:
 - one new exact-paper campaign config directory dedicated to the four residual
   `MLP` target pairs;
 - one dedicated PowerShell launcher under
-  `scripts/campaigns/track1/exact_paper/`;
+  `scripts/campaigns/track_1/exact_paper/`;
 - one matching launcher note under `doc/scripts/campaigns/`;
 - one updated `doc/running/active_training_campaign.yaml` entry with the new
   prepared campaign metadata and launch command.

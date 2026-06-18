@@ -41,7 +41,7 @@ The implementation should:
    appropriate completed state, with finish timestamp, results report path, and
    campaign completion metadata;
 3. create a formal campaign-results closeout report under
-   `doc/reports/campaign_results/track1/exact_paper/` that documents:
+   `doc/reports/campaign_results/track_1/exact_paper/` that documents:
    - campaign scope;
    - completion status;
    - family winners for `forward` and `backward`;
@@ -71,8 +71,8 @@ cause unnecessary archive churn.
 ## Involved Components
 
 - `doc/running/active_training_campaign.yaml`
-- `doc/reports/campaign_plans/track1/exact_paper/2026-04-26-00-43-19_track1_bidirectional_original_dataset_mega_relaunch_after_micro_gate_plan_report.md`
-- `doc/reports/campaign_results/track1/exact_paper/`
+- `doc/reports/campaign_plans/track_1/exact_paper/2026-04-26-00-43-19_track1_bidirectional_original_dataset_mega_relaunch_after_micro_gate_plan_report.md`
+- `doc/reports/campaign_results/track_1/exact_paper/`
 - `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
 - `doc/reports/analysis/Training Results Master Summary.md`
 - `models/paper_reference/rcim_track1/README.md`
@@ -93,7 +93,7 @@ cause unnecessary archive churn.
 2. Update `doc/running/active_training_campaign.yaml` to a completed closeout
    state with finish metadata and backlink to the results report.
 3. Create the bidirectional mega-campaign closeout report under
-   `doc/reports/campaign_results/track1/exact_paper/`.
+   `doc/reports/campaign_results/track_1/exact_paper/`.
 4. Refresh the `RCIM Paper Reference Benchmark` tables and any related status
    text so the forward/backward colored cells reflect this campaign's accepted
    outcomes.

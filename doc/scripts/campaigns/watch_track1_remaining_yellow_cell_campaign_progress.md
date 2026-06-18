@@ -6,7 +6,7 @@ remote exact-paper `Track 1` remaining-yellow-cell bundle.
 It is intended for the specific bundle launched through:
 
 ```powershell
-.\scripts\campaigns\track1\exact_paper\run_track1_remaining_yellow_cell_campaigns.ps1 -Remote
+.\scripts\campaigns\track_1\exact_paper\run_track1_remaining_yellow_cell_campaigns.ps1 -Remote
 ```
 
 Reported sections:
@@ -20,17 +20,17 @@ Reported sections:
 Local SSH form:
 
 ```powershell
-.\scripts\campaigns\track1\exact_paper\watch_track1_remaining_yellow_cell_campaign_progress.ps1
+.\scripts\campaigns\track_1\exact_paper\watch_track1_remaining_yellow_cell_campaign_progress.ps1
 ```
 
 Direct form on the remote workstation:
 
 ```powershell
-.\scripts\campaigns\track1\exact_paper\watch_track1_remaining_yellow_cell_campaign_progress.ps1 -DirectOnRemote
+.\scripts\campaigns\track_1\exact_paper\watch_track1_remaining_yellow_cell_campaign_progress.ps1 -DirectOnRemote
 ```
 
 Optional explicit host and repository form:
 
 ```powershell
-.\scripts\campaigns\track1\exact_paper\watch_track1_remaining_yellow_cell_campaign_progress.ps1 -RemoteHostAlias "xilab-remote" -RemoteRepositoryPath "C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks"
+.\scripts\campaigns\track_1\exact_paper\watch_track1_remaining_yellow_cell_campaign_progress.ps1 -RemoteHostAlias "xilab-remote" -RemoteRepositoryPath "C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks"
 ```

@@ -96,7 +96,7 @@ the difficult open cells.
 - `config/datasets/transmission_error_dataset.yaml`
 - `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/`
 - `models/paper_reference/rcim_track1/`
-- future campaign plans under `doc/reports/campaign_plans/track1/exact_paper/`
+- future campaign plans under `doc/reports/campaign_plans/track_1/exact_paper/`
 - future campaign YAML bundles under
   `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/`
 

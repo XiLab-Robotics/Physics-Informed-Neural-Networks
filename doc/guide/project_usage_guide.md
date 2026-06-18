@@ -201,38 +201,38 @@ The current usage flow mainly relies on these folders:
   MATLAB analogue of the same `MMT_TEModeling` analytical equation-chain
   reproduction script.
 
-- `scripts/campaigns/wave3/run_wave3_embryonic_skeleton_checks.ps1`
+- `scripts/campaigns/wave_3/run_wave3_embryonic_skeleton_checks.ps1`
   Dry-run check launcher for the embryonic `Wave 3` harmonic-prior residual
   skeleton. It compiles and validates the scaffold without queueing or
   launching training.
 
-- `scripts/campaigns/wave3/run_wave3_training_smoke_ready_checks.ps1`
+- `scripts/campaigns/wave_3/run_wave3_training_smoke_ready_checks.ps1`
   Dry-run check launcher for the `Wave 3` harmonic-prior residual one-batch
   training-stack validation. It writes validation artifacts but does not create
   a campaign queue or launch training.
 
-- `scripts/campaigns/wave3/run_wave3_grouped_harmonic_heads_checks.ps1`
+- `scripts/campaigns/wave_3/run_wave3_grouped_harmonic_heads_checks.ps1`
   Dry-run check launcher for the second `Wave 3` grouped harmonic-heads
   skeleton. It compiles the model, validates factory construction, and runs
   point/sequence forward checks without queueing or launching training.
 
-- `scripts/campaigns/wave3/run_wave3_harmonic_prior_residual_campaign.ps1`
+- `scripts/campaigns/wave_3/run_wave3_harmonic_prior_residual_campaign.ps1`
   Prepared first real `Wave 3` harmonic-prior residual campaign launcher. It
   validates six queue entries across `global`, `Fw`, and `Bw`, then launches
   locally or delegates to the repository-owned remote campaign runner.
 
-- `scripts/campaigns/track2/run_track2h_latent_state_hysteresis_campaign.ps1`
+- `scripts/campaigns/track_2/run_track2h_latent_state_hysteresis_campaign.ps1`
   Prepared `Track 2H-L` latent-state / hysteresis-aware campaign launcher. It
   validates six causal-history queue entries across `global`, `Fw`, and `Bw`,
   then launches locally or delegates to the repository-owned remote campaign
   runner.
 
-- `scripts/campaigns/wave4/run_wave4_embryonic_skeleton_checks.ps1`
+- `scripts/campaigns/wave_4/run_wave4_embryonic_skeleton_checks.ps1`
   Dry-run check launcher for the embryonic `Wave 4A` MMT diagnostic adapter.
   It compiles and validates the scaffold without queueing or launching
   training.
 
-- `scripts/campaigns/wave4/run_wave4b_mmt_feature_generator_checks.ps1`
+- `scripts/campaigns/wave_4/run_wave4b_mmt_feature_generator_checks.ps1`
   Dry-run check launcher for the `Wave 4B` MMT feature-generator skeleton. It
   compiles the feature generator, validates leakage labels, and writes sample
   schema artifacts without queueing or launching training.
@@ -244,21 +244,21 @@ The current usage flow mainly relies on these folders:
 - `scripts/training/`
   Static neural and tree training entry points, shared datamodule/regression infrastructure, campaign runner, and validation/smoke-test utilities.
 
-- `scripts/campaigns/wave1/run_wave1_structured_baseline_recovery_campaign.ps1`
+- `scripts/campaigns/wave_1/run_wave1_structured_baseline_recovery_campaign.ps1`
   Short PowerShell launcher for the Wave 1 recovery campaign.
 
-- `scripts/campaigns/wave1/run_wave1_residual_harmonic_family_campaign.ps1`
+- `scripts/campaigns/wave_1/run_wave1_residual_harmonic_family_campaign.ps1`
   Canonical short PowerShell launcher for the Wave 1 residual-harmonic family campaign.
 
-- `scripts/campaigns/wave1/prepare_wave1_directional_best_hyperparameter_search_campaign.py`
+- `scripts/campaigns/wave_1/prepare_wave1_directional_best_hyperparameter_search_campaign.py`
   Campaign-package generator for the mixed directional Wave 1 best-hyperparameter
   search workflow.
 
-- `scripts/campaigns/wave1/run_wave1_directional_best_hyperparameter_search_campaign.ps1`
+- `scripts/campaigns/wave_1/run_wave1_directional_best_hyperparameter_search_campaign.ps1`
   Canonical mixed launcher for the directional Wave 1 best-hyperparameter search
   campaign.
 
-- `scripts/campaigns/wave1/run_wave1_high_order_harmonic_tracking_campaign.ps1`
+- `scripts/campaigns/wave_1/run_wave1_high_order_harmonic_tracking_campaign.ps1`
   Prepared launcher for the Wave 1 high-order harmonic tracking campaign across
   RCIM sparse, dense `0..240`, and dense `0..360` harmonic banks.
 
@@ -267,11 +267,11 @@ The current usage flow mainly relies on these folders:
   future-wave training YAML while keeping queue execution in the existing
   campaign pipeline.
 
-- `scripts/campaigns/track1/exact_paper/run_exact_paper_faithful_reproduction_campaign.ps1`
+- `scripts/campaigns/track_1/exact_paper/run_exact_paper_faithful_reproduction_campaign.ps1`
   Canonical coordinated launcher for the current paper-faithful `Track 1`
   reproduction campaign package.
 
-- `scripts/campaigns/track1/exact_paper/run_track1_bidirectional_paper_faithful_grid_search_campaign.sh`
+- `scripts/campaigns/track_1/exact_paper/run_track1_bidirectional_paper_faithful_grid_search_campaign.sh`
   Linux Bash launcher for the prepared bidirectional paper-faithful `Track 1`
   grid-search campaign on the Unimore Aries clone.
 
@@ -450,7 +450,7 @@ This workflow intentionally mixes:
 The approved Wave 1 high-order harmonic tracking follow-up can be launched with:
 
 ```powershell
-.\scripts\campaigns\wave1\run_wave1_high_order_harmonic_tracking_campaign.ps1
+.\scripts\campaigns\wave_1\run_wave1_high_order_harmonic_tracking_campaign.ps1
 ```
 
 This package contains `18` runs: `harmonic_regression` and
@@ -478,7 +478,7 @@ The bidirectional paper-faithful `Track 1` grid-search campaign also has a
 Linux launcher for the Unimore Aries clone:
 
 ```bash
-bash scripts/campaigns/track1/exact_paper/run_track1_bidirectional_paper_faithful_grid_search_campaign.sh --linux
+bash scripts/campaigns/track_1/exact_paper/run_track1_bidirectional_paper_faithful_grid_search_campaign.sh --linux
 ```
 
 The Bash launcher keeps the same campaign slicing concepts as the PowerShell
@@ -680,22 +680,22 @@ conda run -n pinns_env python scripts/paper_reimplementation/rcim_ml_compensatio
 Validated smoke launcher for the post-refactor structural check:
 
 ```powershell
-.\scripts\campaigns\track1\exact_paper\run_track1_bidirectional_original_dataset_smoke_validation.ps1
+.\scripts\campaigns\track_1\exact_paper\run_track1_bidirectional_original_dataset_smoke_validation.ps1
 ```
 
 Prepared mega-campaign package generator and launcher:
 
 ```powershell
-conda run -n pinns_env python scripts/campaigns/track1/exact_paper/prepare_track1_bidirectional_original_dataset_mega_campaign.py
-.\scripts\campaigns\track1\exact_paper\run_track1_bidirectional_original_dataset_mega_campaign.ps1 -Remote
+conda run -n pinns_env python scripts/campaigns/track_1/exact_paper/prepare_track1_bidirectional_original_dataset_mega_campaign.py
+.\scripts\campaigns\track_1\exact_paper\run_track1_bidirectional_original_dataset_mega_campaign.ps1 -Remote
 ```
 
 Forward-only remote micro-campaign package for validating the repaired remote
 launcher stack before regenerating the full bidirectional campaign from zero:
 
 ```powershell
-conda run -n pinns_env python scripts/campaigns/track1/exact_paper/prepare_track1_forward_original_dataset_remote_micro_campaign.py
-.\scripts\campaigns\track1\exact_paper\run_track1_forward_original_dataset_remote_micro_campaign.ps1 -Remote
+conda run -n pinns_env python scripts/campaigns/track_1/exact_paper/prepare_track1_forward_original_dataset_remote_micro_campaign.py
+.\scripts\campaigns\track_1\exact_paper\run_track1_forward_original_dataset_remote_micro_campaign.ps1 -Remote
 ```
 
 This micro-campaign is intentionally small:
@@ -713,8 +713,8 @@ Forward-only open-cell repair package for the current residual forward
 benchmark cells:
 
 ```powershell
-conda run -n pinns_env python scripts/campaigns/track1/exact_paper/prepare_track1_forward_open_cell_repair_campaign.py
-.\scripts\campaigns\track1\exact_paper\run_track1_forward_open_cell_repair_campaign.ps1 -Remote
+conda run -n pinns_env python scripts/campaigns/track_1/exact_paper/prepare_track1_forward_open_cell_repair_campaign.py
+.\scripts\campaigns\track_1\exact_paper\run_track1_forward_open_cell_repair_campaign.ps1 -Remote
 ```
 
 This repair campaign is intentionally target-level instead of full-bank:
@@ -729,8 +729,8 @@ Final forward residual package for the last canonical non-green `Table 2-5`
 cells:
 
 ```powershell
-conda run -n pinns_env python scripts/campaigns/track1/exact_paper/prepare_track1_forward_final_open_cells_campaign.py
-.\scripts\campaigns\track1\exact_paper\run_track1_forward_final_open_cells_campaign.ps1 -Remote
+conda run -n pinns_env python scripts/campaigns/track_1/exact_paper/prepare_track1_forward_final_open_cells_campaign.py
+.\scripts\campaigns\track_1\exact_paper\run_track1_forward_final_open_cells_campaign.ps1 -Remote
 ```
 
 This final repair campaign is intentionally narrower again:
@@ -745,8 +745,8 @@ Aggressive final forward residual package for the last canonical non-green
 `forward` amplitude cells:
 
 ```powershell
-conda run -n pinns_env python scripts/campaigns/track1/exact_paper/prepare_track1_forward_last_non_green_cells_campaign.py
-.\scripts\campaigns\track1\exact_paper\run_track1_forward_last_non_green_cells_campaign.ps1 -Remote
+conda run -n pinns_env python scripts/campaigns/track_1/exact_paper/prepare_track1_forward_last_non_green_cells_campaign.py
+.\scripts\campaigns\track_1\exact_paper\run_track1_forward_last_non_green_cells_campaign.ps1 -Remote
 ```
 
 This final escalation package is intentionally narrower but more aggressive:
@@ -2742,35 +2742,35 @@ Most recent completed Track 2H-L latent-state hysteresis campaign:
 
 - campaign name: `track2h_latent_state_hysteresis_campaign_2026_06_16`
 - planning report:
-  `doc/reports/campaign_plans/track2/2026-06-16-16-00-57_track2h_latent_state_hysteresis_campaign_plan_report.md`
+  `doc/reports/campaign_plans/track_2/2026-06-16-16-00-57_track2h_latent_state_hysteresis_campaign_plan_report.md`
 - closeout report:
-  `doc/reports/campaign_results/track2/2026-06-17-01-27-10_track2h_latent_state_hysteresis_campaign_results_report.md`
+  `doc/reports/campaign_results/track_2/campaign_closeouts/2026-06-17-01-27-10_track2h_latent_state_hysteresis_campaign_results_report.md`
 - config package:
   `config/training/track2h_latent_state_hysteresis/campaigns/2026-06-16_track2h_latent_state_hysteresis_campaign/`
 - canonical launcher:
-  `scripts/campaigns/track2/run_track2h_latent_state_hysteresis_campaign.ps1`
+  `scripts/campaigns/track_2/run_track2h_latent_state_hysteresis_campaign.ps1`
 - local command:
-  `.\scripts\campaigns\track2\run_track2h_latent_state_hysteresis_campaign.ps1`
+  `.\scripts\campaigns\track_2\run_track2h_latent_state_hysteresis_campaign.ps1`
 - remote command:
-  `.\scripts\campaigns\track2\run_track2h_latent_state_hysteresis_campaign.ps1 -Remote`
+  `.\scripts\campaigns\track_2\run_track2h_latent_state_hysteresis_campaign.ps1 -Remote`
 - status: normal campaign closeout completed; optional official `Track 2`
   verification refresh remains a separate follow-up.
 
 Most recent completed Track 2H mixture-density heads campaign:
 
 - campaign name: `track2h_mixture_density_heads_campaign_2026_06_13`
-- planning report: `doc/reports/campaign_plans/track2/2026-06-13-10-40-25_track2h_mixture_density_heads_campaign_plan_report.md`
-- closeout report: `doc/reports/campaign_results/track2/2026-06-13-13-24-37_track2h_mixture_density_heads_campaign_results_report.md`
+- planning report: `doc/reports/campaign_plans/track_2/2026-06-13-10-40-25_track2h_mixture_density_heads_campaign_plan_report.md`
+- closeout report: `doc/reports/campaign_results/track_2/campaign_closeouts/2026-06-13-13-24-37_track2h_mixture_density_heads_campaign_results_report.md`
 - config package: `config/training/track2h_mixture_density_heads/campaigns/2026-06-13_track2h_mixture_density_heads_campaign/`
-- canonical launcher: `scripts/campaigns/track2/run_track2h_mixture_density_heads_campaign.ps1`
-- local command: `.\scripts\campaigns\track2\run_track2h_mixture_density_heads_campaign.ps1`
-- remote command: `.\scripts\campaigns\track2\run_track2h_mixture_density_heads_campaign.ps1 -Remote`
+- canonical launcher: `scripts/campaigns/track_2/run_track2h_mixture_density_heads_campaign.ps1`
+- local command: `.\scripts\campaigns\track_2\run_track2h_mixture_density_heads_campaign.ps1`
+- remote command: `.\scripts\campaigns\track_2\run_track2h_mixture_density_heads_campaign.ps1 -Remote`
 - optional official `Track 2` refresh launcher:
-  `scripts/campaigns/track2/run_track2h_mixture_density_heads_track2_verification_refresh.ps1`
+  `scripts/campaigns/track_2/run_track2h_mixture_density_heads_track2_verification_refresh.ps1`
 - optional official `Track 2` local command:
-  `.\scripts\campaigns\track2\run_track2h_mixture_density_heads_track2_verification_refresh.ps1`
+  `.\scripts\campaigns\track_2\run_track2h_mixture_density_heads_track2_verification_refresh.ps1`
 - optional official `Track 2` remote command:
-  `.\scripts\campaigns\track2\run_track2h_mixture_density_heads_track2_verification_refresh.ps1 -Remote`
+  `.\scripts\campaigns\track_2\run_track2h_mixture_density_heads_track2_verification_refresh.ps1 -Remote`
 - official `Track 2` report:
   `doc/reports/analysis/track2/official_model_verification_report/[2026-06-13]/track2_official_model_verification_report.md`
 - status: normal campaign closeout and official `Track 2` verification
@@ -2779,9 +2779,9 @@ Most recent completed Track 2H mixture-density heads campaign:
 Current finished Wave 1 residual-family follow-up campaign:
 
 - campaign name: `wave1_residual_harmonic_family_campaign_2026_03_26_13_52_00`
-- planning report: `doc/reports/campaign_plans/wave1/2026-03-26-13-52-00_wave1_residual_harmonic_family_campaign_plan_report.md`
+- planning report: `doc/reports/campaign_plans/wave_1/2026-03-26-13-52-00_wave1_residual_harmonic_family_campaign_plan_report.md`
 - config package: `config/training/residual_harmonic_mlp/campaigns/2026-03-26_wave1_residual_harmonic_family_campaign/`
-- canonical launcher: `scripts/campaigns/wave1/run_wave1_residual_harmonic_family_campaign.ps1`
+- canonical launcher: `scripts/campaigns/wave_1/run_wave1_residual_harmonic_family_campaign.ps1`
 
 ## Typical Workflow For The Current Project
 
@@ -2955,7 +2955,7 @@ Campaign package root:
 
 Campaign planning report:
 
-- `doc/reports/campaign_plans/track1/harmonic_wise/2026-04-09-18-56-03_track1_second_iteration_harmonic_wise_campaign_plan_report.md`
+- `doc/reports/campaign_plans/track_1/harmonic_wise/2026-04-09-18-56-03_track1_second_iteration_harmonic_wise_campaign_plan_report.md`
 
 Main outputs:
 
@@ -3091,7 +3091,7 @@ conda run -n pinns_env python scripts/paper_reimplementation/rcim_ml_compensatio
 One family-at-a-time paper-faithful launcher example:
 
 ```powershell
-.\scripts\campaigns\track1\exact_paper\run_track1_bidirectional_paper_faithful_grid_search_campaign.ps1 `
+.\scripts\campaigns\track_1\exact_paper\run_track1_bidirectional_paper_faithful_grid_search_campaign.ps1 `
   -Direction Forward `
   -Families "MLP" `
   -Stage Search `

@@ -76,11 +76,11 @@ Scoped target pairs:
 Local command:
 
 ```powershell
-.\scripts\campaigns\track1\exact_paper\run_track1_mlp_residual_cell_final_closure_campaign.ps1
+.\scripts\campaigns\track_1\exact_paper\run_track1_mlp_residual_cell_final_closure_campaign.ps1
 ```
 
 Remote command:
 
 ```powershell
-.\scripts\campaigns\track1\exact_paper\run_track1_mlp_residual_cell_final_closure_campaign.ps1 -Remote
+.\scripts\campaigns\track_1\exact_paper\run_track1_mlp_residual_cell_final_closure_campaign.ps1 -Remote
 ```

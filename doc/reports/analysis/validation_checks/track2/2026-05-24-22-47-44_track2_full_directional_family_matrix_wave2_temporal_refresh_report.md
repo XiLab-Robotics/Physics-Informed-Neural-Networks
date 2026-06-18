@@ -298,7 +298,7 @@ composed models explicit.
 
 - summary YAML: `output\validation_checks\track2_reference_comparison\2026-05-24-22-01-57__track2_full_directional_family_matrix_wave2_temporal_refresh/validation_summary.yaml`;
 - per-condition CSV: `output\validation_checks\track2_reference_comparison\2026-05-24-22-01-57__track2_full_directional_family_matrix_wave2_temporal_refresh\per_condition_metrics.csv`;
-- grouped report plot root: `doc\reports\campaign_results\track 2`;
+- grouped report plot root: `doc\reports\campaign_results\track_2\verification_plots`;
 - grouped report plot count: `672`;
 - preview plot: `output\validation_checks\track2_reference_comparison\2026-05-24-22-01-57__track2_full_directional_family_matrix_wave2_temporal_refresh\preview_curves\preview_01.png`;
 - preview plot: `output\validation_checks\track2_reference_comparison\2026-05-24-22-01-57__track2_full_directional_family_matrix_wave2_temporal_refresh\preview_curves\preview_02.png`;

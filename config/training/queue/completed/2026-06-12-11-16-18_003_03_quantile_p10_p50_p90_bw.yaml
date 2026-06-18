@@ -7,7 +7,7 @@ experiment:
   model_type: curve_aware_harmonic_residual_offset_probe
 metadata:
   campaign_name: track2h_quantile_probabilistic_campaign_2026_06_12
-  planning_report_path: doc/reports/campaign_plans/track2/2026-06-12-00-01-04_track2h_quantile_probabilistic_campaign_plan_report.md
+  planning_report_path: doc/reports/campaign_plans/track_2/2026-06-12-00-01-04_track2h_quantile_probabilistic_campaign_plan_report.md
   technical_document_path: doc/technical/2026-06/2026-06-11/2026-06-11-23-49-15_track2h_quantile_probabilistic_package.md
   phase_name: track2h_quantile_probabilistic_modeling
   campaign_config_id: track2h_quantile_probabilistic_quantile_p10_p50_p90_bw
