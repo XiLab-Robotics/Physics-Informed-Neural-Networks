@@ -449,6 +449,13 @@ This folder contains the internal project documents derived from the reference P
 
 ### Technical Documents
 
+#### 2026-06-19
+
+- [technical/2026-06/2026-06-19/2026-06-19-21-46-54_simplified_dataset_github_publication.md](./technical/2026-06/2026-06-19/2026-06-19-21-46-54_simplified_dataset_github_publication.md)
+  Technical plan for publishing the complete replacement dataset under
+  `data/simplified_dataset/` through bounded Git commits and pushes while
+  excluding the separate original and polished dataset trees.
+
 #### 2026-06-18
 
 - [technical/2026-06/2026-06-18/2026-06-18-15-07-27_track2h_latent_state_hysteresis_track2_analysis_preparation.md](./technical/2026-06/2026-06-18/2026-06-18-15-07-27_track2h_latent_state_hysteresis_track2_analysis_preparation.md)
