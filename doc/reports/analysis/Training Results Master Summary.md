@@ -2,12 +2,13 @@
 
 ## Executive Snapshot
 
-- Generated At: `2026-06-17T01:27:10`
+- Generated At: `2026-06-19T20:53:50+02:00`
 - Program State: active.
 - Current Completed Wave: `Wave 3` harmonic-prior residual campaign closeout
-- Current Focus: `Track 2H-L` normal campaign closeout is complete; decide
-  whether to run the separate official `Track 2` refresh for these six
-  candidates or move to `Wave 4` / integrated multi-head planning.
+- Current Focus: `Track 2H-L` official `Track 2` refresh is complete and
+  closed as a verified exploratory baseline, not promoted; move to `Wave 4` /
+  integrated multi-head planning with latent-state evidence retained as an
+  integration ingredient.
 - Active Campaign Status: `none`
 - Active Campaign Name: `N/A`
 - Current Program Winner: `te_periodic_gru_sequence_remote_Bw` | Family `periodic_gru_sequence_bw` | Test MAE `0.002344`
@@ -276,7 +277,7 @@ Low-priority exploratory families currently listed in the backlog:
 - `Neural ODE`
 - `Hamiltonian-Inspired Model`
 - `optional Kernel Ridge / Gaussian Process benchmark`
-| Wave 3. Hybrid Structured Models | status: first real campaign closed successfully as a scalar training; current scaffold:; model type: `wave3_harmonic_prior_residual`;; model class:; dry-run skeleton checker:; training-smoke-ready checker:; final one-batch validation artifact:; prepared package:; prepared launcher:; campaign closeout report:; scalar training winner:; scalar decision: no program-best promotion; the current program winner; official Track 2 launcher:; official Track 2 report:; strongest Wave 3 Track 2 candidate:; updated priority: use the completed Wave 3 curve, offset, collage, and; mandatory rule: prepare or justify `global`, `forward`, and `backward`; paper-reproduction scope:; compare hybrid structured predictors against the paper-style harmonic stack;; test condition-conditioned residual structure and separate treatment of; prepare the repository-owned deployable predictor package after the; next implementation steps:; launch and close the prepared `Track 2H-L` latent-state /; use the resulting scalar and later official `Track 2` evidence to decide |
+| Wave 3. Hybrid Structured Models | status: first real campaign closed successfully as a scalar training; current scaffold:; model type: `wave3_harmonic_prior_residual`;; model class:; dry-run skeleton checker:; training-smoke-ready checker:; final one-batch validation artifact:; prepared package:; prepared launcher:; campaign closeout report:; scalar training winner:; scalar decision: no program-best promotion; the current program winner; official Track 2 launcher:; official Track 2 report:; strongest Wave 3 Track 2 candidate:; updated priority: use the completed Wave 3 curve, offset, collage, overlay, and closed `Track 2H-L` official Track 2 evidence as baselines for the next `Wave 4` or integrated multi-head decision; mandatory rule: prepare or justify `global`, `forward`, and `backward`; paper-reproduction scope:; compare hybrid structured predictors against the paper-style harmonic stack;; test condition-conditioned residual structure and separate treatment of; prepare the repository-owned deployable predictor package after the next design gate |
 
 Low-priority exploratory families currently listed in the backlog:
 

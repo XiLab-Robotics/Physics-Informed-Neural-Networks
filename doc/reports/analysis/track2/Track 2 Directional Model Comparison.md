@@ -7,19 +7,12 @@ This report is the canonical `Track 2` offline comparison between
 repository-owned `Wave 1` and `Wave 2` model candidates. It starts from
 the current direction-aware comparison matrix.
 
-The tables in this report are the canonical raw-error matrix, not the complete
-model-promotion rule. Official `Track 2` decisions must also use the
-multi-index curve-first policy in
-`multi_index_curve_first_selection_policy/[2026-06-16]/track2_multi_index_curve_first_selection_policy.md`,
-including mean-centered shape, offset / continuity, harmonic / phase,
-robustness, visual evidence, and deployment-readiness checks.
-
 ## Dataset And Split
 
 - dataset config: `config/datasets/transmission_error_dataset.yaml`;
 - dataset root: `data\datasets`;
 - comparison mode: `full_directional_candidate_matrix`;
-- candidate count: `159`;
+- candidate count: `165`;
 - held-out curve count before candidate filtering: `194`;
 - percentage-error denominator: `peak_to_peak_truth`;
 - `Fw` candidates are evaluated only on forward curves;
@@ -184,6 +177,12 @@ robustness, visual evidence, and deployment-readiness checks.
 | `track2h_mdn_k3_global` | `track2h_mdn_k3` | `track2h_mixture_density_heads_registry` | `wave1_registry_model` | `global` | `forward, backward` | `output\registries\families\track2h_mixture_density_heads_mdn_k3_global\latest_family_best.yaml` |
 | `track2h_mdn_k3_Fw` | `track2h_mdn_k3` | `track2h_mixture_density_heads_registry` | `wave1_registry_model` | `Fw` | `forward` | `output\registries\families\track2h_mixture_density_heads_mdn_k3_fw\latest_family_best.yaml` |
 | `track2h_mdn_k3_Bw` | `track2h_mdn_k3` | `track2h_mixture_density_heads_registry` | `wave1_registry_model` | `Bw` | `backward` | `output\registries\families\track2h_mixture_density_heads_mdn_k3_bw\latest_family_best.yaml` |
+| `track2h_l_gru_offset_residual_global` | `track2h_l_gru_offset_residual` | `track2h_latent_state_hysteresis_registry` | `wave1_registry_model` | `global` | `forward, backward` | `output\registries\families\track2h_latent_state_hysteresis_gru_offset_residual_global\latest_family_best.yaml` |
+| `track2h_l_gru_offset_residual_Fw` | `track2h_l_gru_offset_residual` | `track2h_latent_state_hysteresis_registry` | `wave1_registry_model` | `Fw` | `forward` | `output\registries\families\track2h_latent_state_hysteresis_gru_offset_residual_fw\latest_family_best.yaml` |
+| `track2h_l_gru_offset_residual_Bw` | `track2h_l_gru_offset_residual` | `track2h_latent_state_hysteresis_registry` | `wave1_registry_model` | `Bw` | `backward` | `output\registries\families\track2h_latent_state_hysteresis_gru_offset_residual_bw\latest_family_best.yaml` |
+| `track2h_l_causal_tcn_offset_residual_global` | `track2h_l_causal_tcn_offset_residual` | `track2h_latent_state_hysteresis_registry` | `wave1_registry_model` | `global` | `forward, backward` | `output\registries\families\track2h_latent_state_hysteresis_causal_tcn_offset_residual_global\latest_family_best.yaml` |
+| `track2h_l_causal_tcn_offset_residual_Fw` | `track2h_l_causal_tcn_offset_residual` | `track2h_latent_state_hysteresis_registry` | `wave1_registry_model` | `Fw` | `forward` | `output\registries\families\track2h_latent_state_hysteresis_causal_tcn_offset_residual_fw\latest_family_best.yaml` |
+| `track2h_l_causal_tcn_offset_residual_Bw` | `track2h_l_causal_tcn_offset_residual` | `track2h_latent_state_hysteresis_registry` | `wave1_registry_model` | `Bw` | `backward` | `output\registries\families\track2h_latent_state_hysteresis_causal_tcn_offset_residual_bw\latest_family_best.yaml` |
 | `wave3_harmonic_prior_residual_pointwise_control_global` | `wave3_harmonic_prior_residual_pointwise_control` | `wave3_harmonic_prior_residual_registry` | `wave1_registry_model` | `global` | `forward, backward` | `output\registries\families\wave3_harmonic_prior_residual_pointwise_control_global\latest_family_best.yaml` |
 | `wave3_harmonic_prior_residual_pointwise_control_Fw` | `wave3_harmonic_prior_residual_pointwise_control` | `wave3_harmonic_prior_residual_registry` | `wave1_registry_model` | `Fw` | `forward` | `output\registries\families\wave3_harmonic_prior_residual_pointwise_control_fw\latest_family_best.yaml` |
 | `wave3_harmonic_prior_residual_pointwise_control_Bw` | `wave3_harmonic_prior_residual_pointwise_control` | `wave3_harmonic_prior_residual_registry` | `wave1_registry_model` | `Bw` | `backward` | `output\registries\families\wave3_harmonic_prior_residual_pointwise_control_bw\latest_family_best.yaml` |
@@ -366,6 +365,15 @@ composed models explicit.
 | `track2h_mdn_k2_Fw` | 0.003329 | 0.003593 | 7.388 | 12.771 |
 | `track2h_mdn_k3_global` | 0.003415 | 0.003713 | 7.594 | 15.012 |
 
+### Track 2H-L Latent-State Hysteresis Forward And Global Models
+
+| Candidate | Curve MAE [deg] | Curve RMSE [deg] | Mean Percentage Error [%] | P95 Mean Percentage Error [%] |
+| --- | ---: | ---: | ---: | ---: |
+| `track2h_l_causal_tcn_offset_residual_global` | 0.003267 | 0.003715 | 7.241 | 12.649 |
+| `track2h_l_gru_offset_residual_global` | 0.003460 | 0.003900 | 7.672 | 12.100 |
+| `track2h_l_causal_tcn_offset_residual_Fw` | 0.003476 | 0.003939 | 7.717 | 13.330 |
+| `track2h_l_gru_offset_residual_Fw` | 0.003549 | 0.003996 | 7.873 | 12.664 |
+
 ## Backward Comparison
 
 ### Retuned Backward Models
@@ -509,6 +517,15 @@ composed models explicit.
 | `track2h_mdn_k3_global` | 0.003701 | 0.004023 | 8.129 | 16.261 |
 | `track2h_mdn_k2_global` | 0.003735 | 0.004073 | 8.194 | 15.436 |
 
+### Track 2H-L Latent-State Hysteresis Backward And Global Models
+
+| Candidate | Curve MAE [deg] | Curve RMSE [deg] | Mean Percentage Error [%] | P95 Mean Percentage Error [%] |
+| --- | ---: | ---: | ---: | ---: |
+| `track2h_l_causal_tcn_offset_residual_global` | 0.003478 | 0.003940 | 7.555 | 13.771 |
+| `track2h_l_gru_offset_residual_Bw` | 0.003542 | 0.003984 | 7.736 | 12.831 |
+| `track2h_l_causal_tcn_offset_residual_Bw` | 0.003624 | 0.004098 | 7.903 | 13.135 |
+| `track2h_l_gru_offset_residual_global` | 0.003722 | 0.004147 | 8.121 | 13.745 |
+
 ## Global Model Direction Breakdown
 
 | Candidate | Direction | Curve MAE [deg] | Curve RMSE [deg] | Mean Percentage Error [%] | P95 Mean Percentage Error [%] |
@@ -585,6 +602,12 @@ composed models explicit.
 | `track2h_gaussian_nll_global` | `forward` | 0.002951 | 0.003246 | 6.524 | 15.237 |
 | `track2h_gaussian_nll_global` | `backward` | 0.003068 | 0.003372 | 6.627 | 15.928 |
 | `track2h_gaussian_nll_global` | `combined` | 0.003009 | 0.003309 | 6.576 | 15.849 |
+| `track2h_l_causal_tcn_offset_residual_global` | `forward` | 0.003267 | 0.003715 | 7.241 | 12.649 |
+| `track2h_l_causal_tcn_offset_residual_global` | `backward` | 0.003478 | 0.003940 | 7.555 | 13.771 |
+| `track2h_l_causal_tcn_offset_residual_global` | `combined` | 0.003372 | 0.003827 | 7.398 | 13.454 |
+| `track2h_l_gru_offset_residual_global` | `forward` | 0.003460 | 0.003900 | 7.672 | 12.100 |
+| `track2h_l_gru_offset_residual_global` | `backward` | 0.003722 | 0.004147 | 8.121 | 13.745 |
+| `track2h_l_gru_offset_residual_global` | `combined` | 0.003591 | 0.004024 | 7.896 | 12.986 |
 | `track2h_log_cosh_robust_global` | `forward` | 0.003515 | 0.003825 | 7.792 | 14.729 |
 | `track2h_log_cosh_robust_global` | `backward` | 0.003481 | 0.003814 | 7.603 | 13.596 |
 | `track2h_log_cosh_robust_global` | `combined` | 0.003498 | 0.003819 | 7.697 | 14.405 |
@@ -615,8 +638,8 @@ composed models explicit.
 
 ## Artifacts
 
-- summary YAML: `output\validation_checks\track2_reference_comparison\2026-06-15-20-25-36__track2_full_directional_family_matrix_wave3_harmonic_prior_residual_track2_refresh_2026_06_15/validation_summary.yaml`;
-- per-condition CSV: `output\validation_checks\track2_reference_comparison\2026-06-15-20-25-36__track2_full_directional_family_matrix_wave3_harmonic_prior_residual_track2_refresh_2026_06_15\per_condition_metrics.csv`;
+- summary YAML: `output\validation_checks\track2_reference_comparison\2026-06-18-15-20-21__track2_full_directional_family_matrix_track2h_latent_state_hysteresis_track2_refresh_2026_06_18/validation_summary.yaml`;
+- per-condition CSV: `output\validation_checks\track2_reference_comparison\2026-06-18-15-20-21__track2_full_directional_family_matrix_track2h_latent_state_hysteresis_track2_refresh_2026_06_18\per_condition_metrics.csv`;
 - grouped report plot root: `doc\reports\campaign_results\track_2\verification_plots`;
 - grouped report plot count: `0`;
 
@@ -627,10 +650,6 @@ and direction. Directional paper-reference, Wave 1, and Wave 2
 models are never evaluated on the opposite direction. Global Wave
 models remain valid on both directions and are therefore shown in
 the directional sections and again in the global breakdown.
-The ranking order in these tables should be read as raw matrix evidence only.
-Future official reports must preserve the raw matrix while also exposing
-multi-index per-surface winners for raw error, shape fidelity, offset behavior,
-harmonic / phase fidelity, robustness, and final recommendation.
 The `rcim_track1` forward reference banks use the opposite stored
 `h0` sign convention relative to the Track 2 reconstruction
 contract, so the Track 2 comparison applies the documented

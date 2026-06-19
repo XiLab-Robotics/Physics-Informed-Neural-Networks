@@ -58,6 +58,7 @@ TEMPORAL_SEQUENCE_MODEL_TYPE_SET = {
     "sequential_residual_offset_probe",
     "harmonic_residual_offset_probe",
     "curve_aware_harmonic_residual_offset_probe",
+    "latent_state_hysteresis_probe",
 }
 REFERENCE_BANK_PREDICTION_BATCH_SIZE = 64
 TEMPORAL_SEQUENCE_INFERENCE_BATCH_SIZE = 2048
@@ -1156,6 +1157,18 @@ def build_generated_candidate_configuration_list(training_config: dict[str, Any]
             build_registry_candidate_configuration_list(
                 track2h_mixture_density_heads_configuration,
                 "track2h_mixture_density_heads_registry",
+            )
+        )
+
+    track2h_latent_state_hysteresis_configuration = generation_configuration.get(
+        "track2h_latent_state_hysteresis_registry_models",
+        {},
+    )
+    if track2h_latent_state_hysteresis_configuration:
+        candidate_configuration_list.extend(
+            build_registry_candidate_configuration_list(
+                track2h_latent_state_hysteresis_configuration,
+                "track2h_latent_state_hysteresis_registry",
             )
         )
 
@@ -2425,6 +2438,13 @@ def build_track2_directional_comparison_report_markdown(comparison_summary: dict
         "track2h_mixture_density_heads_registry",
         include_global_models=True,
     )
+    append_grouped_direction_table(
+        report_line_list,
+        "Track 2H-L Latent-State Hysteresis Forward And Global Models",
+        "forward",
+        "track2h_latent_state_hysteresis_registry",
+        include_global_models=True,
+    )
 
     report_line_list.extend(
         [
@@ -2495,6 +2515,13 @@ def build_track2_directional_comparison_report_markdown(comparison_summary: dict
         "Track 2H Mixture Density Heads Backward And Global Models",
         "backward",
         "track2h_mixture_density_heads_registry",
+        include_global_models=True,
+    )
+    append_grouped_direction_table(
+        report_line_list,
+        "Track 2H-L Latent-State Hysteresis Backward And Global Models",
+        "backward",
+        "track2h_latent_state_hysteresis_registry",
         include_global_models=True,
     )
 

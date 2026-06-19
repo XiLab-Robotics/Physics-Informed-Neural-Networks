@@ -163,6 +163,21 @@ This folder contains the internal project documents derived from the reference P
   `harmonic_regression`, paper-original reference-bank reconstruction, and
   mean-centered diagnostic interpretation.
 
+- [reports/analysis/track2/official_model_verification_report/[2026-06-18]/track2_official_model_verification_report.md](./reports/analysis/track2/official_model_verification_report/%5B2026-06-18%5D/track2_official_model_verification_report.md)
+  Official `Track 2` verification decision for the completed `Track 2H-L`
+  latent-state / hysteresis-aware candidates, verified as an exploratory
+  baseline and not promoted over the accepted direction-parallel leaders.
+
+- [reports/analysis/track2/best_model_collage_report/[2026-06-18]/track2_best_model_collage_report.md](./reports/analysis/track2/best_model_collage_report/%5B2026-06-18%5D/track2_best_model_collage_report.md)
+  Styled `Track 2` visual report with four-curve collages for the refreshed
+  `Track 2H-L` latent-state / hysteresis-aware candidates alongside the
+  current reference, Wave, and Track candidate families.
+
+- [reports/analysis/track2/multi_model_curve_comparison_report/[2026-06-18]/track2_multi_model_curve_comparison_report.md](./reports/analysis/track2/multi_model_curve_comparison_report/%5B2026-06-18%5D/track2_multi_model_curve_comparison_report.md)
+  Styled `Track 2` overlay report comparing original TE curves against the
+  refreshed `Track 2H-L` candidates and the current reference, Wave, and Track
+  candidate families.
+
 - [reports/analysis/track2/official_model_verification_report/[2026-06-11]/track2_official_model_verification_report.md](./reports/analysis/track2/official_model_verification_report/%5B2026-06-11%5D/track2_official_model_verification_report.md)
   Official `Track 2` model-verification report accepting `Track 2H` robust
   losses as a verified exploratory baseline without promoting them over the
@@ -435,6 +450,12 @@ This folder contains the internal project documents derived from the reference P
 ### Technical Documents
 
 #### 2026-06-18
+
+- [technical/2026-06/2026-06-18/2026-06-18-15-07-27_track2h_latent_state_hysteresis_track2_analysis_preparation.md](./technical/2026-06/2026-06-18/2026-06-18-15-07-27_track2h_latent_state_hysteresis_track2_analysis_preparation.md)
+  Technical plan for preparing the separate official `Track 2` verification
+  refresh for the completed `Track 2H-L` latent-state / hysteresis-aware
+  candidates after the multi-index curve-first policy and artifact
+  reorganization.
 
 - [technical/2026-06/2026-06-18/2026-06-18-14-50-13_campaign_artifact_naming_reorganization.md](./technical/2026-06/2026-06-18/2026-06-18-14-50-13_campaign_artifact_naming_reorganization.md)
   Technical plan for consolidating campaign-result and `Track 2` artifact
@@ -2597,6 +2618,11 @@ This folder contains the internal project documents derived from the reference P
 - [scripts/campaigns/track_2/run_track2h_latent_state_hysteresis_campaign.md](./scripts/campaigns/track_2/run_track2h_latent_state_hysteresis_campaign.md)
   Script-level documentation for the prepared `Track 2H-L` latent-state /
   hysteresis-aware campaign launcher across `global`, `Fw`, and `Bw`.
+
+- [scripts/campaigns/track_2/run_track2h_latent_state_hysteresis_track2_verification_refresh.md](./scripts/campaigns/track_2/run_track2h_latent_state_hysteresis_track2_verification_refresh.md)
+  Script-level documentation for the operator-launched `Track 2H-L`
+  latent-state / hysteresis-aware official `Track 2` verification refresh
+  across all six candidates for `global`, `Fw`, and `Bw`.
 
 - [scripts/campaigns/track_2/run_track2h_quantile_probabilistic_track2_verification_refresh.md](./scripts/campaigns/track_2/run_track2h_quantile_probabilistic_track2_verification_refresh.md)
   Script-level documentation for the operator-launched `Track 2H`

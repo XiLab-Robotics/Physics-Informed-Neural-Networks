@@ -355,6 +355,20 @@ comparison:
           global_family: track2h_mixture_density_heads_mdn_k3_global
           fw_family: track2h_mixture_density_heads_mdn_k3_fw
           bw_family: track2h_mixture_density_heads_mdn_k3_bw
+    track2h_latent_state_hysteresis_registry_models:
+      family_registry_root: output/registries/families
+      source_label: track2h_latent_state_hysteresis_registry
+      base_family_list:
+        - candidate_id_prefix: track2h_l_gru_offset_residual
+          candidate_family: track2h_l_gru_offset_residual
+          global_family: track2h_latent_state_hysteresis_gru_offset_residual_global
+          fw_family: track2h_latent_state_hysteresis_gru_offset_residual_fw
+          bw_family: track2h_latent_state_hysteresis_gru_offset_residual_bw
+        - candidate_id_prefix: track2h_l_causal_tcn_offset_residual
+          candidate_family: track2h_l_causal_tcn_offset_residual
+          global_family: track2h_latent_state_hysteresis_causal_tcn_offset_residual_global
+          fw_family: track2h_latent_state_hysteresis_causal_tcn_offset_residual_fw
+          bw_family: track2h_latent_state_hysteresis_causal_tcn_offset_residual_bw
     wave3_harmonic_prior_residual_registry_models:
       family_registry_root: output/registries/families
       source_label: wave3_harmonic_prior_residual_registry
