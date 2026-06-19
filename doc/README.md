@@ -451,6 +451,10 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-06-19
 
+- [technical/2026-06/2026-06-19/2026-06-19-22-48-02_original_and_polished_dataset_github_publication.md](./technical/2026-06/2026-06-19/2026-06-19-22-48-02_original_and_polished_dataset_github_publication.md)
+  Technical plan for publishing the complete raw and polished datasets through
+  deterministic sub-1-GB commits and separate pushes without Git LFS.
+
 - [technical/2026-06/2026-06-19/2026-06-19-21-46-54_simplified_dataset_github_publication.md](./technical/2026-06/2026-06-19/2026-06-19-21-46-54_simplified_dataset_github_publication.md)
   Technical plan for publishing the complete replacement dataset under
   `data/simplified_dataset/` through bounded Git commits and pushes while
