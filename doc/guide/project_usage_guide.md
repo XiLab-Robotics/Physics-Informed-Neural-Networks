@@ -123,6 +123,24 @@ This path is interpreted relative to the repository root.
 
 If the dataset is moved in the future, update this YAML file before running the scripts.
 
+### 4. Choose The Dataset Surface
+
+The repository contains three related dataset roots:
+
+- `data/original_dataset/` contains the raw semicolon-delimited test-rig
+  recordings and validity channels;
+- `data/simplified_dataset/` contains the validated four-column TE curves used
+  by the current loaders and training workflows;
+- `data/polished_dataset/` contains separate `forward/` and `backward/`
+  time-ordered exports with `theta`, `theta_dot`, `tau_load`, `T`, and
+  `theta_TE`.
+
+Do not point the current loader directly at `polished_dataset`: it expects the
+four-column simplified schema. For signal definitions, generation equations,
+audit results, and dataset-selection guidance, use:
+
+- `doc/reference_summaries/08_Transmission_Error_Dataset_Family_Reference.md`
+
 ## Relevant Project Paths
 
 The current usage flow mainly relies on these folders:

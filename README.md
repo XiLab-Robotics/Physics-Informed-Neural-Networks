@@ -85,7 +85,11 @@ The most important folders for a new user are:
 - `config/`
   YAML configuration files for datasets, presets, and campaigns.
 - `data/simplified_dataset/`
-  Expected location for validated TE data.
+  Canonical validated TE curves used by current training and evaluation.
+- `data/original_dataset/`
+  Raw test-rig recordings used to reconstruct preprocessing and provenance.
+- `data/polished_dataset/`
+  Direction-separated row-level export derived directly from the raw dataset.
 - `output/`
   Training runs, validation checks, smoke tests, campaigns, and registries.
 - `doc/`
@@ -103,6 +107,7 @@ The most important folders for a new user are:
 If you only want to get started, begin with:
 
 - [Project Usage Guide](./doc/guide/project_usage_guide.md)
+- [Transmission Error Dataset Family Reference](./doc/reference_summaries/08_Transmission_Error_Dataset_Family_Reference.md)
 - [Documentation Index](./doc/README.md)
 - Public Documentation:
 

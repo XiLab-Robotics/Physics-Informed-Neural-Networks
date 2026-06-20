@@ -29,6 +29,11 @@ This folder contains the internal project documents derived from the reference P
   material, TwinCAT XML exports, and heavy instance archive, with repository
   implications for Track 1 and future deployment work.
 
+- [reference_summaries/08_Transmission_Error_Dataset_Family_Reference.md](./reference_summaries/08_Transmission_Error_Dataset_Family_Reference.md)
+  Canonical verified reference for the raw, simplified, and polished
+  transmission-error datasets, including lineage, schemas, equations, audit
+  results, and future-use guidance.
+
 ### Reference Asset Roots
 
 - [../reference/README.md](../reference/README.md)
@@ -450,6 +455,10 @@ This folder contains the internal project documents derived from the reference P
 ### Technical Documents
 
 #### 2026-06-20
+
+- [technical/2026-06/2026-06-20/2026-06-20-09-07-56_dataset_family_reference_documentation.md](./technical/2026-06/2026-06-20/2026-06-20-09-07-56_dataset_family_reference_documentation.md)
+  Technical plan for auditing the raw, simplified, and polished transmission
+  error datasets and creating canonical future-use reference documentation.
 
 - [technical/2026-06/2026-06-20/2026-06-20-01-16-39_repository_dataset_path_migration.md](./technical/2026-06/2026-06-20/2026-06-20-01-16-39_repository_dataset_path_migration.md)
   Technical plan for replacing every tracked textual `data/simplified_dataset` reference

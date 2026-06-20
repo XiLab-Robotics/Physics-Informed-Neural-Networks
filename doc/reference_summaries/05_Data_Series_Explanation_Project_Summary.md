@@ -51,3 +51,8 @@ This document explains how the test-rig data series are built and which operatio
 - Always track which position representation is being used.
 - Keep the ability to filter the valid window.
 - Make the difference between absolute zero, software zeroing, and cumulative position explicit in code.
+
+The repository-specific mapping of these concepts into
+`original_dataset`, `simplified_dataset`, and `polished_dataset` is maintained
+in
+`doc/reference_summaries/08_Transmission_Error_Dataset_Family_Reference.md`.

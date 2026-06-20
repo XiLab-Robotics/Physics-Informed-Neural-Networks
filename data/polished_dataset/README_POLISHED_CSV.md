@@ -1,12 +1,17 @@
 # Polished Transmission Error CSV Export
 
-The polished CSV export converts raw measurement files.
+The polished CSV export converts raw measurement files from
+`data/original_dataset/` into direction-separated, time-ordered CSV files.
+
+The canonical dataset lineage, signal definitions, equations, audit results,
+and usage constraints are documented in the
+[Transmission Error Dataset Family Reference](../../doc/reference_summaries/08_Transmission_Error_Dataset_Family_Reference.md).
 
 ## Folder Structure
 
-The input folder is definded by `INPUT_PATH`.
+The input folder is defined by `INPUT_PATH`.
 The output root is configured by `OUTPUT_PATH` in the exporter.
-Both need to ne changed by the user.
+Both must be changed by the user before running the script.
 
 The script exports all selected source files into direction and
 operating-condition folders:
@@ -26,10 +31,9 @@ csv/
 ## Duplicate Conditions
 
 Source files are grouped by the nominal speed, torque, and temperature parsed
-from the source filename. If multiple source files have the same conditions, the
-Python emits a `RuntimeWarning` and MATLAB emits a corresponding warning. Both
-keep the first sorted source file and skip later duplicates to avoid overwriting
-the same output path.
+from the source filename. If multiple source files have the same conditions,
+the Python exporter emits a `RuntimeWarning`, keeps the first sorted source
+file, and skips later duplicates to avoid overwriting the same output path.
 
 In the original dataset there are the following duplicated measurements that
 have to be handled manually:
@@ -73,20 +77,28 @@ theta,theta_dot,tau_load,T,theta_TE
 Columns:
 
 ```text
-theta      input-side angle, wrapped to [0, 360) deg, scaled by transmission ratio
-theta_dot  motor-side speed calculated from theta in rpm
-tau_load   load torque in Nm
-T          temperature in degC
-theta_TE   transmission error in deg
+theta      output-equivalent angle derived from the cumulative input encoder, deg
+theta_dot  motor/input-side speed derived from consecutive position samples, rpm
+tau_load   signed measured load/output-side Manner torque, Nm
+T          measured tested-reducer oil temperature, degC
+theta_TE   transmission error calculated from measured encoder positions, deg
 ```
 
-`theta_TE` is calculated as follows:
+`theta_TE` is calculated after the output-side zeroing correction:
 
 ```text
 theta_TE = q_not_zeroed - theta
 ```
 
-The output-side zeroing correction:
-Compute the first-three-sample absolute/cumulative offset in radians, wrap with
-`atan2(sin(x), cos(x))`, apply the cluster correction, then add the correction
-to slow shaft encoder angle.
+`theta` is not the unchanged absolute motor-encoder reading. The exporter
+divides the common-zeroed cumulative input-side encoder position by the gear
+ratio `81` and wraps the result to `[0, 360)`.
+
+The output-side zeroing correction computes the first-three-sample
+absolute/cumulative offset in radians, wraps it with
+`atan2(sin(x), cos(x))`, applies the retained cluster correction, and adds the
+result to the slow-shaft encoder angle.
+
+Direction comes from the parent `forward/` or `backward/` folder. Filename
+speed, torque, and temperature are nominal conditions; the CSV columns contain
+sample-level measured or derived values.

@@ -32,3 +32,11 @@ This document collects the operational guidance extracted from the quick project
 - For training: start from already cleaned data series.
 - For deployment: always keep dataset assumptions aligned with TwinCAT constraints.
 - For documentation: always connect datasets, experimental procedure, and compensation code.
+
+## Canonical Dataset Family Reference
+
+Use
+`doc/reference_summaries/08_Transmission_Error_Dataset_Family_Reference.md`
+for the verified relationship between the raw, simplified, and polished
+dataset roots, including schemas, units, generation equations, direction
+handling, audit results, and dataset-selection guidance.
