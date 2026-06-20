@@ -5,10 +5,11 @@ import re
 import warnings
 
 
-# Portable Standalone Paths
+# Repository Paths
 SCRIPT_PATH = Path(__file__).resolve().parent
-INPUT_PATH = SCRIPT_PATH.parent / "original_dataset"
-OUTPUT_PATH = SCRIPT_PATH / "generated_polished_dataset"
+PROJECT_PATH = SCRIPT_PATH.parents[1]
+INPUT_PATH = PROJECT_PATH / "data" / "original_dataset"
+OUTPUT_PATH = PROJECT_PATH / "output" / "generated_polished_dataset"
 
 GEAR_RATIO = 81.0
 SAMPLE_TIME_S = 0.25e-3

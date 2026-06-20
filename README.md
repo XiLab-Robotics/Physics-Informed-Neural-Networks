@@ -108,6 +108,7 @@ If you only want to get started, begin with:
 
 - [Project Usage Guide](./doc/guide/project_usage_guide.md)
 - [Transmission Error Dataset Family Reference](./doc/reference_summaries/08_Transmission_Error_Dataset_Family_Reference.md)
+- [Polished Dataset Generator Guide](./doc/scripts/datasets/generate_polished_transmission_error_dataset.md)
 - [Documentation Index](./doc/README.md)
 - Public Documentation:
 

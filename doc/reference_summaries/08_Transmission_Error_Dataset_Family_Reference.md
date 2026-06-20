@@ -29,6 +29,11 @@ come from those recordings:
 - `polished_dataset` is a direct row-level export produced by
   `data/polished_dataset/generate_polished_dataset.py`.
 
+A complete path-adapted repository copy is maintained at
+`scripts/datasets/generate_polished_transmission_error_dataset.py`. The two
+implementations have identical processing logic and differ only in their
+default path block.
+
 The repository currently defaults to `simplified_dataset` in
 `config/datasets/transmission_error_dataset.yaml`. Adopting `polished_dataset`
 for training requires a dedicated loader because its hierarchy and schema are
@@ -338,7 +343,7 @@ Use `polished_dataset` when:
 
 ## Reproducing The Polished Export
 
-Edit `INPUT_PATH` and `OUTPUT_PATH` at the top of:
+The standalone script resolves its defaults relative to its own location:
 
 ```text
 data/polished_dataset/generate_polished_dataset.py
@@ -350,9 +355,15 @@ Then run:
 python data/polished_dataset/generate_polished_dataset.py
 ```
 
-Generate into a separate temporary output root when validating reproducibility.
-Do not overwrite the tracked polished dataset until the regenerated file
-counts, schemas, and numeric parity have been checked.
+The repository-integrated copy uses `data/original_dataset/` as input and
+`output/generated_polished_dataset/` as output:
+
+```powershell
+conda run --no-capture-output -n pinns_env python scripts/datasets/generate_polished_transmission_error_dataset.py
+```
+
+Both versions protect existing files unless
+`OVERWRITE_EXISTING_FILES = True`.
 
 ## Usage Constraints
 

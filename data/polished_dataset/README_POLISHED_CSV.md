@@ -9,9 +9,20 @@ and usage constraints are documented in the
 
 ## Folder Structure
 
-The input folder is defined by `INPUT_PATH`.
-The output root is configured by `OUTPUT_PATH` in the exporter.
-Both must be changed by the user before running the script.
+The standalone generator uses portable paths relative to this folder:
+
+```text
+input  = ../original_dataset
+output = ./generated_polished_dataset
+```
+
+The complete repository-integrated copy is:
+
+```text
+scripts/datasets/generate_polished_transmission_error_dataset.py
+```
+
+Its output defaults to `output/generated_polished_dataset/`.
 
 The script exports all selected source files into direction and
 operating-condition folders:
@@ -102,3 +113,13 @@ result to the slow-shaft encoder angle.
 Direction comes from the parent `forward/` or `backward/` folder. Filename
 speed, torque, and temperature are nominal conditions; the CSV columns contain
 sample-level measured or derived values.
+
+## Safety
+
+Existing destination files are not replaced unless
+`OVERWRITE_EXISTING_FILES = True`. Missing inputs, invalid paths, empty source
+inventories, and processing skips cause the run to fail visibly.
+
+See
+`doc/scripts/datasets/generate_polished_transmission_error_dataset.md` for the
+standalone and repository commands and the exact verified differences.

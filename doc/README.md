@@ -456,6 +456,10 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-06-20
 
+- [technical/2026-06/2026-06-20/2026-06-20-10-38-02_polished_dataset_generator_repository_integration.md](./technical/2026-06/2026-06-20/2026-06-20-10-38-02_polished_dataset_generator_repository_integration.md)
+  Technical plan for minimally repairing the complete standalone polished
+  dataset generator and maintaining a path-adapted complete repository copy.
+
 - [technical/2026-06/2026-06-20/2026-06-20-09-07-56_dataset_family_reference_documentation.md](./technical/2026-06/2026-06-20/2026-06-20-09-07-56_dataset_family_reference_documentation.md)
   Technical plan for auditing the raw, simplified, and polished transmission
   error datasets and creating canonical future-use reference documentation.
@@ -2501,6 +2505,10 @@ This folder contains the internal project documents derived from the reference P
   Technical document for the Conda, PyTorch, and PyTorch Lightning environment baseline.
 
 ### Script Documentation
+
+- [scripts/datasets/generate_polished_transmission_error_dataset.md](./scripts/datasets/generate_polished_transmission_error_dataset.md)
+  Guide for the aligned standalone and repository-integrated polished
+  transmission-error dataset generators.
 
 - [scripts/datasets/transmission_error_dataset.md](./scripts/datasets/transmission_error_dataset.md)
   Script-level documentation for the TE dataset parser, PyTorch dataset, and dataloader utilities.

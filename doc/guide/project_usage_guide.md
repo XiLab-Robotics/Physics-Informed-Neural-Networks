@@ -141,6 +141,16 @@ audit results, and dataset-selection guidance, use:
 
 - `doc/reference_summaries/08_Transmission_Error_Dataset_Family_Reference.md`
 
+Generate a separate polished copy through the repository-integrated script:
+
+```powershell
+conda run --no-capture-output -n pinns_env python scripts/datasets/generate_polished_transmission_error_dataset.py
+```
+
+The default destination is `output/generated_polished_dataset/`. Existing
+files are protected unless `OVERWRITE_EXISTING_FILES` is enabled explicitly in
+the script.
+
 ## Relevant Project Paths
 
 The current usage flow mainly relies on these folders:
