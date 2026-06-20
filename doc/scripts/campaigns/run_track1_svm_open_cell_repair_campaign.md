@@ -1,9 +1,9 @@
-# Track 1 SVM Open-Cell Repair Campaign Launcher
+# RCIM Model-Bank Reproduction SVM Open-Cell Repair Campaign Launcher
 
 ## Overview
 
 This launcher executes the dedicated `SVR` repair package for the currently
-open `SVM` cells in the canonical `Track 1` benchmark. The package is designed
+open `SVM` cells in the canonical `RCIM Model-Bank Reproduction` benchmark. The package is designed
 to improve only the yellow and red `SVM` cells instead of rerunning the full
 `SVM` row blindly.
 

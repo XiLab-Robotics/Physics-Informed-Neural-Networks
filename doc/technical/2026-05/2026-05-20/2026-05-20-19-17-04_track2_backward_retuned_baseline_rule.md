@@ -1,13 +1,13 @@
-# Track 2 Backward Retuned Baseline Rule
+# TE Curve Verification Pipeline Backward Retuned Baseline Rule
 
 ## Overview
 
 This technical document plans the documentation-only formalization of the
-`Track 2` backward comparison baseline.
+`TE Curve Verification Pipeline` backward comparison baseline.
 
 The RCIM paper does not provide a paper-original backward benchmark equivalent
 to the forward Tables `2`-`5` reference surface. The repository therefore needs
-an explicit rule for `Target A` and `Track 2` closeout wording: the backward
+an explicit rule for `Target A` and `TE Curve Verification Pipeline` closeout wording: the backward
 offline comparison should use the repository-owned recovered-original retuned
 backward archive as the canonical paper-derived backward baseline.
 
@@ -24,9 +24,9 @@ The rule to formalize is:
   selected from the available forward comparison matrix;
 - backward `Target A` comparison uses `paper_retuned_best_Bw` as the canonical
   paper-derived baseline because no paper-original backward reference exists;
-- `Track 1` remains closed as a faithful full-dataset reproduction surface, not
+- `RCIM Model-Bank Reproduction` remains closed as a faithful full-dataset reproduction surface, not
   as the numeric winner for every offline comparison cell;
-- `Track 2` closeout should state the forward and backward baselines separately
+- `TE Curve Verification Pipeline` closeout should state the forward and backward baselines separately
   so future waves do not conflate paper-original availability with retuned
   backward evidence.
 
@@ -42,9 +42,9 @@ declared and approved before launch.
 
 ## Implementation Steps
 
-1. Update the live backlog `Target A` and `Track 2` closeout wording with the
+1. Update the live backlog `Target A` and `TE Curve Verification Pipeline` closeout wording with the
    backward retuned-baseline rule.
-2. Update the canonical `Track 2` comparison report so the rule is visible next
+2. Update the canonical `TE Curve Verification Pipeline` comparison report so the rule is visible next
    to the best composite references and closeout interpretation.
 3. Update the master summary only if its current `Target A` or roadmap wording
    would otherwise remain ambiguous.

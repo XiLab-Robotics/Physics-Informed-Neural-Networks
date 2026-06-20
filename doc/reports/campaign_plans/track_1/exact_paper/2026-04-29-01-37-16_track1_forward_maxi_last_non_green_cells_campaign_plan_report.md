@@ -1,8 +1,8 @@
-# Track 1 Forward Maxi Last Non-Green Cells Campaign Plan Report
+# RCIM Model-Bank Reproduction Forward Maxi Last Non-Green Cells Campaign Plan Report
 
 ## Overview
 
-This planning report prepares a new exact-paper `Track 1` forward-only maxi
+This planning report prepares a new exact-paper `RCIM Model-Bank Reproduction` forward-only maxi
 campaign after the completed `forward_last_non_green_cells` wave.
 
 The canonical forward status is now:

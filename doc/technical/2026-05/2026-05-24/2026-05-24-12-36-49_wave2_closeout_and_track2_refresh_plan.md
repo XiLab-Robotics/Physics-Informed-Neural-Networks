@@ -1,9 +1,9 @@
-# Wave 2 Closeout And Track 2 Refresh Plan
+# Wave 2.1 Closeout And TE Curve Verification Pipeline Refresh Plan
 
 ## Overview
 
-Close out the completed `Wave 2` temporal-model entry campaign and plan the
-official `Track 2` verification refresh for the new temporal candidates.
+Close out the completed `Wave 2.1` temporal-model entry campaign and plan the
+official `TE Curve Verification Pipeline` verification refresh for the new temporal candidates.
 
 The campaign `wave2_temporal_model_entry_campaign_2026_05_24_11_01_15`
 completed all `9` planned runs:
@@ -14,8 +14,8 @@ completed all `9` planned runs:
 
 The local campaign winner is `te_gru_sequence_remote_Fw` with test MAE
 `0.0033327306155115366`. This is a training-campaign result, not yet an
-accepted `Track 2` verification result. Acceptance requires the official
-direction-aware `Track 2` matrix and visual evidence to be refreshed.
+accepted `TE Curve Verification Pipeline` verification result. Acceptance requires the official
+direction-aware `TE Curve Verification Pipeline` matrix and visual evidence to be refreshed.
 
 No subagent use is planned for this task.
 
@@ -23,9 +23,9 @@ No subagent use is planned for this task.
 
 Use two separate deliverables:
 
-1. A `Wave 2` campaign closeout report under `doc/reports/campaign_results/`
+1. A `Wave 2.1` campaign closeout report under `doc/reports/campaign_results/`
    with a styled PDF companion.
-2. A `Track 2` refresh plan/report path that records how the newly trained
+2. A `TE Curve Verification Pipeline` refresh plan/report path that records how the newly trained
    temporal candidates will be added to the official model-verification
    workflow.
 
@@ -34,17 +34,17 @@ The closeout report should summarize:
 - campaign package and execution provenance;
 - all `9` candidate runs;
 - campaign leaderboard and best run;
-- comparison against the existing `Wave 1` and official `Track 2` baselines;
+- comparison against the existing `Wave 1` and official `TE Curve Verification Pipeline` baselines;
 - decision boundary between training success and official verification.
 
-The `Track 2` refresh plan should require:
+The `TE Curve Verification Pipeline` refresh plan should require:
 
-- adding the `Wave 2` candidates to the direction-aware matrix;
+- adding the `Wave 2.1` candidates to the direction-aware matrix;
 - regenerating candidate collages for the relevant temporal winners;
 - regenerating multi-model overlays against the current reference and `Wave 1`
   anchors;
-- updating the official `Track 2` model-verification report ledger;
-- exporting and validating the official `Track 2` PDF after the refreshed
+- updating the official `TE Curve Verification Pipeline` model-verification report ledger;
+- exporting and validating the official `TE Curve Verification Pipeline` PDF after the refreshed
   matrix and visual reports exist.
 
 ## Involved Components
@@ -70,15 +70,15 @@ The `Track 2` refresh plan should require:
 ## Implementation Steps
 
 1. Verify the campaign manifest, leaderboard, best-run file, and family
-   registries for all `9` Wave 2 runs.
-2. Create the Wave 2 closeout report under
+   registries for all `9` Wave 2.1 runs.
+2. Create the Wave 2.1 closeout report under
    `doc/reports/campaign_results/wave_2/`.
 3. Export the closeout report to PDF and validate the real PDF deliverable.
 4. Update `Training Results Master Summary.md`, `te_model_live_backlog.md`,
    and `doc/README.md` with the closeout interpretation.
-5. Create a Track 2 refresh plan/report that lists the exact candidates,
+5. Create a TE Curve Verification refresh plan/report that lists the exact candidates,
    matrix rows, visual outputs, and official PDF refresh requirements.
-6. Do not treat any Wave 2 temporal model as officially accepted until the
-   refreshed `Track 2` matrix and visual reports are generated and reviewed.
+6. Do not treat any Wave 2.1 temporal model as officially accepted until the
+   refreshed `TE Curve Verification Pipeline` matrix and visual reports are generated and reviewed.
 7. Run Markdown QA, PDF validation, and Sphinx validation for touched
    documentation and portal surfaces.

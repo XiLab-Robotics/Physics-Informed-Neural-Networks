@@ -1,8 +1,8 @@
-# Track 1 Overnight Gap-Closure Campaign Results Report
+# RCIM Model-Bank Reproduction Overnight Gap-Closure Campaign Results Report
 
 ## Overview
 
-This report closes the overnight `Track 1` campaign prepared in:
+This report closes the overnight `RCIM Model-Bank Reproduction` campaign prepared in:
 
 - `doc/reports/campaign_plans/track_1/harmonic_wise/2026-04-13-00-55-21_track1_overnight_gap_closure_campaign_plan_report.md`
 
@@ -49,9 +49,9 @@ Outcome:
 - the engineered-term re-check did not justify promotion over the best
   no-engineering `HGBM` runs.
 
-Primary `Track 1` interpretation:
+Primary `RCIM Model-Bank Reproduction` interpretation:
 
-- this campaign does not close `Track 1` by winner selection alone;
+- this campaign does not close `RCIM Model-Bank Reproduction` by winner selection alone;
 - its value is to provide support evidence for the still-open exact-paper cells;
 - the canonical closure status must still be read from the exact-paper Tables
   `3-6` report, not from the campaign-local ranking table.
@@ -138,13 +138,13 @@ Its result was:
 
 This run is useful as support evidence because it is the lowest-error completed
 candidate under the shared offline evaluator, but it is not the canonical
-`Track 1` closure signal.
+`RCIM Model-Bank Reproduction` closure signal.
 
-## Primary Track 1 Readout
+## Primary RCIM Model-Bank Reproduction Readout
 
-For `Track 1`, the important question after this campaign is not only which run
-won locally, but which paper-table cells can be treated as better supported for
-the next exact-paper repair pass.
+For `RCIM Model-Bank Reproduction`, the important question after this campaign
+is not only which run won locally, but which paper-table cells can be treated
+as better supported for the next exact-paper repair pass.
 
 The main campaign conclusions for that purpose are:
 
@@ -153,7 +153,7 @@ The main campaign conclusions for that purpose are:
 - `h162 / h240` remain the strongest isolated late-harmonic repair direction;
 - `RandomForest` did not earn additional priority under the current
   coefficient-based support branch;
-- engineered features did not justify promotion into the next `Track 1`
+- engineered features did not justify promotion into the next `RCIM Model-Bank Reproduction`
   repair cycle.
 
 ## Interpretation By Experiment Block
@@ -215,12 +215,12 @@ Interpretation:
 - the engineered operating-condition terms remain weaker than the best
   no-engineering `HGBM` configurations for this branch;
 - the overnight batch therefore does not justify making engineered terms the
-  new `Track 1` default.
+  new `RCIM Model-Bank Reproduction` default.
 
 ## Recommended Next Step
 
 The batch improved the supporting harmonic-wise evaluator, but it did not
-change the canonical `Track 1` closure verdict by itself.
+change the canonical `RCIM Model-Bank Reproduction` closure verdict by itself.
 
 The most defensible next step is:
 

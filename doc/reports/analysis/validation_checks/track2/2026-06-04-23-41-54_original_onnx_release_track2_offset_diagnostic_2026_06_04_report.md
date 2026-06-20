@@ -32,7 +32,7 @@ forward evaluation surfaces.
 | `XGBM` | 4 | 0.000043 | 0.000041 | 0.000056 | 0.000053 | 0.000010 | 0.000010 |
 | `LGBM` | 20 | 0.040953 | 0.040953 | 0.084579 | 0.084579 | 0.000001 | 0.000000 |
 
-## Track 2 Forward Curve Parity
+## TE Curve Verification Pipeline Forward Curve Parity
 
 | Family | ONNX MAE [deg] | Repo MAE [deg] | Delta MAE [deg] | ONNX MPE [%] | Repo MPE [%] | Delta MPE [%] |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
@@ -45,7 +45,7 @@ forward evaluation surfaces.
 | `HGBM` | 0.002011 | 0.002011 | 0.000000 | 4.493 | 4.493 | 0.000 |
 | `LGBM` | 0.001801 | 0.001801 | 0.000000 | 4.017 | 4.017 | 0.000 |
 
-## Track 2 Mean-Centered Offset Diagnostics
+## TE Curve Verification Pipeline Mean-Centered Offset Diagnostics
 
 | Source | Family | Raw MAE [deg] | Centered MAE [deg] | Mean Abs Offset [deg] | MAE Improvement [%] |
 | --- | --- | ---: | ---: | ---: | ---: |
@@ -71,7 +71,7 @@ forward evaluation surfaces.
 
 - validation summary: `output\validation_checks\rcim_original_onnx_release_parity\2026-06-04-23-41-54__original_onnx_release_track2_offset_diagnostic_2026_06_04\validation_summary.yaml`;
 - target parity CSV: `output\validation_checks\rcim_original_onnx_release_parity\2026-06-04-23-41-54__original_onnx_release_track2_offset_diagnostic_2026_06_04\tables_2_5_target_parity.csv`;
-- Track 2 offset diagnostics CSV: `output\validation_checks\rcim_original_onnx_release_parity\2026-06-04-23-41-54__original_onnx_release_track2_offset_diagnostic_2026_06_04\track2_curve_offset_diagnostics.csv`.
+- TE Curve Verification Pipeline offset diagnostics CSV: `output\validation_checks\rcim_original_onnx_release_parity\2026-06-04-23-41-54__original_onnx_release_track2_offset_diagnostic_2026_06_04\track2_curve_offset_diagnostics.csv`.
 
 ## Failures
 

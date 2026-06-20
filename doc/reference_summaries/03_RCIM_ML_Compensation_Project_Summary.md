@@ -57,15 +57,15 @@ These three variables describe a large part of the operating dependence of the T
   separate.
 - The recovered exact ONNX release in the repository must still be read as a
   forward-side evidence surface, but the repository now owns a faithful
-  original-dataset Track 1 reimplementation for both `forward` and `backward`
+  original-dataset RCIM Model-Bank Reproduction reimplementation for both `forward` and `backward`
   directions.
 - The recovered original pipeline is preserved as a near-literal runnable copy
   under
   `scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/`.
-- Accepted Track 1 paper-reference models live under
+- Accepted RCIM Model-Bank Reproduction paper-reference models live under
   `models/paper_reference/rcim_track1/`, and their Tables `2`-`5` comparison
   surface is `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`.
-- Track 1 is now closed as the full-dataset faithful model-bank reproduction:
+- RCIM Model-Bank Reproduction is now closed as the full-dataset faithful model-bank reproduction:
   forward and backward grid-search campaigns were completed and the benchmark
   tables were repopulated. Remaining yellow/red cells are recorded as
   benchmark evidence, not as closure blockers.

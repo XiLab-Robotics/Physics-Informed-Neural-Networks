@@ -1,8 +1,8 @@
-# Track 1 Extended Overnight Campaign Preparation
+# RCIM Model-Bank Reproduction Extended Overnight Campaign Preparation
 
 ## Overview
 
-This document prepares a much larger and more aggressive `Track 1`
+This document prepares a much larger and more aggressive `RCIM Model-Bank Reproduction`
  harmonic-wise campaign after the latest overnight batch showed that the
  current validation runs are operationally cheap.
 
@@ -43,7 +43,7 @@ The campaign will remain inside the current repository-owned harmonic-wise
 The planning priority is:
 
 1. spend most of the runtime budget on `HGBM`, because that family still owns
-   the strongest `Track 1` results;
+   the strongest `RCIM Model-Bank Reproduction` results;
 2. retain only a narrow control budget for `RF` and engineered-feature
    branches;
 3. allocate significantly more variants to `h0/h1` and to the late

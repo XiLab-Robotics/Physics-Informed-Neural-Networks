@@ -1,8 +1,8 @@
-# Track 1 Overnight Gap-Closure Campaign Package
+# RCIM Model-Bank Reproduction Overnight Gap-Closure Campaign Package
 
 ## Overview
 
-This package prepares the next overnight `Track 1` batch after the canonical
+This package prepares the next overnight `RCIM Model-Bank Reproduction` batch after the canonical
 paper-table replication milestone.
 
 It is intentionally a single launch surface built from `4` logical campaign
@@ -56,7 +56,7 @@ coordinated overnight batch.
 All runs stay inside the currently implemented harmonic-wise offline evaluator.
 
 This package does not introduce new target parameterization code. Its role is
-to push the current coefficient-based `Track 1` branch as far as possible
+to push the current coefficient-based `RCIM Model-Bank Reproduction` branch as far as possible
 against:
 
 - the paper Tables `3-6` gap surface;

@@ -2,7 +2,7 @@
 
 ## Overview
 
-The current remote `Track 1` bidirectional original-dataset mega-campaign is
+The current remote `RCIM Model-Bank Reproduction` bidirectional original-dataset mega-campaign is
 not scientifically reusable as a live continuation point.
 
 The interrupted execution already mixed several launcher generations:

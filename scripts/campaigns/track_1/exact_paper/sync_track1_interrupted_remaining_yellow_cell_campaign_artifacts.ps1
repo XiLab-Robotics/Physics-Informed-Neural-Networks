@@ -275,7 +275,7 @@ $runTimestamp = Get-Date -Format "yyyy-MM-dd-HH-mm-ss"
 $localRunStageDirectory = Join-Path $localStagingRootPath $runTimestamp
 New-Item -ItemType Directory -Force -Path $localRunStageDirectory | Out-Null
 
-Write-StatusLine "INFO" "Track 1 interrupted SVM manual sync starting"
+Write-StatusLine "INFO" "RCIM Model-Bank Reproduction interrupted SVM manual sync starting"
 Write-StatusLine "INFO" "Campaign | $resolvedCampaignName"
 Write-StatusLine "INFO" "Canonical local campaign status | $resolvedCampaignStatus"
 Write-StatusLine "INFO" "Remote host alias | $resolvedRemoteHostAlias"

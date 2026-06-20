@@ -9,7 +9,7 @@ to reproduce the offline logic of
 This topic is not the same as the repository's direct-TE training families.
 
 It belongs to the paper-faithful reproduction branch, which the backlog now
-calls `Track 1`.
+calls `RCIM Model-Bank Reproduction`.
 
 The purpose of this branch is clear:
 
@@ -74,18 +74,18 @@ code, artifacts, and reports?
 
 The repository now keeps two comparison tracks:
 
-- `Track 1`
+- `RCIM Model-Bank Reproduction`
   paper-faithful harmonic-wise reproduction.
-- `Track 2`
+- `TE Curve Verification Pipeline`
   repository direct-TE comparison under a common offline TE-curve evaluator.
 
-This guide is only about `Track 1`.
+This guide is only about `RCIM Model-Bank Reproduction`.
 
-## Track 1 Completion Rule
+## RCIM Model-Bank Reproduction Completion Rule
 
-The canonical `Track 1` completion rule is not a single campaign winner.
+The canonical `RCIM Model-Bank Reproduction` completion rule is not a single campaign winner.
 
-`Track 1` is now closed as the faithful full-dataset model-bank
+`RCIM Model-Bank Reproduction` is now closed as the faithful full-dataset model-bank
 reproduction. Closure means the repository has run both forward and backward
 paper-faithful grid-search campaigns, refreshed accepted archives, and
 repopulated Tables `2`, `3`, `4`, and `5` with inspectable per-target and
@@ -93,10 +93,10 @@ per-family status.
 
 That means:
 
-- the primary `Track 1` readout is the exact-paper table-replication report;
+- the primary `RCIM Model-Bank Reproduction` readout is the exact-paper table-replication report;
 - the harmonic-wise TE-curve evaluator is still useful, but only as support
   evidence;
-- all-green benchmark coloring is not required for the faithful Track 1
+- all-green benchmark coloring is not required for the faithful RCIM Model-Bank Reproduction
   closure; yellow and red cells remain evidence of the numerical gap under the
   recovered original protocol.
 
@@ -271,7 +271,7 @@ The current offline paper target is:
 
 So the comparison protocol now exists, but `Target A` is not closed yet.
 
-Track 1 is closed separately from `Target A`: the model-bank reproduction
+RCIM Model-Bank Reproduction is closed separately from `Target A`: the model-bank reproduction
 surface has been populated and archived, while the later TE-curve and online
 compensation branches still need their own validation.
 
@@ -360,7 +360,7 @@ only a direct-TE leaderboard.
 
 The important operational nuance is that the harmonic-wise support branch and
 the exact-paper table-replication branch must not be collapsed into one
-winner-centric story. For `Track 1`, the table-replication branch is primary.
+winner-centric story. For `RCIM Model-Bank Reproduction`, the table-replication branch is primary.
 
 ## Related Reading
 

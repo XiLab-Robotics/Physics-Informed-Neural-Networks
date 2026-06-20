@@ -53,9 +53,9 @@ that explicit and either materialize the ONNX export during closeout or record
 the export failure surface cleanly inside the curated archive.
 
 The closeout must not silently rewrite the unrelated protected
-`Track 1` active-campaign state. The current
+`RCIM Model-Bank Reproduction` active-campaign state. The current
 `doc/running/active_training_campaign.yaml` still points to a separate
-`Track 1` campaign marked `running`. If the closeout would need to edit that
+`RCIM Model-Bank Reproduction` campaign marked `running`. If the closeout would need to edit that
 protected file, a `CRITICAL WARNING` must be surfaced first and explicit user
 approval must be obtained before touching it.
 

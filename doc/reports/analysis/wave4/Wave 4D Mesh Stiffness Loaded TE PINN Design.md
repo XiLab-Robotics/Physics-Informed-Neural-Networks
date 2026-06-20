@@ -1,8 +1,8 @@
-# Wave 4D Mesh Stiffness Loaded TE PINN Design
+# Wave 5.2D Mesh Stiffness Loaded TE PINN Design
 
 ## Purpose
 
-`Wave 4D` explores time-varying mesh stiffness and loaded static transmission
+`Wave 5.2D` explores time-varying mesh stiffness and loaded static transmission
 error (`LSTE`) as soft constraints. This branch is motivated by gear-dynamics
 literature that links TE, mesh deformation, mesh stiffness, torque, and
 dynamic response.
@@ -43,7 +43,7 @@ RV-reducer equations.
 3. Add weak loaded-TE residual consistency loss.
 4. Compare against data-only and MMT-only candidates.
 5. Promote only if torque/load stratification improves without hurting
-   direction-separated Track 2 metrics.
+   direction-separated TE Curve Verification Pipeline metrics.
 
 ## Risks
 

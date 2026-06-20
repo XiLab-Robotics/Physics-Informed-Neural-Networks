@@ -2,7 +2,7 @@
 
 ## Overview
 
-This script runs the first `Track 2` repository-owned comparison between one
+This script runs the first `TE Curve Verification Pipeline` repository-owned comparison between one
 paper-faithful exact-paper family archive and one repository direct-TE
 baseline.
 
@@ -88,10 +88,10 @@ conda run -n pinns_env python scripts/paper_reimplementation/rcim_ml_compensatio
 
 Use this script when:
 
-- the project needs the first `Track 2` `paper-faithful bank vs direct-TE`
+- the project needs the first `TE Curve Verification Pipeline` `paper-faithful bank vs direct-TE`
   comparison;
 - the team wants one shared TE-curve metric surface before extending the same
-  workflow to other `Track 1` families;
+  workflow to other `RCIM Model-Bank Reproduction` families;
 - future cherry-picked harmonic banks will reuse the same evaluator contract.
 
 Operational note:

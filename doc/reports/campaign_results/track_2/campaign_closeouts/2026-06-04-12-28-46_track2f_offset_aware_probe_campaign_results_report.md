@@ -1,8 +1,8 @@
-# Track 2F Offset-Aware Probe Campaign Results
+# Wave 3.1 Offset-Aware Probe Campaign Results
 
 ## Overview
 
-This report closes the approved `Track 2F` offset-aware probe campaign. The
+This report closes the approved `Wave 3.1` offset-aware probe campaign. The
 executed package trained the first learned `sequential_residual_offset_probe`
 candidate across the three required direction surfaces: `global`, `Fw`, and
 `Bw`.
@@ -14,7 +14,7 @@ artifacts show `0` failed runs, per-run process return code `0`, and no
 traceback in the run logs.
 
 The scalar leaderboard ranks `Fw` first by `test_mae`, but that ranking is only
-a diagnostic ordering. `Track 2F` keeps three parallel best branches for future
+a diagnostic ordering. `Wave 3.1` keeps three parallel best branches for future
 verification and deployment analysis: one `global`, one `Fw`, and one `Bw`
 candidate.
 
@@ -76,7 +76,7 @@ entry in this small campaign, but it does not replace the required `global` or
 
 The sequential residual-offset probe is execution-valid and provides the first
 learned branch that directly targets the mean-offset failure mode found by the
-`Track 2` mean-centered diagnostic, `Track 2D`, and `Track 2E`.
+`TE Curve Verification Pipeline` mean-centered diagnostic, `CVP 1.4`, and `CVP 1.5`.
 
 The scalar test metrics do not beat the current program-level scalar training
 winner, `te_periodic_gru_sequence_remote_Bw`, which remains at test `MAE`
@@ -84,7 +84,7 @@ winner, `te_periodic_gru_sequence_remote_Bw`, which remains at test `MAE`
 designed to test whether the offset branch is feasible, not to promote a new
 global scalar winner from pointwise training alone.
 
-Track 2F is also a clean non-harmonic baseline. The
+Wave 3.1 is also a clean non-harmonic baseline. The
 `sequential_residual_offset_probe` architecture does not include explicit
 harmonic forcing, periodic `sin`/`cos` feature expansion, `RCIM` harmonic
 indices, or a structured harmonic branch. It should therefore not be judged as
@@ -95,7 +95,7 @@ composite losses.
 
 The important closeout result is therefore structural. The repository now has
 three trained sequential residual-offset candidates that can be evaluated in
-the official curve-first `Track 2` surface:
+the official curve-first `TE Curve Verification Pipeline` surface:
 
 - `global`: bidirectional/general candidate.
 - `Fw`: forward-only candidate.
@@ -105,22 +105,22 @@ the official curve-first `Track 2` surface:
 
 | Registry Scope | Current Family Best | Test MAE | Interpretation |
 | --- | --- | ---: | --- |
-| `sequential_residual_offset_probe` | `te_sequential_residual_offset_probe_remote_global` | 0.003537 | New `global` Track 2F branch candidate |
-| `sequential_residual_offset_probe_fw` | `te_sequential_residual_offset_probe_remote_fw` | 0.003385 | New forward-only Track 2F branch candidate |
-| `sequential_residual_offset_probe_bw` | `te_sequential_residual_offset_probe_remote_bw` | 0.003638 | New backward-only Track 2F branch candidate |
+| `sequential_residual_offset_probe` | `te_sequential_residual_offset_probe_remote_global` | 0.003537 | New `global` Wave 3.1 branch candidate |
+| `sequential_residual_offset_probe_fw` | `te_sequential_residual_offset_probe_remote_fw` | 0.003385 | New forward-only Wave 3.1 branch candidate |
+| `sequential_residual_offset_probe_bw` | `te_sequential_residual_offset_probe_remote_bw` | 0.003638 | New backward-only Wave 3.1 branch candidate |
 
 The campaign runner refreshed the family registries for all three branch
 families and updated the program registry. The program-level scalar best did
-not move because the existing Wave 2B periodic `GRU` backward-only model is
+not move because the existing Wave 2.2 periodic `GRU` backward-only model is
 still stronger on scalar `test_mae`.
 
-## Track 2 Boundary
+## TE Curve Verification Pipeline Boundary
 
-`Track 2` was not run as part of this closeout. Under campaign governance, the
+`TE Curve Verification Pipeline` was not run as part of this closeout. Under campaign governance, the
 official curve-first verification remains a separate operator-approved workflow
 after the final campaign-results report and PDF are complete.
 
-The next verification package should evaluate all three Track 2F branches in
+The next verification package should evaluate all three Wave 3.1 branches in
 parallel, not only the scalar-first `Fw` row. The goal is to measure whether
 the offset-aware structure improves curve following and mean-offset behavior on
 the matching `global`, `Fw`, and `Bw` surfaces.
@@ -131,15 +131,15 @@ The campaign is complete and successful from an execution standpoint: all three
 runs completed, the leaderboard and best-run artifacts exist, and the three
 family registries were refreshed.
 
-From a modeling standpoint, Track 2F is a completed feasibility branch. It is
+From a modeling standpoint, Wave 3.1 is a completed feasibility branch. It is
 not promoted over the current scalar program winner until a separate official
-Track 2 curve-first refresh confirms a real curve-level gain.
+TE Curve Verification Pipeline curve-first refresh confirms a real curve-level gain.
 
 ## Recommended Follow-Up
 
-1. Keep all three Track 2F branch candidates: `global`, `Fw`, and `Bw`.
-2. Do not collapse Track 2F to the scalar-first `Fw` candidate.
-3. Keep Track 2F as the clean non-harmonic baseline for future comparisons
+1. Keep all three Wave 3.1 branch candidates: `global`, `Fw`, and `Bw`.
+2. Do not collapse Wave 3.1 to the scalar-first `Fw` candidate.
+3. Keep Wave 3.1 as the clean non-harmonic baseline for future comparisons
    against harmonic-offset, new-index, multi-head, and composite-loss models.
-4. Prepare the optional Track 2 curve-first verification refresh as the next
+4. Prepare the optional TE curve-first verification refresh as the next
    operator-launched step.

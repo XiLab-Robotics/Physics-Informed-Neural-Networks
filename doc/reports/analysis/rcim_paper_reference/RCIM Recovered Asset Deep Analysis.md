@@ -7,7 +7,7 @@ This report consolidates the recovered RCIM paper assets now stored under
 Its goal is not simple archival bookkeeping. The goal is to reconstruct, as
 precisely as the recovered evidence allows, how the paper-era models were
 generated, evaluated, exported, and prepared for deployment so that
-`Track 1` can be reimplemented in a paper-faithful way inside this repository.
+`RCIM Model-Bank Reproduction` can be reimplemented in a paper-faithful way inside this repository.
 
 The recovered package is strong enough to reconstruct the main methodology and
 most of the practical training/export flow. It is not a perfectly frozen,
@@ -47,10 +47,10 @@ harmonic-wise and target-wise:
 
 The strongest practical conclusion is this:
 
-- the recovered assets do not support reusing our current `Track 1` pipeline as
+- the recovered assets do not support reusing our current `RCIM Model-Bank Reproduction` pipeline as
   "close enough";
 - they support implementing a second, stricter paper-faithful branch inside
-  `Track 1` that mirrors the original RCIM asset logic much more closely.
+  `RCIM Model-Bank Reproduction` that mirrors the original RCIM asset logic much more closely.
 
 The second major conclusion is this:
 
@@ -303,7 +303,7 @@ important class:
 - targets are selected as `phase`, `ampl`, or both;
 - train/test split is `train_test_split(..., test_size=0.20, random_state=0)`.
 
-This is a crucial clarification for `Track 1`:
+This is a crucial clarification for `RCIM Model-Bank Reproduction`:
 
 - the code launches one family object at a time;
 - `MultiOutputRegressor` then clones that estimator internally per target;
@@ -509,7 +509,7 @@ most plausible explanations are:
 
 ### Current Repository Position
 
-Our current `Track 1` branch already reproduces the high-level concept:
+Our current `RCIM Model-Bank Reproduction` branch already reproduces the high-level concept:
 
 - harmonic-wise offline prediction;
 - TE reconstruction;
@@ -529,7 +529,7 @@ The paper-faithful recovered path is:
 - component-wise and total evaluation
 - later assembly of the best target-wise bank
 
-Our current repository `Track 1` baseline differs mainly because it was built
+Our current repository `RCIM Model-Bank Reproduction` baseline differs mainly because it was built
 as a repository-owned reconstruction path before these exact recovered assets
 were available. That means the recovered package now gives us a stricter target
 for parity.
@@ -542,7 +542,7 @@ The recovered assets make three new things practical:
 - exact hyperparameter parity for the final paper family list;
 - exact export-surface parity through one ONNX per target.
 
-This is the correct foundation for the next serious `Track 1` step.
+This is the correct foundation for the next serious `RCIM Model-Bank Reproduction` step.
 
 ## What Is Already Implemented Here
 
@@ -651,9 +651,9 @@ This is important because the user hypothesis about `.pkl` models was
 reasonable, but the recovered evidence currently points more strongly to stored
 instance objects and signal archives than to estimator pickles.
 
-## Exact Consequences For Track 1 Reimplementation
+## Exact Consequences For RCIM Model-Bank Reproduction Reimplementation
 
-The recovered assets imply that the next strict `Track 1` branch should do the
+The recovered assets imply that the next strict `RCIM Model-Bank Reproduction` branch should do the
 following.
 
 ### 1. Reimplement The Exact Paper Target Space
@@ -738,13 +738,13 @@ The recovered workflow strongly suggests a final selection layer:
 - best family for `phase_240`
 
 This repository should therefore add an inspectable target-wise registry rather
-than keeping `Track 1` as a single-family-only benchmark.
+than keeping `RCIM Model-Bank Reproduction` as a single-family-only benchmark.
 
 ## Recommended Next Steps
 
 The next implementation order should be:
 
-1. create a strict `Track 1` sub-branch for exact paper-family reproduction;
+1. create a strict `RCIM Model-Bank Reproduction` sub-branch for exact paper-family reproduction;
 2. add the exact RCIM target schema `ampl/phase` instead of only the current
    repository harmonic parameterization;
 3. implement the exact family bank and recovered tuned hyperparameters;
@@ -757,7 +757,7 @@ The next implementation order should be:
 
 ## Final Assessment
 
-The recovered RCIM assets are now strong enough to move `Track 1` from a
+The recovered RCIM assets are now strong enough to move `RCIM Model-Bank Reproduction` from a
 paper-aligned approximation into a much stricter paper-faithful
 reimplementation program.
 
@@ -771,5 +771,5 @@ following with high confidence:
 - the component-wise evaluation logic;
 - the TwinCAT export reality of the paper branch.
 
-That is enough to define the next serious phase of `Track 1` with much less
+That is enough to define the next serious phase of `RCIM Model-Bank Reproduction` with much less
 guesswork than before.

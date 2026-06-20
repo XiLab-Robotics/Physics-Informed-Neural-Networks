@@ -1,8 +1,8 @@
-# Track 1 Forward Original-Dataset Remote Micro Campaign Launcher
+# RCIM Model-Bank Reproduction Forward Original-Dataset Remote Micro Campaign Launcher
 
 ## Overview
 
-This launcher executes the prepared `Track 1` forward-only remote micro
+This launcher executes the prepared `RCIM Model-Bank Reproduction` forward-only remote micro
 campaign.
 
 The script is stored in:

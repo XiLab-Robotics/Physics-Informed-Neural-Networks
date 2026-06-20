@@ -1,8 +1,8 @@
-# Track 1 Forward Open-Cell Repair Remote Artifact Sync Length Fix
+# RCIM Model-Bank Reproduction Forward Open-Cell Repair Remote Artifact Sync Length Fix
 
 ## Overview
 
-The remote `Track 1` forward open-cell repair campaign
+The remote `RCIM Model-Bank Reproduction` forward open-cell repair campaign
 `track1_forward_open_cell_repair_campaign_2026-04-27_13_08_10` completed all
 `300/300` exact-paper runs successfully, but the wrapper failed during the
 final remote-to-local artifact synchronization phase. The failure happened

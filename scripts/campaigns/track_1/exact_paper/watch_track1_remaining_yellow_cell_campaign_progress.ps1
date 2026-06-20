@@ -277,7 +277,7 @@ $activeLogLine = Get-LastMatchingLine -LineList $rawLineList -Prefix "ACTIVE_LOG
 
 Write-Host ""
 Write-Host ("=" * 96) -ForegroundColor DarkCyan
-Write-Host "[INFO] Track 1 Remaining Yellow-Cell Campaign Progress Monitor" -ForegroundColor Cyan
+Write-Host "[INFO] RCIM Model-Bank Reproduction Remaining Yellow-Cell Campaign Progress Monitor" -ForegroundColor Cyan
 Write-Host ("=" * 96) -ForegroundColor DarkCyan
 Write-Host "[INFO] Mode | $(if ($DirectOnRemote) { 'direct_on_remote' } else { 'ssh_remote' })" -ForegroundColor Cyan
 Write-Host "[INFO] Remote Host Alias | $RemoteHostAlias" -ForegroundColor Cyan

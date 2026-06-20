@@ -1,8 +1,8 @@
-# Wave 2 Temporal Model Entry Campaign Plan Report
+# Wave 2.1 Temporal Model Entry Campaign Plan Report
 
 ## Executive Summary
 
-This preliminary campaign plan prepares the first `Wave 2` temporal-model
+This preliminary campaign plan prepares the first `Wave 2.1` temporal-model
 comparison without launching training.
 
 The campaign is scoped to three lightweight sequence families:
@@ -12,7 +12,7 @@ The campaign is scoped to three lightweight sequence families:
 - `lstm_sequence`
 
 Each family must expose the same three verification surfaces used by the
-closed `Wave 1` and official `Track 2` workflow:
+closed `Wave 1` and official `TE Curve Verification Pipeline` workflow:
 
 - `global`
 - `Fw`
@@ -24,14 +24,14 @@ approved.
 
 ## Baseline And Verification Rule
 
-`Track 2` is the official offline verification report for new model families.
-The Wave 2 candidates are not accepted by training metrics alone. Promoted
+`TE Curve Verification Pipeline` is the official offline verification report for new model families.
+The Wave 2.1 candidates are not accepted by training metrics alone. Promoted
 results must refresh:
 
-- the official direction-aware `Track 2` matrix;
+- the official direction-aware `TE Curve Verification Pipeline` matrix;
 - the best-model collage report;
 - the multi-model curve comparison report;
-- the official `Track 2` update ledger;
+- the official `TE Curve Verification Pipeline` update ledger;
 - the family and program registries.
 
 The campaign inherits the direction rule:
@@ -109,12 +109,12 @@ After campaign execution:
   `campaign_best_run.md`;
 - update family and program registries;
 - refresh `Training Results Master Summary.md`;
-- refresh the official `Track 2` report and visual companion reports for
+- refresh the official `TE Curve Verification Pipeline` report and visual companion reports for
   promoted candidates.
 
 ## Decision Criteria
 
-Wave 2 candidates are promoted only if they provide a clear benefit over the
-closed `Wave 1` and official `Track 2` baselines on direction-aware held-out
+Wave 2.1 candidates are promoted only if they provide a clear benefit over the
+closed `Wave 1` and official `TE Curve Verification Pipeline` baselines on direction-aware held-out
 TE reconstruction, while remaining simple enough to inspect and later assess
 for PLC/TwinCAT deployment.

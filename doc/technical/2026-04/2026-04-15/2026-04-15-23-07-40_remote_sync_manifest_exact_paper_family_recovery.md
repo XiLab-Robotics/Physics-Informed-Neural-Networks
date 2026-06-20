@@ -2,7 +2,7 @@
 
 ## Overview
 
-The remote `Track 1` `SVR` campaign now reaches and completes the actual
+The remote `RCIM Model-Bank Reproduction` `SVR` campaign now reaches and completes the actual
 queue-driven remote execution phase. The latest blocker is no longer in:
 
 - path resolution;
@@ -84,4 +84,4 @@ campaign manifest into the canonical sync-back path set.
    exact-paper campaigns.
 4. Run a focused local check of the sync-manifest helper against the failing
    exact-paper campaign manifest shape.
-5. Retest the current `Track 1` `SVR` remote launcher on the LAN node.
+5. Retest the current `RCIM Model-Bank Reproduction` `SVR` remote launcher on the LAN node.

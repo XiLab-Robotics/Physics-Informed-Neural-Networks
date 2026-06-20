@@ -1,4 +1,4 @@
-"""Harmonic shape plus causal residual-offset network for Track 2F-bis."""
+"""Harmonic shape plus causal residual-offset network for Wave 3.2."""
 
 from __future__ import annotations
 
@@ -37,7 +37,7 @@ class HarmonicResidualOffsetNetwork(nn.Module):
             input_size: Raw sequence feature count, including angular position
                 as the first feature.
             output_size: Regression target count. Scalar output is used for
-                deterministic runs; probabilistic Track 2H heads use multiple
+                deterministic runs; probabilistic Wave 4 series heads use multiple
                 output channels while still selecting one deterministic curve
                 in the training module.
             harmonic_order: Contiguous harmonic order used when no explicit
@@ -53,7 +53,7 @@ class HarmonicResidualOffsetNetwork(nn.Module):
             offset_dropout_probability: Dropout probability used by the
                 residual-offset branch.
             offset_bidirectional: Whether the residual-offset branch is
-                bidirectional. Deployable Track 2F-bis runs should keep this
+                bidirectional. Deployable Wave 3.2 runs should keep this
                 disabled.
             offset_readout_position: Sequence readout position used by both
                 branches.

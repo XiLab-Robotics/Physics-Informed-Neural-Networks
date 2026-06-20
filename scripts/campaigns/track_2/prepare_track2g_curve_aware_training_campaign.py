@@ -1,4 +1,4 @@
-"""Prepare the Track 2G curve-aware training campaign package."""
+"""Prepare the Wave 3.3 curve-aware training campaign package."""
 
 from __future__ import annotations
 
@@ -127,7 +127,7 @@ def validate_no_conflicting_active_campaign() -> None:
     active_campaign_name = str(active_state.get("campaign_name", "")).strip()
     same_campaign_is_prepared = active_status == "prepared" and active_campaign_name == CAMPAIGN_NAME
     assert active_status in ["", "none"] or same_campaign_is_prepared, (
-        "Cannot prepare Track 2G while another campaign is prepared or active | "
+        "Cannot prepare Wave 3.3 while another campaign is prepared or active | "
         f"status={active_status} | campaign_name={active_campaign_name}"
     )
 
@@ -224,7 +224,7 @@ def build_runtime_config() -> dict[str, Any]:
 
 def build_queue_config(queue_index: int, surface_key: str, loss_profile_name: str) -> dict[str, Any]:
 
-    """Build one Track 2G queue config."""
+    """Build one Wave 3.3 queue config."""
 
     direction_metadata = DIRECTION_METADATA_DICTIONARY[surface_key]
     direction_token = str(direction_metadata["direction_token"])
@@ -257,7 +257,7 @@ def build_queue_config(queue_index: int, surface_key: str, loss_profile_name: st
             "use_forward_direction": bool(direction_metadata["use_forward_direction"]),
             "use_backward_direction": bool(direction_metadata["use_backward_direction"]),
             "runtime_input_contract": "current point state plus supported short causal sequence history only",
-            "promotion_rule": "Candidate must return through official Track 2 curve-first verification.",
+            "promotion_rule": "Candidate must return through official TE curve-first verification.",
             "harmonic_basis": "sparse_rcim",
             "harmonic_index_list": RCIM_HARMONIC_INDEX_LIST,
             "notes": loss_profile["notes"],
@@ -271,7 +271,7 @@ def build_queue_config(queue_index: int, surface_key: str, loss_profile_name: st
 
 def write_queue_configs() -> list[Path]:
 
-    """Materialize all Track 2G queue configs."""
+    """Materialize all Wave 3.3 queue configs."""
 
     queue_path_list: list[Path] = []
     queue_index = 1
@@ -291,9 +291,9 @@ def write_campaign_readme(queue_path_list: list[Path]) -> Path:
 
     readme_path = CAMPAIGN_ROOT / "README.md"
     readme_line_list = [
-        "# Track 2G Curve-Aware Training Campaign Package",
+        "# Wave 3.3 Curve-Aware Training Campaign Package",
         "",
-        "This package materializes the approved Track 2G curve-aware training",
+        "This package materializes the approved Wave 3.3 curve-aware training",
         "campaign. It contains 12 runnable queue entries: four loss profiles",
         "across `global`, `Fw`, and `Bw` surfaces.",
         "",
@@ -403,7 +403,7 @@ $validatorArgumentList = @(
     "--require-prepared-state"
 )
 
-Write-Track2GStatus -Label "STEP" -Message "Validating Track 2G package."
+Write-Track2GStatus -Label "STEP" -Message "Validating Wave 3.3 package."
 Invoke-Track2GPython -ArgumentList $validatorArgumentList
 $pythonExitCode = $script:LastTrack2GPythonExitCode
 if ($pythonExitCode -ne 0) {{
@@ -465,7 +465,7 @@ if ($EnqueueOnly) {{
     Write-Track2GStatus -Label "STEP" -Message "Enqueue-only verification enabled; training will not start."
 }}
 
-Write-Track2GStatus -Label "STEP" -Message "Launching local Track 2G curve-aware training campaign."
+Write-Track2GStatus -Label "STEP" -Message "Launching local Wave 3.3 curve-aware training campaign."
 Invoke-Track2GPython -ArgumentList $argumentList
 $trainingExitCode = $script:LastTrack2GPythonExitCode
 exit $trainingExitCode
@@ -479,11 +479,11 @@ def write_launcher_note() -> None:
 
     """Write the launcher documentation note."""
 
-    launcher_note_text = """# Track 2G Curve-Aware Training Campaign Launcher
+    launcher_note_text = """# Wave 3.3 Curve-Aware Training Campaign Launcher
 
 ## Overview
 
-This launcher validates and runs the prepared Track 2G curve-aware training
+This launcher validates and runs the prepared Wave 3.3 curve-aware training
 package.
 
 The package contains 12 runnable queue YAML files: four loss profiles across
@@ -575,7 +575,7 @@ def write_active_campaign_state(dataset_variant_path_list: list[Path], queue_pat
 
 def main() -> int:
 
-    """Prepare the Track 2G campaign package."""
+    """Prepare the Wave 3.3 campaign package."""
 
     validate_no_conflicting_active_campaign()
     assert (PROJECT_PATH / PLANNING_REPORT_PATH).exists(), f"Missing plan | {PLANNING_REPORT_PATH}"

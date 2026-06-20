@@ -1,6 +1,6 @@
-# Track 2F-Bis Harmonic-Offset Probe Campaign Package
+# Wave 3.2 Harmonic-Offset Probe Campaign Package
 
-This package materializes the approved Track 2F-bis harmonic-offset probe.
+This package materializes the approved Wave 3.2 harmonic-offset probe.
 
 It contains six runnable queue YAML files:
 

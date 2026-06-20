@@ -1,7 +1,7 @@
-# Track 1 XGBM Open-Cell Full-Matrix Closure Campaign Launcher
+# RCIM Model-Bank Reproduction XGBM Open-Cell Full-Matrix Closure Campaign Launcher
 
 This launcher runs the targeted overnight open-cell closure wave for the
-exact-paper `XGBM` family under the canonical `Track 1` full-matrix
+exact-paper `XGBM` family under the canonical `RCIM Model-Bank Reproduction` full-matrix
 replication surface.
 
 - included configs: `81`

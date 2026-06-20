@@ -21,7 +21,7 @@ metadata:
   track2e_reference_candidate: harmonic_regression_global
   track2e_recommendation_path: output/validation_checks/track2e_offset_predictability_feasibility/2026-06-03-13-28-54__track2e_offset_predictability_feasibility/track2e_surface_intervention_recommendation.csv
   runtime_input_contract: current point state plus supported short causal sequence history only
-  notes: Track 2F sequential residual-offset probe. Final TE prediction is base_te_prediction + residual_offset_prediction. Candidate must return through official Track 2 curve-first verification.
+  notes: Wave 3.1 sequential residual-offset probe. Final TE prediction is base_te_prediction + residual_offset_prediction. Candidate must return through official TE curve-first verification.
 dataset:
   curve_batch_size: 2
   point_stride: 1

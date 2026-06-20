@@ -1,9 +1,9 @@
-# Track 1 Benchmark Colored Status Marker Persistence
+# RCIM Model-Bank Reproduction Benchmark Colored Status Marker Persistence
 
 ## Overview
 
 This document covers a narrow but permanent repair of the canonical
-`Track 1` benchmark maintenance flow for:
+`RCIM Model-Bank Reproduction` benchmark maintenance flow for:
 
 - `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
 
@@ -23,7 +23,7 @@ dashboard semantics.
 ## Technical Approach
 
 The repair must not be a one-off manual edit only. The repository needs a
-stable maintenance rule so future `Track 1` campaign updates keep the colored
+stable maintenance rule so future `RCIM Model-Bank Reproduction` campaign updates keep the colored
 markers automatically.
 
 The implementation will therefore:
@@ -41,7 +41,7 @@ The implementation will therefore:
 
 Important maintenance rule after the fix:
 
-- whenever a new `Track 1` campaign materially changes the full-matrix results,
+- whenever a new `RCIM Model-Bank Reproduction` campaign materially changes the full-matrix results,
   the benchmark refresh logic must update the cell values and also recompute the
   correct colored marker for each cell;
 - future updates must not rewrite those colored markers to `G/Y/R`, `??`, or

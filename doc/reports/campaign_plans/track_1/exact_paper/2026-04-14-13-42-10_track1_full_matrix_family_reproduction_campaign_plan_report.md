@@ -1,8 +1,8 @@
-# Track 1 Full Matrix Family Reproduction Campaign Plan Report
+# RCIM Model-Bank Reproduction Full Matrix Family Reproduction Campaign Plan Report
 
 ## Overview
 
-This report prepares the next `Track 1` campaign under the clarified
+This report prepares the next `RCIM Model-Bank Reproduction` campaign under the clarified
 full-matrix reproduction objective.
 
 The campaign is not a narrow open-cell repair batch and not a single-winner

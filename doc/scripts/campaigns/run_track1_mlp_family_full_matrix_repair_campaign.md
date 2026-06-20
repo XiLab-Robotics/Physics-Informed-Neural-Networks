@@ -1,7 +1,7 @@
-# Track 1 MLP Family Full-Matrix Repair Campaign Launcher
+# RCIM Model-Bank Reproduction MLP Family Full-Matrix Repair Campaign Launcher
 
 This launcher runs the dedicated exact-paper `MLP` family repair wave for
-the canonical `Track 1` full-matrix replication surface.
+the canonical `RCIM Model-Bank Reproduction` full-matrix replication surface.
 
 - included configs: `324`
 - distinct target pairs: `12`

@@ -102,7 +102,7 @@ def load_yaml_dictionary(yaml_path: Path) -> dict[str, Any]:
 
 def find_latest_track2_validation_summary() -> Path:
 
-    """Find the newest Track 2 validation summary with paper-reference metrics."""
+    """Find the newest TE Curve Verification Pipeline validation summary with paper-reference metrics."""
 
     candidate_path_list = sorted(
         TRACK2_VALIDATION_ROOT.glob("*/validation_summary.yaml"),
@@ -119,13 +119,13 @@ def find_latest_track2_validation_summary() -> Path:
             return candidate_path
 
     raise FileNotFoundError(
-        "Could not find a Track 2 validation summary containing all paper-reference archives."
+        "Could not find a TE Curve Verification Pipeline validation summary containing all paper-reference archives."
     )
 
 
 def resolve_candidate_key(source_label: str, family_label: str, surface_label: str) -> str:
 
-    """Resolve the Track 2 candidate id for one paper-reference archive model."""
+    """Resolve the TE Curve Verification Pipeline candidate id for one paper-reference archive model."""
 
     if source_label == "rcim_track1":
         return f"{family_label}19_{surface_label}"
@@ -165,7 +165,7 @@ def resolve_direction_metric(
     direction_label: str,
 ) -> dict[str, float] | None:
 
-    """Resolve the direction-filtered Track 2 curve metric for one candidate."""
+    """Resolve the direction-filtered TE Curve Verification Pipeline curve metric for one candidate."""
 
     direction_breakdown = track2_summary["direction_breakdown"]
     direction_dictionary = direction_breakdown.get(direction_label, {})
@@ -200,7 +200,7 @@ def resolve_target_metric(
 
 def build_curve_metric_row_list(track2_summary: dict[str, Any]) -> list[dict[str, Any]]:
 
-    """Build family-level Track 2 curve metric rows for paper-reference archives."""
+    """Build family-level TE Curve Verification Pipeline curve metric rows for paper-reference archives."""
 
     candidate_lookup = build_candidate_lookup(track2_summary)
     row_list: list[dict[str, Any]] = []
@@ -315,7 +315,7 @@ def build_row_lookup(row_list: list[dict[str, Any]]) -> dict[tuple[str, str, str
 
 def classify_pairwise_similarity(delta_mean_percentage_error_pct: float) -> str:
 
-    """Classify archive similarity from the Track 2 MPE delta."""
+    """Classify archive similarity from the TE Curve Verification Pipeline MPE delta."""
 
     absolute_delta = abs(float(delta_mean_percentage_error_pct))
     if absolute_delta <= 0.25:
@@ -437,7 +437,7 @@ def format_float(value: float, decimal_count: int = 3) -> str:
 
 def build_curve_table(row_list: list[dict[str, Any]]) -> list[str]:
 
-    """Build one Markdown table for Track 2 curve rows."""
+    """Build one Markdown table for TE Curve Verification Pipeline curve rows."""
 
     line_list = [
         "| Candidate | Family | Curve MAE [deg] | Curve RMSE [deg] | Mean Percentage Error [%] | P95 Mean Percentage Error [%] |",
@@ -565,35 +565,35 @@ def build_canonical_report_markdown(summary_dictionary: dict[str, Any]) -> str:
         "",
         "The direct same-family comparison shows that `rcim_original/forward` and",
         "`rcim_retuned/forward` are mostly similar, with `DT` and `LGBM` effectively",
-        "near-equivalent on Track 2 curve metrics and substantial differences only",
+        "near-equivalent on TE Curve Verification Pipeline curve metrics and substantial differences only",
         "for `MLP` and `ELM`. By contrast, `rcim_track1` is not a near-copy of either",
         "`rcim_original` or `rcim_retuned`: many forward families and all backward",
-        "families show substantial Track 2 metric differences.",
+        "families show substantial TE Curve Verification Pipeline metric differences.",
         "",
         "`rcim_original/forward` remains the recovered original-pipeline baseline.",
         "`rcim_retuned` is the closest repository-local continuation of that",
-        "pipeline and the strongest Track 2 curve performer in this comparison.",
-        "`rcim_track1` is the closed faithful full-dataset Track 1 archive: it is",
+        "pipeline and the strongest TE Curve Verification Pipeline curve performer in this comparison.",
+        "`rcim_track1` is the closed faithful full-dataset RCIM Model-Bank Reproduction archive: it is",
         "structurally complete and direction-valid, but it is a materially different",
         "trained archive rather than an interchangeable implementation of the",
         "original or retuned bank.",
         "",
         "The practical conclusion is that the three archives are usable as distinct",
         "baselines: original-paper behavior, retuned recovered-pipeline behavior,",
-        "and final Track 1 faithful full-dataset behavior.",
+        "and final RCIM Model-Bank Reproduction faithful full-dataset behavior.",
         "",
         "## Source Validation Artifacts",
         "",
         "| Artifact | Path |",
         "| --- | --- |",
-        f"| Source Track 2 summary | `{summary_dictionary['source_track2_summary_path']}` |",
+        f"| Source TE Curve Verification Pipeline summary | `{summary_dictionary['source_track2_summary_path']}` |",
         f"| Validation summary YAML | `{summary_dictionary['validation_summary_path']}` |",
         f"| Curve metric CSV | `{summary_dictionary['curve_metric_csv_path']}` |",
         f"| Target metric CSV | `{summary_dictionary['target_metric_csv_path']}` |",
         f"| Pairwise comparison CSV | `{summary_dictionary['pairwise_comparison_csv_path']}` |",
         "| Original archive | `models/paper_reference/rcim_original` |",
         "| Retuned archive | `models/paper_reference/rcim_retuned` |",
-        "| Track 1 archive | `models/paper_reference/rcim_track1` |",
+        "| RCIM Model-Bank Reproduction archive | `models/paper_reference/rcim_track1` |",
         "",
         "## Test Context",
         "",
@@ -612,7 +612,7 @@ def build_canonical_report_markdown(summary_dictionary: dict[str, Any]) -> str:
         "## Same-Family Archive Parity Verdict",
         "",
         "This is the direct implementation-to-implementation comparison. It compares",
-        "the same family across archive groups on the same direction-valid Track 2",
+        "the same family across archive groups on the same direction-valid TE Curve Verification Pipeline",
         "curve surface. A positive delta means the right-side archive has higher",
         "mean percentage error than the left-side archive.",
         "",
@@ -628,21 +628,21 @@ def build_canonical_report_markdown(summary_dictionary: dict[str, Any]) -> str:
         "",
         *build_pairwise_table(select_pairwise_rows(pairwise_row_list, "forward_original_vs_retuned")),
         "",
-        "### Forward Original Vs Track 1",
+        "### Forward Original Vs RCIM Model-Bank Reproduction",
         "",
         *build_pairwise_table(select_pairwise_rows(pairwise_row_list, "forward_original_vs_track1")),
         "",
-        "### Forward Retuned Vs Track 1",
+        "### Forward Retuned Vs RCIM Model-Bank Reproduction",
         "",
         *build_pairwise_table(select_pairwise_rows(pairwise_row_list, "forward_retuned_vs_track1")),
         "",
-        "### Backward Retuned Vs Track 1",
+        "### Backward Retuned Vs RCIM Model-Bank Reproduction",
         "",
         *build_pairwise_table(select_pairwise_rows(pairwise_row_list, "backward_retuned_vs_track1")),
         "",
         "## Forward Archive Comparison",
         "",
-        "Forward compares all three archives on the same forward Track 2 curve",
+        "Forward compares all three archives on the same forward TE Curve Verification Pipeline curve",
         "surface. The best family rows are:",
         "",
         "| Archive | Best Family Candidate | Mean Percentage Error [%] | Curve MAE [deg] |",
@@ -665,7 +665,7 @@ def build_canonical_report_markdown(summary_dictionary: dict[str, Any]) -> str:
         "",
         *build_curve_table(select_rows(curve_row_list, "forward", "rcim_retuned")),
         "",
-        "### Track 1 Forward Models",
+        "### RCIM Model-Bank Reproduction Forward Models",
         "",
         *build_curve_table(select_rows(curve_row_list, "forward", "rcim_track1")),
         "",
@@ -688,14 +688,14 @@ def build_canonical_report_markdown(summary_dictionary: dict[str, Any]) -> str:
         "",
         *build_curve_table(select_rows(curve_row_list, "backward", "rcim_retuned")),
         "",
-        "### Track 1 Backward Models",
+        "### RCIM Model-Bank Reproduction Backward Models",
         "",
         *build_curve_table(select_rows(curve_row_list, "backward", "rcim_track1")),
         "",
         "## Target-Level Metric Snapshot",
         "",
         "These target-level rows come from the saved harmonic target model archives.",
-        "They are not a replacement for Track 2 curve evaluation, but they explain",
+        "They are not a replacement for TE Curve Verification Pipeline curve evaluation, but they explain",
         "how amplitude and phase prediction quality changes before TE reconstruction.",
         "",
         "### Forward Target Metrics",
@@ -714,7 +714,7 @@ def build_canonical_report_markdown(summary_dictionary: dict[str, Any]) -> str:
             if row["surface_label"] == "Fw" and row["source_label"] == "rcim_retuned"
         ]),
         "",
-        "#### Track 1 Forward",
+        "#### RCIM Model-Bank Reproduction Forward",
         "",
         *build_target_table([
             row for row in target_row_list
@@ -730,7 +730,7 @@ def build_canonical_report_markdown(summary_dictionary: dict[str, Any]) -> str:
             if row["surface_label"] == "Bw" and row["source_label"] == "rcim_retuned"
         ]),
         "",
-        "#### Track 1 Backward",
+        "#### RCIM Model-Bank Reproduction Backward",
         "",
         *build_target_table([
             row for row in target_row_list
@@ -743,25 +743,25 @@ def build_canonical_report_markdown(summary_dictionary: dict[str, Any]) -> str:
         "| --- | --- | --- |",
         "| `rcim_original` | forward only | Recovered original-pipeline reference. It remains the correct baseline for paper-original forward behavior and ONNX parity context. |",
         "| `rcim_retuned` | forward and backward | Best current paper-reference curve performer in this comparison; it reflects repository retuning rather than exact original-paper hyperparameter behavior. |",
-        "| `rcim_track1` | forward and backward | Closed faithful full-dataset Track 1 archive. It is the most complete paper-reference family bank but is not the lowest-error Track 2 archive in this validation. |",
+        "| `rcim_track1` | forward and backward | Closed faithful full-dataset RCIM Model-Bank Reproduction archive. It is the most complete paper-reference family bank but is not the lowest-error TE Curve Verification Pipeline archive in this validation. |",
         "",
         "## Final Conclusion",
         "",
         "The repository `models/paper_reference` surface is coherent and usable as a",
         "three-baseline system rather than a single interchangeable model bank.",
         "`rcim_original` and `rcim_retuned` forward are broadly analogous but not",
-        "identical. `rcim_track1` is substantially different from both on the Track 2",
+        "identical. `rcim_track1` is substantially different from both on the TE Curve Verification Pipeline",
         "curve surface, especially in backward where every family differs",
         "substantially from the retuned counterpart under the selected thresholds.",
         "",
         "The defensible wording is:",
         "",
         "> `rcim_original` preserves the recovered forward original-pipeline baseline;",
-        "> `rcim_retuned` provides the strongest current paper-reference Track 2 curve",
+        "> `rcim_retuned` provides the strongest current paper-reference TE Curve Verification Pipeline curve",
         "> metrics; and `rcim_track1` provides the final faithful full-dataset",
-        "> Track 1 family archive for both directions.",
+        "> RCIM Model-Bank Reproduction family archive for both directions.",
         "",
-        "This report should be used together with the canonical Track 2 matrix when",
+        "This report should be used together with the canonical curve-verification matrix when",
         "choosing which paper-reference archive to cite in downstream comparisons.",
     ]
 
@@ -840,7 +840,7 @@ def parse_command_line_arguments() -> argparse.Namespace:
         "--track2-summary-path",
         type=Path,
         default=None,
-        help="Track 2 validation_summary.yaml to use. Defaults to the newest compatible summary.",
+        help="TE Curve Verification Pipeline validation_summary.yaml to use. Defaults to the newest compatible summary.",
     )
     argument_parser.add_argument(
         "--output-suffix",

@@ -5,7 +5,7 @@
 This technical document plans the documentation-only closeout of `Target A`.
 
 `Target A` is the offline paper-comparable TE-curve prediction target. The
-current `Track 2` comparison has enough direction-qualified evidence to close
+current `TE Curve Verification Pipeline` comparison has enough direction-qualified evidence to close
 it without launching a new training campaign:
 
 - forward is paper-comparable and uses `paper_retuned_best_Fw`, which reaches
@@ -13,7 +13,7 @@ it without launching a new training campaign:
 - backward has no paper-original reference surface, so the approved rule uses
   `paper_retuned_best_Bw` as the canonical paper-derived backward baseline at
   `7.572%` mean percentage error;
-- `Track 1` remains closed as faithful full-dataset reproduction evidence, not
+- `RCIM Model-Bank Reproduction` remains closed as faithful full-dataset reproduction evidence, not
   as the optimized winner;
 - end-to-end online compensation remains outside `Target A` and belongs to
   `Target B`.
@@ -47,7 +47,7 @@ declared and approved before launch.
 
 1. Update the live backlog to mark `Target A` as closed in the offline
    direction-qualified sense.
-2. Update the `Track 2` report interpretation so its closeout states the
+2. Update the `TE Curve Verification Pipeline` report interpretation so its closeout states the
    forward and backward `Target A` verdicts explicitly.
 3. Update the master summary so project status and gap summaries no longer
    imply that offline `Target A` is open.

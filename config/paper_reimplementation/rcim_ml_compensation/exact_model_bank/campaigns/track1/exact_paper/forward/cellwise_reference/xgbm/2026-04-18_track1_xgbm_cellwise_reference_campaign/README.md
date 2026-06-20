@@ -1,6 +1,6 @@
-# Track 1 XGBM Cellwise Reference Campaign Package
+# RCIM Model-Bank Reproduction XGBM Cellwise Reference Campaign Package
 
-This package contains the dedicated `Track 1` exact-paper `XGBM` family
+This package contains the dedicated `RCIM Model-Bank Reproduction` exact-paper `XGBM` family
 cellwise reference campaign.
 
 Included configs:

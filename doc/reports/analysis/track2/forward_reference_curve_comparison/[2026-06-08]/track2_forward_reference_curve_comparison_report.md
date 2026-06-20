@@ -1,8 +1,8 @@
-# Track 2 Forward Reference Curve Comparison Report
+# TE Curve Verification Pipeline Forward Reference Curve Comparison Report
 
 ## Overview
 
-This report compares five forward `Track 2` reconstructed-curve
+This report compares five forward `TE Curve Verification Pipeline` reconstructed-curve
 candidates on the same `97` held-out forward curves:
 
 - `paper_original_best_Fw`, from repository paper-original reference banks;
@@ -25,7 +25,7 @@ Model labels used in compact tables:
 | Sparse | `rcim_original_simplified_onnx_Fw` |
 | PLC HGBM | `rcim_original_plc_hgbm_onnx_Fw` |
 
-## Aggregate Track 2 Metrics
+## Aggregate TE Curve Verification Pipeline Metrics
 
 | Candidate | Curves | MAE [deg] | RMSE [deg] | Mean Error [%] | P95 Error [%] |
 | --- | ---: | ---: | ---: | ---: | ---: |
@@ -79,7 +79,7 @@ The full recovered original `ONNX` release remains almost superposed with
 `MAE`, a near-unit mean correlation, and only small aggregate metric
 changes. This supports the same conclusion as the earlier diagnostic:
 the repository paper-original bank and the recovered original `ONNX`
-release are effectively the same Track 2 reconstructed surface, with
+release are effectively the same TE Curve Verification Pipeline reconstructed surface, with
 minor differences attributable to archive/export/loading path details.
 
 `paper_retuned_best_Fw` is visually shape-aligned with the paper-original
@@ -93,23 +93,23 @@ all-`HGBM` sparse variant is the stronger sparse candidate.
 
 ### paper_original_best_Fw
 
-![paper_original_best_Fw Track 2 collage](assets/paper_original_best_Fw.png)
+![paper_original_best_Fw curve-verification collage](assets/paper_original_best_Fw.png)
 
 ### paper_retuned_best_Fw
 
-![paper_retuned_best_Fw Track 2 collage](assets/paper_retuned_best_Fw.png)
+![paper_retuned_best_Fw curve-verification collage](assets/paper_retuned_best_Fw.png)
 
 ### paper_original_best_Fw_original_onnx_release
 
-![paper_original_best_Fw_original_onnx_release Track 2 collage](assets/paper_original_best_Fw_original_onnx_release.png)
+![paper_original_best_Fw_original_onnx_release curve-verification collage](assets/paper_original_best_Fw_original_onnx_release.png)
 
 ### rcim_original_simplified_onnx_Fw
 
-![rcim_original_simplified_onnx_Fw Track 2 collage](assets/rcim_original_simplified_onnx_Fw.png)
+![rcim_original_simplified_onnx_Fw curve-verification collage](assets/rcim_original_simplified_onnx_Fw.png)
 
 ### rcim_original_plc_hgbm_onnx_Fw
 
-![rcim_original_plc_hgbm_onnx_Fw Track 2 collage](assets/rcim_original_plc_hgbm_onnx_Fw.png)
+![rcim_original_plc_hgbm_onnx_Fw curve-verification collage](assets/rcim_original_plc_hgbm_onnx_Fw.png)
 
 ## Output Artifacts
 

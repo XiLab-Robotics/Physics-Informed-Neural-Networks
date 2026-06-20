@@ -1,8 +1,8 @@
-# Track 1 Forward Last Three Open Cells Overnight Mega Campaign Plan Report
+# RCIM Model-Bank Reproduction Forward Last Three Open Cells Overnight Mega Campaign Plan Report
 
 ## Overview
 
-This planning report prepares one overnight exact-paper `Track 1` forward-only
+This planning report prepares one overnight exact-paper `RCIM Model-Bank Reproduction` forward-only
 mega campaign after the completed `forward_last_three_open_cells` wave failed
 to promote any new winners.
 

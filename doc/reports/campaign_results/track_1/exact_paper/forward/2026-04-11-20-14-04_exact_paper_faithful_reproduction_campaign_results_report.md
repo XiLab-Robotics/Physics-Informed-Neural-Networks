@@ -2,7 +2,7 @@
 
 ## Overview
 
-This report closes the first coordinated `Track 1` paper-faithful reproduction campaign prepared in:
+This report closes the first coordinated `RCIM Model-Bank Reproduction` paper-faithful reproduction campaign prepared in:
 
 - `doc/reports/campaign_plans/track_1/exact_paper/2026-04-10-21-47-55_exact_paper_faithful_reproduction_campaign_plan_report.md`
 
@@ -125,7 +125,7 @@ The campaign moved the exact-paper reproduction branch from fragile to runnable,
 Interpretation:
 
 - this campaign improves reproducibility and comparability more than raw offline accuracy;
-- the next `Track 1` improvement cycle should focus on reducing TE-level curve error, not on more family-bank stabilization work.
+- the next `RCIM Model-Bank Reproduction` improvement cycle should focus on reducing TE-level curve error, not on more family-bank stabilization work.
 
 ### 4. Playback Remains Repository-Owned And Comparable
 
@@ -141,4 +141,4 @@ Interpretation:
 
 ## Recommended Next Step
 
-The correct next step is not another exact-paper export campaign. It is a new `Track 1` offline-improvement iteration that starts from the shared-evaluator winner and attacks the remaining TE-level error directly, while reusing the now-stable exact-paper support surface as evidence and artifact infrastructure.
+The correct next step is not another exact-paper export campaign. It is a new `RCIM Model-Bank Reproduction` offline-improvement iteration that starts from the shared-evaluator winner and attacks the remaining TE-level error directly, while reusing the now-stable exact-paper support surface as evidence and artifact infrastructure.

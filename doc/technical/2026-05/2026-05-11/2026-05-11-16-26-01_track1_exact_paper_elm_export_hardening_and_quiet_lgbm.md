@@ -1,8 +1,8 @@
-# Track 1 Exact-Paper ELM Export Hardening And Quiet LGBM
+# RCIM Model-Bank Reproduction Exact-Paper ELM Export Hardening And Quiet LGBM
 
 ## Overview
 
-Two recovered-original fixes now need to be reflected in the Track 1
+Two recovered-original fixes now need to be reflected in the RCIM Model-Bank Reproduction
 exact-paper workflow:
 
 1. commit `e8f0372dbe9d51428f21585591f801805f89b1c0`
@@ -13,17 +13,17 @@ exact-paper workflow:
    made the recovered-original `LGBMRegressor` family quiet by forcing
    `verbosity=-1` and `force_col_wise=True`.
 
-The Track 1 exact-paper shared pipeline already uses the canonical `10`
+The RCIM Model-Bank Reproduction exact-paper shared pipeline already uses the canonical `10`
 family bank and therefore does **not** currently expose `ELM` as one of its
 active paper-faithful families. That means the recovered-original `ELM` fix is
-not a direct family-level port. Instead, the relevant Track 1 equivalent is to
+not a direct family-level port. Instead, the relevant RCIM Model-Bank Reproduction equivalent is to
 harden the shared exact-paper export helper so it can safely handle future
 estimators that do not expose the common `n_features_in_` surface, and so the
 shared exporter can support `ELMRegressor` deterministically if that estimator
 is ever routed through the exact-paper export path.
 
 The `LGBM` fix is directly applicable today because `LGBM` is part of the
-active Track 1 exact-paper family bank.
+active RCIM Model-Bank Reproduction exact-paper family bank.
 
 ## Technical Approach
 
@@ -44,14 +44,14 @@ export layer by:
 - using that converter only when the exported estimator is actually an
   `ELMRegressor`.
 
-This does **not** change the canonical Track 1 exact-paper family inventory.
+This does **not** change the canonical RCIM Model-Bank Reproduction exact-paper family inventory.
 It only makes the shared exact-paper export surface parity-ready with the
 recovered-original exporter fix.
 
 ### 2. Quiet Repository-Owned LGBM Factory
 
 Mirror the recovered-original `LGBM` console-noise suppression by routing the
-Track 1 exact-paper `LGBMRegressor` family through a repo-owned factory that
+RCIM Model-Bank Reproduction exact-paper `LGBMRegressor` family through a repo-owned factory that
 forces:
 
 - `verbosity=-1`
@@ -77,7 +77,7 @@ quality-of-life of exact-paper training and remote logging.
   Sphinx API surface if shared helper names or export semantics become more
   explicit.
 - `doc/running/active_training_campaign.yaml`
-  Current campaign-state reference. The parent Track 1 paper-faithful campaign
+  Current campaign-state reference. The parent RCIM Model-Bank Reproduction paper-faithful campaign
   is already `cancelled`, so no active campaign mutation is expected.
 
 No subagent is planned for this change.
@@ -89,7 +89,7 @@ No subagent is planned for this change.
    exact-paper support layer.
 2. Port the generic estimator feature-count resolver and optional repo-owned
    `ELMRegressor` ONNX converter support into the exact-paper export helper
-   without adding `ELM` to the canonical Track 1 family list.
+   without adding `ELM` to the canonical RCIM Model-Bank Reproduction family list.
 3. Add one repo-owned quiet `LGBMRegressor` factory in the shared exact-paper
    family registry and reuse it for the active `LGBM` family path.
 4. Update the exact-paper operator documentation to reflect the quieter `LGBM`

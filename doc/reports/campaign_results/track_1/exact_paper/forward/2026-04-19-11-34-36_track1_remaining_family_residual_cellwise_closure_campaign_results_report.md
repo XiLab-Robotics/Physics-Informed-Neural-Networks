@@ -1,8 +1,8 @@
-# Track 1 Remaining Family Residual Cellwise Closure Campaign Results Report
+# RCIM Model-Bank Reproduction Remaining Family Residual Cellwise Closure Campaign Results Report
 
 ## Overview
 
-This report closes the residual exact-paper `Track 1` retry wave prepared in:
+This report closes the residual exact-paper `RCIM Model-Bank Reproduction` retry wave prepared in:
 
 - `doc/reports/campaign_plans/track_1/exact_paper/2026-04-19-01-04-28_track1_remaining_family_residual_cellwise_closure_campaigns_plan_report.md`
 
@@ -97,7 +97,7 @@ of the promoted pairwise residual upgrades.
 - phase `RMSE` closure rises to `8/9`
 - amplitude `MAE` closure rises to `7/10`
 - no harmonic remains fully red in Table `6`
-- `Track 1` remains canonically open because the harmonic-level family
+- `RCIM Model-Bank Reproduction` remains canonically open because the harmonic-level family
   alignment rule is still not fully satisfied
 
 ## Final Benchmark Refresh Effect
@@ -134,5 +134,5 @@ The key final conclusion is:
   top of the earlier `171` exact-paper reference runs
 - the canonical benchmark and Tables `2-5` now read from the best accepted pair
   winner across both waves
-- `Track 1` is no longer numerically blocked by broad red surfaces; the
+- `RCIM Model-Bank Reproduction` is no longer numerically blocked by broad red surfaces; the
   remaining work is concentrated on harmonic-level family alignment in Table `6`

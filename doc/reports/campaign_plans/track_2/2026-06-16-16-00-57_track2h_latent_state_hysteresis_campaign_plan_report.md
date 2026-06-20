@@ -1,14 +1,14 @@
-# Track 2H-L Latent-State Hysteresis Campaign Plan Report
+# Wave 4.4 Latent-State Hysteresis Campaign Plan Report
 
 ## Executive Summary
 
-This preliminary campaign plan prepares the `Track 2H-L` probe:
+This preliminary campaign plan prepares the `Wave 4.4` probe:
 latent-state / hysteresis-aware models for preload, elastic release, protocol
 state, and causal-history effects in TE prediction.
 
-Completed `Track 2H` robust, probabilistic, and MDN probes show that
+Completed `Wave 4.1` robust, probabilistic, and MDN probes show that
 dispersion-aware training pressure is useful but not sufficient. Completed
-`Wave 3` harmonic-prior residual models are verified exploratory baselines,
+`Wave 5.1` harmonic-prior residual models are verified exploratory baselines,
 not promoted. The strongest accepted repository-owned practical branch remains
 history/sequence-based, which justifies a narrow test of whether causal hidden
 state explains the remaining offset and fragile-harmonic behavior.
@@ -25,16 +25,16 @@ explicitly approved.
 
 | Evidence | Interpretation |
 | --- | --- |
-| `Track 2H` robust losses | Robust losses help specific branches but do not solve offset or curve-following behavior alone. |
-| `Track 2H` probabilistic heads | Quantile and Gaussian heads improve some dispersion-aware surfaces but do not beat accepted leaders. |
-| `Track 2H` MDN heads | MDN improves `Bw`, but near-single-component usage argues against confirmed multimodality. |
-| `Wave 3` harmonic-prior residual | Lightweight structure is trainable and inspectable, but official `Track 2` closes it as exploratory. |
+| `Wave 4.1` robust losses | Robust losses help specific branches but do not solve offset or curve-following behavior alone. |
+| `Wave 4.2` probabilistic heads | Quantile and Gaussian heads improve some dispersion-aware surfaces but do not beat accepted leaders. |
+| `Wave 4.3` MDN heads | MDN improves `Bw`, but near-single-component usage argues against confirmed multimodality. |
+| `Wave 5.1` harmonic-prior residual | Lightweight structure is trainable and inspectable, but official `TE Curve Verification Pipeline` closes it as exploratory. |
 | `periodic_gru_sequence_Bw` | The strongest practical repository-owned branch is sequence/history based, supporting a latent-state probe. |
 | Experimental repeatability feedback | Preload, elastic release, protocol state, or hysteresis-like internal state remain plausible unobserved contributors. |
 
 ## Candidate Matrix
 
-The first `Track 2H-L` campaign should remain narrow:
+The first `Wave 4.4` campaign should remain narrow:
 
 | Candidate Group | Surfaces | Main Test |
 | --- | --- | --- |
@@ -53,7 +53,7 @@ Required behavior:
 - preserve `global`, `Fw`, and `Bw` training and reporting surfaces;
 - expose the latent-state vector or summary as an auxiliary diagnostic output;
 - expose offset/low-order and residual predictions separately when practical;
-- keep deterministic playback as the standard scalar and official `Track 2`
+- keep deterministic playback as the standard scalar and official `TE Curve Verification Pipeline`
   comparison curve;
 - fail fast if a config uses measured TE, full-curve statistics, future
   samples, or post-prediction mean centering as model inputs.
@@ -75,11 +75,11 @@ Required scalar checks:
 - validation and test `MAE`;
 - validation and test `RMSE`;
 - parameter count and artifact size;
-- branch comparison versus completed `Track 2H` and `Wave 3` candidates.
+- branch comparison versus completed `Wave 4 series` and `Wave 5.1` candidates.
 
 Required curve-first checks after normal closeout:
 
-- separate official `Track 2` verification refresh;
+- separate official `TE Curve Verification Pipeline` verification refresh;
 - direction-specific curve `MAE`, `RMSE`, mean percentage error, and P95;
 - offset / mean-surface diagnostics;
 - centered-shape diagnostics;
@@ -132,21 +132,21 @@ After training completion:
 - update family and program registries;
 - clean active campaign state;
 - update the live backlog and training master summary;
-- propose official `Track 2` refresh as a separate operator-launched step.
+- propose official `TE Curve Verification Pipeline` refresh as a separate operator-launched step.
 
 ## Decision Gates
 
 | Gate | Decision |
 | --- | --- |
-| Planning approval | Authorize generation of the `Track 2H-L` package. |
+| Planning approval | Authorize generation of the `Wave 4.4` package. |
 | Package validation | Authorize local or remote campaign launch. |
-| Campaign closeout | Decide whether latent-state modeling improves scalar metrics over `Track 2H` and `Wave 3` baselines. |
-| Official `Track 2` refresh | Decide whether latent-state behavior should feed Wave 4 or the integrated multi-head design. |
+| Campaign closeout | Decide whether latent-state modeling improves scalar metrics over `Wave 4 series` and `Wave 5.1` baselines. |
+| Official `TE Curve Verification Pipeline` refresh | Decide whether latent-state behavior should feed Wave 5.2 or the integrated multi-head design. |
 
 ## Non-Goals
 
 - No measured TE, target curve mean, or future samples as model input.
 - No post-prediction mean-centering as a deployed correction.
-- No Wave 4 PINN / physics-informed loss in this package.
+- No Wave 5.2 PINN / physics-informed loss in this package.
 - No integrated multi-task / multi-head architecture in this package.
 - No PLC-friendly export optimization in this package.

@@ -3,10 +3,10 @@ Run Exact Paper Model Bank Validation
 
 This page documents the strict paper-faithful RCIM family-bank validation
 entry point for the recovered-data exact-paper surface. The bidirectional
-repository-dataset Track 1 campaigns use the companion original-dataset runner
+repository-dataset RCIM Model-Bank Reproduction campaigns use the companion original-dataset runner
 with the same recovered pipeline protocol.
 
-The current full-dataset Track 1 result is closed through the companion
+The current full-dataset RCIM Model-Bank Reproduction result is closed through the companion
 original-dataset forward/backward campaigns and the populated Tables ``2``-``5``
 benchmark surface.
 

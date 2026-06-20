@@ -881,7 +881,7 @@ def build_campaign_results_report_markdown(
         f"- Completed Runs: `{completed_run_count}`",
         f"- Failed Runs: `{failed_run_count}`",
         "- All `15` planned Wave 1 runs are now closed across `global`, `forward`, and `backward` variants.",
-        "- The protected `doc/running/active_training_campaign.yaml` file was intentionally left untouched because it still tracks a separate `Track 1` campaign.",
+        "- The protected `doc/running/active_training_campaign.yaml` file was intentionally left untouched because it still tracks a separate `RCIM Model-Bank Reproduction` campaign.",
         "",
         "## Closeout Actions",
         "",

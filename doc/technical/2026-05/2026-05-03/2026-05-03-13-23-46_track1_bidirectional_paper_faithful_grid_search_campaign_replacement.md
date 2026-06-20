@@ -2,7 +2,7 @@
 
 ## Overview
 
-This document replaces the currently running `Track 1` bidirectional
+This document replaces the currently running `RCIM Model-Bank Reproduction` bidirectional
 literal-workflow refresh mega campaign with a paper-faithful campaign design.
 
 The current `400`-run design is not aligned with the recovered original RCIM

@@ -1,8 +1,8 @@
-# Wave 4 Embryonic Skeleton Checks
+# Wave 5.2 Embryonic Skeleton Checks
 
 ## Purpose
 
-`run_wave4_embryonic_skeleton_checks.ps1` validates the embryonic Wave 4A MMT
+`run_wave4_embryonic_skeleton_checks.ps1` validates the embryonic Wave 5.2A MMT
 diagnostic adapter. It is a dry-run check launcher only. It must not enqueue or
 launch training.
 
@@ -14,7 +14,7 @@ launch training.
 
 ## What It Runs
 
-- Python compile check for the Wave 4A adapter and validator.
+- Python compile check for the Wave 5.2A adapter and validator.
 - MMT reproduction adapter smoke check.
 - Demonstration harmonic summary generation.
 - Metadata validation that the skeleton is `implementation-ready` and
@@ -22,6 +22,6 @@ launch training.
 
 ## Campaign Boundary
 
-Real Wave 4 training remains blocked until `Wave 4A` diagnostics prove whether
+Real Wave 5.2 training remains blocked until `Wave 5.2A` diagnostics prove whether
 MMT terms are useful as diagnostics, features, calibrated baselines, or weak
-PINN losses. `Track 2H` and Wave 3 evidence must also inform the loss policy.
+PINN losses. `Wave 4 series` and Wave 5.1 evidence must also inform the loss policy.

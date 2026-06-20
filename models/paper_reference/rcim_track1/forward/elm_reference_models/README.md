@@ -1,7 +1,7 @@
-# RCIM Track 1 Forward ELM Reference Models
+# RCIM Model-Bank Reproduction Forward ELM Reference Models
 
 This archive stores the accepted `ELM` target-level winners for the
-`forward` branch of the canonical original-dataset Track 1 benchmark surface.
+`forward` branch of the canonical original-dataset RCIM Model-Bank Reproduction benchmark surface.
 
 Archive contents:
 

@@ -1,22 +1,22 @@
-# Track 2E Offset Predictability Feasibility
+# CVP 1.5 Offset Predictability Feasibility
 
 ## Overview
 
-This report consumes the completed `Track 2D` mean-offset artifacts and asks whether the vertical curve offset is predictable enough from causal condition information to justify an offset-aware next branch.
+This report consumes the completed `CVP 1.4` mean-offset artifacts and asks whether the vertical curve offset is predictable enough from causal condition information to justify an offset-aware next branch.
 
 This is an analysis-only feasibility diagnostic. It does not train
 models, alter the dataset, update registries, or use future TE samples
 as model inputs.
 
 - Run Instance: `2026-06-03-13-28-54__track2e_offset_predictability_feasibility`
-- Track 2D Source: `output\validation_checks\track2d_mean_offset_full_matrix_audit\2026-06-03-10-54-10__track2d_mean_offset_full_matrix_audit`
+- CVP 1.4 Source: `output\validation_checks\track2d_mean_offset_full_matrix_audit\2026-06-03-10-54-10__track2d_mean_offset_full_matrix_audit`
 - Output Directory: `output\validation_checks\track2e_offset_predictability_feasibility\2026-06-03-13-28-54__track2e_offset_predictability_feasibility`
 - Candidate Count: `111`
 
 ## Method
 
 - candidate raw, centered-shape, and offset metrics are imported from
-  `Track 2D`;
+  `CVP 1.4`;
 - candidate offsets are summarized by causal groups: direction, speed,
   torque, oil temperature, and their direction-aware combinations;
 - exact full-condition groups such as speed plus torque plus oil
@@ -53,7 +53,7 @@ as model inputs.
 | 3 | `LGBM19_Fw` | Fw | seq | 0.006812 | 0.003684 | 45.9 | 61.3 | dir_torque |
 | 1 | `harmonic_regression_global` | global | seq | 0.018160 | 0.004604 | 74.6 | 84.2 | dir_torque |
 
-## Track 2E Feasibility Ranking
+## CVP 1.5 Feasibility Ranking
 
 | Rank | Candidate | Surface | Interv. | Raw MAE | Corr. MAE | Gain [%] | Explain [%] | Best Group |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -106,7 +106,7 @@ as model inputs.
 
 ## Runtime Input Boundary
 
-The causal grouping baselines use only direction and operating condition metadata already present in the Track 2 payload. The analysis never gives a model the future TE curve. Any learned offset model still requires a later technical document and campaign plan before it can become a training branch.
+The causal grouping baselines use only direction and operating condition metadata already present in the TE Curve Verification Pipeline payload. The analysis never gives a model the future TE curve. Any learned offset model still requires a later technical document and campaign plan before it can become a training branch.
 
 ## Machine-Readable Artifacts
 

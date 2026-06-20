@@ -1,9 +1,9 @@
-# Wave 2C Residual Harmonic Temporal Hybrid Models
+# Wave 2.3 Residual Harmonic Temporal Hybrid Models
 
 ## Overview
 
-`Wave 2C` introduces residual harmonic temporal hybrids for TE curve
-prediction. The branch follows the positive `Wave 2B` result, where explicit
+`Wave 2.3` introduces residual harmonic temporal hybrids for TE curve
+prediction. The branch follows the positive `Wave 2.2` result, where explicit
 sparse `RCIM` harmonic features improved recurrent temporal models, and tests a
 stronger decomposition:
 
@@ -18,7 +18,7 @@ The first prepared families are:
 
 ## Operating Principle
 
-Each model receives the existing rank-3 Wave 2 sequence tensor with shape
+Each model receives the existing rank-3 Wave 2.1 sequence tensor with shape
 batch, sequence, feature. The first feature remains physical angular position
 in degrees, followed by normalized operating-condition features after the
 shared training module applies normalization.
@@ -42,7 +42,7 @@ The first campaign compares three harmonic-basis tiers in one batch:
 
 | Basis Tier | Harmonic Index Policy | Role |
 | --- | --- | --- |
-| `sparse_rcim` | `[0, 1, 3, 39, 40, 78, 81, 156, 162, 240]` | continuity with Wave 2B |
+| `sparse_rcim` | `[0, 1, 3, 39, 40, 78, 81, 156, 162, 240]` | continuity with Wave 2.2 |
 | `dense_240` | explicit inclusive list `0..240` | paper-maximum dense stress test |
 | `dense_360` | explicit inclusive list `0..360` | one-revolution dense stress test |
 
@@ -56,7 +56,7 @@ Advantages:
 - keeps the TE harmonic prior as a separate structured branch;
 - tests whether temporal recurrence is better used as residual correction than
   as direct harmonic-feature regression;
-- preserves Wave 2 sequence data loading and Wave 2B direction-surface rules;
+- preserves Wave 2.1 sequence data loading and Wave 2.2 direction-surface rules;
 - exposes branch-level diagnostics for structured and residual predictions.
 
 Disadvantages:

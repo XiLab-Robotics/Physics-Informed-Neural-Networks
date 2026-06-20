@@ -1,8 +1,8 @@
-# Track 1 SVR Reference Grid Smoke Campaign Package
+# RCIM Model-Bank Reproduction SVR Reference Grid Smoke Campaign Package
 
 This package contains a minimal exact-paper `SVR` smoke campaign used to
 validate the corrected local and remote exact-paper launchers before retrying
-the heavier `Track 1` reference-grid repair campaign.
+the heavier `RCIM Model-Bank Reproduction` reference-grid repair campaign.
 
 Package rules:
 

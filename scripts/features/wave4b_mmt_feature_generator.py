@@ -1,7 +1,7 @@
-"""Wave 4B MMT feature-generator skeleton.
+"""Wave 5.2B MMT feature-generator skeleton.
 
 This module exposes a leakage-aware feature schema and a dry-run sample payload
-derived from the existing Wave 4A MMT diagnostic curve. It is not a training
+derived from the existing Wave 5.2A MMT diagnostic curve. It is not a training
 entry point and must remain campaign-disabled until a later approved campaign
 package selects consumers, losses, and surfaces.
 """
@@ -32,7 +32,7 @@ DIAGNOSTIC_ONLY = "diagnostic_only"
 @dataclass(frozen=True)
 class Wave4BFeatureSpecification:
 
-    """Metadata for one candidate Wave 4B feature or label field."""
+    """Metadata for one candidate Wave 5.2B feature or label field."""
 
     feature_name: str
     feature_group: str
@@ -63,7 +63,7 @@ def format_float(value: float) -> str:
 
 def build_feature_schema() -> list[Wave4BFeatureSpecification]:
 
-    """Build the conservative Wave 4B feature schema."""
+    """Build the conservative Wave 5.2B feature schema."""
 
     return [
         Wave4BFeatureSpecification(
@@ -72,7 +72,7 @@ def build_feature_schema() -> list[Wave4BFeatureSpecification]:
             feature_kind="point_curve_feature",
             usage_policy=INFERENCE_SAFE,
             leakage_risk="none_if_geometry_and_train_only_calibration_are_locked",
-            source_boundary="Wave 4A MMT diagnostic curve",
+            source_boundary="Wave 5.2A MMT diagnostic curve",
             notes="Raw analytical RTE curve sample from the MMT equation chain.",
         ),
         Wave4BFeatureSpecification(
@@ -81,7 +81,7 @@ def build_feature_schema() -> list[Wave4BFeatureSpecification]:
             feature_kind="point_curve_feature",
             usage_policy=INFERENCE_SAFE,
             leakage_risk="none_if_centering_uses_mmt_curve_only",
-            source_boundary="Wave 4A MMT diagnostic curve",
+            source_boundary="Wave 5.2A MMT diagnostic curve",
             notes="Centered analytical curve; no measured TE mean is used.",
         ),
         Wave4BFeatureSpecification(
@@ -90,7 +90,7 @@ def build_feature_schema() -> list[Wave4BFeatureSpecification]:
             feature_kind="curve_summary_feature",
             usage_policy=INFERENCE_SAFE,
             leakage_risk="none_if_computed_from_mmt_curve_only",
-            source_boundary="Wave 4A MMT diagnostic curve",
+            source_boundary="Wave 5.2A MMT diagnostic curve",
             notes="Analytical curve mean, not a measured target mean.",
         ),
         Wave4BFeatureSpecification(
@@ -99,7 +99,7 @@ def build_feature_schema() -> list[Wave4BFeatureSpecification]:
             feature_kind="curve_summary_feature",
             usage_policy=INFERENCE_SAFE,
             leakage_risk="none_if_computed_from_mmt_curve_only",
-            source_boundary="Wave 4A MMT diagnostic curve",
+            source_boundary="Wave 5.2A MMT diagnostic curve",
             notes="Analytical curve peak-to-peak amplitude.",
         ),
         Wave4BFeatureSpecification(
@@ -108,7 +108,7 @@ def build_feature_schema() -> list[Wave4BFeatureSpecification]:
             feature_kind="harmonic_summary_feature",
             usage_policy=INFERENCE_SAFE,
             leakage_risk="none_if_computed_from_mmt_curve_only",
-            source_boundary="Wave 4A MMT diagnostic curve",
+            source_boundary="Wave 5.2A MMT diagnostic curve",
             notes="Amplitude for selected harmonic bins from the MMT curve.",
         ),
         Wave4BFeatureSpecification(
@@ -117,7 +117,7 @@ def build_feature_schema() -> list[Wave4BFeatureSpecification]:
             feature_kind="harmonic_summary_feature",
             usage_policy=INFERENCE_SAFE,
             leakage_risk="none_if_computed_from_mmt_curve_only",
-            source_boundary="Wave 4A MMT diagnostic curve",
+            source_boundary="Wave 5.2A MMT diagnostic curve",
             notes="Phase for selected harmonic bins from the MMT curve.",
         ),
         Wave4BFeatureSpecification(
@@ -248,7 +248,7 @@ def generate_wave4b_feature_payload(
     harmonic_index_list: list[int] | None = None,
 ) -> Wave4BFeaturePayload:
 
-    """Generate the Wave 4B dry-run schema and sample feature payload."""
+    """Generate the Wave 5.2B dry-run schema and sample feature payload."""
 
     assert sample_count > 8, f"Sample Count must be greater than 8 | {sample_count}"
     selected_harmonic_index_list = harmonic_index_list or list(DEFAULT_HARMONIC_INDEX_LIST)

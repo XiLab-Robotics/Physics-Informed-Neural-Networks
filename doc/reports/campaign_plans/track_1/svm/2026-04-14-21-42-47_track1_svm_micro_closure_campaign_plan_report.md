@@ -1,8 +1,8 @@
-# Track 1 SVM Micro-Closure Campaign Plan Report
+# RCIM Model-Bank Reproduction SVM Micro-Closure Campaign Plan Report
 
 ## Overview
 
-This report prepares the next `Track 1` campaign as a very narrow `SVR`
+This report prepares the next `RCIM Model-Bank Reproduction` campaign as a very narrow `SVR`
 micro-closure package focused only on the last residual yellow `SVM` cells in
 the canonical paper-facing benchmark.
 

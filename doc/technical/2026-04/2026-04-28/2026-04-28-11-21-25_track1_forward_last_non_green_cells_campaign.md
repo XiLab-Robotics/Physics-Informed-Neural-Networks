@@ -1,8 +1,8 @@
-# Track 1 Forward Last Non-Green Cells Campaign
+# RCIM Model-Bank Reproduction Forward Last Non-Green Cells Campaign
 
 ## Overview
 
-This document prepares the next exact-paper `Track 1` forward-only repair wave
+This document prepares the next exact-paper `RCIM Model-Bank Reproduction` forward-only repair wave
 after the completed `forward_final_open_cells` closeout.
 
 The canonical benchmark now shows only `10` forward non-green cells, all
@@ -49,7 +49,7 @@ residual wave:
 The intended post-approval implementation remains the standard repository
 workflow:
 
-- campaign config bundle under the Track 1 exact-paper original-dataset tree;
+- campaign config bundle under the RCIM Model-Bank Reproduction exact-paper original-dataset tree;
 - one dedicated PowerShell launcher;
 - one matching launcher note;
 - one prepared update to `doc/running/active_training_campaign.yaml`.

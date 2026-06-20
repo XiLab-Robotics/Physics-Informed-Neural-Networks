@@ -1,15 +1,15 @@
-# Track 2H-L Latent-State Hysteresis Probe Model
+# Wave 4.4 Latent-State Hysteresis Probe Model
 
 ## Overview
 
-`latent_state_hysteresis_probe` is the approved `Track 2H-L` diagnostic model
+`latent_state_hysteresis_probe` is the approved `Wave 4.4` diagnostic model
 family for testing whether causal operating-history state helps explain the
 offset, preload, elastic-release, and fragile-harmonic behavior observed in
-`Track 2`.
+`TE Curve Verification Pipeline`.
 
 The model is not an integrated multi-task / multi-head solution. It is a
-narrow probe that must be compared against completed `Track 2H` robust,
-probabilistic, mixture-density probes and the first real `Wave 3`
+narrow probe that must be compared against completed `Wave 4.1` robust,
+probabilistic, mixture-density probes and the first real `Wave 5.1`
 harmonic-prior residual branch.
 
 ## Operating Principle
@@ -56,13 +56,13 @@ The auxiliary outputs expose:
 - `residual_offset_prediction_tensor`;
 - `hysteresis_residual_prediction_tensor`.
 
-These diagnostics allow campaign closeout and later `Track 2` verification to
+These diagnostics allow campaign closeout and later `TE Curve Verification Pipeline` verification to
 inspect whether the latent state is actually carrying useful offset or residual
 information.
 
 ## Campaign Profiles
 
-The prepared `Track 2H-L` package contains two profiles:
+The prepared `Wave 4.4` package contains two profiles:
 
 | Profile | Encoder | Test |
 | --- | --- | --- |
@@ -77,7 +77,7 @@ Each profile is trained on `global`, `Fw`, and `Bw` surfaces.
 - Keeps runtime inputs deployment-valid and causal.
 - Exposes latent and branch diagnostics for closeout interpretation.
 - Reuses the existing sequence datamodule, Lightning module, campaign runner,
-  registry flow, and `Track 2` verification path.
+  registry flow, and `TE Curve Verification Pipeline` verification path.
 
 ## Disadvantages And Risks
 
@@ -85,7 +85,7 @@ Each profile is trained on `global`, `Fw`, and `Bw` surfaces.
   preload state is not observable from those variables, the model may not
   improve.
 - The campaign adds capacity and may overfit local dispersion unless official
-  `Track 2` curve verification confirms the scalar result.
+  `TE Curve Verification Pipeline` curve verification confirms the scalar result.
 - The latent vector is not yet constrained by physics or repeatability
   measurements.
 - This is still Python-side modeling; PLC-friendly export is intentionally
@@ -99,7 +99,7 @@ Each profile is trained on `global`, `Fw`, and `Bw` surfaces.
 - `scripts/models/model_factory.py`
   - registers `latent_state_hysteresis_probe`
 - `scripts/training/train_feedforward_network.py`
-  - prints model-specific `Track 2H-L` configuration fields
+  - prints model-specific `Wave 4.4` configuration fields
 - `scripts/training/run_training_campaign.py`
   - routes `latent_state_hysteresis_probe` through the standard neural trainer
 - `scripts/campaigns/track_2/prepare_track2h_latent_state_hysteresis_campaign.py`
@@ -114,6 +114,6 @@ Each profile is trained on `global`, `Fw`, and `Bw` surfaces.
 
 ## Interpretation Rule
 
-`Track 2H-L` should be treated as successful only if it improves normal
-campaign metrics and then survives a separate official `Track 2` curve-first
+`Wave 4.4` should be treated as successful only if it improves normal
+campaign metrics and then survives a separate official `TE Curve Verification Pipeline` curve-first
 verification refresh. Scalar improvement alone is not enough to promote it.

@@ -1,8 +1,8 @@
-# Track 2 Directional Comparison Report
+# TE Curve Verification Pipeline Directional Comparison Report
 
 ## Overview
 
-This report evaluates `Track 1` paper-reference banks and `Wave 1`
+This report evaluates `RCIM Model-Bank Reproduction` paper-reference banks and `Wave 1`
 repository models on direction-valid held-out TE curves. Directional
 candidates are evaluated only on their matching direction, while global
 candidates are evaluated on both directions and reported separately.

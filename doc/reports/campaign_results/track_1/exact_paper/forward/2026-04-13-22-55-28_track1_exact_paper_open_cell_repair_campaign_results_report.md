@@ -1,4 +1,4 @@
-# Track 1 Exact-Paper Open-Cell Repair Campaign Results Report
+# RCIM Model-Bank Reproduction Exact-Paper Open-Cell Repair Campaign Results Report
 
 ## Overview
 
@@ -15,7 +15,7 @@ launcher:
 - campaign artifact root:
   `output/training_campaigns/track1/exact_paper/forward/uncategorized/shared/track1_exact_paper_open_cell_repair_campaign_2026_04_13_21_20_53/`
 
-This campaign was designed under the new `Track 1` paradigm:
+This campaign was designed under the new `RCIM Model-Bank Reproduction` paradigm:
 
 - the primary objective is exact-paper table closure across Tables `3-6`;
 - the campaign winner remains a required bookkeeping artifact;
@@ -42,7 +42,7 @@ Outcome:
 - no harmonic became fully closed.
 
 The campaign therefore improved harmonic-family alignment slightly, but it did
-not close the real numeric gaps that still keep `Track 1` open.
+not close the real numeric gaps that still keep `RCIM Model-Bank Reproduction` open.
 
 ## Ranking Policy
 
@@ -61,7 +61,7 @@ campaign policy is therefore:
 Interpretation:
 
 - this policy exists only to serialize the required campaign-best artifacts;
-- the real `Track 1` interpretation remains the cell-closure matrix below.
+- the real `RCIM Model-Bank Reproduction` interpretation remains the cell-closure matrix below.
 
 ## Campaign Ranking
 
@@ -101,7 +101,7 @@ It was selected because it achieved:
 Important interpretation:
 
 - this run is the campaign bookkeeping winner;
-- it is **not** evidence that `Track 1` is solved;
+- it is **not** evidence that `RCIM Model-Bank Reproduction` is solved;
 - it is only the cleanest top-ranked run under the paper-closure-first
   ranking policy.
 
@@ -215,7 +215,7 @@ The blocker is now real paper-target closure.
 
 The campaign supports five conclusions.
 
-### 1. The New Track 1 Framing Worked
+### 1. The New RCIM Model-Bank Reproduction Framing Worked
 
 The campaign was readable in the correct format:
 
@@ -229,7 +229,7 @@ This is materially better than a winner-only campaign story.
 
 No Table `3-5` cell changed from `above_paper_target` to `met_paper_target`.
 
-So, in the strict sense that matters for `Track 1`, the campaign did not close
+So, in the strict sense that matters for `RCIM Model-Bank Reproduction`, the campaign did not close
 any table cell.
 
 ### 3. Harmonic `240` Improved Only One Level
@@ -258,7 +258,7 @@ The next technically justified steps are:
 
 1. keep `exact_open_cell_paper_family_reference` as the bookkeeping winner for
    this campaign only;
-2. keep the canonical `Track 1` reading anchored to the still-open numeric
+2. keep the canonical `RCIM Model-Bank Reproduction` reading anchored to the still-open numeric
    cells listed above;
 3. prioritize a next exact-paper iteration that can act more surgically on:
    `A_0`, `phi_3`, `phi_162`, and the full `240` triplet;

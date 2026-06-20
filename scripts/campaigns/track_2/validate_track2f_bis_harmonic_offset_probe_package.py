@@ -1,4 +1,4 @@
-"""Validate the prepared Track 2F-bis harmonic-offset probe package."""
+"""Validate the prepared Wave 3.2 harmonic-offset probe package."""
 
 from __future__ import annotations
 
@@ -53,7 +53,7 @@ def load_queue_config_list(queue_root: Path) -> list[dict[str, Any]]:
 
 def validate_queue_matrix(queue_config_list: list[dict[str, Any]]) -> None:
 
-    """Validate the Track 2F-bis queue matrix."""
+    """Validate the Wave 3.2 queue matrix."""
 
     assert len(queue_config_list) == 6, f"Expected 6 queue configs | found={len(queue_config_list)}"
 
@@ -81,7 +81,7 @@ def validate_queue_matrix(queue_config_list: list[dict[str, Any]]) -> None:
             f"Model type mismatch | intervention={intervention_name} | "
             f"observed={experiment.get('model_type')} | expected={expected_model_type}"
         )
-        assert dataset.get("collate_mode") == "sequence", "Track 2F-bis entries must use sequence batches"
+        assert dataset.get("collate_mode") == "sequence", "Wave 3.2 entries must use sequence batches"
         assert int(dataset.get("sequence_length", 0)) == 33, "Unexpected sequence length"
         assert bool(model.get("offset_bidirectional", False)) is False, "Offset branch must remain unidirectional"
 
@@ -97,19 +97,19 @@ def validate_queue_matrix(queue_config_list: list[dict[str, Any]]) -> None:
     }
     missing_pair_set = expected_pair_set.difference(observed_pair_set)
     unexpected_pair_set = observed_pair_set.difference(expected_pair_set)
-    assert not missing_pair_set, f"Missing Track 2F-bis queue pairs | {sorted(missing_pair_set)}"
-    assert not unexpected_pair_set, f"Unexpected Track 2F-bis queue pairs | {sorted(unexpected_pair_set)}"
+    assert not missing_pair_set, f"Missing Wave 3.2 queue pairs | {sorted(missing_pair_set)}"
+    assert not unexpected_pair_set, f"Unexpected Wave 3.2 queue pairs | {sorted(unexpected_pair_set)}"
 
 
 def validate_active_campaign_state() -> None:
 
-    """Validate that the persistent active-campaign state points at Track 2F-bis."""
+    """Validate that the persistent active-campaign state points at Wave 3.2."""
 
     active_state_path = PROJECT_PATH / ACTIVE_CAMPAIGN_STATE_PATH
     active_state = read_yaml_file(active_state_path)
-    assert active_state.get("status") == "prepared", "Track 2F-bis campaign state is not prepared."
+    assert active_state.get("status") == "prepared", "Wave 3.2 campaign state is not prepared."
     assert active_state.get("campaign_name") == CAMPAIGN_NAME, (
-        "Active campaign state does not point at Track 2F-bis."
+        "Active campaign state does not point at Wave 3.2."
     )
     queue_config_path_list = active_state.get("queue_config_path_list", [])
     assert isinstance(queue_config_path_list, list), "queue_config_path_list must be a list"
@@ -125,19 +125,19 @@ def parse_arguments() -> argparse.Namespace:
         "--queue-root",
         required=True,
         type=Path,
-        help="Repository-relative directory containing Track 2F-bis queue configs.",
+        help="Repository-relative directory containing Wave 3.2 queue configs.",
     )
     parser.add_argument(
         "--require-prepared-state",
         action="store_true",
-        help="Require doc/running/active_training_campaign.yaml to point at Track 2F-bis.",
+        help="Require doc/running/active_training_campaign.yaml to point at Wave 3.2.",
     )
     return parser.parse_args()
 
 
 def main() -> int:
 
-    """Validate the Track 2F-bis package."""
+    """Validate the Wave 3.2 package."""
 
     argument_namespace = parse_arguments()
     queue_root = PROJECT_PATH / argument_namespace.queue_root
@@ -147,7 +147,7 @@ def main() -> int:
         validate_active_campaign_state()
 
     print(
-        "Track 2F-bis package validated | "
+        "Wave 3.2 package validated | "
         f"queue_entries={len(queue_config_list)} | "
         f"interventions={len(EXPECTED_INTERVENTION_LIST)} | surfaces={len(EXPECTED_SURFACE_LIST)}"
     )

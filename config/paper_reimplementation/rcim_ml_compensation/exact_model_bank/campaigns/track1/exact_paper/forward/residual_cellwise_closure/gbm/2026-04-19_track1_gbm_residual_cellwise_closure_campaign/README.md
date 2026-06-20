@@ -1,4 +1,4 @@
-# Track 1 GBM Residual Cellwise Closure Campaign
+# RCIM Model-Bank Reproduction GBM Residual Cellwise Closure Campaign
 
 This package contains the aggressive overnight residual-cell closure
 wave for the exact-paper `GBM` family.

@@ -1,13 +1,13 @@
-# Wave 2B Harmonic Temporal Hybrid Models
+# Wave 2.2 Harmonic Temporal Hybrid Models
 
 ## Overview
 
-`Wave 2B` extends the completed `Wave 2` temporal branch by adding explicit
+`Wave 2.2` extends the completed `Wave 2.1` temporal branch by adding explicit
 harmonic angle features to each timestep in the sequence window.
 
-The first `Wave 2` campaign verified `temporal_convolution`, `gru_sequence`,
-and `lstm_sequence` in the official `Track 2` workflow, but did not promote
-them over the current repository-owned `tree` baseline. `Wave 2B` tests the
+The first `Wave 2.1` campaign verified `temporal_convolution`, `gru_sequence`,
+and `lstm_sequence` in the official `TE Curve Verification Pipeline` workflow, but did not promote
+them over the current repository-owned `tree` baseline. `Wave 2.2` tests the
 more targeted hypothesis that the temporal backbones need the same TE-specific
 periodic prior used by selected `Wave 1` harmonic and periodic models.
 
@@ -19,7 +19,7 @@ The first implemented hybrid families are:
 - `periodic_gru_sequence`
 - `periodic_lstm_sequence`
 
-All three families keep the existing `Wave 2` sequence-window contract. The
+All three families keep the existing `Wave 2.1` sequence-window contract. The
 input remains a rank-3 tensor shaped as batch, sequence, feature. The model
 extracts angular position from the first raw input feature at every timestep,
 builds fixed sine and cosine harmonic features, appends the normalized
@@ -53,7 +53,7 @@ For every timestep, the hybrid wrapper builds:
 - normalized input speed, torque, oil temperature, and direction flag.
 
 The resulting expanded sequence is passed unchanged to one of the existing
-temporal backbones. This preserves the `Wave 2` readout behavior and keeps the
+temporal backbones. This preserves the `Wave 2.1` readout behavior and keeps the
 new logic isolated to feature construction.
 
 ## Project Context
@@ -61,11 +61,11 @@ new logic isolated to feature construction.
 Advantages:
 
 - combines temporal curve context with explicit TE harmonic structure;
-- reuses the verified `Wave 2` datamodule, normalization, readout, and metric
+- reuses the verified `Wave 2.1` datamodule, normalization, readout, and metric
   path;
 - keeps the first hybrid branch inspectable before introducing residual
   harmonic temporal models;
-- preserves the official `Track 2` `global`, `Fw`, and `Bw` verification rule.
+- preserves the official `TE Curve Verification Pipeline` `global`, `Fw`, and `Bw` verification rule.
 
 Disadvantages:
 

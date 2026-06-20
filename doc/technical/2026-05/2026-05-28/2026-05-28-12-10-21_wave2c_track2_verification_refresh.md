@@ -1,18 +1,18 @@
-# Wave 2C Track 2 Verification Refresh
+# Wave 2.3 TE Curve Verification Pipeline Verification Refresh
 
 ## Overview
 
-This technical document plans the optional `Track 2` verification refresh for
-the completed `Wave 2C` residual harmonic temporal hybrid campaign. The normal
+This technical document plans the optional `TE Curve Verification Pipeline` verification refresh for
+the completed `Wave 2.3` residual harmonic temporal hybrid campaign. The normal
 campaign closeout is already complete, the active campaign state is cleared,
-and the campaign record marks `Track 2` as an operator-launched follow-up.
+and the campaign record marks `TE Curve Verification Pipeline` as an operator-launched follow-up.
 
-The refresh will add the completed `Wave 2C` candidate surfaces to the official
+The refresh will add the completed `Wave 2.3` candidate surfaces to the official
 directional offline comparison matrix, prepare a dedicated launcher that can be
 run locally or with `-Remote`, and keep the heavy verification execution under
-operator control. The workflow must not promote any `Wave 2C` model from
+operator control. The workflow must not promote any `Wave 2.3` model from
 campaign leaderboard metrics alone; the decision must come from the refreshed
-direction-aware `Track 2` matrix and validated visual companion reports.
+direction-aware `TE Curve Verification Pipeline` matrix and validated visual companion reports.
 
 No subagent use is planned for this implementation. If subagent review becomes
 useful later, the task boundary and approval requirement will be declared
@@ -20,8 +20,8 @@ before launching it.
 
 ## Technical Approach
 
-The implementation will follow the existing `Track 2` refresh pattern and the
-post-closeout campaign workflow. It will inspect the completed `Wave 2C`
+The implementation will follow the existing `TE Curve Verification Pipeline` refresh pattern and the
+post-closeout campaign workflow. It will inspect the completed `Wave 2.3`
 registry surface, add the approved candidate entries to the compact matrix
 configuration, and prepare an operator-facing PowerShell launcher. The launcher
 will run locally by default and expose `-Remote` by reusing the repository LAN
@@ -61,13 +61,13 @@ training status documents.
 ## Implementation Steps
 
 1. Reconfirm that `doc/running/active_training_campaign.yaml` is cleared and
-   that the completed `Wave 2C` campaign exposes the expected registry files.
-2. Inspect the current `Track 2` matrix template and inference support code to
+   that the completed `Wave 2.3` campaign exposes the expected registry files.
+2. Inspect the current `TE Curve Verification Pipeline` matrix template and inference support code to
    determine whether the residual harmonic temporal sequence families can use
    existing loading paths or need a small support extension.
-3. Add the approved `Wave 2C` `global`, `Fw`, and `Bw` candidate entries to the
+3. Add the approved `Wave 2.3` `global`, `Fw`, and `Bw` candidate entries to the
    compact matrix configuration with stable direction semantics.
-4. Create a dedicated `Wave 2C` `Track 2` PowerShell launcher that supports
+4. Create a dedicated `Wave 2.3` `TE Curve Verification Pipeline` PowerShell launcher that supports
    local execution and `-Remote`, writes distinguishable output/log suffixes,
    and does not start the heavy matrix during preparation.
 5. Add the matching launcher note and document the exact local and `-Remote`
@@ -78,7 +78,7 @@ training status documents.
    verification report.
 8. Export and validate the real PDFs for the refreshed visual and official
    reports.
-9. Synchronize the live backlog, training master summary, and any `Track 2`
+9. Synchronize the live backlog, training master summary, and any `TE Curve Verification Pipeline`
    report pointers with the final decision.
 10. Run Python, Markdown, Sphinx, PDF, and Git preflight checks before any
     final commit request.

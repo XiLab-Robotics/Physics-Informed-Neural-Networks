@@ -1,4 +1,4 @@
-"""Validate that Track 2 visual reports expose matrix registry sources."""
+"""Validate that TE Curve Verification Pipeline visual reports expose matrix registry sources."""
 
 from __future__ import annotations
 
@@ -57,25 +57,25 @@ def parse_command_line_arguments() -> argparse.Namespace:
     """Parse command-line arguments."""
 
     argument_parser = argparse.ArgumentParser(
-        description="Validate Track 2 visual report source coverage.",
+        description="Validate TE Curve Verification Pipeline visual report source coverage.",
     )
     argument_parser.add_argument(
         "--config-path",
         type=Path,
         default=DEFAULT_CONFIG_PATH,
-        help="Track 2 matrix configuration path.",
+        help="curve-verification matrix configuration path.",
     )
     argument_parser.add_argument(
         "--collage-report-path",
         type=Path,
         default=DEFAULT_COLLAGE_REPORT_PATH,
-        help="Generated Track 2 best-model collage Markdown path.",
+        help="Generated TE Curve Verification Pipeline best-model collage Markdown path.",
     )
     argument_parser.add_argument(
         "--overlay-report-path",
         type=Path,
         default=DEFAULT_OVERLAY_REPORT_PATH,
-        help="Generated Track 2 multi-model overlay Markdown path.",
+        help="Generated TE Curve Verification Pipeline multi-model overlay Markdown path.",
     )
     repository_path_support.add_platform_arguments(argument_parser)
     return argument_parser.parse_args()
@@ -83,7 +83,7 @@ def parse_command_line_arguments() -> argparse.Namespace:
 
 def collect_configured_registry_source_label_set(training_config: dict[str, Any]) -> set[str]:
 
-    """Collect explicitly labeled registry sources from the Track 2 matrix config."""
+    """Collect explicitly labeled registry sources from the curve-verification matrix config."""
 
     generation_configuration = training_config["comparison"]["candidate_generation"]
     source_label_set: set[str] = set()
@@ -140,7 +140,7 @@ def read_report_text(report_path: Path) -> str:
     """Read a generated Markdown report."""
 
     if not report_path.is_file():
-        raise FileNotFoundError(f"Missing Track 2 visual report: {report_path}")
+        raise FileNotFoundError(f"Missing TE Curve Verification Pipeline visual report: {report_path}")
     return report_path.read_text(encoding="utf-8")
 
 
@@ -160,7 +160,7 @@ def collect_missing_candidate_list(
 
 def validate_visual_source_coverage(arguments: argparse.Namespace) -> dict[str, Any]:
 
-    """Validate source coverage in the generated Track 2 visual reports."""
+    """Validate source coverage in the generated TE Curve Verification Pipeline visual reports."""
 
     repository_path_support.set_runtime_platform(
         repository_path_support.resolve_argument_platform(arguments)
@@ -221,10 +221,10 @@ def validate_visual_source_coverage(arguments: argparse.Namespace) -> dict[str, 
 
     if failure_list:
         failure_text = "\n".join(f"- {failure}" for failure in failure_list)
-        raise AssertionError(f"Track 2 visual source coverage failed:\n{failure_text}")
+        raise AssertionError(f"TE Curve Verification Pipeline visual source coverage failed:\n{failure_text}")
 
     print(
-        "Track 2 visual source coverage passed | "
+        "TE Curve Verification Pipeline visual source coverage passed | "
         f"registry_source_count={len(source_summary_list)}"
     )
     for source_summary in source_summary_list:

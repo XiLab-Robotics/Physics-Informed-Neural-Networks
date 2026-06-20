@@ -49,7 +49,7 @@ Implemented today:
 - recovered RCIM original-pipeline documentation and a repository-owned
   near-literal execution copy under
   `scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/`;
-- a faithful RCIM Track 1 exact-model-bank reimplementation under
+- a faithful RCIM Model-Bank Reproduction exact-model-bank reimplementation under
   `scripts/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/`,
   with completed forward/backward paper-reference campaigns, archived
   per-target `Python + ONNX` model banks, and populated benchmark tables for
@@ -76,6 +76,32 @@ Planned or future work:
 - export and deployment hardening for production-oriented inference;
 - full PINN formulation once the physics residual design is mature enough.
 
+## Program Naming
+
+The repository uses three separate naming layers:
+
+| Layer | Purpose |
+| --- | --- |
+| `RCIM Model-Bank Reproduction` | Paper-faithful harmonic model-bank reproduction formerly called `Track 1`. |
+| `Model Development Waves` | Training and experimental model families, numbered from Wave 1 through Wave 6. |
+| `TE Curve Verification Pipeline` | Offline curve evaluation, diagnostics, selection, visualization, and report generation formerly called `Track 2`. |
+
+The current model-development sequence is:
+
+- Wave 1: baseline models;
+- Waves 2.1-2.3: temporal and harmonic-temporal models;
+- Waves 3.1-3.3: residual-offset and curve-aware models;
+- Waves 4.1-4.4: robust, probabilistic, mixture-density, and stateful models;
+- Wave 5.1: harmonic-prior residual models;
+- Wave 5.2: MMT/PINN-guided models;
+- Wave 6: integrated multi-task and multi-head models.
+
+The TE Curve Verification Pipeline uses `CVP 1.1` through `CVP 1.5` for its
+curve-first reranking, curve-payload diagnostics, mean-centered decomposition,
+offset-and-shape audit, and causal-offset feasibility modules. Historical
+artifact IDs and paths containing `track1` or `track2` remain unchanged for
+reproducibility.
+
 ## Repository At A Glance
 
 The most important folders for a new user are:
@@ -98,7 +124,7 @@ The most important folders for a new user are:
   External reference material and imported codebases kept outside the main
   canonical workflow.
 - `models/paper_reference/rcim_track1/`
-  Curated RCIM Track 1 forward/backward paper-reference model archives
+  Curated RCIM Model-Bank Reproduction forward/backward paper-reference model archives
   produced by the faithful exact-model-bank reimplementation.
 - `reference/video_guides/source_bundle/`
   Canonical Git-tracked TwinCAT/TestRig video source bundle, with large media
@@ -191,7 +217,7 @@ python scripts/training/run_training_campaign.py
   -PlanningReportPath "doc\reports\campaign_plans\YOUR_PLAN.md"
 ```
 
-### Inspect The RCIM Track 1 Paper-Faithful Baseline
+### Inspect The RCIM Model-Bank Reproduction Paper-Faithful Baseline
 
 The recovered original RCIM pipeline is preserved as a near-literal
 repository-owned copy here:
@@ -203,12 +229,12 @@ Tables `2`-`5` on the repository dataset lives here:
 
 - `scripts/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/`
 
-Current accepted Track 1 model archives and benchmark tables live here:
+Current accepted RCIM Model-Bank Reproduction model archives and benchmark tables live here:
 
 - `models/paper_reference/rcim_track1/`
 - `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
 
-Track 1 is considered closed as the repository-owned paper-faithful full-bank
+RCIM Model-Bank Reproduction is considered closed as the repository-owned paper-faithful full-bank
 reproduction surface: both `forward` and `backward` grid-search campaigns were
 run, the accepted archives were refreshed, and Tables `2`-`5` were repopulated.
 The closure does not claim that every colored benchmark cell is green; later

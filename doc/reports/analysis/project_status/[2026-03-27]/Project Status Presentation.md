@@ -92,7 +92,7 @@ Each family now lives inside the same artifact and evaluation structure.
 - keep model comparison honest through registries and campaign reports
 - preserve residual harmonic as the main neural branch
 - open the TwinCAT deployment evaluation track carefully
-- prepare the transition to Wave 2 temporal models
+- prepare the transition to Wave 2.1 temporal models
 
 ---
 
@@ -110,7 +110,7 @@ Each family now lives inside the same artifact and evaluation structure.
 1. update the live backlog and running-state view
 2. formalize the TwinCAT deployment evaluation branch
 3. keep the residual winner as the neural reference anchor
-4. prepare Wave 2 temporal implementation
+4. prepare Wave 2.1 temporal implementation
 5. preserve the current documentation and reporting discipline
 
 ---

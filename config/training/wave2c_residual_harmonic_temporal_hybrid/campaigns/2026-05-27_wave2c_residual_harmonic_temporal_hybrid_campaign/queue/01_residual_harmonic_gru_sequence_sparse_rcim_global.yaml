@@ -10,7 +10,7 @@ metadata:
   planning_report_path: doc/reports/campaign_plans/wave_2/2026-05-27-18-08-32_wave2c_residual_harmonic_temporal_hybrid_campaign_plan_report.md
   phase_name: wave2c_residual_harmonic_temporal_hybrid_preparation
   campaign_config_id: residual_harmonic_gru_sequence_sparse_rcim
-  notes: Wave 2C residual harmonic temporal hybrid campaign | family=residual_harmonic_gru_sequence | basis=sparse_rcim | direction=global. Candidate must return through official Track 2 verification.
+  notes: Wave 2.3 residual harmonic temporal hybrid campaign | family=residual_harmonic_gru_sequence | basis=sparse_rcim | direction=global. Candidate must return through official TE curve verification.
   random_seed: 42
   base_model_family: residual_harmonic_gru_sequence
   training_variant: global

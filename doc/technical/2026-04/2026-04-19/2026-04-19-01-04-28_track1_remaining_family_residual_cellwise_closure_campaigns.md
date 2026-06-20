@@ -1,8 +1,8 @@
-# Track 1 Remaining Family Residual Cellwise Closure Campaigns
+# RCIM Model-Bank Reproduction Remaining Family Residual Cellwise Closure Campaigns
 
 ## Overview
 
-This document prepares the next `Track 1` exact-paper closure wave after the
+This document prepares the next `RCIM Model-Bank Reproduction` exact-paper closure wave after the
 completed `171`-run remaining-family cellwise reference batch.
 
 The previous wave successfully materialized the canonical `19`-model reference

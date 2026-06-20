@@ -1,17 +1,17 @@
-# Track 2 Official Model Verification Report
+# TE Curve Verification Pipeline Official Model Verification Report
 
 ## Executive Verdict
 
-`Track 2` is the official offline verification surface for newly introduced TE
+`TE Curve Verification Pipeline` is the official offline verification surface for newly introduced TE
 models. A model or family is not considered verified only because its training
 campaign metrics improved; it must also be compared on the direction-aware
-`Track 2` curve-reconstruction matrix and reviewed against visual curve
+`TE Curve Verification Pipeline` curve-reconstruction matrix and reviewed against visual curve
 evidence.
 
-Current closeout verdict after the `Wave 2` temporal refresh:
+Current closeout verdict after the `Wave 2.1` temporal refresh:
 
-- `Track 2` remains the canonical offline model-verification report.
-- The `Wave 2` temporal candidates are verified in the matrix and visual
+- `TE Curve Verification Pipeline` remains the canonical offline model-verification report.
+- The `Wave 2.1` temporal candidates are verified in the matrix and visual
   companion reports.
 - No temporal candidate is promoted over the current repository-owned `tree` /
   `hist_gradient_boosting` offline baseline.
@@ -23,7 +23,7 @@ Current closeout verdict after the `Wave 2` temporal refresh:
 
 ## Source Package
 
-This official report consolidates these approved `Track 2` artifacts:
+This official report consolidates these approved `TE Curve Verification Pipeline` artifacts:
 
 - metric matrix:
   `doc/reports/analysis/track2/Track 2 Directional Model Comparison.md`;
@@ -52,21 +52,21 @@ The repository treats direction as a first-class verification surface:
 | `Fw` / `forward` | forward only | forward curves only |
 | `Bw` / `backward` | backward only | backward curves only |
 
-The rule applies to paper-reference models, `Track 1` faithful archives,
-retuned reference archives, `Wave 1` exported models, `Wave 2` temporal
-registry models, and future `Track 2` campaign candidates.
+The rule applies to paper-reference models, `RCIM Model-Bank Reproduction` faithful archives,
+retuned reference archives, `Wave 1` exported models, `Wave 2.1` temporal
+registry models, and future `TE Curve Verification Pipeline` campaign candidates.
 
 ## Pipeline Coverage
 
-| Pipeline or Source | Track 2 Role | Current Status | Verification Artifact |
+| Pipeline or Source | TE Curve Verification Pipeline Role | Current Status | Verification Artifact |
 | --- | --- | --- | --- |
 | recovered original RCIM archive | paper-original forward reference | included | directional matrix |
 | retuned RCIM archive | current paper-derived forward and backward baseline | included | directional matrix and visual reports |
-| `Track 1` exact paper-faithful bank | source-faithful reproduction evidence | included | directional matrix and visual reports |
+| `RCIM Model-Bank Reproduction` exact paper-faithful bank | source-faithful reproduction evidence | included | directional matrix and visual reports |
 | `Wave 1` exported static baselines | repository-owned static candidates | included | directional matrix and visual reports |
 | `periodic_mlp` explicit harmonic campaign | latest family-registry refresh | included in visual refresh | collage and overlay reports |
-| `Wave 2` temporal entry campaign | temporal convolution, `GRU`, and `LSTM` registry candidates | included | matrix, collage, overlay, PDF |
-| future `Track 2` campaigns | new verification candidates | append here when approved | matrix, collage, overlay, PDF |
+| `Wave 2.1` temporal entry campaign | temporal convolution, `GRU`, and `LSTM` registry candidates | included | matrix, collage, overlay, PDF |
+| future `TE Curve Verification Pipeline` campaigns | new verification candidates | append here when approved | matrix, collage, overlay, PDF |
 
 ## Current Numeric Baselines
 
@@ -89,7 +89,7 @@ registry models, and future `Track 2` campaign candidates.
 | global, forward side | `tree_global` | 0.002998 | 0.003364 | 6.590 | 11.601 |
 | global, backward side | `tree_global` | 0.003290 | 0.003702 | 7.118 | 13.703 |
 
-### Wave 2 Temporal Candidates
+### Wave 2.1 Temporal Candidates
 
 | Direction | Strongest Temporal Candidate | MAE [deg] | RMSE [deg] | Mean [%] | P95 [%] |
 | --- | --- | ---: | ---: | ---: | ---: |
@@ -109,7 +109,7 @@ The refreshed best-model collage report now includes:
 - forward and backward composite reference collages;
 - `Wave 1` family-best collages;
 - explicit-harmonic `periodic_mlp` refresh collages;
-- `Wave 2` temporal collages for `temporal_convolution`, `gru_sequence`, and
+- `Wave 2.1` temporal collages for `temporal_convolution`, `gru_sequence`, and
   `lstm_sequence` across `global`, `Fw`, and `Bw`.
 
 The PDF companion is:
@@ -124,9 +124,9 @@ Representative evidence from the refreshed validation output is stored at:
 ### Multi-Model Overlay Evidence
 
 The refreshed multi-model curve comparison report now includes dedicated
-`Wave 2` overlays and combined reference/tree/temporal overlays for both
+`Wave 2.1` overlays and combined reference/tree/temporal overlays for both
 directions. The combined overlays show the temporal models against the current
-paper-derived references, `Track 1` references, and `tree` baseline on the same
+paper-derived references, `RCIM Model-Bank Reproduction` references, and `tree` baseline on the same
 curves.
 
 The PDF companion is:
@@ -140,18 +140,18 @@ Representative evidence from the refreshed validation output is stored at:
 
 ## Campaign Update Ledger
 
-Future `Track 2` campaigns must append a row here after the campaign result
+Future `TE Curve Verification Pipeline` campaigns must append a row here after the campaign result
 report, matrix refresh, visual report refresh, and official PDF validation are
 complete.
 
 | Date | Campaign or Update | Candidate Scope | Matrix Status | Visual Status | Decision |
 | --- | --- | --- | --- | --- | --- |
 | 2026-05-21 | `periodic_mlp` explicit harmonic registry refresh | `global`, `Fw`, `Bw` visual verification | source matrix unchanged; visual registry refresh included | collage and overlay PDFs refreshed | included as visual evidence, not promoted over `tree` |
-| 2026-05-24 | `Wave 2` temporal-model entry campaign | `global`, `Fw`, `Bw` for TCN, `GRU`, and `LSTM` | matrix refreshed from 75 to 84 candidates | collage and overlay PDFs refreshed | verified, but not promoted over `tree` |
+| 2026-05-24 | `Wave 2.1` temporal-model entry campaign | `global`, `Fw`, `Bw` for TCN, `GRU`, and `LSTM` | matrix refreshed from 75 to 84 candidates | collage and overlay PDFs refreshed | verified, but not promoted over `tree` |
 
 ## Maintenance Contract
 
-For every future `Track 2` model-verification update:
+For every future `TE Curve Verification Pipeline` model-verification update:
 
 1. refresh `Track 2 Directional Model Comparison.md` when the candidate set or
    numeric matrix changes;
@@ -167,7 +167,7 @@ For every future `Track 2` model-verification update:
 
 ## Closeout Decision
 
-`Track 2` remains closed as the current official offline verification report.
+`TE Curve Verification Pipeline` remains closed as the current official offline verification report.
 The accepted baseline for future work is unchanged:
 
 - forward paper-derived comparison: `paper_retuned_best_Fw`;
@@ -177,7 +177,7 @@ The accepted baseline for future work is unchanged:
 - strongest repository-owned static baseline: `tree` /
   `hist_gradient_boosting`.
 
-The `Wave 2` temporal branch is accepted as verified exploratory evidence, not
+The `Wave 2.1` temporal branch is accepted as verified exploratory evidence, not
 as the promoted offline winner. The practical next branch should either tune a
 compact temporal/hybrid model against the `tree` baseline or move the strongest
 verified candidates into deployment-readiness checks before any TwinCAT-facing

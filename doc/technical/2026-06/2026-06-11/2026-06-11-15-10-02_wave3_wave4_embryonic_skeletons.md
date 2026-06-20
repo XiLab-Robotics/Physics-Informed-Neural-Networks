@@ -1,29 +1,29 @@
-# Wave 3 And Wave 4 Embryonic Skeletons
+# Wave 5.1 And Wave 5.2 Embryonic Skeletons
 
 ## Overview
 
 This technical document plans the repository work for preparing embryonic
-`Wave 3` and `Wave 4` implementation skeletons while the separate `Track 2H`
+`Wave 5.1` and `Wave 5.2` implementation skeletons while the separate `Wave 4 series`
 campaign is handled elsewhere. The objective is to make the next model and
 physics branches implementation-ready without making them campaign-ready.
 
 The skeletons should cover model modules, diagnostic adapters, validators,
 configuration templates, launcher drafts, and documentation notes. They must
 not launch training, mutate active campaign state, or create a final queue
-until the blocking evidence from `Track 2H`, `Wave 3` smoke checks, and
-`Wave 4A` diagnostics is available.
+until the blocking evidence from `Wave 4 series`, `Wave 5.1` smoke checks, and
+`Wave 5.2A` diagnostics is available.
 
 ## Technical Approach
 
 The approved implementation pass should prepare:
 
-- a `Wave 3` harmonic-prior residual model skeleton with fixed harmonic basis
+- a `Wave 5.1` harmonic-prior residual model skeleton with fixed harmonic basis
   buffers, structured harmonic reconstruction, and residual-correction output;
-- optional `Wave 3` grouped-head interfaces for low-order, stable-middle, and
+- optional `Wave 5.1` grouped-head interfaces for low-order, stable-middle, and
   high-order harmonic groups;
-- a `Wave 4A` MMT equation diagnostic adapter around the repository-owned MMT
+- a `Wave 5.2A` MMT equation diagnostic adapter around the repository-owned MMT
   reproduction;
-- placeholders for `Wave 4B` MMT feature generation and `Wave 4C` weak MMT
+- placeholders for `Wave 5.2B` MMT feature generation and `Wave 5.2C` weak MMT
   soft-constraint PINN integration;
 - validators and smoke commands that prove import, model construction,
   forward pass, and package consistency;
@@ -65,10 +65,10 @@ Protected until later approval:
 
 1. Create and approve this technical document and the paired preliminary
    planning report.
-2. Implement the Wave 3 harmonic-prior residual model skeleton with configurable
+2. Implement the Wave 5.1 harmonic-prior residual model skeleton with configurable
    losses and residual weights.
-3. Implement the Wave 4A MMT diagnostic adapter skeleton and smoke script.
-4. Add package validators for Wave 3 and Wave 4 embryonic skeletons.
+3. Implement the Wave 5.2A MMT diagnostic adapter skeleton and smoke script.
+4. Add package validators for Wave 5.1 and Wave 5.2 embryonic skeletons.
 5. Add dry-run launcher drafts and launcher notes marked `not campaign-ready`.
 6. Add configuration templates marked `blocked_on_track2h_results`.
 7. Run compile checks, import checks, forward-smoke checks, package validators,

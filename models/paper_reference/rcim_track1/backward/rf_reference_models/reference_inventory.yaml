@@ -9,7 +9,7 @@ canonical_selection_rule: Per direction and target, store the accepted canonical
 source_code: scripts/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/run_original_dataset_exact_model_bank_validation.py
 source_data: config\datasets\transmission_error_dataset.yaml
 notes:
-- This archive was replaced during the Track 1 backward paper-faithful grid-search
+- This archive was replaced during the RCIM Model-Bank Reproduction backward paper-faithful grid-search
   closeout after the exact-paper pipeline fixes for ELM, remote sync, and search-summary
   serialization.
 - Detailed per-target provenance remains machine-readable in the reference inventory

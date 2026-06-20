@@ -1,4 +1,4 @@
-# Track 1 SVM Micro-Closure Campaign Results Report
+# RCIM Model-Bank Reproduction SVM Micro-Closure Campaign Results Report
 
 ## Overview
 
@@ -170,7 +170,7 @@ The rational options are now:
 
 - one last highly surgical hand-designed `SVM` attempt on a single residual
   surface; or
-- stop spending the main `Track 1` budget on `SVM` and move to another row.
+- stop spending the main `RCIM Model-Bank Reproduction` budget on `SVM` and move to another row.
 
 ## Produced Campaign Artifacts
 

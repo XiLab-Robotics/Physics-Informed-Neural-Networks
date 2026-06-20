@@ -1,9 +1,9 @@
-# Track 1 MLP Family Full-Matrix Repair Campaign Plan Report
+# RCIM Model-Bank Reproduction MLP Family Full-Matrix Repair Campaign Plan Report
 
 ## Overview
 
 This planning report prepares the next dedicated exact-paper `MLP` family
-repair wave under the canonical `Track 1` closure rule that reads progress
+repair wave under the canonical `RCIM Model-Bank Reproduction` closure rule that reads progress
 only from the four full-matrix replication tables.
 
 The campaign scopes every still-non-green `MLP` family-target cell in:
@@ -22,7 +22,7 @@ distinct family-target repair pairs.
 Prepare one overnight-ready `MLP` package that:
 
 - attacks every current non-green `MLP` target pair in the canonical benchmark;
-- keeps the family-local scope separate from the cross-family Track 1 envelope;
+- keeps the family-local scope separate from the cross-family RCIM Model-Bank Reproduction envelope;
 - preserves exact-paper-safe inputs, target scoping, and export rules;
 - uses a retry depth large enough to give the weakest `MLP` targets another
   meaningful search wave without inflating into a multi-family mega-campaign.
@@ -71,7 +71,7 @@ multi-family overnight package.
 | Search Mode | `paper_reference_grid_search` |
 | Export Policy | ONNX plus Python-usable fitted estimator persistence |
 | Output Root | `output/validation_checks/paper_reimplementation_rcim_exact_model_bank` |
-| Track 1 Progress Surface | canonical Tables `2-5` only |
+| RCIM Model-Bank Reproduction Progress Surface | canonical Tables `2-5` only |
 
 ## Packaging Strategy
 

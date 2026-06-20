@@ -1,8 +1,8 @@
-# Track 2 Official Model Verification Report
+# TE Curve Verification Pipeline Official Model Verification Report
 
 ## Executive Verdict
 
-This automated official refresh report closes `Wave 3 harmonic-prior residual refresh`.
+This automated official refresh report closes `Wave 5.1 harmonic-prior residual refresh`.
 
 Decision:
 
@@ -43,7 +43,7 @@ The refresh added `6` candidates from `wave3_harmonic_prior_residual_registry` i
 
 ## Refreshed Source Leaders
 
-The table ranks the refreshed source by aggregate offline Track 2 metrics.
+The table ranks the refreshed source by aggregate offline TE Curve Verification Pipeline metrics.
 
 | Surface | Candidate | MAE [deg] | RMSE [deg] | Mean [%] | P95 [%] |
 | --- | --- | ---: | ---: | ---: | ---: |
@@ -82,6 +82,6 @@ that the refreshed source appears in the visual package.
 
 ## Closeout Decision
 
-`Wave 3 harmonic-prior residual refresh` is closed as: verified exploratory baseline; not promoted over the accepted direction-parallel leaders.
+`Wave 5.1 harmonic-prior residual refresh` is closed as: verified exploratory baseline; not promoted over the accepted direction-parallel leaders.
 
-Use the Wave 3 Track 2 curve, offset, collage, and overlay evidence to decide whether to continue Wave 3, move to Wave 4, or reopen latent-state modeling.
+Use the Wave 5.1 TE Curve Verification Pipeline curve, offset, collage, and overlay evidence to decide whether to continue Wave 5.1, move to Wave 5.2, or reopen latent-state modeling.

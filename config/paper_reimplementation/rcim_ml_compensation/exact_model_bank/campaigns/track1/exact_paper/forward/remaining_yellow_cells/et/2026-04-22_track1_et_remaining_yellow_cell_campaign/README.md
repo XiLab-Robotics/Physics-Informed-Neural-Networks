@@ -1,7 +1,7 @@
-# Track 1 ET Remaining Yellow-Cell Campaign Config Bundle
+# RCIM Model-Bank Reproduction ET Remaining Yellow-Cell Campaign Config Bundle
 
 This config bundle targets only the still-yellow accepted family-row cells
-for the exact-paper Track 1 closure surface on Tables `2-5`.
+for the exact-paper RCIM Model-Bank Reproduction closure surface on Tables `2-5`.
 
 - family: `ET`
 - total configs: `60`

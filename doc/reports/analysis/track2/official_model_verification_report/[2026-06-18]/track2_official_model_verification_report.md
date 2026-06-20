@@ -1,17 +1,17 @@
-# Track 2 Official Model Verification Report
+# TE Curve Verification Pipeline Official Model Verification Report
 
 ## Executive Verdict
 
-This official closure report accepts the completed `Track 2H-L`
-latent-state hysteresis refresh into the canonical `Track 2` evidence package.
+This official closure report accepts the completed `Wave 4.4`
+latent-state hysteresis refresh into the canonical `TE Curve Verification Pipeline` evidence package.
 
 Decision:
 
 - `track2h_latent_state_hysteresis_registry` is closed as a verified
   exploratory baseline.
-- No `Track 2H-L` candidate is promoted over the accepted direction-parallel
+- No `Wave 4.4` candidate is promoted over the accepted direction-parallel
   leaders.
-- The strongest refreshed `Track 2H-L` aggregate candidate is
+- The strongest refreshed `Wave 4.4` aggregate candidate is
   `track2h_l_causal_tcn_offset_residual_global`.
 - The accepted direction-parallel leaders remain `rcim_retuned_GBM19_Fw`,
   `periodic_gru_sequence_Bw`, and the accepted global neural
@@ -52,7 +52,7 @@ The refresh added `6` candidates from `track2h_latent_state_hysteresis_registry`
 
 ## Refreshed Source Leaders
 
-The table ranks the refreshed source by aggregate offline Track 2 metrics.
+The table ranks the refreshed source by aggregate offline TE Curve Verification Pipeline metrics.
 
 | Surface | Candidate | MAE [deg] | RMSE [deg] | Mean [%] | P95 [%] |
 | --- | --- | ---: | ---: | ---: | ---: |
@@ -62,13 +62,13 @@ The table ranks the refreshed source by aggregate offline Track 2 metrics.
 
 Interpretation:
 
-- `global`: causal TCN is the best `Track 2H-L` aggregate candidate, but it
+- `global`: causal TCN is the best `Wave 4.4` aggregate candidate, but it
   remains behind the accepted global neural baseline and behind the strongest
-  probabilistic `Track 2H` global scalar evidence.
-- `Fw`: causal TCN is the best `Track 2H-L` forward candidate, but its
+  probabilistic `Wave 4 series` global scalar evidence.
+- `Fw`: causal TCN is the best `Wave 4.4` forward candidate, but its
   `0.003476 deg` curve MAE is far behind `rcim_retuned_GBM19_Fw`
   at `0.001089 deg`.
-- `Bw`: GRU is the best `Track 2H-L` backward candidate, but its
+- `Bw`: GRU is the best `Wave 4.4` backward candidate, but its
   `0.003542 deg` curve MAE is behind `periodic_gru_sequence_Bw`
   at `0.002392 deg`.
 
@@ -97,16 +97,16 @@ The current accepted direction-parallel baselines do not change.
 ## Multi-Index Closure
 
 This refresh provides raw-error and visual-evidence coverage for the
-`Track 2H-L` source. The companion collage and overlay reports show that the
+`Wave 4.4` source. The companion collage and overlay reports show that the
 latent-state candidates follow the broad TE curve trend, but they still show
 visible offset and high-frequency mismatch on representative conditions. The
 available evidence does not justify promotion on raw error, offset /
 continuity behavior, harmonic / phase fidelity, robustness, or deployment
 readiness.
 
-The official closure therefore treats `Track 2H-L` as useful evidence that
+The official closure therefore treats `Wave 4.4` as useful evidence that
 causal history can help the `global` scalar surface, while rejecting it as a
-standalone replacement for the accepted forward, backward, or global Track 2
+standalone replacement for the accepted forward, backward, or global TE Curve Verification Pipeline
 leaders.
 
 ## Visual Evidence
@@ -120,7 +120,7 @@ that the refreshed source appears in the visual package.
 
 ## Closeout Decision
 
-`Track 2H-L latent-state hysteresis refresh` is closed as a verified
+`Wave 4.4 latent-state hysteresis refresh` is closed as a verified
 exploratory baseline and is not promoted.
 
 Use the latent-state hysteresis evidence as a later integration ingredient

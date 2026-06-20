@@ -10,7 +10,7 @@ metadata:
   planning_report_path: doc/reports/campaign_plans/wave_2/2026-05-21-16-46-08_wave2_temporal_model_entry_campaign_plan_report.md
   phase_name: wave2_temporal_model_entry
   campaign_config_id: lstm_sequence_fw
-  notes: Wave 2 temporal model entry campaign | family=lstm_sequence | direction=fw. Candidate must return through official Track 2 verification.
+  notes: Wave 2.1 temporal model entry campaign | family=lstm_sequence | direction=fw. Candidate must return through official TE curve verification.
   random_seed: 42
   base_model_family: lstm_sequence
   training_variant: Fw

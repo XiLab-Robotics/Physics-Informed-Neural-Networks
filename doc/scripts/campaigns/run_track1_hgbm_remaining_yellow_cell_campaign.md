@@ -1,7 +1,7 @@
-# Track 1 HGBM Remaining Yellow-Cell Campaign Launcher
+# RCIM Model-Bank Reproduction HGBM Remaining Yellow-Cell Campaign Launcher
 
 This launcher runs the dedicated exact-paper `HGBM` yellow-cell
-repair wave for the canonical Track 1 family-row closure surface.
+repair wave for the canonical RCIM Model-Bank Reproduction family-row closure surface.
 
 - included configs: `60`
 - distinct target pairs: `1`

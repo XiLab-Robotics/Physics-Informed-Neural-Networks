@@ -1,4 +1,4 @@
-"""Temporal sequence networks for Wave 2 TE regression candidates."""
+"""Temporal sequence networks for Wave 2.1 TE regression candidates."""
 
 from __future__ import annotations
 

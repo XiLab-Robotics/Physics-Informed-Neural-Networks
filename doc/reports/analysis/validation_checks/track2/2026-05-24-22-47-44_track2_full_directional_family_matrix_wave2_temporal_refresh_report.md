@@ -1,10 +1,10 @@
-# Track 2 Directional Model Comparison
+# TE Curve Verification Pipeline Directional Model Comparison
 
 ## Overview
 
-This report is the canonical `Track 2` offline comparison between
-`Track 1`, recovered original, retuned paper-reference model banks, and
-repository-owned `Wave 1` and `Wave 2` model candidates. It starts from
+This report is the canonical `TE Curve Verification Pipeline` offline comparison between
+`RCIM Model-Bank Reproduction`, recovered original, retuned paper-reference model banks, and
+repository-owned `Wave 1` and `Wave 2.1` model candidates. It starts from
 the current direction-aware comparison matrix.
 
 ## Dataset And Split
@@ -112,7 +112,7 @@ the current direction-aware comparison matrix.
 ## Best Composite Reference Models
 
 These candidates combine the approved best harmonic-wise cells into
-one Track 2 curve-reconstruction candidate. They are also repeated
+one TE Curve Verification Pipeline curve-reconstruction candidate. They are also repeated
 inside the source-group tables below, but this section keeps the
 composed models explicit.
 
@@ -160,7 +160,7 @@ composed models explicit.
 | `rcim_retuned_ELM19_Fw` | 0.007182 | 0.007463 | 16.181 | 40.024 |
 | `rcim_retuned_MLP19_Fw` | 0.016647 | 0.020154 | 38.510 | 86.197 |
 
-### Track 1 Forward Models
+### RCIM Model-Bank Reproduction Forward Models
 
 | Candidate | Curve MAE [deg] | Curve RMSE [deg] | Mean Percentage Error [%] | P95 Mean Percentage Error [%] |
 | --- | ---: | ---: | ---: | ---: |
@@ -192,7 +192,7 @@ composed models explicit.
 | `residual_harmonic_mlp_global` | 0.003649 | 0.004051 | 8.123 | 14.713 |
 | `harmonic_regression_global` | 0.018314 | 0.018547 | 41.749 | 79.404 |
 
-### Wave 2 Temporal Forward And Global Models
+### Wave 2.1 Temporal Forward And Global Models
 
 | Candidate | Curve MAE [deg] | Curve RMSE [deg] | Mean Percentage Error [%] | P95 Mean Percentage Error [%] |
 | --- | ---: | ---: | ---: | ---: |
@@ -222,7 +222,7 @@ composed models explicit.
 | `rcim_retuned_XGBM19_Bw` | 0.010679 | 0.011209 | 24.184 | 48.082 |
 | `rcim_retuned_MLP19_Bw` | 0.019115 | 0.023025 | 44.141 | 88.991 |
 
-### Track 1 Backward Models
+### RCIM Model-Bank Reproduction Backward Models
 
 | Candidate | Curve MAE [deg] | Curve RMSE [deg] | Mean Percentage Error [%] | P95 Mean Percentage Error [%] |
 | --- | ---: | ---: | ---: | ---: |
@@ -254,7 +254,7 @@ composed models explicit.
 | `feedforward_global` | 0.003741 | 0.004188 | 8.186 | 15.259 |
 | `harmonic_regression_global` | 0.018006 | 0.018276 | 41.275 | 83.603 |
 
-### Wave 2 Temporal Backward And Global Models
+### Wave 2.1 Temporal Backward And Global Models
 
 | Candidate | Curve MAE [deg] | Curve RMSE [deg] | Mean Percentage Error [%] | P95 Mean Percentage Error [%] |
 | --- | ---: | ---: | ---: | ---: |
@@ -312,13 +312,13 @@ composed models explicit.
 ## Interpretation
 
 Rows are ranked by mean percentage error within each source group
-and direction. Directional paper-reference, Wave 1, and Wave 2
+and direction. Directional paper-reference, Wave 1, and Wave 2.1
 models are never evaluated on the opposite direction. Global Wave
 models remain valid on both directions and are therefore shown in
 the directional sections and again in the global breakdown.
 The `rcim_track1` forward reference banks use the opposite stored
-`h0` sign convention relative to the Track 2 reconstruction
-contract, so the Track 2 comparison applies the documented
+`h0` sign convention relative to the TE Curve Verification Pipeline reconstruction
+contract, so the curve-verification comparison applies the documented
 source-specific `h0` compatibility multiplier before curve
 reconstruction.
 

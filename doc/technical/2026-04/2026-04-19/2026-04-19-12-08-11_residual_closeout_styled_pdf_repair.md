@@ -2,7 +2,7 @@
 
 ## Overview
 
-The final closeout report for the `2026-04-19` Track 1 residual cellwise
+The final closeout report for the `2026-04-19` RCIM Model-Bank Reproduction residual cellwise
 closure campaign currently has a non-canonical PDF artifact. The Markdown
 report is correct, but the PDF was produced through a local fallback path after
 the styled export pipeline failed.

@@ -1,4 +1,4 @@
-"""Prepare the final targeted forward-only last-three-open-cells campaign package for Track 1."""
+"""Prepare the final targeted forward-only last-three-open-cells campaign package for RCIM Model-Bank Reproduction."""
 
 from __future__ import annotations
 

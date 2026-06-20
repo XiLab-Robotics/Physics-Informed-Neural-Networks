@@ -1,9 +1,9 @@
-# Track 2H Dispersion-Aware Modeling Probe Campaign Plan Report
+# Wave 4 series Dispersion-Aware Modeling Probe Campaign Plan Report
 
 ## Executive Summary
 
-This preliminary campaign plan prepares `Track 2H`, the dispersion-aware
-modeling probe stage for the `Track 2` TE curve-offset problem.
+This preliminary campaign plan prepares `Wave 4 series`, the dispersion-aware
+modeling probe stage for the `TE Curve Verification Pipeline` TE curve-offset problem.
 
 The goal is to test whether the remaining offset and fragile-harmonic failures
 are better handled by robust central-tendency fitting, uncertainty modeling,
@@ -20,7 +20,7 @@ The latest accepted evidence is:
 
 | Evidence | Interpretation |
 | --- | --- |
-| `Track 2G` official refresh | Curve-aware losses are valid controls but did not promote a new accepted `Track 2` leader. |
+| `Wave 3.3` official refresh | Curve-aware losses are valid controls but did not promote a new accepted `TE Curve Verification Pipeline` leader. |
 | Measured h0 diagnostic | `h0` is the correct mean-like channel to inspect and remains the main offset suspect. |
 | h0/error cross-check | Absolute measured `h0` magnitude alone does not explain model mean-offset failures. |
 | Predicted-mean h0 surface diagnostic | Model-side mean-surface bias or compression is the actionable symptom. |
@@ -32,7 +32,7 @@ a perfectly reproducible scalar value.
 
 ## Candidate Probe Matrix
 
-The first `Track 2H` plan keeps `global`, `Fw`, and `Bw` surfaces separate.
+The `Wave 4.1` plan keeps `global`, `Fw`, and `Bw` surfaces separate.
 Each probe group should produce all three surfaces unless implementation
 evidence justifies a narrower smoke stage.
 
@@ -92,7 +92,7 @@ Candidate outputs:
 Promotion condition:
 
 - calibrated intervals around high-dispersion curves and improved median or
-  mean-surface behavior in official `Track 2` playback.
+  mean-surface behavior in official `TE Curve Verification Pipeline` playback.
 
 ### Mixture-Density Probe
 
@@ -193,7 +193,7 @@ The launcher must support:
 
 ## Prepared Package Status
 
-The first `Track 2H` package has been prepared for the robust-loss probe group.
+The `Wave 4.1` package has been prepared for the robust-loss probe group.
 It intentionally does not yet include the later quantile/probabilistic,
 mixture-density, or latent-state / hysteresis-aware packages.
 
@@ -241,20 +241,20 @@ After training completion:
 - update family and program registries;
 - clean active campaign state;
 - update the live backlog and training master summary;
-- propose official `Track 2` refresh as a separate operator-launched step.
+- propose official `TE Curve Verification Pipeline` refresh as a separate operator-launched step.
 
 ## Decision Gates
 
 | Gate | Decision |
 | --- | --- |
-| Planning approval | Authorize implementation of the selected `Track 2H` probe subset. |
+| Planning approval | Authorize implementation of the selected `Wave 4 series` probe subset. |
 | Package validation | Authorize local or remote campaign launch. |
-| Campaign closeout | Decide which probe group deserves official `Track 2` refresh. |
-| Official `Track 2` refresh | Decide whether the probe should feed `Wave 3`, `Wave 4`, or the later integrated multi-head architecture. |
+| Campaign closeout | Decide which probe group deserves official `TE Curve Verification Pipeline` refresh. |
+| Official `TE Curve Verification Pipeline` refresh | Decide whether the probe should feed `Wave 5.1`, `Wave 5.2`, or the later integrated multi-head architecture. |
 
 ## Non-Goals
 
 - No PLC-friendly export optimization in this stage.
-- No direct integrated multi-head campaign before `Track 2H` evidence.
+- No direct integrated multi-head campaign before `Wave 4 series` evidence.
 - No claim that `h0` is the sole confirmed cause of the offset symptom.
 - No future-looking smoothing or target-curve statistics at inference time.

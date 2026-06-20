@@ -1,8 +1,8 @@
-# Track 2G Curve-Aware Training Campaign Launcher
+# Wave 3.3 Curve-Aware Training Campaign Launcher
 
 ## Overview
 
-This launcher validates and runs the prepared Track 2G curve-aware training
+This launcher validates and runs the prepared Wave 3.3 curve-aware training
 package.
 
 The package contains 12 runnable queue YAML files: four loss profiles across

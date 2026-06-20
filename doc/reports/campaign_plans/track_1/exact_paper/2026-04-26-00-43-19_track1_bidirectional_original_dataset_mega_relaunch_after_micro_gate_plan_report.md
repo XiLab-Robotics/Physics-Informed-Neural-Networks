@@ -1,9 +1,9 @@
-# Track 1 Bidirectional Original-Dataset Mega Relaunch After Micro Gate Plan Report
+# RCIM Model-Bank Reproduction Bidirectional Original-Dataset Mega Relaunch After Micro Gate Plan Report
 
 ## Overview
 
 This planning report covers the fresh relaunch of the full bidirectional
-original-dataset Track 1 mega-campaign after the successful completion of the
+original-dataset RCIM Model-Bank Reproduction mega-campaign after the successful completion of the
 forward-only remote micro gate.
 
 The validated micro gate demonstrated that the current remote original-dataset

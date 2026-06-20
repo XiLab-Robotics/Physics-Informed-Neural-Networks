@@ -1,8 +1,8 @@
-# Track 1 Remaining Family Residual Cellwise Closure Final Closeout
+# RCIM Model-Bank Reproduction Remaining Family Residual Cellwise Closure Final Closeout
 
 ## Overview
 
-This document closes the completed overnight `Track 1`
+This document closes the completed overnight `RCIM Model-Bank Reproduction`
 remaining-family residual-cell closure campaign wave prepared under:
 
 - `doc/reports/campaign_plans/track_1/exact_paper/2026-04-19-01-04-28_track1_remaining_family_residual_cellwise_closure_campaigns_plan_report.md`
@@ -16,7 +16,7 @@ surfaces, update the colored full-matrix tables, and publish a final validated
 results report.
 
 The "final closeout" in this document applies to the residual-cell campaign
-wave. It should not be read as an automatic declaration that overall `Track 1`
+wave. It should not be read as an automatic declaration that overall `RCIM Model-Bank Reproduction`
 is finished.
 
 ## Technical Approach
@@ -94,6 +94,6 @@ alignment.
    PDF companion.
 7. Record the final results-report path in `active_training_campaign.yaml`.
 
-Overall `Track 1` completion remains tied to the closure of those four tables
+Overall `RCIM Model-Bank Reproduction` completion remains tied to the closure of those four tables
 across the full family bank, meaning `19` accepted exact-paper models for each
 of the `10` algorithm families.

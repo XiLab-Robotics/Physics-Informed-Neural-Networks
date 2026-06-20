@@ -42,11 +42,11 @@ before duplicating dozens of one-off wrappers. The guiding rule is:
 The first Bash coverage should target the files that unlock the largest
 campaign surface:
 
-1. protected Track 1 exact-paper launch stack;
+1. protected RCIM Model-Bank Reproduction exact-paper launch stack;
 2. shared campaign streaming helper behavior;
 3. Wave 1 launcher surface;
 4. recovered-original RCIM launcher surface;
-5. older Track 1 family wrappers and watcher/sync scripts.
+5. older RCIM Model-Bank Reproduction family wrappers and watcher/sync scripts.
 
 For launchers that start training, every Bash equivalent must expose a
 `--dry-run` mode that resolves paths, selected configs, commands, and logs
@@ -57,7 +57,7 @@ without launching model training.
 - Protected campaign state:
   - `doc/running/active_training_campaign.yaml`
 
-- Protected Track 1 campaign launcher files:
+- Protected RCIM Model-Bank Reproduction campaign launcher files:
   - `scripts/campaigns/track_1/exact_paper/run_track1_bidirectional_paper_faithful_grid_search_campaign.ps1`
   - `scripts/campaigns/track_1/exact_paper/run_exact_paper_campaign_remote.ps1`
   - `scripts/campaigns/track_1/exact_paper/invoke_exact_paper_campaign_local.ps1`
@@ -87,7 +87,7 @@ without launching model training.
    protected launcher or launcher note.
 
 2. Request protected-file authorization before implementation.
-   This tranche will modify protected Track 1 launcher files and related
+   This tranche will modify protected RCIM Model-Bank Reproduction launcher files and related
    launcher documentation, so it must not proceed without explicit protected
    scope approval.
 
@@ -102,7 +102,7 @@ without launching model training.
    - preserve exit codes;
    - support dry-run command printing.
 
-4. Refactor the existing Track 1 Bash launcher to use the shared helper.
+4. Refactor the existing RCIM Model-Bank Reproduction Bash launcher to use the shared helper.
    Keep its current queue selection and `--linux` pass-through behavior while
    reducing duplicated subprocess/logging logic.
 
@@ -111,14 +111,14 @@ without launching model training.
    campaign wrappers that execute a list of config files through a Python
    runner.
 
-6. Port the first protected Track 1 launcher batch.
+6. Port the first protected RCIM Model-Bank Reproduction launcher batch.
    Start with the bidirectional paper-faithful launcher stack because it is the
    current canonical campaign surface and already has one Bash entry point.
 
 7. Regenerate the portability inventory.
    The expected immediate improvement is a lower
    `missing_linux_equivalent` count and additional `linux_equivalent_present`
-   rows for the protected Track 1 stack.
+   rows for the protected RCIM Model-Bank Reproduction stack.
 
 8. Update launcher documentation.
    Add Bash examples beside PowerShell examples in `doc/scripts/campaigns/`

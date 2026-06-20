@@ -1,4 +1,4 @@
-# Track 1 Paper-Faithful Search Protocol And Campaign Replacement Plan Report
+# RCIM Model-Bank Reproduction Paper-Faithful Search Protocol And Campaign Replacement Plan Report
 
 ## Overview
 
@@ -14,7 +14,7 @@ also performs `cross_validate(...)` on the wrapper and then per-target
 
 ## Objective
 
-Produce a paper-faithful bidirectional `Track 1` baseline with two guarantees:
+Produce a paper-faithful bidirectional `RCIM Model-Bank Reproduction` baseline with two guarantees:
 
 1. the shared exact-paper training path reproduces the historical
    search-and-cross-validation protocol;

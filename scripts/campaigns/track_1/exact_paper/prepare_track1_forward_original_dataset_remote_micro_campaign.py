@@ -1,4 +1,4 @@
-"""Prepare the forward-only remote micro campaign for Track 1."""
+"""Prepare the forward-only remote micro campaign for RCIM Model-Bank Reproduction."""
 
 from __future__ import annotations
 

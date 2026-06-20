@@ -1,24 +1,24 @@
-# Wave 3 And Wave 4 Backlog State Alignment
+# Wave 5.1 And Wave 5.2 Backlog State Alignment
 
 ## Overview
 
 This technical document plans a documentation-only alignment pass after the
-committed `Wave 3` and `Wave 4A` pre-implementation work.
+committed `Wave 5.1` and `Wave 5.2A` pre-implementation work.
 
 The current detailed design reports, script notes, validation artifacts, and
 `doc/README.md` entries already record the new scaffold state. However, the
-operational backlog and the training master summary still describe `Wave 3`
-and `Wave 4` mostly as generic pending future branches. That is not precise
+operational backlog and the training master summary still describe `Wave 5.1`
+and `Wave 5.2` mostly as generic pending future branches. That is not precise
 enough for the next implementation pass.
 
 The goal is to make the canonical roadmap documents resume from the actual
 current state:
 
-- `Wave 3` has a `wave3_harmonic_prior_residual` skeleton;
-- `Wave 3` is `training-smoke-ready`, not campaign-ready;
-- `Wave 3` has a one-batch validation artifact and a dry-run launcher;
-- `Wave 4A` has an MMT diagnostic adapter and generated diagnostic report;
-- `Wave 4A` remains diagnostic-only until the MMT parameter inventory and
+- `Wave 5.1` has a `wave3_harmonic_prior_residual` skeleton;
+- `Wave 5.1` is `training-smoke-ready`, not campaign-ready;
+- `Wave 5.1` has a one-batch validation artifact and a dry-run launcher;
+- `Wave 5.2A` has an MMT diagnostic adapter and generated diagnostic report;
+- `Wave 5.2A` remains diagnostic-only until the MMT parameter inventory and
   leakage-safe calibration are resolved.
 
 ## Technical Approach
@@ -28,9 +28,9 @@ queues, launchers, registries, or output artifacts.
 
 The update should make three kinds of changes:
 
-1. Upgrade `doc/running/te_model_live_backlog.md` from generic `Wave 3` /
-   `Wave 4` placeholders to actionable next-step entries.
-2. Repair and align the relevant `Wave 3` / `Wave 4` entries in
+1. Upgrade `doc/running/te_model_live_backlog.md` from generic `Wave 5.1` /
+   `Wave 5.2` placeholders to actionable next-step entries.
+2. Repair and align the relevant `Wave 5.1` / `Wave 5.2` entries in
    `doc/reports/analysis/Training Results Master Summary.md`, which currently
    shows duplicated and malformed roadmap text around those waves.
 3. Verify whether `doc/README.md` needs only the already-present links or a
@@ -38,12 +38,12 @@ The update should make three kinds of changes:
 
 The roadmap must preserve these boundaries:
 
-- `Track 2H` closeout remains the next dependency for choosing robust-loss
+- `Wave 4 series` closeout remains the next dependency for choosing robust-loss
   defaults;
-- no real `Wave 3` campaign is approved by the pre-implementation work;
-- `Wave 4A` diagnostic output is not evidence of dataset causality yet;
+- no real `Wave 5.1` campaign is approved by the pre-implementation work;
+- `Wave 5.2A` diagnostic output is not evidence of dataset causality yet;
 - integrated multi-task / multi-head modeling remains deferred until `Track
-  2H`, `Wave 3`, and `Wave 4A` evidence are available.
+  2H`, `Wave 5.1`, and `Wave 5.2A` evidence are available.
 
 ## Involved Components
 
@@ -71,11 +71,11 @@ scope and approval requirement must be recorded before launch.
 
 1. Create and approve this technical document.
 2. Update `doc/running/te_model_live_backlog.md` with:
-   - the concrete `Wave 3` current state;
-   - the concrete `Wave 4A` current state;
-   - the next-step order from `Track 2H` closeout through `Wave 3` campaign
-     packaging and `Wave 4A` parameter inventory.
-3. Repair the malformed `Wave 3` / `Wave 4` block in
+   - the concrete `Wave 5.1` current state;
+   - the concrete `Wave 5.2A` current state;
+   - the next-step order from `Wave 4 series` closeout through `Wave 5.1` campaign
+     packaging and `Wave 5.2A` parameter inventory.
+3. Repair the malformed `Wave 5.1` / `Wave 5.2` block in
    `doc/reports/analysis/Training Results Master Summary.md` and align it with
    the real pre-implementation state.
 4. Register this technical document from `doc/README.md`.
@@ -88,4 +88,4 @@ scope and approval requirement must be recorded before launch.
 This technical document authorizes only documentation updates after explicit
 approval. It does not authorize model implementation, training execution,
 campaign queue preparation, active-campaign state mutation, registry updates,
-or official `Track 2` verification.
+or official `TE Curve Verification Pipeline` verification.

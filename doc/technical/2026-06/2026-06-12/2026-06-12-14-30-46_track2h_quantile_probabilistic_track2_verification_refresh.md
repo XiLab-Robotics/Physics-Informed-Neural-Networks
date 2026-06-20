@@ -1,11 +1,11 @@
-# Track 2H Quantile Probabilistic Track 2 Verification Refresh
+# Wave 4.2 Quantile Probabilistic TE Curve Verification Pipeline Verification Refresh
 
 ## Overview
 
 This technical document defines the next repository step after the completed
-second `Track 2H` quantile/probabilistic campaign. The campaign closeout is
+second `Wave 4.2` quantile/probabilistic campaign. The campaign closeout is
 complete, the active campaign state is `none`, and the closeout report marks
-official `Track 2` curve verification as a separate optional
+official `TE Curve Verification Pipeline` curve verification as a separate optional
 operator-launched workflow.
 
 The purpose is to decide whether the scalar improvements and calibration
@@ -13,9 +13,9 @@ signals from the quantile/probabilistic campaign translate into real held-out
 transmission-error curve behavior. The decision must not be inferred from
 scalar campaign `MAE` alone. The refresh will evaluate raw curve error,
 mean-centered shape error, mean offset, amplitude behavior, harmonic behavior,
-collage plots, and overlay plots against the current accepted Track 2
-baselines, `Track 2H` robust-loss candidates, `Track 2G`, `Track 2F-bis`, and
-the Wave 2 temporal branches.
+collage plots, and overlay plots against the current accepted TE Curve Verification Pipeline
+baselines, `Wave 4.1` robust-loss candidates, `Wave 3.3`, `Wave 3.2`, and
+the Wave 2.1 temporal branches.
 
 The refresh keeps the required deployment branches parallel:
 
@@ -28,12 +28,12 @@ name, scope, and approval requirement must be documented before launch.
 
 ## Technical Approach
 
-The work will add the six registry-backed `Track 2H`
-quantile/probabilistic candidates to the official direction-aware Track 2
+The work will add the six registry-backed `Wave 4 series`
+quantile/probabilistic candidates to the official direction-aware TE Curve Verification Pipeline
 matrix and prepare a PowerShell launcher that the operator can run locally or
 with `-Remote`. Codex will not run the heavy matrix during preparation.
 
-The candidate set is the full approved second `Track 2H` package:
+The candidate set is the full approved `Wave 4.2` package:
 
 | Profile | Surface | Candidate Prefix | Deterministic Curve |
 | --- | --- | --- | --- |
@@ -68,7 +68,7 @@ matrix launch. Their model checkpoints emit multi-channel outputs:
 - quantile heads emit `p10`, `p50`, and `p90`;
 - Gaussian heads emit `mu` and `log_sigma`.
 
-The official Track 2 matrix must compare only the deterministic TE curve:
+The official curve-verification matrix must compare only the deterministic TE curve:
 `p50` for quantile runs and `mu` for Gaussian runs. If the current registry
 inference path loads the raw backbone directly without the
 `TransmissionErrorRegressionModule` deterministic-output extraction, the
@@ -132,12 +132,12 @@ The implementation will involve these repository components:
 ## Implementation Steps
 
 1. Confirm the active campaign state is `none` and the quantile/probabilistic
-   closeout points to a separate optional official Track 2 refresh.
+   closeout points to a separate optional official TE Curve Verification refresh.
 2. Confirm the six family registries exist and each exposes a
    `latest_family_best.yaml`.
-3. Add a candidate-generation block to the full Track 2 matrix template with
+3. Add a candidate-generation block to the full curve-verification matrix template with
    the six candidates and correct allowed-direction lists.
-4. Inspect the current Track 2 support code and patch deterministic output
+4. Inspect the current TE Curve Verification Pipeline support code and patch deterministic output
    extraction only if probabilistic checkpoints are not already converted to
    scalar `p50` or `mu` predictions during inference.
 5. Create the local and `-Remote` launcher script without running the heavy

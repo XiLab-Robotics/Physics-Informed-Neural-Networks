@@ -1,4 +1,4 @@
-# Track 1 LGBM19 Vs Feedforward Curve-Space Comparison
+# RCIM Model-Bank Reproduction LGBM19 Vs Feedforward Curve-Space Comparison
 
 ## Overview
 
@@ -13,7 +13,7 @@ The approved initial scope is intentionally narrow:
 - use the curated `19`-model `LGBM` exact-paper family archive as the
   paper-faithful harmonic reference bank;
 - compare both approaches on a shared offline evaluation surface before any
-  broader rollout to the other `Track 1` families or to the wider repository
+  broader rollout to the other `RCIM Model-Bank Reproduction` families or to the wider repository
   model zoo.
 
 The reference reading and current repository evidence indicate that the paper
@@ -111,7 +111,7 @@ harmonic representation, so the report can separate:
 The resulting architecture should remain extendable without redesign:
 
 - today: `LGBM-19` assembled bank vs best `feedforward`;
-- next: cherry-picked best-per-harmonic bank across the accepted `Track 1`
+- next: cherry-picked best-per-harmonic bank across the accepted `RCIM Model-Bank Reproduction`
   family archives;
 - later: broader repository model comparisons using the same curve-space
   evaluator and report format.
@@ -162,7 +162,7 @@ comparison on the common offline evaluator.
    `LGBM-19 assembled bank`, best `feedforward`, and oracle truncation on the
    same held-out evaluation manifest.
 8. Keep the resulting script and report structure generic enough that later
-   cherry-picked banks and other `Track 1` family archives can be plugged into
+   cherry-picked banks and other `RCIM Model-Bank Reproduction` family archives can be plugged into
    the same evaluator without redesign.
 9. Run Markdown QA on the touched Markdown scope before requesting approval for
    the later implementation pass.

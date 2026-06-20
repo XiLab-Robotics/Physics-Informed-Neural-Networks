@@ -2,7 +2,7 @@
 
 ## Overview
 
-The relaunched `Track 1` bidirectional original-dataset mega-campaign is now
+The relaunched `RCIM Model-Bank Reproduction` bidirectional original-dataset mega-campaign is now
 past the remote-launcher and ONNX-toolchain failures, but the `MLP` family is
 still numerically unstable during training.
 

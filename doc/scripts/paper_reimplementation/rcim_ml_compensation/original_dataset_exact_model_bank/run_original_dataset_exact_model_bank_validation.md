@@ -11,7 +11,7 @@ The script is stored in:
 
 ## Main Role
 
-This workflow exists to rebuild the `Track 1` exact-model-bank branch on top of
+This workflow exists to rebuild the `RCIM Model-Bank Reproduction` exact-model-bank branch on top of
 the original dataset instead of the recovered forward-only CSV snapshot.
 
 It is the campaign-ready repository reimplementation of the recovered original
@@ -26,7 +26,7 @@ near-literally where the modern runtime allows it:
   selected target estimators;
 - per-target Python and ONNX exports.
 
-The accepted Track 1 forward and backward campaign outputs are archived under:
+The accepted RCIM Model-Bank Reproduction forward and backward campaign outputs are archived under:
 
 - `models/paper_reference/rcim_track1/forward/`
 - `models/paper_reference/rcim_track1/backward/`
@@ -35,7 +35,7 @@ The canonical Tables `2`-`5` benchmark report is:
 
 - `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
 
-Track 1 is closed for the current full-dataset faithful reproduction: both
+RCIM Model-Bank Reproduction is closed for the current full-dataset faithful reproduction: both
 directions were searched, accepted archives were refreshed, and Tables `2`-`5`
 were repopulated. Future restricted-dataset comparison work should rerun this
 script through a new campaign namespace and publish a separate Markdown report
@@ -130,7 +130,7 @@ conda run -n pinns_env python scripts/paper_reimplementation/rcim_ml_compensatio
 
 Use this script when:
 
-- the project needs `Track 1` exact-model banks trained on the original repo
+- the project needs `RCIM Model-Bank Reproduction` exact-model banks trained on the original repo
   dataset;
 - the team wants separate `Fw` and `Bw` banks with the same harmonic target
   surface;

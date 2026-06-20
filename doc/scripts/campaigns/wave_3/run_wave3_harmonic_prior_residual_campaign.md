@@ -1,9 +1,9 @@
-# Wave 3 Harmonic Prior Residual Campaign Launcher
+# Wave 5.1 Harmonic Prior Residual Campaign Launcher
 
 ## Overview
 
 `scripts/campaigns/wave_3/run_wave3_harmonic_prior_residual_campaign.ps1`
-runs the approved first real `Wave 3` harmonic-prior residual campaign.
+runs the approved first real `Wave 5.1` harmonic-prior residual campaign.
 
 The package contains six queue entries:
 
@@ -82,4 +82,4 @@ Campaign-level artifacts are written under:
 After the launcher completes, report completion back to Codex. Codex should
 then close the campaign through the normal results report, PDF validation,
 registry synchronization, active-state cleanup, backlog/master-summary update,
-and only then propose a separate official `Track 2` verification refresh.
+and only then propose a separate official `TE Curve Verification Pipeline` verification refresh.

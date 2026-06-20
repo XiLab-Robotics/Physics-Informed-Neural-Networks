@@ -1,8 +1,8 @@
-# Wave 4F Cycloid Contact Force PINN Design
+# Wave 5.2F Cycloid Contact Force PINN Design
 
 ## Purpose
 
-`Wave 4F` explores cycloid-pin contact-force, profile-modification, and loaded
+`Wave 5.2F` explores cycloid-pin contact-force, profile-modification, and loaded
 transmission-error relations as soft constraints for the RV reducer TE
 problem.
 

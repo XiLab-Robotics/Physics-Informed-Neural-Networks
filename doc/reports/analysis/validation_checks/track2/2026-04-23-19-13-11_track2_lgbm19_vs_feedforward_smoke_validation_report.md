@@ -1,4 +1,4 @@
-# Track 2 LGBM19 Vs Feedforward Comparison Report
+# TE Curve Verification Pipeline LGBM19 Vs Feedforward Comparison Report
 
 ## Overview
 

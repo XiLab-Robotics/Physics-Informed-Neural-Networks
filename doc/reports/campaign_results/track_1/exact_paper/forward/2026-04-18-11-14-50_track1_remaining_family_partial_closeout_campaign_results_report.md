@@ -1,4 +1,4 @@
-# Track 1 Remaining Family Partial Closeout Campaign Results Report
+# RCIM Model-Bank Reproduction Remaining Family Partial Closeout Campaign Results Report
 
 ## Overview
 
@@ -76,7 +76,7 @@ under the explicit row-closure ranking policy.
 
 - the seven rerun families materially refresh the row-reproduction evidence for `MLP`, `RF`, `DT`, `ET`, `ERT`, `GBM`, and `HGBM`
 - several rows move numerically relative to the older `2026-04-14` full-matrix pass, so the canonical benchmark tables must now read from the refreshed family rows
-- the partial refresh improves the envelope on a few exact-paper cells, but `Track 1` still remains open pending the unresolved harmonics and the missing `XGBM` / `LGBM` reruns
+- the partial refresh improves the envelope on a few exact-paper cells, but `RCIM Model-Bank Reproduction` still remains open pending the unresolved harmonics and the missing `XGBM` / `LGBM` reruns
 - `SVM` remains separately accepted as closed at the repository level with archived canonical reference models
 
 ## Benchmark Refresh Effect

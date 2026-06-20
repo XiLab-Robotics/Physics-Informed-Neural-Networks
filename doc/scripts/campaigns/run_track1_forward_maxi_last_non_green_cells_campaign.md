@@ -1,8 +1,8 @@
-# Track 1 Forward Maxi Last Non-Green Cells Campaign Launcher
+# RCIM Model-Bank Reproduction Forward Maxi Last Non-Green Cells Campaign Launcher
 
 ## Overview
 
-This launcher executes the prepared maxi forward-only `Track 1`
+This launcher executes the prepared maxi forward-only `RCIM Model-Bank Reproduction`
 original-dataset residual repair campaign.
 
 The script is stored in:

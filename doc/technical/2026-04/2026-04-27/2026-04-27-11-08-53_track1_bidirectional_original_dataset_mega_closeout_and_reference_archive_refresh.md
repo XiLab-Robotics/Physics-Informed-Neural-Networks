@@ -1,9 +1,9 @@
-# Track 1 Bidirectional Original-Dataset Mega Closeout And Reference Archive Refresh
+# RCIM Model-Bank Reproduction Bidirectional Original-Dataset Mega Closeout And Reference Archive Refresh
 
 ## Overview
 
 This technical document defines the closeout workflow for the completed
-bidirectional original-dataset `Track 1` mega-campaign
+bidirectional original-dataset `RCIM Model-Bank Reproduction` mega-campaign
 `track1_bidirectional_original_dataset_mega_campaign_2026-04-26_00_49_17`.
 
 The requested closeout must do four things in one canonical pass:
@@ -19,7 +19,7 @@ The requested closeout must do four things in one canonical pass:
 
 The user also requested an explicit audit of whether the repository already
 formalizes model-archive refresh as a mandatory closeout step. The current
-repository does already contain that rule in the earlier `Track 1`
+repository does already contain that rule in the earlier `RCIM Model-Bank Reproduction`
 family-archive integration documentation, but this closeout must verify the
 current wording and extend it if the new bidirectional original-dataset
 workflow needs a stricter or clearer formulation.
@@ -30,7 +30,7 @@ later, it must be proposed explicitly and approved before launch.
 ## Technical Approach
 
 The closeout will treat the finished mega-campaign as the canonical source of
-truth for accepted exact-paper `Track 1` results across both directions.
+truth for accepted exact-paper `RCIM Model-Bank Reproduction` results across both directions.
 
 The implementation should:
 

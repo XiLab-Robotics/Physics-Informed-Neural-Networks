@@ -224,7 +224,7 @@ function Invoke-LoggedCondaPython {
 
     $exitCode = [int]$process.ExitCode
     if ($exitCode -ne 0) {
-        throw ("Track 2 step failed | step={0} | exit_code={1} | log={2}" -f $StepName, $exitCode, $logPath)
+        throw ("TE Curve Verification Pipeline step failed | step={0} | exit_code={1} | log={2}" -f $StepName, $exitCode, $logPath)
     }
 }
 
@@ -376,7 +376,7 @@ foreach (`$relativePath in `$pathList) {
     }
 }
 if (`$existingPathList.Count -eq 0) {
-    throw 'No remote Track 2 artifacts found to synchronize.'
+    throw 'No remote TE Curve Verification Pipeline artifacts found to synchronize.'
 }
 New-Item -ItemType Directory -Force -Path (Split-Path -Parent '$remoteArchivePath') | Out-Null
 if (Test-Path -LiteralPath '$remoteArchivePath') {
@@ -420,7 +420,7 @@ Set-Location -LiteralPath '$RemoteRepositoryPath'
     Sort-Object LastWriteTime -Descending |
     Select-Object -First 1
 if (`$null -eq `$manifestPath) {
-    throw 'No remote Track 2 artifact sync manifest found.'
+    throw 'No remote TE Curve Verification Pipeline artifact sync manifest found.'
 }
 `$existingPathList = @()
 foreach (`$relativePath in Get-Content -LiteralPath `$manifestPath.FullName) {
@@ -435,7 +435,7 @@ foreach (`$relativePath in Get-Content -LiteralPath `$manifestPath.FullName) {
     }
 }
 if (`$existingPathList.Count -eq 0) {
-    throw 'The remote Track 2 artifact sync manifest did not contain existing paths.'
+    throw 'The remote TE Curve Verification Pipeline artifact sync manifest did not contain existing paths.'
 }
 New-Item -ItemType Directory -Force -Path (Split-Path -Parent '$remoteArchivePath') | Out-Null
 if (Test-Path -LiteralPath '$remoteArchivePath') {
@@ -468,7 +468,7 @@ if ($Remote) {
         throw "RemoteRepositoryPath is required for -Remote. Set PINNS_REMOTE_TRAINING_REPO_PATH or pass -RemoteRepositoryPath."
     }
 
-    Write-StatusLine "INFO" ("Launching Track 2 refresh remotely | host={0} | repo={1}" -f $RemoteHostAlias, $RemoteRepositoryPath)
+    Write-StatusLine "INFO" ("Launching TE Curve Verification Pipeline refresh remotely | host={0} | repo={1}" -f $RemoteHostAlias, $RemoteRepositoryPath)
     Invoke-RemoteSourceSync -RelativePathList $SourceSyncPathList
 
     $remoteScriptPath = "scripts\campaigns\track_2\run_wave2b_track2_verification_refresh.ps1"
@@ -485,11 +485,11 @@ exit `$LASTEXITCODE
     else {
         Invoke-RemoteArtifactManifestSync
     }
-    Write-StatusLine "DONE" "Remote Track 2 refresh completed and artifacts synchronized locally"
+    Write-StatusLine "DONE" "Remote TE Curve Verification Pipeline refresh completed and artifacts synchronized locally"
     exit 0
 }
 
-Write-StatusLine "INFO" "Preparing local Wave 2B Track 2 verification refresh"
+Write-StatusLine "INFO" "Preparing local Wave 2.2 TE curve verification refresh"
 Write-StatusLine "INFO" ("Config: {0}" -f $track2ConfigPath)
 Write-StatusLine "INFO" ("Output suffix: {0}" -f $OutputSuffix)
 Write-StatusLine "INFO" ("Report date: {0}" -f $ReportDate)
@@ -570,13 +570,13 @@ if (-not $SkipVisualReports) {
             "--report-date",
             $ReportDate,
             "--refresh-label",
-            "Wave 2B harmonic temporal refresh",
+            "Wave 2.2 harmonic temporal refresh",
             "--candidate-source-label",
             "wave2_temporal_entry_registry",
             "--decision",
             "verified exploratory baseline; not promoted over the accepted direction-parallel leaders",
             "--next-step",
-            "Use the Wave 2B temporal evidence as the historical sequence-model baseline for later Track 2 branches.",
+            "Use the Wave 2.2 temporal evidence as the historical sequence-model baseline for later TE Curve Verification Pipeline branches.",
             "--output-report-path",
             $officialReportPath,
             "--operator-log-root",
@@ -601,5 +601,5 @@ if (-not $SkipVisualReports) {
 }
 
 Save-ArtifactSyncManifest
-Write-StatusLine "DONE" ("Track 2 operator-launched refresh completed | log_root={0}" -f $logRoot)
+Write-StatusLine "DONE" ("TE Curve Verification Pipeline operator-launched refresh completed | log_root={0}" -f $logRoot)
 Write-StatusLine "DONE" "Tell Codex the run completed so the official decision report and closeout synchronization can be inspected."

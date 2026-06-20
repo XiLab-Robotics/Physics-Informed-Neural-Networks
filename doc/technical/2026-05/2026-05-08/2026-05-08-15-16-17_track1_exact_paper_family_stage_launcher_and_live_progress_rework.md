@@ -6,7 +6,7 @@ This task replaces the current monolithic exact-paper paper-faithful launch
 experience with a more operator-friendly surface modeled after the recovered
 original unified launcher.
 
-The immediate trigger is that the active `20`-run paper-faithful Track 1
+The immediate trigger is that the active `20`-run paper-faithful RCIM Model-Bank Reproduction
 campaign was manually interrupted after remaining too long on the first `SVR`
 run with poor live observability. The mathematical search protocol must remain
 unchanged, but the operator experience must improve substantially.
@@ -36,7 +36,7 @@ Only the orchestration and observability surface will change.
 
 The work will introduce a new exact-paper launcher wrapper analogous to the
 recovered-original unified RCIM launcher. The new launcher will expose a
-family-and-stage operator surface for the current Track 1 paper-faithful
+family-and-stage operator surface for the current RCIM Model-Bank Reproduction paper-faithful
 campaign package, while still resolving the prepared campaign YAMLs generated
 by the exact-paper campaign preparer.
 

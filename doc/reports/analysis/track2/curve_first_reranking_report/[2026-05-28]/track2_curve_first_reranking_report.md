@@ -1,20 +1,20 @@
-# Track 2B Curve-First Reranking Report
+# CVP 1.1 Curve-First Reranking Report
 
 ## Overview
 
-This report reranks the already accepted `Track 2` candidate matrix by full-curve validation behavior. It does not execute training, does not alter the dataset structure, and does not provide future curve samples to any model.
+This report reranks the already accepted `TE Curve Verification Pipeline` candidate matrix by full-curve validation behavior. It does not execute training, does not alter the dataset structure, and does not provide future curve samples to any model.
 
 - Run Instance: `2026-05-28-19-27-46__track2b_curve_first_reranking`
-- Source Track 2 Run: `output\validation_checks\track2_reference_comparison\2026-05-28-12-22-56__track2_full_directional_family_matrix_wave2c_residual_harmonic_temporal_hybrid_track2_refresh_2026_05_28`
+- Source TE Curve Verification Pipeline Run: `output\validation_checks\track2_reference_comparison\2026-05-28-12-22-56__track2_full_directional_family_matrix_wave2c_residual_harmonic_temporal_hybrid_track2_refresh_2026_05_28`
 - Source Curve Count: `194`
 - Source Candidate Count: `111`
 - Generated Artifact Directory: `output\validation_checks\track2_curve_first_reranking\2026-05-28-19-27-46__track2b_curve_first_reranking`
 
 ## Method
 
-The primary ordering key is mean `Track 2` mean-percentage-error over each candidate's valid direction surface. Ties are resolved by P95 mean-percentage-error, worst mean-percentage-error, and mean curve `MAE`. This keeps scalar pointwise registry metrics separate from curve-following evidence.
+The primary ordering key is mean `TE Curve Verification Pipeline` mean-percentage-error over each candidate's valid direction surface. Ties are resolved by P95 mean-percentage-error, worst mean-percentage-error, and mean curve `MAE`. This keeps scalar pointwise registry metrics separate from curve-following evidence.
 
-Available diagnostics from the existing `Track 2` matrix:
+Available diagnostics from the existing `TE Curve Verification Pipeline` matrix:
 
 - mean curve `MAE` and `RMSE` per operating condition;
 - mean percentage error per operating condition;

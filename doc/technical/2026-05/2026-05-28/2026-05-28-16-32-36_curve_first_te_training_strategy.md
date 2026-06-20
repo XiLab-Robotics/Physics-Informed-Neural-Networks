@@ -2,8 +2,8 @@
 
 ## Overview
 
-The current training program has produced useful `Wave 1`, `Wave 2`,
-`Wave 2B`, and `Wave 2C` comparisons, but the repository still ranks most
+The current training program has produced useful `Wave 1`, `Wave 2.1`,
+`Wave 2.2`, and `Wave 2.3` comparisons, but the repository still ranks most
 campaign winners through scalar validation or test metrics such as `MAE`.
 That is not sufficient for the final compensation target.
 
@@ -32,7 +32,7 @@ No subagent is planned for this phase.
 
 The work should reframe the repository target as curve-first TE compensation:
 
-- Track 2 should become the canonical offline benchmark surface for selecting
+- TE Curve Verification Pipeline should become the canonical offline benchmark surface for selecting
   deployment-relevant candidates.
 - Campaign leaderboards should keep scalar `MAE` and `RMSE`, but should no
   longer treat them as sufficient evidence when curve shape diverges from the
@@ -46,7 +46,7 @@ The work should reframe the repository target as curve-first TE compensation:
 The research phase should evaluate these candidate strategy classes:
 
 1. Curve-level selection metrics.
-   Use Track 2 style per-curve `MAE`, `RMSE`, mean percentage error, P95
+   Use TE Curve Verification Pipeline style per-curve `MAE`, `RMSE`, mean percentage error, P95
    per-curve error, worst-condition error, and direction-separated summaries as
    promotion metrics. This is the lowest-risk first step because it changes
    selection policy and campaign reporting before changing model families.
@@ -55,7 +55,7 @@ The research phase should evaluate these candidate strategy classes:
    Evaluate derivative error, curvature error, peak/trough error, phase
    offset, amplitude error, peak-to-peak normalized error, and local
    correlation. These metrics directly target the visible curve mismatch the
-   operator sees in Track 2 overlays.
+   operator sees in TE Curve Verification Pipeline overlays.
 
 3. Frequency-domain and harmonic metrics.
    Compare measured and predicted curves in harmonic space: amplitude error,
@@ -76,7 +76,7 @@ The research phase should evaluate these candidate strategy classes:
    torque, oil temperature, angular position, and `DataValid` semantics.
 
 6. Post-training selection and reranking.
-   Add a Track 2 reranking stage that evaluates all candidate checkpoints or
+   Add a TE Curve Verification Pipeline reranking stage that evaluates all candidate checkpoints or
    run winners on the full held-out curve surface before accepting
    `campaign_best_run.yaml`, family registries, and program-best status.
 
@@ -89,10 +89,11 @@ The research phase should evaluate these candidate strategy classes:
    harmonic residual models.
 
 The likely first implementation branch after documentation is a small
-`Wave 1B` or `Track 2B` selection-policy refresh, not immediate new model
+`Wave 1B` or `CVP 1.1` selection-policy refresh, not immediate new model
 architecture work. The first branch should standardize curve-first metrics and
-rerank existing `Wave 1`, `Wave 2`, `Wave 2B`, and `Wave 2C` artifacts. Only
-after that should a `Wave 1B` or `Wave 2B/2D` retraining campaign change losses
+rerank existing `Wave 1`, `Wave 2.1`, `Wave 2.2`, and `Wave 2.3` artifacts. Only
+after that should a `Wave 1B`, `Wave 2.2`, or CVP-informed retraining campaign
+change losses
 or data loaders.
 
 ## Involved Components
@@ -121,7 +122,7 @@ Implementation surfaces to inspect before any later approved code change:
 - `scripts/reports/analysis/plot_wave1_best_model_te_curves.py`
 - `scripts/reports/analysis/build_track2_best_model_collage_report.py`
 - `scripts/reports/analysis/build_track2_multi_model_curve_comparison_report.py`
-- Track 2 validation scripts and matrix templates under
+- TE Curve Verification Pipeline validation scripts and matrix templates under
   `scripts/paper_reimplementation/rcim_ml_compensation/` and
   `config/paper_reimplementation/rcim_ml_compensation/`.
 
@@ -131,7 +132,7 @@ Reference and research anchors:
   harmonic representation.
 - Data-series summary: `DataValid`, direction handling, zeroing, and valid
   curve windows.
-- Track 2 official verification reports: held-out curve metrics and visual
+- TE Curve Verification Pipeline official verification reports: held-out curve metrics and visual
   evidence.
 - External time-series shape literature: differentiable time-series distances,
   shape-aware matching, frequency-domain training objectives, and functional
@@ -144,17 +145,17 @@ Reference and research anchors:
 2. Update the documentation to state the real target: continuous TE curve
    prediction for compensation over many consecutive motor revolutions.
 3. Add a curve-first evaluation policy that separates:
-   training loss, checkpoint selection, campaign-best selection, Track 2
+   training loss, checkpoint selection, campaign-best selection, TE Curve Verification Pipeline
    promotion, and deployment-readiness.
 4. Create a strategy report under `doc/reports/analysis/te_modeling/` that
    compares the candidate techniques and recommends the first implementation
    branch.
-5. Standardize the recommended Track 2 curve-first benchmark contract:
+5. Standardize the recommended TE Curve Verification Pipeline curve-first benchmark contract:
    direction-valid held-out curves, per-curve metrics, visual overlays,
    worst-case and P95 summaries, harmonic/phase diagnostics, and promotion
    rules.
 6. Define the first approved follow-up branch as either:
-   a documentation-only Track 2 selection-policy refresh, a reranking pass over
+   a documentation-only TE Curve Verification Pipeline selection-policy refresh, a reranking pass over
    existing runs, or a new campaign plan for curve-aware retraining.
 7. Run Markdown QA on touched authored Markdown files.
 8. If the documentation changes affect the Sphinx portal scope, rebuild the

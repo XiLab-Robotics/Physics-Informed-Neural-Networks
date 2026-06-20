@@ -1,4 +1,4 @@
-# Track 1 MLP Residual Cell Final Closure Closeout
+# RCIM Model-Bank Reproduction MLP Residual Cell Final Closure Closeout
 
 ## Overview
 
@@ -17,10 +17,10 @@ still lacks the canonical closeout artifacts for this wave:
 - the refreshed canonical benchmark and master summary entries that describe
   the post-campaign residual `MLP` state.
 
-This closeout must remain aligned with the current `Track 1` scope definition:
+This closeout must remain aligned with the current `RCIM Model-Bank Reproduction` scope definition:
 only the four full-matrix replication tables (`Table 2` through `Table 5`)
 count as the canonical progress surface, while harmonic-wise work remains
-outside the primary `Track 1` closure criterion.
+outside the primary `RCIM Model-Bank Reproduction` closure criterion.
 
 ## Technical Approach
 
@@ -57,7 +57,7 @@ The implementation will:
 The closeout report will stay focused on the actual objective of this wave:
 repairing the last four distinct non-green `MLP` family-target pairs across
 the canonical full-matrix replication tables. It will not redefine the
-cross-family `Track 1` envelope unless the refreshed accepted `MLP` row
+cross-family `RCIM Model-Bank Reproduction` envelope unless the refreshed accepted `MLP` row
 materially changes one of the canonical cells in Tables `2-5`.
 
 No subagent is planned for this work. The task remains a repository-owned

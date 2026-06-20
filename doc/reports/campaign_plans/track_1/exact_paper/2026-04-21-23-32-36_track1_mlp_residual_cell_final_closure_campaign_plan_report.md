@@ -1,9 +1,9 @@
-# Track 1 MLP Residual Cell Final Closure Campaign Plan Report
+# RCIM Model-Bank Reproduction MLP Residual Cell Final Closure Campaign Plan Report
 
 ## Overview
 
 This planning report prepares the next dedicated exact-paper `MLP` campaign
-under the canonical `Track 1` closure rule that reads progress only from the
+under the canonical `RCIM Model-Bank Reproduction` closure rule that reads progress only from the
 four full-matrix replication tables.
 
 The campaign targets only the still-non-green accepted `MLP` cells in:
@@ -76,7 +76,7 @@ axis.
 | Search Mode | `paper_reference_grid_search` |
 | Export Policy | ONNX plus Python-usable fitted estimator persistence |
 | Output Root | `output/validation_checks/paper_reimplementation_rcim_exact_model_bank` |
-| Track 1 Progress Surface | canonical Tables `2-5` only |
+| RCIM Model-Bank Reproduction Progress Surface | canonical Tables `2-5` only |
 
 ## Packaging Strategy
 

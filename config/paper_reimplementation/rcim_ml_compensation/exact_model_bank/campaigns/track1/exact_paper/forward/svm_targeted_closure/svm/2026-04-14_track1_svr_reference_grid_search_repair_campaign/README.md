@@ -1,4 +1,4 @@
-# Track 1 SVR Reference Grid Search Repair Campaign Package
+# RCIM Model-Bank Reproduction SVR Reference Grid Search Repair Campaign Package
 
 This directory contains the prepared YAML package for the first `SVR` repair
 campaign that uses the recovered paper-reference `GridSearchCV` path.

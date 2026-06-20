@@ -1,15 +1,15 @@
-# Track 1 Bidirectional Original Dataset Rebuild And Mega Campaign
+# RCIM Model-Bank Reproduction Bidirectional Original Dataset Rebuild And Mega Campaign
 
 ## Overview
 
-This document formalizes the next major `Track 1` evolution after the recent
+This document formalizes the next major `RCIM Model-Bank Reproduction` evolution after the recent
 paper-author clarification on the RCIM forward/backward interpretation.
 
-The current exact-paper `Track 1` branch is based on the recovered forward-only
+The current exact-paper `RCIM Model-Bank Reproduction` branch is based on the recovered forward-only
 paper assets and on the recovered `Fw` dataframe. That branch remains valid as
 the repository reconstruction of the currently recovered paper release.
 
-However, the next repository-owned `Track 1` execution branch must rebuild the
+However, the next repository-owned `RCIM Model-Bank Reproduction` execution branch must rebuild the
 family-bank workflow directly from the original repository dataset under
 `data/simplified_dataset/`, explicitly treating `forward` and `backward` as separate
 modeling problems. The new branch must therefore generate two distinct family
@@ -48,7 +48,7 @@ The intended implementation direction is:
 - preserve the family list:
   `SVR`, `MLP`, `RF`, `DT`, `ET`, `ERT`, `GBM`, `HGBM`, `XGBM`, `LGBM`;
 - preserve the `19` harmonic targets per direction that currently define the
-  canonical `Track 1` family-bank surface;
+  canonical `RCIM Model-Bank Reproduction` family-bank surface;
 - disable the current `SVR` grid-search path for this branch and fall back to
   direct `SVR` training for campaign tractability;
 - record in the backlog that `SVR` grid-search remains a future escalation path
@@ -102,7 +102,7 @@ the difficult open cells.
 
 ## Implementation Steps
 
-1. Formalize the new `Track 1` direction-aware branch in the benchmark and in
+1. Formalize the new `RCIM Model-Bank Reproduction` direction-aware branch in the benchmark and in
    the live backlog, including the `SVR` grid-search deferral note.
 2. Replace the recovered-CSV training-source dependency with an original-dataset
    harmonic extraction path rooted at `data/simplified_dataset/`.

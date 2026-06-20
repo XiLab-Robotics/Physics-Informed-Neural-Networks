@@ -8,7 +8,7 @@ direction_scope: forward_and_backward
 intervention: sequential_residual_offset_probe
 intervention_role: second_stage_causal_residual_offset_predictor
 implementation_status: runnable_training_entry
-launch_guard: runnable after Track 2F sequential residual-offset model registration
+launch_guard: runnable after Wave 3.1 sequential residual-offset model registration
 planning_report_path: doc/reports/campaign_plans/track_2/2026-06-03-17-25-37_track2f_offset_aware_probe_campaign_plan_report.md
 technical_document_path: doc/technical/2026-06/2026-06-03/2026-06-03-17-25-37_track2f_offset_aware_probe_campaign.md
 track2e_reference_candidate: harmonic_regression_global
@@ -25,9 +25,9 @@ runtime_input_contract:
   - full-curve normalization during inference
   - future-looking smoothing
   validation_only_units:
-  - full Track 2 curve raw error
+  - full TE Curve Verification Pipeline curve raw error
   - centered-shape error
   - mean-offset error
   - amplitude error
   - harmonic phase error
-promotion_rule: Candidate cannot be promoted from pointwise MAE/RMSE alone; it must return through official Track 2 curve-first verification on the matching surface.
+promotion_rule: Candidate cannot be promoted from pointwise MAE/RMSE alone; it must return through official TE curve-first verification on the matching surface.

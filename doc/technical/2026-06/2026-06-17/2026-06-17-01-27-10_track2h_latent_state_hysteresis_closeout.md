@@ -1,4 +1,4 @@
-# Track 2H-L Latent-State Hysteresis Closeout
+# Wave 4.4 Latent-State Hysteresis Closeout
 
 ## Overview
 
@@ -12,18 +12,18 @@ campaign state.
 ## Technical Approach
 
 The closeout is limited to campaign-result acceptance and documentation. It
-does not run the heavy official `Track 2` verification matrix. The workflow
+does not run the heavy official `TE Curve Verification Pipeline` verification matrix. The workflow
 will:
 
 - read the completed campaign leaderboard and best-run pointers;
 - create a final campaign-results report and styled PDF;
-- compare the scalar branch winners against completed `Track 2H` robust,
+- compare the scalar branch winners against completed `Wave 4.1` robust,
   probabilistic, and mixture-density baselines;
 - update the live backlog, master training summary, user guide, and
   documentation index;
 - clear `doc/running/active_training_campaign.yaml` while preserving the last
   completed campaign summary;
-- leave official `Track 2` curve-first verification as a separate optional
+- leave official `TE Curve Verification Pipeline` curve-first verification as a separate optional
   operator-approved step.
 
 ## Involved Components
@@ -40,7 +40,7 @@ will:
 
 ## Implementation Steps
 
-1. Create the final `Track 2H-L` campaign-results Markdown report.
+1. Create the final `Wave 4.4` campaign-results Markdown report.
 2. Export and validate the styled PDF deliverable from the real report.
 3. Update active campaign state to no active campaign with a
    `last_completed_campaign` block.

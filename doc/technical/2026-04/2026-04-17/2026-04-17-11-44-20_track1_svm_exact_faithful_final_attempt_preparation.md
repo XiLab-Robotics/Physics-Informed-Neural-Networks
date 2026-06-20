@@ -1,8 +1,8 @@
-# Track 1 SVM Exact-Faithful Final Attempt Preparation
+# RCIM Model-Bank Reproduction SVM Exact-Faithful Final Attempt Preparation
 
 ## Overview
 
-This technical document prepares a decision on whether `Track 1` should run one
+This technical document prepares a decision on whether `RCIM Model-Bank Reproduction` should run one
 last `SVM`-row attempt under a strict paper-faithful constraint.
 
 The user requirement is explicit:

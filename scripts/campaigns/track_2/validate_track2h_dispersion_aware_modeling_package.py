@@ -1,4 +1,4 @@
-"""Validate the prepared Track 2H dispersion-aware robust-loss package."""
+"""Validate the prepared Wave 5.2 series dispersion-aware robust-loss package."""
 
 from __future__ import annotations
 
@@ -47,7 +47,7 @@ def load_queue_config_list(queue_root: Path) -> list[dict[str, Any]]:
 
 def validate_queue_matrix(queue_config_list: list[dict[str, Any]]) -> None:
 
-    """Validate the 3 by 3 Track 2H robust-loss queue matrix."""
+    """Validate the 3 by 3 Wave 4.1 robust-loss queue matrix."""
 
     assert len(queue_config_list) == 9, f"Expected 9 queue configs | found={len(queue_config_list)}"
 
@@ -78,7 +78,7 @@ def validate_queue_matrix(queue_config_list: list[dict[str, Any]]) -> None:
         assert str(loss.get("pointwise_loss", "")).strip(), "Pointwise loss is required"
         assert loss.get("harmonic_index_list") == EXPECTED_HARMONIC_INDEX_LIST, "Unexpected loss harmonic list"
         assert model.get("harmonic_index_list") == EXPECTED_HARMONIC_INDEX_LIST, "Unexpected model harmonic list"
-        assert dataset.get("collate_mode") == "sequence", "Track 2H entries must use sequence batches"
+        assert dataset.get("collate_mode") == "sequence", "Wave 5.2 series entries must use sequence batches"
         assert dataset.get("shuffle_training_batch_elements") is False, "Robust-loss probe keeps ordered per-curve batches"
         assert int(dataset.get("sequence_length", 0)) == 33, "Unexpected sequence length"
         assert bool(model.get("offset_bidirectional", False)) is False, "Offset branch must remain unidirectional"
@@ -90,8 +90,8 @@ def validate_queue_matrix(queue_config_list: list[dict[str, Any]]) -> None:
     }
     missing_pair_set = expected_pair_set.difference(observed_pair_set)
     unexpected_pair_set = observed_pair_set.difference(expected_pair_set)
-    assert not missing_pair_set, f"Missing Track 2H queue pairs | {sorted(missing_pair_set)}"
-    assert not unexpected_pair_set, f"Unexpected Track 2H queue pairs | {sorted(unexpected_pair_set)}"
+    assert not missing_pair_set, f"Missing Wave 5.2 series queue pairs | {sorted(missing_pair_set)}"
+    assert not unexpected_pair_set, f"Unexpected Wave 5.2 series queue pairs | {sorted(unexpected_pair_set)}"
 
 
 def validate_active_campaign_state() -> None:
@@ -99,8 +99,8 @@ def validate_active_campaign_state() -> None:
     """Validate persistent active campaign state."""
 
     active_state = read_yaml_file(PROJECT_PATH / ACTIVE_CAMPAIGN_STATE_PATH)
-    assert active_state.get("status") == "prepared", "Track 2H campaign state is not prepared."
-    assert active_state.get("campaign_name") == CAMPAIGN_NAME, "Active state does not point at Track 2H."
+    assert active_state.get("status") == "prepared", "Wave 5.2 series campaign state is not prepared."
+    assert active_state.get("campaign_name") == CAMPAIGN_NAME, "Active state does not point at Wave 5.2 series."
     queue_config_path_list = active_state.get("queue_config_path_list", [])
     assert isinstance(queue_config_path_list, list), "queue_config_path_list must be a list"
     assert len(queue_config_path_list) == 9, "Active state must record 9 queue configs"
@@ -113,8 +113,8 @@ def parse_arguments() -> argparse.Namespace:
     """Parse command line arguments."""
 
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--queue-root", required=True, type=Path, help="Repository-relative directory containing Track 2H queue configs.")
-    parser.add_argument("--require-prepared-state", action="store_true", help="Require active campaign state to point at Track 2H.")
+    parser.add_argument("--queue-root", required=True, type=Path, help="Repository-relative directory containing Wave 5.2 series queue configs.")
+    parser.add_argument("--require-prepared-state", action="store_true", help="Require active campaign state to point at Wave 5.2 series.")
     return parser.parse_args()
 
 
@@ -130,7 +130,7 @@ def main() -> int:
         validate_active_campaign_state()
 
     print(
-        "Track 2H package validated | "
+        "Wave 5.2 series package validated | "
         f"queue_entries={len(queue_config_list)} | "
         f"loss_profiles={len(EXPECTED_LOSS_PROFILE_LIST)} | surfaces={len(EXPECTED_SURFACE_LIST)}"
     )

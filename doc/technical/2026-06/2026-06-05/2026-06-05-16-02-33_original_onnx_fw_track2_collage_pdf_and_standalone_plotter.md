@@ -1,19 +1,19 @@
-# Original ONNX Forward Track 2 Collage PDF And Standalone Plotter
+# Original ONNX Forward TE Curve Verification Pipeline Collage PDF And Standalone Plotter
 
 ## Overview
 
-This technical document defines the implementation path for a narrow `Track 2`
+This technical document defines the implementation path for a narrow `TE Curve Verification Pipeline`
 report that evaluates only the recovered paper-original forward `ONNX` model
 bank stored under
 `reference/rcim_ml_compensation_recovered_assets/models/exact_onnx_paper_release`.
 
 The requested deliverables are:
 
-- a simple `Track 2` Markdown and PDF report with collage plots for the
+- a simple `TE Curve Verification Pipeline` Markdown and PDF report with collage plots for the
   original paper best forward model only;
 - explicit loading of the `19` `ONNX` models that compose the paper-best
   forward harmonic target set;
-- evaluation on the canonical held-out `Track 2` forward curve set;
+- evaluation on the canonical held-out `TE Curve Verification Pipeline` forward curve set;
 - a lightweight standalone script with hardcoded `ONNX` model path strings,
   dataset loading, per-curve `19` target prediction, curve reconstruction, and
   one-at-a-time `matplotlib` plot generation.
@@ -33,17 +33,17 @@ No subagent is planned for this task.
 ## Technical Approach
 
 The implementation will add a focused repository-owned report script instead
-of widening the existing full `Track 2` collage report. This keeps the output
+of widening the existing full `TE Curve Verification Pipeline` collage report. This keeps the output
 simple and prevents the paper-original `ONNX` diagnostic from being mixed with
-Wave 1, Wave 2, Wave 2C, retuned, Track 1, or global/backward candidates.
+Wave 1, Wave 2.1, Wave 2.3, retuned, RCIM Model-Bank Reproduction, or global/backward candidates.
 
 The report path will:
 
-1. load the standard `Track 2` configuration from
+1. load the standard `TE Curve Verification Pipeline` configuration from
    `config/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/full_track2_matrix_template.yaml`;
 2. read the selected harmonic list from the configuration;
 3. build the canonical curve records through the same support functions used
-   by the existing `Track 2` report builders;
+   by the existing `TE Curve Verification Pipeline` report builders;
 4. keep only forward curve records;
 5. resolve the `LGBM` paper-original forward `ONNX` target paths from the
    recovered release root;
@@ -53,7 +53,7 @@ The report path will:
    dictionaries;
 9. reconstruct each predicted transmission-error curve with the same harmonic
    reconstruction convention used by the current paper-reference evaluation;
-10. compute raw `Track 2` curve metrics;
+10. compute raw `TE Curve Verification Pipeline` curve metrics;
 11. select four deterministic representative curves and save a collage;
 12. write a compact metrics CSV, validation summary YAML, Markdown report, and
     styled PDF export.
@@ -110,11 +110,11 @@ The implementation will reuse behavioral references from:
 2. Implement the standalone hardcoded-path plotter first, because it is the
    clearest verification that the `19` target predictions and reconstruction
    path work without registry machinery.
-3. Implement the focused `Track 2` collage report builder using the same curve
+3. Implement the focused `TE Curve Verification Pipeline` collage report builder using the same curve
    records, metric computation, and collage selection policy as the existing
    official report.
 4. Run the standalone plotter in a bounded smoke mode to generate a few plots.
-5. Run the report builder for the full forward `Track 2` set and generate the
+5. Run the report builder for the full forward `TE Curve Verification Pipeline` set and generate the
    Markdown report, collage PNG, metrics CSV, and validation summary.
 6. Export the Markdown report to a styled PDF using repository report tooling.
 7. Validate the exported PDF with the repository PDF validation script and

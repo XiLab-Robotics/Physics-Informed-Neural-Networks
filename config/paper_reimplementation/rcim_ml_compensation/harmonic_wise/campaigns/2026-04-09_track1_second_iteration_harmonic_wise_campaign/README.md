@@ -1,7 +1,7 @@
-# Track 1 Second Iteration Harmonic-Wise Campaign Package
+# RCIM Model-Bank Reproduction Second Iteration Harmonic-Wise Campaign Package
 
 This folder contains the approved configuration package for the comprehensive
-second `Track 1` harmonic-wise campaign.
+second `RCIM Model-Bank Reproduction` harmonic-wise campaign.
 
 The package intentionally combines:
 

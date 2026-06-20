@@ -1,4 +1,4 @@
-"""Prepare the Track 2H-L latent-state hysteresis campaign package."""
+"""Prepare the Wave 4.4 latent-state hysteresis campaign package."""
 
 from __future__ import annotations
 
@@ -123,7 +123,7 @@ def validate_no_conflicting_active_campaign() -> None:
     active_campaign_name = str(active_state.get("campaign_name", "")).strip()
     same_campaign_is_prepared = active_status == "prepared" and active_campaign_name == CAMPAIGN_NAME
     assert active_status in ["", "none"] or same_campaign_is_prepared, (
-        "Cannot prepare Track 2H-L latent-state package while another campaign is prepared or active | "
+        "Cannot prepare Wave 4.4 latent-state package while another campaign is prepared or active | "
         f"status={active_status} | campaign_name={active_campaign_name}"
     )
 
@@ -227,7 +227,7 @@ def build_runtime_config() -> dict[str, Any]:
 
 def build_queue_config(queue_index: int, surface_key: str, profile_name: str) -> dict[str, Any]:
 
-    """Build one Track 2H-L queue config."""
+    """Build one Wave 4.4 queue config."""
 
     direction_metadata = DIRECTION_METADATA_DICTIONARY[surface_key]
     direction_token = str(direction_metadata["direction_token"])
@@ -264,8 +264,8 @@ def build_queue_config(queue_index: int, surface_key: str, profile_name: str) ->
             "runtime_input_contract": "current point state plus previous operating-state samples only",
             "causal_window_contract": "sequence_target_position=last and readout_position=last; no future samples are used",
             "forbidden_inputs": "measured TE, curve mean, held-out full-curve statistics, future samples, post-prediction centering",
-            "promotion_rule": "Candidate must return through normal closeout and separate official Track 2 curve-first verification.",
-            "baseline_control": "Completed Track 2H robust/probabilistic/MDN probes plus Wave 3 harmonic-prior residual",
+            "promotion_rule": "Candidate must return through normal closeout and separate official TE curve-first verification.",
+            "baseline_control": "Completed Wave 4.1 robust/probabilistic/MDN probes plus Wave 5.1 harmonic-prior residual",
             "notes": profile_dictionary["notes"],
         },
         "dataset": build_base_dataset_config(),
@@ -297,9 +297,9 @@ def write_campaign_readme(queue_path_list: list[Path]) -> Path:
 
     readme_path = CAMPAIGN_ROOT / "README.md"
     readme_line_list = [
-        "# Track 2H-L Latent-State Hysteresis Campaign Package",
+        "# Wave 4.4 Latent-State Hysteresis Campaign Package",
         "",
-        "This package materializes the approved Track 2H-L latent-state /",
+        "This package materializes the approved Wave 4.4 latent-state /",
         "hysteresis-aware probe. It contains 6 runnable queue entries:",
         "`gru_offset_residual` and `causal_tcn_offset_residual` across",
         "`global`, `Fw`, and `Bw` surfaces.",
@@ -359,14 +359,14 @@ def write_active_campaign_state(queue_path_list: list[Path], dataset_variant_pat
             ".\\scripts\\campaigns\\track2\\run_track2h_latent_state_hysteresis_campaign.ps1",
             ".\\scripts\\campaigns\\track2\\run_track2h_latent_state_hysteresis_campaign.ps1 -Remote",
         ],
-        "notes": "Prepared Track 2H-L latent-state hysteresis package. Training execution requires explicit operator launch approval.",
+        "notes": "Prepared Wave 4.4 latent-state hysteresis package. Training execution requires explicit operator launch approval.",
     }
     write_yaml_file(PROJECT_PATH / ACTIVE_CAMPAIGN_STATE_PATH, active_state)
 
 
 def main() -> int:
 
-    """Prepare the Track 2H-L latent-state hysteresis campaign package."""
+    """Prepare the Wave 4.4 latent-state hysteresis campaign package."""
 
     validate_no_conflicting_active_campaign()
     dataset_variant_path_list = copy_dataset_variants()
@@ -374,7 +374,7 @@ def main() -> int:
     readme_path = write_campaign_readme(queue_path_list)
     write_active_campaign_state(queue_path_list, dataset_variant_path_list, readme_path)
     print(
-        "Prepared Track 2H-L latent-state hysteresis campaign package | "
+        "Prepared Wave 4.4 latent-state hysteresis campaign package | "
         f"campaign={CAMPAIGN_NAME} | queue_entries={len(queue_path_list)}"
     )
     return 0

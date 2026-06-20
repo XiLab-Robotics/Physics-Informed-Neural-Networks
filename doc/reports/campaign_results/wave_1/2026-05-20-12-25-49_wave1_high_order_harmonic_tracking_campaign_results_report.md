@@ -135,12 +135,12 @@ The strongest practical candidate from this campaign is
 `te_harmonic_dense360_tracking_Fw`, with dense `0..240` and RCIM sparse close
 enough to remain useful lower-complexity comparison points. No model from this
 campaign should be exported or promoted as the program-level solution until the
-Track 2 curve-overlay plots confirm that the high-frequency TE components are
+TE Curve Verification Pipeline curve-overlay plots confirm that the high-frequency TE components are
 actually tracked rather than merely improving aggregate error.
 
 ## Recommended Follow-Up
 
-1. Generate Track 2 curve overlays for the top three forward harmonic runs:
+1. Generate TE Curve Verification Pipeline curve overlays for the top three forward harmonic runs:
    dense `0..360`, dense `0..240`, and RCIM sparse.
 2. Compare local oscillation fidelity, not only MAE, against the existing
    `tree_fw` winner and the earlier Wave 1 smooth predictors.

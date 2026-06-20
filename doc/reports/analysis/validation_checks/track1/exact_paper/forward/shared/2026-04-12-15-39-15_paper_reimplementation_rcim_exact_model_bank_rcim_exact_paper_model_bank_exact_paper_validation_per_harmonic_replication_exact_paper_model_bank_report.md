@@ -1,4 +1,4 @@
-﻿# Exact RCIM Paper Model-Bank Validation Report
+# Exact RCIM Paper Model-Bank Validation Report
 
 ## Overview
 
@@ -104,7 +104,7 @@ have not yet been serialized into this workflow.
 ## Paper-Harmonic Comparison
 
 This section collapses the amplitude and phase target evidence into one
-harmonic-facing status so `Track 1` closure can later be tied to a
+harmonic-facing status so `RCIM Model-Bank Reproduction` closure can later be tied to a
 single inspectable harmonic table.
 
 | Harmonic | Paper Expected Family | Ampl Winner | Phase Winner | Matching Targets | Harmonic Status |
@@ -147,13 +147,13 @@ single inspectable harmonic table.
 
 ## Interpretation
 
-This validation run is the strict paper-faithful branch of `Track 1`.
+This validation run is the strict paper-faithful branch of `RCIM Model-Bank Reproduction`.
 Its role is to reproduce the original RCIM family bank with the exact
 recovered input schema, target schema, and export surface before any
 repository-specific simplification or target-wise winner assembly.
 
 At the current repository state, the workflow now serializes the paper
 family-direction expectations per harmonic, but it still does not embed
-the exact numeric paper table thresholds. `Track 1` therefore remains a
+the exact numeric paper table thresholds. `RCIM Model-Bank Reproduction` therefore remains a
 paper-table replication workstream in progress rather than a closed
 replication claim.

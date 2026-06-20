@@ -1,13 +1,13 @@
-# Wave 2B Harmonic Temporal Hybrids
+# Wave 2.2 Harmonic Temporal Hybrids
 
 ## Overview
 
-Plan the `Wave 2B` extension that combines the explicit harmonic structure of
+Plan the `Wave 2.2` extension that combines the explicit harmonic structure of
 selected `Wave 1` periodic models with the sequence context introduced by the
-`Wave 2` temporal families.
+`Wave 2.1` temporal families.
 
-The completed `Wave 2` campaign verified `temporal_convolution`,
-`gru_sequence`, and `lstm_sequence` candidates in the official `Track 2`
+The completed `Wave 2.1` campaign verified `temporal_convolution`,
+`gru_sequence`, and `lstm_sequence` candidates in the official `TE Curve Verification Pipeline`
 workflow, but did not promote them over the current repository-owned `tree`
 baseline. The next modeling branch should therefore test whether the temporal
 families were missing the TE-specific harmonic prior rather than simply more
@@ -32,7 +32,7 @@ The first implementation tier should add three model families:
 - `periodic_gru_sequence`;
 - `periodic_lstm_sequence`.
 
-Each family should preserve the current `Wave 2` rank-3 sequence input
+Each family should preserve the current `Wave 2.1` rank-3 sequence input
 contract, using tensors shaped as `(batch, sequence, features)` for recurrent
 families with `batch_first=True`. Context7 was checked for the PyTorch API
 surface before planning this behavior: PyTorch recurrent layers accept
@@ -63,10 +63,10 @@ Every hybrid family must preserve the repository direction rule:
 | `Fw` | forward only | forward curves only |
 | `Bw` | backward only | backward curves only |
 
-Wave 2B candidates must be evaluated back through the official `Track 2`
+Wave 2.2 candidates must be evaluated back through the official `TE Curve Verification Pipeline`
 verification workflow. A model is not accepted only because its training MAE is
 good; it must refresh the direction-aware matrix, visual reports, and official
-`Track 2` update ledger when promoted.
+`TE Curve Verification Pipeline` update ledger when promoted.
 
 ## Involved Components
 
@@ -78,7 +78,7 @@ good; it must refresh the direction-aware matrix, visual reports, and official
 - `doc/reports/analysis/wave1/Wave 1 - Closeout Status.md`
   Closed static harmonic and periodic baseline context.
 - `doc/reports/analysis/track2/official_model_verification_report/[2026-05-24]/track2_official_model_verification_report.md`
-  Current official verification verdict for Wave 2 temporal candidates.
+  Current official verification verdict for Wave 2.1 temporal candidates.
 - `scripts/models/harmonic_regression.py`
   Source of the canonical harmonic index-list validation semantics.
 - `scripts/models/periodic_feature_network.py`
@@ -92,7 +92,7 @@ good; it must refresh the direction-aware matrix, visual reports, and official
 - `scripts/training/train_feedforward_network.py`
   Current shared training entry point for neural TE model families.
 - `config/training/hydra/wave2/`
-  Existing Wave 2 Hydra config root to extend or mirror for Wave 2B.
+  Existing Wave 2.1 Hydra config root to extend or mirror for Wave 2.2.
 - `doc/reports/campaign_plans/wave_2/`
   Required later for the campaign package before any training launch.
 - `output/training_runs/`, `output/validation_checks/`,
@@ -115,7 +115,7 @@ good; it must refresh the direction-aware matrix, visual reports, and official
    feature tensor into them.
 6. Pass `harmonic_order` and optional `harmonic_index_list` through
    `create_model(...)` for the new families.
-7. Add Wave 2B Hydra model-family configs for `global`, `Fw`, and `Bw` surfaces.
+7. Add Wave 2.2 Hydra model-family configs for `global`, `Fw`, and `Bw` surfaces.
 8. Extend the harmonic-basis smoke check to cover explicit sparse harmonic
    expansion on rank-3 sequence inputs.
 9. Run focused validation after implementation:
@@ -124,8 +124,8 @@ good; it must refresh the direction-aware matrix, visual reports, and official
     family before preparing the campaign package.
 11. Create a preliminary campaign plan under
     `doc/reports/campaign_plans/wave_2/` before any full training execution.
-12. For the first Wave 2B campaign, keep the run count narrow:
+12. For the first Wave 2.2 campaign, keep the run count narrow:
     three model families across `global`, `Fw`, and `Bw`, for `9` candidates.
 13. After campaign approval and execution, route the results through:
     family and program registries, the training master summary, the official
-    `Track 2` matrix, collage report, overlay report, and update ledger.
+    `TE Curve Verification Pipeline` matrix, collage report, overlay report, and update ledger.

@@ -1,8 +1,8 @@
-# Track 2E Offset Predictability Feasibility
+# CVP 1.5 Offset Predictability Feasibility
 
 ## Overview
 
-This document plans the next analysis step after the completed `Track 2D`
+This document plans the next analysis step after the completed `CVP 1.4`
 mean-offset full-matrix audit.
 
 The goal is to determine whether the persistent curve-level vertical offset
@@ -18,8 +18,8 @@ alter the `Fw`, `Bw`, and `global` parallel-branch policy.
 
 ## Technical Approach
 
-Implement a `Track 2E` diagnostic report that consumes the completed
-`Track 2D` machine-readable artifacts and evaluates whether the curve mean
+Implement a `CVP 1.5` diagnostic report that consumes the completed
+`CVP 1.4` machine-readable artifacts and evaluates whether the curve mean
 offset can be explained or approximated from causal metadata and candidate
 prediction diagnostics.
 
@@ -91,10 +91,10 @@ Reference inputs:
 
 ## Implementation Steps
 
-1. Inspect the `Track 2D` CSV and YAML artifacts to identify available
+1. Inspect the `CVP 1.4` CSV and YAML artifacts to identify available
    per-curve, per-candidate, and condition-level fields.
-2. Implement the `Track 2E` diagnostic builder with deterministic output paths
-   and CLI arguments for report date, source `Track 2D` output directory, and
+2. Implement the `CVP 1.5` diagnostic builder with deterministic output paths
+   and CLI arguments for report date, source `CVP 1.4` output directory, and
    optional candidate filtering.
 3. Compute offset-predictability summaries for `Fw`, `Bw`, and `global`
    separately, preserving the parallel-best policy.

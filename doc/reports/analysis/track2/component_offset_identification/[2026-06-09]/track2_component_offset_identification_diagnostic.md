@@ -1,4 +1,4 @@
-# Track 2 Component Offset Identification Diagnostic
+# TE Curve Verification Pipeline Component Offset Identification Diagnostic
 
 ## Overview
 
@@ -75,7 +75,7 @@ Measured component-offset diagnostic over `969` CSV files, `1938` directional cu
 `a_0` / harmonic zero should stay the priority suspect because it is
 the largest average measured component and shows strong direction
 structure. It should not yet be documented as the sole confirmed
-cause of the Track 2 model offset. The next analysis should compare
-these measured h0 surfaces with Track 2D signed model-offset rows and
+cause of the TE Curve Verification Pipeline model offset. The next analysis should compare
+these measured h0 surfaces with CVP 1.4 signed model-offset rows and
 inspect high-order outliers, especially where harmonic `156`, `162`,
 or `240` amplitudes spike.

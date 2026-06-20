@@ -4,7 +4,7 @@
 
 - repository readers who want to understand why this branch was added
 - colleagues who need a briefing on the paper-faithful reproduction path
-- users who need the distinction between `Track 1` and `Track 2`
+- users who need the distinction between `RCIM Model-Bank Reproduction` and `TE Curve Verification Pipeline`
 
 ## Video Goal
 
@@ -41,7 +41,7 @@ future online compensation path.
 
 ## Concepts That Must Not Be Omitted
 
-- why `Track 1` exists
+- why `RCIM Model-Bank Reproduction` exists
 - how the supervised problem changes
 - current artifact and reporting paths
 - current benchmark status

@@ -9,7 +9,7 @@
   operator-stop handling and a terminal-only heartbeat during long silent child
   phases.
 - [2026-04-15-14-14-36_track1_svr_remote_lan_campaign_execution.md](./2026-04-15-14-14-36_track1_svr_remote_lan_campaign_execution.md)
-  Technical document for executing the already prepared `Track 1` `SVR`
+  Technical document for executing the already prepared `RCIM Model-Bank Reproduction` `SVR`
   reference-grid repair campaign on the stronger LAN workstation through the
   canonical SSH-backed remote campaign workflow.
 - [2026-04-15-14-41-23_remote_campaign_launcher_stderr_tolerance_and_smoke_test.md](./2026-04-15-14-41-23_remote_campaign_launcher_stderr_tolerance_and_smoke_test.md)

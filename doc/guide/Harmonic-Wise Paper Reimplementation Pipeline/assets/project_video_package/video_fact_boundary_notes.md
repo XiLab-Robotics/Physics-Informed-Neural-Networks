@@ -14,7 +14,7 @@
 ## Facts That Must Not Be Overstated
 
 - Do not claim that the repository already beats the paper offline.
-- Do not claim that `Track 1` replaces the direct-TE branch.
+- Do not claim that `RCIM Model-Bank Reproduction` replaces the direct-TE branch.
 - Do not claim that TwinCAT-side compensation is already integrated.
 
 ## Safe Framing

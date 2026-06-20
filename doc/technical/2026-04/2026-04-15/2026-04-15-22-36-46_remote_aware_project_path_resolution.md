@@ -76,7 +76,7 @@ intentional short alias such as `R:\`.
    `shared_training_infrastructure.py` to ensure the adjusted resolver remains
    compatible with local workflows.
 3. Run a focused smoke check on local path-resolution behavior.
-4. Retest the current `Track 1` `SVR` remote launcher on the LAN node.
+4. Retest the current `RCIM Model-Bank Reproduction` `SVR` remote launcher on the LAN node.
 5. If the training queue now advances beyond source-config enqueue, stop there
    and reassess campaign runtime behavior before making further launcher
    changes.

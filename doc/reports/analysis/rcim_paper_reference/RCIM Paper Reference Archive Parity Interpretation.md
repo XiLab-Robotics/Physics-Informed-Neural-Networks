@@ -4,17 +4,17 @@
 
 The repository paper-reference archives are internally consistent, but they
 must be read as two recovered-pipeline archives plus one intentionally
-Wave-1-aligned Track 1 reimplementation.
+Wave-1-aligned RCIM Model-Bank Reproduction reimplementation.
 
 The direct same-family comparison shows that `rcim_original/forward` and
 `rcim_retuned/forward` are substantially equivalent as implementations of
 the recovered original-pipeline surface. Most deterministic or robust
-families remain close on Track 2 curve metrics; the material exceptions are
+families remain close on TE Curve Verification Pipeline curve metrics; the material exceptions are
 `MLP` and `ELM`, where stochastic training and retuned hyperparameters make
 the fitted surfaces less stable.
 
 `rcim_track1` is different by design. It uses the same operating-condition
-surface, but it is trained with the repository Track 1 / Wave 1 split policy
+surface, but it is trained with the repository RCIM Model-Bank Reproduction / Wave 1 split policy
 rather than the recovered original row-level split. Therefore its metrics are
 expected to differ from `rcim_original` and `rcim_retuned`, but the large
 outliers still matter: `LGBM` and `MLP` forward, plus the broader backward
@@ -22,28 +22,28 @@ gap, should remain visible as follow-up investigation points.
 
 `rcim_original/forward` remains the recovered original-pipeline baseline.
 `rcim_retuned` is the closest repository-local continuation of that
-pipeline and the strongest Track 2 curve performer in this comparison.
-`rcim_track1` is the closed faithful Track 1 archive aligned with the Wave 1
+pipeline and the strongest TE Curve Verification Pipeline curve performer in this comparison.
+`rcim_track1` is the closed faithful RCIM Model-Bank Reproduction archive aligned with the Wave 1
 split. It is structurally complete and direction-valid, but it should not be
 treated as an interchangeable numerical clone of the recovered original or
 retuned bank.
 
 The practical conclusion is that the three archives are usable as distinct
 baselines: original-paper behavior, retuned recovered-pipeline behavior, and
-final Track 1 faithful behavior on the Wave-1-aligned split.
+final RCIM Model-Bank Reproduction faithful behavior on the Wave-1-aligned split.
 
 ## Source Validation Artifacts
 
 | Artifact | Path |
 | --- | --- |
-| Source Track 2 summary | `output\validation_checks\track2_reference_comparison\2026-05-18-16-35-26__track2_full_directional_family_matrix_composite_best_reference_validation\validation_summary.yaml` |
+| Source TE Curve Verification Pipeline summary | `output\validation_checks\track2_reference_comparison\2026-05-18-16-35-26__track2_full_directional_family_matrix_composite_best_reference_validation\validation_summary.yaml` |
 | Validation summary YAML | `output\validation_checks\rcim_paper_reference_archive_parity\2026_05_18_22_18_12__paper_reference_archive_parity_paper_reference_archive_pairwise_v2\validation_summary.yaml` |
 | Curve metric CSV | `output\validation_checks\rcim_paper_reference_archive_parity\2026_05_18_22_18_12__paper_reference_archive_parity_paper_reference_archive_pairwise_v2\curve_metric_comparison.csv` |
 | Target metric CSV | `output\validation_checks\rcim_paper_reference_archive_parity\2026_05_18_22_18_12__paper_reference_archive_parity_paper_reference_archive_pairwise_v2\target_metric_comparison.csv` |
 | Pairwise comparison CSV | `output\validation_checks\rcim_paper_reference_archive_parity\2026_05_18_22_18_12__paper_reference_archive_parity_paper_reference_archive_pairwise_v2\pairwise_archive_comparison.csv` |
 | Original archive | `models/paper_reference/rcim_original` |
 | Retuned archive | `models/paper_reference/rcim_retuned` |
-| Track 1 archive | `models/paper_reference/rcim_track1` |
+| RCIM Model-Bank Reproduction archive | `models/paper_reference/rcim_track1` |
 
 ## Test Context
 
@@ -61,23 +61,23 @@ final Track 1 faithful behavior on the Wave-1-aligned split.
 
 ## Dataset And Split Context
 
-The archive comparison is a Track 2 curve evaluation, not a claim that every
+The archive comparison is a TE Curve Verification Pipeline curve evaluation, not a claim that every
 archive was trained with the same split protocol.
 
 | Archive Group | Training Split Contract | Interpretation |
 | --- | --- | --- |
 | `rcim_original/forward` | recovered original row-level split | Paper-original forward baseline. |
 | `rcim_retuned` | recovered original row-level split | Same recovered pipeline with retuned parameters. |
-| `rcim_track1` | repository Track 1 / Wave 1 split | Faithful reimplementation aligned with new model comparisons. |
+| `rcim_track1` | repository RCIM Model-Bank Reproduction / Wave 1 split | Faithful reimplementation aligned with new model comparisons. |
 
 The operating-condition grid is shared: the checked forward archives expose
 the same `969` `(rpm, deg, tor)` conditions. The split protocol is not shared:
 the recovered original path trains on the row-level complement of a `0.1`
-test split, while Track 1 trains on the repository file-level train split and
-keeps separate validation and test partitions. This is intentional so Track 1
+test split, while RCIM Model-Bank Reproduction trains on the repository file-level train split and
+keeps separate validation and test partitions. This is intentional so RCIM Model-Bank Reproduction
 can be compared with Wave 1 on the same repository split policy.
 
-Because of that design choice, Track 1 metrics are allowed to differ from
+Because of that design choice, RCIM Model-Bank Reproduction metrics are allowed to differ from
 `rcim_original` and `rcim_retuned`. Differences in the same broad error range
 are acceptable; large family-specific gaps are investigation signals rather
 than immediate proof that the implementation is wrong.
@@ -86,20 +86,20 @@ than immediate proof that the implementation is wrong.
 
 | Finding | Status | Consequence |
 | --- | --- | --- |
-| Track 2 `h0` sign handling for `rcim_track1` forward | correct | The curve reconstruction applies the required `h0` multiplier. |
-| Track 1 GBM grid appended base value | corrected in code | Future GBM runs now append `learning_rate`, matching `predictorML.py`. |
-| Existing Track 1 GBM archives | not invalidated | Current forward/backward GBM best summaries selected `learning_rate: 0.1`. |
-| Track 1 `LGBM` and `MLP` | open outliers | Keep highlighted for targeted follow-up validation. |
+| TE Curve Verification Pipeline `h0` sign handling for `rcim_track1` forward | correct | The curve reconstruction applies the required `h0` multiplier. |
+| RCIM Model-Bank Reproduction GBM grid appended base value | corrected in code | Future GBM runs now append `learning_rate`, matching `predictorML.py`. |
+| Existing RCIM Model-Bank Reproduction GBM archives | not invalidated | Current forward/backward GBM best summaries selected `learning_rate: 0.1`. |
+| RCIM Model-Bank Reproduction `LGBM` and `MLP` | open outliers | Keep highlighted for targeted follow-up validation. |
 
-The `h0` sign check is important: without the forward Track 1 sign multiplier,
-representative Track 2 curve errors jump to roughly `270%`; with the current
+The `h0` sign check is important: without the forward RCIM Model-Bank Reproduction sign multiplier,
+representative TE Curve Verification Pipeline curve errors jump to roughly `270%`; with the current
 multiplier they return to the reported single-digit or low double-digit
-range. No Track 2 code change is required for this point.
+range. No TE Curve Verification Pipeline code change is required for this point.
 
 ## Same-Family Archive Parity Verdict
 
 This is the direct implementation-to-implementation comparison. It compares
-the same family across archive groups on the same direction-valid Track 2
+the same family across archive groups on the same direction-valid TE Curve Verification Pipeline
 curve surface. A positive delta means the right-side archive has higher
 mean percentage error than the left-side archive.
 
@@ -132,7 +132,7 @@ Classification thresholds are intentionally pragmatic:
 | `LGBM` | `rcim_original_LGBM19_Fw` | `rcim_retuned_LGBM19_Fw` | 4.017 | 4.135 | 0.118 | 0.000051 | `near-equivalent` |
 | `ELM` | `rcim_original_ELM19_Fw` | `rcim_retuned_ELM19_Fw` | 12.130 | 16.181 | 4.052 | 0.001759 | `substantial difference` |
 
-### Forward Original Vs Track 1
+### Forward Original Vs RCIM Model-Bank Reproduction
 
 | Family | Left Candidate | Right Candidate | Left MPE [%] | Right MPE [%] | Delta MPE [pp] | Delta Curve MAE [deg] | Verdict |
 | --- | --- | --- | ---: | ---: | ---: | ---: | --- |
@@ -148,7 +148,7 @@ Classification thresholds are intentionally pragmatic:
 | `LGBM` | `rcim_original_LGBM19_Fw` | `LGBM19_Fw` | 4.017 | 15.415 | 11.398 | 0.005012 | `substantial difference` |
 | `ELM` | `rcim_original_ELM19_Fw` | `ELM19_Fw` | 12.130 | 16.352 | 4.222 | 0.001858 | `substantial difference` |
 
-### Forward Retuned Vs Track 1
+### Forward Retuned Vs RCIM Model-Bank Reproduction
 
 | Family | Left Candidate | Right Candidate | Left MPE [%] | Right MPE [%] | Delta MPE [pp] | Delta Curve MAE [deg] | Verdict |
 | --- | --- | --- | ---: | ---: | ---: | ---: | --- |
@@ -164,7 +164,7 @@ Classification thresholds are intentionally pragmatic:
 | `LGBM` | `rcim_retuned_LGBM19_Fw` | `LGBM19_Fw` | 4.135 | 15.415 | 11.280 | 0.004961 | `substantial difference` |
 | `ELM` | `rcim_retuned_ELM19_Fw` | `ELM19_Fw` | 16.181 | 16.352 | 0.171 | 0.000098 | `near-equivalent` |
 
-### Backward Retuned Vs Track 1
+### Backward Retuned Vs RCIM Model-Bank Reproduction
 
 | Family | Left Candidate | Right Candidate | Left MPE [%] | Right MPE [%] | Delta MPE [pp] | Delta Curve MAE [deg] | Verdict |
 | --- | --- | --- | ---: | ---: | ---: | ---: | --- |
@@ -182,7 +182,7 @@ Classification thresholds are intentionally pragmatic:
 
 ## Forward Archive Comparison
 
-Forward compares all three archives on the same forward Track 2 curve
+Forward compares all three archives on the same forward TE Curve Verification Pipeline curve
 surface. The best family rows are:
 
 | Archive | Best Family Candidate | Mean Percentage Error [%] | Curve MAE [deg] |
@@ -225,7 +225,7 @@ surface. The best family rows are:
 | `rcim_retuned_ELM19_Fw` | `ELM` | 0.007182 | 0.007463 | 16.181 | 40.024 |
 | `rcim_retuned_MLP19_Fw` | `MLP` | 0.016647 | 0.020154 | 38.510 | 86.197 |
 
-### Track 1 Forward Models
+### RCIM Model-Bank Reproduction Forward Models
 
 | Candidate | Family | Curve MAE [deg] | Curve RMSE [deg] | Mean Percentage Error [%] | P95 Mean Percentage Error [%] |
 | --- | --- | ---: | ---: | ---: | ---: |
@@ -270,7 +270,7 @@ from this section.
 | `rcim_retuned_XGBM19_Bw` | `XGBM` | 0.010679 | 0.011209 | 24.184 | 48.082 |
 | `rcim_retuned_MLP19_Bw` | `MLP` | 0.019115 | 0.023025 | 44.141 | 88.991 |
 
-### Track 1 Backward Models
+### RCIM Model-Bank Reproduction Backward Models
 
 | Candidate | Family | Curve MAE [deg] | Curve RMSE [deg] | Mean Percentage Error [%] | P95 Mean Percentage Error [%] |
 | --- | --- | ---: | ---: | ---: | ---: |
@@ -290,7 +290,7 @@ from this section.
 ## Target-Level Metric Snapshot
 
 These target-level rows come from the saved harmonic target model archives.
-They are not a replacement for Track 2 curve evaluation, but they explain
+They are not a replacement for TE Curve Verification Pipeline curve evaluation, but they explain
 how amplitude and phase prediction quality changes before TE reconstruction.
 
 ### Forward Target Metrics
@@ -327,7 +327,7 @@ how amplitude and phase prediction quality changes before TE reconstruction.
 | `rcim_retuned_LGBM19_Fw` | `LGBM` | 0.011729 | 0.039231 | 0.086322 | 0.219852 |
 | `rcim_retuned_ELM19_Fw` | `ELM` | 0.011959 | 0.039023 | 0.407448 | 0.792569 |
 
-#### Track 1 Forward
+#### RCIM Model-Bank Reproduction Forward
 
 | Candidate | Family | Amplitude MAE | Amplitude RMSE | Phase MAE [rad] | Phase RMSE [rad] |
 | --- | --- | ---: | ---: | ---: | ---: |
@@ -361,7 +361,7 @@ how amplitude and phase prediction quality changes before TE reconstruction.
 | `rcim_retuned_LGBM19_Bw` | `LGBM` | 0.000836 | 0.002735 | 1.581513 | 1.864699 |
 | `rcim_retuned_ELM19_Bw` | `ELM` | 0.001359 | 0.004468 | 1.539331 | 1.814290 |
 
-#### Track 1 Backward
+#### RCIM Model-Bank Reproduction Backward
 
 | Candidate | Family | Amplitude MAE | Amplitude RMSE | Phase MAE [rad] | Phase RMSE [rad] |
 | --- | --- | ---: | ---: | ---: | ---: |
@@ -382,8 +382,8 @@ how amplitude and phase prediction quality changes before TE reconstruction.
 | Archive | Coverage | Interpretation |
 | --- | --- | --- |
 | `rcim_original` | forward only | Recovered original-pipeline reference. It remains the correct baseline for paper-original forward behavior and ONNX parity context. |
-| `rcim_retuned` | forward and backward | Substantially equivalent recovered-pipeline continuation, with retuned parameters and the strongest Track 2 curve metrics in this comparison. |
-| `rcim_track1` | forward and backward | Closed faithful Track 1 archive aligned with the Wave 1 split policy. It is complete and direction-valid, but intentionally not a numerical clone of the recovered split. |
+| `rcim_retuned` | forward and backward | Substantially equivalent recovered-pipeline continuation, with retuned parameters and the strongest TE Curve Verification Pipeline curve metrics in this comparison. |
+| `rcim_track1` | forward and backward | Closed faithful RCIM Model-Bank Reproduction archive aligned with the Wave 1 split policy. It is complete and direction-valid, but intentionally not a numerical clone of the recovered split. |
 
 ## Final Conclusion
 
@@ -391,7 +391,7 @@ The repository `models/paper_reference` surface is coherent and usable as a
 three-baseline system. `rcim_original` and `rcim_retuned` forward are
 substantially equivalent recovered-pipeline archives, with `MLP` and `ELM`
 kept as the main unstable exceptions. `rcim_track1` is a faithful
-reimplementation aligned with the repository Track 1 / Wave 1 split policy,
+reimplementation aligned with the repository RCIM Model-Bank Reproduction / Wave 1 split policy,
 so its metrics are expected to move away from the recovered original split.
 The magnitude is acceptable for several families, but `LGBM`, `MLP`, and the
 larger backward gaps should remain flagged for targeted follow-up.
@@ -400,9 +400,9 @@ The defensible wording is:
 
 > `rcim_original` preserves the recovered forward original-pipeline baseline;
 > `rcim_retuned` is a substantially equivalent retuned recovered-pipeline
-> archive and currently provides the strongest paper-reference Track 2 curve
-> metrics; and `rcim_track1` provides the final faithful Track 1 family
+> archive and currently provides the strongest paper-reference TE Curve Verification Pipeline curve
+> metrics; and `rcim_track1` provides the final faithful RCIM Model-Bank Reproduction family
 > archive for both directions under the repository Wave-1-aligned split.
 
-This report should be used together with the canonical Track 2 matrix when
+This report should be used together with the canonical curve-verification matrix when
 choosing which paper-reference archive to cite in downstream comparisons.

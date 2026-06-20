@@ -1,4 +1,4 @@
-"""Shared Track 1 directional reference-archive closeout helpers."""
+"""Shared RCIM Model-Bank Reproduction directional reference-archive closeout helpers."""
 
 from __future__ import annotations
 
@@ -30,7 +30,7 @@ def build_directional_target_name(
     harmonic_order: int,
 ) -> str:
 
-    """Build one canonical Track 1 target name from direction, scope, and harmonic."""
+    """Build one canonical RCIM Model-Bank Reproduction target name from direction, scope, and harmonic."""
 
     direction_prefix = "Fw" if direction_label == "forward" else "Bw"
     target_scope = "ampl" if scope_key == "amplitude" else "phase"
@@ -212,7 +212,7 @@ def build_directional_accepted_target_artifact_map_from_selection(
         len(AMPLITUDE_HARMONIC_LIST) + len(PHASE_HARMONIC_LIST)
     )
     assert len(accepted_target_artifact_map) == expected_target_count, (
-        "Directional accepted artifact count does not match the full Track 1 target surface | "
+        "Directional accepted artifact count does not match the full RCIM Model-Bank Reproduction target surface | "
         f"resolved={len(accepted_target_artifact_map)} | expected={expected_target_count}"
     )
     return accepted_target_artifact_map
@@ -225,7 +225,7 @@ def refresh_directional_reference_archives_from_selection(
     fallback_validation_root_list: list[Path] | None = None,
 ) -> list[dict[str, Any]]:
 
-    """Refresh one directional Track 1 archive branch from a closeout selection."""
+    """Refresh one directional RCIM Model-Bank Reproduction archive branch from a closeout selection."""
 
     accepted_target_artifact_map = (
         build_directional_accepted_target_artifact_map_from_selection(

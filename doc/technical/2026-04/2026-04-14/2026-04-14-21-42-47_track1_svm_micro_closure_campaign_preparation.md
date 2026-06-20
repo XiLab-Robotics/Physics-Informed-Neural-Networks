@@ -1,8 +1,8 @@
-# Track 1 SVM Micro-Closure Campaign Preparation
+# RCIM Model-Bank Reproduction SVM Micro-Closure Campaign Preparation
 
 ## Overview
 
-This technical document prepares the next `Track 1` `SVM` campaign after the
+This technical document prepares the next `RCIM Model-Bank Reproduction` `SVM` campaign after the
 successful `SVM` final-closure wave.
 
 The canonical benchmark now shows that the `SVM` row has only `5` yellow

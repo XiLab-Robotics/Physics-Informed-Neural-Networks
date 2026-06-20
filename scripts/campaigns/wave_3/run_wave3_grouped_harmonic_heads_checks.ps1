@@ -42,7 +42,7 @@ function Invoke-Wave3GroupedPython {
     $script:LastWave3GroupedPythonExitCode = $LASTEXITCODE
 }
 
-Write-Wave3GroupedStatus -Label "INFO" -Message "Wave 3 grouped harmonic-heads checks only. Training launch is disabled."
+Write-Wave3GroupedStatus -Label "INFO" -Message "Wave 5.1 grouped harmonic-heads checks only. Training launch is disabled."
 
 $compileArgumentList = @(
     "-m",
@@ -64,5 +64,5 @@ if ($script:LastWave3GroupedPythonExitCode -ne 0) {
     exit $script:LastWave3GroupedPythonExitCode
 }
 
-Write-Wave3GroupedStatus -Label "DONE" -Message "Wave 3 grouped harmonic-heads skeleton is implementation-ready and not campaign-ready."
+Write-Wave3GroupedStatus -Label "DONE" -Message "Wave 5.1 grouped harmonic-heads skeleton is implementation-ready and not campaign-ready."
 exit 0

@@ -1,8 +1,8 @@
-# Track 1 SVR Reference Grid Search Repair Campaign Remote Launcher
+# RCIM Model-Bank Reproduction SVR Reference Grid Search Repair Campaign Remote Launcher
 
 ## Overview
 
-This launcher executes the approved `Track 1` `SVR` reference-grid repair
+This launcher executes the approved `RCIM Model-Bank Reproduction` `SVR` reference-grid repair
 campaign on the stronger LAN workstation while preserving the behavior of the
 local exact-paper launcher.
 

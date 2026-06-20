@@ -13,9 +13,9 @@ remains the operational source of truth for queue materialization, launcher
 execution, artifact taxonomy, active campaign state, closeout reports,
 registries, and model export bookkeeping.
 
-`Track 1` exact-paper workflows are excluded from retroactive migration because
+`RCIM Model-Bank Reproduction` exact-paper workflows are excluded from retroactive migration because
 they are closed, paper-faithful reproduction workflows. Future non-faithful
-Track 1 derivatives or `Track 1.5` style benchmark branches may opt into the
+RCIM Model-Bank Reproduction derivatives or `RCIM Harmonic-Wise Follow-Up` style benchmark branches may opt into the
 Hydra configuration layer, but the closed exact-paper protocol should remain
 stable.
 
@@ -89,9 +89,9 @@ boundary and explicit approval requirement must be added before launch.
    taxonomy.
 7. Update the `Wave 1` launcher or preparer only after the pilot has proven
    that resolved configs match the existing training contract.
-8. Document that closed `Track 1` exact-paper workflows remain legacy
+8. Document that closed `RCIM Model-Bank Reproduction` exact-paper workflows remain legacy
    paper-faithful workflows and are not migrated retroactively.
-9. Permit future `Track 1` derivatives, `Track 1.5`, and future waves to opt
+9. Permit future `RCIM Model-Bank Reproduction` derivatives, `RCIM Harmonic-Wise Follow-Up`, and future waves to opt
    into the `Hydra` layer when they are not strict reproductions of the closed
    exact-paper protocol.
 10. Update user-facing documentation and Sphinx portal pages when runnable

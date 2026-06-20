@@ -1,14 +1,14 @@
-# Track 1 Remaining Exact-Paper Family Campaigns
+# RCIM Model-Bank Reproduction Remaining Exact-Paper Family Campaigns
 
 ## Overview
 
-This document formalizes the next `Track 1` preparation step after the
+This document formalizes the next `RCIM Model-Bank Reproduction` preparation step after the
 repository accepted the `SVM` row as closed for practical project purposes.
 
 The remaining paper-model families still need their own exact-paper campaign
 packages so the repository can:
 
-- complete the family-by-family `Track 1` surface beyond `SVM`;
+- complete the family-by-family `RCIM Model-Bank Reproduction` surface beyond `SVM`;
 - prepare reusable family archives under the standard introduced on
   `2026-04-17`;
 - execute the remaining paper-model rows through a stable and repeatable remote

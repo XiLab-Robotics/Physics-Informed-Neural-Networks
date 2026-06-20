@@ -33,11 +33,11 @@ Proposed top-level taxonomy for both:
 Interpretation rule:
 
 - `wave1/` for the historical Wave 1 campaign package;
-- `track1/harmonic_wise/` for the repository-owned harmonic-wise Track 1
+- `track1/harmonic_wise/` for the repository-owned harmonic-wise RCIM Model-Bank Reproduction
   campaigns;
 - `track1/exact_paper/` for the strict paper-faithful family-bank and open-cell
   exact-paper campaigns that are not family-specific `SVM` closure batches;
-- `track1/svm/` for `SVR/SVM`-focused Track 1 repair, closure, grid, smoke, and
+- `track1/svm/` for `SVR/SVM`-focused RCIM Model-Bank Reproduction repair, closure, grid, smoke, and
   exact-faithful follow-up campaigns;
 - `infrastructure/` for remote validation and infra-facing operator campaigns;
 - `mixed_training/` for the earlier generic mixed-training and logging-validation

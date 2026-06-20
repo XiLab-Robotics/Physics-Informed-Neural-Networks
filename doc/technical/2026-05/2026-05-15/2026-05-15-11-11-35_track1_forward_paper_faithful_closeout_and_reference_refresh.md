@@ -1,11 +1,11 @@
-# Track 1 Forward Paper-Faithful Closeout And Reference Refresh
+# RCIM Model-Bank Reproduction Forward Paper-Faithful Closeout And Reference Refresh
 
 ## Overview
 
-The Track 1 forward paper-faithful grid-search campaign has completed after
+The RCIM Model-Bank Reproduction forward paper-faithful grid-search campaign has completed after
 the pipeline fixes for `ELM`, remote source synchronization, and exact-paper
 search-summary YAML serialization. The closeout must promote the new forward
-model artifacts into the paper-reference archive, replace the older Track 1
+model artifacts into the paper-reference archive, replace the older RCIM Model-Bank Reproduction
 forward artifacts trained with the previous pipeline, and refresh the linked
 benchmark documentation.
 
@@ -35,7 +35,7 @@ exports, ONNX exports, and campaign log evidence.
   contains the forward family validation bundles from the completed campaign.
 - `output/training_campaigns/track1/exact_paper/bidirectional_paper_faithful_grid_search/`
   contains the campaign-level forward run logs and campaign bookkeeping.
-- `models/paper_reference/rcim_track1/` is the Track 1 paper-reference archive
+- `models/paper_reference/rcim_track1/` is the RCIM Model-Bank Reproduction paper-reference archive
   that must be refreshed with the new forward artifacts.
 - `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md` must be recompiled
   for Tables `2`-`5` with green/yellow/red status markers.
@@ -53,7 +53,7 @@ exports, ONNX exports, and campaign log evidence.
    exports, and ONNX exports.
 2. Build the closeout inventory that maps each forward family to its run
    instance, metrics, best parameters, and export completeness.
-3. Replace the stale forward Track 1 artifacts under
+3. Replace the stale forward RCIM Model-Bank Reproduction artifacts under
    `models/paper_reference/rcim_track1/` with the newly completed pipeline
    artifacts while preserving archive traceability.
 4. Generate or update the forward closeout report and linked model-archive

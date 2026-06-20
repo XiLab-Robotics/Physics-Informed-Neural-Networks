@@ -1,7 +1,7 @@
-# RCIM Track 1 Paper Reference Models
+# RCIM Model-Bank Reproduction Paper Reference Models
 
 This folder groups curated paper-reference model archives for the canonical
-`Track 1` RCIM paper-reimplementation branch.
+`RCIM Model-Bank Reproduction` RCIM paper-reimplementation branch.
 
 These archives are the accepted model outputs from the faithful
 original-dataset exact-model-bank reimplementation:
@@ -24,7 +24,7 @@ The benchmark tables backed by this archive root live in:
 
 - `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
 
-Track 1 closure status:
+RCIM Model-Bank Reproduction closure status:
 
 - `closed` as the faithful full-bank RCIM paper-pipeline reproduction surface;
 - forward grid-search campaign completed and archived;
@@ -64,7 +64,7 @@ Current populated family archives:
 - `backward/elm_reference_models/`
 
 Paper-table families remain the original `10` families used by Tables `2`-`5`.
-`ELM` is an additional operational Track 1 family and is archived for both
+`ELM` is an additional operational RCIM Model-Bank Reproduction family and is archived for both
 directions after the completed paper-faithful campaigns provide it.
 
 Canonical family archive template:
@@ -83,7 +83,7 @@ Canonical family archive template:
 
 Closeout rule:
 
-- every future Track 1 closeout must refresh the affected family-reference archive when accepted models change;
+- every future RCIM Model-Bank Reproduction closeout must refresh the affected family-reference archive when accepted models change;
 - archive entries must preserve source validation summaries, training configs, run metadata, exported ONNX files, Python pickles, and dataset provenance;
 - direction-specific closeouts must only replace archives for the completed direction.
 - future restricted-dataset reruns must not overwrite this full-dataset

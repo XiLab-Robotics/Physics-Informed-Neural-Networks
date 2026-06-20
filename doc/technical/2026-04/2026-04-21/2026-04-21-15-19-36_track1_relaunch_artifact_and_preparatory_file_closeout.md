@@ -1,13 +1,13 @@
-# Track 1 Relaunch Artifact And Preparatory File Closeout
+# RCIM Model-Bank Reproduction Relaunch Artifact And Preparatory File Closeout
 
 ## Overview
 
 This technical document defines the repository cleanup and consolidation pass
-for the completed `Track 1` open-cell full-matrix relaunch package that was
+for the completed `RCIM Model-Bank Reproduction` open-cell full-matrix relaunch package that was
 used after the first wrapper crash.
 
 The closeout commit already published the canonical campaign-results surface:
-the final Markdown report, the validated PDF, the refreshed `Track 1`
+the final Markdown report, the validated PDF, the refreshed `RCIM Model-Bank Reproduction`
 benchmark, the refreshed training master summary, the completed
 `active_training_campaign.yaml` state, and the aggregate plus family-level
 winner-bookkeeping artifacts.

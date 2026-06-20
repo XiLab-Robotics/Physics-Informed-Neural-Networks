@@ -15,16 +15,16 @@ Project-authored Python source code no longer lives here. Source files are store
 - `scripts/models/`
 - `scripts/training/`
 
-Current curated Track 1 paper-reference archives include:
+Current curated RCIM Model-Bank Reproduction paper-reference archives include:
 
-These archives are the accepted output of the faithful RCIM Track 1
+These archives are the accepted output of the faithful RCIM Model-Bank Reproduction
 exact-model-bank reimplementation under
 `scripts/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/`.
 They replace older archives when a forward or backward paper-faithful campaign
 is closed out, and they are the model artifact backing for
 `doc/reports/analysis/RCIM Paper Reference Benchmark.md`.
 
-The current Track 1 full-dataset surface is closed: both directions have
+The current RCIM Model-Bank Reproduction full-dataset surface is closed: both directions have
 completed, accepted archives have been refreshed, and Tables `2`-`5` are
 populated. Later restricted-dataset reruns must use separate archive/report
 surfaces.

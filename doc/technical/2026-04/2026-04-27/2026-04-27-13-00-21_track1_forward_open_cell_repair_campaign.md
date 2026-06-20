@@ -1,8 +1,8 @@
-# Track 1 Forward Open-Cell Repair Campaign
+# RCIM Model-Bank Reproduction Forward Open-Cell Repair Campaign
 
 ## Overview
 
-This technical document defines the next `Track 1` campaign package after the
+This technical document defines the next `RCIM Model-Bank Reproduction` campaign package after the
 completed bidirectional original-dataset mega-campaign closeout.
 
 The immediate goal is not another bidirectional full-bank sweep. The immediate

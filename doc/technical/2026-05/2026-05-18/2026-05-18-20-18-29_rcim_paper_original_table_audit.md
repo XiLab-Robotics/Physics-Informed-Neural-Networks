@@ -2,7 +2,7 @@
 
 ## Overview
 
-This document plans the correction of `Track 1` status markers in
+This document plans the correction of `RCIM Model-Bank Reproduction` status markers in
 `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md` after commit
 `ce0237d27cd7466bd14e16d767fccf125e3ee2eb` corrected several Table 2 paper
 original values.
@@ -16,8 +16,8 @@ RCIM paper source before changing the benchmark report.
   original forward Tables `2`-`5`.
 - Compare the current benchmark report's `Paper Original` sections with the
   paper table values.
-- Recompute the forward Table 2 `Track 1` marker colors using the existing
-  report rule: compare Track 1 forward values against the better value between
+- Recompute the forward Table 2 `RCIM Model-Bank Reproduction` marker colors using the existing
+  report rule: compare RCIM Model-Bank Reproduction forward values against the better value between
   `paper original` and `paper retuned`.
 - Keep the edit limited to benchmark report marker corrections unless the
   paper audit finds additional original-value transcription errors.
@@ -34,7 +34,7 @@ RCIM paper source before changing the benchmark report.
 
 1. Extract or inspect the original paper values for forward Tables `2`-`5`.
 2. Compare those values against the current benchmark report.
-3. Update Table 2 `Track 1` marker colors affected by the corrected Table 2
+3. Update Table 2 `RCIM Model-Bank Reproduction` marker colors affected by the corrected Table 2
    paper-original baseline.
 4. Apply any additional paper-original value corrections found during the
    audit.

@@ -42,7 +42,7 @@ function Invoke-Wave4BPython {
     $script:LastWave4BPythonExitCode = $LASTEXITCODE
 }
 
-Write-Wave4BStatus -Label "INFO" -Message "Wave 4B MMT feature-generator checks only. Training launch is disabled."
+Write-Wave4BStatus -Label "INFO" -Message "Wave 5.2B MMT feature-generator checks only. Training launch is disabled."
 
 $compileArgumentList = @(
     "-m",
@@ -63,5 +63,5 @@ if ($script:LastWave4BPythonExitCode -ne 0) {
     exit $script:LastWave4BPythonExitCode
 }
 
-Write-Wave4BStatus -Label "DONE" -Message "Wave 4B MMT feature-generator skeleton is implementation-ready and not campaign-ready."
+Write-Wave4BStatus -Label "DONE" -Message "Wave 5.2B MMT feature-generator skeleton is implementation-ready and not campaign-ready."
 exit 0

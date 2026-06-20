@@ -32,7 +32,7 @@ forward evaluation surfaces.
 | `XGBM` | 4 | 0.000043 | 0.000041 | 0.000056 | 0.000053 | 0.000010 | 0.000010 |
 | `LGBM` | 20 | 0.040953 | 0.040953 | 0.084579 | 0.084579 | 0.000001 | 0.000000 |
 
-## Track 2 Forward Curve Parity
+## TE Curve Verification Pipeline Forward Curve Parity
 
 | Family | ONNX MAE [deg] | Repo MAE [deg] | Delta MAE [deg] | ONNX MPE [%] | Repo MPE [%] | Delta MPE [%] |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |

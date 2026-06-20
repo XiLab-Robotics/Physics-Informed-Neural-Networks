@@ -1,9 +1,9 @@
-# Track 1 Full-Matrix PDF Table Specific Width Rebalance
+# RCIM Model-Bank Reproduction Full-Matrix PDF Table Specific Width Rebalance
 
 ## Overview
 
 This document covers a narrow renderer-only PDF layout update for the completed
-`Track 1` full-matrix family reproduction campaign results report.
+`RCIM Model-Bank Reproduction` full-matrix family reproduction campaign results report.
 
 The requested change is intentionally limited to two specific tables in the
 styled PDF export path:

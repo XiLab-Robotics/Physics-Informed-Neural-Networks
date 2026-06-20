@@ -1,14 +1,14 @@
-# Wave 3 Track 2 Verification Refresh
+# Wave 5.1 TE Curve Verification Pipeline Verification Refresh
 
 ## Overview
 
-This technical document defines the separate official `Track 2` verification
-refresh for the completed first real `Wave 3` harmonic-prior residual
+This technical document defines the separate official `TE Curve Verification Pipeline` verification
+refresh for the completed first real `Wave 5.1` harmonic-prior residual
 campaign. The campaign closeout is complete, the active campaign state is
 `none`, and the closeout report explicitly leaves official curve verification
 as a separate operator-launched acceptance gate.
 
-The refresh will decide whether the scalar `Wave 3` training results translate
+The refresh will decide whether the scalar `Wave 5.1` training results translate
 into useful held-out transmission-error curve behavior. The decision must not
 be inferred from scalar training `MAE` alone.
 
@@ -23,8 +23,8 @@ name, task boundary, and approval requirement must be documented before launch.
 
 ## Technical Approach
 
-The work will add six registry-backed `Wave 3` candidates to the official
-direction-aware `Track 2` matrix and prepare a PowerShell launcher that the
+The work will add six registry-backed `Wave 5.1` candidates to the official
+direction-aware `TE Curve Verification Pipeline` matrix and prepare a PowerShell launcher that the
 operator can run locally or with `-Remote`. Codex will not run the heavy
 matrix during preparation.
 
@@ -68,9 +68,9 @@ from the template.
 
 ## Implementation Steps
 
-1. Confirm active campaign status is `none` and the six `Wave 3` family
+1. Confirm active campaign status is `none` and the six `Wave 5.1` family
    registries exist.
-2. Add a compact `Wave 3` registry group to the official full `Track 2`
+2. Add a compact `Wave 5.1` registry group to the official full `TE Curve Verification Pipeline`
    matrix template.
 3. Extend the matrix candidate-generation support code so the new registry
    group is expanded into `global`, `Fw`, and `Bw` candidates.

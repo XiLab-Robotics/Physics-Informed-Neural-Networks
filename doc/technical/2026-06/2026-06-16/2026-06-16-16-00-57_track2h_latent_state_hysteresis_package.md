@@ -1,21 +1,21 @@
-# Track 2H-L Latent-State Hysteresis Package
+# Wave 4.4 Latent-State Hysteresis Package
 
 ## Overview
 
-This technical note aligns the repository status after the completed `Wave 3`
-official `Track 2` verification refresh and prepares the next targeted
-`Track 2H-L` probe: latent-state / hysteresis-aware modeling for the observed
+This technical note aligns the repository status after the completed `Wave 5.1`
+official `TE Curve Verification Pipeline` verification refresh and prepares the next targeted
+`Wave 4.4` probe: latent-state / hysteresis-aware modeling for the observed
 offset, preload, and fragile-harmonic behavior.
 
-The immediate status correction is that `Wave 3` harmonic-prior residual has
-now completed both normal campaign closeout and official `Track 2`
+The immediate status correction is that `Wave 5.1` harmonic-prior residual has
+now completed both normal campaign closeout and official `TE Curve Verification Pipeline`
 verification. It is a verified exploratory baseline and is not promoted over
 the accepted direction-parallel leaders.
 
 The next modeling question is whether a causal hidden state, estimated from
 past operating conditions and direction transitions, explains residual offset
 or fragile-harmonic errors better than robust losses, probabilistic heads,
-mixture-density heads, or the first `Wave 3` structured branch.
+mixture-density heads, or the first `Wave 5.1` structured branch.
 
 This document and its campaign plan are planning gates only. No model code,
 campaign YAMLs, launcher scripts, or active campaign state should be modified
@@ -23,7 +23,7 @@ until the user explicitly approves this package.
 
 ## Technical Approach
 
-The `Track 2H-L` package should remain narrow and diagnostic. It should test
+The `Wave 4.4` package should remain narrow and diagnostic. It should test
 latent-state / hysteresis-aware candidates that use only deployment-valid
 causal information:
 
@@ -41,19 +41,19 @@ The first candidate package should compare at least:
   convolution over recent operating states;
 - an offset/low-order head focused on `h0`-like mean behavior and `h1`;
 - a residual curve head for remaining shape correction;
-- deterministic playback curves for scalar and official `Track 2` evaluation.
+- deterministic playback curves for scalar and official `TE Curve Verification Pipeline` evaluation.
 
 The package must keep `global`, `Fw`, and `Bw` as separate surfaces. It should
 compare directly against:
 
-- completed `Track 2H` robust-loss candidates;
-- completed `Track 2H` quantile/probabilistic candidates;
-- completed `Track 2H` MDN candidates, especially the strong `Bw` branch;
-- completed `Wave 3` harmonic-prior residual candidates;
-- accepted direction-parallel `Track 2` leaders.
+- completed `Wave 4.1` robust-loss candidates;
+- completed `Wave 4.2` quantile/probabilistic candidates;
+- completed `Wave 4.3` MDN candidates, especially the strong `Bw` branch;
+- completed `Wave 5.1` harmonic-prior residual candidates;
+- accepted direction-parallel `TE Curve Verification Pipeline` leaders.
 
-The physics-informed / PINN-style branch remains `Wave 4`, not `Track 2H-L`.
-`Track 2H-L` should answer whether the missing signal is a causal hidden state
+The physics-informed / PINN-style branch remains `Wave 5.2`, not `Wave 4.4`.
+`Wave 4.4` should answer whether the missing signal is a causal hidden state
 or protocol-history effect before the project spends effort on heavier
 physics-informed losses.
 
@@ -66,10 +66,10 @@ Context7 must be consulted before implementation.
   records this technical gate.
 - `doc/reports/campaign_plans/track_2/2026-06-16-16-00-57_track2h_latent_state_hysteresis_campaign_plan_report.md`
   records the matching preliminary campaign plan.
-- `doc/running/te_model_live_backlog.md` records the post-`Wave 3` status
+- `doc/running/te_model_live_backlog.md` records the post-`Wave 5.1` status
   alignment and the new active next gate.
-- `doc/running/active_training_campaign.yaml` records the completed `Wave 3`
-  campaign and its completed official `Track 2` verification status.
+- `doc/running/active_training_campaign.yaml` records the completed `Wave 5.1`
+  campaign and its completed official `TE Curve Verification Pipeline` verification status.
 - `doc/reports/analysis/Training Results Master Summary.md` records the
   high-level program snapshot.
 - `doc/README.md` registers the new technical note and campaign plan.
@@ -92,12 +92,12 @@ No subagent is planned.
 
 1. Create this technical document and register it from `doc/README.md`.
 2. Create the paired campaign plan under `doc/reports/campaign_plans/track_2/`.
-3. Align status documents so `Wave 3` official `Track 2` verification is no
+3. Align status documents so `Wave 5.1` official `TE Curve Verification Pipeline` verification is no
    longer described as pending.
 4. Stop for explicit user approval before implementation changes.
 5. After approval, use Context7 for PyTorch implementation details.
-6. Inspect existing temporal, offset, harmonic-residual, and Wave 3 model
-   classes before choosing whether `Track 2H-L` is a new narrow model type or
+6. Inspect existing temporal, offset, harmonic-residual, and Wave 5.1 model
+   classes before choosing whether `Wave 4.4` is a new narrow model type or
    a configuration-driven extension.
 7. Implement a causal latent-state encoder with explicit input-history
    boundaries and no target leakage.

@@ -1,12 +1,12 @@
-# Track 2D PDF Table Layout Rules
+# CVP 1.4 PDF Table Layout Rules
 
 ## Overview
 
-This document plans a PDF layout correction for the `Track 2D Mean-Offset
+This document plans a PDF layout correction for the `CVP 1.4 Mean-Offset
 Full-Matrix Audit` report and a reusable styled-PDF generator rule for future
 reports with the same diagnostic table structure.
 
-The current `Track 2D` PDF is valid, but the operator-facing layout should be
+The current `CVP 1.4` PDF is valid, but the operator-facing layout should be
 improved before closeout. The report should start `Diagnostic Label Counts` on
 a new page, and the diagnostic ranking tables should use a stable column-width
 profile that favors the long candidate identifiers while keeping compact rank
@@ -20,7 +20,7 @@ styled PDF generator so future reports of this type inherit the same layout.
 Required report layout changes:
 
 - insert a page break before `Diagnostic Label Counts`;
-- for `Track 2D Diagnostic Ranking`, `Surface Leaders`, and `Largest
+- for `CVP 1.4 Diagnostic Ranking`, `Surface Leaders`, and `Largest
   Mean-Offset Improvements`:
   - narrow `Rank`;
   - narrow `Surface`;
@@ -31,7 +31,7 @@ Required report layout changes:
 
 Required generator behavior:
 
-- add a dedicated styled-PDF table profile for Track 2D mean-offset audit
+- add a dedicated styled-PDF table profile for CVP 1.4 mean-offset audit
   tables or equivalent future reports using the same headers;
 - keep the rule scoped to matching table headers so unrelated reports are not
   affected;
@@ -56,13 +56,13 @@ Validation surfaces:
 
 ## Implementation Steps
 
-1. Add page-break markup before `Diagnostic Label Counts` in the Track 2D
+1. Add page-break markup before `Diagnostic Label Counts` in the CVP 1.4
    report generation path.
-2. Update the Track 2D table headers so `Raw MAE` and `Centered MAE` break
+2. Update the CVP 1.4 table headers so `Raw MAE` and `Centered MAE` break
    across two lines in the rendered PDF while remaining readable in Markdown.
 3. Add a dedicated table-layout profile in the styled PDF generator for tables
-   matching the Track 2D diagnostic headers.
-4. Regenerate the Track 2D report from the final merged metrics with
+   matching the CVP 1.4 diagnostic headers.
+4. Regenerate the CVP 1.4 report from the final merged metrics with
    `--merge-only`.
 5. Export and validate the real PDF.
 6. Inspect the rasterized PDF pages that contain the affected tables.

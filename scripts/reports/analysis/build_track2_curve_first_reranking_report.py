@@ -1,4 +1,4 @@
-"""Build the Track 2B curve-first reranking report from Track 2 metrics."""
+"""Build the CVP 1.1 curve-first reranking report from TE Curve Verification Pipeline metrics."""
 
 from __future__ import annotations
 
@@ -105,7 +105,7 @@ def build_argument_parser() -> argparse.ArgumentParser:
 
     argument_parser = argparse.ArgumentParser(
         description=(
-            "Rerank accepted Track 2 candidates by full-curve validation metrics "
+            "Rerank accepted TE Curve Verification Pipeline candidates by full-curve validation metrics "
             "without rerunning training or changing the causal input contract."
         )
     )
@@ -113,13 +113,13 @@ def build_argument_parser() -> argparse.ArgumentParser:
         "--track2-run-directory",
         type=Path,
         default=None,
-        help="Optional Track 2 validation run directory. Defaults to the latest complete run.",
+        help="Optional TE Curve Verification Pipeline validation run directory. Defaults to the latest complete run.",
     )
     argument_parser.add_argument(
         "--track2-root",
         type=Path,
         default=DEFAULT_TRACK2_ROOT,
-        help="Root containing Track 2 validation run directories.",
+        help="Root containing TE Curve Verification Pipeline validation run directories.",
     )
     argument_parser.add_argument(
         "--output-root",
@@ -191,11 +191,11 @@ def resolve_timestamped_output_paths(
 
 def find_latest_complete_track2_run(track2_root: Path) -> Path:
 
-    """Find the latest Track 2 run containing metrics and summary files."""
+    """Find the latest TE Curve Verification Pipeline run containing metrics and summary files."""
 
     resolved_root = resolve_runtime_project_relative_path(track2_root)
     if not resolved_root.exists():
-        raise FileNotFoundError(f"Track 2 root does not exist: {resolved_root}")
+        raise FileNotFoundError(f"TE Curve Verification Pipeline root does not exist: {resolved_root}")
 
     candidate_directory_list = sorted(
         [path for path in resolved_root.iterdir() if path.is_dir()],
@@ -208,7 +208,7 @@ def find_latest_complete_track2_run(track2_root: Path) -> Path:
         if metrics_path.exists() and summary_path.exists():
             return candidate_directory
     raise FileNotFoundError(
-        f"No complete Track 2 run found under {resolved_root} with "
+        f"No complete TE Curve Verification Pipeline run found under {resolved_root} with "
         f"{PER_CONDITION_METRICS_FILENAME} and {TRACK2_SUMMARY_FILENAME}."
     )
 
@@ -226,7 +226,7 @@ def load_yaml_file(yaml_path: Path) -> dict[str, Any]:
 
 def load_metrics_rows(metrics_path: Path) -> list[dict[str, Any]]:
 
-    """Load Track 2 per-condition metric rows."""
+    """Load TE Curve Verification Pipeline per-condition metric rows."""
 
     with metrics_path.open("r", encoding="utf-8", newline="") as metrics_file:
         reader = csv.DictReader(metrics_file)
@@ -276,7 +276,7 @@ def percentile(value_list: list[float], percentile_value: float) -> float:
 
 def build_candidate_metadata_map(track2_summary: dict[str, Any]) -> dict[str, dict[str, Any]]:
 
-    """Build a candidate metadata lookup from the Track 2 summary."""
+    """Build a candidate metadata lookup from the TE Curve Verification Pipeline summary."""
 
     metadata_map: dict[str, dict[str, Any]] = {}
     for candidate_entry in track2_summary.get("candidate_list", []):
@@ -539,19 +539,19 @@ def build_report_lines(
     candidate_count = comparison_scope.get("candidate_count", "unknown")
 
     line_list = [
-        "# Track 2B Curve-First Reranking Report",
+        "# CVP 1.1 Curve-First Reranking Report",
         "",
         "## Overview",
         "",
         (
-            "This report reranks the already accepted `Track 2` candidate matrix "
+            "This report reranks the already accepted `TE Curve Verification Pipeline` candidate matrix "
             "by full-curve validation behavior. It does not execute training, "
             "does not alter the dataset structure, and does not provide future "
             "curve samples to any model."
         ),
         "",
         f"- Run Instance: `{run_instance_id}`",
-        f"- Source Track 2 Run: `{track2_run_directory.relative_to(PROJECT_PATH)}`",
+        f"- Source TE Curve Verification Pipeline Run: `{track2_run_directory.relative_to(PROJECT_PATH)}`",
         f"- Source Curve Count: `{curve_count}`",
         f"- Source Candidate Count: `{candidate_count}`",
         f"- Generated Artifact Directory: `{output_directory.relative_to(PROJECT_PATH)}`",
@@ -559,14 +559,14 @@ def build_report_lines(
         "## Method",
         "",
         (
-            "The primary ordering key is mean `Track 2` mean-percentage-error over "
+            "The primary ordering key is mean `TE Curve Verification Pipeline` mean-percentage-error over "
             "each candidate's valid direction surface. Ties are resolved by P95 "
             "mean-percentage-error, worst mean-percentage-error, and mean curve "
             "`MAE`. This keeps scalar pointwise registry metrics separate from "
             "curve-following evidence."
         ),
         "",
-        "Available diagnostics from the existing `Track 2` matrix:",
+        "Available diagnostics from the existing `TE Curve Verification Pipeline` matrix:",
         "",
         "- mean curve `MAE` and `RMSE` per operating condition;",
         "- mean percentage error per operating condition;",
@@ -762,9 +762,9 @@ def main() -> None:
     metrics_path = track2_run_directory / PER_CONDITION_METRICS_FILENAME
     track2_summary_path = track2_run_directory / TRACK2_SUMMARY_FILENAME
     if not metrics_path.exists():
-        raise FileNotFoundError(f"Missing Track 2 metrics CSV: {metrics_path}")
+        raise FileNotFoundError(f"Missing TE Curve Verification Pipeline metrics CSV: {metrics_path}")
     if not track2_summary_path.exists():
-        raise FileNotFoundError(f"Missing Track 2 summary YAML: {track2_summary_path}")
+        raise FileNotFoundError(f"Missing TE Curve Verification Pipeline summary YAML: {track2_summary_path}")
 
     run_instance_id, output_directory, report_directory = resolve_timestamped_output_paths(
         output_root=arguments.output_root,
@@ -803,8 +803,8 @@ def main() -> None:
         scalar_best_entry=scalar_best_entry,
     )
     report_path.write_text("\n".join(report_lines), encoding="utf-8")
-    print(f"Wrote Track 2B curve-first report: {report_path}")
-    print(f"Wrote Track 2B reranking artifacts: {output_directory}")
+    print(f"Wrote CVP 1.1 curve-first report: {report_path}")
+    print(f"Wrote CVP 1.1 reranking artifacts: {output_directory}")
 
 
 if __name__ == "__main__":

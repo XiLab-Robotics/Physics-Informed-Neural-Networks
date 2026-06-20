@@ -22,7 +22,7 @@ The purpose of these documents is to preserve the most useful implementation pat
 - [../reference_summaries/07_RCIM_Recovered_Assets_Project_Summary.md](../reference_summaries/07_RCIM_Recovered_Assets_Project_Summary.md)
   Summary of the recovered RCIM original pipeline and asset package that
   anchors the near-literal recovered workflow copy under `scripts/` and the
-  faithful Track 1 exact-model-bank reimplementation.
+  faithful RCIM Model-Bank Reproduction exact-model-bank reimplementation.
 - [video_guides/README.md](./video_guides/README.md)
   Repository-owned per-video report tree for the analyzed TwinCAT/TestRig
   video guides, including copied reference images.

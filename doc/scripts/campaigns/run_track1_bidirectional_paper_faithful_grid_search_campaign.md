@@ -1,12 +1,12 @@
-# Track 1 Bidirectional Paper-Faithful Grid-Search Campaign Launcher
+# RCIM Model-Bank Reproduction Bidirectional Paper-Faithful Grid-Search Campaign Launcher
 
 ## Overview
 
-This launcher executes the prepared `Track 1` bidirectional paper-faithful
+This launcher executes the prepared `RCIM Model-Bank Reproduction` bidirectional paper-faithful
 campaign that replaces the old `400`-run literal-refresh wave.
 
 The forward and backward campaign surfaces have both completed for the current
-full-dataset Track 1 closeout. Keep this launcher documented because it remains
+full-dataset RCIM Model-Bank Reproduction closeout. Keep this launcher documented because it remains
 the canonical rerun path on Windows and Linux, but treat new reruns as new
 approved campaigns rather than as unfinished closure work.
 

@@ -1,9 +1,9 @@
-# Track 2 Directional Model Comparison
+# TE Curve Verification Pipeline Directional Model Comparison
 
 ## Overview
 
-This report is the canonical `Track 2` offline comparison between the
-accepted `Track 1` paper-reference model banks and exported `Wave 1`
+This report is the canonical `TE Curve Verification Pipeline` offline comparison between the
+accepted `RCIM Model-Bank Reproduction` paper-reference model banks and exported `Wave 1`
 repository models. It starts from the current direction-aware comparison
 matrix.
 
@@ -150,7 +150,7 @@ matrix.
 ## Interpretation
 
 Rows are ranked by mean percentage error within each direction.
-Directional Track 1 and Wave 1 models are never evaluated on the
+Directional RCIM Model-Bank Reproduction and Wave 1 models are never evaluated on the
 opposite direction. Global Wave 1 models remain valid on both
 directions and are therefore shown in both directional sections and
 again in the global breakdown.

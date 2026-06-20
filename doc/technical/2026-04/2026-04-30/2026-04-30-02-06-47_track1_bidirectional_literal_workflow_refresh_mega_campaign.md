@@ -2,10 +2,10 @@
 
 ## Overview
 
-This task prepares a full `Track 1` refresh campaign after the exact-paper
+This task prepares a full `RCIM Model-Bank Reproduction` refresh campaign after the exact-paper
 family bank was realigned to the recovered original RCIM workflow.
 
-The campaign must regenerate the canonical repository-owned `Track 1`
+The campaign must regenerate the canonical repository-owned `RCIM Model-Bank Reproduction`
 bidirectional surface from the literalized implementation rather than from the
 older approximate reimplementation. That means rerunning the complete
 family-by-direction bank for both:
@@ -86,5 +86,5 @@ Subagents:
    explicitly mark it as the post-literal-alignment refresh baseline.
 4. Update `doc/running/active_training_campaign.yaml` to the new prepared
    state only when the user explicitly approves the generated campaign package.
-5. After campaign execution, close out the results as the new canonical Track 1
+5. After campaign execution, close out the results as the new canonical RCIM Model-Bank Reproduction
    baseline and refresh the benchmark, master summary, and reference archives.

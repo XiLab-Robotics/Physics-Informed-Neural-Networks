@@ -9,15 +9,15 @@ explicit surfaces:
 - `paper original`: values reconstructed from the original paper tables;
 - `paper retuned`: recovered-original RCIM models retuned through
   `run_rcim_original_reference_training.ps1`;
-- `Track 1`: repository-owned exact-paper model-bank results from the closed
+- `RCIM Model-Bank Reproduction`: repository-owned exact-paper model-bank results from the closed
   forward and backward paper-faithful grid-search campaigns.
 
-Forward Track 1 cells must compare against the better value between
-`paper original` and `paper retuned`. Backward Track 1 cells must
+Forward RCIM Model-Bank Reproduction cells must compare against the better value between
+`paper original` and `paper retuned`. Backward RCIM Model-Bank Reproduction cells must
 compare against `paper retuned`, because the paper does not provide
 backward original tables.
 
-The current Track 1 values come from the faithful original-dataset
+The current RCIM Model-Bank Reproduction values come from the faithful original-dataset
 exact-model-bank reimplementation under:
 
 - `scripts/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/`
@@ -42,25 +42,25 @@ near-literal deviations rather than silent changes.
 
 ## Current Archive Status
 
-- Track 1 status: `closed` as a faithful full-bank reproduction surface.
+- RCIM Model-Bank Reproduction status: `closed` as a faithful full-bank reproduction surface.
 - retuned family-direction archives promoted: `22`
-- Track 1 forward family archives refreshed: `11`
-- Track 1 backward family archives refreshed: `11`
-- Track 1 forward archive root: `models/paper_reference/rcim_track1/forward/`
-- Track 1 backward archive root: `models/paper_reference/rcim_track1/backward/`
-- Track 1 forward closeout report: `doc/reports/campaign_results/track_1/exact_paper/forward/2026-05-15-11-11-35_track1_forward_paper_faithful_grid_search_closeout_report.md`
-- Track 1 backward closeout report: `doc/reports/campaign_results/track_1/exact_paper/backward/2026-05-16-20-07-07_track1_backward_paper_faithful_grid_search_closeout_report.md`
-- Track 1 backward completion timestamp: `2026-05-16T19:04:25+02:00`
-- `ELM` is archived as an operational Track 1 family but remains outside the original paper-family order.
+- RCIM Model-Bank Reproduction forward family archives refreshed: `11`
+- RCIM Model-Bank Reproduction backward family archives refreshed: `11`
+- RCIM Model-Bank Reproduction forward archive root: `models/paper_reference/rcim_track1/forward/`
+- RCIM Model-Bank Reproduction backward archive root: `models/paper_reference/rcim_track1/backward/`
+- RCIM Model-Bank Reproduction forward closeout report: `doc/reports/campaign_results/track_1/exact_paper/forward/2026-05-15-11-11-35_track1_forward_paper_faithful_grid_search_closeout_report.md`
+- RCIM Model-Bank Reproduction backward closeout report: `doc/reports/campaign_results/track_1/exact_paper/backward/2026-05-16-20-07-07_track1_backward_paper_faithful_grid_search_closeout_report.md`
+- RCIM Model-Bank Reproduction backward completion timestamp: `2026-05-16T19:04:25+02:00`
+- `ELM` is archived as an operational RCIM Model-Bank Reproduction family but remains outside the original paper-family order.
 - Closure criterion: both directions were run, accepted model archives were
-  refreshed, and every Track 1 cell in Tables `2`-`5` was repopulated.
+  refreshed, and every RCIM Model-Bank Reproduction cell in Tables `2`-`5` was repopulated.
 - Closure does not require all-green status. Yellow and red cells document the
   remaining numerical gap under the faithful original-pipeline protocol.
 
-## Track 2 Directional Comparison Status
+## TE Curve Verification Pipeline Directional Comparison Status
 
-`Track 2` is the repository-owned direct TE-curve comparison surface between
-the accepted `Track 1` paper-reference banks and the repository model families.
+`TE Curve Verification Pipeline` is the repository-owned direct TE-curve comparison surface between
+the accepted `RCIM Model-Bank Reproduction` paper-reference banks and the repository model families.
 It is still an offline comparison branch. It does not replace the future online
 `Table 9` compensation benchmark.
 
@@ -68,20 +68,20 @@ It is still an offline comparison branch. It does not replace the future online
 
 Every current and future model family must expose explicit direction surfaces:
 
-| Surface | Training Scope | Valid Track 2 Evaluation Curves |
+| Surface | Training Scope | Valid TE Curve Verification Pipeline Evaluation Curves |
 | --- | --- | --- |
 | `global` | forward and backward together | forward and backward, reported separately |
 | `Fw` | forward only | forward only |
 | `Bw` | backward only | backward only |
 
-This applies to `Track 1`, `Track 2`, `Wave 1`, and future waves. New
+This applies to `RCIM Model-Bank Reproduction`, `TE Curve Verification Pipeline`, `Wave 1`, and future waves. New
 pipelines must load the canonical TE curves directly from `data/simplified_dataset`
 through `config/datasets/transmission_error_dataset.yaml`, matching the
 repository-owned model workflow such as `feedforward`.
 
-### Current Canonical Track 2 Matrix
+### Current Canonical TE Curve Verification Pipeline Matrix
 
-The current canonical direction-aware comparison starts from the full Track 2
+The current canonical direction-aware comparison starts from the full TE Curve Verification Pipeline
 matrix.
 It was generated from:
 `config/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/full_track2_matrix_template.yaml`.
@@ -100,9 +100,9 @@ Grouped curve previews:
 
 The matrix evaluates:
 
-- all `11` `Track 1` forward family banks from
+- all `11` `RCIM Model-Bank Reproduction` forward family banks from
   `models/paper_reference/rcim_track1/forward/`;
-- all `11` `Track 1` backward family banks from
+- all `11` `RCIM Model-Bank Reproduction` backward family banks from
   `models/paper_reference/rcim_track1/backward/`;
 - all `11` recovered original forward family banks from
   `models/paper_reference/rcim_original/forward/`;
@@ -114,12 +114,12 @@ The matrix evaluates:
   `global`, `Fw`, and `Bw` for `feedforward`, `harmonic_regression`,
   `periodic_mlp`, `residual_harmonic_mlp`, and `tree`.
 - five composed best-reference candidates assembled from the approved
-  per-target paper original, retuned, and Track 1 harmonic selections.
+  per-target paper original, retuned, and RCIM Model-Bank Reproduction harmonic selections.
 
-The latest audit confirms zero direction-scope violations across the Track 2
+The latest audit confirms zero direction-scope violations across the TE Curve Verification Pipeline
 per-condition table: `Fw` rows use only forward curves, `Bw` rows use only
 backward curves, and `global` rows use both directions with separate metrics.
-The Track 1 forward reference banks also apply the documented source-specific
+The RCIM Model-Bank Reproduction forward reference banks also apply the documented source-specific
 `h0` compatibility sign before TE-curve reconstruction.
 
 Current composed candidates:
@@ -128,11 +128,11 @@ Current composed candidates:
 | --- | --- | --- | ---: |
 | forward | paper original | `paper_original_best_Fw` | 6.250 |
 | forward | paper retuned | `paper_retuned_best_Fw` | 4.109 |
-| forward | Track 1 | `track1_best_Fw` | 6.819 |
+| forward | RCIM Model-Bank Reproduction | `track1_best_Fw` | 6.819 |
 | backward | paper retuned | `paper_retuned_best_Bw` | 7.572 |
-| backward | Track 1 | `track1_best_Bw` | 11.860 |
+| backward | RCIM Model-Bank Reproduction | `track1_best_Bw` | 11.860 |
 
-Best current Track 2 rows:
+Best current TE Curve Verification Pipeline rows:
 
 | Direction | Best Candidate | Mean Percentage Error [%] |
 | --- | --- | ---: |
@@ -181,7 +181,7 @@ Paper original values exist only for the forward branch.
 | `ELM` | 0.008394 | 2.88142e-05 | 7.87396e-05 | 0.000112282 | 4.01642e-05 | 0.000296962 | 2.83329e-05 | 0.000856622 | 0.001067 | 0.000369496 |
 <!-- markdownlint-enable MD013 -->
 
-#### Track 1
+#### RCIM Model-Bank Reproduction
 
 <!-- markdownlint-disable MD013 -->
 | Model | `0` | `1` | `3` | `39` | `40` | `78` | `81` | `156` | `162` | `240` |
@@ -238,7 +238,7 @@ Paper original values exist only for the forward branch.
 | `ELM` | 0.010659 | 3.82909e-05 | 9.6453e-05 | 0.000153107 | 6.26075e-05 | 0.0003916 | 3.88056e-05 | 0.00157 | 0.002357 | 0.000636913 |
 <!-- markdownlint-enable MD013 -->
 
-#### Track 1
+#### RCIM Model-Bank Reproduction
 
 <!-- markdownlint-disable MD013 -->
 | Model | `0` | `1` | `3` | `39` | `40` | `78` | `81` | `156` | `162` | `240` |
@@ -295,7 +295,7 @@ Paper original values exist only for the forward branch.
 | `ELM` | 0.002771 | 0.080557 | 0.089368 | 0.067536 | 0.19027 | 0.174713 | 1.703741 | 1.116297 | 0.80237 |
 <!-- markdownlint-enable MD013 -->
 
-#### Track 1
+#### RCIM Model-Bank Reproduction
 
 <!-- markdownlint-disable MD013 -->
 | Model | `1` | `3` | `39` | `40` | `78` | `81` | `156` | `162` | `240` |
@@ -352,7 +352,7 @@ Paper original values exist only for the forward branch.
 | `ELM` | 0.004207 | 0.099629 | 0.112824 | 0.098927 | 0.285837 | 0.233381 | 2.031703 | 1.636152 | 1.276826 |
 <!-- markdownlint-enable MD013 -->
 
-#### Track 1
+#### RCIM Model-Bank Reproduction
 
 <!-- markdownlint-disable MD013 -->
 | Model | `1` | `3` | `39` | `40` | `78` | `81` | `156` | `162` | `240` |
@@ -396,7 +396,7 @@ No backward paper-original table is available in the paper.
 | `ELM` | 0.006105 | 4.0656e-05 | 6.19064e-05 | 6.94347e-05 | 3.74189e-05 | 0.000314255 | 2.18478e-05 | 0.001246 | 0.000861271 | 0.000374497 |
 <!-- markdownlint-enable MD013 -->
 
-#### Track 1
+#### RCIM Model-Bank Reproduction
 
 <!-- markdownlint-disable MD013 -->
 | Model | `0` | `1` | `3` | `39` | `40` | `78` | `81` | `156` | `162` | `240` |
@@ -438,7 +438,7 @@ No backward paper-original table is available in the paper.
 | `ELM` | 0.007959 | 6.49451e-05 | 8.87046e-05 | 8.60459e-05 | 4.79292e-05 | 0.000405392 | 2.81136e-05 | 0.002354 | 0.001667 | 0.000692278 |
 <!-- markdownlint-enable MD013 -->
 
-#### Track 1
+#### RCIM Model-Bank Reproduction
 
 <!-- markdownlint-disable MD013 -->
 | Model | `0` | `1` | `3` | `39` | `40` | `78` | `81` | `156` | `162` | `240` |
@@ -480,7 +480,7 @@ No backward paper-original table is available in the paper.
 | `ELM` | 0.005351 | 0.095946 | 1.401709 | 0.21804 | 0.14142 | 0.191291 | 0.566196 | 0.85855 | 0.826733 |
 <!-- markdownlint-enable MD013 -->
 
-#### Track 1
+#### RCIM Model-Bank Reproduction
 
 <!-- markdownlint-disable MD013 -->
 | Model | `1` | `3` | `39` | `40` | `78` | `81` | `156` | `162` | `240` |
@@ -522,7 +522,7 @@ No backward paper-original table is available in the paper.
 | `ELM` | 0.011728 | 0.12662 | 1.852693 | 0.376851 | 0.186686 | 0.249883 | 0.946219 | 1.157153 | 1.350511 |
 <!-- markdownlint-enable MD013 -->
 
-#### Track 1
+#### RCIM Model-Bank Reproduction
 
 <!-- markdownlint-disable MD013 -->
 | Model | `1` | `3` | `39` | `40` | `78` | `81` | `156` | `162` | `240` |
@@ -544,14 +544,15 @@ No backward paper-original table is available in the paper.
 
 - `paper original` is immutable paper-side evidence and exists only for forward.
 - `paper retuned` is the current recovered-original retuned baseline.
-- `Track 1` is closed as the populated repository-owned paper-faithful
+- `RCIM Model-Bank Reproduction` is closed as the populated repository-owned paper-faithful
   full-bank reproduction surface for Tables `2`-`5`.
-- Track 1 forward status colors compare against the best of
+- RCIM Model-Bank Reproduction forward status colors compare against the best of
   `paper original` and `paper retuned`.
-- Track 1 backward status colors compare against `paper retuned`.
+- RCIM Model-Bank Reproduction backward status colors compare against
+  `paper retuned`.
 - Later attempts to force all cells green must be documented as separate
-  optimization branches, not as changes to the closed faithful Track 1
-  baseline.
-- A future restricted-dataset Track 1 rerun should create a new Markdown
-  comparison report that places full-dataset and reduced-dataset Tables `2`-`5`
-  side by side for every dataset-reduction level.
+  optimization branches, not as changes to the closed faithful
+  RCIM Model-Bank Reproduction baseline.
+- A future restricted-dataset RCIM Model-Bank Reproduction rerun should create
+  a new Markdown comparison report that places full-dataset and reduced-dataset
+  Tables `2`-`5` side by side for every dataset-reduction level.

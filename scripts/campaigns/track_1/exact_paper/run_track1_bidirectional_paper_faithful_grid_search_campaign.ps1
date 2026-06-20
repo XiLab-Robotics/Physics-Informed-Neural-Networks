@@ -324,4 +324,4 @@ for ($ConfigIndex = 0; $ConfigIndex -lt $QueueConfigCount; $ConfigIndex++) {
 }
 
 Write-Progress -Id 2000 -Activity "Exact-paper family-stage launcher" -Completed
-Write-Host "[DONE] Track 1 bidirectional paper-faithful grid-search campaign completed" -ForegroundColor Green
+Write-Host "[DONE] RCIM Model-Bank Reproduction bidirectional paper-faithful grid-search campaign completed" -ForegroundColor Green

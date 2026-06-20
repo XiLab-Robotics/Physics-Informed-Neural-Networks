@@ -3,7 +3,7 @@
 ## Overview
 
 The completed residual-harmonic family campaign originally used second-wave
-style identifiers even though the live roadmap still reserves `Wave 2` for
+style identifiers even though the live roadmap still reserves `Wave 2.1` for
 temporal-model work.
 
 That mismatch is now operationally misleading because:
@@ -13,7 +13,7 @@ That mismatch is now operationally misleading because:
 - the live backlog should continue to treat residual-harmonic optimization as
   part of the `Wave 1` structured-baseline effort;
 - repository-facing launcher names and guide references should not imply that
-  temporal-model `Wave 2` work has already started.
+  temporal-model `Wave 2.1` work has already started.
 
 This cleanup should preserve historical traceability for the completed campaign
 artifacts while aligning the current repository surfaces with the intended wave
@@ -29,14 +29,14 @@ The recommended approach is:
 1. preserve already-executed artifact identifiers when they are part of stored
    manifests, campaign outputs, or immutable run metadata;
 2. update live backlog wording so `Wave 1` reflects the completed residual
-   optimization pass and `Wave 2` remains reserved for temporal models;
+   optimization pass and `Wave 2.1` remains reserved for temporal models;
 3. introduce a canonical `Wave 1` residual launcher surface for future user
    references and align the campaign assets to the same naming;
 4. correct technical/planning document framing so their narrative matches the
    intended roadmap, without erasing the historical fact that the original
    filenames were created before the mismatch was noticed;
 5. update user-facing repository entry points so README and usage-guide wording
-   no longer present the residual family pass as `Wave 2`.
+   no longer present the residual family pass as `Wave 2.1`.
 
 This approach avoids breaking stored campaign manifests while still cleaning up
 the repository guidance that future users will read and follow.
@@ -68,7 +68,7 @@ the repository guidance that future users will read and follow.
 1. Review the completed campaign state and confirm that the cleanup is no
    longer blocked by an active run.
 2. Update the live backlog so the residual-harmonic family optimization is
-   recorded inside `Wave 1`, while `Wave 2` remains reserved for temporal
+   recorded inside `Wave 1`, while `Wave 2.1` remains reserved for temporal
    models.
 3. Add the canonical `Wave 1` launcher surface and align the finished campaign
    artifacts to the same naming.

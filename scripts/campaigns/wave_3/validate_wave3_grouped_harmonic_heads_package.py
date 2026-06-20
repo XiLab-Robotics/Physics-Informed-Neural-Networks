@@ -1,4 +1,4 @@
-"""Validate the Wave 3 grouped harmonic-heads skeleton package."""
+"""Validate the Wave 5.1 grouped harmonic-heads skeleton package."""
 
 from __future__ import annotations
 
@@ -118,7 +118,7 @@ def parse_arguments() -> argparse.Namespace:
         "--template-path",
         default=TEMPLATE_PATH,
         type=Path,
-        help="Repository-relative Wave 3 grouped-head template path.",
+        help="Repository-relative Wave 5.1 grouped-head template path.",
     )
     parser.add_argument("--output-root", default=DEFAULT_OUTPUT_ROOT, type=Path)
     parser.add_argument("--run-id", default="", type=str)
@@ -127,7 +127,7 @@ def parse_arguments() -> argparse.Namespace:
 
 def main() -> int:
 
-    """Validate the Wave 3 grouped harmonic-heads skeleton."""
+    """Validate the Wave 5.1 grouped harmonic-heads skeleton."""
 
     argument_namespace = parse_arguments()
     template_path = PROJECT_PATH / argument_namespace.template_path
@@ -151,7 +151,7 @@ def main() -> int:
     write_summary(output_directory, summary_dictionary)
 
     print(
-        "Wave 3 grouped harmonic-heads skeleton validated | "
+        "Wave 5.1 grouped harmonic-heads skeleton validated | "
         "implementation_status=implementation_ready | "
         "campaign_readiness=not_campaign_ready | "
         f"output_directory={output_directory}"

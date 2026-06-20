@@ -30,5 +30,5 @@
 
 - backlog synchronization
 - TwinCAT deployment evaluation branch
-- Wave 2 temporal-model preparation
+- Wave 2.1 temporal-model preparation
 - continued structured comparison discipline

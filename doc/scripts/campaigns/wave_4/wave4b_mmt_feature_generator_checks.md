@@ -1,8 +1,8 @@
-# Wave 4B MMT Feature Generator Checks
+# Wave 5.2B MMT Feature Generator Checks
 
 ## Purpose
 
-`run_wave4b_mmt_feature_generator_checks.ps1` validates the `Wave 4B` MMT
+`run_wave4b_mmt_feature_generator_checks.ps1` validates the `Wave 5.2B` MMT
 feature-generator skeleton. It is a dry-run check launcher only. It must not
 enqueue or launch training.
 
@@ -14,11 +14,11 @@ enqueue or launch training.
 
 ## What It Runs
 
-- Python compile check for the `Wave 4B` feature generator and validator.
+- Python compile check for the `Wave 5.2B` feature generator and validator.
 - Template metadata validation for `implementation-ready` and
   `not campaign-ready` status.
 - Dry-run MMT feature schema generation.
-- Sample MMT analytical feature generation from the `Wave 4A` diagnostic curve.
+- Sample MMT analytical feature generation from the `Wave 5.2A` diagnostic curve.
 - Leakage-boundary validation that target-derived residual fields are not
   exposed as inference features.
 
@@ -39,6 +39,6 @@ The expected files are:
 
 ## Campaign Boundary
 
-Real `Wave 4B` feature-augmented training remains blocked until the separate
-`Track 2H` quantile / probabilistic campaign is closed out and a new campaign
+Real `Wave 5.2B` feature-augmented training remains blocked until the separate
+`Wave 4.2` quantile / probabilistic campaign is closed out and a new campaign
 plan explicitly approves queue size, surfaces, losses, and feature consumers.

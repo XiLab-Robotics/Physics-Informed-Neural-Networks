@@ -1,7 +1,7 @@
 # 2026-04-24 Technical Documents
 
 - [2026-04-24-18-01-00_track1_exact_paper_second_pass_taxonomy_reorganization.md](./2026-04-24-18-01-00_track1_exact_paper_second_pass_taxonomy_reorganization.md)
-  Technical document for the second-pass internal taxonomy reorganization of Track 1 exact-paper forward configs, training-campaign outputs, and validation outputs, including grouped subfolders by campaign phase and family plus cleanup of remaining flat roots and duplicated forward path fragments.
+  Technical document for the second-pass internal taxonomy reorganization of RCIM Model-Bank Reproduction exact-paper forward configs, training-campaign outputs, and validation outputs, including grouped subfolders by campaign phase and family plus cleanup of remaining flat roots and duplicated forward path fragments.
 - [2026-04-24-16-10-10_rcim_forward_backward_artifact_reorganization_and_generic_recovered_root_restore.md](./2026-04-24-16-10-10_rcim_forward_backward_artifact_reorganization_and_generic_recovered_root_restore.md)
   Technical document for restoring the generic recovered RCIM asset root and
   moving the real forward-versus-backward separation into campaign configs,
@@ -12,11 +12,11 @@
 - [2026-04-24-13-47-29_styled_pdf_pipeline_chromium_manual_handoff_rule.md](./2026-04-24-13-47-29_styled_pdf_pipeline_chromium_manual_handoff_rule.md)
   Plan the styled PDF pipeline rule update that forbids PyMuPDF fallback and requires a documented manual Chromium export handoff command whenever the repository-owned headless export cannot materialize the PDF.
 - [2026-04-24-12-53-39_track1_interrupted_svm_partial_closeout_pdf_export_repair.md](./2026-04-24-12-53-39_track1_interrupted_svm_partial_closeout_pdf_export_repair.md)
-  Plan the final PDF export repair for the interrupted Track 1 SVM partial closeout report after the initial headless browser export failed.
+  Plan the final PDF export repair for the interrupted RCIM Model-Bank Reproduction SVM partial closeout report after the initial headless browser export failed.
 - [2026-04-24-11-30-11_track1_interrupted_remaining_yellow_cell_manual_sync_script.md](./2026-04-24-11-30-11_track1_interrupted_remaining_yellow_cell_manual_sync_script.md)
-  Plan the single local PowerShell helper that manually synchronizes the interrupted Track 1 SVM remaining-yellow-cell artifacts before partial closeout.
+  Plan the single local PowerShell helper that manually synchronizes the interrupted RCIM Model-Bank Reproduction SVM remaining-yellow-cell artifacts before partial closeout.
 - [2026-04-24-10-01-22_track1_interrupted_remaining_yellow_cell_campaign_manual_sync_and_partial_closeout.md](./2026-04-24-10-01-22_track1_interrupted_remaining_yellow_cell_campaign_manual_sync_and_partial_closeout.md)
   Technical document for manually synchronizing the remote artifacts of the
-  interrupted exact-paper `Track 1` remaining-yellow-cell bundle, formally
+  interrupted exact-paper `RCIM Model-Bank Reproduction` remaining-yellow-cell bundle, formally
   closing the campaign as a partial interrupted wave, and handing off only
   afterward to the deferred post-closeout asset-root migration workflow.

@@ -1,7 +1,7 @@
 # 2026-04-23 Technical Documents
 
 - [2026-04-23-23-29-52_track1_bidirectional_original_dataset_rebuild_and_mega_campaign.md](./2026-04-23-23-29-52_track1_bidirectional_original_dataset_rebuild_and_mega_campaign.md)
-  Technical document for rebuilding `Track 1` from the original repository
+  Technical document for rebuilding `RCIM Model-Bank Reproduction` from the original repository
   dataset with separate `forward` and `backward` family banks, expanding the
   canonical benchmark to dual-direction tables, restructuring the reference
   archives, and preparing a future mega-campaign after workflow stabilization.
@@ -17,7 +17,7 @@
   explicitly marked as forward-only.
 - [2026-04-23-12-32-05_track1_remote_campaign_total_progress_monitor.md](./2026-04-23-12-32-05_track1_remote_campaign_total_progress_monitor.md)
   Technical document for adding one read-only remote monitoring script that
-  reports the real aggregate progress of the current exact-paper `Track 1`
+  reports the real aggregate progress of the current exact-paper `RCIM Model-Bank Reproduction`
   remaining-yellow-cell campaign bundle after the original local launcher
   terminal was lost.
 - [2026-04-23-18-42-31_track1_lgbm19_vs_feedforward_curve_space_comparison.md](./2026-04-23-18-42-31_track1_lgbm19_vs_feedforward_curve_space_comparison.md)

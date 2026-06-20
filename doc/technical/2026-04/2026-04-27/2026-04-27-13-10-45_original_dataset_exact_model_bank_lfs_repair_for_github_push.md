@@ -12,7 +12,7 @@ limit.
 
 The offending blob entered local history in commit:
 
-- `ddb9828a` `Archive Track 1 original-dataset mega raw artifacts`
+- `ddb9828a` `Archive RCIM Model-Bank Reproduction original-dataset mega raw artifacts`
 
 ## Technical Approach
 

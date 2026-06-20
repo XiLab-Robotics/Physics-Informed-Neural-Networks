@@ -1,4 +1,4 @@
-# Track 1 Bidirectional Original-Dataset Mega Campaign Results
+# RCIM Model-Bank Reproduction Bidirectional Original-Dataset Mega Campaign Results
 
 ## Overview
 
@@ -84,7 +84,7 @@ Selection rule:
 
 ## Closeout Notes
 
-- the archive refresh rule remains mandatory for every future Track 1 closeout;
+- the archive refresh rule remains mandatory for every future RCIM Model-Bank Reproduction closeout;
 - when a newly accepted target winner improves the stored archive entry under `models/paper_reference/rcim_track1/`, the archive must be updated together with its reference documents;
 - when the accepted target winner does not improve, the stored archive entry must remain unchanged.
 

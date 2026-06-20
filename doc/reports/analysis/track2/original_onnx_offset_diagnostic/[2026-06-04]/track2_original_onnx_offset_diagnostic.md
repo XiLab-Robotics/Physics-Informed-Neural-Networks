@@ -1,22 +1,22 @@
-# Track 2 Original ONNX Offset Diagnostic
+# TE Curve Verification Pipeline Original ONNX Offset Diagnostic
 
 ## Executive Verdict
 
 The recovered original RCIM paper ONNX models do show the same forward
-`Track 2` offset pattern seen in the repository `rcim_original/forward` Python
+`TE Curve Verification Pipeline` offset pattern seen in the repository `rcim_original/forward` Python
 archive for the executable tree and boosting families.
 
 This is the important result: for `RF`, `DT`, `ET`, `ERT`, `GBM`, `HGBM`, and
 `LGBM`, the ONNX release and repository Python archive have matching raw
-`Track 2` curve errors and matching mean-centered improvements. Therefore the
+`TE Curve Verification Pipeline` curve errors and matching mean-centered improvements. Therefore the
 mean-offset behavior is not introduced by the repository pickle archive or by
 the Python archive loader. It is already present when the recovered original
-ONNX release is evaluated through the same `Track 2` harmonic reconstruction
+ONNX release is evaluated through the same `TE Curve Verification Pipeline` harmonic reconstruction
 path.
 
 `MLP` remains a known ONNX-release discrepancy: it runs, but it does not match
 the repository archive. `SVR` and `XGBM` remain incomplete under ONNX Runtime
-and cannot provide full-family `Track 2` offset evidence.
+and cannot provide full-family `TE Curve Verification Pipeline` offset evidence.
 
 ## Diagnostic Artifacts
 
@@ -25,16 +25,16 @@ and cannot provide full-family `Track 2` offset evidence.
 | Generated validation report | `doc/reports/analysis/validation_checks/track2/2026-06-04-23-41-54_original_onnx_release_track2_offset_diagnostic_2026_06_04_report.md` |
 | Validation summary YAML | `output/validation_checks/rcim_original_onnx_release_parity/2026-06-04-23-41-54__original_onnx_release_track2_offset_diagnostic_2026_06_04/validation_summary.yaml` |
 | Tables 2-5 target parity CSV | `output/validation_checks/rcim_original_onnx_release_parity/2026-06-04-23-41-54__original_onnx_release_track2_offset_diagnostic_2026_06_04/tables_2_5_target_parity.csv` |
-| Track 2 offset diagnostics CSV | `output/validation_checks/rcim_original_onnx_release_parity/2026-06-04-23-41-54__original_onnx_release_track2_offset_diagnostic_2026_06_04/track2_curve_offset_diagnostics.csv` |
+| TE Curve Verification Pipeline offset diagnostics CSV | `output/validation_checks/rcim_original_onnx_release_parity/2026-06-04-23-41-54__original_onnx_release_track2_offset_diagnostic_2026_06_04/track2_curve_offset_diagnostics.csv` |
 | Runner | `scripts/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/run_original_onnx_release_parity_validation.py` |
 
 ## What Changed In The Runner
 
 The existing original ONNX parity runner already loaded the recovered paper
-ONNX release and evaluated it through `Track 2` forward reconstruction. The
+ONNX release and evaluated it through `TE Curve Verification Pipeline` forward reconstruction. The
 new diagnostic preserves that behavior and adds offset-specific outputs:
 
-- per-curve raw `Track 2` metrics;
+- per-curve raw `TE Curve Verification Pipeline` metrics;
 - measured curve mean;
 - predicted curve mean;
 - signed offset error;
@@ -50,7 +50,7 @@ output/validation_checks/rcim_original_onnx_release_parity/2026-06-04-23-41-54__
 
 It contains `97` forward curves per executable family/source pair.
 
-## Track 2 Forward Raw Parity
+## TE Curve Verification Pipeline Forward Raw Parity
 
 These values come from the generated validation report.
 
@@ -66,7 +66,7 @@ These values come from the generated validation report.
 | `LGBM` | 0.001801 | 0.001801 | 0.000000 | 4.017 | 4.017 | 0.000 |
 
 For the validated tree and boosting families, the ONNX release and repository
-archive are effectively identical in `Track 2` raw curve reconstruction.
+archive are effectively identical in `TE Curve Verification Pipeline` raw curve reconstruction.
 
 ## Mean-Centered Offset Result
 
@@ -101,7 +101,7 @@ upstream of the repository Python archive representation.
 The result supports this conclusion:
 
 > The forward original-paper executable ONNX surface already carries the same
-> `Track 2` mean-offset behavior observed in the repository
+> `TE Curve Verification Pipeline` mean-offset behavior observed in the repository
 > `rcim_original/forward` archive. The offset is not introduced by the
 > repository pickle archive, registry loader, or Python-side reference-bank
 > reconstruction wrapper.
@@ -112,7 +112,7 @@ held-out TE curves, a meaningful part of the raw error is a per-curve mean/DC
 offset. The same behavior appears in the recovered original ONNX release and in
 the repository archive derived from that release/workflow.
 
-## Impact On The Track 2B Through Track 2F Investigation
+## Impact On The CVP 1.1 Through Wave 3.1 Investigation
 
 The diagnostic narrows the likely source of the investigated error:
 
@@ -120,7 +120,7 @@ The diagnostic narrows the likely source of the investigated error:
 - It is not created by replacing ONNX inference with pickle inference.
 - It is not created by the new mean-centered diagnostic report.
 - It is already visible in the original ONNX release when passed through
-  canonical `Track 2` forward reconstruction.
+  canonical `TE Curve Verification Pipeline` forward reconstruction.
 
 The remaining likely explanations are therefore in the modeling and data
 interface layer:
@@ -130,7 +130,7 @@ interface layer:
   held-out curve zeroing;
 - inherent offset bias in the original paper target models;
 - mismatch between recovered paper feature/target semantics and the repository
-  `Track 2` curve truth surface.
+  `TE Curve Verification Pipeline` curve truth surface.
 
 The phase/sign convention is less likely to be the primary explanation for the
 offset-only improvement because mean-centering improves the executable tree and
@@ -164,6 +164,6 @@ The next useful checks are:
    `coefficient_cos_h0` convention;
 2. compare per-curve truth mean versus predicted `h0` contribution directly;
 3. verify whether the source paper data applied a mean-removal or zeroing step
-   before target generation that is not mirrored in repository `Track 2` truth;
+   before target generation that is not mirrored in repository `TE Curve Verification Pipeline` truth;
 4. keep `SVR` and `XGBM` out of full-family ONNX offset conclusions until their
    recovered ONNX runtime failures are resolved.

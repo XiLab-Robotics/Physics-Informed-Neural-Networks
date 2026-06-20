@@ -1,8 +1,8 @@
-# Track 1 Partial Closeout Family Row Backfill In Full-Matrix Tables
+# RCIM Model-Bank Reproduction Partial Closeout Family Row Backfill In Full-Matrix Tables
 
 ## Overview
 
-This task repairs a remaining synchronization gap in the canonical `Track 1`
+This task repairs a remaining synchronization gap in the canonical `RCIM Model-Bank Reproduction`
 benchmark report. The partial closeout of the interrupted remaining-family
 campaign correctly stated that the completed seven-family rerun materially
 refreshed the row-reproduction evidence for `MLP`, `RF`, `DT`, `ET`, `ERT`,
@@ -14,7 +14,7 @@ partial-closeout outputs and update the canonical matrices in
 `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md` where any value or
 `🟢/🟡/🔴` marker still reflects the older pre-refresh state.
 
-Those four colored matrices are the canonical reference for future `Track 1`
+Those four colored matrices are the canonical reference for future `RCIM Model-Bank Reproduction`
 state summaries, so this task directly affects the official progress readout.
 
 ## Technical Approach
@@ -45,7 +45,7 @@ The implementation remains narrow and benchmark-focused:
 5. run Markdown QA on the touched benchmark file before closing the task.
 
 This row-backfill task improves the progress surface, but it is not itself a
-`Track 1` completion event. Overall completion remains defined by fully closed
+`RCIM Model-Bank Reproduction` completion event. Overall completion remains defined by fully closed
 `Table 2-5` coverage across all `10` families with `19` accepted models per
 family.
 

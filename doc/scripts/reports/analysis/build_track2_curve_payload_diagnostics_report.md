@@ -1,9 +1,9 @@
-# Track 2 Curve Payload Diagnostics Report Builder
+# TE Curve Verification Pipeline Curve Payload Diagnostics Report Builder
 
 ## Overview
 
 `scripts/reports/analysis/build_track2_curve_payload_diagnostics_report.py`
-builds the `Track 2C` curve-payload diagnostics report for a screened candidate
+builds the `CVP 1.2` curve-payload diagnostics report for a screened candidate
 set.
 
 The script is evaluation-only. It does not train models, does not modify the
@@ -11,7 +11,7 @@ dataset structure, and does not provide future curve samples to model inputs.
 
 ## Main Role
 
-The report builder reuses the existing `Track 2` candidate loader and held-out
+The report builder reuses the existing `TE Curve Verification Pipeline` candidate loader and held-out
 curve records with curve payload export enabled. It computes diagnostics that
 explain curve-following quality beyond aggregate `MAE`, `RMSE`, and mean
 percentage error.

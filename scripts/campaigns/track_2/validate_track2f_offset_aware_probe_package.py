@@ -1,4 +1,4 @@
-"""Validate the prepared Track 2F offset-aware probe package."""
+"""Validate the prepared Wave 3.1 offset-aware probe package."""
 
 from __future__ import annotations
 
@@ -65,7 +65,7 @@ def load_descriptor_list(descriptor_root: Path) -> list[dict[str, Any]]:
 
 def validate_descriptor_matrix(descriptor_list: list[dict[str, Any]]) -> None:
 
-    """Validate that the descriptor matrix has the expected Track 2F shape."""
+    """Validate that the descriptor matrix has the expected Wave 3.1 shape."""
 
     assert len(descriptor_list) == 9, f"Expected 9 descriptors | found={len(descriptor_list)}"
 
@@ -80,8 +80,8 @@ def validate_descriptor_matrix(descriptor_list: list[dict[str, Any]]) -> None:
     }
     missing_pair_set = expected_pair_set.difference(observed_pair_set)
     unexpected_pair_set = observed_pair_set.difference(expected_pair_set)
-    assert not missing_pair_set, f"Missing Track 2F descriptor pairs | {sorted(missing_pair_set)}"
-    assert not unexpected_pair_set, f"Unexpected Track 2F descriptor pairs | {sorted(unexpected_pair_set)}"
+    assert not missing_pair_set, f"Missing Wave 3.1 descriptor pairs | {sorted(missing_pair_set)}"
+    assert not unexpected_pair_set, f"Unexpected Wave 3.1 descriptor pairs | {sorted(unexpected_pair_set)}"
 
     for descriptor in descriptor_list:
         assert descriptor.get("campaign_name") == CAMPAIGN_NAME
@@ -95,22 +95,22 @@ def validate_descriptor_matrix(descriptor_list: list[dict[str, Any]]) -> None:
 
 def validate_active_campaign_state() -> None:
 
-    """Validate that the persistent active-campaign state points at Track 2F."""
+    """Validate that the persistent active-campaign state points at Wave 3.1."""
 
     active_state_path = PROJECT_PATH / ACTIVE_CAMPAIGN_STATE_PATH
     active_state = read_yaml_file(active_state_path)
-    assert active_state.get("status") == "prepared", "Track 2F campaign state is not prepared."
+    assert active_state.get("status") == "prepared", "Wave 3.1 campaign state is not prepared."
     assert active_state.get("campaign_name") == CAMPAIGN_NAME, (
-        "Active campaign state does not point at Track 2F."
+        "Active campaign state does not point at Wave 3.1."
     )
 
 
 def load_track2e_recommendation_rows() -> list[dict[str, str]]:
 
-    """Load the Track 2E surface recommendation table."""
+    """Load the CVP 1.5 surface recommendation table."""
 
     recommendation_path = PROJECT_PATH / TRACK2E_RECOMMENDATION_PATH
-    assert recommendation_path.exists(), f"Missing Track 2E recommendation CSV | {recommendation_path}"
+    assert recommendation_path.exists(), f"Missing CVP 1.5 recommendation CSV | {recommendation_path}"
     with recommendation_path.open("r", encoding="utf-8", newline="") as input_file:
         return list(csv.DictReader(input_file))
 
@@ -214,12 +214,12 @@ def parse_arguments() -> argparse.Namespace:
         "--descriptor-root",
         required=True,
         type=Path,
-        help="Repository-relative directory containing Track 2F probe descriptors.",
+        help="Repository-relative directory containing Wave 3.1 probe descriptors.",
     )
     parser.add_argument(
         "--require-prepared-state",
         action="store_true",
-        help="Require doc/running/active_training_campaign.yaml to point at Track 2F.",
+        help="Require doc/running/active_training_campaign.yaml to point at Wave 3.1.",
     )
     parser.add_argument(
         "--write-baseline-status",
@@ -240,7 +240,7 @@ def parse_arguments() -> argparse.Namespace:
 
 def main() -> int:
 
-    """Validate the Track 2F package."""
+    """Validate the Wave 3.1 package."""
 
     argument_namespace = parse_arguments()
     descriptor_root = PROJECT_PATH / argument_namespace.descriptor_root
@@ -263,7 +263,7 @@ def main() -> int:
     )
     blocked_count = len(descriptor_list) - runnable_count
     print(
-        "Track 2F package validated | "
+        "Wave 3.1 package validated | "
         f"descriptors={len(descriptor_list)} | runnable_entries={runnable_count} | "
         f"blocked_learned_probes={blocked_count}"
     )

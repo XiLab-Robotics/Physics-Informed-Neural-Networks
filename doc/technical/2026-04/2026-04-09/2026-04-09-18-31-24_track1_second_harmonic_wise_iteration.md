@@ -1,8 +1,8 @@
-# Track 1 Second Harmonic-Wise Iteration
+# RCIM Model-Bank Reproduction Second Harmonic-Wise Iteration
 
 ## Overview
 
-This document proposes the next implementation pass for `Track 1`, the
+This document proposes the next implementation pass for `RCIM Model-Bank Reproduction`, the
 repository-owned paper-faithful harmonic-wise reproduction branch derived from
 `reference/RCIM_ML-compensation.pdf`.
 
@@ -34,7 +34,7 @@ and that the current bottleneck is the predictor from operating conditions to
 harmonic coefficients rather than the reconstruction layer itself.
 
 The goal of this second iteration is therefore not to open a new branch, but
-to improve the existing `Track 1` pipeline until it has a realistic path to
+to improve the existing `RCIM Model-Bank Reproduction` pipeline until it has a realistic path to
 closing `Target A`.
 
 ## Technical Approach
@@ -64,7 +64,7 @@ The core idea is:
    - `240`
 
 This means the reduced harmonic sets are debugging and optimization stages, not
-the final scope of `Track 1`.
+the final scope of `RCIM Model-Bank Reproduction`.
 
 The final acceptance bar for this branch remains:
 

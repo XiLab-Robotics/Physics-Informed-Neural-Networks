@@ -24,7 +24,7 @@ $launcherRelativePathList = @(
     "scripts\campaigns\track_1\exact_paper\run_track1_lgbm_residual_cellwise_closure_campaign.ps1"
 )
 
-Write-Host "[INFO] Aggregate Track 1 Remaining Family Residual Closure Launcher Count | $($launcherRelativePathList.Count)" -ForegroundColor Cyan
+Write-Host "[INFO] Aggregate RCIM Model-Bank Reproduction Remaining Family Residual Closure Launcher Count | $($launcherRelativePathList.Count)" -ForegroundColor Cyan
 Write-Host "[INFO] Execution Mode | $(if ($Remote) { 'remote' } else { 'local' })" -ForegroundColor Cyan
 
 for ($launcherIndex = 0; $launcherIndex -lt $launcherRelativePathList.Count; $launcherIndex++) {
@@ -57,5 +57,5 @@ for ($launcherIndex = 0; $launcherIndex -lt $launcherRelativePathList.Count; $la
 }
 
 Write-Host ""
-Write-Host "[DONE] Track 1 remaining family residual cellwise closure campaign sequence completed successfully" -ForegroundColor Green
+Write-Host "[DONE] RCIM Model-Bank Reproduction remaining family residual cellwise closure campaign sequence completed successfully" -ForegroundColor Green
 exit 0

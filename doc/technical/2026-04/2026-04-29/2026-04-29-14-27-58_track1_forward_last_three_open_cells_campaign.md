@@ -2,7 +2,7 @@
 
 ## Overview
 
-This document prepares the next exact-paper `Track 1` forward-only residual
+This document prepares the next exact-paper `RCIM Model-Bank Reproduction` forward-only residual
 campaign after the completed
 `track1_forward_last_four_open_cells_campaign_2026-04-29_12_01_54` closeout.
 

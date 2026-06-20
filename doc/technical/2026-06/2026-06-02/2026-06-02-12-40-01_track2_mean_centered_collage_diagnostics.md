@@ -1,8 +1,8 @@
-# Track 2 Mean-Centered Collage Diagnostics
+# TE Curve Verification Pipeline Mean-Centered Collage Diagnostics
 
 ## Overview
 
-This document plans a `Track 2` diagnostic report that tests the observed
+This document plans a `TE Curve Verification Pipeline` diagnostic report that tests the observed
 persistent vertical offset between measured and predicted `TE` curves in the
 existing best-model collage report.
 
@@ -27,7 +27,7 @@ Build a companion report analogous to the existing best-model collage report:
 
 For each candidate and selected collage curve:
 
-1. run the same causal prediction path used by the existing `Track 2` collage
+1. run the same causal prediction path used by the existing `TE Curve Verification Pipeline` collage
    workflow;
 2. compute raw curve `MAE` and `RMSE`;
 3. compute `truth_mean_deg` and `prediction_mean_deg`;
@@ -54,7 +54,7 @@ first diagnostic confirms that offset removal materially changes the ranking.
 
 ## Implementation Steps
 
-1. Reuse the existing `Track 2` collage candidate inventory and deterministic
+1. Reuse the existing `TE Curve Verification Pipeline` collage candidate inventory and deterministic
    selected-curve policy.
 2. Add a companion analysis script that writes:
    - per-selected-curve raw and mean-centered metrics CSV;

@@ -77,7 +77,7 @@ if ($RunOneBatchValidation) {
     $validatorArgumentList += "--run-one-batch"
 }
 
-Write-Track2HStatus -Label "STEP" -Message "Validating Track 2H mixture-density heads package."
+Write-Track2HStatus -Label "STEP" -Message "Validating Wave 4.3 mixture-density heads package."
 Invoke-Track2HPython -ArgumentList $validatorArgumentList
 $pythonExitCode = $script:LastTrack2HPythonExitCode
 if ($pythonExitCode -ne 0) {
@@ -139,7 +139,7 @@ if ($EnqueueOnly) {
     Write-Track2HStatus -Label "STEP" -Message "Enqueue-only verification enabled; training will not start."
 }
 
-Write-Track2HStatus -Label "STEP" -Message "Launching local Track 2H mixture-density heads campaign."
+Write-Track2HStatus -Label "STEP" -Message "Launching local Wave 4.3 mixture-density heads campaign."
 Invoke-Track2HPython -ArgumentList $argumentList
 $trainingExitCode = $script:LastTrack2HPythonExitCode
 exit $trainingExitCode

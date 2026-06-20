@@ -1,8 +1,8 @@
-# Wave 4G Planetary Mesh Force LSTE PINN Design
+# Wave 5.2G Planetary Mesh Force LSTE PINN Design
 
 ## Purpose
 
-`Wave 4G` explores planetary-style mesh-force, load-sharing, and
+`Wave 5.2G` explores planetary-style mesh-force, load-sharing, and
 loaded-static-transmission-error (`LSTE`) formulations as diagnostic or soft
 constraint candidates. It is exploratory because the RV reducer is not a
 simple planetary gearbox, but the test rig may still show support, load, and
@@ -42,7 +42,7 @@ model without validation.
    variables.
 3. Test whether proxies explain residuals that MMT and cycloid-contact
    branches do not.
-4. Keep this branch behind MMT and cycloid-contact branches unless Track 2
+4. Keep this branch behind MMT and cycloid-contact branches unless TE Curve Verification Pipeline
    residuals show clear branch/load-sharing signatures.
 
 ## Risks

@@ -1,8 +1,8 @@
-# Wave 2C Residual Harmonic Temporal Hybrid Campaign Results
+# Wave 2.3 Residual Harmonic Temporal Hybrid Campaign Results
 
 ## Overview
 
-This report closes the approved `Wave 2C` residual harmonic temporal hybrid
+This report closes the approved `Wave 2.3` residual harmonic temporal hybrid
 campaign. The campaign tested residual harmonic `GRU` and residual harmonic
 `LSTM` sequence regressors across `global`, `Fw`, and `Bw` direction surfaces,
 with three harmonic-basis tiers per surface: sparse `RCIM`, dense `0..240`,
@@ -83,7 +83,7 @@ The winning checkpoint is stored at
 
 ## Technical Interpretation
 
-The strongest Wave 2C scalar training result is the forward-only sparse `RCIM`
+The strongest Wave 2.3 scalar training result is the forward-only sparse `RCIM`
 residual harmonic `GRU`, with test MAE 0.003200.
 The dense harmonic branches did not improve the campaign winner: the second
 ranked model is the forward-only dense `0..240` residual harmonic `GRU`, and
@@ -91,16 +91,16 @@ the third ranked model is the forward-only sparse `RCIM` residual harmonic
 `LSTM`.
 
 This result is execution-valid and useful as a model-family probe, but it does
-not exceed the current Wave 2B scalar training winner. The program-level scalar best remains `te_periodic_gru_sequence_remote_Bw` with test MAE 0.002344.
-That means Wave 2C should be retained as a completed comparison branch, while
-Wave 2B remains the stronger scalar training baseline until a future campaign
-or official `Track 2` review changes that conclusion.
+not exceed the current Wave 2.2 scalar training winner. The program-level scalar best remains `te_periodic_gru_sequence_remote_Bw` with test MAE 0.002344.
+That means Wave 2.3 should be retained as a completed comparison branch, while
+Wave 2.2 remains the stronger scalar training baseline until a future campaign
+or official `TE Curve Verification Pipeline` review changes that conclusion.
 
 The campaign also shows that adding a recurrent residual branch over an
 explicit harmonic base is not automatically superior to feeding the harmonic
 prior directly into the recurrent temporal model. That is a useful negative
 result: the residual decomposition remains inspectable, but the sparse
-periodic recurrent Wave 2B formulation is still the better scalar candidate.
+periodic recurrent Wave 2.2 formulation is still the better scalar candidate.
 
 ## Registry Effects
 
@@ -125,21 +125,21 @@ periodic recurrent Wave 2B formulation is still the better scalar candidate.
 | `residual_harmonic_lstm_sequence_fw_dense360` | `te_residual_harmonic_lstm_sequence_remote_Fw_dense360` | 0.003351 | Updated by this campaign |
 | `residual_harmonic_lstm_sequence_bw_dense360` | `te_residual_harmonic_lstm_sequence_remote_Bw_dense360` | 0.003556 | Updated by this campaign |
 
-The family registries for the new Wave 2C model surfaces were created or
+The family registries for the new Wave 2.3 model surfaces were created or
 refreshed by this campaign. The program-level training registry did not move
-to Wave 2C because the Wave 2B periodic `GRU` backward-only model still has the
+to Wave 2.3 because the Wave 2.2 periodic `GRU` backward-only model still has the
 lower scalar test MAE.
 
-## Track 2 Boundary
+## TE Curve Verification Pipeline Boundary
 
-`Track 2` was not run as part of this closeout. Under the campaign governance
-rule, optional `Track 2` verification remains a separate operator-approved
+`TE Curve Verification Pipeline` was not run as part of this closeout. Under the campaign governance
+rule, optional `TE Curve Verification Pipeline` verification remains a separate operator-approved
 workflow with a repository-owned launcher that can run locally or with
 `-Remote`.
 
-Because Wave 2C does not beat the existing Wave 2B scalar best, a full `Track
+Because Wave 2.3 does not beat the existing Wave 2.2 scalar best, a full `Track
 2` refresh is not mandatory for accepting this closeout. If reviewed later,
-the forward-only sparse `RCIM` residual harmonic `GRU` is the only Wave 2C
+the forward-only sparse `RCIM` residual harmonic `GRU` is the only Wave 2.3
 candidate that should be promoted into the optional verification queue first.
 
 ## Closeout Decision
@@ -148,15 +148,15 @@ The campaign is complete and successful from an execution standpoint: all 18
 runs completed, the leaderboard and best-run artifacts exist, and the family
 registries were refreshed.
 
-From a modeling standpoint, Wave 2C is a completed comparison branch rather
+From a modeling standpoint, Wave 2.3 is a completed comparison branch rather
 than a new best branch. The residual harmonic temporal structure remains
 available for future analysis, but the current project best should stay on the
-Wave 2B periodic recurrent family until official verification says otherwise.
+Wave 2.2 periodic recurrent family until official verification says otherwise.
 
 ## Recommended Follow-Up
 
-1. Keep the Wave 2C artifacts as a completed negative/neutral comparison
+1. Keep the Wave 2.3 artifacts as a completed negative/neutral comparison
    branch.
-2. Do not replace the current Wave 2B scalar best with the Wave 2C winner.
-3. Run optional `Track 2` only if visual curve behavior is worth inspecting
+2. Do not replace the current Wave 2.2 scalar best with the Wave 2.3 winner.
+3. Run optional `TE Curve Verification Pipeline` only if visual curve behavior is worth inspecting
    despite the weaker scalar campaign result.

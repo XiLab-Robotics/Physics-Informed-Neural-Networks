@@ -1,4 +1,4 @@
-"""Close out the Track 1 backward paper-faithful grid-search campaign."""
+"""Close out the RCIM Model-Bank Reproduction backward paper-faithful grid-search campaign."""
 
 from __future__ import annotations
 
@@ -79,7 +79,7 @@ def parse_command_line_arguments() -> argparse.Namespace:
     """Parse CLI arguments."""
 
     argument_parser = argparse.ArgumentParser(
-        description="Close out the completed Track 1 backward paper-faithful grid-search campaign."
+        description="Close out the completed RCIM Model-Bank Reproduction backward paper-faithful grid-search campaign."
     )
     argument_parser.add_argument(
         "--finished-at",
@@ -297,7 +297,7 @@ def refresh_backward_reference_archives(
                 family_code,
                 accepted_artifact_map,
                 (
-                    "This archive was replaced during the Track 1 backward "
+                    "This archive was replaced during the RCIM Model-Bank Reproduction backward "
                     "paper-faithful grid-search closeout after the exact-paper "
                     "pipeline fixes for ELM, remote sync, and search-summary serialization."
                 ),
@@ -309,7 +309,7 @@ def refresh_backward_reference_archives(
 
 def write_reference_root_readmes() -> None:
 
-    """Refresh root archive README files after bidirectional Track 1 closeout."""
+    """Refresh root archive README files after bidirectional RCIM Model-Bank Reproduction closeout."""
 
     forward_archive_line_list = [
         f"- `forward/{FAMILY_ARCHIVE_FOLDER_MAP[family_code]}/`"
@@ -321,10 +321,10 @@ def write_reference_root_readmes() -> None:
     ]
     TRACK1_REFERENCE_ROOT_README_PATH.write_text(
         "\n".join([
-            "# RCIM Track 1 Paper Reference Models",
+            "# RCIM Model-Bank Reproduction Paper Reference Models",
             "",
             "This folder groups curated paper-reference model archives for the canonical",
-            "`Track 1` RCIM paper-reimplementation branch.",
+            "`RCIM Model-Bank Reproduction` RCIM paper-reimplementation branch.",
             "",
             "Direction branches:",
             "",
@@ -337,7 +337,7 @@ def write_reference_root_readmes() -> None:
             *backward_archive_line_list,
             "",
             "Paper-table families remain the original `10` families used by Tables `2`-`5`.",
-            "`ELM` is an additional operational Track 1 family and is archived for both",
+            "`ELM` is an additional operational RCIM Model-Bank Reproduction family and is archived for both",
             "directions after the completed paper-faithful campaigns provide it.",
             "",
             "Canonical family archive template:",
@@ -356,7 +356,7 @@ def write_reference_root_readmes() -> None:
             "",
             "Closeout rule:",
             "",
-            "- every future Track 1 closeout must refresh the affected family-reference archive when accepted models change;",
+            "- every future RCIM Model-Bank Reproduction closeout must refresh the affected family-reference archive when accepted models change;",
             "- archive entries must preserve source validation summaries, training configs, run metadata, exported ONNX files, Python pickles, and dataset provenance;",
             "- direction-specific closeouts must only replace archives for the completed direction.",
             "",
@@ -367,10 +367,10 @@ def write_reference_root_readmes() -> None:
 
     (TRACK1_REFERENCE_BACKWARD_ROOT / "README.md").write_text(
         "\n".join([
-            "# RCIM Track 1 Backward Reference Branch",
+            "# RCIM Model-Bank Reproduction Backward Reference Branch",
             "",
             "This branch stores the canonical backward-direction paper-reference archives",
-            "rebuilt from the completed Track 1 backward paper-faithful grid-search campaign.",
+            "rebuilt from the completed RCIM Model-Bank Reproduction backward paper-faithful grid-search campaign.",
             "",
             "Populated family archives:",
             "",
@@ -394,7 +394,7 @@ def write_reference_root_readmes() -> None:
             "- `rcim_original/`",
             "- `rcim_retuned/`",
             "",
-            "For `Track 1` paper-reimplementation families, the canonical family package",
+            "For `RCIM Model-Bank Reproduction` paper-reimplementation families, the canonical family package",
             "contract is:",
             "",
             "- `models/paper_reference/rcim_track1/forward/<family>_reference_models/`",
@@ -411,7 +411,7 @@ def write_reference_root_readmes() -> None:
             "- `source_runs/<run_instance_id>/run_metadata.snapshot.yaml`",
             "- `source_runs/<run_instance_id>/split_manifest.yaml`",
             "",
-            "The Track 1 forward and backward branches now include the operational",
+            "The RCIM Model-Bank Reproduction forward and backward branches now include the operational",
             "`ELM` archive in addition to the original `10` paper-table families.",
             "",
             "Every fully curated family archive is expected to preserve:",
@@ -445,7 +445,7 @@ def write_reference_root_readmes() -> None:
             "- `scripts/models/`",
             "- `scripts/training/`",
             "",
-            "Current curated Track 1 paper-reference archives include:",
+            "Current curated RCIM Model-Bank Reproduction paper-reference archives include:",
             "",
             *forward_archive_line_list,
             *backward_archive_line_list,
@@ -519,7 +519,7 @@ def update_backward_benchmark_tables(
     for table_key, heading, scope_key, metric_key, harmonic_list in table_specification_list:
         _, original_rows = collect_table_block(benchmark_line_list, heading, "#### Paper Original")
         _, retuned_rows = collect_table_block(benchmark_line_list, heading, "#### Paper Retuned")
-        track1_row_index_list, track1_rows = collect_table_block(benchmark_line_list, heading, "#### Track 1")
+        track1_row_index_list, track1_rows = collect_table_block(benchmark_line_list, heading, "#### RCIM Model-Bank Reproduction")
         track1_row_index_map = {
             parse_markdown_row(benchmark_line_list[row_index])[0].strip("`"): row_index
             for row_index in track1_row_index_list
@@ -562,14 +562,14 @@ def update_backward_benchmark_tables(
         "## Current Archive Status",
         "",
         "- retuned family-direction archives promoted: `22`",
-        "- Track 1 forward family archives refreshed: `11`",
-        "- Track 1 backward family archives refreshed: `11`",
-        "- Track 1 forward archive root: `models/paper_reference/rcim_track1/forward/`",
-        "- Track 1 backward archive root: `models/paper_reference/rcim_track1/backward/`",
+        "- RCIM Model-Bank Reproduction forward family archives refreshed: `11`",
+        "- RCIM Model-Bank Reproduction backward family archives refreshed: `11`",
+        "- RCIM Model-Bank Reproduction forward archive root: `models/paper_reference/rcim_track1/forward/`",
+        "- RCIM Model-Bank Reproduction backward archive root: `models/paper_reference/rcim_track1/backward/`",
         "- Track 1 forward closeout report: `doc/reports/campaign_results/track_1/exact_paper/forward/2026-05-15-11-11-35_track1_forward_paper_faithful_grid_search_closeout_report.md`",
-        f"- Track 1 backward closeout report: `{report_relative_path}`",
-        f"- Track 1 backward completion timestamp: `{finished_at}`",
-        "- `ELM` is archived as an operational Track 1 family but remains outside the original paper-family order.",
+        f"- RCIM Model-Bank Reproduction backward closeout report: `{report_relative_path}`",
+        f"- RCIM Model-Bank Reproduction backward completion timestamp: `{finished_at}`",
+        "- `ELM` is archived as an operational RCIM Model-Bank Reproduction family but remains outside the original paper-family order.",
         "",
     ]
     benchmark_line_list = (
@@ -722,7 +722,7 @@ def build_closeout_report(
     report_path.parent.mkdir(parents=True, exist_ok=True)
     report_path.write_text(
         "\n".join([
-            "# Track 1 Backward Paper-Faithful Grid-Search Closeout",
+            "# RCIM Model-Bank Reproduction Backward Paper-Faithful Grid-Search Closeout",
             "",
             "## Overview",
             "",
@@ -755,8 +755,8 @@ def build_closeout_report(
             "## Notes",
             "",
             "- The original paper-family order for Tables `2`-`5` remains unchanged.",
-            "- `ELM` is archived and benchmarked as an operational Track 1 family because the completed campaign includes it.",
-            "- Forward Track 1 paper-reference archives were not modified by this backward-only closeout.",
+            "- `ELM` is archived and benchmarked as an operational RCIM Model-Bank Reproduction family because the completed campaign includes it.",
+            "- Forward RCIM Model-Bank Reproduction paper-reference archives were not modified by this backward-only closeout.",
             "",
         ]).rstrip() + "\n",
         encoding="utf-8",
@@ -766,11 +766,11 @@ def build_closeout_report(
 
 def patch_master_summary(report_relative_path: str, status_dictionary: dict[str, dict[str, int]]) -> None:
 
-    """Patch the Track 1 status block in the master summary."""
+    """Patch the RCIM Model-Bank Reproduction status block in the master summary."""
 
     master_summary_text = MASTER_SUMMARY_PATH.read_text(encoding="utf-8")
     replacement = "\n".join([
-        "### Track 1 Canonical Status",
+        "### RCIM Model-Bank Reproduction Canonical Status",
         "",
         f"- Latest exact-paper closeout report: `{report_relative_path}`",
         "- Prior forward exact-paper closeout report: `doc/reports/campaign_results/track_1/exact_paper/forward/2026-05-15-11-11-35_track1_forward_paper_faithful_grid_search_closeout_report.md`",
@@ -783,13 +783,13 @@ def patch_master_summary(report_relative_path: str, status_dictionary: dict[str,
         f"- Table `3` `backward` status: `{status_dictionary['table3']['green']}` green, `{status_dictionary['table3']['yellow']}` yellow, `{status_dictionary['table3']['red']}` red",
         f"- Table `4` `backward` status: `{status_dictionary['table4']['green']}` green, `{status_dictionary['table4']['yellow']}` yellow, `{status_dictionary['table4']['red']}` red",
         f"- Table `5` `backward` status: `{status_dictionary['table5']['green']}` green, `{status_dictionary['table5']['yellow']}` yellow, `{status_dictionary['table5']['red']}` red",
-        "- Forward and backward Track 1 Tables `2`-`5` are now populated for the completed paper-faithful campaigns.",
-        "- Harmonic-wise Table `6` evidence remains postponed into `Track 1.5` and does not gate this closeout.",
+        "- Forward and backward RCIM Model-Bank Reproduction Tables `2`-`5` are now populated for the completed paper-faithful campaigns.",
+        "- Harmonic-wise Table `6` evidence remains postponed into `RCIM Harmonic-Wise Follow-Up` and does not gate this closeout.",
         "",
         "### Latest Harmonic-Wise Validation Support",
     ])
     master_summary_text = re.sub(
-        r"### Track 1 Canonical Status\n.*?\n### Latest Harmonic-Wise Validation Support",
+        r"### RCIM Model-Bank Reproduction Canonical Status\n.*?\n### Latest Harmonic-Wise Validation Support",
         replacement,
         master_summary_text,
         count=1,
@@ -798,7 +798,7 @@ def patch_master_summary(report_relative_path: str, status_dictionary: dict[str,
 
     recent_campaign_row = (
         "| `track1_bidirectional_paper_faithful_grid_search_campaign_2026-05-04_12_26_30__backward_svr_mlp_rf_dt_et_ert_gbm_hgbm_lgbm_xgbm_elm_search` "
-        "| `2026-05-16-19-04-25` | 11 | 0 | `backward` | Refreshed Track 1 backward paper-reference archives and RCIM Tables `2`-`5` |"
+        "| `2026-05-16-19-04-25` | 11 | 0 | `backward` | Refreshed RCIM Model-Bank Reproduction backward paper-reference archives and RCIM Tables `2`-`5` |"
     )
     recent_header = "| Campaign | Generated At | Completed | Failed | Winner | Impact |"
     line_list = master_summary_text.splitlines()
@@ -834,7 +834,7 @@ def update_active_campaign_state(
 
 def main() -> None:
 
-    """Run the Track 1 backward paper-faithful closeout."""
+    """Run the RCIM Model-Bank Reproduction backward paper-faithful closeout."""
 
     parsed_arguments = parse_command_line_arguments()
     repository_path_support.set_runtime_platform(
@@ -869,7 +869,7 @@ def main() -> None:
     )
     patch_master_summary(report_relative_path, status_dictionary)
     update_active_campaign_state(active_campaign_dictionary, report_relative_path, finished_at)
-    print(f"[DONE] Track 1 backward paper-faithful closeout report | {report_path}")
+    print(f"[DONE] RCIM Model-Bank Reproduction backward paper-faithful closeout report | {report_path}")
 
 
 if __name__ == "__main__":

@@ -24,11 +24,11 @@ Current closure status:
   `scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/`;
 - the faithful original-dataset exact-model-bank reimplementation lives under
   `scripts/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/`;
-- completed Track 1 forward and backward paper-faithful campaigns now promote
+- completed RCIM Model-Bank Reproduction forward and backward paper-faithful campaigns now promote
   accepted artifacts to `models/paper_reference/rcim_track1/`;
 - the repository-owned RCIM Tables `2`-`5` benchmark surface is
   `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`.
-- Track 1 is closed as the populated full-dataset faithful reproduction
+- RCIM Model-Bank Reproduction is closed as the populated full-dataset faithful reproduction
   surface; yellow and red cells are retained as numerical-gap evidence under
   the faithful protocol.
 
@@ -104,7 +104,7 @@ Repository exact-paper reimplementation:
 
 - keeps the ten original paper-table families;
 - normalizes `SVM` to `SVR`;
-- also includes `ELM` as an operational Track 1 family because it is present in
+- also includes `ELM` as an operational RCIM Model-Bank Reproduction family because it is present in
   the recovered original code and now has repository-owned Python plus ONNX
   export support.
 
@@ -213,7 +213,7 @@ Repository reimplementation:
 
 - the original-dataset exact branch makes direction an explicit configuration
   dimension through `forward` and `backward` manifests and target prefixes.
-- completed forward and backward Track 1 campaigns now provide archived
+- completed forward and backward RCIM Model-Bank Reproduction campaigns now provide archived
   paper-reference models and benchmark tables for both directions.
 
 Why it matters:
@@ -221,7 +221,7 @@ Why it matters:
 - this is one of the clearest places where the repository went beyond merely
   replaying the recovered files and formalized the paper's direction split into
   a stable program structure.
-- the completed Track 1 backward campaign now follows that interpretation at
+- the completed RCIM Model-Bank Reproduction backward campaign now follows that interpretation at
   repository-pipeline level: it treats backward as an explicit
   direction-scoped exact-model-bank surface, trains it through the restored
   search protocol, exports per-target artifacts, and archives accepted results
@@ -248,7 +248,7 @@ The current campaign-ready reconstruction root is:
 - `scripts/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/`
 
 It is the repository-owned faithful pipeline surface used to train and export
-the Track 1 model banks that populate:
+the RCIM Model-Bank Reproduction model banks that populate:
 
 - `models/paper_reference/rcim_track1/`
 - `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
@@ -276,7 +276,7 @@ The new recovered-workflow runner closes one gap:
 - and we can compare that behavior against the current repository branch
   without editing the archived recovered files.
 
-The completed Track 1 paper-faithful campaign cycle closes the next gap:
+The completed RCIM Model-Bank Reproduction paper-faithful campaign cycle closes the next gap:
 
 - accepted forward and backward exact-model-bank artifacts are now archived in
   `models/paper_reference/rcim_track1/`;

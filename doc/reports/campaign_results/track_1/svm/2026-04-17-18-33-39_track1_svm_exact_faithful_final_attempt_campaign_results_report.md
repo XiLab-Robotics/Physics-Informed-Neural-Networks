@@ -1,4 +1,4 @@
-# Track 1 SVM Exact-Faithful Final Attempt Campaign Results Report
+# RCIM Model-Bank Reproduction SVM Exact-Faithful Final Attempt Campaign Results Report
 
 ## Overview
 
@@ -162,7 +162,7 @@ reference-grid pass alone.
 ## Canonical Benchmark Impact
 
 This campaign does **not** promote any new canonical paper-cell closure into
-`Track 1`.
+`RCIM Model-Bank Reproduction`.
 
 So the canonical benchmark reading remains unchanged:
 

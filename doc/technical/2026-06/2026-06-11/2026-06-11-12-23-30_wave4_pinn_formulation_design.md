@@ -1,13 +1,13 @@
-# Wave 4 PINN Formulation Design
+# Wave 5.2 PINN Formulation Design
 
 ## Overview
 
-This technical document opens the non-invasive design step for `Wave 4` PINN
-Formulation And First PINN while the separate `Track 2H` campaign is running
+This technical document opens the non-invasive design step for `Wave 5.2` PINN
+Formulation And First PINN while the separate `Wave 4 series` campaign is running
 on another workstation. It does not change training code, campaign YAMLs,
-launchers, active campaign state, or `Track 2H` artifacts.
+launchers, active campaign state, or `Wave 4 series` artifacts.
 
-`Wave 4` should test whether soft physics-informed constraints can improve TE
+`Wave 5.2` should test whether soft physics-informed constraints can improve TE
 curve prediction after the dispersion-aware and hybrid structured branches.
 The current reference material supports treating TE as a mechanically
 structured quantity whose harmonics can be interpreted with respect to reducer
@@ -17,12 +17,12 @@ curve representation, not with a full analytical RV reducer solver.
 
 ## Technical Approach
 
-The design step will create a repository-owned Wave 4 explanatory report that:
+The design step will create a repository-owned Wave 5.2 explanatory report that:
 
 - defines the first PINN as a soft-constraint model for TE curves;
 - separates data-fit, periodicity, smoothness, harmonic-consistency,
   operating-condition consistency, and optional residual-structure losses;
-- keeps the causal input boundary from `Track 2`;
+- keeps the causal input boundary from `TE Curve Verification Pipeline`;
 - preserves direction-separated `global`, `Fw`, and `Bw` reporting;
 - records what is reference-backed, what is an implementation inference, and
   what remains physically unproven;
@@ -42,10 +42,10 @@ No subagent use is planned for this design step.
 
 ## Implementation Steps
 
-1. Create the Wave 4 PINN formulation design report.
+1. Create the Wave 5.2 PINN formulation design report.
 2. Register the new technical document and analysis report in `doc/README.md`.
-3. Keep this pass documentation-only and avoid active `Track 2H` campaign
+3. Keep this pass documentation-only and avoid active `Wave 4 series` campaign
    files.
 4. Run repository Markdown QA on the touched Markdown files.
-5. Wait for a later explicit approval before implementing Wave 4 code,
+5. Wait for a later explicit approval before implementing Wave 5.2 code,
    campaign YAMLs, launchers, or training execution.

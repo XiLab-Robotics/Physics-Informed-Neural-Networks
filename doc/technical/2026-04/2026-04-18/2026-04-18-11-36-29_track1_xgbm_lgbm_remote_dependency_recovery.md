@@ -1,9 +1,9 @@
-# Track 1 XGBM LGBM Remote Dependency Recovery
+# RCIM Model-Bank Reproduction XGBM LGBM Remote Dependency Recovery
 
 ## Overview
 
 This technical document formalizes the recovery path for the interrupted
-remaining-family `Track 1` batch after the remote `XGBM` launcher failed on
+remaining-family `RCIM Model-Bank Reproduction` batch after the remote `XGBM` launcher failed on
 `2026-04-18`.
 
 The crash evidence is explicit: the remote Conda environment

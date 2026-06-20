@@ -1,8 +1,8 @@
-# Track 2H Mixture Density Heads Campaign Results
+# Wave 4.3 Mixture Density Heads Campaign Results
 
 ## Overview
 
-This report closes the approved third `Track 2H` dispersion-aware campaign:
+This report closes the approved `Wave 4.3` dispersion-aware campaign:
 two- and three-component mixture-density heads for locally dispersed TE
 curves.
 
@@ -80,7 +80,7 @@ The mixture heads mostly collapsed toward one effective component. The scalar
 training pressure and expectation playback rather than confirmed learned
 multimodality.
 
-## Track 2H Dispersion-Aware Comparison
+## Wave 4 series Dispersion-Aware Comparison
 
 | Surface | MDN | MDN MAE | Prob. | Prob. MAE | Robust | Robust MAE |
 | --- | --- | ---: | --- | ---: | --- | ---: |
@@ -102,22 +102,22 @@ with test `MAE = 0.002344`.
 
 | Registry Scope | Best Run | Test MAE |
 | --- | --- | ---: |
-| `Track 2H global MDN` | `te_track2h_mdn_k2_global` | 0.003503 |
-| `Track 2H Fw MDN` | `te_track2h_mdn_k3_fw` | 0.003235 |
-| `Track 2H Bw MDN` | `te_track2h_mdn_k2_bw` | 0.002658 |
+| `Wave 4.3 global MDN` | `te_track2h_mdn_k2_global` | 0.003503 |
+| `Wave 4.3 Fw MDN` | `te_track2h_mdn_k3_fw` | 0.003235 |
+| `Wave 4.3 Bw MDN` | `te_track2h_mdn_k2_bw` | 0.002658 |
 | `Current program scalar winner` | `te_periodic_gru_sequence_remote_Bw` | 0.002344 |
 
 The best MDN branch remains about `13.41%` worse than the current program
 scalar winner, so it is not a direct program promotion.
 
-## Track 2 Boundary
+## TE Curve Verification Pipeline Boundary
 
-Official Track 2 curve-first verification was not run as part of this normal
+Official TE curve-first verification was not run as part of this normal
 campaign closeout. Under campaign governance, that remains a separate
 operator-approved workflow after this campaign-results report and PDF are
 complete.
 
-The next Track 2 package should add all six mixture-density candidates and
+The next TE Curve Verification Pipeline package should add all six mixture-density candidates and
 report accepted results separately for:
 
 - `global`;
@@ -126,35 +126,35 @@ report accepted results separately for:
 
 The verification must compare raw curve error, centered-shape error, offset,
 amplitude, harmonic behavior, collage plots, and overlay plots against Track
-2G, Track 2H robust-loss, Track 2H quantile/probabilistic, Track 2F-bis, Wave
-2B, and the current accepted Track 2 baselines.
+2G, Wave 4.1 robust-loss, Wave 4.2 quantile/probabilistic, Wave 3.2, Wave
+2B, and the current accepted TE Curve Verification Pipeline baselines.
 
 ## Closeout Decision
 
-Track 2H mixture-density execution is complete: all planned candidates have
+Wave 4.3 mixture-density execution is complete: all planned candidates have
 successful training artifacts, no failed run remains, registries were refreshed
 by the runner, and the active campaign state can be cleared.
 
 From a modeling standpoint:
 
 - carry `mdn_k2_bw` forward as the strongest MDN scalar candidate and the
-  strongest Track 2H scalar `Bw` candidate so far;
+  strongest Wave 4 series scalar `Bw` candidate so far;
 - do not carry MDN as the `global` or `Fw` default, because probabilistic and
   robust-loss candidates remain stronger there;
 - treat the mixture-collapse diagnostics as a warning that this branch has not
   yet proven true multi-modal TE behavior;
-- keep MDN alive until official Track 2 curve verification decides whether the
+- keep MDN alive until official TE curve verification decides whether the
   scalar `Bw` gain translates into curve-quality gain;
-- do not promote Track 2H MDN candidates before official Track 2 verification.
+- do not promote Wave 4.3 MDN candidates before official TE curve verification.
 
 ## Recommended Follow-Up
 
 1. Accept this closeout and clear the active campaign state.
-2. Prepare a separate operator-launched Track 2 verification refresh for all
+2. Prepare a separate operator-launched TE curve verification refresh for all
    six MDN candidates.
-3. If the official Track 2 refresh confirms the `Bw` gain, keep `mdn_k2_bw`
+3. If the official TE Curve Verification refresh confirms the `Bw` gain, keep `mdn_k2_bw`
    available for later multi-head integration.
-4. If the official Track 2 refresh shows mixture collapse also at curve level,
-   prioritize latent-state / hysteresis-aware models or the `Wave 3` hybrid
+4. If the official TE Curve Verification refresh shows mixture collapse also at curve level,
+   prioritize latent-state / hysteresis-aware models or the `Wave 5.1` hybrid
    structured campaign before broadening MDN variants.
 5. Keep `Fw`, `Bw`, and `global` as parallel branch decisions.

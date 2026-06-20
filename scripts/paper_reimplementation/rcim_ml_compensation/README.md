@@ -9,7 +9,7 @@ repository-designed reimplementation branches that:
 
 - keep the recovered original family inventory and hyperparameter grids;
 - keep the restored historical search protocol required by the paper-faithful
-  Track 1 workflow;
+  RCIM Model-Bank Reproduction workflow;
 - use repository-owned output roots, campaign tooling, and registries;
 - support both direct single-run execution and campaign-driven execution.
 
@@ -30,12 +30,12 @@ surfaces:
   on the canonical repository dataset for both `forward` and `backward`
   directions.
 
-The faithful Track 1 campaign surface has completed forward and backward
+The faithful RCIM Model-Bank Reproduction campaign surface has completed forward and backward
 paper-faithful grid-search runs for the current `11`-family bank:
 
 - `SVR`, `MLP`, `RF`, `DT`, `ET`, `ERT`, `GBM`, `HGBM`, `XGBM`, `LGBM`, `ELM`.
 
-Track 1 is closed at this layer as the repository-owned faithful full-bank
+RCIM Model-Bank Reproduction is closed at this layer as the repository-owned faithful full-bank
 reproduction of the recovered RCIM paper pipeline. Closure means the
 forward/backward searches were run, accepted archives were promoted, and
 Tables `2`-`5` were repopulated. It does not mean the benchmark is an
@@ -68,7 +68,7 @@ exports.
 - `harmonic_wise_comparison/`
   Repository-owned harmonic-wise comparison and playback workflow.
 - `reference_family_vs_feedforward/`
-  Track 2 comparison between accepted Track 1 reference banks and repository
+  curve-verification comparison between accepted RCIM Model-Bank Reproduction reference banks and repository
   model-family winners. The current pipeline supports direction-aware candidate
   matrices: `Fw` candidates are evaluated only on forward curves, `Bw`
   candidates only on backward curves, and `global` candidates on both
@@ -220,11 +220,11 @@ For `LGBM`, the exact-paper shared family factory now also forces:
 - `verbosity=-1`
 - `force_col_wise=True`
 
-so long-running Track 1 search runs keep repository-owned progress lines
+so long-running RCIM Model-Bank Reproduction search runs keep repository-owned progress lines
 readable instead of flooding the console with native LightGBM chatter.
 
 For `ELM`, the exact-paper shared export helper now mirrors the
-recovered-original repo-owned ONNX converter registration so the Track 1
+recovered-original repo-owned ONNX converter registration so the RCIM Model-Bank Reproduction
 `ELMRegressor` family can emit per-target `Python + ONNX` artifacts.
 
 ## Export Artifact Contract
@@ -319,7 +319,7 @@ conda run -n pinns_env python scripts/paper_reimplementation/rcim_ml_compensatio
 ## Campaign Surface
 
 The exact-paper reimplementation also exposes campaign preparation plus launch
-tooling. For the current Track 1 paper-faithful branch, the canonical launcher
+tooling. For the current RCIM Model-Bank Reproduction paper-faithful branch, the canonical launcher
 note lives in:
 
 - `doc/scripts/campaigns/run_track1_bidirectional_paper_faithful_grid_search_campaign.md`
@@ -418,7 +418,7 @@ but intentionally distinct.
   historical search protocol, but run inside a repository-owned validation and
   campaign framework.
 
-When the goal is paper-faithful Track 1 execution inside the repository-owned
+When the goal is paper-faithful RCIM Model-Bank Reproduction execution inside the repository-owned
 campaign system, this README is the operational surface to follow. New
 restricted-dataset or all-green optimization studies should be added as
 separate branches so the closed full-dataset faithful baseline remains

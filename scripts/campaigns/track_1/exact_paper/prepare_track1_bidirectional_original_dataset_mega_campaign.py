@@ -1,4 +1,4 @@
-"""Prepare the bidirectional original-dataset Track 1 mega-campaign package."""
+"""Prepare the bidirectional original-dataset RCIM Model-Bank Reproduction mega-campaign package."""
 
 from __future__ import annotations
 

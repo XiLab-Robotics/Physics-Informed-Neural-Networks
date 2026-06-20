@@ -24,11 +24,11 @@ Important scope clarification:
 - the recovered original code ships both `Fw` and `Bw` dataframe evidence but
   keeps important runner and evaluator paths forward-coded in practice;
 - the repository's `original_dataset_exact_model_bank/` branch is therefore
-  the canonical bidirectional Track 1 reimplementation on the project dataset;
+  the canonical bidirectional RCIM Model-Bank Reproduction reimplementation on the project dataset;
 - completed forward and backward paper-faithful campaigns now populate
   `models/paper_reference/rcim_track1/` and
   `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`.
-- this makes Track 1 closed as the full-dataset faithful model-bank
+- this makes RCIM Model-Bank Reproduction closed as the full-dataset faithful model-bank
   reproduction, without claiming that every colored benchmark cell is green.
 
 ## What This Workflow Implements
@@ -72,7 +72,7 @@ The implemented exact paper family bank is:
 - `ELM`
 
 The original paper tables still use the ten-family paper order, while `ELM` is
-archived and benchmarked as an operational Track 1 family because it is present
+archived and benchmarked as an operational RCIM Model-Bank Reproduction family because it is present
 in the recovered original code surface and now exports successfully through the
 repository-owned `ELMRegressor` ONNX converter.
 
@@ -248,9 +248,9 @@ It defines:
 - paper-reference hyperparameter-search settings;
 - ONNX export behavior.
 
-For the current bidirectional Track 1 reproduction on the repository dataset,
+For the current bidirectional RCIM Model-Bank Reproduction reproduction on the repository dataset,
 the canonical configs and campaigns live under the
-`original_dataset_exact_model_bank/` and Track 1 campaign roots, not the older
+`original_dataset_exact_model_bank/` and RCIM Model-Bank Reproduction campaign roots, not the older
 forward recovered-CSV baseline alone.
 
 The prepared batch campaign package is:
@@ -284,7 +284,7 @@ They are complementary, not redundant.
 The next serious use of this branch is no longer generic tuning or first-pass
 proof of concept.
 
-The current Track 1 state is:
+The current RCIM Model-Bank Reproduction state is:
 
 - closure status: closed as faithful full-bank reproduction, not all-green
   optimization;
@@ -300,7 +300,7 @@ The current Track 1 state is:
 - benchmark tables: regenerated in
   `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`.
 
-That is the point where `Track 1` stops being only paper-aligned and becomes an
+That is the point where `RCIM Model-Bank Reproduction` stops being only paper-aligned and becomes an
 auditable, repository-owned paper-faithful reproduction branch for RCIM Tables
 `2`-`5`. Future restricted-dataset reruns must use separate campaign and
 report surfaces so this full-dataset baseline remains auditable.

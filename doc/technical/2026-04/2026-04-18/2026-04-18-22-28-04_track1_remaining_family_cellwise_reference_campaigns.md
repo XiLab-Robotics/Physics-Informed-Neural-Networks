@@ -1,8 +1,8 @@
-# Track 1 Remaining Family Cellwise Reference Campaigns
+# RCIM Model-Bank Reproduction Remaining Family Cellwise Reference Campaigns
 
 ## Overview
 
-This technical document prepares the next `Track 1` campaign wave after the
+This technical document prepares the next `RCIM Model-Bank Reproduction` campaign wave after the
 completion of the family-level full-matrix exact-paper passes.
 
 The user-approved strategic direction is to stop treating the remaining
@@ -27,7 +27,7 @@ The remaining families are:
 - `XGBM`
 - `LGBM`
 
-The target surface is the same `Track 1` paper cell inventory already pinned
+The target surface is the same `RCIM Model-Bank Reproduction` paper cell inventory already pinned
 for `SVM`:
 
 - `10` amplitude targets for harmonics
@@ -131,7 +131,7 @@ strictly structured:
 2. Ask for explicit user approval of this technical document and the planning
    report before generating any campaign YAML or launcher.
 3. If approved, prepare `9` family campaign packages, each containing `19`
-   target-specific exact-paper runs aligned to the canonical `Track 1` cell
+   target-specific exact-paper runs aligned to the canonical `RCIM Model-Bank Reproduction` cell
    inventory.
 4. Generate one hybrid launcher per family plus one aggregate sequential
    launcher, all local by default and remote-capable through `-Remote`.

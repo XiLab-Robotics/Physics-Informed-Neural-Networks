@@ -1,14 +1,14 @@
-# Track 2H Quantile Probabilistic Campaign Plan Report
+# Wave 4.2 Quantile Probabilistic Campaign Plan Report
 
 ## Executive Summary
 
-This preliminary campaign plan prepares the second executable `Track 2H`
+This preliminary campaign plan prepares the second executable `Wave 4 series`
 dispersion-aware package: quantile and Gaussian probabilistic regression for
 locally dispersed TE curves.
 
-The completed robust-loss `Track 2H` campaign is now a verified exploratory
+The completed robust-loss `Wave 4 series` campaign is now a verified exploratory
 baseline. It showed that robust deterministic fitting is useful, but not
-sufficient to beat the current `Track 2` direction-parallel leaders. The next
+sufficient to beat the current `TE Curve Verification Pipeline` direction-parallel leaders. The next
 campaign should therefore test whether the target should be modeled as an
 interval or distribution in regimes where preload, elastic release, or hidden
 experimental state may perturb the measured curve.
@@ -27,19 +27,19 @@ The accepted baseline before this campaign is:
 
 | Evidence | Interpretation |
 | --- | --- |
-| `Track 2H` robust-loss campaign | Robust deterministic losses were trained successfully across `global`, `Fw`, and `Bw`. |
-| `Track 2H` official verification refresh | Robust-loss candidates were verified as exploratory baselines but not promoted. |
-| Best robust `Fw` candidate | `track2h_mae_robust_Fw`, official `Track 2` MAE `0.003134`. |
-| Best robust `Bw` candidate | `track2h_smooth_l1_robust_Bw`, official `Track 2` MAE `0.003078`. |
-| Best robust `global` candidate | `track2h_mae_robust_global`, official `Track 2` MAE `0.003401`. |
-| Current accepted `Fw` leader | `rcim_retuned_GBM19_Fw`, official `Track 2` MAE `0.001089`. |
-| Current accepted `Bw` leader | `periodic_gru_sequence_Bw`, official `Track 2` MAE `0.002392`. |
-| Current accepted `global` leader | `periodic_gru_sequence_global`, official `Track 2` MAE `0.002704`. |
+| `Wave 4.1` robust-loss campaign | Robust deterministic losses were trained successfully across `global`, `Fw`, and `Bw`. |
+| `Wave 4 series` official verification refresh | Robust-loss candidates were verified as exploratory baselines but not promoted. |
+| Best robust `Fw` candidate | `track2h_mae_robust_Fw`, official `TE Curve Verification Pipeline` MAE `0.003134`. |
+| Best robust `Bw` candidate | `track2h_smooth_l1_robust_Bw`, official `TE Curve Verification Pipeline` MAE `0.003078`. |
+| Best robust `global` candidate | `track2h_mae_robust_global`, official `TE Curve Verification Pipeline` MAE `0.003401`. |
+| Current accepted `Fw` leader | `rcim_retuned_GBM19_Fw`, official `TE Curve Verification Pipeline` MAE `0.001089`. |
+| Current accepted `Bw` leader | `periodic_gru_sequence_Bw`, official `TE Curve Verification Pipeline` MAE `0.002392`. |
+| Current accepted `global` leader | `periodic_gru_sequence_global`, official `TE Curve Verification Pipeline` MAE `0.002704`. |
 
 The working hypothesis is that a deterministic central estimate may be the
 wrong sole training target for locally dispersed measurements. The quantile and
 probabilistic package must test this without weakening the deterministic
-playback path required by official `Track 2` verification.
+playback path required by official `TE Curve Verification Pipeline` verification.
 
 ## Candidate Matrix
 
@@ -60,7 +60,7 @@ This produces six queued runs:
 6. `te_track2h_gaussian_nll_bw`
 
 The package intentionally excludes mixture-density and latent-state /
-hysteresis-aware candidates. Those remain later `Track 2H` packages so this
+hysteresis-aware candidates. Those remain later `Wave 4 series` packages so this
 campaign can answer one question cleanly: whether explicit uncertainty-aware
 heads improve the robust-loss result or expose useful calibrated intervals.
 
@@ -84,7 +84,7 @@ Preferred implementation:
 
 - extend the current curve-aware harmonic residual-offset path with an explicit
   head or objective option if the training stack supports it cleanly;
-- otherwise add narrowly named `Track 2H` model-family keys for quantile and
+- otherwise add narrowly named `Wave 4 series` model-family keys for quantile and
   Gaussian heads, without disturbing the completed robust-loss package.
 
 ## Evaluation Plan
@@ -97,7 +97,7 @@ Required deterministic checks:
 - validation and test MAE;
 - full-curve playback metrics;
 - direction-specific comparison for `global`, `Fw`, and `Bw`;
-- later official `Track 2` comparison using `p50` or `mu` only.
+- later official `TE Curve Verification Pipeline` comparison using `p50` or `mu` only.
 
 Required probabilistic checks:
 
@@ -136,7 +136,7 @@ The launcher must support:
 
 ## Prepared Package Status
 
-The `Track 2H` quantile/probabilistic package has been prepared.
+The `Wave 4.2` quantile/probabilistic package has been prepared.
 
 Prepared package:
 
@@ -181,7 +181,7 @@ After training completion:
 - update family and program registries;
 - clean active campaign state;
 - update the live backlog and training master summary;
-- propose official `Track 2` refresh as a separate operator-launched step.
+- propose official `TE Curve Verification Pipeline` refresh as a separate operator-launched step.
 
 ## Decision Gates
 
@@ -190,7 +190,7 @@ After training completion:
 | Planning approval | Authorize generation of the quantile/probabilistic package. |
 | Package validation | Authorize local or remote campaign launch. |
 | Campaign closeout | Decide whether uncertainty-aware heads outperform robust-loss baselines or only improve calibration. |
-| Official `Track 2` refresh | Decide whether the best candidate should influence mixture, latent-state, `Wave 3`, or multi-head design. |
+| Official `TE Curve Verification Pipeline` refresh | Decide whether the best candidate should influence mixture, latent-state, `Wave 5.1`, or multi-head design. |
 
 ## Non-Goals
 

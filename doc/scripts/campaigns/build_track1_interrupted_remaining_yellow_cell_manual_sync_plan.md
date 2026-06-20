@@ -1,6 +1,6 @@
-# Build Track 1 Interrupted Remaining Yellow-Cell Manual Sync Plan
+# Build RCIM Model-Bank Reproduction Interrupted Remaining Yellow-Cell Manual Sync Plan
 
-Use this helper when the remote `Track 1` remaining-yellow-cell bundle was
+Use this helper when the remote `RCIM Model-Bank Reproduction` remaining-yellow-cell bundle was
 interrupted after a long autonomous `SVM` run and the local repository still
 has no synchronized `SVM` artifacts.
 

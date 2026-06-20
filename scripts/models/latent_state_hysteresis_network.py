@@ -1,4 +1,4 @@
-"""Latent-state hysteresis-aware network for Track 2H-L TE probes."""
+"""Latent-state hysteresis-aware network for Wave 4.4 TE probes."""
 
 from __future__ import annotations
 

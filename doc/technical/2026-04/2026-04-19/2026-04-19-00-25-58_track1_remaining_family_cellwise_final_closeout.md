@@ -1,9 +1,9 @@
-# Track 1 Remaining Family Cellwise Final Closeout
+# RCIM Model-Bank Reproduction Remaining Family Cellwise Final Closeout
 
 ## Overview
 
 This technical document covers the final closeout of the completed
-remaining-family `Track 1` exact-paper `cell-wise` batch launched through the
+remaining-family `RCIM Model-Bank Reproduction` exact-paper `cell-wise` batch launched through the
 aggregate remote wrapper:
 
 - `track1_remaining_family_cellwise_reference_campaigns_2026_04_18_22_28_04`
@@ -32,15 +32,15 @@ The repository still needs the final reporting and bookkeeping layer that turns
 raw run artifacts into a canonical program state.
 
 The "final closeout" in this document refers to this `171`-run campaign wave.
-It does not imply that overall `Track 1` is complete.
+It does not imply that overall `RCIM Model-Bank Reproduction` is complete.
 
 ## Technical Approach
 
 The closeout should treat the `171`-run wave as one aggregate campaign with
 `9` family-local subcampaigns, following the same discipline already used for
-the earlier `Track 1` exact-paper closeouts.
+the earlier `RCIM Model-Bank Reproduction` exact-paper closeouts.
 
-For `Track 1` state summaries, the authoritative progress surface remains the
+For `RCIM Model-Bank Reproduction` state summaries, the authoritative progress surface remains the
 four colored full-matrix replication tables:
 
 - `Table 2 - Amplitude MAE Full-Matrix Replication`
@@ -116,5 +116,5 @@ The closeout should also explicitly acknowledge the current artifact gap:
    task.
 
 The track-level completion condition remains stricter than this wave closeout:
-`Track 1` is concluded only when the `Table 2-5` surface is fully closed for
+`RCIM Model-Bank Reproduction` is concluded only when the `Table 2-5` surface is fully closed for
 all `10` algorithm families with `19` accepted models per family.

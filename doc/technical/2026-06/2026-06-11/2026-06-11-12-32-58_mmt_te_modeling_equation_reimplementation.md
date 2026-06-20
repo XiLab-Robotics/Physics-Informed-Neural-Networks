@@ -50,7 +50,7 @@ unavailable.
 - planned equation report under `doc/reports/analysis/`
 - planned MATLAB and Python reproduction scripts under a repository-owned
   scripts path
-- repository TE dataset and Track 2 curve-evaluation documentation used for
+- repository TE dataset and TE Curve Verification Pipeline curve-evaluation documentation used for
   the later feasibility plan
 - `doc/README.md` for registering the new technical document
 

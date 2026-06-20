@@ -27,8 +27,8 @@ metadata:
   forbidden_inputs: measured TE, curve mean, held-out full-curve statistics, future
     samples, post-prediction centering
   promotion_rule: Candidate must return through normal closeout and separate official
-    Track 2 curve-first verification.
-  baseline_control: Completed Track 2H robust/probabilistic/MDN probes plus Wave 3
+    TE Curve Verification Pipeline curve-first verification.
+  baseline_control: Completed Wave 4.1 robust/probabilistic/MDN probes plus Wave 5.1
     harmonic-prior residual
   notes: Compact causal GRU hidden state over previous operating-state samples.
   output_artifact_kind: training_run

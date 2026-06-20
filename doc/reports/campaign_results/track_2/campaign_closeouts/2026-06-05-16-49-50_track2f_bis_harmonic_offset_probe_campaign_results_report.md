@@ -1,9 +1,9 @@
-# Track 2F-Bis Harmonic-Offset Probe Campaign Results
+# Wave 3.2 Harmonic-Offset Probe Campaign Results
 
 ## Overview
 
-This report closes the approved `Track 2F-bis` harmonic-offset probe campaign.
-The campaign goal was to keep the clean `Track 2F` non-harmonic residual-offset
+This report closes the approved `Wave 3.2` harmonic-offset probe campaign.
+The campaign goal was to keep the clean `Wave 3.1` non-harmonic residual-offset
 baseline alive, then test a harmonic-forced residual-offset branch on the same
 three required deployment surfaces: `global`, `Fw`, and `Bw`.
 
@@ -15,7 +15,7 @@ repaired through a dedicated rerun, and the effective closeout state is six
 trained candidates with zero unresolved failed runs.
 
 The scalar leaderboard ranks `Fw` first by `test_mae`, but that ranking remains
-diagnostic only. Track 2F-bis keeps three parallel branch outcomes for future
+diagnostic only. Wave 3.2 keeps three parallel branch outcomes for future
 curve-first verification and deployment analysis: one `global`, one `Fw`, and
 one `Bw`. The clean and harmonic branches are also both retained because the
 clean branch is the no-harmonic baseline for later multi-head, composite-loss,
@@ -79,7 +79,7 @@ The scalar result is direction-dependent. Harmonic forcing improves `Fw`
 clearly, improves `Bw` moderately, and leaves `global` almost unchanged on
 `test_mae` while still reducing `test_rmse`. This is enough to keep the
 harmonic-offset branch alive, but it is not enough to make a deployment
-decision before the official curve-first Track 2 refresh.
+decision before the official curve-first TE Curve Verification refresh.
 
 ## Failure Repair
 
@@ -99,7 +99,7 @@ The launcher wrapper was also hardened for a recurring operator issue. When the
 PowerShell launcher is already running inside the requested Conda environment,
 it now calls `python` directly instead of nesting another `conda run`. This
 prevents the misleading terminal-level `conda run ... failed` message seen in
-the previous Track 2F and Track 2F-bis operator runs.
+the previous Wave 3.1 and Wave 3.2 operator runs.
 
 ## Scalar Leaderboard
 
@@ -125,16 +125,16 @@ the previous Track 2F and Track 2F-bis operator runs.
 
 The campaign runner refreshed the family registries for all six branch
 families and updated the program registry. The program-level scalar best did
-not move because the existing Wave 2B periodic `GRU` backward-only model is
+not move because the existing Wave 2.2 periodic `GRU` backward-only model is
 still stronger on scalar `test_mae`.
 
-## Track 2 Boundary
+## TE Curve Verification Pipeline Boundary
 
-Official Track 2 curve-first verification was not run as part of this closeout.
+Official TE curve-first verification was not run as part of this closeout.
 Under campaign governance, that remains a separate operator-approved workflow
 after the final campaign-results report and PDF are complete.
 
-The next verification package must evaluate the clean and harmonic Track 2F-bis
+The next verification package must evaluate the clean and harmonic Wave 3.2
 branches on `global`, `Fw`, and `Bw` in parallel. The intended decision is not
 "one best model overall" at this stage. The intended decision is whether the
 harmonic-offset intervention improves curve following for each deployment
@@ -142,20 +142,20 @@ surface while preserving the clean non-harmonic baseline as a control.
 
 ## Closeout Decision
 
-Track 2F-bis is complete from an execution standpoint after repair: all six
+Wave 3.2 is complete from an execution standpoint after repair: all six
 planned candidates now have successful training artifacts, no unresolved failed
 run remains, and the active campaign state can be cleared.
 
-From a modeling standpoint, Track 2F-bis is a useful intervention branch but
+From a modeling standpoint, Wave 3.2 is a useful intervention branch but
 not yet a deployment promotion. The scalar metrics support carrying the
 harmonic `Fw` and `Bw` branches forward, while the `global` branch needs
 curve-first verification before any stronger conclusion.
 
 ## Recommended Follow-Up
 
-1. Keep six Track 2F-bis candidates available: clean and harmonic variants for
+1. Keep six Wave 3.2 candidates available: clean and harmonic variants for
    `global`, `Fw`, and `Bw`.
 2. Do not collapse the branch set to the scalar-first harmonic `Fw` candidate.
-3. Run the separate official Track 2 refresh once the closeout PDF is accepted.
+3. Run the separate official TE Curve Verification refresh once the closeout PDF is accepted.
 4. Inspect the curve overlays before deciding whether harmonic-offset should
    become the next training family or remain a comparison branch.

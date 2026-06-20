@@ -1,8 +1,8 @@
-# Track 1 Remote Source Sync Temp Directory Fix
+# RCIM Model-Bank Reproduction Remote Source Sync Temp Directory Fix
 
 ## Overview
 
-The Track 1 paper-faithful remote launcher now passes the remote dependency
+The RCIM Model-Bank Reproduction paper-faithful remote launcher now passes the remote dependency
 preflight, including `scikit-elm`, but fails before training starts while
 syncing the local source archive to the remote workstation.
 

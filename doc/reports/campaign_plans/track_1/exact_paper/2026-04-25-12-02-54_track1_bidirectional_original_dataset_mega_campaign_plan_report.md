@@ -1,9 +1,9 @@
-# Track 1 Bidirectional Original-Dataset Mega Campaign Plan Report
+# RCIM Model-Bank Reproduction Bidirectional Original-Dataset Mega Campaign Plan Report
 
 ## Overview
 
 This planning report defines the first real large-scale campaign package for
-the refactored `Track 1` original-dataset exact-model-bank workflow after the
+the refactored `RCIM Model-Bank Reproduction` original-dataset exact-model-bank workflow after the
 successful structural smoke-validation wave.
 
 The campaign remains fully bidirectional:

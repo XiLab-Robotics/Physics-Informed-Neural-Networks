@@ -1,9 +1,9 @@
-# Track 1 Second Iteration Campaign Preparation
+# RCIM Model-Bank Reproduction Second Iteration Campaign Preparation
 
 ## Overview
 
 This document proposes the preparation of a dedicated campaign package for the
-second `Track 1` harmonic-wise iteration.
+second `RCIM Model-Bank Reproduction` harmonic-wise iteration.
 
 The current repository already has the paper-faithful harmonic-wise pipeline
 implemented and the second-iteration preset structure prepared. What is still
@@ -16,7 +16,7 @@ launcher support, and an explicit operator command.
 
 ## Technical Approach
 
-Prepare a dedicated campaign for the second `Track 1` iteration under the
+Prepare a dedicated campaign for the second `RCIM Model-Bank Reproduction` iteration under the
 paper-reimplementation branch.
 
 This campaign should remain separate from the standard
@@ -61,7 +61,7 @@ The intended comparison blocks are:
 ## Implementation Steps
 
 1. Create a detailed campaign planning report for a comprehensive second
-   `Track 1` iteration batch.
+   `RCIM Model-Bank Reproduction` iteration batch.
 2. Define the candidate config matrix, including reduced harmonic stages, full
    RCIM promotion runs, and one diagnostic `RandomForest` comparison.
 3. Prepare a dedicated config package for the approved run set under the paper

@@ -1,4 +1,4 @@
-"""Sequential residual-offset network for Track 2F TE probes."""
+"""Sequential residual-offset network for Wave 3.1 TE probes."""
 
 from __future__ import annotations
 
@@ -47,7 +47,7 @@ class SequentialResidualOffsetNetwork(nn.Module):
             offset_dropout_probability: Dropout probability used by the offset
                 branch.
             offset_bidirectional: Whether the offset branch is bidirectional.
-                Track 2F campaign YAML should keep this disabled for causal
+                Wave 3.1 campaign YAML should keep this disabled for causal
                 deployment discipline.
             offset_readout_position: Sequence readout position for both
                 branches.

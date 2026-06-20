@@ -3,7 +3,7 @@
 ## Overview
 
 This document plans the cleanup of `doc/running/active_training_campaign.yaml`
-after the Track 1 bidirectional paper-faithful grid-search campaign completed.
+after the RCIM Model-Bank Reproduction bidirectional paper-faithful grid-search campaign completed.
 The user confirmed that the campaign is finished and approved removing it from
 the running state so the files listed in `protected_file_list` are no longer
 locked by the active-campaign guard.
@@ -35,7 +35,7 @@ to an empty list.
 - `doc/running/active_training_campaign.yaml`
 - `doc/running/README.md`
 - `doc/README.md`
-- Current Track 1 paper-faithful campaign output under
+- Current RCIM Model-Bank Reproduction paper-faithful campaign output under
   `output/training_campaigns/track1/exact_paper/bidirectional_paper_faithful_grid_search/`
 - Planning report:
   `doc/reports/campaign_plans/track_1/exact_paper/2026-05-13-17-33-38_track1_paper_faithful_elm_queue_addendum_plan_report.md`

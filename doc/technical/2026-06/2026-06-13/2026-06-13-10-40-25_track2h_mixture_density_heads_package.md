@@ -1,12 +1,12 @@
-# Track 2H Mixture Density Heads Package
+# Wave 4.3 Mixture Density Heads Package
 
 ## Overview
 
-This technical note prepares the next `Track 2H` dispersion-aware package:
+This technical note prepares the next `Wave 4 series` dispersion-aware package:
 mixture-density heads for locally dispersed TE curves. The completed robust
 losses and quantile/probabilistic packages showed that dispersion-aware
 training is useful as evidence, but it has not displaced the current official
-`Track 2` leaders. The next question is whether the measured curve is better
+`TE Curve Verification Pipeline` leaders. The next question is whether the measured curve is better
 represented as a small mixture of plausible local TE outcomes rather than as a
 single robust central estimate or a single Gaussian distribution.
 
@@ -16,12 +16,12 @@ and the matching campaign plan are explicitly approved.
 
 ## Technical Approach
 
-The package will reuse the causal curve-aware Track 2H backbone, the
+The package will reuse the causal curve-aware Wave 4 series backbone, the
 direction-separated `global` / `Fw` / `Bw` surfaces, and the dataset split
 discipline used by the robust-loss and quantile/probabilistic campaigns. The
 main change is the output interpretation: each point prediction will expose a
 small Gaussian mixture over the TE target, while retaining one deterministic
-curve for standard campaign metrics and later official `Track 2` verification.
+curve for standard campaign metrics and later official `TE Curve Verification Pipeline` verification.
 
 The first package scope should remain deliberately narrow:
 
@@ -45,7 +45,7 @@ quantile/Gaussian loss extension points before choosing the concrete code
 shape. Prefer a minimal configuration-driven extension if the current training
 module can support MDN output channels cleanly. If deterministic playback or
 loss routing would become ambiguous, introduce explicit narrowly named
-Track 2H model-family or loss-profile keys for mixture-density candidates.
+Wave 4 series model-family or loss-profile keys for mixture-density candidates.
 
 The package remains offline Python research work. PLC-friendly compression,
 export simplification, integrated multi-task / multi-head design, and
@@ -80,7 +80,7 @@ No subagent is planned for this work.
 1. Create this technical document and register it in `doc/README.md`.
 2. Create the paired campaign plan under `doc/reports/campaign_plans/track_2/`.
 3. Stop for explicit user approval before implementation changes.
-4. After approval, inspect the existing Track 2H probabilistic implementation
+4. After approval, inspect the existing Wave 4.2 probabilistic implementation
    and choose whether MDN support is a configuration extension or a narrow new
    model/loss profile.
 5. Implement stable MDN output parsing, negative log likelihood, scale
@@ -96,4 +96,4 @@ No subagent is planned for this work.
 11. Stop before training execution and wait for explicit operator launch.
 12. After operator completion, close the campaign through the standard
     campaign-results report, real PDF validation, registry synchronization,
-    active-state cleanup, and optional separate official `Track 2` refresh.
+    active-state cleanup, and optional separate official `TE Curve Verification Pipeline` refresh.

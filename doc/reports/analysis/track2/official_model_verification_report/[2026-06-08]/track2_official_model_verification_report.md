@@ -1,22 +1,22 @@
-# Track 2 Official Model Verification Report
+# TE Curve Verification Pipeline Official Model Verification Report
 
 ## Executive Verdict
 
-This update accepts the completed `Track 2F-bis` harmonic-offset probe into the
-official `Track 2` offline verification matrix.
+This update accepts the completed `Wave 3.2` harmonic-offset probe into the
+official `TE Curve Verification Pipeline` offline verification matrix.
 
 Decision:
 
-- `Track 2F-bis` is verified as an exploratory harmonic-offset baseline.
-- No `Track 2F-bis` candidate is promoted over the current accepted `Track 2`
+- `Wave 3.2` is verified as an exploratory harmonic-offset baseline.
+- No `Wave 3.2` candidate is promoted over the current accepted `TE Curve Verification Pipeline`
   leaders.
 - The project continues to maintain three parallel best surfaces: `Fw`, `Bw`,
   and `global`.
-- Within `Track 2F-bis`, the strongest forward candidate is
+- Within `Wave 3.2`, the strongest forward candidate is
   `track2f_bis_harmonic_residual_offset_Fw`.
-- Within `Track 2F-bis`, the strongest backward candidate is
+- Within `Wave 3.2`, the strongest backward candidate is
   `track2f_bis_harmonic_residual_offset_Bw`.
-- Within `Track 2F-bis`, the strongest global candidate is
+- Within `Wave 3.2`, the strongest global candidate is
   `track2f_bis_clean_sequential_residual_offset_global`.
 
 ## Source Package
@@ -36,8 +36,8 @@ This official report consolidates these refreshed artifacts:
 
 ## Candidate Refresh
 
-The refresh added `6` registry-backed `Track 2F-bis` candidates and rechecked
-the `3` existing `Track 2F` candidates in the same incremental package.
+The refresh added `6` registry-backed `Wave 3.2` candidates and rechecked
+the `3` existing `Wave 3.1` candidates in the same incremental package.
 
 | Surface | Branch | Candidate | Registry |
 | --- | --- | --- | --- |
@@ -49,15 +49,15 @@ the `3` existing `Track 2F` candidates in the same incremental package.
 | `Bw` | harmonic residual offset | `track2f_bis_harmonic_residual_offset_Bw` | `output/registries/families/track2f_bis_harmonic_residual_offset_bw/latest_family_best.yaml` |
 
 The matrix now contains `120` candidates. The incremental operator run used the
-completed `Track 2F` refresh as its `114`-candidate baseline and evaluated
+completed `Wave 3.1` refresh as its `114`-candidate baseline and evaluated
 `9` registry-backed offset-aware candidates.
 
 ## Verification Rules
 
 | Surface | Training or Archive Scope | Evaluation Scope |
 | --- | --- | --- |
-| `Fw` | forward-only training or archive | forward Track 2 curves only |
-| `Bw` | backward-only training or archive | backward Track 2 curves only |
+| `Fw` | forward-only training or archive | forward TE Curve Verification Pipeline curves only |
+| `Bw` | backward-only training or archive | backward TE Curve Verification Pipeline curves only |
 | `global` | forward and backward training together | both directions, reported by direction and combined |
 
 The `global`, `Fw`, and `Bw` branches are carried forward in parallel. They are
@@ -88,7 +88,7 @@ not collapsed into one scalar winner.
 | `Bw` | `periodic_gru_sequence_Bw` | 0.002392 | 0.002639 | 5.466 | 14.820 |
 | `global combined` | `periodic_gru_sequence_global` | 0.002704 | 0.002949 | 6.139 | 13.396 |
 
-## Track 2F-Bis Result
+## Wave 3.2 Result
 
 | Surface | Candidate | Branch | MAE [deg] | RMSE [deg] | Mean [%] |
 | --- | --- | --- | ---: | ---: | ---: |
@@ -106,16 +106,16 @@ also improves the direction-specific `Bw` result versus the clean sequential
 residual offset control. The same conclusion does not hold for the `global`
 surface: the harmonic global model improves its forward slice, but degrades the
 backward slice enough that the clean global control remains the stronger
-Track 2F-bis global candidate by combined MAE.
+Wave 3.2 global candidate by combined MAE.
 
 ## Visual Evidence
 
 The `2026-06-08` collage and overlay bundles were regenerated with dedicated
-Track 2F-bis sections:
+Wave 3.2 sections:
 
-- `Forward Track 2F-Bis Harmonic-Offset Probe Models`;
-- `Backward Track 2F-Bis Harmonic-Offset Probe Models`;
-- `Global Track 2F-Bis Harmonic-Offset Probe Models` in the collage report.
+- `Forward Wave 3.2 Harmonic-Offset Probe Models`;
+- `Backward Wave 3.2 Harmonic-Offset Probe Models`;
+- `Global Wave 3.2 Harmonic-Offset Probe Models` in the collage report.
 
 The visual package confirms the same decision pattern as the matrix: harmonic
 forcing is useful for the direction-specific branches, while the global branch
@@ -125,14 +125,14 @@ still needs a better way to balance forward and backward offset/shape behavior.
 
 | Date | Campaign or Update | Candidate Scope | Matrix Status | Visual Status | Decision |
 | --- | --- | --- | --- | --- | --- |
-| 2026-06-08 | `Track 2F-bis` harmonic-offset probe refresh | `6` clean and harmonic `global`, `Fw`, and `Bw` candidates plus `3` rechecked Track 2F candidates | included in the `120`-candidate matrix | dated collage and overlay bundles regenerated with Track 2F-bis sections | verified exploratory baseline; not promoted |
-| 2026-06-04 | `Track 2F` offset-aware probe refresh | `3` `global`, `Fw`, and `Bw` sequential residual offset candidates | included in the `114`-candidate matrix | dated collage and overlay bundles regenerated | verified exploratory baseline; not promoted |
-| 2026-05-28 | `Wave 2C` residual harmonic temporal hybrid refresh | `18` `global`, `Fw`, and `Bw` residual harmonic GRU/LSTM candidates | included in the `111`-candidate matrix | collage and overlay reports refreshed with `Wave 2C` sections | verified exploratory baseline; not promoted over `Wave 2B` or accepted Track 2 baselines |
-| 2026-05-26 | `Wave 2B` harmonic temporal hybrid refresh | periodic temporal convolution, GRU, and LSTM `global`, `Fw`, and `Bw` candidates | included | collage and overlay reports refreshed | strongest repository-owned neural branch |
+| 2026-06-08 | `Wave 3.2` harmonic-offset probe refresh | `6` clean and harmonic `global`, `Fw`, and `Bw` candidates plus `3` rechecked Wave 3.1 candidates | included in the `120`-candidate matrix | dated collage and overlay bundles regenerated with Wave 3.2 sections | verified exploratory baseline; not promoted |
+| 2026-06-04 | `Wave 3.1` offset-aware probe refresh | `3` `global`, `Fw`, and `Bw` sequential residual offset candidates | included in the `114`-candidate matrix | dated collage and overlay bundles regenerated | verified exploratory baseline; not promoted |
+| 2026-05-28 | `Wave 2.3` residual harmonic temporal hybrid refresh | `18` `global`, `Fw`, and `Bw` residual harmonic GRU/LSTM candidates | included in the `111`-candidate matrix | collage and overlay reports refreshed with `Wave 2.3` sections | verified exploratory baseline; not promoted over `Wave 2.2` or accepted TE Curve Verification Pipeline baselines |
+| 2026-05-26 | `Wave 2.2` harmonic temporal hybrid refresh | periodic temporal convolution, GRU, and LSTM `global`, `Fw`, and `Bw` candidates | included | collage and overlay reports refreshed | strongest repository-owned neural branch |
 
 ## Closeout Decision
 
-`Track 2F-bis` does not change the accepted `Track 2` baseline. The current
+`Wave 3.2` does not change the accepted `TE Curve Verification Pipeline` baseline. The current
 direction-parallel decision remains:
 
 - `Fw`: `rcim_retuned_GBM19_Fw` remains the strongest overall forward
@@ -142,7 +142,7 @@ direction-parallel decision remains:
   repository-owned backward candidate; `track2f_bis_harmonic_residual_offset_Bw`
   is better than the clean offset control but is not promoted.
 - `global`: `periodic_gru_sequence_global` remains the strongest
-  repository-owned bidirectional neural candidate; within Track 2F-bis, the
+  repository-owned bidirectional neural candidate; within Wave 3.2, the
   clean global control is slightly stronger than the harmonic global branch.
 
 The next modeling step should keep harmonic forcing available for

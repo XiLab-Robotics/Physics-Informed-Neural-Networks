@@ -1,8 +1,8 @@
-"""Close out the Track 1 MLP residual cell final closure campaign.
+"""Close out the RCIM Model-Bank Reproduction MLP residual cell final closure campaign.
 
 This utility reconstructs the completed `2026-04-21` residual MLP closure wave
 from the local validation summaries, writes the canonical campaign
-bookkeeping artifacts, refreshes the accepted MLP row in the Track 1
+bookkeeping artifacts, refreshes the accepted MLP row in the RCIM Model-Bank Reproduction
 benchmark, patches the master summary, and emits the final Markdown campaign
 report.
 """
@@ -79,7 +79,7 @@ SELECTION_POLICY = {
     "sixth_tie_breaker": "run_name",
     "direction": "maximize_then_minimize",
     "note": (
-        "This winner is the bookkeeping representative of the completed Track 1 "
+        "This winner is the bookkeeping representative of the completed RCIM Model-Bank Reproduction "
         "MLP residual cell final closure campaign."
     ),
 }
@@ -191,7 +191,7 @@ def parse_command_line_arguments() -> argparse.Namespace:
     """Parse command-line arguments."""
 
     argument_parser = argparse.ArgumentParser(
-        description="Close out the Track 1 MLP residual cell final closure campaign."
+        description="Close out the RCIM Model-Bank Reproduction MLP residual cell final closure campaign."
     )
     argument_parser.add_argument(
         "--report-timestamp",
@@ -534,7 +534,7 @@ def patch_benchmark_addendum(
             "  the already accepted benchmark baseline and this dedicated residual",
             "  closure wave;",
             "- this wave is allowed to close previously yellow residual cells but it",
-            "  does not alter the Track 1 scope definition itself.",
+            "  does not alter the RCIM Model-Bank Reproduction scope definition itself.",
             "",
             "Post-closeout remaining non-green cells in the accepted `MLP` family row:",
             "",
@@ -633,7 +633,7 @@ def patch_master_summary(
     )
 
     track1_status_pattern = re.compile(
-        r"- Recovered first-launch `MLP` artifact status:.*?(?=\n### Track 1\.5 Harmonic-Wise Validation Support)",
+        r"- Recovered first-launch `MLP` artifact status:.*?(?=\n### RCIM Model-Bank Reproduction\.5 Harmonic-Wise Validation Support)",
         re.DOTALL,
     )
     track1_status_replacement = "\n".join(
@@ -673,7 +673,7 @@ def build_results_report_markdown(
 
     return "\n".join(
         [
-            "# Track 1 MLP Residual Cell Final Closure Campaign Results Report",
+            "# RCIM Model-Bank Reproduction MLP Residual Cell Final Closure Campaign Results Report",
             "",
             "## Overview",
             "",
@@ -683,7 +683,7 @@ def build_results_report_markdown(
             "- `doc/reports/campaign_plans/track_1/exact_paper/2026-04-21-23-32-36_track1_mlp_residual_cell_final_closure_campaign_plan_report.md`",
             "",
             "The campaign targeted only the last four distinct accepted `MLP`",
-            "family-target pairs that were still non-green in the canonical `Track 1`",
+            "family-target pairs that were still non-green in the canonical `RCIM Model-Bank Reproduction`",
             "full-matrix benchmark.",
             "",
             f"- campaign name: `{CAMPAIGN_NAME}`",
@@ -718,10 +718,10 @@ def build_results_report_markdown(
             f"- `Table 5` remaining non-green harmonics: `{', '.join(str(value) for value in remaining_non_green_dictionary['table5']) or 'none'}`",
             f"- total remaining non-green `MLP` cells on Tables `2-5`: `{total_remaining_non_green_count}`",
             "",
-            "## Canonical Track 1 Impact",
+            "## Canonical RCIM Model-Bank Reproduction Impact",
             "",
             "- This residual `MLP` wave updates the accepted `MLP` family row without",
-            "  changing the canonical Track 1 scope definition.",
+            "  changing the canonical RCIM Model-Bank Reproduction scope definition.",
             "- The benchmark row now keeps the better visible metric cell between the",
             "  accepted baseline and this dedicated residual closure wave.",
             "- The cross-family closure counts should now be read directly from the",

@@ -1,8 +1,8 @@
-# Track 1 Remaining Yellow-Cell Multi-Family Campaign Bundle Plan Report
+# RCIM Model-Bank Reproduction Remaining Yellow-Cell Multi-Family Campaign Bundle Plan Report
 
 ## Overview
 
-This planning report prepares the next exact-paper `Track 1` overnight bundle
+This planning report prepares the next exact-paper `RCIM Model-Bank Reproduction` overnight bundle
 focused only on the still-yellow accepted family-row cells across the four
 canonical full-matrix replication tables:
 
@@ -14,7 +14,7 @@ canonical full-matrix replication tables:
 The global benchmark envelope is already much healthier than the family-row
 surface, so this bundle deliberately targets the accepted row-local yellow
 cells that still keep `SVM`, `MLP`, `ET`, `ERT`, `HGBM`, and `XGBM` open under
-the `10 x 19` Track 1 completion rule.
+the `10 x 19` RCIM Model-Bank Reproduction completion rule.
 
 ## Objective
 
@@ -76,7 +76,7 @@ the earlier `27`-attempt open-cell wave.
 | Family Scope | one exact-paper family per launcher |
 | Export Policy | ONNX plus Python-usable fitted estimator persistence |
 | Output Root | `output/validation_checks/paper_reimplementation_rcim_exact_model_bank` |
-| Track 1 Progress Surface | accepted family-row status on canonical Tables `2-5` |
+| RCIM Model-Bank Reproduction Progress Surface | accepted family-row status on canonical Tables `2-5` |
 
 ## Packaging Strategy
 

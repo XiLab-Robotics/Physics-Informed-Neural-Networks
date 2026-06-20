@@ -18,8 +18,8 @@ metadata:
   use_forward_direction: false
   use_backward_direction: true
   runtime_input_contract: current point state plus supported short causal sequence history only
-  promotion_rule: Candidate must return through official Track 2 curve-first verification.
-  notes: Track 2F-bis clean non-harmonic control. Final TE prediction is base_te_prediction + residual_offset_prediction.
+  promotion_rule: Candidate must return through official TE curve-first verification.
+  notes: Wave 3.2 clean non-harmonic control. Final TE prediction is base_te_prediction + residual_offset_prediction.
 dataset:
   curve_batch_size: 2
   point_stride: 1

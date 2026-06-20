@@ -1,8 +1,8 @@
-# Track 1 Open-Cell Full-Matrix Closure Campaigns Plan Report
+# RCIM Model-Bank Reproduction Open-Cell Full-Matrix Closure Campaigns Plan Report
 
 ## Overview
 
-This planning report prepares the next overnight `Track 1` exact-paper
+This planning report prepares the next overnight `RCIM Model-Bank Reproduction` exact-paper
 closure wave after the repository focus change that makes Tables `2`-`5`
 the only canonical progress surface for the track.
 
@@ -22,7 +22,7 @@ variants to each pair for a total of `756` planned trainings.
 
 Prepare a single overnight package that:
 
-- keeps `Track 1` tied only to the canonical full-matrix tables;
+- keeps `RCIM Model-Bank Reproduction` tied only to the canonical full-matrix tables;
 - preserves the accepted `19`-model bank concept for each algorithm family;
 - spends the available overnight budget on the still-open family-target
   cells instead of re-running already-green pairs;
@@ -70,7 +70,7 @@ within the requested `700-800` total-run envelope.
 | Search Mode | `paper_reference_grid_search` |
 | Export Policy | ONNX plus Python-usable fitted estimator persistence |
 | Output Root | `output/validation_checks/paper_reimplementation_rcim_exact_model_bank` |
-| Track 1 Progress Surface | canonical Tables `2-5` only |
+| RCIM Model-Bank Reproduction Progress Surface | canonical Tables `2-5` only |
 
 ## Packaging Strategy
 

@@ -1,4 +1,4 @@
-# Track 1 MLP Family Full-Matrix Repair Campaign Results Report
+# RCIM Model-Bank Reproduction MLP Family Full-Matrix Repair Campaign Results Report
 
 ## Overview
 
@@ -8,7 +8,7 @@ prepared in:
 - `doc/reports/campaign_plans/track_1/exact_paper/2026-04-21-17-20-12_track1_mlp_family_full_matrix_repair_campaign_plan_report.md`
 
 The campaign targeted only the `MLP` family-target pairs selected for the
-post-relaunch repair pass across the canonical `Track 1` full-matrix
+post-relaunch repair pass across the canonical `RCIM Model-Bank Reproduction` full-matrix
 surfaces.
 
 - campaign name: `track1_mlp_family_full_matrix_repair_campaign_2026_04_21_17_20_12`
@@ -56,13 +56,13 @@ targeted `MLP` pair. Each metric cell is shown as `MAE / RMSE`.
 - `Table 5` remaining non-green harmonics: `162`
 - total remaining non-green `MLP` cells on Tables `2-5`: `7`
 
-## Canonical Track 1 Impact
+## Canonical RCIM Model-Bank Reproduction Impact
 
 - This `MLP`-only wave updates the accepted `MLP` family row without
   reopening the already closed cross-family open-cell closeout.
 - The benchmark row now keeps the better visible metric cell between the
   accepted baseline and this dedicated repair wave.
-- Global `Track 1` cross-family closure counts remain unchanged at
+- Global `RCIM Model-Bank Reproduction` cross-family closure counts remain unchanged at
   `7/10`, `10/10`, `9/9`, and `9/9` across Tables `2-5`.
 
 ## Resulting Canonical State

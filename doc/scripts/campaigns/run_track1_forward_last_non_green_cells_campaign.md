@@ -1,8 +1,8 @@
-# Track 1 Forward Last Non-Green Cells Campaign Launcher
+# RCIM Model-Bank Reproduction Forward Last Non-Green Cells Campaign Launcher
 
 ## Overview
 
-This launcher executes the prepared aggressive forward-only `Track 1`
+This launcher executes the prepared aggressive forward-only `RCIM Model-Bank Reproduction`
 original-dataset residual repair campaign.
 
 The script is stored in:

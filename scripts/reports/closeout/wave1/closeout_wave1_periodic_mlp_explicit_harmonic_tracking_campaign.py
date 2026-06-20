@@ -269,7 +269,7 @@ bests unless later curve-level evidence justifies the larger feature bank.
 
 ## Recommended Follow-Up
 
-1. Generate Track 2 curve overlays for the forward dense `0..240`, forward
+1. Generate TE Curve Verification Pipeline curve overlays for the forward dense `0..240`, forward
    RCIM sparse, and forward dense `0..360` periodic MLP candidates.
 2. Compare the same curves against the existing `tree_fw` program winner and
    earlier compact `periodic_mlp_fw` Optuna baseline.

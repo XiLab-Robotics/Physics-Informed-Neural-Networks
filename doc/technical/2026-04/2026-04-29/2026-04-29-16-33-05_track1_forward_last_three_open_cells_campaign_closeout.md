@@ -3,7 +3,7 @@
 ## Overview
 
 This document gates the formal closeout of the completed exact-paper
-`Track 1` forward-only campaign
+`RCIM Model-Bank Reproduction` forward-only campaign
 `track1_forward_last_three_open_cells_campaign_2026-04-29_14_37_21`.
 
 The campaign was prepared to repair the last `3` non-green forward cells after

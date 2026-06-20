@@ -3,8 +3,8 @@
 ## Overview
 
 This document plans the full repository-wide Linux portability pass requested
-after the first Unimore Aries Track 1 slice. The target is stronger than the
-previous Track 1 exact-paper commit: every repository-owned runnable script
+after the first Unimore Aries RCIM Model-Bank Reproduction slice. The target is stronger than the
+previous RCIM Model-Bank Reproduction exact-paper commit: every repository-owned runnable script
 under `scripts/` must either be runnable on Linux directly, expose a documented
 Linux equivalent, or be explicitly classified as intentionally Windows-only
 with a clear replacement workflow.

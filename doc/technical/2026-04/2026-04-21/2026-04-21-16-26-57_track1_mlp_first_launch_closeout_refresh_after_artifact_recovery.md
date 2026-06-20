@@ -1,10 +1,10 @@
-# Track 1 MLP First-Launch Closeout Refresh After Artifact Recovery
+# RCIM Model-Bank Reproduction MLP First-Launch Closeout Refresh After Artifact Recovery
 
 ## Overview
 
 This technical document defines the canonical closeout refresh required after
 the successful local recovery of the missing `MLP` first-launch artifacts for
-the `Track 1` open-cell full-matrix closure wave.
+the `RCIM Model-Bank Reproduction` open-cell full-matrix closure wave.
 
 The repository now contains the full recovered `2026-04-21` `MLP` first-launch
 artifact set:
@@ -23,11 +23,11 @@ No subagent is planned or authorized for this work.
 ## Technical Approach
 
 The refresh will update only the canonical reporting and bookkeeping files that
-summarize the completed `Track 1` open-cell full-matrix closure wave.
+summarize the completed `RCIM Model-Bank Reproduction` open-cell full-matrix closure wave.
 
 The implementation will:
 
-1. re-read the final `Track 1` closure report and the canonical benchmark
+1. re-read the final `RCIM Model-Bank Reproduction` closure report and the canonical benchmark
    reports using the newly recovered `MLP` first-launch artifacts as the
    authoritative evidence source for the `MLP` family;
 2. verify whether the current closeout wording, family representative outcome,

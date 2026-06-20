@@ -1,4 +1,4 @@
-# Track 1 Harmonic-Wise Backward Placeholder
+# RCIM Model-Bank Reproduction Harmonic-Wise Backward Placeholder
 
 This folder is reserved for future `backward` harmonic-wise validation reports.
 

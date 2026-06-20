@@ -1,16 +1,16 @@
-# Track 2D h0 Offset Cross-Check
+# CVP 1.4 h0 Offset Cross-Check
 
 ## Overview
 
-Prepare a measured `h0` / curve-mean cross-check against the `Track 2D`
+Prepare a measured `h0` / curve-mean cross-check against the `CVP 1.4`
 `signed_offset_error_deg` matrix to test whether model offset failures coincide
 with extreme measured harmonic-zero behavior, or whether they remain primarily
 model/regime dependent.
 
 ## Technical Approach
 
-Use the existing `Track 2D` per-curve metric table as the model-error source
-and the existing `Track 2` component-offset input table as the measured
+Use the existing `CVP 1.4` per-curve metric table as the model-error source
+and the existing `TE Curve Verification Pipeline` component-offset input table as the measured
 component source. Normalize `source_file_path` separators and join rows by
 source file, direction, speed, torque, and oil temperature. Filter the component
 table to `harmonic_order == 0` and compare:
@@ -35,7 +35,7 @@ evidence is strong enough to support a narrower claim.
 
 ## Implementation Steps
 
-1. Add a repository-owned analysis script that loads the `Track 2D` and measured
+1. Add a repository-owned analysis script that loads the `CVP 1.4` and measured
    component-offset tables, validates the join cardinality, and emits a joined
    diagnostic table.
 2. Compute per-candidate and per-surface correlations, top-decile overlap

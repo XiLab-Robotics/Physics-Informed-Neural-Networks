@@ -1,6 +1,6 @@
-# Track 1 ET Cellwise Reference Campaign Launcher
+# RCIM Model-Bank Reproduction ET Cellwise Reference Campaign Launcher
 
-    This launcher runs the dedicated `Track 1` exact-paper `ET` family
+    This launcher runs the dedicated `RCIM Model-Bank Reproduction` exact-paper `ET` family
     cellwise reference campaign.
 
     Included configs:

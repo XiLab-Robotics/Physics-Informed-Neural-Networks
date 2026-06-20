@@ -1,8 +1,8 @@
-# Track 1 Forward Final Open-Cells Campaign Launcher
+# RCIM Model-Bank Reproduction Forward Final Open-Cells Campaign Launcher
 
 ## Overview
 
-This launcher executes the prepared final forward-only `Track 1`
+This launcher executes the prepared final forward-only `RCIM Model-Bank Reproduction`
 original-dataset residual repair campaign.
 
 The script is stored in:

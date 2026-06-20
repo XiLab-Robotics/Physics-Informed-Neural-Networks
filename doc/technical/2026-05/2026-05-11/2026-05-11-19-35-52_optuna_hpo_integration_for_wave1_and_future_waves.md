@@ -12,7 +12,7 @@ This is motivated by both immediate and future needs:
 
 - `Wave 1` now has `15` directional winner surfaces that need best-parameter
   refinement;
-- future `Wave 2+` model families will likely make fixed exhaustive grids less
+- future `Wave 2.1+` model families will likely make fixed exhaustive grids less
   efficient and less scalable;
 - the neural families should benefit from a search workflow that remains
   natural for `PyTorch` and `Lightning` training instead of forcing them into
@@ -87,6 +87,6 @@ and inspectable optimization history.
 5. Preserve explicit GPU-preferred execution for neural trials and explicit
    CPU-throttled execution for the non-neural families.
 6. Define the `Optuna` study and artifact layout so the same structure can be
-   reused by `Wave 2+` families without redesigning the campaign machinery.
+   reused by `Wave 2.1+` families without redesigning the campaign machinery.
 7. After implementation, generate the campaign planning report, the campaign
    package, the launcher, and the launcher note before any training execution.

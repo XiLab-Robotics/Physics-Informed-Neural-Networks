@@ -1,7 +1,7 @@
-# Track 1 HGBM Open-Cell Full-Matrix Closure Campaign
+# RCIM Model-Bank Reproduction HGBM Open-Cell Full-Matrix Closure Campaign
 
 This package contains the targeted overnight open-cell closure wave for
-the exact-paper `HGBM` family under the canonical `Track 1` full-
+the exact-paper `HGBM` family under the canonical `RCIM Model-Bank Reproduction` full-
 matrix replication focus.
 
 - unresolved amplitude pairs: `1`

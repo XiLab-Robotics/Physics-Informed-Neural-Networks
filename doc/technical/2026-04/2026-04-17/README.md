@@ -6,7 +6,7 @@
   timestamp-based per-report naming convention.
 - [2026-04-17-19-43-39_track1_reference_family_archive_standardization.md](./2026-04-17-19-43-39_track1_reference_family_archive_standardization.md)
   Technical document for promoting the current `SVM` paper-reference archive
-  layout into the canonical reusable `Track 1` family standard for all
+  layout into the canonical reusable `RCIM Model-Bank Reproduction` family standard for all
   remaining paper-model archives.
 - [2026-04-17-19-30-41_svm_reference_onnx_subfolder_alignment.md](./2026-04-17-19-30-41_svm_reference_onnx_subfolder_alignment.md)
   Technical document for moving the curated `SVM` reference `ONNX` amplitude

@@ -1,4 +1,4 @@
-"""Prepare the Track 2H mixture-density heads campaign package."""
+"""Prepare the Wave 4.3 mixture-density heads campaign package."""
 
 from __future__ import annotations
 
@@ -73,13 +73,13 @@ MIXTURE_PROFILE_DICTIONARY = {
         "queue_label": "mdn_k2",
         "component_count": 2,
         "output_size": 6,
-        "notes": "Two-component Gaussian mixture objective; mixture expectation is used as deterministic Track 2 playback.",
+        "notes": "Two-component Gaussian mixture objective; mixture expectation is used as deterministic TE curve-verification playback.",
     },
     "mdn_k3": {
         "queue_label": "mdn_k3",
         "component_count": 3,
         "output_size": 9,
-        "notes": "Three-component Gaussian mixture objective; mixture expectation is used as deterministic Track 2 playback.",
+        "notes": "Three-component Gaussian mixture objective; mixture expectation is used as deterministic TE curve-verification playback.",
     },
 }
 
@@ -118,7 +118,7 @@ def validate_no_conflicting_active_campaign() -> None:
     active_campaign_name = str(active_state.get("campaign_name", "")).strip()
     same_campaign_is_prepared = active_status == "prepared" and active_campaign_name == CAMPAIGN_NAME
     assert active_status in ["", "none"] or same_campaign_is_prepared, (
-        "Cannot prepare Track 2H mixture-density heads package while another campaign is prepared or active | "
+        "Cannot prepare Wave 4.3 mixture-density heads package while another campaign is prepared or active | "
         f"status={active_status} | campaign_name={active_campaign_name}"
     )
 
@@ -222,7 +222,7 @@ def build_runtime_config() -> dict[str, Any]:
 
 def build_queue_config(queue_index: int, surface_key: str, profile_name: str) -> dict[str, Any]:
 
-    """Build one Track 2H mixture-density queue config."""
+    """Build one Wave 4.3 mixture-density queue config."""
 
     direction_metadata = DIRECTION_METADATA_DICTIONARY[surface_key]
     direction_token = str(direction_metadata["direction_token"])
@@ -259,10 +259,10 @@ def build_queue_config(queue_index: int, surface_key: str, profile_name: str) ->
             "use_forward_direction": bool(direction_metadata["use_forward_direction"]),
             "use_backward_direction": bool(direction_metadata["use_backward_direction"]),
             "runtime_input_contract": "current point state plus supported short causal sequence history only",
-            "promotion_rule": "Candidate must return through official Track 2 curve-first verification using the deterministic mixture-expectation channel.",
+            "promotion_rule": "Candidate must return through official TE curve-first verification using the deterministic mixture-expectation channel.",
             "harmonic_basis": "sparse_rcim",
             "harmonic_index_list": RCIM_HARMONIC_INDEX_LIST,
-            "baseline_control": "Completed Track 2H quantile/probabilistic candidates",
+            "baseline_control": "Completed Wave 4.2 quantile/probabilistic candidates",
             "notes": profile_dictionary["notes"],
         },
         "dataset": build_base_dataset_config(),
@@ -294,13 +294,13 @@ def write_campaign_readme(queue_path_list: list[Path]) -> Path:
 
     readme_path = CAMPAIGN_ROOT / "README.md"
     readme_line_list = [
-        "# Track 2H Mixture Density Heads Campaign Package",
+        "# Wave 5.2 series Mixture Density Heads Campaign Package",
         "",
-        "This package materializes the approved Track 2H mixture-density",
+        "This package materializes the approved Wave 4.3 mixture-density",
         "heads probe. It contains 6 runnable queue entries: `mdn_k2` and",
         "`mdn_k3` across `global`, `Fw`, and `Bw` surfaces.",
         "",
-        "Deterministic Track 2 playback uses the mixture expectation. The",
+        "Deterministic TE curve-verification playback uses the mixture expectation. The",
         "extra channels are component logits, component means, and component",
         "scales for training and diagnostics, not future-looking inference",
         "inputs.",
@@ -356,14 +356,14 @@ def write_active_campaign_state(queue_path_list: list[Path], dataset_variant_pat
             ".\\scripts\\campaigns\\track2\\run_track2h_mixture_density_heads_campaign.ps1",
             ".\\scripts\\campaigns\\track2\\run_track2h_mixture_density_heads_campaign.ps1 -Remote",
         ],
-        "notes": "Prepared Track 2H mixture-density heads package. Training execution requires explicit operator launch approval.",
+        "notes": "Prepared Wave 4.3 mixture-density heads package. Training execution requires explicit operator launch approval.",
     }
     write_yaml_file(PROJECT_PATH / ACTIVE_CAMPAIGN_STATE_PATH, active_state)
 
 
 def main() -> int:
 
-    """Prepare the Track 2H mixture-density heads campaign package."""
+    """Prepare the Wave 4.3 mixture-density heads campaign package."""
 
     validate_no_conflicting_active_campaign()
     dataset_variant_path_list = copy_dataset_variants()
@@ -371,7 +371,7 @@ def main() -> int:
     readme_path = write_campaign_readme(queue_path_list)
     write_active_campaign_state(queue_path_list, dataset_variant_path_list, readme_path)
     print(
-        "Prepared Track 2H mixture-density heads campaign package | "
+        "Prepared Wave 4.3 mixture-density heads campaign package | "
         f"campaign={CAMPAIGN_NAME} | queue_entries={len(queue_path_list)}"
     )
     return 0

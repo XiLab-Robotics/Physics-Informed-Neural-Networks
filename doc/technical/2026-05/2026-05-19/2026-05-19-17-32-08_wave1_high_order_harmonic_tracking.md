@@ -2,10 +2,10 @@
 
 ## Overview
 
-The `Track 2` curve plots show that the current `Wave 1` direct-TE models
+The `TE Curve Verification Pipeline` curve plots show that the current `Wave 1` direct-TE models
 smooth several transmission-error oscillations that are visibly present in the
 original TE curves. This is especially clear when comparing the direct `Wave 1`
-predictions with the `Track 1` paper-faithful harmonic-wise model banks, where
+predictions with the `RCIM Model-Bank Reproduction` paper-faithful harmonic-wise model banks, where
 the FFT-style separation lets different harmonic components be represented with
 their own amplitudes and phases.
 
@@ -66,7 +66,7 @@ than only aggregate scalar error.
 - `doc/running/active_training_campaign.yaml`
   Register the prepared campaign state before launch.
 - `doc/reports/analysis/Track 2 Directional Model Comparison.md` and related
-  `Track 2` plotting outputs
+  `TE Curve Verification Pipeline` plotting outputs
   Use the comparison surface to judge whether the new models actually recover
   high-frequency TE curve content instead of only improving point metrics.
 
@@ -93,5 +93,5 @@ launch.
    and current best learning-rate or stride settings.
 9. Update launcher notes, active campaign state, and exact launch commands
    only after campaign-plan approval.
-10. After execution, update the `Track 2` curve comparison report and the
+10. After execution, update the `TE Curve Verification Pipeline` curve comparison report and the
     relevant training-result registries if a new family-best model is promoted.

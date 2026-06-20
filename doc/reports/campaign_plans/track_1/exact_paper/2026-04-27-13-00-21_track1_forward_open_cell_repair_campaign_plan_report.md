@@ -1,8 +1,8 @@
-# Track 1 Forward Open-Cell Repair Campaign Plan Report
+# RCIM Model-Bank Reproduction Forward Open-Cell Repair Campaign Plan Report
 
 ## Overview
 
-This planning report prepares a forward-only `Track 1` exact-paper repair
+This planning report prepares a forward-only `RCIM Model-Bank Reproduction` exact-paper repair
 campaign on the original-dataset restart benchmark surface.
 
 The campaign does not reopen the completed bidirectional mega-campaign. It

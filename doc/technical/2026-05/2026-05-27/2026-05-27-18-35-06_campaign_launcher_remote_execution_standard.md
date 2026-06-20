@@ -2,11 +2,11 @@
 
 ## Overview
 
-Plan the retrofit that makes the prepared `Wave 2C` campaign launcher runnable
+Plan the retrofit that makes the prepared `Wave 2.3` campaign launcher runnable
 with `-Remote` and formalizes the same remote-capable launcher requirement for
 future campaign packages.
 
-The current `Wave 2C` launcher is local-only. Its real parameter surface is:
+The current `Wave 2.3` launcher is local-only. Its real parameter surface is:
 
 ```powershell
 param(
@@ -15,7 +15,7 @@ param(
 ```
 
 The user approved modifying protected campaign files for this task. The
-prepared campaign state currently protects the `Wave 2C` launcher and launcher
+prepared campaign state currently protects the `Wave 2.3` launcher and launcher
 note, so this document records the intended protected-file edit before code is
 changed.
 
@@ -29,7 +29,7 @@ The implementation should keep the dedicated campaign launcher as the operator
 entry point and add a `-Remote` path instead of replacing it with a generic
 manual command.
 
-The `Wave 2C` launcher should support:
+The `Wave 2.3` launcher should support:
 
 - local execution with the existing command;
 - remote execution with `-Remote`;
@@ -47,7 +47,7 @@ The `Wave 2C` launcher should support:
 The implementation should prefer reusing
 `scripts/campaigns/infrastructure/run_remote_training_campaign.ps1` where
 practical, because that script already owns the manifest-driven remote sync
-contract. The dedicated `Wave 2C` launcher can dispatch to the generic remote
+contract. The dedicated `Wave 2.3` launcher can dispatch to the generic remote
 infrastructure in `-Remote` mode while retaining its local queue-file list for
 normal execution.
 
@@ -84,17 +84,17 @@ required source inputs before launch and campaign artifacts after completion.
 
 1. Wait for explicit approval of this technical document.
 2. Read the current generic remote launcher implementation and identify the
-   minimal dedicated-launcher wrapper needed for Wave 2C.
-3. Add `-Remote` parameters to the Wave 2C launcher:
+   minimal dedicated-launcher wrapper needed for Wave 2.3.
+3. Add `-Remote` parameters to the Wave 2.3 launcher:
    `RemoteHostAlias`, `RemoteRepositoryPath`, and
    `RemoteCondaEnvironmentName`.
 4. In local mode, preserve the existing local campaign execution behavior.
 5. In remote mode, dispatch to the generic remote training launcher with the
-   18 prepared Wave 2C queue YAML files, campaign name, planning report path,
+   18 prepared Wave 2.3 queue YAML files, campaign name, planning report path,
    and remote settings.
-6. Update the Wave 2C launcher note with both local and `-Remote` commands and
+6. Update the Wave 2.3 launcher note with both local and `-Remote` commands and
    the source/artifact sync contract.
-7. Update the Wave 2C preparation script so regenerated launchers and notes keep
+7. Update the Wave 2.3 preparation script so regenerated launchers and notes keep
    the same `-Remote` behavior.
 8. Update `doc/running/active_training_campaign.yaml` so `launch_command_list`
    includes both local and remote commands.

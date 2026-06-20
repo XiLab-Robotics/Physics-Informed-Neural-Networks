@@ -1,11 +1,11 @@
-# Track 2H Quantile Probabilistic Campaign Package
+# Wave 4.2 Quantile Probabilistic Campaign Package
 
-This package materializes the approved second Track 2H
+This package materializes the approved Wave 4.2
 dispersion-aware probe. It contains 6 runnable queue entries:
 `quantile_p10_p50_p90` and `gaussian_nll` across `global`, `Fw`,
 and `Bw` surfaces.
 
-Deterministic Track 2 playback uses `p50` for quantile runs and
+Deterministic TE Curve Verification Pipeline playback uses `p50` for quantile runs and
 `mu` for Gaussian runs. The extra channels are training and
 calibration diagnostics, not future-looking inference inputs.
 

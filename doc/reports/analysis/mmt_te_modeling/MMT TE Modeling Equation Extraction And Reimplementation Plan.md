@@ -583,9 +583,9 @@ conditions.
 ### Phase 4: Compare Against Current Repository Models
 
 Compare the analytical and calibrated analytical predictors against accepted
-Track 2 reference surfaces:
+TE Curve Verification Pipeline reference surfaces:
 
-- current direction-aware Track 2 leaders;
+- current direction-aware curve-verified leaders;
 - paper-reference harmonic models;
 - Wave 1 and later curve-aware candidates;
 - mean-centered and raw evaluations.
@@ -597,7 +597,7 @@ of the following without breaking the others:
 - dominant harmonic attribution;
 - direction-stable curve shape;
 - physically interpretable failure labels;
-- feature or loss design for future Wave 3 or Wave 4 branches.
+- feature or loss design for future Wave 5.1 or Wave 5.2 branches.
 
 ### Phase 5: Implementation Decision
 
@@ -605,7 +605,7 @@ Use the evaluation to choose one of four outcomes:
 
 | Outcome | Meaning | Repository Action |
 | --- | --- | --- |
-| Direct predictor viable | Calibrated analytical model predicts curves competitively. | Promote as a structured baseline and add Track 2 matrix entry. |
+| Direct predictor viable | Calibrated analytical model predicts curves competitively. | Promote as a structured baseline and add curve-verification matrix entry. |
 | Feature generator viable | Analytical terms correlate with residual structure but are not accurate alone. | Add physical features to hybrid structured models. |
 | Loss/regularizer viable | Analytical model captures harmonic or periodic constraints. | Use in physics-informed loss design. |
 | Diagnostic only | Prediction is weak but error attribution is useful. | Keep as reporting/interpretability tooling. |

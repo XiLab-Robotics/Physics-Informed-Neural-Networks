@@ -1,4 +1,4 @@
-# Track 1 Full-Matrix Family Reproduction Campaign Results Report
+# RCIM Model-Bank Reproduction Full-Matrix Family Reproduction Campaign Results Report
 
 ## Overview
 
@@ -15,7 +15,7 @@ launcher:
 - campaign artifact root:
   `output/training_campaigns/track1/exact_paper/forward/full_matrix/shared/track1_full_matrix_family_reproduction_campaign_2026_04_14_13_50_51/`
 
-This campaign was designed for the clarified first objective of `Track 1`:
+This campaign was designed for the clarified first objective of `RCIM Model-Bank Reproduction`:
 
 - reproduce the paper matrices row by row with repository-owned model
   implementations;
@@ -40,13 +40,13 @@ Outcome:
 - all `20` runs exported ONNX artifacts with `0` failed targets;
 - the campaign produced the first complete repository-owned row-by-row
   replication surface for Tables `3`, `4`, and `5`;
-- `Track 1` remains open because no table is fully green and several rows still
+- `RCIM Model-Bank Reproduction` remains open because no table is fully green and several rows still
   contain materially red cells;
 - the strongest row-level reproductions are now explicit and inspectable rather
   than hidden inside one all-family winner run.
 
 This means the campaign succeeded operationally and scientifically as a
-matrix-reproduction pass, even though it did not close `Track 1`.
+matrix-reproduction pass, even though it did not close `RCIM Model-Bank Reproduction`.
 
 ## Ranking Policy
 
@@ -126,7 +126,7 @@ It was selected because it achieved:
 Important interpretation:
 
 - this run is the campaign bookkeeping winner;
-- it is **not** the global solution for `Track 1`;
+- it is **not** the global solution for `RCIM Model-Bank Reproduction`;
 - it only means the `RF` phase row is currently the cleanest single row in the
   full-matrix campaign.
 
@@ -216,11 +216,11 @@ matrix structure family by family.
 
 That removes the ambiguity of the previous best-envelope reading.
 
-### 2. Track 1 Is Still Open
+### 2. RCIM Model-Bank Reproduction Is Still Open
 
 No table is fully green and no family row is fully replicated.
 
-So the first true `Track 1` objective is not yet closed.
+So the first true `RCIM Model-Bank Reproduction` objective is not yet closed.
 
 ### 3. Tree And Boosting Families Dominate The Exact-Paper Surface
 
@@ -266,7 +266,7 @@ The next technically justified steps are:
 
 1. keep `track1_rf_phase_full_matrix` as the bookkeeping winner for this
    campaign only;
-2. keep the real `Track 1` reading anchored to the full family-row matrices in
+2. keep the real `RCIM Model-Bank Reproduction` reading anchored to the full family-row matrices in
    the benchmark report;
 3. prioritize row-aware repair work around:
    `ERT` amplitude, `HGBM` amplitude, `RF` phase, `GBM` phase, and `HGBM`

@@ -2,7 +2,7 @@
 
 ## Overview
 
-This document prepares one overnight exact-paper `Track 1` forward-only mega
+This document prepares one overnight exact-paper `RCIM Model-Bank Reproduction` forward-only mega
 campaign after the completed
 `track1_forward_last_three_open_cells_campaign_2026-04-29_14_37_21` closeout
 failed to promote any new winners.

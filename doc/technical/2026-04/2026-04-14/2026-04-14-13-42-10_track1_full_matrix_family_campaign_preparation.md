@@ -1,8 +1,8 @@
-# Track 1 Full Matrix Family Campaign Preparation
+# RCIM Model-Bank Reproduction Full Matrix Family Campaign Preparation
 
 ## Overview
 
-This technical document defines the next `Track 1` preparation step requested
+This technical document defines the next `RCIM Model-Bank Reproduction` preparation step requested
 by the user after clarifying the real first objective of the paper-faithful
 branch.
 
@@ -69,7 +69,7 @@ Therefore, the correct preparation path is:
 
 Recommended campaign packaging:
 
-- one umbrella `Track 1` full-matrix reproduction campaign;
+- one umbrella `RCIM Model-Bank Reproduction` full-matrix reproduction campaign;
 - two major tracks per family:
   - amplitude track;
   - phase track;

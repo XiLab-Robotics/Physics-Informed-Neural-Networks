@@ -1,6 +1,6 @@
-# Track 1 Exact-Paper Open-Cell Repair Campaign Package
+# RCIM Model-Bank Reproduction Exact-Paper Open-Cell Repair Campaign Package
 
-This directory contains the prepared YAML package for the next `Track 1`
+This directory contains the prepared YAML package for the next `RCIM Model-Bank Reproduction`
 exact-paper campaign under the paper-table-first closure rule.
 
 The campaign launcher should run these files in order:

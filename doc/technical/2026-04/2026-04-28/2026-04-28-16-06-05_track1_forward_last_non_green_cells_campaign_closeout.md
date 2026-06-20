@@ -1,4 +1,4 @@
-# Track 1 Forward Last Non-Green Cells Campaign Closeout
+# RCIM Model-Bank Reproduction Forward Last Non-Green Cells Campaign Closeout
 
 ## Overview
 
@@ -26,7 +26,7 @@ matches the full prepared queue:
 ## Technical Approach
 
 The closeout should follow the same governed path already used for the earlier
-forward and bidirectional Track 1 exact-paper closeouts:
+forward and bidirectional RCIM Model-Bank Reproduction exact-paper closeouts:
 
 1. verify the completed artifact set and aggregate the accepted campaign
    winners;

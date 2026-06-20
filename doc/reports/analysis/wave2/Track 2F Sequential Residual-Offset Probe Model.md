@@ -1,12 +1,12 @@
-# Track 2F Sequential Residual-Offset Probe Model
+# Wave 3.1 Sequential Residual-Offset Probe Model
 
 ## Model Description
 
-`sequential_residual_offset_probe` is the first learned `Track 2F`
+`sequential_residual_offset_probe` is the first learned `Wave 3.1`
 offset-aware candidate.
 
 It is designed to test whether the persistent curve-level vertical offset
-found by `Track 2D` and `Track 2E` can be reduced by a trainable causal branch
+found by `CVP 1.4` and `CVP 1.5` can be reduced by a trainable causal branch
 without changing the deployment input contract.
 
 The model predicts normalized transmission error as:
@@ -20,7 +20,7 @@ branch uses a short sequence window built from already available runtime
 features. The model does not consume future TE samples, true full-curve means,
 or complete-curve normalization at inference time.
 
-This first Track 2F model is deliberately non-harmonic. It does not use the
+This first Wave 3.1 model is deliberately non-harmonic. It does not use the
 explicit periodic `sin`/`cos` feature expansion used by periodic MLP or
 periodic sequence families, and it does not embed the `RCIM` harmonic index
 bank used by harmonic or residual-harmonic families. That makes it a clean
@@ -40,7 +40,7 @@ The branch split is intentionally simple:
 
 The first implementation keeps the loss compatible with the current
 `TransmissionErrorRegressionModule`. Curve-first acceptance is deferred to
-post-training `Track 2` verification rather than embedded into the first
+post-training `TE Curve Verification Pipeline` verification rather than embedded into the first
 training loss.
 
 ## Conceptual Structure
@@ -67,12 +67,12 @@ The campaign materializes three direction-parallel training entries:
 - Separates base prediction from residual-offset correction for diagnostics.
 - Reuses the existing Lightning training and campaign infrastructure.
 - Creates a direct learned comparator against the post-hoc
-  `direction_torque` baseline from `Track 2E`.
+  `direction_torque` baseline from `CVP 1.5`.
 
 ## Disadvantages
 
 - The first loss is still pointwise normalized MSE, so final acceptance still
-  depends on later curve-first `Track 2` verification.
+  depends on later curve-first `TE Curve Verification Pipeline` verification.
 - The model is not forced to preserve harmonic TE waveform shape; visually it
   can behave similarly to a feedforward baseline when the residual branch
   learns mostly low-frequency correction.
@@ -85,17 +85,17 @@ The campaign materializes three direction-parallel training entries:
 
 ## Baseline Role
 
-Track 2F should remain in the comparison matrix even if the next family moves
+Wave 3.1 should remain in the comparison matrix even if the next family moves
 to harmonic-offset or periodic multi-head structures. It answers a different
 question from harmonic models:
 
-- clean Track 2F baseline: what can a causal non-harmonic residual structure
+- clean Wave 3.1 baseline: what can a causal non-harmonic residual structure
   do with the current input contract?
 - harmonic-offset follow-up: what improves when the shape branch is explicitly
   periodic or harmonic and the offset branch is trained separately?
 
 Future new-index, multi-head, or composite-loss campaigns should keep a
-Track 2F-like clean branch in parallel with `global`, `Fw`, and `Bw` surfaces
+Wave 3.1-like clean branch in parallel with `global`, `Fw`, and `Bw` surfaces
 so the effect of the objective can be separated from the effect of harmonic
 feature forcing.
 
@@ -129,10 +129,10 @@ Campaign preparation and launcher:
 The implementation has passed:
 
 - Python compile checks for touched model, training, and campaign scripts;
-- package preflight validation through the Track 2F launcher;
+- package preflight validation through the Wave 3.1 launcher;
 - one-batch validation setup checks for `global`, `Fw`, and `Bw`;
 - one fast-dev smoke training pass for the `global` entry.
 
 Full campaign training is still an operator-launched step. After completion,
-the resulting models must return through official `Track 2` curve-first
+the resulting models must return through official `TE Curve Verification Pipeline` curve-first
 verification before any promotion decision.

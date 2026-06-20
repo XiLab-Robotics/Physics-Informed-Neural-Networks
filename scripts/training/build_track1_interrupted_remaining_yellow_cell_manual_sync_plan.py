@@ -1,4 +1,4 @@
-"""Build the manual sync checklist for the interrupted Track 1 yellow-cell wave."""
+"""Build the manual sync checklist for the interrupted RCIM Model-Bank Reproduction yellow-cell wave."""
 
 from __future__ import annotations
 
@@ -33,7 +33,7 @@ def parse_command_line_arguments() -> argparse.Namespace:
 
     argument_parser = argparse.ArgumentParser(
         description=(
-            "Build the manual sync checklist for the interrupted Track 1 "
+            "Build the manual sync checklist for the interrupted RCIM Model-Bank Reproduction "
             "remaining-yellow-cell campaign."
         )
     )
@@ -89,7 +89,7 @@ def build_checklist_text(active_campaign_dictionary: dict) -> str:
 
     campaign_name = str(active_campaign_dictionary.get("campaign_name", "")).strip()
     assert campaign_name == "track1_remaining_yellow_cell_campaigns_2026_04_22_01_40_43", (
-        "Unexpected active campaign for the interrupted Track 1 yellow-cell manual sync helper | "
+        "Unexpected active campaign for the interrupted RCIM Model-Bank Reproduction yellow-cell manual sync helper | "
         f"campaign_name={campaign_name}"
     )
 
@@ -126,7 +126,7 @@ def build_checklist_text(active_campaign_dictionary: dict) -> str:
     )
 
     line_list: list[str] = [
-        "# Track 1 Interrupted Remaining Yellow-Cell Manual Sync Checklist",
+        "# RCIM Model-Bank Reproduction Interrupted Remaining Yellow-Cell Manual Sync Checklist",
         "",
         "## Campaign Snapshot",
         "",

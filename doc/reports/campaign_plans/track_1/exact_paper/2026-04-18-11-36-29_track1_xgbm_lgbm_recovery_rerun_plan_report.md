@@ -1,9 +1,9 @@
-# Track 1 XGBM LGBM Recovery Rerun Plan Report
+# RCIM Model-Bank Reproduction XGBM LGBM Recovery Rerun Plan Report
 
 ## Overview
 
 This planning report covers the recovery phase for the interrupted
-`Track 1` remaining-family exact-paper batch.
+`RCIM Model-Bank Reproduction` remaining-family exact-paper batch.
 
 The `2026-04-18` remote sequence stopped during the first `XGBM` run because
 the remote Conda environment `pinns_lan_env` did not provide the

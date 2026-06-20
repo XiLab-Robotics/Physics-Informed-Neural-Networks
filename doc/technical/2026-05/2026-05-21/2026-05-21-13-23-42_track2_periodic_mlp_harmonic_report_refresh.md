@@ -1,8 +1,8 @@
-# Track 2 Periodic MLP Harmonic Report Refresh
+# TE Curve Verification Pipeline Periodic MLP Harmonic Report Refresh
 
 ## Overview
 
-Refresh the existing `Track 2` best-model collage and multi-model curve
+Refresh the existing `TE Curve Verification Pipeline` best-model collage and multi-model curve
 comparison report bundles with the newly trained `periodic_mlp` models that
 use explicit harmonic input components.
 
@@ -13,7 +13,7 @@ The requested deliverables are the existing PDF targets:
 
 ## Technical Approach
 
-The current `Track 2` report builders already resolve `periodic_mlp`,
+The current `TE Curve Verification Pipeline` report builders already resolve `periodic_mlp`,
 `periodic_mlp_fw`, and `periodic_mlp_bw` from the family registries under
 `output/registries/families/`. Since the explicit-harmonic campaign closeout
 updated those registries, the report refresh should reuse the existing
@@ -42,7 +42,7 @@ No subagent use is planned for this task.
 ## Implementation Steps
 
 1. Add explicit report-date or report-directory override support to both
-   `Track 2` report builders so they can update the `[2026-05-20]` bundles
+   `TE Curve Verification Pipeline` report builders so they can update the `[2026-05-20]` bundles
    reproducibly.
 2. Regenerate the best-model collage report from the current family registries.
 3. Regenerate the multi-model curve comparison report from the current family

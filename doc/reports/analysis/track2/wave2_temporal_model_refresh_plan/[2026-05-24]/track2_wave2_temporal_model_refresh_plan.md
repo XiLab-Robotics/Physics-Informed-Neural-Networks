@@ -1,13 +1,13 @@
-# Track 2 Wave 2 Temporal Model Refresh Plan
+# TE Curve Verification Pipeline Wave 2.1 Temporal Model Refresh Plan
 
 ## Overview
 
-This plan defines the official `Track 2` refresh needed after the completed
-`Wave 2` temporal-model entry campaign.
+This plan defines the official `TE Curve Verification Pipeline` refresh needed after the completed
+`Wave 2.1` temporal-model entry campaign.
 
 The campaign produced trained `temporal_convolution`, `gru_sequence`, and
 `lstm_sequence` candidates across `global`, `Fw`, and `Bw` surfaces. These
-models are not accepted by Track 2 until the official direction-aware matrix,
+models are not accepted by TE Curve Verification Pipeline until the official direction-aware matrix,
 best-model collages, multi-model overlays, and official verification report
 are refreshed and reviewed.
 
@@ -25,7 +25,7 @@ are refreshed and reviewed.
 
 ## Candidate Scope
 
-| Candidate | Family | Direction Scope | Track 2 Refresh Role |
+| Candidate | Family | Direction Scope | TE Curve Verification Pipeline Refresh Role |
 | --- | --- | --- | --- |
 | `te_temporal_convolution_sequence_remote_global` | `temporal_convolution` | `global` | matrix row |
 | `te_temporal_convolution_sequence_remote_Fw` | `temporal_convolution_fw` | `Fw` | matrix row |
@@ -41,15 +41,15 @@ are refreshed and reviewed.
 
 | Output | Required Update | Acceptance Gate |
 | --- | --- | --- |
-| Directional matrix | add all `9` Wave 2 candidates with direction-correct evaluation | matrix generated without candidate-loading errors |
+| Directional matrix | add all `9` Wave 2.1 candidates with direction-correct evaluation | matrix generated without candidate-loading errors |
 | Best-model collage report | add temporal winner collages for `GRU Fw`, `LSTM global`, and `LSTM Bw` | real Markdown and PDF reviewed |
-| Multi-model overlay report | overlay temporal winners against `tree`, paper-derived, and Track 1 anchors | real Markdown and PDF reviewed |
-| Official Track 2 report | append Wave 2 ledger row and update decision text | styled PDF exported and validated |
-| Backlog and master summary | record Track 2 refresh status and accepted or rejected temporal candidates | docs QA passes |
+| Multi-model overlay report | overlay temporal winners against `tree`, paper-derived, and RCIM Model-Bank Reproduction anchors | real Markdown and PDF reviewed |
+| Official TE curve-verification report | append Wave 2.1 ledger row and update decision text | styled PDF exported and validated |
+| Backlog and master summary | record TE Curve Verification refresh status and accepted or rejected temporal candidates | docs QA passes |
 
 ## Execution Order
 
-1. Extend the Track 2 candidate configuration so all `9` Wave 2 training
+1. Extend the TE Curve Verification Pipeline candidate configuration so all `9` Wave 2.1 training
    outputs can be loaded by the reference-family comparison tooling.
 2. Run the direction-aware matrix refresh and update
    `doc/reports/analysis/track2/Track 2 Directional Model Comparison.md`.
@@ -62,16 +62,16 @@ are refreshed and reviewed.
 7. Update
    `doc/reports/analysis/track2/official_model_verification_report/[2026-05-21]/track2_official_model_verification_report.md`
    with a `2026-05-24` ledger row and the final temporal-model decision.
-8. Export and validate the official Track 2 PDF.
+8. Export and validate the official TE Curve Verification Pipeline PDF.
 
 ## Decision Rule
 
-The refresh can promote a Wave 2 temporal model only if both conditions hold:
+The refresh can promote a Wave 2.1 temporal model only if both conditions hold:
 
-- scalar Track 2 metrics are competitive with the current repository-owned
+- scalar TE Curve Verification Pipeline metrics are competitive with the current repository-owned
   `tree` baseline on the matching direction surface;
 - visual curve evidence shows useful tracking behavior rather than only a
   local training-metric improvement.
 
-If either condition fails, the Wave 2 campaign remains a completed training
-experiment and the official Track 2 accepted baseline remains unchanged.
+If either condition fails, the Wave 2.1 campaign remains a completed training
+experiment and the official TE Curve Verification Pipeline accepted baseline remains unchanged.

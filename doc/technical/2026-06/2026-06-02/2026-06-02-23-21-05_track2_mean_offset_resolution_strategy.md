@@ -1,17 +1,17 @@
-# Track 2 Mean Offset Resolution Strategy
+# TE Curve Verification Pipeline Mean Offset Resolution Strategy
 
 ## Overview
 
 This document plans a documentation update to the curve-first TE training
-strategy after the `Track 2` mean-centered diagnostic committed in
+strategy after the `TE Curve Verification Pipeline` mean-centered diagnostic committed in
 `940a16b934e29ca83fef36da010fdf671bdd52c4`.
 
 The new diagnostic confirms that persistent vertical prediction offset is a
-material part of the observed `Track 2` curve error for many candidates. The
+material part of the observed `TE Curve Verification Pipeline` curve error for many candidates. The
 clearest example is `harmonic_regression_global`, whose four-curve collage
 average `MAE` drops from `0.031130` deg to `0.000888` deg after subtracting the
 truth and prediction curve means independently. Several temporal global
-candidates also improve strongly after mean-centering, while dense `Wave 2C`
+candidates also improve strongly after mean-centering, while dense `Wave 2.3`
 residual-harmonic temporal variants improve much less.
 
 The planned update will extend the curve-first strategy introduced by commit
@@ -28,7 +28,7 @@ The documentation update should record the current interpretation:
 - this setup can encourage a conditional-average prediction when the model
   does not receive enough information to distinguish each curve's mean offset;
 - the result is a plausible under-prediction of high-mean curves and
-  over-prediction of low-mean curves on the `Track 2` playback surface;
+  over-prediction of low-mean curves on the `TE Curve Verification Pipeline` playback surface;
 - the solution is not to make non-causal full curves into model inputs, but to
   make training and validation losses aggregate causal predictions at curve
   level.
@@ -58,8 +58,8 @@ The update should cite these existing evidence sources:
 
 1. Add a dedicated section to the curve-first strategy explaining the mean
    offset failure mode and why pointwise `MSE` can favor curve-mean averaging.
-2. Record the `Track 2` mean-centered diagnostic findings, including the
-   numeric `harmonic_regression_global` example and the dense `Wave 2C`
+2. Record the `TE Curve Verification Pipeline` mean-centered diagnostic findings, including the
+   numeric `harmonic_regression_global` example and the dense `Wave 2.3`
    counterexample.
 3. Add the next diagnostic step: full-matrix curve decomposition into mean
    offset, centered shape error, amplitude error, harmonic phase error, and
@@ -73,6 +73,6 @@ The update should cite these existing evidence sources:
      frozen base model;
    - a spectral or mean-independent metric used as a shape component, not as
      the only objective.
-6. Update the master summary and live backlog so the next plan is a `Track 2D`
+6. Update the master summary and live backlog so the next plan is a `CVP 1.4`
    offset-source audit before launching new training.
 7. Run scoped Markdown QA on the touched authored Markdown files.

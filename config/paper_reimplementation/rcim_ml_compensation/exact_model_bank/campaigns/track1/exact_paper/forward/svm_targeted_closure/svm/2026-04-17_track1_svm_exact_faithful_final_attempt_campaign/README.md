@@ -1,4 +1,4 @@
-# Track 1 SVM Exact-Faithful Final Attempt Campaign Package
+# RCIM Model-Bank Reproduction SVM Exact-Faithful Final Attempt Campaign Package
 
 This directory contains the prepared YAML package for the final strict
 paper-faithful `SVR` confirmation campaign on the residual `SVM` yellow cells.

@@ -1,4 +1,4 @@
-# Track 1 Forward Closeout PDF Table Layout Refinement
+# RCIM Model-Bank Reproduction Forward Closeout PDF Table Layout Refinement
 
 ## Overview
 
@@ -44,7 +44,7 @@ No subagent is planned for this narrow renderer fix.
 ## Implementation Steps
 
 1. Add semantic table-class constants and header-detection helpers for the
-   three Track 1 forward closeout table shapes.
+   three RCIM Model-Bank Reproduction forward closeout table shapes.
 2. Add CSS column-width rules matching the requested layout.
 3. Extend header normalization so `Exported ONNX` and `Exported PKL` wrap after
    `Exported`.

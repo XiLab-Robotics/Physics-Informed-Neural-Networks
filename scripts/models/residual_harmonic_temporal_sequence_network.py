@@ -1,4 +1,4 @@
-"""Residual harmonic temporal sequence networks for Wave 2C TE candidates."""
+"""Residual harmonic temporal sequence networks for Wave 2.3 TE candidates."""
 
 from __future__ import annotations
 

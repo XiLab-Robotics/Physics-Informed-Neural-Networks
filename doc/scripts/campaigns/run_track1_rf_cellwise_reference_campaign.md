@@ -1,6 +1,6 @@
-# Track 1 RF Cellwise Reference Campaign Launcher
+# RCIM Model-Bank Reproduction RF Cellwise Reference Campaign Launcher
 
-    This launcher runs the dedicated `Track 1` exact-paper `RF` family
+    This launcher runs the dedicated `RCIM Model-Bank Reproduction` exact-paper `RF` family
     cellwise reference campaign.
 
     Included configs:

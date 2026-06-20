@@ -1,8 +1,8 @@
-# Track 1 Forward Maxi Last Non-Green Cells Campaign
+# RCIM Model-Bank Reproduction Forward Maxi Last Non-Green Cells Campaign
 
 ## Overview
 
-This technical document prepares the next exact-paper `Track 1` forward-only
+This technical document prepares the next exact-paper `RCIM Model-Bank Reproduction` forward-only
 repair wave after the completed `forward_last_non_green_cells` closeout.
 
 The canonical forward paper-facing surface still has `9` non-green cells across
@@ -51,7 +51,7 @@ Planned total queue size: `270` training runs.
 The intended post-approval implementation remains the standard repository
 workflow:
 
-- generate one dedicated campaign config bundle under the Track 1 exact-paper
+- generate one dedicated campaign config bundle under the RCIM Model-Bank Reproduction exact-paper
   original-dataset tree;
 - generate one dedicated PowerShell launcher;
 - generate one matching launcher note;

@@ -1,8 +1,8 @@
-# Track 1 Remaining Family Final Closeout Campaign Results Report
+# RCIM Model-Bank Reproduction Remaining Family Final Closeout Campaign Results Report
 
 ## Overview
 
-This report closes the full remaining-family exact-paper `Track 1` batch
+This report closes the full remaining-family exact-paper `RCIM Model-Bank Reproduction` batch
 prepared in:
 
 - `doc/reports/campaign_plans/track_1/exact_paper/2026-04-18-00-48-05_track1_remaining_exact_paper_family_campaigns_plan_report.md`
@@ -116,5 +116,5 @@ The key final conclusion is:
 - the remaining-family batch is fully closed out;
 - `RF phase` remains the strongest bookkeeping winner;
 - `LGBM` improves the amplitude-side paper envelope;
-- `Track 1` still remains canonically open because the exact-paper tables are
+- `RCIM Model-Bank Reproduction` still remains canonically open because the exact-paper tables are
   not yet fully matched at harmonics `3`, `81`, `156`, `162`, and `240`.

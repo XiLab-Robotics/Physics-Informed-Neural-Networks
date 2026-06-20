@@ -2,7 +2,7 @@
 
 ## Overview
 
-The campaign-result and Track 2 artifact tree has accumulated inconsistent
+The campaign-result and TE Curve Verification Pipeline artifact tree has accumulated inconsistent
 filesystem names and experiment labels. The immediate symptoms are:
 
 - both `doc/reports/campaign_results/track_2/campaign_closeouts/` and
@@ -29,8 +29,8 @@ identifiers:
 
 - filesystem paths use lowercase snake_case slugs with numeric separators,
   such as `track_2`, `wave_1`, `wave_2`, `wave_3`, and `wave_4`;
-- human-facing report titles use display names with spaces, such as `Track 2`
-  and `Wave 2`;
+- human-facing report titles use display names with spaces, such as `TE Curve Verification Pipeline`
+  and `Wave 2.1`;
 - historical compact spellings such as `track2`, `wave1`, and `wave3_wave4`
   are treated as legacy aliases, not future canonical names;
 - literal filesystem spaces, such as `track 2`, are migrated away because they
@@ -38,7 +38,7 @@ identifiers:
 - combined roots such as `wave3_wave4` are split unless an artifact truly spans
   both waves, in which case it moves under an explicit
   `cross_wave/wave_3_wave_4/` topic;
-- alphabetic Track 2 experiment suffixes become explicit experiment-family
+- alphabetic TE Curve Verification Pipeline experiment suffixes become explicit experiment-family
   names in paths and display titles.
 
 The migration should be performed as an audited rename/update pass rather than
@@ -75,7 +75,7 @@ verification status.
 3. Define the approved canonical root layout. Initial proposed layout:
    `track_1/`, `track_2/`, `wave_1/`, `wave_2/`, `wave_3/`, `wave_4/`, and
    `cross_wave/`.
-4. Define Track 2 experiment-family names that replace opaque suffixes in new
+4. Define TE Curve Verification Pipeline experiment-family names that replace opaque suffixes in new
    paths while preserving old IDs in metadata. Initial examples:
    `offset_aware_probe`, `harmonic_offset_probe`, `curve_aware_training`,
    `dispersion_aware_robust_loss`, `probabilistic_quantile`,

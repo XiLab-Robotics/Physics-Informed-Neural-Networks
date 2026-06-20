@@ -1,16 +1,16 @@
-# Track 2C Curve Payload Diagnostics
+# CVP 1.2 Curve Payload Diagnostics
 
 ## Overview
 
-This document plans the `Track 2C Curve Payload Diagnostics` branch. The branch
-will not train new models. It will extend the already accepted `Track 2`
+This document plans the `CVP 1.2 Curve Payload Diagnostics` branch. The branch
+will not train new models. It will extend the already accepted `TE Curve Verification Pipeline`
 offline verification surface so selected candidates can be compared on richer
 curve-shape diagnostics, not only on the aggregate metrics already available in
-`Track 2B`.
+`CVP 1.1`.
 
 The goal is to decide the next modeling branch with stronger evidence:
 
-- whether existing paper-reference, Track 1, Wave 1, Wave 2B, or Wave 2C
+- whether existing paper-reference, RCIM Model-Bank Reproduction, Wave 1, Wave 2.2, or Wave 2.3
   candidates fail because of amplitude, phase, local slope, or continuity
   errors;
 - whether a retraining pass should change the loss/reranking objective for
@@ -30,13 +30,13 @@ No subagent is planned for this phase.
 
 ## Technical Approach
 
-The implementation should reuse the existing `Track 2` evaluator rather than
+The implementation should reuse the existing `TE Curve Verification Pipeline` evaluator rather than
 introducing a new dataset or training surface.
 
 The branch should:
 
-- identify a compact screened candidate set from `Track 2B`;
-- run or reuse `Track 2` evaluation with curve payloads enabled for that set;
+- identify a compact screened candidate set from `CVP 1.1`;
+- run or reuse `TE Curve Verification Pipeline` evaluation with curve payloads enabled for that set;
 - export per-curve truth and prediction arrays in a machine-readable bundle;
 - compute diagnostics that explain curve-following quality:
   - peak-to-peak normalized error;
@@ -81,7 +81,7 @@ Primary data and artifact inputs:
 
 - `doc/reports/analysis/track2/curve_first_reranking_report/[2026-05-28]/track2_curve_first_reranking_report.md`
 - `output/validation_checks/track2_curve_first_reranking/2026-05-28-19-27-46__track2b_curve_first_reranking/track2_curve_first_reranking_summary.yaml`
-- latest accepted `Track 2` validation summary under
+- latest accepted `TE Curve Verification Pipeline` validation summary under
   `output/validation_checks/track2_reference_comparison/`
 - current model artifacts under `models/`
 - family and program registries under `output/registries/`
@@ -94,8 +94,8 @@ Initial screened candidate set:
 | Backward curve-first leader | `rcim_retuned_GBM19_Bw` |
 | Strong scalar registry winner | `periodic_gru_sequence_Bw` |
 | Best global curve-first surface | `periodic_lstm_sequence_global` |
-| Strong Wave 2C backward residual candidate | `residual_harmonic_lstm_sequence_sparse_rcim_Bw` |
-| Strong Wave 2C global residual candidate | `residual_harmonic_lstm_sequence_sparse_rcim_global` |
+| Strong Wave 2.3 backward residual candidate | `residual_harmonic_lstm_sequence_sparse_rcim_Bw` |
+| Strong Wave 2.3 global residual candidate | `residual_harmonic_lstm_sequence_sparse_rcim_global` |
 | Wave 1 structured baseline | `harmonic_regression_Bw` or direction-valid harmonic leader after inspection |
 | Negative/simple-shape comparison | `tree_Bw` and/or `tree_global` |
 
@@ -104,9 +104,9 @@ inventory or payload availability makes a candidate unsuitable.
 
 ## Implementation Steps
 
-1. Inspect the current `Track 2` evaluation support code and confirm the
+1. Inspect the current `TE Curve Verification Pipeline` evaluation support code and confirm the
    existing curve-payload switch, output schema, and candidate filtering path.
-2. Define a compact candidate configuration for the screened `Track 2C`
+2. Define a compact candidate configuration for the screened `CVP 1.2`
    diagnostic set.
 3. Implement a repository-owned report script or extension that exports curve
    payloads without changing model inputs or dataset structure.
@@ -131,7 +131,7 @@ inventory or payload availability makes a candidate unsuitable.
 12. Stop after reporting completion; do not commit until the user explicitly
     requests it.
 
-The expected next decision after `Track 2C` is one of:
+The expected next decision after `CVP 1.2` is one of:
 
 - prepare a compact curve-aware retraining pass for existing families;
 - prepare a new family wave with stronger curve-shape inductive bias;

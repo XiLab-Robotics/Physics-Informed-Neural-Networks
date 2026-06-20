@@ -6,7 +6,7 @@ This launcher runs the approved `Wave 1` periodic MLP explicit harmonic
 tracking package. The package compares fixed periodic-feature harmonic banks
 for `periodic_mlp` across `global`, `Fw`, and `Bw` direction scopes.
 
-It does not launch `Track 1` paper-faithful workflows, does not change the
+It does not launch `RCIM Model-Bank Reproduction` paper-faithful workflows, does not change the
 pure `feedforward` baseline, and does not define the future `Fourier-Feature
 MLP` family. Promotion remains a later closeout decision after scalar and
 curve-level review.

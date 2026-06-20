@@ -10,7 +10,7 @@ metadata:
   planning_report_path: doc/reports/campaign_plans/wave_2/2026-05-21-16-46-08_wave2_temporal_model_entry_campaign_plan_report.md
   phase_name: wave2_temporal_model_preparation
   campaign_config_id: periodic_lstm_sequence_fw
-  notes: Wave 2 temporal-model entry campaign prepared for Track 2 verification. Periodic
+  notes: Wave 2.1 temporal-model entry campaign prepared for TE curve verification. Periodic
     LSTM candidate using RCIM sparse harmonic features on centered TE sequence windows.
     forward-only data scope.
   random_seed: 42

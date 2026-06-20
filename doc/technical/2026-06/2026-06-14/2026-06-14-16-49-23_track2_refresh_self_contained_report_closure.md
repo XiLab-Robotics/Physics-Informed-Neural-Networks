@@ -1,8 +1,8 @@
-# Track 2 Refresh Self-Contained Report Closure
+# TE Curve Verification Pipeline Refresh Self-Contained Report Closure
 
 ## Overview
 
-Repeated `Track 2` verification refreshes currently require a manual Codex
+Repeated `TE Curve Verification Pipeline` verification refreshes currently require a manual Codex
 closure step after the operator launcher completes. The launcher runs the
 matrix, collage builder, overlay builder, visual coverage validation, and PDF
 export for the two visual reports, but it does not generate or export the
@@ -16,13 +16,13 @@ prints completion.
 
 ## Technical Approach
 
-Add a repository-owned official `Track 2` refresh report builder that reads the
+Add a repository-owned official `TE Curve Verification Pipeline` refresh report builder that reads the
 latest matrix `validation_summary.yaml`, collage summary, overlay summary, and
 launcher metadata. The builder will write the dated official Markdown report
 under `doc/reports/analysis/track2/official_model_verification_report/` and
 copy enough evidence paths into the report for the styled PDF export.
 
-Patch the `Track 2` refresh launchers so the normal path performs:
+Patch the `TE Curve Verification Pipeline` refresh launchers so the normal path performs:
 
 1. matrix refresh;
 2. best-model collage generation;
@@ -47,9 +47,9 @@ reports.
 - `scripts/campaigns/track_2/run_track2h_mixture_density_heads_track2_verification_refresh.ps1`
 - `scripts/campaigns/track_2/run_track2h_quantile_probabilistic_track2_verification_refresh.ps1`
 - `scripts/campaigns/track_2/run_track2h_track2_verification_refresh.ps1`
-- shared `Track 2` refresh launchers for earlier branches where the same
+- shared `TE Curve Verification Pipeline` refresh launchers for earlier branches where the same
   pattern exists
-- `scripts/reports/analysis/` official `Track 2` report builder to add
+- `scripts/reports/analysis/` official `TE Curve Verification Pipeline` report builder to add
 - `scripts/reports/pdf/run_report_pipeline.py`
 - `doc/scripts/campaigns/track_2/` launcher notes
 - `doc/README.md`
@@ -57,14 +57,14 @@ reports.
 
 ## Implementation Steps
 
-1. Implement a reusable official `Track 2` verification report builder that can
+1. Implement a reusable official `TE Curve Verification Pipeline` verification report builder that can
    be called from PowerShell with `--matrix-summary-path`,
    `--collage-summary-path`, `--overlay-summary-path`, `--report-date`,
    `--refresh-label`, `--candidate-source-label`, and decision metadata.
-2. Add report-local table layout defaults that match the recurring Track 2 PDF
+2. Add report-local table layout defaults that match the recurring TE Curve Verification Pipeline PDF
    requirements: narrow rank/profile columns, wider candidate/source columns,
    equal metric columns, and no technical-document section in the final PDF.
-3. Patch the current `Track 2H` refresh launchers so PDF export includes the
+3. Patch the current `Wave 4 series` refresh launchers so PDF export includes the
    official report path after visual report generation.
 4. Patch artifact manifest generation so local and remote runs include the
    official report bundle.
@@ -72,7 +72,7 @@ reports.
    self-contained closure behavior.
 6. Run focused PowerShell/script validation, Python compile checks, Markdown
    checks on touched Markdown, and the styled PDF pipeline on the current
-   `Track 2H` mixture-density heads artifacts to prove the official report is
+   `Wave 4.3` mixture-density heads artifacts to prove the official report is
    included without manual reruns.
 
 No subagent is planned for this change.

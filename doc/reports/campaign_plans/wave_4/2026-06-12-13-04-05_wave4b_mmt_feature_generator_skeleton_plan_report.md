@@ -1,22 +1,22 @@
-# Wave 4B MMT Feature Generator Skeleton Plan
+# Wave 5.2B MMT Feature Generator Skeleton Plan
 
 ## Purpose
 
-This preliminary plan defines a non-campaign `Wave 4B` skeleton pass while the
-separate `Track 2H` quantile / probabilistic campaign runs on another
+This preliminary plan defines a non-campaign `Wave 5.2B` skeleton pass while the
+separate `Wave 4.2` quantile / probabilistic campaign runs on another
 workstation.
 
 The output is a dry-run MMT feature-generation package. It must be useful for
-future `Wave 3`, `Wave 4B`, or `Wave 4C` work, but it must not become a real
+future `Wave 5.1`, `Wave 5.2B`, or `Wave 5.2C` work, but it must not become a real
 training campaign in this pass.
 
 ## Scope
 
 | Stream | Planned Output | Campaign Readiness |
 | --- | --- | --- |
-| `Wave 4B` | MMT feature schema and generator skeleton. | not campaign-ready |
-| `Wave 4B` | Leakage-aware feature metadata and dry-run sample output. | not campaign-ready |
-| `Wave 4B` | Validator, dry-run launcher, and launcher note. | not campaign-ready |
+| `Wave 5.2B` | MMT feature schema and generator skeleton. | not campaign-ready |
+| `Wave 5.2B` | Leakage-aware feature metadata and dry-run sample output. | not campaign-ready |
+| `Wave 5.2B` | Validator, dry-run launcher, and launcher note. | not campaign-ready |
 | Documentation | Technical note, plan report, and index registrations. | implementation gate only |
 
 ## Boundaries
@@ -35,7 +35,7 @@ This pass must not:
 - create active queue YAMLs;
 - edit `doc/running/active_training_campaign.yaml`;
 - update model registries or campaign winner artifacts;
-- use `Track 2H` quantile / probabilistic results before closeout;
+- use `Wave 4.2` quantile / probabilistic results before closeout;
 - treat MMT feature generation as a validated physical loss.
 
 ## Planned Files
@@ -54,7 +54,7 @@ This pass must not:
 The pass is complete only after:
 
 - Python compilation passes for new and touched scripts;
-- the `Wave 4B` validator passes and writes finite sample outputs;
+- the `Wave 5.2B` validator passes and writes finite sample outputs;
 - the dry-run launcher passes and does not launch training;
 - leakage labels are validated so only inference-safe fields are exposed for
   inference use;
@@ -66,10 +66,10 @@ The pass is complete only after:
 
 After this skeleton pass:
 
-- `Wave 4B` can only become a real feature-augmented training campaign after
-  the in-flight `Track 2H` campaign is closed out and a new approved campaign
+- `Wave 5.2B` can only become a real feature-augmented training campaign after
+  the in-flight `Wave 4 series` campaign is closed out and a new approved campaign
   plan selects queue size, surfaces, losses, and feature consumers;
-- `Wave 4C` can only consume MMT features as weak-loss inputs after `Wave 4B`
+- `Wave 5.2C` can only consume MMT features as weak-loss inputs after `Wave 5.2B`
   feature leakage checks and dataset-aligned parameter availability are
   accepted;
 - no campaign launch is approved by this plan.

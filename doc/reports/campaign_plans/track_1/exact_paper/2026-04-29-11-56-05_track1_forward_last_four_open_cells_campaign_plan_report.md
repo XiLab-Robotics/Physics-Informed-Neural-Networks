@@ -1,8 +1,8 @@
-# Track 1 Forward Last Four Open Cells Campaign Plan Report
+# RCIM Model-Bank Reproduction Forward Last Four Open Cells Campaign Plan Report
 
 ## Overview
 
-This planning report prepares one final targeted exact-paper `Track 1`
+This planning report prepares one final targeted exact-paper `RCIM Model-Bank Reproduction`
 forward-only campaign after the completed `forward_maxi_last_non_green_cells`
 wave.
 

@@ -1,20 +1,20 @@
-# Track 2 Official Model Verification Report
+# TE Curve Verification Pipeline Official Model Verification Report
 
 ## Executive Verdict
 
-This update accepts the completed `Track 2H` mixture-density heads campaign
-into the official `Track 2` offline verification matrix.
+This update accepts the completed `Wave 4.3` mixture-density heads campaign
+into the official `TE Curve Verification Pipeline` offline verification matrix.
 
 Decision:
 
-- `Track 2H` mixture-density heads are verified as an exploratory
+- `Wave 4.3` mixture-density heads are verified as an exploratory
   dispersion-aware baseline.
-- No MDN candidate is promoted over the current accepted `Track 2` leaders.
+- No MDN candidate is promoted over the current accepted `TE Curve Verification Pipeline` leaders.
 - The strongest MDN forward candidate is `track2h_mdn_k3_Fw`.
 - The strongest MDN backward candidate is `track2h_mdn_k2_Bw`.
 - The strongest MDN global candidate is `track2h_mdn_k2_global`.
 - The best MDN backward candidate improves over the previous
-  quantile/probabilistic and robust-loss `Track 2H` backward branches, but it
+  quantile/probabilistic and robust-loss `Wave 4 series` backward branches, but it
   remains behind the accepted periodic temporal backward leader.
 - The project continues to maintain direction-parallel `Fw`, `Bw`, and
   `global` surfaces instead of collapsing them into one scalar ranking.
@@ -38,7 +38,7 @@ This official report consolidates these refreshed artifacts:
 
 ## Candidate Refresh
 
-The refresh added `6` registry-backed `Track 2H` MDN candidates covering
+The refresh added `6` registry-backed `Wave 4.3` MDN candidates covering
 two- and three-component mixture heads across the `global`, `Fw`, and `Bw`
 surfaces.
 
@@ -58,8 +58,8 @@ matrix now contains `153` candidates.
 
 | Surface | Training or Archive Scope | Evaluation Scope |
 | --- | --- | --- |
-| `Fw` | forward-only training or archive | forward Track 2 curves only |
-| `Bw` | backward-only training or archive | backward Track 2 curves only |
+| `Fw` | forward-only training or archive | forward TE Curve Verification Pipeline curves only |
+| `Bw` | backward-only training or archive | backward TE Curve Verification Pipeline curves only |
 | `global` | forward and backward training together | both directions, reported by direction and combined |
 
 The MDN heads are not compared as raw mixture tensors. The official matrix
@@ -85,7 +85,7 @@ mixture expectation computed from component logits and component means.
 | `global forward` | `tree_global` | 0.002998 | 0.003364 | 6.590 | 11.601 |
 | `global backward` | `tree_global` | 0.003290 | 0.003702 | 7.118 | 13.703 |
 
-## Track 2H Mixture Density Result
+## Wave 4.3 Mixture Density Result
 
 | Surface | Candidate | Profile | MAE [deg] | RMSE [deg] | Mean [%] | P95 [%] |
 | --- | --- | --- | ---: | ---: | ---: | ---: |
@@ -99,10 +99,10 @@ mixture expectation computed from component logits and component means.
 | `global backward` | `track2h_mdn_k2_global` | `mdn_k2` | 0.003735 | 0.004073 | 8.194 | 15.436 |
 
 The strongest MDN `Bw` candidate improves over the best
-quantile/probabilistic `Bw` candidate from `0.002935` to `0.002668` Track 2
+quantile/probabilistic `Bw` candidate from `0.002935` to `0.002668` TE Curve Verification Pipeline
 MAE. It also improves over the best robust-loss `Bw` candidate from
-`0.003078` to `0.002668` Track 2 MAE. This makes `track2h_mdn_k2_Bw` the
-strongest `Track 2H` backward surface so far.
+`0.003078` to `0.002668` curve-verification MAE. This makes `track2h_mdn_k2_Bw` the
+strongest `Wave 4 series` backward surface so far.
 
 The same improvement does not carry over to `Fw` or `global`. The strongest
 MDN `Fw` candidate remains behind the best probabilistic `Fw` candidate, and
@@ -114,7 +114,7 @@ learned multimodal TE distribution.
 ## Visual Evidence
 
 The `2026-06-13` collage and overlay bundles were regenerated after the MDN
-refresh. They include explicit `Track 2H` mixture-density sections for `Fw`,
+refresh. They include explicit `Wave 4.3` mixture-density sections for `Fw`,
 `Bw`, and `global` collage evidence, plus explicit `Fw` and `Bw` MDN overlay
 sections.
 
@@ -130,17 +130,17 @@ periodic temporal branch or the forward paper-reference leader.
 
 | Date | Campaign or Update | Candidate Scope | Matrix Status | Visual Status | Decision |
 | --- | --- | --- | --- | --- | --- |
-| 2026-06-13 | `Track 2H` mixture-density heads refresh | `6` MDN `global`, `Fw`, and `Bw` candidates | included in the `153`-candidate matrix | dated collage and overlay bundles regenerated with MDN sections | verified exploratory baseline; not promoted |
-| 2026-06-12 | `Track 2H` quantile/probabilistic refresh | `6` quantile and Gaussian `global`, `Fw`, and `Bw` candidates | included in the `147`-candidate matrix | dated collage and overlay bundles regenerated | verified exploratory baseline; not promoted |
-| 2026-06-11 | `Track 2H` robust-loss dispersion-aware refresh | `9` robust `global`, `Fw`, and `Bw` candidates | included in the `141`-candidate matrix | dated collage and overlay bundles regenerated with Track 2H sections | verified exploratory baseline; not promoted |
-| 2026-06-10 | `Track 2G` curve-aware training refresh | `12` pointwise-control, centered-shape, offset, and full-composite `global`, `Fw`, and `Bw` candidates | included in the `132`-candidate matrix | dated collage and overlay bundles regenerated with Track 2G sections | verified exploratory baseline; not promoted |
-| 2026-06-08 | `Track 2F-bis` harmonic-offset probe refresh | `6` clean and harmonic `global`, `Fw`, and `Bw` candidates plus `3` rechecked Track 2F candidates | included in the `120`-candidate matrix | dated collage and overlay bundles regenerated with Track 2F-bis sections | verified exploratory baseline; not promoted |
-| 2026-06-04 | `Track 2F` offset-aware probe refresh | `3` `global`, `Fw`, and `Bw` sequential residual offset candidates | included in the `114`-candidate matrix | dated collage and overlay bundles regenerated | verified exploratory baseline; not promoted |
-| 2026-05-28 | `Wave 2C` residual harmonic temporal hybrid refresh | `18` `global`, `Fw`, and `Bw` residual harmonic GRU/LSTM candidates | included in the `111`-candidate matrix | collage and overlay reports refreshed with `Wave 2C` sections | verified exploratory baseline; not promoted over `Wave 2B` or accepted Track 2 baselines |
+| 2026-06-13 | `Wave 4.3` mixture-density heads refresh | `6` MDN `global`, `Fw`, and `Bw` candidates | included in the `153`-candidate matrix | dated collage and overlay bundles regenerated with MDN sections | verified exploratory baseline; not promoted |
+| 2026-06-12 | `Wave 4.2` quantile/probabilistic refresh | `6` quantile and Gaussian `global`, `Fw`, and `Bw` candidates | included in the `147`-candidate matrix | dated collage and overlay bundles regenerated | verified exploratory baseline; not promoted |
+| 2026-06-11 | `Wave 4.1` robust-loss dispersion-aware refresh | `9` robust `global`, `Fw`, and `Bw` candidates | included in the `141`-candidate matrix | dated collage and overlay bundles regenerated with Wave 4 series sections | verified exploratory baseline; not promoted |
+| 2026-06-10 | `Wave 3.3` curve-aware training refresh | `12` pointwise-control, centered-shape, offset, and full-composite `global`, `Fw`, and `Bw` candidates | included in the `132`-candidate matrix | dated collage and overlay bundles regenerated with Wave 3.3 sections | verified exploratory baseline; not promoted |
+| 2026-06-08 | `Wave 3.2` harmonic-offset probe refresh | `6` clean and harmonic `global`, `Fw`, and `Bw` candidates plus `3` rechecked Wave 3.1 candidates | included in the `120`-candidate matrix | dated collage and overlay bundles regenerated with Wave 3.2 sections | verified exploratory baseline; not promoted |
+| 2026-06-04 | `Wave 3.1` offset-aware probe refresh | `3` `global`, `Fw`, and `Bw` sequential residual offset candidates | included in the `114`-candidate matrix | dated collage and overlay bundles regenerated | verified exploratory baseline; not promoted |
+| 2026-05-28 | `Wave 2.3` residual harmonic temporal hybrid refresh | `18` `global`, `Fw`, and `Bw` residual harmonic GRU/LSTM candidates | included in the `111`-candidate matrix | collage and overlay reports refreshed with `Wave 2.3` sections | verified exploratory baseline; not promoted over `Wave 2.2` or accepted TE Curve Verification Pipeline baselines |
 
 ## Closeout Decision
 
-`Track 2H` mixture-density heads do not change the accepted `Track 2`
+`Wave 4.3` mixture-density heads do not change the accepted `TE Curve Verification Pipeline`
 baseline. The current direction-parallel decision remains:
 
 - `Fw`: `rcim_retuned_GBM19_Fw` remains the strongest overall forward
@@ -149,14 +149,14 @@ baseline. The current direction-parallel decision remains:
 - `Bw`: `periodic_gru_sequence_Bw` remains the strongest accepted
   repository-owned backward candidate. Within the MDN package,
   `track2h_mdn_k2_Bw` is the strongest backward candidate and the strongest
-  `Track 2H` backward result so far.
+  `Wave 4 series` backward result so far.
 - `global`: `periodic_gru_sequence_global` remains the strongest accepted
   bidirectional neural candidate. Within the MDN package,
   `track2h_mdn_k2_global` is the strongest global surface, but it trails the
   best probabilistic global candidate.
 
 The next modeling step should not be another MDN-only variant. The evidence
-supports moving to the first real `Wave 3` hybrid structured campaign, while
+supports moving to the first real `Wave 5.1` hybrid structured campaign, while
 keeping robust and probabilistic losses as candidate ingredients for later
 multi-task / multi-head integration. A latent-state / hysteresis-aware Track
 2H branch remains justified if the next decision is to pursue experimental

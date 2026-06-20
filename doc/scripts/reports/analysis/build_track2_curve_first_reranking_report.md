@@ -1,9 +1,9 @@
-# Track 2 Curve-First Reranking Report Builder
+# TE Curve Verification Pipeline Curve-First Reranking Report Builder
 
 ## Overview
 
 `scripts/reports/analysis/build_track2_curve_first_reranking_report.py` builds
-the `Track 2B` curve-first reranking report from an existing `Track 2`
+the `CVP 1.1` curve-first reranking report from an existing `TE Curve Verification Pipeline`
 validation run.
 
 The script is evaluation-only. It does not launch training, does not modify the
@@ -11,12 +11,12 @@ dataset structure, and does not supply future curve samples to the model path.
 
 ## Main Role
 
-The report builder converts the existing `Track 2` per-condition metrics into a
+The report builder converts the existing `TE Curve Verification Pipeline` per-condition metrics into a
 promotion-oriented ranking surface for continuous `TE` compensation readiness.
 
 It ranks candidates by:
 
-- mean `Track 2` mean-percentage-error over each candidate's valid direction
+- mean `TE Curve Verification Pipeline` mean-percentage-error over each candidate's valid direction
   surface;
 - P95 mean-percentage-error as the first tie-breaker;
 - worst-condition mean-percentage-error as the second tie-breaker;
@@ -33,7 +33,7 @@ A complete source directory must contain:
 - `per_condition_metrics.csv`
 - `validation_summary.yaml`
 
-Use `--track2-run-directory` to rerank a specific `Track 2` run.
+Use `--track2-run-directory` to rerank a specific `TE Curve Verification Pipeline` run.
 
 ## Outputs
 
@@ -53,7 +53,7 @@ The dated Markdown report is written under:
 
 ## Practical Use
 
-Run the latest available `Track 2` matrix reranking from the repository root:
+Run the latest available `TE Curve Verification Pipeline` matrix reranking from the repository root:
 
 ```powershell
 python -B scripts/reports/analysis/build_track2_curve_first_reranking_report.py
@@ -81,5 +81,5 @@ python -B scripts/reports/analysis/build_track2_curve_first_reranking_report.py 
   deployment target is continuous `TE` compensation across many consecutive
   motor revolutions.
 - Harmonic amplitude, harmonic phase, derivative continuity, and stitched
-  revolution residual diagnostics require a future `Track 2` curve-payload
+  revolution residual diagnostics require a future `TE Curve Verification Pipeline` curve-payload
   export and are intentionally marked as deferred by this report.

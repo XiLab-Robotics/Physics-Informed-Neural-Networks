@@ -3,8 +3,8 @@
 ## Overview
 
 Plan a new repository-owned analytical report that summarizes the current
-state of the work and repository, with explicit coverage of `Wave 1`, `Wave 2`,
-`Wave 2B`, `Wave 2C`, and their `Track 2` verification outcomes.
+state of the work and repository, with explicit coverage of `Wave 1`, `Wave 2.1`,
+`Wave 2.2`, `Wave 2.3`, and their `TE Curve Verification Pipeline` verification outcomes.
 
 The report will also compare the best results obtained from sparse `RCIM`
 harmonic implementations and dense harmonic-bank implementations across the
@@ -37,7 +37,7 @@ The synthesis will separate:
 
 - verified repository state;
 - campaign scalar outcomes such as `test_mae`;
-- `Track 2` curve-following outcomes;
+- `TE Curve Verification Pipeline` curve-following outcomes;
 - interpretation of harmonic-bank choices, including sparse `RCIM`, dense
   `0..240`, dense `0..360`, and residual harmonic variants;
 - open risks and recommended next development steps.
@@ -60,7 +60,7 @@ Read-only evidence components include:
 
 - Wave analysis and explanatory reports under `doc/reports/analysis/wave1/`
   and `doc/reports/analysis/wave2/`
-- `Track 2` analysis reports under `doc/reports/analysis/track2/`
+- `TE Curve Verification Pipeline` analysis reports under `doc/reports/analysis/track2/`
 - campaign closeout reports under `doc/reports/campaign_results/`
 - active status and backlog documents under `doc/running/`
 - program and family registries under `output/registries/`
@@ -73,14 +73,14 @@ Read-only evidence components include:
    source-backed map of repository state, completed waves, best models, and
    verification status.
 2. Inspect campaign closeout reports for `Wave 1`, explicit harmonic `Wave 1`,
-   high-order harmonic tracking, `Wave 2`, `Wave 2B`, and `Wave 2C`.
-3. Inspect `Track 2` reports and visual report ledgers to summarize directional
+   high-order harmonic tracking, `Wave 2.1`, `Wave 2.2`, and `Wave 2.3`.
+3. Inspect `TE Curve Verification Pipeline` reports and visual report ledgers to summarize directional
    and global verification outcomes without counting report aliases as distinct
    model families.
 4. Inspect commit `b73220679410276246421b7e2832d8878cff90a0` and summarize the
    attempted perspective shift in the future development plan.
 5. Draft the new analysis report with sections for repository status, Wave
-   outcomes, `Track 2` outcomes, harmonic-bank comparison, best current
+   outcomes, `TE Curve Verification Pipeline` outcomes, harmonic-bank comparison, best current
    results, risks, and future development plan.
 6. Register the new report in `doc/README.md`.
 7. Run repository Markdown QA on the touched Markdown files:

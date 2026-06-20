@@ -86,10 +86,10 @@ It should not yet reorganize:
 After the reorganization, the repository should still keep the already
 approved conceptual distinction:
 
-- `Track 1`: paper-faithful harmonic-wise benchmark;
-- `Track 2`: repository direct-TE comparable benchmark.
+- `RCIM Model-Bank Reproduction`: paper-faithful harmonic-wise benchmark;
+- `TE Curve Verification Pipeline`: repository direct-TE comparable benchmark.
 
-This task only improves the structure and discoverability of `Track 1`.
+This task only improves the structure and discoverability of `RCIM Model-Bank Reproduction`.
 
 ## Involved Components
 

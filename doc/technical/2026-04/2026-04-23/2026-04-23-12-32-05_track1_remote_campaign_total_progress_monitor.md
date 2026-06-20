@@ -1,8 +1,8 @@
-# Track 1 Remote Campaign Total Progress Monitor
+# RCIM Model-Bank Reproduction Remote Campaign Total Progress Monitor
 
 ## Overview
 
-The current exact-paper `Track 1` remaining-yellow-cell bundle is running on
+The current exact-paper `RCIM Model-Bank Reproduction` remaining-yellow-cell bundle is running on
 the remote LAN workstation while the local wrapper state is stale because the
 local PC was force-powered off.
 

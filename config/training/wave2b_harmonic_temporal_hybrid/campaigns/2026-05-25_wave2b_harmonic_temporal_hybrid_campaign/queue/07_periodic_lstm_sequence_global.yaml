@@ -10,7 +10,7 @@ metadata:
   planning_report_path: doc/reports/campaign_plans/wave_2/2026-05-25-13-34-12_wave2b_harmonic_temporal_hybrid_campaign_plan_report.md
   phase_name: wave2b_harmonic_temporal_hybrid_preparation
   campaign_config_id: periodic_lstm_sequence
-  notes: Wave 2B harmonic-temporal hybrid campaign | family=periodic_lstm_sequence | direction=global. Candidate must return through official Track 2 verification.
+  notes: Wave 2.2 harmonic-temporal hybrid campaign | family=periodic_lstm_sequence | direction=global. Candidate must return through official TE curve verification.
   random_seed: 42
   base_model_family: periodic_lstm_sequence
   training_variant: global

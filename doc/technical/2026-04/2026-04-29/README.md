@@ -21,7 +21,7 @@
   forward maxi campaign and the formal closeout that follows from the recovered
   local copy.
 - [2026-04-29-01-37-16_track1_forward_maxi_last_non_green_cells_campaign.md](./2026-04-29-01-37-16_track1_forward_maxi_last_non_green_cells_campaign.md)
-  Plan the next forward-only Track 1 maxi campaign that targets the final `7`
+  Plan the next forward-only RCIM Model-Bank Reproduction maxi campaign that targets the final `7`
   amplitude repair pairs with a few hundred exact-paper-safe retries.
 - [2026-04-29-00-45-52_rcim_original_pipeline_author_conversation_formalization.md](./2026-04-29-00-45-52_rcim_original_pipeline_author_conversation_formalization.md)
   Plan the formalization of the newly recovered full RCIM original pipeline root, the author clarifications, and the resulting updates to the canonical recovered-asset documentation.

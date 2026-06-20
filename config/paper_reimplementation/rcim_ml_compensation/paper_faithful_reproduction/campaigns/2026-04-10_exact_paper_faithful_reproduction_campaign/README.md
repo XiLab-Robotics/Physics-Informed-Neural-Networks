@@ -2,7 +2,7 @@
 
 ## Overview
 
-This package prepares the first coordinated `Track 1` paper-faithful
+This package prepares the first coordinated `RCIM Model-Bank Reproduction` paper-faithful
 reproduction campaign after the completed exact-paper model-bank stabilization
 campaign.
 

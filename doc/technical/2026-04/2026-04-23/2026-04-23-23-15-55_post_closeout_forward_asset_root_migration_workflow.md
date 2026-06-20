@@ -5,7 +5,7 @@
 This document formalizes the deferred post-closeout workflow required to
 rename the current RCIM recovered-asset root and to update the still-protected
  campaign and operational path references after the active exact-paper
- `Track 1` campaign is closed.
+ `RCIM Model-Bank Reproduction` campaign is closed.
 
 The repository documentation is now being updated to state that the current
 recovered asset package is forward-only. However, the physical root path still
@@ -54,7 +54,7 @@ is no longer `running` or `prepared`.
 ## Implementation Steps
 
 1. Confirm that `doc/running/active_training_campaign.yaml` no longer marks the
-   exact-paper `Track 1` campaign as `running` or `prepared`.
+   exact-paper `RCIM Model-Bank Reproduction` campaign as `running` or `prepared`.
 2. Read the campaign state and identify the previously protected config and
    launcher files that still reference
    `reference/rcim_ml_compensation_recovered_assets/`.

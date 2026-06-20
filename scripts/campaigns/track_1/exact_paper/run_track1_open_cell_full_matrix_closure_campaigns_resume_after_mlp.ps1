@@ -23,7 +23,7 @@ $launcherRelativePathList = @(
     "scripts\campaigns\track_1\exact_paper\run_track1_lgbm_open_cell_full_matrix_closure_campaign.ps1"
 )
 
-Write-Host "[INFO] Track 1 relaunch mode | resume after completed MLP family" -ForegroundColor Cyan
+Write-Host "[INFO] RCIM Model-Bank Reproduction relaunch mode | resume after completed MLP family" -ForegroundColor Cyan
 Write-Host "[INFO] Relaunch family launcher count | $($launcherRelativePathList.Count)" -ForegroundColor Cyan
 Write-Host "[INFO] Execution Mode | $(if ($Remote) { 'remote' } else { 'local' })" -ForegroundColor Cyan
 
@@ -51,11 +51,11 @@ for ($launcherIndex = 0; $launcherIndex -lt $launcherRelativePathList.Count; $la
 
     $nativeExitCode = if ($LASTEXITCODE -eq $null) { 0 } else { [int]$LASTEXITCODE }
     if ($nativeExitCode -ne 0) {
-        Write-Host "[ERROR] Track 1 relaunch launcher failed | $launcherRelativePath" -ForegroundColor Red
+        Write-Host "[ERROR] RCIM Model-Bank Reproduction relaunch launcher failed | $launcherRelativePath" -ForegroundColor Red
         exit $nativeExitCode
     }
 }
 
 Write-Host ""
-Write-Host "[DONE] Track 1 open-cell full-matrix relaunch after MLP completed successfully" -ForegroundColor Green
+Write-Host "[DONE] RCIM Model-Bank Reproduction open-cell full-matrix relaunch after MLP completed successfully" -ForegroundColor Green
 exit 0

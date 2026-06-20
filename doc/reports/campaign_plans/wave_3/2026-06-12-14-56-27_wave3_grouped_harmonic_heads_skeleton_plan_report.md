@@ -1,21 +1,21 @@
-# Wave 3 Grouped Harmonic Heads Skeleton Plan
+# Wave 5.1 Grouped Harmonic Heads Skeleton Plan
 
 ## Purpose
 
 This preliminary plan defines a non-campaign skeleton pass for
-`wave3_grouped_harmonic_heads` while the separate `Track 2H` quantile /
+`wave3_grouped_harmonic_heads` while the separate `Wave 4.2` quantile /
 probabilistic campaign runs on another workstation.
 
-The output is a dry-run model-interface package. It must help future `Wave 3`
+The output is a dry-run model-interface package. It must help future `Wave 5.1`
 campaign preparation, but it must not become a training campaign in this pass.
 
 ## Scope
 
 | Stream | Planned Output | Campaign Readiness |
 | --- | --- | --- |
-| `Wave 3` | Grouped harmonic-head model skeleton. | not campaign-ready |
-| `Wave 3` | Config template and factory construction path. | not campaign-ready |
-| `Wave 3` | Point/sequence forward validator and dry-run launcher. | not campaign-ready |
+| `Wave 5.1` | Grouped harmonic-head model skeleton. | not campaign-ready |
+| `Wave 5.1` | Config template and factory construction path. | not campaign-ready |
+| `Wave 5.1` | Point/sequence forward validator and dry-run launcher. | not campaign-ready |
 | Documentation | Technical note, plan report, launcher note, and index updates. | implementation gate only |
 
 ## Boundaries
@@ -34,7 +34,7 @@ This pass must not:
 - create active queue YAMLs;
 - edit `doc/running/active_training_campaign.yaml`;
 - update model registries or campaign winner artifacts;
-- use `Track 2H` quantile / probabilistic results before closeout;
+- use `Wave 4.2` quantile / probabilistic results before closeout;
 - select final branch weights, regularizers, or robust-loss defaults.
 
 ## Planned Files
@@ -67,8 +67,8 @@ The pass is complete only after:
 
 After this skeleton pass:
 
-- `Wave 3` can only become a real campaign package after the in-flight
-  `Track 2H` campaign is closed out and a new approved campaign plan selects
+- `Wave 5.1` can only become a real campaign package after the in-flight
+  `Wave 4 series` campaign is closed out and a new approved campaign plan selects
   queue size, surfaces, losses, branch weights, and launch mode;
 - `wave3_grouped_harmonic_heads` remains a second candidate behind the
   already training-smoke-ready `wave3_harmonic_prior_residual` until evidence

@@ -31,7 +31,7 @@ remain visible, while repository-owned changes are limited to path handling,
 CLI entrypoints, runtime-output roots, logging, compatibility fixes, and
 documentation.
 
-The faithful Track 1 reimplementation that uses this recovered pipeline as the
+The faithful RCIM Model-Bank Reproduction reimplementation that uses this recovered pipeline as the
 protocol reference is:
 
 - `scripts/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/`
@@ -42,7 +42,7 @@ surface are:
 - `models/paper_reference/rcim_track1/`
 - `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
 
-The current Track 1 full-dataset surface is closed as a faithful
+The current RCIM Model-Bank Reproduction full-dataset surface is closed as a faithful
 forward/backward reproduction. Future restricted-dataset reruns should use this
 recovered workflow as provenance, but must publish a separate comparison report
 instead of overwriting the closed baseline.

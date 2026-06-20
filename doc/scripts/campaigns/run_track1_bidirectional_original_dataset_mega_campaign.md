@@ -1,8 +1,8 @@
-# Track 1 Bidirectional Original-Dataset Mega Campaign Launcher
+# RCIM Model-Bank Reproduction Bidirectional Original-Dataset Mega Campaign Launcher
 
 ## Overview
 
-This launcher executes the prepared large-scale `Track 1` bidirectional
+This launcher executes the prepared large-scale `RCIM Model-Bank Reproduction` bidirectional
 original-dataset campaign package.
 
 The script is stored in:

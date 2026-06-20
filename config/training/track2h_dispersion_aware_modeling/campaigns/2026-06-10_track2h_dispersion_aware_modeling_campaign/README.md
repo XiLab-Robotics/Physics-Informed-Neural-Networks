@@ -1,10 +1,10 @@
-# Track 2H Dispersion-Aware Modeling Campaign Package
+# Wave 4 series Dispersion-Aware Modeling Campaign Package
 
-This package materializes the approved first Track 2H robust-loss
+This package materializes the approved first Wave 4.1 robust-loss
 probe. It contains 9 runnable queue entries: three robust pointwise
 losses across `global`, `Fw`, and `Bw` surfaces.
 
-The MSE pointwise-control baseline is the already verified Track 2G
+The MSE pointwise-control baseline is the already verified Wave 3.3
 pointwise-control set. Runtime input remains causal point or
 short-history sequence input.
 

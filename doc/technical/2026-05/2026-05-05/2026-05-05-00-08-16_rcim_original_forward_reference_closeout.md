@@ -36,7 +36,7 @@ source of truth for the exported model artifacts. The closeout pass will:
    to make the new RCIM original forward reference archive self-describing.
 
 The closeout will remain scoped to the completed forward RCIM original bundle.
-It will not mutate the active Track 1 campaign state or the protected
+It will not mutate the active RCIM Model-Bank Reproduction campaign state or the protected
 `doc/running/active_training_campaign.yaml` surface.
 
 ## Involved Components

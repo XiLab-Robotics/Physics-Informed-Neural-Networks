@@ -1,4 +1,4 @@
-"""Build Track 2 component-offset identification input tables."""
+"""Build TE Curve Verification Pipeline component-offset identification input tables."""
 
 from __future__ import annotations
 
@@ -341,12 +341,12 @@ def write_markdown_report(
     harmonic_order_text = ", ".join(f"`{harmonic_order}`" for harmonic_order in harmonic_order_list)
 
     report_lines = [
-        "# Track 2 Component Offset Identification Inputs",
+        "# TE Curve Verification Pipeline Component Offset Identification Inputs",
         "",
         "## Overview",
         "",
         "This report prepares measured component-offset input tables for the",
-        "`Track 2` component-offset identification branch. It does not train",
+        "`TE Curve Verification Pipeline` component-offset identification branch. It does not train",
         "models, alter registries, or assert that `a_0` / `Component 0` is the",
         "confirmed cause of the observed curve-offset symptom.",
         "",
@@ -428,7 +428,7 @@ def main() -> None:
             harmonic_order_list=harmonic_order_list,
         )
 
-    print(f"Prepared Track 2 component-offset input tables | {output_directory}")
+    print(f"Prepared TE Curve Verification Pipeline component-offset input tables | {output_directory}")
     if not argument_namespace.skip_report:
         print(f"Prepared Markdown report | {report_directory / REPORT_FILENAME}")
 

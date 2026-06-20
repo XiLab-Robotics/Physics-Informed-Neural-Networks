@@ -1,8 +1,8 @@
-# Track 2F Offset-Aware Probe Campaign Package
+# Wave 3.1 Offset-Aware Probe Campaign Package
 
-This package materializes the approved Track 2F offset-aware probe plan.
+This package materializes the approved Wave 3.1 offset-aware probe plan.
 
-It contains descriptor entries for the full Track 2F matrix plus three
+It contains descriptor entries for the full Wave 3.1 matrix plus three
 runnable `sequential_residual_offset_probe` queue YAML files. The post-hoc
 `direction_torque` offset baseline remains a validation-only benchmark, while
 `multi_head_shape_offset_probe` remains guarded until its own model type is

@@ -1,4 +1,4 @@
-"""Build Track 2D mean-offset full-matrix diagnostics."""
+"""Build CVP 1.4 mean-offset full-matrix diagnostics."""
 
 from __future__ import annotations
 
@@ -62,7 +62,7 @@ CONDITION_STRATIFIED_FILENAME = "track2d_condition_stratified_summary.csv"
 @dataclass(frozen=True)
 class Track2DPerCurveMetric:
 
-    """One full-matrix Track 2D diagnostic row."""
+    """One full-matrix CVP 1.4 diagnostic row."""
 
     candidate_id: str
     candidate_family: str
@@ -136,7 +136,7 @@ class Track2DPerCurveMetric:
 @dataclass(frozen=True)
 class Track2DCandidateSummary:
 
-    """Aggregate Track 2D diagnostics for one candidate."""
+    """Aggregate CVP 1.4 diagnostics for one candidate."""
 
     rank: int
     candidate_id: str
@@ -212,7 +212,7 @@ def build_argument_parser() -> argparse.ArgumentParser:
 
     argument_parser = argparse.ArgumentParser(
         description=(
-            "Generate Track 2D full-matrix mean-offset diagnostics without "
+            "Generate CVP 1.4 full-matrix mean-offset diagnostics without "
             "training models or changing the causal input contract."
         )
     )
@@ -220,19 +220,19 @@ def build_argument_parser() -> argparse.ArgumentParser:
         "--config-path",
         type=Path,
         default=DEFAULT_CONFIG_PATH,
-        help="Track 2 matrix config used to resolve candidates and held-out curve records.",
+        help="curve-verification matrix config used to resolve candidates and held-out curve records.",
     )
     argument_parser.add_argument(
         "--output-root",
         type=Path,
         default=DEFAULT_OUTPUT_ROOT,
-        help="Root for generated machine-readable Track 2D artifacts.",
+        help="Root for generated machine-readable CVP 1.4 artifacts.",
     )
     argument_parser.add_argument(
         "--report-topic-root",
         type=Path,
         default=DEFAULT_REPORT_TOPIC_ROOT,
-        help="Root for the dated Track 2D Markdown report bundle.",
+        help="Root for the dated CVP 1.4 Markdown report bundle.",
     )
     argument_parser.add_argument(
         "--candidate-id",
@@ -256,7 +256,7 @@ def build_argument_parser() -> argparse.ArgumentParser:
     argument_parser.add_argument(
         "--merge-only",
         action="store_true",
-        help="Merge existing Track 2D per-curve CSV outputs into a final report without inference.",
+        help="Merge existing CVP 1.4 per-curve CSV outputs into a final report without inference.",
     )
     argument_parser.add_argument(
         "--harmonic-order",
@@ -360,7 +360,7 @@ def resolve_timestamped_output_paths(
 
 def load_training_config(config_path: Path, output_suffix: str) -> dict[str, Any]:
 
-    """Load and prepare the Track 2 runtime config."""
+    """Load and prepare the TE Curve Verification Pipeline runtime config."""
 
     raw_training_config = reference_family_vs_feedforward_support.load_reference_family_comparison_config(config_path)
     return shared_training_infrastructure.prepare_output_artifact_training_config(
@@ -377,7 +377,7 @@ def filter_candidate_configuration_list(
     candidate_end_index: int | None,
 ) -> list[dict[str, Any]]:
 
-    """Resolve and optionally filter Track 2 candidate configurations."""
+    """Resolve and optionally filter TE Curve Verification Pipeline candidate configurations."""
 
     candidate_configuration_list = (
         reference_family_vs_feedforward_support.resolve_track2_candidate_configuration_list(training_config)
@@ -405,7 +405,7 @@ def filter_candidate_configuration_list(
         if candidate_id not in candidate_configuration_map
     ]
     if missing_candidate_id_list:
-        raise KeyError(f"Missing Track 2 candidate ids: {missing_candidate_id_list}")
+        raise KeyError(f"Missing TE Curve Verification Pipeline candidate ids: {missing_candidate_id_list}")
     return [candidate_configuration_map[candidate_id] for candidate_id in candidate_id_list]
 
 
@@ -420,7 +420,7 @@ def compute_improvement_pct(raw_metric_value: float, adjusted_metric_value: floa
 
 def compute_curve_metric(candidate_entry: dict[str, Any], harmonic_order_list: list[int]) -> Track2DPerCurveMetric:
 
-    """Compute one full-matrix Track 2D metric row."""
+    """Compute one full-matrix CVP 1.4 metric row."""
 
     angle_deg_array = np.asarray(candidate_entry["angular_position_deg"], dtype=float)
     truth_curve_deg = np.asarray(candidate_entry["truth_curve_deg"], dtype=float)
@@ -669,7 +669,7 @@ def build_candidate_summary_list(
 
 def build_surface_leaderboard(summary_list: list[Track2DCandidateSummary]) -> list[Track2DCandidateSummary]:
 
-    """Return one best Track 2D candidate per candidate surface."""
+    """Return one best CVP 1.4 candidate per candidate surface."""
 
     surface_summary_map: dict[str, list[Track2DCandidateSummary]] = defaultdict(list)
     for summary in summary_list:
@@ -758,7 +758,7 @@ def parse_float_cell(value: Any) -> float:
 
 def load_per_curve_metric_csv(csv_path: Path) -> list[Track2DPerCurveMetric]:
 
-    """Load Track 2D per-curve metrics from one CSV."""
+    """Load CVP 1.4 per-curve metrics from one CSV."""
 
     with csv_path.open("r", encoding="utf-8", newline="") as csv_file:
         reader = csv.DictReader(csv_file)
@@ -816,18 +816,18 @@ def metric_identity_key(metric_entry: Track2DPerCurveMetric) -> tuple[str, str, 
 
 def load_merge_per_curve_metric_list(output_root: Path) -> list[Track2DPerCurveMetric]:
 
-    """Load and deduplicate all existing Track 2D per-curve metrics."""
+    """Load and deduplicate all existing CVP 1.4 per-curve metrics."""
 
     resolved_output_root = shared_training_infrastructure.resolve_runtime_project_relative_path(output_root)
     if not resolved_output_root.exists():
-        raise FileNotFoundError(f"Track 2D output root does not exist: {resolved_output_root}")
+        raise FileNotFoundError(f"CVP 1.4 output root does not exist: {resolved_output_root}")
 
     metric_map: dict[tuple[str, str, str], Track2DPerCurveMetric] = {}
     for csv_path in sorted(resolved_output_root.glob(f"*__track2d_mean_offset_full_matrix_audit/{PER_CURVE_METRICS_FILENAME}")):
         for metric_entry in load_per_curve_metric_csv(csv_path):
             metric_map[metric_identity_key(metric_entry)] = metric_entry
     if not metric_map:
-        raise FileNotFoundError(f"No Track 2D per-curve CSV files found under {resolved_output_root}")
+        raise FileNotFoundError(f"No CVP 1.4 per-curve CSV files found under {resolved_output_root}")
     return list(metric_map.values())
 
 
@@ -927,12 +927,12 @@ def build_report_lines(
         label_count_map[summary.diagnostic_label] += 1
 
     line_list = [
-        "# Track 2D Mean-Offset Full-Matrix Audit",
+        "# CVP 1.4 Mean-Offset Full-Matrix Audit",
         "",
         "## Overview",
         "",
         (
-            "This report extends the `Track 2` mean-centered collage diagnostic "
+            "This report extends the `TE Curve Verification Pipeline` mean-centered collage diagnostic "
             "to the full official direction-valid candidate matrix. It computes "
             "raw curve error, curve-bias / `DC` offset, centered-shape error, "
             "peak-to-peak amplitude error, harmonic amplitude error, and harmonic "
@@ -974,7 +974,7 @@ def build_report_lines(
         )
     )
     line_list.append("")
-    append_candidate_table(line_list, "Track 2D Diagnostic Ranking", candidate_summary_list, 20)
+    append_candidate_table(line_list, "CVP 1.4 Diagnostic Ranking", candidate_summary_list, 20)
     append_candidate_table(line_list, "Surface Leaders", surface_leader_list, len(surface_leader_list))
     append_candidate_table(
         line_list,
@@ -1036,7 +1036,7 @@ def write_summary_yaml(
     harmonic_order_list: list[int],
 ) -> None:
 
-    """Write a machine-readable Track 2D summary."""
+    """Write a machine-readable CVP 1.4 summary."""
 
     summary_payload = {
         "schema_version": 1,
@@ -1068,7 +1068,7 @@ def write_summary_yaml(
 
 def run_track2d_mean_offset_full_matrix_audit(arguments: argparse.Namespace) -> dict[str, Any]:
 
-    """Run the Track 2D full-matrix diagnostic workflow."""
+    """Run the CVP 1.4 full-matrix diagnostic workflow."""
 
     harmonic_order_list = arguments.harmonic_order_list or DEFAULT_HARMONIC_ORDER_LIST
     resolved_config_path = shared_training_infrastructure.resolve_runtime_project_relative_path(arguments.config_path)
@@ -1080,7 +1080,7 @@ def run_track2d_mean_offset_full_matrix_audit(arguments: argparse.Namespace) -> 
     report_path = report_directory / REPORT_FILENAME
 
     if arguments.merge_only:
-        print("[INFO] Merging existing Track 2D chunk outputs", flush=True)
+        print("[INFO] Merging existing CVP 1.4 chunk outputs", flush=True)
         per_curve_metric_list = load_merge_per_curve_metric_list(arguments.output_root)
     else:
         training_config = load_training_config(resolved_config_path, output_suffix=run_instance_id)
@@ -1100,7 +1100,7 @@ def run_track2d_mean_offset_full_matrix_audit(arguments: argparse.Namespace) -> 
         per_curve_metric_list = []
         for candidate_index, candidate_configuration in enumerate(candidate_configuration_list, start=1):
             print(
-                "[INFO] Evaluating Track 2D candidate | "
+                "[INFO] Evaluating CVP 1.4 candidate | "
                 f"{candidate_index}/{len(candidate_configuration_list)} | "
                 f"{candidate_configuration['candidate_id']}",
                 flush=True,
@@ -1164,11 +1164,11 @@ def run_track2d_mean_offset_full_matrix_audit(arguments: argparse.Namespace) -> 
 
 def main() -> None:
 
-    """Run the Track 2D diagnostics workflow."""
+    """Run the CVP 1.4 diagnostics workflow."""
 
     summary = run_track2d_mean_offset_full_matrix_audit(parse_command_line_arguments())
-    print(f"[DONE] Track 2D report: {summary['report_path']}")
-    print(f"[DONE] Track 2D artifacts: {summary['output_directory']}")
+    print(f"[DONE] CVP 1.4 report: {summary['report_path']}")
+    print(f"[DONE] CVP 1.4 artifacts: {summary['output_directory']}")
 
 
 if __name__ == "__main__":

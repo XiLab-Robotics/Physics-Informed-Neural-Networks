@@ -2,7 +2,7 @@
 
 ## Overview
 
-This report defines the preparation target for the next `Track 1` campaign
+This report defines the preparation target for the next `RCIM Model-Bank Reproduction` campaign
 package after the completed exact-paper model-bank stabilization campaign.
 
 The repository already proved two important things:

@@ -1,6 +1,6 @@
-# Track 1 ERT Full-Matrix Campaign Package
+# RCIM Model-Bank Reproduction ERT Full-Matrix Campaign Package
 
-This package contains the dedicated `Track 1` exact-paper `ERT` family
+This package contains the dedicated `RCIM Model-Bank Reproduction` exact-paper `ERT` family
 campaign.
 
 Included configs:

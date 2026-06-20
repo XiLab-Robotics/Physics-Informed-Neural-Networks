@@ -1,6 +1,6 @@
-# Track 1 Open-Cell Full-Matrix Closure Campaigns Relaunch After MLP
+# RCIM Model-Bank Reproduction Open-Cell Full-Matrix Closure Campaigns Relaunch After MLP
 
-This launcher resumes the interrupted overnight `Track 1` open-cell
+This launcher resumes the interrupted overnight `RCIM Model-Bank Reproduction` open-cell
 full-matrix campaign after the first launch completed the full `MLP` family
 batch but stopped during remote artifact reconciliation.
 

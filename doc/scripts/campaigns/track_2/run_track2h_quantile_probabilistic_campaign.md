@@ -1,9 +1,9 @@
-# Track 2H Quantile Probabilistic Campaign Launcher
+# Wave 4.2 Quantile Probabilistic Campaign Launcher
 
 ## Overview
 
 `scripts/campaigns/track_2/run_track2h_quantile_probabilistic_campaign.ps1`
-launches the approved second `Track 2H` dispersion-aware package. The package
+launches the approved `Wave 4.2` dispersion-aware package. The package
 contains six queue entries:
 
 - `quantile_p10_p50_p90` for `global`, `Fw`, and `Bw`;
@@ -47,5 +47,5 @@ Remote campaign launch:
 ## Notes
 
 The launcher validates the prepared package before any local or remote launch.
-It does not run official `Track 2` verification. That refresh remains a
+It does not run official `TE Curve Verification Pipeline` verification. That refresh remains a
 separate operator-launched step after campaign closeout.

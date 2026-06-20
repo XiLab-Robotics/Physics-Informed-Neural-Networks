@@ -1,7 +1,7 @@
-# RCIM Track 1 Backward ET Reference Models
+# RCIM Model-Bank Reproduction Backward ET Reference Models
 
 This archive stores the accepted `ET` target-level winners for the
-`backward` branch of the canonical original-dataset Track 1 benchmark surface.
+`backward` branch of the canonical original-dataset RCIM Model-Bank Reproduction benchmark surface.
 
 Archive contents:
 

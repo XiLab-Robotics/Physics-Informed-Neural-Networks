@@ -68,13 +68,13 @@ for ($runIndex = 0; $runIndex -lt $campaignRunList.Count; $runIndex++) {
         -LogPath $runLogPath
 
     if ($nativeExitCode -ne 0) {
-        Write-Host "[ERROR] Track 1 extended overnight campaign run failed | $configPath" -ForegroundColor Red
+        Write-Host "[ERROR] RCIM Model-Bank Reproduction extended overnight campaign run failed | $configPath" -ForegroundColor Red
         Write-Host "[ERROR] Failing log file | $runLogPath" -ForegroundColor Red
         exit $nativeExitCode
     }
 }
 
 Write-Host ""
-Write-Host "[DONE] Track 1 extended overnight campaign completed successfully" -ForegroundColor Green
+Write-Host "[DONE] RCIM Model-Bank Reproduction extended overnight campaign completed successfully" -ForegroundColor Green
 Write-Host "[DONE] Campaign logs available under | $campaignLogRoot" -ForegroundColor Green
 exit 0

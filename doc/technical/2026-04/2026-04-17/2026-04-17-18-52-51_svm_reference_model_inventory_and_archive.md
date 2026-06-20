@@ -4,7 +4,7 @@
 
 This technical document formalizes a repository-owned inventory and archive
 workflow for the canonical `SVM` paper-reference models used in
-`Track 1`.
+`RCIM Model-Bank Reproduction`.
 
 The immediate goal is to make the `SVM` reference surface explicit and
 reconstructible in two places:

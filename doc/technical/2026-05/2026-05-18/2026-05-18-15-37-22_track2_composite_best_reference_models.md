@@ -1,8 +1,8 @@
-# Track 2 Composite Best Reference Models
+# TE Curve Verification Pipeline Composite Best Reference Models
 
 ## Overview
 
-This technical note plans the next `Track 2` extension: add composed
+This technical note plans the next `TE Curve Verification Pipeline` extension: add composed
 paper-reference candidates that assemble one harmonic-wise model from the best
 available family cell instead of using one single family across all harmonic
 targets.
@@ -23,7 +23,7 @@ approved.
 
 ## Technical Approach
 
-The composed model will keep the existing `Track 2` reconstruction contract:
+The composed model will keep the existing `TE Curve Verification Pipeline` reconstruction contract:
 
 - amplitude harmonics: `0, 1, 3, 39, 40, 78, 81, 156, 162, 240`;
 - phase harmonics: `1, 3, 39, 40, 78, 81, 156, 162, 240`;
@@ -36,7 +36,7 @@ For the paper original forward candidate, the selector must follow the
 paper-level `Table 6` deployment selection. That selection is historical
 paper evidence and does not simply choose every raw minimum in Tables `2-5`.
 
-For retuned and Track 1 composed candidates, the proposed selector mirrors the
+For retuned and RCIM Model-Bank Reproduction composed candidates, the proposed selector mirrors the
 paper deployment role:
 
 - select amplitude model cells from Table `3` (`Amplitude RMSE`);
@@ -68,9 +68,9 @@ Table `3`; phase comes from Table `5`.
 | amplitude `A*_k` | `0:LGBM`, `1:ERT`, `3:HGBM`, `39:LGBM`, `40:ERT`, `78:HGBM`, `81:RF`, `156:ERT`, `162:RF`, `240:RF` |
 | phase `phi*_k` | `1:XGBM`, `3:GBM`, `39:LGBM`, `40:RF`, `78:GBM`, `81:RF`, `156:ERT`, `162:ERT`, `240:ERT` |
 
-### Forward Track 1 Composite
+### Forward RCIM Model-Bank Reproduction Composite
 
-Source rule: current `Track 1` forward tables. Amplitude comes from Table `3`;
+Source rule: current `RCIM Model-Bank Reproduction` forward tables. Amplitude comes from Table `3`;
 phase comes from Table `5`.
 
 | Target | Selected Families |
@@ -88,9 +88,9 @@ Table `3`; phase comes from Table `5`.
 | amplitude `A*_k` | `0:RF`, `1:ERT`, `3:ERT`, `39:RF`, `40:ERT`, `78:ERT`, `81:ERT`, `156:ERT`, `162:RF`, `240:RF` |
 | phase `phi*_k` | `1:GBM`, `3:RF`, `39:ERT`, `40:RF`, `78:RF`, `81:ERT`, `156:RF`, `162:ERT`, `240:RF` |
 
-### Backward Track 1 Composite
+### Backward RCIM Model-Bank Reproduction Composite
 
-Source rule: current `Track 1` backward tables. Amplitude comes from Table `3`;
+Source rule: current `RCIM Model-Bank Reproduction` backward tables. Amplitude comes from Table `3`;
 phase comes from Table `5`.
 
 | Target | Selected Families |
@@ -111,7 +111,7 @@ references Tables `2-5`.
 | Table `2` amplitude MAE | `0:LGBM`, `1:ERT`, `3:HGBM`, `39:LGBM`, `40:ERT`, `78:HGBM`, `81:RF`, `156:ERT`, `162:ERT`, `240:RF` |
 | Table `4` phase MAE | `1:XGBM`, `3:GBM`, `39:HGBM`, `40:XGBM`, `78:GBM`, `81:XGBM`, `156:ERT`, `162:ERT`, `240:RF` |
 
-### Forward Track 1 Audit Cells
+### Forward RCIM Model-Bank Reproduction Audit Cells
 
 | Table | Best Families |
 | --- | --- |
@@ -125,7 +125,7 @@ references Tables `2-5`.
 | Table `2` amplitude MAE | `0:RF`, `1:ERT`, `3:RF`, `39:ERT`, `40:ERT`, `78:ERT`, `81:ERT`, `156:ERT`, `162:ERT`, `240:RF` |
 | Table `4` phase MAE | `1:ERT`, `3:RF`, `39:ERT`, `40:RF`, `78:ERT`, `81:ERT`, `156:RF`, `162:ERT`, `240:RF` |
 
-### Backward Track 1 Audit Cells
+### Backward RCIM Model-Bank Reproduction Audit Cells
 
 | Table | Best Families |
 | --- | --- |
@@ -143,33 +143,33 @@ references Tables `2-5`.
 - `models/paper_reference/rcim_retuned/backward/`
   - backward retuned paper-reference inventories.
 - `models/paper_reference/rcim_track1/forward/`
-  - accepted Track 1 forward family inventories.
+  - accepted RCIM Model-Bank Reproduction forward family inventories.
 - `models/paper_reference/rcim_track1/backward/`
-  - accepted Track 1 backward family inventories.
+  - accepted RCIM Model-Bank Reproduction backward family inventories.
 - `scripts/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/reference_family_vs_feedforward_support.py`
   - candidate loading, coefficient prediction, and curve reconstruction helpers.
 - `scripts/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/run_reference_family_vs_feedforward_comparison.py`
-  - Track 2 comparison runner.
+  - curve-verification comparison runner.
 - `config/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/full_track2_matrix_template.yaml`
-  - canonical Track 2 matrix configuration.
+  - canonical curve-verification matrix configuration.
 - `doc/reports/analysis/track2/Track 2 Directional Model Comparison.md`
-  - canonical Track 2 report to refresh after implementation.
+  - canonical TE curve-verification report to refresh after implementation.
 
 ## Implementation Steps
 
 1. Add a composed-reference candidate representation that maps each
    `amplitude` or `phase` harmonic target to one source family inventory.
-2. Add five generated composite candidates to the full Track 2 matrix:
+2. Add five generated composite candidates to the full curve-verification matrix:
    `paper_original_best_Fw`, `paper_retuned_best_Fw`, `track1_best_Fw`,
    `paper_retuned_best_Bw`, and `track1_best_Bw`.
 3. Reuse the existing source-specific `h0` compatibility rule for any composed
    candidate entry that pulls `h0` from `rcim_track1` forward.
 4. Reconstruct TE curves by dispatching each harmonic target prediction to the
    selected family inventory, then combining the predicted coefficients through
-   the existing Track 2 reconstruction path.
+   the existing TE Curve Verification Pipeline reconstruction path.
 5. Extend validation summaries and reports so the composed candidates appear in
    the relevant `original`, `original retuned`, and `track 1` groups.
-6. Regenerate the full Track 2 validation matrix and grouped PNG previews.
+6. Regenerate the full TE Curve Verification Pipeline validation matrix and grouped PNG previews.
 7. Refresh `RCIM Paper Reference Benchmark.md`,
    `Track 2 Directional Model Comparison.md`, and
    `Training Results Master Summary.md` with the composed-candidate results.

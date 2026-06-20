@@ -1,4 +1,4 @@
-"""Prepare the Track 1 bidirectional literal-workflow refresh mega campaign."""
+"""Prepare the RCIM Model-Bank Reproduction bidirectional literal-workflow refresh mega campaign."""
 
 from __future__ import annotations
 
@@ -263,7 +263,7 @@ def main() -> None:
         "completed_family_list": [],
         "pending_family_list": list(exact_paper_model_bank_support.EXACT_FAMILY_ORDER),
         "interruption_note": (
-            "Prepared as the full Track 1 bidirectional refresh wave after the "
+            "Prepared as the full RCIM Model-Bank Reproduction bidirectional refresh wave after the "
             "exact-paper family bank was realigned to the recovered original workflow."
         ),
     }

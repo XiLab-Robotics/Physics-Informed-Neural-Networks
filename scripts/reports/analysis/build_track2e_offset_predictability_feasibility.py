@@ -1,4 +1,4 @@
-"""Build Track 2E offset-predictability feasibility diagnostics."""
+"""Build CVP 1.5 offset-predictability feasibility diagnostics."""
 
 from __future__ import annotations
 
@@ -57,7 +57,7 @@ TRACK2D_CANDIDATE_SUMMARY_FILENAME = "track2d_candidate_summary.csv"
 @dataclass(frozen=True)
 class PerCurveMetric:
 
-    """One imported Track 2D per-curve diagnostic row."""
+    """One imported CVP 1.4 per-curve diagnostic row."""
 
     candidate_id: str
     candidate_family: str
@@ -81,7 +81,7 @@ class PerCurveMetric:
 @dataclass(frozen=True)
 class CandidateTrack2DSummary:
 
-    """One imported Track 2D candidate summary row."""
+    """One imported CVP 1.4 candidate summary row."""
 
     rank: int
     candidate_id: str
@@ -119,7 +119,7 @@ class GroupCorrectionResult:
 @dataclass(frozen=True)
 class CandidateFeasibilitySummary:
 
-    """Track 2E feasibility decision for one candidate."""
+    """CVP 1.5 feasibility decision for one candidate."""
 
     rank: int
     candidate_id: str
@@ -193,27 +193,27 @@ def build_argument_parser() -> argparse.ArgumentParser:
 
     argument_parser = argparse.ArgumentParser(
         description=(
-            "Generate Track 2E offset-predictability feasibility diagnostics "
-            "from completed Track 2D artifacts without training models."
+            "Generate CVP 1.5 offset-predictability feasibility diagnostics "
+            "from completed CVP 1.4 artifacts without training models."
         )
     )
     argument_parser.add_argument(
         "--track2d-output-directory",
         type=Path,
         default=DEFAULT_TRACK2D_OUTPUT_DIRECTORY,
-        help="Track 2D artifact directory containing per-curve and candidate summary CSV files.",
+        help="CVP 1.4 artifact directory containing per-curve and candidate summary CSV files.",
     )
     argument_parser.add_argument(
         "--output-root",
         type=Path,
         default=DEFAULT_OUTPUT_ROOT,
-        help="Root for generated Track 2E validation artifacts.",
+        help="Root for generated CVP 1.5 validation artifacts.",
     )
     argument_parser.add_argument(
         "--report-topic-root",
         type=Path,
         default=DEFAULT_REPORT_TOPIC_ROOT,
-        help="Root for the dated Track 2E Markdown report bundle.",
+        help="Root for the dated CVP 1.5 Markdown report bundle.",
     )
     argument_parser.add_argument(
         "--report-date",
@@ -352,7 +352,7 @@ def write_csv(csv_path: Path, row_list: list[dict[str, Any]]) -> None:
 
 def load_per_curve_metric_list(track2d_output_directory: Path) -> list[PerCurveMetric]:
 
-    """Load Track 2D per-curve metrics."""
+    """Load CVP 1.4 per-curve metrics."""
 
     csv_path = track2d_output_directory / TRACK2D_PER_CURVE_FILENAME
     metric_list: list[PerCurveMetric] = []
@@ -383,7 +383,7 @@ def load_per_curve_metric_list(track2d_output_directory: Path) -> list[PerCurveM
 
 def load_candidate_summary_map(track2d_output_directory: Path) -> dict[str, CandidateTrack2DSummary]:
 
-    """Load Track 2D candidate summaries."""
+    """Load CVP 1.4 candidate summaries."""
 
     csv_path = track2d_output_directory / TRACK2D_CANDIDATE_SUMMARY_FILENAME
     summary_map: dict[str, CandidateTrack2DSummary] = {}
@@ -658,7 +658,7 @@ def build_feasibility_summary_list(
     candidate_id_filter: set[str] | None,
 ) -> list[CandidateFeasibilitySummary]:
 
-    """Build Track 2E candidate feasibility summaries."""
+    """Build CVP 1.5 candidate feasibility summaries."""
 
     candidate_metric_map: dict[str, list[PerCurveMetric]] = defaultdict(list)
     for metric in per_curve_metric_list:
@@ -854,12 +854,12 @@ def build_report_lines(
     """Build the Markdown report body."""
 
     line_list = [
-        "# Track 2E Offset Predictability Feasibility",
+        "# CVP 1.5 Offset Predictability Feasibility",
         "",
         "## Overview",
         "",
         (
-            "This report consumes the completed `Track 2D` mean-offset artifacts "
+            "This report consumes the completed `CVP 1.4` mean-offset artifacts "
             "and asks whether the vertical curve offset is predictable enough "
             "from causal condition information to justify an offset-aware next "
             "branch."
@@ -870,14 +870,14 @@ def build_report_lines(
         "as model inputs.",
         "",
         f"- Run Instance: `{run_instance_id}`",
-        f"- Track 2D Source: `{relative_path(track2d_output_directory)}`",
+        f"- CVP 1.4 Source: `{relative_path(track2d_output_directory)}`",
         f"- Output Directory: `{relative_path(output_directory)}`",
         f"- Candidate Count: `{len(feasibility_list)}`",
         "",
         "## Method",
         "",
         "- candidate raw, centered-shape, and offset metrics are imported from",
-        "  `Track 2D`;",
+        "  `CVP 1.4`;",
         "- candidate offsets are summarized by causal groups: direction, speed,",
         "  torque, oil temperature, and their direction-aware combinations;",
         "- exact full-condition groups such as speed plus torque plus oil",
@@ -903,7 +903,7 @@ def build_report_lines(
         surface_recommendation_list,
         len(surface_recommendation_list),
     )
-    append_feasibility_table(line_list, "Track 2E Feasibility Ranking", feasibility_list, 20)
+    append_feasibility_table(line_list, "CVP 1.5 Feasibility Ranking", feasibility_list, 20)
     append_feasibility_table(
         line_list,
         "Largest Conservative Offset-Correction Gains",
@@ -936,7 +936,7 @@ def build_report_lines(
             "",
             (
                 "The causal grouping baselines use only direction and operating "
-                "condition metadata already present in the Track 2 payload. The "
+                "condition metadata already present in the TE Curve Verification Pipeline payload. The "
                 "analysis never gives a model the future TE curve. Any learned "
                 "offset model still requires a later technical document and "
                 "campaign plan before it can become a training branch."
@@ -964,7 +964,7 @@ def write_summary_yaml(
     surface_recommendation_list: list[CandidateFeasibilitySummary],
 ) -> None:
 
-    """Write a machine-readable Track 2E summary."""
+    """Write a machine-readable CVP 1.5 summary."""
 
     summary_payload = {
         "schema_version": 1,
@@ -991,7 +991,7 @@ def write_summary_yaml(
 
 def run_track2e_offset_predictability_feasibility(arguments: argparse.Namespace) -> dict[str, Any]:
 
-    """Run the Track 2E feasibility workflow."""
+    """Run the CVP 1.5 feasibility workflow."""
 
     track2d_output_directory = shared_training_infrastructure.resolve_runtime_project_relative_path(
         arguments.track2d_output_directory
@@ -1054,11 +1054,11 @@ def run_track2e_offset_predictability_feasibility(arguments: argparse.Namespace)
 
 def main() -> None:
 
-    """Run the Track 2E diagnostics workflow."""
+    """Run the CVP 1.5 diagnostics workflow."""
 
     summary = run_track2e_offset_predictability_feasibility(parse_command_line_arguments())
-    print(f"[DONE] Track 2E report: {summary['report_path']}")
-    print(f"[DONE] Track 2E artifacts: {summary['output_directory']}")
+    print(f"[DONE] CVP 1.5 report: {summary['report_path']}")
+    print(f"[DONE] CVP 1.5 artifacts: {summary['output_directory']}")
 
 
 if __name__ == "__main__":

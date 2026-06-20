@@ -1,19 +1,19 @@
-# Track 2H Track 2 Verification Refresh
+# Wave 4 series TE Curve Verification Pipeline Verification Refresh
 
 ## Overview
 
 This technical document defines the next repository step after the completed
-`Track 2H` robust-loss dispersion-aware campaign. The campaign closeout is
+`Wave 4.1` robust-loss dispersion-aware campaign. The campaign closeout is
 complete, the active campaign state is `none`, and the latest closeout report
-marks official `Track 2` verification as a separate optional
+marks official `TE Curve Verification Pipeline` verification as a separate optional
 operator-approved workflow.
 
 The purpose is to decide whether the robust-loss scalar improvements translate
 into real held-out transmission-error curve behavior. The decision must not be
 inferred from scalar training `MAE` alone. The refresh will evaluate raw curve
 error, mean-centered shape error, mean offset, amplitude behavior, harmonic
-behavior, collage plots, and overlay plots against the current accepted Track 2
-baselines, `Wave 2B`, `Track 2F`, `Track 2F-bis`, and `Track 2G`.
+behavior, collage plots, and overlay plots against the current accepted TE Curve Verification Pipeline
+baselines, `Wave 2.2`, `Wave 3.1`, `Wave 3.2`, and `Wave 3.3`.
 
 The refresh keeps the required deployment branches parallel:
 
@@ -26,8 +26,8 @@ name, scope, and approval requirement must be documented before launch.
 
 ## Technical Approach
 
-The work will add the nine registry-backed `Track 2H` candidates to the
-official direction-aware Track 2 matrix and prepare a PowerShell launcher that
+The work will add the nine registry-backed `Wave 4 series` candidates to the
+official direction-aware curve-verification matrix and prepare a PowerShell launcher that
 the operator can run locally or with `-Remote`. Codex will not run the heavy
 matrix during preparation.
 
@@ -72,10 +72,10 @@ The expected implementation pattern is:
 1. Extend the compact matrix generation section in
    `config/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/full_track2_matrix_template.yaml`.
 2. Verify that the existing registry-model inference path supports
-   `curve_aware_harmonic_residual_offset_probe` for the completed Track 2H
+   `curve_aware_harmonic_residual_offset_probe` for the completed Wave 4 series
    artifacts without changing the runtime input contract. The model must
    receive the same point or causal short-history data shape supported by the
-   current Track 2 inference path.
+   current TE Curve Verification Pipeline inference path.
 3. Create a dedicated operator launcher:
    `scripts/campaigns/track_2/run_track2h_track2_verification_refresh.ps1`.
 4. Create the matching launcher note:
@@ -124,13 +124,13 @@ The implementation will involve these repository components:
 
 ## Implementation Steps
 
-1. Confirm the active campaign state is `none` and `Track 2H` closeout points
+1. Confirm the active campaign state is `none` and `Wave 4 series` closeout points
    to `pending_optional_official_verification_refresh`.
-2. Confirm the nine `Track 2H` family registries exist and each exposes a
+2. Confirm the nine `Wave 4 series` family registries exist and each exposes a
    `latest_family_best.yaml`.
-3. Add a `Track 2H` candidate-generation block to the full Track 2 matrix
+3. Add a `Wave 4 series` candidate-generation block to the full curve-verification matrix
    template with the nine candidates and correct allowed-direction lists.
-4. Inspect the current Track 2 support code and patch only if the
+4. Inspect the current TE Curve Verification Pipeline support code and patch only if the
    `curve_aware_harmonic_residual_offset_probe` registry model cannot be
    evaluated by the existing inference path.
 5. Create the local and `-Remote` launcher script without running the heavy

@@ -1,8 +1,8 @@
-# Track 1 SVM Open-Cell Repair Campaign Plan Report
+# RCIM Model-Bank Reproduction SVM Open-Cell Repair Campaign Plan Report
 
 ## Overview
 
-This report prepares the next `Track 1` campaign as a dedicated `SVR` repair
+This report prepares the next `RCIM Model-Bank Reproduction` campaign as a dedicated `SVR` repair
 batch focused on the currently open `SVM` cells in the canonical paper-facing
 benchmark.
 

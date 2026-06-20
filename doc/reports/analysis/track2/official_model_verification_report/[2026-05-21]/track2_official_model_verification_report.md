@@ -1,16 +1,16 @@
-# Track 2 Official Model Verification Report
+# TE Curve Verification Pipeline Official Model Verification Report
 
 ## Executive Verdict
 
-`Track 2` is the official offline verification surface for newly introduced TE
+`TE Curve Verification Pipeline` is the official offline verification surface for newly introduced TE
 models. A model or family is not considered verified only because its training
 campaign metrics improved; it must also be compared on the direction-aware
-`Track 2` curve-reconstruction matrix and reviewed against visual curve
+`TE Curve Verification Pipeline` curve-reconstruction matrix and reviewed against visual curve
 evidence.
 
 Current closeout verdict:
 
-- `Track 2` is accepted as the canonical offline model-verification report.
+- `TE Curve Verification Pipeline` is accepted as the canonical offline model-verification report.
 - `Target A` is closed as an offline direction-qualified benchmark.
 - The strongest current offline paper-derived references are
   `paper_retuned_best_Fw` and `paper_retuned_best_Bw`.
@@ -18,12 +18,12 @@ Current closeout verdict:
   `rcim_retuned_GBM19_Fw` and `rcim_retuned_GBM19_Bw`.
 - The strongest current repository-owned static baseline remains the
   `tree` / `hist_gradient_boosting` family.
-- Future `Track 2` campaigns must update this report, the source matrix, and
+- Future `TE Curve Verification Pipeline` campaigns must update this report, the source matrix, and
   the visual companion reports before their results are treated as accepted.
 
 ## Source Package
 
-This official report consolidates these approved `Track 2` artifacts:
+This official report consolidates these approved `TE Curve Verification Pipeline` artifacts:
 
 - metric matrix:
   `doc/reports/analysis/track2/Track 2 Directional Model Comparison.md`;
@@ -52,20 +52,20 @@ The repository treats direction as a first-class verification surface:
 | `Fw` / `forward` | forward only | forward curves only |
 | `Bw` / `backward` | backward only | backward curves only |
 
-The rule applies to paper-reference models, `Track 1` faithful archives,
-retuned reference archives, `Wave 1` exported models, and future `Track 2`
+The rule applies to paper-reference models, `RCIM Model-Bank Reproduction` faithful archives,
+retuned reference archives, `Wave 1` exported models, and future `TE Curve Verification Pipeline`
 campaign candidates.
 
 ## Pipeline Coverage
 
-| Pipeline or Source | Track 2 Role | Current Status | Verification Artifact |
+| Pipeline or Source | TE Curve Verification Pipeline Role | Current Status | Verification Artifact |
 | --- | --- | --- | --- |
 | recovered original RCIM archive | paper-original forward reference | included | directional matrix |
 | retuned RCIM archive | current paper-derived forward and backward baseline | included | directional matrix and visual reports |
-| `Track 1` exact paper-faithful bank | source-faithful reproduction evidence | included | directional matrix and visual reports |
+| `RCIM Model-Bank Reproduction` exact paper-faithful bank | source-faithful reproduction evidence | included | directional matrix and visual reports |
 | `Wave 1` exported static baselines | repository-owned model candidates | included | directional matrix and visual reports |
 | `periodic_mlp` explicit harmonic campaign | latest family-registry refresh | included in visual refresh | collage and overlay reports |
-| future `Track 2` campaigns | new verification candidates | append here when approved | matrix, collage, overlay, PDF |
+| future `TE Curve Verification Pipeline` campaigns | new verification candidates | append here when approved | matrix, collage, overlay, PDF |
 
 ## Current Numeric Baselines
 
@@ -128,7 +128,7 @@ The multi-model curve comparison report overlays several models on the same
 measured curve. This is the official visual appendix for relative curve
 tracking and family screening. The current refreshed bundle includes forward
 and backward reference overlays, forward and backward `Wave 1` family overlays,
-and screened `Track 1` versus `Wave 1` overlays for both directions.
+and screened `RCIM Model-Bank Reproduction` versus `Wave 1` overlays for both directions.
 
 The PDF companion is:
 
@@ -142,7 +142,7 @@ Representative evidence from the refreshed validation output:
 
 ## Campaign Update Ledger
 
-Future `Track 2` campaigns must append a row here after the campaign result
+Future `TE Curve Verification Pipeline` campaigns must append a row here after the campaign result
 report, matrix refresh, visual report refresh, and official PDF validation are
 complete.
 
@@ -152,7 +152,7 @@ complete.
 
 ## Maintenance Contract
 
-For every future `Track 2` model-verification update:
+For every future `TE Curve Verification Pipeline` model-verification update:
 
 1. refresh `Track 2 Directional Model Comparison.md` when the candidate set or
    numeric matrix changes;
@@ -168,7 +168,7 @@ For every future `Track 2` model-verification update:
 
 ## Closeout Decision
 
-`Track 2` is closed as the current official offline verification report. Its
+`TE Curve Verification Pipeline` is closed as the current official offline verification report. Its
 accepted baseline for future work is:
 
 - forward paper-derived comparison: `paper_retuned_best_Fw`;
@@ -178,6 +178,6 @@ accepted baseline for future work is:
 - strongest repository-owned static baseline: `tree` /
   `hist_gradient_boosting`.
 
-The next modeling branch can proceed to `Wave 2` temporal models. Online
-compensation remains outside `Track 2` and is tracked under `Track 3` /
+The next modeling branch can proceed to `Wave 2.1` temporal models. Online
+compensation remains outside `TE Curve Verification Pipeline` and is tracked under `Track 3` /
 `Target B`.

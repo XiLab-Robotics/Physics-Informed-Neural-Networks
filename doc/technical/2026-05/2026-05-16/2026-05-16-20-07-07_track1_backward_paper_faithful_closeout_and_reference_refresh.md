@@ -1,8 +1,8 @@
-# Track 1 Backward Paper-Faithful Closeout And Reference Refresh
+# RCIM Model-Bank Reproduction Backward Paper-Faithful Closeout And Reference Refresh
 
 ## Overview
 
-This technical note plans the closeout for the completed Track 1 backward
+This technical note plans the closeout for the completed RCIM Model-Bank Reproduction backward
 paper-faithful grid-search campaign launched with:
 
 ```powershell
@@ -22,7 +22,7 @@ documents, and recompile RCIM Paper Reference Benchmark Tables `2`-`5`.
 
 Reuse the forward closeout pattern and adapt it to the `backward` direction.
 The closeout will resolve the latest `2026-05-15` / `2026-05-16` backward
-validation summaries for the `11` operational Track 1 families, refresh
+validation summaries for the `11` operational RCIM Model-Bank Reproduction families, refresh
 `models/paper_reference/rcim_track1/backward`, and update canonical reports.
 
 The closeout must preserve the existing forward archives and replace only the

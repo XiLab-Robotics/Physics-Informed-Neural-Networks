@@ -32,12 +32,12 @@ The implementation is intentionally literal or near-literal:
 - repository changes are limited to path safety, CLI entrypoints, runtime
   roots, logging, compatibility repairs, and explicit documentation.
 
-The campaign-ready Track 1 reimplementation that uses this recovered workflow
+The campaign-ready RCIM Model-Bank Reproduction reimplementation that uses this recovered workflow
 as its protocol reference is separate and lives in:
 
 - `scripts/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/`
 
-Accepted faithful Track 1 outputs from that reimplementation are promoted to:
+Accepted faithful RCIM Model-Bank Reproduction outputs from that reimplementation are promoted to:
 
 - `models/paper_reference/rcim_track1/`
 
@@ -46,7 +46,7 @@ reference surfaces live in:
 
 - `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
 
-That downstream Track 1 surface is now closed for the current full-dataset
+That downstream RCIM Model-Bank Reproduction surface is now closed for the current full-dataset
 faithful reproduction: both forward and backward grid-search campaigns were
 run and Tables `2`-`5` were repopulated from accepted archives. The recovered
 workflow remains the provenance anchor for future reruns and comparisons.

@@ -1,5 +1,5 @@
 campaign_name: wave2c_residual_harmonic_temporal_hybrid_campaign_2026_05_27
 planning_report_path: doc/reports/campaign_plans/wave_2/2026-05-27-18-08-32_wave2c_residual_harmonic_temporal_hybrid_campaign_plan_report.md
 phase_name: wave2c_residual_harmonic_temporal_hybrid_preparation
-note_prefix: Wave 2C residual harmonic temporal hybrid campaign prepared for Track 2 verification.
+note_prefix: Wave 2.3 residual harmonic temporal hybrid campaign prepared for TE curve verification.
 hydra_transition_policy: wave2c_residual_harmonic_temporal_hybrid_preparation

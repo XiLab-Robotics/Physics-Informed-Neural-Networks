@@ -1,15 +1,15 @@
-# RCIM Original Sparse ONNX Track 2 Variants
+# RCIM Original Sparse ONNX TE Curve Verification Pipeline Variants
 
 ## Overview
 
-This technical document plans two non-training `Track 2` forward evaluations
+This technical document plans two non-training `TE Curve Verification Pipeline` forward evaluations
 that reuse only the recovered paper-original `ONNX` models from:
 
 `reference/rcim_ml_compensation_recovered_assets/models/exact_onnx_paper_release`
 
 The work will not train new models. It will create two explicit sparse
 reconstruction candidates and pass both through the same held-out forward
-`Track 2` curve evaluation contract used by the existing full original `ONNX`
+`TE Curve Verification Pipeline` curve evaluation contract used by the existing full original `ONNX`
 report:
 
 - `rcim_original_simplified_onnx_Fw`: sparse paper-inspired reconstruction
@@ -21,7 +21,7 @@ report:
 
 The request explicitly requires the original recovered `ONNX` models for both
 probes. Therefore the implementation will not use `PKL` archives,
-repository-retuned models, Track 1 reimplemented banks, or `models/paper_reference`
+repository-retuned models, RCIM Model-Bank Reproduction reimplemented banks, or `models/paper_reference`
 candidate archives as prediction sources.
 
 ## Technical Approach
@@ -85,7 +85,7 @@ restricted to `[0, 1, 39, 40]`.
 - `scripts/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/plot_original_onnx_fw_track2_curves.py`:
   current hardcoded original `ONNX` loader and reconstruction helper.
 - `scripts/reports/analysis/build_track2_original_onnx_fw_collage_report.py`:
-  current simple original `ONNX` Track 2 report builder.
+  current simple original `ONNX` TE curve-verification report builder.
 - `scripts/paper_reimplementation/rcim_ml_compensation/harmonic_wise_comparison/harmonic_wise_support.py`:
   canonical harmonic curve reconstruction and curve metric helpers.
 - `scripts/reports/pdf/run_report_pipeline.py` and
@@ -100,7 +100,7 @@ restricted to `[0, 1, 39, 40]`.
 2. Add two hardcoded sparse target configurations:
    `rcim_original_simplified_onnx_Fw` and
    `rcim_original_plc_hgbm_onnx_Fw`.
-3. Evaluate both sparse candidates on the canonical forward `Track 2`
+3. Evaluate both sparse candidates on the canonical forward `TE Curve Verification Pipeline`
    held-out curves using only original recovered `ONNX` sessions and the
    restricted harmonic list `[0, 1, 39, 40]`.
 4. Save per-curve metrics, aggregate metrics, target inventory, and a
@@ -112,7 +112,7 @@ restricted to `[0, 1, 39, 40]`.
 6. Generate a concise Markdown report and styled PDF under a dated
    `doc/reports/analysis/track2/` topic folder if the evaluation is accepted as
    a repository report artifact.
-7. Run Python compilation checks, the Track 2 evaluation command, PDF
+7. Run Python compilation checks, the TE curve evaluation command, PDF
    rasterization validation if a PDF is produced, scoped Markdown QA, and
    Sphinx `-W` if new public script/API documentation is added.
 

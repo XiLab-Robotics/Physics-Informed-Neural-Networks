@@ -1,19 +1,19 @@
 ---
 name: track2-verification-refresh
-description: Use after a completed StandardML training campaign must be accepted into the official Track 2 offline verification package. Covers campaign-state inspection, candidate addition to the directional matrix, registry-backed model evaluation, collage and overlay report regeneration, official Track 2 decision reporting, PDF validation, backlog/master-summary synchronization, and commit preflight for Track 2 refresh work.
+description: Use after a completed StandardML training campaign must be accepted into the official TE Curve Verification Pipeline offline verification package. Covers campaign-state inspection, candidate addition to the directional matrix, registry-backed model evaluation, collage and overlay report regeneration, official curve-verification decision reporting, PDF validation, backlog/master-summary synchronization, and commit preflight for TE Curve Verification refresh work.
 ---
 
-# Track 2 Verification Refresh
+# TE Curve Verification Pipeline Verification Refresh
 
 ## Purpose
 
-Prepare and review the post-campaign `Track 2` verification workflow without
-losing the decision discipline established during the Wave 2 temporal refresh.
+Prepare and review the post-campaign `TE Curve Verification Pipeline` verification workflow without
+losing the decision discipline established during the Wave 2.1 temporal refresh.
 This skill does not replace campaign planning, training execution, or normal
 campaign closeout; use it after the campaign is complete and the user asks to
-refresh official `Track 2` verification.
+refresh official `TE Curve Verification Pipeline` verification.
 
-Do not run the heavy `Track 2` matrix inside Codex by default. The default
+Do not run the heavy `TE Curve Verification Pipeline` matrix inside Codex by default. The default
 workflow is to prepare an operator-facing PowerShell launcher with local and
 `-Remote` modes, provide the exact command, and wait for the user to run it and
 report completion before inspecting the resulting artifacts.
@@ -39,12 +39,12 @@ scope and wait for explicit user approval.
    protected files.
 3. Read the approved technical document or refresh plan for the campaign.
 4. Confirm normal campaign closeout has already completed, or that the user has
-   explicitly approved preparing `Track 2` before closeout.
-5. Confirm the user approved an operator-launched `Track 2` run.
+   explicitly approved preparing `TE Curve Verification Pipeline` before closeout.
+5. Confirm the user approved an operator-launched `TE Curve Verification Pipeline` run.
 6. Identify the new candidate surfaces: `global`, `Fw`, `Bw`, or an explicitly
    approved exception.
 7. Confirm the registry files exist under `output/registries/families/`.
-8. Inspect current `Track 2` report-builder code before patching.
+8. Inspect current `TE Curve Verification Pipeline` report-builder code before patching.
 
 For the detailed command checklist, read
 `references/track2-refresh-checklist.md`.
@@ -70,7 +70,7 @@ support code in:
 
 ## Operator Launcher Gate
 
-When `Track 2` is approved, create or update a dedicated launcher under
+When `TE Curve Verification Pipeline` is approved, create or update a dedicated launcher under
 `scripts/campaigns/` or the existing campaign-specific tooling root. The
 launcher must:
 
@@ -94,7 +94,7 @@ sections are visible in the Markdown, not only in the YAML summary.
 
 ## Visual Reports
 
-Regenerate both visual companion reports for a real `Track 2` acceptance
+Regenerate both visual companion reports for a real `TE Curve Verification Pipeline` acceptance
 refresh:
 
 - `scripts/reports/analysis/build_track2_best_model_collage_report.py`
@@ -132,7 +132,7 @@ The official report must state:
 - where the matrix, collage, overlay, and validation artifacts live.
 
 Do not infer promotion from campaign leaderboard metrics, scalar `MAE`, or
-matrix mean percentage error alone. Use the direction-aware Track 2 matrix,
+matrix mean percentage error alone. Use the direction-aware curve-verification matrix,
 the multi-index curve-first selection policy, and the visual companion PDFs.
 
 ## Status Synchronization

@@ -78,7 +78,7 @@ $validatorArgumentList = @(
     "--require-prepared-state"
 )
 
-Write-Track2GStatus -Label "STEP" -Message "Validating Track 2G package."
+Write-Track2GStatus -Label "STEP" -Message "Validating Wave 3.3 package."
 Invoke-Track2GPython -ArgumentList $validatorArgumentList
 $pythonExitCode = $script:LastTrack2GPythonExitCode
 if ($pythonExitCode -ne 0) {
@@ -140,7 +140,7 @@ if ($EnqueueOnly) {
     Write-Track2GStatus -Label "STEP" -Message "Enqueue-only verification enabled; training will not start."
 }
 
-Write-Track2GStatus -Label "STEP" -Message "Launching local Track 2G curve-aware training campaign."
+Write-Track2GStatus -Label "STEP" -Message "Launching local Wave 3.3 curve-aware training campaign."
 Invoke-Track2GPython -ArgumentList $argumentList
 $trainingExitCode = $script:LastTrack2GPythonExitCode
 exit $trainingExitCode

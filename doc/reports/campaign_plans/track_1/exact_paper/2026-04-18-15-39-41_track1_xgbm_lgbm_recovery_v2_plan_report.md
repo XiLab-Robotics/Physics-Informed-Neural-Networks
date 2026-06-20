@@ -1,9 +1,9 @@
-# Track 1 XGBM LGBM Recovery V2 Plan Report
+# RCIM Model-Bank Reproduction XGBM LGBM Recovery V2 Plan Report
 
 ## Overview
 
 This planning report defines the next narrow recovery step for the pending
-`Track 1` families:
+`RCIM Model-Bank Reproduction` families:
 
 - `XGBM`
 - `LGBM`

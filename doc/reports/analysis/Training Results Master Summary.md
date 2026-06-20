@@ -4,9 +4,9 @@
 
 - Generated At: `2026-06-19T20:53:50+02:00`
 - Program State: active.
-- Current Completed Wave: `Wave 3` harmonic-prior residual campaign closeout
-- Current Focus: `Track 2H-L` official `Track 2` refresh is complete and
-  closed as a verified exploratory baseline, not promoted; move to `Wave 4` /
+- Current Completed Wave: `Wave 5.1` harmonic-prior residual campaign closeout
+- Current Focus: `Wave 4.4` official `TE Curve Verification Pipeline` refresh is complete and
+  closed as a verified exploratory baseline, not promoted; move to `Wave 5.2` /
   integrated multi-head planning with latent-state evidence retained as an
   integration ingredient.
 - Active Campaign Status: `none`
@@ -177,7 +177,7 @@ Low-priority exploratory families currently listed in the backlog:
 - `Neural ODE`
 - `Hamiltonian-Inspired Model`
 - `optional Kernel Ridge / Gaussian Process benchmark`
-| Track 1. RCIM Paper-Faithful Model Bank | recovered original workflow: preserved;; original-dataset reimplementation: completed;; retuned reference archive: completed;; forward campaign: completed;; backward campaign: completed;; paper-reference archives: refreshed;; Tables `2`-`5`: repopulated;; status: closed as faithful full-bank reproduction, not all-green |
+| RCIM Model-Bank Reproduction. RCIM Paper-Faithful Model Bank | recovered original workflow: preserved;; original-dataset reimplementation: completed;; retuned reference archive: completed;; forward campaign: completed;; backward campaign: completed;; paper-reference archives: refreshed;; Tables `2`-`5`: repopulated;; status: closed as faithful full-bank reproduction, not all-green |
 
 Low-priority exploratory families currently listed in the backlog:
 
@@ -187,7 +187,7 @@ Low-priority exploratory families currently listed in the backlog:
 - `Neural ODE`
 - `Hamiltonian-Inspired Model`
 - `optional Kernel Ridge / Gaussian Process benchmark`
-| Track 2. Directional Offline Comparison | direction-aware loader and candidate matrix: completed;; recovered original forward candidates: included;; retuned forward and backward candidates: included;; `Track 1` forward and backward candidates: included;; `Wave 1` `global`, `forward`, and `backward` exports: included;; `Wave 2` temporal `global`, `forward`, and `backward` registry candidates:; grouped source tables: completed;; composite best-reference visibility: completed;; direction/truth and preview audit: completed;; official model-verification report: completed;; multi-index curve-first selection policy: adopted;; complete multi-index reranking over all current official candidates:; status: closed. |
+| TE Curve Verification Pipeline. Directional Offline Comparison | direction-aware loader and candidate matrix: completed;; recovered original forward candidates: included;; retuned forward and backward candidates: included;; `RCIM Model-Bank Reproduction` forward and backward candidates: included;; `Wave 1` `global`, `forward`, and `backward` exports: included;; `Wave 2.1` temporal `global`, `forward`, and `backward` registry candidates:; grouped source tables: completed;; composite best-reference visibility: completed;; direction/truth and preview audit: completed;; official model-verification report: completed;; multi-index curve-first selection policy: adopted;; complete multi-index reranking over all current official candidates:; status: closed. |
 
 Low-priority exploratory families currently listed in the backlog:
 
@@ -197,7 +197,7 @@ Low-priority exploratory families currently listed in the backlog:
 - `Neural ODE`
 - `Hamiltonian-Inspired Model`
 - `optional Kernel Ridge / Gaussian Process benchmark`
-| Wave 2. Temporal Models | status: entry campaign completed; closeout report prepared; official; initial families: `temporal_convolution`, `gru_sequence`, `lstm_sequence`;; configuration root: `config/training/hydra/wave2/`;; preliminary campaign plan:; closeout report:; campaign winner: `te_gru_sequence_remote_Fw` from family; refresh plan:; official verification report:; Track 2 decision: verified exploratory baselines, not promoted over `tree`;; mandatory rule: prepare or justify `global`, `forward`, and `backward`; baseline comparison: Track 2 plus closed Wave 1. |
+| Wave 2.1. Temporal Models | status: entry campaign completed; closeout report prepared; official; initial families: `temporal_convolution`, `gru_sequence`, `lstm_sequence`;; configuration root: `config/training/hydra/wave2/`;; preliminary campaign plan:; closeout report:; campaign winner: `te_gru_sequence_remote_Fw` from family; refresh plan:; official verification report:; curve-verification decision: verified exploratory baselines, not promoted over `tree`;; mandatory rule: prepare or justify `global`, `forward`, and `backward`; baseline comparison: TE Curve Verification Pipeline plus closed Wave 1. |
 
 Low-priority exploratory families currently listed in the backlog:
 
@@ -207,7 +207,7 @@ Low-priority exploratory families currently listed in the backlog:
 - `Neural ODE`
 - `Hamiltonian-Inspired Model`
 - `optional Kernel Ridge / Gaussian Process benchmark`
-| Wave 2B. Harmonic Temporal Hybrid Models | status: harmonic-temporal hybrid campaign completed; normal closeout report; families: `periodic_temporal_convolution`, `periodic_gru_sequence`,; configuration root:; preliminary campaign plan:; closeout report:; campaign winner: `te_periodic_gru_sequence_remote_Bw` from family; strongest bidirectional candidate: `te_periodic_gru_sequence_remote_global`; Track 2 decision: strongest repository-owned neural branch after official; mandatory rule: prepare or justify `global`, `forward`, and `backward`; baseline comparison: official Track 2 matrix plus visual collage and overlay |
+| Wave 2.2. Harmonic Temporal Hybrid Models | status: harmonic-temporal hybrid campaign completed; normal closeout report; families: `periodic_temporal_convolution`, `periodic_gru_sequence`,; configuration root:; preliminary campaign plan:; closeout report:; campaign winner: `te_periodic_gru_sequence_remote_Bw` from family; strongest bidirectional candidate: `te_periodic_gru_sequence_remote_global`; curve-verification decision: strongest repository-owned neural branch after official; mandatory rule: prepare or justify `global`, `forward`, and `backward`; baseline comparison: official curve-verification matrix plus visual collage and overlay |
 
 Low-priority exploratory families currently listed in the backlog:
 
@@ -217,7 +217,7 @@ Low-priority exploratory families currently listed in the backlog:
 - `Neural ODE`
 - `Hamiltonian-Inspired Model`
 - `optional Kernel Ridge / Gaussian Process benchmark`
-| Wave 2C. Residual Harmonic Temporal Hybrid Models | status: residual harmonic temporal hybrid campaign completed; official; families: `residual_harmonic_gru_sequence`,; harmonic banks: sparse `RCIM`, dense `240`, dense `360`;; closeout report:; official verification report:; strongest Wave 2C forward candidate:; strongest Wave 2C backward candidate:; strongest Wave 2C global candidate:; Track 2 decision: verified exploratory baseline, not promoted over the; design conclusion: sparse `RCIM` harmonics remain useful, while dense `240` |
+| Wave 2.3. Residual Harmonic Temporal Hybrid Models | status: residual harmonic temporal hybrid campaign completed; official; families: `residual_harmonic_gru_sequence`,; harmonic banks: sparse `RCIM`, dense `240`, dense `360`;; closeout report:; official verification report:; strongest Wave 2.3 forward candidate:; strongest Wave 2.3 backward candidate:; strongest Wave 2.3 global candidate:; curve-verification decision: verified exploratory baseline, not promoted over the; design conclusion: sparse `RCIM` harmonics remain useful, while dense `240` |
 
 Low-priority exploratory families currently listed in the backlog:
 
@@ -227,7 +227,7 @@ Low-priority exploratory families currently listed in the backlog:
 - `Neural ODE`
 - `Hamiltonian-Inspired Model`
 - `optional Kernel Ridge / Gaussian Process benchmark`
-| Track 2F. Offset-Aware Sequential Residual Probe | status: offset-aware probe campaign completed; official `Track 2` matrix; family: `sequential_residual_offset_probe`;; official verification report:; strongest Track 2F forward candidate:; strongest Track 2F backward candidate:; strongest Track 2F global candidate:; Track 2 decision: verified exploratory baseline, not promoted over the; design conclusion: a sequential residual offset head alone does not solve |
+| Wave 3.1. Offset-Aware Sequential Residual Probe | status: offset-aware probe campaign completed; official `TE Curve Verification Pipeline` matrix; family: `sequential_residual_offset_probe`;; official verification report:; strongest Wave 3.1 forward candidate:; strongest Wave 3.1 backward candidate:; strongest Wave 3.1 global candidate:; curve-verification decision: verified exploratory baseline, not promoted over the; design conclusion: a sequential residual offset head alone does not solve |
 
 Low-priority exploratory families currently listed in the backlog:
 
@@ -237,7 +237,7 @@ Low-priority exploratory families currently listed in the backlog:
 - `Neural ODE`
 - `Hamiltonian-Inspired Model`
 - `optional Kernel Ridge / Gaussian Process benchmark`
-| Track 2F-Bis. Harmonic-Offset Probe | status: campaign completed after runner registration repair; official; families:; `track2f_bis_clean_sequential_residual_offset_global`;; `track2f_bis_clean_sequential_residual_offset_fw`;; `track2f_bis_clean_sequential_residual_offset_bw`;; `track2f_bis_harmonic_residual_offset_global`;; `track2f_bis_harmonic_residual_offset_fw`;; `track2f_bis_harmonic_residual_offset_bw`;; closeout report:; official verification report:; clean global candidate:; harmonic global candidate:; clean forward candidate:; harmonic forward candidate:; clean backward candidate:; harmonic backward candidate:; strongest Track 2F-bis forward candidate:; strongest Track 2F-bis backward candidate:; strongest Track 2F-bis global candidate:; Track 2 decision: verified exploratory baseline, not promoted over the; design conclusion: harmonic forcing helps the direction-specific `Fw` and |
+| Wave 3.2. Harmonic-Offset Probe | status: campaign completed after runner registration repair; official; families:; `track2f_bis_clean_sequential_residual_offset_global`;; `track2f_bis_clean_sequential_residual_offset_fw`;; `track2f_bis_clean_sequential_residual_offset_bw`;; `track2f_bis_harmonic_residual_offset_global`;; `track2f_bis_harmonic_residual_offset_fw`;; `track2f_bis_harmonic_residual_offset_bw`;; closeout report:; official verification report:; clean global candidate:; harmonic global candidate:; clean forward candidate:; harmonic forward candidate:; clean backward candidate:; harmonic backward candidate:; strongest Wave 3.2 forward candidate:; strongest Wave 3.2 backward candidate:; strongest Wave 3.2 global candidate:; curve-verification decision: verified exploratory baseline, not promoted over the; design conclusion: harmonic forcing helps the direction-specific `Fw` and |
 
 Low-priority exploratory families currently listed in the backlog:
 
@@ -247,7 +247,7 @@ Low-priority exploratory families currently listed in the backlog:
 - `Neural ODE`
 - `Hamiltonian-Inspired Model`
 - `optional Kernel Ridge / Gaussian Process benchmark`
-| Track 2H. Dispersion-Aware Robust-Loss Probe | status: robust-loss campaign completed; official `Track 2` matrix refresh; families:; `track2h_dispersion_aware_mae_robust_global`;; `track2h_dispersion_aware_mae_robust_fw`;; `track2h_dispersion_aware_mae_robust_bw`;; `track2h_dispersion_aware_smooth_l1_robust_global`;; `track2h_dispersion_aware_smooth_l1_robust_fw`;; `track2h_dispersion_aware_smooth_l1_robust_bw`;; `track2h_dispersion_aware_log_cosh_robust_global`;; `track2h_dispersion_aware_log_cosh_robust_fw`;; `track2h_dispersion_aware_log_cosh_robust_bw`;; closeout report:; official verification report:; robust global candidate:; robust forward candidate:; robust backward candidate:; campaign scalar winner:; Track 2 strongest forward candidate:; Track 2 strongest backward candidate:; Track 2 strongest global candidate:; Track 2 decision: verified exploratory baseline, not promoted over the; design conclusion: robust losses are useful enough to keep in the |
+| Wave 4 series. Dispersion-Aware Robust-Loss Probe | status: robust-loss campaign completed; official `TE Curve Verification Pipeline` matrix refresh; families:; `track2h_dispersion_aware_mae_robust_global`;; `track2h_dispersion_aware_mae_robust_fw`;; `track2h_dispersion_aware_mae_robust_bw`;; `track2h_dispersion_aware_smooth_l1_robust_global`;; `track2h_dispersion_aware_smooth_l1_robust_fw`;; `track2h_dispersion_aware_smooth_l1_robust_bw`;; `track2h_dispersion_aware_log_cosh_robust_global`;; `track2h_dispersion_aware_log_cosh_robust_fw`;; `track2h_dispersion_aware_log_cosh_robust_bw`;; closeout report:; official verification report:; robust global candidate:; robust forward candidate:; robust backward candidate:; campaign scalar winner:; TE Curve Verification Pipeline strongest forward candidate:; TE Curve Verification Pipeline strongest backward candidate:; TE Curve Verification Pipeline strongest global candidate:; curve-verification decision: verified exploratory baseline, not promoted over the; design conclusion: robust losses are useful enough to keep in the |
 
 Low-priority exploratory families currently listed in the backlog:
 
@@ -257,7 +257,7 @@ Low-priority exploratory families currently listed in the backlog:
 - `Neural ODE`
 - `Hamiltonian-Inspired Model`
 - `optional Kernel Ridge / Gaussian Process benchmark`
-| Track 2H. Quantile Probabilistic Probe | status: quantile/probabilistic campaign completed; official `Track 2` matrix; families:; `track2h_quantile_probabilistic_quantile_p10_p50_p90_global`;; `track2h_quantile_probabilistic_quantile_p10_p50_p90_fw`;; `track2h_quantile_probabilistic_quantile_p10_p50_p90_bw`;; `track2h_quantile_probabilistic_gaussian_nll_global`;; `track2h_quantile_probabilistic_gaussian_nll_fw`;; `track2h_quantile_probabilistic_gaussian_nll_bw`;; closeout report:; official verification report:; strongest probabilistic global candidate:; strongest probabilistic forward-only candidate:; strongest probabilistic forward-evaluated candidate:; strongest probabilistic backward candidate:; Track 2 decision: verified exploratory baseline, not promoted over the; design conclusion: probabilistic losses improve over robust losses on the |
+| Wave 4 series. Quantile Probabilistic Probe | status: quantile/probabilistic campaign completed; official `TE Curve Verification Pipeline` matrix; families:; `track2h_quantile_probabilistic_quantile_p10_p50_p90_global`;; `track2h_quantile_probabilistic_quantile_p10_p50_p90_fw`;; `track2h_quantile_probabilistic_quantile_p10_p50_p90_bw`;; `track2h_quantile_probabilistic_gaussian_nll_global`;; `track2h_quantile_probabilistic_gaussian_nll_fw`;; `track2h_quantile_probabilistic_gaussian_nll_bw`;; closeout report:; official verification report:; strongest probabilistic global candidate:; strongest probabilistic forward-only candidate:; strongest probabilistic forward-evaluated candidate:; strongest probabilistic backward candidate:; curve-verification decision: verified exploratory baseline, not promoted over the; design conclusion: probabilistic losses improve over robust losses on the |
 
 Low-priority exploratory families currently listed in the backlog:
 
@@ -267,7 +267,7 @@ Low-priority exploratory families currently listed in the backlog:
 - `Neural ODE`
 - `Hamiltonian-Inspired Model`
 - `optional Kernel Ridge / Gaussian Process benchmark`
-| Track 2H. Mixture Density Heads Probe | status: mixture-density heads campaign completed; official `Track 2` matrix; families:; `track2h_mixture_density_heads_mdn_k2_global`;; `track2h_mixture_density_heads_mdn_k2_fw`;; `track2h_mixture_density_heads_mdn_k2_bw`;; `track2h_mixture_density_heads_mdn_k3_global`;; `track2h_mixture_density_heads_mdn_k3_fw`;; `track2h_mixture_density_heads_mdn_k3_bw`;; closeout report:; official verification report:; matrix output:; strongest MDN global candidate:; strongest MDN forward candidate:; strongest MDN backward candidate:; strongest Track 2 forward MDN candidate:; strongest Track 2 backward MDN candidate:; strongest Track 2 global MDN candidate:; campaign scalar winner:; program scalar winner changed: no, `te_periodic_gru_sequence_remote_Bw`; Track 2 decision: verified exploratory baseline, not promoted over the; design conclusion: MDN improves the scalar `Bw` dispersion-aware branch by |
+| Wave 4 series. Mixture Density Heads Probe | status: mixture-density heads campaign completed; official `TE Curve Verification Pipeline` matrix; families:; `track2h_mixture_density_heads_mdn_k2_global`;; `track2h_mixture_density_heads_mdn_k2_fw`;; `track2h_mixture_density_heads_mdn_k2_bw`;; `track2h_mixture_density_heads_mdn_k3_global`;; `track2h_mixture_density_heads_mdn_k3_fw`;; `track2h_mixture_density_heads_mdn_k3_bw`;; closeout report:; official verification report:; matrix output:; strongest MDN global candidate:; strongest MDN forward candidate:; strongest MDN backward candidate:; strongest TE Curve Verification Pipeline forward MDN candidate:; strongest TE Curve Verification Pipeline backward MDN candidate:; strongest TE Curve Verification Pipeline global MDN candidate:; campaign scalar winner:; program scalar winner changed: no, `te_periodic_gru_sequence_remote_Bw`; curve-verification decision: verified exploratory baseline, not promoted over the; design conclusion: MDN improves the scalar `Bw` dispersion-aware branch by |
 
 Low-priority exploratory families currently listed in the backlog:
 
@@ -277,7 +277,7 @@ Low-priority exploratory families currently listed in the backlog:
 - `Neural ODE`
 - `Hamiltonian-Inspired Model`
 - `optional Kernel Ridge / Gaussian Process benchmark`
-| Wave 3. Hybrid Structured Models | status: first real campaign closed successfully as a scalar training; current scaffold:; model type: `wave3_harmonic_prior_residual`;; model class:; dry-run skeleton checker:; training-smoke-ready checker:; final one-batch validation artifact:; prepared package:; prepared launcher:; campaign closeout report:; scalar training winner:; scalar decision: no program-best promotion; the current program winner; official Track 2 launcher:; official Track 2 report:; strongest Wave 3 Track 2 candidate:; updated priority: use the completed Wave 3 curve, offset, collage, overlay, and closed `Track 2H-L` official Track 2 evidence as baselines for the next `Wave 4` or integrated multi-head decision; mandatory rule: prepare or justify `global`, `forward`, and `backward`; paper-reproduction scope:; compare hybrid structured predictors against the paper-style harmonic stack;; test condition-conditioned residual structure and separate treatment of; prepare the repository-owned deployable predictor package after the next design gate |
+| Wave 5.1. Hybrid Structured Models | status: first real campaign closed successfully as a scalar training; current scaffold:; model type: `wave3_harmonic_prior_residual`;; model class:; dry-run skeleton checker:; training-smoke-ready checker:; final one-batch validation artifact:; prepared package:; prepared launcher:; campaign closeout report:; scalar training winner:; scalar decision: no program-best promotion; the current program winner; official TE Curve Verification Pipeline launcher:; official TE curve-verification report:; strongest Wave 5.1 TE Curve Verification Pipeline candidate:; updated priority: use the completed Wave 5.1 curve, offset, collage, overlay, and closed `Wave 4.4` official TE Curve Verification Pipeline evidence as baselines for the next `Wave 5.2` or integrated multi-head decision; mandatory rule: prepare or justify `global`, `forward`, and `backward`; paper-reproduction scope:; compare hybrid structured predictors against the paper-style harmonic stack;; test condition-conditioned residual structure and separate treatment of; prepare the repository-owned deployable predictor package after the next design gate |
 
 Low-priority exploratory families currently listed in the backlog:
 
@@ -287,7 +287,7 @@ Low-priority exploratory families currently listed in the backlog:
 - `Neural ODE`
 - `Hamiltonian-Inspired Model`
 - `optional Kernel Ridge / Gaussian Process benchmark`
-| Wave 4. PINN Formulation And First PINN | status: pre-implemented at `Wave 4A` diagnostic level, not campaign-ready;; current scaffold:; diagnostic adapter:; diagnostic report builder:; parameter-inventory report builder:; generated diagnostic report:; generated parameter-inventory report:; companion artifacts:; parameter-inventory artifacts:; updated priority: execute dataset-aligned diagnostic calibration after the; mandatory rule: prepare or justify `global`, `forward`, and `backward`; paper-reproduction scope:; prepare PINN-side model and loss formulations for later offline and; test whether soft physics, periodicity, smoothness, harmonic-consistency,; keep online compensation execution out of Wave 4 unless Track 3 is; completed inventory conclusions:; known geometry constants are safe for diagnostics and feature generation;; operating metadata can be used for stratification and causal conditioning;; five equivalent-error groups are train-only calibratable;; contact geometry remains unavailable or ambiguous and blocks calibrated; measured TE remains target-only and must not become an inference input.; next implementation steps:; compare MMT diagnostic signatures against dataset-aligned curve summaries; design a train-only equivalent-error calibration policy for candidate; decide whether the MMT path remains diagnostic-only, becomes a feature; do not treat the current demonstration harmonic summary as dataset |
+| Wave 5.2. PINN Formulation And First PINN | status: pre-implemented at `Wave 5.2A` diagnostic level, not campaign-ready;; current scaffold:; diagnostic adapter:; diagnostic report builder:; parameter-inventory report builder:; generated diagnostic report:; generated parameter-inventory report:; companion artifacts:; parameter-inventory artifacts:; updated priority: execute dataset-aligned diagnostic calibration after the; mandatory rule: prepare or justify `global`, `forward`, and `backward`; paper-reproduction scope:; prepare PINN-side model and loss formulations for later offline and; test whether soft physics, periodicity, smoothness, harmonic-consistency,; keep online compensation execution out of Wave 5.2 unless Track 3 is; completed inventory conclusions:; known geometry constants are safe for diagnostics and feature generation;; operating metadata can be used for stratification and causal conditioning;; five equivalent-error groups are train-only calibratable;; contact geometry remains unavailable or ambiguous and blocks calibrated; measured TE remains target-only and must not become an inference input.; next implementation steps:; compare MMT diagnostic signatures against dataset-aligned curve summaries; design a train-only equivalent-error calibration policy for candidate; decide whether the MMT path remains diagnostic-only, becomes a feature; do not treat the current demonstration harmonic summary as dataset |
 
 Low-priority exploratory families currently listed in the backlog:
 
@@ -490,13 +490,13 @@ At the current repository state, the comparison is explicitly `offline-only`. A 
 | --- | --- | --- | --- |
 | Offline model-selection direction | Boosting/tree-heavy deployed harmonic predictors | Current winner `te_periodic_gru_sequence_remote_Bw` from family `periodic_gru_sequence_bw` with model type `periodic_gru_sequence` | not_aligned |
 | Strongest neural branch role | Neural models are evaluated, but not the primary deployed winners | Strongest repository neural family is `periodic_gru_sequence_bw` and still trails the tree winner | aligned |
-| Track 1 canonical closure rule | Paper Tables `3-6` replicated per target and per harmonic | Exact-paper report currently shows `0/0` harmonics fully closed, `0/0` partially closed, `0/0` still open | not_yet_met |
+| RCIM Model-Bank Reproduction canonical closure rule | Paper Tables `3-6` replicated per target and per harmonic | Exact-paper report currently shows `0/0` harmonics fully closed, `0/0` partially closed, `0/0` still open | not_yet_met |
 | Supporting harmonic-wise TE metric | Mean percentage error over full TE curves | Latest harmonic-wise validation reports `11.212%` mean percentage error on held-out curves using harmonics `0, 1, 3, 39, 40, 78, 81, 156, 162, 240` | supporting_only_not_yet_met |
 | Online robot-profile compensation | TE RMS reduction `83.6%` | No repository-owned online compensation result yet | not_yet_comparable |
 | Online cycloidal-profile compensation | TE RMS reduction `94.0%`, TE max reduction `91.7%` | No repository-owned online compensation result yet | not_yet_comparable |
 | Table 9-style end-to-end benchmark | PLC-integrated motion-profile compensation benchmark | Missing in the repository at the current state | not_yet_comparable |
 
-### Track 1 Canonical Status
+### RCIM Model-Bank Reproduction Canonical Status
 
 - Latest exact-paper validation summary: `N/A`
 - Table `3` amplitude `RMSE`: `0/0` harmonics at or below the paper target
@@ -520,7 +520,7 @@ At the current repository state, the comparison is explicitly `offline-only`. A 
 
 ### Gap Summary
 
-- `Track 1` remains open primarily because the canonical Tables `3-6` are not yet fully matched.
+- `RCIM Model-Bank Reproduction` remains open primarily because the canonical Tables `3-6` are not yet fully matched.
 - Offline benchmark scope remains `partially comparable` rather than like-for-like.
 - Not yet aligned: the current repository winner is not tree-based, while the paper deployment path is dominated by boosting/tree models.
 - Neural models remain secondary in the repository (`periodic_gru_sequence_bw`), which is also consistent with the paper not promoting a plain neural winner for deployment.

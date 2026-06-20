@@ -2,7 +2,7 @@
 
 ## Overview
 
-The active `Track 1` bidirectional original-dataset mega-campaign was manually
+The active `RCIM Model-Bank Reproduction` bidirectional original-dataset mega-campaign was manually
 interrupted after the first remote launch exposed a real ONNX-export failure on
 the remote workstation.
 

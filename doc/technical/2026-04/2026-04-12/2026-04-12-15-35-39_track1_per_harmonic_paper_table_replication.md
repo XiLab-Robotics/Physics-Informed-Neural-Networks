@@ -1,12 +1,12 @@
-# Track 1 Per-Harmonic Paper Table Replication
+# RCIM Model-Bank Reproduction Per-Harmonic Paper Table Replication
 
 ## Overview
 
-This technical document redefines the completion bar for `Track 1`.
+This technical document redefines the completion bar for `RCIM Model-Bank Reproduction`.
 
-The repository should no longer treat `Track 1` as complete when the
+The repository should no longer treat `RCIM Model-Bank Reproduction` as complete when the
 paper-faithful branch only reaches a good reconstructed-TE offline result.
-Instead, `Track 1` should close only when the repository reproduces the
+Instead, `RCIM Model-Bank Reproduction` should close only when the repository reproduces the
 paper-style per-harmonic training and reaches the paper-tabulated target
 values for each harmonic component.
 
@@ -47,7 +47,7 @@ validation flow that emits:
 - an exact-paper support export surface.
 
 That is close to the paper workflow, but it is not yet the final repository
-closure criterion requested for `Track 1`.
+closure criterion requested for `RCIM Model-Bank Reproduction`.
 
 This task should therefore promote the exact-paper branch from a generic
 family-bank validation into a per-harmonic replication workflow with these
@@ -60,7 +60,7 @@ properties:
 4. serialize a repository-owned `paper vs repository` comparison table that
    makes the closure status inspectable;
 5. report explicit `matched` / `not_matched` status per harmonic target and
-   aggregate `Track 1` closure status from that table.
+   aggregate `RCIM Model-Bank Reproduction` closure status from that table.
 
 The current implementation uses `MultiOutputRegressor`, which fits one
 independent regressor per target. Based on current scikit-learn documentation,

@@ -1,8 +1,8 @@
-# Track 2F-Bis Campaign Runner Model-Type Fix
+# Wave 3.2 Campaign Runner Model-Type Fix
 
 ## Overview
 
-The operator-launched `Track 2F-bis` campaign completed the three clean
+The operator-launched `Wave 3.2` campaign completed the three clean
 non-harmonic control runs, but the three `harmonic_residual_offset_probe` runs
 failed immediately.
 
@@ -28,7 +28,7 @@ Apply a narrow runner registration fix:
   `resolve_training_handler`;
 - keep the entrypoint as `scripts/training/train_feedforward_network.py`,
   matching the other neural PyTorch model families;
-- validate the failed `Track 2F-bis` harmonic YAMLs after the fix;
+- validate the failed `Wave 3.2` harmonic YAMLs after the fix;
 - prepare rerun of only the three failed harmonic-offset entries, not the
   already-completed clean baseline runs.
 

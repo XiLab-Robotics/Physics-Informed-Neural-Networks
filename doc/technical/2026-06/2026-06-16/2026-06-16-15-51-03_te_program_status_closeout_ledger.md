@@ -4,20 +4,20 @@
 
 This technical note prepares an official, maintainable replacement for the
 informal Transmission Error modeling status summary that has been copied across
-past chats and manually extended after later campaign and `Track 2` closeouts.
+past chats and manually extended after later campaign and `TE Curve Verification Pipeline` closeouts.
 
 The requested repository change has two durable outcomes:
 
 - create a canonical program-status ledger that summarizes the current
-  branch-parallel `Track 2` and wave history from `Wave 1` through the latest
-  `Wave 3` and `Track 2H` evidence;
+  branch-parallel `TE Curve Verification Pipeline` and wave history from `Wave 1` through the latest
+  `Wave 5.1` and `Wave 4 series` evidence;
 - update campaign closeout rules so every future closeout refreshes that
-  ledger when the campaign changes modeling status, accepted leaders, Track 2
+  ledger when the campaign changes modeling status, accepted leaders, TE Curve Verification Pipeline
   verification state, roadmap position, or next-step decisions.
 
 The ledger must replace stale narrative fragments rather than preserve them as
 historical truth. It should reflect current repository state, not the older
-pre-`Track 2G` plan.
+pre-`Wave 3.3` plan.
 
 ## Technical Approach
 
@@ -30,12 +30,12 @@ The document will use the repository's current evidence hierarchy:
 
 - accepted reference and direction-parallel leaders from
   `doc/reports/analysis/track2/Track 2 Directional Model Comparison.md`;
-- official `Track 2` verification reports through the current `Wave 3`
+- official `TE Curve Verification Pipeline` verification reports through the current `Wave 5.1`
   refresh dated `2026-06-15`;
-- campaign-results reports for `Track 2G`, the three completed `Track 2H`
-  packages, and the first real `Wave 3` campaign;
+- campaign-results reports for `Wave 3.3`, the three completed `Wave 4 series`
+  packages, and the first real `Wave 5.1` campaign;
 - roadmap documents that explain the transition from curve-aware losses to
-  dispersion-aware probes, structured harmonic priors, and later `Wave 4` /
+  dispersion-aware probes, structured harmonic priors, and later `Wave 5.2` /
   multi-head integration.
 
 The ledger will keep the central modeling boundary explicit:
@@ -63,16 +63,16 @@ The implementation will touch documentation and governance files only:
 
 The content will be grounded in these already-present evidence sources:
 
-- `Track 2B` curve-first reranking;
-- `Track 2C` curve-payload diagnostics;
-- mean-centered and `Track 2D` offset audits;
-- `Track 2E` offset-predictability feasibility;
-- `Track 2F` and `Track 2F-bis` offset-aware probes;
-- `Track 2G` curve-aware training and official verification;
-- `Track 2H` robust-loss, quantile/probabilistic, and mixture-density packages;
-- first real `Wave 3` harmonic-prior residual training and official `Track 2`
+- `CVP 1.1` curve-first reranking;
+- `CVP 1.2` curve-payload diagnostics;
+- mean-centered and `CVP 1.4` offset audits;
+- `CVP 1.5` offset-predictability feasibility;
+- `Wave 3.1` and `Wave 3.2` offset-aware probes;
+- `Wave 3.3` curve-aware training and official verification;
+- `Wave 4.1` robust-loss, quantile/probabilistic, and mixture-density packages;
+- first real `Wave 5.1` harmonic-prior residual training and official `TE Curve Verification Pipeline`
   verification;
-- earlier `Wave 1`, `Wave 2`, `Wave 2B`, and `Wave 2C` campaign and report
+- earlier `Wave 1`, `Wave 2.1`, `Wave 2.2`, and `Wave 2.3` campaign and report
   milestones needed to make the ledger complete.
 
 No subagent is planned for this work. If a later implementation pass needs a
@@ -82,7 +82,7 @@ scope and wait for user approval before launch.
 ## Implementation Steps
 
 1. Read the current repository evidence listed above, including the most recent
-   official `Track 2` report and active campaign state.
+   official `TE Curve Verification Pipeline` report and active campaign state.
 2. Draft the official ledger with a current-state narrative, a chronological
    wave / track table, current direction-parallel leaders, and update rules for
    future closeouts.

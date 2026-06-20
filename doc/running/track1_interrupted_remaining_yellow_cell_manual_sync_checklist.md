@@ -1,4 +1,4 @@
-# Track 1 Interrupted Remaining Yellow-Cell Manual Sync Checklist
+# RCIM Model-Bank Reproduction Interrupted Remaining Yellow-Cell Manual Sync Checklist
 
 ## Campaign Snapshot
 

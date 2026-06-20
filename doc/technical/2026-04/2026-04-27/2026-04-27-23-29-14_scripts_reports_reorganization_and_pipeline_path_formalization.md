@@ -4,11 +4,11 @@
 
 The current `scripts/reports/` root is too flat. It mixes:
 
-- Track 1 closeout entrypoints;
+- RCIM Model-Bank Reproduction closeout entrypoints;
 - presentation-generation tooling;
 - styled PDF export helpers;
 - model-analysis helpers;
-- Track 1 benchmark and archive refresh utilities.
+- RCIM Model-Bank Reproduction benchmark and archive refresh utilities.
 
 That layout already caused one concrete gap: the `forward` closeout path was
 implemented without refreshing `models/paper_reference/rcim_track1/`, while the
@@ -31,7 +31,7 @@ taxonomy with clear ownership boundaries.
 The proposed structure is:
 
 - `scripts/reports/closeout/`
-  - Track 1 closeout entrypoints and shared closeout helpers.
+  - RCIM Model-Bank Reproduction closeout entrypoints and shared closeout helpers.
 - `scripts/reports/presentation/`
   - presentation-generation and presentation-pipeline scripts.
 - `scripts/reports/pdf/`
@@ -39,7 +39,7 @@ The proposed structure is:
 - `scripts/reports/analysis/`
   - generic report-analysis helpers that are not closeout-specific.
 - `scripts/reports/track1/`
-  - Track 1 benchmark-refresh and family-reference archive refresh utilities
+  - RCIM Model-Bank Reproduction benchmark-refresh and family-reference archive refresh utilities
     that are reused by closeouts but also remain independently runnable.
 
 The closeout fix requested by the user should be implemented inside that
@@ -62,7 +62,7 @@ should point to the new folder structure.
 ## Involved Components
 
 - `scripts/reports/`
-- current Track 1 closeout scripts under `scripts/reports/`
+- current RCIM Model-Bank Reproduction closeout scripts under `scripts/reports/`
 - `scripts/reports/presentation/generate_markdown_presentation.py`
 - `scripts/reports/presentation/run_presentation_pipeline.py`
 - `scripts/reports/pdf/generate_styled_report_pdf.py`
@@ -73,7 +73,7 @@ should point to the new folder structure.
 - `scripts/reports/analysis/plot_wave1_best_model_te_curves.py`
 - `scripts/reports/track1/refresh_track1_benchmark_colored_markers.py`
 - `scripts/reports/track1/refresh_track1_family_reference_archives.py`
-- Track 1 campaign closeout and campaign-launch notes under `doc/scripts/campaigns/`
+- RCIM Model-Bank Reproduction campaign closeout and campaign-launch notes under `doc/scripts/campaigns/`
 - report-tooling notes under `doc/scripts/reports/`
 - `doc/guide/project_usage_guide.md`
 - `doc/README.md`
@@ -83,12 +83,12 @@ should point to the new folder structure.
 
 1. inventory the current `scripts/reports/` entrypoints and assign each one to
    a stable target subfolder;
-2. move the Track 1 closeout scripts under a dedicated closeout folder and
+2. move the RCIM Model-Bank Reproduction closeout scripts under a dedicated closeout folder and
    refactor any local imports or path assumptions that break after the move;
 3. move the presentation pipeline scripts under a dedicated presentation folder;
 4. move the styled PDF pipeline scripts under a dedicated PDF folder;
 5. move or regroup the remaining report helpers into dedicated analysis and
-   Track 1 support folders;
+   RCIM Model-Bank Reproduction support folders;
 6. implement the missing closeout archive-refresh enforcement inside the new
    closeout structure so the current `forward` closeout and a future
    `backward` closeout both use the same shared refresh path;

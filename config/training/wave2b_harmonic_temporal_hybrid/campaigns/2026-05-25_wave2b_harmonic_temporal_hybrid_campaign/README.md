@@ -1,4 +1,4 @@
-# Wave 2B Harmonic Temporal Hybrid Campaign
+# Wave 2.2 Harmonic Temporal Hybrid Campaign
 
 Prepared campaign package for:
 

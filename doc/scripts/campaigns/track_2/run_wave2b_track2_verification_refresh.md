@@ -1,11 +1,11 @@
-# Wave 2B Track 2 Verification Refresh Launcher
+# Wave 2.2 TE Curve Verification Pipeline Verification Refresh Launcher
 
 ## Overview
 
-This launcher runs the operator-approved `Track 2` offline verification refresh
-for the completed `Wave 2B` harmonic-temporal hybrid campaign.
+This launcher runs the operator-approved `TE Curve Verification Pipeline` offline verification refresh
+for the completed `Wave 2.2` harmonic-temporal hybrid campaign.
 
-It adds the current registry-backed `Wave 2B` candidate surfaces to the official
+It adds the current registry-backed `Wave 2.2` candidate surfaces to the official
 direction-aware matrix through:
 
 - `periodic_temporal_convolution_global`, `periodic_temporal_convolution_Fw`,
@@ -16,7 +16,7 @@ direction-aware matrix through:
   `periodic_lstm_sequence_Bw`.
 
 The launcher is intentionally operator-facing. Codex prepares it and provides
-the command, but does not run the heavy `Track 2` matrix internally.
+the command, but does not run the heavy `TE Curve Verification Pipeline` matrix internally.
 
 ## Local Command
 
@@ -36,11 +36,11 @@ Run from the repository root:
 .\scripts\campaigns\track_2\run_wave2b_track2_verification_refresh.ps1 -Remote
 ```
 
-Remote mode syncs the required local Track 2 launcher, config, script, registry,
-and `Wave 2B` checkpoint paths to the remote checkout before execution. It then
+Remote mode syncs the required local TE Curve Verification Pipeline launcher, config, script, registry,
+and `Wave 2.2` checkpoint paths to the remote checkout before execution. It then
 syncs only the generated artifact paths listed by the run-local artifact sync
 manifest back to the local repository. This keeps closed `Wave 1` report-plot
-history out of normal `Wave 2B` refresh downloads.
+history out of normal `Wave 2.2` refresh downloads.
 
 Override connection details when needed:
 
@@ -56,7 +56,7 @@ Override connection details when needed:
 
 The launcher runs:
 
-1. the official full direction-aware `Track 2` matrix;
+1. the official full direction-aware `TE Curve Verification Pipeline` matrix;
 2. the best-model collage report generation;
 3. the multi-model curve-comparison report generation;
 4. the visual source-coverage validation against the matrix candidate list;

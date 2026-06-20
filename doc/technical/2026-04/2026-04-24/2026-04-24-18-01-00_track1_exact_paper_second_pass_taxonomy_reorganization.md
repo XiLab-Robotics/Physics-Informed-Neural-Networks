@@ -3,7 +3,7 @@
 ## Overview
 
 The first forward-versus-backward reorganization pass correctly restored the
-generic recovered-asset root and moved the exact-paper `Track 1` forward
+generic recovered-asset root and moved the exact-paper `RCIM Model-Bank Reproduction` forward
 artifacts under direction-aware roots, but it stopped at the first taxonomy
 level. Several heavy directories still remain internally flat:
 

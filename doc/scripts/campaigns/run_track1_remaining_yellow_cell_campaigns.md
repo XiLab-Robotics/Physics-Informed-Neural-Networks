@@ -1,7 +1,7 @@
-# Track 1 Remaining Yellow-Cell Campaigns Launcher
+# RCIM Model-Bank Reproduction Remaining Yellow-Cell Campaigns Launcher
 
 This launcher runs the overnight yellow-cell closure sequence for the six
-still-open exact-paper families under the canonical Track 1 family-row
+still-open exact-paper families under the canonical RCIM Model-Bank Reproduction family-row
 replication focus.
 
 - family launcher count: `6`

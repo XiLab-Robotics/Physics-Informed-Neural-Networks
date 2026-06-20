@@ -1,10 +1,10 @@
-# Track 2 Directional Model Comparison
+# TE Curve Verification Pipeline Directional Model Comparison
 
 ## Overview
 
-This report is the canonical `Track 2` offline comparison between
-`Track 1`, recovered original, retuned paper-reference model banks, and
-repository-owned `Wave 1` and `Wave 2` model candidates. It starts from
+This report is the canonical `TE Curve Verification Pipeline` offline comparison between
+`RCIM Model-Bank Reproduction`, recovered original, retuned paper-reference model banks, and
+repository-owned `Wave 1` and `Wave 2.1` model candidates. It starts from
 the current direction-aware comparison matrix.
 
 ## Dataset And Split
@@ -175,7 +175,7 @@ the current direction-aware comparison matrix.
 ## Best Composite Reference Models
 
 These candidates combine the approved best harmonic-wise cells into
-one Track 2 curve-reconstruction candidate. They are also repeated
+one TE Curve Verification Pipeline curve-reconstruction candidate. They are also repeated
 inside the source-group tables below, but this section keeps the
 composed models explicit.
 
@@ -223,7 +223,7 @@ composed models explicit.
 | `rcim_retuned_ELM19_Fw` | 0.007182 | 0.007463 | 16.181 | 40.024 |
 | `rcim_retuned_MLP19_Fw` | 0.016647 | 0.020154 | 38.510 | 86.197 |
 
-### Track 1 Forward Models
+### RCIM Model-Bank Reproduction Forward Models
 
 | Candidate | Curve MAE [deg] | Curve RMSE [deg] | Mean Percentage Error [%] | P95 Mean Percentage Error [%] |
 | --- | ---: | ---: | ---: | ---: |
@@ -255,7 +255,7 @@ composed models explicit.
 | `residual_harmonic_mlp_global` | 0.003649 | 0.004051 | 8.123 | 14.713 |
 | `harmonic_regression_global` | 0.018314 | 0.018547 | 41.749 | 79.404 |
 
-### Wave 2 Temporal Forward And Global Models
+### Wave 2.1 Temporal Forward And Global Models
 
 | Candidate | Curve MAE [deg] | Curve RMSE [deg] | Mean Percentage Error [%] | P95 Mean Percentage Error [%] |
 | --- | ---: | ---: | ---: | ---: |
@@ -272,7 +272,7 @@ composed models explicit.
 | `gru_sequence_global` | 0.003546 | 0.003975 | 7.869 | 14.344 |
 | `temporal_convolution_Fw` | 0.003603 | 0.004031 | 8.028 | 14.674 |
 
-### Wave 2C Residual Harmonic Temporal Forward And Global Models
+### Wave 2.3 Residual Harmonic Temporal Forward And Global Models
 
 | Candidate | Curve MAE [deg] | Curve RMSE [deg] | Mean Percentage Error [%] | P95 Mean Percentage Error [%] |
 | --- | ---: | ---: | ---: | ---: |
@@ -289,14 +289,14 @@ composed models explicit.
 | `residual_harmonic_gru_sequence_dense360_Fw` | 0.007869 | 0.010574 | 17.740 | 20.918 |
 | `residual_harmonic_lstm_sequence_dense360_global` | 0.008760 | 0.012992 | 19.759 | 24.068 |
 
-### Track 2F Offset-Aware Forward And Global Models
+### Wave 3.1 Offset-Aware Forward And Global Models
 
 | Candidate | Curve MAE [deg] | Curve RMSE [deg] | Mean Percentage Error [%] | P95 Mean Percentage Error [%] |
 | --- | ---: | ---: | ---: | ---: |
 | `sequential_residual_offset_probe_Fw` | 0.003377 | 0.003799 | 7.487 | 13.103 |
 | `sequential_residual_offset_probe_global` | 0.003425 | 0.003839 | 7.599 | 12.346 |
 
-### Track 2F-Bis Harmonic-Offset Forward And Global Models
+### Wave 3.2 Harmonic-Offset Forward And Global Models
 
 | Candidate | Curve MAE [deg] | Curve RMSE [deg] | Mean Percentage Error [%] | P95 Mean Percentage Error [%] |
 | --- | ---: | ---: | ---: | ---: |
@@ -305,7 +305,7 @@ composed models explicit.
 | `track2f_bis_clean_sequential_residual_offset_global` | 0.003420 | 0.003841 | 7.590 | 13.476 |
 | `track2f_bis_clean_sequential_residual_offset_Fw` | 0.003439 | 0.003870 | 7.632 | 12.515 |
 
-### Track 2G Curve-Aware Forward And Global Models
+### Wave 3.3 Curve-Aware Forward And Global Models
 
 | Candidate | Curve MAE [deg] | Curve RMSE [deg] | Mean Percentage Error [%] | P95 Mean Percentage Error [%] |
 | --- | ---: | ---: | ---: | ---: |
@@ -318,7 +318,7 @@ composed models explicit.
 | `track2g_curve_aware_pointwise_control_Fw` | 0.003362 | 0.003612 | 7.474 | 13.966 |
 | `track2g_curve_aware_pointwise_control_global` | 0.003499 | 0.003784 | 7.771 | 13.513 |
 
-### Track 2H Robust-Loss Forward And Global Models
+### Wave 4.1 Robust-Loss Forward And Global Models
 
 | Candidate | Curve MAE [deg] | Curve RMSE [deg] | Mean Percentage Error [%] | P95 Mean Percentage Error [%] |
 | --- | ---: | ---: | ---: | ---: |
@@ -329,7 +329,7 @@ composed models explicit.
 | `track2h_log_cosh_robust_Fw` | 0.003344 | 0.003595 | 7.427 | 12.598 |
 | `track2h_log_cosh_robust_global` | 0.003515 | 0.003825 | 7.792 | 14.729 |
 
-### Track 2H Quantile Probabilistic Forward And Global Models
+### Wave 4.2 Quantile Probabilistic Forward And Global Models
 
 | Candidate | Curve MAE [deg] | Curve RMSE [deg] | Mean Percentage Error [%] | P95 Mean Percentage Error [%] |
 | --- | ---: | ---: | ---: | ---: |
@@ -357,7 +357,7 @@ composed models explicit.
 | `rcim_retuned_XGBM19_Bw` | 0.010679 | 0.011209 | 24.184 | 48.082 |
 | `rcim_retuned_MLP19_Bw` | 0.019115 | 0.023025 | 44.141 | 88.991 |
 
-### Track 1 Backward Models
+### RCIM Model-Bank Reproduction Backward Models
 
 | Candidate | Curve MAE [deg] | Curve RMSE [deg] | Mean Percentage Error [%] | P95 Mean Percentage Error [%] |
 | --- | ---: | ---: | ---: | ---: |
@@ -389,7 +389,7 @@ composed models explicit.
 | `feedforward_global` | 0.003741 | 0.004188 | 8.186 | 15.259 |
 | `harmonic_regression_global` | 0.018006 | 0.018276 | 41.275 | 83.603 |
 
-### Wave 2 Temporal Backward And Global Models
+### Wave 2.1 Temporal Backward And Global Models
 
 | Candidate | Curve MAE [deg] | Curve RMSE [deg] | Mean Percentage Error [%] | P95 Mean Percentage Error [%] |
 | --- | ---: | ---: | ---: | ---: |
@@ -406,7 +406,7 @@ composed models explicit.
 | `temporal_convolution_Bw` | 0.003742 | 0.004166 | 8.184 | 13.908 |
 | `temporal_convolution_global` | 0.003994 | 0.004438 | 8.798 | 18.339 |
 
-### Wave 2C Residual Harmonic Temporal Backward And Global Models
+### Wave 2.3 Residual Harmonic Temporal Backward And Global Models
 
 | Candidate | Curve MAE [deg] | Curve RMSE [deg] | Mean Percentage Error [%] | P95 Mean Percentage Error [%] |
 | --- | ---: | ---: | ---: | ---: |
@@ -423,14 +423,14 @@ composed models explicit.
 | `residual_harmonic_gru_sequence_dense360_Bw` | 0.009370 | 0.013165 | 21.267 | 25.901 |
 | `residual_harmonic_lstm_sequence_dense360_Bw` | 0.010268 | 0.014769 | 23.355 | 29.779 |
 
-### Track 2F Offset-Aware Backward And Global Models
+### Wave 3.1 Offset-Aware Backward And Global Models
 
 | Candidate | Curve MAE [deg] | Curve RMSE [deg] | Mean Percentage Error [%] | P95 Mean Percentage Error [%] |
 | --- | ---: | ---: | ---: | ---: |
 | `sequential_residual_offset_probe_Bw` | 0.003636 | 0.004065 | 7.952 | 13.795 |
 | `sequential_residual_offset_probe_global` | 0.003646 | 0.004080 | 7.981 | 14.394 |
 
-### Track 2F-Bis Harmonic-Offset Backward And Global Models
+### Wave 3.2 Harmonic-Offset Backward And Global Models
 
 | Candidate | Curve MAE [deg] | Curve RMSE [deg] | Mean Percentage Error [%] | P95 Mean Percentage Error [%] |
 | --- | ---: | ---: | ---: | ---: |
@@ -439,7 +439,7 @@ composed models explicit.
 | `track2f_bis_clean_sequential_residual_offset_global` | 0.003624 | 0.004058 | 7.918 | 12.339 |
 | `track2f_bis_harmonic_residual_offset_global` | 0.003805 | 0.004120 | 8.354 | 14.523 |
 
-### Track 2G Curve-Aware Backward And Global Models
+### Wave 3.3 Curve-Aware Backward And Global Models
 
 | Candidate | Curve MAE [deg] | Curve RMSE [deg] | Mean Percentage Error [%] | P95 Mean Percentage Error [%] |
 | --- | ---: | ---: | ---: | ---: |
@@ -452,7 +452,7 @@ composed models explicit.
 | `track2g_curve_aware_raw_offset_global` | 0.003559 | 0.003881 | 7.831 | 13.812 |
 | `track2g_curve_aware_pointwise_control_global` | 0.003658 | 0.004016 | 8.051 | 15.707 |
 
-### Track 2H Robust-Loss Backward And Global Models
+### Wave 4.1 Robust-Loss Backward And Global Models
 
 | Candidate | Curve MAE [deg] | Curve RMSE [deg] | Mean Percentage Error [%] | P95 Mean Percentage Error [%] |
 | --- | ---: | ---: | ---: | ---: |
@@ -463,7 +463,7 @@ composed models explicit.
 | `track2h_mae_robust_global` | 0.003568 | 0.003886 | 7.818 | 14.652 |
 | `track2h_smooth_l1_robust_global` | 0.003612 | 0.003931 | 7.918 | 14.825 |
 
-### Track 2H Quantile Probabilistic Backward And Global Models
+### Wave 4.2 Quantile Probabilistic Backward And Global Models
 
 | Candidate | Curve MAE [deg] | Curve RMSE [deg] | Mean Percentage Error [%] | P95 Mean Percentage Error [%] |
 | --- | ---: | ---: | ---: | ---: |
@@ -574,13 +574,13 @@ composed models explicit.
 ## Interpretation
 
 Rows are ranked by mean percentage error within each source group
-and direction. Directional paper-reference, Wave 1, and Wave 2
+and direction. Directional paper-reference, Wave 1, and Wave 2.1
 models are never evaluated on the opposite direction. Global Wave
 models remain valid on both directions and are therefore shown in
 the directional sections and again in the global breakdown.
 The `rcim_track1` forward reference banks use the opposite stored
-`h0` sign convention relative to the Track 2 reconstruction
-contract, so the Track 2 comparison applies the documented
+`h0` sign convention relative to the TE Curve Verification Pipeline reconstruction
+contract, so the curve-verification comparison applies the documented
 source-specific `h0` compatibility multiplier before curve
 reconstruction.
 

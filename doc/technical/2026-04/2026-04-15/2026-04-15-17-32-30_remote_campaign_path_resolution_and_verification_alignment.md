@@ -2,7 +2,7 @@
 
 ## Overview
 
-The current `Track 1` remote `SVR` campaign now reaches the post-sync
+The current `RCIM Model-Bank Reproduction` remote `SVR` campaign now reaches the post-sync
 verification stage, but two path-related problems remain:
 
 1. the new remote verification block is generated with malformed PowerShell
@@ -70,5 +70,5 @@ resolution.
 3. Recheck the remote run script path handoff to ensure it uses the same
    repository-relative path strings that were just verified.
 4. Run a targeted LAN smoke test of the remote launcher using the current
-   `Track 1` `SVR` campaign command.
+   `RCIM Model-Bank Reproduction` `SVR` campaign command.
 5. Update the remote launcher note if the operator-visible diagnostics change.

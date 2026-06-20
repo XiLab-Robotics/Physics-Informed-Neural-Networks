@@ -1,6 +1,6 @@
-# Track 1 Remaining Family Full-Matrix Campaigns Launcher
+# RCIM Model-Bank Reproduction Remaining Family Full-Matrix Campaigns Launcher
 
-This launcher executes the `9` remaining exact-paper `Track 1` family
+This launcher executes the `9` remaining exact-paper `RCIM Model-Bank Reproduction` family
 campaigns in sequence:
 
 1. `MLP`

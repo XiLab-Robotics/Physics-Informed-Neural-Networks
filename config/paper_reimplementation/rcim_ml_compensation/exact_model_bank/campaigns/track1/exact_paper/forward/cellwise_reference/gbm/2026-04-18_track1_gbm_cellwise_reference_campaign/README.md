@@ -1,6 +1,6 @@
-# Track 1 GBM Cellwise Reference Campaign Package
+# RCIM Model-Bank Reproduction GBM Cellwise Reference Campaign Package
 
-This package contains the dedicated `Track 1` exact-paper `GBM` family
+This package contains the dedicated `RCIM Model-Bank Reproduction` exact-paper `GBM` family
 cellwise reference campaign.
 
 Included configs:

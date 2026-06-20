@@ -40,4 +40,4 @@ last_completed_campaign:
     run_name: te_track2h_l_gru_offset_residual_bw
     profile: gru_offset_residual
     test_mae: 0.003545429790392518
-  notes: Normal closeout complete. Official Track 2 curve-first verification remains a separate optional operator-approved workflow.
+  notes: Normal closeout complete. Official TE Curve Verification Pipeline curve-first verification remains a separate optional operator-approved workflow.

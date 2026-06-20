@@ -1,25 +1,25 @@
-# Track 1 Paper Tables 2 6 Canonical Dashboard
+# RCIM Model-Bank Reproduction Paper Tables 2 6 Canonical Dashboard
 
 ## Overview
 
 This technical document defines the requested documentation upgrade for the
-paper-facing `Track 1` reporting surface.
+paper-facing `RCIM Model-Bank Reproduction` reporting surface.
 
 The user requested one canonical document that:
 
 - includes the paper tables `2`, `3`, `4`, `5`, and `6`;
 - shows the original paper table content in repository-owned form;
-- shows one analogous repository table for the current `Track 1` state;
+- shows one analogous repository table for the current `RCIM Model-Bank Reproduction` state;
 - highlights each repository cell with a traffic-light status:
   - `green` -> paper target reached;
   - `yellow` -> nearly reached or still acceptable for follow-up;
   - `red` -> not reached;
-- stays updated after every future `Track 1` progress step until full closure.
+- stays updated after every future `RCIM Model-Bank Reproduction` progress step until full closure.
 
 The most appropriate canonical home is
 `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`, because that file is
 already the repository-owned entry point for the paper baseline, the current
-paper-vs-repository verdict, and the explicit `Track 1` / `Track 2` separation.
+paper-vs-repository verdict, and the explicit `RCIM Model-Bank Reproduction` / `TE Curve Verification Pipeline` separation.
 
 This task is documentation and reporting work only. It does not, by itself,
 change the exact-paper training workflow or launch any new campaign.
@@ -54,7 +54,7 @@ The implementation should keep one source-of-truth flow:
      color markers for `green`, `yellow`, and `red`;
 4. define a stable meaning for each color so future updates remain
    comparable and do not drift semantically;
-5. wire the surrounding wording so future `Track 1` progress updates are
+5. wire the surrounding wording so future `RCIM Model-Bank Reproduction` progress updates are
    expected to refresh this dashboard after every material exact-paper
    improvement.
 
@@ -120,7 +120,7 @@ as `small positive gap only`, instead of inventing arbitrary optimism.
    repository-side comparison table.
 4. Define and document the exact `green / yellow / red` rule so future updates
    remain deterministic.
-5. Seed the new dashboard with the latest canonical `Track 1` state from the
+5. Seed the new dashboard with the latest canonical `RCIM Model-Bank Reproduction` state from the
    best current exact-paper run and the latest campaign closeout.
 6. Update any adjacent canonical summary wording that points readers to the old
    split surfaces so the new dashboard becomes the first place to inspect.

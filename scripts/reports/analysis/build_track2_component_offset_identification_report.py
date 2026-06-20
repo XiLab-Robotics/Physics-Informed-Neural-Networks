@@ -1,4 +1,4 @@
-"""Build Track 2 component-offset identification diagnostics."""
+"""Build TE Curve Verification Pipeline component-offset identification diagnostics."""
 
 from __future__ import annotations
 
@@ -334,7 +334,7 @@ def write_report(
     )
 
     report_lines = [
-        "# Track 2 Component Offset Identification Diagnostic",
+        "# TE Curve Verification Pipeline Component Offset Identification Diagnostic",
         "",
         "## Overview",
         "",
@@ -411,8 +411,8 @@ def write_report(
             "`a_0` / harmonic zero should stay the priority suspect because it is",
             "the largest average measured component and shows strong direction",
             "structure. It should not yet be documented as the sole confirmed",
-            "cause of the Track 2 model offset. The next analysis should compare",
-            "these measured h0 surfaces with Track 2D signed model-offset rows and",
+            "cause of the TE Curve Verification Pipeline model offset. The next analysis should compare",
+            "these measured h0 surfaces with CVP 1.4 signed model-offset rows and",
             "inspect high-order outliers, especially where harmonic `156`, `162`,",
             "or `240` amplitudes spike.",
             "",
@@ -478,7 +478,7 @@ def main() -> None:
     )
     write_summary_yaml(report_directory / REPORT_SUMMARY_FILENAME, input_summary, report_path, asset_relative_path_list)
 
-    print(f"Prepared Track 2 component-offset diagnostic report | {report_path}")
+    print(f"Prepared TE Curve Verification Pipeline component-offset diagnostic report | {report_path}")
 
 
 if __name__ == "__main__":

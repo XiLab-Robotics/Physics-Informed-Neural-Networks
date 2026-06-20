@@ -1,9 +1,9 @@
-# Track 2 Curve Reconstruction Documentation
+# TE Curve Verification Pipeline Curve Reconstruction Documentation
 
 ## Overview
 
 This technical document plans a repository-owned Markdown report that documents
-how `Track 2` reconstructs and plots TE curves in the best-model collage report.
+how `TE Curve Verification Pipeline` reconstructs and plots TE curves in the best-model collage report.
 The report will focus on the standard collage pipeline, the repository-model
 path represented by `harmonic_regression`, the paper-original forward reference
 path represented by `paper_original_best_Fw`, and the relationship to the
@@ -15,7 +15,7 @@ mean-centered diagnostics introduced by commit
 Create a detailed analysis report under `doc/reports/analysis/track2/` using a
 readable title-based filename or a narrow topic-root folder. The report will
 cite concrete source files and line ranges from the current repository code,
-including the `Track 2` matrix template, shared evaluation support, collage
+including the `TE Curve Verification Pipeline` matrix template, shared evaluation support, collage
 report builder, mean-centered diagnostics builder, harmonic decomposition
 support, and `harmonic_regression` model implementation.
 
@@ -38,7 +38,7 @@ The report will distinguish the two inference paths:
 
 ## Implementation Steps
 
-1. Create the detailed Track 2 curve reconstruction Markdown report after this
+1. Create the detailed TE Curve Verification Pipeline curve reconstruction Markdown report after this
    technical document is explicitly approved.
 2. Include step-by-step sections for dataset/test-curve construction, candidate
    loading, direction filtering, metric calculation, representative-curve

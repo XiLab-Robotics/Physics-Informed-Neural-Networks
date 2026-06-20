@@ -39,7 +39,7 @@ project planning:
 6. reconstruct the TE curve from the predicted harmonic stack;
 7. evaluate the reconstructed curve against the real curve using `MAE`,
    `RMSE`, and mean percentage error;
-8. position the result inside the repository's `Track 1` paper-faithful branch
+8. position the result inside the repository's `RCIM Model-Bank Reproduction` paper-faithful branch
    and explain how it differs from the direct-TE comparison branch.
 
 The guide should be repository-facing, but still educational. It should make

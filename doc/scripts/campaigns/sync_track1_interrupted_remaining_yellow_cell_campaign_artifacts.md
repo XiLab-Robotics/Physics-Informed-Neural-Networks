@@ -1,4 +1,4 @@
-# Track 1 Interrupted Remaining Yellow-Cell Artifact Sync
+# RCIM Model-Bank Reproduction Interrupted Remaining Yellow-Cell Artifact Sync
 
 Use this helper after the long remote `SVM` branch of the interrupted
 remaining-yellow-cell bundle has been stopped and the local repository still

@@ -1,4 +1,4 @@
-"""Plot Track 2 curves from the recovered original paper ONNX forward bank."""
+"""Plot TE Curve Verification Pipeline curves from the recovered original paper ONNX forward bank."""
 
 from __future__ import annotations
 
@@ -138,7 +138,7 @@ def parse_command_line_arguments() -> argparse.Namespace:
         "--config-path",
         type=Path,
         default=DEFAULT_TRACK2_CONFIG_PATH,
-        help="Track 2 configuration that defines the canonical held-out curve split.",
+        help="TE Curve Verification Pipeline configuration that defines the canonical held-out curve split.",
     )
     parser.add_argument(
         "--output-root",
@@ -156,7 +156,7 @@ def parse_command_line_arguments() -> argparse.Namespace:
         "--max-curves",
         type=int,
         default=None,
-        help="Optional maximum number of forward Track 2 curves to plot.",
+        help="Optional maximum number of forward TE Curve Verification Pipeline curves to plot.",
     )
     parser.add_argument(
         "--show",
@@ -206,7 +206,7 @@ def build_forward_track2_curve_record_list(
     config_path: Path,
 ) -> tuple[list[harmonic_wise_support.HarmonicCurveRecord], list[int], str]:
 
-    """Build the canonical forward Track 2 curve records."""
+    """Build the canonical forward TE Curve Verification Pipeline curve records."""
 
     training_config = reference_family_vs_feedforward_support.load_reference_family_comparison_config(config_path)
     selected_harmonic_list = [

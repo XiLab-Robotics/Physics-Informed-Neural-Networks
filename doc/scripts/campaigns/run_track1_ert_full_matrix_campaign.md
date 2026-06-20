@@ -1,6 +1,6 @@
-# Track 1 ERT Full-Matrix Campaign Launcher
+# RCIM Model-Bank Reproduction ERT Full-Matrix Campaign Launcher
 
-This launcher runs the dedicated `Track 1` exact-paper `ERT` family campaign.
+This launcher runs the dedicated `RCIM Model-Bank Reproduction` exact-paper `ERT` family campaign.
 
 Included configs:
 

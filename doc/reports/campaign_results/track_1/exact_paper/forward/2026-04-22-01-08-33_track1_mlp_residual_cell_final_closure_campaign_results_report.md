@@ -1,4 +1,4 @@
-# Track 1 MLP Residual Cell Final Closure Campaign Results Report
+# RCIM Model-Bank Reproduction MLP Residual Cell Final Closure Campaign Results Report
 
 ## Overview
 
@@ -8,7 +8,7 @@ prepared in:
 - `doc/reports/campaign_plans/track_1/exact_paper/2026-04-21-23-32-36_track1_mlp_residual_cell_final_closure_campaign_plan_report.md`
 
 The campaign targeted only the last four distinct accepted `MLP`
-family-target pairs that were still non-green in the canonical `Track 1`
+family-target pairs that were still non-green in the canonical `RCIM Model-Bank Reproduction`
 full-matrix benchmark.
 
 - campaign name: `track1_mlp_residual_cell_final_closure_campaign_2026_04_21_23_32_36`
@@ -48,10 +48,10 @@ targeted residual `MLP` pair. Each metric cell is shown as `MAE / RMSE`.
 - `Table 5` remaining non-green harmonics: `162`
 - total remaining non-green `MLP` cells on Tables `2-5`: `2`
 
-## Canonical Track 1 Impact
+## Canonical RCIM Model-Bank Reproduction Impact
 
 - This residual `MLP` wave updates the accepted `MLP` family row without
-  changing the canonical Track 1 scope definition.
+  changing the canonical RCIM Model-Bank Reproduction scope definition.
 - The benchmark row now keeps the better visible metric cell between the
   accepted baseline and this dedicated residual closure wave.
 - The cross-family closure counts should now be read directly from the

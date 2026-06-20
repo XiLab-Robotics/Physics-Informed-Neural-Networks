@@ -1,4 +1,4 @@
-"""Close out the bidirectional original-dataset Track 1 mega campaign.
+"""Close out the bidirectional original-dataset RCIM Model-Bank Reproduction mega campaign.
 
 This utility reconciles the completed remote bidirectional exact-paper wave
 against its canonical queue, refreshes the benchmark restart matrices, rebuilds
@@ -90,7 +90,7 @@ TABLE_HEADING_LIST = [
 GREEN_MARKER = "\U0001F7E2"
 YELLOW_MARKER = "\U0001F7E1"
 RED_MARKER = "\U0001F534"
-ARCHIVE_SECTION_START_HEADING = "### Track 1 Family Archive Standard"
+ARCHIVE_SECTION_START_HEADING = "### RCIM Model-Bank Reproduction Family Archive Standard"
 ARCHIVE_SECTION_END_HEADING = "### Supporting Harmonic-Wise Offline Result"
 CAMPAIGN_SELECTION_POLICY = {
     "primary_metric": "winning_mean_component_mae_asc",
@@ -144,7 +144,7 @@ def parse_command_line_arguments() -> argparse.Namespace:
 
     argument_parser = argparse.ArgumentParser(
         description=(
-            "Close out the Track 1 bidirectional original-dataset exact-paper "
+            "Close out the RCIM Model-Bank Reproduction bidirectional original-dataset exact-paper "
             "mega campaign."
         )
     )
@@ -688,12 +688,12 @@ def refresh_track1_archive_standard_and_family_sections(
     end_index = find_line_index(benchmark_line_list, ARCHIVE_SECTION_END_HEADING, start_index=start_index)
 
     replacement_line_list = [
-        "### Track 1 Family Archive Standard",
+        "### RCIM Model-Bank Reproduction Family Archive Standard",
         "",
-        "The repository now treats curated `Track 1` family archives as canonical",
+        "The repository now treats curated `RCIM Model-Bank Reproduction` family archives as canonical",
         "benchmark assets rather than optional side notes.",
         "",
-        "Every family that reaches archive-grade `Track 1` closure now follows the",
+        "Every family that reaches archive-grade `RCIM Model-Bank Reproduction` closure now follows the",
         "same bidirectional package contract under `models/paper_reference/rcim_track1/`:",
         "",
         "- `<direction>/<family>_reference_models/README.md`",
@@ -710,7 +710,7 @@ def refresh_track1_archive_standard_and_family_sections(
         "",
         "Closeout governance rule:",
         "",
-        "- every future accepted `Track 1` closeout must compare the newly accepted target winner against the archived target entry already stored under `models/paper_reference/rcim_track1/`;",
+        "- every future accepted `RCIM Model-Bank Reproduction` closeout must compare the newly accepted target winner against the archived target entry already stored under `models/paper_reference/rcim_track1/`;",
         "- when the new closeout improves the accepted target winner, the archive entry must be replaced together with its provenance snapshots, dataset snapshot manifest, and benchmark references;",
         "- when the accepted target winner does not improve, the existing archive entry must be retained unchanged to avoid unnecessary canonical churn.",
         "",
@@ -1157,10 +1157,10 @@ def build_directional_family_archive(
         entry for entry in all_reference_model_entry_list if entry["target_kind"] == "phase"
     ]
     archive_readme_line_list = [
-        f"# RCIM Track 1 {direction_label.title()} {paper_family_code} Reference Models",
+        f"# RCIM Model-Bank Reproduction {direction_label.title()} {paper_family_code} Reference Models",
         "",
         f"This archive stores the accepted `{paper_family_code}` target-level winners for the",
-        f"`{direction_label}` branch of the canonical original-dataset Track 1 benchmark surface.",
+        f"`{direction_label}` branch of the canonical original-dataset RCIM Model-Bank Reproduction benchmark surface.",
         "",
         "Archive contents:",
         "",
@@ -1263,10 +1263,10 @@ def refresh_track1_reference_archives(
 
     TRACK1_REFERENCE_ROOT_README_PATH.write_text(
         "\n".join([
-            "# RCIM Track 1 Paper Reference Models",
+            "# RCIM Model-Bank Reproduction Paper Reference Models",
             "",
             "This folder groups curated paper-reference model archives for the canonical",
-            "`Track 1` RCIM paper-reimplementation branch.",
+            "`RCIM Model-Bank Reproduction` RCIM paper-reimplementation branch.",
             "",
             "Direction branches:",
             "",
@@ -1297,7 +1297,7 @@ def refresh_track1_reference_archives(
             "",
             "Closeout rule:",
             "",
-            "- every future Track 1 closeout must compare newly accepted target winners against the archive entries already stored here;",
+            "- every future RCIM Model-Bank Reproduction closeout must compare newly accepted target winners against the archive entries already stored here;",
             "- when a newly accepted winner improves the stored archive entry, the archive must be replaced together with its provenance bundle and linked benchmark references;",
             "- when the accepted winner does not improve, the stored archive entry must remain unchanged.",
             "",
@@ -1307,7 +1307,7 @@ def refresh_track1_reference_archives(
     )
     (TRACK1_REFERENCE_BACKWARD_ROOT / "README.md").write_text(
         "\n".join([
-            "# RCIM Track 1 Backward Reference Branch",
+            "# RCIM Model-Bank Reproduction Backward Reference Branch",
             "",
             "This branch now stores the canonical backward-direction paper-reference",
             "archives rebuilt from the original dataset under `data/simplified_dataset/`.",
@@ -1339,7 +1339,7 @@ def refresh_track1_reference_archives(
             "",
             "- `rcim_track1/`",
             "",
-            "For `Track 1` paper-reimplementation families, the canonical family package",
+            "For `RCIM Model-Bank Reproduction` paper-reimplementation families, the canonical family package",
             "contract is:",
             "",
             "- `models/paper_reference/rcim_track1/forward/<family>_reference_models/`",
@@ -1364,7 +1364,7 @@ def refresh_track1_reference_archives(
             "- Python-usable fitted estimators when the training stack supports them;",
             "- dataset provenance and deterministic split reconstruction metadata.",
             "",
-            "The bidirectional original-dataset Track 1 mega-campaign closeout is the first",
+            "The bidirectional original-dataset RCIM Model-Bank Reproduction mega-campaign closeout is the first",
             "wave that fully populates both `forward` and `backward` archive branches.",
             "",
         ]).rstrip() + "\n",
@@ -1389,7 +1389,7 @@ def refresh_track1_reference_archives(
             "- `scripts/models/`",
             "- `scripts/training/`",
             "",
-            "Current curated Track 1 paper-reference archives:",
+            "Current curated RCIM Model-Bank Reproduction paper-reference archives:",
             "",
             *[
                 f"- `paper_reference/rcim_track1/{direction_label}/{FAMILY_ARCHIVE_FOLDER_MAP[family_code]}/`"
@@ -1539,15 +1539,15 @@ def patch_master_summary(
         "Bidirectional original-dataset mega wave completed `400/400`, refreshed both benchmark restart surfaces, and rebuilt the full `2 x 10 x 19` paper-reference archive set under `models/paper_reference/rcim_track1/` |",
     )
 
-    track1_status_heading_index = find_line_index(master_summary_line_list, "### Track 1 Canonical Status")
-    track15_heading_index = find_line_index(master_summary_line_list, "### Track 1.5 Harmonic-Wise Validation Support", start_index=track1_status_heading_index)
+    track1_status_heading_index = find_line_index(master_summary_line_list, "### RCIM Model-Bank Reproduction Canonical Status")
+    track15_heading_index = find_line_index(master_summary_line_list, "### RCIM Harmonic-Wise Follow-Up Harmonic-Wise Validation Support", start_index=track1_status_heading_index)
     total_non_green_count = sum(
         status_dictionary["yellow"] + status_dictionary["red"]
         for table_dictionary in benchmark_status_dictionary.values()
         for status_dictionary in table_dictionary.values()
     )
     replacement_line_list = [
-        "### Track 1 Canonical Status",
+        "### RCIM Model-Bank Reproduction Canonical Status",
         "",
         f"- Latest exact-paper closeout report: `{report_relative_path}`",
         "- Canonical progress surface:",
@@ -1565,7 +1565,7 @@ def patch_master_summary(
         f"- Table `5` `forward` status: `{benchmark_status_dictionary['table5']['forward']['green']}` green, `{benchmark_status_dictionary['table5']['forward']['yellow']}` yellow, `{benchmark_status_dictionary['table5']['forward']['red']}` red",
         f"- Table `5` `backward` status: `{benchmark_status_dictionary['table5']['backward']['green']}` green, `{benchmark_status_dictionary['table5']['backward']['yellow']}` yellow, `{benchmark_status_dictionary['table5']['backward']['red']}` red",
         f"- Remaining non-green cells across both directional restart surfaces: `{total_non_green_count}`",
-        "- Harmonic-wise Table `6` evidence remains postponed into `Track 1.5` and does not gate this closeout.",
+        "- Harmonic-wise Table `6` evidence remains postponed into `RCIM Harmonic-Wise Follow-Up` and does not gate this closeout.",
         "",
     ]
     master_summary_line_list = (
@@ -1577,7 +1577,7 @@ def patch_master_summary(
     gap_summary_heading_index = find_line_index(master_summary_line_list, "### Gap Summary")
     gap_summary_first_bullet_index = gap_summary_heading_index + 2
     master_summary_line_list[gap_summary_first_bullet_index] = (
-        f"- `Track 1` still has `{total_non_green_count}` non-green cells across the bidirectional original-dataset restart benchmark surface."
+        f"- `RCIM Model-Bank Reproduction` still has `{total_non_green_count}` non-green cells across the bidirectional original-dataset restart benchmark surface."
     )
     MASTER_SUMMARY_PATH.write_text(
         "\n".join(master_summary_line_list).rstrip() + "\n",
@@ -1600,7 +1600,7 @@ def build_campaign_results_report_markdown(
         active_campaign_dictionary["campaign_output_directory"]
     )
     report_line_list = [
-        "# Track 1 Bidirectional Original-Dataset Mega Campaign Results",
+        "# RCIM Model-Bank Reproduction Bidirectional Original-Dataset Mega Campaign Results",
         "",
         "## Overview",
         "",
@@ -1665,7 +1665,7 @@ def build_campaign_results_report_markdown(
         "",
         "## Closeout Notes",
         "",
-        "- the archive refresh rule remains mandatory for every future Track 1 closeout;",
+        "- the archive refresh rule remains mandatory for every future RCIM Model-Bank Reproduction closeout;",
         "- when a newly accepted target winner improves the stored archive entry under `models/paper_reference/rcim_track1/`, the archive must be updated together with its reference documents;",
         "- when the accepted target winner does not improve, the stored archive entry must remain unchanged.",
         "",

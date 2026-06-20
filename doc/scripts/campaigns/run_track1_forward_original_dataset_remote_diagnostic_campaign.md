@@ -1,8 +1,8 @@
-# Track 1 Forward Original-Dataset Remote Diagnostic Campaign Launcher
+# RCIM Model-Bank Reproduction Forward Original-Dataset Remote Diagnostic Campaign Launcher
 
 ## Overview
 
-This launcher executes the prepared `Track 1` forward-only remote diagnostic
+This launcher executes the prepared `RCIM Model-Bank Reproduction` forward-only remote diagnostic
 campaign.
 
 The script is stored in:

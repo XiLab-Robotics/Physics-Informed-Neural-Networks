@@ -1,4 +1,4 @@
-# Track 1 MLP Residual Cellwise Closure Campaign
+# RCIM Model-Bank Reproduction MLP Residual Cellwise Closure Campaign
 
 This package contains the aggressive overnight residual-cell closure
 wave for the exact-paper `MLP` family.

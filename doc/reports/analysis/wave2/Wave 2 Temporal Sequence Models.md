@@ -1,8 +1,8 @@
-# Wave 2 Temporal Sequence Models
+# Wave 2.1 Temporal Sequence Models
 
 ## Overview
 
-`Wave 2` introduces temporal sequence baselines for TE curve prediction. The
+`Wave 2.1` introduces temporal sequence baselines for TE curve prediction. The
 new branch keeps the existing scalar TE regression objective, but changes the
 model input from one point at a time to short centered windows of neighboring
 curve samples.
@@ -13,7 +13,7 @@ The first implemented families are:
 - `gru_sequence`
 - `lstm_sequence`
 
-All three families remain bound to the official `Track 2` verification rule:
+All three families remain bound to the official `TE Curve Verification Pipeline` verification rule:
 every accepted family must be checked as `global`, `Fw`, and `Bw`, then routed
 back through the direction-aware matrix and visual curve reports.
 
@@ -30,7 +30,7 @@ state components than an `LSTM`.
 
 `lstm_sequence` is the matched recurrent baseline with an `LSTM` backbone. It
 uses hidden state plus cell state internally and is included by default so that
-Wave 2 compares convolutional context, simpler gated recurrence, and the
+Wave 2.1 compares convolutional context, simpler gated recurrence, and the
 standard recurrent cell-state family in the same campaign.
 
 ## Operating Principle
@@ -40,7 +40,7 @@ The shared datamodule now supports two collation modes:
 - `point`, preserving the original Wave 1 point-level batches;
 - `sequence`, emitting rank-3 tensors shaped as batch, sequence, feature.
 
-For Wave 2, each sampled curve is converted into overlapping windows. The
+For Wave 2.1, each sampled curve is converted into overlapping windows. The
 configured target point is the center of the window, so the model predicts the
 TE target at the same angular neighborhood that it observes.
 
@@ -54,7 +54,7 @@ Advantages:
 
 - tests whether neighboring angular samples carry useful local TE context;
 - keeps the existing target, loss, optimizer, metrics, and registry contracts;
-- preserves the direction-aware `Track 2` comparison rule;
+- preserves the direction-aware `TE Curve Verification Pipeline` comparison rule;
 - keeps the first temporal branch small enough to debug before heavier
   sequence models are considered.
 

@@ -1,15 +1,15 @@
-# Track 2 Official Model Verification Report
+# TE Curve Verification Pipeline Official Model Verification Report
 
 ## Executive Verdict
 
-This update accepts the completed `Track 2F` offset-aware probe campaign into
-the official `Track 2` offline verification matrix.
+This update accepts the completed `Wave 3.1` offset-aware probe campaign into
+the official `TE Curve Verification Pipeline` offline verification matrix.
 
 Decision:
 
-- `Track 2F` is verified as an exploratory offset-aware sequential residual
+- `Wave 3.1` is verified as an exploratory offset-aware sequential residual
   baseline.
-- No `Track 2F` candidate is promoted over the current accepted `Track 2`
+- No `Wave 3.1` candidate is promoted over the current accepted `TE Curve Verification Pipeline`
   leaders.
 - The project still maintains three parallel best surfaces: `Fw`, `Bw`, and
   `global`.
@@ -17,7 +17,7 @@ Decision:
   `paper_retuned_best_Fw`.
 - The strongest paper-derived backward baseline remains
   `paper_retuned_best_Bw`.
-- The strongest repository-owned neural branch remains `Wave 2B`
+- The strongest repository-owned neural branch remains `Wave 2.2`
   `periodic_gru_sequence_Bw` for backward-only evaluation and
   `periodic_gru_sequence_global` for bidirectional neural evaluation.
 
@@ -38,7 +38,7 @@ This official report consolidates these refreshed artifacts:
 
 ## Candidate Refresh
 
-The refresh added `3` registry-backed `Track 2F` candidates:
+The refresh added `3` registry-backed `Wave 3.1` candidates:
 
 | Surface | Candidate | Registry |
 | --- | --- | --- |
@@ -47,8 +47,8 @@ The refresh added `3` registry-backed `Track 2F` candidates:
 | `Bw` | `sequential_residual_offset_probe_Bw` | `output/registries/families/sequential_residual_offset_probe_bw/latest_family_best.yaml` |
 
 The matrix now contains `114` candidates. The incremental operator run used the
-completed `Wave 2C` refresh as its `111`-candidate baseline and evaluated only
-the `3` new `Track 2F` candidates.
+completed `Wave 2.3` refresh as its `111`-candidate baseline and evaluated only
+the `3` new `Wave 3.1` candidates.
 
 ## Current Leaders
 
@@ -61,7 +61,7 @@ the `3` new `Track 2F` candidates.
 | repository static global | `tree_global` | 0.003144 | 0.003533 | 6.854 |
 | repository global neural | `periodic_gru_sequence_global` | 0.002704 | 0.002949 | 6.139 |
 
-## Track 2F Result
+## Wave 3.1 Result
 
 | Surface | Candidate | MAE [deg] | RMSE [deg] | Mean [%] |
 | --- | --- | ---: | ---: | ---: |
@@ -74,34 +74,34 @@ the `3` new `Track 2F` candidates.
 The offset-aware sequential residual probe is competitive with the older Wave
 1 neural baselines but does not beat the current curve-following leaders. Its
 main value is diagnostic: the residual-offset branch did not close the gap to
-the `Wave 2B` periodic sequence family, so the next offset-aware branch should
+the `Wave 2.2` periodic sequence family, so the next offset-aware branch should
 not simply add a sequential residual head and expect promotion.
 
 ## Visual Evidence
 
 The operator launcher regenerated the dated collage and overlay bundles for
 `2026-06-04`. Those report builders still require a follow-up optimization to
-render dedicated `Track 2F` visual sections without rerunning an expensive full
+render dedicated `Wave 3.1` visual sections without rerunning an expensive full
 visual pass. The official decision above therefore uses the refreshed
 directional matrix as the canonical evidence and treats the visual bundle as a
-supporting baseline refresh, not as the final Track 2F visual closeout.
+supporting baseline refresh, not as the final Wave 3.1 visual closeout.
 
 ## Campaign Update Ledger
 
 | Date | Campaign or Update | Candidate Scope | Matrix Status | Visual Status | Decision |
 | --- | --- | --- | --- | --- | --- |
-| 2026-06-04 | `Track 2F` offset-aware probe refresh | `3` `global`, `Fw`, and `Bw` sequential residual offset candidates | included in the `114`-candidate matrix | dated collage and overlay bundles regenerated; dedicated Track 2F visual sections deferred to optimized visual tooling | verified exploratory baseline; not promoted |
-| 2026-05-28 | `Wave 2C` residual harmonic temporal hybrid refresh | `18` `global`, `Fw`, and `Bw` residual harmonic GRU/LSTM candidates | included in the `111`-candidate matrix | collage and overlay reports refreshed with `Wave 2C` sections | verified exploratory baseline; not promoted over `Wave 2B` or accepted Track 2 baselines |
-| 2026-05-26 | `Wave 2B` harmonic temporal hybrid refresh | periodic temporal convolution, GRU, and LSTM `global`, `Fw`, and `Bw` candidates | included | collage and overlay reports refreshed | strongest repository-owned neural branch |
-| 2026-05-24 | `Wave 2` temporal entry refresh | temporal convolution, GRU, and LSTM `global`, `Fw`, and `Bw` candidates | included | visual reports refreshed | verified exploratory baseline |
+| 2026-06-04 | `Wave 3.1` offset-aware probe refresh | `3` `global`, `Fw`, and `Bw` sequential residual offset candidates | included in the `114`-candidate matrix | dated collage and overlay bundles regenerated; dedicated Wave 3.1 visual sections deferred to optimized visual tooling | verified exploratory baseline; not promoted |
+| 2026-05-28 | `Wave 2.3` residual harmonic temporal hybrid refresh | `18` `global`, `Fw`, and `Bw` residual harmonic GRU/LSTM candidates | included in the `111`-candidate matrix | collage and overlay reports refreshed with `Wave 2.3` sections | verified exploratory baseline; not promoted over `Wave 2.2` or accepted TE Curve Verification Pipeline baselines |
+| 2026-05-26 | `Wave 2.2` harmonic temporal hybrid refresh | periodic temporal convolution, GRU, and LSTM `global`, `Fw`, and `Bw` candidates | included | collage and overlay reports refreshed | strongest repository-owned neural branch |
+| 2026-05-24 | `Wave 2.1` temporal entry refresh | temporal convolution, GRU, and LSTM `global`, `Fw`, and `Bw` candidates | included | visual reports refreshed | verified exploratory baseline |
 
 ## Closeout Decision
 
-`Track 2F` does not change the accepted `Track 2` baseline. The best current
+`Wave 3.1` does not change the accepted `TE Curve Verification Pipeline` baseline. The best current
 direction-parallel decision remains:
 
 - `Fw`: paper-derived `rcim_retuned_GBM19_Fw` is the strongest overall
-  forward candidate; among repository-owned neural branches, `Wave 2B`
+  forward candidate; among repository-owned neural branches, `Wave 2.2`
   periodic sequence models remain the reference family.
 - `Bw`: `periodic_gru_sequence_Bw` remains the strongest practical backward
   candidate.

@@ -1,25 +1,25 @@
 # 2026-04-18 Technical Documents
 
 - [2026-04-18-22-28-04_track1_remaining_family_cellwise_reference_campaigns.md](./2026-04-18-22-28-04_track1_remaining_family_cellwise_reference_campaigns.md)
-  Technical document for preparing the `171`-run remaining-family `Track 1`
+  Technical document for preparing the `171`-run remaining-family `RCIM Model-Bank Reproduction`
   cellwise exact-paper wave that generalizes the `SVM` reference-model closure
   pattern to `MLP`, `RF`, `DT`, `ET`, `ERT`, `GBM`, `HGBM`, `XGBM`, and
   `LGBM`.
 - [2026-04-18-17-11-45_track1_partial_closeout_family_row_backfill_in_full_matrix_tables.md](./2026-04-18-17-11-45_track1_partial_closeout_family_row_backfill_in_full_matrix_tables.md)
   Technical document for re-checking the seven-family partial-closeout rerun
-  rows and backfilling any still-stale family entries in the canonical `Track 1`
+  rows and backfilling any still-stale family entries in the canonical `RCIM Model-Bank Reproduction`
   full-matrix colored benchmark tables.
 - [2026-04-18-16-53-26_track1_closeout_pdf_table_layout_rebalance.md](./2026-04-18-16-53-26_track1_closeout_pdf_table_layout_rebalance.md)
   Technical document for the report-specific PDF layout rebalance of the two
-  `Track 1` remaining-family closeout reports, covering page-break placement
+  `RCIM Model-Bank Reproduction` remaining-family closeout reports, covering page-break placement
   and table-column redistribution.
 - [2026-04-18-16-47-12_track1_full_matrix_replication_table_refresh_after_closeout.md](./2026-04-18-16-47-12_track1_full_matrix_replication_table_refresh_after_closeout.md)
-  Technical document for refreshing the canonical `Track 1` full-matrix
+  Technical document for refreshing the canonical `RCIM Model-Bank Reproduction` full-matrix
   colored replication tables after closeout and for making that refresh a
   mandatory future closeout step whenever accepted family results improve.
 - [2026-04-18-16-29-35_track1_remaining_family_final_closeout_after_xgbm_lgbm_reruns.md](./2026-04-18-16-29-35_track1_remaining_family_final_closeout_after_xgbm_lgbm_reruns.md)
   Technical document for the final closeout of the remaining-family
-  `Track 1` exact-paper batch after the pending `XGBM` and `LGBM` reruns
+  `RCIM Model-Bank Reproduction` exact-paper batch after the pending `XGBM` and `LGBM` reruns
   completed successfully.
 - [2026-04-18-15-39-41_track1_xgbm_lgbm_recovery_v2_exact_paper_and_remote_preflight_fix.md](./2026-04-18-15-39-41_track1_xgbm_lgbm_recovery_v2_exact_paper_and_remote_preflight_fix.md)
   Technical document for the second `XGBM/LGBM` recovery pass, covering the
@@ -34,7 +34,7 @@
   `XGBM` launch, including optional-dependency preflight hardening and the
   narrow rerun scope for pending `XGBM` and `LGBM` campaigns.
 - [2026-04-18-11-02-15_track1_remaining_family_partial_closeout_and_benchmark_refresh.md](./2026-04-18-11-02-15_track1_remaining_family_partial_closeout_and_benchmark_refresh.md)
-  Technical document for verifying the interrupted remaining-family `Track 1`
+  Technical document for verifying the interrupted remaining-family `RCIM Model-Bank Reproduction`
   batch, closing out only the completed family campaigns, and refreshing the
   canonical benchmark surfaces before the later crash-recovery step.
 - [2026-04-18-00-54-22_hybrid_campaign_launcher_remote_flag_standard.md](./2026-04-18-00-54-22_hybrid_campaign_launcher_remote_flag_standard.md)
@@ -42,6 +42,6 @@
   one canonical `.ps1` runs locally by default and switches to remote
   execution through `-Remote`.
 - [2026-04-18-00-47-14_track1_remaining_exact_paper_family_campaigns.md](./2026-04-18-00-47-14_track1_remaining_exact_paper_family_campaigns.md)
-  Technical document for splitting the remaining `Track 1` exact-paper work
+  Technical document for splitting the remaining `RCIM Model-Bank Reproduction` exact-paper work
   into `9` family-focused campaign packages plus one aggregate sequential
   launcher after `SVM` closure.

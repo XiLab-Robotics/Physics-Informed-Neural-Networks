@@ -1,4 +1,4 @@
-# Track 2F Launcher Exit Flow Fix
+# Wave 3.1 Launcher Exit Flow Fix
 
 ## Overview
 
@@ -8,7 +8,7 @@ The local command:
 .\scripts\campaigns\track_2\run_track2f_offset_aware_probe_campaign.ps1
 ```
 
-currently writes the Track 2F prelaunch status YAML/CSV and then stops before
+currently writes the Wave 3.1 prelaunch status YAML/CSV and then stops before
 starting `scripts/training/run_training_campaign.py`.
 
 The campaign package itself is valid: it contains three runnable
@@ -38,7 +38,7 @@ No model code or campaign YAML semantics need to change.
 
 ## Involved Components
 
-Protected Track 2F campaign files:
+Protected Wave 3.1 campaign files:
 
 - `scripts/campaigns/track_2/run_track2f_offset_aware_probe_campaign.ps1`;
 - `scripts/campaigns/track_2/prepare_track2f_offset_aware_probe_campaign.py`;
@@ -52,7 +52,7 @@ Supporting state and verification files:
 
 ## Implementation Steps
 
-1. Update the Track 2F launcher helper so it stores the external process exit
+1. Update the Wave 3.1 launcher helper so it stores the external process exit
    code without returning stdout as a captured value.
 2. Apply the same fix in the generator script so future launcher regeneration
    preserves the corrected behavior.
@@ -66,7 +66,7 @@ Supporting state and verification files:
 
 ## Protected Campaign Warning
 
-`doc/running/active_training_campaign.yaml` marks the Track 2F launcher and
+`doc/running/active_training_campaign.yaml` marks the Wave 3.1 launcher and
 launcher note as protected. This fix intentionally edits that protected
 launcher because it is the prepared campaign's operator entrypoint and it is
 currently blocking execution before the training runner starts.

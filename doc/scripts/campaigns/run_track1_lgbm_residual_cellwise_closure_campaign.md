@@ -1,4 +1,4 @@
-# Track 1 LGBM Residual Cellwise Closure Campaign Launcher
+# RCIM Model-Bank Reproduction LGBM Residual Cellwise Closure Campaign Launcher
 
 This launcher runs the aggressive overnight residual-cell closure wave for the exact-paper `LGBM` family.
 

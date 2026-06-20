@@ -1,4 +1,4 @@
-# Wave 2 Temporal Model Entry Campaign
+# Wave 2.1 Temporal Model Entry Campaign
 
 Prepared campaign package for:
 

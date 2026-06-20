@@ -1,7 +1,7 @@
 # Overview
 
 This technical document defines the next implementation pass for the strict
-RCIM exact-paper `Track 1` branch after the first real baseline execution
+RCIM exact-paper `RCIM Model-Bank Reproduction` branch after the first real baseline execution
 attempt failed during ONNX export and exposed that the current runner is still
 too thin compared with the repository's normal training workflows.
 

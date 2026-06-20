@@ -1,7 +1,7 @@
-# RCIM Track 1 Backward LGBM Reference Models
+# RCIM Model-Bank Reproduction Backward LGBM Reference Models
 
 This archive stores the accepted `LGBM` target-level winners for the
-`backward` branch of the canonical original-dataset Track 1 benchmark surface.
+`backward` branch of the canonical original-dataset RCIM Model-Bank Reproduction benchmark surface.
 
 Archive contents:
 

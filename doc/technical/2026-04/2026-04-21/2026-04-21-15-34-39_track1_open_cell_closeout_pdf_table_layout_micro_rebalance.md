@@ -1,9 +1,9 @@
-# Track 1 Open-Cell Closeout PDF Table Layout Micro Rebalance
+# RCIM Model-Bank Reproduction Open-Cell Closeout PDF Table Layout Micro Rebalance
 
 ## Overview
 
 This technical document defines a narrow PDF-layout correction for the final
-`Track 1` open-cell full-matrix closeout report:
+`RCIM Model-Bank Reproduction` open-cell full-matrix closeout report:
 
 - source Markdown:
   `doc/reports/campaign_results/track_1/exact_paper/forward/2026-04-21-14-58-00_track1_open_cell_full_matrix_closure_campaign_results_report.md`

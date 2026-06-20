@@ -1,12 +1,12 @@
-# Track 2 Directional Comparison Pipeline Alignment
+# TE Curve Verification Pipeline Directional Comparison Pipeline Alignment
 
 ## Overview
 
-This technical document formalizes the next `Track 2` comparison workflow after
-the `Track 1` paper-faithful closeout split the accepted paper-reference model
+This technical document formalizes the next `TE Curve Verification Pipeline` comparison workflow after
+the `RCIM Model-Bank Reproduction` paper-faithful closeout split the accepted paper-reference model
 archives into explicit `forward` and `backward` surfaces.
 
-The current canonical `Track 2` smoke comparison is still useful, but it is now
+The current canonical `TE Curve Verification Pipeline` smoke comparison is still useful, but it is now
 too coarse:
 
 - it compares one `LGBM-19` reference bank against one global `feedforward`
@@ -15,11 +15,11 @@ too coarse:
   pass;
 - it does not yet expose directional `feedforward_Fw` and `feedforward_Bw`
   baselines;
-- it does not yet scale to all accepted `Track 1` families and all relevant
+- it does not yet scale to all accepted `RCIM Model-Bank Reproduction` families and all relevant
   `Wave 1` family-best models.
 
 The updated pipeline must treat model direction as a first-class comparison
-axis. `Track 1` contributes `11 x 19` `forward` target models and `11 x 19`
+axis. `RCIM Model-Bank Reproduction` contributes `11 x 19` `forward` target models and `11 x 19`
 `backward` target models. `Wave 1` contributes the currently accepted family
 surface, including global models plus directional `Fw` and `Bw` variants where
 they exist.
@@ -31,7 +31,7 @@ requirement must be added to this document before launching it.
 ## Technical Approach
 
 The implementation should extend the current
-`reference_family_vs_feedforward` workflow into a general `Track 2` comparison
+`reference_family_vs_feedforward` workflow into a general `TE Curve Verification Pipeline` comparison
 matrix with explicit model-surface metadata.
 
 ### Directional Evaluation Contract
@@ -46,8 +46,8 @@ Each candidate model must declare one evaluation scope:
 
 This contract applies to:
 
-- `Track 1` paper-reference family banks;
-- `Track 2` reference-family comparisons;
+- `RCIM Model-Bank Reproduction` paper-reference family banks;
+- `TE Curve Verification Pipeline` reference-family comparisons;
 - `Wave 1` model-family comparisons;
 - future waves and future model-family preparation workflows.
 
@@ -57,7 +57,7 @@ models may be scored on both directions, but their result tables must keep
 
 ### Dataset Source Contract
 
-All `Track 1`, `Track 2`, `Wave 1`, and future-wave training or comparison
+All `RCIM Model-Bank Reproduction`, `TE Curve Verification Pipeline`, `Wave 1`, and future-wave training or comparison
 pipelines must load the canonical TE dataset directly from:
 
 ```text
@@ -74,7 +74,7 @@ new training and comparison surfaces must derive their train, validation, and
 test records from `data/simplified_dataset` through the canonical dataset configuration
 and split helpers.
 
-### Revised First Track 2 Comparison
+### Revised First TE Curve Verification Pipeline Comparison
 
 The existing `LGBM-19` versus `feedforward` comparison should be replaced by a
 direction-aware version:
@@ -90,13 +90,13 @@ direction-aware version:
 The report should preserve the old aggregate evidence as historical context,
 but the new canonical verdict must come from direction-valid comparisons only.
 
-### Full Track 2 Expansion
+### Full TE Curve Verification Pipeline Expansion
 
-After the revised `LGBM19` comparison is working, `Track 2` should expand to:
+After the revised `LGBM19` comparison is working, `TE Curve Verification Pipeline` should expand to:
 
-- all `11` `Track 1` `forward` family banks, each with `19` target models,
+- all `11` `RCIM Model-Bank Reproduction` `forward` family banks, each with `19` target models,
   evaluated only on `forward` curves;
-- all `11` `Track 1` `backward` family banks, each with `19` target models,
+- all `11` `RCIM Model-Bank Reproduction` `backward` family banks, each with `19` target models,
   evaluated only on `backward` curves;
 - all relevant `Wave 1` `Fw` family-best models, evaluated only on `forward`
   curves;
@@ -111,7 +111,7 @@ registry or archive, and dataset split explicit for every row.
 ## Involved Components
 
 - `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
-  - restore a concise `Track 2` section;
+  - restore a concise `TE Curve Verification Pipeline` section;
   - describe the direction-aware comparison contract;
   - link the current historical `LGBM-19` smoke report and the future canonical
     direction-aware replacement.
@@ -119,7 +119,7 @@ registry or archive, and dataset split explicit for every row.
   - keep the `global/Fw/Bw` family policy and online `Table 9` gap aligned with
     the benchmark.
 - `doc/reports/analysis/validation_checks/track2/`
-  - store the next direction-aware `Track 2` comparison reports.
+  - store the next direction-aware `TE Curve Verification Pipeline` comparison reports.
 - `output/validation_checks/track2_reference_comparison/`
   - store immutable validation artifacts for each comparison run.
 - `config/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/`
@@ -127,24 +127,24 @@ registry or archive, and dataset split explicit for every row.
     add a new direction-aware config alongside the existing historical one.
 - `scripts/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/`
   - generalize the runner and support utilities so candidate entries can load
-    `Track 1` reference banks and `Wave 1` registry-backed models using the same
+    `RCIM Model-Bank Reproduction` reference banks and `Wave 1` registry-backed models using the same
     evaluation contract.
 - `models/paper_reference/rcim_track1/forward/`
-  - source root for `Track 1` forward family banks.
+  - source root for `RCIM Model-Bank Reproduction` forward family banks.
 - `models/paper_reference/rcim_track1/backward/`
-  - source root for `Track 1` backward family banks.
+  - source root for `RCIM Model-Bank Reproduction` backward family banks.
 - `output/registries/families/`
   - source root for `Wave 1` global, `Fw`, and `Bw` family-best registry
     entries.
 - `config/datasets/transmission_error_dataset.yaml`
   - canonical dataset configuration used to reach `data/simplified_dataset`.
 - `data/simplified_dataset/`
-  - canonical TE curve source for new `Track 1`, `Track 2`, `Wave 1`, and
+  - canonical TE curve source for new `RCIM Model-Bank Reproduction`, `TE Curve Verification Pipeline`, `Wave 1`, and
     future-wave workflows.
 
 ## Implementation Steps
 
-1. Recover the document-only `Track 2` context in
+1. Recover the document-only `TE Curve Verification Pipeline` context in
    `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`.
    - Record the historical `LGBM-19` versus global `feedforward` smoke result
      as superseded evidence.
@@ -154,15 +154,15 @@ registry or archive, and dataset split explicit for every row.
    benchmark wording for:
    - `global`, `Fw`, and `Bw` model-family surfaces;
    - direct loading from `data/simplified_dataset`;
-   - online `Table 9` remaining outside the current offline `Track 2` scope.
-3. Add or revise `Track 2` comparison configuration so each candidate row has:
+   - online `Table 9` remaining outside the current offline `TE Curve Verification Pipeline` scope.
+3. Add or revise `TE Curve Verification Pipeline` comparison configuration so each candidate row has:
    - `candidate_id`;
    - `candidate_family`;
    - `candidate_surface` as `global`, `Fw`, or `Bw`;
    - `candidate_kind` as `track1_reference_bank` or `wave1_registry_model`;
    - source archive or registry path;
    - allowed evaluation directions.
-4. Generalize the `Track 2` runner to evaluate a candidate matrix instead of
+4. Generalize the `TE Curve Verification Pipeline` runner to evaluate a candidate matrix instead of
    one hard-coded `LGBM-19` bank plus one hard-coded `feedforward` model.
 5. Add direction filtering before metric computation.
    - `Fw` candidates receive only `direction_label == "forward"` records.
@@ -176,8 +176,8 @@ registry or archive, and dataset split explicit for every row.
    - `feedforward_Fw`;
    - `feedforward_Bw`.
 7. Add the future full-matrix config generation path for:
-   - `11` `Track 1` forward family banks;
-   - `11` `Track 1` backward family banks;
+   - `11` `RCIM Model-Bank Reproduction` forward family banks;
+   - `11` `RCIM Model-Bank Reproduction` backward family banks;
    - `Wave 1` global, `Fw`, and `Bw` family-best registry entries.
 8. Ensure every new report and validation summary records:
    - dataset root;
@@ -187,7 +187,7 @@ registry or archive, and dataset split explicit for every row.
    - model surface;
    - valid evaluation direction;
    - metric denominator.
-9. Run the updated `Track 2` comparison in validation mode only after the user
+9. Run the updated `TE Curve Verification Pipeline` comparison in validation mode only after the user
    approves this technical document and any required campaign or validation
    planning document.
 10. Run Markdown QA on every touched Markdown file before closeout.

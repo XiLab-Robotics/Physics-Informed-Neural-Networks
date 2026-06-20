@@ -132,6 +132,22 @@
 
 ## Training And Campaign Governance
 
+- Use `RCIM Model-Bank Reproduction` for the paper-faithful model-bank workflow
+  formerly called `Track 1`.
+- Use `TE Curve Verification Pipeline` for the offline model evaluation,
+  curve-diagnostic, selection, visualization, and reporting workflow formerly
+  called `Track 2`.
+- Use `CVP 1.1` through `CVP 1.5` for the pipeline's Curve-First Reranking,
+  Curve Payload Diagnostics, Mean-Centered Error Decomposition, Offset and
+  Shape Matrix Audit, and Causal Offset Feasibility Analysis modules.
+- Use Model Development Waves for training branches: Waves `2.1`-`2.3` for
+  temporal models, Waves `3.1`-`3.3` for offset and curve-aware models, Waves
+  `4.1`-`4.4` for robust, probabilistic, mixture-density, and stateful models,
+  Wave `5.1` for harmonic-prior residual models, Wave `5.2` for MMT/PINN-guided
+  models, and Wave `6` for integrated multi-task and multi-head models.
+- Preserve legacy `track1` and `track2` machine identifiers when they belong to
+  completed runs, paths, registries, scripts, or reproducibility-sensitive
+  artifacts.
 - Store future training artifacts under:
   - `output/training_runs/<model_family>/<run_instance_id>/`
   - `output/validation_checks/<model_family>/<run_instance_id>/`
@@ -154,31 +170,37 @@
 - Every completed training campaign must expose its winner explicitly through
   `campaign_leaderboard.yaml`, `campaign_best_run.yaml`, and
   `campaign_best_run.md`.
-- Normal campaign closeout must not automatically execute the heavy `Track 2`
+- Normal campaign closeout must not automatically execute the heavy
+  `TE Curve Verification Pipeline`
   offline verification matrix. Finish the campaign-results report, PDF export,
   registry/status synchronization, and active-campaign cleanup first.
-- After normal closeout, propose `Track 2` as a separate optional step. If the
+- After normal closeout, propose `TE Curve Verification Pipeline` as a separate
+  optional step. If the
   user approves it, generate a repository-owned PowerShell launcher that can be
   run locally or with `-Remote`, then wait for the user to run it and report
-  completion before inspecting or accepting `Track 2` artifacts.
-- Official `Track 2` decisions must use the repository's multi-index
+  completion before inspecting or accepting TE curve-verification artifacts.
+- Official `TE Curve Verification Pipeline` decisions must use the repository's
+  multi-index
   curve-first selection policy, not scalar `MAE` or campaign leaderboard rank
   alone. Future verification reports must distinguish raw error, mean-centered
   shape fidelity, offset / continuity behavior, harmonic / phase fidelity,
   robustness, visual evidence, and deployment readiness.
-- Every future `Track 2` refresh must keep separate `global`, `Fw`, and `Bw`
+- Every future `TE Curve Verification Pipeline` refresh must keep separate
+  `global`, `Fw`, and `Bw`
   surfaces visible and should report best raw-error, best shape-fidelity, best
   offset-behavior, best robustness, and recommended candidates per surface when
   the required artifacts are available.
 - Treat `doc/reports/analysis/track2/multi_index_curve_first_selection_policy/[2026-06-16]/track2_multi_index_curve_first_selection_policy.md`
-  as the canonical selection policy for official `Track 2` model evaluation.
+  as the canonical selection policy for official
+  `TE Curve Verification Pipeline` model evaluation.
 - Keep family-level and program-level best-result registries updated after
   training or campaign completion.
 - Keep `doc/reports/analysis/Training Results Master Summary.md` synchronized
   after completed campaigns and after tasks that materially change registries,
   active family status, or roadmap status.
 - Keep `doc/reports/analysis/TE Program Status And Closeout Ledger.md`
-  synchronized after every campaign or `Track 2` closeout that changes
+  synchronized after every campaign or `TE Curve Verification Pipeline`
+  closeout that changes
   modeling status, accepted or exploratory leaders, official verification
   state, roadmap position, or next-step decisions. If no update is needed,
   state in the closeout that the ledger was checked and did not require a

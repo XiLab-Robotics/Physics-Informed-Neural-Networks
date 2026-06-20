@@ -47,7 +47,7 @@ The implementation should additionally verify that:
   Local tracking file used to confirm whether the launcher reaches the
   `remote_run` stage and writes a usable local log path.
 - `doc/running/active_training_campaign.yaml`
-  Relevant protected campaign state because the current `Track 1` `SVR`
+  Relevant protected campaign state because the current `RCIM Model-Bank Reproduction` `SVR`
   campaign is prepared for remote execution through this launcher.
 
 ## Implementation Steps
@@ -61,4 +61,4 @@ The implementation should additionally verify that:
 4. Run a smoke test against the real SSH path with a controlled remote command
    that emits both stdout and stderr but exits successfully.
 5. Only after the smoke test succeeds, consider the launcher ready for the real
-   remote `Track 1` campaign relaunch.
+   remote `RCIM Model-Bank Reproduction` campaign relaunch.

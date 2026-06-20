@@ -1,8 +1,8 @@
-# Track 2D Predicted Mean h0 Surface Diagnostic
+# CVP 1.4 Predicted Mean h0 Surface Diagnostic
 
 ## Overview
 
-Predicted-mean versus measured-`h0` diagnostic over `39` selected candidates from the `Track 2D` per-curve matrix.
+Predicted-mean versus measured-`h0` diagnostic over `39` selected candidates from the `CVP 1.4` per-curve matrix.
 
 ## Decision
 

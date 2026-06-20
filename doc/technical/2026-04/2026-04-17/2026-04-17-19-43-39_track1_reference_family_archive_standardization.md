@@ -1,14 +1,14 @@
-# Track 1 Reference Family Archive Standardization
+# RCIM Model-Bank Reproduction Reference Family Archive Standardization
 
 ## Overview
 
 The repository now has a curated `SVM` paper-reference archive under
 `models/paper_reference/rcim_track1/forward/svm_reference_models/`, plus canonical
-benchmark documentation that identifies the accepted `Track 1` reference models
+benchmark documentation that identifies the accepted `RCIM Model-Bank Reproduction` reference models
 and their reconstruction provenance.
 
 This work should be formalized as a reusable standard for every remaining
-`Track 1` paper family:
+`RCIM Model-Bank Reproduction` paper family:
 
 - `MLP`
 - `RF`
@@ -21,14 +21,14 @@ This work should be formalized as a reusable standard for every remaining
 - `LGBM`
 
 The goal is to make the `SVM` organization pattern the canonical archive and
-documentation contract for all `Track 1` paper-reference families, so future
+documentation contract for all `RCIM Model-Bank Reproduction` paper-reference families, so future
 family closures follow one deterministic structure instead of ad hoc per-family
 layouts.
 
 ## Technical Approach
 
 The standardization will promote the current `SVM` archive into a family-agnostic
-`Track 1` reference package pattern.
+`RCIM Model-Bank Reproduction` reference package pattern.
 
 Each family archive will be expected to provide:
 
@@ -48,7 +48,7 @@ The implementation should also formalize benchmark-side expectations:
 
 - `RCIM Paper Reference Benchmark.md` should have one dedicated section per
   paper family once that family is archived;
-- each section should list the accepted `Track 1` reference targets for the
+- each section should list the accepted `RCIM Model-Bank Reproduction` reference targets for the
   family, their canonical source run, accepted metrics, and archived model
   paths;
 - the benchmark should use consistent language for archive root, inventory,
@@ -78,7 +78,7 @@ future families:
 
 ## Implementation Steps
 
-1. Formalize the `Track 1` family archive contract in the `models/paper_reference/`
+1. Formalize the `RCIM Model-Bank Reproduction` family archive contract in the `models/paper_reference/`
    documentation so the `SVM` layout becomes the canonical template.
 2. Add a reusable family-standard section to the canonical benchmark guidance so
    future family sections follow one reporting pattern.

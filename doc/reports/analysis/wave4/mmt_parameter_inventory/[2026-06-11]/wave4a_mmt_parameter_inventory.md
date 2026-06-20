@@ -1,4 +1,4 @@
-# Wave 4A MMT Parameter Inventory
+# Wave 5.2A MMT Parameter Inventory
 
 ## Overview
 
@@ -62,15 +62,15 @@ The inventory is intentionally not a training campaign. It does not create queue
 
 | Group | Reason | Required Gate |
 | --- | --- | --- |
-| `contact_geometry_state` | This is the main blocker for treating Wave 4A as a calibrated analytical baseline. | blocked until reducer-specific contact reconstruction is defined |
+| `contact_geometry_state` | This is the main blocker for treating Wave 5.2A as a calibrated analytical baseline. | blocked until reducer-specific contact reconstruction is defined |
 | `output_disc_assembly_error` | Paper attributes frequency component 1 to output-disc hole-position deviation. | fit only as a causal latent or grouped train-only parameter |
-| `measured_te_target` | Critical boundary for Wave 4B and Wave 4C leakage-safe design. | never use held-out target means or full curves at inference |
+| `measured_te_target` | Critical boundary for Wave 5.2B and Wave 5.2C leakage-safe design. | never use held-out target means or full curves at inference |
 
 ## Interpretation
 
-The MMT path is usable today as an auditable diagnostic and as a source of geometry-locked harmonic hypotheses. It is not yet a dataset-calibrated predictor because contact geometry and original component-error channels are not directly observed in the current Track 2 dataset.
+The MMT path is usable today as an auditable diagnostic and as a source of geometry-locked harmonic hypotheses. It is not yet a dataset-calibrated predictor because contact geometry and original component-error channels are not directly observed in the current TE Curve Verification Pipeline dataset.
 
-`Wave 4B` should start with geometry-locked features plus train-only calibrated equivalent-error groups. `Wave 4C` should remain weak-loss only until the feature path proves that MMT terms explain held-out offset or fragile-harmonic structure without leakage.
+`Wave 5.2B` should start with geometry-locked features plus train-only calibrated equivalent-error groups. `Wave 5.2C` should remain weak-loss only until the feature path proves that MMT terms explain held-out offset or fragile-harmonic structure without leakage.
 
 The paper supports low-speed-stage error groups as high-priority candidates. The output-disc assembly channel is especially relevant to the low-order frequency-1 family, but it must be handled as a latent or grouped calibration channel, not as a per-curve target mean correction.
 

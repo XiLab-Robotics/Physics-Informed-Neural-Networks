@@ -2,12 +2,12 @@
 
 ## Overview
 
-This technical document opens the next `Track 1` step after the completed
+This technical document opens the next `RCIM Model-Bank Reproduction` step after the completed
 exact-paper model-bank stabilization campaign.
 
 The repository now has:
 
-- a completed second harmonic-wise `Track 1` campaign with best offline test
+- a completed second harmonic-wise `RCIM Model-Bank Reproduction` campaign with best offline test
   mean percentage error `8.877%`;
 - a completed exact-paper family-bank campaign with stable per-target ONNX
   export across the recovered family inventory;

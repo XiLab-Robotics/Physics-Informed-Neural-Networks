@@ -29,7 +29,7 @@ Prepare one repository-owned campaign package that:
 - materializes one `global`, one `Fw`, and one `Bw` model per family;
 - keeps the directional identity explicit in config metadata, run naming, and
   registry-facing family keys;
-- establishes a reusable preparation pattern that future `Wave 2+` family
+- establishes a reusable preparation pattern that future `Wave 2.1+` family
   launches can reuse from day one.
 
 ## Safety Constraints
@@ -133,7 +133,7 @@ The retraining package is considered technically correct when:
 - `Bw` configs enable only `backward`;
 - output roots and family registries are separated cleanly for directional
   variants;
-- no protected `Track 1` campaign file is modified.
+- no protected `RCIM Model-Bank Reproduction` campaign file is modified.
 
 The future training comparison should then judge:
 
@@ -150,12 +150,12 @@ Before this campaign is launched:
 2. the launcher and launcher note must exist;
 3. the user must explicitly approve this campaign plan;
 4. no update to `doc/running/active_training_campaign.yaml` should be made as
-   part of this Wave 1 campaign while the unrelated Track 1 campaign remains
+   part of this Wave 1 campaign while the unrelated RCIM Model-Bank Reproduction campaign remains
    marked `running`.
 
 ## Future-Wave Extension Rule
 
-From `Wave 2` onward, a newly introduced family should be treated as
+From `Wave 2.1` onward, a newly introduced family should be treated as
 incomplete until its preparation workflow defines:
 
 - one `global` config;

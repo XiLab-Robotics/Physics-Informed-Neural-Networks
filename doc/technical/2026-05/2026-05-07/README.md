@@ -14,7 +14,7 @@
   pipeline structure comparable in depth to the recovered-original README.
 - [2026-05-07-15-18-56_track1_exact_paper_detailed_progress_logging_and_stage_control_alignment.md](./2026-05-07-15-18-56_track1_exact_paper_detailed_progress_logging_and_stage_control_alignment.md)
   Plan the observability and launcher-control alignment that makes the
-  exact-paper Track 1 reimplementation expose frequent live progress and a
+  exact-paper RCIM Model-Bank Reproduction reimplementation expose frequent live progress and a
   stage-aware operator flow analogous to the unified recovered-original RCIM
   launcher.
 - [2026-05-07-15-00-31_rcim_original_retune_progress_logging_and_monitoring.md](./2026-05-07-15-00-31_rcim_original_retune_progress_logging_and_monitoring.md)

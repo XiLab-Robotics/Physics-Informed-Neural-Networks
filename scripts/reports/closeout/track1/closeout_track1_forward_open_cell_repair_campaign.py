@@ -1,4 +1,4 @@
-"""Close out one Track 1 forward residual-repair campaign.
+"""Close out one RCIM Model-Bank Reproduction forward residual-repair campaign.
 
 This utility promotes only the real pair-level improvements from the completed
 forward-only original-dataset repair wave, refreshes the canonical benchmark
@@ -57,10 +57,10 @@ REPORT_OUTPUT_ROOT = (
     PROJECT_PATH / "doc" / "reports" / "campaign_results" / "track1" / "exact_paper"
 )
 TRACK1_COMPARISON_ROW_PATTERN = re.compile(
-    r"(\| Track 1 canonical closure rule \| Four full-matrix replication tables plus `10 x 19` accepted family-bank models \| )(.*?)( \| not_yet_met \|)"
+    r"(\| RCIM Model-Bank Reproduction canonical closure rule \| Four full-matrix replication tables plus `10 x 19` accepted family-bank models \| )(.*?)( \| not_yet_met \|)"
 )
 TRACK1_STATUS_BLOCK_PATTERN = re.compile(
-    r"### Track 1 Canonical Status\n\n.*?\n### Track 1\.5 Harmonic-Wise Validation Support",
+    r"### RCIM Model-Bank Reproduction Canonical Status\n\n.*?\n### RCIM Model-Bank Reproduction\.5 Harmonic-Wise Validation Support",
     re.DOTALL,
 )
 CURRENT_EVIDENCE_BLOCK_PATTERN = re.compile(
@@ -68,7 +68,7 @@ CURRENT_EVIDENCE_BLOCK_PATTERN = re.compile(
     re.DOTALL,
 )
 GAP_SUMMARY_LINE_PATTERN = re.compile(
-    r"- `Track 1` still has `\d+` non-green cells across the bidirectional original-dataset restart benchmark surface\."
+    r"- `RCIM Model-Bank Reproduction` still has `\d+` non-green cells across the bidirectional original-dataset restart benchmark surface\."
 )
 
 SELECTION_POLICY = {
@@ -83,7 +83,7 @@ SELECTION_POLICY = {
     "eighth_tie_breaker": "run_name",
     "direction": "maximize_then_minimize",
     "note": (
-        "This winner is the bookkeeping representative of the completed Track 1 "
+        "This winner is the bookkeeping representative of the completed RCIM Model-Bank Reproduction "
         "forward open-cell repair campaign."
     ),
 }
@@ -122,7 +122,7 @@ CAMPAIGN_PROFILE_BY_NAME: dict[str, dict[str, str]] = {
             r"_open_cell_repair_attempt_(?P<attempt>\d+)$"
         ),
         "report_filename_suffix": "track1_forward_open_cell_repair_campaign_results_report.md",
-        "report_heading": "# Track 1 Forward Open-Cell Repair Campaign Results",
+        "report_heading": "# RCIM Model-Bank Reproduction Forward Open-Cell Repair Campaign Results",
         "closeout_label": "forward open-cell repair closeout",
         "evidence_campaign_label": "latest exact-paper forward open-cell repair campaign:",
         "wave_completion_line": "- The forward-only repair wave completed the full `300/300` queue successfully.",
@@ -148,7 +148,7 @@ CAMPAIGN_PROFILE_BY_NAME: dict[str, dict[str, str]] = {
             r"_final_open_cells_attempt_(?P<attempt>\d+)$"
         ),
         "report_filename_suffix": "track1_forward_final_open_cells_campaign_results_report.md",
-        "report_heading": "# Track 1 Forward Final Open-Cells Campaign Results",
+        "report_heading": "# RCIM Model-Bank Reproduction Forward Final Open-Cells Campaign Results",
         "closeout_label": "forward final open-cells closeout",
         "evidence_campaign_label": "latest exact-paper forward final open-cells campaign:",
         "wave_completion_line": "- The final forward-only residual wave completed the full `76/76` queue successfully.",
@@ -174,7 +174,7 @@ CAMPAIGN_PROFILE_BY_NAME: dict[str, dict[str, str]] = {
             r"_last_non_green_cells_attempt_(?P<attempt>\d+)$"
         ),
         "report_filename_suffix": "track1_forward_last_non_green_cells_campaign_results_report.md",
-        "report_heading": "# Track 1 Forward Last Non-Green Cells Campaign Results",
+        "report_heading": "# RCIM Model-Bank Reproduction Forward Last Non-Green Cells Campaign Results",
         "closeout_label": "forward last non-green cells closeout",
         "evidence_campaign_label": "latest exact-paper forward last non-green cells campaign:",
         "wave_completion_line": "- The final forward-only last non-green wave completed the full `108/108` queue successfully.",
@@ -200,7 +200,7 @@ CAMPAIGN_PROFILE_BY_NAME: dict[str, dict[str, str]] = {
             r"_maxi_last_non_green_cells_attempt_(?P<attempt>\d+)$"
         ),
         "report_filename_suffix": "track1_forward_maxi_last_non_green_cells_campaign_results_report.md",
-        "report_heading": "# Track 1 Forward Maxi Last Non-Green Cells Campaign Results",
+        "report_heading": "# RCIM Model-Bank Reproduction Forward Maxi Last Non-Green Cells Campaign Results",
         "closeout_label": "forward maxi last non-green cells closeout",
         "evidence_campaign_label": "latest exact-paper forward maxi last non-green cells campaign:",
         "wave_completion_line": "- The forward-only maxi residual wave completed the full `270/270` queue successfully.",
@@ -226,7 +226,7 @@ CAMPAIGN_PROFILE_BY_NAME: dict[str, dict[str, str]] = {
             r"_last_four_open_cells_attempt_(?P<attempt>\d+)$"
         ),
         "report_filename_suffix": "track1_forward_last_four_open_cells_campaign_results_report.md",
-        "report_heading": "# Track 1 Forward Last Four Open Cells Campaign Results",
+        "report_heading": "# RCIM Model-Bank Reproduction Forward Last Four Open Cells Campaign Results",
         "closeout_label": "forward last four open cells closeout",
         "evidence_campaign_label": "latest exact-paper forward last four open cells campaign:",
         "wave_completion_line": "- The final forward-only last-four-open-cells wave completed the full `84/84` queue successfully.",
@@ -252,7 +252,7 @@ CAMPAIGN_PROFILE_BY_NAME: dict[str, dict[str, str]] = {
             r"_last_three_open_cells_attempt_(?P<attempt>\d+)$"
         ),
         "report_filename_suffix": "track1_forward_last_three_open_cells_campaign_results_report.md",
-        "report_heading": "# Track 1 Forward Last Three Open Cells Campaign Results",
+        "report_heading": "# RCIM Model-Bank Reproduction Forward Last Three Open Cells Campaign Results",
         "closeout_label": "forward last three open cells closeout",
         "evidence_campaign_label": "latest exact-paper forward last three open cells campaign:",
         "wave_completion_line": "- The final forward-only last-three-open-cells wave completed the full `84/84` queue successfully.",
@@ -278,7 +278,7 @@ CAMPAIGN_PROFILE_BY_NAME: dict[str, dict[str, str]] = {
             r"_last_three_open_cells_overnight_mega_attempt_(?P<attempt>\d+)$"
         ),
         "report_filename_suffix": "track1_forward_last_three_open_cells_overnight_mega_campaign_results_report.md",
-        "report_heading": "# Track 1 Forward Last Three Open Cells Overnight Mega Campaign Results",
+        "report_heading": "# RCIM Model-Bank Reproduction Forward Last Three Open Cells Overnight Mega Campaign Results",
         "closeout_label": "forward last three open cells overnight mega closeout",
         "evidence_campaign_label": "latest exact-paper forward last three open cells overnight mega campaign:",
         "wave_completion_line": "- The forward-only overnight mega residual wave completed the full `240/240` queue successfully.",
@@ -302,7 +302,7 @@ def parse_command_line_arguments() -> argparse.Namespace:
     """Parse the CLI arguments for the closeout utility."""
 
     argument_parser = argparse.ArgumentParser(
-        description="Close out one Track 1 forward residual-repair campaign."
+        description="Close out one RCIM Model-Bank Reproduction forward residual-repair campaign."
     )
     argument_parser.add_argument(
         "--report-timestamp",
@@ -1127,7 +1127,7 @@ def patch_master_summary(
 
     track1_block_replacement = "\n".join(
         [
-            "### Track 1 Canonical Status",
+            "### RCIM Model-Bank Reproduction Canonical Status",
             "",
             f"- Latest exact-paper closeout report: `{report_relative_path}`",
             "- Canonical progress surface:",
@@ -1145,9 +1145,9 @@ def patch_master_summary(
             f"- Table `5` `forward` status: `{updated_status_dictionary['table5']['forward']['green']}` green, `{updated_status_dictionary['table5']['forward']['yellow']}` yellow, `{updated_status_dictionary['table5']['forward']['red']}` red",
             f"- Table `5` `backward` status: `{updated_status_dictionary['table5']['backward']['green']}` green, `{updated_status_dictionary['table5']['backward']['yellow']}` yellow, `{updated_status_dictionary['table5']['backward']['red']}` red",
             f"- Remaining non-green cells across both directional restart surfaces: `{total_non_green_count}`",
-            "- Harmonic-wise Table `6` evidence remains postponed into `Track 1.5` and does not gate this closeout.",
+            "- Harmonic-wise Table `6` evidence remains postponed into `RCIM Harmonic-Wise Follow-Up` and does not gate this closeout.",
             "",
-            "### Track 1.5 Harmonic-Wise Validation Support",
+            "### RCIM Harmonic-Wise Follow-Up Harmonic-Wise Validation Support",
         ]
     )
     master_summary_text = TRACK1_STATUS_BLOCK_PATTERN.sub(
@@ -1173,7 +1173,7 @@ def patch_master_summary(
         master_summary_text = "\n".join(line_list) + "\n"
 
     master_summary_text = GAP_SUMMARY_LINE_PATTERN.sub(
-        f"- `Track 1` still has `{total_non_green_count}` non-green cells across the bidirectional original-dataset restart benchmark surface.",
+        f"- `RCIM Model-Bank Reproduction` still has `{total_non_green_count}` non-green cells across the bidirectional original-dataset restart benchmark surface.",
         master_summary_text,
         count=1,
     )
@@ -1210,7 +1210,7 @@ def update_active_campaign_state(
 
 def main() -> None:
 
-    """Run one supported Track 1 forward residual-repair closeout workflow."""
+    """Run one supported RCIM Model-Bank Reproduction forward residual-repair closeout workflow."""
 
     command_line_arguments = parse_command_line_arguments()
     repository_path_support.set_runtime_platform(

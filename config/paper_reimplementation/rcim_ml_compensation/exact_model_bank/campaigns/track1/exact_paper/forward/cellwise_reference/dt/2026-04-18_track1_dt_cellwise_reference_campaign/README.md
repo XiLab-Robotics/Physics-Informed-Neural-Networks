@@ -1,6 +1,6 @@
-# Track 1 DT Cellwise Reference Campaign Package
+# RCIM Model-Bank Reproduction DT Cellwise Reference Campaign Package
 
-This package contains the dedicated `Track 1` exact-paper `DT` family
+This package contains the dedicated `RCIM Model-Bank Reproduction` exact-paper `DT` family
 cellwise reference campaign.
 
 Included configs:

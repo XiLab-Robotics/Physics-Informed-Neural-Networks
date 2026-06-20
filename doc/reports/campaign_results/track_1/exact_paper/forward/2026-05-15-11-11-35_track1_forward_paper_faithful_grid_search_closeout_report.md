@@ -1,4 +1,4 @@
-# Track 1 Forward Paper-Faithful Grid-Search Closeout
+# RCIM Model-Bank Reproduction Forward Paper-Faithful Grid-Search Closeout
 
 ## Overview
 
@@ -60,5 +60,5 @@
 ## Notes
 
 - The original paper-family order for Tables `2`-`5` remains unchanged.
-- `ELM` is archived and benchmarked as an operational Track 1 family because the completed campaign includes it.
-- Backward Track 1 paper-reference archives were not modified by this forward-only closeout.
+- `ELM` is archived and benchmarked as an operational RCIM Model-Bank Reproduction family because the completed campaign includes it.
+- Backward RCIM Model-Bank Reproduction paper-reference archives were not modified by this forward-only closeout.

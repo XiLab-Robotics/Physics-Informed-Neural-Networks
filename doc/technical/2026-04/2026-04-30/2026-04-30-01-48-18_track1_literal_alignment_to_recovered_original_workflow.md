@@ -2,7 +2,7 @@
 
 ## Overview
 
-This task will realign the Track 1 exact-paper reimplementation to the
+This task will realign the RCIM Model-Bank Reproduction exact-paper reimplementation to the
 recovered original RCIM workflow with literal fidelity, not only
 paper-aligned behavior.
 
@@ -15,7 +15,7 @@ base-estimator configuration for some families, family-specific
 `GridSearchCV` spaces, and the shared exact-paper training path that encodes
 those behaviors independently from the recovered original code.
 
-The goal of this feature is therefore to make the repository-owned Track 1
+The goal of this feature is therefore to make the repository-owned RCIM Model-Bank Reproduction
 training path use the same family definitions and the same search behavior as
 the recovered original workflow for all ten paper families:
 `SVM`, `MLP`, `RF`, `DT`, `ET`, `ERT`, `GBM`, `HGBM`, `XGBM`, and `LGBM`.
@@ -24,7 +24,7 @@ the recovered original workflow for all ten paper families:
 
 The implementation will treat the recovered original workflow under
 `scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow`
-as the canonical source of truth for Track 1 family behavior.
+as the canonical source of truth for RCIM Model-Bank Reproduction family behavior.
 
 The alignment will be done in three layers.
 
@@ -41,7 +41,7 @@ Second, we will update the shared exact-paper support layer so that it
 reproduces the recovered original family registry and search-space builder
 instead of keeping a partially re-encoded approximation. This is especially
 important because the original-dataset exact-model-bank branch currently
-depends on that shared layer, so one fix there propagates to the Track 1
+depends on that shared layer, so one fix there propagates to the RCIM Model-Bank Reproduction
 campaign surface used by the paper-reimplementation workflow.
 
 Third, we will verify that the resulting exact-paper/original-dataset branch
@@ -75,7 +75,7 @@ Subagents:
 
 ## Implementation Steps
 
-1. Audit all ten Track 1 families against the recovered original workflow and
+1. Audit all ten RCIM Model-Bank Reproduction families against the recovered original workflow and
    freeze the exact divergence list for base estimators, grids, and search
    protocol.
 2. Refactor the shared exact-paper family registry so that the repository code

@@ -1,9 +1,10 @@
-# Track 2 Multi-Index Curve-First Selection Policy
+# TE Curve Verification Pipeline Multi-Index Curve-First Selection Policy
 
 ## Purpose
 
-This document is the canonical `Track 2` selection policy after the project
-shift from point-to-point scalar ranking to curve-first model evaluation.
+This document is the canonical `TE Curve Verification Pipeline` selection
+policy after the project shift from point-to-point scalar ranking to
+curve-first model evaluation.
 Scalar `MAE`, `RMSE`, and percentage error remain required operational
 metrics, but they are no longer sufficient by themselves to promote or reject a
 model family.
@@ -17,15 +18,16 @@ constraints are unacceptable.
 
 ## Scope
 
-This policy applies to all official `Track 2` model-verification reports,
-candidate refreshes, closeout ledgers, backlog updates, and future reranking
-reports for:
+This policy applies to all official `TE Curve Verification Pipeline`
+model-verification reports, candidate refreshes, closeout ledgers, backlog
+updates, and future reranking reports for:
 
-- paper-reference and `Track 1` banks;
+- paper-reference and `RCIM Model-Bank Reproduction` banks;
 - `Wave 1` exported model families;
-- `Wave 2` and `Wave 2C` temporal families;
-- `Track 2B` through `Track 2H` diagnostic and modeling branches;
-- `Wave 3` and later structured or physics-informed branches.
+- Waves `2.1` through `2.3` temporal families;
+- `CVP 1.1` through `CVP 1.5` verification modules;
+- Waves `3.1` through `4.4` modeling branches;
+- `Wave 5.1` and later structured or physics-informed branches.
 
 The policy does not retroactively change historical run artifacts. Historical
 reports remain valid snapshots of the metrics and decisions available when they
@@ -50,7 +52,7 @@ predictors.
 
 ## Official Selection Axes
 
-Every future official `Track 2` refresh should report the strongest candidate
+Every future official `TE Curve Verification Pipeline` refresh should report the strongest candidate
 for each axis where the required artifacts are available:
 
 | Axis | Primary Evidence | Meaning |
@@ -65,7 +67,7 @@ for each axis where the required artifacts are available:
 
 ## Per-Surface Winners
 
-`Track 2` remains direction-parallel. Each official refresh must preserve
+`TE Curve Verification Pipeline` remains direction-parallel. Each official refresh must preserve
 separate `global`, `Fw`, and `Bw` selection surfaces.
 
 For each surface, official reporting should expose:
@@ -126,7 +128,7 @@ exploratory status when any of these conditions apply:
 
 ## Required Report Outputs
 
-Every future official `Track 2` refresh should produce or reference:
+Every future official `TE Curve Verification Pipeline` refresh should produce or reference:
 
 - the raw directional matrix;
 - the multi-index ranking table;
@@ -146,15 +148,15 @@ are best by raw error, shape fidelity, offset behavior, and robustness.
 As of `2026-06-16`, the repository already contains the ingredients for this
 policy:
 
-- `Track 2B` curve-first reranking over matrix-level curve metrics;
-- `Track 2C` curve-payload diagnostics for harmonic, derivative, smoothness,
+- `CVP 1.1` curve-first reranking over matrix-level curve metrics;
+- `CVP 1.2` curve-payload diagnostics for harmonic, derivative, smoothness,
   closure, and peak-to-peak behavior;
 - mean-centered collage diagnostics;
-- `Track 2D` mean-offset full-matrix audit;
-- `Track 2E` offset-predictability feasibility;
+- `CVP 1.4` mean-offset full-matrix audit;
+- `CVP 1.5` offset-predictability feasibility;
 - visual collage and overlay report families.
 
 The next implementation step is to consolidate those ingredients into a
-complete multi-index reranking pass over the current official `Track 2`
-candidate set, including `Wave 1`, `Wave 2`, `Track 2B` through `Track 2H`,
-and `Wave 3`.
+complete multi-index reranking pass over the current official `TE Curve Verification Pipeline`
+candidate set, including `Wave 1`, `Wave 2.1`, `CVP 1.1` through `CVP 1.5` and Waves `3.1` through `4.4`,
+and `Wave 5.1`.

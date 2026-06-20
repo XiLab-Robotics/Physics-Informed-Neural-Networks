@@ -85,7 +85,7 @@ The implementation should also create a dedicated reference README that:
   material;
 - explains which code snapshot appears to be the closest to the paper release;
 - documents the archive policy for the heavy pickle subtree;
-- explains how these artifacts relate to the repository Track 1 paper-faithful
+- explains how these artifacts relate to the repository RCIM Model-Bank Reproduction paper-faithful
   reimplementation.
 
 ## Involved Components

@@ -21,7 +21,7 @@ Requirements:
 - Explain why the repository prioritized structured baselines, shared
   infrastructure, and validated reporting before heavier families.
 - Keep the next-step discussion grounded in the real roadmap:
-  backlog synchronization, TwinCAT deployment evaluation, and Wave 2 temporal
+  backlog synchronization, TwinCAT deployment evaluation, and Wave 2.1 temporal
   preparation.
 - Use the terminology sheet as the source of truth.
 - Respect the fact-boundary notes strictly.

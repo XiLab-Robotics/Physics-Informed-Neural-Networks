@@ -4,7 +4,7 @@
 
 This preliminary plan defines a controlled `Wave 1` follow-up campaign for
 direct transmission-error models that currently smooth multi-frequency TE
-curves in `Track 2` plot review. The campaign focuses on the two model families
+curves in `TE Curve Verification Pipeline` plot review. The campaign focuses on the two model families
 that can immediately benefit from richer angular bases:
 `harmonic_regression` and `residual_harmonic_mlp`.
 
@@ -16,9 +16,9 @@ explicitly approved.
 
 ## Motivation
 
-The observed gap is not only an aggregate metric issue. The `Track 2` curves
+The observed gap is not only an aggregate metric issue. The `TE Curve Verification Pipeline` curves
 show that direct `Wave 1` models tend to average out high-frequency and
-mixed-amplitude oscillations. In contrast, the paper-faithful `Track 1` model
+mixed-amplitude oscillations. In contrast, the paper-faithful `RCIM Model-Bank Reproduction` model
 banks benefit from harmonic-wise decomposition and therefore preserve more of
 the visible TE structure.
 
@@ -59,7 +59,7 @@ The initial campaign should stay narrow:
 Campaign closeout must evaluate both scalar and curve-level behavior:
 
 - Validation and test `MAE`, `RMSE`, and available repository metrics.
-- `Track 2` curve overlays for representative held-out curves.
+- `TE Curve Verification Pipeline` curve overlays for representative held-out curves.
 - Visual review of whether high-frequency TE oscillations are recovered or only
   reintroduced as noisy ringing.
 - Direction-specific behavior for `fw` and `bw`.

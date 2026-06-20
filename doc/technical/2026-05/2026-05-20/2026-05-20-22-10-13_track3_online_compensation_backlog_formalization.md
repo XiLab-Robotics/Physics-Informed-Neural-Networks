@@ -33,7 +33,7 @@ The formalized status will be:
 
 - not implemented;
 - deferred until after the offline baseline is accepted as closed;
-- not part of `Wave 3` hybrid/offline model exploration;
+- not part of `Wave 5.1` hybrid/offline model exploration;
 - tracked as a future vertical validation and deployment branch.
 
 ## Involved Components
@@ -53,7 +53,7 @@ declared and approved before launch.
    `Track 3. Online Compensation And Deployment Evaluation`.
 2. Move the `Target B` wording under the `Track 3` future branch and state that
    `Target B` is the Track 3 closeout objective.
-3. Preserve `Wave 3` as an offline hybrid structured-model branch, separate
+3. Preserve `Wave 5.1` as an offline hybrid structured-model branch, separate
    from Track 3.
 4. Update the master summary roadmap so future readers see Track 3 as the
    planned online compensation / deployment branch.

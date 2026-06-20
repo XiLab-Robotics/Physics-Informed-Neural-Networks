@@ -1,4 +1,4 @@
-# Track 1 Open-Cell Full-Matrix Closure Campaigns Closeout
+# RCIM Model-Bank Reproduction Open-Cell Full-Matrix Closure Campaigns Closeout
 
 ## Overview
 
@@ -15,13 +15,13 @@ this wave:
 - the matching validated PDF export;
 - the `results_report_path` backlink in
   `doc/running/active_training_campaign.yaml`;
-- the refreshed canonical analysis summaries that describe the new `Track 1`
+- the refreshed canonical analysis summaries that describe the new `RCIM Model-Bank Reproduction`
   state after this closure wave.
 
-This closeout must stay aligned with the current `Track 1` scope definition:
+This closeout must stay aligned with the current `RCIM Model-Bank Reproduction` scope definition:
 only the four full-matrix replication tables (`Table 2` through `Table 5`)
 count as the canonical progress surface, while harmonic-wise work remains
-postponed outside the `Track 1` completion criterion.
+postponed outside the `RCIM Model-Bank Reproduction` completion criterion.
 
 ## Technical Approach
 
@@ -34,14 +34,14 @@ The implementation will:
 1. inspect the completed family campaign roots, remote wrapper logs, and synced
    validation-check reports for the `2026-04-20-23-50-13` wave;
 2. derive the accepted per-family best outcomes relevant to the canonical
-   `Track 1` full-matrix tables;
+   `RCIM Model-Bank Reproduction` full-matrix tables;
 3. generate the final campaign-results Markdown report in the canonical
    `track1/exact_paper` results folder;
 4. export and validate the matching PDF deliverable;
 5. update `doc/running/active_training_campaign.yaml` so
    `results_report_path` points to the final Markdown report;
 6. refresh the canonical analysis summaries that must reflect the new
-   post-campaign `Track 1` state, especially:
+   post-campaign `RCIM Model-Bank Reproduction` state, especially:
    - `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
    - `doc/reports/analysis/Training Results Master Summary.md`
 7. verify whether any family-level or campaign-level winner artifacts need
@@ -50,7 +50,7 @@ The implementation will:
    than the ideal aggregate campaign root.
 
 The closeout report will remain focused on the actual closure objective of this
-wave: unresolved `Track 1` full-matrix cells only. It will not reintroduce the
+wave: unresolved `RCIM Model-Bank Reproduction` full-matrix cells only. It will not reintroduce the
 harmonic-wise branch as part of the success criteria.
 
 ## Involved Components
@@ -77,7 +77,7 @@ harmonic-wise branch as part of the success criteria.
 4. Export the PDF companion with the repository-owned pipeline and validate the
    real PDF.
 5. Update the active-campaign state file with the final results-report path.
-6. Refresh the canonical `Track 1` benchmark and master summary so they
+6. Refresh the canonical `RCIM Model-Bank Reproduction` benchmark and master summary so they
    reflect the completed closure wave.
 7. Run Markdown QA on the touched Markdown scope and report the closure result
    before any commit.

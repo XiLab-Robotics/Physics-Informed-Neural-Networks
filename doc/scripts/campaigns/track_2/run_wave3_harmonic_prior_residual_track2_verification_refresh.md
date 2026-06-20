@@ -1,13 +1,13 @@
-# Wave 3 Harmonic-Prior Residual Track 2 Verification Refresh Launcher
+# Wave 5.1 Harmonic-Prior Residual TE Curve Verification Pipeline Verification Refresh Launcher
 
 ## Overview
 
-This launcher runs the operator-approved official `Track 2` offline
-verification refresh for the completed first real `Wave 3`
+This launcher runs the operator-approved official `TE Curve Verification Pipeline` offline
+verification refresh for the completed first real `Wave 5.1`
 harmonic-prior residual campaign.
 
 It adds six registry-backed candidates to the direction-aware matrix: two
-Wave 3 profiles over the three required deployment surfaces.
+Wave 5.1 profiles over the three required deployment surfaces.
 
 | Profile | `global` | `Fw` | `Bw` |
 | --- | --- | --- | --- |
@@ -15,7 +15,7 @@ Wave 3 profiles over the three required deployment surfaces.
 | `smooth_l1_structured` | `wave3_harmonic_prior_residual_smooth_l1_structured_global` | `wave3_harmonic_prior_residual_smooth_l1_structured_Fw` | `wave3_harmonic_prior_residual_smooth_l1_structured_Bw` |
 
 The launcher is operator-facing. Codex prepares it and provides the command,
-but does not run the heavy `Track 2` matrix internally.
+but does not run the heavy `TE Curve Verification Pipeline` matrix internally.
 
 ## Local Command
 
@@ -35,9 +35,9 @@ Run from the repository root:
 .\scripts\campaigns\track_2\run_wave3_harmonic_prior_residual_track2_verification_refresh.ps1 -Remote
 ```
 
-Remote mode syncs the required local Track 2 launcher, config, scripts,
-Wave 3 harmonic-prior residual family registries, matching training-run
-artifacts, and the completed `Wave 2C` Track 2 baseline summary to the remote
+Remote mode syncs the required local TE Curve Verification Pipeline launcher, config, scripts,
+Wave 5.1 harmonic-prior residual family registries, matching training-run
+artifacts, and the completed `Wave 2.3` TE Curve Verification Pipeline baseline summary to the remote
 checkout before execution. It then syncs only the generated artifact paths
 listed by the run-local artifact sync manifest back to the local repository.
 
@@ -55,7 +55,7 @@ Override connection details when needed:
 
 The launcher runs:
 
-1. the official full direction-aware `Track 2` matrix;
+1. the official full direction-aware `TE Curve Verification Pipeline` matrix;
 2. the best-model collage report generation;
 3. the multi-model curve-comparison report generation;
 4. the visual source-coverage validation against the matrix candidate list;
@@ -68,11 +68,11 @@ When visual reports are enabled, the launcher fails before PDF export if a
 registry-backed matrix source is not visible in the collage and overlay
 Markdown reports.
 
-The matrix compares the deterministic scalar TE curve exposed by each Wave 3
+The matrix compares the deterministic scalar TE curve exposed by each Wave 5.1
 checkpoint through the registry-backed `TransmissionErrorRegressionModule`
 inference path.
 
-By default, the matrix uses the completed `Wave 2C` refresh as the configured
+By default, the matrix uses the completed `Wave 2.3` refresh as the configured
 baseline summary and only evaluates incremental current candidates. The new
 candidate-source plot sync is scoped to
 `wave3_harmonic_prior_residual_registry`. Use
@@ -116,7 +116,7 @@ Remote source synchronization sends:
 - `doc/scripts/campaigns/track_2/`
 - `output/registries/families/wave3_harmonic_prior_residual_*`
 - `output/training_runs/wave3_harmonic_prior_residual_*`
-- the completed `Wave 2C` `Track 2` baseline summary and per-condition metrics
+- the completed `Wave 2.3` `TE Curve Verification Pipeline` baseline summary and per-condition metrics
 
 Remote artifact synchronization retrieves:
 

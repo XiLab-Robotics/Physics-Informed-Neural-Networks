@@ -25,9 +25,9 @@ runtime_input_contract:
   - full-curve normalization during inference
   - future-looking smoothing
   validation_only_units:
-  - full Track 2 curve raw error
+  - full TE Curve Verification Pipeline curve raw error
   - centered-shape error
   - mean-offset error
   - amplitude error
   - harmonic phase error
-promotion_rule: Candidate cannot be promoted from pointwise MAE/RMSE alone; it must return through official Track 2 curve-first verification on the matching surface.
+promotion_rule: Candidate cannot be promoted from pointwise MAE/RMSE alone; it must return through official TE curve-first verification on the matching surface.

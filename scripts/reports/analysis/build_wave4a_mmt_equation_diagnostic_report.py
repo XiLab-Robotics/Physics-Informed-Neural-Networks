@@ -1,4 +1,4 @@
-"""Build the Wave 4A MMT equation diagnostic report."""
+"""Build the Wave 5.2A MMT equation diagnostic report."""
 
 from __future__ import annotations
 
@@ -106,7 +106,7 @@ def build_report_lines(
     output_directory: Path,
 ) -> list[str]:
 
-    """Build the Wave 4A diagnostic Markdown report."""
+    """Build the Wave 5.2A diagnostic Markdown report."""
 
     top_rows = sorted(
         [row for row in harmonic_row_list if bool(row["is_top_demo_harmonic"])],
@@ -120,7 +120,7 @@ def build_report_lines(
     ]
 
     report_lines = [
-        "# Wave 4A MMT Equation Diagnostic",
+        "# Wave 5.2A MMT Equation Diagnostic",
         "",
         "## Overview",
         "",
@@ -145,7 +145,7 @@ def build_report_lines(
         "",
         "## Dominant Demonstration Harmonics",
         "",
-        "| Harmonic | Amplitude [arcsec] | Track 2 Suspicious Group |",
+        "| Harmonic | Amplitude [arcsec] | TE Curve Verification Pipeline Suspicious Group |",
         "| ---: | ---: | --- |",
     ]
 
@@ -158,7 +158,7 @@ def build_report_lines(
     report_lines.extend(
         [
             "",
-            "## Track 2 Suspicious Harmonic Probe",
+            "## TE Curve Verification Pipeline Suspicious Harmonic Probe",
             "",
             "| Harmonic | Amplitude [arcsec] | Top Demonstration Harmonic |",
             "| ---: | ---: | --- |",
@@ -184,11 +184,11 @@ def build_report_lines(
             ),
             (
                 "The current demonstration is not dataset-calibrated. Any relationship "
-                "between the displayed harmonic amplitudes and Track 2 failure modes is "
+                "between the displayed harmonic amplitudes and TE Curve Verification Pipeline failure modes is "
                 "therefore a hypothesis, not evidence of causality."
             ),
             (
-                "The next Wave 4A requirement remains the parameter inventory: which "
+                "The next Wave 5.2A requirement remains the parameter inventory: which "
                 "MMT inputs are known from the rig, fixed by reducer geometry, calibrated "
                 "on training conditions only, or unavailable."
             ),
@@ -225,7 +225,7 @@ def parse_arguments() -> argparse.Namespace:
 
 def main() -> None:
 
-    """Build the Wave 4A MMT diagnostic report."""
+    """Build the Wave 5.2A MMT diagnostic report."""
 
     args = parse_arguments()
     run_id = args.run_id if args.run_id else f"{datetime.now().strftime('%Y-%m-%d-%H-%M-%S')}__wave4a_mmt_equation_diagnostic"
@@ -268,7 +268,7 @@ def main() -> None:
     with report_path.open("w", encoding="utf-8", newline="\n") as report_file:
         report_file.write("\n".join(report_lines).rstrip() + "\n")
 
-    print(f"Prepared Wave 4A MMT diagnostic artifacts | {output_directory}")
+    print(f"Prepared Wave 5.2A MMT diagnostic artifacts | {output_directory}")
     print(f"Prepared Markdown report | {report_path}")
 
 

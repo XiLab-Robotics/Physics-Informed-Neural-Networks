@@ -203,7 +203,7 @@ function Invoke-LoggedCondaPython {
 
     $exitCode = [int]$process.ExitCode
     if ($exitCode -ne 0) {
-        throw ("Track 2 step failed | step={0} | exit_code={1} | log={2}" -f $StepName, $exitCode, $logPath)
+        throw ("TE Curve Verification Pipeline step failed | step={0} | exit_code={1} | log={2}" -f $StepName, $exitCode, $logPath)
     }
 }
 
@@ -334,7 +334,7 @@ Set-Location -LiteralPath '$RemoteRepositoryPath'
     Sort-Object LastWriteTime -Descending |
     Select-Object -First 1
 if (`$null -eq `$manifestPath) {
-    throw 'No remote Track 2F artifact sync manifest found.'
+    throw 'No remote Wave 3.1 artifact sync manifest found.'
 }
 `$existingPathList = @()
 foreach (`$relativePath in Get-Content -LiteralPath `$manifestPath.FullName) {
@@ -349,7 +349,7 @@ foreach (`$relativePath in Get-Content -LiteralPath `$manifestPath.FullName) {
     }
 }
 if (`$existingPathList.Count -eq 0) {
-    throw 'The remote Track 2F artifact sync manifest did not contain existing paths.'
+    throw 'The remote Wave 3.1 artifact sync manifest did not contain existing paths.'
 }
 New-Item -ItemType Directory -Force -Path (Split-Path -Parent '$remoteArchivePath') | Out-Null
 if (Test-Path -LiteralPath '$remoteArchivePath') {
@@ -382,7 +382,7 @@ if ($Remote) {
         throw "RemoteRepositoryPath is required for -Remote. Set PINNS_REMOTE_TRAINING_REPO_PATH or pass -RemoteRepositoryPath."
     }
 
-    Write-StatusLine "INFO" ("Launching Track 2F refresh remotely | host={0} | repo={1}" -f $RemoteHostAlias, $RemoteRepositoryPath)
+    Write-StatusLine "INFO" ("Launching Wave 3.1 refresh remotely | host={0} | repo={1}" -f $RemoteHostAlias, $RemoteRepositoryPath)
     Invoke-RemoteSourceSync
 
     $remoteScriptPath = "scripts\campaigns\track_2\run_track2f_track2_verification_refresh.ps1"
@@ -394,11 +394,11 @@ exit `$LASTEXITCODE
 
     Invoke-RemotePowerShellText -RemoteScriptText $remoteCommand
     Invoke-RemoteArtifactManifestSync
-    Write-StatusLine "DONE" "Remote Track 2F refresh completed and artifacts synchronized locally"
+    Write-StatusLine "DONE" "Remote Wave 3.1 refresh completed and artifacts synchronized locally"
     exit 0
 }
 
-Write-StatusLine "INFO" "Preparing local Track 2F verification refresh"
+Write-StatusLine "INFO" "Preparing local Wave 3.1 verification refresh"
 Write-StatusLine "INFO" ("Config: {0}" -f $track2ConfigPath)
 Write-StatusLine "INFO" ("Output suffix: {0}" -f $OutputSuffix)
 Write-StatusLine "INFO" ("Report date: {0}" -f $ReportDate)
@@ -479,13 +479,13 @@ if (-not $SkipVisualReports) {
             "--report-date",
             $ReportDate,
             "--refresh-label",
-            "Track 2F offset-aware refresh",
+            "Wave 3.1 offset-aware refresh",
             "--candidate-source-label",
             "track2f_offset_aware_probe_registry",
             "--decision",
             "verified exploratory baseline; not promoted over the accepted direction-parallel leaders",
             "--next-step",
-            "Use the Track 2F offset-aware evidence as the first learned offset baseline for later branches.",
+            "Use the Wave 3.1 offset-aware evidence as the first learned offset baseline for later branches.",
             "--output-report-path",
             $officialReportPath,
             "--operator-log-root",
@@ -510,4 +510,4 @@ if (-not $SkipVisualReports) {
 }
 
 Save-ArtifactSyncManifest
-Write-StatusLine "DONE" "Track 2F verification refresh completed"
+Write-StatusLine "DONE" "Wave 3.1 verification refresh completed"

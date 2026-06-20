@@ -1,6 +1,6 @@
-# Track 1 HGBM Full-Matrix Campaign Package
+# RCIM Model-Bank Reproduction HGBM Full-Matrix Campaign Package
 
-This package contains the dedicated `Track 1` exact-paper `HGBM` family
+This package contains the dedicated `RCIM Model-Bank Reproduction` exact-paper `HGBM` family
 campaign.
 
 Included configs:

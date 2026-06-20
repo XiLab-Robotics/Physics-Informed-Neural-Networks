@@ -1,4 +1,4 @@
-"""Prepare the Track 1 bidirectional paper-faithful grid-search campaign."""
+"""Prepare the RCIM Model-Bank Reproduction bidirectional paper-faithful grid-search campaign."""
 
 from __future__ import annotations
 
@@ -171,7 +171,7 @@ def parse_command_line_arguments() -> argparse.Namespace:
     """Parse command-line arguments for the campaign preparer."""
 
     argument_parser = argparse.ArgumentParser(
-        description="Prepare the Track 1 bidirectional paper-faithful grid-search campaign."
+        description="Prepare the RCIM Model-Bank Reproduction bidirectional paper-faithful grid-search campaign."
     )
     repository_path_support.add_platform_arguments(argument_parser)
     return argument_parser.parse_args()

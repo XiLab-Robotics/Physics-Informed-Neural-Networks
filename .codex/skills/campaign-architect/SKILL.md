@@ -51,15 +51,15 @@ When the task is campaign-oriented, keep this sequence explicit:
 - Keep `run_name` separate from immutable `run_instance_id`.
 - Do not introduce new legacy flat output roots.
 - Prefer narrow, inspectable campaign batches over loosely defined sweeps.
-- Close out completed campaigns before any optional `Track 2` refresh. The
+- Close out completed campaigns before any optional `TE Curve Verification Pipeline` refresh. The
   normal closeout covers campaign-results Markdown/PDF, active-state cleanup,
-  registry/status synchronization, and QA; it must not run the heavy `Track 2`
+  registry/status synchronization, and QA; it must not run the heavy `TE Curve Verification Pipeline`
   matrix inside Codex.
 - For every closeout that produces a PDF, use the `styled-report-pdf-qa`
   workflow after export. Inspect the real rendered PDF pages and repair table
   widths, page starts, clipped borders, wrapped headers, crushed identifier
   columns, right-edge pressure, and awkward section breaks before finalizing.
-- If `Track 2` is requested after closeout, prepare an operator-facing
+- If `TE Curve Verification Pipeline` is requested after closeout, prepare an operator-facing
   PowerShell launcher with local and `-Remote` execution paths, then wait for
   the user to run it and confirm completion.
 - When reviewing changes, check naming consistency across:

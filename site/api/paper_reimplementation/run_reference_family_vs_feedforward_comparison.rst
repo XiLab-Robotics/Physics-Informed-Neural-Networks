@@ -1,7 +1,7 @@
 Run Reference Family Vs Feedforward Comparison
 ==============================================
 
-This page documents the Track 2 comparison entry point used to compare one
+This page documents the curve-verification comparison entry point used to compare one
 paper-faithful reference bank against the canonical direct-TE feedforward
 baseline.
 

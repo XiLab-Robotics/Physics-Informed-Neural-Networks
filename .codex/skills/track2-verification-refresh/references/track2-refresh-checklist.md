@@ -1,6 +1,6 @@
-# Track 2 Refresh Checklist
+# TE Curve Verification Pipeline Refresh Checklist
 
-Use this checklist after a completed campaign is ready for official `Track 2`
+Use this checklist after a completed campaign is ready for official `TE Curve Verification Pipeline`
 acceptance review.
 
 ## 1. Campaign And Registry State
@@ -63,7 +63,7 @@ second matrix run.
 Check:
 
 ```powershell
-Select-String -LiteralPath "doc/reports/analysis/track2/Track 2 Directional Model Comparison.md" `
+Select-String -LiteralPath "doc/reports/analysis/track2/TE Curve Verification Pipeline Directional Model Comparison.md" `
   -Pattern "candidate count|<new_family>|<expected_candidate>"
 ```
 
@@ -91,7 +91,7 @@ conda run -n pinns_env python -B scripts/reports/analysis/build_track2_multi_mod
 Check the generated Markdown for the new candidate names and groups:
 
 ```powershell
-Select-String -LiteralPath "<report.md>" -Pattern "<new_family>|Wave 2|Temporal"
+Select-String -LiteralPath "<report.md>" -Pattern "<new_family>|Wave 2.1|Temporal"
 ```
 
 If broad legacy plot PNGs were regenerated, restore unrelated churn:
@@ -168,7 +168,7 @@ Update:
 Use direct wording:
 
 - campaign completed;
-- Track 2 refresh completed;
+- TE Curve Verification refresh completed;
 - strongest new candidates;
 - baseline changed or unchanged;
 - next operational branch.

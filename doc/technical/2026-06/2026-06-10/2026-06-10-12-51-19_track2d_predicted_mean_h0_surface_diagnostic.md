@@ -1,15 +1,15 @@
-# Track 2D Predicted Mean h0 Surface Diagnostic
+# CVP 1.4 Predicted Mean h0 Surface Diagnostic
 
 ## Overview
 
 Prepare a follow-up diagnostic that compares each model's
 `predicted_mean_deg` surface against measured `h0` / `truth_mean_deg` after the
-completed `Track 2D` h0 cross-check showed that `h0` magnitude alone does not
+completed `CVP 1.4` h0 cross-check showed that `h0` magnitude alone does not
 explain most model offset failures.
 
 ## Technical Approach
 
-Use the existing `Track 2D` per-curve metrics table as the canonical source for
+Use the existing `CVP 1.4` per-curve metrics table as the canonical source for
 `truth_mean_deg`, `predicted_mean_deg`, `signed_offset_error_deg`, operating
 point, direction, candidate, and surface. Treat `truth_mean_deg` as the
 measured `h0` value, already validated against the component-offset table by
@@ -37,7 +37,7 @@ candidates, or introduce deploy-time corrections.
 
 ## Implementation Steps
 
-1. Add a repository-owned report script that loads the `Track 2D` per-curve
+1. Add a repository-owned report script that loads the `CVP 1.4` per-curve
    metrics and selects the most relevant candidates: largest mean offset error,
    current surface leaders, high h0/error-overlap candidates, and global
    high-error cases.

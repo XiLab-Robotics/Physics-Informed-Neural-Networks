@@ -1,8 +1,8 @@
-# Track 2 Best Model Collage PDF Report
+# TE Curve Verification Pipeline Best Model Collage PDF Report
 
 ## Overview
 
-Create a styled `Track 2` PDF report that shows representative TE-curve
+Create a styled `TE Curve Verification Pipeline` PDF report that shows representative TE-curve
 prediction plots for the approved best models. The report will focus on visual
 comparison, using four-plot collages per model so the oscillation tracking
 behavior can be inspected without opening every validation artifact manually.
@@ -27,7 +27,7 @@ Add a repeatable analysis/report script that builds a dated report bundle under
 The implementation will reuse existing repository evaluation paths instead of
 introducing a separate model-loading stack:
 
-- use the canonical Track 2 reference comparison artifacts and support code for
+- use the canonical TE Curve Verification Pipeline reference comparison artifacts and support code for
   `paper_original_best_Fw`, `paper_retuned_best_Fw`, `track1_best_Fw`,
   `paper_retuned_best_Bw`, and `track1_best_Bw`;
 - use the current family registries under `output/registries/families/` for the
@@ -60,7 +60,7 @@ introducing a separate model-loading stack:
 
 ## Implementation Steps
 
-1. Inspect the latest Track 2 reference validation summary and Wave 1
+1. Inspect the latest TE Curve Verification Pipeline reference validation summary and Wave 1
    directional/global registry entries to determine the exact candidate list.
 2. Add a repository-owned report builder script for the collage report.
 3. Generate deterministic four-curve collages for each requested forward,

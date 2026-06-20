@@ -24,23 +24,23 @@ At the moment, the implemented workflows are:
   training configs that writes repository-compatible YAML without launching
   training;
 - coordinated short PowerShell and Bash launchers for the paper-faithful
-  `Track 1` reproduction campaign, including a Linux surface for the Unimore
+  `RCIM Model-Bank Reproduction` reproduction campaign, including a Linux surface for the Unimore
   Aries clone;
 - analytical `MMT_TEModeling` equation-chain reproduction scripts for the
   `RV` reducer transmission-error model in MATLAB and Python;
-- dry-run embryonic `Wave 3` and `Wave 4` skeleton checks that validate model
+- dry-run embryonic `Wave 5.1` and `Wave 5.2` skeleton checks that validate model
   and diagnostic scaffolds without creating queues or launching training;
-- a dry-run `Wave 3` training-smoke-ready check that runs one-batch validation
+- a dry-run `Wave 5.1` training-smoke-ready check that runs one-batch validation
   without creating a campaign;
-- a dry-run `Wave 3` grouped harmonic-heads check that validates the second
+- a dry-run `Wave 5.1` grouped harmonic-heads check that validates the second
   grouped-head model interface without creating a campaign;
-- a prepared first real `Wave 3` harmonic-prior residual campaign launcher
+- a prepared first real `Wave 5.1` harmonic-prior residual campaign launcher
   with local and `-Remote` execution paths;
-- a prepared `Track 2H-L` latent-state / hysteresis-aware campaign launcher
+- a prepared `Wave 4.4` latent-state / hysteresis-aware campaign launcher
   with local and `-Remote` execution paths;
-- a `Wave 4A` MMT equation diagnostic report generator for harmonic-summary
+- a `Wave 5.2A` MMT equation diagnostic report generator for harmonic-summary
   inspection before PINN integration;
-- a dry-run `Wave 4B` MMT feature-generator check that writes leakage-aware
+- a dry-run `Wave 5.2B` MMT feature-generator check that writes leakage-aware
   feature schema artifacts without creating a campaign;
 - explicit isolated-mode session management through a repository-owned tooling entry point with locked-file snapshots, staging roots, and manifest/checklist generation;
 - timestamped technical-document scaffolding and index registration through a
@@ -178,47 +178,47 @@ The current usage flow mainly relies on these folders:
   saves overlay plots, and generates a Markdown comparison report.
 
 - `scripts/reports/analysis/build_track2_best_model_collage_report.py`
-  Track 2 visual report builder that creates four-curve collage plots for the
+  TE Curve Verification Pipeline visual report builder that creates four-curve collage plots for the
   selected reference, Wave 1 directional, and Wave 1 global best models.
 
 - `scripts/reports/analysis/build_track2_multi_model_curve_comparison_report.py`
-  Track 2 visual report builder that overlays original TE curves, reference
+  TE Curve Verification Pipeline visual report builder that overlays original TE curves, reference
   best models, and screened Wave 1 family-best models on shared axes.
 
 - `scripts/reports/analysis/build_track2_official_model_verification_report.py`
-  Track 2 official decision-report builder used by verification-refresh
+  TE Curve Verification Pipeline official decision-report builder used by verification-refresh
   launchers to include the latest matrix, collage, overlay, and official
   report in one PDF export package.
 
 - `scripts/reports/analysis/build_track2_curve_first_reranking_report.py`
-  Track 2B metric report builder that reranks accepted Track 2 candidates by
+  CVP 1.1 metric report builder that reranks accepted TE Curve Verification Pipeline candidates by
   full-curve mean percentage error, P95, worst-condition error, and curve
   `MAE` without changing the causal runtime input contract.
 
 - `scripts/reports/analysis/build_track2_curve_payload_diagnostics_report.py`
-  Track 2C diagnostics builder that exports downsampled curve payload samples
+  CVP 1.2 diagnostics builder that exports downsampled curve payload samples
   and computes peak-to-peak, harmonic, phase, derivative, smoothness, and
   closure diagnostics for screened candidates.
 
 - `scripts/reports/analysis/build_track2_mean_centered_collage_report.py`
-  Track 2 diagnostics builder that reuses the best-model collage curve
+  TE Curve Verification Pipeline diagnostics builder that reuses the best-model collage curve
   selections, subtracts each truth and prediction curve mean after inference,
   and recomputes curve `MAE` and `RMSE` to separate vertical offset from
   waveform-shape tracking while preserving the causal runtime input contract.
 
 - `scripts/reports/analysis/build_track2_sparse_original_onnx_variants_report.py`
-  Track 2 sparse original `ONNX` report builder that evaluates the
+  TE Curve Verification Pipeline sparse original `ONNX` report builder that evaluates the
   component-selected simplified RCIM variant and the PLC-oriented all-`HGBM`
   variant over harmonics `0`, `1`, `39`, and `40`.
 
 - `scripts/reports/analysis/build_track2_forward_reference_curve_comparison_report.py`
-  Track 2 forward reference comparison builder that regenerates collages for
+  TE Curve Verification Pipeline forward reference comparison builder that regenerates collages for
   `paper_original_best_Fw`, `paper_retuned_best_Fw`, full original `ONNX`, and
   the two sparse original `ONNX` variants on the same four representative
   curves, then computes aggregate and pairwise predicted-curve differences.
 
 - `scripts/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/plot_original_onnx_fw_track2_curves.py`
-  Lightweight original `ONNX` Track 2 curve plotter. The `--variant-id`
+  Lightweight original `ONNX` TE Curve Verification Pipeline curve plotter. The `--variant-id`
   argument can select the full original `19`-target bank, the sparse
   simplified bank, or the sparse PLC all-`HGBM` bank.
 
@@ -237,43 +237,43 @@ The current usage flow mainly relies on these folders:
   reproduction script.
 
 - `scripts/campaigns/wave_3/run_wave3_embryonic_skeleton_checks.ps1`
-  Dry-run check launcher for the embryonic `Wave 3` harmonic-prior residual
+  Dry-run check launcher for the embryonic `Wave 5.1` harmonic-prior residual
   skeleton. It compiles and validates the scaffold without queueing or
   launching training.
 
 - `scripts/campaigns/wave_3/run_wave3_training_smoke_ready_checks.ps1`
-  Dry-run check launcher for the `Wave 3` harmonic-prior residual one-batch
+  Dry-run check launcher for the `Wave 5.1` harmonic-prior residual one-batch
   training-stack validation. It writes validation artifacts but does not create
   a campaign queue or launch training.
 
 - `scripts/campaigns/wave_3/run_wave3_grouped_harmonic_heads_checks.ps1`
-  Dry-run check launcher for the second `Wave 3` grouped harmonic-heads
+  Dry-run check launcher for the second `Wave 5.1` grouped harmonic-heads
   skeleton. It compiles the model, validates factory construction, and runs
   point/sequence forward checks without queueing or launching training.
 
 - `scripts/campaigns/wave_3/run_wave3_harmonic_prior_residual_campaign.ps1`
-  Prepared first real `Wave 3` harmonic-prior residual campaign launcher. It
+  Prepared first real `Wave 5.1` harmonic-prior residual campaign launcher. It
   validates six queue entries across `global`, `Fw`, and `Bw`, then launches
   locally or delegates to the repository-owned remote campaign runner.
 
 - `scripts/campaigns/track_2/run_track2h_latent_state_hysteresis_campaign.ps1`
-  Prepared `Track 2H-L` latent-state / hysteresis-aware campaign launcher. It
+  Prepared `Wave 4.4` latent-state / hysteresis-aware campaign launcher. It
   validates six causal-history queue entries across `global`, `Fw`, and `Bw`,
   then launches locally or delegates to the repository-owned remote campaign
   runner.
 
 - `scripts/campaigns/wave_4/run_wave4_embryonic_skeleton_checks.ps1`
-  Dry-run check launcher for the embryonic `Wave 4A` MMT diagnostic adapter.
+  Dry-run check launcher for the embryonic `Wave 5.2A` MMT diagnostic adapter.
   It compiles and validates the scaffold without queueing or launching
   training.
 
 - `scripts/campaigns/wave_4/run_wave4b_mmt_feature_generator_checks.ps1`
-  Dry-run check launcher for the `Wave 4B` MMT feature-generator skeleton. It
+  Dry-run check launcher for the `Wave 5.2B` MMT feature-generator skeleton. It
   compiles the feature generator, validates leakage labels, and writes sample
   schema artifacts without queueing or launching training.
 
 - `scripts/reports/analysis/build_wave4a_mmt_equation_diagnostic_report.py`
-  Report generator for the `Wave 4A` MMT equation-chain diagnostic. It writes
+  Report generator for the `Wave 5.2A` MMT equation-chain diagnostic. It writes
   a Markdown report and companion harmonic tables without training a model.
 
 - `scripts/training/`
@@ -303,11 +303,11 @@ The current usage flow mainly relies on these folders:
   campaign pipeline.
 
 - `scripts/campaigns/track_1/exact_paper/run_exact_paper_faithful_reproduction_campaign.ps1`
-  Canonical coordinated launcher for the current paper-faithful `Track 1`
+  Canonical coordinated launcher for the current paper-faithful `RCIM Model-Bank Reproduction`
   reproduction campaign package.
 
 - `scripts/campaigns/track_1/exact_paper/run_track1_bidirectional_paper_faithful_grid_search_campaign.sh`
-  Linux Bash launcher for the prepared bidirectional paper-faithful `Track 1`
+  Linux Bash launcher for the prepared bidirectional paper-faithful `RCIM Model-Bank Reproduction`
   grid-search campaign on the Unimore Aries clone.
 
 - `scripts/models/`
@@ -509,7 +509,7 @@ launcher behavior, artifact taxonomy, closeout reports, and registry refreshes.
 Use `--override direction=fw` or `--override direction=bw` to materialize a
 directional variant with a derived training-config and dataset-config path.
 
-The bidirectional paper-faithful `Track 1` grid-search campaign also has a
+The bidirectional paper-faithful `RCIM Model-Bank Reproduction` grid-search campaign also has a
 Linux launcher for the Unimore Aries clone:
 
 ```bash
@@ -541,7 +541,7 @@ documented equivalent, to sync source/configuration/docs before launch and then
 sync campaign outputs, per-run artifacts, queue end state, registries, and
 status artifacts back into the local repository.
 
-The current paper-faithful `Track 1` preparation also has a dedicated
+The current paper-faithful `RCIM Model-Bank Reproduction` preparation also has a dedicated
 coordinated launcher:
 
 ```powershell
@@ -560,7 +560,7 @@ paper-faithful reproduction campaign, but the exact-paper structural runner and
 the shared offline evaluator are not yet fused into one single Python entry
 point.
 
-The repository also exposes the first `Track 2` comparison entry point between
+The repository also exposes the first `TE Curve Verification Pipeline` comparison entry point between
 the curated `LGBM-19` exact-paper reference bank and the canonical best
 direct-TE `feedforward` baseline:
 
@@ -579,7 +579,7 @@ This workflow is explicitly `result-level comparable`:
 
 The recovered paper-original ONNX release can be parity-checked against the
 current `rcim_original` forward archive with the same exact-paper split and
-Track 2 forward curve context:
+TE Curve Verification Pipeline forward curve context:
 
 ```powershell
 conda run -n pinns_env python -B scripts/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/run_original_onnx_release_parity_validation.py `
@@ -589,11 +589,11 @@ conda run -n pinns_env python -B scripts/paper_reimplementation/rcim_ml_compensa
 This workflow is evaluation-only. It loads the immutable ONNX release under
 `reference/rcim_ml_compensation_recovered_assets/models/exact_onnx_paper_release`,
 compares it with `models/paper_reference/rcim_original/forward`, and reports
-`Tables 2-5` target-level parity, Track 2 forward curve parity, and the
+`Tables 2-5` target-level parity, TE Curve Verification Pipeline forward curve parity, and the
 `track2_curve_offset_diagnostics.csv` mean-centered offset diagnostic for the
 executable original model families.
 
-A simple `Track 2` collage PDF can also be generated for only the recovered
+A simple `TE Curve Verification Pipeline` collage PDF can also be generated for only the recovered
 paper-original `ONNX` `paper_original_best_Fw` composite:
 
 ```powershell
@@ -651,7 +651,7 @@ conda run -n pinns_env python -B scripts/paper_reimplementation/rcim_ml_compensa
   --output-suffix paper_reference_archive_validation
 ```
 
-This report builder reads the latest compatible Track 2 validation summary by
+This report builder reads the latest compatible TE Curve Verification Pipeline validation summary by
 default, filters the comparison to `models/paper_reference/rcim_original`,
 `rcim_retuned`, and `rcim_track1`, then writes a canonical interpretation
 report under `doc/reports/analysis`.
@@ -672,21 +672,21 @@ For a quick loader and plot smoke test, cap the selected curves:
 conda run -n pinns_env python scripts/reports/analysis/plot_wave1_best_model_te_curves.py --max-curves 2
 ```
 
-The Track 2 best-model collage report builder creates one four-curve collage
+The TE Curve Verification Pipeline best-model collage report builder creates one four-curve collage
 per selected model and writes a dated Markdown report bundle:
 
 ```powershell
 conda run -n pinns_env python -B scripts/reports/analysis/build_track2_best_model_collage_report.py
 ```
 
-The Track 2 multi-model curve comparison report overlays multiple selected
+The TE Curve Verification Pipeline multi-model curve comparison report overlays multiple selected
 models against the original curve on each representative test curve:
 
 ```powershell
 conda run -n pinns_env python -B scripts/reports/analysis/build_track2_multi_model_curve_comparison_report.py
 ```
 
-The Track 2B curve-first reranking report reuses an existing Track 2 validation
+The CVP 1.1 curve-first reranking report reuses an existing TE Curve Verification Pipeline validation
 matrix and ranks candidates by continuous-curve metrics. It does not launch
 training and does not change the point-level or causal-history runtime input
 contract:
@@ -695,7 +695,7 @@ contract:
 python -B scripts/reports/analysis/build_track2_curve_first_reranking_report.py
 ```
 
-The Track 2C curve-payload diagnostics report evaluates a compact screened
+The CVP 1.2 curve-payload diagnostics report evaluates a compact screened
 candidate set with post-prediction curve diagnostics. It stores downsampled
 payload samples for inspection while computing metrics on the full curves:
 
@@ -704,7 +704,7 @@ conda run -n pinns_env python -B scripts/reports/analysis/build_track2_curve_pay
 ```
 
 The repository also exposes a separate original-dataset exact-model-bank branch
-for the bidirectional `Track 1` rebuild:
+for the bidirectional `RCIM Model-Bank Reproduction` rebuild:
 
 ```powershell
 conda run -n pinns_env python scripts/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/run_original_dataset_exact_model_bank_validation.py `
@@ -2727,7 +2727,7 @@ Final campaign-results deliverables must include:
 - the styled PDF export;
 - a real PDF validation pass before the task is closed.
 
-For the bidirectional original-dataset `Track 1` exact-paper mega wave, the
+For the bidirectional original-dataset `RCIM Model-Bank Reproduction` exact-paper mega wave, the
 repo-owned closeout entry point is:
 
 ```powershell
@@ -2742,7 +2742,7 @@ That closeout utility is responsible for:
   `campaign_best_run.md` inside the campaign output directory;
 - refreshing the `forward` and `backward` restart matrices in
   `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`;
-- rebuilding the canonical `Track 1` paper-reference archives under
+- rebuilding the canonical `RCIM Model-Bank Reproduction` paper-reference archives under
   `models/paper_reference/rcim_track1/`;
 - patching the final campaign state and writing the campaign-results report.
 
@@ -2773,7 +2773,7 @@ Operational rule:
 - when the user says the campaign is finished, use the stored state to gather artifacts for the final results report;
 - when the user cancels the campaign, inspect completed, failed, running, and pending items before deciding what to keep or stop.
 
-Most recent completed Track 2H-L latent-state hysteresis campaign:
+Most recent completed Wave 4.4 latent-state hysteresis campaign:
 
 - campaign name: `track2h_latent_state_hysteresis_campaign_2026_06_16`
 - planning report:
@@ -2788,10 +2788,10 @@ Most recent completed Track 2H-L latent-state hysteresis campaign:
   `.\scripts\campaigns\track_2\run_track2h_latent_state_hysteresis_campaign.ps1`
 - remote command:
   `.\scripts\campaigns\track_2\run_track2h_latent_state_hysteresis_campaign.ps1 -Remote`
-- status: normal campaign closeout completed; optional official `Track 2`
+- status: normal campaign closeout completed; optional official `TE Curve Verification Pipeline`
   verification refresh remains a separate follow-up.
 
-Most recent completed Track 2H mixture-density heads campaign:
+Most recent completed Wave 4.3 mixture-density heads campaign:
 
 - campaign name: `track2h_mixture_density_heads_campaign_2026_06_13`
 - planning report: `doc/reports/campaign_plans/track_2/2026-06-13-10-40-25_track2h_mixture_density_heads_campaign_plan_report.md`
@@ -2800,15 +2800,15 @@ Most recent completed Track 2H mixture-density heads campaign:
 - canonical launcher: `scripts/campaigns/track_2/run_track2h_mixture_density_heads_campaign.ps1`
 - local command: `.\scripts\campaigns\track_2\run_track2h_mixture_density_heads_campaign.ps1`
 - remote command: `.\scripts\campaigns\track_2\run_track2h_mixture_density_heads_campaign.ps1 -Remote`
-- optional official `Track 2` refresh launcher:
+- optional official `TE Curve Verification Pipeline` refresh launcher:
   `scripts/campaigns/track_2/run_track2h_mixture_density_heads_track2_verification_refresh.ps1`
-- optional official `Track 2` local command:
+- optional official `TE Curve Verification Pipeline` local command:
   `.\scripts\campaigns\track_2\run_track2h_mixture_density_heads_track2_verification_refresh.ps1`
-- optional official `Track 2` remote command:
+- optional official `TE Curve Verification Pipeline` remote command:
   `.\scripts\campaigns\track_2\run_track2h_mixture_density_heads_track2_verification_refresh.ps1 -Remote`
-- official `Track 2` report:
+- official `TE Curve Verification Pipeline` report:
   `doc/reports/analysis/track2/official_model_verification_report/[2026-06-13]/track2_official_model_verification_report.md`
-- status: normal campaign closeout and official `Track 2` verification
+- status: normal campaign closeout and official `TE Curve Verification Pipeline` verification
   refresh completed; MDN is a verified exploratory baseline, not promoted.
 
 Current finished Wave 1 residual-family follow-up campaign:
@@ -2942,9 +2942,9 @@ The repository now already has:
 - tree-based structured benchmarks under the same artifact contract;
 - a reusable datamodule and regression module structure for future architectures;
 - an offline harmonic-wise comparison pipeline for paper-aligned baseline work;
-- Wave 2B harmonic-temporal model profiles that add explicit periodic harmonic
+- Wave 2.2 harmonic-temporal model profiles that add explicit periodic harmonic
   features to temporal sequence windows;
-- Wave 2C residual harmonic temporal model profiles and an approved
+- Wave 2.3 residual harmonic temporal model profiles and an approved
   operator-launch package for sparse plus dense harmonic-basis comparison;
 - technical, script-level, and user-facing documentation aligned with the current structure.
 
@@ -2954,7 +2954,7 @@ The immediate post-`Wave 1` implementation branch is the offline
 `Harmonic-Wise Comparison Pipeline`.
 
 Its role is to create a paper-comparable baseline before opening the later
-`Wave 2` temporal-model branch.
+`Wave 2.1` temporal-model branch.
 
 Canonical script:
 
@@ -3004,7 +3004,7 @@ Current scope:
 - TE reconstruction from the predicted harmonic stack;
 - offline `Robot` and `Cycloidal` style playback;
 - held-out offline percentage-error reporting for `Target A`.
-- configurable engineered operating-condition features for the second Track 1
+- configurable engineered operating-condition features for the second RCIM Model-Bank Reproduction
   iteration;
 - per-harmonic error diagnostics in the validation summary and Markdown report.
 
@@ -3016,14 +3016,14 @@ Current non-scope:
 
 ## Exact RCIM Paper Model Bank Validation
 
-The stricter paper-faithful branch of `Track 1` is the
+The stricter paper-faithful branch of `RCIM Model-Bank Reproduction` is the
 `Exact RCIM Paper Model Bank Validation` workflow.
 
 Its role is to reconstruct the recovered paper family bank directly from the
 recovered dataframe and exact `ampl_k` / `phase_k` target schema, rather than
 only through the repository-owned harmonic-wise approximation branch.
 
-The current Track 1 paper-faithful baseline is split into two connected
+The current RCIM Model-Bank Reproduction paper-faithful baseline is split into two connected
 surfaces:
 
 - `recovered_original_workflow/`
@@ -3032,12 +3032,12 @@ surfaces:
   reimplements that pipeline protocol on the canonical repository dataset for
   both `forward` and `backward`.
 
-Completed forward and backward Track 1 campaigns have promoted accepted model
+Completed forward and backward RCIM Model-Bank Reproduction campaigns have promoted accepted model
 archives to `models/paper_reference/rcim_track1/`, and the corresponding RCIM
 Tables `2`-`5` status lives in
 `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`.
 
-The current Track 1 surface is closed as the full-dataset faithful
+The current RCIM Model-Bank Reproduction surface is closed as the full-dataset faithful
 model-bank reproduction: both directions have been run through the restored
 grid-search plus historical cross-validation protocol, all accepted archives
 have been refreshed, and Tables `2`-`5` have been repopulated. This status does
@@ -3087,7 +3087,7 @@ recovered-original pragmatic fallback:
 - the chosen branch is serialized in the stored best-parameter payload so
   `LoadBest`, `Eval`, and `Export` can replay it deterministically.
 
-For the current paper-faithful bidirectional Track 1 package, the canonical
+For the current paper-faithful bidirectional RCIM Model-Bank Reproduction package, the canonical
 PowerShell launcher also now exposes a family-and-stage operator surface closer
 to the recovered-original RCIM launcher:
 
@@ -3158,7 +3158,7 @@ Main outputs:
 - `models/paper_reference/rcim_track1/forward/`
 - `models/paper_reference/rcim_track1/backward/`
 
-Future restricted-dataset Track 1 reruns should keep these full-dataset
+Future restricted-dataset RCIM Model-Bank Reproduction reruns should keep these full-dataset
 archives immutable and write their own comparison document under
 `doc/reports/analysis/`, with Tables `2`-`5` shown side by side for every
 dataset-reduction level.
@@ -3183,7 +3183,7 @@ Current scope:
 The repository also exposes a direct rebuilt execution surface for the
 recovered original RCIM scripts.
 
-This surface is the code-level recovery anchor for the faithful Track 1
+This surface is the code-level recovery anchor for the faithful RCIM Model-Bank Reproduction
 reimplementation. It keeps the original stages, family-wise multioutput logic,
 input schema, and target shape visible while moving mutable outputs into
 repository-owned runtime roots.
@@ -3307,7 +3307,7 @@ Current non-scope:
 - final target-wise deployed winner assembly;
 - Track 3 online compensation loop;
 - TwinCAT/TestRig execution;
-- `Track 2` direct-TE comparison.
+- `TE Curve Verification Pipeline` direct-TE comparison.
 
 This is enough to extend the project toward:
 

@@ -2,7 +2,7 @@
 
 ## Overview
 
-This technical note covers a narrow PDF layout repair for the `Track 2`
+This technical note covers a narrow PDF layout repair for the `TE Curve Verification Pipeline`
 original `ONNX` forward collage report:
 
 `doc/reports/analysis/track2/original_onnx_fw_collage_report/[2026-06-05]/track2_original_onnx_fw_collage_report.pdf`

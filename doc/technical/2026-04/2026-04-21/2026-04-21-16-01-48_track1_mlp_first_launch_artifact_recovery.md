@@ -1,9 +1,9 @@
-# Track 1 MLP First-Launch Artifact Recovery
+# RCIM Model-Bank Reproduction MLP First-Launch Artifact Recovery
 
 ## Overview
 
 This technical document defines the recovery of the missing local repository
-artifacts for the first `MLP` launch inside the completed `Track 1`
+artifacts for the first `MLP` launch inside the completed `RCIM Model-Bank Reproduction`
 open-cell full-matrix closure wave.
 
 The current repository state already reflects the canonical closeout decision

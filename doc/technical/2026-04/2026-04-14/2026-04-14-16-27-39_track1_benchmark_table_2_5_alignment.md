@@ -1,8 +1,8 @@
-# Track 1 Benchmark Table 2-5 Alignment
+# RCIM Model-Bank Reproduction Benchmark Table 2-5 Alignment
 
 ## Overview
 
-The canonical `Track 1` benchmark in
+The canonical `RCIM Model-Bank Reproduction` benchmark in
 `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md` currently mixes two
 different numbering schemes:
 
@@ -10,7 +10,7 @@ different numbering schemes:
 - a repository-owned derived table named `Table 2 - Harmonic Selection And
   Deployed Family Direction`, which does not correspond to paper Table 2.
 
-This creates a consistency problem for `Track 1`, because the intended
+This creates a consistency problem for `RCIM Model-Bank Reproduction`, because the intended
 objective is faithful paper-table replication. The benchmark must therefore be
 realigned so that repository sections labeled `Table 2`, `Table 3`, `Table 4`,
 and `Table 5` match the actual paper tables:
@@ -45,7 +45,7 @@ Third, rename or relocate the current harmonic/family direction summary so it
 becomes an explicitly repository-derived support section instead of a
 misnumbered paper-table claim. The colored-cell maintenance path already added
 for the full-matrix tables must remain intact, and it must be extended if
-needed so that future `Track 1` updates preserve the correct `Table 2-5`
+needed so that future `RCIM Model-Bank Reproduction` updates preserve the correct `Table 2-5`
 mapping and keep the `🟢/🟡/🔴` markers synchronized with the numeric values.
 
 ## Involved Components
@@ -60,7 +60,7 @@ mapping and keep the `🟢/🟡/🔴` markers synchronized with the numeric valu
 ## Implementation Steps
 
 1. Inspect the paper reference and extract the actual `Table 2` amplitude-MAE
-   matrix for the target harmonics and model families used by `Track 1`.
+   matrix for the target harmonics and model families used by `RCIM Model-Bank Reproduction`.
 2. Rewrite the benchmark so that sections labeled `Table 2-5` map exactly to
    the paper tables and keep the repository-side analogous matrices aligned to
    those same tables.

@@ -19,7 +19,7 @@ come from:
 - `rcim_original`: recovered original-pipeline reference archive, forward-only
   as the paper-original baseline.
 - `rcim_retuned`: repository retuned archive, forward and backward.
-- `rcim_track1`: final Track 1 faithful full-dataset archive, forward and
+- `rcim_track1`: final RCIM Model-Bank Reproduction faithful full-dataset archive, forward and
   backward.
 
 ## Technical Approach
@@ -27,7 +27,7 @@ come from:
 The implementation will be non-training and read-only with respect to model
 archives. It will load existing saved model files from `models/paper_reference`
 and compare them on the same evaluation protocol already used by the current
-Track 2 and paper-reference validation tooling.
+TE Curve Verification Pipeline and paper-reference validation tooling.
 
 The comparison will use two complementary surfaces:
 
@@ -36,8 +36,8 @@ The comparison will use two complementary surfaces:
    This gives per-family and per-target MAE/RMSE/MAPE snapshots and direct
    deltas between `original`, `retuned`, and `track1` where the same family and
    direction exist.
-2. **Track 2 curve surface**: reconstruct TE curves from each available saved
-   archive using the current direction-aware Track 2 protocol. Forward archives
+2. **TE Curve Verification Pipeline curve surface**: reconstruct TE curves from each available saved
+   archive using the current direction-aware TE Curve Verification Pipeline protocol. Forward archives
    are evaluated on forward curves, backward archives on backward curves, and
    no mixed-direction historical comparison is reintroduced.
 
@@ -47,9 +47,9 @@ The canonical report will summarize:
 - forward comparison between `rcim_original`, `rcim_retuned`, and
   `rcim_track1`;
 - backward comparison between `rcim_retuned` and `rcim_track1`;
-- family-level verdicts grouped by strong agreement, expected retune/Track 1
+- family-level verdicts grouped by strong agreement, expected retune/RCIM Model-Bank Reproduction
   improvement, discrepancy, and unavailable surface;
-- final interpretation suitable for citing in later Track 2 and benchmark
+- final interpretation suitable for citing in later TE Curve Verification Pipeline and benchmark
   documentation.
 
 No subagent is planned for this task. If a subagent later becomes useful, its
@@ -61,11 +61,11 @@ scope and approval requirement will be documented before launch.
 | --- | --- |
 | `models/paper_reference/rcim_original` | Repository original-pipeline baseline archive. |
 | `models/paper_reference/rcim_retuned` | Repository retuned paper-reference archive. |
-| `models/paper_reference/rcim_track1` | Final Track 1 faithful reference archive. |
-| `scripts/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/run_reference_family_vs_feedforward_comparison.py` | Existing Track 2 directional comparison path to reuse or extend. |
+| `models/paper_reference/rcim_track1` | Final RCIM Model-Bank Reproduction faithful reference archive. |
+| `scripts/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/run_reference_family_vs_feedforward_comparison.py` | Existing TE Curve Verification Pipeline directional comparison path to reuse or extend. |
 | `scripts/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/reference_family_vs_feedforward_support.py` | Shared candidate loading, prediction, and report support utilities. |
 | `doc/reports/analysis/rcim_paper_reference/RCIM Original ONNX Release Parity Interpretation.md` | Report structure and interpretation style reference. |
-| `doc/reports/analysis/track2/Track 2 Directional Model Comparison.md` | Current canonical Track 2 matrix context. |
+| `doc/reports/analysis/track2/Track 2 Directional Model Comparison.md` | Current canonical curve-verification matrix context. |
 | `output/validation_checks` | Destination for generated comparison summaries and tabular artifacts. |
 | `doc/reports/analysis` | Destination for the new canonical interpretation report. |
 
@@ -73,10 +73,10 @@ scope and approval requirement will be documented before launch.
 
 1. Inspect the current archive inventories for `rcim_original`,
    `rcim_retuned`, and `rcim_track1`, including family and direction coverage.
-2. Reuse the existing model-loading and Track 2 evaluation paths where possible
+2. Reuse the existing model-loading and TE curve evaluation paths where possible
    so the comparison uses the same seed, split, curve reconstruction, and
-   direction filters as the current canonical Track 2 report.
-3. Add a focused comparison entry point if the existing Track 2 runner cannot
+   direction filters as the current canonical TE curve-verification report.
+3. Add a focused comparison entry point if the existing TE Curve Verification Pipeline runner cannot
    emit the archive-to-archive parity tables directly.
 4. Generate machine-readable validation artifacts under
    `output/validation_checks`, including at least a summary YAML and one or

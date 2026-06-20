@@ -1,31 +1,31 @@
-# Wave 3 Hybrid Structured Models
+# Wave 5.1 Hybrid Structured Models
 
 ## Purpose
 
-`Wave 3` is the next architecture-design branch after the dispersion-aware
-`Track 2H` probes. Its role is to test hybrid structured TE models that keep
+`Wave 5.1` is the next architecture-design branch after the dispersion-aware
+`Wave 4 series` probes. Its role is to test hybrid structured TE models that keep
 the paper harmonic representation inspectable while adding learned correction
 capacity where the current model families show offset, phase, amplitude, or
 fragile-harmonic limitations.
 
 This report is a design document only. It does not prepare runnable training
-campaigns and does not modify the active `Track 2H` campaign.
+campaigns and does not modify the active `Wave 4 series` campaign.
 
 ## Reference Boundary
 
-| Source | What It Supports | Wave 3 Consequence |
+| Source | What It Supports | Wave 5.1 Consequence |
 | --- | --- | --- |
 | `MMT_TEModeling` summary | TE frequency components can be interpreted with respect to mechanical error sources, and analytical structure can guide features, losses, or constraints. | Keep the structured and learned parts separated so harmonic behavior remains interpretable. |
 | `RCIM_ML_Compensation` summary | The practical ML workflow uses speed, torque, temperature, angular position, and direction-separated modeling. | Preserve causal inputs and report `global`, `Fw`, and `Bw` surfaces separately. |
 | Recovered RCIM assets summary | The paper workflow is harmonic-wise and uses the recovered harmonic set `0`, `1`, `3`, `39`, `40`, `78`, `81`, `156`, `162`, and `240`. | Use the paper harmonic set as the first structured basis before adding learned residuals. |
-| `Track 2` h0 diagnostics | `h0` is the right mean-like channel, but large measured `h0` alone does not explain model failures. | Treat low-order offset terms as a structured channel, not as the sole cause of error. |
-| Dispersion-aware roadmap | `h0`, some `h1`, and high harmonics such as `156`, `162`, and `240` are suspected fragile groups. | Let Wave 3 test grouped harmonic structure instead of one undifferentiated curve output. |
+| `TE Curve Verification Pipeline` h0 diagnostics | `h0` is the right mean-like channel, but large measured `h0` alone does not explain model failures. | Treat low-order offset terms as a structured channel, not as the sole cause of error. |
+| Dispersion-aware roadmap | `h0`, some `h1`, and high harmonics such as `156`, `162`, and `240` are suspected fragile groups. | Let Wave 5.1 test grouped harmonic structure instead of one undifferentiated curve output. |
 
 ## Design Objective
 
 The core question is whether a model that explicitly separates harmonic
 structure from residual correction can outperform direct curve learners and
-loss-only branches on the official `Track 2` promotion surface.
+loss-only branches on the official `TE Curve Verification Pipeline` promotion surface.
 
 The model should be judged by:
 
@@ -54,7 +54,7 @@ The model should be judged by:
 | Stable middle group | `3`, `39`, `40`, `78`, `81` | Main structured shape reference, unless future diagnostics show instability. |
 | High-order fragile group | `156`, `162`, `240` | Candidate for stronger regularization, robust weighting, or separate residual handling. |
 
-This grouping is a hypothesis. It must be tested against `Track 2` metrics and
+This grouping is a hypothesis. It must be tested against `TE Curve Verification Pipeline` metrics and
 must not be hard-coded as a final truth before campaign evidence exists.
 
 ## Architecture Principles
@@ -66,14 +66,14 @@ must not be hard-coded as a final truth before campaign evidence exists.
 3. Avoid using measured curve mean, future TE samples, or held-out target
    statistics during inference.
 4. Keep direction-separated reporting mandatory for `global`, `Fw`, and `Bw`.
-5. Compare every Wave 3 candidate against accepted Track 2 leaders and the
-   completed `Track 2G`, `Track 2H`, `Wave 2B`, and `Wave 2C` branches.
+5. Compare every Wave 5.1 candidate against accepted curve-verified leaders and the
+   completed `Wave 3.3`, `Wave 4 series`, `Wave 2.2`, and `Wave 2.3` branches.
 6. Treat PLC-friendly export as a later constraint for this research stage,
    while avoiding architectures that are impossible to inspect.
 
 ## First Implementation Candidate
 
-The first runnable Wave 3 candidate should be
+The first runnable Wave 5.1 candidate should be
 `wave3_harmonic_prior_residual` because it gives the cleanest diagnostic split:
 
 1. A structured harmonic branch predicts the recovered paper harmonic set.
@@ -87,7 +87,7 @@ needs a larger multi-head architecture.
 
 ## Embryonic Implementation Status
 
-The first `Wave 3` skeleton has now been materialized as implementation-ready
+The first `Wave 5.1` skeleton has now been materialized as implementation-ready
 scaffolding, but it remains explicitly not campaign-ready.
 
 | Item | Status |
@@ -100,7 +100,7 @@ scaffolding, but it remains explicitly not campaign-ready.
 
 ## Grouped Harmonic-Heads Skeleton Status
 
-The second `Wave 3` model candidate has now been prepared as a dry-run
+The second `Wave 5.1` model candidate has now been prepared as a dry-run
 interface skeleton. It remains explicitly not campaign-ready.
 
 | Item | Status |
@@ -113,8 +113,8 @@ interface skeleton. It remains explicitly not campaign-ready.
 
 The grouped-head path separates low-order, stable-middle, and high-order
 harmonic branches before adding a residual shape branch. It is intended to
-test interface viability only until `Track 2H` closeout provides loss-policy
-guidance and a real Wave 3 campaign plan is approved.
+test interface viability only until `Wave 4 series` closeout provides loss-policy
+guidance and a real Wave 5.1 campaign plan is approved.
 
 ## Training-Smoke-Ready Status
 
@@ -130,10 +130,10 @@ one-batch training setup using a validation-only generated config.
 | Batch mode | sequence batch, `384` samples, sequence length `33`, input feature dimension `5`, target dimension `1`. |
 | Finite checks | loss, `MAE`, `RMSE`, and prediction tensor all passed. |
 
-This moves the first Wave 3 candidate from implementation-ready to
+This moves the first Wave 5.1 candidate from implementation-ready to
 training-smoke-ready, but it remains not campaign-ready.
 
-Before Wave 3 can become campaign-ready, the project still needs the `Track 2H`
+Before Wave 5.1 can become campaign-ready, the project still needs the `Wave 4 series`
 loss-policy result and an approved campaign plan with queue size, surfaces,
 launch mode, protected files, and active-campaign state.
 
@@ -141,30 +141,30 @@ launch mode, protected files, and active-campaign state.
 
 | Comparator | Why It Matters |
 | --- | --- |
-| Accepted Track 2 leaders | Defines the official promotion baseline. |
-| `Track 2G` curve-aware candidates | Tests whether structure beats loss-only curve tuning. |
-| `Track 2H` robust-loss candidates | Tests whether structure adds value beyond robust central-tendency fitting. |
-| `Wave 2B` periodic sequence models | Tests whether harmonic structure beats temporal sequence capacity. |
-| `Wave 2C` residual harmonic temporal models | Tests whether Wave 3 improves the existing harmonic-residual idea with cleaner grouping. |
+| Accepted curve-verified leaders | Defines the official promotion baseline. |
+| `Wave 3.3` curve-aware candidates | Tests whether structure beats loss-only curve tuning. |
+| `Wave 4.1` robust-loss candidates | Tests whether structure adds value beyond robust central-tendency fitting. |
+| `Wave 2.2` periodic sequence models | Tests whether harmonic structure beats temporal sequence capacity. |
+| `Wave 2.3` residual harmonic temporal models | Tests whether Wave 5.1 improves the existing harmonic-residual idea with cleaner grouping. |
 
 ## Decision Gates
 
-Wave 3 should proceed to campaign preparation only if the next approval gate
+Wave 5.1 should proceed to campaign preparation only if the next approval gate
 accepts these design choices:
 
 - use the recovered harmonic set as the first structured basis;
 - start with `wave3_harmonic_prior_residual`;
 - keep grouped harmonic heads as the second candidate, not the first;
-- use official `Track 2` metrics rather than scalar validation loss as the
+- use official `TE Curve Verification Pipeline` metrics rather than scalar validation loss as the
   promotion surface;
-- wait for the running `Track 2H` campaign result before selecting final
+- wait for the running `Wave 4 series` campaign result before selecting final
   robust-loss or residual-loss defaults.
 
 ## Non-Goals
 
-- Do not modify the active `Track 2H` campaign.
+- Do not modify the active `Wave 4 series` campaign.
 - Do not treat the embryonic template or dry-run launcher as a real campaign
   package.
 - Do not claim that `h0` is the only physical cause of offset behavior.
-- Do not merge Wave 3 with the final integrated multi-task / multi-head
-  architecture before smaller Wave 3 candidates have been tested.
+- Do not merge Wave 5.1 with the final integrated multi-task / multi-head
+  architecture before smaller Wave 5.1 candidates have been tested.

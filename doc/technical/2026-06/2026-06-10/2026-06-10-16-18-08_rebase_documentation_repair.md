@@ -3,22 +3,22 @@
 ## Overview
 
 This technical note records the repair of documentation-only rebase artifacts
-left after combining the `Track 2G` official verification closeout with the
+left after combining the `Wave 3.3` official verification closeout with the
 dispersion-aware roadmap update.
 
 The affected content is documentation state, not model code or training
 artifacts. The main issue is a malformed roadmap table in the canonical
-training master summary, where `Wave 3` was duplicated, `Wave 4` was truncated,
-and the `Track 2G` roadmap row was dropped during manual conflict resolution.
+training master summary, where `Wave 5.1` was duplicated, `Wave 5.2` was truncated,
+and the `Wave 3.3` roadmap row was dropped during manual conflict resolution.
 
 ## Technical Approach
 
-The repair will keep the accepted `Track 2G` official verification result and
+The repair will keep the accepted `Wave 3.3` official verification result and
 the newer dispersion-aware roadmap simultaneously:
 
-- `Track 2G` remains completed and officially verified;
-- `Track 2H` becomes the next dispersion-aware modeling probe stage;
-- `Wave 3` hybrid structured models and `Wave 4` first-PINN work remain planned
+- `Wave 3.3` remains completed and officially verified;
+- `Wave 4 series` becomes the next dispersion-aware modeling probe stage;
+- `Wave 5.1` hybrid structured models and `Wave 5.2` first-PINN work remain planned
   before the final integrated multi-task / multi-head branch;
 - the master summary roadmap table is rewritten only in the malformed section.
 
@@ -31,7 +31,7 @@ the newer dispersion-aware roadmap simultaneously:
 
 1. Add this technical repair note and register it in `doc/README.md`.
 2. Repair the master summary executive focus so it no longer implies that the
-   `Track 2G` official refresh is still pending.
+   `Wave 3.3` official refresh is still pending.
 3. Replace the malformed `Roadmap And Planned Work` block with a clean table
-   that preserves the rebased `Track 2G` and roadmap updates.
+   that preserves the rebased `Wave 3.3` and roadmap updates.
 4. Run Markdown QA on the touched Markdown files.

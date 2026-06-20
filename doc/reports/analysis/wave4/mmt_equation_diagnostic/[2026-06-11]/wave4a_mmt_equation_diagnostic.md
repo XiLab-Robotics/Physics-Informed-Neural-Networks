@@ -1,4 +1,4 @@
-# Wave 4A MMT Equation Diagnostic
+# Wave 5.2A MMT Equation Diagnostic
 
 ## Overview
 
@@ -19,7 +19,7 @@ analytical baseline, and not a training campaign result.
 
 ## Dominant Demonstration Harmonics
 
-| Harmonic | Amplitude [arcsec] | Track 2 Suspicious Group |
+| Harmonic | Amplitude [arcsec] | TE Curve Verification Pipeline Suspicious Group |
 | ---: | ---: | --- |
 | 18 | 152.451356 | no |
 | 342 | 34.358914 | no |
@@ -34,7 +34,7 @@ analytical baseline, and not a training campaign result.
 | 72 | 11.644816 | no |
 | 192 | 11.517365 | no |
 
-## Track 2 Suspicious Harmonic Probe
+## TE Curve Verification Pipeline Suspicious Harmonic Probe
 
 | Harmonic | Amplitude [arcsec] | Top Demonstration Harmonic |
 | ---: | ---: | --- |
@@ -47,8 +47,8 @@ analytical baseline, and not a training campaign result.
 ## Interpretation
 
 The MMT equation chain is now callable as a diagnostic and can produce auditable harmonic signatures. This is useful for deciding whether MMT terms should become diagnostic-only, feature-generator, calibrated baseline, or weak-loss material.
-The current demonstration is not dataset-calibrated. Any relationship between the displayed harmonic amplitudes and Track 2 failure modes is therefore a hypothesis, not evidence of causality.
-The next Wave 4A requirement remains the parameter inventory: which MMT inputs are known from the rig, fixed by reducer geometry, calibrated on training conditions only, or unavailable.
+The current demonstration is not dataset-calibrated. Any relationship between the displayed harmonic amplitudes and TE Curve Verification Pipeline failure modes is therefore a hypothesis, not evidence of causality.
+The next Wave 5.2A requirement remains the parameter inventory: which MMT inputs are known from the rig, fixed by reducer geometry, calibrated on training conditions only, or unavailable.
 
 ## Machine-Readable Artifacts
 

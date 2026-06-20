@@ -1,8 +1,8 @@
-# Track 1 Closeout PDF Table Layout Rebalance
+# RCIM Model-Bank Reproduction Closeout PDF Table Layout Rebalance
 
 ## Overview
 
-This task repairs two already exported `Track 1` exact-paper campaign result
+This task repairs two already exported `RCIM Model-Bank Reproduction` exact-paper campaign result
 reports whose PDF tables still need a report-specific layout rebalance.
 
 The requested changes are not scientific-content edits. They are PDF
@@ -22,7 +22,7 @@ The affected reports are:
 ## Technical Approach
 
 The repair should stay report-specific rather than changing the shared
-`Track 1` full-matrix ranking profile globally.
+`RCIM Model-Bank Reproduction` full-matrix ranking profile globally.
 
 The planned implementation is:
 

@@ -1,8 +1,8 @@
-# Track 1 Full-Matrix Replication Table Refresh After Closeout
+# RCIM Model-Bank Reproduction Full-Matrix Replication Table Refresh After Closeout
 
 ## Overview
 
-This document formalizes a missing closeout step for `Track 1` campaign
+This document formalizes a missing closeout step for `RCIM Model-Bank Reproduction` campaign
 reporting. After the final `XGBM` and `LGBM` reruns, the canonical benchmark
 report was refreshed at the addendum level, but the family-by-family
 full-matrix replication tables remained partially stale. In particular, the
@@ -11,10 +11,10 @@ the latest `XGBM/LGBM` improvements.
 
 The goal of this task is to refresh the four canonical comparative tables in
 `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md` and to codify the
-rule that every future `Track 1` closeout must update those tables whenever a
+rule that every future `RCIM Model-Bank Reproduction` closeout must update those tables whenever a
 campaign changes the accepted family results.
 
-These four tables are also the canonical reference surface for future `Track 1`
+These four tables are also the canonical reference surface for future `RCIM Model-Bank Reproduction`
 state summaries and progress statements.
 
 ## Technical Approach
@@ -30,11 +30,11 @@ The implementation stays intentionally narrow:
 2. Replace stale `XGBM/LGBM` row values and colored status markers with the
    latest accepted post-rerun metrics already serialized in the validation
    summaries and campaign closeout artifacts.
-3. Add an explicit maintenance rule to the benchmark so future `Track 1`
+3. Add an explicit maintenance rule to the benchmark so future `RCIM Model-Bank Reproduction`
    closeouts update both:
    - the addendum-style summary sections;
    - the canonical family-by-family colored replication tables.
-4. Treat full `Track 1` completion as separate from any single closeout wave:
+4. Treat full `RCIM Model-Bank Reproduction` completion as separate from any single closeout wave:
    the track is complete only when the `Table 2-5` surface is closed for all
    `10` algorithm families with `19` accepted models per family.
 5. Run repository Markdown QA on the touched Markdown scope before closing the
@@ -59,9 +59,9 @@ inspectable.
 1. Re-read the latest accepted `XGBM` and `LGBM` validation summaries.
 2. Recompute the correct green/yellow/red markers against the paper thresholds.
 3. Patch the four family-by-family full-matrix tables in the benchmark report.
-4. Add the persistent closeout-maintenance note for future `Track 1` campaign
+4. Add the persistent closeout-maintenance note for future `RCIM Model-Bank Reproduction` campaign
    completions.
-5. Record in the touched documentation that `Track 1` progress and completion
+5. Record in the touched documentation that `RCIM Model-Bank Reproduction` progress and completion
    are judged through the `Table 2-5` surface, with `10 x 19` accepted models
    as the finish condition.
 6. Run Markdown warning checks on the touched Markdown files and resolve any

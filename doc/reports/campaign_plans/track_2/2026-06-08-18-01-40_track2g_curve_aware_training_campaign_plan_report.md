@@ -1,12 +1,12 @@
-# Track 2G Curve-Aware Training Campaign Plan Report
+# Wave 3.3 Curve-Aware Training Campaign Plan Report
 
 ## Executive Summary
 
-This preliminary campaign plan prepares the proposed `Track 2G`
+This preliminary campaign plan prepares the proposed `Wave 3.3`
 curve-aware training probe without launching training and without generating
 the campaign package yet.
 
-The completed Track 2F and Track 2F-bis work showed that:
+The completed Wave 3.1 and Wave 3.2 work showed that:
 
 - a clean causal residual-offset branch is useful as a non-harmonic baseline;
 - explicit harmonic structure improves the direction-specific `Fw` and `Bw`
@@ -16,7 +16,7 @@ The completed Track 2F and Track 2F-bis work showed that:
 - scalar pointwise `MAE` is not enough to decide whether a candidate is useful
   for continuous TE compensation over repeated motor revolutions.
 
-Track 2G should therefore test a curve-aware training objective while keeping
+Wave 3.3 should therefore test a curve-aware training objective while keeping
 the runtime input contract unchanged. The model must still consume only the
 current point-level state and, where the selected family supports it, a short
 causal history of already observed samples. Complete curves are allowed for
@@ -28,11 +28,11 @@ technical document are explicitly approved.
 
 ## Baseline And Verification Rule
 
-Track 2 remains the official offline curve-first verification surface.
-Track 2G candidates must not be accepted from scalar training metrics alone.
+TE Curve Verification Pipeline remains the official offline curve-first verification surface.
+Wave 3.3 candidates must not be accepted from scalar training metrics alone.
 Any promoted result must later refresh:
 
-- the direction-aware Track 2 matrix;
+- the direction-aware curve-verification matrix;
 - the official model verification report and PDF;
 - the best-model collage report and PDF;
 - the multi-model curve comparison report and PDF;
@@ -53,7 +53,7 @@ collapse `global`, `Fw`, and `Bw` into one scalar winner.
 
 ## Candidate Matrix
 
-The first Track 2G package should isolate the effect of the curve-aware
+The first Wave 3.3 package should isolate the effect of the curve-aware
 objective before introducing a broader multi-head architecture. The proposed
 campaign therefore uses one model family with four loss profiles across the
 three required surfaces.
@@ -80,13 +80,13 @@ Loss profiles:
 The first package therefore contains `12` runnable training entries.
 
 The explicit `multi_head_shape_offset_probe` remains planned but should not be
-mixed into this first Track 2G batch. If the loss-only branch improves raw
+mixed into this first Wave 3.3 batch. If the loss-only branch improves raw
 curve error but leaves branch behavior ambiguous, the multi-head branch should
-become Track 2G-bis or the next approved campaign.
+become Wave 3.3-bis or the next approved campaign.
 
 ## Model And Objective Design
 
-The candidate model should start from the Track 2F-bis harmonic residual-offset
+The candidate model should start from the Wave 3.2 harmonic residual-offset
 structure because that branch already showed useful direction-specific
 behavior:
 
@@ -96,7 +96,7 @@ final_te_prediction =
   + causal_residual_offset_prediction
 ```
 
-Track 2G changes the objective more than the model. The planned composite loss
+Wave 3.3 changes the objective more than the model. The planned composite loss
 is:
 
 ```text
@@ -138,7 +138,7 @@ The campaign must preserve the practical deployment constraint:
 - full curves are allowed only inside the training split for loss aggregation
   and after inference for validation, diagnostics, and promotion decisions.
 
-This means Track 2G may group training samples by curve identity to compute
+This means Wave 3.3 may group training samples by curve identity to compute
 loss terms, but the deployed forward pass must remain point or short-history
 causal.
 
@@ -226,7 +226,7 @@ After campaign execution:
 - update family-level and program-level registries only through the
   established workflow;
 - refresh `Training Results Master Summary.md`;
-- propose the optional heavy Track 2 refresh as a separate operator-launched
+- propose the optional heavy TE Curve Verification refresh as a separate operator-launched
   step.
 
 ## Decision Criteria
@@ -234,9 +234,9 @@ After campaign execution:
 The probe is successful only if it clarifies whether curve-aware training is
 worth carrying forward.
 
-Carry forward a Track 2G branch if:
+Carry forward a Wave 3.3 branch if:
 
-- it improves Track 2 raw curve error on the matching `global`, `Fw`, or `Bw`
+- it improves TE Curve Verification Pipeline raw curve error on the matching `global`, `Fw`, or `Bw`
   surface;
 - centered-shape, offset, amplitude, and harmonic diagnostics do not reveal a
   hidden regression;
@@ -248,13 +248,13 @@ Carry forward a Track 2G branch if:
 Prefer `raw_centered_shape` if:
 
 - shape improves materially but offset remains manageable;
-- Track 2F-bis harmonic already handles offset well enough on that surface.
+- Wave 3.2 harmonic already handles offset well enough on that surface.
 
 Prefer `raw_offset` if:
 
 - offset drops materially without damaging mean-centered shape or harmonic
   phase;
-- the branch improves the clean Track 2F baseline and the Track 2F-bis
+- the branch improves the clean Wave 3.1 baseline and the Wave 3.2
   harmonic baseline.
 
 Prefer `full_curve_composite` if:
@@ -264,13 +264,13 @@ Prefer `full_curve_composite` if:
 - it improves the direction-specific branch without making `global` less
   stable.
 
-Do not promote Track 2G if:
+Do not promote Wave 3.3 if:
 
 - it only improves pointwise scalar metrics;
 - it uses any future curve information at inference time;
 - the gain depends on collapsing `Fw`, `Bw`, and `global` into one pooled
   scalar result;
-- it worsens visual curve tracking versus Wave 2B, Track 2F, or Track 2F-bis
+- it worsens visual curve tracking versus Wave 2.2, Wave 3.1, or Wave 3.2
   baselines.
 
 ## Approval Gate

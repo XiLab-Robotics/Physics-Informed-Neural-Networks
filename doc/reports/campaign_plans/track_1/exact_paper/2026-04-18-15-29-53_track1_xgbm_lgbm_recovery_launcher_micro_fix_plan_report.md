@@ -1,4 +1,4 @@
-# Track 1 XGBM LGBM Recovery Launcher Micro Fix Plan Report
+# RCIM Model-Bank Reproduction XGBM LGBM Recovery Launcher Micro Fix Plan Report
 
 ## Overview
 
@@ -47,7 +47,7 @@ Allowed scope:
 
 Disallowed scope for this step:
 
-- changing `Track 1` model configs;
+- changing `RCIM Model-Bank Reproduction` model configs;
 - changing family hyperparameters;
 - changing exact-paper Python training logic;
 - updating benchmark or closeout reports before reruns actually succeed.

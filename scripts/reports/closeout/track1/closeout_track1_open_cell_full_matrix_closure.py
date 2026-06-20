@@ -1,4 +1,4 @@
-"""Close out the Track 1 open-cell full-matrix closure campaign.
+"""Close out the RCIM Model-Bank Reproduction open-cell full-matrix closure campaign.
 
 This utility reconstructs family and aggregate bookkeeping for the
 `2026-04-20-23-50-13` exact-paper closure wave, promotes improved
@@ -128,7 +128,7 @@ def parse_command_line_arguments() -> argparse.Namespace:
     """Parse command-line arguments."""
 
     argument_parser = argparse.ArgumentParser(
-        description="Close out the Track 1 open-cell full-matrix closure campaign."
+        description="Close out the RCIM Model-Bank Reproduction open-cell full-matrix closure campaign."
     )
     argument_parser.add_argument(
         "--report-timestamp",
@@ -540,8 +540,8 @@ def build_benchmark_addendum_markdown(
         "",
         "Track interpretation:",
         "",
-        "- `Track 1` is now judged only from Tables `2-5` plus the `10 x 19` accepted family-bank rule.",
-        "- Harmonic-wise Table `6` evidence remains historical support and does not gate `Track 1` closure.",
+        "- `RCIM Model-Bank Reproduction` is now judged only from Tables `2-5` plus the `10 x 19` accepted family-bank rule.",
+        "- Harmonic-wise Table `6` evidence remains historical support and does not gate `RCIM Model-Bank Reproduction` closure.",
     ]
     return "\n".join(addendum_line_list)
 
@@ -559,7 +559,7 @@ def patch_benchmark_summary_block(
     open_table5_list: list[int],
 ) -> str:
 
-    """Patch the benchmark narrative summary for canonical Track 1 status."""
+    """Patch the benchmark narrative summary for canonical RCIM Model-Bank Reproduction status."""
 
     replacement_lines = [
         "Current exact-paper table-replication status from the canonical benchmark",
@@ -579,9 +579,9 @@ def patch_benchmark_summary_block(
         "",
         "Important interpretation:",
         "",
-        "- this exact-paper full-matrix status is the canonical `Track 1` status;",
+        "- this exact-paper full-matrix status is the canonical `RCIM Model-Bank Reproduction` status;",
         "- a harmonic-wise campaign result can inform later analysis, but it does not",
-        "  replace the `Track 1` table-level closure rule;",
+        "  replace the `RCIM Model-Bank Reproduction` table-level closure rule;",
         "- the `2026-04-20-23-50-13` open-cell closure wave preserved the accepted",
         "  `19`-model banks for each non-`SVM` family while spending the retry budget",
         "  only on the still-open full-matrix cells;",
@@ -590,7 +590,7 @@ def patch_benchmark_summary_block(
     replacement_block = "\n".join(replacement_lines)
 
     summary_pattern = re.compile(
-        r"Current exact-paper table-replication status from the canonical benchmark\s+surface is:\n\n.*?Important interpretation:\n\n.*?Track 1` should therefore be read as a family-bank replication program, not\nas a harmonic-wise family-alignment program\.",
+        r"Current exact-paper table-replication status from the canonical benchmark\s+surface is:\n\n.*?Important interpretation:\n\n.*?RCIM Model-Bank Reproduction` should therefore be read as a family-bank replication program, not\nas a harmonic-wise family-alignment program\.",
         re.DOTALL,
     )
     return summary_pattern.sub(replacement_block, benchmark_text, count=1)
@@ -653,11 +653,11 @@ def patch_master_summary(
     )
 
     comparison_row_pattern = re.compile(
-        r"(\| Track 1 canonical closure rule \| .*? \| )(.*?) (\| .*? \|)"
+        r"(\| RCIM Model-Bank Reproduction canonical closure rule \| .*? \| )(.*?) (\| .*? \|)"
     )
     completion_verdict = "completed" if total_open_cell_count == 0 else "not_yet_met"
     comparison_row_replacement = (
-        "| Track 1 canonical closure rule | "
+        "| RCIM Model-Bank Reproduction canonical closure rule | "
         "Four full-matrix replication tables plus `10 x 19` accepted family-bank models | "
         f"Canonical benchmark now reads `{table2_met_count}/10`, `{table3_met_count}/10`, "
         f"`{table4_met_count}/9`, and `{table5_met_count}/9` across Tables `2-5`, "
@@ -670,12 +670,12 @@ def patch_master_summary(
     )
 
     track1_block_pattern = re.compile(
-        r"### Track 1 Canonical Status\n\n.*?\n### Track 1\.5 Harmonic-Wise Validation Support",
+        r"### RCIM Model-Bank Reproduction Canonical Status\n\n.*?\n### RCIM Model-Bank Reproduction\.5 Harmonic-Wise Validation Support",
         re.DOTALL,
     )
     track1_block_replacement = "\n".join(
         [
-            "### Track 1 Canonical Status",
+            "### RCIM Model-Bank Reproduction Canonical Status",
             "",
             f"- Latest exact-paper closeout report: `{report_relative_path}`",
             "- Canonical progress surface:",
@@ -689,11 +689,11 @@ def patch_master_summary(
             f"- Table `4` status: `{table4_met_count}/9` harmonics at or below the paper target",
             f"- Table `5` status: `{table5_met_count}/9` harmonics at or below the paper target",
             f"- Remaining non-green cells across Tables `2-5`: `{total_open_cell_count}`",
-            "- Harmonic-wise Table `6` evidence is postponed into `Track 1.5` and no longer gates Track 1 closeout",
+            "- Harmonic-wise Table `6` evidence is postponed into `RCIM Harmonic-Wise Follow-Up` and no longer gates RCIM Model-Bank Reproduction closeout",
             "- Repository `SVM` status: closed and accepted after the final exact-faithful rerun package, with residual paper deltas on `40`, `240`, and `162` accepted as non-blocking",
             "- Remaining-family exact-paper open-cell batch status: fully closed out after the overnight retry wave, with the benchmark now reading from the better value between the accepted baseline and the new targeted retries",
             "",
-            "### Track 1.5 Harmonic-Wise Validation Support",
+            "### RCIM Harmonic-Wise Follow-Up Harmonic-Wise Validation Support",
         ]
     )
     master_summary_text = track1_block_pattern.sub(
@@ -711,12 +711,12 @@ def patch_master_summary(
             "### Gap Summary",
             "",
             (
-                f"- `Track 1` remains open because `{total_open_cell_count}` non-green cells still remain "
+                f"- `RCIM Model-Bank Reproduction` remains open because `{total_open_cell_count}` non-green cells still remain "
                 "across the canonical `Table 2-5` full-matrix replication surface."
                 if total_open_cell_count > 0
-                else "- `Track 1` is now numerically closed across the canonical `Table 2-5` full-matrix replication surface."
+                else "- `RCIM Model-Bank Reproduction` is now numerically closed across the canonical `Table 2-5` full-matrix replication surface."
             ),
-            "- Harmonic-wise alignment is no longer treated as the primary `Track 1` gate and has been postponed into `Track 1.5`.",
+            "- Harmonic-wise alignment is no longer treated as the primary `RCIM Model-Bank Reproduction` gate and has been postponed into `RCIM Harmonic-Wise Follow-Up`.",
             "- Offline benchmark scope remains `partially comparable` rather than like-for-like.",
             "- Partially aligned: the current repository winner is tree-based (`hist_gradient_boosting` / family `tree`), which is consistent with the paper's boosting/tree-heavy deployed predictors.",
             "- Neural models remain secondary in the repository (`residual_harmonic_mlp`), which is also consistent with the paper not promoting a plain neural winner for deployment.",
@@ -791,17 +791,17 @@ def build_results_report_markdown(
     ]
 
     report_line_list = [
-        "# Track 1 Open-Cell Full-Matrix Closure Campaign Results Report",
+        "# RCIM Model-Bank Reproduction Open-Cell Full-Matrix Closure Campaign Results Report",
         "",
         "## Overview",
         "",
-        "This report closes the exact-paper `Track 1` open-cell full-matrix closure",
+        "This report closes the exact-paper `RCIM Model-Bank Reproduction` open-cell full-matrix closure",
         "wave prepared in:",
         "",
         "- `doc/reports/campaign_plans/track_1/exact_paper/2026-04-20-23-50-13_track1_open_cell_full_matrix_closure_campaigns_plan_report.md`",
         "",
         "The batch targeted only the still-open family-target pairs in the canonical",
-        "`Track 1` progress surface:",
+        "`RCIM Model-Bank Reproduction` progress surface:",
         "",
         "- `Table 2 - Amplitude MAE Full-Matrix Replication`",
         "- `Table 3 - Amplitude RMSE Full-Matrix Replication`",
@@ -858,11 +858,11 @@ def build_results_report_markdown(
         "",
         *surface_summary_line_list,
         "",
-        "## Track 1 Closure Reading",
+        "## RCIM Model-Bank Reproduction Closure Reading",
         "",
-        "- `Track 1` is evaluated only from the canonical `Table 2-5` full-matrix",
+        "- `RCIM Model-Bank Reproduction` is evaluated only from the canonical `Table 2-5` full-matrix",
         "  surfaces plus the accepted `10 x 19` family-bank rule.",
-        "- Harmonic-wise Table `6` evidence is postponed into `Track 1.5` and is no",
+        "- Harmonic-wise Table `6` evidence is postponed into `RCIM Harmonic-Wise Follow-Up` and is no",
         "  longer part of the primary closure gate.",
         (
             f"- current remaining non-green cells across the canonical surface: `{total_open_cell_count}`"
@@ -870,9 +870,9 @@ def build_results_report_markdown(
             else "- current remaining non-green cells across the canonical surface: `0`"
         ),
         (
-            "- `Track 1` remains open because at least one canonical full-matrix cell is still non-green."
+            "- `RCIM Model-Bank Reproduction` remains open because at least one canonical full-matrix cell is still non-green."
             if total_open_cell_count > 0
-            else "- `Track 1` is numerically closed on the canonical Tables `2-5` surface."
+            else "- `RCIM Model-Bank Reproduction` is numerically closed on the canonical Tables `2-5` surface."
         ),
         "",
         "## Resulting Canonical State",
@@ -886,7 +886,7 @@ def build_results_report_markdown(
         "- This batch is operationally complete and closes the intended overnight",
         "  retry wave without regressing already accepted cells.",
         "- The closure rule now stays fully aligned with the repository-wide decision",
-        "  to keep `Track 1` focused only on the four full-matrix replication tables.",
+        "  to keep `RCIM Model-Bank Reproduction` focused only on the four full-matrix replication tables.",
         "- Any remaining work should therefore target only the still-open cells in",
         "  Tables `2-5`, not the postponed harmonic-wise branch.",
     ]
@@ -896,7 +896,7 @@ def build_results_report_markdown(
 
 def main() -> None:
 
-    """Run the Track 1 open-cell full-matrix closure workflow."""
+    """Run the RCIM Model-Bank Reproduction open-cell full-matrix closure workflow."""
 
     command_line_arguments = parse_command_line_arguments()
     repository_path_support.set_runtime_platform(

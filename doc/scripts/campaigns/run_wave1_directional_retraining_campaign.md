@@ -10,7 +10,7 @@ explicit data scopes:
 2. `Fw`
 3. `Bw`
 
-It does not prepare `Track 1` assets and it does not modify the currently
+It does not prepare `RCIM Model-Bank Reproduction` assets and it does not modify the currently
 running protected campaign state.
 
 ## Main Role

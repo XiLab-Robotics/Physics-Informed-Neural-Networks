@@ -1,6 +1,6 @@
-# Track 2H-L Latent-State Hysteresis Campaign Package
+# Wave 4.4 Latent-State Hysteresis Campaign Package
 
-This package materializes the approved Track 2H-L latent-state /
+This package materializes the approved Wave 4.4 latent-state /
 hysteresis-aware probe. It contains 6 runnable queue entries:
 `gru_offset_residual` and `causal_tcn_offset_residual` across
 `global`, `Fw`, and `Bw` surfaces.

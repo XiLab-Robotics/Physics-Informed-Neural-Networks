@@ -1,4 +1,4 @@
-"""Close out the Track 1 residual cellwise closure campaign.
+"""Close out the RCIM Model-Bank Reproduction residual cellwise closure campaign.
 
 This utility reconstructs campaign winner artifacts for the residual closure
 wave, promotes improved family-harmonic winners against the earlier cellwise
@@ -72,7 +72,7 @@ SELECTION_POLICY = {
     "sixth_tie_breaker": "run_name",
     "direction": "maximize_then_minimize",
     "note": (
-        "This winner is the bookkeeping representative of the completed Track 1 "
+        "This winner is the bookkeeping representative of the completed RCIM Model-Bank Reproduction "
         "residual cellwise closure campaign."
     ),
 }
@@ -103,7 +103,7 @@ def parse_command_line_arguments() -> argparse.Namespace:
     """Parse command-line arguments."""
 
     argument_parser = argparse.ArgumentParser(
-        description="Close out the Track 1 residual cellwise closure campaign."
+        description="Close out the RCIM Model-Bank Reproduction residual cellwise closure campaign."
     )
     argument_parser.add_argument(
         "--report-timestamp",
@@ -954,7 +954,7 @@ def build_results_report_markdown(
     ]
 
     report_line_list = [
-        f"# 2026-04-19 Track 1 Residual Cellwise Closure Campaign Results Report",
+        f"# 2026-04-19 RCIM Model-Bank Reproduction Residual Cellwise Closure Campaign Results Report",
         "",
         f"- Campaign name: `track1_remaining_family_residual_cellwise_closure_campaigns_2026_04_19_01_04_28`",
         f"- Report timestamp: `{report_timestamp}`",
@@ -966,7 +966,7 @@ def build_results_report_markdown(
         "- The residual retry wave completed successfully and materially improved the accepted benchmark surface.",
         f"- Promoted family-target pairs from residual retries: `{improvement_summary_dictionary['promoted_pair_count']}/171`.",
         "- Promotion was conservative: a residual retry replaced the earlier cellwise winner only when it beat the accepted pair-level bookkeeping score.",
-        "- `Track 1` remains open because the harmonic-level Table `6` closure rule is still not fully satisfied.",
+        "- `RCIM Model-Bank Reproduction` remains open because the harmonic-level Table `6` closure rule is still not fully satisfied.",
         "",
         "## Family Best Retry Outcome",
         "",
@@ -1028,7 +1028,7 @@ def patch_master_summary(
     master_summary_text = MASTER_SUMMARY_PATH.read_text(encoding="utf-8")
 
     comparison_row_pattern = re.compile(
-        r"(\| Track 1 canonical closure rule \| Paper Tables `3-6` replicated per target and per harmonic \| )(.*?)( \| not_yet_met \|)"
+        r"(\| RCIM Model-Bank Reproduction canonical closure rule \| Paper Tables `3-6` replicated per target and per harmonic \| )(.*?)( \| not_yet_met \|)"
     )
     master_summary_text = comparison_row_pattern.sub(
         (
@@ -1043,12 +1043,12 @@ def patch_master_summary(
     )
 
     track1_block_pattern = re.compile(
-        r"### Track 1 Canonical Status\n\n.*?\n### Latest Harmonic-Wise Validation Support",
+        r"### RCIM Model-Bank Reproduction Canonical Status\n\n.*?\n### Latest Harmonic-Wise Validation Support",
         re.DOTALL,
     )
     track1_block_replacement = "\n".join(
         [
-            "### Track 1 Canonical Status",
+            "### RCIM Model-Bank Reproduction Canonical Status",
             "",
             f"- Latest exact-paper residual-closeout report: `{report_relative_path}`",
             f"- Table `2` amplitude `MAE`: `{table2_met_count}/10` harmonics at or below the paper target",
@@ -1082,7 +1082,7 @@ def patch_master_summary(
 
 def main() -> None:
 
-    """Run the Track 1 residual closure closeout workflow."""
+    """Run the RCIM Model-Bank Reproduction residual closure closeout workflow."""
 
     command_line_arguments = parse_command_line_arguments()
     repository_path_support.set_runtime_platform(

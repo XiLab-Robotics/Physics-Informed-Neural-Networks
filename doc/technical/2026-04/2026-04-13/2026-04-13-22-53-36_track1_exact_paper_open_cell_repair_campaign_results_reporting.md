@@ -1,11 +1,11 @@
-# Track 1 Exact-Paper Open-Cell Repair Campaign Results Reporting
+# RCIM Model-Bank Reproduction Exact-Paper Open-Cell Repair Campaign Results Reporting
 
 ## Overview
 
-This technical document closes the completed `Track 1` exact-paper open-cell
+This technical document closes the completed `RCIM Model-Bank Reproduction` exact-paper open-cell
 repair campaign.
 
-The campaign was prepared under the new `Track 1` paradigm where the primary
+The campaign was prepared under the new `RCIM Model-Bank Reproduction` paradigm where the primary
 goal is no longer a single winner under a shared evaluator. The correct goal is
 paper-table closure across Tables `3`, `4`, `5`, and `6`.
 
@@ -21,7 +21,7 @@ The reporting phase must therefore serialize the campaign around:
 
 The closeout should load the six generated exact-paper validation summaries and
 their launcher logs, then derive a campaign-level ranking policy that is
-compatible with the new `Track 1` objective.
+compatible with the new `RCIM Model-Bank Reproduction` objective.
 
 Because repository workflow rules still require explicit winner artifacts inside
 the campaign output folder, the ranking policy must remain serialized, but the
@@ -37,7 +37,7 @@ The closeout should therefore:
    `finished`;
 4. write the final Markdown results report under `doc/reports/campaign_results/`;
 5. export and validate the PDF companion;
-6. synchronize the canonical analysis reports that summarize `Track 1`.
+6. synchronize the canonical analysis reports that summarize `RCIM Model-Bank Reproduction`.
 
 No subagent is planned for this work. The closeout remains a local reporting
 task on repository-owned artifacts.
@@ -64,7 +64,7 @@ task on repository-owned artifacts.
 4. Update the active campaign state to `finished` with the real execution
    window and results-report path.
 5. Write the final Markdown campaign-results report in the new
-   cell-closure-first `Track 1` format.
+   cell-closure-first `RCIM Model-Bank Reproduction` format.
 6. Export the PDF companion and validate the real PDF layout.
-7. Update canonical `Track 1` analysis reports so the completed campaign is
+7. Update canonical `RCIM Model-Bank Reproduction` analysis reports so the completed campaign is
    reflected consistently.

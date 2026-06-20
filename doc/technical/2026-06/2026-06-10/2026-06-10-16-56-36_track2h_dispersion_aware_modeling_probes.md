@@ -1,41 +1,41 @@
-# Track 2H Dispersion-Aware Modeling Probes
+# Wave 4 series Dispersion-Aware Modeling Probes
 
 ## Overview
 
-This technical document plans the next `Track 2` modeling branch after the
-completed `Track 2G` official verification refresh and the h0/component-offset
+This technical document plans the next `TE Curve Verification Pipeline` modeling branch after the
+completed `Wave 3.3` official verification refresh and the h0/component-offset
 diagnostics.
 
-`Track 2G` showed that curve-aware losses are useful experimental controls,
+`Wave 3.3` showed that curve-aware losses are useful experimental controls,
 especially on the `Fw` and `global` surfaces, but loss-only tuning did not
-promote a new accepted `Track 2` leader. The h0 diagnostics also showed that
+promote a new accepted `TE Curve Verification Pipeline` leader. The h0 diagnostics also showed that
 `h0` is the right mean-like channel to inspect, while large absolute measured
 `h0` alone does not explain where models fail. The next branch should
 therefore test whether the problem is better handled as locally dispersed,
 partially non-deterministic target behavior rather than as a purely
 deterministic regression error.
 
-`Track 2H` is the dispersion-aware probe stage. It should test robust,
+`Wave 4 series` is the dispersion-aware probe stage. It should test robust,
 probabilistic, mixture, and latent-state approaches separately before the
 project commits to a larger integrated multi-task / multi-head architecture.
 
 ## Technical Approach
 
 The campaign should keep the existing causal input boundary and the
-direction-separated `Track 2` promotion surface:
+direction-separated `TE Curve Verification Pipeline` promotion surface:
 
 - `global`: bidirectional training, evaluated by direction and combined;
 - `Fw`: forward-only training and forward-only evaluation;
 - `Bw`: backward-only training and backward-only evaluation.
 
-The first `Track 2H` implementation should use a conservative two-level
+The `Wave 4.1` implementation should use a conservative two-level
 design:
 
 1. Start from a known stable curve-capable base branch, preferably the
-   `Track 2G` curve-aware harmonic residual-offset probe family.
+   `Wave 3.3` curve-aware harmonic residual-offset probe family.
 2. Add one dispersion-aware mechanism at a time so each result can be
-   interpreted against `Track 2G`, `Track 2F-bis`, `Wave 2B`, and the accepted
-   `Track 2` leaders.
+   interpreted against `Wave 3.3`, `Wave 3.2`, `Wave 2.2`, and the accepted
+   `TE Curve Verification Pipeline` leaders.
 
 The planned probe groups are:
 
@@ -87,16 +87,16 @@ Expected evaluation components after training:
 
 - campaign results Markdown and PDF;
 - family and program registry updates;
-- optional operator-launched official `Track 2` verification refresh;
+- optional operator-launched official `TE Curve Verification Pipeline` verification refresh;
 - refreshed visual overlays and collage reports if the campaign produces
   viable candidates.
 
 ## Implementation Steps
 
 1. Create and approve this technical document.
-2. Create the preliminary `Track 2H` campaign planning report.
+2. Create the preliminary `Wave 4 series` campaign planning report.
 3. Implement the smallest runnable robust-regression probe first, using the
-   current `Track 2G` pointwise-control candidates as the MSE control branch.
+   current `Wave 3.3` pointwise-control candidates as the MSE control branch.
 4. Add quantile/probabilistic, mixture-density, and latent-state probes as
    separate named candidate groups, not as one opaque combined model.
 5. Generate campaign YAMLs, launcher, launcher note, validator, active campaign
@@ -105,12 +105,12 @@ Expected evaluation components after training:
    and preflight launcher validation.
 7. Wait for explicit user approval before launching training.
 8. After training, close out the campaign normally before proposing the
-   optional official `Track 2` refresh.
+   optional official `TE Curve Verification Pipeline` refresh.
 
 ## Approval Gate
 
 This document and the paired campaign plan define the next modeling branch.
-They do not approve training execution. Because `Track 2H` introduces new
+They do not approve training execution. Because `Wave 4 series` introduces new
 losses and heads that are not yet materialized as validated runnable campaign
 entries, the YAML package and launcher should be generated only after this
 planning gate is approved.

@@ -1,8 +1,8 @@
-# Track 1 Extended Overnight Campaign Package
+# RCIM Model-Bank Reproduction Extended Overnight Campaign Package
 
 ## Overview
 
-This package prepares the larger and heavier `Track 1` overnight campaign
+This package prepares the larger and heavier `RCIM Model-Bank Reproduction` overnight campaign
 approved after the previous overnight batch showed that the current
 harmonic-wise validation path is operationally cheap.
 
@@ -48,5 +48,5 @@ All runs stay inside the current repository-owned harmonic-wise offline
 evaluator.
 
 This package does not introduce a new target-parameterization implementation.
-Its role is to push the current coefficient-based `Track 1` branch much harder
+Its role is to push the current coefficient-based `RCIM Model-Bank Reproduction` branch much harder
 before escalating to a more structural pipeline change.

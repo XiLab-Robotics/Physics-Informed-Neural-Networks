@@ -1,6 +1,6 @@
-# Track 1 LGBM Full-Matrix Campaign Package
+# RCIM Model-Bank Reproduction LGBM Full-Matrix Campaign Package
 
-This package contains the dedicated `Track 1` exact-paper `LGBM` family
+This package contains the dedicated `RCIM Model-Bank Reproduction` exact-paper `LGBM` family
 campaign.
 
 Included configs:

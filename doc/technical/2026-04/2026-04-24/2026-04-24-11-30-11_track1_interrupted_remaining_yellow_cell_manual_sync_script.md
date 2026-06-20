@@ -2,7 +2,7 @@
 
 ## Overview
 
-The interrupted `Track 1` remaining-yellow-cell overnight bundle cannot be
+The interrupted `RCIM Model-Bank Reproduction` remaining-yellow-cell overnight bundle cannot be
 closed out yet because the local repository still has no synchronized `SVM`
 artifacts from the long-running remote wave.
 

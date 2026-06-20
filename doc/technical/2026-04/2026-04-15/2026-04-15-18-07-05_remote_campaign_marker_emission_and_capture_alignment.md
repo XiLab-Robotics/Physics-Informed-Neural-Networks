@@ -2,7 +2,7 @@
 
 ## Overview
 
-The remote launcher no longer fails on the `Track 1` campaign YAML path itself
+The remote launcher no longer fails on the `RCIM Model-Bank Reproduction` campaign YAML path itself
 after the short-path execution fix. The latest remote attempt now gets through:
 
 1. remote preflight;
@@ -68,5 +68,5 @@ extraction fails, so the failure surface records what the remote side did emit.
    and manifest-generation phase.
 3. Update the local failure path so missing-marker failures record the last
    emitted remote lines.
-4. Retest the current `Track 1` `SVR` remote launcher on the LAN node.
+4. Retest the current `RCIM Model-Bank Reproduction` `SVR` remote launcher on the LAN node.
 5. Update the launcher note if the operator-visible marker output changes.

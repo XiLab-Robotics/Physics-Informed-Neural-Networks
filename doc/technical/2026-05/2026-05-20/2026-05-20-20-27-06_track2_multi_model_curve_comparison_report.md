@@ -1,8 +1,8 @@
-# Track 2 Multi-Model Curve Comparison Report
+# TE Curve Verification Pipeline Multi-Model Curve Comparison Report
 
 ## Overview
 
-Create a styled `Track 2` PDF report analogous to the completed best-model
+Create a styled `TE Curve Verification Pipeline` PDF report analogous to the completed best-model
 collage report, but focused on direct multi-model curve overlays. The report
 will compare the measured/original TE curve against selected reference and
 Wave 1 models on the same axes so the harmonic tracking differences can be
@@ -25,8 +25,8 @@ The report will cover:
 
 ## Technical Approach
 
-Add a repeatable analysis/report script beside the existing Track 2 collage
-builder. The new script will reuse the same model-loading and Track 2 dataset
+Add a repeatable analysis/report script beside the existing curve-verification collage
+builder. The new script will reuse the same model-loading and TE Curve Verification Pipeline dataset
 evaluation path already used by
 `scripts/reports/analysis/build_track2_best_model_collage_report.py`, but will
 plot multiple selected candidates together on each curve instead of one model
@@ -34,16 +34,16 @@ per collage.
 
 The implementation will:
 
-- reuse the current Track 2 comparison configuration and candidate metadata
+- reuse the current curve-verification comparison configuration and candidate metadata
   from the reference-family-vs-feedforward support code;
 - reuse current Wave 1 family registries under
   `output/registries/families/`;
 - render `original curve` as the measured TE curve with the same dark-gray,
-  normal-width style used in the latest Track 2 plot refresh;
+  normal-width style used in the latest TE Curve Verification Pipeline plot refresh;
 - generate deterministic representative curve collages for each requested
   comparison group;
 - calculate curve-level and group-level metrics for every included model;
-- screen the combined Track 1 plus Wave 1 comparison to keep the strongest
+- screen the combined RCIM Model-Bank Reproduction plus Wave 1 comparison to keep the strongest
   Wave 1 candidates by `Curve MAE [deg]` within the relevant direction;
 - write a dated Markdown report and export the real styled PDF;
 - validate the exported PDF with the repository PDF validation tool and inspect
@@ -64,9 +64,9 @@ The implementation will:
 
 ## Implementation Steps
 
-1. Inspect the existing Track 2 collage builder and the plot styling from
+1. Inspect the existing curve-verification collage builder and the plot styling from
    commit `97c9d9cd1f9971d813c975c0fff058b5aeef0f67`.
-2. Add a dedicated report builder for multi-model Track 2 curve overlays.
+2. Add a dedicated report builder for multi-model TE Curve Verification Pipeline curve overlays.
 3. Build the requested forward, backward, Wave 1, and screened combined
    comparison groups.
 4. Generate deterministic four-curve collages per group and store metrics plus

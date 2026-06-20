@@ -1,9 +1,9 @@
-# Track 1 Full Matrix Paper Replication Dashboard
+# RCIM Model-Bank Reproduction Full Matrix Paper Replication Dashboard
 
 ## Overview
 
 This technical document corrects the interpretation of the requested
-`Track 1` dashboard.
+`RCIM Model-Bank Reproduction` dashboard.
 
 The previous dashboard direction focused too much on:
 
@@ -11,9 +11,9 @@ The previous dashboard direction focused too much on:
 - closure summaries derived from the current best run;
 - compressed status views inspired by Tables `3-6`.
 
-That is not the primary first target of `Track 1` as clarified by the user.
+That is not the primary first target of `RCIM Model-Bank Reproduction` as clarified by the user.
 
-The clarified first `Track 1` target is:
+The clarified first `RCIM Model-Bank Reproduction` target is:
 
 - reproduce the full paper result matrices for the same model families;
 - reproduce them separately for amplitude and phase prediction;
@@ -91,7 +91,7 @@ Repository consequence:
 
 - the current `best per harmonic` comparison remains useful as a secondary
   summary;
-- but the primary `Track 1` dashboard must now answer:
+- but the primary `RCIM Model-Bank Reproduction` dashboard must now answer:
   `For each paper model family and each harmonic, did we reproduce the paper
   cell or not?`
 
@@ -125,7 +125,7 @@ real table width in Markdown and PDF views.
 
 ## Implementation Steps
 
-1. Reframe the canonical `Track 1` dashboard around full paper-matrix
+1. Reframe the canonical `RCIM Model-Bank Reproduction` dashboard around full paper-matrix
    replication rather than best-per-harmonic closure only.
 2. Build the repository-owned dashboard for Table `3` first:
    - original paper matrix;
@@ -137,8 +137,8 @@ real table width in Markdown and PDF views.
 5. Keep Tables `6` and `2` as supporting summary/context tables rather than as
    substitutes for the full matrices.
 6. Define and document the exact `green / yellow / red` policy for matrix
-   cells in a way that can be reused after every future `Track 1` update.
-7. Update the benchmark report so future `Track 1` progress must refresh these
+   cells in a way that can be reused after every future `RCIM Model-Bank Reproduction` update.
+7. Update the benchmark report so future `RCIM Model-Bank Reproduction` progress must refresh these
    matrices after every material improvement.
 8. Run Markdown warning checks on the touched Markdown files and confirm clean
    trailing newline state before closing the task.

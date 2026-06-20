@@ -2,10 +2,10 @@
 
 ## Required Terms
 
-- `Track 1`
+- `RCIM Model-Bank Reproduction`
 - `paper-faithful`
 - `harmonic-wise comparison pipeline`
-- `Track 2`
+- `TE Curve Verification Pipeline`
 - `direct-TE`
 - `Target A`
 - `Target B`
@@ -15,9 +15,9 @@
 
 ## Preferred Definitions
 
-- `Track 1`
+- `RCIM Model-Bank Reproduction`
   the repository branch dedicated to paper-faithful harmonic-wise reproduction.
-- `Track 2`
+- `TE Curve Verification Pipeline`
   the separate branch that compares already trained direct-TE models under a
   common offline evaluator.
 - `Target A`

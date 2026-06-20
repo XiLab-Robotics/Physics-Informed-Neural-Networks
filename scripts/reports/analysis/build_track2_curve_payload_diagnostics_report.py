@@ -1,4 +1,4 @@
-"""Build Track 2C curve-payload diagnostics for screened candidates."""
+"""Build CVP 1.2 curve-payload diagnostics for screened candidates."""
 
 from __future__ import annotations
 
@@ -193,7 +193,7 @@ def build_argument_parser() -> argparse.ArgumentParser:
 
     argument_parser = argparse.ArgumentParser(
         description=(
-            "Generate Track 2C curve-payload diagnostics for screened candidates "
+            "Generate CVP 1.2 curve-payload diagnostics for screened candidates "
             "without changing model inputs or launching training."
         )
     )
@@ -201,7 +201,7 @@ def build_argument_parser() -> argparse.ArgumentParser:
         "--config-path",
         type=Path,
         default=DEFAULT_CONFIG_PATH,
-        help="Track 2 matrix config used to resolve candidates and held-out curve records.",
+        help="curve-verification matrix config used to resolve candidates and held-out curve records.",
     )
     argument_parser.add_argument(
         "--output-root",
@@ -308,7 +308,7 @@ def resolve_timestamped_output_paths(
 
 def load_training_config(config_path: Path, output_suffix: str) -> dict[str, Any]:
 
-    """Load and prepare the Track 2 runtime config."""
+    """Load and prepare the TE Curve Verification Pipeline runtime config."""
 
     raw_training_config = reference_family_vs_feedforward_support.load_reference_family_comparison_config(config_path)
     return shared_training_infrastructure.prepare_output_artifact_training_config(
@@ -323,7 +323,7 @@ def filter_candidate_configuration_list(
     candidate_id_list: list[str],
 ) -> list[dict[str, Any]]:
 
-    """Resolve and filter Track 2 candidate configurations."""
+    """Resolve and filter TE Curve Verification Pipeline candidate configurations."""
 
     candidate_configuration_list = (
         reference_family_vs_feedforward_support.resolve_track2_candidate_configuration_list(training_config)
@@ -338,7 +338,7 @@ def filter_candidate_configuration_list(
         if candidate_id not in candidate_configuration_map
     ]
     if missing_candidate_id_list:
-        raise KeyError(f"Missing Track 2 candidate ids: {missing_candidate_id_list}")
+        raise KeyError(f"Missing TE Curve Verification Pipeline candidate ids: {missing_candidate_id_list}")
     return [candidate_configuration_map[candidate_id] for candidate_id in candidate_id_list]
 
 
@@ -718,12 +718,12 @@ def build_report_lines(
     """Build the Markdown report body."""
 
     line_list = [
-        "# Track 2C Curve Payload Diagnostics Report",
+        "# CVP 1.2 Curve Payload Diagnostics Report",
         "",
         "## Overview",
         "",
         (
-            "This report evaluates a screened `Track 2` candidate set with full "
+            "This report evaluates a screened `TE Curve Verification Pipeline` candidate set with full "
             "truth/prediction curve payloads. It does not train models, alter the "
             "dataset structure, or provide future curve samples to runtime model inputs."
         ),
@@ -889,7 +889,7 @@ def write_summary_yaml(
 
 def main() -> None:
 
-    """Run the Track 2C diagnostics workflow."""
+    """Run the CVP 1.2 diagnostics workflow."""
 
     arguments = parse_command_line_arguments()
     candidate_id_list = arguments.candidate_id_list or DEFAULT_CANDIDATE_ID_LIST
@@ -916,7 +916,7 @@ def main() -> None:
     harmonic_diagnostic_map: dict[tuple[str, str], list[dict[str, float]]] = {}
     for candidate_index, candidate_configuration in enumerate(candidate_configuration_list, start=1):
         print(
-            "[INFO] Evaluating Track 2C candidate | "
+            "[INFO] Evaluating CVP 1.2 candidate | "
             f"{candidate_index}/{len(candidate_configuration_list)} | "
             f"{candidate_configuration['candidate_id']}",
             flush=True,
@@ -971,8 +971,8 @@ def main() -> None:
         curve_payload_count=len(all_candidate_entry_list),
     )
     report_path.write_text("\n".join(report_lines), encoding="utf-8")
-    print(f"Wrote Track 2C diagnostics report: {report_path}")
-    print(f"Wrote Track 2C diagnostics artifacts: {output_directory}")
+    print(f"Wrote CVP 1.2 diagnostics report: {report_path}")
+    print(f"Wrote CVP 1.2 diagnostics artifacts: {output_directory}")
 
 
 if __name__ == "__main__":

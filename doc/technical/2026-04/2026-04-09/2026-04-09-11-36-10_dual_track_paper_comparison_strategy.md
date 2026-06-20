@@ -77,7 +77,7 @@ that both families solve the same internal prediction task.
 
 ### Proposed Dual-Track Benchmark Structure
 
-#### Track 1. Paper-Faithful Harmonic-Wise Benchmark
+#### RCIM Model-Bank Reproduction. Paper-Faithful Harmonic-Wise Benchmark
 
 This track is the repository-owned reproduction path for the paper logic.
 
@@ -96,7 +96,7 @@ This track should:
 This track is the canonical path for `Target A` and the prerequisite offline
 base for `Target B`.
 
-#### Track 2. Repository Direct-TE Comparable Benchmark
+#### TE Curve Verification Pipeline. Repository Direct-TE Comparable Benchmark
 
 This track uses the repository's already trained or future direct-TE model
 families without forcing them into a harmonic-wise reparameterization first.
@@ -143,9 +143,9 @@ without mixing implementation-faithfulness and final-output quality.
 
 ## Implementation Steps
 
-1. Keep the existing harmonic-wise branch as the canonical `Track 1` paper-
+1. Keep the existing harmonic-wise branch as the canonical `RCIM Model-Bank Reproduction` paper-
    faithful path.
-2. Extend the backlog so `Track 1` and `Track 2` are both explicit and ordered.
+2. Extend the backlog so `RCIM Model-Bank Reproduction` and `TE Curve Verification Pipeline` are both explicit and ordered.
 3. Define a repository-owned shared offline evaluator for full TE-curve
    percentage-error reporting.
 4. Use that evaluator on the current best direct-TE families so they can be

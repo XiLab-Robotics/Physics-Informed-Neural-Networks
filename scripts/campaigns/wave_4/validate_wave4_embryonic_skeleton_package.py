@@ -1,4 +1,4 @@
-"""Validate the embryonic Wave 4 skeleton package."""
+"""Validate the embryonic Wave 5.2 skeleton package."""
 
 from __future__ import annotations
 
@@ -73,14 +73,14 @@ def parse_arguments() -> argparse.Namespace:
         "--template-path",
         default=TEMPLATE_PATH,
         type=Path,
-        help="Repository-relative Wave 4 embryonic template path.",
+        help="Repository-relative Wave 5.2 embryonic template path.",
     )
     return parser.parse_args()
 
 
 def main() -> int:
 
-    """Validate the Wave 4 embryonic skeleton."""
+    """Validate the Wave 5.2 embryonic skeleton."""
 
     argument_namespace = parse_arguments()
     template_path = PROJECT_PATH / argument_namespace.template_path
@@ -89,7 +89,7 @@ def main() -> int:
     run_mmt_adapter_smoke(template_payload)
 
     print(
-        "Wave 4 embryonic skeleton validated | "
+        "Wave 5.2 embryonic skeleton validated | "
         "implementation_status=implementation_ready | "
         "campaign_readiness=not_campaign_ready"
     )

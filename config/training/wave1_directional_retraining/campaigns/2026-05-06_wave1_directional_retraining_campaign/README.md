@@ -31,6 +31,6 @@ under three explicit data scopes: `global`, `Fw`, and `Bw`.
 
 ## Notes
 
-- the active Track 1 campaign state was intentionally left untouched;
+- the active RCIM Model-Bank Reproduction campaign state was intentionally left untouched;
 - launcher execution still requires explicit user approval of the campaign plan;
 - directional identity is written into both config metadata and registry-facing family keys.

@@ -32,7 +32,7 @@ surface and will be organized as an operator-facing guide with:
 - canonical execution order for the exact-paper reimplementation;
 - stage semantics for `Search`, `Eval`, `Export`, and `LoadBest`;
 - command examples for the Python runners;
-- command examples for the main Track 1 paper-faithful launcher;
+- command examples for the main RCIM Model-Bank Reproduction paper-faithful launcher;
 - artifact and registry outputs that operators should expect.
 
 The recovered-original README will be used as the structural reference, but
@@ -56,7 +56,7 @@ copying historical content verbatim.
    the right documentation depth and command style.
 2. Expand the root `rcim_ml_compensation/README.md` into an operational guide
    for the exact-paper reimplementation surface.
-3. Add command examples for the two Python runners and the canonical Track 1
+3. Add command examples for the two Python runners and the canonical RCIM Model-Bank Reproduction
    paper-faithful launcher, including the new stage-control options.
 4. Document the best-parameter summary plus registry flow and the main output
    locations used by the reimplementation.

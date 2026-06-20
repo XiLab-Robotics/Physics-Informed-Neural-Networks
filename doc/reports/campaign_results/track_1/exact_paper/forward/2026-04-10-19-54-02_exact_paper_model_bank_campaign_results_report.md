@@ -15,7 +15,7 @@ dedicated exact-paper launcher:
 - campaign artifact root:
   `output/training_campaigns/track1/exact_paper/forward/uncategorized/shared/exact_paper_model_bank_campaign_2026_04_10_17_04_41/`
 
-Unlike the harmonic-wise `Track 1` campaign, this package does not optimize the
+Unlike the harmonic-wise `RCIM Model-Bank Reproduction` campaign, this package does not optimize the
 full TE-curve offline benchmark directly. Its purpose is to validate the
 stricter recovered-paper branch that uses:
 

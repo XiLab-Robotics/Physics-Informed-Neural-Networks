@@ -1,8 +1,8 @@
-# Track 1 Interrupted Remaining Yellow-Cell Campaign Manual Sync And Partial Closeout
+# RCIM Model-Bank Reproduction Interrupted Remaining Yellow-Cell Campaign Manual Sync And Partial Closeout
 
 ## Overview
 
-The exact-paper `Track 1` remaining-yellow-cell campaign bundle was stopped
+The exact-paper `RCIM Model-Bank Reproduction` remaining-yellow-cell campaign bundle was stopped
 manually on the remote workstation after the `SVM` branch proved
 operationally too slow for practical completion.
 

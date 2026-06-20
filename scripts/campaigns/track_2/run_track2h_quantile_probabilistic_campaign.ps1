@@ -77,7 +77,7 @@ if ($RunOneBatchValidation) {
     $validatorArgumentList += "--run-one-batch"
 }
 
-Write-Track2HStatus -Label "STEP" -Message "Validating Track 2H quantile/probabilistic package."
+Write-Track2HStatus -Label "STEP" -Message "Validating Wave 4.2 quantile/probabilistic package."
 Invoke-Track2HPython -ArgumentList $validatorArgumentList
 $pythonExitCode = $script:LastTrack2HPythonExitCode
 if ($pythonExitCode -ne 0) {
@@ -139,7 +139,7 @@ if ($EnqueueOnly) {
     Write-Track2HStatus -Label "STEP" -Message "Enqueue-only verification enabled; training will not start."
 }
 
-Write-Track2HStatus -Label "STEP" -Message "Launching local Track 2H quantile/probabilistic campaign."
+Write-Track2HStatus -Label "STEP" -Message "Launching local Wave 4.2 quantile/probabilistic campaign."
 Invoke-Track2HPython -ArgumentList $argumentList
 $trainingExitCode = $script:LastTrack2HPythonExitCode
 exit $trainingExitCode

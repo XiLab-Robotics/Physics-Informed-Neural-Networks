@@ -2,7 +2,7 @@
 
 ## Overview
 
-The current remote `Track 1` bidirectional mega-campaign launcher is
+The current remote `RCIM Model-Bank Reproduction` bidirectional mega-campaign launcher is
 functionally working, but the operator-facing terminal stream is too noisy and
 misleading during long runs.
 

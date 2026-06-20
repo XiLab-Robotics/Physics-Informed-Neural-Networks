@@ -28,7 +28,7 @@ of truth, then add an interpretation layer:
 
 - manifest status and duplicate ONNX file note;
 - `Tables 2-5` parity verdict by family;
-- `Track 2` forward curve parity verdict by family;
+- `TE Curve Verification Pipeline` forward curve parity verdict by family;
 - failure/limitation classification;
 - final conclusion about reimplementation success.
 
@@ -48,7 +48,7 @@ of truth, then add an interpretation layer:
 1. Read the validation-check report and summary YAML to avoid hand-copying stale
    figures.
 2. Create `doc/reports/analysis/rcim_paper_reference/RCIM Original ONNX Release Parity Interpretation.md`.
-3. Include compact tables for manifest status, Tables `2-5` parity, Track 2
+3. Include compact tables for manifest status, Tables `2-5` parity, TE Curve Verification Pipeline
    parity, and limitations.
 4. State the conclusion precisely: successful forward reimplementation for the
    executable original ONNX families, with explicit caveats for `SVR`, `XGBM`,

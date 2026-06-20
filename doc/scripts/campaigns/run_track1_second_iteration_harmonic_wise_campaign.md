@@ -1,9 +1,9 @@
-# Track 1 Second Iteration Harmonic-Wise Campaign Launcher
+# RCIM Model-Bank Reproduction Second Iteration Harmonic-Wise Campaign Launcher
 
 ## Overview
 
 This launcher is the canonical short PowerShell wrapper for the comprehensive
-second `Track 1` harmonic-wise campaign.
+second `RCIM Model-Bank Reproduction` harmonic-wise campaign.
 
 It exists because this branch is not a standard training-family campaign driven
 through `scripts/training/run_training_campaign.py`.

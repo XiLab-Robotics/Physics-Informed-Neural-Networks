@@ -1,15 +1,15 @@
-# Track 2 Dispersion-Aware Wave Roadmap
+# TE Curve Verification Pipeline Dispersion-Aware Wave Roadmap
 
 ## Overview
 
 This technical note records the approved documentation update for the next
-`Track 2` modeling plan after the completed component-offset diagnostics. The
+`TE Curve Verification Pipeline` modeling plan after the completed component-offset diagnostics. The
 current evidence keeps `h0` / `a_0` as the strongest offset-channel suspect,
 but it does not prove that harmonic zero is the only source of the observed TE
 curve-offset failures.
 
-The planning update therefore inserts dispersion-aware model probes, `Wave 3`
-hybrid structured models, and `Wave 4` first-PINN work before the integrated
+The planning update therefore inserts dispersion-aware model probes, `Wave 5.1`
+hybrid structured models, and `Wave 5.2` first-PINN work before the integrated
 multi-task / multi-head architecture. The purpose is to test the available
 robust, probabilistic, mixture, latent-state, hybrid, and physics-informed
 tools separately before combining them into a larger architecture.
@@ -19,12 +19,12 @@ tools separately before combining them into a larger architecture.
 The documentation update will:
 
 - record the evidence boundary from the measured `h0` diagnostic, the
-  `Track 2D` h0/error cross-check, and the predicted-mean h0 surface
+  `CVP 1.4` h0/error cross-check, and the predicted-mean h0 surface
   diagnostic;
-- add a `Track 2H` dispersion-aware modeling probe stage covering robust
+- add a `Wave 4 series` dispersion-aware modeling probe stage covering robust
   regression losses, quantile or probabilistic regression, mixture-density
   heads, and latent-state or hysteresis-aware features;
-- move `Wave 3` hybrid structured models and `Wave 4` first-PINN formulation
+- move `Wave 5.1` hybrid structured models and `Wave 5.2` first-PINN formulation
   ahead of the integrated multi-task / multi-head model stage;
 - keep PLC-friendly export constraints out of the immediate Python research
   phase while preserving causal inputs and no target leakage;
@@ -41,12 +41,12 @@ The documentation update will:
 
 ## Implementation Steps
 
-1. Create the `Track 2` dispersion-aware wave roadmap report.
+1. Create the `TE Curve Verification Pipeline` dispersion-aware wave roadmap report.
 2. Register the roadmap report and this technical note from `doc/README.md`.
-3. Update the `Track 2` component-offset plan with the completed diagnostic
+3. Update the `TE Curve Verification Pipeline` component-offset plan with the completed diagnostic
    outcomes and the new decision gate.
-4. Update the TE live backlog so the next modeling order is `Track 2H`,
-   `Wave 3`, `Wave 4`, then integrated multi-task / multi-head modeling.
+4. Update the TE live backlog so the next modeling order is `Wave 4 series`,
+   `Wave 5.1`, `Wave 5.2`, then integrated multi-task / multi-head modeling.
 5. Update the training master summary snapshot with the revised roadmap
    status.
 6. Run Markdown QA on all touched Markdown files.

@@ -6,7 +6,7 @@ The repository now has enough evidence to separate two ideas that were
 previously coupled:
 
 - pointwise dataset accuracy, usually reported as scalar `MAE` or `RMSE`;
-- full TE-curve tracking quality on the direction-valid `Track 2` held-out
+- full TE-curve tracking quality on the direction-valid `TE Curve Verification Pipeline` held-out
   surface.
 - curve mean / `DC` offset tracking versus mean-centered waveform shape
   tracking.
@@ -61,7 +61,7 @@ shared scalar policy:
 - second tie-breaker: `val_mae`;
 - third tie-breaker: trainable parameter count.
 
-`Track 2`, however, already evaluates candidates on complete held-out TE
+`TE Curve Verification Pipeline`, however, already evaluates candidates on complete held-out TE
 curves. The official matrix uses:
 
 - `194` held-out curves before candidate filtering;
@@ -70,19 +70,19 @@ curves. The official matrix uses:
 - visual collages and multi-model overlays for local waveform inspection.
 
 The current `Wave 1` closeout shows the risk clearly. The scalar HPO leader is
-`tree_fw` with test `MAE = 0.002743 deg`, but the Track 2 visual reports are
+`tree_fw` with test `MAE = 0.002743 deg`, but the TE Curve Verification Pipeline visual reports are
 the correct surface for judging whether the model follows the TE waveform well
 enough for compensation.
 
-The `Wave 2B` periodic sequence branch is the strongest current
-repository-owned neural branch in Track 2. `Wave 2C` confirms another important
+The `Wave 2.2` periodic sequence branch is the strongest current
+repository-owned neural branch in TE Curve Verification Pipeline. `Wave 2.3` confirms another important
 point: sparse `RCIM` harmonic structure helps, while dense `240` and dense
 `360` residual harmonic variants over-expand the basis and are not
-competitive on the official Track 2 curve surface.
+competitive on the official TE Curve Verification Pipeline curve surface.
 
-### Mean-Centered Track 2 Evidence
+### Mean-Centered TE Curve Verification Pipeline Evidence
 
-The mean-centered Track 2 collage diagnostic is now the strongest evidence that
+The mean-centered curve-verification collage diagnostic is now the strongest evidence that
 raw pointwise error mixes at least two different failure modes:
 
 - per-curve vertical offset error;
@@ -99,7 +99,7 @@ Key observed signal:
   prediction and truth, a `97.1%` improvement;
 - `periodic_lstm_sequence_global`, `periodic_temporal_convolution_global`, and
   `periodic_gru_sequence_global` also improve strongly after mean-centering;
-- dense `Wave 2C` residual harmonic variants improve much less, which means
+- dense `Wave 2.3` residual harmonic variants improve much less, which means
   their issue is not only offset but also centered shape quality.
 
 This is diagnostic evidence only. Mean-centering with the full truth curve is
@@ -120,7 +120,7 @@ matched.
 The suspected mechanism is therefore not that random mini-batches are
 incorrect. The issue is that pointwise `MSE` and `RMSE` reward the conditional
 average prediction when the input features do not encode enough information to
-identify the per-curve offset. In Track 2 playback this appears as
+identify the per-curve offset. In TE Curve Verification Pipeline playback this appears as
 under-prediction on high-mean TE curves and over-prediction on low-mean TE
 curves. Global target normalization can reinforce the visual tendency toward a
 global center, but it is not the root cause by itself because denormalization
@@ -157,7 +157,7 @@ models when scalar performance is close.
 ### Curve-Level Reranking
 
 The lowest-risk improvement is not a new algorithm. It is to rerank existing
-candidate artifacts on the full Track 2 curve surface before accepting a
+candidate artifacts on the full TE Curve Verification Pipeline curve surface before accepting a
 family best or program best.
 
 Recommended metrics:
@@ -169,8 +169,8 @@ Recommended metrics:
 - direction-separated `Fw`, `Bw`, and `global` summaries;
 - count of unacceptable curves above a project-defined threshold.
 
-This strategy is directly compatible with the existing Track 2 scripts and can
-be applied to `Wave 1`, `Wave 2`, `Wave 2B`, and `Wave 2C` without retraining.
+This strategy is directly compatible with the existing TE Curve Verification Pipeline scripts and can
+be applied to `Wave 1`, `Wave 2.1`, `Wave 2.2`, and `Wave 2.3` without retraining.
 
 ### Shape-Aware Diagnostics
 
@@ -253,7 +253,7 @@ Relevant source:
 
 For this repository, that suggests two practical directions:
 
-- add derivative and curvature diagnostics for Track 2;
+- add derivative and curvature diagnostics for TE Curve Verification Pipeline;
 - test loss terms that penalize physically implausible oscillation roughness
   without smoothing away valid high-frequency harmonic content.
 
@@ -297,15 +297,15 @@ competition.
 
 ### Phase 1: Standardize Curve-First Selection
 
-Status: completed through `Track 2B` and `Track 2C`.
+Status: completed through `CVP 1.1` and `CVP 1.2`.
 
-The completed `Track 2B` and `Track 2C` branches did not train new models.
+The completed `CVP 1.1` and `CVP 1.2` branches did not train new models.
 They:
 
-1. evaluate all existing accepted candidates on the same Track 2 held-out
+1. evaluate all existing accepted candidates on the same TE Curve Verification Pipeline held-out
    curves;
 2. compute the expanded curve-first metric bundle;
-3. rerank existing `Wave 1`, `Wave 2`, `Wave 2B`, and `Wave 2C` candidates;
+3. rerank existing `Wave 1`, `Wave 2.1`, `Wave 2.2`, and `Wave 2.3` candidates;
 4. write a promotion table that separates scalar registry winners from
    curve-first leaders for `Fw`, `Bw`, and `global`;
 5. update the master summary so best-model status is not read from scalar
@@ -314,11 +314,11 @@ They:
 This directly answers the operator concern without spending training time on
 an objective that is not yet standardized.
 
-### Phase 2: Run Track 2D Mean-Offset Full-Matrix Audit
+### Phase 2: Run CVP 1.4 Mean-Offset Full-Matrix Audit
 
 This is the immediate next step before any new training campaign.
 
-`Track 2D` should apply the mean-centered diagnostic to the official Track 2
+`CVP 1.4` should apply the mean-centered diagnostic to the official TE Curve Verification Pipeline
 matrix rather than only to the small collage subset. It should produce one
 row per candidate, surface, direction, and curve group with:
 
@@ -337,7 +337,7 @@ Only after this classification should retraining be planned.
 
 ### Phase 3: Add Offset-Aware Checkpoint Selection
 
-After Track 2D, update training infrastructure so neural checkpoints can be
+After CVP 1.4, update training infrastructure so neural checkpoints can be
 selected by validation curve metrics instead of only `val_mae`.
 
 Candidate monitor:
@@ -356,7 +356,7 @@ It requires a dedicated technical document and campaign plan before training.
 
 ### Phase 4: Add Curve-Aware Losses
 
-Only after Track 2D and offset-aware checkpoint selection should retraining
+Only after CVP 1.4 and offset-aware checkpoint selection should retraining
 change the loss.
 
 Recommended first composite loss for neural families:
@@ -384,9 +384,9 @@ warp-tolerant shape matching may hide physically harmful phase shifts.
 
 ### Phase 5: Test Offset/Shape Model Structures
 
-Status: partially completed by `Track 2F`.
+Status: partially completed by `Wave 3.1`.
 
-`Track 2F` implemented and trained the first learned sequential residual-offset
+`Wave 3.1` implemented and trained the first learned sequential residual-offset
 probe across `global`, `Fw`, and `Bw`. That branch is a clean non-harmonic
 baseline: it uses a feedforward readout branch plus a causal recurrent
 residual branch, but it does not force periodic `sin`/`cos` features, `RCIM`
@@ -397,7 +397,7 @@ what a causal non-harmonic offset/residual structure can do under the current
 input contract, and it should remain in future comparisons when new curve
 indices, multi-head training, or composite losses are introduced.
 
-If Track 2D confirms that the model families are systematically offset-limited,
+If CVP 1.4 confirms that the model families are systematically offset-limited,
 the next training structures should be evaluated before opening a broad new
 model family wave:
 
@@ -414,14 +414,14 @@ Both structures keep the same runtime data contract. They do not feed a future
 curve to the model. Their purpose is to prevent the offset component and the
 periodic shape component from competing inside one scalar pointwise objective.
 
-Future campaigns should keep a Track 2F-like clean baseline in parallel with
+Future campaigns should keep a Wave 3.1-like clean baseline in parallel with
 the harmonic-offset candidates. That baseline is required to distinguish gains
 from the new objective or multi-head split from gains caused only by forced
 harmonic features.
 
 ### Phase 6: Decide Whether A New Wave Is Needed
 
-If Track 2D shows that existing harmonic or periodic models are
+If CVP 1.4 shows that existing harmonic or periodic models are
 already better curve-first candidates than the scalar leader, retrain only the
 promising families with the new selection policy.
 
@@ -447,9 +447,9 @@ Gate 1: scalar sanity.
 - no direction-scope violation;
 - acceptable artifact size and deployment plausibility.
 
-Gate 2: curve-first Track 2 promotion.
+Gate 2: curve-first TE Curve Verification Pipeline promotion.
 
-- direction-valid Track 2 curve metrics;
+- direction-valid TE Curve Verification Pipeline curve metrics;
 - P95 and worst-condition diagnostics;
 - harmonic amplitude and phase diagnostics;
 - visual overlay review;
@@ -462,31 +462,31 @@ its own valid surface.
 
 ## Concrete Next Step
 
-The mean-offset diagnostic chain has now advanced through Track 2D, Track 2E,
-and the first Track 2F learned probe. The next modeling step should be a
-compact harmonic-offset follow-up, while retaining a clean Track 2F-like branch
+The mean-offset diagnostic chain has now advanced through CVP 1.4, CVP 1.5,
+and the first Wave 3.1 learned probe. The next modeling step should be a
+compact harmonic-offset follow-up, while retaining a clean Wave 3.1-like branch
 as the non-harmonic control.
 
 Recommended name:
 
 ```text
-Track 2G Harmonic-Offset Shape Baseline
+Wave 3.3 Harmonic-Offset Shape Baseline
 ```
 
 Recommended deliverables:
 
 - technical document;
 - campaign plan;
-- one clean non-harmonic baseline branch derived from Track 2F;
+- one clean non-harmonic baseline branch derived from Wave 3.1;
 - one harmonic or periodic shape-preserving branch with a separate offset,
   bias, or amplitude head;
 - optional composite-loss ablation with pointwise, centered-shape, mean-offset,
   and harmonic diagnostics;
 - separate `global`, `Fw`, and `Bw` candidates for every branch;
-- Track 2 curve-first verification report comparing raw error, centered-shape
+- TE curve-first verification report comparing raw error, centered-shape
   error, offset, amplitude, and phase behavior.
 
 The promotion decision should not ask whether the new branch merely beats
-Track 2F on scalar `MAE`. It should ask whether harmonic forcing plus explicit
+Wave 3.1 on scalar `MAE`. It should ask whether harmonic forcing plus explicit
 offset handling restores TE curve shape while preserving a deployable causal
 input contract.

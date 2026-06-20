@@ -8,14 +8,14 @@ This document plans a narrow correction after the `rcim_original`,
 The current evidence shows that `rcim_original` and `rcim_retuned` forward
 archives are substantially equivalent as recovered-pipeline implementations,
 with expected retune and stochastic differences. `rcim_track1` is intentionally
-different because it is the faithful Track 1 reimplementation aligned with the
+different because it is the faithful RCIM Model-Bank Reproduction reimplementation aligned with the
 Wave 1 split policy rather than the recovered original row-level split.
 
 Two technical checks were also performed:
 
-- the Track 2 curve reconstruction already applies the required `h0` sign
+- the TE Curve Verification Pipeline curve reconstruction already applies the required `h0` sign
   multiplier for `rcim_track1` forward candidates;
-- the Track 1 GBM grid contains a transcription bug where the GBM
+- the RCIM Model-Bank Reproduction GBM grid contains a transcription bug where the GBM
   `learning_rate` candidate list appends `min_samples_split` instead of the
   base estimator `learning_rate`.
 
@@ -53,9 +53,9 @@ proof that the accepted GBM archives are invalid.
    `base_estimator.get_params()["learning_rate"]`.
 2. Update the parity interpretation report with the split-policy distinction,
    the substantial-equivalence conclusion for `rcim_original` versus
-   `rcim_retuned`, and the residual outlier notes for Track 1 `LGBM` and
+   `rcim_retuned`, and the residual outlier notes for RCIM Model-Bank Reproduction `LGBM` and
    `MLP`.
-3. Keep the Track 2 `h0` sign handling unchanged, because the current
+3. Keep the TE Curve Verification Pipeline `h0` sign handling unchanged, because the current
    reconstruction logic is correct.
 4. Run focused checks on the touched Python and Markdown scope.
 5. Stop for final review before any commit.

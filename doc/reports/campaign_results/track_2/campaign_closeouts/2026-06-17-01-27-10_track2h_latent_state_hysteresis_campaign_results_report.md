@@ -1,8 +1,8 @@
-# Track 2H-L Latent-State Hysteresis Campaign Results
+# Wave 4.4 Latent-State Hysteresis Campaign Results
 
 ## Overview
 
-This report closes the approved `Track 2H-L` causal latent-state /
+This report closes the approved `Wave 4.4` causal latent-state /
 hysteresis-aware campaign; all six planned runs completed, and the
 program-level scalar winner did not change.
 
@@ -66,9 +66,9 @@ profile is stronger only on `Bw`. This suggests that short causal-history
 features help, but a generic hidden-state encoder is not enough by itself to
 solve the dispersed-offset problem.
 
-## Track 2H Dispersion-Aware Comparison
+## Wave 4 series Dispersion-Aware Comparison
 
-| Surface | 2H-L | 2H-L MAE | MDN | MDN MAE | Prob. | Prob. MAE | Robust | Robust MAE |
+| Surface | Wave 4.4 | Wave 4.4 MAE | MDN | MDN MAE | Prob. | Prob. MAE | Robust | Robust MAE |
 | --- | --- | ---: | --- | ---: | --- | ---: | --- | ---: |
 | `global` | `tcn_g` | 0.003368 | `mdn2_g` | 0.003503 | `nll_g` | 0.003013 | `mae_g` | 0.003406 |
 | `Fw` | `tcn_fw` | 0.003470 | `mdn3_fw` | 0.003235 | `nll_fw` | 0.003165 | `mae_fw` | 0.003146 |
@@ -88,30 +88,30 @@ with test `MAE = 0.002344`.
 
 | Registry Scope | Best Run | Test MAE |
 | --- | --- | ---: |
-| `Track 2H-L global TCN` | `te_track2h_l_causal_tcn_offset_residual_global` | 0.003368 |
-| `Track 2H-L Fw TCN` | `te_track2h_l_causal_tcn_offset_residual_fw` | 0.003470 |
-| `Track 2H-L Bw GRU` | `te_track2h_l_gru_offset_residual_bw` | 0.003545 |
+| `Wave 4.4 global TCN` | `te_track2h_l_causal_tcn_offset_residual_global` | 0.003368 |
+| `Wave 4.4 Fw TCN` | `te_track2h_l_causal_tcn_offset_residual_fw` | 0.003470 |
+| `Wave 4.4 Bw GRU` | `te_track2h_l_gru_offset_residual_bw` | 0.003545 |
 | `Current program scalar winner` | `te_periodic_gru_sequence_remote_Bw` | 0.002344 |
 
-The best `Track 2H-L` branch is about `43.7%` worse than the current program
+The best `Wave 4.4` branch is about `43.7%` worse than the current program
 scalar winner, so it is not a direct program promotion.
 
-## Track 2 Boundary
+## TE Curve Verification Pipeline Boundary
 
-Official `Track 2` curve-first verification was not run as part of this
+Official `TE Curve Verification Pipeline` curve-first verification was not run as part of this
 normal campaign closeout. Under campaign governance, that remains a separate
 operator-approved workflow after this campaign-results report and PDF are
 complete.
 
-If launched, the next `Track 2` refresh should add all six `Track 2H-L`
+If launched, the next `TE Curve Verification Pipeline` refresh should add all six `Wave 4.4`
 candidates and report `global`, `Fw`, and `Bw` decisions separately, comparing
 raw error, centered-shape error, offset behavior, amplitude, harmonic
-behavior, collage plots, and overlays against the completed `Track 2H`,
-`Wave 3`, `Track 2G`, and accepted direction-parallel baselines.
+behavior, collage plots, and overlays against the completed `Wave 4 series`,
+`Wave 5.1`, `Wave 3.3`, and accepted direction-parallel baselines.
 
 ## Closeout Decision
 
-`Track 2H-L` execution is complete: all planned candidates produced successful
+`Wave 4.4` execution is complete: all planned candidates produced successful
 training artifacts, no failed run remains, registries were refreshed by the
 runner, and the active campaign state can be cleared.
 
@@ -119,7 +119,7 @@ From a modeling standpoint:
 
 - carry the causal-TCN `global` result forward as useful evidence that causal
   history helps the global scalar surface;
-- do not promote `Track 2H-L` over the current dispersion-aware `Fw` or `Bw`
+- do not promote `Wave 4.4` over the current dispersion-aware `Fw` or `Bw`
   leaders;
 - treat GRU hidden state as branch-specific evidence, not as a generally
   superior hysteresis solution;
@@ -130,8 +130,8 @@ From a modeling standpoint:
 ## Recommended Follow-Up
 
 1. Accept this closeout and clear the active campaign state.
-2. Optionally prepare a separate operator-launched `Track 2` verification
-   refresh for all six `Track 2H-L` candidates.
-3. If the official `Track 2` refresh does not show a curve-quality gain, move
-   the roadmap toward `Wave 4` / integrated multi-head design using `2H-L`
+2. Optionally prepare a separate operator-launched `TE Curve Verification Pipeline` verification
+   refresh for all six `Wave 4.4` candidates.
+3. If the official `TE Curve Verification Pipeline` refresh does not show a curve-quality gain, move
+   the roadmap toward `Wave 5.2` / integrated multi-head design using `Wave 4.4`
    only as diagnostic evidence.

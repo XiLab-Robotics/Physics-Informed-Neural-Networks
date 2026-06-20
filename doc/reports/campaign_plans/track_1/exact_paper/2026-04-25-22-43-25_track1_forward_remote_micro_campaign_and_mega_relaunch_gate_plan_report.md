@@ -1,9 +1,9 @@
-# Track 1 Forward Remote Micro-Campaign And Mega Relaunch Gate Plan Report
+# RCIM Model-Bank Reproduction Forward Remote Micro-Campaign And Mega Relaunch Gate Plan Report
 
 ## Overview
 
 This planning report covers the reset path after the interrupted
-`Track 1` bidirectional original-dataset mega-campaign.
+`RCIM Model-Bank Reproduction` bidirectional original-dataset mega-campaign.
 
 The interrupted mega-campaign is treated as a discarded operational wave, not
 as a resumable scientific campaign.

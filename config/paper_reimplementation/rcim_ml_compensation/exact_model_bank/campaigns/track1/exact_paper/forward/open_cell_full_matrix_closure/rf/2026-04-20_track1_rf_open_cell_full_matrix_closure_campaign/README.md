@@ -1,7 +1,7 @@
-# Track 1 RF Open-Cell Full-Matrix Closure Campaign
+# RCIM Model-Bank Reproduction RF Open-Cell Full-Matrix Closure Campaign
 
 This package contains the targeted overnight open-cell closure wave for
-the exact-paper `RF` family under the canonical `Track 1` full-
+the exact-paper `RF` family under the canonical `RCIM Model-Bank Reproduction` full-
 matrix replication focus.
 
 - unresolved amplitude pairs: `1`

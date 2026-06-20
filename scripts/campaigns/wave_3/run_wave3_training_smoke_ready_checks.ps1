@@ -42,7 +42,7 @@ function Invoke-Wave3SmokePython {
     $script:LastWave3PythonExitCode = $LASTEXITCODE
 }
 
-Write-Wave3SmokeStatus -Label "INFO" -Message "Wave 3 training-smoke-ready checks only. No campaign is launched."
+Write-Wave3SmokeStatus -Label "INFO" -Message "Wave 5.1 training-smoke-ready checks only. No campaign is launched."
 
 $compileArgumentList = @(
     "-m",
@@ -62,5 +62,5 @@ if ($script:LastWave3PythonExitCode -ne 0) {
     exit $script:LastWave3PythonExitCode
 }
 
-Write-Wave3SmokeStatus -Label "DONE" -Message "Wave 3 skeleton is training-smoke-ready and still not campaign-ready."
+Write-Wave3SmokeStatus -Label "DONE" -Message "Wave 5.1 skeleton is training-smoke-ready and still not campaign-ready."
 exit 0

@@ -1,4 +1,4 @@
-"""Build a Track 2 forward reference curve comparison report."""
+"""Build a TE Curve Verification Pipeline forward reference curve comparison report."""
 
 from __future__ import annotations
 
@@ -93,7 +93,7 @@ def parse_command_line_arguments() -> argparse.Namespace:
         "--config-path",
         type=Path,
         default=DEFAULT_CONFIG_PATH,
-        help="Track 2 matrix config used to resolve dataset and reference candidates.",
+        help="curve-verification matrix config used to resolve dataset and reference candidates.",
     )
     parser.add_argument(
         "--output-root",
@@ -574,11 +574,11 @@ def build_report_markdown(
     """Build report Markdown."""
 
     line_list = [
-        "# Track 2 Forward Reference Curve Comparison Report",
+        "# TE Curve Verification Pipeline Forward Reference Curve Comparison Report",
         "",
         "## Overview",
         "",
-        "This report compares five forward `Track 2` reconstructed-curve",
+        "This report compares five forward `TE Curve Verification Pipeline` reconstructed-curve",
         "candidates on the same `97` held-out forward curves:",
         "",
         "- `paper_original_best_Fw`, from repository paper-original reference banks;",
@@ -602,7 +602,7 @@ def build_report_markdown(
     line_list.extend(
         [
             "",
-            "## Aggregate Track 2 Metrics",
+            "## Aggregate TE Curve Verification Pipeline Metrics",
             "",
             "| Candidate | Curves | MAE [deg] | RMSE [deg] | Mean Error [%] | P95 Error [%] |",
             "| --- | ---: | ---: | ---: | ---: | ---: |",
@@ -700,7 +700,7 @@ def build_report_markdown(
             "`MAE`, a near-unit mean correlation, and only small aggregate metric",
             "changes. This supports the same conclusion as the earlier diagnostic:",
             "the repository paper-original bank and the recovered original `ONNX`",
-            "release are effectively the same Track 2 reconstructed surface, with",
+            "release are effectively the same TE Curve Verification Pipeline reconstructed surface, with",
             "minor differences attributable to archive/export/loading path details.",
             "",
             "`paper_retuned_best_Fw` is visually shape-aligned with the paper-original",
@@ -720,7 +720,7 @@ def build_report_markdown(
                 f"### {candidate_summary['candidate_id']}",
                 "",
                 (
-                    f"![{candidate_summary['candidate_id']} Track 2 collage]"
+                    f"![{candidate_summary['candidate_id']} TE Curve Verification Pipeline collage]"
                     f"({candidate_summary['collage_markdown_path']})"
                 ),
                 "",
@@ -843,7 +843,7 @@ def main() -> None:
     """Run the command-line entry point."""
 
     validation_summary = run_report(parse_command_line_arguments())
-    print(f"[DONE] Track 2 forward reference comparison report: {validation_summary['report_path']}")
+    print(f"[DONE] TE Curve Verification Pipeline forward reference comparison report: {validation_summary['report_path']}")
 
 
 if __name__ == "__main__":

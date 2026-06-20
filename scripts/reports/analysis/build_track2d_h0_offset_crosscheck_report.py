@@ -1,4 +1,4 @@
-"""Build Track 2D signed-offset versus measured h0 cross-check diagnostics."""
+"""Build CVP 1.4 signed-offset versus measured h0 cross-check diagnostics."""
 
 from __future__ import annotations
 
@@ -62,7 +62,7 @@ REPORT_FILENAME = "track2d_h0_offset_crosscheck.md"
 @dataclass(frozen=True)
 class Track2DMetricRow:
 
-    """One Track 2D model-error diagnostic row."""
+    """One CVP 1.4 model-error diagnostic row."""
 
     candidate_id: str
     candidate_family: str
@@ -181,9 +181,9 @@ def compute_pearson_correlation(left_values: list[float], right_values: list[flo
 
 def load_track2d_metric_rows(track2d_per_curve_metrics_path: Path) -> list[Track2DMetricRow]:
 
-    """Load Track 2D per-curve model-error rows."""
+    """Load CVP 1.4 per-curve model-error rows."""
 
-    assert track2d_per_curve_metrics_path.exists(), f"Track 2D metrics not found | {track2d_per_curve_metrics_path}"
+    assert track2d_per_curve_metrics_path.exists(), f"CVP 1.4 metrics not found | {track2d_per_curve_metrics_path}"
 
     metric_row_list: list[Track2DMetricRow] = []
     with track2d_per_curve_metrics_path.open("r", encoding="utf-8", newline="") as input_file:
@@ -207,7 +207,7 @@ def load_track2d_metric_rows(track2d_per_curve_metrics_path: Path) -> list[Track
                 )
             )
 
-    assert metric_row_list, f"No Track 2D rows loaded | {track2d_per_curve_metrics_path}"
+    assert metric_row_list, f"No CVP 1.4 rows loaded | {track2d_per_curve_metrics_path}"
     return metric_row_list
 
 
@@ -279,7 +279,7 @@ def join_metric_and_h0_rows(
             )
         )
 
-    assert joined_row_list, "No Track 2D rows joined with measured h0 rows"
+    assert joined_row_list, "No CVP 1.4 rows joined with measured h0 rows"
     assert not missing_key_list, f"Missing h0 join keys: {len(missing_key_list)}"
     return joined_row_list
 
@@ -458,8 +458,8 @@ def create_crosscheck_scatter_plot(joined_row_list: list[JoinedCrossCheckRow], o
         )
 
     axis.set_xlabel("absolute measured h0 [deg]")
-    axis.set_ylabel("absolute Track 2D offset error [deg]")
-    axis.set_title("Track 2D offset error versus measured h0")
+    axis.set_ylabel("absolute CVP 1.4 offset error [deg]")
+    axis.set_title("CVP 1.4 offset error versus measured h0")
     axis.grid(True, alpha=0.25)
     axis.legend(loc="upper left")
     output_path.parent.mkdir(parents=True, exist_ok=True)
@@ -489,21 +489,21 @@ def build_report_lines(
     candidate_count = len(candidate_summary_rows)
 
     if median_abs_correlation < 0.25 and median_overlap_lift < 2.0:
-        decision = "`h0` magnitude alone does not explain most Track 2D offset failures."
+        decision = "`h0` magnitude alone does not explain most CVP 1.4 offset failures."
     else:
-        decision = "`h0` magnitude is materially aligned with Track 2D offset failures and should drive the next intervention."
+        decision = "`h0` magnitude is materially aligned with CVP 1.4 offset failures and should drive the next intervention."
 
     top_by_mean_error = sorted(candidate_summary_rows, key=lambda row: float(row["mean_abs_offset_error_deg"]), reverse=True)[:top_count]
     top_by_overlap = sorted(candidate_summary_rows, key=lambda row: float(row["top_decile_overlap_lift_vs_random_decile"]), reverse=True)[:top_count]
     top_by_correlation = sorted(candidate_summary_rows, key=lambda row: float(row["abs_error_vs_abs_h0_corr"]), reverse=True)[:top_count]
 
     report_lines = [
-        "# Track 2D h0 Offset Cross-Check",
+        "# CVP 1.4 h0 Offset Cross-Check",
         "",
         "## Overview",
         "",
         (
-            f"Cross-check of `Track 2D` signed model offset errors against measured `h0` / curve mean over "
+            f"Cross-check of `CVP 1.4` signed model offset errors against measured `h0` / curve mean over "
             f"`{len(joined_row_list)}` joined candidate-curve rows and `{candidate_count}` candidates."
         ),
         "",
@@ -519,7 +519,7 @@ def build_report_lines(
             f"`{strong_overlap_count}` of `{candidate_count}` candidates reach lift `>= 2.0`."
         ),
         f"- `{weak_correlation_count}` of `{candidate_count}` candidates have weak absolute correlation `< 0.25`.",
-        f"- Join validation is tight: maximum `Track 2D truth_mean_deg - measured_h0_deg` is `{format_report_float(max_join_delta)}` deg.",
+        f"- Join validation is tight: maximum `CVP 1.4 truth_mean_deg - measured_h0_deg` is `{format_report_float(max_join_delta)}` deg.",
         "",
         "## Surface Summary",
         "",
@@ -614,7 +614,7 @@ def build_report_lines(
             "",
             (
                 "The cross-check supports a narrower framing: the problematic quantity is still the curve mean / `h0` "
-                "channel, but the large Track 2D model offset errors do not simply occur where measured `abs(h0)` is large."
+                "channel, but the large CVP 1.4 model offset errors do not simply occur where measured `abs(h0)` is large."
             ),
             (
                 "This points toward candidate-specific mean prediction bias, direction/regime dependence, or missing causal "
@@ -627,7 +627,7 @@ def build_report_lines(
             "",
             "## Scatter Diagnostic",
             "",
-            f"![Track 2D offset error versus measured h0](./{scatter_plot_relative_path})",
+            f"![CVP 1.4 offset error versus measured h0](./{scatter_plot_relative_path})",
             "",
             "## Machine-Readable Artifacts",
             "",
@@ -687,7 +687,7 @@ def write_summary_yaml(
 
 def main() -> None:
 
-    """Run the Track 2D h0 offset cross-check report."""
+    """Run the CVP 1.4 h0 offset cross-check report."""
 
     # Parse Inputs
     args = parse_arguments()
@@ -741,7 +741,7 @@ def main() -> None:
         surface_summary_rows=surface_summary_rows,
     )
 
-    print(f"Prepared Track 2D h0 offset cross-check | {output_directory}")
+    print(f"Prepared CVP 1.4 h0 offset cross-check | {output_directory}")
     print(f"Prepared Markdown report | {report_path}")
 
 

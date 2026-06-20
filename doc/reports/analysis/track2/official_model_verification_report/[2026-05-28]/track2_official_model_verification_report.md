@@ -1,19 +1,19 @@
-# Track 2 Official Model Verification Report
+# TE Curve Verification Pipeline Official Model Verification Report
 
 ## Executive Verdict
 
-This update accepts the completed `Wave 2C` residual harmonic temporal hybrid
-campaign into the official `Track 2` offline verification package.
+This update accepts the completed `Wave 2.3` residual harmonic temporal hybrid
+campaign into the official `TE Curve Verification Pipeline` offline verification package.
 
 Decision:
 
-- `Wave 2C` is verified as an exploratory residual harmonic temporal baseline.
-- No `Wave 2C` candidate is promoted over the current `Wave 2B` periodic
+- `Wave 2.3` is verified as an exploratory residual harmonic temporal baseline.
+- No `Wave 2.3` candidate is promoted over the current `Wave 2.2` periodic
   sequence leaders.
 - The accepted paper-derived forward baseline remains `paper_retuned_best_Fw`.
 - The accepted paper-derived backward baseline remains `paper_retuned_best_Bw`.
-- The strongest repository-owned static `Track 2` baseline remains `tree`.
-- The strongest repository-owned neural branch remains `Wave 2B`
+- The strongest repository-owned static `TE Curve Verification Pipeline` baseline remains `tree`.
+- The strongest repository-owned neural branch remains `Wave 2.2`
   `periodic_gru_sequence_Bw` for backward-only evaluation and
   `periodic_gru_sequence_global` for bidirectional neural evaluation.
 
@@ -34,7 +34,7 @@ This official report consolidates these refreshed artifacts:
 
 ## Candidate Refresh
 
-The refresh added `18` registry-backed `Wave 2C` candidates:
+The refresh added `18` registry-backed `Wave 2.3` candidates:
 
 | Family | Surfaces |
 | --- | --- |
@@ -46,8 +46,8 @@ The refresh added `18` registry-backed `Wave 2C` candidates:
 | `residual_harmonic_lstm_sequence_dense360` | `global`, `Fw`, `Bw` |
 
 The matrix now contains `111` candidates. The incremental operator run used the
-completed `Wave 2B` refresh as its `93`-candidate baseline and evaluated only
-the `18` new `Wave 2C` candidates.
+completed `Wave 2.2` refresh as its `93`-candidate baseline and evaluated only
+the `18` new `Wave 2.3` candidates.
 
 ## Current Leaders
 
@@ -61,27 +61,27 @@ the `18` new `Wave 2C` candidates.
 | repository global static | `tree_global` | 0.003144 | 0.003533 | 6.854 |
 | repository global neural | `periodic_gru_sequence_global` | 0.002704 | 0.002949 | 6.139 |
 
-## Wave 2C Result
+## Wave 2.3 Result
 
-The strongest `Wave 2C` candidates are:
+The strongest `Wave 2.3` candidates are:
 
-| Scope | Strongest Wave 2C candidate | MAE [deg] | RMSE [deg] | Mean [%] |
+| Scope | Strongest Wave 2.3 candidate | MAE [deg] | RMSE [deg] | Mean [%] |
 | --- | --- | ---: | ---: | ---: |
 | forward | `residual_harmonic_gru_sequence_sparse_rcim_Fw` | 0.003194 | 0.003499 | 7.083 |
 | backward | `residual_harmonic_lstm_sequence_sparse_rcim_Bw` | 0.003440 | 0.003793 | 7.510 |
 | global | `residual_harmonic_lstm_sequence_sparse_rcim_global` | 0.003368 | 0.003719 | 7.409 |
 
-The sparse `RCIM` harmonic set is clearly the best `Wave 2C` setting. The
+The sparse `RCIM` harmonic set is clearly the best `Wave 2.3` setting. The
 dense `240` and dense `360` residual harmonic variants are not competitive in
 the official matrix and appear to over-expand the harmonic base for this
 residual sequence branch.
 
 ## Visual Evidence
 
-The refreshed best-model collage report includes dedicated `Wave 2C` sections
+The refreshed best-model collage report includes dedicated `Wave 2.3` sections
 for forward, backward, and global candidates. The refreshed multi-model overlay
-report includes dedicated `Wave 2C` overlays and direct reference/tree versus
-`Wave 2C` overlays.
+report includes dedicated `Wave 2.3` overlays and direct reference/tree versus
+`Wave 2.3` overlays.
 
 Visual bundle paths:
 
@@ -92,20 +92,20 @@ Visual bundle paths:
 
 | Date | Campaign or Update | Candidate Scope | Matrix Status | Visual Status | Decision |
 | --- | --- | --- | --- | --- | --- |
-| 2026-05-28 | `Wave 2C` residual harmonic temporal hybrid refresh | `18` `global`, `Fw`, and `Bw` residual harmonic GRU/LSTM candidates | included in the `111`-candidate matrix | collage and overlay reports refreshed with `Wave 2C` sections | verified exploratory baseline; not promoted over `Wave 2B` or accepted Track 2 baselines |
-| 2026-05-26 | `Wave 2B` harmonic temporal hybrid refresh | periodic temporal convolution, GRU, and LSTM `global`, `Fw`, and `Bw` candidates | included | collage and overlay reports refreshed | strongest repository-owned neural branch |
-| 2026-05-24 | `Wave 2` temporal entry refresh | temporal convolution, GRU, and LSTM `global`, `Fw`, and `Bw` candidates | included | visual reports refreshed | verified exploratory baseline |
+| 2026-05-28 | `Wave 2.3` residual harmonic temporal hybrid refresh | `18` `global`, `Fw`, and `Bw` residual harmonic GRU/LSTM candidates | included in the `111`-candidate matrix | collage and overlay reports refreshed with `Wave 2.3` sections | verified exploratory baseline; not promoted over `Wave 2.2` or accepted TE Curve Verification Pipeline baselines |
+| 2026-05-26 | `Wave 2.2` harmonic temporal hybrid refresh | periodic temporal convolution, GRU, and LSTM `global`, `Fw`, and `Bw` candidates | included | collage and overlay reports refreshed | strongest repository-owned neural branch |
+| 2026-05-24 | `Wave 2.1` temporal entry refresh | temporal convolution, GRU, and LSTM `global`, `Fw`, and `Bw` candidates | included | visual reports refreshed | verified exploratory baseline |
 | 2026-05-21 | `periodic_mlp` explicit harmonic registry refresh | `global`, `Fw`, `Bw` visual verification | source matrix unchanged; visual registry refresh included | collage and overlay PDFs refreshed | included as visual evidence, not promoted over `tree` |
 
 ## Closeout Decision
 
-`Wave 2C` does not change the accepted `Track 2` baseline. Its practical value
+`Wave 2.3` does not change the accepted `TE Curve Verification Pipeline` baseline. Its practical value
 is diagnostic: it confirms that adding a residual recurrent branch over the
 structured harmonic base is viable only with the sparse `RCIM` harmonic set,
 while the dense harmonic banks are dimensionally expensive and less accurate.
 
-The next modeling decision should keep `Wave 2B` periodic sequence models as
-the strongest neural branch and treat `Wave 2C` as a verified exploratory
+The next modeling decision should keep `Wave 2.2` periodic sequence models as
+the strongest neural branch and treat `Wave 2.3` as a verified exploratory
 baseline rather than the next promotion target.
 
 ## Curve-First Follow-Up
@@ -117,9 +117,9 @@ not only reduce pointwise scalar error on the dataset.
 
 Follow-up rules:
 
-- keep this official report as the accepted `Wave 2C` Track 2 closeout;
-- do not reopen `Wave 1`, `Wave 2`, `Wave 2B`, or `Wave 2C`;
-- create a separate `Track 2B Curve-First Reranking` branch that evaluates
+- keep this official report as the accepted `Wave 2.3` TE Curve Verification closeout;
+- do not reopen `Wave 1`, `Wave 2.1`, `Wave 2.2`, or `Wave 2.3`;
+- create a separate `CVP 1.1 Curve-First Reranking` branch that evaluates
   accepted candidates on expanded full-curve metrics;
 - preserve causal runtime inputs: current point-level operating state, optional
   short past-history windows, and derived causal features only;

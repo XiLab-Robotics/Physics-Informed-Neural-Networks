@@ -1,15 +1,15 @@
-# Wave 2C Remote Repository Path Fallback
+# Wave 2.3 Remote Repository Path Fallback
 
 ## Overview
 
-The `Wave 2C` campaign launcher exposes `-Remote`, but a direct call without
+The `Wave 2.3` campaign launcher exposes `-Remote`, but a direct call without
 `PINNS_REMOTE_TRAINING_REPO_PATH` currently fails before remote preflight:
 
 ```text
 RemoteRepositoryPath is required. Set PINNS_REMOTE_TRAINING_REPO_PATH or pass -RemoteRepositoryPath.
 ```
 
-The failure is caused by the dedicated `Wave 2C` wrapper forwarding an empty
+The failure is caused by the dedicated `Wave 2.3` wrapper forwarding an empty
 `RemoteRepositoryPath` to the shared remote infrastructure launcher. Existing
 repository-owned PowerShell remote launchers commonly fall back to the validated
 LAN clone path:
@@ -20,7 +20,7 @@ C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks
 
 ## Technical Approach
 
-Update the `Wave 2C` launcher and its generator so `-Remote` behaves like the
+Update the `Wave 2.3` launcher and its generator so `-Remote` behaves like the
 other prepared campaign launchers:
 
 - prefer `PINNS_REMOTE_TRAINING_REPO_PATH` when it is set;
@@ -37,12 +37,12 @@ other prepared campaign launchers:
 - `doc/running/active_training_campaign.yaml`
 - `doc/README.md`
 
-The `Wave 2C` launcher and launcher note are protected by the prepared campaign
+The `Wave 2.3` launcher and launcher note are protected by the prepared campaign
 state. This fix requires explicit approval before modifying them.
 
 ## Implementation Steps
 
-1. Patch the dedicated `Wave 2C` launcher parameter default for
+1. Patch the dedicated `Wave 2.3` launcher parameter default for
    `RemoteRepositoryPath`.
 2. Patch the campaign preparer so regenerated launchers keep the same fallback.
 3. Update the launcher note with the default remote repository path and the

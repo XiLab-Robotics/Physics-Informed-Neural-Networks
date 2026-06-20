@@ -1,13 +1,13 @@
 Original Dataset Exact Model Bank Support
 =========================================
 
-This page documents the support utilities for the faithful RCIM Track 1
+This page documents the support utilities for the faithful RCIM Model-Bank Reproduction
 original-dataset exact-model-bank reimplementation. This is the bidirectional
 campaign surface that promotes accepted models into
 ``models/paper_reference/rcim_track1`` and updates the RCIM Tables ``2``-``5``
 benchmark.
 
-The full-dataset Track 1 surface is closed after completed forward and
+The full-dataset RCIM Model-Bank Reproduction surface is closed after completed forward and
 backward paper-faithful grid-search campaigns. Future restricted-dataset
 reruns should use separate campaign namespaces and comparison reports.
 

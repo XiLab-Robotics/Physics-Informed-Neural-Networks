@@ -1,9 +1,9 @@
-# Track 2D Mean-Offset Full-Matrix Audit Builder
+# CVP 1.4 Mean-Offset Full-Matrix Audit Builder
 
 ## Overview
 
 `scripts/reports/analysis/build_track2d_mean_offset_full_matrix_audit.py`
-builds the `Track 2D` full-matrix diagnostic report for mean-offset and
+builds the `CVP 1.4` full-matrix diagnostic report for mean-offset and
 centered-shape behavior.
 
 The script is evaluation-only. It does not train models, does not update
@@ -13,7 +13,7 @@ samples to a runtime model.
 ## Main Role
 
 The builder evaluates every direction-valid candidate from the official
-`Track 2` matrix through the normal causal prediction path, then decomposes the
+`TE Curve Verification Pipeline` matrix through the normal causal prediction path, then decomposes the
 curve residuals into:
 
 - raw `MAE` and `RMSE`;
@@ -33,8 +33,8 @@ promotion decisions.
 By default, the script reads:
 
 - `config/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/full_track2_matrix_template.yaml`
-- model archives and registries referenced by the Track 2 matrix config
-- the canonical held-out TE curve records resolved by the Track 2 support code
+- model archives and registries referenced by the curve-verification matrix config
+- the canonical held-out TE curve records resolved by the TE Curve Verification Pipeline support code
 
 Optional CLI filters can restrict execution to one or more candidate ids.
 

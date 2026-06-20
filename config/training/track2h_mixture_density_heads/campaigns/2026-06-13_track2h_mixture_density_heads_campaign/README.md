@@ -1,10 +1,10 @@
-# Track 2H Mixture Density Heads Campaign Package
+# Wave 4.3 Mixture Density Heads Campaign Package
 
-This package materializes the approved Track 2H mixture-density
+This package materializes the approved Wave 4.3 mixture-density
 heads probe. It contains 6 runnable queue entries: `mdn_k2` and
 `mdn_k3` across `global`, `Fw`, and `Bw` surfaces.
 
-Deterministic Track 2 playback uses the mixture expectation. The
+Deterministic TE Curve Verification Pipeline playback uses the mixture expectation. The
 extra channels are component logits, component means, and component
 scales for training and diagnostics, not future-looking inference
 inputs.

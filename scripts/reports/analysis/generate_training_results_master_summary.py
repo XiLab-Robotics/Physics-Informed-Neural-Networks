@@ -1098,7 +1098,7 @@ def build_exact_paper_status_snapshot(
     exact_paper_validation_dictionary: dict[str, Any] | None,
 ) -> dict[str, Any]:
 
-    """Build a compact exact-paper Track 1 status snapshot.
+    """Build a compact exact-paper RCIM Model-Bank Reproduction status snapshot.
 
     Args:
         exact_paper_validation_dictionary: Latest exact-paper validation dictionary.
@@ -1290,13 +1290,13 @@ def build_paper_reference_section(
         "| --- | --- | --- | --- |",
         f"| Offline model-selection direction | Boosting/tree-heavy deployed harmonic predictors | Current winner `{current_best_run_name}` from family `{current_best_family}` with model type `{current_best_model_type}` | {current_offline_verdict} |",
         f"| Strongest neural branch role | Neural models are evaluated, but not the primary deployed winners | Strongest repository neural family is `{strongest_neural_family or 'N/A'}` and still trails the tree winner | aligned |",
-        f"| Track 1 canonical closure rule | Paper Tables `3-6` replicated per target and per harmonic | Exact-paper report currently shows `{exact_paper_status['harmonic_full_match_count']}/{exact_paper_status['harmonic_total_count']}` harmonics fully closed, `{exact_paper_status['harmonic_partial_match_count']}/{exact_paper_status['harmonic_total_count']}` partially closed, `{exact_paper_status['harmonic_open_count']}/{exact_paper_status['harmonic_total_count']}` still open | not_yet_met |",
+        f"| RCIM Model-Bank Reproduction canonical closure rule | Paper Tables `3-6` replicated per target and per harmonic | Exact-paper report currently shows `{exact_paper_status['harmonic_full_match_count']}/{exact_paper_status['harmonic_total_count']}` harmonics fully closed, `{exact_paper_status['harmonic_partial_match_count']}/{exact_paper_status['harmonic_total_count']}` partially closed, `{exact_paper_status['harmonic_open_count']}/{exact_paper_status['harmonic_total_count']}` still open | not_yet_met |",
         f"| Supporting harmonic-wise TE metric | Mean percentage error over full TE curves | {harmonic_offline_status_text} | supporting_only_{harmonic_offline_verdict} |",
         f"| Online robot-profile compensation | TE RMS reduction `{robot_dictionary['best_rms_reduction_pct']:.1f}%` | No repository-owned online compensation result yet | not_yet_comparable |",
         f"| Online cycloidal-profile compensation | TE RMS reduction `{cycloidal_dictionary['best_rms_reduction_pct']:.1f}%`, TE max reduction `{cycloidal_dictionary['best_max_reduction_pct']:.1f}%` | No repository-owned online compensation result yet | not_yet_comparable |",
         "| Table 9-style end-to-end benchmark | PLC-integrated motion-profile compensation benchmark | Missing in the repository at the current state | not_yet_comparable |",
         "",
-        "### Track 1 Canonical Status",
+        "### RCIM Model-Bank Reproduction Canonical Status",
         "",
         f"- Latest exact-paper validation summary: `{exact_paper_status['validation_summary_path']}`",
         f"- Table `3` amplitude `RMSE`: `{exact_paper_status['table3_met_count']}/{exact_paper_status['table3_total_count']}` harmonics at or below the paper target",
@@ -1318,7 +1318,7 @@ def build_paper_reference_section(
         "",
         "### Gap Summary",
         "",
-        "- `Track 1` remains open primarily because the canonical Tables `3-6` are not yet fully matched.",
+        "- `RCIM Model-Bank Reproduction` remains open primarily because the canonical Tables `3-6` are not yet fully matched.",
         *build_paper_alignment_status_list(program_best_entry, strongest_neural_family),
         "",
     ]

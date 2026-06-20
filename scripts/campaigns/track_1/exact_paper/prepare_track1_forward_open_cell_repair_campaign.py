@@ -1,4 +1,4 @@
-"""Prepare the forward-only Track 1 open-cell repair campaign package."""
+"""Prepare the forward-only RCIM Model-Bank Reproduction open-cell repair campaign package."""
 
 from __future__ import annotations
 

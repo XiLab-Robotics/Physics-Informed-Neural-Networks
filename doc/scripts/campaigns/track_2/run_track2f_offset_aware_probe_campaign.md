@@ -1,8 +1,8 @@
-# Track 2F Offset-Aware Probe Campaign Launcher
+# Wave 3.1 Offset-Aware Probe Campaign Launcher
 
 ## Overview
 
-This launcher validates the prepared Track 2F offset-aware probe package.
+This launcher validates the prepared Wave 3.1 offset-aware probe package.
 
 The package contains nine descriptor entries across `global`, `Fw`, and `Bw`
 surfaces and three runnable sequential residual-offset queue YAML files:
@@ -22,7 +22,7 @@ Run this from the repository root:
 .\scripts\campaigns\track_2\run_track2f_offset_aware_probe_campaign.ps1 -PreflightOnly
 ```
 
-This validates descriptor count, surface/intervention coverage, Track 2E
+This validates descriptor count, surface/intervention coverage, CVP 1.5
 reference availability, and prepared campaign state.
 
 By default, the launcher runs validation through `conda run -n pinns_env

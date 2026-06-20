@@ -1,4 +1,4 @@
-"""Prepare the Track 2F offset-aware probe campaign package."""
+"""Prepare the Wave 3.1 offset-aware probe campaign package."""
 
 from __future__ import annotations
 
@@ -83,7 +83,7 @@ INTERVENTION_DICTIONARY = {
     "sequential_residual_offset_probe": {
         "implementation_status": "runnable_training_entry",
         "role": "second_stage_causal_residual_offset_predictor",
-        "launch_guard": "runnable after Track 2F sequential residual-offset model registration",
+        "launch_guard": "runnable after Wave 3.1 sequential residual-offset model registration",
     },
     "multi_head_shape_offset_probe": {
         "implementation_status": "blocked_until_model_type_implementation",
@@ -169,7 +169,7 @@ def validate_no_conflicting_active_campaign() -> None:
         and active_campaign_name == CAMPAIGN_NAME
     )
     assert active_status in ["", "none"] or same_campaign_is_prepared, (
-        "Cannot prepare Track 2F while another campaign is prepared or active | "
+        "Cannot prepare Wave 3.1 while another campaign is prepared or active | "
         f"status={active_status} | campaign_name={active_campaign_name}"
     )
 
@@ -180,7 +180,7 @@ def build_probe_descriptor(
     intervention_name: str,
 ) -> dict[str, Any]:
 
-    """Build one Track 2F probe descriptor."""
+    """Build one Wave 3.1 probe descriptor."""
 
     surface_reference = SURFACE_REFERENCE_DICTIONARY[surface_key]
     intervention_reference = INTERVENTION_DICTIONARY[intervention_name]
@@ -215,7 +215,7 @@ def build_probe_descriptor(
                 "future-looking smoothing",
             ],
             "validation_only_units": [
-                "full Track 2 curve raw error",
+                "full TE Curve Verification Pipeline curve raw error",
                 "centered-shape error",
                 "mean-offset error",
                 "amplitude error",
@@ -224,7 +224,7 @@ def build_probe_descriptor(
         },
         "promotion_rule": (
             "Candidate cannot be promoted from pointwise MAE/RMSE alone; it must return "
-            "through official Track 2 curve-first verification on the matching surface."
+            "through official TE curve-first verification on the matching surface."
         ),
     }
 
@@ -238,7 +238,7 @@ def build_probe_descriptor_file_name(probe_index: int, surface_key: str, interve
 
 def write_probe_descriptors() -> list[Path]:
 
-    """Write all nine Track 2F probe descriptors."""
+    """Write all nine Wave 3.1 probe descriptors."""
 
     descriptor_path_list: list[Path] = []
     probe_index = 1
@@ -257,7 +257,7 @@ def write_probe_descriptors() -> list[Path]:
 
 def copy_dataset_variants() -> list[Path]:
 
-    """Copy the direction-specific dataset variants into the Track 2F package."""
+    """Copy the direction-specific dataset variants into the Wave 3.1 package."""
 
     dataset_variant_path_list: list[Path] = []
     for direction_metadata in DIRECTION_METADATA_DICTIONARY.values():
@@ -306,9 +306,9 @@ def build_sequential_probe_training_config(queue_index: int, surface_key: str) -
             "track2e_recommendation_path": to_posix_path(TRACK2E_RECOMMENDATION_PATH),
             "runtime_input_contract": "current point state plus supported short causal sequence history only",
             "notes": (
-                "Track 2F sequential residual-offset probe. Final TE prediction is "
+                "Wave 3.1 sequential residual-offset probe. Final TE prediction is "
                 "base_te_prediction + residual_offset_prediction. Candidate must "
-                "return through official Track 2 curve-first verification."
+                "return through official TE curve-first verification."
             ),
         },
         "dataset": {
@@ -381,11 +381,11 @@ def write_campaign_readme(descriptor_path_list: list[Path]) -> Path:
         f"- `{to_posix_path(descriptor_path)}`"
         for descriptor_path in descriptor_path_list
     ]
-    readme_text = f"""# Track 2F Offset-Aware Probe Campaign Package
+    readme_text = f"""# Wave 3.1 Offset-Aware Probe Campaign Package
 
-This package materializes the approved Track 2F offset-aware probe plan.
+This package materializes the approved Wave 3.1 offset-aware probe plan.
 
-It contains descriptor entries for the full Track 2F matrix plus three
+It contains descriptor entries for the full Wave 3.1 matrix plus three
 runnable `sequential_residual_offset_probe` queue YAML files. The post-hoc
 `direction_torque` offset baseline remains a validation-only benchmark, while
 `multi_head_shape_offset_probe` remains guarded until its own model type is
@@ -423,7 +423,7 @@ Remote sequential probe training:
 
 def write_launcher() -> None:
 
-    """Write the Track 2F PowerShell launcher."""
+    """Write the Wave 3.1 PowerShell launcher."""
 
     launcher_text = f"""param(
     [switch]$Remote,
@@ -507,7 +507,7 @@ if (-not $PreflightOnly) {{
     )
 }}
 
-Write-Track2FStatus -Label "STEP" -Message "Validating Track 2F package."
+Write-Track2FStatus -Label "STEP" -Message "Validating Wave 3.1 package."
 Invoke-Track2FPython -ArgumentList $validatorArgumentList
 $pythonExitCode = $script:LastTrack2FPythonExitCode
 if ($pythonExitCode -ne 0) {{
@@ -583,11 +583,11 @@ def write_launcher_note() -> None:
 
     """Write the operator-facing launcher note."""
 
-    launcher_note_text = f"""# Track 2F Offset-Aware Probe Campaign Launcher
+    launcher_note_text = f"""# Wave 3.1 Offset-Aware Probe Campaign Launcher
 
 ## Overview
 
-This launcher validates the prepared Track 2F offset-aware probe package.
+This launcher validates the prepared Wave 3.1 offset-aware probe package.
 
 The package contains nine descriptor entries across `global`, `Fw`, and `Bw`
 surfaces and three runnable sequential residual-offset queue YAML files:
@@ -607,7 +607,7 @@ Run this from the repository root:
 .\\scripts\\campaigns\\track2\\run_track2f_offset_aware_probe_campaign.ps1 -PreflightOnly
 ```
 
-This validates descriptor count, surface/intervention coverage, Track 2E
+This validates descriptor count, surface/intervention coverage, CVP 1.5
 reference availability, and prepared campaign state.
 
 By default, the launcher runs validation through `conda run -n pinns_env
@@ -657,7 +657,7 @@ def write_active_campaign_state(
     readme_path: Path,
 ) -> None:
 
-    """Write the persistent active campaign state for Track 2F."""
+    """Write the persistent active campaign state for Wave 3.1."""
 
     launch_command_list = [
         ".\\scripts\\campaigns\\track2\\run_track2f_offset_aware_probe_campaign.ps1 -PreflightOnly",
@@ -688,7 +688,7 @@ def write_active_campaign_state(
         "baseline_status_output_directory": to_posix_path(BASELINE_STATUS_OUTPUT_DIRECTORY),
         "execution_status": "prepared_for_sequential_residual_offset_probe_training",
         "training_launch_guard": (
-            "multi-head Track 2F probes remain blocked until the multi-head "
+            "multi-head Wave 3.1 probes remain blocked until the multi-head "
             "shape/offset model type is implemented"
         ),
         "protected_file_list": protected_file_list,
@@ -700,7 +700,7 @@ def write_active_campaign_state(
 
 def main() -> int:
 
-    """Prepare the Track 2F campaign package."""
+    """Prepare the Wave 3.1 campaign package."""
 
     validate_no_conflicting_active_campaign()
     assert (PROJECT_PATH / PLANNING_REPORT_PATH).exists(), f"Missing plan | {PLANNING_REPORT_PATH}"
@@ -709,7 +709,7 @@ def main() -> int:
         f"Missing sequential probe doc | {SEQUENTIAL_PROBE_TECHNICAL_DOCUMENT_PATH}"
     )
     assert (PROJECT_PATH / TRACK2E_RECOMMENDATION_PATH).exists(), (
-        f"Missing Track 2E recommendation CSV | {TRACK2E_RECOMMENDATION_PATH}"
+        f"Missing CVP 1.5 recommendation CSV | {TRACK2E_RECOMMENDATION_PATH}"
     )
 
     descriptor_path_list = write_probe_descriptors()

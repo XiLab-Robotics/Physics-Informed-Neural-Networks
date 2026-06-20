@@ -1,4 +1,4 @@
-"""Prepare the Track 2F-bis harmonic-offset probe campaign package."""
+"""Prepare the Wave 3.2 harmonic-offset probe campaign package."""
 
 from __future__ import annotations
 
@@ -114,7 +114,7 @@ def validate_no_conflicting_active_campaign() -> None:
     active_campaign_name = str(active_state.get("campaign_name", "")).strip()
     same_campaign_is_prepared = active_status == "prepared" and active_campaign_name == CAMPAIGN_NAME
     assert active_status in ["", "none"] or same_campaign_is_prepared, (
-        "Cannot prepare Track 2F-bis while another campaign is prepared or active | "
+        "Cannot prepare Wave 3.2 while another campaign is prepared or active | "
         f"status={active_status} | campaign_name={active_campaign_name}"
     )
 
@@ -158,13 +158,13 @@ def build_common_metadata(
         "use_forward_direction": bool(direction_metadata["use_forward_direction"]),
         "use_backward_direction": bool(direction_metadata["use_backward_direction"]),
         "runtime_input_contract": "current point state plus supported short causal sequence history only",
-        "promotion_rule": "Candidate must return through official Track 2 curve-first verification.",
+        "promotion_rule": "Candidate must return through official TE curve-first verification.",
     }
 
 
 def build_base_dataset_config() -> dict[str, Any]:
 
-    """Build the shared sequence dataset config for Track 2F-bis entries."""
+    """Build the shared sequence dataset config for Wave 3.2 entries."""
 
     return {
         "curve_batch_size": 2,
@@ -182,7 +182,7 @@ def build_base_dataset_config() -> dict[str, Any]:
 
 def build_base_training_config() -> dict[str, Any]:
 
-    """Build the shared training config for Track 2F-bis entries."""
+    """Build the shared training config for Wave 3.2 entries."""
 
     return {
         "learning_rate": 0.0005,
@@ -199,7 +199,7 @@ def build_base_training_config() -> dict[str, Any]:
 
 def build_runtime_config() -> dict[str, Any]:
 
-    """Build the shared runtime config for Track 2F-bis entries."""
+    """Build the shared runtime config for Wave 3.2 entries."""
 
     return {
         "accelerator": "auto",
@@ -212,7 +212,7 @@ def build_runtime_config() -> dict[str, Any]:
 
 def build_clean_control_training_config(queue_index: int, surface_key: str) -> dict[str, Any]:
 
-    """Build one clean non-harmonic Track 2F-like control config."""
+    """Build one clean non-harmonic Wave 3.1-like control config."""
 
     direction_metadata = DIRECTION_METADATA_DICTIONARY[surface_key]
     run_direction_token = str(direction_metadata["run_direction_token"])
@@ -236,7 +236,7 @@ def build_clean_control_training_config(queue_index: int, surface_key: str) -> d
                 model_family=model_family,
             ),
             "notes": (
-                "Track 2F-bis clean non-harmonic control. Final TE prediction is "
+                "Wave 3.2 clean non-harmonic control. Final TE prediction is "
                 "base_te_prediction + residual_offset_prediction."
             ),
         },
@@ -288,7 +288,7 @@ def build_harmonic_offset_training_config(queue_index: int, surface_key: str) ->
             "harmonic_basis": "sparse_rcim",
             "harmonic_index_list": RCIM_HARMONIC_INDEX_LIST,
             "notes": (
-                "Track 2F-bis harmonic-offset probe. Final TE prediction is "
+                "Wave 3.2 harmonic-offset probe. Final TE prediction is "
                 "structured_harmonic_shape_prediction + causal_residual_offset_prediction."
             ),
         },
@@ -314,7 +314,7 @@ def build_harmonic_offset_training_config(queue_index: int, surface_key: str) ->
 
 def write_queue_configs() -> list[Path]:
 
-    """Write all six Track 2F-bis queue YAML files."""
+    """Write all six Wave 3.2 queue YAML files."""
 
     queue_path_list: list[Path] = []
     queue_index = 1
@@ -341,9 +341,9 @@ def write_campaign_readme(queue_path_list: list[Path]) -> Path:
 
     readme_path = CAMPAIGN_ROOT / "README.md"
     queue_line_list = [f"- `{to_posix_path(queue_path)}`" for queue_path in queue_path_list]
-    readme_text = f"""# Track 2F-Bis Harmonic-Offset Probe Campaign Package
+    readme_text = f"""# Wave 3.2 Harmonic-Offset Probe Campaign Package
 
-This package materializes the approved Track 2F-bis harmonic-offset probe.
+This package materializes the approved Wave 3.2 harmonic-offset probe.
 
 It contains six runnable queue YAML files:
 
@@ -377,7 +377,7 @@ Remote training:
 
 def write_launcher() -> None:
 
-    """Write the Track 2F-bis PowerShell launcher."""
+    """Write the Wave 3.2 PowerShell launcher."""
 
     campaign_config_file_name_list = [
         "01_clean_sequential_residual_offset_control_global.yaml",
@@ -457,7 +457,7 @@ $validatorArgumentList = @(
     "--require-prepared-state"
 )
 
-Write-Track2FBisStatus -Label "STEP" -Message "Validating Track 2F-bis package."
+Write-Track2FBisStatus -Label "STEP" -Message "Validating Wave 3.2 package."
 Invoke-Track2FBisPython -ArgumentList $validatorArgumentList
 $pythonExitCode = $script:LastTrack2FBisPythonExitCode
 if ($pythonExitCode -ne 0) {{
@@ -519,7 +519,7 @@ if ($EnqueueOnly) {{
     Write-Track2FBisStatus -Label "STEP" -Message "Enqueue-only verification enabled; training will not start."
 }}
 
-Write-Track2FBisStatus -Label "STEP" -Message "Launching local Track 2F-bis harmonic-offset campaign."
+Write-Track2FBisStatus -Label "STEP" -Message "Launching local Wave 3.2 harmonic-offset campaign."
 Invoke-Track2FBisPython -ArgumentList $argumentList
 $trainingExitCode = $script:LastTrack2FBisPythonExitCode
 exit $trainingExitCode
@@ -533,11 +533,11 @@ def write_launcher_note() -> None:
 
     """Write the operator-facing launcher note."""
 
-    launcher_note_text = """# Track 2F-Bis Harmonic-Offset Probe Campaign Launcher
+    launcher_note_text = """# Wave 3.2 Harmonic-Offset Probe Campaign Launcher
 
 ## Overview
 
-This launcher validates and runs the prepared Track 2F-bis harmonic-offset
+This launcher validates and runs the prepared Wave 3.2 harmonic-offset
 probe package.
 
 The package contains six runnable queue YAML files:
@@ -594,7 +594,7 @@ def write_active_campaign_state(
     readme_path: Path,
 ) -> None:
 
-    """Write the persistent active campaign state for Track 2F-bis."""
+    """Write the persistent active campaign state for Wave 3.2."""
 
     launch_command_list = [
         ".\\scripts\\campaigns\\track2\\run_track2f_bis_harmonic_offset_probe_campaign.ps1 -PreflightOnly",
@@ -632,7 +632,7 @@ def write_active_campaign_state(
 
 def main() -> int:
 
-    """Prepare the Track 2F-bis campaign package."""
+    """Prepare the Wave 3.2 campaign package."""
 
     validate_no_conflicting_active_campaign()
     assert (PROJECT_PATH / PLANNING_REPORT_PATH).exists(), f"Missing plan | {PLANNING_REPORT_PATH}"

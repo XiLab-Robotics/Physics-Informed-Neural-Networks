@@ -1,4 +1,4 @@
-"""Run the Track 2 reference-family vs feedforward TE-curve comparison."""
+"""Run the TE Curve Verification Pipeline reference-family vs feedforward TE-curve comparison."""
 
 from __future__ import annotations
 
@@ -42,7 +42,7 @@ def run_reference_family_vs_feedforward_comparison(
     output_suffix: str = "baseline_validation",
 ) -> tuple[Path, Path]:
 
-    """Run one Track 2 comparison over the configured candidate matrix."""
+    """Run one TE Curve Verification Pipeline comparison over the configured candidate matrix."""
 
     # Load And Prepare Configuration
     training_config = shared_training_infrastructure.prepare_output_artifact_training_config(
@@ -78,30 +78,30 @@ def run_reference_family_vs_feedforward_comparison(
             if str(candidate_configuration["candidate_id"]) not in baseline_candidate_id_set
         ]
         print(
-            "[INFO] Running incremental Track 2 matrix refresh | "
+            "[INFO] Running incremental curve-verification matrix refresh | "
             f"baseline_candidates={len(baseline_candidate_id_set)} | "
             f"new_candidates={len(candidate_configuration_list)}",
             flush=True,
         )
-        assert candidate_configuration_list, "Incremental Track 2 refresh found no new candidates."
+        assert candidate_configuration_list, "Incremental TE Curve Verification Pipeline refresh found no new candidates."
     report_plot_generation_scope = str(
         training_config["comparison"].get("report_plot_generation_scope", "incremental_current_candidates")
     ).strip()
     if baseline_summary is not None and report_plot_generation_scope == "incremental_current_candidates":
         print(
-            "[INFO] Track 2 grouped report plots are limited to current incremental candidates.",
+            "[INFO] TE Curve Verification Pipeline grouped report plots are limited to current incremental candidates.",
             flush=True,
         )
     selected_harmonic_list = [int(value) for value in training_config["evaluation"]["selected_harmonics"]]
 
     # Build Held-Out Curve Records
-    print("[INFO] Building Track 2 held-out curve records", flush=True)
+    print("[INFO] Building TE Curve Verification Pipeline held-out curve records", flush=True)
     curve_record_list, _, _, dataset_root = reference_family_vs_feedforward_support.build_curve_record_list(
         training_config,
         selected_harmonic_list,
     )
     print(
-        "[INFO] Built Track 2 held-out curve records | "
+        "[INFO] Built TE Curve Verification Pipeline held-out curve records | "
         f"curve_count={len(curve_record_list)}",
         flush=True,
     )
@@ -178,7 +178,7 @@ def run_reference_family_vs_feedforward_comparison(
 
         for candidate_index, candidate_configuration in enumerate(candidate_configuration_list, start=1):
             print(
-                "[INFO] Loading Track 2 candidate | "
+                "[INFO] Loading TE Curve Verification Pipeline candidate | "
                 f"{candidate_index}/{len(candidate_configuration_list)} | "
                 f"{candidate_configuration['candidate_id']}",
                 flush=True,
@@ -202,7 +202,7 @@ def run_reference_family_vs_feedforward_comparison(
                 )
             )
             print(
-                "[INFO] Evaluating Track 2 candidate | "
+                "[INFO] Evaluating TE Curve Verification Pipeline candidate | "
                 f"{candidate_index}/{len(candidate_configuration_list)} | {candidate.candidate_id}",
                 flush=True,
             )
@@ -396,7 +396,7 @@ def run_reference_family_vs_feedforward_comparison(
     )
     if canonical_report_path is not None:
         print(
-            "[DONE] Canonical Track 2 report written | "
+            "[DONE] Canonical TE curve-verification report written | "
             f"{shared_training_infrastructure.format_project_relative_path(canonical_report_path)}"
         )
     return validation_summary_path, validation_report_path
@@ -407,7 +407,7 @@ def parse_command_line_arguments() -> argparse.Namespace:
     """Parse command-line arguments for the comparison entry point."""
 
     argument_parser = argparse.ArgumentParser(
-        description="Run the Track 2 reference-family vs feedforward comparison."
+        description="Run the TE Curve Verification Pipeline reference-family vs feedforward comparison."
     )
     argument_parser.add_argument(
         "--config-path",

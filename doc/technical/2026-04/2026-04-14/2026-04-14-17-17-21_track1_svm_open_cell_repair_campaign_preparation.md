@@ -1,8 +1,8 @@
-# Track 1 SVM Open-Cell Repair Campaign Preparation
+# RCIM Model-Bank Reproduction SVM Open-Cell Repair Campaign Preparation
 
 ## Overview
 
-This technical document prepares the next `Track 1` campaign as a dedicated
+This technical document prepares the next `RCIM Model-Bank Reproduction` campaign as a dedicated
 `SVR` repair batch for the currently open `SVM` cells in the canonical paper
 tables.
 

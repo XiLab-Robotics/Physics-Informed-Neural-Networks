@@ -1,7 +1,7 @@
-# Track 1 MLP Family Full-Matrix Repair Campaign
+# RCIM Model-Bank Reproduction MLP Family Full-Matrix Repair Campaign
 
 This package contains the dedicated exact-paper `MLP` family repair wave
-for the canonical `Track 1` full-matrix replication surface.
+for the canonical `RCIM Model-Bank Reproduction` full-matrix replication surface.
 
 - deduplicated amplitude target pairs: `8`
 - deduplicated phase target pairs: `4`

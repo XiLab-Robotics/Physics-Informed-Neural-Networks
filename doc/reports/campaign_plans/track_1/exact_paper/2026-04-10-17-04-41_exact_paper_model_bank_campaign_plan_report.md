@@ -27,7 +27,7 @@ The campaign must answer three questions:
 
 ## Why This Campaign Makes Sense
 
-The exact-paper branch is now the stricter `Track 1` reference branch.
+The exact-paper branch is now the stricter `RCIM Model-Bank Reproduction` reference branch.
 
 That means the repository needs more than a successful script invocation. It
 needs:

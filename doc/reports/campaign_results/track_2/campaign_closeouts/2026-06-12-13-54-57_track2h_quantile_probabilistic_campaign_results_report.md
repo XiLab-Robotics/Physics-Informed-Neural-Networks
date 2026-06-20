@@ -1,8 +1,8 @@
-# Track 2H Quantile Probabilistic Campaign Results
+# Wave 4.2 Quantile Probabilistic Campaign Results
 
 ## Overview
 
-This report closes the approved second `Track 2H` dispersion-aware campaign:
+This report closes the approved `Wave 4.2` dispersion-aware campaign:
 quantile and Gaussian probabilistic regression for locally dispersed TE
 curves.
 
@@ -96,10 +96,10 @@ where the robust `mae` candidate remains slightly ahead.
 
 | Profile | Observed Signal | Interpretation |
 | --- | --- | --- |
-| `quantile_p10_p50_p90` | Best campaign scalar result on `Bw`; no quantile crossing. | Promising for backward dispersion, but needs Track 2 curve playback before promotion. |
+| `quantile_p10_p50_p90` | Best campaign scalar result on `Bw`; no quantile crossing. | Promising for backward dispersion, but needs TE Curve Verification Pipeline curve playback before promotion. |
 | `gaussian_nll` | Best `global` and `Fw` probabilistic branch results. | Useful as a stable uncertainty-aware control and possibly the better global/Fw probabilistic default. |
 
-The main modeling result is not that probabilistic heads solve Track 2. The
+The main modeling result is not that probabilistic heads solve TE Curve Verification Pipeline. The
 useful result is that explicit uncertainty-aware heads can beat the first
 robust-loss package on `global` and `Bw` scalar metrics, while exposing
 calibration diagnostics that robust point losses cannot provide.
@@ -113,18 +113,18 @@ program winner with test `MAE = 0.002344`.
 
 | Registry Scope | Best Run | Test MAE |
 | --- | --- | ---: |
-| `Track 2H global probabilistic` | `te_track2h_gaussian_nll_global` | 0.003013 |
-| `Track 2H Fw probabilistic` | `te_track2h_gaussian_nll_fw` | 0.003165 |
-| `Track 2H Bw probabilistic` | `te_track2h_quantile_p10_p50_p90_bw` | 0.002927 |
+| `Wave 4.2 global probabilistic` | `te_track2h_gaussian_nll_global` | 0.003013 |
+| `Wave 4.2 Fw probabilistic` | `te_track2h_gaussian_nll_fw` | 0.003165 |
+| `Wave 4.2 Bw probabilistic` | `te_track2h_quantile_p10_p50_p90_bw` | 0.002927 |
 
-## Track 2 Boundary
+## TE Curve Verification Pipeline Boundary
 
-Official Track 2 curve-first verification was not run as part of this normal
+Official TE curve-first verification was not run as part of this normal
 campaign closeout. Under campaign governance, that remains a separate
 operator-approved workflow after this campaign-results report and PDF are
 complete.
 
-The next Track 2 package should add all six probabilistic candidates and report
+The next TE Curve Verification Pipeline package should add all six probabilistic candidates and report
 accepted results separately for:
 
 - `global`;
@@ -133,12 +133,12 @@ accepted results separately for:
 
 The verification must compare raw curve error, centered-shape error, offset,
 amplitude, harmonic behavior, collage plots, and overlay plots against Track
-2G, Track 2H robust-loss, Track 2F-bis, Wave 2B, and the current accepted Track
+2G, Wave 4.1 robust-loss, Wave 3.2, Wave 2.2, and the current accepted Track
 2 baselines.
 
 ## Closeout Decision
 
-Track 2H quantile/probabilistic execution is complete: all planned candidates
+Wave 4.2 quantile/probabilistic execution is complete: all planned candidates
 have successful training artifacts, no failed run remains, registries were
 refreshed by the runner, and the active campaign state can be cleared.
 
@@ -150,17 +150,17 @@ From a modeling standpoint:
   scalar candidate, while noting it is slightly behind robust `mae_robust_fw`;
 - carry `quantile_p10_p50_p90_bw` forward as the strongest probabilistic
   backward scalar candidate;
-- keep both quantile and Gaussian heads alive until official Track 2 curve
+- keep both quantile and Gaussian heads alive until official TE Curve Verification Pipeline curve
   verification decides whether scalar gains translate into curve quality;
-- do not promote Track 2H probabilistic candidates before official Track 2
+- do not promote Wave 4.2 probabilistic candidates before official TE Curve Verification Pipeline
   verification.
 
 ## Recommended Follow-Up
 
 1. Accept this closeout and clear the active campaign state.
-2. Prepare a separate operator-launched Track 2 verification refresh for all
+2. Prepare a separate operator-launched TE curve verification refresh for all
    six probabilistic candidates.
-3. If the official Track 2 refresh confirms the scalar `global` and `Bw`
+3. If the official TE Curve Verification refresh confirms the scalar `global` and `Bw`
    gains, carry probabilistic heads into later mixture-density, latent-state,
    and multi-head design.
 4. Keep robust `mae_robust_fw` visible as the current stronger `Fw`

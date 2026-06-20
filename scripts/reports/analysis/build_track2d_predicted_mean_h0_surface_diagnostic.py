@@ -1,4 +1,4 @@
-"""Build Track 2D predicted-mean versus measured-h0 surface diagnostics."""
+"""Build CVP 1.4 predicted-mean versus measured-h0 surface diagnostics."""
 
 from __future__ import annotations
 
@@ -70,7 +70,7 @@ SELECTION_FILENAME = "track2d_predicted_mean_h0_candidate_selection.csv"
 @dataclass(frozen=True)
 class Track2DMetricRow:
 
-    """One Track 2D per-curve mean prediction diagnostic row."""
+    """One CVP 1.4 per-curve mean prediction diagnostic row."""
 
     candidate_id: str
     candidate_family: str
@@ -162,9 +162,9 @@ def compute_linear_fit(measured_values: list[float], predicted_values: list[floa
 
 def load_track2d_metric_rows(input_path: Path) -> list[Track2DMetricRow]:
 
-    """Load Track 2D per-curve metrics."""
+    """Load CVP 1.4 per-curve metrics."""
 
-    assert input_path.exists(), f"Track 2D per-curve metrics not found | {input_path}"
+    assert input_path.exists(), f"CVP 1.4 per-curve metrics not found | {input_path}"
     row_list: list[Track2DMetricRow] = []
     with input_path.open("r", encoding="utf-8", newline="") as input_file:
         for row in csv.DictReader(input_file):
@@ -186,7 +186,7 @@ def load_track2d_metric_rows(input_path: Path) -> list[Track2DMetricRow]:
                     centered_mae_deg=float(row["centered_mae_deg"]),
                 )
             )
-    assert row_list, f"No Track 2D rows loaded | {input_path}"
+    assert row_list, f"No CVP 1.4 rows loaded | {input_path}"
     return row_list
 
 
@@ -325,7 +325,7 @@ def build_direction_summary_rows(row_list: list[Track2DMetricRow]) -> list[dict[
 
 def metric_row_to_csv_row(row: Track2DMetricRow) -> dict[str, Any]:
 
-    """Convert a Track 2D row to a selected CSV row."""
+    """Convert a CVP 1.4 row to a selected CSV row."""
 
     return {
         "candidate_id": row.candidate_id,
@@ -458,13 +458,13 @@ def build_report_lines(
     weak_slope_rows = [row for row in candidate_summary_rows if abs(float(row["predicted_vs_measured_slope"]) - 1.0) >= 0.50]
 
     report_lines = [
-        "# Track 2D Predicted Mean h0 Surface Diagnostic",
+        "# CVP 1.4 Predicted Mean h0 Surface Diagnostic",
         "",
         "## Overview",
         "",
         (
             f"Predicted-mean versus measured-`h0` diagnostic over `{len(candidate_summary_rows)}` selected candidates "
-            f"from the `Track 2D` per-curve matrix."
+            f"from the `CVP 1.4` per-curve matrix."
         ),
         "",
         "## Decision",
@@ -643,7 +643,7 @@ def main() -> None:
     )
     write_report(report_path, report_lines)
 
-    print(f"Prepared Track 2D predicted-mean h0 diagnostic | {output_directory}")
+    print(f"Prepared CVP 1.4 predicted-mean h0 diagnostic | {output_directory}")
     print(f"Prepared Markdown report | {report_path}")
 
 

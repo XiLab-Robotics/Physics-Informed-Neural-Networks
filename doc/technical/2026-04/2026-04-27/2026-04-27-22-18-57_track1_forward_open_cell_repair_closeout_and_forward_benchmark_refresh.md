@@ -1,8 +1,8 @@
-# Track 1 Forward Open-Cell Repair Closeout And Forward Benchmark Refresh
+# RCIM Model-Bank Reproduction Forward Open-Cell Repair Closeout And Forward Benchmark Refresh
 
 ## Overview
 
-The `Track 1` forward open-cell repair campaign
+The `RCIM Model-Bank Reproduction` forward open-cell repair campaign
 `track1_forward_open_cell_repair_campaign_2026-04-27_13_08_10` is now
 completed and its full artifact surface has been recovered locally after the
 post-run remote sync repair. The next step is the formal campaign closeout so

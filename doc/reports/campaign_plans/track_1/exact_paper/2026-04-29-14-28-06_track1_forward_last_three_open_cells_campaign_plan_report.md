@@ -1,8 +1,8 @@
-# Track 1 Forward Last Three Open Cells Campaign Plan Report
+# RCIM Model-Bank Reproduction Forward Last Three Open Cells Campaign Plan Report
 
 ## Overview
 
-This planning report prepares the next exact-paper `Track 1` forward-only
+This planning report prepares the next exact-paper `RCIM Model-Bank Reproduction` forward-only
 campaign after the completed `forward_last_four_open_cells` closeout.
 
 The canonical forward status is now:

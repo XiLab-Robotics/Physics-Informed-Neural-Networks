@@ -10,7 +10,7 @@ The update will document the recovered original workflow under
 `scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow`,
 the repository-owned reimplementation under
 `scripts/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank`,
-and the Track 1 paper-reference result surface under
+and the RCIM Model-Bank Reproduction paper-reference result surface under
 `models/paper_reference/rcim_track1` and
 `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`.
 
@@ -48,7 +48,7 @@ exact-model-bank campaigns, to the archived reference models and RCIM Tables
 ## Implementation Steps
 
 1. Inspect the current canonical documentation and source-tree entry points for
-   RCIM paper reimplementation, Track 1, and paper-reference models.
+   RCIM paper reimplementation, RCIM Model-Bank Reproduction, and paper-reference models.
 2. Add concise documentation sections that distinguish the recovered original
    workflow from the repository-owned faithful reimplementation.
 3. Link the faithful exact-model-bank pipeline to its campaigns, reference

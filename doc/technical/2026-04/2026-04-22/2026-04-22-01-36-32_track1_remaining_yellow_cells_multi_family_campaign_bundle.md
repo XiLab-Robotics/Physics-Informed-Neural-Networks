@@ -1,8 +1,8 @@
-# Track 1 Remaining Yellow Cells Multi-Family Campaign Bundle
+# RCIM Model-Bank Reproduction Remaining Yellow Cells Multi-Family Campaign Bundle
 
 ## Overview
 
-This technical document defines the next exact-paper `Track 1` preparation
+This technical document defines the next exact-paper `RCIM Model-Bank Reproduction` preparation
 step after the residual `MLP` final-closure wave.
 
 The user requested one new overnight-ready preparation package focused only on
@@ -20,7 +20,7 @@ The requested delivery shape is:
 - one dedicated campaign per family;
 - one global launcher that can start the whole overnight bundle in sequence.
 
-This preparation remains tied to the canonical `Track 1` progress definition:
+This preparation remains tied to the canonical `RCIM Model-Bank Reproduction` progress definition:
 only the four full-matrix replication tables count as the status surface:
 
 - `Table 2 - Amplitude MAE Full-Matrix Replication`

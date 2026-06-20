@@ -1,8 +1,8 @@
-# Track 1 SVR Parameter Grid YAML Serialization Fix
+# RCIM Model-Bank Reproduction SVR Parameter Grid YAML Serialization Fix
 
 ## Overview
 
-The Track 1 forward paper-faithful remote campaign progressed through the
+The RCIM Model-Bank Reproduction forward paper-faithful remote campaign progressed through the
 `SVR` family fit, evaluation, Python export, and ONNX export, then failed while
 writing the validation-summary YAML. The log in `.temp/log_error.txt` shows the
 post-export failure:
@@ -37,7 +37,7 @@ stable class/repr metadata rather than being passed directly to `yaml.safe_dump`
   contains the shared exact-paper model-bank search implementation and the
   `family_search_summary_dictionary` population path.
 - `scripts/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/run_original_dataset_exact_model_bank_validation.py`
-  is the Track 1 wrapper that failed while saving the validation summary.
+  is the RCIM Model-Bank Reproduction wrapper that failed while saving the validation summary.
 - `scripts/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/original_dataset_exact_model_bank_support.py`
   embeds the family-search summary in the original-dataset validation-summary
   structure.

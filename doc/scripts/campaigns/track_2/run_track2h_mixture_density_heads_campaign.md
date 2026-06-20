@@ -1,9 +1,9 @@
-# Track 2H Mixture Density Heads Campaign Launcher
+# Wave 4.3 Mixture Density Heads Campaign Launcher
 
 ## Overview
 
 `scripts/campaigns/track_2/run_track2h_mixture_density_heads_campaign.ps1`
-runs the approved `Track 2H` mixture-density heads campaign package.
+runs the approved `Wave 4.3` mixture-density heads campaign package.
 
 The package contains six queue entries:
 
@@ -14,7 +14,7 @@ The package contains six queue entries:
 
 Each candidate predicts mixture logits, component means, and component scales.
 The deterministic playback curve used by scalar metrics and later official
-`Track 2` verification is the mixture expectation.
+`TE Curve Verification Pipeline` verification is the mixture expectation.
 
 ## Preflight
 
@@ -82,4 +82,4 @@ Campaign-level artifacts are written under:
 After the launcher completes, report completion back to Codex. Codex should
 then close the campaign through the normal results report, PDF validation,
 registry synchronization, active-state cleanup, backlog/master-summary update,
-and only then propose a separate official `Track 2` verification refresh.
+and only then propose a separate official `TE Curve Verification Pipeline` verification refresh.

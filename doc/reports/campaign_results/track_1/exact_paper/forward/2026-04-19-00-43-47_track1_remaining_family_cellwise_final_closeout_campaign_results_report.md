@@ -1,14 +1,14 @@
-# Track 1 Remaining Family Cellwise Final Closeout Campaign Results Report
+# RCIM Model-Bank Reproduction Remaining Family Cellwise Final Closeout Campaign Results Report
 
 ## Overview
 
-This report closes the full remaining-family exact-paper `Track 1` cellwise batch
+This report closes the full remaining-family exact-paper `RCIM Model-Bank Reproduction` cellwise batch
 prepared in:
 
 - `doc/reports/campaign_plans/track_1/exact_paper/2026-04-18-22-28-04_track1_remaining_family_cellwise_reference_campaigns_plan_report.md`
 
 The batch replicated the accepted `SVM` workflow family-by-family by training a
-separate exact-paper model for every paper-facing cell of the remaining `Track 1`
+separate exact-paper model for every paper-facing cell of the remaining `RCIM Model-Bank Reproduction`
 families.
 
 - completed family campaigns: `9`
@@ -118,5 +118,5 @@ The key final conclusion is:
   nine non-`SVM` families;
 - the canonical family rows and the benchmark tables now read from those promoted
   cellwise references;
-- `Track 1` still remains canonically open because the best numeric families do
+- `RCIM Model-Bank Reproduction` still remains canonically open because the best numeric families do
   not yet align cleanly with the paper family selections in Table `6`.

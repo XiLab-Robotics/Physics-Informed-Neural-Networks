@@ -1,8 +1,8 @@
-# Track 1 Exact-Paper Open-Cell Repair Campaign Launcher
+# RCIM Model-Bank Reproduction Exact-Paper Open-Cell Repair Campaign Launcher
 
 ## Overview
 
-This launcher is the canonical short PowerShell wrapper for the next `Track 1`
+This launcher is the canonical short PowerShell wrapper for the next `RCIM Model-Bank Reproduction`
 exact-paper open-cell repair campaign.
 
 It orchestrates multiple exact-paper validation runs through:

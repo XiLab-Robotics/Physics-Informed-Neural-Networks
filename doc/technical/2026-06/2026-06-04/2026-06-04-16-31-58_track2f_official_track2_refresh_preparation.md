@@ -1,9 +1,9 @@
-# Track 2F Official Track 2 Refresh Preparation
+# Wave 3.1 Official TE Curve Verification Pipeline Refresh Preparation
 
 ## Overview
 
-This technical document plans the operator-launched `Track 2` verification
-refresh for the completed `Track 2F` offset-aware probe campaign.
+This technical document plans the operator-launched `TE Curve Verification Pipeline` verification
+refresh for the completed `Wave 3.1` offset-aware probe campaign.
 
 The completed campaign is already closed out. `doc/running/active_training_campaign.yaml`
 records `status: none` and exposes three completed branch candidates in
@@ -20,9 +20,9 @@ collapse the refresh to the scalar-first `Fw` campaign entry.
 
 ## Technical Approach
 
-The implementation will prepare a repository-owned `Track 2F` verification
+The implementation will prepare a repository-owned `Wave 3.1` verification
 launcher and its documentation. The launcher will add or activate the three
-registry-backed `Track 2F` candidates in the official `Track 2` matrix path,
+registry-backed `Wave 3.1` candidates in the official `TE Curve Verification Pipeline` matrix path,
 then run the matrix only when the user launches it.
 
 Codex will not run the heavy matrix during preparation. The prepared launcher
@@ -50,22 +50,22 @@ No subagent use is planned for this preparation.
 
 ## Implementation Steps
 
-1. Inspect the current `Track 2` matrix template and support code to confirm
+1. Inspect the current `TE Curve Verification Pipeline` matrix template and support code to confirm
    how registry-backed neural candidates are declared and loaded.
-2. Add the three `Track 2F` branch candidates to the matrix configuration, or
-   create a narrow Track 2F overlay configuration if that is safer than
+2. Add the three `Wave 3.1` branch candidates to the matrix configuration, or
+   create a narrow Wave 3.1 overlay configuration if that is safer than
    editing the canonical template directly during preparation.
 3. Patch inference support only if `sequential_residual_offset_probe` is not
-   already loadable by the shared registry-backed `Track 2` path.
+   already loadable by the shared registry-backed `TE Curve Verification Pipeline` path.
 4. Create a dedicated PowerShell launcher under `scripts/campaigns/track_2/`
    with local and `-Remote` modes.
 5. Create the matching launcher note under `doc/scripts/campaigns/track_2/`
    with exact local and remote commands.
-6. Ensure the launcher writes a distinct output suffix for the `Track 2F`
+6. Ensure the launcher writes a distinct output suffix for the `Wave 3.1`
    refresh and does not start automatically during preparation.
 7. Run focused validation checks on the launcher/configuration without running
    the heavy matrix.
 8. Run Markdown QA on touched authored Markdown files and compile touched
    Python files.
 9. Report the exact command for the user to run, then wait for completion
-   before inspecting or accepting `Track 2` artifacts.
+   before inspecting or accepting `TE Curve Verification Pipeline` artifacts.

@@ -1,4 +1,4 @@
-﻿param(
+param(
     [switch]$Remote,
     [switch]$PreflightOnly,
     [switch]$EnqueueOnly,
@@ -72,7 +72,7 @@ $validatorArgumentList = @(
     "--require-prepared-state"
 )
 
-Write-Track2FBisStatus -Label "STEP" -Message "Validating Track 2F-bis package."
+Write-Track2FBisStatus -Label "STEP" -Message "Validating Wave 3.2 package."
 Invoke-Track2FBisPython -ArgumentList $validatorArgumentList
 $pythonExitCode = $script:LastTrack2FBisPythonExitCode
 if ($pythonExitCode -ne 0) {
@@ -134,7 +134,7 @@ if ($EnqueueOnly) {
     Write-Track2FBisStatus -Label "STEP" -Message "Enqueue-only verification enabled; training will not start."
 }
 
-Write-Track2FBisStatus -Label "STEP" -Message "Launching local Track 2F-bis harmonic-offset campaign."
+Write-Track2FBisStatus -Label "STEP" -Message "Launching local Wave 3.2 harmonic-offset campaign."
 Invoke-Track2FBisPython -ArgumentList $argumentList
 $trainingExitCode = $script:LastTrack2FBisPythonExitCode
 exit $trainingExitCode

@@ -1,9 +1,9 @@
-# Track 2 Component Offset Identification Plan
+# TE Curve Verification Pipeline Component Offset Identification Plan
 
 ## Overview
 
 This technical document records the next analysis gate for the observed
-vertical offset in `Track 2` TE-curve predictions. The current evidence shows
+vertical offset in `TE Curve Verification Pipeline` TE-curve predictions. The current evidence shows
 that raw curve error can be strongly affected by a mean / `DC` offset, but it
 does not yet prove that harmonic `a_0` / `Component 0` is the only source of
 the issue.
@@ -19,7 +19,7 @@ The working hypothesis is therefore conservative:
   hysteresis-like internal-state effects must be considered alongside model
   error.
 
-This work is separate from the ongoing `Track 2G` campaign closure. It should
+This work is separate from the ongoing `Wave 3.3` campaign closure. It should
 remain an analysis-only branch until the user explicitly approves further
 implementation or documentation updates.
 
@@ -30,14 +30,14 @@ harmonic/component diagnostics without assuming that they are identical.
 
 The first pass should:
 
-1. Reuse completed `Track 2D`, `Track 2E`, `Track 2F`, `Track 2F-bis`, and
-   `Track 2G` artifacts as context, but avoid modifying their accepted results.
+1. Reuse completed `CVP 1.4`, `CVP 1.5`, `Wave 3.1`, `Wave 3.2`, and
+   `Wave 3.3` artifacts as context, but avoid modifying their accepted results.
 2. Extract experimental `a_0` / `Component 0` values where the dataset or
    paper-reference payload exposes them.
 3. Plot experimental `a_0` over speed and torque, split by oil temperature and
    direction.
 4. Compare `a_0` trends with curve mean / `DC` offset trends from the existing
-   Track 2 diagnostics.
+   TE Curve Verification Pipeline diagnostics.
 5. Check whether high-offset cases are explained mainly by `a_0`, by several
    harmonics/components, or by condition/regime effects.
 6. Inspect available repeated operating points, if present, to estimate
@@ -63,14 +63,14 @@ The first pass should:
   Canonical dataset root for extracting operating conditions and available
   harmonic/component targets.
 - `config/datasets/transmission_error_dataset.yaml`
-  Canonical dataset configuration expected by Track 2 tooling.
+  Canonical dataset configuration expected by TE Curve Verification Pipeline tooling.
 - `scripts/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/`
-  Existing Track 2 reconstruction and reporting support surface that may be
+  Existing TE Curve Verification Pipeline reconstruction and reporting support surface that may be
   reused after approval.
 
 ## Implementation Steps
 
-1. Inspect the canonical dataset schema and Track 2 payload exports to identify
+1. Inspect the canonical dataset schema and TE Curve Verification Pipeline payload exports to identify
    where `a_0` / `Component 0`, curve mean, operating direction, speed, torque,
    and oil temperature are stored.
 2. Create an analysis report plan under `doc/reports/analysis/track2/` for a

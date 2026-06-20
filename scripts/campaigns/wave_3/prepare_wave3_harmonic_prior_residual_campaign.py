@@ -1,4 +1,4 @@
-"""Prepare the Wave 3 harmonic-prior residual campaign package."""
+"""Prepare the Wave 5.1 harmonic-prior residual campaign package."""
 
 from __future__ import annotations
 
@@ -83,7 +83,7 @@ LOSS_PROFILE_DICTIONARY = {
         "pointwise_loss": "smooth_l1",
         "huber_delta": 1.0,
         "intervention": "wave3_structured_robust_loss",
-        "notes": "Smooth L1 / Huber-style robust pressure selected from Track 2H evidence without MDN as the default.",
+        "notes": "Smooth L1 / Huber-style robust pressure selected from Wave 4 series evidence without MDN as the default.",
     },
 }
 
@@ -122,7 +122,7 @@ def validate_no_conflicting_active_campaign() -> None:
     active_campaign_name = str(active_state.get("campaign_name", "")).strip()
     same_campaign_is_prepared = active_status == "prepared" and active_campaign_name == CAMPAIGN_NAME
     assert active_status in ["", "none"] or same_campaign_is_prepared, (
-        "Cannot prepare Wave 3 harmonic-prior residual package while another campaign is prepared or active | "
+        "Cannot prepare Wave 5.1 harmonic-prior residual package while another campaign is prepared or active | "
         f"status={active_status} | campaign_name={active_campaign_name}"
     )
 
@@ -163,7 +163,7 @@ def build_base_dataset_config() -> dict[str, Any]:
 
 def build_base_model_config() -> dict[str, Any]:
 
-    """Build the Wave 3 harmonic-prior residual model config."""
+    """Build the Wave 5.1 harmonic-prior residual model config."""
 
     return {
         "input_size": 5,
@@ -186,7 +186,7 @@ def build_base_model_config() -> dict[str, Any]:
 
 def build_base_training_config(loss_profile_name: str) -> dict[str, Any]:
 
-    """Build the shared training config for one Wave 3 loss profile."""
+    """Build the shared training config for one Wave 5.1 loss profile."""
 
     loss_profile = LOSS_PROFILE_DICTIONARY[loss_profile_name]
     loss_dictionary: dict[str, Any] = {
@@ -230,7 +230,7 @@ def build_runtime_config() -> dict[str, Any]:
 
 def build_queue_config(queue_index: int, surface_key: str, loss_profile_name: str) -> dict[str, Any]:
 
-    """Build one Wave 3 harmonic-prior residual queue config."""
+    """Build one Wave 5.1 harmonic-prior residual queue config."""
 
     direction_metadata = DIRECTION_METADATA_DICTIONARY[surface_key]
     direction_token = str(direction_metadata["direction_token"])
@@ -265,13 +265,13 @@ def build_queue_config(queue_index: int, surface_key: str, loss_profile_name: st
             "use_forward_direction": bool(direction_metadata["use_forward_direction"]),
             "use_backward_direction": bool(direction_metadata["use_backward_direction"]),
             "runtime_input_contract": "current point state plus supported short causal sequence history only",
-            "promotion_rule": "Candidate must return through official Track 2 curve-first verification.",
+            "promotion_rule": "Candidate must return through official TE curve-first verification.",
             "harmonic_basis": "sparse_rcim",
             "harmonic_index_list": RCIM_HARMONIC_INDEX_LIST,
             "low_order_harmonic_index_list": LOW_ORDER_HARMONIC_INDEX_LIST,
             "stable_middle_harmonic_index_list": STABLE_MIDDLE_HARMONIC_INDEX_LIST,
             "high_order_harmonic_index_list": HIGH_ORDER_HARMONIC_INDEX_LIST,
-            "baseline_control": "Accepted Track 2 leaders plus completed Track 2H robust/probabilistic/MDN exploratory baselines",
+            "baseline_control": "Accepted curve-verified leaders plus completed Wave 4.1 robust/probabilistic/MDN exploratory baselines",
             "deterministic_playback_channel": "final_structured_plus_residual_curve",
             "notes": loss_profile["notes"],
         },
@@ -304,16 +304,16 @@ def write_campaign_readme(queue_path_list: list[Path]) -> Path:
 
     readme_path = CAMPAIGN_ROOT / "README.md"
     readme_line_list = [
-        "# Wave 3 Harmonic Prior Residual Campaign Package",
+        "# Wave 5.1 Harmonic Prior Residual Campaign Package",
         "",
-        "This package materializes the approved first real Wave 3 campaign.",
+        "This package materializes the approved first real Wave 5.1 campaign.",
         "It contains 6 runnable queue entries: deterministic pointwise control",
         "and Smooth L1 structured pressure across `global`, `Fw`, and `Bw`",
         "surfaces.",
         "",
         "The model predicts the recovered paper harmonic set, reconstructs a",
         "structured base TE curve, and adds a learned causal residual curve.",
-        "MDN is not used as the default Wave 3 loss in this package.",
+        "MDN is not used as the default Wave 5.1 loss in this package.",
         "",
         "## Queue Files",
         "",
@@ -366,14 +366,14 @@ def write_active_campaign_state(queue_path_list: list[Path], dataset_variant_pat
             ".\\scripts\\campaigns\\wave3\\run_wave3_harmonic_prior_residual_campaign.ps1",
             ".\\scripts\\campaigns\\wave3\\run_wave3_harmonic_prior_residual_campaign.ps1 -Remote",
         ],
-        "notes": "Prepared Wave 3 harmonic-prior residual package. Training execution requires explicit operator launch approval.",
+        "notes": "Prepared Wave 5.1 harmonic-prior residual package. Training execution requires explicit operator launch approval.",
     }
     write_yaml_file(PROJECT_PATH / ACTIVE_CAMPAIGN_STATE_PATH, active_state)
 
 
 def main() -> int:
 
-    """Prepare the Wave 3 harmonic-prior residual campaign package."""
+    """Prepare the Wave 5.1 harmonic-prior residual campaign package."""
 
     validate_no_conflicting_active_campaign()
     dataset_variant_path_list = copy_dataset_variants()
@@ -381,7 +381,7 @@ def main() -> int:
     readme_path = write_campaign_readme(queue_path_list)
     write_active_campaign_state(queue_path_list, dataset_variant_path_list, readme_path)
     print(
-        "Prepared Wave 3 harmonic-prior residual campaign package | "
+        "Prepared Wave 5.1 harmonic-prior residual campaign package | "
         f"campaign={CAMPAIGN_NAME} | queue_entries={len(queue_path_list)}"
     )
     return 0

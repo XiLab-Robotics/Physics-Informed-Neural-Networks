@@ -9,7 +9,7 @@ The immediate operator request is to validate the retuned model artifacts
 created by the recovered-original launcher, promote archive-grade models into
 `models/paper_reference/rcim_retuned/`, generate a detailed PDF report, and
 reset `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md` around the new
-paper-original, paper-retuned, and Track 1 comparison structure.
+paper-original, paper-retuned, and RCIM Model-Bank Reproduction comparison structure.
 
 The active campaign state is `cancelled`, so no currently running campaign file
 is in scope for mutation during this closeout. No Codex subagent is planned for
@@ -41,15 +41,15 @@ The closeout will use a validation-first promotion flow.
 6. Rewrite `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md` around the
    new canonical structure:
    forward and backward copies of Tables `2`, `3`, `4`, and `5`;
-   paper-original, paper-retuned, and Track 1 variants for each table;
-   reset Track 1 status cells to empty/unfilled markers so the new Track 1
+   paper-original, paper-retuned, and RCIM Model-Bank Reproduction variants for each table;
+   reset RCIM Model-Bank Reproduction status cells to empty/unfilled markers so the new RCIM Model-Bank Reproduction
    pass can be filled progressively from the refreshed baseline.
 
-The Track 1 colored markers will compare against the best available baseline:
+The RCIM Model-Bank Reproduction colored markers will compare against the best available baseline:
 
-- forward Track 1 cells compare against the better value between
+- forward RCIM Model-Bank Reproduction cells compare against the better value between
   `paper original` and `paper retuned`;
-- backward Track 1 cells compare against `paper retuned`, because the paper has
+- backward RCIM Model-Bank Reproduction cells compare against `paper retuned`, because the paper has
   no backward original tables.
 
 ## Involved Components
@@ -107,7 +107,7 @@ sources before promoting anything under `rcim_retuned/forward/`.
 7. Export the report to PDF through
    `scripts/reports/pdf/generate_styled_report_pdf.py` and validate the real
    PDF deliverable.
-8. Rewrite `RCIM Paper Reference Benchmark.md` to remove obsolete Track 1
+8. Rewrite `RCIM Paper Reference Benchmark.md` to remove obsolete RCIM Model-Bank Reproduction
    dashboards and keep the new Tables `2`-`5` structure as the canonical
    baseline.
 9. Run Markdown QA on all touched authored Markdown.

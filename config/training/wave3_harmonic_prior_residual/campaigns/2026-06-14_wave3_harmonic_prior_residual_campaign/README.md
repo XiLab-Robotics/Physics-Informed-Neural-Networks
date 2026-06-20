@@ -1,13 +1,13 @@
-# Wave 3 Harmonic Prior Residual Campaign Package
+# Wave 5.1 Harmonic Prior Residual Campaign Package
 
-This package materializes the approved first real Wave 3 campaign.
+This package materializes the approved first real Wave 5.1 campaign.
 It contains 6 runnable queue entries: deterministic pointwise control
 and Smooth L1 structured pressure across `global`, `Fw`, and `Bw`
 surfaces.
 
 The model predicts the recovered paper harmonic set, reconstructs a
 structured base TE curve, and adds a learned causal residual curve.
-MDN is not used as the default Wave 3 loss in this package.
+MDN is not used as the default Wave 5.1 loss in this package.
 
 ## Queue Files
 

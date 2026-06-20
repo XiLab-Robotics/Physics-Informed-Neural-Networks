@@ -1,8 +1,8 @@
-# Track 1 SVR Remote LAN Campaign Execution
+# RCIM Model-Bank Reproduction SVR Remote LAN Campaign Execution
 
 ## Overview
 
-The current `Track 1` `SVR` reference-grid repair campaign is already prepared
+The current `RCIM Model-Bank Reproduction` `SVR` reference-grid repair campaign is already prepared
 and approved locally, but the first local attempts show that the
 paper-reference `GridSearchCV` path is heavy enough to justify execution on the
 stronger LAN workstation. The repository already contains a canonical

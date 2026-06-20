@@ -1,4 +1,4 @@
-"""Refresh colored status markers in the Track 1 benchmark full-matrix tables."""
+"""Refresh colored status markers in the RCIM Model-Bank Reproduction benchmark full-matrix tables."""
 
 from __future__ import annotations
 
@@ -163,7 +163,7 @@ def refresh_full_matrix_section_markers(line_list: list[str]) -> list[str]:
 
 def refresh_track1_benchmark_colored_markers() -> Path:
 
-    """Refresh and persist the Track 1 benchmark colored full-matrix markers."""
+    """Refresh and persist the RCIM Model-Bank Reproduction benchmark colored full-matrix markers."""
 
     benchmark_text = BENCHMARK_REPORT_PATH.read_text(encoding="utf-8")
     benchmark_line_list = benchmark_text.splitlines()
@@ -192,7 +192,7 @@ def main() -> None:
     )
 
     refreshed_report_path = refresh_track1_benchmark_colored_markers()
-    print(f"[DONE] Refreshed Track 1 benchmark colored markers | {refreshed_report_path}")
+    print(f"[DONE] Refreshed RCIM Model-Bank Reproduction benchmark colored markers | {refreshed_report_path}")
 
 
 if __name__ == "__main__":

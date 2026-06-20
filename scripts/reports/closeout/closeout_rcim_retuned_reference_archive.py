@@ -2,7 +2,7 @@
 
 This script promotes validated retuned recovered-original RCIM model exports
 into ``models/paper_reference/rcim_retuned`` and regenerates the benchmark
-report surface used to compare paper-original, paper-retuned, and Track 1
+report surface used to compare paper-original, paper-retuned, and RCIM Model-Bank Reproduction
 results.
 """
 
@@ -696,11 +696,11 @@ def write_benchmark_markdown(
         "- `paper original`: values reconstructed from the original paper tables;",
         "- `paper retuned`: recovered-original RCIM models retuned through",
         "  `run_rcim_original_reference_training.ps1`;",
-        "- `Track 1`: repository-owned exact-paper model-bank results, reset to",
-        "  empty pending cells until the next Track 1 pass repopulates them.",
+        "- `RCIM Model-Bank Reproduction`: repository-owned exact-paper model-bank results, reset to",
+        "  empty pending cells until the next RCIM Model-Bank Reproduction pass repopulates them.",
         "",
-        "Forward Track 1 cells must compare against the better value between",
-        "`paper original` and `paper retuned`. Backward Track 1 cells must",
+        "Forward RCIM Model-Bank Reproduction cells must compare against the better value between",
+        "`paper original` and `paper retuned`. Backward RCIM Model-Bank Reproduction cells must",
         "compare against `paper retuned`, because the paper does not provide",
         "backward original tables.",
         "",
@@ -744,7 +744,7 @@ def write_benchmark_markdown(
 
             lines.extend(["", "#### Paper Retuned", ""])
             append_metric_matrix(lines, direction, target_kind, metric_name, harmonics, metric_map)
-            lines.extend(["", "#### Track 1", ""])
+            lines.extend(["", "#### RCIM Model-Bank Reproduction", ""])
             append_pending_track1_matrix(lines, harmonics)
 
     lines.extend(
@@ -754,12 +754,12 @@ def write_benchmark_markdown(
             "",
             "- `paper original` is immutable paper-side evidence and exists only for forward.",
             "- `paper retuned` is the current recovered-original retuned baseline.",
-            "- `Track 1` cells are intentionally empty after this reset.",
-            "- Future Track 1 closeouts must fill cells only after accepted",
+            "- `RCIM Model-Bank Reproduction` cells are intentionally empty after this reset.",
+            "- Future RCIM Model-Bank Reproduction closeouts must fill cells only after accepted",
             "  family-target results are available in the repository.",
-            "- Future Track 1 forward status colors compare against the best of",
+            "- Future RCIM Model-Bank Reproduction forward status colors compare against the best of",
             "  `paper original` and `paper retuned`.",
-            "- Future Track 1 backward status colors compare against `paper retuned`.",
+            "- Future RCIM Model-Bank Reproduction backward status colors compare against `paper retuned`.",
         ]
     )
 
@@ -802,7 +802,7 @@ def append_metric_matrix(
 
 
 def append_pending_track1_matrix(lines: list[str], harmonics: list[int]) -> None:
-    """Append a reset Track 1 matrix with empty pending cells."""
+    """Append a reset RCIM Model-Bank Reproduction matrix with empty pending cells."""
 
     lines.append("<!-- markdownlint-disable MD013 -->")
     lines.append("| Model | " + " | ".join(f"`{harmonic}`" for harmonic in harmonics) + " |")

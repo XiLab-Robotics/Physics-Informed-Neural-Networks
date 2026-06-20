@@ -1,11 +1,11 @@
-# Wave 2C Track 2 Verification Refresh Launcher
+# Wave 2.3 TE Curve Verification Pipeline Verification Refresh Launcher
 
 ## Overview
 
-This launcher runs the operator-approved `Track 2` offline verification refresh
-for the completed `Wave 2C` residual harmonic temporal hybrid campaign.
+This launcher runs the operator-approved `TE Curve Verification Pipeline` offline verification refresh
+for the completed `Wave 2.3` residual harmonic temporal hybrid campaign.
 
-It adds the current registry-backed `Wave 2C` candidate surfaces to the
+It adds the current registry-backed `Wave 2.3` candidate surfaces to the
 official direction-aware matrix through:
 
 - `residual_harmonic_gru_sequence_sparse_rcim_global`,
@@ -28,7 +28,7 @@ official direction-aware matrix through:
   `residual_harmonic_lstm_sequence_dense360_Bw`.
 
 The launcher is intentionally operator-facing. Codex prepares it and provides
-the command, but does not run the heavy `Track 2` matrix internally.
+the command, but does not run the heavy `TE Curve Verification Pipeline` matrix internally.
 
 ## Local Command
 
@@ -48,8 +48,8 @@ Run from the repository root:
 .\scripts\campaigns\track_2\run_wave2c_track2_verification_refresh.ps1 -Remote
 ```
 
-Remote mode syncs the required local Track 2 launcher, config, script,
-registry, prior `Wave 2B` baseline summary, and `Wave 2C` checkpoint paths to
+Remote mode syncs the required local TE Curve Verification Pipeline launcher, config, script,
+registry, prior `Wave 2.2` baseline summary, and `Wave 2.3` checkpoint paths to
 the remote checkout before execution. It then syncs only the generated artifact
 paths listed by the run-local artifact sync manifest back to the local
 repository.
@@ -68,7 +68,7 @@ Override connection details when needed:
 
 The launcher runs:
 
-1. the official full direction-aware `Track 2` matrix;
+1. the official full direction-aware `TE Curve Verification Pipeline` matrix;
 2. the best-model collage report generation;
 3. the multi-model curve-comparison report generation;
 4. the visual source-coverage validation against the matrix candidate list;
@@ -81,8 +81,8 @@ When visual reports are enabled, the launcher fails before PDF export if a
 registry-backed matrix source is not visible in the collage and overlay
 Markdown reports.
 
-By default, the matrix uses the completed `Wave 2B` refresh as the configured
-baseline summary and only evaluates the new `Wave 2C` incremental candidates.
+By default, the matrix uses the completed `Wave 2.2` refresh as the configured
+baseline summary and only evaluates the new `Wave 2.3` incremental candidates.
 The grouped report-plot sync is scoped to the new
 `wave2c_residual_harmonic_temporal_registry` source. Use
 `-SyncFullTrack2CampaignResultPlots` only when a deliberate full historical
@@ -120,7 +120,7 @@ Remote source synchronization sends:
 - `doc/scripts/campaigns/track_2/`
 - `output/registries/families/residual_harmonic_*`
 - `output/training_runs/residual_harmonic_*`
-- the completed `Wave 2B` `Track 2` baseline summary and per-condition metrics
+- the completed `Wave 2.2` `TE Curve Verification Pipeline` baseline summary and per-condition metrics
 
 Remote artifact synchronization retrieves:
 

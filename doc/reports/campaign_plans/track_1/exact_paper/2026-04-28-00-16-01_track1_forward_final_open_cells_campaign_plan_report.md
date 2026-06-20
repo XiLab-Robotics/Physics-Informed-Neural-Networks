@@ -1,8 +1,8 @@
-# Track 1 Forward Final Open-Cells Campaign Plan Report
+# RCIM Model-Bank Reproduction Forward Final Open-Cells Campaign Plan Report
 
 ## Overview
 
-This planning report prepares the next exact-paper `Track 1` repair wave after
+This planning report prepares the next exact-paper `RCIM Model-Bank Reproduction` repair wave after
 the completed `forward_open_cell_repair` closeout.
 
 The new wave is intentionally narrow and attacks only the last canonical

@@ -1,9 +1,9 @@
-# Track 2E Offset Predictability Feasibility Builder
+# CVP 1.5 Offset Predictability Feasibility Builder
 
 ## Overview
 
 `scripts/reports/analysis/build_track2e_offset_predictability_feasibility.py`
-builds the `Track 2E` diagnostic report from completed `Track 2D`
+builds the `CVP 1.5` diagnostic report from completed `CVP 1.4`
 mean-offset artifacts.
 
 The script is evaluation-only. It does not train models, does not update
@@ -13,7 +13,7 @@ to a runtime model.
 ## Main Role
 
 The builder tests whether the curve-level vertical offset observed by
-`Track 2D` is predictable enough from causal operating-condition groupings to
+`CVP 1.4` is predictable enough from causal operating-condition groupings to
 justify the next offset-aware branch.
 
 It keeps `Fw`, `Bw`, and `global` surfaces in parallel and assigns each
@@ -27,7 +27,7 @@ candidate a recommended next intervention:
 
 ## Inputs
 
-By default, the script reads the accepted `Track 2D` artifact bundle:
+By default, the script reads the accepted `CVP 1.4` artifact bundle:
 
 - `output/validation_checks/track2d_mean_offset_full_matrix_audit/2026-06-03-10-54-10__track2d_mean_offset_full_matrix_audit/track2d_per_curve_metrics.csv`
 - `output/validation_checks/track2d_mean_offset_full_matrix_audit/2026-06-03-10-54-10__track2d_mean_offset_full_matrix_audit/track2d_candidate_summary.csv`

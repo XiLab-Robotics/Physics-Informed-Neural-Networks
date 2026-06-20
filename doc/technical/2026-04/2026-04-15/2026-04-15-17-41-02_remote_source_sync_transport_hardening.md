@@ -2,7 +2,7 @@
 
 ## Overview
 
-The current remote `Track 1` `SVR` launcher now verifies source-config paths
+The current remote `RCIM Model-Bank Reproduction` `SVR` launcher now verifies source-config paths
 correctly enough to expose the next real blocker: after `sync_up`, the remote
 campaign directory contains the expected four YAML names, but the remote Python
 runtime sees those entries as non-existent (`exists=False`, `is_file=False`)
@@ -71,6 +71,6 @@ files visible to both PowerShell and Python, not placeholder-like entries.
    current repository-relative destination layout on the remote clone.
 3. Add a post-copy verification step that confirms each copied source file is a
    real remote file visible to Python before `remote_run`.
-4. Retest the current `Track 1` `SVR` remote campaign launcher on the LAN node.
+4. Retest the current `RCIM Model-Bank Reproduction` `SVR` remote campaign launcher on the LAN node.
 5. Update the launcher note if the transport model or operator-visible logging
    changes.

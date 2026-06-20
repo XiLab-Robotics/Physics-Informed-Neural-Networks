@@ -1,16 +1,16 @@
-# Wave 4B MMT Feature Generator Skeleton
+# Wave 5.2B MMT Feature Generator Skeleton
 
 ## Overview
 
-This technical document defines a non-campaign skeleton pass for `Wave 4B`.
+This technical document defines a non-campaign skeleton pass for `Wave 5.2B`.
 The goal is to prepare an auditable MMT feature-generation interface while a
-separate `Track 2H` quantile / probabilistic campaign runs on another
+separate `Wave 4.2` quantile / probabilistic campaign runs on another
 workstation.
 
-The work must keep `Wave 4B` implementation-ready but not campaign-ready. It
+The work must keep `Wave 5.2B` implementation-ready but not campaign-ready. It
 must not create real training queues, mutate
 `doc/running/active_training_campaign.yaml`, update registries, or consume the
-in-flight `Track 2H` results before that campaign is closed out.
+in-flight `Wave 4 series` results before that campaign is closed out.
 
 The skeleton should reduce future integration risk by making the feature
 schema, leakage boundary, configuration template, validator, and dry-run
@@ -18,13 +18,13 @@ launcher explicit.
 
 ## Technical Approach
 
-The implementation should build on the existing `Wave 4A` diagnostic outputs
-and the `Wave 4B` design report. The first pass should expose a conservative
+The implementation should build on the existing `Wave 5.2A` diagnostic outputs
+and the `Wave 5.2B` design report. The first pass should expose a conservative
 feature-generation package, not a trained model.
 
 The generator should:
 
-- load or reproduce the current `Wave 4A` MMT diagnostic curve boundary;
+- load or reproduce the current `Wave 5.2A` MMT diagnostic curve boundary;
 - define explicit feature groups for global analytical curves, subsystem
   terms, harmonic summaries, and residual-label placeholders;
 - classify each feature as inference-safe, train-only calibration material, or
@@ -72,9 +72,9 @@ task boundary, and approval requirement must be recorded before launch.
 
 1. Create and approve this technical document.
 2. Create and approve the paired preliminary non-campaign plan report.
-3. Inspect the existing `Wave 4A` diagnostic adapter, parameter inventory,
+3. Inspect the existing `Wave 5.2A` diagnostic adapter, parameter inventory,
    diagnostic report generator, and repository style guide.
-4. Implement the smallest `Wave 4B` feature generator with explicit feature
+4. Implement the smallest `Wave 5.2B` feature generator with explicit feature
    metadata and leakage-use labels.
 5. Add a dry-run template config that marks the package as
    `implementation-ready` and `not campaign-ready`.

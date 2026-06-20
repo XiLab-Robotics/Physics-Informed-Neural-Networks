@@ -1,11 +1,11 @@
-# Track 2F-Bis Harmonic-Offset Probe Campaign Plan Report
+# Wave 3.2 Harmonic-Offset Probe Campaign Plan Report
 
 ## Executive Summary
 
-This preliminary campaign plan prepares the proposed `Track 2F-bis`
+This preliminary campaign plan prepares the proposed `Wave 3.2`
 harmonic-offset probe without launching training.
 
-The completed `Track 2F` `sequential_residual_offset_probe` campaign showed
+The completed `Wave 3.1` `sequential_residual_offset_probe` campaign showed
 that a clean causal non-harmonic residual-offset model is execution-valid, but
 it does not force TE waveform shape through harmonic or periodic structure.
 The next probe should therefore compare that clean baseline against an
@@ -17,11 +17,11 @@ document are explicitly approved.
 
 ## Baseline And Verification Rule
 
-`Track 2` remains the official offline curve-first verification surface.
-`Track 2F-bis` candidates must not be accepted from scalar training metrics
+`TE Curve Verification Pipeline` remains the official offline curve-first verification surface.
+`Wave 3.2` candidates must not be accepted from scalar training metrics
 alone. Any promoted result must later refresh:
 
-- the direction-aware `Track 2` matrix;
+- the direction-aware `TE Curve Verification Pipeline` matrix;
 - the curve-first reranking report and PDF;
 - the mean-offset diagnostics where relevant;
 - the best-model collage report and PDF;
@@ -39,18 +39,18 @@ The campaign keeps the repository direction rule:
 
 ## Candidate Matrix
 
-The first `Track 2F-bis` package should compare two intervention types across
+The first `Wave 3.2` package should compare two intervention types across
 the three required surfaces:
 
 | Intervention | Direction Surfaces | Candidate Count | Initial Role |
 | --- | --- | ---: | --- |
-| `clean_sequential_residual_offset_control` | `global`, `Fw`, `Bw` | 3 | non-harmonic Track 2F-like control branch |
+| `clean_sequential_residual_offset_control` | `global`, `Fw`, `Bw` | 3 | non-harmonic Wave 3.1-like control branch |
 | `harmonic_residual_offset_probe` | `global`, `Fw`, `Bw` | 3 | explicit harmonic shape branch plus causal residual-offset branch |
 
 The campaign therefore contains `6` runnable training entries. It is
 deliberately smaller than a full wave because the goal is to isolate whether
 explicit harmonic shape preservation fixes the curve-shape loss observed in
-the clean Track 2F branch.
+the clean Wave 3.1 branch.
 
 ## Model Design
 
@@ -68,7 +68,7 @@ final_te_prediction =
 ```
 
 The structured branch should reuse `HarmonicRegression`. The first campaign
-should use the sparse `RCIM` harmonic list by default because Wave 2C showed
+should use the sparse `RCIM` harmonic list by default because Wave 2.3 showed
 that sparse harmonic structure remained more credible than broad dense
 expansion for curve-level behavior.
 
@@ -162,14 +162,14 @@ After campaign execution:
   established workflow;
 - refresh `Training Results Master Summary.md`;
 - close out the campaign with Markdown and validated PDF deliverables;
-- propose the optional heavy `Track 2` refresh as a separate
+- propose the optional heavy `TE Curve Verification Pipeline` refresh as a separate
   operator-launched step.
 
 ## Decision Criteria
 
 Carry forward the harmonic-offset branch if:
 
-- it improves Track 2 curve shape versus the matching clean baseline on the
+- it improves TE Curve Verification Pipeline curve shape versus the matching clean baseline on the
   same `global`, `Fw`, or `Bw` surface;
 - raw error does not improve only by masking centered-shape, amplitude, or
   phase degradation;
@@ -181,10 +181,10 @@ Carry forward the clean branch if:
 - a new objective, index, or training setup improves it without requiring
   harmonic forcing;
 - it remains a stronger control for future composite-loss comparisons than the
-  first Track 2F run.
+  first Wave 3.1 run.
 
 Do not promote either branch if:
 
-- the only gain is scalar `test_mae` without Track 2 curve-level support;
+- the only gain is scalar `test_mae` without TE Curve Verification Pipeline curve-level support;
 - the gain depends on future curve information unavailable at runtime;
 - `global`, `Fw`, and `Bw` are collapsed into one scalar winner.

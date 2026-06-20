@@ -1,9 +1,9 @@
-# Track 1 Overnight Gap-Closure Campaign Launcher
+# RCIM Model-Bank Reproduction Overnight Gap-Closure Campaign Launcher
 
 ## Overview
 
 This launcher is the canonical short PowerShell wrapper for the next overnight
-`Track 1` campaign batch.
+`RCIM Model-Bank Reproduction` campaign batch.
 
 The package is organized as `4` logical campaign blocks, but it is launched
 through one command and one coordinated run list.

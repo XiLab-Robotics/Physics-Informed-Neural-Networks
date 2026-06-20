@@ -1,6 +1,6 @@
-# Track 1 GBM Cellwise Reference Campaign Launcher
+# RCIM Model-Bank Reproduction GBM Cellwise Reference Campaign Launcher
 
-    This launcher runs the dedicated `Track 1` exact-paper `GBM` family
+    This launcher runs the dedicated `RCIM Model-Bank Reproduction` exact-paper `GBM` family
     cellwise reference campaign.
 
     Included configs:

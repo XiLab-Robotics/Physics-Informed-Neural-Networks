@@ -1,6 +1,6 @@
-# Track 1 LGBM Full-Matrix Campaign Launcher
+# RCIM Model-Bank Reproduction LGBM Full-Matrix Campaign Launcher
 
-This launcher runs the dedicated `Track 1` exact-paper `LGBM` family campaign.
+This launcher runs the dedicated `RCIM Model-Bank Reproduction` exact-paper `LGBM` family campaign.
 
 Included configs:
 

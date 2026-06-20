@@ -1,13 +1,13 @@
-# Track 2H Dispersion-Aware Modeling Campaign Launcher
+# Wave 4 series Dispersion-Aware Modeling Campaign Launcher
 
 ## Overview
 
-This launcher validates and runs the prepared first `Track 2H`
+This launcher validates and runs the prepared `Wave 4.1`
 dispersion-aware modeling package.
 
 The package contains `9` runnable queue YAML files: three robust pointwise
 losses across `global`, `Fw`, and `Bw` surfaces. The already verified
-`Track 2G` pointwise-control candidates are the MSE baseline for this robust
+`Wave 3.3` pointwise-control candidates are the MSE baseline for this robust
 probe.
 
 Runtime inputs remain causal point or short-history sequence inputs. No future
@@ -60,5 +60,5 @@ launch.
 
 After training finishes, perform normal campaign closeout first: Markdown
 result report, PDF export and visual QA, registry synchronization, active
-campaign cleanup, and master-summary synchronization. The official `Track 2`
+campaign cleanup, and master-summary synchronization. The official `TE Curve Verification Pipeline`
 verification refresh remains a separate operator-approved step after closeout.

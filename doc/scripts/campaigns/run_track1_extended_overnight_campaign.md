@@ -1,9 +1,9 @@
-# Track 1 Extended Overnight Campaign Launcher
+# RCIM Model-Bank Reproduction Extended Overnight Campaign Launcher
 
 ## Overview
 
 This launcher is the canonical short PowerShell wrapper for the larger and
-heavier overnight `Track 1` campaign package.
+heavier overnight `RCIM Model-Bank Reproduction` campaign package.
 
 The package is organized as `6` logical blocks and `48` total runs, but it is
 still launched through one command and one coordinated queue.

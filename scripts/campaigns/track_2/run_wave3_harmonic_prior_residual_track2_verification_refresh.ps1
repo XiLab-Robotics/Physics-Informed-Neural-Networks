@@ -210,7 +210,7 @@ function Invoke-LoggedCondaPython {
 
     $exitCode = [int]$process.ExitCode
     if ($exitCode -ne 0) {
-        throw ("Track 2 step failed | step={0} | exit_code={1} | log={2}" -f $StepName, $exitCode, $logPath)
+        throw ("TE Curve Verification Pipeline step failed | step={0} | exit_code={1} | log={2}" -f $StepName, $exitCode, $logPath)
     }
 }
 
@@ -341,7 +341,7 @@ Set-Location -LiteralPath '$RemoteRepositoryPath'
     Sort-Object LastWriteTime -Descending |
     Select-Object -First 1
 if (`$null -eq `$manifestPath) {
-        throw 'No remote Wave 3 harmonic-prior residual artifact sync manifest found.'
+        throw 'No remote Wave 5.1 harmonic-prior residual artifact sync manifest found.'
 }
 `$existingPathList = @()
 foreach (`$relativePath in Get-Content -LiteralPath `$manifestPath.FullName) {
@@ -356,7 +356,7 @@ foreach (`$relativePath in Get-Content -LiteralPath `$manifestPath.FullName) {
     }
 }
 if (`$existingPathList.Count -eq 0) {
-        throw 'The remote Wave 3 harmonic-prior residual artifact sync manifest did not contain existing paths.'
+        throw 'The remote Wave 5.1 harmonic-prior residual artifact sync manifest did not contain existing paths.'
 }
 New-Item -ItemType Directory -Force -Path (Split-Path -Parent '$remoteArchivePath') | Out-Null
 if (Test-Path -LiteralPath '$remoteArchivePath') {
@@ -389,7 +389,7 @@ if ($Remote) {
         throw "RemoteRepositoryPath is required for -Remote. Set PINNS_REMOTE_TRAINING_REPO_PATH or pass -RemoteRepositoryPath."
     }
 
-    Write-StatusLine "INFO" ("Launching Wave 3 harmonic-prior residual refresh remotely | host={0} | repo={1}" -f $RemoteHostAlias, $RemoteRepositoryPath)
+    Write-StatusLine "INFO" ("Launching Wave 5.1 harmonic-prior residual refresh remotely | host={0} | repo={1}" -f $RemoteHostAlias, $RemoteRepositoryPath)
     Invoke-RemoteSourceSync
 
     $remoteScriptPath = "scripts\campaigns\track_2\run_wave3_harmonic_prior_residual_track2_verification_refresh.ps1"
@@ -401,11 +401,11 @@ exit `$LASTEXITCODE
 
     Invoke-RemotePowerShellText -RemoteScriptText $remoteCommand
     Invoke-RemoteArtifactManifestSync
-    Write-StatusLine "DONE" "Remote Wave 3 harmonic-prior residual refresh completed and artifacts synchronized locally"
+    Write-StatusLine "DONE" "Remote Wave 5.1 harmonic-prior residual refresh completed and artifacts synchronized locally"
     exit 0
 }
 
-Write-StatusLine "INFO" "Preparing local Wave 3 harmonic-prior residual verification refresh"
+Write-StatusLine "INFO" "Preparing local Wave 5.1 harmonic-prior residual verification refresh"
 Write-StatusLine "INFO" ("Config: {0}" -f $track2ConfigPath)
 Write-StatusLine "INFO" ("Output suffix: {0}" -f $OutputSuffix)
 Write-StatusLine "INFO" ("Report date: {0}" -f $ReportDate)
@@ -485,13 +485,13 @@ if (-not $SkipVisualReports) {
             "--report-date",
             $ReportDate,
             "--refresh-label",
-            "Wave 3 harmonic-prior residual refresh",
+            "Wave 5.1 harmonic-prior residual refresh",
             "--candidate-source-label",
             "wave3_harmonic_prior_residual_registry",
             "--decision",
             "verified exploratory baseline; not promoted over the accepted direction-parallel leaders",
             "--next-step",
-            "Use the Wave 3 Track 2 curve, offset, collage, and overlay evidence to decide whether to continue Wave 3, move to Wave 4, or reopen latent-state modeling.",
+            "Use the Wave 5.1 TE Curve Verification Pipeline curve, offset, collage, and overlay evidence to decide whether to continue Wave 5.1, move to Wave 5.2, or reopen latent-state modeling.",
             "--output-report-path",
             $officialReportPath,
             "--operator-log-root",
@@ -517,4 +517,4 @@ if (-not $SkipVisualReports) {
 }
 
 Save-ArtifactSyncManifest
-Write-StatusLine "DONE" "Wave 3 harmonic-prior residual verification refresh completed"
+Write-StatusLine "DONE" "Wave 5.1 harmonic-prior residual verification refresh completed"

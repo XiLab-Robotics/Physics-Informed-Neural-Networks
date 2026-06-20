@@ -1,6 +1,6 @@
-# Track 1 XGBM Full-Matrix Campaign Launcher
+# RCIM Model-Bank Reproduction XGBM Full-Matrix Campaign Launcher
 
-This launcher runs the dedicated `Track 1` exact-paper `XGBM` family campaign.
+This launcher runs the dedicated `RCIM Model-Bank Reproduction` exact-paper `XGBM` family campaign.
 
 Included configs:
 

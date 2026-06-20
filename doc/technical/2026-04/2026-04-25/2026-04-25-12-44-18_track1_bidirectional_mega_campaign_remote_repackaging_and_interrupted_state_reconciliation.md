@@ -1,10 +1,10 @@
-# Track 1 Bidirectional Mega Campaign Remote Repackaging And Interrupted State Reconciliation
+# RCIM Model-Bank Reproduction Bidirectional Mega Campaign Remote Repackaging And Interrupted State Reconciliation
 
 ## Overview
 
-The prepared `Track 1` bidirectional original-dataset mega-campaign was
+The prepared `RCIM Model-Bank Reproduction` bidirectional original-dataset mega-campaign was
 packaged incorrectly as a local sequential launcher instead of following the
-standard remote campaign pattern already used in prior `Track 1` exact-paper
+standard remote campaign pattern already used in prior `RCIM Model-Bank Reproduction` exact-paper
 work.
 
 The user started the local launcher and then interrupted it. The active

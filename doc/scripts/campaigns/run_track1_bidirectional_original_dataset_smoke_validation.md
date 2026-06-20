@@ -1,9 +1,9 @@
-# Track 1 Bidirectional Original-Dataset Smoke Validation Launcher
+# RCIM Model-Bank Reproduction Bidirectional Original-Dataset Smoke Validation Launcher
 
 ## Overview
 
 This launcher executes the lightweight structural smoke-validation wave for the
-refactored `Track 1` original-dataset exact-model-bank branch.
+refactored `RCIM Model-Bank Reproduction` original-dataset exact-model-bank branch.
 
 The script is stored in:
 

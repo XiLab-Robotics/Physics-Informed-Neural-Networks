@@ -1,12 +1,12 @@
-# Track 2H Quantile Probabilistic Package
+# Wave 4.2 Quantile Probabilistic Package
 
 ## Overview
 
-This technical note prepares the second `Track 2H` dispersion-aware package:
+This technical note prepares the `Wave 4.2` dispersion-aware package:
 quantile and probabilistic regression candidates for locally dispersed TE
 curves. The completed robust-loss package showed that outlier-resistant losses
 are useful exploratory baselines, but they did not displace the current
-direction-parallel `Track 2` leaders. The next package must test whether
+direction-parallel `TE Curve Verification Pipeline` leaders. The next package must test whether
 explicit uncertainty modeling can separate reproducible curve shape from the
 experiment-dependent dispersion that appears to affect `h0`, `h1`, and selected
 higher harmonics.
@@ -19,19 +19,19 @@ matching campaign plan are explicitly approved.
 
 The package will reuse the causal sequence framing, dataset split discipline,
 and `global` / `Fw` / `Bw` decision surfaces already used by the robust-loss
-`Track 2H` campaign. The main change is the prediction target interpretation:
+`Wave 4 series` campaign. The main change is the prediction target interpretation:
 instead of fitting a single deterministic curve with a robust point loss, each
 candidate will expose either calibrated quantiles or a distribution parameter
-head while preserving a deterministic curve for official `Track 2` scoring.
+head while preserving a deterministic curve for official `TE Curve Verification Pipeline` scoring.
 
 The first package scope should remain narrow enough to close cleanly:
 
 - Quantile candidates predict lower, median, and upper TE curves, initially
   using `p10`, `p50`, and `p90` pinball losses. The `p50` curve is the
-  deterministic candidate submitted to the standard `Track 2` comparison.
+  deterministic candidate submitted to the standard `TE Curve Verification Pipeline` comparison.
 - Gaussian probabilistic candidates predict `mu` and a numerically guarded
   dispersion term. The `mu` curve is the deterministic candidate submitted to
-  the standard `Track 2` comparison.
+  the standard `TE Curve Verification Pipeline` comparison.
 - Each candidate family is prepared for `global`, `Fw`, and `Bw`, producing six
   primary queued runs before any mixture-density or latent-state branch is
   attempted.
@@ -44,12 +44,12 @@ The implementation should inspect the current model and training-loss extension
 points before choosing the concrete code shape. If the existing
 `curve_aware_harmonic_residual_offset_probe` stack can support output-head and
 loss variants cleanly, prefer a minimal configuration-driven extension. If that
-would make the deterministic path ambiguous, introduce explicit `Track 2H`
+would make the deterministic path ambiguous, introduce explicit `Wave 4 series`
 model-family keys for quantile and Gaussian heads.
 
 This package does not change the later roadmap order. Mixture density networks,
-causal latent-state / hysteresis-aware candidates, `Wave 3` hybrid structured
-models, and `Wave 4` PINN branches remain separate follow-up stages. The
+causal latent-state / hysteresis-aware candidates, `Wave 5.1` hybrid structured
+models, and `Wave 5.2` PINN branches remain separate follow-up stages. The
 probabilistic package should instead provide evidence about whether uncertainty
 aware training is worth carrying into the later multi-task / multi-head branch.
 
@@ -62,9 +62,9 @@ aware training is worth carrying into the later multi-task / multi-head branch.
   campaign plan after this technical document is approved.
 - `scripts/campaigns/track_2/prepare_track2h_dispersion_aware_modeling_campaign.py`
   provides the reference robust-loss package structure.
-- A new Track 2 campaign-preparation script will generate the quantile and
+- A new TE Curve Verification Pipeline campaign-preparation script will generate the quantile and
   probabilistic YAML queue without modifying the completed robust-loss package.
-- A new Track 2 validation script will check generated YAML files, campaign
+- A new TE Curve Verification Pipeline validation script will check generated YAML files, campaign
   state, model/loss availability, deterministic output selection, and one-batch
   execution where feasible.
 - A new dedicated PowerShell launcher will expose local and `-Remote` execution
@@ -98,4 +98,4 @@ No subagent is planned for this work.
 9. Stop before training execution and wait for explicit operator launch.
 10. After operator completion, close the campaign through the normal result
     report, PDF validation, registry synchronization, and optional separate
-    official `Track 2` verification refresh.
+    official `TE Curve Verification Pipeline` verification refresh.

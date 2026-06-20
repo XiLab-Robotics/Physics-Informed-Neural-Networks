@@ -1,7 +1,7 @@
-﻿# Track 1 MLP Residual Cell Final Closure Campaign
+# RCIM Model-Bank Reproduction MLP Residual Cell Final Closure Campaign
 
 This package contains the dedicated exact-paper `MLP` residual-cell final
-closure wave for the canonical `Track 1` full-matrix replication surface.
+closure wave for the canonical `RCIM Model-Bank Reproduction` full-matrix replication surface.
 
 - deduplicated amplitude target pairs: `3`
 - deduplicated phase target pairs: `1`

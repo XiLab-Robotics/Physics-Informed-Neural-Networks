@@ -81,7 +81,7 @@ Campaign closeout must evaluate both scalar and curve-level behavior:
 
 - Validation and test `MAE`, `RMSE`, and available repository metrics.
 - Direction-specific comparison against the existing `periodic_mlp` best runs.
-- `Track 2` curve overlays for representative held-out curves.
+- `TE Curve Verification Pipeline` curve overlays for representative held-out curves.
 - Visual inspection for recovered TE oscillations versus noisy ringing.
 - Parameter count and deployment impact, especially for dense `0..240` and
   `0..360` periodic-feature inputs.
@@ -94,7 +94,7 @@ Campaign closeout must evaluate both scalar and curve-level behavior:
   Control this by preserving the current neural architecture and changing only
   the harmonic dictionary in this campaign.
 - Scalar metrics can hide curve smoothing or ringing. Control this by requiring
-  Track 2 visual review during closeout.
+  TE Curve Verification Pipeline visual review during closeout.
 - The future `Fourier-Feature MLP` family could become conceptually blurred.
   Control this by recording this campaign as a fixed engineered-feature
   `periodic_mlp` extension only.

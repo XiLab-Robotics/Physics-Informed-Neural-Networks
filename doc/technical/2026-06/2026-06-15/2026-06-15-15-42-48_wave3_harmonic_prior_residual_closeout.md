@@ -1,4 +1,4 @@
-# Wave 3 Harmonic-Prior Residual Campaign Closeout
+# Wave 5.1 Harmonic-Prior Residual Campaign Closeout
 
 ## Overview
 
@@ -19,7 +19,7 @@ The closeout will use the committed campaign artifacts as the source of truth:
 - `campaign_execution_report.md`
 - `campaign_manifest.yaml`
 
-The closeout will not execute the official `Track 2` offline verification
+The closeout will not execute the official `TE Curve Verification Pipeline` offline verification
 matrix. That matrix remains a separate optional refresh after the normal
 campaign-results report and state synchronization are complete.
 

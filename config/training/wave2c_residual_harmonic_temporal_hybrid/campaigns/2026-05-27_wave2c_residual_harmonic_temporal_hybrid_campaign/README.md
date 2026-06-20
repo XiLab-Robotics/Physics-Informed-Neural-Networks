@@ -1,4 +1,4 @@
-# Wave 2C Residual Harmonic Temporal Hybrid Campaign
+# Wave 2.3 Residual Harmonic Temporal Hybrid Campaign
 
 Prepared campaign package for:
 

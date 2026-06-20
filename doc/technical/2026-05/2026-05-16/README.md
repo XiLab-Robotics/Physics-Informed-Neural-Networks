@@ -8,10 +8,10 @@
   so only required oversized `paper_family_model_bank.pkl` files remain tracked
   through LFS.
 - [2026-05-16-20-07-07_track1_backward_paper_faithful_closeout_and_reference_refresh.md](./2026-05-16-20-07-07_track1_backward_paper_faithful_closeout_and_reference_refresh.md)
-  Plan the Track 1 backward paper-faithful campaign closeout, backward
+  Plan the RCIM Model-Bank Reproduction backward paper-faithful campaign closeout, backward
   paper-reference model archive replacement, linked report updates, and RCIM
   Tables `2`-`5` benchmark recompilation.
 - [2026-05-16-20-46-00_rcim_original_pipeline_documentation_alignment.md](./2026-05-16-20-46-00_rcim_original_pipeline_documentation_alignment.md)
   Plan the documentation alignment for the recovered RCIM original pipeline,
-  faithful exact-model-bank reimplementation, Track 1 campaigns, benchmark
+  faithful exact-model-bank reimplementation, RCIM Model-Bank Reproduction campaigns, benchmark
   tables, and paper-reference model archives.

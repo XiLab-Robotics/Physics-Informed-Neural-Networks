@@ -1,13 +1,13 @@
-# Track 2 Official Model Verification Report
+# TE Curve Verification Pipeline Official Model Verification Report
 
 ## Overview
 
-Create a serious official `Track 2` verification report that becomes the
+Create a serious official `TE Curve Verification Pipeline` verification report that becomes the
 canonical review surface for newly trained TE models.
 
 The report will consolidate the current numerical comparison matrix, visual
 model-collage verification, multi-model curve-overlay verification, and future
-`Track 2` campaign results into one maintained report package. The first
+`TE Curve Verification Pipeline` campaign results into one maintained report package. The first
 version will explicitly combine these existing deliverables:
 
 - `doc/reports/analysis/track2/Track 2 Directional Model Comparison.md`
@@ -22,7 +22,7 @@ No subagent use is planned for this task.
 
 ## Technical Approach
 
-Add a new canonical report bundle under the `Track 2` analysis topic instead of
+Add a new canonical report bundle under the `TE Curve Verification Pipeline` analysis topic instead of
 overloading either visual companion report. The proposed target is:
 
 - `doc/reports/analysis/track2/official_model_verification_report/[2026-05-21]/track2_official_model_verification_report.md`
@@ -30,14 +30,14 @@ overloading either visual companion report. The proposed target is:
 
 The report will treat `Track 2 Directional Model Comparison.md` as the primary
 metric matrix and the two `[2026-05-20]` visual reports as companion evidence.
-It will also include a maintained campaign-results ledger so future `Track 2`
+It will also include a maintained campaign-results ledger so future `TE Curve Verification Pipeline`
 campaigns can append:
 
 - campaign result report path;
 - affected model family and direction surface;
 - promoted or rejected candidate;
 - comparison baseline used;
-- key Track 2 metrics;
+- key TE Curve Verification Pipeline metrics;
 - visual verification artifact paths;
 - final decision and follow-up action.
 
@@ -68,12 +68,12 @@ breaks, and right-edge pressure.
 - `scripts/reports/pdf/validate_report_pdf.py`
 - `output/validation_checks/track2_best_model_collage_report/`
 - `output/validation_checks/track2_multi_model_curve_comparison_report/`
-- future `doc/reports/campaign_results/track_2/campaign_closeouts/` reports, when `Track 2`
+- future `doc/reports/campaign_results/track_2/campaign_closeouts/` reports, when `TE Curve Verification Pipeline`
   campaigns are introduced.
 
 ## Implementation Steps
 
-1. Inspect the current `Track 2` directional matrix, best-model collage report,
+1. Inspect the current `TE Curve Verification Pipeline` directional matrix, best-model collage report,
    multi-model curve comparison report, and their validation-check outputs.
 2. Define the official report structure:
    - executive verdict;
@@ -81,7 +81,7 @@ breaks, and right-edge pressure.
    - pipeline-by-pipeline result summary;
    - current best reference and current best repository-owned candidates;
    - visual-verification evidence from the collage and overlay PDFs;
-   - campaign-results ledger for future `Track 2` updates;
+   - campaign-results ledger for future `TE Curve Verification Pipeline` updates;
    - closeout decision and next operational branch.
 3. Create the new official report bundle under
    `doc/reports/analysis/track2/official_model_verification_report/[2026-05-21]/`.
@@ -92,7 +92,7 @@ breaks, and right-edge pressure.
 6. Validate the real PDF, including embedded images, table fit, clipped
    content, page starts, and right-edge pressure.
 7. Register the new official report in `doc/README.md`.
-8. Update `doc/running/te_model_live_backlog.md` so `Track 2` points to the new
+8. Update `doc/running/te_model_live_backlog.md` so `TE Curve Verification Pipeline` points to the new
    official verification report as the accepted closeout surface.
 9. Update `doc/reports/analysis/Training Results Master Summary.md` if the new
    official verdict changes the summarized current best model status or the

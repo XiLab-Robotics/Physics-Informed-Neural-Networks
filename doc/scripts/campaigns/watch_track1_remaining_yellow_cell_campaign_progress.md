@@ -1,7 +1,7 @@
-# Track 1 Remaining Yellow-Cell Campaign Progress Monitor
+# RCIM Model-Bank Reproduction Remaining Yellow-Cell Campaign Progress Monitor
 
 This read-only monitor reports the real aggregate progress of the current
-remote exact-paper `Track 1` remaining-yellow-cell bundle.
+remote exact-paper `RCIM Model-Bank Reproduction` remaining-yellow-cell bundle.
 
 It is intended for the specific bundle launched through:
 

@@ -1,4 +1,4 @@
-# Track 1 Forward Final Open-Cells Campaign Closeout
+# RCIM Model-Bank Reproduction Forward Final Open-Cells Campaign Closeout
 
 ## Overview
 
@@ -6,7 +6,7 @@ This technical document defines the closeout scope for the completed
 `track1_forward_final_open_cells_campaign_2026-04-28_00_30_09` wave.
 
 The campaign was prepared as the final forward-only residual repair package for
-the last non-green `Track 1` forward cells across Tables `2-5`. The closeout
+the last non-green `RCIM Model-Bank Reproduction` forward cells across Tables `2-5`. The closeout
 must now determine whether the accepted forward benchmark surface improved,
 refresh the canonical benchmark documents, and update the forward paper
 reference archives when better target winners were promoted.
@@ -21,7 +21,7 @@ already matches the full prepared queue size:
 ## Technical Approach
 
 The closeout should follow the same governed path already used for the earlier
-Track 1 forward and bidirectional closeouts:
+RCIM Model-Bank Reproduction forward and bidirectional closeouts:
 
 1. verify the completed wave artifact set and aggregate the campaign winners;
 2. build the formal campaign-results Markdown report and validated PDF;

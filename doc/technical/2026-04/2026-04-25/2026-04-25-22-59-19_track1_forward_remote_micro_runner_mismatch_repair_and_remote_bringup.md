@@ -1,8 +1,8 @@
-# Track 1 Forward Remote Micro Runner Mismatch Repair And Remote Bringup
+# RCIM Model-Bank Reproduction Forward Remote Micro Runner Mismatch Repair And Remote Bringup
 
 ## Overview
 
-The prepared `Track 1` forward-only remote micro-campaign currently fails at
+The prepared `RCIM Model-Bank Reproduction` forward-only remote micro-campaign currently fails at
 the first `SVR` run because the campaign launcher still invokes the legacy
 exact-paper validation entrypoint:
 `scripts/paper_reimplementation/rcim_ml_compensation/run_exact_paper_model_bank_validation.py`.

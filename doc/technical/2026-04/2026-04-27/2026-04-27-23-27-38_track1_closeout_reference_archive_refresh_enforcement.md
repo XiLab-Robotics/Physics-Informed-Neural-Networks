@@ -1,14 +1,14 @@
-# Track 1 Closeout Reference Archive Refresh Enforcement
+# RCIM Model-Bank Reproduction Closeout Reference Archive Refresh Enforcement
 
 ## Overview
 
-The current Track 1 closeout surface is inconsistent. The completed
+The current RCIM Model-Bank Reproduction closeout surface is inconsistent. The completed
 bidirectional original-dataset mega closeout rebuilds and refreshes the
 canonical archive under `models/paper_reference/rcim_track1/`, but the newer
 forward-only open-cell repair closeout updates the benchmark and summaries
 without promoting improved target winners into the same archive.
 
-This is a pipeline bug. The repository already formalized that accepted Track 1
+This is a pipeline bug. The repository already formalized that accepted RCIM Model-Bank Reproduction
 closeouts must refresh `models/paper_reference/rcim_track1/` whenever a newly
 accepted target winner improves the currently archived canonical entry. The
 closeout tooling must therefore enforce this behavior for both:
@@ -19,14 +19,14 @@ closeout tooling must therefore enforce this behavior for both:
 ## Technical Approach
 
 The fix should move the archive-refresh rule from a closeout-specific special
-case into a reusable Track 1 closeout helper path. Instead of letting one
+case into a reusable RCIM Model-Bank Reproduction closeout helper path. Instead of letting one
 closeout script rebuild archives while another one forgets to do it, the
 reference-archive promotion should become an explicit shared closeout stage.
 
 The implementation should:
 
 1. identify the reusable archive-refresh primitives already present in the
-   bidirectional mega closeout and in the Track 1 archive refresh tooling;
+   bidirectional mega closeout and in the RCIM Model-Bank Reproduction archive refresh tooling;
 2. refactor them into a callable helper surface that can operate on directional
    accepted winners;
 3. wire the current `forward` open-cell repair closeout to refresh

@@ -1,11 +1,11 @@
-# Track 2F Sequential Residual-Offset Probe
+# Wave 3.1 Sequential Residual-Offset Probe
 
 ## Overview
 
 This document gates the first learned implementation step after the prepared
-`Track 2F` offset-aware probe package.
+`Wave 3.1` offset-aware probe package.
 
-The current `Track 2F` package contains nine descriptors, but only the
+The current `Wave 3.1` package contains nine descriptors, but only the
 post-hoc `direction_torque` offset baseline is runnable as a validation entry.
 The learned `sequential_residual_offset_probe` and
 `multi_head_shape_offset_probe` entries are intentionally blocked because the
@@ -43,7 +43,7 @@ The implementation should prefer reuse over a broad rewrite:
   `scripts/training/run_training_campaign.py`;
 - use the existing data module and sequence-window support where causal
   history is needed;
-- materialize initial Track 2F queue YAML files from the prepared descriptors
+- materialize initial Wave 3.1 queue YAML files from the prepared descriptors
   after the model type exists;
 - leave `multi_head_shape_offset_probe` blocked until its own technical gate.
 
@@ -97,10 +97,10 @@ Reference inputs:
    existing model behavior.
 4. Add or update focused smoke validation so the model can run one minimal
    train/validation/test pass through the shared training stack.
-5. Convert the three Track 2F sequential descriptors (`global`, `Fw`, `Bw`)
+5. Convert the three Wave 3.1 sequential descriptors (`global`, `Fw`, `Bw`)
    into runnable campaign YAML entries while leaving the three multi-head
    descriptors blocked.
-6. Update the Track 2F launcher and launcher note so local execution can run
+6. Update the Wave 3.1 launcher and launcher note so local execution can run
    the sequential probe entries and `-Remote` can use the canonical remote
    training campaign wrapper for the runnable queue only.
 7. Update `doc/running/active_training_campaign.yaml` to protect the new
@@ -113,9 +113,9 @@ Reference inputs:
 ## Protected Campaign Warning
 
 `doc/running/active_training_campaign.yaml` currently marks the prepared
-Track 2F package as protected. After this technical document is approved, the
-implementation will intentionally modify Track 2F protected files so the
+Wave 3.1 package as protected. After this technical document is approved, the
+implementation will intentionally modify Wave 3.1 protected files so the
 approved placeholders can become runnable sequential probe entries.
 
-This is a controlled continuation of the prepared Track 2F campaign, not an
+This is a controlled continuation of the prepared Wave 3.1 campaign, not an
 unrelated edit to a running campaign.

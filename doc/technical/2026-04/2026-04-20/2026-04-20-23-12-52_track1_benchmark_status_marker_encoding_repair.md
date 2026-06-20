@@ -1,11 +1,11 @@
-# Track 1 Benchmark Status Marker Encoding Repair
+# RCIM Model-Bank Reproduction Benchmark Status Marker Encoding Repair
 
 ## Overview
 
 This technical document covers the repair of corrupted status-marker glyphs in
 `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`.
 
-The current benchmark file no longer renders the intended colored `Track 1`
+The current benchmark file no longer renders the intended colored `RCIM Model-Bank Reproduction`
 status markers consistently. In multiple sections, the expected `🟢`, `🟡`, and
 `🔴` markers appear as malformed mojibake strings such as:
 
@@ -15,7 +15,7 @@ status markers consistently. In multiple sections, the expected `🟢`, `🟡`, 
 - `Ã°Å¸Å¸Â¡`
 - `Ã°Å¸â€Â´`
 
-Because the benchmark is the canonical `Track 1` status surface, this is a
+Because the benchmark is the canonical `RCIM Model-Bank Reproduction` status surface, this is a
 report-readability defect and also a semantic defect: the file no longer shows
 the green/yellow/red progress state in a reliable human-readable form.
 

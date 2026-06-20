@@ -1,8 +1,8 @@
-# Track 2 Multi-Model Curve Comparison Report
+# TE Curve Verification Pipeline Multi-Model Curve Comparison Report
 
 ## Overview
 
-This report compares representative `Track 2` TE curves by overlaying
+This report compares representative `TE Curve Verification Pipeline` TE curves by overlaying
 multiple model predictions on the same original measured curve. The
 plots are intended to show whether each model tracks the local harmonic
 oscillations rather than only the broad mean trend.
@@ -56,7 +56,7 @@ oscillations rather than only the broad mean trend.
 | `tree_bw` | `wave1_current_registry` | Bw | 0.003258 | 0.003651 | 7.051 |
 | `periodic_mlp_harmonic_bw` | `wave1_periodic_mlp_harmonic_campaign` | Bw | 0.003583 | 0.003925 | 7.875 |
 
-### Forward Wave 2 Temporal Model Overlay
+### Forward Wave 2.1 Temporal Model Overlay
 
 | Candidate | Source | Surface | Curve MAE [deg] | Curve RMSE [deg] | Mean Error |
 | --- | --- | --- | ---: | ---: | ---: |
@@ -67,7 +67,7 @@ oscillations rather than only the broad mean trend.
 | `periodic_gru_sequence_fw` | `wave2_temporal_entry_registry` | Fw | 0.003186 | 0.003438 | 7.077 |
 | `periodic_lstm_sequence_fw` | `wave2_temporal_entry_registry` | Fw | 0.003266 | 0.003550 | 7.258 |
 
-### Backward Wave 2 Temporal Model Overlay
+### Backward Wave 2.1 Temporal Model Overlay
 
 | Candidate | Source | Surface | Curve MAE [deg] | Curve RMSE [deg] | Mean Error |
 | --- | --- | --- | ---: | ---: | ---: |
@@ -78,7 +78,7 @@ oscillations rather than only the broad mean trend.
 | `periodic_gru_sequence_bw` | `wave2_temporal_entry_registry` | Bw | 0.002392 | 0.002639 | 5.466 |
 | `periodic_lstm_sequence_bw` | `wave2_temporal_entry_registry` | Bw | 0.002625 | 0.002877 | 6.013 |
 
-### Forward Wave 2C Residual Harmonic Temporal Overlay
+### Forward Wave 2.3 Residual Harmonic Temporal Overlay
 
 | Candidate | Source | Surface | Curve MAE [deg] | Curve RMSE [deg] | Mean Error |
 | --- | --- | --- | ---: | ---: | ---: |
@@ -89,7 +89,7 @@ oscillations rather than only the broad mean trend.
 | `residual_harmonic_lstm_sequence_dense240_Fw` | `wave2c_residual_harmonic_temporal_registry` | Fw | 0.007042 | 0.009370 | 15.868 |
 | `residual_harmonic_lstm_sequence_dense360_Fw` | `wave2c_residual_harmonic_temporal_registry` | Fw | 0.007731 | 0.010235 | 17.430 |
 
-### Backward Wave 2C Residual Harmonic Temporal Overlay
+### Backward Wave 2.3 Residual Harmonic Temporal Overlay
 
 | Candidate | Source | Surface | Curve MAE [deg] | Curve RMSE [deg] | Mean Error |
 | --- | --- | --- | ---: | ---: | ---: |
@@ -100,33 +100,33 @@ oscillations rather than only the broad mean trend.
 | `residual_harmonic_lstm_sequence_dense240_Bw` | `wave2c_residual_harmonic_temporal_registry` | Bw | 0.007367 | 0.009945 | 16.660 |
 | `residual_harmonic_lstm_sequence_dense360_Bw` | `wave2c_residual_harmonic_temporal_registry` | Bw | 0.010268 | 0.014769 | 23.355 |
 
-### Forward Track 2F Offset-Aware Probe Overlay
+### Forward Wave 3.1 Offset-Aware Probe Overlay
 
 | Candidate | Source | Surface | Curve MAE [deg] | Curve RMSE [deg] | Mean Error |
 | --- | --- | --- | ---: | ---: | ---: |
 | `sequential_residual_offset_probe_Fw` | `track2f_offset_aware_probe_registry` | Fw | 0.003377 | 0.003799 | 7.487 |
 
-### Backward Track 2F Offset-Aware Probe Overlay
+### Backward Wave 3.1 Offset-Aware Probe Overlay
 
 | Candidate | Source | Surface | Curve MAE [deg] | Curve RMSE [deg] | Mean Error |
 | --- | --- | --- | ---: | ---: | ---: |
 | `sequential_residual_offset_probe_Bw` | `track2f_offset_aware_probe_registry` | Bw | 0.003636 | 0.004065 | 7.952 |
 
-### Forward Track 2F-Bis Harmonic-Offset Probe Overlay
+### Forward Wave 3.2 Harmonic-Offset Probe Overlay
 
 | Candidate | Source | Surface | Curve MAE [deg] | Curve RMSE [deg] | Mean Error |
 | --- | --- | --- | ---: | ---: | ---: |
 | `track2f_bis_clean_sequential_residual_offset_Fw` | `track2f_bis_harmonic_offset_probe_registry` | Fw | 0.003439 | 0.003870 | 7.632 |
 | `track2f_bis_harmonic_residual_offset_Fw` | `track2f_bis_harmonic_offset_probe_registry` | Fw | 0.002850 | 0.003108 | 6.286 |
 
-### Backward Track 2F-Bis Harmonic-Offset Probe Overlay
+### Backward Wave 3.2 Harmonic-Offset Probe Overlay
 
 | Candidate | Source | Surface | Curve MAE [deg] | Curve RMSE [deg] | Mean Error |
 | --- | --- | --- | ---: | ---: | ---: |
 | `track2f_bis_clean_sequential_residual_offset_Bw` | `track2f_bis_harmonic_offset_probe_registry` | Bw | 0.003541 | 0.003971 | 7.732 |
 | `track2f_bis_harmonic_residual_offset_Bw` | `track2f_bis_harmonic_offset_probe_registry` | Bw | 0.003331 | 0.003671 | 7.261 |
 
-### Forward Track 2G Curve-Aware Training Overlay
+### Forward Wave 3.3 Curve-Aware Training Overlay
 
 | Candidate | Source | Surface | Curve MAE [deg] | Curve RMSE [deg] | Mean Error |
 | --- | --- | --- | ---: | ---: | ---: |
@@ -135,7 +135,7 @@ oscillations rather than only the broad mean trend.
 | `track2g_curve_aware_raw_offset_Fw` | `track2g_curve_aware_training_registry` | Fw | 0.003269 | 0.003588 | 7.268 |
 | `track2g_curve_aware_full_curve_composite_Fw` | `track2g_curve_aware_training_registry` | Fw | 0.003251 | 0.003515 | 7.209 |
 
-### Backward Track 2G Curve-Aware Training Overlay
+### Backward Wave 3.3 Curve-Aware Training Overlay
 
 | Candidate | Source | Surface | Curve MAE [deg] | Curve RMSE [deg] | Mean Error |
 | --- | --- | --- | ---: | ---: | ---: |
@@ -144,7 +144,7 @@ oscillations rather than only the broad mean trend.
 | `track2g_curve_aware_raw_offset_Bw` | `track2g_curve_aware_training_registry` | Bw | 0.003469 | 0.003799 | 7.608 |
 | `track2g_curve_aware_full_curve_composite_Bw` | `track2g_curve_aware_training_registry` | Bw | 0.003510 | 0.003897 | 7.683 |
 
-### Forward Track 2H Robust-Loss Overlay
+### Forward Wave 4.1 Robust-Loss Overlay
 
 | Candidate | Source | Surface | Curve MAE [deg] | Curve RMSE [deg] | Mean Error |
 | --- | --- | --- | ---: | ---: | ---: |
@@ -152,7 +152,7 @@ oscillations rather than only the broad mean trend.
 | `track2h_smooth_l1_robust_Fw` | `track2h_dispersion_aware_modeling_registry` | Fw | 0.003300 | 0.003545 | 7.342 |
 | `track2h_log_cosh_robust_Fw` | `track2h_dispersion_aware_modeling_registry` | Fw | 0.003344 | 0.003595 | 7.427 |
 
-### Backward Track 2H Robust-Loss Overlay
+### Backward Wave 4.1 Robust-Loss Overlay
 
 | Candidate | Source | Surface | Curve MAE [deg] | Curve RMSE [deg] | Mean Error |
 | --- | --- | --- | ---: | ---: | ---: |
@@ -160,14 +160,14 @@ oscillations rather than only the broad mean trend.
 | `track2h_smooth_l1_robust_Bw` | `track2h_dispersion_aware_modeling_registry` | Bw | 0.003078 | 0.003403 | 6.676 |
 | `track2h_log_cosh_robust_Bw` | `track2h_dispersion_aware_modeling_registry` | Bw | 0.003486 | 0.003811 | 7.628 |
 
-### Forward Track 2H Quantile Probabilistic Overlay
+### Forward Wave 4.2 Quantile Probabilistic Overlay
 
 | Candidate | Source | Surface | Curve MAE [deg] | Curve RMSE [deg] | Mean Error |
 | --- | --- | --- | ---: | ---: | ---: |
 | `track2h_quantile_p10_p50_p90_Fw` | `track2h_quantile_probabilistic_registry` | Fw | 0.003276 | 0.003545 | 7.279 |
 | `track2h_gaussian_nll_Fw` | `track2h_quantile_probabilistic_registry` | Fw | 0.003156 | 0.003415 | 7.008 |
 
-### Backward Track 2H Quantile Probabilistic Overlay
+### Backward Wave 4.2 Quantile Probabilistic Overlay
 
 | Candidate | Source | Surface | Curve MAE [deg] | Curve RMSE [deg] | Mean Error |
 | --- | --- | --- | ---: | ---: | ---: |
@@ -202,21 +202,21 @@ oscillations rather than only the broad mean trend.
 | `track2h_l_gru_offset_residual_Bw` | `track2h_latent_state_hysteresis_registry` | Bw | 0.003542 | 0.003984 | 7.736 |
 | `track2h_l_causal_tcn_offset_residual_Bw` | `track2h_latent_state_hysteresis_registry` | Bw | 0.003624 | 0.004098 | 7.903 |
 
-### Forward Wave 3 Harmonic Prior Residual Registry Overlay
+### Forward Wave 5.1 Harmonic Prior Residual Registry Overlay
 
 | Candidate | Source | Surface | Curve MAE [deg] | Curve RMSE [deg] | Mean Error |
 | --- | --- | --- | ---: | ---: | ---: |
 | `wave3_harmonic_prior_residual_pointwise_control_Fw` | `wave3_harmonic_prior_residual_registry` | Fw | 0.003374 | 0.003655 | 7.501 |
 | `wave3_harmonic_prior_residual_smooth_l1_structured_Fw` | `wave3_harmonic_prior_residual_registry` | Fw | 0.003514 | 0.003768 | 7.812 |
 
-### Backward Wave 3 Harmonic Prior Residual Registry Overlay
+### Backward Wave 5.1 Harmonic Prior Residual Registry Overlay
 
 | Candidate | Source | Surface | Curve MAE [deg] | Curve RMSE [deg] | Mean Error |
 | --- | --- | --- | ---: | ---: | ---: |
 | `wave3_harmonic_prior_residual_pointwise_control_Bw` | `wave3_harmonic_prior_residual_registry` | Bw | 0.003360 | 0.003677 | 7.363 |
 | `wave3_harmonic_prior_residual_smooth_l1_structured_Bw` | `wave3_harmonic_prior_residual_registry` | Bw | 0.003431 | 0.003739 | 7.523 |
 
-### Forward Track 1 And Screened Wave 1 Overlay
+### Forward RCIM Model-Bank Reproduction And Screened Wave 1 Overlay
 
 | Candidate | Source | Surface | Curve MAE [deg] | Curve RMSE [deg] | Mean Error |
 | --- | --- | --- | ---: | ---: | ---: |
@@ -225,7 +225,7 @@ oscillations rather than only the broad mean trend.
 | `harmonic_regression_fw` | `wave1_current_registry` | Fw | 0.003230 | 0.003494 | 7.185 |
 | `periodic_mlp_fw` | `wave1_current_registry` | Fw | 0.003254 | 0.003553 | 7.232 |
 
-### Backward Track 1 And Screened Wave 1 Overlay
+### Backward RCIM Model-Bank Reproduction And Screened Wave 1 Overlay
 
 | Candidate | Source | Surface | Curve MAE [deg] | Curve RMSE [deg] | Mean Error |
 | --- | --- | --- | ---: | ---: | ---: |
@@ -234,7 +234,7 @@ oscillations rather than only the broad mean trend.
 | `residual_harmonic_mlp_bw` | `wave1_current_registry` | Bw | 0.003536 | 0.003874 | 7.728 |
 | `periodic_mlp_bw` | `wave1_current_registry` | Bw | 0.003574 | 0.004006 | 7.807 |
 
-### Forward Reference Tree And Wave 2 Overlay
+### Forward Reference Tree And Wave 2.1 Overlay
 
 | Candidate | Source | Surface | Curve MAE [deg] | Curve RMSE [deg] | Mean Error |
 | --- | --- | --- | ---: | ---: | ---: |
@@ -248,7 +248,7 @@ oscillations rather than only the broad mean trend.
 | `periodic_gru_sequence_fw` | `wave2_temporal_entry_registry` | Fw | 0.003186 | 0.003438 | 7.077 |
 | `periodic_lstm_sequence_fw` | `wave2_temporal_entry_registry` | Fw | 0.003266 | 0.003550 | 7.258 |
 
-### Backward Reference Tree And Wave 2 Overlay
+### Backward Reference Tree And Wave 2.1 Overlay
 
 | Candidate | Source | Surface | Curve MAE [deg] | Curve RMSE [deg] | Mean Error |
 | --- | --- | --- | ---: | ---: | ---: |
@@ -262,7 +262,7 @@ oscillations rather than only the broad mean trend.
 | `periodic_gru_sequence_bw` | `wave2_temporal_entry_registry` | Bw | 0.002392 | 0.002639 | 5.466 |
 | `periodic_lstm_sequence_bw` | `wave2_temporal_entry_registry` | Bw | 0.002625 | 0.002877 | 6.013 |
 
-### Forward Reference Tree And Wave 2C Overlay
+### Forward Reference Tree And Wave 2.3 Overlay
 
 | Candidate | Source | Surface | Curve MAE [deg] | Curve RMSE [deg] | Mean Error |
 | --- | --- | --- | ---: | ---: | ---: |
@@ -276,7 +276,7 @@ oscillations rather than only the broad mean trend.
 | `residual_harmonic_lstm_sequence_dense240_Fw` | `wave2c_residual_harmonic_temporal_registry` | Fw | 0.007042 | 0.009370 | 15.868 |
 | `residual_harmonic_lstm_sequence_dense360_Fw` | `wave2c_residual_harmonic_temporal_registry` | Fw | 0.007731 | 0.010235 | 17.430 |
 
-### Backward Reference Tree And Wave 2C Overlay
+### Backward Reference Tree And Wave 2.3 Overlay
 
 | Candidate | Source | Surface | Curve MAE [deg] | Curve RMSE [deg] | Mean Error |
 | --- | --- | --- | ---: | ---: | ---: |
@@ -290,7 +290,7 @@ oscillations rather than only the broad mean trend.
 | `residual_harmonic_lstm_sequence_dense240_Bw` | `wave2c_residual_harmonic_temporal_registry` | Bw | 0.007367 | 0.009945 | 16.660 |
 | `residual_harmonic_lstm_sequence_dense360_Bw` | `wave2c_residual_harmonic_temporal_registry` | Bw | 0.010268 | 0.014769 | 23.355 |
 
-### Forward Reference Tree And Track 2F Overlay
+### Forward Reference Tree And Wave 3.1 Overlay
 
 | Candidate | Source | Surface | Curve MAE [deg] | Curve RMSE [deg] | Mean Error |
 | --- | --- | --- | ---: | ---: | ---: |
@@ -299,7 +299,7 @@ oscillations rather than only the broad mean trend.
 | `tree_fw` | `wave1_current_registry` | Fw | 0.003053 | 0.003395 | 6.731 |
 | `sequential_residual_offset_probe_Fw` | `track2f_offset_aware_probe_registry` | Fw | 0.003377 | 0.003799 | 7.487 |
 
-### Backward Reference Tree And Track 2F Overlay
+### Backward Reference Tree And Wave 3.1 Overlay
 
 | Candidate | Source | Surface | Curve MAE [deg] | Curve RMSE [deg] | Mean Error |
 | --- | --- | --- | ---: | ---: | ---: |
@@ -308,7 +308,7 @@ oscillations rather than only the broad mean trend.
 | `tree_bw` | `wave1_current_registry` | Bw | 0.003258 | 0.003651 | 7.051 |
 | `sequential_residual_offset_probe_Bw` | `track2f_offset_aware_probe_registry` | Bw | 0.003636 | 0.004065 | 7.952 |
 
-### Forward Reference Tree And Track 2G Overlay
+### Forward Reference Tree And Wave 3.3 Overlay
 
 | Candidate | Source | Surface | Curve MAE [deg] | Curve RMSE [deg] | Mean Error |
 | --- | --- | --- | ---: | ---: | ---: |
@@ -320,7 +320,7 @@ oscillations rather than only the broad mean trend.
 | `track2g_curve_aware_raw_offset_Fw` | `track2g_curve_aware_training_registry` | Fw | 0.003269 | 0.003588 | 7.268 |
 | `track2g_curve_aware_full_curve_composite_Fw` | `track2g_curve_aware_training_registry` | Fw | 0.003251 | 0.003515 | 7.209 |
 
-### Backward Reference Tree And Track 2G Overlay
+### Backward Reference Tree And Wave 3.3 Overlay
 
 | Candidate | Source | Surface | Curve MAE [deg] | Curve RMSE [deg] | Mean Error |
 | --- | --- | --- | ---: | ---: | ---: |
@@ -332,7 +332,7 @@ oscillations rather than only the broad mean trend.
 | `track2g_curve_aware_raw_offset_Bw` | `track2g_curve_aware_training_registry` | Bw | 0.003469 | 0.003799 | 7.608 |
 | `track2g_curve_aware_full_curve_composite_Bw` | `track2g_curve_aware_training_registry` | Bw | 0.003510 | 0.003897 | 7.683 |
 
-### Forward Reference Tree And Track 2H Overlay
+### Forward Reference Tree And Wave 4 series Overlay
 
 | Candidate | Source | Surface | Curve MAE [deg] | Curve RMSE [deg] | Mean Error |
 | --- | --- | --- | ---: | ---: | ---: |
@@ -343,7 +343,7 @@ oscillations rather than only the broad mean trend.
 | `track2h_smooth_l1_robust_Fw` | `track2h_dispersion_aware_modeling_registry` | Fw | 0.003300 | 0.003545 | 7.342 |
 | `track2h_log_cosh_robust_Fw` | `track2h_dispersion_aware_modeling_registry` | Fw | 0.003344 | 0.003595 | 7.427 |
 
-### Backward Reference Tree And Track 2H Overlay
+### Backward Reference Tree And Wave 4 series Overlay
 
 | Candidate | Source | Surface | Curve MAE [deg] | Curve RMSE [deg] | Mean Error |
 | --- | --- | --- | ---: | ---: | ---: |
@@ -358,217 +358,217 @@ oscillations rather than only the broad mean trend.
 
 Included models: `paper_original_best_Fw`, `paper_retuned_best_Fw`, `track1_best_Fw`.
 
-![Forward Reference Model Overlay Track 2 comparison](assets/comparisons/forward_reference.png)
+![Forward Reference Model Overlay curve-verification comparison](assets/comparisons/forward_reference.png)
 
 ## Comparison Gallery - Forward Wave 1 Family Model Overlay
 
 Included models: `feedforward_fw`, `harmonic_regression_fw`, `periodic_mlp_fw`, `residual_harmonic_mlp_fw`, `tree_fw`, `periodic_mlp_harmonic_fw`.
 
-![Forward Wave 1 Family Model Overlay Track 2 comparison](assets/comparisons/forward_wave1.png)
+![Forward Wave 1 Family Model Overlay curve-verification comparison](assets/comparisons/forward_wave1.png)
 
 ## Comparison Gallery - Backward Reference Model Overlay
 
 Included models: `paper_retuned_best_Bw`, `track1_best_Bw`.
 
-![Backward Reference Model Overlay Track 2 comparison](assets/comparisons/backward_reference.png)
+![Backward Reference Model Overlay curve-verification comparison](assets/comparisons/backward_reference.png)
 
 ## Comparison Gallery - Backward Wave 1 Family Model Overlay
 
 Included models: `feedforward_bw`, `harmonic_regression_bw`, `periodic_mlp_bw`, `residual_harmonic_mlp_bw`, `tree_bw`, `periodic_mlp_harmonic_bw`.
 
-![Backward Wave 1 Family Model Overlay Track 2 comparison](assets/comparisons/backward_wave1.png)
+![Backward Wave 1 Family Model Overlay curve-verification comparison](assets/comparisons/backward_wave1.png)
 
-## Comparison Gallery - Forward Wave 2 Temporal Model Overlay
+## Comparison Gallery - Forward Wave 2.1 Temporal Model Overlay
 
 Included models: `temporal_convolution_fw`, `gru_sequence_fw`, `lstm_sequence_fw`, `periodic_temporal_convolution_fw`, `periodic_gru_sequence_fw`, `periodic_lstm_sequence_fw`.
 
-![Forward Wave 2 Temporal Model Overlay Track 2 comparison](assets/comparisons/forward_wave2.png)
+![Forward Wave 2.1 Temporal Model Overlay curve-verification comparison](assets/comparisons/forward_wave2.png)
 
-## Comparison Gallery - Backward Wave 2 Temporal Model Overlay
+## Comparison Gallery - Backward Wave 2.1 Temporal Model Overlay
 
 Included models: `temporal_convolution_bw`, `gru_sequence_bw`, `lstm_sequence_bw`, `periodic_temporal_convolution_bw`, `periodic_gru_sequence_bw`, `periodic_lstm_sequence_bw`.
 
-![Backward Wave 2 Temporal Model Overlay Track 2 comparison](assets/comparisons/backward_wave2.png)
+![Backward Wave 2.1 Temporal Model Overlay curve-verification comparison](assets/comparisons/backward_wave2.png)
 
-## Comparison Gallery - Forward Wave 2C Residual Harmonic Temporal Overlay
+## Comparison Gallery - Forward Wave 2.3 Residual Harmonic Temporal Overlay
 
 Included models: `residual_harmonic_gru_sequence_sparse_rcim_Fw`, `residual_harmonic_gru_sequence_dense240_Fw`, `residual_harmonic_gru_sequence_dense360_Fw`, `residual_harmonic_lstm_sequence_sparse_rcim_Fw`, `residual_harmonic_lstm_sequence_dense240_Fw`, `residual_harmonic_lstm_sequence_dense360_Fw`.
 
-![Forward Wave 2C Residual Harmonic Temporal Overlay Track 2 comparison](assets/comparisons/forward_wave2c.png)
+![Forward Wave 2.3 Residual Harmonic Temporal Overlay curve-verification comparison](assets/comparisons/forward_wave2c.png)
 
-## Comparison Gallery - Backward Wave 2C Residual Harmonic Temporal Overlay
+## Comparison Gallery - Backward Wave 2.3 Residual Harmonic Temporal Overlay
 
 Included models: `residual_harmonic_gru_sequence_sparse_rcim_Bw`, `residual_harmonic_gru_sequence_dense240_Bw`, `residual_harmonic_gru_sequence_dense360_Bw`, `residual_harmonic_lstm_sequence_sparse_rcim_Bw`, `residual_harmonic_lstm_sequence_dense240_Bw`, `residual_harmonic_lstm_sequence_dense360_Bw`.
 
-![Backward Wave 2C Residual Harmonic Temporal Overlay Track 2 comparison](assets/comparisons/backward_wave2c.png)
+![Backward Wave 2.3 Residual Harmonic Temporal Overlay curve-verification comparison](assets/comparisons/backward_wave2c.png)
 
-## Comparison Gallery - Forward Track 2F Offset-Aware Probe Overlay
+## Comparison Gallery - Forward Wave 3.1 Offset-Aware Probe Overlay
 
 Included models: `sequential_residual_offset_probe_Fw`.
 
-![Forward Track 2F Offset-Aware Probe Overlay Track 2 comparison](assets/comparisons/forward_track2f.png)
+![Forward Wave 3.1 Offset-Aware Probe Overlay curve-verification comparison](assets/comparisons/forward_track2f.png)
 
-## Comparison Gallery - Backward Track 2F Offset-Aware Probe Overlay
+## Comparison Gallery - Backward Wave 3.1 Offset-Aware Probe Overlay
 
 Included models: `sequential_residual_offset_probe_Bw`.
 
-![Backward Track 2F Offset-Aware Probe Overlay Track 2 comparison](assets/comparisons/backward_track2f.png)
+![Backward Wave 3.1 Offset-Aware Probe Overlay curve-verification comparison](assets/comparisons/backward_track2f.png)
 
-## Comparison Gallery - Forward Track 2F-Bis Harmonic-Offset Probe Overlay
+## Comparison Gallery - Forward Wave 3.2 Harmonic-Offset Probe Overlay
 
 Included models: `track2f_bis_clean_sequential_residual_offset_Fw`, `track2f_bis_harmonic_residual_offset_Fw`.
 
-![Forward Track 2F-Bis Harmonic-Offset Probe Overlay Track 2 comparison](assets/comparisons/forward_track2f_bis.png)
+![Forward Wave 3.2 Harmonic-Offset Probe Overlay curve-verification comparison](assets/comparisons/forward_track2f_bis.png)
 
-## Comparison Gallery - Backward Track 2F-Bis Harmonic-Offset Probe Overlay
+## Comparison Gallery - Backward Wave 3.2 Harmonic-Offset Probe Overlay
 
 Included models: `track2f_bis_clean_sequential_residual_offset_Bw`, `track2f_bis_harmonic_residual_offset_Bw`.
 
-![Backward Track 2F-Bis Harmonic-Offset Probe Overlay Track 2 comparison](assets/comparisons/backward_track2f_bis.png)
+![Backward Wave 3.2 Harmonic-Offset Probe Overlay curve-verification comparison](assets/comparisons/backward_track2f_bis.png)
 
-## Comparison Gallery - Forward Track 2G Curve-Aware Training Overlay
+## Comparison Gallery - Forward Wave 3.3 Curve-Aware Training Overlay
 
 Included models: `track2g_curve_aware_pointwise_control_Fw`, `track2g_curve_aware_raw_centered_shape_Fw`, `track2g_curve_aware_raw_offset_Fw`, `track2g_curve_aware_full_curve_composite_Fw`.
 
-![Forward Track 2G Curve-Aware Training Overlay Track 2 comparison](assets/comparisons/forward_track2g.png)
+![Forward Wave 3.3 Curve-Aware Training Overlay curve-verification comparison](assets/comparisons/forward_track2g.png)
 
-## Comparison Gallery - Backward Track 2G Curve-Aware Training Overlay
+## Comparison Gallery - Backward Wave 3.3 Curve-Aware Training Overlay
 
 Included models: `track2g_curve_aware_pointwise_control_Bw`, `track2g_curve_aware_raw_centered_shape_Bw`, `track2g_curve_aware_raw_offset_Bw`, `track2g_curve_aware_full_curve_composite_Bw`.
 
-![Backward Track 2G Curve-Aware Training Overlay Track 2 comparison](assets/comparisons/backward_track2g.png)
+![Backward Wave 3.3 Curve-Aware Training Overlay curve-verification comparison](assets/comparisons/backward_track2g.png)
 
-## Comparison Gallery - Forward Track 2H Robust-Loss Overlay
+## Comparison Gallery - Forward Wave 4.1 Robust-Loss Overlay
 
 Included models: `track2h_mae_robust_Fw`, `track2h_smooth_l1_robust_Fw`, `track2h_log_cosh_robust_Fw`.
 
-![Forward Track 2H Robust-Loss Overlay Track 2 comparison](assets/comparisons/forward_track2h.png)
+![Forward Wave 4.1 Robust-Loss Overlay curve-verification comparison](assets/comparisons/forward_track2h.png)
 
-## Comparison Gallery - Backward Track 2H Robust-Loss Overlay
+## Comparison Gallery - Backward Wave 4.1 Robust-Loss Overlay
 
 Included models: `track2h_mae_robust_Bw`, `track2h_smooth_l1_robust_Bw`, `track2h_log_cosh_robust_Bw`.
 
-![Backward Track 2H Robust-Loss Overlay Track 2 comparison](assets/comparisons/backward_track2h.png)
+![Backward Wave 4.1 Robust-Loss Overlay curve-verification comparison](assets/comparisons/backward_track2h.png)
 
-## Comparison Gallery - Forward Track 2H Quantile Probabilistic Overlay
+## Comparison Gallery - Forward Wave 4.2 Quantile Probabilistic Overlay
 
 Included models: `track2h_quantile_p10_p50_p90_Fw`, `track2h_gaussian_nll_Fw`.
 
-![Forward Track 2H Quantile Probabilistic Overlay Track 2 comparison](assets/comparisons/forward_track2h_qp.png)
+![Forward Wave 4.2 Quantile Probabilistic Overlay curve-verification comparison](assets/comparisons/forward_track2h_qp.png)
 
-## Comparison Gallery - Backward Track 2H Quantile Probabilistic Overlay
+## Comparison Gallery - Backward Wave 4.2 Quantile Probabilistic Overlay
 
 Included models: `track2h_quantile_p10_p50_p90_Bw`, `track2h_gaussian_nll_Bw`.
 
-![Backward Track 2H Quantile Probabilistic Overlay Track 2 comparison](assets/comparisons/backward_track2h_qp.png)
+![Backward Wave 4.2 Quantile Probabilistic Overlay curve-verification comparison](assets/comparisons/backward_track2h_qp.png)
 
 ## Comparison Gallery - Forward Track2h Mixture Density Heads Registry Overlay
 
 Included models: `track2h_mdn_k2_Fw`, `track2h_mdn_k3_Fw`.
 
-![Forward Track2h Mixture Density Heads Registry Overlay Track 2 comparison](assets/comparisons/a_fw_trac_mixt_dens_head_reg_f6ec842d96.png)
+![Forward Track2h Mixture Density Heads Registry Overlay curve-verification comparison](assets/comparisons/a_fw_trac_mixt_dens_head_reg_f6ec842d96.png)
 
 ## Comparison Gallery - Backward Track2h Mixture Density Heads Registry Overlay
 
 Included models: `track2h_mdn_k2_Bw`, `track2h_mdn_k3_Bw`.
 
-![Backward Track2h Mixture Density Heads Registry Overlay Track 2 comparison](assets/comparisons/a_bw_trac_mixt_dens_head_reg_18b372da4f.png)
+![Backward Track2h Mixture Density Heads Registry Overlay curve-verification comparison](assets/comparisons/a_bw_trac_mixt_dens_head_reg_18b372da4f.png)
 
 ## Comparison Gallery - Forward Track2h Latent State Hysteresis Registry Overlay
 
 Included models: `track2h_l_gru_offset_residual_Fw`, `track2h_l_causal_tcn_offset_residual_Fw`.
 
-![Forward Track2h Latent State Hysteresis Registry Overlay Track 2 comparison](assets/comparisons/a_fw_trac_late_stat_hyst_reg_b9a1d6d37a.png)
+![Forward Track2h Latent State Hysteresis Registry Overlay curve-verification comparison](assets/comparisons/a_fw_trac_late_stat_hyst_reg_b9a1d6d37a.png)
 
 ## Comparison Gallery - Backward Track2h Latent State Hysteresis Registry Overlay
 
 Included models: `track2h_l_gru_offset_residual_Bw`, `track2h_l_causal_tcn_offset_residual_Bw`.
 
-![Backward Track2h Latent State Hysteresis Registry Overlay Track 2 comparison](assets/comparisons/a_bw_trac_late_stat_hyst_reg_7a4d528fe8.png)
+![Backward Track2h Latent State Hysteresis Registry Overlay curve-verification comparison](assets/comparisons/a_bw_trac_late_stat_hyst_reg_7a4d528fe8.png)
 
-## Comparison Gallery - Forward Wave 3 Harmonic Prior Residual Registry Overlay
+## Comparison Gallery - Forward Wave 5.1 Harmonic Prior Residual Registry Overlay
 
 Included models: `wave3_harmonic_prior_residual_pointwise_control_Fw`, `wave3_harmonic_prior_residual_smooth_l1_structured_Fw`.
 
-![Forward Wave 3 Harmonic Prior Residual Registry Overlay Track 2 comparison](assets/comparisons/a_fw_w3_harm_pri_res_reg_ae5ebf52ea.png)
+![Forward Wave 5.1 Harmonic Prior Residual Registry Overlay curve-verification comparison](assets/comparisons/a_fw_w3_harm_pri_res_reg_ae5ebf52ea.png)
 
-## Comparison Gallery - Backward Wave 3 Harmonic Prior Residual Registry Overlay
+## Comparison Gallery - Backward Wave 5.1 Harmonic Prior Residual Registry Overlay
 
 Included models: `wave3_harmonic_prior_residual_pointwise_control_Bw`, `wave3_harmonic_prior_residual_smooth_l1_structured_Bw`.
 
-![Backward Wave 3 Harmonic Prior Residual Registry Overlay Track 2 comparison](assets/comparisons/a_bw_w3_harm_pri_res_reg_06ebe1c05e.png)
+![Backward Wave 5.1 Harmonic Prior Residual Registry Overlay curve-verification comparison](assets/comparisons/a_bw_w3_harm_pri_res_reg_06ebe1c05e.png)
 
-## Comparison Gallery - Forward Track 1 And Screened Wave 1 Overlay
+## Comparison Gallery - Forward RCIM Model-Bank Reproduction And Screened Wave 1 Overlay
 
 Included models: `track1_best_Fw`, `tree_fw`, `harmonic_regression_fw`, `periodic_mlp_fw`.
 
-![Forward Track 1 And Screened Wave 1 Overlay Track 2 comparison](assets/comparisons/forward_track1_screened_wave1.png)
+![Forward RCIM Model-Bank Reproduction And Screened Wave 1 Overlay curve-verification comparison](assets/comparisons/forward_track1_screened_wave1.png)
 
-## Comparison Gallery - Backward Track 1 And Screened Wave 1 Overlay
+## Comparison Gallery - Backward RCIM Model-Bank Reproduction And Screened Wave 1 Overlay
 
 Included models: `track1_best_Bw`, `tree_bw`, `residual_harmonic_mlp_bw`, `periodic_mlp_bw`.
 
-![Backward Track 1 And Screened Wave 1 Overlay Track 2 comparison](assets/comparisons/backward_track1_screened_wave1.png)
+![Backward RCIM Model-Bank Reproduction And Screened Wave 1 Overlay curve-verification comparison](assets/comparisons/backward_track1_screened_wave1.png)
 
-## Comparison Gallery - Forward Reference Tree And Wave 2 Overlay
+## Comparison Gallery - Forward Reference Tree And Wave 2.1 Overlay
 
 Included models: `paper_retuned_best_Fw`, `track1_best_Fw`, `tree_fw`, `temporal_convolution_fw`, `gru_sequence_fw`, `lstm_sequence_fw`, `periodic_temporal_convolution_fw`, `periodic_gru_sequence_fw`, `periodic_lstm_sequence_fw`.
 
-![Forward Reference Tree And Wave 2 Overlay Track 2 comparison](assets/comparisons/forward_reference_tree_wave2.png)
+![Forward Reference Tree And Wave 2.1 Overlay curve-verification comparison](assets/comparisons/forward_reference_tree_wave2.png)
 
-## Comparison Gallery - Backward Reference Tree And Wave 2 Overlay
+## Comparison Gallery - Backward Reference Tree And Wave 2.1 Overlay
 
 Included models: `paper_retuned_best_Bw`, `track1_best_Bw`, `tree_bw`, `temporal_convolution_bw`, `gru_sequence_bw`, `lstm_sequence_bw`, `periodic_temporal_convolution_bw`, `periodic_gru_sequence_bw`, `periodic_lstm_sequence_bw`.
 
-![Backward Reference Tree And Wave 2 Overlay Track 2 comparison](assets/comparisons/backward_reference_tree_wave2.png)
+![Backward Reference Tree And Wave 2.1 Overlay curve-verification comparison](assets/comparisons/backward_reference_tree_wave2.png)
 
-## Comparison Gallery - Forward Reference Tree And Wave 2C Overlay
+## Comparison Gallery - Forward Reference Tree And Wave 2.3 Overlay
 
 Included models: `paper_retuned_best_Fw`, `track1_best_Fw`, `tree_fw`, `residual_harmonic_gru_sequence_sparse_rcim_Fw`, `residual_harmonic_gru_sequence_dense240_Fw`, `residual_harmonic_gru_sequence_dense360_Fw`, `residual_harmonic_lstm_sequence_sparse_rcim_Fw`, `residual_harmonic_lstm_sequence_dense240_Fw`, `residual_harmonic_lstm_sequence_dense360_Fw`.
 
-![Forward Reference Tree And Wave 2C Overlay Track 2 comparison](assets/comparisons/forward_reference_tree_wave2c.png)
+![Forward Reference Tree And Wave 2.3 Overlay curve-verification comparison](assets/comparisons/forward_reference_tree_wave2c.png)
 
-## Comparison Gallery - Backward Reference Tree And Wave 2C Overlay
+## Comparison Gallery - Backward Reference Tree And Wave 2.3 Overlay
 
 Included models: `paper_retuned_best_Bw`, `track1_best_Bw`, `tree_bw`, `residual_harmonic_gru_sequence_sparse_rcim_Bw`, `residual_harmonic_gru_sequence_dense240_Bw`, `residual_harmonic_gru_sequence_dense360_Bw`, `residual_harmonic_lstm_sequence_sparse_rcim_Bw`, `residual_harmonic_lstm_sequence_dense240_Bw`, `residual_harmonic_lstm_sequence_dense360_Bw`.
 
-![Backward Reference Tree And Wave 2C Overlay Track 2 comparison](assets/comparisons/backward_reference_tree_wave2c.png)
+![Backward Reference Tree And Wave 2.3 Overlay curve-verification comparison](assets/comparisons/backward_reference_tree_wave2c.png)
 
-## Comparison Gallery - Forward Reference Tree And Track 2F Overlay
+## Comparison Gallery - Forward Reference Tree And Wave 3.1 Overlay
 
 Included models: `paper_retuned_best_Fw`, `track1_best_Fw`, `tree_fw`, `sequential_residual_offset_probe_Fw`.
 
-![Forward Reference Tree And Track 2F Overlay Track 2 comparison](assets/comparisons/forward_reference_tree_track2f.png)
+![Forward Reference Tree And Wave 3.1 Overlay curve-verification comparison](assets/comparisons/forward_reference_tree_track2f.png)
 
-## Comparison Gallery - Backward Reference Tree And Track 2F Overlay
+## Comparison Gallery - Backward Reference Tree And Wave 3.1 Overlay
 
 Included models: `paper_retuned_best_Bw`, `track1_best_Bw`, `tree_bw`, `sequential_residual_offset_probe_Bw`.
 
-![Backward Reference Tree And Track 2F Overlay Track 2 comparison](assets/comparisons/backward_reference_tree_track2f.png)
+![Backward Reference Tree And Wave 3.1 Overlay curve-verification comparison](assets/comparisons/backward_reference_tree_track2f.png)
 
-## Comparison Gallery - Forward Reference Tree And Track 2G Overlay
+## Comparison Gallery - Forward Reference Tree And Wave 3.3 Overlay
 
 Included models: `paper_retuned_best_Fw`, `track1_best_Fw`, `tree_fw`, `track2g_curve_aware_pointwise_control_Fw`, `track2g_curve_aware_raw_centered_shape_Fw`, `track2g_curve_aware_raw_offset_Fw`, `track2g_curve_aware_full_curve_composite_Fw`.
 
-![Forward Reference Tree And Track 2G Overlay Track 2 comparison](assets/comparisons/forward_reference_tree_track2g.png)
+![Forward Reference Tree And Wave 3.3 Overlay curve-verification comparison](assets/comparisons/forward_reference_tree_track2g.png)
 
-## Comparison Gallery - Backward Reference Tree And Track 2G Overlay
+## Comparison Gallery - Backward Reference Tree And Wave 3.3 Overlay
 
 Included models: `paper_retuned_best_Bw`, `track1_best_Bw`, `tree_bw`, `track2g_curve_aware_pointwise_control_Bw`, `track2g_curve_aware_raw_centered_shape_Bw`, `track2g_curve_aware_raw_offset_Bw`, `track2g_curve_aware_full_curve_composite_Bw`.
 
-![Backward Reference Tree And Track 2G Overlay Track 2 comparison](assets/comparisons/backward_reference_tree_track2g.png)
+![Backward Reference Tree And Wave 3.3 Overlay curve-verification comparison](assets/comparisons/backward_reference_tree_track2g.png)
 
-## Comparison Gallery - Forward Reference Tree And Track 2H Overlay
+## Comparison Gallery - Forward Reference Tree And Wave 4 series Overlay
 
 Included models: `paper_retuned_best_Fw`, `track1_best_Fw`, `tree_fw`, `track2h_mae_robust_Fw`, `track2h_smooth_l1_robust_Fw`, `track2h_log_cosh_robust_Fw`.
 
-![Forward Reference Tree And Track 2H Overlay Track 2 comparison](assets/comparisons/forward_reference_tree_track2h.png)
+![Forward Reference Tree And Wave 4 series Overlay curve-verification comparison](assets/comparisons/forward_reference_tree_track2h.png)
 
-## Comparison Gallery - Backward Reference Tree And Track 2H Overlay
+## Comparison Gallery - Backward Reference Tree And Wave 4 series Overlay
 
 Included models: `paper_retuned_best_Bw`, `track1_best_Bw`, `tree_bw`, `track2h_mae_robust_Bw`, `track2h_smooth_l1_robust_Bw`, `track2h_log_cosh_robust_Bw`.
 
-![Backward Reference Tree And Track 2H Overlay Track 2 comparison](assets/comparisons/backward_reference_tree_track2h.png)
+![Backward Reference Tree And Wave 4 series Overlay curve-verification comparison](assets/comparisons/backward_reference_tree_track2h.png)
 
 ## Output Artifacts
 

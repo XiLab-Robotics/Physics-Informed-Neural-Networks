@@ -1,4 +1,4 @@
-"""Prepare the Wave 2B harmonic-temporal hybrid campaign package."""
+"""Prepare the Wave 2.2 harmonic-temporal hybrid campaign package."""
 
 from __future__ import annotations
 
@@ -126,7 +126,7 @@ def validate_no_active_campaign() -> None:
         and active_campaign_name == CAMPAIGN_NAME
     )
     assert active_status in ["", "none"] or same_campaign_is_prepared, (
-        f"Cannot prepare Wave 2B package while another campaign is active | status={active_status}"
+        f"Cannot prepare Wave 2.2 package while another campaign is active | status={active_status}"
     )
 
 
@@ -150,7 +150,7 @@ def build_campaign_training_config(
     queue_index: int,
 ) -> tuple[dict[str, Any], dict[str, Any]]:
 
-    """Compose and adapt one Wave 2B campaign training configuration."""
+    """Compose and adapt one Wave 2.2 campaign training configuration."""
 
     compose_hydra_training_config = load_hydra_composer()
     materialized_bundle = compose_hydra_training_config(
@@ -184,8 +184,8 @@ def build_campaign_training_config(
     metadata_dictionary["queue_index"] = queue_index
     metadata_dictionary["base_model_family"] = model_family
     metadata_dictionary["notes"] = (
-        f"Wave 2B harmonic-temporal hybrid campaign | family={model_family} | "
-        f"direction={direction_name}. Candidate must return through official Track 2 verification."
+        f"Wave 2.2 harmonic-temporal hybrid campaign | family={model_family} | "
+        f"direction={direction_name}. Candidate must return through official TE curve verification."
     )
     metadata_dictionary.pop("output_run_name", None)
     metadata_dictionary.pop("run_instance_id", None)
@@ -253,17 +253,17 @@ def write_launcher_note() -> None:
 
     """Write the launcher usage note."""
 
-    launcher_note_text = f"""# Wave 2B Harmonic Temporal Hybrid Campaign Launcher
+    launcher_note_text = f"""# Wave 2.2 Harmonic Temporal Hybrid Campaign Launcher
 
 ## Overview
 
-This launcher runs the prepared `Wave 2B` harmonic-temporal hybrid campaign
+This launcher runs the prepared `Wave 2.2` harmonic-temporal hybrid campaign
 after explicit operator approval. The package compares periodic temporal
 convolution, periodic `GRU`, and periodic `LSTM` sequence models across the
 required `global`, `Fw`, and `Bw` direction surfaces.
 
-The launcher does not run `Track 2` verification by itself. Promotion remains a
-post-campaign closeout step that must refresh the official `Track 2` matrix and
+The launcher does not run `TE Curve Verification Pipeline` verification by itself. Promotion remains a
+post-campaign closeout step that must refresh the official `TE Curve Verification Pipeline` matrix and
 visual reports.
 
 ## Campaign Package
@@ -334,7 +334,7 @@ def write_campaign_readme(queue_file_name_list: list[str]) -> None:
     """Write a short campaign-root README."""
 
     queue_listing = "\n".join(f"- `queue/{queue_file_name}`" for queue_file_name in queue_file_name_list)
-    readme_text = f"""# Wave 2B Harmonic Temporal Hybrid Campaign
+    readme_text = f"""# Wave 2.2 Harmonic Temporal Hybrid Campaign
 
 Prepared campaign package for:
 
@@ -377,7 +377,7 @@ def write_active_campaign_state(
 
 def prepare_campaign_package() -> None:
 
-    """Prepare the complete Wave 2B harmonic-temporal hybrid campaign package."""
+    """Prepare the complete Wave 2.2 harmonic-temporal hybrid campaign package."""
 
     validate_no_active_campaign()
 

@@ -2,7 +2,7 @@
 
 ## Overview
 
-This document covers the recovery work after the overnight `Track 1`
+This document covers the recovery work after the overnight `RCIM Model-Bank Reproduction`
 `open_cell_full_matrix` campaign appeared to crash during the first `MLP`
 family launcher.
 

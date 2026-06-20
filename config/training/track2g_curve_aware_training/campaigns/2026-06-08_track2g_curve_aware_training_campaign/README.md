@@ -1,6 +1,6 @@
-# Track 2G Curve-Aware Training Campaign Package
+# Wave 3.3 Curve-Aware Training Campaign Package
 
-This package materializes the approved Track 2G curve-aware training
+This package materializes the approved Wave 3.3 curve-aware training
 campaign. It contains 12 runnable queue entries: four loss profiles
 across `global`, `Fw`, and `Bw` surfaces.
 

@@ -1,9 +1,9 @@
-# Track 1 SVM Micro-Closure Campaign Launcher
+# RCIM Model-Bank Reproduction SVM Micro-Closure Campaign Launcher
 
 ## Overview
 
 This launcher executes the dedicated `SVR` micro-closure package for the last
-residual yellow `SVM` cells in the canonical `Track 1` benchmark.
+residual yellow `SVM` cells in the canonical `RCIM Model-Bank Reproduction` benchmark.
 
 The package is designed to finish the `SVM` row with the smallest campaign
 surface used so far.

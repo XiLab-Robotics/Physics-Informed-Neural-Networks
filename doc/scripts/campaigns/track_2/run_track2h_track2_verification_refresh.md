@@ -1,9 +1,9 @@
-# Track 2H Track 2 Verification Refresh Launcher
+# Wave 4 series TE Curve Verification Pipeline Verification Refresh Launcher
 
 ## Overview
 
-This launcher runs the operator-approved official `Track 2` offline
-verification refresh for the completed `Track 2H` robust-loss
+This launcher runs the operator-approved official `TE Curve Verification Pipeline` offline
+verification refresh for the completed `Wave 4.1` robust-loss
 dispersion-aware campaign.
 
 It adds nine registry-backed candidates to the direction-aware matrix: three
@@ -16,7 +16,7 @@ robust-loss profiles over the three required deployment surfaces.
 | `log_cosh` | `track2h_log_cosh_robust_global` | `track2h_log_cosh_robust_Fw` | `track2h_log_cosh_robust_Bw` |
 
 The launcher is operator-facing. Codex prepares it and provides the command,
-but does not run the heavy `Track 2` matrix internally.
+but does not run the heavy `TE Curve Verification Pipeline` matrix internally.
 
 ## Local Command
 
@@ -36,9 +36,9 @@ Run from the repository root:
 .\scripts\campaigns\track_2\run_track2h_track2_verification_refresh.ps1 -Remote
 ```
 
-Remote mode syncs the required local Track 2 launcher, config, scripts,
-Track 2H family registries, Track 2H training-run artifacts, and the completed
-`Wave 2C` Track 2 baseline summary to the remote checkout before execution. It
+Remote mode syncs the required local TE Curve Verification Pipeline launcher, config, scripts,
+Wave 4 series family registries, Wave 4 series training-run artifacts, and the completed
+`Wave 2.3` TE Curve Verification Pipeline baseline summary to the remote checkout before execution. It
 then syncs only the generated artifact paths listed by the run-local artifact
 sync manifest back to the local repository.
 
@@ -56,7 +56,7 @@ Override connection details when needed:
 
 The launcher runs:
 
-1. the official full direction-aware `Track 2` matrix;
+1. the official full direction-aware `TE Curve Verification Pipeline` matrix;
 2. the best-model collage report generation;
 3. the multi-model curve-comparison report generation;
 4. the visual source-coverage validation against the matrix candidate list;
@@ -69,7 +69,7 @@ When visual reports are enabled, the launcher fails before PDF export if a
 registry-backed matrix source is not visible in the collage and overlay
 Markdown reports.
 
-By default, the matrix uses the completed `Wave 2C` refresh as the configured
+By default, the matrix uses the completed `Wave 2.3` refresh as the configured
 baseline summary and only evaluates incremental current candidates. The new
 candidate-source plot sync is scoped to
 `track2h_dispersion_aware_modeling_registry`. Use
@@ -113,7 +113,7 @@ Remote source synchronization sends:
 - `doc/scripts/campaigns/track_2/`
 - `output/registries/families/track2h_dispersion_aware_*`
 - `output/training_runs/track2h_dispersion_aware_*`
-- the completed `Wave 2C` `Track 2` baseline summary and per-condition metrics
+- the completed `Wave 2.3` `TE Curve Verification Pipeline` baseline summary and per-condition metrics
 
 Remote artifact synchronization retrieves:
 

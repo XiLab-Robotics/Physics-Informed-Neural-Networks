@@ -16,7 +16,7 @@ The implementation will update the paper-facing documentation at the repository 
 - Section `3.1` implies two derived training datasets from the original measurements: one forward dataset and one backward dataset.
 - The algorithm families discussed in the paper are therefore instantiated twice, once per direction, even though the paper presents the notation in collapsed form.
 - The repository recovered models under the current RCIM recovered-asset root are forward-only models.
-- The canonical repository wording must explicitly state that the current Track 1 exact-paper replication corresponds to the forward tables and forward model bank only.
+- The canonical repository wording must explicitly state that the current RCIM Model-Bank Reproduction exact-paper replication corresponds to the forward tables and forward model bank only.
 
 The work will update the canonical recovered-asset indexes, the paper summary material, and the deeper RCIM analytical notes so that future comparison, replication, and deployment work does not incorrectly treat forward and backward banks as interchangeable.
 
@@ -37,6 +37,6 @@ The work will also rename the recovered asset root from `reference/rcim_ml_compe
 
 1. Re-read the relevant paper passages and the recovered-code entrypoints to align the documentation changes with the real current repository evidence.
 2. Update the canonical paper summary and recovered-asset summaries to formalize the forward-only interpretation of the currently recovered model bank.
-3. Update the deeper RCIM analysis reports so that equations, datasets, table references, and Track 1 wording explicitly distinguish generalized paper notation from the repository's forward-only recovered branch.
+3. Update the deeper RCIM analysis reports so that equations, datasets, table references, and RCIM Model-Bank Reproduction wording explicitly distinguish generalized paper notation from the repository's forward-only recovered branch.
 4. Rename the recovered asset root to a forward-explicit path and update repository references that point to the old folder name.
 5. Run Markdown QA on the touched documentation scope and verify that no stale path references remain after the rename.

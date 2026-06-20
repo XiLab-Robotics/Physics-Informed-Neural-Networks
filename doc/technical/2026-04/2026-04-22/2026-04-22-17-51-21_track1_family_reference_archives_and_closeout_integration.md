@@ -1,16 +1,16 @@
-# Track 1 Family Reference Archives And Closeout Integration
+# RCIM Model-Bank Reproduction Family Reference Archives And Closeout Integration
 
 ## Overview
 
 This technical document defines the repository change needed to extend the
-existing curated `Track 1` `SVM` reference-archive pattern to every other
-exact-paper `Track 1` family and to make archive refresh a formal required
-step of future `Track 1` campaign closeout.
+existing curated `RCIM Model-Bank Reproduction` `SVM` reference-archive pattern to every other
+exact-paper `RCIM Model-Bank Reproduction` family and to make archive refresh a formal required
+step of future `RCIM Model-Bank Reproduction` campaign closeout.
 
 The current repository already contains the first complete archive instance at
 `models/paper_reference/rcim_track1/forward/svm_reference_models/`, and the benchmark
 surface already declares the target contract for future family archives.
-However, the remaining `Track 1` families do not yet expose the same stable
+However, the remaining `RCIM Model-Bank Reproduction` families do not yet expose the same stable
 paper-reference package, and the closeout flow does not yet enforce archive
 promotion whenever a campaign improves an accepted family result.
 
@@ -21,7 +21,7 @@ remain protected and must not be edited as part of this implementation unless
 explicitly re-approved later.
 
 The target family scope for this archive rollout is every non-`SVM` exact-paper
-`Track 1` family already treated as canonical in the benchmark:
+`RCIM Model-Bank Reproduction` family already treated as canonical in the benchmark:
 
 - `MLP`
 - `RF`
@@ -40,13 +40,13 @@ later, it must be proposed explicitly and approved before launch.
 
 The implementation should promote the current `SVM` archive layout from a
 one-off curated package into a reusable repository mechanism that can be
-applied to all accepted `Track 1` families and re-run during closeout.
+applied to all accepted `RCIM Model-Bank Reproduction` families and re-run during closeout.
 
 The approved implementation should do five things:
 
 1. Introduce one canonical family archive under
    `models/paper_reference/rcim_track1/<family>_reference_models/` for each
-   non-`SVM` `Track 1` family, using the existing `SVM` package contract as the
+   non-`SVM` `RCIM Model-Bank Reproduction` family, using the existing `SVM` package contract as the
    template instance.
 2. Populate each archive with the family-best accepted target set for the four
    canonical replication tables, preserving both:
@@ -58,7 +58,7 @@ The approved implementation should do five things:
 3. Add repository-owned tooling that can regenerate or refresh a family archive
    from the current accepted benchmark state rather than relying on manual
    archive assembly.
-4. Formalize a closeout rule for exact-paper `Track 1` campaigns:
+4. Formalize a closeout rule for exact-paper `RCIM Model-Bank Reproduction` campaigns:
    when a campaign changes any accepted family result, closeout must refresh
    the affected family archive or archives before the benchmark is considered
    synchronized.
@@ -107,7 +107,7 @@ and validation artifacts already used to refresh:
 ## Implementation Steps
 
 1. Inspect the current exact-paper benchmark surface and determine the accepted
-   target inventory for each non-`SVM` `Track 1` family.
+   target inventory for each non-`SVM` `RCIM Model-Bank Reproduction` family.
 2. Derive a reusable archive-generation workflow from the existing
    `svm_reference_models` package, including the per-target provenance fields,
    dataset snapshot handling, and source-run snapshot structure.
@@ -116,7 +116,7 @@ and validation artifacts already used to refresh:
    accepted `ONNX`, Python, data, and metadata artifacts.
 4. Update the relevant model-archive and benchmark documentation so every new
    family archive is discoverable and its regeneration rule is explicit.
-5. Add or extend repository-owned closeout tooling so future `Track 1`
+5. Add or extend repository-owned closeout tooling so future `RCIM Model-Bank Reproduction`
    campaign closeouts refresh affected family archives whenever accepted
    family-target cells improve.
 6. Integrate that archive-refresh step into the exact-paper closeout workflow

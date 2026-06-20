@@ -1,4 +1,4 @@
-# Track 1 Exact-Paper LinearSVR Fallback Alignment
+# RCIM Model-Bank Reproduction Exact-Paper LinearSVR Fallback Alignment
 
 ## Overview
 
@@ -11,14 +11,14 @@ historical `SVR(kernel="linear")` branch:
 - serialize the selected `SVR` variant explicitly so `Retune`, `LoadBest`,
   `paper_eval`, and `paper_export` can rebuild the same estimator later.
 
-The Track 1 exact-paper reimplementation does not yet carry that same
+The RCIM Model-Bank Reproduction exact-paper reimplementation does not yet carry that same
 pragmatic fallback. Its shared exact-paper `SVR` surface still builds a single
 homogeneous `SVR` estimator and still exposes the historical `linear` branch
-through a plain `SVR` grid. That leaves the Track 1 `SVR` family vulnerable to
+through a plain `SVR` grid. That leaves the RCIM Model-Bank Reproduction `SVR` family vulnerable to
 the same pathological runtime behavior that was already fixed in the recovered
 original pipeline.
 
-This task aligns the Track 1 exact-paper shared workflow with the already
+This task aligns the RCIM Model-Bank Reproduction exact-paper shared workflow with the already
 accepted recovered-original `LinearSVR` fallback pattern, without changing the
 overall mathematical search structure outside the `SVR(kernel="linear")`
 branch.
@@ -49,7 +49,7 @@ The intended behavior is:
 5. Keep the existing exact-paper operator flow, campaign queue structure, and
    artifact roots unchanged.
 
-This is a Track 1 exact-paper quality-of-execution fix, not a redesign of the
+This is a RCIM Model-Bank Reproduction exact-paper quality-of-execution fix, not a redesign of the
 broader paper-faithful workflow.
 
 ## Involved Components
@@ -61,13 +61,13 @@ broader paper-faithful workflow.
   Original-dataset exact-paper reporting surface that may need wording updates
   if `SVR` variant metadata becomes report-visible.
 - `scripts/paper_reimplementation/rcim_ml_compensation/README.md`
-  Canonical exact-paper operator README that documents the shared Track 1
+  Canonical exact-paper operator README that documents the shared RCIM Model-Bank Reproduction
   workflow.
 - `doc/guide/project_usage_guide.md`
   User-facing guide entry point if the exact-paper operator surface changes in
   a way that should be documented.
 - `doc/running/active_training_campaign.yaml`
-  Current campaign state reference. The current Track 1 paper-faithful
+  Current campaign state reference. The current RCIM Model-Bank Reproduction paper-faithful
   umbrella campaign is already `cancelled`, so no active-run mutation is
   expected for this implementation.
 
@@ -83,7 +83,7 @@ No subagent is planned for this change.
 3. Extend exact-paper best-parameter serialization and replay logic so stored
    summaries and registry entries can rebuild either `SVR` branch
    deterministically.
-4. Update exact-paper operator documentation to state that the Track 1 `SVR`
+4. Update exact-paper operator documentation to state that the RCIM Model-Bank Reproduction `SVR`
    family now mirrors the recovered-original pragmatic linear fallback.
 5. Run targeted verification on the exact-paper `SVR` path, including at least
    one `search`-side sanity check and one `loadbest` or `export` replay check.

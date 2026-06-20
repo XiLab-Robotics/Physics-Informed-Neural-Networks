@@ -1,4 +1,4 @@
-"""Build the official Track 2 model-verification report from refresh artifacts."""
+"""Build the official TE Curve Verification Pipeline model-verification report from refresh artifacts."""
 
 from __future__ import annotations
 
@@ -34,25 +34,25 @@ def parse_command_line_arguments() -> argparse.Namespace:
     """Parse command-line arguments."""
 
     argument_parser = argparse.ArgumentParser(
-        description="Build the official Track 2 model-verification report.",
+        description="Build the official TE Curve Verification Pipeline model-verification report.",
     )
     argument_parser.add_argument(
         "--matrix-summary-path",
         type=Path,
         required=True,
-        help="Track 2 matrix validation_summary.yaml path.",
+        help="curve-verification matrix validation_summary.yaml path.",
     )
     argument_parser.add_argument(
         "--collage-summary-path",
         type=Path,
         required=True,
-        help="Track 2 collage summary YAML path.",
+        help="TE Curve Verification Pipeline collage summary YAML path.",
     )
     argument_parser.add_argument(
         "--overlay-summary-path",
         type=Path,
         required=True,
-        help="Track 2 overlay summary YAML path.",
+        help="TE Curve Verification Pipeline overlay summary YAML path.",
     )
     argument_parser.add_argument(
         "--report-date",
@@ -377,7 +377,7 @@ def build_report_markdown(
     ]
 
     output_line_list = [
-        "# Track 2 Official Model Verification Report",
+        "# TE Curve Verification Pipeline Official Model Verification Report",
         "",
         "## Executive Verdict",
         "",
@@ -436,7 +436,7 @@ def build_report_markdown(
             "",
             "## Refreshed Source Leaders",
             "",
-            "The table ranks the refreshed source by aggregate offline Track 2 metrics.",
+            "The table ranks the refreshed source by aggregate offline TE Curve Verification Pipeline metrics.",
             "",
             *build_metric_table(
                 [
@@ -505,7 +505,7 @@ def build_report_markdown(
 
 def build_track2_official_model_verification_report(arguments: argparse.Namespace) -> Path:
 
-    """Build and write the official Track 2 model-verification report."""
+    """Build and write the official TE Curve Verification Pipeline model-verification report."""
 
     matrix_summary_dictionary = load_yaml_dictionary(arguments.matrix_summary_path)
     collage_summary_dictionary = load_yaml_dictionary(arguments.collage_summary_path)
@@ -542,7 +542,7 @@ def build_track2_official_model_verification_report(arguments: argparse.Namespac
         ranked_candidate_row_list,
     )
     output_report_path.write_text(report_markdown, encoding="utf-8")
-    print(f"Prepared Track 2 official verification report | {output_report_path}")
+    print(f"Prepared TE Curve Verification Pipeline official verification report | {output_report_path}")
     return output_report_path
 
 

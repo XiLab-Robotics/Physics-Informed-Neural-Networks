@@ -1,8 +1,8 @@
-# Wave 3 Harmonic-Prior Residual Campaign Results Report
+# Wave 5.1 Harmonic-Prior Residual Campaign Results Report
 
 ## Overview
 
-The first real `Wave 3` harmonic-prior residual campaign completed all six
+The first real `Wave 5.1` harmonic-prior residual campaign completed all six
 runs successfully; the scalar winner is the backward pointwise-control branch,
 but the campaign does not replace the current program winner.
 
@@ -34,7 +34,7 @@ but the campaign does not replace the current program winner.
 | Best scalar test RMSE | `0.003902` |
 | Program winner changed | `no` |
 | Current program winner | `te_periodic_gru_sequence_remote_Bw` |
-| Track 2 status | not run during normal closeout |
+| TE Curve Verification Pipeline status | not run during normal closeout |
 
 ## Directional Branch Results
 
@@ -44,7 +44,7 @@ but the campaign does not replace the current program winner.
 | `Fw` | `pw_fw` | `pw` | 0.003382 | 0.003779 | 0.003315 |
 | `Bw` | `pw_bw` | `pw` | 0.003363 | 0.003902 | 0.003634 |
 
-## Wave 3 Leaderboard
+## Wave 5.1 Leaderboard
 
 Candidate labels are aliases for the corresponding
 `te_wave3_harmonic_prior_residual_*` run names stored in the campaign
@@ -69,16 +69,16 @@ leaderboard. All candidates have `7,283` trainable parameters.
 
 ## Interpretation
 
-`Wave 3` validates the lightweight harmonic-prior residual implementation as a
+`Wave 5.1` validates the lightweight harmonic-prior residual implementation as a
 real trainable branch, with all six directional candidates completing cleanly
 and registering as implemented benchmarks. The best scalar result is backward
 only, while the best global result comes from the `smooth_l1_structured`
 profile.
 
-The result is useful but not yet promotable. The best `Wave 3` scalar test MAE
+The result is useful but not yet promotable. The best `Wave 5.1` scalar test MAE
 of `0.003363 deg` is weaker than the current program winner
 `te_periodic_gru_sequence_remote_Bw` at `0.002344 deg`, and also weaker than
-the best recent `Track 2H` mixture-density backward branch on scalar MAE. The
+the best recent `Wave 4.3` mixture-density backward branch on scalar MAE. The
 main positive signal is architectural: the candidate has only `7,283`
 trainable parameters and keeps an explicit harmonic-prior residual structure.
 
@@ -95,13 +95,13 @@ scalar training MAE alone.
 | Family registries | Six new `wave3_harmonic_prior_residual_*` family bests are registered. |
 | Program registry | No program-best promotion; `te_periodic_gru_sequence_remote_Bw` remains current. |
 | Active campaign state | Cleared by this closeout after report and PDF validation. |
-| Master summary | Updated to show `Wave 3` campaign closeout and separate `Track 2` boundary. |
+| Master summary | Updated to show `Wave 5.1` campaign closeout and separate `TE Curve Verification Pipeline` boundary. |
 
-## Track 2 Boundary
+## TE Curve Verification Pipeline Boundary
 
 Normal campaign closeout intentionally did not execute the heavy official
-`Track 2` offline verification matrix. The next optional step is a separate
-`Track 2` verification refresh for the six `Wave 3` candidates, including
+`TE Curve Verification Pipeline` offline verification matrix. The next optional step is a separate
+`TE Curve Verification Pipeline` verification refresh for the six `Wave 5.1` candidates, including
 collage and overlay reports, so the harmonic-prior residual branch can be
 compared on curve shape, offset, and direction-specific compensation behavior.
 
@@ -109,6 +109,6 @@ compared on curve shape, offset, and direction-specific compensation behavior.
 
 Accept the campaign as successfully closed at the training-campaign level.
 Do not promote a new program winner from scalar metrics. Plan official
-`Track 2` verification as the next separate acceptance step before deciding
-whether `Wave 3` should feed the later multi-head or `Wave 4` integration
+`TE Curve Verification Pipeline` verification as the next separate acceptance step before deciding
+whether `Wave 5.1` should feed the later multi-head or `Wave 5.2` integration
 roadmap.

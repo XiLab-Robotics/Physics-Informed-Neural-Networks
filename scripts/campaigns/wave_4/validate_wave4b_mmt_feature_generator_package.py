@@ -1,4 +1,4 @@
-"""Validate the Wave 4B MMT feature-generator skeleton package."""
+"""Validate the Wave 5.2B MMT feature-generator skeleton package."""
 
 from __future__ import annotations
 
@@ -44,7 +44,7 @@ def read_yaml_file(input_path: Path) -> dict[str, Any]:
 
 def validate_template_payload(template_payload: dict[str, Any]) -> None:
 
-    """Validate Wave 4B metadata and campaign blockers."""
+    """Validate Wave 5.2B metadata and campaign blockers."""
 
     metadata = template_payload.get("metadata", {})
     feature_generation = template_payload.get("feature_generation", {})
@@ -111,7 +111,7 @@ def parse_arguments() -> argparse.Namespace:
         "--template-path",
         default=TEMPLATE_PATH,
         type=Path,
-        help="Repository-relative Wave 4B embryonic template path.",
+        help="Repository-relative Wave 5.2B embryonic template path.",
     )
     parser.add_argument("--output-root", default=DEFAULT_OUTPUT_ROOT, type=Path)
     parser.add_argument("--run-id", default="", type=str)
@@ -121,7 +121,7 @@ def parse_arguments() -> argparse.Namespace:
 
 def main() -> int:
 
-    """Validate the Wave 4B MMT feature-generator skeleton."""
+    """Validate the Wave 5.2B MMT feature-generator skeleton."""
 
     argument_namespace = parse_arguments()
     template_path = PROJECT_PATH / argument_namespace.template_path
@@ -154,7 +154,7 @@ def main() -> int:
     write_validation_artifacts(argument_namespace.output_root / run_id, payload_dictionary)
 
     print(
-        "Wave 4B MMT feature-generator skeleton validated | "
+        "Wave 5.2B MMT feature-generator skeleton validated | "
         "implementation_status=implementation_ready | "
         "campaign_readiness=not_campaign_ready | "
         f"output_directory={argument_namespace.output_root / run_id}"

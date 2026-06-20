@@ -4,7 +4,7 @@
 
 This document supersedes the earlier campaign-only replacement gate by adding
 the missing protocol-alignment work that is still required before a
-paper-faithful `Track 1` rerun can be prepared.
+paper-faithful `RCIM Model-Bank Reproduction` rerun can be prepared.
 
 The recovered original RCIM workflow does not stop at `GridSearchCV.fit(...)`.
 Its historical hyperparameter-search branch also executes a

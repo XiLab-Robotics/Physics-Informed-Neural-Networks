@@ -1,4 +1,4 @@
-# Track 2 Original ONNX Forward Collage Report
+# TE Curve Verification Pipeline Original ONNX Forward Collage Report
 
 ## Overview
 
@@ -35,7 +35,7 @@ the validation summary YAML.
 | `phase` | `P162` | `ERT` | `ExtraTreesRegressor_phase162.onnx` |
 | `phase` | `P240` | `ERT` | `ExtraTreesRegressor_phase240.onnx` |
 
-## Track 2 Forward Metrics
+## TE Curve Verification Pipeline Forward Metrics
 
 | Candidate | Curves | MAE [deg] | RMSE [deg] | Mean Error [%] | P95 Error [%] |
 | --- | ---: | ---: | ---: | ---: | ---: |
@@ -43,10 +43,10 @@ the validation summary YAML.
 
 ## Collage
 
-The collage shows four deterministic held-out forward `Track 2` curves
+The collage shows four deterministic held-out forward `TE Curve Verification Pipeline` curves
 spread across the sorted forward evaluation set.
 
-![paper_original_best_Fw_original_onnx_release Track 2 collage](assets/paper_original_best_fw_original_onnx_release.png)
+![paper_original_best_Fw_original_onnx_release curve-verification collage](assets/paper_original_best_fw_original_onnx_release.png)
 
 ## Collaged Curves
 

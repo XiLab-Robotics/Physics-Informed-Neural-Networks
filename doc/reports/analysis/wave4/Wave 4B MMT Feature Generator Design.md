@@ -1,10 +1,10 @@
-# Wave 4B MMT Feature Generator Design
+# Wave 5.2B MMT Feature Generator Design
 
 ## Purpose
 
-`Wave 4B` tests whether MMT analytical terms are useful as causal features or
+`Wave 5.2B` tests whether MMT analytical terms are useful as causal features or
 pseudo-physical residual labels for repository ML models. It comes after
-`Wave 4A` and before any MMT equation residual is used inside a PINN loss.
+`Wave 5.2A` and before any MMT equation residual is used inside a PINN loss.
 
 ## Physical Idea
 
@@ -26,10 +26,10 @@ accurate enough alone.
 | Element | Design Choice |
 | --- | --- |
 | Candidate name | `wave4b_mmt_feature_generator` |
-| Inputs | Track 2 causal operating variables, angle grid, geometry constants, and calibrated equivalent-error parameters from training conditions. |
+| Inputs | TE Curve Verification Pipeline causal operating variables, angle grid, geometry constants, and calibrated equivalent-error parameters from training conditions. |
 | Feature outputs | MMT `RTE`, subsystem terms, low-speed/high-speed contribution summaries, harmonic amplitudes, and calibrated residual channels. |
 | Target outputs | Existing TE curve target, optional residual target after subtracting MMT baseline, and optional grouped-harmonic residual targets. |
-| First consumer | Wave 3 hybrid structured models or Wave 4C MMT soft-constraint PINN. |
+| First consumer | Wave 5.1 hybrid structured models or Wave 5.2C MMT soft-constraint PINN. |
 
 ## Feature Groups
 
@@ -42,14 +42,14 @@ accurate enough alone.
 
 ## Implementation Outline
 
-1. Reuse the generated `Wave 4A` parameter inventory:
+1. Reuse the generated `Wave 5.2A` parameter inventory:
    `doc/reports/analysis/wave4/mmt_parameter_inventory/[2026-06-11]/wave4a_mmt_parameter_inventory.md`.
 2. Generate MMT feature tables for train/validation/test splits.
 3. Verify that every feature is computable without target leakage at
    inference time.
 4. Train a lightweight diagnostic model or join features into an existing
-   Wave 3 design.
-5. Evaluate whether features reduce Track 2 offset or fragile-harmonic errors.
+   Wave 5.1 design.
+5. Evaluate whether features reduce TE Curve Verification Pipeline offset or fragile-harmonic errors.
 
 The first feature package should prioritize:
 
@@ -70,5 +70,5 @@ The first feature package should prioritize:
 
 ## Decision Gate
 
-Promote to `Wave 4C` if MMT features improve at least one Track 2 diagnostic
+Promote to `Wave 5.2C` if MMT features improve at least one TE Curve Verification Pipeline diagnostic
 surface without degrading centered-shape, amplitude, or phase behavior.

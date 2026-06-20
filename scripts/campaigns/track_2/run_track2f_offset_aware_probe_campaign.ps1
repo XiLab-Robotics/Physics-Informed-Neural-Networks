@@ -1,4 +1,4 @@
-﻿param(
+param(
     [switch]$Remote,
     [switch]$PreflightOnly,
     [switch]$EnqueueOnly,
@@ -80,7 +80,7 @@ if (-not $PreflightOnly) {
     )
 }
 
-Write-Track2FStatus -Label "STEP" -Message "Validating Track 2F package."
+Write-Track2FStatus -Label "STEP" -Message "Validating Wave 3.1 package."
 Invoke-Track2FPython -ArgumentList $validatorArgumentList
 $pythonExitCode = $script:LastTrack2FPythonExitCode
 if ($pythonExitCode -ne 0) {

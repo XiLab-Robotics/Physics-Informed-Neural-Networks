@@ -1,8 +1,8 @@
-# Wave 3 Grouped Harmonic Heads Checks
+# Wave 5.1 Grouped Harmonic Heads Checks
 
 ## Purpose
 
-`run_wave3_grouped_harmonic_heads_checks.ps1` validates the `Wave 3` grouped
+`run_wave3_grouped_harmonic_heads_checks.ps1` validates the `Wave 5.1` grouped
 harmonic-heads skeleton. It is a dry-run check launcher only. It must not
 enqueue or launch training.
 
@@ -37,7 +37,7 @@ The expected file is:
 
 ## Campaign Boundary
 
-Real `Wave 3` grouped-head training remains blocked until the separate
-`Track 2H` quantile / probabilistic campaign is closed out and a new campaign
+Real `Wave 5.1` grouped-head training remains blocked until the separate
+`Wave 4.2` quantile / probabilistic campaign is closed out and a new campaign
 plan explicitly approves queue size, surfaces, losses, branch weights,
 regularization policy, and launch mode.

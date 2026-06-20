@@ -1,9 +1,9 @@
-# Track 2 Component Offset Identification Plan
+# TE Curve Verification Pipeline Component Offset Identification Plan
 
 ## Purpose
 
 This analysis plan records the next separate diagnostic branch for the
-`Track 2` curve-offset problem. The current evidence shows that vertical
+`TE Curve Verification Pipeline` curve-offset problem. The current evidence shows that vertical
 curve offset is a major contributor to raw TE-curve prediction error, but it
 does not yet identify one confirmed source.
 
@@ -18,12 +18,12 @@ error, or by experimental repeatability limits.
 | Evidence | Current Interpretation | Boundary |
 | --- | --- | --- |
 | Mean-centering strongly improves selected candidates. | Curve mean / `DC` offset is a real diagnostic symptom. | Mean-centering is not a runtime correction because it uses target-curve information unavailable during deployment. |
-| `Track 2D` labels many candidates as `offset` or mixed offset cases. | Offset must stay separate from centered-shape, amplitude, and phase diagnostics. | The existing full-matrix audit does not prove that `a_0` alone caused the offset. |
-| `Track 2E` finds `direction_torque` as the strongest conservative causal grouping. | Offset has an operating-condition signal. | Full operating-condition grouping can overstate deployable predictability when it collapses to one curve. |
+| `CVP 1.4` labels many candidates as `offset` or mixed offset cases. | Offset must stay separate from centered-shape, amplitude, and phase diagnostics. | The existing full-matrix audit does not prove that `a_0` alone caused the offset. |
+| `CVP 1.5` finds `direction_torque` as the strongest conservative causal grouping. | Offset has an operating-condition signal. | Full operating-condition grouping can overstate deployable predictability when it collapses to one curve. |
 | Colleague feedback reports possible `Component 0` repeatability variation. | Experimental variability may affect the target itself, especially preload or state-dependent initialization. | The reported variation must be treated as external evidence until matched against repository data or imported repeat measurements. |
-| `Track 2F`, `Track 2F-bis`, and `Track 2G` test offset-aware and curve-aware branches. | Offset-aware modeling helps in some branches but has not closed the full curve-following gap. | Further training should wait for the component-identification result unless explicitly approved as a separate branch. |
+| `Wave 3.1`, `Wave 3.2`, and `Wave 3.3` test offset-aware and curve-aware branches. | Offset-aware modeling helps in some branches but has not closed the full curve-following gap. | Further training should wait for the component-identification result unless explicitly approved as a separate branch. |
 | Measured h0 diagnostic is complete. | Harmonic zero / `h0` is the largest average measured component and the correct mean-like channel to inspect. | This does not prove that `h0` is the only source of model offset failures. |
-| `Track 2D` h0/error cross-check is complete. | Large absolute measured `h0` does not reliably identify the cases where models have the largest mean-offset errors. | Filtering or reweighting high-`h0` curves alone is not a sufficient plan. |
+| `CVP 1.4` h0/error cross-check is complete. | Large absolute measured `h0` does not reliably identify the cases where models have the largest mean-offset errors. | Filtering or reweighting high-`h0` curves alone is not a sufficient plan. |
 | Predicted-mean h0 surface diagnostic is complete. | The actionable symptom is model-side mean-surface bias or compression against measured `h0`. | The diagnostic does not yet select the best modeling intervention. |
 
 ## Analysis Questions
@@ -82,10 +82,10 @@ and outlier analysis; they do not prove that `a_0` is the confirmed cause.
 ## Documentation Corrections To Defer Until Evidence
 
 - Do not state that `a_0` / `Component 0` is the confirmed cause of the
-  Track 2 curve offset.
-- Do not rewrite `Track 2D` or `Track 2E` conclusions as component-level
+  TE Curve Verification Pipeline curve offset.
+- Do not rewrite `CVP 1.4` or `CVP 1.5` conclusions as component-level
   conclusions until component diagnostics are generated.
-- After the diagnostic, update the backlog and Track 2 reports with one of
+- After the diagnostic, update the backlog and TE curve-verification reports with one of
   these outcomes:
   - `a_0`-dominant offset;
   - multi-component offset;
@@ -97,15 +97,15 @@ and outlier analysis; they do not prove that `a_0` is the confirmed cause.
 ## Next Decision Gate
 
 This diagnostic should run in parallel with, but separate from, the operator
-workflow that closes or refreshes `Track 2G`. Its result should decide whether
+workflow that closes or refreshes `Wave 3.3`. Its result should decide whether
 the next approved step is:
 
-- a `Track 2H` dispersion-aware probe stage with robust losses, quantile or
+- a `Wave 4 series` dispersion-aware probe stage with robust losses, quantile or
   probabilistic regression, mixture-density heads, and latent-state /
   hysteresis-aware models;
-- `Wave 3` hybrid structured models that separate stable middle harmonics from
+- `Wave 5.1` hybrid structured models that separate stable middle harmonics from
   fragile low-order and high-order components;
-- `Wave 4` first-PINN formulation to test soft physics, periodicity,
+- `Wave 5.2` first-PINN formulation to test soft physics, periodicity,
   smoothness, harmonic-consistency, and operating-condition constraints;
 - or a later integrated multi-task / multi-head architecture after the smaller
   probes identify which mechanisms are worth combining.

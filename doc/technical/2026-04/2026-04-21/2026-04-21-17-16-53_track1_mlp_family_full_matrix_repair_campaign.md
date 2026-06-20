@@ -1,13 +1,13 @@
-# Track 1 MLP Family Full-Matrix Repair Campaign
+# RCIM Model-Bank Reproduction MLP Family Full-Matrix Repair Campaign
 
 ## Overview
 
-This technical document defines the next dedicated `Track 1` preparation step
+This technical document defines the next dedicated `RCIM Model-Bank Reproduction` preparation step
 for the exact-paper `MLP` family after the recovered first-launch artifacts
 were reconciled into the canonical local validation roots.
 
 The user requested a new `MLP`-only campaign that tries to repair every
-remaining non-green `MLP` cell in the canonical `Track 1` progress surface:
+remaining non-green `MLP` cell in the canonical `RCIM Model-Bank Reproduction` progress surface:
 
 - `Table 2 - Amplitude MAE Full-Matrix Replication`
 - `Table 3 - Amplitude RMSE Full-Matrix Replication`
@@ -27,7 +27,7 @@ step until the user explicitly approves the prepared package.
 
 ## Technical Approach
 
-The campaign should stay fully aligned with the repository's updated `Track 1`
+The campaign should stay fully aligned with the repository's updated `RCIM Model-Bank Reproduction`
 closure rule, which now reads progress only from the four canonical
 full-matrix replication tables and not from the postponed harmonic-wise branch.
 

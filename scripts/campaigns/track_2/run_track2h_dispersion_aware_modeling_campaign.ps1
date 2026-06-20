@@ -75,7 +75,7 @@ $validatorArgumentList = @(
     "--require-prepared-state"
 )
 
-Write-Track2HStatus -Label "STEP" -Message "Validating Track 2H package."
+Write-Track2HStatus -Label "STEP" -Message "Validating Wave 5.2 series package."
 Invoke-Track2HPython -ArgumentList $validatorArgumentList
 $pythonExitCode = $script:LastTrack2HPythonExitCode
 if ($pythonExitCode -ne 0) {
@@ -137,7 +137,7 @@ if ($EnqueueOnly) {
     Write-Track2HStatus -Label "STEP" -Message "Enqueue-only verification enabled; training will not start."
 }
 
-Write-Track2HStatus -Label "STEP" -Message "Launching local Track 2H dispersion-aware robust-loss campaign."
+Write-Track2HStatus -Label "STEP" -Message "Launching local Wave 5.2 series dispersion-aware robust-loss campaign."
 Invoke-Track2HPython -ArgumentList $argumentList
 $trainingExitCode = $script:LastTrack2HPythonExitCode
 exit $trainingExitCode

@@ -1,4 +1,4 @@
-"""Prepare the final aggressive forward-only residual campaign package for Track 1."""
+"""Prepare the final aggressive forward-only residual campaign package for RCIM Model-Bank Reproduction."""
 
 from __future__ import annotations
 

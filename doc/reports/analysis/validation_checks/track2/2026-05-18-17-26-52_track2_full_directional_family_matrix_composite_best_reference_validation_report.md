@@ -1,9 +1,9 @@
-# Track 2 Directional Model Comparison
+# TE Curve Verification Pipeline Directional Model Comparison
 
 ## Overview
 
-This report is the canonical `Track 2` offline comparison between
-`Track 1`, recovered original, retuned paper-reference model banks, and
+This report is the canonical `TE Curve Verification Pipeline` offline comparison between
+`RCIM Model-Bank Reproduction`, recovered original, retuned paper-reference model banks, and
 exported `Wave 1` repository models. It starts from the current
 direction-aware comparison matrix.
 
@@ -103,7 +103,7 @@ direction-aware comparison matrix.
 ## Best Composite Reference Models
 
 These candidates combine the approved best harmonic-wise cells into
-one Track 2 curve-reconstruction candidate. They are also repeated
+one TE Curve Verification Pipeline curve-reconstruction candidate. They are also repeated
 inside the source-group tables below, but this section keeps the
 composed models explicit.
 
@@ -151,7 +151,7 @@ composed models explicit.
 | `rcim_retuned_ELM19_Fw` | 0.007182 | 0.007463 | 16.181 | 40.024 |
 | `rcim_retuned_MLP19_Fw` | 0.016647 | 0.020154 | 38.510 | 86.197 |
 
-### Track 1 Forward Models
+### RCIM Model-Bank Reproduction Forward Models
 
 | Candidate | Curve MAE [deg] | Curve RMSE [deg] | Mean Percentage Error [%] | P95 Mean Percentage Error [%] |
 | --- | ---: | ---: | ---: | ---: |
@@ -202,7 +202,7 @@ composed models explicit.
 | `rcim_retuned_XGBM19_Bw` | 0.010679 | 0.011209 | 24.184 | 48.082 |
 | `rcim_retuned_MLP19_Bw` | 0.019115 | 0.023025 | 44.141 | 88.991 |
 
-### Track 1 Backward Models
+### RCIM Model-Bank Reproduction Backward Models
 
 | Candidate | Curve MAE [deg] | Curve RMSE [deg] | Mean Percentage Error [%] | P95 Mean Percentage Error [%] |
 | --- | ---: | ---: | ---: | ---: |
@@ -277,8 +277,8 @@ never evaluated on the opposite direction. Global Wave 1 models
 remain valid on both directions and are therefore shown in both
 directional Wave 1 sections and again in the global breakdown.
 The `rcim_track1` forward reference banks use the opposite stored
-`h0` sign convention relative to the Track 2 reconstruction
-contract, so the Track 2 comparison applies the documented
+`h0` sign convention relative to the TE Curve Verification Pipeline reconstruction
+contract, so the curve-verification comparison applies the documented
 source-specific `h0` compatibility multiplier before curve
 reconstruction.
 

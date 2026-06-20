@@ -1,12 +1,12 @@
-# Track 2 Official Model Verification Report Builder
+# TE Curve Verification Pipeline Official Model Verification Report Builder
 
 ## Overview
 
 `scripts/reports/analysis/build_track2_official_model_verification_report.py`
-builds the dated official `Track 2` model-verification Markdown report from
-the same artifacts produced by an operator-launched `Track 2` refresh.
+builds the dated official `TE Curve Verification Pipeline` model-verification Markdown report from
+the same artifacts produced by an operator-launched `TE Curve Verification Pipeline` refresh.
 
-It is used by the `Track 2H` verification-refresh launchers so the normal
+It is used by the `Wave 4 series` verification-refresh launchers so the normal
 launcher path produces a self-contained package: matrix report, collage report,
 overlay report, official decision report, and PDF exports.
 

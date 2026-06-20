@@ -1,24 +1,24 @@
 # 2026-04-20 Technical Documents
 
 - [2026-04-20-23-46-33_track1_overnight_open_cell_full_matrix_closure_campaigns.md](./2026-04-20-23-46-33_track1_overnight_open_cell_full_matrix_closure_campaigns.md)
-  Technical document for preparing the next overnight `Track 1` exact-paper
+  Technical document for preparing the next overnight `RCIM Model-Bank Reproduction` exact-paper
   closure wave, focused only on the still-open cells in the canonical
   `Table 2-5` full-matrix replication surface and sized for roughly
   `700-800` training jobs.
 - [2026-04-20-23-21-36_track1_scope_separation_from_harmonic_wise_branch.md](./2026-04-20-23-21-36_track1_scope_separation_from_harmonic_wise_branch.md)
-  Technical document for separating canonical `Track 1` family-bank progress
-  from the postponed harmonic-wise follow-up branch and for keeping `Track 1`
+  Technical document for separating canonical `RCIM Model-Bank Reproduction` family-bank progress
+  from the postponed harmonic-wise follow-up branch and for keeping `RCIM Model-Bank Reproduction`
   status tied only to the four full-matrix replication tables plus the
   `10 x 19` model-bank completion rule.
 - [2026-04-20-23-12-52_track1_benchmark_status_marker_encoding_repair.md](./2026-04-20-23-12-52_track1_benchmark_status_marker_encoding_repair.md)
   Technical document for repairing corrupted green/yellow/red status markers
-  in the canonical `Track 1` benchmark so the benchmark tables again render
+  in the canonical `RCIM Model-Bank Reproduction` benchmark so the benchmark tables again render
   the intended `🟢/🟡/🔴` state markers.
 - [2026-04-20-23-00-20_markdownlint_chunk_failure_cleanup_for_campaign_readmes_and_remote_checklist.md](./2026-04-20-23-00-20_markdownlint_chunk_failure_cleanup_for_campaign_readmes_and_remote_checklist.md)
   Technical document for repairing the Markdownlint chunk failure caused by missing blank-line separation in the residual-closure campaign package READMEs and an extra blank line in the remote training campaign checklist.
 - [2026-04-20-22-46-07_track1_tables_2_5_progress_focus_and_completion_definition.md](./2026-04-20-22-46-07_track1_tables_2_5_progress_focus_and_completion_definition.md)
-  Technical document for making the four colored `Track 1` full-matrix
-  replication tables the canonical progress surface and for defining `Track 1`
+  Technical document for making the four colored `RCIM Model-Bank Reproduction` full-matrix
+  replication tables the canonical progress surface and for defining `RCIM Model-Bank Reproduction`
   completion as `19` accepted models across each of the `10` algorithm
   families.
 - [2026-04-20-15-19-14_technical_document_scaffold_and_index_helper.md](./2026-04-20-15-19-14_technical_document_scaffold_and_index_helper.md)

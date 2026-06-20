@@ -2,7 +2,7 @@
 
 ## Overview
 
-The remote `Track 1` `SVR` campaign investigation has now exposed the actual
+The remote `RCIM Model-Bank Reproduction` `SVR` campaign investigation has now exposed the actual
 root cause on the LAN workstation: the first campaign YAML resolves to a remote
 absolute path of exactly `260` characters.
 
@@ -70,5 +70,5 @@ The launcher should also:
 3. Print the chosen short execution root in the terminal log and status
    surfaces.
 4. Clean up the temporary mapping after the remote run whenever possible.
-5. Retest the current `Track 1` `SVR` remote campaign and confirm that the
+5. Retest the current `RCIM Model-Bank Reproduction` `SVR` remote campaign and confirm that the
    source-config enqueue phase now gets past the first YAML path.

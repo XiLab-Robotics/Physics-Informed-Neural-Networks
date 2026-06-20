@@ -1,8 +1,8 @@
-# Track 1 Second Iteration Harmonic-Wise Campaign Results Report
+# RCIM Model-Bank Reproduction Second Iteration Harmonic-Wise Campaign Results Report
 
 ## Overview
 
-This report closes the second paper-faithful `Track 1` campaign prepared in:
+This report closes the second paper-faithful `RCIM Model-Bank Reproduction` campaign prepared in:
 
 - `doc/reports/campaign_plans/track_1/harmonic_wise/2026-04-09-18-56-03_track1_second_iteration_harmonic_wise_campaign_plan_report.md`
 
@@ -202,7 +202,7 @@ Interpretation:
 
 ## Paper Alignment Impact
 
-This campaign materially changes the `Track 1` picture in three ways.
+This campaign materially changes the `RCIM Model-Bank Reproduction` picture in three ways.
 
 ### What Improved
 
@@ -227,9 +227,9 @@ This campaign materially changes the `Track 1` picture in three ways.
 
 ## Main Conclusions
 
-The second `Track 1` campaign supports five conclusions.
+The second `RCIM Model-Bank Reproduction` campaign supports five conclusions.
 
-### 1. Track 1 Improved, But It Is Not Closed
+### 1. RCIM Model-Bank Reproduction Improved, But It Is Not Closed
 
 The pipeline is better than before, but the best result is still well above the
 paper's `4.7%` offline threshold.
@@ -259,7 +259,7 @@ The dominant error ranking points directly at `h0` first, then `h156`, `h162`,
 
 The next technically justified steps are:
 
-1. keep `Track 1` as the immediate active branch;
+1. keep `RCIM Model-Bank Reproduction` as the immediate active branch;
 2. start a third harmonic-wise iteration focused on target parameterization,
    especially:
    - explicit treatment of `h0` as its own target path;
@@ -268,7 +268,7 @@ The next technically justified steps are:
    - per-harmonic estimator overrides for the dominant error terms;
 3. retain the full RCIM harmonic set as the promotion target for all serious
    `Target A` attempts;
-4. delay `Track 2` until this next `Track 1` pass shows whether the paper-
+4. delay `TE Curve Verification Pipeline` until this next `RCIM Model-Bank Reproduction` pass shows whether the paper-
    faithful branch can close more of the remaining offline gap.
 
 ## Artifact References

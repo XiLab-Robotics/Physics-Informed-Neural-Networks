@@ -1,4 +1,4 @@
-# Track 1 Overnight Gap-Closure Campaign Results Reporting
+# RCIM Model-Bank Reproduction Overnight Gap-Closure Campaign Results Reporting
 
 ## Overview
 
@@ -13,12 +13,12 @@ completion path:
 - serialize the campaign winner and leaderboard under the campaign output root;
 - write the final campaign-results report in Markdown;
 - export and validate the PDF companion;
-- synchronize the canonical analysis reports that track `Track 1` progress.
+- synchronize the canonical analysis reports that track `RCIM Model-Bank Reproduction` progress.
 
 ## Technical Approach
 
 The reporting path should stay aligned with the repository campaign rules used
-for previous `Track 1` closeouts.
+for previous `RCIM Model-Bank Reproduction` closeouts.
 
 The work should:
 
@@ -32,7 +32,7 @@ The work should:
 4. produce a final Markdown report under `doc/reports/campaign_results/`;
 5. export the report PDF through the repository report pipeline and validate the
    real exported PDF;
-6. update the canonical benchmark reports so the new `Track 1` state is visible
+6. update the canonical benchmark reports so the new `RCIM Model-Bank Reproduction` state is visible
    outside the campaign-local artifact bundle.
 
 No Codex subagent is planned for this closeout.
@@ -61,4 +61,4 @@ No Codex subagent is planned for this closeout.
    interpretation, winner summary, and recommended next step.
 5. Export the PDF companion and validate the real PDF output.
 6. Refresh `Training Results Master Summary.md` and update
-   `RCIM Paper Reference Benchmark.md` with the new best `Track 1` result.
+   `RCIM Paper Reference Benchmark.md` with the new best `RCIM Model-Bank Reproduction` result.

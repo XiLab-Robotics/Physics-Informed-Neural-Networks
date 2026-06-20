@@ -2,7 +2,7 @@
 
 ## Overview
 
-This document prepares one final targeted exact-paper `Track 1` forward-only
+This document prepares one final targeted exact-paper `RCIM Model-Bank Reproduction` forward-only
 campaign after the completed maxi residual wave.
 
 The canonical forward residual now contains only `4` non-green cells across

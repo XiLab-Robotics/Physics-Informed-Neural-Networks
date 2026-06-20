@@ -139,4 +139,4 @@ for ($ConfigIndex = 0; $ConfigIndex -lt $QueueConfigCount; $ConfigIndex++) {
     Write-Host ("[DONE] Exact-paper config complete | {0}" -f $ConfigRelativePath) -ForegroundColor Green
 }
 
-Write-Host "[DONE] Track 1 bidirectional original-dataset mega campaign completed" -ForegroundColor Green
+Write-Host "[DONE] RCIM Model-Bank Reproduction bidirectional original-dataset mega campaign completed" -ForegroundColor Green

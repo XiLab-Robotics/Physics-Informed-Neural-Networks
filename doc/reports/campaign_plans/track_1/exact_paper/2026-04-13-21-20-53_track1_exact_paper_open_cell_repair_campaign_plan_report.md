@@ -1,8 +1,8 @@
-# Track 1 Exact-Paper Open-Cell Repair Campaign Plan Report
+# RCIM Model-Bank Reproduction Exact-Paper Open-Cell Repair Campaign Plan Report
 
 ## Overview
 
-This report prepares the next `Track 1` campaign under the canonical
+This report prepares the next `RCIM Model-Bank Reproduction` campaign under the canonical
 paper-table replication objective.
 
 The campaign is not a winner search across harmonic-wise configurations.

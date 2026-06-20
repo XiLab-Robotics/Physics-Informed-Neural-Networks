@@ -1,8 +1,8 @@
-# Track 1 Full-Matrix Family Reproduction Campaign Launcher
+# RCIM Model-Bank Reproduction Full-Matrix Family Reproduction Campaign Launcher
 
 ## Overview
 
-This launcher is the canonical short PowerShell wrapper for the `Track 1`
+This launcher is the canonical short PowerShell wrapper for the `RCIM Model-Bank Reproduction`
 exact-paper family-reproduction campaign.
 
 It orchestrates `20` exact-paper validation runs through:

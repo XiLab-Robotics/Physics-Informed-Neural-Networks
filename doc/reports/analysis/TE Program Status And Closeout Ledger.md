@@ -4,16 +4,18 @@
 
 This document is the maintained official status ledger for the Transmission
 Error modeling program. It replaces informal copied chat summaries with the
-current repository-backed view of completed waves, `Track 2` diagnostics,
-campaign closeouts, official verification decisions, and next modeling gates.
+current repository-backed view of completed waves,
+`TE Curve Verification Pipeline` diagnostics, campaign closeouts, official
+verification decisions, and next modeling gates.
 
-Update this ledger after every campaign or `Track 2` closeout that changes any
-of these surfaces:
+Update this ledger after every campaign or `TE Curve Verification Pipeline`
+closeout that changes any of these surfaces:
 
 - accepted or exploratory direction-parallel leaders;
 - scalar campaign winner, program winner, or registry status;
-- official `Track 2` verification state;
-- roadmap position for `Track 2H`, `Wave 3`, `Wave 4`, or later integration;
+- official `TE Curve Verification Pipeline` verification state;
+- roadmap position for Waves `4.1`-`4.4`, `Wave 5.1`, `Wave 5.2`, or later
+  integration;
 - closeout interpretation of offset, centered shape, amplitude, phase,
   dispersion, or harmonic structure.
 
@@ -24,18 +26,48 @@ of these surfaces:
 | Program state | Active |
 | Active campaign | None |
 | Current scalar program winner | `te_periodic_gru_sequence_remote_Bw` |
-| Current accepted forward Track 2 leader | `rcim_retuned_GBM19_Fw` |
-| Current accepted backward Track 2 leader | `periodic_gru_sequence_Bw` |
-| Current accepted global neural Track 2 leader | `periodic_gru_sequence_global` |
-| Latest normal campaign closeout | `Track 2H-L` latent-state hysteresis campaign |
-| Latest official Track 2 refresh | `Track 2H-L` latent-state hysteresis refresh, dated `2026-06-18` |
-| Latest Track 2 decision | verified exploratory baseline; not promoted |
-| Current Track 2 selection policy | multi-index curve-first selection, dated `2026-06-16` |
-| Next modeling decision | move to `Wave 4` / integrated multi-head planning with `Track 2H-L` retained as causal-history integration evidence |
+| Current accepted forward curve-verified leader | `rcim_retuned_GBM19_Fw` |
+| Current accepted backward curve-verified leader | `periodic_gru_sequence_Bw` |
+| Current accepted global neural curve-verified leader | `periodic_gru_sequence_global` |
+| Latest normal campaign closeout | `Wave 4.4` latent-state hysteresis campaign |
+| Latest official TE Curve Verification refresh | `Wave 4.4` latent-state hysteresis refresh, dated `2026-06-18` |
+| Latest curve-verification decision | verified exploratory baseline; not promoted |
+| Current TE Curve Verification Pipeline selection policy | multi-index curve-first selection, dated `2026-06-16` |
+| Next modeling decision | move to `Wave 5.2` / integrated multi-head planning with `Wave 4.4` retained as causal-history integration evidence |
 
 The repository remains direction-parallel. `Fw`, `Bw`, and `global` are not a
 single destructive competition. Each surface keeps its own best candidate and
 its own interpretation.
+
+## Canonical Program Taxonomy
+
+| Program layer | Canonical scope |
+| --- | --- |
+| RCIM Model-Bank Reproduction | Paper-faithful RCIM harmonic model-bank reproduction and reference comparison. |
+| Model Development Waves | Model training and experimental architecture development. |
+| TE Curve Verification Pipeline | Offline curve reconstruction, diagnostics, multi-index selection, visual evidence, and reports. |
+
+| Identifier | Canonical module or model branch |
+| --- | --- |
+| `CVP 1.1` | Curve-First Reranking |
+| `CVP 1.2` | Curve Payload Diagnostics |
+| `CVP 1.3` | Mean-Centered Error Decomposition |
+| `CVP 1.4` | Offset and Shape Matrix Audit |
+| `CVP 1.5` | Causal Offset Feasibility Analysis |
+| `Wave 3.1` | Residual Offset Models |
+| `Wave 3.2` | Harmonic Residual Offset Models |
+| `Wave 3.3` | Curve-Aware Objective Models |
+| `Wave 4.1` | Robust-Loss Models |
+| `Wave 4.2` | Quantile and Probabilistic Models |
+| `Wave 4.3` | Mixture-Density Models |
+| `Wave 4.4` | Latent-State and Hysteresis Models |
+| `Wave 5.1` | Harmonic-Prior Residual Models |
+| `Wave 5.2` | MMT/PINN-Guided Models |
+| `Wave 6` | Integrated Multi-Task and Multi-Head Models |
+
+Historical paths, run names, model-family keys, and script names retain their
+legacy `track1`, `track2`, `wave3`, or `wave4` identifiers where changing them
+would break reproducibility.
 
 ## Evaluation Boundary
 
@@ -53,7 +85,8 @@ This means that curve-first evaluation is valid and required, while
 full-curve-dependent runtime corrections are not deployable unless they are
 reformulated as causal predictors.
 
-Official `Track 2` decisions now use the multi-index curve-first policy in
+Official `TE Curve Verification Pipeline` decisions now use the multi-index
+curve-first policy in
 `doc/reports/analysis/track2/multi_index_curve_first_selection_policy/[2026-06-16]/track2_multi_index_curve_first_selection_policy.md`.
 Raw `MAE`, `RMSE`, and mean percentage error remain required evidence, but they
 do not by themselves decide promotion. Future reports must keep separate
@@ -64,10 +97,10 @@ robustness, visual-evidence, and deployment-readiness axes visible.
 
 | Surface | Accepted Leader | Evidence | Interpretation |
 | --- | --- | --- | --- |
-| `Fw` | `rcim_retuned_GBM19_Fw` | Official `Track 2` MAE `0.001089 deg`, Mean `2.372%` | Strongest overall forward curve baseline remains paper-reference retuned. |
-| `Bw` | `periodic_gru_sequence_Bw` | Official `Track 2` MAE `0.002392 deg`, Mean `5.466%` | Strongest accepted repository-owned backward candidate remains the periodic GRU sequence branch. |
+| `Fw` | `rcim_retuned_GBM19_Fw` | Official `TE Curve Verification Pipeline` MAE `0.001089 deg`, Mean `2.372%` | Strongest overall forward curve baseline remains paper-reference retuned. |
+| `Bw` | `periodic_gru_sequence_Bw` | Official `TE Curve Verification Pipeline` MAE `0.002392 deg`, Mean `5.466%` | Strongest accepted repository-owned backward candidate remains the periodic GRU sequence branch. |
 | `global` | `periodic_gru_sequence_global` | Official global forward MAE `0.002777 deg`; global backward MAE `0.002630 deg` | Strongest accepted bidirectional neural candidate remains periodic GRU sequence. |
-| scalar registry | `te_periodic_gru_sequence_remote_Bw` | Test MAE `0.002344 deg` | Scalar program winner is useful but does not replace Track 2 curve-first promotion. |
+| scalar registry | `te_periodic_gru_sequence_remote_Bw` | Test MAE `0.002344 deg` | Scalar program winner is useful but does not replace TE Curve Verification Pipeline curve-first promotion. |
 
 ## Program Timeline
 
@@ -75,31 +108,31 @@ robustness, visual-evidence, and deployment-readiness axes visible.
 | --- | --- | --- | --- |
 | Planning foundation | closed | TE roadmap, implementation backlog, and family priorities established. | Baseline governance accepted. |
 | Wave 0 shared infrastructure | closed | Shared training infrastructure, smoke checks, registry roots, and artifact conventions established. | Infrastructure accepted. |
-| Track 1 exact-paper and paper-reference bank | closed | Faithful RCIM model-bank and paper-reference comparison surface established. | Used as reference evidence, not reopened for all-green optimization. |
+| RCIM Model-Bank Reproduction exact-paper and paper-reference bank | closed | Faithful RCIM model-bank and paper-reference comparison surface established. | Used as reference evidence, not reopened for all-green optimization. |
 | Wave 1 structured baselines | closed | Feedforward, tree, harmonic regression, periodic MLP, and residual harmonic MLP families trained and exported. | Strong baselines retained; tree remains a scalar/static reference. |
-| Wave 2 temporal entry | closed | Temporal convolution, GRU, and LSTM sequence families trained. | Verified baseline; periodic sequence work became more important in Wave 2B. |
-| Wave 2B harmonic temporal hybrid | closed | Periodic temporal convolution, periodic GRU, and periodic LSTM trained across `global`, `Fw`, and `Bw`. | `periodic_gru_sequence_Bw` became the scalar program winner and accepted backward Track 2 leader. |
-| Wave 2C residual harmonic temporal hybrid | closed | Sparse and dense residual harmonic GRU/LSTM variants tested. | Verified exploratory baseline; not promoted over Wave 2B. |
-| Track 2B curve-first reranking | closed | Existing Track 2 matrix reranked by full-curve metrics. | Established curve-first comparison without new training. |
-| Track 2C curve-payload diagnostics | closed | Peak-to-peak, harmonic amplitude/phase, derivative, smoothness, and closure diagnostics added. | Confirmed scalar metrics alone are insufficient. |
-| Mean-centered Track 2 diagnostic | closed | Post-prediction curve mean-centering separated vertical offset from centered shape. | Offset emerged as a major raw-error component, but mean-centering is not a runtime correction. |
-| Track 2D mean-offset full-matrix audit | closed | `111` candidates and `12,416` curves audited for raw error, offset, centered shape, amplitude, phase, and regimes. | Full-matrix evidence confirmed offset-limited and mixed-limited failure modes. |
-| Track 2E offset-predictability feasibility | closed | Conservative causal grouping showed offset is partly predictable, especially by `direction_torque`. | Offset-only correction was judged insufficient; shape, amplitude, and phase remain active constraints. |
-| Track 2F sequential residual-offset probe | closed | Learned causal residual-offset branch added over a base TE prediction. | Verified exploratory baseline; not promoted. |
-| Track 2F-bis harmonic-offset probe | closed | Clean and harmonic residual-offset variants compared across three surfaces. | Harmonic forcing helped `Fw` and `Bw` but did not solve global balance; not promoted. |
-| Track 2G curve-aware training | closed | Pointwise-control, raw-centered-shape, raw-offset, and full-curve-composite losses trained across three surfaces. | Verified exploratory baseline; not promoted. |
-| Track 2H robust-loss probes | closed | `MAE`, `SmoothL1`, and `log-cosh` robust losses tested. | Verified exploratory baseline; backward robust loss was useful but not promoted. |
-| Track 2H quantile / probabilistic probes | closed | Quantile `p10/p50/p90` and Gaussian NLL heads tested. | Verified exploratory baseline; global and backward scalar signals improved but not promoted. |
-| Track 2H mixture-density heads | closed | `mdn_k2` and `mdn_k3` heads tested. | Verified exploratory baseline; best Track 2H backward branch so far, but not promoted. |
-| Track 2H-L latent-state hysteresis probes | closed | GRU and causal-TCN offset-residual probes completed across `global`, `Fw`, and `Bw`; official Track 2 refresh added six candidates to the `165`-candidate matrix. | Verified exploratory baseline; not promoted over `rcim_retuned_GBM19_Fw`, `periodic_gru_sequence_Bw`, or the accepted global neural `periodic_gru_sequence_global`. |
-| Wave 3 harmonic-prior residual campaign | closed | First real lightweight harmonic-prior residual campaign completed six runs. | Normal campaign closeout accepted; scalar program winner unchanged. |
-| Wave 3 official Track 2 refresh | closed | Six Wave 3 candidates added to the `159`-candidate official Track 2 matrix. | Verified exploratory baseline; not promoted. |
-| Wave 4 PINN / MMT track | open design branch | MMT diagnostic and parameter inventory exist; feature and soft-constraint gates remain open. | Not campaign-ready. |
-| Integrated multi-task / multi-head model | deferred | Intended to combine proven offset, low-frequency, centered-shape, uncertainty, mixture, and structured residual mechanisms. | Deferred until Track 2H, Wave 3, and Wave 4 evidence identifies what should be integrated. |
+| Wave 2.1 temporal entry | closed | Temporal convolution, GRU, and LSTM sequence families trained. | Verified baseline; periodic sequence work became more important in Wave 2.2. |
+| Wave 2.2 harmonic temporal hybrid | closed | Periodic temporal convolution, periodic GRU, and periodic LSTM trained across `global`, `Fw`, and `Bw`. | `periodic_gru_sequence_Bw` became the scalar program winner and accepted backward curve-verified leader. |
+| Wave 2.3 residual harmonic temporal hybrid | closed | Sparse and dense residual harmonic GRU/LSTM variants tested. | Verified exploratory baseline; not promoted over Wave 2.2. |
+| CVP 1.1 curve-first reranking | closed | Existing curve-verification matrix reranked by full-curve metrics. | Established curve-first comparison without new training. |
+| CVP 1.2 curve-payload diagnostics | closed | Peak-to-peak, harmonic amplitude/phase, derivative, smoothness, and closure diagnostics added. | Confirmed scalar metrics alone are insufficient. |
+| CVP 1.3 mean-centered error decomposition | closed | Post-prediction curve mean-centering separated vertical offset from centered shape. | Offset emerged as a major raw-error component, but mean-centering is not a runtime correction. |
+| CVP 1.4 mean-offset full-matrix audit | closed | `111` candidates and `12,416` curves audited for raw error, offset, centered shape, amplitude, phase, and regimes. | Full-matrix evidence confirmed offset-limited and mixed-limited failure modes. |
+| CVP 1.5 offset-predictability feasibility | closed | Conservative causal grouping showed offset is partly predictable, especially by `direction_torque`. | Offset-only correction was judged insufficient; shape, amplitude, and phase remain active constraints. |
+| Wave 3.1 sequential residual-offset probe | closed | Learned causal residual-offset branch added over a base TE prediction. | Verified exploratory baseline; not promoted. |
+| Wave 3.2 harmonic-offset probe | closed | Clean and harmonic residual-offset variants compared across three surfaces. | Harmonic forcing helped `Fw` and `Bw` but did not solve global balance; not promoted. |
+| Wave 3.3 curve-aware training | closed | Pointwise-control, raw-centered-shape, raw-offset, and full-curve-composite losses trained across three surfaces. | Verified exploratory baseline; not promoted. |
+| Wave 4.1 robust-loss probes | closed | `MAE`, `SmoothL1`, and `log-cosh` robust losses tested. | Verified exploratory baseline; backward robust loss was useful but not promoted. |
+| Wave 4.2 quantile / probabilistic probes | closed | Quantile `p10/p50/p90` and Gaussian NLL heads tested. | Verified exploratory baseline; global and backward scalar signals improved but not promoted. |
+| Wave 4.3 mixture-density heads | closed | `mdn_k2` and `mdn_k3` heads tested. | Verified exploratory baseline; best Wave 4 backward branch so far, but not promoted. |
+| Wave 4.4 latent-state hysteresis probes | closed | GRU and causal-TCN offset-residual probes completed across `global`, `Fw`, and `Bw`; official TE Curve Verification refresh added six candidates to the `165`-candidate matrix. | Verified exploratory baseline; not promoted over `rcim_retuned_GBM19_Fw`, `periodic_gru_sequence_Bw`, or the accepted global neural `periodic_gru_sequence_global`. |
+| Wave 5.1 harmonic-prior residual campaign | closed | First real lightweight harmonic-prior residual campaign completed six runs. | Normal campaign closeout accepted; scalar program winner unchanged. |
+| Wave 5.1 official TE Curve Verification refresh | closed | Six Wave 5.1 candidates added to the `159`-candidate official curve-verification matrix. | Verified exploratory baseline; not promoted. |
+| Wave 5.2 PINN / MMT track | open design branch | MMT diagnostic and parameter inventory exist; feature and soft-constraint gates remain open. | Not campaign-ready. |
+| Wave 6 integrated multi-task / multi-head model | deferred | Intended to combine proven offset, low-frequency, centered-shape, uncertainty, mixture, and structured residual mechanisms. | Deferred until Waves 4.1-4.4, Wave 5.1, and Wave 5.2 evidence identifies what should be integrated. |
 
-## Track 2B Through Track 2H Interpretation
+## CVP Modules And Waves 3.1 Through 4.4
 
-`Track 2B` changed the evaluation perspective. The repository no longer treats
+`CVP 1.1` changed the evaluation perspective. The repository no longer treats
 pointwise scalar regression metrics as the only model-selection objective.
 The practical target is TE compensation along continuous motor-curve sequences,
 while preserving causal runtime inputs.
@@ -110,106 +143,106 @@ offset-behavior, best robustness, and recommended candidates per `global`,
 `Fw`, and `Bw` surface. A candidate can be valuable on one axis without being
 the final recommended compensator.
 
-`Track 2C` made the curve payload diagnostic rather than only aggregate. It
+`CVP 1.2` made the curve payload diagnostic rather than only aggregate. It
 added physical curve-quality measures such as peak-to-peak behavior, harmonic
 amplitude, harmonic phase, derivative behavior, smoothness, autocorrelation,
 closure mismatch, and stitched-boundary surrogates.
 
-The mean-centered diagnostic and `Track 2D` separated offset from shape. Many
+The mean-centered diagnostic and `CVP 1.4` separated offset from shape. Many
 models follow centered shape better than raw MAE suggests, but a vertical DC
 offset or compressed mean surface remains a major failure mode. The offset
 finding is real, but subtracting the target curve mean after inference is only
 a diagnostic decomposition.
 
-`Track 2E` tested whether offset is causally predictable. The conservative
+`CVP 1.5` tested whether offset is causally predictable. The conservative
 answer was partial yes, especially through `direction_torque`, but not enough
 to justify an offset-only solution. A complete model still needs raw error,
 centered shape, offset, amplitude, and phase to improve together.
 
-`Track 2F` and `Track 2F-bis` implemented the first learned offset-aware
+`Wave 3.1` and `Wave 3.2` implemented the first learned offset-aware
 branches. The clean residual-offset model was a necessary control. The
 harmonic version showed that harmonic structure helps direction-specific
 branches, but global balance remains hard.
 
-`Track 2G` tested curve-aware losses directly. The best scalar campaign
+`Wave 3.3` tested curve-aware losses directly. The best scalar campaign
 branches were:
 
-| Surface | Best Track 2G Training Branch | Loss Profile | Test MAE |
+| Surface | Best Wave 3.3 Training Branch | Loss Profile | Test MAE |
 | --- | --- | --- | ---: |
 | `global` | `te_track2g_curve_aware_full_curve_composite_global` | `full_curve_composite` | 0.003345 |
 | `Fw` | `te_track2g_curve_aware_raw_centered_shape_fw` | `raw_centered_shape` | 0.003181 |
 | `Bw` | `te_track2g_curve_aware_pointwise_control_bw` | `pointwise_control` | 0.003430 |
 
-The official Track 2 refresh accepted Track 2G as an exploratory baseline, not
+The official TE Curve Verification refresh accepted Wave 3.3 as an exploratory baseline, not
 as a promoted leader. The main lesson is that curve-aware losses are useful
 but not automatically better on every surface.
 
-`Track 2H` moved from deterministic curve-aware losses to dispersion-aware
+`Wave 4 series` moved from deterministic curve-aware losses to dispersion-aware
 training pressure:
 
-| Package | Branch Count | Strongest Scalar Signal | Official Track 2 Outcome |
+| Package | Branch Count | Strongest Scalar Signal | Official TE Curve Verification Pipeline Outcome |
 | --- | ---: | --- | --- |
 | robust losses | 9 | `te_track2h_smooth_l1_robust_bw`, test MAE `0.003074` | exploratory, not promoted |
 | quantile / probabilistic | 6 | `te_track2h_quantile_p10_p50_p90_bw`, test MAE `0.002927` | exploratory, not promoted |
 | mixture density heads | 6 | `te_track2h_mdn_k2_bw`, test MAE `0.002658` | exploratory, not promoted |
 | latent-state hysteresis | 6 | `te_track2h_l_causal_tcn_offset_residual_global`, test MAE `0.003368` | exploratory, not promoted |
 
-The strongest Track 2H result is backward and useful, but MDN diagnostics
+The strongest Wave 4 series result is backward and useful, but MDN diagnostics
 mostly collapsed toward one effective component. The evidence supports keeping
 MDN and probabilistic heads as later ingredients, not treating them as a
 confirmed multimodal TE solution.
 
-`Track 2H-L` added the causal latent-state / hysteresis-aware probe. The best
+`Wave 4.4` added the causal latent-state / hysteresis-aware probe. The best
 scalar branch was `te_track2h_l_causal_tcn_offset_residual_global` with test
-MAE `0.003368 deg`. The official `2026-06-18` Track 2 refresh added six
-`Track 2H-L` candidates to the `165`-candidate matrix. The strongest
+MAE `0.003368 deg`. The official `2026-06-18` TE Curve Verification refresh added six
+`Wave 4.4` candidates to the `165`-candidate matrix. The strongest
 refreshed candidates were `track2h_l_causal_tcn_offset_residual_global`
 combined curve MAE `0.003372 deg`,
 `track2h_l_causal_tcn_offset_residual_Fw` forward curve MAE `0.003476 deg`,
 and `track2h_l_gru_offset_residual_Bw` backward curve MAE `0.003542 deg`.
 Those results are useful causal-history evidence, but they do not improve the
-accepted `Fw`, `Bw`, or `global` Track 2 leaders. The branch is closed as a
+accepted `Fw`, `Bw`, or `global` curve-verified leaders. The branch is closed as a
 verified exploratory baseline and should be carried forward only as later
 integration evidence.
 
-## Wave 3 Interpretation
+## Wave 5.1 Interpretation
 
-The first real `Wave 3` harmonic-prior residual campaign validated a compact
+The first real `Wave 5.1` harmonic-prior residual campaign validated a compact
 structured branch with only `7,283` trainable parameters. All six runs
 completed successfully:
 
-| Surface | Best Wave 3 Training Branch | Profile | Test MAE | Track 2 MAE |
+| Surface | Best Wave 5.1 Training Branch | Profile | Test MAE | curve-verification MAE |
 | --- | --- | --- | ---: | ---: |
 | `global` | `te_wave3_harmonic_prior_residual_smooth_l1_structured_global` | `smooth_l1_structured` | 0.003403 | 0.003399 |
 | `Fw` | `te_wave3_harmonic_prior_residual_pointwise_control_fw` | `pointwise_control` | 0.003382 | 0.003374 |
 | `Bw` | `te_wave3_harmonic_prior_residual_pointwise_control_bw` | `pointwise_control` | 0.003363 | 0.003360 |
 
-Wave 3 is cleanly implemented and verified as an exploratory baseline. It is
-not a program winner and does not replace the accepted Track 2 leaders. Its
+Wave 5.1 is cleanly implemented and verified as an exploratory baseline. It is
+not a program winner and does not replace the accepted curve-verified leaders. Its
 value is architectural: it tests whether a compact harmonic prior plus learned
 residual can become a useful building block for later structured or multi-head
 models.
 
 ## Current Next Steps
 
-1. Keep `Track 2H` robust, probabilistic, MDN, and latent-state branches as
+1. Keep `Wave 4.1` robust, probabilistic, MDN, and latent-state branches as
    evidence for later multi-head integration, not as current promoted leaders.
-2. Keep `Wave 4` MMT/PINN work behind its dataset-aligned diagnostic and
+2. Keep `Wave 5.2` MMT/PINN work behind its dataset-aligned diagnostic and
    calibration gates.
 3. Do not open the integrated multi-task / multi-head campaign until the
-   chosen ingredients are justified by Track 2 curve evidence.
+   chosen ingredients are justified by TE Curve Verification Pipeline curve evidence.
 
 ## Closeout Update Rule
 
 Every future campaign closeout must check this ledger before closure is
 declared complete. Update it when the closeout:
 
-- completes a new campaign, wave, Track 2 diagnostic, or official Track 2
+- completes a new campaign, wave, TE Curve Verification Pipeline diagnostic, or official TE Curve Verification Pipeline
   verification refresh;
 - changes the scalar program winner, a direction-parallel accepted leader, or
   an exploratory branch leader;
 - changes the multi-index raw-error, shape-fidelity, offset-behavior,
-  robustness, or recommended candidate for any `Track 2` surface;
+  robustness, or recommended candidate for any `TE Curve Verification Pipeline` surface;
 - adds evidence about offset, centered shape, amplitude, phase, dispersion,
   harmonic grouping, latent state, physics constraints, or deployment
   readiness;

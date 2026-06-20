@@ -1,8 +1,8 @@
-# Track 1 Paper-Faithful ELM Queue Addendum Plan Report
+# RCIM Model-Bank Reproduction Paper-Faithful ELM Queue Addendum Plan Report
 
 ## Overview
 
-This addendum extends the approved Track 1 paper-faithful search campaign
+This addendum extends the approved RCIM Model-Bank Reproduction paper-faithful search campaign
 package so the prepared queue matches the current operational exact-paper
 family surface.
 
@@ -69,5 +69,5 @@ This addendum prepares:
 
 The post-campaign closeout remains the same as the parent paper-faithful
 replacement plan: update the paper-reference benchmark, master summary,
-family/program registries, and Track 1 archives after completed runs are
+family/program registries, and RCIM Model-Bank Reproduction archives after completed runs are
 available.

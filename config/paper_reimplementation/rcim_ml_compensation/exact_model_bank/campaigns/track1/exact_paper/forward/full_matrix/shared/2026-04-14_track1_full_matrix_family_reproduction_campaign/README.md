@@ -1,6 +1,6 @@
-﻿# Track 1 Full-Matrix Family Reproduction Campaign Package
+# RCIM Model-Bank Reproduction Full-Matrix Family Reproduction Campaign Package
 
-This directory contains the prepared YAML package for the next `Track 1`
+This directory contains the prepared YAML package for the next `RCIM Model-Bank Reproduction`
 exact-paper family-reproduction campaign.
 
 The package is organized as one umbrella campaign with `20` explicit runs:

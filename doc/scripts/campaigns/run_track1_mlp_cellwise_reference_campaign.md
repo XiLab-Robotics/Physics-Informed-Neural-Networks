@@ -1,6 +1,6 @@
-# Track 1 MLP Cellwise Reference Campaign Launcher
+# RCIM Model-Bank Reproduction MLP Cellwise Reference Campaign Launcher
 
-    This launcher runs the dedicated `Track 1` exact-paper `MLP` family
+    This launcher runs the dedicated `RCIM Model-Bank Reproduction` exact-paper `MLP` family
     cellwise reference campaign.
 
     Included configs:

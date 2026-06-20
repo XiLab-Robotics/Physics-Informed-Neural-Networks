@@ -1,8 +1,8 @@
-# Track 1 Overnight Gap-Closure Campaign Plan Report
+# RCIM Model-Bank Reproduction Overnight Gap-Closure Campaign Plan Report
 
 ## Overview
 
-This report prepares the next `Track 1` overnight campaign package after the
+This report prepares the next `RCIM Model-Bank Reproduction` overnight campaign package after the
 canonical table-replication milestone.
 
 The goal is no longer generic offline improvement and it is no longer the
@@ -12,7 +12,7 @@ The canonical goal is to close the remaining open cells against paper Tables
 `3`, `4`, `5`, and `6`.
 
 The TE-level shared offline evaluator used for `Target A` remains a supporting
-diagnostic branch, not the primary `Track 1` closure criterion.
+diagnostic branch, not the primary `RCIM Model-Bank Reproduction` closure criterion.
 
 The current supporting harmonic-wise baseline remains:
 
@@ -191,7 +191,7 @@ If the night budget is shorter, use this reduced package:
 
 Every run in the overnight package should be scored on two levels.
 
-### Primary Track 1 Gate
+### Primary RCIM Model-Bank Reproduction Gate
 
 - canonical paper-table progress on Tables `3`, `4`, `5`, and `6`;
 - number of newly closed cells on the highest-priority open harmonics;
@@ -225,7 +225,8 @@ outcomes:
 2. a clearer family-selection pattern for the open Table `6` harmonics;
 3. a materially stronger supporting TE result than `8.877%` without degrading
    the canonical table status;
-4. a narrower next-step decision about whether `Track 1` now needs:
+4. a narrower next-step decision about whether
+   `RCIM Model-Bank Reproduction` now needs:
    - more harmonic-wise tuning inside the current coefficient-based pipeline; or
    - a new implementation step for direct `amplitude / phase` training under
      the shared evaluator.
@@ -245,5 +246,5 @@ After approval of this planning report, the repository should generate:
 ## Next Step
 
 If this report is approved together with the technical document, prepare the
-overnight `Track 1` campaign package from this matrix instead of starting a new
-ad hoc tuning round.
+overnight `RCIM Model-Bank Reproduction` campaign package from this matrix
+instead of starting a new ad hoc tuning round.

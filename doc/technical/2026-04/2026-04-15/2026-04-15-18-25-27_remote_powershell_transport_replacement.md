@@ -3,7 +3,7 @@
 ## Overview
 
 The remote launcher has now cleared the original path-resolution and
-Windows-`MAX_PATH` blockers for the `Track 1` `SVR` campaign. The remaining
+Windows-`MAX_PATH` blockers for the `RCIM Model-Bank Reproduction` `SVR` campaign. The remaining
 failure is narrower and infrastructure-specific:
 
 - the remote run no longer dies on the first campaign YAML path;
@@ -68,7 +68,7 @@ remote script is launched, not where it runs inside the remote filesystem.
 3. Preserve the current short-path execution alias logic for the Windows LAN
    node.
 4. Retest a minimal remote marker script first.
-5. Retest the real `Track 1` `SVR` remote campaign launcher after the transport
+5. Retest the real `RCIM Model-Bank Reproduction` `SVR` remote campaign launcher after the transport
    swap.
 6. Update the launcher note if the remote execution model changes in an
    operator-visible way.

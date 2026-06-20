@@ -1,13 +1,13 @@
-# Wave 3 Harmonic Prior Residual Campaign Plan Report
+# Wave 5.1 Harmonic Prior Residual Campaign Plan Report
 
 ## Executive Summary
 
-This preliminary campaign plan prepares the first real `Wave 3` campaign:
+This preliminary campaign plan prepares the first real `Wave 5.1` campaign:
 `wave3_harmonic_prior_residual` across `global`, `Fw`, and `Bw` surfaces.
 
-The completed `Track 2H` dispersion-aware probes show that robust,
+The completed `Wave 4 series` dispersion-aware probes show that robust,
 probabilistic, and MDN training pressures are useful exploratory evidence but
-do not replace the accepted direction-parallel `Track 2` leaders. The next
+do not replace the accepted direction-parallel `TE Curve Verification Pipeline` leaders. The next
 question is whether explicit harmonic structure plus learned residual
 correction improves curve fidelity more reliably than loss-only changes.
 
@@ -23,10 +23,10 @@ explicitly approved.
 
 | Evidence | Interpretation |
 | --- | --- |
-| `Track 2H` robust-loss campaign | Robust deterministic losses are useful central-tendency controls, especially for fragile dispersion regimes. |
-| `Track 2H` quantile/probabilistic campaign | Quantile and Gaussian heads improved some exploratory branches but did not displace official leaders. |
-| `Track 2H` MDN campaign and verification | MDN improved the backward dispersion-aware branch, but global/forward behavior and near-single-component usage argue against making MDN the first Wave 3 default. |
-| `Wave 3` smoke-ready validation | `wave3_harmonic_prior_residual` already passed one-batch training-stack validation and is the cleanest first real Wave 3 candidate. |
+| `Wave 4.1` robust-loss campaign | Robust deterministic losses are useful central-tendency controls, especially for fragile dispersion regimes. |
+| `Wave 4.2` quantile/probabilistic campaign | Quantile and Gaussian heads improved some exploratory branches but did not displace official leaders. |
+| `Wave 4.3` MDN campaign and verification | MDN improved the backward dispersion-aware branch, but global/forward behavior and near-single-component usage argue against making MDN the first Wave 5.1 default. |
+| `Wave 5.1` smoke-ready validation | `wave3_harmonic_prior_residual` already passed one-batch training-stack validation and is the cleanest first real Wave 5.1 candidate. |
 | Accepted official leaders | Direction-parallel and periodic sequence candidates remain the promotion baseline. |
 
 ## Candidate Matrix
@@ -36,7 +36,7 @@ The first package should remain narrow enough to diagnose structure:
 | Candidate Group | Surfaces | Main Loss Policy | Main Test |
 | --- | --- | --- | --- |
 | `harmonic_prior_residual_control` | `global`, `Fw`, `Bw` | deterministic curve control | Tests whether explicit harmonic reconstruction plus residual correction is already competitive. |
-| `harmonic_prior_residual_robust` | `global`, `Fw`, `Bw` | robust or probabilistic pressure selected from Track 2H evidence | Tests whether Wave 3 structure benefits from dispersion-aware pressure without MDN as the default. |
+| `harmonic_prior_residual_robust` | `global`, `Fw`, `Bw` | robust or probabilistic pressure selected from Wave 4 series evidence | Tests whether Wave 5.1 structure benefits from dispersion-aware pressure without MDN as the default. |
 
 The exact queue size should be finalized during package generation, but the
 minimum campaign must include `global`, `Fw`, and `Bw`. If runtime budget is
@@ -52,7 +52,7 @@ Required behavior:
   branch;
 - expose the learned residual curve separately from the final curve;
 - keep deterministic playback as the standard campaign and official
-  `Track 2` comparison curve;
+  `TE Curve Verification Pipeline` comparison curve;
 - report low-order fragile channels, stable middle harmonics, and high-order
   fragile harmonics separately in diagnostics;
 - avoid measured curve mean, future TE samples, or held-out target statistics
@@ -64,7 +64,7 @@ Preferred first loss policy:
 
 - include a deterministic control profile;
 - include one robust or probabilistic profile selected from completed
-  `Track 2H` evidence;
+  `Wave 4 series` evidence;
 - do not use MDN as the first default unless a later explicit gate chooses it.
 
 ## Expected Campaign Package After Approval
@@ -89,7 +89,7 @@ The launcher must support:
 
 ## Prepared Package Status
 
-The `Wave 3` harmonic-prior residual campaign package has been prepared.
+The `Wave 5.1` harmonic-prior residual campaign package has been prepared.
 
 Prepared package:
 
@@ -133,21 +133,21 @@ After training completion:
 - update family and program registries;
 - clean active campaign state;
 - update the live backlog and training master summary;
-- propose official `Track 2` refresh as a separate operator-launched step.
+- propose official `TE Curve Verification Pipeline` refresh as a separate operator-launched step.
 
 ## Decision Gates
 
 | Gate | Decision |
 | --- | --- |
-| Planning approval | Authorize generation of the Wave 3 harmonic-prior residual package. |
+| Planning approval | Authorize generation of the Wave 5.1 harmonic-prior residual package. |
 | Package validation | Authorize local or remote campaign launch. |
-| Campaign closeout | Decide whether explicit harmonic structure improves scalar and curve metrics beyond Track 2H loss-only probes. |
-| Official `Track 2` refresh | Decide whether Wave 3 candidates should feed Wave 4, latent-state modeling, or the integrated multi-head design. |
+| Campaign closeout | Decide whether explicit harmonic structure improves scalar and curve metrics beyond Wave 4 series loss-only probes. |
+| Official `TE Curve Verification Pipeline` refresh | Decide whether Wave 5.1 candidates should feed Wave 5.2, latent-state modeling, or the integrated multi-head design. |
 
 ## Non-Goals
 
-- No latent-state or hysteresis-aware branch in this first Wave 3 package.
-- No Wave 4 PINN loss or MMT feature integration.
+- No latent-state or hysteresis-aware branch in this first Wave 5.1 package.
+- No Wave 5.2 PINN loss or MMT feature integration.
 - No integrated multi-task / multi-head architecture.
 - No MDN default unless a later explicit gate changes the loss policy.
 - No PLC-friendly export optimization in this package.

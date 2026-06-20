@@ -1,9 +1,9 @@
-# Track 2 Mean-Centered Collage Diagnostics Report
+# TE Curve Verification Pipeline Mean-Centered Collage Diagnostics Report
 
 ## Overview
 
 This report tests whether the persistent vertical offset observed in
-the `Track 2` best-model collage hides stronger waveform tracking.
+the `TE Curve Verification Pipeline` best-model collage hides stronger waveform tracking.
 For each candidate and curve, the measured `TE` curve is centered by
 its own mean and the predicted curve is centered by its own mean before
 `MAE` and `RMSE` are recomputed.
@@ -42,7 +42,7 @@ correction.
 
 ## Diagnostic Reading
 
-- The persistent vertical offset is a material part of the raw `Track 2`
+- The persistent vertical offset is a material part of the raw `TE Curve Verification Pipeline`
   collage error for many candidates.
 - `harmonic_regression_global` is the strongest offset example: its four-curve
   average `MAE` drops from `0.031130` deg to `0.000888` deg after
@@ -50,7 +50,7 @@ correction.
 - Several global temporal candidates also show strong shape tracking after
   offset removal, including `periodic_lstm_sequence_global`,
   `periodic_temporal_convolution_global`, and `periodic_gru_sequence_global`.
-- Dense `Wave 2C` residual-harmonic temporal candidates improve much less than
+- Dense `Wave 2.3` residual-harmonic temporal candidates improve much less than
   sparse `RCIM` variants, which means their visible error is not explained only
   by a vertical offset.
 - This report should be read as a diagnostic signal for future calibration or
@@ -96,7 +96,7 @@ correction.
 | `tree_bw` | Bw | 0.003341 | 0.001503 | 49.0% | 0.002985 |
 | `periodic_mlp_harmonic_bw` | Bw | 0.003865 | 0.001628 | 59.9% | 0.003812 |
 
-### Forward Wave 2 Temporal Family Best Models
+### Forward Wave 2.1 Temporal Family Best Models
 
 | Candidate | Surface | Raw MAE | Centered MAE | Improvement | Offset |
 | --- | --- | ---: | ---: | ---: | ---: |
@@ -107,7 +107,7 @@ correction.
 | `periodic_gru_sequence_fw` | Fw | 0.003352 | 0.000997 | 64.2% | 0.003101 |
 | `periodic_lstm_sequence_fw` | Fw | 0.002999 | 0.001237 | 55.4% | 0.002690 |
 
-### Backward Wave 2 Temporal Family Best Models
+### Backward Wave 2.1 Temporal Family Best Models
 
 | Candidate | Surface | Raw MAE | Centered MAE | Improvement | Offset |
 | --- | --- | ---: | ---: | ---: | ---: |
@@ -118,7 +118,7 @@ correction.
 | `periodic_gru_sequence_bw` | Bw | 0.003020 | 0.001004 | 45.7% | 0.002681 |
 | `periodic_lstm_sequence_bw` | Bw | 0.002122 | 0.000935 | 45.9% | 0.001929 |
 
-### Forward Wave 2C Residual Harmonic Temporal Models
+### Forward Wave 2.3 Residual Harmonic Temporal Models
 
 | Candidate | Surface | Raw MAE | Centered MAE | Improvement | Offset |
 | --- | --- | ---: | ---: | ---: | ---: |
@@ -129,7 +129,7 @@ correction.
 | `residual_harmonic_lstm_sequence_dense240_Fw` | Fw | 0.006996 | 0.006259 | 10.2% | 0.002699 |
 | `residual_harmonic_lstm_sequence_dense360_Fw` | Fw | 0.007889 | 0.006987 | 11.2% | 0.003096 |
 
-### Backward Wave 2C Residual Harmonic Temporal Models
+### Backward Wave 2.3 Residual Harmonic Temporal Models
 
 | Candidate | Surface | Raw MAE | Centered MAE | Improvement | Offset |
 | --- | --- | ---: | ---: | ---: | ---: |
@@ -151,7 +151,7 @@ correction.
 | `tree_global` | global | 0.004153 | 0.001080 | 67.3% | 0.004092 |
 | `periodic_mlp_harmonic_global` | global | 0.003384 | 0.000993 | 54.9% | 0.003252 |
 
-### Global Wave 2 Temporal Family Best Models
+### Global Wave 2.1 Temporal Family Best Models
 
 | Candidate | Surface | Raw MAE | Centered MAE | Improvement | Offset |
 | --- | --- | ---: | ---: | ---: | ---: |
@@ -162,7 +162,7 @@ correction.
 | `periodic_gru_sequence_global` | global | 0.003392 | 0.000854 | 70.3% | 0.003373 |
 | `periodic_lstm_sequence_global` | global | 0.004495 | 0.000658 | 80.3% | 0.004492 |
 
-### Global Wave 2C Residual Harmonic Temporal Models
+### Global Wave 2.3 Residual Harmonic Temporal Models
 
 | Candidate | Surface | Raw MAE | Centered MAE | Improvement | Offset |
 | --- | --- | ---: | ---: | ---: | ---: |
@@ -177,297 +177,297 @@ correction.
 
 paper_original_best_Fw:
 
-![paper_original_best_Fw mean-centered Track 2 collage](assets/forward_reference/paper_original_best_fw.png)
+![paper_original_best_Fw mean-centered curve-verification collage](assets/forward_reference/paper_original_best_fw.png)
 
 paper_retuned_best_Fw:
 
-![paper_retuned_best_Fw mean-centered Track 2 collage](assets/forward_reference/paper_retuned_best_fw.png)
+![paper_retuned_best_Fw mean-centered curve-verification collage](assets/forward_reference/paper_retuned_best_fw.png)
 
 ## Mean-Centered Collage Gallery - Forward Reference Best Models Continued
 
 track1_best_Fw:
 
-![track1_best_Fw mean-centered Track 2 collage](assets/forward_reference/track1_best_fw.png)
+![track1_best_Fw mean-centered curve-verification collage](assets/forward_reference/track1_best_fw.png)
 
 ## Mean-Centered Collage Gallery - Forward Wave 1 Family Best Models
 
 feedforward_fw:
 
-![feedforward_fw mean-centered Track 2 collage](assets/forward_wave1/feedforward_fw.png)
+![feedforward_fw mean-centered curve-verification collage](assets/forward_wave1/feedforward_fw.png)
 
 harmonic_regression_fw:
 
-![harmonic_regression_fw mean-centered Track 2 collage](assets/forward_wave1/harmonic_regression_fw.png)
+![harmonic_regression_fw mean-centered curve-verification collage](assets/forward_wave1/harmonic_regression_fw.png)
 
 ## Mean-Centered Collage Gallery - Forward Wave 1 Family Best Models Continued
 
 periodic_mlp_fw:
 
-![periodic_mlp_fw mean-centered Track 2 collage](assets/forward_wave1/periodic_mlp_fw.png)
+![periodic_mlp_fw mean-centered curve-verification collage](assets/forward_wave1/periodic_mlp_fw.png)
 
 residual_harmonic_mlp_fw:
 
-![residual_harmonic_mlp_fw mean-centered Track 2 collage](assets/forward_wave1/residual_harmonic_mlp_fw.png)
+![residual_harmonic_mlp_fw mean-centered curve-verification collage](assets/forward_wave1/residual_harmonic_mlp_fw.png)
 
 ## Mean-Centered Collage Gallery - Forward Wave 1 Family Best Models Continued 2
 
 tree_fw:
 
-![tree_fw mean-centered Track 2 collage](assets/forward_wave1/tree_fw.png)
+![tree_fw mean-centered curve-verification collage](assets/forward_wave1/tree_fw.png)
 
 periodic_mlp_harmonic_fw:
 
-![periodic_mlp_harmonic_fw mean-centered Track 2 collage](assets/forward_wave1/periodic_mlp_harmonic_fw.png)
+![periodic_mlp_harmonic_fw mean-centered curve-verification collage](assets/forward_wave1/periodic_mlp_harmonic_fw.png)
 
 ## Mean-Centered Collage Gallery - Backward Reference Best Models
 
 paper_retuned_best_Bw:
 
-![paper_retuned_best_Bw mean-centered Track 2 collage](assets/backward_reference/paper_retuned_best_bw.png)
+![paper_retuned_best_Bw mean-centered curve-verification collage](assets/backward_reference/paper_retuned_best_bw.png)
 
 track1_best_Bw:
 
-![track1_best_Bw mean-centered Track 2 collage](assets/backward_reference/track1_best_bw.png)
+![track1_best_Bw mean-centered curve-verification collage](assets/backward_reference/track1_best_bw.png)
 
 ## Mean-Centered Collage Gallery - Backward Wave 1 Family Best Models
 
 feedforward_bw:
 
-![feedforward_bw mean-centered Track 2 collage](assets/backward_wave1/feedforward_bw.png)
+![feedforward_bw mean-centered curve-verification collage](assets/backward_wave1/feedforward_bw.png)
 
 harmonic_regression_bw:
 
-![harmonic_regression_bw mean-centered Track 2 collage](assets/backward_wave1/harmonic_regression_bw.png)
+![harmonic_regression_bw mean-centered curve-verification collage](assets/backward_wave1/harmonic_regression_bw.png)
 
 ## Mean-Centered Collage Gallery - Backward Wave 1 Family Best Models Continued
 
 periodic_mlp_bw:
 
-![periodic_mlp_bw mean-centered Track 2 collage](assets/backward_wave1/periodic_mlp_bw.png)
+![periodic_mlp_bw mean-centered curve-verification collage](assets/backward_wave1/periodic_mlp_bw.png)
 
 residual_harmonic_mlp_bw:
 
-![residual_harmonic_mlp_bw mean-centered Track 2 collage](assets/backward_wave1/residual_harmonic_mlp_bw.png)
+![residual_harmonic_mlp_bw mean-centered curve-verification collage](assets/backward_wave1/residual_harmonic_mlp_bw.png)
 
 ## Mean-Centered Collage Gallery - Backward Wave 1 Family Best Models Continued 2
 
 tree_bw:
 
-![tree_bw mean-centered Track 2 collage](assets/backward_wave1/tree_bw.png)
+![tree_bw mean-centered curve-verification collage](assets/backward_wave1/tree_bw.png)
 
 periodic_mlp_harmonic_bw:
 
-![periodic_mlp_harmonic_bw mean-centered Track 2 collage](assets/backward_wave1/periodic_mlp_harmonic_bw.png)
+![periodic_mlp_harmonic_bw mean-centered curve-verification collage](assets/backward_wave1/periodic_mlp_harmonic_bw.png)
 
-## Mean-Centered Collage Gallery - Forward Wave 2 Temporal Family Best Models
+## Mean-Centered Collage Gallery - Forward Wave 2.1 Temporal Family Best Models
 
 temporal_convolution_fw:
 
-![temporal_convolution_fw mean-centered Track 2 collage](assets/forward_wave2/temporal_convolution_fw.png)
+![temporal_convolution_fw mean-centered curve-verification collage](assets/forward_wave2/temporal_convolution_fw.png)
 
 gru_sequence_fw:
 
-![gru_sequence_fw mean-centered Track 2 collage](assets/forward_wave2/gru_sequence_fw.png)
+![gru_sequence_fw mean-centered curve-verification collage](assets/forward_wave2/gru_sequence_fw.png)
 
-## Mean-Centered Collage Gallery - Forward Wave 2 Temporal Family Best Models Continued
+## Mean-Centered Collage Gallery - Forward Wave 2.1 Temporal Family Best Models Continued
 
 lstm_sequence_fw:
 
-![lstm_sequence_fw mean-centered Track 2 collage](assets/forward_wave2/lstm_sequence_fw.png)
+![lstm_sequence_fw mean-centered curve-verification collage](assets/forward_wave2/lstm_sequence_fw.png)
 
 periodic_temporal_convolution_fw:
 
-![periodic_temporal_convolution_fw mean-centered Track 2 collage](assets/forward_wave2/periodic_temporal_convolution_fw.png)
+![periodic_temporal_convolution_fw mean-centered curve-verification collage](assets/forward_wave2/periodic_temporal_convolution_fw.png)
 
-## Mean-Centered Collage Gallery - Forward Wave 2 Temporal Family Best Models Continued 2
+## Mean-Centered Collage Gallery - Forward Wave 2.1 Temporal Family Best Models Continued 2
 
 periodic_gru_sequence_fw:
 
-![periodic_gru_sequence_fw mean-centered Track 2 collage](assets/forward_wave2/periodic_gru_sequence_fw.png)
+![periodic_gru_sequence_fw mean-centered curve-verification collage](assets/forward_wave2/periodic_gru_sequence_fw.png)
 
 periodic_lstm_sequence_fw:
 
-![periodic_lstm_sequence_fw mean-centered Track 2 collage](assets/forward_wave2/periodic_lstm_sequence_fw.png)
+![periodic_lstm_sequence_fw mean-centered curve-verification collage](assets/forward_wave2/periodic_lstm_sequence_fw.png)
 
-## Mean-Centered Collage Gallery - Backward Wave 2 Temporal Family Best Models
+## Mean-Centered Collage Gallery - Backward Wave 2.1 Temporal Family Best Models
 
 temporal_convolution_bw:
 
-![temporal_convolution_bw mean-centered Track 2 collage](assets/backward_wave2/temporal_convolution_bw.png)
+![temporal_convolution_bw mean-centered curve-verification collage](assets/backward_wave2/temporal_convolution_bw.png)
 
 gru_sequence_bw:
 
-![gru_sequence_bw mean-centered Track 2 collage](assets/backward_wave2/gru_sequence_bw.png)
+![gru_sequence_bw mean-centered curve-verification collage](assets/backward_wave2/gru_sequence_bw.png)
 
-## Mean-Centered Collage Gallery - Backward Wave 2 Temporal Family Best Models Continued
+## Mean-Centered Collage Gallery - Backward Wave 2.1 Temporal Family Best Models Continued
 
 lstm_sequence_bw:
 
-![lstm_sequence_bw mean-centered Track 2 collage](assets/backward_wave2/lstm_sequence_bw.png)
+![lstm_sequence_bw mean-centered curve-verification collage](assets/backward_wave2/lstm_sequence_bw.png)
 
 periodic_temporal_convolution_bw:
 
-![periodic_temporal_convolution_bw mean-centered Track 2 collage](assets/backward_wave2/periodic_temporal_convolution_bw.png)
+![periodic_temporal_convolution_bw mean-centered curve-verification collage](assets/backward_wave2/periodic_temporal_convolution_bw.png)
 
-## Mean-Centered Collage Gallery - Backward Wave 2 Temporal Family Best Models Continued 2
+## Mean-Centered Collage Gallery - Backward Wave 2.1 Temporal Family Best Models Continued 2
 
 periodic_gru_sequence_bw:
 
-![periodic_gru_sequence_bw mean-centered Track 2 collage](assets/backward_wave2/periodic_gru_sequence_bw.png)
+![periodic_gru_sequence_bw mean-centered curve-verification collage](assets/backward_wave2/periodic_gru_sequence_bw.png)
 
 periodic_lstm_sequence_bw:
 
-![periodic_lstm_sequence_bw mean-centered Track 2 collage](assets/backward_wave2/periodic_lstm_sequence_bw.png)
+![periodic_lstm_sequence_bw mean-centered curve-verification collage](assets/backward_wave2/periodic_lstm_sequence_bw.png)
 
-## Mean-Centered Collage Gallery - Forward Wave 2C Residual Harmonic Temporal Models
+## Mean-Centered Collage Gallery - Forward Wave 2.3 Residual Harmonic Temporal Models
 
 residual_harmonic_gru_sequence_sparse_rcim_Fw:
 
-![residual_harmonic_gru_sequence_sparse_rcim_Fw mean-centered Track 2 collage](assets/forward_wave2c/residual_harmonic_gru_sequence_sparse_rcim_fw.png)
+![residual_harmonic_gru_sequence_sparse_rcim_Fw mean-centered curve-verification collage](assets/forward_wave2c/residual_harmonic_gru_sequence_sparse_rcim_fw.png)
 
 residual_harmonic_gru_sequence_dense240_Fw:
 
-![residual_harmonic_gru_sequence_dense240_Fw mean-centered Track 2 collage](assets/forward_wave2c/residual_harmonic_gru_sequence_dense240_fw.png)
+![residual_harmonic_gru_sequence_dense240_Fw mean-centered curve-verification collage](assets/forward_wave2c/residual_harmonic_gru_sequence_dense240_fw.png)
 
-## Mean-Centered Collage Gallery - Forward Wave 2C Residual Harmonic Temporal Models Continued
+## Mean-Centered Collage Gallery - Forward Wave 2.3 Residual Harmonic Temporal Models Continued
 
 residual_harmonic_gru_sequence_dense360_Fw:
 
-![residual_harmonic_gru_sequence_dense360_Fw mean-centered Track 2 collage](assets/forward_wave2c/residual_harmonic_gru_sequence_dense360_fw.png)
+![residual_harmonic_gru_sequence_dense360_Fw mean-centered curve-verification collage](assets/forward_wave2c/residual_harmonic_gru_sequence_dense360_fw.png)
 
 residual_harmonic_lstm_sequence_sparse_rcim_Fw:
 
-![residual_harmonic_lstm_sequence_sparse_rcim_Fw mean-centered Track 2 collage](assets/forward_wave2c/residual_harmonic_lstm_sequence_sparse_rcim_fw.png)
+![residual_harmonic_lstm_sequence_sparse_rcim_Fw mean-centered curve-verification collage](assets/forward_wave2c/residual_harmonic_lstm_sequence_sparse_rcim_fw.png)
 
-## Mean-Centered Collage Gallery - Forward Wave 2C Residual Harmonic Temporal Models Continued 2
+## Mean-Centered Collage Gallery - Forward Wave 2.3 Residual Harmonic Temporal Models Continued 2
 
 residual_harmonic_lstm_sequence_dense240_Fw:
 
-![residual_harmonic_lstm_sequence_dense240_Fw mean-centered Track 2 collage](assets/forward_wave2c/residual_harmonic_lstm_sequence_dense240_fw.png)
+![residual_harmonic_lstm_sequence_dense240_Fw mean-centered curve-verification collage](assets/forward_wave2c/residual_harmonic_lstm_sequence_dense240_fw.png)
 
 residual_harmonic_lstm_sequence_dense360_Fw:
 
-![residual_harmonic_lstm_sequence_dense360_Fw mean-centered Track 2 collage](assets/forward_wave2c/residual_harmonic_lstm_sequence_dense360_fw.png)
+![residual_harmonic_lstm_sequence_dense360_Fw mean-centered curve-verification collage](assets/forward_wave2c/residual_harmonic_lstm_sequence_dense360_fw.png)
 
-## Mean-Centered Collage Gallery - Backward Wave 2C Residual Harmonic Temporal Models
+## Mean-Centered Collage Gallery - Backward Wave 2.3 Residual Harmonic Temporal Models
 
 residual_harmonic_gru_sequence_sparse_rcim_Bw:
 
-![residual_harmonic_gru_sequence_sparse_rcim_Bw mean-centered Track 2 collage](assets/backward_wave2c/residual_harmonic_gru_sequence_sparse_rcim_bw.png)
+![residual_harmonic_gru_sequence_sparse_rcim_Bw mean-centered curve-verification collage](assets/backward_wave2c/residual_harmonic_gru_sequence_sparse_rcim_bw.png)
 
 residual_harmonic_gru_sequence_dense240_Bw:
 
-![residual_harmonic_gru_sequence_dense240_Bw mean-centered Track 2 collage](assets/backward_wave2c/residual_harmonic_gru_sequence_dense240_bw.png)
+![residual_harmonic_gru_sequence_dense240_Bw mean-centered curve-verification collage](assets/backward_wave2c/residual_harmonic_gru_sequence_dense240_bw.png)
 
-## Mean-Centered Collage Gallery - Backward Wave 2C Residual Harmonic Temporal Models Continued
+## Mean-Centered Collage Gallery - Backward Wave 2.3 Residual Harmonic Temporal Models Continued
 
 residual_harmonic_gru_sequence_dense360_Bw:
 
-![residual_harmonic_gru_sequence_dense360_Bw mean-centered Track 2 collage](assets/backward_wave2c/residual_harmonic_gru_sequence_dense360_bw.png)
+![residual_harmonic_gru_sequence_dense360_Bw mean-centered curve-verification collage](assets/backward_wave2c/residual_harmonic_gru_sequence_dense360_bw.png)
 
 residual_harmonic_lstm_sequence_sparse_rcim_Bw:
 
-![residual_harmonic_lstm_sequence_sparse_rcim_Bw mean-centered Track 2 collage](assets/backward_wave2c/residual_harmonic_lstm_sequence_sparse_rcim_bw.png)
+![residual_harmonic_lstm_sequence_sparse_rcim_Bw mean-centered curve-verification collage](assets/backward_wave2c/residual_harmonic_lstm_sequence_sparse_rcim_bw.png)
 
-## Mean-Centered Collage Gallery - Backward Wave 2C Residual Harmonic Temporal Models Continued 2
+## Mean-Centered Collage Gallery - Backward Wave 2.3 Residual Harmonic Temporal Models Continued 2
 
 residual_harmonic_lstm_sequence_dense240_Bw:
 
-![residual_harmonic_lstm_sequence_dense240_Bw mean-centered Track 2 collage](assets/backward_wave2c/residual_harmonic_lstm_sequence_dense240_bw.png)
+![residual_harmonic_lstm_sequence_dense240_Bw mean-centered curve-verification collage](assets/backward_wave2c/residual_harmonic_lstm_sequence_dense240_bw.png)
 
 residual_harmonic_lstm_sequence_dense360_Bw:
 
-![residual_harmonic_lstm_sequence_dense360_Bw mean-centered Track 2 collage](assets/backward_wave2c/residual_harmonic_lstm_sequence_dense360_bw.png)
+![residual_harmonic_lstm_sequence_dense360_Bw mean-centered curve-verification collage](assets/backward_wave2c/residual_harmonic_lstm_sequence_dense360_bw.png)
 
 ## Mean-Centered Collage Gallery - Global Wave 1 Family Best Models
 
 feedforward_global:
 
-![feedforward_global mean-centered Track 2 collage](assets/global_wave1/feedforward_global.png)
+![feedforward_global mean-centered curve-verification collage](assets/global_wave1/feedforward_global.png)
 
 harmonic_regression_global:
 
-![harmonic_regression_global mean-centered Track 2 collage](assets/global_wave1/harmonic_regression_global.png)
+![harmonic_regression_global mean-centered curve-verification collage](assets/global_wave1/harmonic_regression_global.png)
 
 ## Mean-Centered Collage Gallery - Global Wave 1 Family Best Models Continued
 
 periodic_mlp_global:
 
-![periodic_mlp_global mean-centered Track 2 collage](assets/global_wave1/periodic_mlp_global.png)
+![periodic_mlp_global mean-centered curve-verification collage](assets/global_wave1/periodic_mlp_global.png)
 
 residual_harmonic_mlp_global:
 
-![residual_harmonic_mlp_global mean-centered Track 2 collage](assets/global_wave1/residual_harmonic_mlp_global.png)
+![residual_harmonic_mlp_global mean-centered curve-verification collage](assets/global_wave1/residual_harmonic_mlp_global.png)
 
 ## Mean-Centered Collage Gallery - Global Wave 1 Family Best Models Continued 2
 
 tree_global:
 
-![tree_global mean-centered Track 2 collage](assets/global_wave1/tree_global.png)
+![tree_global mean-centered curve-verification collage](assets/global_wave1/tree_global.png)
 
 periodic_mlp_harmonic_global:
 
-![periodic_mlp_harmonic_global mean-centered Track 2 collage](assets/global_wave1/periodic_mlp_harmonic_global.png)
+![periodic_mlp_harmonic_global mean-centered curve-verification collage](assets/global_wave1/periodic_mlp_harmonic_global.png)
 
-## Mean-Centered Collage Gallery - Global Wave 2 Temporal Family Best Models
+## Mean-Centered Collage Gallery - Global Wave 2.1 Temporal Family Best Models
 
 temporal_convolution_global:
 
-![temporal_convolution_global mean-centered Track 2 collage](assets/global_wave2/temporal_convolution_global.png)
+![temporal_convolution_global mean-centered curve-verification collage](assets/global_wave2/temporal_convolution_global.png)
 
 gru_sequence_global:
 
-![gru_sequence_global mean-centered Track 2 collage](assets/global_wave2/gru_sequence_global.png)
+![gru_sequence_global mean-centered curve-verification collage](assets/global_wave2/gru_sequence_global.png)
 
-## Mean-Centered Collage Gallery - Global Wave 2 Temporal Family Best Models Continued
+## Mean-Centered Collage Gallery - Global Wave 2.1 Temporal Family Best Models Continued
 
 lstm_sequence_global:
 
-![lstm_sequence_global mean-centered Track 2 collage](assets/global_wave2/lstm_sequence_global.png)
+![lstm_sequence_global mean-centered curve-verification collage](assets/global_wave2/lstm_sequence_global.png)
 
 periodic_temporal_convolution_global:
 
-![periodic_temporal_convolution_global mean-centered Track 2 collage](assets/global_wave2/periodic_temporal_convolution_global.png)
+![periodic_temporal_convolution_global mean-centered curve-verification collage](assets/global_wave2/periodic_temporal_convolution_global.png)
 
-## Mean-Centered Collage Gallery - Global Wave 2 Temporal Family Best Models Continued 2
+## Mean-Centered Collage Gallery - Global Wave 2.1 Temporal Family Best Models Continued 2
 
 periodic_gru_sequence_global:
 
-![periodic_gru_sequence_global mean-centered Track 2 collage](assets/global_wave2/periodic_gru_sequence_global.png)
+![periodic_gru_sequence_global mean-centered curve-verification collage](assets/global_wave2/periodic_gru_sequence_global.png)
 
 periodic_lstm_sequence_global:
 
-![periodic_lstm_sequence_global mean-centered Track 2 collage](assets/global_wave2/periodic_lstm_sequence_global.png)
+![periodic_lstm_sequence_global mean-centered curve-verification collage](assets/global_wave2/periodic_lstm_sequence_global.png)
 
-## Mean-Centered Collage Gallery - Global Wave 2C Residual Harmonic Temporal Models
+## Mean-Centered Collage Gallery - Global Wave 2.3 Residual Harmonic Temporal Models
 
 residual_harmonic_gru_sequence_sparse_rcim_global:
 
-![residual_harmonic_gru_sequence_sparse_rcim_global mean-centered Track 2 collage](assets/global_wave2c/residual_harmonic_gru_sequence_sparse_rcim_global.png)
+![residual_harmonic_gru_sequence_sparse_rcim_global mean-centered curve-verification collage](assets/global_wave2c/residual_harmonic_gru_sequence_sparse_rcim_global.png)
 
 residual_harmonic_gru_sequence_dense240_global:
 
-![residual_harmonic_gru_sequence_dense240_global mean-centered Track 2 collage](assets/global_wave2c/residual_harmonic_gru_sequence_dense240_global.png)
+![residual_harmonic_gru_sequence_dense240_global mean-centered curve-verification collage](assets/global_wave2c/residual_harmonic_gru_sequence_dense240_global.png)
 
-## Mean-Centered Collage Gallery - Global Wave 2C Residual Harmonic Temporal Models Continued
+## Mean-Centered Collage Gallery - Global Wave 2.3 Residual Harmonic Temporal Models Continued
 
 residual_harmonic_gru_sequence_dense360_global:
 
-![residual_harmonic_gru_sequence_dense360_global mean-centered Track 2 collage](assets/global_wave2c/residual_harmonic_gru_sequence_dense360_global.png)
+![residual_harmonic_gru_sequence_dense360_global mean-centered curve-verification collage](assets/global_wave2c/residual_harmonic_gru_sequence_dense360_global.png)
 
 residual_harmonic_lstm_sequence_sparse_rcim_global:
 
-![residual_harmonic_lstm_sequence_sparse_rcim_global mean-centered Track 2 collage](assets/global_wave2c/residual_harmonic_lstm_sequence_sparse_rcim_global.png)
+![residual_harmonic_lstm_sequence_sparse_rcim_global mean-centered curve-verification collage](assets/global_wave2c/residual_harmonic_lstm_sequence_sparse_rcim_global.png)
 
-## Mean-Centered Collage Gallery - Global Wave 2C Residual Harmonic Temporal Models Continued 2
+## Mean-Centered Collage Gallery - Global Wave 2.3 Residual Harmonic Temporal Models Continued 2
 
 residual_harmonic_lstm_sequence_dense240_global:
 
-![residual_harmonic_lstm_sequence_dense240_global mean-centered Track 2 collage](assets/global_wave2c/residual_harmonic_lstm_sequence_dense240_global.png)
+![residual_harmonic_lstm_sequence_dense240_global mean-centered curve-verification collage](assets/global_wave2c/residual_harmonic_lstm_sequence_dense240_global.png)
 
 residual_harmonic_lstm_sequence_dense360_global:
 
-![residual_harmonic_lstm_sequence_dense360_global mean-centered Track 2 collage](assets/global_wave2c/residual_harmonic_lstm_sequence_dense360_global.png)
+![residual_harmonic_lstm_sequence_dense360_global mean-centered curve-verification collage](assets/global_wave2c/residual_harmonic_lstm_sequence_dense360_global.png)
 
 ## Output Artifacts
 

@@ -2,7 +2,7 @@
 
 ## Executive Summary
 
-The repository is in an active but stable post-`Wave 2C` state. No training
+The repository is in an active but stable post-`Wave 2.3` state. No training
 campaign is currently prepared or running, and
 `doc/running/active_training_campaign.yaml` has no protected files.
 
@@ -14,14 +14,14 @@ The current scalar program winner is:
 
 That scalar winner is not the whole decision anymore. Commit
 `b73220679410276246421b7e2832d8878cff90a0` moved promotion toward full
-`Track 2` curve-following quality.
+`TE Curve Verification Pipeline` curve-following quality.
 
-Current `Track 2` decision:
+Current `TE Curve Verification Pipeline` decision:
 
 - accepted paper-derived baselines remain `paper_retuned_best_Fw` and
   `paper_retuned_best_Bw`;
 - `tree` remains the strongest repository-owned static baseline;
-- `Wave 2B` is the strongest repository-owned neural branch, while `Wave 2C`
+- `Wave 2.2` is the strongest repository-owned neural branch, while `Wave 2.3`
   is verified only as an exploratory residual harmonic temporal baseline.
 
 ## Repository State
@@ -30,17 +30,17 @@ The program has closed the following major surfaces:
 
 | Surface | Current State | Operational Meaning |
 | --- | --- | --- |
-| `Track 1` | closed | faithful full-bank RCIM paper reproduction surface |
+| `RCIM Model-Bank Reproduction` | closed | faithful full-bank RCIM paper reproduction surface |
 | `Wave 1` | closed | structured static repository baselines |
-| `Track 2` | closed through `Wave 2C` | official offline curve-verification matrix |
-| `Wave 2` | completed | first temporal sequence baselines |
-| `Wave 2B` | completed | harmonic temporal hybrids, current strongest neural branch |
-| `Wave 2C` | completed | residual harmonic temporal hybrids, exploratory baseline |
+| `TE Curve Verification Pipeline` | closed through `Wave 2.3` | official offline curve-verification matrix |
+| `Wave 2.1` | completed | first temporal sequence baselines |
+| `Wave 2.2` | completed | harmonic temporal hybrids, current strongest neural branch |
+| `Wave 2.3` | completed | residual harmonic temporal hybrids, exploratory baseline |
 
 The repository now has `53` implemented and benchmarked family surfaces in the
 master summary. The next active work should not be another blind family
 addition. The current focus is standardizing curve-first reranking on the
-expanded `Track 2` metric surface.
+expanded `TE Curve Verification Pipeline` metric surface.
 
 Operationally, the repository is ready for decision-oriented analysis rather
 than another bookkeeping pass. The available evidence now covers scalar
@@ -63,7 +63,7 @@ The scalar HPO closeout leader is:
 
 The post-closeout harmonic tracking campaigns improved the harmonic-specific
 families but did not displace the tree baseline as the strongest `Wave 1`
-scalar and `Track 2` static family.
+scalar and `TE Curve Verification Pipeline` static family.
 
 Best current harmonic-oriented `Wave 1` scalar results:
 
@@ -81,11 +81,11 @@ Interpretation:
 - sparse `RCIM` remains strong for residual harmonic MLP surfaces;
 - `periodic_mlp_harmonic_*` is a report/candidate label for explicit-harmonic
   `periodic_mlp` candidates, not a separate architecture family;
-- `tree` remains the strongest repository-owned static `Track 2` baseline.
+- `tree` remains the strongest repository-owned static `TE Curve Verification Pipeline` baseline.
 
-## Wave 2 Temporal Sequence Models
+## Wave 2.1 Temporal Sequence Models
 
-`Wave 2` introduced temporal sequence baselines:
+`Wave 2.1` introduced temporal sequence baselines:
 
 - `temporal_convolution`;
 - `gru_sequence`;
@@ -105,13 +105,13 @@ The best global and backward temporal-entry surfaces were:
 | `global` | `te_lstm_sequence_remote_global` | `lstm_sequence` | 0.003482 |
 | `Bw` | `te_lstm_sequence_remote_Bw` | `lstm_sequence_bw` | 0.003557 |
 
-`Track 2` verified these models as useful exploratory temporal baselines, but
+`TE Curve Verification Pipeline` verified these models as useful exploratory temporal baselines, but
 plain temporal recurrence did not improve enough over the static tree and
 paper-derived reference candidates.
 
-## Wave 2B Harmonic Temporal Hybrids
+## Wave 2.2 Harmonic Temporal Hybrids
 
-`Wave 2B` added explicit periodic harmonic features to temporal convolution,
+`Wave 2.2` added explicit periodic harmonic features to temporal convolution,
 `GRU`, and `LSTM` sequence windows. The first tier used the sparse `RCIM`
 harmonic list:
 
@@ -132,7 +132,7 @@ The strongest bidirectional neural candidate is:
 | --- | --- | --- | ---: | ---: |
 | `te_periodic_gru_sequence_remote_global` | `periodic_gru_sequence` | `global` | 0.002681 | 0.002971 |
 
-`Track 2` confirms the same qualitative result. The official visual and metric
+`TE Curve Verification Pipeline` confirms the same qualitative result. The official visual and metric
 reports identify:
 
 | Candidate | Surface | Curve MAE [deg] | Curve RMSE [deg] | Mean Error [%] |
@@ -151,9 +151,9 @@ Interpretation:
   harmonic models, so the next decision must be curve-first and
   TwinCAT-aware.
 
-## Wave 2C Residual Harmonic Temporal Hybrids
+## Wave 2.3 Residual Harmonic Temporal Hybrids
 
-`Wave 2C` tested a stronger decomposition:
+`Wave 2.3` tested a stronger decomposition:
 
 - structured harmonic branch for the base TE shape;
 - recurrent temporal branch for sequence-local residual correction;
@@ -173,11 +173,11 @@ The scalar campaign winner was:
 | `te_residual_harmonic_gru_sequence_remote_Fw_sparse_rcim` | `residual_harmonic_gru_sequence_fw_sparse_rcim` | sparse `RCIM` | `Fw` | 0.003200 | 0.003635 |
 
 The scalar leaderboard showed dense variants close to sparse variants in some
-forward-only pointwise metrics. `Track 2` changed the interpretation: when the
+forward-only pointwise metrics. `TE Curve Verification Pipeline` changed the interpretation: when the
 models are judged on full curves, dense residual harmonic banks are clearly
 weaker.
 
-Strongest `Wave 2C` `Track 2` candidates:
+Strongest `Wave 2.3` `TE Curve Verification Pipeline` candidates:
 
 | Scope | Candidate | Basis | Curve MAE [deg] | Curve RMSE [deg] | Mean Error [%] |
 | --- | --- | --- | ---: | ---: | ---: |
@@ -185,7 +185,7 @@ Strongest `Wave 2C` `Track 2` candidates:
 | `Bw` | `residual_harmonic_lstm_sequence_sparse_rcim_Bw` | sparse `RCIM` | 0.003440 | 0.003793 | 7.510 |
 | `global` | `residual_harmonic_lstm_sequence_sparse_rcim_global` | sparse `RCIM` | 0.003368 | 0.003719 | 7.409 |
 
-Dense `Wave 2C` `Track 2` examples:
+Dense `Wave 2.3` `TE Curve Verification Pipeline` examples:
 
 | Scope | Candidate | Basis | Curve MAE [deg] | Mean Error [%] |
 | --- | --- | --- | ---: | ---: |
@@ -198,15 +198,15 @@ Dense `Wave 2C` `Track 2` examples:
 
 Interpretation:
 
-- sparse `RCIM` is the correct `Wave 2C` harmonic tier;
+- sparse `RCIM` is the correct `Wave 2.3` harmonic tier;
 - dense residual harmonic expansion overfits or destabilizes the curve surface;
 - residual decomposition is useful as a diagnostic branch, but it does not beat
-  the simpler `Wave 2B` periodic recurrent formulation;
-- `Wave 2C` should stay closed as a verified exploratory baseline.
+  the simpler `Wave 2.2` periodic recurrent formulation;
+- `Wave 2.3` should stay closed as a verified exploratory baseline.
 
-## Track 2 Current Result
+## TE Curve Verification Pipeline Current Result
 
-The official `Track 2` package now contains `111` candidates. It evaluates
+The official `TE Curve Verification Pipeline` package now contains `111` candidates. It evaluates
 direction-valid held-out TE curves and reports curve-level metrics separately
 from scalar training metrics.
 
@@ -226,9 +226,9 @@ The important split is:
 
 - the recovered/retuned paper reference still owns the best forward curve
   result;
-- `Wave 2B` owns the best repository neural backward and global neural result;
+- `Wave 2.2` owns the best repository neural backward and global neural result;
 - `Wave 1` tree remains the most robust repository-owned static baseline;
-- `Wave 2C` adds evidence about harmonic-bank choice, not a new promotion.
+- `Wave 2.3` adds evidence about harmonic-bank choice, not a new promotion.
 
 ## Harmonic Bank Conclusions
 
@@ -240,9 +240,9 @@ single universal winner across every algorithm.
 | `Wave 1` harmonic regression, `Fw` | dense `0..360` | `test_mae = 0.002916` |
 | `Wave 1` periodic MLP, `Fw` | dense `0..240` | `test_mae = 0.003055` |
 | `Wave 1` residual harmonic MLP, `Bw` | sparse `RCIM` | `test_mae = 0.003042` |
-| `Wave 2B` periodic recurrent | sparse `RCIM` feature tier | `periodic_gru_sequence_Bw`, `test_mae = 0.002344` |
-| `Wave 2C` residual harmonic temporal | sparse `RCIM` | best scalar and all best `Track 2` surfaces |
-| `Wave 2C` dense residual temporal | dense `0..240` or `0..360` | poor `Track 2` curve metrics |
+| `Wave 2.2` periodic recurrent | sparse `RCIM` feature tier | `periodic_gru_sequence_Bw`, `test_mae = 0.002344` |
+| `Wave 2.3` residual harmonic temporal | sparse `RCIM` | best scalar and all best `TE Curve Verification Pipeline` surfaces |
+| `Wave 2.3` dense residual temporal | dense `0..240` or `0..360` | poor `TE Curve Verification Pipeline` curve metrics |
 
 Practical conclusion:
 
@@ -273,7 +273,7 @@ The new interpretation is:
    runtime model.
 3. Future deployed models must remain causal: current operating state, optional
    short past history, or causal derived features only.
-4. `Track 2` curve metrics and visual overlays become the promotion surface.
+4. `TE Curve Verification Pipeline` curve metrics and visual overlays become the promotion surface.
 5. Scalar winner, curve-first winner, and deployment-ready candidate should be
    reported separately until `Track 3` online evidence exists.
 
@@ -283,16 +283,16 @@ fail under repeated-revolution compensation.
 
 ## Future Development Plan
 
-### Step 1: Track 2B Curve-First Reranking
+### Step 1: CVP 1.1 Curve-First Reranking
 
-Open the already planned `Track 2B Curve-First Reranking` branch before any new
+Open the already planned `CVP 1.1 Curve-First Reranking` branch before any new
 training campaign.
 
 Deliverables:
 
 - expanded per-curve metric CSV;
-- direction-separated reranking for `Wave 1`, `Wave 2`, `Wave 2B`, and
-  `Wave 2C`;
+- direction-separated reranking for `Wave 1`, `Wave 2.1`, `Wave 2.2`, and
+  `Wave 2.3`;
 - harmonic amplitude and harmonic phase diagnostics on the sparse `RCIM`
   harmonic set;
 - P95 and worst-condition percentage-error tables;
@@ -301,7 +301,7 @@ Deliverables:
 
 ### Step 2: Decide Whether To Retrain Or Promote
 
-If reranking confirms that `Wave 2B` periodic recurrent models are also the
+If reranking confirms that `Wave 2.2` periodic recurrent models are also the
 best curve-first neural branch, keep them as the neural reference and improve
 checkpoint selection before changing families.
 
@@ -355,15 +355,15 @@ Preferred future candidates:
 
 Deferred exploratory candidates such as lightweight transformers, state-space
 sequence models, neural ODEs, and kernel/Gaussian-process baselines should stay
-low priority until `Track 2B` clarifies what the existing candidates already
+low priority until `CVP 1.1` clarifies what the existing candidates already
 do on full curves.
 
 ## Bottom Line
 
 The work is no longer in a raw model-search phase. The repository now has a
-complete scalar and `Track 2` evidence surface through `Wave 2C`.
+complete scalar and `TE Curve Verification Pipeline` evidence surface through `Wave 2.3`.
 
-The best scalar neural result is `Wave 2B` `periodic_gru_sequence_Bw`. The best
+The best scalar neural result is `Wave 2.2` `periodic_gru_sequence_Bw`. The best
 repository static baseline remains `tree`. The best forward curve result is
 still paper-derived retuned `GBM`. The most important technical next step is
 not another large campaign, but a curve-first reranking and promotion policy

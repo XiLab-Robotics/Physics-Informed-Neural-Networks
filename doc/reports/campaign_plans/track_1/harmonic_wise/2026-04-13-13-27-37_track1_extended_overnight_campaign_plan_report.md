@@ -1,8 +1,8 @@
-# Track 1 Extended Overnight Campaign Plan Report
+# RCIM Model-Bank Reproduction Extended Overnight Campaign Plan Report
 
 ## Overview
 
-This report prepares the next `Track 1` campaign after the completed overnight
+This report prepares the next `RCIM Model-Bank Reproduction` campaign after the completed overnight
  gap-closure batch showed that the current harmonic-wise validation branch is
  fast enough to support a much larger search package.
 
@@ -242,7 +242,7 @@ If a reduced overnight package is required, use this `18`-run subset:
 
 ## Evaluation Rules
 
-### Primary Track 1 Gate
+### Primary RCIM Model-Bank Reproduction Gate
 
 Use the campaign only to prioritize exact-paper cell repair:
 
@@ -301,5 +301,5 @@ the repository should generate:
 ## Next Step
 
 If this report is approved together with the companion technical document,
-prepare the extended `Track 1` overnight campaign package from this `48`-run
-matrix and do not fall back to another small ad hoc batch.
+prepare the extended `RCIM Model-Bank Reproduction` overnight campaign package
+from this `48`-run matrix and do not fall back to another small ad hoc batch.

@@ -15,7 +15,7 @@ reconstruct as precisely as possible:
 - how the TwinCAT export branch fits into the workflow;
 - what remains uncertain;
 - what exactly must be reproduced inside the repository to obtain a faithful
-  `Track 1` reimplementation.
+  `RCIM Model-Bank Reproduction` reimplementation.
 
 The final report is intended to become the main implementation-facing
 understanding document for the recovered paper assets.
@@ -43,7 +43,7 @@ The report should be structured to answer four implementation questions:
 2. How the original paper pipeline appears to have worked end to end.
 3. Which parts are exact paper release versus later or backup evolution.
 4. What the repository must reproduce to reimplement the paper workflow as
-   faithfully as possible in `Track 1`.
+   faithfully as possible in `RCIM Model-Bank Reproduction`.
 
 The report should explicitly document:
 
@@ -54,7 +54,7 @@ The report should explicitly document:
 - evaluation logic and metrics path;
 - version drift between `original_pipeline`, `latest_snapshot`, and
   `backup_legacy`;
-- practical repository consequences for the next `Track 1` iterations.
+- practical repository consequences for the next `RCIM Model-Bank Reproduction` iterations.
 
 The report should also state clearly where the recovered material is still
 incomplete or not yet runnable, especially around the heavy `instance_v1`
@@ -98,7 +98,7 @@ Planned output:
    `instance_v1` subtree and the missing class-environment pieces required for
    full replay.
 6. Translate the recovered-paper workflow into explicit repository
-   consequences for `Track 1`, including what must be reproduced identically
+   consequences for `RCIM Model-Bank Reproduction`, including what must be reproduced identically
    and what can remain only a documented uncertainty for now.
 7. Create the deep analysis report under `doc/reports/analysis/`.
 8. Add the new report to the canonical documentation index under `doc/`.

@@ -6,7 +6,7 @@ This launcher runs the approved `Wave 1` high-order harmonic tracking package.
 The package compares new harmonic bases for `harmonic_regression` and
 `residual_harmonic_mlp` across `global`, `Fw`, and `Bw` direction scopes.
 
-It does not launch `Track 1` paper-faithful workflows and does not change model
+It does not launch `RCIM Model-Bank Reproduction` paper-faithful workflows and does not change model
 archives directly. Promotion remains a later closeout decision after scalar and
 curve-level review.
 

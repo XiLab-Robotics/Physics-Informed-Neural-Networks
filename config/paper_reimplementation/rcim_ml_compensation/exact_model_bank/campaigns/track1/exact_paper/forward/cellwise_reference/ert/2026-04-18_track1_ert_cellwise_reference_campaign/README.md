@@ -1,6 +1,6 @@
-# Track 1 ERT Cellwise Reference Campaign Package
+# RCIM Model-Bank Reproduction ERT Cellwise Reference Campaign Package
 
-This package contains the dedicated `Track 1` exact-paper `ERT` family
+This package contains the dedicated `RCIM Model-Bank Reproduction` exact-paper `ERT` family
 cellwise reference campaign.
 
 Included configs:

@@ -1,12 +1,12 @@
-# Wave 4A MMT Parameter Inventory
+# Wave 5.2A MMT Parameter Inventory
 
 ## Overview
 
-This technical document defines the next `Wave 4A` step: turn the current
+This technical document defines the next `Wave 5.2A` step: turn the current
 MMT equation-chain diagnostic into a parameter-inventory and calibration-gate
 artifact.
 
-The current `Wave 4A` implementation can run the repository-owned
+The current `Wave 5.2A` implementation can run the repository-owned
 `MMT_TEModeling` demonstration and generate auditable harmonic signatures, but
 it is still diagnostic-only. Before the MMT equations can become causal
 features, weak PINN losses, or calibrated analytical baselines, the project
@@ -17,7 +17,7 @@ unavailable or too risky.
 ## Technical Approach
 
 The work will use `reference/MMT_TEModeling.pdf`, existing repository MMT
-summaries, and the current `Wave 4A` diagnostic adapter as the source boundary.
+summaries, and the current `Wave 5.2A` diagnostic adapter as the source boundary.
 The output should be a documentation-first inventory, not a training campaign.
 
 The inventory should classify each parameter or parameter group into one of
@@ -33,8 +33,8 @@ For each parameter group, the report should also record the allowed downstream
 use:
 
 - diagnostic-only;
-- candidate MMT feature generation for `Wave 4B`;
-- candidate weak soft-constraint loss for `Wave 4C`;
+- candidate MMT feature generation for `Wave 5.2B`;
+- candidate weak soft-constraint loss for `Wave 5.2C`;
 - blocked until additional physical data or calibration evidence exists.
 
 The implementation must keep the current campaign state untouched. No training
@@ -53,25 +53,25 @@ Expected source components:
 
 Expected new or updated documentation components:
 
-- a `Wave 4A` parameter-inventory report under
+- a `Wave 5.2A` parameter-inventory report under
   `doc/reports/analysis/wave4/mmt_parameter_inventory/[2026-06-11]/`;
 - a companion machine-readable parameter inventory under
   `output/validation_checks/wave4_mmt_parameter_inventory/`;
 - updates to `doc/running/te_model_live_backlog.md`;
 - updates to `doc/reports/analysis/Training Results Master Summary.md`;
-- updates to the relevant `Wave 4` design documents when the inventory changes
+- updates to the relevant `Wave 5.2` design documents when the inventory changes
   their resume points;
 - registration from `doc/README.md`.
 
 ## Implementation Steps
 
 1. Read the MMT reference PDF, existing MMT summary, equation extraction plan,
-   and current `Wave 4A` diagnostic implementation.
+   and current `Wave 5.2A` diagnostic implementation.
 2. Extract the MMT input groups required by the implemented equation chain.
 3. Build a parameter-inventory table with source, availability, calibration
    policy, leakage risk, and downstream-use decision for each group.
 4. Export the inventory as Markdown and a companion structured artifact.
-5. Update the live backlog and master summary so future `Wave 4B` and `Wave 4C`
+5. Update the live backlog and master summary so future `Wave 5.2B` and `Wave 5.2C`
    work resumes from the inventory, not from chat context.
 6. Run scoped Markdown QA on every touched Markdown file.
 7. Stop for final review before any commit.

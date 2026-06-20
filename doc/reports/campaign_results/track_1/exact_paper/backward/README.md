@@ -1,4 +1,4 @@
-# Track 1 Exact Paper Backward Campaign Results Placeholder
+# RCIM Model-Bank Reproduction Exact Paper Backward Campaign Results Placeholder
 
 This folder is reserved for future `backward` exact-paper campaign closeout
 reports.

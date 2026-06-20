@@ -6,7 +6,7 @@ This document plans the repository changes needed to run the current
 campaign-oriented Python workflows on the Unimore Aries Red Hat Linux VM while
 preserving the existing Windows behavior as the default operator path.
 
-The immediate operational target is the Track 1 exact-paper launcher pair:
+The immediate operational target is the RCIM Model-Bank Reproduction exact-paper launcher pair:
 
 - `scripts/campaigns/track_1/exact_paper/run_track1_bidirectional_paper_faithful_grid_search_campaign.ps1`
 - a new Linux-equivalent Bash launcher under the same campaign folder
@@ -37,7 +37,7 @@ per-script string replacements.
    - serialize repository paths with POSIX separators for config and YAML
      artifacts unless a Windows-only external command requires backslashes.
 
-2. Update the Track 1 exact-paper Python entry points first.
+2. Update the RCIM Model-Bank Reproduction exact-paper Python entry points first.
    The priority files are:
    - `scripts/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/run_original_dataset_exact_model_bank_validation.py`
    - `scripts/training/shared_training_infrastructure.py`
@@ -73,7 +73,7 @@ per-script string replacements.
 - Protected campaign state:
   - `doc/running/active_training_campaign.yaml`
 
-- Protected Track 1 launcher files:
+- Protected RCIM Model-Bank Reproduction launcher files:
   - `scripts/campaigns/track_1/exact_paper/run_track1_bidirectional_paper_faithful_grid_search_campaign.ps1`
   - `scripts/campaigns/track_1/exact_paper/run_exact_paper_campaign_remote.ps1`
   - `scripts/campaigns/track_1/exact_paper/invoke_exact_paper_campaign_local.ps1`
@@ -86,7 +86,7 @@ per-script string replacements.
 
 - Python path handling targets:
   - `scripts/training/shared_training_infrastructure.py`
-  - Track 1 exact-paper campaign preparers under
+  - RCIM Model-Bank Reproduction exact-paper campaign preparers under
     `scripts/campaigns/track_1/exact_paper/`
   - exact-paper validation runners under
     `scripts/paper_reimplementation/rcim_ml_compensation/`
@@ -116,7 +116,7 @@ per-script string replacements.
    The runner should pass the resolved platform into shared path formatting and
    artifact serialization without changing model behavior.
 
-4. Update the Track 1 exact-paper campaign preparer.
+4. Update the RCIM Model-Bank Reproduction exact-paper campaign preparer.
    Newly generated campaign YAML, active campaign state, protected-file lists,
    and launcher commands should use repository-relative paths that work on
    Linux and Windows.
@@ -148,6 +148,6 @@ per-script string replacements.
 9. Stop before commit.
    Report the exact changed files and wait for explicit commit approval.
 
-Protected-file approval is required before editing the current Track 1 launcher
+Protected-file approval is required before editing the current RCIM Model-Bank Reproduction launcher
 files listed in `doc/running/active_training_campaign.yaml`, even though the
 campaign state currently says `completed`.

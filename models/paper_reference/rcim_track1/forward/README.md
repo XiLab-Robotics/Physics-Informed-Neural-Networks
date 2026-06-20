@@ -1,7 +1,7 @@
-# RCIM Track 1 Forward Reference Branch
+# RCIM Model-Bank Reproduction Forward Reference Branch
 
 This branch stores the canonical forward-direction paper-reference archives
-rebuilt from the completed Track 1 forward paper-faithful grid-search campaign.
+rebuilt from the completed RCIM Model-Bank Reproduction forward paper-faithful grid-search campaign.
 
 Populated family archives:
 

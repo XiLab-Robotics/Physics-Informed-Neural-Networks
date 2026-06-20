@@ -1,8 +1,8 @@
-# Track 2 Multi-Model Curve Comparison Report
+# TE Curve Verification Pipeline Multi-Model Curve Comparison Report
 
 ## Overview
 
-This report compares representative `Track 2` TE curves by overlaying
+This report compares representative `TE Curve Verification Pipeline` TE curves by overlaying
 multiple model predictions on the same original measured curve. The
 plots are intended to show whether each model tracks the local harmonic
 oscillations rather than only the broad mean trend.
@@ -56,7 +56,7 @@ oscillations rather than only the broad mean trend.
 | `tree_bw` | `wave1_current_registry` | Bw | 0.003258 | 0.003651 | 7.051 |
 | `periodic_mlp_harmonic_bw` | `wave1_periodic_mlp_harmonic_campaign` | Bw | 0.003583 | 0.003925 | 7.875 |
 
-### Forward Wave 2 Temporal Model Overlay
+### Forward Wave 2.1 Temporal Model Overlay
 
 | Candidate | Source | Surface | Curve MAE [deg] | Curve RMSE [deg] | Mean Error |
 | --- | --- | --- | ---: | ---: | ---: |
@@ -67,7 +67,7 @@ oscillations rather than only the broad mean trend.
 | `periodic_gru_sequence_fw` | `wave2_temporal_entry_registry` | Fw | 0.003186 | 0.003438 | 7.077 |
 | `periodic_lstm_sequence_fw` | `wave2_temporal_entry_registry` | Fw | 0.003266 | 0.003550 | 7.258 |
 
-### Backward Wave 2 Temporal Model Overlay
+### Backward Wave 2.1 Temporal Model Overlay
 
 | Candidate | Source | Surface | Curve MAE [deg] | Curve RMSE [deg] | Mean Error |
 | --- | --- | --- | ---: | ---: | ---: |
@@ -78,7 +78,7 @@ oscillations rather than only the broad mean trend.
 | `periodic_gru_sequence_bw` | `wave2_temporal_entry_registry` | Bw | 0.002392 | 0.002639 | 5.466 |
 | `periodic_lstm_sequence_bw` | `wave2_temporal_entry_registry` | Bw | 0.002625 | 0.002877 | 6.013 |
 
-### Forward Track 1 And Screened Wave 1 Overlay
+### Forward RCIM Model-Bank Reproduction And Screened Wave 1 Overlay
 
 | Candidate | Source | Surface | Curve MAE [deg] | Curve RMSE [deg] | Mean Error |
 | --- | --- | --- | ---: | ---: | ---: |
@@ -87,7 +87,7 @@ oscillations rather than only the broad mean trend.
 | `harmonic_regression_fw` | `wave1_current_registry` | Fw | 0.003230 | 0.003494 | 7.185 |
 | `periodic_mlp_fw` | `wave1_current_registry` | Fw | 0.003254 | 0.003553 | 7.232 |
 
-### Backward Track 1 And Screened Wave 1 Overlay
+### Backward RCIM Model-Bank Reproduction And Screened Wave 1 Overlay
 
 | Candidate | Source | Surface | Curve MAE [deg] | Curve RMSE [deg] | Mean Error |
 | --- | --- | --- | ---: | ---: | ---: |
@@ -96,7 +96,7 @@ oscillations rather than only the broad mean trend.
 | `residual_harmonic_mlp_bw` | `wave1_current_registry` | Bw | 0.003536 | 0.003874 | 7.728 |
 | `periodic_mlp_bw` | `wave1_current_registry` | Bw | 0.003574 | 0.004006 | 7.807 |
 
-### Forward Reference Tree And Wave 2 Overlay
+### Forward Reference Tree And Wave 2.1 Overlay
 
 | Candidate | Source | Surface | Curve MAE [deg] | Curve RMSE [deg] | Mean Error |
 | --- | --- | --- | ---: | ---: | ---: |
@@ -110,7 +110,7 @@ oscillations rather than only the broad mean trend.
 | `periodic_gru_sequence_fw` | `wave2_temporal_entry_registry` | Fw | 0.003186 | 0.003438 | 7.077 |
 | `periodic_lstm_sequence_fw` | `wave2_temporal_entry_registry` | Fw | 0.003266 | 0.003550 | 7.258 |
 
-### Backward Reference Tree And Wave 2 Overlay
+### Backward Reference Tree And Wave 2.1 Overlay
 
 | Candidate | Source | Surface | Curve MAE [deg] | Curve RMSE [deg] | Mean Error |
 | --- | --- | --- | ---: | ---: | ---: |
@@ -128,61 +128,61 @@ oscillations rather than only the broad mean trend.
 
 Included models: `paper_original_best_Fw`, `paper_retuned_best_Fw`, `track1_best_Fw`.
 
-![Forward Reference Model Overlay Track 2 comparison](../../../../../../output/validation_checks/track2_multi_model_curve_comparison_report/2026-05-27-16-21-57__track2_multi_model_curve_comparison_report/comparisons/forward_reference.png)
+![Forward Reference Model Overlay curve-verification comparison](../../../../../../output/validation_checks/track2_multi_model_curve_comparison_report/2026-05-27-16-21-57__track2_multi_model_curve_comparison_report/comparisons/forward_reference.png)
 
 ## Comparison Gallery - Forward Wave 1 Family Model Overlay
 
 Included models: `feedforward_fw`, `harmonic_regression_fw`, `periodic_mlp_fw`, `residual_harmonic_mlp_fw`, `tree_fw`, `periodic_mlp_harmonic_fw`.
 
-![Forward Wave 1 Family Model Overlay Track 2 comparison](../../../../../../output/validation_checks/track2_multi_model_curve_comparison_report/2026-05-27-16-21-57__track2_multi_model_curve_comparison_report/comparisons/forward_wave1.png)
+![Forward Wave 1 Family Model Overlay curve-verification comparison](../../../../../../output/validation_checks/track2_multi_model_curve_comparison_report/2026-05-27-16-21-57__track2_multi_model_curve_comparison_report/comparisons/forward_wave1.png)
 
 ## Comparison Gallery - Backward Reference Model Overlay
 
 Included models: `paper_retuned_best_Bw`, `track1_best_Bw`.
 
-![Backward Reference Model Overlay Track 2 comparison](../../../../../../output/validation_checks/track2_multi_model_curve_comparison_report/2026-05-27-16-21-57__track2_multi_model_curve_comparison_report/comparisons/backward_reference.png)
+![Backward Reference Model Overlay curve-verification comparison](../../../../../../output/validation_checks/track2_multi_model_curve_comparison_report/2026-05-27-16-21-57__track2_multi_model_curve_comparison_report/comparisons/backward_reference.png)
 
 ## Comparison Gallery - Backward Wave 1 Family Model Overlay
 
 Included models: `feedforward_bw`, `harmonic_regression_bw`, `periodic_mlp_bw`, `residual_harmonic_mlp_bw`, `tree_bw`, `periodic_mlp_harmonic_bw`.
 
-![Backward Wave 1 Family Model Overlay Track 2 comparison](../../../../../../output/validation_checks/track2_multi_model_curve_comparison_report/2026-05-27-16-21-57__track2_multi_model_curve_comparison_report/comparisons/backward_wave1.png)
+![Backward Wave 1 Family Model Overlay curve-verification comparison](../../../../../../output/validation_checks/track2_multi_model_curve_comparison_report/2026-05-27-16-21-57__track2_multi_model_curve_comparison_report/comparisons/backward_wave1.png)
 
-## Comparison Gallery - Forward Wave 2 Temporal Model Overlay
+## Comparison Gallery - Forward Wave 2.1 Temporal Model Overlay
 
 Included models: `temporal_convolution_fw`, `gru_sequence_fw`, `lstm_sequence_fw`, `periodic_temporal_convolution_fw`, `periodic_gru_sequence_fw`, `periodic_lstm_sequence_fw`.
 
-![Forward Wave 2 Temporal Model Overlay Track 2 comparison](../../../../../../output/validation_checks/track2_multi_model_curve_comparison_report/2026-05-27-16-21-57__track2_multi_model_curve_comparison_report/comparisons/forward_wave2.png)
+![Forward Wave 2.1 Temporal Model Overlay curve-verification comparison](../../../../../../output/validation_checks/track2_multi_model_curve_comparison_report/2026-05-27-16-21-57__track2_multi_model_curve_comparison_report/comparisons/forward_wave2.png)
 
-## Comparison Gallery - Backward Wave 2 Temporal Model Overlay
+## Comparison Gallery - Backward Wave 2.1 Temporal Model Overlay
 
 Included models: `temporal_convolution_bw`, `gru_sequence_bw`, `lstm_sequence_bw`, `periodic_temporal_convolution_bw`, `periodic_gru_sequence_bw`, `periodic_lstm_sequence_bw`.
 
-![Backward Wave 2 Temporal Model Overlay Track 2 comparison](../../../../../../output/validation_checks/track2_multi_model_curve_comparison_report/2026-05-27-16-21-57__track2_multi_model_curve_comparison_report/comparisons/backward_wave2.png)
+![Backward Wave 2.1 Temporal Model Overlay curve-verification comparison](../../../../../../output/validation_checks/track2_multi_model_curve_comparison_report/2026-05-27-16-21-57__track2_multi_model_curve_comparison_report/comparisons/backward_wave2.png)
 
-## Comparison Gallery - Forward Track 1 And Screened Wave 1 Overlay
+## Comparison Gallery - Forward RCIM Model-Bank Reproduction And Screened Wave 1 Overlay
 
 Included models: `track1_best_Fw`, `tree_fw`, `harmonic_regression_fw`, `periodic_mlp_fw`.
 
-![Forward Track 1 And Screened Wave 1 Overlay Track 2 comparison](../../../../../../output/validation_checks/track2_multi_model_curve_comparison_report/2026-05-27-16-21-57__track2_multi_model_curve_comparison_report/comparisons/forward_track1_screened_wave1.png)
+![Forward RCIM Model-Bank Reproduction And Screened Wave 1 Overlay curve-verification comparison](../../../../../../output/validation_checks/track2_multi_model_curve_comparison_report/2026-05-27-16-21-57__track2_multi_model_curve_comparison_report/comparisons/forward_track1_screened_wave1.png)
 
-## Comparison Gallery - Backward Track 1 And Screened Wave 1 Overlay
+## Comparison Gallery - Backward RCIM Model-Bank Reproduction And Screened Wave 1 Overlay
 
 Included models: `track1_best_Bw`, `tree_bw`, `residual_harmonic_mlp_bw`, `periodic_mlp_bw`.
 
-![Backward Track 1 And Screened Wave 1 Overlay Track 2 comparison](../../../../../../output/validation_checks/track2_multi_model_curve_comparison_report/2026-05-27-16-21-57__track2_multi_model_curve_comparison_report/comparisons/backward_track1_screened_wave1.png)
+![Backward RCIM Model-Bank Reproduction And Screened Wave 1 Overlay curve-verification comparison](../../../../../../output/validation_checks/track2_multi_model_curve_comparison_report/2026-05-27-16-21-57__track2_multi_model_curve_comparison_report/comparisons/backward_track1_screened_wave1.png)
 
-## Comparison Gallery - Forward Reference Tree And Wave 2 Overlay
+## Comparison Gallery - Forward Reference Tree And Wave 2.1 Overlay
 
 Included models: `paper_retuned_best_Fw`, `track1_best_Fw`, `tree_fw`, `temporal_convolution_fw`, `gru_sequence_fw`, `lstm_sequence_fw`, `periodic_temporal_convolution_fw`, `periodic_gru_sequence_fw`, `periodic_lstm_sequence_fw`.
 
-![Forward Reference Tree And Wave 2 Overlay Track 2 comparison](../../../../../../output/validation_checks/track2_multi_model_curve_comparison_report/2026-05-27-16-21-57__track2_multi_model_curve_comparison_report/comparisons/forward_reference_tree_wave2.png)
+![Forward Reference Tree And Wave 2.1 Overlay curve-verification comparison](../../../../../../output/validation_checks/track2_multi_model_curve_comparison_report/2026-05-27-16-21-57__track2_multi_model_curve_comparison_report/comparisons/forward_reference_tree_wave2.png)
 
-## Comparison Gallery - Backward Reference Tree And Wave 2 Overlay
+## Comparison Gallery - Backward Reference Tree And Wave 2.1 Overlay
 
 Included models: `paper_retuned_best_Bw`, `track1_best_Bw`, `tree_bw`, `temporal_convolution_bw`, `gru_sequence_bw`, `lstm_sequence_bw`, `periodic_temporal_convolution_bw`, `periodic_gru_sequence_bw`, `periodic_lstm_sequence_bw`.
 
-![Backward Reference Tree And Wave 2 Overlay Track 2 comparison](../../../../../../output/validation_checks/track2_multi_model_curve_comparison_report/2026-05-27-16-21-57__track2_multi_model_curve_comparison_report/comparisons/backward_reference_tree_wave2.png)
+![Backward Reference Tree And Wave 2.1 Overlay curve-verification comparison](../../../../../../output/validation_checks/track2_multi_model_curve_comparison_report/2026-05-27-16-21-57__track2_multi_model_curve_comparison_report/comparisons/backward_reference_tree_wave2.png)
 
 ## Output Artifacts
 

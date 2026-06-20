@@ -18,7 +18,7 @@ Curve-first interpretation:
 - the final compensation target is continuous TE-curve prediction, so scalar
   `MAE` is not sufficient promotion evidence by itself;
 - future `Wave 1B` work should rerank accepted `Wave 1` artifacts on the full
-  `Track 2` curve surface before retraining or changing model families;
+  `TE Curve Verification Pipeline` curve surface before retraining or changing model families;
 - curve-first reranking must not reinterpret `Wave 1` as a non-causal
   full-curve-input model; inputs remain point-level operating states unless a
   later approved branch adds only past-history features;

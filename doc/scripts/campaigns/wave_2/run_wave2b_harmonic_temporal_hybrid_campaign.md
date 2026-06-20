@@ -1,14 +1,14 @@
-# Wave 2B Harmonic Temporal Hybrid Campaign Launcher
+# Wave 2.2 Harmonic Temporal Hybrid Campaign Launcher
 
 ## Overview
 
-This launcher runs the prepared `Wave 2B` harmonic-temporal hybrid campaign
+This launcher runs the prepared `Wave 2.2` harmonic-temporal hybrid campaign
 after explicit operator approval. The package compares periodic temporal
 convolution, periodic `GRU`, and periodic `LSTM` sequence models across the
 required `global`, `Fw`, and `Bw` direction surfaces.
 
-The launcher does not run `Track 2` verification by itself. Promotion remains a
-post-campaign closeout step that must refresh the official `Track 2` matrix and
+The launcher does not run `TE Curve Verification Pipeline` verification by itself. Promotion remains a
+post-campaign closeout step that must refresh the official `TE Curve Verification Pipeline` matrix and
 visual reports.
 
 ## Campaign Package

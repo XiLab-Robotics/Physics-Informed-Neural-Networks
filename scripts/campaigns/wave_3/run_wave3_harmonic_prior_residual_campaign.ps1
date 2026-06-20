@@ -77,7 +77,7 @@ if ($RunOneBatchValidation) {
     $validatorArgumentList += "--run-one-batch"
 }
 
-Write-Wave3Status -Label "STEP" -Message "Validating Wave 3 harmonic-prior residual package."
+Write-Wave3Status -Label "STEP" -Message "Validating Wave 5.1 harmonic-prior residual package."
 Invoke-Wave3Python -ArgumentList $validatorArgumentList
 $pythonExitCode = $script:LastWave3PythonExitCode
 if ($pythonExitCode -ne 0) {
@@ -139,7 +139,7 @@ if ($EnqueueOnly) {
     Write-Wave3Status -Label "STEP" -Message "Enqueue-only verification enabled; training will not start."
 }
 
-Write-Wave3Status -Label "STEP" -Message "Launching local Wave 3 harmonic-prior residual campaign."
+Write-Wave3Status -Label "STEP" -Message "Launching local Wave 5.1 harmonic-prior residual campaign."
 Invoke-Wave3Python -ArgumentList $argumentList
 $trainingExitCode = $script:LastWave3PythonExitCode
 exit $trainingExitCode

@@ -6,7 +6,7 @@ This planning report prepares the operator-run commands for retraining the
 recovered original RCIM workflow and staging the resulting model artifacts
 under `models/paper_reference/rcim_original/`.
 
-This is not a Track 1 benchmark refresh. It is a separate paper-reference
+This is not a RCIM Model-Bank Reproduction benchmark refresh. It is a separate paper-reference
 surface that keeps the recovered original workflow outputs distinct from the
 existing `models/paper_reference/rcim_track1/` archives.
 

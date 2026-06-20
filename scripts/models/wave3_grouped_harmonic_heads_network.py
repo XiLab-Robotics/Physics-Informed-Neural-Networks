@@ -1,4 +1,4 @@
-"""Embryonic Wave 3 grouped harmonic-heads TE model."""
+"""Embryonic Wave 5.1 grouped harmonic-heads TE model."""
 
 from __future__ import annotations
 
@@ -39,7 +39,7 @@ class Wave3GroupedHarmonicHeadsNetwork(nn.Module):
         readout_position: str = "center",
         freeze_harmonic_heads: bool = False,
     ) -> None:
-        """Initialize the embryonic grouped-head Wave 3 model.
+        """Initialize the embryonic grouped-head Wave 5.1 model.
 
         Args:
             input_size: Input feature count, with angular position in the
@@ -74,7 +74,7 @@ class Wave3GroupedHarmonicHeadsNetwork(nn.Module):
 
         # Validate Parameters
         assert input_size >= 5, f"Input Size must expose TE operating features | {input_size}"
-        assert output_size == 1, f"Wave 3 grouped heads support scalar TE output only | {output_size}"
+        assert output_size == 1, f"Wave 5.1 grouped heads support scalar TE output only | {output_size}"
         assert harmonic_order > 0, f"Harmonic Order must be positive | {harmonic_order}"
         assert low_order_scale >= 0.0, f"Low Order Scale must be non-negative | {low_order_scale}"
         assert stable_middle_scale >= 0.0, f"Stable Middle Scale must be non-negative | {stable_middle_scale}"

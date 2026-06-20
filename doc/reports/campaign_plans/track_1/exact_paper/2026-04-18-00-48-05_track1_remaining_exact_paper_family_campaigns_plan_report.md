@@ -1,8 +1,8 @@
-﻿# Track 1 Remaining Exact-Paper Family Campaigns Plan Report
+# RCIM Model-Bank Reproduction Remaining Exact-Paper Family Campaigns Plan Report
 
 ## Overview
 
-This planning report prepares the next `Track 1` campaign wave after the
+This planning report prepares the next `RCIM Model-Bank Reproduction` campaign wave after the
 project-level acceptance of the `SVM` row.
 
 The goal is to prepare dedicated exact-paper campaigns for the `9` remaining
@@ -214,7 +214,7 @@ Before any YAML package or launcher is generated:
 1. the technical document must be approved;
 2. this planning report must be approved;
 3. the family-by-family campaign split must be accepted as the canonical
-   remaining `Track 1` preparation strategy.
+   remaining `RCIM Model-Bank Reproduction` preparation strategy.
 
 After approval, the implementation phase should generate the actual campaign
 artifacts and then provide the exact commands from the created files.

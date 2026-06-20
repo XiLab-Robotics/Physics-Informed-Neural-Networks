@@ -3,7 +3,7 @@
 ## Overview
 
 The current remote campaign launcher now tolerates benign remote `stderr`
-warnings correctly, but the first real `Track 1` LAN launch still fails because
+warnings correctly, but the first real `RCIM Model-Bank Reproduction` LAN launch still fails because
 the remote runtime cannot find the synchronized campaign YAML files under the
 expected `config\paper_reimplementation\...` path.
 
@@ -47,7 +47,7 @@ remote training script.
   Tracking file that should surface the earlier failure stage if sync
   verification fails.
 - `doc/running/active_training_campaign.yaml`
-  Active protected campaign state for the current `Track 1` `SVR` remote
+  Active protected campaign state for the current `RCIM Model-Bank Reproduction` `SVR` remote
   attempt.
 
 ## Implementation Steps
@@ -57,7 +57,7 @@ remote training script.
 2. Run that helper immediately after `Invoke-RemoteTarExtract(...)` and before
    building the remote run script.
 3. Make the failure message name the missing remote campaign path explicitly.
-4. Smoke-test the verification with the current `Track 1` remote launcher flow
+4. Smoke-test the verification with the current `RCIM Model-Bank Reproduction` remote launcher flow
    so the failure either moves earlier and becomes clearer, or the launch now
    proceeds into the actual remote run.
 5. Update the remote launcher note if the operator-visible behavior changes.

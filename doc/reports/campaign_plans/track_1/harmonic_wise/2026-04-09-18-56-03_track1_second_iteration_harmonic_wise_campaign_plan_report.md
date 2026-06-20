@@ -1,11 +1,11 @@
-# Track 1 Second Iteration Harmonic-Wise Campaign Plan Report
+# RCIM Model-Bank Reproduction Second Iteration Harmonic-Wise Campaign Plan Report
 
 ## Overview
 
 This report defines the next comprehensive campaign for the paper-faithful
 harmonic-wise branch.
 
-The repository has already implemented `Track 1` and executed its first real
+The repository has already implemented `RCIM Model-Bank Reproduction` and executed its first real
 offline baseline. That baseline proved the pipeline works, but it did not yet
 close `Target A`.
 
@@ -34,7 +34,7 @@ The current evidence says three things clearly:
 
 1. the harmonic representation itself is not the main blocker;
 2. the operating-condition predictor still has room to improve materially;
-3. the branch must return to the full RCIM harmonic set before `Track 1` can
+3. the branch must return to the full RCIM harmonic set before `RCIM Model-Bank Reproduction` can
    be considered complete.
 
 That means the campaign must not choose between:
@@ -53,7 +53,7 @@ terms:
 - later `40`
 - later `78`
 
-But the final comparison for `Track 1` still needs at least the paper harmonic
+But the final comparison for `RCIM Model-Bank Reproduction` still needs at least the paper harmonic
 set:
 
 - `0`
@@ -203,7 +203,7 @@ Expected effect:
 
 ## Evaluation Rules
 
-The campaign should keep the paper-facing `Track 1` success criteria explicit:
+The campaign should keep the paper-facing `RCIM Model-Bank Reproduction` success criteria explicit:
 
 - primary paper metric:
   `test mean percentage error`
@@ -226,7 +226,7 @@ Promotion logic should remain:
 1. identify the strongest reduced-stage pattern;
 2. verify whether it still improves after promotion to the full RCIM set;
 3. prefer the best full-RCIM result over a reduced-stage win if the branch is
-   to be used as the main `Track 1` comparison anchor.
+   to be used as the main `RCIM Model-Bank Reproduction` comparison anchor.
 
 ## Step-By-Step Operational Guide To Prepare
 

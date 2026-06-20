@@ -1,13 +1,13 @@
-# Track 2F Closeout PDF Refinement And Skill Rule
+# Wave 3.1 Closeout PDF Refinement And Skill Rule
 
 ## Overview
 
-This technical document plans the refinement of the generated `Track 2F`
+This technical document plans the refinement of the generated `Wave 3.1`
 campaign closeout PDF and the repository-local skill update requested after
 the closeout report was produced.
 
 The immediate PDF correction is to start the `Execution Summary` section on a
-fresh page in the `Track 2F` campaign results PDF. The broader workflow
+fresh page in the `Wave 3.1` campaign results PDF. The broader workflow
 correction is to make campaign closeout automatically include real PDF layout
 review and repair after generation, instead of treating PDF export as done when
 the file exists.
@@ -15,7 +15,7 @@ the file exists.
 ## Technical Approach
 
 The PDF change will be implemented in the repository-owned styled PDF exporter
-so the `Track 2F` closeout report receives a section page break before
+so the `Wave 3.1` closeout report receives a section page break before
 `Execution Summary`. The report will then be re-exported and raster-validated.
 
 The skill change will update the repository-local `campaign-architect` skill
@@ -44,10 +44,10 @@ This does not change campaign results or training artifacts.
 ## Implementation Steps
 
 1. Add a report-specific page break rule before `Execution Summary` for the
-   `Track 2F` closeout report in the styled PDF exporter.
+   `Wave 3.1` closeout report in the styled PDF exporter.
 2. Update the `campaign-architect` skill so campaign closeout always includes
    post-export PDF layout review and repair when a PDF is produced.
-3. Re-export the `Track 2F` campaign results PDF.
+3. Re-export the `Wave 3.1` campaign results PDF.
 4. Raster-validate the exported PDF and visually inspect the rendered pages.
 5. Run Markdown QA on touched authored Markdown files.
 6. Compile the touched Python exporter.

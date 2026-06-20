@@ -1,9 +1,9 @@
-# Track 1 Remaining Family Final Closeout After XGBM LGBM Reruns
+# RCIM Model-Bank Reproduction Remaining Family Final Closeout After XGBM LGBM Reruns
 
 ## Overview
 
 This technical document covers the final closeout of the interrupted
-remaining-family `Track 1` exact-paper batch after the pending `XGBM` and
+remaining-family `RCIM Model-Bank Reproduction` exact-paper batch after the pending `XGBM` and
 `LGBM` reruns completed successfully.
 
 The repository already contains the partial closeout for the first seven
@@ -12,7 +12,7 @@ families. The missing final step is now to promote the recovered `XGBM` and
 surfaces so the batch is no longer represented as interrupted.
 
 This "final closeout" refers to the remaining-family batch only. It does not
-by itself define overall `Track 1` completion, which is instead read from the
+by itself define overall `RCIM Model-Bank Reproduction` completion, which is instead read from the
 canonical colored `Table 2-5` full-matrix replication surface.
 
 ## Technical Approach
@@ -45,7 +45,7 @@ The final pass should:
 5. refresh the canonical benchmark and master-summary surfaces with the final
    batch outcome.
 
-Even after this wave-level closeout, `Track 1` remains open until all `10`
+Even after this wave-level closeout, `RCIM Model-Bank Reproduction` remains open until all `10`
 families expose `19` accepted exact-paper models each on the `Table 2-5`
 surface.
 

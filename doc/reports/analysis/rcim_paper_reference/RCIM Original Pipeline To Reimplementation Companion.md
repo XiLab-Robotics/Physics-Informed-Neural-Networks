@@ -32,13 +32,13 @@ Current repository status:
 
 - the recovered original workflow now has a near-literal runnable copy under
   `scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/`;
-- the faithful Track 1 reimplementation on the repository dataset lives under
+- the faithful RCIM Model-Bank Reproduction reimplementation on the repository dataset lives under
   `scripts/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/`;
 - completed forward and backward paper-faithful campaigns populate
   `models/paper_reference/rcim_track1/`;
 - RCIM Tables `2`-`5` are reported in
   `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`.
-- Track 1 is closed as the faithful full-dataset model-bank reproduction; later
+- RCIM Model-Bank Reproduction is closed as the faithful full-dataset model-bank reproduction; later
   all-green or restricted-dataset work should be read as a new comparison
   branch, not as a correction to this baseline.
 
@@ -603,7 +603,7 @@ The reimplementation writes immutable, report-ready validation artifacts.
 The original `v18` includes `ELMRegressor`.
 
 The repository originally treated the recovered exact ONNX family bank as the
-strict ten-family reference. The current Track 1 paper-faithful campaign
+strict ten-family reference. The current RCIM Model-Bank Reproduction paper-faithful campaign
 surface now also includes `ELM`, because `ELMRegressor` is present in the
 recovered original code and the repository now has the export support needed
 to archive per-target `ELM` Python and ONNX artifacts.
@@ -614,7 +614,7 @@ The original predictor file contains tuning logic, but it is mixed with the
 rest of the script ecosystem.
 
 The reimplementation promotes that tuning policy into an explicit and
-configurable training strategy. For the current Track 1 campaigns, that means
+configurable training strategy. For the current RCIM Model-Bank Reproduction campaigns, that means
 one paper-faithful search pass per family-direction surface with the restored
 `GridSearchCV(...)` plus historical `cross_validate(...)` protocol.
 

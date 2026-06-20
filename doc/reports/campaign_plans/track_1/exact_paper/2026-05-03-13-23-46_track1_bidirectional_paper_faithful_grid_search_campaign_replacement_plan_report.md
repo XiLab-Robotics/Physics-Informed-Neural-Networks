@@ -1,10 +1,10 @@
-# Track 1 Bidirectional Paper-Faithful Grid-Search Campaign Replacement Plan Report
+# RCIM Model-Bank Reproduction Bidirectional Paper-Faithful Grid-Search Campaign Replacement Plan Report
 
 ## Overview
 
 This planning report replaces the currently running
 `track1_bidirectional_literal_workflow_refresh_mega_campaign_2026-04-30_02_11_58`
-design with a paper-faithful `Track 1` campaign structure.
+design with a paper-faithful `RCIM Model-Bank Reproduction` campaign structure.
 
 The replacement is necessary because the `400`-run mega campaign adds a
 repository-side repetition layer that is not present in the recovered original
@@ -13,7 +13,7 @@ pass per model, not a seed-sweep campaign with repeated attempts.
 
 ## Objective
 
-Generate a new canonical bidirectional `Track 1` exact-paper baseline using
+Generate a new canonical bidirectional `RCIM Model-Bank Reproduction` exact-paper baseline using
 the literalized family definitions and paper-faithful search semantics:
 
 - `1` grid-search training run for each `forward` family;

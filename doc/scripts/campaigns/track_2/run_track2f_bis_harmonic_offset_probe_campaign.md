@@ -1,8 +1,8 @@
-# Track 2F-Bis Harmonic-Offset Probe Campaign Launcher
+# Wave 3.2 Harmonic-Offset Probe Campaign Launcher
 
 ## Overview
 
-This launcher validates and runs the prepared Track 2F-bis harmonic-offset
+This launcher validates and runs the prepared Wave 3.2 harmonic-offset
 probe package.
 
 The package contains six runnable queue YAML files:

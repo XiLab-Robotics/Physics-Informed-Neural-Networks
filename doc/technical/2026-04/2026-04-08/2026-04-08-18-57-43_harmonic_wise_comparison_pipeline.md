@@ -4,7 +4,7 @@
 
 This task opens the implementation branch for the paper-aligned
 harmonic-wise comparison pipeline that now sits between completed `Wave 1` and
-the later `Wave 2` temporal-model work.
+the later `Wave 2.1` temporal-model work.
 
 The purpose of this branch is to create a stable offline comparison framework
 against `reference/RCIM_ML-compensation.pdf` before any online compensation or

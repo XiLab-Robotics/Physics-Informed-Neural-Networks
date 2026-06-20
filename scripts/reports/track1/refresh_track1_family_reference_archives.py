@@ -1,8 +1,8 @@
-"""Refresh the canonical forward Track 1 family reference archives.
+"""Refresh the canonical forward RCIM Model-Bank Reproduction family reference archives.
 
 This utility rebuilds the curated paper-reference archive packages under
 `models/paper_reference/rcim_track1/forward/` from the currently accepted
-family rows stored in the canonical Track 1 benchmark.
+family rows stored in the canonical RCIM Model-Bank Reproduction benchmark.
 """
 
 from __future__ import annotations
@@ -245,7 +245,7 @@ def parse_command_line_arguments() -> argparse.Namespace:
 
     argument_parser = argparse.ArgumentParser(
         description=(
-            "Refresh the canonical Track 1 family reference archives from the "
+            "Refresh the canonical RCIM Model-Bank Reproduction family reference archives from the "
             "currently accepted benchmark surface."
         )
     )
@@ -255,7 +255,7 @@ def parse_command_line_arguments() -> argparse.Namespace:
         default=[],
         help=(
             "Optional paper-facing family code to refresh. Repeatable. "
-            "When omitted, refresh all Track 1 families."
+            "When omitted, refresh all RCIM Model-Bank Reproduction families."
         ),
     )
     repository_path_support.add_platform_arguments(argument_parser)
@@ -1059,7 +1059,7 @@ def build_family_archive(
             ),
         },
         "notes": [
-            "phase harmonic 0 is intentionally excluded from the curated Track 1 paper-facing archive.",
+            "phase harmonic 0 is intentionally excluded from the curated RCIM Model-Bank Reproduction paper-facing archive.",
             "the archive pins the accepted family row currently visible in Tables 2-5 of the canonical benchmark.",
         ],
         "reference_models": all_reference_model_entry_list,
@@ -1141,7 +1141,7 @@ def build_family_archive_readme(
         [
             f"# {paper_family_code} Reference Models",
             "",
-            f"This archive stores the canonical `{paper_family_code}` Track 1 reference model artifacts that",
+            f"This archive stores the canonical `{paper_family_code}` RCIM Model-Bank Reproduction reference model artifacts that",
             "reproduce the currently accepted repository-owned family row in",
             "`doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`.",
             *note_line_list,
@@ -1150,7 +1150,7 @@ def build_family_archive_readme(
             "",
             f"- `{len(amplitude_target_entry_list)}` amplitude reference models for harmonics `{amplitude_harmonic_text}`;",
             f"- `{len(phase_target_entry_list)}` phase reference models for harmonics `{phase_harmonic_text}`;",
-            f"- phase harmonic `0` is intentionally excluded because it is not part of the Track 1 paper-facing `{total_model_count}`-model family archive.",
+            f"- phase harmonic `0` is intentionally excluded because it is not part of the RCIM Model-Bank Reproduction paper-facing `{total_model_count}`-model family archive.",
             "",
             "## Canonical Selection Rule",
             "",
@@ -1158,7 +1158,7 @@ def build_family_archive_readme(
             "",
             "1. choose the exact run whose family-target metrics reproduce the currently accepted benchmark cell values for that target;",
             "2. when several runs reproduce the same accepted metric pair, prefer the earliest stable canonical source run;",
-            "3. when a later Track 1 campaign introduced the accepted improvement, pin that later run explicitly instead of the older baseline;",
+            "3. when a later RCIM Model-Bank Reproduction campaign introduced the accepted improvement, pin that later run explicitly instead of the older baseline;",
             "4. when a later campaign merely reproduces the same accepted value, retain the earlier canonical source run.",
             "",
             "## Source Surface",
@@ -1274,7 +1274,7 @@ def build_benchmark_family_archive_section(
                 "Selection rule:",
                 "",
                 f"- when several runs reproduce the same accepted `{paper_family_code}` target metrics, the repository pins the earliest stable canonical source run;",
-                "- later Track 1 repair or closure runs are pinned only for harmonics whose accepted benchmark value improved after the older stable baseline.",
+                "- later RCIM Model-Bank Reproduction repair or closure runs are pinned only for harmonics whose accepted benchmark value improved after the older stable baseline.",
                 "",
                 "Important implementation note:",
                 "",
@@ -1359,7 +1359,7 @@ def replace_benchmark_archive_section(
 
 def update_track1_reference_readme(archive_summary_list: list[dict[str, Any]]) -> None:
 
-    """Update the Track 1 paper-reference root README."""
+    """Update the RCIM Model-Bank Reproduction paper-reference root README."""
 
     current_family_archive_line_list = [
         f"- `{FAMILY_ARCHIVE_FOLDER_MAP[archive_summary['paper_family_code']]}/`"
@@ -1367,10 +1367,10 @@ def update_track1_reference_readme(archive_summary_list: list[dict[str, Any]]) -
     ]
     readme_text = "\n".join(
         [
-            "# RCIM Track 1 Paper Reference Models",
+            "# RCIM Model-Bank Reproduction Paper Reference Models",
             "",
             "This folder groups curated paper-reference model archives for the canonical",
-            "`Track 1` RCIM paper-reimplementation branch.",
+            "`RCIM Model-Bank Reproduction` RCIM paper-reimplementation branch.",
             "",
             "Current family archives:",
             "",
@@ -1394,16 +1394,16 @@ def update_track1_reference_readme(archive_summary_list: list[dict[str, Any]]) -
             "",
             "- add one dedicated family section to",
             "  `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`;",
-            "- list the accepted `Track 1` targets, accepted metrics, canonical source run,",
+            "- list the accepted `RCIM Model-Bank Reproduction` targets, accepted metrics, canonical source run,",
             "  archived `ONNX` path, and any surrogate-export note;",
             "- point the family section to the archive root, inventory, dataset snapshot",
             "  manifest, and reconstruction references.",
             "",
-            "Current Track 1 family archive rollout under this standard:",
+            "Current RCIM Model-Bank Reproduction family archive rollout under this standard:",
             "",
             *current_family_archive_line_list,
             "",
-            "The current repository now treats all listed Track 1 family archives as",
+            "The current repository now treats all listed RCIM Model-Bank Reproduction family archives as",
             "canonical benchmark assets. The `svm_reference_models/` package remains the",
             "template instance that originally established this contract.",
             "",
@@ -1442,7 +1442,7 @@ def update_models_readme(archive_summary_list: list[dict[str, Any]]) -> None:
             "- `scripts/models/`",
             "- `scripts/training/`",
             "",
-            "Current curated Track 1 paper-reference archives:",
+            "Current curated RCIM Model-Bank Reproduction paper-reference archives:",
             "",
             *archive_line_list,
             "",
@@ -1457,7 +1457,7 @@ def update_models_readme(archive_summary_list: list[dict[str, Any]]) -> None:
 
 def update_models_gitignore() -> None:
 
-    """Update models/.gitignore so every Track 1 family archive is tracked."""
+    """Update models/.gitignore so every RCIM Model-Bank Reproduction family archive is tracked."""
 
     gitignore_text = "\n".join(
         [
@@ -1505,7 +1505,7 @@ def refresh_track1_family_reference_archives(
     selected_family_code_list: list[str] | None = None,
 ) -> list[dict[str, Any]]:
 
-    """Refresh the curated Track 1 family reference archives."""
+    """Refresh the curated RCIM Model-Bank Reproduction family reference archives."""
 
     family_code_list = selected_family_code_list or list(FAMILY_ORDER)
     summary_dictionary_list = collect_validation_summary_dictionary_list()
@@ -1546,7 +1546,7 @@ def refresh_track1_family_reference_archives(
 
 def main() -> None:
 
-    """Run the Track 1 family archive refresh CLI."""
+    """Run the RCIM Model-Bank Reproduction family archive refresh CLI."""
 
     command_line_arguments = parse_command_line_arguments()
     repository_path_support.set_runtime_platform(
@@ -1557,7 +1557,7 @@ def main() -> None:
     ]
     if selected_family_code_list:
         for family_code in selected_family_code_list:
-            assert family_code in FAMILY_ORDER, f"Unsupported Track 1 family code | {family_code}"
+            assert family_code in FAMILY_ORDER, f"Unsupported RCIM Model-Bank Reproduction family code | {family_code}"
 
     archive_summary_list = refresh_track1_family_reference_archives(
         selected_family_code_list=selected_family_code_list or None
@@ -1566,7 +1566,7 @@ def main() -> None:
         archive_summary["paper_family_code"] for archive_summary in archive_summary_list
     )
     print(
-        "[DONE] Refreshed Track 1 family reference archives | "
+        "[DONE] Refreshed RCIM Model-Bank Reproduction family reference archives | "
         f"families={refreshed_family_text}"
     )
 

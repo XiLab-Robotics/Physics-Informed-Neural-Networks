@@ -1,4 +1,4 @@
-﻿# Exact RCIM Paper Model-Bank Validation Report
+# Exact RCIM Paper Model-Bank Validation Report
 
 ## Overview
 
@@ -89,7 +89,7 @@ paper assets.
 
 ## Interpretation
 
-This validation run is the strict paper-faithful branch of `Track 1`.
+This validation run is the strict paper-faithful branch of `RCIM Model-Bank Reproduction`.
 Its role is to reproduce the original RCIM family bank with the exact
 recovered input schema, target schema, and export surface before any
 repository-specific simplification or target-wise winner assembly.

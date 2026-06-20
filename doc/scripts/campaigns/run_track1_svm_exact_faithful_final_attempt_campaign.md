@@ -1,9 +1,9 @@
-# Track 1 SVM Exact-Faithful Final Attempt Campaign Launcher
+# RCIM Model-Bank Reproduction SVM Exact-Faithful Final Attempt Campaign Launcher
 
 ## Overview
 
 This launcher executes the approved final strict paper-faithful `SVR` campaign
-for the residual `SVM` yellow cells in canonical `Track 1`.
+for the residual `SVM` yellow cells in canonical `RCIM Model-Bank Reproduction`.
 
 The launcher is intentionally narrow:
 

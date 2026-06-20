@@ -1,9 +1,9 @@
-# Track 2 Mean-Centered Collage Diagnostics Report Builder
+# TE Curve Verification Pipeline Mean-Centered Collage Diagnostics Report Builder
 
 ## Overview
 
 `scripts/reports/analysis/build_track2_mean_centered_collage_report.py` builds
-the `Track 2` mean-centered collage diagnostics report from the existing
+the `TE Curve Verification Pipeline` mean-centered collage diagnostics report from the existing
 best-model collage selections.
 
 The script is evaluation-only. It does not train models, does not modify the
@@ -12,7 +12,7 @@ dataset structure, and does not supply future curve samples to the model path.
 ## Main Role
 
 The report builder tests whether persistent vertical prediction offsets hide
-better `TE` waveform tracking in the current `Track 2` collage candidates. For
+better `TE` waveform tracking in the current `TE Curve Verification Pipeline` collage candidates. For
 each candidate and selected curve, it subtracts the truth curve mean from the
 truth curve and the prediction curve mean from the prediction curve, then
 recomputes curve `MAE` and `RMSE`.
@@ -35,7 +35,7 @@ By default, the script reads:
 
 The source collage summary provides the deterministic four-curve selection per
 candidate so the new centered collages remain directly comparable with the
-offsets observed in the original `Track 2` best-model collage PDF.
+offsets observed in the original `TE Curve Verification Pipeline` best-model collage PDF.
 
 ## Outputs
 

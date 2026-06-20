@@ -1,14 +1,14 @@
-# Track 2F Clean Baseline And Harmonic-Offset Follow-Up
+# Wave 3.1 Clean Baseline And Harmonic-Offset Follow-Up
 
 ## Overview
 
 This technical note records the modeling decision made after reviewing the
-completed `Track 2F` `sequential_residual_offset_probe` results.
+completed `Wave 3.1` `sequential_residual_offset_probe` results.
 
-The completed `Track 2F` model was intentionally a clean non-harmonic baseline:
+The completed `Wave 3.1` model was intentionally a clean non-harmonic baseline:
 it combined a pointwise feedforward branch with a causal sequential residual
 offset branch, but it did not force periodic or harmonic TE curve structure.
-The observed Track 2 behavior is therefore diagnostically useful even though it
+The observed TE Curve Verification Pipeline behavior is therefore diagnostically useful even though it
 is not a shape-leading candidate.
 
 Future offset-aware model work must keep this clean branch available as a
@@ -28,7 +28,7 @@ The follow-up plan should preserve two parallel comparison tracks:
 The clean baseline remains important because it measures whether improvements
 come from the new objective or multi-head training itself, rather than only from
 forcing harmonic features into the model. It should be evaluated with the same
-curve-first Track 2 metrics as the harmonic candidates.
+curve-first TE Curve Verification Pipeline metrics as the harmonic candidates.
 
 The harmonic-offset follow-up should combine:
 
@@ -51,14 +51,14 @@ The harmonic-offset follow-up should combine:
 
 ## Implementation Steps
 
-1. Update the Track 2F campaign closeout narrative to state explicitly that
+1. Update the Wave 3.1 campaign closeout narrative to state explicitly that
    `sequential_residual_offset_probe` is the clean non-harmonic baseline.
 2. Update the curve-first TE strategy to keep this clean baseline in the future
    comparison matrix when introducing new curve indices, multi-head training, or
    composite losses.
 3. Ensure future campaign plans keep `global`, `Fw`, and `Bw` branches separate
    for both clean and harmonic-offset candidates.
-4. Do not promote Track 2F as the shape-leading model family; use it as the
+4. Do not promote Wave 3.1 as the shape-leading model family; use it as the
    control branch for the next harmonic-offset intervention.
 5. Run Markdown QA on every touched authored Markdown file before closing the
    documentation update.

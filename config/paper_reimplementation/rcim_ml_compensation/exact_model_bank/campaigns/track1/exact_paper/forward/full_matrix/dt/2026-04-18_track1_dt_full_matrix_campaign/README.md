@@ -1,6 +1,6 @@
-# Track 1 DT Full-Matrix Campaign Package
+# RCIM Model-Bank Reproduction DT Full-Matrix Campaign Package
 
-This package contains the dedicated `Track 1` exact-paper `DT` family
+This package contains the dedicated `RCIM Model-Bank Reproduction` exact-paper `DT` family
 campaign.
 
 Included configs:

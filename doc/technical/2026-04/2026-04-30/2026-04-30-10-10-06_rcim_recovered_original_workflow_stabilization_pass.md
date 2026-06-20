@@ -13,7 +13,7 @@ stabilize the direct three-script execution surface around:
 - consistent runtime-root behavior across dataframe, training, and evaluation;
 - clearer `Fw` versus `Bw` operator semantics;
 - explicit documentation of the current forward-only evaluation limitation;
-- campaign-safe separation from the currently prepared/running Track 1 campaign.
+- campaign-safe separation from the currently prepared/running RCIM Model-Bank Reproduction campaign.
 
 This pass must avoid edits to protected campaign files listed in
 `doc/running/active_training_campaign.yaml`.

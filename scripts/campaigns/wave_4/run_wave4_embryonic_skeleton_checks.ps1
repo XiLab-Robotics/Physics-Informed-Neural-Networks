@@ -42,7 +42,7 @@ function Invoke-Wave4Python {
     $script:LastWave4PythonExitCode = $LASTEXITCODE
 }
 
-Write-Wave4Status -Label "INFO" -Message "Wave 4 embryonic skeleton checks only. Training launch is disabled."
+Write-Wave4Status -Label "INFO" -Message "Wave 5.2 embryonic skeleton checks only. Training launch is disabled."
 
 $compileArgumentList = @(
     "-m",
@@ -63,5 +63,5 @@ if ($script:LastWave4PythonExitCode -ne 0) {
     exit $script:LastWave4PythonExitCode
 }
 
-Write-Wave4Status -Label "DONE" -Message "Wave 4A skeleton is implementation-ready and not campaign-ready."
+Write-Wave4Status -Label "DONE" -Message "Wave 5.2A skeleton is implementation-ready and not campaign-ready."
 exit 0

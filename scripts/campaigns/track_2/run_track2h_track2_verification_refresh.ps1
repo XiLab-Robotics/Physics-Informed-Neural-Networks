@@ -1,4 +1,4 @@
-﻿param(
+param(
     [switch]$Remote,
     [string]$CondaEnvironmentName = "pinns_env",
     [string]$RemoteHostAlias = "xilab-remote",
@@ -216,7 +216,7 @@ function Invoke-LoggedCondaPython {
 
     $exitCode = [int]$process.ExitCode
     if ($exitCode -ne 0) {
-        throw ("Track 2 step failed | step={0} | exit_code={1} | log={2}" -f $StepName, $exitCode, $logPath)
+        throw ("TE Curve Verification Pipeline step failed | step={0} | exit_code={1} | log={2}" -f $StepName, $exitCode, $logPath)
     }
 }
 
@@ -347,7 +347,7 @@ Set-Location -LiteralPath '$RemoteRepositoryPath'
     Sort-Object LastWriteTime -Descending |
     Select-Object -First 1
 if (`$null -eq `$manifestPath) {
-        throw 'No remote Track 2H artifact sync manifest found.'
+        throw 'No remote Wave 5.2 series artifact sync manifest found.'
 }
 `$existingPathList = @()
 foreach (`$relativePath in Get-Content -LiteralPath `$manifestPath.FullName) {
@@ -362,7 +362,7 @@ foreach (`$relativePath in Get-Content -LiteralPath `$manifestPath.FullName) {
     }
 }
 if (`$existingPathList.Count -eq 0) {
-        throw 'The remote Track 2H artifact sync manifest did not contain existing paths.'
+        throw 'The remote Wave 5.2 series artifact sync manifest did not contain existing paths.'
 }
 New-Item -ItemType Directory -Force -Path (Split-Path -Parent '$remoteArchivePath') | Out-Null
 if (Test-Path -LiteralPath '$remoteArchivePath') {
@@ -395,7 +395,7 @@ if ($Remote) {
         throw "RemoteRepositoryPath is required for -Remote. Set PINNS_REMOTE_TRAINING_REPO_PATH or pass -RemoteRepositoryPath."
     }
 
-    Write-StatusLine "INFO" ("Launching Track 2H refresh remotely | host={0} | repo={1}" -f $RemoteHostAlias, $RemoteRepositoryPath)
+    Write-StatusLine "INFO" ("Launching Wave 4 series refresh remotely | host={0} | repo={1}" -f $RemoteHostAlias, $RemoteRepositoryPath)
     Invoke-RemoteSourceSync
 
     $remoteScriptPath = "scripts\campaigns\track_2\run_track2h_track2_verification_refresh.ps1"
@@ -407,11 +407,11 @@ exit `$LASTEXITCODE
 
     Invoke-RemotePowerShellText -RemoteScriptText $remoteCommand
     Invoke-RemoteArtifactManifestSync
-    Write-StatusLine "DONE" "Remote Track 2H refresh completed and artifacts synchronized locally"
+    Write-StatusLine "DONE" "Remote Wave 5.2 series refresh completed and artifacts synchronized locally"
     exit 0
 }
 
-Write-StatusLine "INFO" "Preparing local Track 2H verification refresh"
+Write-StatusLine "INFO" "Preparing local Wave 5.2 series verification refresh"
 Write-StatusLine "INFO" ("Config: {0}" -f $track2ConfigPath)
 Write-StatusLine "INFO" ("Output suffix: {0}" -f $OutputSuffix)
 Write-StatusLine "INFO" ("Report date: {0}" -f $ReportDate)
@@ -491,7 +491,7 @@ if (-not $SkipVisualReports) {
             "--report-date",
             $ReportDate,
             "--refresh-label",
-            "Track 2H robust-loss refresh",
+            "Wave 4.1 robust-loss refresh",
             "--candidate-source-label",
             "track2h_dispersion_aware_modeling_registry",
             "--decision",
@@ -523,4 +523,4 @@ if (-not $SkipVisualReports) {
 }
 
 Save-ArtifactSyncManifest
-Write-StatusLine "DONE" "Track 2H verification refresh completed"
+Write-StatusLine "DONE" "Wave 5.2 series verification refresh completed"

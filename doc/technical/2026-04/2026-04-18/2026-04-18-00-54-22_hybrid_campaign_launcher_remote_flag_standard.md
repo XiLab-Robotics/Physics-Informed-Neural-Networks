@@ -16,7 +16,7 @@ execution modes:
 - local execution by default;
 - remote execution through a `-Remote` switch.
 
-This rule is being introduced while preparing the next exact-paper `Track 1`
+This rule is being introduced while preparing the next exact-paper `RCIM Model-Bank Reproduction`
 family campaigns, but the intent is broader: future campaign creation should
 reuse the same launcher contract whenever the workflow is compatible with the
 existing local plus LAN-remote campaign infrastructure.
@@ -71,7 +71,7 @@ repository campaign workflow.
 
 ## Implementation Steps
 
-1. Update the currently approved `Track 1` remaining-family campaign plan so it
+1. Update the currently approved `RCIM Model-Bank Reproduction` remaining-family campaign plan so it
    explicitly uses hybrid launchers with a `-Remote` switch.
 2. During the approved implementation phase, generate the new family launchers
    and the aggregate launcher in hybrid form rather than producing separate

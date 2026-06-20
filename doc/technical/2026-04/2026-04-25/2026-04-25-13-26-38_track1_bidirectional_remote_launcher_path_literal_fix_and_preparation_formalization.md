@@ -2,7 +2,7 @@
 
 ## Overview
 
-The prepared `Track 1` bidirectional original-dataset mega-campaign now uses
+The prepared `RCIM Model-Bank Reproduction` bidirectional original-dataset mega-campaign now uses
 the remote exact-paper launcher path, but two bootstrap defects surfaced during
 the first real remote launch.
 
@@ -26,7 +26,7 @@ The fix should harden the queue-bundle helper and the remote wrapper around one
 simple rule: generated Python helper scripts must never rely on raw-string path
 literals for Windows paths that may end with `\`.
 
-The queue-bundle helper in the Track 1 launcher should serialize path inputs in
+The queue-bundle helper in the RCIM Model-Bank Reproduction launcher should serialize path inputs in
 a Python-safe way, for example through JSON string emission or escaped regular
 string literals, so both local paths and mapped remote paths like `R:\` remain
 valid.

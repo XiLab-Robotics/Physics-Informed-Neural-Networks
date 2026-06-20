@@ -1,9 +1,9 @@
-# Track 1 Campaign Results PDF Layout Repair And Rule Promotion
+# RCIM Model-Bank Reproduction Campaign Results PDF Layout Repair And Rule Promotion
 
 ## Overview
 
 This document defines the corrective work required to repair the exported PDF
-layout of the overnight `Track 1` campaign results report and to promote the
+layout of the overnight `RCIM Model-Bank Reproduction` campaign results report and to promote the
 same layout rules into the styled report renderer so future campaign-result
 exports do not repeat the same defects.
 
@@ -25,7 +25,7 @@ No subagent is planned or required for this implementation.
 
 The repair will be implemented at the renderer level, not as a one-off manual
 Markdown workaround. The styled PDF exporter will receive report-specific table
-profiles for this `Track 1` campaign-results report, plus a report-specific
+profiles for this `RCIM Model-Bank Reproduction` campaign-results report, plus a report-specific
 forced page break on the `Ranked Completed Runs` section.
 
 The renderer will also be improved so identifier-like columns such as `Config`
@@ -52,7 +52,7 @@ pages to confirm:
 ## Implementation Steps
 
 1. Register this technical document in the day-local technical index.
-2. Add report-specific table classes for the overnight `Track 1` campaign
+2. Add report-specific table classes for the overnight `RCIM Model-Bank Reproduction` campaign
    results report.
 3. Add a report-specific forced page break so `Ranked Completed Runs` begins on
    a new page.

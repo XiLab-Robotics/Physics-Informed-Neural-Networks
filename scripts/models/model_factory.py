@@ -201,7 +201,7 @@ def create_model(model_type: str, model_configuration: dict[str, Any]) -> nn.Mod
             freeze_structured_branch=bool(model_configuration.get("freeze_structured_branch", False)),
         )
 
-    # Create Track 2F Sequential Residual-Offset Probe
+    # Create Wave 3.1 Sequential Residual-Offset Probe
     if normalized_model_type == "sequential_residual_offset_probe":
         return SequentialResidualOffsetNetwork(
             input_size=int(model_configuration["input_size"]),
@@ -218,7 +218,7 @@ def create_model(model_type: str, model_configuration: dict[str, Any]) -> nn.Mod
             offset_scale=float(model_configuration.get("offset_scale", 1.0)),
         )
 
-    # Create Track 2F-Bis Harmonic Residual-Offset Probe
+    # Create Wave 3.2 Harmonic Residual-Offset Probe
     if normalized_model_type in ["harmonic_residual_offset_probe", "curve_aware_harmonic_residual_offset_probe"]:
         return HarmonicResidualOffsetNetwork(
             input_size=int(model_configuration["input_size"]),
@@ -235,7 +235,7 @@ def create_model(model_type: str, model_configuration: dict[str, Any]) -> nn.Mod
             freeze_structured_branch=bool(model_configuration.get("freeze_structured_branch", False)),
         )
 
-    # Create Track 2H-L Latent-State Hysteresis Probe
+    # Create Wave 4.4 Latent-State Hysteresis Probe
     if normalized_model_type == "latent_state_hysteresis_probe":
         return LatentStateHysteresisNetwork(
             input_size=int(model_configuration["input_size"]),
@@ -257,7 +257,7 @@ def create_model(model_type: str, model_configuration: dict[str, Any]) -> nn.Mod
             residual_scale=float(model_configuration.get("residual_scale", 1.0)),
         )
 
-    # Create Embryonic Wave 3 Harmonic-Prior Residual Skeleton
+    # Create Embryonic Wave 5.1 Harmonic-Prior Residual Skeleton
     if normalized_model_type == "wave3_harmonic_prior_residual":
         return Wave3HarmonicPriorResidualNetwork(
             input_size=int(model_configuration["input_size"]),
@@ -277,7 +277,7 @@ def create_model(model_type: str, model_configuration: dict[str, Any]) -> nn.Mod
             high_order_harmonic_index_list=model_configuration.get("high_order_harmonic_index_list"),
         )
 
-    # Create Embryonic Wave 3 Grouped Harmonic-Heads Skeleton
+    # Create Embryonic Wave 5.1 Grouped Harmonic-Heads Skeleton
     if normalized_model_type == "wave3_grouped_harmonic_heads":
         return Wave3GroupedHarmonicHeadsNetwork(
             input_size=int(model_configuration["input_size"]),

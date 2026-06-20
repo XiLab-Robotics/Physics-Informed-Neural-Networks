@@ -8,7 +8,7 @@
 - Completed Runs: `15`
 - Failed Runs: `0`
 - All `15` planned Wave 1 runs are now closed across `global`, `forward`, and `backward` variants.
-- The protected `doc/running/active_training_campaign.yaml` file was intentionally left untouched because it still tracks a separate `Track 1` campaign.
+- The protected `doc/running/active_training_campaign.yaml` file was intentionally left untouched because it still tracks a separate `RCIM Model-Bank Reproduction` campaign.
 
 ## Closeout Actions
 

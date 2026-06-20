@@ -1,8 +1,8 @@
-# Track 1 SVM Exact-Faithful Final Attempt Results Reporting
+# RCIM Model-Bank Reproduction SVM Exact-Faithful Final Attempt Results Reporting
 
 ## Overview
 
-This technical document closes the completed `Track 1` `SVM` exact-faithful
+This technical document closes the completed `RCIM Model-Bank Reproduction` `SVM` exact-faithful
 final-attempt campaign.
 
 The campaign was explicitly constrained to remain faithful to the recovered
@@ -43,7 +43,7 @@ The closeout must then:
 2. export and validate the PDF companion;
 3. update `doc/running/active_training_campaign.yaml` with the final
    `results_report_path`;
-4. refresh the canonical `Track 1` benchmark report;
+4. refresh the canonical `RCIM Model-Bank Reproduction` benchmark report;
 5. regenerate the canonical training-results master summary.
 
 No subagent use is planned for this work. The closeout remains a repository-

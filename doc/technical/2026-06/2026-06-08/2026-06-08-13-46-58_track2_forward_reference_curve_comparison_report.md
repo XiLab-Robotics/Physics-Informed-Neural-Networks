@@ -1,8 +1,8 @@
-# Track 2 Forward Reference Curve Comparison Report
+# TE Curve Verification Pipeline Forward Reference Curve Comparison Report
 
 ## Overview
 
-This technical document plans a dedicated non-training `Track 2` report that
+This technical document plans a dedicated non-training `TE Curve Verification Pipeline` report that
 compares the forward curve collages and numerical curve differences for these
 five already available forward candidates:
 
@@ -15,10 +15,10 @@ five already available forward candidates:
 The requested report will collect the same representative collage style used
 by the historical best-model report and the original `ONNX` collage report,
 then add a cross-model verification similar to the previous chat-level
-diagnostic: aggregate Track 2 metrics, pairwise point-by-point predicted-curve
+diagnostic: aggregate TE Curve Verification Pipeline metrics, pairwise point-by-point predicted-curve
 differences, and representative-collage curve differences.
 
-The work will not train models and will not run the full heavy Track 2 matrix.
+The work will not train models and will not run the full heavy curve-verification matrix.
 It will reuse the existing candidate outputs where available and regenerate
 only the lightweight forward curve payloads needed for direct model-to-model
 curve comparison.
@@ -36,7 +36,7 @@ The implementation will create a focused report builder under
 `scripts/reports/analysis/`. The builder will:
 
 1. Load or regenerate the five candidate prediction payloads on the canonical
-   forward held-out `Track 2` curves.
+   forward held-out `TE Curve Verification Pipeline` curves.
 2. Copy or regenerate deterministic collage images for every candidate into a
    single dated report bundle.
 3. Compute per-candidate aggregate metrics over the same forward curve set.

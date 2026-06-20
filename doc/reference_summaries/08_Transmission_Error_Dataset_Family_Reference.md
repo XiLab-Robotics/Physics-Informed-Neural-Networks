@@ -330,7 +330,7 @@ Use `original_dataset` when:
 
 Use `simplified_dataset` when:
 
-- running existing repository training or Track 2 evaluation;
+- running existing repository training or TE curve evaluation;
 - working with one TE curve per direction and operating condition;
 - relying on current configuration and loader compatibility.
 

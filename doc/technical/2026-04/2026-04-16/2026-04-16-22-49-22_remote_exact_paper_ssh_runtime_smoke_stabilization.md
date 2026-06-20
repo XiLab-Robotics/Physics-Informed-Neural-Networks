@@ -10,7 +10,7 @@ chain: the smoke campaign reaches the remote workstation, spawns the remote
 return a synchronized validation bundle.
 
 This document scopes the next stabilization pass to the remote runtime path
-only. The scheduled `Track 1` `SVR` reference-grid repair campaign remains in
+only. The scheduled `RCIM Model-Bank Reproduction` `SVR` reference-grid repair campaign remains in
 `prepared` state and must not be relaunched until the smoke campaign closes
 end-to-end on the LAN node.
 

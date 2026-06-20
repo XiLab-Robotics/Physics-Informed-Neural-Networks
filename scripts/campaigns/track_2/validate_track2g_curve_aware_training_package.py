@@ -1,4 +1,4 @@
-"""Validate the prepared Track 2G curve-aware training package."""
+"""Validate the prepared Wave 3.3 curve-aware training package."""
 
 from __future__ import annotations
 
@@ -52,7 +52,7 @@ def load_queue_config_list(queue_root: Path) -> list[dict[str, Any]]:
 
 def validate_queue_matrix(queue_config_list: list[dict[str, Any]]) -> None:
 
-    """Validate the 4 by 3 Track 2G queue matrix."""
+    """Validate the 4 by 3 Wave 3.3 queue matrix."""
 
     assert len(queue_config_list) == 12, f"Expected 12 queue configs | found={len(queue_config_list)}"
 
@@ -81,7 +81,7 @@ def validate_queue_matrix(queue_config_list: list[dict[str, Any]]) -> None:
         assert loss.get("profile") == loss_profile, "Loss profile mismatch between metadata and training block"
         assert loss.get("harmonic_index_list") == EXPECTED_HARMONIC_INDEX_LIST, "Unexpected loss harmonic list"
         assert model.get("harmonic_index_list") == EXPECTED_HARMONIC_INDEX_LIST, "Unexpected model harmonic list"
-        assert dataset.get("collate_mode") == "sequence", "Track 2G entries must use sequence batches"
+        assert dataset.get("collate_mode") == "sequence", "Wave 3.3 entries must use sequence batches"
         assert dataset.get("shuffle_training_batch_elements") is False, "Curve-aware loss requires ordered per-curve training batches"
         assert int(dataset.get("sequence_length", 0)) == 33, "Unexpected sequence length"
         assert bool(model.get("offset_bidirectional", False)) is False, "Offset branch must remain unidirectional"
@@ -93,8 +93,8 @@ def validate_queue_matrix(queue_config_list: list[dict[str, Any]]) -> None:
     }
     missing_pair_set = expected_pair_set.difference(observed_pair_set)
     unexpected_pair_set = observed_pair_set.difference(expected_pair_set)
-    assert not missing_pair_set, f"Missing Track 2G queue pairs | {sorted(missing_pair_set)}"
-    assert not unexpected_pair_set, f"Unexpected Track 2G queue pairs | {sorted(unexpected_pair_set)}"
+    assert not missing_pair_set, f"Missing Wave 3.3 queue pairs | {sorted(missing_pair_set)}"
+    assert not unexpected_pair_set, f"Unexpected Wave 3.3 queue pairs | {sorted(unexpected_pair_set)}"
 
 
 def validate_active_campaign_state() -> None:
@@ -102,8 +102,8 @@ def validate_active_campaign_state() -> None:
     """Validate persistent active campaign state."""
 
     active_state = read_yaml_file(PROJECT_PATH / ACTIVE_CAMPAIGN_STATE_PATH)
-    assert active_state.get("status") == "prepared", "Track 2G campaign state is not prepared."
-    assert active_state.get("campaign_name") == CAMPAIGN_NAME, "Active state does not point at Track 2G."
+    assert active_state.get("status") == "prepared", "Wave 3.3 campaign state is not prepared."
+    assert active_state.get("campaign_name") == CAMPAIGN_NAME, "Active state does not point at Wave 3.3."
     queue_config_path_list = active_state.get("queue_config_path_list", [])
     assert isinstance(queue_config_path_list, list), "queue_config_path_list must be a list"
     assert len(queue_config_path_list) == 12, "Active state must record 12 queue configs"
@@ -120,12 +120,12 @@ def parse_arguments() -> argparse.Namespace:
         "--queue-root",
         required=True,
         type=Path,
-        help="Repository-relative directory containing Track 2G queue configs.",
+        help="Repository-relative directory containing Wave 3.3 queue configs.",
     )
     parser.add_argument(
         "--require-prepared-state",
         action="store_true",
-        help="Require doc/running/active_training_campaign.yaml to point at Track 2G.",
+        help="Require doc/running/active_training_campaign.yaml to point at Wave 3.3.",
     )
     return parser.parse_args()
 
@@ -142,7 +142,7 @@ def main() -> int:
         validate_active_campaign_state()
 
     print(
-        "Track 2G package validated | "
+        "Wave 3.3 package validated | "
         f"queue_entries={len(queue_config_list)} | "
         f"loss_profiles={len(EXPECTED_LOSS_PROFILE_LIST)} | surfaces={len(EXPECTED_SURFACE_LIST)}"
     )

@@ -24,7 +24,7 @@ metadata:
   use_backward_direction: true
   runtime_input_contract: current point state plus supported short causal sequence
     history only
-  promotion_rule: Candidate must return through official Track 2 curve-first verification
+  promotion_rule: Candidate must return through official TE curve-first verification
     using the deterministic mixture-expectation channel.
   harmonic_basis: sparse_rcim
   harmonic_index_list: &id001
@@ -38,9 +38,9 @@ metadata:
   - 156
   - 162
   - 240
-  baseline_control: Completed Track 2H quantile/probabilistic candidates
+  baseline_control: Completed Wave 4.2 quantile/probabilistic candidates
   notes: Two-component Gaussian mixture objective; mixture expectation is used as
-    deterministic Track 2 playback.
+    deterministic TE curve-verification playback.
   output_artifact_kind: training_run
   output_run_name: te_track2h_mdn_k2_global
   run_instance_id: 2026-06-13-11-11-47__te_track2h_mdn_k2_global

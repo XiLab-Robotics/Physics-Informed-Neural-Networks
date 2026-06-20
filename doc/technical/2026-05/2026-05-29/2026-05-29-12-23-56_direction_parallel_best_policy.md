@@ -3,7 +3,7 @@
 ## Overview
 
 This document plans the documentation correction for the TE model selection
-policy after the `Track 2B` and `Track 2C` curve-first work.
+policy after the `CVP 1.1` and `CVP 1.2` curve-first work.
 
 The project must carry three best-model surfaces in parallel:
 
@@ -30,12 +30,12 @@ The correction should:
 
 - replace ambiguous single-winner language with direction-parallel wording;
 - keep `Fw`, `Bw`, and `global` as separate best-model tracks;
-- clarify that `Track 2B` and `Track 2C` identify leaders per surface rather
+- clarify that `CVP 1.1` and `CVP 1.2` identify leaders per surface rather
   than one global replacement;
 - keep `periodic_gru_sequence_Bw` as the strongest practical screened
-  repository-owned backward candidate from `Track 2C`;
+  repository-owned backward candidate from `CVP 1.2`;
 - keep `periodic_lstm_sequence_global` as the strongest screened neural global
-  candidate from `Track 2C`;
+  candidate from `CVP 1.2`;
 - keep the forward branch open even when a paper-reference forward candidate
   currently leads the screened diagnostics;
 - preserve the causal runtime input boundary.
@@ -61,18 +61,18 @@ Secondary documentation targets, if wording is affected:
 
 Current evidence to preserve:
 
-- `Track 2B` forward leader: `rcim_retuned_GBM19_Fw`;
-- `Track 2B` backward leader: `rcim_retuned_GBM19_Bw`;
-- `Track 2B` global-surface leader: `periodic_lstm_sequence_global`;
-- `Track 2C` strongest practical repository-owned backward candidate:
+- `CVP 1.1` forward leader: `rcim_retuned_GBM19_Fw`;
+- `CVP 1.1` backward leader: `rcim_retuned_GBM19_Bw`;
+- `CVP 1.1` global-surface leader: `periodic_lstm_sequence_global`;
+- `CVP 1.2` strongest practical repository-owned backward candidate:
   `periodic_gru_sequence_Bw`;
-- `Track 2C` strongest screened neural global candidate:
+- `CVP 1.2` strongest screened neural global candidate:
   `periodic_lstm_sequence_global`;
 - `tree` should not become the next sole branch despite scalar strength.
 
 ## Implementation Steps
 
-1. Inspect the touched `Track 2B`, `Track 2C`, live backlog, master summary,
+1. Inspect the touched `CVP 1.1`, `CVP 1.2`, live backlog, master summary,
    and curve-first strategy documents for single-winner wording.
 2. Update the language so `Fw`, `Bw`, and `global` best-model surfaces are
    explicitly parallel branches.
@@ -80,7 +80,7 @@ Current evidence to preserve:
 4. Update the master summary executive snapshot and takeaways so the next work
    is framed as parallel direction/surface advancement, not a single model
    competition.
-5. Update the `Track 2B` and `Track 2C` reports so their decisions are read as
+5. Update the `CVP 1.1` and `CVP 1.2` reports so their decisions are read as
    surface-specific evidence.
 6. Update `doc/README.md` if the new technical document or policy report needs
    indexing.

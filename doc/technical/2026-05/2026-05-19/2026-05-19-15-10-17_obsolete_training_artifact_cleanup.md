@@ -66,7 +66,7 @@ Git LFS currently tracks only two run-related `.pkl` files:
 
 Those two files are direct high-priority removal candidates if their accepted
 content has already been promoted into `models/paper_reference/` or superseded
-by the final `Track 1` and `Track 2` references.
+by the final `RCIM Model-Bank Reproduction` and `TE Curve Verification Pipeline` references.
 
 ## Involved Components
 

@@ -1,4 +1,4 @@
-# Track 1 SVM Open-Cell Repair Campaign Results Report
+# RCIM Model-Bank Reproduction SVM Open-Cell Repair Campaign Results Report
 
 ## Overview
 
@@ -39,7 +39,7 @@ Outcome:
 - all `12` runs exported ONNX artifacts with `0` failed exports;
 - the campaign upgraded the canonical `SVM` row on all four paper surfaces;
 - the `SVM` row now has `0` red cells across Tables `2-5`;
-- `Track 1` remains open globally, but the `SVM` row is no longer a weak row.
+- `RCIM Model-Bank Reproduction` remains open globally, but the `SVM` row is no longer a weak row.
 
 This means the campaign succeeded both operationally and scientifically as a
 targeted repair pass.
@@ -197,7 +197,7 @@ and `240`.
 
 This was not a local experiment that produced isolated better logs.
 
-The best repaired cells have been promoted into the canonical `Track 1`
+The best repaired cells have been promoted into the canonical `RCIM Model-Bank Reproduction`
 benchmark surface.
 
 ### 5. The Next Repair Wave Should Leave SVM And Move To Other Rows

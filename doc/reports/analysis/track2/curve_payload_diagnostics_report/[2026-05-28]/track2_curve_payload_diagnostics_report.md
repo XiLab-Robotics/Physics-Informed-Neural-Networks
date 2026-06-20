@@ -1,8 +1,8 @@
-# Track 2C Curve Payload Diagnostics Report
+# CVP 1.2 Curve Payload Diagnostics Report
 
 ## Overview
 
-This report evaluates a screened `Track 2` candidate set with full truth/prediction curve payloads. It does not train models, alter the dataset structure, or provide future curve samples to runtime model inputs.
+This report evaluates a screened `TE Curve Verification Pipeline` candidate set with full truth/prediction curve payloads. It does not train models, alter the dataset structure, or provide future curve samples to runtime model inputs.
 
 - Run Instance: `2026-05-28-19-55-32__track2c_curve_payload_diagnostics`
 - Config Path: `config\paper_reimplementation\rcim_ml_compensation\reference_family_vs_feedforward\full_track2_matrix_template.yaml`
@@ -50,7 +50,7 @@ The strongest screened repository-owned backward candidate is `periodic_gru_sequ
 
 `harmonic_regression_Bw` has the cleanest selected-harmonic amplitude and phase diagnostics in the backward-only set, but its mean percentage error and peak-to-peak error remain worse than the periodic temporal candidates.
 
-`tree_Bw` and `tree_global` confirm the visual concern from Track 2: scalar error can look competitive while peak-to-peak and shape diagnostics remain weaker.
+`tree_Bw` and `tree_global` confirm the visual concern from TE Curve Verification Pipeline: scalar error can look competitive while peak-to-peak and shape diagnostics remain weaker.
 
 Paper-reference and tree-bank candidates may remain strong on some curve metrics while still being less attractive for deployment. Repository-owned neural candidates should therefore be judged by both diagnostic behavior and future export/runtime feasibility.
 

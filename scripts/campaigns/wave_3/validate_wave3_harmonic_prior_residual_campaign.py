@@ -1,4 +1,4 @@
-"""Validate the prepared Wave 3 harmonic-prior residual campaign package."""
+"""Validate the prepared Wave 5.1 harmonic-prior residual campaign package."""
 
 from __future__ import annotations
 
@@ -75,7 +75,7 @@ def resolve_surface_key(training_variant: str) -> str:
 
 def validate_queue_matrix(queue_config_list: list[dict[str, Any]]) -> None:
 
-    """Validate the 2 by 3 Wave 3 queue matrix."""
+    """Validate the 2 by 3 Wave 5.1 queue matrix."""
 
     assert len(queue_config_list) == 6, f"Expected 6 queue configs | found={len(queue_config_list)}"
 
@@ -96,10 +96,10 @@ def validate_queue_matrix(queue_config_list: list[dict[str, Any]]) -> None:
         assert metadata.get("campaign_name") == CAMPAIGN_NAME
         assert metadata.get("probe_group") == "wave3_harmonic_prior_residual"
         assert experiment.get("model_type") == "wave3_harmonic_prior_residual"
-        assert model.get("output_size") == 1, "Wave 3 package must produce one deterministic TE target"
+        assert model.get("output_size") == 1, "Wave 5.1 package must produce one deterministic TE target"
 
         loss_profile = str(metadata.get("loss_profile", ""))
-        assert loss_profile in EXPECTED_LOSS_PROFILE_DICTIONARY, f"Unexpected Wave 3 profile | {loss_profile}"
+        assert loss_profile in EXPECTED_LOSS_PROFILE_DICTIONARY, f"Unexpected Wave 5.1 profile | {loss_profile}"
         assert loss.get("profile") == loss_profile, "Loss profile mismatch between metadata and training block"
         assert loss.get("pointwise_loss") == EXPECTED_LOSS_PROFILE_DICTIONARY[loss_profile], "Pointwise loss mismatch"
         if loss_profile == "smooth_l1_structured":
@@ -112,11 +112,11 @@ def validate_queue_matrix(queue_config_list: list[dict[str, Any]]) -> None:
         assert metadata.get("harmonic_index_list") == EXPECTED_HARMONIC_INDEX_LIST, "Unexpected metadata harmonic list"
         assert loss.get("harmonic_index_list") == EXPECTED_HARMONIC_INDEX_LIST, "Unexpected loss harmonic list"
         assert model.get("harmonic_index_list") == EXPECTED_HARMONIC_INDEX_LIST, "Unexpected model harmonic list"
-        assert dataset.get("collate_mode") == "sequence", "Wave 3 entries must use sequence batches"
-        assert dataset.get("shuffle_training_batch_elements") is False, "Wave 3 package keeps ordered per-curve batches"
+        assert dataset.get("collate_mode") == "sequence", "Wave 5.1 entries must use sequence batches"
+        assert dataset.get("shuffle_training_batch_elements") is False, "Wave 5.1 package keeps ordered per-curve batches"
         assert int(dataset.get("sequence_length", 0)) == 33, "Unexpected sequence length"
-        assert str(model.get("readout_position", "")) == "center", "Wave 3 sequence readout must use the center point"
-        assert bool(model.get("freeze_structured_branch", True)) is False, "First Wave 3 campaign trains the structured branch"
+        assert str(model.get("readout_position", "")) == "center", "Wave 5.1 sequence readout must use the center point"
+        assert bool(model.get("freeze_structured_branch", True)) is False, "First Wave 5.1 campaign trains the structured branch"
         assert "not_campaign_ready" not in str(metadata).lower(), "Queue config still carries not_campaign_ready metadata"
 
     expected_pair_set = {
@@ -126,8 +126,8 @@ def validate_queue_matrix(queue_config_list: list[dict[str, Any]]) -> None:
     }
     missing_pair_set = expected_pair_set.difference(observed_pair_set)
     unexpected_pair_set = observed_pair_set.difference(expected_pair_set)
-    assert not missing_pair_set, f"Missing Wave 3 queue pairs | {sorted(missing_pair_set)}"
-    assert not unexpected_pair_set, f"Unexpected Wave 3 queue pairs | {sorted(unexpected_pair_set)}"
+    assert not missing_pair_set, f"Missing Wave 5.1 queue pairs | {sorted(missing_pair_set)}"
+    assert not unexpected_pair_set, f"Unexpected Wave 5.1 queue pairs | {sorted(unexpected_pair_set)}"
 
 
 def validate_model_instantiation(queue_config_list: list[dict[str, Any]]) -> None:
@@ -148,7 +148,7 @@ def validate_model_instantiation(queue_config_list: list[dict[str, Any]]) -> Non
             "high_order_harmonic_index_tensor",
         ]:
             assert hasattr(created_model, auxiliary_buffer_name), (
-                f"Missing Wave 3 diagnostic buffer | {auxiliary_buffer_name} | {queue_config['queue_path']}"
+                f"Missing Wave 5.1 diagnostic buffer | {auxiliary_buffer_name} | {queue_config['queue_path']}"
             )
 
 
@@ -187,10 +187,10 @@ def validate_one_batch_outputs(queue_config_list: list[dict[str, Any]]) -> None:
         assert raw_output_tensor.shape[-1] == 1, f"Raw output size mismatch | {queue_config['queue_path']}"
         for auxiliary_key in EXPECTED_AUXILIARY_OUTPUT_KEY_LIST:
             assert auxiliary_key in batch_output_dictionary, (
-                f"Missing Wave 3 auxiliary output | {auxiliary_key} | {queue_config['queue_path']}"
+                f"Missing Wave 5.1 auxiliary output | {auxiliary_key} | {queue_config['queue_path']}"
             )
             assert batch_output_dictionary[auxiliary_key].shape == target_tensor.shape, (
-                f"Wave 3 auxiliary output shape mismatch | {auxiliary_key} | {queue_config['queue_path']}"
+                f"Wave 5.1 auxiliary output shape mismatch | {auxiliary_key} | {queue_config['queue_path']}"
             )
         assert bool(batch_output_dictionary["loss"].isfinite().detach().cpu().item()), (
             f"Non-finite loss | {queue_config['queue_path']}"
@@ -202,8 +202,8 @@ def validate_active_campaign_state() -> None:
     """Validate persistent active campaign state."""
 
     active_state = read_yaml_file(PROJECT_PATH / ACTIVE_CAMPAIGN_STATE_PATH)
-    assert active_state.get("status") == "prepared", "Wave 3 campaign state is not prepared."
-    assert active_state.get("campaign_name") == CAMPAIGN_NAME, "Active state does not point at Wave 3."
+    assert active_state.get("status") == "prepared", "Wave 5.1 campaign state is not prepared."
+    assert active_state.get("campaign_name") == CAMPAIGN_NAME, "Active state does not point at Wave 5.1."
     queue_config_path_list = active_state.get("queue_config_path_list", [])
     assert isinstance(queue_config_path_list, list), "queue_config_path_list must be a list"
     assert len(queue_config_path_list) == 6, "Active state must record 6 queue configs"
@@ -237,7 +237,7 @@ def main() -> int:
         validate_active_campaign_state()
 
     print(
-        "Wave 3 harmonic-prior residual package validated | "
+        "Wave 5.1 harmonic-prior residual package validated | "
         f"queue_entries={len(queue_config_list)} | "
         f"profiles={len(EXPECTED_LOSS_PROFILE_DICTIONARY)} | surfaces={len(EXPECTED_SURFACE_LIST)}"
     )

@@ -1,8 +1,8 @@
-# Wave 4C MMT Soft Constraint PINN Design
+# Wave 5.2C MMT Soft Constraint PINN Design
 
 ## Purpose
 
-`Wave 4C` is the first true MMT-informed PINN candidate. It adds weak MMT
+`Wave 5.2C` is the first true MMT-informed PINN candidate. It adds weak MMT
 equation residuals to a curve or harmonic-plus-residual neural model while
 keeping ordinary data fit as the primary objective.
 
@@ -19,11 +19,11 @@ subsystem-contribution behavior.
 | Element | Design Choice |
 | --- | --- |
 | Candidate name | `wave4c_mmt_soft_constraint_pinn` |
-| Base model | Curve predictor or Wave 3 harmonic-prior residual predictor. |
+| Base model | Curve predictor or Wave 5.1 harmonic-prior residual predictor. |
 | Physics layer | Batch-callable MMT reconstruction using calibrated or predicted equivalent-error channels. |
 | Primary loss | Data-fit curve loss. |
 | Physics losses | MMT `RTE` residual, subsystem contribution regularization, harmonic consistency, and optional residual smoothness. |
-| Promotion surface | Official Track 2 raw, offset, centered-shape, amplitude, phase, and visual diagnostics. |
+| Promotion surface | Official TE Curve Verification Pipeline raw, offset, centered-shape, amplitude, phase, and visual diagnostics. |
 
 ## Loss Structure
 
@@ -39,14 +39,14 @@ subsystem-contribution behavior.
 
 1. Convert the MMT reproduction into a batch-callable module or differentiable
    approximation.
-2. Start from the `Wave 4A` parameter inventory and fixed calibrated
-   equivalent-error parameters from `Wave 4B`.
+2. Start from the `Wave 5.2A` parameter inventory and fixed calibrated
+   equivalent-error parameters from `Wave 5.2B`.
 3. Add an optional head that predicts a small equivalent-error vector.
 4. Sweep weak physics weights and compare against data-only control.
-5. Reject the branch if MMT losses reduce validation loss but worsen Track 2
+5. Reject the branch if MMT losses reduce validation loss but worsen TE Curve Verification Pipeline
    curve diagnostics.
 
-`Wave 4C` should not be implemented as the next branch until `Wave 4B` proves
+`Wave 5.2C` should not be implemented as the next branch until `Wave 5.2B` proves
 that at least one MMT feature or calibrated equivalent-error group explains
 held-out offset or fragile-harmonic behavior without target leakage.
 
@@ -59,5 +59,5 @@ held-out offset or fragile-harmonic behavior without target leakage.
 
 ## Decision Gate
 
-Continue only if weak MMT penalties improve Track 2 offset or harmonic
+Continue only if weak MMT penalties improve TE Curve Verification Pipeline offset or harmonic
 diagnostics while preserving or improving centered-shape metrics.

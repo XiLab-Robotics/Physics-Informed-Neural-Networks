@@ -1,8 +1,8 @@
-# Track 1 Remaining Yellow-Cell Campaign SVM Alias Fix
+# RCIM Model-Bank Reproduction Remaining Yellow-Cell Campaign SVM Alias Fix
 
 ## Overview
 
-The prepared `Track 1` remaining-yellow-cell overnight bundle failed at the
+The prepared `RCIM Model-Bank Reproduction` remaining-yellow-cell overnight bundle failed at the
 first `SVM` family config before any real training work started.
 
 The remote exact-paper runner rejected:

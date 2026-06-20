@@ -13,7 +13,7 @@ The script is stored in:
 ## Main Role
 
 The script creates the paper-aligned offline branch that now sits between
-completed `Wave 1` and the later `Wave 2` temporal-model work.
+completed `Wave 1` and the later `Wave 2.1` temporal-model work.
 
 It performs these stages:
 
@@ -54,7 +54,7 @@ Provides:
 
 ### `config/paper_reimplementation/rcim_ml_compensation/harmonic_wise/presets/`
 
-Provides staged `Track 1` second-iteration presets for:
+Provides staged `RCIM Model-Bank Reproduction` second-iteration presets for:
 
 - reduced harmonic-set debugging runs;
 - engineered operating-condition features;

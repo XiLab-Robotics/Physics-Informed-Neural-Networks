@@ -1,8 +1,8 @@
-# Track 1 SVM Micro-Closure Campaign Package
+# RCIM Model-Bank Reproduction SVM Micro-Closure Campaign Package
 
 This directory contains the prepared YAML package for the dedicated `SVR`
 micro-closure campaign against the last residual yellow `SVM` cells in the
-canonical `Track 1` benchmark.
+canonical `RCIM Model-Bank Reproduction` benchmark.
 
 The package is organized as one umbrella campaign with `8` explicit runs:
 

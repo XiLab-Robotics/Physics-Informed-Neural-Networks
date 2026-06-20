@@ -1,11 +1,11 @@
-# Track 2 Curve Reconstruction And Collage Pipeline
+# TE Curve Verification Pipeline Curve Reconstruction And Collage Pipeline
 
 ## Purpose
 
-This document describes how `Track 2` constructs the curves plotted in the
+This document describes how `TE Curve Verification Pipeline` constructs the curves plotted in the
 best-model collage reports. It is intentionally implementation-facing: every
 major statement is tied to the current repository code so that future
-investigations into `Track 2B` through `Track 2F` can separate real model
+investigations into `CVP 1.1` through `Wave 3.1` can separate real model
 behavior from plotting, reconstruction, offset, or convention artifacts.
 
 The main focus is the visual report family under:
@@ -16,7 +16,7 @@ doc/reports/analysis/track2/best_model_collage_report/
 
 The document also explains how the mean-centered diagnostic introduced by commit
 `940a16b934e29ca83fef36da010fdf671bdd52c4` relates to the standard collage
-path. That commit does not replace the standard `Track 2` reconstruction path;
+path. That commit does not replace the standard `TE Curve Verification Pipeline` reconstruction path;
 it adds a post-prediction diagnostic view that subtracts the measured and
 predicted per-curve means separately.
 
@@ -30,7 +30,7 @@ phase diagnostics disagree.
 
 - The standard collage report does not read curve data back from the report
   images. It regenerates predictions from the same candidate loading and
-  evaluation support used by the `Track 2` matrix.
+  evaluation support used by the `TE Curve Verification Pipeline` matrix.
 - Repository-backed models such as `harmonic_regression` predict a full TE curve
   directly at each angular position.
 - Paper/reference-bank candidates such as `paper_original_best_Fw` predict
@@ -44,7 +44,7 @@ phase diagnostics disagree.
   or DC-component problem, not by itself evidence that the curve shape is wrong.
 - A phase/sign-convention problem would usually remain visible after
   mean-centering because subtracting the mean cannot repair harmonic phase.
-- Official `Track 2` promotion decisions must not be made from `MAE`, `RMSE`,
+- Official `TE Curve Verification Pipeline` promotion decisions must not be made from `MAE`, `RMSE`,
   or mean percentage error alone. They must preserve separate raw-error,
   shape-fidelity, offset / continuity, harmonic / phase, robustness, visual,
   and deployment-readiness evidence per `global`, `Fw`, and `Bw` surface.
@@ -53,7 +53,7 @@ phase diagnostics disagree.
 
 | Concern | Canonical Source | Key Lines |
 | --- | --- | --- |
-| Track 2 matrix configuration | `config/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/full_track2_matrix_template.yaml` | `2`, `11`, `13`, `16-213`, `265-275` |
+| curve-verification matrix configuration | `config/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/full_track2_matrix_template.yaml` | `2`, `11`, `13`, `16-213`, `265-275` |
 | Test curve record construction | `scripts/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/reference_family_vs_feedforward_support.py` | `370-432` |
 | Reference-bank feature matrix | `scripts/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/reference_family_vs_feedforward_support.py` | `435-449` |
 | Reference-bank target prediction | `scripts/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/reference_family_vs_feedforward_support.py` | `471-496` |
@@ -73,7 +73,7 @@ phase diagnostics disagree.
 
 ## Configuration Surface
 
-The standard `Track 2` matrix and visual reports use the same matrix template:
+The standard `TE Curve Verification Pipeline` matrix and visual reports use the same matrix template:
 
 ```yaml
 # Source: config/.../full_track2_matrix_template.yaml:1-13
@@ -85,7 +85,7 @@ comparison:
   model_family: track2_reference_comparison
   output_root: output/validation_checks/track2_reference_comparison
   comparison_mode: full_directional_candidate_matrix
-  canonical_report_path: doc/reports/analysis/track2/Track 2 Directional Model Comparison.md
+  canonical_report_path: doc/reports/analysis/track2/TE Curve Verification Pipeline Directional Model Comparison.md
   baseline_summary_path: output/validation_checks/track2_reference_comparison/...
   lightweight_test_curve_records: true
   report_plot_generation_scope: incremental_current_candidates
@@ -128,7 +128,7 @@ collage report therefore works on held-out test curves, not training curves.
 
 ## Candidate Families And Direction Surfaces
 
-`Track 2` evaluates candidate surfaces directionally:
+`TE Curve Verification Pipeline` evaluates candidate surfaces directionally:
 
 | Surface | Valid Curves | Typical Candidate ID |
 | --- | --- | --- |
@@ -152,13 +152,13 @@ def filter_curve_records_for_candidate(
         for curve_record in curve_record_list
         if str(curve_record.direction_label).strip().lower() in candidate.allowed_direction_list
     ]
-    assert filtered_curve_record_list, f"No curves available for Track 2 candidate | {candidate.candidate_id}"
+    assert filtered_curve_record_list, f"No curves available for TE Curve Verification Pipeline candidate | {candidate.candidate_id}"
     return filtered_curve_record_list
 ```
 
 This matters for debugging: a forward-only reference candidate should not be
 judged on backward curves, and a backward-only candidate should not be judged on
-forward curves. If a future `Track 2B` through `Track 2F` wrapper bypasses this
+forward curves. If a future `CVP 1.1` through `Wave 3.1` wrapper bypasses this
 filter, its visual artifacts are not comparable with the canonical matrix.
 
 ## Standard Best-Model Collage Flow
@@ -169,7 +169,7 @@ The standard collage entry point is
 The runner performs these steps:
 
 1. Resolve a timestamped output directory and dated report directory.
-2. Load the `Track 2` matrix template.
+2. Load the `TE Curve Verification Pipeline` matrix template.
 3. Read `evaluation.selected_harmonics`.
 4. Build test curve records.
 5. Resolve report candidate configurations.
@@ -319,7 +319,7 @@ for csv_file_path, direction_label in test_manifest:
     )
 ```
 
-This is why `Track 2` collage reconstruction for paper/reference candidates is
+This is why `TE Curve Verification Pipeline` collage reconstruction for paper/reference candidates is
 based on model-predicted harmonic targets, not on harmonic targets precomputed
 for each repository curve.
 
@@ -619,7 +619,7 @@ The columns are:
 ### Direct TE Prediction
 
 Repository candidates do not predict amplitude and phase targets in the
-`Track 2` collage path. They return a full TE curve directly:
+`TE Curve Verification Pipeline` collage path. They return a full TE curve directly:
 
 ```python
 # Source: reference_family_vs_feedforward_support.py:815-848
@@ -719,7 +719,7 @@ return torch.sum(harmonic_feature_tensor * coefficient_tensor, dim=-1, keepdim=T
 ```
 
 This is an internal model parameterization, not the same as the
-paper/reference-bank target protocol. The external `Track 2` evaluation still
+paper/reference-bank target protocol. The external `TE Curve Verification Pipeline` evaluation still
 sees only a direct TE curve prediction.
 
 ## Paper-Original Forward Path: `paper_original_best_Fw`
@@ -929,7 +929,7 @@ def build_reference_coefficient_dictionary_from_entries(
     h0_sign_multiplier: float = 1.0,
 ) -> tuple[dict[str, float], dict[str, float]]:
 
-    """Convert one generic Track 1 bank prediction into harmonic coefficients."""
+    """Convert one generic RCIM Model-Bank Reproduction bank prediction into harmonic coefficients."""
 
     coefficient_dictionary: dict[str, float] = {}
     amplitude_phase_dictionary: dict[str, float] = {}
@@ -1220,7 +1220,7 @@ Interpretation:
   selection, or wrong angular basis. Those errors affect curve shape after the
   mean is removed.
 
-## Error Sources To Audit In Track 2B Through Track 2F
+## Error Sources To Audit In CVP 1.1 Through Wave 3.1
 
 ### Offset Or DC-Term Problems
 
@@ -1265,7 +1265,7 @@ Most relevant when:
 
 - all amplitude and phase targets for a paper bank look degraded;
 - errors are condition-dependent;
-- a model family works in its original paper validation but fails in `Track 2`.
+- a model family works in its original paper validation but fails in `TE Curve Verification Pipeline`.
 
 Primary code point:
 
@@ -1363,8 +1363,8 @@ target selection.
 
 ## Practical Debug Checklist
 
-When investigating a suspicious `Track 2` collage or a `Track 2B` through
-`Track 2F` branch, use this order:
+When investigating a suspicious `TE Curve Verification Pipeline` collage or a `CVP 1.1` through
+`Wave 3.1` branch, use this order:
 
 1. Identify `candidate_id`, `candidate_kind`, `candidate_source_label`, and
    `candidate_surface` from the validation summary.
@@ -1399,7 +1399,7 @@ Therefore:
   behavior;
 - a small raw-to-centered improvement points toward shape, phase, harmonic, or
   feature errors;
-- a correction to `h0` should be validated against the raw official `Track 2`
+- a correction to `h0` should be validated against the raw official `TE Curve Verification Pipeline`
   matrix and not only against the mean-centered visual report;
 - any correction to phase sign must be checked against the repository
   decomposition convention and the recovered paper convention.
@@ -1407,5 +1407,5 @@ Therefore:
 For `paper_original_best_Fw`, the most important observation is that the
 reference path reconstructs the full curve from predicted targets. It is not
 equivalent to a repository model that learns TE directly point-by-point. This
-distinction should remain explicit in future `Track 2B` through `Track 2F`
+distinction should remain explicit in future `CVP 1.1` through `Wave 3.1`
 investigations.

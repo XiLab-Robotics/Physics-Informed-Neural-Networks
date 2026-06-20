@@ -1,12 +1,12 @@
-# Track 2F Offset-Aware Probe Campaign Plan Report
+# Wave 3.1 Offset-Aware Probe Campaign Plan Report
 
 ## Executive Summary
 
-This preliminary campaign plan prepares the proposed `Track 2F`
+This preliminary campaign plan prepares the proposed `Wave 3.1`
 offset-aware probe without launching training.
 
-`Track 2D` decomposed full-matrix curve error into raw error, curve offset,
-centered-shape error, amplitude error, and harmonic phase error. `Track 2E`
+`CVP 1.4` decomposed full-matrix curve error into raw error, curve offset,
+centered-shape error, amplitude error, and harmonic phase error. `CVP 1.5`
 then showed that the offset is partly predictable from conservative causal
 condition groupings, with `direction_torque` as the strongest aggregate signal
 after excluding exact full-condition memorization.
@@ -20,11 +20,11 @@ document are explicitly approved.
 
 ## Baseline And Verification Rule
 
-`Track 2` remains the official offline verification surface. `Track 2F`
+`TE Curve Verification Pipeline` remains the official offline verification surface. `Wave 3.1`
 candidates must not be accepted from training metrics alone. Any promoted
 result must later refresh:
 
-- the direction-aware `Track 2` matrix;
+- the direction-aware `TE Curve Verification Pipeline` matrix;
 - the curve-first reranking report and PDF;
 - the mean-offset / offset-predictability diagnostic reports where relevant;
 - the best-model collage report and PDF;
@@ -59,19 +59,19 @@ simple causal baseline.
 
 ## Starting Candidates
 
-The probe should use the completed `Track 2E` recommendations as starting
+The probe should use the completed `CVP 1.5` recommendations as starting
 evidence, not as automatic best-model promotions:
 
-| Surface | Track 2E Probe Reference | Reason |
+| Surface | CVP 1.5 Probe Reference | Reason |
 | --- | --- | --- |
 | `global` | `harmonic_regression_global` | largest conservative offset-correction gain, but still amplitude/phase limited |
 | `Fw` | `LGBM19_Fw` | strongest forward sequential-offset feasibility probe |
 | `Bw` | `rcim_retuned_XGBM19_Bw` | strongest backward sequential-offset feasibility probe |
 
 The implementation may choose repository-owned neural starting candidates
-where model export or training integration makes the exact Track 2E reference
+where model export or training integration makes the exact CVP 1.5 reference
 unavailable. If that happens, the deviation must be documented in the prepared
-campaign package and the report must keep the Track 2E reference as the
+campaign package and the report must keep the CVP 1.5 reference as the
 diagnostic comparator.
 
 ## Runtime Input Boundary
@@ -156,7 +156,7 @@ After campaign execution:
   result is promoted through the established workflow;
 - refresh `Training Results Master Summary.md`;
 - close out the campaign with Markdown and validated PDF deliverables;
-- propose the optional heavy `Track 2` refresh as a separate
+- propose the optional heavy `TE Curve Verification Pipeline` refresh as a separate
   operator-launched step.
 
 ## Decision Criteria

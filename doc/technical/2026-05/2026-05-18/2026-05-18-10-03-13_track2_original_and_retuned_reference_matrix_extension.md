@@ -1,9 +1,9 @@
-# Track 2 Original And Retuned Reference Matrix Extension
+# TE Curve Verification Pipeline Original And Retuned Reference Matrix Extension
 
 ## Overview
 
-This technical document formalizes the next `Track 2` matrix extension after
-the canonical directional comparison was populated with accepted `Track 1`
+This technical document formalizes the next `TE Curve Verification Pipeline` matrix extension after
+the canonical directional comparison was populated with accepted `RCIM Model-Bank Reproduction`
 family banks and exported `Wave 1` models.
 
 The next comparison must also include additional paper-reference archives from
@@ -26,7 +26,7 @@ approval requirement before any subagent is launched.
 
 ## Technical Approach
 
-Extend the Track 2 candidate-generation configuration so the full matrix can
+Extend the TE Curve Verification Pipeline candidate-generation configuration so the full matrix can
 include multiple paper-reference archive groups, not only the accepted
 `rcim_track1` banks.
 
@@ -34,7 +34,7 @@ Each added archive group must declare:
 
 - a source label, such as `rcim_original` or `rcim_retuned`;
 - the allowed direction roots;
-- the same eleven model families already used by Track 1:
+- the same eleven model families already used by RCIM Model-Bank Reproduction:
   `SVM`, `MLP`, `RF`, `DT`, `ET`, `ERT`, `GBM`, `HGBM`, `XGBM`, `LGBM`, and
   `ELM`;
 - a candidate identifier that keeps source provenance visible, for example
@@ -62,12 +62,12 @@ must not reintroduce the obsolete mixed historical `LGBM-19` smoke comparison.
   - generalize candidate generation to support multiple paper-reference archive
     groups with explicit source labels and direction roots.
 - `doc/reports/analysis/track2/Track 2 Directional Model Comparison.md`
-  - regenerate the canonical Track 2 report with the enlarged candidate matrix.
+  - regenerate the canonical TE curve-verification report with the enlarged candidate matrix.
 - `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
-  - update Track 2 status and best-row summary after the enlarged matrix is
+  - update TE Curve Verification Pipeline status and best-row summary after the enlarged matrix is
     regenerated.
 - `doc/reports/analysis/Training Results Master Summary.md`
-  - update Track 2 status counts and artifact pointers.
+  - update TE Curve Verification Pipeline status counts and artifact pointers.
 - `doc/README.md`
   - keep the new technical document registered.
 - `output/validation_checks/track2_reference_comparison/`
@@ -77,18 +77,18 @@ must not reintroduce the obsolete mixed historical `LGBM-19` smoke comparison.
 
 1. Confirm the `rcim_original` and `rcim_retuned` reference inventory roots and
    the eleven family archive folders.
-2. Update Track 2 candidate generation to support source-labeled archive
+2. Update TE Curve Verification Pipeline candidate generation to support source-labeled archive
    groups, preserving the existing `rcim_track1` identifiers for the accepted
-   Track 1 banks.
+   RCIM Model-Bank Reproduction banks.
 3. Add `rcim_original` forward-only archive entries to the full matrix
    configuration.
 4. Add `rcim_retuned` forward and backward archive entries to the full matrix
    configuration.
 5. Ensure the report candidate inventory exposes the source label, model
    family, direction surface, and model source path for each added candidate.
-6. Run the full Track 2 validation matrix from the updated configuration.
-7. Regenerate the canonical Track 2 report and immutable validation report.
+6. Run the full TE Curve Verification Pipeline validation matrix from the updated configuration.
+7. Regenerate the canonical TE curve-verification report and immutable validation report.
 8. Update the RCIM benchmark and Training Results Master Summary with the new
    candidate counts, artifact path, and best-row summary.
-9. Run Python syntax checks for the touched Track 2 scripts.
+9. Run Python syntax checks for the touched TE Curve Verification Pipeline scripts.
 10. Run Markdown QA on the touched Markdown files.

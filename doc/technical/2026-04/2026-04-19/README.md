@@ -2,11 +2,11 @@
 
 - [2026-04-19-00-25-58_track1_remaining_family_cellwise_final_closeout.md](./2026-04-19-00-25-58_track1_remaining_family_cellwise_final_closeout.md)
   Technical document for the final closeout of the completed `171`-run
-  remaining-family `Track 1` exact-paper cellwise campaign wave, including
+  remaining-family `RCIM Model-Bank Reproduction` exact-paper cellwise campaign wave, including
   winner-bookkeeping reconstruction, canonical benchmark refresh, and final
   results reporting.
 - [2026-04-19-01-04-28_track1_remaining_family_residual_cellwise_closure_campaigns.md](./2026-04-19-01-04-28_track1_remaining_family_residual_cellwise_closure_campaigns.md)
-  Technical document for the next aggressive overnight `Track 1` residual-cell
+  Technical document for the next aggressive overnight `RCIM Model-Bank Reproduction` residual-cell
   closure wave, focused on the still-open `🟡/🔴` family-target cells across
   the nine non-`SVM` exact-paper families.
 - [2026-04-19-01-33-26_track1_residual_closure_aggregate_launcher_execution_mode_fix.md](./2026-04-19-01-33-26_track1_residual_closure_aggregate_launcher_execution_mode_fix.md)

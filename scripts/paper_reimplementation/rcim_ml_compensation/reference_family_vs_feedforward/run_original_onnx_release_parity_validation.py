@@ -275,7 +275,7 @@ def compute_curve_mean_centering_metric_dictionary(
     predicted_curve_deg: np.ndarray,
 ) -> dict[str, float]:
 
-    """Compute raw and mean-centered metrics for one Track 2 curve."""
+    """Compute raw and mean-centered metrics for one TE Curve Verification Pipeline curve."""
 
     truth_curve = np.asarray(truth_curve_deg, dtype=np.float64).reshape(-1)
     predicted_curve = np.asarray(predicted_curve_deg, dtype=np.float64).reshape(-1)
@@ -420,7 +420,7 @@ def build_onnx_prediction_dictionary_for_track2(
     selected_harmonic_list: list[int],
 ) -> dict[str, np.ndarray]:
 
-    """Predict all ONNX targets needed by one Track 2 family."""
+    """Predict all ONNX targets needed by one TE Curve Verification Pipeline family."""
 
     feature_matrix = track2_support.build_reference_feature_matrix(curve_record_list)
     prediction_dictionary: dict[str, np.ndarray] = {}
@@ -445,7 +445,7 @@ def evaluate_track2_onnx_family(
     percentage_error_denominator: str,
 ) -> tuple[list[dict[str, Any]], dict[str, float]]:
 
-    """Evaluate one recovered ONNX family through Track 2 curve reconstruction."""
+    """Evaluate one recovered ONNX family through TE Curve Verification Pipeline curve reconstruction."""
 
     prediction_dictionary = build_onnx_prediction_dictionary_for_track2(
         curve_record_list,
@@ -506,7 +506,7 @@ def build_track2_parity_result(
     onnx_manifest_dictionary: dict[tuple[str, str, int], OnnxTargetEntry],
 ) -> tuple[list[dict[str, Any]], list[dict[str, Any]], list[dict[str, Any]], list[dict[str, Any]]]:
 
-    """Evaluate recovered ONNX release and repo original archive in Track 2."""
+    """Evaluate recovered ONNX release and repo original archive in TE Curve Verification Pipeline."""
 
     track2_config = track2_support.load_reference_family_comparison_config(track2_config_path)
     selected_harmonic_list = [
@@ -729,7 +729,7 @@ def write_target_parity_csv(csv_path: Path, target_result_list: list[dict[str, A
 
 def write_track2_offset_diagnostic_csv(csv_path: Path, offset_entry_list: list[dict[str, Any]]) -> None:
 
-    """Write Track 2 per-curve raw and mean-centered diagnostic rows."""
+    """Write TE Curve Verification Pipeline per-curve raw and mean-centered diagnostic rows."""
 
     csv_path.parent.mkdir(parents=True, exist_ok=True)
     with csv_path.open("w", encoding="utf-8", newline="") as csv_file:
@@ -834,7 +834,7 @@ def build_parity_report_markdown(validation_summary: dict[str, Any]) -> str:
     line_list.extend(
         [
             "",
-            "## Track 2 Forward Curve Parity",
+            "## TE Curve Verification Pipeline Forward Curve Parity",
             "",
             "| Family | ONNX MAE [deg] | Repo MAE [deg] | Delta MAE [deg] | ONNX MPE [%] | Repo MPE [%] | Delta MPE [%] |",
             "| --- | ---: | ---: | ---: | ---: | ---: | ---: |",
@@ -856,7 +856,7 @@ def build_parity_report_markdown(validation_summary: dict[str, Any]) -> str:
     line_list.extend(
         [
             "",
-            "## Track 2 Mean-Centered Offset Diagnostics",
+            "## TE Curve Verification Pipeline Mean-Centered Offset Diagnostics",
             "",
             "| Source | Family | Raw MAE [deg] | Centered MAE [deg] | Mean Abs Offset [deg] | MAE Improvement [%] |",
             "| --- | --- | ---: | ---: | ---: | ---: |",
@@ -883,7 +883,7 @@ def build_parity_report_markdown(validation_summary: dict[str, Any]) -> str:
             "",
             f"- validation summary: `{validation_summary['validation_summary_path']}`;",
             f"- target parity CSV: `{validation_summary['target_parity_csv_path']}`;",
-            f"- Track 2 offset diagnostics CSV: `{validation_summary['track2_offset_diagnostic_csv_path']}`.",
+            f"- TE Curve Verification Pipeline offset diagnostics CSV: `{validation_summary['track2_offset_diagnostic_csv_path']}`.",
         ]
     )
 

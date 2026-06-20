@@ -1,4 +1,4 @@
-"""Build the Wave 4A MMT parameter-inventory report."""
+"""Build the Wave 5.2A MMT parameter-inventory report."""
 
 from __future__ import annotations
 
@@ -90,7 +90,7 @@ def build_inventory_rows() -> list[dict[str, str]]:
             "calibration_policy": "blocked until reducer-specific contact reconstruction is defined",
             "leakage_risk": "high if fitted directly from held-out TE curves",
             "downstream_decision": "diagnostic_only_until_reconstruction_gate",
-            "notes": "This is the main blocker for treating Wave 4A as a calibrated analytical baseline.",
+            "notes": "This is the main blocker for treating Wave 5.2A as a calibrated analytical baseline.",
         },
         {
             "parameter_group": "high_speed_original_errors",
@@ -162,7 +162,7 @@ def build_inventory_rows() -> list[dict[str, str]]:
             "calibration_policy": "never use held-out target means or full curves at inference",
             "leakage_risk": "high if used to normalize or calibrate held-out curves",
             "downstream_decision": "evaluation_target_not_inference_input",
-            "notes": "Critical boundary for Wave 4B and Wave 4C leakage-safe design.",
+            "notes": "Critical boundary for Wave 5.2B and Wave 5.2C leakage-safe design.",
         },
     ]
 
@@ -199,7 +199,7 @@ def is_high_leakage_risk(row: dict[str, str]) -> bool:
 
 def build_report_lines(run_id: str, row_list: list[dict[str, str]], output_directory: Path) -> list[str]:
 
-    """Build the Wave 4A MMT parameter-inventory Markdown report."""
+    """Build the Wave 5.2A MMT parameter-inventory Markdown report."""
 
     availability_counts = count_rows_by_field(row_list, "availability_class")
     decision_counts = count_rows_by_field(row_list, "downstream_decision")
@@ -207,7 +207,7 @@ def build_report_lines(run_id: str, row_list: list[dict[str, str]], output_direc
     calibratable_rows = [row for row in row_list if row["availability_class"] == "calibratable_train_only"]
 
     report_lines = [
-        "# Wave 4A MMT Parameter Inventory",
+        "# Wave 5.2A MMT Parameter Inventory",
         "",
         "## Overview",
         "",
@@ -296,12 +296,12 @@ def build_report_lines(run_id: str, row_list: list[dict[str, str]], output_direc
                 "source of geometry-locked harmonic hypotheses. It is not yet a "
                 "dataset-calibrated predictor because contact geometry and original "
                 "component-error channels are not directly observed in the current "
-                "Track 2 dataset."
+                "TE Curve Verification Pipeline dataset."
             ),
             "",
             (
-                "`Wave 4B` should start with geometry-locked features plus train-only "
-                "calibrated equivalent-error groups. `Wave 4C` should remain weak-loss "
+                "`Wave 5.2B` should start with geometry-locked features plus train-only "
+                "calibrated equivalent-error groups. `Wave 5.2C` should remain weak-loss "
                 "only until the feature path proves that MMT terms explain held-out "
                 "offset or fragile-harmonic structure without leakage."
             ),
@@ -343,7 +343,7 @@ def parse_arguments() -> argparse.Namespace:
 
 def main() -> None:
 
-    """Build the Wave 4A MMT parameter-inventory report."""
+    """Build the Wave 5.2A MMT parameter-inventory report."""
 
     args = parse_arguments()
     run_id = args.run_id if args.run_id else f"{datetime.now().strftime('%Y-%m-%d-%H-%M-%S')}__wave4a_mmt_parameter_inventory"
@@ -374,8 +374,8 @@ def main() -> None:
     report_lines = build_report_lines(run_id=run_id, row_list=row_list, output_directory=output_directory)
     report_path.write_text("\n".join(report_lines) + "\n", encoding="utf-8")
 
-    print(f"Prepared Wave 4A MMT parameter-inventory artifacts | {output_directory}")
-    print(f"Prepared Wave 4A MMT parameter-inventory report | {report_path}")
+    print(f"Prepared Wave 5.2A MMT parameter-inventory artifacts | {output_directory}")
+    print(f"Prepared Wave 5.2A MMT parameter-inventory report | {report_path}")
 
 
 if __name__ == "__main__":

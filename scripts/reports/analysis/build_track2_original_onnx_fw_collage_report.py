@@ -1,4 +1,4 @@
-"""Build a simple Track 2 collage report for original ONNX paper-best Fw."""
+"""Build a simple TE Curve Verification Pipeline collage report for original ONNX paper-best Fw."""
 
 from __future__ import annotations
 
@@ -62,7 +62,7 @@ def parse_command_line_arguments() -> argparse.Namespace:
         "--config-path",
         type=Path,
         default=plot_original_onnx_fw_track2_curves.DEFAULT_TRACK2_CONFIG_PATH,
-        help="Track 2 configuration used to resolve the held-out curve split.",
+        help="TE Curve Verification Pipeline configuration used to resolve the held-out curve split.",
     )
     parser.add_argument(
         "--output-root",
@@ -253,7 +253,7 @@ def build_report_markdown(
     """Build the report Markdown body."""
 
     line_list = [
-        "# Track 2 Original ONNX Forward Collage Report",
+        "# TE Curve Verification Pipeline Original ONNX Forward Collage Report",
         "",
         "## Overview",
         "",
@@ -270,7 +270,7 @@ def build_report_markdown(
         "",
         *build_target_table_rows(target_list),
         "",
-        "## Track 2 Forward Metrics",
+        "## TE Curve Verification Pipeline Forward Metrics",
         "",
         "| Candidate | Curves | MAE [deg] | RMSE [deg] | Mean Error [%] | P95 Error [%] |",
         "| --- | ---: | ---: | ---: | ---: | ---: |",
@@ -284,10 +284,10 @@ def build_report_markdown(
         "",
         "## Collage",
         "",
-        "The collage shows four deterministic held-out forward `Track 2` curves",
+        "The collage shows four deterministic held-out forward `TE Curve Verification Pipeline` curves",
         "spread across the sorted forward evaluation set.",
         "",
-        f"![{CANDIDATE_ID} Track 2 collage]({collage_markdown_path})",
+        f"![{CANDIDATE_ID} TE Curve Verification Pipeline collage]({collage_markdown_path})",
         "",
         "## Collaged Curves",
         "",
@@ -413,7 +413,7 @@ def main() -> None:
     """Run the command-line entry point."""
 
     validation_summary = run_report(parse_command_line_arguments())
-    print(f"[DONE] Track 2 original ONNX Fw collage report: {validation_summary['report_path']}")
+    print(f"[DONE] TE Curve Verification Pipeline original ONNX Fw collage report: {validation_summary['report_path']}")
 
 
 if __name__ == "__main__":

@@ -1,8 +1,8 @@
-# Wave 2 Temporal Model Entry Campaign Results
+# Wave 2.1 Temporal Model Entry Campaign Results
 
 ## Overview
 
-This report closes the approved `Wave 2` temporal-model entry campaign. The
+This report closes the approved `Wave 2.1` temporal-model entry campaign. The
 campaign tested whether short temporal windows improve TE prediction beyond
 the closed static `Wave 1` baselines.
 
@@ -11,8 +11,8 @@ campaign winner by the configured selection policy, minimum `test_mae` with
 `test_rmse`, `val_mae`, and parameter count as tie breakers, is
 `te_gru_sequence_remote_Fw`.
 
-This result is a training-campaign winner. It is not yet an accepted `Track 2`
-model-verification winner, because the official Track 2 matrix and visual
+This result is a training-campaign winner. It is not yet an accepted `TE Curve Verification Pipeline`
+model-verification winner, because the official curve-verification matrix and visual
 reports still need to be refreshed with the new temporal candidates.
 
 ## Campaign Artifacts
@@ -76,7 +76,7 @@ The winning checkpoint is stored at
 The strongest temporal result is the forward-only `GRU` surface. It slightly
 outperforms the forward-only `LSTM` candidate in scalar test MAE while using
 about `25%` fewer parameters. The `GRU` result is therefore the first temporal
-candidate to carry into the `Track 2` visual refresh.
+candidate to carry into the `TE Curve Verification Pipeline` visual refresh.
 
 The `LSTM` family is still important: it is the best global temporal result
 and the best backward temporal result. The campaign does not show a universal
@@ -105,21 +105,21 @@ The current registered program best remains
 | `lstm_sequence_fw` | `te_lstm_sequence_remote_Fw` | 0.003370 | Second-best temporal scalar result |
 | `lstm_sequence_bw` | `te_lstm_sequence_remote_Bw` | 0.003557 | Best backward temporal scalar result |
 
-## Track 2 Boundary
+## TE Curve Verification Pipeline Boundary
 
-`Track 2` remains the official offline model-verification surface. The Wave 2
+`TE Curve Verification Pipeline` remains the official offline model-verification surface. The Wave 2.1
 campaign provides trained candidates and scalar evidence, but it does not by
 itself establish official acceptance.
 
-The following candidates should be prioritized in the Track 2 refresh:
+The following candidates should be prioritized in the TE Curve Verification refresh:
 
 - `te_gru_sequence_remote_Fw` as the campaign winner;
 - `te_lstm_sequence_remote_global` as the best global temporal candidate;
 - `te_lstm_sequence_remote_Bw` as the best backward temporal candidate;
-- all remaining Wave 2 candidates as matrix rows if the refresh budget allows.
+- all remaining Wave 2.1 candidates as matrix rows if the refresh budget allows.
 
 The official refresh must compare these candidates against the current
-`tree`, paper-derived, and Track 1 anchors on the same direction-aware curve
+`tree`, paper-derived, and RCIM Model-Bank Reproduction anchors on the same direction-aware curve
 reconstruction protocol.
 
 ## Closeout Decision
@@ -128,19 +128,19 @@ The campaign is complete and successful from an execution standpoint: all `9`
 runs completed, the leaderboard and best-run artifacts exist, and the family
 registries were refreshed.
 
-From a modeling standpoint, Wave 2 should remain open for official
+From a modeling standpoint, Wave 2.1 should remain open for official
 verification rather than immediate promotion. The `GRU` forward result is
 promising, while the `LSTM` global and backward results make the recurrent
 branch the useful temporal direction to inspect visually.
 
 ## Recommended Follow-Up
 
-1. Refresh the `Track 2` direction-aware matrix with the `9` Wave 2 temporal
+1. Refresh the `TE Curve Verification Pipeline` direction-aware matrix with the `9` Wave 2.1 temporal
    candidates.
-2. Regenerate Track 2 best-model collages for the temporal winners.
-3. Regenerate Track 2 multi-model overlays against `tree`, paper-derived, and
-   Track 1 anchors.
-4. Update the official Track 2 report ledger only after the refreshed matrix
+2. Regenerate TE Curve Verification Pipeline best-model collages for the temporal winners.
+3. Regenerate TE Curve Verification Pipeline multi-model overlays against `tree`, paper-derived, and
+   RCIM Model-Bank Reproduction anchors.
+4. Update the official TE curve-verification report ledger only after the refreshed matrix
    and visual PDFs have been validated.
-5. Do not promote a temporal model to deployment planning until Track 2 visual
+5. Do not promote a temporal model to deployment planning until TE Curve Verification Pipeline visual
    review confirms curve-level benefit.

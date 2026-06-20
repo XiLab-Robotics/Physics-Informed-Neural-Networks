@@ -4,15 +4,15 @@
 
 This technical note plans a documentation-only cleanup of
 `doc/running/te_model_live_backlog.md` after the recent RCIM paper-reference,
-`Track 1`, `Track 2`, and `Wave 1` work.
+`RCIM Model-Bank Reproduction`, `TE Curve Verification Pipeline`, and `Wave 1` work.
 
 The live backlog must reflect that the recovered original RCIM pipeline,
-retuned reference archive, and `Track 1` reimplementation are now available as
-separate comparison surfaces. `Track 1` must be marked closed under the revised
+retuned reference archive, and `RCIM Model-Bank Reproduction` reimplementation are now available as
+separate comparison surfaces. `RCIM Model-Bank Reproduction` must be marked closed under the revised
 closure rule: closure means a populated forward/backward faithful full-bank
 surface for Tables `2`-`5`, not an all-green optimization result.
 
-The backlog must also show that `Track 2` is now the active closing branch. Its
+The backlog must also show that `TE Curve Verification Pipeline` is now the active closing branch. Its
 comparison rules are direction-aware: forward candidates are evaluated on
 forward curves, backward candidates on backward curves, and global candidates
 with direction-separated reporting. The same directional split must remain the
@@ -46,10 +46,10 @@ No subagent is planned for this update.
 
 ## Implementation Steps
 
-1. Replace stale current-focus text with the active `Track 2` closeout focus.
+1. Replace stale current-focus text with the active `TE Curve Verification Pipeline` closeout focus.
 2. Add explicit completed sections for recovered original pipeline, retuned
-   reference archive, closed `Track 1`, and closed directional `Wave 1`.
-3. Make the `Track 2` section the current in-progress branch, with its
+   reference archive, closed `RCIM Model-Bank Reproduction`, and closed directional `Wave 1`.
+3. Make the `TE Curve Verification Pipeline` section the current in-progress branch, with its
    direction-aware candidate and evaluation rules.
 4. Update `Next Up` so the planned next step after cleaning and alignment is
    clear.

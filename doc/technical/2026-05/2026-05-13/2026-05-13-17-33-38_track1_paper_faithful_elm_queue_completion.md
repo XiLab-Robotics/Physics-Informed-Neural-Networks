@@ -1,8 +1,8 @@
-# Track 1 Paper-Faithful ELM Queue Completion
+# RCIM Model-Bank Reproduction Paper-Faithful ELM Queue Completion
 
 ## Overview
 
-The Track 1 exact-paper implementation already supports `ELM` as an
+The RCIM Model-Bank Reproduction exact-paper implementation already supports `ELM` as an
 operational family in the shared Python family bank and in the PowerShell
 launcher argument surface. The prepared bidirectional paper-faithful campaign
 queue still contains only the original `10` paper families for each direction,
@@ -57,7 +57,7 @@ launching training.
 ## Involved Components
 
 - `config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_paper_faithful_grid_search/`
-  Existing prepared Track 1 paper-faithful campaign config root that needs
+  Existing prepared RCIM Model-Bank Reproduction paper-faithful campaign config root that needs
   forward and backward `ELM` YAML entries.
 - `scripts/campaigns/track_1/exact_paper/run_track1_bidirectional_paper_faithful_grid_search_campaign.ps1`
   Protected launcher requested by the operator. It already accepts `ELM`, but

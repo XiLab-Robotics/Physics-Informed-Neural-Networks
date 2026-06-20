@@ -95,4 +95,4 @@ foreach ($ConfigRelativePath in @($CampaignQueueBundle.queue_config_path_list)) 
     }
 }
 
-Write-Host "[DONE] Track 1 forward original-dataset remote diagnostic campaign completed" -ForegroundColor Green
+Write-Host "[DONE] RCIM Model-Bank Reproduction forward original-dataset remote diagnostic campaign completed" -ForegroundColor Green

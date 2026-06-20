@@ -1,10 +1,10 @@
-# Track 1 Overnight Open-Cell Full-Matrix Closure Campaigns
+# RCIM Model-Bank Reproduction Overnight Open-Cell Full-Matrix Closure Campaigns
 
 ## Overview
 
-This technical document defines the next `Track 1` training wave after the
+This technical document defines the next `RCIM Model-Bank Reproduction` training wave after the
 scope clarification that made the four full-matrix replication tables the only
-canonical progress surface for `Track 1`.
+canonical progress surface for `RCIM Model-Bank Reproduction`.
 
 The requested goal is to prepare a new overnight training package that targets
 only the still-open cells in:
@@ -14,7 +14,7 @@ only the still-open cells in:
 - `Table 4 - Phase MAE Full-Matrix Replication`
 - `Table 5 - Phase RMSE Full-Matrix Replication`
 
-The user confirmed that `Track 1` should now be interpreted as the exact-paper
+The user confirmed that `RCIM Model-Bank Reproduction` should now be interpreted as the exact-paper
 family-bank implementation branch, with completion defined as `19` accepted
 models for each of the `10` algorithm families and with harmonic-wise work
 postponed to a separate follow-up branch.
@@ -24,7 +24,7 @@ The intended execution window is an overnight run budget of approximately
 
 ## Technical Approach
 
-The new wave should stay fully aligned with the canonical `Track 1` reading:
+The new wave should stay fully aligned with the canonical `RCIM Model-Bank Reproduction` reading:
 
 1. use only the still-open full-matrix cells as the training target surface;
 2. avoid spending overnight budget on cells that are already green in the

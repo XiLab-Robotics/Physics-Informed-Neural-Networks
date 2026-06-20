@@ -279,7 +279,7 @@ class TransmissionErrorRegressionModule(LightningModule):
 
     def extract_deterministic_prediction_tensor(self, model_output_tensor: torch.Tensor) -> torch.Tensor:
 
-        """Select the deterministic channel used for MAE/RMSE and Track 2 playback."""
+        """Select the deterministic channel used for MAE/RMSE and TE curve-verification playback."""
 
         pointwise_loss_name = str(self.loss_configuration["pointwise_loss"])
         if pointwise_loss_name in ["gaussian_nll", "gaussian_negative_log_likelihood"]:
@@ -719,7 +719,7 @@ class TransmissionErrorRegressionModule(LightningModule):
             self.log(f"{log_prefix}_structured_mae", structured_mae, on_step=False, on_epoch=True, prog_bar=False, batch_size=batch_size)
             self.log(f"{log_prefix}_structured_rmse", structured_rmse, on_step=False, on_epoch=True, prog_bar=False, batch_size=batch_size)
 
-        # Log Track 2F Branch Diagnostics When Available
+        # Log Wave 3.1 Branch Diagnostics When Available
         base_prediction_tensor = batch_output_dictionary.get("base_prediction_tensor")
         if isinstance(base_prediction_tensor, torch.Tensor):
             base_prediction_denormalized = self.denormalize_target_tensor(base_prediction_tensor)

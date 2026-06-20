@@ -1,4 +1,4 @@
-﻿"""Styled Markdown-to-PDF report exporter for repository analysis artifacts."""
+"""Styled Markdown-to-PDF report exporter for repository analysis artifacts."""
 
 from __future__ import annotations
 
@@ -43,9 +43,9 @@ HERO_NOTE_TEXT = (
     "for improved readability, section hierarchy, and table presentation."
 )
 REPORT_SPECIFIC_SUBTITLE_DICTIONARY = {
-    "2026-06-04-12-28-46_track2f_offset_aware_probe_campaign_results_report": "Track 2 Campaign Closeout",
-    "2026-06-05-16-49-50_track2f_bis_harmonic_offset_probe_campaign_results_report": "Track 2 Campaign Closeout",
-    "2026-06-09-01-56-25_track2g_curve_aware_training_campaign_results_report": "Track 2 Campaign Closeout",
+    "2026-06-04-12-28-46_track2f_offset_aware_probe_campaign_results_report": "Wave 3.1 Campaign Closeout",
+    "2026-06-05-16-49-50_track2f_bis_harmonic_offset_probe_campaign_results_report": "Wave 3.2 Campaign Closeout",
+    "2026-06-09-01-56-25_track2g_curve_aware_training_campaign_results_report": "Wave 3.3 Campaign Closeout",
 }
 
 # Report Styles
@@ -3302,19 +3302,19 @@ def is_svr_reference_grid_gap_vs_paper_table(header_cells: Sequence[str]) -> boo
 
 def is_track1_forward_closeout_family_results_table(header_cells: Sequence[str]) -> bool:
 
-    """Report whether the table matches the Track 1 forward closeout family result profile."""
+    """Report whether the table matches the RCIM Model-Bank Reproduction forward closeout family result profile."""
 
     return tuple(header_cells) == TRACK1_FORWARD_CLOSEOUT_FAMILY_RESULTS_TABLE_HEADER_CELLS
 
 def is_track1_forward_closeout_benchmark_status_table(header_cells: Sequence[str]) -> bool:
 
-    """Report whether the table matches the Track 1 forward closeout benchmark status profile."""
+    """Report whether the table matches the RCIM Model-Bank Reproduction forward closeout benchmark status profile."""
 
     return tuple(header_cells) == TRACK1_FORWARD_CLOSEOUT_BENCHMARK_STATUS_TABLE_HEADER_CELLS
 
 def is_track1_forward_closeout_reference_archive_table(header_cells: Sequence[str]) -> bool:
 
-    """Report whether the table matches the Track 1 forward closeout reference archive profile."""
+    """Report whether the table matches the RCIM Model-Bank Reproduction forward closeout reference archive profile."""
 
     return tuple(header_cells) == TRACK1_FORWARD_CLOSEOUT_REFERENCE_ARCHIVE_TABLE_HEADER_CELLS
 
@@ -3425,8 +3425,8 @@ def normalize_report_specific_header_cell(header_cell: str, table_class_name: st
     }:
         if header_cell == "Loss Profile":
             return "Loss<br>Profile"
-        if header_cell == "Track 2G MAE":
-            return "Track 2G<br><span class=\"metric-unit\">MAE</span>"
+        if header_cell == "Wave 3.3 MAE":
+            return "Wave 3.3<br><span class=\"metric-unit\">MAE</span>"
         if header_cell == "Test MAE":
             return "Test<br><span class=\"metric-unit\">MAE</span>"
         if header_cell == "Test RMSE":
@@ -3867,7 +3867,7 @@ def resolve_standard_table_class_name(
     if is_svr_reference_grid_gap_vs_paper_table(normalized_header_cells):
         return SVR_REFERENCE_GRID_GAP_VS_PAPER_TABLE_CLASS_NAME
 
-    # Resolve Track 1 Forward Closeout Table Profiles
+    # Resolve RCIM Model-Bank Reproduction Forward Closeout Table Profiles
     if (
         current_section_slug == "family-results"
         and is_track1_forward_closeout_family_results_table(normalized_header_cells)
@@ -3948,7 +3948,7 @@ def resolve_standard_table_class_name(
         ):
             return WAVE1_PERIODIC_MLP_REGISTRY_TABLE_CLASS_NAME
 
-    # Resolve Wave 2 Temporal Model Entry Closeout Table Profiles
+    # Resolve Wave 2.1 Temporal Model Entry Closeout Table Profiles
     if report_stem in {
         "2026-05-24-12-36-49_wave2_temporal_model_entry_campaign_results_report",
         "2026-05-26-14-01-40_wave2b_harmonic_temporal_hybrid_campaign_results_report",
@@ -4022,7 +4022,7 @@ def resolve_standard_table_class_name(
         ):
             return CAMPAIGN_CLOSEOUT_REGISTRY_EFFECTS_TABLE_CLASS_NAME
 
-    # Resolve Track 2F Closeout Table Profiles
+    # Resolve Wave 3.1 Closeout Table Profiles
     if report_stem in {
         "2026-06-04-12-28-46_track2f_offset_aware_probe_campaign_results_report",
         "2026-06-05-16-49-50_track2f_bis_harmonic_offset_probe_campaign_results_report",
@@ -4042,7 +4042,7 @@ def resolve_standard_table_class_name(
         ):
             return TRACK2F_SCALAR_LEADERBOARD_TABLE_CLASS_NAME
 
-    # Resolve Track 2G Curve-Aware Closeout Table Profiles
+    # Resolve Wave 3.3 Curve-Aware Closeout Table Profiles
     if report_stem == "2026-06-09-01-56-25_track2g_curve_aware_training_campaign_results_report":
 
         if (
@@ -4062,7 +4062,7 @@ def resolve_standard_table_class_name(
         if (
             current_section_slug == "baseline-comparison"
             and normalized_header_cells
-            == ("Surface", "Track 2G Best", "Track 2G MAE", "Track 2F-Bis Ref.", "Ref. MAE", "Delta")
+            == ("Surface", "Wave 3.3 Best", "Wave 3.3 MAE", "Wave 3.2 Ref.", "Ref. MAE", "Delta")
         ):
             return TRACK2G_BASELINE_COMPARISON_TABLE_CLASS_NAME
 
@@ -4072,7 +4072,7 @@ def resolve_standard_table_class_name(
         ):
             return TRACK2G_REGISTRY_EFFECTS_TABLE_CLASS_NAME
 
-    # Resolve Track 2 Best-Model Collage Summary Tables
+    # Resolve TE Curve Verification Pipeline Best-Model Collage Summary Tables
     if (
         report_stem in {"track2_best_model_collage_report", "track2_multi_model_curve_comparison_report"}
         and normalized_header_cells
@@ -4080,13 +4080,13 @@ def resolve_standard_table_class_name(
     ):
         return TRACK2_BEST_MODEL_COLLAGE_TABLE_CLASS_NAME
 
-    # Resolve Track 2 Official Verification Report Tables
+    # Resolve TE Curve Verification Pipeline Official Verification Report Tables
     if report_stem == "track2_official_model_verification_report":
 
         if normalized_header_cells == ("Surface", "Training or Archive Scope", "Evaluation Scope"):
             return TRACK2_OFFICIAL_VERIFICATION_RULE_TABLE_CLASS_NAME
 
-        if normalized_header_cells == ("Pipeline or Source", "Track 2 Role", "Current Status", "Verification Artifact"):
+        if normalized_header_cells == ("Pipeline or Source", "TE Curve Verification Pipeline Role", "Current Status", "Verification Artifact"):
             return TRACK2_OFFICIAL_PIPELINE_COVERAGE_TABLE_CLASS_NAME
 
         if normalized_header_cells == ("Surface", "Branch", "Candidate", "Registry"):
@@ -4213,7 +4213,7 @@ def resolve_standard_table_class_name(
         ):
             return TARGETED_REMOTE_FOLLOWUP_FAMILY_BESTS_TABLE_CLASS_NAME
 
-    # Resolve Track 1 Second Iteration Campaign Table Profiles
+    # Resolve RCIM Model-Bank Reproduction Second Iteration Campaign Table Profiles
     if report_stem == "2026-04-09-21-19-05_track1_second_iteration_harmonic_wise_campaign_results_report":
 
         if (
@@ -4250,7 +4250,7 @@ def resolve_standard_table_class_name(
         ):
             return CAMPAIGN_EXACT_SUPPORT_EXPORT_TABLE_CLASS_NAME
 
-    # Resolve Track 1 Overnight Gap-Closure Campaign Table Profiles
+    # Resolve RCIM Model-Bank Reproduction Overnight Gap-Closure Campaign Table Profiles
     if report_stem in {
         "2026-04-13-12-37-15_track1_overnight_gap_closure_campaign_results_report",
         "2026-04-13-16-16-23_track1_extended_overnight_campaign_results_report",
@@ -4277,7 +4277,7 @@ def resolve_standard_table_class_name(
         ):
             return TRACK1_OVERNIGHT_BLOCK_WINNER_TABLE_CLASS_NAME
 
-    # Resolve Track 1 Exact Open-Cell Repair Campaign Table Profiles
+    # Resolve RCIM Model-Bank Reproduction Exact Open-Cell Repair Campaign Table Profiles
     if report_stem == "2026-04-13-22-55-28_track1_exact_paper_open_cell_repair_campaign_results_report":
 
         if (
@@ -4294,7 +4294,7 @@ def resolve_standard_table_class_name(
         ):
             return TRACK1_EXACT_OPEN_CELL_EXPORT_TABLE_CLASS_NAME
 
-    # Resolve Track 1 Full-Matrix Family Reproduction Campaign Table Profiles
+    # Resolve RCIM Model-Bank Reproduction Full-Matrix Family Reproduction Campaign Table Profiles
     if report_stem == "2026-04-14-14-35-29_track1_full_matrix_family_reproduction_campaign_results_report":
 
         if (
@@ -4541,7 +4541,7 @@ def render_table(
     if tuple(header_cells) == CONFIGURATION_TABLE_HEADER_CELLS:
         return render_configuration_split_tables(body_rows), current_index
 
-    # Render Track 2 Wide Tables With PDF-Safe Summary Columns
+    # Render TE Curve Verification Pipeline Wide Tables With PDF-Safe Summary Columns
     if tuple(header_cells) == TRACK2_CURVE_FIRST_RANKING_TABLE_HEADER_CELLS:
         return (
             render_column_subset_table(

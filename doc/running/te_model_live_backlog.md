@@ -22,23 +22,25 @@ Historical rationale and approval history remain in:
 ## Current Status
 
 - Program State: active.
-- Active Campaign State: none. The completed `Track 2H-L` latent-state /
+- Active Campaign State: none. The completed `Wave 4.4` latent-state /
   hysteresis-aware campaign is recorded as the last completed campaign in
   `doc/running/active_training_campaign.yaml`.
-- Current Completed Wave: `Wave 3` harmonic-prior residual campaign closeout
-  and official `Track 2` verification refresh are complete; the branch is a
+- Current Completed Wave: `Wave 5.1` harmonic-prior residual campaign closeout
+  and official `TE Curve Verification Pipeline` verification refresh are complete; the branch is a
   verified exploratory baseline and is not promoted over the accepted
   direction-parallel leaders.
-- Current Completed Track: `Track 1` RCIM paper-faithful model bank, closed as
+- Current Completed Program: `RCIM Model-Bank Reproduction` paper-faithful
+  model bank, closed as
   a faithful full-bank reproduction surface for Tables `2`-`5`.
-- Current Completed Track: `Track 2` official offline model-verification
+- Current Completed Pipeline: `TE Curve Verification Pipeline` official
+  offline model-verification
   report, closed as the canonical direction-aware verification surface for new
   model families.
-- Current Focus: `Track 2H-L` official `Track 2` verification refresh is
+- Current Focus: `Wave 4.4` official `TE Curve Verification Pipeline` verification refresh is
   closed as a verified exploratory baseline, not promoted. The next modeling
-  decision can move to `Wave 4` / integrated multi-task planning with `2H-L`
+  decision can move to `Wave 5.2` / integrated multi-task planning with `Wave 4.4`
   kept as causal-history integration evidence.
-- Parallel Diagnostic Focus: component-offset, `Track 2D` h0 cross-check, and
+- Parallel Diagnostic Focus: component-offset, `CVP 1.4` h0 cross-check, and
   predicted-mean versus measured-h0 diagnostics are complete; `h0` is the
   correct mean-like channel to inspect, but not the confirmed sole cause of the
   offset failures.
@@ -79,7 +81,7 @@ Current canonical status reports:
 
 The repository now treats direction as a first-class evaluation surface.
 
-The default rule for `Track 2`, `Wave 1`, and all future waves is:
+The default rule for `TE Curve Verification Pipeline`, `Wave 1`, and all future waves is:
 
 | Surface | Training / archive scope | Evaluation scope |
 | --- | --- | --- |
@@ -125,7 +127,7 @@ Input constraint:
 The immediate rule is now a multi-index selection policy:
 
 - scalar `MAE` and `RMSE` remain required sanity metrics;
-- `Track 2` direction-valid full-curve metrics are the canonical promotion
+- `TE Curve Verification Pipeline` direction-valid full-curve metrics are the canonical promotion
   surface for deployment-relevant comparison;
 - visual overlays and collage evidence must be considered when scalar metrics
   and curve shape disagree;
@@ -135,7 +137,7 @@ The immediate rule is now a multi-index selection policy:
   amplitude error, and harmonic phase error should be tracked separately;
 - harmonic amplitude, harmonic phase, P95, and worst-condition diagnostics
   should be added before new training losses are treated as canonical;
-- official `Track 2` reports should expose best raw-error, best
+- official `TE Curve Verification Pipeline` reports should expose best raw-error, best
   shape-fidelity, best offset-behavior, best robustness, and recommended
   candidates per `global`, `Fw`, and `Bw` surface when the required evidence is
   available.
@@ -153,12 +155,13 @@ The first standardized reranking pass is complete in:
 - `doc/reports/analysis/track2/curve_first_reranking_report/[2026-05-28]/track2_curve_first_reranking_report.md`
 
 The next required evaluation task is a complete multi-index reranking over the
-current official `Track 2` candidate set, including `Wave 1`, `Wave 2`,
-`Track 2B` through `Track 2H`, and `Wave 3`. That reranking must produce
+current official `TE Curve Verification Pipeline` candidate set, including `Wave 1`, `Wave 2.1`,
+`CVP 1.1` through `CVP 1.5`, Waves `3.1` through `4.4`, and `Wave 5.1`.
+That reranking must produce
 per-surface tables for raw error, centered-shape fidelity, offset / continuity,
 harmonic / phase fidelity, robustness, and final recommendation.
 
-Current `Track 2B` curve-first leaders by parallel surface:
+Current `CVP 1.1` curve-first leaders by parallel surface:
 
 | Scope | Leader | Mean MPE [%] | P95 MPE [%] | Mean Curve MAE [deg] |
 | --- | --- | ---: | ---: | ---: |
@@ -176,7 +179,7 @@ The first screened curve-payload diagnostics pass is also complete in:
 
 - `doc/reports/analysis/track2/curve_payload_diagnostics_report/[2026-05-28]/track2_curve_payload_diagnostics_report.md`
 
-Current `Track 2C` diagnostic observations:
+Current `CVP 1.2` diagnostic observations:
 
 | Finding | Interpretation |
 | --- | --- |
@@ -196,7 +199,7 @@ Current mean-offset observations:
 | --- | --- |
 | `harmonic_regression_global` improves from `0.031130 deg` raw MAE to `0.000888 deg` centered MAE on the four-curve collage. | Vertical offset is a dominant raw-error component for this candidate; centered shape is much better than raw MAE suggests. |
 | `periodic_lstm_sequence_global`, `periodic_temporal_convolution_global`, and `periodic_gru_sequence_global` also improve strongly after mean-centering. | Several temporal neural candidates need offset and centered-shape diagnostics reported separately. |
-| Dense `Wave 2C` variants improve much less after mean-centering. | Their limitation is not only offset; centered shape, amplitude, or phase quality remains weak. |
+| Dense `Wave 2.3` variants improve much less after mean-centering. | Their limitation is not only offset; centered shape, amplitude, or phase quality remains weak. |
 | Full-curve mean-centering uses information unavailable at runtime. | It is a diagnostic decomposition, not a deployable correction. |
 
 The next approved work should therefore first diagnose all three best-model
@@ -204,18 +207,18 @@ surfaces in parallel:
 
 | Surface | Current evidence | Practical next action |
 | --- | --- | --- |
-| `Fw` | paper-reference `rcim_retuned_GBM19_Fw` leads current curve diagnostics. | Run Track 2D offset, centered-shape, amplitude, phase, and condition audit before selecting a forward retraining family. |
-| `Bw` | `periodic_gru_sequence_Bw` is the strongest practical repository-owned backward candidate. | Run Track 2D to decide whether the backward issue is offset-limited or shape-limited before retraining periodic temporal models. |
+| `Fw` | paper-reference `rcim_retuned_GBM19_Fw` leads current curve diagnostics. | Run CVP 1.4 offset, centered-shape, amplitude, phase, and condition audit before selecting a forward retraining family. |
+| `Bw` | `periodic_gru_sequence_Bw` is the strongest practical repository-owned backward candidate. | Run CVP 1.4 to decide whether the backward issue is offset-limited or shape-limited before retraining periodic temporal models. |
 | `global` | `periodic_lstm_sequence_global` is the strongest screened global neural candidate. | Keep a dedicated global branch and audit offset/shape separately instead of folding it into the backward winner. |
 
 Full-curve diagnostics remain strictly post-prediction and must preserve the
 causal runtime input contract.
 
-The `Track 2D` full-matrix audit is complete in:
+The `CVP 1.4` full-matrix audit is complete in:
 
 - `doc/reports/analysis/track2/mean_offset_full_matrix_audit/[2026-06-03]/track2d_mean_offset_full_matrix_audit.md`
 
-Current `Track 2D` observations:
+Current `CVP 1.4` observations:
 
 | Finding | Interpretation |
 | --- | --- |
@@ -229,21 +232,21 @@ Next planned diagnostic and training decision branches:
 
 | Branch | Scope | Status |
 | --- | --- | --- |
-| `Track 2D Mean-Offset Full-Matrix Audit` | Apply raw, offset, centered-shape, amplitude, harmonic phase, and condition-stratified metrics to the full official Track 2 candidate matrix. | completed |
+| `CVP 1.4 Mean-Offset Full-Matrix Audit` | Apply raw, offset, centered-shape, amplitude, harmonic phase, and condition-stratified metrics to the full official curve-verification candidate matrix. | completed |
 | Offset-aware checkpoint selection | Monitor curve-bias, centered-shape, P95, harmonic phase, then scalar `val_mae`. | next decision candidate |
 | Curve-aware loss branch | Add pointwise, bias, centered-shape, slope, harmonic amplitude, and harmonic phase terms while preserving causal inputs. | next decision candidate |
 | Component-offset identification | Test whether curve offset is dominated by `a_0` / `Component 0`, multiple components, condition/regime behavior, or experimental repeatability limits. | measured `h0`, signed-offset cross-check, and predicted-mean surface diagnostics completed; `h0` is the right mean channel, but the actionable issue is model-side mean-surface bias/compression |
-| `Track 2H` dispersion-aware modeling probes | Test robust losses, quantile or probabilistic heads, mixture-density heads, and latent-state or hysteresis-aware features on the offset and fragile-harmonic problem. | robust-loss, quantile/probabilistic, MDN, and `Track 2H-L` latent-state / hysteresis-aware campaigns and official Track 2 refreshes completed; all are exploratory and not promoted |
-| `Wave 3` hybrid structured models | Combine harmonic structure, condition-conditioned residual learning, and explicit grouped treatment of stable and fragile harmonic bands. | first real `wave3_harmonic_prior_residual` campaign and official `Track 2` verification refresh closed as a verified exploratory baseline, not promoted |
-| `Wave 4` PINN formulation and first PINN | Test soft physics, periodicity, smoothness, harmonic-consistency, and operating-condition constraints in a first narrow PINN branch. | `Wave 4A` MMT diagnostic and parameter inventory are generated; dataset-aligned calibration and `Wave 4B` / `Wave 4C` decision gates remain open |
-| Integrated multi-task / multi-head model branch | Shared causal trunk with separate offset, low-frequency, centered-shape, uncertainty or mixture, and optional structured-residual heads. | deferred until `Track 2H`, `Wave 3`, and `Wave 4` identify which mechanisms should be integrated |
+| `Wave 4 series` dispersion-aware modeling probes | Test robust losses, quantile or probabilistic heads, mixture-density heads, and latent-state or hysteresis-aware features on the offset and fragile-harmonic problem. | robust-loss, quantile/probabilistic, MDN, and `Wave 4.4` latent-state / hysteresis-aware campaigns and official TE Curve Verification refreshes completed; all are exploratory and not promoted |
+| `Wave 5.1` hybrid structured models | Combine harmonic structure, condition-conditioned residual learning, and explicit grouped treatment of stable and fragile harmonic bands. | first real `wave3_harmonic_prior_residual` campaign and official `TE Curve Verification Pipeline` verification refresh closed as a verified exploratory baseline, not promoted |
+| `Wave 5.2` PINN formulation and first PINN | Test soft physics, periodicity, smoothness, harmonic-consistency, and operating-condition constraints in a first narrow PINN branch. | `Wave 5.2A` MMT diagnostic and parameter inventory are generated; dataset-aligned calibration and `Wave 5.2B` / `Wave 5.2C` decision gates remain open |
+| Wave 6 integrated multi-task / multi-head model branch | Shared causal trunk with separate offset, low-frequency, centered-shape, uncertainty or mixture, and optional structured-residual heads. | deferred until `Wave 4 series`, `Wave 5.1`, and `Wave 5.2` identify which mechanisms should be integrated |
 | Sequential residual calibration branch | Current best causal model plus second causal residual or offset calibrator trained on model error. | candidate after audit |
 
-The `Track 2E` offset-predictability feasibility diagnostic is complete in:
+The `CVP 1.5` offset-predictability feasibility diagnostic is complete in:
 
 - `doc/reports/analysis/track2/offset_predictability_feasibility/[2026-06-03]/track2e_offset_predictability_feasibility.md`
 
-Current `Track 2E` observations:
+Current `CVP 1.5` observations:
 
 | Finding | Interpretation |
 | --- | --- |
@@ -254,9 +257,9 @@ Current `Track 2E` observations:
 
 Recommended next gate:
 
-- treat `Wave 4` first-PINN formulation as the next physics-informed branch
-  after the hidden-state question is tested or explicitly deferred; `Wave 4`
-  resumes from the `Wave 4A` MMT diagnostic report, completed parameter
+- treat `Wave 5.2` first-PINN formulation as the next physics-informed branch
+  after the hidden-state question is tested or explicitly deferred; `Wave 5.2`
+  resumes from the `Wave 5.2A` MMT diagnostic report, completed parameter
   inventory, and dataset-aligned calibration gate;
 - do not document `a_0` / `Component 0` as the confirmed sole cause unless
   repeatability, component-level error, and model-side surface diagnostics
@@ -356,16 +359,16 @@ Delivered:
 - retuned closeout report:
   `doc/reports/analysis/rcim_paper_reference/rcim_retuned_reference_closeout/[2026-05-13]/rcim_retuned_reference_closeout_report.md`;
 - retuned values integrated into the canonical RCIM Tables `2`-`5` benchmark
-  and Track 2 comparison matrix.
+  and curve-verification comparison matrix.
 
 Operational meaning:
 
-- forward `Track 1` cells compare against the better value between paper
+- forward `RCIM Model-Bank Reproduction` cells compare against the better value between paper
   original and paper retuned;
-- backward `Track 1` cells compare against paper retuned, because the paper
+- backward `RCIM Model-Bank Reproduction` cells compare against paper retuned, because the paper
   does not provide backward original tables.
 
-### Track 1 RCIM Paper-Faithful Model Bank
+### RCIM Model-Bank Reproduction RCIM Paper-Faithful Model Bank
 
 Status:
 
@@ -391,11 +394,11 @@ Delivered:
 
 Closure rule:
 
-- `Track 1` is closed because the faithful full-bank protocol was run in both
+- `RCIM Model-Bank Reproduction` is closed because the faithful full-bank protocol was run in both
   directions and all benchmark cells were repopulated.
-- Green-only status is not a `Track 1` closure requirement.
+- Green-only status is not a `RCIM Model-Bank Reproduction` closure requirement.
 - Any all-green pursuit, restricted-dataset rerun, or target-parameterization
-  search is a new optimization branch, not a reopening of closed `Track 1`.
+  search is a new optimization branch, not a reopening of closed `RCIM Model-Bank Reproduction`.
 
 Artifact rule:
 
@@ -405,7 +408,7 @@ Artifact rule:
   `output/validation_checks/paper_reimplementation_rcim_harmonic_wise/`
   stay out of Git tracking and Git LFS;
 - only curated accepted archives under `models/paper_reference/rcim_track1/`
-  are the `Track 1` paper-reference model surface.
+  are the `RCIM Model-Bank Reproduction` paper-reference model surface.
 
 ### Wave 1 Structured Static Baselines
 
@@ -435,7 +438,7 @@ Operational meaning:
   comparisons;
 - the current `Wave 1` scalar HPO leader is a baseline, not sufficient
   compensation evidence by itself;
-- future `Wave 1B` work should first rerank accepted artifacts on Track 2
+- future `Wave 1B` work should first rerank accepted artifacts on TE Curve Verification Pipeline
   curve metrics before retraining or adding losses;
 - any `Wave 1B` retraining must keep the same pointwise operating-state input
   contract unless a later approved deployment note explicitly supports a causal
@@ -448,7 +451,7 @@ Operational meaning:
 
 ## In Progress
 
-### Track 2 Directional Offline Comparison
+### TE Curve Verification Pipeline Directional Offline Comparison
 
 Status:
 
@@ -471,34 +474,34 @@ Current comparison surface:
 
 Candidate groups:
 
-- accepted `Track 1` forward and backward family banks;
+- accepted `RCIM Model-Bank Reproduction` forward and backward family banks;
 - recovered original forward family banks;
 - retuned forward and backward family banks;
 - `Wave 1` exported `global`, `forward`, and `backward` models;
-- `Wave 2` temporal `global`, `forward`, and `backward` registry models;
+- `Wave 2.1` temporal `global`, `forward`, and `backward` registry models;
 - composed best-reference candidates for paper original, paper retuned, and
-  `Track 1`.
+  `RCIM Model-Bank Reproduction`.
 
-Current Track 2 leaders by source:
+Current curve-verified leaders by source:
 
 | Direction | Source | Candidate | Mean percentage error [%] |
 | --- | --- | --- | ---: |
 | forward | paper original | `paper_original_best_Fw` | 6.250 |
 | forward | paper retuned | `paper_retuned_best_Fw` | 4.109 |
-| forward | Track 1 | `track1_best_Fw` | 6.819 |
+| forward | RCIM Model-Bank Reproduction | `track1_best_Fw` | 6.819 |
 | backward | paper retuned | `paper_retuned_best_Bw` | 7.572 |
-| backward | Track 1 | `track1_best_Bw` | 11.860 |
+| backward | RCIM Model-Bank Reproduction | `track1_best_Bw` | 11.860 |
 
 Backward baseline rule:
 
 - the paper does not provide a paper-original backward reference surface;
 - `paper_retuned_best_Bw` is therefore the canonical paper-derived backward
-  baseline for `Track 2` and `Target A`;
+  baseline for `TE Curve Verification Pipeline` and `Target A`;
 - future backward comparisons should report against this retuned baseline
   unless a later approved technical document defines a stronger backward paper
   proxy.
 
-Best individual family candidates currently visible in Track 2:
+Best individual family candidates currently visible in TE Curve Verification Pipeline:
 
 | Direction | Candidate | Mean percentage error [%] |
 | --- | --- | ---: |
@@ -509,7 +512,7 @@ Official closeout package:
 
 - the official verification report consolidates the direction-aware metric
   matrix, best-model collage PDF, multi-model curve comparison PDF, and future
-  `Track 2` campaign update ledger;
+  `TE Curve Verification Pipeline` campaign update ledger;
 - future model-verification updates must refresh the matrix, visual reports,
   official PDF, and this backlog before new candidates are accepted.
 
@@ -517,18 +520,18 @@ Official closeout package:
 
 ### Planned Next Step
 
-After the completed `Track 2B`, `Track 2C`, mean-centered collage,
-`Track 2D` full-matrix, h0/error cross-check, predicted-mean h0 surface
-diagnostics, and completed `Track 2H` robust/probabilistic/MDN refreshes, the
+After the completed `CVP 1.1`, `CVP 1.2`, mean-centered collage,
+`CVP 1.4` full-matrix, h0/error cross-check, predicted-mean h0 surface
+diagnostics, and completed `Wave 4.1` robust/probabilistic/MDN refreshes, the
 active next step is:
 
-- prepare the first real `Wave 3` harmonic-prior residual campaign before any
+- prepare the first real `Wave 5.1` harmonic-prior residual campaign before any
   integrated multi-head campaign;
-- use the completed `Track 2H` probes as loss-policy evidence, not as the
+- use the completed `Wave 4 series` probes as loss-policy evidence, not as the
   final architecture;
 - keep latent-state / hysteresis-aware modeling available as an alternate
   branch if preload or protocol-state behavior is explicitly prioritized;
-- then execute `Wave 4` first-PINN work as a separate evidence-generating
+- then execute `Wave 5.2` first-PINN work as a separate evidence-generating
   branch;
 - only after those probes decide which mechanisms belong in the integrated
   multi-task / multi-head architecture.
@@ -540,13 +543,13 @@ The previous temporal refresh answered three concrete questions:
 - final decision: temporal models are verified exploratory baselines and are
   not promoted over `tree`.
 
-### Post-Track-2 Decision
+### Post-Verification Decision
 
-Default decision path after Track 2 closeout:
+Default decision path after TE Curve Verification closeout:
 
-- treat Track 2 curve-following quality as the promotion surface for future
+- treat TE Curve Verification Pipeline curve-following quality as the promotion surface for future
   compensation-relevant candidates;
-- use completed `Track 2D Mean-Offset Full-Matrix Audit` before changing model
+- use completed `CVP 1.4 Mean-Offset Full-Matrix Audit` before changing model
   families, checkpoint monitors, or training losses;
 - use the completed h0 diagnostics to keep `h0` as the primary mean-surface
   channel while avoiding the unsupported claim that it is the only cause;
@@ -554,9 +557,9 @@ Default decision path after Track 2 closeout:
   first PINN before committing to a large integrated multi-head architecture;
 - preserve causal runtime inputs: point-level state, optional short past
   history, and causal derived features only;
-- keep `Wave 2` temporal models as verified exploratory baselines;
-- keep the same `global`, `forward`, and `backward` surface rule for Wave 2;
-- use `Wave 1` and Track 2 as the comparison baseline for every Wave 2 family;
+- keep `Wave 2.1` temporal models as verified exploratory baselines;
+- keep the same `global`, `forward`, and `backward` surface rule for Wave 2.1;
+- use `Wave 1` and TE Curve Verification Pipeline as the comparison baseline for every Wave 2.1 family;
 - keep paper-alignment bridge work available only if the user explicitly
   reopens a narrower offline paper-alignment question before temporal-model
   exploration.
@@ -588,8 +591,8 @@ Current offline evidence:
 - paper retuned backward best composite is the accepted backward baseline at
   `7.572%`;
 - retuned individual `GBM` forward and backward candidates are currently the
-  strongest Track 2 offline family references;
-- `Track 1` remains closed as faithful reproduction evidence, not as the
+  strongest TE Curve Verification Pipeline offline family references;
+- `RCIM Model-Bank Reproduction` remains closed as faithful reproduction evidence, not as the
   optimized winner.
 
 Closeout verdict:
@@ -628,7 +631,7 @@ rather than end-to-end equivalent.
 
 Status:
 
-- deferred until Track 2 is closed or explicitly promoted.
+- deferred until TE Curve Verification Pipeline is closed or explicitly promoted.
 
 Scope if promoted:
 
@@ -646,7 +649,7 @@ Candidate artifact root:
 
 - `output/validation_checks/paper_reimplementation_rcim_harmonic_wise/`
 
-### Track 1 Restricted-Dataset Future Rerun
+### RCIM Model-Bank Reproduction Restricted-Dataset Future Rerun
 
 Status:
 
@@ -654,15 +657,15 @@ Status:
 
 Entry rule:
 
-- do not use this branch to overwrite the closed full-dataset `Track 1` status;
+- do not use this branch to overwrite the closed full-dataset `RCIM Model-Bank Reproduction` status;
 - create new campaign names, output roots, archive namespaces, and comparison
   reports for every restricted-dataset level.
 
 Required scope if promoted:
 
-- rerun the closed `Track 1` paper-faithful model-bank protocol on one or more
+- rerun the closed `RCIM Model-Bank Reproduction` paper-faithful model-bank protocol on one or more
   restricted dataset variants;
-- keep the current full-dataset `Track 1` archive and benchmark as immutable
+- keep the current full-dataset `RCIM Model-Bank Reproduction` archive and benchmark as immutable
   comparison anchors;
 - revisit the recovered-workflow pickle cache contract so restricted-dataset
   experiments use explicit cache partitioning;
@@ -706,7 +709,7 @@ Planned scope:
 
 Boundary:
 
-- Track 3 is not `Wave 3`; `Wave 3` remains an offline hybrid structured-model
+- Track 3 is not `Wave 5.1`; `Wave 5.1` remains an offline hybrid structured-model
   exploration branch.
 - Track 3 absorbs the old future online Pipelines `8-10`, `Target B`, and the
   deferred TwinCAT deployment-evaluation branch.
@@ -762,7 +765,7 @@ Entry rule:
 - results report: completed;
 - status: closed.
 
-### Track 1. RCIM Paper-Faithful Model Bank
+### RCIM Model-Bank Reproduction. RCIM Paper-Faithful Model Bank
 
 - recovered original workflow: preserved;
 - original-dataset reimplementation: completed;
@@ -774,14 +777,14 @@ Entry rule:
 - status: closed as faithful full-bank reproduction, not all-green
   optimization.
 
-### Track 2. Directional Offline Comparison
+### TE Curve Verification Pipeline. Directional Offline Comparison
 
 - direction-aware loader and candidate matrix: completed;
 - recovered original forward candidates: included;
 - retuned forward and backward candidates: included;
-- `Track 1` forward and backward candidates: included;
+- `RCIM Model-Bank Reproduction` forward and backward candidates: included;
 - `Wave 1` `global`, `forward`, and `backward` exports: included;
-- `Wave 2` temporal `global`, `forward`, and `backward` registry candidates:
+- `Wave 2.1` temporal `global`, `forward`, and `backward` registry candidates:
   included;
 - grouped source tables: completed;
 - composite best-reference visibility: completed;
@@ -792,10 +795,10 @@ Entry rule:
   next analysis branch;
 - status: closed.
 
-### Wave 2. Temporal Models
+### Wave 2.1. Temporal Models
 
 - status: entry campaign completed; closeout report prepared; official
-  `Track 2` refresh completed;
+  `TE Curve Verification Pipeline` refresh completed;
 - initial families: `temporal_convolution`, `gru_sequence`, `lstm_sequence`;
 - configuration root: `config/training/hydra/wave2/`;
 - preliminary campaign plan:
@@ -808,15 +811,15 @@ Entry rule:
   `doc/reports/analysis/track2/wave2_temporal_model_refresh_plan/[2026-05-24]/track2_wave2_temporal_model_refresh_plan.md`;
 - official verification report:
   `doc/reports/analysis/track2/official_model_verification_report/[2026-05-24]/track2_official_model_verification_report.md`;
-- Track 2 decision: verified exploratory baselines, not promoted over `tree`;
+- curve-verification decision: verified exploratory baselines, not promoted over `tree`;
 - mandatory rule: prepare or justify `global`, `forward`, and `backward`
   surfaces;
-- baseline comparison: Track 2 plus closed Wave 1.
+- baseline comparison: TE Curve Verification Pipeline plus closed Wave 1.
 
-### Wave 2B. Harmonic Temporal Hybrid Models
+### Wave 2.2. Harmonic Temporal Hybrid Models
 
 - status: harmonic-temporal hybrid campaign completed; normal closeout report
-  prepared; official `Track 2` refresh completed;
+  prepared; official `TE Curve Verification Pipeline` refresh completed;
 - families: `periodic_temporal_convolution`, `periodic_gru_sequence`,
   `periodic_lstm_sequence`;
 - configuration root:
@@ -829,19 +832,19 @@ Entry rule:
   `periodic_gru_sequence_bw`, with test MAE `0.002344 deg`;
 - strongest bidirectional candidate: `te_periodic_gru_sequence_remote_global`
   from family `periodic_gru_sequence`, with test MAE `0.002681 deg`;
-- Track 2 decision: strongest repository-owned neural branch after official
+- curve-verification decision: strongest repository-owned neural branch after official
   verification; `periodic_gru_sequence_Bw` is the strongest backward-only
   candidate and `periodic_gru_sequence_global` is the strongest global neural
   candidate;
 - mandatory rule: prepare or justify `global`, `forward`, and `backward`
   surfaces;
-- baseline comparison: official Track 2 matrix plus visual collage and overlay
+- baseline comparison: official curve-verification matrix plus visual collage and overlay
   reports.
 
-### Wave 2C. Residual Harmonic Temporal Hybrid Models
+### Wave 2.3. Residual Harmonic Temporal Hybrid Models
 
 - status: residual harmonic temporal hybrid campaign completed; official
-  `Track 2` refresh completed;
+  `TE Curve Verification Pipeline` refresh completed;
 - families: `residual_harmonic_gru_sequence`,
   `residual_harmonic_lstm_sequence`;
 - harmonic banks: sparse `RCIM`, dense `240`, dense `360`;
@@ -849,45 +852,45 @@ Entry rule:
   `doc/reports/campaign_results/wave_2/2026-05-28-11-35-34_wave2c_residual_harmonic_temporal_hybrid_campaign_results_report.md`;
 - official verification report:
   `doc/reports/analysis/track2/official_model_verification_report/[2026-05-28]/track2_official_model_verification_report.md`;
-- strongest Wave 2C forward candidate:
-  `residual_harmonic_gru_sequence_sparse_rcim_Fw`, Track 2 MAE
+- strongest Wave 2.3 forward candidate:
+  `residual_harmonic_gru_sequence_sparse_rcim_Fw`, curve-verification MAE
   `0.003194 deg`;
-- strongest Wave 2C backward candidate:
-  `residual_harmonic_lstm_sequence_sparse_rcim_Bw`, Track 2 MAE
+- strongest Wave 2.3 backward candidate:
+  `residual_harmonic_lstm_sequence_sparse_rcim_Bw`, curve-verification MAE
   `0.003440 deg`;
-- strongest Wave 2C global candidate:
-  `residual_harmonic_lstm_sequence_sparse_rcim_global`, Track 2 MAE
+- strongest Wave 2.3 global candidate:
+  `residual_harmonic_lstm_sequence_sparse_rcim_global`, curve-verification MAE
   `0.003368 deg`;
-- Track 2 decision: verified exploratory baseline, not promoted over the
-  `Wave 2B` periodic sequence leaders;
+- curve-verification decision: verified exploratory baseline, not promoted over the
+  `Wave 2.2` periodic sequence leaders;
 - design conclusion: sparse `RCIM` harmonics remain useful, while dense `240`
   and dense `360` harmonic banks are not competitive for this residual
   temporal branch.
 
-### Track 2F. Offset-Aware Sequential Residual Probe
+### Wave 3.1. Offset-Aware Sequential Residual Probe
 
-- status: offset-aware probe campaign completed; official `Track 2` matrix
+- status: offset-aware probe campaign completed; official `TE Curve Verification Pipeline` matrix
   refresh completed;
 - family: `sequential_residual_offset_probe`;
 - official verification report:
   `doc/reports/analysis/track2/official_model_verification_report/[2026-06-04]/track2_official_model_verification_report.md`;
-- strongest Track 2F forward candidate:
-  `sequential_residual_offset_probe_Fw`, Track 2 MAE `0.003377 deg`;
-- strongest Track 2F backward candidate:
-  `sequential_residual_offset_probe_Bw`, Track 2 MAE `0.003636 deg`;
-- strongest Track 2F global candidate:
-  `sequential_residual_offset_probe_global`, combined Track 2 MAE
+- strongest Wave 3.1 forward candidate:
+  `sequential_residual_offset_probe_Fw`, curve-verification MAE `0.003377 deg`;
+- strongest Wave 3.1 backward candidate:
+  `sequential_residual_offset_probe_Bw`, curve-verification MAE `0.003636 deg`;
+- strongest Wave 3.1 global candidate:
+  `sequential_residual_offset_probe_global`, combined curve-verification MAE
   `0.003536 deg`;
-- Track 2 decision: verified exploratory baseline, not promoted over the
-  accepted paper-derived, `tree`, or `Wave 2B` periodic sequence leaders;
+- curve-verification decision: verified exploratory baseline, not promoted over the
+  accepted paper-derived, `tree`, or `Wave 2.2` periodic sequence leaders;
 - design conclusion: a sequential residual offset head alone does not solve
   the curve-following gap; the next branch should test explicit offset
   calibration or multi-task offset/shape training.
 
-### Track 2F-Bis. Harmonic-Offset Probe
+### Wave 3.2. Harmonic-Offset Probe
 
 - status: campaign completed after runner registration repair; official
-  `Track 2` matrix refresh completed;
+  `TE Curve Verification Pipeline` matrix refresh completed;
 - families:
   - `track2f_bis_clean_sequential_residual_offset_global`;
   - `track2f_bis_clean_sequential_residual_offset_fw`;
@@ -917,24 +920,24 @@ Entry rule:
 - harmonic backward candidate:
   `te_track2f_bis_harmonic_residual_offset_bw`, scalar test MAE
   `0.003336 deg`;
-- strongest Track 2F-bis forward candidate:
-  `track2f_bis_harmonic_residual_offset_Fw`, Track 2 MAE `0.002850 deg`;
-- strongest Track 2F-bis backward candidate:
-  `track2f_bis_harmonic_residual_offset_Bw`, Track 2 MAE `0.003331 deg`;
-- strongest Track 2F-bis global candidate:
-  `track2f_bis_clean_sequential_residual_offset_global`, combined Track 2 MAE
+- strongest Wave 3.2 forward candidate:
+  `track2f_bis_harmonic_residual_offset_Fw`, curve-verification MAE `0.002850 deg`;
+- strongest Wave 3.2 backward candidate:
+  `track2f_bis_harmonic_residual_offset_Bw`, curve-verification MAE `0.003331 deg`;
+- strongest Wave 3.2 global candidate:
+  `track2f_bis_clean_sequential_residual_offset_global`, combined curve-verification MAE
   `0.003522 deg`;
-- Track 2 decision: verified exploratory baseline, not promoted over the
-  accepted paper-derived, `tree`, or `Wave 2B` periodic sequence leaders;
+- curve-verification decision: verified exploratory baseline, not promoted over the
+  accepted paper-derived, `tree`, or `Wave 2.2` periodic sequence leaders;
 - design conclusion: harmonic forcing helps the direction-specific `Fw` and
   `Bw` branches, but the harmonic global model improves forward behavior while
   degrading backward behavior; the next branch should use curve-aware loss or
   multi-task shape/offset training rather than relying on harmonic forcing
   alone.
 
-### Track 2H. Dispersion-Aware Robust-Loss Probe
+### Wave 4.1. Dispersion-Aware Robust-Loss Probe
 
-- status: robust-loss campaign completed; official `Track 2` matrix refresh
+- status: robust-loss campaign completed; official `TE Curve Verification Pipeline` matrix refresh
   completed as a `141`-candidate direction-aware verification package;
 - families:
   - `track2h_dispersion_aware_mae_robust_global`;
@@ -958,22 +961,22 @@ Entry rule:
   `te_track2h_smooth_l1_robust_bw`, scalar test MAE `0.003074 deg`;
 - campaign scalar winner:
   `te_track2h_smooth_l1_robust_bw`;
-- Track 2 strongest forward candidate:
-  `track2h_mae_robust_Fw`, Track 2 MAE `0.003134 deg`;
-- Track 2 strongest backward candidate:
-  `track2h_smooth_l1_robust_Bw`, Track 2 MAE `0.003078 deg`;
-- Track 2 strongest global candidate:
-  `track2h_mae_robust_global`, Track 2 MAE `0.003401 deg`;
-- Track 2 decision: verified exploratory baseline, not promoted over the
+- TE Curve Verification Pipeline strongest forward candidate:
+  `track2h_mae_robust_Fw`, curve-verification MAE `0.003134 deg`;
+- TE Curve Verification Pipeline strongest backward candidate:
+  `track2h_smooth_l1_robust_Bw`, curve-verification MAE `0.003078 deg`;
+- TE Curve Verification Pipeline strongest global candidate:
+  `track2h_mae_robust_global`, curve-verification MAE `0.003401 deg`;
+- curve-verification decision: verified exploratory baseline, not promoted over the
   accepted direction-parallel leaders;
 - design conclusion: robust losses are useful enough to keep in the
   dispersion-aware plan, especially on `Bw`, but are not sufficient by
   themselves; the next package should move to quantile or probabilistic
   regression before mixture-density and latent-state variants.
 
-### Track 2H. Quantile Probabilistic Probe
+### Wave 4.2. Quantile Probabilistic Probe
 
-- status: quantile/probabilistic campaign completed; official `Track 2` matrix
+- status: quantile/probabilistic campaign completed; official `TE Curve Verification Pipeline` matrix
   refresh completed as a `147`-candidate direction-aware verification package;
 - families:
   - `track2h_quantile_probabilistic_quantile_p10_p50_p90_global`;
@@ -987,25 +990,25 @@ Entry rule:
 - official verification report:
   `doc/reports/analysis/track2/official_model_verification_report/[2026-06-12]/track2_official_model_verification_report.md`;
 - strongest probabilistic global candidate:
-  `track2h_gaussian_nll_global`, combined Track 2 MAE `0.003009 deg`;
+  `track2h_gaussian_nll_global`, combined curve-verification MAE `0.003009 deg`;
 - strongest probabilistic forward-only candidate:
-  `track2h_gaussian_nll_Fw`, Track 2 MAE `0.003156 deg`;
+  `track2h_gaussian_nll_Fw`, curve-verification MAE `0.003156 deg`;
 - strongest probabilistic forward-evaluated candidate:
-  `track2h_gaussian_nll_global`, Track 2 MAE `0.002951 deg`;
+  `track2h_gaussian_nll_global`, curve-verification MAE `0.002951 deg`;
 - strongest probabilistic backward candidate:
-  `track2h_quantile_p10_p50_p90_Bw`, Track 2 MAE `0.002935 deg`;
-- Track 2 decision: verified exploratory baseline, not promoted over the
+  `track2h_quantile_p10_p50_p90_Bw`, curve-verification MAE `0.002935 deg`;
+- curve-verification decision: verified exploratory baseline, not promoted over the
   accepted direction-parallel leaders;
 - design conclusion: probabilistic losses improve over robust losses on the
-  best `global` and `Bw` Track 2 surfaces, and MDN improves the best Track 2H
+  best `global` and `Bw` TE Curve Verification Pipeline surfaces, and MDN improves the best Wave 4 series
   `Bw` branch further, but the accepted periodic temporal branch remains
   stronger; MDN is a verified exploratory baseline, so the next default branch
-  is the first real `Wave 3` hybrid structured campaign unless
+  is the first real `Wave 5.1` hybrid structured campaign unless
   latent-state / hysteresis-aware compensation is explicitly prioritized.
 
-### Track 2H. Mixture Density Heads Probe
+### Wave 4.3. Mixture Density Heads Probe
 
-- status: mixture-density heads campaign completed; official `Track 2` matrix
+- status: mixture-density heads campaign completed; official `TE Curve Verification Pipeline` matrix
   refresh completed;
 - families:
   - `track2h_mixture_density_heads_mdn_k2_global`;
@@ -1026,30 +1029,30 @@ Entry rule:
   `te_track2h_mdn_k3_fw`, scalar test MAE `0.003235 deg`;
 - strongest MDN backward candidate:
   `te_track2h_mdn_k2_bw`, scalar test MAE `0.002658 deg`;
-- strongest Track 2 forward MDN candidate:
+- strongest TE Curve Verification Pipeline forward MDN candidate:
   `track2h_mdn_k3_Fw`, curve MAE `0.003226 deg`;
-- strongest Track 2 backward MDN candidate:
+- strongest TE Curve Verification Pipeline backward MDN candidate:
   `track2h_mdn_k2_Bw`, curve MAE `0.002668 deg`;
-- strongest Track 2 global MDN candidate:
+- strongest TE Curve Verification Pipeline global MDN candidate:
   `track2h_mdn_k2_global`, combined curve MAE `0.003499 deg`;
 - campaign scalar winner:
   `te_track2h_mdn_k2_bw`;
 - program scalar winner changed: no, `te_periodic_gru_sequence_remote_Bw`
   remains stronger with test MAE `0.002344 deg`;
-- Track 2 decision: verified exploratory baseline, not promoted over the
+- curve-verification decision: verified exploratory baseline, not promoted over the
   accepted direction-parallel leaders;
 - design conclusion: MDN improves the scalar `Bw` dispersion-aware branch by
   `9.19%` versus the previous best probabilistic `Bw` result and by about
-  `13.5%` versus the robust-loss `Bw` result; the official Track 2 matrix
+  `13.5%` versus the robust-loss `Bw` result; the official curve-verification matrix
   confirms the same backward advantage, but MDN is weaker on `global` and `Fw`;
   mixture diagnostics show effective component counts near `1.0`, so the
   result should be treated as useful MDN training pressure, not confirmed
   learned multimodality.
 
-### Track 2H-L. Latent-State Hysteresis Probe
+### Wave 4.4. Latent-State Hysteresis Probe
 
 - status: latent-state / hysteresis-aware campaign completed; official
-  `Track 2` matrix refresh completed as a verified exploratory baseline, not
+  `TE Curve Verification Pipeline` matrix refresh completed as a verified exploratory baseline, not
   promoted;
 - families:
   - `track2h_latent_state_hysteresis_gru_offset_residual_global`;
@@ -1060,33 +1063,33 @@ Entry rule:
   - `track2h_latent_state_hysteresis_causal_tcn_offset_residual_bw`;
 - closeout report:
   `doc/reports/campaign_results/track_2/campaign_closeouts/2026-06-17-01-27-10_track2h_latent_state_hysteresis_campaign_results_report.md`;
-- official Track 2 report:
+- official TE curve-verification report:
   `doc/reports/analysis/track2/official_model_verification_report/[2026-06-18]/track2_official_model_verification_report.md`;
-- official Track 2 matrix:
+- official curve-verification matrix:
   `165` candidates; source label `track2h_latent_state_hysteresis_registry`;
-- strongest `2H-L` global candidate:
+- strongest `Wave 4.4` global candidate:
   `te_track2h_l_causal_tcn_offset_residual_global`, scalar test MAE
   `0.003368 deg`;
-- strongest `2H-L` forward candidate:
+- strongest `Wave 4.4` forward candidate:
   `te_track2h_l_causal_tcn_offset_residual_fw`, scalar test MAE
   `0.003470 deg`;
-- strongest `2H-L` backward candidate:
+- strongest `Wave 4.4` backward candidate:
   `te_track2h_l_gru_offset_residual_bw`, scalar test MAE `0.003545 deg`;
 - campaign scalar winner:
   `te_track2h_l_causal_tcn_offset_residual_global`;
 - program scalar winner changed: no, `te_periodic_gru_sequence_remote_Bw`
   remains stronger with test MAE `0.002344 deg`;
-- scalar comparison: `2H-L` improves the `global` scalar surface versus MDN
+- scalar comparison: `Wave 4.4` improves the `global` scalar surface versus MDN
   and robust-loss `global` baselines, but remains behind the Gaussian-NLL
   probabilistic `global` candidate and is weaker than existing `Fw` and `Bw`
   dispersion-aware leaders;
-- official Track 2 strongest refreshed candidates:
+- official TE Curve Verification Pipeline strongest refreshed candidates:
   `track2h_l_causal_tcn_offset_residual_global`, combined curve MAE
   `0.003372 deg`;
   `track2h_l_causal_tcn_offset_residual_Fw`, forward curve MAE
   `0.003476 deg`; and `track2h_l_gru_offset_residual_Bw`, backward curve MAE
   `0.003542 deg`;
-- Track 2 decision: verified exploratory baseline, not promoted over
+- curve-verification decision: verified exploratory baseline, not promoted over
   `rcim_retuned_GBM19_Fw`, `periodic_gru_sequence_Bw`, or the accepted global
   neural `periodic_gru_sequence_global`;
 - design conclusion: causal history is useful as a diagnostic signal, but this
@@ -1095,10 +1098,10 @@ Entry rule:
   integration evidence for later multi-head designs, not as a promoted
   standalone branch.
 
-### Wave 3. Hybrid Structured Models
+### Wave 5.1. Hybrid Structured Models
 
 - status: first real campaign closed successfully as a scalar training
-  benchmark; official `Track 2` curve verification completed as a verified
+  benchmark; official `TE Curve Verification Pipeline` curve verification completed as a verified
   exploratory baseline, not promoted;
 - current scaffold:
   - model type: `wave3_harmonic_prior_residual`;
@@ -1121,16 +1124,16 @@ Entry rule:
   (`test_mae=0.003363`, `test_rmse=0.003902`);
 - scalar decision: no program-best promotion; the current program winner
   remains `te_periodic_gru_sequence_remote_Bw` (`test_mae=0.002344`);
-- official Track 2 launcher:
+- official TE Curve Verification Pipeline launcher:
   `scripts/campaigns/track_2/run_wave3_harmonic_prior_residual_track2_verification_refresh.ps1`;
-- official Track 2 report:
+- official TE curve-verification report:
   `doc/reports/analysis/track2/official_model_verification_report/[2026-06-15]/track2_official_model_verification_report.md`;
-- strongest Wave 3 Track 2 candidate:
-  `wave3_harmonic_prior_residual_pointwise_control_Bw`, Track 2 MAE
+- strongest Wave 5.1 TE Curve Verification Pipeline candidate:
+  `wave3_harmonic_prior_residual_pointwise_control_Bw`, curve-verification MAE
   `0.003360 deg`;
-- updated priority: use the completed Wave 3 curve, offset, collage, overlay,
-  and completed `Track 2H-L` official Track 2 evidence as baselines for the
-  next `Wave 4` or integrated multi-head decision;
+- updated priority: use the completed Wave 5.1 curve, offset, collage, overlay,
+  and completed `Wave 4.4` official TE Curve Verification Pipeline evidence as baselines for the
+  next `Wave 5.2` or integrated multi-head decision;
 - mandatory rule: prepare or justify `global`, `forward`, and `backward`
   surfaces;
 - paper-reproduction scope:
@@ -1140,13 +1143,13 @@ Entry rule:
   - prepare the repository-owned deployable predictor package after the
     research branch has identified a viable structure.
 - next implementation steps:
-  - proceed to `Wave 4` / integrated multi-head planning with hidden-state
+  - proceed to `Wave 5.2` / integrated multi-head planning with hidden-state
     modeling treated as verified exploratory integration evidence, not as a
     promoted branch.
 
-### Wave 4. PINN Formulation And First PINN
+### Wave 5.2. PINN Formulation And First PINN
 
-- status: pre-implemented at `Wave 4A` diagnostic level, not campaign-ready;
+- status: pre-implemented at `Wave 5.2A` diagnostic level, not campaign-ready;
 - current scaffold:
   - diagnostic adapter:
     `scripts/models/wave4_mmt_diagnostic_adapter.py`;
@@ -1163,8 +1166,8 @@ Entry rule:
   - parameter-inventory artifacts:
     `output/validation_checks/wave4_mmt_parameter_inventory/2026-06-11-20-29-51__wave4a_mmt_parameter_inventory/`;
 - updated priority: execute dataset-aligned diagnostic calibration after the
-  `Wave 3` smoke/campaign decision, then decide whether `Wave 4B` features or
-  `Wave 4C` soft losses are justified;
+  `Wave 5.1` smoke/campaign decision, then decide whether `Wave 5.2B` features or
+  `Wave 5.2C` soft losses are justified;
 - mandatory rule: prepare or justify `global`, `forward`, and `backward`
   surfaces;
 - paper-reproduction scope:
@@ -1173,7 +1176,7 @@ Entry rule:
   - test whether soft physics, periodicity, smoothness, harmonic-consistency,
     and operating-condition constraints reduce offset and fragile-harmonic
     errors;
-  - keep online compensation execution out of Wave 4 unless Track 3 is
+  - keep online compensation execution out of Wave 5.2 unless Track 3 is
     explicitly promoted first.
 - completed inventory conclusions:
   - known geometry constants are safe for diagnostics and feature generation;
@@ -1186,9 +1189,9 @@ Entry rule:
   - compare MMT diagnostic signatures against dataset-aligned curve summaries
     without leakage;
   - design a train-only equivalent-error calibration policy for candidate
-    `Wave 4B` features;
+    `Wave 5.2B` features;
   - decide whether the MMT path remains diagnostic-only, becomes a feature
-    generator (`Wave 4B`), or becomes a weak soft-constraint loss (`Wave 4C`);
+    generator (`Wave 5.2B`), or becomes a weak soft-constraint loss (`Wave 5.2C`);
   - do not treat the current demonstration harmonic summary as dataset
     causality.
 
@@ -1225,14 +1228,14 @@ Entry rule:
   program-level `current_best_solution.yaml`;
 - the recovered original workflow is provenance evidence, while curated
   `models/paper_reference/` archives are the active comparison surface;
-- `Track 1` is closed under the revised closure rule and should not be reopened
+- `RCIM Model-Bank Reproduction` is closed under the revised closure rule and should not be reopened
   for all-green optimization;
-- `Track 2` is the canonical offline verification baseline; diagnostic
-  extensions now continue as Track 2B, Track 2C, mean-centered collage, and
-  completed `Track 2D`;
+- `TE Curve Verification Pipeline` is the canonical offline verification baseline; diagnostic
+  extensions now continue as CVP 1.1, CVP 1.2, mean-centered collage, and
+  completed `CVP 1.4`;
 - the next planned branch before any new broad model-family wave is an
   offset-aware training or calibration design selected from the completed
-  Track 2D failure-mode labels;
+  CVP 1.4 failure-mode labels;
 - future wave planning must keep direction-separated modeling and reporting in
   scope from the start;
 - Track 3 is the future online compensation and deployment-evaluation branch;

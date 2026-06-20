@@ -1,4 +1,4 @@
-# Track 1 Exact Paper Backward Placeholder
+# RCIM Model-Bank Reproduction Exact Paper Backward Placeholder
 
 This folder is reserved for future `backward` exact-paper validation reports.
 

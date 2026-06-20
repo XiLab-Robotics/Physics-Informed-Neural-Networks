@@ -1,4 +1,4 @@
-"""Validate the prepared Track 2H-L latent-state hysteresis package."""
+"""Validate the prepared Wave 4.4 latent-state hysteresis package."""
 
 from __future__ import annotations
 
@@ -68,7 +68,7 @@ def resolve_surface_key(training_variant: str) -> str:
 
 def validate_queue_matrix(queue_config_list: list[dict[str, Any]]) -> None:
 
-    """Validate the 2 by 3 Track 2H-L queue matrix."""
+    """Validate the 2 by 3 Wave 4.4 queue matrix."""
 
     assert len(queue_config_list) == 6, f"Expected 6 queue configs | found={len(queue_config_list)}"
 
@@ -97,11 +97,11 @@ def validate_queue_matrix(queue_config_list: list[dict[str, Any]]) -> None:
 
         assert loss.get("profile") == loss_profile, "Loss profile mismatch between metadata and training block"
         assert loss.get("pointwise_loss") == "smooth_l1", "2H-L package should use guarded smooth L1"
-        assert dataset.get("collate_mode") == "sequence", "Track 2H-L entries must use sequence batches"
-        assert dataset.get("sequence_target_position") == "last", "Track 2H-L target must be the last causal sample"
-        assert dataset.get("shuffle_training_batch_elements") is False, "Track 2H-L keeps ordered per-curve windows"
+        assert dataset.get("collate_mode") == "sequence", "Wave 4.4 entries must use sequence batches"
+        assert dataset.get("sequence_target_position") == "last", "Wave 4.4 target must be the last causal sample"
+        assert dataset.get("shuffle_training_batch_elements") is False, "Wave 4.4 keeps ordered per-curve windows"
         assert int(dataset.get("sequence_length", 0)) == 33, "Unexpected sequence length"
-        assert str(model.get("readout_position", "")) == "last", "Track 2H-L readout must be last"
+        assert str(model.get("readout_position", "")) == "last", "Wave 4.4 readout must be last"
         assert str(model.get("latent_encoder_type", "")) == EXPECTED_PROFILE_DICTIONARY[loss_profile]
         assert int(model.get("output_size", 0)) == 1, "2H-L deterministic output size must be one"
         assert int(model.get("latent_hidden_size", 0)) > 0, "Latent hidden size must be positive"
@@ -119,8 +119,8 @@ def validate_queue_matrix(queue_config_list: list[dict[str, Any]]) -> None:
     }
     missing_pair_set = expected_pair_set.difference(observed_pair_set)
     unexpected_pair_set = observed_pair_set.difference(expected_pair_set)
-    assert not missing_pair_set, f"Missing Track 2H-L queue pairs | {sorted(missing_pair_set)}"
-    assert not unexpected_pair_set, f"Unexpected Track 2H-L queue pairs | {sorted(unexpected_pair_set)}"
+    assert not missing_pair_set, f"Missing Wave 4.4 queue pairs | {sorted(missing_pair_set)}"
+    assert not unexpected_pair_set, f"Unexpected Wave 4.4 queue pairs | {sorted(unexpected_pair_set)}"
 
 
 def validate_model_instantiation(queue_config_list: list[dict[str, Any]]) -> None:
@@ -177,8 +177,8 @@ def validate_active_campaign_state() -> None:
     """Validate persistent active campaign state."""
 
     active_state = read_yaml_file(PROJECT_PATH / ACTIVE_CAMPAIGN_STATE_PATH)
-    assert active_state.get("status") == "prepared", "Track 2H-L campaign state is not prepared."
-    assert active_state.get("campaign_name") == CAMPAIGN_NAME, "Active state does not point at Track 2H-L."
+    assert active_state.get("status") == "prepared", "Wave 4.4 campaign state is not prepared."
+    assert active_state.get("campaign_name") == CAMPAIGN_NAME, "Active state does not point at Wave 4.4."
     queue_config_path_list = active_state.get("queue_config_path_list", [])
     assert isinstance(queue_config_path_list, list), "queue_config_path_list must be a list"
     assert len(queue_config_path_list) == 6, "Active state must record 6 queue configs"
@@ -212,7 +212,7 @@ def main() -> int:
         validate_active_campaign_state()
 
     print(
-        "Track 2H-L latent-state hysteresis package validated | "
+        "Wave 4.4 latent-state hysteresis package validated | "
         f"queue_entries={len(queue_config_list)} | "
         f"profiles={len(EXPECTED_PROFILE_DICTIONARY)} | surfaces={len(EXPECTED_SURFACE_LIST)}"
     )

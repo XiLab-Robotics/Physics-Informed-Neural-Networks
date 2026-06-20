@@ -1,8 +1,8 @@
-# Track 1 Overnight Gap-Closure Campaign Preparation
+# RCIM Model-Bank Reproduction Overnight Gap-Closure Campaign Preparation
 
 ## Overview
 
-This technical document defines the next `Track 1` preparation step after the
+This technical document defines the next `RCIM Model-Bank Reproduction` preparation step after the
 canonical `paper vs repository` replication of paper Tables `3`, `4`, `5`, and
 `6`.
 
@@ -19,7 +19,7 @@ still-open TE-level offline benchmark tied to `Target A`.
 
 The preparation must stay honest about the current software surface:
 
-- the harmonic-wise `Track 1` evaluator is the only branch that emits the
+- the harmonic-wise `RCIM Model-Bank Reproduction` evaluator is the only branch that emits the
   TE-level offline metric used for `Target A`;
 - the current harmonic-wise pipeline supports `hist_gradient_boosting` and
   `random_forest` estimator families;
@@ -82,4 +82,4 @@ current repository context.
 4. Launch the overnight batch and keep the shared offline evaluator as the
    winner gate for `Target A`.
 5. After execution, produce the campaign-results report and update the
-   canonical benchmark reports before any closure claim on `Track 1`.
+   canonical benchmark reports before any closure claim on `RCIM Model-Bank Reproduction`.

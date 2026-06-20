@@ -1,7 +1,7 @@
-# Track 1 Open-Cell Full-Matrix Closure Campaigns Launcher
+# RCIM Model-Bank Reproduction Open-Cell Full-Matrix Closure Campaigns Launcher
 
 This launcher runs the full overnight open-cell closure sequence for all
-nine non-`SVM` exact-paper families under the canonical `Track 1` table
+nine non-`SVM` exact-paper families under the canonical `RCIM Model-Bank Reproduction` table
 replication focus.
 
 - family launcher count: `9`

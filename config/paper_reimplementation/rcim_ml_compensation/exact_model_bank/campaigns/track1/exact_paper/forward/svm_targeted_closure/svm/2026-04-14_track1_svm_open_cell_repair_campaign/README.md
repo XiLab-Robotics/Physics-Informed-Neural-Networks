@@ -1,8 +1,8 @@
-# Track 1 SVM Open-Cell Repair Campaign Package
+# RCIM Model-Bank Reproduction SVM Open-Cell Repair Campaign Package
 
 This directory contains the prepared YAML package for the dedicated `SVR`
 repair campaign against the currently open `SVM` cells in the canonical
-`Track 1` benchmark.
+`RCIM Model-Bank Reproduction` benchmark.
 
 The package is organized as one umbrella campaign with `12` explicit runs:
 

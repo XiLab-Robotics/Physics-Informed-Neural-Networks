@@ -1,14 +1,14 @@
-# Wave 3 Grouped Harmonic Heads Skeleton
+# Wave 5.1 Grouped Harmonic Heads Skeleton
 
 ## Overview
 
-This technical document defines the next non-campaign `Wave 3` parallel-work
+This technical document defines the next non-campaign `Wave 5.1` parallel-work
 step: prepare an implementation skeleton for `wave3_grouped_harmonic_heads`.
 
 The current `wave3_harmonic_prior_residual` skeleton is already
 training-smoke-ready, but it remains not campaign-ready while the separate
-`Track 2H` quantile / probabilistic campaign runs on another workstation.
-This step advances the second `Wave 3` architecture candidate without
+`Wave 4.2` quantile / probabilistic campaign runs on another workstation.
+This step advances the second `Wave 5.1` architecture candidate without
 launching training, creating queue YAMLs, mutating
 `doc/running/active_training_campaign.yaml`, or selecting final loss defaults.
 
@@ -31,7 +31,7 @@ The first implementation pass should:
 - reuse existing feedforward and harmonic-basis patterns where possible;
 - expose auxiliary tensors for each harmonic group and residual branch;
 - support rank-2 point batches and rank-3 sequence batches through the same
-  readout conventions used by the existing `Wave 3` skeleton;
+  readout conventions used by the existing `Wave 5.1` skeleton;
 - add a dry-run config template and validator;
 - keep the skeleton explicitly `implementation_ready` and
   `not_campaign_ready`;
@@ -40,7 +40,7 @@ The first implementation pass should:
 
 Because the implementation touches PyTorch-facing model code, Context7 must be
 used before coding. Final loss choices, branch weights, regularization policy,
-queue surfaces, and launch mode must wait for `Track 2H` closeout and a later
+queue surfaces, and launch mode must wait for `Wave 4 series` closeout and a later
 approved campaign plan.
 
 ## Involved Components
@@ -81,7 +81,7 @@ task boundary, and approval requirement must be recorded before launch.
 1. Create and approve this technical document.
 2. Create and approve the paired preliminary non-campaign plan report.
 3. Use Context7 for PyTorch-facing model implementation details.
-4. Inspect the existing `Wave 3` skeleton, harmonic regression model, model
+4. Inspect the existing `Wave 5.1` skeleton, harmonic regression model, model
    factory, and dry-run validators.
 5. Implement `Wave3GroupedHarmonicHeadsNetwork` with explicit low, middle,
    high, residual, and combined outputs.
@@ -92,7 +92,7 @@ task boundary, and approval requirement must be recorded before launch.
    sequence forward, and auxiliary output keys.
 9. Add a PowerShell dry-run wrapper and launcher note that clearly state that
    no training campaign is launched.
-10. Update the Wave 3 design report, documentation indexes, and Sphinx API
+10. Update the Wave 5.1 design report, documentation indexes, and Sphinx API
     entries if the model becomes user-facing.
 11. Verify Python compilation, validator execution, dry-run launcher
     execution, scoped Markdown QA, Sphinx `-W` if portal scope changes, and

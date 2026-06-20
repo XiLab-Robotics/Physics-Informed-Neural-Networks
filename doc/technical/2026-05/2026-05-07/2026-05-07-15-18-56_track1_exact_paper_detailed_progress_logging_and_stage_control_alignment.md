@@ -1,9 +1,9 @@
-# Track 1 Exact-Paper Detailed Progress Logging And Stage Control Alignment
+# RCIM Model-Bank Reproduction Exact-Paper Detailed Progress Logging And Stage Control Alignment
 
 ## Overview
 
 This document plans a combined observability and control-surface upgrade for
-the `Track 1` exact-paper reimplementation under
+the `RCIM Model-Bank Reproduction` exact-paper reimplementation under
 `scripts/paper_reimplementation/rcim_ml_compensation/`.
 
 The immediate operator problem is that the active paper-faithful bidirectional

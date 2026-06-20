@@ -1,9 +1,9 @@
-# Track 2 Component Offset Identification Inputs
+# TE Curve Verification Pipeline Component Offset Identification Inputs
 
 ## Overview
 
 This report prepares measured component-offset input tables for the
-`Track 2` component-offset identification branch. It does not train
+`TE Curve Verification Pipeline` component-offset identification branch. It does not train
 models, alter registries, or assert that `a_0` / `Component 0` is the
 confirmed cause of the observed curve-offset symptom.
 

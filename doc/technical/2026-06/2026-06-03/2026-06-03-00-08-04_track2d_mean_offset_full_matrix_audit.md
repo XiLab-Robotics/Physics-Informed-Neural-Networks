@@ -1,12 +1,12 @@
-# Track 2D Mean-Offset Full-Matrix Audit
+# CVP 1.4 Mean-Offset Full-Matrix Audit
 
 ## Overview
 
-This document plans the next analysis step after the `Track 2` mean-centered
+This document plans the next analysis step after the `TE Curve Verification Pipeline` mean-centered
 collage diagnostic and the mean-offset strategy update.
 
 The goal is to scale the mean-centered finding from the selected collage
-curves to the official `Track 2` candidate matrix. The audit must determine
+curves to the official `TE Curve Verification Pipeline` candidate matrix. The audit must determine
 whether each candidate is primarily limited by vertical curve offset, centered
 waveform shape, amplitude, harmonic phase, or operating-condition regime.
 
@@ -15,8 +15,8 @@ structure, change runtime inputs, or promote a new best model by itself.
 
 ## Technical Approach
 
-Implement a repository-owned `Track 2D` report builder that reuses the
-direction-aware `Track 2` candidate matrix and causal inference path.
+Implement a repository-owned `CVP 1.4` report builder that reuses the
+direction-aware `TE Curve Verification Pipeline` candidate matrix and causal inference path.
 
 For every direction-valid candidate and evaluated curve, compute:
 
@@ -29,7 +29,7 @@ For every direction-valid candidate and evaluated curve, compute:
 - selected sparse-`RCIM` harmonic amplitude and phase error when the curve has
   enough angular samples for a stable harmonic fit;
 - condition-stratified summaries by direction, speed, torque, temperature, and
-  valid-window identifiers available in the `Track 2` payload.
+  valid-window identifiers available in the `TE Curve Verification Pipeline` payload.
 
 The report should classify each candidate as:
 
@@ -75,10 +75,10 @@ Reference inputs:
 
 ## Implementation Steps
 
-1. Inspect the existing `Track 2B`, `Track 2C`, and mean-centered collage
+1. Inspect the existing `CVP 1.1`, `CVP 1.2`, and mean-centered collage
    builders to reuse candidate loading, prediction payload loading, report
    writing, and plotting conventions.
-2. Add the `Track 2D` full-matrix audit script with deterministic output
+2. Add the `CVP 1.4` full-matrix audit script with deterministic output
    paths and CLI arguments for report date, source matrix, and optional
    candidate filtering.
 3. Export machine-readable artifacts:
@@ -93,7 +93,7 @@ Reference inputs:
 5. Generate a styled PDF companion using the repository report pipeline and
    validate the real exported PDF.
 6. Update the TE live backlog and Training Results Master Summary so the next
-   training decision is based on the Track 2D failure-mode classification.
+   training decision is based on the CVP 1.4 failure-mode classification.
 7. Add script-level documentation under `doc/scripts/reports/analysis/` and
    register the new report and script documentation from `doc/README.md`.
 8. Run scoped Python checks for the new script and scoped Markdown QA for all

@@ -23,8 +23,8 @@ metadata:
   runtime_input_contract: current point state plus previous operating-state samples only
   causal_window_contract: sequence_target_position=last and readout_position=last; no future samples are used
   forbidden_inputs: measured TE, curve mean, held-out full-curve statistics, future samples, post-prediction centering
-  promotion_rule: Candidate must return through normal closeout and separate official Track 2 curve-first verification.
-  baseline_control: Completed Track 2H robust/probabilistic/MDN probes plus Wave 3 harmonic-prior residual
+  promotion_rule: Candidate must return through normal closeout and separate official TE curve-first verification.
+  baseline_control: Completed Wave 4.1 robust/probabilistic/MDN probes plus Wave 5.1 harmonic-prior residual
   notes: Compact causal GRU hidden state over previous operating-state samples.
 dataset:
   curve_batch_size: 2

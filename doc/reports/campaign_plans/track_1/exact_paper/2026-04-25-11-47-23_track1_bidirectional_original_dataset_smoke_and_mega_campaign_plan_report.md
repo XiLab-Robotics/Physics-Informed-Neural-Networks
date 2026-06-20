@@ -1,8 +1,8 @@
-# Track 1 Bidirectional Original-Dataset Smoke And Mega Campaign Plan Report
+# RCIM Model-Bank Reproduction Bidirectional Original-Dataset Smoke And Mega Campaign Plan Report
 
 ## Overview
 
-This planning report defines the next `Track 1` execution wave after the
+This planning report defines the next `RCIM Model-Bank Reproduction` execution wave after the
 folder-taxonomy refactor and after the introduction of the new
 `original_dataset_exact_model_bank` workflow.
 
@@ -86,7 +86,7 @@ Planned benchmark changes:
 - mark all repository-side cells as pending until the new original-dataset
   runs are produced;
 - explicitly state that the prior recovered exact-paper wave is historical and
-  no longer the active `Track 1` benchmark baseline.
+  no longer the active `RCIM Model-Bank Reproduction` benchmark baseline.
 
 ## Mega-Campaign Target Surface
 

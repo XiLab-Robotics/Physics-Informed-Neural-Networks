@@ -1,14 +1,14 @@
-# Track 1 MLP Residual Cell Final Closure Campaign
+# RCIM Model-Bank Reproduction MLP Residual Cell Final Closure Campaign
 
 ## Overview
 
-This technical document defines the next dedicated `Track 1` preparation step
+This technical document defines the next dedicated `RCIM Model-Bank Reproduction` preparation step
 for the exact-paper `MLP` family after the completed `MLP` family repair wave
 reduced the accepted row to only `7` non-green cells across the canonical
 full-matrix replication benchmark.
 
 The user requested a follow-up `MLP` campaign that focuses only on the
-remaining residual cells in the four canonical `Track 1` progress tables:
+remaining residual cells in the four canonical `RCIM Model-Bank Reproduction` progress tables:
 
 - `Table 2 - Amplitude MAE Full-Matrix Replication`
 - `Table 3 - Amplitude RMSE Full-Matrix Replication`

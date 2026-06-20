@@ -1,8 +1,8 @@
-# Track 1 Bidirectional Literal-Workflow Refresh Mega Campaign Plan Report
+# RCIM Model-Bank Reproduction Bidirectional Literal-Workflow Refresh Mega Campaign Plan Report
 
 ## Overview
 
-This planning report defines the full `Track 1` bidirectional refresh campaign
+This planning report defines the full `RCIM Model-Bank Reproduction` bidirectional refresh campaign
 that must rerun the exact-paper family bank after the repository implementation
 was realigned to the recovered original RCIM workflow.
 
@@ -12,7 +12,7 @@ the canonical `original_dataset_exact_model_bank` branch.
 
 ## Objective
 
-Generate the new canonical `Track 1` bidirectional baseline from the
+Generate the new canonical `RCIM Model-Bank Reproduction` bidirectional baseline from the
 literalized workflow for all ten exact-paper families and for both playback
 directions.
 
@@ -84,7 +84,7 @@ Total planned campaign runs: `400`
 | Harmonic Scope | full exact-paper `19`-target surface |
 | Smoke Carryover | disabled |
 | Export Policy | ONNX plus Python bundle persistence |
-| Baseline Policy | replace pre-alignment canonical Track 1 baselines after closeout |
+| Baseline Policy | replace pre-alignment canonical RCIM Model-Bank Reproduction baselines after closeout |
 
 ## Generated Artifacts
 

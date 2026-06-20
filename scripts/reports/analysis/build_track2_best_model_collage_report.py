@@ -1,4 +1,4 @@
-"""Build the Track 2 best-model collage report and plot artifacts."""
+"""Build the TE Curve Verification Pipeline best-model collage report and plot artifacts."""
 
 from __future__ import annotations
 
@@ -236,7 +236,7 @@ def build_argument_parser() -> argparse.ArgumentParser:
 
     argument_parser = argparse.ArgumentParser(
         description=(
-            "Generate the Track 2 best-model visual report with one four-curve "
+            "Generate the TE Curve Verification Pipeline best-model visual report with one four-curve "
             "collage per selected reference, Wave 1 directional, and Wave 1 "
             "global candidate."
         )
@@ -245,7 +245,7 @@ def build_argument_parser() -> argparse.ArgumentParser:
         "--config-path",
         type=Path,
         default=DEFAULT_CONFIG_PATH,
-        help="Track 2 comparison config used for reference candidate metadata and dataset loading.",
+        help="TE Curve Verification Pipeline comparison config used for reference candidate metadata and dataset loading.",
     )
     argument_parser.add_argument(
         "--output-root",
@@ -375,7 +375,7 @@ def build_wave1_registry_candidate_configuration_list(family_registry_root: Path
 
 def build_wave2_registry_candidate_configuration_list(family_registry_root: Path) -> list[dict[str, Any]]:
 
-    """Build current-registry Wave 2 temporal candidate configurations."""
+    """Build current-registry Wave 2.1 temporal candidate configurations."""
 
     registry_root_text = shared_training_infrastructure.format_project_relative_path(
         shared_training_infrastructure.resolve_runtime_project_relative_path(family_registry_root)
@@ -420,7 +420,7 @@ def build_wave2_registry_candidate_configuration_list(family_registry_root: Path
 
 def build_wave2c_registry_candidate_configuration_list(family_registry_root: Path) -> list[dict[str, Any]]:
 
-    """Build current-registry Wave 2C residual harmonic temporal candidates."""
+    """Build current-registry Wave 2.3 residual harmonic temporal candidates."""
 
     registry_root_text = shared_training_infrastructure.format_project_relative_path(
         shared_training_infrastructure.resolve_runtime_project_relative_path(family_registry_root)
@@ -458,7 +458,7 @@ def build_wave2c_registry_candidate_configuration_list(family_registry_root: Pat
 
 def build_track2f_registry_candidate_configuration_list(family_registry_root: Path) -> list[dict[str, Any]]:
 
-    """Build current-registry Track 2F offset-aware probe candidates."""
+    """Build current-registry Wave 3.1 offset-aware probe candidates."""
 
     registry_root_text = shared_training_infrastructure.format_project_relative_path(
         shared_training_infrastructure.resolve_runtime_project_relative_path(family_registry_root)
@@ -496,7 +496,7 @@ def build_track2f_registry_candidate_configuration_list(family_registry_root: Pa
 
 def build_track2f_bis_registry_candidate_configuration_list(family_registry_root: Path) -> list[dict[str, Any]]:
 
-    """Build current-registry Track 2F-bis harmonic-offset probe candidates."""
+    """Build current-registry Wave 3.2 harmonic-offset probe candidates."""
 
     registry_root_text = shared_training_infrastructure.format_project_relative_path(
         shared_training_infrastructure.resolve_runtime_project_relative_path(family_registry_root)
@@ -533,7 +533,7 @@ def build_track2f_bis_registry_candidate_configuration_list(family_registry_root
 
 def build_track2g_registry_candidate_configuration_list(family_registry_root: Path) -> list[dict[str, Any]]:
 
-    """Build current-registry Track 2G curve-aware training candidates."""
+    """Build current-registry Wave 3.3 curve-aware training candidates."""
 
     registry_root_text = shared_training_infrastructure.format_project_relative_path(
         shared_training_infrastructure.resolve_runtime_project_relative_path(family_registry_root)
@@ -570,7 +570,7 @@ def build_track2g_registry_candidate_configuration_list(family_registry_root: Pa
 
 def build_track2h_registry_candidate_configuration_list(family_registry_root: Path) -> list[dict[str, Any]]:
 
-    """Build current-registry Track 2H robust-loss candidates."""
+    """Build current-registry Wave 4.1 robust-loss candidates."""
 
     registry_root_text = shared_training_infrastructure.format_project_relative_path(
         shared_training_infrastructure.resolve_runtime_project_relative_path(family_registry_root)
@@ -609,7 +609,7 @@ def build_track2h_quantile_probabilistic_registry_candidate_configuration_list(
     family_registry_root: Path,
 ) -> list[dict[str, Any]]:
 
-    """Build current-registry Track 2H quantile/probabilistic candidates."""
+    """Build current-registry Wave 4.2 quantile/probabilistic candidates."""
 
     registry_root_text = shared_training_infrastructure.format_project_relative_path(
         shared_training_infrastructure.resolve_runtime_project_relative_path(family_registry_root)
@@ -734,7 +734,7 @@ def resolve_report_candidate_configuration_list(
     output_directory: Path,
 ) -> list[dict[str, Any]]:
 
-    """Resolve the selected Track 2 report candidates."""
+    """Resolve the selected TE curve-verification report candidates."""
 
     all_candidate_configuration_list = (
         reference_family_vs_feedforward_support.resolve_track2_candidate_configuration_list(training_config)
@@ -746,7 +746,7 @@ def resolve_report_candidate_configuration_list(
         if str(candidate_configuration["candidate_id"]) in wanted_reference_candidate_id_set
     ]
     assert len(reference_candidate_configuration_list) == len(wanted_reference_candidate_id_set), (
-        "Could not resolve every requested Track 2 reference best candidate."
+        "Could not resolve every requested TE Curve Verification Pipeline reference best candidate."
     )
 
     explicit_candidate_configuration_list = (
@@ -989,85 +989,85 @@ def build_report_group_list(
         ),
         ReportCandidateGroup(
             group_id="forward_wave2",
-            group_title="Forward Wave 2 Temporal Family Best Models",
+            group_title="Forward Wave 2.1 Temporal Family Best Models",
             candidate_id_list=wave2_forward_candidate_id_list,
             selection_mode="forward",
         ),
         ReportCandidateGroup(
             group_id="backward_wave2",
-            group_title="Backward Wave 2 Temporal Family Best Models",
+            group_title="Backward Wave 2.1 Temporal Family Best Models",
             candidate_id_list=wave2_backward_candidate_id_list,
             selection_mode="backward",
         ),
         ReportCandidateGroup(
             group_id="forward_wave2c",
-            group_title="Forward Wave 2C Residual Harmonic Temporal Models",
+            group_title="Forward Wave 2.3 Residual Harmonic Temporal Models",
             candidate_id_list=wave2c_forward_candidate_id_list,
             selection_mode="forward",
         ),
         ReportCandidateGroup(
             group_id="backward_wave2c",
-            group_title="Backward Wave 2C Residual Harmonic Temporal Models",
+            group_title="Backward Wave 2.3 Residual Harmonic Temporal Models",
             candidate_id_list=wave2c_backward_candidate_id_list,
             selection_mode="backward",
         ),
         ReportCandidateGroup(
             group_id="forward_track2f",
-            group_title="Forward Track 2F Offset-Aware Probe Models",
+            group_title="Forward Wave 3.1 Offset-Aware Probe Models",
             candidate_id_list=track2f_forward_candidate_id_list,
             selection_mode="forward",
         ),
         ReportCandidateGroup(
             group_id="backward_track2f",
-            group_title="Backward Track 2F Offset-Aware Probe Models",
+            group_title="Backward Wave 3.1 Offset-Aware Probe Models",
             candidate_id_list=track2f_backward_candidate_id_list,
             selection_mode="backward",
         ),
         ReportCandidateGroup(
             group_id="forward_track2f_bis",
-            group_title="Forward Track 2F-Bis Harmonic-Offset Probe Models",
+            group_title="Forward Wave 3.2 Harmonic-Offset Probe Models",
             candidate_id_list=track2f_bis_forward_candidate_id_list,
             selection_mode="forward",
         ),
         ReportCandidateGroup(
             group_id="backward_track2f_bis",
-            group_title="Backward Track 2F-Bis Harmonic-Offset Probe Models",
+            group_title="Backward Wave 3.2 Harmonic-Offset Probe Models",
             candidate_id_list=track2f_bis_backward_candidate_id_list,
             selection_mode="backward",
         ),
         ReportCandidateGroup(
             group_id="forward_track2g",
-            group_title="Forward Track 2G Curve-Aware Training Models",
+            group_title="Forward Wave 3.3 Curve-Aware Training Models",
             candidate_id_list=track2g_forward_candidate_id_list,
             selection_mode="forward",
         ),
         ReportCandidateGroup(
             group_id="backward_track2g",
-            group_title="Backward Track 2G Curve-Aware Training Models",
+            group_title="Backward Wave 3.3 Curve-Aware Training Models",
             candidate_id_list=track2g_backward_candidate_id_list,
             selection_mode="backward",
         ),
         ReportCandidateGroup(
             group_id="forward_track2h",
-            group_title="Forward Track 2H Robust-Loss Models",
+            group_title="Forward Wave 4.1 Robust-Loss Models",
             candidate_id_list=track2h_forward_candidate_id_list,
             selection_mode="forward",
         ),
         ReportCandidateGroup(
             group_id="backward_track2h",
-            group_title="Backward Track 2H Robust-Loss Models",
+            group_title="Backward Wave 4.1 Robust-Loss Models",
             candidate_id_list=track2h_backward_candidate_id_list,
             selection_mode="backward",
         ),
         ReportCandidateGroup(
             group_id="forward_track2h_quantile_probabilistic",
-            group_title="Forward Track 2H Quantile Probabilistic Models",
+            group_title="Forward Wave 4.2 Quantile Probabilistic Models",
             candidate_id_list=track2h_quantile_probabilistic_forward_candidate_id_list,
             selection_mode="forward",
         ),
         ReportCandidateGroup(
             group_id="backward_track2h_quantile_probabilistic",
-            group_title="Backward Track 2H Quantile Probabilistic Models",
+            group_title="Backward Wave 4.2 Quantile Probabilistic Models",
             candidate_id_list=track2h_quantile_probabilistic_backward_candidate_id_list,
             selection_mode="backward",
         ),
@@ -1079,43 +1079,43 @@ def build_report_group_list(
         ),
         ReportCandidateGroup(
             group_id="global_wave2",
-            group_title="Global Wave 2 Temporal Family Best Models",
+            group_title="Global Wave 2.1 Temporal Family Best Models",
             candidate_id_list=wave2_global_candidate_id_list,
             selection_mode="mixed",
         ),
         ReportCandidateGroup(
             group_id="global_wave2c",
-            group_title="Global Wave 2C Residual Harmonic Temporal Models",
+            group_title="Global Wave 2.3 Residual Harmonic Temporal Models",
             candidate_id_list=wave2c_global_candidate_id_list,
             selection_mode="mixed",
         ),
         ReportCandidateGroup(
             group_id="global_track2f",
-            group_title="Global Track 2F Offset-Aware Probe Models",
+            group_title="Global Wave 3.1 Offset-Aware Probe Models",
             candidate_id_list=track2f_global_candidate_id_list,
             selection_mode="mixed",
         ),
         ReportCandidateGroup(
             group_id="global_track2f_bis",
-            group_title="Global Track 2F-Bis Harmonic-Offset Probe Models",
+            group_title="Global Wave 3.2 Harmonic-Offset Probe Models",
             candidate_id_list=track2f_bis_global_candidate_id_list,
             selection_mode="mixed",
         ),
         ReportCandidateGroup(
             group_id="global_track2g",
-            group_title="Global Track 2G Curve-Aware Training Models",
+            group_title="Global Wave 3.3 Curve-Aware Training Models",
             candidate_id_list=track2g_global_candidate_id_list,
             selection_mode="mixed",
         ),
         ReportCandidateGroup(
             group_id="global_track2h",
-            group_title="Global Track 2H Robust-Loss Models",
+            group_title="Global Wave 4.1 Robust-Loss Models",
             candidate_id_list=track2h_global_candidate_id_list,
             selection_mode="mixed",
         ),
         ReportCandidateGroup(
             group_id="global_track2h_quantile_probabilistic",
-            group_title="Global Track 2H Quantile Probabilistic Models",
+            group_title="Global Wave 4.2 Quantile Probabilistic Models",
             candidate_id_list=track2h_quantile_probabilistic_global_candidate_id_list,
             selection_mode="mixed",
         ),
@@ -1380,12 +1380,12 @@ def build_report_markdown(
     """Build the Markdown report body."""
 
     report_line_list = [
-        "# Track 2 Best Model Collage Report",
+        "# TE Curve Verification Pipeline Best Model Collage Report",
         "",
         "## Overview",
         "",
-        "This report compares representative `Track 2` TE-curve predictions for",
-        "the current best reference, Track 1, Wave 1 directional, and Wave 1",
+        "This report compares representative `TE Curve Verification Pipeline` TE-curve predictions for",
+        "the current best reference, RCIM Model-Bank Reproduction, Wave 1 directional, and Wave 1",
         "global models. Each model is shown as one four-image collage so local",
         "oscillation tracking can be inspected directly.",
         "",
@@ -1433,7 +1433,7 @@ def build_report_markdown(
                         f"{candidate_summary['candidate_id']}:",
                         "",
                         (
-                            f"![{candidate_summary['candidate_id']} Track 2 collage]"
+                            f"![{candidate_summary['candidate_id']} TE Curve Verification Pipeline collage]"
                             f"({candidate_summary['collage_markdown_path']})"
                         ),
                         "",
@@ -1456,7 +1456,7 @@ def build_report_markdown(
 
 def run_track2_best_model_collage_report(arguments: argparse.Namespace) -> dict[str, Any]:
 
-    """Run the full Track 2 best-model collage report generation."""
+    """Run the full TE Curve Verification Pipeline best-model collage report generation."""
 
     repository_path_support.set_runtime_platform(
         repository_path_support.resolve_argument_platform(arguments)
@@ -1645,7 +1645,7 @@ def main() -> None:
     """Run the command-line entry point."""
 
     validation_summary = run_track2_best_model_collage_report(parse_command_line_arguments())
-    print(f"[DONE] Track 2 collage report: {validation_summary['report_path']}")
+    print(f"[DONE] TE Curve Verification Pipeline collage report: {validation_summary['report_path']}")
     print(f"[DONE] Artifacts: {validation_summary['output_directory']}")
 
 

@@ -5,7 +5,7 @@
 This technical document defines the local-history repair needed after the recent
 commit packaging error that mixed two different scopes:
 
-- completed `Track 1` forward last-non-green-cells campaign artifacts and
+- completed `RCIM Model-Bank Reproduction` forward last-non-green-cells campaign artifacts and
   campaign-owned documentation;
 - unrelated `paper_reimplementation` reorganization and documentation changes.
 
@@ -17,8 +17,8 @@ and campaign artifact package remain separated from the RCIM
 
 The rewrite will be performed locally by reworking the recent commit range near:
 
-- `d2a88548c` `Add remaining Track 1 forward last non-green campaign docs`
-- `2523e8f4d` `Close out Track 1 forward last non-green cells campaign`
+- `d2a88548c` `Add remaining RCIM Model-Bank Reproduction forward last non-green campaign docs`
+- `2523e8f4d` `Close out RCIM Model-Bank Reproduction forward last non-green cells campaign`
 - nearby `paper_reimplementation` commits already present above them in the
   local history
 

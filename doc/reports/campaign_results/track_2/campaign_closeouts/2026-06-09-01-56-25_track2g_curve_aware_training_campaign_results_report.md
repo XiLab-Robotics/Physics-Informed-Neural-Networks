@@ -1,11 +1,11 @@
-# Track 2G Curve-Aware Training Campaign Results
+# Wave 3.3 Curve-Aware Training Campaign Results
 
 ## Overview
 
-This report closes the approved `Track 2G` curve-aware training campaign. The
+This report closes the approved `Wave 3.3` curve-aware training campaign. The
 campaign goal was to test whether adding curve-aware loss terms to the
 harmonic residual-offset architecture improves the scalar training surface
-before returning the candidates to official Track 2 curve-first verification.
+before returning the candidates to official TE curve-first verification.
 
 The campaign completed all planned entries:
 
@@ -17,7 +17,7 @@ The campaign completed all planned entries:
 The runner-level scalar first entry is
 `te_track2g_curve_aware_raw_centered_shape_fw`, but this is not a single
 deployment winner. The closeout keeps one best candidate for each required
-surface. Official Track 2 verification remains a separate operator-approved
+surface. Official TE curve verification remains a separate operator-approved
 step.
 
 ## Campaign Artifacts
@@ -75,55 +75,55 @@ branches.
 
 ## Baseline Comparison
 
-| Surface | Track 2G Best | Track 2G MAE | Track 2F-Bis Ref. | Ref. MAE | Delta |
+| Surface | Wave 3.3 Best | Wave 3.3 MAE | Wave 3.2 Ref. | Ref. MAE | Delta |
 | --- | --- | ---: | --- | ---: | ---: |
 | `global` | `full_curve_composite` | 0.003345 | `T2F-bis clean global` | 0.003528 | +5.20% |
 | `Fw` | `raw_centered_shape` | 0.003181 | `T2F-bis harmonic Fw` | 0.002862 | -11.14% |
 | `Bw` | `pointwise_control` | 0.003430 | `T2F-bis harmonic Bw` | 0.003336 | -2.83% |
 
 Scalar training metrics show a mixed result. The full composite loss improves
-the `global` Track 2G scalar branch versus the previous Track 2F-bis global
-control. The `Fw` and `Bw` branches do not beat the strongest Track 2F-bis
+the `global` Wave 3.3 scalar branch versus the previous Wave 3.2 global
+control. The `Fw` and `Bw` branches do not beat the strongest Wave 3.2
 direction-specific harmonic candidates on scalar `test_mae`.
 
-This does not yet decide curve-first promotion. Track 2G was designed to test
-curve-aware behavior, so the next evidence must come from official Track 2
+This does not yet decide curve-first promotion. Wave 3.3 was designed to test
+curve-aware behavior, so the next evidence must come from official TE Curve Verification Pipeline
 curve playback, overlays, offset diagnostics, and mean-centered shape checks.
 
 ## Loss Interpretation
 
 | Loss Profile | Observed Signal | Interpretation |
 | --- | --- | --- |
-| `pointwise_control` | Best `Bw` Track 2G scalar result. | The curve-aware add-ons are not automatically beneficial on the backward branch. |
-| `raw_centered_shape` | Best `Fw` Track 2G scalar result and campaign scalar winner. | Centered-shape pressure is useful for forward scalar training, but not enough to beat Track 2F-bis harmonic `Fw`. |
+| `pointwise_control` | Best `Bw` Wave 3.3 scalar result. | The curve-aware add-ons are not automatically beneficial on the backward branch. |
+| `raw_centered_shape` | Best `Fw` Wave 3.3 scalar result and campaign scalar winner. | Centered-shape pressure is useful for forward scalar training, but not enough to beat Wave 3.2 harmonic `Fw`. |
 | `raw_offset` | No branch winner. | Offset-only pressure did not dominate the first scalar campaign. |
-| `full_curve_composite` | Best `global` Track 2G scalar result. | Combining pointwise, centered-shape, offset, amplitude, and sparse harmonic terms is most promising for the global branch. |
+| `full_curve_composite` | Best `global` Wave 3.3 scalar result. | Combining pointwise, centered-shape, offset, amplitude, and sparse harmonic terms is most promising for the global branch. |
 
-The main modeling result is not "Track 2G wins". The useful result is narrower:
+The main modeling result is not "Wave 3.3 wins". The useful result is narrower:
 the composite objective is promising for `global`, centered-shape is promising
 for `Fw`, and `Bw` still resists the first curve-aware loss profiles.
 
 ## Registry Effects
 
-The campaign runner refreshed family registries for all twelve Track 2G
+The campaign runner refreshed family registries for all twelve Wave 3.3
 families and updated the program registry. The program-level scalar best did
 not move: `te_periodic_gru_sequence_remote_Bw` remains the current scalar
 program winner with test `MAE = 0.002344`.
 
 | Registry Scope | Best Run | Test MAE |
 | --- | --- | ---: |
-| `Track 2G global composite` | `full_curve_composite_global` | 0.003345 |
-| `Track 2G Fw centered-shape` | `raw_centered_shape_fw` | 0.003181 |
-| `Track 2G Bw pointwise` | `pointwise_control_bw` | 0.003430 |
+| `Wave 3.3 global composite` | `full_curve_composite_global` | 0.003345 |
+| `Wave 3.3 Fw centered-shape` | `raw_centered_shape_fw` | 0.003181 |
+| `Wave 3.3 Bw pointwise` | `pointwise_control_bw` | 0.003430 |
 
-## Track 2 Boundary
+## TE Curve Verification Pipeline Boundary
 
-Official Track 2 curve-first verification was not run as part of this normal
+Official TE curve-first verification was not run as part of this normal
 campaign closeout. Under campaign governance, that remains a separate
 operator-approved workflow after this campaign-results report and PDF are
 complete.
 
-The next Track 2 package should add all twelve Track 2G candidates and report
+The next TE Curve Verification Pipeline package should add all twelve Wave 3.3 candidates and report
 the accepted result separately for:
 
 - `global`;
@@ -132,31 +132,31 @@ the accepted result separately for:
 
 The verification must compare raw curve error, centered-shape error, offset,
 amplitude, harmonic behavior, collage plots, and overlay plots against Track
-2F, Track 2F-bis, Wave 2B, and the current accepted Track 2 baselines.
+2F, Wave 3.2, Wave 2.2, and the current accepted TE Curve Verification Pipeline baselines.
 
 ## Closeout Decision
 
-Track 2G is complete from an execution standpoint: all planned candidates have
+Wave 3.3 is complete from an execution standpoint: all planned candidates have
 successful training artifacts, no failed run remains, registries were
 refreshed by the runner, and the active campaign state can be cleared.
 
 From a modeling standpoint:
 
-- carry `full_curve_composite_global` forward as the strongest Track 2G global
+- carry `full_curve_composite_global` forward as the strongest Wave 3.3 global
   scalar candidate;
-- carry `raw_centered_shape_fw` forward as the strongest Track 2G forward
+- carry `raw_centered_shape_fw` forward as the strongest Wave 3.3 forward
   scalar candidate;
-- carry `pointwise_control_bw` forward as the strongest Track 2G backward
+- carry `pointwise_control_bw` forward as the strongest Wave 3.3 backward
   scalar candidate;
-- do not promote Track 2G over Track 2F-bis or Wave 2B before official Track 2
+- do not promote Wave 3.3 over Wave 3.2 or Wave 2.2 before official TE Curve Verification Pipeline
   verification.
 
 ## Recommended Follow-Up
 
 1. Accept this closeout and clear the active campaign state.
-2. Prepare a separate operator-launched Track 2 verification refresh for all
-   twelve Track 2G candidates.
-3. Use the Track 2 result to decide whether Track 2G should continue as a
+2. Prepare a separate operator-launched TE curve verification refresh for all
+   twelve Wave 3.3 candidates.
+3. Use the TE Curve Verification Pipeline result to decide whether Wave 3.3 should continue as a
    loss-only branch or whether the next campaign should move to the explicit
    multi-head shape/offset architecture.
 4. Keep `Fw`, `Bw`, and `global` as parallel branch decisions.

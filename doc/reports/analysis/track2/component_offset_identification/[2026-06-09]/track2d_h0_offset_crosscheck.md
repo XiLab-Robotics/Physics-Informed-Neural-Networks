@@ -1,16 +1,16 @@
-# Track 2D h0 Offset Cross-Check
+# CVP 1.4 h0 Offset Cross-Check
 
 ## Overview
 
-Cross-check of `Track 2D` signed model offset errors against measured `h0` / curve mean over `12416` joined candidate-curve rows and `111` candidates.
+Cross-check of `CVP 1.4` signed model offset errors against measured `h0` / curve mean over `12416` joined candidate-curve rows and `111` candidates.
 
 ## Decision
 
-- `h0` magnitude alone does not explain most Track 2D offset failures.
+- `h0` magnitude alone does not explain most CVP 1.4 offset failures.
 - Median candidate `abs(error)` versus `abs(h0)` correlation is `-0.0152`; mean is `-0.0125`.
 - Median top-decile overlap lift is `1.0000` versus a random-decile baseline of `1.0`; `33` of `111` candidates reach lift `>= 2.0`.
 - `94` of `111` candidates have weak absolute correlation `< 0.25`.
-- Join validation is tight: maximum `Track 2D truth_mean_deg - measured_h0_deg` is `0.0000` deg.
+- Join validation is tight: maximum `CVP 1.4 truth_mean_deg - measured_h0_deg` is `0.0000` deg.
 
 ## Surface Summary
 
@@ -84,13 +84,13 @@ These rows are important because they contradict a pure `h0`-magnitude explanati
 
 ## Interpretation
 
-The cross-check supports a narrower framing: the problematic quantity is still the curve mean / `h0` channel, but the large Track 2D model offset errors do not simply occur where measured `abs(h0)` is large.
+The cross-check supports a narrower framing: the problematic quantity is still the curve mean / `h0` channel, but the large CVP 1.4 model offset errors do not simply occur where measured `abs(h0)` is large.
 This points toward candidate-specific mean prediction bias, direction/regime dependence, or missing causal state information rather than a pure measured-`h0` outlier problem.
 The useful next diagnostic is therefore predicted-mean versus measured-`h0` surface analysis for the high-error candidates, with separate `Fw`, `Bw`, and `global` handling.
 
 ## Scatter Diagnostic
 
-![Track 2D offset error versus measured h0](./assets/track2d_h0_offset_crosscheck_scatter.png)
+![CVP 1.4 offset error versus measured h0](./assets/track2d_h0_offset_crosscheck_scatter.png)
 
 ## Machine-Readable Artifacts
 

@@ -7,7 +7,7 @@ that contain dense campaign tables with long identifiers, mixed metric columns,
 or before/after summary cells that do not fit the default width presets.
 
 The immediate trigger is the validated manual correction of these tables in the
-`Track 1` SVM repair campaign report:
+`RCIM Model-Bank Reproduction` SVM repair campaign report:
 
 - `Ranked Completed Runs`
 - `Table-Level Before Vs After`

@@ -1,13 +1,13 @@
-# Wave 2 Temporal Model Entry Campaign Launcher
+# Wave 2.1 Temporal Model Entry Campaign Launcher
 
 ## Overview
 
-This launcher runs the approved `Wave 2` temporal-model entry campaign. The
+This launcher runs the approved `Wave 2.1` temporal-model entry campaign. The
 package compares `temporal_convolution`, `gru_sequence`, and `lstm_sequence`
 across the required `global`, `Fw`, and `Bw` direction surfaces.
 
-The launcher does not run Track 2 verification by itself. Promotion remains a
-post-campaign closeout step that must refresh the official Track 2 matrix and
+The launcher does not run TE curve verification by itself. Promotion remains a
+post-campaign closeout step that must refresh the official curve-verification matrix and
 visual reports.
 
 ## Campaign Package

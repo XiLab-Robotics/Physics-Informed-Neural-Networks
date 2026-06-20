@@ -21,4 +21,4 @@ foreach ($ConfigPath in $ConfigPathList) {
     }
 }
 
-Write-Host "[DONE] Track 1 bidirectional original-dataset smoke validation completed" -ForegroundColor Green
+Write-Host "[DONE] RCIM Model-Bank Reproduction bidirectional original-dataset smoke validation completed" -ForegroundColor Green

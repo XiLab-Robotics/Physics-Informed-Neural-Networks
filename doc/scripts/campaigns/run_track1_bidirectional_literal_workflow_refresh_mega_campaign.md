@@ -1,8 +1,8 @@
-# Track 1 Bidirectional Literal-Workflow Refresh Mega Campaign Launcher
+# RCIM Model-Bank Reproduction Bidirectional Literal-Workflow Refresh Mega Campaign Launcher
 
 ## Overview
 
-This launcher executes the prepared large-scale `Track 1` bidirectional refresh
+This launcher executes the prepared large-scale `RCIM Model-Bank Reproduction` bidirectional refresh
 campaign built on top of the literalized recovered-original workflow.
 
 The script is stored in:

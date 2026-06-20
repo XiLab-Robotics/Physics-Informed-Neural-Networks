@@ -1,7 +1,7 @@
-# RCIM Track 1 Forward HGBM Reference Models
+# RCIM Model-Bank Reproduction Forward HGBM Reference Models
 
 This archive stores the accepted `HGBM` target-level winners for the
-`forward` branch of the canonical original-dataset Track 1 benchmark surface.
+`forward` branch of the canonical original-dataset RCIM Model-Bank Reproduction benchmark surface.
 
 Archive contents:
 

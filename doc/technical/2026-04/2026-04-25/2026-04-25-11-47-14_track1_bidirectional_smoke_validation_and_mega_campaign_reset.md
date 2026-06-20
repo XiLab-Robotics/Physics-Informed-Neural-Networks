@@ -2,7 +2,7 @@
 
 ## Overview
 
-This task resumes the new `Track 1` bidirectional branch after the repository
+This task resumes the new `RCIM Model-Bank Reproduction` bidirectional branch after the repository
 folder-taxonomy refactor.
 
 The immediate goal is not to launch the full `10 x 19 x 2` training surface,
@@ -18,7 +18,7 @@ to end:
 
 The user also requested a reset of the canonical
 `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md` tables because the
-project is restarting the `Track 1` exact-model replication from zero on the
+project is restarting the `RCIM Model-Bank Reproduction` exact-model replication from zero on the
 original dataset rather than continuing the older recovered forward-only wave.
 
 ## Technical Approach

@@ -25,7 +25,7 @@ The mandatory `Wave 1` families in scope are:
 - `harmonic_regression`
 
 This policy must then become the default preparation rule for future family
-introductions from `Wave 2` onward, so later families are born with
+introductions from `Wave 2.1` onward, so later families are born with
 `global` + `Fw` + `Bw` parity instead of needing a retrofit.
 
 ## Technical Approach
@@ -53,7 +53,7 @@ To keep the implementation inspectable and future-proof, the directional
 variant should be encoded explicitly in configuration metadata and run naming,
 instead of being inferred later from artifact paths alone.
 
-The implementation should also keep the currently running `Track 1`
+The implementation should also keep the currently running `RCIM Model-Bank Reproduction`
 paper-faithful campaign untouched. No protected file from
 `doc/running/active_training_campaign.yaml` should be edited as part of this
 work unless a later explicit approval says otherwise.
@@ -102,5 +102,5 @@ declared before any launch.
 7. Update the canonical `Wave 1` and master-summary analysis documents after
    the retraining campaign is completed and the accepted winners are known.
 8. Promote the directional-bundle rule into the future-family preparation
-   workflow so new `Wave 2+` families are required to declare and prepare all
+   workflow so new `Wave 2.1+` families are required to declare and prepare all
    three variants from the start.

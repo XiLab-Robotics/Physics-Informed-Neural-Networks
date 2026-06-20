@@ -310,12 +310,12 @@ the repository has:
 - explicit structured-vs-black-box comparisons;
 - project references that motivate PLC-side constraints.
 
-### 4. Prepare The Transition To Wave 2 And Wave 3
+### 4. Prepare The Transition To Wave 2.1 And Wave 5.1
 
 The approved roadmap still points toward:
 
-- `Wave 2` temporal models;
-- `Wave 3` hybrid structured models;
+- `Wave 2.1` temporal models;
+- `Wave 5.1` hybrid structured models;
 - later PINN preparation only after the formulation is technically justified.
 
 ## Gaps, Risks, And Cleanup Notes
@@ -352,7 +352,7 @@ The most reasonable near-term next steps are:
    approved reference-analysis material;
 3. keep the residual-harmonic winner as the neural reference point for the next
    comparison phase;
-4. prepare `Wave 2` temporal-model implementation only after the current
+4. prepare `Wave 2.1` temporal-model implementation only after the current
    reporting and backlog cleanup is fully coherent;
 5. preserve the current documentation and `NotebookLM` discipline so future
    work remains easy to explain and reuse.
@@ -362,7 +362,7 @@ The most reasonable near-term next steps are:
 | Horizon | Main Goal | Expected Value |
 | --- | --- | --- |
 | Immediate | Wave 1 closeout cleanup and deployment-branch setup | Keeps the repository state coherent and actionable |
-| Near-term | TwinCAT deployment evaluation + Wave 2 temporal preparation | Tests whether the current winners remain practical beyond offline metrics |
+| Near-term | TwinCAT deployment evaluation + Wave 2.1 temporal preparation | Tests whether the current winners remain practical beyond offline metrics |
 | Mid-term | Temporal and hybrid family implementation | Expands the candidate set beyond static baselines |
 | Longer-term | PINN formulation and first constrained models | Introduces physics-informed structure only when the prerequisites are ready |
 

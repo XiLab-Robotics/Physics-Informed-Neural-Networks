@@ -1,25 +1,25 @@
-# Wave 3 And Wave 4 Parallel Hardening
+# Wave 5.1 And Wave 5.2 Parallel Hardening
 
 ## Overview
 
 This technical document plans the next non-campaign hardening step for the
-recently committed `Wave 3` and `Wave 4A` embryonic skeletons.
+recently committed `Wave 5.1` and `Wave 5.2A` embryonic skeletons.
 
-The goal is to continue useful parallel work while the separate `Track 2H`
-campaign runs on another workstation. This step must not depend on `Track 2H`
-numeric results and must not launch a real `Wave 3` or `Wave 4` campaign.
+The goal is to continue useful parallel work while the separate `Wave 4 series`
+campaign runs on another workstation. This step must not depend on `Wave 4 series`
+numeric results and must not launch a real `Wave 5.1` or `Wave 5.2` campaign.
 
 The work has two coordinated streams:
 
-- make the `Wave 3` harmonic-prior residual skeleton training-smoke-ready;
-- turn the `Wave 4A` MMT adapter into a first diagnostic report generator.
+- make the `Wave 5.1` harmonic-prior residual skeleton training-smoke-ready;
+- turn the `Wave 5.2A` MMT adapter into a first diagnostic report generator.
 
 Both streams remain exploratory. They are intended to reduce integration risk
 before final campaign packaging, not to select winners or promote models.
 
 ## Technical Approach
 
-### Wave 3 Training-Smoke-Ready Stream
+### Wave 5.1 Training-Smoke-Ready Stream
 
 The current `Wave3HarmonicPriorResidualNetwork` already imports, constructs,
 and runs point/sequence forward smoke checks. The next hardening step should
@@ -28,7 +28,7 @@ campaign-ready.
 
 The implementation should:
 
-- add a narrow one-batch validation entry point for the embryonic Wave 3
+- add a narrow one-batch validation entry point for the embryonic Wave 5.1
   template;
 - use the existing training setup and datamodule patterns rather than a custom
   standalone training path;
@@ -36,17 +36,17 @@ The implementation should:
   config metadata and launcher messages;
 - avoid mutating `doc/running/active_training_campaign.yaml`;
 - avoid creating queue YAMLs under active campaign folders;
-- avoid running multi-epoch training or Track 2 verification.
+- avoid running multi-epoch training or TE curve verification.
 
-The one-batch check should answer only this question: can the Wave 3 model
+The one-batch check should answer only this question: can the Wave 5.1 model
 type be loaded from a repository-style config and execute a minimal training
 stack pass without shape, normalization, datamodule, or Lightning-module
 integration errors?
 
 The final robust-loss defaults, queue surfaces, and training duration must wait
-for `Track 2H` results.
+for `Wave 4 series` results.
 
-### Wave 4A Diagnostic Stream
+### Wave 5.2A Diagnostic Stream
 
 The current `Wave4MMTDiagnosticAdapter` can run the repository-owned MMT
 equation-chain demonstration and summarize dominant harmonics. The next step
@@ -81,15 +81,15 @@ Expected documentation components:
 - `doc/guide/project_usage_guide.md`;
 - Sphinx `site/` API or guide entries if new user-facing scripts are added.
 
-Expected Wave 3 implementation components after approval:
+Expected Wave 5.1 implementation components after approval:
 
-- a Wave 3 training-smoke validator under `scripts/campaigns/wave_3/`;
+- a Wave 5.1 training-smoke validator under `scripts/campaigns/wave_3/`;
 - a dry-run PowerShell wrapper under `scripts/campaigns/wave_3/`;
 - a launcher note under `doc/scripts/campaigns/wave_3/`;
 - optional template metadata additions under
   `config/training/wave3_embryonic_skeleton/`.
 
-Expected Wave 4A implementation components after approval:
+Expected Wave 5.2A implementation components after approval:
 
 - a report generator under `scripts/reports/analysis/`;
 - a script note under `doc/scripts/reports/analysis/` or the existing report
@@ -106,19 +106,19 @@ scope and approval requirement must be recorded before launch.
 
 1. Create and approve this technical document.
 2. Create and approve the paired preliminary hardening plan report.
-3. Inspect the current Wave 3 skeleton, training setup validators, and config
+3. Inspect the current Wave 5.1 skeleton, training setup validators, and config
    conventions.
 4. Use Context7 before changing PyTorch or PyTorch Lightning-facing code.
-5. Implement the smallest Wave 3 one-batch validation path that exercises the
+5. Implement the smallest Wave 5.1 one-batch validation path that exercises the
    training stack without creating a campaign queue.
-6. Add a dry-run Wave 3 PowerShell wrapper and launcher note that clearly state
+6. Add a dry-run Wave 5.1 PowerShell wrapper and launcher note that clearly state
    that no training campaign is launched.
-7. Implement the Wave 4A MMT diagnostic report generator and companion output
+7. Implement the Wave 5.2A MMT diagnostic report generator and companion output
    tables.
-8. Update Wave 3 and Wave 4 analysis documents with the new readiness state.
+8. Update Wave 5.1 and Wave 5.2 analysis documents with the new readiness state.
 9. Update `doc/README.md`, `doc/guide/project_usage_guide.md`, and Sphinx
    entries if new user-facing commands are added.
-10. Verify Python compilation, Wave 3 one-batch validation, Wave 4A report
+10. Verify Python compilation, Wave 5.1 one-batch validation, Wave 5.2A report
     generation, Markdown QA, Sphinx build if portal scope changes, and
     `git diff --check`.
 11. Stop for explicit user approval before any commit.
@@ -126,6 +126,6 @@ scope and approval requirement must be recorded before launch.
 ## Approval Gate
 
 This document and the paired plan authorize only a scoped hardening
-implementation after explicit approval. They do not authorize a real `Wave 3`
-or `Wave 4` training campaign, active-campaign state mutation, registry update,
-or official `Track 2` verification refresh.
+implementation after explicit approval. They do not authorize a real `Wave 5.1`
+or `Wave 5.2` training campaign, active-campaign state mutation, registry update,
+or official `TE Curve Verification Pipeline` verification refresh.

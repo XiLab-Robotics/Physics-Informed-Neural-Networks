@@ -1,4 +1,4 @@
-# Track 1 MLP Closeout PDF Targeted Pair Outcome Rebalance
+# RCIM Model-Bank Reproduction MLP Closeout PDF Targeted Pair Outcome Rebalance
 
 ## Overview
 
@@ -24,7 +24,7 @@ the intended table in the styled exporter.
 ## Technical Approach
 
 The implementation will reuse the repository-owned styled PDF pipeline already
-used for the prior `Track 1` closeout layout repairs.
+used for the prior `RCIM Model-Bank Reproduction` closeout layout repairs.
 
 The work will proceed in two parts:
 

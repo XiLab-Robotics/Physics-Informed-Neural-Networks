@@ -42,7 +42,7 @@ function Invoke-Wave3Python {
     $script:LastWave3PythonExitCode = $LASTEXITCODE
 }
 
-Write-Wave3Status -Label "INFO" -Message "Wave 3 embryonic skeleton checks only. Training launch is disabled."
+Write-Wave3Status -Label "INFO" -Message "Wave 5.1 embryonic skeleton checks only. Training launch is disabled."
 
 $compileArgumentList = @(
     "-m",
@@ -63,5 +63,5 @@ if ($script:LastWave3PythonExitCode -ne 0) {
     exit $script:LastWave3PythonExitCode
 }
 
-Write-Wave3Status -Label "DONE" -Message "Wave 3 skeleton is implementation-ready and not campaign-ready."
+Write-Wave3Status -Label "DONE" -Message "Wave 5.1 skeleton is implementation-ready and not campaign-ready."
 exit 0

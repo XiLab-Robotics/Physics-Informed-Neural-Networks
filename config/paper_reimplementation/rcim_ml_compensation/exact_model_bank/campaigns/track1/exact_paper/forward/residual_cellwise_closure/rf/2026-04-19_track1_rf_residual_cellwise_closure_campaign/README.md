@@ -1,4 +1,4 @@
-# Track 1 RF Residual Cellwise Closure Campaign
+# RCIM Model-Bank Reproduction RF Residual Cellwise Closure Campaign
 
 This package contains the aggressive overnight residual-cell closure
 wave for the exact-paper `RF` family.

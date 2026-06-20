@@ -106,7 +106,7 @@ two execution classes:
    - CPU-throttled execution for `tree` and `harmonic_regression`;
    - avoid broad host-level CPU saturation from excessive concurrent search
      workers.
-6. Verify that the unrelated `Track 1` cancelled campaign remains untouched and
+6. Verify that the unrelated `RCIM Model-Bank Reproduction` cancelled campaign remains untouched and
    that none of its protected files are modified by this `Wave 1` campaign
    preparation.
 7. Stop after preparing the technical document in this turn, wait for explicit

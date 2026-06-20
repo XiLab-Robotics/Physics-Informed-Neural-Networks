@@ -111,7 +111,7 @@ Before this campaign is launched:
 1. the package must exist on disk;
 2. `Optuna` must be installed from the tracked `requirements.txt`;
 3. the launcher note must document the GPU-id contract;
-4. the unrelated `Track 1` campaign state must remain untouched;
+4. the unrelated `RCIM Model-Bank Reproduction` campaign state must remain untouched;
 5. the user must explicitly approve the launch.
 
 ## Launch Command

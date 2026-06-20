@@ -23,7 +23,7 @@ metadata:
   use_backward_direction: false
   runtime_input_contract: current point state plus supported short causal sequence
     history only
-  promotion_rule: Candidate must return through official Track 2 curve-first verification
+  promotion_rule: Candidate must return through official TE curve-first verification
     using the deterministic p50 or mu channel.
   harmonic_basis: sparse_rcim
   harmonic_index_list: &id001
@@ -37,7 +37,7 @@ metadata:
   - 156
   - 162
   - 240
-  baseline_control: Completed Track 2H robust-loss candidates
+  baseline_control: Completed Wave 4.1 robust-loss candidates
   notes: Three-quantile pinball objective; p50 is used as the deterministic Track
     2 playback curve.
   output_artifact_kind: training_run

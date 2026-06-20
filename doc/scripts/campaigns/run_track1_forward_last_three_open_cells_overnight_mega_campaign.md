@@ -1,8 +1,8 @@
-# Track 1 Forward Last Three Open Cells Overnight Mega Campaign Launcher
+# RCIM Model-Bank Reproduction Forward Last Three Open Cells Overnight Mega Campaign Launcher
 
 ## Overview
 
-This launcher executes the prepared overnight mega forward-only `Track 1`
+This launcher executes the prepared overnight mega forward-only `RCIM Model-Bank Reproduction`
 original-dataset residual repair campaign.
 
 The script is stored in:

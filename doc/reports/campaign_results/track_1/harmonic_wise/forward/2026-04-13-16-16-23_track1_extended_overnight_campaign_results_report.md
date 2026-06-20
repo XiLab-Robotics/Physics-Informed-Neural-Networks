@@ -1,8 +1,8 @@
-# Track 1 Extended Overnight Campaign Results Report
+# RCIM Model-Bank Reproduction Extended Overnight Campaign Results Report
 
 ## Overview
 
-This report closes the extended `Track 1` campaign prepared in:
+This report closes the extended `RCIM Model-Bank Reproduction` campaign prepared in:
 
 - `doc/reports/campaign_plans/track_1/harmonic_wise/2026-04-13-13-27-37_track1_extended_overnight_campaign_plan_report.md`
 
@@ -28,7 +28,7 @@ The extended batch was organized into six logical experiment blocks:
 
 The campaign had four practical questions:
 
-1. can a much wider low-order search finally beat the current `Track 1` shared-evaluator reference;
+1. can a much wider low-order search finally beat the current `RCIM Model-Bank Reproduction` shared-evaluator reference;
 2. can a heavier low-order budget outperform the lighter winners when the budget is increased aggressively;
 3. can bridge runs that couple `h0/h1` with the late-harmonic cluster close the remaining gap better than isolated ladders;
 4. do engineered terms or `RandomForest` recover enough value to re-enter the promotion discussion under a much broader budget.
@@ -42,11 +42,11 @@ Outcome:
 - the heavy low-order escalation did not beat the lighter wide winner, which means extra budget alone is not enough;
 - engineered-term and `RandomForest` controls remained clearly non-promotable in this branch.
 
-Primary `Track 1` interpretation:
+Primary `RCIM Model-Bank Reproduction` interpretation:
 
-- this campaign does not close `Track 1` by campaign-local winner selection;
+- this campaign does not close `RCIM Model-Bank Reproduction` by campaign-local winner selection;
 - its value is to prioritize the next exact-paper table-repair actions;
-- the canonical `Track 1` closure state must still be read from the exact-paper
+- the canonical `RCIM Model-Bank Reproduction` closure state must still be read from the exact-paper
   Tables `3-6` comparison report.
 
 ## Ranking Policy
@@ -161,12 +161,13 @@ Its result was:
 
 This run is useful as support evidence because it is the lowest-error completed
 candidate under the shared offline evaluator, but it is not the canonical
-`Track 1` closure signal.
+`RCIM Model-Bank Reproduction` closure signal.
 
-## Primary Track 1 Readout
+## Primary RCIM Model-Bank Reproduction Readout
 
-For `Track 1`, the relevant readout from this campaign is which repair
-directions should now be prioritized against the still-open paper-table cells.
+For `RCIM Model-Bank Reproduction`, the relevant readout from this campaign is
+which repair directions should now be prioritized against the still-open
+paper-table cells.
 
 The main conclusions are:
 
@@ -177,7 +178,7 @@ The main conclusions are:
 - isolated late-harmonic repair remains useful but is weaker than the best
   coupled branch;
 - engineered terms and `RandomForest` still do not deserve primary runtime
-  budget in the next `Track 1` repair cycle.
+  budget in the next `RCIM Model-Bank Reproduction` repair cycle.
 
 ## Interpretation By Experiment Block
 
@@ -242,13 +243,14 @@ Interpretation:
   no-engineering `HGBM` path;
 - `RandomForest` remained far from competitive even after the campaign budget
   was widened and deepened;
-- the next `Track 1` push should not spend primary budget on either of these directions.
+- the next `RCIM Model-Bank Reproduction` push should not spend primary budget
+  on either of these directions.
 
 ## Recommended Next Step
 
 The batch improved the supporting harmonic-wise evaluator, but the gain is
-still incremental and does not change the canonical `Track 1` closure status
-by itself.
+still incremental and does not change the canonical
+`RCIM Model-Bank Reproduction` closure status by itself.
 
 The most defensible next step is:
 

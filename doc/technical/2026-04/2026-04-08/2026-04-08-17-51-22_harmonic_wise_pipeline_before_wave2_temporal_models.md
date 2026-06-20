@@ -3,9 +3,9 @@
 ## Overview
 
 This task changes the immediate roadmap priority between the completed `Wave 1`
-stage and the future `Wave 2` temporal-model branch.
+stage and the future `Wave 2.1` temporal-model branch.
 
-The previous backlog wording still treated `Wave 2` temporal models as the next
+The previous backlog wording still treated `Wave 2.1` temporal models as the next
 main implementation branch. The user has now clarified a different priority:
 before opening the temporal-model wave, the repository should first implement a
 stable paper-aligned harmonic-wise prediction pipeline that creates a stronger
@@ -17,7 +17,7 @@ temporal-model work.
 ## Technical Approach
 
 The live backlog should be updated so the immediate execution branch is no
-longer described as `Wave 2 temporal models`.
+longer described as `Wave 2.1 temporal models`.
 
 Instead, the next main branch should become an explicit intermediate
 `harmonic-wise pipeline` stage focused on:
@@ -48,7 +48,7 @@ documentation and planning realignment.
 ## Implementation Steps
 
 1. Update the live backlog so the immediate next execution branch is the
-   harmonic-wise paper-aligned pipeline rather than `Wave 2` temporal models.
+   harmonic-wise paper-aligned pipeline rather than `Wave 2.1` temporal models.
 2. Reposition the temporal-model wave behind that intermediate branch while
    keeping it planned for later.
 3. Align the paper-reference benchmark report with the same priority change.

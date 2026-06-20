@@ -1,9 +1,9 @@
-# Track 1 Remaining Family Partial Closeout And Benchmark Refresh
+# RCIM Model-Bank Reproduction Remaining Family Partial Closeout And Benchmark Refresh
 
 ## Overview
 
 This document formalizes the next repository step after the interrupted
-`Track 1` remaining-family exact-paper campaign sequence.
+`RCIM Model-Bank Reproduction` remaining-family exact-paper campaign sequence.
 
 The current observable state is:
 
@@ -32,7 +32,7 @@ The user's requested next action is:
 The repository should treat this situation as a partial campaign closeout, not
 as a fully completed `9`-family sequence.
 
-For `Track 1` state summaries, the practical advancement signal must be read
+For `RCIM Model-Bank Reproduction` state summaries, the practical advancement signal must be read
 from the colored full-matrix benchmark surface in `Table 2-5`, not from the
 mere existence of a partial closeout report.
 
@@ -50,12 +50,12 @@ The correct implementation scope is:
    campaigns when missing;
 4. produce results reports only for the completed family campaigns;
 5. update the canonical benchmark surface with the newly completed rows;
-6. update the master summary so the active `Track 1` state reflects:
+6. update the master summary so the active `RCIM Model-Bank Reproduction` state reflects:
    - `7` completed family campaigns closed out;
    - `2` remaining interrupted families still pending rerun.
 
 This document therefore defines an intermediate benchmark-refresh step, not
-`Track 1` completion. The track remains open until the `Table 2-5`
+`RCIM Model-Bank Reproduction` completion. The track remains open until the `Table 2-5`
 family-by-family surface is fully closed.
 
 The interrupted aggregate sequence itself should not yet be represented as a

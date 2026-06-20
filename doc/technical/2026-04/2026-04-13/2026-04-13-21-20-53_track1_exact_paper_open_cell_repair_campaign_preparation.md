@@ -1,8 +1,8 @@
-# Track 1 Exact-Paper Open-Cell Repair Campaign Preparation
+# RCIM Model-Bank Reproduction Exact-Paper Open-Cell Repair Campaign Preparation
 
 ## Overview
 
-This technical document prepares the next `Track 1` campaign under the new
+This technical document prepares the next `RCIM Model-Bank Reproduction` campaign under the new
 paper-table-first paradigm.
 
 The campaign objective is no longer to improve a single harmonic-wise campaign

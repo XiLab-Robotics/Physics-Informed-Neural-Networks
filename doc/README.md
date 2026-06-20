@@ -27,7 +27,7 @@ This folder contains the internal project documents derived from the reference P
 - [reference_summaries/07_RCIM_Recovered_Assets_Project_Summary.md](./reference_summaries/07_RCIM_Recovered_Assets_Project_Summary.md)
   Summary of the recovered RCIM paper-era ONNX models, code snapshots, backup
   material, TwinCAT XML exports, and heavy instance archive, with repository
-  implications for Track 1 and future deployment work.
+  implications for RCIM Model-Bank Reproduction and future deployment work.
 
 - [reference_summaries/08_Transmission_Error_Dataset_Family_Reference.md](./reference_summaries/08_Transmission_Error_Dataset_Family_Reference.md)
   Canonical verified reference for the raw, simplified, and polished
@@ -83,7 +83,7 @@ This folder contains the internal project documents derived from the reference P
 
 - [reports/analysis/rcim_paper_reference/RCIM Original ONNX Release Parity Interpretation.md](./reports/analysis/rcim_paper_reference/RCIM%20Original%20ONNX%20Release%20Parity%20Interpretation.md)
   Canonical interpretation of the recovered original ONNX release parity check
-  against the repository `rcim_original/forward` archive and Track 2 forward
+  against the repository `rcim_original/forward` archive and TE Curve Verification Pipeline forward
   curve evaluation.
 
 - [reports/analysis/utilities/linux_script_portability/[2026-05-16]/script_portability_inventory.md](./reports/analysis/utilities/linux_script_portability/%5B2026-05-16%5D/script_portability_inventory.md)
@@ -110,22 +110,22 @@ This folder contains the internal project documents derived from the reference P
   deterministic 20% subset of the canonical held-out TE test curves, including
   aggregate metrics and plot artifact pointers.
 
-- [reports/analysis/wave2/Wave 2 Temporal Sequence Models.md](./reports/analysis/wave2/Wave%202%20Temporal%20Sequence%20Models.md)
-  Explanatory report for the first `Wave 2` temporal sequence families:
+- [reports/analysis/wave2/Wave 2.1 Temporal Sequence Models.md](./reports/analysis/wave2/Wave%202%20Temporal%20Sequence%20Models.md)
+  Explanatory report for the first `Wave 2.1` temporal sequence families:
   temporal convolution, `GRU`, and `LSTM` windowed TE regressors.
 
-- [reports/analysis/wave2/Wave 2B Harmonic Temporal Hybrid Models.md](./reports/analysis/wave2/Wave%202B%20Harmonic%20Temporal%20Hybrid%20Models.md)
-  Explanatory report for the `Wave 2B` harmonic-temporal hybrid families that
+- [reports/analysis/wave2/Wave 2.2 Harmonic Temporal Hybrid Models.md](./reports/analysis/wave2/Wave%202B%20Harmonic%20Temporal%20Hybrid%20Models.md)
+  Explanatory report for the `Wave 2.2` harmonic-temporal hybrid families that
   add explicit periodic harmonic features to temporal convolution, `GRU`, and
   `LSTM` sequence windows.
 
-- [reports/analysis/wave2/Wave 2C Residual Harmonic Temporal Hybrid Models.md](./reports/analysis/wave2/Wave%202C%20Residual%20Harmonic%20Temporal%20Hybrid%20Models.md)
-  Explanatory report for the `Wave 2C` residual harmonic temporal hybrid
+- [reports/analysis/wave2/Wave 2.3 Residual Harmonic Temporal Hybrid Models.md](./reports/analysis/wave2/Wave%202C%20Residual%20Harmonic%20Temporal%20Hybrid%20Models.md)
+  Explanatory report for the `Wave 2.3` residual harmonic temporal hybrid
   families that add recurrent sequence residuals over a structured harmonic
   base.
 
-- [reports/analysis/wave2/Track 2F Sequential Residual-Offset Probe Model.md](./reports/analysis/wave2/Track%202F%20Sequential%20Residual-Offset%20Probe%20Model.md)
-  Explanatory report for the first learned `Track 2F`
+- [reports/analysis/wave2/Wave 3.1 Sequential Residual-Offset Probe Model.md](./reports/analysis/wave2/Track%202F%20Sequential%20Residual-Offset%20Probe%20Model.md)
+  Explanatory report for the first learned `Wave 3.1`
   `sequential_residual_offset_probe` model, including branch structure,
   causal input boundary, implemented files, and verification status.
 
@@ -139,252 +139,252 @@ This folder contains the internal project documents derived from the reference P
   Deep implementation-facing analysis of the recovered RCIM paper assets,
   including the exact ONNX family bank, original and later code generations,
   backup evolution, TwinCAT export evidence, archive limitations, and the
-  exact consequences for faithful `Track 1` reimplementation.
+  exact consequences for faithful `RCIM Model-Bank Reproduction` reimplementation.
 
 - [reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md](./reports/analysis/rcim_paper_reference/RCIM%20Paper%20Reference%20Benchmark.md)
   Canonical repository-owned RCIM Tables `2`-`5` benchmark surface, now backed
-  by the faithful Track 1 exact-model-bank reimplementation and accepted
+  by the faithful RCIM Model-Bank Reproduction exact-model-bank reimplementation and accepted
   `models/paper_reference/rcim_track1/` archives.
 
-- [reports/analysis/track2/Track 2 Directional Model Comparison.md](./reports/analysis/track2/Track%202%20Directional%20Model%20Comparison.md)
-  Canonical `Track 2` offline matrix comparing accepted `Track 1`, recovered
+- [reports/analysis/track2/TE Curve Verification Pipeline Directional Model Comparison.md](./reports/analysis/track2/Track%202%20Directional%20Model%20Comparison.md)
+  Canonical `TE Curve Verification Pipeline` offline matrix comparing accepted `RCIM Model-Bank Reproduction`, recovered
   original, retuned paper-reference banks, and exported `Wave 1` models from
   `models/`, split into forward, backward, and global direction sections.
 
 - [reports/analysis/track2/multi_index_curve_first_selection_policy/[2026-06-16]/track2_multi_index_curve_first_selection_policy.md](./reports/analysis/track2/multi_index_curve_first_selection_policy/%5B2026-06-16%5D/track2_multi_index_curve_first_selection_policy.md)
-  Canonical policy for official `Track 2` model selection after the
+  Canonical policy for official `TE Curve Verification Pipeline` model selection after the
   curve-first shift, requiring raw-error, mean-centered shape, offset /
   continuity, harmonic / phase, robustness, visual-evidence, and
   deployment-readiness axes instead of scalar `MAE` alone.
 
 - [reports/analysis/TE Program Status And Closeout Ledger.md](./reports/analysis/TE%20Program%20Status%20And%20Closeout%20Ledger.md)
   Maintained official TE modeling status ledger covering `Wave 1` through
-  `Wave 3`, `Track 2B` through `Track 2H`, current direction-parallel leaders,
-  and the required update rule for future campaign and `Track 2` closeouts.
+  `Wave 5.1`, `CVP 1.1` through `CVP 1.5` and Waves `3.1` through `4.4`, current direction-parallel leaders,
+  and the required update rule for future campaign and `TE Curve Verification Pipeline` closeouts.
 
-- [reports/analysis/track2/Track 2 Curve Reconstruction And Collage Pipeline.md](./reports/analysis/track2/Track%202%20Curve%20Reconstruction%20And%20Collage%20Pipeline.md)
-  Implementation-facing `Track 2` curve-reconstruction guide covering the
+- [reports/analysis/track2/TE Curve Verification Pipeline Curve Reconstruction And Collage Pipeline.md](./reports/analysis/track2/Track%202%20Curve%20Reconstruction%20And%20Collage%20Pipeline.md)
+  Implementation-facing `TE Curve Verification Pipeline` curve-reconstruction guide covering the
   standard best-model collage path, repository models such as
   `harmonic_regression`, paper-original reference-bank reconstruction, and
   mean-centered diagnostic interpretation.
 
 - [reports/analysis/track2/official_model_verification_report/[2026-06-18]/track2_official_model_verification_report.md](./reports/analysis/track2/official_model_verification_report/%5B2026-06-18%5D/track2_official_model_verification_report.md)
-  Official `Track 2` verification decision for the completed `Track 2H-L`
+  Official `TE Curve Verification Pipeline` verification decision for the completed `Wave 4.4`
   latent-state / hysteresis-aware candidates, verified as an exploratory
   baseline and not promoted over the accepted direction-parallel leaders.
 
 - [reports/analysis/track2/best_model_collage_report/[2026-06-18]/track2_best_model_collage_report.md](./reports/analysis/track2/best_model_collage_report/%5B2026-06-18%5D/track2_best_model_collage_report.md)
-  Styled `Track 2` visual report with four-curve collages for the refreshed
-  `Track 2H-L` latent-state / hysteresis-aware candidates alongside the
+  Styled `TE Curve Verification Pipeline` visual report with four-curve collages for the refreshed
+  `Wave 4.4` latent-state / hysteresis-aware candidates alongside the
   current reference, Wave, and Track candidate families.
 
 - [reports/analysis/track2/multi_model_curve_comparison_report/[2026-06-18]/track2_multi_model_curve_comparison_report.md](./reports/analysis/track2/multi_model_curve_comparison_report/%5B2026-06-18%5D/track2_multi_model_curve_comparison_report.md)
-  Styled `Track 2` overlay report comparing original TE curves against the
-  refreshed `Track 2H-L` candidates and the current reference, Wave, and Track
+  Styled `TE Curve Verification Pipeline` overlay report comparing original TE curves against the
+  refreshed `Wave 4.4` candidates and the current reference, Wave, and Track
   candidate families.
 
 - [reports/analysis/track2/official_model_verification_report/[2026-06-11]/track2_official_model_verification_report.md](./reports/analysis/track2/official_model_verification_report/%5B2026-06-11%5D/track2_official_model_verification_report.md)
-  Official `Track 2` model-verification report accepting `Track 2H` robust
+  Official `TE Curve Verification Pipeline` model-verification report accepting `Wave 4.1` robust
   losses as a verified exploratory baseline without promoting them over the
-  current direction-parallel `Track 2` leaders.
+  current direction-parallel `TE Curve Verification Pipeline` leaders.
 
 - [reports/analysis/track2/wave2_temporal_model_refresh_plan/[2026-05-24]/track2_wave2_temporal_model_refresh_plan.md](./reports/analysis/track2/wave2_temporal_model_refresh_plan/%5B2026-05-24%5D/track2_wave2_temporal_model_refresh_plan.md)
-  Operational refresh plan for adding the completed `Wave 2`
-  temporal-model candidates to the official `Track 2` verification matrix,
+  Operational refresh plan for adding the completed `Wave 2.1`
+  temporal-model candidates to the official `TE Curve Verification Pipeline` verification matrix,
   visual reports, and update ledger.
 
 - [reports/analysis/track2/best_model_collage_report/[2026-06-11]/track2_best_model_collage_report.md](./reports/analysis/track2/best_model_collage_report/%5B2026-06-11%5D/track2_best_model_collage_report.md)
-  Styled `Track 2` visual report with four-curve collages for the current best
-  reference, Track 1, Wave 1, Wave 2, Wave 2C, Track 2F, Track 2F-bis, and
-  Track 2G and Track 2H candidates.
+  Styled `TE Curve Verification Pipeline` visual report with four-curve collages for the current best
+  reference, RCIM Model-Bank Reproduction, Wave 1, Wave 2.1, Wave 2.3, Wave 3.1, Wave 3.2, and
+  Wave 3.3 and Wave 4 series candidates.
 
 - [reports/analysis/track2/multi_model_curve_comparison_report/[2026-06-11]/track2_multi_model_curve_comparison_report.md](./reports/analysis/track2/multi_model_curve_comparison_report/%5B2026-06-11%5D/track2_multi_model_curve_comparison_report.md)
-  Styled `Track 2` overlay report comparing original TE curves against
-  reference best models and screened Wave 1, Wave 2, Wave 2C, Track 2F,
-  Track 2F-bis, Track 2G, and Track 2H models.
+  Styled `TE Curve Verification Pipeline` overlay report comparing original TE curves against
+  reference best models and screened Wave 1, Wave 2.1, Wave 2.3, Wave 3.1,
+  Wave 3.2, Wave 3.3, and Wave 4 series models.
 
 - [reports/analysis/track2/curve_first_reranking_report/[2026-05-28]/track2_curve_first_reranking_report.md](./reports/analysis/track2/curve_first_reranking_report/%5B2026-05-28%5D/track2_curve_first_reranking_report.md)
-  `Track 2B` curve-first reranking report that ranks accepted `Track 2`
+  `CVP 1.1` curve-first reranking report that ranks accepted `TE Curve Verification Pipeline`
   candidates by full-curve mean percentage error, P95, worst-condition error,
   and curve `MAE` while preserving the causal runtime input boundary.
 
 - [reports/analysis/track2/curve_payload_diagnostics_report/[2026-05-28]/track2_curve_payload_diagnostics_report.md](./reports/analysis/track2/curve_payload_diagnostics_report/%5B2026-05-28%5D/track2_curve_payload_diagnostics_report.md)
-  `Track 2C` curve-payload diagnostics report for screened candidates,
+  `CVP 1.2` curve-payload diagnostics report for screened candidates,
   including peak-to-peak, harmonic amplitude, harmonic phase, derivative,
   smoothness, and closure diagnostics.
 
 - [reports/analysis/track2/mean_centered_collage_report/[2026-06-02]/track2_mean_centered_collage_report.md](./reports/analysis/track2/mean_centered_collage_report/%5B2026-06-02%5D/track2_mean_centered_collage_report.md)
-  `Track 2` mean-centered collage diagnostics report that subtracts each
+  `TE Curve Verification Pipeline` mean-centered collage diagnostics report that subtracts each
   truth and prediction curve mean after inference, then recomputes curve
   `MAE` and `RMSE` to separate vertical offset from waveform-shape tracking.
 
 - [reports/analysis/track2/mean_offset_full_matrix_audit/[2026-06-03]/track2d_mean_offset_full_matrix_audit.md](./reports/analysis/track2/mean_offset_full_matrix_audit/%5B2026-06-03%5D/track2d_mean_offset_full_matrix_audit.md)
-  `Track 2D` full-matrix mean-offset audit over `111` direction-valid
+  `CVP 1.4` full-matrix mean-offset audit over `111` direction-valid
   candidates and `12,416` curves, separating raw error, curve offset,
   centered-shape error, amplitude error, harmonic phase error, and diagnostic
   failure-mode labels.
 
 - [reports/analysis/track2/offset_predictability_feasibility/[2026-06-03]/track2e_offset_predictability_feasibility.md](./reports/analysis/track2/offset_predictability_feasibility/%5B2026-06-03%5D/track2e_offset_predictability_feasibility.md)
-  `Track 2E` offset-predictability feasibility report that uses completed
-  `Track 2D` artifacts to test conservative causal offset-correction
+  `CVP 1.5` offset-predictability feasibility report that uses completed
+  `CVP 1.4` artifacts to test conservative causal offset-correction
   baselines and recommend the next intervention branch per `Fw`, `Bw`, and
   `global` surface.
 
 - [reports/analysis/track2/component_offset_identification_plan/[2026-06-09]/track2_component_offset_identification_plan.md](./reports/analysis/track2/component_offset_identification_plan/%5B2026-06-09%5D/track2_component_offset_identification_plan.md)
-  `Track 2` component-offset identification plan for testing whether the
+  `TE Curve Verification Pipeline` component-offset identification plan for testing whether the
   observed curve offset is dominated by `a_0` / `Component 0`, multiple
   harmonics, condition/regime behavior, or experimental repeatability limits
   before opening another training campaign.
 
 - [reports/analysis/track2/component_offset_identification/[2026-06-09]/track2_component_offset_identification_diagnostic.md](./reports/analysis/track2/component_offset_identification/%5B2026-06-09%5D/track2_component_offset_identification_diagnostic.md)
-  `Track 2` measured component-offset diagnostic showing harmonic zero as the
+  `TE Curve Verification Pipeline` measured component-offset diagnostic showing harmonic zero as the
   largest average measured component while preserving the conclusion that it
   is a priority suspect, not the sole confirmed cause.
 
 - [reports/analysis/track2/component_offset_identification/[2026-06-09]/track2d_h0_offset_crosscheck.md](./reports/analysis/track2/component_offset_identification/%5B2026-06-09%5D/track2d_h0_offset_crosscheck.md)
-  Cross-check of `Track 2D` signed offset errors against measured `h0` /
+  Cross-check of `CVP 1.4` signed offset errors against measured `h0` /
   curve-mean patterns to test whether large model offset failures coincide
   with large `h0` cases.
 
 - [reports/analysis/track2/component_offset_identification/[2026-06-10]/track2d_predicted_mean_h0_surface_diagnostic.md](./reports/analysis/track2/component_offset_identification/%5B2026-06-10%5D/track2d_predicted_mean_h0_surface_diagnostic.md)
-  Diagnostic comparing `Track 2D` predicted mean surfaces against measured
+  Diagnostic comparing `CVP 1.4` predicted mean surfaces against measured
   `h0` to identify candidate-specific bias, slope compression, and
   direction/regime offset behavior.
 
 - [reports/analysis/track2/dispersion_aware_wave_roadmap/[2026-06-10]/track2_dispersion_aware_wave_roadmap.md](./reports/analysis/track2/dispersion_aware_wave_roadmap/%5B2026-06-10%5D/track2_dispersion_aware_wave_roadmap.md)
-  `Track 2` roadmap that inserts dispersion-aware probes, `Wave 3` hybrid
-  structured models, and `Wave 4` first-PINN work before the integrated
+  `TE Curve Verification Pipeline` roadmap that inserts dispersion-aware probes, `Wave 5.1` hybrid
+  structured models, and `Wave 5.2` first-PINN work before the integrated
   multi-task / multi-head architecture.
 
-- [reports/analysis/track2/Track 2H-L Latent-State Hysteresis Probe Model.md](./reports/analysis/track2/Track%202H-L%20Latent-State%20Hysteresis%20Probe%20Model.md)
-  Explanatory report for the `Track 2H-L`
+- [reports/analysis/track2/Wave 4.4 Latent-State Hysteresis Probe Model.md](./reports/analysis/track2/Track%202H-L%20Latent-State%20Hysteresis%20Probe%20Model.md)
+  Explanatory report for the `Wave 4.4`
   `latent_state_hysteresis_probe` model, covering causal latent-state
   encoding, base/offset/residual heads, campaign profiles, risks, and
   implemented files.
 
 - [reports/campaign_plans/track_2/2026-06-10-16-56-36_track2h_dispersion_aware_modeling_probe_campaign_plan_report.md](./reports/campaign_plans/track_2/2026-06-10-16-56-36_track2h_dispersion_aware_modeling_probe_campaign_plan_report.md)
-  Preliminary `Track 2H` campaign plan for robust, quantile/probabilistic,
+  Preliminary `Wave 4 series` campaign plan for robust, quantile/probabilistic,
   mixture-density, and latent-state / hysteresis-aware modeling probes before
   the integrated multi-task / multi-head branch.
 
 - [reports/campaign_plans/track_2/2026-06-16-16-00-57_track2h_latent_state_hysteresis_campaign_plan_report.md](./reports/campaign_plans/track_2/2026-06-16-16-00-57_track2h_latent_state_hysteresis_campaign_plan_report.md)
-  Preliminary campaign plan for the `Track 2H-L` latent-state /
+  Preliminary campaign plan for the `Wave 4.4` latent-state /
   hysteresis-aware package, focused on causal-history state encoders for
   preload, elastic release, direction-transition, and protocol-state effects.
 
 - [reports/campaign_results/track_2/campaign_closeouts/2026-06-17-01-27-10_track2h_latent_state_hysteresis_campaign_results_report.md](./reports/campaign_results/track_2/campaign_closeouts/2026-06-17-01-27-10_track2h_latent_state_hysteresis_campaign_results_report.md)
-  Final results report for the completed `Track 2H-L` latent-state /
+  Final results report for the completed `Wave 4.4` latent-state /
   hysteresis-aware campaign, including scalar branch winners, comparison
   against robust/probabilistic/MDN baselines, registry effects, and the
-  boundary that official `Track 2` curve verification remains separate.
+  boundary that official `TE Curve Verification Pipeline` curve verification remains separate.
 
 - [reports/campaign_plans/wave_3/2026-06-14-19-54-55_wave3_harmonic_prior_residual_campaign_plan_report.md](./reports/campaign_plans/wave_3/2026-06-14-19-54-55_wave3_harmonic_prior_residual_campaign_plan_report.md)
-  Preliminary and prepared campaign plan for the first real `Wave 3`
+  Preliminary and prepared campaign plan for the first real `Wave 5.1`
   harmonic-prior residual package across `global`, `Fw`, and `Bw`.
 
 - [reports/campaign_results/wave_3/2026-06-15-15-30-20_wave3_harmonic_prior_residual_campaign_results_report.md](./reports/campaign_results/wave_3/2026-06-15-15-30-20_wave3_harmonic_prior_residual_campaign_results_report.md)
-  Final results report for the completed first real `Wave 3`
+  Final results report for the completed first real `Wave 5.1`
   harmonic-prior residual campaign, including scalar branch winners,
   profile comparison, registry effects, and the normal-closeout boundary that
-  kept official `Track 2` curve verification as a separate follow-up step.
+  kept official `TE Curve Verification Pipeline` curve verification as a separate follow-up step.
 
 - [reports/analysis/track2/official_model_verification_report/[2026-06-15]/track2_official_model_verification_report.md](./reports/analysis/track2/official_model_verification_report/%5B2026-06-15%5D/track2_official_model_verification_report.md)
-  Official `Track 2` verification decision for the completed `Wave 3`
+  Official `TE Curve Verification Pipeline` verification decision for the completed `Wave 5.1`
   harmonic-prior residual candidates, verified as an exploratory baseline and
   not promoted over the accepted direction-parallel leaders.
 
 - [reports/campaign_plans/track_2/2026-06-13-10-40-25_track2h_mixture_density_heads_campaign_plan_report.md](./reports/campaign_plans/track_2/2026-06-13-10-40-25_track2h_mixture_density_heads_campaign_plan_report.md)
-  Preliminary campaign plan for the next `Track 2H` package, focused on
+  Preliminary campaign plan for the next `Wave 4 series` package, focused on
   two- and three-component mixture-density heads across `global`, `Fw`, and
   `Bw`.
 
 - [reports/campaign_plans/track_2/2026-06-12-00-01-04_track2h_quantile_probabilistic_campaign_plan_report.md](./reports/campaign_plans/track_2/2026-06-12-00-01-04_track2h_quantile_probabilistic_campaign_plan_report.md)
-  Preliminary campaign plan for the second `Track 2H` package, focused on
+  Preliminary campaign plan for the `Wave 4.2` package, focused on
   quantile and Gaussian probabilistic regression candidates across `global`,
   `Fw`, and `Bw`.
 
 - [reports/campaign_results/track_2/campaign_closeouts/2026-06-12-13-54-57_track2h_quantile_probabilistic_campaign_results_report.md](./reports/campaign_results/track_2/campaign_closeouts/2026-06-12-13-54-57_track2h_quantile_probabilistic_campaign_results_report.md)
-  Final results report for the completed second `Track 2H`
+  Final results report for the completed `Wave 4.2`
   quantile/probabilistic campaign, including scalar branch winners,
   calibration diagnostics, robust-loss comparison, and the boundary that
-  official `Track 2` curve verification remains separate.
+  official `TE Curve Verification Pipeline` curve verification remains separate.
 
 - [reports/campaign_results/track_2/campaign_closeouts/2026-06-13-13-24-37_track2h_mixture_density_heads_campaign_results_report.md](./reports/campaign_results/track_2/campaign_closeouts/2026-06-13-13-24-37_track2h_mixture_density_heads_campaign_results_report.md)
-  Final results report for the completed third `Track 2H` mixture-density
+  Final results report for the completed third `Wave 4.3` mixture-density
   campaign, including scalar branch winners, mixture-collapse diagnostics,
   comparison against robust/probabilistic probes, and the boundary that
-  official `Track 2` curve verification remains separate.
+  official `TE Curve Verification Pipeline` curve verification remains separate.
 
 - [reports/analysis/track2/official_model_verification_report/[2026-06-12]/track2_official_model_verification_report.md](./reports/analysis/track2/official_model_verification_report/%5B2026-06-12%5D/track2_official_model_verification_report.md)
-  Official `Track 2` verification decision for the completed `Track 2H`
+  Official `TE Curve Verification Pipeline` verification decision for the completed `Wave 4 series`
   quantile/probabilistic candidates, verified as an exploratory baseline and
   not promoted over the accepted direction-parallel leaders.
 
 - [reports/analysis/track2/official_model_verification_report/[2026-06-13]/track2_official_model_verification_report.md](./reports/analysis/track2/official_model_verification_report/%5B2026-06-13%5D/track2_official_model_verification_report.md)
-  Official `Track 2` verification decision for the completed `Track 2H`
+  Official `TE Curve Verification Pipeline` verification decision for the completed `Wave 4 series`
   mixture-density heads candidates, verified as an exploratory baseline with
   a strong backward branch but not promoted over the accepted
   direction-parallel leaders.
 
 - [reports/analysis/track2/official_model_verification_report/[2026-06-15]/track2_official_model_verification_report.md](./reports/analysis/track2/official_model_verification_report/%5B2026-06-15%5D/track2_official_model_verification_report.md)
-  Official `Track 2` verification decision for the completed first real
-  `Wave 3` harmonic-prior residual candidates, verified as an exploratory
+  Official `TE Curve Verification Pipeline` verification decision for the completed first real
+  `Wave 5.1` harmonic-prior residual candidates, verified as an exploratory
   baseline and not promoted over the accepted direction-parallel leaders.
 
-- [reports/analysis/wave3/Wave 3 Hybrid Structured Models.md](./reports/analysis/wave3/Wave%203%20Hybrid%20Structured%20Models.md)
-  Design report for `Wave 3` hybrid structured TE models, covering harmonic
+- [reports/analysis/wave3/Wave 5.1 Hybrid Structured Models.md](./reports/analysis/wave3/Wave%203%20Hybrid%20Structured%20Models.md)
+  Design report for `Wave 5.1` hybrid structured TE models, covering harmonic
   prior residual learners, grouped harmonic heads, condition-conditioned
   residual surfaces, and basis-constrained curve decoders.
 
-- [reports/analysis/wave4/Wave 4 PINN Formulation And First PINN.md](./reports/analysis/wave4/Wave%204%20PINN%20Formulation%20And%20First%20PINN.md)
-  Design report for the first `Wave 4` soft-constraint PINN branch, covering
+- [reports/analysis/wave4/Wave 5.2 PINN Formulation And First PINN.md](./reports/analysis/wave4/Wave%204%20PINN%20Formulation%20And%20First%20PINN.md)
+  Design report for the first `Wave 5.2` soft-constraint PINN branch, covering
   TE data fit, periodicity, smoothness, harmonic consistency, condition-surface
   consistency, and residual regularization boundaries.
 
-- [reports/analysis/wave4/Wave 4A MMT Equation Diagnostic Design.md](./reports/analysis/wave4/Wave%204A%20MMT%20Equation%20Diagnostic%20Design.md)
+- [reports/analysis/wave4/Wave 5.2A MMT Equation Diagnostic Design.md](./reports/analysis/wave4/Wave%204A%20MMT%20Equation%20Diagnostic%20Design.md)
   Detailed design for using the repository-owned MMT equation reproduction as
-  a Track 2 analytical diagnostic before feature or PINN integration.
+  a TE Curve Verification Pipeline analytical diagnostic before feature or PINN integration.
 
-- [reports/analysis/wave4/Wave 4B MMT Feature Generator Design.md](./reports/analysis/wave4/Wave%204B%20MMT%20Feature%20Generator%20Design.md)
+- [reports/analysis/wave4/Wave 5.2B MMT Feature Generator Design.md](./reports/analysis/wave4/Wave%204B%20MMT%20Feature%20Generator%20Design.md)
   Detailed design for turning MMT subsystem terms, harmonic summaries, and
   calibrated analytical residuals into leakage-safe feature candidates.
 
-- [reports/analysis/wave4/Wave 4C MMT Soft Constraint PINN Design.md](./reports/analysis/wave4/Wave%204C%20MMT%20Soft%20Constraint%20PINN%20Design.md)
+- [reports/analysis/wave4/Wave 5.2C MMT Soft Constraint PINN Design.md](./reports/analysis/wave4/Wave%204C%20MMT%20Soft%20Constraint%20PINN%20Design.md)
   Detailed design for adding weak MMT equation residuals to a curve or
   harmonic-plus-residual neural model.
 
-- [reports/analysis/wave4/Wave 4D Mesh Stiffness Loaded TE PINN Design.md](./reports/analysis/wave4/Wave%204D%20Mesh%20Stiffness%20Loaded%20TE%20PINN%20Design.md)
+- [reports/analysis/wave4/Wave 5.2D Mesh Stiffness Loaded TE PINN Design.md](./reports/analysis/wave4/Wave%204D%20Mesh%20Stiffness%20Loaded%20TE%20PINN%20Design.md)
   Detailed design for exploratory time-varying mesh stiffness and loaded-static
   transmission-error constraints.
 
-- [reports/analysis/wave4/Wave 4E Backlash Preload State PINN Design.md](./reports/analysis/wave4/Wave%204E%20Backlash%20Preload%20State%20PINN%20Design.md)
+- [reports/analysis/wave4/Wave 5.2E Backlash Preload State PINN Design.md](./reports/analysis/wave4/Wave%204E%20Backlash%20Preload%20State%20PINN%20Design.md)
   Detailed design for backlash, preload, direction-transition, and latent-state
   constraints targeting local dispersion.
 
-- [reports/analysis/wave4/Wave 4F Cycloid Contact Force PINN Design.md](./reports/analysis/wave4/Wave%204F%20Cycloid%20Contact%20Force%20PINN%20Design.md)
+- [reports/analysis/wave4/Wave 5.2F Cycloid Contact Force PINN Design.md](./reports/analysis/wave4/Wave%204F%20Cycloid%20Contact%20Force%20PINN%20Design.md)
   Detailed design for cycloid-pin contact-force, profile-modification, and
   loaded-TE exploratory constraints.
 
-- [reports/analysis/wave4/Wave 4G Planetary Mesh Force LSTE PINN Design.md](./reports/analysis/wave4/Wave%204G%20Planetary%20Mesh%20Force%20LSTE%20PINN%20Design.md)
+- [reports/analysis/wave4/Wave 5.2G Planetary Mesh Force LSTE PINN Design.md](./reports/analysis/wave4/Wave%204G%20Planetary%20Mesh%20Force%20LSTE%20PINN%20Design.md)
   Detailed design for planetary-style mesh-force, load-sharing, and
   loaded-static-TE exploratory constraints.
 
 - [reports/analysis/wave4/mmt_equation_diagnostic/[2026-06-11]/wave4a_mmt_equation_diagnostic.md](./reports/analysis/wave4/mmt_equation_diagnostic/%5B2026-06-11%5D/wave4a_mmt_equation_diagnostic.md)
-  First `Wave 4A` MMT equation-chain diagnostic report, summarizing the
+  First `Wave 5.2A` MMT equation-chain diagnostic report, summarizing the
   demonstration `RTE` mean, peak-to-peak amplitude, dominant harmonics, and
-  Track 2 suspicious-harmonic probe.
+  TE Curve Verification Pipeline suspicious-harmonic probe.
 
 - [reports/analysis/wave4/mmt_parameter_inventory/[2026-06-11]/wave4a_mmt_parameter_inventory.md](./reports/analysis/wave4/mmt_parameter_inventory/%5B2026-06-11%5D/wave4a_mmt_parameter_inventory.md)
-  `Wave 4A` MMT parameter-inventory report, classifying geometry constants,
+  `Wave 5.2A` MMT parameter-inventory report, classifying geometry constants,
   dataset metadata, train-only equivalent-error channels, blocked contact
-  geometry, and target-only TE boundaries before `Wave 4B` or `Wave 4C`.
+  geometry, and target-only TE boundaries before `Wave 5.2B` or `Wave 5.2C`.
 
 - [technical/2026-06/2026-06-09/2026-06-09-20-03-08_track2d_h0_offset_crosscheck.md](./technical/2026-06/2026-06-09/2026-06-09-20-03-08_track2d_h0_offset_crosscheck.md)
-  Technical plan for cross-checking `Track 2D` signed offset errors against
+  Technical plan for cross-checking `CVP 1.4` signed offset errors against
   measured `h0` / curve-mean patterns and outliers.
 
 - [technical/2026-06/2026-06-10/2026-06-10-12-51-19_track2d_predicted_mean_h0_surface_diagnostic.md](./technical/2026-06/2026-06-10/2026-06-10-12-51-19_track2d_predicted_mean_h0_surface_diagnostic.md)
-  Technical plan for comparing `Track 2D` `predicted_mean_deg` surfaces against
+  Technical plan for comparing `CVP 1.4` `predicted_mean_deg` surfaces against
   measured `h0` after the h0 magnitude cross-check.
 
 - [technical/2026-06/2026-06-11/2026-06-11-12-32-58_mmt_te_modeling_equation_reimplementation.md](./technical/2026-06/2026-06-11/2026-06-11-12-32-58_mmt_te_modeling_equation_reimplementation.md)
@@ -394,21 +394,21 @@ This folder contains the internal project documents derived from the reference P
 
 - [reports/analysis/track2/original_onnx_offset_diagnostic/[2026-06-04]/track2_original_onnx_offset_diagnostic.md](./reports/analysis/track2/original_onnx_offset_diagnostic/%5B2026-06-04%5D/track2_original_onnx_offset_diagnostic.md)
   Diagnostic replay of the recovered paper-original `ONNX` release through the
-  `Track 2` forward curve evaluator, including raw parity and mean-centered
+  `TE Curve Verification Pipeline` forward curve evaluator, including raw parity and mean-centered
   offset evidence for the original executable model families.
 
 - [reports/analysis/track2/original_onnx_fw_collage_report/[2026-06-05]/track2_original_onnx_fw_collage_report.md](./reports/analysis/track2/original_onnx_fw_collage_report/%5B2026-06-05%5D/track2_original_onnx_fw_collage_report.md)
-  Simple `Track 2` collage report and PDF for the recovered paper-original
+  Simple `TE Curve Verification Pipeline` collage report and PDF for the recovered paper-original
   `ONNX` `paper_original_best_Fw` composite loaded directly from the `19`
   original target models.
 
 - [reports/analysis/track2/sparse_original_onnx_variants/[2026-06-08]/track2_sparse_original_onnx_variants_report.md](./reports/analysis/track2/sparse_original_onnx_variants/%5B2026-06-08%5D/track2_sparse_original_onnx_variants_report.md)
-  Sparse original `ONNX` `Track 2` report comparing the component-selected
+  Sparse original `ONNX` `TE Curve Verification Pipeline` report comparing the component-selected
   simplified RCIM variant and the PLC-oriented all-`HGBM` variant over
   harmonics `0`, `1`, `39`, and `40`.
 
 - [reports/analysis/track2/forward_reference_curve_comparison/[2026-06-08]/track2_forward_reference_curve_comparison_report.md](./reports/analysis/track2/forward_reference_curve_comparison/%5B2026-06-08%5D/track2_forward_reference_curve_comparison_report.md)
-  Forward `Track 2` curve-comparison report collecting the paper-original,
+  Forward `TE Curve Verification Pipeline` curve-comparison report collecting the paper-original,
   paper-retuned, full original `ONNX`, sparse original `ONNX`, and PLC-oriented
   sparse original `ONNX` collages with aggregate and pairwise curve-difference
   metrics.
@@ -423,7 +423,7 @@ This folder contains the internal project documents derived from the reference P
 
 - [reports/analysis/Repository Status Wave Track Synthesis.md](./reports/analysis/Repository%20Status%20Wave%20Track%20Synthesis.md)
   Consolidated state report covering the repository status, `Wave 1`,
-  `Wave 2`, `Wave 2B`, `Wave 2C`, `Track 2` outcomes, sparse `RCIM` versus
+  `Wave 2.1`, `Wave 2.2`, `Wave 2.3`, `TE Curve Verification Pipeline` outcomes, sparse `RCIM` versus
   dense harmonic-bank results, and the curve-first future plan introduced by
   commit `b73220679410276246421b7e2832d8878cff90a0`. A styled PDF companion
   is available at
@@ -440,7 +440,7 @@ This folder contains the internal project documents derived from the reference P
 
 - [reports/analysis/te_modeling/Curve-First TE Training Strategy.md](./reports/analysis/te_modeling/Curve-First%20TE%20Training%20Strategy.md)
   Strategy report for shifting TE model selection from scalar pointwise
-  `MAE` toward Track 2 curve-following quality, harmonic/phase diagnostics,
+  `MAE` toward TE Curve Verification Pipeline curve-following quality, harmonic/phase diagnostics,
   and continuous compensation readiness.
 
 - [reports/analysis/utilities/Code Documentation Platform Comparison.md](./reports/analysis/utilities/Code%20Documentation%20Platform%20Comparison.md)
@@ -455,6 +455,10 @@ This folder contains the internal project documents derived from the reference P
 ### Technical Documents
 
 #### 2026-06-20
+
+- [technical/2026-06/2026-06-20/2026-06-20-12-49-43_te_program_naming_taxonomy_migration.md](./technical/2026-06/2026-06-20/2026-06-20-12-49-43_te_program_naming_taxonomy_migration.md)
+  Technical plan for separating the RCIM model-bank reproduction, model
+  development waves, and TE curve-verification pipeline terminology.
 
 - [technical/2026-06/2026-06-20/2026-06-20-11-53-54_polished_dataset_generator_progress_logging.md](./technical/2026-06/2026-06-20/2026-06-20-11-53-54_polished_dataset_generator_progress_logging.md)
   Technical plan for correcting the relocated standalone generator paths and
@@ -487,13 +491,13 @@ This folder contains the internal project documents derived from the reference P
 #### 2026-06-18
 
 - [technical/2026-06/2026-06-18/2026-06-18-15-07-27_track2h_latent_state_hysteresis_track2_analysis_preparation.md](./technical/2026-06/2026-06-18/2026-06-18-15-07-27_track2h_latent_state_hysteresis_track2_analysis_preparation.md)
-  Technical plan for preparing the separate official `Track 2` verification
-  refresh for the completed `Track 2H-L` latent-state / hysteresis-aware
+  Technical plan for preparing the separate official `TE Curve Verification Pipeline` verification
+  refresh for the completed `Wave 4.4` latent-state / hysteresis-aware
   candidates after the multi-index curve-first policy and artifact
   reorganization.
 
 - [technical/2026-06/2026-06-18/2026-06-18-14-50-13_campaign_artifact_naming_reorganization.md](./technical/2026-06/2026-06-18/2026-06-18-14-50-13_campaign_artifact_naming_reorganization.md)
-  Technical plan for consolidating campaign-result and `Track 2` artifact
+  Technical plan for consolidating campaign-result and `TE Curve Verification Pipeline` artifact
   naming around canonical filesystem slugs, display names, migration manifests,
   and verified reference updates.
 
@@ -504,24 +508,24 @@ This folder contains the internal project documents derived from the reference P
   adding it to future campaign closeout governance.
 
 - [technical/2026-06/2026-06-16/2026-06-16-16-00-57_track2h_latent_state_hysteresis_package.md](./technical/2026-06/2026-06-16/2026-06-16-16-00-57_track2h_latent_state_hysteresis_package.md)
-  Technical plan for aligning post-`Wave 3` `Track 2` status and preparing
-  the next `Track 2H-L` latent-state / hysteresis-aware campaign package.
+  Technical plan for aligning post-`Wave 5.1` `TE Curve Verification Pipeline` status and preparing
+  the next `Wave 4.4` latent-state / hysteresis-aware campaign package.
 
 - [technical/2026-06/2026-06-17/2026-06-17-01-27-10_track2h_latent_state_hysteresis_closeout.md](./technical/2026-06/2026-06-17/2026-06-17-01-27-10_track2h_latent_state_hysteresis_closeout.md)
-  Technical closeout note for accepting the completed `Track 2H-L`
+  Technical closeout note for accepting the completed `Wave 4.4`
   latent-state / hysteresis-aware campaign results, producing the final report
   and PDF, and clearing active campaign state while keeping official
-  `Track 2` curve verification separate.
+  `TE Curve Verification Pipeline` curve verification separate.
 
 - [technical/2026-06/2026-06-16/2026-06-16-12-37-49_wave3_track2_pdf_asset_path_repair.md](./technical/2026-06/2026-06-16/2026-06-16-12-37-49_wave3_track2_pdf_asset_path_repair.md)
-  Technical plan for shortening verbose `Wave 3` `Track 2` visual-report asset
+  Technical plan for shortening verbose `Wave 5.1` `TE Curve Verification Pipeline` visual-report asset
   paths and regenerating the styled PDFs after the failed image render.
 
 #### 2026-06-15
 
 - [technical/2026-06/2026-06-15/2026-06-15-17-54-41_wave3_track2_verification_refresh.md](./technical/2026-06/2026-06-15/2026-06-15-17-54-41_wave3_track2_verification_refresh.md)
-  Technical plan for preparing the separate official `Track 2` verification
-  refresh for the completed first real `Wave 3` harmonic-prior residual
+  Technical plan for preparing the separate official `TE Curve Verification Pipeline` verification
+  refresh for the completed first real `Wave 5.1` harmonic-prior residual
   candidates.
 
 - [technical/2026-06/2026-06-15/2026-06-15-16-45-47_aries_cpu_slurm_guide_update.md](./technical/2026-06/2026-06-15/2026-06-15-16-45-47_aries_cpu_slurm_guide_update.md)
@@ -529,9 +533,9 @@ This folder contains the internal project documents derived from the reference P
   the cluster user guide.
 
 - [technical/2026-06/2026-06-15/2026-06-15-15-42-48_wave3_harmonic_prior_residual_closeout.md](./technical/2026-06/2026-06-15/2026-06-15-15-42-48_wave3_harmonic_prior_residual_closeout.md)
-  Technical closeout note for the completed first real `Wave 3`
+  Technical closeout note for the completed first real `Wave 5.1`
   harmonic-prior residual campaign, including report, PDF, active-state
-  cleanup, and separate `Track 2` boundary.
+  cleanup, and separate `TE Curve Verification Pipeline` boundary.
 
 - [technical/2026-06/2026-06-15/2026-06-15-13-27-18_remote_conda_utf8_no_capture_hardening.md](./technical/2026-06/2026-06-15/2026-06-15-13-27-18_remote_conda_utf8_no_capture_hardening.md)
   Technical plan for hardening shared remote campaign Conda execution against
@@ -540,12 +544,12 @@ This folder contains the internal project documents derived from the reference P
 #### 2026-06-14
 
 - [technical/2026-06/2026-06-14/2026-06-14-19-54-55_wave3_harmonic_prior_residual_campaign_package.md](./technical/2026-06/2026-06-14/2026-06-14-19-54-55_wave3_harmonic_prior_residual_campaign_package.md)
-  Technical plan for preparing the first real `Wave 3`
-  harmonic-prior residual campaign package after completed `Track 2H`
+  Technical plan for preparing the first real `Wave 5.1`
+  harmonic-prior residual campaign package after completed `Wave 4 series`
   dispersion-aware verification.
 
 - [technical/2026-06/2026-06-14/2026-06-14-16-49-23_track2_refresh_self_contained_report_closure.md](./technical/2026-06/2026-06-14/2026-06-14-16-49-23_track2_refresh_self_contained_report_closure.md)
-  Technical plan for making `Track 2` verification refresh launchers generate
+  Technical plan for making `TE Curve Verification Pipeline` verification refresh launchers generate
   the official decision report and PDF package directly, so completed operator
   runs do not require manual report regeneration during closure.
 
@@ -553,114 +557,114 @@ This folder contains the internal project documents derived from the reference P
 
 - [technical/2026-06/2026-06-13/2026-06-13-15-15-12_track2h_mixture_density_heads_track2_verification_refresh.md](./technical/2026-06/2026-06-13/2026-06-13-15-15-12_track2h_mixture_density_heads_track2_verification_refresh.md)
   Technical note for preparing the separate operator-launched official
-  `Track 2` verification refresh for the six completed `Track 2H`
+  `TE Curve Verification Pipeline` verification refresh for the six completed `Wave 4 series`
   mixture-density heads candidates, including deterministic mixture-expectation
   playback handling.
 
 - [technical/2026-06/2026-06-13/2026-06-13-10-40-25_track2h_mixture_density_heads_package.md](./technical/2026-06/2026-06-13/2026-06-13-10-40-25_track2h_mixture_density_heads_package.md)
-  Technical note for preparing the next `Track 2H` dispersion-aware package
-  around mixture-density heads before latent-state, `Wave 3`, `Wave 4`, or
+  Technical note for preparing the next `Wave 4 series` dispersion-aware package
+  around mixture-density heads before latent-state, `Wave 5.1`, `Wave 5.2`, or
   integrated multi-head stages.
 
 - [technical/2026-06/2026-06-13/2026-06-13-10-13-17_track2_visual_builder_auto_group_coverage.md](./technical/2026-06/2026-06-13/2026-06-13-10-13-17_track2_visual_builder_auto_group_coverage.md)
-  Technical note for making `Track 2` visual builders cover newly added
+  Technical note for making `TE Curve Verification Pipeline` visual builders cover newly added
   registry-model source groups automatically and fail operator launchers when
   matrix candidates are missing from collage or overlay reports.
 
 #### 2026-06-12
 
 - [technical/2026-06/2026-06-12/2026-06-12-14-56-27_wave3_grouped_harmonic_heads_skeleton.md](./technical/2026-06/2026-06-12/2026-06-12-14-56-27_wave3_grouped_harmonic_heads_skeleton.md)
-  Technical note for preparing a non-campaign `Wave 3` grouped harmonic-heads
-  skeleton while the separate `Track 2H` quantile / probabilistic campaign
+  Technical note for preparing a non-campaign `Wave 5.1` grouped harmonic-heads
+  skeleton while the separate `Wave 4.2` quantile / probabilistic campaign
   runs elsewhere.
 
 - [technical/2026-06/2026-06-12/2026-06-12-14-30-46_track2h_quantile_probabilistic_track2_verification_refresh.md](./technical/2026-06/2026-06-12/2026-06-12-14-30-46_track2h_quantile_probabilistic_track2_verification_refresh.md)
   Technical note for preparing the separate operator-launched official
-  `Track 2` verification refresh for the six completed `Track 2H`
+  `TE Curve Verification Pipeline` verification refresh for the six completed `Wave 4 series`
   quantile/probabilistic candidates, including deterministic `p50` / `mu`
   playback handling.
 
 - [technical/2026-06/2026-06-12/2026-06-12-13-04-05_wave4b_mmt_feature_generator_skeleton.md](./technical/2026-06/2026-06-12/2026-06-12-13-04-05_wave4b_mmt_feature_generator_skeleton.md)
-  Technical note for preparing a non-campaign `Wave 4B` MMT feature-generator
-  skeleton while the separate `Track 2H` quantile / probabilistic campaign
+  Technical note for preparing a non-campaign `Wave 5.2B` MMT feature-generator
+  skeleton while the separate `Wave 4.2` quantile / probabilistic campaign
   runs elsewhere.
 
 #### 2026-06-11
 
 - [technical/2026-06/2026-06-11/2026-06-11-23-49-15_track2h_quantile_probabilistic_package.md](./technical/2026-06/2026-06-11/2026-06-11-23-49-15_track2h_quantile_probabilistic_package.md)
-  Technical note for preparing the second `Track 2H` dispersion-aware package
+  Technical note for preparing the `Wave 4.2` dispersion-aware package
   around quantile and Gaussian probabilistic regression candidates before the
   later mixture-density, latent-state, and multi-head stages.
 
 - [technical/2026-06/2026-06-11/2026-06-11-14-57-02_track2h_track2_verification_refresh.md](./technical/2026-06/2026-06-11/2026-06-11-14-57-02_track2h_track2_verification_refresh.md)
-  Plan the separate operator-launched official `Track 2` verification refresh
-  for the nine completed `Track 2H` robust-loss candidates, preserving
+  Plan the separate operator-launched official `TE Curve Verification Pipeline` verification refresh
+  for the nine completed `Wave 4.1` robust-loss candidates, preserving
   `global`, `Fw`, and `Bw` as parallel decision surfaces.
 
 - [technical/2026-06/2026-06-11/2026-06-11-20-29-51_wave4a_mmt_parameter_inventory.md](./technical/2026-06/2026-06-11/2026-06-11-20-29-51_wave4a_mmt_parameter_inventory.md)
-  Technical note for turning the current `Wave 4A` MMT diagnostic-only state
-  into a parameter-inventory and calibration-gate artifact before `Wave 4B`
-  feature generation or `Wave 4C` weak MMT losses.
+  Technical note for turning the current `Wave 5.2A` MMT diagnostic-only state
+  into a parameter-inventory and calibration-gate artifact before `Wave 5.2B`
+  feature generation or `Wave 5.2C` weak MMT losses.
 
 - [technical/2026-06/2026-06-11/2026-06-11-19-54-42_wave3_wave4_backlog_state_alignment.md](./technical/2026-06/2026-06-11/2026-06-11-19-54-42_wave3_wave4_backlog_state_alignment.md)
   Technical note for aligning the operational backlog and training master
-  summary with the committed `Wave 3` training-smoke-ready and `Wave 4A`
+  summary with the committed `Wave 5.1` training-smoke-ready and `Wave 5.2A`
   diagnostic-only pre-implementation state.
 
 - [technical/2026-06/2026-06-11/2026-06-11-19-25-32_wave3_wave4_parallel_hardening.md](./technical/2026-06/2026-06-11/2026-06-11-19-25-32_wave3_wave4_parallel_hardening.md)
-  Technical note for hardening the `Wave 3` skeleton toward training-smoke
-  readiness and adding the first `Wave 4A` MMT diagnostic report generator
-  while `Track 2H` continues separately.
+  Technical note for hardening the `Wave 5.1` skeleton toward training-smoke
+  readiness and adding the first `Wave 5.2A` MMT diagnostic report generator
+  while `Wave 4 series` continues separately.
 
 - [technical/2026-06/2026-06-11/2026-06-11-15-10-02_wave3_wave4_embryonic_skeletons.md](./technical/2026-06/2026-06-11/2026-06-11-15-10-02_wave3_wave4_embryonic_skeletons.md)
-  Technical note for preparing `Wave 3` and `Wave 4` embryonic skeletons as
+  Technical note for preparing `Wave 5.1` and `Wave 5.2` embryonic skeletons as
   implementation-ready but not campaign-ready.
 
 - [technical/2026-06/2026-06-11/2026-06-11-12-23-30_wave4_pinn_formulation_design.md](./technical/2026-06/2026-06-11/2026-06-11-12-23-30_wave4_pinn_formulation_design.md)
-  Technical note for opening the non-invasive `Wave 4` PINN formulation
-  design step while the separate `Track 2H` campaign runs elsewhere.
+  Technical note for opening the non-invasive `Wave 5.2` PINN formulation
+  design step while the separate `Wave 4 series` campaign runs elsewhere.
 
 - [technical/2026-06/2026-06-11/2026-06-11-13-10-10_wave4_pinn_equation_expansion.md](./technical/2026-06/2026-06-11/2026-06-11-13-10-10_wave4_pinn_equation_expansion.md)
-  Technical note for expanding `Wave 4` into staged MMT-equation,
+  Technical note for expanding `Wave 5.2` into staged MMT-equation,
   mesh-stiffness, loaded-TE, backlash/preload, cycloid-contact, and
   planetary-LSTE exploratory PINN branches.
 
 - [technical/2026-06/2026-06-11/2026-06-11-14-59-42_wave4_subbranch_design_package.md](./technical/2026-06/2026-06-11/2026-06-11-14-59-42_wave4_subbranch_design_package.md)
-  Technical note for creating the complete `Wave 4A` through `Wave 4G`
+  Technical note for creating the complete `Wave 5.2A` through `Wave 5.2G`
   sub-branch design package.
 
 - [technical/2026-06/2026-06-11/2026-06-11-12-02-00_wave3_hybrid_structured_model_design.md](./technical/2026-06/2026-06-11/2026-06-11-12-02-00_wave3_hybrid_structured_model_design.md)
-  Technical note for opening the non-invasive `Wave 3` hybrid structured
-  model design step while the separate `Track 2H` campaign runs elsewhere.
+  Technical note for opening the non-invasive `Wave 5.1` hybrid structured
+  model design step while the separate `Wave 4 series` campaign runs elsewhere.
 
 #### 2026-06-10
 
 - [technical/2026-06/2026-06-10/2026-06-10-16-56-36_track2h_dispersion_aware_modeling_probes.md](./technical/2026-06/2026-06-10/2026-06-10-16-56-36_track2h_dispersion_aware_modeling_probes.md)
-  Technical plan for the `Track 2H` dispersion-aware modeling probe branch,
+  Technical plan for the `Wave 4 series` dispersion-aware modeling probe branch,
   covering robust losses, uncertainty heads, mixture-density heads, and
   causal latent-state / hysteresis-aware features.
 
 - [technical/2026-06/2026-06-10/2026-06-10-16-18-08_rebase_documentation_repair.md](./technical/2026-06/2026-06-10/2026-06-10-16-18-08_rebase_documentation_repair.md)
   Technical note for repairing documentation-only rebase artifacts in the
-  training master summary after combining `Track 2G` official verification
+  training master summary after combining `Wave 3.3` official verification
   with the dispersion-aware roadmap update.
 
 - [technical/2026-06/2026-06-10/2026-06-10-15-18-10_track2_dispersion_aware_wave_roadmap.md](./technical/2026-06/2026-06-10/2026-06-10-15-18-10_track2_dispersion_aware_wave_roadmap.md)
-  Technical note for updating the `Track 2` roadmap with dispersion-aware
+  Technical note for updating the `TE Curve Verification Pipeline` roadmap with dispersion-aware
   probes, hybrid structured models, first-PINN work, and a later integrated
   multi-task / multi-head stage.
 
 #### 2026-06-09
 
 - [technical/2026-06/2026-06-09/2026-06-09-18-22-15_track2_component_offset_identification_plan.md](./technical/2026-06/2026-06-09/2026-06-09-18-22-15_track2_component_offset_identification_plan.md)
-  Plan the separate `Track 2` diagnostic branch for identifying whether the
+  Plan the separate `TE Curve Verification Pipeline` diagnostic branch for identifying whether the
   observed curve offset is dominated by `a_0` / `Component 0`, multiple
   harmonics, or experiment-condition variability before opening another
   training campaign.
 
 - [technical/2026-06/2026-06-09/2026-06-09-13-11-16_track2g_track2_verification_refresh.md](./technical/2026-06/2026-06-09/2026-06-09-13-11-16_track2g_track2_verification_refresh.md)
-  Plan the separate operator-launched official `Track 2` verification refresh
-  for the twelve completed `Track 2G` curve-aware candidates, preserving
+  Plan the separate operator-launched official `TE Curve Verification Pipeline` verification refresh
+  for the twelve completed `Wave 3.3` curve-aware candidates, preserving
   `global`, `Fw`, and `Bw` as parallel decision surfaces.
 
 #### 2026-06-08
@@ -670,38 +674,38 @@ This folder contains the internal project documents derived from the reference P
   user-provided curve `CSV` files and sparse harmonic selections.
 
 - [technical/2026-06/2026-06-08/2026-06-08-17-59-03_track2g_curve_aware_training_plan.md](./technical/2026-06/2026-06-08/2026-06-08-17-59-03_track2g_curve_aware_training_plan.md)
-  Plan the `Track 2G` curve-aware training branch after `Track 2F` and
-  `Track 2F-bis`, preserving causal point or short-history runtime inputs
+  Plan the `Wave 3.3` curve-aware training branch after `Wave 3.1` and
+  `Wave 3.2`, preserving causal point or short-history runtime inputs
   while testing composite curve loss and multi-head shape/offset modeling for
   separate `global`, `Fw`, and `Bw` decision surfaces.
 
 - [technical/2026-06/2026-06-08/2026-06-08-13-46-58_track2_forward_reference_curve_comparison_report.md](./technical/2026-06/2026-06-08/2026-06-08-13-46-58_track2_forward_reference_curve_comparison_report.md)
-  Plan the combined forward `Track 2` reference-curve comparison report across
+  Plan the combined forward `TE Curve Verification Pipeline` reference-curve comparison report across
   paper-original, paper-retuned, full original `ONNX`, and sparse original
   `ONNX` candidates.
 
 - [technical/2026-06/2026-06-08/2026-06-08-13-30-17_rcim_original_sparse_onnx_track2_variants.md](./technical/2026-06/2026-06-08/2026-06-08-13-30-17_rcim_original_sparse_onnx_track2_variants.md)
   Plan the simplified and PLC-oriented sparse original `ONNX` forward
-  `Track 2` variants over harmonics `0`, `1`, `39`, and `40`.
+  `TE Curve Verification Pipeline` variants over harmonics `0`, `1`, `39`, and `40`.
 
 - [technical/2026-06/2026-06-08/2026-06-08-12-53-28_track2f_bis_official_track2_refresh_preparation.md](./technical/2026-06/2026-06-08/2026-06-08-12-53-28_track2f_bis_official_track2_refresh_preparation.md)
-  Plan the operator-launched official `Track 2` verification refresh for the
-  completed `Track 2F-bis` harmonic-offset probe, preserving clean and
+  Plan the operator-launched official `TE Curve Verification Pipeline` verification refresh for the
+  completed `Wave 3.2` harmonic-offset probe, preserving clean and
   harmonic candidates for `global`, `Fw`, and `Bw` as parallel curve-first
   comparison surfaces.
 
 - [technical/2026-06/2026-06-08/2026-06-08-12-32-29_original_onnx_fw_collage_pdf_table_width_repair.md](./technical/2026-06/2026-06-08/2026-06-08-12-32-29_original_onnx_fw_collage_pdf_table_width_repair.md)
   Plan the table-width repair for the simple original paper `ONNX` forward
-  `Track 2` collage PDF.
+  `TE Curve Verification Pipeline` collage PDF.
 
 #### 2026-06-05
 
 - [technical/2026-06/2026-06-05/2026-06-05-16-02-33_original_onnx_fw_track2_collage_pdf_and_standalone_plotter.md](./technical/2026-06/2026-06-05/2026-06-05-16-02-33_original_onnx_fw_track2_collage_pdf_and_standalone_plotter.md)
-  Plan the simple original paper `ONNX` forward `Track 2` collage PDF and
+  Plan the simple original paper `ONNX` forward `TE Curve Verification Pipeline` collage PDF and
   standalone hardcoded-ONNX curve plotter.
 
 - [technical/2026-06/2026-06-05/2026-06-05-15-56-59_track2f_bis_campaign_runner_model_type_fix.md](./technical/2026-06/2026-06-05/2026-06-05-15-56-59_track2f_bis_campaign_runner_model_type_fix.md)
-  Plan the Track 2F-bis runner fix that registers
+  Plan the Wave 3.2 runner fix that registers
   `harmonic_residual_offset_probe` in the campaign runner, then reruns only
   the three failed harmonic-offset entries before normal closeout.
 
@@ -709,86 +713,86 @@ This folder contains the internal project documents derived from the reference P
 
 - [technical/2026-06/2026-06-04/2026-06-04-23-32-17_original_onnx_track2_offset_diagnostic.md](./technical/2026-06/2026-06-04/2026-06-04-23-32-17_original_onnx_track2_offset_diagnostic.md)
   Plan the focused diagnostic that loads recovered original RCIM paper ONNX
-  models through `Track 2` and checks whether the investigated mean-offset
+  models through `TE Curve Verification Pipeline` and checks whether the investigated mean-offset
   error pattern is present in the original ONNX release.
 
 - [technical/2026-06/2026-06-04/2026-06-04-21-14-52_track2f_bis_harmonic_offset_probe.md](./technical/2026-06/2026-06-04/2026-06-04-21-14-52_track2f_bis_harmonic_offset_probe.md)
-  Plan the Track 2F-bis harmonic-offset probe that keeps the clean
-  non-harmonic Track 2F branch as a control while adding an explicit harmonic
+  Plan the Wave 3.2 harmonic-offset probe that keeps the clean
+  non-harmonic Wave 3.1 branch as a control while adding an explicit harmonic
   shape branch plus causal offset branch for separate `global`, `Fw`, and `Bw`
   comparisons.
 
 - [technical/2026-06/2026-06-04/2026-06-04-21-07-46_track2f_clean_baseline_and_harmonic_offset_followup.md](./technical/2026-06/2026-06-04/2026-06-04-21-07-46_track2f_clean_baseline_and_harmonic_offset_followup.md)
-  Plan the Track 2F follow-up documentation update that records
+  Plan the Wave 3.1 follow-up documentation update that records
   `sequential_residual_offset_probe` as a clean non-harmonic baseline and
   keeps it in future comparisons against harmonic-offset, multi-head, new
   index, and composite-loss model branches.
 
 - [technical/2026-06/2026-06-04/2026-06-04-16-31-58_track2f_official_track2_refresh_preparation.md](./technical/2026-06/2026-06-04/2026-06-04-16-31-58_track2f_official_track2_refresh_preparation.md)
-  Plan the operator-launched official `Track 2` verification refresh for the
-  completed `Track 2F` offset-aware probe, preserving separate `global`, `Fw`,
+  Plan the operator-launched official `TE Curve Verification Pipeline` verification refresh for the
+  completed `Wave 3.1` offset-aware probe, preserving separate `global`, `Fw`,
   and `Bw` branch candidates and preparing local plus `-Remote` launcher
   commands without running the heavy matrix inside Codex.
 
 - [technical/2026-06/2026-06-04/2026-06-04-16-28-04_track2_curve_reconstruction_documentation.md](./technical/2026-06/2026-06-04/2026-06-04-16-28-04_track2_curve_reconstruction_documentation.md)
-  Plan the detailed `Track 2` curve-reconstruction documentation covering
+  Plan the detailed `TE Curve Verification Pipeline` curve-reconstruction documentation covering
   repository models, paper-original reference banks, collage plotting, and
   mean-centered diagnostic context.
 
 - [technical/2026-06/2026-06-04/2026-06-04-12-47-33_track2f_closeout_pdf_refinement_and_skill_rule.md](./technical/2026-06/2026-06-04/2026-06-04-12-47-33_track2f_closeout_pdf_refinement_and_skill_rule.md)
-  Plan the `Track 2F` closeout PDF refinement that starts `Execution Summary`
+  Plan the `Wave 3.1` closeout PDF refinement that starts `Execution Summary`
   on a fresh page and updates the campaign closeout skill so generated PDFs
   are always reviewed and repaired before finalization.
 
 - [technical/2026-06/2026-06-04/2026-06-04-12-28-46_track2f_campaign_closeout.md](./technical/2026-06/2026-06-04/2026-06-04-12-28-46_track2f_campaign_closeout.md)
-  Plan the completed `Track 2F` campaign closeout, including the final
+  Plan the completed `Wave 3.1` campaign closeout, including the final
   campaign-results Markdown/PDF deliverable, wrapper-error review, active-state
   cleanup, and explicit preservation of separate `global`, `Fw`, and `Bw`
   best-model branches.
 
 - [technical/2026-06/2026-06-04/2026-06-04-11-15-13_track2f_launcher_exit_flow_fix.md](./technical/2026-06/2026-06-04/2026-06-04-11-15-13_track2f_launcher_exit_flow_fix.md)
-  Plan the protected Track 2F launcher fix that prevents Python validation
+  Plan the protected Wave 3.1 launcher fix that prevents Python validation
   stdout from being captured as a false launcher error before the sequential
   training campaign starts.
 
 #### 2026-06-03
 
 - [technical/2026-06/2026-06-03/2026-06-03-18-18-20_track2f_sequential_residual_offset_probe.md](./technical/2026-06/2026-06-03/2026-06-03-18-18-20_track2f_sequential_residual_offset_probe.md)
-  Plan the first learned `Track 2F` implementation step by adding the
+  Plan the first learned `Wave 3.1` implementation step by adding the
   `sequential_residual_offset_probe` model type and converting the prepared
   sequential descriptors into runnable campaign entries.
 
 - [technical/2026-06/2026-06-03/2026-06-03-17-25-37_track2f_offset_aware_probe_campaign.md](./technical/2026-06/2026-06-03/2026-06-03-17-25-37_track2f_offset_aware_probe_campaign.md)
-  Plan the `Track 2F` offset-aware probe campaign gate that compares
+  Plan the `Wave 3.1` offset-aware probe campaign gate that compares
   post-hoc `direction_torque` calibration, sequential residual-offset
   modeling, and multi-head shape/offset training across `Fw`, `Bw`, and
   `global` surfaces.
 
 - [technical/2026-06/2026-06-03/2026-06-03-11-40-21_track2e_offset_predictability_feasibility.md](./technical/2026-06/2026-06-03/2026-06-03-11-40-21_track2e_offset_predictability_feasibility.md)
-  Plan the `Track 2E` offset-predictability feasibility diagnostic that uses
-  completed `Track 2D` artifacts to decide whether the next branch should be
+  Plan the `CVP 1.5` offset-predictability feasibility diagnostic that uses
+  completed `CVP 1.4` artifacts to decide whether the next branch should be
   loss reweighting, multi-head shape/offset modeling, sequential offset
   modeling, post-hoc offset calibration, or a non-offset-first intervention.
 
 - [technical/2026-06/2026-06-03/2026-06-03-10-49-06_track2d_pdf_table_layout_rules.md](./technical/2026-06/2026-06-03/2026-06-03-10-49-06_track2d_pdf_table_layout_rules.md)
-  Plan the `Track 2D` styled-PDF table layout correction and reusable
+  Plan the `CVP 1.4` styled-PDF table layout correction and reusable
   generator rule for future mean-offset diagnostic reports.
 
 - [technical/2026-06/2026-06-03/2026-06-03-00-08-04_track2d_mean_offset_full_matrix_audit.md](./technical/2026-06/2026-06-03/2026-06-03-00-08-04_track2d_mean_offset_full_matrix_audit.md)
-  Plan the `Track 2D` full-matrix audit that decomposes every official
-  direction-valid `Track 2` candidate into raw error, curve offset,
+  Plan the `CVP 1.4` full-matrix audit that decomposes every official
+  direction-valid `TE Curve Verification Pipeline` candidate into raw error, curve offset,
   centered-shape error, amplitude error, harmonic phase error, and
   condition-regime behavior before new curve-aware training is opened.
 
 #### 2026-06-02
 
 - [technical/2026-06/2026-06-02/2026-06-02-23-21-05_track2_mean_offset_resolution_strategy.md](./technical/2026-06/2026-06-02/2026-06-02-23-21-05_track2_mean_offset_resolution_strategy.md)
-  Plan the documentation update that incorporates the `Track 2`
+  Plan the documentation update that incorporates the `TE Curve Verification Pipeline`
   mean-centered diagnostic, explains the mean-offset failure mode, and adds the
   next full-matrix offset audit plus curve-aware training strategy.
 
 - [technical/2026-06/2026-06-02/2026-06-02-12-40-01_track2_mean_centered_collage_diagnostics.md](./technical/2026-06/2026-06-02/2026-06-02-12-40-01_track2_mean_centered_collage_diagnostics.md)
-  Plan the `Track 2` mean-centered collage diagnostics report that tests
+  Plan the `TE Curve Verification Pipeline` mean-centered collage diagnostics report that tests
   whether persistent prediction offsets hide stronger TE curve-shape tracking.
 
 - [technical/2026-06/2026-06-02/2026-06-02-12-24-15_technical_document_index_chronological_order.md](./technical/2026-06/2026-06-02/2026-06-02-12-24-15_technical_document_index_chronological_order.md)
@@ -805,22 +809,22 @@ This folder contains the internal project documents derived from the reference P
 #### 2026-05-28
 
 - [technical/2026-05/2026-05-28/2026-05-28-19-33-44_track2c_curve_payload_diagnostics.md](./technical/2026-05/2026-05-28/2026-05-28-19-33-44_track2c_curve_payload_diagnostics.md)
-  Plan the `Track 2C` curve-payload diagnostics pass that will export selected
+  Plan the `CVP 1.2` curve-payload diagnostics pass that will export selected
   truth/prediction curves and measure harmonic, phase, slope, smoothness, and
   stitched-revolution behavior before new training is opened.
 
 - [technical/2026-05/2026-05-28/2026-05-28-18-21-51_repository_status_wave_track_synthesis_pdf_export.md](./technical/2026-05/2026-05-28/2026-05-28-18-21-51_repository_status_wave_track_synthesis_pdf_export.md)
   Plan the styled PDF export and validation pass for the repository status,
-  Wave, and `Track 2` synthesis report.
+  Wave, and `TE Curve Verification Pipeline` synthesis report.
 
 - [technical/2026-05/2026-05-28/2026-05-28-16-59-09_track2b_curve_first_reranking.md](./technical/2026-05/2026-05-28/2026-05-28-16-59-09_track2b_curve_first_reranking.md)
-  Plan the `Track 2B` curve-first reranking pass that standardizes existing
-  `Track 2` curve metrics before opening new training-loss or model-family
+  Plan the `CVP 1.1` curve-first reranking pass that standardizes existing
+  `TE Curve Verification Pipeline` curve metrics before opening new training-loss or model-family
   work.
 
 - [technical/2026-05/2026-05-28/2026-05-28-16-58-12_repository_status_wave_track_synthesis_report.md](./technical/2026-05/2026-05-28/2026-05-28-16-58-12_repository_status_wave_track_synthesis_report.md)
   Plan the repository status synthesis report covering current repository
-  state, `Wave 1`, `Wave 2`, `Wave 2B`, `Wave 2C`, `Track 2` outcomes,
+  state, `Wave 1`, `Wave 2.1`, `Wave 2.2`, `Wave 2.3`, `TE Curve Verification Pipeline` outcomes,
   sparse `RCIM` versus dense harmonic-bank results, and the future development
   path including commit `b73220679410276246421b7e2832d8878cff90a0`.
 
@@ -831,37 +835,37 @@ This folder contains the internal project documents derived from the reference P
 
 - [technical/2026-05/2026-05-28/2026-05-28-16-32-36_curve_first_te_training_strategy.md](./technical/2026-05/2026-05-28/2026-05-28-16-32-36_curve_first_te_training_strategy.md)
   Plan the curve-first TE training strategy research and documentation refresh
-  so future `Wave 1` / `Wave 2` follow-up work is judged by continuous
-  Track 2 curve-following quality, not only scalar pointwise `MAE`.
+  so future `Wave 1` / `Wave 2.1` follow-up work is judged by continuous
+  TE Curve Verification Pipeline curve-following quality, not only scalar pointwise `MAE`.
 
 - [technical/2026-05/2026-05-28/2026-05-28-12-10-21_wave2c_track2_verification_refresh.md](./technical/2026-05/2026-05-28/2026-05-28-12-10-21_wave2c_track2_verification_refresh.md)
-  Plan the optional `Wave 2C` `Track 2` verification refresh, including the
+  Plan the optional `Wave 2.3` `TE Curve Verification Pipeline` verification refresh, including the
   matrix candidate update, local and `-Remote` operator launcher, visual report
   regeneration, official decision report, and status synchronization.
 
 - [technical/2026-05/2026-05-28/2026-05-28-11-38-20_wave2c_remote_repository_path_fallback.md](./technical/2026-05/2026-05-28/2026-05-28-11-38-20_wave2c_remote_repository_path_fallback.md)
-  Plan the `Wave 2C` remote launcher fallback fix so `-Remote` uses the
+  Plan the `Wave 2.3` remote launcher fallback fix so `-Remote` uses the
   established LAN repository clone path when the environment variable is unset.
 
 - [technical/2026-05/2026-05-28/2026-05-28-11-35-34_wave2c_campaign_closeout.md](./technical/2026-05/2026-05-28/2026-05-28-11-35-34_wave2c_campaign_closeout.md)
-  Plan the completed `Wave 2C` campaign closeout: verify the 18-run
+  Plan the completed `Wave 2.3` campaign closeout: verify the 18-run
   residual-harmonic temporal hybrid artifact surface, generate the Markdown and
-  PDF results report, clear active campaign state, and keep `Track 2` as a
+  PDF results report, clear active campaign state, and keep `TE Curve Verification Pipeline` as a
   separate operator-approved follow-up.
 
 #### 2026-05-27
 
 - [technical/2026-05/2026-05-27/2026-05-27-18-35-06_campaign_launcher_remote_execution_standard.md](./technical/2026-05/2026-05-27/2026-05-27-18-35-06_campaign_launcher_remote_execution_standard.md)
-  Plan the protected `Wave 2C` launcher retrofit that adds `-Remote` execution
+  Plan the protected `Wave 2.3` launcher retrofit that adds `-Remote` execution
   plus the repository rule that future campaign launchers must sync required
   sources before remote execution and artifacts after completion.
 
 - [technical/2026-05/2026-05-27/2026-05-27-18-08-32_wave2c_residual_harmonic_temporal_hybrids.md](./technical/2026-05/2026-05-27/2026-05-27-18-08-32_wave2c_residual_harmonic_temporal_hybrids.md)
-  Plan the `Wave 2C` residual harmonic temporal hybrid branch that uses a
+  Plan the `Wave 2.3` residual harmonic temporal hybrid branch that uses a
   structured harmonic base with `GRU` and `LSTM` residual sequence branches.
 
 - [technical/2026-05/2026-05-27/2026-05-27-17-51-45_track2_incremental_visual_artifact_sync.md](./technical/2026-05/2026-05-27/2026-05-27-17-51-45_track2_incremental_visual_artifact_sync.md)
-  Plan the `Track 2` refresh cleanup that keeps incremental matrix runs and
+  Plan the `TE Curve Verification Pipeline` refresh cleanup that keeps incremental matrix runs and
   remote artifact synchronization focused on new candidate visual artifacts
   instead of regenerating or resynchronizing closed `Wave 1` PNG history.
 
@@ -869,45 +873,45 @@ This folder contains the internal project documents derived from the reference P
 
 - [technical/2026-05/2026-05-26/2026-05-26-14-01-40_campaign_closeout_and_manual_track2_gate.md](./technical/2026-05/2026-05-26/2026-05-26-14-01-40_campaign_closeout_and_manual_track2_gate.md)
   Plan the revised campaign-closeout workflow that separates normal campaign
-  closeout from optional operator-launched `Track 2` verification, including
-  local and `-Remote` launcher preparation before any heavy Track 2 run.
+  closeout from optional operator-launched `TE Curve Verification Pipeline` verification, including
+  local and `-Remote` launcher preparation before any heavy TE Curve Verification Pipeline run.
 
 #### 2026-05-25
 
 - [technical/2026-05/2026-05-25/2026-05-25-03-17-26_wave2b_harmonic_temporal_hybrids.md](./technical/2026-05/2026-05-25/2026-05-25-03-17-26_wave2b_harmonic_temporal_hybrids.md)
-  Plan the `Wave 2B` harmonic-temporal hybrid branch that applies explicit
+  Plan the `Wave 2.2` harmonic-temporal hybrid branch that applies explicit
   periodic harmonic feature expansion to the temporal convolution, `GRU`, and
   `LSTM` sequence families before a campaign package is prepared.
 
 - [technical/2026-05/2026-05-25/2026-05-25-03-06-07_track2_verification_refresh_skill.md](./technical/2026-05/2026-05-25/2026-05-25-03-06-07_track2_verification_refresh_skill.md)
   Plan the repository-local Codex skill that captures the post-campaign
-  `Track 2` verification refresh workflow: matrix update, visual PDF
+  `TE Curve Verification Pipeline` verification refresh workflow: matrix update, visual PDF
   regeneration, official report decision, status updates, QA, and commit
   preflight.
 
 #### 2026-05-24
 
 - [technical/2026-05/2026-05-24/2026-05-24-12-36-49_wave2_closeout_and_track2_refresh_plan.md](./technical/2026-05/2026-05-24/2026-05-24-12-36-49_wave2_closeout_and_track2_refresh_plan.md)
-  Plan the `Wave 2` temporal-model campaign closeout and the follow-on
-  official `Track 2` model-verification refresh required before temporal
+  Plan the `Wave 2.1` temporal-model campaign closeout and the follow-on
+  official `TE Curve Verification Pipeline` model-verification refresh required before temporal
   candidates are accepted.
 
 #### 2026-05-21
 
 - [technical/2026-05/2026-05-21/2026-05-21-16-46-08_wave2_temporal_model_entry_plan.md](./technical/2026-05/2026-05-21/2026-05-21-16-46-08_wave2_temporal_model_entry_plan.md)
-  Plan the opening of `Wave 2` as the temporal-model branch, starting from
+  Plan the opening of `Wave 2.1` as the temporal-model branch, starting from
   lightweight temporal convolution, `GRU`, and `LSTM` sequence baselines while
   preserving the `global` / `Fw` / `Bw` verification rule and official `Track
   2` closeout workflow.
 
 - [technical/2026-05/2026-05-21/2026-05-21-15-09-15_track2_official_model_verification_report.md](./technical/2026-05/2026-05-21/2026-05-21-15-09-15_track2_official_model_verification_report.md)
-  Plan the official `Track 2` model-verification report that consolidates the
+  Plan the official `TE Curve Verification Pipeline` model-verification report that consolidates the
   directional metric matrix, best-model collage PDF, multi-model curve
-  comparison PDF, and future `Track 2` campaign results into one maintained
+  comparison PDF, and future `TE Curve Verification Pipeline` campaign results into one maintained
   closeout surface.
 
 - [technical/2026-05/2026-05-21/2026-05-21-13-23-42_track2_periodic_mlp_harmonic_report_refresh.md](./technical/2026-05/2026-05-21/2026-05-21-13-23-42_track2_periodic_mlp_harmonic_report_refresh.md)
-  Plan the `Track 2` visual report refresh that updates the existing
+  Plan the `TE Curve Verification Pipeline` visual report refresh that updates the existing
   `[2026-05-20]` best-model collage and multi-model curve comparison PDFs
   with the newly trained explicit-harmonic `periodic_mlp` family winners.
 
@@ -928,33 +932,33 @@ This folder contains the internal project documents derived from the reference P
   under `Target B`.
 
 - [technical/2026-05/2026-05-20/2026-05-20-20-27-06_track2_multi_model_curve_comparison_report.md](./technical/2026-05/2026-05-20/2026-05-20-20-27-06_track2_multi_model_curve_comparison_report.md)
-  Plan the `Track 2` multi-model overlay report comparing original TE curves,
+  Plan the `TE Curve Verification Pipeline` multi-model overlay report comparing original TE curves,
   reference best models, and screened Wave 1 family-best models.
 
 - [technical/2026-05/2026-05-20/2026-05-20-19-17-04_track2_backward_retuned_baseline_rule.md](./technical/2026-05/2026-05-20/2026-05-20-19-17-04_track2_backward_retuned_baseline_rule.md)
-  Plan the `Track 2` and `Target A` documentation rule that uses
+  Plan the `TE Curve Verification Pipeline` and `Target A` documentation rule that uses
   `paper_retuned_best_Bw` as the canonical backward baseline when no
   paper-original backward reference exists.
 
 - [technical/2026-05/2026-05-20/2026-05-20-17-37-09_track2_best_model_collage_pdf_report.md](./technical/2026-05/2026-05-20/2026-05-20-17-37-09_track2_best_model_collage_pdf_report.md)
-  Plan the `Track 2` styled PDF report with four-curve collages for the best
-  paper-reference, Track 1, Wave 1 directional, and Wave 1 global models.
+  Plan the `TE Curve Verification Pipeline` styled PDF report with four-curve collages for the best
+  paper-reference, RCIM Model-Bank Reproduction, Wave 1 directional, and Wave 1 global models.
 
 #### 2026-05-19
 
 - [technical/2026-05/2026-05-19/2026-05-19-17-32-08_wave1_high_order_harmonic_tracking.md](./technical/2026-05/2026-05-19/2026-05-19-17-32-08_wave1_high_order_harmonic_tracking.md)
   Plan the `Wave 1` follow-up for sparse RCIM and dense high-order harmonic
   bases in `harmonic_regression` and `residual_harmonic_mlp`, motivated by
-  `Track 2` curve smoothing against multi-harmonic TE truth curves.
+  `TE Curve Verification Pipeline` curve smoothing against multi-harmonic TE truth curves.
 
 - [technical/2026-05/2026-05-19/2026-05-19-16-40-26_wave1_future_waves_hydra_config_transition.md](./technical/2026-05/2026-05-19/2026-05-19-16-40-26_wave1_future_waves_hydra_config_transition.md)
   Plan the gradual `Hydra` configuration transition for `Wave 1` and future
-  waves while keeping closed `Track 1` exact-paper workflows stable unless a
+  waves while keeping closed `RCIM Model-Bank Reproduction` exact-paper workflows stable unless a
   future non-faithful branch opts in.
 
 - [technical/2026-05/2026-05-19/2026-05-19-16-27-02_rcim_archive_parity_interpretation_and_gbm_grid_fix.md](./technical/2026-05/2026-05-19/2026-05-19-16-27-02_rcim_archive_parity_interpretation_and_gbm_grid_fix.md)
   Plan the refined `rcim_original`, `rcim_retuned`, and `rcim_track1` archive
-  parity interpretation plus the Track 1 GBM grid transcription fix.
+  parity interpretation plus the RCIM Model-Bank Reproduction GBM grid transcription fix.
 
 - [technical/2026-05/2026-05-19/2026-05-19-15-10-17_obsolete_training_artifact_cleanup.md](./technical/2026-05/2026-05-19/2026-05-19-15-10-17_obsolete_training_artifact_cleanup.md)
   Plan the conservative cleanup of obsolete training, validation, campaign,
@@ -963,8 +967,8 @@ This folder contains the internal project documents derived from the reference P
 
 - [technical/2026-05/2026-05-19/2026-05-19-15-00-46_te_model_live_backlog_alignment.md](./technical/2026-05/2026-05-19/2026-05-19-15-00-46_te_model_live_backlog_alignment.md)
   Plan the documentation-only cleanup of the TE model live backlog after the
-  recovered original pipeline, retuned reference archive, closed `Track 1`,
-  active `Track 2`, and directional `Wave 1` rule updates.
+  recovered original pipeline, retuned reference archive, closed `RCIM Model-Bank Reproduction`,
+  active `TE Curve Verification Pipeline`, and directional `Wave 1` rule updates.
 
 - [technical/2026-05/2026-05-19/2026-05-19-10-21-12_analysis_report_reorganization.md](./technical/2026-05/2026-05-19/2026-05-19-10-21-12_analysis_report_reorganization.md)
   Plan the topic-root reorganization of `doc/reports/analysis/`, including
@@ -997,41 +1001,41 @@ This folder contains the internal project documents derived from the reference P
 
 - [technical/2026-05/2026-05-18/2026-05-18-20-26-23_rcim_original_onnx_release_parity_validation.md](./technical/2026-05/2026-05-18/2026-05-18-20-26-23_rcim_original_onnx_release_parity_validation.md)
   Plan the forward-only parity validation between the recovered original ONNX
-  release, `Tables 2-5`, and the current `rcim_original` Track 2 baseline.
+  release, `Tables 2-5`, and the current `rcim_original` TE Curve Verification Pipeline baseline.
 
 - [technical/2026-05/2026-05-18/2026-05-18-20-18-29_rcim_paper_original_table_audit.md](./technical/2026-05/2026-05-18/2026-05-18-20-18-29_rcim_paper_original_table_audit.md)
   Plan the RCIM paper-original table audit and Table 2 marker refresh after
   corrected Table 2 original values.
 
 - [technical/2026-05/2026-05-18/2026-05-18-19-59-32_track2_best_composite_report_visibility_fix.md](./technical/2026-05/2026-05-18/2026-05-18-19-59-32_track2_best_composite_report_visibility_fix.md)
-  Plan the `Track 2` report visibility fix that promotes composed best-reference
+  Plan the `TE Curve Verification Pipeline` report visibility fix that promotes composed best-reference
   models into a dedicated canonical comparison section.
 
 - [technical/2026-05/2026-05-18/2026-05-18-15-37-22_track2_composite_best_reference_models.md](./technical/2026-05/2026-05-18/2026-05-18-15-37-22_track2_composite_best_reference_models.md)
-  Plan the `Track 2` composed best-reference candidates assembled from the
-  selected paper original, retuned, and Track 1 harmonic cells.
+  Plan the `TE Curve Verification Pipeline` composed best-reference candidates assembled from the
+  selected paper original, retuned, and RCIM Model-Bank Reproduction harmonic cells.
 
 - [technical/2026-05/2026-05-18/2026-05-18-12-20-17_track2_direction_truth_and_preview_audit.md](./technical/2026-05/2026-05-18/2026-05-18-12-20-17_track2_direction_truth_and_preview_audit.md)
-  Plan the `Track 2` direction/truth audit after preview-curve sign concerns,
+  Plan the `TE Curve Verification Pipeline` direction/truth audit after preview-curve sign concerns,
   plus complete grouped PNG generation under `doc/reports/campaign_results/track_2/verification_plots/`.
 
 - [technical/2026-05/2026-05-18/2026-05-18-11-50-19_track2_report_grouped_source_tables.md](./technical/2026-05/2026-05-18/2026-05-18-11-50-19_track2_report_grouped_source_tables.md)
-  Plan the `Track 2` report readability refinement that groups comparison
-  tables by original, retuned, Track 1, and Wave 1 source families.
+  Plan the `TE Curve Verification Pipeline` report readability refinement that groups comparison
+  tables by original, retuned, RCIM Model-Bank Reproduction, and Wave 1 source families.
 
 - [technical/2026-05/2026-05-18/2026-05-18-10-03-13_track2_original_and_retuned_reference_matrix_extension.md](./technical/2026-05/2026-05-18/2026-05-18-10-03-13_track2_original_and_retuned_reference_matrix_extension.md)
-  Plan the next `Track 2` matrix extension for `rcim_original` forward-only and
+  Plan the next `TE Curve Verification Pipeline` matrix extension for `rcim_original` forward-only and
   `rcim_retuned` forward/backward paper-reference archives from `models/`.
 
 - [technical/2026-05/2026-05-18/2026-05-18-00-53-52_track2_full_directional_matrix_report.md](./technical/2026-05/2026-05-18/2026-05-18-00-53-52_track2_full_directional_matrix_report.md)
-  Plan the full `Track 2` directional comparison matrix and standalone report,
-  replacing the obsolete mixed `LGBM-19` comparison with `Track 1` and `Wave 1`
+  Plan the full `TE Curve Verification Pipeline` directional comparison matrix and standalone report,
+  replacing the obsolete mixed `LGBM-19` comparison with `RCIM Model-Bank Reproduction` and `Wave 1`
   model artifacts loaded from `models/`.
 
 #### 2026-05-17
 
 - [technical/2026-05/2026-05-17/2026-05-17-19-01-32_track2_directional_comparison_pipeline_alignment.md](./technical/2026-05/2026-05-17/2026-05-17-19-01-32_track2_directional_comparison_pipeline_alignment.md)
-  Plan the direction-aware `Track 2` comparison pipeline, including `Track 1`
+  Plan the direction-aware `TE Curve Verification Pipeline` comparison pipeline, including `RCIM Model-Bank Reproduction`
   forward/backward family banks, `Wave 1` global and directional models, and
   canonical `data/simplified_dataset` loading for future waves.
 
@@ -1041,7 +1045,7 @@ This folder contains the internal project documents derived from the reference P
   canonical `output/training_campaigns/wave1/` taxonomy.
 
 - [technical/2026-05/2026-05-17/2026-05-17-18-02-23_track1_closure_documentation_alignment.md](./technical/2026-05/2026-05-17/2026-05-17-18-02-23_track1_closure_documentation_alignment.md)
-  Plan the documentation-only closure update for `Track 1` after completed
+  Plan the documentation-only closure update for `RCIM Model-Bank Reproduction` after completed
   forward and backward paper-faithful campaigns, with a deferred
   restricted-dataset rerun backlog item.
 
@@ -1054,7 +1058,7 @@ This folder contains the internal project documents derived from the reference P
 
 - [technical/2026-05/2026-05-16/2026-05-16-20-46-00_rcim_original_pipeline_documentation_alignment.md](./technical/2026-05/2026-05-16/2026-05-16-20-46-00_rcim_original_pipeline_documentation_alignment.md)
   Plan the documentation alignment for the recovered RCIM original pipeline,
-  faithful exact-model-bank reimplementation, Track 1 campaigns, benchmark
+  faithful exact-model-bank reimplementation, RCIM Model-Bank Reproduction campaigns, benchmark
   tables, and paper-reference model archives.
 
 - [technical/2026-05/2026-05-16/2026-05-16-20-14-35_small_exact_model_bank_lfs_pointer_conversion.md](./technical/2026-05/2026-05-16/2026-05-16-20-14-35_small_exact_model_bank_lfs_pointer_conversion.md)
@@ -1062,7 +1066,7 @@ This folder contains the internal project documents derived from the reference P
   `paper_family_model_bank.pkl` LFS pointers into normal Git blobs.
 
 - [technical/2026-05/2026-05-16/2026-05-16-20-07-07_track1_backward_paper_faithful_closeout_and_reference_refresh.md](./technical/2026-05/2026-05-16/2026-05-16-20-07-07_track1_backward_paper_faithful_closeout_and_reference_refresh.md)
-  Plan the Track 1 backward paper-faithful campaign closeout, backward
+  Plan the RCIM Model-Bank Reproduction backward paper-faithful campaign closeout, backward
   paper-reference model archive replacement, linked report updates, and RCIM
   Tables `2`-`5` benchmark recompilation.
 
@@ -1092,15 +1096,15 @@ This folder contains the internal project documents derived from the reference P
 
 - [technical/2026-05/2026-05-15/2026-05-15-13-18-01_unimore_aries_linux_portability_plan.md](./technical/2026-05/2026-05-15/2026-05-15-13-18-01_unimore_aries_linux_portability_plan.md)
   Plan the Linux portability pass for Unimore Aries, including platform-aware
-  repository-relative paths and Bash equivalents for Track 1 campaign
+  repository-relative paths and Bash equivalents for RCIM Model-Bank Reproduction campaign
   launchers.
 
 - [technical/2026-05/2026-05-15/2026-05-15-12-10-04_track1_forward_closeout_pdf_table_layout_refinement.md](./technical/2026-05/2026-05-15/2026-05-15-12-10-04_track1_forward_closeout_pdf_table_layout_refinement.md)
-  Plan the reusable styled-PDF table layout refinement for the Track 1 forward
+  Plan the reusable styled-PDF table layout refinement for the RCIM Model-Bank Reproduction forward
   paper-faithful closeout report.
 
 - [technical/2026-05/2026-05-15/2026-05-15-11-11-35_track1_forward_paper_faithful_closeout_and_reference_refresh.md](./technical/2026-05/2026-05-15/2026-05-15-11-11-35_track1_forward_paper_faithful_closeout_and_reference_refresh.md)
-  Plan the Track 1 forward paper-faithful campaign closeout, paper-reference
+  Plan the RCIM Model-Bank Reproduction forward paper-faithful campaign closeout, paper-reference
   model archive replacement, linked report updates, and RCIM Tables `2`-`5`
   benchmark recompilation.
 
@@ -1112,7 +1116,7 @@ This folder contains the internal project documents derived from the reference P
   `2`-`5` and the styled closeout PDF.
 
 - [technical/2026-05/2026-05-14/2026-05-14-00-07-31_track1_svr_parameter_grid_yaml_serialization_fix.md](./technical/2026-05/2026-05-14/2026-05-14-00-07-31_track1_svr_parameter_grid_yaml_serialization_fix.md)
-  Plan the Track 1 exact-paper validation-summary fix that serializes search
+  Plan the RCIM Model-Bank Reproduction exact-paper validation-summary fix that serializes search
   `parameter_grid` metadata before YAML output so estimator objects from the
   `SVR` branch cannot crash post-export campaign bookkeeping.
 
@@ -1123,7 +1127,7 @@ This folder contains the internal project documents derived from the reference P
   directory before uploading the source-sync archive with `scp`.
 
 - [technical/2026-05/2026-05-13/2026-05-13-17-33-38_track1_paper_faithful_elm_queue_completion.md](./technical/2026-05/2026-05-13/2026-05-13-17-33-38_track1_paper_faithful_elm_queue_completion.md)
-  Plan the protected Track 1 paper-faithful queue update that adds forward and
+  Plan the protected RCIM Model-Bank Reproduction paper-faithful queue update that adds forward and
   backward `ELM` YAML entries for the `11`-family launcher command.
 
 - [technical/2026-05/2026-05-13/2026-05-13-16-50-46_rcim_retuned_closeout_pdf_table_layout_refinement.md](./technical/2026-05/2026-05-13/2026-05-13-16-50-46_rcim_retuned_closeout_pdf_table_layout_refinement.md)
@@ -1171,7 +1175,7 @@ This folder contains the internal project documents derived from the reference P
 - [technical/2026-05/2026-05-11/2026-05-11-19-35-52_optuna_hpo_integration_for_wave1_and_future_waves.md](./technical/2026-05/2026-05-11/2026-05-11-19-35-52_optuna_hpo_integration_for_wave1_and_future_waves.md)
   Plan the promotion of `Optuna` into the canonical neural-family
   hyperparameter-optimization layer for `Wave 1` directional retuning and
-  future `Wave 2+` model families.
+  future `Wave 2.1+` model families.
 
 - [technical/2026-05/2026-05-11/2026-05-11-19-20-20_wave1_directional_best_hyperparameter_grid_search_campaign.md](./technical/2026-05/2026-05-11/2026-05-11-19-20-20_wave1_directional_best_hyperparameter_grid_search_campaign.md)
   Plan the bounded best-hyperparameter grid-search campaign for the `15`
@@ -1274,7 +1278,7 @@ This folder contains the internal project documents derived from the reference P
 
 - [technical/2026-05/2026-05-07/2026-05-07-15-18-56_track1_exact_paper_detailed_progress_logging_and_stage_control_alignment.md](./technical/2026-05/2026-05-07/2026-05-07-15-18-56_track1_exact_paper_detailed_progress_logging_and_stage_control_alignment.md)
   Plan the observability and launcher-control alignment that makes the
-  exact-paper Track 1 reimplementation expose frequent live progress and a
+  exact-paper RCIM Model-Bank Reproduction reimplementation expose frequent live progress and a
   stage-aware operator flow analogous to the unified recovered-original RCIM
   launcher.
 
@@ -1304,7 +1308,7 @@ This folder contains the internal project documents derived from the reference P
 - [technical/2026-05/2026-05-06/2026-05-06-15-53-01_wave1_directional_retraining_and_future_wave_extension.md](./technical/2026-05/2026-05-06/2026-05-06-15-53-01_wave1_directional_retraining_and_future_wave_extension.md)
   Plan the formal directional retraining of all implemented `Wave 1`
   families into `global`, `Fw`, and `Bw` variants, and promote the same
-  three-surface rule into future `Wave 2+` family-preparation pipelines.
+  three-surface rule into future `Wave 2.1+` family-preparation pipelines.
 
 #### 2026-05-05
 
@@ -1342,7 +1346,7 @@ This folder contains the internal project documents derived from the reference P
 #### 2026-05-03
 
 - [technical/2026-05/2026-05-03/2026-05-03-13-23-46_track1_bidirectional_paper_faithful_grid_search_campaign_replacement.md](./technical/2026-05/2026-05-03/2026-05-03-13-23-46_track1_bidirectional_paper_faithful_grid_search_campaign_replacement.md)
-  Plan the replacement of the active Track 1 bidirectional `400`-run literal-refresh mega campaign with a paper-faithful `20`-run grid-search campaign that performs exactly one search pass per family-direction surface.
+  Plan the replacement of the active RCIM Model-Bank Reproduction bidirectional `400`-run literal-refresh mega campaign with a paper-faithful `20`-run grid-search campaign that performs exactly one search pass per family-direction surface.
 
 #### 2026-05-02
 
@@ -1384,10 +1388,10 @@ This folder contains the internal project documents derived from the reference P
   Plan the next stabilization pass for the rebuilt recovered-original RCIM workflow, focused on repository-owned path handling, clearer `Fw`/`Bw` semantics, and campaign-safe operational cleanup.
 
 - [technical/2026-04/2026-04-30/2026-04-30-02-06-47_track1_bidirectional_literal_workflow_refresh_mega_campaign.md](./technical/2026-04/2026-04-30/2026-04-30-02-06-47_track1_bidirectional_literal_workflow_refresh_mega_campaign.md)
-  Plan the full Track 1 bidirectional mega-campaign refresh after the exact-paper family bank was realigned to the recovered original workflow.
+  Plan the full RCIM Model-Bank Reproduction bidirectional mega-campaign refresh after the exact-paper family bank was realigned to the recovered original workflow.
 
 - [technical/2026-04/2026-04-30/2026-04-30-01-48-18_track1_literal_alignment_to_recovered_original_workflow.md](./technical/2026-04/2026-04-30/2026-04-30-01-48-18_track1_literal_alignment_to_recovered_original_workflow.md)
-  Plan the literal alignment of the Track 1 exact-paper reimplementation to the recovered original RCIM workflow across all ten model families.
+  Plan the literal alignment of the RCIM Model-Bank Reproduction exact-paper reimplementation to the recovered original RCIM workflow across all ten model families.
 
 - [technical/2026-04/2026-04-30/2026-04-30-01-25-40_track1_forward_last_three_open_cells_overnight_mega_campaign_closeout.md](./technical/2026-04/2026-04-30/2026-04-30-01-25-40_track1_forward_last_three_open_cells_overnight_mega_campaign_closeout.md)
   Plan the formal closeout of the completed forward-only overnight mega campaign that targeted the last three non-green forward cells, including artifact audit, profile registration, benchmark refresh, archive refresh, and persistent state reconciliation.
@@ -1424,7 +1428,7 @@ This folder contains the internal project documents derived from the reference P
   local copy.
 
 - [technical/2026-04/2026-04-29/2026-04-29-01-37-16_track1_forward_maxi_last_non_green_cells_campaign.md](./technical/2026-04/2026-04-29/2026-04-29-01-37-16_track1_forward_maxi_last_non_green_cells_campaign.md)
-  Plan the next forward-only Track 1 maxi campaign that targets the final `7`
+  Plan the next forward-only RCIM Model-Bank Reproduction maxi campaign that targets the final `7`
   amplitude repair pairs with a few hundred exact-paper-safe retries.
 
 - [technical/2026-04/2026-04-29/2026-04-29-00-45-52_rcim_original_pipeline_author_conversation_formalization.md](./technical/2026-04/2026-04-29/2026-04-29-00-45-52_rcim_original_pipeline_author_conversation_formalization.md)
@@ -1436,10 +1440,10 @@ This folder contains the internal project documents derived from the reference P
   Plan the reorganization of the recovered RCIM reference-code root so the full original repository lands under original_pipeline and the current split snapshots move into clearly named backup surfaces.
 
 - [technical/2026-04/2026-04-28/2026-04-28-17-09-01_rewrite_recent_commits_and_separate_paper_reimplementation_from_campaign_artifacts.md](./technical/2026-04/2026-04-28/2026-04-28-17-09-01_rewrite_recent_commits_and_separate_paper_reimplementation_from_campaign_artifacts.md)
-  Plan the local-history rewrite needed to separate the recent Track 1 campaign artifact package from unrelated RCIM paper-reimplementation changes.
+  Plan the local-history rewrite needed to separate the recent RCIM Model-Bank Reproduction campaign artifact package from unrelated RCIM paper-reimplementation changes.
 
 - [technical/2026-04/2026-04-28/2026-04-28-16-06-05_track1_forward_last_non_green_cells_campaign_closeout.md](./technical/2026-04/2026-04-28/2026-04-28-16-06-05_track1_forward_last_non_green_cells_campaign_closeout.md)
-  Plan the formal closeout of the completed final forward-only Track 1 last-non-green-cells campaign, including benchmark refresh, archive refresh, and persistent state completion.
+  Plan the formal closeout of the completed final forward-only RCIM Model-Bank Reproduction last-non-green-cells campaign, including benchmark refresh, archive refresh, and persistent state completion.
 
 - [technical/2026-04/2026-04-28/2026-04-28-13-45-35_rcim_recovered_workflow_script_renaming_and_export_alignment.md](./technical/2026-04/2026-04-28/2026-04-28-13-45-35_rcim_recovered_workflow_script_renaming_and_export_alignment.md)
   Plan the next RCIM recovered-workflow reorganization pass focused on
@@ -1458,21 +1462,21 @@ This folder contains the internal project documents derived from the reference P
   thermal filter in the original workflow.
 
 - [technical/2026-04/2026-04-28/2026-04-28-11-21-25_track1_forward_last_non_green_cells_campaign.md](./technical/2026-04/2026-04-28/2026-04-28-11-21-25_track1_forward_last_non_green_cells_campaign.md)
-  Plan the next forward-only Track 1 residual campaign that targets only the last `7` amplitude target pairs still carrying non-green benchmark status.
+  Plan the next forward-only RCIM Model-Bank Reproduction residual campaign that targets only the last `7` amplitude target pairs still carrying non-green benchmark status.
 
 - [technical/2026-04/2026-04-28/2026-04-28-10-52-54_track1_forward_final_open_cells_campaign_closeout.md](./technical/2026-04/2026-04-28/2026-04-28-10-52-54_track1_forward_final_open_cells_campaign_closeout.md)
-  Plan the formal closeout of the completed final forward-only Track 1 residual-cell campaign, including benchmark refresh, archive refresh, and persistent state completion.
+  Plan the formal closeout of the completed final forward-only RCIM Model-Bank Reproduction residual-cell campaign, including benchmark refresh, archive refresh, and persistent state completion.
 
 - [technical/2026-04/2026-04-28/2026-04-28-00-15-20_track1_forward_final_open_cells_campaign.md](./technical/2026-04/2026-04-28/2026-04-28-00-15-20_track1_forward_final_open_cells_campaign.md)
-  Plan the final forward-only Track 1 residual-cell campaign that targets only the last non-green canonical forward pairs in Tables 2-5.
+  Plan the final forward-only RCIM Model-Bank Reproduction residual-cell campaign that targets only the last non-green canonical forward pairs in Tables 2-5.
 
 #### 2026-04-27
 
 - [technical/2026-04/2026-04-27/2026-04-27-23-29-14_scripts_reports_reorganization_and_pipeline_path_formalization.md](./technical/2026-04/2026-04-27/2026-04-27-23-29-14_scripts_reports_reorganization_and_pipeline_path_formalization.md)
-  Plan the reorganization of `scripts/reports/` into dedicated closeout, presentation, PDF, analysis, and Track 1 support subfolders, and formalize the new paths in campaign and report documentation.
+  Plan the reorganization of `scripts/reports/` into dedicated closeout, presentation, PDF, analysis, and RCIM Model-Bank Reproduction support subfolders, and formalize the new paths in campaign and report documentation.
 
 - [technical/2026-04/2026-04-27/2026-04-27-23-27-38_track1_closeout_reference_archive_refresh_enforcement.md](./technical/2026-04/2026-04-27/2026-04-27-23-27-38_track1_closeout_reference_archive_refresh_enforcement.md)
-  Plan the Track 1 closeout pipeline fix that makes `models/paper_reference/rcim_track1/` refresh mandatory and reusable for the current forward closeout path and future backward closeout paths.
+  Plan the RCIM Model-Bank Reproduction closeout pipeline fix that makes `models/paper_reference/rcim_track1/` refresh mandatory and reusable for the current forward closeout path and future backward closeout paths.
 
 - [technical/2026-04/2026-04-27/2026-04-27-23-13-41_styled_pdf_pipeline_default_table_width_rebalancing.md](./technical/2026-04/2026-04-27/2026-04-27-23-13-41_styled_pdf_pipeline_default_table_width_rebalancing.md)
   Plan the styled PDF renderer improvement that promotes recurring table-width rebalancing into default first-pass profiles instead of repeated post-export manual fixes.
@@ -1497,15 +1501,15 @@ This folder contains the internal project documents derived from the reference P
   Plan the Git LFS policy and local-history repair required after an oversized original-dataset exact-model-bank validation bundle blocked the GitHub push.
 
 - [technical/2026-04/2026-04-27/2026-04-27-13-00-21_track1_forward_open_cell_repair_campaign.md](./technical/2026-04/2026-04-27/2026-04-27-13-00-21_track1_forward_open_cell_repair_campaign.md)
-  Plan a forward-only Track 1 original-dataset repair campaign that targets only the still non-green forward cells in Tables 2-5 through a target-level retry queue.
+  Plan a forward-only RCIM Model-Bank Reproduction original-dataset repair campaign that targets only the still non-green forward cells in Tables 2-5 through a target-level retry queue.
 
 - [technical/2026-04/2026-04-27/2026-04-27-11-08-53_track1_bidirectional_original_dataset_mega_closeout_and_reference_archive_refresh.md](./technical/2026-04/2026-04-27/2026-04-27-11-08-53_track1_bidirectional_original_dataset_mega_closeout_and_reference_archive_refresh.md)
-  Plan the closeout of the completed bidirectional original-dataset Track 1 mega-campaign, the benchmark-table refresh, and the promotion of the new canonical forward/backward paper-reference model archives.
+  Plan the closeout of the completed bidirectional original-dataset RCIM Model-Bank Reproduction mega-campaign, the benchmark-table refresh, and the promotion of the new canonical forward/backward paper-reference model archives.
 
 #### 2026-04-26
 
 - [technical/2026-04/2026-04-26/2026-04-26-00-43-01_track1_forward_micro_closeout_and_bidirectional_mega_relaunch.md](./technical/2026-04/2026-04-26/2026-04-26-00-43-01_track1_forward_micro_closeout_and_bidirectional_mega_relaunch.md)
-  Plan the formal closeout of the completed forward-only remote micro gate and the fresh regeneration of the full bidirectional original-dataset Track 1 mega-campaign from zero.
+  Plan the formal closeout of the completed forward-only remote micro gate and the fresh regeneration of the full bidirectional original-dataset RCIM Model-Bank Reproduction mega-campaign from zero.
 
 #### 2026-04-25
 
@@ -1513,19 +1517,19 @@ This folder contains the internal project documents derived from the reference P
   Plan the repair of the forward-only remote micro-campaign after it launched the legacy recovered-CSV exact-paper runner instead of the original-dataset validation branch, and keep iterating on remote bringup fixes until the `10`-run gate completes cleanly.
 
 - [technical/2026-04/2026-04-25/2026-04-25-22-43-08_track1_interrupted_mega_campaign_discard_closeout_and_remote_micro_relaunch_gate.md](./technical/2026-04/2026-04-25/2026-04-25-22-43-08_track1_interrupted_mega_campaign_discard_closeout_and_remote_micro_relaunch_gate.md)
-  Plan the interrupted-discard closeout of the broken Track 1 bidirectional mega-campaign, the preparation of a fresh forward-only `10`-run remote micro-campaign, and the gate that must pass before regenerating the full mega-campaign from zero.
+  Plan the interrupted-discard closeout of the broken RCIM Model-Bank Reproduction bidirectional mega-campaign, the preparation of a fresh forward-only `10`-run remote micro-campaign, and the gate that must pass before regenerating the full mega-campaign from zero.
 
 - [technical/2026-04/2026-04-25/2026-04-25-22-27-14_track1_remote_campaign_progress_ui_and_log_stream_cleanup.md](./technical/2026-04/2026-04-25/2026-04-25-22-27-14_track1_remote_campaign_progress_ui_and_log_stream_cleanup.md)
-  Plan a protected-file redesign of the remote Track 1 campaign progress surface, separating total campaign progress, active task progress, and verbose grid-search noise into a clearer operator-facing stream.
+  Plan a protected-file redesign of the remote RCIM Model-Bank Reproduction campaign progress surface, separating total campaign progress, active task progress, and verbose grid-search noise into a clearer operator-facing stream.
 
 - [technical/2026-04/2026-04-25/2026-04-25-22-20-57_track1_mlp_overflow_stabilization_for_original_dataset_exact_model_bank.md](./technical/2026-04/2026-04-25/2026-04-25-22-20-57_track1_mlp_overflow_stabilization_for_original_dataset_exact_model_bank.md)
-  Plan the MLP stabilization pass for the running Track 1 original-dataset exact-model-bank campaign, covering feature scaling, solver/runtime adjustments, and overflow-warning mitigation without widening the campaign surface.
+  Plan the MLP stabilization pass for the running RCIM Model-Bank Reproduction original-dataset exact-model-bank campaign, covering feature scaling, solver/runtime adjustments, and overflow-warning mitigation without widening the campaign surface.
 
 - [technical/2026-04/2026-04-25/2026-04-25-16-00-29_track1_bidirectional_remote_onnx_dependency_guard_and_interrupted_state_repair.md](./technical/2026-04/2026-04-25/2026-04-25-16-00-29_track1_bidirectional_remote_onnx_dependency_guard_and_interrupted_state_repair.md)
-  Technical document for reconciling the interrupted Track 1 bidirectional mega-campaign state and hardening the remote ONNX export path with explicit dependency guards and preflight checks.
+  Technical document for reconciling the interrupted RCIM Model-Bank Reproduction bidirectional mega-campaign state and hardening the remote ONNX export path with explicit dependency guards and preflight checks.
 
 - [technical/2026-04/2026-04-25/2026-04-25-13-26-38_track1_bidirectional_remote_launcher_path_literal_fix_and_preparation_formalization.md](./technical/2026-04/2026-04-25/2026-04-25-13-26-38_track1_bidirectional_remote_launcher_path_literal_fix_and_preparation_formalization.md)
-  Technical document for hardening the bidirectional Track 1 remote launcher against Windows path literal quoting failures and for promoting the validated remote-bootstrap fixes into the campaign preparation pipeline.
+  Technical document for hardening the bidirectional RCIM Model-Bank Reproduction remote launcher against Windows path literal quoting failures and for promoting the validated remote-bootstrap fixes into the campaign preparation pipeline.
 
 - [technical/2026-04/2026-04-25/2026-04-25-13-05-18_remote_exact_paper_wrapper_missing_output_root_compatibility_fix.md](./technical/2026-04/2026-04-25/2026-04-25-13-05-18_remote_exact_paper_wrapper_missing_output_root_compatibility_fix.md)
   Technical document for fixing the shared remote exact-paper wrapper so it
@@ -1534,15 +1538,15 @@ This folder contains the internal project documents derived from the reference P
 - [technical/2026-04/2026-04-25/2026-04-25-12-44-18_track1_bidirectional_mega_campaign_remote_repackaging_and_interrupted_state_reconciliation.md](./technical/2026-04/2026-04-25/2026-04-25-12-44-18_track1_bidirectional_mega_campaign_remote_repackaging_and_interrupted_state_reconciliation.md)
   Technical document for closing the wrongly packaged local bidirectional
   mega-campaign as interrupted and repackaging the same approved campaign
-  surface with the canonical remote Track 1 launcher pattern.
+  surface with the canonical remote RCIM Model-Bank Reproduction launcher pattern.
 
 - [technical/2026-04/2026-04-25/2026-04-25-12-26-22_track1_bidirectional_mega_launcher_yaml_compatibility_fix.md](./technical/2026-04/2026-04-25/2026-04-25-12-26-22_track1_bidirectional_mega_launcher_yaml_compatibility_fix.md)
-  Technical document for repairing the bidirectional Track 1 mega-campaign
+  Technical document for repairing the bidirectional RCIM Model-Bank Reproduction mega-campaign
   PowerShell launcher so it can read the active campaign YAML without relying
   on the unavailable `ConvertFrom-Yaml` cmdlet.
 
 - [technical/2026-04/2026-04-25/2026-04-25-11-47-14_track1_bidirectional_smoke_validation_and_mega_campaign_reset.md](./technical/2026-04/2026-04-25/2026-04-25-11-47-14_track1_bidirectional_smoke_validation_and_mega_campaign_reset.md)
-  Technical document for validating the refactored original-dataset bidirectional Track 1 workflow through one smoke run per family and direction, resetting the canonical RCIM benchmark tables for the fresh restart, and preparing the subsequent mega-campaign surface.
+  Technical document for validating the refactored original-dataset bidirectional RCIM Model-Bank Reproduction workflow through one smoke run per family and direction, resetting the canonical RCIM benchmark tables for the fresh restart, and preparing the subsequent mega-campaign surface.
 
 - [technical/2026-04/2026-04-25/2026-04-25-11-01-19_wave1_best_model_te_curve_prediction_report.md](./technical/2026-04/2026-04-25/2026-04-25-11-01-19_wave1_best_model_te_curve_prediction_report.md)
   Technical document for adding a non-training evaluation script that loads the
@@ -1552,7 +1556,7 @@ This folder contains the internal project documents derived from the reference P
 #### 2026-04-24
 
 - [technical/2026-04/2026-04-24/2026-04-24-18-01-00_track1_exact_paper_second_pass_taxonomy_reorganization.md](./technical/2026-04/2026-04-24/2026-04-24-18-01-00_track1_exact_paper_second_pass_taxonomy_reorganization.md)
-  Technical document for the second-pass internal taxonomy reorganization of Track 1 exact-paper forward configs, training-campaign outputs, and validation outputs, including grouped subfolders by campaign phase and family plus cleanup of remaining flat roots and duplicated forward path fragments.
+  Technical document for the second-pass internal taxonomy reorganization of RCIM Model-Bank Reproduction exact-paper forward configs, training-campaign outputs, and validation outputs, including grouped subfolders by campaign phase and family plus cleanup of remaining flat roots and duplicated forward path fragments.
 
 - [technical/2026-04/2026-04-24/2026-04-24-16-10-10_rcim_forward_backward_artifact_reorganization_and_generic_recovered_root_restore.md](./technical/2026-04/2026-04-24/2026-04-24-16-10-10_rcim_forward_backward_artifact_reorganization_and_generic_recovered_root_restore.md)
   Technical document for restoring the generic recovered RCIM asset root and
@@ -1567,21 +1571,21 @@ This folder contains the internal project documents derived from the reference P
   Plan the styled PDF pipeline rule update that forbids PyMuPDF fallback and requires a documented manual Chromium export handoff command whenever the repository-owned headless export cannot materialize the PDF.
 
 - [technical/2026-04/2026-04-24/2026-04-24-12-53-39_track1_interrupted_svm_partial_closeout_pdf_export_repair.md](./technical/2026-04/2026-04-24/2026-04-24-12-53-39_track1_interrupted_svm_partial_closeout_pdf_export_repair.md)
-  Plan the final PDF export repair for the interrupted Track 1 SVM partial closeout report after the initial headless browser export failed.
+  Plan the final PDF export repair for the interrupted RCIM Model-Bank Reproduction SVM partial closeout report after the initial headless browser export failed.
 
 - [technical/2026-04/2026-04-24/2026-04-24-11-30-11_track1_interrupted_remaining_yellow_cell_manual_sync_script.md](./technical/2026-04/2026-04-24/2026-04-24-11-30-11_track1_interrupted_remaining_yellow_cell_manual_sync_script.md)
-  Plan the single local PowerShell helper that manually synchronizes the interrupted Track 1 SVM remaining-yellow-cell artifacts before partial closeout.
+  Plan the single local PowerShell helper that manually synchronizes the interrupted RCIM Model-Bank Reproduction SVM remaining-yellow-cell artifacts before partial closeout.
 
 - [technical/2026-04/2026-04-24/2026-04-24-10-01-22_track1_interrupted_remaining_yellow_cell_campaign_manual_sync_and_partial_closeout.md](./technical/2026-04/2026-04-24/2026-04-24-10-01-22_track1_interrupted_remaining_yellow_cell_campaign_manual_sync_and_partial_closeout.md)
   Technical document for manually synchronizing the remote artifacts of the
-  interrupted exact-paper `Track 1` remaining-yellow-cell bundle, formally
+  interrupted exact-paper `RCIM Model-Bank Reproduction` remaining-yellow-cell bundle, formally
   closing the campaign as a partial interrupted wave, and handing off only
   afterward to the deferred post-closeout asset-root migration workflow.
 
 #### 2026-04-23
 
 - [technical/2026-04/2026-04-23/2026-04-23-23-29-52_track1_bidirectional_original_dataset_rebuild_and_mega_campaign.md](./technical/2026-04/2026-04-23/2026-04-23-23-29-52_track1_bidirectional_original_dataset_rebuild_and_mega_campaign.md)
-  Technical document for rebuilding `Track 1` from the original repository
+  Technical document for rebuilding `RCIM Model-Bank Reproduction` from the original repository
   dataset with separate `forward` and `backward` family banks, expanding the
   canonical benchmark to dual-direction tables, restructuring the reference
   archives, and preparing a future mega-campaign after workflow stabilization.
@@ -1602,30 +1606,30 @@ This folder contains the internal project documents derived from the reference P
   Technical document for the first implementation pass of a shared
   curve-space comparison between the paper-faithful `LGBM` `19`-model bank and
   the best direct-TE `feedforward` baseline, designed for later extension to
-  cherry-picked harmonic banks and other `Track 1` families.
+  cherry-picked harmonic banks and other `RCIM Model-Bank Reproduction` families.
 
 - [technical/2026-04/2026-04-23/2026-04-23-12-32-05_track1_remote_campaign_total_progress_monitor.md](./technical/2026-04/2026-04-23/2026-04-23-12-32-05_track1_remote_campaign_total_progress_monitor.md)
   Technical document for adding one read-only remote monitoring script that
-  reports the real aggregate progress of the current exact-paper `Track 1`
+  reports the real aggregate progress of the current exact-paper `RCIM Model-Bank Reproduction`
   remaining-yellow-cell campaign bundle after the original local launcher
   terminal was lost.
 
 #### 2026-04-22
 
 - [technical/2026-04/2026-04-22/2026-04-22-17-51-21_track1_family_reference_archives_and_closeout_integration.md](./technical/2026-04/2026-04-22/2026-04-22-17-51-21_track1_family_reference_archives_and_closeout_integration.md)
-  Technical document for extending the curated `Track 1` paper-reference
+  Technical document for extending the curated `RCIM Model-Bank Reproduction` paper-reference
   archive pattern from `SVM` to every other exact-paper family and for making
   family-archive refresh a mandatory future closeout step whenever accepted
   family results improve.
 
 - [technical/2026-04/2026-04-22/2026-04-22-09-03-17_track1_remaining_yellow_cell_campaign_svm_alias_fix.md](./technical/2026-04/2026-04-22/2026-04-22-09-03-17_track1_remaining_yellow_cell_campaign_svm_alias_fix.md)
   Technical document for the narrow post-launch repair of the prepared
-  `Track 1` remaining-yellow-cell overnight bundle after the first `SVM`
+  `RCIM Model-Bank Reproduction` remaining-yellow-cell overnight bundle after the first `SVM`
   config failed because the exact-paper runner expects the canonical family
   name `SVR` rather than the paper-facing alias `SVM`.
 
 - [technical/2026-04/2026-04-22/2026-04-22-01-36-32_track1_remaining_yellow_cells_multi_family_campaign_bundle.md](./technical/2026-04/2026-04-22/2026-04-22-01-36-32_track1_remaining_yellow_cells_multi_family_campaign_bundle.md)
-  Technical document for preparing the next overnight exact-paper `Track 1`
+  Technical document for preparing the next overnight exact-paper `RCIM Model-Bank Reproduction`
   package as a multi-family yellow-cell bundle with one campaign per still-open
   family and one global launcher across the unfinished families.
 
@@ -1636,90 +1640,90 @@ This folder contains the internal project documents derived from the reference P
   defaults for future reports.
 
 - [technical/2026-04/2026-04-22/2026-04-22-01-03-07_track1_mlp_residual_cell_final_closure_closeout.md](./technical/2026-04/2026-04-22/2026-04-22-01-03-07_track1_mlp_residual_cell_final_closure_closeout.md)
-  Technical document for formally closing the completed exact-paper `Track 1`
+  Technical document for formally closing the completed exact-paper `RCIM Model-Bank Reproduction`
   residual-cell `MLP` final-closure wave through results reporting, PDF
   validation, active-state backlinking, and canonical benchmark refresh.
 
 #### 2026-04-21
 
 - [technical/2026-04/2026-04-21/2026-04-21-23-32-36_track1_mlp_residual_cell_final_closure_campaign.md](./technical/2026-04/2026-04-21/2026-04-21-23-32-36_track1_mlp_residual_cell_final_closure_campaign.md)
-  Technical document for preparing the final narrow exact-paper `Track 1`
+  Technical document for preparing the final narrow exact-paper `RCIM Model-Bank Reproduction`
   `MLP` residual-cell closure wave, focused only on the four still-open
   accepted `MLP` target pairs across the canonical full-matrix tables.
 
 - [technical/2026-04/2026-04-21/2026-04-21-22-57-46_track1_mlp_closeout_pdf_targeted_pair_outcome_rebalance.md](./technical/2026-04/2026-04-21/2026-04-21-22-57-46_track1_mlp_closeout_pdf_targeted_pair_outcome_rebalance.md)
   Technical document for the narrow PDF-only layout rebalance of the final
-  `Track 1` `MLP` closeout report, focused on the `Targeted Pair Outcome`
+  `RCIM Model-Bank Reproduction` `MLP` closeout report, focused on the `Targeted Pair Outcome`
   page break and column-width redistribution.
 
 - [technical/2026-04/2026-04-21/2026-04-21-22-08-26_track1_mlp_family_full_matrix_repair_closeout.md](./technical/2026-04/2026-04-21/2026-04-21-22-08-26_track1_mlp_family_full_matrix_repair_closeout.md)
-  Technical document for formally closing the completed exact-paper `Track 1`
+  Technical document for formally closing the completed exact-paper `RCIM Model-Bank Reproduction`
   `MLP` family repair wave through results reporting, PDF validation,
   active-state backlinking, and canonical benchmark refresh.
 
 - [technical/2026-04/2026-04-21/2026-04-21-17-16-53_track1_mlp_family_full_matrix_repair_campaign.md](./technical/2026-04/2026-04-21/2026-04-21-17-16-53_track1_mlp_family_full_matrix_repair_campaign.md)
-  Technical document for preparing a dedicated exact-paper `Track 1` `MLP`
+  Technical document for preparing a dedicated exact-paper `RCIM Model-Bank Reproduction` `MLP`
   family repair wave that targets every still-non-green `MLP` family-target
   pair across the four canonical full-matrix replication tables.
 
 - [technical/2026-04/2026-04-21/2026-04-21-16-26-57_track1_mlp_first_launch_closeout_refresh_after_artifact_recovery.md](./technical/2026-04/2026-04-21/2026-04-21-16-26-57_track1_mlp_first_launch_closeout_refresh_after_artifact_recovery.md)
-  Technical document for refreshing the canonical `Track 1` closeout and
+  Technical document for refreshing the canonical `RCIM Model-Bank Reproduction` closeout and
   benchmark bookkeeping after the full local recovery of the `MLP`
   first-launch artifact set.
 
 - [technical/2026-04/2026-04-21/2026-04-21-16-01-48_track1_mlp_first_launch_artifact_recovery.md](./technical/2026-04/2026-04-21/2026-04-21-16-01-48_track1_mlp_first_launch_artifact_recovery.md)
   Technical document for recovering the missing local repository artifacts of
-  the first `MLP` launch in the `Track 1` open-cell full-matrix closure wave,
+  the first `MLP` launch in the `RCIM Model-Bank Reproduction` open-cell full-matrix closure wave,
   treating the problem as post-run artifact reconciliation rather than a new
   training pass.
 
 - [technical/2026-04/2026-04-21/2026-04-21-15-34-39_track1_open_cell_closeout_pdf_table_layout_micro_rebalance.md](./technical/2026-04/2026-04-21/2026-04-21-15-34-39_track1_open_cell_closeout_pdf_table_layout_micro_rebalance.md)
   Technical document for the narrow PDF-only table rebalance of the final
-  `Track 1` open-cell full-matrix closeout report, focused on the
+  `RCIM Model-Bank Reproduction` open-cell full-matrix closeout report, focused on the
   `Family Representative Outcome` and `Canonical Benchmark Outcome` tables.
 
 - [technical/2026-04/2026-04-21/2026-04-21-15-19-36_track1_relaunch_artifact_and_preparatory_file_closeout.md](./technical/2026-04/2026-04-21/2026-04-21-15-19-36_track1_relaunch_artifact_and_preparatory_file_closeout.md)
-  Technical document for consolidating the completed `Track 1` relaunch
+  Technical document for consolidating the completed `RCIM Model-Bank Reproduction` relaunch
   package by versioning its campaign YAMLs, launchers, launcher notes, and raw
   validation artifacts, while leaving the earlier missing `MLP` first-launch
   artifact recovery for a later dedicated task.
 
 - [technical/2026-04/2026-04-21/2026-04-21-14-44-53_track1_open_cell_full_matrix_closure_campaigns_closeout.md](./technical/2026-04/2026-04-21/2026-04-21-14-44-53_track1_open_cell_full_matrix_closure_campaigns_closeout.md)
-  Technical document for formally closing the completed `Track 1` open-cell
+  Technical document for formally closing the completed `RCIM Model-Bank Reproduction` open-cell
   full-matrix closure wave through final results reporting, PDF validation,
   active-state backlinking, and canonical benchmark refresh.
 
 - [technical/2026-04/2026-04-21/2026-04-21-09-26-42_remote_wrapper_report_path_fix_and_track1_relaunch_preparation.md](./technical/2026-04/2026-04-21/2026-04-21-09-26-42_remote_wrapper_report_path_fix_and_track1_relaunch_preparation.md)
   Technical document for repairing the exact-paper remote wrapper after the
-  overnight `Track 1` launch stopped during artifact reconciliation despite the
+  overnight `RCIM Model-Bank Reproduction` launch stopped during artifact reconciliation despite the
   completed `MLP` batch, and for preparing a relaunch that resumes from the
   first not-yet-executed family.
 
 #### 2026-04-20
 
 - [technical/2026-04/2026-04-20/2026-04-20-23-46-33_track1_overnight_open_cell_full_matrix_closure_campaigns.md](./technical/2026-04/2026-04-20/2026-04-20-23-46-33_track1_overnight_open_cell_full_matrix_closure_campaigns.md)
-  Technical document for preparing the next overnight `Track 1` exact-paper
+  Technical document for preparing the next overnight `RCIM Model-Bank Reproduction` exact-paper
   closure wave, focused only on the still-open cells in the canonical
   `Table 2-5` full-matrix replication surface and sized for roughly
   `700-800` training jobs.
 
 - [technical/2026-04/2026-04-20/2026-04-20-23-21-36_track1_scope_separation_from_harmonic_wise_branch.md](./technical/2026-04/2026-04-20/2026-04-20-23-21-36_track1_scope_separation_from_harmonic_wise_branch.md)
-  Technical document for separating canonical `Track 1` family-bank progress
-  from the postponed harmonic-wise follow-up branch and for keeping `Track 1`
+  Technical document for separating canonical `RCIM Model-Bank Reproduction` family-bank progress
+  from the postponed harmonic-wise follow-up branch and for keeping `RCIM Model-Bank Reproduction`
   status tied only to the four full-matrix replication tables plus the
   `10 x 19` model-bank completion rule.
 
 - [technical/2026-04/2026-04-20/2026-04-20-23-12-52_track1_benchmark_status_marker_encoding_repair.md](./technical/2026-04/2026-04-20/2026-04-20-23-12-52_track1_benchmark_status_marker_encoding_repair.md)
   Technical document for repairing corrupted green/yellow/red status markers
-  in the canonical `Track 1` benchmark so the benchmark tables again render
+  in the canonical `RCIM Model-Bank Reproduction` benchmark so the benchmark tables again render
   the intended `🟢/🟡/🔴` state markers.
 
 - [technical/2026-04/2026-04-20/2026-04-20-23-00-20_markdownlint_chunk_failure_cleanup_for_campaign_readmes_and_remote_checklist.md](./technical/2026-04/2026-04-20/2026-04-20-23-00-20_markdownlint_chunk_failure_cleanup_for_campaign_readmes_and_remote_checklist.md)
   Technical document for repairing the Markdownlint chunk failure caused by missing blank-line separation in the residual-closure campaign package READMEs and an extra blank line in the remote training campaign checklist.
 
 - [technical/2026-04/2026-04-20/2026-04-20-22-46-07_track1_tables_2_5_progress_focus_and_completion_definition.md](./technical/2026-04/2026-04-20/2026-04-20-22-46-07_track1_tables_2_5_progress_focus_and_completion_definition.md)
-  Technical document for making the four colored `Track 1` full-matrix
-  replication tables the canonical progress surface and for defining `Track 1`
+  Technical document for making the four colored `RCIM Model-Bank Reproduction` full-matrix
+  replication tables the canonical progress surface and for defining `RCIM Model-Bank Reproduction`
   completion as `19` accepted models across each of the `10` algorithm
   families.
 
@@ -1768,42 +1772,42 @@ This folder contains the internal project documents derived from the reference P
   execution-mode status line used bare `remote/local` PowerShell tokens.
 
 - [technical/2026-04/2026-04-19/2026-04-19-01-04-28_track1_remaining_family_residual_cellwise_closure_campaigns.md](./technical/2026-04/2026-04-19/2026-04-19-01-04-28_track1_remaining_family_residual_cellwise_closure_campaigns.md)
-  Technical document for the next aggressive overnight `Track 1`
+  Technical document for the next aggressive overnight `RCIM Model-Bank Reproduction`
   residual-cell closure wave, designed to spend a `6-7x` larger compute budget
   on the remaining non-green family-target cells across the nine non-`SVM`
   exact-paper families.
 
 - [technical/2026-04/2026-04-19/2026-04-19-00-25-58_track1_remaining_family_cellwise_final_closeout.md](./technical/2026-04/2026-04-19/2026-04-19-00-25-58_track1_remaining_family_cellwise_final_closeout.md)
   Technical document for the final closeout of the completed `171`-run
-  remaining-family `Track 1` exact-paper cellwise campaign wave, including
+  remaining-family `RCIM Model-Bank Reproduction` exact-paper cellwise campaign wave, including
   winner-bookkeeping reconstruction, canonical benchmark refresh, and final
   results reporting.
 
 #### 2026-04-18
 
 - [technical/2026-04/2026-04-18/2026-04-18-22-28-04_track1_remaining_family_cellwise_reference_campaigns.md](./technical/2026-04/2026-04-18/2026-04-18-22-28-04_track1_remaining_family_cellwise_reference_campaigns.md)
-  Technical document for preparing the `171`-run remaining-family `Track 1`
+  Technical document for preparing the `171`-run remaining-family `RCIM Model-Bank Reproduction`
   cellwise exact-paper wave that generalizes the `SVM` reference-model closure
   pattern to every still-open paper family.
 
 - [technical/2026-04/2026-04-18/2026-04-18-17-11-45_track1_partial_closeout_family_row_backfill_in_full_matrix_tables.md](./technical/2026-04/2026-04-18/2026-04-18-17-11-45_track1_partial_closeout_family_row_backfill_in_full_matrix_tables.md)
   Technical document for re-checking the seven-family partial-closeout rerun
-  rows and backfilling any still-stale family entries in the canonical `Track 1`
+  rows and backfilling any still-stale family entries in the canonical `RCIM Model-Bank Reproduction`
   full-matrix colored benchmark tables.
 
 - [technical/2026-04/2026-04-18/2026-04-18-16-53-26_track1_closeout_pdf_table_layout_rebalance.md](./technical/2026-04/2026-04-18/2026-04-18-16-53-26_track1_closeout_pdf_table_layout_rebalance.md)
   Technical document for the report-specific PDF layout rebalance of the two
-  `Track 1` remaining-family closeout reports, covering page-break placement
+  `RCIM Model-Bank Reproduction` remaining-family closeout reports, covering page-break placement
   and table-column redistribution.
 
 - [technical/2026-04/2026-04-18/2026-04-18-16-47-12_track1_full_matrix_replication_table_refresh_after_closeout.md](./technical/2026-04/2026-04-18/2026-04-18-16-47-12_track1_full_matrix_replication_table_refresh_after_closeout.md)
-  Technical document for refreshing the canonical `Track 1` full-matrix
+  Technical document for refreshing the canonical `RCIM Model-Bank Reproduction` full-matrix
   colored replication tables after closeout and for making that refresh a
   mandatory future closeout step whenever accepted family results improve.
 
 - [technical/2026-04/2026-04-18/2026-04-18-16-29-35_track1_remaining_family_final_closeout_after_xgbm_lgbm_reruns.md](./technical/2026-04/2026-04-18/2026-04-18-16-29-35_track1_remaining_family_final_closeout_after_xgbm_lgbm_reruns.md)
   Technical document for the final closeout of the remaining-family
-  `Track 1` exact-paper batch after the pending `XGBM` and `LGBM` reruns
+  `RCIM Model-Bank Reproduction` exact-paper batch after the pending `XGBM` and `LGBM` reruns
   completed successfully.
 
 - [technical/2026-04/2026-04-18/2026-04-18-15-39-41_track1_xgbm_lgbm_recovery_v2_exact_paper_and_remote_preflight_fix.md](./technical/2026-04/2026-04-18/2026-04-18-15-39-41_track1_xgbm_lgbm_recovery_v2_exact_paper_and_remote_preflight_fix.md)
@@ -1822,7 +1826,7 @@ This folder contains the internal project documents derived from the reference P
   narrow rerun scope for pending `XGBM` and `LGBM` campaigns.
 
 - [technical/2026-04/2026-04-18/2026-04-18-11-02-15_track1_remaining_family_partial_closeout_and_benchmark_refresh.md](./technical/2026-04/2026-04-18/2026-04-18-11-02-15_track1_remaining_family_partial_closeout_and_benchmark_refresh.md)
-  Technical document for verifying the interrupted remaining-family `Track 1`
+  Technical document for verifying the interrupted remaining-family `RCIM Model-Bank Reproduction`
   batch, closing out only the completed family campaigns, and refreshing the
   canonical benchmark surfaces before the later crash-recovery step.
 
@@ -1832,7 +1836,7 @@ This folder contains the internal project documents derived from the reference P
   execution through `-Remote`.
 
 - [technical/2026-04/2026-04-18/2026-04-18-00-47-14_track1_remaining_exact_paper_family_campaigns.md](./technical/2026-04/2026-04-18/2026-04-18-00-47-14_track1_remaining_exact_paper_family_campaigns.md)
-  Technical document for splitting the remaining `Track 1` exact-paper work
+  Technical document for splitting the remaining `RCIM Model-Bank Reproduction` exact-paper work
   into `9` family-focused campaign packages plus one aggregate sequential
   launcher after `SVM` closure.
 
@@ -1845,7 +1849,7 @@ This folder contains the internal project documents derived from the reference P
 
 - [technical/2026-04/2026-04-17/2026-04-17-19-43-39_track1_reference_family_archive_standardization.md](./technical/2026-04/2026-04-17/2026-04-17-19-43-39_track1_reference_family_archive_standardization.md)
   Technical document for promoting the current `SVM` paper-reference archive
-  layout into the canonical reusable `Track 1` family standard for all
+  layout into the canonical reusable `RCIM Model-Bank Reproduction` family standard for all
   remaining paper-model archives.
 
 - [technical/2026-04/2026-04-17/2026-04-17-19-30-41_svm_reference_onnx_subfolder_alignment.md](./technical/2026-04/2026-04-17/2026-04-17-19-30-41_svm_reference_onnx_subfolder_alignment.md)
@@ -1879,11 +1883,11 @@ This folder contains the internal project documents derived from the reference P
 - [technical/2026-04/2026-04-14/2026-04-14-21-42-47_track1_svm_micro_closure_campaign_preparation.md](./technical/2026-04/2026-04-14/2026-04-14-21-42-47_track1_svm_micro_closure_campaign_preparation.md)
   Technical document for preparing the final `SVR` micro-pass against the
   last residual `SVM` harmonics `40`, `240`, and `162` in canonical
-  `Track 1`.
+  `RCIM Model-Bank Reproduction`.
 
 - [technical/2026-04/2026-04-14/2026-04-14-20-50-01_track1_svm_final_closure_campaign_preparation.md](./technical/2026-04/2026-04-14/2026-04-14-20-50-01_track1_svm_final_closure_campaign_preparation.md)
   Technical document for preparing the narrow `SVR` final-closure campaign
-  against the last residual yellow `SVM` cells in canonical `Track 1`
+  against the last residual yellow `SVM` cells in canonical `RCIM Model-Bank Reproduction`
   Tables `2-5`.
 
 - [technical/2026-04/2026-04-14/2026-04-14-18-19-07_styled_pdf_table_profile_promotion_for_report_specific_widths.md](./technical/2026-04/2026-04-14/2026-04-14-18-19-07_styled_pdf_table_profile_promotion_for_report_specific_widths.md)
@@ -1894,58 +1898,58 @@ This folder contains the internal project documents derived from the reference P
 - [technical/2026-04/2026-04-14/2026-04-14-18-06-03_track1_svm_repair_pdf_table_rebalance.md](./technical/2026-04/2026-04-14/2026-04-14-18-06-03_track1_svm_repair_pdf_table_rebalance.md)
   Technical document for introducing report-specific styled-PDF width rules
   for the `Ranked Completed Runs` and `Table-Level Before Vs After` tables in
-  the `Track 1` SVM repair campaign results report.
+  the `RCIM Model-Bank Reproduction` SVM repair campaign results report.
 
 - [technical/2026-04/2026-04-14/2026-04-14-17-17-21_track1_svm_open_cell_repair_campaign_preparation.md](./technical/2026-04/2026-04-14/2026-04-14-17-17-21_track1_svm_open_cell_repair_campaign_preparation.md)
   Technical document for preparing a broad but targeted `SVR` repair campaign
-  against the currently open `SVM` cells in the canonical `Track 1` benchmark.
+  against the currently open `SVM` cells in the canonical `RCIM Model-Bank Reproduction` benchmark.
 
 - [technical/2026-04/2026-04-14/2026-04-14-16-27-39_track1_benchmark_table_2_5_alignment.md](./technical/2026-04/2026-04-14/2026-04-14-16-27-39_track1_benchmark_table_2_5_alignment.md)
-  Technical document for realigning the canonical `Track 1` benchmark so that
+  Technical document for realigning the canonical `RCIM Model-Bank Reproduction` benchmark so that
   sections labeled `Table 2-5` match the actual paper tables, including the
   missing amplitude-MAE `Table 2` and the demotion of the current repository
   derived harmonic-direction summary.
 
 - [technical/2026-04/2026-04-14/2026-04-14-16-05-48_track1_benchmark_colored_status_marker_persistence.md](./technical/2026-04/2026-04-14/2026-04-14-16-05-48_track1_benchmark_colored_status_marker_persistence.md)
   Technical document for restoring and permanently preserving the colored
-  `🟢/🟡/🔴` status markers in the canonical `Track 1` benchmark full-matrix
+  `🟢/🟡/🔴` status markers in the canonical `RCIM Model-Bank Reproduction` benchmark full-matrix
   tables during future campaign-driven updates.
 
 - [technical/2026-04/2026-04-14/2026-04-14-15-17-07_track1_full_matrix_pdf_table_specific_width_rebalance.md](./technical/2026-04/2026-04-14/2026-04-14-15-17-07_track1_full_matrix_pdf_table_specific_width_rebalance.md)
   Technical document for introducing table-specific PDF width rules for the
   `Ranked Completed Runs` and `Campaign-Wide Cell Totals` tables in the
-  `Track 1` full-matrix campaign results report without changing the generic
+  `RCIM Model-Bank Reproduction` full-matrix campaign results report without changing the generic
   table profile.
 
 - [technical/2026-04/2026-04-14/2026-04-14-13-42-10_track1_full_matrix_family_campaign_preparation.md](./technical/2026-04/2026-04-14/2026-04-14-13-42-10_track1_full_matrix_family_campaign_preparation.md)
   Technical document for extending the exact-paper workflow and preparing a
-  family-by-family `Track 1` full-matrix reproduction campaign across
+  family-by-family `RCIM Model-Bank Reproduction` full-matrix reproduction campaign across
   amplitudes and phases.
 
 - [technical/2026-04/2026-04-14/2026-04-14-12-11-51_track1_full_matrix_paper_replication_dashboard.md](./technical/2026-04/2026-04-14/2026-04-14-12-11-51_track1_full_matrix_paper_replication_dashboard.md)
-  Technical document for correcting the `Track 1` dashboard toward full
+  Technical document for correcting the `RCIM Model-Bank Reproduction` dashboard toward full
   paper-matrix replication, with Tables `3-5` reproduced model-by-model and
   harmonic-by-harmonic instead of only best-per-harmonic summaries.
 
 - [technical/2026-04/2026-04-14/2026-04-14-11-37-05_track1_paper_tables_2_6_canonical_dashboard.md](./technical/2026-04/2026-04-14/2026-04-14-11-37-05_track1_paper_tables_2_6_canonical_dashboard.md)
   Technical document for promoting `RCIM Paper Reference Benchmark.md` into
-  the canonical always-updated `Track 1` dashboard for paper Tables `2-6`,
+  the canonical always-updated `RCIM Model-Bank Reproduction` dashboard for paper Tables `2-6`,
   including repository-owned paper-table reconstructions and color-coded
   repository comparison tables.
 
 - [technical/2026-04/2026-04-14/2026-04-14-10-27-49_track1_exact_paper_open_cell_repair_pdf_table_rebalance.md](./technical/2026-04/2026-04-14/2026-04-14-10-27-49_track1_exact_paper_open_cell_repair_pdf_table_rebalance.md)
   Technical document for rebalancing the two `Campaign Ranking` tables in the
-  `Track 1` exact-paper open-cell repair campaign-results PDF.
+  `RCIM Model-Bank Reproduction` exact-paper open-cell repair campaign-results PDF.
 
 #### 2026-04-13
 
 - [technical/2026-04/2026-04-13/2026-04-13-22-53-36_track1_exact_paper_open_cell_repair_campaign_results_reporting.md](./technical/2026-04/2026-04-13/2026-04-13-22-53-36_track1_exact_paper_open_cell_repair_campaign_results_reporting.md)
-  Technical document for closing the completed `Track 1` exact-paper
+  Technical document for closing the completed `RCIM Model-Bank Reproduction` exact-paper
   open-cell repair campaign through paper-closure-first reporting and
   validated PDF export.
 
 - [technical/2026-04/2026-04-13/2026-04-13-21-20-53_track1_exact_paper_open_cell_repair_campaign_preparation.md](./technical/2026-04/2026-04-13/2026-04-13-21-20-53_track1_exact_paper_open_cell_repair_campaign_preparation.md)
-  Technical document for preparing the next `Track 1` campaign as an
+  Technical document for preparing the next `RCIM Model-Bank Reproduction` campaign as an
   exact-paper open-cell repair batch focused on Tables `3-6` closure rather
   than harmonic-wise winner optimization.
 
@@ -1955,13 +1959,13 @@ This folder contains the internal project documents derived from the reference P
   GitHub Node 24 migration path.
 
 - [technical/2026-04/2026-04-13/2026-04-13-20-21-12_track1_reporting_template_alignment_to_paper_table_closure.md](./technical/2026-04/2026-04-13/2026-04-13-20-21-12_track1_reporting_template_alignment_to_paper_table_closure.md)
-  Technical document for aligning future `Track 1` report-generation and
+  Technical document for aligning future `RCIM Model-Bank Reproduction` report-generation and
   summary templates with canonical paper-table closure language instead of the
   old winner-centric harmonic-wise framing.
 
 - [technical/2026-04/2026-04-13/2026-04-13-20-09-32_track1_objective_redefinition_to_paper_table_replication.md](./technical/2026-04/2026-04-13/2026-04-13-20-09-32_track1_objective_redefinition_to_paper_table_replication.md)
   Technical document for promoting the paper-table cell closure criterion to
-  the canonical `Track 1` objective and for aligning future plans, analyses,
+  the canonical `RCIM Model-Bank Reproduction` objective and for aligning future plans, analyses,
   and results reports with per-target and per-harmonic status.
 
 - [technical/2026-04/2026-04-13/2026-04-13-15-22-14_github_quality_check_markdown_md012_fix.md](./technical/2026-04/2026-04-13/2026-04-13-15-22-14_github_quality_check_markdown_md012_fix.md)
@@ -1972,12 +1976,12 @@ This folder contains the internal project documents derived from the reference P
 #### 2026-04-12
 
 - [technical/2026-04/2026-04-12/2026-04-12-16-47-53_track1_paper_tables_3_4_5_6_canonical_comparison.md](./technical/2026-04/2026-04-12/2026-04-12-16-47-53_track1_paper_tables_3_4_5_6_canonical_comparison.md)
-  Technical document for building the canonical `Track 1` paper-table
+  Technical document for building the canonical `RCIM Model-Bank Reproduction` paper-table
   comparison against tables `3-6`, including paper targets, repository
   results, explicit gap status, and a closure-oriented harmonic summary.
 
 - [technical/2026-04/2026-04-12/2026-04-12-15-35-39_track1_per_harmonic_paper_table_replication.md](./technical/2026-04/2026-04-12/2026-04-12-15-35-39_track1_per_harmonic_paper_table_replication.md)
-  Technical document for redefining `Track 1` completion around faithful
+  Technical document for redefining `RCIM Model-Bank Reproduction` completion around faithful
   per-harmonic paper-table replication, including canonical `paper vs
   repository` comparison artifacts and explicit closure status per harmonic.
 
@@ -2006,7 +2010,7 @@ This folder contains the internal project documents derived from the reference P
 #### 2026-04-10
 
 - [technical/2026-04/2026-04-10/2026-04-10-21-47-55_exact_paper_faithful_reproduction_campaign_preparation.md](./technical/2026-04/2026-04-10/2026-04-10-21-47-55_exact_paper_faithful_reproduction_campaign_preparation.md)
-  Technical document for opening the next `Track 1` paper-faithful
+  Technical document for opening the next `RCIM Model-Bank Reproduction` paper-faithful
   reproduction campaign, aimed at turning the stabilized exact-paper bank into
   a benchmark-facing offline reproduction path instead of another narrow
   export-stability pass.
@@ -2049,7 +2053,7 @@ This folder contains the internal project documents derived from the reference P
   batch-run workflow with launcher, logging, and campaign-oriented execution.
 
 - [technical/2026-04/2026-04-10/2026-04-10-16-12-21_rcim_exact_model_reimplementation_plan.md](./technical/2026-04/2026-04-10/2026-04-10-16-12-21_rcim_exact_model_reimplementation_plan.md)
-  Technical document for evolving the current `Track 1` paper branch into a
+  Technical document for evolving the current `RCIM Model-Bank Reproduction` paper branch into a
   strict RCIM paper-faithful family-bank reimplementation, including the exact
   target schema, recovered model families, paper-style training surface, ONNX
   export surface, and target-wise evaluation flow.
@@ -2058,7 +2062,7 @@ This folder contains the internal project documents derived from the reference P
   Technical document for producing a deep implementation-facing analysis of
   the recovered RCIM paper assets, including exact ONNX models, recovered code
   generations, TwinCAT XML exports, archive uncertainties, and the precise
-  implications for faithful `Track 1` reimplementation.
+  implications for faithful `RCIM Model-Bank Reproduction` reimplementation.
 
 - [technical/2026-04/2026-04-10/2026-04-10-12-42-35_git_push_pack_size_guard_and_recovered_asset_commit_split.md](./technical/2026-04/2026-04-10/2026-04-10-12-42-35_git_push_pack_size_guard_and_recovered_asset_commit_split.md)
   Technical document for formalizing a GitHub-bound aggregate push-size guard
@@ -2100,7 +2104,7 @@ This folder contains the internal project documents derived from the reference P
   Technical document for opening the offline paper-aligned harmonic-wise comparison pipeline branch, including harmonic prediction, TE reconstruction, offline motion-profile playback, and the benchmark path needed to close `Target A`.
 
 - [technical/2026-04/2026-04-08/2026-04-08-17-51-22_harmonic_wise_pipeline_before_wave2_temporal_models.md](./technical/2026-04/2026-04-08/2026-04-08-17-51-22_harmonic_wise_pipeline_before_wave2_temporal_models.md)
-  Technical document for making the paper-aligned harmonic-wise pipeline the immediate post-Wave-1 branch before the future Wave 2 temporal-model work is opened.
+  Technical document for making the paper-aligned harmonic-wise pipeline the immediate post-Wave-1 branch before the future Wave 2.1 temporal-model work is opened.
 
 - [technical/2026-04/2026-04-08/2026-04-08-17-28-35_paper_pipeline_breakdown_and_backlog_prioritization.md](./technical/2026-04/2026-04-08/2026-04-08-17-28-35_paper_pipeline_breakdown_and_backlog_prioritization.md)
   Technical document for decomposing the remaining paper-aligned implementation gap into six concrete pipeline stages and prioritizing which stages should land immediately versus later in the backlog.
@@ -2527,27 +2531,27 @@ This folder contains the internal project documents derived from the reference P
   Script-level documentation for the SVG generator used by the model explanatory reports.
 
 - [scripts/reports/analysis/build_track2_curve_first_reranking_report.md](./scripts/reports/analysis/build_track2_curve_first_reranking_report.md)
-  Script-level documentation for the `Track 2B` curve-first reranking report
+  Script-level documentation for the `CVP 1.1` curve-first reranking report
   builder.
 
 - [scripts/reports/analysis/build_track2_curve_payload_diagnostics_report.md](./scripts/reports/analysis/build_track2_curve_payload_diagnostics_report.md)
-  Script-level documentation for the `Track 2C` curve-payload diagnostics
+  Script-level documentation for the `CVP 1.2` curve-payload diagnostics
   report builder.
 
 - [scripts/reports/analysis/build_track2_mean_centered_collage_report.md](./scripts/reports/analysis/build_track2_mean_centered_collage_report.md)
-  Script-level documentation for the `Track 2` mean-centered collage
+  Script-level documentation for the `TE Curve Verification Pipeline` mean-centered collage
   diagnostics report builder.
 
 - [scripts/reports/analysis/build_track2_official_model_verification_report.md](./scripts/reports/analysis/build_track2_official_model_verification_report.md)
-  Script-level documentation for the official `Track 2` verification report
+  Script-level documentation for the official `TE Curve Verification Pipeline` verification report
   builder used by self-contained verification-refresh launchers.
 
 - [scripts/reports/analysis/build_track2d_mean_offset_full_matrix_audit.md](./scripts/reports/analysis/build_track2d_mean_offset_full_matrix_audit.md)
-  Script-level documentation for the `Track 2D` full-matrix mean-offset audit
+  Script-level documentation for the `CVP 1.4` full-matrix mean-offset audit
   report builder, including chunked execution and merge-only finalization.
 
 - [scripts/reports/analysis/build_track2e_offset_predictability_feasibility.md](./scripts/reports/analysis/build_track2e_offset_predictability_feasibility.md)
-  Script-level documentation for the `Track 2E` offset-predictability
+  Script-level documentation for the `CVP 1.5` offset-predictability
   feasibility report builder and its conservative causal correction baselines.
 
 - [scripts/reports/analysis/generate_training_results_master_summary.md](./scripts/reports/analysis/generate_training_results_master_summary.md)
@@ -2560,7 +2564,7 @@ This folder contains the internal project documents derived from the reference P
   Script-level documentation for the repository-owned Markdown-to-presentation pipeline runner.
 
 - [scripts/reports/closeout/README.md](./scripts/reports/closeout/README.md)
-  Script-level documentation for the canonical Track 1 closeout entrypoint subtree.
+  Script-level documentation for the canonical RCIM Model-Bank Reproduction closeout entrypoint subtree.
 
 - [scripts/training/train_feedforward_network.md](./scripts/training/train_feedforward_network.md)
   Script-level documentation for the first PyTorch Lightning feedforward training entry point.
@@ -2581,25 +2585,25 @@ This folder contains the internal project documents derived from the reference P
   Script-level documentation for the mixed bounded-grid plus Optuna Wave 1 directional best-hyperparameter search launcher.
 
 - [scripts/campaigns/wave_3/wave3_embryonic_skeleton_checks.md](./scripts/campaigns/wave_3/wave3_embryonic_skeleton_checks.md)
-  Script-level documentation for the dry-run `Wave 3` embryonic skeleton
+  Script-level documentation for the dry-run `Wave 5.1` embryonic skeleton
   checker. It validates implementation readiness without queueing or launching
   training.
 
 - [scripts/campaigns/wave_3/wave3_training_smoke_ready_checks.md](./scripts/campaigns/wave_3/wave3_training_smoke_ready_checks.md)
-  Script-level documentation for the dry-run `Wave 3` training-smoke-ready
+  Script-level documentation for the dry-run `Wave 5.1` training-smoke-ready
   checker. It runs one-batch validation without creating a campaign queue.
 
 - [scripts/campaigns/wave_4/wave4_embryonic_skeleton_checks.md](./scripts/campaigns/wave_4/wave4_embryonic_skeleton_checks.md)
-  Script-level documentation for the dry-run `Wave 4A` embryonic skeleton
+  Script-level documentation for the dry-run `Wave 5.2A` embryonic skeleton
   checker. It validates implementation readiness without queueing or launching
   training.
 
 - [scripts/reports/analysis/build_wave4a_mmt_equation_diagnostic_report.md](./scripts/reports/analysis/build_wave4a_mmt_equation_diagnostic_report.md)
-  Script-level documentation for the `Wave 4A` MMT equation diagnostic report
+  Script-level documentation for the `Wave 5.2A` MMT equation diagnostic report
   generator.
 
 - [scripts/reports/analysis/build_wave4a_mmt_parameter_inventory_report.md](./scripts/reports/analysis/build_wave4a_mmt_parameter_inventory_report.md)
-  Script-level documentation for the `Wave 4A` MMT parameter-inventory report
+  Script-level documentation for the `Wave 5.2A` MMT parameter-inventory report
   builder.
 
 - [scripts/campaigns/run_wave1_high_order_harmonic_tracking_campaign.md](./scripts/campaigns/run_wave1_high_order_harmonic_tracking_campaign.md)
@@ -2613,73 +2617,73 @@ This folder contains the internal project documents derived from the reference P
   `0..360` fixed periodic-feature banks.
 
 - [scripts/campaigns/run_wave2_temporal_model_entry_campaign.md](./scripts/campaigns/run_wave2_temporal_model_entry_campaign.md)
-  Script-level documentation for the prepared Wave 2 temporal-model entry
+  Script-level documentation for the prepared Wave 2.1 temporal-model entry
   launcher across temporal convolution, `GRU`, and `LSTM` sequence baselines.
 
 - [scripts/campaigns/wave_2/run_wave2b_harmonic_temporal_hybrid_campaign.md](./scripts/campaigns/wave_2/run_wave2b_harmonic_temporal_hybrid_campaign.md)
-  Script-level documentation for the prepared Wave 2B harmonic-temporal
+  Script-level documentation for the prepared Wave 2.2 harmonic-temporal
   hybrid launcher across periodic temporal convolution, periodic `GRU`, and
   periodic `LSTM` sequence models.
 
 - [scripts/campaigns/track_2/run_track2f_bis_harmonic_offset_probe_campaign.md](./scripts/campaigns/track_2/run_track2f_bis_harmonic_offset_probe_campaign.md)
-  Script-level documentation for the prepared Track 2F-bis harmonic-offset
+  Script-level documentation for the prepared Wave 3.2 harmonic-offset
   launcher across clean non-harmonic controls and explicit harmonic-offset
   probes for `global`, `Fw`, and `Bw`.
 
 - [scripts/campaigns/track_2/run_track2f_bis_track2_verification_refresh.md](./scripts/campaigns/track_2/run_track2f_bis_track2_verification_refresh.md)
-  Script-level documentation for the operator-launched Track 2F-bis official
-  `Track 2` verification refresh across clean and harmonic candidates for
+  Script-level documentation for the operator-launched Wave 3.2 official
+  `TE Curve Verification Pipeline` verification refresh across clean and harmonic candidates for
   `global`, `Fw`, and `Bw`.
 
 - [scripts/campaigns/track_2/run_track2g_curve_aware_training_campaign.md](./scripts/campaigns/track_2/run_track2g_curve_aware_training_campaign.md)
-  Script-level documentation for the prepared Track 2G curve-aware training
+  Script-level documentation for the prepared Wave 3.3 curve-aware training
   launcher across pointwise-control, centered-shape, offset, and full
   composite loss profiles for `global`, `Fw`, and `Bw`.
 
 - [scripts/campaigns/track_2/run_track2g_track2_verification_refresh.md](./scripts/campaigns/track_2/run_track2g_track2_verification_refresh.md)
-  Script-level documentation for the operator-launched Track 2G official
-  `Track 2` verification refresh across all twelve curve-aware candidates for
+  Script-level documentation for the operator-launched Wave 3.3 official
+  `TE Curve Verification Pipeline` verification refresh across all twelve curve-aware candidates for
   `global`, `Fw`, and `Bw`.
 
 - [scripts/campaigns/track_2/run_track2h_track2_verification_refresh.md](./scripts/campaigns/track_2/run_track2h_track2_verification_refresh.md)
-  Script-level documentation for the operator-launched Track 2H official
-  `Track 2` verification refresh across all nine robust-loss candidates for
+  Script-level documentation for the operator-launched Wave 4 series official
+  `TE Curve Verification Pipeline` verification refresh across all nine robust-loss candidates for
   `global`, `Fw`, and `Bw`.
 
 - [scripts/campaigns/track_2/run_track2h_quantile_probabilistic_campaign.md](./scripts/campaigns/track_2/run_track2h_quantile_probabilistic_campaign.md)
-  Script-level documentation for the prepared `Track 2H`
+  Script-level documentation for the prepared `Wave 4 series`
   quantile/probabilistic campaign launcher across `global`, `Fw`, and `Bw`.
 
 - [scripts/campaigns/track_2/run_track2h_mixture_density_heads_campaign.md](./scripts/campaigns/track_2/run_track2h_mixture_density_heads_campaign.md)
-  Script-level documentation for the prepared `Track 2H` mixture-density heads
+  Script-level documentation for the prepared `Wave 4.3` mixture-density heads
   campaign launcher across `global`, `Fw`, and `Bw`.
 
 - [scripts/campaigns/track_2/run_track2h_latent_state_hysteresis_campaign.md](./scripts/campaigns/track_2/run_track2h_latent_state_hysteresis_campaign.md)
-  Script-level documentation for the prepared `Track 2H-L` latent-state /
+  Script-level documentation for the prepared `Wave 4.4` latent-state /
   hysteresis-aware campaign launcher across `global`, `Fw`, and `Bw`.
 
 - [scripts/campaigns/track_2/run_track2h_latent_state_hysteresis_track2_verification_refresh.md](./scripts/campaigns/track_2/run_track2h_latent_state_hysteresis_track2_verification_refresh.md)
-  Script-level documentation for the operator-launched `Track 2H-L`
-  latent-state / hysteresis-aware official `Track 2` verification refresh
+  Script-level documentation for the operator-launched `Wave 4.4`
+  latent-state / hysteresis-aware official `TE Curve Verification Pipeline` verification refresh
   across all six candidates for `global`, `Fw`, and `Bw`.
 
 - [scripts/campaigns/track_2/run_track2h_quantile_probabilistic_track2_verification_refresh.md](./scripts/campaigns/track_2/run_track2h_quantile_probabilistic_track2_verification_refresh.md)
-  Script-level documentation for the operator-launched `Track 2H`
-  quantile/probabilistic official `Track 2` verification refresh across all
+  Script-level documentation for the operator-launched `Wave 4 series`
+  quantile/probabilistic official `TE Curve Verification Pipeline` verification refresh across all
   six probabilistic candidates for `global`, `Fw`, and `Bw`.
 
 - [scripts/campaigns/track_2/run_track2h_mixture_density_heads_track2_verification_refresh.md](./scripts/campaigns/track_2/run_track2h_mixture_density_heads_track2_verification_refresh.md)
-  Script-level documentation for the operator-launched `Track 2H`
-  mixture-density heads official `Track 2` verification refresh across all
+  Script-level documentation for the operator-launched `Wave 4 series`
+  mixture-density heads official `TE Curve Verification Pipeline` verification refresh across all
   six MDN candidates for `global`, `Fw`, and `Bw`.
 
 - [scripts/campaigns/track_2/run_wave3_harmonic_prior_residual_track2_verification_refresh.md](./scripts/campaigns/track_2/run_wave3_harmonic_prior_residual_track2_verification_refresh.md)
-  Script-level documentation for the operator-launched `Wave 3`
-  harmonic-prior residual official `Track 2` verification refresh across all
+  Script-level documentation for the operator-launched `Wave 5.1`
+  harmonic-prior residual official `TE Curve Verification Pipeline` verification refresh across all
   six completed candidates for `global`, `Fw`, and `Bw`.
 
 - [scripts/campaigns/wave_3/run_wave3_harmonic_prior_residual_campaign.md](./scripts/campaigns/wave_3/run_wave3_harmonic_prior_residual_campaign.md)
-  Script-level documentation for the prepared first real `Wave 3`
+  Script-level documentation for the prepared first real `Wave 5.1`
   harmonic-prior residual campaign launcher across `global`, `Fw`, and `Bw`.
 
 - [scripts/training/validate_training_setup.md](./scripts/training/validate_training_setup.md)
@@ -2741,27 +2745,27 @@ This folder contains the internal project documents derived from the reference P
   Styled PDF export of the feedforward trial validation-check report.
 
 - [reports/analysis/validation_checks/2026-06-04-23-08-24_track2f_bi_2c54bdf1_te_track2f_bis_clean_residual_o_00ddc617_validation_setup_report.md](./reports/analysis/validation_checks/2026-06-04-23-08-24_track2f_bi_2c54bdf1_te_track2f_bis_clean_residual_o_00ddc617_validation_setup_report.md)
-  One-batch validation setup report for the Track 2F-bis clean non-harmonic
+  One-batch validation setup report for the Wave 3.2 clean non-harmonic
   control `global` entry.
 
 - [reports/analysis/validation_checks/2026-06-04-23-08-24_track2f_bi_da4c30ce_te_track2f_bis_harmonic_residua_7fa047ef_validation_setup_report.md](./reports/analysis/validation_checks/2026-06-04-23-08-24_track2f_bi_da4c30ce_te_track2f_bis_harmonic_residua_7fa047ef_validation_setup_report.md)
-  One-batch validation setup report for the Track 2F-bis harmonic-offset
+  One-batch validation setup report for the Wave 3.2 harmonic-offset
   `global` entry.
 
 - [reports/analysis/validation_checks/2026-06-08-18-14-31_track2g_cu_ca617bbd_te_track2g_curve_aware_pointwis_239993a2_validation_setup_report.md](./reports/analysis/validation_checks/2026-06-08-18-14-31_track2g_cu_ca617bbd_te_track2g_curve_aware_pointwis_239993a2_validation_setup_report.md)
-  One-batch validation setup report for the Track 2G pointwise-control
+  One-batch validation setup report for the Wave 3.3 pointwise-control
   `global` entry.
 
 - [reports/analysis/validation_checks/2026-06-08-18-14-31_track2g_cu_b85b1190_te_track2g_curve_aware_raw_cent_9365d702_validation_setup_report.md](./reports/analysis/validation_checks/2026-06-08-18-14-31_track2g_cu_b85b1190_te_track2g_curve_aware_raw_cent_9365d702_validation_setup_report.md)
-  One-batch validation setup report for the Track 2G raw plus centered-shape
+  One-batch validation setup report for the Wave 3.3 raw plus centered-shape
   `global` entry.
 
 - [reports/analysis/validation_checks/2026-06-08-18-14-31_track2g_cu_1430b431_te_track2g_curve_aware_raw_offs_951f470e_validation_setup_report.md](./reports/analysis/validation_checks/2026-06-08-18-14-31_track2g_cu_1430b431_te_track2g_curve_aware_raw_offs_951f470e_validation_setup_report.md)
-  One-batch validation setup report for the Track 2G raw plus offset
+  One-batch validation setup report for the Wave 3.3 raw plus offset
   `global` entry.
 
 - [reports/analysis/validation_checks/2026-06-08-18-14-31_track2g_cu_3c0ce19b_te_track2g_curve_aware_full_cur_f7e39520_validation_setup_report.md](./reports/analysis/validation_checks/2026-06-08-18-14-31_track2g_cu_3c0ce19b_te_track2g_curve_aware_full_cur_f7e39520_validation_setup_report.md)
-  One-batch validation setup report for the Track 2G full composite curve-loss
+  One-batch validation setup report for the Wave 3.3 full composite curve-loss
   `global` entry.
 
 - [guide/Neural%20Network%20Foundations/Neural%20Network%20Foundations.md](./guide/Neural%20Network%20Foundations/Neural%20Network%20Foundations.md)
@@ -2881,55 +2885,55 @@ This folder contains the internal project documents derived from the reference P
 #### Latest Campaign Plans
 
 - [reports/campaign_plans/track_2/2026-06-16-16-00-57_track2h_latent_state_hysteresis_campaign_plan_report.md](./reports/campaign_plans/track_2/2026-06-16-16-00-57_track2h_latent_state_hysteresis_campaign_plan_report.md)
-  Preliminary campaign plan for the next `Track 2H-L` package, focused on
+  Preliminary campaign plan for the next `Wave 4.4` package, focused on
   causal latent-state / hysteresis-aware candidates across `global`, `Fw`,
   and `Bw`.
 
 - [reports/campaign_plans/wave_3/2026-06-14-19-54-55_wave3_harmonic_prior_residual_campaign_plan_report.md](./reports/campaign_plans/wave_3/2026-06-14-19-54-55_wave3_harmonic_prior_residual_campaign_plan_report.md)
-  Preliminary and prepared campaign plan for the first real `Wave 3`
+  Preliminary and prepared campaign plan for the first real `Wave 5.1`
   harmonic-prior residual package across `global`, `Fw`, and `Bw`.
 
 - [reports/campaign_plans/track_2/2026-06-12-00-01-04_track2h_quantile_probabilistic_campaign_plan_report.md](./reports/campaign_plans/track_2/2026-06-12-00-01-04_track2h_quantile_probabilistic_campaign_plan_report.md)
-  Preliminary campaign plan for the second `Track 2H` package, focused on
+  Preliminary campaign plan for the `Wave 4.2` package, focused on
   quantile and Gaussian probabilistic regression candidates across `global`,
   `Fw`, and `Bw`.
 
 - [reports/campaign_plans/track_2/2026-06-10-16-56-36_track2h_dispersion_aware_modeling_probe_campaign_plan_report.md](./reports/campaign_plans/track_2/2026-06-10-16-56-36_track2h_dispersion_aware_modeling_probe_campaign_plan_report.md)
-  Preliminary campaign plan for the `Track 2H` dispersion-aware modeling
+  Preliminary campaign plan for the `Wave 4 series` dispersion-aware modeling
   probes across robust, probabilistic, mixture, and causal latent-state
   candidate groups.
 
 - [reports/campaign_plans/cross_wave/wave_3_wave_4/2026-06-11-19-25-32_wave3_wave4_parallel_hardening_plan_report.md](./reports/campaign_plans/cross_wave/wave_3_wave_4/2026-06-11-19-25-32_wave3_wave4_parallel_hardening_plan_report.md)
-  Preliminary plan for a non-campaign `Wave 3` training-smoke-ready hardening
-  pass plus the first `Wave 4A` MMT equation diagnostic report generator.
+  Preliminary plan for a non-campaign `Wave 5.1` training-smoke-ready hardening
+  pass plus the first `Wave 5.2A` MMT equation diagnostic report generator.
 
 - [reports/campaign_plans/cross_wave/wave_3_wave_4/2026-06-11-15-10-02_wave3_wave4_embryonic_skeleton_plan_report.md](./reports/campaign_plans/cross_wave/wave_3_wave_4/2026-06-11-15-10-02_wave3_wave4_embryonic_skeleton_plan_report.md)
-  Preliminary plan for preparing `Wave 3` and `Wave 4` embryonic model,
+  Preliminary plan for preparing `Wave 5.1` and `Wave 5.2` embryonic model,
   diagnostic, validator, dry-run launcher, and configuration skeletons without
   making either wave campaign-ready.
 
 - [reports/campaign_plans/track_2/2026-06-08-18-01-40_track2g_curve_aware_training_campaign_plan_report.md](./reports/campaign_plans/track_2/2026-06-08-18-01-40_track2g_curve_aware_training_campaign_plan_report.md)
-  Preliminary campaign plan for the `Track 2G` curve-aware training probe,
+  Preliminary campaign plan for the `Wave 3.3` curve-aware training probe,
   testing pointwise-control, centered-shape, offset, and full composite loss
   profiles across `global`, `Fw`, and `Bw`.
 
 - [reports/campaign_plans/track_2/2026-06-04-22-57-04_track2f_bis_harmonic_offset_probe_campaign_plan_report.md](./reports/campaign_plans/track_2/2026-06-04-22-57-04_track2f_bis_harmonic_offset_probe_campaign_plan_report.md)
-  Preliminary campaign plan for the `Track 2F-bis` harmonic-offset probe that
-  compares clean non-harmonic Track 2F-like controls against explicit
+  Preliminary campaign plan for the `Wave 3.2` harmonic-offset probe that
+  compares clean non-harmonic Wave 3.1-like controls against explicit
   harmonic-offset candidates across `global`, `Fw`, and `Bw`.
 
 - [reports/campaign_plans/track_2/2026-06-03-17-25-37_track2f_offset_aware_probe_campaign_plan_report.md](./reports/campaign_plans/track_2/2026-06-03-17-25-37_track2f_offset_aware_probe_campaign_plan_report.md)
-  Preliminary campaign plan for the `Track 2F` offset-aware probe comparing
+  Preliminary campaign plan for the `Wave 3.1` offset-aware probe comparing
   post-hoc causal offset calibration, sequential residual-offset modeling, and
   multi-head shape/offset training across `global`, `Fw`, and `Bw`.
 
 - [reports/campaign_plans/wave_2/2026-05-25-13-34-12_wave2b_harmonic_temporal_hybrid_campaign_plan_report.md](./reports/campaign_plans/wave_2/2026-05-25-13-34-12_wave2b_harmonic_temporal_hybrid_campaign_plan_report.md)
-  Preliminary campaign plan for the `Wave 2B` harmonic-temporal hybrid
+  Preliminary campaign plan for the `Wave 2.2` harmonic-temporal hybrid
   campaign, comparing periodic temporal convolution, periodic `GRU`, and
   periodic `LSTM` sequence models across `global`, `Fw`, and `Bw`.
 
 - [reports/campaign_plans/wave_2/2026-05-21-16-46-08_wave2_temporal_model_entry_campaign_plan_report.md](./reports/campaign_plans/wave_2/2026-05-21-16-46-08_wave2_temporal_model_entry_campaign_plan_report.md)
-  Preliminary campaign plan for the first `Wave 2` temporal-model entry
+  Preliminary campaign plan for the first `Wave 2.1` temporal-model entry
   campaign, comparing temporal convolution, `GRU`, and `LSTM` sequence
   baselines across `global`, `Fw`, and `Bw`.
 
@@ -2959,7 +2963,7 @@ This folder contains the internal project documents derived from the reference P
   sparse and dense periodic-feature runs.
 
 - [reports/campaign_plans/track_1/exact_paper/2026-05-13-17-33-38_track1_paper_faithful_elm_queue_addendum_plan_report.md](./reports/campaign_plans/track_1/exact_paper/2026-05-13-17-33-38_track1_paper_faithful_elm_queue_addendum_plan_report.md)
-  Addendum for extending the Track 1 paper-faithful campaign queue with one
+  Addendum for extending the RCIM Model-Bank Reproduction paper-faithful campaign queue with one
   `ELM` search run per direction.
 
 - [technical/2026-03/2026-03-20/2026-03-20-15-55-21_campaign_launcher_short_command.md](./technical/2026-03/2026-03-20/2026-03-20-15-55-21_campaign_launcher_short_command.md)
@@ -3093,71 +3097,71 @@ This folder contains the internal project documents derived from the reference P
 #### Campaign Results
 
 - [reports/campaign_results/track_2/campaign_closeouts/2026-06-17-01-27-10_track2h_latent_state_hysteresis_campaign_results_report.md](./reports/campaign_results/track_2/campaign_closeouts/2026-06-17-01-27-10_track2h_latent_state_hysteresis_campaign_results_report.md)
-  Final results report for the completed `Track 2H-L` latent-state /
+  Final results report for the completed `Wave 4.4` latent-state /
   hysteresis-aware campaign, including scalar branch winners, comparison
   against robust/probabilistic/MDN baselines, registry effects, and the
-  boundary that official `Track 2` curve verification remains separate.
+  boundary that official `TE Curve Verification Pipeline` curve verification remains separate.
 
 - [reports/campaign_results/wave_3/2026-06-15-15-30-20_wave3_harmonic_prior_residual_campaign_results_report.md](./reports/campaign_results/wave_3/2026-06-15-15-30-20_wave3_harmonic_prior_residual_campaign_results_report.md)
-  Final results report for the completed first real `Wave 3`
+  Final results report for the completed first real `Wave 5.1`
   harmonic-prior residual campaign, including scalar branch winners,
   profile comparison, registry effects, and the normal-closeout boundary that
-  kept official `Track 2` curve verification as a separate follow-up step.
+  kept official `TE Curve Verification Pipeline` curve verification as a separate follow-up step.
 
 - [reports/campaign_results/track_2/campaign_closeouts/2026-06-13-13-24-37_track2h_mixture_density_heads_campaign_results_report.md](./reports/campaign_results/track_2/campaign_closeouts/2026-06-13-13-24-37_track2h_mixture_density_heads_campaign_results_report.md)
-  Final results report for the completed third `Track 2H` mixture-density
+  Final results report for the completed third `Wave 4.3` mixture-density
   campaign, including scalar branch winners, mixture-collapse diagnostics,
   comparison against robust/probabilistic probes, and the boundary that
-  official `Track 2` curve verification remains separate.
+  official `TE Curve Verification Pipeline` curve verification remains separate.
 
 - [reports/campaign_results/track_2/campaign_closeouts/2026-06-12-13-54-57_track2h_quantile_probabilistic_campaign_results_report.md](./reports/campaign_results/track_2/campaign_closeouts/2026-06-12-13-54-57_track2h_quantile_probabilistic_campaign_results_report.md)
-  Final results report for the completed second `Track 2H`
+  Final results report for the completed `Wave 4.2`
   quantile/probabilistic campaign, including scalar branch winners,
   calibration diagnostics, robust-loss comparison, and the boundary that
-  official `Track 2` curve verification remains separate.
+  official `TE Curve Verification Pipeline` curve verification remains separate.
 
 - [reports/campaign_results/track_2/campaign_closeouts/2026-06-11-14-01-57_track2h_dispersion_aware_modeling_campaign_results_report.md](./reports/campaign_results/track_2/campaign_closeouts/2026-06-11-14-01-57_track2h_dispersion_aware_modeling_campaign_results_report.md)
-  Final results report for the completed `Track 2H` robust-loss
+  Final results report for the completed `Wave 4.1` robust-loss
   dispersion-aware campaign, including separate `global`, `Fw`, and `Bw`
   branch winners, robust-loss interpretation, registry effects, and the
-  boundary that official `Track 2` curve verification remains a separate
+  boundary that official `TE Curve Verification Pipeline` curve verification remains a separate
   operator-launched workflow.
 
 - [reports/campaign_results/track_2/campaign_closeouts/2026-06-09-01-56-25_track2g_curve_aware_training_campaign_results_report.md](./reports/campaign_results/track_2/campaign_closeouts/2026-06-09-01-56-25_track2g_curve_aware_training_campaign_results_report.md)
-  Final results report for the completed `Track 2G` curve-aware training
+  Final results report for the completed `Wave 3.3` curve-aware training
   campaign, including separate `global`, `Fw`, and `Bw` branch winners,
   loss-profile interpretation, registry effects, and the boundary that
-  official `Track 2` curve verification remains a separate
+  official `TE Curve Verification Pipeline` curve verification remains a separate
   operator-launched workflow.
 
 - [reports/campaign_results/track_2/campaign_closeouts/2026-06-05-16-49-50_track2f_bis_harmonic_offset_probe_campaign_results_report.md](./reports/campaign_results/track_2/campaign_closeouts/2026-06-05-16-49-50_track2f_bis_harmonic_offset_probe_campaign_results_report.md)
-  Final results report for the completed-after-repair `Track 2F-bis`
+  Final results report for the completed-after-repair `Wave 3.2`
   harmonic-offset probe campaign, including clean and harmonic candidates
   for `global`, `Fw`, and `Bw`, the runner registration repair, launcher
   wrapper hardening, registry effects, and the boundary that official
-  `Track 2` curve verification remains a separate operator-launched workflow.
+  `TE Curve Verification Pipeline` curve verification remains a separate operator-launched workflow.
 
 - [reports/campaign_results/track_2/campaign_closeouts/2026-06-04-12-28-46_track2f_offset_aware_probe_campaign_results_report.md](./reports/campaign_results/track_2/campaign_closeouts/2026-06-04-12-28-46_track2f_offset_aware_probe_campaign_results_report.md)
-  Final results report for the completed `Track 2F` offset-aware
+  Final results report for the completed `Wave 3.1` offset-aware
   probe campaign, including separate `global`, `Fw`, and `Bw`
   branch results, runner-wrapper diagnostics, registry effects, and
-  the boundary that official `Track 2` verification remains a
+  the boundary that official `TE Curve Verification Pipeline` verification remains a
   separate operator-launched workflow.
 
 - [reports/campaign_results/wave_2/2026-05-28-11-35-34_wave2c_residual_harmonic_temporal_hybrid_campaign_results_report.md](./reports/campaign_results/wave_2/2026-05-28-11-35-34_wave2c_residual_harmonic_temporal_hybrid_campaign_results_report.md)
-  Final results report for the completed `Wave 2C` residual harmonic
+  Final results report for the completed `Wave 2.3` residual harmonic
   temporal hybrid campaign, including the 18-run sparse/dense
   harmonic-basis leaderboard, registry effects, and the explicit
-  boundary that `Track 2` remains a separate optional workflow.
+  boundary that `TE Curve Verification Pipeline` remains a separate optional workflow.
 
 - [reports/campaign_results/wave_2/2026-05-26-14-01-40_wave2b_harmonic_temporal_hybrid_campaign_results_report.md](./reports/campaign_results/wave_2/2026-05-26-14-01-40_wave2b_harmonic_temporal_hybrid_campaign_results_report.md)
-  Final results report for the completed `Wave 2B` harmonic-temporal
+  Final results report for the completed `Wave 2.2` harmonic-temporal
   hybrid campaign, including the 9-run leaderboard, registry effects,
-  and the explicit boundary that `Track 2` remains a separate
+  and the explicit boundary that `TE Curve Verification Pipeline` remains a separate
   operator-launched workflow.
 
 - [reports/campaign_results/wave_2/2026-05-24-12-36-49_wave2_temporal_model_entry_campaign_results_report.md](./reports/campaign_results/wave_2/2026-05-24-12-36-49_wave2_temporal_model_entry_campaign_results_report.md)
-  Final results report for the completed `Wave 2` temporal-model entry
+  Final results report for the completed `Wave 2.1` temporal-model entry
   campaign, including temporal convolution, `GRU`, and `LSTM` candidates
   across `global`, `Fw`, and `Bw`.
 
@@ -3182,13 +3186,13 @@ This folder contains the internal project documents derived from the reference P
   validated exact-paper export-status outcome.
 
 - [reports/campaign_results/2026-04-13-22-55-28_track1_exact_paper_open_cell_repair_campaign_results_report.md](./reports/campaign_results/2026-04-13-22-55-28_track1_exact_paper_open_cell_repair_campaign_results_report.md)
-  Final results report for the completed `Track 1` exact-paper open-cell
+  Final results report for the completed `RCIM Model-Bank Reproduction` exact-paper open-cell
   repair campaign, including paper-table closure status, harmonic-state
   changes, and the explicit confirmation that no new numeric paper cells were
   closed.
 
 - [reports/campaign_results/2026-04-09-21-19-05_track1_second_iteration_harmonic_wise_campaign_results_report.md](./reports/campaign_results/2026-04-09-21-19-05_track1_second_iteration_harmonic_wise_campaign_results_report.md)
-  Final results report for the completed second `Track 1` paper-faithful harmonic-wise campaign, including reduced-set diagnostics, full-RCIM comparison, and the updated `Target A` status.
+  Final results report for the completed second `RCIM Model-Bank Reproduction` paper-faithful harmonic-wise campaign, including reduced-set diagnostics, full-RCIM comparison, and the updated `Target A` status.
 
 - [reports/campaign_results/2026-03-12-15-04-34_feedforward_variant_comparison_report.md](./reports/campaign_results/2026-03-12-15-04-34_feedforward_variant_comparison_report.md)
   Comparative results report for the executed baseline, high-density, high-epoch, and high-compute feedforward training campaign.
@@ -3219,38 +3223,38 @@ This folder contains the internal project documents derived from the reference P
 #### Campaign Plans
 
 - [reports/campaign_plans/track_2/2026-06-16-16-00-57_track2h_latent_state_hysteresis_campaign_plan_report.md](./reports/campaign_plans/track_2/2026-06-16-16-00-57_track2h_latent_state_hysteresis_campaign_plan_report.md)
-  Preliminary campaign plan for the `Track 2H-L` latent-state /
+  Preliminary campaign plan for the `Wave 4.4` latent-state /
   hysteresis-aware package across `global`, `Fw`, and `Bw`.
 
 - [reports/campaign_plans/wave_3/2026-06-14-19-54-55_wave3_harmonic_prior_residual_campaign_plan_report.md](./reports/campaign_plans/wave_3/2026-06-14-19-54-55_wave3_harmonic_prior_residual_campaign_plan_report.md)
-  Preliminary and prepared campaign plan for the first real `Wave 3`
+  Preliminary and prepared campaign plan for the first real `Wave 5.1`
   harmonic-prior residual package across `global`, `Fw`, and `Bw`.
 
 - [reports/campaign_plans/wave_3/2026-06-12-14-56-27_wave3_grouped_harmonic_heads_skeleton_plan_report.md](./reports/campaign_plans/wave_3/2026-06-12-14-56-27_wave3_grouped_harmonic_heads_skeleton_plan_report.md)
-  Preliminary plan for a non-campaign `Wave 3` grouped harmonic-heads skeleton
+  Preliminary plan for a non-campaign `Wave 5.1` grouped harmonic-heads skeleton
   with factory construction, point/sequence forward checks, and a dry-run
   launcher.
 
 - [reports/campaign_plans/wave_4/2026-06-12-13-04-05_wave4b_mmt_feature_generator_skeleton_plan_report.md](./reports/campaign_plans/wave_4/2026-06-12-13-04-05_wave4b_mmt_feature_generator_skeleton_plan_report.md)
-  Preliminary plan for a non-campaign `Wave 4B` MMT feature-generator skeleton
+  Preliminary plan for a non-campaign `Wave 5.2B` MMT feature-generator skeleton
   with leakage-aware metadata, validation outputs, and a dry-run launcher.
 
 - [reports/campaign_plans/cross_wave/wave_3_wave_4/2026-06-11-19-25-32_wave3_wave4_parallel_hardening_plan_report.md](./reports/campaign_plans/cross_wave/wave_3_wave_4/2026-06-11-19-25-32_wave3_wave4_parallel_hardening_plan_report.md)
-  Preliminary plan for hardening the `Wave 3` skeleton with one-batch
-  training-stack validation and generating the first `Wave 4A` MMT equation
+  Preliminary plan for hardening the `Wave 5.1` skeleton with one-batch
+  training-stack validation and generating the first `Wave 5.2A` MMT equation
   diagnostic report.
 
 - [reports/campaign_plans/cross_wave/wave_3_wave_4/2026-06-11-15-10-02_wave3_wave4_embryonic_skeleton_plan_report.md](./reports/campaign_plans/cross_wave/wave_3_wave_4/2026-06-11-15-10-02_wave3_wave4_embryonic_skeleton_plan_report.md)
-  Preliminary plan for preparing `Wave 3` and `Wave 4` embryonic skeletons as
+  Preliminary plan for preparing `Wave 5.1` and `Wave 5.2` embryonic skeletons as
   implementation-ready but not campaign-ready scaffolds.
 
 - [reports/campaign_plans/wave_2/2026-05-25-13-34-12_wave2b_harmonic_temporal_hybrid_campaign_plan_report.md](./reports/campaign_plans/wave_2/2026-05-25-13-34-12_wave2b_harmonic_temporal_hybrid_campaign_plan_report.md)
-  Preliminary campaign plan for the `Wave 2B` harmonic-temporal hybrid
+  Preliminary campaign plan for the `Wave 2.2` harmonic-temporal hybrid
   campaign, comparing periodic temporal convolution, periodic `GRU`, and
   periodic `LSTM` sequence models across `global`, `Fw`, and `Bw`.
 
 - [reports/campaign_plans/wave_2/2026-05-21-16-46-08_wave2_temporal_model_entry_campaign_plan_report.md](./reports/campaign_plans/wave_2/2026-05-21-16-46-08_wave2_temporal_model_entry_campaign_plan_report.md)
-  Preliminary campaign plan for the first `Wave 2` temporal-model entry
+  Preliminary campaign plan for the first `Wave 2.1` temporal-model entry
   campaign, comparing temporal convolution, `GRU`, and `LSTM` sequence
   baselines across `global`, `Fw`, and `Bw`.
 
@@ -3270,12 +3274,12 @@ This folder contains the internal project documents derived from the reference P
   package is still justified for the residual `SVM` yellow cells.
 
 - [reports/campaign_plans/2026-04-14-13-42-10_track1_full_matrix_family_reproduction_campaign_plan_report.md](./reports/campaign_plans/2026-04-14-13-42-10_track1_full_matrix_family_reproduction_campaign_plan_report.md)
-  Planning report for the next umbrella `Track 1` campaign package, organized
+  Planning report for the next umbrella `RCIM Model-Bank Reproduction` campaign package, organized
   as family-by-family amplitude and phase reproduction runs for the full
   paper-matrix objective.
 
 - [reports/campaign_plans/2026-04-13-21-20-53_track1_exact_paper_open_cell_repair_campaign_plan_report.md](./reports/campaign_plans/2026-04-13-21-20-53_track1_exact_paper_open_cell_repair_campaign_plan_report.md)
-  Planning report for the next `Track 1` exact-paper open-cell repair
+  Planning report for the next `RCIM Model-Bank Reproduction` exact-paper open-cell repair
   campaign, centered on the still-open cells and harmonic states in canonical
   Tables `3-6`.
 
@@ -3318,7 +3322,7 @@ This folder contains the internal project documents derived from the reference P
   Technical plan for the guide-local documentation, diagrams, PDF companion, and NotebookLM source packages for the harmonic-wise paper-reimplementation pipeline.
 
 - [technical/2026-06/2026-06-16/2026-06-16-16-55-46_track2_multi_index_curve_first_selection_policy.md](./technical/2026-06/2026-06-16/2026-06-16-16-55-46_track2_multi_index_curve_first_selection_policy.md)
-  Technical plan for shifting official `Track 2` model selection from
+  Technical plan for shifting official `TE Curve Verification Pipeline` model selection from
   scalar-error-first ranking to multi-index curve-first selection across
   raw error, mean-centered shape, offset, harmonic / phase, robustness, and
   recommended per-surface candidates.
@@ -3333,22 +3337,22 @@ This folder contains the internal project documents derived from the reference P
   Technical plan for clarifying that imported bilingual NotebookLM exports should not repeat the language in filenames when the parent folder already declares it.
 
 - [technical/2026-04/2026-04-09/2026-04-09-18-31-24_track1_second_harmonic_wise_iteration.md](./technical/2026-04/2026-04-09/2026-04-09-18-31-24_track1_second_harmonic_wise_iteration.md)
-  Technical plan for the second Track 1 harmonic-wise iteration, including progressive harmonic-set experiments, feature engineering, and promotion back to the full RCIM harmonic set.
+  Technical plan for the second RCIM Model-Bank Reproduction harmonic-wise iteration, including progressive harmonic-set experiments, feature engineering, and promotion back to the full RCIM harmonic set.
 
 - [technical/2026-04/2026-04-09/2026-04-09-18-56-03_track1_second_iteration_campaign_preparation.md](./technical/2026-04/2026-04-09/2026-04-09-18-56-03_track1_second_iteration_campaign_preparation.md)
-  Technical plan for packaging the second Track 1 harmonic-wise iteration as a dedicated operator-driven campaign with configs, launcher, launcher note, and persistent campaign state.
+  Technical plan for packaging the second RCIM Model-Bank Reproduction harmonic-wise iteration as a dedicated operator-driven campaign with configs, launcher, launcher note, and persistent campaign state.
 
 - [technical/2026-04/2026-04-09/2026-04-09-21-41-11_track1_second_iteration_campaign_pdf_table_refinement.md](./technical/2026-04/2026-04-09/2026-04-09-21-41-11_track1_second_iteration_campaign_pdf_table_refinement.md)
-  Technical plan for refining the `Ranked Completed Runs` table layout in the Track 1 second-iteration campaign PDF and formalizing the unit-wrapping preference.
+  Technical plan for refining the `Ranked Completed Runs` table layout in the RCIM Model-Bank Reproduction second-iteration campaign PDF and formalizing the unit-wrapping preference.
 
 - [technical/2026-04/2026-04-09/2026-04-09-21-43-01_pdf_metric_header_unit_wrapping_rule.md](./technical/2026-04/2026-04-09/2026-04-09-21-43-01_pdf_metric_header_unit_wrapping_rule.md)
   Technical plan for making metric-unit second-line wrapping an explicit default rule for narrow styled-PDF metric headers.
 
 - [technical/2026-04/2026-04-09/2026-04-09-21-49-49_track1_second_iteration_campaign_pdf_objective_pagebreak_refinement.md](./technical/2026-04/2026-04-09/2026-04-09-21-49-49_track1_second_iteration_campaign_pdf_objective_pagebreak_refinement.md)
-  Technical plan for tightening the `Objective And Outcome` bullets so the Track 1 second-iteration campaign PDF avoids a weak section start on a nearly empty page.
+  Technical plan for tightening the `Objective And Outcome` bullets so the RCIM Model-Bank Reproduction second-iteration campaign PDF avoids a weak section start on a nearly empty page.
 
 - [technical/2026-04/2026-04-09/2026-04-09-21-53-17_track1_second_iteration_campaign_pdf_rank_column_rebalance.md](./technical/2026-04/2026-04-09/2026-04-09-21-53-17_track1_second_iteration_campaign_pdf_rank_column_rebalance.md)
-  Technical plan for slightly widening the `Rank` column and correspondingly shrinking `Test MAE` in the Track 1 second-iteration campaign PDF table.
+  Technical plan for slightly widening the `Rank` column and correspondingly shrinking `Test MAE` in the RCIM Model-Bank Reproduction second-iteration campaign PDF table.
 
 - [technical/2026-04/2026-04-09/2026-04-09-22-10-21_track1_campaign_random_forest_bundle_git_lfs_tracking.md](./technical/2026-04/2026-04-09/2026-04-09-22-10-21_track1_campaign_random_forest_bundle_git_lfs_tracking.md)
   Technical plan for tracking the oversized RandomForest harmonic-wise campaign bundle through Git LFS so the pending commit remains GitHub-safe.
@@ -3368,18 +3372,18 @@ This folder contains the internal project documents derived from the reference P
   per-target exports.
 
 - [technical/2026-05/2026-05-11/2026-05-11-09-59-51_track1_exact_paper_linear_svr_fallback_alignment.md](./technical/2026-05/2026-05-11/2026-05-11-09-59-51_track1_exact_paper_linear_svr_fallback_alignment.md)
-  Technical plan for aligning the Track 1 exact-paper `SVR` family with the
+  Technical plan for aligning the RCIM Model-Bank Reproduction exact-paper `SVR` family with the
   recovered-original pragmatic `LinearSVR` fallback used in place of the
   historical `SVR(kernel="linear")` branch.
 
 - [technical/2026-05/2026-05-11/2026-05-11-16-26-01_track1_exact_paper_elm_export_hardening_and_quiet_lgbm.md](./technical/2026-05/2026-05-11/2026-05-11-16-26-01_track1_exact_paper_elm_export_hardening_and_quiet_lgbm.md)
   Technical plan for porting the recovered-original ELM export hardening into
-  the Track 1 exact-paper shared exporter and for adopting the quieter
-  repository-owned `LGBMRegressor` factory in the active Track 1 exact-paper
+  the RCIM Model-Bank Reproduction exact-paper shared exporter and for adopting the quieter
+  repository-owned `LGBMRegressor` factory in the active RCIM Model-Bank Reproduction exact-paper
   family bank.
 
 - [technical/2026-05/2026-05-11/2026-05-11-16-28-59_track1_exact_paper_add_elm_and_quiet_lgbm.md](./technical/2026-05/2026-05-11/2026-05-11-16-28-59_track1_exact_paper_add_elm_and_quiet_lgbm.md)
-  Superseding technical plan for adding `ELM` to the canonical Track 1
+  Superseding technical plan for adding `ELM` to the canonical RCIM Model-Bank Reproduction
   exact-paper family bank and for adopting the quieter repository-owned
   `LGBMRegressor` factory.
 

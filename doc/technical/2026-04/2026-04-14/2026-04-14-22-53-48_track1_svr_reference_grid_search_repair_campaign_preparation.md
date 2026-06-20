@@ -1,8 +1,8 @@
-# Track 1 SVR Reference Grid Search Repair Campaign Preparation
+# RCIM Model-Bank Reproduction SVR Reference Grid Search Repair Campaign Preparation
 
 ## Overview
 
-This document prepares the next `Track 1` `SVR` repair campaign after the
+This document prepares the next `RCIM Model-Bank Reproduction` `SVR` repair campaign after the
 exact-paper workflow was aligned with the recovered paper-reference
 `GridSearchCV` path.
 
@@ -66,5 +66,5 @@ same scope multiple times would not add information.
 4. Register the prepared campaign in `doc/running/active_training_campaign.yaml`
    only after the user approves the campaign package.
 5. After execution, compare the resulting exact-paper `SVR` row against the
-   current canonical `Track 1` benchmark and close the campaign through the
+   current canonical `RCIM Model-Bank Reproduction` benchmark and close the campaign through the
    normal campaign-results workflow.

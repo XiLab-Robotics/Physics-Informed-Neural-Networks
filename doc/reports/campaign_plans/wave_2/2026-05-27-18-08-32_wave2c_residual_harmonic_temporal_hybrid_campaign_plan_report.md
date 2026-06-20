@@ -1,13 +1,13 @@
-# Wave 2C Residual Harmonic Temporal Hybrid Campaign Plan Report
+# Wave 2.3 Residual Harmonic Temporal Hybrid Campaign Plan Report
 
 ## Executive Summary
 
-This preliminary campaign plan prepares the proposed `Wave 2C`
+This preliminary campaign plan prepares the proposed `Wave 2.3`
 residual-harmonic temporal hybrid comparison without launching training.
 
-`Wave 2B` showed that sparse `RCIM` harmonic features make the recurrent
+`Wave 2.2` showed that sparse `RCIM` harmonic features make the recurrent
 temporal families competitive and produced the current scalar training-registry
-winner, `periodic_gru_sequence_bw`. `Wave 2C` tests the stronger residual
+winner, `periodic_gru_sequence_bw`. `Wave 2.3` tests the stronger residual
 variant: a structured harmonic base branch predicts the primary TE shape, while
 a recurrent temporal branch learns the local sequence residual.
 
@@ -28,14 +28,14 @@ document are explicitly approved.
 
 ## Baseline And Verification Rule
 
-`Track 2` remains the official offline verification surface. Wave 2C candidates
+`TE Curve Verification Pipeline` remains the official offline verification surface. Wave 2.3 candidates
 must not be accepted from training metrics alone. Any promoted result must
 later refresh:
 
-- the direction-aware `Track 2` matrix;
+- the direction-aware `TE Curve Verification Pipeline` matrix;
 - the best-model collage report and PDF;
 - the multi-model curve comparison report and PDF;
-- the official `Track 2` update ledger;
+- the official `TE Curve Verification Pipeline` update ledger;
 - the family and program registries;
 - `Training Results Master Summary.md`.
 
@@ -74,7 +74,7 @@ per-candidate isolation in the leaderboard.
 
 ## Prepared Configuration Surface
 
-The implementation should mirror the existing Wave 2 and Wave 2B sequence
+The implementation should mirror the existing Wave 2.1 and Wave 2.2 sequence
 configuration pattern.
 
 Prepared model-family selections:
@@ -146,19 +146,19 @@ After campaign execution:
 - update family-level and program-level best-result registries;
 - refresh `Training Results Master Summary.md`;
 - close out the campaign with Markdown and validated PDF deliverables;
-- propose the optional `Track 2` refresh as a separate operator-launched step.
+- propose the optional `TE Curve Verification Pipeline` refresh as a separate operator-launched step.
 
 ## Decision Criteria
 
-Wave 2C is worth carrying forward only if the residual recurrent design shows
+Wave 2.3 is worth carrying forward only if the residual recurrent design shows
 one of the following:
 
-- it beats the matching Wave 2B recurrent candidate on scalar training metrics;
-- it provides a stronger global candidate than the existing Wave 2B global
+- it beats the matching Wave 2.2 recurrent candidate on scalar training metrics;
+- it provides a stronger global candidate than the existing Wave 2.2 global
   recurrent models;
 - a dense harmonic tier clearly beats the sparse tier without unstable
   validation behavior;
-- it gives visibly better TE-curve shape tracking in a later `Track 2` review.
+- it gives visibly better TE-curve shape tracking in a later `TE Curve Verification Pipeline` review.
 
-If the residual branch does not improve over Wave 2B, the current Wave 2B
+If the residual branch does not improve over Wave 2.2, the current Wave 2.2
 periodic recurrent candidates remain the stronger temporal branch.

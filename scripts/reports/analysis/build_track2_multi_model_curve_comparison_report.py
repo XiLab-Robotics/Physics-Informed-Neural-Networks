@@ -1,4 +1,4 @@
-"""Build the Track 2 multi-model curve comparison report and plot artifacts."""
+"""Build the TE Curve Verification Pipeline multi-model curve comparison report and plot artifacts."""
 
 from __future__ import annotations
 
@@ -219,7 +219,7 @@ def build_argument_parser() -> argparse.ArgumentParser:
 
     argument_parser = argparse.ArgumentParser(
         description=(
-            "Generate the Track 2 multi-model curve comparison report with "
+            "Generate the TE Curve Verification Pipeline multi-model curve comparison report with "
             "four-curve overlay collages for selected reference and Wave 1 "
             "model groups."
         )
@@ -228,7 +228,7 @@ def build_argument_parser() -> argparse.ArgumentParser:
         "--config-path",
         type=Path,
         default=DEFAULT_CONFIG_PATH,
-        help="Track 2 comparison config used for reference candidate metadata and dataset loading.",
+        help="TE Curve Verification Pipeline comparison config used for reference candidate metadata and dataset loading.",
     )
     argument_parser.add_argument(
         "--output-root",
@@ -350,7 +350,7 @@ def build_wave1_registry_candidate_configuration_list(family_registry_root: Path
 
 def build_wave2_registry_candidate_configuration_list(family_registry_root: Path) -> list[dict[str, Any]]:
 
-    """Build current-registry Wave 2 temporal candidate configurations."""
+    """Build current-registry Wave 2.1 temporal candidate configurations."""
 
     registry_root_text = shared_training_infrastructure.format_project_relative_path(
         shared_training_infrastructure.resolve_runtime_project_relative_path(family_registry_root)
@@ -386,7 +386,7 @@ def build_wave2_registry_candidate_configuration_list(family_registry_root: Path
 
 def build_wave2c_registry_candidate_configuration_list(family_registry_root: Path) -> list[dict[str, Any]]:
 
-    """Build current-registry Wave 2C residual harmonic temporal candidates."""
+    """Build current-registry Wave 2.3 residual harmonic temporal candidates."""
 
     registry_root_text = shared_training_infrastructure.format_project_relative_path(
         shared_training_infrastructure.resolve_runtime_project_relative_path(family_registry_root)
@@ -422,7 +422,7 @@ def build_wave2c_registry_candidate_configuration_list(family_registry_root: Pat
 
 def build_track2f_registry_candidate_configuration_list(family_registry_root: Path) -> list[dict[str, Any]]:
 
-    """Build current-registry Track 2F offset-aware probe candidates."""
+    """Build current-registry Wave 3.1 offset-aware probe candidates."""
 
     registry_root_text = shared_training_infrastructure.format_project_relative_path(
         shared_training_infrastructure.resolve_runtime_project_relative_path(family_registry_root)
@@ -458,7 +458,7 @@ def build_track2f_registry_candidate_configuration_list(family_registry_root: Pa
 
 def build_track2f_bis_registry_candidate_configuration_list(family_registry_root: Path) -> list[dict[str, Any]]:
 
-    """Build current-registry Track 2F-bis harmonic-offset probe candidates."""
+    """Build current-registry Wave 3.2 harmonic-offset probe candidates."""
 
     registry_root_text = shared_training_infrastructure.format_project_relative_path(
         shared_training_infrastructure.resolve_runtime_project_relative_path(family_registry_root)
@@ -490,7 +490,7 @@ def build_track2f_bis_registry_candidate_configuration_list(family_registry_root
 
 def build_track2g_registry_candidate_configuration_list(family_registry_root: Path) -> list[dict[str, Any]]:
 
-    """Build current-registry Track 2G curve-aware training candidates."""
+    """Build current-registry Wave 3.3 curve-aware training candidates."""
 
     registry_root_text = shared_training_infrastructure.format_project_relative_path(
         shared_training_infrastructure.resolve_runtime_project_relative_path(family_registry_root)
@@ -522,7 +522,7 @@ def build_track2g_registry_candidate_configuration_list(family_registry_root: Pa
 
 def build_track2h_registry_candidate_configuration_list(family_registry_root: Path) -> list[dict[str, Any]]:
 
-    """Build current-registry Track 2H robust-loss candidates."""
+    """Build current-registry Wave 4.1 robust-loss candidates."""
 
     registry_root_text = shared_training_infrastructure.format_project_relative_path(
         shared_training_infrastructure.resolve_runtime_project_relative_path(family_registry_root)
@@ -558,7 +558,7 @@ def build_track2h_quantile_probabilistic_registry_candidate_configuration_list(
     family_registry_root: Path,
 ) -> list[dict[str, Any]]:
 
-    """Build current-registry Track 2H quantile/probabilistic candidates."""
+    """Build current-registry Wave 4.2 quantile/probabilistic candidates."""
 
     registry_root_text = shared_training_infrastructure.format_project_relative_path(
         shared_training_infrastructure.resolve_runtime_project_relative_path(family_registry_root)
@@ -673,7 +673,7 @@ def resolve_report_candidate_configuration_list(
     output_directory: Path,
 ) -> list[dict[str, Any]]:
 
-    """Resolve the selected Track 2 report candidates."""
+    """Resolve the selected TE curve-verification report candidates."""
 
     all_candidate_configuration_list = (
         reference_family_vs_feedforward_support.resolve_track2_candidate_configuration_list(training_config)
@@ -685,7 +685,7 @@ def resolve_report_candidate_configuration_list(
         if str(candidate_configuration["candidate_id"]) in wanted_reference_candidate_id_set
     ]
     assert len(reference_candidate_configuration_list) == len(wanted_reference_candidate_id_set), (
-        "Could not resolve every requested Track 2 reference best candidate."
+        "Could not resolve every requested TE Curve Verification Pipeline reference best candidate."
     )
 
     explicit_candidate_configuration_list = (
@@ -912,85 +912,85 @@ def build_base_comparison_group_list(
         ),
         ReportComparisonGroup(
             group_id="forward_wave2",
-            group_title="Forward Wave 2 Temporal Model Overlay",
+            group_title="Forward Wave 2.1 Temporal Model Overlay",
             candidate_id_list=wave2_forward_candidate_id_list,
             selection_mode="forward",
         ),
         ReportComparisonGroup(
             group_id="backward_wave2",
-            group_title="Backward Wave 2 Temporal Model Overlay",
+            group_title="Backward Wave 2.1 Temporal Model Overlay",
             candidate_id_list=wave2_backward_candidate_id_list,
             selection_mode="backward",
         ),
         ReportComparisonGroup(
             group_id="forward_wave2c",
-            group_title="Forward Wave 2C Residual Harmonic Temporal Overlay",
+            group_title="Forward Wave 2.3 Residual Harmonic Temporal Overlay",
             candidate_id_list=wave2c_forward_candidate_id_list,
             selection_mode="forward",
         ),
         ReportComparisonGroup(
             group_id="backward_wave2c",
-            group_title="Backward Wave 2C Residual Harmonic Temporal Overlay",
+            group_title="Backward Wave 2.3 Residual Harmonic Temporal Overlay",
             candidate_id_list=wave2c_backward_candidate_id_list,
             selection_mode="backward",
         ),
         ReportComparisonGroup(
             group_id="forward_track2f",
-            group_title="Forward Track 2F Offset-Aware Probe Overlay",
+            group_title="Forward Wave 3.1 Offset-Aware Probe Overlay",
             candidate_id_list=track2f_forward_candidate_id_list,
             selection_mode="forward",
         ),
         ReportComparisonGroup(
             group_id="backward_track2f",
-            group_title="Backward Track 2F Offset-Aware Probe Overlay",
+            group_title="Backward Wave 3.1 Offset-Aware Probe Overlay",
             candidate_id_list=track2f_backward_candidate_id_list,
             selection_mode="backward",
         ),
         ReportComparisonGroup(
             group_id="forward_track2f_bis",
-            group_title="Forward Track 2F-Bis Harmonic-Offset Probe Overlay",
+            group_title="Forward Wave 3.2 Harmonic-Offset Probe Overlay",
             candidate_id_list=track2f_bis_forward_candidate_id_list,
             selection_mode="forward",
         ),
         ReportComparisonGroup(
             group_id="backward_track2f_bis",
-            group_title="Backward Track 2F-Bis Harmonic-Offset Probe Overlay",
+            group_title="Backward Wave 3.2 Harmonic-Offset Probe Overlay",
             candidate_id_list=track2f_bis_backward_candidate_id_list,
             selection_mode="backward",
         ),
         ReportComparisonGroup(
             group_id="forward_track2g",
-            group_title="Forward Track 2G Curve-Aware Training Overlay",
+            group_title="Forward Wave 3.3 Curve-Aware Training Overlay",
             candidate_id_list=track2g_forward_candidate_id_list,
             selection_mode="forward",
         ),
         ReportComparisonGroup(
             group_id="backward_track2g",
-            group_title="Backward Track 2G Curve-Aware Training Overlay",
+            group_title="Backward Wave 3.3 Curve-Aware Training Overlay",
             candidate_id_list=track2g_backward_candidate_id_list,
             selection_mode="backward",
         ),
         ReportComparisonGroup(
             group_id="forward_track2h",
-            group_title="Forward Track 2H Robust-Loss Overlay",
+            group_title="Forward Wave 4.1 Robust-Loss Overlay",
             candidate_id_list=track2h_forward_candidate_id_list,
             selection_mode="forward",
         ),
         ReportComparisonGroup(
             group_id="backward_track2h",
-            group_title="Backward Track 2H Robust-Loss Overlay",
+            group_title="Backward Wave 4.1 Robust-Loss Overlay",
             candidate_id_list=track2h_backward_candidate_id_list,
             selection_mode="backward",
         ),
         ReportComparisonGroup(
             group_id="forward_track2h_qp",
-            group_title="Forward Track 2H Quantile Probabilistic Overlay",
+            group_title="Forward Wave 4.2 Quantile Probabilistic Overlay",
             candidate_id_list=track2h_quantile_probabilistic_forward_candidate_id_list,
             selection_mode="forward",
         ),
         ReportComparisonGroup(
             group_id="backward_track2h_qp",
-            group_title="Backward Track 2H Quantile Probabilistic Overlay",
+            group_title="Backward Wave 4.2 Quantile Probabilistic Overlay",
             candidate_id_list=track2h_quantile_probabilistic_backward_candidate_id_list,
             selection_mode="backward",
         ),
@@ -1271,11 +1271,11 @@ def build_report_markdown(
     """Build the Markdown report body."""
 
     report_line_list = [
-        "# Track 2 Multi-Model Curve Comparison Report",
+        "# TE Curve Verification Pipeline Multi-Model Curve Comparison Report",
         "",
         "## Overview",
         "",
-        "This report compares representative `Track 2` TE curves by overlaying",
+        "This report compares representative `TE Curve Verification Pipeline` TE curves by overlaying",
         "multiple model predictions on the same original measured curve. The",
         "plots are intended to show whether each model tracks the local harmonic",
         "oscillations rather than only the broad mean trend.",
@@ -1314,7 +1314,7 @@ def build_report_markdown(
                 + ".",
                 "",
                 (
-                    f"![{comparison_summary['group_title']} Track 2 comparison]"
+                    f"![{comparison_summary['group_title']} TE Curve Verification Pipeline comparison]"
                     f"({comparison_summary['comparison_markdown_path']})"
                 ),
                 "",
@@ -1355,7 +1355,7 @@ def build_full_comparison_group_list(
     candidate_configuration_list: list[dict[str, Any]],
 ) -> list[ReportComparisonGroup]:
 
-    """Build all report groups, including screened Track 1 plus Wave 1 groups."""
+    """Build all report groups, including screened RCIM Model-Bank Reproduction plus Wave 1 groups."""
 
     group_list = build_base_comparison_group_list(candidate_configuration_list)
     wave1_forward_candidate_id_list = [f"{family_name}_fw" for family_name in WAVE1_BASE_FAMILY_LIST]
@@ -1410,19 +1410,19 @@ def build_full_comparison_group_list(
         [
             ReportComparisonGroup(
                 group_id="forward_track1_screened_wave1",
-                group_title="Forward Track 1 And Screened Wave 1 Overlay",
+                group_title="Forward RCIM Model-Bank Reproduction And Screened Wave 1 Overlay",
                 candidate_id_list=["track1_best_Fw"] + screened_forward_candidate_id_list,
                 selection_mode="forward",
             ),
             ReportComparisonGroup(
                 group_id="backward_track1_screened_wave1",
-                group_title="Backward Track 1 And Screened Wave 1 Overlay",
+                group_title="Backward RCIM Model-Bank Reproduction And Screened Wave 1 Overlay",
                 candidate_id_list=["track1_best_Bw"] + screened_backward_candidate_id_list,
                 selection_mode="backward",
             ),
             ReportComparisonGroup(
                 group_id="forward_reference_tree_wave2",
-                group_title="Forward Reference Tree And Wave 2 Overlay",
+                group_title="Forward Reference Tree And Wave 2.1 Overlay",
                 candidate_id_list=[
                     "paper_retuned_best_Fw",
                     "track1_best_Fw",
@@ -1432,7 +1432,7 @@ def build_full_comparison_group_list(
             ),
             ReportComparisonGroup(
                 group_id="backward_reference_tree_wave2",
-                group_title="Backward Reference Tree And Wave 2 Overlay",
+                group_title="Backward Reference Tree And Wave 2.1 Overlay",
                 candidate_id_list=[
                     "paper_retuned_best_Bw",
                     "track1_best_Bw",
@@ -1442,7 +1442,7 @@ def build_full_comparison_group_list(
             ),
             ReportComparisonGroup(
                 group_id="forward_reference_tree_wave2c",
-                group_title="Forward Reference Tree And Wave 2C Overlay",
+                group_title="Forward Reference Tree And Wave 2.3 Overlay",
                 candidate_id_list=[
                     "paper_retuned_best_Fw",
                     "track1_best_Fw",
@@ -1452,7 +1452,7 @@ def build_full_comparison_group_list(
             ),
             ReportComparisonGroup(
                 group_id="backward_reference_tree_wave2c",
-                group_title="Backward Reference Tree And Wave 2C Overlay",
+                group_title="Backward Reference Tree And Wave 2.3 Overlay",
                 candidate_id_list=[
                     "paper_retuned_best_Bw",
                     "track1_best_Bw",
@@ -1462,7 +1462,7 @@ def build_full_comparison_group_list(
             ),
             ReportComparisonGroup(
                 group_id="forward_reference_tree_track2f",
-                group_title="Forward Reference Tree And Track 2F Overlay",
+                group_title="Forward Reference Tree And Wave 3.1 Overlay",
                 candidate_id_list=[
                     "paper_retuned_best_Fw",
                     "track1_best_Fw",
@@ -1472,7 +1472,7 @@ def build_full_comparison_group_list(
             ),
             ReportComparisonGroup(
                 group_id="backward_reference_tree_track2f",
-                group_title="Backward Reference Tree And Track 2F Overlay",
+                group_title="Backward Reference Tree And Wave 3.1 Overlay",
                 candidate_id_list=[
                     "paper_retuned_best_Bw",
                     "track1_best_Bw",
@@ -1482,7 +1482,7 @@ def build_full_comparison_group_list(
             ),
             ReportComparisonGroup(
                 group_id="forward_reference_tree_track2g",
-                group_title="Forward Reference Tree And Track 2G Overlay",
+                group_title="Forward Reference Tree And Wave 3.3 Overlay",
                 candidate_id_list=[
                     "paper_retuned_best_Fw",
                     "track1_best_Fw",
@@ -1492,7 +1492,7 @@ def build_full_comparison_group_list(
             ),
             ReportComparisonGroup(
                 group_id="backward_reference_tree_track2g",
-                group_title="Backward Reference Tree And Track 2G Overlay",
+                group_title="Backward Reference Tree And Wave 3.3 Overlay",
                 candidate_id_list=[
                     "paper_retuned_best_Bw",
                     "track1_best_Bw",
@@ -1502,7 +1502,7 @@ def build_full_comparison_group_list(
             ),
             ReportComparisonGroup(
                 group_id="forward_reference_tree_track2h",
-                group_title="Forward Reference Tree And Track 2H Overlay",
+                group_title="Forward Reference Tree And Wave 4 series Overlay",
                 candidate_id_list=[
                     "paper_retuned_best_Fw",
                     "track1_best_Fw",
@@ -1512,7 +1512,7 @@ def build_full_comparison_group_list(
             ),
             ReportComparisonGroup(
                 group_id="backward_reference_tree_track2h",
-                group_title="Backward Reference Tree And Track 2H Overlay",
+                group_title="Backward Reference Tree And Wave 4 series Overlay",
                 candidate_id_list=[
                     "paper_retuned_best_Bw",
                     "track1_best_Bw",
@@ -1555,7 +1555,7 @@ def build_group_candidate_summary_list(
 
 def run_track2_multi_model_curve_comparison_report(arguments: argparse.Namespace) -> dict[str, Any]:
 
-    """Run the full Track 2 multi-model curve comparison report generation."""
+    """Run the full TE Curve Verification Pipeline multi-model curve comparison report generation."""
 
     repository_path_support.set_runtime_platform(
         repository_path_support.resolve_argument_platform(arguments)
@@ -1739,7 +1739,7 @@ def main() -> None:
     """Run the command-line entry point."""
 
     validation_summary = run_track2_multi_model_curve_comparison_report(parse_command_line_arguments())
-    print(f"[DONE] Track 2 multi-model comparison report: {validation_summary['report_path']}")
+    print(f"[DONE] TE Curve Verification Pipeline multi-model comparison report: {validation_summary['report_path']}")
     print(f"[DONE] Artifacts: {validation_summary['output_directory']}")
 
 

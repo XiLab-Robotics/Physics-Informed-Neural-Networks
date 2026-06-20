@@ -1,8 +1,8 @@
-# Track 2H Mixture Density Heads Campaign Plan Report
+# Wave 4.3 Mixture Density Heads Campaign Plan Report
 
 ## Executive Summary
 
-This preliminary campaign plan prepares the next executable `Track 2H`
+This preliminary campaign plan prepares the next executable `Wave 4 series`
 dispersion-aware package: mixture-density heads for locally dispersed TE
 curves.
 
@@ -28,11 +28,11 @@ The accepted baseline before this campaign is:
 
 | Evidence | Interpretation |
 | --- | --- |
-| `Track 2H` robust-loss campaign | Robust deterministic losses trained successfully and remain useful central-tendency controls. |
-| `Track 2H` quantile/probabilistic campaign | Quantile and Gaussian heads improved some Track 2H results but did not displace the official leaders. |
-| Official `Track 2H` probabilistic refresh | The probabilistic package is verified as exploratory and should feed later mixture, latent-state, and multi-head design. |
+| `Wave 4.1` robust-loss campaign | Robust deterministic losses trained successfully and remain useful central-tendency controls. |
+| `Wave 4.2` quantile/probabilistic campaign | Quantile and Gaussian heads improved some Wave 4 series results but did not displace the official leaders. |
+| Official `Wave 4.2` probabilistic refresh | The probabilistic package is verified as exploratory and should feed later mixture, latent-state, and multi-head design. |
 | Strongest probabilistic `global` | `track2h_gaussian_nll_global`, deterministic `mu` playback. |
-| Strongest probabilistic `Fw` | `track2h_gaussian_nll_global` when evaluated on forward Track 2 metrics. |
+| Strongest probabilistic `Fw` | `track2h_gaussian_nll_global` when evaluated on forward TE Curve Verification Pipeline metrics. |
 | Strongest probabilistic `Bw` | `track2h_quantile_p10_p50_p90_Bw`, deterministic `p50` playback. |
 | Current accepted official leaders | Direction-parallel and periodic sequence candidates remain the promotion baseline. |
 
@@ -61,7 +61,7 @@ This produces six queued runs:
 6. `te_track2h_mdn_k3_bw`
 
 The package intentionally excludes latent-state / hysteresis-aware candidates,
-Wave 3 hybrid structured models, Wave 4 PINN losses, and the final integrated
+Wave 5.1 hybrid structured models, Wave 5.2 PINN losses, and the final integrated
 multi-task / multi-head architecture. Those remain later branches.
 
 ## Model And Loss Requirements
@@ -80,7 +80,7 @@ Required behavior:
 
 Preferred implementation:
 
-- extend the current Track 2H curve-aware harmonic residual-offset path if the
+- extend the current Wave 4 series curve-aware harmonic residual-offset path if the
   existing output-size and loss-profile hooks can support MDN safely;
 - otherwise add narrowly named MDN model/loss profile keys without changing
   completed robust-loss or quantile/probabilistic behavior.
@@ -95,7 +95,7 @@ Required deterministic checks:
 - validation and test MAE;
 - full-curve playback metrics;
 - direction-specific summaries for `global`, `Fw`, and `Bw`;
-- later official `Track 2` comparison using mixture expectation only.
+- later official `TE Curve Verification Pipeline` comparison using mixture expectation only.
 
 Required mixture-specific checks:
 
@@ -136,7 +136,7 @@ The launcher must support:
 
 ## Prepared Package Status
 
-The `Track 2H` mixture-density heads package has been prepared.
+The `Wave 4.3` mixture-density heads package has been prepared.
 
 Prepared package:
 
@@ -182,7 +182,7 @@ After training completion:
 - update family and program registries;
 - clean active campaign state;
 - update the live backlog and training master summary;
-- propose official `Track 2` refresh as a separate operator-launched step.
+- propose official `TE Curve Verification Pipeline` refresh as a separate operator-launched step.
 
 ## Decision Gates
 
@@ -190,14 +190,14 @@ After training completion:
 | --- | --- |
 | Planning approval | Authorize generation of the mixture-density package. |
 | Package validation | Authorize local or remote campaign launch. |
-| Campaign closeout | Decide whether mixture heads improve over Gaussian/quantile Track 2H baselines. |
-| Official `Track 2` refresh | Decide whether mixture behavior should feed latent-state, Wave 3, or multi-head design. |
+| Campaign closeout | Decide whether mixture heads improve over Gaussian/quantile Wave 4 series baselines. |
+| Official `TE Curve Verification Pipeline` refresh | Decide whether mixture behavior should feed latent-state, Wave 5.1, or multi-head design. |
 
 ## Non-Goals
 
 - No latent-state or hysteresis-aware features in this package.
-- No Wave 3 hybrid structured model changes in this package.
-- No Wave 4 PINN loss or feature-generator changes in this package.
+- No Wave 5.1 hybrid structured model changes in this package.
+- No Wave 5.2 PINN loss or feature-generator changes in this package.
 - No integrated multi-task / multi-head architecture in this package.
 - No PLC-friendly export optimization in this package.
 - No future-looking smoothing or target-curve statistics at inference time.

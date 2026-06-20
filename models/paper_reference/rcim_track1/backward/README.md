@@ -1,7 +1,7 @@
-# RCIM Track 1 Backward Reference Branch
+# RCIM Model-Bank Reproduction Backward Reference Branch
 
 This branch stores the canonical backward-direction paper-reference archives
-rebuilt from the completed Track 1 backward paper-faithful grid-search campaign.
+rebuilt from the completed RCIM Model-Bank Reproduction backward paper-faithful grid-search campaign.
 
 Populated family archives:
 

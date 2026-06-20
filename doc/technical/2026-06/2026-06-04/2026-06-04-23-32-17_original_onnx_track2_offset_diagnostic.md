@@ -1,17 +1,17 @@
-# Original ONNX Track 2 Offset Diagnostic
+# Original ONNX TE Curve Verification Pipeline Offset Diagnostic
 
 ## Overview
 
 This technical document plans a focused diagnostic pass that loads the recovered
-original RCIM paper ONNX models, evaluates them through the repository `Track 2`
+original RCIM paper ONNX models, evaluates them through the repository `TE Curve Verification Pipeline`
 forward reconstruction path, and checks whether the mean-offset error pattern
-seen in the recent `Track 2B` through `Track 2F` investigation is present in
+seen in the recent `CVP 1.1` through `Wave 3.1` investigation is present in
 the original ONNX release itself.
 
 The repository already contains an ONNX parity runner that evaluates the
 recovered original ONNX release against the repository `rcim_original/forward`
 archive. The existing historical run proves that ONNX models can be passed
-through `Track 2`, but it does not export enough per-curve payload or
+through `TE Curve Verification Pipeline`, but it does not export enough per-curve payload or
 mean-centered diagnostics to answer the current offset question directly.
 
 Context7 was requested for ONNX Runtime API details before ONNX-specific work,
@@ -23,14 +23,14 @@ already-working repository-owned ONNX Runtime call path as the fallback.
 
 Extend or wrap the existing
 `scripts/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/run_original_onnx_release_parity_validation.py`
-workflow without changing the canonical `Track 2` matrix semantics.
+workflow without changing the canonical `TE Curve Verification Pipeline` matrix semantics.
 
 The diagnostic should:
 
 - load the recovered original ONNX release from
   `reference/rcim_ml_compensation_recovered_assets/models/exact_onnx_paper_release`;
 - use the existing `CPUExecutionProvider` ONNX Runtime path;
-- build the canonical `Track 2` forward test curve records from
+- build the canonical `TE Curve Verification Pipeline` forward test curve records from
   `config/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/full_track2_matrix_template.yaml`;
 - reconstruct forward TE curves from ONNX-predicted amplitude and phase targets
   using the same harmonic coefficient convention documented in
@@ -66,7 +66,7 @@ The diagnostic should:
    functions.
 2. Preserve the existing historical parity behavior and output schema unless a
    backward-compatible field addition is necessary.
-3. Add mean-centered per-curve metric computation for ONNX Track 2 forward
+3. Add mean-centered per-curve metric computation for ONNX TE Curve Verification Pipeline forward
    reconstructions:
    - raw MAE and RMSE;
    - truth mean;

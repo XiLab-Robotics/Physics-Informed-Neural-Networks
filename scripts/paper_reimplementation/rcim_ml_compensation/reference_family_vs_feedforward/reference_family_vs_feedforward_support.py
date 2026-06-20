@@ -1,4 +1,4 @@
-"""Support utilities for Track 2 reference-family vs feedforward comparison."""
+"""Support utilities for TE Curve Verification Pipeline reference-family vs feedforward comparison."""
 
 from __future__ import annotations
 
@@ -40,7 +40,7 @@ CANONICAL_TRACK2_REPORT_PATH = (
     / "doc"
     / "reports"
     / "analysis"
-    / "Track 2 Directional Model Comparison.md"
+    / "TE Curve Verification Pipeline Directional Model Comparison.md"
 )
 REFERENCE_CANDIDATE_KIND_SET = {
     "track1_reference_bank",
@@ -79,7 +79,7 @@ class ReferenceModelEntry:
 @dataclass(frozen=True)
 class Track2Candidate:
 
-    """One model candidate in the direction-aware Track 2 comparison matrix."""
+    """One model candidate in the direction-aware TE Curve Verification Pipeline comparison matrix."""
 
     candidate_id: str
     candidate_family: str
@@ -98,7 +98,7 @@ class Track2Candidate:
 
 def load_reference_family_comparison_config(config_path: str | Path) -> dict[str, Any]:
 
-    """Load one Track 2 reference-family comparison configuration file."""
+    """Load one TE Curve Verification Pipeline reference-family comparison configuration file."""
 
     return shared_training_infrastructure.load_training_config(config_path)
 
@@ -126,7 +126,7 @@ def build_comparison_report_path(training_config: dict[str, Any]) -> Path:
 
 def build_canonical_track2_report_path(training_config: dict[str, Any]) -> Path:
 
-    """Resolve the stable Track 2 report path for canonical full-matrix runs."""
+    """Resolve the stable TE curve-verification report path for canonical full-matrix runs."""
 
     configured_report_path = training_config.get("comparison", {}).get("canonical_report_path")
     if configured_report_path is None:
@@ -136,7 +136,7 @@ def build_canonical_track2_report_path(training_config: dict[str, Any]) -> Path:
 
 def load_reference_inventory(reference_inventory_path: str | Path) -> dict[str, Any]:
 
-    """Load one curated Track 1 family reference inventory."""
+    """Load one curated RCIM Model-Bank Reproduction family reference inventory."""
 
     resolved_inventory_path = shared_training_infrastructure.resolve_runtime_project_relative_path(reference_inventory_path)
     assert resolved_inventory_path.exists(), f"Reference Inventory Path does not exist | {resolved_inventory_path}"
@@ -552,7 +552,7 @@ def build_reference_coefficient_dictionary_from_entries(
     h0_sign_multiplier: float = 1.0,
 ) -> tuple[dict[str, float], dict[str, float]]:
 
-    """Convert one generic Track 1 bank prediction into harmonic coefficients."""
+    """Convert one generic RCIM Model-Bank Reproduction bank prediction into harmonic coefficients."""
 
     coefficient_dictionary: dict[str, float] = {}
     amplitude_phase_dictionary: dict[str, float] = {}
@@ -881,10 +881,10 @@ def normalize_allowed_direction_list(candidate_configuration: dict[str, Any]) ->
     direction_list = [str(direction_label).strip().lower() for direction_label in raw_direction_list]
     unsupported_direction_list = sorted(set(direction_list) - {"forward", "backward"})
     assert not unsupported_direction_list, (
-        "Unsupported Track 2 candidate evaluation directions | "
+        "Unsupported TE Curve Verification Pipeline candidate evaluation directions | "
         f"{', '.join(unsupported_direction_list)}"
     )
-    assert direction_list, "Track 2 candidate must have at least one allowed direction"
+    assert direction_list, "TE Curve Verification Pipeline candidate must have at least one allowed direction"
     return direction_list
 
 
@@ -966,7 +966,7 @@ def build_registry_candidate_configuration_list(
     default_source_label: str,
 ) -> list[dict[str, Any]]:
 
-    """Generate registry-backed Track 2 candidates from compact family metadata."""
+    """Generate registry-backed TE Curve Verification Pipeline candidates from compact family metadata."""
 
     family_registry_root = str(registry_group_configuration["family_registry_root"]).rstrip("/")
     source_label = str(registry_group_configuration.get("source_label", default_source_label)).strip()
@@ -1015,7 +1015,7 @@ def build_registry_candidate_configuration_list(
 
 def build_generated_candidate_configuration_list(training_config: dict[str, Any]) -> list[dict[str, Any]]:
 
-    """Generate a full Track 2 candidate matrix from compact config metadata."""
+    """Generate a full TE Curve Verification Pipeline candidate matrix from compact config metadata."""
 
     generation_configuration = training_config["comparison"]["candidate_generation"]
     candidate_configuration_list: list[dict[str, Any]] = []
@@ -1231,13 +1231,13 @@ def build_generated_candidate_configuration_list(training_config: dict[str, Any]
         build_composite_reference_candidate_configuration_list(generation_configuration)
     )
 
-    assert candidate_configuration_list, "Generated Track 2 candidate list is empty"
+    assert candidate_configuration_list, "Generated TE Curve Verification Pipeline candidate list is empty"
     return candidate_configuration_list
 
 
 def resolve_track2_candidate_configuration_list(training_config: dict[str, Any]) -> list[dict[str, Any]]:
 
-    """Resolve the configured Track 2 candidate list."""
+    """Resolve the configured TE Curve Verification Pipeline candidate list."""
 
     comparison_configuration = training_config.get("comparison", {})
     if "candidate_list" in comparison_configuration:
@@ -1247,14 +1247,14 @@ def resolve_track2_candidate_configuration_list(training_config: dict[str, Any])
     else:
         candidate_configuration_list = build_legacy_candidate_configuration_list(training_config)
     assert isinstance(candidate_configuration_list, list) and candidate_configuration_list, (
-        "Track 2 comparison candidate_list must not be empty"
+        "TE Curve Verification Pipeline comparison candidate_list must not be empty"
     )
     return candidate_configuration_list
 
 
 def load_track2_candidate(candidate_configuration: dict[str, Any]) -> Track2Candidate:
 
-    """Load one configured Track 2 candidate."""
+    """Load one configured TE Curve Verification Pipeline candidate."""
 
     candidate_id = str(candidate_configuration["candidate_id"]).strip()
     candidate_family = str(candidate_configuration["candidate_family"]).strip()
@@ -1386,7 +1386,7 @@ def load_track2_candidate(candidate_configuration: dict[str, Any]) -> Track2Cand
             model_object=model_object,
         )
 
-    raise ValueError(f"Unsupported Track 2 candidate kind | {candidate_kind}")
+    raise ValueError(f"Unsupported TE Curve Verification Pipeline candidate kind | {candidate_kind}")
 
 
 def filter_curve_records_for_candidate(
@@ -1401,7 +1401,7 @@ def filter_curve_records_for_candidate(
         for curve_record in curve_record_list
         if str(curve_record.direction_label).strip().lower() in candidate.allowed_direction_list
     ]
-    assert filtered_curve_record_list, f"No curves available for Track 2 candidate | {candidate.candidate_id}"
+    assert filtered_curve_record_list, f"No curves available for TE Curve Verification Pipeline candidate | {candidate.candidate_id}"
     return filtered_curve_record_list
 
 
@@ -1412,7 +1412,7 @@ def evaluate_track2_candidate(
     include_curve_payload: bool = True,
 ) -> tuple[list[dict[str, Any]], dict[str, float] | None]:
 
-    """Evaluate one Track 2 candidate on its valid held-out curve records."""
+    """Evaluate one TE Curve Verification Pipeline candidate on its valid held-out curve records."""
 
     candidate_curve_record_list = filter_curve_records_for_candidate(curve_record_list, candidate)
     target_metric_dictionary: dict[str, float] | None = None
@@ -1530,7 +1530,7 @@ def build_group_metric_summary(
 
 def build_candidate_metric_summary(per_candidate_entry_list: list[dict[str, Any]]) -> dict[str, dict[str, float]]:
 
-    """Summarize metrics for every evaluated Track 2 candidate."""
+    """Summarize metrics for every evaluated TE Curve Verification Pipeline candidate."""
 
     candidate_metric_accumulator: dict[str, list[dict[str, float]]] = {}
     for per_candidate_entry in per_candidate_entry_list:
@@ -1570,7 +1570,7 @@ def save_track2_per_condition_metrics_csv(
     per_candidate_entry_list: list[dict[str, Any]],
 ) -> Path:
 
-    """Save the direction-aware Track 2 per-condition metric table."""
+    """Save the direction-aware TE Curve Verification Pipeline per-condition metric table."""
 
     csv_path = output_directory / "per_condition_metrics.csv"
     with csv_path.open("w", encoding="utf-8", newline="") as csv_file:
@@ -1705,7 +1705,7 @@ def maybe_generate_track2_preview_plots(
     preview_curve_count: int,
 ) -> list[str]:
 
-    """Generate direction-aware Track 2 overlay plots."""
+    """Generate direction-aware TE Curve Verification Pipeline overlay plots."""
 
     try:
         import matplotlib
@@ -1783,7 +1783,7 @@ def build_track2_plot_source_folder_name(candidate_source_label: str) -> str:
 
 def build_track2_condition_slug(per_candidate_entry: dict[str, Any]) -> str:
 
-    """Build a stable condition slug for one plotted Track 2 curve."""
+    """Build a stable condition slug for one plotted TE Curve Verification Pipeline curve."""
 
     return (
         f"{per_candidate_entry['direction_label']}_"
@@ -1799,7 +1799,7 @@ def maybe_generate_track2_grouped_report_plots(
     preview_curve_count_per_candidate: int,
 ) -> list[str]:
 
-    """Generate report-facing Track 2 PNG overlays for every evaluated model."""
+    """Generate report-facing TE Curve Verification Pipeline PNG overlays for every evaluated model."""
 
     if report_plot_root is None:
         return []
@@ -1948,7 +1948,7 @@ def build_reference_family_vs_feedforward_report_markdown(comparison_summary: di
     aggregate_metrics = comparison_summary["aggregate_metrics"]
 
     report_line_list = [
-        "# Track 2 LGBM19 Vs Feedforward Comparison Report",
+        "# TE Curve Verification Pipeline LGBM19 Vs Feedforward Comparison Report",
         "",
         "## Overview",
         "",
@@ -2088,7 +2088,7 @@ def build_track2_directional_comparison_summary(
     sample_preview_list_override: list[dict[str, object]] | None = None,
 ) -> dict[str, Any]:
 
-    """Build the direction-aware Track 2 comparison summary."""
+    """Build the direction-aware TE Curve Verification Pipeline comparison summary."""
 
     comparison_configuration = training_config["comparison"]
     candidate_metric_summary = (
@@ -2144,8 +2144,8 @@ def build_track2_directional_comparison_summary(
             "reference_bank_compatibility_policy": {
                 "rcim_track1_Fw_h0_sign_multiplier": -1.0,
                 "reason": (
-                    "Track 1 forward reference banks store the constant harmonic with "
-                    "the opposite sign convention relative to the Track 2 TE-curve "
+                    "RCIM Model-Bank Reproduction forward reference banks store the constant harmonic with "
+                    "the opposite sign convention relative to the TE Curve Verification Pipeline TE-curve "
                     "reconstruction contract."
                 ),
             },
@@ -2199,7 +2199,7 @@ def build_track2_directional_comparison_summary(
 
 def build_track2_directional_comparison_report_markdown(comparison_summary: dict[str, Any]) -> str:
 
-    """Build the direction-aware Track 2 Markdown report."""
+    """Build the direction-aware TE Curve Verification Pipeline Markdown report."""
 
     comparison_scope = comparison_summary["comparison_scope"]
     candidate_metric_summary = comparison_summary["candidate_metric_summary"]
@@ -2256,7 +2256,7 @@ def build_track2_directional_comparison_report_markdown(comparison_summary: dict
                 "## Best Composite Reference Models",
                 "",
                 "These candidates combine the approved best harmonic-wise cells into",
-                "one Track 2 curve-reconstruction candidate. They are also repeated",
+                "one TE Curve Verification Pipeline curve-reconstruction candidate. They are also repeated",
                 "inside the source-group tables below, but this section keeps the",
                 "composed models explicit.",
                 "",
@@ -2324,13 +2324,13 @@ def build_track2_directional_comparison_report_markdown(comparison_summary: dict
             )
 
     report_line_list = [
-        "# Track 2 Directional Model Comparison",
+        "# TE Curve Verification Pipeline Directional Model Comparison",
         "",
         "## Overview",
         "",
-        "This report is the canonical `Track 2` offline comparison between",
-        "`Track 1`, recovered original, retuned paper-reference model banks, and",
-        "repository-owned `Wave 1` and `Wave 2` model candidates. It starts from",
+        "This report is the canonical `TE Curve Verification Pipeline` offline comparison between",
+        "`RCIM Model-Bank Reproduction`, recovered original, retuned paper-reference model banks, and",
+        "repository-owned `Wave 1` and `Wave 2.1` model candidates. It starts from",
         "the current direction-aware comparison matrix.",
         "",
         "## Dataset And Split",
@@ -2374,7 +2374,7 @@ def build_track2_directional_comparison_report_markdown(comparison_summary: dict
     )
     append_grouped_direction_table(report_line_list, "Original Forward Models", "forward", "rcim_original")
     append_grouped_direction_table(report_line_list, "Retuned Forward Models", "forward", "rcim_retuned")
-    append_grouped_direction_table(report_line_list, "Track 1 Forward Models", "forward", "rcim_track1")
+    append_grouped_direction_table(report_line_list, "RCIM Model-Bank Reproduction Forward Models", "forward", "rcim_track1")
     append_grouped_direction_table(
         report_line_list,
         "Wave 1 Forward And Global Models",
@@ -2384,63 +2384,63 @@ def build_track2_directional_comparison_report_markdown(comparison_summary: dict
     )
     append_grouped_direction_table(
         report_line_list,
-        "Wave 2 Temporal Forward And Global Models",
+        "Wave 2.1 Temporal Forward And Global Models",
         "forward",
         "wave2_temporal_entry_registry",
         include_global_models=True,
     )
     append_grouped_direction_table(
         report_line_list,
-        "Wave 2C Residual Harmonic Temporal Forward And Global Models",
+        "Wave 2.3 Residual Harmonic Temporal Forward And Global Models",
         "forward",
         "wave2c_residual_harmonic_temporal_registry",
         include_global_models=True,
     )
     append_grouped_direction_table(
         report_line_list,
-        "Track 2F Offset-Aware Forward And Global Models",
+        "Wave 3.1 Offset-Aware Forward And Global Models",
         "forward",
         "track2f_offset_aware_probe_registry",
         include_global_models=True,
     )
     append_grouped_direction_table(
         report_line_list,
-        "Track 2F-Bis Harmonic-Offset Forward And Global Models",
+        "Wave 3.2 Harmonic-Offset Forward And Global Models",
         "forward",
         "track2f_bis_harmonic_offset_probe_registry",
         include_global_models=True,
     )
     append_grouped_direction_table(
         report_line_list,
-        "Track 2G Curve-Aware Forward And Global Models",
+        "Wave 3.3 Curve-Aware Forward And Global Models",
         "forward",
         "track2g_curve_aware_training_registry",
         include_global_models=True,
     )
     append_grouped_direction_table(
         report_line_list,
-        "Track 2H Robust-Loss Forward And Global Models",
+        "Wave 5.2 series Robust-Loss Forward And Global Models",
         "forward",
         "track2h_dispersion_aware_modeling_registry",
         include_global_models=True,
     )
     append_grouped_direction_table(
         report_line_list,
-        "Track 2H Quantile Probabilistic Forward And Global Models",
+        "Wave 5.2 series Quantile Probabilistic Forward And Global Models",
         "forward",
         "track2h_quantile_probabilistic_registry",
         include_global_models=True,
     )
     append_grouped_direction_table(
         report_line_list,
-        "Track 2H Mixture Density Heads Forward And Global Models",
+        "Wave 5.2 series Mixture Density Heads Forward And Global Models",
         "forward",
         "track2h_mixture_density_heads_registry",
         include_global_models=True,
     )
     append_grouped_direction_table(
         report_line_list,
-        "Track 2H-L Latent-State Hysteresis Forward And Global Models",
+        "Wave 4.4 Latent-State Hysteresis Forward And Global Models",
         "forward",
         "track2h_latent_state_hysteresis_registry",
         include_global_models=True,
@@ -2453,7 +2453,7 @@ def build_track2_directional_comparison_report_markdown(comparison_summary: dict
         ]
     )
     append_grouped_direction_table(report_line_list, "Retuned Backward Models", "backward", "rcim_retuned")
-    append_grouped_direction_table(report_line_list, "Track 1 Backward Models", "backward", "rcim_track1")
+    append_grouped_direction_table(report_line_list, "RCIM Model-Bank Reproduction Backward Models", "backward", "rcim_track1")
     append_grouped_direction_table(
         report_line_list,
         "Wave 1 Backward And Global Models",
@@ -2463,63 +2463,63 @@ def build_track2_directional_comparison_report_markdown(comparison_summary: dict
     )
     append_grouped_direction_table(
         report_line_list,
-        "Wave 2 Temporal Backward And Global Models",
+        "Wave 2.1 Temporal Backward And Global Models",
         "backward",
         "wave2_temporal_entry_registry",
         include_global_models=True,
     )
     append_grouped_direction_table(
         report_line_list,
-        "Wave 2C Residual Harmonic Temporal Backward And Global Models",
+        "Wave 2.3 Residual Harmonic Temporal Backward And Global Models",
         "backward",
         "wave2c_residual_harmonic_temporal_registry",
         include_global_models=True,
     )
     append_grouped_direction_table(
         report_line_list,
-        "Track 2F Offset-Aware Backward And Global Models",
+        "Wave 3.1 Offset-Aware Backward And Global Models",
         "backward",
         "track2f_offset_aware_probe_registry",
         include_global_models=True,
     )
     append_grouped_direction_table(
         report_line_list,
-        "Track 2F-Bis Harmonic-Offset Backward And Global Models",
+        "Wave 3.2 Harmonic-Offset Backward And Global Models",
         "backward",
         "track2f_bis_harmonic_offset_probe_registry",
         include_global_models=True,
     )
     append_grouped_direction_table(
         report_line_list,
-        "Track 2G Curve-Aware Backward And Global Models",
+        "Wave 3.3 Curve-Aware Backward And Global Models",
         "backward",
         "track2g_curve_aware_training_registry",
         include_global_models=True,
     )
     append_grouped_direction_table(
         report_line_list,
-        "Track 2H Robust-Loss Backward And Global Models",
+        "Wave 5.2 series Robust-Loss Backward And Global Models",
         "backward",
         "track2h_dispersion_aware_modeling_registry",
         include_global_models=True,
     )
     append_grouped_direction_table(
         report_line_list,
-        "Track 2H Quantile Probabilistic Backward And Global Models",
+        "Wave 5.2 series Quantile Probabilistic Backward And Global Models",
         "backward",
         "track2h_quantile_probabilistic_registry",
         include_global_models=True,
     )
     append_grouped_direction_table(
         report_line_list,
-        "Track 2H Mixture Density Heads Backward And Global Models",
+        "Wave 5.2 series Mixture Density Heads Backward And Global Models",
         "backward",
         "track2h_mixture_density_heads_registry",
         include_global_models=True,
     )
     append_grouped_direction_table(
         report_line_list,
-        "Track 2H-L Latent-State Hysteresis Backward And Global Models",
+        "Wave 4.4 Latent-State Hysteresis Backward And Global Models",
         "backward",
         "track2h_latent_state_hysteresis_registry",
         include_global_models=True,
@@ -2581,13 +2581,13 @@ def build_track2_directional_comparison_report_markdown(comparison_summary: dict
             "## Interpretation",
             "",
             "Rows are ranked by mean percentage error within each source group",
-            "and direction. Directional paper-reference, Wave 1, and Wave 2",
+            "and direction. Directional paper-reference, Wave 1, and Wave 2.1",
             "models are never evaluated on the opposite direction. Global Wave",
             "models remain valid on both directions and are therefore shown in",
             "the directional sections and again in the global breakdown.",
             "The `rcim_track1` forward reference banks use the opposite stored",
-            "`h0` sign convention relative to the Track 2 reconstruction",
-            "contract, so the Track 2 comparison applies the documented",
+            "`h0` sign convention relative to the TE Curve Verification Pipeline reconstruction",
+            "contract, so the TE Curve Verification Pipeline comparison applies the documented",
             "source-specific `h0` compatibility multiplier before curve",
             "reconstruction.",
             "",

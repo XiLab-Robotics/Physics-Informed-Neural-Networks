@@ -1,8 +1,8 @@
-# Track 1 Forward Last Non-Green Cells Campaign Plan Report
+# RCIM Model-Bank Reproduction Forward Last Non-Green Cells Campaign Plan Report
 
 ## Overview
 
-This planning report prepares the next exact-paper `Track 1` repair wave after
+This planning report prepares the next exact-paper `RCIM Model-Bank Reproduction` repair wave after
 the completed `forward_final_open_cells` closeout.
 
 The canonical forward status is now:

@@ -1,16 +1,16 @@
-# Track 2F Offset-Aware Probe Campaign
+# Wave 3.1 Offset-Aware Probe Campaign
 
 ## Overview
 
-This document plans the next gated step after `Track 2D` and `Track 2E`.
+This document plans the next gated step after `CVP 1.4` and `CVP 1.5`.
 
-`Track 2D` showed that many direction-valid candidates have a meaningful
-curve-level vertical offset component. `Track 2E` then tested whether that
+`CVP 1.4` showed that many direction-valid candidates have a meaningful
+curve-level vertical offset component. `CVP 1.5` then tested whether that
 offset is partly predictable from causal operating-condition groupings and
 found `direction_torque` to be the strongest conservative aggregate signal
 after excluding exact full-condition memorization.
 
-The goal of `Track 2F` is to prepare a small direction-parallel offset-aware
+The goal of `Wave 3.1` is to prepare a small direction-parallel offset-aware
 probe campaign. The campaign should compare simple post-hoc causal offset
 calibration, sequential residual-offset modeling, and multi-head
 shape/offset training without changing the runtime input contract.
@@ -28,7 +28,7 @@ and avoid collapsing them into one single winner.
 The planned intervention families are:
 
 - `posthoc_direction_torque_offset_baseline`: a non-learned causal aggregate
-  offset baseline derived from the completed Track 2E finding;
+  offset baseline derived from the completed CVP 1.5 finding;
 - `sequential_residual_offset_probe`: a causal second-stage offset/residual
   predictor added after a selected base model prediction;
 - `multi_head_shape_offset_probe`: one causal model with a shared trunk and
@@ -41,7 +41,7 @@ The campaign must preserve these constraints:
   causal history, or causal derived features;
 - future TE samples and full-curve means are never supplied as runtime inputs;
 - full curves are validation and selection units only;
-- scalar `MAE` / `RMSE` remain sanity metrics, while `Track 2` curve-level
+- scalar `MAE` / `RMSE` remain sanity metrics, while `TE Curve Verification Pipeline` curve-level
   raw, centered-shape, offset, amplitude, and phase diagnostics drive the
   final interpretation;
 - `Fw`, `Bw`, and `global` each need their own branch verdict.
@@ -81,12 +81,12 @@ Reference inputs:
 
 ## Implementation Steps
 
-1. Create the preliminary `Track 2F` campaign plan report under
+1. Create the preliminary `Wave 3.1` campaign plan report under
    `doc/reports/campaign_plans/track_2/`.
 2. Register the technical document and campaign plan from `doc/README.md`.
 3. Wait for explicit user approval before preparing any campaign YAML files,
    launchers, launcher notes, active campaign state, or model/training code.
-4. After approval, inspect existing Wave 2B / Wave 2C campaign configuration
+4. After approval, inspect existing Wave 2.2 / Wave 2.3 campaign configuration
    patterns and the current training infrastructure to choose the minimal
    implementable queue shape.
 5. Prepare the campaign package with local and `-Remote` launcher commands,

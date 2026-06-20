@@ -1,8 +1,8 @@
-# Track 2B Curve-First Reranking
+# CVP 1.1 Curve-First Reranking
 
 ## Overview
 
-This document plans the `Track 2B Curve-First Reranking` branch. The branch
+This document plans the `CVP 1.1 Curve-First Reranking` branch. The branch
 will not train new models. It will rerank already accepted repository and
 paper-reference candidates on an expanded curve-first offline verification
 surface.
@@ -26,16 +26,16 @@ No subagent is planned for this phase.
 
 ## Technical Approach
 
-The implementation should extend the existing Track 2 evaluation surface rather
+The implementation should extend the existing TE curve evaluation surface rather
 than creating a new training path.
 
 The branch should:
 
-- reuse the current Track 2 candidate inventory and direction rules;
-- evaluate accepted `Wave 1`, `Wave 2`, `Wave 2B`, `Wave 2C`, `Track 1`,
+- reuse the current TE Curve Verification Pipeline candidate inventory and direction rules;
+- evaluate accepted `Wave 1`, `Wave 2.1`, `Wave 2.2`, `Wave 2.3`, `RCIM Model-Bank Reproduction`,
   recovered original, and retuned paper-reference candidates;
 - preserve the `global`, `Fw`, and `Bw` direction-valid policy;
-- compute scalar curve metrics already present in Track 2;
+- compute scalar curve metrics already present in TE Curve Verification Pipeline;
 - add curve-first diagnostics where feasible without retraining:
   - P95 and worst-condition percentage error;
   - peak-to-peak normalized curve error;
@@ -72,9 +72,9 @@ Primary implementation targets to inspect:
 - `scripts/reports/analysis/build_track2_best_model_collage_report.py`
 - `scripts/reports/analysis/build_track2_multi_model_curve_comparison_report.py`
 - `scripts/reports/analysis/plot_wave1_best_model_te_curves.py`
-- Track 2 matrix and reference comparison scripts under
+- curve-verification matrix and reference comparison scripts under
   `scripts/paper_reimplementation/rcim_ml_compensation/`
-- current Track 2 matrix templates under
+- current curve-verification matrix templates under
   `config/paper_reimplementation/rcim_ml_compensation/`
 
 Primary data and artifact inputs:
@@ -83,7 +83,7 @@ Primary data and artifact inputs:
 - `doc/reports/analysis/track2/official_model_verification_report/[2026-05-28]/track2_official_model_verification_report.md`
 - `doc/reports/analysis/track2/best_model_collage_report/[2026-05-28]/track2_best_model_collage_report.md`
 - `doc/reports/analysis/track2/multi_model_curve_comparison_report/[2026-05-28]/track2_multi_model_curve_comparison_report.md`
-- latest Track 2 validation summaries under
+- latest TE Curve Verification Pipeline validation summaries under
   `output/validation_checks/track2_reference_comparison/`
 - family registries under `output/registries/families/`
 - program registry under `output/registries/program/`
@@ -91,11 +91,11 @@ Primary data and artifact inputs:
 
 ## Implementation Steps
 
-1. Inspect the current Track 2 scripts, matrix templates, validation summaries,
+1. Inspect the current TE Curve Verification Pipeline scripts, matrix templates, validation summaries,
    and per-condition metric outputs.
-2. Identify the latest canonical `Wave 2C` Track 2 matrix output as the
+2. Identify the latest canonical `Wave 2.3` curve-verification matrix output as the
    baseline candidate set.
-3. Design a Track 2B output bundle under `doc/reports/analysis/track2/` and
+3. Design a CVP 1.1 output bundle under `doc/reports/analysis/track2/` and
    `output/validation_checks/track2_curve_first_reranking/`.
 4. Implement or adapt a repository-owned script that computes the expanded
    curve-first metric bundle without changing candidate model inputs.
@@ -107,17 +107,17 @@ Primary data and artifact inputs:
    - harmonic/phase diagnostic interpretation;
    - recommended next branch.
 6. Refresh visual overlay or collage artifacts only if the reranked screened
-   candidate set differs materially from the current Track 2 visual reports.
-7. Update the live backlog and master summary with the Track 2B conclusion.
+   candidate set differs materially from the current TE Curve Verification Pipeline visual reports.
+7. Update the live backlog and master summary with the CVP 1.1 conclusion.
 8. Run Markdown QA on touched authored Markdown.
 9. Run Sphinx with warnings as errors if the touched scope affects the portal.
 10. Stop after reporting completion; do not commit until the user explicitly
     requests it.
 
-The expected next decision after Track 2B is one of:
+The expected next decision after CVP 1.1 is one of:
 
 - accept an existing candidate as the curve-first offline leader;
 - prepare a compact `Wave 1B` curve-aware static retraining pass;
-- prepare a compact `Wave 2D` curve-aware periodic sequence retraining pass;
+- prepare a compact `Wave 2.1D` curve-aware periodic sequence retraining pass;
 - defer model changes and move the selected candidate toward deployment
   readiness checks.

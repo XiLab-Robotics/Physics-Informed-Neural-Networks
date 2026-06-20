@@ -1,8 +1,8 @@
-# Track 1 SVR Reference Grid Search Repair Campaign Plan
+# RCIM Model-Bank Reproduction SVR Reference Grid Search Repair Campaign Plan
 
 ## Objective
 
-This campaign tests the remaining open `SVR` cells in canonical `Track 1`
+This campaign tests the remaining open `SVR` cells in canonical `RCIM Model-Bank Reproduction`
 through the recovered paper-reference `GridSearchCV` path instead of
 repository-invented seed/split sweeps.
 

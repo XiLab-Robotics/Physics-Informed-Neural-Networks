@@ -77,7 +77,7 @@ if ($RunOneBatchValidation) {
     $validatorArgumentList += "--run-one-batch"
 }
 
-Write-Track2HLStatus -Label "STEP" -Message "Validating Track 2H-L latent-state hysteresis package."
+Write-Track2HLStatus -Label "STEP" -Message "Validating Wave 4.4 latent-state hysteresis package."
 Invoke-Track2HLPython -ArgumentList $validatorArgumentList
 $pythonExitCode = $script:LastTrack2HLPythonExitCode
 if ($pythonExitCode -ne 0) {
@@ -139,7 +139,7 @@ if ($EnqueueOnly) {
     Write-Track2HLStatus -Label "STEP" -Message "Enqueue-only verification enabled; training will not start."
 }
 
-Write-Track2HLStatus -Label "STEP" -Message "Launching local Track 2H-L latent-state hysteresis campaign."
+Write-Track2HLStatus -Label "STEP" -Message "Launching local Wave 4.4 latent-state hysteresis campaign."
 Invoke-Track2HLPython -ArgumentList $argumentList
 $trainingExitCode = $script:LastTrack2HLPythonExitCode
 exit $trainingExitCode

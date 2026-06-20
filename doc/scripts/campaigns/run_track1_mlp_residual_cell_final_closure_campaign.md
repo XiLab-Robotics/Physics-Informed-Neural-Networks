@@ -1,7 +1,7 @@
-﻿# Track 1 MLP Residual Cell Final Closure Campaign Launcher
+# RCIM Model-Bank Reproduction MLP Residual Cell Final Closure Campaign Launcher
 
 This launcher runs the dedicated exact-paper `MLP` residual-cell final
-closure wave for the canonical `Track 1` full-matrix replication surface.
+closure wave for the canonical `RCIM Model-Bank Reproduction` full-matrix replication surface.
 
 - included configs: `216`
 - distinct target pairs: `4`

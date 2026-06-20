@@ -34,7 +34,7 @@ The documentation should explicitly separate:
   the deployed online predictor.
 
 This clarification should be added to the curve-first strategy report and the
-operational backlog. The Track 2 official report and Wave 1 closeout can remain
+operational backlog. The TE Curve Verification Pipeline official report and Wave 1 closeout can remain
 unchanged unless they need a short pointer to the clarified input contract.
 
 ## Involved Components
@@ -50,7 +50,7 @@ clarification:
 - `scripts/training/transmission_error_datamodule.py`
 - `scripts/training/transmission_error_regression_module.py`
 - `scripts/training/train_feedforward_network.py`
-- Track 2 validation and report scripts under `scripts/reports/analysis/`
+- TE Curve Verification Pipeline validation and report scripts under `scripts/reports/analysis/`
 
 ## Implementation Steps
 

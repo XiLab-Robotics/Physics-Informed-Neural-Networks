@@ -1,4 +1,4 @@
-# Track 1 Forward Maxi Remote Artifact Recovery And Closeout
+# RCIM Model-Bank Reproduction Forward Maxi Remote Artifact Recovery And Closeout
 
 ## Overview
 
@@ -61,7 +61,7 @@ becomes useful later, explicit user approval will be requested first.
 - `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
 - `doc/reports/analysis/Training Results Master Summary.md`
 - `models/paper_reference/rcim_track1/forward/`
-- any current Track 1 closeout helper scripts under `scripts/reports/closeout/track1/`
+- any current RCIM Model-Bank Reproduction closeout helper scripts under `scripts/reports/closeout/track1/`
 
 ## Implementation Steps
 
@@ -73,7 +73,7 @@ becomes useful later, explicit user approval will be requested first.
    identify any missing tail artifact before closeout.
 4. Reconcile `doc/running/active_training_campaign.yaml` with the recovered
    real campaign outcome and the final results-report backlink.
-5. Run the formal Track 1 closeout flow on the recovered local artifact set.
+5. Run the formal RCIM Model-Bank Reproduction closeout flow on the recovered local artifact set.
 6. Refresh the canonical benchmark, master summary, and forward reference
    archive surfaces justified by the recovered accepted winners.
 7. Validate the touched Markdown scope and the final PDF deliverable required

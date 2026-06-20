@@ -1,8 +1,8 @@
-# Track 1 Paper Tables 3 4 5 6 Canonical Comparison
+# RCIM Model-Bank Reproduction Paper Tables 3 4 5 6 Canonical Comparison
 
 ## Overview
 
-This technical document defines the next `Track 1` step requested by the user:
+This technical document defines the next `RCIM Model-Bank Reproduction` step requested by the user:
 build a canonical repository-owned comparison table that mirrors the paper
 tables `3`, `4`, `5`, and `6`, shows the paper targets, shows the current
 repository results, and makes the remaining gaps explicit.
@@ -99,7 +99,7 @@ Markdown scope must be re-checked before closure.
 4. Generate a canonical Markdown comparison table shaped around the paper
    tables `3-6`, including paper target values, repository values, and the
    explicit remaining gap.
-5. Add a compact harmonic-level summary so `Track 1` status can be read
+5. Add a compact harmonic-level summary so `RCIM Model-Bank Reproduction` status can be read
    quickly without losing the lower-level per-target evidence.
 6. Update the relevant exact-paper analysis report so the new canonical table
    becomes part of the normal repository reading path.

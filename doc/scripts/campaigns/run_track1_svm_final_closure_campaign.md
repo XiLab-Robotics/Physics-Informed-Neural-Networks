@@ -1,9 +1,9 @@
-# Track 1 SVM Final Closure Campaign Launcher
+# RCIM Model-Bank Reproduction SVM Final Closure Campaign Launcher
 
 ## Overview
 
 This launcher executes the dedicated `SVR` final-closure package for the last
-residual yellow `SVM` cells in the canonical `Track 1` benchmark.
+residual yellow `SVM` cells in the canonical `RCIM Model-Bank Reproduction` benchmark.
 
 The package is designed to close the remaining `SVM` row cells instead of
 rerunning the full row or reopening already solved surfaces.

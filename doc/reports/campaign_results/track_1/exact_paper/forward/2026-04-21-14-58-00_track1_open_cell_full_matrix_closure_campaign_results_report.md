@@ -1,14 +1,14 @@
-# Track 1 Open-Cell Full-Matrix Closure Campaign Results Report
+# RCIM Model-Bank Reproduction Open-Cell Full-Matrix Closure Campaign Results Report
 
 ## Overview
 
-This report closes the exact-paper `Track 1` open-cell full-matrix closure
+This report closes the exact-paper `RCIM Model-Bank Reproduction` open-cell full-matrix closure
 wave prepared in:
 
 - `doc/reports/campaign_plans/track_1/exact_paper/2026-04-20-23-50-13_track1_open_cell_full_matrix_closure_campaigns_plan_report.md`
 
 The batch targeted only the still-open family-target pairs in the canonical
-`Track 1` progress surface:
+`RCIM Model-Bank Reproduction` progress surface:
 
 - `Table 2 - Amplitude MAE Full-Matrix Replication`
 - `Table 3 - Amplitude RMSE Full-Matrix Replication`
@@ -86,14 +86,14 @@ retry evidence still does not beat that baseline representative.
 | Table `4` Phase MAE | 9 | 9 | `none` |
 | Table `5` Phase RMSE | 9 | 9 | `none` |
 
-## Track 1 Closure Reading
+## RCIM Model-Bank Reproduction Closure Reading
 
-- `Track 1` is evaluated only from the canonical `Table 2-5` full-matrix
+- `RCIM Model-Bank Reproduction` is evaluated only from the canonical `Table 2-5` full-matrix
   surfaces plus the accepted `10 x 19` family-bank rule.
-- Harmonic-wise Table `6` evidence is postponed into `Track 1.5` and is no
+- Harmonic-wise Table `6` evidence is postponed into `RCIM Harmonic-Wise Follow-Up` and is no
   longer part of the primary closure gate.
 - current remaining non-green cells across the canonical surface: `3`
-- `Track 1` remains open because at least one canonical full-matrix cell is still non-green.
+- `RCIM Model-Bank Reproduction` remains open because at least one canonical full-matrix cell is still non-green.
 
 ## Resulting Canonical State
 
@@ -111,6 +111,6 @@ retry evidence still does not beat that baseline representative.
   not change the canonical Tables `2-5` outcome or the accepted family
   representative outcome.
 - The closure rule now stays fully aligned with the repository-wide decision
-  to keep `Track 1` focused only on the four full-matrix replication tables.
+  to keep `RCIM Model-Bank Reproduction` focused only on the four full-matrix replication tables.
 - Any remaining work should therefore target only the still-open cells in
   Tables `2-5`, not the postponed harmonic-wise branch.

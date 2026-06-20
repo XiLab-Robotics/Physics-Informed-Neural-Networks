@@ -1,13 +1,13 @@
-# Wave 2B Harmonic Temporal Hybrid Campaign Plan Report
+# Wave 2.2 Harmonic Temporal Hybrid Campaign Plan Report
 
 ## Executive Summary
 
-This preliminary campaign plan prepares the first `Wave 2B`
+This preliminary campaign plan prepares the first `Wave 2.2`
 harmonic-temporal hybrid comparison without launching training.
 
-`Wave 2` verified temporal convolution, `GRU`, and `LSTM` sequence models in
-the official `Track 2` workflow, but none of those temporal candidates was
-promoted over the current repository-owned `tree` baseline. `Wave 2B` tests the
+`Wave 2.1` verified temporal convolution, `GRU`, and `LSTM` sequence models in
+the official `TE Curve Verification Pipeline` workflow, but none of those temporal candidates was
+promoted over the current repository-owned `tree` baseline. `Wave 2.2` tests the
 follow-up hypothesis that the temporal backbones need an explicit TE harmonic
 prior rather than only short sequence context.
 
@@ -21,13 +21,13 @@ Training must not start until this campaign package is explicitly approved.
 
 ## Baseline And Verification Rule
 
-`Track 2` remains the official offline verification surface. Wave 2B candidates
+`TE Curve Verification Pipeline` remains the official offline verification surface. Wave 2.2 candidates
 are not accepted from training metrics alone. Any promoted result must refresh:
 
-- the direction-aware `Track 2` matrix;
+- the direction-aware `TE Curve Verification Pipeline` matrix;
 - the best-model collage report and PDF;
 - the multi-model curve comparison report and PDF;
-- the official `Track 2` update ledger;
+- the official `TE Curve Verification Pipeline` update ledger;
 - the family and program registries;
 - `Training Results Master Summary.md`.
 
@@ -54,7 +54,7 @@ The first campaign uses the RCIM sparse harmonic list:
 ```
 
 Dense `0..240` or `0..360` harmonic sweeps remain later branches. They are not
-part of this first Wave 2B campaign.
+part of this first Wave 2.2 campaign.
 
 ## Prepared Configuration Surface
 
@@ -82,7 +82,7 @@ Prepared dataset profile:
 
 - `dataset_profile=transmission_error_sequence`
 
-The dataset profile keeps the existing Wave 2 sequence contract:
+The dataset profile keeps the existing Wave 2.1 sequence contract:
 
 - `collate_mode: sequence`
 - `sequence_length: 33`
@@ -124,18 +124,18 @@ After campaign execution:
   `campaign_best_run.md`;
 - update family-level and program-level best-result registries;
 - refresh `Training Results Master Summary.md`;
-- refresh the official `Track 2` matrix and visual reports for the Wave 2B
+- refresh the official `TE Curve Verification Pipeline` matrix and visual reports for the Wave 2.2
   candidates;
-- append the Wave 2B verdict to the official `Track 2` report ledger.
+- append the Wave 2.2 verdict to the official `TE Curve Verification Pipeline` report ledger.
 
 ## Decision Criteria
 
-Wave 2B candidates are promoted only if both conditions hold:
+Wave 2.2 candidates are promoted only if both conditions hold:
 
-- scalar `Track 2` metrics are competitive with the current repository-owned
+- scalar `TE Curve Verification Pipeline` metrics are competitive with the current repository-owned
   `tree` baseline on the matching direction surface;
 - visual curve evidence shows useful TE tracking behavior rather than only a
   local training-metric improvement.
 
-If either condition fails, the Wave 2B campaign remains a completed exploratory
+If either condition fails, the Wave 2.2 campaign remains a completed exploratory
 training experiment and the accepted offline baseline remains unchanged.

@@ -1,4 +1,4 @@
-# Track 1 SVR Reference-Grid Repair Campaign Results Report
+# RCIM Model-Bank Reproduction SVR Reference-Grid Repair Campaign Results Report
 
 ## Overview
 
@@ -158,7 +158,7 @@ That launcher stabilization is the main durable gain from this campaign.
 ## Canonical Benchmark Impact
 
 This campaign does **not** promote any new canonical paper-cell closure into
-`Track 1`.
+`RCIM Model-Bank Reproduction`.
 
 So the canonical benchmark reading remains unchanged:
 

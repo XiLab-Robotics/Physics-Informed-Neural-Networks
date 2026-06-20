@@ -1,6 +1,6 @@
-# Track 1 RF Full-Matrix Campaign Launcher
+# RCIM Model-Bank Reproduction RF Full-Matrix Campaign Launcher
 
-This launcher runs the dedicated `Track 1` exact-paper `RF` family campaign.
+This launcher runs the dedicated `RCIM Model-Bank Reproduction` exact-paper `RF` family campaign.
 
 Included configs:
 

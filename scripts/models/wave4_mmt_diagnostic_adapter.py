@@ -1,4 +1,4 @@
-"""Embryonic Wave 4A adapter for MMT TE equation diagnostics."""
+"""Embryonic Wave 5.2A adapter for MMT TE equation diagnostics."""
 
 from __future__ import annotations
 

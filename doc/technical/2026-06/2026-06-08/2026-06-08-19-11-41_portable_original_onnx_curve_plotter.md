@@ -9,7 +9,7 @@ repository. The current script is located at
 It already stores the recovered original paper `ONNX` target paths in a
 hardcoded configuration block, but it is not repository-independent because it
 imports project helpers, resolves `PROJECT_PATH`, and reads the repository
-`Track 2` matrix instead of user-provided curve `CSV` files.
+`TE Curve Verification Pipeline` matrix instead of user-provided curve `CSV` files.
 
 The requested target is a standalone Python script that can be copied beside a
 new curve dataset, edited at the top through hardcoded path lists, and executed
@@ -21,8 +21,8 @@ versus measured TE on the same chart.
 ## Technical Approach
 
 The implementation will add a new portable script instead of weakening the
-repository-integrated Track 2 helper. The existing
-`plot_original_onnx_fw_track2_curves.py` remains useful for official Track 2
+repository-integrated TE Curve Verification Pipeline helper. The existing
+`plot_original_onnx_fw_track2_curves.py` remains useful for official TE Curve Verification Pipeline
 matrix plots, while the new script will be designed as an exportable utility
 with only external scientific Python dependencies.
 
@@ -60,7 +60,7 @@ The reconstruction will be implemented locally, not by calling
 `harmonic_wise_support`. For each curve, the script will:
 
 1. read the operating point from the curve `CSV` or fixed configuration;
-2. build the `ONNX` feature row in the same order used by the current Track 2
+2. build the `ONNX` feature row in the same order used by the current TE Curve Verification Pipeline
    path, namely speed in rpm, oil temperature in degrees, and torque in Nm;
 3. run every selected target model with `onnxruntime`;
 4. convert amplitude and phase predictions into harmonic cosine and sine terms;
@@ -70,7 +70,7 @@ The reconstruction will be implemented locally, not by calling
 7. save per-curve plots, optional prediction `CSV` outputs, and a summary table.
 
 For non-zero harmonics the local reconstruction will use the same convention as
-the paper-aligned Track 2 path:
+the paper-aligned TE Curve Verification Pipeline path:
 
 ```text
 cosine_coefficient_h = amplitude_h * cos(phase_h)

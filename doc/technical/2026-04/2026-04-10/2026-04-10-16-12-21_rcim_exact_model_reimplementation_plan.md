@@ -1,6 +1,6 @@
 # Overview
 
-This technical document defines the next `Track 1` transition for the RCIM
+This technical document defines the next `RCIM Model-Bank Reproduction` transition for the RCIM
 paper-faithful branch. The goal is no longer to maintain only a repository-made
 harmonic-wise approximation. The goal is to reimplement the original paper
 model bank inside this repository with repository-owned scripts that reproduce
@@ -24,7 +24,7 @@ especially the newly consolidated analysis report:
 
 ## Technical Approach
 
-The existing repository `Track 1` scripts under
+The existing repository `RCIM Model-Bank Reproduction` scripts under
 `scripts/paper_reimplementation/rcim_ml_compensation/` will be evolved into a
 stricter paper-faithful branch rather than abandoned. The current harmonic-wise
 pipeline already provides:
@@ -51,7 +51,7 @@ The implementation direction is therefore:
 4. preserve repository-level reporting, artifact discipline, and config-driven
    execution;
 5. keep the existing harmonic-wise repository baseline available as a separate
-   comparison path when useful, but no longer treat it as the only `Track 1`
+   comparison path when useful, but no longer treat it as the only `RCIM Model-Bank Reproduction`
    implementation.
 
 The new strict reimplementation should mirror these recovered constraints:
@@ -85,7 +85,7 @@ The new strict reimplementation should mirror these recovered constraints:
 
 Implementation strategy choice:
 
-- preferred path: adapt and extend the existing repository `Track 1` scripts
+- preferred path: adapt and extend the existing repository `RCIM Model-Bank Reproduction` scripts
   into a new exact-paper branch while preserving repository style and artifact
   discipline;
 - fallback path if needed: import paper-era workflow logic into new repository
@@ -129,7 +129,7 @@ single local repository refactor and feature extension.
 
 ## Implementation Steps
 
-1. Refactor the current `Track 1` paper reimplementation scripts so they can
+1. Refactor the current `RCIM Model-Bank Reproduction` paper reimplementation scripts so they can
    support both:
    - the current repository-owned harmonic-wise baseline;
    - a new exact-paper reimplementation branch.
@@ -148,6 +148,6 @@ single local repository refactor and feature extension.
    evaluation logic.
 7. Add target-wise comparison tables and a stable family/target leaderboard.
 8. Update backlog and canonical reports so the new exact-paper branch becomes
-   the primary remaining `Track 1` objective.
+   the primary remaining `RCIM Model-Bank Reproduction` objective.
 9. After the code path is ready, prepare a dedicated campaign plan for the
    full paper-faithful family-bank run before executing training.

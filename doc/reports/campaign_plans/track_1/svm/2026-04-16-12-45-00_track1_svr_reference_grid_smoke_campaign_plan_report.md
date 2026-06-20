@@ -1,9 +1,9 @@
-# Track 1 SVR Reference Grid Smoke Campaign Plan
+# RCIM Model-Bank Reproduction SVR Reference Grid Smoke Campaign Plan
 
 ## Purpose
 
 Validate the corrected exact-paper launchers on a real repository-owned run
-before reattempting the heavier `Track 1` `SVR` reference-grid repair campaign.
+before reattempting the heavier `RCIM Model-Bank Reproduction` `SVR` reference-grid repair campaign.
 
 ## Scope
 

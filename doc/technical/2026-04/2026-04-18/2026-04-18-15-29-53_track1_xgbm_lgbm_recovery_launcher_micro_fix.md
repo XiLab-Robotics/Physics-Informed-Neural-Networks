@@ -1,9 +1,9 @@
-# Track 1 XGBM LGBM Recovery Launcher Micro Fix
+# RCIM Model-Bank Reproduction XGBM LGBM Recovery Launcher Micro Fix
 
 ## Overview
 
 This technical document covers the micro-repair needed after the first
-recovery attempt for the interrupted `Track 1` `XGBM` and `LGBM` remote
+recovery attempt for the interrupted `RCIM Model-Bank Reproduction` `XGBM` and `LGBM` remote
 campaigns.
 
 The previously approved recovery hardening added optional-dependency preflight

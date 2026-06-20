@@ -1,4 +1,4 @@
-"""Build Track 2 mean-centered collage diagnostics."""
+"""Build TE Curve Verification Pipeline mean-centered collage diagnostics."""
 
 from __future__ import annotations
 
@@ -59,7 +59,7 @@ def build_argument_parser() -> argparse.ArgumentParser:
 
     argument_parser = argparse.ArgumentParser(
         description=(
-            "Generate a Track 2 diagnostic report that subtracts the measured "
+            "Generate a TE Curve Verification Pipeline diagnostic report that subtracts the measured "
             "and predicted per-curve means before recomputing curve MAE/RMSE."
         )
     )
@@ -67,7 +67,7 @@ def build_argument_parser() -> argparse.ArgumentParser:
         "--config-path",
         type=Path,
         default=DEFAULT_CONFIG_PATH,
-        help="Track 2 comparison config used for candidate metadata and dataset loading.",
+        help="TE Curve Verification Pipeline comparison config used for candidate metadata and dataset loading.",
     )
     argument_parser.add_argument(
         "--output-root",
@@ -476,12 +476,12 @@ def build_report_markdown(
     """Build the Markdown report body."""
 
     report_line_list = [
-        "# Track 2 Mean-Centered Collage Diagnostics Report",
+        "# TE Curve Verification Pipeline Mean-Centered Collage Diagnostics Report",
         "",
         "## Overview",
         "",
         "This report tests whether the persistent vertical offset observed in",
-        "the `Track 2` best-model collage hides stronger waveform tracking.",
+        "the `TE Curve Verification Pipeline` best-model collage hides stronger waveform tracking.",
         "For each candidate and curve, the measured `TE` curve is centered by",
         "its own mean and the predicted curve is centered by its own mean before",
         "`MAE` and `RMSE` are recomputed.",
@@ -537,7 +537,7 @@ def build_report_markdown(
                         f"{candidate_summary['candidate_id']}:",
                         "",
                         (
-                            f"![{candidate_summary['candidate_id']} mean-centered Track 2 collage]"
+                            f"![{candidate_summary['candidate_id']} mean-centered TE Curve Verification Pipeline collage]"
                             f"({candidate_summary['collage_markdown_path']})"
                         ),
                         "",
@@ -584,7 +584,7 @@ def load_source_collage_summary(summary_path: Path) -> dict[str, Any]:
 
 def run_track2_mean_centered_collage_report(arguments: argparse.Namespace) -> dict[str, Any]:
 
-    """Run the full Track 2 mean-centered collage report generation."""
+    """Run the full TE Curve Verification Pipeline mean-centered collage report generation."""
 
     repository_path_support.set_runtime_platform(
         repository_path_support.resolve_argument_platform(arguments)
@@ -752,7 +752,7 @@ def main() -> None:
     """Run the command-line entry point."""
 
     validation_summary = run_track2_mean_centered_collage_report(parse_command_line_arguments())
-    print(f"[DONE] Track 2 mean-centered collage report: {validation_summary['report_path']}")
+    print(f"[DONE] TE Curve Verification Pipeline mean-centered collage report: {validation_summary['report_path']}")
     print(f"[DONE] Artifacts: {validation_summary['output_directory']}")
 
 

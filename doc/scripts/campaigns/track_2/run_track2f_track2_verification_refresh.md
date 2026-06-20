@@ -1,11 +1,11 @@
-# Track 2F Track 2 Verification Refresh Launcher
+# Wave 3.1 TE Curve Verification Pipeline Verification Refresh Launcher
 
 ## Overview
 
-This launcher runs the operator-approved `Track 2` offline verification refresh
-for the completed `Track 2F` offset-aware probe campaign.
+This launcher runs the operator-approved `TE Curve Verification Pipeline` offline verification refresh
+for the completed `Wave 3.1` offset-aware probe campaign.
 
-It evaluates the three registry-backed `Track 2F` branch candidates in
+It evaluates the three registry-backed `Wave 3.1` branch candidates in
 parallel:
 
 | Surface | Candidate | Registry |
@@ -15,7 +15,7 @@ parallel:
 | `Bw` | `sequential_residual_offset_probe_Bw` | `output/registries/families/sequential_residual_offset_probe_bw/latest_family_best.yaml` |
 
 The launcher is operator-facing. Codex prepares it and provides the command,
-but does not run the heavy `Track 2` matrix internally.
+but does not run the heavy `TE Curve Verification Pipeline` matrix internally.
 
 ## Local Command
 
@@ -35,9 +35,9 @@ Run from the repository root:
 .\scripts\campaigns\track_2\run_track2f_track2_verification_refresh.ps1 -Remote
 ```
 
-Remote mode syncs the required local Track 2 launcher, config, scripts, Track
-2F family registries, Track 2F training-run artifacts, and the completed
-`Wave 2C` Track 2 baseline summary to the remote checkout before execution. It
+Remote mode syncs the required local TE Curve Verification Pipeline launcher, config, scripts, Track
+2F family registries, Wave 3.1 training-run artifacts, and the completed
+`Wave 2.3` TE Curve Verification Pipeline baseline summary to the remote checkout before execution. It
 then syncs only the generated artifact paths listed by the run-local artifact
 sync manifest back to the local repository.
 
@@ -55,7 +55,7 @@ Override connection details when needed:
 
 The launcher runs:
 
-1. the official full direction-aware `Track 2` matrix;
+1. the official full direction-aware `TE Curve Verification Pipeline` matrix;
 2. the best-model collage report generation;
 3. the multi-model curve-comparison report generation;
 4. the visual source-coverage validation against the matrix candidate list;
@@ -68,7 +68,7 @@ When visual reports are enabled, the launcher fails before PDF export if a
 registry-backed matrix source is not visible in the collage and overlay
 Markdown reports.
 
-By default, the matrix uses the completed `Wave 2B` refresh as the configured
+By default, the matrix uses the completed `Wave 2.2` refresh as the configured
 baseline summary and only evaluates incremental current candidates. The new
 candidate-source plot sync is scoped to
 `track2f_offset_aware_probe_registry`. Use

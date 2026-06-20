@@ -7,7 +7,7 @@ style naming in multiple files and identifiers.
 
 That naming is conceptually misaligned with the live roadmap because:
 
-- the live backlog still reserves `Wave 2` for temporal models;
+- the live backlog still reserves `Wave 2.1` for temporal models;
 - the current residual-harmonic optimization pass is still part of the
   structured-baseline effort and therefore belongs to the `Wave 1` scope.
 
@@ -32,7 +32,7 @@ The post-campaign alignment pass should review and correct, where appropriate:
 - technical and planning document framing;
 - launcher and campaign naming;
 - campaign-state wording;
-- any repository surfaces that incorrectly imply that temporal-model `Wave 2`
+- any repository surfaces that incorrectly imply that temporal-model `Wave 2.1`
   work has already begun.
 
 ## Involved Components

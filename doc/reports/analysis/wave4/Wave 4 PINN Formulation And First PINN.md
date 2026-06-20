@@ -1,31 +1,31 @@
-# Wave 4 PINN Formulation And First PINN
+# Wave 5.2 PINN Formulation And First PINN
 
 ## Purpose
 
-`Wave 4` defines the first physics-informed neural-network branch for TE curve
+`Wave 5.2` defines the first physics-informed neural-network branch for TE curve
 prediction. Its purpose is to test whether physically motivated soft
-constraints improve the same failure modes seen in `Track 2`: mean-surface
+constraints improve the same failure modes seen in `TE Curve Verification Pipeline`: mean-surface
 bias, centered-shape error, amplitude error, phase error, and fragile harmonic
 behavior.
 
 This report is a design document only. It does not prepare runnable training
-campaigns and does not modify the active `Track 2H` campaign.
+campaigns and does not modify the active `Wave 4 series` campaign.
 
 ## Reference Boundary
 
-| Source | What It Supports | Wave 4 Consequence |
+| Source | What It Supports | Wave 5.2 Consequence |
 | --- | --- | --- |
 | `MMT_TEModeling` summary | TE is structured by RV reducer kinematics, and frequency components can be interpreted with respect to physical error sources. | Use physics-informed constraints as soft regularizers, not as a black-box replacement for data fit. |
 | `RCIM_ML_Compensation` summary | The practical ML model depends on speed, torque, oil temperature, angular position, and direction-separated behavior. | Preserve causal operating variables and report `global`, `Fw`, and `Bw` separately. |
 | Recovered RCIM harmonic workflow | The recovered paper workflow predicts selected harmonic amplitude and phase components. | Include harmonic-consistency constraints around the recovered harmonic set. |
-| `Track 2` h0 diagnostics | `h0` is the correct mean-like channel, but measured `h0` magnitude alone does not explain model failures. | Include offset/mean-surface diagnostics, but do not encode `h0` as the only physical cause. |
-| Wave 3 design | Hybrid structured models separate harmonic structure and learned residual correction. | Let the first PINN reuse the same inspectable harmonic and residual split where useful. |
-| `MMT_TEModeling` equation reproduction, commit `3d4b9b720471aa3aca461e94a9e14f353637b153` | The repository now has explicit Python and MATLAB implementations of the MMT equation chain, including `f1`, `f2i`, `f3`, `f4i`, transfer coefficients, and whole-machine `RTE`. | Promote MMT equations from background context to the first Wave 4 sub-branch. |
-| External gear-dynamics literature | Transmission error is commonly linked to time-varying mesh stiffness, loaded static TE, backlash, contact force, support flexibility, and dynamic mesh force. | Add exploratory Wave 4 branches for mesh-stiffness, loaded-TE, nonlinear-dynamics, and cycloid-contact formulations. |
+| `TE Curve Verification Pipeline` h0 diagnostics | `h0` is the correct mean-like channel, but measured `h0` magnitude alone does not explain model failures. | Include offset/mean-surface diagnostics, but do not encode `h0` as the only physical cause. |
+| Wave 5.1 design | Hybrid structured models separate harmonic structure and learned residual correction. | Let the first PINN reuse the same inspectable harmonic and residual split where useful. |
+| `MMT_TEModeling` equation reproduction, commit `3d4b9b720471aa3aca461e94a9e14f353637b153` | The repository now has explicit Python and MATLAB implementations of the MMT equation chain, including `f1`, `f2i`, `f3`, `f4i`, transfer coefficients, and whole-machine `RTE`. | Promote MMT equations from background context to the first Wave 5.2 sub-branch. |
+| External gear-dynamics literature | Transmission error is commonly linked to time-varying mesh stiffness, loaded static TE, backlash, contact force, support flexibility, and dynamic mesh force. | Add exploratory Wave 5.2 branches for mesh-stiffness, loaded-TE, nonlinear-dynamics, and cycloid-contact formulations. |
 
 ## PINN Scope
 
-The first Wave 4 PINN should remain a soft-constraint TE model, but the scope
+The first Wave 5.2 PINN should remain a soft-constraint TE model, but the scope
 is now broader than a generic harmonic PINN. The MMT equation-chain
 reproduction gives the repository a concrete analytical model to test. The
 limitation is that the available dataset still does not expose every
@@ -33,7 +33,7 @@ component-level error, contact-geometry value, or equivalent-linkage parameter
 needed to use the MMT model as a fully observed forward solver for every
 measured curve.
 
-Therefore, Wave 4 should use a staged integration path:
+Therefore, Wave 5.2 should use a staged integration path:
 
 - first as diagnostics and interpretable equation outputs;
 - then as features or pseudo-physical residual labels;
@@ -68,17 +68,17 @@ representation remain:
 | Mesh-stiffness consistency | Penalize curve behavior incompatible with periodic mesh stiffness or loaded static TE trends. | Requires an assumed or learned stiffness surface; not directly observed in the current dataset. |
 | Backlash / dead-zone consistency | Allow asymmetric or piecewise behavior under direction changes and preload release. | Must not be used to justify non-causal target-mean leakage. |
 
-## Wave 4 Sub-Branch Roadmap
+## Wave 5.2 Sub-Branch Roadmap
 
 | Branch | Working Name | Scope | Readiness |
 | --- | --- | --- | --- |
-| `Wave 4A` | `mmt_equation_diagnostic` | Run the MMT reproduction as an analytical diagnostic and compare its harmonic/offset signatures against Track 2 curves. | Ready as documentation and script-level diagnostic; not yet a training campaign. |
-| `Wave 4B` | `mmt_feature_generator` | Calibrate or infer a small set of equivalent-error channels and use MMT intermediate terms as model features or residual labels. | Needs parameter inventory and leakage-safe calibration split. |
-| `Wave 4C` | `mmt_soft_constraint_pinn` | Add weak MMT equation residuals to a curve or harmonic-plus-residual neural model. | Needs differentiable or batch-callable MMT layer and stable loss scaling. |
-| `Wave 4D` | `mesh_stiffness_loaded_te_pinn` | Add time-varying mesh stiffness and loaded static TE consistency terms. | Exploratory; needs stiffness approximation or learned stiffness head. |
-| `Wave 4E` | `backlash_preload_state_pinn` | Use piecewise/dead-zone or hysteresis-like constraints for preload release, backlash, and direction/state dependence. | Exploratory; relevant to `h0`/`h1` dispersion but needs causal state features. |
-| `Wave 4F` | `cycloid_contact_force_pinn` | Use cycloid-pin contact, profile modification, contact-force, and loaded-TE relations as soft constraints. | Exploratory; requires cycloid geometry/contact assumptions. |
-| `Wave 4G` | `planetary_mesh_force_lste_pinn` | Test mesh-force, loaded static TE, elastic support, and planetary branch interaction constraints. | Exploratory; useful if support/load-sharing effects align with observed harmonics. |
+| `Wave 5.2A` | `mmt_equation_diagnostic` | Run the MMT reproduction as an analytical diagnostic and compare its harmonic/offset signatures against TE Curve Verification Pipeline curves. | Ready as documentation and script-level diagnostic; not yet a training campaign. |
+| `Wave 5.2B` | `mmt_feature_generator` | Calibrate or infer a small set of equivalent-error channels and use MMT intermediate terms as model features or residual labels. | Needs parameter inventory and leakage-safe calibration split. |
+| `Wave 5.2C` | `mmt_soft_constraint_pinn` | Add weak MMT equation residuals to a curve or harmonic-plus-residual neural model. | Needs differentiable or batch-callable MMT layer and stable loss scaling. |
+| `Wave 5.2D` | `mesh_stiffness_loaded_te_pinn` | Add time-varying mesh stiffness and loaded static TE consistency terms. | Exploratory; needs stiffness approximation or learned stiffness head. |
+| `Wave 5.2E` | `backlash_preload_state_pinn` | Use piecewise/dead-zone or hysteresis-like constraints for preload release, backlash, and direction/state dependence. | Exploratory; relevant to `h0`/`h1` dispersion but needs causal state features. |
+| `Wave 5.2F` | `cycloid_contact_force_pinn` | Use cycloid-pin contact, profile modification, contact-force, and loaded-TE relations as soft constraints. | Exploratory; requires cycloid geometry/contact assumptions. |
+| `Wave 5.2G` | `planetary_mesh_force_lste_pinn` | Test mesh-force, loaded static TE, elastic support, and planetary branch interaction constraints. | Exploratory; useful if support/load-sharing effects align with observed harmonics. |
 
 Detailed design reports:
 
@@ -107,14 +107,14 @@ The implemented chain includes:
 - whole-machine `RTE` equations;
 - prototype test-bench `RTE` definition.
 
-The immediate Wave 4 use should be:
+The immediate Wave 5.2 use should be:
 
 1. run the MMT reproduction as a diagnostic on synthetic and dataset-aligned
    angle grids;
 2. inventory which MMT inputs are known, configurable, calibratable, or
    unavailable for repository curves;
 3. calibrate a small equivalent-error vector on training conditions only;
-4. compare calibrated analytical curves against Track 2 raw, centered, offset,
+4. compare calibrated analytical curves against TE Curve Verification Pipeline raw, centered, offset,
    amplitude, and phase metrics;
 5. if useful, convert the analytical residual into a weak PINN loss or a
    structured feature generator.
@@ -125,7 +125,7 @@ with a split that prevents condition-cell memorization.
 
 ## Embryonic Implementation Status
 
-The first `Wave 4A` skeleton has now been materialized as implementation-ready
+The first `Wave 5.2A` skeleton has now been materialized as implementation-ready
 diagnostic scaffolding, but it remains explicitly not campaign-ready.
 
 | Item | Status |
@@ -135,9 +135,9 @@ diagnostic scaffolding, but it remains explicitly not campaign-ready.
 | Validator | `scripts/campaigns/wave_4/validate_wave4_embryonic_skeleton_package.py` checks metadata and MMT demonstration-summary generation. |
 | Dry-run launcher | `scripts/campaigns/wave_4/run_wave4_embryonic_skeleton_checks.ps1` runs compile and validator checks only. |
 
-## Wave 4A Diagnostic Status
+## Wave 5.2A Diagnostic Status
 
-The first `Wave 4A` diagnostic report has been generated from the
+The first `Wave 5.2A` diagnostic report has been generated from the
 repository-owned MMT equation-chain demonstration.
 
 | Item | Status |
@@ -148,15 +148,15 @@ repository-owned MMT equation-chain demonstration.
 | Demonstration mean | `-565.628931` arcsec. |
 | Demonstration peak-to-peak | `525.201502` arcsec. |
 | Dominant demonstration harmonic | harmonic `18`, amplitude `152.451356` arcsec. |
-| Suspicious Track 2 harmonics checked | `0`, `1`, `156`, `162`, and `240`. |
+| Suspicious TE Curve Verification Pipeline harmonics checked | `0`, `1`, `156`, `162`, and `240`. |
 
 The diagnostic confirms that the MMT chain is callable and auditable, but it
 does not yet prove dataset causality. The result remains diagnostic-only until
 leakage-safe dataset calibration is resolved.
 
-## Wave 4A Parameter Inventory Status
+## Wave 5.2A Parameter Inventory Status
 
-The `Wave 4A` parameter inventory has now been generated as a non-campaign
+The `Wave 5.2A` parameter inventory has now been generated as a non-campaign
 artifact.
 
 | Item | Status |
@@ -171,17 +171,17 @@ artifact.
 The inventory separates safe geometry constants from dataset metadata,
 train-only equivalent-error channels, blocked contact geometry, and target-only
 measured TE. It confirms that MMT can continue as a diagnostic and can seed
-`Wave 4B` feature design, but it should not become a calibrated analytical
-baseline or `Wave 4C` loss until dataset-aligned calibration is leakage-safe.
+`Wave 5.2B` feature design, but it should not become a calibrated analytical
+baseline or `Wave 5.2C` loss until dataset-aligned calibration is leakage-safe.
 
-Before Wave 4 can become campaign-ready, the project still needs a decision on
-whether `Wave 4A` remains diagnostic-only or becomes feature/loss material,
-`Track 2H` loss-policy evidence, Wave 3 smoke evidence, dataset-aligned MMT
+Before Wave 5.2 can become campaign-ready, the project still needs a decision on
+whether `Wave 5.2A` remains diagnostic-only or becomes feature/loss material,
+`Wave 4 series` loss-policy evidence, Wave 5.1 smoke evidence, dataset-aligned MMT
 calibration checks, and an approved campaign plan for the selected sub-branch.
 
 ## External Equation Families To Explore
 
-| Family | Source Signal | Possible Wave 4 Use | Main Risk |
+| Family | Source Signal | Possible Wave 5.2 Use | Main Risk |
 | --- | --- | --- | --- |
 | Time-varying mesh stiffness | Gear mesh stiffness varies with tooth contact number and rotation angle. | Add a learned or Fourier stiffness head and penalize non-periodic stiffness/TE coupling. | Stiffness is not measured directly. |
 | Loaded static transmission error | Loaded TE can drive mesh deformation and differs from unloaded TE. | Condition TE constraints on torque/load regime. | Requires careful separation from target-mean leakage. |
@@ -212,7 +212,7 @@ Reference sources reviewed for the external candidates:
 
 ## First PINN Candidate
 
-The first runnable Wave 4 candidate should now be
+The first runnable Wave 5.2 candidate should now be
 `wave4_mmt_soft_constraint_pinn`, with
 `wave4_soft_constraint_harmonic_pinn` retained as the fallback if MMT
 calibration is not stable:
@@ -226,16 +226,16 @@ calibration is not stable:
    or prediction is available.
 6. Add optional condition-surface smoothness only when the split design proves
    it does not leak held-out target information.
-7. Evaluate by official `Track 2` raw, offset, centered-shape, amplitude,
+7. Evaluate by official `TE Curve Verification Pipeline` raw, offset, centered-shape, amplitude,
    phase, and visual diagnostics.
 
 This candidate is intentionally narrow. It tests whether soft physics helps
 before adding a full physics model or combining PINN losses with the final
 multi-task / multi-head architecture.
 
-## Relationship To Wave 3
+## Relationship To Wave 5.1
 
-| Wave 3 Concept | Wave 4 Extension |
+| Wave 5.1 Concept | Wave 5.2 Extension |
 | --- | --- |
 | Harmonic prior residual | Add periodicity, smoothness, and harmonic-consistency losses to the structured reconstruction path. |
 | Grouped harmonic heads | Apply stronger or different regularization to low-order offset terms, stable middle harmonics, and fragile high harmonics. |
@@ -244,20 +244,20 @@ multi-task / multi-head architecture.
 
 ## Evaluation Plan
 
-Wave 4 candidates should be compared against:
+Wave 5.2 candidates should be compared against:
 
-- accepted `Track 2` leaders;
-- completed `Track 2G` curve-aware candidates;
-- completed `Track 2H` robust-loss candidates;
-- approved Wave 3 hybrid structured candidates;
-- `Wave 2B` and `Wave 2C` sequence/harmonic baselines.
+- accepted `TE Curve Verification Pipeline` leaders;
+- completed `Wave 3.3` curve-aware candidates;
+- completed `Wave 4.1` robust-loss candidates;
+- approved Wave 5.1 hybrid structured candidates;
+- `Wave 2.2` and `Wave 2.3` sequence/harmonic baselines.
 
-Promotion must use the official `Track 2` curve-facing diagnostics rather than
+Promotion must use the official `TE Curve Verification Pipeline` curve-facing diagnostics rather than
 scalar validation loss alone.
 
 ## Decision Gates
 
-Wave 4 should proceed to campaign preparation only if a later approval gate
+Wave 5.2 should proceed to campaign preparation only if a later approval gate
 accepts these choices:
 
 - start with `wave4_soft_constraint_harmonic_pinn`;
@@ -266,12 +266,12 @@ accepts these choices:
 - treat physics terms as soft regularizers, not hard truth constraints;
 - keep the ordinary data-fit loss primary;
 - avoid condition-surface smoothness unless leakage checks are explicit;
-- wait for `Track 2H` and Wave 3 evidence before selecting final loss weights
+- wait for `Wave 4 series` and Wave 5.1 evidence before selecting final loss weights
   for a larger integrated architecture.
 
 ## Non-Goals
 
-- Do not modify the active `Track 2H` campaign.
+- Do not modify the active `Wave 4 series` campaign.
 - Do not treat the embryonic template or dry-run launcher as a real campaign
   package.
 - Do not claim that a full analytical RV reducer PINN has been implemented.

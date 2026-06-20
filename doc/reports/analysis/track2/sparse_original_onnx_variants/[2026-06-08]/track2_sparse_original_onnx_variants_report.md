@@ -1,14 +1,14 @@
-# Track 2 Sparse Original ONNX Variant Report
+# TE Curve Verification Pipeline Sparse Original ONNX Variant Report
 
 ## Overview
 
-This report evaluates two sparse forward `Track 2` candidates built
+This report evaluates two sparse forward `TE Curve Verification Pipeline` candidates built
 only from the recovered paper-original `ONNX` release under
 `reference/rcim_ml_compensation_recovered_assets/models/exact_onnx_paper_release`.
 Both variants reconstruct TE curves from harmonics `0`, `1`, `39`,
 and `40` only.
 
-## Track 2 Forward Metrics
+## TE Curve Verification Pipeline Forward Metrics
 
 | Candidate | Curves | MAE [deg] | RMSE [deg] | Mean Error [%] | P95 Error [%] |
 | --- | ---: | ---: | ---: | ---: | ---: |
@@ -38,7 +38,7 @@ and `40` only.
 
 ### Collage
 
-![rcim_original_simplified_onnx_Fw Track 2 collage](assets/rcim_original_simplified_onnx_Fw.png)
+![rcim_original_simplified_onnx_Fw curve-verification collage](assets/rcim_original_simplified_onnx_Fw.png)
 
 ### Collaged Curves
 
@@ -69,7 +69,7 @@ and `40` only.
 
 ### Collage
 
-![rcim_original_plc_hgbm_onnx_Fw Track 2 collage](assets/rcim_original_plc_hgbm_onnx_Fw.png)
+![rcim_original_plc_hgbm_onnx_Fw curve-verification collage](assets/rcim_original_plc_hgbm_onnx_Fw.png)
 
 ### Collaged Curves
 

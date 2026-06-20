@@ -1,4 +1,4 @@
-"""Embryonic Wave 3 harmonic-prior residual TE model."""
+"""Embryonic Wave 5.1 harmonic-prior residual TE model."""
 
 from __future__ import annotations
 
@@ -37,7 +37,7 @@ class Wave3HarmonicPriorResidualNetwork(nn.Module):
         stable_middle_harmonic_index_list: Sequence[int] | None = None,
         high_order_harmonic_index_list: Sequence[int] | None = None,
     ) -> None:
-        """Initialize the embryonic Wave 3 model.
+        """Initialize the embryonic Wave 5.1 model.
 
         Args:
             input_size: Input feature count, with angular position in the
@@ -46,7 +46,7 @@ class Wave3HarmonicPriorResidualNetwork(nn.Module):
                 repository's scalar TE target.
             harmonic_order: Contiguous fallback harmonic order.
             coefficient_mode: Structured branch coefficient mode.
-            harmonic_index_list: Explicit harmonic set. The current Wave 3
+            harmonic_index_list: Explicit harmonic set. The current Wave 5.1
                 default should use the recovered paper set.
             residual_hidden_size: Residual branch hidden widths.
             residual_activation_name: Residual branch activation name.
@@ -72,7 +72,7 @@ class Wave3HarmonicPriorResidualNetwork(nn.Module):
 
         # Validate Parameters
         assert input_size >= 5, f"Input Size must expose TE operating features | {input_size}"
-        assert output_size == 1, f"Wave 3 skeleton supports scalar TE output only | {output_size}"
+        assert output_size == 1, f"Wave 5.1 skeleton supports scalar TE output only | {output_size}"
         assert harmonic_order > 0, f"Harmonic Order must be positive | {harmonic_order}"
         assert residual_scale >= 0.0, f"Residual Scale must be non-negative | {residual_scale}"
 

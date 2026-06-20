@@ -1,4 +1,4 @@
-"""Build Track 2 reports for sparse original ONNX RCIM variants."""
+"""Build TE curve-verification reports for sparse original ONNX RCIM variants."""
 
 from __future__ import annotations
 
@@ -81,7 +81,7 @@ def parse_command_line_arguments() -> argparse.Namespace:
         "--config-path",
         type=Path,
         default=plot_original_onnx_fw_track2_curves.DEFAULT_TRACK2_CONFIG_PATH,
-        help="Track 2 configuration used to resolve the held-out curve split.",
+        help="TE Curve Verification Pipeline configuration used to resolve the held-out curve split.",
     )
     parser.add_argument(
         "--output-root",
@@ -328,7 +328,7 @@ def build_baseline_summary_list(
 
 def append_metric_row(line_list: list[str], candidate_id: str, metric_summary: dict[str, float]) -> None:
 
-    """Append one Track 2 metric row."""
+    """Append one TE Curve Verification Pipeline metric row."""
 
     line_list.append(
         "| "
@@ -353,17 +353,17 @@ def build_report_markdown(
     """Build the report Markdown body."""
 
     line_list = [
-        "# Track 2 Sparse Original ONNX Variant Report",
+        "# TE Curve Verification Pipeline Sparse Original ONNX Variant Report",
         "",
         "## Overview",
         "",
-        "This report evaluates two sparse forward `Track 2` candidates built",
+        "This report evaluates two sparse forward `TE Curve Verification Pipeline` candidates built",
         "only from the recovered paper-original `ONNX` release under",
         "`reference/rcim_ml_compensation_recovered_assets/models/exact_onnx_paper_release`.",
         "Both variants reconstruct TE curves from harmonics `0`, `1`, `39`,",
         "and `40` only.",
         "",
-        "## Track 2 Forward Metrics",
+        "## TE Curve Verification Pipeline Forward Metrics",
         "",
         "| Candidate | Curves | MAE [deg] | RMSE [deg] | Mean Error [%] | P95 Error [%] |",
         "| --- | ---: | ---: | ---: | ---: | ---: |",
@@ -395,7 +395,7 @@ def build_report_markdown(
                 "",
                 "### Collage",
                 "",
-                f"![{variant_summary['candidate_id']} Track 2 collage]({variant_summary['collage_markdown_path']})",
+                f"![{variant_summary['candidate_id']} TE Curve Verification Pipeline collage]({variant_summary['collage_markdown_path']})",
                 "",
                 "### Collaged Curves",
                 "",
@@ -548,7 +548,7 @@ def main() -> None:
     """Run the command-line entry point."""
 
     validation_summary = run_report(parse_command_line_arguments())
-    print(f"[DONE] Track 2 sparse original ONNX variants report: {validation_summary['report_path']}")
+    print(f"[DONE] TE Curve Verification Pipeline sparse original ONNX variants report: {validation_summary['report_path']}")
 
 
 if __name__ == "__main__":

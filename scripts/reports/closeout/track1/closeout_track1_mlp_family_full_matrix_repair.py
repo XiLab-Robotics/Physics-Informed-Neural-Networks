@@ -1,8 +1,8 @@
-"""Close out the Track 1 MLP family full-matrix repair campaign.
+"""Close out the RCIM Model-Bank Reproduction MLP family full-matrix repair campaign.
 
 This utility reconstructs the completed `2026-04-21` MLP-only repair wave from
 the local validation summaries, writes the canonical campaign bookkeeping
-artifacts, refreshes the accepted MLP row in the Track 1 benchmark, patches the
+artifacts, refreshes the accepted MLP row in the RCIM Model-Bank Reproduction benchmark, patches the
 master summary, and emits the final Markdown campaign report.
 """
 
@@ -74,7 +74,7 @@ SELECTION_POLICY = {
     "sixth_tie_breaker": "run_name",
     "direction": "maximize_then_minimize",
     "note": (
-        "This winner is the bookkeeping representative of the completed Track 1 "
+        "This winner is the bookkeeping representative of the completed RCIM Model-Bank Reproduction "
         "MLP family full-matrix repair campaign."
     ),
 }
@@ -94,7 +94,7 @@ def parse_command_line_arguments() -> argparse.Namespace:
     """Parse command-line arguments."""
 
     argument_parser = argparse.ArgumentParser(
-        description="Close out the Track 1 MLP family full-matrix repair campaign."
+        description="Close out the RCIM Model-Bank Reproduction MLP family full-matrix repair campaign."
     )
     argument_parser.add_argument(
         "--report-timestamp",
@@ -461,7 +461,7 @@ def patch_benchmark_addendum(
             "  the already accepted benchmark baseline and this dedicated repair",
             "  wave;",
             "- this MLP-only wave improves the accepted numeric value on `A40`, but it",
-            "  does not change the global Track 1 cross-family closure counts.",
+            "  does not change the global RCIM Model-Bank Reproduction cross-family closure counts.",
             "",
             "Post-closeout remaining non-green cells in the accepted `MLP` family row:",
             "",
@@ -559,7 +559,7 @@ def patch_master_summary(
     )
 
     track1_status_pattern = re.compile(
-        r"- Recovered first-launch `MLP` artifact status:.*?(?=\n### Track 1\.5 Harmonic-Wise Validation Support)",
+        r"- Recovered first-launch `MLP` artifact status:.*?(?=\n### RCIM Model-Bank Reproduction\.5 Harmonic-Wise Validation Support)",
         re.DOTALL,
     )
     track1_status_replacement = "\n".join(
@@ -598,7 +598,7 @@ def build_results_report_markdown(
 
     return "\n".join(
         [
-            "# Track 1 MLP Family Full-Matrix Repair Campaign Results Report",
+            "# RCIM Model-Bank Reproduction MLP Family Full-Matrix Repair Campaign Results Report",
             "",
             "## Overview",
             "",
@@ -608,7 +608,7 @@ def build_results_report_markdown(
             "- `doc/reports/campaign_plans/track_1/exact_paper/2026-04-21-17-20-12_track1_mlp_family_full_matrix_repair_campaign_plan_report.md`",
             "",
             "The campaign targeted only the `MLP` family-target pairs selected for the",
-            "post-relaunch repair pass across the canonical `Track 1` full-matrix",
+            "post-relaunch repair pass across the canonical `RCIM Model-Bank Reproduction` full-matrix",
             "surfaces.",
             "",
             f"- campaign name: `{CAMPAIGN_NAME}`",
@@ -643,13 +643,13 @@ def build_results_report_markdown(
             f"- `Table 5` remaining non-green harmonics: `{', '.join(str(value) for value in remaining_non_green_dictionary['table5']) or 'none'}`",
             f"- total remaining non-green `MLP` cells on Tables `2-5`: `{total_remaining_non_green_count}`",
             "",
-            "## Canonical Track 1 Impact",
+            "## Canonical RCIM Model-Bank Reproduction Impact",
             "",
             "- This `MLP`-only wave updates the accepted `MLP` family row without",
             "  reopening the already closed cross-family open-cell closeout.",
             "- The benchmark row now keeps the better visible metric cell between the",
             "  accepted baseline and this dedicated repair wave.",
-            "- Global `Track 1` cross-family closure counts remain unchanged at",
+            "- Global `RCIM Model-Bank Reproduction` cross-family closure counts remain unchanged at",
             "  `7/10`, `10/10`, `9/9`, and `9/9` across Tables `2-5`.",
             "",
             "## Resulting Canonical State",

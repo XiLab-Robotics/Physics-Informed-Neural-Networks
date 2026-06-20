@@ -29,7 +29,7 @@ The proposed top-level analysis taxonomy is:
   reports.
 - `wave1/`: Wave 1 closeout, best-model TE curve prediction, and later Wave 1
   comparison or recovery reports.
-- `track2/`: Track 2 directional comparison reports and future Track 2
+- `track2/`: TE Curve Verification Pipeline directional comparison reports and future TE Curve Verification Pipeline
   analytical bundles.
 - `training_analysis/`: cross-family training summaries and general training
   analysis reports, keeping `Training Results Master Summary.md` as the
@@ -48,7 +48,7 @@ The proposed `validation_checks` taxonomy is:
 - `validation_checks/rcim_paper_reimplementation/smoke/[2026-04-25]/`
   for the loose smoke reports.
 - `validation_checks/rcim_paper_reimplementation/track1/original_dataset/[2026-04-25_to_2026-05-16]/`
-  for loose Track 1 original-dataset exact-model-bank validation reports.
+  for loose RCIM Model-Bank Reproduction original-dataset exact-model-bank validation reports.
 - `validation_checks/rcim_paper_reimplementation/track1/remote_diagnostic/[2026-04-25]/`
   for remote diagnostic reports.
 - `validation_checks/rcim_paper_reimplementation/track1/remote_micro/[2026-04-25_to_2026-04-26]/`
@@ -73,7 +73,7 @@ The proposed `validation_checks` taxonomy is:
 1. Move root-level RCIM analysis reports into `rcim_paper_reference/` and keep
    the existing `rcim_retuned_reference_closeout/` bundle under that root.
 2. Move Wave 1 reports and existing Wave 1 dated bundles into `wave1/`.
-3. Move Track 2 directional reports into `track2/`.
+3. Move TE Curve Verification Pipeline directional reports into `track2/`.
 4. Move utility and operational reports into `utilities/`, including Linux
    portability, skill/subagent, local LAN AI, and documentation-platform
    comparison reports.

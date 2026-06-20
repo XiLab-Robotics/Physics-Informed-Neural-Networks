@@ -1,6 +1,6 @@
-# Track 1 MLP Full-Matrix Campaign Package
+# RCIM Model-Bank Reproduction MLP Full-Matrix Campaign Package
 
-This package contains the dedicated `Track 1` exact-paper `MLP` family
+This package contains the dedicated `RCIM Model-Bank Reproduction` exact-paper `MLP` family
 campaign.
 
 Included configs:

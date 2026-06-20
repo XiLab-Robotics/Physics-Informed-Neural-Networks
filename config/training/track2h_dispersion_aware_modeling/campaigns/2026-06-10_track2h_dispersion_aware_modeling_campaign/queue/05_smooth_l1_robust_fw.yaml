@@ -21,7 +21,7 @@ metadata:
   use_forward_direction: true
   use_backward_direction: false
   runtime_input_contract: current point state plus supported short causal sequence history only
-  promotion_rule: Candidate must return through official Track 2 curve-first verification.
+  promotion_rule: Candidate must return through official TE curve-first verification.
   harmonic_basis: sparse_rcim
   harmonic_index_list: &id001
   - 0
@@ -34,7 +34,7 @@ metadata:
   - 156
   - 162
   - 240
-  baseline_control: Track 2G pointwise-control MSE candidates
+  baseline_control: Wave 3.3 pointwise-control MSE candidates
   notes: Smooth L1 / Huber-style pointwise objective with delta 1.0 in normalized target space.
 dataset:
   curve_batch_size: 2

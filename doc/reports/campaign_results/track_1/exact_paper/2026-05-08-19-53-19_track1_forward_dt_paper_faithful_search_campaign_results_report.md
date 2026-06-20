@@ -1,4 +1,4 @@
-# Track 1 Forward DT Paper-Faithful Search Campaign Results
+# RCIM Model-Bank Reproduction Forward DT Paper-Faithful Search Campaign Results
 
 ## Overview
 
@@ -18,7 +18,7 @@
 - remote artifact sync-back completed successfully and materialized the local log, validation bundle, and validation report;
 - the run executed the paper-faithful search path with repository-aligned historical `cross_validate(...)` replay at both wrapper and target levels;
 - the subset closeout materialized campaign-level `campaign_leaderboard.yaml`, `campaign_best_run.yaml`, and `campaign_best_run.md` bookkeeping artifacts;
-- the parent `20`-run paper-faithful Track 1 campaign remains canonically `cancelled` and is not reopened by this subset closeout.
+- the parent `20`-run paper-faithful RCIM Model-Bank Reproduction campaign remains canonically `cancelled` and is not reopened by this subset closeout.
 
 ## Campaign Best Run
 
@@ -88,6 +88,6 @@ Selection rule:
 ## Closeout Notes
 
 - this is a subset closeout for the successful `forward + DT + search` bundle launched through the family-stage exact-paper wrapper;
-- it is not a canonical full closeout of the parent paper-faithful `20`-run Track 1 campaign;
-- no Track 1 benchmark refresh, master-summary refresh, or paper-reference archive refresh is performed here because the parent campaign remains interrupted and incomplete;
+- it is not a canonical full closeout of the parent paper-faithful `20`-run RCIM Model-Bank Reproduction campaign;
+- no RCIM Model-Bank Reproduction benchmark refresh, master-summary refresh, or paper-reference archive refresh is performed here because the parent campaign remains interrupted and incomplete;
 - the subset closeout is intended to preserve auditable evidence for the new launcher, logging, and paper-faithful search protocol on one completed family-direction run.

@@ -1,8 +1,8 @@
-# Track 2D Mean-Offset Full-Matrix Audit
+# CVP 1.4 Mean-Offset Full-Matrix Audit
 
 ## Overview
 
-This report extends the `Track 2` mean-centered collage diagnostic to the full official direction-valid candidate matrix. It computes raw curve error, curve-bias / `DC` offset, centered-shape error, peak-to-peak amplitude error, harmonic amplitude error, and harmonic phase error after every candidate produces predictions through its normal causal input path.
+This report extends the `TE Curve Verification Pipeline` mean-centered collage diagnostic to the full official direction-valid candidate matrix. It computes raw curve error, curve-bias / `DC` offset, centered-shape error, peak-to-peak amplitude error, harmonic amplitude error, and harmonic phase error after every candidate produces predictions through its normal causal input path.
 
 This is an analysis-only diagnostic. It does not train models, alter the
 dataset structure, update registries, or make full-curve mean-centering
@@ -45,7 +45,7 @@ a deployment-time correction.
 | `mixed:offset+phase+regime` | 1 |
 | `offset` | 36 |
 
-## Track 2D Diagnostic Ranking
+## CVP 1.4 Diagnostic Ranking
 
 | Rank | Candidate | Surface | Raw MAE | Centered MAE | Offset | Gain [%] | Label |
 | --- | --- | --- | --- | --- | --- | --- | --- |

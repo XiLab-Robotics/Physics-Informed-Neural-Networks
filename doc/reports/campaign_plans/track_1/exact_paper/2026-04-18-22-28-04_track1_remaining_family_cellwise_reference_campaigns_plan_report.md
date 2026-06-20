@@ -1,8 +1,8 @@
-﻿# Track 1 Remaining Family Cellwise Reference Campaigns Plan Report
+# RCIM Model-Bank Reproduction Remaining Family Cellwise Reference Campaigns Plan Report
 
 ## Overview
 
-This planning report prepares the next `Track 1` exact-paper wave after the
+This planning report prepares the next `RCIM Model-Bank Reproduction` exact-paper wave after the
 completed remaining-family full-matrix batch.
 
 The new goal is more ambitious and more granular than the just-finished
@@ -37,7 +37,7 @@ Prepare a minimum exact-paper campaign surface of `171` target-specific runs:
 - `9` phase targets per family.
 
 This is the smallest campaign wave that fully mirrors the accepted `SVM`
-reference-model strategy across every still-open `Track 1` family.
+reference-model strategy across every still-open `RCIM Model-Bank Reproduction` family.
 
 ## Canonical Cell Inventory
 
@@ -238,7 +238,7 @@ Each successful family closure should also:
 ## Why This Wave Is The Correct Next Step
 
 The completed full-matrix row campaigns improved the benchmark, but they still
-left the project far from `Track 1` closure.
+left the project far from `RCIM Model-Bank Reproduction` closure.
 
 The main reason is structural:
 

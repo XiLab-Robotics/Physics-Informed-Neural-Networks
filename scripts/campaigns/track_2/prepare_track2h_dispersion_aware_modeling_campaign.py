@@ -1,4 +1,4 @@
-"""Prepare the Track 2H dispersion-aware robust-loss campaign package."""
+"""Prepare the Wave 5.2 series dispersion-aware robust-loss campaign package."""
 
 from __future__ import annotations
 
@@ -72,7 +72,7 @@ ROBUST_LOSS_PROFILE_DICTIONARY = {
     "mae_robust": {
         "queue_label": "mae_robust",
         "pointwise_loss": "mae",
-        "notes": "Robust L1 pointwise objective; Track 2G pointwise-control remains the MSE control.",
+        "notes": "Robust L1 pointwise objective; Wave 3.3 pointwise-control remains the MSE control.",
     },
     "smooth_l1_robust": {
         "queue_label": "smooth_l1_robust",
@@ -122,7 +122,7 @@ def validate_no_conflicting_active_campaign() -> None:
     active_campaign_name = str(active_state.get("campaign_name", "")).strip()
     same_campaign_is_prepared = active_status == "prepared" and active_campaign_name == CAMPAIGN_NAME
     assert active_status in ["", "none"] or same_campaign_is_prepared, (
-        "Cannot prepare Track 2H while another campaign is prepared or active | "
+        "Cannot prepare Wave 5.2 series while another campaign is prepared or active | "
         f"status={active_status} | campaign_name={active_campaign_name}"
     )
 
@@ -224,7 +224,7 @@ def build_runtime_config() -> dict[str, Any]:
 
 def build_queue_config(queue_index: int, surface_key: str, loss_profile_name: str) -> dict[str, Any]:
 
-    """Build one Track 2H queue config."""
+    """Build one Wave 5.2 series queue config."""
 
     direction_metadata = DIRECTION_METADATA_DICTIONARY[surface_key]
     direction_token = str(direction_metadata["direction_token"])
@@ -259,10 +259,10 @@ def build_queue_config(queue_index: int, surface_key: str, loss_profile_name: st
             "use_forward_direction": bool(direction_metadata["use_forward_direction"]),
             "use_backward_direction": bool(direction_metadata["use_backward_direction"]),
             "runtime_input_contract": "current point state plus supported short causal sequence history only",
-            "promotion_rule": "Candidate must return through official Track 2 curve-first verification.",
+            "promotion_rule": "Candidate must return through official TE curve-first verification.",
             "harmonic_basis": "sparse_rcim",
             "harmonic_index_list": RCIM_HARMONIC_INDEX_LIST,
-            "baseline_control": "Track 2G pointwise-control MSE candidates",
+            "baseline_control": "Wave 3.3 pointwise-control MSE candidates",
             "notes": robust_loss_profile["notes"],
         },
         "dataset": build_base_dataset_config(),
@@ -274,7 +274,7 @@ def build_queue_config(queue_index: int, surface_key: str, loss_profile_name: st
 
 def write_queue_configs() -> list[Path]:
 
-    """Materialize all Track 2H queue configs."""
+    """Materialize all Wave 5.2 series queue configs."""
 
     queue_path_list: list[Path] = []
     queue_index = 1
@@ -294,13 +294,13 @@ def write_campaign_readme(queue_path_list: list[Path]) -> Path:
 
     readme_path = CAMPAIGN_ROOT / "README.md"
     readme_line_list = [
-        "# Track 2H Dispersion-Aware Modeling Campaign Package",
+        "# Wave 5.2 series Dispersion-Aware Modeling Campaign Package",
         "",
-        "This package materializes the approved first Track 2H robust-loss",
+        "This package materializes the approved first Wave 4.1 robust-loss",
         "probe. It contains 9 runnable queue entries: three robust pointwise",
         "losses across `global`, `Fw`, and `Bw` surfaces.",
         "",
-        "The MSE pointwise-control baseline is the already verified Track 2G",
+        "The MSE pointwise-control baseline is the already verified Wave 3.3",
         "pointwise-control set. Runtime input remains causal point or",
         "short-history sequence input.",
         "",
@@ -355,14 +355,14 @@ def write_active_campaign_state(queue_path_list: list[Path], dataset_variant_pat
             ".\\scripts\\campaigns\\track2\\run_track2h_dispersion_aware_modeling_campaign.ps1",
             ".\\scripts\\campaigns\\track2\\run_track2h_dispersion_aware_modeling_campaign.ps1 -Remote",
         ],
-        "notes": "Prepared Track 2H robust-loss probe package. Training execution requires explicit operator launch approval.",
+        "notes": "Prepared Wave 4.1 robust-loss probe package. Training execution requires explicit operator launch approval.",
     }
     write_yaml_file(PROJECT_PATH / ACTIVE_CAMPAIGN_STATE_PATH, active_state)
 
 
 def main() -> int:
 
-    """Prepare the Track 2H robust-loss campaign package."""
+    """Prepare the Wave 4.1 robust-loss campaign package."""
 
     validate_no_conflicting_active_campaign()
     dataset_variant_path_list = copy_dataset_variants()
@@ -370,7 +370,7 @@ def main() -> int:
     readme_path = write_campaign_readme(queue_path_list)
     write_active_campaign_state(queue_path_list, dataset_variant_path_list, readme_path)
     print(
-        "Prepared Track 2H robust-loss campaign package | "
+        "Prepared Wave 4.1 robust-loss campaign package | "
         f"campaign={CAMPAIGN_NAME} | queue_entries={len(queue_path_list)}"
     )
     return 0

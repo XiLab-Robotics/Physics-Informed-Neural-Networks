@@ -91,7 +91,7 @@ Use this script when:
 
 Prepared campaign note:
 
-- the `Track 1` family-reproduction campaign uses the same script with
+- the `RCIM Model-Bank Reproduction` family-reproduction campaign uses the same script with
   `target_scope.mode = amplitudes_only` or `phases_only` so one completed run
   maps cleanly onto one paper-family row.
 

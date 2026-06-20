@@ -1,8 +1,8 @@
-# Track 2H Dispersion-Aware Modeling Campaign Results
+# Wave 4 series Dispersion-Aware Modeling Campaign Results
 
 ## Overview
 
-This report closes the approved `Track 2H` robust-loss dispersion-aware
+This report closes the approved `Wave 4.1` robust-loss dispersion-aware
 campaign. The campaign tested whether less outlier-sensitive pointwise losses
 help the curve-aware harmonic residual-offset probe handle locally dispersed
 TE data before moving to quantile, probabilistic, mixture, latent-state, or
@@ -16,8 +16,8 @@ The campaign completed all planned entries:
 - `3` required direction surfaces: `global`, `Fw`, and `Bw`.
 
 The runner-level scalar first entry is `te_track2h_smooth_l1_robust_bw`.
-This is not a deployment winner by itself. Track 2H must still pass the
-official curve-first Track 2 verification refresh before promotion decisions.
+This is not a deployment winner by itself. Wave 4 series must still pass the
+official curve-first TE curve verification refresh before promotion decisions.
 
 ## Campaign Artifacts
 
@@ -77,44 +77,44 @@ campaign scalar leader, but it does not replace the `global` or `Fw` branch.
 | `Bw` | `smooth_l1_robust_bw` | 0.003074 | `pointwise_control_bw` | 0.003430 | +10.38% |
 
 Scalar training metrics show a useful but direction-dependent result. Robust
-losses clearly improve the backward scalar branch relative to the Track 2G
+losses clearly improve the backward scalar branch relative to the Wave 3.3
 backward reference and slightly improve the forward scalar branch. The global
-branch does not improve over the Track 2G full-curve-composite reference.
+branch does not improve over the Wave 3.3 full-curve-composite reference.
 
 ## Loss Interpretation
 
 | Loss Profile | Observed Signal | Interpretation |
 | --- | --- | --- |
-| `mae` | Best `global` and best `Fw` Track 2H scalar result. | Absolute-error pressure is useful where local dispersion likely distorts MSE-style training. |
+| `mae` | Best `global` and best `Fw` Wave 4 series scalar result. | Absolute-error pressure is useful where local dispersion likely distorts MSE-style training. |
 | `smooth_l1` | Best `Bw` and campaign scalar leader. | Huber-like behavior is the strongest first signal for the backward dispersion/offset problem. |
 | `log_cosh` | No branch winner and weakest global result. | It is stable but not competitive in this first robust-loss campaign. |
 
-The main modeling result is not that robust losses solve Track 2. The useful
+The main modeling result is not that robust losses solve TE Curve Verification Pipeline. The useful
 result is that robust loss selection matters, especially on the backward
 surface. This supports continuing the dispersion-aware plan before freezing a
 multi-head architecture.
 
 ## Registry Effects
 
-The campaign runner refreshed family registries for all nine Track 2H
+The campaign runner refreshed family registries for all nine Wave 4 series
 families and updated the program registry. The program-level scalar best did
 not move: `te_periodic_gru_sequence_remote_Bw` remains the current scalar
 program winner with test `MAE = 0.002344`.
 
 | Registry Scope | Best Run | Test MAE |
 | --- | --- | ---: |
-| `Track 2H global robust` | `te_track2h_mae_robust_global` | 0.003406 |
-| `Track 2H Fw robust` | `te_track2h_mae_robust_fw` | 0.003146 |
-| `Track 2H Bw robust` | `te_track2h_smooth_l1_robust_bw` | 0.003074 |
+| `Wave 4.1 global robust` | `te_track2h_mae_robust_global` | 0.003406 |
+| `Wave 4.1 Fw robust` | `te_track2h_mae_robust_fw` | 0.003146 |
+| `Wave 4.1 Bw robust` | `te_track2h_smooth_l1_robust_bw` | 0.003074 |
 
-## Track 2 Boundary
+## TE Curve Verification Pipeline Boundary
 
-Official Track 2 curve-first verification was not run as part of this normal
+Official TE curve-first verification was not run as part of this normal
 campaign closeout. Under campaign governance, that remains a separate
 operator-approved workflow after this campaign-results report and PDF are
 complete.
 
-The next Track 2 package should add all nine Track 2H candidates and report
+The next TE Curve Verification Pipeline package should add all nine Wave 4 series candidates and report
 accepted results separately for:
 
 - `global`;
@@ -123,35 +123,35 @@ accepted results separately for:
 
 The verification must compare raw curve error, centered-shape error, offset,
 amplitude, harmonic behavior, collage plots, and overlay plots against Track
-2G, Track 2F-bis, Wave 2B, and the current accepted Track 2 baselines.
+2G, Wave 3.2, Wave 2.2, and the current accepted TE Curve Verification Pipeline baselines.
 
 ## Closeout Decision
 
-Track 2H robust-loss execution is complete: all planned candidates have
+Wave 4.1 robust-loss execution is complete: all planned candidates have
 successful training artifacts, no failed run remains, registries were
 refreshed by the runner, and the active campaign state can be cleared.
 
 From a modeling standpoint:
 
-- carry `mae_robust_global` forward as the strongest Track 2H global scalar
+- carry `mae_robust_global` forward as the strongest Wave 4 series global scalar
   candidate;
-- carry `mae_robust_fw` forward as the strongest Track 2H forward scalar
+- carry `mae_robust_fw` forward as the strongest Wave 4 series forward scalar
   candidate;
-- carry `smooth_l1_robust_bw` forward as the strongest Track 2H backward
+- carry `smooth_l1_robust_bw` forward as the strongest Wave 4 series backward
   scalar candidate;
 - keep `log_cosh` as a completed negative/weak baseline, not the next default
   loss profile;
-- do not promote Track 2H before official Track 2 verification.
+- do not promote Wave 4 series before official TE curve verification.
 
 ## Recommended Follow-Up
 
 1. Accept this closeout and clear the active campaign state.
-2. Prepare a separate operator-launched Track 2 verification refresh for all
-   nine Track 2H candidates.
-3. If the official Track 2 refresh confirms the scalar backward improvement,
+2. Prepare a separate operator-launched TE curve verification refresh for all
+   nine Wave 4 series candidates.
+3. If the official TE Curve Verification refresh confirms the scalar backward improvement,
    make robust losses part of the candidate set for later multi-task /
    multi-head models.
-4. Prepare the next Track 2H package in staged order: quantile/probabilistic
+4. Prepare the next Wave 4 series package in staged order: quantile/probabilistic
    regression, mixture-density heads, then latent-state or hysteresis-aware
    models.
 5. Keep `Fw`, `Bw`, and `global` as parallel branch decisions.

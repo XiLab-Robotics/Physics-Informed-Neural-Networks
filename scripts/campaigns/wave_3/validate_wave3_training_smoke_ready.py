@@ -1,4 +1,4 @@
-"""Validate Wave 3 skeleton readiness for one-batch training-stack execution."""
+"""Validate Wave 5.1 skeleton readiness for one-batch training-stack execution."""
 
 from __future__ import annotations
 
@@ -55,7 +55,7 @@ def resolve_project_path(path_value: Path) -> Path:
 
 def build_training_smoke_ready_config(base_config: dict[str, Any], template_config: dict[str, Any]) -> dict[str, Any]:
 
-    """Build a complete validation-only Wave 3 training config."""
+    """Build a complete validation-only Wave 5.1 training config."""
 
     wave3_model_config = dict(template_config["model"])
     wave3_model_config.pop("model_type", None)
@@ -126,7 +126,7 @@ def parse_arguments() -> argparse.Namespace:
 
 def main() -> int:
 
-    """Run the Wave 3 training-smoke-ready validation."""
+    """Run the Wave 5.1 training-smoke-ready validation."""
 
     argument_namespace = parse_arguments()
     base_config_path = resolve_project_path(argument_namespace.base_config_path)
@@ -145,10 +145,10 @@ def main() -> int:
         output_suffix=argument_namespace.output_suffix,
     )
 
-    print(f"Prepared Wave 3 generated validation config | {generated_config_path}")
-    print(f"Prepared Wave 3 training-smoke-ready summary | {validation_summary_path}")
-    print(f"Prepared Wave 3 training-smoke-ready report | {validation_report_path}")
-    print("Wave 3 skeleton is training-smoke-ready and still not campaign-ready.")
+    print(f"Prepared Wave 5.1 generated validation config | {generated_config_path}")
+    print(f"Prepared Wave 5.1 training-smoke-ready summary | {validation_summary_path}")
+    print(f"Prepared Wave 5.1 training-smoke-ready report | {validation_report_path}")
+    print("Wave 5.1 skeleton is training-smoke-ready and still not campaign-ready.")
     return 0
 
 

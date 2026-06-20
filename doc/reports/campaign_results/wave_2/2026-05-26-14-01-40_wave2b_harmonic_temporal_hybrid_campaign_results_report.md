@@ -1,8 +1,8 @@
-# Wave 2B Harmonic Temporal Hybrid Campaign Results
+# Wave 2.2 Harmonic Temporal Hybrid Campaign Results
 
 ## Overview
 
-This report closes the approved `Wave 2B` harmonic-temporal hybrid campaign.
+This report closes the approved `Wave 2.2` harmonic-temporal hybrid campaign.
 The campaign tested explicit sparse `RCIM` harmonic features inside temporal
 convolution, `GRU`, and `LSTM` sequence regressors.
 
@@ -67,22 +67,22 @@ The winning checkpoint is stored at
 
 ## Technical Interpretation
 
-The strongest Wave 2B result is the backward-only `periodic_gru_sequence`
+The strongest Wave 2.2 result is the backward-only `periodic_gru_sequence`
 surface, with test MAE 0.002344. The two recurrent
 hybrid families dominate the periodic temporal-convolution family in this
 campaign, and the global `periodic_gru_sequence` and `periodic_lstm_sequence`
 results are almost tied on scalar test error.
 
-The campaign is a clear improvement over the first Wave 2 temporal-sequence
+The campaign is a clear improvement over the first Wave 2.1 temporal-sequence
 entry campaign on the same scalar training-registry metric surface. The best
 first-wave temporal entry campaign result was `te_gru_sequence_remote_Fw` at
-test MAE `0.003333`, while Wave 2B reaches `0.002344` on the backward-only
+test MAE `0.003333`, while Wave 2.2 reaches `0.002344` on the backward-only
 periodic `GRU` surface and `0.002681` on the global periodic `GRU` surface.
 
-This closeout does not promote the Wave 2B winner as the official deployed or
-accepted `Track 2` baseline. Campaign metrics are training-registry metrics;
+This closeout does not promote the Wave 2.2 winner as the official deployed or
+accepted `TE Curve Verification Pipeline` baseline. Campaign metrics are training-registry metrics;
 the direction-aware offline curve matrix and visual overlays remain a separate
-approval step. The interrupted `Track 2` attempt produced no valid result
+approval step. The interrupted `TE Curve Verification Pipeline` attempt produced no valid result
 artifact and was removed from the verification surface.
 
 ## Registry Effects
@@ -101,12 +101,12 @@ artifact and was removed from the verification surface.
 
 The program-level training registry now points to
 `te_periodic_gru_sequence_remote_Bw` as the scalar best training result. That registry
-state is not the same thing as official `Track 2` acceptance.
+state is not the same thing as official `TE Curve Verification Pipeline` acceptance.
 
-## Track 2 Boundary
+## TE Curve Verification Pipeline Boundary
 
-`Track 2` was not completed as part of this closeout. Under the updated
-campaign governance rule, a future `Track 2` refresh must be prepared as a
+`TE Curve Verification Pipeline` was not completed as part of this closeout. Under the updated
+campaign governance rule, a future `TE Curve Verification Pipeline` refresh must be prepared as a
 separate operator-launched PowerShell workflow with local and `-Remote`
 execution modes. Codex should provide the launcher and exact command, then
 wait for the operator to run it and report completion.
@@ -121,14 +121,14 @@ From a modeling standpoint, the periodic recurrent sequence families are worth
 keeping as verified training candidates. The backward-only periodic `GRU` is
 the scalar campaign winner, while the global periodic `GRU` and periodic
 `LSTM` are the strongest bidirectional candidates to carry into a future
-optional `Track 2` review.
+optional `TE Curve Verification Pipeline` review.
 
 ## Recommended Follow-Up
 
 1. Review and commit the normal closeout package if the report and PDF are
    accepted.
-2. Prepare the separate operator-run `Track 2` launcher only after explicit
+2. Prepare the separate operator-run `TE Curve Verification Pipeline` launcher only after explicit
    approval.
-3. Use the future `Track 2` matrix and visual reports to decide whether Wave
+3. Use the future `TE Curve Verification Pipeline` matrix and visual reports to decide whether Wave
    2B changes any official baseline, rather than using this campaign
    leaderboard alone.
