@@ -6,8 +6,9 @@ import warnings
 
 
 # Portable Standalone Paths
-INPUT_PATH  = "original_dataset"
-OUTPUT_PATH = "polished_dataset"
+SCRIPT_PATH = Path(__file__).resolve().parent
+INPUT_PATH = SCRIPT_PATH.parent / "original_dataset"
+OUTPUT_PATH = SCRIPT_PATH / "generated_polished_dataset2"
 
 GEAR_RATIO = 81.0
 SAMPLE_TIME_S = 0.25e-3
