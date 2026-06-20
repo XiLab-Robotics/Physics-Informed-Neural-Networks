@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Linux launcher for Track 1 original-dataset exact-model-bank campaigns that
+# Linux launcher for RCIM Model-Bank Reproduction original-dataset campaigns that
 # are defined by doc/running/active_training_campaign.yaml.
 
 set -euo pipefail
@@ -249,4 +249,4 @@ for config_index in "${!QUEUE_CONFIG_PATH_LIST[@]}"; do
     echo "[DONE] Exact-paper config complete | ${config_relative_path}"
 done
 
-echo "[DONE] Track 1 original-dataset active campaign completed"
+echo "[DONE] RCIM Model-Bank Reproduction original-dataset campaign completed"

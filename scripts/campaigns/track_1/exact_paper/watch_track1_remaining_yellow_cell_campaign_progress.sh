@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Monitor Track 1 remaining-yellow-cell campaign progress on a local or Linux
+# Monitor RCIM Model-Bank Reproduction campaign progress on a local or Linux
 # remote repository.
 
 set -euo pipefail
@@ -100,7 +100,7 @@ fi
 echo ""
 printf '=%.0s' {1..96}
 echo ""
-echo "[INFO] Track 1 Remaining Yellow-Cell Campaign Progress Monitor"
+echo "[INFO] RCIM Model-Bank Reproduction Campaign Progress Monitor"
 printf '=%.0s' {1..96}
 echo ""
 echo "[INFO] Mode | $([[ "${DIRECT_ON_REMOTE}" == "1" ]] && echo direct_on_remote || echo ssh_remote)"

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Sync interrupted Track 1 remaining-yellow-cell artifacts from a Linux remote
+# Sync interrupted RCIM Model-Bank Reproduction artifacts from a Linux remote
 # repository back into the local repository.
 
 set -euo pipefail
@@ -118,7 +118,7 @@ REMOTE_CAMPAIGN_ARCHIVE="${REMOTE_TEMP_ROOT}/track1_svm_campaign_output.tar"
 REMOTE_VALIDATION_ARCHIVE="${REMOTE_TEMP_ROOT}/track1_svm_validation_dirs.tar"
 REMOTE_REPORT_ARCHIVE="${REMOTE_TEMP_ROOT}/track1_svm_validation_reports.tar"
 
-echo "[INFO] Track 1 interrupted SVM manual sync starting"
+echo "[INFO] RCIM Model-Bank Reproduction interrupted SVM manual sync starting"
 echo "[INFO] Campaign | ${ACTIVE_CAMPAIGN_NAME}"
 echo "[INFO] Canonical local campaign status | ${ACTIVE_STATUS}"
 echo "[INFO] Remote host alias | ${REMOTE_HOST_ALIAS}"

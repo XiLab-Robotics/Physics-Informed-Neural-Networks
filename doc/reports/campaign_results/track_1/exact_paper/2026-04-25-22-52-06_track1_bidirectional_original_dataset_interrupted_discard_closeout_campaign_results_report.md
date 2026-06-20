@@ -29,8 +29,8 @@ The intended objective of the interrupted campaign was:
 1. rebuild the full bidirectional original-dataset exact-paper family bank from
    zero;
 2. explore `20` attempts per family-direction surface;
-3. promote only accepted post-campaign winners into the canonical Track `1`
-   benchmark and family archives.
+3. promote only accepted post-campaign winners into the canonical RCIM
+   Model-Bank Reproduction benchmark and family archives.
 
 Actual outcome:
 
@@ -103,7 +103,7 @@ campaign for three reasons.
    preceded by a smaller remote gate campaign.
 
 Because of that, the interrupted prefix is useful only as operational evidence,
-not as accepted Track `1` scientific output.
+not as accepted RCIM Model-Bank Reproduction scientific output.
 
 ## Preserved Evidence Roots
 

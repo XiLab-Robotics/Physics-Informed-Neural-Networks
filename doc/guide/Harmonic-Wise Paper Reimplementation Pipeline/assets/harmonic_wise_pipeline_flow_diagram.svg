@@ -68,8 +68,8 @@
 
   <rect x="445" y="700" width="520" height="110" rx="28" fill="#dcebf6" stroke="#87a9c7" stroke-width="3"/>
   <text x="705" y="742" class="boxTitle">Output Role In The Repository</text>
-  <text x="705" y="774" class="boxText">Track 1 = paper-faithful offline reproduction path</text>
-  <text x="705" y="798" class="boxText">Track 2 = separate direct-TE comparison branch</text>
+  <text x="705" y="774" class="boxText">RCIM Model-Bank Reproduction = paper-faithful offline path</text>
+  <text x="705" y="798" class="boxText">TE Curve Verification Pipeline = direct-TE comparison path</text>
 
   <line x1="310" y1="245" x2="362" y2="245" stroke="#54789d" stroke-width="4" marker-end="url(#arrow)"/>
   <line x1="650" y1="245" x2="702" y2="245" stroke="#54789d" stroke-width="4" marker-end="url(#arrow)"/>

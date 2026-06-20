@@ -566,7 +566,7 @@ def update_backward_benchmark_tables(
         "- RCIM Model-Bank Reproduction backward family archives refreshed: `11`",
         "- RCIM Model-Bank Reproduction forward archive root: `models/paper_reference/rcim_track1/forward/`",
         "- RCIM Model-Bank Reproduction backward archive root: `models/paper_reference/rcim_track1/backward/`",
-        "- Track 1 forward closeout report: `doc/reports/campaign_results/track_1/exact_paper/forward/2026-05-15-11-11-35_track1_forward_paper_faithful_grid_search_closeout_report.md`",
+        "- RCIM Model-Bank Reproduction forward closeout report: `doc/reports/campaign_results/track_1/exact_paper/forward/2026-05-15-11-11-35_track1_forward_paper_faithful_grid_search_closeout_report.md`",
         f"- RCIM Model-Bank Reproduction backward closeout report: `{report_relative_path}`",
         f"- RCIM Model-Bank Reproduction backward completion timestamp: `{finished_at}`",
         "- `ELM` is archived as an operational RCIM Model-Bank Reproduction family but remains outside the original paper-family order.",

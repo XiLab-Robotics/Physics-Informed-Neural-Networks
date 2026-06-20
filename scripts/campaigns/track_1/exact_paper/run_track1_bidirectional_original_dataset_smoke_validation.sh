@@ -65,4 +65,4 @@ for config_path in "${CONFIG_PATH_LIST[@]}"; do
     campaign_launcher_run_with_streaming_log "${launcher_arguments[@]}"
 done
 
-echo "[DONE] Track 1 bidirectional original-dataset smoke validation completed"
+echo "[DONE] RCIM Model-Bank Reproduction bidirectional smoke validation completed"

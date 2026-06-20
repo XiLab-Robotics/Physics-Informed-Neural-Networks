@@ -107,4 +107,4 @@ for config_path in "${CAMPAIGN_CONFIG_PATH_LIST[@]}"; do
         -- --linux
 done
 
-echo "[DONE] Track 1 SVM campaign completed successfully"
+echo "[DONE] RCIM Model-Bank Reproduction SVM campaign completed successfully"

@@ -110,8 +110,8 @@ not collapsed into one scalar winner.
 | `global combined` | `track2h_log_cosh_robust_global` | `LogCosh` | 0.003498 | 0.003819 | 7.697 | 14.405 |
 
 Robust losses improve the previous Wave 3.3 branch on the best `Fw` and `Bw`
-surfaces. The strongest `Fw` Wave 4 series candidate improves over the best Track
-2G `Fw` candidate from `0.003174` to `0.003134` MAE. The strongest `Bw`
+surfaces. The strongest `Fw` Wave 4 series candidate improves over the best
+Wave 3.3 `Fw` candidate from `0.003174` to `0.003134` MAE. The strongest `Bw`
 Wave 4 series candidate improves over the best Wave 3.3 `Bw` candidate from
 `0.003436` to `0.003078` MAE. The best Wave 4 series `global` candidate remains
 slightly behind the best Wave 3.3 global candidate.

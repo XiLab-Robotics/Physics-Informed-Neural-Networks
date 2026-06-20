@@ -422,4 +422,4 @@ for CONFIG_RELATIVE_PATH in "${QUEUE_CONFIG_PATH_LIST[@]}"; do
     echo "[DONE] Exact-paper config complete | ${CONFIG_RELATIVE_PATH}"
 done
 
-echo "[DONE] Track 1 bidirectional paper-faithful grid-search campaign completed"
+echo "[DONE] RCIM Model-Bank Reproduction bidirectional grid-search campaign completed"

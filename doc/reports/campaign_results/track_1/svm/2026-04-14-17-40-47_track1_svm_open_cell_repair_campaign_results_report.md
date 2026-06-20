@@ -20,7 +20,8 @@ The campaign goal was narrow and explicit:
 - repair only the currently yellow or red `SVM` paper cells;
 - prioritize the true blockers first: amplitude `156`, phase `240`, then
   `162`, then the residual bridge harmonics;
-- update the canonical `SVM` row in the Track `1` benchmark with the best
+- update the canonical `SVM` row in the RCIM Model-Bank Reproduction benchmark
+  with the best
   post-repair values found across the scoped runs.
 
 ## Objective And Outcome
@@ -159,7 +160,8 @@ After merging the best repaired `SVM` cells into the canonical benchmark:
 - Table `4` full-matrix totals moved from `50 / 38 / 2` to `52 / 37 / 1`
 - Table `5` full-matrix totals moved from `40 / 43 / 7` to `43 / 41 / 6`
 
-On the canonical best-family Track `1` surface, the repair campaign also
+On the canonical RCIM Model-Bank Reproduction best-family surface, the repair
+campaign also
 closed one previously open harmonic target:
 
 - Table `3` harmonic `0` moved from yellow to green

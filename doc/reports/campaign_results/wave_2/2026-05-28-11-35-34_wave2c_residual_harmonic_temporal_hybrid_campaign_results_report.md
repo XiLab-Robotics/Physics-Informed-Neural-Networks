@@ -137,8 +137,9 @@ rule, optional `TE Curve Verification Pipeline` verification remains a separate 
 workflow with a repository-owned launcher that can run locally or with
 `-Remote`.
 
-Because Wave 2.3 does not beat the existing Wave 2.2 scalar best, a full `Track
-2` refresh is not mandatory for accepting this closeout. If reviewed later,
+Because Wave 2.3 does not beat the existing Wave 2.2 scalar best, a full
+`TE Curve Verification` refresh is not mandatory for accepting this closeout.
+If reviewed later,
 the forward-only sparse `RCIM` residual harmonic `GRU` is the only Wave 2.3
 candidate that should be promoted into the optional verification queue first.
 

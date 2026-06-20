@@ -132,9 +132,9 @@ accepted results separately for:
 - `Bw`.
 
 The verification must compare raw curve error, centered-shape error, offset,
-amplitude, harmonic behavior, collage plots, and overlay plots against Track
-2G, Wave 4.1 robust-loss, Wave 3.2, Wave 2.2, and the current accepted Track
-2 baselines.
+amplitude, harmonic behavior, collage plots, and overlay plots against Wave
+3.3, Wave 4.1 robust-loss, Wave 3.2, Wave 2.2, and the current accepted TE
+Curve Verification Pipeline baselines.
 
 ## Closeout Decision
 

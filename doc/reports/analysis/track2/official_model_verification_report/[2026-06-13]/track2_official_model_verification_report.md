@@ -158,6 +158,6 @@ baseline. The current direction-parallel decision remains:
 The next modeling step should not be another MDN-only variant. The evidence
 supports moving to the first real `Wave 5.1` hybrid structured campaign, while
 keeping robust and probabilistic losses as candidate ingredients for later
-multi-task / multi-head integration. A latent-state / hysteresis-aware Track
-2H branch remains justified if the next decision is to pursue experimental
+multi-task / multi-head integration. A Wave 4.4 latent-state /
+hysteresis-aware branch remains justified if the next decision is to pursue
 state compensation before structured harmonic priors.

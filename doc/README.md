@@ -456,6 +456,10 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-06-20
 
+- [technical/2026-06/2026-06-20/2026-06-20-15-46-15_te_naming_audit_and_pdf_regeneration.md](./technical/2026-06/2026-06-20/2026-06-20-15-46-15_te_naming_audit_and_pdf_regeneration.md)
+  Technical plan for auditing the TE terminology migration across repository
+  sources and regenerating maintained report PDFs that retain stale labels.
+
 - [technical/2026-06/2026-06-20/2026-06-20-12-49-43_te_program_naming_taxonomy_migration.md](./technical/2026-06/2026-06-20/2026-06-20-12-49-43_te_program_naming_taxonomy_migration.md)
   Technical plan for separating the RCIM model-bank reproduction, model
   development waves, and TE curve-verification pipeline terminology.

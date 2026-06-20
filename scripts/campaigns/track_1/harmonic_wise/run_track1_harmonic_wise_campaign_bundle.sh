@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Shared Bash launcher for Track 1 harmonic-wise campaign bundles.
+# Shared Bash launcher for RCIM Model-Bank Reproduction harmonic-wise bundles.
 
 set -euo pipefail
 

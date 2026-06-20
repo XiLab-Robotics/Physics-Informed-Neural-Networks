@@ -104,8 +104,8 @@ high-order harmonic bases improve the best new forward-only harmonic result and
 provide a better mechanism for representing fast oscillatory components than a
 smooth MLP-only predictor. However, scalar MAE and RMSE are not enough to prove
 that the predicted transmission-error curves visually recover all harmonic
-detail. The next validation step must be curve-overlay inspection on the Track
-2 plotting workflow.
+detail. The next validation step must be curve-overlay inspection through the
+TE Curve Verification Pipeline.
 
 ## Registry Effects
 
