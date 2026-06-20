@@ -38,8 +38,7 @@ metadata:
   - 162
   - 240
   baseline_control: Completed Wave 4.1 robust-loss candidates
-  notes: Three-quantile pinball objective; p50 is used as the deterministic Track
-    2 playback curve.
+  notes: Three-quantile pinball objective; p50 is used as the deterministic TE Curve Verification Pipeline playback curve.
   output_artifact_kind: training_run
   output_run_name: te_track2h_quantile_p10_p50_p90_fw
   run_instance_id: 2026-06-12-11-34-56__te_track2h_quantile_p10_p50_p90_fw

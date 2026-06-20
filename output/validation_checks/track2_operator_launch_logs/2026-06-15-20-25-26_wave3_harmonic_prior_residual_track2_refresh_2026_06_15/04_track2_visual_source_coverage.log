@@ -1,4 +1,4 @@
-Track 2 visual source coverage passed | registry_source_count=8
+TE Curve Verification Pipeline visual source coverage passed | registry_source_count=8
  - track2f_bis_harmonic_offset_probe_registry: collage=6, overlay_forward=2, overlay_backward=2
  - track2f_offset_aware_probe_registry: collage=3, overlay_forward=1, overlay_backward=1
  - track2g_curve_aware_training_registry: collage=12, overlay_forward=4, overlay_backward=4

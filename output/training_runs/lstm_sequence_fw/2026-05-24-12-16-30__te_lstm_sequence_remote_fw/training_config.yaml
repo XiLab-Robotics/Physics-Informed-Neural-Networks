@@ -11,7 +11,7 @@ metadata:
   phase_name: wave2_temporal_model_entry
   campaign_config_id: lstm_sequence_fw
   notes: Wave 2 temporal model entry campaign | family=lstm_sequence | direction=fw.
-    Candidate must return through official Track 2 verification.
+    Candidate must return through official TE Curve Verification Pipeline verification.
   random_seed: 42
   base_model_family: lstm_sequence
   training_variant: Fw

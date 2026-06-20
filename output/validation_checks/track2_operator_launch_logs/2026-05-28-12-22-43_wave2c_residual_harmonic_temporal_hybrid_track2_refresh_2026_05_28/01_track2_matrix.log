@@ -1,44 +1,44 @@
 W0528 12:22:56.420000 11724 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
-[INFO] Running incremental Track 2 matrix refresh | baseline_candidates=93 | new_candidates=18
-[INFO] Track 2 grouped report plots are limited to current incremental candidates.
-[INFO] Building Track 2 held-out curve records
-[INFO] Built Track 2 held-out curve records | curve_count=194
-[INFO] Loading Track 2 candidate | 1/18 | residual_harmonic_gru_sequence_sparse_rcim_global
-[INFO] Evaluating Track 2 candidate | 1/18 | residual_harmonic_gru_sequence_sparse_rcim_global
-[INFO] Loading Track 2 candidate | 2/18 | residual_harmonic_gru_sequence_sparse_rcim_Fw
-[INFO] Evaluating Track 2 candidate | 2/18 | residual_harmonic_gru_sequence_sparse_rcim_Fw
-[INFO] Loading Track 2 candidate | 3/18 | residual_harmonic_gru_sequence_sparse_rcim_Bw
-[INFO] Evaluating Track 2 candidate | 3/18 | residual_harmonic_gru_sequence_sparse_rcim_Bw
-[INFO] Loading Track 2 candidate | 4/18 | residual_harmonic_gru_sequence_dense240_global
-[INFO] Evaluating Track 2 candidate | 4/18 | residual_harmonic_gru_sequence_dense240_global
-[INFO] Loading Track 2 candidate | 5/18 | residual_harmonic_gru_sequence_dense240_Fw
-[INFO] Evaluating Track 2 candidate | 5/18 | residual_harmonic_gru_sequence_dense240_Fw
-[INFO] Loading Track 2 candidate | 6/18 | residual_harmonic_gru_sequence_dense240_Bw
-[INFO] Evaluating Track 2 candidate | 6/18 | residual_harmonic_gru_sequence_dense240_Bw
-[INFO] Loading Track 2 candidate | 7/18 | residual_harmonic_gru_sequence_dense360_global
-[INFO] Evaluating Track 2 candidate | 7/18 | residual_harmonic_gru_sequence_dense360_global
-[INFO] Loading Track 2 candidate | 8/18 | residual_harmonic_gru_sequence_dense360_Fw
-[INFO] Evaluating Track 2 candidate | 8/18 | residual_harmonic_gru_sequence_dense360_Fw
-[INFO] Loading Track 2 candidate | 9/18 | residual_harmonic_gru_sequence_dense360_Bw
-[INFO] Evaluating Track 2 candidate | 9/18 | residual_harmonic_gru_sequence_dense360_Bw
-[INFO] Loading Track 2 candidate | 10/18 | residual_harmonic_lstm_sequence_sparse_rcim_global
-[INFO] Evaluating Track 2 candidate | 10/18 | residual_harmonic_lstm_sequence_sparse_rcim_global
-[INFO] Loading Track 2 candidate | 11/18 | residual_harmonic_lstm_sequence_sparse_rcim_Fw
-[INFO] Evaluating Track 2 candidate | 11/18 | residual_harmonic_lstm_sequence_sparse_rcim_Fw
-[INFO] Loading Track 2 candidate | 12/18 | residual_harmonic_lstm_sequence_sparse_rcim_Bw
-[INFO] Evaluating Track 2 candidate | 12/18 | residual_harmonic_lstm_sequence_sparse_rcim_Bw
-[INFO] Loading Track 2 candidate | 13/18 | residual_harmonic_lstm_sequence_dense240_global
-[INFO] Evaluating Track 2 candidate | 13/18 | residual_harmonic_lstm_sequence_dense240_global
-[INFO] Loading Track 2 candidate | 14/18 | residual_harmonic_lstm_sequence_dense240_Fw
-[INFO] Evaluating Track 2 candidate | 14/18 | residual_harmonic_lstm_sequence_dense240_Fw
-[INFO] Loading Track 2 candidate | 15/18 | residual_harmonic_lstm_sequence_dense240_Bw
-[INFO] Evaluating Track 2 candidate | 15/18 | residual_harmonic_lstm_sequence_dense240_Bw
-[INFO] Loading Track 2 candidate | 16/18 | residual_harmonic_lstm_sequence_dense360_global
-[INFO] Evaluating Track 2 candidate | 16/18 | residual_harmonic_lstm_sequence_dense360_global
-[INFO] Loading Track 2 candidate | 17/18 | residual_harmonic_lstm_sequence_dense360_Fw
-[INFO] Evaluating Track 2 candidate | 17/18 | residual_harmonic_lstm_sequence_dense360_Fw
-[INFO] Loading Track 2 candidate | 18/18 | residual_harmonic_lstm_sequence_dense360_Bw
-[INFO] Evaluating Track 2 candidate | 18/18 | residual_harmonic_lstm_sequence_dense360_Bw
+[INFO] Running incremental TE Curve Verification Pipeline matrix refresh | baseline_candidates=93 | new_candidates=18
+[INFO] TE Curve Verification Pipeline grouped report plots are limited to current incremental candidates.
+[INFO] Building TE Curve Verification Pipeline held-out curve records
+[INFO] Built TE Curve Verification Pipeline held-out curve records | curve_count=194
+[INFO] Loading TE Curve Verification Pipeline candidate | 1/18 | residual_harmonic_gru_sequence_sparse_rcim_global
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 1/18 | residual_harmonic_gru_sequence_sparse_rcim_global
+[INFO] Loading TE Curve Verification Pipeline candidate | 2/18 | residual_harmonic_gru_sequence_sparse_rcim_Fw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 2/18 | residual_harmonic_gru_sequence_sparse_rcim_Fw
+[INFO] Loading TE Curve Verification Pipeline candidate | 3/18 | residual_harmonic_gru_sequence_sparse_rcim_Bw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 3/18 | residual_harmonic_gru_sequence_sparse_rcim_Bw
+[INFO] Loading TE Curve Verification Pipeline candidate | 4/18 | residual_harmonic_gru_sequence_dense240_global
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 4/18 | residual_harmonic_gru_sequence_dense240_global
+[INFO] Loading TE Curve Verification Pipeline candidate | 5/18 | residual_harmonic_gru_sequence_dense240_Fw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 5/18 | residual_harmonic_gru_sequence_dense240_Fw
+[INFO] Loading TE Curve Verification Pipeline candidate | 6/18 | residual_harmonic_gru_sequence_dense240_Bw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 6/18 | residual_harmonic_gru_sequence_dense240_Bw
+[INFO] Loading TE Curve Verification Pipeline candidate | 7/18 | residual_harmonic_gru_sequence_dense360_global
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 7/18 | residual_harmonic_gru_sequence_dense360_global
+[INFO] Loading TE Curve Verification Pipeline candidate | 8/18 | residual_harmonic_gru_sequence_dense360_Fw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 8/18 | residual_harmonic_gru_sequence_dense360_Fw
+[INFO] Loading TE Curve Verification Pipeline candidate | 9/18 | residual_harmonic_gru_sequence_dense360_Bw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 9/18 | residual_harmonic_gru_sequence_dense360_Bw
+[INFO] Loading TE Curve Verification Pipeline candidate | 10/18 | residual_harmonic_lstm_sequence_sparse_rcim_global
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 10/18 | residual_harmonic_lstm_sequence_sparse_rcim_global
+[INFO] Loading TE Curve Verification Pipeline candidate | 11/18 | residual_harmonic_lstm_sequence_sparse_rcim_Fw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 11/18 | residual_harmonic_lstm_sequence_sparse_rcim_Fw
+[INFO] Loading TE Curve Verification Pipeline candidate | 12/18 | residual_harmonic_lstm_sequence_sparse_rcim_Bw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 12/18 | residual_harmonic_lstm_sequence_sparse_rcim_Bw
+[INFO] Loading TE Curve Verification Pipeline candidate | 13/18 | residual_harmonic_lstm_sequence_dense240_global
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 13/18 | residual_harmonic_lstm_sequence_dense240_global
+[INFO] Loading TE Curve Verification Pipeline candidate | 14/18 | residual_harmonic_lstm_sequence_dense240_Fw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 14/18 | residual_harmonic_lstm_sequence_dense240_Fw
+[INFO] Loading TE Curve Verification Pipeline candidate | 15/18 | residual_harmonic_lstm_sequence_dense240_Bw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 15/18 | residual_harmonic_lstm_sequence_dense240_Bw
+[INFO] Loading TE Curve Verification Pipeline candidate | 16/18 | residual_harmonic_lstm_sequence_dense360_global
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 16/18 | residual_harmonic_lstm_sequence_dense360_global
+[INFO] Loading TE Curve Verification Pipeline candidate | 17/18 | residual_harmonic_lstm_sequence_dense360_Fw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 17/18 | residual_harmonic_lstm_sequence_dense360_Fw
+[INFO] Loading TE Curve Verification Pipeline candidate | 18/18 | residual_harmonic_lstm_sequence_dense360_Bw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 18/18 | residual_harmonic_lstm_sequence_dense360_Bw
 [DONE] Reference family comparison summary written | output\validation_checks\track2_reference_comparison\2026-05-28-12-22-56__track2_full_directional_family_matrix_wave2c_residual_harmonic_temporal_hybrid_track2_refresh_2026_05_28\validation_summary.yaml
 [DONE] Reference family comparison report written | doc\reports\analysis\validation_checks\track2\2026-05-28-12-51-28_track2_full_directional_family_matrix_wave2c_residual_harmonic_temporal_hybrid_track2_refresh_2026_05_28_report.md
-[DONE] Canonical Track 2 report written | doc\reports\analysis\track2\Track 2 Directional Model Comparison.md
+[DONE] Canonical TE Curve Verification Pipeline report written | doc\reports\analysis\track2\Track 2 Directional Model Comparison.md

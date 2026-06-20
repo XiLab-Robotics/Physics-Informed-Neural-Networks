@@ -623,7 +623,7 @@ comparison_summary_list:
     torque_nm: 1800.0
     oil_temperature_deg: 35.0
 - group_id: forward_wave2c
-  group_title: Forward Wave 2C Residual Harmonic Temporal Overlay
+  group_title: Forward Wave 2.3 Residual Harmonic Temporal Overlay
   candidate_id_list:
   - residual_harmonic_gru_sequence_sparse_rcim_Fw
   - residual_harmonic_gru_sequence_dense240_Fw
@@ -741,7 +741,7 @@ comparison_summary_list:
     torque_nm: 1800.0
     oil_temperature_deg: 35.0
 - group_id: backward_wave2c
-  group_title: Backward Wave 2C Residual Harmonic Temporal Overlay
+  group_title: Backward Wave 2.3 Residual Harmonic Temporal Overlay
   candidate_id_list:
   - residual_harmonic_gru_sequence_sparse_rcim_Bw
   - residual_harmonic_gru_sequence_dense240_Bw
@@ -859,7 +859,7 @@ comparison_summary_list:
     torque_nm: 1800.0
     oil_temperature_deg: 35.0
 - group_id: forward_track2f
-  group_title: Forward Track 2F Offset-Aware Probe Overlay
+  group_title: Forward Wave 3.1 Offset-Aware Probe Overlay
   candidate_id_list:
   - sequential_residual_offset_probe_Fw
   direction_scope: forward
@@ -902,7 +902,7 @@ comparison_summary_list:
     torque_nm: 1800.0
     oil_temperature_deg: 35.0
 - group_id: backward_track2f
-  group_title: Backward Track 2F Offset-Aware Probe Overlay
+  group_title: Backward Wave 3.1 Offset-Aware Probe Overlay
   candidate_id_list:
   - sequential_residual_offset_probe_Bw
   direction_scope: backward
@@ -945,7 +945,7 @@ comparison_summary_list:
     torque_nm: 1800.0
     oil_temperature_deg: 35.0
 - group_id: forward_track2f_bis
-  group_title: Forward Track 2F-Bis Harmonic-Offset Probe Overlay
+  group_title: Forward Wave 3.1-Bis Harmonic-Offset Probe Overlay
   candidate_id_list:
   - track2f_bis_clean_sequential_residual_offset_Fw
   - track2f_bis_harmonic_residual_offset_Fw
@@ -1003,7 +1003,7 @@ comparison_summary_list:
     torque_nm: 1800.0
     oil_temperature_deg: 35.0
 - group_id: backward_track2f_bis
-  group_title: Backward Track 2F-Bis Harmonic-Offset Probe Overlay
+  group_title: Backward Wave 3.1-Bis Harmonic-Offset Probe Overlay
   candidate_id_list:
   - track2f_bis_clean_sequential_residual_offset_Bw
   - track2f_bis_harmonic_residual_offset_Bw
@@ -1061,7 +1061,7 @@ comparison_summary_list:
     torque_nm: 1800.0
     oil_temperature_deg: 35.0
 - group_id: forward_track2g
-  group_title: Forward Track 2G Curve-Aware Training Overlay
+  group_title: Forward Wave 3.3 Curve-Aware Training Overlay
   candidate_id_list:
   - track2g_curve_aware_pointwise_control_Fw
   - track2g_curve_aware_raw_centered_shape_Fw
@@ -1149,7 +1149,7 @@ comparison_summary_list:
     torque_nm: 1800.0
     oil_temperature_deg: 35.0
 - group_id: backward_track2g
-  group_title: Backward Track 2G Curve-Aware Training Overlay
+  group_title: Backward Wave 3.3 Curve-Aware Training Overlay
   candidate_id_list:
   - track2g_curve_aware_pointwise_control_Bw
   - track2g_curve_aware_raw_centered_shape_Bw
@@ -1237,7 +1237,7 @@ comparison_summary_list:
     torque_nm: 1800.0
     oil_temperature_deg: 35.0
 - group_id: forward_track2h
-  group_title: Forward Track 2H Robust-Loss Overlay
+  group_title: Forward Wave 4 series Robust-Loss Overlay
   candidate_id_list:
   - track2h_mae_robust_Fw
   - track2h_smooth_l1_robust_Fw
@@ -1310,7 +1310,7 @@ comparison_summary_list:
     torque_nm: 1800.0
     oil_temperature_deg: 35.0
 - group_id: backward_track2h
-  group_title: Backward Track 2H Robust-Loss Overlay
+  group_title: Backward Wave 4 series Robust-Loss Overlay
   candidate_id_list:
   - track2h_mae_robust_Bw
   - track2h_smooth_l1_robust_Bw
@@ -1383,7 +1383,7 @@ comparison_summary_list:
     torque_nm: 1800.0
     oil_temperature_deg: 35.0
 - group_id: forward_track2h_quantile_probabilistic
-  group_title: Forward Track 2H Quantile Probabilistic Overlay
+  group_title: Forward Wave 4 series Quantile Probabilistic Overlay
   candidate_id_list:
   - track2h_quantile_p10_p50_p90_Fw
   - track2h_gaussian_nll_Fw
@@ -1441,7 +1441,7 @@ comparison_summary_list:
     torque_nm: 1800.0
     oil_temperature_deg: 35.0
 - group_id: backward_track2h_quantile_probabilistic
-  group_title: Backward Track 2H Quantile Probabilistic Overlay
+  group_title: Backward Wave 4 series Quantile Probabilistic Overlay
   candidate_id_list:
   - track2h_quantile_p10_p50_p90_Bw
   - track2h_gaussian_nll_Bw
@@ -1499,7 +1499,7 @@ comparison_summary_list:
     torque_nm: 1800.0
     oil_temperature_deg: 35.0
 - group_id: forward_track1_screened_wave1
-  group_title: Forward Track 1 And Screened Wave 1 Overlay
+  group_title: Forward RCIM Model-Bank Reproduction And Screened Wave 1 Overlay
   candidate_id_list:
   - track1_best_Fw
   - tree_fw
@@ -1563,7 +1563,7 @@ comparison_summary_list:
     torque_nm: 1800.0
     oil_temperature_deg: 35.0
 - group_id: backward_track1_screened_wave1
-  group_title: Backward Track 1 And Screened Wave 1 Overlay
+  group_title: Backward RCIM Model-Bank Reproduction And Screened Wave 1 Overlay
   candidate_id_list:
   - track1_best_Bw
   - tree_bw
@@ -1845,7 +1845,7 @@ comparison_summary_list:
     torque_nm: 1800.0
     oil_temperature_deg: 35.0
 - group_id: forward_reference_tree_wave2c
-  group_title: Forward Reference Tree And Wave 2C Overlay
+  group_title: Forward Reference Tree And Wave 2.3 Overlay
   candidate_id_list:
   - paper_retuned_best_Fw
   - track1_best_Fw
@@ -1954,7 +1954,7 @@ comparison_summary_list:
     torque_nm: 1800.0
     oil_temperature_deg: 35.0
 - group_id: backward_reference_tree_wave2c
-  group_title: Backward Reference Tree And Wave 2C Overlay
+  group_title: Backward Reference Tree And Wave 2.3 Overlay
   candidate_id_list:
   - paper_retuned_best_Bw
   - track1_best_Bw
@@ -2063,7 +2063,7 @@ comparison_summary_list:
     torque_nm: 1800.0
     oil_temperature_deg: 35.0
 - group_id: forward_reference_tree_track2f
-  group_title: Forward Reference Tree And Track 2F Overlay
+  group_title: Forward Reference Tree And Wave 3.1 Overlay
   candidate_id_list:
   - paper_retuned_best_Fw
   - track1_best_Fw
@@ -2127,7 +2127,7 @@ comparison_summary_list:
     torque_nm: 1800.0
     oil_temperature_deg: 35.0
 - group_id: backward_reference_tree_track2f
-  group_title: Backward Reference Tree And Track 2F Overlay
+  group_title: Backward Reference Tree And Wave 3.1 Overlay
   candidate_id_list:
   - paper_retuned_best_Bw
   - track1_best_Bw
@@ -2191,7 +2191,7 @@ comparison_summary_list:
     torque_nm: 1800.0
     oil_temperature_deg: 35.0
 - group_id: forward_reference_tree_track2g
-  group_title: Forward Reference Tree And Track 2G Overlay
+  group_title: Forward Reference Tree And Wave 3.3 Overlay
   candidate_id_list:
   - paper_retuned_best_Fw
   - track1_best_Fw
@@ -2282,7 +2282,7 @@ comparison_summary_list:
     torque_nm: 1800.0
     oil_temperature_deg: 35.0
 - group_id: backward_reference_tree_track2g
-  group_title: Backward Reference Tree And Track 2G Overlay
+  group_title: Backward Reference Tree And Wave 3.3 Overlay
   candidate_id_list:
   - paper_retuned_best_Bw
   - track1_best_Bw
@@ -2373,7 +2373,7 @@ comparison_summary_list:
     torque_nm: 1800.0
     oil_temperature_deg: 35.0
 - group_id: forward_reference_tree_track2h
-  group_title: Forward Reference Tree And Track 2H Overlay
+  group_title: Forward Reference Tree And Wave 4 series Overlay
   candidate_id_list:
   - paper_retuned_best_Fw
   - track1_best_Fw
@@ -2455,7 +2455,7 @@ comparison_summary_list:
     torque_nm: 1800.0
     oil_temperature_deg: 35.0
 - group_id: backward_reference_tree_track2h
-  group_title: Backward Reference Tree And Track 2H Overlay
+  group_title: Backward Reference Tree And Wave 4 series Overlay
   candidate_id_list:
   - paper_retuned_best_Bw
   - track1_best_Bw

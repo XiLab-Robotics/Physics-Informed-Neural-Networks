@@ -623,7 +623,7 @@ comparison_summary_list:
     torque_nm: 1800.0
     oil_temperature_deg: 35.0
 - group_id: forward_wave2c
-  group_title: Forward Wave 2C Residual Harmonic Temporal Overlay
+  group_title: Forward Wave 2.3 Residual Harmonic Temporal Overlay
   candidate_id_list:
   - residual_harmonic_gru_sequence_sparse_rcim_Fw
   - residual_harmonic_gru_sequence_dense240_Fw
@@ -741,7 +741,7 @@ comparison_summary_list:
     torque_nm: 1800.0
     oil_temperature_deg: 35.0
 - group_id: backward_wave2c
-  group_title: Backward Wave 2C Residual Harmonic Temporal Overlay
+  group_title: Backward Wave 2.3 Residual Harmonic Temporal Overlay
   candidate_id_list:
   - residual_harmonic_gru_sequence_sparse_rcim_Bw
   - residual_harmonic_gru_sequence_dense240_Bw
@@ -859,7 +859,7 @@ comparison_summary_list:
     torque_nm: 1800.0
     oil_temperature_deg: 35.0
 - group_id: forward_track1_screened_wave1
-  group_title: Forward Track 1 And Screened Wave 1 Overlay
+  group_title: Forward RCIM Model-Bank Reproduction And Screened Wave 1 Overlay
   candidate_id_list:
   - track1_best_Fw
   - tree_fw
@@ -923,7 +923,7 @@ comparison_summary_list:
     torque_nm: 1800.0
     oil_temperature_deg: 35.0
 - group_id: backward_track1_screened_wave1
-  group_title: Backward Track 1 And Screened Wave 1 Overlay
+  group_title: Backward RCIM Model-Bank Reproduction And Screened Wave 1 Overlay
   candidate_id_list:
   - track1_best_Bw
   - tree_bw
@@ -1205,7 +1205,7 @@ comparison_summary_list:
     torque_nm: 1800.0
     oil_temperature_deg: 35.0
 - group_id: forward_reference_tree_wave2c
-  group_title: Forward Reference Tree And Wave 2C Overlay
+  group_title: Forward Reference Tree And Wave 2.3 Overlay
   candidate_id_list:
   - paper_retuned_best_Fw
   - track1_best_Fw
@@ -1314,7 +1314,7 @@ comparison_summary_list:
     torque_nm: 1800.0
     oil_temperature_deg: 35.0
 - group_id: backward_reference_tree_wave2c
-  group_title: Backward Reference Tree And Wave 2C Overlay
+  group_title: Backward Reference Tree And Wave 2.3 Overlay
   candidate_id_list:
   - paper_retuned_best_Bw
   - track1_best_Bw

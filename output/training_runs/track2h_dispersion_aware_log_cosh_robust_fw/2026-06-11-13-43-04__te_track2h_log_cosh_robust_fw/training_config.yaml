@@ -22,7 +22,7 @@ metadata:
   use_backward_direction: false
   runtime_input_contract: current point state plus supported short causal sequence
     history only
-  promotion_rule: Candidate must return through official Track 2 curve-first verification.
+  promotion_rule: Candidate must return through official TE Curve Verification Pipeline curve-first verification.
   harmonic_basis: sparse_rcim
   harmonic_index_list: &id001
   - 0
@@ -35,7 +35,7 @@ metadata:
   - 156
   - 162
   - 240
-  baseline_control: Track 2G pointwise-control MSE candidates
+  baseline_control: Wave 3.3 pointwise-control MSE candidates
   notes: Log-cosh pointwise objective for smooth outlier-resistant deterministic regression.
   output_artifact_kind: training_run
   output_run_name: te_track2h_log_cosh_robust_fw

@@ -45,6 +45,6 @@
 
 This best run is a campaign bookkeeping artifact only.
 
-For `Track 1`, the primary campaign interpretation remains the exact-paper
+For `RCIM Model-Bank Reproduction`, the primary campaign interpretation remains the exact-paper
 cell-closure outcome across Tables `3-6`, not the existence of a single winner
 run.

@@ -42,6 +42,6 @@
 
 This best run is a campaign bookkeeping artifact only.
 
-For `Track 1`, the primary scientific reading is now the family-row matrix
+For `RCIM Model-Bank Reproduction`, the primary scientific reading is now the family-row matrix
 replication across paper Tables `3`, `4`, and `5`, not the existence of
 one global winner run.

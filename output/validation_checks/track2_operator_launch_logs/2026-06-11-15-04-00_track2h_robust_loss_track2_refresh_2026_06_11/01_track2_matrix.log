@@ -1,68 +1,68 @@
 W0611 15:04:04.820000 16200 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
-[INFO] Running incremental Track 2 matrix refresh | baseline_candidates=111 | new_candidates=30
-[INFO] Track 2 grouped report plots are limited to current incremental candidates.
-[INFO] Building Track 2 held-out curve records
-[INFO] Built Track 2 held-out curve records | curve_count=194
-[INFO] Loading Track 2 candidate | 1/30 | sequential_residual_offset_probe_global
-[INFO] Evaluating Track 2 candidate | 1/30 | sequential_residual_offset_probe_global
-[INFO] Loading Track 2 candidate | 2/30 | sequential_residual_offset_probe_Fw
-[INFO] Evaluating Track 2 candidate | 2/30 | sequential_residual_offset_probe_Fw
-[INFO] Loading Track 2 candidate | 3/30 | sequential_residual_offset_probe_Bw
-[INFO] Evaluating Track 2 candidate | 3/30 | sequential_residual_offset_probe_Bw
-[INFO] Loading Track 2 candidate | 4/30 | track2f_bis_clean_sequential_residual_offset_global
-[INFO] Evaluating Track 2 candidate | 4/30 | track2f_bis_clean_sequential_residual_offset_global
-[INFO] Loading Track 2 candidate | 5/30 | track2f_bis_clean_sequential_residual_offset_Fw
-[INFO] Evaluating Track 2 candidate | 5/30 | track2f_bis_clean_sequential_residual_offset_Fw
-[INFO] Loading Track 2 candidate | 6/30 | track2f_bis_clean_sequential_residual_offset_Bw
-[INFO] Evaluating Track 2 candidate | 6/30 | track2f_bis_clean_sequential_residual_offset_Bw
-[INFO] Loading Track 2 candidate | 7/30 | track2f_bis_harmonic_residual_offset_global
-[INFO] Evaluating Track 2 candidate | 7/30 | track2f_bis_harmonic_residual_offset_global
-[INFO] Loading Track 2 candidate | 8/30 | track2f_bis_harmonic_residual_offset_Fw
-[INFO] Evaluating Track 2 candidate | 8/30 | track2f_bis_harmonic_residual_offset_Fw
-[INFO] Loading Track 2 candidate | 9/30 | track2f_bis_harmonic_residual_offset_Bw
-[INFO] Evaluating Track 2 candidate | 9/30 | track2f_bis_harmonic_residual_offset_Bw
-[INFO] Loading Track 2 candidate | 10/30 | track2g_curve_aware_pointwise_control_global
-[INFO] Evaluating Track 2 candidate | 10/30 | track2g_curve_aware_pointwise_control_global
-[INFO] Loading Track 2 candidate | 11/30 | track2g_curve_aware_pointwise_control_Fw
-[INFO] Evaluating Track 2 candidate | 11/30 | track2g_curve_aware_pointwise_control_Fw
-[INFO] Loading Track 2 candidate | 12/30 | track2g_curve_aware_pointwise_control_Bw
-[INFO] Evaluating Track 2 candidate | 12/30 | track2g_curve_aware_pointwise_control_Bw
-[INFO] Loading Track 2 candidate | 13/30 | track2g_curve_aware_raw_centered_shape_global
-[INFO] Evaluating Track 2 candidate | 13/30 | track2g_curve_aware_raw_centered_shape_global
-[INFO] Loading Track 2 candidate | 14/30 | track2g_curve_aware_raw_centered_shape_Fw
-[INFO] Evaluating Track 2 candidate | 14/30 | track2g_curve_aware_raw_centered_shape_Fw
-[INFO] Loading Track 2 candidate | 15/30 | track2g_curve_aware_raw_centered_shape_Bw
-[INFO] Evaluating Track 2 candidate | 15/30 | track2g_curve_aware_raw_centered_shape_Bw
-[INFO] Loading Track 2 candidate | 16/30 | track2g_curve_aware_raw_offset_global
-[INFO] Evaluating Track 2 candidate | 16/30 | track2g_curve_aware_raw_offset_global
-[INFO] Loading Track 2 candidate | 17/30 | track2g_curve_aware_raw_offset_Fw
-[INFO] Evaluating Track 2 candidate | 17/30 | track2g_curve_aware_raw_offset_Fw
-[INFO] Loading Track 2 candidate | 18/30 | track2g_curve_aware_raw_offset_Bw
-[INFO] Evaluating Track 2 candidate | 18/30 | track2g_curve_aware_raw_offset_Bw
-[INFO] Loading Track 2 candidate | 19/30 | track2g_curve_aware_full_curve_composite_global
-[INFO] Evaluating Track 2 candidate | 19/30 | track2g_curve_aware_full_curve_composite_global
-[INFO] Loading Track 2 candidate | 20/30 | track2g_curve_aware_full_curve_composite_Fw
-[INFO] Evaluating Track 2 candidate | 20/30 | track2g_curve_aware_full_curve_composite_Fw
-[INFO] Loading Track 2 candidate | 21/30 | track2g_curve_aware_full_curve_composite_Bw
-[INFO] Evaluating Track 2 candidate | 21/30 | track2g_curve_aware_full_curve_composite_Bw
-[INFO] Loading Track 2 candidate | 22/30 | track2h_mae_robust_global
-[INFO] Evaluating Track 2 candidate | 22/30 | track2h_mae_robust_global
-[INFO] Loading Track 2 candidate | 23/30 | track2h_mae_robust_Fw
-[INFO] Evaluating Track 2 candidate | 23/30 | track2h_mae_robust_Fw
-[INFO] Loading Track 2 candidate | 24/30 | track2h_mae_robust_Bw
-[INFO] Evaluating Track 2 candidate | 24/30 | track2h_mae_robust_Bw
-[INFO] Loading Track 2 candidate | 25/30 | track2h_smooth_l1_robust_global
-[INFO] Evaluating Track 2 candidate | 25/30 | track2h_smooth_l1_robust_global
-[INFO] Loading Track 2 candidate | 26/30 | track2h_smooth_l1_robust_Fw
-[INFO] Evaluating Track 2 candidate | 26/30 | track2h_smooth_l1_robust_Fw
-[INFO] Loading Track 2 candidate | 27/30 | track2h_smooth_l1_robust_Bw
-[INFO] Evaluating Track 2 candidate | 27/30 | track2h_smooth_l1_robust_Bw
-[INFO] Loading Track 2 candidate | 28/30 | track2h_log_cosh_robust_global
-[INFO] Evaluating Track 2 candidate | 28/30 | track2h_log_cosh_robust_global
-[INFO] Loading Track 2 candidate | 29/30 | track2h_log_cosh_robust_Fw
-[INFO] Evaluating Track 2 candidate | 29/30 | track2h_log_cosh_robust_Fw
-[INFO] Loading Track 2 candidate | 30/30 | track2h_log_cosh_robust_Bw
-[INFO] Evaluating Track 2 candidate | 30/30 | track2h_log_cosh_robust_Bw
+[INFO] Running incremental TE Curve Verification Pipeline matrix refresh | baseline_candidates=111 | new_candidates=30
+[INFO] TE Curve Verification Pipeline grouped report plots are limited to current incremental candidates.
+[INFO] Building TE Curve Verification Pipeline held-out curve records
+[INFO] Built TE Curve Verification Pipeline held-out curve records | curve_count=194
+[INFO] Loading TE Curve Verification Pipeline candidate | 1/30 | sequential_residual_offset_probe_global
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 1/30 | sequential_residual_offset_probe_global
+[INFO] Loading TE Curve Verification Pipeline candidate | 2/30 | sequential_residual_offset_probe_Fw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 2/30 | sequential_residual_offset_probe_Fw
+[INFO] Loading TE Curve Verification Pipeline candidate | 3/30 | sequential_residual_offset_probe_Bw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 3/30 | sequential_residual_offset_probe_Bw
+[INFO] Loading TE Curve Verification Pipeline candidate | 4/30 | track2f_bis_clean_sequential_residual_offset_global
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 4/30 | track2f_bis_clean_sequential_residual_offset_global
+[INFO] Loading TE Curve Verification Pipeline candidate | 5/30 | track2f_bis_clean_sequential_residual_offset_Fw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 5/30 | track2f_bis_clean_sequential_residual_offset_Fw
+[INFO] Loading TE Curve Verification Pipeline candidate | 6/30 | track2f_bis_clean_sequential_residual_offset_Bw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 6/30 | track2f_bis_clean_sequential_residual_offset_Bw
+[INFO] Loading TE Curve Verification Pipeline candidate | 7/30 | track2f_bis_harmonic_residual_offset_global
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 7/30 | track2f_bis_harmonic_residual_offset_global
+[INFO] Loading TE Curve Verification Pipeline candidate | 8/30 | track2f_bis_harmonic_residual_offset_Fw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 8/30 | track2f_bis_harmonic_residual_offset_Fw
+[INFO] Loading TE Curve Verification Pipeline candidate | 9/30 | track2f_bis_harmonic_residual_offset_Bw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 9/30 | track2f_bis_harmonic_residual_offset_Bw
+[INFO] Loading TE Curve Verification Pipeline candidate | 10/30 | track2g_curve_aware_pointwise_control_global
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 10/30 | track2g_curve_aware_pointwise_control_global
+[INFO] Loading TE Curve Verification Pipeline candidate | 11/30 | track2g_curve_aware_pointwise_control_Fw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 11/30 | track2g_curve_aware_pointwise_control_Fw
+[INFO] Loading TE Curve Verification Pipeline candidate | 12/30 | track2g_curve_aware_pointwise_control_Bw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 12/30 | track2g_curve_aware_pointwise_control_Bw
+[INFO] Loading TE Curve Verification Pipeline candidate | 13/30 | track2g_curve_aware_raw_centered_shape_global
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 13/30 | track2g_curve_aware_raw_centered_shape_global
+[INFO] Loading TE Curve Verification Pipeline candidate | 14/30 | track2g_curve_aware_raw_centered_shape_Fw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 14/30 | track2g_curve_aware_raw_centered_shape_Fw
+[INFO] Loading TE Curve Verification Pipeline candidate | 15/30 | track2g_curve_aware_raw_centered_shape_Bw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 15/30 | track2g_curve_aware_raw_centered_shape_Bw
+[INFO] Loading TE Curve Verification Pipeline candidate | 16/30 | track2g_curve_aware_raw_offset_global
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 16/30 | track2g_curve_aware_raw_offset_global
+[INFO] Loading TE Curve Verification Pipeline candidate | 17/30 | track2g_curve_aware_raw_offset_Fw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 17/30 | track2g_curve_aware_raw_offset_Fw
+[INFO] Loading TE Curve Verification Pipeline candidate | 18/30 | track2g_curve_aware_raw_offset_Bw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 18/30 | track2g_curve_aware_raw_offset_Bw
+[INFO] Loading TE Curve Verification Pipeline candidate | 19/30 | track2g_curve_aware_full_curve_composite_global
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 19/30 | track2g_curve_aware_full_curve_composite_global
+[INFO] Loading TE Curve Verification Pipeline candidate | 20/30 | track2g_curve_aware_full_curve_composite_Fw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 20/30 | track2g_curve_aware_full_curve_composite_Fw
+[INFO] Loading TE Curve Verification Pipeline candidate | 21/30 | track2g_curve_aware_full_curve_composite_Bw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 21/30 | track2g_curve_aware_full_curve_composite_Bw
+[INFO] Loading TE Curve Verification Pipeline candidate | 22/30 | track2h_mae_robust_global
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 22/30 | track2h_mae_robust_global
+[INFO] Loading TE Curve Verification Pipeline candidate | 23/30 | track2h_mae_robust_Fw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 23/30 | track2h_mae_robust_Fw
+[INFO] Loading TE Curve Verification Pipeline candidate | 24/30 | track2h_mae_robust_Bw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 24/30 | track2h_mae_robust_Bw
+[INFO] Loading TE Curve Verification Pipeline candidate | 25/30 | track2h_smooth_l1_robust_global
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 25/30 | track2h_smooth_l1_robust_global
+[INFO] Loading TE Curve Verification Pipeline candidate | 26/30 | track2h_smooth_l1_robust_Fw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 26/30 | track2h_smooth_l1_robust_Fw
+[INFO] Loading TE Curve Verification Pipeline candidate | 27/30 | track2h_smooth_l1_robust_Bw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 27/30 | track2h_smooth_l1_robust_Bw
+[INFO] Loading TE Curve Verification Pipeline candidate | 28/30 | track2h_log_cosh_robust_global
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 28/30 | track2h_log_cosh_robust_global
+[INFO] Loading TE Curve Verification Pipeline candidate | 29/30 | track2h_log_cosh_robust_Fw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 29/30 | track2h_log_cosh_robust_Fw
+[INFO] Loading TE Curve Verification Pipeline candidate | 30/30 | track2h_log_cosh_robust_Bw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 30/30 | track2h_log_cosh_robust_Bw
 [DONE] Reference family comparison summary written | output\validation_checks\track2_reference_comparison\2026-06-11-15-04-04__track2_full_directional_family_matrix_track2h_robust_loss_track2_refresh_2026_06_11\validation_summary.yaml
 [DONE] Reference family comparison report written | doc\reports\analysis\validation_checks\track2\2026-06-11-15-14-38_track2_full_directional_family_matrix_track2h_robust_loss_track2_refresh_2026_06_11_report.md
-[DONE] Canonical Track 2 report written | doc\reports\analysis\track2\Track 2 Directional Model Comparison.md
+[DONE] Canonical TE Curve Verification Pipeline report written | doc\reports\analysis\track2\Track 2 Directional Model Comparison.md

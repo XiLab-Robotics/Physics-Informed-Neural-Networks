@@ -35,4 +35,4 @@ This file serializes the bookkeeping winner for
 
 ## Interpretation
 
-This winner is the bookkeeping representative for the completed GBM full-matrix exact-paper rerun package. It serializes the stronger of the amplitude and phase reruns under the explicit row-closure policy and does not imply that the family closes Track 1 by itself.
+This winner is the bookkeeping representative for the completed GBM full-matrix exact-paper rerun package. It serializes the stronger of the amplitude and phase reruns under the explicit row-closure policy and does not imply that the family closes RCIM Model-Bank Reproduction by itself.

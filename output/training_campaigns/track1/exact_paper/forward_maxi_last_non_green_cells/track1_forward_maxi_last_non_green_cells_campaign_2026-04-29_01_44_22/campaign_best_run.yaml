@@ -28,6 +28,6 @@ selection_policy:
   seventh_tie_breaker: winning_mean_component_rmse_asc
   eighth_tie_breaker: run_name
   direction: maximize_then_minimize
-  note: This winner is the bookkeeping representative of the completed Track 1 forward
+  note: This winner is the bookkeeping representative of the completed RCIM Model-Bank Reproduction forward
     open-cell repair campaign.
 selected_at: '2026-04-29T11:40:32+02:00'

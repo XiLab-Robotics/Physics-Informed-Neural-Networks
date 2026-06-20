@@ -9,7 +9,7 @@ selection_policy: &id001
   fifth_tie_breaker: max_normalized_gap_ratio_asc
   sixth_tie_breaker: run_name
   direction: maximize_then_minimize
-  note: This winner is the bookkeeping representative of the completed Track 1 exact-paper
+  note: This winner is the bookkeeping representative of the completed RCIM Model-Bank Reproduction exact-paper
     XGBM family campaign after the recovery rerun.
 updated_at: '2026-04-18T16:29:35+02:00'
 entry_count: 2
@@ -106,6 +106,6 @@ entry_list:
     fifth_tie_breaker: max_normalized_gap_ratio_asc
     sixth_tie_breaker: run_name
     direction: maximize_then_minimize
-    note: This winner is the bookkeeping representative of the completed Track 1 exact-paper
+    note: This winner is the bookkeeping representative of the completed RCIM Model-Bank Reproduction exact-paper
       XGBM family campaign after the recovery rerun.
   selected_at: '2026-04-18T16:29:35+02:00'

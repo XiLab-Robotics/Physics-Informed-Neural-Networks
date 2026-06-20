@@ -19,8 +19,8 @@ comparison_scope:
     - backward
   reference_bank_compatibility_policy:
     rcim_track1_Fw_h0_sign_multiplier: -1.0
-    reason: Track 1 forward reference banks store the constant harmonic with the opposite
-      sign convention relative to the Track 2 TE-curve reconstruction contract.
+    reason: RCIM Model-Bank Reproduction forward reference banks store the constant harmonic with the opposite
+      sign convention relative to the TE Curve Verification Pipeline TE-curve reconstruction contract.
 candidate_list:
 - candidate_id: SVM19_Fw
   candidate_family: SVM

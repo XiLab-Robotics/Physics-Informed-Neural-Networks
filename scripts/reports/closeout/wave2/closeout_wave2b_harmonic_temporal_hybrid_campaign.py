@@ -278,8 +278,8 @@ optional `TE Curve Verification Pipeline` review.
    accepted.
 2. Prepare the separate operator-run `TE Curve Verification Pipeline` launcher only after explicit
    approval.
-3. Use the future `TE Curve Verification Pipeline` matrix and visual reports to decide whether Wave
-   2B changes any official baseline, rather than using this campaign
+3. Use the future `TE Curve Verification Pipeline` matrix and visual reports
+   to decide whether Wave 2.2 changes any official baseline, rather than using this campaign
    leaderboard alone.
 """
 

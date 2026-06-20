@@ -1,116 +1,116 @@
 W0618 15:20:21.421000 21104 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
-[INFO] Running incremental Track 2 matrix refresh | baseline_candidates=111 | new_candidates=54
-[INFO] Track 2 grouped report plots are limited to current incremental candidates.
-[INFO] Building Track 2 held-out curve records
-[INFO] Built Track 2 held-out curve records | curve_count=194
-[INFO] Loading Track 2 candidate | 1/54 | sequential_residual_offset_probe_global
-[INFO] Evaluating Track 2 candidate | 1/54 | sequential_residual_offset_probe_global
-[INFO] Loading Track 2 candidate | 2/54 | sequential_residual_offset_probe_Fw
-[INFO] Evaluating Track 2 candidate | 2/54 | sequential_residual_offset_probe_Fw
-[INFO] Loading Track 2 candidate | 3/54 | sequential_residual_offset_probe_Bw
-[INFO] Evaluating Track 2 candidate | 3/54 | sequential_residual_offset_probe_Bw
-[INFO] Loading Track 2 candidate | 4/54 | track2f_bis_clean_sequential_residual_offset_global
-[INFO] Evaluating Track 2 candidate | 4/54 | track2f_bis_clean_sequential_residual_offset_global
-[INFO] Loading Track 2 candidate | 5/54 | track2f_bis_clean_sequential_residual_offset_Fw
-[INFO] Evaluating Track 2 candidate | 5/54 | track2f_bis_clean_sequential_residual_offset_Fw
-[INFO] Loading Track 2 candidate | 6/54 | track2f_bis_clean_sequential_residual_offset_Bw
-[INFO] Evaluating Track 2 candidate | 6/54 | track2f_bis_clean_sequential_residual_offset_Bw
-[INFO] Loading Track 2 candidate | 7/54 | track2f_bis_harmonic_residual_offset_global
-[INFO] Evaluating Track 2 candidate | 7/54 | track2f_bis_harmonic_residual_offset_global
-[INFO] Loading Track 2 candidate | 8/54 | track2f_bis_harmonic_residual_offset_Fw
-[INFO] Evaluating Track 2 candidate | 8/54 | track2f_bis_harmonic_residual_offset_Fw
-[INFO] Loading Track 2 candidate | 9/54 | track2f_bis_harmonic_residual_offset_Bw
-[INFO] Evaluating Track 2 candidate | 9/54 | track2f_bis_harmonic_residual_offset_Bw
-[INFO] Loading Track 2 candidate | 10/54 | track2g_curve_aware_pointwise_control_global
-[INFO] Evaluating Track 2 candidate | 10/54 | track2g_curve_aware_pointwise_control_global
-[INFO] Loading Track 2 candidate | 11/54 | track2g_curve_aware_pointwise_control_Fw
-[INFO] Evaluating Track 2 candidate | 11/54 | track2g_curve_aware_pointwise_control_Fw
-[INFO] Loading Track 2 candidate | 12/54 | track2g_curve_aware_pointwise_control_Bw
-[INFO] Evaluating Track 2 candidate | 12/54 | track2g_curve_aware_pointwise_control_Bw
-[INFO] Loading Track 2 candidate | 13/54 | track2g_curve_aware_raw_centered_shape_global
-[INFO] Evaluating Track 2 candidate | 13/54 | track2g_curve_aware_raw_centered_shape_global
-[INFO] Loading Track 2 candidate | 14/54 | track2g_curve_aware_raw_centered_shape_Fw
-[INFO] Evaluating Track 2 candidate | 14/54 | track2g_curve_aware_raw_centered_shape_Fw
-[INFO] Loading Track 2 candidate | 15/54 | track2g_curve_aware_raw_centered_shape_Bw
-[INFO] Evaluating Track 2 candidate | 15/54 | track2g_curve_aware_raw_centered_shape_Bw
-[INFO] Loading Track 2 candidate | 16/54 | track2g_curve_aware_raw_offset_global
-[INFO] Evaluating Track 2 candidate | 16/54 | track2g_curve_aware_raw_offset_global
-[INFO] Loading Track 2 candidate | 17/54 | track2g_curve_aware_raw_offset_Fw
-[INFO] Evaluating Track 2 candidate | 17/54 | track2g_curve_aware_raw_offset_Fw
-[INFO] Loading Track 2 candidate | 18/54 | track2g_curve_aware_raw_offset_Bw
-[INFO] Evaluating Track 2 candidate | 18/54 | track2g_curve_aware_raw_offset_Bw
-[INFO] Loading Track 2 candidate | 19/54 | track2g_curve_aware_full_curve_composite_global
-[INFO] Evaluating Track 2 candidate | 19/54 | track2g_curve_aware_full_curve_composite_global
-[INFO] Loading Track 2 candidate | 20/54 | track2g_curve_aware_full_curve_composite_Fw
-[INFO] Evaluating Track 2 candidate | 20/54 | track2g_curve_aware_full_curve_composite_Fw
-[INFO] Loading Track 2 candidate | 21/54 | track2g_curve_aware_full_curve_composite_Bw
-[INFO] Evaluating Track 2 candidate | 21/54 | track2g_curve_aware_full_curve_composite_Bw
-[INFO] Loading Track 2 candidate | 22/54 | track2h_mae_robust_global
-[INFO] Evaluating Track 2 candidate | 22/54 | track2h_mae_robust_global
-[INFO] Loading Track 2 candidate | 23/54 | track2h_mae_robust_Fw
-[INFO] Evaluating Track 2 candidate | 23/54 | track2h_mae_robust_Fw
-[INFO] Loading Track 2 candidate | 24/54 | track2h_mae_robust_Bw
-[INFO] Evaluating Track 2 candidate | 24/54 | track2h_mae_robust_Bw
-[INFO] Loading Track 2 candidate | 25/54 | track2h_smooth_l1_robust_global
-[INFO] Evaluating Track 2 candidate | 25/54 | track2h_smooth_l1_robust_global
-[INFO] Loading Track 2 candidate | 26/54 | track2h_smooth_l1_robust_Fw
-[INFO] Evaluating Track 2 candidate | 26/54 | track2h_smooth_l1_robust_Fw
-[INFO] Loading Track 2 candidate | 27/54 | track2h_smooth_l1_robust_Bw
-[INFO] Evaluating Track 2 candidate | 27/54 | track2h_smooth_l1_robust_Bw
-[INFO] Loading Track 2 candidate | 28/54 | track2h_log_cosh_robust_global
-[INFO] Evaluating Track 2 candidate | 28/54 | track2h_log_cosh_robust_global
-[INFO] Loading Track 2 candidate | 29/54 | track2h_log_cosh_robust_Fw
-[INFO] Evaluating Track 2 candidate | 29/54 | track2h_log_cosh_robust_Fw
-[INFO] Loading Track 2 candidate | 30/54 | track2h_log_cosh_robust_Bw
-[INFO] Evaluating Track 2 candidate | 30/54 | track2h_log_cosh_robust_Bw
-[INFO] Loading Track 2 candidate | 31/54 | track2h_quantile_p10_p50_p90_global
-[INFO] Evaluating Track 2 candidate | 31/54 | track2h_quantile_p10_p50_p90_global
-[INFO] Loading Track 2 candidate | 32/54 | track2h_quantile_p10_p50_p90_Fw
-[INFO] Evaluating Track 2 candidate | 32/54 | track2h_quantile_p10_p50_p90_Fw
-[INFO] Loading Track 2 candidate | 33/54 | track2h_quantile_p10_p50_p90_Bw
-[INFO] Evaluating Track 2 candidate | 33/54 | track2h_quantile_p10_p50_p90_Bw
-[INFO] Loading Track 2 candidate | 34/54 | track2h_gaussian_nll_global
-[INFO] Evaluating Track 2 candidate | 34/54 | track2h_gaussian_nll_global
-[INFO] Loading Track 2 candidate | 35/54 | track2h_gaussian_nll_Fw
-[INFO] Evaluating Track 2 candidate | 35/54 | track2h_gaussian_nll_Fw
-[INFO] Loading Track 2 candidate | 36/54 | track2h_gaussian_nll_Bw
-[INFO] Evaluating Track 2 candidate | 36/54 | track2h_gaussian_nll_Bw
-[INFO] Loading Track 2 candidate | 37/54 | track2h_mdn_k2_global
-[INFO] Evaluating Track 2 candidate | 37/54 | track2h_mdn_k2_global
-[INFO] Loading Track 2 candidate | 38/54 | track2h_mdn_k2_Fw
-[INFO] Evaluating Track 2 candidate | 38/54 | track2h_mdn_k2_Fw
-[INFO] Loading Track 2 candidate | 39/54 | track2h_mdn_k2_Bw
-[INFO] Evaluating Track 2 candidate | 39/54 | track2h_mdn_k2_Bw
-[INFO] Loading Track 2 candidate | 40/54 | track2h_mdn_k3_global
-[INFO] Evaluating Track 2 candidate | 40/54 | track2h_mdn_k3_global
-[INFO] Loading Track 2 candidate | 41/54 | track2h_mdn_k3_Fw
-[INFO] Evaluating Track 2 candidate | 41/54 | track2h_mdn_k3_Fw
-[INFO] Loading Track 2 candidate | 42/54 | track2h_mdn_k3_Bw
-[INFO] Evaluating Track 2 candidate | 42/54 | track2h_mdn_k3_Bw
-[INFO] Loading Track 2 candidate | 43/54 | track2h_l_gru_offset_residual_global
-[INFO] Evaluating Track 2 candidate | 43/54 | track2h_l_gru_offset_residual_global
-[INFO] Loading Track 2 candidate | 44/54 | track2h_l_gru_offset_residual_Fw
-[INFO] Evaluating Track 2 candidate | 44/54 | track2h_l_gru_offset_residual_Fw
-[INFO] Loading Track 2 candidate | 45/54 | track2h_l_gru_offset_residual_Bw
-[INFO] Evaluating Track 2 candidate | 45/54 | track2h_l_gru_offset_residual_Bw
-[INFO] Loading Track 2 candidate | 46/54 | track2h_l_causal_tcn_offset_residual_global
-[INFO] Evaluating Track 2 candidate | 46/54 | track2h_l_causal_tcn_offset_residual_global
-[INFO] Loading Track 2 candidate | 47/54 | track2h_l_causal_tcn_offset_residual_Fw
-[INFO] Evaluating Track 2 candidate | 47/54 | track2h_l_causal_tcn_offset_residual_Fw
-[INFO] Loading Track 2 candidate | 48/54 | track2h_l_causal_tcn_offset_residual_Bw
-[INFO] Evaluating Track 2 candidate | 48/54 | track2h_l_causal_tcn_offset_residual_Bw
-[INFO] Loading Track 2 candidate | 49/54 | wave3_harmonic_prior_residual_pointwise_control_global
-[INFO] Evaluating Track 2 candidate | 49/54 | wave3_harmonic_prior_residual_pointwise_control_global
-[INFO] Loading Track 2 candidate | 50/54 | wave3_harmonic_prior_residual_pointwise_control_Fw
-[INFO] Evaluating Track 2 candidate | 50/54 | wave3_harmonic_prior_residual_pointwise_control_Fw
-[INFO] Loading Track 2 candidate | 51/54 | wave3_harmonic_prior_residual_pointwise_control_Bw
-[INFO] Evaluating Track 2 candidate | 51/54 | wave3_harmonic_prior_residual_pointwise_control_Bw
-[INFO] Loading Track 2 candidate | 52/54 | wave3_harmonic_prior_residual_smooth_l1_structured_global
-[INFO] Evaluating Track 2 candidate | 52/54 | wave3_harmonic_prior_residual_smooth_l1_structured_global
-[INFO] Loading Track 2 candidate | 53/54 | wave3_harmonic_prior_residual_smooth_l1_structured_Fw
-[INFO] Evaluating Track 2 candidate | 53/54 | wave3_harmonic_prior_residual_smooth_l1_structured_Fw
-[INFO] Loading Track 2 candidate | 54/54 | wave3_harmonic_prior_residual_smooth_l1_structured_Bw
-[INFO] Evaluating Track 2 candidate | 54/54 | wave3_harmonic_prior_residual_smooth_l1_structured_Bw
+[INFO] Running incremental TE Curve Verification Pipeline matrix refresh | baseline_candidates=111 | new_candidates=54
+[INFO] TE Curve Verification Pipeline grouped report plots are limited to current incremental candidates.
+[INFO] Building TE Curve Verification Pipeline held-out curve records
+[INFO] Built TE Curve Verification Pipeline held-out curve records | curve_count=194
+[INFO] Loading TE Curve Verification Pipeline candidate | 1/54 | sequential_residual_offset_probe_global
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 1/54 | sequential_residual_offset_probe_global
+[INFO] Loading TE Curve Verification Pipeline candidate | 2/54 | sequential_residual_offset_probe_Fw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 2/54 | sequential_residual_offset_probe_Fw
+[INFO] Loading TE Curve Verification Pipeline candidate | 3/54 | sequential_residual_offset_probe_Bw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 3/54 | sequential_residual_offset_probe_Bw
+[INFO] Loading TE Curve Verification Pipeline candidate | 4/54 | track2f_bis_clean_sequential_residual_offset_global
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 4/54 | track2f_bis_clean_sequential_residual_offset_global
+[INFO] Loading TE Curve Verification Pipeline candidate | 5/54 | track2f_bis_clean_sequential_residual_offset_Fw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 5/54 | track2f_bis_clean_sequential_residual_offset_Fw
+[INFO] Loading TE Curve Verification Pipeline candidate | 6/54 | track2f_bis_clean_sequential_residual_offset_Bw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 6/54 | track2f_bis_clean_sequential_residual_offset_Bw
+[INFO] Loading TE Curve Verification Pipeline candidate | 7/54 | track2f_bis_harmonic_residual_offset_global
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 7/54 | track2f_bis_harmonic_residual_offset_global
+[INFO] Loading TE Curve Verification Pipeline candidate | 8/54 | track2f_bis_harmonic_residual_offset_Fw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 8/54 | track2f_bis_harmonic_residual_offset_Fw
+[INFO] Loading TE Curve Verification Pipeline candidate | 9/54 | track2f_bis_harmonic_residual_offset_Bw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 9/54 | track2f_bis_harmonic_residual_offset_Bw
+[INFO] Loading TE Curve Verification Pipeline candidate | 10/54 | track2g_curve_aware_pointwise_control_global
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 10/54 | track2g_curve_aware_pointwise_control_global
+[INFO] Loading TE Curve Verification Pipeline candidate | 11/54 | track2g_curve_aware_pointwise_control_Fw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 11/54 | track2g_curve_aware_pointwise_control_Fw
+[INFO] Loading TE Curve Verification Pipeline candidate | 12/54 | track2g_curve_aware_pointwise_control_Bw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 12/54 | track2g_curve_aware_pointwise_control_Bw
+[INFO] Loading TE Curve Verification Pipeline candidate | 13/54 | track2g_curve_aware_raw_centered_shape_global
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 13/54 | track2g_curve_aware_raw_centered_shape_global
+[INFO] Loading TE Curve Verification Pipeline candidate | 14/54 | track2g_curve_aware_raw_centered_shape_Fw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 14/54 | track2g_curve_aware_raw_centered_shape_Fw
+[INFO] Loading TE Curve Verification Pipeline candidate | 15/54 | track2g_curve_aware_raw_centered_shape_Bw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 15/54 | track2g_curve_aware_raw_centered_shape_Bw
+[INFO] Loading TE Curve Verification Pipeline candidate | 16/54 | track2g_curve_aware_raw_offset_global
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 16/54 | track2g_curve_aware_raw_offset_global
+[INFO] Loading TE Curve Verification Pipeline candidate | 17/54 | track2g_curve_aware_raw_offset_Fw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 17/54 | track2g_curve_aware_raw_offset_Fw
+[INFO] Loading TE Curve Verification Pipeline candidate | 18/54 | track2g_curve_aware_raw_offset_Bw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 18/54 | track2g_curve_aware_raw_offset_Bw
+[INFO] Loading TE Curve Verification Pipeline candidate | 19/54 | track2g_curve_aware_full_curve_composite_global
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 19/54 | track2g_curve_aware_full_curve_composite_global
+[INFO] Loading TE Curve Verification Pipeline candidate | 20/54 | track2g_curve_aware_full_curve_composite_Fw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 20/54 | track2g_curve_aware_full_curve_composite_Fw
+[INFO] Loading TE Curve Verification Pipeline candidate | 21/54 | track2g_curve_aware_full_curve_composite_Bw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 21/54 | track2g_curve_aware_full_curve_composite_Bw
+[INFO] Loading TE Curve Verification Pipeline candidate | 22/54 | track2h_mae_robust_global
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 22/54 | track2h_mae_robust_global
+[INFO] Loading TE Curve Verification Pipeline candidate | 23/54 | track2h_mae_robust_Fw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 23/54 | track2h_mae_robust_Fw
+[INFO] Loading TE Curve Verification Pipeline candidate | 24/54 | track2h_mae_robust_Bw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 24/54 | track2h_mae_robust_Bw
+[INFO] Loading TE Curve Verification Pipeline candidate | 25/54 | track2h_smooth_l1_robust_global
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 25/54 | track2h_smooth_l1_robust_global
+[INFO] Loading TE Curve Verification Pipeline candidate | 26/54 | track2h_smooth_l1_robust_Fw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 26/54 | track2h_smooth_l1_robust_Fw
+[INFO] Loading TE Curve Verification Pipeline candidate | 27/54 | track2h_smooth_l1_robust_Bw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 27/54 | track2h_smooth_l1_robust_Bw
+[INFO] Loading TE Curve Verification Pipeline candidate | 28/54 | track2h_log_cosh_robust_global
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 28/54 | track2h_log_cosh_robust_global
+[INFO] Loading TE Curve Verification Pipeline candidate | 29/54 | track2h_log_cosh_robust_Fw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 29/54 | track2h_log_cosh_robust_Fw
+[INFO] Loading TE Curve Verification Pipeline candidate | 30/54 | track2h_log_cosh_robust_Bw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 30/54 | track2h_log_cosh_robust_Bw
+[INFO] Loading TE Curve Verification Pipeline candidate | 31/54 | track2h_quantile_p10_p50_p90_global
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 31/54 | track2h_quantile_p10_p50_p90_global
+[INFO] Loading TE Curve Verification Pipeline candidate | 32/54 | track2h_quantile_p10_p50_p90_Fw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 32/54 | track2h_quantile_p10_p50_p90_Fw
+[INFO] Loading TE Curve Verification Pipeline candidate | 33/54 | track2h_quantile_p10_p50_p90_Bw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 33/54 | track2h_quantile_p10_p50_p90_Bw
+[INFO] Loading TE Curve Verification Pipeline candidate | 34/54 | track2h_gaussian_nll_global
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 34/54 | track2h_gaussian_nll_global
+[INFO] Loading TE Curve Verification Pipeline candidate | 35/54 | track2h_gaussian_nll_Fw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 35/54 | track2h_gaussian_nll_Fw
+[INFO] Loading TE Curve Verification Pipeline candidate | 36/54 | track2h_gaussian_nll_Bw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 36/54 | track2h_gaussian_nll_Bw
+[INFO] Loading TE Curve Verification Pipeline candidate | 37/54 | track2h_mdn_k2_global
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 37/54 | track2h_mdn_k2_global
+[INFO] Loading TE Curve Verification Pipeline candidate | 38/54 | track2h_mdn_k2_Fw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 38/54 | track2h_mdn_k2_Fw
+[INFO] Loading TE Curve Verification Pipeline candidate | 39/54 | track2h_mdn_k2_Bw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 39/54 | track2h_mdn_k2_Bw
+[INFO] Loading TE Curve Verification Pipeline candidate | 40/54 | track2h_mdn_k3_global
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 40/54 | track2h_mdn_k3_global
+[INFO] Loading TE Curve Verification Pipeline candidate | 41/54 | track2h_mdn_k3_Fw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 41/54 | track2h_mdn_k3_Fw
+[INFO] Loading TE Curve Verification Pipeline candidate | 42/54 | track2h_mdn_k3_Bw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 42/54 | track2h_mdn_k3_Bw
+[INFO] Loading TE Curve Verification Pipeline candidate | 43/54 | track2h_l_gru_offset_residual_global
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 43/54 | track2h_l_gru_offset_residual_global
+[INFO] Loading TE Curve Verification Pipeline candidate | 44/54 | track2h_l_gru_offset_residual_Fw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 44/54 | track2h_l_gru_offset_residual_Fw
+[INFO] Loading TE Curve Verification Pipeline candidate | 45/54 | track2h_l_gru_offset_residual_Bw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 45/54 | track2h_l_gru_offset_residual_Bw
+[INFO] Loading TE Curve Verification Pipeline candidate | 46/54 | track2h_l_causal_tcn_offset_residual_global
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 46/54 | track2h_l_causal_tcn_offset_residual_global
+[INFO] Loading TE Curve Verification Pipeline candidate | 47/54 | track2h_l_causal_tcn_offset_residual_Fw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 47/54 | track2h_l_causal_tcn_offset_residual_Fw
+[INFO] Loading TE Curve Verification Pipeline candidate | 48/54 | track2h_l_causal_tcn_offset_residual_Bw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 48/54 | track2h_l_causal_tcn_offset_residual_Bw
+[INFO] Loading TE Curve Verification Pipeline candidate | 49/54 | wave3_harmonic_prior_residual_pointwise_control_global
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 49/54 | wave3_harmonic_prior_residual_pointwise_control_global
+[INFO] Loading TE Curve Verification Pipeline candidate | 50/54 | wave3_harmonic_prior_residual_pointwise_control_Fw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 50/54 | wave3_harmonic_prior_residual_pointwise_control_Fw
+[INFO] Loading TE Curve Verification Pipeline candidate | 51/54 | wave3_harmonic_prior_residual_pointwise_control_Bw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 51/54 | wave3_harmonic_prior_residual_pointwise_control_Bw
+[INFO] Loading TE Curve Verification Pipeline candidate | 52/54 | wave3_harmonic_prior_residual_smooth_l1_structured_global
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 52/54 | wave3_harmonic_prior_residual_smooth_l1_structured_global
+[INFO] Loading TE Curve Verification Pipeline candidate | 53/54 | wave3_harmonic_prior_residual_smooth_l1_structured_Fw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 53/54 | wave3_harmonic_prior_residual_smooth_l1_structured_Fw
+[INFO] Loading TE Curve Verification Pipeline candidate | 54/54 | wave3_harmonic_prior_residual_smooth_l1_structured_Bw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 54/54 | wave3_harmonic_prior_residual_smooth_l1_structured_Bw
 [DONE] Reference family comparison summary written | output\validation_checks\track2_reference_comparison\2026-06-18-15-20-21__track2_full_directional_family_matrix_track2h_latent_state_hysteresis_track2_refresh_2026_06_18\validation_summary.yaml
 [DONE] Reference family comparison report written | doc\reports\analysis\validation_checks\track2\2026-06-18-15-45-36_track2_full_directional_family_matrix_track2h_latent_state_hysteresis_track2_refresh_2026_06_18_report.md
-[DONE] Canonical Track 2 report written | doc\reports\analysis\track2\Track 2 Directional Model Comparison.md
+[DONE] Canonical TE Curve Verification Pipeline report written | doc\reports\analysis\track2\Track 2 Directional Model Comparison.md

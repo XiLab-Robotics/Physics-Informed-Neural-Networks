@@ -242,8 +242,8 @@ drop-in replacement for the earlier tuned compact periodic MLP surfaces.
 
 The dense `0..240` forward model is also much larger than the compact Optuna
 periodic MLP baseline. It should therefore be treated as a stronger
-curve-fidelity candidate, not as an automatic deployment promotion. The Track
-2 curve-overlay workflow is still required to decide whether the extra
+curve-fidelity candidate, not as an automatic deployment promotion. The TE
+Curve Verification Pipeline is still required to decide whether the extra
 harmonic inputs recover visible TE oscillations or only improve scalar error
 locally.
 

@@ -12,7 +12,7 @@ selection_policy: &id001
   note: This winner is the bookkeeping representative for the completed MLP full-matrix
     exact-paper rerun package. It serializes the stronger of the amplitude and phase
     reruns under the explicit row-closure policy and does not imply that the family
-    closes Track 1 by itself.
+    closes RCIM Model-Bank Reproduction by itself.
 updated_at: '2026-04-18T11:14:50+02:00'
 entry_count: 2
 entry_list:

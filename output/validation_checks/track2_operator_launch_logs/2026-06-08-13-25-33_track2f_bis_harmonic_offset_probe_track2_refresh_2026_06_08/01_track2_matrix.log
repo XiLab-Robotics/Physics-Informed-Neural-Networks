@@ -1,26 +1,26 @@
 W0608 13:25:37.557000 36600 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
-[INFO] Running incremental Track 2 matrix refresh | baseline_candidates=111 | new_candidates=9
-[INFO] Track 2 grouped report plots are limited to current incremental candidates.
-[INFO] Building Track 2 held-out curve records
-[INFO] Built Track 2 held-out curve records | curve_count=194
-[INFO] Loading Track 2 candidate | 1/9 | sequential_residual_offset_probe_global
-[INFO] Evaluating Track 2 candidate | 1/9 | sequential_residual_offset_probe_global
-[INFO] Loading Track 2 candidate | 2/9 | sequential_residual_offset_probe_Fw
-[INFO] Evaluating Track 2 candidate | 2/9 | sequential_residual_offset_probe_Fw
-[INFO] Loading Track 2 candidate | 3/9 | sequential_residual_offset_probe_Bw
-[INFO] Evaluating Track 2 candidate | 3/9 | sequential_residual_offset_probe_Bw
-[INFO] Loading Track 2 candidate | 4/9 | track2f_bis_clean_sequential_residual_offset_global
-[INFO] Evaluating Track 2 candidate | 4/9 | track2f_bis_clean_sequential_residual_offset_global
-[INFO] Loading Track 2 candidate | 5/9 | track2f_bis_clean_sequential_residual_offset_Fw
-[INFO] Evaluating Track 2 candidate | 5/9 | track2f_bis_clean_sequential_residual_offset_Fw
-[INFO] Loading Track 2 candidate | 6/9 | track2f_bis_clean_sequential_residual_offset_Bw
-[INFO] Evaluating Track 2 candidate | 6/9 | track2f_bis_clean_sequential_residual_offset_Bw
-[INFO] Loading Track 2 candidate | 7/9 | track2f_bis_harmonic_residual_offset_global
-[INFO] Evaluating Track 2 candidate | 7/9 | track2f_bis_harmonic_residual_offset_global
-[INFO] Loading Track 2 candidate | 8/9 | track2f_bis_harmonic_residual_offset_Fw
-[INFO] Evaluating Track 2 candidate | 8/9 | track2f_bis_harmonic_residual_offset_Fw
-[INFO] Loading Track 2 candidate | 9/9 | track2f_bis_harmonic_residual_offset_Bw
-[INFO] Evaluating Track 2 candidate | 9/9 | track2f_bis_harmonic_residual_offset_Bw
+[INFO] Running incremental TE Curve Verification Pipeline matrix refresh | baseline_candidates=111 | new_candidates=9
+[INFO] TE Curve Verification Pipeline grouped report plots are limited to current incremental candidates.
+[INFO] Building TE Curve Verification Pipeline held-out curve records
+[INFO] Built TE Curve Verification Pipeline held-out curve records | curve_count=194
+[INFO] Loading TE Curve Verification Pipeline candidate | 1/9 | sequential_residual_offset_probe_global
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 1/9 | sequential_residual_offset_probe_global
+[INFO] Loading TE Curve Verification Pipeline candidate | 2/9 | sequential_residual_offset_probe_Fw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 2/9 | sequential_residual_offset_probe_Fw
+[INFO] Loading TE Curve Verification Pipeline candidate | 3/9 | sequential_residual_offset_probe_Bw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 3/9 | sequential_residual_offset_probe_Bw
+[INFO] Loading TE Curve Verification Pipeline candidate | 4/9 | track2f_bis_clean_sequential_residual_offset_global
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 4/9 | track2f_bis_clean_sequential_residual_offset_global
+[INFO] Loading TE Curve Verification Pipeline candidate | 5/9 | track2f_bis_clean_sequential_residual_offset_Fw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 5/9 | track2f_bis_clean_sequential_residual_offset_Fw
+[INFO] Loading TE Curve Verification Pipeline candidate | 6/9 | track2f_bis_clean_sequential_residual_offset_Bw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 6/9 | track2f_bis_clean_sequential_residual_offset_Bw
+[INFO] Loading TE Curve Verification Pipeline candidate | 7/9 | track2f_bis_harmonic_residual_offset_global
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 7/9 | track2f_bis_harmonic_residual_offset_global
+[INFO] Loading TE Curve Verification Pipeline candidate | 8/9 | track2f_bis_harmonic_residual_offset_Fw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 8/9 | track2f_bis_harmonic_residual_offset_Fw
+[INFO] Loading TE Curve Verification Pipeline candidate | 9/9 | track2f_bis_harmonic_residual_offset_Bw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 9/9 | track2f_bis_harmonic_residual_offset_Bw
 [DONE] Reference family comparison summary written | output\validation_checks\track2_reference_comparison\2026-06-08-13-25-37__track2_full_directional_family_matrix_track2f_bis_harmonic_offset_probe_track2_refresh_2026_06_08\validation_summary.yaml
 [DONE] Reference family comparison report written | doc\reports\analysis\validation_checks\track2\2026-06-08-13-28-44_track2_full_directional_family_matrix_track2f_bis_harmonic_offset_probe_track2_refresh_2026_06_08_report.md
-[DONE] Canonical Track 2 report written | doc\reports\analysis\track2\Track 2 Directional Model Comparison.md
+[DONE] Canonical TE Curve Verification Pipeline report written | doc\reports\analysis\track2\Track 2 Directional Model Comparison.md

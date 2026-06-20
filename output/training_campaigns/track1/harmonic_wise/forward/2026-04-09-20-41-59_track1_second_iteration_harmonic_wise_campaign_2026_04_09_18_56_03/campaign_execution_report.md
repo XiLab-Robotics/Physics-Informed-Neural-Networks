@@ -20,7 +20,7 @@
 
 ## Notes
 
-- This campaign executed the second paper-faithful `Track 1` iteration for the
+- This campaign executed the second paper-faithful `RCIM Model-Bank Reproduction` iteration for the
   RCIM harmonic-wise reimplementation branch.
 - All run-level validation artifacts were written under
   `output/validation_checks/paper_reimplementation_rcim_harmonic_wise/forward/`.

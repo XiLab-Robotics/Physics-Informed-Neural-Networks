@@ -1,4 +1,4 @@
-﻿paths:
+paths:
   dataset_config_path: config/training/track2f_bis_harmonic_offset_probe/campaigns/2026-06-04_track2f_bis_harmonic_offset_probe_campaign/dataset_variants/transmission_error_dataset_bw.yaml
   output_root: output/training_runs/track2f_bis_harmonic_residual_offset_bw
 experiment:
@@ -19,7 +19,7 @@ metadata:
   use_backward_direction: true
   runtime_input_contract: current point state plus supported short causal sequence
     history only
-  promotion_rule: Candidate must return through official Track 2 curve-first verification.
+  promotion_rule: Candidate must return through official TE Curve Verification Pipeline curve-first verification.
   harmonic_basis: sparse_rcim
   harmonic_index_list: &id001
   - 0
@@ -32,7 +32,7 @@ metadata:
   - 156
   - 162
   - 240
-  notes: Track 2F-bis harmonic-offset probe. Final TE prediction is structured_harmonic_shape_prediction
+  notes: Wave 3.2 harmonic-offset probe. Final TE prediction is structured_harmonic_shape_prediction
     + causal_residual_offset_prediction.
   output_artifact_kind: training_run
   output_run_name: te_track2f_bis_harmonic_residual_offset_bw

@@ -9,7 +9,7 @@ selection_policy: &id001
   fifth_tie_breaker: matched_table6_family_target_count_desc
   sixth_tie_breaker: run_name
   direction: mixed
-  note: Track 1 full-matrix campaign winner is a bookkeeping artifact only; scientific
+  note: RCIM Model-Bank Reproduction full-matrix campaign winner is a bookkeeping artifact only; scientific
     interpretation remains table-row replication first.
 updated_at: '2026-04-14T14:35:29+02:00'
 entry_count: 20

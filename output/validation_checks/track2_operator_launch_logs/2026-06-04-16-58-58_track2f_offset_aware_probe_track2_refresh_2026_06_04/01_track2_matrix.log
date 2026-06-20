@@ -1,14 +1,14 @@
 W0604 16:59:02.555000 29296 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
-[INFO] Running incremental Track 2 matrix refresh | baseline_candidates=111 | new_candidates=3
-[INFO] Track 2 grouped report plots are limited to current incremental candidates.
-[INFO] Building Track 2 held-out curve records
-[INFO] Built Track 2 held-out curve records | curve_count=194
-[INFO] Loading Track 2 candidate | 1/3 | sequential_residual_offset_probe_global
-[INFO] Evaluating Track 2 candidate | 1/3 | sequential_residual_offset_probe_global
-[INFO] Loading Track 2 candidate | 2/3 | sequential_residual_offset_probe_Fw
-[INFO] Evaluating Track 2 candidate | 2/3 | sequential_residual_offset_probe_Fw
-[INFO] Loading Track 2 candidate | 3/3 | sequential_residual_offset_probe_Bw
-[INFO] Evaluating Track 2 candidate | 3/3 | sequential_residual_offset_probe_Bw
+[INFO] Running incremental TE Curve Verification Pipeline matrix refresh | baseline_candidates=111 | new_candidates=3
+[INFO] TE Curve Verification Pipeline grouped report plots are limited to current incremental candidates.
+[INFO] Building TE Curve Verification Pipeline held-out curve records
+[INFO] Built TE Curve Verification Pipeline held-out curve records | curve_count=194
+[INFO] Loading TE Curve Verification Pipeline candidate | 1/3 | sequential_residual_offset_probe_global
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 1/3 | sequential_residual_offset_probe_global
+[INFO] Loading TE Curve Verification Pipeline candidate | 2/3 | sequential_residual_offset_probe_Fw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 2/3 | sequential_residual_offset_probe_Fw
+[INFO] Loading TE Curve Verification Pipeline candidate | 3/3 | sequential_residual_offset_probe_Bw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 3/3 | sequential_residual_offset_probe_Bw
 [DONE] Reference family comparison summary written | output\validation_checks\track2_reference_comparison\2026-06-04-16-59-02__track2_full_directional_family_matrix_track2f_offset_aware_probe_track2_refresh_2026_06_04\validation_summary.yaml
 [DONE] Reference family comparison report written | doc\reports\analysis\validation_checks\track2\2026-06-04-17-00-37_track2_full_directional_family_matrix_track2f_offset_aware_probe_track2_refresh_2026_06_04_report.md
-[DONE] Canonical Track 2 report written | doc\reports\analysis\track2\Track 2 Directional Model Comparison.md
+[DONE] Canonical TE Curve Verification Pipeline report written | doc\reports\analysis\track2\Track 2 Directional Model Comparison.md

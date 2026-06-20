@@ -9,7 +9,7 @@ selection_policy:
   fifth_tie_breaker: enabled_family_count_desc
   sixth_tie_breaker: run_name
   direction: mixed
-  note: Track 1 campaign winner is a bookkeeping artifact only; campaign
+  note: RCIM Model-Bank Reproduction campaign winner is a bookkeeping artifact only; campaign
     interpretation remains paper-table cell closure first.
 selected_at: '2026-04-13T22:55:28+02:00'
 run_instance_id: 2026-04-13-22-08-40__exact_open_cell_paper_family_reference_campaign_run

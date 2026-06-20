@@ -387,7 +387,7 @@ comparison_summary_list:
     torque_nm: 1800.0
     oil_temperature_deg: 35.0
 - group_id: forward_track1_screened_wave1
-  group_title: Forward Track 1 And Screened Wave 1 Overlay
+  group_title: Forward RCIM Model-Bank Reproduction And Screened Wave 1 Overlay
   candidate_id_list:
   - track1_best_Fw
   - tree_fw
@@ -451,7 +451,7 @@ comparison_summary_list:
     torque_nm: 1800.0
     oil_temperature_deg: 35.0
 - group_id: backward_track1_screened_wave1
-  group_title: Backward Track 1 And Screened Wave 1 Overlay
+  group_title: Backward RCIM Model-Bank Reproduction And Screened Wave 1 Overlay
   candidate_id_list:
   - track1_best_Bw
   - tree_bw

@@ -11,8 +11,7 @@ metadata:
   phase_name: wave2c_residual_harmonic_temporal_hybrid_preparation
   campaign_config_id: residual_harmonic_gru_sequence_dense360
   notes: Wave 2.3 residual harmonic temporal hybrid campaign | family=residual_harmonic_gru_sequence
-    | basis=dense_360 | direction=global. Candidate must return through official Track
-    2 verification.
+    | basis=dense_360 | direction=global. Candidate must return through official TE Curve Verification Pipeline verification.
   random_seed: 42
   base_model_family: residual_harmonic_gru_sequence
   training_variant: global

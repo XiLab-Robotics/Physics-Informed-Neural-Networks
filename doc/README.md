@@ -72,6 +72,12 @@ This folder contains the internal project documents derived from the reference P
 
 ### Analysis Reports
 
+- [reports/analysis/Complete TE And Dataset Renaming Audit.md](./reports/analysis/Complete%20TE%20And%20Dataset%20Renaming%20Audit.md)
+  Complete working-tree audit of the TE taxonomy and simplified-dataset path
+  migrations, including tracked, ignored, generated, document, and binary
+  files. A styled PDF companion is available at
+  `reports/analysis/Complete TE And Dataset Renaming Audit.pdf`.
+
 - [reports/analysis/mmt_te_modeling/MMT TE Modeling Equation Extraction And Reimplementation Plan.md](./reports/analysis/mmt_te_modeling/MMT%20TE%20Modeling%20Equation%20Extraction%20And%20Reimplementation%20Plan.md)
   Equation extraction, implementation notes, MATLAB/Python reproduction entry
   points, and dataset-evaluation plan for the analytical `MMT_TEModeling`
@@ -455,6 +461,10 @@ This folder contains the internal project documents derived from the reference P
 ### Technical Documents
 
 #### 2026-06-20
+
+- [technical/2026-06/2026-06-20/2026-06-20-17-35-49_complete_te_and_dataset_renaming_audit.md](./technical/2026-06/2026-06-20/2026-06-20-17-35-49_complete_te_and_dataset_renaming_audit.md)
+  Technical plan for auditing every current repository file against the TE
+  taxonomy and canonical simplified-dataset path migrations.
 
 - [technical/2026-06/2026-06-20/2026-06-20-15-46-15_te_naming_audit_and_pdf_regeneration.md](./technical/2026-06/2026-06-20/2026-06-20-15-46-15_te_naming_audit_and_pdf_regeneration.md)
   Technical plan for auditing the TE terminology migration across repository

@@ -9,7 +9,7 @@ selection_policy:
   fifth_tie_breaker: max_normalized_gap_ratio_asc
   sixth_tie_breaker: run_name
   direction: maximize_then_minimize
-  note: This winner is the bookkeeping representative of the completed Track 1 residual
+  note: This winner is the bookkeeping representative of the completed RCIM Model-Bank Reproduction residual
     cellwise closure campaign.
 updated_at: '2026-04-21T14:59:56+02:00'
 entry_count: 27
@@ -55,7 +55,7 @@ entry_list:
     fifth_tie_breaker: max_normalized_gap_ratio_asc
     sixth_tie_breaker: run_name
     direction: maximize_then_minimize
-    note: This winner is the bookkeeping representative of the completed Track 1 residual
+    note: This winner is the bookkeeping representative of the completed RCIM Model-Bank Reproduction residual
       cellwise closure campaign.
   selected_at: '2026-04-21T14:59:55+02:00'
 - run_instance_id: 2026-04-21-12-59-47__track1_lgbm_phase_162_closure_attempt_12_campaign_run
@@ -99,7 +99,7 @@ entry_list:
     fifth_tie_breaker: max_normalized_gap_ratio_asc
     sixth_tie_breaker: run_name
     direction: maximize_then_minimize
-    note: This winner is the bookkeeping representative of the completed Track 1 residual
+    note: This winner is the bookkeeping representative of the completed RCIM Model-Bank Reproduction residual
       cellwise closure campaign.
   selected_at: '2026-04-21T14:59:55+02:00'
 - run_instance_id: 2026-04-21-13-04-22__track1_lgbm_phase_162_closure_attempt_15_campaign_run
@@ -143,7 +143,7 @@ entry_list:
     fifth_tie_breaker: max_normalized_gap_ratio_asc
     sixth_tie_breaker: run_name
     direction: maximize_then_minimize
-    note: This winner is the bookkeeping representative of the completed Track 1 residual
+    note: This winner is the bookkeeping representative of the completed RCIM Model-Bank Reproduction residual
       cellwise closure campaign.
   selected_at: '2026-04-21T14:59:55+02:00'
 - run_instance_id: 2026-04-21-13-05-54__track1_lgbm_phase_162_closure_attempt_16_campaign_run
@@ -187,7 +187,7 @@ entry_list:
     fifth_tie_breaker: max_normalized_gap_ratio_asc
     sixth_tie_breaker: run_name
     direction: maximize_then_minimize
-    note: This winner is the bookkeeping representative of the completed Track 1 residual
+    note: This winner is the bookkeeping representative of the completed RCIM Model-Bank Reproduction residual
       cellwise closure campaign.
   selected_at: '2026-04-21T14:59:55+02:00'
 - run_instance_id: 2026-04-21-13-19-21__track1_lgbm_phase_162_closure_attempt_25_campaign_run
@@ -231,7 +231,7 @@ entry_list:
     fifth_tie_breaker: max_normalized_gap_ratio_asc
     sixth_tie_breaker: run_name
     direction: maximize_then_minimize
-    note: This winner is the bookkeeping representative of the completed Track 1 residual
+    note: This winner is the bookkeeping representative of the completed RCIM Model-Bank Reproduction residual
       cellwise closure campaign.
   selected_at: '2026-04-21T14:59:56+02:00'
 - run_instance_id: 2026-04-21-12-46-11__track1_lgbm_phase_162_closure_attempt_03_campaign_run
@@ -275,7 +275,7 @@ entry_list:
     fifth_tie_breaker: max_normalized_gap_ratio_asc
     sixth_tie_breaker: run_name
     direction: maximize_then_minimize
-    note: This winner is the bookkeeping representative of the completed Track 1 residual
+    note: This winner is the bookkeeping representative of the completed RCIM Model-Bank Reproduction residual
       cellwise closure campaign.
   selected_at: '2026-04-21T14:59:55+02:00'
 - run_instance_id: 2026-04-21-12-43-11__track1_lgbm_phase_162_closure_attempt_01_campaign_run
@@ -319,7 +319,7 @@ entry_list:
     fifth_tie_breaker: max_normalized_gap_ratio_asc
     sixth_tie_breaker: run_name
     direction: maximize_then_minimize
-    note: This winner is the bookkeeping representative of the completed Track 1 residual
+    note: This winner is the bookkeeping representative of the completed RCIM Model-Bank Reproduction residual
       cellwise closure campaign.
   selected_at: '2026-04-21T14:59:55+02:00'
 - run_instance_id: 2026-04-21-13-14-54__track1_lgbm_phase_162_closure_attempt_22_campaign_run
@@ -363,7 +363,7 @@ entry_list:
     fifth_tie_breaker: max_normalized_gap_ratio_asc
     sixth_tie_breaker: run_name
     direction: maximize_then_minimize
-    note: This winner is the bookkeeping representative of the completed Track 1 residual
+    note: This winner is the bookkeeping representative of the completed RCIM Model-Bank Reproduction residual
       cellwise closure campaign.
   selected_at: '2026-04-21T14:59:56+02:00'
 - run_instance_id: 2026-04-21-12-47-41__track1_lgbm_phase_162_closure_attempt_04_campaign_run
@@ -407,7 +407,7 @@ entry_list:
     fifth_tie_breaker: max_normalized_gap_ratio_asc
     sixth_tie_breaker: run_name
     direction: maximize_then_minimize
-    note: This winner is the bookkeeping representative of the completed Track 1 residual
+    note: This winner is the bookkeeping representative of the completed RCIM Model-Bank Reproduction residual
       cellwise closure campaign.
   selected_at: '2026-04-21T14:59:55+02:00'
 - run_instance_id: 2026-04-21-12-56-43__track1_lgbm_phase_162_closure_attempt_10_campaign_run
@@ -451,7 +451,7 @@ entry_list:
     fifth_tie_breaker: max_normalized_gap_ratio_asc
     sixth_tie_breaker: run_name
     direction: maximize_then_minimize
-    note: This winner is the bookkeeping representative of the completed Track 1 residual
+    note: This winner is the bookkeeping representative of the completed RCIM Model-Bank Reproduction residual
       cellwise closure campaign.
   selected_at: '2026-04-21T14:59:55+02:00'
 - run_instance_id: 2026-04-21-13-01-19__track1_lgbm_phase_162_closure_attempt_13_campaign_run
@@ -495,7 +495,7 @@ entry_list:
     fifth_tie_breaker: max_normalized_gap_ratio_asc
     sixth_tie_breaker: run_name
     direction: maximize_then_minimize
-    note: This winner is the bookkeeping representative of the completed Track 1 residual
+    note: This winner is the bookkeeping representative of the completed RCIM Model-Bank Reproduction residual
       cellwise closure campaign.
   selected_at: '2026-04-21T14:59:55+02:00'
 - run_instance_id: 2026-04-21-13-20-50__track1_lgbm_phase_162_closure_attempt_26_campaign_run
@@ -539,7 +539,7 @@ entry_list:
     fifth_tie_breaker: max_normalized_gap_ratio_asc
     sixth_tie_breaker: run_name
     direction: maximize_then_minimize
-    note: This winner is the bookkeeping representative of the completed Track 1 residual
+    note: This winner is the bookkeeping representative of the completed RCIM Model-Bank Reproduction residual
       cellwise closure campaign.
   selected_at: '2026-04-21T14:59:56+02:00'
 - run_instance_id: 2026-04-21-13-13-26__track1_lgbm_phase_162_closure_attempt_21_campaign_run
@@ -583,7 +583,7 @@ entry_list:
     fifth_tie_breaker: max_normalized_gap_ratio_asc
     sixth_tie_breaker: run_name
     direction: maximize_then_minimize
-    note: This winner is the bookkeeping representative of the completed Track 1 residual
+    note: This winner is the bookkeeping representative of the completed RCIM Model-Bank Reproduction residual
       cellwise closure campaign.
   selected_at: '2026-04-21T14:59:56+02:00'
 - run_instance_id: 2026-04-21-12-44-41__track1_lgbm_phase_162_closure_attempt_02_campaign_run
@@ -627,7 +627,7 @@ entry_list:
     fifth_tie_breaker: max_normalized_gap_ratio_asc
     sixth_tie_breaker: run_name
     direction: maximize_then_minimize
-    note: This winner is the bookkeeping representative of the completed Track 1 residual
+    note: This winner is the bookkeeping representative of the completed RCIM Model-Bank Reproduction residual
       cellwise closure campaign.
   selected_at: '2026-04-21T14:59:55+02:00'
 - run_instance_id: 2026-04-21-12-58-16__track1_lgbm_phase_162_closure_attempt_11_campaign_run
@@ -671,7 +671,7 @@ entry_list:
     fifth_tie_breaker: max_normalized_gap_ratio_asc
     sixth_tie_breaker: run_name
     direction: maximize_then_minimize
-    note: This winner is the bookkeeping representative of the completed Track 1 residual
+    note: This winner is the bookkeeping representative of the completed RCIM Model-Bank Reproduction residual
       cellwise closure campaign.
   selected_at: '2026-04-21T14:59:55+02:00'
 - run_instance_id: 2026-04-21-13-10-29__track1_lgbm_phase_162_closure_attempt_19_campaign_run
@@ -715,7 +715,7 @@ entry_list:
     fifth_tie_breaker: max_normalized_gap_ratio_asc
     sixth_tie_breaker: run_name
     direction: maximize_then_minimize
-    note: This winner is the bookkeeping representative of the completed Track 1 residual
+    note: This winner is the bookkeeping representative of the completed RCIM Model-Bank Reproduction residual
       cellwise closure campaign.
   selected_at: '2026-04-21T14:59:55+02:00'
 - run_instance_id: 2026-04-21-12-50-42__track1_lgbm_phase_162_closure_attempt_06_campaign_run
@@ -759,7 +759,7 @@ entry_list:
     fifth_tie_breaker: max_normalized_gap_ratio_asc
     sixth_tie_breaker: run_name
     direction: maximize_then_minimize
-    note: This winner is the bookkeeping representative of the completed Track 1 residual
+    note: This winner is the bookkeeping representative of the completed RCIM Model-Bank Reproduction residual
       cellwise closure campaign.
   selected_at: '2026-04-21T14:59:55+02:00'
 - run_instance_id: 2026-04-21-12-55-13__track1_lgbm_phase_162_closure_attempt_09_campaign_run
@@ -803,7 +803,7 @@ entry_list:
     fifth_tie_breaker: max_normalized_gap_ratio_asc
     sixth_tie_breaker: run_name
     direction: maximize_then_minimize
-    note: This winner is the bookkeeping representative of the completed Track 1 residual
+    note: This winner is the bookkeeping representative of the completed RCIM Model-Bank Reproduction residual
       cellwise closure campaign.
   selected_at: '2026-04-21T14:59:55+02:00'
 - run_instance_id: 2026-04-21-13-11-57__track1_lgbm_phase_162_closure_attempt_20_campaign_run
@@ -847,7 +847,7 @@ entry_list:
     fifth_tie_breaker: max_normalized_gap_ratio_asc
     sixth_tie_breaker: run_name
     direction: maximize_then_minimize
-    note: This winner is the bookkeeping representative of the completed Track 1 residual
+    note: This winner is the bookkeeping representative of the completed RCIM Model-Bank Reproduction residual
       cellwise closure campaign.
   selected_at: '2026-04-21T14:59:55+02:00'
 - run_instance_id: 2026-04-21-13-08-57__track1_lgbm_phase_162_closure_attempt_18_campaign_run
@@ -891,7 +891,7 @@ entry_list:
     fifth_tie_breaker: max_normalized_gap_ratio_asc
     sixth_tie_breaker: run_name
     direction: maximize_then_minimize
-    note: This winner is the bookkeeping representative of the completed Track 1 residual
+    note: This winner is the bookkeeping representative of the completed RCIM Model-Bank Reproduction residual
       cellwise closure campaign.
   selected_at: '2026-04-21T14:59:55+02:00'
 - run_instance_id: 2026-04-21-13-07-26__track1_lgbm_phase_162_closure_attempt_17_campaign_run
@@ -935,7 +935,7 @@ entry_list:
     fifth_tie_breaker: max_normalized_gap_ratio_asc
     sixth_tie_breaker: run_name
     direction: maximize_then_minimize
-    note: This winner is the bookkeeping representative of the completed Track 1 residual
+    note: This winner is the bookkeeping representative of the completed RCIM Model-Bank Reproduction residual
       cellwise closure campaign.
   selected_at: '2026-04-21T14:59:55+02:00'
 - run_instance_id: 2026-04-21-13-17-52__track1_lgbm_phase_162_closure_attempt_24_campaign_run
@@ -979,7 +979,7 @@ entry_list:
     fifth_tie_breaker: max_normalized_gap_ratio_asc
     sixth_tie_breaker: run_name
     direction: maximize_then_minimize
-    note: This winner is the bookkeeping representative of the completed Track 1 residual
+    note: This winner is the bookkeeping representative of the completed RCIM Model-Bank Reproduction residual
       cellwise closure campaign.
   selected_at: '2026-04-21T14:59:56+02:00'
 - run_instance_id: 2026-04-21-13-22-19__track1_lgbm_phase_162_closure_attempt_27_campaign_run
@@ -1023,7 +1023,7 @@ entry_list:
     fifth_tie_breaker: max_normalized_gap_ratio_asc
     sixth_tie_breaker: run_name
     direction: maximize_then_minimize
-    note: This winner is the bookkeeping representative of the completed Track 1 residual
+    note: This winner is the bookkeeping representative of the completed RCIM Model-Bank Reproduction residual
       cellwise closure campaign.
   selected_at: '2026-04-21T14:59:56+02:00'
 - run_instance_id: 2026-04-21-12-53-43__track1_lgbm_phase_162_closure_attempt_08_campaign_run
@@ -1067,7 +1067,7 @@ entry_list:
     fifth_tie_breaker: max_normalized_gap_ratio_asc
     sixth_tie_breaker: run_name
     direction: maximize_then_minimize
-    note: This winner is the bookkeeping representative of the completed Track 1 residual
+    note: This winner is the bookkeeping representative of the completed RCIM Model-Bank Reproduction residual
       cellwise closure campaign.
   selected_at: '2026-04-21T14:59:55+02:00'
 - run_instance_id: 2026-04-21-13-02-50__track1_lgbm_phase_162_closure_attempt_14_campaign_run
@@ -1111,7 +1111,7 @@ entry_list:
     fifth_tie_breaker: max_normalized_gap_ratio_asc
     sixth_tie_breaker: run_name
     direction: maximize_then_minimize
-    note: This winner is the bookkeeping representative of the completed Track 1 residual
+    note: This winner is the bookkeeping representative of the completed RCIM Model-Bank Reproduction residual
       cellwise closure campaign.
   selected_at: '2026-04-21T14:59:55+02:00'
 - run_instance_id: 2026-04-21-13-16-23__track1_lgbm_phase_162_closure_attempt_23_campaign_run
@@ -1155,7 +1155,7 @@ entry_list:
     fifth_tie_breaker: max_normalized_gap_ratio_asc
     sixth_tie_breaker: run_name
     direction: maximize_then_minimize
-    note: This winner is the bookkeeping representative of the completed Track 1 residual
+    note: This winner is the bookkeeping representative of the completed RCIM Model-Bank Reproduction residual
       cellwise closure campaign.
   selected_at: '2026-04-21T14:59:56+02:00'
 - run_instance_id: 2026-04-21-12-49-12__track1_lgbm_phase_162_closure_attempt_05_campaign_run
@@ -1199,6 +1199,6 @@ entry_list:
     fifth_tie_breaker: max_normalized_gap_ratio_asc
     sixth_tie_breaker: run_name
     direction: maximize_then_minimize
-    note: This winner is the bookkeeping representative of the completed Track 1 residual
+    note: This winner is the bookkeeping representative of the completed RCIM Model-Bank Reproduction residual
       cellwise closure campaign.
   selected_at: '2026-04-21T14:59:55+02:00'
