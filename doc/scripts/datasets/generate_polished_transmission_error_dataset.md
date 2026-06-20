@@ -5,7 +5,7 @@
 The repository maintains two complete copies of the polished transmission-error
 dataset generator:
 
-- `data/polished_dataset/generate_polished_dataset.py`
+- `data/generate_polished_dataset.py`
 - `scripts/datasets/generate_polished_transmission_error_dataset.py`
 
 The first copy is standalone and does not import repository modules. The second
@@ -25,15 +25,15 @@ This means that the following portable bundle works on another computer:
 
 ```text
 data/
+  generate_polished_dataset.py
   original_dataset/
   polished_dataset/
-    generate_polished_dataset.py
 ```
 
 Run it with:
 
 ```powershell
-python data/polished_dataset/generate_polished_dataset.py
+python data/generate_polished_dataset.py
 ```
 
 The repository copy resolves paths from the repository root:
@@ -64,6 +64,27 @@ Set one direction flag to `False` when only one direction is required.
 Existing destination files are protected by default. Set
 `OVERWRITE_EXISTING_FILES = True` only when replacing generated files is
 intentional.
+
+Progress and verbose terminal reporting are controlled by:
+
+```python
+SHOW_PROGRESS_BAR = True
+VERBOSE_LOGGING = True
+```
+
+The scripts print their resolved paths and direction configuration, report the
+accepted source inventory, display a `tqdm` progress bar with the current
+filename, and print a final export summary. Skip and error messages use
+`tqdm.write()` so they do not corrupt the live bar.
+
+The standalone script requires:
+
+```powershell
+python -m pip install "tqdm>=4.67,<5.0"
+```
+
+The repository environment installs the same dependency through
+`requirements.txt`.
 
 ## Confirmed Corrections
 

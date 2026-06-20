@@ -149,7 +149,14 @@ conda run --no-capture-output -n pinns_env python scripts/datasets/generate_poli
 
 The default destination is `output/generated_polished_dataset/`. Existing
 files are protected unless `OVERWRITE_EXISTING_FILES` is enabled explicitly in
-the script.
+the script. The generator prints startup and inventory details and displays a
+`tqdm` file-progress bar.
+
+The standalone equivalent is:
+
+```powershell
+python data/generate_polished_dataset.py
+```
 
 ## Relevant Project Paths
 

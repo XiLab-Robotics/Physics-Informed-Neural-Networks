@@ -4,17 +4,21 @@ import math
 import re
 import warnings
 
+from tqdm import tqdm
+
 
 # Portable Standalone Paths
 SCRIPT_PATH = Path(__file__).resolve().parent
-INPUT_PATH = SCRIPT_PATH.parent / "original_dataset"
-OUTPUT_PATH = SCRIPT_PATH / "generated_polished_dataset2"
+INPUT_PATH = SCRIPT_PATH / "original_dataset"
+OUTPUT_PATH = SCRIPT_PATH / "polished_dataset"
 
 GEAR_RATIO = 81.0
 SAMPLE_TIME_S = 0.25e-3
 USE_FORWARD_DIRECTION = True
 USE_BACKWARD_DIRECTION = True
 OVERWRITE_EXISTING_FILES = False
+SHOW_PROGRESS_BAR = True
+VERBOSE_LOGGING = True
 
 THETA_ENC_DEG = 1
 Q_ENC_DEG = 2
@@ -39,6 +43,11 @@ IGNORED_INPUT_FILENAMES = {
     "1600.0rpm100.0Nm30.0degcollegamento2.csv",
     "800.0rpm200.0Nm25.0deg.csv",
 }
+
+
+def log_message(message):
+    if VERBOSE_LOGGING:
+        tqdm.write(message)
 
 
 def number(text):
@@ -282,7 +291,7 @@ def input_file_records(paths):
             conditions = parse_operating_conditions(path)
         except ValueError as error:
             skipped += 1
-            print(f"Skipped {path}: {error}")
+            log_message(f"Skipped source filename | {path} | {error}")
             continue
 
         records.append((path, conditions))
@@ -343,6 +352,15 @@ def main():
     input_path = Path(INPUT_PATH)
     output_path = Path(OUTPUT_PATH)
 
+    log_message("Starting polished transmission-error dataset generation")
+    log_message(f"Input path: {input_path.resolve()}")
+    log_message(f"Output path: {output_path.resolve()}")
+    log_message(
+        "Directions: "
+        f"forward={USE_FORWARD_DIRECTION}, backward={USE_BACKWARD_DIRECTION}"
+    )
+    log_message(f"Overwrite existing files: {OVERWRITE_EXISTING_FILES}")
+
     if not input_path.exists():
         raise FileNotFoundError(f"input path does not exist: {input_path}")
     if not input_path.is_file() and not input_path.is_dir():
@@ -362,6 +380,11 @@ def main():
         raise ValueError(f"no supported input CSV files found: {input_path}")
 
     selected_records = unique_condition_records(records)
+    log_message(
+        f"Source inventory: {len(records)} accepted files, "
+        f"{len(selected_records)} unique operating conditions, "
+        f"{skipped} parser skips"
+    )
 
     if not OVERWRITE_EXISTING_FILES:
         enabled_directions = []
@@ -384,16 +407,27 @@ def main():
                 f"{preview}"
             )
 
-    for path, conditions in selected_records:
+    progress_iterator = tqdm(
+        selected_records,
+        total=len(selected_records),
+        desc="Generating polished dataset",
+        unit="file",
+        dynamic_ncols=True,
+        disable=not SHOW_PROGRESS_BAR,
+    )
+
+    for path, conditions in progress_iterator:
+        progress_iterator.set_postfix_str(path.name, refresh=False)
         try:
             exported += export_file(path, output_path, conditions)
         except Exception as error:
             skipped += 1
-            print(f"Skipped {path}: {error}")
+            log_message(f"Skipped source file | {path} | {error}")
 
-    print(f"Exported {exported} files to {output_path}")
+    log_message(f"Exported {exported} files to {output_path}")
     if skipped:
         raise RuntimeError(f"skipped {skipped} input files; review the messages above")
+    log_message("Polished dataset generation completed successfully")
 
 
 if __name__ == "__main__":

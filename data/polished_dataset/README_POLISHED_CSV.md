@@ -9,11 +9,17 @@ and usage constraints are documented in the
 
 ## Folder Structure
 
-The standalone generator uses portable paths relative to this folder:
+The standalone generator is stored one level above this dataset:
 
 ```text
-input  = ../original_dataset
-output = ./generated_polished_dataset
+data/generate_polished_dataset.py
+```
+
+Its defaults are:
+
+```text
+input  = data/original_dataset
+output = data/polished_dataset
 ```
 
 The complete repository-integrated copy is:
@@ -22,7 +28,9 @@ The complete repository-integrated copy is:
 scripts/datasets/generate_polished_transmission_error_dataset.py
 ```
 
-Its output defaults to `output/generated_polished_dataset/`.
+Its output defaults to `output/generated_polished_dataset/`. Both scripts show
+verbose startup information and a `tqdm` progress bar while processing source
+conditions.
 
 The script exports all selected source files into direction and
 operating-condition folders:

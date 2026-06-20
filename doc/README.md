@@ -456,6 +456,10 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-06-20
 
+- [technical/2026-06/2026-06-20/2026-06-20-11-53-54_polished_dataset_generator_progress_logging.md](./technical/2026-06/2026-06-20/2026-06-20-11-53-54_polished_dataset_generator_progress_logging.md)
+  Technical plan for correcting the relocated standalone generator paths and
+  adding aligned `tqdm` progress logging to both active generator surfaces.
+
 - [technical/2026-06/2026-06-20/2026-06-20-10-38-02_polished_dataset_generator_repository_integration.md](./technical/2026-06/2026-06-20/2026-06-20-10-38-02_polished_dataset_generator_repository_integration.md)
   Technical plan for minimally repairing the complete standalone polished
   dataset generator and maintaining a path-adapted complete repository copy.

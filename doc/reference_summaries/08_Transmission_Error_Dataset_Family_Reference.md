@@ -27,7 +27,7 @@ come from those recordings:
 - `simplified_dataset` is the established validated curve dataset used by the
   current repository loaders, training workflows, and verification scripts;
 - `polished_dataset` is a direct row-level export produced by
-  `data/polished_dataset/generate_polished_dataset.py`.
+  `data/generate_polished_dataset.py`.
 
 A complete path-adapted repository copy is maintained at
 `scripts/datasets/generate_polished_transmission_error_dataset.py`. The two
@@ -346,13 +346,13 @@ Use `polished_dataset` when:
 The standalone script resolves its defaults relative to its own location:
 
 ```text
-data/polished_dataset/generate_polished_dataset.py
+data/generate_polished_dataset.py
 ```
 
 Then run:
 
 ```powershell
-python data/polished_dataset/generate_polished_dataset.py
+python data/generate_polished_dataset.py
 ```
 
 The repository-integrated copy uses `data/original_dataset/` as input and
@@ -363,7 +363,7 @@ conda run --no-capture-output -n pinns_env python scripts/datasets/generate_poli
 ```
 
 Both versions protect existing files unless
-`OVERWRITE_EXISTING_FILES = True`.
+`OVERWRITE_EXISTING_FILES = True` and show a `tqdm` progress bar by default.
 
 ## Usage Constraints
 
