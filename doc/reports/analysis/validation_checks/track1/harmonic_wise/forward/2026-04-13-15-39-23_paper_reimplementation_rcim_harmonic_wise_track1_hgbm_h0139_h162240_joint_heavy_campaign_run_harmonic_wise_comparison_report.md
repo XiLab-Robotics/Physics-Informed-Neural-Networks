@@ -75,9 +75,9 @@ These playback summaries are repository-owned `Robot` and `Cycloidal` style offl
 
 ## Test Preview Samples
 
-- `data/datasets/Test_25degree/1000rpm/1000.0rpm1200.0Nm25.0deg.csv` | forward | mean percentage error `7.101%` | curve MAE `0.004385`
-- `data/datasets/Test_25degree/1000rpm/1000.0rpm1200.0Nm25.0deg.csv` | backward | mean percentage error `7.415%` | curve MAE `0.002425`
-- `data/datasets/Test_25degree/1000rpm/1000.0rpm1300.0Nm25.0deg.csv` | forward | mean percentage error `2.859%` | curve MAE `0.001916`
+- `data/simplified_dataset/Test_25degree/1000rpm/1000.0rpm1200.0Nm25.0deg.csv` | forward | mean percentage error `7.101%` | curve MAE `0.004385`
+- `data/simplified_dataset/Test_25degree/1000rpm/1000.0rpm1200.0Nm25.0deg.csv` | backward | mean percentage error `7.415%` | curve MAE `0.002425`
+- `data/simplified_dataset/Test_25degree/1000rpm/1000.0rpm1300.0Nm25.0deg.csv` | forward | mean percentage error `2.859%` | curve MAE `0.001916`
 
 ## Interpretation
 

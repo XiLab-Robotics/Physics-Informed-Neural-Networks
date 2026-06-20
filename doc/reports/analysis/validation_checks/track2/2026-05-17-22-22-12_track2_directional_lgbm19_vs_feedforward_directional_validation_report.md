@@ -10,7 +10,7 @@ candidates are evaluated on both directions and reported separately.
 ## Scope
 
 - dataset config: `config/datasets/transmission_error_dataset.yaml`;
-- dataset root: `data\datasets`;
+- dataset root: `data\simplified_dataset`;
 - comparison mode: `directional_candidate_matrix`;
 - candidate count: `5`;
 - held-out curve count before candidate filtering: `194`;
@@ -49,11 +49,11 @@ candidates are evaluated on both directions and reported separately.
 
 ## Sample Preview
 
-- `LGBM19_Fw` | `forward` | `data\datasets\Test_25degree\1000rpm\1000.0rpm1200.0Nm25.0deg.csv` | `1000 rpm` | `1200 Nm` | `25 C` | `MPE=280.591%`
-- `LGBM19_Fw` | `forward` | `data\datasets\Test_25degree\1000rpm\1000.0rpm1300.0Nm25.0deg.csv` | `1000 rpm` | `1300 Nm` | `25 C` | `MPE=296.082%`
-- `LGBM19_Fw` | `forward` | `data\datasets\Test_25degree\1000rpm\1000.0rpm1800.0Nm25.0deg.csv` | `1000 rpm` | `1800 Nm` | `25 C` | `MPE=342.378%`
-- `LGBM19_Fw` | `forward` | `data\datasets\Test_25degree\1000rpm\1000.0rpm400.0Nm25.0deg.csv` | `1000 rpm` | `400 Nm` | `25 C` | `MPE=190.608%`
-- `LGBM19_Fw` | `forward` | `data\datasets\Test_25degree\1000rpm\1000.0rpm800.0Nm25.0deg.csv` | `1000 rpm` | `800 Nm` | `25 C` | `MPE=249.530%`
+- `LGBM19_Fw` | `forward` | `data\simplified_dataset\Test_25degree\1000rpm\1000.0rpm1200.0Nm25.0deg.csv` | `1000 rpm` | `1200 Nm` | `25 C` | `MPE=280.591%`
+- `LGBM19_Fw` | `forward` | `data\simplified_dataset\Test_25degree\1000rpm\1000.0rpm1300.0Nm25.0deg.csv` | `1000 rpm` | `1300 Nm` | `25 C` | `MPE=296.082%`
+- `LGBM19_Fw` | `forward` | `data\simplified_dataset\Test_25degree\1000rpm\1000.0rpm1800.0Nm25.0deg.csv` | `1000 rpm` | `1800 Nm` | `25 C` | `MPE=342.378%`
+- `LGBM19_Fw` | `forward` | `data\simplified_dataset\Test_25degree\1000rpm\1000.0rpm400.0Nm25.0deg.csv` | `1000 rpm` | `400 Nm` | `25 C` | `MPE=190.608%`
+- `LGBM19_Fw` | `forward` | `data\simplified_dataset\Test_25degree\1000rpm\1000.0rpm800.0Nm25.0deg.csv` | `1000 rpm` | `800 Nm` | `25 C` | `MPE=249.530%`
 
 ## Output Artifacts
 

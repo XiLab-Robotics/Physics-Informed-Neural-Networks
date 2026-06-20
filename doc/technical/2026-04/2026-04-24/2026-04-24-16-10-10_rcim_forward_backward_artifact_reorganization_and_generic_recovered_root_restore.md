@@ -69,7 +69,7 @@ bundles so the directory layout remains navigable.
 
 Finally, the technical note should explicitly capture one backlog consequence:
 future backward exact-paper data should be rebuilt from the original dataset
-under `data/datasets/`, and the paper-reference model paths and manifests must
+under `data/simplified_dataset/`, and the paper-reference model paths and manifests must
 be prepared for that future branch now.
 
 ## Involved Components
@@ -122,6 +122,6 @@ be prepared for that future branch now.
 8. Update all scripts, reports, guides, Sphinx pages, manifests, and support
    modules that describe, generate, or consume these paths.
 9. Add the future backlog note that backward exact-paper data should be
-   rebuilt from the original dataset under `data/datasets/`, and prepare the
+   rebuilt from the original dataset under `data/simplified_dataset/`, and prepare the
    model-reference path structure accordingly without implementing the backward
    data rebuild in this same task.

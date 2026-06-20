@@ -223,7 +223,7 @@ validation_metrics:
     rmse: 0.0011968220836161632
     mean_percentage_error_pct: 3.588094765506886
   sample_preview_list:
-  - source_file_path: data/datasets/Test_25degree/1000rpm/1000.0rpm100.0Nm25.0deg.csv
+  - source_file_path: data/simplified_dataset/Test_25degree/1000rpm/1000.0rpm100.0Nm25.0deg.csv
     direction_label: forward
     speed_rpm: 1000.0
     torque_nm: 100.0
@@ -238,7 +238,7 @@ validation_metrics:
       h3: 0.0006215938666833655
       h39: 0.0007853463966149106
       h40: 0.0008565512325061888
-  - source_file_path: data/datasets/Test_25degree/1000rpm/1000.0rpm100.0Nm25.0deg.csv
+  - source_file_path: data/simplified_dataset/Test_25degree/1000rpm/1000.0rpm100.0Nm25.0deg.csv
     direction_label: backward
     speed_rpm: 1000.0
     torque_nm: 100.0
@@ -253,7 +253,7 @@ validation_metrics:
       h3: 0.0007674817526189245
       h39: 0.0005590772821543913
       h40: 0.0004432919000135199
-  - source_file_path: data/datasets/Test_25degree/1000rpm/1000.0rpm700.0Nm25.0deg.csv
+  - source_file_path: data/simplified_dataset/Test_25degree/1000rpm/1000.0rpm700.0Nm25.0deg.csv
     direction_label: forward
     speed_rpm: 1000.0
     torque_nm: 700.0
@@ -429,7 +429,7 @@ test_metrics:
     rmse: 0.00103508124481291
     mean_percentage_error_pct: 2.7490651472987206
   sample_preview_list:
-  - source_file_path: data/datasets/Test_25degree/1000rpm/1000.0rpm1200.0Nm25.0deg.csv
+  - source_file_path: data/simplified_dataset/Test_25degree/1000rpm/1000.0rpm1200.0Nm25.0deg.csv
     direction_label: forward
     speed_rpm: 1000.0
     torque_nm: 1200.0
@@ -444,7 +444,7 @@ test_metrics:
       h3: 0.0008597975952463328
       h39: 0.001209514206281876
       h40: 0.000821865218387227
-  - source_file_path: data/datasets/Test_25degree/1000rpm/1000.0rpm1200.0Nm25.0deg.csv
+  - source_file_path: data/simplified_dataset/Test_25degree/1000rpm/1000.0rpm1200.0Nm25.0deg.csv
     direction_label: backward
     speed_rpm: 1000.0
     torque_nm: 1200.0
@@ -459,7 +459,7 @@ test_metrics:
       h3: 0.0009783747936839787
       h39: 0.00040248999911655426
       h40: 0.00029294040184096317
-  - source_file_path: data/datasets/Test_25degree/1000rpm/1000.0rpm1300.0Nm25.0deg.csv
+  - source_file_path: data/simplified_dataset/Test_25degree/1000rpm/1000.0rpm1300.0Nm25.0deg.csv
     direction_label: forward
     speed_rpm: 1000.0
     torque_nm: 1300.0

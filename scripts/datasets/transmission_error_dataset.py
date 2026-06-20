@@ -25,7 +25,7 @@ from scripts.tooling import repository_path_support
 PACKAGE_PATH = Path(os.path.abspath(__file__)).parent
 PROJECT_PATH = PACKAGE_PATH.parents[1]
 DEFAULT_CONFIG_PATH = PROJECT_PATH / "config" / "datasets" / "transmission_error_dataset.yaml"
-DEFAULT_DATASET_PATH = PROJECT_PATH / "data" / "datasets"
+DEFAULT_DATASET_PATH = PROJECT_PATH / "data" / "simplified_dataset"
 REDUCTION_RATIO = 81.0
 
 FORWARD_DIRECTION = "forward"

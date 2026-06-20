@@ -28,7 +28,7 @@ The implementation will:
 Planned config changes:
 
 - `config/dataset_processing.yaml`
-  - `paths.dataset_root: data/datasets`
+  - `paths.dataset_root: data/simplified_dataset`
 
 - `config/visualization.yaml`
   - `paths.dataset_config_path: config/dataset_processing.yaml`

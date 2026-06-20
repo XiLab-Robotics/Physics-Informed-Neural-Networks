@@ -116,7 +116,7 @@ The default repository setting is:
 
 ```yaml
 paths:
-  dataset_root: data/datasets
+  dataset_root: data/simplified_dataset
 ```
 
 This path is interpreted relative to the repository root.
@@ -345,7 +345,7 @@ The current usage flow mainly relies on these folders:
 - `config/training/queue/`
   Persistent batch-training queue folders.
 
-- `data/datasets/`
+- `data/simplified_dataset/`
   Validated Transmission Error CSV dataset.
 
 - `output/`
@@ -760,7 +760,7 @@ This final escalation package is intentionally narrower but more aggressive:
 
 Key differences against the recovered exact-paper branch:
 
-- it reads from `data/datasets` through the dataset-processing config;
+- it reads from `data/simplified_dataset` through the dataset-processing config;
 - it trains separate `forward` and `backward` banks;
 - it keeps the paper-style feature schema `rpm`, `deg`, `tor`;
 - it fixes the split policy to `70 / 20 / 10` at file level;
@@ -1659,7 +1659,7 @@ The dataset-processing logic lives in:
 
 This module:
 
-- loads the validated TE CSV files already available in `data/datasets`;
+- loads the validated TE CSV files already available in `data/simplified_dataset`;
 - parses metadata from the file names and folder names;
 - builds forward and backward directional samples;
 - creates PyTorch `Dataset` and `DataLoader` objects;
@@ -1923,7 +1923,7 @@ What happens:
 If you want to inspect one exact CSV:
 
 ```powershell
-python -m scripts.datasets.visualize_transmission_error --csv-path "data\datasets\Test_35degree\1000rpm\1000.0rpm0.0Nm35.0deg.csv" --save-path output\sample_te_curve.png
+python -m scripts.datasets.visualize_transmission_error --csv-path "data\simplified_dataset\Test_35degree\1000rpm\1000.0rpm0.0Nm35.0deg.csv" --save-path output\sample_te_curve.png
 ```
 
 This bypasses the default file index and directly uses the selected CSV file.

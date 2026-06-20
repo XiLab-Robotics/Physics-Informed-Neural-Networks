@@ -1310,7 +1310,7 @@ def refresh_track1_reference_archives(
             "# RCIM Track 1 Backward Reference Branch",
             "",
             "This branch now stores the canonical backward-direction paper-reference",
-            "archives rebuilt from the original dataset under `data/datasets/`.",
+            "archives rebuilt from the original dataset under `data/simplified_dataset/`.",
             "",
             "Populated family archives:",
             "",

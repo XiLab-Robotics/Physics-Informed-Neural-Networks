@@ -6,7 +6,7 @@ This document defines the requested clarification and cleanup for the forward-po
 
 Repository verification performed on March 10, 2026 shows that:
 
-- the CSV files inside `data/datasets/` really use the misspelled header `Poisition_Output_Reducer_Fw` as their original first-column name;
+- the CSV files inside `data/simplified_dataset/` really use the misspelled header `Poisition_Output_Reducer_Fw` as their original first-column name;
 - the dataset loader currently supports that header for compatibility with the real files;
 - some technical documents also mention the misspelled name directly, which can create confusion about whether it is an implementation typo or a dataset-origin typo.
 

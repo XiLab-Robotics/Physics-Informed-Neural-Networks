@@ -87,7 +87,7 @@ conda run -n pinns_lan_env python -c "import torch, lightning, sklearn; print(to
 6. Verify that the repository dataset exists inside the clone:
 
 ```powershell
-Test-Path ".\data\datasets"
+Test-Path ".\data\simplified_dataset"
 ```
 
 ### Current Workstation

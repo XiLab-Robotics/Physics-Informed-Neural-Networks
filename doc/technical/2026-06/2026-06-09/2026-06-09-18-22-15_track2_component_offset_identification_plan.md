@@ -59,7 +59,7 @@ The first pass should:
 - `doc/reports/campaign_results/track_2/campaign_closeouts/2026-06-09-01-56-25_track2g_curve_aware_training_campaign_results_report.md`
   Current completed curve-aware training closeout that must remain separate
   from this diagnostic branch.
-- `data/datasets`
+- `data/simplified_dataset`
   Canonical dataset root for extracting operating conditions and available
   harmonic/component targets.
 - `config/datasets/transmission_error_dataset.yaml`

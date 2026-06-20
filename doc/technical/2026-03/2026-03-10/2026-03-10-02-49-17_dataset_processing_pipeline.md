@@ -6,7 +6,7 @@ This document defines the dataset-processing feature for the Transmission Error 
 
 The requested scope is:
 
-- analyze the CSV files in `data/datasets`;
+- analyze the CSV files in `data/simplified_dataset`;
 - align the data interpretation with `SpiegazioneSerieDati.pdf` and `Report Machine Learning.pdf`;
 - compute or validate the Transmission Error (TE) using the reducer ratio `tau = 81`;
 - prepare PyTorch `Dataset` and `DataLoader` utilities for model training;
@@ -14,7 +14,7 @@ The requested scope is:
 
 Important repository observation recorded on March 10, 2026:
 
-- the folder present in the repository is `data/datasets`, not `data/dataset`;
+- the folder present in the repository is `data/simplified_dataset`, not `data/dataset`;
 - the available CSV files are already a validated TE dataset, not the raw acquisition dataset;
 - all inspected CSV files share the same header, including the original forward-position typo:
   - `Poisition_Output_Reducer_Fw` (literal CSV typo)
@@ -34,7 +34,7 @@ The processing feature will be implemented with a dual-path design.
 
 ### Path 1 - Validated TE Dataset (Current Repository Data)
 
-For the CSV files currently stored in `data/datasets`:
+For the CSV files currently stored in `data/simplified_dataset`:
 
 - load forward and backward angular positions together with their TE values;
 - parse operating conditions from folder/file naming:
@@ -109,7 +109,7 @@ The visualization utility will:
 - `README.md`
   Main project document to reference this feature document.
 
-- `data/datasets/`
+- `data/simplified_dataset/`
   Source validated TE dataset currently available in the repository.
 
 - `data/`

@@ -29,7 +29,7 @@ The composed model will keep the existing `Track 2` reconstruction contract:
 - phase harmonics: `1, 3, 39, 40, 78, 81, 156, 162, 240`;
 - forward candidates are evaluated only on forward curves;
 - backward candidates are evaluated only on backward curves;
-- input curves continue to load from `data/datasets` through the canonical
+- input curves continue to load from `data/simplified_dataset` through the canonical
   dataset configuration.
 
 For the paper original forward candidate, the selector must follow the

@@ -93,7 +93,7 @@ Recommended queue design:
 | Baseline Family Bank Refresh | none in this package |
 | Launch Mode | remote operator launcher |
 | Runner Branch | `run_original_dataset_exact_model_bank_validation.py` |
-| Dataset Root | `data/datasets` |
+| Dataset Root | `data/simplified_dataset` |
 | Split Policy | canonical file-level `70 / 20 / 10` |
 
 With `30` grouped repair items and `10` retries each, the expected queue size is:

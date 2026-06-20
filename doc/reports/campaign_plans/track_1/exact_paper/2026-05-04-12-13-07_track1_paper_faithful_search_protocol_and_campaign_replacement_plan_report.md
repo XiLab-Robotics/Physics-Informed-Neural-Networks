@@ -82,7 +82,7 @@ Each family-direction surface receives exactly one paper-faithful search pass:
 
 | Setting | Value |
 | --- | --- |
-| Dataset Root | `data/datasets` |
+| Dataset Root | `data/simplified_dataset` |
 | Split Policy | file-level `70 / 20 / 10` |
 | Direction Policy | separate `forward` and `backward` banks |
 | Feature Schema | `rpm`, `deg`, `tor` |

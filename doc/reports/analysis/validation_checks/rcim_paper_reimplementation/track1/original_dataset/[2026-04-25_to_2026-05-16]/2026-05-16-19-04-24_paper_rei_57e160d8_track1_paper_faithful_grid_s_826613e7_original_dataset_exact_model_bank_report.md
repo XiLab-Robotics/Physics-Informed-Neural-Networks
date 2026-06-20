@@ -2,10 +2,10 @@
 
 ## Overview
 
-This report covers the direction-specific exact-model-bank branch trained from the repository dataset under `data/datasets`.
+This report covers the direction-specific exact-model-bank branch trained from the repository dataset under `data/simplified_dataset`.
 
 - direction label: `backward`
-- dataset root: `data\datasets`
+- dataset root: `data\simplified_dataset`
 - dataset config: `config\datasets\transmission_error_dataset.yaml`
 - selected harmonics: `0, 1, 3, 39, 40, 78, 81, 156, 162, 240`
 - decomposition point stride: `1`

@@ -15,4 +15,4 @@
 - [2026-05-17-19-01-32_track2_directional_comparison_pipeline_alignment.md](./2026-05-17-19-01-32_track2_directional_comparison_pipeline_alignment.md)
   Plan the direction-aware `Track 2` comparison pipeline, including `Track 1`
   forward/backward family banks, `Wave 1` global and directional models, and
-  canonical `data/datasets` loading for future waves.
+  canonical `data/simplified_dataset` loading for future waves.

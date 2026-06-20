@@ -2,7 +2,7 @@ dataset_config_path: config/training/hydra/wave2/materialized/dataset_variants/t
 
 dataset_variant:
   paths:
-    dataset_root: data/datasets
+    dataset_root: data/simplified_dataset
   dataset:
     reduction_ratio: 81.0
     angular_window_deg:

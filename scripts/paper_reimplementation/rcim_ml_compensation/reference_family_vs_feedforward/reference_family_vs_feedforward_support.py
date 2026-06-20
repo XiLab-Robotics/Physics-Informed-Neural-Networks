@@ -2129,7 +2129,7 @@ def build_track2_directional_comparison_summary(
         "dataset": {
             "dataset_config_path": training_config["paths"]["dataset_config_path"],
             "dataset_root": shared_training_infrastructure.format_project_relative_path(dataset_root),
-            "source_contract": "data/datasets",
+            "source_contract": "data/simplified_dataset",
         },
         "comparison_scope": {
             "comparison_mode": str(comparison_configuration.get("comparison_mode", "directional_candidate_matrix")),

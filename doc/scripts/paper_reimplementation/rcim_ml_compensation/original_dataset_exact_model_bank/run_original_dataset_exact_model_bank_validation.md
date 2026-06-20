@@ -3,7 +3,7 @@
 ## Overview
 
 This script runs the direction-specific exact-model-bank workflow built from
-the repository dataset under `data/datasets`.
+the repository dataset under `data/simplified_dataset`.
 
 The script is stored in:
 
@@ -43,7 +43,7 @@ instead of overwriting the closed full-dataset baseline.
 
 It performs these stages:
 
-1. load the dataset-processing config and resolve `data/datasets`;
+1. load the dataset-processing config and resolve `data/simplified_dataset`;
 2. select exactly one direction, `forward` or `backward`;
 3. split the source CSV files at file level with `train / validation / test`;
 4. decompose each TE curve into the selected harmonic `A_k` and `phi_k`

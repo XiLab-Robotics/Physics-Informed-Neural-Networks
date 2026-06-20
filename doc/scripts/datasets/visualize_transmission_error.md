@@ -61,7 +61,7 @@ Coordinates configuration loading, CSV selection, and plotting.
 
 ### Inputs
 
-- validated TE CSV files in `data/datasets`
+- validated TE CSV files in `data/simplified_dataset`
 - visualization config in `config/visualization/transmission_error_visualization.yaml`
 - dataset config in `config/datasets/transmission_error_dataset.yaml`
 

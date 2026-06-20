@@ -59,7 +59,7 @@ The campaign remains the approved exact target surface:
 
 | Setting | Value |
 | --- | --- |
-| Dataset Root | `data/datasets` |
+| Dataset Root | `data/simplified_dataset` |
 | Split Policy | file-level `70 / 20 / 10` |
 | Feature Schema | `rpm`, `deg`, `tor` |
 | Runner Branch | `run_original_dataset_exact_model_bank_validation.py` |

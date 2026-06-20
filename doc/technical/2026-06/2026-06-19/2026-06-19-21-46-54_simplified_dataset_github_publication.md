@@ -2,9 +2,8 @@
 
 ## Overview
 
-The previously tracked dataset under `data/datasets/` has been removed from
-that location. Its intended replacement is the complete dataset under
-`data/simplified_dataset/`.
+The previously tracked dataset root was removed. Its intended replacement is
+the complete dataset under `data/simplified_dataset/`.
 
 The replacement contains 1,024 files totaling approximately 2.605 GiB. No
 individual file is 100 MB or larger. The publication will be divided into
@@ -16,12 +15,11 @@ The unrelated untracked directories `data/original_dataset/` and
 
 ## Technical Approach
 
-Treat `data/simplified_dataset/` as the canonical replacement for
-`data/datasets/`. Preserve all 1,024 files and partition the new content by
+Treat `data/simplified_dataset/` as the canonical replacement for the legacy
+dataset root. Preserve all 1,024 files and partition the new content by
 temperature surface:
 
-1. Record removal of the legacy `data/datasets/` path and add dataset-root
-   metadata.
+1. Record removal of the legacy dataset root and add dataset-root metadata.
 2. Add the complete `Test_25degree` surface.
 3. Add the complete `Test_30degree` surface.
 4. Add the complete `Test_35degree` surface.
@@ -35,8 +33,6 @@ Git LFS will not be used.
 
 ## Involved Components
 
-- `data/datasets/`
-  - Legacy tracked dataset path to remove.
 - `data/simplified_dataset/`
   - Canonical replacement dataset containing 1,024 files.
 - `data/simplified_dataset/Test_25degree/`

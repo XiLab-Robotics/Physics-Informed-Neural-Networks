@@ -122,7 +122,7 @@ evaluation:
 ```
 
 The dataset configuration behind `dataset_config_path` resolves to
-`data/datasets` and enables both directions. The current split policy uses a
+`data/simplified_dataset` and enables both directions. The current split policy uses a
 20 percent validation split, a 10 percent test split, and seed `42`. The
 collage report therefore works on held-out test curves, not training curves.
 

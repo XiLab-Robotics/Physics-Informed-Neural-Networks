@@ -482,7 +482,7 @@ def build_original_dataset_validation_report_markdown(validation_summary: dict[s
             "",
             "## Overview",
             "",
-            "This report covers the direction-specific exact-model-bank branch trained from the repository dataset under `data/datasets`.",
+            "This report covers the direction-specific exact-model-bank branch trained from the repository dataset under `data/simplified_dataset`.",
             "",
             f"- direction label: `{dataset_dictionary['direction_label']}`",
             f"- dataset root: `{dataset_dictionary['dataset_root']}`",

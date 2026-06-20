@@ -50,8 +50,8 @@ final Track 1 faithful behavior on the Wave-1-aligned split.
 | Item | Value |
 | --- | --- |
 | Dataset config | `config/datasets/transmission_error_dataset.yaml` |
-| Dataset root | `data\datasets` |
-| Source contract | `data/datasets` |
+| Dataset root | `data\simplified_dataset` |
+| Source contract | `data/simplified_dataset` |
 | Source comparison mode | `full_directional_candidate_matrix` |
 | Held-out curve count | `194` |
 | Percentage-error denominator | `peak_to_peak_truth` |

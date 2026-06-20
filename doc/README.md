@@ -449,6 +449,13 @@ This folder contains the internal project documents derived from the reference P
 
 ### Technical Documents
 
+#### 2026-06-20
+
+- [technical/2026-06/2026-06-20/2026-06-20-01-16-39_repository_dataset_path_migration.md](./technical/2026-06/2026-06-20/2026-06-20-01-16-39_repository_dataset_path_migration.md)
+  Technical plan for replacing every tracked textual `data/simplified_dataset` reference
+  with `data/simplified_dataset` across active configuration, scripts,
+  documentation, reports, and stored textual artifacts.
+
 #### 2026-06-19
 
 - [technical/2026-06/2026-06-19/2026-06-19-22-48-02_original_and_polished_dataset_github_publication.md](./technical/2026-06/2026-06-19/2026-06-19-22-48-02_original_and_polished_dataset_github_publication.md)
@@ -1009,7 +1016,7 @@ This folder contains the internal project documents derived from the reference P
 - [technical/2026-05/2026-05-17/2026-05-17-19-01-32_track2_directional_comparison_pipeline_alignment.md](./technical/2026-05/2026-05-17/2026-05-17-19-01-32_track2_directional_comparison_pipeline_alignment.md)
   Plan the direction-aware `Track 2` comparison pipeline, including `Track 1`
   forward/backward family banks, `Wave 1` global and directional models, and
-  canonical `data/datasets` loading for future waves.
+  canonical `data/simplified_dataset` loading for future waves.
 
 - [technical/2026-05/2026-05-17/2026-05-17-18-48-59_wave1_campaign_output_taxonomy_repair.md](./technical/2026-05/2026-05-17/2026-05-17-18-48-59_wave1_campaign_output_taxonomy_repair.md)
   Plan the filesystem and metadata repair that moves two completed `Wave 1`

@@ -4,7 +4,7 @@ output_directory: output\validation_checks\track2_mean_centered_collage_report\2
 report_path: doc\reports\analysis\track2\mean_centered_collage_report\[2026-06-02]\track2_mean_centered_collage_report.md
 dataset:
   config_path: config/datasets/transmission_error_dataset.yaml
-  dataset_root: data\datasets
+  dataset_root: data\simplified_dataset
   curve_count: 194
   selected_harmonic_list:
   - 0
@@ -47,7 +47,7 @@ candidate_summary_list:
   collage_path: output\validation_checks\track2_mean_centered_collage_report\2026-06-02-13-33-14__track2_mean_centered_collage_report\collages\forward_reference\paper_original_best_fw.png
   collage_markdown_path: assets/forward_reference/paper_original_best_fw.png
   selected_curve_list:
-  - source_file_path: data\datasets\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
     direction_label: forward
     speed_rpm: 100.0
     torque_nm: 100.0
@@ -65,7 +65,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.0035233650808541898
       mae_improvement_pct: 91.18034716112273
       rmse_improvement_pct: 89.0917524807489
-  - source_file_path: data\datasets\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
     direction_label: forward
     speed_rpm: 1600.0
     torque_nm: 1500.0
@@ -83,7 +83,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.00040245463614895145
       mae_improvement_pct: 19.57428918493867
       rmse_improvement_pct: 19.666076352031983
-  - source_file_path: data\datasets\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
     direction_label: forward
     speed_rpm: 700.0
     torque_nm: 1400.0
@@ -101,7 +101,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.0009819294624839785
       mae_improvement_pct: 64.84942549004204
       rmse_improvement_pct: 59.53776949455871
-  - source_file_path: data\datasets\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
     direction_label: forward
     speed_rpm: 800.0
     torque_nm: 1800.0
@@ -146,7 +146,7 @@ candidate_summary_list:
   collage_path: output\validation_checks\track2_mean_centered_collage_report\2026-06-02-13-33-14__track2_mean_centered_collage_report\collages\forward_reference\paper_retuned_best_fw.png
   collage_markdown_path: assets/forward_reference/paper_retuned_best_fw.png
   selected_curve_list:
-  - source_file_path: data\datasets\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
     direction_label: forward
     speed_rpm: 100.0
     torque_nm: 100.0
@@ -164,7 +164,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.0034516842344303046
       mae_improvement_pct: 91.2534452362498
       rmse_improvement_pct: 89.13333765172536
-  - source_file_path: data\datasets\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
     direction_label: forward
     speed_rpm: 1600.0
     torque_nm: 1500.0
@@ -182,7 +182,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.00015206463674245774
       mae_improvement_pct: 8.361068833314034
       rmse_improvement_pct: 8.437605217104045
-  - source_file_path: data\datasets\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
     direction_label: forward
     speed_rpm: 700.0
     torque_nm: 1400.0
@@ -200,7 +200,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.0010001731346784407
       mae_improvement_pct: 65.31824137265373
       rmse_improvement_pct: 60.01102974897925
-  - source_file_path: data\datasets\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
     direction_label: forward
     speed_rpm: 800.0
     torque_nm: 1800.0
@@ -245,7 +245,7 @@ candidate_summary_list:
   collage_path: output\validation_checks\track2_mean_centered_collage_report\2026-06-02-13-33-14__track2_mean_centered_collage_report\collages\forward_reference\track1_best_fw.png
   collage_markdown_path: assets/forward_reference/track1_best_fw.png
   selected_curve_list:
-  - source_file_path: data\datasets\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
     direction_label: forward
     speed_rpm: 100.0
     torque_nm: 100.0
@@ -263,7 +263,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.0023752671978933765
       mae_improvement_pct: 87.75786211989346
       rmse_improvement_pct: 84.85176110085891
-  - source_file_path: data\datasets\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
     direction_label: forward
     speed_rpm: 1600.0
     torque_nm: 1500.0
@@ -281,7 +281,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.0002082215538410806
       mae_improvement_pct: 11.481979943771705
       rmse_improvement_pct: 11.001798266282032
-  - source_file_path: data\datasets\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
     direction_label: forward
     speed_rpm: 700.0
     torque_nm: 1400.0
@@ -299,7 +299,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.0023361530152538152
       mae_improvement_pct: 81.6805334935117
       rmse_improvement_pct: 77.62777122344455
-  - source_file_path: data\datasets\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
     direction_label: forward
     speed_rpm: 800.0
     torque_nm: 1800.0
@@ -344,7 +344,7 @@ candidate_summary_list:
   collage_path: output\validation_checks\track2_mean_centered_collage_report\2026-06-02-13-33-14__track2_mean_centered_collage_report\collages\forward_wave1\feedforward_fw.png
   collage_markdown_path: assets/forward_wave1/feedforward_fw.png
   selected_curve_list:
-  - source_file_path: data\datasets\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
     direction_label: forward
     speed_rpm: 100.0
     torque_nm: 100.0
@@ -362,7 +362,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.0011264904473227274
       mae_improvement_pct: 50.955242978110206
       rmse_improvement_pct: 49.80642422279479
-  - source_file_path: data\datasets\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
     direction_label: forward
     speed_rpm: 1600.0
     torque_nm: 1500.0
@@ -380,7 +380,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.00031403622685448763
       mae_improvement_pct: 6.666109564911673
       rmse_improvement_pct: 7.907893018125813
-  - source_file_path: data\datasets\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
     direction_label: forward
     speed_rpm: 700.0
     torque_nm: 1400.0
@@ -398,7 +398,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.0022164597616372
       mae_improvement_pct: 60.97021778613183
       rmse_improvement_pct: 55.30134951431386
-  - source_file_path: data\datasets\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
     direction_label: forward
     speed_rpm: 800.0
     torque_nm: 1800.0
@@ -443,7 +443,7 @@ candidate_summary_list:
   collage_path: output\validation_checks\track2_mean_centered_collage_report\2026-06-02-13-33-14__track2_mean_centered_collage_report\collages\forward_wave1\harmonic_regression_fw.png
   collage_markdown_path: assets/forward_wave1/harmonic_regression_fw.png
   selected_curve_list:
-  - source_file_path: data\datasets\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
     direction_label: forward
     speed_rpm: 100.0
     torque_nm: 100.0
@@ -461,7 +461,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.0017668786465146686
       mae_improvement_pct: 69.99674878681684
       rmse_improvement_pct: 65.32304989390073
-  - source_file_path: data\datasets\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
     direction_label: forward
     speed_rpm: 1600.0
     torque_nm: 1500.0
@@ -479,7 +479,7 @@ candidate_summary_list:
       rmse_improvement_deg: 4.306389011641534e-05
       mae_improvement_pct: 1.1115341850491522
       rmse_improvement_pct: 1.4826418723121724
-  - source_file_path: data\datasets\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
     direction_label: forward
     speed_rpm: 700.0
     torque_nm: 1400.0
@@ -497,7 +497,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.0024042690097283988
       mae_improvement_pct: 81.36321449791414
       rmse_improvement_pct: 77.40294154731065
-  - source_file_path: data\datasets\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
     direction_label: forward
     speed_rpm: 800.0
     torque_nm: 1800.0
@@ -542,7 +542,7 @@ candidate_summary_list:
   collage_path: output\validation_checks\track2_mean_centered_collage_report\2026-06-02-13-33-14__track2_mean_centered_collage_report\collages\forward_wave1\periodic_mlp_fw.png
   collage_markdown_path: assets/forward_wave1/periodic_mlp_fw.png
   selected_curve_list:
-  - source_file_path: data\datasets\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
     direction_label: forward
     speed_rpm: 100.0
     torque_nm: 100.0
@@ -560,7 +560,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.00295550756921914
       mae_improvement_pct: 79.65780623227093
       rmse_improvement_pct: 76.05674450841605
-  - source_file_path: data\datasets\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
     direction_label: forward
     speed_rpm: 1600.0
     torque_nm: 1500.0
@@ -578,7 +578,7 @@ candidate_summary_list:
       rmse_improvement_deg: 7.938390081836753e-05
       mae_improvement_pct: 2.881515604715951
       rmse_improvement_pct: 2.5398654400729948
-  - source_file_path: data\datasets\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
     direction_label: forward
     speed_rpm: 700.0
     torque_nm: 1400.0
@@ -596,7 +596,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.0017667776244492332
       mae_improvement_pct: 66.10524358517092
       rmse_improvement_pct: 61.30350777712539
-  - source_file_path: data\datasets\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
     direction_label: forward
     speed_rpm: 800.0
     torque_nm: 1800.0
@@ -641,7 +641,7 @@ candidate_summary_list:
   collage_path: output\validation_checks\track2_mean_centered_collage_report\2026-06-02-13-33-14__track2_mean_centered_collage_report\collages\forward_wave1\residual_harmonic_mlp_fw.png
   collage_markdown_path: assets/forward_wave1/residual_harmonic_mlp_fw.png
   selected_curve_list:
-  - source_file_path: data\datasets\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
     direction_label: forward
     speed_rpm: 100.0
     torque_nm: 100.0
@@ -659,7 +659,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.0020399271900764593
       mae_improvement_pct: 71.26324059868212
       rmse_improvement_pct: 67.10056649822964
-  - source_file_path: data\datasets\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
     direction_label: forward
     speed_rpm: 1600.0
     torque_nm: 1500.0
@@ -677,7 +677,7 @@ candidate_summary_list:
       rmse_improvement_deg: 1.0998233656292142e-06
       mae_improvement_pct: -0.07311918359991036
       rmse_improvement_pct: 0.03433277424993898
-  - source_file_path: data\datasets\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
     direction_label: forward
     speed_rpm: 700.0
     torque_nm: 1400.0
@@ -695,7 +695,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.0018803802861491997
       mae_improvement_pct: 72.03790179485704
       rmse_improvement_pct: 67.14936327903608
-  - source_file_path: data\datasets\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
     direction_label: forward
     speed_rpm: 800.0
     torque_nm: 1800.0
@@ -740,7 +740,7 @@ candidate_summary_list:
   collage_path: output\validation_checks\track2_mean_centered_collage_report\2026-06-02-13-33-14__track2_mean_centered_collage_report\collages\forward_wave1\tree_fw.png
   collage_markdown_path: assets/forward_wave1/tree_fw.png
   selected_curve_list:
-  - source_file_path: data\datasets\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
     direction_label: forward
     speed_rpm: 100.0
     torque_nm: 100.0
@@ -758,7 +758,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.004548712188525162
       mae_improvement_pct: 89.46181566887407
       rmse_improvement_pct: 86.90598066586365
-  - source_file_path: data\datasets\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
     direction_label: forward
     speed_rpm: 1600.0
     torque_nm: 1500.0
@@ -776,7 +776,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.000357899177641455
       mae_improvement_pct: 7.969093562781456
       rmse_improvement_pct: 9.761197014473131
-  - source_file_path: data\datasets\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
     direction_label: forward
     speed_rpm: 700.0
     torque_nm: 1400.0
@@ -794,7 +794,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.0017484875882371475
       mae_improvement_pct: 62.638759962103194
       rmse_improvement_pct: 57.668035563857124
-  - source_file_path: data\datasets\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
     direction_label: forward
     speed_rpm: 800.0
     torque_nm: 1800.0
@@ -839,7 +839,7 @@ candidate_summary_list:
   collage_path: output\validation_checks\track2_mean_centered_collage_report\2026-06-02-13-33-14__track2_mean_centered_collage_report\collages\forward_wave1\periodic_mlp_harmonic_fw.png
   collage_markdown_path: assets/forward_wave1/periodic_mlp_harmonic_fw.png
   selected_curve_list:
-  - source_file_path: data\datasets\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
     direction_label: forward
     speed_rpm: 100.0
     torque_nm: 100.0
@@ -857,7 +857,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.00295550756921914
       mae_improvement_pct: 79.65780623227093
       rmse_improvement_pct: 76.05674450841605
-  - source_file_path: data\datasets\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
     direction_label: forward
     speed_rpm: 1600.0
     torque_nm: 1500.0
@@ -875,7 +875,7 @@ candidate_summary_list:
       rmse_improvement_deg: 7.938390081836753e-05
       mae_improvement_pct: 2.881515604715951
       rmse_improvement_pct: 2.5398654400729948
-  - source_file_path: data\datasets\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
     direction_label: forward
     speed_rpm: 700.0
     torque_nm: 1400.0
@@ -893,7 +893,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.0017667776244492332
       mae_improvement_pct: 66.10524358517092
       rmse_improvement_pct: 61.30350777712539
-  - source_file_path: data\datasets\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
     direction_label: forward
     speed_rpm: 800.0
     torque_nm: 1800.0
@@ -938,7 +938,7 @@ candidate_summary_list:
   collage_path: output\validation_checks\track2_mean_centered_collage_report\2026-06-02-13-33-14__track2_mean_centered_collage_report\collages\backward_reference\paper_retuned_best_bw.png
   collage_markdown_path: assets/backward_reference/paper_retuned_best_bw.png
   selected_curve_list:
-  - source_file_path: data\datasets\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
     direction_label: backward
     speed_rpm: 100.0
     torque_nm: 100.0
@@ -956,7 +956,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.004347829815314834
       mae_improvement_pct: 74.43136495532579
       rmse_improvement_pct: 70.72938845221917
-  - source_file_path: data\datasets\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
     direction_label: backward
     speed_rpm: 1600.0
     torque_nm: 1500.0
@@ -974,7 +974,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.00034585558333779555
       mae_improvement_pct: 4.707460545837738
       rmse_improvement_pct: 6.489144758141808
-  - source_file_path: data\datasets\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
     direction_label: backward
     speed_rpm: 700.0
     torque_nm: 1400.0
@@ -992,7 +992,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.00164511111487412
       mae_improvement_pct: 46.429068144078855
       rmse_improvement_pct: 43.66655703547334
-  - source_file_path: data\datasets\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
     direction_label: backward
     speed_rpm: 800.0
     torque_nm: 1800.0
@@ -1037,7 +1037,7 @@ candidate_summary_list:
   collage_path: output\validation_checks\track2_mean_centered_collage_report\2026-06-02-13-33-14__track2_mean_centered_collage_report\collages\backward_reference\track1_best_bw.png
   collage_markdown_path: assets/backward_reference/track1_best_bw.png
   selected_curve_list:
-  - source_file_path: data\datasets\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
     direction_label: backward
     speed_rpm: 100.0
     torque_nm: 100.0
@@ -1055,7 +1055,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.018364475594957717
       mae_improvement_pct: 97.75658759737766
       rmse_improvement_pct: 97.22464346813108
-  - source_file_path: data\datasets\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
     direction_label: backward
     speed_rpm: 1600.0
     torque_nm: 1500.0
@@ -1073,7 +1073,7 @@ candidate_summary_list:
       rmse_improvement_deg: 8.572224673410482e-05
       mae_improvement_pct: 4.592774720415088
       rmse_improvement_pct: 5.039755592964755
-  - source_file_path: data\datasets\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
     direction_label: backward
     speed_rpm: 700.0
     torque_nm: 1400.0
@@ -1091,7 +1091,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.0032017847478727443
       mae_improvement_pct: 81.79053315568048
       rmse_improvement_pct: 78.02004137812277
-  - source_file_path: data\datasets\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
     direction_label: backward
     speed_rpm: 800.0
     torque_nm: 1800.0
@@ -1136,7 +1136,7 @@ candidate_summary_list:
   collage_path: output\validation_checks\track2_mean_centered_collage_report\2026-06-02-13-33-14__track2_mean_centered_collage_report\collages\backward_wave1\feedforward_bw.png
   collage_markdown_path: assets/backward_wave1/feedforward_bw.png
   selected_curve_list:
-  - source_file_path: data\datasets\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
     direction_label: backward
     speed_rpm: 100.0
     torque_nm: 100.0
@@ -1154,7 +1154,7 @@ candidate_summary_list:
       rmse_improvement_deg: 5.546563443812203e-05
       mae_improvement_pct: 5.872867816218987
       rmse_improvement_pct: 4.832737126528926
-  - source_file_path: data\datasets\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
     direction_label: backward
     speed_rpm: 1600.0
     torque_nm: 1500.0
@@ -1172,7 +1172,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.0005970227326644595
       mae_improvement_pct: 11.027636807477453
       rmse_improvement_pct: 14.449564326539644
-  - source_file_path: data\datasets\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
     direction_label: backward
     speed_rpm: 700.0
     torque_nm: 1400.0
@@ -1190,7 +1190,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.0019122519388407413
       mae_improvement_pct: 56.708004433438575
       rmse_improvement_pct: 52.82193126755134
-  - source_file_path: data\datasets\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
     direction_label: backward
     speed_rpm: 800.0
     torque_nm: 1800.0
@@ -1235,7 +1235,7 @@ candidate_summary_list:
   collage_path: output\validation_checks\track2_mean_centered_collage_report\2026-06-02-13-33-14__track2_mean_centered_collage_report\collages\backward_wave1\harmonic_regression_bw.png
   collage_markdown_path: assets/backward_wave1/harmonic_regression_bw.png
   selected_curve_list:
-  - source_file_path: data\datasets\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
     direction_label: backward
     speed_rpm: 100.0
     torque_nm: 100.0
@@ -1253,7 +1253,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.0031631524613270506
       mae_improvement_pct: 82.86719844224334
       rmse_improvement_pct: 79.3042994801279
-  - source_file_path: data\datasets\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
     direction_label: backward
     speed_rpm: 1600.0
     torque_nm: 1500.0
@@ -1271,7 +1271,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.005757436524196555
       mae_improvement_pct: 65.38042574652711
       rmse_improvement_pct: 61.63105752658698
-  - source_file_path: data\datasets\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
     direction_label: backward
     speed_rpm: 700.0
     torque_nm: 1400.0
@@ -1289,7 +1289,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.0012275244246215426
       mae_improvement_pct: 52.62905026354008
       rmse_improvement_pct: 48.98074545252047
-  - source_file_path: data\datasets\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
     direction_label: backward
     speed_rpm: 800.0
     torque_nm: 1800.0
@@ -1334,7 +1334,7 @@ candidate_summary_list:
   collage_path: output\validation_checks\track2_mean_centered_collage_report\2026-06-02-13-33-14__track2_mean_centered_collage_report\collages\backward_wave1\periodic_mlp_bw.png
   collage_markdown_path: assets/backward_wave1/periodic_mlp_bw.png
   selected_curve_list:
-  - source_file_path: data\datasets\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
     direction_label: backward
     speed_rpm: 100.0
     torque_nm: 100.0
@@ -1352,7 +1352,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.0002710604780437417
       mae_improvement_pct: 23.482062347244767
       rmse_improvement_pct: 22.30259147050512
-  - source_file_path: data\datasets\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
     direction_label: backward
     speed_rpm: 1600.0
     torque_nm: 1500.0
@@ -1370,7 +1370,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.0012994400263033395
       mae_improvement_pct: 24.699549596358256
       rmse_improvement_pct: 27.023410980469517
-  - source_file_path: data\datasets\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
     direction_label: backward
     speed_rpm: 700.0
     torque_nm: 1400.0
@@ -1388,7 +1388,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.002273222186156363
       mae_improvement_pct: 62.23081640848904
       rmse_improvement_pct: 57.85471088128174
-  - source_file_path: data\datasets\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
     direction_label: backward
     speed_rpm: 800.0
     torque_nm: 1800.0
@@ -1433,7 +1433,7 @@ candidate_summary_list:
   collage_path: output\validation_checks\track2_mean_centered_collage_report\2026-06-02-13-33-14__track2_mean_centered_collage_report\collages\backward_wave1\residual_harmonic_mlp_bw.png
   collage_markdown_path: assets/backward_wave1/residual_harmonic_mlp_bw.png
   selected_curve_list:
-  - source_file_path: data\datasets\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
     direction_label: backward
     speed_rpm: 100.0
     torque_nm: 100.0
@@ -1451,7 +1451,7 @@ candidate_summary_list:
       rmse_improvement_deg: 8.407730772147862e-06
       mae_improvement_pct: 0.8500973630861888
       rmse_improvement_pct: 0.7185700271857787
-  - source_file_path: data\datasets\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
     direction_label: backward
     speed_rpm: 1600.0
     torque_nm: 1500.0
@@ -1469,7 +1469,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.001203354795357579
       mae_improvement_pct: 25.719899109907143
       rmse_improvement_pct: 25.912306009771715
-  - source_file_path: data\datasets\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
     direction_label: backward
     speed_rpm: 700.0
     torque_nm: 1400.0
@@ -1487,7 +1487,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.002401758773303533
       mae_improvement_pct: 72.3554779185239
       rmse_improvement_pct: 67.1841601454285
-  - source_file_path: data\datasets\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
     direction_label: backward
     speed_rpm: 800.0
     torque_nm: 1800.0
@@ -1532,7 +1532,7 @@ candidate_summary_list:
   collage_path: output\validation_checks\track2_mean_centered_collage_report\2026-06-02-13-33-14__track2_mean_centered_collage_report\collages\backward_wave1\tree_bw.png
   collage_markdown_path: assets/backward_wave1/tree_bw.png
   selected_curve_list:
-  - source_file_path: data\datasets\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
     direction_label: backward
     speed_rpm: 100.0
     torque_nm: 100.0
@@ -1550,7 +1550,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.004428136109900125
       mae_improvement_pct: 89.61395199477633
       rmse_improvement_pct: 87.16668192077005
-  - source_file_path: data\datasets\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
     direction_label: backward
     speed_rpm: 1600.0
     torque_nm: 1500.0
@@ -1568,7 +1568,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.0004147726413588444
       mae_improvement_pct: 8.709765915923548
       rmse_improvement_pct: 10.768633080292943
-  - source_file_path: data\datasets\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
     direction_label: backward
     speed_rpm: 700.0
     torque_nm: 1400.0
@@ -1586,7 +1586,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.0011921879108755225
       mae_improvement_pct: 48.78256494456037
       rmse_improvement_pct: 45.385197987293644
-  - source_file_path: data\datasets\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
     direction_label: backward
     speed_rpm: 800.0
     torque_nm: 1800.0
@@ -1631,7 +1631,7 @@ candidate_summary_list:
   collage_path: output\validation_checks\track2_mean_centered_collage_report\2026-06-02-13-33-14__track2_mean_centered_collage_report\collages\backward_wave1\periodic_mlp_harmonic_bw.png
   collage_markdown_path: assets/backward_wave1/periodic_mlp_harmonic_bw.png
   selected_curve_list:
-  - source_file_path: data\datasets\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
     direction_label: backward
     speed_rpm: 100.0
     torque_nm: 100.0
@@ -1649,7 +1649,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.002492729158267931
       mae_improvement_pct: 64.47949944972463
       rmse_improvement_pct: 60.80429521371547
-  - source_file_path: data\datasets\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
     direction_label: backward
     speed_rpm: 1600.0
     torque_nm: 1500.0
@@ -1667,7 +1667,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.002654594249224916
       mae_improvement_pct: 43.87577210914833
       rmse_improvement_pct: 42.421071974948866
-  - source_file_path: data\datasets\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
     direction_label: backward
     speed_rpm: 700.0
     torque_nm: 1400.0
@@ -1685,7 +1685,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.001840696848277857
       mae_improvement_pct: 66.35233824894691
       rmse_improvement_pct: 61.347872892739154
-  - source_file_path: data\datasets\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
     direction_label: backward
     speed_rpm: 800.0
     torque_nm: 1800.0
@@ -1730,7 +1730,7 @@ candidate_summary_list:
   collage_path: output\validation_checks\track2_mean_centered_collage_report\2026-06-02-13-33-14__track2_mean_centered_collage_report\collages\forward_wave2\temporal_convolution_fw.png
   collage_markdown_path: assets/forward_wave2/temporal_convolution_fw.png
   selected_curve_list:
-  - source_file_path: data\datasets\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
     direction_label: forward
     speed_rpm: 100.0
     torque_nm: 100.0
@@ -1748,7 +1748,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.004620651559212485
       mae_improvement_pct: 85.97332867370326
       rmse_improvement_pct: 82.64674906681972
-  - source_file_path: data\datasets\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
     direction_label: forward
     speed_rpm: 1600.0
     torque_nm: 1500.0
@@ -1766,7 +1766,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.0004917663361726655
       mae_improvement_pct: 10.614332326618355
       rmse_improvement_pct: 12.351377058541924
-  - source_file_path: data\datasets\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
     direction_label: forward
     speed_rpm: 700.0
     torque_nm: 1400.0
@@ -1784,7 +1784,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.0022567793743100894
       mae_improvement_pct: 60.432754451060966
       rmse_improvement_pct: 55.89227123108354
-  - source_file_path: data\datasets\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
     direction_label: forward
     speed_rpm: 800.0
     torque_nm: 1800.0
@@ -1829,7 +1829,7 @@ candidate_summary_list:
   collage_path: output\validation_checks\track2_mean_centered_collage_report\2026-06-02-13-33-14__track2_mean_centered_collage_report\collages\forward_wave2\gru_sequence_fw.png
   collage_markdown_path: assets/forward_wave2/gru_sequence_fw.png
   selected_curve_list:
-  - source_file_path: data\datasets\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
     direction_label: forward
     speed_rpm: 100.0
     torque_nm: 100.0
@@ -1847,7 +1847,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.0029344139724664024
       mae_improvement_pct: 76.15302242339673
       rmse_improvement_pct: 71.89704718171448
-  - source_file_path: data\datasets\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
     direction_label: forward
     speed_rpm: 1600.0
     torque_nm: 1500.0
@@ -1865,7 +1865,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.00030390795984179325
       mae_improvement_pct: 6.5194413064132375
       rmse_improvement_pct: 8.002259141850745
-  - source_file_path: data\datasets\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
     direction_label: forward
     speed_rpm: 700.0
     torque_nm: 1400.0
@@ -1883,7 +1883,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.0016303721870284942
       mae_improvement_pct: 51.45104185014738
       rmse_improvement_pct: 47.48919223434686
-  - source_file_path: data\datasets\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
     direction_label: forward
     speed_rpm: 800.0
     torque_nm: 1800.0
@@ -1928,7 +1928,7 @@ candidate_summary_list:
   collage_path: output\validation_checks\track2_mean_centered_collage_report\2026-06-02-13-33-14__track2_mean_centered_collage_report\collages\forward_wave2\lstm_sequence_fw.png
   collage_markdown_path: assets/forward_wave2/lstm_sequence_fw.png
   selected_curve_list:
-  - source_file_path: data\datasets\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
     direction_label: forward
     speed_rpm: 100.0
     torque_nm: 100.0
@@ -1946,7 +1946,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.0026399174877470605
       mae_improvement_pct: 73.02352331917628
       rmse_improvement_pct: 68.73447054997945
-  - source_file_path: data\datasets\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
     direction_label: forward
     speed_rpm: 1600.0
     torque_nm: 1500.0
@@ -1964,7 +1964,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.0003444725176931147
       mae_improvement_pct: 7.459491307766144
       rmse_improvement_pct: 8.970374192046766
-  - source_file_path: data\datasets\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
     direction_label: forward
     speed_rpm: 700.0
     torque_nm: 1400.0
@@ -1982,7 +1982,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.0020813308564872628
       mae_improvement_pct: 58.110390074469045
       rmse_improvement_pct: 53.599694843805054
-  - source_file_path: data\datasets\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
     direction_label: forward
     speed_rpm: 800.0
     torque_nm: 1800.0
@@ -2027,7 +2027,7 @@ candidate_summary_list:
   collage_path: output\validation_checks\track2_mean_centered_collage_report\2026-06-02-13-33-14__track2_mean_centered_collage_report\collages\forward_wave2\periodic_temporal_convolution_fw.png
   collage_markdown_path: assets/forward_wave2/periodic_temporal_convolution_fw.png
   selected_curve_list:
-  - source_file_path: data\datasets\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
     direction_label: forward
     speed_rpm: 100.0
     torque_nm: 100.0
@@ -2045,7 +2045,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.003982249135935112
       mae_improvement_pct: 86.10940146315565
       rmse_improvement_pct: 82.93496762646268
-  - source_file_path: data\datasets\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
     direction_label: forward
     speed_rpm: 1600.0
     torque_nm: 1500.0
@@ -2063,7 +2063,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.001182403359007934
       mae_improvement_pct: 26.817542145011796
       rmse_improvement_pct: 26.98926583185504
-  - source_file_path: data\datasets\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
     direction_label: forward
     speed_rpm: 700.0
     torque_nm: 1400.0
@@ -2081,7 +2081,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.003148490658958484
       mae_improvement_pct: 74.68343694967709
       rmse_improvement_pct: 69.93434966169725
-  - source_file_path: data\datasets\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
     direction_label: forward
     speed_rpm: 800.0
     torque_nm: 1800.0
@@ -2126,7 +2126,7 @@ candidate_summary_list:
   collage_path: output\validation_checks\track2_mean_centered_collage_report\2026-06-02-13-33-14__track2_mean_centered_collage_report\collages\forward_wave2\periodic_gru_sequence_fw.png
   collage_markdown_path: assets/forward_wave2/periodic_gru_sequence_fw.png
   selected_curve_list:
-  - source_file_path: data\datasets\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
     direction_label: forward
     speed_rpm: 100.0
     torque_nm: 100.0
@@ -2144,7 +2144,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.0038780517255504097
       mae_improvement_pct: 88.15832260157958
       rmse_improvement_pct: 85.3817841426152
-  - source_file_path: data\datasets\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
     direction_label: forward
     speed_rpm: 1600.0
     torque_nm: 1500.0
@@ -2162,7 +2162,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.0003676959991070457
       mae_improvement_pct: 10.470090477738625
       rmse_improvement_pct: 12.078221037079656
-  - source_file_path: data\datasets\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
     direction_label: forward
     speed_rpm: 700.0
     torque_nm: 1400.0
@@ -2180,7 +2180,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.003323697088753708
       mae_improvement_pct: 85.34902149328566
       rmse_improvement_pct: 82.14203050706668
-  - source_file_path: data\datasets\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
     direction_label: forward
     speed_rpm: 800.0
     torque_nm: 1800.0
@@ -2225,7 +2225,7 @@ candidate_summary_list:
   collage_path: output\validation_checks\track2_mean_centered_collage_report\2026-06-02-13-33-14__track2_mean_centered_collage_report\collages\forward_wave2\periodic_lstm_sequence_fw.png
   collage_markdown_path: assets/forward_wave2/periodic_lstm_sequence_fw.png
   selected_curve_list:
-  - source_file_path: data\datasets\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
     direction_label: forward
     speed_rpm: 100.0
     torque_nm: 100.0
@@ -2243,7 +2243,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.0021557072234278237
       mae_improvement_pct: 67.80649593006541
       rmse_improvement_pct: 63.50015766097162
-  - source_file_path: data\datasets\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
     direction_label: forward
     speed_rpm: 1600.0
     torque_nm: 1500.0
@@ -2261,7 +2261,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.00031985478034685664
       mae_improvement_pct: 8.463827331861086
       rmse_improvement_pct: 9.943707698267536
-  - source_file_path: data\datasets\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
     direction_label: forward
     speed_rpm: 700.0
     torque_nm: 1400.0
@@ -2279,7 +2279,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.0031132196363475055
       mae_improvement_pct: 84.52915082324776
       rmse_improvement_pct: 80.98553099163327
-  - source_file_path: data\datasets\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
     direction_label: forward
     speed_rpm: 800.0
     torque_nm: 1800.0
@@ -2324,7 +2324,7 @@ candidate_summary_list:
   collage_path: output\validation_checks\track2_mean_centered_collage_report\2026-06-02-13-33-14__track2_mean_centered_collage_report\collages\backward_wave2\temporal_convolution_bw.png
   collage_markdown_path: assets/backward_wave2/temporal_convolution_bw.png
   selected_curve_list:
-  - source_file_path: data\datasets\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
     direction_label: backward
     speed_rpm: 100.0
     torque_nm: 100.0
@@ -2342,7 +2342,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.0006079148952901467
       mae_improvement_pct: 41.32907822662256
       rmse_improvement_pct: 39.6288134237962
-  - source_file_path: data\datasets\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
     direction_label: backward
     speed_rpm: 1600.0
     torque_nm: 1500.0
@@ -2360,7 +2360,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.0003009879820422951
       mae_improvement_pct: 4.919872155813621
       rmse_improvement_pct: 7.9178670216404985
-  - source_file_path: data\datasets\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
     direction_label: backward
     speed_rpm: 700.0
     torque_nm: 1400.0
@@ -2378,7 +2378,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.0024326890750480754
       mae_improvement_pct: 64.05036747816428
       rmse_improvement_pct: 59.66997474269886
-  - source_file_path: data\datasets\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
     direction_label: backward
     speed_rpm: 800.0
     torque_nm: 1800.0
@@ -2423,7 +2423,7 @@ candidate_summary_list:
   collage_path: output\validation_checks\track2_mean_centered_collage_report\2026-06-02-13-33-14__track2_mean_centered_collage_report\collages\backward_wave2\gru_sequence_bw.png
   collage_markdown_path: assets/backward_wave2/gru_sequence_bw.png
   selected_curve_list:
-  - source_file_path: data\datasets\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
     direction_label: backward
     speed_rpm: 100.0
     torque_nm: 100.0
@@ -2441,7 +2441,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.0012555522506999255
       mae_improvement_pct: 61.54925409110398
       rmse_improvement_pct: 56.49311854629173
-  - source_file_path: data\datasets\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
     direction_label: backward
     speed_rpm: 1600.0
     torque_nm: 1500.0
@@ -2459,7 +2459,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.0007807214240455342
       mae_improvement_pct: 14.615459278141518
       rmse_improvement_pct: 18.016726046069422
-  - source_file_path: data\datasets\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
     direction_label: backward
     speed_rpm: 700.0
     torque_nm: 1400.0
@@ -2477,7 +2477,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.002454442063997339
       mae_improvement_pct: 63.98363438734574
       rmse_improvement_pct: 59.44165466889434
-  - source_file_path: data\datasets\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
     direction_label: backward
     speed_rpm: 800.0
     torque_nm: 1800.0
@@ -2522,7 +2522,7 @@ candidate_summary_list:
   collage_path: output\validation_checks\track2_mean_centered_collage_report\2026-06-02-13-33-14__track2_mean_centered_collage_report\collages\backward_wave2\lstm_sequence_bw.png
   collage_markdown_path: assets/backward_wave2/lstm_sequence_bw.png
   selected_curve_list:
-  - source_file_path: data\datasets\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
     direction_label: backward
     speed_rpm: 100.0
     torque_nm: 100.0
@@ -2540,7 +2540,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.0010016801039463587
       mae_improvement_pct: 52.09925732907849
       rmse_improvement_pct: 47.08450037151583
-  - source_file_path: data\datasets\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
     direction_label: backward
     speed_rpm: 1600.0
     torque_nm: 1500.0
@@ -2558,7 +2558,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.0004608258802741424
       mae_improvement_pct: 8.00012400800129
       rmse_improvement_pct: 11.573047024515324
-  - source_file_path: data\datasets\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
     direction_label: backward
     speed_rpm: 700.0
     torque_nm: 1400.0
@@ -2576,7 +2576,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.0016225765271275564
       mae_improvement_pct: 52.05889131833875
       rmse_improvement_pct: 48.640164599243505
-  - source_file_path: data\datasets\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
     direction_label: backward
     speed_rpm: 800.0
     torque_nm: 1800.0
@@ -2621,7 +2621,7 @@ candidate_summary_list:
   collage_path: output\validation_checks\track2_mean_centered_collage_report\2026-06-02-13-33-14__track2_mean_centered_collage_report\collages\backward_wave2\periodic_temporal_convolution_bw.png
   collage_markdown_path: assets/backward_wave2/periodic_temporal_convolution_bw.png
   selected_curve_list:
-  - source_file_path: data\datasets\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
     direction_label: backward
     speed_rpm: 100.0
     torque_nm: 100.0
@@ -2639,7 +2639,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.000533161703672684
       mae_improvement_pct: 24.117003707897663
       rmse_improvement_pct: 27.49248087342806
-  - source_file_path: data\datasets\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
     direction_label: backward
     speed_rpm: 1600.0
     torque_nm: 1500.0
@@ -2657,7 +2657,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.0015567400082525506
       mae_improvement_pct: 29.58469878422976
       rmse_improvement_pct: 30.21837083835008
-  - source_file_path: data\datasets\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
     direction_label: backward
     speed_rpm: 700.0
     torque_nm: 1400.0
@@ -2675,7 +2675,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.0029854192877665515
       mae_improvement_pct: 75.72655940225165
       rmse_improvement_pct: 70.83326671342678
-  - source_file_path: data\datasets\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
     direction_label: backward
     speed_rpm: 800.0
     torque_nm: 1800.0
@@ -2720,7 +2720,7 @@ candidate_summary_list:
   collage_path: output\validation_checks\track2_mean_centered_collage_report\2026-06-02-13-33-14__track2_mean_centered_collage_report\collages\backward_wave2\periodic_gru_sequence_bw.png
   collage_markdown_path: assets/backward_wave2/periodic_gru_sequence_bw.png
   selected_curve_list:
-  - source_file_path: data\datasets\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
     direction_label: backward
     speed_rpm: 100.0
     torque_nm: 100.0
@@ -2738,7 +2738,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.004776147270284654
       mae_improvement_pct: 86.53746602752179
       rmse_improvement_pct: 83.70215093508891
-  - source_file_path: data\datasets\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
     direction_label: backward
     speed_rpm: 1600.0
     torque_nm: 1500.0
@@ -2756,7 +2756,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.0004109319188954686
       mae_improvement_pct: 15.620599155019457
       rmse_improvement_pct: 15.838071283326448
-  - source_file_path: data\datasets\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
     direction_label: backward
     speed_rpm: 700.0
     torque_nm: 1400.0
@@ -2774,7 +2774,7 @@ candidate_summary_list:
       rmse_improvement_deg: 7.277603044771107e-06
       mae_improvement_pct: 0.959518556443939
       rmse_improvement_pct: 0.7638454581094792
-  - source_file_path: data\datasets\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
     direction_label: backward
     speed_rpm: 800.0
     torque_nm: 1800.0
@@ -2819,7 +2819,7 @@ candidate_summary_list:
   collage_path: output\validation_checks\track2_mean_centered_collage_report\2026-06-02-13-33-14__track2_mean_centered_collage_report\collages\backward_wave2\periodic_lstm_sequence_bw.png
   collage_markdown_path: assets/backward_wave2/periodic_lstm_sequence_bw.png
   selected_curve_list:
-  - source_file_path: data\datasets\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
     direction_label: backward
     speed_rpm: 100.0
     torque_nm: 100.0
@@ -2837,7 +2837,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.0019036227582418155
       mae_improvement_pct: 71.90068764760866
       rmse_improvement_pct: 67.1006757740132
-  - source_file_path: data\datasets\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
     direction_label: backward
     speed_rpm: 1600.0
     torque_nm: 1500.0
@@ -2855,7 +2855,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.000677868414417676
       mae_improvement_pct: 30.735756921325798
       rmse_improvement_pct: 28.481685608518813
-  - source_file_path: data\datasets\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
     direction_label: backward
     speed_rpm: 700.0
     torque_nm: 1400.0
@@ -2873,7 +2873,7 @@ candidate_summary_list:
       rmse_improvement_deg: 8.635105964778034e-05
       mae_improvement_pct: 8.096463219238478
       rmse_improvement_pct: 7.848761137987749
-  - source_file_path: data\datasets\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
     direction_label: backward
     speed_rpm: 800.0
     torque_nm: 1800.0
@@ -2918,7 +2918,7 @@ candidate_summary_list:
   collage_path: output\validation_checks\track2_mean_centered_collage_report\2026-06-02-13-33-14__track2_mean_centered_collage_report\collages\forward_wave2c\residual_harmonic_gru_sequence_sparse_rcim_fw.png
   collage_markdown_path: assets/forward_wave2c/residual_harmonic_gru_sequence_sparse_rcim_fw.png
   selected_curve_list:
-  - source_file_path: data\datasets\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
     direction_label: forward
     speed_rpm: 100.0
     torque_nm: 100.0
@@ -2936,7 +2936,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.0027802401470945854
       mae_improvement_pct: 76.11297170363832
       rmse_improvement_pct: 72.04030588460856
-  - source_file_path: data\datasets\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
     direction_label: forward
     speed_rpm: 1600.0
     torque_nm: 1500.0
@@ -2954,7 +2954,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.000405756462684662
       mae_improvement_pct: 9.054694841930946
       rmse_improvement_pct: 11.578879867512233
-  - source_file_path: data\datasets\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
     direction_label: forward
     speed_rpm: 700.0
     torque_nm: 1400.0
@@ -2972,7 +2972,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.002590417104252351
       mae_improvement_pct: 78.11119088424218
       rmse_improvement_pct: 73.37285940724725
-  - source_file_path: data\datasets\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
     direction_label: forward
     speed_rpm: 800.0
     torque_nm: 1800.0
@@ -3017,7 +3017,7 @@ candidate_summary_list:
   collage_path: output\validation_checks\track2_mean_centered_collage_report\2026-06-02-13-33-14__track2_mean_centered_collage_report\collages\forward_wave2c\residual_harmonic_gru_sequence_dense240_fw.png
   collage_markdown_path: assets/forward_wave2c/residual_harmonic_gru_sequence_dense240_fw.png
   selected_curve_list:
-  - source_file_path: data\datasets\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
     direction_label: forward
     speed_rpm: 100.0
     torque_nm: 100.0
@@ -3035,7 +3035,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.0009702173340734224
       mae_improvement_pct: 10.275218302574242
       rmse_improvement_pct: 10.312826579443133
-  - source_file_path: data\datasets\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
     direction_label: forward
     speed_rpm: 1600.0
     torque_nm: 1500.0
@@ -3053,7 +3053,7 @@ candidate_summary_list:
       rmse_improvement_deg: 6.838570071774838e-06
       mae_improvement_pct: 0.6631650258704127
       rmse_improvement_pct: 0.07592025744814769
-  - source_file_path: data\datasets\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
     direction_label: forward
     speed_rpm: 700.0
     torque_nm: 1400.0
@@ -3071,7 +3071,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.00030532014522581356
       mae_improvement_pct: 11.295822578566524
       rmse_improvement_pct: 3.5100680780703564
-  - source_file_path: data\datasets\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
     direction_label: forward
     speed_rpm: 800.0
     torque_nm: 1800.0
@@ -3116,7 +3116,7 @@ candidate_summary_list:
   collage_path: output\validation_checks\track2_mean_centered_collage_report\2026-06-02-13-33-14__track2_mean_centered_collage_report\collages\forward_wave2c\residual_harmonic_gru_sequence_dense360_fw.png
   collage_markdown_path: assets/forward_wave2c/residual_harmonic_gru_sequence_dense360_fw.png
   selected_curve_list:
-  - source_file_path: data\datasets\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
     direction_label: forward
     speed_rpm: 100.0
     torque_nm: 100.0
@@ -3134,7 +3134,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.0012997650374328568
       mae_improvement_pct: 12.958130027576228
       rmse_improvement_pct: 11.618554567714506
-  - source_file_path: data\datasets\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
     direction_label: forward
     speed_rpm: 1600.0
     torque_nm: 1500.0
@@ -3152,7 +3152,7 @@ candidate_summary_list:
       rmse_improvement_deg: 2.982891462409952e-05
       mae_improvement_pct: 1.4179482089220992
       rmse_improvement_pct: 0.28681732342185223
-  - source_file_path: data\datasets\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
     direction_label: forward
     speed_rpm: 700.0
     torque_nm: 1400.0
@@ -3170,7 +3170,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.00041079945017774913
       mae_improvement_pct: 12.512802858882962
       rmse_improvement_pct: 3.998613738827741
-  - source_file_path: data\datasets\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
     direction_label: forward
     speed_rpm: 800.0
     torque_nm: 1800.0
@@ -3215,7 +3215,7 @@ candidate_summary_list:
   collage_path: output\validation_checks\track2_mean_centered_collage_report\2026-06-02-13-33-14__track2_mean_centered_collage_report\collages\forward_wave2c\residual_harmonic_lstm_sequence_sparse_rcim_fw.png
   collage_markdown_path: assets/forward_wave2c/residual_harmonic_lstm_sequence_sparse_rcim_fw.png
   selected_curve_list:
-  - source_file_path: data\datasets\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
     direction_label: forward
     speed_rpm: 100.0
     torque_nm: 100.0
@@ -3233,7 +3233,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.003081369821679423
       mae_improvement_pct: 78.0047476125008
       rmse_improvement_pct: 74.10505088282476
-  - source_file_path: data\datasets\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
     direction_label: forward
     speed_rpm: 1600.0
     torque_nm: 1500.0
@@ -3251,7 +3251,7 @@ candidate_summary_list:
       rmse_improvement_deg: 6.460469809576458e-05
       mae_improvement_pct: 1.2534748772008084
       rmse_improvement_pct: 2.0394229608007484
-  - source_file_path: data\datasets\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
     direction_label: forward
     speed_rpm: 700.0
     torque_nm: 1400.0
@@ -3269,7 +3269,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.0024263357077880074
       mae_improvement_pct: 78.2436417457325
       rmse_improvement_pct: 73.409938740175
-  - source_file_path: data\datasets\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
     direction_label: forward
     speed_rpm: 800.0
     torque_nm: 1800.0
@@ -3314,7 +3314,7 @@ candidate_summary_list:
   collage_path: output\validation_checks\track2_mean_centered_collage_report\2026-06-02-13-33-14__track2_mean_centered_collage_report\collages\forward_wave2c\residual_harmonic_lstm_sequence_dense240_fw.png
   collage_markdown_path: assets/forward_wave2c/residual_harmonic_lstm_sequence_dense240_fw.png
   selected_curve_list:
-  - source_file_path: data\datasets\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
     direction_label: forward
     speed_rpm: 100.0
     torque_nm: 100.0
@@ -3332,7 +3332,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.0014332586402823286
       mae_improvement_pct: 18.839065176967463
       rmse_improvement_pct: 14.280300909484135
-  - source_file_path: data\datasets\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
     direction_label: forward
     speed_rpm: 1600.0
     torque_nm: 1500.0
@@ -3350,7 +3350,7 @@ candidate_summary_list:
       rmse_improvement_deg: 8.750910750789445e-05
       mae_improvement_pct: 2.8852519201081805
       rmse_improvement_pct: 0.9543175732116564
-  - source_file_path: data\datasets\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
     direction_label: forward
     speed_rpm: 700.0
     torque_nm: 1400.0
@@ -3368,7 +3368,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.000493492200286768
       mae_improvement_pct: 14.150548158944476
       rmse_improvement_pct: 5.470920243199328
-  - source_file_path: data\datasets\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
     direction_label: forward
     speed_rpm: 800.0
     torque_nm: 1800.0
@@ -3413,7 +3413,7 @@ candidate_summary_list:
   collage_path: output\validation_checks\track2_mean_centered_collage_report\2026-06-02-13-33-14__track2_mean_centered_collage_report\collages\forward_wave2c\residual_harmonic_lstm_sequence_dense360_fw.png
   collage_markdown_path: assets/forward_wave2c/residual_harmonic_lstm_sequence_dense360_fw.png
   selected_curve_list:
-  - source_file_path: data\datasets\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
     direction_label: forward
     speed_rpm: 100.0
     torque_nm: 100.0
@@ -3431,7 +3431,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.0013846497775900305
       mae_improvement_pct: 15.690741461932207
       rmse_improvement_pct: 12.720039329884395
-  - source_file_path: data\datasets\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
     direction_label: forward
     speed_rpm: 1600.0
     torque_nm: 1500.0
@@ -3449,7 +3449,7 @@ candidate_summary_list:
       rmse_improvement_deg: 7.257845690483017e-06
       mae_improvement_pct: 0.4743384318619824
       rmse_improvement_pct: 0.0722821763066005
-  - source_file_path: data\datasets\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
     direction_label: forward
     speed_rpm: 700.0
     torque_nm: 1400.0
@@ -3467,7 +3467,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.0006384771760632162
       mae_improvement_pct: 15.78377628663511
       rmse_improvement_pct: 6.34755676860286
-  - source_file_path: data\datasets\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
     direction_label: forward
     speed_rpm: 800.0
     torque_nm: 1800.0
@@ -3512,7 +3512,7 @@ candidate_summary_list:
   collage_path: output\validation_checks\track2_mean_centered_collage_report\2026-06-02-13-33-14__track2_mean_centered_collage_report\collages\backward_wave2c\residual_harmonic_gru_sequence_sparse_rcim_bw.png
   collage_markdown_path: assets/backward_wave2c/residual_harmonic_gru_sequence_sparse_rcim_bw.png
   selected_curve_list:
-  - source_file_path: data\datasets\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
     direction_label: backward
     speed_rpm: 100.0
     torque_nm: 100.0
@@ -3530,7 +3530,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.002606113335075949
       mae_improvement_pct: 72.50017805419887
       rmse_improvement_pct: 68.2563950670203
-  - source_file_path: data\datasets\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
     direction_label: backward
     speed_rpm: 1600.0
     torque_nm: 1500.0
@@ -3548,7 +3548,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.0015885482413198347
       mae_improvement_pct: 32.31870347244897
       rmse_improvement_pct: 31.883725097952468
-  - source_file_path: data\datasets\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
     direction_label: backward
     speed_rpm: 700.0
     torque_nm: 1400.0
@@ -3566,7 +3566,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.0021089932258458286
       mae_improvement_pct: 69.5677180786905
       rmse_improvement_pct: 64.26512423269901
-  - source_file_path: data\datasets\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
     direction_label: backward
     speed_rpm: 800.0
     torque_nm: 1800.0
@@ -3611,7 +3611,7 @@ candidate_summary_list:
   collage_path: output\validation_checks\track2_mean_centered_collage_report\2026-06-02-13-33-14__track2_mean_centered_collage_report\collages\backward_wave2c\residual_harmonic_gru_sequence_dense240_bw.png
   collage_markdown_path: assets/backward_wave2c/residual_harmonic_gru_sequence_dense240_bw.png
   selected_curve_list:
-  - source_file_path: data\datasets\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
     direction_label: backward
     speed_rpm: 100.0
     torque_nm: 100.0
@@ -3629,7 +3629,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.0009769542628348688
       mae_improvement_pct: 1.8836596967843453
       rmse_improvement_pct: 7.6209827189262676
-  - source_file_path: data\datasets\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
     direction_label: backward
     speed_rpm: 1600.0
     torque_nm: 1500.0
@@ -3647,7 +3647,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.0022144691251134285
       mae_improvement_pct: 14.458422183388757
       rmse_improvement_pct: 15.112846541056367
-  - source_file_path: data\datasets\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
     direction_label: backward
     speed_rpm: 700.0
     torque_nm: 1400.0
@@ -3665,7 +3665,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.0010561557573574003
       mae_improvement_pct: 3.4415684901441073
       rmse_improvement_pct: 8.200839548970839
-  - source_file_path: data\datasets\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
     direction_label: backward
     speed_rpm: 800.0
     torque_nm: 1800.0
@@ -3710,7 +3710,7 @@ candidate_summary_list:
   collage_path: output\validation_checks\track2_mean_centered_collage_report\2026-06-02-13-33-14__track2_mean_centered_collage_report\collages\backward_wave2c\residual_harmonic_gru_sequence_dense360_bw.png
   collage_markdown_path: assets/backward_wave2c/residual_harmonic_gru_sequence_dense360_bw.png
   selected_curve_list:
-  - source_file_path: data\datasets\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
     direction_label: backward
     speed_rpm: 100.0
     torque_nm: 100.0
@@ -3728,7 +3728,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.0003592877080479291
       mae_improvement_pct: -0.6362461851832011
       rmse_improvement_pct: 2.8613536923960035
-  - source_file_path: data\datasets\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
     direction_label: backward
     speed_rpm: 1600.0
     torque_nm: 1500.0
@@ -3746,7 +3746,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.0014306347236652372
       mae_improvement_pct: 11.737676040720265
       rmse_improvement_pct: 10.147479384768753
-  - source_file_path: data\datasets\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
     direction_label: backward
     speed_rpm: 700.0
     torque_nm: 1400.0
@@ -3764,7 +3764,7 @@ candidate_summary_list:
       rmse_improvement_deg: 2.451346675716448e-06
       mae_improvement_pct: 0.656242024019702
       rmse_improvement_pct: 0.020132740922022527
-  - source_file_path: data\datasets\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
     direction_label: backward
     speed_rpm: 800.0
     torque_nm: 1800.0
@@ -3809,7 +3809,7 @@ candidate_summary_list:
   collage_path: output\validation_checks\track2_mean_centered_collage_report\2026-06-02-13-33-14__track2_mean_centered_collage_report\collages\backward_wave2c\residual_harmonic_lstm_sequence_sparse_rcim_bw.png
   collage_markdown_path: assets/backward_wave2c/residual_harmonic_lstm_sequence_sparse_rcim_bw.png
   selected_curve_list:
-  - source_file_path: data\datasets\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
     direction_label: backward
     speed_rpm: 100.0
     torque_nm: 100.0
@@ -3827,7 +3827,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.0006095471736451078
       mae_improvement_pct: 35.875094925442156
       rmse_improvement_pct: 33.6990368374025
-  - source_file_path: data\datasets\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
     direction_label: backward
     speed_rpm: 1600.0
     torque_nm: 1500.0
@@ -3845,7 +3845,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.0009313082872393062
       mae_improvement_pct: 20.45956490867176
       rmse_improvement_pct: 21.30873332298876
-  - source_file_path: data\datasets\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
     direction_label: backward
     speed_rpm: 700.0
     torque_nm: 1400.0
@@ -3863,7 +3863,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.002411478297944794
       mae_improvement_pct: 71.61915218112264
       rmse_improvement_pct: 66.28057471926144
-  - source_file_path: data\datasets\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
     direction_label: backward
     speed_rpm: 800.0
     torque_nm: 1800.0
@@ -3908,7 +3908,7 @@ candidate_summary_list:
   collage_path: output\validation_checks\track2_mean_centered_collage_report\2026-06-02-13-33-14__track2_mean_centered_collage_report\collages\backward_wave2c\residual_harmonic_lstm_sequence_dense240_bw.png
   collage_markdown_path: assets/backward_wave2c/residual_harmonic_lstm_sequence_dense240_bw.png
   selected_curve_list:
-  - source_file_path: data\datasets\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
     direction_label: backward
     speed_rpm: 100.0
     torque_nm: 100.0
@@ -3926,7 +3926,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.0015772082782081667
       mae_improvement_pct: 16.451433666601208
       rmse_improvement_pct: 15.254305895850356
-  - source_file_path: data\datasets\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
     direction_label: backward
     speed_rpm: 1600.0
     torque_nm: 1500.0
@@ -3944,7 +3944,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.0008675470735897192
       mae_improvement_pct: 6.184873763204719
       rmse_improvement_pct: 8.316600998114156
-  - source_file_path: data\datasets\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
     direction_label: backward
     speed_rpm: 700.0
     torque_nm: 1400.0
@@ -3962,7 +3962,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.00017056784052211713
       mae_improvement_pct: 8.034443983215581
       rmse_improvement_pct: 1.9177826722709566
-  - source_file_path: data\datasets\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
     direction_label: backward
     speed_rpm: 800.0
     torque_nm: 1800.0
@@ -4007,7 +4007,7 @@ candidate_summary_list:
   collage_path: output\validation_checks\track2_mean_centered_collage_report\2026-06-02-13-33-14__track2_mean_centered_collage_report\collages\backward_wave2c\residual_harmonic_lstm_sequence_dense360_bw.png
   collage_markdown_path: assets/backward_wave2c/residual_harmonic_lstm_sequence_dense360_bw.png
   selected_curve_list:
-  - source_file_path: data\datasets\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
     direction_label: backward
     speed_rpm: 100.0
     torque_nm: 100.0
@@ -4025,7 +4025,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.000442091931101167
       mae_improvement_pct: -0.4158582774792202
       rmse_improvement_pct: 3.084350219641225
-  - source_file_path: data\datasets\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
     direction_label: backward
     speed_rpm: 1600.0
     torque_nm: 1500.0
@@ -4043,7 +4043,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.00120752705913983
       mae_improvement_pct: 8.445408927077406
       rmse_improvement_pct: 7.828396962629261
-  - source_file_path: data\datasets\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
     direction_label: backward
     speed_rpm: 700.0
     torque_nm: 1400.0
@@ -4061,7 +4061,7 @@ candidate_summary_list:
       rmse_improvement_deg: 1.792008733282613e-05
       mae_improvement_pct: 1.8832627245697937
       rmse_improvement_pct: 0.12978626418345302
-  - source_file_path: data\datasets\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
     direction_label: backward
     speed_rpm: 800.0
     torque_nm: 1800.0
@@ -4107,7 +4107,7 @@ candidate_summary_list:
   collage_path: output\validation_checks\track2_mean_centered_collage_report\2026-06-02-13-33-14__track2_mean_centered_collage_report\collages\global_wave1\feedforward_global.png
   collage_markdown_path: assets/global_wave1/feedforward_global.png
   selected_curve_list:
-  - source_file_path: data\datasets\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
     direction_label: forward
     speed_rpm: 100.0
     torque_nm: 100.0
@@ -4125,7 +4125,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.00315545211550995
       mae_improvement_pct: 80.08079263728025
       rmse_improvement_pct: 76.02047515833875
-  - source_file_path: data\datasets\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
     direction_label: forward
     speed_rpm: 800.0
     torque_nm: 1800.0
@@ -4143,7 +4143,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.0004334094774681987
       mae_improvement_pct: 18.545123982918682
       rmse_improvement_pct: 16.37411509896338
-  - source_file_path: data\datasets\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
     direction_label: backward
     speed_rpm: 100.0
     torque_nm: 100.0
@@ -4161,7 +4161,7 @@ candidate_summary_list:
       rmse_improvement_deg: 4.596232997722055e-05
       mae_improvement_pct: 5.281378420948341
       rmse_improvement_pct: 4.507913997594689
-  - source_file_path: data\datasets\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
     direction_label: backward
     speed_rpm: 800.0
     torque_nm: 1800.0
@@ -4207,7 +4207,7 @@ candidate_summary_list:
   collage_path: output\validation_checks\track2_mean_centered_collage_report\2026-06-02-13-33-14__track2_mean_centered_collage_report\collages\global_wave1\harmonic_regression_global.png
   collage_markdown_path: assets/global_wave1/harmonic_regression_global.png
   selected_curve_list:
-  - source_file_path: data\datasets\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
     direction_label: forward
     speed_rpm: 100.0
     torque_nm: 100.0
@@ -4225,7 +4225,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.02604447418963938
       mae_improvement_pct: 97.01319035232325
       rmse_improvement_pct: 96.32269880603191
-  - source_file_path: data\datasets\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
     direction_label: forward
     speed_rpm: 800.0
     torque_nm: 1800.0
@@ -4243,7 +4243,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.02998792639406136
       mae_improvement_pct: 96.8778007635159
       rmse_improvement_pct: 96.02192077739873
-  - source_file_path: data\datasets\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
     direction_label: backward
     speed_rpm: 100.0
     torque_nm: 100.0
@@ -4261,7 +4261,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.030541544660105162
       mae_improvement_pct: 97.71679369866456
       rmse_improvement_pct: 97.15555768296201
-  - source_file_path: data\datasets\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
     direction_label: backward
     speed_rpm: 800.0
     torque_nm: 1800.0
@@ -4307,7 +4307,7 @@ candidate_summary_list:
   collage_path: output\validation_checks\track2_mean_centered_collage_report\2026-06-02-13-33-14__track2_mean_centered_collage_report\collages\global_wave1\periodic_mlp_global.png
   collage_markdown_path: assets/global_wave1/periodic_mlp_global.png
   selected_curve_list:
-  - source_file_path: data\datasets\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
     direction_label: forward
     speed_rpm: 100.0
     torque_nm: 100.0
@@ -4325,7 +4325,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.002472100898588893
       mae_improvement_pct: 76.61939702360837
       rmse_improvement_pct: 72.10227924335406
-  - source_file_path: data\datasets\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
     direction_label: forward
     speed_rpm: 800.0
     torque_nm: 1800.0
@@ -4343,7 +4343,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.0001725845393312688
       mae_improvement_pct: 7.740390084881881
       rmse_improvement_pct: 7.231601353985603
-  - source_file_path: data\datasets\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
     direction_label: backward
     speed_rpm: 100.0
     torque_nm: 100.0
@@ -4361,7 +4361,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.0005158153818530254
       mae_improvement_pct: 36.961412907046956
       rmse_improvement_pct: 36.88255394921312
-  - source_file_path: data\datasets\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
     direction_label: backward
     speed_rpm: 800.0
     torque_nm: 1800.0
@@ -4407,7 +4407,7 @@ candidate_summary_list:
   collage_path: output\validation_checks\track2_mean_centered_collage_report\2026-06-02-13-33-14__track2_mean_centered_collage_report\collages\global_wave1\residual_harmonic_mlp_global.png
   collage_markdown_path: assets/global_wave1/residual_harmonic_mlp_global.png
   selected_curve_list:
-  - source_file_path: data\datasets\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
     direction_label: forward
     speed_rpm: 100.0
     torque_nm: 100.0
@@ -4425,7 +4425,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.0019437449528888532
       mae_improvement_pct: 72.19128766949177
       rmse_improvement_pct: 67.83156411411925
-  - source_file_path: data\datasets\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
     direction_label: forward
     speed_rpm: 800.0
     torque_nm: 1800.0
@@ -4443,7 +4443,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.0012389897223906861
       mae_improvement_pct: 38.2927111439295
       rmse_improvement_pct: 35.85455016276942
-  - source_file_path: data\datasets\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
     direction_label: backward
     speed_rpm: 100.0
     torque_nm: 100.0
@@ -4461,7 +4461,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.0012296038593308607
       mae_improvement_pct: 64.70287209700386
       rmse_improvement_pct: 60.73707565843063
-  - source_file_path: data\datasets\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
     direction_label: backward
     speed_rpm: 800.0
     torque_nm: 1800.0
@@ -4507,7 +4507,7 @@ candidate_summary_list:
   collage_path: output\validation_checks\track2_mean_centered_collage_report\2026-06-02-13-33-14__track2_mean_centered_collage_report\collages\global_wave1\tree_global.png
   collage_markdown_path: assets/global_wave1/tree_global.png
   selected_curve_list:
-  - source_file_path: data\datasets\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
     direction_label: forward
     speed_rpm: 100.0
     torque_nm: 100.0
@@ -4525,7 +4525,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.004710543583317131
       mae_improvement_pct: 88.03737306547045
       rmse_improvement_pct: 85.41093922600238
-  - source_file_path: data\datasets\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
     direction_label: forward
     speed_rpm: 800.0
     torque_nm: 1800.0
@@ -4543,7 +4543,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.0010575136906251549
       mae_improvement_pct: 40.072348008813094
       rmse_improvement_pct: 36.20344665346399
-  - source_file_path: data\datasets\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
     direction_label: backward
     speed_rpm: 100.0
     torque_nm: 100.0
@@ -4561,7 +4561,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.004670957119882609
       mae_improvement_pct: 88.87844563583724
       rmse_improvement_pct: 86.47327147017384
-  - source_file_path: data\datasets\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
     direction_label: backward
     speed_rpm: 800.0
     torque_nm: 1800.0
@@ -4607,7 +4607,7 @@ candidate_summary_list:
   collage_path: output\validation_checks\track2_mean_centered_collage_report\2026-06-02-13-33-14__track2_mean_centered_collage_report\collages\global_wave1\periodic_mlp_harmonic_global.png
   collage_markdown_path: assets/global_wave1/periodic_mlp_harmonic_global.png
   selected_curve_list:
-  - source_file_path: data\datasets\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
     direction_label: forward
     speed_rpm: 100.0
     torque_nm: 100.0
@@ -4625,7 +4625,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.004672593141151687
       mae_improvement_pct: 84.14386631295702
       rmse_improvement_pct: 81.36311970499571
-  - source_file_path: data\datasets\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
     direction_label: forward
     speed_rpm: 800.0
     torque_nm: 1800.0
@@ -4643,7 +4643,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.0013807595288072593
       mae_improvement_pct: 47.61607722075392
       rmse_improvement_pct: 44.25077900250412
-  - source_file_path: data\datasets\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
     direction_label: backward
     speed_rpm: 100.0
     torque_nm: 100.0
@@ -4661,7 +4661,7 @@ candidate_summary_list:
       rmse_improvement_deg: 9.168413266549716e-05
       mae_improvement_pct: 9.037078279649714
       rmse_improvement_pct: 9.194040739048493
-  - source_file_path: data\datasets\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
     direction_label: backward
     speed_rpm: 800.0
     torque_nm: 1800.0
@@ -4707,7 +4707,7 @@ candidate_summary_list:
   collage_path: output\validation_checks\track2_mean_centered_collage_report\2026-06-02-13-33-14__track2_mean_centered_collage_report\collages\global_wave2\temporal_convolution_global.png
   collage_markdown_path: assets/global_wave2/temporal_convolution_global.png
   selected_curve_list:
-  - source_file_path: data\datasets\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
     direction_label: forward
     speed_rpm: 100.0
     torque_nm: 100.0
@@ -4725,7 +4725,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.00368737785949068
       mae_improvement_pct: 79.71795009742897
       rmse_improvement_pct: 76.55866066798916
-  - source_file_path: data\datasets\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
     direction_label: forward
     speed_rpm: 800.0
     torque_nm: 1800.0
@@ -4743,7 +4743,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.0007035109363490366
       mae_improvement_pct: 24.112858892183187
       rmse_improvement_pct: 23.30633069124475
-  - source_file_path: data\datasets\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
     direction_label: backward
     speed_rpm: 100.0
     torque_nm: 100.0
@@ -4761,7 +4761,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.0007179653835515847
       mae_improvement_pct: 31.664988878664147
       rmse_improvement_pct: 31.226651760518553
-  - source_file_path: data\datasets\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
     direction_label: backward
     speed_rpm: 800.0
     torque_nm: 1800.0
@@ -4807,7 +4807,7 @@ candidate_summary_list:
   collage_path: output\validation_checks\track2_mean_centered_collage_report\2026-06-02-13-33-14__track2_mean_centered_collage_report\collages\global_wave2\gru_sequence_global.png
   collage_markdown_path: assets/global_wave2/gru_sequence_global.png
   selected_curve_list:
-  - source_file_path: data\datasets\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
     direction_label: forward
     speed_rpm: 100.0
     torque_nm: 100.0
@@ -4825,7 +4825,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.004420084133330804
       mae_improvement_pct: 84.94760031638161
       rmse_improvement_pct: 81.71595178361522
-  - source_file_path: data\datasets\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
     direction_label: forward
     speed_rpm: 800.0
     torque_nm: 1800.0
@@ -4843,7 +4843,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.002515048439094958
       mae_improvement_pct: 55.58985532328526
       rmse_improvement_pct: 51.66667700238875
-  - source_file_path: data\datasets\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
     direction_label: backward
     speed_rpm: 100.0
     torque_nm: 100.0
@@ -4861,7 +4861,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.001395229788948784
       mae_improvement_pct: 55.82941015124394
       rmse_improvement_pct: 51.6441036564763
-  - source_file_path: data\datasets\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
     direction_label: backward
     speed_rpm: 800.0
     torque_nm: 1800.0
@@ -4907,7 +4907,7 @@ candidate_summary_list:
   collage_path: output\validation_checks\track2_mean_centered_collage_report\2026-06-02-13-33-14__track2_mean_centered_collage_report\collages\global_wave2\lstm_sequence_global.png
   collage_markdown_path: assets/global_wave2/lstm_sequence_global.png
   selected_curve_list:
-  - source_file_path: data\datasets\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
     direction_label: forward
     speed_rpm: 100.0
     torque_nm: 100.0
@@ -4925,7 +4925,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.0028487979687153234
       mae_improvement_pct: 78.95671349921673
       rmse_improvement_pct: 73.54299856531024
-  - source_file_path: data\datasets\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
     direction_label: forward
     speed_rpm: 800.0
     torque_nm: 1800.0
@@ -4943,7 +4943,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.0022201863915407754
       mae_improvement_pct: 55.0968059421245
       rmse_improvement_pct: 50.04705664972948
-  - source_file_path: data\datasets\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
     direction_label: backward
     speed_rpm: 100.0
     torque_nm: 100.0
@@ -4961,7 +4961,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.002149931405751083
       mae_improvement_pct: 76.41055220833174
       rmse_improvement_pct: 72.24691610785253
-  - source_file_path: data\datasets\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
     direction_label: backward
     speed_rpm: 800.0
     torque_nm: 1800.0
@@ -5007,7 +5007,7 @@ candidate_summary_list:
   collage_path: output\validation_checks\track2_mean_centered_collage_report\2026-06-02-13-33-14__track2_mean_centered_collage_report\collages\global_wave2\periodic_temporal_convolution_global.png
   collage_markdown_path: assets/global_wave2/periodic_temporal_convolution_global.png
   selected_curve_list:
-  - source_file_path: data\datasets\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
     direction_label: forward
     speed_rpm: 100.0
     torque_nm: 100.0
@@ -5025,7 +5025,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.0036181792693696837
       mae_improvement_pct: 79.34552240922417
       rmse_improvement_pct: 75.86584259170453
-  - source_file_path: data\datasets\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
     direction_label: forward
     speed_rpm: 800.0
     torque_nm: 1800.0
@@ -5043,7 +5043,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.0019946372673078474
       mae_improvement_pct: 67.11991572571866
       rmse_improvement_pct: 61.4485061645739
-  - source_file_path: data\datasets\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
     direction_label: backward
     speed_rpm: 100.0
     torque_nm: 100.0
@@ -5061,7 +5061,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.00270248718001603
       mae_improvement_pct: 81.46711093827706
       rmse_improvement_pct: 77.38937825861817
-  - source_file_path: data\datasets\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
     direction_label: backward
     speed_rpm: 800.0
     torque_nm: 1800.0
@@ -5107,7 +5107,7 @@ candidate_summary_list:
   collage_path: output\validation_checks\track2_mean_centered_collage_report\2026-06-02-13-33-14__track2_mean_centered_collage_report\collages\global_wave2\periodic_gru_sequence_global.png
   collage_markdown_path: assets/global_wave2/periodic_gru_sequence_global.png
   selected_curve_list:
-  - source_file_path: data\datasets\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
     direction_label: forward
     speed_rpm: 100.0
     torque_nm: 100.0
@@ -5125,7 +5125,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.0008981127800393818
       mae_improvement_pct: 44.42892379473725
       rmse_improvement_pct: 42.33819002525395
-  - source_file_path: data\datasets\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
     direction_label: forward
     speed_rpm: 800.0
     torque_nm: 1800.0
@@ -5143,7 +5143,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.003974364058890528
       mae_improvement_pct: 85.64734644052282
       rmse_improvement_pct: 82.48962624467798
-  - source_file_path: data\datasets\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
     direction_label: backward
     speed_rpm: 100.0
     torque_nm: 100.0
@@ -5161,7 +5161,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.002644901668264911
       mae_improvement_pct: 72.51055319572365
       rmse_improvement_pct: 67.24283628980403
-  - source_file_path: data\datasets\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
     direction_label: backward
     speed_rpm: 800.0
     torque_nm: 1800.0
@@ -5207,7 +5207,7 @@ candidate_summary_list:
   collage_path: output\validation_checks\track2_mean_centered_collage_report\2026-06-02-13-33-14__track2_mean_centered_collage_report\collages\global_wave2\periodic_lstm_sequence_global.png
   collage_markdown_path: assets/global_wave2/periodic_lstm_sequence_global.png
   selected_curve_list:
-  - source_file_path: data\datasets\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
     direction_label: forward
     speed_rpm: 100.0
     torque_nm: 100.0
@@ -5225,7 +5225,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.005966217082197025
       mae_improvement_pct: 93.10817850971733
       rmse_improvement_pct: 91.47141966169069
-  - source_file_path: data\datasets\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
     direction_label: forward
     speed_rpm: 800.0
     torque_nm: 1800.0
@@ -5243,7 +5243,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.001050756561301324
       mae_improvement_pct: 62.69621188153318
       rmse_improvement_pct: 57.232306449043385
-  - source_file_path: data\datasets\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
     direction_label: backward
     speed_rpm: 100.0
     torque_nm: 100.0
@@ -5261,7 +5261,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.005287039100436309
       mae_improvement_pct: 88.23951509208514
       rmse_improvement_pct: 85.4687444803681
-  - source_file_path: data\datasets\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
     direction_label: backward
     speed_rpm: 800.0
     torque_nm: 1800.0
@@ -5307,7 +5307,7 @@ candidate_summary_list:
   collage_path: output\validation_checks\track2_mean_centered_collage_report\2026-06-02-13-33-14__track2_mean_centered_collage_report\collages\global_wave2c\residual_harmonic_gru_sequence_sparse_rcim_global.png
   collage_markdown_path: assets/global_wave2c/residual_harmonic_gru_sequence_sparse_rcim_global.png
   selected_curve_list:
-  - source_file_path: data\datasets\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
     direction_label: forward
     speed_rpm: 100.0
     torque_nm: 100.0
@@ -5325,7 +5325,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.0026039983753901163
       mae_improvement_pct: 74.67660280847153
       rmse_improvement_pct: 70.68562499752215
-  - source_file_path: data\datasets\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
     direction_label: forward
     speed_rpm: 800.0
     torque_nm: 1800.0
@@ -5343,7 +5343,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.002457381902954427
       mae_improvement_pct: 65.12398902533157
       rmse_improvement_pct: 60.098874626572375
-  - source_file_path: data\datasets\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
     direction_label: backward
     speed_rpm: 100.0
     torque_nm: 100.0
@@ -5361,7 +5361,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.002056387488180175
       mae_improvement_pct: 69.86441053245255
       rmse_improvement_pct: 65.59035760682835
-  - source_file_path: data\datasets\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
     direction_label: backward
     speed_rpm: 800.0
     torque_nm: 1800.0
@@ -5407,7 +5407,7 @@ candidate_summary_list:
   collage_path: output\validation_checks\track2_mean_centered_collage_report\2026-06-02-13-33-14__track2_mean_centered_collage_report\collages\global_wave2c\residual_harmonic_gru_sequence_dense240_global.png
   collage_markdown_path: assets/global_wave2c/residual_harmonic_gru_sequence_dense240_global.png
   selected_curve_list:
-  - source_file_path: data\datasets\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
     direction_label: forward
     speed_rpm: 100.0
     torque_nm: 100.0
@@ -5425,7 +5425,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.003135058537674566
       mae_improvement_pct: 31.050254595548086
       rmse_improvement_pct: 29.07134916261292
-  - source_file_path: data\datasets\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
     direction_label: forward
     speed_rpm: 800.0
     torque_nm: 1800.0
@@ -5443,7 +5443,7 @@ candidate_summary_list:
       rmse_improvement_deg: 3.3508504814561482e-06
       mae_improvement_pct: 1.2350514368230456
       rmse_improvement_pct: 0.043600463616971785
-  - source_file_path: data\datasets\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
     direction_label: backward
     speed_rpm: 100.0
     torque_nm: 100.0
@@ -5461,7 +5461,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.003600465747526751
       mae_improvement_pct: 34.74457105396574
       rmse_improvement_pct: 32.02020062636406
-  - source_file_path: data\datasets\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
     direction_label: backward
     speed_rpm: 800.0
     torque_nm: 1800.0
@@ -5507,7 +5507,7 @@ candidate_summary_list:
   collage_path: output\validation_checks\track2_mean_centered_collage_report\2026-06-02-13-33-14__track2_mean_centered_collage_report\collages\global_wave2c\residual_harmonic_gru_sequence_dense360_global.png
   collage_markdown_path: assets/global_wave2c/residual_harmonic_gru_sequence_dense360_global.png
   selected_curve_list:
-  - source_file_path: data\datasets\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
     direction_label: forward
     speed_rpm: 100.0
     torque_nm: 100.0
@@ -5525,7 +5525,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.0013595225887198456
       mae_improvement_pct: 12.74877922574212
       rmse_improvement_pct: 11.646766094273111
-  - source_file_path: data\datasets\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
     direction_label: forward
     speed_rpm: 800.0
     torque_nm: 1800.0
@@ -5543,7 +5543,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.00030502793597040993
       mae_improvement_pct: 11.066695213660871
       rmse_improvement_pct: 2.8671146720611853
-  - source_file_path: data\datasets\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
     direction_label: backward
     speed_rpm: 100.0
     torque_nm: 100.0
@@ -5561,7 +5561,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.0010115173649110406
       mae_improvement_pct: 7.666080979841202
       rmse_improvement_pct: 8.877235227021112
-  - source_file_path: data\datasets\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
     direction_label: backward
     speed_rpm: 800.0
     torque_nm: 1800.0
@@ -5607,7 +5607,7 @@ candidate_summary_list:
   collage_path: output\validation_checks\track2_mean_centered_collage_report\2026-06-02-13-33-14__track2_mean_centered_collage_report\collages\global_wave2c\residual_harmonic_lstm_sequence_sparse_rcim_global.png
   collage_markdown_path: assets/global_wave2c/residual_harmonic_lstm_sequence_sparse_rcim_global.png
   selected_curve_list:
-  - source_file_path: data\datasets\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
     direction_label: forward
     speed_rpm: 100.0
     torque_nm: 100.0
@@ -5625,7 +5625,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.0033461061934303357
       mae_improvement_pct: 82.39739401233882
       rmse_improvement_pct: 78.85034969943715
-  - source_file_path: data\datasets\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
     direction_label: forward
     speed_rpm: 800.0
     torque_nm: 1800.0
@@ -5643,7 +5643,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.001466764658664536
       mae_improvement_pct: 50.000513259872825
       rmse_improvement_pct: 46.35323715767103
-  - source_file_path: data\datasets\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
     direction_label: backward
     speed_rpm: 100.0
     torque_nm: 100.0
@@ -5661,7 +5661,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.00010194773697038187
       mae_improvement_pct: 8.955243670229983
       rmse_improvement_pct: 9.217090613522675
-  - source_file_path: data\datasets\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
     direction_label: backward
     speed_rpm: 800.0
     torque_nm: 1800.0
@@ -5707,7 +5707,7 @@ candidate_summary_list:
   collage_path: output\validation_checks\track2_mean_centered_collage_report\2026-06-02-13-33-14__track2_mean_centered_collage_report\collages\global_wave2c\residual_harmonic_lstm_sequence_dense240_global.png
   collage_markdown_path: assets/global_wave2c/residual_harmonic_lstm_sequence_dense240_global.png
   selected_curve_list:
-  - source_file_path: data\datasets\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
     direction_label: forward
     speed_rpm: 100.0
     torque_nm: 100.0
@@ -5725,7 +5725,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.0022377758344150752
       mae_improvement_pct: 22.221311616858923
       rmse_improvement_pct: 23.33882154673494
-  - source_file_path: data\datasets\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
     direction_label: forward
     speed_rpm: 800.0
     torque_nm: 1800.0
@@ -5743,7 +5743,7 @@ candidate_summary_list:
       rmse_improvement_deg: 3.786554216207976e-05
       mae_improvement_pct: -3.297519681521021
       rmse_improvement_pct: 0.5087050570496671
-  - source_file_path: data\datasets\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
     direction_label: backward
     speed_rpm: 100.0
     torque_nm: 100.0
@@ -5761,7 +5761,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.0035252706660582203
       mae_improvement_pct: 36.033845426437104
       rmse_improvement_pct: 32.421441020246796
-  - source_file_path: data\datasets\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
     direction_label: backward
     speed_rpm: 800.0
     torque_nm: 1800.0
@@ -5807,7 +5807,7 @@ candidate_summary_list:
   collage_path: output\validation_checks\track2_mean_centered_collage_report\2026-06-02-13-33-14__track2_mean_centered_collage_report\collages\global_wave2c\residual_harmonic_lstm_sequence_dense360_global.png
   collage_markdown_path: assets/global_wave2c/residual_harmonic_lstm_sequence_dense360_global.png
   selected_curve_list:
-  - source_file_path: data\datasets\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
     direction_label: forward
     speed_rpm: 100.0
     torque_nm: 100.0
@@ -5825,7 +5825,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.0010048808771785257
       mae_improvement_pct: 10.80261038220295
       rmse_improvement_pct: 7.55956579473147
-  - source_file_path: data\datasets\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
     direction_label: forward
     speed_rpm: 800.0
     torque_nm: 1800.0
@@ -5843,7 +5843,7 @@ candidate_summary_list:
       rmse_improvement_deg: 0.0001725493821443172
       mae_improvement_pct: 7.4209339006779595
       rmse_improvement_pct: 1.3787753072897024
-  - source_file_path: data\datasets\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
     direction_label: backward
     speed_rpm: 100.0
     torque_nm: 100.0
@@ -5861,7 +5861,7 @@ candidate_summary_list:
       rmse_improvement_deg: 1.2638990890897692e-05
       mae_improvement_pct: 1.8777772518170965
       rmse_improvement_pct: 0.10225459261870096
-  - source_file_path: data\datasets\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
     direction_label: backward
     speed_rpm: 800.0
     torque_nm: 1800.0

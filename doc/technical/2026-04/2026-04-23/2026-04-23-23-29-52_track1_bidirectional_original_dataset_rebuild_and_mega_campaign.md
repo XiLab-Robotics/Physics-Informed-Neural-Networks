@@ -11,7 +11,7 @@ the repository reconstruction of the currently recovered paper release.
 
 However, the next repository-owned `Track 1` execution branch must rebuild the
 family-bank workflow directly from the original repository dataset under
-`data/datasets/`, explicitly treating `forward` and `backward` as separate
+`data/simplified_dataset/`, explicitly treating `forward` and `backward` as separate
 modeling problems. The new branch must therefore generate two distinct family
 banks:
 
@@ -41,7 +41,7 @@ repository dataset pipeline already used by repository-native models such as
 The intended implementation direction is:
 
 - build one original-dataset harmonic-target extraction workflow from
-  `data/datasets/`;
+  `data/simplified_dataset/`;
 - split the extracted harmonic dataset by direction into explicit `Fw` and `Bw`
   bundles;
 - train separate exact-paper family banks on each directional bundle;
@@ -105,7 +105,7 @@ the difficult open cells.
 1. Formalize the new `Track 1` direction-aware branch in the benchmark and in
    the live backlog, including the `SVR` grid-search deferral note.
 2. Replace the recovered-CSV training-source dependency with an original-dataset
-   harmonic extraction path rooted at `data/datasets/`.
+   harmonic extraction path rooted at `data/simplified_dataset/`.
 3. Build explicit `forward` and `backward` harmonic datasets and freeze the
    chosen split rule for both branches.
 4. Extend the exact-paper family-bank workflow so every family can be trained

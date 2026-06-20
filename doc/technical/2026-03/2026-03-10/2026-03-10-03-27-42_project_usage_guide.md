@@ -39,7 +39,7 @@ Planned sections:
 2. Repository Structure Relevant To Usage
    - `scripts/`
    - `config/`
-   - `data/datasets/`
+   - `data/simplified_dataset/`
    - `doc/`
 
 3. Dataset Processing Workflow

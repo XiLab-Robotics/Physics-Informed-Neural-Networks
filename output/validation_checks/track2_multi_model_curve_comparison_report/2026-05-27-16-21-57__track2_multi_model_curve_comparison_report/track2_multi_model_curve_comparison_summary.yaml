@@ -4,7 +4,7 @@ output_directory: output\validation_checks\track2_multi_model_curve_comparison_r
 report_path: doc\reports\analysis\track2\multi_model_curve_comparison_report\[2026-05-26]\track2_multi_model_curve_comparison_report.md
 dataset:
   config_path: config/datasets/transmission_error_dataset.yaml
-  dataset_root: data\datasets
+  dataset_root: data\simplified_dataset
   curve_count: 194
   selected_harmonic_list:
   - 0
@@ -72,22 +72,22 @@ comparison_summary_list:
   comparison_path: output\validation_checks\track2_multi_model_curve_comparison_report\2026-05-27-16-21-57__track2_multi_model_curve_comparison_report\comparisons\forward_reference.png
   comparison_markdown_path: ../../../../../../output/validation_checks/track2_multi_model_curve_comparison_report/2026-05-27-16-21-57__track2_multi_model_curve_comparison_report/comparisons/forward_reference.png
   selected_curve_list:
-  - source_file_path: data\datasets\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
     direction_label: forward
     speed_rpm: 100.0
     torque_nm: 100.0
     oil_temperature_deg: 25.0
-  - source_file_path: data\datasets\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
     direction_label: forward
     speed_rpm: 1600.0
     torque_nm: 1500.0
     oil_temperature_deg: 25.0
-  - source_file_path: data\datasets\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
     direction_label: forward
     speed_rpm: 700.0
     torque_nm: 1400.0
     oil_temperature_deg: 30.0
-  - source_file_path: data\datasets\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
     direction_label: forward
     speed_rpm: 800.0
     torque_nm: 1800.0
@@ -190,22 +190,22 @@ comparison_summary_list:
   comparison_path: output\validation_checks\track2_multi_model_curve_comparison_report\2026-05-27-16-21-57__track2_multi_model_curve_comparison_report\comparisons\forward_wave1.png
   comparison_markdown_path: ../../../../../../output/validation_checks/track2_multi_model_curve_comparison_report/2026-05-27-16-21-57__track2_multi_model_curve_comparison_report/comparisons/forward_wave1.png
   selected_curve_list:
-  - source_file_path: data\datasets\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
     direction_label: forward
     speed_rpm: 100.0
     torque_nm: 100.0
     oil_temperature_deg: 25.0
-  - source_file_path: data\datasets\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
     direction_label: forward
     speed_rpm: 1600.0
     torque_nm: 1500.0
     oil_temperature_deg: 25.0
-  - source_file_path: data\datasets\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
     direction_label: forward
     speed_rpm: 700.0
     torque_nm: 1400.0
     oil_temperature_deg: 30.0
-  - source_file_path: data\datasets\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
     direction_label: forward
     speed_rpm: 800.0
     torque_nm: 1800.0
@@ -248,22 +248,22 @@ comparison_summary_list:
   comparison_path: output\validation_checks\track2_multi_model_curve_comparison_report\2026-05-27-16-21-57__track2_multi_model_curve_comparison_report\comparisons\backward_reference.png
   comparison_markdown_path: ../../../../../../output/validation_checks/track2_multi_model_curve_comparison_report/2026-05-27-16-21-57__track2_multi_model_curve_comparison_report/comparisons/backward_reference.png
   selected_curve_list:
-  - source_file_path: data\datasets\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
     direction_label: backward
     speed_rpm: 100.0
     torque_nm: 100.0
     oil_temperature_deg: 25.0
-  - source_file_path: data\datasets\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
     direction_label: backward
     speed_rpm: 1600.0
     torque_nm: 1500.0
     oil_temperature_deg: 25.0
-  - source_file_path: data\datasets\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
     direction_label: backward
     speed_rpm: 700.0
     torque_nm: 1400.0
     oil_temperature_deg: 30.0
-  - source_file_path: data\datasets\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
     direction_label: backward
     speed_rpm: 800.0
     torque_nm: 1800.0
@@ -366,22 +366,22 @@ comparison_summary_list:
   comparison_path: output\validation_checks\track2_multi_model_curve_comparison_report\2026-05-27-16-21-57__track2_multi_model_curve_comparison_report\comparisons\backward_wave1.png
   comparison_markdown_path: ../../../../../../output/validation_checks/track2_multi_model_curve_comparison_report/2026-05-27-16-21-57__track2_multi_model_curve_comparison_report/comparisons/backward_wave1.png
   selected_curve_list:
-  - source_file_path: data\datasets\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
     direction_label: backward
     speed_rpm: 100.0
     torque_nm: 100.0
     oil_temperature_deg: 25.0
-  - source_file_path: data\datasets\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
     direction_label: backward
     speed_rpm: 1600.0
     torque_nm: 1500.0
     oil_temperature_deg: 25.0
-  - source_file_path: data\datasets\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
     direction_label: backward
     speed_rpm: 700.0
     torque_nm: 1400.0
     oil_temperature_deg: 30.0
-  - source_file_path: data\datasets\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
     direction_label: backward
     speed_rpm: 800.0
     torque_nm: 1800.0
@@ -484,22 +484,22 @@ comparison_summary_list:
   comparison_path: output\validation_checks\track2_multi_model_curve_comparison_report\2026-05-27-16-21-57__track2_multi_model_curve_comparison_report\comparisons\forward_wave2.png
   comparison_markdown_path: ../../../../../../output/validation_checks/track2_multi_model_curve_comparison_report/2026-05-27-16-21-57__track2_multi_model_curve_comparison_report/comparisons/forward_wave2.png
   selected_curve_list:
-  - source_file_path: data\datasets\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
     direction_label: forward
     speed_rpm: 100.0
     torque_nm: 100.0
     oil_temperature_deg: 25.0
-  - source_file_path: data\datasets\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
     direction_label: forward
     speed_rpm: 1600.0
     torque_nm: 1500.0
     oil_temperature_deg: 25.0
-  - source_file_path: data\datasets\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
     direction_label: forward
     speed_rpm: 700.0
     torque_nm: 1400.0
     oil_temperature_deg: 30.0
-  - source_file_path: data\datasets\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
     direction_label: forward
     speed_rpm: 800.0
     torque_nm: 1800.0
@@ -602,22 +602,22 @@ comparison_summary_list:
   comparison_path: output\validation_checks\track2_multi_model_curve_comparison_report\2026-05-27-16-21-57__track2_multi_model_curve_comparison_report\comparisons\backward_wave2.png
   comparison_markdown_path: ../../../../../../output/validation_checks/track2_multi_model_curve_comparison_report/2026-05-27-16-21-57__track2_multi_model_curve_comparison_report/comparisons/backward_wave2.png
   selected_curve_list:
-  - source_file_path: data\datasets\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
     direction_label: backward
     speed_rpm: 100.0
     torque_nm: 100.0
     oil_temperature_deg: 25.0
-  - source_file_path: data\datasets\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
     direction_label: backward
     speed_rpm: 1600.0
     torque_nm: 1500.0
     oil_temperature_deg: 25.0
-  - source_file_path: data\datasets\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
     direction_label: backward
     speed_rpm: 700.0
     torque_nm: 1400.0
     oil_temperature_deg: 30.0
-  - source_file_path: data\datasets\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
     direction_label: backward
     speed_rpm: 800.0
     torque_nm: 1800.0
@@ -666,22 +666,22 @@ comparison_summary_list:
   comparison_path: output\validation_checks\track2_multi_model_curve_comparison_report\2026-05-27-16-21-57__track2_multi_model_curve_comparison_report\comparisons\forward_track1_screened_wave1.png
   comparison_markdown_path: ../../../../../../output/validation_checks/track2_multi_model_curve_comparison_report/2026-05-27-16-21-57__track2_multi_model_curve_comparison_report/comparisons/forward_track1_screened_wave1.png
   selected_curve_list:
-  - source_file_path: data\datasets\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
     direction_label: forward
     speed_rpm: 100.0
     torque_nm: 100.0
     oil_temperature_deg: 25.0
-  - source_file_path: data\datasets\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
     direction_label: forward
     speed_rpm: 1600.0
     torque_nm: 1500.0
     oil_temperature_deg: 25.0
-  - source_file_path: data\datasets\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
     direction_label: forward
     speed_rpm: 700.0
     torque_nm: 1400.0
     oil_temperature_deg: 30.0
-  - source_file_path: data\datasets\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
     direction_label: forward
     speed_rpm: 800.0
     torque_nm: 1800.0
@@ -730,22 +730,22 @@ comparison_summary_list:
   comparison_path: output\validation_checks\track2_multi_model_curve_comparison_report\2026-05-27-16-21-57__track2_multi_model_curve_comparison_report\comparisons\backward_track1_screened_wave1.png
   comparison_markdown_path: ../../../../../../output/validation_checks/track2_multi_model_curve_comparison_report/2026-05-27-16-21-57__track2_multi_model_curve_comparison_report/comparisons/backward_track1_screened_wave1.png
   selected_curve_list:
-  - source_file_path: data\datasets\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
     direction_label: backward
     speed_rpm: 100.0
     torque_nm: 100.0
     oil_temperature_deg: 25.0
-  - source_file_path: data\datasets\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
     direction_label: backward
     speed_rpm: 1600.0
     torque_nm: 1500.0
     oil_temperature_deg: 25.0
-  - source_file_path: data\datasets\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
     direction_label: backward
     speed_rpm: 700.0
     torque_nm: 1400.0
     oil_temperature_deg: 30.0
-  - source_file_path: data\datasets\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
     direction_label: backward
     speed_rpm: 800.0
     torque_nm: 1800.0
@@ -839,22 +839,22 @@ comparison_summary_list:
   comparison_path: output\validation_checks\track2_multi_model_curve_comparison_report\2026-05-27-16-21-57__track2_multi_model_curve_comparison_report\comparisons\forward_reference_tree_wave2.png
   comparison_markdown_path: ../../../../../../output/validation_checks/track2_multi_model_curve_comparison_report/2026-05-27-16-21-57__track2_multi_model_curve_comparison_report/comparisons/forward_reference_tree_wave2.png
   selected_curve_list:
-  - source_file_path: data\datasets\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
     direction_label: forward
     speed_rpm: 100.0
     torque_nm: 100.0
     oil_temperature_deg: 25.0
-  - source_file_path: data\datasets\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
     direction_label: forward
     speed_rpm: 1600.0
     torque_nm: 1500.0
     oil_temperature_deg: 25.0
-  - source_file_path: data\datasets\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
     direction_label: forward
     speed_rpm: 700.0
     torque_nm: 1400.0
     oil_temperature_deg: 30.0
-  - source_file_path: data\datasets\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
     direction_label: forward
     speed_rpm: 800.0
     torque_nm: 1800.0
@@ -948,22 +948,22 @@ comparison_summary_list:
   comparison_path: output\validation_checks\track2_multi_model_curve_comparison_report\2026-05-27-16-21-57__track2_multi_model_curve_comparison_report\comparisons\backward_reference_tree_wave2.png
   comparison_markdown_path: ../../../../../../output/validation_checks/track2_multi_model_curve_comparison_report/2026-05-27-16-21-57__track2_multi_model_curve_comparison_report/comparisons/backward_reference_tree_wave2.png
   selected_curve_list:
-  - source_file_path: data\datasets\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
     direction_label: backward
     speed_rpm: 100.0
     torque_nm: 100.0
     oil_temperature_deg: 25.0
-  - source_file_path: data\datasets\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
     direction_label: backward
     speed_rpm: 1600.0
     torque_nm: 1500.0
     oil_temperature_deg: 25.0
-  - source_file_path: data\datasets\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
     direction_label: backward
     speed_rpm: 700.0
     torque_nm: 1400.0
     oil_temperature_deg: 30.0
-  - source_file_path: data\datasets\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
     direction_label: backward
     speed_rpm: 800.0
     torque_nm: 1800.0

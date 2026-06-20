@@ -75,7 +75,7 @@ Reason:
 
 | Setting | Value |
 | --- | --- |
-| Dataset Root | `data/datasets` |
+| Dataset Root | `data/simplified_dataset` |
 | Direction | `forward` only |
 | Split Policy | file-level `70 / 20 / 10` |
 | Feature Schema | `rpm`, `deg`, `tor` |

@@ -61,7 +61,7 @@ All `Track 1`, `Track 2`, `Wave 1`, and future-wave training or comparison
 pipelines must load the canonical TE dataset directly from:
 
 ```text
-data/datasets
+data/simplified_dataset
 ```
 
 The loading path must follow the repository dataset pipeline already used by
@@ -71,7 +71,7 @@ primary data source.
 
 Historical recovered-original artifacts may remain provenance evidence, but
 new training and comparison surfaces must derive their train, validation, and
-test records from `data/datasets` through the canonical dataset configuration
+test records from `data/simplified_dataset` through the canonical dataset configuration
 and split helpers.
 
 ### Revised First Track 2 Comparison
@@ -137,8 +137,8 @@ registry or archive, and dataset split explicit for every row.
   - source root for `Wave 1` global, `Fw`, and `Bw` family-best registry
     entries.
 - `config/datasets/transmission_error_dataset.yaml`
-  - canonical dataset configuration used to reach `data/datasets`.
-- `data/datasets/`
+  - canonical dataset configuration used to reach `data/simplified_dataset`.
+- `data/simplified_dataset/`
   - canonical TE curve source for new `Track 1`, `Track 2`, `Wave 1`, and
     future-wave workflows.
 
@@ -153,7 +153,7 @@ registry or archive, and dataset split explicit for every row.
 2. Update `Training Results Master Summary.md` if needed so it matches the
    benchmark wording for:
    - `global`, `Fw`, and `Bw` model-family surfaces;
-   - direct loading from `data/datasets`;
+   - direct loading from `data/simplified_dataset`;
    - online `Table 9` remaining outside the current offline `Track 2` scope.
 3. Add or revise `Track 2` comparison configuration so each candidate row has:
    - `candidate_id`;

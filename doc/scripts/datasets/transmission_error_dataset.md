@@ -2,7 +2,7 @@
 
 ## Overview
 
-This script provides the dataset-processing utilities for the validated Transmission Error CSV files stored in `data/datasets`.
+This script provides the dataset-processing utilities for the validated Transmission Error CSV files stored in `data/simplified_dataset`.
 
 Its purpose is to:
 
@@ -116,7 +116,7 @@ Builds train and validation dataloaders directly from the YAML configuration fil
 
 ### Inputs
 
-- validated TE CSV files in `data/datasets`
+- validated TE CSV files in `data/simplified_dataset`
 - YAML config in `config/datasets/transmission_error_dataset.yaml`
 
 ### Outputs

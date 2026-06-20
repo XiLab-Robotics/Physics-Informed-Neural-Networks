@@ -57,9 +57,9 @@ repository held-out TE-curve test split.
 
 ## Sample Preview
 
-- `data/datasets/Test_25degree/1000rpm/1000.0rpm1200.0Nm25.0deg.csv` | `forward` | `1000 rpm` | `1200 Nm` | `25 C` | `LGBM=6.985%` | `feedforward=9.652%` | `oracle=1.465%`
-- `data/datasets/Test_25degree/1000rpm/1000.0rpm1200.0Nm25.0deg.csv` | `backward` | `1000 rpm` | `1200 Nm` | `25 C` | `LGBM=224.123%` | `feedforward=13.454%` | `oracle=1.292%`
-- `data/datasets/Test_25degree/1000rpm/1000.0rpm1300.0Nm25.0deg.csv` | `forward` | `1000 rpm` | `1300 Nm` | `25 C` | `LGBM=2.404%` | `feedforward=6.079%` | `oracle=1.460%`
+- `data/simplified_dataset/Test_25degree/1000rpm/1000.0rpm1200.0Nm25.0deg.csv` | `forward` | `1000 rpm` | `1200 Nm` | `25 C` | `LGBM=6.985%` | `feedforward=9.652%` | `oracle=1.465%`
+- `data/simplified_dataset/Test_25degree/1000rpm/1000.0rpm1200.0Nm25.0deg.csv` | `backward` | `1000 rpm` | `1200 Nm` | `25 C` | `LGBM=224.123%` | `feedforward=13.454%` | `oracle=1.292%`
+- `data/simplified_dataset/Test_25degree/1000rpm/1000.0rpm1300.0Nm25.0deg.csv` | `forward` | `1000 rpm` | `1300 Nm` | `25 C` | `LGBM=2.404%` | `feedforward=6.079%` | `oracle=1.460%`
 
 ## Output Artifacts
 

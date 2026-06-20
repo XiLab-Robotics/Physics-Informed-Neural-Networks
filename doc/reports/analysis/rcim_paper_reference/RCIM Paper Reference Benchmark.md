@@ -75,7 +75,7 @@ Every current and future model family must expose explicit direction surfaces:
 | `Bw` | backward only | backward only |
 
 This applies to `Track 1`, `Track 2`, `Wave 1`, and future waves. New
-pipelines must load the canonical TE curves directly from `data/datasets`
+pipelines must load the canonical TE curves directly from `data/simplified_dataset`
 through `config/datasets/transmission_error_dataset.yaml`, matching the
 repository-owned model workflow such as `feedforward`.
 

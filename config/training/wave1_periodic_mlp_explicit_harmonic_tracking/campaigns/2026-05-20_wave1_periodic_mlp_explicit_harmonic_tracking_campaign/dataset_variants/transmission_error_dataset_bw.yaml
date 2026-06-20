@@ -1,5 +1,5 @@
 paths:
-  dataset_root: data/datasets
+  dataset_root: data/simplified_dataset
 dataset:
   reduction_ratio: 81.0
   angular_window_deg:

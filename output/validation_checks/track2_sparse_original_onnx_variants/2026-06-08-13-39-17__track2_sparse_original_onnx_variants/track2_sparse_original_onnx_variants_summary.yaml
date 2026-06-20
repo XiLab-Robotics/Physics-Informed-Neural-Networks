@@ -50,7 +50,7 @@ variant_summary_list:
     family_name: GBM
     model_path: reference\rcim_ml_compensation_recovered_assets\models\exact_onnx_paper_release\GBM\phase\GradientBoostingRegressor_phase40.onnx
   selected_curve_list:
-  - source_file_path: data\datasets\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
     speed_rpm: 100.0
     torque_nm: 100.0
     oil_temperature_deg: 25.0
@@ -59,7 +59,7 @@ variant_summary_list:
       mae: 0.004241495665087107
       rmse: 0.004300094308108062
       mean_percentage_error_pct: 11.01024697486154
-  - source_file_path: data\datasets\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
     speed_rpm: 1600.0
     torque_nm: 1500.0
     oil_temperature_deg: 25.0
@@ -68,7 +68,7 @@ variant_summary_list:
       mae: 0.00302862922626513
       rmse: 0.0037397969347071087
       mean_percentage_error_pct: 5.961300323617734
-  - source_file_path: data\datasets\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
     speed_rpm: 700.0
     torque_nm: 1400.0
     oil_temperature_deg: 30.0
@@ -77,7 +77,7 @@ variant_summary_list:
       mae: 0.004597119902769038
       rmse: 0.0048254147581419365
       mean_percentage_error_pct: 10.5025526147783
-  - source_file_path: data\datasets\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
     speed_rpm: 800.0
     torque_nm: 1800.0
     oil_temperature_deg: 35.0
@@ -132,7 +132,7 @@ variant_summary_list:
     family_name: HGBM
     model_path: reference\rcim_ml_compensation_recovered_assets\models\exact_onnx_paper_release\HGBM\phase\HistGradientBoostingRegressor_phase40.onnx
   selected_curve_list:
-  - source_file_path: data\datasets\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
     speed_rpm: 100.0
     torque_nm: 100.0
     oil_temperature_deg: 25.0
@@ -141,7 +141,7 @@ variant_summary_list:
       mae: 0.0041900606799215355
       rmse: 0.004248984944702934
       mean_percentage_error_pct: 10.876729948195038
-  - source_file_path: data\datasets\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
     speed_rpm: 1600.0
     torque_nm: 1500.0
     oil_temperature_deg: 25.0
@@ -150,7 +150,7 @@ variant_summary_list:
       mae: 0.002887110987931122
       rmse: 0.003515542311342506
       mean_percentage_error_pct: 5.682747665979053
-  - source_file_path: data\datasets\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
     speed_rpm: 700.0
     torque_nm: 1400.0
     oil_temperature_deg: 30.0
@@ -159,7 +159,7 @@ variant_summary_list:
       mae: 0.002192192572802128
       rmse: 0.0025583780363262775
       mean_percentage_error_pct: 5.0082700309192445
-  - source_file_path: data\datasets\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
+  - source_file_path: data\simplified_dataset\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
     speed_rpm: 800.0
     torque_nm: 1800.0
     oil_temperature_deg: 35.0

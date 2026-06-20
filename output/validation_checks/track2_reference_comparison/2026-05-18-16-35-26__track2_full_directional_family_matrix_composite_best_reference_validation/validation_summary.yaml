@@ -2,8 +2,8 @@ config_path: config\paper_reimplementation\rcim_ml_compensation\reference_family
 output_directory: output\validation_checks\track2_reference_comparison\2026-05-18-16-35-26__track2_full_directional_family_matrix_composite_best_reference_validation
 dataset:
   dataset_config_path: config/datasets/transmission_error_dataset.yaml
-  dataset_root: data\datasets
-  source_contract: data/datasets
+  dataset_root: data\simplified_dataset
+  source_contract: data/simplified_dataset
 comparison_scope:
   comparison_mode: full_directional_candidate_matrix
   percentage_error_denominator: peak_to_peak_truth
@@ -4867,35 +4867,35 @@ report_plot_path_list:
 report_plot_count: 600
 per_condition_metrics_csv_path: output\validation_checks\track2_reference_comparison\2026-05-18-16-35-26__track2_full_directional_family_matrix_composite_best_reference_validation\per_condition_metrics.csv
 sample_preview_list:
-- source_file_path: data\datasets\Test_25degree\1000rpm\1000.0rpm1200.0Nm25.0deg.csv
+- source_file_path: data\simplified_dataset\Test_25degree\1000rpm\1000.0rpm1200.0Nm25.0deg.csv
   direction_label: forward
   candidate_id: SVM19_Fw
   speed_rpm: 1000.0
   torque_nm: 1200.0
   oil_temperature_deg: 25.0
   mean_percentage_error_pct: 9.97756849003832
-- source_file_path: data\datasets\Test_25degree\1000rpm\1000.0rpm1300.0Nm25.0deg.csv
+- source_file_path: data\simplified_dataset\Test_25degree\1000rpm\1000.0rpm1300.0Nm25.0deg.csv
   direction_label: forward
   candidate_id: SVM19_Fw
   speed_rpm: 1000.0
   torque_nm: 1300.0
   oil_temperature_deg: 25.0
   mean_percentage_error_pct: 6.2675199804856145
-- source_file_path: data\datasets\Test_25degree\1000rpm\1000.0rpm1800.0Nm25.0deg.csv
+- source_file_path: data\simplified_dataset\Test_25degree\1000rpm\1000.0rpm1800.0Nm25.0deg.csv
   direction_label: forward
   candidate_id: SVM19_Fw
   speed_rpm: 1000.0
   torque_nm: 1800.0
   oil_temperature_deg: 25.0
   mean_percentage_error_pct: 8.792493918249692
-- source_file_path: data\datasets\Test_25degree\1000rpm\1000.0rpm400.0Nm25.0deg.csv
+- source_file_path: data\simplified_dataset\Test_25degree\1000rpm\1000.0rpm400.0Nm25.0deg.csv
   direction_label: forward
   candidate_id: SVM19_Fw
   speed_rpm: 1000.0
   torque_nm: 400.0
   oil_temperature_deg: 25.0
   mean_percentage_error_pct: 8.100918344144464
-- source_file_path: data\datasets\Test_25degree\1000rpm\1000.0rpm800.0Nm25.0deg.csv
+- source_file_path: data\simplified_dataset\Test_25degree\1000rpm\1000.0rpm800.0Nm25.0deg.csv
   direction_label: forward
   candidate_id: SVM19_Fw
   speed_rpm: 1000.0

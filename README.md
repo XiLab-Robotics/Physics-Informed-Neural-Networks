@@ -84,7 +84,7 @@ The most important folders for a new user are:
   Python entry points for training, reporting, and tooling.
 - `config/`
   YAML configuration files for datasets, presets, and campaigns.
-- `data/datasets/`
+- `data/simplified_dataset/`
   Expected location for validated TE data.
 - `output/`
   Training runs, validation checks, smoke tests, campaigns, and registries.
@@ -139,7 +139,7 @@ The default dataset location is configured in
 
 ```yaml
 paths:
-  dataset_root: data/datasets
+  dataset_root: data/simplified_dataset
 ```
 
 Update that path if your validated TE dataset is stored elsewhere.

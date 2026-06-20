@@ -27,7 +27,7 @@ It is a campaign-stack routing issue:
 
 Produce one fully working remote micro-campaign execution over the `10`
 prepared family runs, using the original-dataset validation workflow that
-reads from `data/datasets`.
+reads from `data/simplified_dataset`.
 
 ## Execution Policy
 
@@ -37,7 +37,7 @@ reads from `data/datasets`.
 | Diagnostic Scope | current forward-only micro-campaign |
 | Total Runs | `10` |
 | Attempts Per Family | `1` |
-| Dataset Root | `data/datasets` |
+| Dataset Root | `data/simplified_dataset` |
 | Direction | `forward` |
 | Scientific Promotion During Bringup | forbidden |
 

@@ -10,7 +10,7 @@ the current direction-aware comparison matrix.
 ## Dataset And Split
 
 - dataset config: `config/datasets/transmission_error_dataset.yaml`;
-- dataset root: `data\datasets`;
+- dataset root: `data\simplified_dataset`;
 - comparison mode: `full_directional_candidate_matrix`;
 - candidate count: `159`;
 - held-out curve count before candidate filtering: `194`;

@@ -101,7 +101,7 @@ target_list:
   family_name: ERT
   model_path: reference\rcim_ml_compensation_recovered_assets\models\exact_onnx_paper_release\ERT\phase\ExtraTreesRegressor_phase240.onnx
 selected_curve_list:
-- source_file_path: data\datasets\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
+- source_file_path: data\simplified_dataset\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
   speed_rpm: 100.0
   torque_nm: 100.0
   oil_temperature_deg: 25.0
@@ -110,7 +110,7 @@ selected_curve_list:
     mae: 0.004471497541684427
     rmse: 0.004492253743861505
     mean_percentage_error_pct: 11.607295201708215
-- source_file_path: data\datasets\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
+- source_file_path: data\simplified_dataset\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
   speed_rpm: 1600.0
   torque_nm: 1500.0
   oil_temperature_deg: 25.0
@@ -119,7 +119,7 @@ selected_curve_list:
     mae: 0.00193497459737607
     rmse: 0.002339581150337911
     mean_percentage_error_pct: 3.8086420726233445
-- source_file_path: data\datasets\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
+- source_file_path: data\simplified_dataset\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
   speed_rpm: 700.0
   torque_nm: 1400.0
   oil_temperature_deg: 30.0
@@ -128,7 +128,7 @@ selected_curve_list:
     mae: 0.0013586913685971894
     rmse: 0.0015023203120963925
     mean_percentage_error_pct: 3.104058168537624
-- source_file_path: data\datasets\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
+- source_file_path: data\simplified_dataset\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
   speed_rpm: 800.0
   torque_nm: 1800.0
   oil_temperature_deg: 35.0

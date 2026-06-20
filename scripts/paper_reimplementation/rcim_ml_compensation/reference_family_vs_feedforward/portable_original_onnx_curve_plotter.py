@@ -39,7 +39,7 @@ SELECTED_HARMONIC_ORDER_LIST: list[int] | None = None
 
 # Provide one or more curve CSV files explicitly.
 CURVE_CSV_PATH_LIST = [
-    "data/datasets/Test_25degree/100rpm/100.0rpm100.0Nm25.0deg.csv",
+    "data/simplified_dataset/Test_25degree/100rpm/100.0rpm100.0Nm25.0deg.csv",
 ]
 
 # Optionally process every CSV in one folder. Leave as an empty string to disable.

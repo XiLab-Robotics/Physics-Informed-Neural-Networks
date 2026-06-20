@@ -49,7 +49,7 @@ Total smoke validations: `20`
 Each smoke run must validate:
 
 - config loading under the refactored config tree;
-- dataset-path resolution under `data/datasets`;
+- dataset-path resolution under `data/simplified_dataset`;
 - direction-specific sample extraction;
 - harmonic decomposition and target naming;
 - family fit completion;
@@ -104,7 +104,7 @@ or family-specific attempt bundles are needed.
 
 | Setting | Value |
 | --- | --- |
-| Dataset Root | `data/datasets` |
+| Dataset Root | `data/simplified_dataset` |
 | Split Policy | file-level `70 / 20 / 10` |
 | Direction Policy | separate `forward` and `backward` runs |
 | Feature Schema | `rpm`, `deg`, `tor` |

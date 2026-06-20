@@ -13,7 +13,7 @@ but focused only on direct offline curve comparisons between:
 
 - the accepted `Track 1` paper-reference family banks;
 - the exported `Wave 1` family models;
-- the same canonical held-out TE curves loaded from `data/datasets`.
+- the same canonical held-out TE curves loaded from `data/simplified_dataset`.
 
 The historical mixed comparison will remain recoverable through Git history and
 existing historical validation artifacts, but it must not appear in the new
@@ -109,7 +109,7 @@ configuration and data root:
 
 ```text
 config/datasets/transmission_error_dataset.yaml
-data/datasets
+data/simplified_dataset
 ```
 
 The implementation must not use copied recovered-original datasets or archived

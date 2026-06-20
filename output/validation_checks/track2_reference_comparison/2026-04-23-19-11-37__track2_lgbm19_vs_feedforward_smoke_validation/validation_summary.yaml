@@ -152,7 +152,7 @@ preview_plot_path_list:
 - output/validation_checks/track2_reference_comparison/2026-04-23-19-11-37__track2_lgbm19_vs_feedforward_smoke_validation/preview_curves/preview_03.png
 per_condition_metrics_csv_path: output/validation_checks/track2_reference_comparison/2026-04-23-19-11-37__track2_lgbm19_vs_feedforward_smoke_validation/per_condition_metrics.csv
 sample_preview_list:
-- source_file_path: data/datasets/Test_25degree/1000rpm/1000.0rpm1200.0Nm25.0deg.csv
+- source_file_path: data/simplified_dataset/Test_25degree/1000rpm/1000.0rpm1200.0Nm25.0deg.csv
   direction_label: forward
   speed_rpm: 1000.0
   torque_nm: 1200.0
@@ -160,7 +160,7 @@ sample_preview_list:
   lgbm19_mean_percentage_error_pct: 6.984768812989475
   feedforward_mean_percentage_error_pct: 9.651805806980928
   oracle_mean_percentage_error_pct: 1.4654592644503261
-- source_file_path: data/datasets/Test_25degree/1000rpm/1000.0rpm1200.0Nm25.0deg.csv
+- source_file_path: data/simplified_dataset/Test_25degree/1000rpm/1000.0rpm1200.0Nm25.0deg.csv
   direction_label: backward
   speed_rpm: 1000.0
   torque_nm: 1200.0
@@ -168,7 +168,7 @@ sample_preview_list:
   lgbm19_mean_percentage_error_pct: 224.12263503530005
   feedforward_mean_percentage_error_pct: 13.454133431051586
   oracle_mean_percentage_error_pct: 1.2920451733949025
-- source_file_path: data/datasets/Test_25degree/1000rpm/1000.0rpm1300.0Nm25.0deg.csv
+- source_file_path: data/simplified_dataset/Test_25degree/1000rpm/1000.0rpm1300.0Nm25.0deg.csv
   direction_label: forward
   speed_rpm: 1000.0
   torque_nm: 1300.0
