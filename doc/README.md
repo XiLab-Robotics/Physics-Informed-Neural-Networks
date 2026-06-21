@@ -460,6 +460,12 @@ This folder contains the internal project documents derived from the reference P
 
 ### Technical Documents
 
+#### 2026-06-21
+
+- [technical/2026-06/2026-06-21/2026-06-21-00-38-59_final_te_renaming_documentation_consistency.md](./technical/2026-06/2026-06-21/2026-06-21-00-38-59_final_te_renaming_documentation_consistency.md)
+  Technical plan for removing the final two reader-facing inconsistencies from
+  the completed TE and dataset renaming documentation.
+
 #### 2026-06-20
 
 - [technical/2026-06/2026-06-20/2026-06-20-17-35-49_complete_te_and_dataset_renaming_audit.md](./technical/2026-06/2026-06-20/2026-06-20-17-35-49_complete_te_and_dataset_renaming_audit.md)

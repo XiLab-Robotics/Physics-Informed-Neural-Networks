@@ -270,7 +270,7 @@ The recovered assets support these repository-relevant conclusions:
 
 This asset package supports the repository in three different ways:
 
-- `Track 1`
+- `RCIM Model-Bank Reproduction`
   Exact paper-faithful `forward` reimplementation and verification.
 - `Paper Reference Benchmark`
   Evidence-backed comparison between the paper workflow and the repository

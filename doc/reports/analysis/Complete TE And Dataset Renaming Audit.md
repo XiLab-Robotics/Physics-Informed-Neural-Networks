@@ -51,11 +51,18 @@ The `.git` object database was not treated as mutable working-tree content.
 only dangling objects, which are normal unreachable historical objects and not
 repository corruption.
 
-## Dataset Renaming Findings
+## Initial Audit Findings
 
-### Confirmed Miss
+The findings in this section record the repository state before the approved
+repair pass. They are retained as audit evidence and must not be interpreted
+as unresolved defects. The current state is documented under
+`Repair Outcome` and `Final Assessment`.
 
-The following tracked file contains 27 old Windows-form dataset paths:
+### Dataset Renaming Findings
+
+### Confirmed Pre-Repair Miss
+
+The following tracked file contained 27 old Windows-form dataset paths:
 
 ```text
 output/validation_checks/track2_curve_payload_diagnostics/
@@ -63,13 +70,13 @@ output/validation_checks/track2_curve_payload_diagnostics/
 curve_payload_samples.jsonl
 ```
 
-Each occurrence is a serialized `source_file_path` beginning with:
+Each occurrence was a serialized `source_file_path` beginning with:
 
 ```text
 data\datasets\
 ```
 
-This is a direct miss relative to the stated scope of commit `be1eaac6`,
+This was a direct miss relative to the stated scope of commit `be1eaac6`,
 because that migration explicitly intended to normalize tracked textual output
 artifacts as well as active configuration.
 
@@ -80,16 +87,16 @@ scanner source, and its compiled cache. These are search definitions or
 explicit descriptions of the removed path, not operational dataset
 references.
 
-### Dataset Conclusion
+### Pre-Repair Dataset Conclusion
 
-The active runtime migration is correct, but the repository-wide textual
-migration is incomplete by one tracked artifact and 27 serialized paths.
+The active runtime migration was correct, but the repository-wide textual
+migration was incomplete by one tracked artifact and 27 serialized paths.
 
-## TE Taxonomy Findings
+### TE Taxonomy Findings
 
 ### Repository-Owned Source Misses
 
-Three report-generator sources still emit obsolete narrative terminology:
+Three report-generator sources emitted obsolete narrative terminology:
 
 | File | Residual terminology |
 | --- | --- |
@@ -97,25 +104,25 @@ Three report-generator sources still emit obsolete narrative terminology:
 | `scripts/reports/closeout/wave2/closeout_wave2b_harmonic_temporal_hybrid_campaign.py` | `Wave 2B` |
 | `scripts/reports/closeout/wave2/closeout_wave2c_residual_harmonic_temporal_hybrid_campaign.py` | `Track 2 refresh` |
 
-These are genuine misses because rerunning the generators would recreate old
+These were genuine misses because rerunning the generators would recreate old
 terminology in newly generated reports.
 
 ### Completed Queue Metadata Misses
 
-Nineteen completed queue YAML files retain obsolete reader-facing notes:
+Nineteen completed queue YAML files retained obsolete reader-facing notes:
 
-- sixteen Wave 2.3 residual-harmonic queue snapshots say that candidates must
+- sixteen Wave 2.3 residual-harmonic queue snapshots said that candidates must
   return through official `Track 2 verification`;
-- three Wave 4.2 quantile queue snapshots describe the deterministic
+- three Wave 4.2 quantile queue snapshots described the deterministic
   `Track 2 playback curve`.
 
-The queue IDs and filenames are valid historical identifiers, but these
-specific `notes` values are prose rather than required machine keys. They do
+The queue IDs and filenames were valid historical identifiers, but these
+specific `notes` values were prose rather than required machine keys. They did
 not respect the canonical terminology.
 
 ### Imported Guide PDFs
 
-Four imported NotebookLM guide PDFs still explain the project with `Track 1`
+Four imported NotebookLM guide PDFs explained the project with `Track 1`
 and `Track 2`:
 
 - English Concept Guide;
@@ -123,14 +130,14 @@ and `Track 2`:
 - Italian Concept Guide;
 - Italian Project Guide.
 
-These files have no repository-authored editable source equivalent. They are
-externally generated guide deliverables, so they cannot be repaired faithfully
+These files had no repository-authored editable source equivalent. They were
+externally generated guide deliverables, so they could not be repaired faithfully
 without regenerating them through the guide export workflow.
 
 ### Historical Output Artifacts
 
-The `output/` tree contains 7,105 raw TE findings across 284 tracked files.
-They are concentrated in:
+The `output/` tree contained 7,105 raw TE findings across 284 tracked files.
+They were concentrated in:
 
 - completed campaign leaderboards;
 - validation summaries;
@@ -139,14 +146,13 @@ They are concentrated in:
 - generated report HTML;
 - comparison summaries.
 
-Most of these occurrences are historical labels, completed campaign metadata,
-or compatibility identifiers. They should not be changed mechanically because
+Most of these occurrences were historical labels, completed campaign metadata,
+or compatibility identifiers. They were not changed mechanically because
 doing so could alter provenance or make stored evidence diverge from the run
 that produced it.
 
-Some generated prose inside these artifacts is obsolete, but it must be
-handled through an explicit historical-artifact policy rather than folded into
-an unrestricted search-and-replace.
+The approved repair subsequently normalized reader-facing generated prose
+while preserving identifiers and artifact paths.
 
 ### Intentional Compatibility Surface
 
@@ -169,30 +175,29 @@ taxonomy.
 
 ### Generated And Ignored Files
 
-The ignored surface contains 79 raw findings across 22 files. They are limited
-to:
+The ignored surface contained 79 raw findings across 22 files. They were
+limited to:
 
 - Python bytecode caches;
 - generated Sphinx HTML and doctrees;
 - the current audit sources and temporary audit data;
 - one cached pickle.
 
-These files are derivatives of source or temporary audit artifacts. They do
-not establish additional canonical source misses. Regeneration after source
-repair will update the relevant derivatives.
+These files were derivatives of source or temporary audit artifacts. They did
+not establish additional canonical source misses.
 
-## PDF Findings
+### PDF Findings
 
-Semantic PDF extraction found 35 matches across 15 PDFs:
+The initial semantic PDF extraction found 35 matches across 15 PDFs:
 
-- 22 matches belong to the four imported NotebookLM guides and are genuine
+- 22 matches belonged to the four imported NotebookLM guides and were genuine
   reader-facing legacy terminology;
-- 13 matches belong to official verification PDFs and only reproduce the
+- 13 matches belonged to official verification PDFs and only reproduced the
   historical filename `Track 2 Directional Model Comparison.md`.
 
-No PDF contains the removed dataset path.
+No PDF contained the removed dataset path.
 
-## Complete Classification Summary
+### Initial Classification Summary
 
 | Class | Files | Disposition |
 | --- | ---: | --- |
@@ -205,9 +210,9 @@ No PDF contains the removed dataset path.
 | Ignored generated derivatives | 22 | Regenerate from corrected sources where applicable |
 | Unsupported or unreadable files | 0 | No action required |
 
-## Recommended Repair Boundary
+### Approved Repair Boundary
 
-A safe follow-up repair should:
+The approved follow-up repair was scoped to:
 
 1. update the one JSONL validation payload to
    `data\simplified_dataset\...`;
@@ -215,12 +220,11 @@ A safe follow-up repair should:
 3. update only the prose `notes` in the nineteen completed queue YAML files;
 4. regenerate affected derived reports or HTML where their canonical sources
    exist;
-5. regenerate the four NotebookLM guide PDFs only through their established
-   source-package workflow;
+5. update and validate the four imported NotebookLM guide PDFs;
 6. retain historical IDs, filenames, directories, model keys, and run
    metadata;
-7. leave historical output evidence unchanged unless the user explicitly
-   approves a provenance-preserving output normalization pass.
+7. normalize reader-facing historical output prose while preserving
+   provenance-sensitive identifiers and artifact paths.
 
 ## Repair Outcome
 
