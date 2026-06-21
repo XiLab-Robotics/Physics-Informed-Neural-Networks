@@ -24,8 +24,8 @@ original_dataset
 `original_dataset` contains the raw test-rig recordings. Both derived datasets
 come from those recordings:
 
-- `simplified_dataset` is the established validated curve dataset used by the
-  current repository loaders, training workflows, and verification scripts;
+- `simplified_dataset` is the established legacy curve dataset retained for
+  compatibility and historical artifact reproduction;
 - `polished_dataset` is a direct row-level export produced by
   `data/generate_polished_dataset.py`.
 
@@ -34,10 +34,10 @@ A complete path-adapted repository copy is maintained at
 implementations have identical processing logic and differ only in their
 default path block.
 
-The repository currently defaults to `simplified_dataset` in
-`config/datasets/transmission_error_dataset.yaml`. Adopting `polished_dataset`
-for training requires a dedicated loader because its hierarchy and schema are
-different.
+The repository defaults to `polished_dataset` in
+`config/datasets/transmission_error_dataset.yaml`. The shared loader supports
+both schemas through the `polished_dataset` and `simplified_dataset`
+selectors.
 
 ## Verified Inventory
 
@@ -123,8 +123,8 @@ directions and does not retain transient rows outside the selected windows.
 
 ### Role
 
-`data/simplified_dataset/` remains the canonical source for the current
-repository training and evaluation workflows.
+`data/simplified_dataset/` remains the compatibility source for legacy
+five-feature training and evaluation workflows.
 
 ### Structure And Schema
 
@@ -330,12 +330,13 @@ Use `original_dataset` when:
 
 Use `simplified_dataset` when:
 
-- running existing repository training or TE curve evaluation;
+- reproducing legacy repository training or TE curve evaluation;
 - working with one TE curve per direction and operating condition;
 - relying on current configuration and loader compatibility.
 
 Use `polished_dataset` when:
 
+- running new repository training through the default selector;
 - preserving the time order of valid samples;
 - using measured torque and temperature at sample level;
 - developing temporal or sequence-aware loaders;

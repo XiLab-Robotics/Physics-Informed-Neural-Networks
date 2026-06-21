@@ -43,6 +43,12 @@ Run the script from the repository root:
 python -B scripts\datasets\export_dataset_split.py --output-directory ".\output\dataset_split_export"
 ```
 
+The default export uses `polished_dataset`. Select the legacy schema with:
+
+```powershell
+python -B scripts\datasets\export_dataset_split.py --dataset simplified_dataset --output-directory ".\output\dataset_split_export_simplified"
+```
+
 You can also point it to a custom dataset config if needed:
 
 ```powershell

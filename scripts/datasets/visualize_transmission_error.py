@@ -28,6 +28,7 @@ if "--save-path" in sys.argv: matplotlib.use("Agg")
 from scripts.datasets.transmission_error_dataset import build_validated_directional_samples
 from scripts.datasets.transmission_error_dataset import collect_dataset_csv_paths
 from scripts.datasets.transmission_error_dataset import load_dataset_processing_config
+from scripts.datasets.transmission_error_dataset import resolve_dataset_selection
 from scripts.datasets.transmission_error_dataset import resolve_project_relative_path
 
 # Define Default Visualization Config Path
@@ -87,6 +88,12 @@ def parse_command_line_arguments() -> argparse.Namespace:
         default=None,
         help="Optional path used to save the plot instead of opening it interactively.",
     )
+    argument_parser.add_argument(
+        "--dataset",
+        choices=["polished_dataset", "simplified_dataset"],
+        default="polished_dataset",
+        help="Dataset family to visualize.",
+    )
 
     repository_path_support.add_platform_arguments(argument_parser)
     return argument_parser.parse_args()
@@ -112,6 +119,7 @@ def resolve_csv_file_path(dataset_root: Path, csv_path: Path | None, file_index:
 
 def visualize_transmission_error_curves(
     csv_file_path: Path,
+    dataset_name: str = "polished_dataset",
     save_path: Path | None = None,
     figure_width: float = 12.0,
     figure_height: float = 6.0,
@@ -121,7 +129,7 @@ def visualize_transmission_error_curves(
     """ Visualize Transmission Error Curves """
 
     # Load Directional Samples
-    directional_sample_list = build_validated_directional_samples(csv_file_path)
+    directional_sample_list = build_validated_directional_samples(csv_file_path, dataset_name)
     forward_sample = directional_sample_list[0]
 
     # Initialize Figure
@@ -189,7 +197,10 @@ def main() -> None:
     )
 
     # Resolve Runtime Parameters
-    dataset_root = resolve_project_relative_path(dataset_processing_config["paths"]["dataset_root"])
+    selected_dataset_name, dataset_root = resolve_dataset_selection(
+        dataset_processing_config,
+        command_line_arguments.dataset,
+    )
     file_index = (int(command_line_arguments.file_index) if command_line_arguments.file_index is not None else int(visualization_config["selection"]["file_index"]))
     save_path = command_line_arguments.save_path
 
@@ -209,6 +220,7 @@ def main() -> None:
     # Visualize Curves
     visualize_transmission_error_curves(
         csv_file_path,
+        selected_dataset_name,
         save_path,
         float(visualization_config["plot"]["figure_width"]),
         float(visualization_config["plot"]["figure_height"]),

@@ -20,7 +20,10 @@ import torch.nn as nn
 import yaml
 
 # Import Project Utilities
+from scripts.datasets.transmission_error_dataset import load_dataset_processing_config
+from scripts.datasets.transmission_error_dataset import resolve_dataset_selection
 from scripts.datasets.transmission_error_dataset import resolve_project_relative_path
+from scripts.datasets.transmission_error_dataset import resolve_dataset_schema
 from scripts.models.model_factory import create_model
 from scripts.tooling import repository_path_support
 from scripts.training.transmission_error_datamodule import NormalizationStatistics
@@ -163,6 +166,41 @@ def clone_training_config(training_config: dict[str, Any]) -> dict[str, Any]:
     """ Clone Training Config """
 
     return deepcopy(training_config)
+
+def apply_dataset_override(
+    training_config: dict[str, Any],
+    dataset_name: str | None,
+) -> dict[str, Any]:
+
+    """Clone a training config and apply one optional dataset selector."""
+
+    resolved_training_config = clone_training_config(training_config)
+    if dataset_name is None:
+        return resolved_training_config
+
+    from scripts.datasets.transmission_error_dataset import normalize_dataset_name
+
+    normalized_dataset_name = normalize_dataset_name(dataset_name)
+    resolved_training_config.setdefault("dataset", {})["name"] = normalized_dataset_name
+    if normalized_dataset_name == "polished_dataset":
+        resolved_training_config.setdefault("model", {})["input_size"] = "auto"
+    return resolved_training_config
+
+def resolve_training_dataset_schema(training_config: dict[str, Any]):
+
+    """Resolve the effective dataset schema from a training configuration."""
+
+    explicit_dataset_name = training_config.get("dataset", {}).get("name")
+    if explicit_dataset_name is not None:
+        return resolve_dataset_schema(explicit_dataset_name)
+
+    dataset_config_path = training_config.get("paths", {}).get("dataset_config_path")
+    if dataset_config_path is not None:
+        dataset_processing_config = load_dataset_processing_config(dataset_config_path)
+        selected_dataset_name, _ = resolve_dataset_selection(dataset_processing_config)
+        return resolve_dataset_schema(selected_dataset_name)
+
+    return resolve_dataset_schema()
 
 def sanitize_name(name: str) -> str:
 
@@ -639,6 +677,7 @@ def create_datamodule_from_training_config(training_config: dict[str, Any]) -> T
     # Create and Return TransmissionErrorDataModule
     return TransmissionErrorDataModule(
         dataset_config_path=training_config["paths"]["dataset_config_path"],
+        dataset_name=training_config.get("dataset", {}).get("name"),
         curve_batch_size=int(training_config["dataset"]["curve_batch_size"]),
         point_stride=int(training_config["dataset"]["point_stride"]),
         maximum_points_per_curve=training_config["dataset"]["maximum_points_per_curve"],
@@ -665,16 +704,21 @@ def create_regression_backbone_from_training_config(training_config: dict[str, A
         nn.Module: Configured regression backbone.
     """
 
-    # Validate Configured Input Size Matches Dataset Input Feature Dim
-    configured_input_size = int(training_config["model"]["input_size"])
-    assert configured_input_size == input_feature_dim, (
-        f"Configured Input Size and Dataset Input Feature Dim mismatch | {configured_input_size} vs {input_feature_dim}"
-    )
+    # Resolve Automatic Or Explicit Input Size
+    model_configuration = deepcopy(training_config["model"])
+    configured_input_size = model_configuration.get("input_size", "auto")
+    if configured_input_size in [None, "auto"]:
+        model_configuration["input_size"] = input_feature_dim
+    else:
+        configured_input_size = int(configured_input_size)
+        assert configured_input_size == input_feature_dim, (
+            f"Configured Input Size and Dataset Input Feature Dim mismatch | {configured_input_size} vs {input_feature_dim}"
+        )
 
     # Create and Return Regression Backbone Model Based on Training Config
     return create_model(
         model_type=str(training_config["experiment"]["model_type"]),
-        model_configuration=training_config["model"],
+        model_configuration=model_configuration,
     )
 
 def create_regression_module_from_training_config(
@@ -882,6 +926,14 @@ def build_common_metrics_snapshot(
             "best_checkpoint_path": best_model_path,
         },
         "dataset_split": asdict(dataset_split_summary),
+        "dataset": {
+            "dataset_id": dataset_split_summary.dataset_name,
+            "dataset_schema": dataset_split_summary.dataset_schema,
+            "input_feature_names": list(dataset_split_summary.input_feature_name_list),
+            "target_feature_names": list(dataset_split_summary.target_feature_name_list),
+            "input_feature_dim": dataset_split_summary.input_feature_dim,
+            "target_feature_dim": dataset_split_summary.target_feature_dim,
+        },
         "model_summary": asdict(parameter_summary),
         "runtime_config": {key: str(value) if isinstance(value, Path) else value for key, value in runtime_config.items()},
         "normalization_statistics": {
@@ -972,6 +1024,7 @@ def build_registry_entry(metrics_snapshot_dictionary: dict[str, Any]) -> dict[st
     comparison_payload = metrics_snapshot_dictionary["comparison_payload"]
     model_summary_dictionary = metrics_snapshot_dictionary["model_summary"]
     artifacts_dictionary = metrics_snapshot_dictionary["artifacts"]
+    dataset_dictionary = metrics_snapshot_dictionary.get("dataset", {})
 
     return {
         "run_instance_id": experiment_dictionary["run_instance_id"],
@@ -981,6 +1034,11 @@ def build_registry_entry(metrics_snapshot_dictionary: dict[str, Any]) -> dict[st
         "model_family": comparison_payload["model_family"],
         "base_model_family": experiment_dictionary.get("base_model_family", comparison_payload["model_family"]),
         "model_type": comparison_payload["model_type"],
+        "dataset_id": dataset_dictionary.get("dataset_id", "simplified_dataset"),
+        "dataset_schema": dataset_dictionary.get("dataset_schema", "simplified_curve_v1"),
+        "input_feature_names": dataset_dictionary.get("input_feature_names", []),
+        "target_feature_names": dataset_dictionary.get("target_feature_names", []),
+        "input_feature_dim": dataset_dictionary.get("input_feature_dim"),
         "training_variant": experiment_dictionary.get("training_variant", GLOBAL_TRAINING_VARIANT),
         "direction_scope_label": experiment_dictionary.get("direction_scope_label", "bidirectional"),
         "use_forward_direction": bool(experiment_dictionary.get("use_forward_direction", True)),
@@ -1149,6 +1207,7 @@ def save_run_metadata_snapshot(training_config: dict[str, Any], output_directory
     # Resolve Run Artifact Identity and Save it as a YAML Snapshot in the Output Directory for Reference and Traceability
     run_artifact_identity = resolve_run_artifact_identity(training_config)
     training_variant_details = resolve_training_variant_details(training_config)
+    dataset_schema = resolve_training_dataset_schema(training_config)
     save_yaml_snapshot(
         {
             "schema_version": 1,
@@ -1158,6 +1217,11 @@ def save_run_metadata_snapshot(training_config: dict[str, Any], output_directory
             "run_name": run_artifact_identity.run_name,
             "run_instance_id": run_artifact_identity.run_instance_id,
             "output_directory": format_project_relative_path(run_artifact_identity.output_directory),
+            "dataset_id": dataset_schema.dataset_name,
+            "dataset_schema": dataset_schema.schema_name,
+            "input_feature_names": list(dataset_schema.input_feature_name_list),
+            "target_feature_names": list(dataset_schema.target_feature_name_list),
+            "input_feature_dim": dataset_schema.input_feature_dim,
         },
         output_directory / COMMON_RUN_METADATA_FILENAME,
     )

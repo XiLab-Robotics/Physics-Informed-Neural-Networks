@@ -1,0 +1,22 @@
+schema_version: 1
+campaign_name: polished_dataset_stage1_smoke_2026_06_21
+stage_name: stage_1_minimal_training_smoke_matrix
+dataset_name: polished_dataset
+planning_report_path: doc/reports/campaign_plans/cross_wave/polished_dataset/2026-06-21-03-26-07_polished_dataset_full_program_retraining_campaign_plan_report.md
+technical_document_path: doc/technical/2026-06/2026-06-21/2026-06-21-03-26-07_polished_dataset_default_and_program_retraining.md
+source_config_path_list:
+  - config/training/feedforward/presets/trial.yaml
+  - config/training/wave1_directional_retraining/campaigns/2026-05-06_wave1_directional_retraining_campaign/queue/01_tree_global.yaml
+  - config/training/wave1_directional_retraining/campaigns/2026-05-06_wave1_directional_retraining_campaign/queue/13_harmonic_regression_global.yaml
+  - config/training/wave2b_harmonic_temporal_hybrid/campaigns/2026-05-25_wave2b_harmonic_temporal_hybrid_campaign/queue/04_periodic_gru_sequence_global.yaml
+  - config/training/wave2c_residual_harmonic_temporal_hybrid/campaigns/2026-05-27_wave2c_residual_harmonic_temporal_hybrid_campaign/queue/01_residual_harmonic_gru_sequence_sparse_rcim_global.yaml
+  - config/training/track2g_curve_aware_training/campaigns/2026-06-08_track2g_curve_aware_training_campaign/queue/10_full_curve_composite_global.yaml
+  - config/training/wave3_harmonic_prior_residual/campaigns/2026-06-14_wave3_harmonic_prior_residual_campaign/queue/04_smooth_l1_structured_global.yaml
+  - config/training/track2h_latent_state_hysteresis/campaigns/2026-06-16_track2h_latent_state_hysteresis_campaign/queue/01_gru_offset_residual_global.yaml
+execution_policy:
+  operator_run_required: true
+  stop_on_error: true
+  run_track2_refresh: false
+  excluded_training_surface_list:
+    - paper_original
+    - paper_retuned

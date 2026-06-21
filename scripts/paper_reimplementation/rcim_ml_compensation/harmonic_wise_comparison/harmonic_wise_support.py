@@ -46,6 +46,7 @@ class HarmonicCurveRecord:
     transmission_error_deg: np.ndarray
     coefficient_dictionary: dict[str, float]
     amplitude_phase_dictionary: dict[str, float]
+    input_feature_matrix: np.ndarray | None = None
 
 
 def load_harmonic_pipeline_config(config_path: str | Path) -> dict[str, Any]:
@@ -117,6 +118,7 @@ def build_feature_vector(
     oil_temperature_deg: float,
     direction_flag: float,
     engineered_feature_term_list: list[str] | None = None,
+    include_direction_feature: bool = True,
 ) -> np.ndarray:
 
     """Build one harmonic-regression feature vector.
@@ -137,8 +139,9 @@ def build_feature_vector(
         float(speed_rpm),
         float(torque_nm),
         float(oil_temperature_deg),
-        float(direction_flag),
     ]
+    if include_direction_feature:
+        feature_value_list.append(float(direction_flag))
 
     # Append Requested Engineered Terms
     engineered_feature_term_list = engineered_feature_term_list or []
@@ -162,17 +165,17 @@ def build_feature_vector(
     return np.asarray(feature_value_list, dtype=np.float32)
 
 
-def build_feature_name_list(engineered_feature_term_list: list[str]) -> list[str]:
+def build_feature_name_list(
+    engineered_feature_term_list: list[str],
+    include_direction_feature: bool = True,
+) -> list[str]:
 
     """Build the ordered feature-name list for the harmonic predictor."""
 
     # Start From Base Feature Names
-    feature_name_list = [
-        "speed_rpm",
-        "torque_nm",
-        "oil_temperature_deg",
-        "direction_flag",
-    ]
+    feature_name_list = ["speed_rpm", "torque_nm", "oil_temperature_deg"]
+    if include_direction_feature:
+        feature_name_list.append("direction_flag")
 
     # Map Engineered Terms To Stable Names
     feature_name_dictionary = {
@@ -297,6 +300,10 @@ def build_curve_record(
         transmission_error_deg=curve_sample.transmission_error_deg.astype(np.float32),
         coefficient_dictionary=coefficient_dictionary,
         amplitude_phase_dictionary=amplitude_phase_dictionary,
+        input_feature_matrix=(
+            curve_sample.input_feature_matrix.astype(np.float32)
+            if curve_sample.input_feature_matrix is not None else None
+        ),
     )
 
 
@@ -330,8 +337,9 @@ def build_split_record_bundle(
     dataset_configuration = transmission_error_dataset.load_dataset_processing_config(
         training_config["paths"]["dataset_config_path"]
     )
-    dataset_root = transmission_error_dataset.resolve_project_relative_path(
-        dataset_configuration["paths"]["dataset_root"]
+    selected_dataset_name, dataset_root = transmission_error_dataset.resolve_dataset_selection(
+        dataset_configuration,
+        training_config.get("dataset", {}).get("name"),
     )
     direction_configuration = dataset_configuration["directions"]
     split_configuration = dataset_configuration["split"]
@@ -341,6 +349,7 @@ def build_split_record_bundle(
         dataset_root=dataset_root,
         use_forward_direction=bool(direction_configuration["use_forward_direction"]),
         use_backward_direction=bool(direction_configuration["use_backward_direction"]),
+        dataset_name=selected_dataset_name,
     )
     train_manifest, validation_manifest, test_manifest = transmission_error_dataset.split_directional_file_manifest(
         directional_file_manifest,
@@ -379,7 +388,12 @@ def build_feature_target_matrix(
     """Build feature and target matrices for one split."""
 
     target_name_list = build_target_name_list(selected_harmonic_list)
-    feature_name_list = build_feature_name_list(engineered_feature_term_list)
+    include_direction_feature = not all(
+        transmission_error_dataset.infer_dataset_name_from_path(record.source_file_path)
+        == transmission_error_dataset.POLISHED_DATASET
+        for record in curve_record_list
+    )
+    feature_name_list = build_feature_name_list(engineered_feature_term_list, include_direction_feature)
     feature_matrix = np.asarray(
         [
             build_feature_vector(
@@ -388,6 +402,7 @@ def build_feature_target_matrix(
                 record.oil_temperature_deg,
                 record.direction_flag,
                 engineered_feature_term_list,
+                include_direction_feature,
             )
             for record in curve_record_list
         ],
@@ -971,6 +986,14 @@ def run_motion_profile_playback(
     angle_probe_count = int(evaluation_configuration["playback_angle_probe_count"])
     playback_direction_label = str(evaluation_configuration["playback_direction_label"]).strip().lower()
     direction_flag = PLAYBACK_DIRECTION_FLAG_MAP[playback_direction_label]
+    dataset_configuration = transmission_error_dataset.load_dataset_processing_config(
+        training_config["paths"]["dataset_config_path"]
+    )
+    selected_dataset_name, _ = transmission_error_dataset.resolve_dataset_selection(
+        dataset_configuration,
+        training_config.get("dataset", {}).get("name"),
+    )
+    include_direction_feature = selected_dataset_name != transmission_error_dataset.POLISHED_DATASET
     angle_probe_deg = np.linspace(0.0, 360.0, angle_probe_count, endpoint=False, dtype=np.float32)
 
     playback_summary_dictionary: dict[str, Any] = {}
@@ -996,6 +1019,7 @@ def run_motion_profile_playback(
                     float(temperature_deg),
                     direction_flag,
                     resolve_feature_term_list(training_config),
+                    include_direction_feature,
                 )
                 for speed_rpm, torque_nm, temperature_deg in zip(
                     profile_dictionary["speed_profile_rpm"],

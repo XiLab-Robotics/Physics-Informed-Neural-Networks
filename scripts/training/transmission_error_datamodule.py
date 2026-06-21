@@ -19,6 +19,9 @@ from torch.utils.data import DataLoader
 from scripts.datasets.transmission_error_dataset import TransmissionErrorCurveDataset
 from scripts.datasets.transmission_error_dataset import build_directional_file_manifest
 from scripts.datasets.transmission_error_dataset import load_dataset_processing_config
+from scripts.datasets.transmission_error_dataset import normalize_dataset_name
+from scripts.datasets.transmission_error_dataset import resolve_dataset_schema
+from scripts.datasets.transmission_error_dataset import resolve_dataset_selection
 from scripts.datasets.transmission_error_dataset import resolve_project_relative_path
 from scripts.datasets.transmission_error_dataset import split_directional_file_manifest
 
@@ -40,6 +43,12 @@ class DatasetSplitSummary:
     train_curve_count: int
     validation_curve_count: int
     test_curve_count: int
+    dataset_name: str
+    dataset_schema: str
+    input_feature_name_list: list[str]
+    target_feature_name_list: list[str]
+    input_feature_dim: int
+    target_feature_dim: int
 
 def move_batch_tensor_collection_to_device(batch_value: Any, device: torch.device, use_non_blocking_transfer: bool = False) -> Any:
 
@@ -345,6 +354,7 @@ class TransmissionErrorDataModule(LightningDataModule):
     def __init__(
         self,
         dataset_config_path: str | Path,
+        dataset_name: str | None = None,
         curve_batch_size: int = 2,
         point_stride: int = 20,
         maximum_points_per_curve: int | None = None,
@@ -362,6 +372,7 @@ class TransmissionErrorDataModule(LightningDataModule):
 
         Args:
             dataset_config_path: Dataset YAML configuration path.
+            dataset_name: Optional dataset selector overriding the YAML value.
             curve_batch_size: Number of curves loaded per dataloader batch.
             point_stride: Subsampling stride applied inside each curve.
             maximum_points_per_curve: Optional cap on sampled points per curve.
@@ -391,6 +402,7 @@ class TransmissionErrorDataModule(LightningDataModule):
 
         # Save Dataset Parameters
         self.dataset_config_path = resolve_project_relative_path(dataset_config_path)
+        self.requested_dataset_name = normalize_dataset_name(dataset_name) if dataset_name is not None else None
         self.curve_batch_size = curve_batch_size
         self.point_stride = point_stride
         self.maximum_points_per_curve = maximum_points_per_curve
@@ -411,6 +423,10 @@ class TransmissionErrorDataModule(LightningDataModule):
         self.input_feature_dim: int | None = None
         self.target_feature_dim: int | None = None
         self.normalization_statistics: NormalizationStatistics | None = None
+        self.dataset_name: str | None = None
+        self.dataset_schema: str | None = None
+        self.input_feature_name_list: list[str] = []
+        self.target_feature_name_list: list[str] = []
 
     def setup(self, stage: str | None = None) -> None:
 
@@ -427,14 +443,23 @@ class TransmissionErrorDataModule(LightningDataModule):
         # Load Dataset Processing Configuration
         dataset_processing_config = load_dataset_processing_config(self.dataset_config_path)
 
-        # Resolve Dataset Root
-        dataset_root = resolve_project_relative_path(dataset_processing_config["paths"]["dataset_root"])
+        # Resolve Dataset Selection And Root
+        selected_dataset_name, dataset_root = resolve_dataset_selection(
+            dataset_processing_config,
+            self.requested_dataset_name,
+        )
+        dataset_schema = resolve_dataset_schema(selected_dataset_name)
+        self.dataset_name = dataset_schema.dataset_name
+        self.dataset_schema = dataset_schema.schema_name
+        self.input_feature_name_list = list(dataset_schema.input_feature_name_list)
+        self.target_feature_name_list = list(dataset_schema.target_feature_name_list)
 
         # Build Directional File Manifest
         directional_file_manifest = build_directional_file_manifest(
             dataset_root,
             bool(dataset_processing_config["directions"]["use_forward_direction"]),
             bool(dataset_processing_config["directions"]["use_backward_direction"]),
+            selected_dataset_name,
         )
 
         # Split Directional File Manifest
@@ -448,18 +473,21 @@ class TransmissionErrorDataModule(LightningDataModule):
         # Build Train Dataset Object
         self.train_dataset = TransmissionErrorCurveDataset(
             dataset_root=dataset_root,
+            dataset_name=selected_dataset_name,
             directional_file_manifest=train_directional_file_manifest,
         )
 
         # Build Validation Dataset Object
         self.validation_dataset = TransmissionErrorCurveDataset(
             dataset_root=dataset_root,
+            dataset_name=selected_dataset_name,
             directional_file_manifest=validation_directional_file_manifest,
         )
 
         # Build Test Dataset Object
         self.test_dataset = TransmissionErrorCurveDataset(
             dataset_root=dataset_root,
+            dataset_name=selected_dataset_name,
             directional_file_manifest=test_directional_file_manifest,
         )
 
@@ -568,6 +596,12 @@ class TransmissionErrorDataModule(LightningDataModule):
             train_curve_count=len(self.train_dataset),
             validation_curve_count=len(self.validation_dataset),
             test_curve_count=len(self.test_dataset),
+            dataset_name=str(self.dataset_name),
+            dataset_schema=str(self.dataset_schema),
+            input_feature_name_list=list(self.input_feature_name_list),
+            target_feature_name_list=list(self.target_feature_name_list),
+            input_feature_dim=self.get_input_feature_dim(),
+            target_feature_dim=self.get_target_feature_dim(),
         )
 
     def train_dataloader(self) -> DataLoader:

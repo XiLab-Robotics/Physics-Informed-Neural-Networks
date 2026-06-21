@@ -11,7 +11,8 @@ param(
     [string]$RemoteHostAlias = "xilab-remote",
     [string]$RemoteRepositoryPath = $env:PINNS_REMOTE_TRAINING_REPO_PATH,
     [string]$RemoteCondaEnvironmentName = $(if ($env:PINNS_REMOTE_TRAINING_CONDA_ENV) { $env:PINNS_REMOTE_TRAINING_CONDA_ENV } else { "pinns_env" }),
-    [string[]]$SourceSyncPathList = @("scripts", "config", "doc", "requirements.txt")
+    [string[]]$SourceSyncPathList = @("scripts", "config", "doc", "requirements.txt"),
+    [string[]]$AdditionalTrainingArgumentList = @()
 )
 
 $ErrorActionPreference = "Stop"
@@ -788,6 +789,13 @@ Write-Output ('REMOTE_RUN_START::{0}' -f (Get-Location).Path)
 foreach ($campaignConfigPath in $resolvedCampaignConfigPathList) {
     $remoteRunScript += @"
     ,'$campaignConfigPath'
+"@
+}
+
+foreach ($additionalTrainingArgument in $AdditionalTrainingArgumentList) {
+    $escapedAdditionalTrainingArgument = $additionalTrainingArgument.Replace("'", "''")
+    $remoteRunScript += @"
+    ,'$escapedAdditionalTrainingArgument'
 "@
 }
 

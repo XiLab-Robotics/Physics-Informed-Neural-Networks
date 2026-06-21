@@ -114,7 +114,7 @@ class LatentStateHysteresisNetwork(nn.Module):
         # Validate Architecture Parameters
         normalized_encoder_type = latent_encoder_type.strip().lower()
         assert normalized_encoder_type in ["gru", "causal_tcn"], f"Unsupported Latent Encoder Type | {latent_encoder_type}"
-        assert input_size >= 5, f"Input Size must expose TE operating features | {input_size}"
+        assert input_size >= 4, f"Input Size must expose angle and TE operating features | {input_size}"
         assert output_size > 0, f"Output Size must be positive | {output_size}"
         assert latent_hidden_size > 0, f"Latent Hidden Size must be positive | {latent_hidden_size}"
         assert latent_num_layers > 0, f"Latent Num Layers must be positive | {latent_num_layers}"

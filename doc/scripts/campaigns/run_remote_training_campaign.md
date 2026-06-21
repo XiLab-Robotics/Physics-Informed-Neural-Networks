@@ -82,6 +82,13 @@ Generic usage from the repository root:
   -RemoteHostAlias "xilab-remote"
 ```
 
+Dedicated launchers may pass shared runner overrides through
+`-AdditionalTrainingArgumentList`, for example:
+
+```powershell
+-AdditionalTrainingArgumentList @("--dataset", "polished_dataset", "--stop-on-error")
+```
+
 If the remote repository path and Conda environment are stored in environment
 variables, the launcher can stay short.
 

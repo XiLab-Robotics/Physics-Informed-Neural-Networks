@@ -288,6 +288,7 @@ def parse_command_line_arguments() -> argparse.Namespace:
     argument_parser.add_argument("--campaign-output-root", type=Path, default=DEFAULT_CAMPAIGN_OUTPUT_ROOT, help="Root directory used for campaign manifests, reports, and terminal logs.")
     argument_parser.add_argument("--campaign-name", type=str, default=None, help="Optional campaign name used for the campaign output folder and report header.")
     argument_parser.add_argument("--planning-report-path", type=Path, default=None, help="Optional planning-report path recorded in the generated campaign report.")
+    argument_parser.add_argument("--dataset", choices=["polished_dataset", "simplified_dataset"], default=None, help="Dataset selector applied to every queued training config.")
     argument_parser.add_argument("--enqueue-only", action="store_true", help="Copy the provided YAML files into the pending queue without executing them.")
     argument_parser.add_argument("--stop-on-error", action="store_true", help="Stop the queue immediately after the first failed training run.")
     repository_path_support.add_platform_arguments(argument_parser)
@@ -1126,6 +1127,18 @@ def main() -> None:
         )
         for pending_queue_path in pending_queue_path_list
     ]
+    if command_line_arguments.dataset is not None:
+        queue_item_context_list = [
+            QueueItemContext(
+                queue_config_path=queue_item_context.queue_config_path,
+                source_config_path=queue_item_context.source_config_path,
+                training_config=shared_training_infrastructure.apply_dataset_override(
+                    queue_item_context.training_config,
+                    command_line_arguments.dataset,
+                ),
+            )
+            for queue_item_context in queue_item_context_list
+        ]
 
     # Resolve Campaign Name, Planning Report Path, and Prepare Campaign Output Directories
     campaign_name = resolve_campaign_name(queue_item_context_list, command_line_arguments.campaign_name)

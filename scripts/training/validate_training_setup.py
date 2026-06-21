@@ -293,7 +293,11 @@ def save_validation_outputs(
 
     return validation_summary_path, validation_report_path
 
-def validate_training_setup(config_path: Path, output_suffix: str = "validation_check") -> tuple[Path, Path]:
+def validate_training_setup(
+    config_path: Path,
+    output_suffix: str = "validation_check",
+    dataset_name: str | None = None,
+) -> tuple[Path, Path]:
 
     """Run a lightweight validation check for the configured training setup.
 
@@ -307,8 +311,12 @@ def validate_training_setup(config_path: Path, output_suffix: str = "validation_
     """
 
     # Load Training Config And Resolve Output Directory
-    training_config = shared_training_infrastructure.prepare_output_artifact_training_config(
+    training_config = shared_training_infrastructure.apply_dataset_override(
         shared_training_infrastructure.load_training_config(config_path),
+        dataset_name,
+    )
+    training_config = shared_training_infrastructure.prepare_output_artifact_training_config(
+        training_config,
         artifact_kind=shared_training_infrastructure.VALIDATION_OUTPUT_ARTIFACT_KIND,
         run_name_suffix=output_suffix,
     )
@@ -415,6 +423,7 @@ def parse_command_line_arguments() -> argparse.Namespace:
     argument_parser = argparse.ArgumentParser(description="Run a one-batch validation check for the current TE training setup.")
     argument_parser.add_argument("--config-path", type=Path, default=shared_training_infrastructure.DEFAULT_CONFIG_PATH, help="Path to the YAML training configuration file.")
     argument_parser.add_argument("--output-suffix", type=str, default="validation_check", help="Suffix appended to the run directory for the validation summary.")
+    argument_parser.add_argument("--dataset", choices=["polished_dataset", "simplified_dataset"], default=None, help="Dataset selector overriding the training YAML.")
     repository_path_support.add_platform_arguments(argument_parser)
     return argument_parser.parse_args()
 
@@ -432,6 +441,7 @@ def main() -> None:
     validate_training_setup(
         command_line_arguments.config_path,
         command_line_arguments.output_suffix,
+        command_line_arguments.dataset,
     )
 
 if __name__ == "__main__":

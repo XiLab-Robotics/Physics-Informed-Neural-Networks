@@ -44,6 +44,12 @@ def parse_command_line_arguments() -> argparse.Namespace:
         default="",
         help="Optional single GPU id exposed through CUDA_VISIBLE_DEVICES.",
     )
+    argument_parser.add_argument(
+        "--dataset",
+        choices=["polished_dataset", "simplified_dataset"],
+        default="polished_dataset",
+        help="Dataset selector applied to every generated trial config.",
+    )
     repository_path_support.add_platform_arguments(argument_parser)
     return argument_parser.parse_args()
 
@@ -175,6 +181,10 @@ def main() -> None:
     search_space_dictionary = study_config_dictionary["search_space"]
     source_training_config_path = (PROJECT_PATH / study_dictionary["source_training_config_path"]).resolve()
     base_training_config = optuna_hpo_support.load_yaml_dictionary(source_training_config_path)
+    base_training_config = shared_training_infrastructure.apply_dataset_override(
+        base_training_config,
+        command_line_arguments.dataset,
+    )
     study_output_root = (PROJECT_PATH / study_dictionary["study_output_root"]).resolve()
     study_output_root.mkdir(parents=True, exist_ok=True)
 

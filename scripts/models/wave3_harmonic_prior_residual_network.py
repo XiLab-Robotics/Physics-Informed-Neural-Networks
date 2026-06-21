@@ -71,7 +71,7 @@ class Wave3HarmonicPriorResidualNetwork(nn.Module):
         high_order_harmonic_index_list = list(high_order_harmonic_index_list or [156, 162, 240])
 
         # Validate Parameters
-        assert input_size >= 5, f"Input Size must expose TE operating features | {input_size}"
+        assert input_size >= 4, f"Input Size must expose angle and TE operating features | {input_size}"
         assert output_size == 1, f"Wave 5.1 skeleton supports scalar TE output only | {output_size}"
         assert harmonic_order > 0, f"Harmonic Order must be positive | {harmonic_order}"
         assert residual_scale >= 0.0, f"Residual Scale must be non-negative | {residual_scale}"

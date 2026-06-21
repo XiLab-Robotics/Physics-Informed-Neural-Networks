@@ -382,8 +382,9 @@ def build_curve_record_list(
         dataset_configuration = transmission_error_dataset.load_dataset_processing_config(
             training_config["paths"]["dataset_config_path"]
         )
-        dataset_root = transmission_error_dataset.resolve_project_relative_path(
-            dataset_configuration["paths"]["dataset_root"]
+        selected_dataset_name, dataset_root = transmission_error_dataset.resolve_dataset_selection(
+            dataset_configuration,
+            training_config.get("dataset", {}).get("name"),
         )
         direction_configuration = dataset_configuration["directions"]
         split_configuration = dataset_configuration["split"]
@@ -391,6 +392,7 @@ def build_curve_record_list(
             dataset_root=dataset_root,
             use_forward_direction=bool(direction_configuration["use_forward_direction"]),
             use_backward_direction=bool(direction_configuration["use_backward_direction"]),
+            dataset_name=selected_dataset_name,
         )
         train_manifest, validation_manifest, test_manifest = transmission_error_dataset.split_directional_file_manifest(
             directional_file_manifest,
@@ -416,6 +418,10 @@ def build_curve_record_list(
                     transmission_error_deg=curve_sample.transmission_error_deg.astype(np.float32),
                     coefficient_dictionary={},
                     amplitude_phase_dictionary={},
+                    input_feature_matrix=(
+                        curve_sample.input_feature_matrix.astype(np.float32)
+                        if curve_sample.input_feature_matrix is not None else None
+                    ),
                 )
             )
         directional_count_dictionary = {
@@ -659,9 +665,39 @@ def build_reference_target_metric_dictionary_from_entries(
     }
 
 
-def build_feedforward_input_tensor(curve_record: harmonic_wise_support.HarmonicCurveRecord) -> torch.Tensor:
+def resolve_model_dataset_name(training_config: dict[str, Any] | None) -> str:
+
+    """Resolve the dataset schema expected by one model artifact."""
+
+    if training_config is None:
+        return transmission_error_dataset.SIMPLIFIED_DATASET
+
+    explicit_dataset_name = training_config.get("dataset", {}).get("name")
+    if explicit_dataset_name is not None:
+        return transmission_error_dataset.normalize_dataset_name(explicit_dataset_name)
+
+    dataset_config_path = training_config.get("paths", {}).get("dataset_config_path")
+    if dataset_config_path is None:
+        return transmission_error_dataset.SIMPLIFIED_DATASET
+
+    dataset_configuration = transmission_error_dataset.load_dataset_processing_config(dataset_config_path)
+    selected_dataset_name, _ = transmission_error_dataset.resolve_dataset_selection(dataset_configuration)
+    return selected_dataset_name
+
+
+def build_feedforward_input_tensor(
+    curve_record: harmonic_wise_support.HarmonicCurveRecord,
+    training_config: dict[str, Any] | None = None,
+) -> torch.Tensor:
 
     """Build the pointwise feedforward input tensor for one curve record."""
+
+    model_dataset_name = resolve_model_dataset_name(training_config)
+    if (
+        model_dataset_name == transmission_error_dataset.POLISHED_DATASET
+        and curve_record.input_feature_matrix is not None
+    ):
+        return torch.from_numpy(curve_record.input_feature_matrix.astype(np.float32))
 
     sequence_length = int(curve_record.angular_position_deg.shape[0])
     input_feature_matrix = np.column_stack(
@@ -683,7 +719,7 @@ def build_temporal_sequence_input_tensor(
 
     """Build full-curve sequence windows for one temporal registry model."""
 
-    point_input_tensor = build_feedforward_input_tensor(curve_record).float()
+    point_input_tensor = build_feedforward_input_tensor(curve_record, training_config).float()
     dataset_configuration = training_config.get("dataset", {})
     sequence_length = int(dataset_configuration.get("sequence_length", 1))
     sequence_target_position = str(dataset_configuration.get("sequence_target_position", "center")).strip().lower()
@@ -736,7 +772,7 @@ def predict_temporal_sequence_curve_in_batches(
     """Predict one temporal TE curve without materializing every sequence window at once."""
 
     inference_device = model_object.input_feature_mean.device
-    point_input_tensor = build_feedforward_input_tensor(curve_record).float().to(inference_device)
+    point_input_tensor = build_feedforward_input_tensor(curve_record, training_config).float().to(inference_device)
     dataset_configuration = training_config.get("dataset", {})
     sequence_length = int(dataset_configuration.get("sequence_length", 1))
     sequence_target_position = str(dataset_configuration.get("sequence_target_position", "center")).strip().lower()
@@ -832,7 +868,7 @@ def predict_wave1_registry_curve(
 
     model_type = str(training_config["experiment"]["model_type"]).strip().lower()
     if model_type in {"hist_gradient_boosting", "random_forest"}:
-        input_tensor = build_feedforward_input_tensor(curve_record).float()
+        input_tensor = build_feedforward_input_tensor(curve_record, training_config).float()
         input_feature_matrix = input_tensor.detach().cpu().numpy().astype(np.float32)
         return np.asarray(model_object.predict(input_feature_matrix), dtype=np.float32).reshape(-1)
 
@@ -846,7 +882,7 @@ def predict_wave1_registry_curve(
             training_config,
         )
     else:
-        input_tensor = build_feedforward_input_tensor(curve_record).float().to(model_object.input_feature_mean.device)
+        input_tensor = build_feedforward_input_tensor(curve_record, training_config).float().to(model_object.input_feature_mean.device)
 
     with torch.no_grad():
         normalized_input_tensor = model_object.normalize_input_tensor(input_tensor)

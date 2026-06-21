@@ -26,6 +26,7 @@ DEFAULT_CONFIG_PATH = PROJECT_PATH / "config" / "paper_reimplementation" / "rcim
 def run_harmonic_wise_comparison_pipeline(
     config_path: Path,
     output_suffix: str = "baseline_validation",
+    dataset_name: str | None = None,
 ) -> tuple[Path, Path, Path]:
 
     """Run the repository-owned offline harmonic-wise validation pipeline.
@@ -40,8 +41,12 @@ def run_harmonic_wise_comparison_pipeline(
     """
 
     # Load And Prepare Configuration
-    training_config = shared_training_infrastructure.prepare_output_artifact_training_config(
+    training_config = shared_training_infrastructure.apply_dataset_override(
         harmonic_wise_support.load_harmonic_pipeline_config(config_path),
+        dataset_name,
+    )
+    training_config = shared_training_infrastructure.prepare_output_artifact_training_config(
+        training_config,
         artifact_kind=shared_training_infrastructure.VALIDATION_OUTPUT_ARTIFACT_KIND,
         run_name_suffix=output_suffix,
     )
@@ -156,6 +161,7 @@ def parse_command_line_arguments() -> argparse.Namespace:
         default="baseline_validation",
         help="Suffix appended to the immutable validation-check artifact.",
     )
+    argument_parser.add_argument("--dataset", choices=["polished_dataset", "simplified_dataset"], default=None)
     repository_path_support.add_platform_arguments(argument_parser)
     return argument_parser.parse_args()
 
@@ -171,6 +177,7 @@ def main() -> None:
     run_harmonic_wise_comparison_pipeline(
         command_line_arguments.config_path,
         command_line_arguments.output_suffix,
+        command_line_arguments.dataset,
     )
 
 

@@ -111,11 +111,11 @@ The most important folders for a new user are:
 - `config/`
   YAML configuration files for datasets, presets, and campaigns.
 - `data/simplified_dataset/`
-  Canonical validated TE curves used by current training and evaluation.
+  Legacy validated TE curves retained for compatibility.
 - `data/original_dataset/`
   Raw test-rig recordings used to reconstruct preprocessing and provenance.
 - `data/polished_dataset/`
-  Direction-separated row-level export derived directly from the raw dataset.
+  Default direction-separated row-level dataset used by new training.
 - `output/`
   Training runs, validation checks, smoke tests, campaigns, and registries.
 - `doc/`
@@ -171,17 +171,20 @@ The default dataset location is configured in
 
 ```yaml
 paths:
-  dataset_root: data/simplified_dataset
+  dataset_root: data/polished_dataset
+dataset:
+  name: polished_dataset
 ```
 
-Update that path if your validated TE dataset is stored elsewhere.
+Use `--dataset simplified_dataset` on dataset-aware entry points when a legacy
+five-feature run must be reproduced.
 
 ### 3. Run A First Training Command
 
 For a lightweight verification run:
 
 ```powershell
-conda run -n pinns_env python scripts/training/train_feedforward_network.py --config-path config/training/feedforward/presets/trial.yaml
+conda run -n pinns_env python scripts/training/train_feedforward_network.py --config-path config/training/feedforward/presets/trial.yaml --dataset polished_dataset
 ```
 
 For the default feedforward baseline:

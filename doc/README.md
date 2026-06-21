@@ -462,6 +462,10 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-06-21
 
+- [technical/2026-06/2026-06-21/2026-06-21-03-26-07_polished_dataset_default_and_program_retraining.md](./technical/2026-06/2026-06-21/2026-06-21-03-26-07_polished_dataset_default_and_program_retraining.md)
+  Technical plan for making polished point measurements the default dataset,
+  preserving simplified compatibility, and preparing full program retraining.
+
 - [technical/2026-06/2026-06-21/2026-06-21-00-38-59_final_te_renaming_documentation_consistency.md](./technical/2026-06/2026-06-21/2026-06-21-00-38-59_final_te_renaming_documentation_consistency.md)
   Technical plan for removing the final two reader-facing inconsistencies from
   the completed TE and dataset renaming documentation.
@@ -3241,6 +3245,11 @@ This folder contains the internal project documents derived from the reference P
   Final results report for the completed Wave 1 residual-harmonic family optimization campaign, including familywise ranking and the promoted residual-family winner.
 
 #### Campaign Plans
+
+- [reports/campaign_plans/cross_wave/polished_dataset/2026-06-21-03-26-07_polished_dataset_full_program_retraining_campaign_plan_report.md](./reports/campaign_plans/cross_wave/polished_dataset/2026-06-21-03-26-07_polished_dataset_full_program_retraining_campaign_plan_report.md)
+  Preliminary staged plan for retraining all eligible repository-owned model
+  families on polished point measurements and performing a later Track 2
+  refresh while freezing paper-original and paper-retuned models.
 
 - [reports/campaign_plans/track_2/2026-06-16-16-00-57_track2h_latent_state_hysteresis_campaign_plan_report.md](./reports/campaign_plans/track_2/2026-06-16-16-00-57_track2h_latent_state_hysteresis_campaign_plan_report.md)
   Preliminary campaign plan for the `Wave 4.4` latent-state /

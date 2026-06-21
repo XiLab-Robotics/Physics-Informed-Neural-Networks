@@ -81,7 +81,10 @@ def load_dataset_processing_config(config_path: str | Path = DEFAULT_CONFIG_PATH
     return dataset_processing_config
 
 
-def resolve_dataset_root_from_config(config_path: str | Path = DEFAULT_CONFIG_PATH) -> Path:
+def resolve_dataset_root_from_config(
+    config_path: str | Path = DEFAULT_CONFIG_PATH,
+    dataset_name: str = "polished_dataset",
+) -> Path:
 
     """Resolve the dataset root from the canonical dataset config."""
 
@@ -89,7 +92,9 @@ def resolve_dataset_root_from_config(config_path: str | Path = DEFAULT_CONFIG_PA
     dataset_processing_config = load_dataset_processing_config(config_path)
 
     # Resolve Dataset Root
-    return resolve_project_relative_path(dataset_processing_config["paths"]["dataset_root"])
+    dataset_root_dictionary = dataset_processing_config["paths"].get("dataset_roots", {})
+    dataset_root = dataset_root_dictionary.get(dataset_name, dataset_processing_config["paths"]["dataset_root"])
+    return resolve_project_relative_path(dataset_root)
 
 
 def collect_dataset_csv_paths(dataset_root: str | Path) -> list[Path]:
@@ -111,6 +116,7 @@ def build_directional_file_manifest(
     dataset_root: str | Path,
     use_forward_direction: bool = True,
     use_backward_direction: bool = True,
+    dataset_name: str = "polished_dataset",
 ) -> list[tuple[Path, str]]:
 
     """Build the same directional file manifest used by the training pipeline."""
@@ -124,6 +130,17 @@ def build_directional_file_manifest(
     # Build Manifest
     directional_file_manifest: list[tuple[Path, str]] = []
     for csv_file_path in csv_file_path_list:
+        if dataset_name == "polished_dataset":
+            direction_label = csv_file_path.relative_to(Path(dataset_root).resolve()).parts[0].lower()
+            assert direction_label in [FORWARD_DIRECTION, BACKWARD_DIRECTION], (
+                f"Unexpected polished direction folder | {csv_file_path}"
+            )
+            if direction_label == FORWARD_DIRECTION and use_forward_direction:
+                directional_file_manifest.append((csv_file_path, direction_label))
+            if direction_label == BACKWARD_DIRECTION and use_backward_direction:
+                directional_file_manifest.append((csv_file_path, direction_label))
+            continue
+
         if use_forward_direction:
             directional_file_manifest.append((csv_file_path, FORWARD_DIRECTION))
         if use_backward_direction:
@@ -262,6 +279,12 @@ def parse_cli_arguments() -> argparse.Namespace:
         required=True,
         help="Directory where the exported split manifests will be written.",
     )
+    argument_parser.add_argument(
+        "--dataset",
+        choices=["polished_dataset", "simplified_dataset"],
+        default="polished_dataset",
+        help="Dataset family to export.",
+    )
 
     repository_path_support.add_platform_arguments(argument_parser)
     parsed_arguments = argument_parser.parse_args()
@@ -399,6 +422,7 @@ def build_split_summary_dictionary(
     config_path: Path,
     dataset_root: Path,
     dataset_processing_config: dict[str, Any],
+    dataset_name: str,
     train_manifest: list[tuple[Path, str]],
     validation_manifest: list[tuple[Path, str]],
     test_manifest: list[tuple[Path, str]],
@@ -432,6 +456,8 @@ def build_split_summary_dictionary(
         "project_root": str(PROJECT_ROOT.resolve()),
         "dataset_root": str(dataset_root.resolve()),
         "dataset_root_relative": format_project_relative_path(dataset_root),
+        "dataset_id": dataset_name,
+        "dataset_schema": "polished_point_v1" if dataset_name == "polished_dataset" else "simplified_curve_v1",
         "dataset_config_path": format_project_relative_path(config_path),
         "split_strategy": {
             "scope": "unique_csv_file_paths",
@@ -517,13 +543,14 @@ def main() -> None:
 
     # Load Dataset Configuration
     dataset_processing_config = load_dataset_processing_config(config_path)
-    dataset_root = resolve_dataset_root_from_config(config_path)
+    dataset_root = resolve_dataset_root_from_config(config_path, cli_arguments.dataset)
 
     # Build Canonical Directional Manifest
     directional_file_manifest = build_directional_file_manifest(
         dataset_root=dataset_root,
         use_forward_direction=bool(dataset_processing_config["directions"]["use_forward_direction"]),
         use_backward_direction=bool(dataset_processing_config["directions"]["use_backward_direction"]),
+        dataset_name=cli_arguments.dataset,
     )
 
     # Reproduce Canonical Dataset Split
@@ -547,6 +574,7 @@ def main() -> None:
         config_path=config_path,
         dataset_root=dataset_root,
         dataset_processing_config=dataset_processing_config,
+        dataset_name=cli_arguments.dataset,
         train_manifest=train_manifest,
         validation_manifest=validation_manifest,
         test_manifest=test_manifest,

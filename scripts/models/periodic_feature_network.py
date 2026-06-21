@@ -50,7 +50,7 @@ class PeriodicFeatureNetwork(nn.Module):
         super().__init__()
 
         # Validate Feature Parameters
-        assert input_size >= 5, f"Input Size must expose the TE operating-condition features | {input_size}"
+        assert input_size >= 4, f"Input Size must expose angle and TE operating-condition features | {input_size}"
         assert harmonic_order > 0, f"Harmonic Order must be positive | {harmonic_order}"
         resolved_harmonic_index_list = HarmonicRegression.resolve_harmonic_index_list(harmonic_order, harmonic_index_list)
         positive_harmonic_index_list = [harmonic_index for harmonic_index in resolved_harmonic_index_list if harmonic_index > 0]

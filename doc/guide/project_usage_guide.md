@@ -116,12 +116,19 @@ The default repository setting is:
 
 ```yaml
 paths:
-  dataset_root: data/simplified_dataset
+  dataset_root: data/polished_dataset
+  dataset_roots:
+    polished_dataset: data/polished_dataset
+    simplified_dataset: data/simplified_dataset
+dataset:
+  name: polished_dataset
 ```
 
 This path is interpreted relative to the repository root.
 
-If the dataset is moved in the future, update this YAML file before running the scripts.
+Runnable dataset and training entry points accept
+`--dataset polished_dataset` or `--dataset simplified_dataset`. The polished
+dataset is the default.
 
 ### 4. Choose The Dataset Surface
 
@@ -129,15 +136,17 @@ The repository contains three related dataset roots:
 
 - `data/original_dataset/` contains the raw semicolon-delimited test-rig
   recordings and validity channels;
-- `data/simplified_dataset/` contains the validated four-column TE curves used
-  by the current loaders and training workflows;
+- `data/simplified_dataset/` contains the legacy directional-curve schema and
+  remains available through the compatibility selector;
 - `data/polished_dataset/` contains separate `forward/` and `backward/`
   time-ordered exports with `theta`, `theta_dot`, `tau_load`, `T`, and
   `theta_TE`.
 
-Do not point the current loader directly at `polished_dataset`: it expects the
-four-column simplified schema. For signal definitions, generation equations,
-audit results, and dataset-selection guidance, use:
+The shared loader reads polished model inputs directly from `theta`,
+`theta_dot`, `tau_load`, and `T`, with `theta_TE` as target. Direction comes
+from the first-level folder and is not appended to the polished input tensor.
+For signal definitions, generation equations, audit results, and
+dataset-selection guidance, use:
 
 - `doc/reference_summaries/08_Transmission_Error_Dataset_Family_Reference.md`
 
@@ -156,6 +165,20 @@ The standalone equivalent is:
 
 ```powershell
 python data/generate_polished_dataset.py
+```
+
+Example dataset-aware validation:
+
+```powershell
+python -B scripts/training/validate_training_setup.py `
+  --config-path config/training/feedforward/presets/trial.yaml `
+  --dataset polished_dataset
+```
+
+Prepared Stage 1 campaign preflight:
+
+```powershell
+.\scripts\campaigns\cross_wave\run_polished_dataset_stage1_smoke_campaign.ps1 -PreflightOnly
 ```
 
 ## Relevant Project Paths

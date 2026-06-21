@@ -66,7 +66,7 @@ class HarmonicResidualOffsetNetwork(nn.Module):
         super().__init__()
 
         # Validate Architecture Parameters
-        assert input_size >= 5, f"Input Size must expose TE operating features | {input_size}"
+        assert input_size >= 4, f"Input Size must expose angle and TE operating features | {input_size}"
         assert output_size > 0, f"Output Size must be positive | {output_size}"
         assert harmonic_order > 0, f"Harmonic Order must be positive | {harmonic_order}"
         assert offset_hidden_size > 0, f"Offset Hidden Size must be positive | {offset_hidden_size}"

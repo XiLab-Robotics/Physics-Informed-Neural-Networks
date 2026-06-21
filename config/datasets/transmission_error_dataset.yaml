@@ -1,7 +1,11 @@
 paths:
-  dataset_root: data/simplified_dataset
+  dataset_root: data/polished_dataset
+  dataset_roots:
+    polished_dataset: data/polished_dataset
+    simplified_dataset: data/simplified_dataset
 
 dataset:
+  name: polished_dataset
   reduction_ratio: 81.0
   angular_window_deg:
     minimum: 0.0

@@ -73,7 +73,7 @@ class Wave3GroupedHarmonicHeadsNetwork(nn.Module):
         residual_hidden_size = residual_hidden_size or [96, 64]
 
         # Validate Parameters
-        assert input_size >= 5, f"Input Size must expose TE operating features | {input_size}"
+        assert input_size >= 4, f"Input Size must expose angle and TE operating features | {input_size}"
         assert output_size == 1, f"Wave 5.1 grouped heads support scalar TE output only | {output_size}"
         assert harmonic_order > 0, f"Harmonic Order must be positive | {harmonic_order}"
         assert low_order_scale >= 0.0, f"Low Order Scale must be non-negative | {low_order_scale}"
