@@ -7,12 +7,12 @@ latent-state hysteresis refresh into the canonical `TE Curve Verification Pipeli
 
 Decision:
 
-- `track2h_latent_state_hysteresis_registry` is closed as a verified
+- `wave4_4_latent_state_hysteresis_registry` is closed as a verified
   exploratory baseline.
 - No `Wave 4.4` candidate is promoted over the accepted direction-parallel
   leaders.
 - The strongest refreshed `Wave 4.4` aggregate candidate is
-  `track2h_l_causal_tcn_offset_residual_global`.
+  `wave4_4_causal_tcn_latent_offset_residual_global`.
 - The accepted direction-parallel leaders remain `rcim_retuned_GBM19_Fw`,
   `periodic_gru_sequence_Bw`, and the accepted global neural
   `periodic_gru_sequence_global`.
@@ -23,6 +23,10 @@ Decision:
 ## Source Package
 
 This official report consolidates these refreshed artifacts:
+
+The output directories below retain the historical run ids used when the
+verification launcher was executed. Reader-facing model-family names in this
+report use the canonical wave taxonomy.
 
 - metric matrix:
   `doc/reports/analysis/track2/Track 2 Directional Model Comparison.md`;
@@ -39,16 +43,16 @@ This official report consolidates these refreshed artifacts:
 
 ## Candidate Refresh
 
-The refresh added `6` candidates from `track2h_latent_state_hysteresis_registry` into the official `165`-candidate matrix.
+The refresh added `6` candidates from `wave4_4_latent_state_hysteresis_registry` into the official `165`-candidate matrix.
 
 | Surface | Candidate | Family |
 | --- | --- | --- |
-| global | `track2h_l_gru_offset_residual_global` | `track2h_l_gru_offset_residual` |
-| Fw | `track2h_l_gru_offset_residual_Fw` | `track2h_l_gru_offset_residual` |
-| Bw | `track2h_l_gru_offset_residual_Bw` | `track2h_l_gru_offset_residual` |
-| global | `track2h_l_causal_tcn_offset_residual_global` | `track2h_l_causal_tcn_offset_residual` |
-| Fw | `track2h_l_causal_tcn_offset_residual_Fw` | `track2h_l_causal_tcn_offset_residual` |
-| Bw | `track2h_l_causal_tcn_offset_residual_Bw` | `track2h_l_causal_tcn_offset_residual` |
+| global | `wave4_4_gru_latent_offset_residual_global` | `wave4_4_gru_latent_offset_residual` |
+| Fw | `wave4_4_gru_latent_offset_residual_fw` | `wave4_4_gru_latent_offset_residual` |
+| Bw | `wave4_4_gru_latent_offset_residual_bw` | `wave4_4_gru_latent_offset_residual` |
+| global | `wave4_4_causal_tcn_latent_offset_residual_global` | `wave4_4_causal_tcn_latent_offset_residual` |
+| Fw | `wave4_4_causal_tcn_latent_offset_residual_fw` | `wave4_4_causal_tcn_latent_offset_residual` |
+| Bw | `wave4_4_causal_tcn_latent_offset_residual_bw` | `wave4_4_causal_tcn_latent_offset_residual` |
 
 ## Refreshed Source Leaders
 
@@ -56,9 +60,9 @@ The table ranks the refreshed source by aggregate offline TE Curve Verification 
 
 | Surface | Candidate | MAE [deg] | RMSE [deg] | Mean [%] | P95 [%] |
 | --- | --- | ---: | ---: | ---: | ---: |
-| Fw | `track2h_l_causal_tcn_offset_residual_Fw` | 0.003476 | 0.003939 | 7.717 | 13.330 |
-| Bw | `track2h_l_gru_offset_residual_Bw` | 0.003542 | 0.003984 | 7.736 | 12.831 |
-| global | `track2h_l_causal_tcn_offset_residual_global` | 0.003372 | 0.003827 | 7.398 | 13.454 |
+| Fw | `wave4_4_causal_tcn_latent_offset_residual_fw` | 0.003476 | 0.003939 | 7.717 | 13.330 |
+| Bw | `wave4_4_gru_latent_offset_residual_bw` | 0.003542 | 0.003984 | 7.736 | 12.831 |
+| global | `wave4_4_causal_tcn_latent_offset_residual_global` | 0.003372 | 0.003827 | 7.398 | 13.454 |
 
 Interpretation:
 
@@ -76,12 +80,12 @@ Interpretation:
 
 | Rank | Surface | Candidate | MAE [deg] | RMSE [deg] | Mean [%] | P95 [%] |
 | --- | --- | --- | ---: | ---: | ---: | ---: |
-| 1 | global | `track2h_l_causal_tcn_offset_residual_global` | 0.003372 | 0.003827 | 7.398 | 13.454 |
-| 2 | Fw | `track2h_l_causal_tcn_offset_residual_Fw` | 0.003476 | 0.003939 | 7.717 | 13.330 |
-| 3 | Bw | `track2h_l_gru_offset_residual_Bw` | 0.003542 | 0.003984 | 7.736 | 12.831 |
-| 4 | Fw | `track2h_l_gru_offset_residual_Fw` | 0.003549 | 0.003996 | 7.873 | 12.664 |
-| 5 | global | `track2h_l_gru_offset_residual_global` | 0.003591 | 0.004024 | 7.896 | 12.986 |
-| 6 | Bw | `track2h_l_causal_tcn_offset_residual_Bw` | 0.003624 | 0.004098 | 7.903 | 13.135 |
+| 1 | global | `wave4_4_causal_tcn_latent_offset_residual_global` | 0.003372 | 0.003827 | 7.398 | 13.454 |
+| 2 | Fw | `wave4_4_causal_tcn_latent_offset_residual_fw` | 0.003476 | 0.003939 | 7.717 | 13.330 |
+| 3 | Bw | `wave4_4_gru_latent_offset_residual_bw` | 0.003542 | 0.003984 | 7.736 | 12.831 |
+| 4 | Fw | `wave4_4_gru_latent_offset_residual_fw` | 0.003549 | 0.003996 | 7.873 | 12.664 |
+| 5 | global | `wave4_4_gru_latent_offset_residual_global` | 0.003591 | 0.004024 | 7.896 | 12.986 |
+| 6 | Bw | `wave4_4_causal_tcn_latent_offset_residual_bw` | 0.003624 | 0.004098 | 7.903 | 13.135 |
 
 ## Current Direction Leaders
 
@@ -116,7 +120,7 @@ that the refreshed source appears in the visual package.
 
 | Source | Collage | Overlay Forward | Overlay Backward |
 | --- | ---: | ---: | ---: |
-| `track2h_latent_state_hysteresis_registry` | 6 | 2 | 2 |
+| `wave4_4_latent_state_hysteresis_registry` | 6 | 2 | 2 |
 
 ## Closeout Decision
 

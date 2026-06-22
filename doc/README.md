@@ -468,6 +468,11 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-06-22
 
+- [technical/2026-06/2026-06-22/2026-06-22-18-16-56_canonical_wave_model_family_renaming.md](./technical/2026-06/2026-06-22/2026-06-22-18-16-56_canonical_wave_model_family_renaming.md)
+  Technical plan for replacing remaining `track2f`, `track2g`, `track2h`,
+  and inconsistent `wave3` model-family names with canonical wave-based future
+  identifiers while preserving historical artifact traceability.
+
 - [technical/2026-06/2026-06-22/2026-06-22-16-50-24_polished_stage1_smoke_closeout.md](./technical/2026-06/2026-06-22/2026-06-22-16-50-24_polished_stage1_smoke_closeout.md)
   Technical plan for closing out the completed polished Stage 1 smoke
   campaign, preserving failed/interrupted attempt history, producing the

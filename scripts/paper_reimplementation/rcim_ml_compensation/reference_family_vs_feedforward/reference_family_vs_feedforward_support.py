@@ -278,12 +278,15 @@ def load_lightning_regression_module_for_inference(
     )
     target_feature_dim = int(hyperparameter_dictionary.get("target_feature_dim", 1))
     del checkpoint_dictionary
+    model_configuration = dict(training_config["model"])
+    if str(model_configuration.get("input_size", "")).strip().lower() == "auto":
+        model_configuration["input_size"] = input_feature_dim
 
     regression_module = TransmissionErrorRegressionModule.load_from_checkpoint(
         checkpoint_path=checkpoint_path,
         regression_model=create_model(
             model_type=str(training_config["experiment"]["model_type"]),
-            model_configuration=training_config["model"],
+            model_configuration=model_configuration,
         ),
         input_feature_dim=input_feature_dim,
         target_feature_dim=target_feature_dim,

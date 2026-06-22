@@ -55,6 +55,52 @@ METRICS_FILENAME = "track2_best_model_collage_metrics.csv"
 REPORT_FILENAME = "track2_best_model_collage_report.md"
 MAX_REPORT_ASSET_FRAGMENT_LENGTH = 48
 
+CANONICAL_MODEL_FAMILY_NAME_DICTIONARY = {
+    "sequential_residual_offset_probe": "wave3_1_sequential_residual_offset_probe",
+    "track2f_bis_clean_sequential_residual_offset": "wave3_2_clean_sequential_residual_offset",
+    "track2f_bis_harmonic_residual_offset": "wave3_2_harmonic_residual_offset",
+    "track2g_curve_aware_pointwise_control": "wave3_3_curve_aware_pointwise_control",
+    "track2g_curve_aware_raw_centered_shape": "wave3_3_raw_centered_shape_curve_aware",
+    "track2g_curve_aware_raw_offset": "wave3_3_raw_offset_curve_aware",
+    "track2g_curve_aware_full_curve_composite": "wave3_3_full_curve_composite",
+    "track2h_mae_robust": "wave4_1_mae_robust_loss",
+    "track2h_smooth_l1_robust": "wave4_1_smooth_l1_robust_loss",
+    "track2h_log_cosh_robust": "wave4_1_log_cosh_robust_loss",
+    "track2h_quantile_p10_p50_p90": "wave4_2_quantile_p10_p50_p90",
+    "track2h_gaussian_nll": "wave4_2_gaussian_nll",
+    "track2h_mdn_k2": "wave4_3_mixture_density_k2",
+    "track2h_mdn_k3": "wave4_3_mixture_density_k3",
+    "track2h_l_gru_offset_residual": "wave4_4_gru_latent_offset_residual",
+    "track2h_l_causal_tcn_offset_residual": "wave4_4_causal_tcn_latent_offset_residual",
+    "wave3_harmonic_prior_residual_pointwise_control": "wave5_1_harmonic_prior_pointwise_control",
+    "wave3_harmonic_prior_residual_smooth_l1_structured": "wave5_1_harmonic_prior_smooth_l1_structured",
+}
+CANONICAL_SOURCE_LABEL_DICTIONARY = {
+    "track2f_offset_aware_probe_registry": "wave3_1_offset_aware_probe_registry",
+    "track2f_bis_harmonic_offset_probe_registry": "wave3_2_harmonic_offset_probe_registry",
+    "track2g_curve_aware_training_registry": "wave3_3_curve_aware_training_registry",
+    "track2h_dispersion_aware_modeling_registry": "wave4_1_robust_loss_registry",
+    "track2h_quantile_probabilistic_registry": "wave4_2_probabilistic_registry",
+    "track2h_mixture_density_heads_registry": "wave4_3_mixture_density_registry",
+    "track2h_latent_state_hysteresis_registry": "wave4_4_latent_state_hysteresis_registry",
+    "wave3_harmonic_prior_residual_registry": "wave5_1_harmonic_prior_residual_registry",
+}
+CANONICAL_SOURCE_TITLE_DICTIONARY = {
+    "track2h_mixture_density_heads_registry": "Wave 4.3 Mixture Density Models",
+    "track2h_latent_state_hysteresis_registry": "Wave 4.4 Latent State Hysteresis Models",
+    "wave3_harmonic_prior_residual_registry": "Wave 5.1 Harmonic Prior Residual Models",
+}
+CANONICAL_SOURCE_WAVE_ORDER_DICTIONARY = {
+    "track2h_mixture_density_heads_registry": 43,
+    "track2h_latent_state_hysteresis_registry": 44,
+    "wave3_harmonic_prior_residual_registry": 51,
+}
+CANONICAL_SURFACE_SUFFIX_DICTIONARY = {
+    "Fw": "fw",
+    "Bw": "bw",
+    "global": "global",
+}
+
 WAVE1_BASE_FAMILY_LIST = [
     "feedforward",
     "harmonic_regression",
@@ -782,6 +828,9 @@ def format_auto_registry_group_title(source_label: str) -> str:
 
     """Format a registry source label into a readable report group title."""
 
+    if source_label in CANONICAL_SOURCE_TITLE_DICTIONARY:
+        return CANONICAL_SOURCE_TITLE_DICTIONARY[source_label]
+
     acronym_dictionary = {
         "rcim": "RCIM",
         "mlp": "MLP",
@@ -805,6 +854,34 @@ def format_auto_registry_group_title(source_label: str) -> str:
         else:
             title_part_list.append(lowered_part.capitalize())
     return " ".join(title_part_list)
+
+
+def format_canonical_source_label(source_label: str) -> str:
+
+    """Return the canonical reader-facing source label for a candidate."""
+
+    return CANONICAL_SOURCE_LABEL_DICTIONARY.get(source_label, source_label)
+
+
+def format_canonical_candidate_family(candidate_family: str) -> str:
+
+    """Return the canonical reader-facing candidate family."""
+
+    return CANONICAL_MODEL_FAMILY_NAME_DICTIONARY.get(candidate_family, candidate_family)
+
+
+def format_canonical_candidate_id(candidate_id: str) -> str:
+
+    """Return the canonical reader-facing candidate id."""
+
+    for legacy_suffix, canonical_suffix in CANONICAL_SURFACE_SUFFIX_DICTIONARY.items():
+        suffix_text = f"_{legacy_suffix}"
+        if candidate_id.endswith(suffix_text):
+            candidate_base = candidate_id[: -len(suffix_text)]
+            canonical_base = format_canonical_candidate_family(candidate_base)
+            return f"{canonical_base}_{canonical_suffix}"
+
+    return format_canonical_candidate_family(candidate_id)
 
 
 def build_candidate_id_list_by_surface(
@@ -848,9 +925,16 @@ def append_auto_registry_group_list(
             continue
         source_candidate_dictionary.setdefault(source_label, []).append(candidate_configuration)
 
-    for source_label, source_candidate_configuration_list in source_candidate_dictionary.items():
+    sorted_source_item_list = sorted(
+        source_candidate_dictionary.items(),
+        key=lambda item: (
+            CANONICAL_SOURCE_WAVE_ORDER_DICTIONARY.get(item[0], 999),
+            format_canonical_source_label(item[0]),
+        ),
+    )
+    for source_label, source_candidate_configuration_list in sorted_source_item_list:
         title_label = format_auto_registry_group_title(source_label)
-        source_fragment = sanitize_filename_fragment(source_label)
+        source_fragment = sanitize_filename_fragment(format_canonical_source_label(source_label))
         for surface_label, selection_mode, direction_title in [
             ("Fw", "forward", "Forward"),
             ("Bw", "backward", "Backward"),
@@ -970,22 +1054,28 @@ def build_report_group_list(
             selection_mode="forward",
         ),
         ReportCandidateGroup(
-            group_id="forward_wave1",
-            group_title="Forward Wave 1 Family Best Models",
-            candidate_id_list=wave1_forward_candidate_id_list,
-            selection_mode="forward",
-        ),
-        ReportCandidateGroup(
             group_id="backward_reference",
             group_title="Backward Reference Best Models",
             candidate_id_list=BACKWARD_REFERENCE_CANDIDATE_ID_LIST,
             selection_mode="backward",
         ),
         ReportCandidateGroup(
+            group_id="forward_wave1",
+            group_title="Forward Wave 1 Family Best Models",
+            candidate_id_list=wave1_forward_candidate_id_list,
+            selection_mode="forward",
+        ),
+        ReportCandidateGroup(
             group_id="backward_wave1",
             group_title="Backward Wave 1 Family Best Models",
             candidate_id_list=wave1_backward_candidate_id_list,
             selection_mode="backward",
+        ),
+        ReportCandidateGroup(
+            group_id="global_wave1",
+            group_title="Global Wave 1 Family Best Models",
+            candidate_id_list=wave1_global_candidate_id_list,
+            selection_mode="mixed",
         ),
         ReportCandidateGroup(
             group_id="forward_wave2",
@@ -1000,6 +1090,12 @@ def build_report_group_list(
             selection_mode="backward",
         ),
         ReportCandidateGroup(
+            group_id="global_wave2",
+            group_title="Global Wave 2.1 Temporal Family Best Models",
+            candidate_id_list=wave2_global_candidate_id_list,
+            selection_mode="mixed",
+        ),
+        ReportCandidateGroup(
             group_id="forward_wave2c",
             group_title="Forward Wave 2.3 Residual Harmonic Temporal Models",
             candidate_id_list=wave2c_forward_candidate_id_list,
@@ -1012,109 +1108,97 @@ def build_report_group_list(
             selection_mode="backward",
         ),
         ReportCandidateGroup(
-            group_id="forward_track2f",
-            group_title="Forward Wave 3.1 Offset-Aware Probe Models",
-            candidate_id_list=track2f_forward_candidate_id_list,
-            selection_mode="forward",
-        ),
-        ReportCandidateGroup(
-            group_id="backward_track2f",
-            group_title="Backward Wave 3.1 Offset-Aware Probe Models",
-            candidate_id_list=track2f_backward_candidate_id_list,
-            selection_mode="backward",
-        ),
-        ReportCandidateGroup(
-            group_id="forward_track2f_bis",
-            group_title="Forward Wave 3.2 Harmonic-Offset Probe Models",
-            candidate_id_list=track2f_bis_forward_candidate_id_list,
-            selection_mode="forward",
-        ),
-        ReportCandidateGroup(
-            group_id="backward_track2f_bis",
-            group_title="Backward Wave 3.2 Harmonic-Offset Probe Models",
-            candidate_id_list=track2f_bis_backward_candidate_id_list,
-            selection_mode="backward",
-        ),
-        ReportCandidateGroup(
-            group_id="forward_track2g",
-            group_title="Forward Wave 3.3 Curve-Aware Training Models",
-            candidate_id_list=track2g_forward_candidate_id_list,
-            selection_mode="forward",
-        ),
-        ReportCandidateGroup(
-            group_id="backward_track2g",
-            group_title="Backward Wave 3.3 Curve-Aware Training Models",
-            candidate_id_list=track2g_backward_candidate_id_list,
-            selection_mode="backward",
-        ),
-        ReportCandidateGroup(
-            group_id="forward_track2h",
-            group_title="Forward Wave 4.1 Robust-Loss Models",
-            candidate_id_list=track2h_forward_candidate_id_list,
-            selection_mode="forward",
-        ),
-        ReportCandidateGroup(
-            group_id="backward_track2h",
-            group_title="Backward Wave 4.1 Robust-Loss Models",
-            candidate_id_list=track2h_backward_candidate_id_list,
-            selection_mode="backward",
-        ),
-        ReportCandidateGroup(
-            group_id="forward_track2h_quantile_probabilistic",
-            group_title="Forward Wave 4.2 Quantile Probabilistic Models",
-            candidate_id_list=track2h_quantile_probabilistic_forward_candidate_id_list,
-            selection_mode="forward",
-        ),
-        ReportCandidateGroup(
-            group_id="backward_track2h_quantile_probabilistic",
-            group_title="Backward Wave 4.2 Quantile Probabilistic Models",
-            candidate_id_list=track2h_quantile_probabilistic_backward_candidate_id_list,
-            selection_mode="backward",
-        ),
-        ReportCandidateGroup(
-            group_id="global_wave1",
-            group_title="Global Wave 1 Family Best Models",
-            candidate_id_list=wave1_global_candidate_id_list,
-            selection_mode="mixed",
-        ),
-        ReportCandidateGroup(
-            group_id="global_wave2",
-            group_title="Global Wave 2.1 Temporal Family Best Models",
-            candidate_id_list=wave2_global_candidate_id_list,
-            selection_mode="mixed",
-        ),
-        ReportCandidateGroup(
             group_id="global_wave2c",
             group_title="Global Wave 2.3 Residual Harmonic Temporal Models",
             candidate_id_list=wave2c_global_candidate_id_list,
             selection_mode="mixed",
         ),
         ReportCandidateGroup(
-            group_id="global_track2f",
+            group_id="forward_wave3_1",
+            group_title="Forward Wave 3.1 Offset-Aware Probe Models",
+            candidate_id_list=track2f_forward_candidate_id_list,
+            selection_mode="forward",
+        ),
+        ReportCandidateGroup(
+            group_id="backward_wave3_1",
+            group_title="Backward Wave 3.1 Offset-Aware Probe Models",
+            candidate_id_list=track2f_backward_candidate_id_list,
+            selection_mode="backward",
+        ),
+        ReportCandidateGroup(
+            group_id="global_wave3_1",
             group_title="Global Wave 3.1 Offset-Aware Probe Models",
             candidate_id_list=track2f_global_candidate_id_list,
             selection_mode="mixed",
         ),
         ReportCandidateGroup(
-            group_id="global_track2f_bis",
+            group_id="forward_wave3_2",
+            group_title="Forward Wave 3.2 Harmonic-Offset Probe Models",
+            candidate_id_list=track2f_bis_forward_candidate_id_list,
+            selection_mode="forward",
+        ),
+        ReportCandidateGroup(
+            group_id="backward_wave3_2",
+            group_title="Backward Wave 3.2 Harmonic-Offset Probe Models",
+            candidate_id_list=track2f_bis_backward_candidate_id_list,
+            selection_mode="backward",
+        ),
+        ReportCandidateGroup(
+            group_id="global_wave3_2",
             group_title="Global Wave 3.2 Harmonic-Offset Probe Models",
             candidate_id_list=track2f_bis_global_candidate_id_list,
             selection_mode="mixed",
         ),
         ReportCandidateGroup(
-            group_id="global_track2g",
+            group_id="forward_wave3_3",
+            group_title="Forward Wave 3.3 Curve-Aware Training Models",
+            candidate_id_list=track2g_forward_candidate_id_list,
+            selection_mode="forward",
+        ),
+        ReportCandidateGroup(
+            group_id="backward_wave3_3",
+            group_title="Backward Wave 3.3 Curve-Aware Training Models",
+            candidate_id_list=track2g_backward_candidate_id_list,
+            selection_mode="backward",
+        ),
+        ReportCandidateGroup(
+            group_id="global_wave3_3",
             group_title="Global Wave 3.3 Curve-Aware Training Models",
             candidate_id_list=track2g_global_candidate_id_list,
             selection_mode="mixed",
         ),
         ReportCandidateGroup(
-            group_id="global_track2h",
+            group_id="forward_wave4_1",
+            group_title="Forward Wave 4.1 Robust-Loss Models",
+            candidate_id_list=track2h_forward_candidate_id_list,
+            selection_mode="forward",
+        ),
+        ReportCandidateGroup(
+            group_id="backward_wave4_1",
+            group_title="Backward Wave 4.1 Robust-Loss Models",
+            candidate_id_list=track2h_backward_candidate_id_list,
+            selection_mode="backward",
+        ),
+        ReportCandidateGroup(
+            group_id="global_wave4_1",
             group_title="Global Wave 4.1 Robust-Loss Models",
             candidate_id_list=track2h_global_candidate_id_list,
             selection_mode="mixed",
         ),
         ReportCandidateGroup(
-            group_id="global_track2h_quantile_probabilistic",
+            group_id="forward_wave4_2",
+            group_title="Forward Wave 4.2 Quantile Probabilistic Models",
+            candidate_id_list=track2h_quantile_probabilistic_forward_candidate_id_list,
+            selection_mode="forward",
+        ),
+        ReportCandidateGroup(
+            group_id="backward_wave4_2",
+            group_title="Backward Wave 4.2 Quantile Probabilistic Models",
+            candidate_id_list=track2h_quantile_probabilistic_backward_candidate_id_list,
+            selection_mode="backward",
+        ),
+        ReportCandidateGroup(
+            group_id="global_wave4_2",
             group_title="Global Wave 4.2 Quantile Probabilistic Models",
             candidate_id_list=track2h_quantile_probabilistic_global_candidate_id_list,
             selection_mode="mixed",
@@ -1300,9 +1384,12 @@ def save_candidate_metrics_csv(
         writer.writerow(
             [
                 "group_id",
-                "candidate_id",
-                "candidate_family",
-                "candidate_source_label",
+                "canonical_candidate_id",
+                "legacy_candidate_id",
+                "canonical_candidate_family",
+                "legacy_candidate_family",
+                "canonical_candidate_source_label",
+                "legacy_candidate_source_label",
                 "candidate_surface",
                 "direction_scope",
                 "curve_mae_deg",
@@ -1317,9 +1404,12 @@ def save_candidate_metrics_csv(
             writer.writerow(
                 [
                     candidate_summary["group_id"],
-                    candidate_summary["candidate_id"],
-                    candidate_summary["candidate_family"],
-                    candidate_summary["candidate_source_label"],
+                    candidate_summary["canonical_candidate_id"],
+                    candidate_summary["legacy_candidate_id"],
+                    candidate_summary["canonical_candidate_family"],
+                    candidate_summary["legacy_candidate_family"],
+                    candidate_summary["canonical_candidate_source_label"],
+                    candidate_summary["legacy_candidate_source_label"],
                     candidate_summary["candidate_surface"],
                     candidate_summary["direction_scope"],
                     f"{metric_dictionary['mae']:.9f}",
@@ -1347,8 +1437,8 @@ def append_candidate_table(
     for candidate_summary in group_summary_list:
         metric_dictionary = candidate_summary["metrics"]
         report_line_list.append(
-            f"| `{candidate_summary['candidate_id']}` | "
-            f"`{candidate_summary['candidate_source_label']}` | "
+            f"| `{candidate_summary['canonical_candidate_id']}` | "
+            f"`{candidate_summary['canonical_candidate_source_label']}` | "
             f"{candidate_summary['candidate_surface']} | "
             f"{metric_dictionary['mae']:.6f} | "
             f"{metric_dictionary['rmse']:.6f} | "
@@ -1430,10 +1520,10 @@ def build_report_markdown(
             for candidate_summary in group_summary_list[chunk_start_index : chunk_start_index + 2]:
                 report_line_list.extend(
                     [
-                        f"{candidate_summary['candidate_id']}:",
+                        f"{candidate_summary['canonical_candidate_id']}:",
                         "",
                         (
-                            f"![{candidate_summary['candidate_id']} TE Curve Verification Pipeline collage]"
+                            f"![{candidate_summary['canonical_candidate_id']} TE Curve Verification Pipeline collage]"
                             f"({candidate_summary['collage_markdown_path']})"
                         ),
                         "",
@@ -1471,6 +1561,9 @@ def run_track2_best_model_collage_report(arguments: argparse.Namespace) -> dict[
     report_path = report_directory / REPORT_FILENAME
     metrics_csv_path = output_directory / METRICS_FILENAME
     validation_summary_path = output_directory / SUMMARY_FILENAME
+    report_asset_root = report_path.parent / "assets"
+    if report_asset_root.exists():
+        shutil.rmtree(report_asset_root)
 
     training_config = shared_training_infrastructure.load_training_config(arguments.config_path)
     selected_harmonic_list = [int(value) for value in training_config["evaluation"]["selected_harmonics"]]
@@ -1536,6 +1629,9 @@ def run_track2_best_model_collage_report(arguments: argparse.Namespace) -> dict[
     for group in group_list:
         for candidate_id in group.candidate_id_list:
             candidate = candidate_lookup[candidate_id]
+            canonical_candidate_id = format_canonical_candidate_id(candidate_id)
+            canonical_candidate_family = format_canonical_candidate_family(candidate.candidate_family)
+            canonical_source_label = format_canonical_source_label(candidate.candidate_source_label)
             selected_entry_list = select_candidate_collage_entries(
                 grouped_entry_dictionary[candidate_id],
                 group.selection_mode,
@@ -1563,15 +1659,14 @@ def run_track2_best_model_collage_report(arguments: argparse.Namespace) -> dict[
                 output_directory
                 / "collages"
                 / group.group_id
-                / f"{sanitize_filename_fragment(candidate_id)}.png"
+                / f"{sanitize_filename_fragment(canonical_candidate_id)}.png"
             )
             report_asset_path = (
-                report_path.parent
-                / "assets"
+                report_asset_root
                 / build_compact_report_asset_fragment(group.group_id)
-                / f"{sanitize_filename_fragment(candidate_id)}.png"
+                / f"{sanitize_filename_fragment(canonical_candidate_id)}.png"
             )
-            save_candidate_collage(collage_path, candidate_id, selected_entry_list)
+            save_candidate_collage(collage_path, canonical_candidate_id, selected_entry_list)
             report_asset_path.parent.mkdir(parents=True, exist_ok=True)
             shutil.copyfile(collage_path, report_asset_path)
 
@@ -1583,10 +1678,16 @@ def run_track2_best_model_collage_report(arguments: argparse.Namespace) -> dict[
             candidate_summary_list.append(
                 {
                     "group_id": group.group_id,
-                    "candidate_id": candidate_id,
-                    "candidate_family": candidate.candidate_family,
+                    "candidate_id": canonical_candidate_id,
+                    "canonical_candidate_id": canonical_candidate_id,
+                    "legacy_candidate_id": candidate_id,
+                    "candidate_family": canonical_candidate_family,
+                    "canonical_candidate_family": canonical_candidate_family,
+                    "legacy_candidate_family": candidate.candidate_family,
                     "candidate_kind": candidate.candidate_kind,
-                    "candidate_source_label": candidate.candidate_source_label,
+                    "candidate_source_label": canonical_source_label,
+                    "canonical_candidate_source_label": canonical_source_label,
+                    "legacy_candidate_source_label": candidate.candidate_source_label,
                     "candidate_surface": candidate.candidate_surface,
                     "direction_scope": group.selection_mode,
                     "allowed_direction_list": candidate.allowed_direction_list,

@@ -1731,6 +1731,8 @@ def run_track2_multi_model_curve_comparison_report(arguments: argparse.Namespace
         validation_summary_path,
     )
     report_path.write_text(report_markdown, encoding="utf-8")
+    from scripts.reports.analysis import refresh_track2_overlay_canonical_wave_names
+    refresh_track2_overlay_canonical_wave_names.run_refresh(report_path)
     return validation_summary
 
 

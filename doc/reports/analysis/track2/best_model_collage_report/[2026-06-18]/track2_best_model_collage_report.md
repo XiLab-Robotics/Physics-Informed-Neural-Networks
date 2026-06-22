@@ -3,8 +3,8 @@
 ## Overview
 
 This report compares representative `TE Curve Verification Pipeline` TE-curve predictions for
-the current best reference, RCIM Model-Bank Reproduction, Wave 1 directional, and Wave 1
-global models. Each model is shown as one four-image collage so local
+the current best reference, RCIM Model-Bank Reproduction, and wave-based
+model-development families. Each model is shown as one four-image collage so local
 oscillation tracking can be inspected directly.
 
 ## Scope
@@ -12,7 +12,7 @@ oscillation tracking can be inspected directly.
 - each collage contains four deterministic held-out test curves;
 - forward models are shown on forward curves only;
 - backward models are shown on backward curves only;
-- global Wave 1 models are shown on two forward and two backward curves;
+- global models are shown on two forward and two backward curves;
 - `Measured TE` uses the same line width as predictions and a dark-gray
   color for balanced visual comparison.
 
@@ -24,7 +24,14 @@ oscillation tracking can be inspected directly.
 | --- | --- | --- | ---: | ---: | ---: |
 | `paper_original_best_Fw` | `rcim_original` | Fw | 0.002769 | 0.002951 | 6.250 |
 | `paper_retuned_best_Fw` | `rcim_retuned` | Fw | 0.001839 | 0.002041 | 4.109 |
-| `track1_best_Fw` | `rcim_track1` | Fw | 0.003014 | 0.003204 | 6.819 |
+| `rcim_model_bank_reproduction_best_fw` | `rcim_model_bank_reproduction` | Fw | 0.003014 | 0.003204 | 6.819 |
+
+### Backward Reference Best Models
+
+| Candidate | Source | Surface | Curve MAE [deg] | Curve RMSE [deg] | Mean Error |
+| --- | --- | --- | ---: | ---: | ---: |
+| `paper_retuned_best_Bw` | `rcim_retuned` | Bw | 0.003675 | 0.004284 | 7.572 |
+| `rcim_model_bank_reproduction_best_bw` | `rcim_model_bank_reproduction` | Bw | 0.005027 | 0.005212 | 11.860 |
 
 ### Forward Wave 1 Family Best Models
 
@@ -37,13 +44,6 @@ oscillation tracking can be inspected directly.
 | `tree_fw` | `wave1_current_registry` | Fw | 0.003053 | 0.003395 | 6.731 |
 | `periodic_mlp_harmonic_fw` | `wave1_periodic_mlp_harmonic_campaign` | Fw | 0.003254 | 0.003553 | 7.232 |
 
-### Backward Reference Best Models
-
-| Candidate | Source | Surface | Curve MAE [deg] | Curve RMSE [deg] | Mean Error |
-| --- | --- | --- | ---: | ---: | ---: |
-| `paper_retuned_best_Bw` | `rcim_retuned` | Bw | 0.003675 | 0.004284 | 7.572 |
-| `track1_best_Bw` | `rcim_track1` | Bw | 0.005027 | 0.005212 | 11.860 |
-
 ### Backward Wave 1 Family Best Models
 
 | Candidate | Source | Surface | Curve MAE [deg] | Curve RMSE [deg] | Mean Error |
@@ -54,6 +54,17 @@ oscillation tracking can be inspected directly.
 | `residual_harmonic_mlp_bw` | `wave1_current_registry` | Bw | 0.003536 | 0.003874 | 7.728 |
 | `tree_bw` | `wave1_current_registry` | Bw | 0.003258 | 0.003651 | 7.051 |
 | `periodic_mlp_harmonic_bw` | `wave1_periodic_mlp_harmonic_campaign` | Bw | 0.003583 | 0.003925 | 7.875 |
+
+### Global Wave 1 Family Best Models
+
+| Candidate | Source | Surface | Curve MAE [deg] | Curve RMSE [deg] | Mean Error |
+| --- | --- | --- | ---: | ---: | ---: |
+| `feedforward_global` | `wave1_current_registry` | global | 0.003465 | 0.003897 | 7.636 |
+| `harmonic_regression_global` | `wave1_current_registry` | global | 0.018129 | 0.018330 | 41.458 |
+| `periodic_mlp_global` | `wave1_current_registry` | global | 0.003447 | 0.003872 | 7.582 |
+| `residual_harmonic_mlp_global` | `wave1_current_registry` | global | 0.003407 | 0.003822 | 7.486 |
+| `tree_global` | `wave1_current_registry` | global | 0.003144 | 0.003533 | 6.854 |
+| `periodic_mlp_harmonic_global` | `wave1_periodic_mlp_harmonic_campaign` | global | 0.003516 | 0.003810 | 7.779 |
 
 ### Forward Wave 2.1 Temporal Family Best Models
 
@@ -77,6 +88,17 @@ oscillation tracking can be inspected directly.
 | `periodic_gru_sequence_bw` | `wave2_temporal_entry_registry` | Bw | 0.002392 | 0.002639 | 5.466 |
 | `periodic_lstm_sequence_bw` | `wave2_temporal_entry_registry` | Bw | 0.002625 | 0.002877 | 6.013 |
 
+### Global Wave 2.1 Temporal Family Best Models
+
+| Candidate | Source | Surface | Curve MAE [deg] | Curve RMSE [deg] | Mean Error |
+| --- | --- | --- | ---: | ---: | ---: |
+| `temporal_convolution_global` | `wave2_temporal_entry_registry` | global | 0.003751 | 0.004183 | 8.295 |
+| `gru_sequence_global` | `wave2_temporal_entry_registry` | global | 0.003591 | 0.004028 | 7.907 |
+| `lstm_sequence_global` | `wave2_temporal_entry_registry` | global | 0.003480 | 0.003903 | 7.654 |
+| `periodic_temporal_convolution_global` | `wave2_temporal_entry_registry` | global | 0.003506 | 0.003836 | 7.758 |
+| `periodic_gru_sequence_global` | `wave2_temporal_entry_registry` | global | 0.002704 | 0.002949 | 6.139 |
+| `periodic_lstm_sequence_global` | `wave2_temporal_entry_registry` | global | 0.002707 | 0.002958 | 6.120 |
+
 ### Forward Wave 2.3 Residual Harmonic Temporal Models
 
 | Candidate | Source | Surface | Curve MAE [deg] | Curve RMSE [deg] | Mean Error |
@@ -99,102 +121,6 @@ oscillation tracking can be inspected directly.
 | `residual_harmonic_lstm_sequence_dense240_Bw` | `wave2c_residual_harmonic_temporal_registry` | Bw | 0.007367 | 0.009945 | 16.660 |
 | `residual_harmonic_lstm_sequence_dense360_Bw` | `wave2c_residual_harmonic_temporal_registry` | Bw | 0.010268 | 0.014769 | 23.355 |
 
-### Forward Wave 3.1 Offset-Aware Probe Models
-
-| Candidate | Source | Surface | Curve MAE [deg] | Curve RMSE [deg] | Mean Error |
-| --- | --- | --- | ---: | ---: | ---: |
-| `sequential_residual_offset_probe_Fw` | `track2f_offset_aware_probe_registry` | Fw | 0.003377 | 0.003799 | 7.487 |
-
-### Backward Wave 3.1 Offset-Aware Probe Models
-
-| Candidate | Source | Surface | Curve MAE [deg] | Curve RMSE [deg] | Mean Error |
-| --- | --- | --- | ---: | ---: | ---: |
-| `sequential_residual_offset_probe_Bw` | `track2f_offset_aware_probe_registry` | Bw | 0.003636 | 0.004065 | 7.952 |
-
-### Forward Wave 3.2 Harmonic-Offset Probe Models
-
-| Candidate | Source | Surface | Curve MAE [deg] | Curve RMSE [deg] | Mean Error |
-| --- | --- | --- | ---: | ---: | ---: |
-| `track2f_bis_clean_sequential_residual_offset_Fw` | `track2f_bis_harmonic_offset_probe_registry` | Fw | 0.003439 | 0.003870 | 7.632 |
-| `track2f_bis_harmonic_residual_offset_Fw` | `track2f_bis_harmonic_offset_probe_registry` | Fw | 0.002850 | 0.003108 | 6.286 |
-
-### Backward Wave 3.2 Harmonic-Offset Probe Models
-
-| Candidate | Source | Surface | Curve MAE [deg] | Curve RMSE [deg] | Mean Error |
-| --- | --- | --- | ---: | ---: | ---: |
-| `track2f_bis_clean_sequential_residual_offset_Bw` | `track2f_bis_harmonic_offset_probe_registry` | Bw | 0.003541 | 0.003971 | 7.732 |
-| `track2f_bis_harmonic_residual_offset_Bw` | `track2f_bis_harmonic_offset_probe_registry` | Bw | 0.003331 | 0.003671 | 7.261 |
-
-### Forward Wave 3.3 Curve-Aware Training Models
-
-| Candidate | Source | Surface | Curve MAE [deg] | Curve RMSE [deg] | Mean Error |
-| --- | --- | --- | ---: | ---: | ---: |
-| `track2g_curve_aware_pointwise_control_Fw` | `track2g_curve_aware_training_registry` | Fw | 0.003362 | 0.003612 | 7.474 |
-| `track2g_curve_aware_raw_centered_shape_Fw` | `track2g_curve_aware_training_registry` | Fw | 0.003174 | 0.003429 | 7.047 |
-| `track2g_curve_aware_raw_offset_Fw` | `track2g_curve_aware_training_registry` | Fw | 0.003269 | 0.003588 | 7.268 |
-| `track2g_curve_aware_full_curve_composite_Fw` | `track2g_curve_aware_training_registry` | Fw | 0.003251 | 0.003515 | 7.209 |
-
-### Backward Wave 3.3 Curve-Aware Training Models
-
-| Candidate | Source | Surface | Curve MAE [deg] | Curve RMSE [deg] | Mean Error |
-| --- | --- | --- | ---: | ---: | ---: |
-| `track2g_curve_aware_pointwise_control_Bw` | `track2g_curve_aware_training_registry` | Bw | 0.003436 | 0.003761 | 7.538 |
-| `track2g_curve_aware_raw_centered_shape_Bw` | `track2g_curve_aware_training_registry` | Bw | 0.003465 | 0.003790 | 7.582 |
-| `track2g_curve_aware_raw_offset_Bw` | `track2g_curve_aware_training_registry` | Bw | 0.003469 | 0.003799 | 7.608 |
-| `track2g_curve_aware_full_curve_composite_Bw` | `track2g_curve_aware_training_registry` | Bw | 0.003510 | 0.003897 | 7.683 |
-
-### Forward Wave 4.1 Robust-Loss Models
-
-| Candidate | Source | Surface | Curve MAE [deg] | Curve RMSE [deg] | Mean Error |
-| --- | --- | --- | ---: | ---: | ---: |
-| `track2h_mae_robust_Fw` | `track2h_dispersion_aware_modeling_registry` | Fw | 0.003134 | 0.003382 | 6.956 |
-| `track2h_smooth_l1_robust_Fw` | `track2h_dispersion_aware_modeling_registry` | Fw | 0.003300 | 0.003545 | 7.342 |
-| `track2h_log_cosh_robust_Fw` | `track2h_dispersion_aware_modeling_registry` | Fw | 0.003344 | 0.003595 | 7.427 |
-
-### Backward Wave 4.1 Robust-Loss Models
-
-| Candidate | Source | Surface | Curve MAE [deg] | Curve RMSE [deg] | Mean Error |
-| --- | --- | --- | ---: | ---: | ---: |
-| `track2h_mae_robust_Bw` | `track2h_dispersion_aware_modeling_registry` | Bw | 0.003433 | 0.003750 | 7.506 |
-| `track2h_smooth_l1_robust_Bw` | `track2h_dispersion_aware_modeling_registry` | Bw | 0.003078 | 0.003403 | 6.676 |
-| `track2h_log_cosh_robust_Bw` | `track2h_dispersion_aware_modeling_registry` | Bw | 0.003486 | 0.003811 | 7.628 |
-
-### Forward Wave 4.2 Quantile Probabilistic Models
-
-| Candidate | Source | Surface | Curve MAE [deg] | Curve RMSE [deg] | Mean Error |
-| --- | --- | --- | ---: | ---: | ---: |
-| `track2h_quantile_p10_p50_p90_Fw` | `track2h_quantile_probabilistic_registry` | Fw | 0.003276 | 0.003545 | 7.279 |
-| `track2h_gaussian_nll_Fw` | `track2h_quantile_probabilistic_registry` | Fw | 0.003156 | 0.003415 | 7.008 |
-
-### Backward Wave 4.2 Quantile Probabilistic Models
-
-| Candidate | Source | Surface | Curve MAE [deg] | Curve RMSE [deg] | Mean Error |
-| --- | --- | --- | ---: | ---: | ---: |
-| `track2h_quantile_p10_p50_p90_Bw` | `track2h_quantile_probabilistic_registry` | Bw | 0.002935 | 0.003250 | 6.307 |
-| `track2h_gaussian_nll_Bw` | `track2h_quantile_probabilistic_registry` | Bw | 0.003001 | 0.003303 | 6.488 |
-
-### Global Wave 1 Family Best Models
-
-| Candidate | Source | Surface | Curve MAE [deg] | Curve RMSE [deg] | Mean Error |
-| --- | --- | --- | ---: | ---: | ---: |
-| `feedforward_global` | `wave1_current_registry` | global | 0.003465 | 0.003897 | 7.636 |
-| `harmonic_regression_global` | `wave1_current_registry` | global | 0.018129 | 0.018330 | 41.458 |
-| `periodic_mlp_global` | `wave1_current_registry` | global | 0.003447 | 0.003872 | 7.582 |
-| `residual_harmonic_mlp_global` | `wave1_current_registry` | global | 0.003407 | 0.003822 | 7.486 |
-| `tree_global` | `wave1_current_registry` | global | 0.003144 | 0.003533 | 6.854 |
-| `periodic_mlp_harmonic_global` | `wave1_periodic_mlp_harmonic_campaign` | global | 0.003516 | 0.003810 | 7.779 |
-
-### Global Wave 2.1 Temporal Family Best Models
-
-| Candidate | Source | Surface | Curve MAE [deg] | Curve RMSE [deg] | Mean Error |
-| --- | --- | --- | ---: | ---: | ---: |
-| `temporal_convolution_global` | `wave2_temporal_entry_registry` | global | 0.003751 | 0.004183 | 8.295 |
-| `gru_sequence_global` | `wave2_temporal_entry_registry` | global | 0.003591 | 0.004028 | 7.907 |
-| `lstm_sequence_global` | `wave2_temporal_entry_registry` | global | 0.003480 | 0.003903 | 7.654 |
-| `periodic_temporal_convolution_global` | `wave2_temporal_entry_registry` | global | 0.003506 | 0.003836 | 7.758 |
-| `periodic_gru_sequence_global` | `wave2_temporal_entry_registry` | global | 0.002704 | 0.002949 | 6.139 |
-| `periodic_lstm_sequence_global` | `wave2_temporal_entry_registry` | global | 0.002707 | 0.002958 | 6.120 |
-
 ### Global Wave 2.3 Residual Harmonic Temporal Models
 
 | Candidate | Source | Surface | Curve MAE [deg] | Curve RMSE [deg] | Mean Error |
@@ -206,105 +132,179 @@ oscillation tracking can be inspected directly.
 | `residual_harmonic_lstm_sequence_dense240_global` | `wave2c_residual_harmonic_temporal_registry` | global | 0.006419 | 0.008765 | 14.460 |
 | `residual_harmonic_lstm_sequence_dense360_global` | `wave2c_residual_harmonic_temporal_registry` | global | 0.008810 | 0.013026 | 19.916 |
 
+### Forward Wave 3.1 Offset-Aware Probe Models
+
+| Candidate | Source | Surface | Curve MAE [deg] | Curve RMSE [deg] | Mean Error |
+| --- | --- | --- | ---: | ---: | ---: |
+| `wave3_1_sequential_residual_offset_probe_fw` | `wave3_1_offset_aware_probe_registry` | Fw | 0.003377 | 0.003799 | 7.487 |
+
+### Backward Wave 3.1 Offset-Aware Probe Models
+
+| Candidate | Source | Surface | Curve MAE [deg] | Curve RMSE [deg] | Mean Error |
+| --- | --- | --- | ---: | ---: | ---: |
+| `wave3_1_sequential_residual_offset_probe_bw` | `wave3_1_offset_aware_probe_registry` | Bw | 0.003636 | 0.004065 | 7.952 |
+
 ### Global Wave 3.1 Offset-Aware Probe Models
 
 | Candidate | Source | Surface | Curve MAE [deg] | Curve RMSE [deg] | Mean Error |
 | --- | --- | --- | ---: | ---: | ---: |
-| `sequential_residual_offset_probe_global` | `track2f_offset_aware_probe_registry` | global | 0.003536 | 0.003959 | 7.790 |
+| `wave3_1_sequential_residual_offset_probe_global` | `wave3_1_offset_aware_probe_registry` | global | 0.003536 | 0.003959 | 7.790 |
+
+### Forward Wave 3.2 Harmonic-Offset Probe Models
+
+| Candidate | Source | Surface | Curve MAE [deg] | Curve RMSE [deg] | Mean Error |
+| --- | --- | --- | ---: | ---: | ---: |
+| `wave3_2_clean_sequential_residual_offset_fw` | `wave3_2_harmonic_offset_probe_registry` | Fw | 0.003439 | 0.003870 | 7.632 |
+| `wave3_2_harmonic_residual_offset_fw` | `wave3_2_harmonic_offset_probe_registry` | Fw | 0.002850 | 0.003108 | 6.286 |
+
+### Backward Wave 3.2 Harmonic-Offset Probe Models
+
+| Candidate | Source | Surface | Curve MAE [deg] | Curve RMSE [deg] | Mean Error |
+| --- | --- | --- | ---: | ---: | ---: |
+| `wave3_2_clean_sequential_residual_offset_bw` | `wave3_2_harmonic_offset_probe_registry` | Bw | 0.003541 | 0.003971 | 7.732 |
+| `wave3_2_harmonic_residual_offset_bw` | `wave3_2_harmonic_offset_probe_registry` | Bw | 0.003331 | 0.003671 | 7.261 |
 
 ### Global Wave 3.2 Harmonic-Offset Probe Models
 
 | Candidate | Source | Surface | Curve MAE [deg] | Curve RMSE [deg] | Mean Error |
 | --- | --- | --- | ---: | ---: | ---: |
-| `track2f_bis_clean_sequential_residual_offset_global` | `track2f_bis_harmonic_offset_probe_registry` | global | 0.003522 | 0.003950 | 7.754 |
-| `track2f_bis_harmonic_residual_offset_global` | `track2f_bis_harmonic_offset_probe_registry` | global | 0.003530 | 0.003833 | 7.789 |
+| `wave3_2_clean_sequential_residual_offset_global` | `wave3_2_harmonic_offset_probe_registry` | global | 0.003522 | 0.003950 | 7.754 |
+| `wave3_2_harmonic_residual_offset_global` | `wave3_2_harmonic_offset_probe_registry` | global | 0.003530 | 0.003833 | 7.789 |
+
+### Forward Wave 3.3 Curve-Aware Training Models
+
+| Candidate | Source | Surface | Curve MAE [deg] | Curve RMSE [deg] | Mean Error |
+| --- | --- | --- | ---: | ---: | ---: |
+| `wave3_3_curve_aware_pointwise_control_fw` | `wave3_3_curve_aware_training_registry` | Fw | 0.003362 | 0.003612 | 7.474 |
+| `wave3_3_raw_centered_shape_curve_aware_fw` | `wave3_3_curve_aware_training_registry` | Fw | 0.003174 | 0.003429 | 7.047 |
+| `wave3_3_raw_offset_curve_aware_fw` | `wave3_3_curve_aware_training_registry` | Fw | 0.003269 | 0.003588 | 7.268 |
+| `wave3_3_full_curve_composite_fw` | `wave3_3_curve_aware_training_registry` | Fw | 0.003251 | 0.003515 | 7.209 |
+
+### Backward Wave 3.3 Curve-Aware Training Models
+
+| Candidate | Source | Surface | Curve MAE [deg] | Curve RMSE [deg] | Mean Error |
+| --- | --- | --- | ---: | ---: | ---: |
+| `wave3_3_curve_aware_pointwise_control_bw` | `wave3_3_curve_aware_training_registry` | Bw | 0.003436 | 0.003761 | 7.538 |
+| `wave3_3_raw_centered_shape_curve_aware_bw` | `wave3_3_curve_aware_training_registry` | Bw | 0.003465 | 0.003790 | 7.582 |
+| `wave3_3_raw_offset_curve_aware_bw` | `wave3_3_curve_aware_training_registry` | Bw | 0.003469 | 0.003799 | 7.608 |
+| `wave3_3_full_curve_composite_bw` | `wave3_3_curve_aware_training_registry` | Bw | 0.003510 | 0.003897 | 7.683 |
 
 ### Global Wave 3.3 Curve-Aware Training Models
 
 | Candidate | Source | Surface | Curve MAE [deg] | Curve RMSE [deg] | Mean Error |
 | --- | --- | --- | ---: | ---: | ---: |
-| `track2g_curve_aware_pointwise_control_global` | `track2g_curve_aware_training_registry` | global | 0.003578 | 0.003900 | 7.911 |
-| `track2g_curve_aware_raw_centered_shape_global` | `track2g_curve_aware_training_registry` | global | 0.003348 | 0.003682 | 7.395 |
-| `track2g_curve_aware_raw_offset_global` | `track2g_curve_aware_training_registry` | global | 0.003459 | 0.003755 | 7.630 |
-| `track2g_curve_aware_full_curve_composite_global` | `track2g_curve_aware_training_registry` | global | 0.003338 | 0.003649 | 7.364 |
+| `wave3_3_curve_aware_pointwise_control_global` | `wave3_3_curve_aware_training_registry` | global | 0.003578 | 0.003900 | 7.911 |
+| `wave3_3_raw_centered_shape_curve_aware_global` | `wave3_3_curve_aware_training_registry` | global | 0.003348 | 0.003682 | 7.395 |
+| `wave3_3_raw_offset_curve_aware_global` | `wave3_3_curve_aware_training_registry` | global | 0.003459 | 0.003755 | 7.630 |
+| `wave3_3_full_curve_composite_global` | `wave3_3_curve_aware_training_registry` | global | 0.003338 | 0.003649 | 7.364 |
+
+### Forward Wave 4.1 Robust-Loss Models
+
+| Candidate | Source | Surface | Curve MAE [deg] | Curve RMSE [deg] | Mean Error |
+| --- | --- | --- | ---: | ---: | ---: |
+| `wave4_1_mae_robust_loss_fw` | `wave4_1_robust_loss_registry` | Fw | 0.003134 | 0.003382 | 6.956 |
+| `wave4_1_smooth_l1_robust_loss_fw` | `wave4_1_robust_loss_registry` | Fw | 0.003300 | 0.003545 | 7.342 |
+| `wave4_1_log_cosh_robust_loss_fw` | `wave4_1_robust_loss_registry` | Fw | 0.003344 | 0.003595 | 7.427 |
+
+### Backward Wave 4.1 Robust-Loss Models
+
+| Candidate | Source | Surface | Curve MAE [deg] | Curve RMSE [deg] | Mean Error |
+| --- | --- | --- | ---: | ---: | ---: |
+| `wave4_1_mae_robust_loss_bw` | `wave4_1_robust_loss_registry` | Bw | 0.003433 | 0.003750 | 7.506 |
+| `wave4_1_smooth_l1_robust_loss_bw` | `wave4_1_robust_loss_registry` | Bw | 0.003078 | 0.003403 | 6.676 |
+| `wave4_1_log_cosh_robust_loss_bw` | `wave4_1_robust_loss_registry` | Bw | 0.003486 | 0.003811 | 7.628 |
 
 ### Global Wave 4.1 Robust-Loss Models
 
 | Candidate | Source | Surface | Curve MAE [deg] | Curve RMSE [deg] | Mean Error |
 | --- | --- | --- | ---: | ---: | ---: |
-| `track2h_mae_robust_global` | `track2h_dispersion_aware_modeling_registry` | global | 0.003401 | 0.003715 | 7.504 |
-| `track2h_smooth_l1_robust_global` | `track2h_dispersion_aware_modeling_registry` | global | 0.003417 | 0.003719 | 7.539 |
-| `track2h_log_cosh_robust_global` | `track2h_dispersion_aware_modeling_registry` | global | 0.003498 | 0.003819 | 7.697 |
+| `wave4_1_mae_robust_loss_global` | `wave4_1_robust_loss_registry` | global | 0.003401 | 0.003715 | 7.504 |
+| `wave4_1_smooth_l1_robust_loss_global` | `wave4_1_robust_loss_registry` | global | 0.003417 | 0.003719 | 7.539 |
+| `wave4_1_log_cosh_robust_loss_global` | `wave4_1_robust_loss_registry` | global | 0.003498 | 0.003819 | 7.697 |
+
+### Forward Wave 4.2 Quantile Probabilistic Models
+
+| Candidate | Source | Surface | Curve MAE [deg] | Curve RMSE [deg] | Mean Error |
+| --- | --- | --- | ---: | ---: | ---: |
+| `wave4_2_quantile_p10_p50_p90_fw` | `wave4_2_probabilistic_registry` | Fw | 0.003276 | 0.003545 | 7.279 |
+| `wave4_2_gaussian_nll_fw` | `wave4_2_probabilistic_registry` | Fw | 0.003156 | 0.003415 | 7.008 |
+
+### Backward Wave 4.2 Quantile Probabilistic Models
+
+| Candidate | Source | Surface | Curve MAE [deg] | Curve RMSE [deg] | Mean Error |
+| --- | --- | --- | ---: | ---: | ---: |
+| `wave4_2_quantile_p10_p50_p90_bw` | `wave4_2_probabilistic_registry` | Bw | 0.002935 | 0.003250 | 6.307 |
+| `wave4_2_gaussian_nll_bw` | `wave4_2_probabilistic_registry` | Bw | 0.003001 | 0.003303 | 6.488 |
 
 ### Global Wave 4.2 Quantile Probabilistic Models
 
 | Candidate | Source | Surface | Curve MAE [deg] | Curve RMSE [deg] | Mean Error |
 | --- | --- | --- | ---: | ---: | ---: |
-| `track2h_quantile_p10_p50_p90_global` | `track2h_quantile_probabilistic_registry` | global | 0.003375 | 0.003689 | 7.438 |
-| `track2h_gaussian_nll_global` | `track2h_quantile_probabilistic_registry` | global | 0.003009 | 0.003309 | 6.576 |
+| `wave4_2_quantile_p10_p50_p90_global` | `wave4_2_probabilistic_registry` | global | 0.003375 | 0.003689 | 7.438 |
+| `wave4_2_gaussian_nll_global` | `wave4_2_probabilistic_registry` | global | 0.003009 | 0.003309 | 6.576 |
 
-### Forward Track2h Mixture Density Heads Registry Models
-
-| Candidate | Source | Surface | Curve MAE [deg] | Curve RMSE [deg] | Mean Error |
-| --- | --- | --- | ---: | ---: | ---: |
-| `track2h_mdn_k2_Fw` | `track2h_mixture_density_heads_registry` | Fw | 0.003329 | 0.003593 | 7.388 |
-| `track2h_mdn_k3_Fw` | `track2h_mixture_density_heads_registry` | Fw | 0.003226 | 0.003487 | 7.164 |
-
-### Backward Track2h Mixture Density Heads Registry Models
+### Forward Wave 4.3 Mixture Density Models
 
 | Candidate | Source | Surface | Curve MAE [deg] | Curve RMSE [deg] | Mean Error |
 | --- | --- | --- | ---: | ---: | ---: |
-| `track2h_mdn_k2_Bw` | `track2h_mixture_density_heads_registry` | Bw | 0.002668 | 0.002947 | 5.880 |
-| `track2h_mdn_k3_Bw` | `track2h_mixture_density_heads_registry` | Bw | 0.002730 | 0.003009 | 6.049 |
+| `wave4_3_mixture_density_k2_fw` | `wave4_3_mixture_density_registry` | Fw | 0.003329 | 0.003593 | 7.388 |
+| `wave4_3_mixture_density_k3_fw` | `wave4_3_mixture_density_registry` | Fw | 0.003226 | 0.003487 | 7.164 |
 
-### Global Track2h Mixture Density Heads Registry Models
-
-| Candidate | Source | Surface | Curve MAE [deg] | Curve RMSE [deg] | Mean Error |
-| --- | --- | --- | ---: | ---: | ---: |
-| `track2h_mdn_k2_global` | `track2h_mixture_density_heads_registry` | global | 0.003499 | 0.003828 | 7.727 |
-| `track2h_mdn_k3_global` | `track2h_mixture_density_heads_registry` | global | 0.003558 | 0.003868 | 7.861 |
-
-### Forward Track2h Latent State Hysteresis Registry Models
+### Backward Wave 4.3 Mixture Density Models
 
 | Candidate | Source | Surface | Curve MAE [deg] | Curve RMSE [deg] | Mean Error |
 | --- | --- | --- | ---: | ---: | ---: |
-| `track2h_l_gru_offset_residual_Fw` | `track2h_latent_state_hysteresis_registry` | Fw | 0.003549 | 0.003996 | 7.873 |
-| `track2h_l_causal_tcn_offset_residual_Fw` | `track2h_latent_state_hysteresis_registry` | Fw | 0.003476 | 0.003939 | 7.717 |
+| `wave4_3_mixture_density_k2_bw` | `wave4_3_mixture_density_registry` | Bw | 0.002668 | 0.002947 | 5.880 |
+| `wave4_3_mixture_density_k3_bw` | `wave4_3_mixture_density_registry` | Bw | 0.002730 | 0.003009 | 6.049 |
 
-### Backward Track2h Latent State Hysteresis Registry Models
-
-| Candidate | Source | Surface | Curve MAE [deg] | Curve RMSE [deg] | Mean Error |
-| --- | --- | --- | ---: | ---: | ---: |
-| `track2h_l_gru_offset_residual_Bw` | `track2h_latent_state_hysteresis_registry` | Bw | 0.003542 | 0.003984 | 7.736 |
-| `track2h_l_causal_tcn_offset_residual_Bw` | `track2h_latent_state_hysteresis_registry` | Bw | 0.003624 | 0.004098 | 7.903 |
-
-### Global Track2h Latent State Hysteresis Registry Models
+### Global Wave 4.3 Mixture Density Models
 
 | Candidate | Source | Surface | Curve MAE [deg] | Curve RMSE [deg] | Mean Error |
 | --- | --- | --- | ---: | ---: | ---: |
-| `track2h_l_gru_offset_residual_global` | `track2h_latent_state_hysteresis_registry` | global | 0.003591 | 0.004024 | 7.896 |
-| `track2h_l_causal_tcn_offset_residual_global` | `track2h_latent_state_hysteresis_registry` | global | 0.003372 | 0.003827 | 7.398 |
+| `wave4_3_mixture_density_k2_global` | `wave4_3_mixture_density_registry` | global | 0.003499 | 0.003828 | 7.727 |
+| `wave4_3_mixture_density_k3_global` | `wave4_3_mixture_density_registry` | global | 0.003558 | 0.003868 | 7.861 |
+
+### Forward Wave 4.4 Latent State Hysteresis Models
+
+| Candidate | Source | Surface | Curve MAE [deg] | Curve RMSE [deg] | Mean Error |
+| --- | --- | --- | ---: | ---: | ---: |
+| `wave4_4_gru_latent_offset_residual_fw` | `wave4_4_latent_state_hysteresis_registry` | Fw | 0.003549 | 0.003996 | 7.873 |
+| `wave4_4_causal_tcn_latent_offset_residual_fw` | `wave4_4_latent_state_hysteresis_registry` | Fw | 0.003476 | 0.003939 | 7.717 |
+
+### Backward Wave 4.4 Latent State Hysteresis Models
+
+| Candidate | Source | Surface | Curve MAE [deg] | Curve RMSE [deg] | Mean Error |
+| --- | --- | --- | ---: | ---: | ---: |
+| `wave4_4_gru_latent_offset_residual_bw` | `wave4_4_latent_state_hysteresis_registry` | Bw | 0.003542 | 0.003984 | 7.736 |
+| `wave4_4_causal_tcn_latent_offset_residual_bw` | `wave4_4_latent_state_hysteresis_registry` | Bw | 0.003624 | 0.004098 | 7.903 |
+
+### Global Wave 4.4 Latent State Hysteresis Models
+
+| Candidate | Source | Surface | Curve MAE [deg] | Curve RMSE [deg] | Mean Error |
+| --- | --- | --- | ---: | ---: | ---: |
+| `wave4_4_gru_latent_offset_residual_global` | `wave4_4_latent_state_hysteresis_registry` | global | 0.003591 | 0.004024 | 7.896 |
+| `wave4_4_causal_tcn_latent_offset_residual_global` | `wave4_4_latent_state_hysteresis_registry` | global | 0.003372 | 0.003827 | 7.398 |
 
 ### Forward Wave 5.1 Harmonic Prior Residual Registry Models
 
 | Candidate | Source | Surface | Curve MAE [deg] | Curve RMSE [deg] | Mean Error |
 | --- | --- | --- | ---: | ---: | ---: |
-| `wave3_harmonic_prior_residual_pointwise_control_Fw` | `wave3_harmonic_prior_residual_registry` | Fw | 0.003374 | 0.003655 | 7.501 |
-| `wave3_harmonic_prior_residual_smooth_l1_structured_Fw` | `wave3_harmonic_prior_residual_registry` | Fw | 0.003514 | 0.003768 | 7.812 |
+| `wave5_1_harmonic_prior_pointwise_control_fw` | `wave5_1_harmonic_prior_residual_registry` | Fw | 0.003374 | 0.003655 | 7.501 |
+| `wave5_1_harmonic_prior_smooth_l1_structured_fw` | `wave5_1_harmonic_prior_residual_registry` | Fw | 0.003514 | 0.003768 | 7.812 |
 
 ### Backward Wave 5.1 Harmonic Prior Residual Registry Models
 
 | Candidate | Source | Surface | Curve MAE [deg] | Curve RMSE [deg] | Mean Error |
 | --- | --- | --- | ---: | ---: | ---: |
-| `wave3_harmonic_prior_residual_pointwise_control_Bw` | `wave3_harmonic_prior_residual_registry` | Bw | 0.003360 | 0.003677 | 7.363 |
-| `wave3_harmonic_prior_residual_smooth_l1_structured_Bw` | `wave3_harmonic_prior_residual_registry` | Bw | 0.003431 | 0.003739 | 7.523 |
+| `wave5_1_harmonic_prior_pointwise_control_bw` | `wave5_1_harmonic_prior_residual_registry` | Bw | 0.003360 | 0.003677 | 7.363 |
+| `wave5_1_harmonic_prior_smooth_l1_structured_bw` | `wave5_1_harmonic_prior_residual_registry` | Bw | 0.003431 | 0.003739 | 7.523 |
 
 ### Global Wave 5.1 Harmonic Prior Residual Registry Models
 
 | Candidate | Source | Surface | Curve MAE [deg] | Curve RMSE [deg] | Mean Error |
 | --- | --- | --- | ---: | ---: | ---: |
-| `wave3_harmonic_prior_residual_pointwise_control_global` | `wave3_harmonic_prior_residual_registry` | global | 0.003442 | 0.003755 | 7.597 |
-| `wave3_harmonic_prior_residual_smooth_l1_structured_global` | `wave3_harmonic_prior_residual_registry` | global | 0.003399 | 0.003714 | 7.502 |
+| `wave5_1_harmonic_prior_pointwise_control_global` | `wave5_1_harmonic_prior_residual_registry` | global | 0.003442 | 0.003755 | 7.597 |
+| `wave5_1_harmonic_prior_smooth_l1_structured_global` | `wave5_1_harmonic_prior_residual_registry` | global | 0.003399 | 0.003714 | 7.502 |
 
 ## Collage Gallery - Forward Reference Best Models
 
@@ -318,9 +318,19 @@ paper_retuned_best_Fw:
 
 ## Collage Gallery - Forward Reference Best Models Continued
 
-track1_best_Fw:
+rcim_model_bank_reproduction_best_fw:
 
-![track1_best_Fw curve-verification collage](assets/forward_reference/track1_best_fw.png)
+![rcim_model_bank_reproduction_best_fw curve-verification collage](assets/forward_reference/rcim_model_bank_reproduction_best_fw.png)
+
+## Collage Gallery - Backward Reference Best Models
+
+paper_retuned_best_Bw:
+
+![paper_retuned_best_Bw curve-verification collage](assets/backward_reference/paper_retuned_best_bw.png)
+
+rcim_model_bank_reproduction_best_bw:
+
+![rcim_model_bank_reproduction_best_bw curve-verification collage](assets/backward_reference/rcim_model_bank_reproduction_best_bw.png)
 
 ## Collage Gallery - Forward Wave 1 Family Best Models
 
@@ -352,16 +362,6 @@ periodic_mlp_harmonic_fw:
 
 ![periodic_mlp_harmonic_fw curve-verification collage](assets/forward_wave1/periodic_mlp_harmonic_fw.png)
 
-## Collage Gallery - Backward Reference Best Models
-
-paper_retuned_best_Bw:
-
-![paper_retuned_best_Bw curve-verification collage](assets/backward_reference/paper_retuned_best_bw.png)
-
-track1_best_Bw:
-
-![track1_best_Bw curve-verification collage](assets/backward_reference/track1_best_bw.png)
-
 ## Collage Gallery - Backward Wave 1 Family Best Models
 
 feedforward_bw:
@@ -391,6 +391,36 @@ tree_bw:
 periodic_mlp_harmonic_bw:
 
 ![periodic_mlp_harmonic_bw curve-verification collage](assets/backward_wave1/periodic_mlp_harmonic_bw.png)
+
+## Collage Gallery - Global Wave 1 Family Best Models
+
+feedforward_global:
+
+![feedforward_global curve-verification collage](assets/global_wave1/feedforward_global.png)
+
+harmonic_regression_global:
+
+![harmonic_regression_global curve-verification collage](assets/global_wave1/harmonic_regression_global.png)
+
+## Collage Gallery - Global Wave 1 Family Best Models Continued
+
+periodic_mlp_global:
+
+![periodic_mlp_global curve-verification collage](assets/global_wave1/periodic_mlp_global.png)
+
+residual_harmonic_mlp_global:
+
+![residual_harmonic_mlp_global curve-verification collage](assets/global_wave1/residual_harmonic_mlp_global.png)
+
+## Collage Gallery - Global Wave 1 Family Best Models Continued 2
+
+tree_global:
+
+![tree_global curve-verification collage](assets/global_wave1/tree_global.png)
+
+periodic_mlp_harmonic_global:
+
+![periodic_mlp_harmonic_global curve-verification collage](assets/global_wave1/periodic_mlp_harmonic_global.png)
 
 ## Collage Gallery - Forward Wave 2.1 Temporal Family Best Models
 
@@ -452,6 +482,36 @@ periodic_lstm_sequence_bw:
 
 ![periodic_lstm_sequence_bw curve-verification collage](assets/backward_wave2/periodic_lstm_sequence_bw.png)
 
+## Collage Gallery - Global Wave 2.1 Temporal Family Best Models
+
+temporal_convolution_global:
+
+![temporal_convolution_global curve-verification collage](assets/global_wave2/temporal_convolution_global.png)
+
+gru_sequence_global:
+
+![gru_sequence_global curve-verification collage](assets/global_wave2/gru_sequence_global.png)
+
+## Collage Gallery - Global Wave 2.1 Temporal Family Best Models Continued
+
+lstm_sequence_global:
+
+![lstm_sequence_global curve-verification collage](assets/global_wave2/lstm_sequence_global.png)
+
+periodic_temporal_convolution_global:
+
+![periodic_temporal_convolution_global curve-verification collage](assets/global_wave2/periodic_temporal_convolution_global.png)
+
+## Collage Gallery - Global Wave 2.1 Temporal Family Best Models Continued 2
+
+periodic_gru_sequence_global:
+
+![periodic_gru_sequence_global curve-verification collage](assets/global_wave2/periodic_gru_sequence_global.png)
+
+periodic_lstm_sequence_global:
+
+![periodic_lstm_sequence_global curve-verification collage](assets/global_wave2/periodic_lstm_sequence_global.png)
+
 ## Collage Gallery - Forward Wave 2.3 Residual Harmonic Temporal Models
 
 residual_harmonic_gru_sequence_sparse_rcim_Fw:
@@ -512,190 +572,6 @@ residual_harmonic_lstm_sequence_dense360_Bw:
 
 ![residual_harmonic_lstm_sequence_dense360_Bw curve-verification collage](assets/backward_wave2c/residual_harmonic_lstm_sequence_dense360_bw.png)
 
-## Collage Gallery - Forward Wave 3.1 Offset-Aware Probe Models
-
-sequential_residual_offset_probe_Fw:
-
-![sequential_residual_offset_probe_Fw curve-verification collage](assets/forward_track2f/sequential_residual_offset_probe_fw.png)
-
-## Collage Gallery - Backward Wave 3.1 Offset-Aware Probe Models
-
-sequential_residual_offset_probe_Bw:
-
-![sequential_residual_offset_probe_Bw curve-verification collage](assets/backward_track2f/sequential_residual_offset_probe_bw.png)
-
-## Collage Gallery - Forward Wave 3.2 Harmonic-Offset Probe Models
-
-track2f_bis_clean_sequential_residual_offset_Fw:
-
-![track2f_bis_clean_sequential_residual_offset_Fw curve-verification collage](assets/forward_track2f_bis/track2f_bis_clean_sequential_residual_offset_fw.png)
-
-track2f_bis_harmonic_residual_offset_Fw:
-
-![track2f_bis_harmonic_residual_offset_Fw curve-verification collage](assets/forward_track2f_bis/track2f_bis_harmonic_residual_offset_fw.png)
-
-## Collage Gallery - Backward Wave 3.2 Harmonic-Offset Probe Models
-
-track2f_bis_clean_sequential_residual_offset_Bw:
-
-![track2f_bis_clean_sequential_residual_offset_Bw curve-verification collage](assets/backward_track2f_bis/track2f_bis_clean_sequential_residual_offset_bw.png)
-
-track2f_bis_harmonic_residual_offset_Bw:
-
-![track2f_bis_harmonic_residual_offset_Bw curve-verification collage](assets/backward_track2f_bis/track2f_bis_harmonic_residual_offset_bw.png)
-
-## Collage Gallery - Forward Wave 3.3 Curve-Aware Training Models
-
-track2g_curve_aware_pointwise_control_Fw:
-
-![track2g_curve_aware_pointwise_control_Fw curve-verification collage](assets/forward_track2g/track2g_curve_aware_pointwise_control_fw.png)
-
-track2g_curve_aware_raw_centered_shape_Fw:
-
-![track2g_curve_aware_raw_centered_shape_Fw curve-verification collage](assets/forward_track2g/track2g_curve_aware_raw_centered_shape_fw.png)
-
-## Collage Gallery - Forward Wave 3.3 Curve-Aware Training Models Continued
-
-track2g_curve_aware_raw_offset_Fw:
-
-![track2g_curve_aware_raw_offset_Fw curve-verification collage](assets/forward_track2g/track2g_curve_aware_raw_offset_fw.png)
-
-track2g_curve_aware_full_curve_composite_Fw:
-
-![track2g_curve_aware_full_curve_composite_Fw curve-verification collage](assets/forward_track2g/track2g_curve_aware_full_curve_composite_fw.png)
-
-## Collage Gallery - Backward Wave 3.3 Curve-Aware Training Models
-
-track2g_curve_aware_pointwise_control_Bw:
-
-![track2g_curve_aware_pointwise_control_Bw curve-verification collage](assets/backward_track2g/track2g_curve_aware_pointwise_control_bw.png)
-
-track2g_curve_aware_raw_centered_shape_Bw:
-
-![track2g_curve_aware_raw_centered_shape_Bw curve-verification collage](assets/backward_track2g/track2g_curve_aware_raw_centered_shape_bw.png)
-
-## Collage Gallery - Backward Wave 3.3 Curve-Aware Training Models Continued
-
-track2g_curve_aware_raw_offset_Bw:
-
-![track2g_curve_aware_raw_offset_Bw curve-verification collage](assets/backward_track2g/track2g_curve_aware_raw_offset_bw.png)
-
-track2g_curve_aware_full_curve_composite_Bw:
-
-![track2g_curve_aware_full_curve_composite_Bw curve-verification collage](assets/backward_track2g/track2g_curve_aware_full_curve_composite_bw.png)
-
-## Collage Gallery - Forward Wave 4.1 Robust-Loss Models
-
-track2h_mae_robust_Fw:
-
-![track2h_mae_robust_Fw curve-verification collage](assets/forward_track2h/track2h_mae_robust_fw.png)
-
-track2h_smooth_l1_robust_Fw:
-
-![track2h_smooth_l1_robust_Fw curve-verification collage](assets/forward_track2h/track2h_smooth_l1_robust_fw.png)
-
-## Collage Gallery - Forward Wave 4.1 Robust-Loss Models Continued
-
-track2h_log_cosh_robust_Fw:
-
-![track2h_log_cosh_robust_Fw curve-verification collage](assets/forward_track2h/track2h_log_cosh_robust_fw.png)
-
-## Collage Gallery - Backward Wave 4.1 Robust-Loss Models
-
-track2h_mae_robust_Bw:
-
-![track2h_mae_robust_Bw curve-verification collage](assets/backward_track2h/track2h_mae_robust_bw.png)
-
-track2h_smooth_l1_robust_Bw:
-
-![track2h_smooth_l1_robust_Bw curve-verification collage](assets/backward_track2h/track2h_smooth_l1_robust_bw.png)
-
-## Collage Gallery - Backward Wave 4.1 Robust-Loss Models Continued
-
-track2h_log_cosh_robust_Bw:
-
-![track2h_log_cosh_robust_Bw curve-verification collage](assets/backward_track2h/track2h_log_cosh_robust_bw.png)
-
-## Collage Gallery - Forward Wave 4.2 Quantile Probabilistic Models
-
-track2h_quantile_p10_p50_p90_Fw:
-
-![track2h_quantile_p10_p50_p90_Fw curve-verification collage](assets/forward_track2h_quantile_probabilistic/track2h_quantile_p10_p50_p90_fw.png)
-
-track2h_gaussian_nll_Fw:
-
-![track2h_gaussian_nll_Fw curve-verification collage](assets/forward_track2h_quantile_probabilistic/track2h_gaussian_nll_fw.png)
-
-## Collage Gallery - Backward Wave 4.2 Quantile Probabilistic Models
-
-track2h_quantile_p10_p50_p90_Bw:
-
-![track2h_quantile_p10_p50_p90_Bw curve-verification collage](assets/backward_track2h_quantile_probabilistic/track2h_quantile_p10_p50_p90_bw.png)
-
-track2h_gaussian_nll_Bw:
-
-![track2h_gaussian_nll_Bw curve-verification collage](assets/backward_track2h_quantile_probabilistic/track2h_gaussian_nll_bw.png)
-
-## Collage Gallery - Global Wave 1 Family Best Models
-
-feedforward_global:
-
-![feedforward_global curve-verification collage](assets/global_wave1/feedforward_global.png)
-
-harmonic_regression_global:
-
-![harmonic_regression_global curve-verification collage](assets/global_wave1/harmonic_regression_global.png)
-
-## Collage Gallery - Global Wave 1 Family Best Models Continued
-
-periodic_mlp_global:
-
-![periodic_mlp_global curve-verification collage](assets/global_wave1/periodic_mlp_global.png)
-
-residual_harmonic_mlp_global:
-
-![residual_harmonic_mlp_global curve-verification collage](assets/global_wave1/residual_harmonic_mlp_global.png)
-
-## Collage Gallery - Global Wave 1 Family Best Models Continued 2
-
-tree_global:
-
-![tree_global curve-verification collage](assets/global_wave1/tree_global.png)
-
-periodic_mlp_harmonic_global:
-
-![periodic_mlp_harmonic_global curve-verification collage](assets/global_wave1/periodic_mlp_harmonic_global.png)
-
-## Collage Gallery - Global Wave 2.1 Temporal Family Best Models
-
-temporal_convolution_global:
-
-![temporal_convolution_global curve-verification collage](assets/global_wave2/temporal_convolution_global.png)
-
-gru_sequence_global:
-
-![gru_sequence_global curve-verification collage](assets/global_wave2/gru_sequence_global.png)
-
-## Collage Gallery - Global Wave 2.1 Temporal Family Best Models Continued
-
-lstm_sequence_global:
-
-![lstm_sequence_global curve-verification collage](assets/global_wave2/lstm_sequence_global.png)
-
-periodic_temporal_convolution_global:
-
-![periodic_temporal_convolution_global curve-verification collage](assets/global_wave2/periodic_temporal_convolution_global.png)
-
-## Collage Gallery - Global Wave 2.1 Temporal Family Best Models Continued 2
-
-periodic_gru_sequence_global:
-
-![periodic_gru_sequence_global curve-verification collage](assets/global_wave2/periodic_gru_sequence_global.png)
-
-periodic_lstm_sequence_global:
-
-![periodic_lstm_sequence_global curve-verification collage](assets/global_wave2/periodic_lstm_sequence_global.png)
-
 ## Collage Gallery - Global Wave 2.3 Residual Harmonic Temporal Models
 
 residual_harmonic_gru_sequence_sparse_rcim_global:
@@ -726,157 +602,281 @@ residual_harmonic_lstm_sequence_dense360_global:
 
 ![residual_harmonic_lstm_sequence_dense360_global curve-verification collage](assets/global_wave2c/residual_harmonic_lstm_sequence_dense360_global.png)
 
+## Collage Gallery - Forward Wave 3.1 Offset-Aware Probe Models
+
+wave3_1_sequential_residual_offset_probe_fw:
+
+![wave3_1_sequential_residual_offset_probe_fw curve-verification collage](assets/forward_wave3_1/wave3_1_sequential_residual_offset_probe_fw.png)
+
+## Collage Gallery - Backward Wave 3.1 Offset-Aware Probe Models
+
+wave3_1_sequential_residual_offset_probe_bw:
+
+![wave3_1_sequential_residual_offset_probe_bw curve-verification collage](assets/backward_wave3_1/wave3_1_sequential_residual_offset_probe_bw.png)
+
 ## Collage Gallery - Global Wave 3.1 Offset-Aware Probe Models
 
-sequential_residual_offset_probe_global:
+wave3_1_sequential_residual_offset_probe_global:
 
-![sequential_residual_offset_probe_global curve-verification collage](assets/global_track2f/sequential_residual_offset_probe_global.png)
+![wave3_1_sequential_residual_offset_probe_global curve-verification collage](assets/global_wave3_1/wave3_1_sequential_residual_offset_probe_global.png)
+
+## Collage Gallery - Forward Wave 3.2 Harmonic-Offset Probe Models
+
+wave3_2_clean_sequential_residual_offset_fw:
+
+![wave3_2_clean_sequential_residual_offset_fw curve-verification collage](assets/forward_wave3_2/wave3_2_clean_sequential_residual_offset_fw.png)
+
+wave3_2_harmonic_residual_offset_fw:
+
+![wave3_2_harmonic_residual_offset_fw curve-verification collage](assets/forward_wave3_2/wave3_2_harmonic_residual_offset_fw.png)
+
+## Collage Gallery - Backward Wave 3.2 Harmonic-Offset Probe Models
+
+wave3_2_clean_sequential_residual_offset_bw:
+
+![wave3_2_clean_sequential_residual_offset_bw curve-verification collage](assets/backward_wave3_2/wave3_2_clean_sequential_residual_offset_bw.png)
+
+wave3_2_harmonic_residual_offset_bw:
+
+![wave3_2_harmonic_residual_offset_bw curve-verification collage](assets/backward_wave3_2/wave3_2_harmonic_residual_offset_bw.png)
 
 ## Collage Gallery - Global Wave 3.2 Harmonic-Offset Probe Models
 
-track2f_bis_clean_sequential_residual_offset_global:
+wave3_2_clean_sequential_residual_offset_global:
 
-![track2f_bis_clean_sequential_residual_offset_global curve-verification collage](assets/global_track2f_bis/track2f_bis_clean_sequential_residual_offset_global.png)
+![wave3_2_clean_sequential_residual_offset_global curve-verification collage](assets/global_wave3_2/wave3_2_clean_sequential_residual_offset_global.png)
 
-track2f_bis_harmonic_residual_offset_global:
+wave3_2_harmonic_residual_offset_global:
 
-![track2f_bis_harmonic_residual_offset_global curve-verification collage](assets/global_track2f_bis/track2f_bis_harmonic_residual_offset_global.png)
+![wave3_2_harmonic_residual_offset_global curve-verification collage](assets/global_wave3_2/wave3_2_harmonic_residual_offset_global.png)
+
+## Collage Gallery - Forward Wave 3.3 Curve-Aware Training Models
+
+wave3_3_curve_aware_pointwise_control_fw:
+
+![wave3_3_curve_aware_pointwise_control_fw curve-verification collage](assets/forward_wave3_3/wave3_3_curve_aware_pointwise_control_fw.png)
+
+wave3_3_raw_centered_shape_curve_aware_fw:
+
+![wave3_3_raw_centered_shape_curve_aware_fw curve-verification collage](assets/forward_wave3_3/wave3_3_raw_centered_shape_curve_aware_fw.png)
+
+## Collage Gallery - Forward Wave 3.3 Curve-Aware Training Models Continued
+
+wave3_3_raw_offset_curve_aware_fw:
+
+![wave3_3_raw_offset_curve_aware_fw curve-verification collage](assets/forward_wave3_3/wave3_3_raw_offset_curve_aware_fw.png)
+
+wave3_3_full_curve_composite_fw:
+
+![wave3_3_full_curve_composite_fw curve-verification collage](assets/forward_wave3_3/wave3_3_full_curve_composite_fw.png)
+
+## Collage Gallery - Backward Wave 3.3 Curve-Aware Training Models
+
+wave3_3_curve_aware_pointwise_control_bw:
+
+![wave3_3_curve_aware_pointwise_control_bw curve-verification collage](assets/backward_wave3_3/wave3_3_curve_aware_pointwise_control_bw.png)
+
+wave3_3_raw_centered_shape_curve_aware_bw:
+
+![wave3_3_raw_centered_shape_curve_aware_bw curve-verification collage](assets/backward_wave3_3/wave3_3_raw_centered_shape_curve_aware_bw.png)
+
+## Collage Gallery - Backward Wave 3.3 Curve-Aware Training Models Continued
+
+wave3_3_raw_offset_curve_aware_bw:
+
+![wave3_3_raw_offset_curve_aware_bw curve-verification collage](assets/backward_wave3_3/wave3_3_raw_offset_curve_aware_bw.png)
+
+wave3_3_full_curve_composite_bw:
+
+![wave3_3_full_curve_composite_bw curve-verification collage](assets/backward_wave3_3/wave3_3_full_curve_composite_bw.png)
 
 ## Collage Gallery - Global Wave 3.3 Curve-Aware Training Models
 
-track2g_curve_aware_pointwise_control_global:
+wave3_3_curve_aware_pointwise_control_global:
 
-![track2g_curve_aware_pointwise_control_global curve-verification collage](assets/global_track2g/track2g_curve_aware_pointwise_control_global.png)
+![wave3_3_curve_aware_pointwise_control_global curve-verification collage](assets/global_wave3_3/wave3_3_curve_aware_pointwise_control_global.png)
 
-track2g_curve_aware_raw_centered_shape_global:
+wave3_3_raw_centered_shape_curve_aware_global:
 
-![track2g_curve_aware_raw_centered_shape_global curve-verification collage](assets/global_track2g/track2g_curve_aware_raw_centered_shape_global.png)
+![wave3_3_raw_centered_shape_curve_aware_global curve-verification collage](assets/global_wave3_3/wave3_3_raw_centered_shape_curve_aware_global.png)
 
 ## Collage Gallery - Global Wave 3.3 Curve-Aware Training Models Continued
 
-track2g_curve_aware_raw_offset_global:
+wave3_3_raw_offset_curve_aware_global:
 
-![track2g_curve_aware_raw_offset_global curve-verification collage](assets/global_track2g/track2g_curve_aware_raw_offset_global.png)
+![wave3_3_raw_offset_curve_aware_global curve-verification collage](assets/global_wave3_3/wave3_3_raw_offset_curve_aware_global.png)
 
-track2g_curve_aware_full_curve_composite_global:
+wave3_3_full_curve_composite_global:
 
-![track2g_curve_aware_full_curve_composite_global curve-verification collage](assets/global_track2g/track2g_curve_aware_full_curve_composite_global.png)
+![wave3_3_full_curve_composite_global curve-verification collage](assets/global_wave3_3/wave3_3_full_curve_composite_global.png)
+
+## Collage Gallery - Forward Wave 4.1 Robust-Loss Models
+
+wave4_1_mae_robust_loss_fw:
+
+![wave4_1_mae_robust_loss_fw curve-verification collage](assets/forward_wave4_1/wave4_1_mae_robust_loss_fw.png)
+
+wave4_1_smooth_l1_robust_loss_fw:
+
+![wave4_1_smooth_l1_robust_loss_fw curve-verification collage](assets/forward_wave4_1/wave4_1_smooth_l1_robust_loss_fw.png)
+
+## Collage Gallery - Forward Wave 4.1 Robust-Loss Models Continued
+
+wave4_1_log_cosh_robust_loss_fw:
+
+![wave4_1_log_cosh_robust_loss_fw curve-verification collage](assets/forward_wave4_1/wave4_1_log_cosh_robust_loss_fw.png)
+
+## Collage Gallery - Backward Wave 4.1 Robust-Loss Models
+
+wave4_1_mae_robust_loss_bw:
+
+![wave4_1_mae_robust_loss_bw curve-verification collage](assets/backward_wave4_1/wave4_1_mae_robust_loss_bw.png)
+
+wave4_1_smooth_l1_robust_loss_bw:
+
+![wave4_1_smooth_l1_robust_loss_bw curve-verification collage](assets/backward_wave4_1/wave4_1_smooth_l1_robust_loss_bw.png)
+
+## Collage Gallery - Backward Wave 4.1 Robust-Loss Models Continued
+
+wave4_1_log_cosh_robust_loss_bw:
+
+![wave4_1_log_cosh_robust_loss_bw curve-verification collage](assets/backward_wave4_1/wave4_1_log_cosh_robust_loss_bw.png)
 
 ## Collage Gallery - Global Wave 4.1 Robust-Loss Models
 
-track2h_mae_robust_global:
+wave4_1_mae_robust_loss_global:
 
-![track2h_mae_robust_global curve-verification collage](assets/global_track2h/track2h_mae_robust_global.png)
+![wave4_1_mae_robust_loss_global curve-verification collage](assets/global_wave4_1/wave4_1_mae_robust_loss_global.png)
 
-track2h_smooth_l1_robust_global:
+wave4_1_smooth_l1_robust_loss_global:
 
-![track2h_smooth_l1_robust_global curve-verification collage](assets/global_track2h/track2h_smooth_l1_robust_global.png)
+![wave4_1_smooth_l1_robust_loss_global curve-verification collage](assets/global_wave4_1/wave4_1_smooth_l1_robust_loss_global.png)
 
 ## Collage Gallery - Global Wave 4.1 Robust-Loss Models Continued
 
-track2h_log_cosh_robust_global:
+wave4_1_log_cosh_robust_loss_global:
 
-![track2h_log_cosh_robust_global curve-verification collage](assets/global_track2h/track2h_log_cosh_robust_global.png)
+![wave4_1_log_cosh_robust_loss_global curve-verification collage](assets/global_wave4_1/wave4_1_log_cosh_robust_loss_global.png)
+
+## Collage Gallery - Forward Wave 4.2 Quantile Probabilistic Models
+
+wave4_2_quantile_p10_p50_p90_fw:
+
+![wave4_2_quantile_p10_p50_p90_fw curve-verification collage](assets/forward_wave4_2/wave4_2_quantile_p10_p50_p90_fw.png)
+
+wave4_2_gaussian_nll_fw:
+
+![wave4_2_gaussian_nll_fw curve-verification collage](assets/forward_wave4_2/wave4_2_gaussian_nll_fw.png)
+
+## Collage Gallery - Backward Wave 4.2 Quantile Probabilistic Models
+
+wave4_2_quantile_p10_p50_p90_bw:
+
+![wave4_2_quantile_p10_p50_p90_bw curve-verification collage](assets/backward_wave4_2/wave4_2_quantile_p10_p50_p90_bw.png)
+
+wave4_2_gaussian_nll_bw:
+
+![wave4_2_gaussian_nll_bw curve-verification collage](assets/backward_wave4_2/wave4_2_gaussian_nll_bw.png)
 
 ## Collage Gallery - Global Wave 4.2 Quantile Probabilistic Models
 
-track2h_quantile_p10_p50_p90_global:
+wave4_2_quantile_p10_p50_p90_global:
 
-![track2h_quantile_p10_p50_p90_global curve-verification collage](assets/global_track2h_quantile_probabilistic/track2h_quantile_p10_p50_p90_global.png)
+![wave4_2_quantile_p10_p50_p90_global curve-verification collage](assets/global_wave4_2/wave4_2_quantile_p10_p50_p90_global.png)
 
-track2h_gaussian_nll_global:
+wave4_2_gaussian_nll_global:
 
-![track2h_gaussian_nll_global curve-verification collage](assets/global_track2h_quantile_probabilistic/track2h_gaussian_nll_global.png)
+![wave4_2_gaussian_nll_global curve-verification collage](assets/global_wave4_2/wave4_2_gaussian_nll_global.png)
 
-## Collage Gallery - Forward Track2h Mixture Density Heads Registry Models
+## Collage Gallery - Forward Wave 4.3 Mixture Density Models
 
-track2h_mdn_k2_Fw:
+wave4_3_mixture_density_k2_fw:
 
-![track2h_mdn_k2_Fw curve-verification collage](assets/a_fw_trac_mixt_dens_head_reg_f6ec842d96/track2h_mdn_k2_fw.png)
+![wave4_3_mixture_density_k2_fw curve-verification collage](assets/auto_forward_wave4_3_mixture_density_registry/wave4_3_mixture_density_k2_fw.png)
 
-track2h_mdn_k3_Fw:
+wave4_3_mixture_density_k3_fw:
 
-![track2h_mdn_k3_Fw curve-verification collage](assets/a_fw_trac_mixt_dens_head_reg_f6ec842d96/track2h_mdn_k3_fw.png)
+![wave4_3_mixture_density_k3_fw curve-verification collage](assets/auto_forward_wave4_3_mixture_density_registry/wave4_3_mixture_density_k3_fw.png)
 
-## Collage Gallery - Backward Track2h Mixture Density Heads Registry Models
+## Collage Gallery - Backward Wave 4.3 Mixture Density Models
 
-track2h_mdn_k2_Bw:
+wave4_3_mixture_density_k2_bw:
 
-![track2h_mdn_k2_Bw curve-verification collage](assets/a_bw_trac_mixt_dens_head_reg_18b372da4f/track2h_mdn_k2_bw.png)
+![wave4_3_mixture_density_k2_bw curve-verification collage](assets/auto_backward_wave4_3_mixture_density_registry/wave4_3_mixture_density_k2_bw.png)
 
-track2h_mdn_k3_Bw:
+wave4_3_mixture_density_k3_bw:
 
-![track2h_mdn_k3_Bw curve-verification collage](assets/a_bw_trac_mixt_dens_head_reg_18b372da4f/track2h_mdn_k3_bw.png)
+![wave4_3_mixture_density_k3_bw curve-verification collage](assets/auto_backward_wave4_3_mixture_density_registry/wave4_3_mixture_density_k3_bw.png)
 
-## Collage Gallery - Global Track2h Mixture Density Heads Registry Models
+## Collage Gallery - Global Wave 4.3 Mixture Density Models
 
-track2h_mdn_k2_global:
+wave4_3_mixture_density_k2_global:
 
-![track2h_mdn_k2_global curve-verification collage](assets/a_mix_trac_mixt_dens_head_reg_434037e96c/track2h_mdn_k2_global.png)
+![wave4_3_mixture_density_k2_global curve-verification collage](assets/auto_mixed_wave4_3_mixture_density_registry/wave4_3_mixture_density_k2_global.png)
 
-track2h_mdn_k3_global:
+wave4_3_mixture_density_k3_global:
 
-![track2h_mdn_k3_global curve-verification collage](assets/a_mix_trac_mixt_dens_head_reg_434037e96c/track2h_mdn_k3_global.png)
+![wave4_3_mixture_density_k3_global curve-verification collage](assets/auto_mixed_wave4_3_mixture_density_registry/wave4_3_mixture_density_k3_global.png)
 
-## Collage Gallery - Forward Track2h Latent State Hysteresis Registry Models
+## Collage Gallery - Forward Wave 4.4 Latent State Hysteresis Models
 
-track2h_l_gru_offset_residual_Fw:
+wave4_4_gru_latent_offset_residual_fw:
 
-![track2h_l_gru_offset_residual_Fw curve-verification collage](assets/a_fw_trac_late_stat_hyst_reg_b9a1d6d37a/track2h_l_gru_offset_residual_fw.png)
+![wave4_4_gru_latent_offset_residual_fw curve-verification collage](assets/auto_forward_wave4_4_latent_state_hysteresis_registry/wave4_4_gru_latent_offset_residual_fw.png)
 
-track2h_l_causal_tcn_offset_residual_Fw:
+wave4_4_causal_tcn_latent_offset_residual_fw:
 
-![track2h_l_causal_tcn_offset_residual_Fw curve-verification collage](assets/a_fw_trac_late_stat_hyst_reg_b9a1d6d37a/track2h_l_causal_tcn_offset_residual_fw.png)
+![wave4_4_causal_tcn_latent_offset_residual_fw curve-verification collage](assets/auto_forward_wave4_4_latent_state_hysteresis_registry/wave4_4_causal_tcn_latent_offset_residual_fw.png)
 
-## Collage Gallery - Backward Track2h Latent State Hysteresis Registry Models
+## Collage Gallery - Backward Wave 4.4 Latent State Hysteresis Models
 
-track2h_l_gru_offset_residual_Bw:
+wave4_4_gru_latent_offset_residual_bw:
 
-![track2h_l_gru_offset_residual_Bw curve-verification collage](assets/a_bw_trac_late_stat_hyst_reg_7a4d528fe8/track2h_l_gru_offset_residual_bw.png)
+![wave4_4_gru_latent_offset_residual_bw curve-verification collage](assets/auto_backward_wave4_4_latent_state_hysteresis_registry/wave4_4_gru_latent_offset_residual_bw.png)
 
-track2h_l_causal_tcn_offset_residual_Bw:
+wave4_4_causal_tcn_latent_offset_residual_bw:
 
-![track2h_l_causal_tcn_offset_residual_Bw curve-verification collage](assets/a_bw_trac_late_stat_hyst_reg_7a4d528fe8/track2h_l_causal_tcn_offset_residual_bw.png)
+![wave4_4_causal_tcn_latent_offset_residual_bw curve-verification collage](assets/auto_backward_wave4_4_latent_state_hysteresis_registry/wave4_4_causal_tcn_latent_offset_residual_bw.png)
 
-## Collage Gallery - Global Track2h Latent State Hysteresis Registry Models
+## Collage Gallery - Global Wave 4.4 Latent State Hysteresis Models
 
-track2h_l_gru_offset_residual_global:
+wave4_4_gru_latent_offset_residual_global:
 
-![track2h_l_gru_offset_residual_global curve-verification collage](assets/a_mix_trac_late_stat_hyst_reg_4bc86c3c52/track2h_l_gru_offset_residual_global.png)
+![wave4_4_gru_latent_offset_residual_global curve-verification collage](assets/auto_mixed_wave4_4_latent_state_hysteresis_registry/wave4_4_gru_latent_offset_residual_global.png)
 
-track2h_l_causal_tcn_offset_residual_global:
+wave4_4_causal_tcn_latent_offset_residual_global:
 
-![track2h_l_causal_tcn_offset_residual_global curve-verification collage](assets/a_mix_trac_late_stat_hyst_reg_4bc86c3c52/track2h_l_causal_tcn_offset_residual_global.png)
+![wave4_4_causal_tcn_latent_offset_residual_global curve-verification collage](assets/auto_mixed_wave4_4_latent_state_hysteresis_registry/wave4_4_causal_tcn_latent_offset_residual_global.png)
 
 ## Collage Gallery - Forward Wave 5.1 Harmonic Prior Residual Registry Models
 
-wave3_harmonic_prior_residual_pointwise_control_Fw:
+wave5_1_harmonic_prior_pointwise_control_fw:
 
-![wave3_harmonic_prior_residual_pointwise_control_Fw curve-verification collage](assets/a_fw_w3_harm_pri_res_reg_ae5ebf52ea/wave3_harmonic_prior_residual_pointwise_control_fw.png)
+![wave5_1_harmonic_prior_pointwise_control_fw curve-verification collage](assets/auto_forward_wave5_1_harmonic_prior_residual_registry/wave5_1_harmonic_prior_pointwise_control_fw.png)
 
-wave3_harmonic_prior_residual_smooth_l1_structured_Fw:
+wave5_1_harmonic_prior_smooth_l1_structured_fw:
 
-![wave3_harmonic_prior_residual_smooth_l1_structured_Fw curve-verification collage](assets/a_fw_w3_harm_pri_res_reg_ae5ebf52ea/wave3_harmonic_prior_residual_smooth_l1_structured_fw.png)
+![wave5_1_harmonic_prior_smooth_l1_structured_fw curve-verification collage](assets/auto_forward_wave5_1_harmonic_prior_residual_registry/wave5_1_harmonic_prior_smooth_l1_structured_fw.png)
 
 ## Collage Gallery - Backward Wave 5.1 Harmonic Prior Residual Registry Models
 
-wave3_harmonic_prior_residual_pointwise_control_Bw:
+wave5_1_harmonic_prior_pointwise_control_bw:
 
-![wave3_harmonic_prior_residual_pointwise_control_Bw curve-verification collage](assets/a_bw_w3_harm_pri_res_reg_06ebe1c05e/wave3_harmonic_prior_residual_pointwise_control_bw.png)
+![wave5_1_harmonic_prior_pointwise_control_bw curve-verification collage](assets/auto_backward_wave5_1_harmonic_prior_residual_registry/wave5_1_harmonic_prior_pointwise_control_bw.png)
 
-wave3_harmonic_prior_residual_smooth_l1_structured_Bw:
+wave5_1_harmonic_prior_smooth_l1_structured_bw:
 
-![wave3_harmonic_prior_residual_smooth_l1_structured_Bw curve-verification collage](assets/a_bw_w3_harm_pri_res_reg_06ebe1c05e/wave3_harmonic_prior_residual_smooth_l1_structured_bw.png)
+![wave5_1_harmonic_prior_smooth_l1_structured_bw curve-verification collage](assets/auto_backward_wave5_1_harmonic_prior_residual_registry/wave5_1_harmonic_prior_smooth_l1_structured_bw.png)
 
 ## Collage Gallery - Global Wave 5.1 Harmonic Prior Residual Registry Models
 
-wave3_harmonic_prior_residual_pointwise_control_global:
+wave5_1_harmonic_prior_pointwise_control_global:
 
-![wave3_harmonic_prior_residual_pointwise_control_global curve-verification collage](assets/a_mix_w3_harm_pri_res_reg_66ff2b30f7/wave3_harmonic_prior_residual_pointwise_control_global.png)
+![wave5_1_harmonic_prior_pointwise_control_global curve-verification collage](assets/auto_mixed_wave5_1_harmonic_prior_residual_registry/wave5_1_harmonic_prior_pointwise_control_global.png)
 
-wave3_harmonic_prior_residual_smooth_l1_structured_global:
+wave5_1_harmonic_prior_smooth_l1_structured_global:
 
-![wave3_harmonic_prior_residual_smooth_l1_structured_global curve-verification collage](assets/a_mix_w3_harm_pri_res_reg_66ff2b30f7/wave3_harmonic_prior_residual_smooth_l1_structured_global.png)
+![wave5_1_harmonic_prior_smooth_l1_structured_global curve-verification collage](assets/auto_mixed_wave5_1_harmonic_prior_residual_registry/wave5_1_harmonic_prior_smooth_l1_structured_global.png)
 
 ## Output Artifacts
 
