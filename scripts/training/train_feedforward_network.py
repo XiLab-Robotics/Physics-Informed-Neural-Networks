@@ -57,7 +57,6 @@ except ImportError:
         return None
 
 # Import Project Models And Training Utilities
-from scripts.models.model_factory import create_model
 from scripts.tooling import repository_path_support
 from scripts.training import shared_training_infrastructure
 from scripts.training.transmission_error_datamodule import TransmissionErrorDataModule
@@ -605,7 +604,10 @@ def resolve_runtime_config(training_config: dict) -> dict[str, object]:
         runtime_config["benchmark"] = False
 
     # Warn If Non-Blocking Transfer Has Limited Value
-    if bool(runtime_config["use_non_blocking_transfer"]) and not bool(training_config["dataset"]["pin_memory"]):
+    if bool(runtime_config["use_non_blocking_transfer"]) and not shared_training_infrastructure.parse_boolean_config_value(
+        training_config["dataset"].get("pin_memory", False),
+        "dataset.pin_memory",
+    ):
         print_warning_message("Non-blocking transfer is enabled but pin_memory is disabled -> host-to-device copy overlap may be limited")
 
     return runtime_config
@@ -733,9 +735,9 @@ def train_feedforward_network(
         print_info_message("Loading best checkpoint for reproducible validation and test evaluation")
         best_regression_module = TransmissionErrorRegressionModule.load_from_checkpoint(
             checkpoint_path=best_model_path,
-            regression_model=create_model(
-                model_type=str(training_config["experiment"]["model_type"]),
-                model_configuration=training_config["model"],
+            regression_model=shared_training_infrastructure.create_regression_backbone_from_training_config(
+                training_config,
+                input_feature_dim,
             ),
             input_feature_dim=input_feature_dim,
             target_feature_dim=target_feature_dim,

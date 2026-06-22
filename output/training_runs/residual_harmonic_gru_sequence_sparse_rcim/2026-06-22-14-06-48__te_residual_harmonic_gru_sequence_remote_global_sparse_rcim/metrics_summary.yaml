@@ -1,0 +1,105 @@
+schema_version: 1
+config_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\config\training\queue\polished_dataset_stage1_smoke\running\2026-06-22-13-09-57_005_01_residual_harmonic_gru_sequence_sparse_rcim_global.yaml
+experiment:
+  model_family: residual_harmonic_gru_sequence_sparse_rcim
+  model_type: residual_harmonic_gru_sequence
+  run_name: te_residual_harmonic_gru_sequence_remote_global_sparse_rcim
+  output_run_name: te_residual_harmonic_gru_sequence_remote_global_sparse_rcim
+  run_instance_id: 2026-06-22-14-06-48__te_residual_harmonic_gru_sequence_remote_global_sparse_rcim
+  output_artifact_kind: training_run
+  base_model_family: residual_harmonic_gru_sequence
+  training_variant: global
+  direction_scope_label: bidirectional
+  use_forward_direction: true
+  use_backward_direction: true
+artifacts:
+  output_directory: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_runs\residual_harmonic_gru_sequence_sparse_rcim\2026-06-22-14-06-48__te_residual_harmonic_gru_sequence_remote_global_sparse_rcim
+  best_checkpoint_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_runs\residual_harmonic_gru_sequence_sparse_rcim\2026-06-22-14-06-48__te_residual_harmonic_gru_sequence_remote_global_sparse_rcim\checkpoints\residual_harmonic_gru_sequence-epoch=081-val_mae=0.00197803.ckpt
+dataset_split:
+  train_curve_count: 1356
+  validation_curve_count: 388
+  test_curve_count: 194
+  dataset_name: polished_dataset
+  dataset_schema: polished_point_v1
+  input_feature_name_list:
+  - theta
+  - theta_dot
+  - tau_load
+  - T
+  target_feature_name_list:
+  - theta_TE
+  input_feature_dim: 4
+  target_feature_dim: 1
+dataset:
+  dataset_id: polished_dataset
+  dataset_schema: polished_point_v1
+  input_feature_names:
+  - theta
+  - theta_dot
+  - tau_load
+  - T
+  target_feature_names:
+  - theta_TE
+  input_feature_dim: 4
+  target_feature_dim: 1
+model_summary:
+  backbone_name: ResidualHarmonicTemporalSequenceNetwork
+  trainable_parameter_count: 150676
+  frozen_parameter_count: 0
+  total_parameter_count: 150676
+runtime_config:
+  accelerator: auto
+  devices: auto
+  precision: '32'
+  benchmark: true
+  use_non_blocking_transfer: true
+normalization_statistics:
+  input_feature_mean:
+  - 180.0000762939453
+  - -14.942256927490234
+  - 1.681342363357544
+  - 30.617416381835938
+  input_feature_std:
+  - 103.92301940917969
+  - 690.1138305664062
+  - 1055.5772705078125
+  - 4.267345428466797
+  target_mean:
+  - -0.016667330637574196
+  target_std:
+  - 0.0465485081076622
+validation_metrics:
+  val_loss: 0.005350777879357338
+  val_mae: 0.001978031126782298
+  val_rmse: 0.002449712483212352
+  val_pointwise_loss: 0.005350777879357338
+  val_centered_curve_shape_loss: 0.004928638227283955
+  val_curve_offset_loss: 0.0004221380513627082
+  val_curve_amplitude_loss: 0.041662972420454025
+  val_sparse_harmonic_shape_loss: 0.0
+  val_structured_mae: 0.0398503802716732
+  val_structured_rmse: 0.04204301908612251
+test_metrics:
+  test_loss: 0.006208807695657015
+  test_mae: 0.0021115876734256744
+  test_rmse: 0.002699445467442274
+  test_pointwise_loss: 0.006208807695657015
+  test_centered_curve_shape_loss: 0.00570542411878705
+  test_curve_offset_loss: 0.0005033834022469819
+  test_curve_amplitude_loss: 0.04687628895044327
+  test_sparse_harmonic_shape_loss: 0.0
+  test_structured_mae: 0.037358447909355164
+  test_structured_rmse: 0.04029553756117821
+comparison_payload:
+  model_family: residual_harmonic_gru_sequence_sparse_rcim
+  model_type: residual_harmonic_gru_sequence
+  run_name: te_residual_harmonic_gru_sequence_remote_global_sparse_rcim
+  backbone_name: ResidualHarmonicTemporalSequenceNetwork
+  trainable_parameter_count: 150676
+  total_parameter_count: 150676
+  val_mae: 0.001978031126782298
+  val_rmse: 0.002449712483212352
+  test_mae: 0.0021115876734256744
+  test_rmse: 0.002699445467442274
+  deployment_notes: ''
+  interpretability_notes: ''

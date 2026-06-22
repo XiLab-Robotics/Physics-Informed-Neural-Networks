@@ -1,0 +1,48 @@
+paths:
+  dataset_config_path: config/training/wave1_directional_retraining/campaigns/2026-05-06_wave1_directional_retraining_campaign/dataset_variants/transmission_error_dataset_global.yaml
+  output_root: output/training_runs/harmonic_regression
+experiment:
+  run_name: te_harmonic_order12_linear_conditioned_recovery_global
+  model_family: harmonic_regression
+  model_type: harmonic_regression
+metadata:
+  campaign_name: wave1_directional_retraining_campaign_2026_05_06_16_07_16
+  planning_report_path: doc/reports/campaign_plans/wave_1/2026-05-06-16-07-16_wave1_directional_retraining_campaign_plan_report.md
+  phase_name: wave1_directional_retraining
+  campaign_config_id: harmonic_regression_global
+  notes: Recovery rerun for the linearly conditioned harmonic baseline after the schema-aware
+    training summary fix. Directional Wave 1 retraining variant prepared from the
+    current `harmonic_regression` family-best source config with `global` data scope.
+  random_seed: 42
+  base_model_family: harmonic_regression
+  training_variant: global
+  direction_scope_label: bidirectional
+  use_forward_direction: true
+  use_backward_direction: true
+dataset:
+  curve_batch_size: 4
+  point_stride: 5
+  maximum_points_per_curve: null
+  num_workers: 8
+  pin_memory: true
+model:
+  input_size: 5
+  output_size: 1
+  harmonic_order: 12
+  coefficient_mode: linear_conditioned
+training:
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  min_epochs: 20
+  max_epochs: 250
+  patience: 35
+  min_delta: 1.0e-05
+  log_every_n_steps: 1
+  fast_dev_run: false
+  deterministic: false
+runtime:
+  accelerator: auto
+  devices: auto
+  precision: '32'
+  benchmark: true
+  use_non_blocking_transfer: true

@@ -6,33 +6,43 @@ selection_policy:
   second_tie_breaker: val_mae
   third_tie_breaker: trainable_parameter_count
   direction: minimize
-updated_at: '2026-06-16T18:23:39'
+updated_at: '2026-06-22T16:00:39'
 best_entry:
-  run_instance_id: 2026-06-16-18-06-11__te_track2h_l_gru_offset_residual_global
+  run_instance_id: 2026-06-22-15-37-37__te_track2h_l_gru_offset_residual_global
   run_name: te_track2h_l_gru_offset_residual_global
   output_run_name: te_track2h_l_gru_offset_residual_global
   output_artifact_kind: training_run
   model_family: track2h_latent_state_hysteresis_gru_offset_residual_global
   base_model_family: track2h_latent_state_hysteresis_gru_offset_residual_global
   model_type: latent_state_hysteresis_probe
+  dataset_id: polished_dataset
+  dataset_schema: polished_point_v1
+  input_feature_names:
+  - theta
+  - theta_dot
+  - tau_load
+  - T
+  target_feature_names:
+  - theta_TE
+  input_feature_dim: 4
   training_variant: global
   direction_scope_label: bidirectional
   use_forward_direction: true
   use_backward_direction: true
-  trainable_parameter_count: 125475
-  total_parameter_count: 125475
-  val_mae: 0.0037171656731516123
-  val_rmse: 0.004312534816563129
-  test_mae: 0.003589523723348975
-  test_rmse: 0.004073617979884148
-  output_directory: output\training_runs\track2h_latent_state_hysteresis_gru_offset_residual_global\2026-06-16-18-06-11__te_track2h_l_gru_offset_residual_global
-  best_checkpoint_path: output\training_runs\track2h_latent_state_hysteresis_gru_offset_residual_global\2026-06-16-18-06-11__te_track2h_l_gru_offset_residual_global\checkpoints\latent_state_hysteresis_probe-epoch=064-val_mae=0.00371717.ckpt
-  metrics_path: output\training_runs\track2h_latent_state_hysteresis_gru_offset_residual_global\2026-06-16-18-06-11__te_track2h_l_gru_offset_residual_global/metrics_summary.yaml
-  report_path: output\training_runs\track2h_latent_state_hysteresis_gru_offset_residual_global\2026-06-16-18-06-11__te_track2h_l_gru_offset_residual_global/training_test_report.md
+  trainable_parameter_count: 124899
+  total_parameter_count: 124899
+  val_mae: 0.002232187893241644
+  val_rmse: 0.002761863637715578
+  test_mae: 0.0023389041889458895
+  test_rmse: 0.0029856895562261343
+  output_directory: output\training_runs\track2h_latent_state_hysteresis_gru_offset_residual_global\2026-06-22-15-37-37__te_track2h_l_gru_offset_residual_global
+  best_checkpoint_path: output\training_runs\track2h_latent_state_hysteresis_gru_offset_residual_global\2026-06-22-15-37-37__te_track2h_l_gru_offset_residual_global\checkpoints\latent_state_hysteresis_probe-epoch=101-val_mae=0.00223219.ckpt
+  metrics_path: output\training_runs\track2h_latent_state_hysteresis_gru_offset_residual_global\2026-06-22-15-37-37__te_track2h_l_gru_offset_residual_global/metrics_summary.yaml
+  report_path: output\training_runs\track2h_latent_state_hysteresis_gru_offset_residual_global\2026-06-22-15-37-37__te_track2h_l_gru_offset_residual_global/training_test_report.md
   selection_policy:
     primary_metric: test_mae
     first_tie_breaker: test_rmse
     second_tie_breaker: val_mae
     third_tie_breaker: trainable_parameter_count
     direction: minimize
-  selected_at: '2026-06-16T18:23:39'
+  selected_at: '2026-06-22T16:00:39'

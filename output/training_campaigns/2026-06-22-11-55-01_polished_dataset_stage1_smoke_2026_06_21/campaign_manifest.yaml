@@ -1,0 +1,27 @@
+campaign_name: polished_dataset_stage1_smoke_2026_06_21
+generated_at: '2026-06-22T12:04:16'
+queue_root: config/training/queue/polished_dataset_stage1_smoke
+campaign_output_directory: output/training_campaigns/2026-06-22-11-55-01_polished_dataset_stage1_smoke_2026_06_21
+planning_report_path: doc/reports/campaign_plans/cross_wave/polished_dataset/2026-06-21-03-26-07_polished_dataset_full_program_retraining_campaign_plan_report.md
+run_list:
+- original_queue_config_path: config/training/queue/polished_dataset_stage1_smoke/pending/2026-06-22-11-55-01_001_trial.yaml
+  final_queue_config_path: config/training/queue/polished_dataset_stage1_smoke/failed/2026-06-22-11-55-01_001_trial.yaml
+  source_config_path: config/training/feedforward/presets/trial.yaml
+  run_name: te_feedforward_trial
+  run_instance_id: 2026-06-22-11-55-01__te_feedforward_trial
+  model_type: feedforward
+  queue_status: failed
+  start_time: '2026-06-22T11:55:01'
+  end_time: '2026-06-22T12:04:16'
+  duration_seconds: 555.231
+  process_return_code: null
+  output_directory: output/training_runs/feedforward/2026-06-22-11-55-01__te_feedforward_trial
+  config_snapshot_path: output/training_runs/feedforward/2026-06-22-11-55-01__te_feedforward_trial/training_config.yaml
+  best_checkpoint_reference_path: N/A
+  best_checkpoint_path: null
+  metrics_path: N/A
+  training_report_path: N/A
+  log_path: output/training_campaigns/2026-06-22-11-55-01_polished_dataset_stage1_smoke_2026_06_21/logs/001_te_feedforward_trial.log
+  planning_report_path: doc/reports/campaign_plans/cross_wave/polished_dataset/2026-06-21-03-26-07_polished_dataset_full_program_retraining_campaign_plan_report.md
+  campaign_name: polished_dataset_stage1_smoke_2026_06_21
+  error_message: 'invalid literal for int() with base 10: ''auto'''

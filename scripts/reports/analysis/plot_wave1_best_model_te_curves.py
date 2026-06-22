@@ -28,7 +28,6 @@ import torch
 
 # Import Project Utilities
 from scripts.tooling import repository_path_support
-from scripts.models.model_factory import create_model
 from scripts.training import shared_training_infrastructure
 from scripts.training import tree_regression_support
 from scripts.training.transmission_error_regression_module import TransmissionErrorRegressionModule
@@ -203,9 +202,9 @@ def load_neural_regression_module(
     )
     regression_module = TransmissionErrorRegressionModule.load_from_checkpoint(
         checkpoint_path=checkpoint_path,
-        regression_model=create_model(
-            model_type=str(training_config["experiment"]["model_type"]),
-            model_configuration=training_config["model"],
+        regression_model=shared_training_infrastructure.create_regression_backbone_from_training_config(
+            training_config,
+            datamodule.get_input_feature_dim(),
         ),
         input_feature_dim=datamodule.get_input_feature_dim(),
         target_feature_dim=datamodule.get_target_feature_dim(),

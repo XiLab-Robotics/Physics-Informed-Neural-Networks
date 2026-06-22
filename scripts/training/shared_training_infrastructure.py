@@ -39,6 +39,9 @@ DEFAULT_RUNTIME_CONFIG_DICTIONARY = {
     "benchmark": True,
     "use_non_blocking_transfer": True,
 }
+DEFAULT_DATALOADER_WORKER_CAP = 8
+ENVIRONMENT_DATALOADER_WORKERS_KEY = "PINNS_DATALOADER_WORKERS"
+ENVIRONMENT_DATALOADER_WORKER_CAP_KEY = "PINNS_DATALOADER_WORKER_CAP"
 TRAINING_RUN_TIMESTAMP_FORMAT = "%Y-%m-%d-%H-%M-%S"
 OUTPUT_PATH = PROJECT_PATH / "output"
 VALIDATION_OUTPUT_ROOT = OUTPUT_PATH / "validation_checks"
@@ -667,6 +670,70 @@ def summarize_model_parameters(regression_backbone: nn.Module) -> ModelParameter
         total_parameter_count=int(total_parameter_count),
     )
 
+def parse_non_negative_integer(value: Any, value_name: str) -> int:
+
+    """Parse one non-negative integer configuration value."""
+
+    try:
+        parsed_value = int(value)
+    except (TypeError, ValueError) as parse_error:
+        raise ValueError(f"{value_name} must be a non-negative integer | {value}") from parse_error
+
+    if parsed_value < 0:
+        raise ValueError(f"{value_name} must be non-negative | {parsed_value}")
+    return parsed_value
+
+def resolve_dataloader_num_workers(raw_num_workers: Any) -> int:
+
+    """Resolve explicit or automatic PyTorch DataLoader worker count."""
+
+    # Preserve Explicit Integer Settings
+    if raw_num_workers is None:
+        raw_num_workers = 0
+    if not isinstance(raw_num_workers, str):
+        return parse_non_negative_integer(raw_num_workers, "dataset.num_workers")
+
+    normalized_num_workers = raw_num_workers.strip().lower()
+    if normalized_num_workers != "auto":
+        return parse_non_negative_integer(normalized_num_workers, "dataset.num_workers")
+
+    # Prefer Operator-Provided Runtime Override
+    environment_worker_value = os.environ.get(ENVIRONMENT_DATALOADER_WORKERS_KEY)
+    if environment_worker_value not in [None, ""]:
+        return parse_non_negative_integer(environment_worker_value, ENVIRONMENT_DATALOADER_WORKERS_KEY)
+
+    # Resolve Capped Automatic Worker Count
+    environment_cap_value = os.environ.get(ENVIRONMENT_DATALOADER_WORKER_CAP_KEY)
+    worker_cap = (
+        parse_non_negative_integer(environment_cap_value, ENVIRONMENT_DATALOADER_WORKER_CAP_KEY)
+        if environment_cap_value not in [None, ""]
+        else DEFAULT_DATALOADER_WORKER_CAP
+    )
+    if worker_cap <= 0:
+        return 0
+
+    logical_cpu_count = os.cpu_count() or 1
+    cpu_based_worker_count = max(logical_cpu_count - 1, 0)
+    if cpu_based_worker_count <= 0:
+        return 0
+    return max(1, min(cpu_based_worker_count, worker_cap))
+
+def parse_boolean_config_value(value: Any, value_name: str) -> bool:
+
+    """Parse one boolean configuration value from YAML or CLI-like strings."""
+
+    if isinstance(value, bool):
+        return value
+    if isinstance(value, str):
+        normalized_value = value.strip().lower()
+        if normalized_value in ["true", "1", "yes", "y", "on"]:
+            return True
+        if normalized_value in ["false", "0", "no", "n", "off"]:
+            return False
+    if value in [0, 1]:
+        return bool(value)
+    raise ValueError(f"{value_name} must be a boolean value | {value}")
+
 def create_datamodule_from_training_config(training_config: dict[str, Any]) -> TransmissionErrorDataModule:
 
     """Instantiate the TE LightningDataModule from the training config."""
@@ -687,10 +754,36 @@ def create_datamodule_from_training_config(training_config: dict[str, Any]) -> T
         sequence_target_position=str(training_config["dataset"].get("sequence_target_position", "center")),
         maximum_sequences_per_curve=training_config["dataset"].get("maximum_sequences_per_curve"),
         shuffle_training_batch_elements=bool(training_config["dataset"].get("shuffle_training_batch_elements", True)),
-        num_workers=int(training_config["dataset"]["num_workers"]),
-        pin_memory=bool(training_config["dataset"]["pin_memory"]),
+        num_workers=resolve_dataloader_num_workers(training_config["dataset"].get("num_workers", 0)),
+        pin_memory=parse_boolean_config_value(training_config["dataset"].get("pin_memory", False), "dataset.pin_memory"),
         use_non_blocking_transfer=bool(runtime_config["use_non_blocking_transfer"]),
     )
+
+def resolve_model_configuration_for_input_dim(training_config: dict[str, Any], input_feature_dim: int) -> dict[str, Any]:
+
+    """Return a model configuration with a concrete dataset input dimension.
+
+    Args:
+        training_config: Parsed training configuration dictionary.
+        input_feature_dim: Input dimension resolved from the prepared dataset.
+
+    Returns:
+        dict[str, Any]: Copy of the model configuration with `input_size`
+        resolved to the dataset feature dimension.
+    """
+
+    # Resolve Automatic Or Explicit Input Size
+    model_configuration = deepcopy(training_config["model"])
+    configured_input_size = model_configuration.get("input_size", "auto")
+    if configured_input_size in [None, "auto"]:
+        model_configuration["input_size"] = input_feature_dim
+    else:
+        configured_input_size = int(configured_input_size)
+        assert configured_input_size == input_feature_dim, (
+            f"Configured Input Size and Dataset Input Feature Dim mismatch | {configured_input_size} vs {input_feature_dim}"
+        )
+
+    return model_configuration
 
 def create_regression_backbone_from_training_config(training_config: dict[str, Any], input_feature_dim: int) -> nn.Module:
 
@@ -705,15 +798,7 @@ def create_regression_backbone_from_training_config(training_config: dict[str, A
     """
 
     # Resolve Automatic Or Explicit Input Size
-    model_configuration = deepcopy(training_config["model"])
-    configured_input_size = model_configuration.get("input_size", "auto")
-    if configured_input_size in [None, "auto"]:
-        model_configuration["input_size"] = input_feature_dim
-    else:
-        configured_input_size = int(configured_input_size)
-        assert configured_input_size == input_feature_dim, (
-            f"Configured Input Size and Dataset Input Feature Dim mismatch | {configured_input_size} vs {input_feature_dim}"
-        )
+    model_configuration = resolve_model_configuration_for_input_dim(training_config, input_feature_dim)
 
     # Create and Return Regression Backbone Model Based on Training Config
     return create_model(
@@ -1025,6 +1110,16 @@ def build_registry_entry(metrics_snapshot_dictionary: dict[str, Any]) -> dict[st
     model_summary_dictionary = metrics_snapshot_dictionary["model_summary"]
     artifacts_dictionary = metrics_snapshot_dictionary["artifacts"]
     dataset_dictionary = metrics_snapshot_dictionary.get("dataset", {})
+    dataset_split_dictionary = metrics_snapshot_dictionary.get("dataset_split", {})
+    if not dataset_dictionary and isinstance(dataset_split_dictionary, dict):
+        dataset_dictionary = {
+            "dataset_id": dataset_split_dictionary.get("dataset_name"),
+            "dataset_schema": dataset_split_dictionary.get("dataset_schema"),
+            "input_feature_names": dataset_split_dictionary.get("input_feature_name_list", []),
+            "target_feature_names": dataset_split_dictionary.get("target_feature_name_list", []),
+            "input_feature_dim": dataset_split_dictionary.get("input_feature_dim"),
+            "target_feature_dim": dataset_split_dictionary.get("target_feature_dim"),
+        }
 
     return {
         "run_instance_id": experiment_dictionary["run_instance_id"],

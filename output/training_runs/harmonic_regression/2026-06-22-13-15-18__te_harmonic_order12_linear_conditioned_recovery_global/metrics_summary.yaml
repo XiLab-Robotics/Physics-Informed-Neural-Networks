@@ -1,0 +1,101 @@
+schema_version: 1
+config_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\config\training\queue\polished_dataset_stage1_smoke\running\2026-06-22-13-09-57_003_13_harmonic_regression_global.yaml
+experiment:
+  model_family: harmonic_regression
+  model_type: harmonic_regression
+  run_name: te_harmonic_order12_linear_conditioned_recovery_global
+  output_run_name: te_harmonic_order12_linear_conditioned_recovery_global
+  run_instance_id: 2026-06-22-13-15-18__te_harmonic_order12_linear_conditioned_recovery_global
+  output_artifact_kind: training_run
+  base_model_family: harmonic_regression
+  training_variant: global
+  direction_scope_label: bidirectional
+  use_forward_direction: true
+  use_backward_direction: true
+artifacts:
+  output_directory: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_runs\harmonic_regression\2026-06-22-13-15-18__te_harmonic_order12_linear_conditioned_recovery_global
+  best_checkpoint_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_runs\harmonic_regression\2026-06-22-13-15-18__te_harmonic_order12_linear_conditioned_recovery_global\checkpoints\harmonic_regression-epoch=030-val_mae=0.00390380.ckpt
+dataset_split:
+  train_curve_count: 1356
+  validation_curve_count: 388
+  test_curve_count: 194
+  dataset_name: polished_dataset
+  dataset_schema: polished_point_v1
+  input_feature_name_list:
+  - theta
+  - theta_dot
+  - tau_load
+  - T
+  target_feature_name_list:
+  - theta_TE
+  input_feature_dim: 4
+  target_feature_dim: 1
+dataset:
+  dataset_id: polished_dataset
+  dataset_schema: polished_point_v1
+  input_feature_names:
+  - theta
+  - theta_dot
+  - tau_load
+  - T
+  target_feature_names:
+  - theta_TE
+  input_feature_dim: 4
+  target_feature_dim: 1
+model_summary:
+  backbone_name: HarmonicRegression
+  trainable_parameter_count: 125
+  frozen_parameter_count: 0
+  total_parameter_count: 125
+runtime_config:
+  accelerator: auto
+  devices: auto
+  precision: '32'
+  benchmark: true
+  use_non_blocking_transfer: true
+normalization_statistics:
+  input_feature_mean:
+  - 179.99932861328125
+  - -14.94044017791748
+  - 1.68223237991333
+  - 30.617389678955078
+  input_feature_std:
+  - 103.92501831054688
+  - 690.1232299804688
+  - 1055.5772705078125
+  - 4.267263412475586
+  target_mean:
+  - -0.01666698232293129
+  target_std:
+  - 0.04654856026172638
+validation_metrics:
+  val_loss: 0.01037224568426609
+  val_mae: 0.003903800854459405
+  val_rmse: 0.004480425734072924
+  val_pointwise_loss: 0.01037224568426609
+  val_centered_curve_shape_loss: 0.0030786977149546146
+  val_curve_offset_loss: 0.007697971072047949
+  val_curve_amplitude_loss: 0.04622447490692139
+  val_sparse_harmonic_shape_loss: 0.0
+test_metrics:
+  test_loss: 0.011121765710413456
+  test_mae: 0.003838984062895179
+  test_rmse: 0.004555455408990383
+  test_pointwise_loss: 0.011121765710413456
+  test_centered_curve_shape_loss: 0.003825061023235321
+  test_curve_offset_loss: 0.007862656377255917
+  test_curve_amplitude_loss: 0.05906112119555473
+  test_sparse_harmonic_shape_loss: 0.0
+comparison_payload:
+  model_family: harmonic_regression
+  model_type: harmonic_regression
+  run_name: te_harmonic_order12_linear_conditioned_recovery_global
+  backbone_name: HarmonicRegression
+  trainable_parameter_count: 125
+  total_parameter_count: 125
+  val_mae: 0.003903800854459405
+  val_rmse: 0.004480425734072924
+  test_mae: 0.003838984062895179
+  test_rmse: 0.004555455408990383
+  deployment_notes: ''
+  interpretability_notes: ''

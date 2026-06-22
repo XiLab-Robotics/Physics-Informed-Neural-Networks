@@ -6,9 +6,47 @@ selection_policy:
   second_tie_breaker: val_mae
   third_tie_breaker: trainable_parameter_count
   direction: minimize
-updated_at: '2026-05-20T10:32:21'
-entry_count: 6
+updated_at: '2026-06-22T13:26:44'
+entry_count: 7
 entry_list:
+- run_instance_id: 2026-06-22-13-15-18__te_harmonic_order12_linear_conditioned_recovery_global
+  run_name: te_harmonic_order12_linear_conditioned_recovery_global
+  output_run_name: te_harmonic_order12_linear_conditioned_recovery_global
+  output_artifact_kind: training_run
+  model_family: harmonic_regression
+  base_model_family: harmonic_regression
+  model_type: harmonic_regression
+  dataset_id: polished_dataset
+  dataset_schema: polished_point_v1
+  input_feature_names:
+  - theta
+  - theta_dot
+  - tau_load
+  - T
+  target_feature_names:
+  - theta_TE
+  input_feature_dim: 4
+  training_variant: global
+  direction_scope_label: bidirectional
+  use_forward_direction: true
+  use_backward_direction: true
+  trainable_parameter_count: 125
+  total_parameter_count: 125
+  val_mae: 0.003903800854459405
+  val_rmse: 0.004480425734072924
+  test_mae: 0.003838984062895179
+  test_rmse: 0.004555455408990383
+  output_directory: output\training_runs\harmonic_regression\2026-06-22-13-15-18__te_harmonic_order12_linear_conditioned_recovery_global
+  best_checkpoint_path: output\training_runs\harmonic_regression\2026-06-22-13-15-18__te_harmonic_order12_linear_conditioned_recovery_global\checkpoints\harmonic_regression-epoch=030-val_mae=0.00390380.ckpt
+  metrics_path: output\training_runs\harmonic_regression\2026-06-22-13-15-18__te_harmonic_order12_linear_conditioned_recovery_global/metrics_summary.yaml
+  report_path: output\training_runs\harmonic_regression\2026-06-22-13-15-18__te_harmonic_order12_linear_conditioned_recovery_global/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-06-22T13:26:44'
 - run_instance_id: 2026-05-20-10-11-06__te_harmonic_rcim_sparse_tracking_global
   run_name: te_harmonic_rcim_sparse_tracking_global
   output_run_name: te_harmonic_rcim_sparse_tracking_global

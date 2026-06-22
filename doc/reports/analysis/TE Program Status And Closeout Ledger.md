@@ -25,15 +25,15 @@ closeout that changes any of these surfaces:
 | --- | --- |
 | Program state | Active |
 | Active campaign | None |
-| Current scalar program winner | `te_periodic_gru_sequence_remote_Bw` |
+| Current scalar program winner | `te_periodic_gru_sequence_remote_global` |
 | Current accepted forward curve-verified leader | `rcim_retuned_GBM19_Fw` |
 | Current accepted backward curve-verified leader | `periodic_gru_sequence_Bw` |
 | Current accepted global neural curve-verified leader | `periodic_gru_sequence_global` |
-| Latest normal campaign closeout | `Wave 4.4` latent-state hysteresis campaign |
+| Latest normal campaign closeout | `polished_dataset` Stage 1 smoke campaign |
 | Latest official TE Curve Verification refresh | `Wave 4.4` latent-state hysteresis refresh, dated `2026-06-18` |
 | Latest curve-verification decision | verified exploratory baseline; not promoted |
 | Current TE Curve Verification Pipeline selection policy | multi-index curve-first selection, dated `2026-06-16` |
-| Next modeling decision | move to `Wave 5.2` / integrated multi-head planning with `Wave 4.4` retained as causal-history integration evidence |
+| Next modeling decision | prepare the next polished-dataset retraining stage before any optional curve-first verification refresh |
 
 The repository remains direction-parallel. `Fw`, `Bw`, and `global` are not a
 single destructive competition. Each surface keeps its own best candidate and
@@ -100,7 +100,7 @@ robustness, visual-evidence, and deployment-readiness axes visible.
 | `Fw` | `rcim_retuned_GBM19_Fw` | Official `TE Curve Verification Pipeline` MAE `0.001089 deg`, Mean `2.372%` | Strongest overall forward curve baseline remains paper-reference retuned. |
 | `Bw` | `periodic_gru_sequence_Bw` | Official `TE Curve Verification Pipeline` MAE `0.002392 deg`, Mean `5.466%` | Strongest accepted repository-owned backward candidate remains the periodic GRU sequence branch. |
 | `global` | `periodic_gru_sequence_global` | Official global forward MAE `0.002777 deg`; global backward MAE `0.002630 deg` | Strongest accepted bidirectional neural candidate remains periodic GRU sequence. |
-| scalar registry | `te_periodic_gru_sequence_remote_Bw` | Test MAE `0.002344 deg` | Scalar program winner is useful but does not replace TE Curve Verification Pipeline curve-first promotion. |
+| scalar registry | `te_periodic_gru_sequence_remote_global` | Test MAE `0.001279 deg` on `polished_dataset` Stage 1 | Scalar program winner is useful but does not replace TE Curve Verification Pipeline curve-first promotion. |
 
 ## Program Timeline
 
@@ -127,6 +127,7 @@ robustness, visual-evidence, and deployment-readiness axes visible.
 | Wave 4.4 latent-state hysteresis probes | closed | GRU and causal-TCN offset-residual probes completed across `global`, `Fw`, and `Bw`; official TE Curve Verification refresh added six candidates to the `165`-candidate matrix. | Verified exploratory baseline; not promoted over `rcim_retuned_GBM19_Fw`, `periodic_gru_sequence_Bw`, or the accepted global neural `periodic_gru_sequence_global`. |
 | Wave 5.1 harmonic-prior residual campaign | closed | First real lightweight harmonic-prior residual campaign completed six runs. | Normal campaign closeout accepted; scalar program winner unchanged. |
 | Wave 5.1 official TE Curve Verification refresh | closed | Six Wave 5.1 candidates added to the `159`-candidate official curve-verification matrix. | Verified exploratory baseline; not promoted. |
+| Polished-dataset Stage 1 smoke | closed | Eight representative non-paper-original model families trained successfully on `polished_dataset`; best scalar run `te_periodic_gru_sequence_remote_global`, test MAE `0.001279 deg`. | Normal campaign closeout accepted; scalar registry changed, but official curve-verified leaders unchanged pending separate TE Curve Verification Pipeline refresh. |
 | Wave 5.2 PINN / MMT track | open design branch | MMT diagnostic and parameter inventory exist; feature and soft-constraint gates remain open. | Not campaign-ready. |
 | Wave 6 integrated multi-task / multi-head model | deferred | Intended to combine proven offset, low-frequency, centered-shape, uncertainty, mixture, and structured residual mechanisms. | Deferred until Waves 4.1-4.4, Wave 5.1, and Wave 5.2 evidence identifies what should be integrated. |
 

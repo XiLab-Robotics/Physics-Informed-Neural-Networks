@@ -237,6 +237,14 @@ def build_tree_metrics_snapshot(
             "best_checkpoint_path": str(model_artifact_path),
         },
         "dataset_split": asdict(dataset_split_summary),
+        "dataset": {
+            "dataset_id": dataset_split_summary.dataset_name,
+            "dataset_schema": dataset_split_summary.dataset_schema,
+            "input_feature_names": list(dataset_split_summary.input_feature_name_list),
+            "target_feature_names": list(dataset_split_summary.target_feature_name_list),
+            "input_feature_dim": dataset_split_summary.input_feature_dim,
+            "target_feature_dim": dataset_split_summary.target_feature_dim,
+        },
         "model_summary": asdict(parameter_summary),
         "runtime_config": runtime_config,
         "normalization_statistics": {

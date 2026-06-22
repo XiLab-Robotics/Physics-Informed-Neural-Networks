@@ -1,0 +1,21 @@
+schema_version: 1
+artifact_kind: training_run
+model_family: periodic_gru_sequence
+base_model_family: periodic_gru_sequence
+training_variant: global
+direction_scope_label: bidirectional
+use_forward_direction: true
+use_backward_direction: true
+run_name: te_periodic_gru_sequence_remote_global
+run_instance_id: 2026-06-22-13-26-44__te_periodic_gru_sequence_remote_global
+output_directory: output\training_runs\periodic_gru_sequence\2026-06-22-13-26-44__te_periodic_gru_sequence_remote_global
+dataset_id: polished_dataset
+dataset_schema: polished_point_v1
+input_feature_names:
+- theta
+- theta_dot
+- tau_load
+- T
+target_feature_names:
+- theta_TE
+input_feature_dim: 4

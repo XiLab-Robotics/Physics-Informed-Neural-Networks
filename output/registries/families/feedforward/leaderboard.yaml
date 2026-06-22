@@ -6,9 +6,47 @@ selection_policy:
   second_tie_breaker: val_mae
   third_tie_breaker: trainable_parameter_count
   direction: minimize
-updated_at: '2026-05-13T13:25:56'
-entry_count: 3
+updated_at: '2026-06-22T13:13:25'
+entry_count: 4
 entry_list:
+- run_instance_id: 2026-06-22-13-09-57__te_feedforward_trial
+  run_name: te_feedforward_trial
+  output_run_name: te_feedforward_trial
+  output_artifact_kind: training_run
+  model_family: feedforward
+  base_model_family: feedforward
+  model_type: feedforward
+  dataset_id: polished_dataset
+  dataset_schema: polished_point_v1
+  input_feature_names:
+  - theta
+  - theta_dot
+  - tau_load
+  - T
+  target_feature_names:
+  - theta_TE
+  input_feature_dim: 4
+  training_variant: global
+  direction_scope_label: bidirectional
+  use_forward_direction: true
+  use_backward_direction: true
+  trainable_parameter_count: 26113
+  total_parameter_count: 26113
+  val_mae: 0.0027246347162872553
+  val_rmse: 0.00348073267377913
+  test_mae: 0.002877350663766265
+  test_rmse: 0.003835052251815796
+  output_directory: output\training_runs\feedforward\2026-06-22-13-09-57__te_feedforward_trial
+  best_checkpoint_path: output\training_runs\feedforward\2026-06-22-13-09-57__te_feedforward_trial\checkpoints\feedforward-epoch=002-val_mae=0.00272463.ckpt
+  metrics_path: output\training_runs\feedforward\2026-06-22-13-09-57__te_feedforward_trial/metrics_summary.yaml
+  report_path: output\training_runs\feedforward\2026-06-22-13-09-57__te_feedforward_trial/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-06-22T13:13:25'
 - run_instance_id: 2026-05-06-17-49-37__te_feedforward_stride1_high_compute_long_remote_global
   run_name: te_feedforward_stride1_high_compute_long_remote_global
   output_run_name: te_feedforward_stride1_high_compute_long_remote_global

@@ -284,6 +284,12 @@ This folder contains the internal project documents derived from the reference P
   against robust/probabilistic/MDN baselines, registry effects, and the
   boundary that official `TE Curve Verification Pipeline` curve verification remains separate.
 
+- [reports/campaign_results/cross_wave/polished_dataset/2026-06-22-16-59-14_polished_dataset_stage1_smoke_campaign_results_report.md](./reports/campaign_results/cross_wave/polished_dataset/2026-06-22-16-59-14_polished_dataset_stage1_smoke_campaign_results_report.md)
+  Final results report for the completed `polished_dataset` Stage 1 smoke
+  campaign, including the eight-run scalar leaderboard, registry effects,
+  dataset-schema acceptance, and the boundary that official
+  `TE Curve Verification Pipeline` curve verification remains separate.
+
 - [reports/campaign_plans/wave_3/2026-06-14-19-54-55_wave3_harmonic_prior_residual_campaign_plan_report.md](./reports/campaign_plans/wave_3/2026-06-14-19-54-55_wave3_harmonic_prior_residual_campaign_plan_report.md)
   Preliminary and prepared campaign plan for the first real `Wave 5.1`
   harmonic-prior residual package across `global`, `Fw`, and `Bw`.
@@ -459,6 +465,24 @@ This folder contains the internal project documents derived from the reference P
   Technical sum-up of the completed remote-strong `large-v3` plus `openai/gpt-oss-20b` video campaign across the 11 canonical TwinCAT/TestRig videos.
 
 ### Technical Documents
+
+#### 2026-06-22
+
+- [technical/2026-06/2026-06-22/2026-06-22-16-50-24_polished_stage1_smoke_closeout.md](./technical/2026-06/2026-06-22/2026-06-22-16-50-24_polished_stage1_smoke_closeout.md)
+  Technical plan for closing out the completed polished Stage 1 smoke
+  campaign, preserving failed/interrupted attempt history, producing the
+  Markdown/PDF campaign-results report, and keeping `TE Curve Verification
+  Pipeline` refresh as a separate follow-up.
+
+- [technical/2026-06/2026-06-22/2026-06-22-12-54-25_dataloader_worker_auto_sizing.md](./technical/2026-06/2026-06-22/2026-06-22-12-54-25_dataloader_worker_auto_sizing.md)
+  Technical plan for adding safe `auto` dataloader worker sizing, preserving
+  smoke-test determinism, and preventing polished Stage 1 from starting the
+  first feedforward run with `num_workers: 0`.
+
+- [technical/2026-06/2026-06-22/2026-06-22-12-26-09_polished_stage1_checkpoint_reload_fix.md](./technical/2026-06/2026-06-22/2026-06-22-12-26-09_polished_stage1_checkpoint_reload_fix.md)
+  Technical plan for repairing the polished Stage 1 `input_size: auto`
+  best-checkpoint reload failure, extending validation coverage, and
+  reconciling the protected campaign state after the failed local launch.
 
 #### 2026-06-21
 
@@ -3119,6 +3143,12 @@ This folder contains the internal project documents derived from the reference P
   Technical rule document for the new `doc/reports/` topic-root, dated-bundle, and readable-filename convention.
 
 #### Campaign Results
+
+- [reports/campaign_results/cross_wave/polished_dataset/2026-06-22-16-59-14_polished_dataset_stage1_smoke_campaign_results_report.md](./reports/campaign_results/cross_wave/polished_dataset/2026-06-22-16-59-14_polished_dataset_stage1_smoke_campaign_results_report.md)
+  Final results report for the completed `polished_dataset` Stage 1 smoke
+  campaign, including the eight-run scalar leaderboard, registry effects,
+  dataset-schema acceptance, and the boundary that official
+  `TE Curve Verification Pipeline` curve verification remains separate.
 
 - [reports/campaign_results/track_2/campaign_closeouts/2026-06-17-01-27-10_track2h_latent_state_hysteresis_campaign_results_report.md](./reports/campaign_results/track_2/campaign_closeouts/2026-06-17-01-27-10_track2h_latent_state_hysteresis_campaign_results_report.md)
   Final results report for the completed `Wave 4.4` latent-state /

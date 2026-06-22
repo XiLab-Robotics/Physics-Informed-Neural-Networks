@@ -1,0 +1,315 @@
+schema_version: 1
+campaign_name: polished_dataset_stage1_smoke_2026_06_21
+selection_policy:
+  primary_metric: test_mae
+  first_tie_breaker: test_rmse
+  second_tie_breaker: val_mae
+  third_tie_breaker: trainable_parameter_count
+  direction: minimize
+updated_at: '2026-06-22T16:00:39'
+entry_count: 8
+entry_list:
+- run_instance_id: 2026-06-22-13-26-44__te_periodic_gru_sequence_remote_global
+  run_name: te_periodic_gru_sequence_remote_global
+  output_run_name: te_periodic_gru_sequence_remote_global
+  output_artifact_kind: training_run
+  model_family: periodic_gru_sequence
+  base_model_family: periodic_gru_sequence
+  model_type: periodic_gru_sequence
+  dataset_id: polished_dataset
+  dataset_schema: polished_point_v1
+  input_feature_names:
+  - theta
+  - theta_dot
+  - tau_load
+  - T
+  target_feature_names:
+  - theta_TE
+  input_feature_dim: 4
+  training_variant: global
+  direction_scope_label: bidirectional
+  use_forward_direction: true
+  use_backward_direction: true
+  trainable_parameter_count: 157569
+  total_parameter_count: 157569
+  val_mae: 0.0012736358912661672
+  val_rmse: 0.0015717815840616822
+  test_mae: 0.0012794497888535261
+  test_rmse: 0.0016375193372368813
+  output_directory: output\training_runs\periodic_gru_sequence\2026-06-22-13-26-44__te_periodic_gru_sequence_remote_global
+  best_checkpoint_path: output\training_runs\periodic_gru_sequence\2026-06-22-13-26-44__te_periodic_gru_sequence_remote_global\checkpoints\periodic_gru_sequence-epoch=190-val_mae=0.00127364.ckpt
+  metrics_path: output\training_runs\periodic_gru_sequence\2026-06-22-13-26-44__te_periodic_gru_sequence_remote_global/metrics_summary.yaml
+  report_path: output\training_runs\periodic_gru_sequence\2026-06-22-13-26-44__te_periodic_gru_sequence_remote_global/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-06-22T16:58:47'
+- run_instance_id: 2026-06-22-13-13-25__te_hist_gbr_tabular_global
+  run_name: te_hist_gbr_tabular_global
+  output_run_name: te_hist_gbr_tabular_global
+  output_artifact_kind: training_run
+  model_family: tree
+  base_model_family: tree
+  model_type: hist_gradient_boosting
+  dataset_id: polished_dataset
+  dataset_schema: polished_point_v1
+  input_feature_names:
+  - theta
+  - theta_dot
+  - tau_load
+  - T
+  target_feature_names:
+  - theta_TE
+  input_feature_dim: 4
+  training_variant: global
+  direction_scope_label: bidirectional
+  use_forward_direction: true
+  use_backward_direction: true
+  trainable_parameter_count: 4
+  total_parameter_count: 4
+  val_mae: 0.0015906499780896767
+  val_rmse: 0.0024344262995191646
+  test_mae: 0.0017527915280608234
+  test_rmse: 0.002892015070556962
+  output_directory: output\training_runs\tree\2026-06-22-13-13-25__te_hist_gbr_tabular_global
+  best_checkpoint_path: output\training_runs\tree\2026-06-22-13-13-25__te_hist_gbr_tabular_global\tree_model.pkl
+  metrics_path: output\training_runs\tree\2026-06-22-13-13-25__te_hist_gbr_tabular_global/metrics_summary.yaml
+  report_path: output\training_runs\tree\2026-06-22-13-13-25__te_hist_gbr_tabular_global/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-06-22T16:58:47'
+- run_instance_id: 2026-06-22-14-31-08__te_track2g_curve_aware_full_curve_composite_global
+  run_name: te_track2g_curve_aware_full_curve_composite_global
+  output_run_name: te_track2g_curve_aware_full_curve_composite_global
+  output_artifact_kind: training_run
+  model_family: track2g_curve_aware_harmonic_residual_offset_full_curve_composite_global
+  base_model_family: track2g_curve_aware_harmonic_residual_offset_full_curve_composite_global
+  model_type: curve_aware_harmonic_residual_offset_probe
+  dataset_id: polished_dataset
+  dataset_schema: polished_point_v1
+  input_feature_names:
+  - theta
+  - theta_dot
+  - tau_load
+  - T
+  target_feature_names:
+  - theta_TE
+  input_feature_dim: 4
+  training_variant: global
+  direction_scope_label: bidirectional
+  use_forward_direction: true
+  use_backward_direction: true
+  trainable_parameter_count: 85440
+  total_parameter_count: 85440
+  val_mae: 0.0018718625651672482
+  val_rmse: 0.0023206209298223257
+  test_mae: 0.0020084797870367765
+  test_rmse: 0.002581112552434206
+  output_directory: output\training_runs\track2g_curve_aware_harmonic_residual_offset_full_curve_composite_global\2026-06-22-14-31-08__te_track2g_curve_aware_full_curve_composite_global
+  best_checkpoint_path: output\training_runs\track2g_curve_aware_harmonic_residual_offset_full_curve_composite_global\2026-06-22-14-31-08__te_track2g_curve_aware_full_curve_composite_global\checkpoints\curve_aware_harmonic_residual_offset_probe-epoch=136-val_mae=0.00187186.ckpt
+  metrics_path: output\training_runs\track2g_curve_aware_harmonic_residual_offset_full_curve_composite_global\2026-06-22-14-31-08__te_track2g_curve_aware_full_curve_composite_global/metrics_summary.yaml
+  report_path: output\training_runs\track2g_curve_aware_harmonic_residual_offset_full_curve_composite_global\2026-06-22-14-31-08__te_track2g_curve_aware_full_curve_composite_global/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-06-22T16:58:47'
+- run_instance_id: 2026-06-22-14-06-48__te_residual_harmonic_gru_sequence_remote_global_sparse_rcim
+  run_name: te_residual_harmonic_gru_sequence_remote_global_sparse_rcim
+  output_run_name: te_residual_harmonic_gru_sequence_remote_global_sparse_rcim
+  output_artifact_kind: training_run
+  model_family: residual_harmonic_gru_sequence_sparse_rcim
+  base_model_family: residual_harmonic_gru_sequence
+  model_type: residual_harmonic_gru_sequence
+  dataset_id: polished_dataset
+  dataset_schema: polished_point_v1
+  input_feature_names:
+  - theta
+  - theta_dot
+  - tau_load
+  - T
+  target_feature_names:
+  - theta_TE
+  input_feature_dim: 4
+  training_variant: global
+  direction_scope_label: bidirectional
+  use_forward_direction: true
+  use_backward_direction: true
+  trainable_parameter_count: 150676
+  total_parameter_count: 150676
+  val_mae: 0.001978031126782298
+  val_rmse: 0.002449712483212352
+  test_mae: 0.0021115876734256744
+  test_rmse: 0.002699445467442274
+  output_directory: output\training_runs\residual_harmonic_gru_sequence_sparse_rcim\2026-06-22-14-06-48__te_residual_harmonic_gru_sequence_remote_global_sparse_rcim
+  best_checkpoint_path: output\training_runs\residual_harmonic_gru_sequence_sparse_rcim\2026-06-22-14-06-48__te_residual_harmonic_gru_sequence_remote_global_sparse_rcim\checkpoints\residual_harmonic_gru_sequence-epoch=081-val_mae=0.00197803.ckpt
+  metrics_path: output\training_runs\residual_harmonic_gru_sequence_sparse_rcim\2026-06-22-14-06-48__te_residual_harmonic_gru_sequence_remote_global_sparse_rcim/metrics_summary.yaml
+  report_path: output\training_runs\residual_harmonic_gru_sequence_sparse_rcim\2026-06-22-14-06-48__te_residual_harmonic_gru_sequence_remote_global_sparse_rcim/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-06-22T16:58:47'
+- run_instance_id: 2026-06-22-15-16-05__te_wave3_harmonic_prior_residual_smooth_l1_structured_global
+  run_name: te_wave3_harmonic_prior_residual_smooth_l1_structured_global
+  output_run_name: te_wave3_harmonic_prior_residual_smooth_l1_structured_global
+  output_artifact_kind: training_run
+  model_family: wave3_harmonic_prior_residual_smooth_l1_structured_global
+  base_model_family: wave3_harmonic_prior_residual_smooth_l1_structured_global
+  model_type: wave3_harmonic_prior_residual
+  dataset_id: polished_dataset
+  dataset_schema: polished_point_v1
+  input_feature_names:
+  - theta
+  - theta_dot
+  - tau_load
+  - T
+  target_feature_names:
+  - theta_TE
+  input_feature_dim: 4
+  training_variant: global
+  direction_scope_label: bidirectional
+  use_forward_direction: true
+  use_backward_direction: true
+  trainable_parameter_count: 7168
+  total_parameter_count: 7168
+  val_mae: 0.0018894070526584983
+  val_rmse: 0.002319705206900835
+  test_mae: 0.0021681811194866896
+  test_rmse: 0.0027631993871182203
+  output_directory: output\training_runs\wave3_harmonic_prior_residual_smooth_l1_structured_global\2026-06-22-15-16-05__te_wave3_harmonic_prior_residual_smooth_l1_structured_global
+  best_checkpoint_path: output\training_runs\wave3_harmonic_prior_residual_smooth_l1_structured_global\2026-06-22-15-16-05__te_wave3_harmonic_prior_residual_smooth_l1_structured_global\checkpoints\wave3_harmonic_prior_residual-epoch=043-val_mae=0.00188941.ckpt
+  metrics_path: output\training_runs\wave3_harmonic_prior_residual_smooth_l1_structured_global\2026-06-22-15-16-05__te_wave3_harmonic_prior_residual_smooth_l1_structured_global/metrics_summary.yaml
+  report_path: output\training_runs\wave3_harmonic_prior_residual_smooth_l1_structured_global\2026-06-22-15-16-05__te_wave3_harmonic_prior_residual_smooth_l1_structured_global/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-06-22T16:58:47'
+- run_instance_id: 2026-06-22-15-37-37__te_track2h_l_gru_offset_residual_global
+  run_name: te_track2h_l_gru_offset_residual_global
+  output_run_name: te_track2h_l_gru_offset_residual_global
+  output_artifact_kind: training_run
+  model_family: track2h_latent_state_hysteresis_gru_offset_residual_global
+  base_model_family: track2h_latent_state_hysteresis_gru_offset_residual_global
+  model_type: latent_state_hysteresis_probe
+  dataset_id: polished_dataset
+  dataset_schema: polished_point_v1
+  input_feature_names:
+  - theta
+  - theta_dot
+  - tau_load
+  - T
+  target_feature_names:
+  - theta_TE
+  input_feature_dim: 4
+  training_variant: global
+  direction_scope_label: bidirectional
+  use_forward_direction: true
+  use_backward_direction: true
+  trainable_parameter_count: 124899
+  total_parameter_count: 124899
+  val_mae: 0.002232187893241644
+  val_rmse: 0.002761863637715578
+  test_mae: 0.0023389041889458895
+  test_rmse: 0.0029856895562261343
+  output_directory: output\training_runs\track2h_latent_state_hysteresis_gru_offset_residual_global\2026-06-22-15-37-37__te_track2h_l_gru_offset_residual_global
+  best_checkpoint_path: output\training_runs\track2h_latent_state_hysteresis_gru_offset_residual_global\2026-06-22-15-37-37__te_track2h_l_gru_offset_residual_global\checkpoints\latent_state_hysteresis_probe-epoch=101-val_mae=0.00223219.ckpt
+  metrics_path: output\training_runs\track2h_latent_state_hysteresis_gru_offset_residual_global\2026-06-22-15-37-37__te_track2h_l_gru_offset_residual_global/metrics_summary.yaml
+  report_path: output\training_runs\track2h_latent_state_hysteresis_gru_offset_residual_global\2026-06-22-15-37-37__te_track2h_l_gru_offset_residual_global/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-06-22T16:58:47'
+- run_instance_id: 2026-06-22-13-09-57__te_feedforward_trial
+  run_name: te_feedforward_trial
+  output_run_name: te_feedforward_trial
+  output_artifact_kind: training_run
+  model_family: feedforward
+  base_model_family: feedforward
+  model_type: feedforward
+  dataset_id: polished_dataset
+  dataset_schema: polished_point_v1
+  input_feature_names:
+  - theta
+  - theta_dot
+  - tau_load
+  - T
+  target_feature_names:
+  - theta_TE
+  input_feature_dim: 4
+  training_variant: global
+  direction_scope_label: bidirectional
+  use_forward_direction: true
+  use_backward_direction: true
+  trainable_parameter_count: 26113
+  total_parameter_count: 26113
+  val_mae: 0.0027246347162872553
+  val_rmse: 0.00348073267377913
+  test_mae: 0.002877350663766265
+  test_rmse: 0.003835052251815796
+  output_directory: output\training_runs\feedforward\2026-06-22-13-09-57__te_feedforward_trial
+  best_checkpoint_path: output\training_runs\feedforward\2026-06-22-13-09-57__te_feedforward_trial\checkpoints\feedforward-epoch=002-val_mae=0.00272463.ckpt
+  metrics_path: output\training_runs\feedforward\2026-06-22-13-09-57__te_feedforward_trial/metrics_summary.yaml
+  report_path: output\training_runs\feedforward\2026-06-22-13-09-57__te_feedforward_trial/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-06-22T16:58:47'
+- run_instance_id: 2026-06-22-13-15-18__te_harmonic_order12_linear_conditioned_recovery_global
+  run_name: te_harmonic_order12_linear_conditioned_recovery_global
+  output_run_name: te_harmonic_order12_linear_conditioned_recovery_global
+  output_artifact_kind: training_run
+  model_family: harmonic_regression
+  base_model_family: harmonic_regression
+  model_type: harmonic_regression
+  dataset_id: polished_dataset
+  dataset_schema: polished_point_v1
+  input_feature_names:
+  - theta
+  - theta_dot
+  - tau_load
+  - T
+  target_feature_names:
+  - theta_TE
+  input_feature_dim: 4
+  training_variant: global
+  direction_scope_label: bidirectional
+  use_forward_direction: true
+  use_backward_direction: true
+  trainable_parameter_count: 125
+  total_parameter_count: 125
+  val_mae: 0.003903800854459405
+  val_rmse: 0.004480425734072924
+  test_mae: 0.003838984062895179
+  test_rmse: 0.004555455408990383
+  output_directory: output\training_runs\harmonic_regression\2026-06-22-13-15-18__te_harmonic_order12_linear_conditioned_recovery_global
+  best_checkpoint_path: output\training_runs\harmonic_regression\2026-06-22-13-15-18__te_harmonic_order12_linear_conditioned_recovery_global\checkpoints\harmonic_regression-epoch=030-val_mae=0.00390380.ckpt
+  metrics_path: output\training_runs\harmonic_regression\2026-06-22-13-15-18__te_harmonic_order12_linear_conditioned_recovery_global/metrics_summary.yaml
+  report_path: output\training_runs\harmonic_regression\2026-06-22-13-15-18__te_harmonic_order12_linear_conditioned_recovery_global/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-06-22T16:58:47'

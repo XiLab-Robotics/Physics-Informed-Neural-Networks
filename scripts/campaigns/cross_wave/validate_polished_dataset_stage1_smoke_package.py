@@ -103,6 +103,13 @@ def validate_campaign_package(campaign_manifest_path: Path, run_one_batch: bool)
             )
             if model_type not in {"hist_gradient_boosting", "random_forest"}:
                 assert regression_backbone is not None
+                reloaded_backbone = shared_training_infrastructure.create_regression_backbone_from_training_config(
+                    training_config,
+                    datamodule.get_input_feature_dim(),
+                )
+                assert getattr(reloaded_backbone, "input_size", None) == 4, (
+                    f"Reload backbone input_size mismatch | {source_config_path_value}"
+                )
 
         print(f"[PASS] {source_config_path_value}")
 

@@ -11,8 +11,8 @@ dataset:
   curve_batch_size: 8
   point_stride: 200
   maximum_points_per_curve: 200
-  num_workers: 0
-  pin_memory: false
+  num_workers: auto
+  pin_memory: true
 
 model:
   input_size: 5
@@ -41,4 +41,4 @@ runtime:
   devices: auto
   precision: "32"
   benchmark: true
-  use_non_blocking_transfer: false
+  use_non_blocking_transfer: true

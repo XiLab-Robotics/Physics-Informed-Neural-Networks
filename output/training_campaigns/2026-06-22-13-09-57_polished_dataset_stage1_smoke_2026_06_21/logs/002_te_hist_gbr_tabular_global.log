@@ -1,0 +1,12 @@
+Command: C:\Users\Martina Salami\.conda\envs\pinns_env\python.exe C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\scripts\training\train_tree_regressor.py --config-path C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\config\training\queue\polished_dataset_stage1_smoke\running\2026-06-22-13-09-57_002_01_tree_global.yaml
+Working Directory: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks
+
+
+================================================================================================
+Campaign Progress 2/8 [###---------------------]
+================================================================================================
+[INFO] Campaign Name | wave1_directional_retraining_campaign_2026_05_06_16_07_16
+[INFO] Run Name | te_hist_gbr_tabular_global
+[INFO] Queue Config | C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\config\training\queue\polished_dataset_stage1_smoke\running\2026-06-22-13-09-57_002_01_tree_global.yaml
+[INFO] Source Config | C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\config\training\wave1_directional_retraining\campaigns\2026-05-06_wave1_directional_retraining_campaign\queue\01_tree_global.yaml
+[DONE] Tree regression training workflow completed | C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_runs\tree\2026-06-22-13-13-25__te_hist_gbr_tabular_global

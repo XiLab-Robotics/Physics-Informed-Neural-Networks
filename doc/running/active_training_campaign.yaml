@@ -1,66 +1,67 @@
-status: prepared
-campaign_name: polished_dataset_stage1_smoke_2026_06_21
-prepared_at: '2026-06-21T04:00:53+02:00'
-campaign_output_directory: output/training_campaigns/polished_dataset_stage1_smoke_2026_06_21
-planning_report_path: doc/reports/campaign_plans/cross_wave/polished_dataset/2026-06-21-03-26-07_polished_dataset_full_program_retraining_campaign_plan_report.md
-technical_document_path: doc/technical/2026-06/2026-06-21/2026-06-21-03-26-07_polished_dataset_default_and_program_retraining.md
-queue_config_path_list:
-  - config/training/feedforward/presets/trial.yaml
-  - config/training/wave1_directional_retraining/campaigns/2026-05-06_wave1_directional_retraining_campaign/queue/01_tree_global.yaml
-  - config/training/wave1_directional_retraining/campaigns/2026-05-06_wave1_directional_retraining_campaign/queue/13_harmonic_regression_global.yaml
-  - config/training/wave2b_harmonic_temporal_hybrid/campaigns/2026-05-25_wave2b_harmonic_temporal_hybrid_campaign/queue/04_periodic_gru_sequence_global.yaml
-  - config/training/wave2c_residual_harmonic_temporal_hybrid/campaigns/2026-05-27_wave2c_residual_harmonic_temporal_hybrid_campaign/queue/01_residual_harmonic_gru_sequence_sparse_rcim_global.yaml
-  - config/training/track2g_curve_aware_training/campaigns/2026-06-08_track2g_curve_aware_training_campaign/queue/10_full_curve_composite_global.yaml
-  - config/training/wave3_harmonic_prior_residual/campaigns/2026-06-14_wave3_harmonic_prior_residual_campaign/queue/04_smooth_l1_structured_global.yaml
-  - config/training/track2h_latent_state_hysteresis/campaigns/2026-06-16_track2h_latent_state_hysteresis_campaign/queue/01_gru_offset_residual_global.yaml
-protected_file_list:
-  - config/training/polished_dataset_retraining/campaigns/2026-06-21_polished_dataset_stage1_smoke/campaign.yaml
-  - config/training/feedforward/presets/trial.yaml
-  - config/training/wave1_directional_retraining/campaigns/2026-05-06_wave1_directional_retraining_campaign/queue/01_tree_global.yaml
-  - config/training/wave1_directional_retraining/campaigns/2026-05-06_wave1_directional_retraining_campaign/queue/13_harmonic_regression_global.yaml
-  - config/training/wave2b_harmonic_temporal_hybrid/campaigns/2026-05-25_wave2b_harmonic_temporal_hybrid_campaign/queue/04_periodic_gru_sequence_global.yaml
-  - config/training/wave2c_residual_harmonic_temporal_hybrid/campaigns/2026-05-27_wave2c_residual_harmonic_temporal_hybrid_campaign/queue/01_residual_harmonic_gru_sequence_sparse_rcim_global.yaml
-  - config/training/track2g_curve_aware_training/campaigns/2026-06-08_track2g_curve_aware_training_campaign/queue/10_full_curve_composite_global.yaml
-  - config/training/wave3_harmonic_prior_residual/campaigns/2026-06-14_wave3_harmonic_prior_residual_campaign/queue/04_smooth_l1_structured_global.yaml
-  - config/training/track2h_latent_state_hysteresis/campaigns/2026-06-16_track2h_latent_state_hysteresis_campaign/queue/01_gru_offset_residual_global.yaml
-  - scripts/campaigns/cross_wave/run_polished_dataset_stage1_smoke_campaign.ps1
-  - scripts/campaigns/cross_wave/validate_polished_dataset_stage1_smoke_package.py
-  - doc/scripts/campaigns/cross_wave/run_polished_dataset_stage1_smoke_campaign.md
-  - doc/running/active_training_campaign.yaml
-launch_command_list:
-  - .\scripts\campaigns\cross_wave\run_polished_dataset_stage1_smoke_campaign.ps1
-  - .\scripts\campaigns\cross_wave\run_polished_dataset_stage1_smoke_campaign.ps1 -Remote
-notes: Stage 1 is prepared and operator-controlled. No training has been executed.
+status: none
+campaign_name: null
+prepared_at: null
+campaign_output_directory: null
+planning_report_path: null
+technical_document_path: null
+queue_config_path_list: []
+protected_file_list: []
+launch_command_list: []
+notes: No active training campaign. The latest completed campaign is recorded
+  under last_completed_campaign. Official TE Curve Verification Pipeline refresh
+  remains a separate optional operator-approved workflow.
 last_completed_campaign:
-  campaign_name: track2h_latent_state_hysteresis_campaign_2026_06_16
-  prepared_at: '2026-06-16T16:58:30+02:00'
-  started_at: '2026-06-16T18:06:11+02:00'
-  completed_at: '2026-06-16T19:34:05+02:00'
-  closeout_at: '2026-06-17T01:27:10+02:00'
-  campaign_output_directory: output/training_campaigns/2026-06-16-18-06-11_track2h_latent_state_hysteresis_campaign_2026_06_16
-  planning_report_path: doc/reports/campaign_plans/track_2/2026-06-16-16-00-57_track2h_latent_state_hysteresis_campaign_plan_report.md
-  technical_document_path: doc/technical/2026-06/2026-06-16/2026-06-16-16-00-57_track2h_latent_state_hysteresis_package.md
-  closeout_technical_document_path: doc/technical/2026-06/2026-06-17/2026-06-17-01-27-10_track2h_latent_state_hysteresis_closeout.md
-  closeout_report_path: doc/reports/campaign_results/track_2/campaign_closeouts/2026-06-17-01-27-10_track2h_latent_state_hysteresis_campaign_results_report.md
-  completed_run_count: 6
+  campaign_name: polished_dataset_stage1_smoke_2026_06_21
+  prepared_at: '2026-06-21T04:00:53+02:00'
+  started_at: '2026-06-22T13:09:57+02:00'
+  completed_at: '2026-06-22T16:00:39+02:00'
+  closeout_at: '2026-06-22T16:59:14+02:00'
+  campaign_output_directory: output/training_campaigns/2026-06-22-13-09-57_polished_dataset_stage1_smoke_2026_06_21
+  planning_report_path: doc/reports/campaign_plans/cross_wave/polished_dataset/2026-06-21-03-26-07_polished_dataset_full_program_retraining_campaign_plan_report.md
+  technical_document_path: doc/technical/2026-06/2026-06-21/2026-06-21-03-26-07_polished_dataset_default_and_program_retraining.md
+  closeout_technical_document_path: doc/technical/2026-06/2026-06-22/2026-06-22-16-50-24_polished_stage1_smoke_closeout.md
+  closeout_report_path: doc/reports/campaign_results/cross_wave/polished_dataset/2026-06-22-16-59-14_polished_dataset_stage1_smoke_campaign_results_report.md
+  completed_run_count: 8
   failed_run_count: 0
-  best_scalar_run_name: te_track2h_l_causal_tcn_offset_residual_global
-  best_scalar_family: track2h_latent_state_hysteresis_causal_tcn_offset_residual_global
-  best_scalar_test_mae: 0.0033675525337457657
-  best_scalar_test_rmse: 0.0038603581488132477
-  program_winner_changed: false
-  current_program_winner: te_periodic_gru_sequence_remote_Bw
-  branch_best_list:
-  - surface: global
-    run_name: te_track2h_l_causal_tcn_offset_residual_global
-    profile: causal_tcn_offset_residual
-    test_mae: 0.0033675525337457657
-  - surface: Fw
-    run_name: te_track2h_l_causal_tcn_offset_residual_fw
-    profile: causal_tcn_offset_residual
-    test_mae: 0.003469612915068865
-  - surface: Bw
-    run_name: te_track2h_l_gru_offset_residual_bw
-    profile: gru_offset_residual
-    test_mae: 0.003545429790392518
-  notes: Normal closeout complete. Official TE Curve Verification Pipeline curve-first verification remains a separate optional operator-approved workflow.
+  dataset_id: polished_dataset
+  dataset_schema: polished_point_v1
+  input_feature_names:
+    - theta
+    - theta_dot
+    - tau_load
+    - T
+  target_feature_names:
+    - theta_TE
+  best_scalar_run_name: te_periodic_gru_sequence_remote_global
+  best_scalar_family: periodic_gru_sequence
+  best_scalar_test_mae: 0.0012794497888535261
+  best_scalar_test_rmse: 0.0016375193372368813
+  program_winner_changed: true
+  current_program_winner: te_periodic_gru_sequence_remote_global
+  previous_completed_campaign:
+    campaign_name: track2h_latent_state_hysteresis_campaign_2026_06_16
+    closeout_at: '2026-06-17T01:27:10+02:00'
+    closeout_report_path: doc/reports/campaign_results/track_2/campaign_closeouts/2026-06-17-01-27-10_track2h_latent_state_hysteresis_campaign_results_report.md
+    best_scalar_run_name: te_track2h_l_causal_tcn_offset_residual_global
+    best_scalar_test_mae: 0.0033675525337457657
+  failed_attempt_list:
+    - campaign_output_directory: output/training_campaigns/2026-06-22-11-55-01_polished_dataset_stage1_smoke_2026_06_21
+      started_at: '2026-06-22T11:55:01+02:00'
+      ended_at: '2026-06-22T12:04:16+02:00'
+      completed_run_count: 0
+      failed_run_count: 1
+      failed_run_name: te_feedforward_trial
+      failed_run_instance_id: 2026-06-22-11-55-01__te_feedforward_trial
+      error_message: "invalid literal for int() with base 10: 'auto'"
+      terminal_log_path: output/training_campaigns/2026-06-22-11-55-01_polished_dataset_stage1_smoke_2026_06_21/logs/001_te_feedforward_trial.log
+    - campaign_output_directory: output/training_campaigns/2026-06-22-12-46-43_polished_dataset_stage1_smoke_2026_06_21
+      started_at: '2026-06-22T12:46:43+02:00'
+      interrupted_at: '2026-06-22T12:52:51+02:00'
+      interrupted_run_name: te_feedforward_trial
+      interrupted_run_instance_id: 2026-06-22-12-46-43__te_feedforward_trial
+      reason: interrupted to relaunch with dataloader worker auto-sizing
+      terminal_log_path: output/training_campaigns/2026-06-22-12-46-43_polished_dataset_stage1_smoke_2026_06_21/logs/001_te_feedforward_trial.log
+  notes: Normal Stage 1 closeout complete. The scalar program registry changed
+    to the polished global periodic GRU smoke run. This does not replace the
+    direction-parallel curve-verified leaders until a separate official TE
+    Curve Verification Pipeline refresh is prepared, run, and accepted.
