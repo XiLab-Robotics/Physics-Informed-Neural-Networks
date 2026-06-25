@@ -1,8 +1,9 @@
-# Original-Dataset Exact RCIM Model Bank Validation Report
+# Polished-Dataset RCIM Model-Bank Reproduction Validation Report
 
 ## Overview
 
-This report covers the direction-specific exact-model-bank branch trained from the repository dataset under `data/simplified_dataset`.
+This report covers the direction-specific `RCIM Model-Bank Reproduction`
+branch trained from measured `polished_dataset` curves.
 
 - direction label: `forward`
 - dataset root: `data\polished_dataset`

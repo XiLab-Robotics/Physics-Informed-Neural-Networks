@@ -17,9 +17,14 @@ protected_file_list:
 - doc/running/active_training_campaign.yaml
 launch_command_list:
 - .\scripts\campaigns\cross_wave\run_polished_dataset_rcim_model_bank_reproduction_campaign.ps1
+- .\scripts\campaigns\cross_wave\run_polished_dataset_rcim_model_bank_reproduction_campaign.ps1 -Surface fw
+- .\scripts\campaigns\cross_wave\run_polished_dataset_rcim_model_bank_reproduction_campaign.ps1 -Surface bw
 - '.\scripts\campaigns\cross_wave\run_polished_dataset_rcim_model_bank_reproduction_campaign.ps1 -Remote'
+- '.\scripts\campaigns\cross_wave\run_polished_dataset_rcim_model_bank_reproduction_campaign.ps1 -Remote -Surface bw'
 notes: Prepared first polished retraining campaign. Run and close this RCIM Model-Bank
-  Reproduction campaign before launching the prepared full-wave campaign.
+  Reproduction campaign before launching the prepared full-wave campaign. After
+  the 2026-06-23 power-loss interruption, rerun the backward surface with
+  `-Surface bw` instead of relaunching the full two-surface campaign.
 next_prepared_campaign:
   campaign_name: polished_dataset_full_wave_retraining_2026_06_22
   planning_report_path: doc/reports/campaign_plans/cross_wave/polished_dataset/2026-06-22-22-55-55_polished_full_wave_retraining_campaign_plan_report.md

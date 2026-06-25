@@ -402,6 +402,12 @@ def build_original_dataset_validation_report_path(training_config: dict[str, Any
 
     experiment_identity = shared_training_infrastructure.resolve_experiment_identity(training_config)
     output_run_name = shared_training_infrastructure.resolve_output_run_name(training_config)
+    dataset_name = str(training_config.get("dataset", {}).get("name", "")).strip().lower()
+    report_suffix = (
+        "polished_dataset_rcim_model_bank_reproduction_report.md"
+        if dataset_name == "polished_dataset"
+        else "original_dataset_exact_model_bank_report.md"
+    )
     timestamp_string = datetime.now().strftime(ORIGINAL_DATASET_EXACT_MODEL_REPORT_TIMESTAMP_FORMAT)
     report_filename = shared_training_infrastructure.build_safe_validation_report_filename(
         report_root=(
@@ -414,7 +420,7 @@ def build_original_dataset_validation_report_path(training_config: dict[str, Any
         timestamp_string=timestamp_string,
         model_family=experiment_identity.model_family,
         output_run_name=output_run_name,
-        report_suffix="original_dataset_exact_model_bank_report.md",
+        report_suffix=report_suffix,
     )
     report_root = (
         shared_training_infrastructure.resolve_runtime_project_path()
@@ -448,6 +454,21 @@ def build_original_dataset_validation_report_markdown(validation_summary: dict[s
     winner_workflow_stage = family_search_summary_dictionary[
         winner_summary["winning_family"]
     ].get("workflow_stage")
+    dataset_root_text = str(dataset_dictionary["dataset_root"])
+    normalized_dataset_root_text = dataset_root_text.replace("\\", "/").lower()
+    if "polished_dataset" in normalized_dataset_root_text:
+        report_title = "# Polished-Dataset RCIM Model-Bank Reproduction Validation Report"
+        overview_text = (
+            "This report covers the direction-specific `RCIM Model-Bank "
+            "Reproduction` branch trained from measured `polished_dataset` "
+            "curves."
+        )
+    else:
+        report_title = "# Original-Dataset Exact RCIM Model Bank Validation Report"
+        overview_text = (
+            "This report covers the direction-specific exact-model-bank branch "
+            "trained from the configured repository dataset."
+        )
 
     family_row_list: list[str] = []
     for ranking_index, family_entry in enumerate(family_ranking, start=1):
@@ -478,11 +499,11 @@ def build_original_dataset_validation_report_markdown(validation_summary: dict[s
 
     return "\n".join(
         [
-            "# Original-Dataset Exact RCIM Model Bank Validation Report",
+            report_title,
             "",
             "## Overview",
             "",
-            "This report covers the direction-specific exact-model-bank branch trained from the repository dataset under `data/simplified_dataset`.",
+            overview_text,
             "",
             f"- direction label: `{dataset_dictionary['direction_label']}`",
             f"- dataset root: `{dataset_dictionary['dataset_root']}`",

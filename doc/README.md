@@ -466,6 +466,13 @@ This folder contains the internal project documents derived from the reference P
 
 ### Technical Documents
 
+#### 2026-06-25
+
+- [technical/2026-06/2026-06-25/2026-06-25-13-25-15_polished_rcim_surface_resume_and_report_wording.md](./technical/2026-06/2026-06-25/2026-06-25-13-25-15_polished_rcim_surface_resume_and_report_wording.md)
+  Technical plan for adding forward/backward-only resume support to the
+  polished `RCIM Model-Bank Reproduction` launcher and correcting
+  dataset-aware validation report wording.
+
 #### 2026-06-22
 
 - [technical/2026-06/2026-06-22/2026-06-22-22-55-55_polished_rcim_and_full_wave_retraining_campaigns.md](./technical/2026-06/2026-06-22/2026-06-22-22-55-55_polished_rcim_and_full_wave_retraining_campaigns.md)

@@ -408,6 +408,29 @@ def build_launcher_note(title: str, launcher_path: str, manifest_path: str) -> s
 
     """Build one launcher-note Markdown file."""
 
+    surface_section_lines: list[str] = []
+    if launcher_path == RCIM_LAUNCHER_PATH:
+        surface_section_lines = [
+            "## Local Surface Launch",
+            "",
+            "Use `-Surface fw` or `-Surface bw` to run only one measured direction.",
+            "",
+            "```powershell",
+            f"{build_windows_launcher_command(launcher_path)} -Surface fw",
+            "```",
+            "",
+            "```powershell",
+            f"{build_windows_launcher_command(launcher_path)} -Surface bw",
+            "```",
+            "",
+            "## Remote Surface Launch",
+            "",
+            "```powershell",
+            f"{build_windows_launcher_command(launcher_path)} -Remote -Surface bw",
+            "```",
+            "",
+        ]
+
     return "\n".join(
         [
             f"# {title}",
@@ -428,6 +451,7 @@ def build_launcher_note(title: str, launcher_path: str, manifest_path: str) -> s
             build_windows_launcher_command(launcher_path),
             "```",
             "",
+            *surface_section_lines,
             "## Remote Launch",
             "",
             "```powershell",
@@ -449,6 +473,8 @@ def build_rcim_launcher() -> str:
     return f"""param(
     [switch]$Remote,
     [switch]$PreflightOnly,
+    [ValidateSet("all", "fw", "bw")]
+    [string]$Surface = "all",
     [string]$PythonExecutable = "",
     [string]$CondaEnvironmentName = "pinns_env",
     [string]$RemoteHostAlias = "xilab-remote",
@@ -474,30 +500,62 @@ $RunNameList = @(
     "rcim_model_bank_reproduction_polished_dataset_fw",
     "rcim_model_bank_reproduction_polished_dataset_bw"
 )
+$SurfaceList = @(
+    "fw",
+    "bw"
+)
 $script:LastPythonExitCode = 0
 
 function Invoke-PolishedPython {{
-    param([string[]]$ArgumentList)
+    param(
+        [string[]]$ArgumentList,
+        [string]$LogPath = ""
+    )
 
     if (-not [string]::IsNullOrWhiteSpace($PythonExecutable)) {{
-        & $PythonExecutable @ArgumentList
+        if ([string]::IsNullOrWhiteSpace($LogPath)) {{
+            & $PythonExecutable @ArgumentList
+        }} else {{
+            & $PythonExecutable @ArgumentList 2>&1 | Tee-Object -FilePath $LogPath
+        }}
         $script:LastPythonExitCode = $LASTEXITCODE
         return
     }}
 
     if ($env:CONDA_DEFAULT_ENV -eq $CondaEnvironmentName) {{
-        & python @ArgumentList
+        if ([string]::IsNullOrWhiteSpace($LogPath)) {{
+            & python @ArgumentList
+        }} else {{
+            & python @ArgumentList 2>&1 | Tee-Object -FilePath $LogPath
+        }}
         $script:LastPythonExitCode = $LASTEXITCODE
         return
     }}
 
     $condaExecutablePath = (Get-Command conda -ErrorAction Stop).Source
-    & $condaExecutablePath run --no-capture-output -n $CondaEnvironmentName python @ArgumentList
+    if ([string]::IsNullOrWhiteSpace($LogPath)) {{
+        & $condaExecutablePath run --no-capture-output -n $CondaEnvironmentName python @ArgumentList
+    }} else {{
+        & $condaExecutablePath run --no-capture-output -n $CondaEnvironmentName python @ArgumentList 2>&1 | Tee-Object -FilePath $LogPath
+    }}
     $script:LastPythonExitCode = $LASTEXITCODE
+}}
+
+function Resolve-SelectedSurfaceIndexes {{
+    if ($Surface -eq "all") {{
+        return @(0..($SurfaceList.Count - 1))
+    }}
+
+    $SelectedIndex = [Array]::IndexOf($SurfaceList, $Surface)
+    if ($SelectedIndex -lt 0) {{
+        throw "Unsupported surface selector | $Surface"
+    }}
+    return @($SelectedIndex)
 }}
 
 Write-Host "[INFO] Campaign: $CampaignName"
 Write-Host "[INFO] Dataset: polished_dataset"
+Write-Host "[INFO] Surface: $Surface"
 
 Invoke-PolishedPython -ArgumentList @(
     "-B",
@@ -512,14 +570,22 @@ if ($PreflightOnly) {{
     exit 0
 }}
 
+$SelectedSurfaceIndexList = Resolve-SelectedSurfaceIndexes
+$SelectedConfigPathList = foreach ($ConfigIndex in $SelectedSurfaceIndexList) {{
+    $ConfigPathList[$ConfigIndex]
+}}
+$SelectedRunNameList = foreach ($ConfigIndex in $SelectedSurfaceIndexList) {{
+    $RunNameList[$ConfigIndex]
+}}
+
 if ($Remote) {{
     & ".\\scripts\\campaigns\\track_1\\exact_paper\\run_exact_paper_campaign_remote.ps1" `
         -CampaignName $CampaignName `
         -PlanningReportPath $PlanningReportPath `
         -LauncherRelativePath "{RCIM_LAUNCHER_PATH}" `
         -CampaignOutputRootOverride $CampaignOutputDirectory `
-        -CampaignConfigPathList @($ConfigPathList) `
-        -RunNameList @($RunNameList) `
+        -CampaignConfigPathList @($SelectedConfigPathList) `
+        -RunNameList @($SelectedRunNameList) `
         -ValidationOutputRoot "output\\validation_checks\\rcim_model_bank_reproduction_polished_dataset" `
         -ValidationReportRoot "doc\\reports\\analysis\\validation_checks\\rcim_model_bank_reproduction_polished_dataset" `
         -RemoteHostAlias $RemoteHostAlias `
@@ -531,11 +597,12 @@ if ($Remote) {{
 $LogRoot = Join-Path $ProjectRoot (Join-Path $CampaignOutputDirectory "logs")
 New-Item -ItemType Directory -Force -Path $LogRoot | Out-Null
 
-for ($ConfigIndex = 0; $ConfigIndex -lt $ConfigPathList.Count; $ConfigIndex++) {{
+foreach ($ConfigIndex in $SelectedSurfaceIndexList) {{
     $ConfigPath = $ConfigPathList[$ConfigIndex]
     $ConfigStem = [System.IO.Path]::GetFileNameWithoutExtension($ConfigPath)
     $LogPath = Join-Path $LogRoot ($ConfigStem + ".log")
-    Write-Host ("[INFO] RCIM polished run {{0}}/{{1}} | {{2}}" -f ($ConfigIndex + 1), $ConfigPathList.Count, $ConfigPath)
+    Write-Host ("[INFO] RCIM polished run {{0}}/{{1}} | surface={{2}} | {{3}}" -f ($ConfigIndex + 1), $ConfigPathList.Count, $SurfaceList[$ConfigIndex], $ConfigPath)
+    Write-Host ("[INFO] Run log | {{0}}" -f $LogPath)
     Invoke-PolishedPython -ArgumentList @(
         "-B",
         $RunnerPath,
@@ -543,7 +610,7 @@ for ($ConfigIndex = 0; $ConfigIndex -lt $ConfigPathList.Count; $ConfigIndex++) {
         $ConfigPath,
         "--output-suffix",
         "polished_dataset_campaign_validation"
-    )
+    ) -LogPath $LogPath
     if ($script:LastPythonExitCode -ne 0) {{ exit $script:LastPythonExitCode }}
 }}
 
