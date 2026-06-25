@@ -1,4 +1,4 @@
-"""Support utilities for the original-dataset exact RCIM model-bank branch."""
+"""Support utilities for the dataset-aware exact RCIM model-bank branch."""
 
 from __future__ import annotations
 
@@ -27,7 +27,7 @@ ORIGINAL_DATASET_DIRECTION_PREFIX_MAP = {
 @dataclass
 class OriginalDatasetExactModelBankBundle:
 
-    """Prepared original-dataset bundle for one directional exact-model run."""
+    """Prepared dataset bundle for one directional exact-model run."""
 
     exact_dataset_bundle: exact_paper_model_bank_support.ExactPaperDatasetBundle
     validation_feature_matrix: pd.DataFrame
@@ -45,7 +45,7 @@ class OriginalDatasetExactModelBankBundle:
 
 def load_original_dataset_exact_model_bank_config(config_path: str | Path) -> dict[str, Any]:
 
-    """Load one original-dataset exact-model-bank configuration."""
+    """Load one RCIM exact-model-bank configuration."""
 
     return shared_training_infrastructure.load_training_config(config_path)
 
@@ -56,7 +56,7 @@ def resolve_original_dataset_direction_settings(training_config: dict[str, Any])
 
     direction_label = str(training_config["data"]["direction_label"]).strip().lower()
     assert direction_label in ORIGINAL_DATASET_DIRECTION_PREFIX_MAP, (
-        "Unsupported original-dataset exact direction label | "
+        "Unsupported RCIM exact-model-bank direction label | "
         f"{direction_label}"
     )
     return direction_label, ORIGINAL_DATASET_DIRECTION_PREFIX_MAP[direction_label]
@@ -64,7 +64,7 @@ def resolve_original_dataset_direction_settings(training_config: dict[str, Any])
 
 def resolve_original_dataset_smoke_settings(training_config: dict[str, Any] | None) -> dict[str, Any]:
 
-    """Resolve optional smoke-validation limits for the original-dataset branch."""
+    """Resolve optional smoke-validation limits for the exact-model-bank branch."""
 
     smoke_configuration = dict((training_config or {}).get("smoke", {}))
     smoke_enabled = bool(smoke_configuration.get("enabled", False))
@@ -146,7 +146,7 @@ def build_original_dataset_exact_model_bank_bundle(
     training_config: dict[str, Any],
 ) -> OriginalDatasetExactModelBankBundle:
 
-    """Build the original-dataset exact-model-bank split bundle."""
+    """Build the exact-model-bank split bundle for the configured dataset."""
 
     # Resolve Dataset And Direction
     dataset_config_path = shared_training_infrastructure.resolve_project_relative_path(
@@ -157,12 +157,27 @@ def build_original_dataset_exact_model_bank_bundle(
         dataset_configuration["paths"]["dataset_root"]
     )
     direction_label, direction_prefix = resolve_original_dataset_direction_settings(training_config)
+    exact_paper_model_bank_support.emit_exact_paper_progress_log(
+        "INFO",
+        "RCIM exact-model-bank dataset resolved | "
+        f"dataset={training_config.get('dataset', {}).get('name', dataset_configuration.get('dataset', {}).get('name', 'unspecified'))} "
+        f"dataset_root={shared_training_infrastructure.format_project_relative_path(dataset_root)} "
+        f"dataset_config={shared_training_infrastructure.format_project_relative_path(dataset_config_path)} "
+        f"direction={direction_label}",
+    )
 
     # Build A Single-Direction Manifest And File-Level Split
     directional_file_manifest = transmission_error_dataset.build_directional_file_manifest(
         dataset_root=dataset_root,
         use_forward_direction=(direction_label == transmission_error_dataset.FORWARD_DIRECTION),
         use_backward_direction=(direction_label == transmission_error_dataset.BACKWARD_DIRECTION),
+    )
+    exact_paper_model_bank_support.emit_exact_paper_progress_log(
+        "INFO",
+        "RCIM exact-model-bank directional manifest built | "
+        f"direction={direction_label} "
+        f"rows={len(directional_file_manifest)} "
+        f"unique_files={len({csv_file_path for csv_file_path, _ in directional_file_manifest})}",
     )
     validation_split = float(training_config["training"]["validation_split"])
     test_size = float(training_config["training"]["test_size"])
@@ -174,6 +189,14 @@ def build_original_dataset_exact_model_bank_bundle(
             test_split=test_size,
             random_seed=random_seed,
         )
+    )
+    exact_paper_model_bank_support.emit_exact_paper_progress_log(
+        "INFO",
+        "RCIM exact-model-bank split complete | "
+        f"train_rows={len(train_manifest)} "
+        f"validation_rows={len(validation_manifest)} "
+        f"test_rows={len(test_manifest)} "
+        f"random_seed={random_seed}",
     )
     smoke_settings = resolve_original_dataset_smoke_settings(training_config)
     if smoke_settings["enabled"]:
@@ -198,15 +221,30 @@ def build_original_dataset_exact_model_bank_bundle(
         selected_harmonic_list,
         decomposition_point_stride,
     )
+    exact_paper_model_bank_support.emit_exact_paper_progress_log(
+        "INFO",
+        "RCIM exact-model-bank train curve records built | "
+        f"records={len(train_record_list)}",
+    )
     validation_record_list = harmonic_wise_support.build_curve_record_list(
         validation_manifest,
         selected_harmonic_list,
         decomposition_point_stride,
     )
+    exact_paper_model_bank_support.emit_exact_paper_progress_log(
+        "INFO",
+        "RCIM exact-model-bank validation curve records built | "
+        f"records={len(validation_record_list)}",
+    )
     test_record_list = harmonic_wise_support.build_curve_record_list(
         test_manifest,
         selected_harmonic_list,
         decomposition_point_stride,
+    )
+    exact_paper_model_bank_support.emit_exact_paper_progress_log(
+        "INFO",
+        "RCIM exact-model-bank test curve records built | "
+        f"records={len(test_record_list)}",
     )
 
     # Build Paper-Compatible Directional Dataframes
@@ -230,12 +268,20 @@ def build_original_dataset_exact_model_bank_bundle(
         axis=0,
         ignore_index=True,
     )
+    exact_paper_model_bank_support.emit_exact_paper_progress_log(
+        "INFO",
+        "RCIM exact-model-bank directional dataframes built | "
+        f"train_rows={len(train_dataframe)} "
+        f"validation_rows={len(validation_dataframe)} "
+        f"test_rows={len(test_dataframe)} "
+        f"total_rows={len(full_dataframe)}",
+    )
 
     # Resolve Exact-Paper Feature And Target Surface
     feature_name_list = exact_paper_model_bank_support.resolve_paper_input_feature_name_list(training_config)
     full_target_name_list = _build_directional_target_name_list(direction_prefix, selected_harmonic_list)
     assert set(full_target_name_list).issubset(set(full_dataframe.columns.tolist())), (
-        "Original-dataset exact dataframe is missing required harmonic targets"
+        "RCIM exact-model-bank dataframe is missing required harmonic targets"
     )
     target_name_list = exact_paper_model_bank_support.resolve_target_name_list(
         full_dataframe,
@@ -289,10 +335,17 @@ def build_original_dataset_validation_summary(
     model_bundle_path: Path,
 ) -> dict[str, Any]:
 
-    """Build the canonical validation summary for the original-dataset branch."""
+    """Build the canonical validation summary for the configured dataset branch."""
 
     experiment_identity = shared_training_infrastructure.resolve_experiment_identity(training_config)
     run_artifact_identity = shared_training_infrastructure.resolve_run_artifact_identity(training_config)
+    dataset_name = str(training_config.get("dataset", {}).get("name", "")).strip().lower()
+    if dataset_name == "polished_dataset":
+        workflow_name = "polished_dataset_rcim_model_bank_reproduction_validation"
+        reference_scope = "polished_dataset_directional_rcim_model_bank_reproduction"
+    else:
+        workflow_name = "rcim_original_dataset_exact_model_bank_validation"
+        reference_scope = "original_dataset_directional_exact_model_bank"
     winner_family_summary = family_summary_list[0]
     target_winner_list: list[dict[str, Any]] = []
     for target_name in original_dataset_bundle.exact_dataset_bundle.target_name_list:
@@ -315,8 +368,8 @@ def build_original_dataset_validation_summary(
 
     return {
         "schema_version": 1,
-        "workflow_name": "rcim_original_dataset_exact_model_bank_validation",
-        "reference_scope": "original_dataset_directional_exact_model_bank",
+        "workflow_name": workflow_name,
+        "reference_scope": reference_scope,
         "config_path": shared_training_infrastructure.format_project_relative_path(resolved_config_path),
         "experiment": {
             "model_family": experiment_identity.model_family,
@@ -398,7 +451,7 @@ def build_original_dataset_validation_summary(
 
 def build_original_dataset_validation_report_path(training_config: dict[str, Any]) -> Path:
 
-    """Build the Markdown report path for the original-dataset branch."""
+    """Build the Markdown report path for the configured dataset branch."""
 
     experiment_identity = shared_training_infrastructure.resolve_experiment_identity(training_config)
     output_run_name = shared_training_infrastructure.resolve_output_run_name(training_config)
@@ -436,7 +489,7 @@ def build_original_dataset_validation_report_path(training_config: dict[str, Any
 
 def build_original_dataset_validation_report_markdown(validation_summary: dict[str, Any]) -> str:
 
-    """Build the human-readable Markdown report for the original-dataset branch."""
+    """Build the human-readable Markdown report for the configured dataset branch."""
 
     experiment_dictionary = validation_summary["experiment"]
     dataset_dictionary = validation_summary["dataset"]

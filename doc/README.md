@@ -468,6 +468,11 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-06-25
 
+- [technical/2026-06/2026-06-25/2026-06-25-15-14-22_polished_rcim_runtime_log_wording.md](./technical/2026-06/2026-06-25/2026-06-25-15-14-22_polished_rcim_runtime_log_wording.md)
+  Technical plan for replacing legacy `original-dataset exact` runtime log
+  wording in the reused RCIM model-bank runner with dataset-aware polished
+  campaign progress messages and explicit dataset-root diagnostics.
+
 - [technical/2026-06/2026-06-25/2026-06-25-13-25-15_polished_rcim_surface_resume_and_report_wording.md](./technical/2026-06/2026-06-25/2026-06-25-13-25-15_polished_rcim_surface_resume_and_report_wording.md)
   Technical plan for adding forward/backward-only resume support to the
   polished `RCIM Model-Bank Reproduction` launcher and correcting

@@ -1,10 +1,11 @@
-"""Run the original-dataset exact RCIM model-bank validation workflow."""
+"""Run the RCIM model-bank validation workflow."""
 
 from __future__ import annotations
 
 # Import Python Utilities
 import argparse
 import sys
+import traceback
 from pathlib import Path
 
 # Define Project Path
@@ -28,6 +29,18 @@ DEFAULT_CONFIG_PATH = (
     / "original_dataset_exact_model_bank"
     / "baseline_forward.yaml"
 )
+
+
+def resolve_runtime_workflow_label(training_config: dict[str, object] | None = None) -> str:
+
+    """Resolve a dataset-aware label for operator-facing progress logs."""
+
+    dataset_name = ""
+    if training_config is not None:
+        dataset_name = str(training_config.get("dataset", {}).get("name", "")).strip().lower()
+    if dataset_name == "polished_dataset":
+        return "Polished-dataset RCIM Model-Bank Reproduction"
+    return "Original-dataset exact RCIM Model Bank"
 
 
 def resolve_stage_execution_flags(
@@ -60,7 +73,7 @@ def resolve_best_parameter_summary_payload(
     best_parameter_registry_path: Path | None,
 ) -> tuple[dict[str, object], str]:
 
-    """Resolve the summary payload used for original-dataset exact `LoadBest` runs."""
+    """Resolve the summary payload used for exact RCIM model-bank `LoadBest` runs."""
 
     normalized_stage = exact_paper_model_bank_support.resolve_exact_paper_workflow_stage(workflow_stage)
     if normalized_stage == "search":
@@ -107,20 +120,22 @@ def run_original_dataset_exact_model_bank_validation(
     historical_cross_validate_verbose_override: int | None = None,
 ) -> tuple[Path | None, Path | None]:
 
-    """Run the direction-specific original-dataset exact-model workflow."""
+    """Run the direction-specific RCIM model-bank validation workflow."""
 
     # Load And Prepare Configuration
     normalized_stage = exact_paper_model_bank_support.resolve_exact_paper_workflow_stage(workflow_stage)
-    exact_paper_model_bank_support.emit_exact_paper_progress_log(
-        "INFO",
-        "Loading original-dataset exact config | "
-        f"config={config_path} "
-        f"stage={normalized_stage}",
-    )
     training_config = shared_training_infrastructure.prepare_output_artifact_training_config(
         original_dataset_exact_model_bank_support.load_original_dataset_exact_model_bank_config(config_path),
         artifact_kind=shared_training_infrastructure.VALIDATION_OUTPUT_ARTIFACT_KIND,
         run_name_suffix=output_suffix,
+    )
+    workflow_label = resolve_runtime_workflow_label(training_config)
+    exact_paper_model_bank_support.emit_exact_paper_progress_log(
+        "INFO",
+        f"Loading {workflow_label} config | "
+        f"config={config_path} "
+        f"stage={normalized_stage} "
+        f"dataset={training_config.get('dataset', {}).get('name', 'unspecified')}",
     )
     training_config.setdefault("training", {})
     training_config["training"].setdefault("hyperparameter_search", {})
@@ -140,7 +155,7 @@ def run_original_dataset_exact_model_bank_validation(
     )
     exact_paper_model_bank_support.emit_exact_paper_progress_log(
         "INFO",
-        "Original-dataset exact stage execution plan | "
+        f"{workflow_label} stage execution plan | "
         f"stage={normalized_stage} "
         f"run_evaluation={should_run_evaluation} "
         f"run_export={should_run_export}",
@@ -151,7 +166,7 @@ def run_original_dataset_exact_model_bank_validation(
     # Build The Direction-Specific Dataset Bundle
     exact_paper_model_bank_support.emit_exact_paper_progress_log(
         "INFO",
-        "Building original-dataset exact bundle",
+        f"Building {workflow_label} bundle",
     )
     original_dataset_bundle = (
         original_dataset_exact_model_bank_support.build_original_dataset_exact_model_bank_bundle(
@@ -164,15 +179,21 @@ def run_original_dataset_exact_model_bank_validation(
     search_settings = exact_paper_model_bank_support.resolve_exact_paper_hyperparameter_search_settings(training_config)
     exact_paper_model_bank_support.emit_exact_paper_progress_log(
         "INFO",
-        "Original-dataset exact bundle ready | "
+        f"{workflow_label} bundle ready | "
+        f"dataset_root={shared_training_infrastructure.format_project_relative_path(original_dataset_bundle.dataset_root)} "
+        f"dataset_config={shared_training_infrastructure.format_project_relative_path(original_dataset_bundle.dataset_config_path)} "
         f"direction={direction_label} "
-        f"rows={len(exact_dataset_bundle.full_dataframe)} "
+        f"train_rows={original_dataset_bundle.split_row_count_dictionary['train']} "
+        f"validation_rows={original_dataset_bundle.split_row_count_dictionary['validation']} "
+        f"test_rows={original_dataset_bundle.split_row_count_dictionary['test']} "
+        f"total_rows={len(exact_dataset_bundle.full_dataframe)} "
+        f"features={','.join(exact_dataset_bundle.feature_name_list)} "
         f"targets={len(exact_dataset_bundle.target_name_list)} "
         f"families={len(enabled_family_list)}",
     )
     exact_paper_model_bank_support.emit_exact_paper_progress_log(
         "INFO",
-        "Original-dataset exact search settings | "
+        f"{workflow_label} search settings | "
         f"mode={search_settings['mode']} "
         f"grid_search_n_jobs={search_settings['grid_search_n_jobs']} "
         f"grid_search_verbose={search_settings['grid_search_verbose']} "
@@ -199,7 +220,7 @@ def run_original_dataset_exact_model_bank_validation(
         )
         exact_paper_model_bank_support.emit_exact_paper_progress_log(
             "INFO",
-            "Original-dataset exact stored best-parameter source resolved | "
+            f"{workflow_label} stored best-parameter source resolved | "
             f"stage={normalized_stage} "
             f"source={best_parameter_source_name} "
             f"families={','.join(enabled_family_list)}",
@@ -221,7 +242,7 @@ def run_original_dataset_exact_model_bank_validation(
     )
     exact_paper_model_bank_support.emit_exact_paper_progress_log(
         "DONE",
-        "Original-dataset exact model bundle written | "
+        f"{workflow_label} model bundle written | "
         f"{shared_training_infrastructure.format_project_relative_path(model_bundle_path)}",
     )
 
@@ -238,7 +259,7 @@ def run_original_dataset_exact_model_bank_validation(
     else:
         exact_paper_model_bank_support.emit_exact_paper_progress_log(
             "INFO",
-            "Original-dataset exact evaluation stage skipped by operator stage selection",
+            f"{workflow_label} evaluation stage skipped by operator stage selection",
         )
 
     # Persist Search-Time Best Parameters When Available
@@ -266,7 +287,7 @@ def run_original_dataset_exact_model_bank_validation(
         exact_paper_model_bank_support.update_exact_paper_best_parameter_registry(best_parameter_summary)
         exact_paper_model_bank_support.emit_exact_paper_progress_log(
             "DONE",
-            "Original-dataset exact best-parameter summary written | "
+            f"{workflow_label} best-parameter summary written | "
             f"{shared_training_infrastructure.format_project_relative_path(best_parameter_summary_path_written)}",
         )
 
@@ -286,7 +307,7 @@ def run_original_dataset_exact_model_bank_validation(
         )
         exact_paper_model_bank_support.emit_exact_paper_progress_log(
             "INFO",
-            "Original-dataset exact Python+ONNX export complete | "
+            f"{workflow_label} Python+ONNX export complete | "
             f"python_exported={onnx_export_summary['python_exported_file_count']} "
             f"onnx_exported={onnx_export_summary['onnx_exported_file_count']} "
             f"onnx_failed={failed_export_count}",
@@ -310,7 +331,7 @@ def run_original_dataset_exact_model_bank_validation(
         }
         exact_paper_model_bank_support.emit_exact_paper_progress_log(
             "INFO",
-            "Original-dataset exact export stage skipped by operator stage selection",
+            f"{workflow_label} export stage skipped by operator stage selection",
         )
 
     # Persist Validation Summary And Markdown Report
@@ -350,30 +371,30 @@ def run_original_dataset_exact_model_bank_validation(
         )
         exact_paper_model_bank_support.emit_exact_paper_progress_log(
             "DONE",
-            "Original-dataset exact validation complete | "
+            f"{workflow_label} validation complete | "
             f"summary={shared_training_infrastructure.format_project_relative_path(validation_summary_path)} "
             f"report={shared_training_infrastructure.format_project_relative_path(validation_report_path)}",
         )
     else:
         exact_paper_model_bank_support.emit_exact_paper_progress_log(
             "INFO",
-            "Original-dataset exact validation summary and Markdown report skipped because evaluation was not requested",
+            f"{workflow_label} validation summary and Markdown report skipped because evaluation was not requested",
         )
     return validation_summary_path, validation_report_path
 
 
 def parse_command_line_arguments() -> argparse.Namespace:
 
-    """Parse command-line arguments for the original-dataset exact workflow."""
+    """Parse command-line arguments for the RCIM model-bank workflow."""
 
     argument_parser = argparse.ArgumentParser(
-        description="Run the original-dataset exact RCIM model-bank validation workflow."
+        description="Run the dataset-aware RCIM Model-Bank Reproduction validation workflow."
     )
     argument_parser.add_argument(
         "--config-path",
         type=Path,
         default=DEFAULT_CONFIG_PATH,
-        help="Path to the original-dataset exact-model-bank YAML configuration file.",
+        help="Path to the RCIM model-bank YAML configuration file.",
     )
     argument_parser.add_argument(
         "--output-suffix",
@@ -427,31 +448,39 @@ def parse_command_line_arguments() -> argparse.Namespace:
 
 def main() -> None:
 
-    """Run the original-dataset exact validation entry point."""
+    """Run the RCIM model-bank validation entry point."""
 
     command_line_arguments = parse_command_line_arguments()
     repository_path_support.set_runtime_platform(
         repository_path_support.resolve_argument_platform(command_line_arguments)
     )
-    run_original_dataset_exact_model_bank_validation(
-        command_line_arguments.config_path,
-        command_line_arguments.output_suffix,
-        workflow_stage=command_line_arguments.stage,
-        best_parameter_summary_path=command_line_arguments.best_parameter_summary_path,
-        best_parameter_registry_path=command_line_arguments.best_parameter_registry_path,
-        no_eval=bool(command_line_arguments.no_eval),
-        no_export=bool(command_line_arguments.no_export),
-        grid_search_verbose_override=(
-            command_line_arguments.grid_search_verbose_override
-            if command_line_arguments.grid_search_verbose_override >= 0
-            else None
-        ),
-        historical_cross_validate_verbose_override=(
-            command_line_arguments.historical_cross_validate_verbose_override
-            if command_line_arguments.historical_cross_validate_verbose_override >= 0
-            else None
-        ),
-    )
+    try:
+        run_original_dataset_exact_model_bank_validation(
+            command_line_arguments.config_path,
+            command_line_arguments.output_suffix,
+            workflow_stage=command_line_arguments.stage,
+            best_parameter_summary_path=command_line_arguments.best_parameter_summary_path,
+            best_parameter_registry_path=command_line_arguments.best_parameter_registry_path,
+            no_eval=bool(command_line_arguments.no_eval),
+            no_export=bool(command_line_arguments.no_export),
+            grid_search_verbose_override=(
+                command_line_arguments.grid_search_verbose_override
+                if command_line_arguments.grid_search_verbose_override >= 0
+                else None
+            ),
+            historical_cross_validate_verbose_override=(
+                command_line_arguments.historical_cross_validate_verbose_override
+                if command_line_arguments.historical_cross_validate_verbose_override >= 0
+                else None
+            ),
+        )
+    except Exception:
+        exact_paper_model_bank_support.emit_exact_paper_progress_log(
+            "ERROR",
+            "RCIM model-bank validation failed; full traceback follows.",
+        )
+        traceback.print_exc()
+        raise SystemExit(1)
 
 
 if __name__ == "__main__":
