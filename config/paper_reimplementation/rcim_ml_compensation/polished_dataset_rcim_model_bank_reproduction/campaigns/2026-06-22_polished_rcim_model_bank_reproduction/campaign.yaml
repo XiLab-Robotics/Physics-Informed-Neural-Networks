@@ -1,0 +1,16 @@
+schema_version: 1
+campaign_name: polished_dataset_rcim_model_bank_reproduction_2026_06_22
+campaign_type: rcim_model_bank_reproduction
+dataset_name: polished_dataset
+dataset_schema: polished_point_v1
+planning_report_path: doc/reports/campaign_plans/cross_wave/polished_dataset/2026-06-22-22-55-55_polished_rcim_model_bank_reproduction_campaign_plan_report.md
+technical_document_path: doc/technical/2026-06/2026-06-22/2026-06-22-22-55-55_polished_rcim_and_full_wave_retraining_campaigns.md
+queue_config_path_list:
+- config/paper_reimplementation/rcim_ml_compensation/polished_dataset_rcim_model_bank_reproduction/campaigns/2026-06-22_polished_rcim_model_bank_reproduction/queue/rcim_model_bank_reproduction_polished_dataset_fw.yaml
+- config/paper_reimplementation/rcim_ml_compensation/polished_dataset_rcim_model_bank_reproduction/campaigns/2026-06-22_polished_rcim_model_bank_reproduction/queue/rcim_model_bank_reproduction_polished_dataset_bw.yaml
+execution_policy:
+  operator_run_required: true
+  run_te_curve_verification_pipeline: false
+  excluded_training_surface_list:
+  - paper_original
+  - paper_retuned

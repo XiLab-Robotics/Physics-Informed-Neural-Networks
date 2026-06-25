@@ -468,6 +468,12 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-06-22
 
+- [technical/2026-06/2026-06-22/2026-06-22-22-55-55_polished_rcim_and_full_wave_retraining_campaigns.md](./technical/2026-06/2026-06-22/2026-06-22-22-55-55_polished_rcim_and_full_wave_retraining_campaigns.md)
+  Technical plan for preparing separate `polished_dataset`
+  `RCIM Model-Bank Reproduction` and full model-development wave retraining
+  campaigns, including the canonical name mapping introduced by the latest wave
+  renaming pass.
+
 - [technical/2026-06/2026-06-22/2026-06-22-18-16-56_canonical_wave_model_family_renaming.md](./technical/2026-06/2026-06-22/2026-06-22-18-16-56_canonical_wave_model_family_renaming.md)
   Technical plan for replacing remaining `track2f`, `track2g`, `track2h`,
   and inconsistent `wave3` model-family names with canonical wave-based future
@@ -2628,6 +2634,15 @@ This folder contains the internal project documents derived from the reference P
 - [scripts/training/run_training_campaign.md](./scripts/training/run_training_campaign.md)
   Script-level documentation for the persistent queue-based batch training runner.
 
+- [scripts/campaigns/cross_wave/run_polished_dataset_rcim_model_bank_reproduction_campaign.md](./scripts/campaigns/cross_wave/run_polished_dataset_rcim_model_bank_reproduction_campaign.md)
+  Script-level documentation for the prepared polished `RCIM Model-Bank
+  Reproduction` launcher with local and `-Remote` execution paths.
+
+- [scripts/campaigns/cross_wave/run_polished_dataset_full_wave_retraining_campaign.md](./scripts/campaigns/cross_wave/run_polished_dataset_full_wave_retraining_campaign.md)
+  Script-level documentation for the prepared 108-run polished full-wave
+  model-development retraining launcher with local and `-Remote` execution
+  paths.
+
 - [scripts/campaigns/run_wave1_structured_baseline_recovery_campaign.md](./scripts/campaigns/run_wave1_structured_baseline_recovery_campaign.md)
   Script-level documentation for the short Wave 1 recovery campaign launcher.
 
@@ -3280,6 +3295,15 @@ This folder contains the internal project documents derived from the reference P
   Final results report for the completed Wave 1 residual-harmonic family optimization campaign, including familywise ranking and the promoted residual-family winner.
 
 #### Campaign Plans
+
+- [reports/campaign_plans/cross_wave/polished_dataset/2026-06-22-22-55-55_polished_rcim_model_bank_reproduction_campaign_plan_report.md](./reports/campaign_plans/cross_wave/polished_dataset/2026-06-22-22-55-55_polished_rcim_model_bank_reproduction_campaign_plan_report.md)
+  Prepared campaign plan for rerunning the `RCIM Model-Bank Reproduction`
+  workflow on `polished_dataset` forward and backward measured curves.
+
+- [reports/campaign_plans/cross_wave/polished_dataset/2026-06-22-22-55-55_polished_full_wave_retraining_campaign_plan_report.md](./reports/campaign_plans/cross_wave/polished_dataset/2026-06-22-22-55-55_polished_full_wave_retraining_campaign_plan_report.md)
+  Prepared campaign plan for the 108-run canonical full-wave model-development
+  retraining package on `polished_dataset` across `global`, `fw`, and `bw`
+  surfaces.
 
 - [reports/campaign_plans/cross_wave/polished_dataset/2026-06-21-03-26-07_polished_dataset_full_program_retraining_campaign_plan_report.md](./reports/campaign_plans/cross_wave/polished_dataset/2026-06-21-03-26-07_polished_dataset_full_program_retraining_campaign_plan_report.md)
   Preliminary staged plan for retraining all eligible repository-owned model
