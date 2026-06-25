@@ -181,6 +181,20 @@ Prepared Stage 1 campaign preflight:
 .\scripts\campaigns\cross_wave\run_polished_dataset_stage1_smoke_campaign.ps1 -PreflightOnly
 ```
 
+Prepared early-wave polished retraining preflight:
+
+```powershell
+.\scripts\campaigns\cross_wave\run_polished_dataset_early_wave_parallel_training_campaign.ps1 -PreflightOnly
+```
+
+Launch the 36-run early-wave batch locally after confirming the active
+campaign state is intentionally parallel with the RCIM run on the other
+workstation:
+
+```powershell
+.\scripts\campaigns\cross_wave\run_polished_dataset_early_wave_parallel_training_campaign.ps1
+```
+
 ## Relevant Project Paths
 
 The current usage flow mainly relies on these folders:
@@ -319,6 +333,10 @@ The current usage flow mainly relies on these folders:
 - `scripts/campaigns/wave_1/run_wave1_high_order_harmonic_tracking_campaign.ps1`
   Prepared launcher for the Wave 1 high-order harmonic tracking campaign across
   RCIM sparse, dense `0..240`, and dense `0..360` harmonic banks.
+
+- `scripts/campaigns/cross_wave/run_polished_dataset_early_wave_parallel_training_campaign.ps1`
+  Prepared 36-run early-wave `polished_dataset` retraining launcher covering
+  baseline/static and temporal families across `global`, `fw`, and `bw`.
 
 - `scripts/training/compose_hydra_training_config.py`
   Pilot `Hydra` composition entry point for materializing `Wave 1` and

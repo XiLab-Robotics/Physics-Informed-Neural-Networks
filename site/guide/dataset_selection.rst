@@ -40,3 +40,20 @@ Validate the prepared polished-dataset smoke campaign without training:
 .. code-block:: powershell
 
    .\scripts\campaigns\cross_wave\run_polished_dataset_stage1_smoke_campaign.ps1 -PreflightOnly
+
+Early-wave polished retraining
+------------------------------
+
+Validate the prepared 36-run early-wave polished-dataset campaign without
+training:
+
+.. code-block:: powershell
+
+   .\scripts\campaigns\cross_wave\run_polished_dataset_early_wave_parallel_training_campaign.ps1 -PreflightOnly
+
+Launch the local early-wave batch only after confirming the active campaign
+state intentionally records the RCIM run as parallel on another workstation:
+
+.. code-block:: powershell
+
+   .\scripts\campaigns\cross_wave\run_polished_dataset_early_wave_parallel_training_campaign.ps1

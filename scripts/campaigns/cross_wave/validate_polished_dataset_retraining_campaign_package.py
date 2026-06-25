@@ -91,15 +91,26 @@ def validate_full_wave_manifest(campaign_manifest: dict[str, Any]) -> None:
     """Validate the polished full-wave retraining campaign."""
 
     assert campaign_manifest["dataset_name"] == transmission_error_dataset.POLISHED_DATASET
-    assert campaign_manifest["campaign_type"] == "full_wave_model_development_retraining"
+    campaign_type = str(campaign_manifest["campaign_type"])
+    assert campaign_type in {
+        "full_wave_model_development_retraining",
+        "early_wave_model_development_retraining",
+    }
 
     queue_config_path_list = campaign_manifest.get("queue_config_path_list", [])
     expected_run_count = int(campaign_manifest.get("expected_run_count", 0))
-    assert expected_run_count == 108, f"Expected 108 full-wave configs | {expected_run_count}"
+    if campaign_type == "full_wave_model_development_retraining":
+        assert expected_run_count == 108, f"Expected 108 full-wave configs | {expected_run_count}"
+    else:
+        assert expected_run_count == 36, f"Expected 36 early-wave configs | {expected_run_count}"
     assert len(queue_config_path_list) == expected_run_count
 
     observed_identifier_set: set[str] = set()
     observed_surface_set: set[str] = set()
+    source_campaign_name = str(campaign_manifest.get("source_campaign_name", campaign_manifest["campaign_name"]))
+    source_planning_report_path = str(
+        campaign_manifest.get("source_planning_report_path", campaign_manifest["planning_report_path"])
+    )
     for queue_config_path_value in queue_config_path_list:
         normalized_path_value = str(queue_config_path_value).replace("\\", "/").lower()
         assert not any(path_token in normalized_path_value for path_token in EXCLUDED_FULL_WAVE_PATH_TOKEN_LIST), (
@@ -121,8 +132,8 @@ def validate_full_wave_manifest(campaign_manifest: dict[str, Any]) -> None:
 
         assert dataset.get("name") == transmission_error_dataset.POLISHED_DATASET
         assert model.get("input_size") == "auto"
-        assert metadata.get("campaign_name") == campaign_manifest["campaign_name"]
-        assert metadata.get("planning_report_path") == campaign_manifest["planning_report_path"]
+        assert metadata.get("campaign_name") == source_campaign_name
+        assert metadata.get("planning_report_path") == source_planning_report_path
 
         canonical_id = str(metadata.get("campaign_config_id", ""))
         run_name = str(experiment.get("run_name", ""))
@@ -153,7 +164,7 @@ def validate_campaign_package(campaign_manifest_path: Path) -> None:
     campaign_type = str(campaign_manifest.get("campaign_type", "")).strip()
     if campaign_type == "rcim_model_bank_reproduction":
         validate_rcim_manifest(campaign_manifest)
-    elif campaign_type == "full_wave_model_development_retraining":
+    elif campaign_type in {"full_wave_model_development_retraining", "early_wave_model_development_retraining"}:
         validate_full_wave_manifest(campaign_manifest)
     else:
         raise AssertionError(f"Unsupported polished retraining campaign type | {campaign_type}")

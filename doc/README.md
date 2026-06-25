@@ -468,6 +468,11 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-06-25
 
+- [technical/2026-06/2026-06-25/2026-06-25-15-28-26_polished_early_wave_parallel_training.md](./technical/2026-06/2026-06-25/2026-06-25-15-28-26_polished_early_wave_parallel_training.md)
+  Technical plan for launching a protected-state-aware early-wave
+  `polished_dataset` retraining batch in parallel with the RCIM campaign
+  running on another workstation.
+
 - [technical/2026-06/2026-06-25/2026-06-25-15-14-22_polished_rcim_runtime_log_wording.md](./technical/2026-06/2026-06-25/2026-06-25-15-14-22_polished_rcim_runtime_log_wording.md)
   Technical plan for replacing legacy `original-dataset exact` runtime log
   wording in the reused RCIM model-bank runner with dataset-aware polished
@@ -2650,6 +2655,10 @@ This folder contains the internal project documents derived from the reference P
   Script-level documentation for the prepared polished `RCIM Model-Bank
   Reproduction` launcher with local and `-Remote` execution paths.
 
+- [scripts/campaigns/cross_wave/run_polished_dataset_early_wave_parallel_training_campaign.md](./scripts/campaigns/cross_wave/run_polished_dataset_early_wave_parallel_training_campaign.md)
+  Script-level documentation for the 36-run early-wave `polished_dataset`
+  retraining launcher prepared for parallel execution on a second workstation.
+
 - [scripts/campaigns/cross_wave/run_polished_dataset_full_wave_retraining_campaign.md](./scripts/campaigns/cross_wave/run_polished_dataset_full_wave_retraining_campaign.md)
   Script-level documentation for the prepared 108-run polished full-wave
   model-development retraining launcher with local and `-Remote` execution
@@ -3307,6 +3316,11 @@ This folder contains the internal project documents derived from the reference P
   Final results report for the completed Wave 1 residual-harmonic family optimization campaign, including familywise ranking and the promoted residual-family winner.
 
 #### Campaign Plans
+
+- [reports/campaign_plans/cross_wave/polished_dataset/2026-06-25-15-28-26_polished_early_wave_parallel_training_campaign_plan_report.md](./reports/campaign_plans/cross_wave/polished_dataset/2026-06-25-15-28-26_polished_early_wave_parallel_training_campaign_plan_report.md)
+  Planning gate for a 36-run early-wave `polished_dataset` retraining batch
+  designed to run in parallel with the protected RCIM campaign on another
+  workstation.
 
 - [reports/campaign_plans/cross_wave/polished_dataset/2026-06-22-22-55-55_polished_rcim_model_bank_reproduction_campaign_plan_report.md](./reports/campaign_plans/cross_wave/polished_dataset/2026-06-22-22-55-55_polished_rcim_model_bank_reproduction_campaign_plan_report.md)
   Prepared campaign plan for rerunning the `RCIM Model-Bank Reproduction`
