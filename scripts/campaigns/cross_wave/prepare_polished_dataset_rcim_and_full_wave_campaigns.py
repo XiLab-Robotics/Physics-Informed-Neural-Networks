@@ -516,7 +516,13 @@ function Invoke-PolishedPython {{
         if ([string]::IsNullOrWhiteSpace($LogPath)) {{
             & $PythonExecutable @ArgumentList
         }} else {{
-            & $PythonExecutable @ArgumentList 2>&1 | Tee-Object -FilePath $LogPath
+            $PreviousErrorActionPreference = $ErrorActionPreference
+            $ErrorActionPreference = "Continue"
+            try {{
+                & $PythonExecutable @ArgumentList 2>&1 | ForEach-Object {{ $_.ToString() }} | Tee-Object -FilePath $LogPath
+            }} finally {{
+                $ErrorActionPreference = $PreviousErrorActionPreference
+            }}
         }}
         $script:LastPythonExitCode = $LASTEXITCODE
         return
@@ -526,7 +532,13 @@ function Invoke-PolishedPython {{
         if ([string]::IsNullOrWhiteSpace($LogPath)) {{
             & python @ArgumentList
         }} else {{
-            & python @ArgumentList 2>&1 | Tee-Object -FilePath $LogPath
+            $PreviousErrorActionPreference = $ErrorActionPreference
+            $ErrorActionPreference = "Continue"
+            try {{
+                & python @ArgumentList 2>&1 | ForEach-Object {{ $_.ToString() }} | Tee-Object -FilePath $LogPath
+            }} finally {{
+                $ErrorActionPreference = $PreviousErrorActionPreference
+            }}
         }}
         $script:LastPythonExitCode = $LASTEXITCODE
         return
@@ -536,7 +548,13 @@ function Invoke-PolishedPython {{
     if ([string]::IsNullOrWhiteSpace($LogPath)) {{
         & $condaExecutablePath run --no-capture-output -n $CondaEnvironmentName python @ArgumentList
     }} else {{
-        & $condaExecutablePath run --no-capture-output -n $CondaEnvironmentName python @ArgumentList 2>&1 | Tee-Object -FilePath $LogPath
+        $PreviousErrorActionPreference = $ErrorActionPreference
+        $ErrorActionPreference = "Continue"
+        try {{
+            & $condaExecutablePath run --no-capture-output -n $CondaEnvironmentName python @ArgumentList 2>&1 | ForEach-Object {{ $_.ToString() }} | Tee-Object -FilePath $LogPath
+        }} finally {{
+            $ErrorActionPreference = $PreviousErrorActionPreference
+        }}
     }}
     $script:LastPythonExitCode = $LASTEXITCODE
 }}
