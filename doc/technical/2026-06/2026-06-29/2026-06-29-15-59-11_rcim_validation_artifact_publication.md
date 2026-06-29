@@ -22,6 +22,10 @@ tracking, Git LFS attributes, or artifact staging. No subagent is planned.
   split into bounded chunks below `1 GiB` each.
 - Keep pickle model bundles at or above `200 MB` out of the first publication
   pass until their historical value is audited.
+- After audit, exclude the fourteen oversized RandomForest harmonic-wise
+  bundles from canonical artifact publication because the campaign reports mark
+  the branch as non-competitive and the retained metadata and reports preserve
+  the outcome evidence.
 - Prefer path-scoped LFS rules for only the approved `100 MB < file < 200 MB`
   bundle files, so smaller pickle files are not silently converted to LFS.
 - Stage artifacts in bounded chunks after LFS attributes are active, checking
@@ -55,3 +59,6 @@ tracking, Git LFS attributes, or artifact staging. No subagent is planned.
    checks, and `git lfs status`.
 8. Leave the at-or-above-`200 MB` artifacts untracked for a later historical
    value audit.
+9. Add exact `.gitignore` entries for the audited oversized RandomForest
+   harmonic-wise bundle files that are not accepted into canonical Git or Git
+   LFS publication.
