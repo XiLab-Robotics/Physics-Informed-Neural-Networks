@@ -64,6 +64,10 @@ This folder contains the internal project documents derived from the reference P
 - [scripts/tooling/README.md](./scripts/tooling/README.md)
   Index of repository-owned tooling notes grouped by domain.
 
+- [scripts/tooling/codex_workflow/preflight_report.md](./scripts/tooling/codex_workflow/preflight_report.md)
+  Non-blocking Codex workflow-gate report for changed paths, active campaign
+  state, protected-file overlap, and likely QA obligations.
+
 - [scripts/tooling/lan_ai/lan_ai_node_server.md](./scripts/tooling/lan_ai/lan_ai_node_server.md)
   Setup and runtime guide for the remote LAN AI workstation.
 
@@ -470,6 +474,12 @@ This folder contains the internal project documents derived from the reference P
 ### Technical Documents
 
 #### 2026-06-29
+
+- [technical/2026-06/2026-06-29/2026-06-29-19-03-12_codex_workflow_assets_rationalization.md](./technical/2026-06/2026-06-29/2026-06-29-19-03-12_codex_workflow_assets_rationalization.md)
+  Technical plan for rationalizing repository-local Codex workflow assets,
+  preserving active subagents, keeping the primary external agent reference,
+  removing obsolete submodule references, and adding focused workflow gates and
+  reviewer agents.
 
 - [technical/2026-06/2026-06-29/2026-06-29-10-40-05_polished_early_wave_parallel_training_closeout.md](./technical/2026-06/2026-06-29/2026-06-29-10-40-05_polished_early_wave_parallel_training_closeout.md)
   Technical plan for closing out the completed 36-run polished early-wave
@@ -2800,6 +2810,10 @@ This folder contains the internal project documents derived from the reference P
 
 - [scripts/tooling/session/isolated_mode.md](./scripts/tooling/session/isolated_mode.md)
   Script-level documentation for the isolated-session manager that creates locked snapshots, manifest/checklist files, lock-validation reports, and session close-out actions.
+
+- [scripts/tooling/codex_workflow/preflight_report.md](./scripts/tooling/codex_workflow/preflight_report.md)
+  Script-level documentation for the non-blocking Codex workflow-gate report
+  that reads changed paths and active campaign state before repository work.
 
 - [scripts/tooling/markdown/markdown_style_check.md](./scripts/tooling/markdown/markdown_style_check.md)
   Script-level documentation for the repository-owned Markdown warning checker that scans source `.md` files for blank-line, heading, and single-title issues.

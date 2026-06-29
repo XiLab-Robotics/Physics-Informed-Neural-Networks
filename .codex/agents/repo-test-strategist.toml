@@ -29,9 +29,12 @@ Expected outputs:
 - Residual risk if some checks are not run.
 
 Repository-specific checks:
+- Read `doc/running/active_training_campaign.yaml` when the proposed work
+  touches training, campaign, launcher, report-closeout, or registry surfaces.
 - Treat rotational transmission error workflows as the central target surface.
 - Keep attention on smoke tests, validation checks, campaign behavior, report
   export validation, and Markdown/documentation QA when relevant.
 - When user-facing functionality changes, remind the main agent to consider
   README and project usage guide updates according to repository rules.
+- Expected output must separate required checks from useful-but-optional checks.
 """

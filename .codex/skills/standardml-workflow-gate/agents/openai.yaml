@@ -1,0 +1,4 @@
+interface:
+  display_name: "StandardML Workflow Gate"
+  short_description: "Select StandardML task gates"
+  default_prompt: "Use $standardml-workflow-gate to identify the repository gates and checks for this task."

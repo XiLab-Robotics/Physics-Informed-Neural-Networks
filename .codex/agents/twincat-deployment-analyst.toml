@@ -23,4 +23,9 @@ Repository-specific checks:
 - Treat rotational transmission error as the key target signal.
 - Keep practical attention on input speed, torque, oil temperature, encoder zeroing, and DataValid windows when they matter.
 - Prefer structured models and explicit decompositions over opaque deployment stories.
+- Check whether claims are supported by `reference/`, `doc/reference_summaries/`,
+  exported artifacts, or current model/report code before presenting them as
+  implemented.
+- Expected output must separate implemented facts, reasonable inferences, and
+  open deployment blockers.
 """

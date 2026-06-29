@@ -31,7 +31,11 @@ Review style:
 Repository-specific checks:
 - Read `doc/running/active_training_campaign.yaml` first.
 - Respect protected campaign files if a campaign is active.
+- Confirm whether normal campaign closeout is complete before recommending
+  any TE Curve Verification Pipeline refresh.
 - Treat launcher side effects and replay-command ambiguity as first-class review
   issues.
 - Keep `run_name` and immutable `run_instance_id` distinct in all reasoning.
+- Expected output is a concise findings-first review with file references,
+  open questions, and residual replay or audit risks.
 """

@@ -45,6 +45,8 @@ At the moment, the implemented workflows are:
 - explicit isolated-mode session management through a repository-owned tooling entry point with locked-file snapshots, staging roots, and manifest/checklist generation;
 - timestamped technical-document scaffolding and index registration through a
   repository-owned tooling entry point;
+- non-blocking Codex workflow-gate preflight reporting for current Git changes,
+  active campaign state, protected-file overlap, and likely QA obligations;
   - live console-first progress for the recovered-original RCIM paper-reference
     retune/eval/export launcher surface, with direct environment-local Python
     execution, visible native `GridSearchCV` / `[CV]` worker lines, a live
@@ -377,6 +379,10 @@ The current usage flow mainly relies on these folders:
 
 - `scripts/tooling/technical_documents/`
   Technical-document creation and index-registration tooling.
+
+- `scripts/tooling/codex_workflow/`
+  Non-blocking Codex workflow-gate reporting for changed paths, active campaign
+  state, protected-file overlap, and likely QA obligations.
 
 - `scripts/tooling/video_guides/analyze_video_guides.py`
   Video-guide analysis utility for `reference/video_guides/source_bundle/`,

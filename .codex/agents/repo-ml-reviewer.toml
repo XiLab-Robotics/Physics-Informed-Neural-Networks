@@ -21,7 +21,11 @@ Review style:
 - If no findings are discovered, say so explicitly and note residual testing gaps.
 
 Repository-specific checks:
+- Read `doc/running/active_training_campaign.yaml` when the review touches
+  training, configs, launchers, reports, or registries.
 - Respect protected campaign files if a campaign is active.
 - Treat README and project usage guide updates as required when user-facing workflows change, but do not modify protected files without explicit approval.
 - Favor TwinCAT / PLC-friendly execution reasoning when reviewing deployability claims.
+- Expected output is findings first, then test gaps, then any documentation or
+  registry follow-up required by repository rules.
 """

@@ -63,6 +63,12 @@ The current repository-owned skills are:
 - `remote-lan-training-campaigns`
   for SSH-backed remote training campaigns, launcher hardening, LAN preflight,
   and remote artifact-sync bookkeeping.
+- `track2-verification-refresh`
+  for post-campaign TE Curve Verification Pipeline refresh preparation,
+  operator launcher gating, official decision reporting, and PDF validation.
+- `standardml-workflow-gate`
+  for early task routing across approval gates, protected-file checks,
+  specialist skills, QA obligations, and optional subagent proposals.
 
 ## Current Subagents
 
@@ -79,6 +85,19 @@ The current repository-owned subagents are:
   for campaign-package integrity review:
   planning report, launcher, active state, manifest, winner artifacts,
   registries, and replay-path clarity.
+- `repo-doc-governance-reviewer`
+  for documentation-governance review:
+  technical-document registration, report and guide indices, Sphinx scope,
+  Markdown QA, and documentation workflow drift.
+- `track2-decision-auditor`
+  for TE Curve Verification Pipeline decision review:
+  multi-index policy use, `global` / `Fw` / `Bw` surface separation, official
+  report evidence, visual companion support, and status synchronization.
+
+External agent catalogs are not active subagents. The repository keeps
+`reference/agents/wshobson-agents` as the primary external reference for
+Codex-compatible plugin, skill, and agent patterns. Repository-owned active
+subagents stay under `.codex/agents/`.
 
 ## When Skills Are Used Automatically
 
@@ -99,6 +118,9 @@ Typical automatic activation patterns are:
 - request to prepare a commit -> `git-commit-preflight`
 - TwinCAT/export-preparation request -> `twincat-export-preparation`
 - remote training-campaign request -> `remote-lan-training-campaigns`
+- TE Curve Verification Pipeline refresh request ->
+  `track2-verification-refresh`
+- ambiguous multi-surface repository task -> `standardml-workflow-gate`
 
 The practical effect is not delegation.
 
@@ -159,6 +181,10 @@ Examples:
 - `repo-test-strategist` can decide which checks are truly required;
 - `campaign-package-reviewer` can inspect replay-path and bookkeeping issues in
   a completed campaign package.
+- `repo-doc-governance-reviewer` can review documentation navigation,
+  registration, and QA obligations after large doc changes.
+- `track2-decision-auditor` can check whether an official TE Curve
+  Verification Pipeline decision is evidence-backed and policy-aligned.
 
 The main Codex agent stays responsible for the final integration and final
 answer.
@@ -214,6 +240,9 @@ Possible proposed subagent:
 
 - `repo-test-strategist`
   if the change needs a more explicit validation strategy.
+- `repo-doc-governance-reviewer`
+  if the change touches technical-document registration, report indices,
+  guide/Sphinx scope, or documentation workflow governance.
 
 ### Presentation Work
 
@@ -237,6 +266,18 @@ Possible proposed subagents:
 - `twincat-deployment-analyst`
 - `repo-ml-reviewer`
   if the task also touches model or artifact claims.
+
+### TE Curve Verification Pipeline Decision Review
+
+Likely skill:
+
+- `track2-verification-refresh`
+
+Possible proposed subagent:
+
+- `track2-decision-auditor`
+  if the task requires an independent policy/evidence audit of an official
+  decision or refresh closeout.
 
 ### Commit Preparation
 
@@ -271,6 +312,18 @@ If Codex proposes a subagent, that means:
 - it wants to delegate one bounded specialist task;
 - it is still waiting for your approval;
 - the work has not yet been delegated until you approve it.
+
+## Mechanical Preflight
+
+For a quick non-blocking readout of current workflow gate signals, run:
+
+```powershell
+python -B scripts/tooling/codex_workflow/preflight_report.py
+```
+
+The report summarizes current changed paths, active campaign status,
+protected-file overlap, and likely QA obligations. It is evidence for the main
+agent, not a substitute for reading the relevant files.
 
 ## Practical Takeaway
 

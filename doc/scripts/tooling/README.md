@@ -12,6 +12,12 @@ This folder groups the repository-owned operational notes for tooling under
   required section scaffold and registering them in the canonical technical
   indices.
 
+### Codex Workflow
+
+- [codex_workflow/preflight_report.md](./codex_workflow/preflight_report.md)
+  Non-blocking workflow gate report for current Git changes, active campaign
+  state, protected-file overlap, and likely repository QA obligations.
+
 ### LAN AI
 
 - [lan_ai/lan_ai_node_server.md](./lan_ai/lan_ai_node_server.md)
