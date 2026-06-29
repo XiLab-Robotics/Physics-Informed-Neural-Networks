@@ -1,0 +1,21 @@
+schema_version: 1
+artifact_kind: validation_check
+model_family: rcim_model_bank_reproduction
+base_model_family: rcim_model_bank_reproduction
+training_variant: fw
+direction_scope_label: forward_only
+use_forward_direction: true
+use_backward_direction: false
+run_name: rcim_model_bank_reproduction_polished_dataset_fw_polished_dataset_campaign_validation
+run_instance_id: 2026-06-22-23-42-04__rcim_model_bank_reproduction_polished_dataset_fw_polished_dataset_campaign_validation
+output_directory: output\validation_checks\rcim_model_bank_reproduction\2026-06-22-23-42-04__rcim_model_bank_reproduction_polished_dataset_fw_polished_dataset_campaign_validation
+dataset_id: polished_dataset
+dataset_schema: polished_point_v1
+input_feature_names:
+- theta
+- theta_dot
+- tau_load
+- T
+target_feature_names:
+- theta_TE
+input_feature_dim: 4

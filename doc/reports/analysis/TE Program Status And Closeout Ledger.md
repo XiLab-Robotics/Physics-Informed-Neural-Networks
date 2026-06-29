@@ -33,7 +33,7 @@ closeout that changes any of these surfaces:
 | Latest official TE Curve Verification refresh | `Wave 4.4` latent-state hysteresis refresh, dated `2026-06-18` |
 | Latest curve-verification decision | verified exploratory baseline; not promoted |
 | Current TE Curve Verification Pipeline selection policy | multi-index curve-first selection, dated `2026-06-16` |
-| Next modeling decision | inspect the parallel RCIM campaign and then choose between remaining full-wave retraining or a separate curve-first verification refresh |
+| Next modeling decision | choose between the prepared full-wave polished-dataset retraining campaign or a separate curve-first verification refresh after inspecting both polished RCIM and early-wave closeouts |
 
 The repository remains direction-parallel. `Fw`, `Bw`, and `global` are not a
 single destructive competition. Each surface keeps its own best candidate and
@@ -129,6 +129,7 @@ robustness, visual-evidence, and deployment-readiness axes visible.
 | Wave 5.1 official TE Curve Verification refresh | closed | Six Wave 5.1 candidates added to the `159`-candidate official curve-verification matrix. | Verified exploratory baseline; not promoted. |
 | Polished-dataset Stage 1 smoke | closed | Eight representative non-paper-original model families trained successfully on `polished_dataset`; best scalar run `te_periodic_gru_sequence_remote_global`, test MAE `0.001279 deg`. | Normal campaign closeout accepted; scalar registry changed, but official curve-verified leaders unchanged pending separate TE Curve Verification Pipeline refresh. |
 | Polished-dataset early-wave parallel training | closed | Thirty-six early-wave model-development runs completed across `global`, `Fw`, and `Bw`; best scalar run `te_periodic_gru_sequence_bw`, test MAE `0.001084 deg`. | Normal campaign closeout accepted; scalar registry changed, but official curve-verified leaders unchanged pending separate TE Curve Verification Pipeline refresh. |
+| Polished-dataset RCIM Model-Bank Reproduction | closed | Forward and backward paper-faithful RCIM model banks completed on `polished_dataset`; ERT won both surfaces, with `190` Python and `190` ONNX exports per direction. | Normal campaign closeout accepted; official curve-verified leaders unchanged because TE Curve Verification Pipeline refresh remains a separate optional workflow. |
 | Wave 5.2 PINN / MMT track | open design branch | MMT diagnostic and parameter inventory exist; feature and soft-constraint gates remain open. | Not campaign-ready. |
 | Wave 6 integrated multi-task / multi-head model | deferred | Intended to combine proven offset, low-frequency, centered-shape, uncertainty, mixture, and structured residual mechanisms. | Deferred until Waves 4.1-4.4, Wave 5.1, and Wave 5.2 evidence identifies what should be integrated. |
 
@@ -227,11 +228,13 @@ models.
 
 ## Current Next Steps
 
-1. Keep `Wave 4.1` robust, probabilistic, MDN, and latent-state branches as
+1. Launch the prepared full-wave polished-dataset retraining campaign when the
+   operator is ready.
+2. Keep `Wave 4.1` robust, probabilistic, MDN, and latent-state branches as
    evidence for later multi-head integration, not as current promoted leaders.
-2. Keep `Wave 5.2` MMT/PINN work behind its dataset-aligned diagnostic and
+3. Keep `Wave 5.2` MMT/PINN work behind its dataset-aligned diagnostic and
    calibration gates.
-3. Do not open the integrated multi-task / multi-head campaign until the
+4. Do not open the integrated multi-task / multi-head campaign until the
    chosen ingredients are justified by TE Curve Verification Pipeline curve evidence.
 
 ## Closeout Update Rule

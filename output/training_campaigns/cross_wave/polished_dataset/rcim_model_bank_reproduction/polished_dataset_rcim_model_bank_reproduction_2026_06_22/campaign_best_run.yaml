@@ -1,0 +1,28 @@
+schema_version: 1
+campaign_name: polished_dataset_rcim_model_bank_reproduction_2026_06_22
+campaign_type: rcim_model_bank_reproduction
+dataset_id: polished_dataset
+dataset_root: data\polished_dataset
+dataset_schema: polished_point_v1
+selection_policy:
+  decision: accept_direction_parallel_surfaces
+  note: Forward and backward RCIM model banks are both accepted; no single direction destructively replaces the other.
+updated_at: '2026-06-29T10:39:38+02:00'
+accepted_surface_list:
+- surface: forward
+  run_instance_id: 2026-06-22-23-42-04__rcim_model_bank_reproduction_polished_dataset_fw_polished_dataset_campaign_validation
+  winner_family: ERT
+  winner_estimator_name: ExtraTreesRegressor
+  winning_mean_component_mape_percent: 11.939192076068911
+  winning_mean_component_mae: 0.06221737830309654
+  winning_mean_component_rmse: 0.14906056661961334
+- surface: backward
+  run_instance_id: 2026-06-25-15-19-40__rcim_model_bank_reproduction_polished_dataset_bw_polished_dataset_campaign_validation
+  winner_family: ERT
+  winner_estimator_name: ExtraTreesRegressor
+  winning_mean_component_mape_percent: 18.399598316087175
+  winning_mean_component_mae: 0.043814597905927864
+  winning_mean_component_rmse: 0.1107064334451489
+closeout_report_path: doc\reports\campaign_results\cross_wave\polished_dataset\2026-06-29-10-39-38_polished_rcim_model_bank_reproduction_campaign_results_report.md
+te_curve_verification_status: not_run_in_closeout
+te_curve_verification_note: Normal campaign closeout accepted; official TE Curve Verification Pipeline remains a separate optional workflow.

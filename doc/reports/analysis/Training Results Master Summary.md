@@ -5,9 +5,9 @@
 - Generated At: `2026-06-29T10:40:05`
 - Program State: active.
 - Current Completed Wave: `polished_dataset` early-wave parallel training closeout
-- Current Focus: inspect the parallel RCIM campaign, then choose the remaining
-  polished full-wave retraining or a separate `TE Curve Verification Pipeline`
-  refresh.
+- Current Focus: choose the remaining polished full-wave retraining or a
+  separate `TE Curve Verification Pipeline` refresh after accepting both
+  polished RCIM and early-wave closeouts.
 - Active Campaign Status: `completed`
 - Active Campaign Name: `polished_dataset_early_wave_parallel_training_2026_06_25`
 - Current Program Winner: `te_periodic_gru_sequence_bw` | Family `periodic_gru_sequence_bw` | Test MAE `0.001084`
@@ -18,8 +18,28 @@
 - Current plain MLP anchor: `te_feedforward_trial`
 - Active family-improvement branch count: `3`
 - Implemented and benchmarked family count: `118`
+- Latest polished RCIM Model-Bank Reproduction closeout accepted
+  direction-specific ERT winners on both `forward` and `backward`; official
+  curve-verified leaders are unchanged because the `TE Curve Verification
+  Pipeline` refresh was not run inside normal closeout.
 
 ## Current Project Status
+
+### Latest Polished RCIM Model-Bank Reproduction Closeout
+
+The `polished_dataset_rcim_model_bank_reproduction_2026_06_22` campaign
+completed both paper-faithful RCIM model-bank reproduction surfaces on
+`polished_dataset`.
+
+| Surface | Winner | Mean MAPE % | Mean MAE | Mean RMSE | Export Status |
+| --- | --- | ---: | ---: | ---: | --- |
+| `forward` | `ERT / ExtraTreesRegressor` | 11.939192 | 0.062217 | 0.149061 | `190` Python, `190` ONNX, `0` ONNX failures |
+| `backward` | `ERT / ExtraTreesRegressor` | 18.399598 | 0.043815 | 0.110706 | `190` Python, `190` ONNX, `0` ONNX failures |
+
+The generated model bundles remain local artifacts because the forward and
+backward `paper_family_model_bank.pkl` files exceed the GitHub `100 MB`
+single-file limit. The official `TE Curve Verification Pipeline` matrix was
+not refreshed during this normal closeout.
 
 ### Implemented And Benchmarked Families
 

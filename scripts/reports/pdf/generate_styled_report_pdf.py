@@ -46,6 +46,7 @@ REPORT_SPECIFIC_SUBTITLE_DICTIONARY = {
     "2026-06-04-12-28-46_track2f_offset_aware_probe_campaign_results_report": "Wave 3.1 Campaign Closeout",
     "2026-06-05-16-49-50_track2f_bis_harmonic_offset_probe_campaign_results_report": "Wave 3.2 Campaign Closeout",
     "2026-06-09-01-56-25_track2g_curve_aware_training_campaign_results_report": "Wave 3.3 Campaign Closeout",
+    "2026-06-29-10-39-38_polished_rcim_model_bank_reproduction_campaign_results_report": "Polished RCIM Model-Bank Reproduction Closeout",
 }
 
 # Report Styles
@@ -141,6 +142,9 @@ CAMPAIGN_CLOSEOUT_DISPERSION_COMPARISON_TABLE_CLASS_NAME = "report-table report-
 CAMPAIGN_CLOSEOUT_REGISTRY_EFFECTS_TABLE_CLASS_NAME = "report-table report-table-campaign-closeout-registry-effects"
 POLISHED_EARLY_WAVE_SURFACE_WINNERS_TABLE_CLASS_NAME = "report-table report-table-polished-early-wave-surface-winners"
 POLISHED_EARLY_WAVE_SCALAR_LEADERBOARD_TABLE_CLASS_NAME = "report-table report-table-polished-early-wave-scalar-leaderboard"
+POLISHED_RCIM_EXECUTIVE_SUMMARY_TABLE_CLASS_NAME = "report-table report-table-polished-rcim-executive-summary"
+POLISHED_RCIM_EXECUTION_SUMMARY_TABLE_CLASS_NAME = "report-table report-table-polished-rcim-execution-summary"
+POLISHED_RCIM_ARTIFACT_PATHS_TABLE_CLASS_NAME = "report-table report-table-polished-rcim-artifact-paths"
 TRACK2_BEST_MODEL_COLLAGE_TABLE_CLASS_NAME = "report-table report-table-track2-best-model-collage"
 TRACK2_OFFICIAL_VERIFICATION_RULE_TABLE_CLASS_NAME = "report-table report-table-track2-official-verification-rule"
 TRACK2_OFFICIAL_PIPELINE_COVERAGE_TABLE_CLASS_NAME = "report-table report-table-track2-official-pipeline-coverage"
@@ -1339,6 +1343,20 @@ REPORT_STYLESHEET = """
     .report-table-polished-early-wave-scalar-leaderboard td:nth-child(6),
     .report-table-polished-early-wave-scalar-leaderboard th:nth-child(7),
     .report-table-polished-early-wave-scalar-leaderboard td:nth-child(7) { width: 12%; }
+
+    .report-table-polished-rcim-executive-summary th:nth-child(1), .report-table-polished-rcim-executive-summary td:nth-child(1) { width: 10%; }
+    .report-table-polished-rcim-executive-summary th:nth-child(2), .report-table-polished-rcim-executive-summary td:nth-child(2) { width: 23%; }
+    .report-table-polished-rcim-executive-summary th:nth-child(3), .report-table-polished-rcim-executive-summary td:nth-child(3) { width: 13%; }
+    .report-table-polished-rcim-executive-summary th:nth-child(4), .report-table-polished-rcim-executive-summary td:nth-child(4) { width: 13%; }
+    .report-table-polished-rcim-executive-summary th:nth-child(5), .report-table-polished-rcim-executive-summary td:nth-child(5) { width: 13%; }
+    .report-table-polished-rcim-executive-summary th:nth-child(6), .report-table-polished-rcim-executive-summary td:nth-child(6) { width: 28%; }
+
+    .report-table-polished-rcim-execution-summary th:nth-child(1), .report-table-polished-rcim-execution-summary td:nth-child(1) { width: 10%; }
+    .report-table-polished-rcim-execution-summary th:nth-child(2), .report-table-polished-rcim-execution-summary td:nth-child(2) { width: 49%; }
+    .report-table-polished-rcim-execution-summary th:nth-child(3), .report-table-polished-rcim-execution-summary td:nth-child(3) { width: 41%; }
+
+    .report-table-polished-rcim-artifact-paths th:nth-child(1), .report-table-polished-rcim-artifact-paths td:nth-child(1) { width: 18%; }
+    .report-table-polished-rcim-artifact-paths th:nth-child(2), .report-table-polished-rcim-artifact-paths td:nth-child(2) { width: 82%; }
 
     .report-table-track2-best-model-collage {
       font-size: 6.85pt;
@@ -4038,6 +4056,27 @@ def resolve_standard_table_class_name(
         and normalized_header_cells == ("Registry Scope", "Current Family Best", "Test MAE", "Interpretation")
     ):
         return WAVE2_TEMPORAL_REGISTRY_TABLE_CLASS_NAME
+
+    # Resolve Polished RCIM Model-Bank Reproduction Closeout Table Profiles
+    if report_stem == "2026-06-29-10-39-38_polished_rcim_model_bank_reproduction_campaign_results_report":
+
+        if (
+            current_section_slug == "executive-summary"
+            and normalized_header_cells == ("Surface", "Winner", "Mean MAPE %", "Mean MAE", "Mean RMSE", "Export")
+        ):
+            return POLISHED_RCIM_EXECUTIVE_SUMMARY_TABLE_CLASS_NAME
+
+        if (
+            current_section_slug == "execution-summary"
+            and normalized_header_cells == ("Surface", "Run Instance", "Completion Evidence")
+        ):
+            return POLISHED_RCIM_EXECUTION_SUMMARY_TABLE_CLASS_NAME
+
+        if (
+            current_section_slug == "artifact-paths"
+            and normalized_header_cells == ("Artifact", "Path")
+        ):
+            return POLISHED_RCIM_ARTIFACT_PATHS_TABLE_CLASS_NAME
 
     # Resolve Generic Campaign Closeout Table Profiles
     if report_stem.endswith("_campaign_results_report"):

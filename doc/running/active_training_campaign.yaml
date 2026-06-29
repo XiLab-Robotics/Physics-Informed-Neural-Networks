@@ -1,74 +1,103 @@
-status: completed
-campaign_name: polished_dataset_early_wave_parallel_training_2026_06_25
-prepared_at: '2026-06-25T15:28:26+02:00'
-campaign_output_directory: output/training_campaigns/2026-06-25-16-01-23_polished_dataset_early_wave_parallel_training_2026_06_25
-planning_report_path: doc/reports/campaign_plans/cross_wave/polished_dataset/2026-06-25-15-28-26_polished_early_wave_parallel_training_campaign_plan_report.md
-technical_document_path: doc/technical/2026-06/2026-06-25/2026-06-25-15-28-26_polished_early_wave_parallel_training.md
-queue_config_path_list:
-- config/training/polished_dataset_retraining/campaigns/2026-06-22_polished_full_wave_retraining/queue/001_tree_global.yaml
-- config/training/polished_dataset_retraining/campaigns/2026-06-22_polished_full_wave_retraining/queue/002_tree_fw.yaml
-- config/training/polished_dataset_retraining/campaigns/2026-06-22_polished_full_wave_retraining/queue/003_tree_bw.yaml
-- config/training/polished_dataset_retraining/campaigns/2026-06-22_polished_full_wave_retraining/queue/004_residual_harmonic_mlp_global.yaml
-- config/training/polished_dataset_retraining/campaigns/2026-06-22_polished_full_wave_retraining/queue/005_residual_harmonic_mlp_fw.yaml
-- config/training/polished_dataset_retraining/campaigns/2026-06-22_polished_full_wave_retraining/queue/006_residual_harmonic_mlp_bw.yaml
-- config/training/polished_dataset_retraining/campaigns/2026-06-22_polished_full_wave_retraining/queue/007_feedforward_global.yaml
-- config/training/polished_dataset_retraining/campaigns/2026-06-22_polished_full_wave_retraining/queue/008_feedforward_fw.yaml
-- config/training/polished_dataset_retraining/campaigns/2026-06-22_polished_full_wave_retraining/queue/009_feedforward_bw.yaml
-- config/training/polished_dataset_retraining/campaigns/2026-06-22_polished_full_wave_retraining/queue/010_periodic_mlp_global.yaml
-- config/training/polished_dataset_retraining/campaigns/2026-06-22_polished_full_wave_retraining/queue/011_periodic_mlp_fw.yaml
-- config/training/polished_dataset_retraining/campaigns/2026-06-22_polished_full_wave_retraining/queue/012_periodic_mlp_bw.yaml
-- config/training/polished_dataset_retraining/campaigns/2026-06-22_polished_full_wave_retraining/queue/013_harmonic_regression_global.yaml
-- config/training/polished_dataset_retraining/campaigns/2026-06-22_polished_full_wave_retraining/queue/014_harmonic_regression_fw.yaml
-- config/training/polished_dataset_retraining/campaigns/2026-06-22_polished_full_wave_retraining/queue/015_harmonic_regression_bw.yaml
-- config/training/polished_dataset_retraining/campaigns/2026-06-22_polished_full_wave_retraining/queue/016_periodic_mlp_harmonic_global.yaml
-- config/training/polished_dataset_retraining/campaigns/2026-06-22_polished_full_wave_retraining/queue/017_periodic_mlp_harmonic_fw.yaml
-- config/training/polished_dataset_retraining/campaigns/2026-06-22_polished_full_wave_retraining/queue/018_periodic_mlp_harmonic_bw.yaml
-- config/training/polished_dataset_retraining/campaigns/2026-06-22_polished_full_wave_retraining/queue/019_temporal_convolution_global.yaml
-- config/training/polished_dataset_retraining/campaigns/2026-06-22_polished_full_wave_retraining/queue/020_temporal_convolution_fw.yaml
-- config/training/polished_dataset_retraining/campaigns/2026-06-22_polished_full_wave_retraining/queue/021_temporal_convolution_bw.yaml
-- config/training/polished_dataset_retraining/campaigns/2026-06-22_polished_full_wave_retraining/queue/022_gru_sequence_global.yaml
-- config/training/polished_dataset_retraining/campaigns/2026-06-22_polished_full_wave_retraining/queue/023_gru_sequence_fw.yaml
-- config/training/polished_dataset_retraining/campaigns/2026-06-22_polished_full_wave_retraining/queue/024_gru_sequence_bw.yaml
-- config/training/polished_dataset_retraining/campaigns/2026-06-22_polished_full_wave_retraining/queue/025_lstm_sequence_global.yaml
-- config/training/polished_dataset_retraining/campaigns/2026-06-22_polished_full_wave_retraining/queue/026_lstm_sequence_fw.yaml
-- config/training/polished_dataset_retraining/campaigns/2026-06-22_polished_full_wave_retraining/queue/027_lstm_sequence_bw.yaml
-- config/training/polished_dataset_retraining/campaigns/2026-06-22_polished_full_wave_retraining/queue/028_periodic_temporal_convolution_global.yaml
-- config/training/polished_dataset_retraining/campaigns/2026-06-22_polished_full_wave_retraining/queue/029_periodic_temporal_convolution_fw.yaml
-- config/training/polished_dataset_retraining/campaigns/2026-06-22_polished_full_wave_retraining/queue/030_periodic_temporal_convolution_bw.yaml
-- config/training/polished_dataset_retraining/campaigns/2026-06-22_polished_full_wave_retraining/queue/031_periodic_gru_sequence_global.yaml
-- config/training/polished_dataset_retraining/campaigns/2026-06-22_polished_full_wave_retraining/queue/032_periodic_gru_sequence_fw.yaml
-- config/training/polished_dataset_retraining/campaigns/2026-06-22_polished_full_wave_retraining/queue/033_periodic_gru_sequence_bw.yaml
-- config/training/polished_dataset_retraining/campaigns/2026-06-22_polished_full_wave_retraining/queue/034_periodic_lstm_sequence_global.yaml
-- config/training/polished_dataset_retraining/campaigns/2026-06-22_polished_full_wave_retraining/queue/035_periodic_lstm_sequence_fw.yaml
-- config/training/polished_dataset_retraining/campaigns/2026-06-22_polished_full_wave_retraining/queue/036_periodic_lstm_sequence_bw.yaml
-protected_file_list:
-- doc/reports/campaign_plans/cross_wave/polished_dataset/2026-06-25-15-28-26_polished_early_wave_parallel_training_campaign_plan_report.md
-- config/training/polished_dataset_retraining/campaigns/2026-06-25_polished_early_wave_parallel_training/campaign.yaml
-- scripts/campaigns/cross_wave/run_polished_dataset_early_wave_parallel_training_campaign.ps1
-- doc/scripts/campaigns/cross_wave/run_polished_dataset_early_wave_parallel_training_campaign.md
-- doc/running/active_training_campaign.yaml
-launch_command_list:
-- .\scripts\campaigns\cross_wave\run_polished_dataset_early_wave_parallel_training_campaign.ps1
-- .\scripts\campaigns\cross_wave\run_polished_dataset_early_wave_parallel_training_campaign.ps1
-  -EnqueueOnly
-- .\scripts\campaigns\cross_wave\run_polished_dataset_early_wave_parallel_training_campaign.ps1
-  -PreflightOnly
-- .\scripts\campaigns\cross_wave\run_polished_dataset_early_wave_parallel_training_campaign.ps1
-  -Remote
-notes: Prepared a 36-run early-wave polished_dataset batch for this workstation. This
-  is a deliberate parallel batch while the polished RCIM Model-Bank Reproduction campaign
-  is running on another machine.
-parallel_remote_campaign:
-  campaign_name: polished_dataset_rcim_model_bank_reproduction_2026_06_22
-  status: operator_running_on_other_workstation
-  campaign_output_directory: output/training_campaigns/cross_wave/polished_dataset/rcim_model_bank_reproduction/polished_dataset_rcim_model_bank_reproduction_2026_06_22
-  planning_report_path: doc/reports/campaign_plans/cross_wave/polished_dataset/2026-06-22-22-55-55_polished_rcim_model_bank_reproduction_campaign_plan_report.md
-  technical_document_path: doc/technical/2026-06/2026-06-22/2026-06-22-22-55-55_polished_rcim_and_full_wave_retraining_campaigns.md
-  launch_command_list:
-  - .\scripts\campaigns\cross_wave\run_polished_dataset_rcim_model_bank_reproduction_campaign.ps1
-    -Surface bw
-  notes: Preserve this provenance until the other workstation reports RCIM completion
-    and its artifacts are inspected.
+status: none
+campaign_name: null
+prepared_at: null
+campaign_output_directory: null
+planning_report_path: null
+technical_document_path: null
+queue_config_path_list: []
+protected_file_list: []
+launch_command_list: []
+notes: No active training campaign. The latest completed campaign is recorded
+  under last_completed_campaign. The prepared full-wave polished retraining
+  campaign remains available as the next operator-launched campaign. Official
+  TE Curve Verification Pipeline refresh remains a separate optional
+  operator-approved workflow.
+last_completed_campaign:
+  campaign_name: polished_dataset_early_wave_parallel_training_2026_06_25
+  campaign_type: polished_early_wave_parallel_training
+  prepared_at: '2026-06-25T15:28:26+02:00'
+  completed_at: '2026-06-29T10:40:05+02:00'
+  closed_at: '2026-06-29T10:40:05+02:00'
+  campaign_output_directory: output/training_campaigns/2026-06-25-16-01-23_polished_dataset_early_wave_parallel_training_2026_06_25
+  planning_report_path: doc/reports/campaign_plans/cross_wave/polished_dataset/2026-06-25-15-28-26_polished_early_wave_parallel_training_campaign_plan_report.md
+  technical_document_path: doc/technical/2026-06/2026-06-25/2026-06-25-15-28-26_polished_early_wave_parallel_training.md
+  closeout_technical_document_path: doc/technical/2026-06/2026-06-29/2026-06-29-10-40-05_polished_early_wave_parallel_training_closeout.md
+  campaign_results_report_path: doc/reports/campaign_results/cross_wave/polished_dataset/2026-06-29-10-40-05_polished_early_wave_parallel_training_campaign_results_report.md
+  campaign_results_pdf_path: doc/reports/campaign_results/cross_wave/polished_dataset/2026-06-29-10-40-05_polished_early_wave_parallel_training_campaign_results_report.pdf
+  completed_run_count: 36
+  failed_run_count: 0
+  best_run:
+    run_name: te_periodic_gru_sequence_bw
+    run_instance_id: 2026-06-26-16-26-19__te_periodic_gru_sequence_bw
+    model_family: periodic_gru_sequence_bw
+    base_model_family: periodic_gru_sequence
+    training_variant: bw
+    test_mae: 0.0010836307192221284
+    test_rmse: 0.0013926418032497168
+    val_mae: 0.0010879483306780457
+    best_checkpoint_path: output\training_runs\periodic_gru_sequence\2026-06-26-16-26-19__te_periodic_gru_sequence_bw\checkpoints\periodic_gru_sequence-epoch=258-val_mae=0.00108795.ckpt
+  surface_best_run_list:
+  - surface: global
+    run_name: te_periodic_lstm_sequence_global
+    model_family: periodic_lstm_sequence_global
+    base_model_family: periodic_lstm_sequence
+    test_mae: 0.0011865310370922089
+    test_rmse: 0.0015048693167045712
+    val_mae: 0.0011847721179947257
+  - surface: fw
+    run_name: te_periodic_gru_sequence_fw
+    model_family: periodic_gru_sequence_fw
+    base_model_family: periodic_gru_sequence
+    test_mae: 0.0011007828870788217
+    test_rmse: 0.001408671378158033
+    val_mae: 0.001099461573176086
+  - surface: bw
+    run_name: te_periodic_gru_sequence_bw
+    model_family: periodic_gru_sequence_bw
+    base_model_family: periodic_gru_sequence
+    test_mae: 0.0010836307192221284
+    test_rmse: 0.0013926418032497168
+    val_mae: 0.0010879483306780457
+  te_curve_verification_status: not_run_in_closeout
+  previous_completed_campaign:
+    campaign_name: polished_dataset_rcim_model_bank_reproduction_2026_06_22
+    campaign_type: rcim_model_bank_reproduction
+    prepared_at: '2026-06-22T23:14:57.574023+02:00'
+    forward_completed_at: '2026-06-23T18:47:42+02:00'
+    backward_completed_at: '2026-06-26T09:33:39+02:00'
+    closeout_at: '2026-06-29T10:39:38+02:00'
+    campaign_output_directory: output/training_campaigns/cross_wave/polished_dataset/rcim_model_bank_reproduction/polished_dataset_rcim_model_bank_reproduction_2026_06_22
+    planning_report_path: doc/reports/campaign_plans/cross_wave/polished_dataset/2026-06-22-22-55-55_polished_rcim_model_bank_reproduction_campaign_plan_report.md
+    technical_document_path: doc/technical/2026-06/2026-06-22/2026-06-22-22-55-55_polished_rcim_and_full_wave_retraining_campaigns.md
+    closeout_technical_document_path: doc/technical/2026-06/2026-06-29/2026-06-29-10-39-38_polished_rcim_model_bank_closeout.md
+    closeout_report_path: doc/reports/campaign_results/cross_wave/polished_dataset/2026-06-29-10-39-38_polished_rcim_model_bank_reproduction_campaign_results_report.md
+    completed_surface_count: 2
+    failed_surface_count: 0
+    dataset_id: polished_dataset
+    dataset_schema: polished_point_v1
+    dataset_root: data\polished_dataset
+    accepted_surface_list:
+    - surface: forward
+      run_instance_id: 2026-06-22-23-42-04__rcim_model_bank_reproduction_polished_dataset_fw_polished_dataset_campaign_validation
+      winner_family: ERT
+      winner_estimator_name: ExtraTreesRegressor
+      winning_mean_component_mape_percent: 11.939192076068911
+      winning_mean_component_mae: 0.06221737830309654
+      winning_mean_component_rmse: 0.14906056661961334
+      python_exported_file_count: 190
+      onnx_exported_file_count: 190
+      onnx_failed_file_count: 0
+    - surface: backward
+      run_instance_id: 2026-06-25-15-19-40__rcim_model_bank_reproduction_polished_dataset_bw_polished_dataset_campaign_validation
+      winner_family: ERT
+      winner_estimator_name: ExtraTreesRegressor
+      winning_mean_component_mape_percent: 18.399598316087175
+      winning_mean_component_mae: 0.043814597905927864
+      winning_mean_component_rmse: 0.1107064334451489
+      python_exported_file_count: 190
+      onnx_exported_file_count: 190
+      onnx_failed_file_count: 0
+    te_curve_verification_status: not_run_in_closeout
 next_prepared_campaign:
   campaign_name: polished_dataset_full_wave_retraining_2026_06_22
   planning_report_path: doc/reports/campaign_plans/cross_wave/polished_dataset/2026-06-22-22-55-55_polished_full_wave_retraining_campaign_plan_report.md
@@ -78,44 +107,3 @@ next_prepared_campaign:
   - .\scripts\campaigns\cross_wave\run_polished_dataset_full_wave_retraining_campaign.ps1
     -Remote
   expected_run_count: 108
-completed_at: '2026-06-29T10:40:05+02:00'
-closed_at: '2026-06-29T10:40:05+02:00'
-campaign_results_report_path: doc/reports/campaign_results/cross_wave/polished_dataset/2026-06-29-10-40-05_polished_early_wave_parallel_training_campaign_results_report.md
-campaign_results_pdf_path: doc/reports/campaign_results/cross_wave/polished_dataset/2026-06-29-10-40-05_polished_early_wave_parallel_training_campaign_results_report.pdf
-completed_run_count: 36
-failed_run_count: 0
-best_run:
-  run_name: te_periodic_gru_sequence_bw
-  run_instance_id: 2026-06-26-16-26-19__te_periodic_gru_sequence_bw
-  model_family: periodic_gru_sequence_bw
-  base_model_family: periodic_gru_sequence
-  training_variant: bw
-  test_mae: 0.0010836307192221284
-  test_rmse: 0.0013926418032497168
-  val_mae: 0.0010879483306780457
-  best_checkpoint_path: output\training_runs\periodic_gru_sequence\2026-06-26-16-26-19__te_periodic_gru_sequence_bw\checkpoints\periodic_gru_sequence-epoch=258-val_mae=0.00108795.ckpt
-surface_best_run_list:
-- surface: global
-  run_name: te_periodic_lstm_sequence_global
-  model_family: periodic_lstm_sequence_global
-  base_model_family: periodic_lstm_sequence
-  test_mae: 0.0011865310370922089
-  test_rmse: 0.0015048693167045712
-  val_mae: 0.0011847721179947257
-- surface: fw
-  run_name: te_periodic_gru_sequence_fw
-  model_family: periodic_gru_sequence_fw
-  base_model_family: periodic_gru_sequence
-  test_mae: 0.0011007828870788217
-  test_rmse: 0.001408671378158033
-  val_mae: 0.001099461573176086
-- surface: bw
-  run_name: te_periodic_gru_sequence_bw
-  model_family: periodic_gru_sequence_bw
-  base_model_family: periodic_gru_sequence
-  test_mae: 0.0010836307192221284
-  test_rmse: 0.0013926418032497168
-  val_mae: 0.0010879483306780457
-closeout_notes: Completed local early-wave polished_dataset campaign accepted. Parallel
-  RCIM campaign provenance preserved for separate inspection.
-closeout_technical_document_path: doc/technical/2026-06/2026-06-29/2026-06-29-10-40-05_polished_early_wave_parallel_training_closeout.md

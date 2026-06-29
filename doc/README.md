@@ -477,6 +477,12 @@ This folder contains the internal project documents derived from the reference P
   synchronizing status documents, and preserving the parallel RCIM campaign
   provenance.
 
+- [technical/2026-06/2026-06-29/2026-06-29-10-39-38_polished_rcim_model_bank_closeout.md](./technical/2026-06/2026-06-29/2026-06-29-10-39-38_polished_rcim_model_bank_closeout.md)
+  Technical plan for closing out the completed polished
+  `RCIM Model-Bank Reproduction` campaign, including directional winner
+  artifacts, campaign-results reporting, PDF validation, and active-campaign
+  state cleanup.
+
 #### 2026-06-25
 
 - [technical/2026-06/2026-06-25/2026-06-25-15-28-26_polished_early_wave_parallel_training.md](./technical/2026-06/2026-06-25/2026-06-25-15-28-26_polished_early_wave_parallel_training.md)
@@ -3195,6 +3201,13 @@ This folder contains the internal project documents derived from the reference P
   Technical rule document for the new `doc/reports/` topic-root, dated-bundle, and readable-filename convention.
 
 #### Campaign Results
+
+- [reports/campaign_results/cross_wave/polished_dataset/2026-06-29-10-39-38_polished_rcim_model_bank_reproduction_campaign_results_report.md](./reports/campaign_results/cross_wave/polished_dataset/2026-06-29-10-39-38_polished_rcim_model_bank_reproduction_campaign_results_report.md)
+  Final results report for the completed polished `RCIM Model-Bank
+  Reproduction` forward/backward campaign, including direction-specific ERT
+  winners, export completeness, the GitHub artifact-size boundary, and the
+  boundary that official `TE Curve Verification Pipeline` curve verification
+  remains separate.
 
 - [reports/campaign_results/cross_wave/polished_dataset/2026-06-22-16-59-14_polished_dataset_stage1_smoke_campaign_results_report.md](./reports/campaign_results/cross_wave/polished_dataset/2026-06-22-16-59-14_polished_dataset_stage1_smoke_campaign_results_report.md)
   Final results report for the completed `polished_dataset` Stage 1 smoke

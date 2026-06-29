@@ -43,6 +43,14 @@ near-literal deviations rather than silent changes.
 ## Current Archive Status
 
 - RCIM Model-Bank Reproduction status: `closed` as a faithful full-bank reproduction surface.
+- Latest polished-dataset RCIM Model-Bank Reproduction closeout:
+  `doc/reports/campaign_results/cross_wave/polished_dataset/2026-06-29-10-39-38_polished_rcim_model_bank_reproduction_campaign_results_report.md`
+- Latest polished-dataset RCIM Model-Bank Reproduction winner surfaces:
+  `ERT / ExtraTreesRegressor` for both `forward` and `backward`.
+- Latest polished-dataset RCIM Model-Bank Reproduction artifact boundary:
+  model bundles are retained locally and not Git-tracked because
+  `paper_family_model_bank.pkl` exceeds GitHub's `100 MB` single-file limit in
+  both directions.
 - retuned family-direction archives promoted: `22`
 - RCIM Model-Bank Reproduction forward family archives refreshed: `11`
 - RCIM Model-Bank Reproduction backward family archives refreshed: `11`
