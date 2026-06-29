@@ -3465,6 +3465,11 @@ This folder contains the internal project documents derived from the reference P
   raw error, mean-centered shape, offset, harmonic / phase, robustness, and
   recommended per-surface candidates.
 
+- [technical/2026-06/2026-06-29/2026-06-29-15-59-11_rcim_validation_artifact_publication.md](./technical/2026-06/2026-06-29/2026-06-29-15-59-11_rcim_validation_artifact_publication.md)
+  Technical plan for reviewing and publishing the newly exposed RCIM
+  validation pickle bundles through controlled Git LFS tracking and bounded
+  commit chunks.
+
 - [technical/2026-04/2026-04-09/2026-04-09-16-42-43_notebooklm_export_integration_for_harmonic_wise_guide.md](./technical/2026-04/2026-04-09/2026-04-09-16-42-43_notebooklm_export_integration_for_harmonic_wise_guide.md)
   Technical plan for importing, renaming, and canonically placing the generated NotebookLM concept and project exports for the harmonic-wise guide.
 
