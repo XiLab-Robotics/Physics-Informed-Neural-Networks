@@ -284,6 +284,9 @@ This folder contains the internal project documents derived from the reference P
   against robust/probabilistic/MDN baselines, registry effects, and the
   boundary that official `TE Curve Verification Pipeline` curve verification remains separate.
 
+- [reports/campaign_results/cross_wave/polished_dataset/2026-06-29-10-40-05_polished_early_wave_parallel_training_campaign_results_report.md](./reports/campaign_results/cross_wave/polished_dataset/2026-06-29-10-40-05_polished_early_wave_parallel_training_campaign_results_report.md)
+  Closeout report for the completed 36-run polished early-wave parallel training campaign.
+
 - [reports/campaign_results/cross_wave/polished_dataset/2026-06-22-16-59-14_polished_dataset_stage1_smoke_campaign_results_report.md](./reports/campaign_results/cross_wave/polished_dataset/2026-06-22-16-59-14_polished_dataset_stage1_smoke_campaign_results_report.md)
   Final results report for the completed `polished_dataset` Stage 1 smoke
   campaign, including the eight-run scalar leaderboard, registry effects,
@@ -465,6 +468,14 @@ This folder contains the internal project documents derived from the reference P
   Technical sum-up of the completed remote-strong `large-v3` plus `openai/gpt-oss-20b` video campaign across the 11 canonical TwinCAT/TestRig videos.
 
 ### Technical Documents
+
+#### 2026-06-29
+
+- [technical/2026-06/2026-06-29/2026-06-29-10-40-05_polished_early_wave_parallel_training_closeout.md](./technical/2026-06/2026-06-29/2026-06-29-10-40-05_polished_early_wave_parallel_training_closeout.md)
+  Technical plan for closing out the completed 36-run polished early-wave
+  parallel training campaign, publishing the Markdown/PDF results report,
+  synchronizing status documents, and preserving the parallel RCIM campaign
+  provenance.
 
 #### 2026-06-25
 

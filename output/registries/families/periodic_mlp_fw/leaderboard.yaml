@@ -6,9 +6,47 @@ selection_policy:
   second_tie_breaker: val_mae
   third_tie_breaker: trainable_parameter_count
   direction: minimize
-updated_at: '2026-05-21T08:48:01'
-entry_count: 6
+updated_at: '2026-06-26T02:41:02'
+entry_count: 7
 entry_list:
+- run_instance_id: 2026-06-26-01-57-07__te_periodic_mlp_fw
+  run_name: te_periodic_mlp_fw
+  output_run_name: te_periodic_mlp_fw
+  output_artifact_kind: training_run
+  model_family: periodic_mlp_fw
+  base_model_family: periodic_mlp
+  model_type: periodic_mlp
+  dataset_id: polished_dataset
+  dataset_schema: polished_point_v1
+  input_feature_names:
+  - theta
+  - theta_dot
+  - tau_load
+  - T
+  target_feature_names:
+  - theta_TE
+  input_feature_dim: 4
+  training_variant: fw
+  direction_scope_label: forward_only
+  use_forward_direction: true
+  use_backward_direction: false
+  trainable_parameter_count: 27137
+  total_parameter_count: 27137
+  val_mae: 0.0015974692068994045
+  val_rmse: 0.0020607011392712593
+  test_mae: 0.001741682761348784
+  test_rmse: 0.0023289707023650408
+  output_directory: output\training_runs\periodic_mlp\2026-06-26-01-57-07__te_periodic_mlp_fw
+  best_checkpoint_path: output\training_runs\periodic_mlp\2026-06-26-01-57-07__te_periodic_mlp_fw\checkpoints\periodic_mlp-epoch=144-val_mae=0.00159747.ckpt
+  metrics_path: output\training_runs\periodic_mlp\2026-06-26-01-57-07__te_periodic_mlp_fw/metrics_summary.yaml
+  report_path: output\training_runs\periodic_mlp\2026-06-26-01-57-07__te_periodic_mlp_fw/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-06-26T02:41:02'
 - run_instance_id: 2026-05-21-08-22-25__te_periodic_mlp_dense240_tracking_fw
   run_name: te_periodic_mlp_dense240_tracking_Fw
   output_run_name: te_periodic_mlp_dense240_tracking_Fw

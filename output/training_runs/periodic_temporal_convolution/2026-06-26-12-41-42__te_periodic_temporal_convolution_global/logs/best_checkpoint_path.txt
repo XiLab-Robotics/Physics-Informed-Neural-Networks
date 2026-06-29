@@ -1,0 +1,1 @@
+C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_runs\periodic_temporal_convolution\2026-06-26-12-41-42__te_periodic_temporal_convolution_global\checkpoints\periodic_temporal_convolution-epoch=025-val_mae=0.00220180.ckpt

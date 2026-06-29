@@ -25,15 +25,15 @@ closeout that changes any of these surfaces:
 | --- | --- |
 | Program state | Active |
 | Active campaign | None |
-| Current scalar program winner | `te_periodic_gru_sequence_remote_global` |
+| Current scalar program winner | `te_periodic_gru_sequence_bw` |
 | Current accepted forward curve-verified leader | `rcim_retuned_GBM19_Fw` |
 | Current accepted backward curve-verified leader | `periodic_gru_sequence_Bw` |
 | Current accepted global neural curve-verified leader | `periodic_gru_sequence_global` |
-| Latest normal campaign closeout | `polished_dataset` Stage 1 smoke campaign |
+| Latest normal campaign closeout | `polished_dataset` early-wave parallel training campaign |
 | Latest official TE Curve Verification refresh | `Wave 4.4` latent-state hysteresis refresh, dated `2026-06-18` |
 | Latest curve-verification decision | verified exploratory baseline; not promoted |
 | Current TE Curve Verification Pipeline selection policy | multi-index curve-first selection, dated `2026-06-16` |
-| Next modeling decision | prepare the next polished-dataset retraining stage before any optional curve-first verification refresh |
+| Next modeling decision | inspect the parallel RCIM campaign and then choose between remaining full-wave retraining or a separate curve-first verification refresh |
 
 The repository remains direction-parallel. `Fw`, `Bw`, and `global` are not a
 single destructive competition. Each surface keeps its own best candidate and
@@ -100,7 +100,7 @@ robustness, visual-evidence, and deployment-readiness axes visible.
 | `Fw` | `rcim_retuned_GBM19_Fw` | Official `TE Curve Verification Pipeline` MAE `0.001089 deg`, Mean `2.372%` | Strongest overall forward curve baseline remains paper-reference retuned. |
 | `Bw` | `periodic_gru_sequence_Bw` | Official `TE Curve Verification Pipeline` MAE `0.002392 deg`, Mean `5.466%` | Strongest accepted repository-owned backward candidate remains the periodic GRU sequence branch. |
 | `global` | `periodic_gru_sequence_global` | Official global forward MAE `0.002777 deg`; global backward MAE `0.002630 deg` | Strongest accepted bidirectional neural candidate remains periodic GRU sequence. |
-| scalar registry | `te_periodic_gru_sequence_remote_global` | Test MAE `0.001279 deg` on `polished_dataset` Stage 1 | Scalar program winner is useful but does not replace TE Curve Verification Pipeline curve-first promotion. |
+| scalar registry | `te_periodic_gru_sequence_bw` | Test MAE `0.001084 deg` on `polished_dataset` early-wave parallel training | Scalar program winner is useful but does not replace TE Curve Verification Pipeline curve-first promotion. |
 
 ## Program Timeline
 
@@ -128,6 +128,7 @@ robustness, visual-evidence, and deployment-readiness axes visible.
 | Wave 5.1 harmonic-prior residual campaign | closed | First real lightweight harmonic-prior residual campaign completed six runs. | Normal campaign closeout accepted; scalar program winner unchanged. |
 | Wave 5.1 official TE Curve Verification refresh | closed | Six Wave 5.1 candidates added to the `159`-candidate official curve-verification matrix. | Verified exploratory baseline; not promoted. |
 | Polished-dataset Stage 1 smoke | closed | Eight representative non-paper-original model families trained successfully on `polished_dataset`; best scalar run `te_periodic_gru_sequence_remote_global`, test MAE `0.001279 deg`. | Normal campaign closeout accepted; scalar registry changed, but official curve-verified leaders unchanged pending separate TE Curve Verification Pipeline refresh. |
+| Polished-dataset early-wave parallel training | closed | Thirty-six early-wave model-development runs completed across `global`, `Fw`, and `Bw`; best scalar run `te_periodic_gru_sequence_bw`, test MAE `0.001084 deg`. | Normal campaign closeout accepted; scalar registry changed, but official curve-verified leaders unchanged pending separate TE Curve Verification Pipeline refresh. |
 | Wave 5.2 PINN / MMT track | open design branch | MMT diagnostic and parameter inventory exist; feature and soft-constraint gates remain open. | Not campaign-ready. |
 | Wave 6 integrated multi-task / multi-head model | deferred | Intended to combine proven offset, low-frequency, centered-shape, uncertainty, mixture, and structured residual mechanisms. | Deferred until Waves 4.1-4.4, Wave 5.1, and Wave 5.2 evidence identifies what should be integrated. |
 
@@ -260,6 +261,7 @@ that the ledger was checked and did not require a content change.
 - `doc/reports/analysis/track2/Track 2 Directional Model Comparison.md`
 - `doc/reports/analysis/track2/multi_index_curve_first_selection_policy/[2026-06-16]/track2_multi_index_curve_first_selection_policy.md`
 - `doc/reports/analysis/track2/official_model_verification_report/[2026-06-18]/track2_official_model_verification_report.md`
+- `doc/reports/campaign_results/cross_wave/polished_dataset/2026-06-29-10-40-05_polished_early_wave_parallel_training_campaign_results_report.md`
 - `doc/reports/campaign_results/wave_3/2026-06-15-15-30-20_wave3_harmonic_prior_residual_campaign_results_report.md`
 - `doc/reports/campaign_results/track_2/campaign_closeouts/2026-06-09-01-56-25_track2g_curve_aware_training_campaign_results_report.md`
 - `doc/reports/campaign_results/track_2/campaign_closeouts/2026-06-11-14-01-57_track2h_dispersion_aware_modeling_campaign_results_report.md`

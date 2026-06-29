@@ -1,0 +1,104 @@
+schema_version: 1
+config_path: C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML
+  - Codex\config\training\queue\polished_dataset_early_wave_parallel_training\running\2026-06-25-16-01-22_021_021_temporal_convolution_bw.yaml
+experiment:
+  model_family: temporal_convolution_bw
+  model_type: temporal_convolution
+  run_name: te_temporal_convolution_bw
+  output_run_name: te_temporal_convolution_bw
+  run_instance_id: 2026-06-26-07-23-08__te_temporal_convolution_bw
+  output_artifact_kind: training_run
+  base_model_family: temporal_convolution
+  training_variant: bw
+  direction_scope_label: backward_only
+  use_forward_direction: false
+  use_backward_direction: true
+artifacts:
+  output_directory: C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML
+    - Codex\output\training_runs\temporal_convolution\2026-06-26-07-23-08__te_temporal_convolution_bw
+  best_checkpoint_path: C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML
+    - Codex\output\training_runs\temporal_convolution\2026-06-26-07-23-08__te_temporal_convolution_bw\checkpoints\temporal_convolution-epoch=071-val_mae=0.00230252.ckpt
+dataset_split:
+  train_curve_count: 1356
+  validation_curve_count: 388
+  test_curve_count: 194
+  dataset_name: polished_dataset
+  dataset_schema: polished_point_v1
+  input_feature_name_list:
+  - theta
+  - theta_dot
+  - tau_load
+  - T
+  target_feature_name_list:
+  - theta_TE
+  input_feature_dim: 4
+  target_feature_dim: 1
+dataset:
+  dataset_id: polished_dataset
+  dataset_schema: polished_point_v1
+  input_feature_names:
+  - theta
+  - theta_dot
+  - tau_load
+  - T
+  target_feature_names:
+  - theta_TE
+  input_feature_dim: 4
+  target_feature_dim: 1
+model_summary:
+  backbone_name: TemporalConvolutionNetwork
+  trainable_parameter_count: 146369
+  frozen_parameter_count: 0
+  total_parameter_count: 146369
+runtime_config:
+  accelerator: auto
+  devices: auto
+  precision: '32'
+  benchmark: true
+  use_non_blocking_transfer: true
+normalization_statistics:
+  input_feature_mean:
+  - 180.0000762939453
+  - -14.942256927490234
+  - 1.681342363357544
+  - 30.617416381835938
+  input_feature_std:
+  - 103.92301940917969
+  - 690.1138305664062
+  - 1055.5772705078125
+  - 4.267345428466797
+  target_mean:
+  - -0.016667330637574196
+  target_std:
+  - 0.0465485081076622
+validation_metrics:
+  val_loss: 0.006126007065176964
+  val_mae: 0.002302516018971801
+  val_rmse: 0.0028458337765187025
+  val_pointwise_loss: 0.006126007065176964
+  val_centered_curve_shape_loss: 0.005454227793961763
+  val_curve_offset_loss: 0.0006717804935760796
+  val_curve_amplitude_loss: 0.05922340601682663
+  val_sparse_harmonic_shape_loss: 0.0
+test_metrics:
+  test_loss: 0.006908017676323652
+  test_mae: 0.0023905187845230103
+  test_rmse: 0.003043892327696085
+  test_pointwise_loss: 0.006908017676323652
+  test_centered_curve_shape_loss: 0.006193864159286022
+  test_curve_offset_loss: 0.000714154914021492
+  test_curve_amplitude_loss: 0.06484566628932953
+  test_sparse_harmonic_shape_loss: 0.0
+comparison_payload:
+  model_family: temporal_convolution_bw
+  model_type: temporal_convolution
+  run_name: te_temporal_convolution_bw
+  backbone_name: TemporalConvolutionNetwork
+  trainable_parameter_count: 146369
+  total_parameter_count: 146369
+  val_mae: 0.002302516018971801
+  val_rmse: 0.0028458337765187025
+  test_mae: 0.0023905187845230103
+  test_rmse: 0.003043892327696085
+  deployment_notes: ''
+  interpretability_notes: ''

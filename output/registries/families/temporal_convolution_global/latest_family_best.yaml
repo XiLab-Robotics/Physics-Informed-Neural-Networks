@@ -1,0 +1,48 @@
+schema_version: 1
+model_family: temporal_convolution_global
+selection_policy:
+  primary_metric: test_mae
+  first_tie_breaker: test_rmse
+  second_tie_breaker: val_mae
+  third_tie_breaker: trainable_parameter_count
+  direction: minimize
+updated_at: '2026-06-26T06:49:42'
+best_entry:
+  run_instance_id: 2026-06-26-06-20-09__te_temporal_convolution_global
+  run_name: te_temporal_convolution_global
+  output_run_name: te_temporal_convolution_global
+  output_artifact_kind: training_run
+  model_family: temporal_convolution_global
+  base_model_family: temporal_convolution
+  model_type: temporal_convolution
+  dataset_id: polished_dataset
+  dataset_schema: polished_point_v1
+  input_feature_names:
+  - theta
+  - theta_dot
+  - tau_load
+  - T
+  target_feature_names:
+  - theta_TE
+  input_feature_dim: 4
+  training_variant: global
+  direction_scope_label: bidirectional
+  use_forward_direction: true
+  use_backward_direction: true
+  trainable_parameter_count: 146369
+  total_parameter_count: 146369
+  val_mae: 0.002308062044903636
+  val_rmse: 0.0028492456767708063
+  test_mae: 0.0024106428027153015
+  test_rmse: 0.0030627248343080282
+  output_directory: output\training_runs\temporal_convolution\2026-06-26-06-20-09__te_temporal_convolution_global
+  best_checkpoint_path: output\training_runs\temporal_convolution\2026-06-26-06-20-09__te_temporal_convolution_global\checkpoints\temporal_convolution-epoch=080-val_mae=0.00230806.ckpt
+  metrics_path: output\training_runs\temporal_convolution\2026-06-26-06-20-09__te_temporal_convolution_global/metrics_summary.yaml
+  report_path: output\training_runs\temporal_convolution\2026-06-26-06-20-09__te_temporal_convolution_global/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-06-26T06:49:42'

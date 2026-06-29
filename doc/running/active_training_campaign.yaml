@@ -1,7 +1,7 @@
-status: prepared
+status: completed
 campaign_name: polished_dataset_early_wave_parallel_training_2026_06_25
 prepared_at: '2026-06-25T15:28:26+02:00'
-campaign_output_directory: output/training_campaigns/polished_dataset_early_wave_parallel_training_2026_06_25
+campaign_output_directory: output/training_campaigns/2026-06-25-16-01-23_polished_dataset_early_wave_parallel_training_2026_06_25
 planning_report_path: doc/reports/campaign_plans/cross_wave/polished_dataset/2026-06-25-15-28-26_polished_early_wave_parallel_training_campaign_plan_report.md
 technical_document_path: doc/technical/2026-06/2026-06-25/2026-06-25-15-28-26_polished_early_wave_parallel_training.md
 queue_config_path_list:
@@ -49,12 +49,15 @@ protected_file_list:
 - doc/running/active_training_campaign.yaml
 launch_command_list:
 - .\scripts\campaigns\cross_wave\run_polished_dataset_early_wave_parallel_training_campaign.ps1
-- .\scripts\campaigns\cross_wave\run_polished_dataset_early_wave_parallel_training_campaign.ps1 -EnqueueOnly
-- .\scripts\campaigns\cross_wave\run_polished_dataset_early_wave_parallel_training_campaign.ps1 -PreflightOnly
-- '.\scripts\campaigns\cross_wave\run_polished_dataset_early_wave_parallel_training_campaign.ps1 -Remote'
-notes: Prepared a 36-run early-wave polished_dataset batch for this workstation.
-  This is a deliberate parallel batch while the polished RCIM Model-Bank
-  Reproduction campaign is running on another machine.
+- .\scripts\campaigns\cross_wave\run_polished_dataset_early_wave_parallel_training_campaign.ps1
+  -EnqueueOnly
+- .\scripts\campaigns\cross_wave\run_polished_dataset_early_wave_parallel_training_campaign.ps1
+  -PreflightOnly
+- .\scripts\campaigns\cross_wave\run_polished_dataset_early_wave_parallel_training_campaign.ps1
+  -Remote
+notes: Prepared a 36-run early-wave polished_dataset batch for this workstation. This
+  is a deliberate parallel batch while the polished RCIM Model-Bank Reproduction campaign
+  is running on another machine.
 parallel_remote_campaign:
   campaign_name: polished_dataset_rcim_model_bank_reproduction_2026_06_22
   status: operator_running_on_other_workstation
@@ -62,14 +65,57 @@ parallel_remote_campaign:
   planning_report_path: doc/reports/campaign_plans/cross_wave/polished_dataset/2026-06-22-22-55-55_polished_rcim_model_bank_reproduction_campaign_plan_report.md
   technical_document_path: doc/technical/2026-06/2026-06-22/2026-06-22-22-55-55_polished_rcim_and_full_wave_retraining_campaigns.md
   launch_command_list:
-  - .\scripts\campaigns\cross_wave\run_polished_dataset_rcim_model_bank_reproduction_campaign.ps1 -Surface bw
-  notes: Preserve this provenance until the other workstation reports RCIM
-    completion and its artifacts are inspected.
+  - .\scripts\campaigns\cross_wave\run_polished_dataset_rcim_model_bank_reproduction_campaign.ps1
+    -Surface bw
+  notes: Preserve this provenance until the other workstation reports RCIM completion
+    and its artifacts are inspected.
 next_prepared_campaign:
   campaign_name: polished_dataset_full_wave_retraining_2026_06_22
   planning_report_path: doc/reports/campaign_plans/cross_wave/polished_dataset/2026-06-22-22-55-55_polished_full_wave_retraining_campaign_plan_report.md
   campaign_manifest_path: config/training/polished_dataset_retraining/campaigns/2026-06-22_polished_full_wave_retraining/campaign.yaml
   launch_command_list:
   - .\scripts\campaigns\cross_wave\run_polished_dataset_full_wave_retraining_campaign.ps1
-  - '.\scripts\campaigns\cross_wave\run_polished_dataset_full_wave_retraining_campaign.ps1 -Remote'
+  - .\scripts\campaigns\cross_wave\run_polished_dataset_full_wave_retraining_campaign.ps1
+    -Remote
   expected_run_count: 108
+completed_at: '2026-06-29T10:40:05+02:00'
+closed_at: '2026-06-29T10:40:05+02:00'
+campaign_results_report_path: doc/reports/campaign_results/cross_wave/polished_dataset/2026-06-29-10-40-05_polished_early_wave_parallel_training_campaign_results_report.md
+campaign_results_pdf_path: doc/reports/campaign_results/cross_wave/polished_dataset/2026-06-29-10-40-05_polished_early_wave_parallel_training_campaign_results_report.pdf
+completed_run_count: 36
+failed_run_count: 0
+best_run:
+  run_name: te_periodic_gru_sequence_bw
+  run_instance_id: 2026-06-26-16-26-19__te_periodic_gru_sequence_bw
+  model_family: periodic_gru_sequence_bw
+  base_model_family: periodic_gru_sequence
+  training_variant: bw
+  test_mae: 0.0010836307192221284
+  test_rmse: 0.0013926418032497168
+  val_mae: 0.0010879483306780457
+  best_checkpoint_path: output\training_runs\periodic_gru_sequence\2026-06-26-16-26-19__te_periodic_gru_sequence_bw\checkpoints\periodic_gru_sequence-epoch=258-val_mae=0.00108795.ckpt
+surface_best_run_list:
+- surface: global
+  run_name: te_periodic_lstm_sequence_global
+  model_family: periodic_lstm_sequence_global
+  base_model_family: periodic_lstm_sequence
+  test_mae: 0.0011865310370922089
+  test_rmse: 0.0015048693167045712
+  val_mae: 0.0011847721179947257
+- surface: fw
+  run_name: te_periodic_gru_sequence_fw
+  model_family: periodic_gru_sequence_fw
+  base_model_family: periodic_gru_sequence
+  test_mae: 0.0011007828870788217
+  test_rmse: 0.001408671378158033
+  val_mae: 0.001099461573176086
+- surface: bw
+  run_name: te_periodic_gru_sequence_bw
+  model_family: periodic_gru_sequence_bw
+  base_model_family: periodic_gru_sequence
+  test_mae: 0.0010836307192221284
+  test_rmse: 0.0013926418032497168
+  val_mae: 0.0010879483306780457
+closeout_notes: Completed local early-wave polished_dataset campaign accepted. Parallel
+  RCIM campaign provenance preserved for separate inspection.
+closeout_technical_document_path: doc/technical/2026-06/2026-06-29/2026-06-29-10-40-05_polished_early_wave_parallel_training_closeout.md

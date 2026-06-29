@@ -1,0 +1,108 @@
+schema_version: 1
+config_path: C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML
+  - Codex\config\training\queue\polished_dataset_early_wave_parallel_training\running\2026-06-25-16-01-22_004_004_residual_harmonic_mlp_global.yaml
+experiment:
+  model_family: residual_harmonic_mlp_global
+  model_type: residual_harmonic_mlp
+  run_name: te_residual_harmonic_mlp_global
+  output_run_name: te_residual_harmonic_mlp_global
+  run_instance_id: 2026-06-25-16-09-16__te_residual_harmonic_mlp_global
+  output_artifact_kind: training_run
+  base_model_family: residual_harmonic_mlp
+  training_variant: global
+  direction_scope_label: bidirectional
+  use_forward_direction: true
+  use_backward_direction: true
+artifacts:
+  output_directory: C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML
+    - Codex\output\training_runs\residual_harmonic_mlp\2026-06-25-16-09-16__te_residual_harmonic_mlp_global
+  best_checkpoint_path: C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML
+    - Codex\output\training_runs\residual_harmonic_mlp\2026-06-25-16-09-16__te_residual_harmonic_mlp_global\checkpoints\residual_harmonic_mlp-epoch=112-val_mae=0.00165991.ckpt
+dataset_split:
+  train_curve_count: 1356
+  validation_curve_count: 388
+  test_curve_count: 194
+  dataset_name: polished_dataset
+  dataset_schema: polished_point_v1
+  input_feature_name_list:
+  - theta
+  - theta_dot
+  - tau_load
+  - T
+  target_feature_name_list:
+  - theta_TE
+  input_feature_dim: 4
+  target_feature_dim: 1
+dataset:
+  dataset_id: polished_dataset
+  dataset_schema: polished_point_v1
+  input_feature_names:
+  - theta
+  - theta_dot
+  - tau_load
+  - T
+  target_feature_names:
+  - theta_TE
+  input_feature_dim: 4
+  target_feature_dim: 1
+model_summary:
+  backbone_name: ResidualHarmonicNetwork
+  trainable_parameter_count: 26138
+  frozen_parameter_count: 0
+  total_parameter_count: 26138
+runtime_config:
+  accelerator: auto
+  devices: auto
+  precision: '32'
+  benchmark: true
+  use_non_blocking_transfer: true
+normalization_statistics:
+  input_feature_mean:
+  - 179.99932861328125
+  - -14.94044017791748
+  - 1.68223237991333
+  - 30.617389678955078
+  input_feature_std:
+  - 103.92501831054688
+  - 690.1232299804688
+  - 1055.5772705078125
+  - 4.267263412475586
+  target_mean:
+  - -0.01666698232293129
+  target_std:
+  - 0.04654856026172638
+validation_metrics:
+  val_loss: 0.002815006533637643
+  val_mae: 0.0016599114751443267
+  val_rmse: 0.0021261705551296473
+  val_pointwise_loss: 0.002815006533637643
+  val_centered_curve_shape_loss: 0.00308157317340374
+  val_curve_offset_loss: 0.00044930254807695746
+  val_curve_amplitude_loss: 0.046776097267866135
+  val_sparse_harmonic_shape_loss: 0.0
+  val_structured_mae: 0.04030335694551468
+  val_structured_rmse: 0.04384823143482208
+test_metrics:
+  test_loss: 0.004238593392074108
+  test_mae: 0.0018408587202429771
+  test_rmse: 0.0024326127022504807
+  test_pointwise_loss: 0.004238593392074108
+  test_centered_curve_shape_loss: 0.003938371315598488
+  test_curve_offset_loss: 0.001325430697761476
+  test_curve_amplitude_loss: 0.058729834854602814
+  test_sparse_harmonic_shape_loss: 0.0
+  test_structured_mae: 0.03992798551917076
+  test_structured_rmse: 0.04397481679916382
+comparison_payload:
+  model_family: residual_harmonic_mlp_global
+  model_type: residual_harmonic_mlp
+  run_name: te_residual_harmonic_mlp_global
+  backbone_name: ResidualHarmonicNetwork
+  trainable_parameter_count: 26138
+  total_parameter_count: 26138
+  val_mae: 0.0016599114751443267
+  val_rmse: 0.0021261705551296473
+  test_mae: 0.0018408587202429771
+  test_rmse: 0.0024326127022504807
+  deployment_notes: ''
+  interpretability_notes: ''

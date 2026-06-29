@@ -6,9 +6,47 @@ selection_policy:
   second_tie_breaker: val_mae
   third_tie_breaker: trainable_parameter_count
   direction: minimize
-updated_at: '2026-05-24T12:21:01'
-entry_count: 1
+updated_at: '2026-06-26T11:50:45'
+entry_count: 2
 entry_list:
+- run_instance_id: 2026-06-26-11-02-55__te_lstm_sequence_fw
+  run_name: te_lstm_sequence_fw
+  output_run_name: te_lstm_sequence_fw
+  output_artifact_kind: training_run
+  model_family: lstm_sequence_fw
+  base_model_family: lstm_sequence
+  model_type: lstm_sequence
+  dataset_id: polished_dataset
+  dataset_schema: polished_point_v1
+  input_feature_names:
+  - theta
+  - theta_dot
+  - tau_load
+  - T
+  target_feature_names:
+  - theta_TE
+  input_feature_dim: 4
+  training_variant: fw
+  direction_scope_label: forward_only
+  use_forward_direction: true
+  use_backward_direction: false
+  trainable_parameter_count: 200833
+  total_parameter_count: 200833
+  val_mae: 0.0021509674843400717
+  val_rmse: 0.0026750422548502684
+  test_mae: 0.0022662493865936995
+  test_rmse: 0.00291518890298903
+  output_directory: output\training_runs\lstm_sequence\2026-06-26-11-02-55__te_lstm_sequence_fw
+  best_checkpoint_path: output\training_runs\lstm_sequence\2026-06-26-11-02-55__te_lstm_sequence_fw\checkpoints\lstm_sequence-epoch=098-val_mae=0.00215097.ckpt
+  metrics_path: output\training_runs\lstm_sequence\2026-06-26-11-02-55__te_lstm_sequence_fw/metrics_summary.yaml
+  report_path: output\training_runs\lstm_sequence\2026-06-26-11-02-55__te_lstm_sequence_fw/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-06-26T11:50:45'
 - run_instance_id: 2026-05-24-12-16-30__te_lstm_sequence_remote_fw
   run_name: te_lstm_sequence_remote_Fw
   output_run_name: te_lstm_sequence_remote_Fw

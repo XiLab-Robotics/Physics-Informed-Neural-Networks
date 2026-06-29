@@ -1,0 +1,64 @@
+paths:
+  dataset_config_path: config/datasets/transmission_error_dataset.yaml
+  output_root: output/training_runs/lstm_sequence
+experiment:
+  run_name: te_lstm_sequence_fw
+  model_family: lstm_sequence_fw
+  model_type: lstm_sequence
+metadata:
+  campaign_name: polished_dataset_full_wave_retraining_2026_06_22
+  planning_report_path: doc/reports/campaign_plans/cross_wave/polished_dataset/2026-06-22-22-55-55_polished_full_wave_retraining_campaign_plan_report.md
+  phase_name: polished_dataset_full_wave_retraining
+  campaign_config_id: lstm_sequence_fw
+  notes: Wave 2.1 temporal model entry campaign | family=lstm_sequence | direction=fw.
+    Candidate must return through official TE curve verification.
+  random_seed: 42
+  base_model_family: lstm_sequence
+  training_variant: fw
+  direction_scope_label: forward_only
+  use_forward_direction: true
+  use_backward_direction: false
+  hydra_transition_policy: wave2_temporal_model_entry_preparation
+  technical_document_path: doc/technical/2026-06/2026-06-22/2026-06-22-22-55-55_polished_rcim_and_full_wave_retraining_campaigns.md
+  queue_index: 26
+  source_config_path: config/training/wave2_temporal_model_entry/campaigns/2026-05-24_wave2_temporal_model_entry_campaign/queue/08_lstm_sequence_fw.yaml
+  dataset_schema: polished_point_v1
+  output_artifact_kind: training_run
+  output_run_name: te_lstm_sequence_fw
+  run_instance_id: 2026-06-26-11-02-55__te_lstm_sequence_fw
+dataset:
+  curve_batch_size: 2
+  point_stride: 1
+  maximum_points_per_curve: null
+  collate_mode: sequence
+  sequence_length: 33
+  sequence_stride: 4
+  sequence_target_position: center
+  maximum_sequences_per_curve: 192
+  num_workers: 8
+  pin_memory: true
+  name: polished_dataset
+model:
+  input_size: auto
+  output_size: 1
+  hidden_size: 128
+  num_layers: 2
+  dropout_probability: 0.1
+  bidirectional: false
+  readout_position: center
+training:
+  learning_rate: 0.0005
+  weight_decay: 0.0001
+  min_epochs: 20
+  max_epochs: 260
+  patience: 40
+  min_delta: 1.0e-05
+  log_every_n_steps: 1
+  fast_dev_run: false
+  deterministic: false
+runtime:
+  accelerator: auto
+  devices: auto
+  precision: '32'
+  benchmark: true
+  use_non_blocking_transfer: true

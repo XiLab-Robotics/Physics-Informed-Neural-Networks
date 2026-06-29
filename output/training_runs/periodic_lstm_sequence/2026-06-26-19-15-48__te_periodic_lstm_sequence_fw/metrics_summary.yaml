@@ -1,0 +1,104 @@
+schema_version: 1
+config_path: C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML
+  - Codex\config\training\queue\polished_dataset_early_wave_parallel_training\running\2026-06-25-16-01-22_035_035_periodic_lstm_sequence_fw.yaml
+experiment:
+  model_family: periodic_lstm_sequence_fw
+  model_type: periodic_lstm_sequence
+  run_name: te_periodic_lstm_sequence_fw
+  output_run_name: te_periodic_lstm_sequence_fw
+  run_instance_id: 2026-06-26-19-15-48__te_periodic_lstm_sequence_fw
+  output_artifact_kind: training_run
+  base_model_family: periodic_lstm_sequence
+  training_variant: fw
+  direction_scope_label: forward_only
+  use_forward_direction: true
+  use_backward_direction: false
+artifacts:
+  output_directory: C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML
+    - Codex\output\training_runs\periodic_lstm_sequence\2026-06-26-19-15-48__te_periodic_lstm_sequence_fw
+  best_checkpoint_path: C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML
+    - Codex\output\training_runs\periodic_lstm_sequence\2026-06-26-19-15-48__te_periodic_lstm_sequence_fw\checkpoints\periodic_lstm_sequence-epoch=167-val_mae=0.00149466.ckpt
+dataset_split:
+  train_curve_count: 1356
+  validation_curve_count: 388
+  test_curve_count: 194
+  dataset_name: polished_dataset
+  dataset_schema: polished_point_v1
+  input_feature_name_list:
+  - theta
+  - theta_dot
+  - tau_load
+  - T
+  target_feature_name_list:
+  - theta_TE
+  input_feature_dim: 4
+  target_feature_dim: 1
+dataset:
+  dataset_id: polished_dataset
+  dataset_schema: polished_point_v1
+  input_feature_names:
+  - theta
+  - theta_dot
+  - tau_load
+  - T
+  target_feature_names:
+  - theta_TE
+  input_feature_dim: 4
+  target_feature_dim: 1
+model_summary:
+  backbone_name: PeriodicTemporalSequenceNetwork
+  trainable_parameter_count: 210049
+  frozen_parameter_count: 0
+  total_parameter_count: 210049
+runtime_config:
+  accelerator: auto
+  devices: auto
+  precision: '32'
+  benchmark: true
+  use_non_blocking_transfer: true
+normalization_statistics:
+  input_feature_mean:
+  - 180.0000762939453
+  - -14.942256927490234
+  - 1.681342363357544
+  - 30.617416381835938
+  input_feature_std:
+  - 103.92301940917969
+  - 690.1138305664062
+  - 1055.5772705078125
+  - 4.267345428466797
+  target_mean:
+  - -0.016667330637574196
+  target_std:
+  - 0.0465485081076622
+validation_metrics:
+  val_loss: 0.00253231730312109
+  val_mae: 0.0014946602750569582
+  val_rmse: 0.0018478361889719963
+  val_pointwise_loss: 0.00253231730312109
+  val_centered_curve_shape_loss: 0.0021157008595764637
+  val_curve_offset_loss: 0.0004166157450526953
+  val_curve_amplitude_loss: 0.00830393098294735
+  val_sparse_harmonic_shape_loss: 0.0
+test_metrics:
+  test_loss: 0.002860448556020856
+  test_mae: 0.0015471496153622866
+  test_rmse: 0.0019758061971515417
+  test_pointwise_loss: 0.002860448556020856
+  test_centered_curve_shape_loss: 0.0024612967390567064
+  test_curve_offset_loss: 0.0003991516132373363
+  test_curve_amplitude_loss: 0.009958460927009583
+  test_sparse_harmonic_shape_loss: 0.0
+comparison_payload:
+  model_family: periodic_lstm_sequence_fw
+  model_type: periodic_lstm_sequence
+  run_name: te_periodic_lstm_sequence_fw
+  backbone_name: PeriodicTemporalSequenceNetwork
+  trainable_parameter_count: 210049
+  total_parameter_count: 210049
+  val_mae: 0.0014946602750569582
+  val_rmse: 0.0018478361889719963
+  test_mae: 0.0015471496153622866
+  test_rmse: 0.0019758061971515417
+  deployment_notes: ''
+  interpretability_notes: ''

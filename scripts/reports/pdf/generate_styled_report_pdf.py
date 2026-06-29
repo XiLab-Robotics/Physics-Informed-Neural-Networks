@@ -139,6 +139,8 @@ CAMPAIGN_CLOSEOUT_BRANCH_RESULTS_TABLE_CLASS_NAME = "report-table report-table-c
 CAMPAIGN_CLOSEOUT_LEADERBOARD_TABLE_CLASS_NAME = "report-table report-table-campaign-closeout-leaderboard"
 CAMPAIGN_CLOSEOUT_DISPERSION_COMPARISON_TABLE_CLASS_NAME = "report-table report-table-campaign-closeout-dispersion-comparison"
 CAMPAIGN_CLOSEOUT_REGISTRY_EFFECTS_TABLE_CLASS_NAME = "report-table report-table-campaign-closeout-registry-effects"
+POLISHED_EARLY_WAVE_SURFACE_WINNERS_TABLE_CLASS_NAME = "report-table report-table-polished-early-wave-surface-winners"
+POLISHED_EARLY_WAVE_SCALAR_LEADERBOARD_TABLE_CLASS_NAME = "report-table report-table-polished-early-wave-scalar-leaderboard"
 TRACK2_BEST_MODEL_COLLAGE_TABLE_CLASS_NAME = "report-table report-table-track2-best-model-collage"
 TRACK2_OFFICIAL_VERIFICATION_RULE_TABLE_CLASS_NAME = "report-table report-table-track2-official-verification-rule"
 TRACK2_OFFICIAL_PIPELINE_COVERAGE_TABLE_CLASS_NAME = "report-table report-table-track2-official-pipeline-coverage"
@@ -594,6 +596,9 @@ REPORT_SPECIFIC_FORCED_PAGE_BREAK_SECTION_SLUGS = {
     },
     "2026-06-13-13-24-37_track2h_mixture_density_heads_campaign_results_report": {
         "execution-summary",
+    },
+    "2026-06-29-10-40-05_polished_early_wave_parallel_training_campaign_results_report": {
+        "scalar-leaderboard-snapshot",
     },
     "track2_forward_reference_curve_comparison_report": {
         "pairwise-predicted-curve-differences",
@@ -1296,6 +1301,44 @@ REPORT_STYLESHEET = """
     .report-table-campaign-closeout-registry-effects th:nth-child(1), .report-table-campaign-closeout-registry-effects td:nth-child(1) { width: 42%; }
     .report-table-campaign-closeout-registry-effects th:nth-child(2), .report-table-campaign-closeout-registry-effects td:nth-child(2) { width: 43%; }
     .report-table-campaign-closeout-registry-effects th:nth-child(3), .report-table-campaign-closeout-registry-effects td:nth-child(3) { width: 15%; }
+
+    .report-table-polished-early-wave-surface-winners th,
+    .report-table-polished-early-wave-surface-winners td,
+    .report-table-polished-early-wave-scalar-leaderboard th,
+    .report-table-polished-early-wave-scalar-leaderboard td {
+      padding: 3px 4px;
+      vertical-align: middle;
+    }
+
+    .report-table-polished-early-wave-surface-winners th:nth-child(1),
+    .report-table-polished-early-wave-surface-winners td:nth-child(1) { width: 13%; }
+    .report-table-polished-early-wave-surface-winners th:nth-child(2),
+    .report-table-polished-early-wave-surface-winners td:nth-child(2) { width: 30%; }
+    .report-table-polished-early-wave-surface-winners th:nth-child(3),
+    .report-table-polished-early-wave-surface-winners td:nth-child(3) { width: 15%; }
+    .report-table-polished-early-wave-surface-winners th:nth-child(4),
+    .report-table-polished-early-wave-surface-winners td:nth-child(4),
+    .report-table-polished-early-wave-surface-winners th:nth-child(5),
+    .report-table-polished-early-wave-surface-winners td:nth-child(5),
+    .report-table-polished-early-wave-surface-winners th:nth-child(6),
+    .report-table-polished-early-wave-surface-winners td:nth-child(6),
+    .report-table-polished-early-wave-surface-winners th:nth-child(7),
+    .report-table-polished-early-wave-surface-winners td:nth-child(7) { width: 10.5%; }
+
+    .report-table-polished-early-wave-scalar-leaderboard th:nth-child(1),
+    .report-table-polished-early-wave-scalar-leaderboard td:nth-child(1) { width: 5%; }
+    .report-table-polished-early-wave-scalar-leaderboard th:nth-child(2),
+    .report-table-polished-early-wave-scalar-leaderboard td:nth-child(2) { width: 28%; }
+    .report-table-polished-early-wave-scalar-leaderboard th:nth-child(3),
+    .report-table-polished-early-wave-scalar-leaderboard td:nth-child(3) { width: 8%; }
+    .report-table-polished-early-wave-scalar-leaderboard th:nth-child(4),
+    .report-table-polished-early-wave-scalar-leaderboard td:nth-child(4) { width: 23%; }
+    .report-table-polished-early-wave-scalar-leaderboard th:nth-child(5),
+    .report-table-polished-early-wave-scalar-leaderboard td:nth-child(5),
+    .report-table-polished-early-wave-scalar-leaderboard th:nth-child(6),
+    .report-table-polished-early-wave-scalar-leaderboard td:nth-child(6),
+    .report-table-polished-early-wave-scalar-leaderboard th:nth-child(7),
+    .report-table-polished-early-wave-scalar-leaderboard td:nth-child(7) { width: 12%; }
 
     .report-table-track2-best-model-collage {
       font-size: 6.85pt;
@@ -3495,6 +3538,11 @@ def normalize_report_specific_header_cell(header_cell: str, table_class_name: st
         and header_cell == "Best Run"
     ):
         return "Best Run"
+    if (
+        table_class_name == POLISHED_EARLY_WAVE_SURFACE_WINNERS_TABLE_CLASS_NAME
+        and header_cell == "Best Run"
+    ):
+        return "Best Run"
 
     if header_cell == "Best Run":
         return "Best<span class=\"metric-unit\">Run</span>"
@@ -3993,6 +4041,20 @@ def resolve_standard_table_class_name(
 
     # Resolve Generic Campaign Closeout Table Profiles
     if report_stem.endswith("_campaign_results_report"):
+
+        if report_stem == "2026-06-29-10-40-05_polished_early_wave_parallel_training_campaign_results_report":
+
+            if (
+                current_section_slug == "surface-winners"
+                and normalized_header_cells == ("Surface", "Best Run", "Family", "Test MAE", "Test RMSE", "Val MAE", "Params")
+            ):
+                return POLISHED_EARLY_WAVE_SURFACE_WINNERS_TABLE_CLASS_NAME
+
+            if (
+                current_section_slug == "scalar-leaderboard-snapshot"
+                and normalized_header_cells == ("Rank", "Compact Run", "Surface", "Family", "Test MAE", "Test RMSE", "Val MAE")
+            ):
+                return POLISHED_EARLY_WAVE_SCALAR_LEADERBOARD_TABLE_CLASS_NAME
 
         if (
             current_section_slug == "directional-branch-results"
@@ -4829,6 +4891,7 @@ def render_markdown_body(markdown_text: str, markdown_path: Path) -> tuple[str, 
                     "2026-06-05-16-49-50_track2f_bis_harmonic_offset_probe_campaign_results_report",
                     "2026-06-09-01-56-25_track2g_curve_aware_training_campaign_results_report",
                     "2026-06-13-13-24-37_track2h_mixture_density_heads_campaign_results_report",
+                    "2026-06-29-10-40-05_polished_early_wave_parallel_training_campaign_results_report",
                 }
                 and not (
                     report_stem == "2026-04-22-01-08-33_track1_mlp_residual_cell_final_closure_campaign_results_report"
