@@ -230,3 +230,37 @@ The reviewed roots now contain:
 This pass reduces the current checkout size and the future current-branch
 pull footprint. Historical Git blobs and already uploaded historical Git LFS
 objects remain a separate remote-storage cleanup question.
+
+## Wave 1 Superseded Run Cleanup Result
+
+The next cleanup review explicitly preserved
+`reference/rcim_ml_compensation_recovered_assets/code/original_pipeline/instances_V3/`.
+That folder is byte-identical to `data/original_pipeline_instances/`, but it is
+also part of the author-supplied original pipeline root and was excluded from
+the tracked cleanup scope by user decision.
+
+The approved Wave 1 cleanup removed two superseded validation runs from the
+current branch:
+
+- `output/validation_checks/wave1_high_order_track2_curve_prediction_forward/2026-05-20-16-11-28__wave1_best_model_te_curve_prediction/`
+- `output/validation_checks/wave1_high_order_track2_curve_prediction_backward/2026-05-20-16-13-38__wave1_best_model_te_curve_prediction/`
+
+The retained canonical runs are:
+
+- `output/validation_checks/wave1_high_order_track2_curve_prediction_forward/2026-05-20-17-06-14__wave1_best_model_te_curve_prediction/`
+- `output/validation_checks/wave1_high_order_track2_curve_prediction_backward/2026-05-20-17-08-08__wave1_best_model_te_curve_prediction/`
+
+The canonical Wave 1 reports reference only the retained later runs. The
+superseded run pair contained `392` tracked files for about `0.496 GiB`:
+
+- `194` prediction-table CSV files;
+- `194` curve plot PNG files;
+- `2` `per_curve_metrics.csv` files;
+- `2` `validation_summary.yaml` files.
+
+The heavy prediction-table CSV files were byte-identical between the superseded
+and retained runs. The differing files were the generated plots and the
+path-bearing summary/metrics files, while the summary metric values and model
+inputs matched the retained run pair. This cleanup therefore removes duplicate
+validation-output material while preserving the canonical Wave 1 report
+evidence and the retained run artifacts.
