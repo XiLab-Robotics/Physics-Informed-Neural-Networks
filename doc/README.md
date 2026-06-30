@@ -3484,6 +3484,11 @@ This folder contains the internal project documents derived from the reference P
   validation pickle bundles through controlled Git LFS tracking and bounded
   commit chunks.
 
+- [technical/2026-06/2026-06-30/2026-06-30-00-40-48_repository_storage_cleanup_plan.md](./technical/2026-06/2026-06-30/2026-06-30-00-40-48_repository_storage_cleanup_plan.md)
+  Technical plan for evidence-first local and repository storage cleanup,
+  starting from ignored oversized artifacts and temporary caches before any
+  tracked Git or Git LFS removal is considered.
+
 - [technical/2026-04/2026-04-09/2026-04-09-16-42-43_notebooklm_export_integration_for_harmonic_wise_guide.md](./technical/2026-04/2026-04-09/2026-04-09-16-42-43_notebooklm_export_integration_for_harmonic_wise_guide.md)
   Technical plan for importing, renaming, and canonically placing the generated NotebookLM concept and project exports for the harmonic-wise guide.
 
