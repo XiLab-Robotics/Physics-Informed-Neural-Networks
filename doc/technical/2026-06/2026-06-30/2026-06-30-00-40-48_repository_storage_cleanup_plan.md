@@ -264,3 +264,31 @@ path-bearing summary/metrics files, while the summary metric values and model
 inputs matched the retained run pair. This cleanup therefore removes duplicate
 validation-output material while preserving the canonical Wave 1 report
 evidence and the retained run artifacts.
+
+## RCIM Original Forward Source-Run Log Cleanup Result
+
+The approved RCIM original forward cleanup removed only duplicated runtime log
+copies from the family reference archives:
+
+- `models/paper_reference/rcim_original/forward/*_reference_models/source_runs/**/*.log`
+
+The removed scope contained `66` tracked log files for about `626 MiB`. The log
+hash review showed that each of the six runtime log files was byte-identical
+across the `11` forward family archives, so the files were duplicated provenance
+payload rather than family-specific model evidence.
+
+The cleanup preserved the model and provenance artifacts required by the
+reference archives:
+
+- `reference_inventory.yaml`
+- `dataset_snapshot_manifest.yaml`
+- exported `onnx/` and `python/` model artifacts;
+- `launcher_summary.snapshot.json`;
+- `eval.run_summary.snapshot.json`;
+- `export.run_summary.snapshot.json`;
+- `export_prediction.snapshot.csv`.
+
+The per-family archive `README.md` files were updated to describe the retained
+source-run summary snapshots without promising duplicated runtime-log retention.
+This reduces current-checkout size while keeping the accepted RCIM original
+forward reference models and machine-readable provenance in place.

@@ -17,15 +17,13 @@ Archive contents:
 - `source_runs/<run_instance_id>/export.run_summary.snapshot.json`
 - `source_runs/<run_instance_id>/eval_prediction.snapshot.csv`
 - `source_runs/<run_instance_id>/export_prediction.snapshot.csv`
-- `source_runs/<run_instance_id>/eval.stdout.log`
-- `source_runs/<run_instance_id>/export.stdout.log`
 
 Selection rule:
 
 - store the full exported target surface produced by the accepted recovered-original forward reference bundle;
 - preserve Python model artifacts for every exported target;
 - preserve ONNX artifacts when export succeeds and retain the `*.onnx.export_error.txt` sidecar when export fails;
-- preserve the source bundle summaries and logs required to reconstruct the archive provenance.
+- preserve the source bundle summary snapshots required to reconstruct the archive provenance without retaining duplicated runtime logs.
 
 Archived amplitude targets:
 
