@@ -441,9 +441,10 @@ This folder contains the internal project documents derived from the reference P
   Canonical always-updated summary of current project status, best family results, recent campaign changes, and family-by-family ranked outcomes across the TE training program.
 
 - [reports/analysis/wave5_2/paired_dataset_diagnostics/[2026-07-01]/wave52a_paired_dataset_diagnostics.md](./reports/analysis/wave5_2/paired_dataset_diagnostics/%5B2026-07-01%5D/wave52a_paired_dataset_diagnostics.md)
-  First bounded `Wave 5.2A` paired-dataset diagnostic comparing
-  `simplified_dataset` and `polished_dataset` over `24` selected directional
-  records, with machine-readable pair, harmonic, and summary artifacts under
+  Full-matrix `Wave 5.2A` paired-dataset diagnostic comparing
+  `simplified_dataset` and `polished_dataset` over `1938` paired directional
+  records, with classification plus machine-readable pair, harmonic,
+  aggregate, and summary artifacts under
   `output/validation_checks/wave52a_paired_dataset_diagnostics/`.
 
 - [reports/analysis/Repository Status Wave Track Synthesis.md](./reports/analysis/Repository%20Status%20Wave%20Track%20Synthesis.md)
@@ -3503,6 +3504,11 @@ This folder contains the internal project documents derived from the reference P
 - [technical/2026-07/2026-07-01/2026-07-01-14-10-57_wave52a_paired_dataset_diagnostics.md](./technical/2026-07/2026-07-01/2026-07-01-14-10-57_wave52a_paired_dataset_diagnostics.md)
   Technical plan for the `Wave 5.2A` paired `simplified_dataset` versus
   `polished_dataset` diagnostic report and artifact package.
+
+- [technical/2026-07/2026-07-01/2026-07-01-14-43-05_wave52a_full_paired_dataset_matrix.md](./technical/2026-07/2026-07-01/2026-07-01-14-43-05_wave52a_full_paired_dataset_matrix.md)
+  Technical plan for extending `Wave 5.2A` from bounded paired diagnostics to
+  a full paired `simplified_dataset` versus `polished_dataset` matrix with
+  classification and roadmap decision evidence.
 
 - [technical/2026-04/2026-04-09/2026-04-09-16-42-43_notebooklm_export_integration_for_harmonic_wise_guide.md](./technical/2026-04/2026-04-09/2026-04-09-16-42-43_notebooklm_export_integration_for_harmonic_wise_guide.md)
   Technical plan for importing, renaming, and canonically placing the generated NotebookLM concept and project exports for the harmonic-wise guide.

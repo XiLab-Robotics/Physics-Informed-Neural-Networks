@@ -63,11 +63,12 @@ Future architecture planning is split into three branches:
 
 The old `simplified_dataset`-centered `Wave 4` evidence remains useful as
 noise-aware research evidence, but it is no longer sufficient by itself to
-choose production-oriented `Wave 5.2` or `Wave 6` designs. Those decisions
-must wait for polished full-wave evidence and widened paired dataset
-diagnostics. The first bounded `Wave 5.2A` paired diagnostic found `1938`
-available paired directional records and sampled `24` of them for
-dataset-alignment metrics, without touching training state.
+choose production-oriented `Wave 5.2` or `Wave 6` designs. The full `Wave
+5.2A` paired matrix now evaluates all `1938` paired directional records
+without touching training state. It shows near-zero peak-to-peak and
+smoothness deltas, mean absolute offset delta `0.003216838 deg`, and a split
+between `901` offset-shifted, `944` nonzero-harmonic changed, `65` nearly
+identical, `27` sampling-anomaly, and `1` smoothness-changed pairs.
 
 ### Implemented And Benchmarked Families
 

@@ -2,6 +2,11 @@
 
 ## Documents
 
+- [2026-07-01-14-43-05_wave52a_full_paired_dataset_matrix.md](./2026-07-01-14-43-05_wave52a_full_paired_dataset_matrix.md)
+  Technical plan for extending `Wave 5.2A` from bounded paired diagnostics to
+  a full paired `simplified_dataset` versus `polished_dataset` matrix with
+  classification and roadmap decision evidence.
+
 - [2026-07-01-14-10-57_wave52a_paired_dataset_diagnostics.md](./2026-07-01-14-10-57_wave52a_paired_dataset_diagnostics.md)
   Technical plan for the `Wave 5.2A` paired `simplified_dataset` versus
   `polished_dataset` diagnostic report and artifact package.

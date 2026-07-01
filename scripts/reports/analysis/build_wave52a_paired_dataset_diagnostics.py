@@ -28,6 +28,7 @@ REPORT_FILENAME = "wave52a_paired_dataset_diagnostics.md"
 SUMMARY_FILENAME = "summary.json"
 PAIR_METRICS_FILENAME = "pair_metrics.csv"
 HARMONIC_METRICS_FILENAME = "harmonic_metrics.csv"
+AGGREGATE_SUMMARY_FILENAME = "aggregate_summary.csv"
 FILENAME_PATTERN = re.compile(
     r"(?P<speed_rpm>[-+]?\d+(?:\.\d+)?)"
     r"rpm(?P<torque_nm>[-+]?\d+(?:\.\d+)?)"
@@ -37,6 +38,13 @@ FILENAME_PATTERN = re.compile(
 DIAGNOSTIC_HARMONIC_INDEX_LIST = [0, 1, 2, 3, 6, 12, 24, 48, 96, 156, 162, 240]
 FORWARD_DIRECTION = "forward"
 BACKWARD_DIRECTION = "backward"
+ROW_COUNT_DIFFERENCE_THRESHOLD = 10
+THETA_RANGE_DIFFERENCE_THRESHOLD_DEG = 1.000000
+OFFSET_SHIFT_THRESHOLD_DEG = 0.000500
+SHAPE_DIFFERENCE_THRESHOLD_DEG = 0.000250
+SMOOTHNESS_DIFFERENCE_THRESHOLD_DEG = 0.000001
+MAXIMUM_DELTA_DIFFERENCE_THRESHOLD_DEG = 0.000500
+HARMONIC_DIFFERENCE_THRESHOLD_DEG = 0.000250
 
 
 @dataclass(frozen=True)
@@ -321,6 +329,13 @@ def should_keep_row(row_index: int, row_stride: int, maximum_rows: int, kept_row
     return row_index % max(1, row_stride) == 0
 
 
+def is_finite_curve_sample(theta_deg: float, transmission_error_deg: float) -> bool:
+
+    """Return whether a parsed curve sample can contribute to diagnostics."""
+
+    return math.isfinite(theta_deg) and math.isfinite(transmission_error_deg)
+
+
 def summarize_simplified_record(record: DatasetRecord, row_stride: int, maximum_rows: int) -> tuple[dict[str, float | int | None], list[dict[str, float | int]]]:
 
     """Summarize one simplified directional curve."""
@@ -337,6 +352,8 @@ def summarize_simplified_record(record: DatasetRecord, row_stride: int, maximum_
                 continue
             theta_deg = number_from_text(row[position_column])
             transmission_error_deg = number_from_text(row[te_column])
+            if not is_finite_curve_sample(theta_deg, transmission_error_deg):
+                continue
             accumulator.update(theta_deg, transmission_error_deg)
             kept_rows += 1
 
@@ -354,9 +371,13 @@ def summarize_polished_record(record: DatasetRecord, row_stride: int, maximum_ro
         for row_index, row in enumerate(reader):
             if not should_keep_row(row_index, row_stride, maximum_rows, kept_rows):
                 continue
+            theta_deg = number_from_text(row["theta"])
+            transmission_error_deg = number_from_text(row["theta_TE"])
+            if not is_finite_curve_sample(theta_deg, transmission_error_deg):
+                continue
             accumulator.update(
-                theta_deg=number_from_text(row["theta"]),
-                transmission_error_deg=number_from_text(row["theta_TE"]),
+                theta_deg=theta_deg,
+                transmission_error_deg=transmission_error_deg,
                 theta_dot_rpm=number_from_text(row["theta_dot"]),
                 tau_load_nm=number_from_text(row["tau_load"]),
                 temperature_deg=number_from_text(row["T"]),
@@ -372,6 +393,7 @@ def build_pair_metric_row(
     polished_record: DatasetRecord,
     simplified_metrics: dict[str, float | int | None],
     polished_metrics: dict[str, float | int | None],
+    maximum_harmonic_amplitude_difference_deg: float,
 ) -> dict[str, str]:
 
     """Build one paired metric CSV row."""
@@ -415,6 +437,20 @@ def build_pair_metric_row(
     row_dictionary["smoothness_difference_polished_minus_simplified_deg"] = format_float(
         float(polished_metrics["mean_absolute_delta_deg"]) - float(simplified_metrics["mean_absolute_delta_deg"])
     )
+    row_dictionary["row_count_difference_polished_minus_simplified"] = format_count(
+        int(polished_metrics["row_count"]) - int(simplified_metrics["row_count"])
+    )
+    row_dictionary["theta_range_difference_polished_minus_simplified_deg"] = format_float(
+        float(polished_metrics["theta_range_deg"]) - float(simplified_metrics["theta_range_deg"])
+    )
+    row_dictionary["standard_deviation_difference_polished_minus_simplified_deg"] = format_float(
+        float(polished_metrics["te_standard_deviation_deg"]) - float(simplified_metrics["te_standard_deviation_deg"])
+    )
+    row_dictionary["maximum_delta_difference_polished_minus_simplified_deg"] = format_float(
+        float(polished_metrics["maximum_absolute_delta_deg"]) - float(simplified_metrics["maximum_absolute_delta_deg"])
+    )
+    row_dictionary["maximum_harmonic_amplitude_difference_deg"] = format_float(maximum_harmonic_amplitude_difference_deg)
+    row_dictionary["classification"] = classify_pair_metric_row(row_dictionary)
     return row_dictionary
 
 
@@ -449,6 +485,133 @@ def build_harmonic_metric_rows(
     return output_rows
 
 
+def calculate_maximum_harmonic_amplitude_difference(
+    simplified_harmonic_rows: list[dict[str, float | int]],
+    polished_harmonic_rows: list[dict[str, float | int]],
+) -> float:
+
+    """Calculate the maximum absolute paired harmonic-amplitude difference."""
+
+    polished_by_index = {int(row["harmonic_index"]): row for row in polished_harmonic_rows}
+    maximum_difference = 0.0
+    for simplified_row in simplified_harmonic_rows:
+        harmonic_index = int(simplified_row["harmonic_index"])
+        if harmonic_index == 0:
+            continue
+        polished_row = polished_by_index[harmonic_index]
+        simplified_amplitude = float(simplified_row["amplitude_deg"])
+        polished_amplitude = float(polished_row["amplitude_deg"])
+        maximum_difference = max(maximum_difference, abs(polished_amplitude - simplified_amplitude))
+    return maximum_difference
+
+
+def parse_metric(row_dictionary: dict[str, str], column_name: str) -> float:
+
+    """Parse one numeric metric from a CSV-ready row dictionary."""
+
+    value_text = row_dictionary[column_name]
+    if value_text == "":
+        return 0.0
+    return float(value_text)
+
+
+def classify_pair_metric_row(row_dictionary: dict[str, str]) -> str:
+
+    """Classify one paired dataset comparison row."""
+
+    row_count_difference = abs(int(row_dictionary["row_count_difference_polished_minus_simplified"]))
+    theta_range_difference = abs(parse_metric(row_dictionary, "theta_range_difference_polished_minus_simplified_deg"))
+    offset_difference = abs(parse_metric(row_dictionary, "mean_difference_polished_minus_simplified_deg"))
+    peak_to_peak_difference = abs(parse_metric(row_dictionary, "peak_to_peak_difference_polished_minus_simplified_deg"))
+    standard_deviation_difference = abs(parse_metric(row_dictionary, "standard_deviation_difference_polished_minus_simplified_deg"))
+    smoothness_difference = abs(parse_metric(row_dictionary, "smoothness_difference_polished_minus_simplified_deg"))
+    maximum_delta_difference = abs(parse_metric(row_dictionary, "maximum_delta_difference_polished_minus_simplified_deg"))
+    harmonic_difference = abs(parse_metric(row_dictionary, "maximum_harmonic_amplitude_difference_deg"))
+
+    sampling_changed = (
+        row_count_difference > ROW_COUNT_DIFFERENCE_THRESHOLD
+        or theta_range_difference > THETA_RANGE_DIFFERENCE_THRESHOLD_DEG
+    )
+    shape_changed = (
+        peak_to_peak_difference > SHAPE_DIFFERENCE_THRESHOLD_DEG
+        or standard_deviation_difference > SHAPE_DIFFERENCE_THRESHOLD_DEG
+    )
+    smoothness_changed = (
+        smoothness_difference > SMOOTHNESS_DIFFERENCE_THRESHOLD_DEG
+        or maximum_delta_difference > MAXIMUM_DELTA_DIFFERENCE_THRESHOLD_DEG
+    )
+    harmonic_changed = harmonic_difference > HARMONIC_DIFFERENCE_THRESHOLD_DEG
+    offset_shifted = offset_difference > OFFSET_SHIFT_THRESHOLD_DEG
+
+    if sampling_changed:
+        return "sampling_anomaly"
+    if shape_changed:
+        return "shape_changed"
+    if smoothness_changed:
+        return "smoothness_changed"
+    if harmonic_changed:
+        return "harmonic_changed"
+    if offset_shifted:
+        return "offset_shifted"
+    return "nearly_identical"
+
+
+def count_by_column(row_list: Iterable[dict[str, str]], column_name: str) -> dict[str, int]:
+
+    """Count rows by one string column."""
+
+    count_dictionary: dict[str, int] = {}
+    for row in row_list:
+        key = row[column_name]
+        count_dictionary[key] = count_dictionary.get(key, 0) + 1
+    return dict(sorted(count_dictionary.items()))
+
+
+def build_aggregate_rows(pair_metric_rows: list[dict[str, str]]) -> list[dict[str, str]]:
+
+    """Build aggregate rows for global and operating-condition groupings."""
+
+    grouping_specification_list = [
+        ("global", lambda row: "all"),
+        ("direction", lambda row: row["direction_label"]),
+        ("speed_rpm", lambda row: row["speed_rpm"]),
+        ("torque_nm", lambda row: row["torque_nm"]),
+        ("temperature_deg", lambda row: row["temperature_deg"]),
+    ]
+    output_rows: list[dict[str, str]] = []
+    for group_name, key_function in grouping_specification_list:
+        grouped_rows: dict[str, list[dict[str, str]]] = {}
+        for row in pair_metric_rows:
+            group_value = key_function(row)
+            grouped_rows.setdefault(group_value, []).append(row)
+
+        for group_value in sorted(grouped_rows):
+            row_list = grouped_rows[group_value]
+            class_counts = count_by_column(row_list, "classification")
+            output_rows.append(
+                {
+                    "group_name": group_name,
+                    "group_value": group_value,
+                    "pair_count": str(len(row_list)),
+                    "mean_offset_delta_deg": format_float(mean_of_column(row_list, "mean_difference_polished_minus_simplified_deg")),
+                    "mean_abs_offset_delta_deg": format_float(mean_absolute_of_column(row_list, "mean_difference_polished_minus_simplified_deg")),
+                    "mean_peak_to_peak_delta_deg": format_float(mean_of_column(row_list, "peak_to_peak_difference_polished_minus_simplified_deg")),
+                    "mean_abs_peak_to_peak_delta_deg": format_float(mean_absolute_of_column(row_list, "peak_to_peak_difference_polished_minus_simplified_deg")),
+                    "mean_smoothness_delta_deg": format_float(mean_of_column(row_list, "smoothness_difference_polished_minus_simplified_deg")),
+                    "mean_abs_smoothness_delta_deg": format_float(mean_absolute_of_column(row_list, "smoothness_difference_polished_minus_simplified_deg")),
+                    "mean_max_harmonic_delta_deg": format_float(mean_of_column(row_list, "maximum_harmonic_amplitude_difference_deg")),
+                    "mean_abs_max_harmonic_delta_deg": format_float(mean_absolute_of_column(row_list, "maximum_harmonic_amplitude_difference_deg")),
+                    "nearly_identical_count": str(class_counts.get("nearly_identical", 0)),
+                    "offset_shifted_count": str(class_counts.get("offset_shifted", 0)),
+                    "shape_changed_count": str(class_counts.get("shape_changed", 0)),
+                    "smoothness_changed_count": str(class_counts.get("smoothness_changed", 0)),
+                    "harmonic_changed_count": str(class_counts.get("harmonic_changed", 0)),
+                    "sampling_anomaly_count": str(class_counts.get("sampling_anomaly", 0)),
+                }
+            )
+    return output_rows
+
+
 def write_csv(output_path: Path, row_list: list[dict[str, str]]) -> None:
 
     """Write a list of dictionaries to CSV."""
@@ -470,6 +633,15 @@ def mean_of_column(row_list: Iterable[dict[str, str]], column_name: str) -> floa
     return sum(value_list) / len(value_list)
 
 
+def mean_absolute_of_column(row_list: Iterable[dict[str, str]], column_name: str) -> float:
+
+    """Return a mean absolute value from a numeric string column."""
+
+    value_list = [abs(float(row[column_name])) for row in row_list if row[column_name] not in ["", "nan"]]
+    assert value_list, f"No numeric values found for column | {column_name}"
+    return sum(value_list) / len(value_list)
+
+
 def build_report_lines(
     run_id: str,
     selected_pair_count: int,
@@ -477,15 +649,24 @@ def build_report_lines(
     row_stride: int,
     maximum_rows_per_file: int,
     pair_metric_rows: list[dict[str, str]],
+    aggregate_summary_rows: list[dict[str, str]],
     output_directory: Path,
 ) -> list[str]:
 
     """Build the paired dataset diagnostic Markdown report."""
 
     mean_offset_delta = mean_of_column(pair_metric_rows, "mean_difference_polished_minus_simplified_deg")
+    mean_absolute_offset_delta = mean_absolute_of_column(pair_metric_rows, "mean_difference_polished_minus_simplified_deg")
     mean_peak_to_peak_delta = mean_of_column(pair_metric_rows, "peak_to_peak_difference_polished_minus_simplified_deg")
+    mean_absolute_peak_to_peak_delta = mean_absolute_of_column(pair_metric_rows, "peak_to_peak_difference_polished_minus_simplified_deg")
     mean_smoothness_delta = mean_of_column(pair_metric_rows, "smoothness_difference_polished_minus_simplified_deg")
+    mean_absolute_smoothness_delta = mean_absolute_of_column(pair_metric_rows, "smoothness_difference_polished_minus_simplified_deg")
+    mean_maximum_harmonic_delta = mean_of_column(pair_metric_rows, "maximum_harmonic_amplitude_difference_deg")
+    classification_count_dictionary = count_by_column(pair_metric_rows, "classification")
+    global_aggregate_row = next(row for row in aggregate_summary_rows if row["group_name"] == "global")
+    direction_aggregate_rows = [row for row in aggregate_summary_rows if row["group_name"] == "direction"]
     preview_rows = pair_metric_rows[:12]
+    matrix_scope = "full paired matrix" if selected_pair_count == paired_key_count else "bounded paired sample"
 
     report_lines = [
         "# Wave 5.2A Paired Dataset Diagnostics",
@@ -495,6 +676,8 @@ def build_report_lines(
         "This diagnostic compares matched `simplified_dataset` and `polished_dataset`",
         "directional curves. It is a dataset-alignment and noise-awareness report,",
         "not a training result and not a `TE Curve Verification Pipeline` promotion.",
+        "",
+        f"This run covers the {matrix_scope}.",
         "",
         "The externally running full-wave `polished_dataset` retraining campaign",
         "remains out of scope for this artifact.",
@@ -516,12 +699,73 @@ def build_report_lines(
         f"| Curve mean / offset [deg] | {mean_offset_delta:.9f} |",
         f"| Peak-to-peak [deg] | {mean_peak_to_peak_delta:.9f} |",
         f"| Mean absolute adjacent TE delta [deg] | {mean_smoothness_delta:.9f} |",
+        f"| Maximum harmonic amplitude delta [deg] | {mean_maximum_harmonic_delta:.9f} |",
         "",
-        "## Paired Preview",
+        "| Metric | Mean absolute delta |",
+        "| --- | ---: |",
+        f"| Curve mean / offset [deg] | {mean_absolute_offset_delta:.9f} |",
+        f"| Peak-to-peak [deg] | {mean_absolute_peak_to_peak_delta:.9f} |",
+        f"| Mean absolute adjacent TE delta [deg] | {mean_absolute_smoothness_delta:.9f} |",
         "",
-        "| Direction | Speed | Torque | Temperature | Mean Delta [deg] | P2P Delta [deg] | Smoothness Delta [deg] |",
-        "| --- | ---: | ---: | ---: | ---: | ---: | ---: |",
+        "## Classification Thresholds",
+        "",
+        "| Class | Trigger |",
+        "| --- | --- |",
+        f"| `sampling_anomaly` | row-count delta above `{ROW_COUNT_DIFFERENCE_THRESHOLD}` or theta-range delta above `{THETA_RANGE_DIFFERENCE_THRESHOLD_DEG:.9f} deg` |",
+        f"| `shape_changed` | peak-to-peak or standard-deviation delta above `{SHAPE_DIFFERENCE_THRESHOLD_DEG:.9f} deg` |",
+        f"| `smoothness_changed` | mean adjacent-delta delta above `{SMOOTHNESS_DIFFERENCE_THRESHOLD_DEG:.9f} deg` or max adjacent-delta delta above `{MAXIMUM_DELTA_DIFFERENCE_THRESHOLD_DEG:.9f} deg` |",
+        f"| `harmonic_changed` | maximum diagnostic harmonic-amplitude delta above `{HARMONIC_DIFFERENCE_THRESHOLD_DEG:.9f} deg` |",
+        f"| `offset_shifted` | curve mean / offset delta above `{OFFSET_SHIFT_THRESHOLD_DEG:.9f} deg` after the previous checks pass |",
+        "| `nearly_identical` | none of the above thresholds fires |",
+        "",
+        "## Classification Summary",
+        "",
+        "| Class | Pair Count |",
+        "| --- | ---: |",
+        f"| `nearly_identical` | {classification_count_dictionary.get('nearly_identical', 0)} |",
+        f"| `offset_shifted` | {classification_count_dictionary.get('offset_shifted', 0)} |",
+        f"| `shape_changed` | {classification_count_dictionary.get('shape_changed', 0)} |",
+        f"| `smoothness_changed` | {classification_count_dictionary.get('smoothness_changed', 0)} |",
+        f"| `harmonic_changed` | {classification_count_dictionary.get('harmonic_changed', 0)} |",
+        f"| `sampling_anomaly` | {classification_count_dictionary.get('sampling_anomaly', 0)} |",
+        "",
+        "## Direction Aggregates",
+        "",
+        "| Direction | Pairs | Mean Abs Offset Delta [deg] | Mean Abs P2P Delta [deg] | Offset-Shifted | Nearly Identical |",
+        "| --- | ---: | ---: | ---: | ---: | ---: |",
     ]
+
+    for row in direction_aggregate_rows:
+        report_lines.append(
+            "| "
+            f"{row['group_value']} | "
+            f"{row['pair_count']} | "
+            f"{float(row['mean_abs_offset_delta_deg']):.9f} | "
+            f"{float(row['mean_abs_peak_to_peak_delta_deg']):.9f} | "
+            f"{row['offset_shifted_count']} | "
+            f"{row['nearly_identical_count']} |"
+        )
+
+    report_lines.extend(
+        [
+            "",
+            "## Global Aggregate Row",
+            "",
+            "| Pairs | Mean Abs Offset Delta [deg] | Mean Abs P2P Delta [deg] | Mean Abs Smoothness Delta [deg] | Mean Abs Max Harmonic Delta [deg] |",
+            "| ---: | ---: | ---: | ---: | ---: |",
+            "| "
+            f"{global_aggregate_row['pair_count']} | "
+            f"{float(global_aggregate_row['mean_abs_offset_delta_deg']):.9f} | "
+            f"{float(global_aggregate_row['mean_abs_peak_to_peak_delta_deg']):.9f} | "
+            f"{float(global_aggregate_row['mean_abs_smoothness_delta_deg']):.9f} | "
+            f"{float(global_aggregate_row['mean_abs_max_harmonic_delta_deg']):.9f} |",
+            "",
+            "## Paired Preview",
+            "",
+            "| Direction | Speed | Torque | Temperature | Mean Delta [deg] | P2P Delta [deg] | Smoothness Delta [deg] | Class |",
+            "| --- | ---: | ---: | ---: | ---: | ---: | ---: | --- |",
+        ]
+    )
 
     for row in preview_rows:
         report_lines.append(
@@ -532,7 +776,8 @@ def build_report_lines(
             f"{row['temperature_deg']} | "
             f"{float(row['mean_difference_polished_minus_simplified_deg']):.9f} | "
             f"{float(row['peak_to_peak_difference_polished_minus_simplified_deg']):.9f} | "
-            f"{float(row['smoothness_difference_polished_minus_simplified_deg']):.9f} |"
+            f"{float(row['smoothness_difference_polished_minus_simplified_deg']):.9f} | "
+            f"`{row['classification']}` |"
         )
 
     report_lines.extend(
@@ -540,25 +785,31 @@ def build_report_lines(
             "",
             "## Interpretation",
             "",
-            "This first pass proves that the two dataset surfaces can be paired by",
-            "operating condition and direction and compared without touching training",
-            "campaign state. The reported deltas should be interpreted as diagnostic",
-            "signals only because the default run is bounded for interactive use.",
+            "This pass proves that the two dataset surfaces can be paired by",
+            "operating condition and direction across the full available matrix",
+            "without touching training campaign state. The reported deltas are",
+            "diagnostic signals for choosing the next model-design branch; they are",
+            "not model-validation metrics.",
             "",
-            "The next decision is whether to widen this diagnostic to the full paired",
-            "matrix before translating polishing ideas into train-time losses, masks,",
-            "auxiliary heads, dirty-to-clean targets, or reduced-point experiments.",
+            "The full-matrix evidence keeps peak-to-peak and smoothness deltas near",
+            "zero while exposing offset and nonzero-harmonic differences. The next",
+            "model-design gate should therefore prioritize offset / mean heads,",
+            "centered-shape loss, harmonic-consistency diagnostics, and",
+            "dirty-to-clean supervision before a heavy first PINN. Sampling anomalies",
+            "remain isolated and should be handled as masks or exclusions, not as the",
+            "main modeling target.",
             "",
             "## Machine-Readable Artifacts",
             "",
             f"- `{(output_directory / PAIR_METRICS_FILENAME).relative_to(PROJECT_PATH).as_posix()}`",
             f"- `{(output_directory / HARMONIC_METRICS_FILENAME).relative_to(PROJECT_PATH).as_posix()}`",
+            f"- `{(output_directory / AGGREGATE_SUMMARY_FILENAME).relative_to(PROJECT_PATH).as_posix()}`",
             f"- `{(output_directory / SUMMARY_FILENAME).relative_to(PROJECT_PATH).as_posix()}`",
             "",
             "## Reproduction",
             "",
             "```powershell",
-            "python -B scripts/reports/analysis/build_wave52a_paired_dataset_diagnostics.py",
+            "python -B scripts/reports/analysis/build_wave52a_paired_dataset_diagnostics.py --max-pairs 0",
             "```",
         ]
     )
@@ -623,14 +874,28 @@ def run_wave52a_paired_dataset_diagnostics(arguments: argparse.Namespace) -> tup
             arguments.row_stride,
             arguments.maximum_rows_per_file,
         )
+        maximum_harmonic_amplitude_difference_deg = calculate_maximum_harmonic_amplitude_difference(
+            simplified_harmonic_rows,
+            polished_harmonic_rows,
+        )
         pair_metric_rows.append(
-            build_pair_metric_row(pair_key, simplified_record, polished_record, simplified_metrics, polished_metrics)
+            build_pair_metric_row(
+                pair_key,
+                simplified_record,
+                polished_record,
+                simplified_metrics,
+                polished_metrics,
+                maximum_harmonic_amplitude_difference_deg,
+            )
         )
         harmonic_metric_rows.extend(build_harmonic_metric_rows(pair_key, simplified_harmonic_rows, polished_harmonic_rows))
 
     # Write Machine-Readable Artifacts
+    aggregate_summary_rows = build_aggregate_rows(pair_metric_rows)
     write_csv(output_directory / PAIR_METRICS_FILENAME, pair_metric_rows)
     write_csv(output_directory / HARMONIC_METRICS_FILENAME, harmonic_metric_rows)
+    write_csv(output_directory / AGGREGATE_SUMMARY_FILENAME, aggregate_summary_rows)
+    classification_count_dictionary = count_by_column(pair_metric_rows, "classification")
     summary_dictionary = {
         "run_id": run_id,
         "paired_key_count": len(paired_key_list),
@@ -642,6 +907,8 @@ def run_wave52a_paired_dataset_diagnostics(arguments: argparse.Namespace) -> tup
         "report_path": report_path.relative_to(PROJECT_PATH).as_posix(),
         "pair_metrics_path": (output_directory / PAIR_METRICS_FILENAME).relative_to(PROJECT_PATH).as_posix(),
         "harmonic_metrics_path": (output_directory / HARMONIC_METRICS_FILENAME).relative_to(PROJECT_PATH).as_posix(),
+        "aggregate_summary_path": (output_directory / AGGREGATE_SUMMARY_FILENAME).relative_to(PROJECT_PATH).as_posix(),
+        "classification_counts": classification_count_dictionary,
     }
     output_directory.mkdir(parents=True, exist_ok=True)
     with (output_directory / SUMMARY_FILENAME).open("w", encoding="utf-8", newline="\n") as output_file:
@@ -656,6 +923,7 @@ def run_wave52a_paired_dataset_diagnostics(arguments: argparse.Namespace) -> tup
         arguments.row_stride,
         arguments.maximum_rows_per_file,
         pair_metric_rows,
+        aggregate_summary_rows,
         output_directory,
     )
     report_directory.mkdir(parents=True, exist_ok=True)

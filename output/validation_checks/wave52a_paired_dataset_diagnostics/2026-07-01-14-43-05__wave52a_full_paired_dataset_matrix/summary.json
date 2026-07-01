@@ -1,0 +1,20 @@
+{
+  "run_id": "2026-07-01-14-43-05__wave52a_full_paired_dataset_matrix",
+  "paired_key_count": 1938,
+  "selected_pair_count": 1938,
+  "row_stride": 1,
+  "maximum_rows_per_file": 20000,
+  "simplified_root": "data/simplified_dataset",
+  "polished_root": "data/polished_dataset",
+  "report_path": "doc/reports/analysis/wave5_2/paired_dataset_diagnostics/[2026-07-01]/wave52a_paired_dataset_diagnostics.md",
+  "pair_metrics_path": "output/validation_checks/wave52a_paired_dataset_diagnostics/2026-07-01-14-43-05__wave52a_full_paired_dataset_matrix/pair_metrics.csv",
+  "harmonic_metrics_path": "output/validation_checks/wave52a_paired_dataset_diagnostics/2026-07-01-14-43-05__wave52a_full_paired_dataset_matrix/harmonic_metrics.csv",
+  "aggregate_summary_path": "output/validation_checks/wave52a_paired_dataset_diagnostics/2026-07-01-14-43-05__wave52a_full_paired_dataset_matrix/aggregate_summary.csv",
+  "classification_counts": {
+    "harmonic_changed": 944,
+    "nearly_identical": 65,
+    "offset_shifted": 901,
+    "sampling_anomaly": 27,
+    "smoothness_changed": 1
+  }
+}
