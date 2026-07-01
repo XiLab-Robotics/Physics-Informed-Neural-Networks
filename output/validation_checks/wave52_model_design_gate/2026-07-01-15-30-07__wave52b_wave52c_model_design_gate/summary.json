@@ -1,0 +1,10 @@
+{
+  "run_id": "2026-07-01-15-30-07__wave52b_wave52c_model_design_gate",
+  "report_path": "doc/reports/analysis/wave5_2/model_design_gate/[2026-07-01]/wave52b_wave52c_model_design_gate.md",
+  "decision_table_path": "output/validation_checks/wave52_model_design_gate/2026-07-01-15-30-07__wave52b_wave52c_model_design_gate/design_decision_summary.csv",
+  "primary_next_candidate": "Wave 5.2B offset and harmonic guided model",
+  "secondary_candidate": "Wave 5.2C dirty-to-clean transfer model",
+  "deferred_candidate": "Wave 6 integrated multi-task and transfer model",
+  "training_status": "not_prepared",
+  "campaign_status": "not_prepared"
+}

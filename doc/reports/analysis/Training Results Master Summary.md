@@ -70,6 +70,11 @@ smoothness deltas, mean absolute offset delta `0.003216838 deg`, and a split
 between `901` offset-shifted, `944` nonzero-harmonic changed, `65` nearly
 identical, `27` sampling-anomaly, and `1` smoothness-changed pairs.
 
+The follow-up `Wave 5.2B` / `Wave 5.2C` model-design gate selects a lightweight
+offset / mean and nonzero-harmonic guided `Wave 5.2B` branch as the primary
+next candidate. Dirty-to-clean transfer remains a secondary `Wave 5.2C`
+candidate, and integrated multi-head work remains deferred to `Wave 6`.
+
 ### Implemented And Benchmarked Families
 
 - Multi-scope waves must keep `global`, `Fw`, and `Bw` reporting surfaces separated in this canonical summary.

@@ -254,7 +254,7 @@ Next planned diagnostic and training decision branches:
 | Component-offset identification | Test whether curve offset is dominated by `a_0` / `Component 0`, multiple components, condition/regime behavior, or experimental repeatability limits. | measured `h0`, signed-offset cross-check, and predicted-mean surface diagnostics completed; `h0` is the right mean channel, but the actionable issue is model-side mean-surface bias/compression |
 | `Wave 4 series` dispersion-aware modeling probes | Test robust losses, quantile or probabilistic heads, mixture-density heads, and latent-state or hysteresis-aware features on the offset and fragile-harmonic problem. | robust-loss, quantile/probabilistic, MDN, and `Wave 4.4` latent-state / hysteresis-aware campaigns and official TE Curve Verification refreshes completed; all are exploratory and not promoted |
 | `Wave 5.1` hybrid structured models | Combine harmonic structure, condition-conditioned residual learning, and explicit grouped treatment of stable and fragile harmonic bands. | first real `wave3_harmonic_prior_residual` campaign and official `TE Curve Verification Pipeline` verification refresh closed as a verified exploratory baseline, not promoted |
-| `Wave 5.2` dataset-aware MMT / PINN-guided branch | Split first-PINN planning into clean-polished modeling, simplified noise-aware diagnostics, and paired dirty-to-clean or transfer tests. | `Wave 5.2A` MMT diagnostic, parameter inventory, and full paired-dataset matrix are generated; `Wave 5.2B` and `Wave 5.2C` model-design gates remain open |
+| `Wave 5.2` dataset-aware MMT / PINN-guided branch | Split first-PINN planning into clean-polished modeling, simplified noise-aware diagnostics, and paired dirty-to-clean or transfer tests. | `Wave 5.2A` MMT diagnostic, parameter inventory, and full paired-dataset matrix are generated; `Wave 5.2B` offset/harmonic guided design is the primary next candidate, while `Wave 5.2C` dirty-to-clean transfer remains secondary |
 | Wave 6 integrated multi-task / multi-head and transfer branch | Shared causal trunk with separate TE, offset, low-frequency, centered-shape, uncertainty or mixture, structured-residual, and optional dirty-to-clean heads. | deferred until full-wave polished evidence, paired dataset diagnostics, `Wave 4 series`, `Wave 5.1`, and `Wave 5.2` identify which mechanisms should be integrated |
 | Sequential residual calibration branch | Current best causal model plus second causal residual or offset calibrator trained on model error. | candidate after audit |
 
@@ -1210,17 +1210,13 @@ Entry rule:
     analytical-baseline claims;
   - measured TE remains target-only and must not become an inference input.
 - next implementation steps:
-  - compare `simplified_dataset` and `polished_dataset` at the paired curve,
-    offset, smoothness, harmonic, removed-point, and operating-condition
-    levels;
-  - inspect the polishing workflow as an offline diagnostic specification, then
-    translate only leakage-safe ideas into train-time losses, auxiliary heads,
-    masks, or evaluation diagnostics;
-  - define `Wave 5.2B` as the clean-polished feature or soft-constraint path
-    only after polished retraining and curve-first evidence expose remaining
-    gaps;
-  - define `Wave 5.2C` as the noise-aware / dirty-to-clean multi-task path
-    when paired dataset alignment is strong enough;
+  - use the completed `Wave 5.2B` / `Wave 5.2C` model-design gate in
+    `doc/reports/analysis/wave5_2/model_design_gate/[2026-07-01]/wave52b_wave52c_model_design_gate.md`;
+  - prepare `Wave 5.2B` first as a lightweight offset / mean and
+    nonzero-harmonic guided design after explicit campaign-preparation
+    approval;
+  - keep `Wave 5.2C` dirty-to-clean or transfer supervision secondary until
+    `Wave 5.2B` defines the clean branch and leakage-safe masks;
   - do not treat the current demonstration harmonic summary as dataset
     causality.
 

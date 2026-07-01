@@ -33,7 +33,7 @@ closeout that changes any of these surfaces:
 | Latest official TE Curve Verification refresh | `Wave 4.4` latent-state hysteresis refresh, dated `2026-06-18` |
 | Latest curve-verification decision | verified exploratory baseline; not promoted |
 | Current TE Curve Verification Pipeline selection policy | multi-index curve-first selection, dated `2026-06-16` |
-| Next modeling decision | keep the externally running full-wave `polished_dataset` retraining campaign isolated, then translate the completed full paired-dataset matrix into a dataset-aware `Wave 5.2B` / `Wave 5.2C` model-design gate |
+| Next modeling decision | keep the externally running full-wave `polished_dataset` retraining campaign isolated; if new implementation is approved, prepare `Wave 5.2B` as the lightweight offset/harmonic guided branch before `Wave 5.2C` dirty-to-clean transfer |
 
 The repository remains direction-parallel. `Fw`, `Bw`, and `global` are not a
 single destructive competition. Each surface keeps its own best candidate and
@@ -266,7 +266,9 @@ models.
    evidence for later multi-head integration, not as current promoted leaders.
 3. Rework `Wave 5.2` as a dataset-aware MMT/PINN-guided branch with separate
    clean polished, noise-aware simplified, and paired transfer / dirty-to-clean
-   gates.
+   gates. The `2026-07-01` design gate makes `Wave 5.2B` offset/harmonic
+   guidance the primary next candidate and keeps `Wave 5.2C` dirty-to-clean
+   transfer secondary.
 4. Defer `Wave 6` until the full-wave polished results, paired dataset
    diagnostics, and `Wave 5.2` evidence identify which heads, constraints, and
    transfer strategy are justified.

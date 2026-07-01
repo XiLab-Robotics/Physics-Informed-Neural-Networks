@@ -447,6 +447,11 @@ This folder contains the internal project documents derived from the reference P
   aggregate, and summary artifacts under
   `output/validation_checks/wave52a_paired_dataset_diagnostics/`.
 
+- [reports/analysis/wave5_2/model_design_gate/[2026-07-01]/wave52b_wave52c_model_design_gate.md](./reports/analysis/wave5_2/model_design_gate/%5B2026-07-01%5D/wave52b_wave52c_model_design_gate.md)
+  `Wave 5.2B` and `Wave 5.2C` model-design gate translating the full paired
+  matrix into a lightweight offset/harmonic guided primary branch, a
+  dirty-to-clean transfer secondary branch, and deferred `Wave 6` integration.
+
 - [reports/analysis/Repository Status Wave Track Synthesis.md](./reports/analysis/Repository%20Status%20Wave%20Track%20Synthesis.md)
   Consolidated state report covering the repository status, `Wave 1`,
   `Wave 2.1`, `Wave 2.2`, `Wave 2.3`, `TE Curve Verification Pipeline` outcomes, sparse `RCIM` versus
@@ -3509,6 +3514,11 @@ This folder contains the internal project documents derived from the reference P
   Technical plan for extending `Wave 5.2A` from bounded paired diagnostics to
   a full paired `simplified_dataset` versus `polished_dataset` matrix with
   classification and roadmap decision evidence.
+
+- [technical/2026-07/2026-07-01/2026-07-01-15-30-07_wave52b_wave52c_model_design_gate.md](./technical/2026-07/2026-07-01/2026-07-01-15-30-07_wave52b_wave52c_model_design_gate.md)
+  Technical plan for translating the completed `Wave 5.2A` full paired matrix
+  into a `Wave 5.2B` offset/harmonic guided model-design gate and a `Wave
+  5.2C` dirty-to-clean transfer design gate.
 
 - [technical/2026-04/2026-04-09/2026-04-09-16-42-43_notebooklm_export_integration_for_harmonic_wise_guide.md](./technical/2026-04/2026-04-09/2026-04-09-16-42-43_notebooklm_export_integration_for_harmonic_wise_guide.md)
   Technical plan for importing, renaming, and canonically placing the generated NotebookLM concept and project exports for the harmonic-wise guide.
