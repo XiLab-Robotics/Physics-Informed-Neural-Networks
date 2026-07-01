@@ -64,7 +64,10 @@ Future architecture planning is split into three branches:
 The old `simplified_dataset`-centered `Wave 4` evidence remains useful as
 noise-aware research evidence, but it is no longer sufficient by itself to
 choose production-oriented `Wave 5.2` or `Wave 6` designs. Those decisions
-must wait for polished full-wave evidence and paired dataset diagnostics.
+must wait for polished full-wave evidence and widened paired dataset
+diagnostics. The first bounded `Wave 5.2A` paired diagnostic found `1938`
+available paired directional records and sampled `24` of them for
+dataset-alignment metrics, without touching training state.
 
 ### Implemented And Benchmarked Families
 

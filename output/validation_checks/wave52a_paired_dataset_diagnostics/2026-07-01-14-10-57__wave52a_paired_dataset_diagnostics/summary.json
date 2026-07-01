@@ -1,0 +1,12 @@
+{
+  "run_id": "2026-07-01-14-10-57__wave52a_paired_dataset_diagnostics",
+  "paired_key_count": 1938,
+  "selected_pair_count": 24,
+  "row_stride": 1,
+  "maximum_rows_per_file": 20000,
+  "simplified_root": "data/simplified_dataset",
+  "polished_root": "data/polished_dataset",
+  "report_path": "doc/reports/analysis/wave5_2/paired_dataset_diagnostics/[2026-07-01]/wave52a_paired_dataset_diagnostics.md",
+  "pair_metrics_path": "output/validation_checks/wave52a_paired_dataset_diagnostics/2026-07-01-14-10-57__wave52a_paired_dataset_diagnostics/pair_metrics.csv",
+  "harmonic_metrics_path": "output/validation_checks/wave52a_paired_dataset_diagnostics/2026-07-01-14-10-57__wave52a_paired_dataset_diagnostics/harmonic_metrics.csv"
+}

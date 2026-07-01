@@ -33,7 +33,7 @@ closeout that changes any of these surfaces:
 | Latest official TE Curve Verification refresh | `Wave 4.4` latent-state hysteresis refresh, dated `2026-06-18` |
 | Latest curve-verification decision | verified exploratory baseline; not promoted |
 | Current TE Curve Verification Pipeline selection policy | multi-index curve-first selection, dated `2026-06-16` |
-| Next modeling decision | wait for the externally running full-wave `polished_dataset` retraining campaign, then use a dataset-aware `Wave 5.2` / `Wave 6` roadmap that separates clean polished, noise-aware simplified, and cross-dataset transfer branches |
+| Next modeling decision | keep the externally running full-wave `polished_dataset` retraining campaign isolated, widen paired-dataset diagnostics as needed, then use a dataset-aware `Wave 5.2` / `Wave 6` roadmap that separates clean polished, noise-aware simplified, and cross-dataset transfer branches |
 
 The repository remains direction-parallel. `Fw`, `Bw`, and `global` are not a
 single destructive competition. Each surface keeps its own best candidate and
@@ -131,7 +131,7 @@ robustness, visual-evidence, and deployment-readiness axes visible.
 | Polished-dataset early-wave parallel training | closed | Thirty-six early-wave model-development runs completed across `global`, `Fw`, and `Bw`; best scalar run `te_periodic_gru_sequence_bw`, test MAE `0.001084 deg`. | Normal campaign closeout accepted; scalar registry changed, but official curve-verified leaders unchanged pending separate TE Curve Verification Pipeline refresh. |
 | Polished-dataset RCIM Model-Bank Reproduction | closed | Forward and backward paper-faithful RCIM model banks completed on `polished_dataset`; ERT won both surfaces, with `190` Python and `190` ONNX exports per direction. | Normal campaign closeout accepted; official curve-verified leaders unchanged because TE Curve Verification Pipeline refresh remains a separate optional workflow. |
 | Polished-dataset full-wave retraining | externally active | The 108-run full-wave polished retraining campaign is operator-reported as running on another workstation. | Do not close out, refresh, or reinterpret polished final-model evidence from this checkout until completion artifacts are synchronized. |
-| Wave 5.2 dataset-aware PINN / MMT track | open design branch | MMT diagnostic and parameter inventory exist; the branch now separates clean polished modeling, simplified noise-aware diagnostics, and paired dirty-to-clean or transfer tests. | Not campaign-ready. |
+| Wave 5.2 dataset-aware PINN / MMT track | open design branch | MMT diagnostic, parameter inventory, and first bounded paired-dataset diagnostic exist; the branch now separates clean polished modeling, simplified noise-aware diagnostics, and paired dirty-to-clean or transfer tests. | Not campaign-ready. |
 | Wave 6 integrated multi-task / multi-head / transfer model | deferred | Intended to combine proven offset, low-frequency, centered-shape, uncertainty, mixture, structured residual, dirty-to-clean, reduced-point, and fine-tuning mechanisms. | Deferred until full-wave polished evidence, paired dataset diagnostics, Waves 4.1-4.4, Wave 5.1, and Wave 5.2 identify what should be integrated. |
 
 ## Dataset-Aware Roadmap
@@ -147,6 +147,13 @@ The revised branch structure is:
 | Clean deployment branch | `polished_dataset` is the primary surface. | Final comparable model selection, curve-first promotion, and deployment-oriented decisions after full-wave retraining and `TE Curve Verification Pipeline` refresh. |
 | Noise-aware research branch | `simplified_dataset` is retained as the dirty or disturbed diagnostic surface. | Test whether robust losses, structured constraints, PINN-style soft losses, and multi-task denoising can handle offset, noise, and fragile curve regions. |
 | Cross-dataset transfer branch | Paired `simplified_dataset` and `polished_dataset` evidence. | Evaluate backbone pretraining, fine-tuning on polished data, dirty-to-clean heads, and reduced-point robustness. |
+
+The first `Wave 5.2A` paired diagnostic is available at
+`doc/reports/analysis/wave5_2/paired_dataset_diagnostics/[2026-07-01]/wave52a_paired_dataset_diagnostics.md`.
+It confirms `1938` paired directional records are available and records a
+bounded `24`-pair diagnostic run. It is a dataset-alignment and
+noise-awareness artifact, not a training result and not a `TE Curve
+Verification Pipeline` promotion.
 
 The polishing workflow may be used as an offline diagnostic specification, but
 future deployable models must not copy non-causal or full-curve cleaning logic
