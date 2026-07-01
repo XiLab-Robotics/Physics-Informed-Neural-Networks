@@ -22,9 +22,11 @@ Historical rationale and approval history remain in:
 ## Current Status
 
 - Program State: active.
-- Active Campaign State: none. The completed `Wave 4.4` latent-state /
-  hysteresis-aware campaign is recorded as the last completed campaign in
-  `doc/running/active_training_campaign.yaml`.
+- Active Campaign State: no local active campaign is recorded in
+  `doc/running/active_training_campaign.yaml`. The
+  `polished_dataset_full_wave_retraining_2026_06_22` campaign is
+  operator-reported as running on another workstation and must be treated as
+  externally active until its final artifacts are synchronized.
 - Current Completed Wave: `Wave 5.1` harmonic-prior residual campaign closeout
   and official `TE Curve Verification Pipeline` verification refresh are complete; the branch is a
   verified exploratory baseline and is not promoted over the accepted
@@ -36,10 +38,10 @@ Historical rationale and approval history remain in:
   offline model-verification
   report, closed as the canonical direction-aware verification surface for new
   model families.
-- Current Focus: `Wave 4.4` official `TE Curve Verification Pipeline` verification refresh is
-  closed as a verified exploratory baseline, not promoted. The next modeling
-  decision can move to `Wave 5.2` / integrated multi-task planning with `Wave 4.4`
-  kept as causal-history integration evidence.
+- Current Focus: preserve the running full-wave `polished_dataset` campaign
+  baseline, then restructure `Wave 5.2` and `Wave 6` as dataset-aware
+  branches instead of continuing directly from the old `simplified_dataset`
+  evidence path.
 - Parallel Diagnostic Focus: component-offset, `CVP 1.4` h0 cross-check, and
   predicted-mean versus measured-h0 diagnostics are complete; `h0` is the
   correct mean-like channel to inspect, but not the confirmed sole cause of the
@@ -48,6 +50,19 @@ Historical rationale and approval history remain in:
   `global`; scalar and curve-first surfaces are not a single ranking.
 - Current Best Implemented Run Registry:
   `output/registries/program/current_best_solution.yaml`.
+
+Current dataset-aware roadmap:
+
+| Branch | Primary dataset surface | Purpose | Current status |
+| --- | --- | --- | --- |
+| Clean deployment branch | `polished_dataset` | Produce final comparable, curve-first, deployment-oriented model decisions after the full-wave polished retraining and its `TE Curve Verification Pipeline` refresh. | Full-wave retraining is running on another workstation; do not close out or refresh from this checkout. |
+| Noise-aware research branch | `simplified_dataset` | Preserve the dirty or disturbed surface as a diagnostic stress test for robust losses, structured constraints, PINN-style soft losses, and multi-task denoising ideas. | Open design branch; no new training is approved yet. |
+| Cross-dataset transfer branch | paired `simplified_dataset` and `polished_dataset` | Test backbone pretraining, fine-tuning on polished data, dirty-to-clean supervision, and reduced-point robustness. | Open design branch; depends on paired dataset diagnostics. |
+
+`polished_dataset` is the default final-comparison and deployability surface.
+`simplified_dataset` remains valuable, but its role is now diagnostic and
+noise-aware rather than the automatic basis for future production-oriented
+model decisions.
 
 Current canonical status reports:
 
@@ -238,8 +253,8 @@ Next planned diagnostic and training decision branches:
 | Component-offset identification | Test whether curve offset is dominated by `a_0` / `Component 0`, multiple components, condition/regime behavior, or experimental repeatability limits. | measured `h0`, signed-offset cross-check, and predicted-mean surface diagnostics completed; `h0` is the right mean channel, but the actionable issue is model-side mean-surface bias/compression |
 | `Wave 4 series` dispersion-aware modeling probes | Test robust losses, quantile or probabilistic heads, mixture-density heads, and latent-state or hysteresis-aware features on the offset and fragile-harmonic problem. | robust-loss, quantile/probabilistic, MDN, and `Wave 4.4` latent-state / hysteresis-aware campaigns and official TE Curve Verification refreshes completed; all are exploratory and not promoted |
 | `Wave 5.1` hybrid structured models | Combine harmonic structure, condition-conditioned residual learning, and explicit grouped treatment of stable and fragile harmonic bands. | first real `wave3_harmonic_prior_residual` campaign and official `TE Curve Verification Pipeline` verification refresh closed as a verified exploratory baseline, not promoted |
-| `Wave 5.2` PINN formulation and first PINN | Test soft physics, periodicity, smoothness, harmonic-consistency, and operating-condition constraints in a first narrow PINN branch. | `Wave 5.2A` MMT diagnostic and parameter inventory are generated; dataset-aligned calibration and `Wave 5.2B` / `Wave 5.2C` decision gates remain open |
-| Wave 6 integrated multi-task / multi-head model branch | Shared causal trunk with separate offset, low-frequency, centered-shape, uncertainty or mixture, and optional structured-residual heads. | deferred until `Wave 4 series`, `Wave 5.1`, and `Wave 5.2` identify which mechanisms should be integrated |
+| `Wave 5.2` dataset-aware MMT / PINN-guided branch | Split first-PINN planning into clean-polished modeling, simplified noise-aware diagnostics, and paired dirty-to-clean or transfer tests. | `Wave 5.2A` MMT diagnostic and parameter inventory are generated; paired dataset diagnostics, `Wave 5.2B`, and `Wave 5.2C` gates remain open |
+| Wave 6 integrated multi-task / multi-head and transfer branch | Shared causal trunk with separate TE, offset, low-frequency, centered-shape, uncertainty or mixture, structured-residual, and optional dirty-to-clean heads. | deferred until full-wave polished evidence, paired dataset diagnostics, `Wave 4 series`, `Wave 5.1`, and `Wave 5.2` identify which mechanisms should be integrated |
 | Sequential residual calibration branch | Current best causal model plus second causal residual or offset calibrator trained on model error. | candidate after audit |
 
 The `CVP 1.5` offset-predictability feasibility diagnostic is complete in:
@@ -257,10 +272,11 @@ Current `CVP 1.5` observations:
 
 Recommended next gate:
 
-- treat `Wave 5.2` first-PINN formulation as the next physics-informed branch
-  after the hidden-state question is tested or explicitly deferred; `Wave 5.2`
-  resumes from the `Wave 5.2A` MMT diagnostic report, completed parameter
-  inventory, and dataset-aligned calibration gate;
+- treat `Wave 5.2` as a dataset-aware MMT / PINN-guided program, not as one
+  direct first-PINN campaign on the old development surface. The next
+  physics-informed work resumes from the `Wave 5.2A` MMT diagnostic report,
+  completed parameter inventory, and a new paired `simplified_dataset` versus
+  `polished_dataset` diagnostic gate;
 - do not document `a_0` / `Component 0` as the confirmed sole cause unless
   repeatability, component-level error, and model-side surface diagnostics
   support that conclusion.
@@ -1147,9 +1163,12 @@ Entry rule:
     modeling treated as verified exploratory integration evidence, not as a
     promoted branch.
 
-### Wave 5.2. PINN Formulation And First PINN
+### Wave 5.2. Dataset-Aware MMT / PINN-Guided Models
 
 - status: pre-implemented at `Wave 5.2A` diagnostic level, not campaign-ready;
+- revised role: dataset-aware physics-guided branch with separate clean
+  polished, noise-aware simplified, and paired transfer / dirty-to-clean
+  decision surfaces;
 - current scaffold:
   - diagnostic adapter:
     `scripts/models/wave4_mmt_diagnostic_adapter.py`;
@@ -1165,17 +1184,21 @@ Entry rule:
     `output/validation_checks/wave4_mmt_equation_diagnostic/2026-06-11-19-25-32__wave4a_mmt_equation_diagnostic/`;
   - parameter-inventory artifacts:
     `output/validation_checks/wave4_mmt_parameter_inventory/2026-06-11-20-29-51__wave4a_mmt_parameter_inventory/`;
-- updated priority: execute dataset-aligned diagnostic calibration after the
-  `Wave 5.1` smoke/campaign decision, then decide whether `Wave 5.2B` features or
-  `Wave 5.2C` soft losses are justified;
+- updated priority: wait for the externally running full-wave
+  `polished_dataset` campaign before final clean-branch conclusions, but use
+  this checkout to prepare paired dataset diagnostics and a leakage-safe
+  `Wave 5.2` design gate;
 - mandatory rule: prepare or justify `global`, `forward`, and `backward`
   surfaces;
 - paper-reproduction scope:
   - prepare PINN-side model and loss formulations for later offline and
-    deployment evaluation;
+    deployment evaluation on `polished_dataset`;
+  - use `simplified_dataset` as a noise-aware diagnostic surface for offset,
+    disturbed curves, and reduced-point stress tests;
   - test whether soft physics, periodicity, smoothness, harmonic-consistency,
-    and operating-condition constraints reduce offset and fragile-harmonic
-    errors;
+    derivative penalties, and operating-condition constraints reduce offset
+    and fragile-harmonic errors without importing offline polishing leakage
+    into runtime inference;
   - keep online compensation execution out of Wave 5.2 unless Track 3 is
     explicitly promoted first.
 - completed inventory conclusions:
@@ -1186,14 +1209,48 @@ Entry rule:
     analytical-baseline claims;
   - measured TE remains target-only and must not become an inference input.
 - next implementation steps:
-  - compare MMT diagnostic signatures against dataset-aligned curve summaries
-    without leakage;
-  - design a train-only equivalent-error calibration policy for candidate
-    `Wave 5.2B` features;
-  - decide whether the MMT path remains diagnostic-only, becomes a feature
-    generator (`Wave 5.2B`), or becomes a weak soft-constraint loss (`Wave 5.2C`);
+  - compare `simplified_dataset` and `polished_dataset` at the paired curve,
+    offset, smoothness, harmonic, removed-point, and operating-condition
+    levels;
+  - inspect the polishing workflow as an offline diagnostic specification, then
+    translate only leakage-safe ideas into train-time losses, auxiliary heads,
+    masks, or evaluation diagnostics;
+  - define `Wave 5.2B` as the clean-polished feature or soft-constraint path
+    only after polished retraining and curve-first evidence expose remaining
+    gaps;
+  - define `Wave 5.2C` as the noise-aware / dirty-to-clean multi-task path
+    when paired dataset alignment is strong enough;
   - do not treat the current demonstration harmonic summary as dataset
     causality.
+
+### Wave 6. Integrated Multi-Task, Multi-Head, And Transfer Models
+
+- status: deferred design branch;
+- revised role: final integration branch after the clean polished, noise-aware
+  simplified, and cross-dataset transfer evidence is available;
+- candidate ingredients:
+  - periodic sequence backbone when the polished full-wave results confirm its
+    advantage;
+  - robust or quantile objectives if they improve worst-case or uncertainty
+    behavior;
+  - mixture-density pressure only if it adds value beyond one effective
+    component;
+  - harmonic-prior residual structure from `Wave 5.1` if curve-first evidence
+    justifies it;
+  - latent-state / hysteresis features only as integration evidence, not as a
+    standalone promoted branch;
+  - dirty-to-clean or denoising heads only if paired dataset diagnostics prove
+    the target is well aligned and leakage-safe;
+  - reduced-point and fine-tuning tests to quantify how much data is needed per
+    curve and whether a backbone pretrained on one surface transfers to the
+    other.
+- next implementation steps:
+  - wait for full-wave polished closeout and curve-first refresh before final
+    clean-branch architecture choices;
+  - design reduced-point splits and from-scratch versus fine-tuned comparison
+    rules;
+  - keep `Wave 6` out of campaign preparation until `Wave 5.2` identifies
+    which heads and constraints are justified.
 
 ### Wave 5. Cross-Wave Comparison And Best Solution
 
@@ -1233,9 +1290,10 @@ Entry rule:
 - `TE Curve Verification Pipeline` is the canonical offline verification baseline; diagnostic
   extensions now continue as CVP 1.1, CVP 1.2, mean-centered collage, and
   completed `CVP 1.4`;
-- the next planned branch before any new broad model-family wave is an
-  offset-aware training or calibration design selected from the completed
-  CVP 1.4 failure-mode labels;
+- the next planned model-development branch is dataset-aware: use
+  `polished_dataset` for final deployment-oriented comparison, preserve
+  `simplified_dataset` as a noise-aware diagnostic surface, and add a paired
+  transfer / reduced-point branch before opening broad new model-family waves;
 - future wave planning must keep direction-separated modeling and reporting in
   scope from the start;
 - Track 3 is the future online compensation and deployment-evaluation branch;

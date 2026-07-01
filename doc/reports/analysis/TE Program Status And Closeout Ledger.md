@@ -33,7 +33,7 @@ closeout that changes any of these surfaces:
 | Latest official TE Curve Verification refresh | `Wave 4.4` latent-state hysteresis refresh, dated `2026-06-18` |
 | Latest curve-verification decision | verified exploratory baseline; not promoted |
 | Current TE Curve Verification Pipeline selection policy | multi-index curve-first selection, dated `2026-06-16` |
-| Next modeling decision | choose between the prepared full-wave polished-dataset retraining campaign or a separate curve-first verification refresh after inspecting both polished RCIM and early-wave closeouts |
+| Next modeling decision | wait for the externally running full-wave `polished_dataset` retraining campaign, then use a dataset-aware `Wave 5.2` / `Wave 6` roadmap that separates clean polished, noise-aware simplified, and cross-dataset transfer branches |
 
 The repository remains direction-parallel. `Fw`, `Bw`, and `global` are not a
 single destructive competition. Each surface keeps its own best candidate and
@@ -62,8 +62,8 @@ its own interpretation.
 | `Wave 4.3` | Mixture-Density Models |
 | `Wave 4.4` | Latent-State and Hysteresis Models |
 | `Wave 5.1` | Harmonic-Prior Residual Models |
-| `Wave 5.2` | MMT/PINN-Guided Models |
-| `Wave 6` | Integrated Multi-Task and Multi-Head Models |
+| `Wave 5.2` | Dataset-Aware MMT/PINN-Guided Models |
+| `Wave 6` | Integrated Multi-Task, Multi-Head, and Transfer Models |
 
 Historical paths, run names, model-family keys, and script names retain their
 legacy `track1`, `track2`, `wave3`, or `wave4` identifiers where changing them
@@ -130,8 +130,29 @@ robustness, visual-evidence, and deployment-readiness axes visible.
 | Polished-dataset Stage 1 smoke | closed | Eight representative non-paper-original model families trained successfully on `polished_dataset`; best scalar run `te_periodic_gru_sequence_remote_global`, test MAE `0.001279 deg`. | Normal campaign closeout accepted; scalar registry changed, but official curve-verified leaders unchanged pending separate TE Curve Verification Pipeline refresh. |
 | Polished-dataset early-wave parallel training | closed | Thirty-six early-wave model-development runs completed across `global`, `Fw`, and `Bw`; best scalar run `te_periodic_gru_sequence_bw`, test MAE `0.001084 deg`. | Normal campaign closeout accepted; scalar registry changed, but official curve-verified leaders unchanged pending separate TE Curve Verification Pipeline refresh. |
 | Polished-dataset RCIM Model-Bank Reproduction | closed | Forward and backward paper-faithful RCIM model banks completed on `polished_dataset`; ERT won both surfaces, with `190` Python and `190` ONNX exports per direction. | Normal campaign closeout accepted; official curve-verified leaders unchanged because TE Curve Verification Pipeline refresh remains a separate optional workflow. |
-| Wave 5.2 PINN / MMT track | open design branch | MMT diagnostic and parameter inventory exist; feature and soft-constraint gates remain open. | Not campaign-ready. |
-| Wave 6 integrated multi-task / multi-head model | deferred | Intended to combine proven offset, low-frequency, centered-shape, uncertainty, mixture, and structured residual mechanisms. | Deferred until Waves 4.1-4.4, Wave 5.1, and Wave 5.2 evidence identifies what should be integrated. |
+| Polished-dataset full-wave retraining | externally active | The 108-run full-wave polished retraining campaign is operator-reported as running on another workstation. | Do not close out, refresh, or reinterpret polished final-model evidence from this checkout until completion artifacts are synchronized. |
+| Wave 5.2 dataset-aware PINN / MMT track | open design branch | MMT diagnostic and parameter inventory exist; the branch now separates clean polished modeling, simplified noise-aware diagnostics, and paired dirty-to-clean or transfer tests. | Not campaign-ready. |
+| Wave 6 integrated multi-task / multi-head / transfer model | deferred | Intended to combine proven offset, low-frequency, centered-shape, uncertainty, mixture, structured residual, dirty-to-clean, reduced-point, and fine-tuning mechanisms. | Deferred until full-wave polished evidence, paired dataset diagnostics, Waves 4.1-4.4, Wave 5.1, and Wave 5.2 identify what should be integrated. |
+
+## Dataset-Aware Roadmap
+
+Future `Wave 5.2` and `Wave 6` work must not treat the old
+`simplified_dataset` evidence and the new `polished_dataset` evidence as the
+same modeling surface.
+
+The revised branch structure is:
+
+| Branch | Dataset role | Purpose |
+| --- | --- | --- |
+| Clean deployment branch | `polished_dataset` is the primary surface. | Final comparable model selection, curve-first promotion, and deployment-oriented decisions after full-wave retraining and `TE Curve Verification Pipeline` refresh. |
+| Noise-aware research branch | `simplified_dataset` is retained as the dirty or disturbed diagnostic surface. | Test whether robust losses, structured constraints, PINN-style soft losses, and multi-task denoising can handle offset, noise, and fragile curve regions. |
+| Cross-dataset transfer branch | Paired `simplified_dataset` and `polished_dataset` evidence. | Evaluate backbone pretraining, fine-tuning on polished data, dirty-to-clean heads, and reduced-point robustness. |
+
+The polishing workflow may be used as an offline diagnostic specification, but
+future deployable models must not copy non-causal or full-curve cleaning logic
+into runtime inference. Ideas from the polishing process should be translated
+only into leakage-safe train-time losses, auxiliary heads, masks, or
+diagnostic metrics.
 
 ## CVP Modules And Waves 3.1 Through 4.4
 
@@ -228,14 +249,17 @@ models.
 
 ## Current Next Steps
 
-1. Launch the prepared full-wave polished-dataset retraining campaign when the
-   operator is ready.
+1. Wait for the externally running full-wave `polished_dataset` retraining
+   campaign to finish and be synchronized before polished closeout or official
+   `TE Curve Verification Pipeline` refresh work.
 2. Keep `Wave 4.1` robust, probabilistic, MDN, and latent-state branches as
    evidence for later multi-head integration, not as current promoted leaders.
-3. Keep `Wave 5.2` MMT/PINN work behind its dataset-aligned diagnostic and
-   calibration gates.
-4. Do not open the integrated multi-task / multi-head campaign until the
-   chosen ingredients are justified by TE Curve Verification Pipeline curve evidence.
+3. Rework `Wave 5.2` as a dataset-aware MMT/PINN-guided branch with separate
+   clean polished, noise-aware simplified, and paired transfer / dirty-to-clean
+   gates.
+4. Defer `Wave 6` until the full-wave polished results, paired dataset
+   diagnostics, and `Wave 5.2` evidence identify which heads, constraints, and
+   transfer strategy are justified.
 
 ## Closeout Update Rule
 

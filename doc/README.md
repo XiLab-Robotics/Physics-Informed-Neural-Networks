@@ -3489,6 +3489,11 @@ This folder contains the internal project documents derived from the reference P
   starting from ignored oversized artifacts and temporary caches before any
   tracked Git or Git LFS removal is considered.
 
+- [technical/2026-07/2026-07-01/2026-07-01-13-55-22_dataset_aware_wave52_wave6_documentation_rework.md](./technical/2026-07/2026-07-01/2026-07-01-13-55-22_dataset_aware_wave52_wave6_documentation_rework.md)
+  Technical plan for reworking the TE program documentation around
+  dataset-aware `Wave 5.2` and `Wave 6` branches while the full-wave
+  `polished_dataset` retraining campaign continues on another workstation.
+
 - [technical/2026-04/2026-04-09/2026-04-09-16-42-43_notebooklm_export_integration_for_harmonic_wise_guide.md](./technical/2026-04/2026-04-09/2026-04-09-16-42-43_notebooklm_export_integration_for_harmonic_wise_guide.md)
   Technical plan for importing, renaming, and canonically placing the generated NotebookLM concept and project exports for the harmonic-wise guide.
 

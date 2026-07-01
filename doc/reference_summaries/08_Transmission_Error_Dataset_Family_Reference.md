@@ -342,6 +342,29 @@ Use `polished_dataset` when:
 - developing temporal or sequence-aware loaders;
 - auditing the direct encoder-to-TE transformation.
 
+## Dataset-Aware Modeling Policy
+
+Future `Wave 5.2` and `Wave 6` work must treat `simplified_dataset` and
+`polished_dataset` as distinct modeling surfaces, not interchangeable
+versions of the same training target.
+
+`polished_dataset` is the primary surface for final comparable model results,
+`TE Curve Verification Pipeline` promotion, and deployment-oriented decisions.
+The full-wave polished retraining campaign and its later curve-first refresh
+define the clean branch evidence.
+
+`simplified_dataset` remains a valuable diagnostic surface because the earlier
+`Wave 4` work exposed offset, disturbance, and fragile-curve behavior there.
+Use it for noise-aware research, robust-loss stress tests, dirty-to-clean
+modeling ideas, PINN-style soft constraints, and reduced-point sensitivity
+studies.
+
+Paired-dataset work should compare operating-condition aligned curves before
+training any dirty-to-clean or transfer model. The polishing workflow may guide
+offline diagnostics, masks, auxiliary heads, or train-time losses, but
+non-causal or full-curve cleaning logic must not be copied into runtime
+inference.
+
 ## Reproducing The Polished Export
 
 The standalone script resolves its defaults relative to its own location:

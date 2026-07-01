@@ -5,9 +5,10 @@
 - Generated At: `2026-06-29T10:40:05`
 - Program State: active.
 - Current Completed Wave: `polished_dataset` early-wave parallel training closeout
-- Current Focus: choose the remaining polished full-wave retraining or a
-  separate `TE Curve Verification Pipeline` refresh after accepting both
-  polished RCIM and early-wave closeouts.
+- Current Focus: wait for the externally running full-wave
+  `polished_dataset` retraining campaign, then apply a dataset-aware roadmap
+  that separates clean polished deployment, simplified noise-aware research,
+  and cross-dataset transfer / reduced-point robustness.
 - Active Campaign Status: `completed`
 - Active Campaign Name: `polished_dataset_early_wave_parallel_training_2026_06_25`
 - Current Program Winner: `te_periodic_gru_sequence_bw` | Family `periodic_gru_sequence_bw` | Test MAE `0.001084`
@@ -22,6 +23,11 @@
   direction-specific ERT winners on both `forward` and `backward`; official
   curve-verified leaders are unchanged because the `TE Curve Verification
   Pipeline` refresh was not run inside normal closeout.
+- `Wave 5.2` and `Wave 6` planning is now dataset-aware: `polished_dataset`
+  is the final-comparison and deployment surface, `simplified_dataset` is the
+  dirty/noise-aware diagnostic surface, and paired dataset work will evaluate
+  backbone transfer, dirty-to-clean supervision, fine-tuning, and reduced-point
+  robustness.
 
 ## Current Project Status
 
@@ -40,6 +46,25 @@ The generated model bundles remain local artifacts because the forward and
 backward `paper_family_model_bank.pkl` files exceed the GitHub `100 MB`
 single-file limit. The official `TE Curve Verification Pipeline` matrix was
 not refreshed during this normal closeout.
+
+### Dataset-Aware Roadmap Update
+
+The full-wave `polished_dataset` retraining package is operator-reported as
+running on another workstation. This checkout must not close out, verify, or
+reinterpret that campaign until the final artifacts are synchronized.
+
+Future architecture planning is split into three branches:
+
+| Branch | Dataset surface | Planning role |
+| --- | --- | --- |
+| Clean deployment | `polished_dataset` | Final comparable model selection, curve-first promotion, and deployment-oriented decisions. |
+| Noise-aware research | `simplified_dataset` | Diagnostic stress testing for robust losses, structured constraints, PINN-style soft losses, and multi-task denoising ideas. |
+| Cross-dataset transfer | paired datasets | Backbone pretraining, fine-tuning on `polished_dataset`, dirty-to-clean supervision, and reduced-point robustness. |
+
+The old `simplified_dataset`-centered `Wave 4` evidence remains useful as
+noise-aware research evidence, but it is no longer sufficient by itself to
+choose production-oriented `Wave 5.2` or `Wave 6` designs. Those decisions
+must wait for polished full-wave evidence and paired dataset diagnostics.
 
 ### Implemented And Benchmarked Families
 
