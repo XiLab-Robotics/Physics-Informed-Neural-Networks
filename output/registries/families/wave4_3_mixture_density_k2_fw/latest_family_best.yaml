@@ -1,0 +1,48 @@
+schema_version: 1
+model_family: wave4_3_mixture_density_k2_fw
+selection_policy:
+  primary_metric: test_mae
+  first_tie_breaker: test_rmse
+  second_tie_breaker: val_mae
+  third_tie_breaker: trainable_parameter_count
+  direction: minimize
+updated_at: '2026-07-01T15:51:08'
+best_entry:
+  run_instance_id: 2026-07-01-14-38-06__te_wave4_3_mixture_density_k2_fw
+  run_name: te_wave4_3_mixture_density_k2_fw
+  output_run_name: te_wave4_3_mixture_density_k2_fw
+  output_artifact_kind: training_run
+  model_family: wave4_3_mixture_density_k2_fw
+  base_model_family: wave4_3_mixture_density_k2
+  model_type: curve_aware_harmonic_residual_offset_probe
+  dataset_id: polished_dataset
+  dataset_schema: polished_point_v1
+  input_feature_names:
+  - theta
+  - theta_dot
+  - tau_load
+  - T
+  target_feature_names:
+  - theta_TE
+  input_feature_dim: 4
+  training_variant: fw
+  direction_scope_label: forward_only
+  use_forward_direction: true
+  use_backward_direction: false
+  trainable_parameter_count: 86400
+  total_parameter_count: 86400
+  val_mae: 0.0014933582860976458
+  val_rmse: 0.0018804427236318588
+  test_mae: 0.001698333420790732
+  test_rmse: 0.002195781096816063
+  output_directory: output\training_runs\wave4_3_mixture_density_k2\2026-07-01-14-38-06__te_wave4_3_mixture_density_k2_fw
+  best_checkpoint_path: output\training_runs\wave4_3_mixture_density_k2\2026-07-01-14-38-06__te_wave4_3_mixture_density_k2_fw\checkpoints\curve_aware_harmonic_residual_offset_probe-epoch=255-val_mae=0.00149336.ckpt
+  metrics_path: output\training_runs\wave4_3_mixture_density_k2\2026-07-01-14-38-06__te_wave4_3_mixture_density_k2_fw/metrics_summary.yaml
+  report_path: output\training_runs\wave4_3_mixture_density_k2\2026-07-01-14-38-06__te_wave4_3_mixture_density_k2_fw/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-07-01T15:51:08'

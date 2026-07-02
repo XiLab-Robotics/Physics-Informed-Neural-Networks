@@ -1,0 +1,49 @@
+schema_version: 1
+model_family: wave3_2_clean_sequential_residual_offset_global
+selection_policy:
+  primary_metric: test_mae
+  first_tie_breaker: test_rmse
+  second_tie_breaker: val_mae
+  third_tie_breaker: trainable_parameter_count
+  direction: minimize
+updated_at: '2026-06-30T17:46:46'
+entry_count: 1
+entry_list:
+- run_instance_id: 2026-06-30-17-18-40__te_wave3_2_clean_sequential_residual_offset_global
+  run_name: te_wave3_2_clean_sequential_residual_offset_global
+  output_run_name: te_wave3_2_clean_sequential_residual_offset_global
+  output_artifact_kind: training_run
+  model_family: wave3_2_clean_sequential_residual_offset_global
+  base_model_family: wave3_2_clean_sequential_residual_offset
+  model_type: sequential_residual_offset_probe
+  dataset_id: polished_dataset
+  dataset_schema: polished_point_v1
+  input_feature_names:
+  - theta
+  - theta_dot
+  - tau_load
+  - T
+  target_feature_names:
+  - theta_TE
+  input_feature_dim: 4
+  training_variant: global
+  direction_scope_label: bidirectional
+  use_forward_direction: true
+  use_backward_direction: true
+  trainable_parameter_count: 92418
+  total_parameter_count: 92418
+  val_mae: 0.002158066490665078
+  val_rmse: 0.0026799433398991823
+  test_mae: 0.0022763723973184824
+  test_rmse: 0.0029095285572111607
+  output_directory: output\training_runs\wave3_2_clean_sequential_residual_offset\2026-06-30-17-18-40__te_wave3_2_clean_sequential_residual_offset_global
+  best_checkpoint_path: output\training_runs\wave3_2_clean_sequential_residual_offset\2026-06-30-17-18-40__te_wave3_2_clean_sequential_residual_offset_global\checkpoints\sequential_residual_offset_probe-epoch=133-val_mae=0.00215807.ckpt
+  metrics_path: output\training_runs\wave3_2_clean_sequential_residual_offset\2026-06-30-17-18-40__te_wave3_2_clean_sequential_residual_offset_global/metrics_summary.yaml
+  report_path: output\training_runs\wave3_2_clean_sequential_residual_offset\2026-06-30-17-18-40__te_wave3_2_clean_sequential_residual_offset_global/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-06-30T17:46:46'

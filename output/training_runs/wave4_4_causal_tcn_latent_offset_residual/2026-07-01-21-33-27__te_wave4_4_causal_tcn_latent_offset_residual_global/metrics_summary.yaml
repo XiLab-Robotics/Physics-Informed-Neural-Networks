@@ -1,0 +1,107 @@
+schema_version: 1
+config_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\config\training\queue\polished_dataset_full_wave_retraining\running\2026-06-29-15-54-17_100_100_wave4_4_causal_tcn_latent_offset_residual_global.yaml
+experiment:
+  model_family: wave4_4_causal_tcn_latent_offset_residual_global
+  model_type: latent_state_hysteresis_probe
+  run_name: te_wave4_4_causal_tcn_latent_offset_residual_global
+  output_run_name: te_wave4_4_causal_tcn_latent_offset_residual_global
+  run_instance_id: 2026-07-01-21-33-27__te_wave4_4_causal_tcn_latent_offset_residual_global
+  output_artifact_kind: training_run
+  base_model_family: wave4_4_causal_tcn_latent_offset_residual
+  training_variant: global
+  direction_scope_label: bidirectional
+  use_forward_direction: true
+  use_backward_direction: true
+artifacts:
+  output_directory: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_runs\wave4_4_causal_tcn_latent_offset_residual\2026-07-01-21-33-27__te_wave4_4_causal_tcn_latent_offset_residual_global
+  best_checkpoint_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_runs\wave4_4_causal_tcn_latent_offset_residual\2026-07-01-21-33-27__te_wave4_4_causal_tcn_latent_offset_residual_global\checkpoints\latent_state_hysteresis_probe-epoch=135-val_mae=0.00221664.ckpt
+dataset_split:
+  train_curve_count: 1356
+  validation_curve_count: 388
+  test_curve_count: 194
+  dataset_name: polished_dataset
+  dataset_schema: polished_point_v1
+  input_feature_name_list:
+  - theta
+  - theta_dot
+  - tau_load
+  - T
+  target_feature_name_list:
+  - theta_TE
+  input_feature_dim: 4
+  target_feature_dim: 1
+dataset:
+  dataset_id: polished_dataset
+  dataset_schema: polished_point_v1
+  input_feature_names:
+  - theta
+  - theta_dot
+  - tau_load
+  - T
+  target_feature_names:
+  - theta_TE
+  input_feature_dim: 4
+  target_feature_dim: 1
+model_summary:
+  backbone_name: LatentStateHysteresisNetwork
+  trainable_parameter_count: 97155
+  frozen_parameter_count: 0
+  total_parameter_count: 97155
+runtime_config:
+  accelerator: auto
+  devices: auto
+  precision: '32'
+  benchmark: true
+  use_non_blocking_transfer: true
+normalization_statistics:
+  input_feature_mean:
+  - 180.0000762939453
+  - -14.942256927490234
+  - 1.681342363357544
+  - 30.617416381835938
+  input_feature_std:
+  - 103.92301940917969
+  - 690.1138305664062
+  - 1055.5772705078125
+  - 4.267345428466797
+  target_mean:
+  - -0.016667330637574196
+  target_std:
+  - 0.0465485081076622
+validation_metrics:
+  val_loss: 0.005641559604555368
+  val_mae: 0.0022166373673826456
+  val_rmse: 0.00275765941478312
+  val_pointwise_loss: 0.00302246049977839
+  val_centered_curve_shape_loss: 0.005614611320197582
+  val_curve_offset_loss: 0.0004343412001617253
+  val_curve_amplitude_loss: 0.028186125680804253
+  val_sparse_harmonic_shape_loss: 0.0
+  val_base_mae: 0.026388827711343765
+  val_base_rmse: 0.028727442026138306
+  val_residual_offset_mean_abs: 0.01774287223815918
+test_metrics:
+  test_loss: 0.006372207310050726
+  test_mae: 0.0023154544178396463
+  test_rmse: 0.0029857433401048183
+  test_pointwise_loss: 0.0034482425544410944
+  test_centered_curve_shape_loss: 0.006453189067542553
+  test_curve_offset_loss: 0.0004445372906047851
+  test_curve_amplitude_loss: 0.030888397246599197
+  test_sparse_harmonic_shape_loss: 0.0
+  test_base_mae: 0.025578012689948082
+  test_base_rmse: 0.028088008984923363
+  test_residual_offset_mean_abs: 0.01728297956287861
+comparison_payload:
+  model_family: wave4_4_causal_tcn_latent_offset_residual_global
+  model_type: latent_state_hysteresis_probe
+  run_name: te_wave4_4_causal_tcn_latent_offset_residual_global
+  backbone_name: LatentStateHysteresisNetwork
+  trainable_parameter_count: 97155
+  total_parameter_count: 97155
+  val_mae: 0.0022166373673826456
+  val_rmse: 0.00275765941478312
+  test_mae: 0.0023154544178396463
+  test_rmse: 0.0029857433401048183
+  deployment_notes: ''
+  interpretability_notes: ''

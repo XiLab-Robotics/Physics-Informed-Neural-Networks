@@ -1,0 +1,49 @@
+schema_version: 1
+model_family: wave4_1_smooth_l1_robust_loss_bw
+selection_policy:
+  primary_metric: test_mae
+  first_tie_breaker: test_rmse
+  second_tie_breaker: val_mae
+  third_tie_breaker: trainable_parameter_count
+  direction: minimize
+updated_at: '2026-07-01T06:18:29'
+entry_count: 1
+entry_list:
+- run_instance_id: 2026-07-01-05-54-19__te_wave4_1_smooth_l1_robust_loss_bw
+  run_name: te_wave4_1_smooth_l1_robust_loss_bw
+  output_run_name: te_wave4_1_smooth_l1_robust_loss_bw
+  output_artifact_kind: training_run
+  model_family: wave4_1_smooth_l1_robust_loss_bw
+  base_model_family: wave4_1_smooth_l1_robust_loss
+  model_type: curve_aware_harmonic_residual_offset_probe
+  dataset_id: polished_dataset
+  dataset_schema: polished_point_v1
+  input_feature_names:
+  - theta
+  - theta_dot
+  - tau_load
+  - T
+  target_feature_names:
+  - theta_TE
+  input_feature_dim: 4
+  training_variant: bw
+  direction_scope_label: backward_only
+  use_forward_direction: false
+  use_backward_direction: true
+  trainable_parameter_count: 85440
+  total_parameter_count: 85440
+  val_mae: 0.0018508108332753181
+  val_rmse: 0.002284424379467964
+  test_mae: 0.00196799892000854
+  test_rmse: 0.0025148731656372547
+  output_directory: output\training_runs\wave4_1_smooth_l1_robust_loss\2026-07-01-05-54-19__te_wave4_1_smooth_l1_robust_loss_bw
+  best_checkpoint_path: output\training_runs\wave4_1_smooth_l1_robust_loss\2026-07-01-05-54-19__te_wave4_1_smooth_l1_robust_loss_bw\checkpoints\curve_aware_harmonic_residual_offset_probe-epoch=083-val_mae=0.00185081.ckpt
+  metrics_path: output\training_runs\wave4_1_smooth_l1_robust_loss\2026-07-01-05-54-19__te_wave4_1_smooth_l1_robust_loss_bw/metrics_summary.yaml
+  report_path: output\training_runs\wave4_1_smooth_l1_robust_loss\2026-07-01-05-54-19__te_wave4_1_smooth_l1_robust_loss_bw/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-07-01T06:18:29'

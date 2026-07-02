@@ -1,0 +1,1 @@
+C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_runs\temporal_convolution\2026-06-29-21-48-10__te_temporal_convolution_global\checkpoints\temporal_convolution-epoch=111-val_mae=0.00229596.ckpt

@@ -1,0 +1,21 @@
+schema_version: 1
+artifact_kind: training_run
+model_family: wave3_3_full_curve_composite_global
+base_model_family: wave3_3_full_curve_composite
+training_variant: global
+direction_scope_label: bidirectional
+use_forward_direction: true
+use_backward_direction: true
+run_name: te_wave3_3_full_curve_composite_global
+run_instance_id: 2026-07-01-01-29-25__te_wave3_3_full_curve_composite_global
+output_directory: output\training_runs\wave3_3_full_curve_composite\2026-07-01-01-29-25__te_wave3_3_full_curve_composite_global
+dataset_id: polished_dataset
+dataset_schema: polished_point_v1
+input_feature_names:
+- theta
+- theta_dot
+- tau_load
+- T
+target_feature_names:
+- theta_TE
+input_feature_dim: 4

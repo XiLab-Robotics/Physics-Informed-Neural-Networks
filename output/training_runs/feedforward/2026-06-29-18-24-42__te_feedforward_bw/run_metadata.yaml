@@ -1,0 +1,21 @@
+schema_version: 1
+artifact_kind: training_run
+model_family: feedforward_bw
+base_model_family: feedforward
+training_variant: bw
+direction_scope_label: backward_only
+use_forward_direction: false
+use_backward_direction: true
+run_name: te_feedforward_bw
+run_instance_id: 2026-06-29-18-24-42__te_feedforward_bw
+output_directory: output\training_runs\feedforward\2026-06-29-18-24-42__te_feedforward_bw
+dataset_id: polished_dataset
+dataset_schema: polished_point_v1
+input_feature_names:
+- theta
+- theta_dot
+- tau_load
+- T
+target_feature_names:
+- theta_TE
+input_feature_dim: 4

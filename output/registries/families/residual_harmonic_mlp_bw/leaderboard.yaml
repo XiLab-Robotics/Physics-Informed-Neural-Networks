@@ -6,8 +6,8 @@ selection_policy:
   second_tie_breaker: val_mae
   third_tie_breaker: trainable_parameter_count
   direction: minimize
-updated_at: '2026-06-25T17:47:36'
-entry_count: 7
+updated_at: '2026-06-29T16:58:51'
+entry_count: 8
 entry_list:
 - run_instance_id: 2026-06-25-17-06-54__te_residual_harmonic_mlp_bw
   run_name: te_residual_harmonic_mlp_bw
@@ -47,6 +47,44 @@ entry_list:
     third_tie_breaker: trainable_parameter_count
     direction: minimize
   selected_at: '2026-06-25T17:47:36'
+- run_instance_id: 2026-06-29-16-42-14__te_residual_harmonic_mlp_bw
+  run_name: te_residual_harmonic_mlp_bw
+  output_run_name: te_residual_harmonic_mlp_bw
+  output_artifact_kind: training_run
+  model_family: residual_harmonic_mlp_bw
+  base_model_family: residual_harmonic_mlp
+  model_type: residual_harmonic_mlp
+  dataset_id: polished_dataset
+  dataset_schema: polished_point_v1
+  input_feature_names:
+  - theta
+  - theta_dot
+  - tau_load
+  - T
+  target_feature_names:
+  - theta_TE
+  input_feature_dim: 4
+  training_variant: bw
+  direction_scope_label: backward_only
+  use_forward_direction: false
+  use_backward_direction: true
+  trainable_parameter_count: 26138
+  total_parameter_count: 26138
+  val_mae: 0.0016372381942346692
+  val_rmse: 0.002107656793668866
+  test_mae: 0.0017992164939641953
+  test_rmse: 0.002379870042204857
+  output_directory: output\training_runs\residual_harmonic_mlp\2026-06-29-16-42-14__te_residual_harmonic_mlp_bw
+  best_checkpoint_path: output\training_runs\residual_harmonic_mlp\2026-06-29-16-42-14__te_residual_harmonic_mlp_bw\checkpoints\residual_harmonic_mlp-epoch=065-val_mae=0.00163724.ckpt
+  metrics_path: output\training_runs\residual_harmonic_mlp\2026-06-29-16-42-14__te_residual_harmonic_mlp_bw/metrics_summary.yaml
+  report_path: output\training_runs\residual_harmonic_mlp\2026-06-29-16-42-14__te_residual_harmonic_mlp_bw/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-06-29T16:58:51'
 - run_instance_id: 2026-05-20-11-57-15__te_residual_harmonic_rcim_sparse_tracking_bw
   run_name: te_residual_harmonic_rcim_sparse_tracking_Bw
   output_run_name: te_residual_harmonic_rcim_sparse_tracking_Bw

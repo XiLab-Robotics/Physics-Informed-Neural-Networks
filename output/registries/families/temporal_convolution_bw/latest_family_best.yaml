@@ -6,9 +6,9 @@ selection_policy:
   second_tie_breaker: val_mae
   third_tie_breaker: trainable_parameter_count
   direction: minimize
-updated_at: '2026-06-26T07:57:05'
+updated_at: '2026-06-29T22:50:48'
 best_entry:
-  run_instance_id: 2026-06-26-07-23-08__te_temporal_convolution_bw
+  run_instance_id: 2026-06-29-22-25-32__te_temporal_convolution_bw
   run_name: te_temporal_convolution_bw
   output_run_name: te_temporal_convolution_bw
   output_artifact_kind: training_run
@@ -31,18 +31,18 @@ best_entry:
   use_backward_direction: true
   trainable_parameter_count: 146369
   total_parameter_count: 146369
-  val_mae: 0.002302516018971801
-  val_rmse: 0.0028458337765187025
-  test_mae: 0.0023905187845230103
-  test_rmse: 0.003043892327696085
-  output_directory: output\training_runs\temporal_convolution\2026-06-26-07-23-08__te_temporal_convolution_bw
-  best_checkpoint_path: output\training_runs\temporal_convolution\2026-06-26-07-23-08__te_temporal_convolution_bw\checkpoints\temporal_convolution-epoch=071-val_mae=0.00230252.ckpt
-  metrics_path: output\training_runs\temporal_convolution\2026-06-26-07-23-08__te_temporal_convolution_bw/metrics_summary.yaml
-  report_path: output\training_runs\temporal_convolution\2026-06-26-07-23-08__te_temporal_convolution_bw/training_test_report.md
+  val_mae: 0.0022358896676450968
+  val_rmse: 0.0027648804243654013
+  test_mae: 0.002348258625715971
+  test_rmse: 0.0029878190252929926
+  output_directory: output\training_runs\temporal_convolution\2026-06-29-22-25-32__te_temporal_convolution_bw
+  best_checkpoint_path: output\training_runs\temporal_convolution\2026-06-29-22-25-32__te_temporal_convolution_bw\checkpoints\temporal_convolution-epoch=100-val_mae=0.00223589.ckpt
+  metrics_path: output\training_runs\temporal_convolution\2026-06-29-22-25-32__te_temporal_convolution_bw/metrics_summary.yaml
+  report_path: output\training_runs\temporal_convolution\2026-06-29-22-25-32__te_temporal_convolution_bw/training_test_report.md
   selection_policy:
     primary_metric: test_mae
     first_tie_breaker: test_rmse
     second_tie_breaker: val_mae
     third_tie_breaker: trainable_parameter_count
     direction: minimize
-  selected_at: '2026-06-26T07:57:05'
+  selected_at: '2026-06-29T22:50:48'

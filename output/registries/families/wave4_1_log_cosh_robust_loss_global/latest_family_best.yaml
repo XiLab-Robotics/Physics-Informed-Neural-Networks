@@ -1,0 +1,48 @@
+schema_version: 1
+model_family: wave4_1_log_cosh_robust_loss_global
+selection_policy:
+  primary_metric: test_mae
+  first_tie_breaker: test_rmse
+  second_tie_breaker: val_mae
+  third_tie_breaker: trainable_parameter_count
+  direction: minimize
+updated_at: '2026-07-01T06:59:33'
+best_entry:
+  run_instance_id: 2026-07-01-06-18-30__te_wave4_1_log_cosh_robust_loss_global
+  run_name: te_wave4_1_log_cosh_robust_loss_global
+  output_run_name: te_wave4_1_log_cosh_robust_loss_global
+  output_artifact_kind: training_run
+  model_family: wave4_1_log_cosh_robust_loss_global
+  base_model_family: wave4_1_log_cosh_robust_loss
+  model_type: curve_aware_harmonic_residual_offset_probe
+  dataset_id: polished_dataset
+  dataset_schema: polished_point_v1
+  input_feature_names:
+  - theta
+  - theta_dot
+  - tau_load
+  - T
+  target_feature_names:
+  - theta_TE
+  input_feature_dim: 4
+  training_variant: global
+  direction_scope_label: bidirectional
+  use_forward_direction: true
+  use_backward_direction: true
+  trainable_parameter_count: 85440
+  total_parameter_count: 85440
+  val_mae: 0.001776420627720654
+  val_rmse: 0.0021896292455494404
+  test_mae: 0.0019129408756271005
+  test_rmse: 0.0024587928783148527
+  output_directory: output\training_runs\wave4_1_log_cosh_robust_loss\2026-07-01-06-18-30__te_wave4_1_log_cosh_robust_loss_global
+  best_checkpoint_path: output\training_runs\wave4_1_log_cosh_robust_loss\2026-07-01-06-18-30__te_wave4_1_log_cosh_robust_loss_global\checkpoints\curve_aware_harmonic_residual_offset_probe-epoch=154-val_mae=0.00177642.ckpt
+  metrics_path: output\training_runs\wave4_1_log_cosh_robust_loss\2026-07-01-06-18-30__te_wave4_1_log_cosh_robust_loss_global/metrics_summary.yaml
+  report_path: output\training_runs\wave4_1_log_cosh_robust_loss\2026-07-01-06-18-30__te_wave4_1_log_cosh_robust_loss_global/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-07-01T06:59:33'

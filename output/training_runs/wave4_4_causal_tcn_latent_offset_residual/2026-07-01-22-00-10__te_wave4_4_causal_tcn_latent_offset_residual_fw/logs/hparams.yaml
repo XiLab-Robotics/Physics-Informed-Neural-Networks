@@ -1,0 +1,15 @@
+input_feature_dim: 4
+target_feature_dim: 1
+learning_rate: 0.0005
+weight_decay: 0.0001
+loss_configuration:
+  profile: causal_tcn_offset_residual
+  pointwise_loss: smooth_l1
+  huber_delta: 0.75
+  weights:
+    point: 1.0
+    centered: 0.2
+    offset: 0.2
+    amplitude: 0.05
+    harmonic: 0.0
+  harmonic_index_list: []

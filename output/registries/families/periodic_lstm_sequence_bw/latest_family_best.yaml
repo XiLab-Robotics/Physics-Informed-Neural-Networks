@@ -6,9 +6,9 @@ selection_policy:
   second_tie_breaker: val_mae
   third_tie_breaker: trainable_parameter_count
   direction: minimize
-updated_at: '2026-06-26T21:30:02'
+updated_at: '2026-06-30T06:13:35'
 best_entry:
-  run_instance_id: 2026-06-26-20-15-06__te_periodic_lstm_sequence_bw
+  run_instance_id: 2026-06-30-05-26-57__te_periodic_lstm_sequence_bw
   run_name: te_periodic_lstm_sequence_bw
   output_run_name: te_periodic_lstm_sequence_bw
   output_artifact_kind: training_run
@@ -31,18 +31,18 @@ best_entry:
   use_backward_direction: true
   trainable_parameter_count: 210049
   total_parameter_count: 210049
-  val_mae: 0.001230867812409997
-  val_rmse: 0.001528356340713799
-  test_mae: 0.0013376765418797731
-  test_rmse: 0.0017189396312460303
-  output_directory: output\training_runs\periodic_lstm_sequence\2026-06-26-20-15-06__te_periodic_lstm_sequence_bw
-  best_checkpoint_path: output\training_runs\periodic_lstm_sequence\2026-06-26-20-15-06__te_periodic_lstm_sequence_bw\checkpoints\periodic_lstm_sequence-epoch=182-val_mae=0.00123087.ckpt
-  metrics_path: output\training_runs\periodic_lstm_sequence\2026-06-26-20-15-06__te_periodic_lstm_sequence_bw/metrics_summary.yaml
-  report_path: output\training_runs\periodic_lstm_sequence\2026-06-26-20-15-06__te_periodic_lstm_sequence_bw/training_test_report.md
+  val_mae: 0.001229704706929624
+  val_rmse: 0.0015202033100649714
+  test_mae: 0.001225517364218831
+  test_rmse: 0.0015580783365294337
+  output_directory: output\training_runs\periodic_lstm_sequence\2026-06-30-05-26-57__te_periodic_lstm_sequence_bw
+  best_checkpoint_path: output\training_runs\periodic_lstm_sequence\2026-06-30-05-26-57__te_periodic_lstm_sequence_bw\checkpoints\periodic_lstm_sequence-epoch=250-val_mae=0.00122970.ckpt
+  metrics_path: output\training_runs\periodic_lstm_sequence\2026-06-30-05-26-57__te_periodic_lstm_sequence_bw/metrics_summary.yaml
+  report_path: output\training_runs\periodic_lstm_sequence\2026-06-30-05-26-57__te_periodic_lstm_sequence_bw/training_test_report.md
   selection_policy:
     primary_metric: test_mae
     first_tie_breaker: test_rmse
     second_tie_breaker: val_mae
     third_tie_breaker: trainable_parameter_count
     direction: minimize
-  selected_at: '2026-06-26T21:30:02'
+  selected_at: '2026-06-30T06:13:35'

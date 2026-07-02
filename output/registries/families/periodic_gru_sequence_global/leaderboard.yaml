@@ -6,9 +6,47 @@ selection_policy:
   second_tie_breaker: val_mae
   third_tie_breaker: trainable_parameter_count
   direction: minimize
-updated_at: '2026-06-26T15:05:37'
-entry_count: 1
+updated_at: '2026-06-30T02:56:10'
+entry_count: 2
 entry_list:
+- run_instance_id: 2026-06-30-02-14-43__te_periodic_gru_sequence_global
+  run_name: te_periodic_gru_sequence_global
+  output_run_name: te_periodic_gru_sequence_global
+  output_artifact_kind: training_run
+  model_family: periodic_gru_sequence_global
+  base_model_family: periodic_gru_sequence
+  model_type: periodic_gru_sequence
+  dataset_id: polished_dataset
+  dataset_schema: polished_point_v1
+  input_feature_names:
+  - theta
+  - theta_dot
+  - tau_load
+  - T
+  target_feature_names:
+  - theta_TE
+  input_feature_dim: 4
+  training_variant: global
+  direction_scope_label: bidirectional
+  use_forward_direction: true
+  use_backward_direction: true
+  trainable_parameter_count: 157569
+  total_parameter_count: 157569
+  val_mae: 0.001132011879235506
+  val_rmse: 0.0013908551773056388
+  test_mae: 0.0011594819370657206
+  test_rmse: 0.0014652268728241324
+  output_directory: output\training_runs\periodic_gru_sequence\2026-06-30-02-14-43__te_periodic_gru_sequence_global
+  best_checkpoint_path: output\training_runs\periodic_gru_sequence\2026-06-30-02-14-43__te_periodic_gru_sequence_global\checkpoints\periodic_gru_sequence-epoch=236-val_mae=0.00113201.ckpt
+  metrics_path: output\training_runs\periodic_gru_sequence\2026-06-30-02-14-43__te_periodic_gru_sequence_global/metrics_summary.yaml
+  report_path: output\training_runs\periodic_gru_sequence\2026-06-30-02-14-43__te_periodic_gru_sequence_global/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-06-30T02:56:10'
 - run_instance_id: 2026-06-26-14-02-44__te_periodic_gru_sequence_global
   run_name: te_periodic_gru_sequence_global
   output_run_name: te_periodic_gru_sequence_global

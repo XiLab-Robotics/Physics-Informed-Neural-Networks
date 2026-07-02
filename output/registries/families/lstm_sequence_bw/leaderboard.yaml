@@ -6,8 +6,8 @@ selection_policy:
   second_tie_breaker: val_mae
   third_tie_breaker: trainable_parameter_count
   direction: minimize
-updated_at: '2026-06-26T12:41:41'
-entry_count: 2
+updated_at: '2026-06-30T01:29:35'
+entry_count: 3
 entry_list:
 - run_instance_id: 2026-06-26-11-50-45__te_lstm_sequence_bw
   run_name: te_lstm_sequence_bw
@@ -47,6 +47,44 @@ entry_list:
     third_tie_breaker: trainable_parameter_count
     direction: minimize
   selected_at: '2026-06-26T12:41:41'
+- run_instance_id: 2026-06-30-01-02-22__te_lstm_sequence_bw
+  run_name: te_lstm_sequence_bw
+  output_run_name: te_lstm_sequence_bw
+  output_artifact_kind: training_run
+  model_family: lstm_sequence_bw
+  base_model_family: lstm_sequence
+  model_type: lstm_sequence
+  dataset_id: polished_dataset
+  dataset_schema: polished_point_v1
+  input_feature_names:
+  - theta
+  - theta_dot
+  - tau_load
+  - T
+  target_feature_names:
+  - theta_TE
+  input_feature_dim: 4
+  training_variant: bw
+  direction_scope_label: backward_only
+  use_forward_direction: false
+  use_backward_direction: true
+  trainable_parameter_count: 200833
+  total_parameter_count: 200833
+  val_mae: 0.002146746264770627
+  val_rmse: 0.00267508951947093
+  test_mae: 0.002258892636746168
+  test_rmse: 0.0029072531033307314
+  output_directory: output\training_runs\lstm_sequence\2026-06-30-01-02-22__te_lstm_sequence_bw
+  best_checkpoint_path: output\training_runs\lstm_sequence\2026-06-30-01-02-22__te_lstm_sequence_bw\checkpoints\lstm_sequence-epoch=138-val_mae=0.00214675.ckpt
+  metrics_path: output\training_runs\lstm_sequence\2026-06-30-01-02-22__te_lstm_sequence_bw/metrics_summary.yaml
+  report_path: output\training_runs\lstm_sequence\2026-06-30-01-02-22__te_lstm_sequence_bw/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-06-30T01:29:35'
 - run_instance_id: 2026-05-24-12-21-01__te_lstm_sequence_remote_bw
   run_name: te_lstm_sequence_remote_Bw
   output_run_name: te_lstm_sequence_remote_Bw

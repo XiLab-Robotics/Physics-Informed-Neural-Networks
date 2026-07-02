@@ -1,0 +1,1 @@
+C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_runs\wave4_4_gru_latent_offset_residual\2026-07-01-19-49-54__te_wave4_4_gru_latent_offset_residual_global\checkpoints\latent_state_hysteresis_probe-epoch=171-val_mae=0.00219533.ckpt

@@ -1,0 +1,49 @@
+schema_version: 1
+model_family: wave3_3_curve_aware_pointwise_control_bw
+selection_policy:
+  primary_metric: test_mae
+  first_tie_breaker: test_rmse
+  second_tie_breaker: val_mae
+  third_tie_breaker: trainable_parameter_count
+  direction: minimize
+updated_at: '2026-06-30T21:57:36'
+entry_count: 1
+entry_list:
+- run_instance_id: 2026-06-30-21-21-09__te_wave3_3_curve_aware_pointwise_control_bw
+  run_name: te_wave3_3_curve_aware_pointwise_control_bw
+  output_run_name: te_wave3_3_curve_aware_pointwise_control_bw
+  output_artifact_kind: training_run
+  model_family: wave3_3_curve_aware_pointwise_control_bw
+  base_model_family: wave3_3_curve_aware_pointwise_control
+  model_type: curve_aware_harmonic_residual_offset_probe
+  dataset_id: polished_dataset
+  dataset_schema: polished_point_v1
+  input_feature_names:
+  - theta
+  - theta_dot
+  - tau_load
+  - T
+  target_feature_names:
+  - theta_TE
+  input_feature_dim: 4
+  training_variant: bw
+  direction_scope_label: backward_only
+  use_forward_direction: false
+  use_backward_direction: true
+  trainable_parameter_count: 85440
+  total_parameter_count: 85440
+  val_mae: 0.0018146318616345525
+  val_rmse: 0.0022376033011823893
+  test_mae: 0.0019250786863267422
+  test_rmse: 0.0024733555037528276
+  output_directory: output\training_runs\wave3_3_curve_aware_pointwise_control\2026-06-30-21-21-09__te_wave3_3_curve_aware_pointwise_control_bw
+  best_checkpoint_path: output\training_runs\wave3_3_curve_aware_pointwise_control\2026-06-30-21-21-09__te_wave3_3_curve_aware_pointwise_control_bw\checkpoints\curve_aware_harmonic_residual_offset_probe-epoch=103-val_mae=0.00181463.ckpt
+  metrics_path: output\training_runs\wave3_3_curve_aware_pointwise_control\2026-06-30-21-21-09__te_wave3_3_curve_aware_pointwise_control_bw/metrics_summary.yaml
+  report_path: output\training_runs\wave3_3_curve_aware_pointwise_control\2026-06-30-21-21-09__te_wave3_3_curve_aware_pointwise_control_bw/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-06-30T21:57:36'

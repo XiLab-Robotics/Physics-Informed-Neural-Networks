@@ -1,0 +1,12 @@
+Command: C:\Users\Martina Salami\.conda\envs\pinns_env\python.exe C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\scripts\training\train_tree_regressor.py --config-path C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\config\training\queue\polished_dataset_full_wave_retraining\running\2026-06-29-15-54-17_003_003_tree_bw.yaml
+Working Directory: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks
+
+
+================================================================================================
+Campaign Progress 3/108 [------------------------]
+================================================================================================
+[INFO] Campaign Name | polished_dataset_full_wave_retraining_2026_06_22
+[INFO] Run Name | te_tree_bw
+[INFO] Queue Config | C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\config\training\queue\polished_dataset_full_wave_retraining\running\2026-06-29-15-54-17_003_003_tree_bw.yaml
+[INFO] Source Config | C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\config\training\polished_dataset_retraining\campaigns\2026-06-22_polished_full_wave_retraining\queue\003_tree_bw.yaml
+[DONE] Tree regression training workflow completed | C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_runs\tree\2026-06-29-15-58-27__te_tree_bw

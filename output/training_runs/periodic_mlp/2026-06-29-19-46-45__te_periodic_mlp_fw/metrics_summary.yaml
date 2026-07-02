@@ -1,0 +1,101 @@
+schema_version: 1
+config_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\config\training\queue\polished_dataset_full_wave_retraining\running\2026-06-29-15-54-17_011_011_periodic_mlp_fw.yaml
+experiment:
+  model_family: periodic_mlp_fw
+  model_type: periodic_mlp
+  run_name: te_periodic_mlp_fw
+  output_run_name: te_periodic_mlp_fw
+  run_instance_id: 2026-06-29-19-46-45__te_periodic_mlp_fw
+  output_artifact_kind: training_run
+  base_model_family: periodic_mlp
+  training_variant: fw
+  direction_scope_label: forward_only
+  use_forward_direction: true
+  use_backward_direction: false
+artifacts:
+  output_directory: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_runs\periodic_mlp\2026-06-29-19-46-45__te_periodic_mlp_fw
+  best_checkpoint_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_runs\periodic_mlp\2026-06-29-19-46-45__te_periodic_mlp_fw\checkpoints\periodic_mlp-epoch=064-val_mae=0.00167050.ckpt
+dataset_split:
+  train_curve_count: 1356
+  validation_curve_count: 388
+  test_curve_count: 194
+  dataset_name: polished_dataset
+  dataset_schema: polished_point_v1
+  input_feature_name_list:
+  - theta
+  - theta_dot
+  - tau_load
+  - T
+  target_feature_name_list:
+  - theta_TE
+  input_feature_dim: 4
+  target_feature_dim: 1
+dataset:
+  dataset_id: polished_dataset
+  dataset_schema: polished_point_v1
+  input_feature_names:
+  - theta
+  - theta_dot
+  - tau_load
+  - T
+  target_feature_names:
+  - theta_TE
+  input_feature_dim: 4
+  target_feature_dim: 1
+model_summary:
+  backbone_name: PeriodicFeatureNetwork
+  trainable_parameter_count: 27137
+  frozen_parameter_count: 0
+  total_parameter_count: 27137
+runtime_config:
+  accelerator: auto
+  devices: auto
+  precision: '32'
+  benchmark: true
+  use_non_blocking_transfer: true
+normalization_statistics:
+  input_feature_mean:
+  - 179.99932861328125
+  - -14.94044017791748
+  - 1.68223237991333
+  - 30.617389678955078
+  input_feature_std:
+  - 103.92501831054688
+  - 690.1232299804688
+  - 1055.5772705078125
+  - 4.267263412475586
+  target_mean:
+  - -0.01666698232293129
+  target_std:
+  - 0.04654856026172638
+validation_metrics:
+  val_loss: 0.0028931491542607546
+  val_mae: 0.0016704971203580499
+  val_rmse: 0.002171484986320138
+  val_pointwise_loss: 0.0028931491542607546
+  val_centered_curve_shape_loss: 0.0031500740442425013
+  val_curve_offset_loss: 0.0004630408075172454
+  val_curve_amplitude_loss: 0.04249938204884529
+  val_sparse_harmonic_shape_loss: 0.0
+test_metrics:
+  test_loss: 0.004114406183362007
+  test_mae: 0.0017470365855842829
+  test_rmse: 0.002346809022128582
+  test_pointwise_loss: 0.004114406183362007
+  test_centered_curve_shape_loss: 0.003922640811651945
+  test_curve_offset_loss: 0.0012623926158994436
+  test_curve_amplitude_loss: 0.05670475214719772
+  test_sparse_harmonic_shape_loss: 0.0
+comparison_payload:
+  model_family: periodic_mlp_fw
+  model_type: periodic_mlp
+  run_name: te_periodic_mlp_fw
+  backbone_name: PeriodicFeatureNetwork
+  trainable_parameter_count: 27137
+  total_parameter_count: 27137
+  val_mae: 0.0016704971203580499
+  val_rmse: 0.002171484986320138
+  test_mae: 0.0017470365855842829
+  test_rmse: 0.002346809022128582
+  deployment_notes: ''
+  interpretability_notes: ''

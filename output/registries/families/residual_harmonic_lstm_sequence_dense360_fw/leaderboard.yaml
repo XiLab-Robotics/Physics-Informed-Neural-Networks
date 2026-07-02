@@ -1,0 +1,49 @@
+schema_version: 1
+model_family: residual_harmonic_lstm_sequence_dense360_fw
+selection_policy:
+  primary_metric: test_mae
+  first_tie_breaker: test_rmse
+  second_tie_breaker: val_mae
+  third_tie_breaker: trainable_parameter_count
+  direction: minimize
+updated_at: '2026-06-30T15:15:33'
+entry_count: 1
+entry_list:
+- run_instance_id: 2026-06-30-14-47-34__te_residual_harmonic_lstm_sequence_dense360_fw
+  run_name: te_residual_harmonic_lstm_sequence_dense360_fw
+  output_run_name: te_residual_harmonic_lstm_sequence_dense360_fw
+  output_artifact_kind: training_run
+  model_family: residual_harmonic_lstm_sequence_dense360_fw
+  base_model_family: residual_harmonic_lstm_sequence_dense360
+  model_type: residual_harmonic_lstm_sequence
+  dataset_id: polished_dataset
+  dataset_schema: polished_point_v1
+  input_feature_names:
+  - theta
+  - theta_dot
+  - tau_load
+  - T
+  target_feature_names:
+  - theta_TE
+  input_feature_dim: 4
+  training_variant: fw
+  direction_scope_label: forward_only
+  use_forward_direction: true
+  use_backward_direction: false
+  trainable_parameter_count: 201554
+  total_parameter_count: 201554
+  val_mae: 0.002065669745206833
+  val_rmse: 0.0025610611774027348
+  test_mae: 0.0022187139838933945
+  test_rmse: 0.00281858304515481
+  output_directory: output\training_runs\residual_harmonic_lstm_sequence_dense360\2026-06-30-14-47-34__te_residual_harmonic_lstm_sequence_dense360_fw
+  best_checkpoint_path: output\training_runs\residual_harmonic_lstm_sequence_dense360\2026-06-30-14-47-34__te_residual_harmonic_lstm_sequence_dense360_fw\checkpoints\residual_harmonic_lstm_sequence-epoch=065-val_mae=0.00206567.ckpt
+  metrics_path: output\training_runs\residual_harmonic_lstm_sequence_dense360\2026-06-30-14-47-34__te_residual_harmonic_lstm_sequence_dense360_fw/metrics_summary.yaml
+  report_path: output\training_runs\residual_harmonic_lstm_sequence_dense360\2026-06-30-14-47-34__te_residual_harmonic_lstm_sequence_dense360_fw/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-06-30T15:15:33'

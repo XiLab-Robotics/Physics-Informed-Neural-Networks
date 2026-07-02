@@ -1,0 +1,1 @@
+C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_runs\wave4_4_causal_tcn_latent_offset_residual\2026-07-01-21-33-27__te_wave4_4_causal_tcn_latent_offset_residual_global\checkpoints\latent_state_hysteresis_probe-epoch=135-val_mae=0.00221664.ckpt

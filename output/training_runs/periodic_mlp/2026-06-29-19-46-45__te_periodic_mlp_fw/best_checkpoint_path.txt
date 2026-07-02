@@ -1,0 +1,1 @@
+C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_runs\periodic_mlp\2026-06-29-19-46-45__te_periodic_mlp_fw\checkpoints\periodic_mlp-epoch=064-val_mae=0.00167050.ckpt

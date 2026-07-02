@@ -6,8 +6,8 @@ selection_policy:
   second_tie_breaker: val_mae
   third_tie_breaker: trainable_parameter_count
   direction: minimize
-updated_at: '2026-06-26T06:20:09'
-entry_count: 1
+updated_at: '2026-06-29T21:48:10'
+entry_count: 2
 entry_list:
 - run_instance_id: 2026-06-26-05-40-23__te_periodic_mlp_harmonic_bw
   run_name: te_periodic_mlp_harmonic_bw
@@ -47,3 +47,41 @@ entry_list:
     third_tie_breaker: trainable_parameter_count
     direction: minimize
   selected_at: '2026-06-26T06:20:09'
+- run_instance_id: 2026-06-29-21-27-22__te_periodic_mlp_harmonic_bw
+  run_name: te_periodic_mlp_harmonic_bw
+  output_run_name: te_periodic_mlp_harmonic_bw
+  output_artifact_kind: training_run
+  model_family: periodic_mlp_harmonic_bw
+  base_model_family: periodic_mlp_harmonic
+  model_type: periodic_mlp
+  dataset_id: polished_dataset
+  dataset_schema: polished_point_v1
+  input_feature_names:
+  - theta
+  - theta_dot
+  - tau_load
+  - T
+  target_feature_names:
+  - theta_TE
+  input_feature_dim: 4
+  training_variant: bw
+  direction_scope_label: backward_only
+  use_forward_direction: false
+  use_backward_direction: true
+  trainable_parameter_count: 28417
+  total_parameter_count: 28417
+  val_mae: 0.0011884067207574844
+  val_rmse: 0.0015368402237072587
+  test_mae: 0.001341565395705402
+  test_rmse: 0.0018068316858261824
+  output_directory: output\training_runs\periodic_mlp_harmonic\2026-06-29-21-27-22__te_periodic_mlp_harmonic_bw
+  best_checkpoint_path: output\training_runs\periodic_mlp_harmonic\2026-06-29-21-27-22__te_periodic_mlp_harmonic_bw\checkpoints\periodic_mlp-epoch=126-val_mae=0.00118841.ckpt
+  metrics_path: output\training_runs\periodic_mlp_harmonic\2026-06-29-21-27-22__te_periodic_mlp_harmonic_bw/metrics_summary.yaml
+  report_path: output\training_runs\periodic_mlp_harmonic\2026-06-29-21-27-22__te_periodic_mlp_harmonic_bw/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-06-29T21:48:10'

@@ -6,8 +6,8 @@ selection_policy:
   second_tie_breaker: val_mae
   third_tie_breaker: trainable_parameter_count
   direction: minimize
-updated_at: '2026-06-26T03:44:24'
-entry_count: 1
+updated_at: '2026-06-29T20:32:49'
+entry_count: 2
 entry_list:
 - run_instance_id: 2026-06-26-03-21-12__te_harmonic_regression_global
   run_name: te_harmonic_regression_global
@@ -47,3 +47,41 @@ entry_list:
     third_tie_breaker: trainable_parameter_count
     direction: minimize
   selected_at: '2026-06-26T03:44:24'
+- run_instance_id: 2026-06-29-20-22-24__te_harmonic_regression_global
+  run_name: te_harmonic_regression_global
+  output_run_name: te_harmonic_regression_global
+  output_artifact_kind: training_run
+  model_family: harmonic_regression_global
+  base_model_family: harmonic_regression
+  model_type: harmonic_regression
+  dataset_id: polished_dataset
+  dataset_schema: polished_point_v1
+  input_feature_names:
+  - theta
+  - theta_dot
+  - tau_load
+  - T
+  target_feature_names:
+  - theta_TE
+  input_feature_dim: 4
+  training_variant: global
+  direction_scope_label: bidirectional
+  use_forward_direction: true
+  use_backward_direction: true
+  trainable_parameter_count: 125
+  total_parameter_count: 125
+  val_mae: 0.00389853329397738
+  val_rmse: 0.0044802892953157425
+  test_mae: 0.0038278442807495594
+  test_rmse: 0.004545203410089016
+  output_directory: output\training_runs\harmonic_regression\2026-06-29-20-22-24__te_harmonic_regression_global
+  best_checkpoint_path: output\training_runs\harmonic_regression\2026-06-29-20-22-24__te_harmonic_regression_global\checkpoints\harmonic_regression-epoch=054-val_mae=0.00389853.ckpt
+  metrics_path: output\training_runs\harmonic_regression\2026-06-29-20-22-24__te_harmonic_regression_global/metrics_summary.yaml
+  report_path: output\training_runs\harmonic_regression\2026-06-29-20-22-24__te_harmonic_regression_global/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-06-29T20:32:49'

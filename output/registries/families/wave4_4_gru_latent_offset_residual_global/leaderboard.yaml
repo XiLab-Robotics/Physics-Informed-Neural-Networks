@@ -1,0 +1,49 @@
+schema_version: 1
+model_family: wave4_4_gru_latent_offset_residual_global
+selection_policy:
+  primary_metric: test_mae
+  first_tie_breaker: test_rmse
+  second_tie_breaker: val_mae
+  third_tie_breaker: trainable_parameter_count
+  direction: minimize
+updated_at: '2026-07-01T20:26:33'
+entry_count: 1
+entry_list:
+- run_instance_id: 2026-07-01-19-49-54__te_wave4_4_gru_latent_offset_residual_global
+  run_name: te_wave4_4_gru_latent_offset_residual_global
+  output_run_name: te_wave4_4_gru_latent_offset_residual_global
+  output_artifact_kind: training_run
+  model_family: wave4_4_gru_latent_offset_residual_global
+  base_model_family: wave4_4_gru_latent_offset_residual
+  model_type: latent_state_hysteresis_probe
+  dataset_id: polished_dataset
+  dataset_schema: polished_point_v1
+  input_feature_names:
+  - theta
+  - theta_dot
+  - tau_load
+  - T
+  target_feature_names:
+  - theta_TE
+  input_feature_dim: 4
+  training_variant: global
+  direction_scope_label: bidirectional
+  use_forward_direction: true
+  use_backward_direction: true
+  trainable_parameter_count: 124899
+  total_parameter_count: 124899
+  val_mae: 0.0021953268442302942
+  val_rmse: 0.0027343174442648888
+  test_mae: 0.002286643488332629
+  test_rmse: 0.0029342053458094597
+  output_directory: output\training_runs\wave4_4_gru_latent_offset_residual\2026-07-01-19-49-54__te_wave4_4_gru_latent_offset_residual_global
+  best_checkpoint_path: output\training_runs\wave4_4_gru_latent_offset_residual\2026-07-01-19-49-54__te_wave4_4_gru_latent_offset_residual_global\checkpoints\latent_state_hysteresis_probe-epoch=171-val_mae=0.00219533.ckpt
+  metrics_path: output\training_runs\wave4_4_gru_latent_offset_residual\2026-07-01-19-49-54__te_wave4_4_gru_latent_offset_residual_global/metrics_summary.yaml
+  report_path: output\training_runs\wave4_4_gru_latent_offset_residual\2026-07-01-19-49-54__te_wave4_4_gru_latent_offset_residual_global/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-07-01T20:26:33'

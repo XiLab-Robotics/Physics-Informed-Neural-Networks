@@ -1,0 +1,21 @@
+schema_version: 1
+artifact_kind: training_run
+model_family: periodic_mlp_harmonic_global
+base_model_family: periodic_mlp_harmonic
+training_variant: global
+direction_scope_label: bidirectional
+use_forward_direction: true
+use_backward_direction: true
+run_name: te_periodic_mlp_harmonic_global
+run_instance_id: 2026-06-29-20-54-24__te_periodic_mlp_harmonic_global
+output_directory: output\training_runs\periodic_mlp_harmonic\2026-06-29-20-54-24__te_periodic_mlp_harmonic_global
+dataset_id: polished_dataset
+dataset_schema: polished_point_v1
+input_feature_names:
+- theta
+- theta_dot
+- tau_load
+- T
+target_feature_names:
+- theta_TE
+input_feature_dim: 4

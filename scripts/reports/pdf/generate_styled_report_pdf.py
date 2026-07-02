@@ -47,6 +47,7 @@ REPORT_SPECIFIC_SUBTITLE_DICTIONARY = {
     "2026-06-05-16-49-50_track2f_bis_harmonic_offset_probe_campaign_results_report": "Wave 3.2 Campaign Closeout",
     "2026-06-09-01-56-25_track2g_curve_aware_training_campaign_results_report": "Wave 3.3 Campaign Closeout",
     "2026-06-29-10-39-38_polished_rcim_model_bank_reproduction_campaign_results_report": "Polished RCIM Model-Bank Reproduction Closeout",
+    "2026-07-02-10-36-59_polished_full_wave_retraining_campaign_results_report": "Polished Full-Wave Retraining Closeout",
 }
 
 # Report Styles
@@ -606,6 +607,9 @@ REPORT_SPECIFIC_FORCED_PAGE_BREAK_SECTION_SLUGS = {
         "execution-summary",
     },
     "2026-06-29-10-40-05_polished_early_wave_parallel_training_campaign_results_report": {
+        "scalar-leaderboard-snapshot",
+    },
+    "2026-07-02-10-36-59_polished_full_wave_retraining_campaign_results_report": {
         "scalar-leaderboard-snapshot",
     },
     "track2_forward_reference_curve_comparison_report": {
@@ -4153,7 +4157,10 @@ def resolve_standard_table_class_name(
     # Resolve Generic Campaign Closeout Table Profiles
     if report_stem.endswith("_campaign_results_report"):
 
-        if report_stem == "2026-06-29-10-40-05_polished_early_wave_parallel_training_campaign_results_report":
+        if report_stem in {
+            "2026-06-29-10-40-05_polished_early_wave_parallel_training_campaign_results_report",
+            "2026-07-02-10-36-59_polished_full_wave_retraining_campaign_results_report",
+        }:
 
             if (
                 current_section_slug == "surface-winners"
@@ -5029,6 +5036,7 @@ def render_markdown_body(markdown_text: str, markdown_path: Path) -> tuple[str, 
                     "2026-06-09-01-56-25_track2g_curve_aware_training_campaign_results_report",
                     "2026-06-13-13-24-37_track2h_mixture_density_heads_campaign_results_report",
                     "2026-06-29-10-40-05_polished_early_wave_parallel_training_campaign_results_report",
+                    "2026-07-02-10-36-59_polished_full_wave_retraining_campaign_results_report",
                 }
                 and not (
                     report_stem == "2026-04-22-01-08-33_track1_mlp_residual_cell_final_closure_campaign_results_report"
