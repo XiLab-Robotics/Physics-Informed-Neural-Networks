@@ -59,6 +59,7 @@ TEMPORAL_SEQUENCE_MODEL_TYPE_SET = {
     "harmonic_residual_offset_probe",
     "curve_aware_harmonic_residual_offset_probe",
     "latent_state_hysteresis_probe",
+    "wave52b_offset_harmonic_guided",
 }
 REFERENCE_BANK_PREDICTION_BATCH_SIZE = 64
 TEMPORAL_SEQUENCE_INFERENCE_BATCH_SIZE = 2048
@@ -1220,6 +1221,15 @@ def build_generated_candidate_configuration_list(training_config: dict[str, Any]
             build_registry_candidate_configuration_list(
                 wave3_harmonic_prior_residual_configuration,
                 "wave3_harmonic_prior_residual_registry",
+            )
+        )
+
+    wave52b_configuration = generation_configuration.get("wave52b_registry_models", {})
+    if wave52b_configuration:
+        candidate_configuration_list.extend(
+            build_registry_candidate_configuration_list(
+                wave52b_configuration,
+                "wave52b_offset_harmonic_guided_registry",
             )
         )
 
@@ -2484,6 +2494,13 @@ def build_track2_directional_comparison_report_markdown(comparison_summary: dict
         "track2h_latent_state_hysteresis_registry",
         include_global_models=True,
     )
+    append_grouped_direction_table(
+        report_line_list,
+        "Wave 5.2B Offset And Harmonic Guided Forward And Global Models",
+        "forward",
+        "wave52b_offset_harmonic_guided_registry",
+        include_global_models=True,
+    )
 
     report_line_list.extend(
         [
@@ -2561,6 +2578,13 @@ def build_track2_directional_comparison_report_markdown(comparison_summary: dict
         "Wave 4.4 Latent-State Hysteresis Backward And Global Models",
         "backward",
         "track2h_latent_state_hysteresis_registry",
+        include_global_models=True,
+    )
+    append_grouped_direction_table(
+        report_line_list,
+        "Wave 5.2B Offset And Harmonic Guided Backward And Global Models",
+        "backward",
+        "wave52b_offset_harmonic_guided_registry",
         include_global_models=True,
     )
 

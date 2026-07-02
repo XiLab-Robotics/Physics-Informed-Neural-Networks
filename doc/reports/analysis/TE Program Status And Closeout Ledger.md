@@ -30,10 +30,10 @@ closeout that changes any of these surfaces:
 | Current accepted backward curve-verified leader | `periodic_gru_sequence_Bw` |
 | Current accepted global neural curve-verified leader | `periodic_gru_sequence_global` |
 | Latest normal campaign closeout | `Wave 5.2B` offset and harmonic guided campaign |
-| Latest official TE Curve Verification refresh | `Wave 4.4` latent-state hysteresis refresh, dated `2026-06-18` |
-| Latest curve-verification decision | verified exploratory baseline; not promoted |
+| Latest official TE Curve Verification refresh | `Wave 5.2B` offset and harmonic guided refresh, dated `2026-07-02` |
+| Latest curve-verification decision | pending operator review; no automatic promotion |
 | Current TE Curve Verification Pipeline selection policy | multi-index curve-first selection, dated `2026-06-16` |
-| Next modeling decision | keep the externally running full-wave `polished_dataset` retraining campaign isolated; optionally run a separate `TE Curve Verification Pipeline` refresh for Wave 5.2B before opening `Wave 5.2C` dirty-to-clean transfer |
+| Next modeling decision | keep the externally running full-wave `polished_dataset` retraining campaign isolated; review the completed Wave 5.2B curve-first evidence before opening `Wave 5.2C` dirty-to-clean transfer |
 
 The repository remains direction-parallel. `Fw`, `Bw`, and `global` are not a
 single destructive competition. Each surface keeps its own best candidate and
@@ -132,6 +132,7 @@ robustness, visual-evidence, and deployment-readiness axes visible.
 | Polished-dataset RCIM Model-Bank Reproduction | closed | Forward and backward paper-faithful RCIM model banks completed on `polished_dataset`; ERT won both surfaces, with `190` Python and `190` ONNX exports per direction. | Normal campaign closeout accepted; official curve-verified leaders unchanged because TE Curve Verification Pipeline refresh remains a separate optional workflow. |
 | Polished-dataset full-wave retraining | externally active | The 108-run full-wave polished retraining campaign is operator-reported as running on another workstation. | Do not close out, refresh, or reinterpret polished final-model evidence from this checkout until completion artifacts are synchronized. |
 | Wave 5.2 dataset-aware PINN / MMT track | closed scalar campaign branch | MMT diagnostic, parameter inventory, and full paired-dataset diagnostic exist; the branch now separates clean polished modeling, simplified noise-aware diagnostics, and paired dirty-to-clean or transfer tests. `Wave 5.2B` completed `12` polished offset/harmonic guided runs with `0` failures; `offset_centered_shape_harmonic` won `global`, `Fw`, and `Bw`. | Normal campaign closeout accepted; scalar program winner and official curve-verified leaders unchanged. |
+| Wave 5.2B official TE Curve Verification refresh | pending human review | Three Wave 5.2B harmonic-profile candidates were added to the `168`-candidate official matrix; strongest refreshed candidate is `wave52b_offset_centered_shape_harmonic_Fw` with MAE `0.001695 deg` and Mean `3.391%`. | No automatic promotion; accepted curve-verified leaders remain unchanged until human review records a promotion decision. |
 | Wave 6 integrated multi-task / multi-head / transfer model | deferred | Intended to combine proven offset, low-frequency, centered-shape, uncertainty, mixture, structured residual, dirty-to-clean, reduced-point, and fine-tuning mechanisms. | Deferred until full-wave polished evidence, paired dataset diagnostics, Waves 4.1-4.4, Wave 5.1, and Wave 5.2 identify what should be integrated. |
 
 ## Dataset-Aware Roadmap
@@ -264,12 +265,13 @@ models.
    `TE Curve Verification Pipeline` refresh work.
 2. Keep `Wave 4.1` robust, probabilistic, MDN, and latent-state branches as
    evidence for later multi-head integration, not as current promoted leaders.
-3. Treat `Wave 5.2B` as completed scalar evidence for the dataset-aware
-   MMT/PINN-guided branch. The `2026-07-02` closeout shows that
-   `offset_centered_shape_harmonic` is the best Wave 5.2B profile on all
-   surfaces, but it does not promote over the polished early-wave scalar
-   leaders. A separate `TE Curve Verification Pipeline` refresh is required
-   before any official curve-first interpretation.
+3. Treat `Wave 5.2B` as completed scalar and curve-first evidence for the
+   dataset-aware MMT/PINN-guided branch. The `2026-07-02` closeout shows that
+   `offset_centered_shape_harmonic` is the best Wave 5.2B scalar profile on
+   all surfaces, and the `2026-07-02` official `TE Curve Verification
+   Pipeline` refresh identifies `wave52b_offset_centered_shape_harmonic_Fw`
+   as the strongest refreshed curve candidate. No promotion is recorded until
+   a human review applies the multi-index curve-first policy.
 4. Defer `Wave 6` until the full-wave polished results, paired dataset
    diagnostics, and `Wave 5.2` evidence identify which heads, constraints, and
    transfer strategy are justified.

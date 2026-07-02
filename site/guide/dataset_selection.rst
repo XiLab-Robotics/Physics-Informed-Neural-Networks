@@ -79,3 +79,17 @@ Remote launch delegates to the repository-owned remote campaign runner:
 .. code-block:: powershell
 
    .\scripts\campaigns\wave_5_2\run_wave52b_offset_harmonic_guided_campaign.ps1 -Remote
+
+After normal campaign closeout, the separate operator-launched official TE
+Curve Verification Pipeline refresh evaluates the selected harmonic-profile
+registry candidates across ``global``, ``Fw``, and ``Bw``. Run it locally with:
+
+.. code-block:: powershell
+
+   .\scripts\campaigns\wave_5_2\run_wave52b_te_curve_verification_refresh.ps1
+
+Or delegate it to the remote campaign runner:
+
+.. code-block:: powershell
+
+   .\scripts\campaigns\wave_5_2\run_wave52b_te_curve_verification_refresh.ps1 -Remote

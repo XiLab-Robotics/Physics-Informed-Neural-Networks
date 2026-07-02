@@ -1,0 +1,2973 @@
+schema_version: 1
+run_instance_id: 2026-07-02-14-44-11__track2_multi_model_curve_comparison_report
+output_directory: output\validation_checks\track2_multi_model_curve_comparison_report\2026-07-02-14-44-11__track2_multi_model_curve_comparison_report
+report_path: doc\reports\analysis\track2\multi_model_curve_comparison_report\[2026-07-02]\track2_multi_model_curve_comparison_report.md
+dataset:
+  config_path: config/datasets/transmission_error_dataset.yaml
+  dataset_root: data\polished_dataset
+  curve_count: 194
+  selected_harmonic_list:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+comparison_count: 38
+comparison_summary_list:
+- group_id: forward_reference
+  group_title: Forward Reference Model Overlay
+  candidate_id_list:
+  - paper_original_best_Fw
+  - paper_retuned_best_Fw
+  - track1_best_Fw
+  direction_scope: forward
+  candidate_summary_list:
+  - candidate_id: paper_original_best_Fw
+    candidate_family: best_composite
+    candidate_kind: composite_reference_bank
+    candidate_source_label: rcim_original
+    candidate_surface: Fw
+    allowed_direction_list:
+    - forward
+    source_path: models\paper_reference\rcim_original\forward
+    metrics:
+      mse: 0.00026543785957256936
+      mae: 0.013057689481390043
+      rmse: 0.01332437403929798
+      mean_percentage_error_pct: 27.996615192528193
+      p95_mean_percentage_error_pct: 61.11651652725347
+  - candidate_id: paper_retuned_best_Fw
+    candidate_family: best_composite
+    candidate_kind: composite_reference_bank
+    candidate_source_label: rcim_retuned
+    candidate_surface: Fw
+    allowed_direction_list: &id017
+    - forward
+    source_path: models\paper_reference\rcim_retuned\forward
+    metrics: &id018
+      mse: 0.001217123530637766
+      mae: 0.02920370091078885
+      rmse: 0.029350426995853645
+      mean_percentage_error_pct: 62.561680672288176
+      p95_mean_percentage_error_pct: 133.3390422667564
+  - candidate_id: track1_best_Fw
+    candidate_family: best_composite
+    candidate_kind: composite_reference_bank
+    candidate_source_label: rcim_track1
+    candidate_surface: Fw
+    allowed_direction_list: &id001
+    - forward
+    source_path: models\paper_reference\rcim_track1\forward
+    metrics: &id002
+      mse: 0.005455010118491452
+      mae: 0.06275580458089297
+      rmse: 0.06283523599047743
+      mean_percentage_error_pct: 134.14333809710152
+      p95_mean_percentage_error_pct: 272.74558500034436
+  comparison_path: output\validation_checks\track2_multi_model_curve_comparison_report\2026-07-02-14-44-11__track2_multi_model_curve_comparison_report\comparisons\forward_reference.png
+  comparison_markdown_path: assets/comparisons/forward_reference.png
+  selected_curve_list:
+  - source_file_path: data\polished_dataset\forward\25degree\100rpm\100.0rpm1300.0Nm25.0deg.csv
+    direction_label: forward
+    speed_rpm: 99.99412113060635
+    torque_nm: -1299.95310306549
+    oil_temperature_deg: 24.35
+  - source_file_path: data\polished_dataset\forward\25degree\1100rpm\1100.0rpm500.0Nm25.0deg.csv
+    direction_label: forward
+    speed_rpm: 1099.9967716294527
+    torque_nm: -499.88341331481894
+    oil_temperature_deg: 28.06
+  - source_file_path: data\polished_dataset\forward\30degree\1500rpm\1500.0rpm500.0Nm30.0deg.csv
+    direction_label: forward
+    speed_rpm: 1499.9973960639115
+    torque_nm: -500.521183013916
+    oil_temperature_deg: 32.8
+  - source_file_path: data\polished_dataset\forward\35degree\100rpm\100.0rpm1800.0Nm35.0deg.csv
+    direction_label: forward
+    speed_rpm: 99.99325499971636
+    torque_nm: -1799.95369911194
+    oil_temperature_deg: 36.93
+- group_id: forward_wave1
+  group_title: Forward Wave 1 Family Model Overlay
+  candidate_id_list:
+  - feedforward_fw
+  - harmonic_regression_fw
+  - periodic_mlp_fw
+  - residual_harmonic_mlp_fw
+  - tree_fw
+  - periodic_mlp_harmonic_fw
+  direction_scope: forward
+  candidate_summary_list:
+  - candidate_id: feedforward_fw
+    candidate_family: feedforward
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave1_current_registry
+    candidate_surface: Fw
+    allowed_direction_list: &id007
+    - forward
+    source_path: output\registries\families\feedforward_fw\latest_family_best.yaml
+    metrics: &id008
+      mse: 9.815017619680895e-06
+      mae: 0.0021296042397950486
+      rmse: 0.0025864424360396774
+      mean_percentage_error_pct: 4.377634838539167
+      p95_mean_percentage_error_pct: 8.430867993767762
+  - candidate_id: harmonic_regression_fw
+    candidate_family: harmonic_regression
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave1_current_registry
+    candidate_surface: Fw
+    allowed_direction_list:
+    - forward
+    source_path: output\registries\families\harmonic_regression_fw\latest_family_best.yaml
+    metrics:
+      mse: 0.005437524923496274
+      mae: 0.06259752862992535
+      rmse: 0.06270181175832447
+      mean_percentage_error_pct: 133.7830858333712
+      p95_mean_percentage_error_pct: 271.62779531715483
+  - candidate_id: periodic_mlp_fw
+    candidate_family: periodic_mlp
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave1_current_registry
+    candidate_surface: Fw
+    allowed_direction_list: &id003
+    - forward
+    source_path: output\registries\families\periodic_mlp_fw\latest_family_best.yaml
+    metrics: &id004
+      mse: 9.736438368421915e-06
+      mae: 0.0021178020023139435
+      rmse: 0.002575367507770963
+      mean_percentage_error_pct: 4.3510709684576
+      p95_mean_percentage_error_pct: 8.283490659133623
+  - candidate_id: residual_harmonic_mlp_fw
+    candidate_family: residual_harmonic_mlp
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave1_current_registry
+    candidate_surface: Fw
+    allowed_direction_list:
+    - forward
+    source_path: output\registries\families\residual_harmonic_mlp_fw\latest_family_best.yaml
+    metrics:
+      mse: 1.0470610653251879e-05
+      mae: 0.002233809156795046
+      rmse: 0.002694649739721661
+      mean_percentage_error_pct: 4.616297968126591
+      p95_mean_percentage_error_pct: 8.715265669367078
+  - candidate_id: tree_fw
+    candidate_family: tree
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave1_current_registry
+    candidate_surface: Fw
+    allowed_direction_list: &id005
+    - forward
+    source_path: output\registries\families\tree_fw\latest_family_best.yaml
+    metrics: &id006
+      mse: 1.0095947423782996e-05
+      mae: 0.0021250286509178363
+      rmse: 0.0026120596438875617
+      mean_percentage_error_pct: 4.354678239500391
+      p95_mean_percentage_error_pct: 8.53389445625257
+  - candidate_id: periodic_mlp_harmonic_fw
+    candidate_family: periodic_mlp_harmonic
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave1_periodic_mlp_harmonic_campaign
+    candidate_surface: Fw
+    allowed_direction_list:
+    - forward
+    source_path: output\validation_checks\track2_multi_model_curve_comparison_report\2026-07-02-14-44-11__track2_multi_model_curve_comparison_report\registry_snapshots\periodic_mlp_harmonic_campaign\periodic_mlp_harmonic_fw.yaml
+    metrics:
+      mse: 0.0020395315980832086
+      mae: 0.03837188627830332
+      rmse: 0.039223234499835315
+      mean_percentage_error_pct: 82.4506085909517
+      p95_mean_percentage_error_pct: 160.28015659591955
+  comparison_path: output\validation_checks\track2_multi_model_curve_comparison_report\2026-07-02-14-44-11__track2_multi_model_curve_comparison_report\comparisons\forward_wave1.png
+  comparison_markdown_path: assets/comparisons/forward_wave1.png
+  selected_curve_list:
+  - source_file_path: data\polished_dataset\forward\25degree\100rpm\100.0rpm1300.0Nm25.0deg.csv
+    direction_label: forward
+    speed_rpm: 99.99412113060635
+    torque_nm: -1299.95310306549
+    oil_temperature_deg: 24.35
+  - source_file_path: data\polished_dataset\forward\25degree\1100rpm\1100.0rpm500.0Nm25.0deg.csv
+    direction_label: forward
+    speed_rpm: 1099.9967716294527
+    torque_nm: -499.88341331481894
+    oil_temperature_deg: 28.06
+  - source_file_path: data\polished_dataset\forward\30degree\1500rpm\1500.0rpm500.0Nm30.0deg.csv
+    direction_label: forward
+    speed_rpm: 1499.9973960639115
+    torque_nm: -500.521183013916
+    oil_temperature_deg: 32.8
+  - source_file_path: data\polished_dataset\forward\35degree\100rpm\100.0rpm1800.0Nm35.0deg.csv
+    direction_label: forward
+    speed_rpm: 99.99325499971636
+    torque_nm: -1799.95369911194
+    oil_temperature_deg: 36.93
+- group_id: backward_reference
+  group_title: Backward Reference Model Overlay
+  candidate_id_list:
+  - paper_retuned_best_Bw
+  - track1_best_Bw
+  direction_scope: backward
+  candidate_summary_list:
+  - candidate_id: paper_retuned_best_Bw
+    candidate_family: best_composite
+    candidate_kind: composite_reference_bank
+    candidate_source_label: rcim_retuned
+    candidate_surface: Bw
+    allowed_direction_list: &id031
+    - backward
+    source_path: models\paper_reference\rcim_retuned\backward
+    metrics: &id032
+      mse: 6.124307464916448e-05
+      mae: 0.005363393861190603
+      rmse: 0.006138639738769549
+      mean_percentage_error_pct: 10.674032077758623
+      p95_mean_percentage_error_pct: 18.0273861055826
+  - candidate_id: track1_best_Bw
+    candidate_family: best_composite
+    candidate_kind: composite_reference_bank
+    candidate_source_label: rcim_track1
+    candidate_surface: Bw
+    allowed_direction_list: &id009
+    - backward
+    source_path: models\paper_reference\rcim_track1\backward
+    metrics: &id010
+      mse: 9.073961424300084e-05
+      mae: 0.006632949856882185
+      rmse: 0.007118700811067083
+      mean_percentage_error_pct: 13.712612016683071
+      p95_mean_percentage_error_pct: 43.20412147233606
+  comparison_path: output\validation_checks\track2_multi_model_curve_comparison_report\2026-07-02-14-44-11__track2_multi_model_curve_comparison_report\comparisons\backward_reference.png
+  comparison_markdown_path: assets/comparisons/backward_reference.png
+  selected_curve_list:
+  - source_file_path: data\polished_dataset\backward\25degree\100rpm\100.0rpm300.0Nm25.0deg.csv
+    direction_label: backward
+    speed_rpm: -99.99744592939656
+    torque_nm: 299.967563148446
+    oil_temperature_deg: 24.58
+  - source_file_path: data\polished_dataset\backward\30degree\100rpm\100.0rpm800.0Nm30.0deg.csv
+    direction_label: backward
+    speed_rpm: -100.00130159767296
+    torque_nm: 799.98097419512
+    oil_temperature_deg: 29.91
+  - source_file_path: data\polished_dataset\backward\35degree\1600rpm\1600.0rpm300.0Nm35.0deg.csv
+    direction_label: backward
+    speed_rpm: -1600.0000946674568
+    torque_nm: 299.9159455199175
+    oil_temperature_deg: 35.07
+  - source_file_path: data\polished_dataset\backward\35degree\1700rpm\1700.0rpm400.0Nm35.0deg.csv
+    direction_label: backward
+    speed_rpm: -1699.99826665123
+    torque_nm: 399.90048407322
+    oil_temperature_deg: 37.62
+- group_id: backward_wave1
+  group_title: Backward Wave 1 Family Model Overlay
+  candidate_id_list:
+  - feedforward_bw
+  - harmonic_regression_bw
+  - periodic_mlp_bw
+  - residual_harmonic_mlp_bw
+  - tree_bw
+  - periodic_mlp_harmonic_bw
+  direction_scope: backward
+  candidate_summary_list:
+  - candidate_id: feedforward_bw
+    candidate_family: feedforward
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave1_current_registry
+    candidate_surface: Bw
+    allowed_direction_list: &id011
+    - backward
+    source_path: output\registries\families\feedforward_bw\latest_family_best.yaml
+    metrics: &id012
+      mse: 2.829761452237861e-05
+      mae: 0.0026797517930499263
+      rmse: 0.003212895855502584
+      mean_percentage_error_pct: 4.758992016505204
+      p95_mean_percentage_error_pct: 10.593800906264676
+  - candidate_id: harmonic_regression_bw
+    candidate_family: harmonic_regression
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave1_current_registry
+    candidate_surface: Bw
+    allowed_direction_list:
+    - backward
+    source_path: output\registries\families\harmonic_regression_bw\latest_family_best.yaml
+    metrics:
+      mse: 0.00011175240154649844
+      mae: 0.008041352199541817
+      rmse: 0.008674524977451177
+      mean_percentage_error_pct: 16.235863947457425
+      p95_mean_percentage_error_pct: 27.3085305006804
+  - candidate_id: periodic_mlp_bw
+    candidate_family: periodic_mlp
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave1_current_registry
+    candidate_surface: Bw
+    allowed_direction_list: &id013
+    - backward
+    source_path: output\registries\families\periodic_mlp_bw\latest_family_best.yaml
+    metrics: &id014
+      mse: 2.9185467148339006e-05
+      mae: 0.0027001186375402446
+      rmse: 0.0032296517574971727
+      mean_percentage_error_pct: 4.792578559141918
+      p95_mean_percentage_error_pct: 10.624242426280004
+  - candidate_id: residual_harmonic_mlp_bw
+    candidate_family: residual_harmonic_mlp
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave1_current_registry
+    candidate_surface: Bw
+    allowed_direction_list: &id015
+    - backward
+    source_path: output\registries\families\residual_harmonic_mlp_bw\latest_family_best.yaml
+    metrics: &id016
+      mse: 2.923915269480883e-05
+      mae: 0.002712805925794406
+      rmse: 0.003255140710189779
+      mean_percentage_error_pct: 4.822018361425395
+      p95_mean_percentage_error_pct: 10.623523089585529
+  - candidate_id: tree_bw
+    candidate_family: tree
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave1_current_registry
+    candidate_surface: Bw
+    allowed_direction_list: &id033
+    - backward
+    source_path: output\registries\families\tree_bw\latest_family_best.yaml
+    metrics: &id034
+      mse: 2.6712567486201125e-05
+      mae: 0.0027562620595998405
+      rmse: 0.0032865007027985476
+      mean_percentage_error_pct: 4.933831848897043
+      p95_mean_percentage_error_pct: 10.752491676519512
+  - candidate_id: periodic_mlp_harmonic_bw
+    candidate_family: periodic_mlp_harmonic
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave1_periodic_mlp_harmonic_campaign
+    candidate_surface: Bw
+    allowed_direction_list:
+    - backward
+    source_path: output\validation_checks\track2_multi_model_curve_comparison_report\2026-07-02-14-44-11__track2_multi_model_curve_comparison_report\registry_snapshots\periodic_mlp_harmonic_campaign\periodic_mlp_harmonic_bw.yaml
+    metrics:
+      mse: 0.0002781604600495866
+      mae: 0.013927154097755003
+      rmse: 0.014623322027983575
+      mean_percentage_error_pct: 28.984161559281237
+      p95_mean_percentage_error_pct: 51.73443358481593
+  comparison_path: output\validation_checks\track2_multi_model_curve_comparison_report\2026-07-02-14-44-11__track2_multi_model_curve_comparison_report\comparisons\backward_wave1.png
+  comparison_markdown_path: assets/comparisons/backward_wave1.png
+  selected_curve_list:
+  - source_file_path: data\polished_dataset\backward\25degree\100rpm\100.0rpm300.0Nm25.0deg.csv
+    direction_label: backward
+    speed_rpm: -99.99744592939656
+    torque_nm: 299.967563148446
+    oil_temperature_deg: 24.58
+  - source_file_path: data\polished_dataset\backward\30degree\100rpm\100.0rpm800.0Nm30.0deg.csv
+    direction_label: backward
+    speed_rpm: -100.00130159767296
+    torque_nm: 799.98097419512
+    oil_temperature_deg: 29.91
+  - source_file_path: data\polished_dataset\backward\35degree\1600rpm\1600.0rpm300.0Nm35.0deg.csv
+    direction_label: backward
+    speed_rpm: -1600.0000946674568
+    torque_nm: 299.9159455199175
+    oil_temperature_deg: 35.07
+  - source_file_path: data\polished_dataset\backward\35degree\1700rpm\1700.0rpm400.0Nm35.0deg.csv
+    direction_label: backward
+    speed_rpm: -1699.99826665123
+    torque_nm: 399.90048407322
+    oil_temperature_deg: 37.62
+- group_id: forward_wave2
+  group_title: Forward Wave 2.1 Temporal Model Overlay
+  candidate_id_list:
+  - temporal_convolution_fw
+  - gru_sequence_fw
+  - lstm_sequence_fw
+  - periodic_temporal_convolution_fw
+  - periodic_gru_sequence_fw
+  - periodic_lstm_sequence_fw
+  direction_scope: forward
+  candidate_summary_list:
+  - candidate_id: temporal_convolution_fw
+    candidate_family: temporal_convolution
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave2_temporal_entry_registry
+    candidate_surface: Fw
+    allowed_direction_list: &id019
+    - forward
+    source_path: output\registries\families\temporal_convolution_fw\latest_family_best.yaml
+    metrics: &id020
+      mse: 1.0342668064894627e-05
+      mae: 0.0022097104407099986
+      rmse: 0.0026861476925177734
+      mean_percentage_error_pct: 4.556696864109104
+      p95_mean_percentage_error_pct: 8.559442338051221
+  - candidate_id: gru_sequence_fw
+    candidate_family: gru_sequence
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave2_temporal_entry_registry
+    candidate_surface: Fw
+    allowed_direction_list: &id021
+    - forward
+    source_path: output\registries\families\gru_sequence_fw\latest_family_best.yaml
+    metrics: &id022
+      mse: 9.616502998689213e-06
+      mae: 0.002078209887949661
+      rmse: 0.0025359919998114784
+      mean_percentage_error_pct: 4.254011858073285
+      p95_mean_percentage_error_pct: 8.279018900876727
+  - candidate_id: lstm_sequence_fw
+    candidate_family: lstm_sequence
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave2_temporal_entry_registry
+    candidate_surface: Fw
+    allowed_direction_list: &id023
+    - forward
+    source_path: output\registries\families\lstm_sequence_fw\latest_family_best.yaml
+    metrics: &id024
+      mse: 9.610788026655117e-06
+      mae: 0.0020833384219645272
+      rmse: 0.0025375923912575034
+      mean_percentage_error_pct: 4.261280256396236
+      p95_mean_percentage_error_pct: 8.261552560155426
+  - candidate_id: periodic_temporal_convolution_fw
+    candidate_family: periodic_temporal_convolution
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave2_temporal_entry_registry
+    candidate_surface: Fw
+    allowed_direction_list: &id025
+    - forward
+    source_path: output\registries\families\periodic_temporal_convolution_fw\latest_family_best.yaml
+    metrics: &id026
+      mse: 8.979114492193761e-06
+      mae: 0.0020035908217484826
+      rmse: 0.0023847189122796833
+      mean_percentage_error_pct: 4.123342517481415
+      p95_mean_percentage_error_pct: 9.059474331845356
+  - candidate_id: periodic_gru_sequence_fw
+    candidate_family: periodic_gru_sequence
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave2_temporal_entry_registry
+    candidate_surface: Fw
+    allowed_direction_list: &id027
+    - forward
+    source_path: output\registries\families\periodic_gru_sequence_fw\latest_family_best.yaml
+    metrics: &id028
+      mse: 2.746883725287755e-06
+      mae: 0.0011953269566313918
+      rmse: 0.001460923909397637
+      mean_percentage_error_pct: 2.5594795544691524
+      p95_mean_percentage_error_pct: 5.192642564258887
+  - candidate_id: periodic_lstm_sequence_fw
+    candidate_family: periodic_lstm_sequence
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave2_temporal_entry_registry
+    candidate_surface: Fw
+    allowed_direction_list: &id029
+    - forward
+    source_path: output\registries\families\periodic_lstm_sequence_fw\latest_family_best.yaml
+    metrics: &id030
+      mse: 7.063388856745823e-06
+      mae: 0.001730313420487712
+      rmse: 0.0020840283157324817
+      mean_percentage_error_pct: 3.5169530420963544
+      p95_mean_percentage_error_pct: 7.4936339099479525
+  comparison_path: output\validation_checks\track2_multi_model_curve_comparison_report\2026-07-02-14-44-11__track2_multi_model_curve_comparison_report\comparisons\forward_wave2.png
+  comparison_markdown_path: assets/comparisons/forward_wave2.png
+  selected_curve_list:
+  - source_file_path: data\polished_dataset\forward\25degree\100rpm\100.0rpm1300.0Nm25.0deg.csv
+    direction_label: forward
+    speed_rpm: 99.99412113060635
+    torque_nm: -1299.95310306549
+    oil_temperature_deg: 24.35
+  - source_file_path: data\polished_dataset\forward\25degree\1100rpm\1100.0rpm500.0Nm25.0deg.csv
+    direction_label: forward
+    speed_rpm: 1099.9967716294527
+    torque_nm: -499.88341331481894
+    oil_temperature_deg: 28.06
+  - source_file_path: data\polished_dataset\forward\30degree\1500rpm\1500.0rpm500.0Nm30.0deg.csv
+    direction_label: forward
+    speed_rpm: 1499.9973960639115
+    torque_nm: -500.521183013916
+    oil_temperature_deg: 32.8
+  - source_file_path: data\polished_dataset\forward\35degree\100rpm\100.0rpm1800.0Nm35.0deg.csv
+    direction_label: forward
+    speed_rpm: 99.99325499971636
+    torque_nm: -1799.95369911194
+    oil_temperature_deg: 36.93
+- group_id: backward_wave2
+  group_title: Backward Wave 2.1 Temporal Model Overlay
+  candidate_id_list:
+  - temporal_convolution_bw
+  - gru_sequence_bw
+  - lstm_sequence_bw
+  - periodic_temporal_convolution_bw
+  - periodic_gru_sequence_bw
+  - periodic_lstm_sequence_bw
+  direction_scope: backward
+  candidate_summary_list:
+  - candidate_id: temporal_convolution_bw
+    candidate_family: temporal_convolution
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave2_temporal_entry_registry
+    candidate_surface: Bw
+    allowed_direction_list: &id035
+    - backward
+    source_path: output\registries\families\temporal_convolution_bw\latest_family_best.yaml
+    metrics: &id036
+      mse: 1.97859279841377e-05
+      mae: 0.002566137688427495
+      rmse: 0.0031007953149624185
+      mean_percentage_error_pct: 4.747243791776933
+      p95_mean_percentage_error_pct: 10.215294717608595
+  - candidate_id: gru_sequence_bw
+    candidate_family: gru_sequence
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave2_temporal_entry_registry
+    candidate_surface: Bw
+    allowed_direction_list: &id037
+    - backward
+    source_path: output\registries\families\gru_sequence_bw\latest_family_best.yaml
+    metrics: &id038
+      mse: 1.897787981094508e-05
+      mae: 0.0024401315501318224
+      rmse: 0.002970629611145424
+      mean_percentage_error_pct: 4.4774605100511256
+      p95_mean_percentage_error_pct: 10.154760869375611
+  - candidate_id: lstm_sequence_bw
+    candidate_family: lstm_sequence
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave2_temporal_entry_registry
+    candidate_surface: Bw
+    allowed_direction_list: &id039
+    - backward
+    source_path: output\registries\families\lstm_sequence_bw\latest_family_best.yaml
+    metrics: &id040
+      mse: 1.901137773627375e-05
+      mae: 0.0024298192496017934
+      rmse: 0.0029728754921812786
+      mean_percentage_error_pct: 4.452274193705212
+      p95_mean_percentage_error_pct: 10.190482524663507
+  - candidate_id: periodic_temporal_convolution_bw
+    candidate_family: periodic_temporal_convolution
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave2_temporal_entry_registry
+    candidate_surface: Bw
+    allowed_direction_list: &id041
+    - backward
+    source_path: output\registries\families\periodic_temporal_convolution_bw\latest_family_best.yaml
+    metrics: &id042
+      mse: 1.764146846388639e-05
+      mae: 0.0024821952479291524
+      rmse: 0.0029721145958825287
+      mean_percentage_error_pct: 4.647432475782255
+      p95_mean_percentage_error_pct: 9.67148723892414
+  - candidate_id: periodic_gru_sequence_bw
+    candidate_family: periodic_gru_sequence
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave2_temporal_entry_registry
+    candidate_surface: Bw
+    allowed_direction_list: &id043
+    - backward
+    source_path: output\registries\families\periodic_gru_sequence_bw\latest_family_best.yaml
+    metrics: &id044
+      mse: 3.5518044341068564e-06
+      mae: 0.001128860395637178
+      rmse: 0.001411628662704431
+      mean_percentage_error_pct: 2.227626167089683
+      p95_mean_percentage_error_pct: 4.688432921178432
+  - candidate_id: periodic_lstm_sequence_bw
+    candidate_family: periodic_lstm_sequence
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave2_temporal_entry_registry
+    candidate_surface: Bw
+    allowed_direction_list: &id045
+    - backward
+    source_path: output\registries\families\periodic_lstm_sequence_bw\latest_family_best.yaml
+    metrics: &id046
+      mse: 5.721639414603055e-06
+      mae: 0.0014049677835844153
+      rmse: 0.0017566200333808653
+      mean_percentage_error_pct: 2.699829319405909
+      p95_mean_percentage_error_pct: 6.052483206707993
+  comparison_path: output\validation_checks\track2_multi_model_curve_comparison_report\2026-07-02-14-44-11__track2_multi_model_curve_comparison_report\comparisons\backward_wave2.png
+  comparison_markdown_path: assets/comparisons/backward_wave2.png
+  selected_curve_list:
+  - source_file_path: data\polished_dataset\backward\25degree\100rpm\100.0rpm300.0Nm25.0deg.csv
+    direction_label: backward
+    speed_rpm: -99.99744592939656
+    torque_nm: 299.967563148446
+    oil_temperature_deg: 24.58
+  - source_file_path: data\polished_dataset\backward\30degree\100rpm\100.0rpm800.0Nm30.0deg.csv
+    direction_label: backward
+    speed_rpm: -100.00130159767296
+    torque_nm: 799.98097419512
+    oil_temperature_deg: 29.91
+  - source_file_path: data\polished_dataset\backward\35degree\1600rpm\1600.0rpm300.0Nm35.0deg.csv
+    direction_label: backward
+    speed_rpm: -1600.0000946674568
+    torque_nm: 299.9159455199175
+    oil_temperature_deg: 35.07
+  - source_file_path: data\polished_dataset\backward\35degree\1700rpm\1700.0rpm400.0Nm35.0deg.csv
+    direction_label: backward
+    speed_rpm: -1699.99826665123
+    torque_nm: 399.90048407322
+    oil_temperature_deg: 37.62
+- group_id: forward_wave2c
+  group_title: Forward Wave 2.3 Residual Harmonic Temporal Overlay
+  candidate_id_list:
+  - residual_harmonic_gru_sequence_sparse_rcim_Fw
+  - residual_harmonic_gru_sequence_dense240_Fw
+  - residual_harmonic_gru_sequence_dense360_Fw
+  - residual_harmonic_lstm_sequence_sparse_rcim_Fw
+  - residual_harmonic_lstm_sequence_dense240_Fw
+  - residual_harmonic_lstm_sequence_dense360_Fw
+  direction_scope: forward
+  candidate_summary_list:
+  - candidate_id: residual_harmonic_gru_sequence_sparse_rcim_Fw
+    candidate_family: residual_harmonic_gru_sequence_sparse_rcim
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave2c_residual_harmonic_temporal_registry
+    candidate_surface: Fw
+    allowed_direction_list: &id047
+    - forward
+    source_path: output\registries\families\residual_harmonic_gru_sequence_fw_sparse_rcim\latest_family_best.yaml
+    metrics: &id048
+      mse: 0.0027589059684475126
+      mae: 0.04502105645557788
+      rmse: 0.04518430547336291
+      mean_percentage_error_pct: 96.69101480075186
+      p95_mean_percentage_error_pct: 190.79681560398765
+  - candidate_id: residual_harmonic_gru_sequence_dense240_Fw
+    candidate_family: residual_harmonic_gru_sequence_dense240
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave2c_residual_harmonic_temporal_registry
+    candidate_surface: Fw
+    allowed_direction_list: &id049
+    - forward
+    source_path: output\registries\families\residual_harmonic_gru_sequence_fw_dense240\latest_family_best.yaml
+    metrics: &id050
+      mse: 0.0019294632304106404
+      mae: 0.03726070702402937
+      rmse: 0.03859029720854532
+      mean_percentage_error_pct: 80.108701115511
+      p95_mean_percentage_error_pct: 158.39744529078672
+  - candidate_id: residual_harmonic_gru_sequence_dense360_Fw
+    candidate_family: residual_harmonic_gru_sequence_dense360
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave2c_residual_harmonic_temporal_registry
+    candidate_surface: Fw
+    allowed_direction_list: &id051
+    - forward
+    source_path: output\registries\families\residual_harmonic_gru_sequence_fw_dense360\latest_family_best.yaml
+    metrics: &id052
+      mse: 0.001980966052829604
+      mae: 0.038029664401938425
+      rmse: 0.03960408697602628
+      mean_percentage_error_pct: 81.95811403232416
+      p95_mean_percentage_error_pct: 159.56940519900147
+  - candidate_id: residual_harmonic_lstm_sequence_sparse_rcim_Fw
+    candidate_family: residual_harmonic_lstm_sequence_sparse_rcim
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave2c_residual_harmonic_temporal_registry
+    candidate_surface: Fw
+    allowed_direction_list: &id053
+    - forward
+    source_path: output\registries\families\residual_harmonic_lstm_sequence_fw_sparse_rcim\latest_family_best.yaml
+    metrics: &id054
+      mse: 0.002426357907930395
+      mae: 0.04269403684410498
+      rmse: 0.04291714049920212
+      mean_percentage_error_pct: 91.8470489188627
+      p95_mean_percentage_error_pct: 175.34862137713972
+  - candidate_id: residual_harmonic_lstm_sequence_dense240_Fw
+    candidate_family: residual_harmonic_lstm_sequence_dense240
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave2c_residual_harmonic_temporal_registry
+    candidate_surface: Fw
+    allowed_direction_list: &id055
+    - forward
+    source_path: output\registries\families\residual_harmonic_lstm_sequence_fw_dense240\latest_family_best.yaml
+    metrics: &id056
+      mse: 0.0016457375140420411
+      mae: 0.03460970848109293
+      rmse: 0.035965473928517476
+      mean_percentage_error_pct: 74.50339226820661
+      p95_mean_percentage_error_pct: 145.5518171998246
+  - candidate_id: residual_harmonic_lstm_sequence_dense360_Fw
+    candidate_family: residual_harmonic_lstm_sequence_dense360
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave2c_residual_harmonic_temporal_registry
+    candidate_surface: Fw
+    allowed_direction_list: &id057
+    - forward
+    source_path: output\registries\families\residual_harmonic_lstm_sequence_fw_dense360\latest_family_best.yaml
+    metrics: &id058
+      mse: 0.001559965688528532
+      mae: 0.033573520856893496
+      rmse: 0.03520240076622479
+      mean_percentage_error_pct: 72.33774742283482
+      p95_mean_percentage_error_pct: 141.65709659163554
+  comparison_path: output\validation_checks\track2_multi_model_curve_comparison_report\2026-07-02-14-44-11__track2_multi_model_curve_comparison_report\comparisons\forward_wave2c.png
+  comparison_markdown_path: assets/comparisons/forward_wave2c.png
+  selected_curve_list:
+  - source_file_path: data\polished_dataset\forward\25degree\100rpm\100.0rpm1300.0Nm25.0deg.csv
+    direction_label: forward
+    speed_rpm: 99.99412113060635
+    torque_nm: -1299.95310306549
+    oil_temperature_deg: 24.35
+  - source_file_path: data\polished_dataset\forward\25degree\1100rpm\1100.0rpm500.0Nm25.0deg.csv
+    direction_label: forward
+    speed_rpm: 1099.9967716294527
+    torque_nm: -499.88341331481894
+    oil_temperature_deg: 28.06
+  - source_file_path: data\polished_dataset\forward\30degree\1500rpm\1500.0rpm500.0Nm30.0deg.csv
+    direction_label: forward
+    speed_rpm: 1499.9973960639115
+    torque_nm: -500.521183013916
+    oil_temperature_deg: 32.8
+  - source_file_path: data\polished_dataset\forward\35degree\100rpm\100.0rpm1800.0Nm35.0deg.csv
+    direction_label: forward
+    speed_rpm: 99.99325499971636
+    torque_nm: -1799.95369911194
+    oil_temperature_deg: 36.93
+- group_id: backward_wave2c
+  group_title: Backward Wave 2.3 Residual Harmonic Temporal Overlay
+  candidate_id_list:
+  - residual_harmonic_gru_sequence_sparse_rcim_Bw
+  - residual_harmonic_gru_sequence_dense240_Bw
+  - residual_harmonic_gru_sequence_dense360_Bw
+  - residual_harmonic_lstm_sequence_sparse_rcim_Bw
+  - residual_harmonic_lstm_sequence_dense240_Bw
+  - residual_harmonic_lstm_sequence_dense360_Bw
+  direction_scope: backward
+  candidate_summary_list:
+  - candidate_id: residual_harmonic_gru_sequence_sparse_rcim_Bw
+    candidate_family: residual_harmonic_gru_sequence_sparse_rcim
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave2c_residual_harmonic_temporal_registry
+    candidate_surface: Bw
+    allowed_direction_list: &id059
+    - backward
+    source_path: output\registries\families\residual_harmonic_gru_sequence_bw_sparse_rcim\latest_family_best.yaml
+    metrics: &id060
+      mse: 0.00017631125605809675
+      mae: 0.010935687556392206
+      rmse: 0.011364104918747306
+      mean_percentage_error_pct: 22.573610794675904
+      p95_mean_percentage_error_pct: 40.37885253558712
+  - candidate_id: residual_harmonic_gru_sequence_dense240_Bw
+    candidate_family: residual_harmonic_gru_sequence_dense240
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave2c_residual_harmonic_temporal_registry
+    candidate_surface: Bw
+    allowed_direction_list: &id061
+    - backward
+    source_path: output\registries\families\residual_harmonic_gru_sequence_bw_dense240\latest_family_best.yaml
+    metrics: &id062
+      mse: 0.0007743172391646637
+      mae: 0.02052954477428755
+      rmse: 0.02425053920202964
+      mean_percentage_error_pct: 43.46393625497854
+      p95_mean_percentage_error_pct: 105.39408863554625
+  - candidate_id: residual_harmonic_gru_sequence_dense360_Bw
+    candidate_family: residual_harmonic_gru_sequence_dense360
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave2c_residual_harmonic_temporal_registry
+    candidate_surface: Bw
+    allowed_direction_list: &id063
+    - backward
+    source_path: output\registries\families\residual_harmonic_gru_sequence_bw_dense360\latest_family_best.yaml
+    metrics: &id064
+      mse: 0.00038682880976933967
+      mae: 0.015161908702205839
+      rmse: 0.01876145195394106
+      mean_percentage_error_pct: 32.046509265686964
+      p95_mean_percentage_error_pct: 48.39125072555477
+  - candidate_id: residual_harmonic_lstm_sequence_sparse_rcim_Bw
+    candidate_family: residual_harmonic_lstm_sequence_sparse_rcim
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave2c_residual_harmonic_temporal_registry
+    candidate_surface: Bw
+    allowed_direction_list: &id065
+    - backward
+    source_path: output\registries\families\residual_harmonic_lstm_sequence_bw_sparse_rcim\latest_family_best.yaml
+    metrics: &id066
+      mse: 0.00020515611751902824
+      mae: 0.011676484533651287
+      rmse: 0.012103485344259183
+      mean_percentage_error_pct: 23.90803515814412
+      p95_mean_percentage_error_pct: 46.17575683957353
+  - candidate_id: residual_harmonic_lstm_sequence_dense240_Bw
+    candidate_family: residual_harmonic_lstm_sequence_dense240
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave2c_residual_harmonic_temporal_registry
+    candidate_surface: Bw
+    allowed_direction_list: &id067
+    - backward
+    source_path: output\registries\families\residual_harmonic_lstm_sequence_bw_dense240\latest_family_best.yaml
+    metrics: &id068
+      mse: 0.00042838428951070835
+      mae: 0.016792453512400687
+      rmse: 0.019189383214835782
+      mean_percentage_error_pct: 35.127685229672636
+      p95_mean_percentage_error_pct: 58.73987759349716
+  - candidate_id: residual_harmonic_lstm_sequence_dense360_Bw
+    candidate_family: residual_harmonic_lstm_sequence_dense360
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave2c_residual_harmonic_temporal_registry
+    candidate_surface: Bw
+    allowed_direction_list: &id069
+    - backward
+    source_path: output\registries\families\residual_harmonic_lstm_sequence_bw_dense360\latest_family_best.yaml
+    metrics: &id070
+      mse: 0.0004327370474511693
+      mae: 0.01586363906559583
+      rmse: 0.02003877321992378
+      mean_percentage_error_pct: 33.65673365795102
+      p95_mean_percentage_error_pct: 48.34565700361092
+  comparison_path: output\validation_checks\track2_multi_model_curve_comparison_report\2026-07-02-14-44-11__track2_multi_model_curve_comparison_report\comparisons\backward_wave2c.png
+  comparison_markdown_path: assets/comparisons/backward_wave2c.png
+  selected_curve_list:
+  - source_file_path: data\polished_dataset\backward\25degree\100rpm\100.0rpm300.0Nm25.0deg.csv
+    direction_label: backward
+    speed_rpm: -99.99744592939656
+    torque_nm: 299.967563148446
+    oil_temperature_deg: 24.58
+  - source_file_path: data\polished_dataset\backward\30degree\100rpm\100.0rpm800.0Nm30.0deg.csv
+    direction_label: backward
+    speed_rpm: -100.00130159767296
+    torque_nm: 799.98097419512
+    oil_temperature_deg: 29.91
+  - source_file_path: data\polished_dataset\backward\35degree\1600rpm\1600.0rpm300.0Nm35.0deg.csv
+    direction_label: backward
+    speed_rpm: -1600.0000946674568
+    torque_nm: 299.9159455199175
+    oil_temperature_deg: 35.07
+  - source_file_path: data\polished_dataset\backward\35degree\1700rpm\1700.0rpm400.0Nm35.0deg.csv
+    direction_label: backward
+    speed_rpm: -1699.99826665123
+    torque_nm: 399.90048407322
+    oil_temperature_deg: 37.62
+- group_id: forward_track2f
+  group_title: Forward Wave 3.1 Offset-Aware Probe Overlay
+  candidate_id_list:
+  - sequential_residual_offset_probe_Fw
+  direction_scope: forward
+  candidate_summary_list:
+  - candidate_id: sequential_residual_offset_probe_Fw
+    candidate_family: sequential_residual_offset_probe
+    candidate_kind: wave1_registry_model
+    candidate_source_label: track2f_offset_aware_probe_registry
+    candidate_surface: Fw
+    allowed_direction_list: &id071
+    - forward
+    source_path: output\registries\families\sequential_residual_offset_probe_fw\latest_family_best.yaml
+    metrics: &id072
+      mse: 0.0018238556556195407
+      mae: 0.03629415851379032
+      rmse: 0.036467392176431204
+      mean_percentage_error_pct: 77.93248214173
+      p95_mean_percentage_error_pct: 160.0831710270755
+  comparison_path: output\validation_checks\track2_multi_model_curve_comparison_report\2026-07-02-14-44-11__track2_multi_model_curve_comparison_report\comparisons\forward_track2f.png
+  comparison_markdown_path: assets/comparisons/forward_track2f.png
+  selected_curve_list:
+  - source_file_path: data\polished_dataset\forward\25degree\100rpm\100.0rpm1300.0Nm25.0deg.csv
+    direction_label: forward
+    speed_rpm: 99.99412113060635
+    torque_nm: -1299.95310306549
+    oil_temperature_deg: 24.35
+  - source_file_path: data\polished_dataset\forward\25degree\1100rpm\1100.0rpm500.0Nm25.0deg.csv
+    direction_label: forward
+    speed_rpm: 1099.9967716294527
+    torque_nm: -499.88341331481894
+    oil_temperature_deg: 28.06
+  - source_file_path: data\polished_dataset\forward\30degree\1500rpm\1500.0rpm500.0Nm30.0deg.csv
+    direction_label: forward
+    speed_rpm: 1499.9973960639115
+    torque_nm: -500.521183013916
+    oil_temperature_deg: 32.8
+  - source_file_path: data\polished_dataset\forward\35degree\100rpm\100.0rpm1800.0Nm35.0deg.csv
+    direction_label: forward
+    speed_rpm: 99.99325499971636
+    torque_nm: -1799.95369911194
+    oil_temperature_deg: 36.93
+- group_id: backward_track2f
+  group_title: Backward Wave 3.1 Offset-Aware Probe Overlay
+  candidate_id_list:
+  - sequential_residual_offset_probe_Bw
+  direction_scope: backward
+  candidate_summary_list:
+  - candidate_id: sequential_residual_offset_probe_Bw
+    candidate_family: sequential_residual_offset_probe
+    candidate_kind: wave1_registry_model
+    candidate_source_label: track2f_offset_aware_probe_registry
+    candidate_surface: Bw
+    allowed_direction_list: &id073
+    - backward
+    source_path: output\registries\families\sequential_residual_offset_probe_bw\latest_family_best.yaml
+    metrics: &id074
+      mse: 0.0001297323123457741
+      mae: 0.00894503754095183
+      rmse: 0.009670467787093441
+      mean_percentage_error_pct: 18.73012270274768
+      p95_mean_percentage_error_pct: 35.53330746986012
+  comparison_path: output\validation_checks\track2_multi_model_curve_comparison_report\2026-07-02-14-44-11__track2_multi_model_curve_comparison_report\comparisons\backward_track2f.png
+  comparison_markdown_path: assets/comparisons/backward_track2f.png
+  selected_curve_list:
+  - source_file_path: data\polished_dataset\backward\25degree\100rpm\100.0rpm300.0Nm25.0deg.csv
+    direction_label: backward
+    speed_rpm: -99.99744592939656
+    torque_nm: 299.967563148446
+    oil_temperature_deg: 24.58
+  - source_file_path: data\polished_dataset\backward\30degree\100rpm\100.0rpm800.0Nm30.0deg.csv
+    direction_label: backward
+    speed_rpm: -100.00130159767296
+    torque_nm: 799.98097419512
+    oil_temperature_deg: 29.91
+  - source_file_path: data\polished_dataset\backward\35degree\1600rpm\1600.0rpm300.0Nm35.0deg.csv
+    direction_label: backward
+    speed_rpm: -1600.0000946674568
+    torque_nm: 299.9159455199175
+    oil_temperature_deg: 35.07
+  - source_file_path: data\polished_dataset\backward\35degree\1700rpm\1700.0rpm400.0Nm35.0deg.csv
+    direction_label: backward
+    speed_rpm: -1699.99826665123
+    torque_nm: 399.90048407322
+    oil_temperature_deg: 37.62
+- group_id: forward_track2f_bis
+  group_title: Forward Wave 3.2 Harmonic-Offset Probe Overlay
+  candidate_id_list:
+  - track2f_bis_clean_sequential_residual_offset_Fw
+  - track2f_bis_harmonic_residual_offset_Fw
+  direction_scope: forward
+  candidate_summary_list:
+  - candidate_id: track2f_bis_clean_sequential_residual_offset_Fw
+    candidate_family: track2f_bis_clean_sequential_residual_offset
+    candidate_kind: wave1_registry_model
+    candidate_source_label: track2f_bis_harmonic_offset_probe_registry
+    candidate_surface: Fw
+    allowed_direction_list:
+    - forward
+    source_path: output\registries\families\track2f_bis_clean_sequential_residual_offset_fw\latest_family_best.yaml
+    metrics:
+      mse: 0.0027968781067746824
+      mae: 0.045184533442576204
+      rmse: 0.04545456973680566
+      mean_percentage_error_pct: 97.08254867176383
+      p95_mean_percentage_error_pct: 194.0814152866555
+  - candidate_id: track2f_bis_harmonic_residual_offset_Fw
+    candidate_family: track2f_bis_harmonic_residual_offset
+    candidate_kind: wave1_registry_model
+    candidate_source_label: track2f_bis_harmonic_offset_probe_registry
+    candidate_surface: Fw
+    allowed_direction_list:
+    - forward
+    source_path: output\registries\families\track2f_bis_harmonic_residual_offset_fw\latest_family_best.yaml
+    metrics:
+      mse: 0.00510699746919964
+      mae: 0.05986872689625805
+      rmse: 0.059969466409618206
+      mean_percentage_error_pct: 127.87336045663835
+      p95_mean_percentage_error_pct: 267.47925555344546
+  comparison_path: output\validation_checks\track2_multi_model_curve_comparison_report\2026-07-02-14-44-11__track2_multi_model_curve_comparison_report\comparisons\forward_track2f_bis.png
+  comparison_markdown_path: assets/comparisons/forward_track2f_bis.png
+  selected_curve_list:
+  - source_file_path: data\polished_dataset\forward\25degree\100rpm\100.0rpm1300.0Nm25.0deg.csv
+    direction_label: forward
+    speed_rpm: 99.99412113060635
+    torque_nm: -1299.95310306549
+    oil_temperature_deg: 24.35
+  - source_file_path: data\polished_dataset\forward\25degree\1100rpm\1100.0rpm500.0Nm25.0deg.csv
+    direction_label: forward
+    speed_rpm: 1099.9967716294527
+    torque_nm: -499.88341331481894
+    oil_temperature_deg: 28.06
+  - source_file_path: data\polished_dataset\forward\30degree\1500rpm\1500.0rpm500.0Nm30.0deg.csv
+    direction_label: forward
+    speed_rpm: 1499.9973960639115
+    torque_nm: -500.521183013916
+    oil_temperature_deg: 32.8
+  - source_file_path: data\polished_dataset\forward\35degree\100rpm\100.0rpm1800.0Nm35.0deg.csv
+    direction_label: forward
+    speed_rpm: 99.99325499971636
+    torque_nm: -1799.95369911194
+    oil_temperature_deg: 36.93
+- group_id: backward_track2f_bis
+  group_title: Backward Wave 3.2 Harmonic-Offset Probe Overlay
+  candidate_id_list:
+  - track2f_bis_clean_sequential_residual_offset_Bw
+  - track2f_bis_harmonic_residual_offset_Bw
+  direction_scope: backward
+  candidate_summary_list:
+  - candidate_id: track2f_bis_clean_sequential_residual_offset_Bw
+    candidate_family: track2f_bis_clean_sequential_residual_offset
+    candidate_kind: wave1_registry_model
+    candidate_source_label: track2f_bis_harmonic_offset_probe_registry
+    candidate_surface: Bw
+    allowed_direction_list:
+    - backward
+    source_path: output\registries\families\track2f_bis_clean_sequential_residual_offset_bw\latest_family_best.yaml
+    metrics:
+      mse: 0.00011529729067572006
+      mae: 0.008375623774918007
+      rmse: 0.009257719163388054
+      mean_percentage_error_pct: 17.556481352048266
+      p95_mean_percentage_error_pct: 34.86720064136054
+  - candidate_id: track2f_bis_harmonic_residual_offset_Bw
+    candidate_family: track2f_bis_harmonic_residual_offset
+    candidate_kind: wave1_registry_model
+    candidate_source_label: track2f_bis_harmonic_offset_probe_registry
+    candidate_surface: Bw
+    allowed_direction_list:
+    - backward
+    source_path: output\registries\families\track2f_bis_harmonic_residual_offset_bw\latest_family_best.yaml
+    metrics:
+      mse: 0.00024374675431394785
+      mae: 0.012996463276871754
+      rmse: 0.013533148234513908
+      mean_percentage_error_pct: 26.82552588752681
+      p95_mean_percentage_error_pct: 42.34847802422488
+  comparison_path: output\validation_checks\track2_multi_model_curve_comparison_report\2026-07-02-14-44-11__track2_multi_model_curve_comparison_report\comparisons\backward_track2f_bis.png
+  comparison_markdown_path: assets/comparisons/backward_track2f_bis.png
+  selected_curve_list:
+  - source_file_path: data\polished_dataset\backward\25degree\100rpm\100.0rpm300.0Nm25.0deg.csv
+    direction_label: backward
+    speed_rpm: -99.99744592939656
+    torque_nm: 299.967563148446
+    oil_temperature_deg: 24.58
+  - source_file_path: data\polished_dataset\backward\30degree\100rpm\100.0rpm800.0Nm30.0deg.csv
+    direction_label: backward
+    speed_rpm: -100.00130159767296
+    torque_nm: 799.98097419512
+    oil_temperature_deg: 29.91
+  - source_file_path: data\polished_dataset\backward\35degree\1600rpm\1600.0rpm300.0Nm35.0deg.csv
+    direction_label: backward
+    speed_rpm: -1600.0000946674568
+    torque_nm: 299.9159455199175
+    oil_temperature_deg: 35.07
+  - source_file_path: data\polished_dataset\backward\35degree\1700rpm\1700.0rpm400.0Nm35.0deg.csv
+    direction_label: backward
+    speed_rpm: -1699.99826665123
+    torque_nm: 399.90048407322
+    oil_temperature_deg: 37.62
+- group_id: forward_track2g
+  group_title: Forward Wave 3.3 Curve-Aware Training Overlay
+  candidate_id_list:
+  - track2g_curve_aware_pointwise_control_Fw
+  - track2g_curve_aware_raw_centered_shape_Fw
+  - track2g_curve_aware_raw_offset_Fw
+  - track2g_curve_aware_full_curve_composite_Fw
+  direction_scope: forward
+  candidate_summary_list:
+  - candidate_id: track2g_curve_aware_pointwise_control_Fw
+    candidate_family: track2g_curve_aware_pointwise_control
+    candidate_kind: wave1_registry_model
+    candidate_source_label: track2g_curve_aware_training_registry
+    candidate_surface: Fw
+    allowed_direction_list: &id075
+    - forward
+    source_path: output\registries\families\track2g_curve_aware_harmonic_residual_offset_pointwise_control_fw\latest_family_best.yaml
+    metrics: &id076
+      mse: 0.0027438124983341044
+      mae: 0.044576845351377285
+      rmse: 0.044713036667733644
+      mean_percentage_error_pct: 95.2530273124503
+      p95_mean_percentage_error_pct: 186.41460212653897
+  - candidate_id: track2g_curve_aware_raw_centered_shape_Fw
+    candidate_family: track2g_curve_aware_raw_centered_shape
+    candidate_kind: wave1_registry_model
+    candidate_source_label: track2g_curve_aware_training_registry
+    candidate_surface: Fw
+    allowed_direction_list: &id077
+    - forward
+    source_path: output\registries\families\track2g_curve_aware_harmonic_residual_offset_raw_centered_shape_fw\latest_family_best.yaml
+    metrics: &id078
+      mse: 0.0018280735451490586
+      mae: 0.03703027984590769
+      rmse: 0.03723714686007198
+      mean_percentage_error_pct: 79.7167726653208
+      p95_mean_percentage_error_pct: 153.05101200683845
+  - candidate_id: track2g_curve_aware_raw_offset_Fw
+    candidate_family: track2g_curve_aware_raw_offset
+    candidate_kind: wave1_registry_model
+    candidate_source_label: track2g_curve_aware_training_registry
+    candidate_surface: Fw
+    allowed_direction_list: &id079
+    - forward
+    source_path: output\registries\families\track2g_curve_aware_harmonic_residual_offset_raw_offset_fw\latest_family_best.yaml
+    metrics: &id080
+      mse: 0.004682302024445664
+      mae: 0.05834907225484482
+      rmse: 0.058552312531704176
+      mean_percentage_error_pct: 124.99144753209386
+      p95_mean_percentage_error_pct: 247.13718034372548
+  - candidate_id: track2g_curve_aware_full_curve_composite_Fw
+    candidate_family: track2g_curve_aware_full_curve_composite
+    candidate_kind: wave1_registry_model
+    candidate_source_label: track2g_curve_aware_training_registry
+    candidate_surface: Fw
+    allowed_direction_list: &id081
+    - forward
+    source_path: output\registries\families\track2g_curve_aware_harmonic_residual_offset_full_curve_composite_fw\latest_family_best.yaml
+    metrics: &id082
+      mse: 0.0034307514566719473
+      mae: 0.05009098923251759
+      rmse: 0.050254997466769556
+      mean_percentage_error_pct: 107.77830600702985
+      p95_mean_percentage_error_pct: 216.6926582261692
+  comparison_path: output\validation_checks\track2_multi_model_curve_comparison_report\2026-07-02-14-44-11__track2_multi_model_curve_comparison_report\comparisons\forward_track2g.png
+  comparison_markdown_path: assets/comparisons/forward_track2g.png
+  selected_curve_list:
+  - source_file_path: data\polished_dataset\forward\25degree\100rpm\100.0rpm1300.0Nm25.0deg.csv
+    direction_label: forward
+    speed_rpm: 99.99412113060635
+    torque_nm: -1299.95310306549
+    oil_temperature_deg: 24.35
+  - source_file_path: data\polished_dataset\forward\25degree\1100rpm\1100.0rpm500.0Nm25.0deg.csv
+    direction_label: forward
+    speed_rpm: 1099.9967716294527
+    torque_nm: -499.88341331481894
+    oil_temperature_deg: 28.06
+  - source_file_path: data\polished_dataset\forward\30degree\1500rpm\1500.0rpm500.0Nm30.0deg.csv
+    direction_label: forward
+    speed_rpm: 1499.9973960639115
+    torque_nm: -500.521183013916
+    oil_temperature_deg: 32.8
+  - source_file_path: data\polished_dataset\forward\35degree\100rpm\100.0rpm1800.0Nm35.0deg.csv
+    direction_label: forward
+    speed_rpm: 99.99325499971636
+    torque_nm: -1799.95369911194
+    oil_temperature_deg: 36.93
+- group_id: backward_track2g
+  group_title: Backward Wave 3.3 Curve-Aware Training Overlay
+  candidate_id_list:
+  - track2g_curve_aware_pointwise_control_Bw
+  - track2g_curve_aware_raw_centered_shape_Bw
+  - track2g_curve_aware_raw_offset_Bw
+  - track2g_curve_aware_full_curve_composite_Bw
+  direction_scope: backward
+  candidate_summary_list:
+  - candidate_id: track2g_curve_aware_pointwise_control_Bw
+    candidate_family: track2g_curve_aware_pointwise_control
+    candidate_kind: wave1_registry_model
+    candidate_source_label: track2g_curve_aware_training_registry
+    candidate_surface: Bw
+    allowed_direction_list: &id083
+    - backward
+    source_path: output\registries\families\track2g_curve_aware_harmonic_residual_offset_pointwise_control_bw\latest_family_best.yaml
+    metrics: &id084
+      mse: 0.0001473130748282745
+      mae: 0.009938620150068356
+      rmse: 0.010532295406768234
+      mean_percentage_error_pct: 20.5843713309804
+      p95_mean_percentage_error_pct: 36.212464195143895
+  - candidate_id: track2g_curve_aware_raw_centered_shape_Bw
+    candidate_family: track2g_curve_aware_raw_centered_shape
+    candidate_kind: wave1_registry_model
+    candidate_source_label: track2g_curve_aware_training_registry
+    candidate_surface: Bw
+    allowed_direction_list: &id085
+    - backward
+    source_path: output\registries\families\track2g_curve_aware_harmonic_residual_offset_raw_centered_shape_bw\latest_family_best.yaml
+    metrics: &id086
+      mse: 0.00015779463498746108
+      mae: 0.010074907776640286
+      rmse: 0.010672895796969567
+      mean_percentage_error_pct: 20.656830524971436
+      p95_mean_percentage_error_pct: 35.42197443325952
+  - candidate_id: track2g_curve_aware_raw_offset_Bw
+    candidate_family: track2g_curve_aware_raw_offset
+    candidate_kind: wave1_registry_model
+    candidate_source_label: track2g_curve_aware_training_registry
+    candidate_surface: Bw
+    allowed_direction_list: &id087
+    - backward
+    source_path: output\registries\families\track2g_curve_aware_harmonic_residual_offset_raw_offset_bw\latest_family_best.yaml
+    metrics: &id088
+      mse: 0.00018825994141029946
+      mae: 0.011254987857852543
+      rmse: 0.011824215127082503
+      mean_percentage_error_pct: 23.16578152705247
+      p95_mean_percentage_error_pct: 39.303662501321114
+  - candidate_id: track2g_curve_aware_full_curve_composite_Bw
+    candidate_family: track2g_curve_aware_full_curve_composite
+    candidate_kind: wave1_registry_model
+    candidate_source_label: track2g_curve_aware_training_registry
+    candidate_surface: Bw
+    allowed_direction_list: &id089
+    - backward
+    source_path: output\registries\families\track2g_curve_aware_harmonic_residual_offset_full_curve_composite_bw\latest_family_best.yaml
+    metrics: &id090
+      mse: 0.0002574272920045982
+      mae: 0.012620388607671153
+      rmse: 0.013520867717586335
+      mean_percentage_error_pct: 25.71327238286811
+      p95_mean_percentage_error_pct: 50.15751137297632
+  comparison_path: output\validation_checks\track2_multi_model_curve_comparison_report\2026-07-02-14-44-11__track2_multi_model_curve_comparison_report\comparisons\backward_track2g.png
+  comparison_markdown_path: assets/comparisons/backward_track2g.png
+  selected_curve_list:
+  - source_file_path: data\polished_dataset\backward\25degree\100rpm\100.0rpm300.0Nm25.0deg.csv
+    direction_label: backward
+    speed_rpm: -99.99744592939656
+    torque_nm: 299.967563148446
+    oil_temperature_deg: 24.58
+  - source_file_path: data\polished_dataset\backward\30degree\100rpm\100.0rpm800.0Nm30.0deg.csv
+    direction_label: backward
+    speed_rpm: -100.00130159767296
+    torque_nm: 799.98097419512
+    oil_temperature_deg: 29.91
+  - source_file_path: data\polished_dataset\backward\35degree\1600rpm\1600.0rpm300.0Nm35.0deg.csv
+    direction_label: backward
+    speed_rpm: -1600.0000946674568
+    torque_nm: 299.9159455199175
+    oil_temperature_deg: 35.07
+  - source_file_path: data\polished_dataset\backward\35degree\1700rpm\1700.0rpm400.0Nm35.0deg.csv
+    direction_label: backward
+    speed_rpm: -1699.99826665123
+    torque_nm: 399.90048407322
+    oil_temperature_deg: 37.62
+- group_id: forward_track2h
+  group_title: Forward Wave 4.1 Robust-Loss Overlay
+  candidate_id_list:
+  - track2h_mae_robust_Fw
+  - track2h_smooth_l1_robust_Fw
+  - track2h_log_cosh_robust_Fw
+  direction_scope: forward
+  candidate_summary_list:
+  - candidate_id: track2h_mae_robust_Fw
+    candidate_family: track2h_mae_robust
+    candidate_kind: wave1_registry_model
+    candidate_source_label: track2h_dispersion_aware_modeling_registry
+    candidate_surface: Fw
+    allowed_direction_list: &id091
+    - forward
+    source_path: output\registries\families\track2h_dispersion_aware_mae_robust_fw\latest_family_best.yaml
+    metrics: &id092
+      mse: 0.003243892671291901
+      mae: 0.04906149174167603
+      rmse: 0.049181142955681
+      mean_percentage_error_pct: 105.14069021886813
+      p95_mean_percentage_error_pct: 200.45469846194396
+  - candidate_id: track2h_smooth_l1_robust_Fw
+    candidate_family: track2h_smooth_l1_robust
+    candidate_kind: wave1_registry_model
+    candidate_source_label: track2h_dispersion_aware_modeling_registry
+    candidate_surface: Fw
+    allowed_direction_list: &id093
+    - forward
+    source_path: output\registries\families\track2h_dispersion_aware_smooth_l1_robust_fw\latest_family_best.yaml
+    metrics: &id094
+      mse: 0.004634863058177094
+      mae: 0.05817079310382918
+      rmse: 0.05828285862808496
+      mean_percentage_error_pct: 124.44070773511326
+      p95_mean_percentage_error_pct: 247.00188568680633
+  - candidate_id: track2h_log_cosh_robust_Fw
+    candidate_family: track2h_log_cosh_robust
+    candidate_kind: wave1_registry_model
+    candidate_source_label: track2h_dispersion_aware_modeling_registry
+    candidate_surface: Fw
+    allowed_direction_list: &id095
+    - forward
+    source_path: output\registries\families\track2h_dispersion_aware_log_cosh_robust_fw\latest_family_best.yaml
+    metrics: &id096
+      mse: 0.0041007460673736056
+      mae: 0.05496365584388723
+      rmse: 0.05508930933955208
+      mean_percentage_error_pct: 117.91538364331353
+      p95_mean_percentage_error_pct: 225.07542375565365
+  comparison_path: output\validation_checks\track2_multi_model_curve_comparison_report\2026-07-02-14-44-11__track2_multi_model_curve_comparison_report\comparisons\forward_track2h.png
+  comparison_markdown_path: assets/comparisons/forward_track2h.png
+  selected_curve_list:
+  - source_file_path: data\polished_dataset\forward\25degree\100rpm\100.0rpm1300.0Nm25.0deg.csv
+    direction_label: forward
+    speed_rpm: 99.99412113060635
+    torque_nm: -1299.95310306549
+    oil_temperature_deg: 24.35
+  - source_file_path: data\polished_dataset\forward\25degree\1100rpm\1100.0rpm500.0Nm25.0deg.csv
+    direction_label: forward
+    speed_rpm: 1099.9967716294527
+    torque_nm: -499.88341331481894
+    oil_temperature_deg: 28.06
+  - source_file_path: data\polished_dataset\forward\30degree\1500rpm\1500.0rpm500.0Nm30.0deg.csv
+    direction_label: forward
+    speed_rpm: 1499.9973960639115
+    torque_nm: -500.521183013916
+    oil_temperature_deg: 32.8
+  - source_file_path: data\polished_dataset\forward\35degree\100rpm\100.0rpm1800.0Nm35.0deg.csv
+    direction_label: forward
+    speed_rpm: 99.99325499971636
+    torque_nm: -1799.95369911194
+    oil_temperature_deg: 36.93
+- group_id: backward_track2h
+  group_title: Backward Wave 4.1 Robust-Loss Overlay
+  candidate_id_list:
+  - track2h_mae_robust_Bw
+  - track2h_smooth_l1_robust_Bw
+  - track2h_log_cosh_robust_Bw
+  direction_scope: backward
+  candidate_summary_list:
+  - candidate_id: track2h_mae_robust_Bw
+    candidate_family: track2h_mae_robust
+    candidate_kind: wave1_registry_model
+    candidate_source_label: track2h_dispersion_aware_modeling_registry
+    candidate_surface: Bw
+    allowed_direction_list: &id097
+    - backward
+    source_path: output\registries\families\track2h_dispersion_aware_mae_robust_bw\latest_family_best.yaml
+    metrics: &id098
+      mse: 0.00028535677865668265
+      mae: 0.014319636131205429
+      rmse: 0.01474682140079409
+      mean_percentage_error_pct: 30.084426884519445
+      p95_mean_percentage_error_pct: 52.808545137205314
+  - candidate_id: track2h_smooth_l1_robust_Bw
+    candidate_family: track2h_smooth_l1_robust
+    candidate_kind: wave1_registry_model
+    candidate_source_label: track2h_dispersion_aware_modeling_registry
+    candidate_surface: Bw
+    allowed_direction_list: &id099
+    - backward
+    source_path: output\registries\families\track2h_dispersion_aware_smooth_l1_robust_bw\latest_family_best.yaml
+    metrics: &id100
+      mse: 0.0002341108230402716
+      mae: 0.012012132288320772
+      rmse: 0.012560792479393129
+      mean_percentage_error_pct: 24.411200199491415
+      p95_mean_percentage_error_pct: 45.373608134391766
+  - candidate_id: track2h_log_cosh_robust_Bw
+    candidate_family: track2h_log_cosh_robust
+    candidate_kind: wave1_registry_model
+    candidate_source_label: track2h_dispersion_aware_modeling_registry
+    candidate_surface: Bw
+    allowed_direction_list: &id101
+    - backward
+    source_path: output\registries\families\track2h_dispersion_aware_log_cosh_robust_bw\latest_family_best.yaml
+    metrics: &id102
+      mse: 0.00015866243559428027
+      mae: 0.009812787260617196
+      rmse: 0.010421153311005033
+      mean_percentage_error_pct: 19.96599250275149
+      p95_mean_percentage_error_pct: 37.9831248528445
+  comparison_path: output\validation_checks\track2_multi_model_curve_comparison_report\2026-07-02-14-44-11__track2_multi_model_curve_comparison_report\comparisons\backward_track2h.png
+  comparison_markdown_path: assets/comparisons/backward_track2h.png
+  selected_curve_list:
+  - source_file_path: data\polished_dataset\backward\25degree\100rpm\100.0rpm300.0Nm25.0deg.csv
+    direction_label: backward
+    speed_rpm: -99.99744592939656
+    torque_nm: 299.967563148446
+    oil_temperature_deg: 24.58
+  - source_file_path: data\polished_dataset\backward\30degree\100rpm\100.0rpm800.0Nm30.0deg.csv
+    direction_label: backward
+    speed_rpm: -100.00130159767296
+    torque_nm: 799.98097419512
+    oil_temperature_deg: 29.91
+  - source_file_path: data\polished_dataset\backward\35degree\1600rpm\1600.0rpm300.0Nm35.0deg.csv
+    direction_label: backward
+    speed_rpm: -1600.0000946674568
+    torque_nm: 299.9159455199175
+    oil_temperature_deg: 35.07
+  - source_file_path: data\polished_dataset\backward\35degree\1700rpm\1700.0rpm400.0Nm35.0deg.csv
+    direction_label: backward
+    speed_rpm: -1699.99826665123
+    torque_nm: 399.90048407322
+    oil_temperature_deg: 37.62
+- group_id: forward_track2h_qp
+  group_title: Forward Wave 4.2 Quantile Probabilistic Overlay
+  candidate_id_list:
+  - track2h_quantile_p10_p50_p90_Fw
+  - track2h_gaussian_nll_Fw
+  direction_scope: forward
+  candidate_summary_list:
+  - candidate_id: track2h_quantile_p10_p50_p90_Fw
+    candidate_family: track2h_quantile_p10_p50_p90
+    candidate_kind: wave1_registry_model
+    candidate_source_label: track2h_quantile_probabilistic_registry
+    candidate_surface: Fw
+    allowed_direction_list:
+    - forward
+    source_path: output\registries\families\track2h_quantile_probabilistic_quantile_p10_p50_p90_fw\latest_family_best.yaml
+    metrics:
+      mse: 0.0034085191246571328
+      mae: 0.050281400956034374
+      rmse: 0.05042531354706597
+      mean_percentage_error_pct: 107.71971376003947
+      p95_mean_percentage_error_pct: 203.21421023684007
+  - candidate_id: track2h_gaussian_nll_Fw
+    candidate_family: track2h_gaussian_nll
+    candidate_kind: wave1_registry_model
+    candidate_source_label: track2h_quantile_probabilistic_registry
+    candidate_surface: Fw
+    allowed_direction_list:
+    - forward
+    source_path: output\registries\families\track2h_quantile_probabilistic_gaussian_nll_fw\latest_family_best.yaml
+    metrics:
+      mse: 0.004170514795431043
+      mae: 0.05498500871432681
+      rmse: 0.055109356080025755
+      mean_percentage_error_pct: 117.67501373463833
+      p95_mean_percentage_error_pct: 233.1018000030003
+  comparison_path: output\validation_checks\track2_multi_model_curve_comparison_report\2026-07-02-14-44-11__track2_multi_model_curve_comparison_report\comparisons\forward_track2h_qp.png
+  comparison_markdown_path: assets/comparisons/forward_track2h_qp.png
+  selected_curve_list:
+  - source_file_path: data\polished_dataset\forward\25degree\100rpm\100.0rpm1300.0Nm25.0deg.csv
+    direction_label: forward
+    speed_rpm: 99.99412113060635
+    torque_nm: -1299.95310306549
+    oil_temperature_deg: 24.35
+  - source_file_path: data\polished_dataset\forward\25degree\1100rpm\1100.0rpm500.0Nm25.0deg.csv
+    direction_label: forward
+    speed_rpm: 1099.9967716294527
+    torque_nm: -499.88341331481894
+    oil_temperature_deg: 28.06
+  - source_file_path: data\polished_dataset\forward\30degree\1500rpm\1500.0rpm500.0Nm30.0deg.csv
+    direction_label: forward
+    speed_rpm: 1499.9973960639115
+    torque_nm: -500.521183013916
+    oil_temperature_deg: 32.8
+  - source_file_path: data\polished_dataset\forward\35degree\100rpm\100.0rpm1800.0Nm35.0deg.csv
+    direction_label: forward
+    speed_rpm: 99.99325499971636
+    torque_nm: -1799.95369911194
+    oil_temperature_deg: 36.93
+- group_id: backward_track2h_qp
+  group_title: Backward Wave 4.2 Quantile Probabilistic Overlay
+  candidate_id_list:
+  - track2h_quantile_p10_p50_p90_Bw
+  - track2h_gaussian_nll_Bw
+  direction_scope: backward
+  candidate_summary_list:
+  - candidate_id: track2h_quantile_p10_p50_p90_Bw
+    candidate_family: track2h_quantile_p10_p50_p90
+    candidate_kind: wave1_registry_model
+    candidate_source_label: track2h_quantile_probabilistic_registry
+    candidate_surface: Bw
+    allowed_direction_list:
+    - backward
+    source_path: output\registries\families\track2h_quantile_probabilistic_quantile_p10_p50_p90_bw\latest_family_best.yaml
+    metrics:
+      mse: 0.0001974998221581833
+      mae: 0.011462042612905576
+      rmse: 0.011941818470079578
+      mean_percentage_error_pct: 23.503170346610727
+      p95_mean_percentage_error_pct: 44.25315950347922
+  - candidate_id: track2h_gaussian_nll_Bw
+    candidate_family: track2h_gaussian_nll
+    candidate_kind: wave1_registry_model
+    candidate_source_label: track2h_quantile_probabilistic_registry
+    candidate_surface: Bw
+    allowed_direction_list:
+    - backward
+    source_path: output\registries\families\track2h_quantile_probabilistic_gaussian_nll_bw\latest_family_best.yaml
+    metrics:
+      mse: 0.0001320303566518336
+      mae: 0.00973914352727578
+      rmse: 0.010200878227557145
+      mean_percentage_error_pct: 20.348982508445467
+      p95_mean_percentage_error_pct: 31.206926252878016
+  comparison_path: output\validation_checks\track2_multi_model_curve_comparison_report\2026-07-02-14-44-11__track2_multi_model_curve_comparison_report\comparisons\backward_track2h_qp.png
+  comparison_markdown_path: assets/comparisons/backward_track2h_qp.png
+  selected_curve_list:
+  - source_file_path: data\polished_dataset\backward\25degree\100rpm\100.0rpm300.0Nm25.0deg.csv
+    direction_label: backward
+    speed_rpm: -99.99744592939656
+    torque_nm: 299.967563148446
+    oil_temperature_deg: 24.58
+  - source_file_path: data\polished_dataset\backward\30degree\100rpm\100.0rpm800.0Nm30.0deg.csv
+    direction_label: backward
+    speed_rpm: -100.00130159767296
+    torque_nm: 799.98097419512
+    oil_temperature_deg: 29.91
+  - source_file_path: data\polished_dataset\backward\35degree\1600rpm\1600.0rpm300.0Nm35.0deg.csv
+    direction_label: backward
+    speed_rpm: -1600.0000946674568
+    torque_nm: 299.9159455199175
+    oil_temperature_deg: 35.07
+  - source_file_path: data\polished_dataset\backward\35degree\1700rpm\1700.0rpm400.0Nm35.0deg.csv
+    direction_label: backward
+    speed_rpm: -1699.99826665123
+    torque_nm: 399.90048407322
+    oil_temperature_deg: 37.62
+- group_id: auto_forward_track2h_mixture_density_heads_registry
+  group_title: Forward Track2h Mixture Density Heads Registry Overlay
+  candidate_id_list:
+  - track2h_mdn_k2_Fw
+  - track2h_mdn_k3_Fw
+  direction_scope: forward
+  candidate_summary_list:
+  - candidate_id: track2h_mdn_k2_Fw
+    candidate_family: track2h_mdn_k2
+    candidate_kind: wave1_registry_model
+    candidate_source_label: track2h_mixture_density_heads_registry
+    candidate_surface: Fw
+    allowed_direction_list:
+    - forward
+    source_path: output\registries\families\track2h_mixture_density_heads_mdn_k2_fw\latest_family_best.yaml
+    metrics:
+      mse: 0.0030211323642120908
+      mae: 0.047438488487582225
+      rmse: 0.04767734602699991
+      mean_percentage_error_pct: 102.22716768646517
+      p95_mean_percentage_error_pct: 196.5923977119175
+  - candidate_id: track2h_mdn_k3_Fw
+    candidate_family: track2h_mdn_k3
+    candidate_kind: wave1_registry_model
+    candidate_source_label: track2h_mixture_density_heads_registry
+    candidate_surface: Fw
+    allowed_direction_list:
+    - forward
+    source_path: output\registries\families\track2h_mixture_density_heads_mdn_k3_fw\latest_family_best.yaml
+    metrics:
+      mse: 0.004627397342064321
+      mae: 0.05784043281091097
+      rmse: 0.057965038814942055
+      mean_percentage_error_pct: 124.00938885188336
+      p95_mean_percentage_error_pct: 250.65736442003544
+  comparison_path: output\validation_checks\track2_multi_model_curve_comparison_report\2026-07-02-14-44-11__track2_multi_model_curve_comparison_report\comparisons\auto_forward_track2h_mixture_density_heads_registry.png
+  comparison_markdown_path: assets/comparisons/a_fw_trac_mixt_dens_head_reg_f6ec842d96.png
+  selected_curve_list:
+  - source_file_path: data\polished_dataset\forward\25degree\100rpm\100.0rpm1300.0Nm25.0deg.csv
+    direction_label: forward
+    speed_rpm: 99.99412113060635
+    torque_nm: -1299.95310306549
+    oil_temperature_deg: 24.35
+  - source_file_path: data\polished_dataset\forward\25degree\1100rpm\1100.0rpm500.0Nm25.0deg.csv
+    direction_label: forward
+    speed_rpm: 1099.9967716294527
+    torque_nm: -499.88341331481894
+    oil_temperature_deg: 28.06
+  - source_file_path: data\polished_dataset\forward\30degree\1500rpm\1500.0rpm500.0Nm30.0deg.csv
+    direction_label: forward
+    speed_rpm: 1499.9973960639115
+    torque_nm: -500.521183013916
+    oil_temperature_deg: 32.8
+  - source_file_path: data\polished_dataset\forward\35degree\100rpm\100.0rpm1800.0Nm35.0deg.csv
+    direction_label: forward
+    speed_rpm: 99.99325499971636
+    torque_nm: -1799.95369911194
+    oil_temperature_deg: 36.93
+- group_id: auto_backward_track2h_mixture_density_heads_registry
+  group_title: Backward Track2h Mixture Density Heads Registry Overlay
+  candidate_id_list:
+  - track2h_mdn_k2_Bw
+  - track2h_mdn_k3_Bw
+  direction_scope: backward
+  candidate_summary_list:
+  - candidate_id: track2h_mdn_k2_Bw
+    candidate_family: track2h_mdn_k2
+    candidate_kind: wave1_registry_model
+    candidate_source_label: track2h_mixture_density_heads_registry
+    candidate_surface: Bw
+    allowed_direction_list:
+    - backward
+    source_path: output\registries\families\track2h_mixture_density_heads_mdn_k2_bw\latest_family_best.yaml
+    metrics:
+      mse: 0.00019042113911048986
+      mae: 0.008281517529605964
+      rmse: 0.010641680399533816
+      mean_percentage_error_pct: 16.49018405927633
+      p95_mean_percentage_error_pct: 31.06391952360286
+  - candidate_id: track2h_mdn_k3_Bw
+    candidate_family: track2h_mdn_k3
+    candidate_kind: wave1_registry_model
+    candidate_source_label: track2h_mixture_density_heads_registry
+    candidate_surface: Bw
+    allowed_direction_list:
+    - backward
+    source_path: output\registries\families\track2h_mixture_density_heads_mdn_k3_bw\latest_family_best.yaml
+    metrics:
+      mse: 0.00018935193744143186
+      mae: 0.011511015703759536
+      rmse: 0.011909777332679878
+      mean_percentage_error_pct: 23.77700540082584
+      p95_mean_percentage_error_pct: 40.26854849933595
+  comparison_path: output\validation_checks\track2_multi_model_curve_comparison_report\2026-07-02-14-44-11__track2_multi_model_curve_comparison_report\comparisons\auto_backward_track2h_mixture_density_heads_registry.png
+  comparison_markdown_path: assets/comparisons/a_bw_trac_mixt_dens_head_reg_18b372da4f.png
+  selected_curve_list:
+  - source_file_path: data\polished_dataset\backward\25degree\100rpm\100.0rpm300.0Nm25.0deg.csv
+    direction_label: backward
+    speed_rpm: -99.99744592939656
+    torque_nm: 299.967563148446
+    oil_temperature_deg: 24.58
+  - source_file_path: data\polished_dataset\backward\30degree\100rpm\100.0rpm800.0Nm30.0deg.csv
+    direction_label: backward
+    speed_rpm: -100.00130159767296
+    torque_nm: 799.98097419512
+    oil_temperature_deg: 29.91
+  - source_file_path: data\polished_dataset\backward\35degree\1600rpm\1600.0rpm300.0Nm35.0deg.csv
+    direction_label: backward
+    speed_rpm: -1600.0000946674568
+    torque_nm: 299.9159455199175
+    oil_temperature_deg: 35.07
+  - source_file_path: data\polished_dataset\backward\35degree\1700rpm\1700.0rpm400.0Nm35.0deg.csv
+    direction_label: backward
+    speed_rpm: -1699.99826665123
+    torque_nm: 399.90048407322
+    oil_temperature_deg: 37.62
+- group_id: auto_forward_track2h_latent_state_hysteresis_registry
+  group_title: Forward Track2h Latent State Hysteresis Registry Overlay
+  candidate_id_list:
+  - track2h_l_gru_offset_residual_Fw
+  - track2h_l_causal_tcn_offset_residual_Fw
+  direction_scope: forward
+  candidate_summary_list:
+  - candidate_id: track2h_l_gru_offset_residual_Fw
+    candidate_family: track2h_l_gru_offset_residual
+    candidate_kind: wave1_registry_model
+    candidate_source_label: track2h_latent_state_hysteresis_registry
+    candidate_surface: Fw
+    allowed_direction_list:
+    - forward
+    source_path: output\registries\families\track2h_latent_state_hysteresis_gru_offset_residual_fw\latest_family_best.yaml
+    metrics:
+      mse: 0.0008889747526040215
+      mae: 0.024419290542472886
+      rmse: 0.025008614920919055
+      mean_percentage_error_pct: 52.31898626743228
+      p95_mean_percentage_error_pct: 115.44227110083476
+  - candidate_id: track2h_l_causal_tcn_offset_residual_Fw
+    candidate_family: track2h_l_causal_tcn_offset_residual
+    candidate_kind: wave1_registry_model
+    candidate_source_label: track2h_latent_state_hysteresis_registry
+    candidate_surface: Fw
+    allowed_direction_list:
+    - forward
+    source_path: output\registries\families\track2h_latent_state_hysteresis_causal_tcn_offset_residual_fw\latest_family_best.yaml
+    metrics:
+      mse: 0.0011656288956267058
+      mae: 0.02847607057784158
+      rmse: 0.02895966515668376
+      mean_percentage_error_pct: 61.106645641255184
+      p95_mean_percentage_error_pct: 131.01437954889522
+  comparison_path: output\validation_checks\track2_multi_model_curve_comparison_report\2026-07-02-14-44-11__track2_multi_model_curve_comparison_report\comparisons\auto_forward_track2h_latent_state_hysteresis_registry.png
+  comparison_markdown_path: assets/comparisons/a_fw_trac_late_stat_hyst_reg_b9a1d6d37a.png
+  selected_curve_list:
+  - source_file_path: data\polished_dataset\forward\25degree\100rpm\100.0rpm1300.0Nm25.0deg.csv
+    direction_label: forward
+    speed_rpm: 99.99412113060635
+    torque_nm: -1299.95310306549
+    oil_temperature_deg: 24.35
+  - source_file_path: data\polished_dataset\forward\25degree\1100rpm\1100.0rpm500.0Nm25.0deg.csv
+    direction_label: forward
+    speed_rpm: 1099.9967716294527
+    torque_nm: -499.88341331481894
+    oil_temperature_deg: 28.06
+  - source_file_path: data\polished_dataset\forward\30degree\1500rpm\1500.0rpm500.0Nm30.0deg.csv
+    direction_label: forward
+    speed_rpm: 1499.9973960639115
+    torque_nm: -500.521183013916
+    oil_temperature_deg: 32.8
+  - source_file_path: data\polished_dataset\forward\35degree\100rpm\100.0rpm1800.0Nm35.0deg.csv
+    direction_label: forward
+    speed_rpm: 99.99325499971636
+    torque_nm: -1799.95369911194
+    oil_temperature_deg: 36.93
+- group_id: auto_backward_track2h_latent_state_hysteresis_registry
+  group_title: Backward Track2h Latent State Hysteresis Registry Overlay
+  candidate_id_list:
+  - track2h_l_gru_offset_residual_Bw
+  - track2h_l_causal_tcn_offset_residual_Bw
+  direction_scope: backward
+  candidate_summary_list:
+  - candidate_id: track2h_l_gru_offset_residual_Bw
+    candidate_family: track2h_l_gru_offset_residual
+    candidate_kind: wave1_registry_model
+    candidate_source_label: track2h_latent_state_hysteresis_registry
+    candidate_surface: Bw
+    allowed_direction_list:
+    - backward
+    source_path: output\registries\families\track2h_latent_state_hysteresis_gru_offset_residual_bw\latest_family_best.yaml
+    metrics:
+      mse: 0.0003783067247396813
+      mae: 0.016483967326797255
+      rmse: 0.016958344882853027
+      mean_percentage_error_pct: 34.59107626453781
+      p95_mean_percentage_error_pct: 59.748454672425034
+  - candidate_id: track2h_l_causal_tcn_offset_residual_Bw
+    candidate_family: track2h_l_causal_tcn_offset_residual
+    candidate_kind: wave1_registry_model
+    candidate_source_label: track2h_latent_state_hysteresis_registry
+    candidate_surface: Bw
+    allowed_direction_list:
+    - backward
+    source_path: output\registries\families\track2h_latent_state_hysteresis_causal_tcn_offset_residual_bw\latest_family_best.yaml
+    metrics:
+      mse: 0.00011015855636543765
+      mae: 0.007772867621084161
+      rmse: 0.00889616092314739
+      mean_percentage_error_pct: 15.745657976648955
+      p95_mean_percentage_error_pct: 25.9649020980154
+  comparison_path: output\validation_checks\track2_multi_model_curve_comparison_report\2026-07-02-14-44-11__track2_multi_model_curve_comparison_report\comparisons\auto_backward_track2h_latent_state_hysteresis_registry.png
+  comparison_markdown_path: assets/comparisons/a_bw_trac_late_stat_hyst_reg_7a4d528fe8.png
+  selected_curve_list:
+  - source_file_path: data\polished_dataset\backward\25degree\100rpm\100.0rpm300.0Nm25.0deg.csv
+    direction_label: backward
+    speed_rpm: -99.99744592939656
+    torque_nm: 299.967563148446
+    oil_temperature_deg: 24.58
+  - source_file_path: data\polished_dataset\backward\30degree\100rpm\100.0rpm800.0Nm30.0deg.csv
+    direction_label: backward
+    speed_rpm: -100.00130159767296
+    torque_nm: 799.98097419512
+    oil_temperature_deg: 29.91
+  - source_file_path: data\polished_dataset\backward\35degree\1600rpm\1600.0rpm300.0Nm35.0deg.csv
+    direction_label: backward
+    speed_rpm: -1600.0000946674568
+    torque_nm: 299.9159455199175
+    oil_temperature_deg: 35.07
+  - source_file_path: data\polished_dataset\backward\35degree\1700rpm\1700.0rpm400.0Nm35.0deg.csv
+    direction_label: backward
+    speed_rpm: -1699.99826665123
+    torque_nm: 399.90048407322
+    oil_temperature_deg: 37.62
+- group_id: auto_forward_wave3_harmonic_prior_residual_registry
+  group_title: Forward Wave 3 Harmonic Prior Residual Registry Overlay
+  candidate_id_list:
+  - wave3_harmonic_prior_residual_pointwise_control_Fw
+  - wave3_harmonic_prior_residual_smooth_l1_structured_Fw
+  direction_scope: forward
+  candidate_summary_list:
+  - candidate_id: wave3_harmonic_prior_residual_pointwise_control_Fw
+    candidate_family: wave3_harmonic_prior_residual_pointwise_control
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave3_harmonic_prior_residual_registry
+    candidate_surface: Fw
+    allowed_direction_list:
+    - forward
+    source_path: output\registries\families\wave3_harmonic_prior_residual_pointwise_control_fw\latest_family_best.yaml
+    metrics:
+      mse: 0.0030302190190418803
+      mae: 0.046994365138820084
+      rmse: 0.04725712211805002
+      mean_percentage_error_pct: 100.35349255916164
+      p95_mean_percentage_error_pct: 193.97800747844204
+  - candidate_id: wave3_harmonic_prior_residual_smooth_l1_structured_Fw
+    candidate_family: wave3_harmonic_prior_residual_smooth_l1_structured
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave3_harmonic_prior_residual_registry
+    candidate_surface: Fw
+    allowed_direction_list:
+    - forward
+    source_path: output\registries\families\wave3_harmonic_prior_residual_smooth_l1_structured_fw\latest_family_best.yaml
+    metrics:
+      mse: 0.003137443391902548
+      mae: 0.04793757630404084
+      rmse: 0.048105441897909565
+      mean_percentage_error_pct: 102.36007703860716
+      p95_mean_percentage_error_pct: 200.751669723664
+  comparison_path: output\validation_checks\track2_multi_model_curve_comparison_report\2026-07-02-14-44-11__track2_multi_model_curve_comparison_report\comparisons\auto_forward_wave3_harmonic_prior_residual_registry.png
+  comparison_markdown_path: assets/comparisons/a_fw_w3_harm_pri_res_reg_ae5ebf52ea.png
+  selected_curve_list:
+  - source_file_path: data\polished_dataset\forward\25degree\100rpm\100.0rpm1300.0Nm25.0deg.csv
+    direction_label: forward
+    speed_rpm: 99.99412113060635
+    torque_nm: -1299.95310306549
+    oil_temperature_deg: 24.35
+  - source_file_path: data\polished_dataset\forward\25degree\1100rpm\1100.0rpm500.0Nm25.0deg.csv
+    direction_label: forward
+    speed_rpm: 1099.9967716294527
+    torque_nm: -499.88341331481894
+    oil_temperature_deg: 28.06
+  - source_file_path: data\polished_dataset\forward\30degree\1500rpm\1500.0rpm500.0Nm30.0deg.csv
+    direction_label: forward
+    speed_rpm: 1499.9973960639115
+    torque_nm: -500.521183013916
+    oil_temperature_deg: 32.8
+  - source_file_path: data\polished_dataset\forward\35degree\100rpm\100.0rpm1800.0Nm35.0deg.csv
+    direction_label: forward
+    speed_rpm: 99.99325499971636
+    torque_nm: -1799.95369911194
+    oil_temperature_deg: 36.93
+- group_id: auto_backward_wave3_harmonic_prior_residual_registry
+  group_title: Backward Wave 3 Harmonic Prior Residual Registry Overlay
+  candidate_id_list:
+  - wave3_harmonic_prior_residual_pointwise_control_Bw
+  - wave3_harmonic_prior_residual_smooth_l1_structured_Bw
+  direction_scope: backward
+  candidate_summary_list:
+  - candidate_id: wave3_harmonic_prior_residual_pointwise_control_Bw
+    candidate_family: wave3_harmonic_prior_residual_pointwise_control
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave3_harmonic_prior_residual_registry
+    candidate_surface: Bw
+    allowed_direction_list:
+    - backward
+    source_path: output\registries\families\wave3_harmonic_prior_residual_pointwise_control_bw\latest_family_best.yaml
+    metrics:
+      mse: 0.0001381390870618156
+      mae: 0.00948469623377311
+      rmse: 0.010128013639614753
+      mean_percentage_error_pct: 19.927920098776905
+      p95_mean_percentage_error_pct: 36.768360272204674
+  - candidate_id: wave3_harmonic_prior_residual_smooth_l1_structured_Bw
+    candidate_family: wave3_harmonic_prior_residual_smooth_l1_structured
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave3_harmonic_prior_residual_registry
+    candidate_surface: Bw
+    allowed_direction_list:
+    - backward
+    source_path: output\registries\families\wave3_harmonic_prior_residual_smooth_l1_structured_bw\latest_family_best.yaml
+    metrics:
+      mse: 0.00018742172436821868
+      mae: 0.01150764404293641
+      rmse: 0.012082288327635934
+      mean_percentage_error_pct: 24.387780272271556
+      p95_mean_percentage_error_pct: 43.82228931263404
+  comparison_path: output\validation_checks\track2_multi_model_curve_comparison_report\2026-07-02-14-44-11__track2_multi_model_curve_comparison_report\comparisons\auto_backward_wave3_harmonic_prior_residual_registry.png
+  comparison_markdown_path: assets/comparisons/a_bw_w3_harm_pri_res_reg_06ebe1c05e.png
+  selected_curve_list:
+  - source_file_path: data\polished_dataset\backward\25degree\100rpm\100.0rpm300.0Nm25.0deg.csv
+    direction_label: backward
+    speed_rpm: -99.99744592939656
+    torque_nm: 299.967563148446
+    oil_temperature_deg: 24.58
+  - source_file_path: data\polished_dataset\backward\30degree\100rpm\100.0rpm800.0Nm30.0deg.csv
+    direction_label: backward
+    speed_rpm: -100.00130159767296
+    torque_nm: 799.98097419512
+    oil_temperature_deg: 29.91
+  - source_file_path: data\polished_dataset\backward\35degree\1600rpm\1600.0rpm300.0Nm35.0deg.csv
+    direction_label: backward
+    speed_rpm: -1600.0000946674568
+    torque_nm: 299.9159455199175
+    oil_temperature_deg: 35.07
+  - source_file_path: data\polished_dataset\backward\35degree\1700rpm\1700.0rpm400.0Nm35.0deg.csv
+    direction_label: backward
+    speed_rpm: -1699.99826665123
+    torque_nm: 399.90048407322
+    oil_temperature_deg: 37.62
+- group_id: auto_forward_wave52b_offset_harmonic_guided_registry
+  group_title: Forward Wave52b Offset Harmonic Guided Registry Overlay
+  candidate_id_list:
+  - wave52b_offset_centered_shape_harmonic_Fw
+  direction_scope: forward
+  candidate_summary_list:
+  - candidate_id: wave52b_offset_centered_shape_harmonic_Fw
+    candidate_family: wave52b_offset_harmonic_guided
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave52b_offset_harmonic_guided_registry
+    candidate_surface: Fw
+    allowed_direction_list:
+    - forward
+    source_path: output\registries\families\wave52b_offset_harmonic_guided_offset_centered_shape_harmonic_fw\latest_family_best.yaml
+    metrics:
+      mse: 7.714926736323856e-06
+      mae: 0.0016951198108564312
+      rmse: 0.002045168657439849
+      mean_percentage_error_pct: 3.391019543531619
+      p95_mean_percentage_error_pct: 8.270177607933276
+  comparison_path: output\validation_checks\track2_multi_model_curve_comparison_report\2026-07-02-14-44-11__track2_multi_model_curve_comparison_report\comparisons\auto_forward_wave52b_offset_harmonic_guided_registry.png
+  comparison_markdown_path: assets/comparisons/a_fw_wave_offs_harm_guid_reg_bd35ddc75a.png
+  selected_curve_list:
+  - source_file_path: data\polished_dataset\forward\25degree\100rpm\100.0rpm1300.0Nm25.0deg.csv
+    direction_label: forward
+    speed_rpm: 99.99412113060635
+    torque_nm: -1299.95310306549
+    oil_temperature_deg: 24.35
+  - source_file_path: data\polished_dataset\forward\25degree\1100rpm\1100.0rpm500.0Nm25.0deg.csv
+    direction_label: forward
+    speed_rpm: 1099.9967716294527
+    torque_nm: -499.88341331481894
+    oil_temperature_deg: 28.06
+  - source_file_path: data\polished_dataset\forward\30degree\1500rpm\1500.0rpm500.0Nm30.0deg.csv
+    direction_label: forward
+    speed_rpm: 1499.9973960639115
+    torque_nm: -500.521183013916
+    oil_temperature_deg: 32.8
+  - source_file_path: data\polished_dataset\forward\35degree\100rpm\100.0rpm1800.0Nm35.0deg.csv
+    direction_label: forward
+    speed_rpm: 99.99325499971636
+    torque_nm: -1799.95369911194
+    oil_temperature_deg: 36.93
+- group_id: auto_backward_wave52b_offset_harmonic_guided_registry
+  group_title: Backward Wave52b Offset Harmonic Guided Registry Overlay
+  candidate_id_list:
+  - wave52b_offset_centered_shape_harmonic_Bw
+  direction_scope: backward
+  candidate_summary_list:
+  - candidate_id: wave52b_offset_centered_shape_harmonic_Bw
+    candidate_family: wave52b_offset_harmonic_guided
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave52b_offset_harmonic_guided_registry
+    candidate_surface: Bw
+    allowed_direction_list:
+    - backward
+    source_path: output\registries\families\wave52b_offset_harmonic_guided_offset_centered_shape_harmonic_bw\latest_family_best.yaml
+    metrics:
+      mse: 1.9539222716015844e-05
+      mae: 0.002265558605222397
+      rmse: 0.0027078703944117865
+      mean_percentage_error_pct: 3.985909075261137
+      p95_mean_percentage_error_pct: 9.75804731474495
+  comparison_path: output\validation_checks\track2_multi_model_curve_comparison_report\2026-07-02-14-44-11__track2_multi_model_curve_comparison_report\comparisons\auto_backward_wave52b_offset_harmonic_guided_registry.png
+  comparison_markdown_path: assets/comparisons/a_bw_wave_offs_harm_guid_reg_ad871b9734.png
+  selected_curve_list:
+  - source_file_path: data\polished_dataset\backward\25degree\100rpm\100.0rpm300.0Nm25.0deg.csv
+    direction_label: backward
+    speed_rpm: -99.99744592939656
+    torque_nm: 299.967563148446
+    oil_temperature_deg: 24.58
+  - source_file_path: data\polished_dataset\backward\30degree\100rpm\100.0rpm800.0Nm30.0deg.csv
+    direction_label: backward
+    speed_rpm: -100.00130159767296
+    torque_nm: 799.98097419512
+    oil_temperature_deg: 29.91
+  - source_file_path: data\polished_dataset\backward\35degree\1600rpm\1600.0rpm300.0Nm35.0deg.csv
+    direction_label: backward
+    speed_rpm: -1600.0000946674568
+    torque_nm: 299.9159455199175
+    oil_temperature_deg: 35.07
+  - source_file_path: data\polished_dataset\backward\35degree\1700rpm\1700.0rpm400.0Nm35.0deg.csv
+    direction_label: backward
+    speed_rpm: -1699.99826665123
+    torque_nm: 399.90048407322
+    oil_temperature_deg: 37.62
+- group_id: forward_track1_screened_wave1
+  group_title: Forward RCIM Model-Bank Reproduction And Screened Wave 1 Overlay
+  candidate_id_list:
+  - track1_best_Fw
+  - periodic_mlp_fw
+  - tree_fw
+  - feedforward_fw
+  direction_scope: forward
+  candidate_summary_list:
+  - candidate_id: track1_best_Fw
+    candidate_family: best_composite
+    candidate_kind: composite_reference_bank
+    candidate_source_label: rcim_track1
+    candidate_surface: Fw
+    allowed_direction_list: *id001
+    source_path: models\paper_reference\rcim_track1\forward
+    metrics: *id002
+  - candidate_id: periodic_mlp_fw
+    candidate_family: periodic_mlp
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave1_current_registry
+    candidate_surface: Fw
+    allowed_direction_list: *id003
+    source_path: output\registries\families\periodic_mlp_fw\latest_family_best.yaml
+    metrics: *id004
+  - candidate_id: tree_fw
+    candidate_family: tree
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave1_current_registry
+    candidate_surface: Fw
+    allowed_direction_list: *id005
+    source_path: output\registries\families\tree_fw\latest_family_best.yaml
+    metrics: *id006
+  - candidate_id: feedforward_fw
+    candidate_family: feedforward
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave1_current_registry
+    candidate_surface: Fw
+    allowed_direction_list: *id007
+    source_path: output\registries\families\feedforward_fw\latest_family_best.yaml
+    metrics: *id008
+  comparison_path: output\validation_checks\track2_multi_model_curve_comparison_report\2026-07-02-14-44-11__track2_multi_model_curve_comparison_report\comparisons\forward_track1_screened_wave1.png
+  comparison_markdown_path: assets/comparisons/forward_track1_screened_wave1.png
+  selected_curve_list:
+  - source_file_path: data\polished_dataset\forward\25degree\100rpm\100.0rpm1300.0Nm25.0deg.csv
+    direction_label: forward
+    speed_rpm: 99.99412113060635
+    torque_nm: -1299.95310306549
+    oil_temperature_deg: 24.35
+  - source_file_path: data\polished_dataset\forward\25degree\1100rpm\1100.0rpm500.0Nm25.0deg.csv
+    direction_label: forward
+    speed_rpm: 1099.9967716294527
+    torque_nm: -499.88341331481894
+    oil_temperature_deg: 28.06
+  - source_file_path: data\polished_dataset\forward\30degree\1500rpm\1500.0rpm500.0Nm30.0deg.csv
+    direction_label: forward
+    speed_rpm: 1499.9973960639115
+    torque_nm: -500.521183013916
+    oil_temperature_deg: 32.8
+  - source_file_path: data\polished_dataset\forward\35degree\100rpm\100.0rpm1800.0Nm35.0deg.csv
+    direction_label: forward
+    speed_rpm: 99.99325499971636
+    torque_nm: -1799.95369911194
+    oil_temperature_deg: 36.93
+- group_id: backward_track1_screened_wave1
+  group_title: Backward RCIM Model-Bank Reproduction And Screened Wave 1 Overlay
+  candidate_id_list:
+  - track1_best_Bw
+  - feedforward_bw
+  - periodic_mlp_bw
+  - residual_harmonic_mlp_bw
+  direction_scope: backward
+  candidate_summary_list:
+  - candidate_id: track1_best_Bw
+    candidate_family: best_composite
+    candidate_kind: composite_reference_bank
+    candidate_source_label: rcim_track1
+    candidate_surface: Bw
+    allowed_direction_list: *id009
+    source_path: models\paper_reference\rcim_track1\backward
+    metrics: *id010
+  - candidate_id: feedforward_bw
+    candidate_family: feedforward
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave1_current_registry
+    candidate_surface: Bw
+    allowed_direction_list: *id011
+    source_path: output\registries\families\feedforward_bw\latest_family_best.yaml
+    metrics: *id012
+  - candidate_id: periodic_mlp_bw
+    candidate_family: periodic_mlp
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave1_current_registry
+    candidate_surface: Bw
+    allowed_direction_list: *id013
+    source_path: output\registries\families\periodic_mlp_bw\latest_family_best.yaml
+    metrics: *id014
+  - candidate_id: residual_harmonic_mlp_bw
+    candidate_family: residual_harmonic_mlp
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave1_current_registry
+    candidate_surface: Bw
+    allowed_direction_list: *id015
+    source_path: output\registries\families\residual_harmonic_mlp_bw\latest_family_best.yaml
+    metrics: *id016
+  comparison_path: output\validation_checks\track2_multi_model_curve_comparison_report\2026-07-02-14-44-11__track2_multi_model_curve_comparison_report\comparisons\backward_track1_screened_wave1.png
+  comparison_markdown_path: assets/comparisons/backward_track1_screened_wave1.png
+  selected_curve_list:
+  - source_file_path: data\polished_dataset\backward\25degree\100rpm\100.0rpm300.0Nm25.0deg.csv
+    direction_label: backward
+    speed_rpm: -99.99744592939656
+    torque_nm: 299.967563148446
+    oil_temperature_deg: 24.58
+  - source_file_path: data\polished_dataset\backward\30degree\100rpm\100.0rpm800.0Nm30.0deg.csv
+    direction_label: backward
+    speed_rpm: -100.00130159767296
+    torque_nm: 799.98097419512
+    oil_temperature_deg: 29.91
+  - source_file_path: data\polished_dataset\backward\35degree\1600rpm\1600.0rpm300.0Nm35.0deg.csv
+    direction_label: backward
+    speed_rpm: -1600.0000946674568
+    torque_nm: 299.9159455199175
+    oil_temperature_deg: 35.07
+  - source_file_path: data\polished_dataset\backward\35degree\1700rpm\1700.0rpm400.0Nm35.0deg.csv
+    direction_label: backward
+    speed_rpm: -1699.99826665123
+    torque_nm: 399.90048407322
+    oil_temperature_deg: 37.62
+- group_id: forward_reference_tree_wave2
+  group_title: Forward Reference Tree And Wave 2.1 Overlay
+  candidate_id_list:
+  - paper_retuned_best_Fw
+  - track1_best_Fw
+  - tree_fw
+  - temporal_convolution_fw
+  - gru_sequence_fw
+  - lstm_sequence_fw
+  - periodic_temporal_convolution_fw
+  - periodic_gru_sequence_fw
+  - periodic_lstm_sequence_fw
+  direction_scope: forward
+  candidate_summary_list:
+  - candidate_id: paper_retuned_best_Fw
+    candidate_family: best_composite
+    candidate_kind: composite_reference_bank
+    candidate_source_label: rcim_retuned
+    candidate_surface: Fw
+    allowed_direction_list: *id017
+    source_path: models\paper_reference\rcim_retuned\forward
+    metrics: *id018
+  - candidate_id: track1_best_Fw
+    candidate_family: best_composite
+    candidate_kind: composite_reference_bank
+    candidate_source_label: rcim_track1
+    candidate_surface: Fw
+    allowed_direction_list: *id001
+    source_path: models\paper_reference\rcim_track1\forward
+    metrics: *id002
+  - candidate_id: tree_fw
+    candidate_family: tree
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave1_current_registry
+    candidate_surface: Fw
+    allowed_direction_list: *id005
+    source_path: output\registries\families\tree_fw\latest_family_best.yaml
+    metrics: *id006
+  - candidate_id: temporal_convolution_fw
+    candidate_family: temporal_convolution
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave2_temporal_entry_registry
+    candidate_surface: Fw
+    allowed_direction_list: *id019
+    source_path: output\registries\families\temporal_convolution_fw\latest_family_best.yaml
+    metrics: *id020
+  - candidate_id: gru_sequence_fw
+    candidate_family: gru_sequence
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave2_temporal_entry_registry
+    candidate_surface: Fw
+    allowed_direction_list: *id021
+    source_path: output\registries\families\gru_sequence_fw\latest_family_best.yaml
+    metrics: *id022
+  - candidate_id: lstm_sequence_fw
+    candidate_family: lstm_sequence
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave2_temporal_entry_registry
+    candidate_surface: Fw
+    allowed_direction_list: *id023
+    source_path: output\registries\families\lstm_sequence_fw\latest_family_best.yaml
+    metrics: *id024
+  - candidate_id: periodic_temporal_convolution_fw
+    candidate_family: periodic_temporal_convolution
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave2_temporal_entry_registry
+    candidate_surface: Fw
+    allowed_direction_list: *id025
+    source_path: output\registries\families\periodic_temporal_convolution_fw\latest_family_best.yaml
+    metrics: *id026
+  - candidate_id: periodic_gru_sequence_fw
+    candidate_family: periodic_gru_sequence
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave2_temporal_entry_registry
+    candidate_surface: Fw
+    allowed_direction_list: *id027
+    source_path: output\registries\families\periodic_gru_sequence_fw\latest_family_best.yaml
+    metrics: *id028
+  - candidate_id: periodic_lstm_sequence_fw
+    candidate_family: periodic_lstm_sequence
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave2_temporal_entry_registry
+    candidate_surface: Fw
+    allowed_direction_list: *id029
+    source_path: output\registries\families\periodic_lstm_sequence_fw\latest_family_best.yaml
+    metrics: *id030
+  comparison_path: output\validation_checks\track2_multi_model_curve_comparison_report\2026-07-02-14-44-11__track2_multi_model_curve_comparison_report\comparisons\forward_reference_tree_wave2.png
+  comparison_markdown_path: assets/comparisons/forward_reference_tree_wave2.png
+  selected_curve_list:
+  - source_file_path: data\polished_dataset\forward\25degree\100rpm\100.0rpm1300.0Nm25.0deg.csv
+    direction_label: forward
+    speed_rpm: 99.99412113060635
+    torque_nm: -1299.95310306549
+    oil_temperature_deg: 24.35
+  - source_file_path: data\polished_dataset\forward\25degree\1100rpm\1100.0rpm500.0Nm25.0deg.csv
+    direction_label: forward
+    speed_rpm: 1099.9967716294527
+    torque_nm: -499.88341331481894
+    oil_temperature_deg: 28.06
+  - source_file_path: data\polished_dataset\forward\30degree\1500rpm\1500.0rpm500.0Nm30.0deg.csv
+    direction_label: forward
+    speed_rpm: 1499.9973960639115
+    torque_nm: -500.521183013916
+    oil_temperature_deg: 32.8
+  - source_file_path: data\polished_dataset\forward\35degree\100rpm\100.0rpm1800.0Nm35.0deg.csv
+    direction_label: forward
+    speed_rpm: 99.99325499971636
+    torque_nm: -1799.95369911194
+    oil_temperature_deg: 36.93
+- group_id: backward_reference_tree_wave2
+  group_title: Backward Reference Tree And Wave 2.1 Overlay
+  candidate_id_list:
+  - paper_retuned_best_Bw
+  - track1_best_Bw
+  - tree_bw
+  - temporal_convolution_bw
+  - gru_sequence_bw
+  - lstm_sequence_bw
+  - periodic_temporal_convolution_bw
+  - periodic_gru_sequence_bw
+  - periodic_lstm_sequence_bw
+  direction_scope: backward
+  candidate_summary_list:
+  - candidate_id: paper_retuned_best_Bw
+    candidate_family: best_composite
+    candidate_kind: composite_reference_bank
+    candidate_source_label: rcim_retuned
+    candidate_surface: Bw
+    allowed_direction_list: *id031
+    source_path: models\paper_reference\rcim_retuned\backward
+    metrics: *id032
+  - candidate_id: track1_best_Bw
+    candidate_family: best_composite
+    candidate_kind: composite_reference_bank
+    candidate_source_label: rcim_track1
+    candidate_surface: Bw
+    allowed_direction_list: *id009
+    source_path: models\paper_reference\rcim_track1\backward
+    metrics: *id010
+  - candidate_id: tree_bw
+    candidate_family: tree
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave1_current_registry
+    candidate_surface: Bw
+    allowed_direction_list: *id033
+    source_path: output\registries\families\tree_bw\latest_family_best.yaml
+    metrics: *id034
+  - candidate_id: temporal_convolution_bw
+    candidate_family: temporal_convolution
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave2_temporal_entry_registry
+    candidate_surface: Bw
+    allowed_direction_list: *id035
+    source_path: output\registries\families\temporal_convolution_bw\latest_family_best.yaml
+    metrics: *id036
+  - candidate_id: gru_sequence_bw
+    candidate_family: gru_sequence
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave2_temporal_entry_registry
+    candidate_surface: Bw
+    allowed_direction_list: *id037
+    source_path: output\registries\families\gru_sequence_bw\latest_family_best.yaml
+    metrics: *id038
+  - candidate_id: lstm_sequence_bw
+    candidate_family: lstm_sequence
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave2_temporal_entry_registry
+    candidate_surface: Bw
+    allowed_direction_list: *id039
+    source_path: output\registries\families\lstm_sequence_bw\latest_family_best.yaml
+    metrics: *id040
+  - candidate_id: periodic_temporal_convolution_bw
+    candidate_family: periodic_temporal_convolution
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave2_temporal_entry_registry
+    candidate_surface: Bw
+    allowed_direction_list: *id041
+    source_path: output\registries\families\periodic_temporal_convolution_bw\latest_family_best.yaml
+    metrics: *id042
+  - candidate_id: periodic_gru_sequence_bw
+    candidate_family: periodic_gru_sequence
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave2_temporal_entry_registry
+    candidate_surface: Bw
+    allowed_direction_list: *id043
+    source_path: output\registries\families\periodic_gru_sequence_bw\latest_family_best.yaml
+    metrics: *id044
+  - candidate_id: periodic_lstm_sequence_bw
+    candidate_family: periodic_lstm_sequence
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave2_temporal_entry_registry
+    candidate_surface: Bw
+    allowed_direction_list: *id045
+    source_path: output\registries\families\periodic_lstm_sequence_bw\latest_family_best.yaml
+    metrics: *id046
+  comparison_path: output\validation_checks\track2_multi_model_curve_comparison_report\2026-07-02-14-44-11__track2_multi_model_curve_comparison_report\comparisons\backward_reference_tree_wave2.png
+  comparison_markdown_path: assets/comparisons/backward_reference_tree_wave2.png
+  selected_curve_list:
+  - source_file_path: data\polished_dataset\backward\25degree\100rpm\100.0rpm300.0Nm25.0deg.csv
+    direction_label: backward
+    speed_rpm: -99.99744592939656
+    torque_nm: 299.967563148446
+    oil_temperature_deg: 24.58
+  - source_file_path: data\polished_dataset\backward\30degree\100rpm\100.0rpm800.0Nm30.0deg.csv
+    direction_label: backward
+    speed_rpm: -100.00130159767296
+    torque_nm: 799.98097419512
+    oil_temperature_deg: 29.91
+  - source_file_path: data\polished_dataset\backward\35degree\1600rpm\1600.0rpm300.0Nm35.0deg.csv
+    direction_label: backward
+    speed_rpm: -1600.0000946674568
+    torque_nm: 299.9159455199175
+    oil_temperature_deg: 35.07
+  - source_file_path: data\polished_dataset\backward\35degree\1700rpm\1700.0rpm400.0Nm35.0deg.csv
+    direction_label: backward
+    speed_rpm: -1699.99826665123
+    torque_nm: 399.90048407322
+    oil_temperature_deg: 37.62
+- group_id: forward_reference_tree_wave2c
+  group_title: Forward Reference Tree And Wave 2.3 Overlay
+  candidate_id_list:
+  - paper_retuned_best_Fw
+  - track1_best_Fw
+  - tree_fw
+  - residual_harmonic_gru_sequence_sparse_rcim_Fw
+  - residual_harmonic_gru_sequence_dense240_Fw
+  - residual_harmonic_gru_sequence_dense360_Fw
+  - residual_harmonic_lstm_sequence_sparse_rcim_Fw
+  - residual_harmonic_lstm_sequence_dense240_Fw
+  - residual_harmonic_lstm_sequence_dense360_Fw
+  direction_scope: forward
+  candidate_summary_list:
+  - candidate_id: paper_retuned_best_Fw
+    candidate_family: best_composite
+    candidate_kind: composite_reference_bank
+    candidate_source_label: rcim_retuned
+    candidate_surface: Fw
+    allowed_direction_list: *id017
+    source_path: models\paper_reference\rcim_retuned\forward
+    metrics: *id018
+  - candidate_id: track1_best_Fw
+    candidate_family: best_composite
+    candidate_kind: composite_reference_bank
+    candidate_source_label: rcim_track1
+    candidate_surface: Fw
+    allowed_direction_list: *id001
+    source_path: models\paper_reference\rcim_track1\forward
+    metrics: *id002
+  - candidate_id: tree_fw
+    candidate_family: tree
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave1_current_registry
+    candidate_surface: Fw
+    allowed_direction_list: *id005
+    source_path: output\registries\families\tree_fw\latest_family_best.yaml
+    metrics: *id006
+  - candidate_id: residual_harmonic_gru_sequence_sparse_rcim_Fw
+    candidate_family: residual_harmonic_gru_sequence_sparse_rcim
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave2c_residual_harmonic_temporal_registry
+    candidate_surface: Fw
+    allowed_direction_list: *id047
+    source_path: output\registries\families\residual_harmonic_gru_sequence_fw_sparse_rcim\latest_family_best.yaml
+    metrics: *id048
+  - candidate_id: residual_harmonic_gru_sequence_dense240_Fw
+    candidate_family: residual_harmonic_gru_sequence_dense240
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave2c_residual_harmonic_temporal_registry
+    candidate_surface: Fw
+    allowed_direction_list: *id049
+    source_path: output\registries\families\residual_harmonic_gru_sequence_fw_dense240\latest_family_best.yaml
+    metrics: *id050
+  - candidate_id: residual_harmonic_gru_sequence_dense360_Fw
+    candidate_family: residual_harmonic_gru_sequence_dense360
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave2c_residual_harmonic_temporal_registry
+    candidate_surface: Fw
+    allowed_direction_list: *id051
+    source_path: output\registries\families\residual_harmonic_gru_sequence_fw_dense360\latest_family_best.yaml
+    metrics: *id052
+  - candidate_id: residual_harmonic_lstm_sequence_sparse_rcim_Fw
+    candidate_family: residual_harmonic_lstm_sequence_sparse_rcim
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave2c_residual_harmonic_temporal_registry
+    candidate_surface: Fw
+    allowed_direction_list: *id053
+    source_path: output\registries\families\residual_harmonic_lstm_sequence_fw_sparse_rcim\latest_family_best.yaml
+    metrics: *id054
+  - candidate_id: residual_harmonic_lstm_sequence_dense240_Fw
+    candidate_family: residual_harmonic_lstm_sequence_dense240
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave2c_residual_harmonic_temporal_registry
+    candidate_surface: Fw
+    allowed_direction_list: *id055
+    source_path: output\registries\families\residual_harmonic_lstm_sequence_fw_dense240\latest_family_best.yaml
+    metrics: *id056
+  - candidate_id: residual_harmonic_lstm_sequence_dense360_Fw
+    candidate_family: residual_harmonic_lstm_sequence_dense360
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave2c_residual_harmonic_temporal_registry
+    candidate_surface: Fw
+    allowed_direction_list: *id057
+    source_path: output\registries\families\residual_harmonic_lstm_sequence_fw_dense360\latest_family_best.yaml
+    metrics: *id058
+  comparison_path: output\validation_checks\track2_multi_model_curve_comparison_report\2026-07-02-14-44-11__track2_multi_model_curve_comparison_report\comparisons\forward_reference_tree_wave2c.png
+  comparison_markdown_path: assets/comparisons/forward_reference_tree_wave2c.png
+  selected_curve_list:
+  - source_file_path: data\polished_dataset\forward\25degree\100rpm\100.0rpm1300.0Nm25.0deg.csv
+    direction_label: forward
+    speed_rpm: 99.99412113060635
+    torque_nm: -1299.95310306549
+    oil_temperature_deg: 24.35
+  - source_file_path: data\polished_dataset\forward\25degree\1100rpm\1100.0rpm500.0Nm25.0deg.csv
+    direction_label: forward
+    speed_rpm: 1099.9967716294527
+    torque_nm: -499.88341331481894
+    oil_temperature_deg: 28.06
+  - source_file_path: data\polished_dataset\forward\30degree\1500rpm\1500.0rpm500.0Nm30.0deg.csv
+    direction_label: forward
+    speed_rpm: 1499.9973960639115
+    torque_nm: -500.521183013916
+    oil_temperature_deg: 32.8
+  - source_file_path: data\polished_dataset\forward\35degree\100rpm\100.0rpm1800.0Nm35.0deg.csv
+    direction_label: forward
+    speed_rpm: 99.99325499971636
+    torque_nm: -1799.95369911194
+    oil_temperature_deg: 36.93
+- group_id: backward_reference_tree_wave2c
+  group_title: Backward Reference Tree And Wave 2.3 Overlay
+  candidate_id_list:
+  - paper_retuned_best_Bw
+  - track1_best_Bw
+  - tree_bw
+  - residual_harmonic_gru_sequence_sparse_rcim_Bw
+  - residual_harmonic_gru_sequence_dense240_Bw
+  - residual_harmonic_gru_sequence_dense360_Bw
+  - residual_harmonic_lstm_sequence_sparse_rcim_Bw
+  - residual_harmonic_lstm_sequence_dense240_Bw
+  - residual_harmonic_lstm_sequence_dense360_Bw
+  direction_scope: backward
+  candidate_summary_list:
+  - candidate_id: paper_retuned_best_Bw
+    candidate_family: best_composite
+    candidate_kind: composite_reference_bank
+    candidate_source_label: rcim_retuned
+    candidate_surface: Bw
+    allowed_direction_list: *id031
+    source_path: models\paper_reference\rcim_retuned\backward
+    metrics: *id032
+  - candidate_id: track1_best_Bw
+    candidate_family: best_composite
+    candidate_kind: composite_reference_bank
+    candidate_source_label: rcim_track1
+    candidate_surface: Bw
+    allowed_direction_list: *id009
+    source_path: models\paper_reference\rcim_track1\backward
+    metrics: *id010
+  - candidate_id: tree_bw
+    candidate_family: tree
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave1_current_registry
+    candidate_surface: Bw
+    allowed_direction_list: *id033
+    source_path: output\registries\families\tree_bw\latest_family_best.yaml
+    metrics: *id034
+  - candidate_id: residual_harmonic_gru_sequence_sparse_rcim_Bw
+    candidate_family: residual_harmonic_gru_sequence_sparse_rcim
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave2c_residual_harmonic_temporal_registry
+    candidate_surface: Bw
+    allowed_direction_list: *id059
+    source_path: output\registries\families\residual_harmonic_gru_sequence_bw_sparse_rcim\latest_family_best.yaml
+    metrics: *id060
+  - candidate_id: residual_harmonic_gru_sequence_dense240_Bw
+    candidate_family: residual_harmonic_gru_sequence_dense240
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave2c_residual_harmonic_temporal_registry
+    candidate_surface: Bw
+    allowed_direction_list: *id061
+    source_path: output\registries\families\residual_harmonic_gru_sequence_bw_dense240\latest_family_best.yaml
+    metrics: *id062
+  - candidate_id: residual_harmonic_gru_sequence_dense360_Bw
+    candidate_family: residual_harmonic_gru_sequence_dense360
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave2c_residual_harmonic_temporal_registry
+    candidate_surface: Bw
+    allowed_direction_list: *id063
+    source_path: output\registries\families\residual_harmonic_gru_sequence_bw_dense360\latest_family_best.yaml
+    metrics: *id064
+  - candidate_id: residual_harmonic_lstm_sequence_sparse_rcim_Bw
+    candidate_family: residual_harmonic_lstm_sequence_sparse_rcim
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave2c_residual_harmonic_temporal_registry
+    candidate_surface: Bw
+    allowed_direction_list: *id065
+    source_path: output\registries\families\residual_harmonic_lstm_sequence_bw_sparse_rcim\latest_family_best.yaml
+    metrics: *id066
+  - candidate_id: residual_harmonic_lstm_sequence_dense240_Bw
+    candidate_family: residual_harmonic_lstm_sequence_dense240
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave2c_residual_harmonic_temporal_registry
+    candidate_surface: Bw
+    allowed_direction_list: *id067
+    source_path: output\registries\families\residual_harmonic_lstm_sequence_bw_dense240\latest_family_best.yaml
+    metrics: *id068
+  - candidate_id: residual_harmonic_lstm_sequence_dense360_Bw
+    candidate_family: residual_harmonic_lstm_sequence_dense360
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave2c_residual_harmonic_temporal_registry
+    candidate_surface: Bw
+    allowed_direction_list: *id069
+    source_path: output\registries\families\residual_harmonic_lstm_sequence_bw_dense360\latest_family_best.yaml
+    metrics: *id070
+  comparison_path: output\validation_checks\track2_multi_model_curve_comparison_report\2026-07-02-14-44-11__track2_multi_model_curve_comparison_report\comparisons\backward_reference_tree_wave2c.png
+  comparison_markdown_path: assets/comparisons/backward_reference_tree_wave2c.png
+  selected_curve_list:
+  - source_file_path: data\polished_dataset\backward\25degree\100rpm\100.0rpm300.0Nm25.0deg.csv
+    direction_label: backward
+    speed_rpm: -99.99744592939656
+    torque_nm: 299.967563148446
+    oil_temperature_deg: 24.58
+  - source_file_path: data\polished_dataset\backward\30degree\100rpm\100.0rpm800.0Nm30.0deg.csv
+    direction_label: backward
+    speed_rpm: -100.00130159767296
+    torque_nm: 799.98097419512
+    oil_temperature_deg: 29.91
+  - source_file_path: data\polished_dataset\backward\35degree\1600rpm\1600.0rpm300.0Nm35.0deg.csv
+    direction_label: backward
+    speed_rpm: -1600.0000946674568
+    torque_nm: 299.9159455199175
+    oil_temperature_deg: 35.07
+  - source_file_path: data\polished_dataset\backward\35degree\1700rpm\1700.0rpm400.0Nm35.0deg.csv
+    direction_label: backward
+    speed_rpm: -1699.99826665123
+    torque_nm: 399.90048407322
+    oil_temperature_deg: 37.62
+- group_id: forward_reference_tree_track2f
+  group_title: Forward Reference Tree And Wave 3.1 Overlay
+  candidate_id_list:
+  - paper_retuned_best_Fw
+  - track1_best_Fw
+  - tree_fw
+  - sequential_residual_offset_probe_Fw
+  direction_scope: forward
+  candidate_summary_list:
+  - candidate_id: paper_retuned_best_Fw
+    candidate_family: best_composite
+    candidate_kind: composite_reference_bank
+    candidate_source_label: rcim_retuned
+    candidate_surface: Fw
+    allowed_direction_list: *id017
+    source_path: models\paper_reference\rcim_retuned\forward
+    metrics: *id018
+  - candidate_id: track1_best_Fw
+    candidate_family: best_composite
+    candidate_kind: composite_reference_bank
+    candidate_source_label: rcim_track1
+    candidate_surface: Fw
+    allowed_direction_list: *id001
+    source_path: models\paper_reference\rcim_track1\forward
+    metrics: *id002
+  - candidate_id: tree_fw
+    candidate_family: tree
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave1_current_registry
+    candidate_surface: Fw
+    allowed_direction_list: *id005
+    source_path: output\registries\families\tree_fw\latest_family_best.yaml
+    metrics: *id006
+  - candidate_id: sequential_residual_offset_probe_Fw
+    candidate_family: sequential_residual_offset_probe
+    candidate_kind: wave1_registry_model
+    candidate_source_label: track2f_offset_aware_probe_registry
+    candidate_surface: Fw
+    allowed_direction_list: *id071
+    source_path: output\registries\families\sequential_residual_offset_probe_fw\latest_family_best.yaml
+    metrics: *id072
+  comparison_path: output\validation_checks\track2_multi_model_curve_comparison_report\2026-07-02-14-44-11__track2_multi_model_curve_comparison_report\comparisons\forward_reference_tree_track2f.png
+  comparison_markdown_path: assets/comparisons/forward_reference_tree_track2f.png
+  selected_curve_list:
+  - source_file_path: data\polished_dataset\forward\25degree\100rpm\100.0rpm1300.0Nm25.0deg.csv
+    direction_label: forward
+    speed_rpm: 99.99412113060635
+    torque_nm: -1299.95310306549
+    oil_temperature_deg: 24.35
+  - source_file_path: data\polished_dataset\forward\25degree\1100rpm\1100.0rpm500.0Nm25.0deg.csv
+    direction_label: forward
+    speed_rpm: 1099.9967716294527
+    torque_nm: -499.88341331481894
+    oil_temperature_deg: 28.06
+  - source_file_path: data\polished_dataset\forward\30degree\1500rpm\1500.0rpm500.0Nm30.0deg.csv
+    direction_label: forward
+    speed_rpm: 1499.9973960639115
+    torque_nm: -500.521183013916
+    oil_temperature_deg: 32.8
+  - source_file_path: data\polished_dataset\forward\35degree\100rpm\100.0rpm1800.0Nm35.0deg.csv
+    direction_label: forward
+    speed_rpm: 99.99325499971636
+    torque_nm: -1799.95369911194
+    oil_temperature_deg: 36.93
+- group_id: backward_reference_tree_track2f
+  group_title: Backward Reference Tree And Wave 3.1 Overlay
+  candidate_id_list:
+  - paper_retuned_best_Bw
+  - track1_best_Bw
+  - tree_bw
+  - sequential_residual_offset_probe_Bw
+  direction_scope: backward
+  candidate_summary_list:
+  - candidate_id: paper_retuned_best_Bw
+    candidate_family: best_composite
+    candidate_kind: composite_reference_bank
+    candidate_source_label: rcim_retuned
+    candidate_surface: Bw
+    allowed_direction_list: *id031
+    source_path: models\paper_reference\rcim_retuned\backward
+    metrics: *id032
+  - candidate_id: track1_best_Bw
+    candidate_family: best_composite
+    candidate_kind: composite_reference_bank
+    candidate_source_label: rcim_track1
+    candidate_surface: Bw
+    allowed_direction_list: *id009
+    source_path: models\paper_reference\rcim_track1\backward
+    metrics: *id010
+  - candidate_id: tree_bw
+    candidate_family: tree
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave1_current_registry
+    candidate_surface: Bw
+    allowed_direction_list: *id033
+    source_path: output\registries\families\tree_bw\latest_family_best.yaml
+    metrics: *id034
+  - candidate_id: sequential_residual_offset_probe_Bw
+    candidate_family: sequential_residual_offset_probe
+    candidate_kind: wave1_registry_model
+    candidate_source_label: track2f_offset_aware_probe_registry
+    candidate_surface: Bw
+    allowed_direction_list: *id073
+    source_path: output\registries\families\sequential_residual_offset_probe_bw\latest_family_best.yaml
+    metrics: *id074
+  comparison_path: output\validation_checks\track2_multi_model_curve_comparison_report\2026-07-02-14-44-11__track2_multi_model_curve_comparison_report\comparisons\backward_reference_tree_track2f.png
+  comparison_markdown_path: assets/comparisons/backward_reference_tree_track2f.png
+  selected_curve_list:
+  - source_file_path: data\polished_dataset\backward\25degree\100rpm\100.0rpm300.0Nm25.0deg.csv
+    direction_label: backward
+    speed_rpm: -99.99744592939656
+    torque_nm: 299.967563148446
+    oil_temperature_deg: 24.58
+  - source_file_path: data\polished_dataset\backward\30degree\100rpm\100.0rpm800.0Nm30.0deg.csv
+    direction_label: backward
+    speed_rpm: -100.00130159767296
+    torque_nm: 799.98097419512
+    oil_temperature_deg: 29.91
+  - source_file_path: data\polished_dataset\backward\35degree\1600rpm\1600.0rpm300.0Nm35.0deg.csv
+    direction_label: backward
+    speed_rpm: -1600.0000946674568
+    torque_nm: 299.9159455199175
+    oil_temperature_deg: 35.07
+  - source_file_path: data\polished_dataset\backward\35degree\1700rpm\1700.0rpm400.0Nm35.0deg.csv
+    direction_label: backward
+    speed_rpm: -1699.99826665123
+    torque_nm: 399.90048407322
+    oil_temperature_deg: 37.62
+- group_id: forward_reference_tree_track2g
+  group_title: Forward Reference Tree And Wave 3.3 Overlay
+  candidate_id_list:
+  - paper_retuned_best_Fw
+  - track1_best_Fw
+  - tree_fw
+  - track2g_curve_aware_pointwise_control_Fw
+  - track2g_curve_aware_raw_centered_shape_Fw
+  - track2g_curve_aware_raw_offset_Fw
+  - track2g_curve_aware_full_curve_composite_Fw
+  direction_scope: forward
+  candidate_summary_list:
+  - candidate_id: paper_retuned_best_Fw
+    candidate_family: best_composite
+    candidate_kind: composite_reference_bank
+    candidate_source_label: rcim_retuned
+    candidate_surface: Fw
+    allowed_direction_list: *id017
+    source_path: models\paper_reference\rcim_retuned\forward
+    metrics: *id018
+  - candidate_id: track1_best_Fw
+    candidate_family: best_composite
+    candidate_kind: composite_reference_bank
+    candidate_source_label: rcim_track1
+    candidate_surface: Fw
+    allowed_direction_list: *id001
+    source_path: models\paper_reference\rcim_track1\forward
+    metrics: *id002
+  - candidate_id: tree_fw
+    candidate_family: tree
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave1_current_registry
+    candidate_surface: Fw
+    allowed_direction_list: *id005
+    source_path: output\registries\families\tree_fw\latest_family_best.yaml
+    metrics: *id006
+  - candidate_id: track2g_curve_aware_pointwise_control_Fw
+    candidate_family: track2g_curve_aware_pointwise_control
+    candidate_kind: wave1_registry_model
+    candidate_source_label: track2g_curve_aware_training_registry
+    candidate_surface: Fw
+    allowed_direction_list: *id075
+    source_path: output\registries\families\track2g_curve_aware_harmonic_residual_offset_pointwise_control_fw\latest_family_best.yaml
+    metrics: *id076
+  - candidate_id: track2g_curve_aware_raw_centered_shape_Fw
+    candidate_family: track2g_curve_aware_raw_centered_shape
+    candidate_kind: wave1_registry_model
+    candidate_source_label: track2g_curve_aware_training_registry
+    candidate_surface: Fw
+    allowed_direction_list: *id077
+    source_path: output\registries\families\track2g_curve_aware_harmonic_residual_offset_raw_centered_shape_fw\latest_family_best.yaml
+    metrics: *id078
+  - candidate_id: track2g_curve_aware_raw_offset_Fw
+    candidate_family: track2g_curve_aware_raw_offset
+    candidate_kind: wave1_registry_model
+    candidate_source_label: track2g_curve_aware_training_registry
+    candidate_surface: Fw
+    allowed_direction_list: *id079
+    source_path: output\registries\families\track2g_curve_aware_harmonic_residual_offset_raw_offset_fw\latest_family_best.yaml
+    metrics: *id080
+  - candidate_id: track2g_curve_aware_full_curve_composite_Fw
+    candidate_family: track2g_curve_aware_full_curve_composite
+    candidate_kind: wave1_registry_model
+    candidate_source_label: track2g_curve_aware_training_registry
+    candidate_surface: Fw
+    allowed_direction_list: *id081
+    source_path: output\registries\families\track2g_curve_aware_harmonic_residual_offset_full_curve_composite_fw\latest_family_best.yaml
+    metrics: *id082
+  comparison_path: output\validation_checks\track2_multi_model_curve_comparison_report\2026-07-02-14-44-11__track2_multi_model_curve_comparison_report\comparisons\forward_reference_tree_track2g.png
+  comparison_markdown_path: assets/comparisons/forward_reference_tree_track2g.png
+  selected_curve_list:
+  - source_file_path: data\polished_dataset\forward\25degree\100rpm\100.0rpm1300.0Nm25.0deg.csv
+    direction_label: forward
+    speed_rpm: 99.99412113060635
+    torque_nm: -1299.95310306549
+    oil_temperature_deg: 24.35
+  - source_file_path: data\polished_dataset\forward\25degree\1100rpm\1100.0rpm500.0Nm25.0deg.csv
+    direction_label: forward
+    speed_rpm: 1099.9967716294527
+    torque_nm: -499.88341331481894
+    oil_temperature_deg: 28.06
+  - source_file_path: data\polished_dataset\forward\30degree\1500rpm\1500.0rpm500.0Nm30.0deg.csv
+    direction_label: forward
+    speed_rpm: 1499.9973960639115
+    torque_nm: -500.521183013916
+    oil_temperature_deg: 32.8
+  - source_file_path: data\polished_dataset\forward\35degree\100rpm\100.0rpm1800.0Nm35.0deg.csv
+    direction_label: forward
+    speed_rpm: 99.99325499971636
+    torque_nm: -1799.95369911194
+    oil_temperature_deg: 36.93
+- group_id: backward_reference_tree_track2g
+  group_title: Backward Reference Tree And Wave 3.3 Overlay
+  candidate_id_list:
+  - paper_retuned_best_Bw
+  - track1_best_Bw
+  - tree_bw
+  - track2g_curve_aware_pointwise_control_Bw
+  - track2g_curve_aware_raw_centered_shape_Bw
+  - track2g_curve_aware_raw_offset_Bw
+  - track2g_curve_aware_full_curve_composite_Bw
+  direction_scope: backward
+  candidate_summary_list:
+  - candidate_id: paper_retuned_best_Bw
+    candidate_family: best_composite
+    candidate_kind: composite_reference_bank
+    candidate_source_label: rcim_retuned
+    candidate_surface: Bw
+    allowed_direction_list: *id031
+    source_path: models\paper_reference\rcim_retuned\backward
+    metrics: *id032
+  - candidate_id: track1_best_Bw
+    candidate_family: best_composite
+    candidate_kind: composite_reference_bank
+    candidate_source_label: rcim_track1
+    candidate_surface: Bw
+    allowed_direction_list: *id009
+    source_path: models\paper_reference\rcim_track1\backward
+    metrics: *id010
+  - candidate_id: tree_bw
+    candidate_family: tree
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave1_current_registry
+    candidate_surface: Bw
+    allowed_direction_list: *id033
+    source_path: output\registries\families\tree_bw\latest_family_best.yaml
+    metrics: *id034
+  - candidate_id: track2g_curve_aware_pointwise_control_Bw
+    candidate_family: track2g_curve_aware_pointwise_control
+    candidate_kind: wave1_registry_model
+    candidate_source_label: track2g_curve_aware_training_registry
+    candidate_surface: Bw
+    allowed_direction_list: *id083
+    source_path: output\registries\families\track2g_curve_aware_harmonic_residual_offset_pointwise_control_bw\latest_family_best.yaml
+    metrics: *id084
+  - candidate_id: track2g_curve_aware_raw_centered_shape_Bw
+    candidate_family: track2g_curve_aware_raw_centered_shape
+    candidate_kind: wave1_registry_model
+    candidate_source_label: track2g_curve_aware_training_registry
+    candidate_surface: Bw
+    allowed_direction_list: *id085
+    source_path: output\registries\families\track2g_curve_aware_harmonic_residual_offset_raw_centered_shape_bw\latest_family_best.yaml
+    metrics: *id086
+  - candidate_id: track2g_curve_aware_raw_offset_Bw
+    candidate_family: track2g_curve_aware_raw_offset
+    candidate_kind: wave1_registry_model
+    candidate_source_label: track2g_curve_aware_training_registry
+    candidate_surface: Bw
+    allowed_direction_list: *id087
+    source_path: output\registries\families\track2g_curve_aware_harmonic_residual_offset_raw_offset_bw\latest_family_best.yaml
+    metrics: *id088
+  - candidate_id: track2g_curve_aware_full_curve_composite_Bw
+    candidate_family: track2g_curve_aware_full_curve_composite
+    candidate_kind: wave1_registry_model
+    candidate_source_label: track2g_curve_aware_training_registry
+    candidate_surface: Bw
+    allowed_direction_list: *id089
+    source_path: output\registries\families\track2g_curve_aware_harmonic_residual_offset_full_curve_composite_bw\latest_family_best.yaml
+    metrics: *id090
+  comparison_path: output\validation_checks\track2_multi_model_curve_comparison_report\2026-07-02-14-44-11__track2_multi_model_curve_comparison_report\comparisons\backward_reference_tree_track2g.png
+  comparison_markdown_path: assets/comparisons/backward_reference_tree_track2g.png
+  selected_curve_list:
+  - source_file_path: data\polished_dataset\backward\25degree\100rpm\100.0rpm300.0Nm25.0deg.csv
+    direction_label: backward
+    speed_rpm: -99.99744592939656
+    torque_nm: 299.967563148446
+    oil_temperature_deg: 24.58
+  - source_file_path: data\polished_dataset\backward\30degree\100rpm\100.0rpm800.0Nm30.0deg.csv
+    direction_label: backward
+    speed_rpm: -100.00130159767296
+    torque_nm: 799.98097419512
+    oil_temperature_deg: 29.91
+  - source_file_path: data\polished_dataset\backward\35degree\1600rpm\1600.0rpm300.0Nm35.0deg.csv
+    direction_label: backward
+    speed_rpm: -1600.0000946674568
+    torque_nm: 299.9159455199175
+    oil_temperature_deg: 35.07
+  - source_file_path: data\polished_dataset\backward\35degree\1700rpm\1700.0rpm400.0Nm35.0deg.csv
+    direction_label: backward
+    speed_rpm: -1699.99826665123
+    torque_nm: 399.90048407322
+    oil_temperature_deg: 37.62
+- group_id: forward_reference_tree_track2h
+  group_title: Forward Reference Tree And Wave 4 series Overlay
+  candidate_id_list:
+  - paper_retuned_best_Fw
+  - track1_best_Fw
+  - tree_fw
+  - track2h_mae_robust_Fw
+  - track2h_smooth_l1_robust_Fw
+  - track2h_log_cosh_robust_Fw
+  direction_scope: forward
+  candidate_summary_list:
+  - candidate_id: paper_retuned_best_Fw
+    candidate_family: best_composite
+    candidate_kind: composite_reference_bank
+    candidate_source_label: rcim_retuned
+    candidate_surface: Fw
+    allowed_direction_list: *id017
+    source_path: models\paper_reference\rcim_retuned\forward
+    metrics: *id018
+  - candidate_id: track1_best_Fw
+    candidate_family: best_composite
+    candidate_kind: composite_reference_bank
+    candidate_source_label: rcim_track1
+    candidate_surface: Fw
+    allowed_direction_list: *id001
+    source_path: models\paper_reference\rcim_track1\forward
+    metrics: *id002
+  - candidate_id: tree_fw
+    candidate_family: tree
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave1_current_registry
+    candidate_surface: Fw
+    allowed_direction_list: *id005
+    source_path: output\registries\families\tree_fw\latest_family_best.yaml
+    metrics: *id006
+  - candidate_id: track2h_mae_robust_Fw
+    candidate_family: track2h_mae_robust
+    candidate_kind: wave1_registry_model
+    candidate_source_label: track2h_dispersion_aware_modeling_registry
+    candidate_surface: Fw
+    allowed_direction_list: *id091
+    source_path: output\registries\families\track2h_dispersion_aware_mae_robust_fw\latest_family_best.yaml
+    metrics: *id092
+  - candidate_id: track2h_smooth_l1_robust_Fw
+    candidate_family: track2h_smooth_l1_robust
+    candidate_kind: wave1_registry_model
+    candidate_source_label: track2h_dispersion_aware_modeling_registry
+    candidate_surface: Fw
+    allowed_direction_list: *id093
+    source_path: output\registries\families\track2h_dispersion_aware_smooth_l1_robust_fw\latest_family_best.yaml
+    metrics: *id094
+  - candidate_id: track2h_log_cosh_robust_Fw
+    candidate_family: track2h_log_cosh_robust
+    candidate_kind: wave1_registry_model
+    candidate_source_label: track2h_dispersion_aware_modeling_registry
+    candidate_surface: Fw
+    allowed_direction_list: *id095
+    source_path: output\registries\families\track2h_dispersion_aware_log_cosh_robust_fw\latest_family_best.yaml
+    metrics: *id096
+  comparison_path: output\validation_checks\track2_multi_model_curve_comparison_report\2026-07-02-14-44-11__track2_multi_model_curve_comparison_report\comparisons\forward_reference_tree_track2h.png
+  comparison_markdown_path: assets/comparisons/forward_reference_tree_track2h.png
+  selected_curve_list:
+  - source_file_path: data\polished_dataset\forward\25degree\100rpm\100.0rpm1300.0Nm25.0deg.csv
+    direction_label: forward
+    speed_rpm: 99.99412113060635
+    torque_nm: -1299.95310306549
+    oil_temperature_deg: 24.35
+  - source_file_path: data\polished_dataset\forward\25degree\1100rpm\1100.0rpm500.0Nm25.0deg.csv
+    direction_label: forward
+    speed_rpm: 1099.9967716294527
+    torque_nm: -499.88341331481894
+    oil_temperature_deg: 28.06
+  - source_file_path: data\polished_dataset\forward\30degree\1500rpm\1500.0rpm500.0Nm30.0deg.csv
+    direction_label: forward
+    speed_rpm: 1499.9973960639115
+    torque_nm: -500.521183013916
+    oil_temperature_deg: 32.8
+  - source_file_path: data\polished_dataset\forward\35degree\100rpm\100.0rpm1800.0Nm35.0deg.csv
+    direction_label: forward
+    speed_rpm: 99.99325499971636
+    torque_nm: -1799.95369911194
+    oil_temperature_deg: 36.93
+- group_id: backward_reference_tree_track2h
+  group_title: Backward Reference Tree And Wave 4 series Overlay
+  candidate_id_list:
+  - paper_retuned_best_Bw
+  - track1_best_Bw
+  - tree_bw
+  - track2h_mae_robust_Bw
+  - track2h_smooth_l1_robust_Bw
+  - track2h_log_cosh_robust_Bw
+  direction_scope: backward
+  candidate_summary_list:
+  - candidate_id: paper_retuned_best_Bw
+    candidate_family: best_composite
+    candidate_kind: composite_reference_bank
+    candidate_source_label: rcim_retuned
+    candidate_surface: Bw
+    allowed_direction_list: *id031
+    source_path: models\paper_reference\rcim_retuned\backward
+    metrics: *id032
+  - candidate_id: track1_best_Bw
+    candidate_family: best_composite
+    candidate_kind: composite_reference_bank
+    candidate_source_label: rcim_track1
+    candidate_surface: Bw
+    allowed_direction_list: *id009
+    source_path: models\paper_reference\rcim_track1\backward
+    metrics: *id010
+  - candidate_id: tree_bw
+    candidate_family: tree
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave1_current_registry
+    candidate_surface: Bw
+    allowed_direction_list: *id033
+    source_path: output\registries\families\tree_bw\latest_family_best.yaml
+    metrics: *id034
+  - candidate_id: track2h_mae_robust_Bw
+    candidate_family: track2h_mae_robust
+    candidate_kind: wave1_registry_model
+    candidate_source_label: track2h_dispersion_aware_modeling_registry
+    candidate_surface: Bw
+    allowed_direction_list: *id097
+    source_path: output\registries\families\track2h_dispersion_aware_mae_robust_bw\latest_family_best.yaml
+    metrics: *id098
+  - candidate_id: track2h_smooth_l1_robust_Bw
+    candidate_family: track2h_smooth_l1_robust
+    candidate_kind: wave1_registry_model
+    candidate_source_label: track2h_dispersion_aware_modeling_registry
+    candidate_surface: Bw
+    allowed_direction_list: *id099
+    source_path: output\registries\families\track2h_dispersion_aware_smooth_l1_robust_bw\latest_family_best.yaml
+    metrics: *id100
+  - candidate_id: track2h_log_cosh_robust_Bw
+    candidate_family: track2h_log_cosh_robust
+    candidate_kind: wave1_registry_model
+    candidate_source_label: track2h_dispersion_aware_modeling_registry
+    candidate_surface: Bw
+    allowed_direction_list: *id101
+    source_path: output\registries\families\track2h_dispersion_aware_log_cosh_robust_bw\latest_family_best.yaml
+    metrics: *id102
+  comparison_path: output\validation_checks\track2_multi_model_curve_comparison_report\2026-07-02-14-44-11__track2_multi_model_curve_comparison_report\comparisons\backward_reference_tree_track2h.png
+  comparison_markdown_path: assets/comparisons/backward_reference_tree_track2h.png
+  selected_curve_list:
+  - source_file_path: data\polished_dataset\backward\25degree\100rpm\100.0rpm300.0Nm25.0deg.csv
+    direction_label: backward
+    speed_rpm: -99.99744592939656
+    torque_nm: 299.967563148446
+    oil_temperature_deg: 24.58
+  - source_file_path: data\polished_dataset\backward\30degree\100rpm\100.0rpm800.0Nm30.0deg.csv
+    direction_label: backward
+    speed_rpm: -100.00130159767296
+    torque_nm: 799.98097419512
+    oil_temperature_deg: 29.91
+  - source_file_path: data\polished_dataset\backward\35degree\1600rpm\1600.0rpm300.0Nm35.0deg.csv
+    direction_label: backward
+    speed_rpm: -1600.0000946674568
+    torque_nm: 299.9159455199175
+    oil_temperature_deg: 35.07
+  - source_file_path: data\polished_dataset\backward\35degree\1700rpm\1700.0rpm400.0Nm35.0deg.csv
+    direction_label: backward
+    speed_rpm: -1699.99826665123
+    torque_nm: 399.90048407322
+    oil_temperature_deg: 37.62
+metrics_csv_path: output\validation_checks\track2_multi_model_curve_comparison_report\2026-07-02-14-44-11__track2_multi_model_curve_comparison_report\track2_multi_model_curve_comparison_metrics.csv

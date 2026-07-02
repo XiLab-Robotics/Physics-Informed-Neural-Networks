@@ -35,9 +35,10 @@ Historical rationale and approval history remain in:
   model bank, closed as
   a faithful full-bank reproduction surface for Tables `2`-`5`.
 - Current Completed Pipeline: `TE Curve Verification Pipeline` official
-  offline model-verification
-  report, closed as the canonical direction-aware verification surface for new
-  model families.
+  offline model-verification report, refreshed for `Wave 5.2B` on
+  `2026-07-02`. The refresh added the selected Wave 5.2B harmonic-profile
+  `global`, `Fw`, and `Bw` candidates to the `168`-candidate matrix; no
+  automatic promotion was made.
 - Current Focus: preserve the running full-wave `polished_dataset` campaign
   baseline, then restructure `Wave 5.2` and `Wave 6` as dataset-aware
   branches instead of continuing directly from the old `simplified_dataset`
@@ -68,10 +69,10 @@ Current canonical status reports:
 
 - `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
 - `doc/reports/analysis/TE Program Status And Closeout Ledger.md`
-- `doc/reports/analysis/track2/official_model_verification_report/[2026-06-18]/track2_official_model_verification_report.md`
+- `doc/reports/analysis/track2/official_model_verification_report/[2026-07-02]/track2_official_model_verification_report.md`
 - `doc/reports/analysis/track2/multi_index_curve_first_selection_policy/[2026-06-16]/track2_multi_index_curve_first_selection_policy.md`
-- `doc/reports/analysis/track2/best_model_collage_report/[2026-06-18]/track2_best_model_collage_report.md`
-- `doc/reports/analysis/track2/multi_model_curve_comparison_report/[2026-06-18]/track2_multi_model_curve_comparison_report.md`
+- `doc/reports/analysis/track2/best_model_collage_report/[2026-07-02]/track2_best_model_collage_report.md`
+- `doc/reports/analysis/track2/multi_model_curve_comparison_report/[2026-07-02]/track2_multi_model_curve_comparison_report.md`
 - `doc/reports/analysis/track2/Track 2 Directional Model Comparison.md`
 - `doc/reports/analysis/track2/curve_first_reranking_report/[2026-05-28]/track2_curve_first_reranking_report.md`
 - `doc/reports/analysis/track2/curve_payload_diagnostics_report/[2026-05-28]/track2_curve_payload_diagnostics_report.md`
@@ -1220,8 +1221,16 @@ Entry rule:
   - best surface test MAE values: `0.002215` global, `0.001392` `Fw`,
     and `0.001677` `Bw`;
   - scalar program winner remains `te_periodic_gru_sequence_bw`;
-  - official `TE Curve Verification Pipeline` leaders are unchanged because
-    no curve-verification refresh was run during normal closeout.
+  - official `TE Curve Verification Pipeline` refresh report:
+    `doc/reports/analysis/track2/official_model_verification_report/[2026-07-02]/track2_official_model_verification_report.md`;
+  - the refresh added the `global`, `Fw`, and `Bw`
+    `wave52b_offset_centered_shape_harmonic` candidates to the
+    `168`-candidate matrix;
+  - strongest refreshed curve-verification candidate:
+    `wave52b_offset_centered_shape_harmonic_Fw`, MAE `0.001695 deg`, Mean
+    `3.391%`;
+  - official accepted curve-verified leaders are unchanged pending human
+    review; do not promote from scalar metrics alone.
 - next implementation steps:
   - use the completed `Wave 5.2B` / `Wave 5.2C` model-design gate in
     `doc/reports/analysis/wave5_2/model_design_gate/[2026-07-01]/wave52b_wave52c_model_design_gate.md`;
@@ -1235,10 +1244,9 @@ Entry rule:
     `scripts/campaigns/wave_5_2/run_wave52b_offset_harmonic_guided_campaign.ps1`;
   - exact launch commands are documented in:
     `doc/scripts/campaigns/wave_5_2/run_wave52b_offset_harmonic_guided_campaign.md`;
-  - next action is either a separate operator-approved `TE Curve Verification
-    Pipeline` refresh for Wave 5.2B or waiting for the externally running
-    full-wave polished retraining closeout before opening the next clean-branch
-    training package;
+  - next action is either human review of the completed Wave 5.2B curve-first
+    evidence or waiting for the externally running full-wave polished
+    retraining closeout before opening the next clean-branch training package;
   - keep `Wave 5.2C` dirty-to-clean or transfer supervision secondary until
     `Wave 5.2B` defines the clean branch and leakage-safe masks;
   - do not treat the current demonstration harmonic summary as dataset

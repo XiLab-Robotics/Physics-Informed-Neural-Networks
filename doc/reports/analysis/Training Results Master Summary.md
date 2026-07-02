@@ -6,8 +6,8 @@
 - Program State: active.
 - Current Completed Wave: `Wave 5.2B` offset and harmonic guided campaign closeout
 - Current Focus: preserve the externally running full-wave `polished_dataset`
-  campaign; use Wave 5.2B as scalar evidence only until a separate curve-first
-  refresh is approved
+  campaign; use Wave 5.2B as scalar and curve-first evidence pending human
+  promotion review
 - Active Campaign Status: `none`
 - Active Campaign Name: `null`
 - Current Program Winner: `te_periodic_gru_sequence_bw` | Family `periodic_gru_sequence_bw` | Test MAE `0.001084`
@@ -324,7 +324,7 @@ Low-priority exploratory families currently listed in the backlog:
 - `Neural ODE`
 - `Hamiltonian-Inspired Model`
 - `optional Kernel Ridge / Gaussian Process benchmark`
-| Wave 5.2. Dataset-Aware MMT / PINN-Guided Models | status: `Wave 5.2B` clean polished campaign package prepared, not launched;; revised role: dataset-aware physics-guided branch with separate clean; current scaffold:; diagnostic adapter:; diagnostic report builder:; parameter-inventory report builder:; generated diagnostic report:; generated parameter-inventory report:; companion artifacts:; parameter-inventory artifacts:; updated priority: wait for the externally running full-wave; mandatory rule: prepare or justify `global`, `forward`, and `backward`; paper-reproduction scope:; prepare PINN-side model and loss formulations for later offline and; use `simplified_dataset` as a noise-aware diagnostic surface for offset,; test whether soft physics, periodicity, smoothness, harmonic-consistency,; keep online compensation execution out of Wave 5.2 unless Track 3 is; completed inventory conclusions:; known geometry constants are safe for diagnostics and feature generation;; operating metadata can be used for stratification and causal conditioning;; five equivalent-error groups are train-only calibratable;; contact geometry remains unavailable or ambiguous and blocks calibrated; measured TE remains target-only and must not become an inference input.; next implementation steps:; use the completed `Wave 5.2B` / `Wave 5.2C` model-design gate in; use the prepared `Wave 5.2B` model report and campaign plan:; prepared package:; prepared launcher:; exact launch commands are documented in:; next action is operator launch or remote launch of the `12`-run; keep `Wave 5.2C` dirty-to-clean or transfer supervision secondary until; do not treat the current demonstration harmonic summary as dataset |
+| Wave 5.2. Dataset-Aware MMT / PINN-Guided Models | status: `Wave 5.2B` clean polished campaign and official `TE Curve Verification Pipeline` refresh completed; revised role: dataset-aware physics-guided branch with separate clean, noise-aware, and transfer surfaces; scalar winner: `te_wave52b_offset_harmonic_guided_offset_centered_shape_harmonic_fw`; curve-first refreshed leader: `wave52b_offset_centered_shape_harmonic_Fw`, MAE `0.001695 deg`, Mean `3.391%`; official report: `doc/reports/analysis/track2/official_model_verification_report/[2026-07-02]/track2_official_model_verification_report.md`; decision: pending human review, no automatic promotion over accepted curve-verified leaders; next action: review Wave 5.2B curve-first evidence or wait for full-wave polished retraining closeout before opening the next clean-branch training package |
 
 Low-priority exploratory families currently listed in the backlog:
 

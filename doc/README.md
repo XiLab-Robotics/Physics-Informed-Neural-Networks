@@ -507,6 +507,11 @@ This folder contains the internal project documents derived from the reference P
   report, synchronizing status documents, and keeping official `TE Curve
   Verification Pipeline` refresh separate.
 
+- [technical/2026-07/2026-07-02/2026-07-02-11-03-47_wave52b_te_curve_verification_refresh_preparation.md](./technical/2026-07/2026-07-02/2026-07-02-11-03-47_wave52b_te_curve_verification_refresh_preparation.md)
+  Technical plan for preparing the operator-run `TE Curve Verification
+  Pipeline` refresh for the completed `Wave 5.2B` offset and harmonic guided
+  campaign.
+
 #### 2026-06-29
 
 - [technical/2026-06/2026-06-29/2026-06-29-19-03-12_codex_workflow_assets_rationalization.md](./technical/2026-06/2026-06-29/2026-06-29-19-03-12_codex_workflow_assets_rationalization.md)
@@ -2831,6 +2836,12 @@ This folder contains the internal project documents derived from the reference P
   Script-level documentation for the operator-launched `Wave 5.1`
   harmonic-prior residual official `TE Curve Verification Pipeline` verification refresh across all
   six completed candidates for `global`, `Fw`, and `Bw`.
+
+- [scripts/campaigns/wave_5_2/run_wave52b_te_curve_verification_refresh.md](./scripts/campaigns/wave_5_2/run_wave52b_te_curve_verification_refresh.md)
+  Script-level documentation for the operator-launched `Wave 5.2B`
+  offset and harmonic guided official `TE Curve Verification Pipeline`
+  verification refresh across the selected harmonic-profile candidates for
+  `global`, `Fw`, and `Bw`.
 
 - [scripts/campaigns/wave_3/run_wave3_harmonic_prior_residual_campaign.md](./scripts/campaigns/wave_3/run_wave3_harmonic_prior_residual_campaign.md)
   Script-level documentation for the prepared first real `Wave 5.1`

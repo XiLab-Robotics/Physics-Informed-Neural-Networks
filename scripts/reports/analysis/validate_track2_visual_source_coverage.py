@@ -77,6 +77,16 @@ def parse_command_line_arguments() -> argparse.Namespace:
         default=DEFAULT_OVERLAY_REPORT_PATH,
         help="Generated TE Curve Verification Pipeline multi-model overlay Markdown path.",
     )
+    argument_parser.add_argument(
+        "--candidate-source-label",
+        action="append",
+        default=[],
+        help=(
+            "Registry source label that must be visible in the generated visual reports. "
+            "May be passed more than once. When omitted, every configured registry "
+            "source is validated for backward compatibility."
+        ),
+    )
     repository_path_support.add_platform_arguments(argument_parser)
     return argument_parser.parse_args()
 
@@ -151,10 +161,18 @@ def collect_missing_candidate_list(
 
     """Collect candidate IDs not present in a generated report."""
 
+    def build_candidate_id_alias_set(candidate_id: str) -> set[str]:
+        alias_set = {candidate_id}
+        if candidate_id.endswith("_Fw"):
+            alias_set.add(f"{candidate_id[:-3]}_fw")
+        elif candidate_id.endswith("_Bw"):
+            alias_set.add(f"{candidate_id[:-3]}_bw")
+        return alias_set
+
     return [
         candidate_id
         for candidate_id in candidate_id_list
-        if candidate_id not in report_text
+        if not any(candidate_id_alias in report_text for candidate_id_alias in build_candidate_id_alias_set(candidate_id))
     ]
 
 
@@ -167,6 +185,24 @@ def validate_visual_source_coverage(arguments: argparse.Namespace) -> dict[str, 
     )
     training_config = shared_training_infrastructure.load_training_config(arguments.config_path)
     expected_candidate_dictionary = collect_expected_candidate_dictionary(training_config)
+    selected_source_label_set = {
+        str(candidate_source_label).strip()
+        for candidate_source_label in arguments.candidate_source_label
+        if str(candidate_source_label).strip()
+    }
+    if selected_source_label_set:
+        expected_candidate_dictionary = {
+            source_label: scoped_candidate_dictionary
+            for source_label, scoped_candidate_dictionary in expected_candidate_dictionary.items()
+            if source_label in selected_source_label_set
+        }
+        missing_source_label_set = selected_source_label_set - set(expected_candidate_dictionary)
+        if missing_source_label_set:
+            missing_source_text = ", ".join(sorted(missing_source_label_set))
+            raise AssertionError(
+                "TE Curve Verification Pipeline visual source coverage requested "
+                f"unknown registry source label(s): {missing_source_text}"
+            )
     collage_report_text = read_report_text(arguments.collage_report_path)
     overlay_report_text = read_report_text(arguments.overlay_report_path)
 

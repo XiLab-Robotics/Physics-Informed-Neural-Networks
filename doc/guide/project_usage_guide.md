@@ -197,6 +197,18 @@ Prepared `Wave 5.2B` polished offset/harmonic guided preflight:
 .\scripts\campaigns\wave_5_2\run_wave52b_offset_harmonic_guided_campaign.ps1 -PreflightOnly
 ```
 
+Operator-launched `Wave 5.2B` TE Curve Verification Pipeline refresh:
+
+```powershell
+.\scripts\campaigns\wave_5_2\run_wave52b_te_curve_verification_refresh.ps1
+```
+
+Remote operator-launched `Wave 5.2B` TE Curve Verification Pipeline refresh:
+
+```powershell
+.\scripts\campaigns\wave_5_2\run_wave52b_te_curve_verification_refresh.ps1 -Remote
+```
+
 Launch the 36-run early-wave batch locally after confirming the active
 campaign state is intentionally parallel with the RCIM run on the other
 workstation:
@@ -313,6 +325,12 @@ The current usage flow mainly relies on these folders:
   Prepared `Wave 5.2B` polished offset and harmonic guided campaign launcher.
   It validates 12 queue entries across `global`, `Fw`, and `Bw`, then launches
   locally or delegates to the repository-owned remote campaign runner.
+
+- `scripts/campaigns/wave_5_2/run_wave52b_te_curve_verification_refresh.ps1`
+  Operator-facing `Wave 5.2B` official TE Curve Verification Pipeline refresh
+  launcher. It evaluates the selected harmonic-profile registry models across
+  `global`, `Fw`, and `Bw`, regenerates visual verification reports, and
+  exports the official verification PDFs after the matrix completes.
 
 - `scripts/campaigns/wave_4/run_wave4_embryonic_skeleton_checks.ps1`
   Dry-run check launcher for the embryonic `Wave 5.2A` MMT diagnostic adapter.

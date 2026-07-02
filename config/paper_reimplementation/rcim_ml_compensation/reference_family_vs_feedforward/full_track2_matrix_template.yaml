@@ -383,6 +383,15 @@ comparison:
           global_family: wave3_harmonic_prior_residual_smooth_l1_structured_global
           fw_family: wave3_harmonic_prior_residual_smooth_l1_structured_fw
           bw_family: wave3_harmonic_prior_residual_smooth_l1_structured_bw
+    wave52b_registry_models:
+      family_registry_root: output/registries/families
+      source_label: wave52b_offset_harmonic_guided_registry
+      base_family_list:
+        - candidate_id_prefix: wave52b_offset_centered_shape_harmonic
+          candidate_family: wave52b_offset_harmonic_guided
+          global_family: wave52b_offset_harmonic_guided_offset_centered_shape_harmonic_global
+          fw_family: wave52b_offset_harmonic_guided_offset_centered_shape_harmonic_fw
+          bw_family: wave52b_offset_harmonic_guided_offset_centered_shape_harmonic_bw
 evaluation:
   selected_harmonics:
     - 0
