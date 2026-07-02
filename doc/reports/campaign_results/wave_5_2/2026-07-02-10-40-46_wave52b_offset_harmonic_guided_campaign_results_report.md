@@ -48,7 +48,7 @@ The winner is the forward-surface harmonic profile, not a global model.
 
 ## Surface Winners
 
-| Surface | Best profile | Best run | Test MAE [deg] | Test RMSE [deg] | Val MAE [deg] |
+| Surface | Best Profile | Best Run | Test MAE [deg] | Test RMSE [deg] | Val MAE [deg] |
 | --- | --- | --- | ---: | ---: | ---: |
 | `global` | `offset_centered_shape_harmonic` | `te_wave52b_offset_harmonic_guided_offset_centered_shape_harmonic_global` | 0.002215 | 0.002799 | 0.001886 |
 | `Fw` | `offset_centered_shape_harmonic` | `te_wave52b_offset_harmonic_guided_offset_centered_shape_harmonic_fw` | 0.001392 | 0.001771 | 0.001809 |
@@ -96,7 +96,7 @@ lightweight model family should replace the stronger sequence backbones.
 
 The current polished early-wave scalar leaders remain stronger:
 
-| Surface | Polished leader | Leader MAE | W5.2B best | W5.2B MAE |
+| Surface | Polished Leader | Leader MAE | W5.2B Best | W5.2B MAE |
 | --- | --- | ---: | --- | ---: |
 | `global` | `te_periodic_lstm_sequence_global` | 0.001187 | `offset_centered_shape_harmonic_global` | 0.002215 |
 | `Fw` | `te_periodic_gru_sequence_fw` | 0.001101 | `offset_centered_shape_harmonic_fw` | 0.001392 |

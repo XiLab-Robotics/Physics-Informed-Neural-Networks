@@ -142,6 +142,10 @@ CAMPAIGN_CLOSEOUT_DISPERSION_COMPARISON_TABLE_CLASS_NAME = "report-table report-
 CAMPAIGN_CLOSEOUT_REGISTRY_EFFECTS_TABLE_CLASS_NAME = "report-table report-table-campaign-closeout-registry-effects"
 POLISHED_EARLY_WAVE_SURFACE_WINNERS_TABLE_CLASS_NAME = "report-table report-table-polished-early-wave-surface-winners"
 POLISHED_EARLY_WAVE_SCALAR_LEADERBOARD_TABLE_CLASS_NAME = "report-table report-table-polished-early-wave-scalar-leaderboard"
+WAVE52B_SCALAR_WINNER_TABLE_CLASS_NAME = "report-table report-table-wave52b-scalar-winner"
+WAVE52B_SURFACE_WINNERS_TABLE_CLASS_NAME = "report-table report-table-wave52b-surface-winners"
+WAVE52B_SCALAR_LEADERBOARD_TABLE_CLASS_NAME = "report-table report-table-wave52b-scalar-leaderboard"
+WAVE52B_POLISHED_COMPARISON_TABLE_CLASS_NAME = "report-table report-table-wave52b-polished-comparison"
 POLISHED_RCIM_EXECUTIVE_SUMMARY_TABLE_CLASS_NAME = "report-table report-table-polished-rcim-executive-summary"
 POLISHED_RCIM_EXECUTION_SUMMARY_TABLE_CLASS_NAME = "report-table report-table-polished-rcim-execution-summary"
 POLISHED_RCIM_ARTIFACT_PATHS_TABLE_CLASS_NAME = "report-table report-table-polished-rcim-artifact-paths"
@@ -1343,6 +1347,60 @@ REPORT_STYLESHEET = """
     .report-table-polished-early-wave-scalar-leaderboard td:nth-child(6),
     .report-table-polished-early-wave-scalar-leaderboard th:nth-child(7),
     .report-table-polished-early-wave-scalar-leaderboard td:nth-child(7) { width: 12%; }
+
+    .report-table-wave52b-scalar-winner th,
+    .report-table-wave52b-scalar-winner td,
+    .report-table-wave52b-surface-winners th,
+    .report-table-wave52b-surface-winners td,
+    .report-table-wave52b-scalar-leaderboard th,
+    .report-table-wave52b-scalar-leaderboard td,
+    .report-table-wave52b-polished-comparison th,
+    .report-table-wave52b-polished-comparison td {
+      padding: 3px 4px;
+      vertical-align: middle;
+    }
+
+    .report-table-wave52b-scalar-winner th:nth-child(1),
+    .report-table-wave52b-scalar-winner td:nth-child(1) { width: 12%; }
+    .report-table-wave52b-scalar-winner th:nth-child(2),
+    .report-table-wave52b-scalar-winner td:nth-child(2) { width: 88%; }
+
+    .report-table-wave52b-surface-winners th:nth-child(1),
+    .report-table-wave52b-surface-winners td:nth-child(1) { width: 8%; }
+    .report-table-wave52b-surface-winners th:nth-child(2),
+    .report-table-wave52b-surface-winners td:nth-child(2) { width: 30%; }
+    .report-table-wave52b-surface-winners th:nth-child(3),
+    .report-table-wave52b-surface-winners td:nth-child(3) { width: 32%; }
+    .report-table-wave52b-surface-winners th:nth-child(4),
+    .report-table-wave52b-surface-winners td:nth-child(4),
+    .report-table-wave52b-surface-winners th:nth-child(5),
+    .report-table-wave52b-surface-winners td:nth-child(5),
+    .report-table-wave52b-surface-winners th:nth-child(6),
+    .report-table-wave52b-surface-winners td:nth-child(6) { width: 10%; }
+
+    .report-table-wave52b-scalar-leaderboard th:nth-child(1),
+    .report-table-wave52b-scalar-leaderboard td:nth-child(1) { width: 5%; }
+    .report-table-wave52b-scalar-leaderboard th:nth-child(2),
+    .report-table-wave52b-scalar-leaderboard td:nth-child(2) { width: 47%; }
+    .report-table-wave52b-scalar-leaderboard th:nth-child(3),
+    .report-table-wave52b-scalar-leaderboard td:nth-child(3) { width: 8%; }
+    .report-table-wave52b-scalar-leaderboard th:nth-child(4),
+    .report-table-wave52b-scalar-leaderboard td:nth-child(4),
+    .report-table-wave52b-scalar-leaderboard th:nth-child(5),
+    .report-table-wave52b-scalar-leaderboard td:nth-child(5),
+    .report-table-wave52b-scalar-leaderboard th:nth-child(6),
+    .report-table-wave52b-scalar-leaderboard td:nth-child(6) { width: 13.333%; }
+
+    .report-table-wave52b-polished-comparison th:nth-child(1),
+    .report-table-wave52b-polished-comparison td:nth-child(1) { width: 8%; }
+    .report-table-wave52b-polished-comparison th:nth-child(2),
+    .report-table-wave52b-polished-comparison td:nth-child(2) { width: 34%; }
+    .report-table-wave52b-polished-comparison th:nth-child(3),
+    .report-table-wave52b-polished-comparison td:nth-child(3) { width: 11%; }
+    .report-table-wave52b-polished-comparison th:nth-child(4),
+    .report-table-wave52b-polished-comparison td:nth-child(4) { width: 36%; }
+    .report-table-wave52b-polished-comparison th:nth-child(5),
+    .report-table-wave52b-polished-comparison td:nth-child(5) { width: 11%; }
 
     .report-table-polished-rcim-executive-summary th:nth-child(1), .report-table-polished-rcim-executive-summary td:nth-child(1) { width: 10%; }
     .report-table-polished-rcim-executive-summary th:nth-child(2), .report-table-polished-rcim-executive-summary td:nth-child(2) { width: 23%; }
@@ -3561,6 +3619,20 @@ def normalize_report_specific_header_cell(header_cell: str, table_class_name: st
         and header_cell == "Best Run"
     ):
         return "Best Run"
+    if table_class_name in {
+        WAVE52B_SURFACE_WINNERS_TABLE_CLASS_NAME,
+        WAVE52B_SCALAR_LEADERBOARD_TABLE_CLASS_NAME,
+    }:
+        if header_cell == "Test MAE [deg]":
+            return "Test MAE<br><span class=\"metric-unit\">[deg]</span>"
+        if header_cell == "Test RMSE [deg]":
+            return "Test RMSE<br><span class=\"metric-unit\">[deg]</span>"
+        if header_cell == "Val MAE [deg]":
+            return "Val MAE<br><span class=\"metric-unit\">[deg]</span>"
+        if header_cell == "Best Profile":
+            return "Best Profile"
+        if header_cell == "Best Run":
+            return "Best Run"
 
     if header_cell == "Best Run":
         return "Best<span class=\"metric-unit\">Run</span>"
@@ -4094,6 +4166,32 @@ def resolve_standard_table_class_name(
                 and normalized_header_cells == ("Rank", "Compact Run", "Surface", "Family", "Test MAE", "Test RMSE", "Val MAE")
             ):
                 return POLISHED_EARLY_WAVE_SCALAR_LEADERBOARD_TABLE_CLASS_NAME
+
+        if report_stem == "2026-07-02-10-40-46_wave52b_offset_harmonic_guided_campaign_results_report":
+
+            if (
+                current_section_slug == "scalar-winner"
+                and normalized_header_cells == ("Field", "Value")
+            ):
+                return WAVE52B_SCALAR_WINNER_TABLE_CLASS_NAME
+
+            if (
+                current_section_slug == "surface-winners"
+                and normalized_header_cells == ("Surface", "Best Profile", "Best Run", "Test MAE [deg]", "Test RMSE [deg]", "Val MAE [deg]")
+            ):
+                return WAVE52B_SURFACE_WINNERS_TABLE_CLASS_NAME
+
+            if (
+                current_section_slug == "full-scalar-leaderboard"
+                and normalized_header_cells == ("Rank", "Run", "Surface", "Test MAE [deg]", "Test RMSE [deg]", "Val MAE [deg]")
+            ):
+                return WAVE52B_SCALAR_LEADERBOARD_TABLE_CLASS_NAME
+
+            if (
+                current_section_slug == "comparison-against-current-polished-leaders"
+                and normalized_header_cells == ("Surface", "Polished Leader", "Leader MAE", "W5.2B Best", "W5.2B MAE")
+            ):
+                return WAVE52B_POLISHED_COMPARISON_TABLE_CLASS_NAME
 
         if (
             current_section_slug == "directional-branch-results"
