@@ -22,15 +22,15 @@ Historical rationale and approval history remain in:
 ## Current Status
 
 - Program State: active.
-- Active Campaign State: no local active campaign is recorded in
-  `doc/running/active_training_campaign.yaml`. The
-  `polished_dataset_full_wave_retraining_2026_06_22` campaign is
+- Active Campaign State: none locally. `Wave 5.2B` is closed as normal scalar
+  training evidence in `doc/running/active_training_campaign.yaml`. The
+  `polished_dataset_full_wave_retraining_2026_06_22` campaign is still
   operator-reported as running on another workstation and must be treated as
   externally active until its final artifacts are synchronized.
-- Current Completed Wave: `Wave 5.1` harmonic-prior residual campaign closeout
-  and official `TE Curve Verification Pipeline` verification refresh are complete; the branch is a
-  verified exploratory baseline and is not promoted over the accepted
-  direction-parallel leaders.
+- Current Completed Wave: `Wave 5.2B` offset and harmonic guided campaign
+  closeout is complete. The `offset_centered_shape_harmonic` profile won all
+  three Wave 5.2B surfaces, but the branch is not promoted over the polished
+  early-wave scalar leaders or official curve-verified leaders.
 - Current Completed Program: `RCIM Model-Bank Reproduction` paper-faithful
   model bank, closed as
   a faithful full-bank reproduction surface for Tables `2`-`5`.
@@ -254,7 +254,7 @@ Next planned diagnostic and training decision branches:
 | Component-offset identification | Test whether curve offset is dominated by `a_0` / `Component 0`, multiple components, condition/regime behavior, or experimental repeatability limits. | measured `h0`, signed-offset cross-check, and predicted-mean surface diagnostics completed; `h0` is the right mean channel, but the actionable issue is model-side mean-surface bias/compression |
 | `Wave 4 series` dispersion-aware modeling probes | Test robust losses, quantile or probabilistic heads, mixture-density heads, and latent-state or hysteresis-aware features on the offset and fragile-harmonic problem. | robust-loss, quantile/probabilistic, MDN, and `Wave 4.4` latent-state / hysteresis-aware campaigns and official TE Curve Verification refreshes completed; all are exploratory and not promoted |
 | `Wave 5.1` hybrid structured models | Combine harmonic structure, condition-conditioned residual learning, and explicit grouped treatment of stable and fragile harmonic bands. | first real `wave3_harmonic_prior_residual` campaign and official `TE Curve Verification Pipeline` verification refresh closed as a verified exploratory baseline, not promoted |
-| `Wave 5.2` dataset-aware MMT / PINN-guided branch | Split first-PINN planning into clean-polished modeling, simplified noise-aware diagnostics, and paired dirty-to-clean or transfer tests. | `Wave 5.2A` MMT diagnostic, parameter inventory, and full paired-dataset matrix are generated; `Wave 5.2B` offset/harmonic guided design is the primary next candidate, while `Wave 5.2C` dirty-to-clean transfer remains secondary |
+| `Wave 5.2` dataset-aware MMT / PINN-guided branch | Split first-PINN planning into clean-polished modeling, simplified noise-aware diagnostics, and paired dirty-to-clean or transfer tests. | `Wave 5.2A` MMT diagnostic, parameter inventory, and full paired-dataset matrix are generated; `Wave 5.2B` 12-run polished campaign is closed, with `offset_centered_shape_harmonic` winning all surfaces but no scalar or curve-first promotion |
 | Wave 6 integrated multi-task / multi-head and transfer branch | Shared causal trunk with separate TE, offset, low-frequency, centered-shape, uncertainty or mixture, structured-residual, and optional dirty-to-clean heads. | deferred until full-wave polished evidence, paired dataset diagnostics, `Wave 4 series`, `Wave 5.1`, and `Wave 5.2` identify which mechanisms should be integrated |
 | Sequential residual calibration branch | Current best causal model plus second causal residual or offset calibrator trained on model error. | candidate after audit |
 
@@ -1166,7 +1166,7 @@ Entry rule:
 
 ### Wave 5.2. Dataset-Aware MMT / PINN-Guided Models
 
-- status: pre-implemented at `Wave 5.2A` diagnostic level, not campaign-ready;
+- status: `Wave 5.2B` clean polished campaign completed and closed;
 - revised role: dataset-aware physics-guided branch with separate clean
   polished, noise-aware simplified, and paired transfer / dirty-to-clean
   decision surfaces;
@@ -1209,12 +1209,36 @@ Entry rule:
   - contact geometry remains unavailable or ambiguous and blocks calibrated
     analytical-baseline claims;
   - measured TE remains target-only and must not become an inference input.
+- completed Wave 5.2B campaign conclusions:
+  - campaign report:
+    `doc/reports/campaign_results/wave_5_2/2026-07-02-10-40-46_wave52b_offset_harmonic_guided_campaign_results_report.md`;
+  - completed `12` runs with `0` failures on `polished_dataset`;
+  - scalar winner:
+    `te_wave52b_offset_harmonic_guided_offset_centered_shape_harmonic_fw`;
+  - best Wave 5.2B surface profile:
+    `offset_centered_shape_harmonic` on `global`, `Fw`, and `Bw`;
+  - best surface test MAE values: `0.002215` global, `0.001392` `Fw`,
+    and `0.001677` `Bw`;
+  - scalar program winner remains `te_periodic_gru_sequence_bw`;
+  - official `TE Curve Verification Pipeline` leaders are unchanged because
+    no curve-verification refresh was run during normal closeout.
 - next implementation steps:
   - use the completed `Wave 5.2B` / `Wave 5.2C` model-design gate in
     `doc/reports/analysis/wave5_2/model_design_gate/[2026-07-01]/wave52b_wave52c_model_design_gate.md`;
-  - prepare `Wave 5.2B` first as a lightweight offset / mean and
-    nonzero-harmonic guided design after explicit campaign-preparation
-    approval;
+  - use the prepared `Wave 5.2B` model report and campaign plan:
+    `doc/reports/analysis/wave5_2/Wave 5.2B Offset And Harmonic Guided Model.md`
+    and
+    `doc/reports/campaign_plans/wave_5_2/2026-07-01-16-08-01_wave52b_offset_harmonic_guided_campaign_plan_report.md`;
+  - prepared package:
+    `config/training/wave52b_offset_harmonic_guided/campaigns/2026-07-01_wave52b_offset_harmonic_guided_campaign/`;
+  - prepared launcher:
+    `scripts/campaigns/wave_5_2/run_wave52b_offset_harmonic_guided_campaign.ps1`;
+  - exact launch commands are documented in:
+    `doc/scripts/campaigns/wave_5_2/run_wave52b_offset_harmonic_guided_campaign.md`;
+  - next action is either a separate operator-approved `TE Curve Verification
+    Pipeline` refresh for Wave 5.2B or waiting for the externally running
+    full-wave polished retraining closeout before opening the next clean-branch
+    training package;
   - keep `Wave 5.2C` dirty-to-clean or transfer supervision secondary until
     `Wave 5.2B` defines the clean branch and leakage-safe masks;
   - do not treat the current demonstration harmonic summary as dataset

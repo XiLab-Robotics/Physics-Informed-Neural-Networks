@@ -1,0 +1,114 @@
+schema_version: 1
+config_path: C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML
+  - Codex\config\training\queue\wave52b_offset_harmonic_guided\running\2026-07-01-18-59-04_010_010_offset_centered_shape_harmonic_global.yaml
+experiment:
+  model_family: wave52b_offset_harmonic_guided_offset_centered_shape_harmonic_global
+  model_type: wave52b_offset_harmonic_guided
+  run_name: te_wave52b_offset_harmonic_guided_offset_centered_shape_harmonic_global
+  output_run_name: te_wave52b_offset_harmonic_guided_offset_centered_shape_harmonic_global
+  run_instance_id: 2026-07-02-00-38-22__te_wave52b_offset_harmonic_guided_offset_centered_shape_harmonic_global
+  output_artifact_kind: training_run
+  base_model_family: wave52b_offset_harmonic_guided_offset_centered_shape_harmonic_global
+  training_variant: global
+  direction_scope_label: bidirectional
+  use_forward_direction: true
+  use_backward_direction: true
+artifacts:
+  output_directory: C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML
+    - Codex\output\training_runs\wave52b_offset_harmonic_guided_offset_centered_shape_harmonic_global\2026-07-02-00-38-22__te_wave52b_offset_harmonic_guided_offset_centered_shape_harmonic_global
+  best_checkpoint_path: C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML
+    - Codex\output\training_runs\wave52b_offset_harmonic_guided_offset_centered_shape_harmonic_global\2026-07-02-00-38-22__te_wave52b_offset_harmonic_guided_offset_centered_shape_harmonic_global\checkpoints\wave52b_offset_harmonic_guided-epoch=056-val_mae=0.00188588.ckpt
+dataset_split:
+  train_curve_count: 1356
+  validation_curve_count: 388
+  test_curve_count: 194
+  dataset_name: polished_dataset
+  dataset_schema: polished_point_v1
+  input_feature_name_list:
+  - theta
+  - theta_dot
+  - tau_load
+  - T
+  target_feature_name_list:
+  - theta_TE
+  input_feature_dim: 4
+  target_feature_dim: 1
+dataset:
+  dataset_id: polished_dataset
+  dataset_schema: polished_point_v1
+  input_feature_names:
+  - theta
+  - theta_dot
+  - tau_load
+  - T
+  target_feature_names:
+  - theta_TE
+  input_feature_dim: 4
+  target_feature_dim: 1
+model_summary:
+  backbone_name: Wave52BOffsetHarmonicGuidedNetwork
+  trainable_parameter_count: 22593
+  frozen_parameter_count: 0
+  total_parameter_count: 22593
+runtime_config:
+  accelerator: auto
+  devices: auto
+  precision: '32'
+  benchmark: true
+  use_non_blocking_transfer: true
+normalization_statistics:
+  input_feature_mean:
+  - 180.0000762939453
+  - -14.942256927490234
+  - 1.681342363357544
+  - 30.617416381835938
+  input_feature_std:
+  - 103.92301940917969
+  - 690.1138305664062
+  - 1055.5772705078125
+  - 4.267345428466797
+  target_mean:
+  - -0.016667330637574196
+  target_std:
+  - 0.0465485081076622
+validation_metrics:
+  val_loss: 0.007468880619853735
+  val_mae: 0.0018858772236853838
+  val_rmse: 0.002316597616299987
+  val_pointwise_loss: 0.00504073454067111
+  val_centered_curve_shape_loss: 0.0046280198730528355
+  val_curve_offset_loss: 0.0004127163265366107
+  val_curve_amplitude_loss: 0.028607230633497238
+  val_sparse_harmonic_shape_loss: 0.00010270995699102059
+  val_structured_mae: 0.007150318939238787
+  val_structured_rmse: 0.007582712918519974
+  val_base_mae: 0.039109084755182266
+  val_base_rmse: 0.04283302277326584
+  val_residual_offset_mean_abs: 0.007036219816654921
+test_metrics:
+  test_loss: 0.011876438744366169
+  test_mae: 0.002214692533016205
+  test_rmse: 0.0027988373767584562
+  test_pointwise_loss: 0.008428502827882767
+  test_centered_curve_shape_loss: 0.005608790088444948
+  test_curve_offset_loss: 0.0028197146020829678
+  test_curve_amplitude_loss: 0.037840042263269424
+  test_sparse_harmonic_shape_loss: 0.00011219245789106935
+  test_structured_mae: 0.007120474707335234
+  test_structured_rmse: 0.007757158949971199
+  test_base_mae: 0.03665771335363388
+  test_base_rmse: 0.04098162427544594
+  test_residual_offset_mean_abs: 0.006872172467410564
+comparison_payload:
+  model_family: wave52b_offset_harmonic_guided_offset_centered_shape_harmonic_global
+  model_type: wave52b_offset_harmonic_guided
+  run_name: te_wave52b_offset_harmonic_guided_offset_centered_shape_harmonic_global
+  backbone_name: Wave52BOffsetHarmonicGuidedNetwork
+  trainable_parameter_count: 22593
+  total_parameter_count: 22593
+  val_mae: 0.0018858772236853838
+  val_rmse: 0.002316597616299987
+  test_mae: 0.002214692533016205
+  test_rmse: 0.0027988373767584562
+  deployment_notes: ''
+  interpretability_notes: ''

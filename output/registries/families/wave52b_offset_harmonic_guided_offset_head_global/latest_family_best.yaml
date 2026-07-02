@@ -1,0 +1,48 @@
+schema_version: 1
+model_family: wave52b_offset_harmonic_guided_offset_head_global
+selection_policy:
+  primary_metric: test_mae
+  first_tie_breaker: test_rmse
+  second_tie_breaker: val_mae
+  third_tie_breaker: trainable_parameter_count
+  direction: minimize
+updated_at: '2026-07-01T21:42:42'
+best_entry:
+  run_instance_id: 2026-07-01-20-42-26__te_wave52b_offset_harmonic_guided_offset_head_global
+  run_name: te_wave52b_offset_harmonic_guided_offset_head_global
+  output_run_name: te_wave52b_offset_harmonic_guided_offset_head_global
+  output_artifact_kind: training_run
+  model_family: wave52b_offset_harmonic_guided_offset_head_global
+  base_model_family: wave52b_offset_harmonic_guided_offset_head_global
+  model_type: wave52b_offset_harmonic_guided
+  dataset_id: polished_dataset
+  dataset_schema: polished_point_v1
+  input_feature_names:
+  - theta
+  - theta_dot
+  - tau_load
+  - T
+  target_feature_names:
+  - theta_TE
+  input_feature_dim: 4
+  training_variant: global
+  direction_scope_label: bidirectional
+  use_forward_direction: true
+  use_backward_direction: true
+  trainable_parameter_count: 22593
+  total_parameter_count: 22593
+  val_mae: 0.0022494259756058455
+  val_rmse: 0.0027865145821124315
+  test_mae: 0.0024826149456202984
+  test_rmse: 0.003166334470734
+  output_directory: output\training_runs\wave52b_offset_harmonic_guided_offset_head_global\2026-07-01-20-42-26__te_wave52b_offset_harmonic_guided_offset_head_global
+  best_checkpoint_path: output\training_runs\wave52b_offset_harmonic_guided_offset_head_global\2026-07-01-20-42-26__te_wave52b_offset_harmonic_guided_offset_head_global\checkpoints\wave52b_offset_harmonic_guided-epoch=092-val_mae=0.00224943.ckpt
+  metrics_path: output\training_runs\wave52b_offset_harmonic_guided_offset_head_global\2026-07-01-20-42-26__te_wave52b_offset_harmonic_guided_offset_head_global/metrics_summary.yaml
+  report_path: output\training_runs\wave52b_offset_harmonic_guided_offset_head_global\2026-07-01-20-42-26__te_wave52b_offset_harmonic_guided_offset_head_global/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-07-01T21:42:42'

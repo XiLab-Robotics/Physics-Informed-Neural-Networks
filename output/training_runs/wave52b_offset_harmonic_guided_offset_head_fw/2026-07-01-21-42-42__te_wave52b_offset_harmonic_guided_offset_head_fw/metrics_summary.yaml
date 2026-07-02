@@ -1,0 +1,114 @@
+schema_version: 1
+config_path: C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML
+  - Codex\config\training\queue\wave52b_offset_harmonic_guided\running\2026-07-01-18-59-04_005_005_offset_head_fw.yaml
+experiment:
+  model_family: wave52b_offset_harmonic_guided_offset_head_fw
+  model_type: wave52b_offset_harmonic_guided
+  run_name: te_wave52b_offset_harmonic_guided_offset_head_fw
+  output_run_name: te_wave52b_offset_harmonic_guided_offset_head_fw
+  run_instance_id: 2026-07-01-21-42-42__te_wave52b_offset_harmonic_guided_offset_head_fw
+  output_artifact_kind: training_run
+  base_model_family: wave52b_offset_harmonic_guided_offset_head_fw
+  training_variant: Fw
+  direction_scope_label: forward_only
+  use_forward_direction: true
+  use_backward_direction: false
+artifacts:
+  output_directory: C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML
+    - Codex\output\training_runs\wave52b_offset_harmonic_guided_offset_head_fw\2026-07-01-21-42-42__te_wave52b_offset_harmonic_guided_offset_head_fw
+  best_checkpoint_path: C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML
+    - Codex\output\training_runs\wave52b_offset_harmonic_guided_offset_head_fw\2026-07-01-21-42-42__te_wave52b_offset_harmonic_guided_offset_head_fw\checkpoints\wave52b_offset_harmonic_guided-epoch=084-val_mae=0.00225646.ckpt
+dataset_split:
+  train_curve_count: 678
+  validation_curve_count: 194
+  test_curve_count: 97
+  dataset_name: polished_dataset
+  dataset_schema: polished_point_v1
+  input_feature_name_list:
+  - theta
+  - theta_dot
+  - tau_load
+  - T
+  target_feature_name_list:
+  - theta_TE
+  input_feature_dim: 4
+  target_feature_dim: 1
+dataset:
+  dataset_id: polished_dataset
+  dataset_schema: polished_point_v1
+  input_feature_names:
+  - theta
+  - theta_dot
+  - tau_load
+  - T
+  target_feature_names:
+  - theta_TE
+  input_feature_dim: 4
+  target_feature_dim: 1
+model_summary:
+  backbone_name: Wave52BOffsetHarmonicGuidedNetwork
+  trainable_parameter_count: 22593
+  frozen_parameter_count: 0
+  total_parameter_count: 22593
+runtime_config:
+  accelerator: auto
+  devices: auto
+  precision: '32'
+  benchmark: true
+  use_non_blocking_transfer: true
+normalization_statistics:
+  input_feature_mean:
+  - 180.00027465820312
+  - 497.8579406738281
+  - -895.7764892578125
+  - 31.128774642944336
+  input_feature_std:
+  - 103.92298889160156
+  - 468.09405517578125
+  - 544.1326904296875
+  - 4.2534284591674805
+  target_mean:
+  - -0.05639481917023659
+  target_std:
+  - 0.02413073740899563
+validation_metrics:
+  val_loss: 0.020579028874635696
+  val_mae: 0.0022564565297216177
+  val_rmse: 0.002789278281852603
+  val_pointwise_loss: 0.020346863195300102
+  val_centered_curve_shape_loss: 0.01879909075796604
+  val_curve_offset_loss: 0.0015477725537493825
+  val_curve_amplitude_loss: 0.19312499463558197
+  val_sparse_harmonic_shape_loss: 0.00043310635373927653
+  val_structured_mae: 0.019635362550616264
+  val_structured_rmse: 0.023072728887200356
+  val_base_mae: 0.010413473471999168
+  val_base_rmse: 0.011687916703522205
+  val_residual_offset_mean_abs: 0.010102029889822006
+test_metrics:
+  test_loss: 0.013737608678638935
+  test_mae: 0.001948422403074801
+  test_rmse: 0.0024543735198676586
+  test_pointwise_loss: 0.013430969789624214
+  test_centered_curve_shape_loss: 0.01138670090585947
+  test_curve_offset_loss: 0.002044270746409893
+  test_curve_amplitude_loss: 0.12397603690624237
+  test_sparse_harmonic_shape_loss: 0.0002451672626193613
+  test_structured_mae: 0.020063327625393867
+  test_structured_rmse: 0.02346026711165905
+  test_base_mae: 0.010001353919506073
+  test_base_rmse: 0.011159555986523628
+  test_residual_offset_mean_abs: 0.009981587529182434
+comparison_payload:
+  model_family: wave52b_offset_harmonic_guided_offset_head_fw
+  model_type: wave52b_offset_harmonic_guided
+  run_name: te_wave52b_offset_harmonic_guided_offset_head_fw
+  backbone_name: Wave52BOffsetHarmonicGuidedNetwork
+  trainable_parameter_count: 22593
+  total_parameter_count: 22593
+  val_mae: 0.0022564565297216177
+  val_rmse: 0.002789278281852603
+  test_mae: 0.001948422403074801
+  test_rmse: 0.0024543735198676586
+  deployment_notes: ''
+  interpretability_notes: ''

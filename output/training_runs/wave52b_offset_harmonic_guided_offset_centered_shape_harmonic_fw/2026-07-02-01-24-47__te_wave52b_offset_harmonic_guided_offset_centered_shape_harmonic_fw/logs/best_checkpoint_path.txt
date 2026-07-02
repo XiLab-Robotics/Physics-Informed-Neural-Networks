@@ -1,0 +1,1 @@
+C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_runs\wave52b_offset_harmonic_guided_offset_centered_shape_harmonic_fw\2026-07-02-01-24-47__te_wave52b_offset_harmonic_guided_offset_centered_shape_harmonic_fw\checkpoints\wave52b_offset_harmonic_guided-epoch=116-val_mae=0.00180918.ckpt

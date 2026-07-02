@@ -1,0 +1,49 @@
+schema_version: 1
+model_family: wave52b_offset_harmonic_guided_pointwise_control_bw
+selection_policy:
+  primary_metric: test_mae
+  first_tie_breaker: test_rmse
+  second_tie_breaker: val_mae
+  third_tie_breaker: trainable_parameter_count
+  direction: minimize
+updated_at: '2026-07-01T20:42:26'
+entry_count: 1
+entry_list:
+- run_instance_id: 2026-07-01-20-13-11__te_wave52b_offset_harmonic_guided_pointwise_control_bw
+  run_name: te_wave52b_offset_harmonic_guided_pointwise_control_bw
+  output_run_name: te_wave52b_offset_harmonic_guided_pointwise_control_bw
+  output_artifact_kind: training_run
+  model_family: wave52b_offset_harmonic_guided_pointwise_control_bw
+  base_model_family: wave52b_offset_harmonic_guided_pointwise_control_bw
+  model_type: wave52b_offset_harmonic_guided
+  dataset_id: polished_dataset
+  dataset_schema: polished_point_v1
+  input_feature_names:
+  - theta
+  - theta_dot
+  - tau_load
+  - T
+  target_feature_names:
+  - theta_TE
+  input_feature_dim: 4
+  training_variant: Bw
+  direction_scope_label: backward_only
+  use_forward_direction: false
+  use_backward_direction: true
+  trainable_parameter_count: 22593
+  total_parameter_count: 22593
+  val_mae: 0.0025909380055963993
+  val_rmse: 0.0032006821129471064
+  test_mae: 0.0019786942284554243
+  test_rmse: 0.0025873028207570314
+  output_directory: output\training_runs\wave52b_offset_harmonic_guided_pointwise_control_bw\2026-07-01-20-13-11__te_wave52b_offset_harmonic_guided_pointwise_control_bw
+  best_checkpoint_path: output\training_runs\wave52b_offset_harmonic_guided_pointwise_control_bw\2026-07-01-20-13-11__te_wave52b_offset_harmonic_guided_pointwise_control_bw\checkpoints\wave52b_offset_harmonic_guided-epoch=102-val_mae=0.00259094.ckpt
+  metrics_path: output\training_runs\wave52b_offset_harmonic_guided_pointwise_control_bw\2026-07-01-20-13-11__te_wave52b_offset_harmonic_guided_pointwise_control_bw/metrics_summary.yaml
+  report_path: output\training_runs\wave52b_offset_harmonic_guided_pointwise_control_bw\2026-07-01-20-13-11__te_wave52b_offset_harmonic_guided_pointwise_control_bw/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-07-01T20:42:26'

@@ -22,6 +22,7 @@ from scripts.models.temporal_sequence_network import RecurrentSequenceNetwork
 from scripts.models.temporal_sequence_network import TemporalConvolutionNetwork
 from scripts.models.wave3_grouped_harmonic_heads_network import Wave3GroupedHarmonicHeadsNetwork
 from scripts.models.wave3_harmonic_prior_residual_network import Wave3HarmonicPriorResidualNetwork
+from scripts.models.wave52b_offset_harmonic_guided_network import Wave52BOffsetHarmonicGuidedNetwork
 
 def create_model(model_type: str, model_configuration: dict[str, Any]) -> nn.Module:
 
@@ -297,6 +298,25 @@ def create_model(model_type: str, model_configuration: dict[str, Any]) -> nn.Mod
             residual_scale=float(model_configuration.get("residual_scale", 1.0)),
             readout_position=str(model_configuration.get("readout_position", "center")),
             freeze_harmonic_heads=bool(model_configuration.get("freeze_harmonic_heads", False)),
+        )
+
+    # Create Wave 5.2B Offset And Harmonic Guided Model
+    if normalized_model_type == "wave52b_offset_harmonic_guided":
+        return Wave52BOffsetHarmonicGuidedNetwork(
+            input_size=int(model_configuration["input_size"]),
+            output_size=int(model_configuration.get("output_size", 1)),
+            base_hidden_size=model_configuration.get("base_hidden_size"),
+            offset_hidden_size=model_configuration.get("offset_hidden_size"),
+            activation_name=str(model_configuration.get("activation_name", "GELU")),
+            dropout_probability=float(model_configuration.get("dropout_probability", 0.05)),
+            use_layer_norm=bool(model_configuration.get("use_layer_norm", True)),
+            offset_scale=float(model_configuration.get("offset_scale", 1.0)),
+            harmonic_scale=float(model_configuration.get("harmonic_scale", 0.0)),
+            harmonic_order=int(model_configuration.get("harmonic_order", 240)),
+            coefficient_mode=str(model_configuration.get("coefficient_mode", "linear_conditioned")),
+            harmonic_index_list=model_configuration.get("harmonic_index_list"),
+            readout_position=str(model_configuration.get("readout_position", "center")),
+            freeze_harmonic_branch=bool(model_configuration.get("freeze_harmonic_branch", False)),
         )
 
     # Create Periodic LSTM Sequence Model

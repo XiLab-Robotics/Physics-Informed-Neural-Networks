@@ -1,0 +1,114 @@
+schema_version: 1
+config_path: C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML
+  - Codex\config\training\queue\wave52b_offset_harmonic_guided\running\2026-07-01-18-59-04_004_004_offset_head_global.yaml
+experiment:
+  model_family: wave52b_offset_harmonic_guided_offset_head_global
+  model_type: wave52b_offset_harmonic_guided
+  run_name: te_wave52b_offset_harmonic_guided_offset_head_global
+  output_run_name: te_wave52b_offset_harmonic_guided_offset_head_global
+  run_instance_id: 2026-07-01-20-42-26__te_wave52b_offset_harmonic_guided_offset_head_global
+  output_artifact_kind: training_run
+  base_model_family: wave52b_offset_harmonic_guided_offset_head_global
+  training_variant: global
+  direction_scope_label: bidirectional
+  use_forward_direction: true
+  use_backward_direction: true
+artifacts:
+  output_directory: C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML
+    - Codex\output\training_runs\wave52b_offset_harmonic_guided_offset_head_global\2026-07-01-20-42-26__te_wave52b_offset_harmonic_guided_offset_head_global
+  best_checkpoint_path: C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML
+    - Codex\output\training_runs\wave52b_offset_harmonic_guided_offset_head_global\2026-07-01-20-42-26__te_wave52b_offset_harmonic_guided_offset_head_global\checkpoints\wave52b_offset_harmonic_guided-epoch=092-val_mae=0.00224943.ckpt
+dataset_split:
+  train_curve_count: 1356
+  validation_curve_count: 388
+  test_curve_count: 194
+  dataset_name: polished_dataset
+  dataset_schema: polished_point_v1
+  input_feature_name_list:
+  - theta
+  - theta_dot
+  - tau_load
+  - T
+  target_feature_name_list:
+  - theta_TE
+  input_feature_dim: 4
+  target_feature_dim: 1
+dataset:
+  dataset_id: polished_dataset
+  dataset_schema: polished_point_v1
+  input_feature_names:
+  - theta
+  - theta_dot
+  - tau_load
+  - T
+  target_feature_names:
+  - theta_TE
+  input_feature_dim: 4
+  target_feature_dim: 1
+model_summary:
+  backbone_name: Wave52BOffsetHarmonicGuidedNetwork
+  trainable_parameter_count: 22593
+  frozen_parameter_count: 0
+  total_parameter_count: 22593
+runtime_config:
+  accelerator: auto
+  devices: auto
+  precision: '32'
+  benchmark: true
+  use_non_blocking_transfer: true
+normalization_statistics:
+  input_feature_mean:
+  - 180.0000762939453
+  - -14.942256927490234
+  - 1.681342363357544
+  - 30.617416381835938
+  input_feature_std:
+  - 103.92301940917969
+  - 690.1138305664062
+  - 1055.5772705078125
+  - 4.267345428466797
+  target_mean:
+  - -0.016667330637574196
+  target_std:
+  - 0.0465485081076622
+validation_metrics:
+  val_loss: 0.0060915653593838215
+  val_mae: 0.0022494259756058455
+  val_rmse: 0.0027865145821124315
+  val_pointwise_loss: 0.006010968238115311
+  val_centered_curve_shape_loss: 0.005473652854561806
+  val_curve_offset_loss: 0.0005373174790292978
+  val_curve_amplitude_loss: 0.054807376116514206
+  val_sparse_harmonic_shape_loss: 0.0001260578428627923
+  val_structured_mae: 0.04023174196481705
+  val_structured_rmse: 0.04395787790417671
+  val_base_mae: 0.015494344756007195
+  val_base_rmse: 0.017282946035265923
+  val_residual_offset_mean_abs: 0.015246013179421425
+test_metrics:
+  test_loss: 0.009170744568109512
+  test_mae: 0.0024826149456202984
+  test_rmse: 0.003166334470734
+  test_pointwise_loss: 0.00881402287632227
+  test_centered_curve_shape_loss: 0.006435879971832037
+  test_curve_offset_loss: 0.0023781463969498873
+  test_curve_amplitude_loss: 0.06402771174907684
+  test_sparse_harmonic_shape_loss: 0.0001351389364572242
+  test_structured_mae: 0.03799234703183174
+  test_structured_rmse: 0.0422946996986866
+  test_base_mae: 0.014872685074806213
+  test_base_rmse: 0.016886478289961815
+  test_residual_offset_mean_abs: 0.014477908611297607
+comparison_payload:
+  model_family: wave52b_offset_harmonic_guided_offset_head_global
+  model_type: wave52b_offset_harmonic_guided
+  run_name: te_wave52b_offset_harmonic_guided_offset_head_global
+  backbone_name: Wave52BOffsetHarmonicGuidedNetwork
+  trainable_parameter_count: 22593
+  total_parameter_count: 22593
+  val_mae: 0.0022494259756058455
+  val_rmse: 0.0027865145821124315
+  test_mae: 0.0024826149456202984
+  test_rmse: 0.003166334470734
+  deployment_notes: ''
+  interpretability_notes: ''

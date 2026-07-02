@@ -8,6 +8,7 @@ from .residual_harmonic_temporal_sequence_network import ResidualHarmonicTempora
 from .sequential_residual_offset_network import SequentialResidualOffsetNetwork
 from .temporal_sequence_network import RecurrentSequenceNetwork
 from .temporal_sequence_network import TemporalConvolutionNetwork
+from .wave52b_offset_harmonic_guided_network import Wave52BOffsetHarmonicGuidedNetwork
 
 __all__ = [
     "FeedForwardNetwork",
@@ -17,5 +18,6 @@ __all__ = [
     "RecurrentSequenceNetwork",
     "SequentialResidualOffsetNetwork",
     "TemporalConvolutionNetwork",
+    "Wave52BOffsetHarmonicGuidedNetwork",
     "create_model",
 ]

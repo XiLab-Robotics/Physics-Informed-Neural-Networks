@@ -57,3 +57,25 @@ state intentionally records the RCIM run as parallel on another workstation:
 .. code-block:: powershell
 
    .\scripts\campaigns\cross_wave\run_polished_dataset_early_wave_parallel_training_campaign.ps1
+
+Wave 5.2B polished offset and harmonic guided campaign
+------------------------------------------------------
+
+Validate the prepared 12-run Wave 5.2B polished-dataset campaign without
+training:
+
+.. code-block:: powershell
+
+   .\scripts\campaigns\wave_5_2\run_wave52b_offset_harmonic_guided_campaign.ps1 -PreflightOnly
+
+Launch locally only after confirming the prepared campaign state is intended:
+
+.. code-block:: powershell
+
+   .\scripts\campaigns\wave_5_2\run_wave52b_offset_harmonic_guided_campaign.ps1
+
+Remote launch delegates to the repository-owned remote campaign runner:
+
+.. code-block:: powershell
+
+   .\scripts\campaigns\wave_5_2\run_wave52b_offset_harmonic_guided_campaign.ps1 -Remote

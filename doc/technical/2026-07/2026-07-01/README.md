@@ -2,6 +2,11 @@
 
 ## Documents
 
+- [2026-07-01-16-08-01_wave52b_offset_harmonic_guided_preparation.md](./2026-07-01-16-08-01_wave52b_offset_harmonic_guided_preparation.md)
+  Technical plan and implementation record for the prepared `Wave 5.2B`
+  offset / mean and nonzero-harmonic guided model branch, campaign package,
+  validator, launcher, and active campaign state.
+
 - [2026-07-01-15-30-07_wave52b_wave52c_model_design_gate.md](./2026-07-01-15-30-07_wave52b_wave52c_model_design_gate.md)
   Technical plan for translating the completed `Wave 5.2A` full paired matrix
   into a `Wave 5.2B` offset/harmonic guided model-design gate and a `Wave

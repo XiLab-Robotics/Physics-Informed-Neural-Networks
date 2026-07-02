@@ -1,0 +1,21 @@
+schema_version: 1
+artifact_kind: training_run
+model_family: wave52b_offset_harmonic_guided_offset_head_global
+base_model_family: wave52b_offset_harmonic_guided_offset_head_global
+training_variant: global
+direction_scope_label: bidirectional
+use_forward_direction: true
+use_backward_direction: true
+run_name: te_wave52b_offset_harmonic_guided_offset_head_global
+run_instance_id: 2026-07-01-20-42-26__te_wave52b_offset_harmonic_guided_offset_head_global
+output_directory: output\training_runs\wave52b_offset_harmonic_guided_offset_head_global\2026-07-01-20-42-26__te_wave52b_offset_harmonic_guided_offset_head_global
+dataset_id: polished_dataset
+dataset_schema: polished_point_v1
+input_feature_names:
+- theta
+- theta_dot
+- tau_load
+- T
+target_feature_names:
+- theta_TE
+input_feature_dim: 4

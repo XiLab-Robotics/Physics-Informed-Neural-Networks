@@ -38,6 +38,8 @@ At the moment, the implemented workflows are:
   with local and `-Remote` execution paths;
 - a prepared `Wave 4.4` latent-state / hysteresis-aware campaign launcher
   with local and `-Remote` execution paths;
+- a prepared `Wave 5.2B` polished offset and harmonic guided campaign
+  launcher with local and `-Remote` execution paths;
 - a `Wave 5.2A` MMT equation diagnostic report generator for harmonic-summary
   inspection before PINN integration;
 - a dry-run `Wave 5.2B` MMT feature-generator check that writes leakage-aware
@@ -189,6 +191,12 @@ Prepared early-wave polished retraining preflight:
 .\scripts\campaigns\cross_wave\run_polished_dataset_early_wave_parallel_training_campaign.ps1 -PreflightOnly
 ```
 
+Prepared `Wave 5.2B` polished offset/harmonic guided preflight:
+
+```powershell
+.\scripts\campaigns\wave_5_2\run_wave52b_offset_harmonic_guided_campaign.ps1 -PreflightOnly
+```
+
 Launch the 36-run early-wave batch locally after confirming the active
 campaign state is intentionally parallel with the RCIM run on the other
 workstation:
@@ -300,6 +308,11 @@ The current usage flow mainly relies on these folders:
   validates six causal-history queue entries across `global`, `Fw`, and `Bw`,
   then launches locally or delegates to the repository-owned remote campaign
   runner.
+
+- `scripts/campaigns/wave_5_2/run_wave52b_offset_harmonic_guided_campaign.ps1`
+  Prepared `Wave 5.2B` polished offset and harmonic guided campaign launcher.
+  It validates 12 queue entries across `global`, `Fw`, and `Bw`, then launches
+  locally or delegates to the repository-owned remote campaign runner.
 
 - `scripts/campaigns/wave_4/run_wave4_embryonic_skeleton_checks.ps1`
   Dry-run check launcher for the embryonic `Wave 5.2A` MMT diagnostic adapter.

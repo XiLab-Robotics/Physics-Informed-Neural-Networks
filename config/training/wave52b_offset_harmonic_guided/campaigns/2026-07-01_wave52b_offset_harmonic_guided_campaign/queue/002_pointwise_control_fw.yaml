@@ -1,0 +1,118 @@
+paths:
+  dataset_config_path: config/training/wave52b_offset_harmonic_guided/campaigns/2026-07-01_wave52b_offset_harmonic_guided_campaign/dataset_variants/transmission_error_dataset_fw.yaml
+  output_root: output/training_runs/wave52b_offset_harmonic_guided_pointwise_control_fw
+experiment:
+  run_name: te_wave52b_offset_harmonic_guided_pointwise_control_fw
+  model_family: wave52b_offset_harmonic_guided_pointwise_control_fw
+  model_type: wave52b_offset_harmonic_guided
+metadata:
+  campaign_name: wave52b_offset_harmonic_guided_campaign_2026_07_01
+  planning_report_path: doc/reports/campaign_plans/wave_5_2/2026-07-01-16-08-01_wave52b_offset_harmonic_guided_campaign_plan_report.md
+  technical_document_path: doc/technical/2026-07/2026-07-01/2026-07-01-16-08-01_wave52b_offset_harmonic_guided_preparation.md
+  model_report_path: doc/reports/analysis/wave5_2/Wave 5.2B Offset And Harmonic Guided Model.md
+  phase_name: wave52b_offset_harmonic_guided
+  campaign_config_id: wave52b_offset_harmonic_guided_pointwise_control_fw
+  queue_index: 2
+  intervention: wave52b_direct_pointwise_control
+  probe_group: wave52b_offset_harmonic_guided
+  ablation_profile: pointwise_control
+  training_variant: Fw
+  direction_scope_label: forward_only
+  use_forward_direction: true
+  use_backward_direction: false
+  dataset_id: polished_dataset
+  dataset_schema: polished_point_v1
+  comparison_baseline: completed polished early-wave leaders and pending full-wave polished retraining package
+  promotion_rule: Candidate must return through official TE Curve Verification Pipeline after normal campaign closeout.
+  wave52a_evidence: Paired polished-vs-simplified matrix found offset and harmonic corrections dominate the dataset delta.
+  harmonic_basis: sparse_rcim
+  harmonic_index_list:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+dataset:
+  curve_batch_size: 2
+  point_stride: 1
+  maximum_points_per_curve: null
+  collate_mode: sequence
+  sequence_length: 33
+  sequence_stride: 4
+  sequence_target_position: center
+  maximum_sequences_per_curve: 192
+  shuffle_training_batch_elements: false
+  num_workers: 8
+  pin_memory: true
+  name: polished_dataset
+model:
+  input_size: auto
+  output_size: 1
+  base_hidden_size:
+  - 128
+  - 96
+  - 64
+  offset_hidden_size:
+  - 64
+  - 32
+  activation_name: GELU
+  dropout_probability: 0.05
+  use_layer_norm: true
+  offset_scale: 0.0
+  harmonic_scale: 0.0
+  harmonic_order: 240
+  coefficient_mode: linear_conditioned
+  harmonic_index_list:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  readout_position: center
+  freeze_harmonic_branch: false
+training:
+  learning_rate: 0.0005
+  weight_decay: 0.0001
+  min_epochs: 20
+  max_epochs: 260
+  patience: 40
+  min_delta: 1.0e-05
+  log_every_n_steps: 1
+  fast_dev_run: false
+  deterministic: false
+  loss:
+    profile: pointwise_control
+    pointwise_loss: mse
+    weights:
+      point: 1.0
+      centered: 0.0
+      offset: 0.0
+      amplitude: 0.0
+      harmonic: 0.0
+    harmonic_index_list:
+    - 0
+    - 1
+    - 3
+    - 39
+    - 40
+    - 78
+    - 81
+    - 156
+    - 162
+    - 240
+runtime:
+  accelerator: auto
+  devices: auto
+  precision: '32'
+  benchmark: true
+  use_non_blocking_transfer: true

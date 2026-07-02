@@ -291,6 +291,12 @@ This folder contains the internal project documents derived from the reference P
 - [reports/campaign_results/cross_wave/polished_dataset/2026-06-29-10-40-05_polished_early_wave_parallel_training_campaign_results_report.md](./reports/campaign_results/cross_wave/polished_dataset/2026-06-29-10-40-05_polished_early_wave_parallel_training_campaign_results_report.md)
   Closeout report for the completed 36-run polished early-wave parallel training campaign.
 
+- [reports/campaign_results/wave_5_2/2026-07-02-10-40-46_wave52b_offset_harmonic_guided_campaign_results_report.md](./reports/campaign_results/wave_5_2/2026-07-02-10-40-46_wave52b_offset_harmonic_guided_campaign_results_report.md)
+  Closeout report for the completed `Wave 5.2B` `12`-run offset and harmonic
+  guided campaign on `polished_dataset`, including the harmonic-profile
+  ablation decision and the normal boundary that keeps official
+  `TE Curve Verification Pipeline` refresh separate.
+
 - [reports/campaign_results/cross_wave/polished_dataset/2026-06-22-16-59-14_polished_dataset_stage1_smoke_campaign_results_report.md](./reports/campaign_results/cross_wave/polished_dataset/2026-06-22-16-59-14_polished_dataset_stage1_smoke_campaign_results_report.md)
   Final results report for the completed `polished_dataset` Stage 1 smoke
   campaign, including the eight-run scalar leaderboard, registry effects,
@@ -452,6 +458,14 @@ This folder contains the internal project documents derived from the reference P
   matrix into a lightweight offset/harmonic guided primary branch, a
   dirty-to-clean transfer secondary branch, and deferred `Wave 6` integration.
 
+- [reports/analysis/wave5_2/Wave 5.2B Offset And Harmonic Guided Model.md](./reports/analysis/wave5_2/Wave%205.2B%20Offset%20And%20Harmonic%20Guided%20Model.md)
+  Explanatory model report for the prepared `Wave 5.2B` lightweight offset /
+  mean and nonzero-harmonic guided TE prediction branch.
+
+- [reports/campaign_plans/wave_5_2/2026-07-01-16-08-01_wave52b_offset_harmonic_guided_campaign_plan_report.md](./reports/campaign_plans/wave_5_2/2026-07-01-16-08-01_wave52b_offset_harmonic_guided_campaign_plan_report.md)
+  Prepared campaign plan for the `Wave 5.2B` `12`-run offset and harmonic
+  guided campaign on `polished_dataset`.
+
 - [reports/analysis/Repository Status Wave Track Synthesis.md](./reports/analysis/Repository%20Status%20Wave%20Track%20Synthesis.md)
   Consolidated state report covering the repository status, `Wave 1`,
   `Wave 2.1`, `Wave 2.2`, `Wave 2.3`, `TE Curve Verification Pipeline` outcomes, sparse `RCIM` versus
@@ -484,6 +498,14 @@ This folder contains the internal project documents derived from the reference P
   Technical sum-up of the completed remote-strong `large-v3` plus `openai/gpt-oss-20b` video campaign across the 11 canonical TwinCAT/TestRig videos.
 
 ### Technical Documents
+
+#### 2026-07-02
+
+- [technical/2026-07/2026-07-02/2026-07-02-10-37-52_wave52b_offset_harmonic_guided_closeout.md](./technical/2026-07/2026-07-02/2026-07-02-10-37-52_wave52b_offset_harmonic_guided_closeout.md)
+  Technical plan for closing out the completed `Wave 5.2B` offset and
+  harmonic guided campaign, producing the Markdown/PDF campaign-results
+  report, synchronizing status documents, and keeping official `TE Curve
+  Verification Pipeline` refresh separate.
 
 #### 2026-06-29
 
@@ -3519,6 +3541,11 @@ This folder contains the internal project documents derived from the reference P
   Technical plan for translating the completed `Wave 5.2A` full paired matrix
   into a `Wave 5.2B` offset/harmonic guided model-design gate and a `Wave
   5.2C` dirty-to-clean transfer design gate.
+
+- [technical/2026-07/2026-07-01/2026-07-01-16-08-01_wave52b_offset_harmonic_guided_preparation.md](./technical/2026-07/2026-07-01/2026-07-01-16-08-01_wave52b_offset_harmonic_guided_preparation.md)
+  Technical plan and implementation record for the prepared `Wave 5.2B`
+  offset / mean and nonzero-harmonic guided model branch, campaign package,
+  validator, launcher, and active campaign state.
 
 - [technical/2026-04/2026-04-09/2026-04-09-16-42-43_notebooklm_export_integration_for_harmonic_wise_guide.md](./technical/2026-04/2026-04-09/2026-04-09-16-42-43_notebooklm_export_integration_for_harmonic_wise_guide.md)
   Technical plan for importing, renaming, and canonically placing the generated NotebookLM concept and project exports for the harmonic-wise guide.
