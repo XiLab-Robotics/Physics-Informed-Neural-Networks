@@ -66,8 +66,12 @@ def parse_command_line_arguments() -> argparse.Namespace:
     )
     argument_parser.add_argument(
         "--candidate-source-label",
+        action="append",
         required=True,
-        help="Matrix candidate source label that must be present in the refresh.",
+        help=(
+            "Matrix candidate source label that must be present in the refresh. "
+            "Pass more than once for multi-source refreshes."
+        ),
     )
     argument_parser.add_argument(
         "--decision",
@@ -143,25 +147,30 @@ def format_percentage_metric(metric_value: Any) -> str:
 
 def collect_source_candidate_list(
     matrix_summary_dictionary: dict[str, Any],
-    candidate_source_label: str,
+    candidate_source_label_list: list[str],
 ) -> list[dict[str, Any]]:
 
-    """Collect candidates belonging to the refreshed source label."""
+    """Collect candidates belonging to the refreshed source labels."""
 
     candidate_list = matrix_summary_dictionary.get("candidate_list", [])
     if not isinstance(candidate_list, list):
         raise TypeError("Matrix summary candidate_list must be a list.")
 
+    candidate_source_label_set = {
+        str(candidate_source_label).strip()
+        for candidate_source_label in candidate_source_label_list
+        if str(candidate_source_label).strip()
+    }
     source_candidate_list = [
         candidate_dictionary
         for candidate_dictionary in candidate_list
         if str(candidate_dictionary.get("candidate_source_label", "")).strip()
-        == candidate_source_label
+        in candidate_source_label_set
     ]
     if not source_candidate_list:
         raise AssertionError(
             "The official report builder could not find refreshed candidates "
-            f"for source label: {candidate_source_label}"
+            f"for source labels: {', '.join(sorted(candidate_source_label_set))}"
         )
     return source_candidate_list
 
@@ -271,16 +280,21 @@ def collect_direction_leader_rows(
 def collect_visual_source_count(
     collage_summary_dictionary: dict[str, Any],
     overlay_summary_dictionary: dict[str, Any],
-    candidate_source_label: str,
+    candidate_source_label_list: list[str],
 ) -> dict[str, int]:
 
-    """Collect visual report coverage counts for the refreshed source label."""
+    """Collect visual report coverage counts for the refreshed source labels."""
 
+    candidate_source_label_set = {
+        str(candidate_source_label).strip()
+        for candidate_source_label in candidate_source_label_list
+        if str(candidate_source_label).strip()
+    }
     collage_count = 0
     for candidate_dictionary in collage_summary_dictionary.get("candidate_summary_list", []):
         if not isinstance(candidate_dictionary, dict):
             continue
-        if str(candidate_dictionary.get("candidate_source_label", "")).strip() == candidate_source_label:
+        if str(candidate_dictionary.get("candidate_source_label", "")).strip() in candidate_source_label_set:
             collage_count += 1
 
     overlay_forward_count = 0
@@ -292,7 +306,7 @@ def collect_visual_source_count(
         for candidate_dictionary in comparison_dictionary.get("candidate_summary_list", []):
             if not isinstance(candidate_dictionary, dict):
                 continue
-            if str(candidate_dictionary.get("candidate_source_label", "")).strip() != candidate_source_label:
+            if str(candidate_dictionary.get("candidate_source_label", "")).strip() not in candidate_source_label_set:
                 continue
             if direction_scope == "forward":
                 overlay_forward_count += 1
@@ -348,19 +362,23 @@ def build_report_markdown(
     comparison_scope_dictionary = matrix_summary_dictionary.get("comparison_scope", {})
     if not isinstance(comparison_scope_dictionary, dict):
         comparison_scope_dictionary = {}
+    dataset_dictionary = matrix_summary_dictionary.get("dataset", {})
+    if not isinstance(dataset_dictionary, dict):
+        dataset_dictionary = {}
 
     visual_count_dictionary = collect_visual_source_count(
         collage_summary_dictionary,
         overlay_summary_dictionary,
         arguments.candidate_source_label,
     )
+    candidate_source_label_text = ", ".join(f"`{label}`" for label in arguments.candidate_source_label)
     if visual_count_dictionary["collage"] == 0:
         raise AssertionError(
-            f"Collage summary does not expose source {arguments.candidate_source_label}."
+            f"Collage summary does not expose sources {candidate_source_label_text}."
         )
     if visual_count_dictionary["overlay_forward"] == 0 and visual_count_dictionary["overlay_backward"] == 0:
         raise AssertionError(
-            f"Overlay summary does not expose source {arguments.candidate_source_label}."
+            f"Overlay summary does not expose sources {candidate_source_label_text}."
         )
 
     source_candidate_count = len(source_candidate_list)
@@ -385,9 +403,9 @@ def build_report_markdown(
         "",
         "Decision:",
         "",
-        f"- `{arguments.candidate_source_label}` is closed as {arguments.decision}.",
+        f"- {candidate_source_label_text} is closed as {arguments.decision}.",
         f"- The strongest refreshed aggregate candidate is `{strongest_candidate['candidate_id']}`.",
-        "- The accepted direction-parallel baseline changes only after a human closure review records that promotion explicitly.",
+        "- Direction-parallel leaders remain separate for `global`, `Fw`, and `Bw` surfaces.",
         "- This launcher-generated report is part of the same operator run as the matrix, collage, overlay, and PDF exports.",
         "",
         "## Source Package",
@@ -416,10 +434,21 @@ def build_report_markdown(
     output_line_list.extend(
         [
             "",
+            "## Acceptance Checks",
+            "",
+            "| Check | Result |",
+            "| --- | --- |",
+            f"| Dataset root | `{normalize_path_text(dataset_dictionary.get('dataset_root'))}` |",
+            f"| Refresh source contract | `{normalize_path_text(dataset_dictionary.get('refresh_source_contract'))}` |",
+            f"| Historical baseline source contract | `{normalize_path_text(dataset_dictionary.get('baseline_source_contract'))}` |",
+            f"| Candidate count | `{comparison_scope_dictionary.get('candidate_count', 'n/a')}` |",
+            f"| Refreshed candidate count | `{source_candidate_count}` |",
+            "",
+            "",
             "## Candidate Refresh",
             "",
             f"The refresh added `{source_candidate_count}` candidates from "
-            f"`{arguments.candidate_source_label}` into the official "
+            f"{candidate_source_label_text} into the official "
             f"`{comparison_scope_dictionary.get('candidate_count', 'n/a')}`-candidate matrix.",
             "",
             "| Surface | Candidate | Family |",
@@ -488,7 +517,7 @@ def build_report_markdown(
             "",
             "| Source | Collage | Overlay Forward | Overlay Backward |",
             "| --- | ---: | ---: | ---: |",
-            f"| `{arguments.candidate_source_label}` | {visual_count_dictionary['collage']} | "
+            f"| {candidate_source_label_text} | {visual_count_dictionary['collage']} | "
             f"{visual_count_dictionary['overlay_forward']} | "
             f"{visual_count_dictionary['overlay_backward']} |",
             "",

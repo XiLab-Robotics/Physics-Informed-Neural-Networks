@@ -1,0 +1,629 @@
+paths:
+  dataset_config_path: config/datasets/transmission_error_dataset.yaml
+dataset:
+  name: polished_dataset
+experiment:
+  run_name: track2_full_directional_family_matrix
+  model_family: track2_reference_comparison
+  model_type: reference_family_vs_feedforward
+comparison:
+  comparison_mode: full_directional_candidate_matrix
+  canonical_report_path: doc/reports/analysis/track2/Track 2 Directional Model Comparison.md
+  baseline_summary_path: output/validation_checks/track2_reference_comparison/2026-05-28-12-22-56__track2_full_directional_family_matrix_wave2c_residual_harmonic_temporal_hybrid_track2_refresh_2026_05_28/validation_summary.yaml
+  lightweight_test_curve_records: true
+  report_plot_generation_scope: incremental_current_candidates
+  percentage_error_denominator: peak_to_peak_truth
+  preview_curve_count: 8
+  report_plot_root: doc/reports/campaign_results/track_2/verification_plots
+  candidate_generation:
+    track1_reference_banks:
+      forward_archive_root: models/paper_reference/rcim_track1/forward
+      backward_archive_root: models/paper_reference/rcim_track1/backward
+      family_list: &id001
+      - family_id: SVM
+        family_label: SVM
+        archive_folder: svm_reference_models
+      - family_id: MLP
+        family_label: MLP
+        archive_folder: mlp_reference_models
+      - family_id: RF
+        family_label: RF
+        archive_folder: rf_reference_models
+      - family_id: DT
+        family_label: DT
+        archive_folder: dt_reference_models
+      - family_id: ET
+        family_label: ET
+        archive_folder: et_reference_models
+      - family_id: ERT
+        family_label: ERT
+        archive_folder: ert_reference_models
+      - family_id: GBM
+        family_label: GBM
+        archive_folder: gbm_reference_models
+      - family_id: HGBM
+        family_label: HGBM
+        archive_folder: hgbm_reference_models
+      - family_id: XGBM
+        family_label: XGBM
+        archive_folder: xgbm_reference_models
+      - family_id: LGBM
+        family_label: LGBM
+        archive_folder: lgbm_reference_models
+      - family_id: ELM
+        family_label: ELM
+        archive_folder: elm_reference_models
+    paper_reference_archive_groups:
+    - source_label: rcim_original
+      direction_list:
+      - direction_label: forward
+        candidate_surface: Fw
+        archive_root: models/paper_reference/rcim_original/forward
+      family_list: *id001
+    - source_label: rcim_retuned
+      direction_list:
+      - direction_label: forward
+        candidate_surface: Fw
+        archive_root: models/paper_reference/rcim_retuned/forward
+      - direction_label: backward
+        candidate_surface: Bw
+        archive_root: models/paper_reference/rcim_retuned/backward
+      family_list: *id001
+    - source_label: polished_rcim_model_bank_reproduction
+      direction_list:
+      - direction_label: forward
+        candidate_surface: Fw
+        archive_root: output/validation_checks/rcim_model_bank_reproduction/reference_inventories/forward
+      - direction_label: backward
+        candidate_surface: Bw
+        archive_root: output/validation_checks/rcim_model_bank_reproduction/reference_inventories/backward
+      family_list:
+      - family_id: SVM
+        family_label: SVM
+        archive_folder: svm_reference_models
+      - family_id: MLP
+        family_label: MLP
+        archive_folder: mlp_reference_models
+      - family_id: RF
+        family_label: RF
+        archive_folder: rf_reference_models
+      - family_id: DT
+        family_label: DT
+        archive_folder: dt_reference_models
+      - family_id: ET
+        family_label: ET
+        archive_folder: et_reference_models
+      - family_id: ERT
+        family_label: ERT
+        archive_folder: ert_reference_models
+      - family_id: GBM
+        family_label: GBM
+        archive_folder: gbm_reference_models
+      - family_id: HGBM
+        family_label: HGBM
+        archive_folder: hgbm_reference_models
+      - family_id: XGBM
+        family_label: XGBM
+        archive_folder: xgbm_reference_models
+      - family_id: LGBM
+        family_label: LGBM
+        archive_folder: lgbm_reference_models
+    composite_reference_models:
+      family_list: *id001
+      candidate_list:
+      - candidate_id: paper_original_best_Fw
+        candidate_family: best_composite
+        candidate_source_label: rcim_original
+        candidate_surface: Fw
+        archive_root: models/paper_reference/rcim_original/forward
+        allowed_direction_list:
+        - forward
+        amplitude_family_by_harmonic:
+          '0': SVM
+          '1': RF
+          '3': HGBM
+          '39': HGBM
+          '40': ERT
+          '78': HGBM
+          '81': RF
+          '156': ERT
+          '162': ERT
+          '240': ERT
+        phase_family_by_harmonic:
+          '1': LGBM
+          '3': HGBM
+          '39': HGBM
+          '40': GBM
+          '78': RF
+          '81': RF
+          '156': RF
+          '162': ERT
+          '240': ERT
+      - candidate_id: paper_retuned_best_Fw
+        candidate_family: best_composite
+        candidate_source_label: rcim_retuned
+        candidate_surface: Fw
+        archive_root: models/paper_reference/rcim_retuned/forward
+        allowed_direction_list:
+        - forward
+        amplitude_family_by_harmonic:
+          '0': LGBM
+          '1': ERT
+          '3': HGBM
+          '39': LGBM
+          '40': ERT
+          '78': HGBM
+          '81': RF
+          '156': ERT
+          '162': RF
+          '240': RF
+        phase_family_by_harmonic:
+          '1': XGBM
+          '3': GBM
+          '39': LGBM
+          '40': RF
+          '78': GBM
+          '81': RF
+          '156': ERT
+          '162': ERT
+          '240': ERT
+      - candidate_id: track1_best_Fw
+        candidate_family: best_composite
+        candidate_source_label: rcim_track1
+        candidate_surface: Fw
+        archive_root: models/paper_reference/rcim_track1/forward
+        allowed_direction_list:
+        - forward
+        amplitude_family_by_harmonic:
+          '0': SVM
+          '1': HGBM
+          '3': ERT
+          '39': ERT
+          '40': ERT
+          '78': ERT
+          '81': ERT
+          '156': ERT
+          '162': ET
+          '240': ERT
+        phase_family_by_harmonic:
+          '1': RF
+          '3': GBM
+          '39': RF
+          '40': GBM
+          '78': GBM
+          '81': ERT
+          '156': ERT
+          '162': RF
+          '240': DT
+      - candidate_id: paper_retuned_best_Bw
+        candidate_family: best_composite
+        candidate_source_label: rcim_retuned
+        candidate_surface: Bw
+        archive_root: models/paper_reference/rcim_retuned/backward
+        allowed_direction_list:
+        - backward
+        amplitude_family_by_harmonic:
+          '0': RF
+          '1': ERT
+          '3': ERT
+          '39': RF
+          '40': ERT
+          '78': ERT
+          '81': ERT
+          '156': ERT
+          '162': RF
+          '240': RF
+        phase_family_by_harmonic:
+          '1': GBM
+          '3': RF
+          '39': ERT
+          '40': RF
+          '78': RF
+          '81': ERT
+          '156': RF
+          '162': ERT
+          '240': RF
+      - candidate_id: track1_best_Bw
+        candidate_family: best_composite
+        candidate_source_label: rcim_track1
+        candidate_surface: Bw
+        archive_root: models/paper_reference/rcim_track1/backward
+        allowed_direction_list:
+        - backward
+        amplitude_family_by_harmonic:
+          '0': LGBM
+          '1': ERT
+          '3': GBM
+          '39': LGBM
+          '40': RF
+          '78': LGBM
+          '81': ERT
+          '156': ERT
+          '162': LGBM
+          '240': LGBM
+        phase_family_by_harmonic:
+          '1': RF
+          '3': LGBM
+          '39': DT
+          '40': ERT
+          '78': LGBM
+          '81': LGBM
+          '156': ERT
+          '162': DT
+          '240': DT
+    wave1_exported_models:
+      exported_model_root: models/exported
+      base_family_list:
+      - feedforward
+      - harmonic_regression
+      - periodic_mlp
+      - residual_harmonic_mlp
+      - tree
+    wave2_registry_models:
+      family_registry_root: output/registries/families
+      base_family_list:
+      - temporal_convolution
+      - gru_sequence
+      - lstm_sequence
+      - periodic_temporal_convolution
+      - periodic_gru_sequence
+      - periodic_lstm_sequence
+    wave2c_registry_models:
+      family_registry_root: output/registries/families
+      source_label: wave2c_residual_harmonic_temporal_registry
+      base_family_list:
+      - candidate_id_prefix: residual_harmonic_gru_sequence_sparse_rcim
+        candidate_family: residual_harmonic_gru_sequence_sparse_rcim
+        global_family: residual_harmonic_gru_sequence_sparse_rcim
+        fw_family: residual_harmonic_gru_sequence_fw_sparse_rcim
+        bw_family: residual_harmonic_gru_sequence_bw_sparse_rcim
+      - candidate_id_prefix: residual_harmonic_gru_sequence_dense240
+        candidate_family: residual_harmonic_gru_sequence_dense240
+        global_family: residual_harmonic_gru_sequence_dense240
+        fw_family: residual_harmonic_gru_sequence_fw_dense240
+        bw_family: residual_harmonic_gru_sequence_bw_dense240
+      - candidate_id_prefix: residual_harmonic_gru_sequence_dense360
+        candidate_family: residual_harmonic_gru_sequence_dense360
+        global_family: residual_harmonic_gru_sequence_dense360
+        fw_family: residual_harmonic_gru_sequence_fw_dense360
+        bw_family: residual_harmonic_gru_sequence_bw_dense360
+      - candidate_id_prefix: residual_harmonic_lstm_sequence_sparse_rcim
+        candidate_family: residual_harmonic_lstm_sequence_sparse_rcim
+        global_family: residual_harmonic_lstm_sequence_sparse_rcim
+        fw_family: residual_harmonic_lstm_sequence_fw_sparse_rcim
+        bw_family: residual_harmonic_lstm_sequence_bw_sparse_rcim
+      - candidate_id_prefix: residual_harmonic_lstm_sequence_dense240
+        candidate_family: residual_harmonic_lstm_sequence_dense240
+        global_family: residual_harmonic_lstm_sequence_dense240
+        fw_family: residual_harmonic_lstm_sequence_fw_dense240
+        bw_family: residual_harmonic_lstm_sequence_bw_dense240
+      - candidate_id_prefix: residual_harmonic_lstm_sequence_dense360
+        candidate_family: residual_harmonic_lstm_sequence_dense360
+        global_family: residual_harmonic_lstm_sequence_dense360
+        fw_family: residual_harmonic_lstm_sequence_fw_dense360
+        bw_family: residual_harmonic_lstm_sequence_bw_dense360
+    track2f_registry_models:
+      family_registry_root: output/registries/families
+      source_label: track2f_offset_aware_probe_registry
+      base_family_list:
+      - candidate_id_prefix: sequential_residual_offset_probe
+        candidate_family: sequential_residual_offset_probe
+        global_family: sequential_residual_offset_probe
+        fw_family: sequential_residual_offset_probe_fw
+        bw_family: sequential_residual_offset_probe_bw
+    track2f_bis_registry_models:
+      family_registry_root: output/registries/families
+      source_label: track2f_bis_harmonic_offset_probe_registry
+      base_family_list:
+      - candidate_id_prefix: track2f_bis_clean_sequential_residual_offset
+        candidate_family: track2f_bis_clean_sequential_residual_offset
+        global_family: track2f_bis_clean_sequential_residual_offset_global
+        fw_family: track2f_bis_clean_sequential_residual_offset_fw
+        bw_family: track2f_bis_clean_sequential_residual_offset_bw
+      - candidate_id_prefix: track2f_bis_harmonic_residual_offset
+        candidate_family: track2f_bis_harmonic_residual_offset
+        global_family: track2f_bis_harmonic_residual_offset_global
+        fw_family: track2f_bis_harmonic_residual_offset_fw
+        bw_family: track2f_bis_harmonic_residual_offset_bw
+    track2g_registry_models:
+      family_registry_root: output/registries/families
+      source_label: track2g_curve_aware_training_registry
+      base_family_list:
+      - candidate_id_prefix: track2g_curve_aware_pointwise_control
+        candidate_family: track2g_curve_aware_pointwise_control
+        global_family: track2g_curve_aware_harmonic_residual_offset_pointwise_control_global
+        fw_family: track2g_curve_aware_harmonic_residual_offset_pointwise_control_fw
+        bw_family: track2g_curve_aware_harmonic_residual_offset_pointwise_control_bw
+      - candidate_id_prefix: track2g_curve_aware_raw_centered_shape
+        candidate_family: track2g_curve_aware_raw_centered_shape
+        global_family: track2g_curve_aware_harmonic_residual_offset_raw_centered_shape_global
+        fw_family: track2g_curve_aware_harmonic_residual_offset_raw_centered_shape_fw
+        bw_family: track2g_curve_aware_harmonic_residual_offset_raw_centered_shape_bw
+      - candidate_id_prefix: track2g_curve_aware_raw_offset
+        candidate_family: track2g_curve_aware_raw_offset
+        global_family: track2g_curve_aware_harmonic_residual_offset_raw_offset_global
+        fw_family: track2g_curve_aware_harmonic_residual_offset_raw_offset_fw
+        bw_family: track2g_curve_aware_harmonic_residual_offset_raw_offset_bw
+      - candidate_id_prefix: track2g_curve_aware_full_curve_composite
+        candidate_family: track2g_curve_aware_full_curve_composite
+        global_family: track2g_curve_aware_harmonic_residual_offset_full_curve_composite_global
+        fw_family: track2g_curve_aware_harmonic_residual_offset_full_curve_composite_fw
+        bw_family: track2g_curve_aware_harmonic_residual_offset_full_curve_composite_bw
+    track2h_registry_models:
+      family_registry_root: output/registries/families
+      source_label: track2h_dispersion_aware_modeling_registry
+      base_family_list:
+      - candidate_id_prefix: track2h_mae_robust
+        candidate_family: track2h_mae_robust
+        global_family: track2h_dispersion_aware_mae_robust_global
+        fw_family: track2h_dispersion_aware_mae_robust_fw
+        bw_family: track2h_dispersion_aware_mae_robust_bw
+      - candidate_id_prefix: track2h_smooth_l1_robust
+        candidate_family: track2h_smooth_l1_robust
+        global_family: track2h_dispersion_aware_smooth_l1_robust_global
+        fw_family: track2h_dispersion_aware_smooth_l1_robust_fw
+        bw_family: track2h_dispersion_aware_smooth_l1_robust_bw
+      - candidate_id_prefix: track2h_log_cosh_robust
+        candidate_family: track2h_log_cosh_robust
+        global_family: track2h_dispersion_aware_log_cosh_robust_global
+        fw_family: track2h_dispersion_aware_log_cosh_robust_fw
+        bw_family: track2h_dispersion_aware_log_cosh_robust_bw
+    track2h_quantile_probabilistic_registry_models:
+      family_registry_root: output/registries/families
+      source_label: track2h_quantile_probabilistic_registry
+      base_family_list:
+      - candidate_id_prefix: track2h_quantile_p10_p50_p90
+        candidate_family: track2h_quantile_p10_p50_p90
+        global_family: track2h_quantile_probabilistic_quantile_p10_p50_p90_global
+        fw_family: track2h_quantile_probabilistic_quantile_p10_p50_p90_fw
+        bw_family: track2h_quantile_probabilistic_quantile_p10_p50_p90_bw
+      - candidate_id_prefix: track2h_gaussian_nll
+        candidate_family: track2h_gaussian_nll
+        global_family: track2h_quantile_probabilistic_gaussian_nll_global
+        fw_family: track2h_quantile_probabilistic_gaussian_nll_fw
+        bw_family: track2h_quantile_probabilistic_gaussian_nll_bw
+    track2h_mixture_density_heads_registry_models:
+      family_registry_root: output/registries/families
+      source_label: track2h_mixture_density_heads_registry
+      base_family_list:
+      - candidate_id_prefix: track2h_mdn_k2
+        candidate_family: track2h_mdn_k2
+        global_family: track2h_mixture_density_heads_mdn_k2_global
+        fw_family: track2h_mixture_density_heads_mdn_k2_fw
+        bw_family: track2h_mixture_density_heads_mdn_k2_bw
+      - candidate_id_prefix: track2h_mdn_k3
+        candidate_family: track2h_mdn_k3
+        global_family: track2h_mixture_density_heads_mdn_k3_global
+        fw_family: track2h_mixture_density_heads_mdn_k3_fw
+        bw_family: track2h_mixture_density_heads_mdn_k3_bw
+    track2h_latent_state_hysteresis_registry_models:
+      family_registry_root: output/registries/families
+      source_label: track2h_latent_state_hysteresis_registry
+      base_family_list:
+      - candidate_id_prefix: track2h_l_gru_offset_residual
+        candidate_family: track2h_l_gru_offset_residual
+        global_family: track2h_latent_state_hysteresis_gru_offset_residual_global
+        fw_family: track2h_latent_state_hysteresis_gru_offset_residual_fw
+        bw_family: track2h_latent_state_hysteresis_gru_offset_residual_bw
+      - candidate_id_prefix: track2h_l_causal_tcn_offset_residual
+        candidate_family: track2h_l_causal_tcn_offset_residual
+        global_family: track2h_latent_state_hysteresis_causal_tcn_offset_residual_global
+        fw_family: track2h_latent_state_hysteresis_causal_tcn_offset_residual_fw
+        bw_family: track2h_latent_state_hysteresis_causal_tcn_offset_residual_bw
+    wave3_harmonic_prior_residual_registry_models:
+      family_registry_root: output/registries/families
+      source_label: wave3_harmonic_prior_residual_registry
+      base_family_list:
+      - candidate_id_prefix: wave3_harmonic_prior_residual_pointwise_control
+        candidate_family: wave3_harmonic_prior_residual_pointwise_control
+        global_family: wave3_harmonic_prior_residual_pointwise_control_global
+        fw_family: wave3_harmonic_prior_residual_pointwise_control_fw
+        bw_family: wave3_harmonic_prior_residual_pointwise_control_bw
+      - candidate_id_prefix: wave3_harmonic_prior_residual_smooth_l1_structured
+        candidate_family: wave3_harmonic_prior_residual_smooth_l1_structured
+        global_family: wave3_harmonic_prior_residual_smooth_l1_structured_global
+        fw_family: wave3_harmonic_prior_residual_smooth_l1_structured_fw
+        bw_family: wave3_harmonic_prior_residual_smooth_l1_structured_bw
+    polished_model_development_registry_models:
+      family_registry_root: output/registries/families
+      source_label: polished_model_development_registry
+      base_family_list:
+      - candidate_id_prefix: polished_feedforward
+        candidate_family: feedforward
+        global_family: feedforward_global
+        fw_family: feedforward_fw
+        bw_family: feedforward_bw
+      - candidate_id_prefix: polished_harmonic_regression
+        candidate_family: harmonic_regression
+        global_family: harmonic_regression_global
+        fw_family: harmonic_regression_fw
+        bw_family: harmonic_regression_bw
+      - candidate_id_prefix: polished_periodic_mlp
+        candidate_family: periodic_mlp
+        global_family: periodic_mlp_global
+        fw_family: periodic_mlp_fw
+        bw_family: periodic_mlp_bw
+      - candidate_id_prefix: polished_residual_harmonic_mlp
+        candidate_family: residual_harmonic_mlp
+        global_family: residual_harmonic_mlp_global
+        fw_family: residual_harmonic_mlp_fw
+        bw_family: residual_harmonic_mlp_bw
+      - candidate_id_prefix: polished_tree
+        candidate_family: tree
+        global_family: tree_global
+        fw_family: tree_fw
+        bw_family: tree_bw
+      - candidate_id_prefix: polished_periodic_mlp_harmonic
+        candidate_family: periodic_mlp_harmonic
+        global_family: periodic_mlp_harmonic_global
+        fw_family: periodic_mlp_harmonic_fw
+        bw_family: periodic_mlp_harmonic_bw
+      - candidate_id_prefix: polished_temporal_convolution
+        candidate_family: temporal_convolution
+        global_family: temporal_convolution_global
+        fw_family: temporal_convolution_fw
+        bw_family: temporal_convolution_bw
+      - candidate_id_prefix: polished_gru_sequence
+        candidate_family: gru_sequence
+        global_family: gru_sequence_global
+        fw_family: gru_sequence_fw
+        bw_family: gru_sequence_bw
+      - candidate_id_prefix: polished_lstm_sequence
+        candidate_family: lstm_sequence
+        global_family: lstm_sequence_global
+        fw_family: lstm_sequence_fw
+        bw_family: lstm_sequence_bw
+      - candidate_id_prefix: polished_periodic_temporal_convolution
+        candidate_family: periodic_temporal_convolution
+        global_family: periodic_temporal_convolution_global
+        fw_family: periodic_temporal_convolution_fw
+        bw_family: periodic_temporal_convolution_bw
+      - candidate_id_prefix: polished_periodic_gru_sequence
+        candidate_family: periodic_gru_sequence
+        global_family: periodic_gru_sequence_global
+        fw_family: periodic_gru_sequence_fw
+        bw_family: periodic_gru_sequence_bw
+      - candidate_id_prefix: polished_periodic_lstm_sequence
+        candidate_family: periodic_lstm_sequence
+        global_family: periodic_lstm_sequence_global
+        fw_family: periodic_lstm_sequence_fw
+        bw_family: periodic_lstm_sequence_bw
+      - candidate_id_prefix: polished_residual_harmonic_gru_sequence_sparse_rcim
+        candidate_family: residual_harmonic_gru_sequence_sparse_rcim
+        global_family: residual_harmonic_gru_sequence_sparse_rcim_global
+        fw_family: residual_harmonic_gru_sequence_sparse_rcim_fw
+        bw_family: residual_harmonic_gru_sequence_sparse_rcim_bw
+      - candidate_id_prefix: polished_residual_harmonic_gru_sequence_dense240
+        candidate_family: residual_harmonic_gru_sequence_dense240
+        global_family: residual_harmonic_gru_sequence_dense240_global
+        fw_family: residual_harmonic_gru_sequence_dense240_fw
+        bw_family: residual_harmonic_gru_sequence_dense240_bw
+      - candidate_id_prefix: polished_residual_harmonic_gru_sequence_dense360
+        candidate_family: residual_harmonic_gru_sequence_dense360
+        global_family: residual_harmonic_gru_sequence_dense360_global
+        fw_family: residual_harmonic_gru_sequence_dense360_fw
+        bw_family: residual_harmonic_gru_sequence_dense360_bw
+      - candidate_id_prefix: polished_residual_harmonic_lstm_sequence_sparse_rcim
+        candidate_family: residual_harmonic_lstm_sequence_sparse_rcim
+        global_family: residual_harmonic_lstm_sequence_sparse_rcim_global
+        fw_family: residual_harmonic_lstm_sequence_sparse_rcim_fw
+        bw_family: residual_harmonic_lstm_sequence_sparse_rcim_bw
+      - candidate_id_prefix: polished_residual_harmonic_lstm_sequence_dense240
+        candidate_family: residual_harmonic_lstm_sequence_dense240
+        global_family: residual_harmonic_lstm_sequence_dense240_global
+        fw_family: residual_harmonic_lstm_sequence_dense240_fw
+        bw_family: residual_harmonic_lstm_sequence_dense240_bw
+      - candidate_id_prefix: polished_residual_harmonic_lstm_sequence_dense360
+        candidate_family: residual_harmonic_lstm_sequence_dense360
+        global_family: residual_harmonic_lstm_sequence_dense360_global
+        fw_family: residual_harmonic_lstm_sequence_dense360_fw
+        bw_family: residual_harmonic_lstm_sequence_dense360_bw
+      - candidate_id_prefix: polished_wave3_1_sequential_residual_offset_probe
+        candidate_family: wave3_1_sequential_residual_offset_probe
+        global_family: wave3_1_sequential_residual_offset_probe_global
+        fw_family: wave3_1_sequential_residual_offset_probe_fw
+        bw_family: wave3_1_sequential_residual_offset_probe_bw
+      - candidate_id_prefix: polished_wave3_2_clean_sequential_residual_offset
+        candidate_family: wave3_2_clean_sequential_residual_offset
+        global_family: wave3_2_clean_sequential_residual_offset_global
+        fw_family: wave3_2_clean_sequential_residual_offset_fw
+        bw_family: wave3_2_clean_sequential_residual_offset_bw
+      - candidate_id_prefix: polished_wave3_2_harmonic_residual_offset
+        candidate_family: wave3_2_harmonic_residual_offset
+        global_family: wave3_2_harmonic_residual_offset_global
+        fw_family: wave3_2_harmonic_residual_offset_fw
+        bw_family: wave3_2_harmonic_residual_offset_bw
+      - candidate_id_prefix: polished_wave3_3_curve_aware_pointwise_control
+        candidate_family: wave3_3_curve_aware_pointwise_control
+        global_family: wave3_3_curve_aware_pointwise_control_global
+        fw_family: wave3_3_curve_aware_pointwise_control_fw
+        bw_family: wave3_3_curve_aware_pointwise_control_bw
+      - candidate_id_prefix: polished_wave3_3_raw_centered_shape_curve_aware
+        candidate_family: wave3_3_raw_centered_shape_curve_aware
+        global_family: wave3_3_raw_centered_shape_curve_aware_global
+        fw_family: wave3_3_raw_centered_shape_curve_aware_fw
+        bw_family: wave3_3_raw_centered_shape_curve_aware_bw
+      - candidate_id_prefix: polished_wave3_3_raw_offset_curve_aware
+        candidate_family: wave3_3_raw_offset_curve_aware
+        global_family: wave3_3_raw_offset_curve_aware_global
+        fw_family: wave3_3_raw_offset_curve_aware_fw
+        bw_family: wave3_3_raw_offset_curve_aware_bw
+      - candidate_id_prefix: polished_wave3_3_full_curve_composite
+        candidate_family: wave3_3_full_curve_composite
+        global_family: wave3_3_full_curve_composite_global
+        fw_family: wave3_3_full_curve_composite_fw
+        bw_family: wave3_3_full_curve_composite_bw
+      - candidate_id_prefix: polished_wave4_1_mae_robust_loss
+        candidate_family: wave4_1_mae_robust_loss
+        global_family: wave4_1_mae_robust_loss_global
+        fw_family: wave4_1_mae_robust_loss_fw
+        bw_family: wave4_1_mae_robust_loss_bw
+      - candidate_id_prefix: polished_wave4_1_smooth_l1_robust_loss
+        candidate_family: wave4_1_smooth_l1_robust_loss
+        global_family: wave4_1_smooth_l1_robust_loss_global
+        fw_family: wave4_1_smooth_l1_robust_loss_fw
+        bw_family: wave4_1_smooth_l1_robust_loss_bw
+      - candidate_id_prefix: polished_wave4_1_log_cosh_robust_loss
+        candidate_family: wave4_1_log_cosh_robust_loss
+        global_family: wave4_1_log_cosh_robust_loss_global
+        fw_family: wave4_1_log_cosh_robust_loss_fw
+        bw_family: wave4_1_log_cosh_robust_loss_bw
+      - candidate_id_prefix: polished_wave4_2_quantile_p10_p50_p90
+        candidate_family: wave4_2_quantile_p10_p50_p90
+        global_family: wave4_2_quantile_p10_p50_p90_global
+        fw_family: wave4_2_quantile_p10_p50_p90_fw
+        bw_family: wave4_2_quantile_p10_p50_p90_bw
+      - candidate_id_prefix: polished_wave4_2_gaussian_nll
+        candidate_family: wave4_2_gaussian_nll
+        global_family: wave4_2_gaussian_nll_global
+        fw_family: wave4_2_gaussian_nll_fw
+        bw_family: wave4_2_gaussian_nll_bw
+      - candidate_id_prefix: polished_wave4_3_mixture_density_k2
+        candidate_family: wave4_3_mixture_density_k2
+        global_family: wave4_3_mixture_density_k2_global
+        fw_family: wave4_3_mixture_density_k2_fw
+        bw_family: wave4_3_mixture_density_k2_bw
+      - candidate_id_prefix: polished_wave4_3_mixture_density_k3
+        candidate_family: wave4_3_mixture_density_k3
+        global_family: wave4_3_mixture_density_k3_global
+        fw_family: wave4_3_mixture_density_k3_fw
+        bw_family: wave4_3_mixture_density_k3_bw
+      - candidate_id_prefix: polished_wave4_4_gru_latent_offset_residual
+        candidate_family: wave4_4_gru_latent_offset_residual
+        global_family: wave4_4_gru_latent_offset_residual_global
+        fw_family: wave4_4_gru_latent_offset_residual_fw
+        bw_family: wave4_4_gru_latent_offset_residual_bw
+      - candidate_id_prefix: polished_wave4_4_causal_tcn_latent_offset_residual
+        candidate_family: wave4_4_causal_tcn_latent_offset_residual
+        global_family: wave4_4_causal_tcn_latent_offset_residual_global
+        fw_family: wave4_4_causal_tcn_latent_offset_residual_fw
+        bw_family: wave4_4_causal_tcn_latent_offset_residual_bw
+      - candidate_id_prefix: polished_wave5_1_harmonic_prior_pointwise_control
+        candidate_family: wave5_1_harmonic_prior_pointwise_control
+        global_family: wave5_1_harmonic_prior_pointwise_control_global
+        fw_family: wave5_1_harmonic_prior_pointwise_control_fw
+        bw_family: wave5_1_harmonic_prior_pointwise_control_bw
+      - candidate_id_prefix: polished_wave5_1_harmonic_prior_smooth_l1_structured
+        candidate_family: wave5_1_harmonic_prior_smooth_l1_structured
+        global_family: wave5_1_harmonic_prior_smooth_l1_structured_global
+        fw_family: wave5_1_harmonic_prior_smooth_l1_structured_fw
+        bw_family: wave5_1_harmonic_prior_smooth_l1_structured_bw
+evaluation:
+  selected_harmonics:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  decomposition_point_stride: 1
+model:
+  input_size: auto
+metadata:
+  output_artifact_kind: validation_check
+  output_run_name: track2_full_directional_family_matrix_polished_dataset_te_curve_verification_refresh_2026_07_03_fix3
+  run_instance_id: 2026-07-03-17-46-19__track2_full_directional_family_matrix_polished_dataset_te_curve_verification_refresh_2026_07_03_fix3

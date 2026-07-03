@@ -432,6 +432,14 @@ def run_reference_family_vs_feedforward_comparison(
         comparison_summary["output_directory"] = shared_training_infrastructure.format_project_relative_path(
             output_directory
         )
+        comparison_summary["baseline_dataset"] = copy.deepcopy(comparison_summary.get("dataset", {}))
+        comparison_summary["dataset"] = copy.deepcopy(new_candidate_summary["dataset"])
+        comparison_summary["dataset"]["baseline_source_contract"] = comparison_summary["baseline_dataset"].get(
+            "source_contract"
+        )
+        comparison_summary["dataset"]["refresh_source_contract"] = new_candidate_summary["dataset"].get(
+            "source_contract"
+        )
         comparison_summary["comparison_scope"]["candidate_count"] = (
             int(comparison_summary["comparison_scope"]["candidate_count"])
             + len(new_candidate_summary["candidate_list"])

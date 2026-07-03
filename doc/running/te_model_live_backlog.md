@@ -22,27 +22,23 @@ Historical rationale and approval history remain in:
 ## Current Status
 
 - Program State: active.
-- Active Campaign State: none locally. `Wave 5.2B` is closed as normal scalar
-  training evidence in `doc/running/active_training_campaign.yaml`. The
-  `polished_dataset_full_wave_retraining_2026_06_22` campaign is still
-  operator-reported as running on another workstation and must be treated as
-  externally active until its final artifacts are synchronized.
-- Current Completed Wave: `Wave 5.2B` offset and harmonic guided campaign
-  closeout is complete. The `offset_centered_shape_harmonic` profile won all
-  three Wave 5.2B surfaces, but the branch is not promoted over the polished
-  early-wave scalar leaders or official curve-verified leaders.
+- Active Campaign State: none. The official polished-dataset
+  `TE Curve Verification Pipeline` refresh is closed in
+  `doc/running/active_training_campaign.yaml`.
+- Current Completed Wave: polished-dataset RCIM, early-wave, and full-wave
+  retraining closeouts plus the official `2026-07-03` TE Curve Verification
+  Pipeline refresh are complete.
 - Current Completed Program: `RCIM Model-Bank Reproduction` paper-faithful
   model bank, closed as
   a faithful full-bank reproduction surface for Tables `2`-`5`.
 - Current Completed Pipeline: `TE Curve Verification Pipeline` official
-  offline model-verification report, refreshed for `Wave 5.2B` on
-  `2026-07-02`. The refresh added the selected Wave 5.2B harmonic-profile
-  `global`, `Fw`, and `Bw` candidates to the `168`-candidate matrix; no
-  automatic promotion was made.
-- Current Focus: preserve the running full-wave `polished_dataset` campaign
-  baseline, then restructure `Wave 5.2` and `Wave 6` as dataset-aware
-  branches instead of continuing directly from the old `simplified_dataset`
-  evidence path.
+  offline model-verification
+  report, closed as the canonical direction-aware verification surface for new
+  model families.
+- Current Focus: the polished-dataset TE Curve Verification Pipeline refresh is
+  accepted. The polished `periodic_gru_sequence` family is the accepted
+  model-development baseline; `polished_rcim_model_bank_reproduction_ET19_Fw`
+  is retained as the polished RCIM reference-bank forward leader.
 - Parallel Diagnostic Focus: component-offset, `CVP 1.4` h0 cross-check, and
   predicted-mean versus measured-h0 diagnostics are complete; `h0` is the
   correct mean-like channel to inspect, but not the confirmed sole cause of the
@@ -52,27 +48,14 @@ Historical rationale and approval history remain in:
 - Current Best Implemented Run Registry:
   `output/registries/program/current_best_solution.yaml`.
 
-Current dataset-aware roadmap:
-
-| Branch | Primary dataset surface | Purpose | Current status |
-| --- | --- | --- | --- |
-| Clean deployment branch | `polished_dataset` | Produce final comparable, curve-first, deployment-oriented model decisions after the full-wave polished retraining and its `TE Curve Verification Pipeline` refresh. | Full-wave retraining is running on another workstation; do not close out or refresh from this checkout. |
-| Noise-aware research branch | `simplified_dataset` | Preserve the dirty or disturbed surface as a diagnostic stress test for robust losses, structured constraints, PINN-style soft losses, and multi-task denoising ideas. | Open design branch; no new training is approved yet. |
-| Cross-dataset transfer branch | paired `simplified_dataset` and `polished_dataset` | Test backbone pretraining, fine-tuning on polished data, dirty-to-clean supervision, and reduced-point robustness. | Full paired diagnostic complete; next gate is model-design translation, not training launch. |
-
-`polished_dataset` is the default final-comparison and deployability surface.
-`simplified_dataset` remains valuable, but its role is now diagnostic and
-noise-aware rather than the automatic basis for future production-oriented
-model decisions.
-
 Current canonical status reports:
 
 - `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
-- `doc/reports/analysis/project_status/current/TE Program Status And Closeout Ledger.md`
-- `doc/reports/analysis/te_curve_verification_pipeline/01_official_decisions/official_model_verification_report/[2026-07-02]/track2_official_model_verification_report.md`
+- `doc/reports/analysis/TE Program Status And Closeout Ledger.md`
+- `doc/reports/analysis/te_curve_verification_pipeline/01_official_decisions/official_model_verification_report/[2026-07-03]/track2_official_model_verification_report.md`
 - `doc/reports/analysis/te_curve_verification_pipeline/00_overview/multi_index_curve_first_selection_policy/[2026-06-16]/track2_multi_index_curve_first_selection_policy.md`
-- `doc/reports/analysis/te_curve_verification_pipeline/02_visual_reports/best_model_collage_report/[2026-07-02]/track2_best_model_collage_report.md`
-- `doc/reports/analysis/te_curve_verification_pipeline/02_visual_reports/multi_model_curve_comparison_report/[2026-07-02]/track2_multi_model_curve_comparison_report.md`
+- `doc/reports/analysis/te_curve_verification_pipeline/02_visual_reports/best_model_collage_report/[2026-07-03]/track2_best_model_collage_report.md`
+- `doc/reports/analysis/te_curve_verification_pipeline/02_visual_reports/multi_model_curve_comparison_report/[2026-07-03]/track2_multi_model_curve_comparison_report.md`
 - `doc/reports/analysis/te_curve_verification_pipeline/00_overview/TE Curve Verification Pipeline Directional Model Comparison.md`
 - `doc/reports/analysis/te_curve_verification_pipeline/03_cvp_diagnostics/curve_first_reranking_report/[2026-05-28]/track2_curve_first_reranking_report.md`
 - `doc/reports/analysis/te_curve_verification_pipeline/03_cvp_diagnostics/curve_payload_diagnostics_report/[2026-05-28]/track2_curve_payload_diagnostics_report.md`
@@ -83,16 +66,15 @@ Current canonical status reports:
 - `doc/reports/analysis/te_curve_verification_pipeline/04_offset_investigations/component_offset_identification/[2026-06-09]/track2_component_offset_identification_diagnostic.md`
 - `doc/reports/analysis/te_curve_verification_pipeline/04_offset_investigations/component_offset_identification/[2026-06-09]/track2d_h0_offset_crosscheck.md`
 - `doc/reports/analysis/te_curve_verification_pipeline/04_offset_investigations/component_offset_identification/[2026-06-10]/track2d_predicted_mean_h0_surface_diagnostic.md`
-- `doc/reports/analysis/model_development_waves/wave_5_2/paired_dataset_diagnostics/[2026-07-01]/wave52a_paired_dataset_diagnostics.md`
 - `doc/reports/campaign_results/track_2/campaign_closeouts/2026-06-11-14-01-57_track2h_dispersion_aware_modeling_campaign_results_report.md`
 - `doc/reports/campaign_results/track_2/campaign_closeouts/2026-06-12-13-54-57_track2h_quantile_probabilistic_campaign_results_report.md`
 - `doc/reports/campaign_results/track_2/campaign_closeouts/2026-06-13-13-24-37_track2h_mixture_density_heads_campaign_results_report.md`
 - `doc/reports/campaign_results/track_2/campaign_closeouts/2026-06-17-01-27-10_track2h_latent_state_hysteresis_campaign_results_report.md`
 - `doc/reports/campaign_results/wave_3/2026-06-15-15-30-20_wave3_harmonic_prior_residual_campaign_results_report.md`
 - `doc/reports/campaign_results/track_2/campaign_closeouts/2026-06-09-01-56-25_track2g_curve_aware_training_campaign_results_report.md`
-- `doc/reports/analysis/model_development_waves/wave_1/Wave 1 - Closeout Status.md`
-- `doc/reports/analysis/te_modeling/strategy/Curve-First TE Training Strategy.md`
-- `doc/reports/analysis/project_status/current/Training Results Master Summary.md`
+- `doc/reports/analysis/wave1/Wave 1 - Closeout Status.md`
+- `doc/reports/analysis/te_modeling/Curve-First TE Training Strategy.md`
+- `doc/reports/analysis/Training Results Master Summary.md`
 
 ## Directional Rule
 
@@ -255,8 +237,8 @@ Next planned diagnostic and training decision branches:
 | Component-offset identification | Test whether curve offset is dominated by `a_0` / `Component 0`, multiple components, condition/regime behavior, or experimental repeatability limits. | measured `h0`, signed-offset cross-check, and predicted-mean surface diagnostics completed; `h0` is the right mean channel, but the actionable issue is model-side mean-surface bias/compression |
 | `Wave 4 series` dispersion-aware modeling probes | Test robust losses, quantile or probabilistic heads, mixture-density heads, and latent-state or hysteresis-aware features on the offset and fragile-harmonic problem. | robust-loss, quantile/probabilistic, MDN, and `Wave 4.4` latent-state / hysteresis-aware campaigns and official TE Curve Verification refreshes completed; all are exploratory and not promoted |
 | `Wave 5.1` hybrid structured models | Combine harmonic structure, condition-conditioned residual learning, and explicit grouped treatment of stable and fragile harmonic bands. | first real `wave3_harmonic_prior_residual` campaign and official `TE Curve Verification Pipeline` verification refresh closed as a verified exploratory baseline, not promoted |
-| `Wave 5.2` dataset-aware MMT / PINN-guided branch | Split first-PINN planning into clean-polished modeling, simplified noise-aware diagnostics, and paired dirty-to-clean or transfer tests. | `Wave 5.2A` MMT diagnostic, parameter inventory, and full paired-dataset matrix are generated; `Wave 5.2B` 12-run polished campaign is closed, with `offset_centered_shape_harmonic` winning all surfaces but no scalar or curve-first promotion |
-| Wave 6 integrated multi-task / multi-head and transfer branch | Shared causal trunk with separate TE, offset, low-frequency, centered-shape, uncertainty or mixture, structured-residual, and optional dirty-to-clean heads. | deferred until full-wave polished evidence, paired dataset diagnostics, `Wave 4 series`, `Wave 5.1`, and `Wave 5.2` identify which mechanisms should be integrated |
+| `Wave 5.2` PINN formulation and first PINN | Test soft physics, periodicity, smoothness, harmonic-consistency, and operating-condition constraints in a first narrow PINN branch. | `Wave 5.2A` MMT diagnostic and parameter inventory are generated; dataset-aligned calibration and `Wave 5.2B` / `Wave 5.2C` decision gates remain open |
+| Wave 6 integrated multi-task / multi-head model branch | Shared causal trunk with separate offset, low-frequency, centered-shape, uncertainty or mixture, and optional structured-residual heads. | deferred until `Wave 4 series`, `Wave 5.1`, and `Wave 5.2` identify which mechanisms should be integrated |
 | Sequential residual calibration branch | Current best causal model plus second causal residual or offset calibrator trained on model error. | candidate after audit |
 
 The `CVP 1.5` offset-predictability feasibility diagnostic is complete in:
@@ -274,11 +256,10 @@ Current `CVP 1.5` observations:
 
 Recommended next gate:
 
-- treat `Wave 5.2` as a dataset-aware MMT / PINN-guided program, not as one
-  direct first-PINN campaign on the old development surface. The next
-  physics-informed work resumes from the `Wave 5.2A` MMT diagnostic report,
-  completed parameter inventory, and a new paired `simplified_dataset` versus
-  `polished_dataset` diagnostic gate;
+- treat `Wave 5.2` first-PINN formulation as the next physics-informed branch
+  after the hidden-state question is tested or explicitly deferred; `Wave 5.2`
+  resumes from the `Wave 5.2A` MMT diagnostic report, completed parameter
+  inventory, and dataset-aligned calibration gate;
 - do not document `a_0` / `Component 0` as the confirmed sole cause unless
   repeatability, component-level error, and model-side surface diagnostics
   support that conclusion.
@@ -441,7 +422,7 @@ Delivered:
 - completed directional best-hyperparameter search campaign;
 - refreshed exported model surfaces under `models/exported/`;
 - consolidated closeout report:
-  `doc/reports/analysis/model_development_waves/wave_1/Wave 1 - Closeout Status.md`.
+  `doc/reports/analysis/wave1/Wave 1 - Closeout Status.md`.
 
 Current HPO leader:
 
@@ -1165,12 +1146,9 @@ Entry rule:
     modeling treated as verified exploratory integration evidence, not as a
     promoted branch.
 
-### Wave 5.2. Dataset-Aware MMT / PINN-Guided Models
+### Wave 5.2. PINN Formulation And First PINN
 
-- status: `Wave 5.2B` clean polished campaign completed and closed;
-- revised role: dataset-aware physics-guided branch with separate clean
-  polished, noise-aware simplified, and paired transfer / dirty-to-clean
-  decision surfaces;
+- status: pre-implemented at `Wave 5.2A` diagnostic level, not campaign-ready;
 - current scaffold:
   - diagnostic adapter:
     `scripts/models/wave4_mmt_diagnostic_adapter.py`;
@@ -1179,28 +1157,24 @@ Entry rule:
   - parameter-inventory report builder:
     `scripts/reports/analysis/build_wave4a_mmt_parameter_inventory_report.py`;
   - generated diagnostic report:
-    `doc/reports/analysis/model_development_waves/wave_4/mmt_equation_diagnostic/[2026-06-11]/wave4a_mmt_equation_diagnostic.md`;
+    `doc/reports/analysis/wave4/mmt_equation_diagnostic/[2026-06-11]/wave4a_mmt_equation_diagnostic.md`;
   - generated parameter-inventory report:
-    `doc/reports/analysis/model_development_waves/wave_4/mmt_parameter_inventory/[2026-06-11]/wave4a_mmt_parameter_inventory.md`;
+    `doc/reports/analysis/wave4/mmt_parameter_inventory/[2026-06-11]/wave4a_mmt_parameter_inventory.md`;
   - companion artifacts:
     `output/validation_checks/wave4_mmt_equation_diagnostic/2026-06-11-19-25-32__wave4a_mmt_equation_diagnostic/`;
   - parameter-inventory artifacts:
     `output/validation_checks/wave4_mmt_parameter_inventory/2026-06-11-20-29-51__wave4a_mmt_parameter_inventory/`;
-- updated priority: wait for the externally running full-wave
-  `polished_dataset` campaign before final clean-branch conclusions, but use
-  this checkout to prepare paired dataset diagnostics and a leakage-safe
-  `Wave 5.2` design gate;
+- updated priority: execute dataset-aligned diagnostic calibration after the
+  `Wave 5.1` smoke/campaign decision, then decide whether `Wave 5.2B` features or
+  `Wave 5.2C` soft losses are justified;
 - mandatory rule: prepare or justify `global`, `forward`, and `backward`
   surfaces;
 - paper-reproduction scope:
   - prepare PINN-side model and loss formulations for later offline and
-    deployment evaluation on `polished_dataset`;
-  - use `simplified_dataset` as a noise-aware diagnostic surface for offset,
-    disturbed curves, and reduced-point stress tests;
+    deployment evaluation;
   - test whether soft physics, periodicity, smoothness, harmonic-consistency,
-    derivative penalties, and operating-condition constraints reduce offset
-    and fragile-harmonic errors without importing offline polishing leakage
-    into runtime inference;
+    and operating-condition constraints reduce offset and fragile-harmonic
+    errors;
   - keep online compensation execution out of Wave 5.2 unless Track 3 is
     explicitly promoted first.
 - completed inventory conclusions:
@@ -1210,76 +1184,15 @@ Entry rule:
   - contact geometry remains unavailable or ambiguous and blocks calibrated
     analytical-baseline claims;
   - measured TE remains target-only and must not become an inference input.
-- completed Wave 5.2B campaign conclusions:
-  - campaign report:
-    `doc/reports/campaign_results/wave_5_2/2026-07-02-10-40-46_wave52b_offset_harmonic_guided_campaign_results_report.md`;
-  - completed `12` runs with `0` failures on `polished_dataset`;
-  - scalar winner:
-    `te_wave52b_offset_harmonic_guided_offset_centered_shape_harmonic_fw`;
-  - best Wave 5.2B surface profile:
-    `offset_centered_shape_harmonic` on `global`, `Fw`, and `Bw`;
-  - best surface test MAE values: `0.002215` global, `0.001392` `Fw`,
-    and `0.001677` `Bw`;
-  - scalar program winner remains `te_periodic_gru_sequence_bw`;
-  - official `TE Curve Verification Pipeline` refresh report:
-    `doc/reports/analysis/te_curve_verification_pipeline/01_official_decisions/official_model_verification_report/[2026-07-02]/track2_official_model_verification_report.md`;
-  - the refresh added the `global`, `Fw`, and `Bw`
-    `wave52b_offset_centered_shape_harmonic` candidates to the
-    `168`-candidate matrix;
-  - strongest refreshed curve-verification candidate:
-    `wave52b_offset_centered_shape_harmonic_Fw`, MAE `0.001695 deg`, Mean
-    `3.391%`;
-  - official accepted curve-verified leaders are unchanged pending human
-    review; do not promote from scalar metrics alone.
 - next implementation steps:
-  - use the completed `Wave 5.2B` / `Wave 5.2C` model-design gate in
-    `doc/reports/analysis/model_development_waves/wave_5_2/model_design_gate/[2026-07-01]/wave52b_wave52c_model_design_gate.md`;
-  - use the prepared `Wave 5.2B` model report and campaign plan:
-    `doc/reports/analysis/model_development_waves/wave_5_2/Wave 5.2B Offset And Harmonic Guided Model.md`
-    and
-    `doc/reports/campaign_plans/wave_5_2/2026-07-01-16-08-01_wave52b_offset_harmonic_guided_campaign_plan_report.md`;
-  - prepared package:
-    `config/training/wave52b_offset_harmonic_guided/campaigns/2026-07-01_wave52b_offset_harmonic_guided_campaign/`;
-  - prepared launcher:
-    `scripts/campaigns/wave_5_2/run_wave52b_offset_harmonic_guided_campaign.ps1`;
-  - exact launch commands are documented in:
-    `doc/scripts/campaigns/wave_5_2/run_wave52b_offset_harmonic_guided_campaign.md`;
-  - next action is either human review of the completed Wave 5.2B curve-first
-    evidence or waiting for the externally running full-wave polished
-    retraining closeout before opening the next clean-branch training package;
-  - keep `Wave 5.2C` dirty-to-clean or transfer supervision secondary until
-    `Wave 5.2B` defines the clean branch and leakage-safe masks;
+  - compare MMT diagnostic signatures against dataset-aligned curve summaries
+    without leakage;
+  - design a train-only equivalent-error calibration policy for candidate
+    `Wave 5.2B` features;
+  - decide whether the MMT path remains diagnostic-only, becomes a feature
+    generator (`Wave 5.2B`), or becomes a weak soft-constraint loss (`Wave 5.2C`);
   - do not treat the current demonstration harmonic summary as dataset
     causality.
-
-### Wave 6. Integrated Multi-Task, Multi-Head, And Transfer Models
-
-- status: deferred design branch;
-- revised role: final integration branch after the clean polished, noise-aware
-  simplified, and cross-dataset transfer evidence is available;
-- candidate ingredients:
-  - periodic sequence backbone when the polished full-wave results confirm its
-    advantage;
-  - robust or quantile objectives if they improve worst-case or uncertainty
-    behavior;
-  - mixture-density pressure only if it adds value beyond one effective
-    component;
-  - harmonic-prior residual structure from `Wave 5.1` if curve-first evidence
-    justifies it;
-  - latent-state / hysteresis features only as integration evidence, not as a
-    standalone promoted branch;
-  - dirty-to-clean or denoising heads only if paired dataset diagnostics prove
-    the target is well aligned and leakage-safe;
-  - reduced-point and fine-tuning tests to quantify how much data is needed per
-    curve and whether a backbone pretrained on one surface transfers to the
-    other.
-- next implementation steps:
-  - wait for full-wave polished closeout and curve-first refresh before final
-    clean-branch architecture choices;
-  - design reduced-point splits and from-scratch versus fine-tuned comparison
-    rules;
-  - keep `Wave 6` out of campaign preparation until `Wave 5.2` identifies
-    which heads and constraints are justified.
 
 ### Wave 5. Cross-Wave Comparison And Best Solution
 
@@ -1319,10 +1232,9 @@ Entry rule:
 - `TE Curve Verification Pipeline` is the canonical offline verification baseline; diagnostic
   extensions now continue as CVP 1.1, CVP 1.2, mean-centered collage, and
   completed `CVP 1.4`;
-- the next planned model-development branch is dataset-aware: use
-  `polished_dataset` for final deployment-oriented comparison, preserve
-  `simplified_dataset` as a noise-aware diagnostic surface, and add a paired
-  transfer / reduced-point branch before opening broad new model-family waves;
+- the next planned branch before any new broad model-family wave is an
+  offset-aware training or calibration design selected from the completed
+  CVP 1.4 failure-mode labels;
 - future wave planning must keep direction-separated modeling and reporting in
   scope from the start;
 - Track 3 is the future online compensation and deployment-evaluation branch;

@@ -1,69 +1,107 @@
-status: none
-campaign_name: null
-prepared_at: null
-campaign_output_directory: null
-planning_report_path: null
-technical_document_path: null
-campaign_manifest_path: null
-queue_config_path_list: []
-protected_file_list: []
-launch_command_list: []
-notes: No active local training campaign. Wave 5.2B offset and harmonic guided training is closed as normal scalar evidence. The external full-wave polished retraining campaign recorded under next_prepared_campaign remains untouched and must be closed out on its own workstation after artifacts are synchronized.
+status: completed
+campaign_name: polished_dataset_te_curve_verification_refresh_2026_07_02
+prepared_at: '2026-07-02T11:12:17+02:00'
+completed_at: '2026-07-03T18:43:42+02:00'
+closed_at: '2026-07-03T18:47:10+02:00'
+campaign_output_directory: output\validation_checks\track2_reference_comparison
+planning_report_path: doc/reports/campaign_plans/cross_wave/polished_dataset/2026-07-02-11-12-17_polished_te_curve_verification_refresh_campaign_plan_report.md
+technical_document_path: doc/technical/2026-07/2026-07-02/2026-07-02-11-12-17_polished_te_curve_verification_refresh.md
+matrix_summary_path: output\validation_checks\track2_reference_comparison\2026-07-03-17-46-19__track2_full_directional_family_matrix_polished_dataset_te_curve_verification_refresh_2026_07_03_fix3\validation_summary.yaml
+per_condition_metrics_path: output\validation_checks\track2_reference_comparison\2026-07-03-17-46-19__track2_full_directional_family_matrix_polished_dataset_te_curve_verification_refresh_2026_07_03_fix3\per_condition_metrics.csv
+official_report_path: doc\reports\analysis\te_curve_verification_pipeline\01_official_decisions\official_model_verification_report\[2026-07-03]\track2_official_model_verification_report.md
+official_report_pdf_path: doc\reports\analysis\te_curve_verification_pipeline\01_official_decisions\official_model_verification_report\[2026-07-03]\track2_official_model_verification_report.pdf
+collage_report_path: doc\reports\analysis\te_curve_verification_pipeline\02_visual_reports\best_model_collage_report\[2026-07-03]\track2_best_model_collage_report.md
+overlay_report_path: doc\reports\analysis\te_curve_verification_pipeline\02_visual_reports\multi_model_curve_comparison_report\[2026-07-03]\track2_multi_model_curve_comparison_report.md
+te_curve_verification_status: completed
+dataset_id: polished_dataset
+dataset_schema: polished_point_v1
+dataset_root: data\polished_dataset
+accepted_model_development_family: polished_periodic_gru_sequence
+accepted_forward_full_matrix_leader: rcim_retuned_GBM19_Fw
+accepted_forward_polished_reference_bank_leader: polished_rcim_model_bank_reproduction_ET19_Fw
+accepted_forward_polished_model_development_fallback: polished_periodic_gru_sequence_Fw
+accepted_backward_leader: polished_periodic_gru_sequence_Bw
+accepted_global_leader: polished_periodic_gru_sequence_global
+queue_config_path_list:
+- config\paper_reimplementation\rcim_ml_compensation\reference_family_vs_feedforward\full_track2_matrix_template.yaml
+protected_file_list:
+- config\paper_reimplementation\rcim_ml_compensation\reference_family_vs_feedforward\full_track2_matrix_template.yaml
+- scripts\campaigns\track_2\run_polished_dataset_track2_verification_refresh.ps1
+- scripts\paper_reimplementation\rcim_ml_compensation\reference_family_vs_feedforward\reference_family_vs_feedforward_support.py
+- scripts\paper_reimplementation\rcim_ml_compensation\reference_family_vs_feedforward\build_polished_rcim_reference_inventories.py
+- scripts\reports\analysis\build_track2_official_model_verification_report.py
+- doc\scripts\campaigns\track_2\run_polished_dataset_track2_verification_refresh.md
+- doc\reports\campaign_plans\cross_wave\polished_dataset\2026-07-02-11-12-17_polished_te_curve_verification_refresh_campaign_plan_report.md
+- doc\technical\2026-07\2026-07-02\2026-07-02-11-12-17_polished_te_curve_verification_refresh.md
+launch_command_list:
+- .\scripts\campaigns\track_2\run_polished_dataset_track2_verification_refresh.ps1
+- .\scripts\campaigns\track_2\run_polished_dataset_track2_verification_refresh.ps1 -ResumeAfterVisualReports
+- .\scripts\campaigns\track_2\run_polished_dataset_track2_verification_refresh.ps1 -Remote
+notes: Operator-approved TE Curve Verification Pipeline refresh is closed on
+  the 2026-07-03 fix3 matrix. The accepted matrix uses data\polished_dataset
+  for refreshed candidates, records data/simplified_dataset only as the
+  historical baseline source contract, and validates that all polished
+  refreshed per-condition rows use polished source paths. Older 2026-07-02,
+  2026-07-03, and fix2 artifacts are stale and must not be used for official
+  polished-dataset closeout.
 last_completed_campaign:
-  campaign_name: wave52b_offset_harmonic_guided_campaign_2026_07_01
-  campaign_type: wave52b_offset_harmonic_guided_model_development
-  prepared_at: '2026-07-01T17:43:48+02:00'
-  completed_at: '2026-07-02T02:27:12+02:00'
-  closed_at: '2026-07-02T10:40:46+02:00'
-  campaign_output_directory: output/training_campaigns/2026-07-01-18-59-04_wave52b_offset_harmonic_guided_campaign_2026_07_01
-  planning_report_path: doc/reports/campaign_plans/wave_5_2/2026-07-01-16-08-01_wave52b_offset_harmonic_guided_campaign_plan_report.md
-  technical_document_path: doc/technical/2026-07/2026-07-01/2026-07-01-16-08-01_wave52b_offset_harmonic_guided_preparation.md
-  closeout_technical_document_path: doc/technical/2026-07/2026-07-02/2026-07-02-10-37-52_wave52b_offset_harmonic_guided_closeout.md
-  campaign_results_report_path: doc/reports/campaign_results/wave_5_2/2026-07-02-10-40-46_wave52b_offset_harmonic_guided_campaign_results_report.md
-  campaign_results_pdf_path: doc/reports/campaign_results/wave_5_2/2026-07-02-10-40-46_wave52b_offset_harmonic_guided_campaign_results_report.pdf
-  completed_run_count: 12
+  campaign_name: polished_dataset_full_wave_retraining_2026_06_22
+  campaign_type: full_wave_model_development_retraining
+  prepared_at: '2026-06-22T22:55:55+02:00'
+  completed_at: '2026-07-02T01:47:45+02:00'
+  closed_at: '2026-07-02T10:36:59+02:00'
+  campaign_output_directory: output/training_campaigns/2026-06-29-15-54-18_polished_dataset_full_wave_retraining_2026_06_22
+  planning_report_path: doc/reports/campaign_plans/cross_wave/polished_dataset/2026-06-22-22-55-55_polished_full_wave_retraining_campaign_plan_report.md
+  technical_document_path: doc/technical/2026-06/2026-06-22/2026-06-22-22-55-55_polished_rcim_and_full_wave_retraining_campaigns.md
+  closeout_technical_document_path: doc/technical/2026-07/2026-07-02/2026-07-02-10-36-59_polished_full_wave_retraining_closeout.md
+  campaign_results_report_path: doc/reports/campaign_results/cross_wave/polished_dataset/2026-07-02-10-36-59_polished_full_wave_retraining_campaign_results_report.md
+  campaign_results_pdf_path: doc/reports/campaign_results/cross_wave/polished_dataset/2026-07-02-10-36-59_polished_full_wave_retraining_campaign_results_report.pdf
+  completed_run_count: 108
   failed_run_count: 0
   dataset_id: polished_dataset
   dataset_schema: polished_point_v1
+  dataset_root: data\polished_dataset
   best_run:
-    run_name: te_wave52b_offset_harmonic_guided_offset_centered_shape_harmonic_fw
-    run_instance_id: 2026-07-02-01-24-47__te_wave52b_offset_harmonic_guided_offset_centered_shape_harmonic_fw
-    model_family: wave52b_offset_harmonic_guided_offset_centered_shape_harmonic_fw
-    base_model_family: wave52b_offset_harmonic_guided
-    training_variant: Fw
-    test_mae: 0.001391538535244763
-    test_rmse: 0.0017712278058752418
-    val_mae: 0.001809177570976317
-    val_rmse: 0.0022292062640190125
-    trainable_parameter_count: 22593
-    best_checkpoint_path: output\training_runs\wave52b_offset_harmonic_guided_offset_centered_shape_harmonic_fw\2026-07-02-01-24-47__te_wave52b_offset_harmonic_guided_offset_centered_shape_harmonic_fw\checkpoints\wave52b_offset_harmonic_guided-epoch=116-val_mae=0.00180918.ckpt
+    run_name: te_periodic_gru_sequence_fw
+    run_instance_id: 2026-06-30-02-56-10__te_periodic_gru_sequence_fw
+    model_family: periodic_gru_sequence_fw
+    base_model_family: periodic_gru_sequence
+    training_variant: fw
+    test_mae: 0.001120887347497046
+    test_rmse: 0.0014436584897339344
+    val_mae: 0.0010840588947758079
+    best_checkpoint_path: output\training_runs\periodic_gru_sequence\2026-06-30-02-56-10__te_periodic_gru_sequence_fw\checkpoints\periodic_gru_sequence-epoch=235-val_mae=0.00108406.ckpt
   surface_best_run_list:
   - surface: global
-    run_name: te_wave52b_offset_harmonic_guided_offset_centered_shape_harmonic_global
-    model_family: wave52b_offset_harmonic_guided_offset_centered_shape_harmonic_global
-    base_model_family: wave52b_offset_harmonic_guided
-    test_mae: 0.002214692533016205
-    test_rmse: 0.0027988373767584562
-    val_mae: 0.0018858772236853838
-    val_rmse: 0.002316597616299987
+    run_name: te_periodic_gru_sequence_global
+    model_family: periodic_gru_sequence_global
+    base_model_family: periodic_gru_sequence
+    test_mae: 0.0011594819370657206
+    test_rmse: 0.0014652268728241324
+    val_mae: 0.001132011879235506
   - surface: fw
-    run_name: te_wave52b_offset_harmonic_guided_offset_centered_shape_harmonic_fw
-    model_family: wave52b_offset_harmonic_guided_offset_centered_shape_harmonic_fw
-    base_model_family: wave52b_offset_harmonic_guided
-    test_mae: 0.001391538535244763
-    test_rmse: 0.0017712278058752418
-    val_mae: 0.001809177570976317
-    val_rmse: 0.0022292062640190125
+    run_name: te_periodic_gru_sequence_fw
+    model_family: periodic_gru_sequence_fw
+    base_model_family: periodic_gru_sequence
+    test_mae: 0.001120887347497046
+    test_rmse: 0.0014436584897339344
+    val_mae: 0.0010840588947758079
   - surface: bw
-    run_name: te_wave52b_offset_harmonic_guided_offset_centered_shape_harmonic_bw
-    model_family: wave52b_offset_harmonic_guided_offset_centered_shape_harmonic_bw
-    base_model_family: wave52b_offset_harmonic_guided
-    test_mae: 0.0016770231304690242
-    test_rmse: 0.002151139546185732
-    val_mae: 0.002319611608982086
-    val_rmse: 0.0028481665067374706
+    run_name: te_periodic_gru_sequence_bw
+    model_family: periodic_gru_sequence_bw
+    base_model_family: periodic_gru_sequence
+    test_mae: 0.0011664234334602952
+    test_rmse: 0.001480567967519164
+    val_mae: 0.001157755614258349
+  scalar_program_winner_after_closeout:
+    run_name: te_periodic_gru_sequence_bw
+    run_instance_id: 2026-06-26-16-26-19__te_periodic_gru_sequence_bw
+    source_campaign: polished_dataset_early_wave_parallel_training_2026_06_25
+    test_mae: 0.0010836307192221284
+    test_rmse: 0.0013926418032497168
+    reason: Earlier polished early-wave run remains better than the full-wave
+      scalar winner under the scalar registry selection policy.
   te_curve_verification_status: not_run_in_closeout
-  promotion_decision: scalar_program_winner_unchanged
   previous_completed_campaign:
     campaign_name: polished_dataset_early_wave_parallel_training_2026_06_25
     campaign_type: polished_early_wave_parallel_training
@@ -87,35 +125,23 @@ last_completed_campaign:
       test_mae: 0.0010836307192221284
       test_rmse: 0.0013926418032497168
       val_mae: 0.0010879483306780457
-      best_checkpoint_path: output\training_runs\periodic_gru_sequence\2026-06-26-16-26-19__te_periodic_gru_sequence_bw\checkpoints\periodic_gru_sequence-epoch=258-val_mae=0.00108795.ckpt
-    surface_best_run_list:
-    - surface: global
-      run_name: te_periodic_lstm_sequence_global
-      model_family: periodic_lstm_sequence_global
-      base_model_family: periodic_lstm_sequence
-      test_mae: 0.0011865310370922089
-      test_rmse: 0.0015048693167045712
-      val_mae: 0.0011847721179947257
-    - surface: fw
-      run_name: te_periodic_gru_sequence_fw
-      model_family: periodic_gru_sequence_fw
-      base_model_family: periodic_gru_sequence
-      test_mae: 0.0011007828870788217
-      test_rmse: 0.001408671378158033
-      val_mae: 0.001099461573176086
-    - surface: bw
-      run_name: te_periodic_gru_sequence_bw
-      model_family: periodic_gru_sequence_bw
-      base_model_family: periodic_gru_sequence
-      test_mae: 0.0010836307192221284
-      test_rmse: 0.0013926418032497168
-      val_mae: 0.0010879483306780457
     te_curve_verification_status: not_run_in_closeout
-next_prepared_campaign:
-  campaign_name: polished_dataset_full_wave_retraining_2026_06_22
-  planning_report_path: doc/reports/campaign_plans/cross_wave/polished_dataset/2026-06-22-22-55-55_polished_full_wave_retraining_campaign_plan_report.md
-  campaign_manifest_path: config/training/polished_dataset_retraining/campaigns/2026-06-22_polished_full_wave_retraining/campaign.yaml
-  launch_command_list:
-  - .\scripts\campaigns\cross_wave\run_polished_dataset_full_wave_retraining_campaign.ps1
-  - .\scripts\campaigns\cross_wave\run_polished_dataset_full_wave_retraining_campaign.ps1 -Remote
-  expected_run_count: 108
+    previous_completed_campaign:
+      campaign_name: polished_dataset_rcim_model_bank_reproduction_2026_06_22
+      campaign_type: rcim_model_bank_reproduction
+      prepared_at: '2026-06-22T23:14:57.574023+02:00'
+      forward_completed_at: '2026-06-23T18:47:42+02:00'
+      backward_completed_at: '2026-06-26T09:33:39+02:00'
+      closeout_at: '2026-06-29T10:39:38+02:00'
+      campaign_output_directory: output/training_campaigns/cross_wave/polished_dataset/rcim_model_bank_reproduction/polished_dataset_rcim_model_bank_reproduction_2026_06_22
+      planning_report_path: doc/reports/campaign_plans/cross_wave/polished_dataset/2026-06-22-22-55-55_polished_rcim_model_bank_reproduction_campaign_plan_report.md
+      technical_document_path: doc/technical/2026-06/2026-06-22/2026-06-22-22-55-55_polished_rcim_and_full_wave_retraining_campaigns.md
+      closeout_technical_document_path: doc/technical/2026-06/2026-06-29/2026-06-29-10-39-38_polished_rcim_model_bank_closeout.md
+      closeout_report_path: doc/reports/campaign_results/cross_wave/polished_dataset/2026-06-29-10-39-38_polished_rcim_model_bank_reproduction_campaign_results_report.md
+      completed_surface_count: 2
+      failed_surface_count: 0
+      dataset_id: polished_dataset
+      dataset_schema: polished_point_v1
+      dataset_root: data\polished_dataset
+      te_curve_verification_status: not_run_in_closeout
+next_prepared_campaign: null

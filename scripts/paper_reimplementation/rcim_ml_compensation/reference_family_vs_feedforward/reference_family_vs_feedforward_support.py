@@ -59,7 +59,6 @@ TEMPORAL_SEQUENCE_MODEL_TYPE_SET = {
     "harmonic_residual_offset_probe",
     "curve_aware_harmonic_residual_offset_probe",
     "latent_state_hysteresis_probe",
-    "wave52b_offset_harmonic_guided",
 }
 REFERENCE_BANK_PREDICTION_BATCH_SIZE = 64
 TEMPORAL_SEQUENCE_INFERENCE_BATCH_SIZE = 2048
@@ -409,6 +408,7 @@ def build_curve_record_list(
             curve_sample = transmission_error_dataset.build_validated_directional_sample(
                 csv_file_path.resolve(),
                 direction_label,
+                dataset_name=selected_dataset_name,
             )
             curve_record_list.append(
                 harmonic_wise_support.HarmonicCurveRecord(
@@ -427,6 +427,17 @@ def build_curve_record_list(
                         if curve_sample.input_feature_matrix is not None else None
                     ),
                 )
+            )
+        mismatched_curve_record_path_list = [
+            shared_training_infrastructure.format_project_relative_path(curve_record.source_file_path)
+            for curve_record in curve_record_list
+            if selected_dataset_name not in str(curve_record.source_file_path)
+        ]
+        if mismatched_curve_record_path_list:
+            preview_path_text = ", ".join(mismatched_curve_record_path_list[:5])
+            raise AssertionError(
+                "TE Curve Verification Pipeline selected dataset does not match built curve records | "
+                f"dataset={selected_dataset_name} | examples={preview_path_text}"
             )
         directional_count_dictionary = {
             "train": len(train_manifest),
@@ -594,7 +605,11 @@ def resolve_reference_h0_sign_multiplier(candidate: Track2Candidate) -> float:
 
     """Resolve source-specific `h0` sign compatibility for reference banks."""
 
-    if candidate.candidate_source_label == "rcim_track1" and candidate.candidate_surface == "Fw":
+    h0_sign_adjusted_source_set = {
+        "rcim_track1",
+        "polished_rcim_model_bank_reproduction",
+    }
+    if candidate.candidate_source_label in h0_sign_adjusted_source_set and candidate.candidate_surface == "Fw":
         return -1.0
     return 1.0
 
@@ -1230,6 +1245,18 @@ def build_generated_candidate_configuration_list(training_config: dict[str, Any]
             build_registry_candidate_configuration_list(
                 wave52b_configuration,
                 "wave52b_offset_harmonic_guided_registry",
+            )
+        )
+
+    polished_model_development_configuration = generation_configuration.get(
+        "polished_model_development_registry_models",
+        {},
+    )
+    if polished_model_development_configuration:
+        candidate_configuration_list.extend(
+            build_registry_candidate_configuration_list(
+                polished_model_development_configuration,
+                "polished_model_development_registry",
             )
         )
 
@@ -2177,7 +2204,6 @@ def build_track2_directional_comparison_summary(
         "output_directory": shared_training_infrastructure.format_project_relative_path(output_directory),
         "dataset": {
             "dataset_config_path": training_config["paths"]["dataset_config_path"],
-            "dataset_name": str(training_config.get("dataset", {}).get("name", "configured_default")),
             "dataset_root": shared_training_infrastructure.format_project_relative_path(dataset_root),
             "source_contract": shared_training_infrastructure.format_project_relative_path(dataset_root),
         },
@@ -2497,10 +2523,30 @@ def build_track2_directional_comparison_report_markdown(comparison_summary: dict
     )
     append_grouped_direction_table(
         report_line_list,
+        "Wave 5.1 Harmonic-Prior Residual Forward And Global Models",
+        "forward",
+        "wave3_harmonic_prior_residual_registry",
+        include_global_models=True,
+    )
+    append_grouped_direction_table(
+        report_line_list,
         "Wave 5.2B Offset And Harmonic Guided Forward And Global Models",
         "forward",
         "wave52b_offset_harmonic_guided_registry",
         include_global_models=True,
+    )
+    append_grouped_direction_table(
+        report_line_list,
+        "Polished Model-Development Forward And Global Models",
+        "forward",
+        "polished_model_development_registry",
+        include_global_models=True,
+    )
+    append_grouped_direction_table(
+        report_line_list,
+        "Polished RCIM Model-Bank Reproduction Forward Models",
+        "forward",
+        "polished_rcim_model_bank_reproduction",
     )
 
     report_line_list.extend(
@@ -2583,10 +2629,30 @@ def build_track2_directional_comparison_report_markdown(comparison_summary: dict
     )
     append_grouped_direction_table(
         report_line_list,
+        "Wave 5.1 Harmonic-Prior Residual Backward And Global Models",
+        "backward",
+        "wave3_harmonic_prior_residual_registry",
+        include_global_models=True,
+    )
+    append_grouped_direction_table(
+        report_line_list,
         "Wave 5.2B Offset And Harmonic Guided Backward And Global Models",
         "backward",
         "wave52b_offset_harmonic_guided_registry",
         include_global_models=True,
+    )
+    append_grouped_direction_table(
+        report_line_list,
+        "Polished Model-Development Backward And Global Models",
+        "backward",
+        "polished_model_development_registry",
+        include_global_models=True,
+    )
+    append_grouped_direction_table(
+        report_line_list,
+        "Polished RCIM Model-Bank Reproduction Backward Models",
+        "backward",
+        "polished_rcim_model_bank_reproduction",
     )
 
     report_line_list.extend(
