@@ -47,7 +47,7 @@ approved campaign plan.
 
 Expected source components:
 
-- `doc/reports/analysis/wave3/Wave 3 Hybrid Structured Models.md`;
+- `doc/reports/analysis/model_development_waves/wave_3/Wave 3 Hybrid Structured Models.md`;
 - `scripts/models/wave3_harmonic_prior_residual_network.py`;
 - `scripts/models/harmonic_regression.py`;
 - `scripts/models/feedforward_network.py`;
@@ -64,7 +64,7 @@ Expected new or updated implementation components after approval:
 - `scripts/campaigns/wave_3/run_wave3_grouped_harmonic_heads_checks.ps1`;
 - `config/training/wave3_embryonic_skeleton/wave3_grouped_harmonic_heads_template.yaml`;
 - `doc/scripts/campaigns/wave_3/wave3_grouped_harmonic_heads_checks.md`;
-- `doc/reports/analysis/wave3/Wave 3 Hybrid Structured Models.md`;
+- `doc/reports/analysis/model_development_waves/wave_3/Wave 3 Hybrid Structured Models.md`;
 - optional Sphinx model API entries if the new model is exposed in the portal.
 
 Expected output components after approval:

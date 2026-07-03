@@ -55,9 +55,9 @@ backward, and combined directions.
 - `scripts/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/reference_family_vs_feedforward_support.py`
   - update Markdown report generation helpers to group comparison rows by
     source label and direction.
-- `doc/reports/analysis/track2/Track 2 Directional Model Comparison.md`
+- `doc/reports/analysis/te_curve_verification_pipeline/00_overview/TE Curve Verification Pipeline Directional Model Comparison.md`
   - regenerate the canonical report with grouped source tables.
-- `doc/reports/analysis/validation_checks/track2/`
+- `doc/reports/analysis/validation_checks/te_curve_verification_pipeline/`
   - regenerate or update the latest TE Curve Verification Pipeline validation report with the same
     grouped table layout.
 - `doc/README.md`

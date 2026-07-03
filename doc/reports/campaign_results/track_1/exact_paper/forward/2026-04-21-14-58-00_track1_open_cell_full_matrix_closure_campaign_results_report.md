@@ -98,7 +98,7 @@ retry evidence still does not beat that baseline representative.
 ## Resulting Canonical State
 
 - supporting benchmark report path: `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
-- supporting master summary path: `doc/reports/analysis/Training Results Master Summary.md`
+- supporting master summary path: `doc/reports/analysis/project_status/current/Training Results Master Summary.md`
 - final closeout report path: `doc/reports/campaign_results/track_1/exact_paper/forward/2026-04-21-14-58-00_track1_open_cell_full_matrix_closure_campaign_results_report.md`
 
 ## Final Interpretation

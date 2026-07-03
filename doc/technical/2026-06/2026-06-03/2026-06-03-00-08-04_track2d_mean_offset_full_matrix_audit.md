@@ -56,19 +56,19 @@ Expected implementation surfaces:
 - analysis output root:
   `output/validation_checks/track2d_mean_offset_full_matrix_audit/`;
 - report bundle:
-  `doc/reports/analysis/track2/mean_offset_full_matrix_audit/[2026-06-03]/`;
+  `doc/reports/analysis/te_curve_verification_pipeline/03_cvp_diagnostics/mean_offset_full_matrix_audit/[2026-06-03]/`;
 - report index:
   `doc/README.md`;
 - status updates:
   `doc/running/te_model_live_backlog.md` and
-  `doc/reports/analysis/Training Results Master Summary.md`.
+  `doc/reports/analysis/project_status/current/Training Results Master Summary.md`.
 
 Reference inputs:
 
-- `doc/reports/analysis/te_modeling/Curve-First TE Training Strategy.md`;
-- `doc/reports/analysis/track2/mean_centered_collage_report/[2026-06-02]/track2_mean_centered_collage_report.md`;
-- `doc/reports/analysis/track2/curve_first_reranking_report/[2026-05-28]/track2_curve_first_reranking_report.md`;
-- `doc/reports/analysis/track2/curve_payload_diagnostics_report/[2026-05-28]/track2_curve_payload_diagnostics_report.md`;
+- `doc/reports/analysis/te_modeling/strategy/Curve-First TE Training Strategy.md`;
+- `doc/reports/analysis/te_curve_verification_pipeline/02_visual_reports/mean_centered_collage_report/[2026-06-02]/track2_mean_centered_collage_report.md`;
+- `doc/reports/analysis/te_curve_verification_pipeline/03_cvp_diagnostics/curve_first_reranking_report/[2026-05-28]/track2_curve_first_reranking_report.md`;
+- `doc/reports/analysis/te_curve_verification_pipeline/03_cvp_diagnostics/curve_payload_diagnostics_report/[2026-05-28]/track2_curve_payload_diagnostics_report.md`;
 - `scripts/reports/analysis/build_track2_mean_centered_collage_report.py`;
 - `scripts/reports/analysis/build_track2_curve_payload_diagnostics_report.py`;
 - `scripts/reports/analysis/build_track2_curve_first_reranking_report.py`.

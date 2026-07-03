@@ -52,7 +52,7 @@ The artifact bundle contains:
 
 The dated Markdown report is written under:
 
-- `doc/reports/analysis/track2/mean_centered_collage_report/[YYYY-MM-DD]/`
+- `doc/reports/analysis/te_curve_verification_pipeline/02_visual_reports/mean_centered_collage_report/[YYYY-MM-DD]/`
 
 ## Practical Use
 

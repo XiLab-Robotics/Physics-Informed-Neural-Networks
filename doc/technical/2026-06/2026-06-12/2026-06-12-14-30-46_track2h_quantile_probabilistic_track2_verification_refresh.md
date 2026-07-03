@@ -117,16 +117,16 @@ The implementation will involve these repository components:
   for the launcher usage note.
 - `output/registries/families/track2h_quantile_probabilistic_*` as the source
   of completed model pointers.
-- `doc/reports/analysis/track2/Track 2 Directional Model Comparison.md` as the
+- `doc/reports/analysis/te_curve_verification_pipeline/00_overview/TE Curve Verification Pipeline Directional Model Comparison.md` as the
   canonical matrix report that will be refreshed only after the operator run.
-- `doc/reports/analysis/track2/best_model_collage_report/[YYYY-MM-DD]/` for
+- `doc/reports/analysis/te_curve_verification_pipeline/02_visual_reports/best_model_collage_report/[YYYY-MM-DD]/` for
   visual collage evidence after the matrix run.
-- `doc/reports/analysis/track2/multi_model_curve_comparison_report/[YYYY-MM-DD]/`
+- `doc/reports/analysis/te_curve_verification_pipeline/02_visual_reports/multi_model_curve_comparison_report/[YYYY-MM-DD]/`
   for overlay evidence after the matrix run.
-- `doc/reports/analysis/track2/official_model_verification_report/[YYYY-MM-DD]/`
+- `doc/reports/analysis/te_curve_verification_pipeline/01_official_decisions/official_model_verification_report/[YYYY-MM-DD]/`
   for the accepted verification decision after the operator run.
 - `doc/running/te_model_live_backlog.md` and
-  `doc/reports/analysis/Training Results Master Summary.md` for final status
+  `doc/reports/analysis/project_status/current/Training Results Master Summary.md` for final status
   synchronization after results are inspected.
 
 ## Implementation Steps

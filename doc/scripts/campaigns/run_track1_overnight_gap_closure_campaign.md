@@ -56,7 +56,7 @@ The launcher writes per-run console logs under:
 
 Each successful run also refreshes:
 
-- `doc/reports/analysis/Training Results Master Summary.md`
+- `doc/reports/analysis/project_status/current/Training Results Master Summary.md`
 
 ## Related Documents
 

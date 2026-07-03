@@ -90,7 +90,7 @@ generated and validated.
 - `reference/RCIM_ML-compensation.pdf`
 - `doc/reference_summaries/03_RCIM_ML_Compensation_Project_Summary.md`
 - `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
-- `doc/reports/analysis/Training Results Master Summary.md`
+- `doc/reports/analysis/project_status/current/Training Results Master Summary.md`
 - `scripts/paper_reimplementation/rcim_ml_compensation/run_harmonic_wise_comparison_pipeline.py`
 - `scripts/paper_reimplementation/rcim_ml_compensation/harmonic_wise_support.py`
 - `config/paper_reimplementation/rcim_ml_compensation/harmonic_wise/baseline.yaml`

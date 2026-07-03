@@ -72,12 +72,12 @@ Expected planning and future implementation surfaces:
 
 Reference inputs:
 
-- `doc/reports/analysis/track2/mean_offset_full_matrix_audit/[2026-06-03]/track2d_mean_offset_full_matrix_audit.md`;
-- `doc/reports/analysis/track2/offset_predictability_feasibility/[2026-06-03]/track2e_offset_predictability_feasibility.md`;
+- `doc/reports/analysis/te_curve_verification_pipeline/03_cvp_diagnostics/mean_offset_full_matrix_audit/[2026-06-03]/track2d_mean_offset_full_matrix_audit.md`;
+- `doc/reports/analysis/te_curve_verification_pipeline/03_cvp_diagnostics/offset_predictability_feasibility/[2026-06-03]/track2e_offset_predictability_feasibility.md`;
 - `output/validation_checks/track2e_offset_predictability_feasibility/2026-06-03-13-28-54__track2e_offset_predictability_feasibility/track2e_surface_intervention_recommendation.csv`;
-- `doc/reports/analysis/te_modeling/Curve-First TE Training Strategy.md`;
+- `doc/reports/analysis/te_modeling/strategy/Curve-First TE Training Strategy.md`;
 - `doc/running/te_model_live_backlog.md`;
-- `doc/reports/analysis/Training Results Master Summary.md`.
+- `doc/reports/analysis/project_status/current/Training Results Master Summary.md`.
 
 ## Implementation Steps
 

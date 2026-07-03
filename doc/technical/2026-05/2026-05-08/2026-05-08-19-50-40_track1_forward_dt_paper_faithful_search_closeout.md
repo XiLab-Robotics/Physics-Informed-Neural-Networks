@@ -19,7 +19,7 @@ result as a subset outcome tied to the original planning report.
 
 - `output/training_campaigns/track1/exact_paper/bidirectional_paper_faithful_grid_search/track1_bidirectional_paper_faithful_grid_search_campaign_2026-05-04_12_26_30__forward_dt_search/`
 - `output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-08-17-08-23__track1_paper_faithful_grid_search_forward_dt_campaign_validation/`
-- `doc/reports/analysis/validation_checks/2026-05-08-17-10-02_paper_rei_57e160d8_track1_paper_faithful_grid_s_bd96d56f_original_dataset_exact_model_bank_report.md`
+- `doc/reports/analysis/validation_checks/rcim_model_bank_reproduction/rcim_paper_reimplementation/track1/original_dataset/[2026-04-25_to_2026-05-16]/2026-05-08-17-10-02_paper_rei_57e160d8_track1_paper_faithful_grid_s_bd96d56f_original_dataset_exact_model_bank_report.md`
 - `doc/reports/campaign_results/track_1/exact_paper/`
 - `doc/running/active_training_campaign.yaml`
 

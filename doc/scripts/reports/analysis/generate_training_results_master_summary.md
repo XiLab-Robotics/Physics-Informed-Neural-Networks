@@ -30,7 +30,7 @@ The generator consolidates information from the canonical repository sources:
 
 By default, the generator writes:
 
-- `doc/reports/analysis/Training Results Master Summary.md`
+- `doc/reports/analysis/project_status/current/Training Results Master Summary.md`
 
 This file is the canonical high-level project summary that should be kept in
 sync with new campaign results.
@@ -47,7 +47,7 @@ Optional explicit output path:
 
 ```powershell
 conda run -n pinns_env python -B scripts/reports/analysis/generate_training_results_master_summary.py `
-  --output-markdown-path "doc/reports/analysis/Training Results Master Summary.md"
+  --output-markdown-path "doc/reports/analysis/project_status/current/Training Results Master Summary.md"
 ```
 
 ## Automatic Update Path

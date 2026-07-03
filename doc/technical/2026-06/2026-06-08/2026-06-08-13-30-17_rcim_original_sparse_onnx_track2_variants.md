@@ -110,7 +110,7 @@ restricted to `[0, 1, 39, 40]`.
    against the `paper_original_best_Fw` / `paper_retuned_best_Fw` metrics from
    the `2026-05-28` best-model collage report.
 6. Generate a concise Markdown report and styled PDF under a dated
-   `doc/reports/analysis/track2/` topic folder if the evaluation is accepted as
+   `doc/reports/analysis/te_curve_verification_pipeline/` topic folder if the evaluation is accepted as
    a repository report artifact.
 7. Run Python compilation checks, the TE curve evaluation command, PDF
    rasterization validation if a PDF is produced, scoped Markdown QA, and

@@ -6,7 +6,7 @@ experiment:
   model_type: reference_family_vs_feedforward
 comparison:
   comparison_mode: full_directional_candidate_matrix
-  canonical_report_path: doc/reports/analysis/track2/Track 2 Directional Model Comparison.md
+  canonical_report_path: doc/reports/analysis/te_curve_verification_pipeline/00_overview/TE Curve Verification Pipeline Directional Model Comparison.md
   baseline_summary_path: output/validation_checks/track2_reference_comparison/2026-05-28-12-22-56__track2_full_directional_family_matrix_wave2c_residual_harmonic_temporal_hybrid_track2_refresh_2026_05_28/validation_summary.yaml
   lightweight_test_curve_records: true
   report_plot_generation_scope: incremental_current_candidates

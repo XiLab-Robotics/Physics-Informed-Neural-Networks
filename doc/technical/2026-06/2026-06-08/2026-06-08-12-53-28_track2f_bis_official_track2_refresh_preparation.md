@@ -74,7 +74,7 @@ justify promotion.
 
 - `doc/running/active_training_campaign.yaml`
 - `doc/running/te_model_live_backlog.md`
-- `doc/reports/analysis/Training Results Master Summary.md`
+- `doc/reports/analysis/project_status/current/Training Results Master Summary.md`
 - `doc/reports/campaign_results/track_2/campaign_closeouts/2026-06-05-16-49-50_track2f_bis_harmonic_offset_probe_campaign_results_report.md`
 - `output/registries/families/track2f_bis_clean_sequential_residual_offset_global/latest_family_best.yaml`
 - `output/registries/families/track2f_bis_clean_sequential_residual_offset_fw/latest_family_best.yaml`
@@ -91,7 +91,7 @@ justify promotion.
 - future launcher under `scripts/campaigns/track_2/`
 - future launcher note under `doc/scripts/campaigns/track_2/`
 - future official report bundle under
-  `doc/reports/analysis/track2/official_model_verification_report/[2026-06-08]/`
+  `doc/reports/analysis/te_curve_verification_pipeline/01_official_decisions/official_model_verification_report/[2026-06-08]/`
 
 ## Implementation Steps
 
@@ -120,6 +120,6 @@ justify promotion.
 10. Export and raster-validate the real PDFs for the official report and visual
     companion reports, repairing table/page layout issues before closeout.
 11. Update `doc/running/te_model_live_backlog.md` and
-    `doc/reports/analysis/Training Results Master Summary.md` with the final
+    `doc/reports/analysis/project_status/current/Training Results Master Summary.md` with the final
     Wave 3.2 decision.
 12. Stop before committing until the user explicitly requests the commit.

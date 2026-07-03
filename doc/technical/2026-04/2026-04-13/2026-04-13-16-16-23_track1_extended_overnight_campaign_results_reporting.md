@@ -44,7 +44,7 @@ No Codex subagent is planned for this closeout.
 - `output/training_campaigns/track1/harmonic_wise/forward/track1_extended_overnight_campaign_2026_04_13_13_31_57/`
 - `output/validation_checks/paper_reimplementation_rcim_harmonic_wise/forward/`
 - `doc/reports/campaign_results/`
-- `doc/reports/analysis/Training Results Master Summary.md`
+- `doc/reports/analysis/project_status/current/Training Results Master Summary.md`
 - `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
 - `scripts/reports/run_report_pipeline.py`
 - `scripts/reports/generate_training_results_master_summary.py`

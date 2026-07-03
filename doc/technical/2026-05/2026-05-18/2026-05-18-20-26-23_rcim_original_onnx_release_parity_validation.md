@@ -62,7 +62,7 @@ duplicate explicitly.
 - `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
   - benchmark report to receive the ONNX release parity findings after
     validation.
-- `doc/reports/analysis/track2/Track 2 Directional Model Comparison.md`
+- `doc/reports/analysis/te_curve_verification_pipeline/00_overview/TE Curve Verification Pipeline Directional Model Comparison.md`
   - TE curve-verification report to receive the ONNX release forward comparison findings.
 
 ## Implementation Steps

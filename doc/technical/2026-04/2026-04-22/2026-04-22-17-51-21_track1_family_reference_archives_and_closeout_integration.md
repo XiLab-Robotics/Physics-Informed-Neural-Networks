@@ -82,14 +82,14 @@ be callable from repository-owned scripts and should consume the same campaign
 and validation artifacts already used to refresh:
 
 - `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
-- `doc/reports/analysis/Training Results Master Summary.md`
+- `doc/reports/analysis/project_status/current/Training Results Master Summary.md`
 - the family-by-family colored replication tables for `Table 2` through
   `Table 5`
 
 ## Involved Components
 
 - `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
-- `doc/reports/analysis/Training Results Master Summary.md`
+- `doc/reports/analysis/project_status/current/Training Results Master Summary.md`
 - `doc/reports/campaign_results/track_1/exact_paper/forward/`
 - `doc/reports/campaign_plans/track_1/exact_paper/2026-04-22-01-40-43_track1_remaining_yellow_cell_multi_family_campaign_bundle_plan_report.md`
 - `doc/running/active_training_campaign.yaml`

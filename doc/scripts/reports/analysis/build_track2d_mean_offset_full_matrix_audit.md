@@ -54,7 +54,7 @@ The artifact bundle contains:
 
 The dated Markdown report is written under:
 
-- `doc/reports/analysis/track2/mean_offset_full_matrix_audit/[YYYY-MM-DD]/`
+- `doc/reports/analysis/te_curve_verification_pipeline/03_cvp_diagnostics/mean_offset_full_matrix_audit/[YYYY-MM-DD]/`
 
 ## Practical Use
 

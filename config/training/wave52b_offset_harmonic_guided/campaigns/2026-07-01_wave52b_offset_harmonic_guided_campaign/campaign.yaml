@@ -15,7 +15,7 @@ expected_surface_list:
 expected_run_count: 12
 planning_report_path: doc/reports/campaign_plans/wave_5_2/2026-07-01-16-08-01_wave52b_offset_harmonic_guided_campaign_plan_report.md
 technical_document_path: doc/technical/2026-07/2026-07-01/2026-07-01-16-08-01_wave52b_offset_harmonic_guided_preparation.md
-model_report_path: doc/reports/analysis/wave5_2/Wave 5.2B Offset And Harmonic Guided Model.md
+model_report_path: doc/reports/analysis/model_development_waves/wave_5_2/Wave 5.2B Offset And Harmonic Guided Model.md
 launcher_path: scripts/campaigns/wave_5_2/run_wave52b_offset_harmonic_guided_campaign.ps1
 launcher_note_path: doc/scripts/campaigns/wave_5_2/run_wave52b_offset_harmonic_guided_campaign.md
 validator_path: scripts/campaigns/wave_5_2/validate_wave52b_offset_harmonic_guided_campaign.py

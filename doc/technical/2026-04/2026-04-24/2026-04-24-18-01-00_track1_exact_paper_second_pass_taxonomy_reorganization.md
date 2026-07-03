@@ -80,7 +80,7 @@ No subagent use is planned for this task.
 - `doc/running/active_training_campaign.yaml`
 - `scripts/campaigns/track_1/exact_paper/`
 - `scripts/reports/`
-- `doc/reports/analysis/validation_checks/track1/exact_paper/forward/`
+- `doc/reports/analysis/validation_checks/rcim_model_bank_reproduction/track1/exact_paper/forward/`
 - `doc/reports/campaign_results/track_1/exact_paper/forward/`
 
 ## Implementation Steps

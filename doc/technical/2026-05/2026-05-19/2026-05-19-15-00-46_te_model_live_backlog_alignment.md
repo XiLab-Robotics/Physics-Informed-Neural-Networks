@@ -32,8 +32,8 @@ The update will use these current canonical references:
 - `doc/reports/analysis/rcim_paper_reference/RCIM Original Pipeline To Reimplementation Companion.md`
 - `doc/reports/analysis/rcim_paper_reference/RCIM Original Pipeline And Reimplementation Audit.md`
 - `doc/reports/analysis/rcim_paper_reference/rcim_retuned_reference_closeout/[2026-05-13]/rcim_retuned_reference_closeout_report.md`
-- `doc/reports/analysis/wave1/Wave 1 - Closeout Status.md`
-- `doc/reports/analysis/track2/Track 2 Directional Model Comparison.md`
+- `doc/reports/analysis/model_development_waves/wave_1/Wave 1 - Closeout Status.md`
+- `doc/reports/analysis/te_curve_verification_pipeline/00_overview/TE Curve Verification Pipeline Directional Model Comparison.md`
 - `doc/running/active_training_campaign.yaml`
 
 No subagent is planned for this update.

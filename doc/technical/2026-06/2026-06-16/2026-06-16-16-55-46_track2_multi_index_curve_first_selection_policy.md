@@ -57,22 +57,22 @@ subagent scope must be proposed separately and explicitly approved before use.
 - `doc/README.md`
   - Register this technical document and any new canonical policy/report
     documents created by the implementation.
-- `doc/reports/analysis/track2/Track 2 Directional Model Comparison.md`
+- `doc/reports/analysis/te_curve_verification_pipeline/00_overview/TE Curve Verification Pipeline Directional Model Comparison.md`
   - Clarify that the directional matrix is a raw-error source table, not the
     complete promotion criterion.
-- `doc/reports/analysis/track2/Track 2 Curve Reconstruction And Collage Pipeline.md`
+- `doc/reports/analysis/te_curve_verification_pipeline/00_overview/TE Curve Verification Pipeline Curve Reconstruction And Collage Pipeline.md`
   - Promote visual and mean-centered curve reconstruction checks to required
     evidence for official selection.
-- `doc/reports/analysis/track2/curve_first_reranking_report/`
+- `doc/reports/analysis/te_curve_verification_pipeline/03_cvp_diagnostics/curve_first_reranking_report/`
   - Treat the existing reranking report family as the bridge from scalar matrix
     metrics to multi-index selection.
-- `doc/reports/analysis/track2/curve_payload_diagnostics_report/`
+- `doc/reports/analysis/te_curve_verification_pipeline/03_cvp_diagnostics/curve_payload_diagnostics_report/`
   - Treat payload diagnostics as the source for harmonic, phase, derivative,
     closure, and amplitude fidelity indices.
-- `doc/reports/analysis/track2/mean_centered_collage_report/`
+- `doc/reports/analysis/te_curve_verification_pipeline/02_visual_reports/mean_centered_collage_report/`
   - Treat mean-centered diagnostics as the source for offset-separated shape
     fidelity evidence.
-- `doc/reports/analysis/TE Program Status And Closeout Ledger.md`
+- `doc/reports/analysis/project_status/current/TE Program Status And Closeout Ledger.md`
   - Record the policy shift and state that future closeouts must report
     multi-index TE Curve Verification Pipeline status when verification is refreshed.
 - `doc/running/te_model_live_backlog.md`

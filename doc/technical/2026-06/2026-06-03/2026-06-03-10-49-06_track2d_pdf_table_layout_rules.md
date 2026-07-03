@@ -43,8 +43,8 @@ Expected implementation surfaces:
 
 - `scripts/reports/analysis/build_track2d_mean_offset_full_matrix_audit.py`
 - `scripts/reports/pdf/generate_styled_report_pdf.py`
-- `doc/reports/analysis/track2/mean_offset_full_matrix_audit/[2026-06-03]/track2d_mean_offset_full_matrix_audit.md`
-- `doc/reports/analysis/track2/mean_offset_full_matrix_audit/[2026-06-03]/track2d_mean_offset_full_matrix_audit.pdf`
+- `doc/reports/analysis/te_curve_verification_pipeline/03_cvp_diagnostics/mean_offset_full_matrix_audit/[2026-06-03]/track2d_mean_offset_full_matrix_audit.md`
+- `doc/reports/analysis/te_curve_verification_pipeline/03_cvp_diagnostics/mean_offset_full_matrix_audit/[2026-06-03]/track2d_mean_offset_full_matrix_audit.pdf`
 - `doc/README.md`
 
 Validation surfaces:

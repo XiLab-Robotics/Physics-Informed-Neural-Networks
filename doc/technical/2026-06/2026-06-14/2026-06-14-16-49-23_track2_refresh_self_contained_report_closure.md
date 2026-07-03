@@ -19,7 +19,7 @@ prints completion.
 Add a repository-owned official `TE Curve Verification Pipeline` refresh report builder that reads the
 latest matrix `validation_summary.yaml`, collage summary, overlay summary, and
 launcher metadata. The builder will write the dated official Markdown report
-under `doc/reports/analysis/track2/official_model_verification_report/` and
+under `doc/reports/analysis/te_curve_verification_pipeline/01_official_decisions/official_model_verification_report/` and
 copy enough evidence paths into the report for the styled PDF export.
 
 Patch the `TE Curve Verification Pipeline` refresh launchers so the normal path performs:

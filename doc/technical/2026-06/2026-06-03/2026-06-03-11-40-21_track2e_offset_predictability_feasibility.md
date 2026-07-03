@@ -72,21 +72,21 @@ Expected implementation surfaces:
 - analysis output root:
   `output/validation_checks/track2e_offset_predictability_feasibility/`;
 - report bundle:
-  `doc/reports/analysis/track2/offset_predictability_feasibility/[2026-06-03]/`;
+  `doc/reports/analysis/te_curve_verification_pipeline/03_cvp_diagnostics/offset_predictability_feasibility/[2026-06-03]/`;
 - report index:
   `doc/README.md`;
 - status updates:
   `doc/running/te_model_live_backlog.md` and
-  `doc/reports/analysis/Training Results Master Summary.md`.
+  `doc/reports/analysis/project_status/current/Training Results Master Summary.md`.
 
 Reference inputs:
 
-- `doc/reports/analysis/track2/mean_offset_full_matrix_audit/[2026-06-03]/track2d_mean_offset_full_matrix_audit.md`;
+- `doc/reports/analysis/te_curve_verification_pipeline/03_cvp_diagnostics/mean_offset_full_matrix_audit/[2026-06-03]/track2d_mean_offset_full_matrix_audit.md`;
 - `output/validation_checks/track2d_mean_offset_full_matrix_audit/2026-06-03-10-54-10__track2d_mean_offset_full_matrix_audit/track2d_per_curve_metrics.csv`;
 - `output/validation_checks/track2d_mean_offset_full_matrix_audit/2026-06-03-10-54-10__track2d_mean_offset_full_matrix_audit/track2d_candidate_summary.csv`;
 - `output/validation_checks/track2d_mean_offset_full_matrix_audit/2026-06-03-10-54-10__track2d_mean_offset_full_matrix_audit/track2d_condition_stratified_summary.csv`;
-- `doc/reports/analysis/te_modeling/Curve-First TE Training Strategy.md`;
-- `doc/reports/analysis/Training Results Master Summary.md`;
+- `doc/reports/analysis/te_modeling/strategy/Curve-First TE Training Strategy.md`;
+- `doc/reports/analysis/project_status/current/Training Results Master Summary.md`;
 - `doc/running/te_model_live_backlog.md`.
 
 ## Implementation Steps

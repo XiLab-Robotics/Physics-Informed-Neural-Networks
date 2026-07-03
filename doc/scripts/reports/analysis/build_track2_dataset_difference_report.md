@@ -34,7 +34,7 @@ Optional inputs:
 The default report output is:
 
 ```text
-doc/reports/analysis/track2/dataset_difference_report/[YYYY-MM-DD]/<dataset>/<surface>/track2_dataset_difference_report.md
+doc/reports/analysis/te_curve_verification_pipeline/03_cvp_diagnostics/dataset_difference_report/[YYYY-MM-DD]/<dataset>/<surface>/track2_dataset_difference_report.md
 ```
 
 Generated plots and CSV metrics are stored under:

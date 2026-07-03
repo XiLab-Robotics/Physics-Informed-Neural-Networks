@@ -45,7 +45,7 @@ single deterministic rerun.
 ## Involved Components
 
 - `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
-- `doc/reports/analysis/Training Results Master Summary.md`
+- `doc/reports/analysis/project_status/current/Training Results Master Summary.md`
 - `doc/reports/campaign_plans/`
 - `doc/running/active_training_campaign.yaml`
 - `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/`

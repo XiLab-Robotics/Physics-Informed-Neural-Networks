@@ -395,7 +395,7 @@ def build_report_markdown(
         "This official report consolidates these refreshed artifacts:",
         "",
         "- metric matrix:",
-        "  `doc/reports/analysis/track2/Track 2 Directional Model Comparison.md`;",
+        "  `doc/reports/analysis/te_curve_verification_pipeline/00_overview/TE Curve Verification Pipeline Directional Model Comparison.md`;",
         "- matrix summary:",
         f"  `{normalize_path_text(arguments.matrix_summary_path)}`;",
         "- per-condition metrics:",

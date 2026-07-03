@@ -49,7 +49,7 @@ The artifact bundle contains:
 
 The dated Markdown report is written under:
 
-- `doc/reports/analysis/track2/curve_first_reranking_report/[YYYY-MM-DD]/`
+- `doc/reports/analysis/te_curve_verification_pipeline/03_cvp_diagnostics/curve_first_reranking_report/[YYYY-MM-DD]/`
 
 ## Practical Use
 

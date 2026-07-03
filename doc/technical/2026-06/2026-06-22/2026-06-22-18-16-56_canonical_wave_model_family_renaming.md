@@ -101,9 +101,9 @@ surface-level comparison inside the block.
 
 The implementation will inspect and update the following component classes:
 
-- `doc/reports/analysis/track2/best_model_collage_report/` report source,
+- `doc/reports/analysis/te_curve_verification_pipeline/02_visual_reports/best_model_collage_report/` report source,
   generated PDF, and generated assets when the current report is refreshed;
-- `doc/reports/analysis/track2/official_model_verification_report/` current
+- `doc/reports/analysis/te_curve_verification_pipeline/01_official_decisions/official_model_verification_report/` current
   report source and PDF where it exposes future-facing candidate names;
 - TE Curve Verification Pipeline report-generation scripts and sorting helpers
   under `scripts/`;

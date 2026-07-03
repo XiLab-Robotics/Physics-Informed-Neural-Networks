@@ -120,8 +120,8 @@ Operator-facing launcher and documentation to create or update:
 
 Expected report roots:
 
-- `doc/reports/analysis/track2/dataset_surface_report/`
-- `doc/reports/analysis/track2/dataset_difference_report/`
+- `doc/reports/analysis/te_curve_verification_pipeline/02_visual_reports/dataset_surface_report/`
+- `doc/reports/analysis/te_curve_verification_pipeline/03_cvp_diagnostics/dataset_difference_report/`
 - existing companion roots may remain for compatibility:
   `best_model_collage_report/`, `multi_model_curve_comparison_report/`, and
   `official_model_verification_report/`.
@@ -175,6 +175,6 @@ Expected report roots:
     Markdown reports, plot bundles, PDFs, and validation images before updating
     official status documents.
 14. Synchronize `doc/running/te_model_live_backlog.md`,
-    `doc/reports/analysis/Training Results Master Summary.md`, and
-    `doc/reports/analysis/TE Program Status And Closeout Ledger.md` only after
+    `doc/reports/analysis/project_status/current/Training Results Master Summary.md`, and
+    `doc/reports/analysis/project_status/current/TE Program Status And Closeout Ledger.md` only after
     the split reports have been generated and reviewed.

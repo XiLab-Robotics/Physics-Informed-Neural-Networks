@@ -74,7 +74,7 @@ Read-only evidence inputs:
 - `output/training_runs/wave52b_offset_harmonic_guided_*/`;
 - `doc/running/active_training_campaign.yaml`;
 - `doc/reports/campaign_plans/wave_5_2/2026-07-01-16-08-01_wave52b_offset_harmonic_guided_campaign_plan_report.md`;
-- `doc/reports/analysis/wave5_2/Wave 5.2B Offset And Harmonic Guided Model.md`.
+- `doc/reports/analysis/model_development_waves/wave_5_2/Wave 5.2B Offset And Harmonic Guided Model.md`.
 
 Expected closeout outputs after approval:
 
@@ -84,8 +84,8 @@ Expected closeout outputs after approval:
 - PDF validation artifacts produced by the repository PDF workflow;
 - updated `doc/running/active_training_campaign.yaml`;
 - updated `doc/running/te_model_live_backlog.md`;
-- updated `doc/reports/analysis/Training Results Master Summary.md`;
-- updated `doc/reports/analysis/TE Program Status And Closeout Ledger.md`;
+- updated `doc/reports/analysis/project_status/current/Training Results Master Summary.md`;
+- updated `doc/reports/analysis/project_status/current/TE Program Status And Closeout Ledger.md`;
 - updated family or program registry/status references if the existing
   training infrastructure did not already synchronize them sufficiently;
 - updated `doc/README.md` and topic-local indices as needed.
@@ -94,8 +94,8 @@ Protected files expected to be edited after explicit approval:
 
 - `doc/running/active_training_campaign.yaml`;
 - `doc/running/te_model_live_backlog.md`;
-- `doc/reports/analysis/Training Results Master Summary.md`;
-- `doc/reports/analysis/TE Program Status And Closeout Ledger.md`;
+- `doc/reports/analysis/project_status/current/Training Results Master Summary.md`;
+- `doc/reports/analysis/project_status/current/TE Program Status And Closeout Ledger.md`;
 - the new campaign-results report and PDF output files.
 
 Deferred components:

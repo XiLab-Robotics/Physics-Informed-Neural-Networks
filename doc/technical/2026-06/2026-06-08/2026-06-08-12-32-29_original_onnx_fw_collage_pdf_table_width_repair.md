@@ -5,7 +5,7 @@
 This technical note covers a narrow PDF layout repair for the `TE Curve Verification Pipeline`
 original `ONNX` forward collage report:
 
-`doc/reports/analysis/track2/original_onnx_fw_collage_report/[2026-06-05]/track2_original_onnx_fw_collage_report.pdf`
+`doc/reports/analysis/te_curve_verification_pipeline/05_reference_and_legacy/original_onnx_fw_collage_report/[2026-06-05]/track2_original_onnx_fw_collage_report.pdf`
 
 The requested correction is to apply the usual table-width adjustments so the
 PDF tables fit cleanly inside the styled report cards without crushed
@@ -39,9 +39,9 @@ may reuse it instead of adding ad hoc formatting.
 ## Involved Components
 
 - `scripts/reports/analysis/build_track2_original_onnx_fw_collage_report.py`
-- `doc/reports/analysis/track2/original_onnx_fw_collage_report/[2026-06-05]/track2_original_onnx_fw_collage_report.md`
-- `doc/reports/analysis/track2/original_onnx_fw_collage_report/[2026-06-05]/track2_original_onnx_fw_collage_report.pdf`
-- `doc/reports/analysis/track2/original_onnx_fw_collage_report/[2026-06-05]/assets/`
+- `doc/reports/analysis/te_curve_verification_pipeline/05_reference_and_legacy/original_onnx_fw_collage_report/[2026-06-05]/track2_original_onnx_fw_collage_report.md`
+- `doc/reports/analysis/te_curve_verification_pipeline/05_reference_and_legacy/original_onnx_fw_collage_report/[2026-06-05]/track2_original_onnx_fw_collage_report.pdf`
+- `doc/reports/analysis/te_curve_verification_pipeline/05_reference_and_legacy/original_onnx_fw_collage_report/[2026-06-05]/assets/`
 - `output/validation_checks/track2_original_onnx_fw_collage_report/`
 - `doc/README.md`
 

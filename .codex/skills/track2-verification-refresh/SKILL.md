@@ -87,7 +87,7 @@ launcher completed.
 
 Verify the canonical matrix report updates:
 
-`doc/reports/analysis/track2/Track 2 Directional Model Comparison.md`
+`doc/reports/analysis/te_curve_verification_pipeline/00_overview/TE Curve Verification Pipeline Directional Model Comparison.md`
 
 Check that the candidate count changes as expected and that new source-group
 sections are visible in the Markdown, not only in the YAML summary.
@@ -102,8 +102,8 @@ refresh:
 
 Expected deliverables are dated report bundles under:
 
-- `doc/reports/analysis/track2/best_model_collage_report/[YYYY-MM-DD]/`
-- `doc/reports/analysis/track2/multi_model_curve_comparison_report/[YYYY-MM-DD]/`
+- `doc/reports/analysis/te_curve_verification_pipeline/02_visual_reports/best_model_collage_report/[YYYY-MM-DD]/`
+- `doc/reports/analysis/te_curve_verification_pipeline/02_visual_reports/multi_model_curve_comparison_report/[YYYY-MM-DD]/`
 
 Keep companion output artifacts under:
 
@@ -118,7 +118,7 @@ folder that is part of the refresh. Restore unrelated regenerated legacy PNGs.
 
 Update or create the dated official report bundle:
 
-`doc/reports/analysis/track2/official_model_verification_report/[YYYY-MM-DD]/`
+`doc/reports/analysis/te_curve_verification_pipeline/01_official_decisions/official_model_verification_report/[YYYY-MM-DD]/`
 
 The official report must state:
 
@@ -140,7 +140,7 @@ the multi-index curve-first selection policy, and the visual companion PDFs.
 After the report decision, update:
 
 - `doc/running/te_model_live_backlog.md`;
-- `doc/reports/analysis/Training Results Master Summary.md`;
+- `doc/reports/analysis/project_status/current/Training Results Master Summary.md`;
 - any narrower topic index or report pointer that still references the prior
   dated official report.
 

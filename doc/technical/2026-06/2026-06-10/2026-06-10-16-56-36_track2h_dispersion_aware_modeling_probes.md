@@ -57,7 +57,7 @@ Expected documentation and planning components:
 - this technical document;
 - `doc/reports/campaign_plans/track_2/2026-06-10-16-56-36_track2h_dispersion_aware_modeling_probe_campaign_plan_report.md`;
 - `doc/running/te_model_live_backlog.md`;
-- `doc/reports/analysis/Training Results Master Summary.md`;
+- `doc/reports/analysis/project_status/current/Training Results Master Summary.md`;
 - `doc/README.md`.
 
 Expected implementation components after approval:

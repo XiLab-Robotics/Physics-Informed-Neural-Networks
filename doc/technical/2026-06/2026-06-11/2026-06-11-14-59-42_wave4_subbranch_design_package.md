@@ -29,8 +29,8 @@ No subagent use is planned.
 
 ## Involved Components
 
-- `doc/reports/analysis/wave4/`
-- `doc/reports/analysis/mmt_te_modeling/MMT TE Modeling Equation Extraction And Reimplementation Plan.md`
+- `doc/reports/analysis/model_development_waves/wave_4/`
+- `doc/reports/analysis/te_modeling/analytical_mmt/MMT TE Modeling Equation Extraction And Reimplementation Plan.md`
 - `scripts/paper_reimplementation/mmt_te_modeling/mmt_te_modeling_reproduction.py`
 - `doc/README.md`
 

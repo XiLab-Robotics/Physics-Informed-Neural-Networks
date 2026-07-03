@@ -77,8 +77,8 @@ Instead, they will frame `RCIM Model-Bank Reproduction` around:
 - `reference/rcim_ml_compensation_recovered_assets/README.md`
 - `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
 - `doc/reports/analysis/rcim_paper_reference/RCIM Exact Paper Model Bank Workflow.md`
-- `doc/reports/analysis/validation_checks/track1/exact_paper/forward/shared/2026-04-12-17-00-28_paper_reimplementation_rcim_exact_model_bank_rcim_exact_paper_model_bank_exact_paper_validation_tables_3_4_5_6_exact_paper_model_bank_report.md`
-- `doc/reports/analysis/Training Results Master Summary.md`
+- `doc/reports/analysis/validation_checks/rcim_model_bank_reproduction/track1/exact_paper/forward/shared/2026-04-12-17-00-28_paper_reimplementation_rcim_exact_model_bank_rcim_exact_paper_model_bank_exact_paper_validation_tables_3_4_5_6_exact_paper_model_bank_report.md`
+- `doc/reports/analysis/project_status/current/Training Results Master Summary.md`
 - `doc/reports/campaign_plans/track_1/harmonic_wise/2026-04-13-00-55-21_track1_overnight_gap_closure_campaign_plan_report.md`
 - `doc/reports/campaign_plans/track_1/harmonic_wise/2026-04-13-13-27-37_track1_extended_overnight_campaign_plan_report.md`
 - `doc/reports/campaign_results/track_1/harmonic_wise/forward/2026-04-13-12-37-15_track1_overnight_gap_closure_campaign_results_report.md`

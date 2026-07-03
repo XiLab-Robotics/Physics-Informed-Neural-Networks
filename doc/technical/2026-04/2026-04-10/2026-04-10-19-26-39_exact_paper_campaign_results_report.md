@@ -48,7 +48,7 @@ recomputing results manually.
 6. Export the styled PDF and validate the real PDF output against the
    repository golden standard.
 7. Update canonical analysis tracking:
-   - `doc/reports/analysis/Training Results Master Summary.md`;
+   - `doc/reports/analysis/project_status/current/Training Results Master Summary.md`;
    - `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`.
 
 No Codex subagent use is planned for this reporting pass.
@@ -76,7 +76,7 @@ Supporting report/PDF tooling:
 
 Canonical reports expected to be updated:
 
-- `doc/reports/analysis/Training Results Master Summary.md`
+- `doc/reports/analysis/project_status/current/Training Results Master Summary.md`
 - `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
 
 ## Implementation Steps

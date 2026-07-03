@@ -47,12 +47,12 @@ right level of control.
   - `git-commit-preflight`
 - canonical curve-verification artifacts:
   - `doc/running/active_training_campaign.yaml`
-  - `doc/reports/analysis/track2/Track 2 Directional Model Comparison.md`
-  - `doc/reports/analysis/track2/best_model_collage_report/`
-  - `doc/reports/analysis/track2/multi_model_curve_comparison_report/`
-  - `doc/reports/analysis/track2/official_model_verification_report/`
+  - `doc/reports/analysis/te_curve_verification_pipeline/00_overview/TE Curve Verification Pipeline Directional Model Comparison.md`
+  - `doc/reports/analysis/te_curve_verification_pipeline/02_visual_reports/best_model_collage_report/`
+  - `doc/reports/analysis/te_curve_verification_pipeline/02_visual_reports/multi_model_curve_comparison_report/`
+  - `doc/reports/analysis/te_curve_verification_pipeline/01_official_decisions/official_model_verification_report/`
   - `doc/running/te_model_live_backlog.md`
-  - `doc/reports/analysis/Training Results Master Summary.md`
+  - `doc/reports/analysis/project_status/current/Training Results Master Summary.md`
 
 ## Implementation Steps
 

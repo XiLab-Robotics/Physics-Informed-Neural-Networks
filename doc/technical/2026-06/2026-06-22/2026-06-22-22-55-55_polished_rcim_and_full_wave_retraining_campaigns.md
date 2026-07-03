@@ -37,7 +37,7 @@ changing the meaning of the measured columns.
 The second campaign will build a canonical-name full-wave retraining package
 from the current `TE Curve Verification Pipeline` collage reference:
 
-`doc/reports/analysis/track2/best_model_collage_report/[2026-06-18]/track2_best_model_collage_report.md`
+`doc/reports/analysis/te_curve_verification_pipeline/02_visual_reports/best_model_collage_report/[2026-06-18]/track2_best_model_collage_report.md`
 
 The user-provided list covers the non-paper model-development candidates in
 that report. The only excluded report candidates are paper reference surfaces:

@@ -26,7 +26,7 @@ RCIM Model-Bank Reproduction forward and bidirectional closeouts:
 1. verify the completed wave artifact set and aggregate the campaign winners;
 2. build the formal campaign-results Markdown report and validated PDF;
 3. refresh `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`;
-4. refresh `doc/reports/analysis/Training Results Master Summary.md`;
+4. refresh `doc/reports/analysis/project_status/current/Training Results Master Summary.md`;
 5. refresh `models/paper_reference/rcim_track1/forward/` only for target-level
    accepted winners that improved over the stored archive entries;
 6. update `doc/running/active_training_campaign.yaml` from `running` to
@@ -42,7 +42,7 @@ on the backward branch.
 - `doc/running/active_training_campaign.yaml`
 - `doc/reports/campaign_results/track_1/exact_paper/`
 - `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
-- `doc/reports/analysis/Training Results Master Summary.md`
+- `doc/reports/analysis/project_status/current/Training Results Master Summary.md`
 - `models/paper_reference/rcim_track1/forward/`
 - `output/training_campaigns/track1/exact_paper/forward_final_open_cells/`
 - `output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank_forward_final_open_cells/`

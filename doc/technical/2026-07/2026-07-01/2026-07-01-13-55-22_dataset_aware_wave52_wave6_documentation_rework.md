@@ -69,8 +69,8 @@ The documentation pass is expected to touch only repository-authored Markdown
 status and planning surfaces:
 
 - `doc/running/te_model_live_backlog.md`;
-- `doc/reports/analysis/TE Program Status And Closeout Ledger.md`;
-- `doc/reports/analysis/Training Results Master Summary.md`, only if the
+- `doc/reports/analysis/project_status/current/TE Program Status And Closeout Ledger.md`;
+- `doc/reports/analysis/project_status/current/Training Results Master Summary.md`, only if the
   roadmap or active-family status summary needs wording alignment;
 - `doc/reference_summaries/08_Transmission_Error_Dataset_Family_Reference.md`,
   only if the dataset-role policy needs a short canonical pointer;

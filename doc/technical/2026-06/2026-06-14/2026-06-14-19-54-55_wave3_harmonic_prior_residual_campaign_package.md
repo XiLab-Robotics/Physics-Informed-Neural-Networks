@@ -54,7 +54,7 @@ remain downstream evidence-integration stages.
 - `doc/README.md` registers the new technical document and campaign plan.
 - `doc/running/te_model_live_backlog.md` records the current next-step
   alignment after completed `Wave 4.3` MDN verification.
-- `doc/reports/analysis/wave3/Wave 3 Hybrid Structured Models.md` remains the
+- `doc/reports/analysis/model_development_waves/wave_3/Wave 3 Hybrid Structured Models.md` remains the
   design source for `Wave 5.1` architecture boundaries.
 - `scripts/models/wave3_harmonic_prior_residual_network.py` contains the first
   `Wave 5.1` model candidate.

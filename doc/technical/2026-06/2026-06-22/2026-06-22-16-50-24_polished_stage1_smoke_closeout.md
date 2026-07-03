@@ -41,10 +41,10 @@ refresh. The closeout should:
    - the first failed reload attempt;
    - the interrupted slow-worker attempt;
    - the accepted completed attempt.
-5. Synchronize `doc/reports/analysis/Training Results Master Summary.md` so it
+5. Synchronize `doc/reports/analysis/project_status/current/Training Results Master Summary.md` so it
    reflects the completed Stage 1 smoke result instead of the earlier failed
    partial attempt.
-6. Check `doc/reports/analysis/TE Program Status And Closeout Ledger.md` and
+6. Check `doc/reports/analysis/project_status/current/TE Program Status And Closeout Ledger.md` and
    update it only if Stage 1 materially changes the program state.
 7. Keep official `TE Curve Verification Pipeline` work separate. The closeout
    may recommend a later operator-approved verification refresh, but must not
@@ -65,10 +65,10 @@ refresh. The closeout should:
   - protected campaign state to close out.
 - `doc/reports/campaign_results/`
   - destination for the Stage 1 closeout report and PDF.
-- `doc/reports/analysis/Training Results Master Summary.md`
+- `doc/reports/analysis/project_status/current/Training Results Master Summary.md`
   - canonical program summary that must stop reflecting the failed partial
     attempt as the current campaign result.
-- `doc/reports/analysis/TE Program Status And Closeout Ledger.md`
+- `doc/reports/analysis/project_status/current/TE Program Status And Closeout Ledger.md`
   - program ledger to check for required status synchronization.
 - `doc/README.md`
   - report and technical-document index.

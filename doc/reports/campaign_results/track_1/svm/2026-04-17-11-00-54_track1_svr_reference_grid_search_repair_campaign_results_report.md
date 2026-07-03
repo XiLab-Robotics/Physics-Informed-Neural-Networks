@@ -209,4 +209,4 @@ The remote wrapper log for the successful campaign execution is:
 The canonical reports refreshed by this close-out are:
 
 - `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
-- `doc/reports/analysis/Training Results Master Summary.md`
+- `doc/reports/analysis/project_status/current/Training Results Master Summary.md`

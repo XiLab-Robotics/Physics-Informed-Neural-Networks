@@ -65,7 +65,7 @@ scope and approval requirement will be documented before launch.
 | `scripts/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/run_reference_family_vs_feedforward_comparison.py` | Existing TE Curve Verification Pipeline directional comparison path to reuse or extend. |
 | `scripts/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/reference_family_vs_feedforward_support.py` | Shared candidate loading, prediction, and report support utilities. |
 | `doc/reports/analysis/rcim_paper_reference/RCIM Original ONNX Release Parity Interpretation.md` | Report structure and interpretation style reference. |
-| `doc/reports/analysis/track2/Track 2 Directional Model Comparison.md` | Current canonical curve-verification matrix context. |
+| `doc/reports/analysis/te_curve_verification_pipeline/00_overview/TE Curve Verification Pipeline Directional Model Comparison.md` | Current canonical curve-verification matrix context. |
 | `output/validation_checks` | Destination for generated comparison summaries and tabular artifacts. |
 | `doc/reports/analysis` | Destination for the new canonical interpretation report. |
 

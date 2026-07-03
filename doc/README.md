@@ -76,13 +76,18 @@ This folder contains the internal project documents derived from the reference P
 
 ### Analysis Reports
 
+- [reports/analysis/README.md](./reports/analysis/README.md)
+  Human-facing map of the reorganized analysis-report tree, including project
+  status, TE modeling, model-development waves, training configuration,
+  validation checks, and TE Curve Verification Pipeline report containers.
+
 - [reports/analysis/Complete TE And Dataset Renaming Audit.md](./reports/analysis/Complete%20TE%20And%20Dataset%20Renaming%20Audit.md)
   Complete working-tree audit of the TE taxonomy and simplified-dataset path
   migrations, including tracked, ignored, generated, document, and binary
   files. A styled PDF companion is available at
   `reports/analysis/Complete TE And Dataset Renaming Audit.pdf`.
 
-- [reports/analysis/mmt_te_modeling/MMT TE Modeling Equation Extraction And Reimplementation Plan.md](./reports/analysis/mmt_te_modeling/MMT%20TE%20Modeling%20Equation%20Extraction%20And%20Reimplementation%20Plan.md)
+- [reports/analysis/te_modeling/analytical_mmt/MMT TE Modeling Equation Extraction And Reimplementation Plan.md](./reports/analysis/te_modeling/analytical_mmt/MMT%20TE%20Modeling%20Equation%20Extraction%20And%20Reimplementation%20Plan.md)
   Equation extraction, implementation notes, MATLAB/Python reproduction entry
   points, and dataset-evaluation plan for the analytical `MMT_TEModeling`
   `RV` reducer transmission-error model.
@@ -115,26 +120,26 @@ This folder contains the internal project documents derived from the reference P
   current repository reimplementation, including runnable-stage boundaries and
   the main engineering divergences.
 
-- [reports/analysis/wave1/wave1_best_model_te_curve_prediction/[2026-04-25]/wave1_best_model_te_curve_prediction_report.md](./reports/analysis/wave1/wave1_best_model_te_curve_prediction/%5B2026-04-25%5D/wave1_best_model_te_curve_prediction_report.md)
+- [reports/analysis/model_development_waves/wave_1/wave1_best_model_te_curve_prediction/[2026-04-25]/wave1_best_model_te_curve_prediction_report.md](./reports/analysis/model_development_waves/wave_1/wave1_best_model_te_curve_prediction/%5B2026-04-25%5D/wave1_best_model_te_curve_prediction_report.md)
   Offline comparison report for the current Wave 1 family-best models on a
   deterministic 20% subset of the canonical held-out TE test curves, including
   aggregate metrics and plot artifact pointers.
 
-- [reports/analysis/wave2/Wave 2.1 Temporal Sequence Models.md](./reports/analysis/wave2/Wave%202%20Temporal%20Sequence%20Models.md)
+- [reports/analysis/model_development_waves/wave_2/Wave 2.1 Temporal Sequence Models.md](./reports/analysis/model_development_waves/wave_2/Wave%202%20Temporal%20Sequence%20Models.md)
   Explanatory report for the first `Wave 2.1` temporal sequence families:
   temporal convolution, `GRU`, and `LSTM` windowed TE regressors.
 
-- [reports/analysis/wave2/Wave 2.2 Harmonic Temporal Hybrid Models.md](./reports/analysis/wave2/Wave%202B%20Harmonic%20Temporal%20Hybrid%20Models.md)
+- [reports/analysis/model_development_waves/wave_2/Wave 2.2 Harmonic Temporal Hybrid Models.md](./reports/analysis/model_development_waves/wave_2/Wave%202B%20Harmonic%20Temporal%20Hybrid%20Models.md)
   Explanatory report for the `Wave 2.2` harmonic-temporal hybrid families that
   add explicit periodic harmonic features to temporal convolution, `GRU`, and
   `LSTM` sequence windows.
 
-- [reports/analysis/wave2/Wave 2.3 Residual Harmonic Temporal Hybrid Models.md](./reports/analysis/wave2/Wave%202C%20Residual%20Harmonic%20Temporal%20Hybrid%20Models.md)
+- [reports/analysis/model_development_waves/wave_2/Wave 2.3 Residual Harmonic Temporal Hybrid Models.md](./reports/analysis/model_development_waves/wave_2/Wave%202C%20Residual%20Harmonic%20Temporal%20Hybrid%20Models.md)
   Explanatory report for the `Wave 2.3` residual harmonic temporal hybrid
   families that add recurrent sequence residuals over a structured harmonic
   base.
 
-- [reports/analysis/wave2/Wave 3.1 Sequential Residual-Offset Probe Model.md](./reports/analysis/wave2/Track%202F%20Sequential%20Residual-Offset%20Probe%20Model.md)
+- [reports/analysis/model_development_waves/wave_2/Wave 3.1 Sequential Residual-Offset Probe Model.md](./reports/analysis/model_development_waves/wave_2/Track%202F%20Sequential%20Residual-Offset%20Probe%20Model.md)
   Explanatory report for the first learned `Wave 3.1`
   `sequential_residual_offset_probe` model, including branch structure,
   causal input boundary, implemented files, and verification status.
@@ -156,117 +161,117 @@ This folder contains the internal project documents derived from the reference P
   by the faithful RCIM Model-Bank Reproduction exact-model-bank reimplementation and accepted
   `models/paper_reference/rcim_track1/` archives.
 
-- [reports/analysis/track2/TE Curve Verification Pipeline Directional Model Comparison.md](./reports/analysis/track2/Track%202%20Directional%20Model%20Comparison.md)
+- [reports/analysis/te_curve_verification_pipeline/TE Curve Verification Pipeline Directional Model Comparison.md](./reports/analysis/te_curve_verification_pipeline/00_overview/TE%20Curve%20Verification%20Pipeline%20Directional%20Model%20Comparison.md)
   Canonical `TE Curve Verification Pipeline` offline matrix comparing accepted `RCIM Model-Bank Reproduction`, recovered
   original, retuned paper-reference banks, and exported `Wave 1` models from
   `models/`, split into forward, backward, and global direction sections.
 
-- [reports/analysis/track2/multi_index_curve_first_selection_policy/[2026-06-16]/track2_multi_index_curve_first_selection_policy.md](./reports/analysis/track2/multi_index_curve_first_selection_policy/%5B2026-06-16%5D/track2_multi_index_curve_first_selection_policy.md)
+- [reports/analysis/te_curve_verification_pipeline/00_overview/multi_index_curve_first_selection_policy/[2026-06-16]/track2_multi_index_curve_first_selection_policy.md](./reports/analysis/te_curve_verification_pipeline/00_overview/multi_index_curve_first_selection_policy/%5B2026-06-16%5D/track2_multi_index_curve_first_selection_policy.md)
   Canonical policy for official `TE Curve Verification Pipeline` model selection after the
   curve-first shift, requiring raw-error, mean-centered shape, offset /
   continuity, harmonic / phase, robustness, visual-evidence, and
   deployment-readiness axes instead of scalar `MAE` alone.
 
-- [reports/analysis/TE Program Status And Closeout Ledger.md](./reports/analysis/TE%20Program%20Status%20And%20Closeout%20Ledger.md)
+- [reports/analysis/TE Program Status And Closeout Ledger.md](./reports/analysis/project_status/current/TE%20Program%20Status%20And%20Closeout%20Ledger.md)
   Maintained official TE modeling status ledger covering `Wave 1` through
   `Wave 5.1`, `CVP 1.1` through `CVP 1.5` and Waves `3.1` through `4.4`, current direction-parallel leaders,
   and the required update rule for future campaign and `TE Curve Verification Pipeline` closeouts.
 
-- [reports/analysis/track2/TE Curve Verification Pipeline Curve Reconstruction And Collage Pipeline.md](./reports/analysis/track2/Track%202%20Curve%20Reconstruction%20And%20Collage%20Pipeline.md)
+- [reports/analysis/te_curve_verification_pipeline/TE Curve Verification Pipeline Curve Reconstruction And Collage Pipeline.md](./reports/analysis/te_curve_verification_pipeline/00_overview/TE%20Curve%20Verification%20Pipeline%20Curve%20Reconstruction%20And%20Collage%20Pipeline.md)
   Implementation-facing `TE Curve Verification Pipeline` curve-reconstruction guide covering the
   standard best-model collage path, repository models such as
   `harmonic_regression`, paper-original reference-bank reconstruction, and
   mean-centered diagnostic interpretation.
 
-- [reports/analysis/track2/official_model_verification_report/[2026-06-18]/track2_official_model_verification_report.md](./reports/analysis/track2/official_model_verification_report/%5B2026-06-18%5D/track2_official_model_verification_report.md)
+- [reports/analysis/te_curve_verification_pipeline/01_official_decisions/official_model_verification_report/[2026-06-18]/track2_official_model_verification_report.md](./reports/analysis/te_curve_verification_pipeline/01_official_decisions/official_model_verification_report/%5B2026-06-18%5D/track2_official_model_verification_report.md)
   Official `TE Curve Verification Pipeline` verification decision for the completed `Wave 4.4`
   latent-state / hysteresis-aware candidates, verified as an exploratory
   baseline and not promoted over the accepted direction-parallel leaders.
 
-- [reports/analysis/track2/best_model_collage_report/[2026-06-18]/track2_best_model_collage_report.md](./reports/analysis/track2/best_model_collage_report/%5B2026-06-18%5D/track2_best_model_collage_report.md)
+- [reports/analysis/te_curve_verification_pipeline/02_visual_reports/best_model_collage_report/[2026-06-18]/track2_best_model_collage_report.md](./reports/analysis/te_curve_verification_pipeline/02_visual_reports/best_model_collage_report/%5B2026-06-18%5D/track2_best_model_collage_report.md)
   Styled `TE Curve Verification Pipeline` visual report with four-curve collages for the refreshed
   `Wave 4.4` latent-state / hysteresis-aware candidates alongside the
   current reference, Wave, and Track candidate families.
 
-- [reports/analysis/track2/multi_model_curve_comparison_report/[2026-06-18]/track2_multi_model_curve_comparison_report.md](./reports/analysis/track2/multi_model_curve_comparison_report/%5B2026-06-18%5D/track2_multi_model_curve_comparison_report.md)
+- [reports/analysis/te_curve_verification_pipeline/02_visual_reports/multi_model_curve_comparison_report/[2026-06-18]/track2_multi_model_curve_comparison_report.md](./reports/analysis/te_curve_verification_pipeline/02_visual_reports/multi_model_curve_comparison_report/%5B2026-06-18%5D/track2_multi_model_curve_comparison_report.md)
   Styled `TE Curve Verification Pipeline` overlay report comparing original TE curves against the
   refreshed `Wave 4.4` candidates and the current reference, Wave, and Track
   candidate families.
 
-- [reports/analysis/track2/official_model_verification_report/[2026-06-11]/track2_official_model_verification_report.md](./reports/analysis/track2/official_model_verification_report/%5B2026-06-11%5D/track2_official_model_verification_report.md)
+- [reports/analysis/te_curve_verification_pipeline/01_official_decisions/official_model_verification_report/[2026-06-11]/track2_official_model_verification_report.md](./reports/analysis/te_curve_verification_pipeline/01_official_decisions/official_model_verification_report/%5B2026-06-11%5D/track2_official_model_verification_report.md)
   Official `TE Curve Verification Pipeline` model-verification report accepting `Wave 4.1` robust
   losses as a verified exploratory baseline without promoting them over the
   current direction-parallel `TE Curve Verification Pipeline` leaders.
 
-- [reports/analysis/track2/wave2_temporal_model_refresh_plan/[2026-05-24]/track2_wave2_temporal_model_refresh_plan.md](./reports/analysis/track2/wave2_temporal_model_refresh_plan/%5B2026-05-24%5D/track2_wave2_temporal_model_refresh_plan.md)
+- [reports/analysis/te_curve_verification_pipeline/05_reference_and_legacy/wave2_temporal_model_refresh_plan/[2026-05-24]/track2_wave2_temporal_model_refresh_plan.md](./reports/analysis/te_curve_verification_pipeline/05_reference_and_legacy/wave2_temporal_model_refresh_plan/%5B2026-05-24%5D/track2_wave2_temporal_model_refresh_plan.md)
   Operational refresh plan for adding the completed `Wave 2.1`
   temporal-model candidates to the official `TE Curve Verification Pipeline` verification matrix,
   visual reports, and update ledger.
 
-- [reports/analysis/track2/best_model_collage_report/[2026-06-11]/track2_best_model_collage_report.md](./reports/analysis/track2/best_model_collage_report/%5B2026-06-11%5D/track2_best_model_collage_report.md)
+- [reports/analysis/te_curve_verification_pipeline/02_visual_reports/best_model_collage_report/[2026-06-11]/track2_best_model_collage_report.md](./reports/analysis/te_curve_verification_pipeline/02_visual_reports/best_model_collage_report/%5B2026-06-11%5D/track2_best_model_collage_report.md)
   Styled `TE Curve Verification Pipeline` visual report with four-curve collages for the current best
   reference, RCIM Model-Bank Reproduction, Wave 1, Wave 2.1, Wave 2.3, Wave 3.1, Wave 3.2, and
   Wave 3.3 and Wave 4 series candidates.
 
-- [reports/analysis/track2/multi_model_curve_comparison_report/[2026-06-11]/track2_multi_model_curve_comparison_report.md](./reports/analysis/track2/multi_model_curve_comparison_report/%5B2026-06-11%5D/track2_multi_model_curve_comparison_report.md)
+- [reports/analysis/te_curve_verification_pipeline/02_visual_reports/multi_model_curve_comparison_report/[2026-06-11]/track2_multi_model_curve_comparison_report.md](./reports/analysis/te_curve_verification_pipeline/02_visual_reports/multi_model_curve_comparison_report/%5B2026-06-11%5D/track2_multi_model_curve_comparison_report.md)
   Styled `TE Curve Verification Pipeline` overlay report comparing original TE curves against
   reference best models and screened Wave 1, Wave 2.1, Wave 2.3, Wave 3.1,
   Wave 3.2, Wave 3.3, and Wave 4 series models.
 
-- [reports/analysis/track2/curve_first_reranking_report/[2026-05-28]/track2_curve_first_reranking_report.md](./reports/analysis/track2/curve_first_reranking_report/%5B2026-05-28%5D/track2_curve_first_reranking_report.md)
+- [reports/analysis/te_curve_verification_pipeline/03_cvp_diagnostics/curve_first_reranking_report/[2026-05-28]/track2_curve_first_reranking_report.md](./reports/analysis/te_curve_verification_pipeline/03_cvp_diagnostics/curve_first_reranking_report/%5B2026-05-28%5D/track2_curve_first_reranking_report.md)
   `CVP 1.1` curve-first reranking report that ranks accepted `TE Curve Verification Pipeline`
   candidates by full-curve mean percentage error, P95, worst-condition error,
   and curve `MAE` while preserving the causal runtime input boundary.
 
-- [reports/analysis/track2/curve_payload_diagnostics_report/[2026-05-28]/track2_curve_payload_diagnostics_report.md](./reports/analysis/track2/curve_payload_diagnostics_report/%5B2026-05-28%5D/track2_curve_payload_diagnostics_report.md)
+- [reports/analysis/te_curve_verification_pipeline/03_cvp_diagnostics/curve_payload_diagnostics_report/[2026-05-28]/track2_curve_payload_diagnostics_report.md](./reports/analysis/te_curve_verification_pipeline/03_cvp_diagnostics/curve_payload_diagnostics_report/%5B2026-05-28%5D/track2_curve_payload_diagnostics_report.md)
   `CVP 1.2` curve-payload diagnostics report for screened candidates,
   including peak-to-peak, harmonic amplitude, harmonic phase, derivative,
   smoothness, and closure diagnostics.
 
-- [reports/analysis/track2/mean_centered_collage_report/[2026-06-02]/track2_mean_centered_collage_report.md](./reports/analysis/track2/mean_centered_collage_report/%5B2026-06-02%5D/track2_mean_centered_collage_report.md)
+- [reports/analysis/te_curve_verification_pipeline/02_visual_reports/mean_centered_collage_report/[2026-06-02]/track2_mean_centered_collage_report.md](./reports/analysis/te_curve_verification_pipeline/02_visual_reports/mean_centered_collage_report/%5B2026-06-02%5D/track2_mean_centered_collage_report.md)
   `TE Curve Verification Pipeline` mean-centered collage diagnostics report that subtracts each
   truth and prediction curve mean after inference, then recomputes curve
   `MAE` and `RMSE` to separate vertical offset from waveform-shape tracking.
 
-- [reports/analysis/track2/mean_offset_full_matrix_audit/[2026-06-03]/track2d_mean_offset_full_matrix_audit.md](./reports/analysis/track2/mean_offset_full_matrix_audit/%5B2026-06-03%5D/track2d_mean_offset_full_matrix_audit.md)
+- [reports/analysis/te_curve_verification_pipeline/03_cvp_diagnostics/mean_offset_full_matrix_audit/[2026-06-03]/track2d_mean_offset_full_matrix_audit.md](./reports/analysis/te_curve_verification_pipeline/03_cvp_diagnostics/mean_offset_full_matrix_audit/%5B2026-06-03%5D/track2d_mean_offset_full_matrix_audit.md)
   `CVP 1.4` full-matrix mean-offset audit over `111` direction-valid
   candidates and `12,416` curves, separating raw error, curve offset,
   centered-shape error, amplitude error, harmonic phase error, and diagnostic
   failure-mode labels.
 
-- [reports/analysis/track2/offset_predictability_feasibility/[2026-06-03]/track2e_offset_predictability_feasibility.md](./reports/analysis/track2/offset_predictability_feasibility/%5B2026-06-03%5D/track2e_offset_predictability_feasibility.md)
+- [reports/analysis/te_curve_verification_pipeline/03_cvp_diagnostics/offset_predictability_feasibility/[2026-06-03]/track2e_offset_predictability_feasibility.md](./reports/analysis/te_curve_verification_pipeline/03_cvp_diagnostics/offset_predictability_feasibility/%5B2026-06-03%5D/track2e_offset_predictability_feasibility.md)
   `CVP 1.5` offset-predictability feasibility report that uses completed
   `CVP 1.4` artifacts to test conservative causal offset-correction
   baselines and recommend the next intervention branch per `Fw`, `Bw`, and
   `global` surface.
 
-- [reports/analysis/track2/component_offset_identification_plan/[2026-06-09]/track2_component_offset_identification_plan.md](./reports/analysis/track2/component_offset_identification_plan/%5B2026-06-09%5D/track2_component_offset_identification_plan.md)
+- [reports/analysis/te_curve_verification_pipeline/04_offset_investigations/component_offset_identification_plan/[2026-06-09]/track2_component_offset_identification_plan.md](./reports/analysis/te_curve_verification_pipeline/04_offset_investigations/component_offset_identification_plan/%5B2026-06-09%5D/track2_component_offset_identification_plan.md)
   `TE Curve Verification Pipeline` component-offset identification plan for testing whether the
   observed curve offset is dominated by `a_0` / `Component 0`, multiple
   harmonics, condition/regime behavior, or experimental repeatability limits
   before opening another training campaign.
 
-- [reports/analysis/track2/component_offset_identification/[2026-06-09]/track2_component_offset_identification_diagnostic.md](./reports/analysis/track2/component_offset_identification/%5B2026-06-09%5D/track2_component_offset_identification_diagnostic.md)
+- [reports/analysis/te_curve_verification_pipeline/04_offset_investigations/component_offset_identification/[2026-06-09]/track2_component_offset_identification_diagnostic.md](./reports/analysis/te_curve_verification_pipeline/04_offset_investigations/component_offset_identification/%5B2026-06-09%5D/track2_component_offset_identification_diagnostic.md)
   `TE Curve Verification Pipeline` measured component-offset diagnostic showing harmonic zero as the
   largest average measured component while preserving the conclusion that it
   is a priority suspect, not the sole confirmed cause.
 
-- [reports/analysis/track2/component_offset_identification/[2026-06-09]/track2d_h0_offset_crosscheck.md](./reports/analysis/track2/component_offset_identification/%5B2026-06-09%5D/track2d_h0_offset_crosscheck.md)
+- [reports/analysis/te_curve_verification_pipeline/04_offset_investigations/component_offset_identification/[2026-06-09]/track2d_h0_offset_crosscheck.md](./reports/analysis/te_curve_verification_pipeline/04_offset_investigations/component_offset_identification/%5B2026-06-09%5D/track2d_h0_offset_crosscheck.md)
   Cross-check of `CVP 1.4` signed offset errors against measured `h0` /
   curve-mean patterns to test whether large model offset failures coincide
   with large `h0` cases.
 
-- [reports/analysis/track2/component_offset_identification/[2026-06-10]/track2d_predicted_mean_h0_surface_diagnostic.md](./reports/analysis/track2/component_offset_identification/%5B2026-06-10%5D/track2d_predicted_mean_h0_surface_diagnostic.md)
+- [reports/analysis/te_curve_verification_pipeline/04_offset_investigations/component_offset_identification/[2026-06-10]/track2d_predicted_mean_h0_surface_diagnostic.md](./reports/analysis/te_curve_verification_pipeline/04_offset_investigations/component_offset_identification/%5B2026-06-10%5D/track2d_predicted_mean_h0_surface_diagnostic.md)
   Diagnostic comparing `CVP 1.4` predicted mean surfaces against measured
   `h0` to identify candidate-specific bias, slope compression, and
   direction/regime offset behavior.
 
-- [reports/analysis/track2/dispersion_aware_wave_roadmap/[2026-06-10]/track2_dispersion_aware_wave_roadmap.md](./reports/analysis/track2/dispersion_aware_wave_roadmap/%5B2026-06-10%5D/track2_dispersion_aware_wave_roadmap.md)
+- [reports/analysis/te_curve_verification_pipeline/05_reference_and_legacy/dispersion_aware_wave_roadmap/[2026-06-10]/track2_dispersion_aware_wave_roadmap.md](./reports/analysis/te_curve_verification_pipeline/05_reference_and_legacy/dispersion_aware_wave_roadmap/%5B2026-06-10%5D/track2_dispersion_aware_wave_roadmap.md)
   `TE Curve Verification Pipeline` roadmap that inserts dispersion-aware probes, `Wave 5.1` hybrid
   structured models, and `Wave 5.2` first-PINN work before the integrated
   multi-task / multi-head architecture.
 
-- [reports/analysis/track2/Wave 4.4 Latent-State Hysteresis Probe Model.md](./reports/analysis/track2/Track%202H-L%20Latent-State%20Hysteresis%20Probe%20Model.md)
+- [reports/analysis/te_curve_verification_pipeline/Wave 4.4 Latent-State Hysteresis Probe Model.md](./reports/analysis/te_curve_verification_pipeline/05_reference_and_legacy/Wave%204.4%20Latent-State%20Hysteresis%20Probe%20Model.md)
   Explanatory report for the `Wave 4.4`
   `latent_state_hysteresis_probe` model, covering causal latent-state
   encoding, base/offset/residual heads, campaign profiles, risks, and
@@ -313,7 +318,7 @@ This folder contains the internal project documents derived from the reference P
   profile comparison, registry effects, and the normal-closeout boundary that
   kept official `TE Curve Verification Pipeline` curve verification as a separate follow-up step.
 
-- [reports/analysis/track2/official_model_verification_report/[2026-06-15]/track2_official_model_verification_report.md](./reports/analysis/track2/official_model_verification_report/%5B2026-06-15%5D/track2_official_model_verification_report.md)
+- [reports/analysis/te_curve_verification_pipeline/01_official_decisions/official_model_verification_report/[2026-06-15]/track2_official_model_verification_report.md](./reports/analysis/te_curve_verification_pipeline/01_official_decisions/official_model_verification_report/%5B2026-06-15%5D/track2_official_model_verification_report.md)
   Official `TE Curve Verification Pipeline` verification decision for the completed `Wave 5.1`
   harmonic-prior residual candidates, verified as an exploratory baseline and
   not promoted over the accepted direction-parallel leaders.
@@ -340,66 +345,66 @@ This folder contains the internal project documents derived from the reference P
   comparison against robust/probabilistic probes, and the boundary that
   official `TE Curve Verification Pipeline` curve verification remains separate.
 
-- [reports/analysis/track2/official_model_verification_report/[2026-06-12]/track2_official_model_verification_report.md](./reports/analysis/track2/official_model_verification_report/%5B2026-06-12%5D/track2_official_model_verification_report.md)
+- [reports/analysis/te_curve_verification_pipeline/01_official_decisions/official_model_verification_report/[2026-06-12]/track2_official_model_verification_report.md](./reports/analysis/te_curve_verification_pipeline/01_official_decisions/official_model_verification_report/%5B2026-06-12%5D/track2_official_model_verification_report.md)
   Official `TE Curve Verification Pipeline` verification decision for the completed `Wave 4 series`
   quantile/probabilistic candidates, verified as an exploratory baseline and
   not promoted over the accepted direction-parallel leaders.
 
-- [reports/analysis/track2/official_model_verification_report/[2026-06-13]/track2_official_model_verification_report.md](./reports/analysis/track2/official_model_verification_report/%5B2026-06-13%5D/track2_official_model_verification_report.md)
+- [reports/analysis/te_curve_verification_pipeline/01_official_decisions/official_model_verification_report/[2026-06-13]/track2_official_model_verification_report.md](./reports/analysis/te_curve_verification_pipeline/01_official_decisions/official_model_verification_report/%5B2026-06-13%5D/track2_official_model_verification_report.md)
   Official `TE Curve Verification Pipeline` verification decision for the completed `Wave 4 series`
   mixture-density heads candidates, verified as an exploratory baseline with
   a strong backward branch but not promoted over the accepted
   direction-parallel leaders.
 
-- [reports/analysis/track2/official_model_verification_report/[2026-06-15]/track2_official_model_verification_report.md](./reports/analysis/track2/official_model_verification_report/%5B2026-06-15%5D/track2_official_model_verification_report.md)
+- [reports/analysis/te_curve_verification_pipeline/01_official_decisions/official_model_verification_report/[2026-06-15]/track2_official_model_verification_report.md](./reports/analysis/te_curve_verification_pipeline/01_official_decisions/official_model_verification_report/%5B2026-06-15%5D/track2_official_model_verification_report.md)
   Official `TE Curve Verification Pipeline` verification decision for the completed first real
   `Wave 5.1` harmonic-prior residual candidates, verified as an exploratory
   baseline and not promoted over the accepted direction-parallel leaders.
 
-- [reports/analysis/wave3/Wave 5.1 Hybrid Structured Models.md](./reports/analysis/wave3/Wave%203%20Hybrid%20Structured%20Models.md)
+- [reports/analysis/model_development_waves/wave_3/Wave 5.1 Hybrid Structured Models.md](./reports/analysis/model_development_waves/wave_3/Wave%203%20Hybrid%20Structured%20Models.md)
   Design report for `Wave 5.1` hybrid structured TE models, covering harmonic
   prior residual learners, grouped harmonic heads, condition-conditioned
   residual surfaces, and basis-constrained curve decoders.
 
-- [reports/analysis/wave4/Wave 5.2 PINN Formulation And First PINN.md](./reports/analysis/wave4/Wave%204%20PINN%20Formulation%20And%20First%20PINN.md)
+- [reports/analysis/model_development_waves/wave_4/Wave 5.2 PINN Formulation And First PINN.md](./reports/analysis/model_development_waves/wave_4/Wave%204%20PINN%20Formulation%20And%20First%20PINN.md)
   Design report for the first `Wave 5.2` soft-constraint PINN branch, covering
   TE data fit, periodicity, smoothness, harmonic consistency, condition-surface
   consistency, and residual regularization boundaries.
 
-- [reports/analysis/wave4/Wave 5.2A MMT Equation Diagnostic Design.md](./reports/analysis/wave4/Wave%204A%20MMT%20Equation%20Diagnostic%20Design.md)
+- [reports/analysis/model_development_waves/wave_4/Wave 5.2A MMT Equation Diagnostic Design.md](./reports/analysis/model_development_waves/wave_4/Wave%204A%20MMT%20Equation%20Diagnostic%20Design.md)
   Detailed design for using the repository-owned MMT equation reproduction as
   a TE Curve Verification Pipeline analytical diagnostic before feature or PINN integration.
 
-- [reports/analysis/wave4/Wave 5.2B MMT Feature Generator Design.md](./reports/analysis/wave4/Wave%204B%20MMT%20Feature%20Generator%20Design.md)
+- [reports/analysis/model_development_waves/wave_4/Wave 5.2B MMT Feature Generator Design.md](./reports/analysis/model_development_waves/wave_4/Wave%204B%20MMT%20Feature%20Generator%20Design.md)
   Detailed design for turning MMT subsystem terms, harmonic summaries, and
   calibrated analytical residuals into leakage-safe feature candidates.
 
-- [reports/analysis/wave4/Wave 5.2C MMT Soft Constraint PINN Design.md](./reports/analysis/wave4/Wave%204C%20MMT%20Soft%20Constraint%20PINN%20Design.md)
+- [reports/analysis/model_development_waves/wave_4/Wave 5.2C MMT Soft Constraint PINN Design.md](./reports/analysis/model_development_waves/wave_4/Wave%204C%20MMT%20Soft%20Constraint%20PINN%20Design.md)
   Detailed design for adding weak MMT equation residuals to a curve or
   harmonic-plus-residual neural model.
 
-- [reports/analysis/wave4/Wave 5.2D Mesh Stiffness Loaded TE PINN Design.md](./reports/analysis/wave4/Wave%204D%20Mesh%20Stiffness%20Loaded%20TE%20PINN%20Design.md)
+- [reports/analysis/model_development_waves/wave_4/Wave 5.2D Mesh Stiffness Loaded TE PINN Design.md](./reports/analysis/model_development_waves/wave_4/Wave%204D%20Mesh%20Stiffness%20Loaded%20TE%20PINN%20Design.md)
   Detailed design for exploratory time-varying mesh stiffness and loaded-static
   transmission-error constraints.
 
-- [reports/analysis/wave4/Wave 5.2E Backlash Preload State PINN Design.md](./reports/analysis/wave4/Wave%204E%20Backlash%20Preload%20State%20PINN%20Design.md)
+- [reports/analysis/model_development_waves/wave_4/Wave 5.2E Backlash Preload State PINN Design.md](./reports/analysis/model_development_waves/wave_4/Wave%204E%20Backlash%20Preload%20State%20PINN%20Design.md)
   Detailed design for backlash, preload, direction-transition, and latent-state
   constraints targeting local dispersion.
 
-- [reports/analysis/wave4/Wave 5.2F Cycloid Contact Force PINN Design.md](./reports/analysis/wave4/Wave%204F%20Cycloid%20Contact%20Force%20PINN%20Design.md)
+- [reports/analysis/model_development_waves/wave_4/Wave 5.2F Cycloid Contact Force PINN Design.md](./reports/analysis/model_development_waves/wave_4/Wave%204F%20Cycloid%20Contact%20Force%20PINN%20Design.md)
   Detailed design for cycloid-pin contact-force, profile-modification, and
   loaded-TE exploratory constraints.
 
-- [reports/analysis/wave4/Wave 5.2G Planetary Mesh Force LSTE PINN Design.md](./reports/analysis/wave4/Wave%204G%20Planetary%20Mesh%20Force%20LSTE%20PINN%20Design.md)
+- [reports/analysis/model_development_waves/wave_4/Wave 5.2G Planetary Mesh Force LSTE PINN Design.md](./reports/analysis/model_development_waves/wave_4/Wave%204G%20Planetary%20Mesh%20Force%20LSTE%20PINN%20Design.md)
   Detailed design for planetary-style mesh-force, load-sharing, and
   loaded-static-TE exploratory constraints.
 
-- [reports/analysis/wave4/mmt_equation_diagnostic/[2026-06-11]/wave4a_mmt_equation_diagnostic.md](./reports/analysis/wave4/mmt_equation_diagnostic/%5B2026-06-11%5D/wave4a_mmt_equation_diagnostic.md)
+- [reports/analysis/model_development_waves/wave_4/mmt_equation_diagnostic/[2026-06-11]/wave4a_mmt_equation_diagnostic.md](./reports/analysis/model_development_waves/wave_4/mmt_equation_diagnostic/%5B2026-06-11%5D/wave4a_mmt_equation_diagnostic.md)
   First `Wave 5.2A` MMT equation-chain diagnostic report, summarizing the
   demonstration `RTE` mean, peak-to-peak amplitude, dominant harmonics, and
   TE Curve Verification Pipeline suspicious-harmonic probe.
 
-- [reports/analysis/wave4/mmt_parameter_inventory/[2026-06-11]/wave4a_mmt_parameter_inventory.md](./reports/analysis/wave4/mmt_parameter_inventory/%5B2026-06-11%5D/wave4a_mmt_parameter_inventory.md)
+- [reports/analysis/model_development_waves/wave_4/mmt_parameter_inventory/[2026-06-11]/wave4a_mmt_parameter_inventory.md](./reports/analysis/model_development_waves/wave_4/mmt_parameter_inventory/%5B2026-06-11%5D/wave4a_mmt_parameter_inventory.md)
   `Wave 5.2A` MMT parameter-inventory report, classifying geometry constants,
   dataset metadata, train-only equivalent-error channels, blocked contact
   geometry, and target-only TE boundaries before `Wave 5.2B` or `Wave 5.2C`.
@@ -417,22 +422,22 @@ This folder contains the internal project documents derived from the reference P
   MATLAB and Python analytical reimplementation scripts, and planning dataset
   evaluation against repository TE curves.
 
-- [reports/analysis/track2/original_onnx_offset_diagnostic/[2026-06-04]/track2_original_onnx_offset_diagnostic.md](./reports/analysis/track2/original_onnx_offset_diagnostic/%5B2026-06-04%5D/track2_original_onnx_offset_diagnostic.md)
+- [reports/analysis/te_curve_verification_pipeline/04_offset_investigations/original_onnx_offset_diagnostic/[2026-06-04]/track2_original_onnx_offset_diagnostic.md](./reports/analysis/te_curve_verification_pipeline/04_offset_investigations/original_onnx_offset_diagnostic/%5B2026-06-04%5D/track2_original_onnx_offset_diagnostic.md)
   Diagnostic replay of the recovered paper-original `ONNX` release through the
   `TE Curve Verification Pipeline` forward curve evaluator, including raw parity and mean-centered
   offset evidence for the original executable model families.
 
-- [reports/analysis/track2/original_onnx_fw_collage_report/[2026-06-05]/track2_original_onnx_fw_collage_report.md](./reports/analysis/track2/original_onnx_fw_collage_report/%5B2026-06-05%5D/track2_original_onnx_fw_collage_report.md)
+- [reports/analysis/te_curve_verification_pipeline/05_reference_and_legacy/original_onnx_fw_collage_report/[2026-06-05]/track2_original_onnx_fw_collage_report.md](./reports/analysis/te_curve_verification_pipeline/05_reference_and_legacy/original_onnx_fw_collage_report/%5B2026-06-05%5D/track2_original_onnx_fw_collage_report.md)
   Simple `TE Curve Verification Pipeline` collage report and PDF for the recovered paper-original
   `ONNX` `paper_original_best_Fw` composite loaded directly from the `19`
   original target models.
 
-- [reports/analysis/track2/sparse_original_onnx_variants/[2026-06-08]/track2_sparse_original_onnx_variants_report.md](./reports/analysis/track2/sparse_original_onnx_variants/%5B2026-06-08%5D/track2_sparse_original_onnx_variants_report.md)
+- [reports/analysis/te_curve_verification_pipeline/05_reference_and_legacy/sparse_original_onnx_variants/[2026-06-08]/track2_sparse_original_onnx_variants_report.md](./reports/analysis/te_curve_verification_pipeline/05_reference_and_legacy/sparse_original_onnx_variants/%5B2026-06-08%5D/track2_sparse_original_onnx_variants_report.md)
   Sparse original `ONNX` `TE Curve Verification Pipeline` report comparing the component-selected
   simplified RCIM variant and the PLC-oriented all-`HGBM` variant over
   harmonics `0`, `1`, `39`, and `40`.
 
-- [reports/analysis/track2/forward_reference_curve_comparison/[2026-06-08]/track2_forward_reference_curve_comparison_report.md](./reports/analysis/track2/forward_reference_curve_comparison/%5B2026-06-08%5D/track2_forward_reference_curve_comparison_report.md)
+- [reports/analysis/te_curve_verification_pipeline/05_reference_and_legacy/forward_reference_curve_comparison/[2026-06-08]/track2_forward_reference_curve_comparison_report.md](./reports/analysis/te_curve_verification_pipeline/05_reference_and_legacy/forward_reference_curve_comparison/%5B2026-06-08%5D/track2_forward_reference_curve_comparison_report.md)
   Forward `TE Curve Verification Pipeline` curve-comparison report collecting the paper-original,
   paper-retuned, full original `ONNX`, sparse original `ONNX`, and PLC-oriented
   sparse original `ONNX` collages with aggregate and pairwise curve-difference
@@ -443,22 +448,22 @@ This folder contains the internal project documents derived from the reference P
   archive, including source bundles, export completeness, and retuned Tables
   `2`-`5` for both directions.
 
-- [reports/analysis/Training Results Master Summary.md](./reports/analysis/Training%20Results%20Master%20Summary.md)
+- [reports/analysis/Training Results Master Summary.md](./reports/analysis/project_status/current/Training%20Results%20Master%20Summary.md)
   Canonical always-updated summary of current project status, best family results, recent campaign changes, and family-by-family ranked outcomes across the TE training program.
 
-- [reports/analysis/wave5_2/paired_dataset_diagnostics/[2026-07-01]/wave52a_paired_dataset_diagnostics.md](./reports/analysis/wave5_2/paired_dataset_diagnostics/%5B2026-07-01%5D/wave52a_paired_dataset_diagnostics.md)
+- [reports/analysis/model_development_waves/wave_5_2/paired_dataset_diagnostics/[2026-07-01]/wave52a_paired_dataset_diagnostics.md](./reports/analysis/model_development_waves/wave_5_2/paired_dataset_diagnostics/%5B2026-07-01%5D/wave52a_paired_dataset_diagnostics.md)
   Full-matrix `Wave 5.2A` paired-dataset diagnostic comparing
   `simplified_dataset` and `polished_dataset` over `1938` paired directional
   records, with classification plus machine-readable pair, harmonic,
   aggregate, and summary artifacts under
   `output/validation_checks/wave52a_paired_dataset_diagnostics/`.
 
-- [reports/analysis/wave5_2/model_design_gate/[2026-07-01]/wave52b_wave52c_model_design_gate.md](./reports/analysis/wave5_2/model_design_gate/%5B2026-07-01%5D/wave52b_wave52c_model_design_gate.md)
+- [reports/analysis/model_development_waves/wave_5_2/model_design_gate/[2026-07-01]/wave52b_wave52c_model_design_gate.md](./reports/analysis/model_development_waves/wave_5_2/model_design_gate/%5B2026-07-01%5D/wave52b_wave52c_model_design_gate.md)
   `Wave 5.2B` and `Wave 5.2C` model-design gate translating the full paired
   matrix into a lightweight offset/harmonic guided primary branch, a
   dirty-to-clean transfer secondary branch, and deferred `Wave 6` integration.
 
-- [reports/analysis/wave5_2/Wave 5.2B Offset And Harmonic Guided Model.md](./reports/analysis/wave5_2/Wave%205.2B%20Offset%20And%20Harmonic%20Guided%20Model.md)
+- [reports/analysis/model_development_waves/wave_5_2/Wave 5.2B Offset And Harmonic Guided Model.md](./reports/analysis/model_development_waves/wave_5_2/Wave%205.2B%20Offset%20And%20Harmonic%20Guided%20Model.md)
   Explanatory model report for the prepared `Wave 5.2B` lightweight offset /
   mean and nonzero-harmonic guided TE prediction branch.
 
@@ -466,7 +471,7 @@ This folder contains the internal project documents derived from the reference P
   Prepared campaign plan for the `Wave 5.2B` `12`-run offset and harmonic
   guided campaign on `polished_dataset`.
 
-- [reports/analysis/Repository Status Wave Track Synthesis.md](./reports/analysis/Repository%20Status%20Wave%20Track%20Synthesis.md)
+- [reports/analysis/Repository Status Wave Track Synthesis.md](./reports/analysis/project_status/current/Repository%20Status%20Wave%20Track%20Synthesis.md)
   Consolidated state report covering the repository status, `Wave 1`,
   `Wave 2.1`, `Wave 2.2`, `Wave 2.3`, `TE Curve Verification Pipeline` outcomes, sparse `RCIM` versus
   dense harmonic-bank results, and the curve-first future plan introduced by
@@ -474,16 +479,16 @@ This folder contains the internal project documents derived from the reference P
   is available at
   `reports/analysis/Repository Status Wave Track Synthesis.pdf`.
 
-- [reports/analysis/wave1/Wave 1 - Closeout Status.md](./reports/analysis/wave1/Wave%201%20-%20Closeout%20Status.md)
+- [reports/analysis/model_development_waves/wave_1/Wave 1 - Closeout Status.md](./reports/analysis/model_development_waves/wave_1/Wave%201%20-%20Closeout%20Status.md)
   Consolidated closeout report for `Wave 1`, covering campaign completion status, compared families, family winners, and final ranking.
 
 - [reports/analysis/utilities/Skill and Subagent Operational Test.md](./reports/analysis/utilities/Skill%20and%20Subagent%20Operational%20Test.md)
   Operational test report for the second wave of repository-owned Codex skills and subagents.
 
-- [reports/analysis/te_modeling/Twincat-Friendly Structured TE Modeling.md](./reports/analysis/te_modeling/Twincat-Friendly%20Structured%20TE%20Modeling.md)
+- [reports/analysis/te_modeling/Twincat-Friendly Structured TE Modeling.md](./reports/analysis/te_modeling/strategy/Twincat-Friendly%20Structured%20TE%20Modeling.md)
   Reference-backed synthesis of TwinCAT-friendly structured TE modeling implications for the current repository direction.
 
-- [reports/analysis/te_modeling/Curve-First TE Training Strategy.md](./reports/analysis/te_modeling/Curve-First%20TE%20Training%20Strategy.md)
+- [reports/analysis/te_modeling/Curve-First TE Training Strategy.md](./reports/analysis/te_modeling/strategy/Curve-First%20TE%20Training%20Strategy.md)
   Strategy report for shifting TE model selection from scalar pointwise
   `MAE` toward TE Curve Verification Pipeline curve-following quality, harmonic/phase diagnostics,
   and continuous compensation readiness.
@@ -522,6 +527,13 @@ This folder contains the internal project documents derived from the reference P
 - [technical/2026-07/2026-07-03/2026-07-03-16-07-27_track2_circular_angle_plot_diagnostic.md](./technical/2026-07/2026-07-03/2026-07-03-16-07-27_track2_circular_angle_plot_diagnostic.md)
   Technical plan for diagnosing and correcting circular angular-wrap rendering
   artifacts in `TE Curve Verification Pipeline` collage and comparison plots.
+
+- [technical/2026-07/2026-07-03/2026-07-03-16-52-02_analysis_report_directory_reorganization.md](./technical/2026-07/2026-07-03/2026-07-03-16-52-02_analysis_report_directory_reorganization.md)
+  Technical plan for reorganizing `doc/reports/analysis/` into human-readable
+  project-status, TE modeling, model-development wave, training-configuration,
+  validation-check, and TE Curve Verification Pipeline containers while
+  updating all script, configuration, workflow, and documentation path
+  references.
 
 #### 2026-06-29
 
@@ -2923,33 +2935,33 @@ This folder contains the internal project documents derived from the reference P
 - [reports/analysis/project_status/[2026-03-27]/notebook_lm_assets/notebooklm_presentation_prompt.md](./reports/analysis/project_status/%5B2026-03-27%5D/notebook_lm_assets/notebooklm_presentation_prompt.md)
   Ready-to-paste NotebookLM prompt for generating an English project-status presentation from the grounded repository source package stored under `notebook_lm_assets/`.
 
-- [reports/analysis/validation_checks/2026-03-30-10-46-47_feedforward_te_feedforward_trial_skill_operational_test_validation_setup_report.md](./reports/analysis/validation_checks/2026-03-30-10-46-47_feedforward_te_feedforward_trial_skill_operational_test_validation_setup_report.md)
+- [reports/analysis/validation_checks/infrastructure/2026-03-30-10-46-47_feedforward_te_feedforward_trial_skill_operational_test_validation_setup_report.md](./reports/analysis/validation_checks/infrastructure/2026-03-30-10-46-47_feedforward_te_feedforward_trial_skill_operational_test_validation_setup_report.md)
   Lightweight repository-owned validation-check report generated from the one-batch feedforward trial setup validation pass.
 
-- [reports/analysis/validation_checks/2026-03-30-10-46-47_feedforward_te_feedforward_trial_skill_operational_test_validation_setup_report.pdf](./reports/analysis/validation_checks/2026-03-30-10-46-47_feedforward_te_feedforward_trial_skill_operational_test_validation_setup_report.pdf)
+- [reports/analysis/validation_checks/infrastructure/2026-03-30-10-46-47_feedforward_te_feedforward_trial_skill_operational_test_validation_setup_report.pdf](./reports/analysis/validation_checks/infrastructure/2026-03-30-10-46-47_feedforward_te_feedforward_trial_skill_operational_test_validation_setup_report.pdf)
   Styled PDF export of the feedforward trial validation-check report.
 
-- [reports/analysis/validation_checks/2026-06-04-23-08-24_track2f_bi_2c54bdf1_te_track2f_bis_clean_residual_o_00ddc617_validation_setup_report.md](./reports/analysis/validation_checks/2026-06-04-23-08-24_track2f_bi_2c54bdf1_te_track2f_bis_clean_residual_o_00ddc617_validation_setup_report.md)
+- [reports/analysis/validation_checks/model_development_waves/generated_setup_reports/2026-06-04-23-08-24_track2f_bi_2c54bdf1_te_track2f_bis_clean_residual_o_00ddc617_validation_setup_report.md](./reports/analysis/validation_checks/model_development_waves/generated_setup_reports/2026-06-04-23-08-24_track2f_bi_2c54bdf1_te_track2f_bis_clean_residual_o_00ddc617_validation_setup_report.md)
   One-batch validation setup report for the Wave 3.2 clean non-harmonic
   control `global` entry.
 
-- [reports/analysis/validation_checks/2026-06-04-23-08-24_track2f_bi_da4c30ce_te_track2f_bis_harmonic_residua_7fa047ef_validation_setup_report.md](./reports/analysis/validation_checks/2026-06-04-23-08-24_track2f_bi_da4c30ce_te_track2f_bis_harmonic_residua_7fa047ef_validation_setup_report.md)
+- [reports/analysis/validation_checks/model_development_waves/generated_setup_reports/2026-06-04-23-08-24_track2f_bi_da4c30ce_te_track2f_bis_harmonic_residua_7fa047ef_validation_setup_report.md](./reports/analysis/validation_checks/model_development_waves/generated_setup_reports/2026-06-04-23-08-24_track2f_bi_da4c30ce_te_track2f_bis_harmonic_residua_7fa047ef_validation_setup_report.md)
   One-batch validation setup report for the Wave 3.2 harmonic-offset
   `global` entry.
 
-- [reports/analysis/validation_checks/2026-06-08-18-14-31_track2g_cu_ca617bbd_te_track2g_curve_aware_pointwis_239993a2_validation_setup_report.md](./reports/analysis/validation_checks/2026-06-08-18-14-31_track2g_cu_ca617bbd_te_track2g_curve_aware_pointwis_239993a2_validation_setup_report.md)
+- [reports/analysis/validation_checks/model_development_waves/generated_setup_reports/2026-06-08-18-14-31_track2g_cu_ca617bbd_te_track2g_curve_aware_pointwis_239993a2_validation_setup_report.md](./reports/analysis/validation_checks/model_development_waves/generated_setup_reports/2026-06-08-18-14-31_track2g_cu_ca617bbd_te_track2g_curve_aware_pointwis_239993a2_validation_setup_report.md)
   One-batch validation setup report for the Wave 3.3 pointwise-control
   `global` entry.
 
-- [reports/analysis/validation_checks/2026-06-08-18-14-31_track2g_cu_b85b1190_te_track2g_curve_aware_raw_cent_9365d702_validation_setup_report.md](./reports/analysis/validation_checks/2026-06-08-18-14-31_track2g_cu_b85b1190_te_track2g_curve_aware_raw_cent_9365d702_validation_setup_report.md)
+- [reports/analysis/validation_checks/model_development_waves/generated_setup_reports/2026-06-08-18-14-31_track2g_cu_b85b1190_te_track2g_curve_aware_raw_cent_9365d702_validation_setup_report.md](./reports/analysis/validation_checks/model_development_waves/generated_setup_reports/2026-06-08-18-14-31_track2g_cu_b85b1190_te_track2g_curve_aware_raw_cent_9365d702_validation_setup_report.md)
   One-batch validation setup report for the Wave 3.3 raw plus centered-shape
   `global` entry.
 
-- [reports/analysis/validation_checks/2026-06-08-18-14-31_track2g_cu_1430b431_te_track2g_curve_aware_raw_offs_951f470e_validation_setup_report.md](./reports/analysis/validation_checks/2026-06-08-18-14-31_track2g_cu_1430b431_te_track2g_curve_aware_raw_offs_951f470e_validation_setup_report.md)
+- [reports/analysis/validation_checks/model_development_waves/generated_setup_reports/2026-06-08-18-14-31_track2g_cu_1430b431_te_track2g_curve_aware_raw_offs_951f470e_validation_setup_report.md](./reports/analysis/validation_checks/model_development_waves/generated_setup_reports/2026-06-08-18-14-31_track2g_cu_1430b431_te_track2g_curve_aware_raw_offs_951f470e_validation_setup_report.md)
   One-batch validation setup report for the Wave 3.3 raw plus offset
   `global` entry.
 
-- [reports/analysis/validation_checks/2026-06-08-18-14-31_track2g_cu_3c0ce19b_te_track2g_curve_aware_full_cur_f7e39520_validation_setup_report.md](./reports/analysis/validation_checks/2026-06-08-18-14-31_track2g_cu_3c0ce19b_te_track2g_curve_aware_full_cur_f7e39520_validation_setup_report.md)
+- [reports/analysis/validation_checks/model_development_waves/generated_setup_reports/2026-06-08-18-14-31_track2g_cu_3c0ce19b_te_track2g_curve_aware_full_cur_f7e39520_validation_setup_report.md](./reports/analysis/validation_checks/model_development_waves/generated_setup_reports/2026-06-08-18-14-31_track2g_cu_3c0ce19b_te_track2g_curve_aware_full_cur_f7e39520_validation_setup_report.md)
   One-batch validation setup report for the Wave 3.3 full composite curve-loss
   `global` entry.
 

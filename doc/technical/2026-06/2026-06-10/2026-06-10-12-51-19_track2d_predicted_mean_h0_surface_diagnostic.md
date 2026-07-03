@@ -31,7 +31,7 @@ candidates, or introduce deploy-time corrections.
 - `output/validation_checks/track2d_mean_offset_full_matrix_audit/2026-06-03-10-54-10__track2d_mean_offset_full_matrix_audit/track2d_per_curve_metrics.csv`
 - `output/validation_checks/track2d_h0_offset_crosscheck/2026-06-09-20-09-16__track2d_h0_offset_crosscheck/`
 - `scripts/reports/analysis/`
-- `doc/reports/analysis/track2/component_offset_identification/`
+- `doc/reports/analysis/te_curve_verification_pipeline/04_offset_investigations/component_offset_identification/`
 - `doc/README.md`
 - `doc/running/te_model_live_backlog.md`
 

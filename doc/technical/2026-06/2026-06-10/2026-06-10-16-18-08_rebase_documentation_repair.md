@@ -24,7 +24,7 @@ the newer dispersion-aware roadmap simultaneously:
 
 ## Involved Components
 
-- `doc/reports/analysis/Training Results Master Summary.md`
+- `doc/reports/analysis/project_status/current/Training Results Master Summary.md`
 - `doc/README.md`
 
 ## Implementation Steps

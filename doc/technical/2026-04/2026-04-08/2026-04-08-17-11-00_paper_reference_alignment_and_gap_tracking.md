@@ -43,7 +43,7 @@ The report should include at least:
 7. an explicit missing-pipeline section that explains why the current
    repository does not yet have a like-for-like Table 9 comparison.
 
-The canonical `doc/reports/analysis/Training Results Master Summary.md` should
+The canonical `doc/reports/analysis/project_status/current/Training Results Master Summary.md` should
 then be extended with a dedicated reference-benchmark section containing:
 
 - extracted paper targets;
@@ -64,7 +64,7 @@ The repository rules should also be updated so future online-compensation
 results explicitly refresh both:
 
 - the new paper-reference analysis report;
-- `doc/reports/analysis/Training Results Master Summary.md`.
+- `doc/reports/analysis/project_status/current/Training Results Master Summary.md`.
 
 Until online-compensation validation exists in the repository, the comparison
 should be stated explicitly as an offline-only comparison rather than an
@@ -82,7 +82,7 @@ repository-owned references, reports, and backlog state.
 
 - `reference/RCIM_ML-compensation.pdf`
 - `doc/reference_summaries/03_RCIM_ML_Compensation_Project_Summary.md`
-- `doc/reports/analysis/Training Results Master Summary.md`
+- `doc/reports/analysis/project_status/current/Training Results Master Summary.md`
 - `doc/reports/analysis/`
 - `doc/running/te_model_live_backlog.md`
 - `doc/README.md`

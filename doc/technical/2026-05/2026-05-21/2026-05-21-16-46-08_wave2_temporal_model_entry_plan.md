@@ -53,9 +53,9 @@ TE Curve Verification Pipeline update ledger when promoted.
 ## Involved Components
 
 - `doc/running/te_model_live_backlog.md`
-- `doc/reports/analysis/track2/official_model_verification_report/[2026-05-21]/track2_official_model_verification_report.md`
-- `doc/reports/analysis/wave1/Wave 1 - Closeout Status.md`
-- `doc/reports/analysis/Training Results Master Summary.md`
+- `doc/reports/analysis/te_curve_verification_pipeline/01_official_decisions/official_model_verification_report/[2026-05-21]/track2_official_model_verification_report.md`
+- `doc/reports/analysis/model_development_waves/wave_1/Wave 1 - Closeout Status.md`
+- `doc/reports/analysis/project_status/current/Training Results Master Summary.md`
 - `doc/reports/campaign_plans/`
 - `config/training/hydra/wave1/`
 - future `config/training/hydra/wave2/`

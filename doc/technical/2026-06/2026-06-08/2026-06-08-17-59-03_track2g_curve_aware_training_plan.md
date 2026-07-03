@@ -104,9 +104,9 @@ Expected documentation and planning components:
 - this technical document;
 - a future campaign planning report under `doc/reports/campaign_plans/track_2/`;
 - `doc/running/active_training_campaign.yaml`;
-- `doc/reports/analysis/Training Results Master Summary.md`;
+- `doc/reports/analysis/project_status/current/Training Results Master Summary.md`;
 - a future Wave 3.3 explanatory model report under
-  `doc/reports/analysis/wave2/` or a dedicated TE Curve Verification Pipeline model-report folder.
+  `doc/reports/analysis/model_development_waves/wave_2/` or a dedicated TE Curve Verification Pipeline model-report folder.
 
 Expected implementation components after approval:
 

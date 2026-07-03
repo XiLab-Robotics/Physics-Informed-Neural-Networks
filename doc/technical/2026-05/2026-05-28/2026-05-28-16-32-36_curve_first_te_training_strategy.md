@@ -101,14 +101,14 @@ or data loaders.
 Documentation and planning targets:
 
 - `doc/running/te_model_live_backlog.md`
-- `doc/reports/analysis/Training Results Master Summary.md`
-- `doc/reports/analysis/wave1/Wave 1 - Closeout Status.md`
-- `doc/reports/analysis/wave2/Wave 2 Temporal Sequence Models.md`
-- `doc/reports/analysis/wave2/Wave 2B Harmonic Temporal Hybrid Models.md`
-- `doc/reports/analysis/wave2/Wave 2C Residual Harmonic Temporal Hybrid Models.md`
-- `doc/reports/analysis/track2/Track 2 Directional Model Comparison.md`
-- `doc/reports/analysis/track2/official_model_verification_report/[2026-05-28]/track2_official_model_verification_report.md`
-- `doc/reports/analysis/te_modeling/Twincat-Friendly Structured TE Modeling.md`
+- `doc/reports/analysis/project_status/current/Training Results Master Summary.md`
+- `doc/reports/analysis/model_development_waves/wave_1/Wave 1 - Closeout Status.md`
+- `doc/reports/analysis/model_development_waves/wave_2/Wave 2 Temporal Sequence Models.md`
+- `doc/reports/analysis/model_development_waves/wave_2/Wave 2B Harmonic Temporal Hybrid Models.md`
+- `doc/reports/analysis/model_development_waves/wave_2/Wave 2C Residual Harmonic Temporal Hybrid Models.md`
+- `doc/reports/analysis/te_curve_verification_pipeline/00_overview/TE Curve Verification Pipeline Directional Model Comparison.md`
+- `doc/reports/analysis/te_curve_verification_pipeline/01_official_decisions/official_model_verification_report/[2026-05-28]/track2_official_model_verification_report.md`
+- `doc/reports/analysis/te_modeling/strategy/Twincat-Friendly Structured TE Modeling.md`
 - `doc/reference_summaries/03_RCIM_ML_Compensation_Project_Summary.md`
 - `doc/reference_summaries/05_Data_Series_Explanation_Project_Summary.md`
 

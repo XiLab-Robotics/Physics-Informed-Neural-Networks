@@ -16,7 +16,7 @@ conda run -n pinns_env python -B scripts/reports/analysis/build_wave4a_mmt_param
 ## Outputs
 
 - Markdown report under
-  `doc/reports/analysis/wave4/mmt_parameter_inventory/[YYYY-MM-DD]/`.
+  `doc/reports/analysis/model_development_waves/wave_4/mmt_parameter_inventory/[YYYY-MM-DD]/`.
 - Parameter-inventory CSV and summary YAML under
   `output/validation_checks/wave4_mmt_parameter_inventory/`.
 

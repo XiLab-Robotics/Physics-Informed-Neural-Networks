@@ -19,7 +19,7 @@ artifact:
 ## Technical Approach
 
 Create a standalone analysis report similar in structure to
-`doc/reports/analysis/validation_checks/track2/2026-05-18-21-42-15_original_onnx_release_initial_parity_validation_report.md`,
+`doc/reports/analysis/validation_checks/te_curve_verification_pipeline/2026-05-18-21-42-15_original_onnx_release_initial_parity_validation_report.md`,
 but placed directly in `doc/reports/analysis/` with a readable title-based
 filename.
 
@@ -34,7 +34,7 @@ of truth, then add an interpretation layer:
 
 ## Involved Components
 
-- `doc/reports/analysis/validation_checks/track2/2026-05-18-21-42-15_original_onnx_release_initial_parity_validation_report.md`
+- `doc/reports/analysis/validation_checks/te_curve_verification_pipeline/2026-05-18-21-42-15_original_onnx_release_initial_parity_validation_report.md`
   - source validation-check report.
 - `output/validation_checks/rcim_original_onnx_release_parity/2026-05-18-21-42-15__original_onnx_release_initial_parity_validation/validation_summary.yaml`
   - source machine-readable validation summary.

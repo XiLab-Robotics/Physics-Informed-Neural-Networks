@@ -46,7 +46,7 @@ No subagent use is planned for this preparation.
 - `scripts/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/run_reference_family_vs_feedforward_comparison.py`
 - `scripts/campaigns/track_2/`
 - `doc/scripts/campaigns/track_2/`
-- `doc/reports/analysis/track2/Track 2 Directional Model Comparison.md`
+- `doc/reports/analysis/te_curve_verification_pipeline/00_overview/TE Curve Verification Pipeline Directional Model Comparison.md`
 
 ## Implementation Steps
 

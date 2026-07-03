@@ -152,7 +152,7 @@ references Tables `2-5`.
   - curve-verification comparison runner.
 - `config/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/full_track2_matrix_template.yaml`
   - canonical curve-verification matrix configuration.
-- `doc/reports/analysis/track2/Track 2 Directional Model Comparison.md`
+- `doc/reports/analysis/te_curve_verification_pipeline/00_overview/TE Curve Verification Pipeline Directional Model Comparison.md`
   - canonical TE curve-verification report to refresh after implementation.
 
 ## Implementation Steps

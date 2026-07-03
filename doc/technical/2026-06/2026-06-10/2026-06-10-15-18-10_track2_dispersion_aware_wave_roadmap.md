@@ -34,9 +34,9 @@ The documentation update will:
 ## Involved Components
 
 - `doc/running/te_model_live_backlog.md`
-- `doc/reports/analysis/Training Results Master Summary.md`
-- `doc/reports/analysis/track2/component_offset_identification_plan/[2026-06-09]/track2_component_offset_identification_plan.md`
-- `doc/reports/analysis/track2/dispersion_aware_wave_roadmap/[2026-06-10]/track2_dispersion_aware_wave_roadmap.md`
+- `doc/reports/analysis/project_status/current/Training Results Master Summary.md`
+- `doc/reports/analysis/te_curve_verification_pipeline/04_offset_investigations/component_offset_identification_plan/[2026-06-09]/track2_component_offset_identification_plan.md`
+- `doc/reports/analysis/te_curve_verification_pipeline/05_reference_and_legacy/dispersion_aware_wave_roadmap/[2026-06-10]/track2_dispersion_aware_wave_roadmap.md`
 - `doc/README.md`
 
 ## Implementation Steps

@@ -33,7 +33,7 @@ will:
 - `output/registries/program/current_best_solution.yaml`
 - `doc/running/active_training_campaign.yaml`
 - `doc/running/te_model_live_backlog.md`
-- `doc/reports/analysis/Training Results Master Summary.md`
+- `doc/reports/analysis/project_status/current/Training Results Master Summary.md`
 - `doc/reports/campaign_results/track_2/campaign_closeouts/`
 - `doc/guide/project_usage_guide.md`
 - `doc/README.md`

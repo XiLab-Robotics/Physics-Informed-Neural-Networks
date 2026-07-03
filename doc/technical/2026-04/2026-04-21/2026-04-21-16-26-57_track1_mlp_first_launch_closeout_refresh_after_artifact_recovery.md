@@ -51,7 +51,7 @@ in place.
 
 - `doc/reports/campaign_results/track_1/exact_paper/forward/2026-04-21-14-58-00_track1_open_cell_full_matrix_closure_campaign_results_report.md`
 - `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
-- `doc/reports/analysis/Training Results Master Summary.md`
+- `doc/reports/analysis/project_status/current/Training Results Master Summary.md`
 - `doc/running/active_training_campaign.yaml`
 - `doc/reports/analysis/validation_checks/`
 - `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/`

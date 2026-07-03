@@ -74,12 +74,12 @@ Matrix artifacts are written under:
 
 Dataset/surface visual reports are written under:
 
-- `doc/reports/analysis/track2/dataset_surface_report/<dataset>/<surface>/collage/[YYYY-MM-DD]/`
-- `doc/reports/analysis/track2/dataset_surface_report/<dataset>/<surface>/overlay/[YYYY-MM-DD]/`
+- `doc/reports/analysis/te_curve_verification_pipeline/02_visual_reports/dataset_surface_report/<dataset>/<surface>/collage/[YYYY-MM-DD]/`
+- `doc/reports/analysis/te_curve_verification_pipeline/02_visual_reports/dataset_surface_report/<dataset>/<surface>/overlay/[YYYY-MM-DD]/`
 
 Dataset-difference reports are written under:
 
-- `doc/reports/analysis/track2/dataset_difference_report/[YYYY-MM-DD]/<dataset>/<surface>/`
+- `doc/reports/analysis/te_curve_verification_pipeline/03_cvp_diagnostics/dataset_difference_report/[YYYY-MM-DD]/<dataset>/<surface>/`
 
 Operator logs are written under:
 

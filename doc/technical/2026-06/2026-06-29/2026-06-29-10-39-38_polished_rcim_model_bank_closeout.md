@@ -30,8 +30,8 @@ The closeout report will summarize:
 - `doc/reports/campaign_results/cross_wave/polished_dataset/`
 - `output/training_campaigns/cross_wave/polished_dataset/rcim_model_bank_reproduction/polished_dataset_rcim_model_bank_reproduction_2026_06_22/`
 - `output/registries/program/track1_exact_paper_best_hyperparameters.yaml`
-- `doc/reports/analysis/Training Results Master Summary.md`
-- `doc/reports/analysis/TE Program Status And Closeout Ledger.md`
+- `doc/reports/analysis/project_status/current/Training Results Master Summary.md`
+- `doc/reports/analysis/project_status/current/TE Program Status And Closeout Ledger.md`
 - `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
 - `doc/README.md`
 - `.gitignore`

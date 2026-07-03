@@ -52,9 +52,9 @@ The first pass should:
 - `doc/running/te_model_live_backlog.md`
   Candidate destination for the approved future-work note after this plan is
   accepted.
-- `doc/reports/analysis/track2/mean_offset_full_matrix_audit/[2026-06-03]/track2d_mean_offset_full_matrix_audit.md`
+- `doc/reports/analysis/te_curve_verification_pipeline/03_cvp_diagnostics/mean_offset_full_matrix_audit/[2026-06-03]/track2d_mean_offset_full_matrix_audit.md`
   Current full-matrix raw / centered / offset diagnostic baseline.
-- `doc/reports/analysis/track2/offset_predictability_feasibility/[2026-06-03]/track2e_offset_predictability_feasibility.md`
+- `doc/reports/analysis/te_curve_verification_pipeline/03_cvp_diagnostics/offset_predictability_feasibility/[2026-06-03]/track2e_offset_predictability_feasibility.md`
   Current causal offset-grouping feasibility baseline.
 - `doc/reports/campaign_results/track_2/campaign_closeouts/2026-06-09-01-56-25_track2g_curve_aware_training_campaign_results_report.md`
   Current completed curve-aware training closeout that must remain separate
@@ -73,7 +73,7 @@ The first pass should:
 1. Inspect the canonical dataset schema and TE Curve Verification Pipeline payload exports to identify
    where `a_0` / `Component 0`, curve mean, operating direction, speed, torque,
    and oil temperature are stored.
-2. Create an analysis report plan under `doc/reports/analysis/track2/` for a
+2. Create an analysis report plan under `doc/reports/analysis/te_curve_verification_pipeline/` for a
    component-offset identification diagnostic.
 3. Generate experimental `a_0` / `Component 0` surface plots over speed and
    torque, split by temperature and direction.

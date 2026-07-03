@@ -68,31 +68,31 @@ model decisions.
 Current canonical status reports:
 
 - `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
-- `doc/reports/analysis/TE Program Status And Closeout Ledger.md`
-- `doc/reports/analysis/track2/official_model_verification_report/[2026-07-02]/track2_official_model_verification_report.md`
-- `doc/reports/analysis/track2/multi_index_curve_first_selection_policy/[2026-06-16]/track2_multi_index_curve_first_selection_policy.md`
-- `doc/reports/analysis/track2/best_model_collage_report/[2026-07-02]/track2_best_model_collage_report.md`
-- `doc/reports/analysis/track2/multi_model_curve_comparison_report/[2026-07-02]/track2_multi_model_curve_comparison_report.md`
-- `doc/reports/analysis/track2/Track 2 Directional Model Comparison.md`
-- `doc/reports/analysis/track2/curve_first_reranking_report/[2026-05-28]/track2_curve_first_reranking_report.md`
-- `doc/reports/analysis/track2/curve_payload_diagnostics_report/[2026-05-28]/track2_curve_payload_diagnostics_report.md`
-- `doc/reports/analysis/track2/mean_centered_collage_report/[2026-06-02]/track2_mean_centered_collage_report.md`
-- `doc/reports/analysis/track2/mean_offset_full_matrix_audit/[2026-06-03]/track2d_mean_offset_full_matrix_audit.md`
-- `doc/reports/analysis/track2/offset_predictability_feasibility/[2026-06-03]/track2e_offset_predictability_feasibility.md`
-- `doc/reports/analysis/track2/component_offset_identification_plan/[2026-06-09]/track2_component_offset_identification_plan.md`
-- `doc/reports/analysis/track2/component_offset_identification/[2026-06-09]/track2_component_offset_identification_diagnostic.md`
-- `doc/reports/analysis/track2/component_offset_identification/[2026-06-09]/track2d_h0_offset_crosscheck.md`
-- `doc/reports/analysis/track2/component_offset_identification/[2026-06-10]/track2d_predicted_mean_h0_surface_diagnostic.md`
-- `doc/reports/analysis/wave5_2/paired_dataset_diagnostics/[2026-07-01]/wave52a_paired_dataset_diagnostics.md`
+- `doc/reports/analysis/project_status/current/TE Program Status And Closeout Ledger.md`
+- `doc/reports/analysis/te_curve_verification_pipeline/01_official_decisions/official_model_verification_report/[2026-07-02]/track2_official_model_verification_report.md`
+- `doc/reports/analysis/te_curve_verification_pipeline/00_overview/multi_index_curve_first_selection_policy/[2026-06-16]/track2_multi_index_curve_first_selection_policy.md`
+- `doc/reports/analysis/te_curve_verification_pipeline/02_visual_reports/best_model_collage_report/[2026-07-02]/track2_best_model_collage_report.md`
+- `doc/reports/analysis/te_curve_verification_pipeline/02_visual_reports/multi_model_curve_comparison_report/[2026-07-02]/track2_multi_model_curve_comparison_report.md`
+- `doc/reports/analysis/te_curve_verification_pipeline/00_overview/TE Curve Verification Pipeline Directional Model Comparison.md`
+- `doc/reports/analysis/te_curve_verification_pipeline/03_cvp_diagnostics/curve_first_reranking_report/[2026-05-28]/track2_curve_first_reranking_report.md`
+- `doc/reports/analysis/te_curve_verification_pipeline/03_cvp_diagnostics/curve_payload_diagnostics_report/[2026-05-28]/track2_curve_payload_diagnostics_report.md`
+- `doc/reports/analysis/te_curve_verification_pipeline/02_visual_reports/mean_centered_collage_report/[2026-06-02]/track2_mean_centered_collage_report.md`
+- `doc/reports/analysis/te_curve_verification_pipeline/03_cvp_diagnostics/mean_offset_full_matrix_audit/[2026-06-03]/track2d_mean_offset_full_matrix_audit.md`
+- `doc/reports/analysis/te_curve_verification_pipeline/03_cvp_diagnostics/offset_predictability_feasibility/[2026-06-03]/track2e_offset_predictability_feasibility.md`
+- `doc/reports/analysis/te_curve_verification_pipeline/04_offset_investigations/component_offset_identification_plan/[2026-06-09]/track2_component_offset_identification_plan.md`
+- `doc/reports/analysis/te_curve_verification_pipeline/04_offset_investigations/component_offset_identification/[2026-06-09]/track2_component_offset_identification_diagnostic.md`
+- `doc/reports/analysis/te_curve_verification_pipeline/04_offset_investigations/component_offset_identification/[2026-06-09]/track2d_h0_offset_crosscheck.md`
+- `doc/reports/analysis/te_curve_verification_pipeline/04_offset_investigations/component_offset_identification/[2026-06-10]/track2d_predicted_mean_h0_surface_diagnostic.md`
+- `doc/reports/analysis/model_development_waves/wave_5_2/paired_dataset_diagnostics/[2026-07-01]/wave52a_paired_dataset_diagnostics.md`
 - `doc/reports/campaign_results/track_2/campaign_closeouts/2026-06-11-14-01-57_track2h_dispersion_aware_modeling_campaign_results_report.md`
 - `doc/reports/campaign_results/track_2/campaign_closeouts/2026-06-12-13-54-57_track2h_quantile_probabilistic_campaign_results_report.md`
 - `doc/reports/campaign_results/track_2/campaign_closeouts/2026-06-13-13-24-37_track2h_mixture_density_heads_campaign_results_report.md`
 - `doc/reports/campaign_results/track_2/campaign_closeouts/2026-06-17-01-27-10_track2h_latent_state_hysteresis_campaign_results_report.md`
 - `doc/reports/campaign_results/wave_3/2026-06-15-15-30-20_wave3_harmonic_prior_residual_campaign_results_report.md`
 - `doc/reports/campaign_results/track_2/campaign_closeouts/2026-06-09-01-56-25_track2g_curve_aware_training_campaign_results_report.md`
-- `doc/reports/analysis/wave1/Wave 1 - Closeout Status.md`
-- `doc/reports/analysis/te_modeling/Curve-First TE Training Strategy.md`
-- `doc/reports/analysis/Training Results Master Summary.md`
+- `doc/reports/analysis/model_development_waves/wave_1/Wave 1 - Closeout Status.md`
+- `doc/reports/analysis/te_modeling/strategy/Curve-First TE Training Strategy.md`
+- `doc/reports/analysis/project_status/current/Training Results Master Summary.md`
 
 ## Directional Rule
 
@@ -161,7 +161,7 @@ The immediate rule is now a multi-index selection policy:
 
 The canonical policy is:
 
-- `doc/reports/analysis/track2/multi_index_curve_first_selection_policy/[2026-06-16]/track2_multi_index_curve_first_selection_policy.md`
+- `doc/reports/analysis/te_curve_verification_pipeline/00_overview/multi_index_curve_first_selection_policy/[2026-06-16]/track2_multi_index_curve_first_selection_policy.md`
 
 This rule does not reopen closed campaigns. It changes how future branches
 interpret their evidence and defines future work as three parallel
@@ -169,7 +169,7 @@ direction-valid selection surfaces while preserving the causal input contract.
 
 The first standardized reranking pass is complete in:
 
-- `doc/reports/analysis/track2/curve_first_reranking_report/[2026-05-28]/track2_curve_first_reranking_report.md`
+- `doc/reports/analysis/te_curve_verification_pipeline/03_cvp_diagnostics/curve_first_reranking_report/[2026-05-28]/track2_curve_first_reranking_report.md`
 
 The next required evaluation task is a complete multi-index reranking over the
 current official `TE Curve Verification Pipeline` candidate set, including `Wave 1`, `Wave 2.1`,
@@ -194,7 +194,7 @@ losses become canonical.
 
 The first screened curve-payload diagnostics pass is also complete in:
 
-- `doc/reports/analysis/track2/curve_payload_diagnostics_report/[2026-05-28]/track2_curve_payload_diagnostics_report.md`
+- `doc/reports/analysis/te_curve_verification_pipeline/03_cvp_diagnostics/curve_payload_diagnostics_report/[2026-05-28]/track2_curve_payload_diagnostics_report.md`
 
 Current `CVP 1.2` diagnostic observations:
 
@@ -208,7 +208,7 @@ Current `CVP 1.2` diagnostic observations:
 
 The first mean-centered collage diagnostic is complete in:
 
-- `doc/reports/analysis/track2/mean_centered_collage_report/[2026-06-02]/track2_mean_centered_collage_report.md`
+- `doc/reports/analysis/te_curve_verification_pipeline/02_visual_reports/mean_centered_collage_report/[2026-06-02]/track2_mean_centered_collage_report.md`
 
 Current mean-offset observations:
 
@@ -233,7 +233,7 @@ causal runtime input contract.
 
 The `CVP 1.4` full-matrix audit is complete in:
 
-- `doc/reports/analysis/track2/mean_offset_full_matrix_audit/[2026-06-03]/track2d_mean_offset_full_matrix_audit.md`
+- `doc/reports/analysis/te_curve_verification_pipeline/03_cvp_diagnostics/mean_offset_full_matrix_audit/[2026-06-03]/track2d_mean_offset_full_matrix_audit.md`
 
 Current `CVP 1.4` observations:
 
@@ -261,7 +261,7 @@ Next planned diagnostic and training decision branches:
 
 The `CVP 1.5` offset-predictability feasibility diagnostic is complete in:
 
-- `doc/reports/analysis/track2/offset_predictability_feasibility/[2026-06-03]/track2e_offset_predictability_feasibility.md`
+- `doc/reports/analysis/te_curve_verification_pipeline/03_cvp_diagnostics/offset_predictability_feasibility/[2026-06-03]/track2e_offset_predictability_feasibility.md`
 
 Current `CVP 1.5` observations:
 
@@ -441,7 +441,7 @@ Delivered:
 - completed directional best-hyperparameter search campaign;
 - refreshed exported model surfaces under `models/exported/`;
 - consolidated closeout report:
-  `doc/reports/analysis/wave1/Wave 1 - Closeout Status.md`.
+  `doc/reports/analysis/model_development_waves/wave_1/Wave 1 - Closeout Status.md`.
 
 Current HPO leader:
 
@@ -477,8 +477,8 @@ Status:
 
 Canonical report:
 
-- `doc/reports/analysis/track2/official_model_verification_report/[2026-05-21]/track2_official_model_verification_report.md`
-- `doc/reports/analysis/track2/Track 2 Directional Model Comparison.md`
+- `doc/reports/analysis/te_curve_verification_pipeline/01_official_decisions/official_model_verification_report/[2026-05-21]/track2_official_model_verification_report.md`
+- `doc/reports/analysis/te_curve_verification_pipeline/00_overview/TE Curve Verification Pipeline Directional Model Comparison.md`
 
 Current comparison surface:
 
@@ -591,7 +591,7 @@ Status:
 
 - closed as `closed_offline_direction_qualified`.
 - closeout source of truth:
-  `doc/reports/analysis/track2/Track 2 Directional Model Comparison.md`.
+  `doc/reports/analysis/te_curve_verification_pipeline/00_overview/TE Curve Verification Pipeline Directional Model Comparison.md`.
 
 Required validation path:
 
@@ -826,9 +826,9 @@ Entry rule:
 - campaign winner: `te_gru_sequence_remote_Fw` from family
   `gru_sequence_fw`, with test MAE `0.003333 deg`;
 - refresh plan:
-  `doc/reports/analysis/track2/wave2_temporal_model_refresh_plan/[2026-05-24]/track2_wave2_temporal_model_refresh_plan.md`;
+  `doc/reports/analysis/te_curve_verification_pipeline/05_reference_and_legacy/wave2_temporal_model_refresh_plan/[2026-05-24]/track2_wave2_temporal_model_refresh_plan.md`;
 - official verification report:
-  `doc/reports/analysis/track2/official_model_verification_report/[2026-05-24]/track2_official_model_verification_report.md`;
+  `doc/reports/analysis/te_curve_verification_pipeline/01_official_decisions/official_model_verification_report/[2026-05-24]/track2_official_model_verification_report.md`;
 - curve-verification decision: verified exploratory baselines, not promoted over `tree`;
 - mandatory rule: prepare or justify `global`, `forward`, and `backward`
   surfaces;
@@ -869,7 +869,7 @@ Entry rule:
 - closeout report:
   `doc/reports/campaign_results/wave_2/2026-05-28-11-35-34_wave2c_residual_harmonic_temporal_hybrid_campaign_results_report.md`;
 - official verification report:
-  `doc/reports/analysis/track2/official_model_verification_report/[2026-05-28]/track2_official_model_verification_report.md`;
+  `doc/reports/analysis/te_curve_verification_pipeline/01_official_decisions/official_model_verification_report/[2026-05-28]/track2_official_model_verification_report.md`;
 - strongest Wave 2.3 forward candidate:
   `residual_harmonic_gru_sequence_sparse_rcim_Fw`, curve-verification MAE
   `0.003194 deg`;
@@ -891,7 +891,7 @@ Entry rule:
   refresh completed;
 - family: `sequential_residual_offset_probe`;
 - official verification report:
-  `doc/reports/analysis/track2/official_model_verification_report/[2026-06-04]/track2_official_model_verification_report.md`;
+  `doc/reports/analysis/te_curve_verification_pipeline/01_official_decisions/official_model_verification_report/[2026-06-04]/track2_official_model_verification_report.md`;
 - strongest Wave 3.1 forward candidate:
   `sequential_residual_offset_probe_Fw`, curve-verification MAE `0.003377 deg`;
 - strongest Wave 3.1 backward candidate:
@@ -919,7 +919,7 @@ Entry rule:
 - closeout report:
   `doc/reports/campaign_results/track_2/campaign_closeouts/2026-06-05-16-49-50_track2f_bis_harmonic_offset_probe_campaign_results_report.md`;
 - official verification report:
-  `doc/reports/analysis/track2/official_model_verification_report/[2026-06-08]/track2_official_model_verification_report.md`;
+  `doc/reports/analysis/te_curve_verification_pipeline/01_official_decisions/official_model_verification_report/[2026-06-08]/track2_official_model_verification_report.md`;
 - clean global candidate:
   `te_track2f_bis_clean_residual_offset_global`, scalar test MAE
   `0.003528 deg`;
@@ -970,7 +970,7 @@ Entry rule:
 - closeout report:
   `doc/reports/campaign_results/track_2/campaign_closeouts/2026-06-11-14-01-57_track2h_dispersion_aware_modeling_campaign_results_report.md`;
 - official verification report:
-  `doc/reports/analysis/track2/official_model_verification_report/[2026-06-11]/track2_official_model_verification_report.md`;
+  `doc/reports/analysis/te_curve_verification_pipeline/01_official_decisions/official_model_verification_report/[2026-06-11]/track2_official_model_verification_report.md`;
 - robust global candidate:
   `te_track2h_mae_robust_global`, scalar test MAE `0.003406 deg`;
 - robust forward candidate:
@@ -1006,7 +1006,7 @@ Entry rule:
 - closeout report:
   `doc/reports/campaign_results/track_2/campaign_closeouts/2026-06-12-13-54-57_track2h_quantile_probabilistic_campaign_results_report.md`;
 - official verification report:
-  `doc/reports/analysis/track2/official_model_verification_report/[2026-06-12]/track2_official_model_verification_report.md`;
+  `doc/reports/analysis/te_curve_verification_pipeline/01_official_decisions/official_model_verification_report/[2026-06-12]/track2_official_model_verification_report.md`;
 - strongest probabilistic global candidate:
   `track2h_gaussian_nll_global`, combined curve-verification MAE `0.003009 deg`;
 - strongest probabilistic forward-only candidate:
@@ -1038,7 +1038,7 @@ Entry rule:
 - closeout report:
   `doc/reports/campaign_results/track_2/campaign_closeouts/2026-06-13-13-24-37_track2h_mixture_density_heads_campaign_results_report.md`;
 - official verification report:
-  `doc/reports/analysis/track2/official_model_verification_report/[2026-06-13]/track2_official_model_verification_report.md`;
+  `doc/reports/analysis/te_curve_verification_pipeline/01_official_decisions/official_model_verification_report/[2026-06-13]/track2_official_model_verification_report.md`;
 - matrix output:
   `output/validation_checks/track2_reference_comparison/2026-06-13-17-24-53__track2_full_directional_family_matrix_track2h_mixture_density_heads_track2_refresh_2026_06_13/`;
 - strongest MDN global candidate:
@@ -1082,7 +1082,7 @@ Entry rule:
 - closeout report:
   `doc/reports/campaign_results/track_2/campaign_closeouts/2026-06-17-01-27-10_track2h_latent_state_hysteresis_campaign_results_report.md`;
 - official TE curve-verification report:
-  `doc/reports/analysis/track2/official_model_verification_report/[2026-06-18]/track2_official_model_verification_report.md`;
+  `doc/reports/analysis/te_curve_verification_pipeline/01_official_decisions/official_model_verification_report/[2026-06-18]/track2_official_model_verification_report.md`;
 - official curve-verification matrix:
   `165` candidates; source label `track2h_latent_state_hysteresis_registry`;
 - strongest `Wave 4.4` global candidate:
@@ -1145,7 +1145,7 @@ Entry rule:
 - official TE Curve Verification Pipeline launcher:
   `scripts/campaigns/track_2/run_wave3_harmonic_prior_residual_track2_verification_refresh.ps1`;
 - official TE curve-verification report:
-  `doc/reports/analysis/track2/official_model_verification_report/[2026-06-15]/track2_official_model_verification_report.md`;
+  `doc/reports/analysis/te_curve_verification_pipeline/01_official_decisions/official_model_verification_report/[2026-06-15]/track2_official_model_verification_report.md`;
 - strongest Wave 5.1 TE Curve Verification Pipeline candidate:
   `wave3_harmonic_prior_residual_pointwise_control_Bw`, curve-verification MAE
   `0.003360 deg`;
@@ -1179,9 +1179,9 @@ Entry rule:
   - parameter-inventory report builder:
     `scripts/reports/analysis/build_wave4a_mmt_parameter_inventory_report.py`;
   - generated diagnostic report:
-    `doc/reports/analysis/wave4/mmt_equation_diagnostic/[2026-06-11]/wave4a_mmt_equation_diagnostic.md`;
+    `doc/reports/analysis/model_development_waves/wave_4/mmt_equation_diagnostic/[2026-06-11]/wave4a_mmt_equation_diagnostic.md`;
   - generated parameter-inventory report:
-    `doc/reports/analysis/wave4/mmt_parameter_inventory/[2026-06-11]/wave4a_mmt_parameter_inventory.md`;
+    `doc/reports/analysis/model_development_waves/wave_4/mmt_parameter_inventory/[2026-06-11]/wave4a_mmt_parameter_inventory.md`;
   - companion artifacts:
     `output/validation_checks/wave4_mmt_equation_diagnostic/2026-06-11-19-25-32__wave4a_mmt_equation_diagnostic/`;
   - parameter-inventory artifacts:
@@ -1222,7 +1222,7 @@ Entry rule:
     and `0.001677` `Bw`;
   - scalar program winner remains `te_periodic_gru_sequence_bw`;
   - official `TE Curve Verification Pipeline` refresh report:
-    `doc/reports/analysis/track2/official_model_verification_report/[2026-07-02]/track2_official_model_verification_report.md`;
+    `doc/reports/analysis/te_curve_verification_pipeline/01_official_decisions/official_model_verification_report/[2026-07-02]/track2_official_model_verification_report.md`;
   - the refresh added the `global`, `Fw`, and `Bw`
     `wave52b_offset_centered_shape_harmonic` candidates to the
     `168`-candidate matrix;
@@ -1233,9 +1233,9 @@ Entry rule:
     review; do not promote from scalar metrics alone.
 - next implementation steps:
   - use the completed `Wave 5.2B` / `Wave 5.2C` model-design gate in
-    `doc/reports/analysis/wave5_2/model_design_gate/[2026-07-01]/wave52b_wave52c_model_design_gate.md`;
+    `doc/reports/analysis/model_development_waves/wave_5_2/model_design_gate/[2026-07-01]/wave52b_wave52c_model_design_gate.md`;
   - use the prepared `Wave 5.2B` model report and campaign plan:
-    `doc/reports/analysis/wave5_2/Wave 5.2B Offset And Harmonic Guided Model.md`
+    `doc/reports/analysis/model_development_waves/wave_5_2/Wave 5.2B Offset And Harmonic Guided Model.md`
     and
     `doc/reports/campaign_plans/wave_5_2/2026-07-01-16-08-01_wave52b_offset_harmonic_guided_campaign_plan_report.md`;
   - prepared package:

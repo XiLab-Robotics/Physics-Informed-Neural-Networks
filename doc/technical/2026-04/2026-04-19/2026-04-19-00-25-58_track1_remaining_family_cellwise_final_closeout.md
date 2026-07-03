@@ -63,7 +63,7 @@ The final pass must cover four surfaces together:
    - refresh
      `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`;
    - refresh
-     `doc/reports/analysis/Training Results Master Summary.md`;
+     `doc/reports/analysis/project_status/current/Training Results Master Summary.md`;
    - refresh the family-by-family colored `Tables 2-5` whenever accepted cell
      values improved;
 4. final deliverables:
@@ -96,7 +96,7 @@ The closeout should also explicitly acknowledge the current artifact gap:
 - `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/`
 - `doc/reports/campaign_results/track_1/exact_paper/forward/`
 - `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
-- `doc/reports/analysis/Training Results Master Summary.md`
+- `doc/reports/analysis/project_status/current/Training Results Master Summary.md`
 
 ## Implementation Steps
 

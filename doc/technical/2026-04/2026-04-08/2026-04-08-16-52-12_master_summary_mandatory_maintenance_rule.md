@@ -15,7 +15,7 @@ meaningful result-registry updates.
 ## Technical Approach
 
 The implementation should update the repository governance instructions so the
-canonical report at `doc/reports/analysis/Training Results Master Summary.md`
+canonical report at `doc/reports/analysis/project_status/current/Training Results Master Summary.md`
 is named explicitly as a required maintained document.
 
 The new rule should make these expectations unambiguous:

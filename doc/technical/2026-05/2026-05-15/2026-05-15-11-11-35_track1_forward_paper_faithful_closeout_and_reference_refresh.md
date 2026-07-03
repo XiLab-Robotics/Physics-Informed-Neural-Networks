@@ -39,7 +39,7 @@ exports, ONNX exports, and campaign log evidence.
   that must be refreshed with the new forward artifacts.
 - `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md` must be recompiled
   for Tables `2`-`5` with green/yellow/red status markers.
-- `doc/reports/analysis/Training Results Master Summary.md`, the relevant
+- `doc/reports/analysis/project_status/current/Training Results Master Summary.md`, the relevant
   campaign-results report area, and model-archive README files must remain
   synchronized with the refreshed reference state.
 - `doc/running/active_training_campaign.yaml` is protected campaign state and
@@ -61,7 +61,7 @@ exports, ONNX exports, and campaign log evidence.
 5. Recompile `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md` Tables
    `2`-`5` with the current forward metrics and green/yellow/red status
    markers.
-6. Update `doc/reports/analysis/Training Results Master Summary.md`,
+6. Update `doc/reports/analysis/project_status/current/Training Results Master Summary.md`,
    family/program registry references, and
    `doc/running/active_training_campaign.yaml` to record the completed forward
    closeout.

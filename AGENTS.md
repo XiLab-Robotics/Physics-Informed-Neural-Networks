@@ -190,15 +190,15 @@
   surfaces visible and should report best raw-error, best shape-fidelity, best
   offset-behavior, best robustness, and recommended candidates per surface when
   the required artifacts are available.
-- Treat `doc/reports/analysis/track2/multi_index_curve_first_selection_policy/[2026-06-16]/track2_multi_index_curve_first_selection_policy.md`
+- Treat `doc/reports/analysis/te_curve_verification_pipeline/00_overview/multi_index_curve_first_selection_policy/[2026-06-16]/track2_multi_index_curve_first_selection_policy.md`
   as the canonical selection policy for official
   `TE Curve Verification Pipeline` model evaluation.
 - Keep family-level and program-level best-result registries updated after
   training or campaign completion.
-- Keep `doc/reports/analysis/Training Results Master Summary.md` synchronized
+- Keep `doc/reports/analysis/project_status/current/Training Results Master Summary.md` synchronized
   after completed campaigns and after tasks that materially change registries,
   active family status, or roadmap status.
-- Keep `doc/reports/analysis/TE Program Status And Closeout Ledger.md`
+- Keep `doc/reports/analysis/project_status/current/TE Program Status And Closeout Ledger.md`
   synchronized after every campaign or `TE Curve Verification Pipeline`
   closeout that changes
   modeling status, accepted or exploratory leaders, official verification

@@ -19,15 +19,15 @@ local repository artifacts rather than memory-derived conclusions.
 
 Primary evidence sources will include:
 
-- `doc/reports/analysis/Training Results Master Summary.md`
-- `doc/reports/analysis/wave1/Wave 1 - Closeout Status.md`
-- `doc/reports/analysis/wave2/Wave 2 Temporal Sequence Models.md`
-- `doc/reports/analysis/wave2/Wave 2B Harmonic Temporal Hybrid Models.md`
-- `doc/reports/analysis/wave2/Wave 2C Residual Harmonic Temporal Hybrid Models.md`
-- `doc/reports/analysis/track2/Track 2 Directional Model Comparison.md`
-- `doc/reports/analysis/track2/official_model_verification_report/[2026-05-28]/track2_official_model_verification_report.md`
-- `doc/reports/analysis/track2/best_model_collage_report/[2026-05-28]/track2_best_model_collage_report.md`
-- `doc/reports/analysis/track2/multi_model_curve_comparison_report/[2026-05-28]/track2_multi_model_curve_comparison_report.md`
+- `doc/reports/analysis/project_status/current/Training Results Master Summary.md`
+- `doc/reports/analysis/model_development_waves/wave_1/Wave 1 - Closeout Status.md`
+- `doc/reports/analysis/model_development_waves/wave_2/Wave 2 Temporal Sequence Models.md`
+- `doc/reports/analysis/model_development_waves/wave_2/Wave 2B Harmonic Temporal Hybrid Models.md`
+- `doc/reports/analysis/model_development_waves/wave_2/Wave 2C Residual Harmonic Temporal Hybrid Models.md`
+- `doc/reports/analysis/te_curve_verification_pipeline/00_overview/TE Curve Verification Pipeline Directional Model Comparison.md`
+- `doc/reports/analysis/te_curve_verification_pipeline/01_official_decisions/official_model_verification_report/[2026-05-28]/track2_official_model_verification_report.md`
+- `doc/reports/analysis/te_curve_verification_pipeline/02_visual_reports/best_model_collage_report/[2026-05-28]/track2_best_model_collage_report.md`
+- `doc/reports/analysis/te_curve_verification_pipeline/02_visual_reports/multi_model_curve_comparison_report/[2026-05-28]/track2_multi_model_curve_comparison_report.md`
 - relevant campaign result reports under `doc/reports/campaign_results/`
 - current registries under `output/registries/`
 - the local Git history around commit
@@ -50,7 +50,7 @@ launched.
 
 The expected new report target is:
 
-- `doc/reports/analysis/Repository Status Wave Track Synthesis.md`
+- `doc/reports/analysis/project_status/current/Repository Status Wave Track Synthesis.md`
 
 The expected index update is:
 
@@ -58,9 +58,9 @@ The expected index update is:
 
 Read-only evidence components include:
 
-- Wave analysis and explanatory reports under `doc/reports/analysis/wave1/`
-  and `doc/reports/analysis/wave2/`
-- `TE Curve Verification Pipeline` analysis reports under `doc/reports/analysis/track2/`
+- Wave analysis and explanatory reports under `doc/reports/analysis/model_development_waves/wave_1/`
+  and `doc/reports/analysis/model_development_waves/wave_2/`
+- `TE Curve Verification Pipeline` analysis reports under `doc/reports/analysis/te_curve_verification_pipeline/`
 - campaign closeout reports under `doc/reports/campaign_results/`
 - active status and backlog documents under `doc/running/`
 - program and family registries under `output/registries/`

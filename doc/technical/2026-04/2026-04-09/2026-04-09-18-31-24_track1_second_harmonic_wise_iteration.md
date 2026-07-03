@@ -112,7 +112,7 @@ Planned analysis additions:
 
 - `reference/RCIM_ML-compensation.pdf`
 - `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
-- `doc/reports/analysis/Training Results Master Summary.md`
+- `doc/reports/analysis/project_status/current/Training Results Master Summary.md`
 - `doc/running/te_model_live_backlog.md`
 - `config/paper_reimplementation/rcim_ml_compensation/harmonic_wise/`
 - `scripts/paper_reimplementation/rcim_ml_compensation/run_harmonic_wise_comparison_pipeline.py`

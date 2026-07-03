@@ -271,5 +271,5 @@ The most defensible next step is:
 - `output/training_campaigns/track1/harmonic_wise/forward/track1_extended_overnight_campaign_2026_04_13_13_31_57/campaign_best_run.yaml`
 - `output/training_campaigns/track1/harmonic_wise/forward/track1_extended_overnight_campaign_2026_04_13_13_31_57/campaign_best_run.md`
 - `output/validation_checks/paper_reimplementation_rcim_harmonic_wise/forward/family_exploration/hgbm/2026-04-13-15-11-49__track1_hgbm_h01_wide_depth_2_campaign_run/validation_summary.yaml`
-- `doc/reports/analysis/Training Results Master Summary.md`
+- `doc/reports/analysis/project_status/current/Training Results Master Summary.md`
 - `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`

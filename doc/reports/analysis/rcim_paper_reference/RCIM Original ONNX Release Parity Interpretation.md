@@ -25,7 +25,7 @@ documented limitations tied to recovered ONNX artifact/runtime behavior.
 
 | Artifact | Path |
 | --- | --- |
-| Validation-check report | `doc/reports/analysis/validation_checks/track2/2026-05-18-21-42-15_original_onnx_release_initial_parity_validation_report.md` |
+| Validation-check report | `doc/reports/analysis/validation_checks/te_curve_verification_pipeline/2026-05-18-21-42-15_original_onnx_release_initial_parity_validation_report.md` |
 | Validation summary YAML | `output/validation_checks/rcim_original_onnx_release_parity/2026-05-18-21-42-15__original_onnx_release_initial_parity_validation/validation_summary.yaml` |
 | Target parity CSV | `output/validation_checks/rcim_original_onnx_release_parity/2026-05-18-21-42-15__original_onnx_release_initial_parity_validation/tables_2_5_target_parity.csv` |
 | ONNX release root | `reference/rcim_ml_compensation_recovered_assets/models/exact_onnx_paper_release` |

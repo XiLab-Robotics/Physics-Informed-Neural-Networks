@@ -35,11 +35,11 @@ multi-head work is opened.
 The campaign is justified by:
 
 - full `Wave 5.2A` paired matrix:
-  `doc/reports/analysis/wave5_2/paired_dataset_diagnostics/[2026-07-01]/wave52a_paired_dataset_diagnostics.md`;
+  `doc/reports/analysis/model_development_waves/wave_5_2/paired_dataset_diagnostics/[2026-07-01]/wave52a_paired_dataset_diagnostics.md`;
 - model-design gate:
-  `doc/reports/analysis/wave5_2/model_design_gate/[2026-07-01]/wave52b_wave52c_model_design_gate.md`;
+  `doc/reports/analysis/model_development_waves/wave_5_2/model_design_gate/[2026-07-01]/wave52b_wave52c_model_design_gate.md`;
 - model explanation report:
-  `doc/reports/analysis/wave5_2/Wave 5.2B Offset And Harmonic Guided Model.md`.
+  `doc/reports/analysis/model_development_waves/wave_5_2/Wave 5.2B Offset And Harmonic Guided Model.md`.
 
 The key `Wave 5.2A` finding is that broad curve shape and smoothness are
 nearly unchanged between the paired datasets, while offset / mean and nonzero

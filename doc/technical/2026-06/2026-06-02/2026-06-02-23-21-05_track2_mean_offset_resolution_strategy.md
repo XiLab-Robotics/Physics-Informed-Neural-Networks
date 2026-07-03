@@ -41,8 +41,8 @@ history, or causal derived features.
 
 The approved implementation should update these documentation surfaces:
 
-- `doc/reports/analysis/te_modeling/Curve-First TE Training Strategy.md`
-- `doc/reports/analysis/Training Results Master Summary.md`
+- `doc/reports/analysis/te_modeling/strategy/Curve-First TE Training Strategy.md`
+- `doc/reports/analysis/project_status/current/Training Results Master Summary.md`
 - `doc/running/te_model_live_backlog.md`
 - `doc/README.md`
 
@@ -51,7 +51,7 @@ The update should cite these existing evidence sources:
 - commit `b73220679410276246421b7e2832d8878cff90a0`;
 - commit `940a16b934e29ca83fef36da010fdf671bdd52c4`;
 - the mean-centered report under
-  `doc/reports/analysis/track2/mean_centered_collage_report/[2026-06-02]/`;
+  `doc/reports/analysis/te_curve_verification_pipeline/02_visual_reports/mean_centered_collage_report/[2026-06-02]/`;
 - the current training module and datamodule loss/batch behavior.
 
 ## Implementation Steps

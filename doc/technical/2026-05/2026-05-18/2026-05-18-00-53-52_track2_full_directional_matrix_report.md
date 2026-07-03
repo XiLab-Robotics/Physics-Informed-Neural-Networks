@@ -70,7 +70,7 @@ Create a new canonical report under `doc/reports/analysis/`, with a readable
 title-based filename such as:
 
 ```text
-doc/reports/analysis/track2/TE Curve Verification Pipeline Directional Model Comparison.md
+doc/reports/analysis/te_curve_verification_pipeline/00_overview/TE Curve Verification Pipeline Directional Model Comparison.md
 ```
 
 The report must start from the new comparison only and must not include the
@@ -118,14 +118,14 @@ remain provenance evidence only.
 
 ## Involved Components
 
-- `doc/reports/analysis/track2/Track 2 Directional Model Comparison.md`
+- `doc/reports/analysis/te_curve_verification_pipeline/00_overview/TE Curve Verification Pipeline Directional Model Comparison.md`
   - new canonical TE curve-verification report with forward, backward, and global sections;
   - no historical mixed-comparison section.
 - `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
   - remove the obsolete historical mixed TE Curve Verification Pipeline subsection from the canonical
     benchmark text;
   - keep only a concise pointer to the new TE curve-verification report if useful.
-- `doc/reports/analysis/Training Results Master Summary.md`
+- `doc/reports/analysis/project_status/current/Training Results Master Summary.md`
   - update TE Curve Verification Pipeline status after the full matrix is generated.
 - `config/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/`
   - add or revise configuration for the complete curve-verification matrix.

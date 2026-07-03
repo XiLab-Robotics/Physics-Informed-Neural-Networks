@@ -10,9 +10,9 @@ model-collage verification, multi-model curve-overlay verification, and future
 `TE Curve Verification Pipeline` campaign results into one maintained report package. The first
 version will explicitly combine these existing deliverables:
 
-- `doc/reports/analysis/track2/Track 2 Directional Model Comparison.md`
-- `doc/reports/analysis/track2/best_model_collage_report/[2026-05-20]/track2_best_model_collage_report.pdf`
-- `doc/reports/analysis/track2/multi_model_curve_comparison_report/[2026-05-20]/track2_multi_model_curve_comparison_report.pdf`
+- `doc/reports/analysis/te_curve_verification_pipeline/00_overview/TE Curve Verification Pipeline Directional Model Comparison.md`
+- `doc/reports/analysis/te_curve_verification_pipeline/02_visual_reports/best_model_collage_report/[2026-05-20]/track2_best_model_collage_report.pdf`
+- `doc/reports/analysis/te_curve_verification_pipeline/02_visual_reports/multi_model_curve_comparison_report/[2026-05-20]/track2_multi_model_curve_comparison_report.pdf`
 
 The official report should answer whether each newly introduced model family is
 actually competitive against the accepted reference surfaces, not only whether
@@ -25,8 +25,8 @@ No subagent use is planned for this task.
 Add a new canonical report bundle under the `TE Curve Verification Pipeline` analysis topic instead of
 overloading either visual companion report. The proposed target is:
 
-- `doc/reports/analysis/track2/official_model_verification_report/[2026-05-21]/track2_official_model_verification_report.md`
-- `doc/reports/analysis/track2/official_model_verification_report/[2026-05-21]/track2_official_model_verification_report.pdf`
+- `doc/reports/analysis/te_curve_verification_pipeline/01_official_decisions/official_model_verification_report/[2026-05-21]/track2_official_model_verification_report.md`
+- `doc/reports/analysis/te_curve_verification_pipeline/01_official_decisions/official_model_verification_report/[2026-05-21]/track2_official_model_verification_report.pdf`
 
 The report will treat `Track 2 Directional Model Comparison.md` as the primary
 metric matrix and the two `[2026-05-20]` visual reports as companion evidence.
@@ -53,14 +53,14 @@ breaks, and right-edge pressure.
 
 ## Involved Components
 
-- `doc/reports/analysis/track2/Track 2 Directional Model Comparison.md`
-- `doc/reports/analysis/track2/best_model_collage_report/[2026-05-20]/track2_best_model_collage_report.md`
-- `doc/reports/analysis/track2/best_model_collage_report/[2026-05-20]/track2_best_model_collage_report.pdf`
-- `doc/reports/analysis/track2/multi_model_curve_comparison_report/[2026-05-20]/track2_multi_model_curve_comparison_report.md`
-- `doc/reports/analysis/track2/multi_model_curve_comparison_report/[2026-05-20]/track2_multi_model_curve_comparison_report.pdf`
-- `doc/reports/analysis/track2/official_model_verification_report/[2026-05-21]/`
+- `doc/reports/analysis/te_curve_verification_pipeline/00_overview/TE Curve Verification Pipeline Directional Model Comparison.md`
+- `doc/reports/analysis/te_curve_verification_pipeline/02_visual_reports/best_model_collage_report/[2026-05-20]/track2_best_model_collage_report.md`
+- `doc/reports/analysis/te_curve_verification_pipeline/02_visual_reports/best_model_collage_report/[2026-05-20]/track2_best_model_collage_report.pdf`
+- `doc/reports/analysis/te_curve_verification_pipeline/02_visual_reports/multi_model_curve_comparison_report/[2026-05-20]/track2_multi_model_curve_comparison_report.md`
+- `doc/reports/analysis/te_curve_verification_pipeline/02_visual_reports/multi_model_curve_comparison_report/[2026-05-20]/track2_multi_model_curve_comparison_report.pdf`
+- `doc/reports/analysis/te_curve_verification_pipeline/01_official_decisions/official_model_verification_report/[2026-05-21]/`
 - `doc/running/te_model_live_backlog.md`
-- `doc/reports/analysis/Training Results Master Summary.md`
+- `doc/reports/analysis/project_status/current/Training Results Master Summary.md`
 - `doc/README.md`
 - `scripts/reports/analysis/`
 - `scripts/reports/pdf/run_report_pipeline.py`
@@ -84,7 +84,7 @@ breaks, and right-edge pressure.
    - campaign-results ledger for future `TE Curve Verification Pipeline` updates;
    - closeout decision and next operational branch.
 3. Create the new official report bundle under
-   `doc/reports/analysis/track2/official_model_verification_report/[2026-05-21]/`.
+   `doc/reports/analysis/te_curve_verification_pipeline/01_official_decisions/official_model_verification_report/[2026-05-21]/`.
 4. Add or reuse a repository-owned report builder if reproducible regeneration
    cannot be done cleanly from the existing Markdown and machine-readable
    artifacts.
@@ -94,7 +94,7 @@ breaks, and right-edge pressure.
 7. Register the new official report in `doc/README.md`.
 8. Update `doc/running/te_model_live_backlog.md` so `TE Curve Verification Pipeline` points to the new
    official verification report as the accepted closeout surface.
-9. Update `doc/reports/analysis/Training Results Master Summary.md` if the new
+9. Update `doc/reports/analysis/project_status/current/Training Results Master Summary.md` if the new
    official verdict changes the summarized current best model status or the
    interpretation of campaign outcomes.
 10. Run scoped Markdown QA on touched Markdown files and Sphinx/PDF validation

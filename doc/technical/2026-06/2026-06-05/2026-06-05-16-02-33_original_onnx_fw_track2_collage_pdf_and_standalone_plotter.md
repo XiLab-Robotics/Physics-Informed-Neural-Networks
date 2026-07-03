@@ -83,7 +83,7 @@ The implementation is expected to touch or create:
   for the simple report, collage assets, and PDF-ready Markdown generation;
 - `scripts/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/plot_original_onnx_fw_track2_curves.py`
   for the lightweight standalone hardcoded-ONNX plotter;
-- `doc/reports/analysis/track2/original_onnx_fw_collage_report/[2026-06-05]/`
+- `doc/reports/analysis/te_curve_verification_pipeline/05_reference_and_legacy/original_onnx_fw_collage_report/[2026-06-05]/`
   for the Markdown report, PDF, and report-local collage assets;
 - `output/validation_checks/track2_original_onnx_fw_collage_report/` for
   metrics CSV and validation summary artifacts;

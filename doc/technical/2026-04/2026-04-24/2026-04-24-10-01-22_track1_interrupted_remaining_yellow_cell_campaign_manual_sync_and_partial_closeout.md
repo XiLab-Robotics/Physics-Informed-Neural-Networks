@@ -61,7 +61,7 @@ The partial closeout should then:
 - `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/`
 - `doc/reports/campaign_results/track_1/exact_paper/forward/`
 - `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
-- `doc/reports/analysis/Training Results Master Summary.md`
+- `doc/reports/analysis/project_status/current/Training Results Master Summary.md`
 - `models/paper_reference/rcim_track1/`
 - `doc/technical/2026-04/2026-04-23/2026-04-23-23-15-55_post_closeout_forward_asset_root_migration_workflow.md`
 

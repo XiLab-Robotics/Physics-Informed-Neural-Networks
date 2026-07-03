@@ -3,7 +3,7 @@
 ## Overview
 
 Plan the styled PDF export for
-`doc/reports/analysis/Repository Status Wave Track Synthesis.md`.
+`doc/reports/analysis/project_status/current/Repository Status Wave Track Synthesis.md`.
 
 The deliverable will be a repository-owned PDF companion for the completed
 analysis report. The PDF must be generated through repository tooling and
@@ -32,11 +32,11 @@ declared and explicit approval will be requested before launch.
 
 Input report:
 
-- `doc/reports/analysis/Repository Status Wave Track Synthesis.md`
+- `doc/reports/analysis/project_status/current/Repository Status Wave Track Synthesis.md`
 
 Expected output:
 
-- `doc/reports/analysis/Repository Status Wave Track Synthesis.pdf`
+- `doc/reports/analysis/project_status/current/Repository Status Wave Track Synthesis.pdf`
 
 Repository PDF tooling:
 

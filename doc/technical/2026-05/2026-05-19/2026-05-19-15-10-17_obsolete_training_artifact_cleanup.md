@@ -80,7 +80,7 @@ by the final `RCIM Model-Bank Reproduction` and `TE Curve Verification Pipeline`
 - `models/paper_reference/`
 - `doc/running/active_training_campaign.yaml`
 - `doc/reports/campaign_results/`
-- `doc/reports/analysis/Training Results Master Summary.md`
+- `doc/reports/analysis/project_status/current/Training Results Master Summary.md`
 - `.gitattributes`
 
 ## Implementation Steps

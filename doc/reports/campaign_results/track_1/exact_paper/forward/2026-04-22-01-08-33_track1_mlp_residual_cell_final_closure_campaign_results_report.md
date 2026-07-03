@@ -60,5 +60,5 @@ targeted residual `MLP` pair. Each metric cell is shown as `MAE / RMSE`.
 ## Resulting Canonical State
 
 - benchmark path: `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
-- master summary path: `doc/reports/analysis/Training Results Master Summary.md`
+- master summary path: `doc/reports/analysis/project_status/current/Training Results Master Summary.md`
 - final closeout report path: `doc/reports/campaign_results/track_1/exact_paper/forward/2026-04-22-01-08-33_track1_mlp_residual_cell_final_closure_campaign_results_report.md`

@@ -49,7 +49,7 @@ task on repository-owned artifacts.
 - `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/2026-04-13-22-*`
 - `doc/reports/campaign_results/`
 - `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
-- `doc/reports/analysis/Training Results Master Summary.md`
+- `doc/reports/analysis/project_status/current/Training Results Master Summary.md`
 - `scripts/reports/run_report_pipeline.py`
 - `scripts/reports/generate_styled_report_pdf.py`
 - `scripts/reports/validate_report_pdf.py`

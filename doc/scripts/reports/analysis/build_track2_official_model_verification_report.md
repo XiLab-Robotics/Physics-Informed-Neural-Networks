@@ -34,7 +34,7 @@ Optional inputs:
 The default output is:
 
 ```text
-doc/reports/analysis/track2/official_model_verification_report/[YYYY-MM-DD]/track2_official_model_verification_report.md
+doc/reports/analysis/te_curve_verification_pipeline/01_official_decisions/official_model_verification_report/[YYYY-MM-DD]/track2_official_model_verification_report.md
 ```
 
 The builder fails if the requested candidate source is missing from the matrix

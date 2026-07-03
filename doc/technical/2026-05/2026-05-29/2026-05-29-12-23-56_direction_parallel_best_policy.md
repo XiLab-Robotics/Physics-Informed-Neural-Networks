@@ -48,10 +48,10 @@ training, modify model code, or update registries.
 Primary documentation targets:
 
 - `doc/running/te_model_live_backlog.md`
-- `doc/reports/analysis/Training Results Master Summary.md`
-- `doc/reports/analysis/track2/curve_first_reranking_report/[2026-05-28]/track2_curve_first_reranking_report.md`
-- `doc/reports/analysis/track2/curve_payload_diagnostics_report/[2026-05-28]/track2_curve_payload_diagnostics_report.md`
-- `doc/reports/analysis/te_modeling/Curve-First TE Training Strategy.md`
+- `doc/reports/analysis/project_status/current/Training Results Master Summary.md`
+- `doc/reports/analysis/te_curve_verification_pipeline/03_cvp_diagnostics/curve_first_reranking_report/[2026-05-28]/track2_curve_first_reranking_report.md`
+- `doc/reports/analysis/te_curve_verification_pipeline/03_cvp_diagnostics/curve_payload_diagnostics_report/[2026-05-28]/track2_curve_payload_diagnostics_report.md`
+- `doc/reports/analysis/te_modeling/strategy/Curve-First TE Training Strategy.md`
 - `doc/README.md`
 
 Secondary documentation targets, if wording is affected:

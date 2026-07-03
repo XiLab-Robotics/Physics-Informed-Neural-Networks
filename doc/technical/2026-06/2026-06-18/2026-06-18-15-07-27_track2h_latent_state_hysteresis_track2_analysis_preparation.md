@@ -55,7 +55,7 @@ readiness must remain visible per `global`, `Fw`, and `Bw` surface.
 - `doc/scripts/campaigns/track_2/run_track2h_latent_state_hysteresis_track2_verification_refresh.md`
   will document the local and remote commands and the expected output bundle.
 - The produced verification artifacts will target dated `TE Curve Verification Pipeline` analysis
-  bundles under `doc/reports/analysis/track2/` and plot assets under
+  bundles under `doc/reports/analysis/te_curve_verification_pipeline/` and plot assets under
   `doc/reports/campaign_results/track_2/verification_plots/`.
 - No Codex subagent is planned for this work.
 

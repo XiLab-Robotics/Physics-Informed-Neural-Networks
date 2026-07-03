@@ -31,7 +31,7 @@ The update should make three kinds of changes:
 1. Upgrade `doc/running/te_model_live_backlog.md` from generic `Wave 5.1` /
    `Wave 5.2` placeholders to actionable next-step entries.
 2. Repair and align the relevant `Wave 5.1` / `Wave 5.2` entries in
-   `doc/reports/analysis/Training Results Master Summary.md`, which currently
+   `doc/reports/analysis/project_status/current/Training Results Master Summary.md`, which currently
    shows duplicated and malformed roadmap text around those waves.
 3. Verify whether `doc/README.md` needs only the already-present links or a
    small cross-reference to the backlog alignment technical note.
@@ -50,9 +50,9 @@ The roadmap must preserve these boundaries:
 Expected files to inspect:
 
 - `doc/running/te_model_live_backlog.md`;
-- `doc/reports/analysis/Training Results Master Summary.md`;
-- `doc/reports/analysis/wave3/Wave 3 Hybrid Structured Models.md`;
-- `doc/reports/analysis/wave4/Wave 4 PINN Formulation And First PINN.md`;
+- `doc/reports/analysis/project_status/current/Training Results Master Summary.md`;
+- `doc/reports/analysis/model_development_waves/wave_3/Wave 3 Hybrid Structured Models.md`;
+- `doc/reports/analysis/model_development_waves/wave_4/Wave 4 PINN Formulation And First PINN.md`;
 - `doc/reports/campaign_plans/cross_wave/wave_3_wave_4/2026-06-11-15-10-02_wave3_wave4_embryonic_skeleton_plan_report.md`;
 - `doc/reports/campaign_plans/cross_wave/wave_3_wave_4/2026-06-11-19-25-32_wave3_wave4_parallel_hardening_plan_report.md`;
 - `doc/README.md`.
@@ -60,7 +60,7 @@ Expected files to inspect:
 Expected files to modify after approval:
 
 - `doc/running/te_model_live_backlog.md`;
-- `doc/reports/analysis/Training Results Master Summary.md`;
+- `doc/reports/analysis/project_status/current/Training Results Master Summary.md`;
 - `doc/README.md` only if the new technical document needs registration or an
   additional roadmap pointer.
 
@@ -76,7 +76,7 @@ scope and approval requirement must be recorded before launch.
    - the next-step order from `Wave 4 series` closeout through `Wave 5.1` campaign
      packaging and `Wave 5.2A` parameter inventory.
 3. Repair the malformed `Wave 5.1` / `Wave 5.2` block in
-   `doc/reports/analysis/Training Results Master Summary.md` and align it with
+   `doc/reports/analysis/project_status/current/Training Results Master Summary.md` and align it with
    the real pre-implementation state.
 4. Register this technical document from `doc/README.md`.
 5. Run scoped Markdown QA on touched Markdown files.

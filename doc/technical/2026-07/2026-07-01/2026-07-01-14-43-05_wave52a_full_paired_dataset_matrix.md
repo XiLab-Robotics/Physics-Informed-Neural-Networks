@@ -75,7 +75,7 @@ Expected read-only inputs:
 
 - `data/simplified_dataset/`;
 - `data/polished_dataset/`;
-- `doc/reports/analysis/wave5_2/paired_dataset_diagnostics/[2026-07-01]/wave52a_paired_dataset_diagnostics.md`;
+- `doc/reports/analysis/model_development_waves/wave_5_2/paired_dataset_diagnostics/[2026-07-01]/wave52a_paired_dataset_diagnostics.md`;
 - `output/validation_checks/wave52a_paired_dataset_diagnostics/2026-07-01-14-10-57__wave52a_paired_dataset_diagnostics/`;
 - `doc/reference_summaries/08_Transmission_Error_Dataset_Family_Reference.md`;
 - `doc/running/active_training_campaign.yaml`.
@@ -84,13 +84,13 @@ Expected implementation targets after approval:
 
 - `scripts/reports/analysis/build_wave52a_paired_dataset_diagnostics.py`;
 - a new dated full-matrix report under
-  `doc/reports/analysis/wave5_2/paired_dataset_diagnostics/[YYYY-MM-DD]/`;
+  `doc/reports/analysis/model_development_waves/wave_5_2/paired_dataset_diagnostics/[YYYY-MM-DD]/`;
 - a new immutable artifact folder under
   `output/validation_checks/wave52a_paired_dataset_diagnostics/<run_instance_id>/`;
 - `doc/README.md`;
 - `doc/running/te_model_live_backlog.md`;
-- `doc/reports/analysis/TE Program Status And Closeout Ledger.md`;
-- `doc/reports/analysis/Training Results Master Summary.md`.
+- `doc/reports/analysis/project_status/current/TE Program Status And Closeout Ledger.md`;
+- `doc/reports/analysis/project_status/current/Training Results Master Summary.md`.
 
 Protected or deferred components:
 

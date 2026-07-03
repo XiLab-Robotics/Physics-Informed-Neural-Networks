@@ -63,7 +63,7 @@ second matrix run.
 Check:
 
 ```powershell
-Select-String -LiteralPath "doc/reports/analysis/track2/TE Curve Verification Pipeline Directional Model Comparison.md" `
+Select-String -LiteralPath "doc/reports/analysis/te_curve_verification_pipeline/00_overview/TE Curve Verification Pipeline Directional Model Comparison.md" `
   -Pattern "candidate count|<new_family>|<expected_candidate>"
 ```
 
@@ -107,7 +107,7 @@ deliverable.
 
 Create or update:
 
-`doc/reports/analysis/track2/official_model_verification_report/[YYYY-MM-DD]/track2_official_model_verification_report.md`
+`doc/reports/analysis/te_curve_verification_pipeline/01_official_decisions/official_model_verification_report/[YYYY-MM-DD]/track2_official_model_verification_report.md`
 
 Record:
 
@@ -121,7 +121,7 @@ Record:
 
 Apply the canonical policy in:
 
-`doc/reports/analysis/track2/multi_index_curve_first_selection_policy/[2026-06-16]/track2_multi_index_curve_first_selection_policy.md`
+`doc/reports/analysis/te_curve_verification_pipeline/00_overview/multi_index_curve_first_selection_policy/[2026-06-16]/track2_multi_index_curve_first_selection_policy.md`
 
 Do not promote or reject a candidate from scalar `MAE`, matrix MPE, or campaign
 leaderboard rank alone.
@@ -163,7 +163,7 @@ Fix:
 Update:
 
 - `doc/running/te_model_live_backlog.md`;
-- `doc/reports/analysis/Training Results Master Summary.md`.
+- `doc/reports/analysis/project_status/current/Training Results Master Summary.md`.
 
 Use direct wording:
 

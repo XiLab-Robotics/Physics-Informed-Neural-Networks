@@ -29,7 +29,7 @@ campaign-results report and state synchronization are complete.
 - `doc/reports/campaign_results/wave_3/`
 - `doc/running/active_training_campaign.yaml`
 - `doc/running/te_model_live_backlog.md`
-- `doc/reports/analysis/Training Results Master Summary.md`
+- `doc/reports/analysis/project_status/current/Training Results Master Summary.md`
 - `doc/README.md`
 
 ## Implementation Steps

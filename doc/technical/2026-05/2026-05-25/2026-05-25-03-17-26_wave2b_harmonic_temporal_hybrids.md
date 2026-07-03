@@ -73,11 +73,11 @@ good; it must refresh the direction-aware matrix, visual reports, and official
 - `doc/running/active_training_campaign.yaml`
   Current state is `none`, so no protected campaign files are active for this
   planning step.
-- `doc/reports/analysis/wave2/Wave 2 Temporal Sequence Models.md`
+- `doc/reports/analysis/model_development_waves/wave_2/Wave 2 Temporal Sequence Models.md`
   Existing explanatory surface for the temporal sequence families.
-- `doc/reports/analysis/wave1/Wave 1 - Closeout Status.md`
+- `doc/reports/analysis/model_development_waves/wave_1/Wave 1 - Closeout Status.md`
   Closed static harmonic and periodic baseline context.
-- `doc/reports/analysis/track2/official_model_verification_report/[2026-05-24]/track2_official_model_verification_report.md`
+- `doc/reports/analysis/te_curve_verification_pipeline/01_official_decisions/official_model_verification_report/[2026-05-24]/track2_official_model_verification_report.md`
   Current official verification verdict for Wave 2.1 temporal candidates.
 - `scripts/models/harmonic_regression.py`
   Source of the canonical harmonic index-list validation semantics.

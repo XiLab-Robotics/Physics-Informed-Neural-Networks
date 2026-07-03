@@ -23,7 +23,7 @@ levels used for each comparison.
 
 ## Involved Components
 
-- `doc/reports/analysis/Training Results Master Summary.md`
+- `doc/reports/analysis/project_status/current/Training Results Master Summary.md`
 - `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
 - RCIM Model-Bank Reproduction and RCIM paper-reimplementation documentation under `doc/` and
   `scripts/paper_reimplementation/rcim_ml_compensation/`

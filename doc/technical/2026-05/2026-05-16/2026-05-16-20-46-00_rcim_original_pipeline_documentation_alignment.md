@@ -33,7 +33,7 @@ exact-model-bank campaigns, to the archived reference models and RCIM Tables
 - `doc/README.md`
 - `README.md`, only if the public-facing project overview needs a short
   capability pointer.
-- `doc/reports/analysis/Training Results Master Summary.md`
+- `doc/reports/analysis/project_status/current/Training Results Master Summary.md`
 - `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
 - `models/README.md`
 - `models/paper_reference/README.md`

@@ -2,7 +2,7 @@
 
 ## Overview
 
-The current `doc/reports/analysis/Training Results Master Summary.md` already
+The current `doc/reports/analysis/project_status/current/Training Results Master Summary.md` already
 stores distinct family identifiers for the new directional `Wave 1` retraining
 surface, but the report still presents several ranking tables and family
 breakdowns as one mixed sequence across:
@@ -52,9 +52,9 @@ suffix on family names.
 
 ## Involved Components
 
-- `doc/reports/analysis/Training Results Master Summary.md`
+- `doc/reports/analysis/project_status/current/Training Results Master Summary.md`
 - `scripts/reports/analysis/generate_training_results_master_summary.py`
-- `doc/reports/analysis/wave1/Wave 1 - Closeout Status.md`
+- `doc/reports/analysis/model_development_waves/wave_1/Wave 1 - Closeout Status.md`
 - `output/registries/families/*/latest_family_best.yaml`
 - `output/registries/program/current_best_solution.yaml`
 - future wave-specific campaign closeout and reporting surfaces that feed the
@@ -67,7 +67,7 @@ suffix on family names.
 2. Refactor the master-summary generation logic so high-level tables and wave
    breakdowns are grouped by reporting scope instead of one mixed ranking.
 3. Update the `Wave 1` sections of
-   `doc/reports/analysis/Training Results Master Summary.md` so the grids and
+   `doc/reports/analysis/project_status/current/Training Results Master Summary.md` so the grids and
    detailed family tables are presented in separate `global`, `Fw`, and `Bw`
    blocks.
 4. Add an explicit future-wave reporting rule so later wave families inherit

@@ -52,7 +52,7 @@ The implementation will:
 7. refresh the canonical analysis summaries that must reflect the new
    post-campaign residual `MLP` state, especially:
    - `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
-   - `doc/reports/analysis/Training Results Master Summary.md`
+   - `doc/reports/analysis/project_status/current/Training Results Master Summary.md`
 
 The closeout report will stay focused on the actual objective of this wave:
 repairing the last four distinct non-green `MLP` family-target pairs across
@@ -69,7 +69,7 @@ closeout flow in the main rollout.
 - `doc/reports/campaign_plans/track_1/exact_paper/2026-04-21-23-32-36_track1_mlp_residual_cell_final_closure_campaign_plan_report.md`
 - `doc/reports/campaign_results/track_1/exact_paper/forward/`
 - `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
-- `doc/reports/analysis/Training Results Master Summary.md`
+- `doc/reports/analysis/project_status/current/Training Results Master Summary.md`
 - `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/track1/exact_paper/forward/family_repair/mlp/2026-04-21_track1_mlp_residual_cell_final_closure_campaign/`
 - `output/training_campaigns/track1/exact_paper/forward/family_repair/mlp/track1_mlp_residual_cell_final_closure_campaign_2026_04_21_23_32_36/`
 - `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/`

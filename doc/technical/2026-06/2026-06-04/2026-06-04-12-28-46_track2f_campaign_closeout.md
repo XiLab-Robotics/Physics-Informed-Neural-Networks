@@ -52,7 +52,7 @@ campaign-results report and PDF are complete.
 - `output/training_runs/sequential_residual_offset_probe*/`
 - `output/registries/families/sequential_residual_offset_probe*/`
 - `output/registries/program/current_best_solution.yaml`
-- `doc/reports/analysis/Training Results Master Summary.md`
+- `doc/reports/analysis/project_status/current/Training Results Master Summary.md`
 - `doc/reports/campaign_results/`
 - `scripts/reports/pdf/run_report_pipeline.py`
 - `scripts/reports/pdf/validate_report_pdf.py`

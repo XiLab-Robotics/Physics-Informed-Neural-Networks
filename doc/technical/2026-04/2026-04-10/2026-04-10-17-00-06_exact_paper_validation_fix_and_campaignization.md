@@ -93,7 +93,7 @@ Canonical documentation likely to be updated:
 
 - `doc/guide/project_usage_guide.md`
 - `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
-- `doc/reports/analysis/Training Results Master Summary.md`
+- `doc/reports/analysis/project_status/current/Training Results Master Summary.md`
 - `doc/running/te_model_live_backlog.md`
 - `site/`
 

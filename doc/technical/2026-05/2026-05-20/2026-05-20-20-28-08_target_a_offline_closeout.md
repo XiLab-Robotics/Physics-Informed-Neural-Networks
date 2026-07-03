@@ -36,8 +36,8 @@ No training, model archive refresh, or registry mutation is planned.
 ## Involved Components
 
 - `doc/running/te_model_live_backlog.md`
-- `doc/reports/analysis/track2/Track 2 Directional Model Comparison.md`
-- `doc/reports/analysis/Training Results Master Summary.md`
+- `doc/reports/analysis/te_curve_verification_pipeline/00_overview/TE Curve Verification Pipeline Directional Model Comparison.md`
+- `doc/reports/analysis/project_status/current/Training Results Master Summary.md`
 - `doc/README.md`
 
 No subagent is planned. If subagent use becomes useful later, it must be

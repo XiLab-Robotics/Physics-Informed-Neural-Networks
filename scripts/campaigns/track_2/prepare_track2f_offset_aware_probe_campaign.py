@@ -41,7 +41,7 @@ LAUNCHER_PATH = Path("scripts/campaigns/track_2/run_track2f_offset_aware_probe_c
 VALIDATOR_PATH = Path("scripts/campaigns/track_2/validate_track2f_offset_aware_probe_package.py")
 LAUNCHER_NOTE_PATH = Path("doc/scripts/campaigns/track_2/run_track2f_offset_aware_probe_campaign.md")
 ACTIVE_CAMPAIGN_STATE_PATH = Path("doc/running/active_training_campaign.yaml")
-MODEL_REPORT_PATH = Path("doc/reports/analysis/wave2/Track 2F Sequential Residual-Offset Probe Model.md")
+MODEL_REPORT_PATH = Path("doc/reports/analysis/model_development_waves/wave_2/Track 2F Sequential Residual-Offset Probe Model.md")
 CAMPAIGN_OUTPUT_DIRECTORY = Path("output/training_campaigns") / CAMPAIGN_NAME
 BASELINE_STATUS_OUTPUT_DIRECTORY = (
     Path("output/validation_checks/track2f_offset_aware_probe")

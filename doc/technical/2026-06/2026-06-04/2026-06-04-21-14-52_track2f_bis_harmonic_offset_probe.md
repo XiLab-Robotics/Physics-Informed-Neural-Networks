@@ -78,8 +78,8 @@ No scalar result may collapse these three surfaces into one winner.
 - `doc/scripts/campaigns/track_2/`
 - `doc/reports/campaign_plans/track_2/`
 - `doc/running/active_training_campaign.yaml`
-- `doc/reports/analysis/te_modeling/Curve-First TE Training Strategy.md`
-- `doc/reports/analysis/Training Results Master Summary.md`
+- `doc/reports/analysis/te_modeling/strategy/Curve-First TE Training Strategy.md`
+- `doc/reports/analysis/project_status/current/Training Results Master Summary.md`
 
 No Codex subagent is planned for this implementation. If a subagent becomes
 useful later, its name, scope, and approval requirement must be recorded before

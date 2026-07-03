@@ -9,7 +9,7 @@ metadata:
   campaign_name: wave52b_offset_harmonic_guided_campaign_2026_07_01
   planning_report_path: doc/reports/campaign_plans/wave_5_2/2026-07-01-16-08-01_wave52b_offset_harmonic_guided_campaign_plan_report.md
   technical_document_path: doc/technical/2026-07/2026-07-01/2026-07-01-16-08-01_wave52b_offset_harmonic_guided_preparation.md
-  model_report_path: doc/reports/analysis/wave5_2/Wave 5.2B Offset And Harmonic Guided
+  model_report_path: doc/reports/analysis/model_development_waves/wave_5_2/Wave 5.2B Offset And Harmonic Guided
     Model.md
   phase_name: wave52b_offset_harmonic_guided
   campaign_config_id: wave52b_offset_harmonic_guided_offset_centered_shape_harmonic_fw

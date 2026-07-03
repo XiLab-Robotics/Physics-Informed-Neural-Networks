@@ -71,13 +71,13 @@ Expected read-only inputs:
 - `scripts/datasets/generate_polished_transmission_error_dataset.py`;
 - `doc/reference_summaries/08_Transmission_Error_Dataset_Family_Reference.md`;
 - `doc/running/te_model_live_backlog.md`;
-- `doc/reports/analysis/TE Program Status And Closeout Ledger.md`;
-- `doc/reports/analysis/Training Results Master Summary.md`.
+- `doc/reports/analysis/project_status/current/TE Program Status And Closeout Ledger.md`;
+- `doc/reports/analysis/project_status/current/Training Results Master Summary.md`.
 
 Expected future output locations after implementation approval:
 
 - a canonical report under
-  `doc/reports/analysis/wave5_2/paired_dataset_diagnostics/[YYYY-MM-DD]/`;
+  `doc/reports/analysis/model_development_waves/wave_5_2/paired_dataset_diagnostics/[YYYY-MM-DD]/`;
 - machine-readable summaries under
   `output/validation_checks/wave52a_paired_dataset_diagnostics/<run_instance_id>/`;
 - optional plots or collages in the same report-local dated folder, if the

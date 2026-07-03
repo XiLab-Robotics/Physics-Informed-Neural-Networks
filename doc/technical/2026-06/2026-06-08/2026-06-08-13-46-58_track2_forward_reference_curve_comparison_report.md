@@ -62,12 +62,12 @@ second header lines, and keep metric columns balanced.
 
 ## Involved Components
 
-- `doc/reports/analysis/track2/best_model_collage_report/[2026-05-28]/`:
+- `doc/reports/analysis/te_curve_verification_pipeline/02_visual_reports/best_model_collage_report/[2026-05-28]/`:
   historical `paper_original_best_Fw` and `paper_retuned_best_Fw` collage
   source.
-- `doc/reports/analysis/track2/original_onnx_fw_collage_report/[2026-06-05]/`:
+- `doc/reports/analysis/te_curve_verification_pipeline/05_reference_and_legacy/original_onnx_fw_collage_report/[2026-06-05]/`:
   historical full original `ONNX` forward collage source.
-- `doc/reports/analysis/track2/sparse_original_onnx_variants/[2026-06-08]/`:
+- `doc/reports/analysis/te_curve_verification_pipeline/05_reference_and_legacy/sparse_original_onnx_variants/[2026-06-08]/`:
   sparse simplified and PLC-oriented original `ONNX` collage source.
 - `output/validation_checks/track2_best_model_collage_report/`:
   existing best-model collage report output root.
@@ -97,7 +97,7 @@ second header lines, and keep metric columns balanced.
 4. Compute aggregate candidate metrics and all pairwise curve-difference
    metrics over the common forward curve set.
 5. Generate a dated Markdown report and companion assets under
-   `doc/reports/analysis/track2/forward_reference_curve_comparison/[2026-06-08]/`.
+   `doc/reports/analysis/te_curve_verification_pipeline/05_reference_and_legacy/forward_reference_curve_comparison/[2026-06-08]/`.
 6. Export and validate the real PDF, including visual checks for table width,
    wrapped metric headers, image fit, and page breaks.
 7. Register the report and script in the appropriate documentation indexes if

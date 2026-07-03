@@ -12,7 +12,7 @@ mean-centered diagnostics introduced by commit
 
 ## Technical Approach
 
-Create a detailed analysis report under `doc/reports/analysis/track2/` using a
+Create a detailed analysis report under `doc/reports/analysis/te_curve_verification_pipeline/` using a
 readable title-based filename or a narrow topic-root folder. The report will
 cite concrete source files and line ranges from the current repository code,
 including the `TE Curve Verification Pipeline` matrix template, shared evaluation support, collage
@@ -33,7 +33,7 @@ The report will distinguish the two inference paths:
 - `scripts/reports/analysis/build_track2_best_model_collage_report.py`
 - `scripts/reports/analysis/build_track2_mean_centered_collage_report.py`
 - `scripts/models/harmonic_regression.py`
-- `doc/reports/analysis/track2/`
+- `doc/reports/analysis/te_curve_verification_pipeline/`
 - `doc/README.md`
 
 ## Implementation Steps

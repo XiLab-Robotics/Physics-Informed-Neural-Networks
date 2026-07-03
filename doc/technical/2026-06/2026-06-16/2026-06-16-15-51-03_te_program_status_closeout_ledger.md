@@ -29,7 +29,7 @@ small update.
 The document will use the repository's current evidence hierarchy:
 
 - accepted reference and direction-parallel leaders from
-  `doc/reports/analysis/track2/Track 2 Directional Model Comparison.md`;
+  `doc/reports/analysis/te_curve_verification_pipeline/00_overview/TE Curve Verification Pipeline Directional Model Comparison.md`;
 - official `TE Curve Verification Pipeline` verification reports through the current `Wave 5.1`
   refresh dated `2026-06-15`;
 - campaign-results reports for `Wave 3.3`, the three completed `Wave 4 series`
@@ -50,7 +50,7 @@ The ledger will keep the central modeling boundary explicit:
 
 The implementation will touch documentation and governance files only:
 
-- `doc/reports/analysis/TE Program Status And Closeout Ledger.md` as the new
+- `doc/reports/analysis/project_status/current/TE Program Status And Closeout Ledger.md` as the new
   canonical maintained ledger;
 - `doc/README.md` to register the new official analysis document and this
   technical note;

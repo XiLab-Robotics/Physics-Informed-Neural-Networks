@@ -8,8 +8,8 @@ use explicit harmonic input components.
 
 The requested deliverables are the existing PDF targets:
 
-- `doc/reports/analysis/track2/best_model_collage_report/[2026-05-20]/track2_best_model_collage_report.pdf`
-- `doc/reports/analysis/track2/multi_model_curve_comparison_report/[2026-05-20]/track2_multi_model_curve_comparison_report.pdf`
+- `doc/reports/analysis/te_curve_verification_pipeline/02_visual_reports/best_model_collage_report/[2026-05-20]/track2_best_model_collage_report.pdf`
+- `doc/reports/analysis/te_curve_verification_pipeline/02_visual_reports/multi_model_curve_comparison_report/[2026-05-20]/track2_multi_model_curve_comparison_report.pdf`
 
 ## Technical Approach
 
@@ -33,8 +33,8 @@ No subagent use is planned for this task.
 - `scripts/reports/analysis/build_track2_best_model_collage_report.py`
 - `scripts/reports/analysis/build_track2_multi_model_curve_comparison_report.py`
 - `scripts/reports/pdf/run_report_pipeline.py`
-- `doc/reports/analysis/track2/best_model_collage_report/[2026-05-20]/`
-- `doc/reports/analysis/track2/multi_model_curve_comparison_report/[2026-05-20]/`
+- `doc/reports/analysis/te_curve_verification_pipeline/02_visual_reports/best_model_collage_report/[2026-05-20]/`
+- `doc/reports/analysis/te_curve_verification_pipeline/02_visual_reports/multi_model_curve_comparison_report/[2026-05-20]/`
 - `output/validation_checks/track2_best_model_collage_report/`
 - `output/validation_checks/track2_multi_model_curve_comparison_report/`
 - `output/registries/families/periodic_mlp*/latest_family_best.yaml`

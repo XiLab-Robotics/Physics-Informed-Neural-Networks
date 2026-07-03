@@ -61,10 +61,10 @@ refresh remains a separate operator-approved step after this closeout.
   - program-level scalar best registry after early-wave completion.
 - `doc/reports/campaign_results/cross_wave/polished_dataset/`
   - destination for the closeout Markdown report and PDF companion.
-- `doc/reports/analysis/Training Results Master Summary.md`
+- `doc/reports/analysis/project_status/current/Training Results Master Summary.md`
   - canonical training-result summary to synchronize with the completed
     early-wave result.
-- `doc/reports/analysis/TE Program Status And Closeout Ledger.md`
+- `doc/reports/analysis/project_status/current/TE Program Status And Closeout Ledger.md`
   - program ledger to inspect and update only if this closeout materially
     changes current modeling status.
 - `doc/README.md`

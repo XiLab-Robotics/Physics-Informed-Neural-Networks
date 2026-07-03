@@ -88,7 +88,7 @@ The micro-campaign is accepted as an operational gate because it confirms:
 This report does **not** promote the micro-campaign metrics into:
 
 - `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
-- `doc/reports/analysis/Training Results Master Summary.md`
+- `doc/reports/analysis/project_status/current/Training Results Master Summary.md`
 - family or program best-run registries
 
 The micro wave is a workflow-validation gate, not a scientific closeout.

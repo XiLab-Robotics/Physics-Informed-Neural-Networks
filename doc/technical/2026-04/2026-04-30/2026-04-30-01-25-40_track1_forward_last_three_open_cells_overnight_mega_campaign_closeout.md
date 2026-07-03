@@ -56,7 +56,7 @@ The implementation should:
 - `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
   Canonical paper-facing benchmark that must reflect any accepted forward
   improvements.
-- `doc/reports/analysis/Training Results Master Summary.md`
+- `doc/reports/analysis/project_status/current/Training Results Master Summary.md`
   Canonical always-updated program status summary.
 - `models/paper_reference/rcim_track1/forward/`
   Mandatory forward archive surface to refresh when the closeout accepts new

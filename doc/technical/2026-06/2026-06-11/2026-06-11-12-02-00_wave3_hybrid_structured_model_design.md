@@ -36,12 +36,12 @@ No subagent use is planned for this design step.
 
 ## Involved Components
 
-- `doc/reports/analysis/wave3/Wave 3 Hybrid Structured Models.md`
+- `doc/reports/analysis/model_development_waves/wave_3/Wave 3 Hybrid Structured Models.md`
 - `doc/README.md`
 - `doc/reference_summaries/02_MMT_TEModeling_Project_Summary.md`
 - `doc/reference_summaries/03_RCIM_ML_Compensation_Project_Summary.md`
 - `doc/reference_summaries/07_RCIM_Recovered_Assets_Project_Summary.md`
-- `doc/reports/analysis/track2/dispersion_aware_wave_roadmap/[2026-06-10]/track2_dispersion_aware_wave_roadmap.md`
+- `doc/reports/analysis/te_curve_verification_pipeline/05_reference_and_legacy/dispersion_aware_wave_roadmap/[2026-06-10]/track2_dispersion_aware_wave_roadmap.md`
 
 ## Implementation Steps
 

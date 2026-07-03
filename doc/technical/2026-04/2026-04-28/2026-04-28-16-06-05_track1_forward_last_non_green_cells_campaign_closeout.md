@@ -35,7 +35,7 @@ forward and bidirectional RCIM Model-Bank Reproduction exact-paper closeouts:
 3. materialize the final campaign-results Markdown report and validate the
    PDF export;
 4. refresh `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`;
-5. refresh `doc/reports/analysis/Training Results Master Summary.md`;
+5. refresh `doc/reports/analysis/project_status/current/Training Results Master Summary.md`;
 6. refresh `models/paper_reference/rcim_track1/forward/` only for target-level
    accepted winners that improve over the stored archive entries;
 7. update `doc/running/active_training_campaign.yaml` from `running` to
@@ -53,7 +53,7 @@ state recorded in the campaign plan.
 - `doc/reports/campaign_plans/track_1/exact_paper/2026-04-28-11-21-25_track1_forward_last_non_green_cells_campaign_plan_report.md`
 - `doc/reports/campaign_results/track_1/exact_paper/`
 - `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
-- `doc/reports/analysis/Training Results Master Summary.md`
+- `doc/reports/analysis/project_status/current/Training Results Master Summary.md`
 - `models/paper_reference/rcim_track1/forward/`
 - `output/training_campaigns/track1/exact_paper/forward_last_non_green_cells/`
 - `output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank_forward_last_non_green_cells/`

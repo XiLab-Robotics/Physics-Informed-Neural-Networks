@@ -12,7 +12,7 @@ artifact-reconciliation phase, where the wrapper searched for generated
 Markdown validation reports under a stale path:
 
 - expected by wrapper:
-  `doc/reports/analysis/validation_checks/track1/exact_paper/`
+  `doc/reports/analysis/validation_checks/rcim_model_bank_reproduction/track1/exact_paper/`
 - actually produced by the validation script during this wave:
   `doc/reports/analysis/validation_checks/`
 

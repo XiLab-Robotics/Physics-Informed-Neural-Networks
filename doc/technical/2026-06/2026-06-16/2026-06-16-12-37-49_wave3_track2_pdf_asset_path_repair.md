@@ -4,7 +4,7 @@
 
 The completed `Wave 5.1` harmonic-prior residual `TE Curve Verification Pipeline` refresh generated the
 dated visual report bundle under
-`doc/reports/analysis/track2/*/[2026-06-15]/`. The real styled PDF export did
+`doc/reports/analysis/te_curve_verification_pipeline/*/[2026-06-15]/`. The real styled PDF export did
 not render several `Wave 5.1` collage images even though the referenced `PNG`
 files exist and are readable from the filesystem.
 
@@ -36,9 +36,9 @@ No subagent use is planned for this repair.
 
 - `scripts/reports/analysis/build_track2_best_model_collage_report.py`
 - `scripts/reports/analysis/build_track2_multi_model_curve_comparison_report.py`
-- `doc/reports/analysis/track2/best_model_collage_report/[2026-06-15]/`
-- `doc/reports/analysis/track2/multi_model_curve_comparison_report/[2026-06-15]/`
-- `doc/reports/analysis/track2/official_model_verification_report/[2026-06-15]/`
+- `doc/reports/analysis/te_curve_verification_pipeline/02_visual_reports/best_model_collage_report/[2026-06-15]/`
+- `doc/reports/analysis/te_curve_verification_pipeline/02_visual_reports/multi_model_curve_comparison_report/[2026-06-15]/`
+- `doc/reports/analysis/te_curve_verification_pipeline/01_official_decisions/official_model_verification_report/[2026-06-15]/`
 - `scripts/reports/pdf/run_report_pipeline.py`
 - `scripts/reports/pdf/validate_report_pdf.py`
 

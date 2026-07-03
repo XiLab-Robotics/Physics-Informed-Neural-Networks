@@ -37,7 +37,7 @@ under a dedicated validation-artifact directory such as:
 
 and under a repository-owned report directory such as:
 
-- `doc/reports/analysis/validation_checks/2026-03-30-10-30-15_feedforward_te_feedforward_trial_validation_check_validation_setup_report.md`
+- `doc/reports/analysis/validation_checks/model_development_waves/generated_setup_reports/2026-03-30-10-30-15_feedforward_te_feedforward_trial_validation_check_validation_setup_report.md`
 
 The validation output folder is now separated from normal training runs so sanity-check artifacts do not pollute the training-run tree.
 

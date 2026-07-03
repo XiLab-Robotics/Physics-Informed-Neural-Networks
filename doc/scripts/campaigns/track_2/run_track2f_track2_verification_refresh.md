@@ -83,13 +83,13 @@ Matrix artifacts are written under:
 
 The canonical matrix report is updated at:
 
-- `doc/reports/analysis/track2/Track 2 Directional Model Comparison.md`
+- `doc/reports/analysis/te_curve_verification_pipeline/00_overview/TE Curve Verification Pipeline Directional Model Comparison.md`
 
 Visual report bundles are written under:
 
-- `doc/reports/analysis/track2/best_model_collage_report/[2026-06-04]/`
-- `doc/reports/analysis/track2/multi_model_curve_comparison_report/[2026-06-04]/`
-- `doc/reports/analysis/track2/official_model_verification_report/[2026-06-04]/`
+- `doc/reports/analysis/te_curve_verification_pipeline/02_visual_reports/best_model_collage_report/[2026-06-04]/`
+- `doc/reports/analysis/te_curve_verification_pipeline/02_visual_reports/multi_model_curve_comparison_report/[2026-06-04]/`
+- `doc/reports/analysis/te_curve_verification_pipeline/01_official_decisions/official_model_verification_report/[2026-06-04]/`
 
 Operator launch logs are written under:
 

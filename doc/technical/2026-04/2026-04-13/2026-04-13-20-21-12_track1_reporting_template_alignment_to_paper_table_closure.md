@@ -55,7 +55,7 @@ winner-first language for `RCIM Model-Bank Reproduction`.
 ## Involved Components
 
 - `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
-- `doc/reports/analysis/Training Results Master Summary.md`
+- `doc/reports/analysis/project_status/current/Training Results Master Summary.md`
 - `scripts/reports/generate_training_results_master_summary.py`
 - `scripts/training/run_training_campaign.py`
 - `scripts/reports/generate_styled_report_pdf.py`

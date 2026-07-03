@@ -21,7 +21,7 @@ The report will cover:
 ## Technical Approach
 
 Add a repeatable analysis/report script that builds a dated report bundle under
-`doc/reports/analysis/track2/` and machine-readable visual artifacts under
+`doc/reports/analysis/te_curve_verification_pipeline/` and machine-readable visual artifacts under
 `output/validation_checks/track2_best_model_collage_report/`.
 
 The implementation will reuse existing repository evaluation paths instead of
@@ -55,7 +55,7 @@ introducing a separate model-loading stack:
 - `output/validation_checks/track2_reference_comparison/`
 - `output/validation_checks/wave1_high_order_track2_curve_prediction_forward/`
 - `output/validation_checks/wave1_high_order_track2_curve_prediction_backward/`
-- `doc/reports/analysis/track2/`
+- `doc/reports/analysis/te_curve_verification_pipeline/`
 - `doc/README.md`
 
 ## Implementation Steps

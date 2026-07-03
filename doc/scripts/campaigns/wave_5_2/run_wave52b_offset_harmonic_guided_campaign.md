@@ -65,7 +65,7 @@ syncs `scripts`, `config`, `doc`, `site`, `requirements.txt`, and `AGENTS.md`.
 - technical document:
   `doc/technical/2026-07/2026-07-01/2026-07-01-16-08-01_wave52b_offset_harmonic_guided_preparation.md`
 - model report:
-  `doc/reports/analysis/wave5_2/Wave 5.2B Offset And Harmonic Guided Model.md`
+  `doc/reports/analysis/model_development_waves/wave_5_2/Wave 5.2B Offset And Harmonic Guided Model.md`
 - validator:
   `scripts/campaigns/wave_5_2/validate_wave52b_offset_harmonic_guided_campaign.py`
 

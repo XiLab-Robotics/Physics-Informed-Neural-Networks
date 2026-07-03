@@ -1293,11 +1293,11 @@ updated_text_files:
     replacement_count: 1
   - path: doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md
     replacement_count: 3
-  - path: doc/reports/analysis/TE Program Status And Closeout Ledger.md
+  - path: doc/reports/analysis/project_status/current/TE Program Status And Closeout Ledger.md
     replacement_count: 5
-  - path: doc/reports/analysis/track2/Track 2 Directional Model Comparison.md
+  - path: doc/reports/analysis/te_curve_verification_pipeline/00_overview/TE Curve Verification Pipeline Directional Model Comparison.md
     replacement_count: 1
-  - path: doc/reports/analysis/track2/Track 2H-L Latent-State Hysteresis Probe Model.md
+  - path: doc/reports/analysis/te_curve_verification_pipeline/05_reference_and_legacy/Wave 4.4 Latent-State Hysteresis Probe Model.md
     replacement_count: 4
   - path: doc/reports/analysis/utilities/linux_script_portability/[2026-05-15]/script_portability_inventory.md
     replacement_count: 180
@@ -1309,33 +1309,33 @@ updated_text_files:
     replacement_count: 283
   - path: doc/reports/analysis/utilities/Skill and Subagent Operational Test.md
     replacement_count: 2
-  - path: doc/reports/analysis/validation_checks/track2/2026-05-18-13-34-28_track2_full_directional_family_matrix_direction_truth_audit_validation_report.md
+  - path: doc/reports/analysis/validation_checks/te_curve_verification_pipeline/2026-05-18-13-34-28_track2_full_directional_family_matrix_direction_truth_audit_validation_report.md
     replacement_count: 1
-  - path: doc/reports/analysis/validation_checks/track2/2026-05-18-17-26-52_track2_full_directional_family_matrix_composite_best_reference_validation_report.md
+  - path: doc/reports/analysis/validation_checks/te_curve_verification_pipeline/2026-05-18-17-26-52_track2_full_directional_family_matrix_composite_best_reference_validation_report.md
     replacement_count: 1
-  - path: doc/reports/analysis/validation_checks/track2/2026-05-24-22-47-44_track2_full_directional_family_matrix_wave2_temporal_refresh_report.md
+  - path: doc/reports/analysis/validation_checks/te_curve_verification_pipeline/2026-05-24-22-47-44_track2_full_directional_family_matrix_wave2_temporal_refresh_report.md
     replacement_count: 1
-  - path: doc/reports/analysis/validation_checks/track2/2026-06-04-17-00-37_track2_full_directional_family_matrix_track2f_offset_aware_probe_track2_refresh_2026_06_04_report.md
+  - path: doc/reports/analysis/validation_checks/te_curve_verification_pipeline/2026-06-04-17-00-37_track2_full_directional_family_matrix_track2f_offset_aware_probe_track2_refresh_2026_06_04_report.md
     replacement_count: 1
-  - path: doc/reports/analysis/validation_checks/track2/2026-06-08-13-28-44_track2_full_directional_family_matrix_track2f_bis_harmonic_offset_probe_track2_refresh_2026_06_08_report.md
+  - path: doc/reports/analysis/validation_checks/te_curve_verification_pipeline/2026-06-08-13-28-44_track2_full_directional_family_matrix_track2f_bis_harmonic_offset_probe_track2_refresh_2026_06_08_report.md
     replacement_count: 1
-  - path: doc/reports/analysis/validation_checks/track2/2026-06-09-13-33-45_track2_full_directional_family_matrix_track2g_curve_aware_track2_refresh_2026_06_09_report.md
+  - path: doc/reports/analysis/validation_checks/te_curve_verification_pipeline/2026-06-09-13-33-45_track2_full_directional_family_matrix_track2g_curve_aware_track2_refresh_2026_06_09_report.md
     replacement_count: 1
-  - path: doc/reports/analysis/validation_checks/track2/2026-06-11-15-14-38_track2_full_directional_family_matrix_track2h_robust_loss_track2_refresh_2026_06_11_report.md
+  - path: doc/reports/analysis/validation_checks/te_curve_verification_pipeline/2026-06-11-15-14-38_track2_full_directional_family_matrix_track2h_robust_loss_track2_refresh_2026_06_11_report.md
     replacement_count: 1
-  - path: doc/reports/analysis/validation_checks/track2/2026-06-12-14-57-15_track2_full_directional_family_matrix_track2h_quantile_probabilistic_track2_refresh_2026_06_12_report.md
+  - path: doc/reports/analysis/validation_checks/te_curve_verification_pipeline/2026-06-12-14-57-15_track2_full_directional_family_matrix_track2h_quantile_probabilistic_track2_refresh_2026_06_12_report.md
     replacement_count: 1
-  - path: doc/reports/analysis/validation_checks/track2/2026-06-15-20-52-46_track2_full_directional_family_matrix_wave3_harmonic_prior_residual_track2_refresh_2026_06_15_report.md
+  - path: doc/reports/analysis/validation_checks/te_curve_verification_pipeline/2026-06-15-20-52-46_track2_full_directional_family_matrix_wave3_harmonic_prior_residual_track2_refresh_2026_06_15_report.md
     replacement_count: 1
-  - path: doc/reports/analysis/wave1/Wave 1 - Closeout Status.md
+  - path: doc/reports/analysis/model_development_waves/wave_1/Wave 1 - Closeout Status.md
     replacement_count: 1
-  - path: doc/reports/analysis/wave2/Track 2F Sequential Residual-Offset Probe Model.md
+  - path: doc/reports/analysis/model_development_waves/wave_2/Track 2F Sequential Residual-Offset Probe Model.md
     replacement_count: 3
-  - path: doc/reports/analysis/wave2/Wave 2C Residual Harmonic Temporal Hybrid Models.md
+  - path: doc/reports/analysis/model_development_waves/wave_2/Wave 2C Residual Harmonic Temporal Hybrid Models.md
     replacement_count: 2
-  - path: doc/reports/analysis/wave3/Wave 3 Hybrid Structured Models.md
+  - path: doc/reports/analysis/model_development_waves/wave_3/Wave 3 Hybrid Structured Models.md
     replacement_count: 6
-  - path: doc/reports/analysis/wave4/Wave 4 PINN Formulation And First PINN.md
+  - path: doc/reports/analysis/model_development_waves/wave_4/Wave 4 PINN Formulation And First PINN.md
     replacement_count: 2
   - path: doc/reports/campaign_plans/cross_wave/wave_3_wave_4/2026-06-11-15-10-02_wave3_wave4_embryonic_skeleton_plan_report.md
     replacement_count: 10

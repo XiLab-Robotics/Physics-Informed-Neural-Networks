@@ -278,6 +278,6 @@ The next technically justified steps are:
 - Winning validation summary:
   `output/validation_checks/paper_reimplementation_rcim_harmonic_wise/forward/baseline_reference/shared/2026-04-09-20-45-48__te_harmonic_wise_full_rcim_no_engineering_reference_campaign_run/validation_summary.yaml`
 - Winning run report:
-  `doc/reports/analysis/validation_checks/track1/harmonic_wise/forward/2026-04-09-20-46-45_paper_reimplementation_rcim_harmonic_wise_te_harmonic_wise_full_rcim_no_engineering_reference_campaign_run_harmonic_wise_comparison_report.md`
+  `doc/reports/analysis/validation_checks/rcim_model_bank_reproduction/track1/harmonic_wise/forward/2026-04-09-20-46-45_paper_reimplementation_rcim_harmonic_wise_te_harmonic_wise_full_rcim_no_engineering_reference_campaign_run_harmonic_wise_comparison_report.md`
 - Planning report:
   `doc/reports/campaign_plans/track_1/harmonic_wise/2026-04-09-18-56-03_track1_second_iteration_harmonic_wise_campaign_plan_report.md`

@@ -91,7 +91,7 @@ Each run also produces a validation report under:
 
 The launcher will also refresh:
 
-- `doc/reports/analysis/Training Results Master Summary.md`
+- `doc/reports/analysis/project_status/current/Training Results Master Summary.md`
 
 ## Related Documents
 

@@ -109,7 +109,7 @@ strictly structured:
 - `doc/reference_summaries/03_RCIM_ML_Compensation_Project_Summary.md`
 - `doc/reports/analysis/rcim_paper_reference/RCIM Exact Paper Model Bank Workflow.md`
 - `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
-- `doc/reports/analysis/Training Results Master Summary.md`
+- `doc/reports/analysis/project_status/current/Training Results Master Summary.md`
 - `doc/technical/2026-04/2026-04-17/2026-04-17-18-52-51_svm_reference_model_inventory_and_archive.md`
 - `doc/technical/2026-04/2026-04-17/2026-04-17-19-43-39_track1_reference_family_archive_standardization.md`
 - `doc/technical/2026-04/2026-04-18/2026-04-18-00-47-14_track1_remaining_exact_paper_family_campaigns.md`

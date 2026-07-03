@@ -39,9 +39,9 @@ unchanged unless they need a short pointer to the clarified input contract.
 
 ## Involved Components
 
-- `doc/reports/analysis/te_modeling/Curve-First TE Training Strategy.md`
+- `doc/reports/analysis/te_modeling/strategy/Curve-First TE Training Strategy.md`
 - `doc/running/te_model_live_backlog.md`
-- `doc/reports/analysis/Training Results Master Summary.md`
+- `doc/reports/analysis/project_status/current/Training Results Master Summary.md`
 - `doc/README.md`
 
 Potential future implementation surfaces, not modified by this documentation

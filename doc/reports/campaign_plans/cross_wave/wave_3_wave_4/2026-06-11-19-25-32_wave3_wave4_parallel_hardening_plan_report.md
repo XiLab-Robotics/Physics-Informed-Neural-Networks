@@ -51,7 +51,7 @@ This pass must not:
 | Wave 5.1 launcher note | `doc/scripts/campaigns/wave_3/wave3_training_smoke_ready_checks.md` |
 | Wave 5.2A report script | `scripts/reports/analysis/build_wave4a_mmt_equation_diagnostic_report.py` |
 | Wave 5.2A script note | `doc/scripts/reports/analysis/build_wave4a_mmt_equation_diagnostic_report.md` |
-| Wave 5.2A report output | `doc/reports/analysis/wave4/mmt_equation_diagnostic/[2026-06-11]/` |
+| Wave 5.2A report output | `doc/reports/analysis/model_development_waves/wave_4/mmt_equation_diagnostic/[2026-06-11]/` |
 | Wave 5.2A validation output | `output/validation_checks/wave4_mmt_equation_diagnostic/` |
 
 ## Verification Plan
@@ -76,7 +76,7 @@ The pass is complete only after:
 | Wave 5.1 | `doc/scripts/campaigns/wave_3/wave3_training_smoke_ready_checks.md` | implemented |
 | Wave 5.1 | `output/validation_checks/wave3_harmonic_prior_residual/2026-06-11-19-44-20__te_wave3_harmonic_prior_residual_training_smoke_ready_wave3_training_smoke_ready_final/validation_summary.yaml` | finite checks passed |
 | Wave 5.2A | `scripts/reports/analysis/build_wave4a_mmt_equation_diagnostic_report.py` | implemented |
-| Wave 5.2A | `doc/reports/analysis/wave4/mmt_equation_diagnostic/[2026-06-11]/wave4a_mmt_equation_diagnostic.md` | generated |
+| Wave 5.2A | `doc/reports/analysis/model_development_waves/wave_4/mmt_equation_diagnostic/[2026-06-11]/wave4a_mmt_equation_diagnostic.md` | generated |
 | Wave 5.2A | `output/validation_checks/wave4_mmt_equation_diagnostic/2026-06-11-19-25-32__wave4a_mmt_equation_diagnostic/` | generated |
 
 ## Decision Gates

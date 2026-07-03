@@ -61,10 +61,10 @@ new training should remain a later approved step.
 
 Primary documentation targets:
 
-- `doc/reports/analysis/track2/`
-- `doc/reports/analysis/te_modeling/Curve-First TE Training Strategy.md`
+- `doc/reports/analysis/te_curve_verification_pipeline/`
+- `doc/reports/analysis/te_modeling/strategy/Curve-First TE Training Strategy.md`
 - `doc/running/te_model_live_backlog.md`
-- `doc/reports/analysis/Training Results Master Summary.md`
+- `doc/reports/analysis/project_status/current/Training Results Master Summary.md`
 - `doc/README.md`
 
 Primary implementation targets to inspect:
@@ -79,10 +79,10 @@ Primary implementation targets to inspect:
 
 Primary data and artifact inputs:
 
-- `doc/reports/analysis/track2/Track 2 Directional Model Comparison.md`
-- `doc/reports/analysis/track2/official_model_verification_report/[2026-05-28]/track2_official_model_verification_report.md`
-- `doc/reports/analysis/track2/best_model_collage_report/[2026-05-28]/track2_best_model_collage_report.md`
-- `doc/reports/analysis/track2/multi_model_curve_comparison_report/[2026-05-28]/track2_multi_model_curve_comparison_report.md`
+- `doc/reports/analysis/te_curve_verification_pipeline/00_overview/TE Curve Verification Pipeline Directional Model Comparison.md`
+- `doc/reports/analysis/te_curve_verification_pipeline/01_official_decisions/official_model_verification_report/[2026-05-28]/track2_official_model_verification_report.md`
+- `doc/reports/analysis/te_curve_verification_pipeline/02_visual_reports/best_model_collage_report/[2026-05-28]/track2_best_model_collage_report.md`
+- `doc/reports/analysis/te_curve_verification_pipeline/02_visual_reports/multi_model_curve_comparison_report/[2026-05-28]/track2_multi_model_curve_comparison_report.md`
 - latest TE Curve Verification Pipeline validation summaries under
   `output/validation_checks/track2_reference_comparison/`
 - family registries under `output/registries/families/`
@@ -95,7 +95,7 @@ Primary data and artifact inputs:
    and per-condition metric outputs.
 2. Identify the latest canonical `Wave 2.3` curve-verification matrix output as the
    baseline candidate set.
-3. Design a CVP 1.1 output bundle under `doc/reports/analysis/track2/` and
+3. Design a CVP 1.1 output bundle under `doc/reports/analysis/te_curve_verification_pipeline/` and
    `output/validation_checks/track2_curve_first_reranking/`.
 4. Implement or adapt a repository-owned script that computes the expanded
    curve-first metric bundle without changing candidate model inputs.

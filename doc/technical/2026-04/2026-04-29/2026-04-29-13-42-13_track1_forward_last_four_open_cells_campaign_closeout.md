@@ -38,7 +38,7 @@ The expected sequence after approval is:
    export, and the PDF validation evidence;
 5. refresh
    `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md` and
-   `doc/reports/analysis/Training Results Master Summary.md`;
+   `doc/reports/analysis/project_status/current/Training Results Master Summary.md`;
 6. refresh the accepted forward paper-reference family archives as a mandatory
    closeout side effect if the new winners improve the tracked canonical
    results;
@@ -61,7 +61,7 @@ must be recorded and approved before use.
 - `scripts/reports/pdf/generate_styled_report_pdf.py`
 - `scripts/reports/pdf/validate_report_pdf.py`
 - `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
-- `doc/reports/analysis/Training Results Master Summary.md`
+- `doc/reports/analysis/project_status/current/Training Results Master Summary.md`
 - `models/paper_reference/rcim_track1/`
 
 ## Implementation Steps

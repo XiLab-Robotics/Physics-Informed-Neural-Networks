@@ -511,7 +511,7 @@ The current usage flow mainly relies on these folders:
 - `doc/reports/analysis/`
   Analysis reports grouped by purpose (`training_analysis/`, `analytical_studies/`, `family_studies/`).
 
-- `doc/reports/analysis/Training Results Master Summary.md`
+- `doc/reports/analysis/project_status/current/Training Results Master Summary.md`
   Canonical project-level summary of current status, best family results,
   recent campaign changes, and family-by-family ranked outcomes.
 
@@ -701,7 +701,7 @@ paper-original `ONNX` `paper_original_best_Fw` composite:
 conda run -n pinns_env python -B scripts/reports/analysis/build_track2_original_onnx_fw_collage_report.py `
   --report-date 2026-06-05
 conda run -n pinns_env python -B scripts/reports/pdf/run_report_pipeline.py `
-  --input-markdown-path "doc/reports/analysis/track2/original_onnx_fw_collage_report/[2026-06-05]/track2_original_onnx_fw_collage_report.md" `
+  --input-markdown-path "doc/reports/analysis/te_curve_verification_pipeline/05_reference_and_legacy/original_onnx_fw_collage_report/[2026-06-05]/track2_original_onnx_fw_collage_report.md" `
   --validation-python-path C:\Users\XiLabTRig\miniconda3\envs\pinns_env\python.exe
 ```
 
@@ -714,7 +714,7 @@ differences across all five candidates:
 conda run -n pinns_env python -B scripts/reports/analysis/build_track2_forward_reference_curve_comparison_report.py `
   --report-date 2026-06-08
 conda run -n pinns_env python -B scripts/reports/pdf/run_report_pipeline.py `
-  --input-markdown-path "doc/reports/analysis/track2/forward_reference_curve_comparison/[2026-06-08]/track2_forward_reference_curve_comparison_report.md" `
+  --input-markdown-path "doc/reports/analysis/te_curve_verification_pipeline/05_reference_and_legacy/forward_reference_curve_comparison/[2026-06-08]/track2_forward_reference_curve_comparison_report.md" `
   --validation-python-path C:\Users\XiLabTRig\miniconda3\envs\pinns_env\python.exe
 ```
 
@@ -1299,7 +1299,7 @@ The report-pipeline runner:
 
 The current main target is:
 
-- `doc/reports/analysis/training_analysis/Training Configuration Analysis.pdf`
+- `doc/reports/analysis/training_configuration/Training Configuration Analysis.pdf`
 
 Treat that PDF as the project golden standard for future styled analytical reports.
 
@@ -1588,8 +1588,8 @@ python -B scripts/tooling/session/isolated_mode.py close-session `
 
 ```powershell
 python scripts/reports/pdf/generate_styled_report_pdf.py `
-  --input-markdown-path "doc/reports/analysis/training_analysis/Training Configuration Analysis.md" `
-  --output-pdf-path "doc/reports/analysis/training_analysis/Training Configuration Analysis.pdf" `
+  --input-markdown-path "doc/reports/analysis/training_configuration/Training Configuration Analysis.md" `
+  --output-pdf-path "doc/reports/analysis/training_configuration/Training Configuration Analysis.pdf" `
   --report-subtitle "Feedforward Transmission Error Baseline" `
   --report-category "Analysis Report"
 ```
@@ -1604,9 +1604,9 @@ If a persistent HTML preview is explicitly needed, request it on purpose:
 
 ```powershell
 python scripts/reports/pdf/generate_styled_report_pdf.py `
-  --input-markdown-path "doc/reports/analysis/training_analysis/Training Configuration Analysis.md" `
-  --output-html-path "doc/reports/analysis/training_analysis/Training Configuration Analysis_preview.html" `
-  --output-pdf-path "doc/reports/analysis/training_analysis/Training Configuration Analysis.pdf" `
+  --input-markdown-path "doc/reports/analysis/training_configuration/Training Configuration Analysis.md" `
+  --output-html-path "doc/reports/analysis/training_configuration/Training Configuration Analysis_preview.html" `
+  --output-pdf-path "doc/reports/analysis/training_configuration/Training Configuration Analysis.pdf" `
   --report-subtitle "Feedforward Transmission Error Baseline" `
   --report-category "Analysis Report" `
   --keep-html
@@ -1764,7 +1764,7 @@ After every styled report export, validate the real PDF artifact rather than rel
 
 ```powershell
 python scripts/reports/pdf/validate_report_pdf.py `
-  --input-pdf-path "doc/reports/analysis/training_analysis/Training Configuration Analysis.pdf" `
+  --input-pdf-path "doc/reports/analysis/training_configuration/Training Configuration Analysis.pdf" `
   --output-image-directory .temp/pdf_validation_training_configuration_analysis `
   --clean-output-directory
 ```
@@ -2646,7 +2646,7 @@ Tracking files written on the current workstation:
 After the remote artifacts are synchronized back locally, the launcher should
 also refresh:
 
-- `doc/reports/analysis/Training Results Master Summary.md`
+- `doc/reports/analysis/project_status/current/Training Results Master Summary.md`
 
 Use the paired launcher note for the exact sync contract and operational
 details:
@@ -2908,7 +2908,7 @@ Most recent completed Wave 4.3 mixture-density heads campaign:
 - optional official `TE Curve Verification Pipeline` remote command:
   `.\scripts\campaigns\track_2\run_track2h_mixture_density_heads_track2_verification_refresh.ps1 -Remote`
 - official `TE Curve Verification Pipeline` report:
-  `doc/reports/analysis/track2/official_model_verification_report/[2026-06-13]/track2_official_model_verification_report.md`
+  `doc/reports/analysis/te_curve_verification_pipeline/01_official_decisions/official_model_verification_report/[2026-06-13]/track2_official_model_verification_report.md`
 - status: normal campaign closeout and official `TE Curve Verification Pipeline` verification
   refresh completed; MDN is a verified exploratory baseline, not promoted.
 
@@ -3096,8 +3096,8 @@ Campaign planning report:
 Main outputs:
 
 - `output/validation_checks/paper_reimplementation_rcim_harmonic_wise/forward/<run_instance_id>/`
-- `doc/reports/analysis/validation_checks/track1/harmonic_wise/*_harmonic_wise_comparison_report.md`
-- refreshed `doc/reports/analysis/Training Results Master Summary.md`
+- `doc/reports/analysis/validation_checks/rcim_model_bank_reproduction/track1/harmonic_wise/*_harmonic_wise_comparison_report.md`
+- refreshed `doc/reports/analysis/project_status/current/Training Results Master Summary.md`
 
 Current scope:
 
@@ -3254,7 +3254,7 @@ Main outputs:
 
 - `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/<run_instance_id>/`
 - `output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/`
-- `doc/reports/analysis/validation_checks/track1/exact_paper/*_exact_paper_model_bank_report.md`
+- `doc/reports/analysis/validation_checks/rcim_model_bank_reproduction/track1/exact_paper/*_exact_paper_model_bank_report.md`
 - `output/training_campaigns/track1/exact_paper/forward/uncategorized/shared/exact_paper_model_bank_campaign_2026_04_10_17_04_41/logs/`
 - `models/paper_reference/rcim_track1/forward/`
 - `models/paper_reference/rcim_track1/backward/`

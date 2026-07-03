@@ -42,8 +42,8 @@ The diagnostic should:
 - write a machine-readable validation summary plus CSV tables under
   `output/validation_checks/`;
 - write a Markdown interpretation report under
-  `doc/reports/analysis/validation_checks/track2/` or a narrower
-  `doc/reports/analysis/track2/` diagnostic topic folder;
+  `doc/reports/analysis/validation_checks/te_curve_verification_pipeline/` or a narrower
+  `doc/reports/analysis/te_curve_verification_pipeline/` diagnostic topic folder;
 - register the final report from `doc/README.md` when created.
 
 ## Involved Components
@@ -55,8 +55,8 @@ The diagnostic should:
 - `reference/rcim_ml_compensation_recovered_assets/models/exact_onnx_paper_release`
 - `models/paper_reference/rcim_original/forward`
 - `output/validation_checks/rcim_original_onnx_release_parity/`
-- `doc/reports/analysis/validation_checks/track2/`
-- `doc/reports/analysis/track2/Track 2 Curve Reconstruction And Collage Pipeline.md`
+- `doc/reports/analysis/validation_checks/te_curve_verification_pipeline/`
+- `doc/reports/analysis/te_curve_verification_pipeline/00_overview/TE Curve Verification Pipeline Curve Reconstruction And Collage Pipeline.md`
 - `doc/README.md`
 
 ## Implementation Steps

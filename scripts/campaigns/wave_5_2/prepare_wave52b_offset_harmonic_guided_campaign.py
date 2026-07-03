@@ -28,7 +28,7 @@ TECHNICAL_DOCUMENT_PATH = Path(
     "doc/technical/2026-07/2026-07-01/"
     "2026-07-01-16-08-01_wave52b_offset_harmonic_guided_preparation.md"
 )
-MODEL_REPORT_PATH = Path("doc/reports/analysis/wave5_2/Wave 5.2B Offset And Harmonic Guided Model.md")
+MODEL_REPORT_PATH = Path("doc/reports/analysis/model_development_waves/wave_5_2/Wave 5.2B Offset And Harmonic Guided Model.md")
 LAUNCHER_PATH = Path("scripts/campaigns/wave_5_2/run_wave52b_offset_harmonic_guided_campaign.ps1")
 VALIDATOR_PATH = Path("scripts/campaigns/wave_5_2/validate_wave52b_offset_harmonic_guided_campaign.py")
 LAUNCHER_NOTE_PATH = Path("doc/scripts/campaigns/wave_5_2/run_wave52b_offset_harmonic_guided_campaign.md")

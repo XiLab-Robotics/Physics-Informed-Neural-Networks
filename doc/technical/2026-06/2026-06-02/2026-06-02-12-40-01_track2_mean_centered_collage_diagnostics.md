@@ -17,13 +17,13 @@ curve mean before `MAE` and `RMSE` are recomputed.
 Build a companion report analogous to the existing best-model collage report:
 
 - source report:
-  `doc/reports/analysis/track2/best_model_collage_report/[2026-05-28]/track2_best_model_collage_report.md`;
+  `doc/reports/analysis/te_curve_verification_pipeline/02_visual_reports/best_model_collage_report/[2026-05-28]/track2_best_model_collage_report.md`;
 - source run:
   `output/validation_checks/track2_best_model_collage_report/2026-05-28-13-37-39__track2_best_model_collage_report`;
 - new output root:
   `output/validation_checks/track2_mean_centered_collage_report/`;
 - new report root:
-  `doc/reports/analysis/track2/mean_centered_collage_report/[2026-06-02]/`.
+  `doc/reports/analysis/te_curve_verification_pipeline/02_visual_reports/mean_centered_collage_report/[2026-06-02]/`.
 
 For each candidate and selected collage curve:
 
@@ -49,8 +49,8 @@ first diagnostic confirms that offset removal materially changes the ranking.
 - new companion script under `scripts/reports/analysis/`
 - `config/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/full_track2_matrix_template.yaml`
 - `output/validation_checks/track2_best_model_collage_report/2026-05-28-13-37-39__track2_best_model_collage_report/`
-- `doc/reports/analysis/track2/best_model_collage_report/[2026-05-28]/`
-- `doc/reports/analysis/track2/mean_centered_collage_report/[2026-06-02]/`
+- `doc/reports/analysis/te_curve_verification_pipeline/02_visual_reports/best_model_collage_report/[2026-05-28]/`
+- `doc/reports/analysis/te_curve_verification_pipeline/02_visual_reports/mean_centered_collage_report/[2026-06-02]/`
 
 ## Implementation Steps
 

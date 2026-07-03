@@ -59,7 +59,7 @@ The implementation should:
 - compare the dominant bins qualitatively against the repository suspicious
   harmonic groups: `0`, `1`, `156`, `162`, and `240`;
 - write a dated Markdown analysis bundle under
-  `doc/reports/analysis/wave4/mmt_equation_diagnostic/`;
+  `doc/reports/analysis/model_development_waves/wave_4/mmt_equation_diagnostic/`;
 - write machine-readable companion data under
   `output/validation_checks/wave4_mmt_equation_diagnostic/`;
 - keep the conclusion conservative: MMT signals may inform diagnostics,
@@ -75,8 +75,8 @@ Expected documentation components:
 
 - this technical document;
 - `doc/reports/campaign_plans/cross_wave/wave_3_wave_4/2026-06-11-19-25-32_wave3_wave4_parallel_hardening_plan_report.md`;
-- `doc/reports/analysis/wave3/Wave 3 Hybrid Structured Models.md`;
-- `doc/reports/analysis/wave4/Wave 4 PINN Formulation And First PINN.md`;
+- `doc/reports/analysis/model_development_waves/wave_3/Wave 3 Hybrid Structured Models.md`;
+- `doc/reports/analysis/model_development_waves/wave_4/Wave 4 PINN Formulation And First PINN.md`;
 - `doc/README.md`;
 - `doc/guide/project_usage_guide.md`;
 - Sphinx `site/` API or guide entries if new user-facing scripts are added.
@@ -95,7 +95,7 @@ Expected Wave 5.2A implementation components after approval:
 - a script note under `doc/scripts/reports/analysis/` or the existing report
   script index pattern;
 - Markdown report output under
-  `doc/reports/analysis/wave4/mmt_equation_diagnostic/[2026-06-11]/`;
+  `doc/reports/analysis/model_development_waves/wave_4/mmt_equation_diagnostic/[2026-06-11]/`;
 - validation data under
   `output/validation_checks/wave4_mmt_equation_diagnostic/`.
 

@@ -33,8 +33,8 @@ No subagent use is planned.
 
 ## Involved Components
 
-- `doc/reports/analysis/wave4/Wave 4 PINN Formulation And First PINN.md`
-- `doc/reports/analysis/mmt_te_modeling/MMT TE Modeling Equation Extraction And Reimplementation Plan.md`
+- `doc/reports/analysis/model_development_waves/wave_4/Wave 4 PINN Formulation And First PINN.md`
+- `doc/reports/analysis/te_modeling/analytical_mmt/MMT TE Modeling Equation Extraction And Reimplementation Plan.md`
 - `scripts/paper_reimplementation/mmt_te_modeling/mmt_te_modeling_reproduction.py`
 - `scripts/paper_reimplementation/mmt_te_modeling/mmt_te_modeling_reproduction.m`
 - `doc/README.md`

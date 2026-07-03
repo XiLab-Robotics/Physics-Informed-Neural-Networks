@@ -118,7 +118,7 @@ approval, but the campaign is intended to stay in the standard remote form:
 After execution and review, the closeout must refresh:
 
 - `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`;
-- `doc/reports/analysis/Training Results Master Summary.md`;
+- `doc/reports/analysis/project_status/current/Training Results Master Summary.md`;
 - the canonical forward colored matrices for Tables `2-5`;
 - `models/paper_reference/rcim_track1/forward/` if any accepted target winner
   improves over the archived entry;

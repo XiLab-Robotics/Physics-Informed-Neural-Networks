@@ -72,7 +72,7 @@
 ## Linked Artifacts
 
 - benchmark report: `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
-- training results master summary: `doc/reports/analysis/Training Results Master Summary.md`
+- training results master summary: `doc/reports/analysis/project_status/current/Training Results Master Summary.md`
 - track1 reference root: `models/paper_reference/rcim_track1/forward/`
 - campaign leaderboard: `output/training_campaigns/track1/exact_paper/forward_open_cell_repair/track1_forward_open_cell_repair_campaign_2026-04-27_13_08_10/campaign_leaderboard.yaml`
 - campaign best run YAML: `output/training_campaigns/track1/exact_paper/forward_open_cell_repair/track1_forward_open_cell_repair_campaign_2026-04-27_13_08_10/campaign_best_run.yaml`

@@ -32,9 +32,9 @@ Review style:
 Repository-specific checks:
 - Read `doc/running/active_training_campaign.yaml` first.
 - Read the canonical policy at
-  `doc/reports/analysis/track2/multi_index_curve_first_selection_policy/[2026-06-16]/track2_multi_index_curve_first_selection_policy.md`.
+  `doc/reports/analysis/te_curve_verification_pipeline/00_overview/multi_index_curve_first_selection_policy/[2026-06-16]/track2_multi_index_curve_first_selection_policy.md`.
 - Read the dated official report bundle and the companion collage/overlay
-  reports under `doc/reports/analysis/track2/`.
+  reports under `doc/reports/analysis/te_curve_verification_pipeline/`.
 - Do not recommend running the heavy matrix inside Codex unless the user has
   explicitly approved that phase.
 - Expected output is a decision-audit memo with required corrections,

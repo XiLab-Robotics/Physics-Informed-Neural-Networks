@@ -56,29 +56,29 @@ closed and synchronized.
 
 Expected read-only inputs:
 
-- `doc/reports/analysis/wave5_2/paired_dataset_diagnostics/[2026-07-01]/wave52a_paired_dataset_diagnostics.md`;
+- `doc/reports/analysis/model_development_waves/wave_5_2/paired_dataset_diagnostics/[2026-07-01]/wave52a_paired_dataset_diagnostics.md`;
 - `output/validation_checks/wave52a_paired_dataset_diagnostics/2026-07-01-14-43-05__wave52a_full_paired_dataset_matrix/`;
 - `doc/reference_summaries/08_Transmission_Error_Dataset_Family_Reference.md`;
 - `doc/running/te_model_live_backlog.md`;
-- `doc/reports/analysis/TE Program Status And Closeout Ledger.md`;
-- `doc/reports/analysis/Training Results Master Summary.md`;
+- `doc/reports/analysis/project_status/current/TE Program Status And Closeout Ledger.md`;
+- `doc/reports/analysis/project_status/current/Training Results Master Summary.md`;
 - existing model-family reports for `Wave 3.3`, `Wave 4.1` through
   `Wave 4.4`, and `Wave 5.1`.
 
 Expected output after approval:
 
 - a model-design gate report under
-  `doc/reports/analysis/wave5_2/model_design_gate/[YYYY-MM-DD]/`;
+  `doc/reports/analysis/model_development_waves/wave_5_2/model_design_gate/[YYYY-MM-DD]/`;
 - optional machine-readable design tables under
   `output/validation_checks/wave52_model_design_gate/<run_instance_id>/`;
 - synchronized entries in `doc/README.md`,
   `doc/running/te_model_live_backlog.md`,
-  `doc/reports/analysis/TE Program Status And Closeout Ledger.md`, and
-  `doc/reports/analysis/Training Results Master Summary.md`.
+  `doc/reports/analysis/project_status/current/TE Program Status And Closeout Ledger.md`, and
+  `doc/reports/analysis/project_status/current/Training Results Master Summary.md`.
 
 Approved implementation output:
 
-- `doc/reports/analysis/wave5_2/model_design_gate/[2026-07-01]/wave52b_wave52c_model_design_gate.md`;
+- `doc/reports/analysis/model_development_waves/wave_5_2/model_design_gate/[2026-07-01]/wave52b_wave52c_model_design_gate.md`;
 - `output/validation_checks/wave52_model_design_gate/2026-07-01-15-30-07__wave52b_wave52c_model_design_gate/`.
 
 Protected or deferred components:

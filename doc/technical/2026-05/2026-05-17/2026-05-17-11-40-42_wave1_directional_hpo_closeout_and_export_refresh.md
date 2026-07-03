@@ -48,8 +48,8 @@ keeps the better canonical family-best score.
 ## Involved Components
 
 - `doc/reports/campaign_results/wave_1/`
-- `doc/reports/analysis/Training Results Master Summary.md`
-- `doc/reports/analysis/wave1/Wave 1 - Closeout Status.md`
+- `doc/reports/analysis/project_status/current/Training Results Master Summary.md`
+- `doc/reports/analysis/model_development_waves/wave_1/Wave 1 - Closeout Status.md`
 - `models/exported/`
 - `models/README.md`
 - `scripts/reports/closeout/wave1/`

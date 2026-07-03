@@ -15,7 +15,7 @@ conda run -n pinns_env python -B scripts/reports/analysis/build_wave4a_mmt_equat
 ## Outputs
 
 - Markdown report under
-  `doc/reports/analysis/wave4/mmt_equation_diagnostic/[YYYY-MM-DD]/`.
+  `doc/reports/analysis/model_development_waves/wave_4/mmt_equation_diagnostic/[YYYY-MM-DD]/`.
 - Curve CSV, harmonic-summary CSV, and summary YAML under
   `output/validation_checks/wave4_mmt_equation_diagnostic/`.
 

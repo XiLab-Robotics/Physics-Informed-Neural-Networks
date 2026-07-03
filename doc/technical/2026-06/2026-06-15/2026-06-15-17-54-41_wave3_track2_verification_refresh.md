@@ -61,10 +61,10 @@ from the template.
 - `doc/scripts/campaigns/track_2/run_wave3_harmonic_prior_residual_track2_verification_refresh.md`
 - `output/registries/families/wave3_harmonic_prior_residual_*`
 - `output/training_runs/wave3_harmonic_prior_residual_*`
-- `doc/reports/analysis/track2/Track 2 Directional Model Comparison.md`
-- `doc/reports/analysis/track2/best_model_collage_report/[YYYY-MM-DD]/`
-- `doc/reports/analysis/track2/multi_model_curve_comparison_report/[YYYY-MM-DD]/`
-- `doc/reports/analysis/track2/official_model_verification_report/[YYYY-MM-DD]/`
+- `doc/reports/analysis/te_curve_verification_pipeline/00_overview/TE Curve Verification Pipeline Directional Model Comparison.md`
+- `doc/reports/analysis/te_curve_verification_pipeline/02_visual_reports/best_model_collage_report/[YYYY-MM-DD]/`
+- `doc/reports/analysis/te_curve_verification_pipeline/02_visual_reports/multi_model_curve_comparison_report/[YYYY-MM-DD]/`
+- `doc/reports/analysis/te_curve_verification_pipeline/01_official_decisions/official_model_verification_report/[YYYY-MM-DD]/`
 
 ## Implementation Steps
 

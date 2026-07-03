@@ -43,7 +43,7 @@ The implementation will:
 6. refresh the canonical analysis summaries that must reflect the new
    post-campaign `RCIM Model-Bank Reproduction` state, especially:
    - `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
-   - `doc/reports/analysis/Training Results Master Summary.md`
+   - `doc/reports/analysis/project_status/current/Training Results Master Summary.md`
 7. verify whether any family-level or campaign-level winner artifacts need
    reconstruction or normalization because the remote wrapper synced outputs
    under a flat `output/training_campaigns/track1_<family>_...` layout rather
@@ -59,7 +59,7 @@ harmonic-wise branch as part of the success criteria.
 - `doc/reports/campaign_plans/track_1/exact_paper/2026-04-20-23-50-13_track1_open_cell_full_matrix_closure_campaigns_plan_report.md`
 - `doc/reports/campaign_results/track_1/exact_paper/forward/`
 - `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
-- `doc/reports/analysis/Training Results Master Summary.md`
+- `doc/reports/analysis/project_status/current/Training Results Master Summary.md`
 - `output/training_campaigns/`
 - `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/`
 - `doc/reports/analysis/validation_checks/`

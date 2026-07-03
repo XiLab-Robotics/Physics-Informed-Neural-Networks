@@ -115,10 +115,10 @@ registry or archive, and dataset split explicit for every row.
   - describe the direction-aware comparison contract;
   - link the current historical `LGBM-19` smoke report and the future canonical
     direction-aware replacement.
-- `doc/reports/analysis/Training Results Master Summary.md`
+- `doc/reports/analysis/project_status/current/Training Results Master Summary.md`
   - keep the `global/Fw/Bw` family policy and online `Table 9` gap aligned with
     the benchmark.
-- `doc/reports/analysis/validation_checks/track2/`
+- `doc/reports/analysis/validation_checks/te_curve_verification_pipeline/`
   - store the next direction-aware `TE Curve Verification Pipeline` comparison reports.
 - `output/validation_checks/track2_reference_comparison/`
   - store immutable validation artifacts for each comparison run.

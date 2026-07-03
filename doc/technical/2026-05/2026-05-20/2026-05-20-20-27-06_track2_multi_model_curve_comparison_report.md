@@ -58,7 +58,7 @@ The implementation will:
 - `scripts/reports/pdf/validate_report_pdf.py`
 - `output/registries/families/*/latest_family_best.yaml`
 - `output/validation_checks/track2_best_model_curve_comparison_report/`
-- `doc/reports/analysis/track2/`
+- `doc/reports/analysis/te_curve_verification_pipeline/`
 - `doc/README.md`
 - `doc/guide/project_usage_guide.md`
 

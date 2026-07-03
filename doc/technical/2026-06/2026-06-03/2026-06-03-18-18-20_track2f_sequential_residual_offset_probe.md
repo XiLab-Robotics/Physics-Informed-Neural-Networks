@@ -83,9 +83,9 @@ Reference inputs:
 
 - `doc/reports/campaign_plans/track_2/2026-06-03-17-25-37_track2f_offset_aware_probe_campaign_plan_report.md`;
 - `doc/technical/2026-06/2026-06-03/2026-06-03-17-25-37_track2f_offset_aware_probe_campaign.md`;
-- `doc/reports/analysis/track2/offset_predictability_feasibility/[2026-06-03]/track2e_offset_predictability_feasibility.md`;
+- `doc/reports/analysis/te_curve_verification_pipeline/03_cvp_diagnostics/offset_predictability_feasibility/[2026-06-03]/track2e_offset_predictability_feasibility.md`;
 - `output/validation_checks/track2f_offset_aware_probe/2026-06-03_track2f_offset_aware_probe_prelaunch/track2f_probe_entry_status.csv`;
-- `doc/reports/analysis/te_modeling/Curve-First TE Training Strategy.md`.
+- `doc/reports/analysis/te_modeling/strategy/Curve-First TE Training Strategy.md`.
 
 ## Implementation Steps
 

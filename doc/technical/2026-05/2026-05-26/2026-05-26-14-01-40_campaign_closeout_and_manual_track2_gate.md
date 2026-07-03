@@ -58,7 +58,7 @@ the resulting artifacts and finish the TE curve-verification report decision.
   Persistent campaign state and protected-file boundary.
 - `doc/reports/campaign_results/`
   Normal campaign closeout report and PDF target.
-- `doc/reports/analysis/Training Results Master Summary.md`
+- `doc/reports/analysis/project_status/current/Training Results Master Summary.md`
   Normal campaign summary refreshed by the training runner and by closeout.
 - `doc/running/te_model_live_backlog.md`
   Backlog surface that should distinguish completed campaign closeout from

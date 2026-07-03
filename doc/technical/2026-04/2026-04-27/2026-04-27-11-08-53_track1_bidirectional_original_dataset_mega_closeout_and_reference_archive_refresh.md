@@ -74,7 +74,7 @@ cause unnecessary archive churn.
 - `doc/reports/campaign_plans/track_1/exact_paper/2026-04-26-00-43-19_track1_bidirectional_original_dataset_mega_relaunch_after_micro_gate_plan_report.md`
 - `doc/reports/campaign_results/track_1/exact_paper/`
 - `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
-- `doc/reports/analysis/Training Results Master Summary.md`
+- `doc/reports/analysis/project_status/current/Training Results Master Summary.md`
 - `models/paper_reference/rcim_track1/README.md`
 - `models/paper_reference/rcim_track1/forward/`
 - `models/paper_reference/rcim_track1/backward/`

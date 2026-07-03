@@ -73,8 +73,8 @@ work unless a later explicit approval says otherwise.
 - `doc/reports/campaign_plans/`
 - `output/registries/families/`
 - `output/registries/program/`
-- `doc/reports/analysis/wave1/Wave 1 - Closeout Status.md`
-- `doc/reports/analysis/Training Results Master Summary.md`
+- `doc/reports/analysis/model_development_waves/wave_1/Wave 1 - Closeout Status.md`
+- `doc/reports/analysis/project_status/current/Training Results Master Summary.md`
 
 No subagent is planned for this scope. If subagent help becomes useful later,
 the proposed agent, delegated boundary, and approval requirement must be

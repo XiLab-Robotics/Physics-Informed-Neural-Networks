@@ -42,7 +42,7 @@ The workflow will:
 - `output/training_runs/residual_harmonic_*`
 - `output/registries/families/residual_harmonic_*`
 - `output/registries/program/current_best_solution.yaml`
-- `doc/reports/analysis/Training Results Master Summary.md`
+- `doc/reports/analysis/project_status/current/Training Results Master Summary.md`
 - `doc/reports/campaign_results/wave_2/`
 - `scripts/reports/pdf/`
 

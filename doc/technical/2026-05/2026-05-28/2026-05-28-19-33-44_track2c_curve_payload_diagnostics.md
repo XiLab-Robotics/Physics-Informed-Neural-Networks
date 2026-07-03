@@ -63,10 +63,10 @@ decision.
 
 Primary documentation targets:
 
-- `doc/reports/analysis/track2/`
-- `doc/reports/analysis/te_modeling/Curve-First TE Training Strategy.md`
+- `doc/reports/analysis/te_curve_verification_pipeline/`
+- `doc/reports/analysis/te_modeling/strategy/Curve-First TE Training Strategy.md`
 - `doc/running/te_model_live_backlog.md`
-- `doc/reports/analysis/Training Results Master Summary.md`
+- `doc/reports/analysis/project_status/current/Training Results Master Summary.md`
 - `doc/README.md`
 
 Primary implementation targets to inspect:
@@ -79,7 +79,7 @@ Primary implementation targets to inspect:
 
 Primary data and artifact inputs:
 
-- `doc/reports/analysis/track2/curve_first_reranking_report/[2026-05-28]/track2_curve_first_reranking_report.md`
+- `doc/reports/analysis/te_curve_verification_pipeline/03_cvp_diagnostics/curve_first_reranking_report/[2026-05-28]/track2_curve_first_reranking_report.md`
 - `output/validation_checks/track2_curve_first_reranking/2026-05-28-19-27-46__track2b_curve_first_reranking/track2_curve_first_reranking_summary.yaml`
 - latest accepted `TE Curve Verification Pipeline` validation summary under
   `output/validation_checks/track2_reference_comparison/`
@@ -119,10 +119,10 @@ inventory or payload availability makes a candidate unsuitable.
 5. Write machine-readable outputs under
    `output/validation_checks/track2_curve_payload_diagnostics/<run_instance_id>/`.
 6. Generate a dated report under
-   `doc/reports/analysis/track2/curve_payload_diagnostics_report/[YYYY-MM-DD]/`.
+   `doc/reports/analysis/te_curve_verification_pipeline/03_cvp_diagnostics/curve_payload_diagnostics_report/[YYYY-MM-DD]/`.
 7. Update script-level documentation if a new operator-facing script is added.
 8. Update `doc/running/te_model_live_backlog.md`,
-   `doc/reports/analysis/Training Results Master Summary.md`, and `doc/README.md`
+   `doc/reports/analysis/project_status/current/Training Results Master Summary.md`, and `doc/README.md`
    with the diagnostic conclusion.
 9. Update `doc/guide/project_usage_guide.md` and the Sphinx portal if the work
    adds or changes a runnable user-facing script.

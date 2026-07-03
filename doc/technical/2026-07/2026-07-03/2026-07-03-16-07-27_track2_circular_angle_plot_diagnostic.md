@@ -49,9 +49,9 @@ changed variable is the rendering rule.
 - `scripts/reports/analysis/build_track2_best_model_collage_report.py`
 - `scripts/reports/analysis/build_track2_multi_model_curve_comparison_report.py`
 - `scripts/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/reference_family_vs_feedforward_support.py`
-- `doc/reports/analysis/track2/Track 2 Curve Reconstruction And Collage Pipeline.md`
+- `doc/reports/analysis/te_curve_verification_pipeline/00_overview/TE Curve Verification Pipeline Curve Reconstruction And Collage Pipeline.md`
 - `output/validation_checks/track2_best_model_collage_report/`
-- `doc/reports/analysis/track2/best_model_collage_report/`
+- `doc/reports/analysis/te_curve_verification_pipeline/02_visual_reports/best_model_collage_report/`
 
 No subagent use is planned. If later review of the plotting patch would be
 useful, the subagent name, review scope, and approval requirement will be

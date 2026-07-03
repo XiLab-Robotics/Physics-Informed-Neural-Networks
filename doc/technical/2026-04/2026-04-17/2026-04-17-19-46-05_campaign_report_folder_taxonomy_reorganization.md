@@ -51,7 +51,7 @@ the moved reports, including:
 
 - `doc/README.md`
 - `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
-- `doc/reports/analysis/Training Results Master Summary.md`
+- `doc/reports/analysis/project_status/current/Training Results Master Summary.md`
 - any other canonical report indexes or notes that still reference the old flat
   paths.
 
@@ -61,7 +61,7 @@ the moved reports, including:
 - `doc/reports/campaign_plans/`
 - `doc/README.md`
 - `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
-- `doc/reports/analysis/Training Results Master Summary.md`
+- `doc/reports/analysis/project_status/current/Training Results Master Summary.md`
 - any additional repository-owned Markdown files that reference the moved
   campaign report paths
 - `doc/technical/2026-04/2026-04-17/README.md`

@@ -53,8 +53,8 @@ skill because it will touch Python training/model code.
 
 Expected read-only inputs:
 
-- `doc/reports/analysis/wave5_2/model_design_gate/[2026-07-01]/wave52b_wave52c_model_design_gate.md`;
-- `doc/reports/analysis/wave5_2/paired_dataset_diagnostics/[2026-07-01]/wave52a_paired_dataset_diagnostics.md`;
+- `doc/reports/analysis/model_development_waves/wave_5_2/model_design_gate/[2026-07-01]/wave52b_wave52c_model_design_gate.md`;
+- `doc/reports/analysis/model_development_waves/wave_5_2/paired_dataset_diagnostics/[2026-07-01]/wave52a_paired_dataset_diagnostics.md`;
 - `output/validation_checks/wave52a_paired_dataset_diagnostics/2026-07-01-14-43-05__wave52a_full_paired_dataset_matrix/`;
 - `output/validation_checks/wave52_model_design_gate/2026-07-01-15-30-07__wave52b_wave52c_model_design_gate/`;
 - existing model and training patterns for periodic sequence and harmonic
@@ -87,7 +87,7 @@ Prepared implementation outputs:
 
 Approved planning outputs:
 
-- `doc/reports/analysis/wave5_2/Wave 5.2B Offset And Harmonic Guided Model.md`;
+- `doc/reports/analysis/model_development_waves/wave_5_2/Wave 5.2B Offset And Harmonic Guided Model.md`;
 - `doc/reports/campaign_plans/wave_5_2/2026-07-01-16-08-01_wave52b_offset_harmonic_guided_campaign_plan_report.md`.
 
 Implementation, configuration, launcher, and active-campaign-state outputs are

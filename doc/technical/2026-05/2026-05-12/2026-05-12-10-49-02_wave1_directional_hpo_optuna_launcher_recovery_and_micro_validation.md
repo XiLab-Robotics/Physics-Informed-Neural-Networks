@@ -64,7 +64,7 @@ Third, resume the blocked production campaign:
 - `output/training_runs/periodic_mlp*`
 - `output/training_runs/residual_harmonic_mlp*`
 - `output/registries/families/*`
-- `doc/reports/analysis/Training Results Master Summary.md`
+- `doc/reports/analysis/project_status/current/Training Results Master Summary.md`
 - campaign closeout scripts and report surfaces that will be selected after the
   recovery state is confirmed
 

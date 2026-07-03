@@ -39,7 +39,7 @@ The formalized status will be:
 ## Involved Components
 
 - `doc/running/te_model_live_backlog.md`
-- `doc/reports/analysis/Training Results Master Summary.md`
+- `doc/reports/analysis/project_status/current/Training Results Master Summary.md`
 - `doc/README.md`
 - possibly `doc/guide/project_usage_guide.md` if the user-facing roadmap text
   needs the same Track 3 label after backlog formalization

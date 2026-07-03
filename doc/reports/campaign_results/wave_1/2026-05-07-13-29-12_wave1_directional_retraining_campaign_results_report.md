@@ -75,8 +75,8 @@
 
 ## Canonical Follow-Through
 
-- `Wave 1` summary refreshed: `doc/reports/analysis/wave1/Wave 1 - Closeout Status.md`
-- master summary refreshed: `doc/reports/analysis/Training Results Master Summary.md`
+- `Wave 1` summary refreshed: `doc/reports/analysis/model_development_waves/wave_1/Wave 1 - Closeout Status.md`
+- master summary refreshed: `doc/reports/analysis/project_status/current/Training Results Master Summary.md`
 - campaign leaderboard refreshed: `output/training_campaigns/wave1/directional_retraining/2026-05-06-16-58-54_wave1_directional_retraining_campaign_2026_05_06_16_07_16/campaign_leaderboard.yaml`
 - campaign best run refreshed: `output/training_campaigns/wave1/directional_retraining/2026-05-06-16-58-54_wave1_directional_retraining_campaign_2026_05_06_16_07_16/campaign_best_run.yaml`
 - program best registry: `output/registries/program/current_best_solution.yaml`

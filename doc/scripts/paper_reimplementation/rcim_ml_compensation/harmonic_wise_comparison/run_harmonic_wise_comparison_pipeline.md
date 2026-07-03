@@ -28,7 +28,7 @@ It performs these stages:
 7. run offline `Robot` and `Cycloidal` style playback from the predicted
    harmonic models;
 8. save a validation summary plus a Markdown report;
-9. refresh `doc/reports/analysis/Training Results Master Summary.md`.
+9. refresh `doc/reports/analysis/project_status/current/Training Results Master Summary.md`.
 
 ## Main Components Used
 

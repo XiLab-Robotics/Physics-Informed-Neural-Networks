@@ -70,7 +70,7 @@ Context7 must be consulted before implementation.
   alignment and the new active next gate.
 - `doc/running/active_training_campaign.yaml` records the completed `Wave 5.1`
   campaign and its completed official `TE Curve Verification Pipeline` verification status.
-- `doc/reports/analysis/Training Results Master Summary.md` records the
+- `doc/reports/analysis/project_status/current/Training Results Master Summary.md` records the
   high-level program snapshot.
 - `doc/README.md` registers the new technical note and campaign plan.
 - Existing model references for later implementation include:

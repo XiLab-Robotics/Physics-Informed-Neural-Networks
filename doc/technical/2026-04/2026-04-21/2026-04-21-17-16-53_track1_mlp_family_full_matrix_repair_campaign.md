@@ -65,7 +65,7 @@ campaign preparation flow in the main rollout.
 ## Involved Components
 
 - `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
-- `doc/reports/analysis/Training Results Master Summary.md`
+- `doc/reports/analysis/project_status/current/Training Results Master Summary.md`
 - `doc/reports/campaign_plans/track_1/exact_paper/`
 - `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/`
 - `scripts/campaigns/track_1/exact_paper/`

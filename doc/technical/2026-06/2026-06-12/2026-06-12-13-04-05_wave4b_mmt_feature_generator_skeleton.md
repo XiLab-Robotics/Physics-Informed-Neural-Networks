@@ -42,9 +42,9 @@ leakage labels block unsafe fields from inference use.
 
 Expected source components:
 
-- `doc/reports/analysis/wave4/Wave 4B MMT Feature Generator Design.md`;
-- `doc/reports/analysis/wave4/mmt_parameter_inventory/[2026-06-11]/wave4a_mmt_parameter_inventory.md`;
-- `doc/reports/analysis/wave4/mmt_equation_diagnostic/[2026-06-11]/wave4a_mmt_equation_diagnostic.md`;
+- `doc/reports/analysis/model_development_waves/wave_4/Wave 4B MMT Feature Generator Design.md`;
+- `doc/reports/analysis/model_development_waves/wave_4/mmt_parameter_inventory/[2026-06-11]/wave4a_mmt_parameter_inventory.md`;
+- `doc/reports/analysis/model_development_waves/wave_4/mmt_equation_diagnostic/[2026-06-11]/wave4a_mmt_equation_diagnostic.md`;
 - `scripts/models/wave4_mmt_diagnostic_adapter.py`;
 - `scripts/reports/analysis/build_wave4a_mmt_equation_diagnostic_report.py`;
 - `doc/reference_summaries/02_MMT_TEModeling_Project_Summary.md`;

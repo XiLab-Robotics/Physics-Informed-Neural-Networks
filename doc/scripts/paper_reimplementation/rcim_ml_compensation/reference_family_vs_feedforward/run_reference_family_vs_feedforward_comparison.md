@@ -74,7 +74,7 @@ Typical artifacts include:
 
 It also writes a repository-owned Markdown report under:
 
-- `doc/reports/analysis/validation_checks/track2/`
+- `doc/reports/analysis/validation_checks/te_curve_verification_pipeline/`
 
 ## Practical Use
 
