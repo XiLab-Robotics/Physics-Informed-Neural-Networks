@@ -30,6 +30,7 @@ from tqdm import tqdm
 from scripts.paper_reimplementation.rcim_ml_compensation.reference_family_vs_feedforward import (
     reference_family_vs_feedforward_support,
 )
+from scripts.reports.analysis import track2_circular_plotting
 from scripts.tooling import repository_path_support
 from scripts.training import shared_training_infrastructure
 
@@ -1178,12 +1179,20 @@ def save_comparison_collage(
         curve_key = str(reference_entry["source_file_path"])
         angular_position_deg = np.asarray(reference_entry["angular_position_deg"], dtype=np.float32)
         truth_curve_deg = np.asarray(reference_entry["truth_curve_deg"], dtype=np.float32)
-        axis.plot(angular_position_deg, truth_curve_deg, label="Original Curve", linewidth=1.2, color="#4a4a4a")
+        track2_circular_plotting.plot_circular_angle_curve(
+            axis,
+            angular_position_deg,
+            truth_curve_deg,
+            label="Original Curve",
+            linewidth=1.2,
+            color="#4a4a4a",
+        )
 
         for candidate_index, candidate_id in enumerate(candidate_id_list):
             per_candidate_entry = entry_lookup_by_candidate_and_curve[candidate_id][curve_key]
             predicted_curve_deg = np.asarray(per_candidate_entry["predicted_curve_deg"], dtype=np.float32)
-            axis.plot(
+            track2_circular_plotting.plot_circular_angle_curve(
+                axis,
                 angular_position_deg,
                 predicted_curve_deg,
                 label=candidate_id,

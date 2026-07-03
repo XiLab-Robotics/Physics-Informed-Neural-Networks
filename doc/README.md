@@ -517,6 +517,12 @@ This folder contains the internal project documents derived from the reference P
   dataset-specific, surface-specific, and dataset-difference reports with
   explicit progress logging and a full-wave polished retraining merge gate.
 
+#### 2026-07-03
+
+- [technical/2026-07/2026-07-03/2026-07-03-16-07-27_track2_circular_angle_plot_diagnostic.md](./technical/2026-07/2026-07-03/2026-07-03-16-07-27_track2_circular_angle_plot_diagnostic.md)
+  Technical plan for diagnosing and correcting circular angular-wrap rendering
+  artifacts in `TE Curve Verification Pipeline` collage and comparison plots.
+
 #### 2026-06-29
 
 - [technical/2026-06/2026-06-29/2026-06-29-19-03-12_codex_workflow_assets_rationalization.md](./technical/2026-06/2026-06-29/2026-06-29-19-03-12_codex_workflow_assets_rationalization.md)

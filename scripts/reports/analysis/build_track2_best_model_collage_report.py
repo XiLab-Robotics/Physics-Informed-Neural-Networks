@@ -30,6 +30,7 @@ from tqdm import tqdm
 from scripts.paper_reimplementation.rcim_ml_compensation.reference_family_vs_feedforward import (
     reference_family_vs_feedforward_support,
 )
+from scripts.reports.analysis import track2_circular_plotting
 from scripts.tooling import repository_path_support
 from scripts.training import shared_training_infrastructure
 
@@ -1377,8 +1378,22 @@ def save_candidate_collage(
         angular_position_deg = np.asarray(per_candidate_entry["angular_position_deg"], dtype=np.float32)
         truth_curve_deg = np.asarray(per_candidate_entry["truth_curve_deg"], dtype=np.float32)
         predicted_curve_deg = np.asarray(per_candidate_entry["predicted_curve_deg"], dtype=np.float32)
-        axis.plot(angular_position_deg, truth_curve_deg, label="Measured TE", linewidth=1.2, color="#4a4a4a")
-        axis.plot(angular_position_deg, predicted_curve_deg, label=candidate_id, linewidth=1.2, color="#1f77b4")
+        track2_circular_plotting.plot_circular_angle_curve(
+            axis,
+            angular_position_deg,
+            truth_curve_deg,
+            label="Measured TE",
+            linewidth=1.2,
+            color="#4a4a4a",
+        )
+        track2_circular_plotting.plot_circular_angle_curve(
+            axis,
+            angular_position_deg,
+            predicted_curve_deg,
+            label=candidate_id,
+            linewidth=1.2,
+            color="#1f77b4",
+        )
         axis.set_title(
             (
                 f"{per_candidate_entry['direction_label']} | "
