@@ -512,6 +512,11 @@ This folder contains the internal project documents derived from the reference P
   Pipeline` refresh for the completed `Wave 5.2B` offset and harmonic guided
   campaign.
 
+- [technical/2026-07/2026-07-02/2026-07-02-18-02-18_te_curve_verification_dataset_surface_report_split.md](./technical/2026-07/2026-07-02/2026-07-02-18-02-18_te_curve_verification_dataset_surface_report_split.md)
+  Technical plan for splitting the `TE Curve Verification Pipeline` into
+  dataset-specific, surface-specific, and dataset-difference reports with
+  explicit progress logging and a full-wave polished retraining merge gate.
+
 #### 2026-06-29
 
 - [technical/2026-06/2026-06-29/2026-06-29-19-03-12_codex_workflow_assets_rationalization.md](./technical/2026-06/2026-06-29/2026-06-29-19-03-12_codex_workflow_assets_rationalization.md)
@@ -2688,6 +2693,10 @@ This folder contains the internal project documents derived from the reference P
   Script-level documentation for the official `TE Curve Verification Pipeline` verification report
   builder used by self-contained verification-refresh launchers.
 
+- [scripts/reports/analysis/build_track2_dataset_difference_report.md](./scripts/reports/analysis/build_track2_dataset_difference_report.md)
+  Script-level documentation for the split `TE Curve Verification Pipeline`
+  dataset-difference report builder.
+
 - [scripts/reports/analysis/build_track2d_mean_offset_full_matrix_audit.md](./scripts/reports/analysis/build_track2d_mean_offset_full_matrix_audit.md)
   Script-level documentation for the `CVP 1.4` full-matrix mean-offset audit
   report builder, including chunked execution and merge-only finalization.
@@ -2836,6 +2845,11 @@ This folder contains the internal project documents derived from the reference P
   Script-level documentation for the operator-launched `Wave 5.1`
   harmonic-prior residual official `TE Curve Verification Pipeline` verification refresh across all
   six completed candidates for `global`, `Fw`, and `Bw`.
+
+- [scripts/campaigns/track_2/run_track2_dataset_surface_report_split.md](./scripts/campaigns/track_2/run_track2_dataset_surface_report_split.md)
+  Script-level documentation for the split `TE Curve Verification Pipeline`
+  dataset/surface report launcher with full-wave polished retraining merge
+  gate and dataset-difference report support.
 
 - [scripts/campaigns/wave_5_2/run_wave52b_te_curve_verification_refresh.md](./scripts/campaigns/wave_5_2/run_wave52b_te_curve_verification_refresh.md)
   Script-level documentation for the operator-launched `Wave 5.2B`

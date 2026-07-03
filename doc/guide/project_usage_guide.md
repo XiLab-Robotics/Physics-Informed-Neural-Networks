@@ -40,6 +40,8 @@ At the moment, the implemented workflows are:
   with local and `-Remote` execution paths;
 - a prepared `Wave 5.2B` polished offset and harmonic guided campaign
   launcher with local and `-Remote` execution paths;
+- an operator-gated `TE Curve Verification Pipeline` dataset/surface report
+  split launcher for polished-versus-simplified verification reporting;
 - a `Wave 5.2A` MMT equation diagnostic report generator for harmonic-summary
   inspection before PINN integration;
 - a dry-run `Wave 5.2B` MMT feature-generator check that writes leakage-aware
@@ -209,6 +211,21 @@ Remote operator-launched `Wave 5.2B` TE Curve Verification Pipeline refresh:
 .\scripts\campaigns\wave_5_2\run_wave52b_te_curve_verification_refresh.ps1 -Remote
 ```
 
+Dry-run the dataset/surface `TE Curve Verification Pipeline` split:
+
+```powershell
+.\scripts\campaigns\track_2\run_track2_dataset_surface_report_split.ps1
+```
+
+After the full-wave polished retraining closure merge is present, launch the
+split workflow locally:
+
+```powershell
+.\scripts\campaigns\track_2\run_track2_dataset_surface_report_split.ps1 `
+  -Run `
+  -AcknowledgeFullWaveClosureMerged
+```
+
 Launch the 36-run early-wave batch locally after confirming the active
 campaign state is intentionally parallel with the RCIM run on the other
 workstation:
@@ -331,6 +348,12 @@ The current usage flow mainly relies on these folders:
   launcher. It evaluates the selected harmonic-profile registry models across
   `global`, `Fw`, and `Bw`, regenerates visual verification reports, and
   exports the official verification PDFs after the matrix completes.
+
+- `scripts/campaigns/track_2/run_track2_dataset_surface_report_split.ps1`
+  Operator-facing dataset/surface split launcher for the `TE Curve
+  Verification Pipeline`. It prepares separate polished/simplified,
+  forward/backward/global report bundles and enforces the full-wave polished
+  retraining closure merge gate before heavy execution.
 
 - `scripts/campaigns/wave_4/run_wave4_embryonic_skeleton_checks.ps1`
   Dry-run check launcher for the embryonic `Wave 5.2A` MMT diagnostic adapter.

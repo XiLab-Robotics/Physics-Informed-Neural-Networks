@@ -24,6 +24,7 @@ if str(PROJECT_PATH) not in sys.path:
 # Import Scientific Python Utilities
 import numpy as np
 import yaml
+from tqdm import tqdm
 
 # Import Project Utilities
 from scripts.paper_reimplementation.rcim_ml_compensation.reference_family_vs_feedforward import (
@@ -315,6 +316,18 @@ def build_argument_parser() -> argparse.ArgumentParser:
         ),
     )
     argument_parser.add_argument(
+        "--dataset",
+        choices=["polished_dataset", "simplified_dataset"],
+        default=None,
+        help="Dataset selector overriding the comparison YAML for this visual report.",
+    )
+    argument_parser.add_argument(
+        "--surface-scope",
+        choices=["all", "forward", "backward", "global"],
+        default="all",
+        help="Limit the visual report to one dataset-surface report scope.",
+    )
+    argument_parser.add_argument(
         "--family-registry-root",
         type=Path,
         default=DEFAULT_FAMILY_REGISTRY_ROOT,
@@ -341,6 +354,74 @@ def parse_command_line_arguments() -> argparse.Namespace:
     """Parse command-line arguments."""
 
     return build_argument_parser().parse_args()
+
+
+def normalize_surface_scope(surface_scope: str) -> str:
+
+    """Normalize one human-facing report surface scope."""
+
+    normalized_scope = str(surface_scope).strip().lower()
+    assert normalized_scope in {"all", "forward", "backward", "global"}, (
+        f"Unsupported report surface scope | {surface_scope}"
+    )
+    return normalized_scope
+
+
+def candidate_configuration_matches_surface_scope(
+    candidate_configuration: dict[str, Any],
+    surface_scope: str,
+) -> bool:
+
+    """Return whether one candidate configuration belongs in one visual scope."""
+
+    normalized_scope = normalize_surface_scope(surface_scope)
+    if normalized_scope == "all":
+        return True
+    if normalized_scope == "global":
+        return str(candidate_configuration.get("candidate_surface", "")).strip() == "global"
+    return normalized_scope in reference_family_vs_feedforward_support.normalize_allowed_direction_list(
+        candidate_configuration
+    )
+
+
+def filter_curve_record_list_by_surface_scope(
+    curve_record_list: list[Any],
+    surface_scope: str,
+) -> list[Any]:
+
+    """Filter curve records for one visual report surface scope."""
+
+    normalized_scope = normalize_surface_scope(surface_scope)
+    if normalized_scope in {"all", "global"}:
+        return curve_record_list
+    filtered_curve_record_list = [
+        curve_record
+        for curve_record in curve_record_list
+        if str(curve_record.direction_label).strip().lower() == normalized_scope
+    ]
+    assert filtered_curve_record_list, f"No curve records available for surface scope | {surface_scope}"
+    return filtered_curve_record_list
+
+
+def filter_group_list_by_surface_scope(
+    group_list: list[ReportCandidateGroup],
+    candidate_lookup: dict[str, Any],
+    surface_scope: str,
+) -> list[ReportCandidateGroup]:
+
+    """Keep only report groups that can be built for one surface scope."""
+
+    normalized_scope = normalize_surface_scope(surface_scope)
+    filtered_group_list: list[ReportCandidateGroup] = []
+    for group in group_list:
+        if normalized_scope in {"forward", "backward"} and group.selection_mode != normalized_scope:
+            continue
+        if normalized_scope == "global" and group.selection_mode not in {"global", "mixed"}:
+            continue
+        if all(candidate_id in candidate_lookup for candidate_id in group.candidate_id_list):
+            filtered_group_list.append(group)
+    assert filtered_group_list, f"No visual report groups available for surface scope | {surface_scope}"
+    return filtered_group_list
 
 
 def resolve_timestamped_output_paths(
@@ -1565,11 +1646,18 @@ def run_track2_best_model_collage_report(arguments: argparse.Namespace) -> dict[
     if report_asset_root.exists():
         shutil.rmtree(report_asset_root)
 
-    training_config = shared_training_infrastructure.load_training_config(arguments.config_path)
+    training_config = shared_training_infrastructure.apply_dataset_override(
+        shared_training_infrastructure.load_training_config(arguments.config_path),
+        arguments.dataset,
+    )
     selected_harmonic_list = [int(value) for value in training_config["evaluation"]["selected_harmonics"]]
     curve_record_list, _, _, dataset_root = reference_family_vs_feedforward_support.build_curve_record_list(
         training_config,
         selected_harmonic_list,
+    )
+    curve_record_list = filter_curve_record_list_by_surface_scope(
+        curve_record_list,
+        arguments.surface_scope,
     )
     percentage_error_denominator = str(training_config["comparison"]["percentage_error_denominator"])
 
@@ -1579,9 +1667,22 @@ def run_track2_best_model_collage_report(arguments: argparse.Namespace) -> dict[
         arguments.periodic_mlp_harmonic_campaign_leaderboard_path,
         output_directory,
     )
+    candidate_configuration_list = [
+        candidate_configuration
+        for candidate_configuration in candidate_configuration_list
+        if candidate_configuration_matches_surface_scope(candidate_configuration, arguments.surface_scope)
+    ]
+    assert candidate_configuration_list, (
+        "No collage candidates available for requested surface scope | "
+        f"surface_scope={arguments.surface_scope}"
+    )
     candidate_list = [
         reference_family_vs_feedforward_support.load_track2_candidate(candidate_configuration)
-        for candidate_configuration in candidate_configuration_list
+        for candidate_configuration in tqdm(
+            candidate_configuration_list,
+            desc="Load collage candidates",
+            unit="candidate",
+        )
     ]
     candidate_lookup = {
         candidate.candidate_id: candidate
@@ -1589,7 +1690,7 @@ def run_track2_best_model_collage_report(arguments: argparse.Namespace) -> dict[
     }
 
     per_candidate_entry_list: list[dict[str, Any]] = []
-    for candidate in candidate_list:
+    for candidate in tqdm(candidate_list, desc="Evaluate collage candidates", unit="candidate"):
         candidate_entry_list, _ = reference_family_vs_feedforward_support.evaluate_track2_candidate(
             candidate,
             curve_record_list,
@@ -1609,7 +1710,11 @@ def run_track2_best_model_collage_report(arguments: argparse.Namespace) -> dict[
         per_candidate_entry_list,
         "direction_label",
     )
-    group_list = build_report_group_list(candidate_configuration_list)
+    group_list = filter_group_list_by_surface_scope(
+        build_report_group_list(candidate_configuration_list),
+        candidate_lookup,
+        arguments.surface_scope,
+    )
     candidate_summary_list: list[dict[str, Any]] = []
 
     def build_curve_key(entry_dictionary: dict[str, Any]) -> tuple[str, str]:
@@ -1626,8 +1731,13 @@ def run_track2_best_model_collage_report(arguments: argparse.Namespace) -> dict[
         for curve_record in curve_record_list
     }
 
-    for group in group_list:
-        for candidate_id in group.candidate_id_list:
+    for group in tqdm(group_list, desc="Build collage groups", unit="group"):
+        for candidate_id in tqdm(
+            group.candidate_id_list,
+            desc=f"Collage {group.group_id}",
+            unit="candidate",
+            leave=False,
+        ):
             candidate = candidate_lookup[candidate_id]
             canonical_candidate_id = format_canonical_candidate_id(candidate_id)
             canonical_candidate_family = format_canonical_candidate_family(candidate.candidate_family)
@@ -1719,7 +1829,9 @@ def run_track2_best_model_collage_report(arguments: argparse.Namespace) -> dict[
         "report_path": shared_training_infrastructure.format_project_relative_path(report_path),
         "dataset": {
             "config_path": str(training_config["paths"]["dataset_config_path"]),
+            "dataset_name": str(training_config.get("dataset", {}).get("name", "configured_default")),
             "dataset_root": shared_training_infrastructure.format_project_relative_path(dataset_root),
+            "surface_scope": str(arguments.surface_scope),
             "curve_count": int(len(curve_record_list)),
             "selected_harmonic_list": selected_harmonic_list,
         },

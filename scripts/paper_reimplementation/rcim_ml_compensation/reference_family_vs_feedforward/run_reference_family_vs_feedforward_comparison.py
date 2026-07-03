@@ -13,6 +13,7 @@ from pathlib import Path
 
 # Import Third-Party Libraries
 import numpy as np
+from tqdm import tqdm
 
 # Define Project Path
 PROJECT_PATH = Path(__file__).resolve().parents[4]
@@ -37,10 +38,85 @@ DEFAULT_CONFIG_PATH = (
 )
 
 
+def normalize_surface_scope(surface_scope: str) -> str:
+
+    """Normalize one human-facing TE Curve Verification Pipeline surface scope."""
+
+    normalized_scope = str(surface_scope).strip().lower()
+    assert normalized_scope in {"all", "forward", "backward", "global"}, (
+        f"Unsupported TE Curve Verification Pipeline surface scope | {surface_scope}"
+    )
+    return normalized_scope
+
+
+def candidate_configuration_matches_surface_scope(
+    candidate_configuration: dict[str, object],
+    surface_scope: str,
+) -> bool:
+
+    """Return whether one configured candidate belongs in one report scope."""
+
+    normalized_scope = normalize_surface_scope(surface_scope)
+    if normalized_scope == "all":
+        return True
+
+    candidate_surface = str(candidate_configuration.get("candidate_surface", "")).strip()
+    if normalized_scope == "global":
+        return candidate_surface == "global"
+
+    allowed_direction_list = reference_family_vs_feedforward_support.normalize_allowed_direction_list(
+        candidate_configuration
+    )
+    return normalized_scope in allowed_direction_list
+
+
+def filter_candidate_configuration_list_by_surface_scope(
+    candidate_configuration_list: list[dict[str, object]],
+    surface_scope: str,
+) -> list[dict[str, object]]:
+
+    """Filter configured candidates for one dataset-surface report bundle."""
+
+    filtered_candidate_configuration_list = [
+        candidate_configuration
+        for candidate_configuration in candidate_configuration_list
+        if candidate_configuration_matches_surface_scope(candidate_configuration, surface_scope)
+    ]
+    assert filtered_candidate_configuration_list, (
+        "TE Curve Verification Pipeline surface scope removed every candidate | "
+        f"surface_scope={surface_scope}"
+    )
+    return filtered_candidate_configuration_list
+
+
+def filter_curve_record_list_by_surface_scope(
+    curve_record_list: list[harmonic_wise_support.HarmonicCurveRecord],
+    surface_scope: str,
+) -> list[harmonic_wise_support.HarmonicCurveRecord]:
+
+    """Filter held-out curve records for one report surface scope."""
+
+    normalized_scope = normalize_surface_scope(surface_scope)
+    if normalized_scope in {"all", "global"}:
+        return curve_record_list
+
+    filtered_curve_record_list = [
+        curve_record
+        for curve_record in curve_record_list
+        if str(curve_record.direction_label).strip().lower() == normalized_scope
+    ]
+    assert filtered_curve_record_list, (
+        "TE Curve Verification Pipeline surface scope removed every curve | "
+        f"surface_scope={surface_scope}"
+    )
+    return filtered_curve_record_list
+
+
 def run_reference_family_vs_feedforward_comparison(
     config_path: Path,
     output_suffix: str = "baseline_validation",
     dataset_name: str | None = None,
+    surface_scope: str = "all",
 ) -> tuple[Path, Path]:
 
     """Run one TE Curve Verification Pipeline comparison over the configured candidate matrix."""
@@ -64,6 +140,10 @@ def run_reference_family_vs_feedforward_comparison(
     # Resolve Configured Candidate Matrix
     candidate_configuration_list = reference_family_vs_feedforward_support.resolve_track2_candidate_configuration_list(
         training_config
+    )
+    candidate_configuration_list = filter_candidate_configuration_list_by_surface_scope(
+        candidate_configuration_list,
+        surface_scope,
     )
     baseline_summary: dict[str, object] | None = None
     baseline_candidate_id_set: set[str] = set()
@@ -105,9 +185,12 @@ def run_reference_family_vs_feedforward_comparison(
         training_config,
         selected_harmonic_list,
     )
+    curve_record_list = filter_curve_record_list_by_surface_scope(curve_record_list, surface_scope)
     print(
         "[INFO] Built TE Curve Verification Pipeline held-out curve records | "
-        f"curve_count={len(curve_record_list)}",
+        f"curve_count={len(curve_record_list)} | "
+        f"dataset={training_config.get('dataset', {}).get('name', 'configured_default')} | "
+        f"surface_scope={surface_scope}",
         flush=True,
     )
 
@@ -181,12 +264,18 @@ def run_reference_family_vs_feedforward_comparison(
                 ]
         )
 
-        for candidate_index, candidate_configuration in enumerate(candidate_configuration_list, start=1):
-            print(
+        progress_iterator = tqdm(
+            enumerate(candidate_configuration_list, start=1),
+            total=len(candidate_configuration_list),
+            desc="TE matrix candidates",
+            unit="candidate",
+        )
+        for candidate_index, candidate_configuration in progress_iterator:
+            progress_iterator.set_postfix_str(str(candidate_configuration["candidate_id"]), refresh=False)
+            tqdm.write(
                 "[INFO] Loading TE Curve Verification Pipeline candidate | "
                 f"{candidate_index}/{len(candidate_configuration_list)} | "
                 f"{candidate_configuration['candidate_id']}",
-                flush=True,
             )
             candidate = reference_family_vs_feedforward_support.load_track2_candidate(candidate_configuration)
             candidate_metadata_list.append(
@@ -206,10 +295,9 @@ def run_reference_family_vs_feedforward_comparison(
                     model_object=None,
                 )
             )
-            print(
+            tqdm.write(
                 "[INFO] Evaluating TE Curve Verification Pipeline candidate | "
                 f"{candidate_index}/{len(candidate_configuration_list)} | {candidate.candidate_id}",
-                flush=True,
             )
             candidate_entry_list, candidate_target_metric_dictionary = (
                 reference_family_vs_feedforward_support.evaluate_track2_candidate(
@@ -427,6 +515,16 @@ def parse_command_line_arguments() -> argparse.Namespace:
         help="Suffix appended to the immutable validation-check artifact.",
     )
     argument_parser.add_argument("--dataset", choices=["polished_dataset", "simplified_dataset"], default=None)
+    argument_parser.add_argument(
+        "--surface-scope",
+        choices=["all", "forward", "backward", "global"],
+        default="all",
+        help=(
+            "Limit the matrix to one human-facing report scope. "
+            "forward/backward keep direction-valid candidates for that direction; "
+            "global keeps only global candidates over both directions."
+        ),
+    )
     repository_path_support.add_platform_arguments(argument_parser)
     return argument_parser.parse_args()
 
@@ -443,6 +541,7 @@ def main() -> None:
         command_line_arguments.config_path,
         command_line_arguments.output_suffix,
         command_line_arguments.dataset,
+        command_line_arguments.surface_scope,
     )
 
 
