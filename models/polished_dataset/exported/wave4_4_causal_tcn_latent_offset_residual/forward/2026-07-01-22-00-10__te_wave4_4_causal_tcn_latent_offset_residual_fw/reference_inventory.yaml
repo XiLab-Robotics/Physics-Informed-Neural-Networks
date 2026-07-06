@@ -1,0 +1,24 @@
+schema_version: 1
+dataset_id: polished_dataset
+dataset_schema: polished_point_v1
+model_family: wave4_4_causal_tcn_latent_offset_residual
+model_type: latent_state_hysteresis_probe
+surface: forward
+run_name: te_wave4_4_causal_tcn_latent_offset_residual_fw
+run_instance_id: 2026-07-01-22-00-10__te_wave4_4_causal_tcn_latent_offset_residual_fw
+source_output_directory: output/training_runs/wave4_4_causal_tcn_latent_offset_residual/2026-07-01-22-00-10__te_wave4_4_causal_tcn_latent_offset_residual_fw
+source_best_checkpoint_path: output/training_runs/wave4_4_causal_tcn_latent_offset_residual/2026-07-01-22-00-10__te_wave4_4_causal_tcn_latent_offset_residual_fw/checkpoints/latent_state_hysteresis_probe-epoch=105-val_mae=0.00222384.ckpt
+python_model_path: models/polished_dataset/exported/wave4_4_causal_tcn_latent_offset_residual/forward/2026-07-01-22-00-10__te_wave4_4_causal_tcn_latent_offset_residual_fw/python/latent_state_hysteresis_probe-epoch=105-val_mae=0.00222384.ckpt
+onnx_model_path: models/polished_dataset/exported/wave4_4_causal_tcn_latent_offset_residual/forward/2026-07-01-22-00-10__te_wave4_4_causal_tcn_latent_offset_residual_fw/onnx/model.onnx
+onnx_export_status: exported
+onnx_export_error: ''
+source_run_snapshot_path_map:
+  training_config.snapshot.yaml: models/polished_dataset/exported/wave4_4_causal_tcn_latent_offset_residual/forward/2026-07-01-22-00-10__te_wave4_4_causal_tcn_latent_offset_residual_fw/source_run/training_config.snapshot.yaml
+  metrics_summary.snapshot.yaml: models/polished_dataset/exported/wave4_4_causal_tcn_latent_offset_residual/forward/2026-07-01-22-00-10__te_wave4_4_causal_tcn_latent_offset_residual_fw/source_run/metrics_summary.snapshot.yaml
+  run_metadata.snapshot.yaml: models/polished_dataset/exported/wave4_4_causal_tcn_latent_offset_residual/forward/2026-07-01-22-00-10__te_wave4_4_causal_tcn_latent_offset_residual_fw/source_run/run_metadata.snapshot.yaml
+  training_test_report.snapshot.md: models/polished_dataset/exported/wave4_4_causal_tcn_latent_offset_residual/forward/2026-07-01-22-00-10__te_wave4_4_causal_tcn_latent_offset_residual_fw/source_run/training_test_report.snapshot.md
+  best_checkpoint_path.snapshot.txt: models/polished_dataset/exported/wave4_4_causal_tcn_latent_offset_residual/forward/2026-07-01-22-00-10__te_wave4_4_causal_tcn_latent_offset_residual_fw/source_run/best_checkpoint_path.snapshot.txt
+metrics:
+  val_mae: 0.0022238416131585836
+  test_mae: 0.0023164909798651934
+  test_rmse: 0.0029802622739225626

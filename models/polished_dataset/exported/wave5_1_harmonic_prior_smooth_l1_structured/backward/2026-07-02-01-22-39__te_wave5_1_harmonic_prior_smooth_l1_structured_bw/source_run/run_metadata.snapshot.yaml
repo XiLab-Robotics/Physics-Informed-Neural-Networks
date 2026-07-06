@@ -1,0 +1,21 @@
+schema_version: 1
+artifact_kind: training_run
+model_family: wave5_1_harmonic_prior_smooth_l1_structured_bw
+base_model_family: wave5_1_harmonic_prior_smooth_l1_structured
+training_variant: bw
+direction_scope_label: backward_only
+use_forward_direction: false
+use_backward_direction: true
+run_name: te_wave5_1_harmonic_prior_smooth_l1_structured_bw
+run_instance_id: 2026-07-02-01-22-39__te_wave5_1_harmonic_prior_smooth_l1_structured_bw
+output_directory: output\training_runs\wave5_1_harmonic_prior_smooth_l1_structured\2026-07-02-01-22-39__te_wave5_1_harmonic_prior_smooth_l1_structured_bw
+dataset_id: polished_dataset
+dataset_schema: polished_point_v1
+input_feature_names:
+- theta
+- theta_dot
+- tau_load
+- T
+target_feature_names:
+- theta_TE
+input_feature_dim: 4

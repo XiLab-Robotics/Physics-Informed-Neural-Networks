@@ -1,0 +1,24 @@
+schema_version: 1
+dataset_id: polished_dataset
+dataset_schema: polished_point_v1
+model_family: wave3_2_harmonic_residual_offset
+model_type: harmonic_residual_offset_probe
+surface: forward
+run_name: te_wave3_2_harmonic_residual_offset_fw
+run_instance_id: 2026-06-30-19-14-26__te_wave3_2_harmonic_residual_offset_fw
+source_output_directory: output/training_runs/wave3_2_harmonic_residual_offset/2026-06-30-19-14-26__te_wave3_2_harmonic_residual_offset_fw
+source_best_checkpoint_path: output/training_runs/wave3_2_harmonic_residual_offset/2026-06-30-19-14-26__te_wave3_2_harmonic_residual_offset_fw/checkpoints/harmonic_residual_offset_probe-epoch=066-val_mae=0.00180926.ckpt
+python_model_path: models/polished_dataset/exported/wave3_2_harmonic_residual_offset/forward/2026-06-30-19-14-26__te_wave3_2_harmonic_residual_offset_fw/python/harmonic_residual_offset_probe-epoch=066-val_mae=0.00180926.ckpt
+onnx_model_path: models/polished_dataset/exported/wave3_2_harmonic_residual_offset/forward/2026-06-30-19-14-26__te_wave3_2_harmonic_residual_offset_fw/onnx/model.onnx
+onnx_export_status: exported
+onnx_export_error: ''
+source_run_snapshot_path_map:
+  training_config.snapshot.yaml: models/polished_dataset/exported/wave3_2_harmonic_residual_offset/forward/2026-06-30-19-14-26__te_wave3_2_harmonic_residual_offset_fw/source_run/training_config.snapshot.yaml
+  metrics_summary.snapshot.yaml: models/polished_dataset/exported/wave3_2_harmonic_residual_offset/forward/2026-06-30-19-14-26__te_wave3_2_harmonic_residual_offset_fw/source_run/metrics_summary.snapshot.yaml
+  run_metadata.snapshot.yaml: models/polished_dataset/exported/wave3_2_harmonic_residual_offset/forward/2026-06-30-19-14-26__te_wave3_2_harmonic_residual_offset_fw/source_run/run_metadata.snapshot.yaml
+  training_test_report.snapshot.md: models/polished_dataset/exported/wave3_2_harmonic_residual_offset/forward/2026-06-30-19-14-26__te_wave3_2_harmonic_residual_offset_fw/source_run/training_test_report.snapshot.md
+  best_checkpoint_path.snapshot.txt: models/polished_dataset/exported/wave3_2_harmonic_residual_offset/forward/2026-06-30-19-14-26__te_wave3_2_harmonic_residual_offset_fw/source_run/best_checkpoint_path.snapshot.txt
+metrics:
+  val_mae: 0.001809256966225803
+  test_mae: 0.0019476278685033321
+  test_rmse: 0.0025067534297704697

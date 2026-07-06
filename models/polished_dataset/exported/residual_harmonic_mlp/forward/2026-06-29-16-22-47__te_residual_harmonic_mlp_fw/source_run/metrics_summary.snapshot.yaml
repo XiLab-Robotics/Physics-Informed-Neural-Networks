@@ -1,0 +1,105 @@
+schema_version: 1
+config_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\config\training\queue\polished_dataset_full_wave_retraining\running\2026-06-29-15-54-17_005_005_residual_harmonic_mlp_fw.yaml
+experiment:
+  model_family: residual_harmonic_mlp_fw
+  model_type: residual_harmonic_mlp
+  run_name: te_residual_harmonic_mlp_fw
+  output_run_name: te_residual_harmonic_mlp_fw
+  run_instance_id: 2026-06-29-16-22-47__te_residual_harmonic_mlp_fw
+  output_artifact_kind: training_run
+  base_model_family: residual_harmonic_mlp
+  training_variant: fw
+  direction_scope_label: forward_only
+  use_forward_direction: true
+  use_backward_direction: false
+artifacts:
+  output_directory: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_runs\residual_harmonic_mlp\2026-06-29-16-22-47__te_residual_harmonic_mlp_fw
+  best_checkpoint_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_runs\residual_harmonic_mlp\2026-06-29-16-22-47__te_residual_harmonic_mlp_fw\checkpoints\residual_harmonic_mlp-epoch=098-val_mae=0.00163209.ckpt
+dataset_split:
+  train_curve_count: 1356
+  validation_curve_count: 388
+  test_curve_count: 194
+  dataset_name: polished_dataset
+  dataset_schema: polished_point_v1
+  input_feature_name_list:
+  - theta
+  - theta_dot
+  - tau_load
+  - T
+  target_feature_name_list:
+  - theta_TE
+  input_feature_dim: 4
+  target_feature_dim: 1
+dataset:
+  dataset_id: polished_dataset
+  dataset_schema: polished_point_v1
+  input_feature_names:
+  - theta
+  - theta_dot
+  - tau_load
+  - T
+  target_feature_names:
+  - theta_TE
+  input_feature_dim: 4
+  target_feature_dim: 1
+model_summary:
+  backbone_name: ResidualHarmonicNetwork
+  trainable_parameter_count: 26138
+  frozen_parameter_count: 0
+  total_parameter_count: 26138
+runtime_config:
+  accelerator: auto
+  devices: auto
+  precision: '32'
+  benchmark: true
+  use_non_blocking_transfer: true
+normalization_statistics:
+  input_feature_mean:
+  - 179.99932861328125
+  - -14.94044017791748
+  - 1.68223237991333
+  - 30.617389678955078
+  input_feature_std:
+  - 103.92501831054688
+  - 690.1232299804688
+  - 1055.5772705078125
+  - 4.267263412475586
+  target_mean:
+  - -0.01666698232293129
+  target_std:
+  - 0.04654856026172638
+validation_metrics:
+  val_loss: 0.0027472982183098793
+  val_mae: 0.0016320939175784588
+  val_rmse: 0.0021017955150455236
+  val_pointwise_loss: 0.0027472982183098793
+  val_centered_curve_shape_loss: 0.003083243500441313
+  val_curve_offset_loss: 0.00036156029091216624
+  val_curve_amplitude_loss: 0.04636935889720917
+  val_sparse_harmonic_shape_loss: 0.0
+  val_structured_mae: 0.04032553359866142
+  val_structured_rmse: 0.04386124387383461
+test_metrics:
+  test_loss: 0.0039996616542339325
+  test_mae: 0.0017829639837145805
+  test_rmse: 0.002349435118958354
+  test_pointwise_loss: 0.0039996616542339325
+  test_centered_curve_shape_loss: 0.004007687326520681
+  test_curve_offset_loss: 0.0010170073946937919
+  test_curve_amplitude_loss: 0.058305948972702026
+  test_sparse_harmonic_shape_loss: 0.0
+  test_structured_mae: 0.03966174274682999
+  test_structured_rmse: 0.043652765452861786
+comparison_payload:
+  model_family: residual_harmonic_mlp_fw
+  model_type: residual_harmonic_mlp
+  run_name: te_residual_harmonic_mlp_fw
+  backbone_name: ResidualHarmonicNetwork
+  trainable_parameter_count: 26138
+  total_parameter_count: 26138
+  val_mae: 0.0016320939175784588
+  val_rmse: 0.0021017955150455236
+  test_mae: 0.0017829639837145805
+  test_rmse: 0.002349435118958354
+  deployment_notes: ''
+  interpretability_notes: ''

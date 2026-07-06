@@ -1,0 +1,24 @@
+schema_version: 1
+dataset_id: polished_dataset
+dataset_schema: polished_point_v1
+model_family: residual_harmonic_gru_sequence_dense240
+model_type: residual_harmonic_gru_sequence
+surface: backward
+run_name: te_residual_harmonic_gru_sequence_dense240_bw
+run_instance_id: 2026-06-30-08-46-29__te_residual_harmonic_gru_sequence_dense240_bw
+source_output_directory: output/training_runs/residual_harmonic_gru_sequence_dense240/2026-06-30-08-46-29__te_residual_harmonic_gru_sequence_dense240_bw
+source_best_checkpoint_path: output/training_runs/residual_harmonic_gru_sequence_dense240/2026-06-30-08-46-29__te_residual_harmonic_gru_sequence_dense240_bw/checkpoints/residual_harmonic_gru_sequence-epoch=119-val_mae=0.00198404.ckpt
+python_model_path: models/polished_dataset/exported/residual_harmonic_gru_sequence_dense240/backward/2026-06-30-08-46-29__te_residual_harmonic_gru_sequence_dense240_bw/python/residual_harmonic_gru_sequence-epoch=119-val_mae=0.00198404.ckpt
+onnx_model_path: models/polished_dataset/exported/residual_harmonic_gru_sequence_dense240/backward/2026-06-30-08-46-29__te_residual_harmonic_gru_sequence_dense240_bw/onnx/model.onnx
+onnx_export_status: exported
+onnx_export_error: ''
+source_run_snapshot_path_map:
+  training_config.snapshot.yaml: models/polished_dataset/exported/residual_harmonic_gru_sequence_dense240/backward/2026-06-30-08-46-29__te_residual_harmonic_gru_sequence_dense240_bw/source_run/training_config.snapshot.yaml
+  metrics_summary.snapshot.yaml: models/polished_dataset/exported/residual_harmonic_gru_sequence_dense240/backward/2026-06-30-08-46-29__te_residual_harmonic_gru_sequence_dense240_bw/source_run/metrics_summary.snapshot.yaml
+  run_metadata.snapshot.yaml: models/polished_dataset/exported/residual_harmonic_gru_sequence_dense240/backward/2026-06-30-08-46-29__te_residual_harmonic_gru_sequence_dense240_bw/source_run/run_metadata.snapshot.yaml
+  training_test_report.snapshot.md: models/polished_dataset/exported/residual_harmonic_gru_sequence_dense240/backward/2026-06-30-08-46-29__te_residual_harmonic_gru_sequence_dense240_bw/source_run/training_test_report.snapshot.md
+  best_checkpoint_path.snapshot.txt: models/polished_dataset/exported/residual_harmonic_gru_sequence_dense240/backward/2026-06-30-08-46-29__te_residual_harmonic_gru_sequence_dense240_bw/source_run/best_checkpoint_path.snapshot.txt
+metrics:
+  val_mae: 0.0019840369932353497
+  test_mae: 0.00210130144841969
+  test_rmse: 0.0026984389405697584

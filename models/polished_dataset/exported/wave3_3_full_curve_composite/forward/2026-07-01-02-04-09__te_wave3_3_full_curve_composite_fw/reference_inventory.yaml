@@ -1,0 +1,24 @@
+schema_version: 1
+dataset_id: polished_dataset
+dataset_schema: polished_point_v1
+model_family: wave3_3_full_curve_composite
+model_type: curve_aware_harmonic_residual_offset_probe
+surface: forward
+run_name: te_wave3_3_full_curve_composite_fw
+run_instance_id: 2026-07-01-02-04-09__te_wave3_3_full_curve_composite_fw
+source_output_directory: output/training_runs/wave3_3_full_curve_composite/2026-07-01-02-04-09__te_wave3_3_full_curve_composite_fw
+source_best_checkpoint_path: output/training_runs/wave3_3_full_curve_composite/2026-07-01-02-04-09__te_wave3_3_full_curve_composite_fw/checkpoints/curve_aware_harmonic_residual_offset_probe-epoch=057-val_mae=0.00189842.ckpt
+python_model_path: models/polished_dataset/exported/wave3_3_full_curve_composite/forward/2026-07-01-02-04-09__te_wave3_3_full_curve_composite_fw/python/curve_aware_harmonic_residual_offset_probe-epoch=057-val_mae=0.00189842.ckpt
+onnx_model_path: models/polished_dataset/exported/wave3_3_full_curve_composite/forward/2026-07-01-02-04-09__te_wave3_3_full_curve_composite_fw/onnx/model.onnx
+onnx_export_status: exported
+onnx_export_error: ''
+source_run_snapshot_path_map:
+  training_config.snapshot.yaml: models/polished_dataset/exported/wave3_3_full_curve_composite/forward/2026-07-01-02-04-09__te_wave3_3_full_curve_composite_fw/source_run/training_config.snapshot.yaml
+  metrics_summary.snapshot.yaml: models/polished_dataset/exported/wave3_3_full_curve_composite/forward/2026-07-01-02-04-09__te_wave3_3_full_curve_composite_fw/source_run/metrics_summary.snapshot.yaml
+  run_metadata.snapshot.yaml: models/polished_dataset/exported/wave3_3_full_curve_composite/forward/2026-07-01-02-04-09__te_wave3_3_full_curve_composite_fw/source_run/run_metadata.snapshot.yaml
+  training_test_report.snapshot.md: models/polished_dataset/exported/wave3_3_full_curve_composite/forward/2026-07-01-02-04-09__te_wave3_3_full_curve_composite_fw/source_run/training_test_report.snapshot.md
+  best_checkpoint_path.snapshot.txt: models/polished_dataset/exported/wave3_3_full_curve_composite/forward/2026-07-01-02-04-09__te_wave3_3_full_curve_composite_fw/source_run/best_checkpoint_path.snapshot.txt
+metrics:
+  val_mae: 0.001898420276120305
+  test_mae: 0.0020384511444717646
+  test_rmse: 0.002607360715046525

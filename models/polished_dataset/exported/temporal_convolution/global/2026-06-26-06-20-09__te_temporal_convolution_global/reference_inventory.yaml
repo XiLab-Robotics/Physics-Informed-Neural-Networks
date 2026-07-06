@@ -1,0 +1,24 @@
+schema_version: 1
+dataset_id: polished_dataset
+dataset_schema: polished_point_v1
+model_family: temporal_convolution
+model_type: temporal_convolution
+surface: global
+run_name: te_temporal_convolution_global
+run_instance_id: 2026-06-26-06-20-09__te_temporal_convolution_global
+source_output_directory: output/training_runs/temporal_convolution/2026-06-26-06-20-09__te_temporal_convolution_global
+source_best_checkpoint_path: output/training_runs/temporal_convolution/2026-06-26-06-20-09__te_temporal_convolution_global/checkpoints/temporal_convolution-epoch=080-val_mae=0.00230806.ckpt
+python_model_path: models/polished_dataset/exported/temporal_convolution/global/2026-06-26-06-20-09__te_temporal_convolution_global/python/temporal_convolution-epoch=080-val_mae=0.00230806.ckpt
+onnx_model_path: models/polished_dataset/exported/temporal_convolution/global/2026-06-26-06-20-09__te_temporal_convolution_global/onnx/model.onnx
+onnx_export_status: exported
+onnx_export_error: ''
+source_run_snapshot_path_map:
+  training_config.snapshot.yaml: models/polished_dataset/exported/temporal_convolution/global/2026-06-26-06-20-09__te_temporal_convolution_global/source_run/training_config.snapshot.yaml
+  metrics_summary.snapshot.yaml: models/polished_dataset/exported/temporal_convolution/global/2026-06-26-06-20-09__te_temporal_convolution_global/source_run/metrics_summary.snapshot.yaml
+  run_metadata.snapshot.yaml: models/polished_dataset/exported/temporal_convolution/global/2026-06-26-06-20-09__te_temporal_convolution_global/source_run/run_metadata.snapshot.yaml
+  training_test_report.snapshot.md: models/polished_dataset/exported/temporal_convolution/global/2026-06-26-06-20-09__te_temporal_convolution_global/source_run/training_test_report.snapshot.md
+  best_checkpoint_path.snapshot.txt: models/polished_dataset/exported/temporal_convolution/global/2026-06-26-06-20-09__te_temporal_convolution_global/source_run/best_checkpoint_path.snapshot.txt
+metrics:
+  val_mae: 0.002308062044903636
+  test_mae: 0.0024106428027153015
+  test_rmse: 0.0030627248343080282

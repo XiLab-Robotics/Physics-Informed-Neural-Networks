@@ -1,0 +1,107 @@
+schema_version: 1
+config_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\config\training\queue\polished_dataset_full_wave_retraining\running\2026-06-29-15-54-17_078_078_wave4_1_mae_robust_loss_bw.yaml
+experiment:
+  model_family: wave4_1_mae_robust_loss_bw
+  model_type: curve_aware_harmonic_residual_offset_probe
+  run_name: te_wave4_1_mae_robust_loss_bw
+  output_run_name: te_wave4_1_mae_robust_loss_bw
+  run_instance_id: 2026-07-01-04-16-28__te_wave4_1_mae_robust_loss_bw
+  output_artifact_kind: training_run
+  base_model_family: wave4_1_mae_robust_loss
+  training_variant: bw
+  direction_scope_label: backward_only
+  use_forward_direction: false
+  use_backward_direction: true
+artifacts:
+  output_directory: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_runs\wave4_1_mae_robust_loss\2026-07-01-04-16-28__te_wave4_1_mae_robust_loss_bw
+  best_checkpoint_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_runs\wave4_1_mae_robust_loss\2026-07-01-04-16-28__te_wave4_1_mae_robust_loss_bw\checkpoints\curve_aware_harmonic_residual_offset_probe-epoch=170-val_mae=0.00175748.ckpt
+dataset_split:
+  train_curve_count: 1356
+  validation_curve_count: 388
+  test_curve_count: 194
+  dataset_name: polished_dataset
+  dataset_schema: polished_point_v1
+  input_feature_name_list:
+  - theta
+  - theta_dot
+  - tau_load
+  - T
+  target_feature_name_list:
+  - theta_TE
+  input_feature_dim: 4
+  target_feature_dim: 1
+dataset:
+  dataset_id: polished_dataset
+  dataset_schema: polished_point_v1
+  input_feature_names:
+  - theta
+  - theta_dot
+  - tau_load
+  - T
+  target_feature_names:
+  - theta_TE
+  input_feature_dim: 4
+  target_feature_dim: 1
+model_summary:
+  backbone_name: HarmonicResidualOffsetNetwork
+  trainable_parameter_count: 85440
+  frozen_parameter_count: 0
+  total_parameter_count: 85440
+runtime_config:
+  accelerator: auto
+  devices: auto
+  precision: '32'
+  benchmark: true
+  use_non_blocking_transfer: true
+normalization_statistics:
+  input_feature_mean:
+  - 180.0000762939453
+  - -14.942256927490234
+  - 1.681342363357544
+  - 30.617416381835938
+  input_feature_std:
+  - 103.92301940917969
+  - 690.1138305664062
+  - 1055.5772705078125
+  - 4.267345428466797
+  target_mean:
+  - -0.016667330637574196
+  target_std:
+  - 0.0465485081076622
+validation_metrics:
+  val_loss: 0.03775593265891075
+  val_mae: 0.00175748229958117
+  val_rmse: 0.002173252636566758
+  val_pointwise_loss: 0.03775593265891075
+  val_centered_curve_shape_loss: 0.0046136942692101
+  val_curve_offset_loss: 0.00027548871003091335
+  val_curve_amplitude_loss: 0.03808010742068291
+  val_sparse_harmonic_shape_loss: 0.00010270679922541603
+  val_structured_mae: 0.006506819278001785
+  val_structured_rmse: 0.00692400150001049
+  val_residual_offset_mean_abs: 0.006196068599820137
+test_metrics:
+  test_loss: 0.040978409349918365
+  test_mae: 0.0019074834417551756
+  test_rmse: 0.00245523895137012
+  test_pointwise_loss: 0.040978409349918365
+  test_centered_curve_shape_loss: 0.005482512526214123
+  test_curve_offset_loss: 0.0002527506439946592
+  test_curve_amplitude_loss: 0.04413545876741409
+  test_sparse_harmonic_shape_loss: 0.00011243842891417444
+  test_structured_mae: 0.0068826437927782536
+  test_structured_rmse: 0.007462590001523495
+  test_residual_offset_mean_abs: 0.006458282936364412
+comparison_payload:
+  model_family: wave4_1_mae_robust_loss_bw
+  model_type: curve_aware_harmonic_residual_offset_probe
+  run_name: te_wave4_1_mae_robust_loss_bw
+  backbone_name: HarmonicResidualOffsetNetwork
+  trainable_parameter_count: 85440
+  total_parameter_count: 85440
+  val_mae: 0.00175748229958117
+  val_rmse: 0.002173252636566758
+  test_mae: 0.0019074834417551756
+  test_rmse: 0.00245523895137012
+  deployment_notes: ''
+  interpretability_notes: ''

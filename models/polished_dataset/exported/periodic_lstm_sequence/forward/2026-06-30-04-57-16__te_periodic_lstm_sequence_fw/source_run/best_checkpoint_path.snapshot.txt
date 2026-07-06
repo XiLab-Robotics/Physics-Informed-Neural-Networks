@@ -1,0 +1,1 @@
+C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_runs\periodic_lstm_sequence\2026-06-30-04-57-16__te_periodic_lstm_sequence_fw\checkpoints\periodic_lstm_sequence-epoch=118-val_mae=0.00151323.ckpt

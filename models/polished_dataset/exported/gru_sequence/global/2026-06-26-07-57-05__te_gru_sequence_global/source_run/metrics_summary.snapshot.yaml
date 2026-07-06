@@ -1,0 +1,104 @@
+schema_version: 1
+config_path: C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML
+  - Codex\config\training\queue\polished_dataset_early_wave_parallel_training\running\2026-06-25-16-01-22_022_022_gru_sequence_global.yaml
+experiment:
+  model_family: gru_sequence_global
+  model_type: gru_sequence
+  run_name: te_gru_sequence_global
+  output_run_name: te_gru_sequence_global
+  run_instance_id: 2026-06-26-07-57-05__te_gru_sequence_global
+  output_artifact_kind: training_run
+  base_model_family: gru_sequence
+  training_variant: global
+  direction_scope_label: bidirectional
+  use_forward_direction: true
+  use_backward_direction: true
+artifacts:
+  output_directory: C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML
+    - Codex\output\training_runs\gru_sequence\2026-06-26-07-57-05__te_gru_sequence_global
+  best_checkpoint_path: C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML
+    - Codex\output\training_runs\gru_sequence\2026-06-26-07-57-05__te_gru_sequence_global\checkpoints\gru_sequence-epoch=182-val_mae=0.00212575.ckpt
+dataset_split:
+  train_curve_count: 1356
+  validation_curve_count: 388
+  test_curve_count: 194
+  dataset_name: polished_dataset
+  dataset_schema: polished_point_v1
+  input_feature_name_list:
+  - theta
+  - theta_dot
+  - tau_load
+  - T
+  target_feature_name_list:
+  - theta_TE
+  input_feature_dim: 4
+  target_feature_dim: 1
+dataset:
+  dataset_id: polished_dataset
+  dataset_schema: polished_point_v1
+  input_feature_names:
+  - theta
+  - theta_dot
+  - tau_load
+  - T
+  target_feature_names:
+  - theta_TE
+  input_feature_dim: 4
+  target_feature_dim: 1
+model_summary:
+  backbone_name: RecurrentSequenceNetwork
+  trainable_parameter_count: 150657
+  frozen_parameter_count: 0
+  total_parameter_count: 150657
+runtime_config:
+  accelerator: auto
+  devices: auto
+  precision: '32'
+  benchmark: true
+  use_non_blocking_transfer: true
+normalization_statistics:
+  input_feature_mean:
+  - 180.0000762939453
+  - -14.942256927490234
+  - 1.681342363357544
+  - 30.617416381835938
+  input_feature_std:
+  - 103.92301940917969
+  - 690.1138305664062
+  - 1055.5772705078125
+  - 4.267345428466797
+  target_mean:
+  - -0.016667330637574196
+  target_std:
+  - 0.0465485081076622
+validation_metrics:
+  val_loss: 0.005706597585231066
+  val_mae: 0.002125753788277507
+  val_rmse: 0.0026526793371886015
+  val_pointwise_loss: 0.005706597585231066
+  val_centered_curve_shape_loss: 0.005381950177252293
+  val_curve_offset_loss: 0.0003246464184485376
+  val_curve_amplitude_loss: 0.058965615928173065
+  val_sparse_harmonic_shape_loss: 0.0
+test_metrics:
+  test_loss: 0.006481402553617954
+  test_mae: 0.0022285841405391693
+  test_rmse: 0.0028724810108542442
+  test_pointwise_loss: 0.006481402553617954
+  test_centered_curve_shape_loss: 0.0061255451291799545
+  test_curve_offset_loss: 0.00035585652221925557
+  test_curve_amplitude_loss: 0.0650593489408493
+  test_sparse_harmonic_shape_loss: 0.0
+comparison_payload:
+  model_family: gru_sequence_global
+  model_type: gru_sequence
+  run_name: te_gru_sequence_global
+  backbone_name: RecurrentSequenceNetwork
+  trainable_parameter_count: 150657
+  total_parameter_count: 150657
+  val_mae: 0.002125753788277507
+  val_rmse: 0.0026526793371886015
+  test_mae: 0.0022285841405391693
+  test_rmse: 0.0028724810108542442
+  deployment_notes: ''
+  interpretability_notes: ''

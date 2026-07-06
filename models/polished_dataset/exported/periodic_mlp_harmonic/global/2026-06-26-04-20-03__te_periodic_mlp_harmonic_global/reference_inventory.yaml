@@ -1,0 +1,24 @@
+schema_version: 1
+dataset_id: polished_dataset
+dataset_schema: polished_point_v1
+model_family: periodic_mlp_harmonic
+model_type: periodic_mlp
+surface: global
+run_name: te_periodic_mlp_harmonic_global
+run_instance_id: 2026-06-26-04-20-03__te_periodic_mlp_harmonic_global
+source_output_directory: output/training_runs/periodic_mlp_harmonic/2026-06-26-04-20-03__te_periodic_mlp_harmonic_global
+source_best_checkpoint_path: output/training_runs/periodic_mlp_harmonic/2026-06-26-04-20-03__te_periodic_mlp_harmonic_global/checkpoints/periodic_mlp-epoch=138-val_mae=0.00119613.ckpt
+python_model_path: models/polished_dataset/exported/periodic_mlp_harmonic/global/2026-06-26-04-20-03__te_periodic_mlp_harmonic_global/python/periodic_mlp-epoch=138-val_mae=0.00119613.ckpt
+onnx_model_path: models/polished_dataset/exported/periodic_mlp_harmonic/global/2026-06-26-04-20-03__te_periodic_mlp_harmonic_global/onnx/model.onnx
+onnx_export_status: exported
+onnx_export_error: ''
+source_run_snapshot_path_map:
+  training_config.snapshot.yaml: models/polished_dataset/exported/periodic_mlp_harmonic/global/2026-06-26-04-20-03__te_periodic_mlp_harmonic_global/source_run/training_config.snapshot.yaml
+  metrics_summary.snapshot.yaml: models/polished_dataset/exported/periodic_mlp_harmonic/global/2026-06-26-04-20-03__te_periodic_mlp_harmonic_global/source_run/metrics_summary.snapshot.yaml
+  run_metadata.snapshot.yaml: models/polished_dataset/exported/periodic_mlp_harmonic/global/2026-06-26-04-20-03__te_periodic_mlp_harmonic_global/source_run/run_metadata.snapshot.yaml
+  training_test_report.snapshot.md: models/polished_dataset/exported/periodic_mlp_harmonic/global/2026-06-26-04-20-03__te_periodic_mlp_harmonic_global/source_run/training_test_report.snapshot.md
+  best_checkpoint_path.snapshot.txt: models/polished_dataset/exported/periodic_mlp_harmonic/global/2026-06-26-04-20-03__te_periodic_mlp_harmonic_global/source_run/best_checkpoint_path.snapshot.txt
+metrics:
+  val_mae: 0.0011961295967921615
+  test_mae: 0.0012643231311812997
+  test_rmse: 0.0017366145038977265

@@ -1,0 +1,1 @@
+C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_runs\gru_sequence\2026-06-29-22-50-48__te_gru_sequence_global\checkpoints\gru_sequence-epoch=050-val_mae=0.00220547.ckpt

@@ -1,0 +1,24 @@
+schema_version: 1
+dataset_id: polished_dataset
+dataset_schema: polished_point_v1
+model_family: periodic_lstm_sequence
+model_type: periodic_lstm_sequence
+surface: forward
+run_name: te_periodic_lstm_sequence_fw
+run_instance_id: 2026-06-30-04-57-16__te_periodic_lstm_sequence_fw
+source_output_directory: output/training_runs/periodic_lstm_sequence/2026-06-30-04-57-16__te_periodic_lstm_sequence_fw
+source_best_checkpoint_path: output/training_runs/periodic_lstm_sequence/2026-06-30-04-57-16__te_periodic_lstm_sequence_fw/checkpoints/periodic_lstm_sequence-epoch=118-val_mae=0.00151323.ckpt
+python_model_path: models/polished_dataset/exported/periodic_lstm_sequence/forward/2026-06-30-04-57-16__te_periodic_lstm_sequence_fw/python/periodic_lstm_sequence-epoch=118-val_mae=0.00151323.ckpt
+onnx_model_path: models/polished_dataset/exported/periodic_lstm_sequence/forward/2026-06-30-04-57-16__te_periodic_lstm_sequence_fw/onnx/model.onnx
+onnx_export_status: exported
+onnx_export_error: ''
+source_run_snapshot_path_map:
+  training_config.snapshot.yaml: models/polished_dataset/exported/periodic_lstm_sequence/forward/2026-06-30-04-57-16__te_periodic_lstm_sequence_fw/source_run/training_config.snapshot.yaml
+  metrics_summary.snapshot.yaml: models/polished_dataset/exported/periodic_lstm_sequence/forward/2026-06-30-04-57-16__te_periodic_lstm_sequence_fw/source_run/metrics_summary.snapshot.yaml
+  run_metadata.snapshot.yaml: models/polished_dataset/exported/periodic_lstm_sequence/forward/2026-06-30-04-57-16__te_periodic_lstm_sequence_fw/source_run/run_metadata.snapshot.yaml
+  training_test_report.snapshot.md: models/polished_dataset/exported/periodic_lstm_sequence/forward/2026-06-30-04-57-16__te_periodic_lstm_sequence_fw/source_run/training_test_report.snapshot.md
+  best_checkpoint_path.snapshot.txt: models/polished_dataset/exported/periodic_lstm_sequence/forward/2026-06-30-04-57-16__te_periodic_lstm_sequence_fw/source_run/best_checkpoint_path.snapshot.txt
+metrics:
+  val_mae: 0.001513230032287538
+  test_mae: 0.0015549006639048457
+  test_rmse: 0.001983217429369688

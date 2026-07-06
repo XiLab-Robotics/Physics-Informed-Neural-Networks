@@ -1,0 +1,24 @@
+schema_version: 1
+dataset_id: polished_dataset
+dataset_schema: polished_point_v1
+model_family: gru_sequence
+model_type: gru_sequence
+surface: forward
+run_name: te_gru_sequence_fw
+run_instance_id: 2026-06-29-23-06-26__te_gru_sequence_fw
+source_output_directory: output/training_runs/gru_sequence/2026-06-29-23-06-26__te_gru_sequence_fw
+source_best_checkpoint_path: output/training_runs/gru_sequence/2026-06-29-23-06-26__te_gru_sequence_fw/checkpoints/gru_sequence-epoch=153-val_mae=0.00213020.ckpt
+python_model_path: models/polished_dataset/exported/gru_sequence/forward/2026-06-29-23-06-26__te_gru_sequence_fw/python/gru_sequence-epoch=153-val_mae=0.00213020.ckpt
+onnx_model_path: models/polished_dataset/exported/gru_sequence/forward/2026-06-29-23-06-26__te_gru_sequence_fw/onnx/model.onnx
+onnx_export_status: exported
+onnx_export_error: ''
+source_run_snapshot_path_map:
+  training_config.snapshot.yaml: models/polished_dataset/exported/gru_sequence/forward/2026-06-29-23-06-26__te_gru_sequence_fw/source_run/training_config.snapshot.yaml
+  metrics_summary.snapshot.yaml: models/polished_dataset/exported/gru_sequence/forward/2026-06-29-23-06-26__te_gru_sequence_fw/source_run/metrics_summary.snapshot.yaml
+  run_metadata.snapshot.yaml: models/polished_dataset/exported/gru_sequence/forward/2026-06-29-23-06-26__te_gru_sequence_fw/source_run/run_metadata.snapshot.yaml
+  training_test_report.snapshot.md: models/polished_dataset/exported/gru_sequence/forward/2026-06-29-23-06-26__te_gru_sequence_fw/source_run/training_test_report.snapshot.md
+  best_checkpoint_path.snapshot.txt: models/polished_dataset/exported/gru_sequence/forward/2026-06-29-23-06-26__te_gru_sequence_fw/source_run/best_checkpoint_path.snapshot.txt
+metrics:
+  val_mae: 0.0021301957312971354
+  test_mae: 0.0022472133859992027
+  test_rmse: 0.0028824969194829464
