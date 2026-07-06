@@ -64,6 +64,16 @@ This folder contains the internal project documents derived from the reference P
 - [scripts/tooling/README.md](./scripts/tooling/README.md)
   Index of repository-owned tooling notes grouped by domain.
 
+- [technical/2026-07/2026-07-06/2026-07-06-14-28-29_dataset_separated_model_artifact_roots.md](./technical/2026-07/2026-07-06/2026-07-06-14-28-29_dataset_separated_model_artifact_roots.md)
+  Technical plan for separating curated model artifacts into explicit
+  `models/polished_dataset/` and `models/simplified_dataset/` roots while
+  preserving existing compatibility paths.
+
+- [technical/2026-07/2026-07-06/2026-07-06-14-47-17_hard_dataset_model_archive_migration.md](./technical/2026-07/2026-07-06/2026-07-06-14-47-17_hard_dataset_model_archive_migration.md)
+  Corrected technical plan for the strict dataset-first model archive
+  migration, removing duplicate top-level model roots and generating missing
+  polished model-development exports from completed campaign checkpoints.
+
 - [scripts/tooling/lan_ai/lan_ai_node_server.md](./scripts/tooling/lan_ai/lan_ai_node_server.md)
   Setup and runtime guide for the remote LAN AI workstation.
 

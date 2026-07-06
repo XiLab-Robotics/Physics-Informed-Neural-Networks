@@ -1,53 +1,36 @@
 # Model Artifact Folder
 
-This folder is reserved for trained and exported model artifacts.
+This folder stores model artifacts under explicit dataset roots. Top-level
+artifact buckets such as `paper_reference/`, `exported/`, and `checkpoints/`
+are intentionally not used here, so polished and simplified artifacts cannot be
+mixed by path.
 
-Suggested subfolders:
+## Dataset Roots
 
-- `checkpoints/` for copied or curated training checkpoints
-- `exported/` for ONNX, Structured Text, or other deployment-ready exports
-- `exported/<family>/<scope>/` for curated Wave 1 HPO winner archives with `python/`, `onnx/`, local inventories, and source-run provenance bundles
-- `paper_reference/` for curated paper-baseline model archives with provenance
-  and reconstruction notes
+- `polished_dataset/`
+  Contains artifacts trained or exported against `data/polished_dataset` with
+  schema `polished_point_v1`.
+- `simplified_dataset/`
+  Contains the historical simplified or pre-polished artifacts copied into an
+  explicit dataset-local root.
 
-Project-authored Python source code no longer lives here. Source files are stored under:
+## Current Layout
 
-- `scripts/models/`
-- `scripts/training/`
+- `polished_dataset/paper_reference/rcim_track1/`
+  Polished RCIM Model-Bank Reproduction paper-reference archive. It contains
+  the compatible forward and backward RCIM banks retrained or validated against
+  the polished dataset.
+- `polished_dataset/exported/`
+  Polished model-development exports from the completed 36-run early-wave and
+  108-run full-wave campaigns. The inventory records 144 run archives:
+  48 `global`, 48 `forward`, and 48 `backward`, each with a Python artifact and
+  ONNX export.
+- `simplified_dataset/paper_reference/`
+  Historical simplified paper-reference archives using the existing naming
+  roots such as `rcim_original`, `rcim_retuned`, and `rcim_track1`.
+- `simplified_dataset/exported/`
+  Historical simplified model-development exports that were already present in
+  the repository artifact root before this dataset split.
 
-Current curated RCIM Model-Bank Reproduction paper-reference archives include:
-
-These archives are the accepted output of the faithful RCIM Model-Bank Reproduction
-exact-model-bank reimplementation under
-`scripts/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/`.
-They replace older archives when a forward or backward paper-faithful campaign
-is closed out, and they are the model artifact backing for
-`doc/reports/analysis/RCIM Paper Reference Benchmark.md`.
-
-The current RCIM Model-Bank Reproduction full-dataset surface is closed: both directions have
-completed, accepted archives have been refreshed, and Tables `2`-`5` are
-populated. Later restricted-dataset reruns must use separate archive/report
-surfaces.
-
-- `forward/svm_reference_models/`
-- `forward/mlp_reference_models/`
-- `forward/rf_reference_models/`
-- `forward/dt_reference_models/`
-- `forward/et_reference_models/`
-- `forward/ert_reference_models/`
-- `forward/gbm_reference_models/`
-- `forward/hgbm_reference_models/`
-- `forward/xgbm_reference_models/`
-- `forward/lgbm_reference_models/`
-- `forward/elm_reference_models/`
-- `backward/svm_reference_models/`
-- `backward/mlp_reference_models/`
-- `backward/rf_reference_models/`
-- `backward/dt_reference_models/`
-- `backward/et_reference_models/`
-- `backward/ert_reference_models/`
-- `backward/gbm_reference_models/`
-- `backward/hgbm_reference_models/`
-- `backward/xgbm_reference_models/`
-- `backward/lgbm_reference_models/`
-- `backward/elm_reference_models/`
+Project-authored Python source code lives under `scripts/`, not under
+`models/`.

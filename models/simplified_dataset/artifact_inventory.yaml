@@ -1,0 +1,32 @@
+schema_version: 1
+dataset_id: simplified_dataset
+dataset_schema: historical_or_simplified_artifact_surface
+created_for: hard_dataset_model_archive_migration
+artifact_roots:
+  paper_reference:
+    destination: models/simplified_dataset/paper_reference
+    source_scope: previous top-level models/paper_reference archive
+    visible_roots:
+    - rcim_original
+    - rcim_retuned
+    - rcim_track1
+    onnx_file_count: 1033
+    python_pickle_file_count: 1078
+  model_development_exported:
+    destination: models/simplified_dataset/exported
+    source_scope: previous top-level models/exported archive
+    visible_roots:
+    - feedforward
+    - harmonic_regression
+    - periodic_mlp
+    - residual_harmonic_mlp
+    - tree
+    onnx_file_count: 15
+    python_pickle_file_count: 3
+    python_checkpoint_file_count: 12
+    note: No completed simplified 48/48/48 campaign export source was found in
+      the current repository state during this migration.
+summary:
+  onnx_file_count: 1048
+  python_pickle_file_count: 1081
+  python_checkpoint_file_count: 12
