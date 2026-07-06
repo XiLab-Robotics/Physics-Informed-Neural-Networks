@@ -1,0 +1,183 @@
+schema_version: 1
+generated_at: '2026-06-23T18:47:29.158205'
+scope_descriptor:
+  workflow_variant: original_dataset_exact_model_bank
+  direction_label: forward
+  target_scope_mode: all
+  include_phase_zero: false
+  selected_harmonic_list:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  feature_name_list:
+  - rpm
+  - deg
+  - tor
+  target_name_list:
+  - fft_y_Fw_filtered_ampl_0
+  - fft_y_Fw_filtered_ampl_1
+  - fft_y_Fw_filtered_phase_1
+  - fft_y_Fw_filtered_ampl_3
+  - fft_y_Fw_filtered_phase_3
+  - fft_y_Fw_filtered_ampl_39
+  - fft_y_Fw_filtered_phase_39
+  - fft_y_Fw_filtered_ampl_40
+  - fft_y_Fw_filtered_phase_40
+  - fft_y_Fw_filtered_ampl_78
+  - fft_y_Fw_filtered_phase_78
+  - fft_y_Fw_filtered_ampl_81
+  - fft_y_Fw_filtered_phase_81
+  - fft_y_Fw_filtered_ampl_156
+  - fft_y_Fw_filtered_phase_156
+  - fft_y_Fw_filtered_ampl_162
+  - fft_y_Fw_filtered_phase_162
+  - fft_y_Fw_filtered_ampl_240
+  - fft_y_Fw_filtered_phase_240
+  enabled_family_list:
+  - SVR
+  - MLP
+  - RF
+  - DT
+  - ET
+  - ERT
+  - GBM
+  - HGBM
+  - XGBM
+  - LGBM
+validation_summary_path: N/A
+output_directory: output\validation_checks\rcim_model_bank_reproduction\2026-06-22-23-42-04__rcim_model_bank_reproduction_polished_dataset_fw_polished_dataset_campaign_validation
+family_entries:
+- family_name: DT
+  best_params:
+    estimator__criterion: squared_error
+    estimator__max_depth: 14
+    estimator__max_leaf_nodes: 26
+    estimator__min_samples_split: 5
+  best_score: -0.11183560114435502
+  search_mode: paper_reference_grid_search
+  used_grid_search: true
+  best_parameter_source: grid_search
+  mean_component_mape_percent: 23.43362803385744
+  mean_component_mae: 0.08235674507992279
+  mean_component_rmse: 0.1940145433057783
+- family_name: ERT
+  best_params:
+    estimator__criterion: squared_error
+    estimator__max_depth: 14
+    estimator__max_leaf_nodes: null
+    estimator__min_samples_split: 4
+    estimator__n_estimators: 80
+  best_score: 0.3279055220053312
+  search_mode: paper_reference_grid_search
+  used_grid_search: true
+  best_parameter_source: grid_search
+  mean_component_mape_percent: 11.939192076068911
+  mean_component_mae: 0.06221737830309654
+  mean_component_rmse: 0.14906056661961334
+- family_name: ET
+  best_params:
+    estimator__criterion: squared_error
+    estimator__max_depth: 18
+    estimator__max_leaf_nodes: null
+    estimator__min_samples_split: 2
+  best_score: -0.023308690219353757
+  search_mode: paper_reference_grid_search
+  used_grid_search: true
+  best_parameter_source: grid_search
+  mean_component_mape_percent: 16.41726643582035
+  mean_component_mae: 0.07563540695988503
+  mean_component_rmse: 0.22460682633353737
+- family_name: GBM
+  best_params:
+    estimator__criterion: squared_error
+    estimator__learning_rate: 0.1
+    estimator__max_depth: 14
+    estimator__max_features: log2
+    estimator__min_samples_split: 6
+    estimator__n_estimators: 36
+  best_score: 0.4452857980699087
+  search_mode: paper_reference_grid_search
+  used_grid_search: true
+  best_parameter_source: grid_search
+  mean_component_mape_percent: 19.418628256130773
+  mean_component_mae: 0.08245131221731572
+  mean_component_rmse: 0.1707729791687033
+- family_name: HGBM
+  best_params:
+    estimator__learning_rate: 0.2
+    estimator__max_depth: 11
+    estimator__max_iter: 10
+    estimator__max_leaf_nodes: 27
+  best_score: 0.2574450907571674
+  search_mode: paper_reference_grid_search
+  used_grid_search: true
+  best_parameter_source: grid_search
+  mean_component_mape_percent: 22.198463032729013
+  mean_component_mae: 0.10107493849231926
+  mean_component_rmse: 0.19286354203055533
+- family_name: LGBM
+  best_params:
+    estimator__learning_rate: 0.2
+    estimator__max_depth: 16
+    estimator__num_leaves: 28
+    estimator__subsample: 0.1
+  best_score: 0.11020006033447945
+  search_mode: paper_reference_grid_search
+  used_grid_search: true
+  best_parameter_source: grid_search
+  mean_component_mape_percent: 15.732760853553236
+  mean_component_mae: 0.07892843294840238
+  mean_component_rmse: 0.1578355048331667
+- family_name: MLP
+  best_params:
+    estimator__activation: tanh
+    estimator__alpha: 0.0001
+    estimator__early_stopping: true
+    estimator__hidden_layer_sizes:
+    - 200
+    - 50
+    estimator__learning_rate: adaptive
+    estimator__max_iter: 600
+    estimator__solver: adam
+    estimator__tol: 0.0001
+  best_score: -41506.66615420468
+  search_mode: paper_reference_grid_search
+  used_grid_search: true
+  best_parameter_source: grid_search
+  mean_component_mape_percent: 3807.39072878151
+  mean_component_mae: 0.21037758192549438
+  mean_component_rmse: 0.3085314085949998
+- family_name: RF
+  best_params:
+    estimator__criterion: squared_error
+    estimator__max_depth: 18
+    estimator__max_features: log2
+    estimator__min_samples_split: 4
+    estimator__n_estimators: 90
+  best_score: 0.49839043972574437
+  search_mode: paper_reference_grid_search
+  used_grid_search: true
+  best_parameter_source: grid_search
+  mean_component_mape_percent: 21.29572877818266
+  mean_component_mae: 0.0948214404292563
+  mean_component_rmse: 0.19047452692930208
+- family_name: XGBM
+  best_params:
+    estimator__colsample_bytree: 0.8
+    estimator__learning_rate: 0.2
+    estimator__max_depth: 16
+    estimator__n_estimators: 36
+  best_score: 0.3427464872598648
+  search_mode: paper_reference_grid_search
+  used_grid_search: true
+  best_parameter_source: grid_search
+  mean_component_mape_percent: 26.54703923363236
+  mean_component_mae: 0.10260739674291128
+  mean_component_rmse: 0.1979265058564201
