@@ -342,15 +342,13 @@ TRACK2_CURVE_FIRST_RANKING_PDF_COLUMN_INDEXES = (0, 1, 2, 4, 5, 6, 7, 8, 9)
 
 TRACK2_CANDIDATE_INVENTORY_TABLE_HEADER_CELLS = (
     "Candidate",
-    "Family",
     "Source",
-    "Kind",
+    "Family",
     "Surface",
     "Valid Directions",
-    "Model Source",
 )
 
-TRACK2_CANDIDATE_INVENTORY_PDF_COLUMN_INDEXES = (0, 1, 2, 3, 4, 5)
+TRACK2_CANDIDATE_INVENTORY_PDF_COLUMN_INDEXES = (0, 1, 2, 3, 4)
 
 TRACK2_SELECTED_MODEL_VISUAL_SUMMARY_TABLE_HEADER_CELLS = (
     "Candidate",
@@ -1509,12 +1507,11 @@ REPORT_STYLESHEET = """
     .report-table-track2-metric-summary:has(th:nth-child(8)) th:nth-child(8),
     .report-table-track2-metric-summary:has(th:nth-child(8)) td:nth-child(8) { width: 12%; }
 
-    .report-table-track2-candidate-inventory th:nth-child(1), .report-table-track2-candidate-inventory td:nth-child(1) { width: 28%; }
-    .report-table-track2-candidate-inventory th:nth-child(2), .report-table-track2-candidate-inventory td:nth-child(2) { width: 15%; }
-    .report-table-track2-candidate-inventory th:nth-child(3), .report-table-track2-candidate-inventory td:nth-child(3) { width: 27%; }
-    .report-table-track2-candidate-inventory th:nth-child(4), .report-table-track2-candidate-inventory td:nth-child(4) { width: 13%; }
-    .report-table-track2-candidate-inventory th:nth-child(5), .report-table-track2-candidate-inventory td:nth-child(5) { width: 6%; }
-    .report-table-track2-candidate-inventory th:nth-child(6), .report-table-track2-candidate-inventory td:nth-child(6) { width: 11%; }
+    .report-table-track2-candidate-inventory th:nth-child(1), .report-table-track2-candidate-inventory td:nth-child(1) { width: 36%; }
+    .report-table-track2-candidate-inventory th:nth-child(2), .report-table-track2-candidate-inventory td:nth-child(2) { width: 27%; }
+    .report-table-track2-candidate-inventory th:nth-child(3), .report-table-track2-candidate-inventory td:nth-child(3) { width: 19%; }
+    .report-table-track2-candidate-inventory th:nth-child(4), .report-table-track2-candidate-inventory td:nth-child(4) { width: 6%; }
+    .report-table-track2-candidate-inventory th:nth-child(5), .report-table-track2-candidate-inventory td:nth-child(5) { width: 12%; }
 
     .report-table-track2-selected-model-visual-summary th:nth-child(1), .report-table-track2-selected-model-visual-summary td:nth-child(1) { width: 34%; }
     .report-table-track2-selected-model-visual-summary th:nth-child(2), .report-table-track2-selected-model-visual-summary td:nth-child(2) { width: 14%; }
@@ -3885,6 +3882,9 @@ def resolve_track2_metric_summary_column_widths(header_cells: Sequence[str]) -> 
 
     normalized_header_cells = tuple(header_cells)
 
+    if normalized_header_cells == ("Candidate", "Source", "Family", "Surface", "Valid Directions"):
+        return (36.0, 27.0, 19.0, 6.0, 12.0)
+
     if (
         normalized_header_cells
         == ("Candidate", "Source", "Surface", "Curve MAE [deg]", "Curve RMSE [deg]", "Mean Error")
@@ -3939,6 +3939,7 @@ def render_table_colgroup(header_cells: Sequence[str], table_class_name: str) ->
 
     if table_class_name not in {
         TRACK2_BEST_MODEL_COLLAGE_TABLE_CLASS_NAME,
+        TRACK2_CANDIDATE_INVENTORY_TABLE_CLASS_NAME,
         TRACK2_METRIC_SUMMARY_TABLE_CLASS_NAME,
     }:
         return ""

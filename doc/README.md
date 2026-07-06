@@ -90,6 +90,11 @@ This folder contains the internal project documents derived from the reference P
   visual PDF deliverables with measured-versus-predicted curve collages and
   stable Track 2 table layout rules.
 
+- [technical/2026-07/2026-07-07/2026-07-07-00-47-35_track2_dataset_matched_selected_reports.md](./technical/2026-07/2026-07-07/2026-07-07-00-47-35_track2_dataset_matched_selected_reports.md)
+  Technical plan for correcting the reduced selected-model reports so polished
+  and simplified reports use dataset-matched model candidates and shared
+  four-curve evidence sets per direction.
+
 - [scripts/tooling/lan_ai/lan_ai_node_server.md](./scripts/tooling/lan_ai/lan_ai_node_server.md)
   Setup and runtime guide for the remote LAN AI workstation.
 
@@ -525,6 +530,13 @@ This folder contains the internal project documents derived from the reference P
   Technical sum-up of the completed remote-strong `large-v3` plus `openai/gpt-oss-20b` video campaign across the 11 canonical TwinCAT/TestRig videos.
 
 ### Technical Documents
+
+#### 2026-07-07
+
+- [technical/2026-07/2026-07-07/2026-07-07-00-47-35_track2_dataset_matched_selected_reports.md](./technical/2026-07/2026-07-07/2026-07-07-00-47-35_track2_dataset_matched_selected_reports.md)
+  Technical plan for correcting the reduced selected-model reports so polished
+  and simplified reports use dataset-matched model candidates and shared
+  four-curve evidence sets per direction.
 
 #### 2026-07-06
 

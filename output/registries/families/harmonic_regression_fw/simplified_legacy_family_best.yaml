@@ -1,0 +1,45 @@
+schema_version: 1
+model_family: harmonic_regression_fw
+dataset_id: simplified_dataset
+dataset_provenance: legacy_pre_dataset_split
+selection_policy:
+  primary_metric: test_mae
+  first_tie_breaker: test_rmse
+  second_tie_breaker: val_mae
+  third_tie_breaker: trainable_parameter_count
+  direction: minimize
+updated_at: '2026-07-07T01:11:44'
+source_registry_path: output/registries/families/harmonic_regression_fw/leaderboard.yaml
+best_entry:
+  run_instance_id: 2026-05-20-10-43-22__te_harmonic_dense360_tracking_fw
+  run_name: te_harmonic_dense360_tracking_Fw
+  output_run_name: te_harmonic_dense360_tracking_Fw
+  output_artifact_kind: training_run
+  model_family: harmonic_regression_fw
+  base_model_family: harmonic_regression
+  model_type: harmonic_regression
+  training_variant: Fw
+  direction_scope_label: forward_only
+  use_forward_direction: true
+  use_backward_direction: false
+  trainable_parameter_count: 4326
+  total_parameter_count: 4326
+  val_mae: 0.0026100631803274155
+  val_rmse: 0.00305662932805717
+  test_mae: 0.0029159323312342167
+  test_rmse: 0.0032367417588829994
+  output_directory: output\training_runs\harmonic_regression_fw\2026-05-20-10-43-22__te_harmonic_dense360_tracking_fw
+  best_checkpoint_path: output\training_runs\harmonic_regression_fw\2026-05-20-10-43-22__te_harmonic_dense360_tracking_fw\checkpoints\harmonic_regression-epoch=053-val_mae=0.00261006.ckpt
+  metrics_path: output\training_runs\harmonic_regression_fw\2026-05-20-10-43-22__te_harmonic_dense360_tracking_fw/metrics_summary.yaml
+  report_path: output\training_runs\harmonic_regression_fw\2026-05-20-10-43-22__te_harmonic_dense360_tracking_fw/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-05-20T10:50:22'
+  dataset_id: simplified_dataset
+  dataset_provenance: legacy_pre_dataset_split
+  selection_note: Legacy simplified-dataset candidate snapshotted for dataset-matched
+    TE Curve Verification Pipeline selected reports.

@@ -1088,12 +1088,23 @@ def build_registry_candidate_configuration_list(
 
     family_registry_root = str(registry_group_configuration["family_registry_root"]).rstrip("/")
     source_label = str(registry_group_configuration.get("source_label", default_source_label)).strip()
+    group_dataset_scope_list = registry_group_configuration.get("dataset_scope_list")
+    group_expected_dataset_name = registry_group_configuration.get("expected_dataset_name")
+    group_allow_missing_dataset_id = bool(registry_group_configuration.get("allow_missing_dataset_id", False))
     candidate_configuration_list: list[dict[str, Any]] = []
 
     for family_configuration in registry_group_configuration["base_family_list"]:
         if isinstance(family_configuration, dict):
             candidate_id_prefix = str(family_configuration["candidate_id_prefix"]).strip()
             candidate_family = str(family_configuration.get("candidate_family", candidate_id_prefix)).strip()
+            family_dataset_scope_list = family_configuration.get("dataset_scope_list", group_dataset_scope_list)
+            family_expected_dataset_name = family_configuration.get(
+                "expected_dataset_name",
+                group_expected_dataset_name,
+            )
+            family_allow_missing_dataset_id = bool(
+                family_configuration.get("allow_missing_dataset_id", group_allow_missing_dataset_id)
+            )
             surface_family_dictionary = {
                 "global": str(family_configuration["global_family"]).strip(),
                 "Fw": str(family_configuration["fw_family"]).strip(),
@@ -1102,6 +1113,9 @@ def build_registry_candidate_configuration_list(
         else:
             candidate_id_prefix = str(family_configuration).strip()
             candidate_family = candidate_id_prefix
+            family_dataset_scope_list = group_dataset_scope_list
+            family_expected_dataset_name = group_expected_dataset_name
+            family_allow_missing_dataset_id = group_allow_missing_dataset_id
             surface_family_dictionary = {
                 "global": candidate_id_prefix,
                 "Fw": f"{candidate_id_prefix}_fw",
@@ -1127,6 +1141,17 @@ def build_registry_candidate_configuration_list(
                     "allowed_direction_list": allowed_direction_list,
                 }
             )
+            if family_dataset_scope_list is not None:
+                candidate_configuration_list[-1]["dataset_scope_list"] = [
+                    str(dataset_scope).strip()
+                    for dataset_scope in family_dataset_scope_list
+                ]
+            if family_expected_dataset_name is not None:
+                candidate_configuration_list[-1]["expected_dataset_name"] = str(
+                    family_expected_dataset_name
+                ).strip()
+            if family_allow_missing_dataset_id:
+                candidate_configuration_list[-1]["allow_missing_dataset_id"] = True
 
     return candidate_configuration_list
 
@@ -1391,6 +1416,46 @@ def resolve_track2_candidate_configuration_list(training_config: dict[str, Any])
     return candidate_configuration_list
 
 
+def validate_registry_candidate_dataset_scope(
+    candidate_configuration: dict[str, Any],
+    registry_entry: dict[str, Any],
+) -> None:
+
+    """Validate that a registry-backed candidate matches its declared dataset."""
+
+    expected_dataset_name = candidate_configuration.get("expected_dataset_name")
+    if expected_dataset_name is None:
+        return
+
+    normalized_expected_dataset_name = transmission_error_dataset.normalize_dataset_name(
+        str(expected_dataset_name)
+    )
+    allow_missing_dataset_id = bool(candidate_configuration.get("allow_missing_dataset_id", False))
+    registry_dataset_name = registry_entry.get("dataset_id")
+    if registry_dataset_name is None:
+        registry_dataset_name = registry_entry.get("dataset", {}).get("name")
+
+    if registry_dataset_name is None:
+        if allow_missing_dataset_id:
+            return
+        raise ValueError(
+            "TE Curve Verification Pipeline candidate has no registry dataset_id | "
+            f"candidate_id={candidate_configuration['candidate_id']} | "
+            f"expected_dataset={normalized_expected_dataset_name}"
+        )
+
+    normalized_registry_dataset_name = transmission_error_dataset.normalize_dataset_name(
+        str(registry_dataset_name)
+    )
+    if normalized_registry_dataset_name != normalized_expected_dataset_name:
+        raise ValueError(
+            "TE Curve Verification Pipeline candidate dataset mismatch | "
+            f"candidate_id={candidate_configuration['candidate_id']} | "
+            f"expected_dataset={normalized_expected_dataset_name} | "
+            f"registry_dataset={normalized_registry_dataset_name}"
+        )
+
+
 def load_track2_candidate(candidate_configuration: dict[str, Any]) -> Track2Candidate:
 
     """Load one configured TE Curve Verification Pipeline candidate."""
@@ -1485,6 +1550,7 @@ def load_track2_candidate(candidate_configuration: dict[str, Any]) -> Track2Cand
     if candidate_kind == "wave1_registry_model":
         family_registry_path = candidate_configuration["family_registry_path"]
         registry_entry = resolve_family_best_entry(family_registry_path)
+        validate_registry_candidate_dataset_scope(candidate_configuration, registry_entry)
         model_object, training_config = load_wave1_registry_model(registry_entry)
         return Track2Candidate(
             candidate_id=candidate_id,
@@ -2343,6 +2409,10 @@ def build_track2_directional_comparison_report_markdown(comparison_summary: dict
     comparison_scope = comparison_summary["comparison_scope"]
     candidate_metric_summary = comparison_summary["candidate_metric_summary"]
     direction_breakdown = comparison_summary["direction_breakdown"]
+    has_global_candidate = any(
+        str(candidate_entry["candidate_surface"]).strip().lower() == "global"
+        for candidate_entry in comparison_summary["candidate_list"]
+    )
     candidate_source_lookup = {
         str(candidate_entry["candidate_id"]): str(candidate_entry["candidate_source_label"])
         for candidate_entry in comparison_summary["candidate_list"]
@@ -2482,25 +2552,31 @@ def build_track2_directional_comparison_report_markdown(comparison_summary: dict
         f"- percentage-error denominator: `{comparison_scope['percentage_error_denominator']}`;",
         "- `Fw` candidates are evaluated only on forward curves;",
         "- `Bw` candidates are evaluated only on backward curves;",
-        "- `global` candidates are evaluated on both directions and reported with",
-        "  direction-separated metrics.",
+    ]
+    if has_global_candidate:
+        report_line_list.extend(
+            [
+                "- `global` candidates are evaluated on both directions and reported with",
+                "  direction-separated metrics.",
+            ]
+        )
+    report_line_list.extend(
+        [
         "",
         "## Candidate Inventory",
         "",
-        "| Candidate | Family | Source | Kind | Surface | Valid Directions | Model Source |",
-        "| --- | --- | --- | --- | --- | --- | --- |",
-    ]
+        "| Candidate | Source | Family | Surface | Valid Directions |",
+        "| --- | --- | --- | --- | --- |",
+        ]
+    )
 
     for candidate_entry in comparison_summary["candidate_list"]:
-        model_source = candidate_entry["model_file_path"] or candidate_entry["source_path"]
         report_line_list.append(
             f"| `{candidate_entry['candidate_id']}` | "
-            f"`{candidate_entry['candidate_family']}` | "
             f"`{candidate_entry['candidate_source_label']}` | "
-            f"`{candidate_entry['candidate_kind']}` | "
+            f"`{candidate_entry['candidate_family']}` | "
             f"`{candidate_entry['candidate_surface']}` | "
-            f"`{', '.join(candidate_entry['allowed_direction_list'])}` | "
-            f"`{model_source}` |"
+            f"`{', '.join(candidate_entry['allowed_direction_list'])}` |"
         )
 
     append_best_composite_reference_table(report_line_list)
@@ -2718,40 +2794,42 @@ def build_track2_directional_comparison_report_markdown(comparison_summary: dict
         "polished_rcim_model_bank_reproduction",
     )
 
-    report_line_list.extend(
-        [
-            "",
-            "## Global Model Direction Breakdown",
-            "",
-            "| Candidate | Direction | Curve MAE [deg] | Curve RMSE [deg] | Mean Percentage Error [%] | P95 Mean Percentage Error [%] |",
-            "| --- | --- | ---: | ---: | ---: | ---: |",
-        ]
+    global_candidate_id_list = sorted(
+        str(candidate_entry["candidate_id"])
+        for candidate_entry in comparison_summary["candidate_list"]
+        if str(candidate_entry["candidate_surface"]).strip().lower() == "global"
     )
-
-    for candidate_id in sorted(
-        candidate_id
-        for candidate_id in candidate_metric_summary
-        if candidate_id.endswith("_global")
-    ):
-        for direction_label in ["forward", "backward"]:
-            metric_dictionary = direction_breakdown.get(direction_label, {}).get(candidate_id)
-            if metric_dictionary is None:
-                continue
-            report_line_list.append(
-                f"| `{candidate_id}` | `{direction_label}` | "
-                f"{metric_dictionary['mae']:.6f} | "
-                f"{metric_dictionary['rmse']:.6f} | "
-                f"{metric_dictionary['mean_percentage_error_pct']:.3f} | "
-                f"{metric_dictionary['p95_mean_percentage_error_pct']:.3f} |"
-            )
-        combined_metric_dictionary = candidate_metric_summary[candidate_id]
-        report_line_list.append(
-            f"| `{candidate_id}` | `combined` | "
-            f"{combined_metric_dictionary['mae']:.6f} | "
-            f"{combined_metric_dictionary['rmse']:.6f} | "
-            f"{combined_metric_dictionary['mean_percentage_error_pct']:.3f} | "
-            f"{combined_metric_dictionary['p95_mean_percentage_error_pct']:.3f} |"
+    if global_candidate_id_list:
+        report_line_list.extend(
+            [
+                "",
+                "## Global Model Direction Breakdown",
+                "",
+                "| Candidate | Direction | Curve MAE [deg] | Curve RMSE [deg] | Mean Percentage Error [%] | P95 Mean Percentage Error [%] |",
+                "| --- | --- | ---: | ---: | ---: | ---: |",
+            ]
         )
+
+        for candidate_id in global_candidate_id_list:
+            for direction_label in ["forward", "backward"]:
+                metric_dictionary = direction_breakdown.get(direction_label, {}).get(candidate_id)
+                if metric_dictionary is None:
+                    continue
+                report_line_list.append(
+                    f"| `{candidate_id}` | `{direction_label}` | "
+                    f"{metric_dictionary['mae']:.6f} | "
+                    f"{metric_dictionary['rmse']:.6f} | "
+                    f"{metric_dictionary['mean_percentage_error_pct']:.3f} | "
+                    f"{metric_dictionary['p95_mean_percentage_error_pct']:.3f} |"
+                )
+            combined_metric_dictionary = candidate_metric_summary[candidate_id]
+            report_line_list.append(
+                f"| `{candidate_id}` | `combined` | "
+                f"{combined_metric_dictionary['mae']:.6f} | "
+                f"{combined_metric_dictionary['rmse']:.6f} | "
+                f"{combined_metric_dictionary['mean_percentage_error_pct']:.3f} | "
+                f"{combined_metric_dictionary['p95_mean_percentage_error_pct']:.3f} |"
+            )
 
     report_line_list.extend(
         [

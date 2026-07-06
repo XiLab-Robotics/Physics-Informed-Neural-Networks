@@ -24,6 +24,7 @@ if str(PROJECT_PATH) not in sys.path:
 
 # Import Project Utilities
 from scripts.tooling import repository_path_support
+from scripts.datasets import transmission_error_dataset
 from scripts.paper_reimplementation.rcim_ml_compensation.harmonic_wise_comparison import harmonic_wise_support
 from scripts.paper_reimplementation.rcim_ml_compensation.reference_family_vs_feedforward import reference_family_vs_feedforward_support
 from scripts.training import shared_training_infrastructure
@@ -68,6 +69,43 @@ def candidate_configuration_matches_surface_scope(
         candidate_configuration
     )
     return normalized_scope in allowed_direction_list
+
+
+def candidate_configuration_matches_dataset_scope(
+    candidate_configuration: dict[str, object],
+    dataset_name: str,
+) -> bool:
+
+    """Return whether one configured candidate belongs to one dataset scope."""
+
+    dataset_scope_list = candidate_configuration.get("dataset_scope_list")
+    if dataset_scope_list is None:
+        return True
+    normalized_dataset_name = transmission_error_dataset.normalize_dataset_name(str(dataset_name))
+    normalized_scope_set = {
+        transmission_error_dataset.normalize_dataset_name(str(dataset_scope))
+        for dataset_scope in dataset_scope_list
+    }
+    return normalized_dataset_name in normalized_scope_set
+
+
+def filter_candidate_configuration_list_by_dataset_scope(
+    candidate_configuration_list: list[dict[str, object]],
+    dataset_name: str,
+) -> list[dict[str, object]]:
+
+    """Filter configured candidates for one dataset-specific report bundle."""
+
+    filtered_candidate_configuration_list = [
+        candidate_configuration
+        for candidate_configuration in candidate_configuration_list
+        if candidate_configuration_matches_dataset_scope(candidate_configuration, dataset_name)
+    ]
+    assert filtered_candidate_configuration_list, (
+        "TE Curve Verification Pipeline dataset scope removed every candidate | "
+        f"dataset={dataset_name}"
+    )
+    return filtered_candidate_configuration_list
 
 
 def filter_candidate_configuration_list_by_surface_scope(
@@ -140,6 +178,11 @@ def run_reference_family_vs_feedforward_comparison(
     # Resolve Configured Candidate Matrix
     candidate_configuration_list = reference_family_vs_feedforward_support.resolve_track2_candidate_configuration_list(
         training_config
+    )
+    selected_dataset_name = str(training_config.get("dataset", {}).get("name", dataset_name)).strip()
+    candidate_configuration_list = filter_candidate_configuration_list_by_dataset_scope(
+        candidate_configuration_list,
+        selected_dataset_name,
     )
     candidate_configuration_list = filter_candidate_configuration_list_by_surface_scope(
         candidate_configuration_list,

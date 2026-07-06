@@ -1,0 +1,52 @@
+schema_version: 1
+model_family: harmonic_regression_bw
+dataset_id: polished_dataset
+selection_policy:
+  primary_metric: test_mae
+  first_tie_breaker: test_rmse
+  second_tie_breaker: val_mae
+  third_tie_breaker: trainable_parameter_count
+  direction: minimize
+updated_at: '2026-07-07T01:16:15'
+source_registry_path: output/registries/families/harmonic_regression_bw/leaderboard.yaml
+best_entry:
+  run_instance_id: 2026-06-29-20-42-56__te_harmonic_regression_bw
+  run_name: te_harmonic_regression_bw
+  output_run_name: te_harmonic_regression_bw
+  output_artifact_kind: training_run
+  model_family: harmonic_regression_bw
+  base_model_family: harmonic_regression
+  model_type: harmonic_regression
+  dataset_id: polished_dataset
+  dataset_schema: polished_point_v1
+  input_feature_names:
+  - theta
+  - theta_dot
+  - tau_load
+  - T
+  target_feature_names:
+  - theta_TE
+  input_feature_dim: 4
+  training_variant: bw
+  direction_scope_label: backward_only
+  use_forward_direction: false
+  use_backward_direction: true
+  trainable_parameter_count: 125
+  total_parameter_count: 125
+  val_mae: 0.0038921693339943886
+  val_rmse: 0.004476361442357302
+  test_mae: 0.0038078008219599724
+  test_rmse: 0.004519344307482243
+  output_directory: output\training_runs\harmonic_regression\2026-06-29-20-42-56__te_harmonic_regression_bw
+  best_checkpoint_path: output\training_runs\harmonic_regression\2026-06-29-20-42-56__te_harmonic_regression_bw\checkpoints\harmonic_regression-epoch=029-val_mae=0.00389217.ckpt
+  metrics_path: output\training_runs\harmonic_regression\2026-06-29-20-42-56__te_harmonic_regression_bw/metrics_summary.yaml
+  report_path: output\training_runs\harmonic_regression\2026-06-29-20-42-56__te_harmonic_regression_bw/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-06-29T20:54:24'
+  selection_note: Dataset-specific polished candidate snapshotted for dataset-matched
+    TE Curve Verification Pipeline selected reports.

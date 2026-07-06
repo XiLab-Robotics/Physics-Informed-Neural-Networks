@@ -1,0 +1,56 @@
+[INFO] Building TE Curve Verification Pipeline held-out curve records
+[INFO] Built TE Curve Verification Pipeline held-out curve records | curve_count=100 | dataset=polished_dataset | surface_scope=forward
+
+TE matrix candidates:   0%|                        | 0/9 [00:00<?, ?candidate/s]
+                                                                                
+
+TE matrix candidates:   0%|                        | 0/9 [00:00<?, ?candidate/s]
+                                                                                
+
+TE matrix candidates:   0%|                        | 0/9 [00:00<?, ?candidate/s]
+                                                                                
+
+TE matrix candidates:   0%|                        | 0/9 [00:01<?, ?candidate/s]
+                                                                                
+
+TE matrix candidates:   0%|                        | 0/9 [00:01<?, ?candidate/s]
+                                                                                
+
+TE matrix candidates:   0%|                        | 0/9 [00:02<?, ?candidate/s]
+                                                                                
+
+TE matrix candidates:   0%|                        | 0/9 [00:04<?, ?candidate/s]
+                                                                                
+
+TE matrix candidates:   0%|                        | 0/9 [00:05<?, ?candidate/s]
+                                                                                
+
+TE matrix candidates:   0%|                        | 0/9 [00:05<?, ?candidate/s]
+TE matrix candidates:  44%|#######1        | 4/9 [00:15<00:19,  4.00s/candidate]
+                                                                                
+
+TE matrix candidates:  44%|#######1        | 4/9 [00:15<00:19,  4.00s/candidate]
+TE matrix candidates:  44%|#######1        | 4/9 [00:15<00:19,  4.00s/candidate]
+[INFO] Loading TE Curve Verification Pipeline candidate | 1/9 | polished_rcim_model_bank_reproduction_GBM19_Fw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 1/9 | polished_rcim_model_bank_reproduction_GBM19_Fw
+[INFO] Loading TE Curve Verification Pipeline candidate | 2/9 | polished_rcim_model_bank_reproduction_ET19_Fw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 2/9 | polished_rcim_model_bank_reproduction_ET19_Fw
+[INFO] Loading TE Curve Verification Pipeline candidate | 3/9 | polished_feedforward_Fw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 3/9 | polished_feedforward_Fw
+[INFO] Loading TE Curve Verification Pipeline candidate | 4/9 | polished_tree_Fw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 4/9 | polished_tree_Fw
+[INFO] Loading TE Curve Verification Pipeline candidate | 5/9 | polished_harmonic_regression_Fw
+Traceback (most recent call last):
+  File "C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\scripts\paper_reimplementation\rcim_ml_compensation\reference_family_vs_feedforward\run_reference_family_vs_feedforward_comparison.py", line 603, in <module>
+    main()
+  File "C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\scripts\paper_reimplementation\rcim_ml_compensation\reference_family_vs_feedforward\run_reference_family_vs_feedforward_comparison.py", line 593, in main
+    run_reference_family_vs_feedforward_comparison(
+  File "C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\scripts\paper_reimplementation\rcim_ml_compensation\reference_family_vs_feedforward\run_reference_family_vs_feedforward_comparison.py", line 325, in run_reference_family_vs_feedforward_comparison
+    candidate = reference_family_vs_feedforward_support.load_track2_candidate(candidate_configuration)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\scripts\paper_reimplementation\rcim_ml_compensation\reference_family_vs_feedforward\reference_family_vs_feedforward_support.py", line 1553, in load_track2_candidate
+    validate_registry_candidate_dataset_scope(candidate_configuration, registry_entry)
+  File "C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\scripts\paper_reimplementation\rcim_ml_compensation\reference_family_vs_feedforward\reference_family_vs_feedforward_support.py", line 1441, in validate_registry_candidate_dataset_scope
+    raise ValueError(
+ValueError: TE Curve Verification Pipeline candidate has no registry dataset_id | candidate_id=polished_harmonic_regression_Fw | expected_dataset=polished_dataset
+ERROR conda.cli.main_run:execute(125): `conda run python -B scripts\paper_reimplementation\rcim_ml_compensation\reference_family_vs_feedforward\run_reference_family_vs_feedforward_comparison.py --config-path config\paper_reimplementation\rcim_ml_compensation\reference_family_vs_feedforward\reduced_selected_track2_matrix.yaml --output-suffix track2_selected_polished_dataset_forward_2026_07_06 --dataset polished_dataset --surface-scope forward --windows` failed. (See above for error)

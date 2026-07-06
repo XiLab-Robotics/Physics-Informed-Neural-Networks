@@ -1,0 +1,45 @@
+schema_version: 1
+model_family: tree_bw
+dataset_id: simplified_dataset
+dataset_provenance: legacy_pre_dataset_split
+selection_policy:
+  primary_metric: test_mae
+  first_tie_breaker: test_rmse
+  second_tie_breaker: val_mae
+  third_tie_breaker: trainable_parameter_count
+  direction: minimize
+updated_at: '2026-07-07T01:11:44'
+source_registry_path: output/registries/families/tree_bw/leaderboard.yaml
+best_entry:
+  run_instance_id: 2026-05-11-21-03-08__te_hist_gbr_tabular_bw_grid_depth6_lr008_leaf10
+  run_name: te_hist_gbr_tabular_Bw_grid_depth6_lr008_leaf10
+  output_run_name: te_hist_gbr_tabular_Bw_grid_depth6_lr008_leaf10
+  output_artifact_kind: training_run
+  model_family: tree_bw
+  base_model_family: tree
+  model_type: hist_gradient_boosting
+  training_variant: Bw
+  direction_scope_label: backward_only
+  use_forward_direction: false
+  use_backward_direction: true
+  trainable_parameter_count: 5
+  total_parameter_count: 5
+  val_mae: 0.0026811661244685956
+  val_rmse: 0.003802355920180498
+  test_mae: 0.002954170973484059
+  test_rmse: 0.003748920194617222
+  output_directory: output/training_runs/tree_bw/2026-05-11-21-03-08__te_hist_gbr_tabular_bw_grid_depth6_lr008_leaf10
+  best_checkpoint_path: output/training_runs/tree_bw/2026-05-11-21-03-08__te_hist_gbr_tabular_bw_grid_depth6_lr008_leaf10/tree_model.pkl
+  metrics_path: output/training_runs/tree_bw/2026-05-11-21-03-08__te_hist_gbr_tabular_bw_grid_depth6_lr008_leaf10/metrics_summary.yaml
+  report_path: output/training_runs/tree_bw/2026-05-11-21-03-08__te_hist_gbr_tabular_bw_grid_depth6_lr008_leaf10/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-05-11T21:04:08'
+  dataset_id: simplified_dataset
+  dataset_provenance: legacy_pre_dataset_split
+  selection_note: Legacy simplified-dataset candidate snapshotted for dataset-matched
+    TE Curve Verification Pipeline selected reports.

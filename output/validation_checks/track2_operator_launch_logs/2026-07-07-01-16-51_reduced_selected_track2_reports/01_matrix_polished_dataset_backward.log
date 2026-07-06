@@ -1,0 +1,83 @@
+[INFO] Building TE Curve Verification Pipeline held-out curve records
+[INFO] Built TE Curve Verification Pipeline held-out curve records | curve_count=94 | dataset=polished_dataset | surface_scope=backward
+
+TE matrix candidates:   0%|                        | 0/9 [00:00<?, ?candidate/s]
+                                                                                
+
+TE matrix candidates:   0%|                        | 0/9 [00:00<?, ?candidate/s]
+                                                                                
+
+TE matrix candidates:   0%|                        | 0/9 [00:00<?, ?candidate/s]
+                                                                                
+
+TE matrix candidates:   0%|                        | 0/9 [00:01<?, ?candidate/s]
+                                                                                
+
+TE matrix candidates:   0%|                        | 0/9 [00:01<?, ?candidate/s]
+                                                                                
+
+TE matrix candidates:   0%|                        | 0/9 [00:01<?, ?candidate/s]
+                                                                                
+
+TE matrix candidates:   0%|                        | 0/9 [00:03<?, ?candidate/s]
+                                                                                
+
+TE matrix candidates:   0%|                        | 0/9 [00:04<?, ?candidate/s]
+                                                                                
+
+TE matrix candidates:   0%|                        | 0/9 [00:04<?, ?candidate/s]
+TE matrix candidates:  44%|#######1        | 4/9 [00:15<00:19,  3.82s/candidate]
+                                                                                
+
+TE matrix candidates:  44%|#######1        | 4/9 [00:15<00:19,  3.82s/candidate]
+                                                                                
+
+TE matrix candidates:  44%|#######1        | 4/9 [00:15<00:19,  3.82s/candidate]
+                                                                                
+
+TE matrix candidates:  44%|#######1        | 4/9 [00:16<00:19,  3.82s/candidate]
+                                                                                
+
+TE matrix candidates:  44%|#######1        | 4/9 [00:16<00:19,  3.82s/candidate]
+TE matrix candidates:  44%|#######1        | 4/9 [00:30<00:19,  3.82s/candidate]
+TE matrix candidates:  67%|##########6     | 6/9 [00:54<00:31, 10.44s/candidate]
+                                                                                
+
+TE matrix candidates:  67%|##########6     | 6/9 [00:54<00:31, 10.44s/candidate]
+                                                                                
+
+TE matrix candidates:  67%|##########6     | 6/9 [00:54<00:31, 10.44s/candidate]
+                                                                                
+
+TE matrix candidates:  67%|##########6     | 6/9 [00:55<00:31, 10.44s/candidate]
+                                                                                
+
+TE matrix candidates:  67%|##########6     | 6/9 [00:55<00:31, 10.44s/candidate]
+TE matrix candidates:  89%|##############2 | 8/9 [01:32<00:13, 13.54s/candidate]
+                                                                                
+
+TE matrix candidates:  89%|##############2 | 8/9 [01:32<00:13, 13.54s/candidate]
+                                                                                
+
+TE matrix candidates:  89%|##############2 | 8/9 [01:32<00:13, 13.54s/candidate]
+TE matrix candidates: 100%|################| 9/9 [01:33<00:00, 10.34s/candidate]
+[INFO] Loading TE Curve Verification Pipeline candidate | 1/9 | polished_rcim_model_bank_reproduction_GBM19_Bw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 1/9 | polished_rcim_model_bank_reproduction_GBM19_Bw
+[INFO] Loading TE Curve Verification Pipeline candidate | 2/9 | polished_rcim_model_bank_reproduction_ET19_Bw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 2/9 | polished_rcim_model_bank_reproduction_ET19_Bw
+[INFO] Loading TE Curve Verification Pipeline candidate | 3/9 | polished_feedforward_Bw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 3/9 | polished_feedforward_Bw
+[INFO] Loading TE Curve Verification Pipeline candidate | 4/9 | polished_tree_Bw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 4/9 | polished_tree_Bw
+[INFO] Loading TE Curve Verification Pipeline candidate | 5/9 | polished_harmonic_regression_Bw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 5/9 | polished_harmonic_regression_Bw
+[INFO] Loading TE Curve Verification Pipeline candidate | 6/9 | polished_periodic_gru_sequence_Bw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 6/9 | polished_periodic_gru_sequence_Bw
+[INFO] Loading TE Curve Verification Pipeline candidate | 7/9 | polished_periodic_mlp_harmonic_Bw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 7/9 | polished_periodic_mlp_harmonic_Bw
+[INFO] Loading TE Curve Verification Pipeline candidate | 8/9 | polished_wave4_3_mixture_density_k3_Bw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 8/9 | polished_wave4_3_mixture_density_k3_Bw
+[INFO] Loading TE Curve Verification Pipeline candidate | 9/9 | wave52b_offset_centered_shape_harmonic_Bw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 9/9 | wave52b_offset_centered_shape_harmonic_Bw
+[DONE] Reference family comparison summary written | output\validation_checks\track2_reference_comparison\2026-07-07-01-18-57__track2_reduced_selected_model_matrix_track2_selected_polished_dataset_backward_2026_07_06\validation_summary.yaml
+[DONE] Reference family comparison report written | doc\reports\analysis\validation_checks\te_curve_verification_pipeline\2026-07-07-01-20-38_track2_reduced_selected_model_matrix_track2_selected_polished_dataset_backward_2026_07_06_report.md

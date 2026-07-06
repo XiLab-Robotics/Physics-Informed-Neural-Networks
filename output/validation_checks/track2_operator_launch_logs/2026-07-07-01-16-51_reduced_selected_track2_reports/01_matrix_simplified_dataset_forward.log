@@ -1,0 +1,42 @@
+[INFO] Building TE Curve Verification Pipeline held-out curve records
+[INFO] Built TE Curve Verification Pipeline held-out curve records | curve_count=97 | dataset=simplified_dataset | surface_scope=forward
+
+TE matrix candidates:   0%|                        | 0/4 [00:00<?, ?candidate/s]
+                                                                                
+
+TE matrix candidates:   0%|                        | 0/4 [00:00<?, ?candidate/s]
+                                                                                
+
+TE matrix candidates:   0%|                        | 0/4 [00:00<?, ?candidate/s]
+                                                                                
+
+TE matrix candidates:   0%|                        | 0/4 [00:02<?, ?candidate/s]
+                                                                                
+
+TE matrix candidates:   0%|                        | 0/4 [00:02<?, ?candidate/s]
+TE matrix candidates:  50%|########        | 2/4 [00:14<00:14,  7.10s/candidate]
+                                                                                
+
+TE matrix candidates:  50%|########        | 2/4 [00:14<00:14,  7.10s/candidate]
+                                                                                
+
+TE matrix candidates:  50%|########        | 2/4 [00:14<00:14,  7.10s/candidate]
+                                                                                
+
+TE matrix candidates:  50%|########        | 2/4 [00:20<00:14,  7.10s/candidate]
+                                                                                
+
+TE matrix candidates:  50%|########        | 2/4 [00:20<00:14,  7.10s/candidate]
+TE matrix candidates:  50%|########        | 2/4 [00:30<00:14,  7.10s/candidate]
+TE matrix candidates: 100%|################| 4/4 [01:09<00:00, 19.10s/candidate]
+TE matrix candidates: 100%|################| 4/4 [01:09<00:00, 17.30s/candidate]
+[INFO] Loading TE Curve Verification Pipeline candidate | 1/4 | simplified_feedforward_Fw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 1/4 | simplified_feedforward_Fw
+[INFO] Loading TE Curve Verification Pipeline candidate | 2/4 | simplified_tree_Fw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 2/4 | simplified_tree_Fw
+[INFO] Loading TE Curve Verification Pipeline candidate | 3/4 | simplified_harmonic_regression_Fw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 3/4 | simplified_harmonic_regression_Fw
+[INFO] Loading TE Curve Verification Pipeline candidate | 4/4 | simplified_periodic_gru_sequence_Fw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 4/4 | simplified_periodic_gru_sequence_Fw
+[DONE] Reference family comparison summary written | output\validation_checks\track2_reference_comparison\2026-07-07-01-20-50__track2_reduced_selected_model_matrix_track2_selected_simplified_dataset_forward_2026_07_06\validation_summary.yaml
+[DONE] Reference family comparison report written | doc\reports\analysis\validation_checks\te_curve_verification_pipeline\2026-07-07-01-22-03_track2_reduced_selected_model_matrix_track2_selected_simplified_dataset_forward_2026_07_06_report.md
