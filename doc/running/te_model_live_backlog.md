@@ -47,12 +47,19 @@ Historical rationale and approval history remain in:
   `global`; scalar and curve-first surfaces are not a single ranking.
 - Current Best Implemented Run Registry:
   `output/registries/program/current_best_solution.yaml`.
+- Current Pruning Gate: near-term model-family selection now excludes
+  `global`. `global` remains preserved as a historical and future surface, but
+  it is paused until it is the final remaining modeling item in the backlog.
+  Current active reduced families are `periodic_gru_sequence`,
+  `periodic_mlp_harmonic`, `wave4_3_mixture_density_k3`, and
+  `wave52b_offset_centered_shape_harmonic`, plus selected baseline anchors.
 
 Current canonical status reports:
 
 - `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
 - `doc/reports/analysis/TE Program Status And Closeout Ledger.md`
 - `doc/reports/analysis/te_curve_verification_pipeline/01_official_decisions/official_model_verification_report/[2026-07-03]/track2_official_model_verification_report.md`
+- `doc/reports/analysis/model_development_waves/model_family_pruning/[2026-07-06]/te_model_family_pruning_decision_report.md`
 - `doc/reports/analysis/te_curve_verification_pipeline/00_overview/multi_index_curve_first_selection_policy/[2026-06-16]/track2_multi_index_curve_first_selection_policy.md`
 - `doc/reports/analysis/te_curve_verification_pipeline/02_visual_reports/best_model_collage_report/[2026-07-03]/track2_best_model_collage_report.md`
 - `doc/reports/analysis/te_curve_verification_pipeline/02_visual_reports/multi_model_curve_comparison_report/[2026-07-03]/track2_multi_model_curve_comparison_report.md`
@@ -106,6 +113,15 @@ These tracks are not a single competition. A strong `Fw` model does not
 replace the `Bw` or `global` branch, and a strong `Bw` model does not replace
 the `Fw` or `global` branch. Future planning, training, reranking, closeout,
 and registry-promotion language must keep all three surfaces visible.
+
+Near-term pruning exception:
+
+- `global` is paused for current model-family selection and reduced-pipeline
+  planning.
+- `global` artifacts and prior reports remain preserved.
+- Reopen `global` only when it is the last remaining modeling item in the
+  backlog.
+- Current decisions are forward-led and backward-checked.
 
 ## Curve-First Selection Rule
 

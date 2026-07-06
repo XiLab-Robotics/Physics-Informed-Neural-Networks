@@ -32,12 +32,18 @@ closeout that changes any of these surfaces:
 | Latest normal campaign closeout | `polished_dataset` full-wave retraining campaign |
 | Latest official TE Curve Verification refresh | polished-dataset RCIM, early-wave, and full-wave refresh, dated `2026-07-03` |
 | Latest curve-verification decision | accepted; polished `periodic_gru_sequence` becomes the model-development baseline |
+| Latest pruning decision | `2026-07-06` forward-led model-family pruning; `global` paused until final backlog stage |
 | Current TE Curve Verification Pipeline selection policy | multi-index curve-first selection, dated `2026-06-16` |
-| Next modeling decision | decide whether to package the polished `periodic_gru_sequence` family for deployment-facing export or proceed to `Wave 5.2` / `Wave 6` integration planning |
+| Next modeling decision | use the reduced active set: `periodic_gru_sequence`, `periodic_mlp_harmonic`, `wave4_3_mixture_density_k3`, `wave52b_offset_centered_shape_harmonic`, and selected baseline anchors |
 
 The repository remains direction-parallel. `Fw`, `Bw`, and `global` are not a
 single destructive competition. Each surface keeps its own best candidate and
 its own interpretation.
+
+Near-term pruning temporarily pauses `global` model selection. This does not
+delete the `global` branch or change its historical status. It only excludes
+`global` from current model-family pruning and reduced-pipeline planning until
+it is the final remaining modeling item in the backlog.
 
 ## Canonical Program Taxonomy
 

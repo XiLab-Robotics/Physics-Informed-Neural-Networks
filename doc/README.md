@@ -74,6 +74,11 @@ This folder contains the internal project documents derived from the reference P
   migration, removing duplicate top-level model roots and generating missing
   polished model-development exports from completed campaign checkpoints.
 
+- [technical/2026-07/2026-07-06/2026-07-06-18-38-10_model_family_pruning_decision_report.md](./technical/2026-07/2026-07-06/2026-07-06-18-38-10_model_family_pruning_decision_report.md)
+  Technical plan for a forward-led, backward-checked TE model-family pruning
+  decision report that pauses `global` model selection and records keep,
+  pause, baseline-only, or retire decisions for active model families.
+
 - [scripts/tooling/lan_ai/lan_ai_node_server.md](./scripts/tooling/lan_ai/lan_ai_node_server.md)
   Setup and runtime guide for the remote LAN AI workstation.
 
@@ -194,6 +199,12 @@ This folder contains the internal project documents derived from the reference P
   `polished_periodic_gru_sequence` as the model-development baseline while
   retaining `polished_rcim_model_bank_reproduction_ET19_Fw` as the polished
   forward reference-bank leader.
+
+- [reports/analysis/model_development_waves/model_family_pruning/[2026-07-06]/te_model_family_pruning_decision_report.md](./reports/analysis/model_development_waves/model_family_pruning/%5B2026-07-06%5D/te_model_family_pruning_decision_report.md)
+  Forward-led, backward-checked model-family pruning report that pauses
+  `global` model selection, defines the reduced active candidate set, and
+  records keep, baseline-only, pause, or retire decisions for the implemented
+  TE model families.
 
 - [reports/analysis/te_curve_verification_pipeline/02_visual_reports/best_model_collage_report/[2026-07-03]/track2_best_model_collage_report.md](./reports/analysis/te_curve_verification_pipeline/02_visual_reports/best_model_collage_report/%5B2026-07-03%5D/track2_best_model_collage_report.md)
   Styled `TE Curve Verification Pipeline` visual report with four-curve
