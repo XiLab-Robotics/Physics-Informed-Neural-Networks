@@ -4,9 +4,11 @@ from __future__ import annotations
 
 # Import Python Utilities
 import argparse, html
+import base64, mimetypes
 import re, shutil, subprocess, sys, time
 from pathlib import Path
 from typing import Sequence
+from urllib.parse import urlparse
 
 PROJECT_PATH = Path(__file__).resolve().parents[3]
 if str(PROJECT_PATH) not in sys.path:
@@ -151,6 +153,7 @@ POLISHED_RCIM_EXECUTIVE_SUMMARY_TABLE_CLASS_NAME = "report-table report-table-po
 POLISHED_RCIM_EXECUTION_SUMMARY_TABLE_CLASS_NAME = "report-table report-table-polished-rcim-execution-summary"
 POLISHED_RCIM_ARTIFACT_PATHS_TABLE_CLASS_NAME = "report-table report-table-polished-rcim-artifact-paths"
 TRACK2_BEST_MODEL_COLLAGE_TABLE_CLASS_NAME = "report-table report-table-track2-best-model-collage"
+TRACK2_METRIC_SUMMARY_TABLE_CLASS_NAME = "report-table report-table-track2-metric-summary"
 TRACK2_OFFICIAL_VERIFICATION_RULE_TABLE_CLASS_NAME = "report-table report-table-track2-official-verification-rule"
 TRACK2_OFFICIAL_PIPELINE_COVERAGE_TABLE_CLASS_NAME = "report-table report-table-track2-official-pipeline-coverage"
 TRACK2_OFFICIAL_BEST_COMPOSITE_TABLE_CLASS_NAME = "report-table report-table-track2-official-best-composite"
@@ -334,6 +337,18 @@ TRACK2_CURVE_FIRST_RANKING_TABLE_HEADER_CELLS = (
 )
 
 TRACK2_CURVE_FIRST_RANKING_PDF_COLUMN_INDEXES = (0, 1, 2, 4, 5, 6, 7, 8, 9)
+
+TRACK2_CANDIDATE_INVENTORY_TABLE_HEADER_CELLS = (
+    "Candidate",
+    "Family",
+    "Source",
+    "Kind",
+    "Surface",
+    "Valid Directions",
+    "Model Source",
+)
+
+TRACK2_CANDIDATE_INVENTORY_PDF_COLUMN_INDEXES = (0, 1, 2, 3, 4, 5)
 
 TRACK2_CURVE_PAYLOAD_DIAGNOSTICS_TABLE_HEADER_CELLS = (
     "Rank",
@@ -1420,23 +1435,62 @@ REPORT_STYLESHEET = """
     .report-table-polished-rcim-artifact-paths th:nth-child(1), .report-table-polished-rcim-artifact-paths td:nth-child(1) { width: 18%; }
     .report-table-polished-rcim-artifact-paths th:nth-child(2), .report-table-polished-rcim-artifact-paths td:nth-child(2) { width: 82%; }
 
-    .report-table-track2-best-model-collage {
+    .report-table-track2-best-model-collage,
+    .report-table-track2-metric-summary {
       font-size: 6.85pt;
       line-height: 1.18;
     }
 
     .report-table-track2-best-model-collage th,
-    .report-table-track2-best-model-collage td {
+    .report-table-track2-best-model-collage td,
+    .report-table-track2-metric-summary th,
+    .report-table-track2-metric-summary td {
       padding: 3px 4px;
       vertical-align: middle;
     }
 
-    .report-table-track2-best-model-collage th:nth-child(1), .report-table-track2-best-model-collage td:nth-child(1) { width: 27%; }
-    .report-table-track2-best-model-collage th:nth-child(2), .report-table-track2-best-model-collage td:nth-child(2) { width: 25%; }
-    .report-table-track2-best-model-collage th:nth-child(3), .report-table-track2-best-model-collage td:nth-child(3) { width: 7%; }
-    .report-table-track2-best-model-collage th:nth-child(4), .report-table-track2-best-model-collage td:nth-child(4) { width: 13.666%; }
-    .report-table-track2-best-model-collage th:nth-child(5), .report-table-track2-best-model-collage td:nth-child(5) { width: 13.666%; }
-    .report-table-track2-best-model-collage th:nth-child(6), .report-table-track2-best-model-collage td:nth-child(6) { width: 13.666%; }
+    .report-table-track2-best-model-collage th:nth-child(1), .report-table-track2-best-model-collage td:nth-child(1) { width: 34%; }
+    .report-table-track2-best-model-collage th:nth-child(2), .report-table-track2-best-model-collage td:nth-child(2) { width: 28%; }
+    .report-table-track2-best-model-collage th:nth-child(3), .report-table-track2-best-model-collage td:nth-child(3) { width: 8%; }
+    .report-table-track2-best-model-collage th:nth-child(4), .report-table-track2-best-model-collage td:nth-child(4) { width: 10%; }
+    .report-table-track2-best-model-collage th:nth-child(5), .report-table-track2-best-model-collage td:nth-child(5) { width: 10%; }
+    .report-table-track2-best-model-collage th:nth-child(6), .report-table-track2-best-model-collage td:nth-child(6) { width: 10%; }
+
+    .report-table-track2-metric-summary th:nth-child(1), .report-table-track2-metric-summary td:nth-child(1) { width: 36%; }
+    .report-table-track2-metric-summary th:nth-child(2), .report-table-track2-metric-summary td:nth-child(2),
+    .report-table-track2-metric-summary th:nth-child(3), .report-table-track2-metric-summary td:nth-child(3),
+    .report-table-track2-metric-summary th:nth-child(4), .report-table-track2-metric-summary td:nth-child(4),
+    .report-table-track2-metric-summary th:nth-child(5), .report-table-track2-metric-summary td:nth-child(5) { width: 16%; }
+
+    .report-table-track2-metric-summary:has(th:nth-child(6)) th:nth-child(1),
+    .report-table-track2-metric-summary:has(th:nth-child(6)) td:nth-child(1) { width: 30%; }
+    .report-table-track2-metric-summary:has(th:nth-child(6)) th:nth-child(2),
+    .report-table-track2-metric-summary:has(th:nth-child(6)) td:nth-child(2) { width: 10%; }
+    .report-table-track2-metric-summary:has(th:nth-child(6)) th:nth-child(3),
+    .report-table-track2-metric-summary:has(th:nth-child(6)) td:nth-child(3),
+    .report-table-track2-metric-summary:has(th:nth-child(6)) th:nth-child(4),
+    .report-table-track2-metric-summary:has(th:nth-child(6)) td:nth-child(4),
+    .report-table-track2-metric-summary:has(th:nth-child(6)) th:nth-child(5),
+    .report-table-track2-metric-summary:has(th:nth-child(6)) td:nth-child(5),
+    .report-table-track2-metric-summary:has(th:nth-child(6)) th:nth-child(6),
+    .report-table-track2-metric-summary:has(th:nth-child(6)) td:nth-child(6) { width: 15%; }
+
+    .report-table-track2-metric-summary:has(th:nth-child(8)) th:nth-child(1),
+    .report-table-track2-metric-summary:has(th:nth-child(8)) td:nth-child(1) { width: 26%; }
+    .report-table-track2-metric-summary:has(th:nth-child(8)) th:nth-child(2),
+    .report-table-track2-metric-summary:has(th:nth-child(8)) td:nth-child(2) { width: 12%; }
+    .report-table-track2-metric-summary:has(th:nth-child(8)) th:nth-child(3),
+    .report-table-track2-metric-summary:has(th:nth-child(8)) td:nth-child(3) { width: 6%; }
+    .report-table-track2-metric-summary:has(th:nth-child(8)) th:nth-child(4),
+    .report-table-track2-metric-summary:has(th:nth-child(8)) td:nth-child(4) { width: 8%; }
+    .report-table-track2-metric-summary:has(th:nth-child(8)) th:nth-child(5),
+    .report-table-track2-metric-summary:has(th:nth-child(8)) td:nth-child(5),
+    .report-table-track2-metric-summary:has(th:nth-child(8)) th:nth-child(6),
+    .report-table-track2-metric-summary:has(th:nth-child(8)) td:nth-child(6),
+    .report-table-track2-metric-summary:has(th:nth-child(8)) th:nth-child(7),
+    .report-table-track2-metric-summary:has(th:nth-child(8)) td:nth-child(7),
+    .report-table-track2-metric-summary:has(th:nth-child(8)) th:nth-child(8),
+    .report-table-track2-metric-summary:has(th:nth-child(8)) td:nth-child(8) { width: 12%; }
 
     .report-table-track2-official-verification-rule,
     .report-table-track2-official-pipeline-coverage,
@@ -3100,11 +3154,20 @@ def render_markdown_image(markdown_text: str, markdown_directory: Path) -> str:
 
     # Resolve Markdown Image Path
     image_alt_text, image_path = parsed_image
-    resolved_image_path = (markdown_directory / image_path).resolve()
-    assert resolved_image_path.exists(), f"Markdown image path does not exist | {resolved_image_path}"
+    parsed_image_uri = urlparse(image_path)
+    if parsed_image_uri.scheme in {"http", "https", "file"}:
+        image_uri = image_path
+    else:
+        candidate_image_path = Path(image_path)
+        if not candidate_image_path.is_absolute():
+            candidate_image_path = markdown_directory / candidate_image_path
+        resolved_image_path = candidate_image_path.resolve()
+        assert resolved_image_path.exists(), f"Markdown image path does not exist | {resolved_image_path}"
+        image_mime_type = mimetypes.guess_type(resolved_image_path.name)[0] or "application/octet-stream"
+        image_base64_text = base64.b64encode(resolved_image_path.read_bytes()).decode("ascii")
+        image_uri = f"data:{image_mime_type};base64,{image_base64_text}"
 
     # Get Markdown Image HTML
-    image_uri = resolved_image_path.as_uri()
     escaped_alt_text = html.escape(image_alt_text)
     caption_html = f'<figcaption class="report-figure-caption">{escaped_alt_text}</figcaption>' if escaped_alt_text else ""
 
@@ -3313,6 +3376,20 @@ def normalize_common_metric_header_cell(header_cell: str) -> str | None:
 
     """ Normalize Common Long Metric Header Cells """
 
+    # Wrap Common TE Curve Verification Metric Headers
+    if header_cell == "Curve MAE [deg]":
+        return "Curve MAE<br><span class=\"metric-unit\">[deg]</span>"
+    if header_cell == "Curve RMSE [deg]":
+        return "Curve RMSE<br><span class=\"metric-unit\">[deg]</span>"
+    if header_cell == "Mean Percentage Error [%]":
+        return "Mean<br>Percentage<br><span class=\"metric-unit\">Error [%]</span>"
+    if header_cell == "P95 Mean Percentage Error [%]":
+        return "P95 Mean<br>Percentage<br><span class=\"metric-unit\">Error [%]</span>"
+    if header_cell == "Mean Error":
+        return "Mean<br><span class=\"metric-unit\">Error</span>"
+    if header_cell == "Mean Error [%]":
+        return "Mean Error<br><span class=\"metric-unit\">[%]</span>"
+
     # Wrap Repository Mean-Component Metrics
     if is_mean_component_metric_header(header_cell):
         metric_suffix = html.escape(header_cell.removeprefix("Mean Component ").strip())
@@ -3486,6 +3563,12 @@ def normalize_report_specific_header_cell(header_cell: str, table_class_name: st
         REPOSITORY_STATUS_TRACK2_CURRENT_TABLE_CLASS_NAME,
         REPOSITORY_STATUS_HARMONIC_BANK_TABLE_CLASS_NAME,
     } and wrapped_common_metric_header is not None:
+        return wrapped_common_metric_header
+
+    if (
+        table_class_name == TRACK2_METRIC_SUMMARY_TABLE_CLASS_NAME
+        and wrapped_common_metric_header is not None
+    ):
         return wrapped_common_metric_header
 
     if table_class_name == TRACK2_ORIGINAL_ONNX_METRICS_TABLE_CLASS_NAME:
@@ -3765,6 +3848,77 @@ def render_column_subset_table_body_rows(
 
     return "".join(body_html_tokens)
 
+def resolve_track2_metric_summary_column_widths(header_cells: Sequence[str]) -> tuple[float, ...] | None:
+
+    """Resolve balanced PDF column widths for recurring TE metric tables."""
+
+    normalized_header_cells = tuple(header_cells)
+
+    if (
+        normalized_header_cells
+        == ("Candidate", "Source", "Surface", "Curve MAE [deg]", "Curve RMSE [deg]", "Mean Error")
+    ):
+        return (34.0, 28.0, 8.0, 10.0, 10.0, 10.0)
+
+    if (
+        normalized_header_cells
+        == (
+            "Candidate",
+            "Curve MAE [deg]",
+            "Curve RMSE [deg]",
+            "Mean Percentage Error [%]",
+            "P95 Mean Percentage Error [%]",
+        )
+    ):
+        return (36.0, 16.0, 16.0, 16.0, 16.0)
+
+    if (
+        normalized_header_cells
+        == (
+            "Candidate",
+            "Direction",
+            "Curve MAE [deg]",
+            "Curve RMSE [deg]",
+            "Mean Percentage Error [%]",
+            "P95 Mean Percentage Error [%]",
+        )
+    ):
+        return (30.0, 10.0, 15.0, 15.0, 15.0, 15.0)
+
+    if (
+        normalized_header_cells
+        == (
+            "Candidate",
+            "Source",
+            "Surface",
+            "Direction",
+            "Curve MAE [deg]",
+            "Curve RMSE [deg]",
+            "Mean Percentage Error [%]",
+            "P95 Mean Percentage Error [%]",
+        )
+    ):
+        return (26.0, 12.0, 6.0, 8.0, 12.0, 12.0, 12.0, 12.0)
+
+    return None
+
+def render_table_colgroup(header_cells: Sequence[str], table_class_name: str) -> str:
+
+    """Render an optional table colgroup for PDF-stable table widths."""
+
+    if table_class_name not in {
+        TRACK2_BEST_MODEL_COLLAGE_TABLE_CLASS_NAME,
+        TRACK2_METRIC_SUMMARY_TABLE_CLASS_NAME,
+    }:
+        return ""
+
+    column_widths = resolve_track2_metric_summary_column_widths(header_cells)
+    if column_widths is None:
+        return ""
+
+    column_html = "".join(f'<col style="width: {column_width:.4g}%;" />' for column_width in column_widths)
+    return f"<colgroup>{column_html}</colgroup>"
+
 def render_column_subset_table(
     header_cells: Sequence[str],
     alignments: Sequence[str],
@@ -3791,6 +3945,7 @@ def render_column_subset_table(
     return (
         '<div class="table-wrap">'
         f'<table class="{table_class_name}">'
+        f"{render_table_colgroup(selected_header_cells, table_class_name)}"
         "<thead><tr>"
         f"{header_html}"
         "</tr></thead>"
@@ -3815,6 +3970,7 @@ def render_standard_table(
     return (
         '<div class="table-wrap">'
         f'<table class="{table_class_name}">'
+        f"{render_table_colgroup(header_cells, table_class_name)}"
         "<thead><tr>"
         f"{header_html}"
         "</tr></thead>"
@@ -4285,6 +4441,21 @@ def resolve_standard_table_class_name(
         == ("Candidate", "Source", "Surface", "Curve MAE [deg]", "Curve RMSE [deg]", "Mean Error")
     ):
         return TRACK2_BEST_MODEL_COLLAGE_TABLE_CLASS_NAME
+
+    if (
+        "Candidate" in normalized_header_cells
+        and "Curve MAE [deg]" in normalized_header_cells
+        and "Curve RMSE [deg]" in normalized_header_cells
+        and any(
+            metric_header in normalized_header_cells
+            for metric_header in {
+                "Mean Percentage Error [%]",
+                "P95 Mean Percentage Error [%]",
+                "Mean Error [%]",
+            }
+        )
+    ):
+        return TRACK2_METRIC_SUMMARY_TABLE_CLASS_NAME
 
     # Resolve TE Curve Verification Pipeline Official Verification Report Tables
     if report_stem == "track2_official_model_verification_report":
@@ -4772,6 +4943,18 @@ def render_table(
             current_index,
         )
 
+    if tuple(header_cells) == TRACK2_CANDIDATE_INVENTORY_TABLE_HEADER_CELLS:
+        return (
+            render_column_subset_table(
+                header_cells,
+                alignments,
+                body_rows,
+                TRACK2_CANDIDATE_INVENTORY_PDF_COLUMN_INDEXES,
+                "report-table report-table-track2-candidate-inventory",
+            ),
+            current_index,
+        )
+
     if tuple(header_cells) == TRACK2_SURFACE_LEADER_TABLE_HEADER_CELLS:
         return render_standard_table(header_cells, alignments, body_rows, TRACK2_SURFACE_LEADER_TABLE_CLASS_NAME), current_index
 
@@ -5198,6 +5381,8 @@ def convert_html_to_pdf(browser_executable_path: Path, html_path: Path, pdf_path
     html_uri = html_path.resolve().as_uri()
     pdf_path.parent.mkdir(parents=True, exist_ok=True)
     temporary_profile_path = create_workspace_temp_directory(BROWSER_PROFILE_TEMP_ROOT, "codex_report_chrome")
+    temporary_pdf_directory_path = create_workspace_temp_directory(REPORT_PIPELINE_TEMP_ROOT, "codex_report_pdf")
+    temporary_pdf_path = temporary_pdf_directory_path / "report.pdf"
 
     try:
 
@@ -5207,18 +5392,27 @@ def convert_html_to_pdf(browser_executable_path: Path, html_path: Path, pdf_path
                 str(browser_executable_path),
                 *BROWSER_PDF_EXPORT_ARGUMENTS,
                 f"--user-data-dir={temporary_profile_path}",
-                f"--print-to-pdf={pdf_path.resolve()}",
+                f"--print-to-pdf={temporary_pdf_path.resolve()}",
                 html_uri,
             ],
             check=True,
             capture_output=True,
             text=True,
         )
+        if not temporary_pdf_path.exists():
+            raise FileNotFoundError(
+                "Browser PDF export completed without creating an output file "
+                f"| temporary_pdf_path={temporary_pdf_path}"
+            )
+        if pdf_path.exists():
+            remove_temporary_file(pdf_path)
+        shutil.move(str(temporary_pdf_path), str(pdf_path))
 
     finally:
 
         # Remove Temporary Browser Profile
         remove_temporary_directory(temporary_profile_path)
+        remove_temporary_directory(temporary_pdf_directory_path)
 
 def main() -> None:
 

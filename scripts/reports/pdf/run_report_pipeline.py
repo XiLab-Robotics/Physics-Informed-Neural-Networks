@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 # Import Python Utilities
-import argparse, shutil, subprocess, sys
+import argparse, hashlib, shutil, subprocess, sys
 from pathlib import Path
 
 PROJECT_PATH = Path(__file__).resolve().parents[3]
@@ -153,16 +153,18 @@ def resolve_pipeline_html_preview_path(pdf_output_path: Path) -> Path:
 
     """ Resolve Pipeline HTML Preview Path """
 
-    # Build Stable Preview Path
-    html_preview_path = pdf_output_path.with_name(f"{pdf_output_path.stem}_preview.html")
+    # Build Short Preview Path To Avoid Browser File URI Failures On Windows
+    preview_slug = hashlib.sha1(str(pdf_output_path.resolve()).encode("utf-8")).hexdigest()[:12]
+    html_preview_path = REPORT_PIPELINE_TEMP_ROOT / "html_previews" / f"{preview_slug}_preview.html"
     return html_preview_path
 
 def resolve_validation_output_directory(pdf_output_path: Path) -> Path:
 
     """ Resolve Validation Output Directory """
 
-    # Map PDF Name To Validation Folder
-    validation_output_directory = REPORT_VALIDATION_ROOT / pdf_output_path.stem
+    # Map PDF Path To A Short Unique Validation Folder
+    validation_slug = hashlib.sha1(str(pdf_output_path.resolve()).encode("utf-8")).hexdigest()[:12]
+    validation_output_directory = REPORT_VALIDATION_ROOT / f"{pdf_output_path.stem[:64]}_{validation_slug}"
     return validation_output_directory
 
 def resolve_tool_env_python_path() -> Path:

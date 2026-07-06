@@ -483,6 +483,12 @@ This folder contains the internal project documents derived from the reference P
 
 ### Technical Documents
 
+#### 2026-07-06
+
+- [technical/2026-07/2026-07-06/2026-07-06-12-50-44_track2_dataset_surface_pdf_export.md](./technical/2026-07/2026-07-06/2026-07-06-12-50-44_track2_dataset_surface_pdf_export.md)
+  Technical plan for exporting and validating the generated dataset/surface
+  `TE Curve Verification Pipeline` split reports as styled PDFs.
+
 #### 2026-07-04
 
 - [technical/2026-07/2026-07-04/2026-07-04-00-54-04_track2_dataset_surface_launcher_post_rebase_fix.md](./technical/2026-07/2026-07-04/2026-07-04-00-54-04_track2_dataset_surface_launcher_post_rebase_fix.md)
