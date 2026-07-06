@@ -154,6 +154,8 @@ POLISHED_RCIM_EXECUTION_SUMMARY_TABLE_CLASS_NAME = "report-table report-table-po
 POLISHED_RCIM_ARTIFACT_PATHS_TABLE_CLASS_NAME = "report-table report-table-polished-rcim-artifact-paths"
 TRACK2_BEST_MODEL_COLLAGE_TABLE_CLASS_NAME = "report-table report-table-track2-best-model-collage"
 TRACK2_METRIC_SUMMARY_TABLE_CLASS_NAME = "report-table report-table-track2-metric-summary"
+TRACK2_CANDIDATE_INVENTORY_TABLE_CLASS_NAME = "report-table report-table-track2-candidate-inventory"
+TRACK2_SELECTED_MODEL_VISUAL_SUMMARY_TABLE_CLASS_NAME = "report-table report-table-track2-selected-model-visual-summary"
 TRACK2_OFFICIAL_VERIFICATION_RULE_TABLE_CLASS_NAME = "report-table report-table-track2-official-verification-rule"
 TRACK2_OFFICIAL_PIPELINE_COVERAGE_TABLE_CLASS_NAME = "report-table report-table-track2-official-pipeline-coverage"
 TRACK2_OFFICIAL_BEST_COMPOSITE_TABLE_CLASS_NAME = "report-table report-table-track2-official-best-composite"
@@ -349,6 +351,15 @@ TRACK2_CANDIDATE_INVENTORY_TABLE_HEADER_CELLS = (
 )
 
 TRACK2_CANDIDATE_INVENTORY_PDF_COLUMN_INDEXES = (0, 1, 2, 3, 4, 5)
+
+TRACK2_SELECTED_MODEL_VISUAL_SUMMARY_TABLE_HEADER_CELLS = (
+    "Candidate",
+    "Role",
+    "Curve MAE [deg]",
+    "Curve RMSE [deg]",
+    "Mean MPE [%]",
+    "P95 MPE [%]",
+)
 
 TRACK2_CURVE_PAYLOAD_DIAGNOSTICS_TABLE_HEADER_CELLS = (
     "Rank",
@@ -1436,7 +1447,9 @@ REPORT_STYLESHEET = """
     .report-table-polished-rcim-artifact-paths th:nth-child(2), .report-table-polished-rcim-artifact-paths td:nth-child(2) { width: 82%; }
 
     .report-table-track2-best-model-collage,
-    .report-table-track2-metric-summary {
+    .report-table-track2-metric-summary,
+    .report-table-track2-candidate-inventory,
+    .report-table-track2-selected-model-visual-summary {
       font-size: 6.85pt;
       line-height: 1.18;
     }
@@ -1444,7 +1457,11 @@ REPORT_STYLESHEET = """
     .report-table-track2-best-model-collage th,
     .report-table-track2-best-model-collage td,
     .report-table-track2-metric-summary th,
-    .report-table-track2-metric-summary td {
+    .report-table-track2-metric-summary td,
+    .report-table-track2-candidate-inventory th,
+    .report-table-track2-candidate-inventory td,
+    .report-table-track2-selected-model-visual-summary th,
+    .report-table-track2-selected-model-visual-summary td {
       padding: 3px 4px;
       vertical-align: middle;
     }
@@ -1491,6 +1508,20 @@ REPORT_STYLESHEET = """
     .report-table-track2-metric-summary:has(th:nth-child(8)) td:nth-child(7),
     .report-table-track2-metric-summary:has(th:nth-child(8)) th:nth-child(8),
     .report-table-track2-metric-summary:has(th:nth-child(8)) td:nth-child(8) { width: 12%; }
+
+    .report-table-track2-candidate-inventory th:nth-child(1), .report-table-track2-candidate-inventory td:nth-child(1) { width: 28%; }
+    .report-table-track2-candidate-inventory th:nth-child(2), .report-table-track2-candidate-inventory td:nth-child(2) { width: 15%; }
+    .report-table-track2-candidate-inventory th:nth-child(3), .report-table-track2-candidate-inventory td:nth-child(3) { width: 27%; }
+    .report-table-track2-candidate-inventory th:nth-child(4), .report-table-track2-candidate-inventory td:nth-child(4) { width: 13%; }
+    .report-table-track2-candidate-inventory th:nth-child(5), .report-table-track2-candidate-inventory td:nth-child(5) { width: 6%; }
+    .report-table-track2-candidate-inventory th:nth-child(6), .report-table-track2-candidate-inventory td:nth-child(6) { width: 11%; }
+
+    .report-table-track2-selected-model-visual-summary th:nth-child(1), .report-table-track2-selected-model-visual-summary td:nth-child(1) { width: 34%; }
+    .report-table-track2-selected-model-visual-summary th:nth-child(2), .report-table-track2-selected-model-visual-summary td:nth-child(2) { width: 14%; }
+    .report-table-track2-selected-model-visual-summary th:nth-child(3), .report-table-track2-selected-model-visual-summary td:nth-child(3),
+    .report-table-track2-selected-model-visual-summary th:nth-child(4), .report-table-track2-selected-model-visual-summary td:nth-child(4),
+    .report-table-track2-selected-model-visual-summary th:nth-child(5), .report-table-track2-selected-model-visual-summary td:nth-child(5),
+    .report-table-track2-selected-model-visual-summary th:nth-child(6), .report-table-track2-selected-model-visual-summary td:nth-child(6) { width: 13%; }
 
     .report-table-track2-official-verification-rule,
     .report-table-track2-official-pipeline-coverage,
@@ -4950,7 +4981,18 @@ def render_table(
                 alignments,
                 body_rows,
                 TRACK2_CANDIDATE_INVENTORY_PDF_COLUMN_INDEXES,
-                "report-table report-table-track2-candidate-inventory",
+                TRACK2_CANDIDATE_INVENTORY_TABLE_CLASS_NAME,
+            ),
+            current_index,
+        )
+
+    if tuple(header_cells) == TRACK2_SELECTED_MODEL_VISUAL_SUMMARY_TABLE_HEADER_CELLS:
+        return (
+            render_standard_table(
+                header_cells,
+                alignments,
+                body_rows,
+                TRACK2_SELECTED_MODEL_VISUAL_SUMMARY_TABLE_CLASS_NAME,
             ),
             current_index,
         )

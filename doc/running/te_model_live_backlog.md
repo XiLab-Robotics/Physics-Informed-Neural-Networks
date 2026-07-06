@@ -53,6 +53,13 @@ Historical rationale and approval history remain in:
   Current active reduced families are `periodic_gru_sequence`,
   `periodic_mlp_harmonic`, `wave4_3_mixture_density_k3`, and
   `wave52b_offset_centered_shape_harmonic`, plus selected baseline anchors.
+- Current Active Report Generation: reduced selected-model `TE Curve
+  Verification Pipeline` only, using `polished_dataset` and
+  `simplified_dataset` in parallel for `forward` and `backward`. The only
+  routine reports are the four selected-model reports under
+  `04_selected_model_reports/[YYYY-MM-DD]/`. `global`, collage, overlay, broad
+  full-matrix, and simplified-vs-polished dataset-difference reports are paused
+  and generated only after an explicit request.
 
 Current canonical status reports:
 
@@ -60,6 +67,8 @@ Current canonical status reports:
 - `doc/reports/analysis/TE Program Status And Closeout Ledger.md`
 - `doc/reports/analysis/te_curve_verification_pipeline/01_official_decisions/official_model_verification_report/[2026-07-03]/track2_official_model_verification_report.md`
 - `doc/reports/analysis/model_development_waves/model_family_pruning/[2026-07-06]/te_model_family_pruning_decision_report.md`
+- `doc/reports/analysis/te_curve_verification_pipeline/04_selected_model_reports/[2026-07-06]/`
+- `doc/scripts/campaigns/track_2/run_reduced_selected_track2_reports.md`
 - `doc/reports/analysis/te_curve_verification_pipeline/00_overview/multi_index_curve_first_selection_policy/[2026-06-16]/track2_multi_index_curve_first_selection_policy.md`
 - `doc/reports/analysis/te_curve_verification_pipeline/02_visual_reports/best_model_collage_report/[2026-07-03]/track2_best_model_collage_report.md`
 - `doc/reports/analysis/te_curve_verification_pipeline/02_visual_reports/multi_model_curve_comparison_report/[2026-07-03]/track2_multi_model_curve_comparison_report.md`
@@ -122,6 +131,9 @@ Near-term pruning exception:
 - Reopen `global` only when it is the last remaining modeling item in the
   backlog.
 - Current decisions are forward-led and backward-checked.
+- Active report generation uses only `forward` and `backward` for
+  `polished_dataset` and `simplified_dataset`. The broad dataset/surface split,
+  collage, overlay, and dataset-difference report families are on-demand only.
 
 ## Curve-First Selection Rule
 

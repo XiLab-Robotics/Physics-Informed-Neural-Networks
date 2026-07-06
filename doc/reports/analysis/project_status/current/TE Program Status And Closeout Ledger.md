@@ -33,6 +33,7 @@ closeout that changes any of these surfaces:
 | Latest official TE Curve Verification refresh | polished-dataset RCIM, early-wave, and full-wave refresh, dated `2026-07-03` |
 | Latest curve-verification decision | accepted; polished `periodic_gru_sequence` becomes the model-development baseline |
 | Latest pruning decision | `2026-07-06` forward-led model-family pruning; `global` paused until final backlog stage |
+| Active report generation | reduced selected-model reports only: `polished_dataset` and `simplified_dataset`, each split into `forward` and `backward` |
 | Current TE Curve Verification Pipeline selection policy | multi-index curve-first selection, dated `2026-06-16` |
 | Next modeling decision | use the reduced active set: `periodic_gru_sequence`, `periodic_mlp_harmonic`, `wave4_3_mixture_density_k3`, `wave52b_offset_centered_shape_harmonic`, and selected baseline anchors |
 
@@ -44,6 +45,14 @@ Near-term pruning temporarily pauses `global` model selection. This does not
 delete the `global` branch or change its historical status. It only excludes
 `global` from current model-family pruning and reduced-pipeline planning until
 it is the final remaining modeling item in the backlog.
+
+Routine `TE Curve Verification Pipeline` report generation is now reduced to
+four selected-model reports: polished forward, polished backward, simplified
+forward, and simplified backward. Broad full-matrix regeneration, `global`
+reports, collage reports, overlay reports, and simplified-vs-polished
+dataset-difference reports are paused and should be regenerated only after an
+explicit request. The current reduced report bundle is
+`doc/reports/analysis/te_curve_verification_pipeline/04_selected_model_reports/[2026-07-06]/`.
 
 ## Canonical Program Taxonomy
 

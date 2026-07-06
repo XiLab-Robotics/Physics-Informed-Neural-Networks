@@ -17,6 +17,10 @@
   `polished_periodic_gru_sequence`
 - Latest official `TE Curve Verification Pipeline` refresh:
   `2026-07-03` polished-dataset refresh, accepted
+- Active reduced `TE Curve Verification Pipeline` reports: selected models
+  only for `polished_dataset` and `simplified_dataset`, split into `forward`
+  and `backward`; `global`, collage, overlay, and simplified-vs-polished
+  reports are paused / on-demand.
 - Current plain MLP anchor: `te_feedforward_trial`
 - Active family-improvement branch count: `0`
 - Implemented and benchmarked family count: `193`

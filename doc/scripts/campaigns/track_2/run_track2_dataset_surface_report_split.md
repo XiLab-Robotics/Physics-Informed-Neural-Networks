@@ -8,6 +8,16 @@ families for `polished_dataset` and `simplified_dataset` across `forward`,
 `backward`, and `global` scopes, and it can build dataset-difference reports
 from explicit simplified-trained versus polished-trained candidate pairs.
 
+Status after the `2026-07-06` pruning decision: this broad split workflow is
+paused / on-demand. The active default report workflow is the reduced
+selected-model launcher:
+
+- `scripts/campaigns/track_2/run_reduced_selected_track2_reports.ps1`
+
+Do not run this broad launcher for routine closeout unless `global`, collage,
+overlay, or simplified-vs-polished dataset-difference reports have been
+explicitly requested.
+
 The heavy run is gated. Do not use `-Run` until the full-wave polished
 retraining closure commits and artifacts from the other workstation have been
 merged into the local repository.

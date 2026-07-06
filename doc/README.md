@@ -79,6 +79,17 @@ This folder contains the internal project documents derived from the reference P
   decision report that pauses `global` model selection and records keep,
   pause, baseline-only, or retire decisions for active model families.
 
+- [technical/2026-07/2026-07-06/2026-07-06-19-38-18_reduced_track2_selected_models_pipeline.md](./technical/2026-07/2026-07-06/2026-07-06-19-38-18_reduced_track2_selected_models_pipeline.md)
+  Technical plan for integrating the selected-model pruning decision into a
+  reduced `TE Curve Verification Pipeline` that generates only polished and
+  simplified forward/backward reports while pausing `global`, overlay, collage,
+  and dataset-difference report generation by default.
+
+- [technical/2026-07/2026-07-06/2026-07-06-23-33-02_selected_track2_visual_pdf_reports.md](./technical/2026-07/2026-07-06/2026-07-06-23-33-02_selected_track2_visual_pdf_reports.md)
+  Technical plan for regenerating the four reduced selected-model reports as
+  visual PDF deliverables with measured-versus-predicted curve collages and
+  stable Track 2 table layout rules.
+
 - [scripts/tooling/lan_ai/lan_ai_node_server.md](./scripts/tooling/lan_ai/lan_ai_node_server.md)
   Setup and runtime guide for the remote LAN AI workstation.
 
@@ -88,6 +99,12 @@ This folder contains the internal project documents derived from the reference P
 - [scripts/campaigns/track_2/run_polished_dataset_track2_verification_refresh.md](./scripts/campaigns/track_2/run_polished_dataset_track2_verification_refresh.md)
   Launcher note for the official polished-dataset `TE Curve Verification
   Pipeline` refresh with local and remote commands.
+
+- [scripts/campaigns/track_2/run_reduced_selected_track2_reports.md](./scripts/campaigns/track_2/run_reduced_selected_track2_reports.md)
+  Active reduced selected-model `TE Curve Verification Pipeline` launcher that
+  generates only the four polished/simplified forward/backward reports and
+  keeps `global`, collage, overlay, and dataset-difference reports paused by
+  default.
 
 ### Analysis Reports
 
@@ -205,6 +222,11 @@ This folder contains the internal project documents derived from the reference P
   `global` model selection, defines the reduced active candidate set, and
   records keep, baseline-only, pause, or retire decisions for the implemented
   TE model families.
+
+- [reports/analysis/te_curve_verification_pipeline/04_selected_model_reports/[2026-07-06]/](./reports/analysis/te_curve_verification_pipeline/04_selected_model_reports/%5B2026-07-06%5D/)
+  Reduced selected-model `TE Curve Verification Pipeline` report bundle with
+  exactly four active reports: polished forward, polished backward, simplified
+  forward, and simplified backward.
 
 - [reports/analysis/te_curve_verification_pipeline/02_visual_reports/best_model_collage_report/[2026-07-03]/track2_best_model_collage_report.md](./reports/analysis/te_curve_verification_pipeline/02_visual_reports/best_model_collage_report/%5B2026-07-03%5D/track2_best_model_collage_report.md)
   Styled `TE Curve Verification Pipeline` visual report with four-curve
