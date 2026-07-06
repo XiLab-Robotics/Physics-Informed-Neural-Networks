@@ -50,7 +50,8 @@ DEFAULT_REPORT_TOPIC_ROOT = (
     / "doc"
     / "reports"
     / "analysis"
-    / "track2"
+    / "te_curve_verification_pipeline"
+    / "03_cvp_diagnostics"
     / "dataset_difference_report"
 )
 REPORT_FILENAME = "track2_dataset_difference_report.md"
@@ -422,7 +423,14 @@ def run_dataset_difference_report(arguments: argparse.Namespace) -> dict[str, An
 
     pair_summary_list: list[dict[str, Any]] = []
     metric_row_list: list[dict[str, Any]] = []
-    for pair in tqdm(candidate_pair_list, desc="Dataset difference pairs", unit="pair"):
+    for pair in tqdm(
+        candidate_pair_list,
+        desc="Dataset difference pairs",
+        unit="pair",
+        ascii=True,
+        ncols=80,
+        dynamic_ncols=False,
+    ):
         assert pair.simplified_candidate_id in candidate_configuration_lookup, (
             f"Missing simplified candidate | {pair.simplified_candidate_id}"
         )

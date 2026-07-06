@@ -217,6 +217,13 @@ Dry-run the dataset/surface `TE Curve Verification Pipeline` split:
 .\scripts\campaigns\track_2\run_track2_dataset_surface_report_split.ps1
 ```
 
+Check the dataset/surface launcher progress rendering before a long run:
+
+```powershell
+.\scripts\campaigns\track_2\run_track2_dataset_surface_report_split.ps1 `
+  -ProgressSmokeTest
+```
+
 After the full-wave polished retraining closure merge is present, launch the
 split workflow locally:
 
@@ -224,6 +231,15 @@ split workflow locally:
 .\scripts\campaigns\track_2\run_track2_dataset_surface_report_split.ps1 `
   -Run `
   -AcknowledgeFullWaveClosureMerged
+```
+
+Resume a stopped split workflow from the first failed step:
+
+```powershell
+.\scripts\campaigns\track_2\run_track2_dataset_surface_report_split.ps1 `
+  -Run `
+  -AcknowledgeFullWaveClosureMerged `
+  -ResumeFromStep 03_overlay_polished_dataset_forward
 ```
 
 Launch the 36-run early-wave batch locally after confirming the active
@@ -353,7 +369,10 @@ The current usage flow mainly relies on these folders:
   Operator-facing dataset/surface split launcher for the `TE Curve
   Verification Pipeline`. It prepares separate polished/simplified,
   forward/backward/global report bundles and enforces the full-wave polished
-  retraining closure merge gate before heavy execution.
+  retraining closure merge gate before heavy execution. It can resume from a
+  named step with `-ResumeFromStep` and streams each child process to the
+  terminal while logging it. Use `-ProgressSmokeTest` to validate terminal
+  progress rendering before a long operator run.
 
 - `scripts/campaigns/wave_4/run_wave4_embryonic_skeleton_checks.ps1`
   Dry-run check launcher for the embryonic `Wave 5.2A` MMT diagnostic adapter.

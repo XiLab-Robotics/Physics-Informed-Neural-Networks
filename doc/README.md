@@ -483,6 +483,13 @@ This folder contains the internal project documents derived from the reference P
 
 ### Technical Documents
 
+#### 2026-07-04
+
+- [technical/2026-07/2026-07-04/2026-07-04-00-54-04_track2_dataset_surface_launcher_post_rebase_fix.md](./technical/2026-07/2026-07-04/2026-07-04-00-54-04_track2_dataset_surface_launcher_post_rebase_fix.md)
+  Technical plan for aligning the dataset/surface `TE Curve Verification
+  Pipeline` launcher with the completed polished closure state and the
+  reorganized `te_curve_verification_pipeline` analysis-report tree.
+
 #### 2026-07-02
 
 - [technical/2026-07/2026-07-02/2026-07-02-11-12-17_polished_te_curve_verification_refresh.md](./technical/2026-07/2026-07-02/2026-07-02-11-12-17_polished_te_curve_verification_refresh.md)

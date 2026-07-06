@@ -1433,9 +1433,17 @@ def select_screened_wave1_candidate_id_list(
 
     """Select the best Wave 1 candidates for a readable combined overlay."""
 
+    if direction_label not in direction_metric_summary:
+        return []
+    available_candidate_metric_dictionary = direction_metric_summary[direction_label]
+    available_candidate_id_list = [
+        candidate_id
+        for candidate_id in candidate_id_list
+        if candidate_id in available_candidate_metric_dictionary
+    ]
     ranked_candidate_id_list = sorted(
-        candidate_id_list,
-        key=lambda candidate_id: float(direction_metric_summary[direction_label][candidate_id]["mae"]),
+        available_candidate_id_list,
+        key=lambda candidate_id: float(available_candidate_metric_dictionary[candidate_id]["mae"]),
     )
     return ranked_candidate_id_list[:SCREENED_WAVE1_MODEL_COUNT]
 
@@ -1701,6 +1709,9 @@ def run_track2_multi_model_curve_comparison_report(arguments: argparse.Namespace
             candidate_configuration_list,
             desc="Load overlay candidates",
             unit="candidate",
+            ascii=True,
+            ncols=80,
+            dynamic_ncols=False,
         )
     ]
     candidate_lookup = {
@@ -1709,7 +1720,14 @@ def run_track2_multi_model_curve_comparison_report(arguments: argparse.Namespace
     }
 
     per_candidate_entry_list: list[dict[str, Any]] = []
-    for candidate in tqdm(candidate_list, desc="Evaluate overlay candidates", unit="candidate"):
+    for candidate in tqdm(
+        candidate_list,
+        desc="Evaluate overlay candidates",
+        unit="candidate",
+        ascii=True,
+        ncols=80,
+        dynamic_ncols=False,
+    ):
         candidate_entry_list, _ = reference_family_vs_feedforward_support.evaluate_track2_candidate(
             candidate,
             curve_record_list,
@@ -1747,7 +1765,14 @@ def run_track2_multi_model_curve_comparison_report(arguments: argparse.Namespace
         for curve_record in curve_record_list
     }
 
-    for group in tqdm(group_list, desc="Build overlay groups", unit="group"):
+    for group in tqdm(
+        group_list,
+        desc="Build overlay groups",
+        unit="group",
+        ascii=True,
+        ncols=80,
+        dynamic_ncols=False,
+    ):
         selected_reference_entry_list = select_group_reference_entries(
             grouped_entry_dictionary[group.candidate_id_list[0]],
             group.selection_mode,
@@ -1760,9 +1785,12 @@ def run_track2_multi_model_curve_comparison_report(arguments: argparse.Namespace
         group_payload_entry_list: list[dict[str, Any]] = []
         for candidate_id in tqdm(
             group.candidate_id_list,
-            desc=f"Overlay {group.group_id}",
+            desc="Overlay group",
             unit="candidate",
             leave=False,
+            ascii=True,
+            ncols=80,
+            dynamic_ncols=False,
         ):
             candidate_payload_entry_list, _ = reference_family_vs_feedforward_support.evaluate_track2_candidate(
                 candidate_lookup[candidate_id],

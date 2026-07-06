@@ -23,6 +23,22 @@ Run from the repository root:
 The default mode prints the planned dataset/surface matrix and exits without
 running the heavy verification pipeline.
 
+## Progress Smoke Test
+
+Run the launcher-owned progress smoke test before a long operator run when
+checking terminal rendering:
+
+```powershell
+.\scripts\campaigns\track_2\run_track2_dataset_surface_report_split.ps1 `
+  -ProgressSmokeTest
+```
+
+This exercises the same `conda run` wrapper used by the heavy pipeline without
+loading model candidates. The wrapper reads child-process output directly so
+`tqdm` carriage-return updates can refresh a single terminal row while the
+per-step log file still records the emitted progress lines. The smoke test also
+asserts that the child process starts from the repository root.
+
 ## Local Run
 
 After the full-wave polished retraining closure merge is present:
@@ -31,6 +47,16 @@ After the full-wave polished retraining closure merge is present:
 .\scripts\campaigns\track_2\run_track2_dataset_surface_report_split.ps1 `
   -Run `
   -AcknowledgeFullWaveClosureMerged
+```
+
+If a long run stops after completing earlier steps, resume from the first
+failed step instead of recomputing previous matrix or collage reports:
+
+```powershell
+.\scripts\campaigns\track_2\run_track2_dataset_surface_report_split.ps1 `
+  -Run `
+  -AcknowledgeFullWaveClosureMerged `
+  -ResumeFromStep 03_overlay_polished_dataset_forward
 ```
 
 Add candidate pairs for dataset-difference reports after the merged matrix
@@ -72,6 +98,10 @@ Matrix artifacts are written under:
 
 - `output/validation_checks/track2_reference_comparison/`
 
+The canonical directional matrix report is refreshed at:
+
+- `doc/reports/analysis/te_curve_verification_pipeline/00_overview/TE Curve Verification Pipeline Directional Model Comparison.md`
+
 Dataset/surface visual reports are written under:
 
 - `doc/reports/analysis/te_curve_verification_pipeline/02_visual_reports/dataset_surface_report/<dataset>/<surface>/collage/[YYYY-MM-DD]/`
@@ -84,6 +114,12 @@ Dataset-difference reports are written under:
 Operator logs are written under:
 
 - `output/validation_checks/track2_operator_launch_logs/`
+
+The launcher streams child-process output to the terminal while also writing the
+same text to the per-step log file. Cross-dataset model evaluation adapts each
+candidate input matrix to the loaded model feature dimension before
+normalization, so four-feature polished checkpoints and five-feature simplified
+checkpoints can be evaluated in the same dataset-surface run.
 
 ## Notes
 

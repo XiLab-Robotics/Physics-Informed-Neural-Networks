@@ -12,9 +12,11 @@ param(
     [string[]]$ForwardCandidatePair = @(),
     [string[]]$BackwardCandidatePair = @(),
     [string[]]$GlobalCandidatePair = @(),
+    [string]$ResumeFromStep = "",
     [switch]$SkipVisualReports,
     [switch]$SkipDifferenceReports,
-    [switch]$SkipPdfExport
+    [switch]$SkipPdfExport,
+    [switch]$ProgressSmokeTest
 )
 
 $ErrorActionPreference = "Stop"
@@ -29,6 +31,7 @@ $overlayRunnerPath = "scripts\reports\analysis\build_track2_multi_model_curve_co
 $differenceRunnerPath = "scripts\reports\analysis\build_track2_dataset_difference_report.py"
 $pdfPipelinePath = "scripts\reports\pdf\run_report_pipeline.py"
 $logRoot = Join-Path $projectRoot ("output\validation_checks\track2_operator_launch_logs\{0}_dataset_surface_report_split" -f (Get-Date -Format "yyyy-MM-dd-HH-mm-ss"))
+$script:resumeGateOpened = [string]::IsNullOrWhiteSpace($ResumeFromStep)
 
 function Write-StatusLine {
     param(
@@ -66,38 +69,132 @@ function Invoke-LoggedCondaPython {
     New-Item -ItemType Directory -Force -Path $logRoot | Out-Null
     $logPath = Join-Path $logRoot ("{0}.log" -f $StepName)
     Write-StatusLine "STEP" ("Running {0} | log={1}" -f $StepName, $logPath)
+    $lastProgressLineLength = 0
 
     $condaExecutablePath = (Get-Command conda -ErrorAction Stop).Source
     $fullArgumentList = @("run", "--no-capture-output", "-n", $CondaEnvironmentName, "python") + $ArgumentList
     $commandText = (@($condaExecutablePath) + $fullArgumentList | ForEach-Object { Format-CmdArgument -Value $_ }) -join " "
-    $redirectedCommandText = "{0} > {1} 2>&1" -f $commandText, (Format-CmdArgument -Value $logPath)
+    $cmdWrappedCommandText = "{0} 2>&1" -f $commandText
+    Write-StatusLine "CMD" $commandText
 
-    $processStartInfo = [System.Diagnostics.ProcessStartInfo]::new()
-    $processStartInfo.FileName = "cmd.exe"
-    $processStartInfo.Arguments = ('/d /c {0}' -f $redirectedCommandText)
-    $processStartInfo.UseShellExecute = $false
-    $processStartInfo.CreateNoWindow = $true
-    $processStartInfo.WorkingDirectory = $projectRoot
+    $previousPythonIoEncoding = $env:PYTHONIOENCODING
+    $previousPythonUtf8 = $env:PYTHONUTF8
+    $previousTqdmAscii = $env:TQDM_ASCII
+    $previousTqdmMinInterval = $env:TQDM_MININTERVAL
+    $env:PYTHONIOENCODING = "utf-8"
+    $env:PYTHONUTF8 = "1"
+    $env:TQDM_ASCII = "1"
+    $env:TQDM_MININTERVAL = "10"
 
-    $process = [System.Diagnostics.Process]::new()
-    $process.StartInfo = $processStartInfo
+    $utf8NoBomEncoding = New-Object System.Text.UTF8Encoding $false
+    $logWriter = [System.IO.StreamWriter]::new($logPath, $false, $utf8NoBomEncoding)
+    $lineBuilder = [System.Text.StringBuilder]::new()
     try {
-        $null = $process.Start()
+        $processStartInfo = [System.Diagnostics.ProcessStartInfo]::new()
+        $processStartInfo.FileName = $env:ComSpec
+        $processStartInfo.Arguments = "/d /c $cmdWrappedCommandText"
+        $processStartInfo.UseShellExecute = $false
+        $processStartInfo.RedirectStandardOutput = $true
+        $processStartInfo.RedirectStandardError = $false
+        $processStartInfo.CreateNoWindow = $true
+        $processStartInfo.WorkingDirectory = $projectRoot
+        $processStartInfo.StandardOutputEncoding = $utf8NoBomEncoding
+
+        $process = [System.Diagnostics.Process]::new()
+        $process.StartInfo = $processStartInfo
+        [void]$process.Start()
+
+        while ($true) {
+            $readValue = $process.StandardOutput.Read()
+            if ($readValue -lt 0) {
+                break
+            }
+
+            $outputCharacter = [char]$readValue
+            if ($outputCharacter -ne "`r" -and $outputCharacter -ne "`n") {
+                [void]$lineBuilder.Append($outputCharacter)
+                continue
+            }
+
+            $outputLine = $lineBuilder.ToString()
+            [void]$lineBuilder.Clear()
+            if ($outputLine.Length -gt 0) {
+                $isProgressLine = $outputLine -match "\|\s*[# 0-9]+\|" -and $outputLine -match "\d+/\d+"
+                if ($isProgressLine) {
+                    $paddedOutputLine = $outputLine.PadRight($lastProgressLineLength)
+                    [Console]::Write("`r{0}" -f $paddedOutputLine)
+                    $lastProgressLineLength = [Math]::Max($lastProgressLineLength, $outputLine.Length)
+                }
+                else {
+                    if ($lastProgressLineLength -gt 0) {
+                        [Console]::WriteLine("")
+                        $lastProgressLineLength = 0
+                    }
+                    Write-Host $outputLine
+                }
+                $logWriter.WriteLine($outputLine)
+            }
+            if ($outputCharacter -eq "`n" -and $lastProgressLineLength -gt 0) {
+                [Console]::WriteLine("")
+                $lastProgressLineLength = 0
+            }
+        }
+
+        if ($lineBuilder.Length -gt 0) {
+            $outputLine = $lineBuilder.ToString()
+            $isProgressLine = $outputLine -match "\|\s*[# 0-9]+\|" -and $outputLine -match "\d+/\d+"
+            if ($isProgressLine) {
+                $paddedOutputLine = $outputLine.PadRight($lastProgressLineLength)
+                [Console]::Write("`r{0}" -f $paddedOutputLine)
+                $lastProgressLineLength = [Math]::Max($lastProgressLineLength, $outputLine.Length)
+            }
+            else {
+                if ($lastProgressLineLength -gt 0) {
+                    [Console]::WriteLine("")
+                    $lastProgressLineLength = 0
+                }
+                Write-Host $outputLine
+            }
+            $logWriter.WriteLine($outputLine)
+            [void]$lineBuilder.Clear()
+        }
+
         $process.WaitForExit()
-    }
-    finally {
-        if (($null -ne $process) -and (-not $process.HasExited)) {
-            $process.Kill()
+        $exitCode = [int]$process.ExitCode
+        if ($lastProgressLineLength -gt 0) {
+            [Console]::WriteLine("")
         }
     }
-
-    if (Test-Path -LiteralPath $logPath) {
-        Get-Content -Tail 120 -LiteralPath $logPath | ForEach-Object { Write-Host $_ }
+    finally {
+        if ($null -ne $logWriter) {
+            $logWriter.Dispose()
+        }
+        $env:PYTHONIOENCODING = $previousPythonIoEncoding
+        $env:PYTHONUTF8 = $previousPythonUtf8
+        $env:TQDM_ASCII = $previousTqdmAscii
+        $env:TQDM_MININTERVAL = $previousTqdmMinInterval
     }
 
-    if ([int]$process.ExitCode -ne 0) {
-        throw ("TE Curve Verification Pipeline step failed | step={0} | exit_code={1} | log={2}" -f $StepName, [int]$process.ExitCode, $logPath)
+    if ($exitCode -ne 0) {
+        throw ("TE Curve Verification Pipeline step failed | step={0} | exit_code={1} | log={2}" -f $StepName, $exitCode, $logPath)
     }
+}
+
+function Test-ShouldRunStep {
+    param(
+        [string]$StepName
+    )
+
+    if ($script:resumeGateOpened) {
+        return $true
+    }
+    if ($StepName -eq $ResumeFromStep) {
+        $script:resumeGateOpened = $true
+        Write-StatusLine "RESUME" ("Reached requested resume step: {0}" -f $StepName)
+        return $true
+    }
+    Write-StatusLine "SKIP" ("Resume gate skipping {0}; waiting for {1}" -f $StepName, $ResumeFromStep)
+    return $false
 }
 
 function Get-CandidatePairListForSurface {
@@ -115,6 +212,18 @@ function Get-CandidatePairListForSurface {
         return $GlobalCandidatePair
     }
     return @()
+}
+
+if ($ProgressSmokeTest) {
+    Invoke-LoggedCondaPython `
+        -StepName "00_progress_smoke_test" `
+        -ArgumentList @(
+            "-B",
+            "-c",
+            "from pathlib import Path; from tqdm import tqdm; import time; assert (Path.cwd() / 'scripts' / 'paper_reimplementation').exists(), f'unexpected cwd: {Path.cwd()}'; [time.sleep(0.1) for _ in tqdm(range(50), desc='tqdm smoke', unit='it', ascii=True, ncols=80, dynamic_ncols=False)]"
+        )
+    Write-StatusLine "DONE" ("Progress smoke test completed | logs={0}" -f $logRoot)
+    exit 0
 }
 
 function Format-RemoteSingleQuotedArgument {
@@ -141,7 +250,13 @@ function Format-RemoteCandidatePairArguments {
 
 function Assert-LaunchGate {
     $activeCampaignText = Get-Content -Raw -LiteralPath "doc\running\active_training_campaign.yaml"
-    if ($activeCampaignText -notmatch "status:\s+none") {
+    $isNoActiveCampaignState = $activeCampaignText -match "status:\s+none"
+    $isCompletedPolishedRefreshState = (
+        ($activeCampaignText -match "status:\s+completed") -and
+        ($activeCampaignText -match "campaign_name:\s+polished_dataset_te_curve_verification_refresh_2026_07_02") -and
+        ($activeCampaignText -match "te_curve_verification_status:\s+completed")
+    )
+    if ((-not $isNoActiveCampaignState) -and (-not $isCompletedPolishedRefreshState)) {
         throw "Active local campaign state is not clear. Inspect doc/running/active_training_campaign.yaml before launching."
     }
     if (-not $AcknowledgeFullWaveClosureMerged) {
@@ -154,6 +269,9 @@ function Write-ExecutionPlan {
     Write-StatusLine "PLAN" ("Datasets: {0}" -f ($DatasetList -join ", "))
     Write-StatusLine "PLAN" ("Surface scopes: {0}" -f ($SurfaceScopeList -join ", "))
     Write-StatusLine "PLAN" "Run gate: full-wave polished retraining closure commits/artifacts must be merged before -Run."
+    if (-not [string]::IsNullOrWhiteSpace($ResumeFromStep)) {
+        Write-StatusLine "PLAN" ("Resume from step: {0}" -f $ResumeFromStep)
+    }
     foreach ($datasetName in $DatasetList) {
         foreach ($surfaceScope in $SurfaceScopeList) {
             $outputSuffix = "track2_dataset_surface_{0}_{1}_{2}" -f $datasetName, $surfaceScope, $ReportDate.Replace("-", "_")
@@ -178,7 +296,7 @@ if ($Remote) {
     $remoteCandidatePairArgumentText = Format-RemoteCandidatePairArguments
     $remoteCommand = @"
 Set-Location -LiteralPath '$RemoteRepositoryPath'
-& '.\$remoteScriptPath' -Run -AcknowledgeFullWaveClosureMerged -CondaEnvironmentName '$RemoteCondaEnvironmentName' -ReportDate '$ReportDate'$remoteCandidatePairArgumentText$(if ($SkipVisualReports) { " -SkipVisualReports" } else { "" })$(if ($SkipDifferenceReports) { " -SkipDifferenceReports" } else { "" })$(if ($SkipPdfExport) { " -SkipPdfExport" } else { "" })
+& '.\$remoteScriptPath' -Run -AcknowledgeFullWaveClosureMerged -CondaEnvironmentName '$RemoteCondaEnvironmentName' -ReportDate '$ReportDate'$(if (-not [string]::IsNullOrWhiteSpace($ResumeFromStep)) { " -ResumeFromStep '$ResumeFromStep'" } else { "" })$remoteCandidatePairArgumentText$(if ($SkipVisualReports) { " -SkipVisualReports" } else { "" })$(if ($SkipDifferenceReports) { " -SkipDifferenceReports" } else { "" })$(if ($SkipPdfExport) { " -SkipPdfExport" } else { "" })
 exit `$LASTEXITCODE
 "@
     Write-StatusLine "REMOTE" ("Launching remote dataset-surface report split on {0}" -f $RemoteHostAlias)
@@ -199,9 +317,11 @@ foreach ($datasetName in $DatasetList) {
         $outputSuffix = "track2_dataset_surface_{0}_{1}_{2}" -f $datasetName, $surfaceScope, $ReportDate.Replace("-", "_")
         $safeStepPrefix = "{0}_{1}" -f $datasetName, $surfaceScope
 
-        Invoke-LoggedCondaPython `
-            -StepName ("01_matrix_{0}" -f $safeStepPrefix) `
-            -ArgumentList @(
+        $matrixStepName = "01_matrix_{0}" -f $safeStepPrefix
+        if (Test-ShouldRunStep -StepName $matrixStepName) {
+            Invoke-LoggedCondaPython `
+                -StepName $matrixStepName `
+                -ArgumentList @(
                 "-B",
                 $matrixRunnerPath,
                 "--config-path",
@@ -214,12 +334,15 @@ foreach ($datasetName in $DatasetList) {
                 $surfaceScope,
                 "--windows"
             )
+        }
 
         if (-not $SkipVisualReports) {
-            $collageReportRoot = "doc\reports\analysis\track2\dataset_surface_report\$datasetName\$surfaceScope\collage"
-            Invoke-LoggedCondaPython `
-                -StepName ("02_collage_{0}" -f $safeStepPrefix) `
-                -ArgumentList @(
+            $collageReportRoot = "doc\reports\analysis\te_curve_verification_pipeline\02_visual_reports\dataset_surface_report\$datasetName\$surfaceScope\collage"
+            $collageStepName = "02_collage_{0}" -f $safeStepPrefix
+            if (Test-ShouldRunStep -StepName $collageStepName) {
+                Invoke-LoggedCondaPython `
+                    -StepName $collageStepName `
+                    -ArgumentList @(
                     "-B",
                     $collageRunnerPath,
                     "--config-path",
@@ -234,12 +357,15 @@ foreach ($datasetName in $DatasetList) {
                     $surfaceScope,
                     "--windows"
                 )
+            }
 
             if ($surfaceScope -ne "global") {
-                $overlayReportRoot = "doc\reports\analysis\track2\dataset_surface_report\$datasetName\$surfaceScope\overlay"
-                Invoke-LoggedCondaPython `
-                    -StepName ("03_overlay_{0}" -f $safeStepPrefix) `
-                    -ArgumentList @(
+                $overlayReportRoot = "doc\reports\analysis\te_curve_verification_pipeline\02_visual_reports\dataset_surface_report\$datasetName\$surfaceScope\overlay"
+                $overlayStepName = "03_overlay_{0}" -f $safeStepPrefix
+                if (Test-ShouldRunStep -StepName $overlayStepName) {
+                    Invoke-LoggedCondaPython `
+                        -StepName $overlayStepName `
+                        -ArgumentList @(
                         "-B",
                         $overlayRunnerPath,
                         "--config-path",
@@ -254,6 +380,7 @@ foreach ($datasetName in $DatasetList) {
                         $surfaceScope,
                         "--windows"
                     )
+                }
             }
         }
     }
@@ -283,9 +410,12 @@ if (-not $SkipDifferenceReports) {
             foreach ($candidatePair in $candidatePairList) {
                 $argumentList += @("--candidate-pair", $candidatePair)
             }
-            Invoke-LoggedCondaPython `
-                -StepName ("04_difference_{0}_{1}" -f $datasetName, $surfaceScope) `
-                -ArgumentList $argumentList
+            $differenceStepName = "04_difference_{0}_{1}" -f $datasetName, $surfaceScope
+            if (Test-ShouldRunStep -StepName $differenceStepName) {
+                Invoke-LoggedCondaPython `
+                    -StepName $differenceStepName `
+                    -ArgumentList $argumentList
+            }
         }
     }
 }

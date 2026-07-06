@@ -32,7 +32,7 @@ COMPARISON_REPORT_ROOT = (
     / "reports"
     / "analysis"
     / "validation_checks"
-    / "track2"
+    / "te_curve_verification_pipeline"
 )
 COMPARISON_REPORT_TIMESTAMP_FORMAT = "%Y-%m-%d-%H-%M-%S"
 CANONICAL_TRACK2_REPORT_PATH = (
@@ -40,6 +40,8 @@ CANONICAL_TRACK2_REPORT_PATH = (
     / "doc"
     / "reports"
     / "analysis"
+    / "te_curve_verification_pipeline"
+    / "00_overview"
     / "TE Curve Verification Pipeline Directional Model Comparison.md"
 )
 REFERENCE_CANDIDATE_KIND_SET = {
@@ -704,30 +706,68 @@ def resolve_model_dataset_name(training_config: dict[str, Any] | None) -> str:
     return selected_dataset_name
 
 
+def resolve_expected_input_feature_dim(
+    training_config: dict[str, Any] | None,
+    model_object: Any | None = None,
+) -> int:
+
+    """Resolve the input feature count expected by one loaded model."""
+
+    if isinstance(model_object, TransmissionErrorRegressionModule):
+        return int(model_object.input_feature_mean.shape[-1])
+
+    model_feature_count = getattr(model_object, "n_features_in_", None)
+    if model_feature_count is not None:
+        return int(model_feature_count)
+
+    if training_config is not None:
+        configured_input_size = training_config.get("model", {}).get("input_size")
+        if configured_input_size not in [None, ""]:
+            configured_input_size_text = str(configured_input_size).strip().lower()
+            if configured_input_size_text != "auto":
+                return int(configured_input_size)
+
+    model_dataset_name = resolve_model_dataset_name(training_config)
+    return transmission_error_dataset.resolve_dataset_schema(model_dataset_name).input_feature_dim
+
+
 def build_feedforward_input_tensor(
     curve_record: harmonic_wise_support.HarmonicCurveRecord,
     training_config: dict[str, Any] | None = None,
+    expected_input_feature_dim: int | None = None,
 ) -> torch.Tensor:
 
     """Build the pointwise feedforward input tensor for one curve record."""
 
     model_dataset_name = resolve_model_dataset_name(training_config)
+    if expected_input_feature_dim is None and training_config is not None:
+        expected_input_feature_dim = resolve_expected_input_feature_dim(training_config)
+
     if (
-        model_dataset_name == transmission_error_dataset.POLISHED_DATASET
+        expected_input_feature_dim in [None, 4]
+        and model_dataset_name == transmission_error_dataset.POLISHED_DATASET
         and curve_record.input_feature_matrix is not None
     ):
         return torch.from_numpy(curve_record.input_feature_matrix.astype(np.float32))
 
     sequence_length = int(curve_record.angular_position_deg.shape[0])
-    input_feature_matrix = np.column_stack(
-        [
-            curve_record.angular_position_deg.astype(np.float32),
-            np.full(sequence_length, curve_record.speed_rpm, dtype=np.float32),
-            np.full(sequence_length, curve_record.torque_nm, dtype=np.float32),
-            np.full(sequence_length, curve_record.oil_temperature_deg, dtype=np.float32),
-            np.full(sequence_length, curve_record.direction_flag, dtype=np.float32),
-        ]
-    ).astype(np.float32)
+    base_input_column_list = [
+        curve_record.angular_position_deg.astype(np.float32),
+        np.full(sequence_length, curve_record.speed_rpm, dtype=np.float32),
+        np.full(sequence_length, curve_record.torque_nm, dtype=np.float32),
+        np.full(sequence_length, curve_record.oil_temperature_deg, dtype=np.float32),
+    ]
+    if expected_input_feature_dim in [None, 5]:
+        base_input_column_list.append(
+            np.full(sequence_length, curve_record.direction_flag, dtype=np.float32)
+        )
+    elif expected_input_feature_dim != 4:
+        raise ValueError(
+            "Unsupported TE Curve Verification Pipeline input feature count | "
+            f"expected_input_feature_dim={expected_input_feature_dim}"
+        )
+
+    input_feature_matrix = np.column_stack(base_input_column_list).astype(np.float32)
     return torch.from_numpy(input_feature_matrix)
 
 
@@ -738,7 +778,12 @@ def build_temporal_sequence_input_tensor(
 
     """Build full-curve sequence windows for one temporal registry model."""
 
-    point_input_tensor = build_feedforward_input_tensor(curve_record, training_config).float()
+    expected_input_feature_dim = resolve_expected_input_feature_dim(training_config)
+    point_input_tensor = build_feedforward_input_tensor(
+        curve_record,
+        training_config,
+        expected_input_feature_dim,
+    ).float()
     dataset_configuration = training_config.get("dataset", {})
     sequence_length = int(dataset_configuration.get("sequence_length", 1))
     sequence_target_position = str(dataset_configuration.get("sequence_target_position", "center")).strip().lower()
@@ -791,7 +836,12 @@ def predict_temporal_sequence_curve_in_batches(
     """Predict one temporal TE curve without materializing every sequence window at once."""
 
     inference_device = model_object.input_feature_mean.device
-    point_input_tensor = build_feedforward_input_tensor(curve_record, training_config).float().to(inference_device)
+    expected_input_feature_dim = resolve_expected_input_feature_dim(training_config, model_object)
+    point_input_tensor = build_feedforward_input_tensor(
+        curve_record,
+        training_config,
+        expected_input_feature_dim,
+    ).float().to(inference_device)
     dataset_configuration = training_config.get("dataset", {})
     sequence_length = int(dataset_configuration.get("sequence_length", 1))
     sequence_target_position = str(dataset_configuration.get("sequence_target_position", "center")).strip().lower()
@@ -863,7 +913,11 @@ def predict_feedforward_curve(
     """Predict one TE curve with the canonical feedforward checkpoint."""
 
     inference_device = regression_module.input_feature_mean.device
-    input_tensor = build_feedforward_input_tensor(curve_record).float().to(inference_device)
+    expected_input_feature_dim = resolve_expected_input_feature_dim(None, regression_module)
+    input_tensor = build_feedforward_input_tensor(
+        curve_record,
+        expected_input_feature_dim=expected_input_feature_dim,
+    ).float().to(inference_device)
     with torch.no_grad():
         normalized_input_tensor = regression_module.normalize_input_tensor(input_tensor)
         normalized_prediction_tensor, _ = regression_module.forward_regression_model(
@@ -886,8 +940,13 @@ def predict_wave1_registry_curve(
     """Predict one TE curve with a loaded registry-backed model."""
 
     model_type = str(training_config["experiment"]["model_type"]).strip().lower()
+    expected_input_feature_dim = resolve_expected_input_feature_dim(training_config, model_object)
     if model_type in {"hist_gradient_boosting", "random_forest"}:
-        input_tensor = build_feedforward_input_tensor(curve_record, training_config).float()
+        input_tensor = build_feedforward_input_tensor(
+            curve_record,
+            training_config,
+            expected_input_feature_dim,
+        ).float()
         input_feature_matrix = input_tensor.detach().cpu().numpy().astype(np.float32)
         return np.asarray(model_object.predict(input_feature_matrix), dtype=np.float32).reshape(-1)
 
@@ -901,7 +960,11 @@ def predict_wave1_registry_curve(
             training_config,
         )
     else:
-        input_tensor = build_feedforward_input_tensor(curve_record, training_config).float().to(model_object.input_feature_mean.device)
+        input_tensor = build_feedforward_input_tensor(
+            curve_record,
+            training_config,
+            expected_input_feature_dim,
+        ).float().to(model_object.input_feature_mean.device)
 
     with torch.no_grad():
         normalized_input_tensor = model_object.normalize_input_tensor(input_tensor)

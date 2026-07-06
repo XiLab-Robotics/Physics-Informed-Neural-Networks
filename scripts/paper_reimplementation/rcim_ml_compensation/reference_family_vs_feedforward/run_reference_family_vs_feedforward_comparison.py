@@ -269,9 +269,11 @@ def run_reference_family_vs_feedforward_comparison(
             total=len(candidate_configuration_list),
             desc="TE matrix candidates",
             unit="candidate",
+            ascii=True,
+            ncols=80,
+            dynamic_ncols=False,
         )
         for candidate_index, candidate_configuration in progress_iterator:
-            progress_iterator.set_postfix_str(str(candidate_configuration["candidate_id"]), refresh=False)
             tqdm.write(
                 "[INFO] Loading TE Curve Verification Pipeline candidate | "
                 f"{candidate_index}/{len(candidate_configuration_list)} | "

@@ -1697,6 +1697,9 @@ def run_track2_best_model_collage_report(arguments: argparse.Namespace) -> dict[
             candidate_configuration_list,
             desc="Load collage candidates",
             unit="candidate",
+            ascii=True,
+            ncols=80,
+            dynamic_ncols=False,
         )
     ]
     candidate_lookup = {
@@ -1705,7 +1708,14 @@ def run_track2_best_model_collage_report(arguments: argparse.Namespace) -> dict[
     }
 
     per_candidate_entry_list: list[dict[str, Any]] = []
-    for candidate in tqdm(candidate_list, desc="Evaluate collage candidates", unit="candidate"):
+    for candidate in tqdm(
+        candidate_list,
+        desc="Evaluate collage candidates",
+        unit="candidate",
+        ascii=True,
+        ncols=80,
+        dynamic_ncols=False,
+    ):
         candidate_entry_list, _ = reference_family_vs_feedforward_support.evaluate_track2_candidate(
             candidate,
             curve_record_list,
@@ -1746,12 +1756,22 @@ def run_track2_best_model_collage_report(arguments: argparse.Namespace) -> dict[
         for curve_record in curve_record_list
     }
 
-    for group in tqdm(group_list, desc="Build collage groups", unit="group"):
+    for group in tqdm(
+        group_list,
+        desc="Build collage groups",
+        unit="group",
+        ascii=True,
+        ncols=80,
+        dynamic_ncols=False,
+    ):
         for candidate_id in tqdm(
             group.candidate_id_list,
-            desc=f"Collage {group.group_id}",
+            desc="Collage group",
             unit="candidate",
             leave=False,
+            ascii=True,
+            ncols=80,
+            dynamic_ncols=False,
         ):
             candidate = candidate_lookup[candidate_id]
             canonical_candidate_id = format_canonical_candidate_id(candidate_id)
