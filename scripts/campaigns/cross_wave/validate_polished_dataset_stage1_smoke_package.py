@@ -54,9 +54,9 @@ def validate_campaign_package(campaign_manifest_path: Path, run_one_batch: bool)
 
     # Validate Shared Polished Dataset Contract
     dataset_schema = transmission_error_dataset.resolve_dataset_schema(EXPECTED_DATASET_NAME)
-    assert dataset_schema.input_feature_name_list == ["theta", "theta_dot", "tau_load", "T"]
+    assert dataset_schema.input_feature_name_list == ["theta", "theta_dot", "tau_load", "T", "direction_flag"]
     assert dataset_schema.target_feature_name_list == ["theta_TE"]
-    assert dataset_schema.input_feature_dim == 4
+    assert dataset_schema.input_feature_dim == 5
     assert transmission_error_dataset.resolve_dataset_root(EXPECTED_DATASET_NAME).exists()
 
     # Validate Every Source Configuration
@@ -98,7 +98,7 @@ def validate_campaign_package(campaign_manifest_path: Path, run_one_batch: bool)
             batch_dictionary = shared_training_infrastructure.fetch_first_batch(datamodule)
             shared_training_infrastructure.validate_batch_dictionary(
                 batch_dictionary,
-                input_feature_dim=4,
+                input_feature_dim=dataset_schema.input_feature_dim,
                 target_feature_dim=1,
             )
             if model_type not in {"hist_gradient_boosting", "random_forest"}:
@@ -107,7 +107,7 @@ def validate_campaign_package(campaign_manifest_path: Path, run_one_batch: bool)
                     training_config,
                     datamodule.get_input_feature_dim(),
                 )
-                assert getattr(reloaded_backbone, "input_size", None) == 4, (
+                assert getattr(reloaded_backbone, "input_size", None) == dataset_schema.input_feature_dim, (
                     f"Reload backbone input_size mismatch | {source_config_path_value}"
                 )
 

@@ -51,9 +51,9 @@ def validate_polished_dataset_contract() -> None:
         transmission_error_dataset.POLISHED_DATASET
     )
     assert dataset_schema.schema_name == "polished_point_v1"
-    assert dataset_schema.input_feature_name_list == ["theta", "theta_dot", "tau_load", "T"]
+    assert dataset_schema.input_feature_name_list == ["theta", "theta_dot", "tau_load", "T", "direction_flag"]
     assert dataset_schema.target_feature_name_list == ["theta_TE"]
-    assert dataset_schema.input_feature_dim == 4
+    assert dataset_schema.input_feature_dim == 5
     assert transmission_error_dataset.resolve_dataset_root(
         transmission_error_dataset.POLISHED_DATASET
     ).exists()

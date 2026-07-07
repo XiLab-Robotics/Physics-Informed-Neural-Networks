@@ -744,11 +744,20 @@ def build_feedforward_input_tensor(
         expected_input_feature_dim = resolve_expected_input_feature_dim(training_config)
 
     if (
-        expected_input_feature_dim in [None, 4]
+        expected_input_feature_dim in [None, 4, 5]
         and model_dataset_name == transmission_error_dataset.POLISHED_DATASET
         and curve_record.input_feature_matrix is not None
     ):
-        return torch.from_numpy(curve_record.input_feature_matrix.astype(np.float32))
+        polished_input_feature_matrix = curve_record.input_feature_matrix.astype(np.float32)
+        if expected_input_feature_dim == 4 and polished_input_feature_matrix.shape[1] == 5:
+            polished_input_feature_matrix = polished_input_feature_matrix[:, :4]
+        if expected_input_feature_dim not in [None, polished_input_feature_matrix.shape[1]]:
+            raise ValueError(
+                "Polished input feature count mismatch | "
+                f"expected_input_feature_dim={expected_input_feature_dim} | "
+                f"observed_input_feature_dim={polished_input_feature_matrix.shape[1]}"
+            )
+        return torch.from_numpy(polished_input_feature_matrix)
 
     sequence_length = int(curve_record.angular_position_deg.shape[0])
     base_input_column_list = [

@@ -212,6 +212,17 @@ This corrects two potentially misleading shorthand descriptions:
 - `theta_TE` is not measured by a dedicated TE sensor. It is calculated from
   the two measured encoder positions.
 
+The training loader keeps the CSV schema unchanged. For the
+`polished_dataset` actual-values training contract, it builds a five-feature
+input tensor by appending a derived `direction_flag` column to the four
+row-level CSV input columns:
+
+```text
+theta,theta_dot,tau_load,T,direction_flag
+```
+
+`direction_flag` is `1.0` for `forward` files and `-1.0` for `backward` files.
+
 ### Generation Equations
 
 Constants:

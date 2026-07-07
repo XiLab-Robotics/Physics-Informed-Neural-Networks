@@ -10,9 +10,9 @@ The retraining program must produce three unambiguous model artifact branches:
 
 The existing polished training contract has already used row-level actual
 values. The current loader resolves `polished_point_v1` inputs as
-`theta`, `theta_dot`, `tau_load`, and `T`, while `simplified_curve_v1` uses
-filename/path setpoints for speed, torque, and temperature plus
-`direction_flag`.
+`theta`, `theta_dot`, `tau_load`, `T`, and `direction_flag`, while
+`simplified_curve_v1` uses filename/path setpoints for speed, torque, and
+temperature plus `direction_flag`.
 
 No implementation or training may start until this technical document and the
 matching campaign planning report are explicitly approved.
@@ -31,8 +31,9 @@ Create explicit input-mode contracts instead of relying on dataset names alone.
   torque, and temperature from path and filename; keep `direction_flag`; use
   polished row-level `theta` and `theta_TE`.
 - `polished_actual_values`: read `data/polished_dataset`; use row-level
-  `theta`, `theta_dot`, `tau_load`, and `T`; preserve the existing
-  actual-value behavior.
+  `theta`, `theta_dot`, `tau_load`, and `T`; append the per-curve
+  `direction_flag`; preserve the existing actual-value behavior for speed,
+  torque, and temperature.
 
 Every generated queue item, run name, output folder, exported archive, and
 validation manifest must carry all of these fields:

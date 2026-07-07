@@ -128,8 +128,9 @@ Operator logs are written under:
 The launcher streams child-process output to the terminal while also writing the
 same text to the per-step log file. Cross-dataset model evaluation adapts each
 candidate input matrix to the loaded model feature dimension before
-normalization, so four-feature polished checkpoints and five-feature simplified
-checkpoints can be evaluated in the same dataset-surface run.
+normalization, so legacy four-feature polished checkpoints, new five-feature
+polished actual-values checkpoints, and five-feature simplified checkpoints can
+be evaluated in the same dataset-surface run.
 
 ## Notes
 

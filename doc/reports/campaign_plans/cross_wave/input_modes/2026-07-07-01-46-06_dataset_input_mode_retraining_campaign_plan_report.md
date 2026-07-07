@@ -27,9 +27,9 @@ The three surfaces are:
 
 The existing polished training configs and loader use actual values. The
 current `polished_point_v1` model input list is `theta`, `theta_dot`,
-`tau_load`, `T`; filename setpoints are not model inputs for those polished
-runs. The previous `simplified_dataset` contract uses path/filename setpoints
-for speed, torque, and temperature.
+`tau_load`, `T`, `direction_flag`; filename setpoints are not model inputs for
+those polished actual-values runs. The previous `simplified_dataset` contract
+uses path/filename setpoints for speed, torque, and temperature.
 
 ## Planned Campaign Matrix
 

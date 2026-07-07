@@ -100,6 +100,10 @@ This folder contains the internal project documents derived from the reference P
   `simplified_dataset` setpoints, `polished_dataset` setpoints, and
   `polished_dataset` actual-value model artifacts.
 
+- [technical/2026-07/2026-07-07/2026-07-07-02-49-01_actual_values_direction_flag_alignment.md](./technical/2026-07/2026-07-07/2026-07-07-02-49-01_actual_values_direction_flag_alignment.md)
+  Technical plan for aligning `polished_dataset` actual-values inputs to the
+  same five-feature width used by setpoint-based retraining paths.
+
 - [scripts/tooling/lan_ai/lan_ai_node_server.md](./scripts/tooling/lan_ai/lan_ai_node_server.md)
   Setup and runtime guide for the remote LAN AI workstation.
 

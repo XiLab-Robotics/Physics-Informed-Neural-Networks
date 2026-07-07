@@ -123,7 +123,10 @@ launcher with local and `-Remote` modes.
 
 Track 2 must:
 
-- evaluate polished-trained candidates with the four-feature schema;
+- evaluate historical polished-trained candidates with their archived
+  four-feature schema;
+- evaluate future polished actual-values candidates with the five-feature
+  schema that appends `direction_flag`;
 - preserve separate global, Fw, and Bw surfaces;
 - use the multi-index curve-first selection policy;
 - retain paper-original and paper-retuned models only as frozen historical

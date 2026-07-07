@@ -66,7 +66,7 @@ SIMPLIFIED_INPUT_FEATURE_NAME_LIST = [
     "oil_temperature_deg",
     "direction_flag",
 ]
-POLISHED_INPUT_FEATURE_NAME_LIST = list(POLISHED_INPUT_COLUMN_NAME_LIST)
+POLISHED_INPUT_FEATURE_NAME_LIST = [*POLISHED_INPUT_COLUMN_NAME_LIST, "direction_flag"]
 POLISHED_SETPOINT_INPUT_FEATURE_NAME_LIST = list(SIMPLIFIED_INPUT_FEATURE_NAME_LIST)
 POLISHED_TARGET_FEATURE_NAME_LIST = [POLISHED_TARGET_COLUMN_NAME]
 SIMPLIFIED_TARGET_FEATURE_NAME_LIST = ["transmission_error_deg"]
@@ -403,7 +403,15 @@ def build_polished_directional_sample(
     operating_condition_metadata = parse_operating_condition_metadata(resolved_csv_file_path)
 
     if normalized_input_mode == ACTUAL_VALUES_INPUT_MODE:
-        input_feature_matrix = polished_dataframe[POLISHED_INPUT_COLUMN_NAME_LIST].to_numpy(dtype=np.float32)
+        measured_input_feature_matrix = polished_dataframe[POLISHED_INPUT_COLUMN_NAME_LIST].to_numpy(dtype=np.float32)
+        direction_feature_column = np.full(
+            (measured_input_feature_matrix.shape[0], 1),
+            direction_flag,
+            dtype=np.float32,
+        )
+        input_feature_matrix = np.column_stack(
+            [measured_input_feature_matrix, direction_feature_column]
+        ).astype(np.float32)
         speed_rpm = float(np.median(polished_dataframe["theta_dot"].to_numpy(dtype=np.float64)))
         torque_nm = float(np.median(polished_dataframe["tau_load"].to_numpy(dtype=np.float64)))
         oil_temperature_deg = float(np.median(polished_dataframe["T"].to_numpy(dtype=np.float64)))
