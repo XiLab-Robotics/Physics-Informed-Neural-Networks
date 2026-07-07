@@ -1,0 +1,107 @@
+schema_version: 1
+config_path: /scratch1/dferrari/Physics-Informed-Neural-Networks/config/training/queue/dataset_input_mode_retraining/dataset_input_mode_retraining__harmonic_regression__simplified_setpoints/running/2026-07-07-22-48-30_003_003_harmonic_regression_bw.yaml
+experiment:
+  model_family: harmonic_regression_bw
+  model_type: harmonic_regression
+  run_name: te_harmonic_regression_bw__simplified_setpoints
+  output_run_name: te_harmonic_regression_bw__simplified_setpoints
+  run_instance_id: 2026-07-07-23-01-08__te_harmonic_regression_bw__simplified_setpoints
+  output_artifact_kind: training_run
+  base_model_family: harmonic_regression
+  training_variant: bw
+  direction_scope_label: backward_only
+  use_forward_direction: false
+  use_backward_direction: true
+artifacts:
+  output_directory: /scratch1/dferrari/Physics-Informed-Neural-Networks/output/training_runs/harmonic_regression/2026-07-07-23-01-08__te_harmonic_regression_bw__simplified_setpoints
+  best_checkpoint_path: /scratch1/dferrari/Physics-Informed-Neural-Networks/output/training_runs/harmonic_regression/2026-07-07-23-01-08__te_harmonic_regression_bw__simplified_setpoints/checkpoints/harmonic_regression-epoch=060-val_mae=0.01698885.ckpt
+dataset_split:
+  train_curve_count: 1356
+  validation_curve_count: 388
+  test_curve_count: 194
+  dataset_name: simplified_dataset
+  dataset_schema: simplified_curve_v1
+  input_mode: setpoints
+  input_feature_name_list:
+  - angular_position_deg
+  - input_speed_rpm
+  - input_torque_nm
+  - oil_temperature_deg
+  - direction_flag
+  target_feature_name_list:
+  - transmission_error_deg
+  input_feature_dim: 5
+  target_feature_dim: 1
+dataset:
+  dataset_id: simplified_dataset
+  dataset_schema: simplified_curve_v1
+  input_mode: setpoints
+  input_feature_names:
+  - angular_position_deg
+  - input_speed_rpm
+  - input_torque_nm
+  - oil_temperature_deg
+  - direction_flag
+  target_feature_names:
+  - transmission_error_deg
+  input_feature_dim: 5
+  target_feature_dim: 1
+model_summary:
+  backbone_name: HarmonicRegression
+  trainable_parameter_count: 150
+  frozen_parameter_count: 0
+  total_parameter_count: 150
+runtime_config:
+  accelerator: auto
+  devices: auto
+  precision: '32'
+  benchmark: true
+  use_non_blocking_transfer: true
+normalization_statistics:
+  input_feature_mean:
+  - 179.96580505371094
+  - 497.86761474609375
+  - 896.015625
+  - 30.364084243774414
+  - -1.3220243317846325e-06
+  input_feature_std:
+  - 103.92515563964844
+  - 466.80902099609375
+  - 543.8320922851562
+  - 4.080519199371338
+  - 1.0
+  target_mean:
+  - -0.01723981276154518
+  target_std:
+  - 0.04652021452784538
+validation_metrics:
+  val_loss: 0.18683332204818726
+  val_mae: 0.0169888474047184
+  val_rmse: 0.0195247083902359
+  val_pointwise_loss: 0.18683332204818726
+  val_centered_curve_shape_loss: 0.003543742233887315
+  val_curve_offset_loss: 0.19714927673339844
+  val_curve_amplitude_loss: 0.0622127540409565
+  val_sparse_harmonic_shape_loss: 0.0
+test_metrics:
+  test_loss: 0.2532525658607483
+  test_mae: 0.020789284259080887
+  test_rmse: 0.02291388250887394
+  test_pointwise_loss: 0.2532525658607483
+  test_centered_curve_shape_loss: 0.0032818999607115984
+  test_curve_offset_loss: 0.22389158606529236
+  test_curve_amplitude_loss: 0.05890350043773651
+  test_sparse_harmonic_shape_loss: 0.0
+comparison_payload:
+  model_family: harmonic_regression_bw
+  model_type: harmonic_regression
+  run_name: te_harmonic_regression_bw__simplified_setpoints
+  backbone_name: HarmonicRegression
+  trainable_parameter_count: 150
+  total_parameter_count: 150
+  val_mae: 0.0169888474047184
+  val_rmse: 0.0195247083902359
+  test_mae: 0.020789284259080887
+  test_rmse: 0.02291388250887394
+  deployment_notes: ''
+  interpretability_notes: ''

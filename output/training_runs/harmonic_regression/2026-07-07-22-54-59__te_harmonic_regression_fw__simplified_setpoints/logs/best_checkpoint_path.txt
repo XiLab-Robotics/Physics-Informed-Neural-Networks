@@ -1,0 +1,1 @@
+/scratch1/dferrari/Physics-Informed-Neural-Networks/output/training_runs/harmonic_regression/2026-07-07-22-54-59__te_harmonic_regression_fw__simplified_setpoints/checkpoints/harmonic_regression-epoch=033-val_mae=0.01699562.ckpt
