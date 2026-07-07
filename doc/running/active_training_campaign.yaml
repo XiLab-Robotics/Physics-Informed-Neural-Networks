@@ -147,10 +147,10 @@ last_completed_campaign:
       te_curve_verification_status: not_run_in_closeout
 next_prepared_campaign:
   status: completed_and_exported
-  campaign_name: dataset_input_mode_retraining__periodic_mlp__polished_setpoints
+  campaign_name: dataset_input_mode_retraining__periodic_mlp__polished_actual_values
   dataset_id: polished_dataset
-  input_mode: setpoints
-  dataset_schema: polished_setpoint_curve_v1
+  input_mode: actual_values
+  dataset_schema: polished_point_v1
   expected_run_count: 3
   completed_run_count: 3
   failed_run_count: 0
@@ -161,61 +161,65 @@ next_prepared_campaign:
     slurm_cpus_per_task: 8
     slurm_memory: 100G
     gpu_request: a100:1
-    observed_gpu_memory_peak_sample: about 6.9 GiB on A100 80GB during sampled batch-16
+    observed_gpu_memory_peak_sample: about 5.0 GiB on A100 80GB during sampled batch-16
       training
-    observed_gpu_utilization_sample: about 11-81 percent across sampled windows, with
-      low samples between kernel bursts
-    observed_throughput: about 9.4-10.2 effective batches per second at 85 batches
-      per epoch, with train-only phases around 13-14 batches per second
-    batch_tuning_note: Batch 16 was retained after the periodic_mlp simplified-setpoint
-      batch-64 probe showed worse wall-clock epoch time despite low VRAM use.
-    comparison_note: Batch 16 completed all three periodic_mlp polished-setpoint surfaces
-      in 47:37. Global completed in 14:06, Fw in 19:06, and Bw in 14:06.
-    next_campaign_recommendation: Use batch 16 for the next periodic_mlp actual-values
-      campaign unless first-epoch samples show a different bottleneck.
+    observed_gpu_utilization_sample: about 21 percent during one sampled training burst,
+      with low samples between kernel bursts
+    observed_cpu_profile: eight PyTorch data workers were active, with worker processes
+      repeatedly consuming about 20-57 percent CPU each during sampled windows
+    observed_throughput: about 8.8-9.5 effective batches per second at 85 batches per
+      epoch, with train-only phases around 12-13 batches per second
+    batch_tuning_note: Batch 16 was retained because the periodic_mlp batch-64 probe
+      completed fewer batches per second and worse estimated epoch wall-clock despite
+      much lower-than-capacity VRAM use.
+    comparison_note: Batch 16 completed all three periodic_mlp polished-actual-values
+      surfaces in 53:14. Global completed in 20:28, Fw in 14:00, and Bw in 18:27.
+    next_campaign_recommendation: Keep surfaces sequential. For the next non-periodic
+      family, run a short batch-size probe only if the model is heavier than periodic_mlp;
+      retain the measured fastest batch size rather than targeting VRAM occupancy alone.
   sbatch_submission:
-    slurm_job_id: '135038'
+    slurm_job_id: '135049'
     state: COMPLETED
     exit_code: 0:0
-    elapsed: 00:47:37
-    max_rss: 15916196K
+    elapsed: 00:53:14
+    max_rss: 16361856K
     python_executable: /unimore_home/dferrari/.conda/envs/pinns_env/bin/python
     torch_version: 2.7.1+cu118
     gpu_request: a100:1
-  campaign_manifest_path: config/training/dataset_input_mode_retraining/campaigns/dataset_input_mode_retraining__periodic_mlp__polished_setpoints/campaign.yaml
-  campaign_output_directory: output/training_campaigns/2026-07-07-20-38-26_dataset_input_mode_retraining__periodic_mlp__polished_setpoints
-  campaign_best_run_path: output/training_campaigns/2026-07-07-20-38-26_dataset_input_mode_retraining__periodic_mlp__polished_setpoints/campaign_best_run.yaml
-  campaign_leaderboard_path: output/training_campaigns/2026-07-07-20-38-26_dataset_input_mode_retraining__periodic_mlp__polished_setpoints/campaign_leaderboard.yaml
+  campaign_manifest_path: config/training/dataset_input_mode_retraining/campaigns/dataset_input_mode_retraining__periodic_mlp__polished_actual_values/campaign.yaml
+  campaign_output_directory: output/training_campaigns/2026-07-07-21-37-50_dataset_input_mode_retraining__periodic_mlp__polished_actual_values
+  campaign_best_run_path: output/training_campaigns/2026-07-07-21-37-50_dataset_input_mode_retraining__periodic_mlp__polished_actual_values/campaign_best_run.yaml
+  campaign_leaderboard_path: output/training_campaigns/2026-07-07-21-37-50_dataset_input_mode_retraining__periodic_mlp__polished_actual_values/campaign_leaderboard.yaml
   best_run:
-    run_name: te_periodic_mlp_fw__polished_setpoints
-    run_instance_id: 2026-07-07-20-52-32__te_periodic_mlp_fw__polished_setpoints
-    surface: forward
-    test_mae: 0.001769796945154667
-    test_rmse: 0.0027697996702045202
-    val_mae: 0.0016240085242316127
+    run_name: te_periodic_mlp_global__polished_actual_values
+    run_instance_id: 2026-07-07-21-37-50__te_periodic_mlp_global__polished_actual_values
+    surface: global
+    test_mae: 0.0018126467475667596
+    test_rmse: 0.0027958706486970186
+    val_mae: 0.0016544470563530922
   surface_run_list:
   - surface: global
-    run_name: te_periodic_mlp_global__polished_setpoints
-    run_instance_id: 2026-07-07-20-38-26__te_periodic_mlp_global__polished_setpoints
-    test_mae: 0.001794113079085946
-    val_mae: 0.0016535355243831873
-    duration: 00:14:06
+    run_name: te_periodic_mlp_global__polished_actual_values
+    run_instance_id: 2026-07-07-21-37-50__te_periodic_mlp_global__polished_actual_values
+    test_mae: 0.0018126467475667596
+    val_mae: 0.0016544470563530922
+    duration: 00:20:28
   - surface: forward
-    run_name: te_periodic_mlp_fw__polished_setpoints
-    run_instance_id: 2026-07-07-20-52-32__te_periodic_mlp_fw__polished_setpoints
-    test_mae: 0.001769796945154667
-    val_mae: 0.0016240085242316127
-    duration: 00:19:06
+    run_name: te_periodic_mlp_fw__polished_actual_values
+    run_instance_id: 2026-07-07-21-58-17__te_periodic_mlp_fw__polished_actual_values
+    test_mae: 0.001876616501249373
+    val_mae: 0.0016892378916963935
+    duration: 00:14:00
   - surface: backward
-    run_name: te_periodic_mlp_bw__polished_setpoints
-    run_instance_id: 2026-07-07-21-11-38__te_periodic_mlp_bw__polished_setpoints
-    test_mae: 0.0018529030494391918
-    val_mae: 0.0016546119004487991
-    duration: 00:14:06
+    run_name: te_periodic_mlp_bw__polished_actual_values
+    run_instance_id: 2026-07-07-22-12-18__te_periodic_mlp_bw__polished_actual_values
+    test_mae: 0.001869144500233233
+    val_mae: 0.0016764510655775666
+    duration: 00:18:27
   export:
     status: completed
-    export_root: models/polished_dataset/setpoints/exported
-    export_inventory_path: models/polished_dataset/setpoints/exported/model_development_export_inventory.yaml
+    export_root: models/polished_dataset/actual_values/exported
+    export_inventory_path: models/polished_dataset/actual_values/exported/model_development_export_inventory.yaml
     exported_entry_count: 3
     onnx_export_status_counts:
       exported: 3
