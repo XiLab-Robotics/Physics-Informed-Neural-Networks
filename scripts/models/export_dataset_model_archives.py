@@ -5,27 +5,17 @@ from __future__ import annotations
 # Import Python Utilities
 import argparse
 import multiprocessing
+import pickle
 import shutil
 import sys
 from pathlib import Path
 from typing import Any
 
-# Import Third-Party Utilities
-import torch
-import torch.nn as nn
 import yaml
 
 PROJECT_PATH = Path(__file__).resolve().parents[2]
 if str(PROJECT_PATH) not in sys.path:
     sys.path.insert(0, str(PROJECT_PATH))
-
-# Import Project Utilities
-from scripts.paper_reimplementation.rcim_ml_compensation.exact_paper_model_bank import (
-    exact_paper_model_bank_support,
-)
-from scripts.training import shared_training_infrastructure
-from scripts.training import tree_regression_support
-from scripts.training.transmission_error_regression_module import TransmissionErrorRegressionModule
 
 TARGET_ONNX_OPSET = 17
 TREE_MODEL_TYPE_SET = {"random_forest", "hist_gradient_boosting"}
@@ -36,27 +26,10 @@ TEMPORAL_MODEL_NAME_TOKEN_LIST = [
     "temporal",
     "latent_dynamics",
 ]
-
-
-class RawInputPredictionExportWrapper(nn.Module):
-
-    """Export wrapper that preserves the raw-input contract for neural models."""
-
-    def __init__(self, regression_module: TransmissionErrorRegressionModule) -> None:
-        super().__init__()
-        self.regression_module = regression_module
-
-    def forward(self, input_tensor: torch.Tensor) -> torch.Tensor:
-
-        """Predict denormalized TE from raw input rows."""
-
-        raw_input_tensor = input_tensor.float()
-        normalized_input_tensor = self.regression_module.normalize_input_tensor(raw_input_tensor)
-        normalized_prediction_tensor, _ = self.regression_module.forward_regression_model(
-            raw_input_tensor,
-            normalized_input_tensor,
-        )
-        return self.regression_module.denormalize_target_tensor(normalized_prediction_tensor)
+COMMON_TRAINING_CONFIG_FILENAME = "training_config.yaml"
+COMMON_METRICS_FILENAME = "metrics_summary.yaml"
+COMMON_RUN_METADATA_FILENAME = "run_metadata.yaml"
+COMMON_RUN_REPORT_FILENAME = "training_test_report.md"
 
 
 def parse_command_line_arguments() -> argparse.Namespace:
@@ -212,7 +185,7 @@ def load_metrics_dictionary(output_directory: Path) -> dict[str, Any]:
 
     """Load metrics summary for one run."""
 
-    metrics_path = output_directory / shared_training_infrastructure.COMMON_METRICS_FILENAME
+    metrics_path = output_directory / COMMON_METRICS_FILENAME
     assert metrics_path.exists(), f"Missing metrics summary | {metrics_path}"
     return load_yaml_dictionary(metrics_path)
 
@@ -221,7 +194,7 @@ def load_training_config(output_directory: Path) -> dict[str, Any]:
 
     """Load training config snapshot for one run."""
 
-    training_config_path = output_directory / shared_training_infrastructure.COMMON_TRAINING_CONFIG_FILENAME
+    training_config_path = output_directory / COMMON_TRAINING_CONFIG_FILENAME
     assert training_config_path.exists(), f"Missing training config | {training_config_path}"
     return load_yaml_dictionary(training_config_path)
 
@@ -284,9 +257,14 @@ def build_archive_run_list(
     return archive_run_list
 
 
-def load_neural_regression_module(training_config: dict[str, Any], checkpoint_path: Path) -> TransmissionErrorRegressionModule:
+def load_neural_regression_module(training_config: dict[str, Any], checkpoint_path: Path):
 
     """Load one Lightning checkpoint for ONNX export."""
+
+    import torch
+
+    from scripts.training import shared_training_infrastructure
+    from scripts.training.transmission_error_regression_module import TransmissionErrorRegressionModule
 
     datamodule, _, _, normalization_statistics = shared_training_infrastructure.initialize_training_components(
         training_config
@@ -311,18 +289,26 @@ def export_tree_model_to_onnx(training_config: dict[str, Any], python_model_path
 
     """Export one tree model to ONNX."""
 
-    estimator = tree_regression_support.load_tree_model(python_model_path)
+    from skl2onnx import convert_sklearn
+    from skl2onnx.common.data_types import FloatTensorType
+
+    with python_model_path.open("rb") as input_file:
+        estimator = pickle.load(input_file)
     configured_feature_count = training_config["model"].get("input_size")
     if str(configured_feature_count).strip().lower() == "auto":
         configured_feature_count = None
-    feature_count = exact_paper_model_bank_support.resolve_exact_export_feature_count(
-        estimator=estimator,
-        fallback_feature_count=int(configured_feature_count) if configured_feature_count is not None else None,
+    feature_count = int(
+        getattr(
+            estimator,
+            "n_features_in_",
+            int(configured_feature_count) if configured_feature_count is not None else 0,
+        )
     )
-    onnx_model = exact_paper_model_bank_support._convert_estimator_to_onnx(
-        estimator=estimator,
-        feature_count=feature_count,
-        estimator_name=estimator.__class__.__name__,
+    assert feature_count > 0, f"Unable to resolve tree export feature count | {python_model_path}"
+    initial_types = [("float_input", FloatTensorType([None, feature_count]))]
+    onnx_model = convert_sklearn(
+        estimator,
+        initial_types=initial_types,
         target_opset=TARGET_ONNX_OPSET,
     )
     onnx_output_path.parent.mkdir(parents=True, exist_ok=True)
@@ -331,9 +317,9 @@ def export_tree_model_to_onnx(training_config: dict[str, Any], python_model_path
 
 
 def build_neural_export_dummy_input(
-    regression_module: TransmissionErrorRegressionModule,
+    regression_module,
     training_config: dict[str, Any],
-) -> torch.Tensor:
+):
 
     """Build a raw-input example tensor that matches the trained model contract."""
 
@@ -361,6 +347,29 @@ def build_neural_export_dummy_input(
 def export_neural_model_to_onnx(training_config: dict[str, Any], checkpoint_path: Path, onnx_output_path: Path) -> None:
 
     """Export one neural model checkpoint to ONNX."""
+
+    import torch
+    import torch.nn as nn
+
+    class RawInputPredictionExportWrapper(nn.Module):
+
+        """Export wrapper that preserves the raw-input contract for neural models."""
+
+        def __init__(self, regression_module) -> None:
+            super().__init__()
+            self.regression_module = regression_module
+
+        def forward(self, input_tensor):
+
+            """Predict denormalized TE from raw input rows."""
+
+            raw_input_tensor = input_tensor.float()
+            normalized_input_tensor = self.regression_module.normalize_input_tensor(raw_input_tensor)
+            normalized_prediction_tensor, _ = self.regression_module.forward_regression_model(
+                raw_input_tensor,
+                normalized_input_tensor,
+            )
+            return self.regression_module.denormalize_target_tensor(normalized_prediction_tensor)
 
     regression_module = load_neural_regression_module(training_config, checkpoint_path)
     export_wrapper = RawInputPredictionExportWrapper(regression_module)
@@ -490,10 +499,10 @@ def copy_run_provenance(output_directory: Path, destination_root: Path) -> dict[
     source_run_root = destination_root / "source_run"
     source_run_root.mkdir(parents=True, exist_ok=True)
     source_target_map = {
-        "training_config.snapshot.yaml": output_directory / shared_training_infrastructure.COMMON_TRAINING_CONFIG_FILENAME,
-        "metrics_summary.snapshot.yaml": output_directory / shared_training_infrastructure.COMMON_METRICS_FILENAME,
-        "run_metadata.snapshot.yaml": output_directory / shared_training_infrastructure.COMMON_RUN_METADATA_FILENAME,
-        "training_test_report.snapshot.md": output_directory / shared_training_infrastructure.COMMON_RUN_REPORT_FILENAME,
+        "training_config.snapshot.yaml": output_directory / COMMON_TRAINING_CONFIG_FILENAME,
+        "metrics_summary.snapshot.yaml": output_directory / COMMON_METRICS_FILENAME,
+        "run_metadata.snapshot.yaml": output_directory / COMMON_RUN_METADATA_FILENAME,
+        "training_test_report.snapshot.md": output_directory / COMMON_RUN_REPORT_FILENAME,
     }
     optional_pointer_path = output_directory / "best_checkpoint_path.txt"
     if optional_pointer_path.exists():
