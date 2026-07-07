@@ -13,74 +13,74 @@ entries:
   dataset_id: simplified_dataset
   dataset_schema: simplified_curve_v1
   input_mode: setpoints
-  model_family: residual_harmonic_mlp
-  model_type: residual_harmonic_mlp
+  model_family: feedforward
+  model_type: feedforward
   surface: global
-  run_name: te_residual_harmonic_mlp_global__simplified_setpoints
-  run_instance_id: 2026-07-07-10-46-08__te_residual_harmonic_mlp_global__simplified_setpoints
-  source_output_directory: output/training_runs/residual_harmonic_mlp/2026-07-07-10-46-08__te_residual_harmonic_mlp_global__simplified_setpoints
-  source_best_checkpoint_path: output/training_runs/residual_harmonic_mlp/2026-07-07-10-46-08__te_residual_harmonic_mlp_global__simplified_setpoints/checkpoints/residual_harmonic_mlp-epoch=010-val_mae=0.00315844.ckpt
-  python_model_path: models/simplified_dataset/setpoints/exported/residual_harmonic_mlp/global/2026-07-07-10-46-08__te_residual_harmonic_mlp_global__simplified_setpoints/python/residual_harmonic_mlp-epoch=010-val_mae=0.00315844.ckpt
-  onnx_model_path: models/simplified_dataset/setpoints/exported/residual_harmonic_mlp/global/2026-07-07-10-46-08__te_residual_harmonic_mlp_global__simplified_setpoints/onnx/model.onnx
+  run_name: te_feedforward_global__simplified_setpoints
+  run_instance_id: 2026-07-07-16-02-57__te_feedforward_global__simplified_setpoints
+  source_output_directory: output/training_runs/feedforward/2026-07-07-16-02-57__te_feedforward_global__simplified_setpoints
+  source_best_checkpoint_path: output/training_runs/feedforward/2026-07-07-16-02-57__te_feedforward_global__simplified_setpoints/checkpoints/feedforward-epoch=095-val_mae=0.00296788.ckpt
+  python_model_path: models/simplified_dataset/setpoints/exported/feedforward/global/2026-07-07-16-02-57__te_feedforward_global__simplified_setpoints/python/feedforward-epoch=095-val_mae=0.00296788.ckpt
+  onnx_model_path: models/simplified_dataset/setpoints/exported/feedforward/global/2026-07-07-16-02-57__te_feedforward_global__simplified_setpoints/onnx/model.onnx
   onnx_export_status: exported
   onnx_export_error: ''
   source_run_snapshot_path_map:
-    training_config.snapshot.yaml: models/simplified_dataset/setpoints/exported/residual_harmonic_mlp/global/2026-07-07-10-46-08__te_residual_harmonic_mlp_global__simplified_setpoints/source_run/training_config.snapshot.yaml
-    metrics_summary.snapshot.yaml: models/simplified_dataset/setpoints/exported/residual_harmonic_mlp/global/2026-07-07-10-46-08__te_residual_harmonic_mlp_global__simplified_setpoints/source_run/metrics_summary.snapshot.yaml
-    run_metadata.snapshot.yaml: models/simplified_dataset/setpoints/exported/residual_harmonic_mlp/global/2026-07-07-10-46-08__te_residual_harmonic_mlp_global__simplified_setpoints/source_run/run_metadata.snapshot.yaml
-    training_test_report.snapshot.md: models/simplified_dataset/setpoints/exported/residual_harmonic_mlp/global/2026-07-07-10-46-08__te_residual_harmonic_mlp_global__simplified_setpoints/source_run/training_test_report.snapshot.md
-    best_checkpoint_path.snapshot.txt: models/simplified_dataset/setpoints/exported/residual_harmonic_mlp/global/2026-07-07-10-46-08__te_residual_harmonic_mlp_global__simplified_setpoints/source_run/best_checkpoint_path.snapshot.txt
+    training_config.snapshot.yaml: models/simplified_dataset/setpoints/exported/feedforward/global/2026-07-07-16-02-57__te_feedforward_global__simplified_setpoints/source_run/training_config.snapshot.yaml
+    metrics_summary.snapshot.yaml: models/simplified_dataset/setpoints/exported/feedforward/global/2026-07-07-16-02-57__te_feedforward_global__simplified_setpoints/source_run/metrics_summary.snapshot.yaml
+    run_metadata.snapshot.yaml: models/simplified_dataset/setpoints/exported/feedforward/global/2026-07-07-16-02-57__te_feedforward_global__simplified_setpoints/source_run/run_metadata.snapshot.yaml
+    training_test_report.snapshot.md: models/simplified_dataset/setpoints/exported/feedforward/global/2026-07-07-16-02-57__te_feedforward_global__simplified_setpoints/source_run/training_test_report.snapshot.md
+    best_checkpoint_path.snapshot.txt: models/simplified_dataset/setpoints/exported/feedforward/global/2026-07-07-16-02-57__te_feedforward_global__simplified_setpoints/source_run/best_checkpoint_path.snapshot.txt
   metrics:
-    val_mae: 0.0031584405805915594
-    test_mae: 0.0035480265505611897
-    test_rmse: 0.004085883963853121
+    val_mae: 0.0029678812716156244
+    test_mae: 0.0032426551915705204
+    test_rmse: 0.0038749626837670803
 - schema_version: 1
   dataset_id: simplified_dataset
   dataset_schema: simplified_curve_v1
   input_mode: setpoints
-  model_family: residual_harmonic_mlp
-  model_type: residual_harmonic_mlp
+  model_family: feedforward
+  model_type: feedforward
   surface: forward
-  run_name: te_residual_harmonic_mlp_fw__simplified_setpoints
-  run_instance_id: 2026-07-07-10-54-26__te_residual_harmonic_mlp_fw__simplified_setpoints
-  source_output_directory: output/training_runs/residual_harmonic_mlp/2026-07-07-10-54-26__te_residual_harmonic_mlp_fw__simplified_setpoints
-  source_best_checkpoint_path: output/training_runs/residual_harmonic_mlp/2026-07-07-10-54-26__te_residual_harmonic_mlp_fw__simplified_setpoints/checkpoints/residual_harmonic_mlp-epoch=079-val_mae=0.00306417.ckpt
-  python_model_path: models/simplified_dataset/setpoints/exported/residual_harmonic_mlp/forward/2026-07-07-10-54-26__te_residual_harmonic_mlp_fw__simplified_setpoints/python/residual_harmonic_mlp-epoch=079-val_mae=0.00306417.ckpt
-  onnx_model_path: models/simplified_dataset/setpoints/exported/residual_harmonic_mlp/forward/2026-07-07-10-54-26__te_residual_harmonic_mlp_fw__simplified_setpoints/onnx/model.onnx
+  run_name: te_feedforward_fw__simplified_setpoints
+  run_instance_id: 2026-07-07-16-21-15__te_feedforward_fw__simplified_setpoints
+  source_output_directory: output/training_runs/feedforward/2026-07-07-16-21-15__te_feedforward_fw__simplified_setpoints
+  source_best_checkpoint_path: output/training_runs/feedforward/2026-07-07-16-21-15__te_feedforward_fw__simplified_setpoints/checkpoints/feedforward-epoch=057-val_mae=0.00299942.ckpt
+  python_model_path: models/simplified_dataset/setpoints/exported/feedforward/forward/2026-07-07-16-21-15__te_feedforward_fw__simplified_setpoints/python/feedforward-epoch=057-val_mae=0.00299942.ckpt
+  onnx_model_path: models/simplified_dataset/setpoints/exported/feedforward/forward/2026-07-07-16-21-15__te_feedforward_fw__simplified_setpoints/onnx/model.onnx
   onnx_export_status: exported
   onnx_export_error: ''
   source_run_snapshot_path_map:
-    training_config.snapshot.yaml: models/simplified_dataset/setpoints/exported/residual_harmonic_mlp/forward/2026-07-07-10-54-26__te_residual_harmonic_mlp_fw__simplified_setpoints/source_run/training_config.snapshot.yaml
-    metrics_summary.snapshot.yaml: models/simplified_dataset/setpoints/exported/residual_harmonic_mlp/forward/2026-07-07-10-54-26__te_residual_harmonic_mlp_fw__simplified_setpoints/source_run/metrics_summary.snapshot.yaml
-    run_metadata.snapshot.yaml: models/simplified_dataset/setpoints/exported/residual_harmonic_mlp/forward/2026-07-07-10-54-26__te_residual_harmonic_mlp_fw__simplified_setpoints/source_run/run_metadata.snapshot.yaml
-    training_test_report.snapshot.md: models/simplified_dataset/setpoints/exported/residual_harmonic_mlp/forward/2026-07-07-10-54-26__te_residual_harmonic_mlp_fw__simplified_setpoints/source_run/training_test_report.snapshot.md
-    best_checkpoint_path.snapshot.txt: models/simplified_dataset/setpoints/exported/residual_harmonic_mlp/forward/2026-07-07-10-54-26__te_residual_harmonic_mlp_fw__simplified_setpoints/source_run/best_checkpoint_path.snapshot.txt
+    training_config.snapshot.yaml: models/simplified_dataset/setpoints/exported/feedforward/forward/2026-07-07-16-21-15__te_feedforward_fw__simplified_setpoints/source_run/training_config.snapshot.yaml
+    metrics_summary.snapshot.yaml: models/simplified_dataset/setpoints/exported/feedforward/forward/2026-07-07-16-21-15__te_feedforward_fw__simplified_setpoints/source_run/metrics_summary.snapshot.yaml
+    run_metadata.snapshot.yaml: models/simplified_dataset/setpoints/exported/feedforward/forward/2026-07-07-16-21-15__te_feedforward_fw__simplified_setpoints/source_run/run_metadata.snapshot.yaml
+    training_test_report.snapshot.md: models/simplified_dataset/setpoints/exported/feedforward/forward/2026-07-07-16-21-15__te_feedforward_fw__simplified_setpoints/source_run/training_test_report.snapshot.md
+    best_checkpoint_path.snapshot.txt: models/simplified_dataset/setpoints/exported/feedforward/forward/2026-07-07-16-21-15__te_feedforward_fw__simplified_setpoints/source_run/best_checkpoint_path.snapshot.txt
   metrics:
-    val_mae: 0.0030641737394034863
-    test_mae: 0.003217733232304454
-    test_rmse: 0.0037231810856610537
+    val_mae: 0.0029994226060807705
+    test_mae: 0.0034230139572173357
+    test_rmse: 0.004082460422068834
 - schema_version: 1
   dataset_id: simplified_dataset
   dataset_schema: simplified_curve_v1
   input_mode: setpoints
-  model_family: residual_harmonic_mlp
-  model_type: residual_harmonic_mlp
+  model_family: feedforward
+  model_type: feedforward
   surface: backward
-  run_name: te_residual_harmonic_mlp_bw__simplified_setpoints
-  run_instance_id: 2026-07-07-11-09-49__te_residual_harmonic_mlp_bw__simplified_setpoints
-  source_output_directory: output/training_runs/residual_harmonic_mlp/2026-07-07-11-09-49__te_residual_harmonic_mlp_bw__simplified_setpoints
-  source_best_checkpoint_path: output/training_runs/residual_harmonic_mlp/2026-07-07-11-09-49__te_residual_harmonic_mlp_bw__simplified_setpoints/checkpoints/residual_harmonic_mlp-epoch=032-val_mae=0.00306476.ckpt
-  python_model_path: models/simplified_dataset/setpoints/exported/residual_harmonic_mlp/backward/2026-07-07-11-09-49__te_residual_harmonic_mlp_bw__simplified_setpoints/python/residual_harmonic_mlp-epoch=032-val_mae=0.00306476.ckpt
-  onnx_model_path: models/simplified_dataset/setpoints/exported/residual_harmonic_mlp/backward/2026-07-07-11-09-49__te_residual_harmonic_mlp_bw__simplified_setpoints/onnx/model.onnx
+  run_name: te_feedforward_bw__simplified_setpoints
+  run_instance_id: 2026-07-07-16-34-46__te_feedforward_bw__simplified_setpoints
+  source_output_directory: output/training_runs/feedforward/2026-07-07-16-34-46__te_feedforward_bw__simplified_setpoints
+  source_best_checkpoint_path: output/training_runs/feedforward/2026-07-07-16-34-46__te_feedforward_bw__simplified_setpoints/checkpoints/feedforward-epoch=128-val_mae=0.00297364.ckpt
+  python_model_path: models/simplified_dataset/setpoints/exported/feedforward/backward/2026-07-07-16-34-46__te_feedforward_bw__simplified_setpoints/python/feedforward-epoch=128-val_mae=0.00297364.ckpt
+  onnx_model_path: models/simplified_dataset/setpoints/exported/feedforward/backward/2026-07-07-16-34-46__te_feedforward_bw__simplified_setpoints/onnx/model.onnx
   onnx_export_status: exported
   onnx_export_error: ''
   source_run_snapshot_path_map:
-    training_config.snapshot.yaml: models/simplified_dataset/setpoints/exported/residual_harmonic_mlp/backward/2026-07-07-11-09-49__te_residual_harmonic_mlp_bw__simplified_setpoints/source_run/training_config.snapshot.yaml
-    metrics_summary.snapshot.yaml: models/simplified_dataset/setpoints/exported/residual_harmonic_mlp/backward/2026-07-07-11-09-49__te_residual_harmonic_mlp_bw__simplified_setpoints/source_run/metrics_summary.snapshot.yaml
-    run_metadata.snapshot.yaml: models/simplified_dataset/setpoints/exported/residual_harmonic_mlp/backward/2026-07-07-11-09-49__te_residual_harmonic_mlp_bw__simplified_setpoints/source_run/run_metadata.snapshot.yaml
-    training_test_report.snapshot.md: models/simplified_dataset/setpoints/exported/residual_harmonic_mlp/backward/2026-07-07-11-09-49__te_residual_harmonic_mlp_bw__simplified_setpoints/source_run/training_test_report.snapshot.md
-    best_checkpoint_path.snapshot.txt: models/simplified_dataset/setpoints/exported/residual_harmonic_mlp/backward/2026-07-07-11-09-49__te_residual_harmonic_mlp_bw__simplified_setpoints/source_run/best_checkpoint_path.snapshot.txt
+    training_config.snapshot.yaml: models/simplified_dataset/setpoints/exported/feedforward/backward/2026-07-07-16-34-46__te_feedforward_bw__simplified_setpoints/source_run/training_config.snapshot.yaml
+    metrics_summary.snapshot.yaml: models/simplified_dataset/setpoints/exported/feedforward/backward/2026-07-07-16-34-46__te_feedforward_bw__simplified_setpoints/source_run/metrics_summary.snapshot.yaml
+    run_metadata.snapshot.yaml: models/simplified_dataset/setpoints/exported/feedforward/backward/2026-07-07-16-34-46__te_feedforward_bw__simplified_setpoints/source_run/run_metadata.snapshot.yaml
+    training_test_report.snapshot.md: models/simplified_dataset/setpoints/exported/feedforward/backward/2026-07-07-16-34-46__te_feedforward_bw__simplified_setpoints/source_run/training_test_report.snapshot.md
+    best_checkpoint_path.snapshot.txt: models/simplified_dataset/setpoints/exported/feedforward/backward/2026-07-07-16-34-46__te_feedforward_bw__simplified_setpoints/source_run/best_checkpoint_path.snapshot.txt
   metrics:
-    val_mae: 0.0030647595413029194
-    test_mae: 0.0033803635742515326
-    test_rmse: 0.0038681598380208015
+    val_mae: 0.002973637543618679
+    test_mae: 0.0033409877214580774
+    test_rmse: 0.003985952120274305

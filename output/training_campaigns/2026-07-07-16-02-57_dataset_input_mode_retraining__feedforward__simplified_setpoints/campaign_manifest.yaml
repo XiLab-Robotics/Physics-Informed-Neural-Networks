@@ -1,0 +1,69 @@
+campaign_name: dataset_input_mode_retraining__feedforward__simplified_setpoints
+generated_at: '2026-07-07T16:56:41'
+queue_root: config/training/queue/dataset_input_mode_retraining/dataset_input_mode_retraining__feedforward__simplified_setpoints
+campaign_output_directory: output/training_campaigns/2026-07-07-16-02-57_dataset_input_mode_retraining__feedforward__simplified_setpoints
+planning_report_path: doc/reports/campaign_plans/cross_wave/input_modes/2026-07-07-01-46-06_dataset_input_mode_retraining_campaign_plan_report.md
+run_list:
+- original_queue_config_path: config/training/queue/dataset_input_mode_retraining/dataset_input_mode_retraining__feedforward__simplified_setpoints/pending/2026-07-07-16-02-57_001_001_feedforward_global.yaml
+  final_queue_config_path: config/training/queue/dataset_input_mode_retraining/dataset_input_mode_retraining__feedforward__simplified_setpoints/completed/2026-07-07-16-02-57_001_001_feedforward_global.yaml
+  source_config_path: config/training/dataset_input_mode_retraining/campaigns/dataset_input_mode_retraining__feedforward__simplified_setpoints/queue/001_feedforward_global.yaml
+  run_name: te_feedforward_global__simplified_setpoints
+  run_instance_id: 2026-07-07-16-02-57__te_feedforward_global__simplified_setpoints
+  model_type: feedforward
+  queue_status: completed
+  start_time: '2026-07-07T16:02:57'
+  end_time: '2026-07-07T16:21:15'
+  duration_seconds: 1098.069
+  process_return_code: 0
+  output_directory: output/training_runs/feedforward/2026-07-07-16-02-57__te_feedforward_global__simplified_setpoints
+  config_snapshot_path: output/training_runs/feedforward/2026-07-07-16-02-57__te_feedforward_global__simplified_setpoints/training_config.yaml
+  best_checkpoint_reference_path: output/training_runs/feedforward/2026-07-07-16-02-57__te_feedforward_global__simplified_setpoints/best_checkpoint_path.txt
+  best_checkpoint_path: /scratch1/dferrari/Physics-Informed-Neural-Networks/output/training_runs/feedforward/2026-07-07-16-02-57__te_feedforward_global__simplified_setpoints/checkpoints/feedforward-epoch=095-val_mae=0.00296788.ckpt
+  metrics_path: output/training_runs/feedforward/2026-07-07-16-02-57__te_feedforward_global__simplified_setpoints/metrics_summary.yaml
+  training_report_path: output/training_runs/feedforward/2026-07-07-16-02-57__te_feedforward_global__simplified_setpoints/training_test_report.md
+  log_path: output/training_campaigns/2026-07-07-16-02-57_dataset_input_mode_retraining__feedforward__simplified_setpoints/logs/001_te_feedforward_global__simplified_setpoints.log
+  planning_report_path: doc/reports/campaign_plans/cross_wave/input_modes/2026-07-07-01-46-06_dataset_input_mode_retraining_campaign_plan_report.md
+  campaign_name: dataset_input_mode_retraining__feedforward__simplified_setpoints
+  error_message: null
+- original_queue_config_path: config/training/queue/dataset_input_mode_retraining/dataset_input_mode_retraining__feedforward__simplified_setpoints/pending/2026-07-07-16-02-57_002_002_feedforward_fw.yaml
+  final_queue_config_path: config/training/queue/dataset_input_mode_retraining/dataset_input_mode_retraining__feedforward__simplified_setpoints/completed/2026-07-07-16-02-57_002_002_feedforward_fw.yaml
+  source_config_path: config/training/dataset_input_mode_retraining/campaigns/dataset_input_mode_retraining__feedforward__simplified_setpoints/queue/002_feedforward_fw.yaml
+  run_name: te_feedforward_fw__simplified_setpoints
+  run_instance_id: 2026-07-07-16-21-15__te_feedforward_fw__simplified_setpoints
+  model_type: feedforward
+  queue_status: completed
+  start_time: '2026-07-07T16:21:15'
+  end_time: '2026-07-07T16:34:46'
+  duration_seconds: 810.408
+  process_return_code: 0
+  output_directory: output/training_runs/feedforward/2026-07-07-16-21-15__te_feedforward_fw__simplified_setpoints
+  config_snapshot_path: output/training_runs/feedforward/2026-07-07-16-21-15__te_feedforward_fw__simplified_setpoints/training_config.yaml
+  best_checkpoint_reference_path: output/training_runs/feedforward/2026-07-07-16-21-15__te_feedforward_fw__simplified_setpoints/best_checkpoint_path.txt
+  best_checkpoint_path: /scratch1/dferrari/Physics-Informed-Neural-Networks/output/training_runs/feedforward/2026-07-07-16-21-15__te_feedforward_fw__simplified_setpoints/checkpoints/feedforward-epoch=057-val_mae=0.00299942.ckpt
+  metrics_path: output/training_runs/feedforward/2026-07-07-16-21-15__te_feedforward_fw__simplified_setpoints/metrics_summary.yaml
+  training_report_path: output/training_runs/feedforward/2026-07-07-16-21-15__te_feedforward_fw__simplified_setpoints/training_test_report.md
+  log_path: output/training_campaigns/2026-07-07-16-02-57_dataset_input_mode_retraining__feedforward__simplified_setpoints/logs/002_te_feedforward_fw__simplified_setpoints.log
+  planning_report_path: doc/reports/campaign_plans/cross_wave/input_modes/2026-07-07-01-46-06_dataset_input_mode_retraining_campaign_plan_report.md
+  campaign_name: dataset_input_mode_retraining__feedforward__simplified_setpoints
+  error_message: null
+- original_queue_config_path: config/training/queue/dataset_input_mode_retraining/dataset_input_mode_retraining__feedforward__simplified_setpoints/pending/2026-07-07-16-02-57_003_003_feedforward_bw.yaml
+  final_queue_config_path: config/training/queue/dataset_input_mode_retraining/dataset_input_mode_retraining__feedforward__simplified_setpoints/completed/2026-07-07-16-02-57_003_003_feedforward_bw.yaml
+  source_config_path: config/training/dataset_input_mode_retraining/campaigns/dataset_input_mode_retraining__feedforward__simplified_setpoints/queue/003_feedforward_bw.yaml
+  run_name: te_feedforward_bw__simplified_setpoints
+  run_instance_id: 2026-07-07-16-34-46__te_feedforward_bw__simplified_setpoints
+  model_type: feedforward
+  queue_status: completed
+  start_time: '2026-07-07T16:34:46'
+  end_time: '2026-07-07T16:56:41'
+  duration_seconds: 1314.667
+  process_return_code: 0
+  output_directory: output/training_runs/feedforward/2026-07-07-16-34-46__te_feedforward_bw__simplified_setpoints
+  config_snapshot_path: output/training_runs/feedforward/2026-07-07-16-34-46__te_feedforward_bw__simplified_setpoints/training_config.yaml
+  best_checkpoint_reference_path: output/training_runs/feedforward/2026-07-07-16-34-46__te_feedforward_bw__simplified_setpoints/best_checkpoint_path.txt
+  best_checkpoint_path: /scratch1/dferrari/Physics-Informed-Neural-Networks/output/training_runs/feedforward/2026-07-07-16-34-46__te_feedforward_bw__simplified_setpoints/checkpoints/feedforward-epoch=128-val_mae=0.00297364.ckpt
+  metrics_path: output/training_runs/feedforward/2026-07-07-16-34-46__te_feedforward_bw__simplified_setpoints/metrics_summary.yaml
+  training_report_path: output/training_runs/feedforward/2026-07-07-16-34-46__te_feedforward_bw__simplified_setpoints/training_test_report.md
+  log_path: output/training_campaigns/2026-07-07-16-02-57_dataset_input_mode_retraining__feedforward__simplified_setpoints/logs/003_te_feedforward_bw__simplified_setpoints.log
+  planning_report_path: doc/reports/campaign_plans/cross_wave/input_modes/2026-07-07-01-46-06_dataset_input_mode_retraining_campaign_plan_report.md
+  campaign_name: dataset_input_mode_retraining__feedforward__simplified_setpoints
+  error_message: null
