@@ -13,74 +13,74 @@ entries:
   dataset_id: simplified_dataset
   dataset_schema: simplified_curve_v1
   input_mode: setpoints
-  model_family: feedforward
-  model_type: feedforward
+  model_family: periodic_mlp
+  model_type: periodic_mlp
   surface: global
-  run_name: te_feedforward_global__simplified_setpoints
-  run_instance_id: 2026-07-07-16-02-57__te_feedforward_global__simplified_setpoints
-  source_output_directory: output/training_runs/feedforward/2026-07-07-16-02-57__te_feedforward_global__simplified_setpoints
-  source_best_checkpoint_path: output/training_runs/feedforward/2026-07-07-16-02-57__te_feedforward_global__simplified_setpoints/checkpoints/feedforward-epoch=095-val_mae=0.00296788.ckpt
-  python_model_path: models/simplified_dataset/setpoints/exported/feedforward/global/2026-07-07-16-02-57__te_feedforward_global__simplified_setpoints/python/feedforward-epoch=095-val_mae=0.00296788.ckpt
-  onnx_model_path: models/simplified_dataset/setpoints/exported/feedforward/global/2026-07-07-16-02-57__te_feedforward_global__simplified_setpoints/onnx/model.onnx
+  run_name: te_periodic_mlp_global__simplified_setpoints
+  run_instance_id: 2026-07-07-20-03-02__te_periodic_mlp_global__simplified_setpoints
+  source_output_directory: output/training_runs/periodic_mlp/2026-07-07-20-03-02__te_periodic_mlp_global__simplified_setpoints
+  source_best_checkpoint_path: output/training_runs/periodic_mlp/2026-07-07-20-03-02__te_periodic_mlp_global__simplified_setpoints/checkpoints/periodic_mlp-epoch=090-val_mae=0.00301298.ckpt
+  python_model_path: models/simplified_dataset/setpoints/exported/periodic_mlp/global/2026-07-07-20-03-02__te_periodic_mlp_global__simplified_setpoints/python/periodic_mlp-epoch=090-val_mae=0.00301298.ckpt
+  onnx_model_path: models/simplified_dataset/setpoints/exported/periodic_mlp/global/2026-07-07-20-03-02__te_periodic_mlp_global__simplified_setpoints/onnx/model.onnx
   onnx_export_status: exported
   onnx_export_error: ''
   source_run_snapshot_path_map:
-    training_config.snapshot.yaml: models/simplified_dataset/setpoints/exported/feedforward/global/2026-07-07-16-02-57__te_feedforward_global__simplified_setpoints/source_run/training_config.snapshot.yaml
-    metrics_summary.snapshot.yaml: models/simplified_dataset/setpoints/exported/feedforward/global/2026-07-07-16-02-57__te_feedforward_global__simplified_setpoints/source_run/metrics_summary.snapshot.yaml
-    run_metadata.snapshot.yaml: models/simplified_dataset/setpoints/exported/feedforward/global/2026-07-07-16-02-57__te_feedforward_global__simplified_setpoints/source_run/run_metadata.snapshot.yaml
-    training_test_report.snapshot.md: models/simplified_dataset/setpoints/exported/feedforward/global/2026-07-07-16-02-57__te_feedforward_global__simplified_setpoints/source_run/training_test_report.snapshot.md
-    best_checkpoint_path.snapshot.txt: models/simplified_dataset/setpoints/exported/feedforward/global/2026-07-07-16-02-57__te_feedforward_global__simplified_setpoints/source_run/best_checkpoint_path.snapshot.txt
+    training_config.snapshot.yaml: models/simplified_dataset/setpoints/exported/periodic_mlp/global/2026-07-07-20-03-02__te_periodic_mlp_global__simplified_setpoints/source_run/training_config.snapshot.yaml
+    metrics_summary.snapshot.yaml: models/simplified_dataset/setpoints/exported/periodic_mlp/global/2026-07-07-20-03-02__te_periodic_mlp_global__simplified_setpoints/source_run/metrics_summary.snapshot.yaml
+    run_metadata.snapshot.yaml: models/simplified_dataset/setpoints/exported/periodic_mlp/global/2026-07-07-20-03-02__te_periodic_mlp_global__simplified_setpoints/source_run/run_metadata.snapshot.yaml
+    training_test_report.snapshot.md: models/simplified_dataset/setpoints/exported/periodic_mlp/global/2026-07-07-20-03-02__te_periodic_mlp_global__simplified_setpoints/source_run/training_test_report.snapshot.md
+    best_checkpoint_path.snapshot.txt: models/simplified_dataset/setpoints/exported/periodic_mlp/global/2026-07-07-20-03-02__te_periodic_mlp_global__simplified_setpoints/source_run/best_checkpoint_path.snapshot.txt
   metrics:
-    val_mae: 0.0029678812716156244
-    test_mae: 0.0032426551915705204
-    test_rmse: 0.0038749626837670803
+    val_mae: 0.003012983128428459
+    test_mae: 0.003345954231917858
+    test_rmse: 0.004047157242894173
 - schema_version: 1
   dataset_id: simplified_dataset
   dataset_schema: simplified_curve_v1
   input_mode: setpoints
-  model_family: feedforward
-  model_type: feedforward
+  model_family: periodic_mlp
+  model_type: periodic_mlp
   surface: forward
-  run_name: te_feedforward_fw__simplified_setpoints
-  run_instance_id: 2026-07-07-16-21-15__te_feedforward_fw__simplified_setpoints
-  source_output_directory: output/training_runs/feedforward/2026-07-07-16-21-15__te_feedforward_fw__simplified_setpoints
-  source_best_checkpoint_path: output/training_runs/feedforward/2026-07-07-16-21-15__te_feedforward_fw__simplified_setpoints/checkpoints/feedforward-epoch=057-val_mae=0.00299942.ckpt
-  python_model_path: models/simplified_dataset/setpoints/exported/feedforward/forward/2026-07-07-16-21-15__te_feedforward_fw__simplified_setpoints/python/feedforward-epoch=057-val_mae=0.00299942.ckpt
-  onnx_model_path: models/simplified_dataset/setpoints/exported/feedforward/forward/2026-07-07-16-21-15__te_feedforward_fw__simplified_setpoints/onnx/model.onnx
+  run_name: te_periodic_mlp_fw__simplified_setpoints
+  run_instance_id: 2026-07-07-20-14-15__te_periodic_mlp_fw__simplified_setpoints
+  source_output_directory: output/training_runs/periodic_mlp/2026-07-07-20-14-15__te_periodic_mlp_fw__simplified_setpoints
+  source_best_checkpoint_path: output/training_runs/periodic_mlp/2026-07-07-20-14-15__te_periodic_mlp_fw__simplified_setpoints/checkpoints/periodic_mlp-epoch=037-val_mae=0.00302141.ckpt
+  python_model_path: models/simplified_dataset/setpoints/exported/periodic_mlp/forward/2026-07-07-20-14-15__te_periodic_mlp_fw__simplified_setpoints/python/periodic_mlp-epoch=037-val_mae=0.00302141.ckpt
+  onnx_model_path: models/simplified_dataset/setpoints/exported/periodic_mlp/forward/2026-07-07-20-14-15__te_periodic_mlp_fw__simplified_setpoints/onnx/model.onnx
   onnx_export_status: exported
   onnx_export_error: ''
   source_run_snapshot_path_map:
-    training_config.snapshot.yaml: models/simplified_dataset/setpoints/exported/feedforward/forward/2026-07-07-16-21-15__te_feedforward_fw__simplified_setpoints/source_run/training_config.snapshot.yaml
-    metrics_summary.snapshot.yaml: models/simplified_dataset/setpoints/exported/feedforward/forward/2026-07-07-16-21-15__te_feedforward_fw__simplified_setpoints/source_run/metrics_summary.snapshot.yaml
-    run_metadata.snapshot.yaml: models/simplified_dataset/setpoints/exported/feedforward/forward/2026-07-07-16-21-15__te_feedforward_fw__simplified_setpoints/source_run/run_metadata.snapshot.yaml
-    training_test_report.snapshot.md: models/simplified_dataset/setpoints/exported/feedforward/forward/2026-07-07-16-21-15__te_feedforward_fw__simplified_setpoints/source_run/training_test_report.snapshot.md
-    best_checkpoint_path.snapshot.txt: models/simplified_dataset/setpoints/exported/feedforward/forward/2026-07-07-16-21-15__te_feedforward_fw__simplified_setpoints/source_run/best_checkpoint_path.snapshot.txt
+    training_config.snapshot.yaml: models/simplified_dataset/setpoints/exported/periodic_mlp/forward/2026-07-07-20-14-15__te_periodic_mlp_fw__simplified_setpoints/source_run/training_config.snapshot.yaml
+    metrics_summary.snapshot.yaml: models/simplified_dataset/setpoints/exported/periodic_mlp/forward/2026-07-07-20-14-15__te_periodic_mlp_fw__simplified_setpoints/source_run/metrics_summary.snapshot.yaml
+    run_metadata.snapshot.yaml: models/simplified_dataset/setpoints/exported/periodic_mlp/forward/2026-07-07-20-14-15__te_periodic_mlp_fw__simplified_setpoints/source_run/run_metadata.snapshot.yaml
+    training_test_report.snapshot.md: models/simplified_dataset/setpoints/exported/periodic_mlp/forward/2026-07-07-20-14-15__te_periodic_mlp_fw__simplified_setpoints/source_run/training_test_report.snapshot.md
+    best_checkpoint_path.snapshot.txt: models/simplified_dataset/setpoints/exported/periodic_mlp/forward/2026-07-07-20-14-15__te_periodic_mlp_fw__simplified_setpoints/source_run/best_checkpoint_path.snapshot.txt
   metrics:
-    val_mae: 0.0029994226060807705
-    test_mae: 0.0034230139572173357
-    test_rmse: 0.004082460422068834
+    val_mae: 0.00302141229622066
+    test_mae: 0.003418538486585021
+    test_rmse: 0.004130506422370672
 - schema_version: 1
   dataset_id: simplified_dataset
   dataset_schema: simplified_curve_v1
   input_mode: setpoints
-  model_family: feedforward
-  model_type: feedforward
+  model_family: periodic_mlp
+  model_type: periodic_mlp
   surface: backward
-  run_name: te_feedforward_bw__simplified_setpoints
-  run_instance_id: 2026-07-07-16-34-46__te_feedforward_bw__simplified_setpoints
-  source_output_directory: output/training_runs/feedforward/2026-07-07-16-34-46__te_feedforward_bw__simplified_setpoints
-  source_best_checkpoint_path: output/training_runs/feedforward/2026-07-07-16-34-46__te_feedforward_bw__simplified_setpoints/checkpoints/feedforward-epoch=128-val_mae=0.00297364.ckpt
-  python_model_path: models/simplified_dataset/setpoints/exported/feedforward/backward/2026-07-07-16-34-46__te_feedforward_bw__simplified_setpoints/python/feedforward-epoch=128-val_mae=0.00297364.ckpt
-  onnx_model_path: models/simplified_dataset/setpoints/exported/feedforward/backward/2026-07-07-16-34-46__te_feedforward_bw__simplified_setpoints/onnx/model.onnx
+  run_name: te_periodic_mlp_bw__simplified_setpoints
+  run_instance_id: 2026-07-07-20-20-54__te_periodic_mlp_bw__simplified_setpoints
+  source_output_directory: output/training_runs/periodic_mlp/2026-07-07-20-20-54__te_periodic_mlp_bw__simplified_setpoints
+  source_best_checkpoint_path: output/training_runs/periodic_mlp/2026-07-07-20-20-54__te_periodic_mlp_bw__simplified_setpoints/checkpoints/periodic_mlp-epoch=062-val_mae=0.00301630.ckpt
+  python_model_path: models/simplified_dataset/setpoints/exported/periodic_mlp/backward/2026-07-07-20-20-54__te_periodic_mlp_bw__simplified_setpoints/python/periodic_mlp-epoch=062-val_mae=0.00301630.ckpt
+  onnx_model_path: models/simplified_dataset/setpoints/exported/periodic_mlp/backward/2026-07-07-20-20-54__te_periodic_mlp_bw__simplified_setpoints/onnx/model.onnx
   onnx_export_status: exported
   onnx_export_error: ''
   source_run_snapshot_path_map:
-    training_config.snapshot.yaml: models/simplified_dataset/setpoints/exported/feedforward/backward/2026-07-07-16-34-46__te_feedforward_bw__simplified_setpoints/source_run/training_config.snapshot.yaml
-    metrics_summary.snapshot.yaml: models/simplified_dataset/setpoints/exported/feedforward/backward/2026-07-07-16-34-46__te_feedforward_bw__simplified_setpoints/source_run/metrics_summary.snapshot.yaml
-    run_metadata.snapshot.yaml: models/simplified_dataset/setpoints/exported/feedforward/backward/2026-07-07-16-34-46__te_feedforward_bw__simplified_setpoints/source_run/run_metadata.snapshot.yaml
-    training_test_report.snapshot.md: models/simplified_dataset/setpoints/exported/feedforward/backward/2026-07-07-16-34-46__te_feedforward_bw__simplified_setpoints/source_run/training_test_report.snapshot.md
-    best_checkpoint_path.snapshot.txt: models/simplified_dataset/setpoints/exported/feedforward/backward/2026-07-07-16-34-46__te_feedforward_bw__simplified_setpoints/source_run/best_checkpoint_path.snapshot.txt
+    training_config.snapshot.yaml: models/simplified_dataset/setpoints/exported/periodic_mlp/backward/2026-07-07-20-20-54__te_periodic_mlp_bw__simplified_setpoints/source_run/training_config.snapshot.yaml
+    metrics_summary.snapshot.yaml: models/simplified_dataset/setpoints/exported/periodic_mlp/backward/2026-07-07-20-20-54__te_periodic_mlp_bw__simplified_setpoints/source_run/metrics_summary.snapshot.yaml
+    run_metadata.snapshot.yaml: models/simplified_dataset/setpoints/exported/periodic_mlp/backward/2026-07-07-20-20-54__te_periodic_mlp_bw__simplified_setpoints/source_run/run_metadata.snapshot.yaml
+    training_test_report.snapshot.md: models/simplified_dataset/setpoints/exported/periodic_mlp/backward/2026-07-07-20-20-54__te_periodic_mlp_bw__simplified_setpoints/source_run/training_test_report.snapshot.md
+    best_checkpoint_path.snapshot.txt: models/simplified_dataset/setpoints/exported/periodic_mlp/backward/2026-07-07-20-20-54__te_periodic_mlp_bw__simplified_setpoints/source_run/best_checkpoint_path.snapshot.txt
   metrics:
-    val_mae: 0.002973637543618679
-    test_mae: 0.0033409877214580774
-    test_rmse: 0.003985952120274305
+    val_mae: 0.0030162991024553776
+    test_mae: 0.003445959184318781
+    test_rmse: 0.004162132274359465

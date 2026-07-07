@@ -147,10 +147,10 @@ last_completed_campaign:
       te_curve_verification_status: not_run_in_closeout
 next_prepared_campaign:
   status: completed_and_exported
-  campaign_name: dataset_input_mode_retraining__feedforward__polished_actual_values
-  dataset_id: polished_dataset
-  input_mode: actual_values
-  dataset_schema: polished_point_v1
+  campaign_name: dataset_input_mode_retraining__periodic_mlp__simplified_setpoints
+  dataset_id: simplified_dataset
+  input_mode: setpoints
+  dataset_schema: simplified_curve_v1
   expected_run_count: 3
   completed_run_count: 3
   failed_run_count: 0
@@ -161,62 +161,66 @@ next_prepared_campaign:
     slurm_cpus_per_task: 8
     slurm_memory: 100G
     gpu_request: a100:1
-    observed_gpu_memory_peak_sample: about 52.7 GiB on A100 80GB during backward training
-    observed_gpu_utilization_sample: about 52-90 percent across sampled active training
-      windows
-    observed_throughput: about 7.7-8.2 effective batches per second at 85 batches
-      per epoch, with train-only phases around 10.3-11.2 batches per second
-    comparison_note: Batch 16 completed all three feedforward polished actual-values
-      surfaces in 1:28:18. Global completed in 30:52, Fw in 34:06, and Bw in 22:41.
-      Actual-values convergence ran longer than polished setpoints while maintaining
-      stable throughput.
-    next_campaign_recommendation: For the next comparable feedforward-like neural
-      campaign, keep 8 workers and consider a short batch-24 smoke measurement before
-      using batch 24/32 for a full run; batch 16 is stable and already uses about
-      45-53 GiB on active samples.
+    observed_gpu_memory_peak_sample: about 7.6 GiB on A100 80GB during batch-16 official
+      training samples
+    observed_gpu_utilization_sample: about 27-45 percent during sampled active training
+      windows; occasional low samples occurred between kernel bursts
+    observed_throughput: about 16-18 effective batches per second at 85 batches per
+      epoch for batch 16
+    batch_tuning_note: 'A cancelled preliminary batch-64 probe used about 7.2 GiB
+      but was slower in wall-clock epoch time: 22 batches at about 3.7-4.0 batches
+      per second, or about 5.5-6.0 seconds per epoch, versus about 4.7-5.2 seconds
+      per epoch for batch 16. Batch 16 was kept for the official run.'
+    comparison_note: Batch 16 completed all three periodic_mlp simplified-setpoint
+      surfaces in 27:04. Global completed in 11:13, Fw in 6:39, and Bw in 8:51.
+    next_campaign_recommendation: For lightweight periodic MLP variants, use throughput-based
+      tuning rather than VRAM filling; batch 16 is currently faster than batch 64
+      on Aries for this data/model shape.
   sbatch_submission:
-    slurm_job_id: '135027'
+    slurm_job_id: '135035'
     state: COMPLETED
     exit_code: 0:0
-    elapsed: 01:28:18
-    max_rss: 17841100K
+    elapsed: 00:27:04
+    max_rss: 15637192K
     python_executable: /unimore_home/dferrari/.conda/envs/pinns_env/bin/python
     torch_version: 2.7.1+cu118
     gpu_request: a100:1
-  campaign_manifest_path: config/training/dataset_input_mode_retraining/campaigns/dataset_input_mode_retraining__feedforward__polished_actual_values/campaign.yaml
-  campaign_output_directory: output/training_campaigns/2026-07-07-18-12-11_dataset_input_mode_retraining__feedforward__polished_actual_values
-  campaign_best_run_path: output/training_campaigns/2026-07-07-18-12-11_dataset_input_mode_retraining__feedforward__polished_actual_values/campaign_best_run.yaml
-  campaign_leaderboard_path: output/training_campaigns/2026-07-07-18-12-11_dataset_input_mode_retraining__feedforward__polished_actual_values/campaign_leaderboard.yaml
+  campaign_manifest_path: config/training/dataset_input_mode_retraining/campaigns/dataset_input_mode_retraining__periodic_mlp__simplified_setpoints/campaign.yaml
+  campaign_output_directory: output/training_campaigns/2026-07-07-20-03-02_dataset_input_mode_retraining__periodic_mlp__simplified_setpoints
+  campaign_best_run_path: output/training_campaigns/2026-07-07-20-03-02_dataset_input_mode_retraining__periodic_mlp__simplified_setpoints/campaign_best_run.yaml
+  campaign_leaderboard_path: output/training_campaigns/2026-07-07-20-03-02_dataset_input_mode_retraining__periodic_mlp__simplified_setpoints/campaign_leaderboard.yaml
   best_run:
-    run_name: te_feedforward_fw__polished_actual_values
-    run_instance_id: 2026-07-07-18-43-03__te_feedforward_fw__polished_actual_values
-    surface: forward
-    test_mae: 0.0017583367880433798
-    test_rmse: 0.002735764253884554
-    val_mae: 0.001615521963685751
+    run_name: te_periodic_mlp_global__simplified_setpoints
+    run_instance_id: 2026-07-07-20-03-02__te_periodic_mlp_global__simplified_setpoints
+    surface: global
+    test_mae: 0.003345954231917858
+    test_rmse: 0.004047157242894173
+    val_mae: 0.003012983128428459
   surface_run_list:
-  - surface: forward
-    run_name: te_feedforward_fw__polished_actual_values
-    run_instance_id: 2026-07-07-18-43-03__te_feedforward_fw__polished_actual_values
-    test_mae: 0.0017583367880433798
-    val_mae: 0.001615521963685751
-    duration: 00:34:06
   - surface: global
-    run_name: te_feedforward_global__polished_actual_values
-    run_instance_id: 2026-07-07-18-12-11__te_feedforward_global__polished_actual_values
-    test_mae: 0.0018092994578182697
-    val_mae: 0.0016080763889476657
-    duration: 00:30:52
+    run_name: te_periodic_mlp_global__simplified_setpoints
+    run_instance_id: 2026-07-07-20-03-02__te_periodic_mlp_global__simplified_setpoints
+    test_mae: 0.003345954231917858
+    val_mae: 0.003012983128428459
+    duration: 00:11:13
+  - surface: forward
+    run_name: te_periodic_mlp_fw__simplified_setpoints
+    run_instance_id: 2026-07-07-20-14-15__te_periodic_mlp_fw__simplified_setpoints
+    test_mae: 0.003418538486585021
+    val_mae: 0.00302141229622066
+    duration: 00:06:39
   - surface: backward
-    run_name: te_feedforward_bw__polished_actual_values
-    run_instance_id: 2026-07-07-19-17-09__te_feedforward_bw__polished_actual_values
-    test_mae: 0.0018327736761420965
-    val_mae: 0.00164740567561239
-    duration: 00:22:41
+    run_name: te_periodic_mlp_bw__simplified_setpoints
+    run_instance_id: 2026-07-07-20-20-54__te_periodic_mlp_bw__simplified_setpoints
+    test_mae: 0.003445959184318781
+    val_mae: 0.0030162991024553776
+    duration: 00:08:51
   export:
     status: completed
-    export_root: models/polished_dataset/actual_values/exported
-    export_inventory_path: models/polished_dataset/actual_values/exported/model_development_export_inventory.yaml
+    export_root: models/simplified_dataset/setpoints/exported
+    export_inventory_path: models/simplified_dataset/setpoints/exported/model_development_export_inventory.yaml
     exported_entry_count: 3
     onnx_export_status_counts:
       exported: 3
+    onnx_export_warning_note: ONNX export completed with PyTorch TracerWarning from
+      periodic_feature_network.py while tracing fixed harmonic multipliers.

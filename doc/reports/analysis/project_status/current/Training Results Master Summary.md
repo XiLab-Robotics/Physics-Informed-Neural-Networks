@@ -2,7 +2,7 @@
 
 ## Executive Snapshot
 
-- Generated At: `2026-07-07T19:39:55`
+- Generated At: `2026-07-07T20:29:50`
 - Program State: active.
 - Current Completed Wave: polished-dataset RCIM, early-wave, and full-wave
 - Current Focus: the polished-dataset TE Curve Verification Pipeline refresh is
@@ -35,7 +35,7 @@
 | `tree_global` | Implemented Benchmark | `te_tree_global__polished_setpoints` | `hist_gradient_boosting` | 0.001699 | 5 | `2026-07-07 10:07:53` |
 | `residual_harmonic_mlp_global` | Implemented Benchmark | `te_residual_harmonic_mlp_global` | `residual_harmonic_mlp` | 0.001710 | 26,138 | `2026-07-07 13:50:19` |
 | `feedforward_global` | Implemented Benchmark | `te_feedforward_global` | `feedforward` | 0.001734 | 109,697 | `2026-07-07 18:43:03` |
-| `periodic_mlp_global` | Implemented Benchmark | `te_periodic_mlp_global` | `periodic_mlp` | 0.001741 | 27,137 | `2026-06-29 19:46:45` |
+| `periodic_mlp_global` | Implemented Benchmark | `te_periodic_mlp_global` | `periodic_mlp` | 0.001741 | 27,137 | `2026-07-07 20:14:15` |
 | `wave4_3_mixture_density_k2_global` | Implemented Benchmark | `te_wave4_3_mixture_density_k2_global` | `curve_aware_harmonic_residual_offset_probe` | 0.001743 | 86,400 | `2026-07-01 14:38:05` |
 | `tree` | Implemented Benchmark | `te_hist_gbr_tabular_global` | `hist_gradient_boosting` | 0.001753 | 4 | `2026-06-22 16:58:47` |
 | `wave4_2_quantile_p10_p50_p90_global` | Implemented Benchmark | `te_wave4_2_quantile_p10_p50_p90_global` | `curve_aware_harmonic_residual_offset_probe` | 0.001878 | 85,824 | `2026-07-01 09:37:13` |
@@ -117,7 +117,7 @@
 | `wave4_3_mixture_density_k2_fw` | Implemented Benchmark | `te_wave4_3_mixture_density_k2_fw` | `curve_aware_harmonic_residual_offset_probe` | 0.001698 | 86,400 | `2026-07-01 15:51:08` |
 | `tree_fw` | Implemented Benchmark | `te_tree_fw__polished_setpoints` | `hist_gradient_boosting` | 0.001699 | 5 | `2026-07-07 10:07:54` |
 | `feedforward_fw` | Implemented Benchmark | `te_feedforward_fw` | `feedforward` | 0.001726 | 109,697 | `2026-07-07 19:17:09` |
-| `periodic_mlp_fw` | Implemented Benchmark | `te_periodic_mlp_fw` | `periodic_mlp` | 0.001742 | 27,137 | `2026-06-29 20:02:16` |
+| `periodic_mlp_fw` | Implemented Benchmark | `te_periodic_mlp_fw` | `periodic_mlp` | 0.001742 | 27,137 | `2026-07-07 20:20:54` |
 | `residual_harmonic_mlp_fw` | Implemented Benchmark | `te_residual_harmonic_mlp_fw__polished_setpoints` | `residual_harmonic_mlp` | 0.001759 | 26,266 | `2026-07-07 14:15:24` |
 | `wave4_2_gaussian_nll_fw` | Implemented Benchmark | `te_wave4_2_gaussian_nll_fw` | `curve_aware_harmonic_residual_offset_probe` | 0.001914 | 85,632 | `2026-07-01 12:57:09` |
 | `wave4_2_quantile_p10_p50_p90_fw` | Implemented Benchmark | `te_wave4_2_quantile_p10_p50_p90_fw` | `curve_aware_harmonic_residual_offset_probe` | 0.001914 | 85,824 | `2026-07-01 10:36:42` |
@@ -187,7 +187,7 @@
 | `wave4_3_mixture_density_k3_bw` | Implemented Benchmark | `te_wave4_3_mixture_density_k3_bw` | `curve_aware_harmonic_residual_offset_probe` | 0.001704 | 86,976 | `2026-07-01 19:49:53` |
 | `residual_harmonic_mlp_bw` | Implemented Benchmark | `te_residual_harmonic_mlp_bw` | `residual_harmonic_mlp` | 0.001712 | 26,138 | `2026-07-07 14:47:50` |
 | `wave4_3_mixture_density_k2_bw` | Implemented Benchmark | `te_wave4_3_mixture_density_k2_bw` | `curve_aware_harmonic_residual_offset_probe` | 0.001725 | 86,400 | `2026-07-01 16:40:21` |
-| `periodic_mlp_bw` | Implemented Benchmark | `te_periodic_mlp_bw` | `periodic_mlp` | 0.001740 | 27,137 | `2026-06-29 20:22:24` |
+| `periodic_mlp_bw` | Implemented Benchmark | `te_periodic_mlp_bw` | `periodic_mlp` | 0.001740 | 27,137 | `2026-07-07 20:29:45` |
 | `wave4_2_quantile_p10_p50_p90_bw` | Implemented Benchmark | `te_wave4_2_quantile_p10_p50_p90_bw` | `curve_aware_harmonic_residual_offset_probe` | 0.001888 | 85,824 | `2026-07-01 11:22:24` |
 | `wave3_2_harmonic_residual_offset_bw` | Implemented Benchmark | `te_wave3_2_harmonic_residual_offset_bw` | `harmonic_residual_offset_probe` | 0.001894 | 85,440 | `2026-06-30 20:13:16` |
 | `wave3_3_raw_offset_curve_aware_bw` | Implemented Benchmark | `te_wave3_3_raw_offset_curve_aware_bw` | `curve_aware_harmonic_residual_offset_probe` | 0.001898 | 85,440 | `2026-07-01 01:29:25` |
@@ -427,11 +427,11 @@ Low-priority exploratory families currently listed in the backlog:
 
 | Campaign | Generated At | Completed | Failed | Winner | Impact |
 | --- | --- | ---: | ---: | --- | --- |
+| `dataset_input_mode_retraining__periodic_mlp__simplified_setpoints` | `2026-07-07 20:29:45` | 3 | 0 | `te_periodic_mlp_global__simplified_setpoints` | No family-best change |
 | `dataset_input_mode_retraining__feedforward__polished_actual_values` | `2026-07-07 19:39:50` | 3 | 0 | `te_feedforward_fw__polished_actual_values` | No family-best change |
 | `dataset_input_mode_retraining__feedforward__polished_setpoints` | `2026-07-07 17:59:36` | 3 | 0 | `te_feedforward_bw__polished_setpoints` | No family-best change |
 | `dataset_input_mode_retraining__feedforward__simplified_setpoints` | `2026-07-07 16:56:41` | 3 | 0 | `te_feedforward_global__simplified_setpoints` | No family-best change |
 | `dataset_input_mode_retraining__residual_harmonic_mlp__polished_actual_values` | `2026-07-07 14:47:50` | 3 | 0 | `te_residual_harmonic_mlp_bw__polished_actual_values` | No family-best change |
-| `dataset_input_mode_retraining__residual_harmonic_mlp__polished_setpoints` | `2026-07-07 13:03:04` | 3 | 0 | `te_residual_harmonic_mlp_bw__polished_setpoints` | No family-best change |
 
 ## Ranking Policy
 
@@ -1915,7 +1915,7 @@ Known failed campaign attempts for this family:
 
 - Best run: `te_periodic_mlp_h04_standard_global_optuna_t0010`
 - Best test MAE: `0.003186`
-- Completed tracked runs: `12`
+- Completed tracked runs: `15`
 - Known failed campaign attempts: `0`
 
 | Rank | Run | Model Type | Test MAE [deg] | Test RMSE [deg] | Val MAE [deg] | Params | Duration | Artifact Size | Model Complexity | Training Heaviness | Campaign |
@@ -1930,8 +1930,11 @@ Known failed campaign attempts for this family:
 | 8 | `te_periodic_mlp_h04_standard_global_optuna_t0008` | `periodic_mlp` | 0.003200 | 0.003798 | 0.003057 | 46,721 | N/A | 0.56 MB | Medium | Unknown | `standalone_or_unknown` |
 | 9 | `te_periodic_mlp_h04_standard_global_optuna_t0006` | `periodic_mlp` | 0.003233 | 0.003733 | 0.002964 | 27,777 | N/A | 0.34 MB | Medium | Unknown | `standalone_or_unknown` |
 | 10 | `te_periodic_mlp_rcim_sparse_tracking_global` | `periodic_mlp` | 0.003275 | 0.003726 | 0.002863 | 28,545 | 7h 47m 34s | 0.35 MB | Medium | Very High | `wave1_periodic_mlp_explicit_harmonic_tracking_campaign_2026_05_20_22_42_49` |
-| 11 | `te_periodic_mlp_dense240_tracking_global` | `periodic_mlp` | 0.003348 | 0.003862 | 0.002962 | 87,681 | 20m 22s | 1.03 MB | High | Medium | `wave1_periodic_mlp_explicit_harmonic_tracking_campaign_2026_05_20_22_42_49` |
-| 12 | `te_periodic_mlp_dense360_tracking_global` | `periodic_mlp` | 0.003401 | 0.003831 | 0.002859 | 118,401 | 50m 45s | 1.38 MB | High | High | `wave1_periodic_mlp_explicit_harmonic_tracking_campaign_2026_05_20_22_42_49` |
+| 11 | `te_periodic_mlp_global__simplified_setpoints` | `periodic_mlp` | 0.003346 | 0.004047 | 0.003013 | 27,265 | 11m 13s | 0.33 MB | Medium | Low | `dataset_input_mode_retraining__periodic_mlp__simplified_setpoints` |
+| 12 | `te_periodic_mlp_dense240_tracking_global` | `periodic_mlp` | 0.003348 | 0.003862 | 0.002962 | 87,681 | 20m 22s | 1.03 MB | High | Medium | `wave1_periodic_mlp_explicit_harmonic_tracking_campaign_2026_05_20_22_42_49` |
+| 13 | `te_periodic_mlp_dense360_tracking_global` | `periodic_mlp` | 0.003401 | 0.003831 | 0.002859 | 118,401 | 50m 45s | 1.38 MB | High | High | `wave1_periodic_mlp_explicit_harmonic_tracking_campaign_2026_05_20_22_42_49` |
+| 14 | `te_periodic_mlp_fw__simplified_setpoints` | `periodic_mlp` | 0.003419 | 0.004131 | 0.003021 | 27,265 | 6m 39s | 0.33 MB | Medium | Low | `dataset_input_mode_retraining__periodic_mlp__simplified_setpoints` |
+| 15 | `te_periodic_mlp_bw__simplified_setpoints` | `periodic_mlp` | 0.003446 | 0.004162 | 0.003016 | 27,265 | 8m 51s | 0.33 MB | Medium | Low | `dataset_input_mode_retraining__periodic_mlp__simplified_setpoints` |
 
 #### periodic_mlp_bw
 

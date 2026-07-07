@@ -1,0 +1,131 @@
+schema_version: 1
+campaign_name: dataset_input_mode_retraining__periodic_mlp__simplified_setpoints
+selection_policy:
+  primary_metric: test_mae
+  first_tie_breaker: test_rmse
+  second_tie_breaker: val_mae
+  third_tie_breaker: trainable_parameter_count
+  direction: minimize
+updated_at: '2026-07-07T20:29:45'
+entry_count: 3
+entry_list:
+- run_instance_id: 2026-07-07-20-03-02__te_periodic_mlp_global__simplified_setpoints
+  run_name: te_periodic_mlp_global__simplified_setpoints
+  output_run_name: te_periodic_mlp_global__simplified_setpoints
+  output_artifact_kind: training_run
+  model_family: periodic_mlp_global
+  base_model_family: periodic_mlp
+  model_type: periodic_mlp
+  dataset_id: simplified_dataset
+  dataset_schema: simplified_curve_v1
+  input_mode: setpoints
+  input_feature_names:
+  - angular_position_deg
+  - input_speed_rpm
+  - input_torque_nm
+  - oil_temperature_deg
+  - direction_flag
+  target_feature_names:
+  - transmission_error_deg
+  input_feature_dim: 5
+  training_variant: global
+  direction_scope_label: bidirectional
+  use_forward_direction: true
+  use_backward_direction: true
+  trainable_parameter_count: 27265
+  total_parameter_count: 27265
+  val_mae: 0.003012983128428459
+  val_rmse: 0.003695656545460224
+  test_mae: 0.003345954231917858
+  test_rmse: 0.004047157242894173
+  output_directory: output\training_runs\periodic_mlp\2026-07-07-20-03-02__te_periodic_mlp_global__simplified_setpoints
+  best_checkpoint_path: output\training_runs\periodic_mlp\2026-07-07-20-03-02__te_periodic_mlp_global__simplified_setpoints\checkpoints\periodic_mlp-epoch=090-val_mae=0.00301298.ckpt
+  metrics_path: output\training_runs\periodic_mlp\2026-07-07-20-03-02__te_periodic_mlp_global__simplified_setpoints/metrics_summary.yaml
+  report_path: output\training_runs\periodic_mlp\2026-07-07-20-03-02__te_periodic_mlp_global__simplified_setpoints/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-07-07T20:29:45'
+- run_instance_id: 2026-07-07-20-14-15__te_periodic_mlp_fw__simplified_setpoints
+  run_name: te_periodic_mlp_fw__simplified_setpoints
+  output_run_name: te_periodic_mlp_fw__simplified_setpoints
+  output_artifact_kind: training_run
+  model_family: periodic_mlp_fw
+  base_model_family: periodic_mlp
+  model_type: periodic_mlp
+  dataset_id: simplified_dataset
+  dataset_schema: simplified_curve_v1
+  input_mode: setpoints
+  input_feature_names:
+  - angular_position_deg
+  - input_speed_rpm
+  - input_torque_nm
+  - oil_temperature_deg
+  - direction_flag
+  target_feature_names:
+  - transmission_error_deg
+  input_feature_dim: 5
+  training_variant: fw
+  direction_scope_label: forward_only
+  use_forward_direction: true
+  use_backward_direction: false
+  trainable_parameter_count: 27265
+  total_parameter_count: 27265
+  val_mae: 0.00302141229622066
+  val_rmse: 0.0037526125088334084
+  test_mae: 0.003418538486585021
+  test_rmse: 0.004130506422370672
+  output_directory: output\training_runs\periodic_mlp\2026-07-07-20-14-15__te_periodic_mlp_fw__simplified_setpoints
+  best_checkpoint_path: output\training_runs\periodic_mlp\2026-07-07-20-14-15__te_periodic_mlp_fw__simplified_setpoints\checkpoints\periodic_mlp-epoch=037-val_mae=0.00302141.ckpt
+  metrics_path: output\training_runs\periodic_mlp\2026-07-07-20-14-15__te_periodic_mlp_fw__simplified_setpoints/metrics_summary.yaml
+  report_path: output\training_runs\periodic_mlp\2026-07-07-20-14-15__te_periodic_mlp_fw__simplified_setpoints/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-07-07T20:29:45'
+- run_instance_id: 2026-07-07-20-20-54__te_periodic_mlp_bw__simplified_setpoints
+  run_name: te_periodic_mlp_bw__simplified_setpoints
+  output_run_name: te_periodic_mlp_bw__simplified_setpoints
+  output_artifact_kind: training_run
+  model_family: periodic_mlp_bw
+  base_model_family: periodic_mlp
+  model_type: periodic_mlp
+  dataset_id: simplified_dataset
+  dataset_schema: simplified_curve_v1
+  input_mode: setpoints
+  input_feature_names:
+  - angular_position_deg
+  - input_speed_rpm
+  - input_torque_nm
+  - oil_temperature_deg
+  - direction_flag
+  target_feature_names:
+  - transmission_error_deg
+  input_feature_dim: 5
+  training_variant: bw
+  direction_scope_label: backward_only
+  use_forward_direction: false
+  use_backward_direction: true
+  trainable_parameter_count: 27265
+  total_parameter_count: 27265
+  val_mae: 0.0030162991024553776
+  val_rmse: 0.0037339688278734684
+  test_mae: 0.003445959184318781
+  test_rmse: 0.004162132274359465
+  output_directory: output\training_runs\periodic_mlp\2026-07-07-20-20-54__te_periodic_mlp_bw__simplified_setpoints
+  best_checkpoint_path: output\training_runs\periodic_mlp\2026-07-07-20-20-54__te_periodic_mlp_bw__simplified_setpoints\checkpoints\periodic_mlp-epoch=062-val_mae=0.00301630.ckpt
+  metrics_path: output\training_runs\periodic_mlp\2026-07-07-20-20-54__te_periodic_mlp_bw__simplified_setpoints/metrics_summary.yaml
+  report_path: output\training_runs\periodic_mlp\2026-07-07-20-20-54__te_periodic_mlp_bw__simplified_setpoints/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-07-07T20:29:45'

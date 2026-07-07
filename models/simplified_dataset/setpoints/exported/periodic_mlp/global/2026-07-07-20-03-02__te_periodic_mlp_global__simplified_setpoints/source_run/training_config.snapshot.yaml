@@ -1,0 +1,68 @@
+paths:
+  dataset_config_path: config/datasets/transmission_error_dataset.yaml
+  output_root: output/training_runs/periodic_mlp
+experiment:
+  run_name: te_periodic_mlp_global__simplified_setpoints
+  model_family: periodic_mlp_global
+  model_type: periodic_mlp
+metadata:
+  campaign_name: dataset_input_mode_retraining__periodic_mlp__simplified_setpoints
+  planning_report_path: doc/reports/campaign_plans/cross_wave/input_modes/2026-07-07-01-46-06_dataset_input_mode_retraining_campaign_plan_report.md
+  phase_name: dataset_input_mode_retraining
+  campaign_config_id: periodic_mlp_global
+  notes: Periodic MLP with moderate harmonic feature expansion. Directional Wave 1
+    retraining variant prepared from the current `periodic_mlp` family-best source
+    config with `global` data scope.
+  random_seed: 42
+  base_model_family: periodic_mlp
+  training_variant: global
+  direction_scope_label: bidirectional
+  use_forward_direction: true
+  use_backward_direction: true
+  technical_document_path: doc/technical/2026-07/2026-07-07/2026-07-07-01-46-06_dataset_input_mode_retraining_campaigns.md
+  source_config_path: config/training/queue/polished_dataset_full_wave_retraining/completed/2026-06-29-15-54-17_010_010_periodic_mlp_global.yaml
+  dataset_schema: simplified_curve_v1
+  queue_index: 1
+  output_artifact_kind: training_run
+  output_run_name: te_periodic_mlp_global__simplified_setpoints
+  dataset_name: simplified_dataset
+  input_mode: setpoints
+  source_dataset_root: data/simplified_dataset
+  expected_model_archive_root: models/simplified_dataset/setpoints/exported
+  run_instance_id: 2026-07-07-20-03-02__te_periodic_mlp_global__simplified_setpoints
+dataset:
+  curve_batch_size: 16
+  point_stride: 5
+  maximum_points_per_curve: null
+  num_workers: 8
+  pin_memory: true
+  name: simplified_dataset
+  input_mode: setpoints
+model:
+  input_size: auto
+  output_size: 1
+  hidden_size:
+  - 128
+  - 128
+  - 64
+  activation_name: GELU
+  dropout_probability: 0.1
+  use_layer_norm: true
+  harmonic_order: 4
+  include_raw_angle_feature: true
+training:
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  min_epochs: 20
+  max_epochs: 250
+  patience: 35
+  min_delta: 1.0e-05
+  log_every_n_steps: 1
+  fast_dev_run: false
+  deterministic: false
+runtime:
+  accelerator: auto
+  devices: auto
+  precision: '32'
+  benchmark: true
+  use_non_blocking_transfer: true
