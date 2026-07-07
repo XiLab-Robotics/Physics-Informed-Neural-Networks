@@ -1,0 +1,131 @@
+schema_version: 1
+campaign_name: dataset_input_mode_retraining__periodic_mlp_harmonic__simplified_setpoints
+selection_policy:
+  primary_metric: test_mae
+  first_tie_breaker: test_rmse
+  second_tie_breaker: val_mae
+  third_tie_breaker: trainable_parameter_count
+  direction: minimize
+updated_at: '2026-07-08T01:27:11'
+entry_count: 3
+entry_list:
+- run_instance_id: 2026-07-08-01-11-12__te_periodic_mlp_harmonic_fw__simplified_setpoints
+  run_name: te_periodic_mlp_harmonic_fw__simplified_setpoints
+  output_run_name: te_periodic_mlp_harmonic_fw__simplified_setpoints
+  output_artifact_kind: training_run
+  model_family: periodic_mlp_harmonic_fw
+  base_model_family: periodic_mlp_harmonic
+  model_type: periodic_mlp
+  dataset_id: simplified_dataset
+  dataset_schema: simplified_curve_v1
+  input_mode: setpoints
+  input_feature_names:
+  - angular_position_deg
+  - input_speed_rpm
+  - input_torque_nm
+  - oil_temperature_deg
+  - direction_flag
+  target_feature_names:
+  - transmission_error_deg
+  input_feature_dim: 5
+  training_variant: fw
+  direction_scope_label: forward_only
+  use_forward_direction: true
+  use_backward_direction: false
+  trainable_parameter_count: 28545
+  total_parameter_count: 28545
+  val_mae: 0.0028028017841279507
+  val_rmse: 0.0034508719108998775
+  test_mae: 0.003064638003706932
+  test_rmse: 0.003709434298798442
+  output_directory: output\training_runs\periodic_mlp_harmonic\2026-07-08-01-11-12__te_periodic_mlp_harmonic_fw__simplified_setpoints
+  best_checkpoint_path: output\training_runs\periodic_mlp_harmonic\2026-07-08-01-11-12__te_periodic_mlp_harmonic_fw__simplified_setpoints\checkpoints\periodic_mlp-epoch=055-val_mae=0.00280280.ckpt
+  metrics_path: output\training_runs\periodic_mlp_harmonic\2026-07-08-01-11-12__te_periodic_mlp_harmonic_fw__simplified_setpoints/metrics_summary.yaml
+  report_path: output\training_runs\periodic_mlp_harmonic\2026-07-08-01-11-12__te_periodic_mlp_harmonic_fw__simplified_setpoints/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-07-08T01:27:11'
+- run_instance_id: 2026-07-08-01-02-50__te_periodic_mlp_harmonic_global__simplified_setpoints
+  run_name: te_periodic_mlp_harmonic_global__simplified_setpoints
+  output_run_name: te_periodic_mlp_harmonic_global__simplified_setpoints
+  output_artifact_kind: training_run
+  model_family: periodic_mlp_harmonic_global
+  base_model_family: periodic_mlp_harmonic
+  model_type: periodic_mlp
+  dataset_id: simplified_dataset
+  dataset_schema: simplified_curve_v1
+  input_mode: setpoints
+  input_feature_names:
+  - angular_position_deg
+  - input_speed_rpm
+  - input_torque_nm
+  - oil_temperature_deg
+  - direction_flag
+  target_feature_names:
+  - transmission_error_deg
+  input_feature_dim: 5
+  training_variant: global
+  direction_scope_label: bidirectional
+  use_forward_direction: true
+  use_backward_direction: true
+  trainable_parameter_count: 28545
+  total_parameter_count: 28545
+  val_mae: 0.0028474191203713417
+  val_rmse: 0.0034547189716249704
+  test_mae: 0.003293124958872795
+  test_rmse: 0.00386482710018754
+  output_directory: output\training_runs\periodic_mlp_harmonic\2026-07-08-01-02-50__te_periodic_mlp_harmonic_global__simplified_setpoints
+  best_checkpoint_path: output\training_runs\periodic_mlp_harmonic\2026-07-08-01-02-50__te_periodic_mlp_harmonic_global__simplified_setpoints\checkpoints\periodic_mlp-epoch=059-val_mae=0.00284742.ckpt
+  metrics_path: output\training_runs\periodic_mlp_harmonic\2026-07-08-01-02-50__te_periodic_mlp_harmonic_global__simplified_setpoints/metrics_summary.yaml
+  report_path: output\training_runs\periodic_mlp_harmonic\2026-07-08-01-02-50__te_periodic_mlp_harmonic_global__simplified_setpoints/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-07-08T01:27:11'
+- run_instance_id: 2026-07-08-01-19-22__te_periodic_mlp_harmonic_bw__simplified_setpoints
+  run_name: te_periodic_mlp_harmonic_bw__simplified_setpoints
+  output_run_name: te_periodic_mlp_harmonic_bw__simplified_setpoints
+  output_artifact_kind: training_run
+  model_family: periodic_mlp_harmonic_bw
+  base_model_family: periodic_mlp_harmonic
+  model_type: periodic_mlp
+  dataset_id: simplified_dataset
+  dataset_schema: simplified_curve_v1
+  input_mode: setpoints
+  input_feature_names:
+  - angular_position_deg
+  - input_speed_rpm
+  - input_torque_nm
+  - oil_temperature_deg
+  - direction_flag
+  target_feature_names:
+  - transmission_error_deg
+  input_feature_dim: 5
+  training_variant: bw
+  direction_scope_label: backward_only
+  use_forward_direction: false
+  use_backward_direction: true
+  trainable_parameter_count: 28545
+  total_parameter_count: 28545
+  val_mae: 0.0028031012043356895
+  val_rmse: 0.0034719870891422033
+  test_mae: 0.003377139801159501
+  test_rmse: 0.004053632728755474
+  output_directory: output\training_runs\periodic_mlp_harmonic\2026-07-08-01-19-22__te_periodic_mlp_harmonic_bw__simplified_setpoints
+  best_checkpoint_path: output\training_runs\periodic_mlp_harmonic\2026-07-08-01-19-22__te_periodic_mlp_harmonic_bw__simplified_setpoints\checkpoints\periodic_mlp-epoch=053-val_mae=0.00280310.ckpt
+  metrics_path: output\training_runs\periodic_mlp_harmonic\2026-07-08-01-19-22__te_periodic_mlp_harmonic_bw__simplified_setpoints/metrics_summary.yaml
+  report_path: output\training_runs\periodic_mlp_harmonic\2026-07-08-01-19-22__te_periodic_mlp_harmonic_bw__simplified_setpoints/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-07-08T01:27:11'

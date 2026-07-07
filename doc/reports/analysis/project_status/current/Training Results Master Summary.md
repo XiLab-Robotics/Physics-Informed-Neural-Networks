@@ -2,7 +2,7 @@
 
 ## Executive Snapshot
 
-- Generated At: `2026-07-08T00:46:18`
+- Generated At: `2026-07-08T01:27:16`
 - Program State: active.
 - Current Completed Wave: polished-dataset RCIM, early-wave, and full-wave
 - Current Focus: the polished-dataset TE Curve Verification Pipeline refresh is
@@ -29,7 +29,7 @@
 | --- | --- | --- | --- | ---: | ---: | --- |
 | `periodic_gru_sequence_global` | Implemented Benchmark | `te_periodic_gru_sequence_global` | `periodic_gru_sequence` | 0.001159 | 157,569 | `2026-06-30 02:56:10` |
 | `periodic_lstm_sequence_global` | Implemented Benchmark | `te_periodic_lstm_sequence_global` | `periodic_lstm_sequence` | 0.001187 | 210,049 | `2026-06-30 04:57:16` |
-| `periodic_mlp_harmonic_global` | Implemented Benchmark | `te_periodic_mlp_harmonic_global` | `periodic_mlp` | 0.001264 | 28,417 | `2026-06-29 21:10:12` |
+| `periodic_mlp_harmonic_global` | Implemented Benchmark | `te_periodic_mlp_harmonic_global` | `periodic_mlp` | 0.001264 | 28,417 | `2026-07-08 01:11:12` |
 | `periodic_gru_sequence` | Implemented Benchmark | `te_periodic_gru_sequence_remote_global` | `periodic_gru_sequence` | 0.001279 | 157,569 | `2026-06-22 14:06:48` |
 | `wave4_3_mixture_density_k3_global` | Implemented Benchmark | `te_wave4_3_mixture_density_k3_global` | `curve_aware_harmonic_residual_offset_probe` | 0.001544 | 86,976 | `2026-07-01 17:43:31` |
 | `tree_global` | Implemented Benchmark | `te_tree_global__polished_setpoints` | `hist_gradient_boosting` | 0.001699 | 5 | `2026-07-07 10:07:53` |
@@ -110,7 +110,7 @@
 | Family | Current Role | Best Run | Model Type | Test MAE [deg] | Params | Last Update |
 | --- | --- | --- | --- | ---: | ---: | --- |
 | `periodic_gru_sequence_fw` | Implemented Benchmark | `te_periodic_gru_sequence_fw` | `periodic_gru_sequence` | 0.001101 | 157,569 | `2026-06-30 03:41:33` |
-| `periodic_mlp_harmonic_fw` | Implemented Benchmark | `te_periodic_mlp_harmonic_fw` | `periodic_mlp` | 0.001326 | 28,417 | `2026-06-29 21:27:22` |
+| `periodic_mlp_harmonic_fw` | Implemented Benchmark | `te_periodic_mlp_harmonic_fw` | `periodic_mlp` | 0.001326 | 28,417 | `2026-07-08 01:19:22` |
 | `wave52b_offset_harmonic_guided_offset_centered_shape_harmonic_fw` | Implemented Benchmark | `te_wave52b_offset_harmonic_guided_offset_centered_shape_harmonic_fw` | `wave52b_offset_harmonic_guided` | 0.001392 | 22,593 | `2026-07-02 01:57:18` |
 | `periodic_lstm_sequence_fw` | Implemented Benchmark | `te_periodic_lstm_sequence_fw` | `periodic_lstm_sequence` | 0.001547 | 210,049 | `2026-06-30 05:26:56` |
 | `wave4_3_mixture_density_k3_fw` | Implemented Benchmark | `te_wave4_3_mixture_density_k3_fw` | `curve_aware_harmonic_residual_offset_probe` | 0.001671 | 86,976 | `2026-07-01 18:55:32` |
@@ -180,7 +180,7 @@
 | --- | --- | --- | --- | ---: | ---: | --- |
 | `periodic_gru_sequence_bw` | Current Program Winner | `te_periodic_gru_sequence_bw` | `periodic_gru_sequence` | 0.001084 | 157,569 | `2026-06-30 04:26:36` |
 | `periodic_lstm_sequence_bw` | Implemented Benchmark | `te_periodic_lstm_sequence_bw` | `periodic_lstm_sequence` | 0.001226 | 210,049 | `2026-06-30 06:13:35` |
-| `periodic_mlp_harmonic_bw` | Implemented Benchmark | `te_periodic_mlp_harmonic_bw` | `periodic_mlp` | 0.001279 | 28,417 | `2026-06-29 21:48:10` |
+| `periodic_mlp_harmonic_bw` | Implemented Benchmark | `te_periodic_mlp_harmonic_bw` | `periodic_mlp` | 0.001279 | 28,417 | `2026-07-08 01:27:11` |
 | `wave52b_offset_harmonic_guided_offset_centered_shape_harmonic_bw` | Implemented Benchmark | `te_wave52b_offset_harmonic_guided_offset_centered_shape_harmonic_bw` | `wave52b_offset_harmonic_guided` | 0.001677 | 22,593 | `2026-07-02 02:27:12` |
 | `feedforward_bw` | Implemented Benchmark | `te_feedforward_bw` | `feedforward` | 0.001686 | 109,697 | `2026-07-07 19:39:50` |
 | `tree_bw` | Implemented Benchmark | `te_tree_bw__polished_setpoints` | `hist_gradient_boosting` | 0.001699 | 5 | `2026-07-07 10:07:54` |
@@ -427,11 +427,11 @@ Low-priority exploratory families currently listed in the backlog:
 
 | Campaign | Generated At | Completed | Failed | Winner | Impact |
 | --- | --- | ---: | ---: | --- | --- |
+| `dataset_input_mode_retraining__periodic_mlp_harmonic__simplified_setpoints` | `2026-07-08 01:27:11` | 3 | 0 | `te_periodic_mlp_harmonic_fw__simplified_setpoints` | No family-best change |
 | `dataset_input_mode_retraining__harmonic_regression__polished_actual_values` | `2026-07-08 00:46:14` | 3 | 0 | `te_harmonic_regression_fw__polished_actual_values` | Updated harmonic_regression_fw family best |
 | `dataset_input_mode_retraining__harmonic_regression__polished_setpoints` | `2026-07-07 23:49:55` | 3 | 0 | `te_harmonic_regression_fw__polished_setpoints` | No family-best change |
 | `dataset_input_mode_retraining__harmonic_regression__simplified_setpoints` | `2026-07-07 23:07:36` | 3 | 0 | `te_harmonic_regression_fw__simplified_setpoints` | No family-best change |
 | `dataset_input_mode_retraining__periodic_mlp__polished_actual_values` | `2026-07-07 22:30:45` | 3 | 0 | `te_periodic_mlp_global__polished_actual_values` | No family-best change |
-| `dataset_input_mode_retraining__periodic_mlp__polished_setpoints` | `2026-07-07 21:25:45` | 3 | 0 | `te_periodic_mlp_fw__polished_setpoints` | No family-best change |
 
 ## Ranking Policy
 
@@ -795,7 +795,7 @@ At the current repository state, the comparison is explicitly `offline-only`. A 
 
 - Best run: `N/A`
 - Best test MAE: `N/A`
-- Completed tracked runs: `6`
+- Completed tracked runs: `9`
 - Known failed campaign attempts: `0`
 
 | Rank | Run | Model Type | Test MAE [deg] | Test RMSE [deg] | Val MAE [deg] | Params | Duration | Artifact Size | Model Complexity | Training Heaviness | Campaign |
@@ -806,6 +806,9 @@ At the current repository state, the comparison is explicitly `offline-only`. A 
 | 4 | `te_periodic_mlp_harmonic_fw` | `periodic_mlp` | 0.001326 | 0.001780 | 0.001144 | 28,417 | 38m 01s | 0.35 MB | Medium | Medium | `polished_dataset_full_wave_retraining_2026_06_22` |
 | 5 | `te_periodic_mlp_harmonic_bw` | `periodic_mlp` | 0.001342 | 0.001807 | 0.001188 | 28,417 | 20m 48s | 0.35 MB | Medium | Medium | `polished_dataset_full_wave_retraining_2026_06_22` |
 | 6 | `te_periodic_mlp_harmonic_fw` | `periodic_mlp` | 0.001360 | 0.001845 | 0.001209 | 28,417 | 17m 10s | 0.35 MB | Medium | Medium | `polished_dataset_full_wave_retraining_2026_06_22` |
+| 7 | `te_periodic_mlp_harmonic_fw__simplified_setpoints` | `periodic_mlp` | 0.003065 | 0.003709 | 0.002803 | 28,545 | 8m 09s | 0.35 MB | Medium | Low | `dataset_input_mode_retraining__periodic_mlp_harmonic__simplified_setpoints` |
+| 8 | `te_periodic_mlp_harmonic_global__simplified_setpoints` | `periodic_mlp` | 0.003293 | 0.003865 | 0.002847 | 28,545 | 8m 22s | 0.35 MB | Medium | Low | `dataset_input_mode_retraining__periodic_mlp_harmonic__simplified_setpoints` |
+| 9 | `te_periodic_mlp_harmonic_bw__simplified_setpoints` | `periodic_mlp` | 0.003377 | 0.004054 | 0.002803 | 28,545 | 7m 49s | 0.35 MB | Medium | Low | `dataset_input_mode_retraining__periodic_mlp_harmonic__simplified_setpoints` |
 
 #### residual_harmonic_gru_sequence_dense240
 

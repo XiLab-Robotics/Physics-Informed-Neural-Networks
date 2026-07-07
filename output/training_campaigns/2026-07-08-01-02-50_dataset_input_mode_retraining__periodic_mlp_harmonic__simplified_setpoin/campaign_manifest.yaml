@@ -1,0 +1,69 @@
+campaign_name: dataset_input_mode_retraining__periodic_mlp_harmonic__simplified_setpoints
+generated_at: '2026-07-08T01:27:11'
+queue_root: config/training/queue/dataset_input_mode_retraining/dataset_input_mode_retraining__periodic_mlp_harmonic__simplified_setpoints
+campaign_output_directory: output/training_campaigns/2026-07-08-01-02-50_dataset_input_mode_retraining__periodic_mlp_harmonic__simplified_setpoin
+planning_report_path: doc/reports/campaign_plans/cross_wave/input_modes/2026-07-07-01-46-06_dataset_input_mode_retraining_campaign_plan_report.md
+run_list:
+- original_queue_config_path: config/training/queue/dataset_input_mode_retraining/dataset_input_mode_retraining__periodic_mlp_harmonic__simplified_setpoints/pending/2026-07-08-01-02-50_001_001_periodic_mlp_harmonic_global.yaml
+  final_queue_config_path: config/training/queue/dataset_input_mode_retraining/dataset_input_mode_retraining__periodic_mlp_harmonic__simplified_setpoints/completed/2026-07-08-01-02-50_001_001_periodic_mlp_harmonic_global.yaml
+  source_config_path: config/training/dataset_input_mode_retraining/campaigns/dataset_input_mode_retraining__periodic_mlp_harmonic__simplified_setpoints/queue/001_periodic_mlp_harmonic_global.yaml
+  run_name: te_periodic_mlp_harmonic_global__simplified_setpoints
+  run_instance_id: 2026-07-08-01-02-50__te_periodic_mlp_harmonic_global__simplified_setpoints
+  model_type: periodic_mlp
+  queue_status: completed
+  start_time: '2026-07-08T01:02:50'
+  end_time: '2026-07-08T01:11:12'
+  duration_seconds: 502.045
+  process_return_code: 0
+  output_directory: output/training_runs/periodic_mlp_harmonic/2026-07-08-01-02-50__te_periodic_mlp_harmonic_global__simplified_setpoints
+  config_snapshot_path: output/training_runs/periodic_mlp_harmonic/2026-07-08-01-02-50__te_periodic_mlp_harmonic_global__simplified_setpoints/training_config.yaml
+  best_checkpoint_reference_path: output/training_runs/periodic_mlp_harmonic/2026-07-08-01-02-50__te_periodic_mlp_harmonic_global__simplified_setpoints/best_checkpoint_path.txt
+  best_checkpoint_path: /scratch1/dferrari/Physics-Informed-Neural-Networks/output/training_runs/periodic_mlp_harmonic/2026-07-08-01-02-50__te_periodic_mlp_harmonic_global__simplified_setpoints/checkpoints/periodic_mlp-epoch=059-val_mae=0.00284742.ckpt
+  metrics_path: output/training_runs/periodic_mlp_harmonic/2026-07-08-01-02-50__te_periodic_mlp_harmonic_global__simplified_setpoints/metrics_summary.yaml
+  training_report_path: output/training_runs/periodic_mlp_harmonic/2026-07-08-01-02-50__te_periodic_mlp_harmonic_global__simplified_setpoints/training_test_report.md
+  log_path: output/training_campaigns/2026-07-08-01-02-50_dataset_input_mode_retraining__periodic_mlp_harmonic__simplified_setpoin/logs/001_te_periodic_mlp_harmonic_global__simplified_setp.log
+  planning_report_path: doc/reports/campaign_plans/cross_wave/input_modes/2026-07-07-01-46-06_dataset_input_mode_retraining_campaign_plan_report.md
+  campaign_name: dataset_input_mode_retraining__periodic_mlp_harmonic__simplified_setpoints
+  error_message: null
+- original_queue_config_path: config/training/queue/dataset_input_mode_retraining/dataset_input_mode_retraining__periodic_mlp_harmonic__simplified_setpoints/pending/2026-07-08-01-02-50_002_002_periodic_mlp_harmonic_fw.yaml
+  final_queue_config_path: config/training/queue/dataset_input_mode_retraining/dataset_input_mode_retraining__periodic_mlp_harmonic__simplified_setpoints/completed/2026-07-08-01-02-50_002_002_periodic_mlp_harmonic_fw.yaml
+  source_config_path: config/training/dataset_input_mode_retraining/campaigns/dataset_input_mode_retraining__periodic_mlp_harmonic__simplified_setpoints/queue/002_periodic_mlp_harmonic_fw.yaml
+  run_name: te_periodic_mlp_harmonic_fw__simplified_setpoints
+  run_instance_id: 2026-07-08-01-11-12__te_periodic_mlp_harmonic_fw__simplified_setpoints
+  model_type: periodic_mlp
+  queue_status: completed
+  start_time: '2026-07-08T01:11:12'
+  end_time: '2026-07-08T01:19:22'
+  duration_seconds: 489.267
+  process_return_code: 0
+  output_directory: output/training_runs/periodic_mlp_harmonic/2026-07-08-01-11-12__te_periodic_mlp_harmonic_fw__simplified_setpoints
+  config_snapshot_path: output/training_runs/periodic_mlp_harmonic/2026-07-08-01-11-12__te_periodic_mlp_harmonic_fw__simplified_setpoints/training_config.yaml
+  best_checkpoint_reference_path: output/training_runs/periodic_mlp_harmonic/2026-07-08-01-11-12__te_periodic_mlp_harmonic_fw__simplified_setpoints/best_checkpoint_path.txt
+  best_checkpoint_path: /scratch1/dferrari/Physics-Informed-Neural-Networks/output/training_runs/periodic_mlp_harmonic/2026-07-08-01-11-12__te_periodic_mlp_harmonic_fw__simplified_setpoints/checkpoints/periodic_mlp-epoch=055-val_mae=0.00280280.ckpt
+  metrics_path: output/training_runs/periodic_mlp_harmonic/2026-07-08-01-11-12__te_periodic_mlp_harmonic_fw__simplified_setpoints/metrics_summary.yaml
+  training_report_path: output/training_runs/periodic_mlp_harmonic/2026-07-08-01-11-12__te_periodic_mlp_harmonic_fw__simplified_setpoints/training_test_report.md
+  log_path: output/training_campaigns/2026-07-08-01-02-50_dataset_input_mode_retraining__periodic_mlp_harmonic__simplified_setpoin/logs/002_te_periodic_mlp_harmonic_fw__simplified_setpoint.log
+  planning_report_path: doc/reports/campaign_plans/cross_wave/input_modes/2026-07-07-01-46-06_dataset_input_mode_retraining_campaign_plan_report.md
+  campaign_name: dataset_input_mode_retraining__periodic_mlp_harmonic__simplified_setpoints
+  error_message: null
+- original_queue_config_path: config/training/queue/dataset_input_mode_retraining/dataset_input_mode_retraining__periodic_mlp_harmonic__simplified_setpoints/pending/2026-07-08-01-02-50_003_003_periodic_mlp_harmonic_bw.yaml
+  final_queue_config_path: config/training/queue/dataset_input_mode_retraining/dataset_input_mode_retraining__periodic_mlp_harmonic__simplified_setpoints/completed/2026-07-08-01-02-50_003_003_periodic_mlp_harmonic_bw.yaml
+  source_config_path: config/training/dataset_input_mode_retraining/campaigns/dataset_input_mode_retraining__periodic_mlp_harmonic__simplified_setpoints/queue/003_periodic_mlp_harmonic_bw.yaml
+  run_name: te_periodic_mlp_harmonic_bw__simplified_setpoints
+  run_instance_id: 2026-07-08-01-19-22__te_periodic_mlp_harmonic_bw__simplified_setpoints
+  model_type: periodic_mlp
+  queue_status: completed
+  start_time: '2026-07-08T01:19:22'
+  end_time: '2026-07-08T01:27:11'
+  duration_seconds: 469.414
+  process_return_code: 0
+  output_directory: output/training_runs/periodic_mlp_harmonic/2026-07-08-01-19-22__te_periodic_mlp_harmonic_bw__simplified_setpoints
+  config_snapshot_path: output/training_runs/periodic_mlp_harmonic/2026-07-08-01-19-22__te_periodic_mlp_harmonic_bw__simplified_setpoints/training_config.yaml
+  best_checkpoint_reference_path: output/training_runs/periodic_mlp_harmonic/2026-07-08-01-19-22__te_periodic_mlp_harmonic_bw__simplified_setpoints/best_checkpoint_path.txt
+  best_checkpoint_path: /scratch1/dferrari/Physics-Informed-Neural-Networks/output/training_runs/periodic_mlp_harmonic/2026-07-08-01-19-22__te_periodic_mlp_harmonic_bw__simplified_setpoints/checkpoints/periodic_mlp-epoch=053-val_mae=0.00280310.ckpt
+  metrics_path: output/training_runs/periodic_mlp_harmonic/2026-07-08-01-19-22__te_periodic_mlp_harmonic_bw__simplified_setpoints/metrics_summary.yaml
+  training_report_path: output/training_runs/periodic_mlp_harmonic/2026-07-08-01-19-22__te_periodic_mlp_harmonic_bw__simplified_setpoints/training_test_report.md
+  log_path: output/training_campaigns/2026-07-08-01-02-50_dataset_input_mode_retraining__periodic_mlp_harmonic__simplified_setpoin/logs/003_te_periodic_mlp_harmonic_bw__simplified_setpoint.log
+  planning_report_path: doc/reports/campaign_plans/cross_wave/input_modes/2026-07-07-01-46-06_dataset_input_mode_retraining_campaign_plan_report.md
+  campaign_name: dataset_input_mode_retraining__periodic_mlp_harmonic__simplified_setpoints
+  error_message: null

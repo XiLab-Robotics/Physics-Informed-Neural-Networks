@@ -1,0 +1,1 @@
+/scratch1/dferrari/Physics-Informed-Neural-Networks/output/training_runs/periodic_mlp_harmonic/2026-07-08-01-19-22__te_periodic_mlp_harmonic_bw__simplified_setpoints/checkpoints/periodic_mlp-epoch=053-val_mae=0.00280310.ckpt

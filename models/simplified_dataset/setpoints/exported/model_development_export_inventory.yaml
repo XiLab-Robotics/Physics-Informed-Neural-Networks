@@ -13,74 +13,74 @@ entries:
   dataset_id: simplified_dataset
   dataset_schema: simplified_curve_v1
   input_mode: setpoints
-  model_family: harmonic_regression
-  model_type: harmonic_regression
+  model_family: periodic_mlp_harmonic
+  model_type: periodic_mlp
   surface: global
-  run_name: te_harmonic_regression_global__simplified_setpoints
-  run_instance_id: 2026-07-07-22-48-30__te_harmonic_regression_global__simplified_setpoints
-  source_output_directory: output/training_runs/harmonic_regression/2026-07-07-22-48-30__te_harmonic_regression_global__simplified_setpoints
-  source_best_checkpoint_path: output/training_runs/harmonic_regression/2026-07-07-22-48-30__te_harmonic_regression_global__simplified_setpoints/checkpoints/harmonic_regression-epoch=063-val_mae=0.01699328.ckpt
-  python_model_path: models/simplified_dataset/setpoints/exported/harmonic_regression/global/2026-07-07-22-48-30__te_harmonic_regression_global__simplified_setpoints/python/harmonic_regression-epoch=063-val_mae=0.01699328.ckpt
-  onnx_model_path: models/simplified_dataset/setpoints/exported/harmonic_regression/global/2026-07-07-22-48-30__te_harmonic_regression_global__simplified_setpoints/onnx/model.onnx
+  run_name: te_periodic_mlp_harmonic_global__simplified_setpoints
+  run_instance_id: 2026-07-08-01-02-50__te_periodic_mlp_harmonic_global__simplified_setpoints
+  source_output_directory: output/training_runs/periodic_mlp_harmonic/2026-07-08-01-02-50__te_periodic_mlp_harmonic_global__simplified_setpoints
+  source_best_checkpoint_path: output/training_runs/periodic_mlp_harmonic/2026-07-08-01-02-50__te_periodic_mlp_harmonic_global__simplified_setpoints/checkpoints/periodic_mlp-epoch=059-val_mae=0.00284742.ckpt
+  python_model_path: models/simplified_dataset/setpoints/exported/periodic_mlp_harmonic/global/2026-07-08-01-02-50__te_periodic_mlp_harmonic_global__simplified_setpoints/python/periodic_mlp-epoch=059-val_mae=0.00284742.ckpt
+  onnx_model_path: models/simplified_dataset/setpoints/exported/periodic_mlp_harmonic/global/2026-07-08-01-02-50__te_periodic_mlp_harmonic_global__simplified_setpoints/onnx/model.onnx
   onnx_export_status: exported
   onnx_export_error: ''
   source_run_snapshot_path_map:
-    training_config.snapshot.yaml: models/simplified_dataset/setpoints/exported/harmonic_regression/global/2026-07-07-22-48-30__te_harmonic_regression_global__simplified_setpoints/source_run/training_config.snapshot.yaml
-    metrics_summary.snapshot.yaml: models/simplified_dataset/setpoints/exported/harmonic_regression/global/2026-07-07-22-48-30__te_harmonic_regression_global__simplified_setpoints/source_run/metrics_summary.snapshot.yaml
-    run_metadata.snapshot.yaml: models/simplified_dataset/setpoints/exported/harmonic_regression/global/2026-07-07-22-48-30__te_harmonic_regression_global__simplified_setpoints/source_run/run_metadata.snapshot.yaml
-    training_test_report.snapshot.md: models/simplified_dataset/setpoints/exported/harmonic_regression/global/2026-07-07-22-48-30__te_harmonic_regression_global__simplified_setpoints/source_run/training_test_report.snapshot.md
-    best_checkpoint_path.snapshot.txt: models/simplified_dataset/setpoints/exported/harmonic_regression/global/2026-07-07-22-48-30__te_harmonic_regression_global__simplified_setpoints/source_run/best_checkpoint_path.snapshot.txt
+    training_config.snapshot.yaml: models/simplified_dataset/setpoints/exported/periodic_mlp_harmonic/global/2026-07-08-01-02-50__te_periodic_mlp_harmonic_global__simplified_setpoints/source_run/training_config.snapshot.yaml
+    metrics_summary.snapshot.yaml: models/simplified_dataset/setpoints/exported/periodic_mlp_harmonic/global/2026-07-08-01-02-50__te_periodic_mlp_harmonic_global__simplified_setpoints/source_run/metrics_summary.snapshot.yaml
+    run_metadata.snapshot.yaml: models/simplified_dataset/setpoints/exported/periodic_mlp_harmonic/global/2026-07-08-01-02-50__te_periodic_mlp_harmonic_global__simplified_setpoints/source_run/run_metadata.snapshot.yaml
+    training_test_report.snapshot.md: models/simplified_dataset/setpoints/exported/periodic_mlp_harmonic/global/2026-07-08-01-02-50__te_periodic_mlp_harmonic_global__simplified_setpoints/source_run/training_test_report.snapshot.md
+    best_checkpoint_path.snapshot.txt: models/simplified_dataset/setpoints/exported/periodic_mlp_harmonic/global/2026-07-08-01-02-50__te_periodic_mlp_harmonic_global__simplified_setpoints/source_run/best_checkpoint_path.snapshot.txt
   metrics:
-    val_mae: 0.016993282362818718
-    test_mae: 0.020784122869372368
-    test_rmse: 0.022916583344340324
+    val_mae: 0.0028474191203713417
+    test_mae: 0.003293124958872795
+    test_rmse: 0.00386482710018754
 - schema_version: 1
   dataset_id: simplified_dataset
   dataset_schema: simplified_curve_v1
   input_mode: setpoints
-  model_family: harmonic_regression
-  model_type: harmonic_regression
+  model_family: periodic_mlp_harmonic
+  model_type: periodic_mlp
   surface: forward
-  run_name: te_harmonic_regression_fw__simplified_setpoints
-  run_instance_id: 2026-07-07-22-54-59__te_harmonic_regression_fw__simplified_setpoints
-  source_output_directory: output/training_runs/harmonic_regression/2026-07-07-22-54-59__te_harmonic_regression_fw__simplified_setpoints
-  source_best_checkpoint_path: output/training_runs/harmonic_regression/2026-07-07-22-54-59__te_harmonic_regression_fw__simplified_setpoints/checkpoints/harmonic_regression-epoch=033-val_mae=0.01699562.ckpt
-  python_model_path: models/simplified_dataset/setpoints/exported/harmonic_regression/forward/2026-07-07-22-54-59__te_harmonic_regression_fw__simplified_setpoints/python/harmonic_regression-epoch=033-val_mae=0.01699562.ckpt
-  onnx_model_path: models/simplified_dataset/setpoints/exported/harmonic_regression/forward/2026-07-07-22-54-59__te_harmonic_regression_fw__simplified_setpoints/onnx/model.onnx
+  run_name: te_periodic_mlp_harmonic_fw__simplified_setpoints
+  run_instance_id: 2026-07-08-01-11-12__te_periodic_mlp_harmonic_fw__simplified_setpoints
+  source_output_directory: output/training_runs/periodic_mlp_harmonic/2026-07-08-01-11-12__te_periodic_mlp_harmonic_fw__simplified_setpoints
+  source_best_checkpoint_path: output/training_runs/periodic_mlp_harmonic/2026-07-08-01-11-12__te_periodic_mlp_harmonic_fw__simplified_setpoints/checkpoints/periodic_mlp-epoch=055-val_mae=0.00280280.ckpt
+  python_model_path: models/simplified_dataset/setpoints/exported/periodic_mlp_harmonic/forward/2026-07-08-01-11-12__te_periodic_mlp_harmonic_fw__simplified_setpoints/python/periodic_mlp-epoch=055-val_mae=0.00280280.ckpt
+  onnx_model_path: models/simplified_dataset/setpoints/exported/periodic_mlp_harmonic/forward/2026-07-08-01-11-12__te_periodic_mlp_harmonic_fw__simplified_setpoints/onnx/model.onnx
   onnx_export_status: exported
   onnx_export_error: ''
   source_run_snapshot_path_map:
-    training_config.snapshot.yaml: models/simplified_dataset/setpoints/exported/harmonic_regression/forward/2026-07-07-22-54-59__te_harmonic_regression_fw__simplified_setpoints/source_run/training_config.snapshot.yaml
-    metrics_summary.snapshot.yaml: models/simplified_dataset/setpoints/exported/harmonic_regression/forward/2026-07-07-22-54-59__te_harmonic_regression_fw__simplified_setpoints/source_run/metrics_summary.snapshot.yaml
-    run_metadata.snapshot.yaml: models/simplified_dataset/setpoints/exported/harmonic_regression/forward/2026-07-07-22-54-59__te_harmonic_regression_fw__simplified_setpoints/source_run/run_metadata.snapshot.yaml
-    training_test_report.snapshot.md: models/simplified_dataset/setpoints/exported/harmonic_regression/forward/2026-07-07-22-54-59__te_harmonic_regression_fw__simplified_setpoints/source_run/training_test_report.snapshot.md
-    best_checkpoint_path.snapshot.txt: models/simplified_dataset/setpoints/exported/harmonic_regression/forward/2026-07-07-22-54-59__te_harmonic_regression_fw__simplified_setpoints/source_run/best_checkpoint_path.snapshot.txt
+    training_config.snapshot.yaml: models/simplified_dataset/setpoints/exported/periodic_mlp_harmonic/forward/2026-07-08-01-11-12__te_periodic_mlp_harmonic_fw__simplified_setpoints/source_run/training_config.snapshot.yaml
+    metrics_summary.snapshot.yaml: models/simplified_dataset/setpoints/exported/periodic_mlp_harmonic/forward/2026-07-08-01-11-12__te_periodic_mlp_harmonic_fw__simplified_setpoints/source_run/metrics_summary.snapshot.yaml
+    run_metadata.snapshot.yaml: models/simplified_dataset/setpoints/exported/periodic_mlp_harmonic/forward/2026-07-08-01-11-12__te_periodic_mlp_harmonic_fw__simplified_setpoints/source_run/run_metadata.snapshot.yaml
+    training_test_report.snapshot.md: models/simplified_dataset/setpoints/exported/periodic_mlp_harmonic/forward/2026-07-08-01-11-12__te_periodic_mlp_harmonic_fw__simplified_setpoints/source_run/training_test_report.snapshot.md
+    best_checkpoint_path.snapshot.txt: models/simplified_dataset/setpoints/exported/periodic_mlp_harmonic/forward/2026-07-08-01-11-12__te_periodic_mlp_harmonic_fw__simplified_setpoints/source_run/best_checkpoint_path.snapshot.txt
   metrics:
-    val_mae: 0.016995618119835854
-    test_mae: 0.020783688873052597
-    test_rmse: 0.02291022427380085
+    val_mae: 0.0028028017841279507
+    test_mae: 0.003064638003706932
+    test_rmse: 0.003709434298798442
 - schema_version: 1
   dataset_id: simplified_dataset
   dataset_schema: simplified_curve_v1
   input_mode: setpoints
-  model_family: harmonic_regression
-  model_type: harmonic_regression
+  model_family: periodic_mlp_harmonic
+  model_type: periodic_mlp
   surface: backward
-  run_name: te_harmonic_regression_bw__simplified_setpoints
-  run_instance_id: 2026-07-07-23-01-08__te_harmonic_regression_bw__simplified_setpoints
-  source_output_directory: output/training_runs/harmonic_regression/2026-07-07-23-01-08__te_harmonic_regression_bw__simplified_setpoints
-  source_best_checkpoint_path: output/training_runs/harmonic_regression/2026-07-07-23-01-08__te_harmonic_regression_bw__simplified_setpoints/checkpoints/harmonic_regression-epoch=060-val_mae=0.01698885.ckpt
-  python_model_path: models/simplified_dataset/setpoints/exported/harmonic_regression/backward/2026-07-07-23-01-08__te_harmonic_regression_bw__simplified_setpoints/python/harmonic_regression-epoch=060-val_mae=0.01698885.ckpt
-  onnx_model_path: models/simplified_dataset/setpoints/exported/harmonic_regression/backward/2026-07-07-23-01-08__te_harmonic_regression_bw__simplified_setpoints/onnx/model.onnx
+  run_name: te_periodic_mlp_harmonic_bw__simplified_setpoints
+  run_instance_id: 2026-07-08-01-19-22__te_periodic_mlp_harmonic_bw__simplified_setpoints
+  source_output_directory: output/training_runs/periodic_mlp_harmonic/2026-07-08-01-19-22__te_periodic_mlp_harmonic_bw__simplified_setpoints
+  source_best_checkpoint_path: output/training_runs/periodic_mlp_harmonic/2026-07-08-01-19-22__te_periodic_mlp_harmonic_bw__simplified_setpoints/checkpoints/periodic_mlp-epoch=053-val_mae=0.00280310.ckpt
+  python_model_path: models/simplified_dataset/setpoints/exported/periodic_mlp_harmonic/backward/2026-07-08-01-19-22__te_periodic_mlp_harmonic_bw__simplified_setpoints/python/periodic_mlp-epoch=053-val_mae=0.00280310.ckpt
+  onnx_model_path: models/simplified_dataset/setpoints/exported/periodic_mlp_harmonic/backward/2026-07-08-01-19-22__te_periodic_mlp_harmonic_bw__simplified_setpoints/onnx/model.onnx
   onnx_export_status: exported
   onnx_export_error: ''
   source_run_snapshot_path_map:
-    training_config.snapshot.yaml: models/simplified_dataset/setpoints/exported/harmonic_regression/backward/2026-07-07-23-01-08__te_harmonic_regression_bw__simplified_setpoints/source_run/training_config.snapshot.yaml
-    metrics_summary.snapshot.yaml: models/simplified_dataset/setpoints/exported/harmonic_regression/backward/2026-07-07-23-01-08__te_harmonic_regression_bw__simplified_setpoints/source_run/metrics_summary.snapshot.yaml
-    run_metadata.snapshot.yaml: models/simplified_dataset/setpoints/exported/harmonic_regression/backward/2026-07-07-23-01-08__te_harmonic_regression_bw__simplified_setpoints/source_run/run_metadata.snapshot.yaml
-    training_test_report.snapshot.md: models/simplified_dataset/setpoints/exported/harmonic_regression/backward/2026-07-07-23-01-08__te_harmonic_regression_bw__simplified_setpoints/source_run/training_test_report.snapshot.md
-    best_checkpoint_path.snapshot.txt: models/simplified_dataset/setpoints/exported/harmonic_regression/backward/2026-07-07-23-01-08__te_harmonic_regression_bw__simplified_setpoints/source_run/best_checkpoint_path.snapshot.txt
+    training_config.snapshot.yaml: models/simplified_dataset/setpoints/exported/periodic_mlp_harmonic/backward/2026-07-08-01-19-22__te_periodic_mlp_harmonic_bw__simplified_setpoints/source_run/training_config.snapshot.yaml
+    metrics_summary.snapshot.yaml: models/simplified_dataset/setpoints/exported/periodic_mlp_harmonic/backward/2026-07-08-01-19-22__te_periodic_mlp_harmonic_bw__simplified_setpoints/source_run/metrics_summary.snapshot.yaml
+    run_metadata.snapshot.yaml: models/simplified_dataset/setpoints/exported/periodic_mlp_harmonic/backward/2026-07-08-01-19-22__te_periodic_mlp_harmonic_bw__simplified_setpoints/source_run/run_metadata.snapshot.yaml
+    training_test_report.snapshot.md: models/simplified_dataset/setpoints/exported/periodic_mlp_harmonic/backward/2026-07-08-01-19-22__te_periodic_mlp_harmonic_bw__simplified_setpoints/source_run/training_test_report.snapshot.md
+    best_checkpoint_path.snapshot.txt: models/simplified_dataset/setpoints/exported/periodic_mlp_harmonic/backward/2026-07-08-01-19-22__te_periodic_mlp_harmonic_bw__simplified_setpoints/source_run/best_checkpoint_path.snapshot.txt
   metrics:
-    val_mae: 0.0169888474047184
-    test_mae: 0.020789284259080887
-    test_rmse: 0.02291388250887394
+    val_mae: 0.0028031012043356895
+    test_mae: 0.003377139801159501
+    test_rmse: 0.004053632728755474
