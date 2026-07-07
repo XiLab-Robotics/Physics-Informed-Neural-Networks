@@ -104,6 +104,16 @@ This folder contains the internal project documents derived from the reference P
   Technical plan for aligning `polished_dataset` actual-values inputs to the
   same five-feature width used by setpoint-based retraining paths.
 
+- [technical/2026-07/2026-07-07/2026-07-07-11-46-14_familywise_track2_onnx_report_pipeline.md](./technical/2026-07/2026-07-07/2026-07-07-11-46-14_familywise_track2_onnx_report_pipeline.md)
+  Technical plan for a familywise `TE Curve Verification Pipeline` ONNX report
+  that evaluates dataset/input-mode matched exported models and produces
+  configurable forward, backward, and global curve pages.
+
+- [reports/analysis/te_curve_verification_pipeline/03_family_reports/tree/[2026-07-07]/track2_tree_familywise_onnx_report.md](./reports/analysis/te_curve_verification_pipeline/03_family_reports/tree/%5B2026-07-07%5D/track2_tree_familywise_onnx_report.md)
+  Familywise `tree` ONNX verification report comparing the completed
+  simplified setpoint, polished setpoint, and polished actual-value exports
+  with 12-curve forward, backward, and global collage pages.
+
 - [technical/2026-07/2026-07-13/2026-07-13-16-31-32_rcim_track1_polished_input_mode_retraining.md](./technical/2026-07/2026-07-13/2026-07-13-16-31-32_rcim_track1_polished_input_mode_retraining.md)
   Technical plan for retraining only the two missing `rcim_track1`
   polished-dataset input-mode campaigns while freezing the audited
@@ -576,6 +586,11 @@ This folder contains the internal project documents derived from the reference P
   Technical plan for correcting the reduced selected-model reports so polished
   and simplified reports use dataset-matched model candidates and shared
   four-curve evidence sets per direction.
+
+- [technical/2026-07/2026-07-07/2026-07-07-11-46-14_familywise_track2_onnx_report_pipeline.md](./technical/2026-07/2026-07-07/2026-07-07-11-46-14_familywise_track2_onnx_report_pipeline.md)
+  Technical plan for a familywise `TE Curve Verification Pipeline` ONNX report
+  that evaluates dataset/input-mode matched exported models and produces
+  configurable forward, backward, and global curve pages.
 
 #### 2026-07-06
 

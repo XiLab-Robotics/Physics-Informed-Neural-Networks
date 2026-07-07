@@ -42,6 +42,8 @@ At the moment, the implemented workflows are:
   launcher with local and `-Remote` execution paths;
 - an operator-gated `TE Curve Verification Pipeline` dataset/surface report
   split launcher for polished-versus-simplified verification reporting;
+- a familywise `TE Curve Verification Pipeline` ONNX report builder for
+  dataset/input-mode retraining exports under `models/`;
 - a `Wave 5.2A` MMT equation diagnostic report generator for harmonic-summary
   inspection before PINN integration;
 - a dry-run `Wave 5.2B` MMT feature-generator check that writes leakage-aware
@@ -242,6 +244,17 @@ Resume a stopped split workflow from the first failed step:
   -ResumeFromStep 03_overlay_polished_dataset_forward
 ```
 
+Generate a familywise ONNX report after one model family has all three
+dataset/input-mode exports:
+
+```powershell
+conda run -n pinns_env python -B scripts/reports/analysis/build_track2_familywise_onnx_report.py `
+  --model-family tree `
+  --curves-per-page 12 `
+  --report-date 2026-07-07 `
+  --windows
+```
+
 Launch the 36-run early-wave batch locally after confirming the active
 campaign state is intentionally parallel with the RCIM run on the other
 workstation:
@@ -308,6 +321,13 @@ The current usage flow mainly relies on these folders:
   `paper_original_best_Fw`, `paper_retuned_best_Fw`, full original `ONNX`, and
   the two sparse original `ONNX` variants on the same four representative
   curves, then computes aggregate and pairwise predicted-curve differences.
+
+- `scripts/reports/analysis/build_track2_familywise_onnx_report.py`
+  Familywise `TE Curve Verification Pipeline` ONNX report builder for completed
+  dataset/input-mode retraining exports. It loads the exact `global`,
+  `forward`, and `backward` ONNX models from `models/`, evaluates them on
+  dataset-matched held-out test curves, writes per-curve and aggregate metrics,
+  and creates eight-curve forward, backward, and global collage pages.
 
 - `scripts/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/plot_original_onnx_fw_track2_curves.py`
   Lightweight original `ONNX` TE Curve Verification Pipeline curve plotter. The `--variant-id`
