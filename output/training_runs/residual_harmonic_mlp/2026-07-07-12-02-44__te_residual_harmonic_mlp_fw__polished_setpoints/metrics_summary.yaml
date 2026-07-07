@@ -1,0 +1,111 @@
+schema_version: 1
+config_path: /scratch1/dferrari/Physics-Informed-Neural-Networks/config/training/queue/dataset_input_mode_retraining/dataset_input_mode_retraining__residual_harmonic_mlp__polished_setpoints/running/2026-07-07-11-34-39_002_002_residual_harmonic_mlp_fw.yaml
+experiment:
+  model_family: residual_harmonic_mlp_fw
+  model_type: residual_harmonic_mlp
+  run_name: te_residual_harmonic_mlp_fw__polished_setpoints
+  output_run_name: te_residual_harmonic_mlp_fw__polished_setpoints
+  run_instance_id: 2026-07-07-12-02-44__te_residual_harmonic_mlp_fw__polished_setpoints
+  output_artifact_kind: training_run
+  base_model_family: residual_harmonic_mlp
+  training_variant: fw
+  direction_scope_label: forward_only
+  use_forward_direction: true
+  use_backward_direction: false
+artifacts:
+  output_directory: /scratch1/dferrari/Physics-Informed-Neural-Networks/output/training_runs/residual_harmonic_mlp/2026-07-07-12-02-44__te_residual_harmonic_mlp_fw__polished_setpoints
+  best_checkpoint_path: /scratch1/dferrari/Physics-Informed-Neural-Networks/output/training_runs/residual_harmonic_mlp/2026-07-07-12-02-44__te_residual_harmonic_mlp_fw__polished_setpoints/checkpoints/residual_harmonic_mlp-epoch=122-val_mae=0.00159866.ckpt
+dataset_split:
+  train_curve_count: 1356
+  validation_curve_count: 388
+  test_curve_count: 194
+  dataset_name: polished_dataset
+  dataset_schema: polished_setpoint_curve_v1
+  input_mode: setpoints
+  input_feature_name_list:
+  - angular_position_deg
+  - input_speed_rpm
+  - input_torque_nm
+  - oil_temperature_deg
+  - direction_flag
+  target_feature_name_list:
+  - theta_TE
+  input_feature_dim: 5
+  target_feature_dim: 1
+dataset:
+  dataset_id: polished_dataset
+  dataset_schema: polished_setpoint_curve_v1
+  input_mode: setpoints
+  input_feature_names:
+  - angular_position_deg
+  - input_speed_rpm
+  - input_torque_nm
+  - oil_temperature_deg
+  - direction_flag
+  target_feature_names:
+  - theta_TE
+  input_feature_dim: 5
+  target_feature_dim: 1
+model_summary:
+  backbone_name: ResidualHarmonicNetwork
+  trainable_parameter_count: 26266
+  frozen_parameter_count: 0
+  total_parameter_count: 26266
+runtime_config:
+  accelerator: auto
+  devices: auto
+  precision: '32'
+  benchmark: true
+  use_non_blocking_transfer: true
+normalization_statistics:
+  input_feature_mean:
+  - 179.99932861328125
+  - 506.3110656738281
+  - 899.5912475585938
+  - 29.843814849853516
+  - -0.017244350165128708
+  input_feature_std:
+  - 103.92501831054688
+  - 467.6205139160156
+  - 552.3276977539062
+  - 4.094048023223877
+  - 0.9998512864112854
+  target_mean:
+  - -0.01666698232293129
+  target_std:
+  - 0.04654856026172638
+validation_metrics:
+  val_loss: 0.00267045758664608
+  val_mae: 0.0015986645594239235
+  val_rmse: 0.0020519241224974394
+  val_pointwise_loss: 0.00267045758664608
+  val_centered_curve_shape_loss: 0.0030359700322151184
+  val_curve_offset_loss: 0.0003142600180581212
+  val_curve_amplitude_loss: 0.05403895676136017
+  val_sparse_harmonic_shape_loss: 0.0
+  val_structured_mae: 0.04032205790281296
+  val_structured_rmse: 0.043857645243406296
+test_metrics:
+  test_loss: 0.004056316334754229
+  test_mae: 0.0017585026798769832
+  test_rmse: 0.0023363307118415833
+  test_pointwise_loss: 0.004056316334754229
+  test_centered_curve_shape_loss: 0.0037815312389284372
+  test_curve_offset_loss: 0.0013193768681958318
+  test_curve_amplitude_loss: 0.06729838997125626
+  test_sparse_harmonic_shape_loss: 0.0
+  test_structured_mae: 0.0396885871887207
+  test_structured_rmse: 0.043691638857126236
+comparison_payload:
+  model_family: residual_harmonic_mlp_fw
+  model_type: residual_harmonic_mlp
+  run_name: te_residual_harmonic_mlp_fw__polished_setpoints
+  backbone_name: ResidualHarmonicNetwork
+  trainable_parameter_count: 26266
+  total_parameter_count: 26266
+  val_mae: 0.0015986645594239235
+  val_rmse: 0.0020519241224974394
+  test_mae: 0.0017585026798769832
+  test_rmse: 0.0023363307118415833
+  deployment_notes: ''
+  interpretability_notes: ''

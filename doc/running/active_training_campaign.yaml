@@ -147,30 +147,30 @@ last_completed_campaign:
       te_curve_verification_status: not_run_in_closeout
 next_prepared_campaign:
   status: completed_and_exported
-  campaign_name: dataset_input_mode_retraining__residual_harmonic_mlp__simplified_setpoints
-  dataset_id: simplified_dataset
+  campaign_name: dataset_input_mode_retraining__residual_harmonic_mlp__polished_setpoints
+  dataset_id: polished_dataset
   input_mode: setpoints
-  dataset_schema: simplified_curve_v1
+  dataset_schema: polished_setpoint_curve_v1
   expected_run_count: 3
   completed_run_count: 3
   failed_run_count: 0
   sbatch_submission:
-    slurm_job_id: '134941'
+    slurm_job_id: '134945'
     state: COMPLETED
     exit_code: 0:0
-    elapsed: 00:37:19
-    max_rss: 15357208K
+    elapsed: 01:29:16
+    max_rss: 15412548K
     python_executable: /unimore_home/dferrari/.conda/envs/pinns_env/bin/python
     torch_version: 2.7.1+cu118
     gpu_request: 1g.20gb:1
-  campaign_manifest_path: config/training/dataset_input_mode_retraining/campaigns/dataset_input_mode_retraining__residual_harmonic_mlp__simplified_setpoints/campaign.yaml
-  campaign_output_directory: output/training_campaigns/2026-07-07-10-46-08_dataset_input_mode_retraining__residual_harmonic_mlp__simplified_setpoin
-  campaign_best_run_path: output/training_campaigns/2026-07-07-10-46-08_dataset_input_mode_retraining__residual_harmonic_mlp__simplified_setpoin/campaign_best_run.yaml
-  campaign_leaderboard_path: output/training_campaigns/2026-07-07-10-46-08_dataset_input_mode_retraining__residual_harmonic_mlp__simplified_setpoin/campaign_leaderboard.yaml
+  campaign_manifest_path: config/training/dataset_input_mode_retraining/campaigns/dataset_input_mode_retraining__residual_harmonic_mlp__polished_setpoints/campaign.yaml
+  campaign_output_directory: output/training_campaigns/2026-07-07-11-34-39_dataset_input_mode_retraining__residual_harmonic_mlp__polished_setpoints
+  campaign_best_run_path: output/training_campaigns/2026-07-07-11-34-39_dataset_input_mode_retraining__residual_harmonic_mlp__polished_setpoints/campaign_best_run.yaml
+  campaign_leaderboard_path: output/training_campaigns/2026-07-07-11-34-39_dataset_input_mode_retraining__residual_harmonic_mlp__polished_setpoints/campaign_leaderboard.yaml
   export:
     status: completed
-    export_root: models/simplified_dataset/setpoints/exported
-    export_inventory_path: models/simplified_dataset/setpoints/exported/model_development_export_inventory.yaml
+    export_root: models/polished_dataset/setpoints/exported
+    export_inventory_path: models/polished_dataset/setpoints/exported/model_development_export_inventory.yaml
     exported_entry_count: 3
     onnx_export_status_counts:
       exported: 3
