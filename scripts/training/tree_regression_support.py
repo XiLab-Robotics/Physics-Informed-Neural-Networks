@@ -240,6 +240,7 @@ def build_tree_metrics_snapshot(
         "dataset": {
             "dataset_id": dataset_split_summary.dataset_name,
             "dataset_schema": dataset_split_summary.dataset_schema,
+            "input_mode": dataset_split_summary.input_mode,
             "input_feature_names": list(dataset_split_summary.input_feature_name_list),
             "target_feature_names": list(dataset_split_summary.target_feature_name_list),
             "input_feature_dim": dataset_split_summary.input_feature_dim,

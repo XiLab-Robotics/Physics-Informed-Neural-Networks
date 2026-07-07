@@ -1148,6 +1148,24 @@ def build_registry_entry(metrics_snapshot_dictionary: dict[str, Any]) -> dict[st
             "input_feature_dim": dataset_split_dictionary.get("input_feature_dim"),
             "target_feature_dim": dataset_split_dictionary.get("target_feature_dim"),
         }
+    elif isinstance(dataset_split_dictionary, dict):
+        dataset_dictionary = {
+            "dataset_id": dataset_dictionary.get("dataset_id") or dataset_split_dictionary.get("dataset_name"),
+            "dataset_schema": dataset_dictionary.get("dataset_schema") or dataset_split_dictionary.get("dataset_schema"),
+            "input_mode": dataset_dictionary.get("input_mode") or dataset_split_dictionary.get("input_mode"),
+            "input_feature_names": (
+                dataset_dictionary.get("input_feature_names")
+                or dataset_split_dictionary.get("input_feature_name_list", [])
+            ),
+            "target_feature_names": (
+                dataset_dictionary.get("target_feature_names")
+                or dataset_split_dictionary.get("target_feature_name_list", [])
+            ),
+            "input_feature_dim": dataset_dictionary.get("input_feature_dim")
+            or dataset_split_dictionary.get("input_feature_dim"),
+            "target_feature_dim": dataset_dictionary.get("target_feature_dim")
+            or dataset_split_dictionary.get("target_feature_dim"),
+        }
 
     return {
         "run_instance_id": experiment_dictionary["run_instance_id"],

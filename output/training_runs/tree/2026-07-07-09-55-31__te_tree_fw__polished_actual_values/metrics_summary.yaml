@@ -1,0 +1,98 @@
+schema_version: 1
+config_path: /scratch1/dferrari/Physics-Informed-Neural-Networks/config/training/queue/dataset_input_mode_retraining/dataset_input_mode_retraining__tree__polished_actual_values/running/2026-07-07-09-52-50_002_002_tree_fw.yaml
+experiment:
+  model_family: tree_fw
+  model_type: hist_gradient_boosting
+  run_name: te_tree_fw__polished_actual_values
+  output_run_name: te_tree_fw__polished_actual_values
+  run_instance_id: 2026-07-07-09-55-31__te_tree_fw__polished_actual_values
+  output_artifact_kind: training_run
+  base_model_family: tree
+  training_variant: fw
+  direction_scope_label: forward_only
+  use_forward_direction: true
+  use_backward_direction: false
+artifacts:
+  output_directory: /scratch1/dferrari/Physics-Informed-Neural-Networks/output/training_runs/tree/2026-07-07-09-55-31__te_tree_fw__polished_actual_values
+  best_checkpoint_path: /scratch1/dferrari/Physics-Informed-Neural-Networks/output/training_runs/tree/2026-07-07-09-55-31__te_tree_fw__polished_actual_values/tree_model.pkl
+dataset_split:
+  train_curve_count: 1356
+  validation_curve_count: 388
+  test_curve_count: 194
+  dataset_name: polished_dataset
+  dataset_schema: polished_point_v1
+  input_mode: actual_values
+  input_feature_name_list:
+  - theta
+  - theta_dot
+  - tau_load
+  - T
+  - direction_flag
+  target_feature_name_list:
+  - theta_TE
+  input_feature_dim: 5
+  target_feature_dim: 1
+dataset:
+  dataset_id: polished_dataset
+  dataset_schema: polished_point_v1
+  input_feature_names:
+  - theta
+  - theta_dot
+  - tau_load
+  - T
+  - direction_flag
+  target_feature_names:
+  - theta_TE
+  input_feature_dim: 5
+  target_feature_dim: 1
+  input_mode: actual_values
+model_summary:
+  backbone_name: HistGradientBoostingRegressor
+  trainable_parameter_count: 5
+  frozen_parameter_count: 0
+  total_parameter_count: 5
+runtime_config:
+  accelerator: cpu
+  devices: 1
+  precision: n/a
+  benchmark: false
+  use_non_blocking_transfer: false
+  estimator_backend: scikit-learn
+normalization_statistics:
+  input_feature_mean:
+  - 179.99932861328125
+  - -14.94044017791748
+  - 1.68223237991333
+  - 30.617389678955078
+  - -0.017244350165128708
+  input_feature_std:
+  - 103.92501831054688
+  - 690.1232299804688
+  - 1055.5772705078125
+  - 4.267263412475586
+  - 0.9998512864112854
+  target_mean:
+  - -0.01666698232293129
+  target_std:
+  - 0.04654856026172638
+validation_metrics:
+  val_loss: 5.835091248874984e-06
+  val_mae: 0.001570162034401711
+  val_rmse: 0.0024155933533761397
+test_metrics:
+  test_loss: 8.364016333452955e-06
+  test_mae: 0.001749789661614506
+  test_rmse: 0.0028920609145474366
+comparison_payload:
+  model_family: tree_fw
+  model_type: hist_gradient_boosting
+  run_name: te_tree_fw__polished_actual_values
+  backbone_name: HistGradientBoostingRegressor
+  trainable_parameter_count: 5
+  total_parameter_count: 5
+  val_mae: 0.001570162034401711
+  val_rmse: 0.0024155933533761397
+  test_mae: 0.001749789661614506
+  test_rmse: 0.0028920609145474366
+  deployment_notes: ''
+  interpretability_notes: ''
