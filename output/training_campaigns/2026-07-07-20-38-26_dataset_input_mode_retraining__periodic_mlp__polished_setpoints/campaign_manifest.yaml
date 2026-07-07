@@ -1,0 +1,69 @@
+campaign_name: dataset_input_mode_retraining__periodic_mlp__polished_setpoints
+generated_at: '2026-07-07T21:25:45'
+queue_root: config/training/queue/dataset_input_mode_retraining/dataset_input_mode_retraining__periodic_mlp__polished_setpoints
+campaign_output_directory: output/training_campaigns/2026-07-07-20-38-26_dataset_input_mode_retraining__periodic_mlp__polished_setpoints
+planning_report_path: doc/reports/campaign_plans/cross_wave/input_modes/2026-07-07-01-46-06_dataset_input_mode_retraining_campaign_plan_report.md
+run_list:
+- original_queue_config_path: config/training/queue/dataset_input_mode_retraining/dataset_input_mode_retraining__periodic_mlp__polished_setpoints/pending/2026-07-07-20-38-26_001_001_periodic_mlp_global.yaml
+  final_queue_config_path: config/training/queue/dataset_input_mode_retraining/dataset_input_mode_retraining__periodic_mlp__polished_setpoints/completed/2026-07-07-20-38-26_001_001_periodic_mlp_global.yaml
+  source_config_path: config/training/dataset_input_mode_retraining/campaigns/dataset_input_mode_retraining__periodic_mlp__polished_setpoints/queue/001_periodic_mlp_global.yaml
+  run_name: te_periodic_mlp_global__polished_setpoints
+  run_instance_id: 2026-07-07-20-38-26__te_periodic_mlp_global__polished_setpoints
+  model_type: periodic_mlp
+  queue_status: completed
+  start_time: '2026-07-07T20:38:26'
+  end_time: '2026-07-07T20:52:32'
+  duration_seconds: 846.202
+  process_return_code: 0
+  output_directory: output/training_runs/periodic_mlp/2026-07-07-20-38-26__te_periodic_mlp_global__polished_setpoints
+  config_snapshot_path: output/training_runs/periodic_mlp/2026-07-07-20-38-26__te_periodic_mlp_global__polished_setpoints/training_config.yaml
+  best_checkpoint_reference_path: output/training_runs/periodic_mlp/2026-07-07-20-38-26__te_periodic_mlp_global__polished_setpoints/best_checkpoint_path.txt
+  best_checkpoint_path: /scratch1/dferrari/Physics-Informed-Neural-Networks/output/training_runs/periodic_mlp/2026-07-07-20-38-26__te_periodic_mlp_global__polished_setpoints/checkpoints/periodic_mlp-epoch=080-val_mae=0.00165354.ckpt
+  metrics_path: output/training_runs/periodic_mlp/2026-07-07-20-38-26__te_periodic_mlp_global__polished_setpoints/metrics_summary.yaml
+  training_report_path: output/training_runs/periodic_mlp/2026-07-07-20-38-26__te_periodic_mlp_global__polished_setpoints/training_test_report.md
+  log_path: output/training_campaigns/2026-07-07-20-38-26_dataset_input_mode_retraining__periodic_mlp__polished_setpoints/logs/001_te_periodic_mlp_global__polished_setpoints.log
+  planning_report_path: doc/reports/campaign_plans/cross_wave/input_modes/2026-07-07-01-46-06_dataset_input_mode_retraining_campaign_plan_report.md
+  campaign_name: dataset_input_mode_retraining__periodic_mlp__polished_setpoints
+  error_message: null
+- original_queue_config_path: config/training/queue/dataset_input_mode_retraining/dataset_input_mode_retraining__periodic_mlp__polished_setpoints/pending/2026-07-07-20-38-26_002_002_periodic_mlp_fw.yaml
+  final_queue_config_path: config/training/queue/dataset_input_mode_retraining/dataset_input_mode_retraining__periodic_mlp__polished_setpoints/completed/2026-07-07-20-38-26_002_002_periodic_mlp_fw.yaml
+  source_config_path: config/training/dataset_input_mode_retraining/campaigns/dataset_input_mode_retraining__periodic_mlp__polished_setpoints/queue/002_periodic_mlp_fw.yaml
+  run_name: te_periodic_mlp_fw__polished_setpoints
+  run_instance_id: 2026-07-07-20-52-32__te_periodic_mlp_fw__polished_setpoints
+  model_type: periodic_mlp
+  queue_status: completed
+  start_time: '2026-07-07T20:52:32'
+  end_time: '2026-07-07T21:11:38'
+  duration_seconds: 1146.096
+  process_return_code: 0
+  output_directory: output/training_runs/periodic_mlp/2026-07-07-20-52-32__te_periodic_mlp_fw__polished_setpoints
+  config_snapshot_path: output/training_runs/periodic_mlp/2026-07-07-20-52-32__te_periodic_mlp_fw__polished_setpoints/training_config.yaml
+  best_checkpoint_reference_path: output/training_runs/periodic_mlp/2026-07-07-20-52-32__te_periodic_mlp_fw__polished_setpoints/best_checkpoint_path.txt
+  best_checkpoint_path: /scratch1/dferrari/Physics-Informed-Neural-Networks/output/training_runs/periodic_mlp/2026-07-07-20-52-32__te_periodic_mlp_fw__polished_setpoints/checkpoints/periodic_mlp-epoch=089-val_mae=0.00162401.ckpt
+  metrics_path: output/training_runs/periodic_mlp/2026-07-07-20-52-32__te_periodic_mlp_fw__polished_setpoints/metrics_summary.yaml
+  training_report_path: output/training_runs/periodic_mlp/2026-07-07-20-52-32__te_periodic_mlp_fw__polished_setpoints/training_test_report.md
+  log_path: output/training_campaigns/2026-07-07-20-38-26_dataset_input_mode_retraining__periodic_mlp__polished_setpoints/logs/002_te_periodic_mlp_fw__polished_setpoints.log
+  planning_report_path: doc/reports/campaign_plans/cross_wave/input_modes/2026-07-07-01-46-06_dataset_input_mode_retraining_campaign_plan_report.md
+  campaign_name: dataset_input_mode_retraining__periodic_mlp__polished_setpoints
+  error_message: null
+- original_queue_config_path: config/training/queue/dataset_input_mode_retraining/dataset_input_mode_retraining__periodic_mlp__polished_setpoints/pending/2026-07-07-20-38-26_003_003_periodic_mlp_bw.yaml
+  final_queue_config_path: config/training/queue/dataset_input_mode_retraining/dataset_input_mode_retraining__periodic_mlp__polished_setpoints/completed/2026-07-07-20-38-26_003_003_periodic_mlp_bw.yaml
+  source_config_path: config/training/dataset_input_mode_retraining/campaigns/dataset_input_mode_retraining__periodic_mlp__polished_setpoints/queue/003_periodic_mlp_bw.yaml
+  run_name: te_periodic_mlp_bw__polished_setpoints
+  run_instance_id: 2026-07-07-21-11-38__te_periodic_mlp_bw__polished_setpoints
+  model_type: periodic_mlp
+  queue_status: completed
+  start_time: '2026-07-07T21:11:38'
+  end_time: '2026-07-07T21:25:45'
+  duration_seconds: 846.335
+  process_return_code: 0
+  output_directory: output/training_runs/periodic_mlp/2026-07-07-21-11-38__te_periodic_mlp_bw__polished_setpoints
+  config_snapshot_path: output/training_runs/periodic_mlp/2026-07-07-21-11-38__te_periodic_mlp_bw__polished_setpoints/training_config.yaml
+  best_checkpoint_reference_path: output/training_runs/periodic_mlp/2026-07-07-21-11-38__te_periodic_mlp_bw__polished_setpoints/best_checkpoint_path.txt
+  best_checkpoint_path: /scratch1/dferrari/Physics-Informed-Neural-Networks/output/training_runs/periodic_mlp/2026-07-07-21-11-38__te_periodic_mlp_bw__polished_setpoints/checkpoints/periodic_mlp-epoch=055-val_mae=0.00165461.ckpt
+  metrics_path: output/training_runs/periodic_mlp/2026-07-07-21-11-38__te_periodic_mlp_bw__polished_setpoints/metrics_summary.yaml
+  training_report_path: output/training_runs/periodic_mlp/2026-07-07-21-11-38__te_periodic_mlp_bw__polished_setpoints/training_test_report.md
+  log_path: output/training_campaigns/2026-07-07-20-38-26_dataset_input_mode_retraining__periodic_mlp__polished_setpoints/logs/003_te_periodic_mlp_bw__polished_setpoints.log
+  planning_report_path: doc/reports/campaign_plans/cross_wave/input_modes/2026-07-07-01-46-06_dataset_input_mode_retraining_campaign_plan_report.md
+  campaign_name: dataset_input_mode_retraining__periodic_mlp__polished_setpoints
+  error_message: null

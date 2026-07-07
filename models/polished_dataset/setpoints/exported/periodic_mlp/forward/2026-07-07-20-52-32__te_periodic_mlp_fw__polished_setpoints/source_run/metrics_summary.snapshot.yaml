@@ -1,0 +1,107 @@
+schema_version: 1
+config_path: /scratch1/dferrari/Physics-Informed-Neural-Networks/config/training/queue/dataset_input_mode_retraining/dataset_input_mode_retraining__periodic_mlp__polished_setpoints/running/2026-07-07-20-38-26_002_002_periodic_mlp_fw.yaml
+experiment:
+  model_family: periodic_mlp_fw
+  model_type: periodic_mlp
+  run_name: te_periodic_mlp_fw__polished_setpoints
+  output_run_name: te_periodic_mlp_fw__polished_setpoints
+  run_instance_id: 2026-07-07-20-52-32__te_periodic_mlp_fw__polished_setpoints
+  output_artifact_kind: training_run
+  base_model_family: periodic_mlp
+  training_variant: fw
+  direction_scope_label: forward_only
+  use_forward_direction: true
+  use_backward_direction: false
+artifacts:
+  output_directory: /scratch1/dferrari/Physics-Informed-Neural-Networks/output/training_runs/periodic_mlp/2026-07-07-20-52-32__te_periodic_mlp_fw__polished_setpoints
+  best_checkpoint_path: /scratch1/dferrari/Physics-Informed-Neural-Networks/output/training_runs/periodic_mlp/2026-07-07-20-52-32__te_periodic_mlp_fw__polished_setpoints/checkpoints/periodic_mlp-epoch=089-val_mae=0.00162401.ckpt
+dataset_split:
+  train_curve_count: 1356
+  validation_curve_count: 388
+  test_curve_count: 194
+  dataset_name: polished_dataset
+  dataset_schema: polished_setpoint_curve_v1
+  input_mode: setpoints
+  input_feature_name_list:
+  - angular_position_deg
+  - input_speed_rpm
+  - input_torque_nm
+  - oil_temperature_deg
+  - direction_flag
+  target_feature_name_list:
+  - theta_TE
+  input_feature_dim: 5
+  target_feature_dim: 1
+dataset:
+  dataset_id: polished_dataset
+  dataset_schema: polished_setpoint_curve_v1
+  input_mode: setpoints
+  input_feature_names:
+  - angular_position_deg
+  - input_speed_rpm
+  - input_torque_nm
+  - oil_temperature_deg
+  - direction_flag
+  target_feature_names:
+  - theta_TE
+  input_feature_dim: 5
+  target_feature_dim: 1
+model_summary:
+  backbone_name: PeriodicFeatureNetwork
+  trainable_parameter_count: 27265
+  frozen_parameter_count: 0
+  total_parameter_count: 27265
+runtime_config:
+  accelerator: auto
+  devices: auto
+  precision: '32'
+  benchmark: true
+  use_non_blocking_transfer: true
+normalization_statistics:
+  input_feature_mean:
+  - 179.99932861328125
+  - 506.3110656738281
+  - 899.5912475585938
+  - 29.843814849853516
+  - -0.017244350165128708
+  input_feature_std:
+  - 103.92501831054688
+  - 467.6205139160156
+  - 552.3276977539062
+  - 4.094048023223877
+  - 0.9998512864112854
+  target_mean:
+  - -0.01666698232293129
+  target_std:
+  - 0.04654856026172638
+validation_metrics:
+  val_loss: 0.002760630566626787
+  val_mae: 0.0016240085242316127
+  val_rmse: 0.002193319145590067
+  val_pointwise_loss: 0.002760630566626787
+  val_centered_curve_shape_loss: 0.003286798018962145
+  val_curve_offset_loss: 0.0004340920422691852
+  val_curve_amplitude_loss: 0.05817190930247307
+  val_sparse_harmonic_shape_loss: 0.0
+test_metrics:
+  test_loss: 0.0041722021996974945
+  test_mae: 0.001769796945154667
+  test_rmse: 0.0027697996702045202
+  test_pointwise_loss: 0.0041722021996974945
+  test_centered_curve_shape_loss: 0.005287056788802147
+  test_curve_offset_loss: 0.0035992648918181658
+  test_curve_amplitude_loss: 0.08536577969789505
+  test_sparse_harmonic_shape_loss: 0.0
+comparison_payload:
+  model_family: periodic_mlp_fw
+  model_type: periodic_mlp
+  run_name: te_periodic_mlp_fw__polished_setpoints
+  backbone_name: PeriodicFeatureNetwork
+  trainable_parameter_count: 27265
+  total_parameter_count: 27265
+  val_mae: 0.0016240085242316127
+  val_rmse: 0.002193319145590067
+  test_mae: 0.001769796945154667
+  test_rmse: 0.0027697996702045202
+  deployment_notes: ''
+  interpretability_notes: ''
