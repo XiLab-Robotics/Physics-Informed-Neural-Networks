@@ -6,7 +6,7 @@ selection_policy:
   second_tie_breaker: val_mae
   third_tie_breaker: trainable_parameter_count
   direction: minimize
-updated_at: '2026-06-29T16:58:51'
+updated_at: '2026-07-07T11:21:45'
 best_entry:
   run_instance_id: 2026-06-25-17-06-54__te_residual_harmonic_mlp_bw
   run_name: te_residual_harmonic_mlp_bw
