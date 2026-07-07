@@ -1,0 +1,12 @@
+Command: /unimore/prod/Anaconda3-2025.06/bin/python /scratch1/dferrari/Physics-Informed-Neural-Networks/scripts/training/train_tree_regressor.py --config-path /scratch1/dferrari/Physics-Informed-Neural-Networks/config/training/queue/dataset_input_mode_retraining/dataset_input_mode_retraining__tree__simplified_setpoints/running/2026-07-07-02-29-35_003_003_tree_bw.yaml
+Working Directory: /scratch1/dferrari/Physics-Informed-Neural-Networks
+
+
+================================================================================================
+Campaign Progress 3/3 [################--------]
+================================================================================================
+[INFO] Campaign Name | dataset_input_mode_retraining__tree__simplified_setpoints
+[INFO] Run Name | te_tree_bw__simplified_setpoints
+[INFO] Queue Config | /scratch1/dferrari/Physics-Informed-Neural-Networks/config/training/queue/dataset_input_mode_retraining/dataset_input_mode_retraining__tree__simplified_setpoints/running/2026-07-07-02-29-35_003_003_tree_bw.yaml
+[INFO] Source Config | /scratch1/dferrari/Physics-Informed-Neural-Networks/config/training/dataset_input_mode_retraining/campaigns/dataset_input_mode_retraining__tree__simplified_setpoints/queue/003_tree_bw.yaml
+[DONE] Tree regression training workflow completed | /scratch1/dferrari/Physics-Informed-Neural-Networks/output/training_runs/tree/2026-07-07-02-33-43__te_tree_bw__simplified_setpoints

@@ -24,6 +24,8 @@ from scripts.datasets.transmission_error_dataset import load_dataset_processing_
 from scripts.datasets.transmission_error_dataset import resolve_dataset_selection
 from scripts.datasets.transmission_error_dataset import resolve_project_relative_path
 from scripts.datasets.transmission_error_dataset import resolve_dataset_schema
+from scripts.datasets.transmission_error_dataset import normalize_input_mode
+from scripts.datasets.transmission_error_dataset import resolve_input_mode_selection
 from scripts.models.model_factory import create_model
 from scripts.tooling import repository_path_support
 from scripts.training.transmission_error_datamodule import NormalizationStatistics
@@ -189,19 +191,42 @@ def apply_dataset_override(
         resolved_training_config.setdefault("model", {})["input_size"] = "auto"
     return resolved_training_config
 
+def apply_input_mode_override(
+    training_config: dict[str, Any],
+    input_mode: str | None,
+) -> dict[str, Any]:
+
+    """Clone a training config and apply one optional dataset input mode."""
+
+    resolved_training_config = clone_training_config(training_config)
+    if input_mode is None:
+        return resolved_training_config
+
+    dataset_name = resolved_training_config.get("dataset", {}).get("name")
+    normalized_input_mode = normalize_input_mode(dataset_name, input_mode)
+    resolved_training_config.setdefault("dataset", {})["input_mode"] = normalized_input_mode
+    resolved_training_config.setdefault("model", {})["input_size"] = "auto"
+    return resolved_training_config
+
 def resolve_training_dataset_schema(training_config: dict[str, Any]):
 
     """Resolve the effective dataset schema from a training configuration."""
 
     explicit_dataset_name = training_config.get("dataset", {}).get("name")
+    explicit_input_mode = training_config.get("dataset", {}).get("input_mode")
     if explicit_dataset_name is not None:
-        return resolve_dataset_schema(explicit_dataset_name)
+        return resolve_dataset_schema(explicit_dataset_name, explicit_input_mode)
 
     dataset_config_path = training_config.get("paths", {}).get("dataset_config_path")
     if dataset_config_path is not None:
         dataset_processing_config = load_dataset_processing_config(dataset_config_path)
         selected_dataset_name, _ = resolve_dataset_selection(dataset_processing_config)
-        return resolve_dataset_schema(selected_dataset_name)
+        selected_input_mode = resolve_input_mode_selection(
+            dataset_processing_config,
+            selected_dataset_name,
+            explicit_input_mode,
+        )
+        return resolve_dataset_schema(selected_dataset_name, selected_input_mode)
 
     return resolve_dataset_schema()
 
@@ -745,6 +770,7 @@ def create_datamodule_from_training_config(training_config: dict[str, Any]) -> T
     return TransmissionErrorDataModule(
         dataset_config_path=training_config["paths"]["dataset_config_path"],
         dataset_name=training_config.get("dataset", {}).get("name"),
+        input_mode=training_config.get("dataset", {}).get("input_mode"),
         curve_batch_size=int(training_config["dataset"]["curve_batch_size"]),
         point_stride=int(training_config["dataset"]["point_stride"]),
         maximum_points_per_curve=training_config["dataset"]["maximum_points_per_curve"],
@@ -1014,6 +1040,7 @@ def build_common_metrics_snapshot(
         "dataset": {
             "dataset_id": dataset_split_summary.dataset_name,
             "dataset_schema": dataset_split_summary.dataset_schema,
+            "input_mode": dataset_split_summary.input_mode,
             "input_feature_names": list(dataset_split_summary.input_feature_name_list),
             "target_feature_names": list(dataset_split_summary.target_feature_name_list),
             "input_feature_dim": dataset_split_summary.input_feature_dim,
@@ -1115,6 +1142,7 @@ def build_registry_entry(metrics_snapshot_dictionary: dict[str, Any]) -> dict[st
         dataset_dictionary = {
             "dataset_id": dataset_split_dictionary.get("dataset_name"),
             "dataset_schema": dataset_split_dictionary.get("dataset_schema"),
+            "input_mode": dataset_split_dictionary.get("input_mode"),
             "input_feature_names": dataset_split_dictionary.get("input_feature_name_list", []),
             "target_feature_names": dataset_split_dictionary.get("target_feature_name_list", []),
             "input_feature_dim": dataset_split_dictionary.get("input_feature_dim"),
@@ -1131,6 +1159,7 @@ def build_registry_entry(metrics_snapshot_dictionary: dict[str, Any]) -> dict[st
         "model_type": comparison_payload["model_type"],
         "dataset_id": dataset_dictionary.get("dataset_id", "simplified_dataset"),
         "dataset_schema": dataset_dictionary.get("dataset_schema", "simplified_curve_v1"),
+        "input_mode": dataset_dictionary.get("input_mode", "setpoints"),
         "input_feature_names": dataset_dictionary.get("input_feature_names", []),
         "target_feature_names": dataset_dictionary.get("target_feature_names", []),
         "input_feature_dim": dataset_dictionary.get("input_feature_dim"),

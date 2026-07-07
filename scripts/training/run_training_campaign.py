@@ -290,6 +290,7 @@ def parse_command_line_arguments() -> argparse.Namespace:
     argument_parser.add_argument("--campaign-name", type=str, default=None, help="Optional campaign name used for the campaign output folder and report header.")
     argument_parser.add_argument("--planning-report-path", type=Path, default=None, help="Optional planning-report path recorded in the generated campaign report.")
     argument_parser.add_argument("--dataset", choices=["polished_dataset", "simplified_dataset"], default=None, help="Dataset selector applied to every queued training config.")
+    argument_parser.add_argument("--input-mode", choices=["setpoints", "actual_values"], default=None, help="Input-mode selector applied to every queued training config.")
     argument_parser.add_argument("--enqueue-only", action="store_true", help="Copy the provided YAML files into the pending queue without executing them.")
     argument_parser.add_argument("--stop-on-error", action="store_true", help="Stop the queue immediately after the first failed training run.")
     repository_path_support.add_platform_arguments(argument_parser)
@@ -449,6 +450,24 @@ def build_queue_item_context(queue_config_path: Path, queue_source_path_dictiona
         source_config_path=queue_source_path_dictionary.get(queue_config_path.resolve()),
         training_config=load_yaml_dictionary(queue_config_path),
     )
+
+def apply_runtime_dataset_overrides(
+    training_config: dict[str, Any],
+    dataset_name: str | None,
+    input_mode: str | None,
+) -> dict[str, Any]:
+
+    """Apply campaign-level dataset and input-mode overrides."""
+
+    resolved_training_config = shared_training_infrastructure.apply_dataset_override(
+        training_config,
+        dataset_name,
+    )
+    resolved_training_config = shared_training_infrastructure.apply_input_mode_override(
+        resolved_training_config,
+        input_mode,
+    )
+    return resolved_training_config
 
 def format_path_for_report(path_value: Path | None) -> str:
 
@@ -1129,14 +1148,15 @@ def main() -> None:
         )
         for pending_queue_path in pending_queue_path_list
     ]
-    if command_line_arguments.dataset is not None:
+    if command_line_arguments.dataset is not None or command_line_arguments.input_mode is not None:
         queue_item_context_list = [
             QueueItemContext(
                 queue_config_path=queue_item_context.queue_config_path,
                 source_config_path=queue_item_context.source_config_path,
-                training_config=shared_training_infrastructure.apply_dataset_override(
+                training_config=apply_runtime_dataset_overrides(
                     queue_item_context.training_config,
                     command_line_arguments.dataset,
+                    command_line_arguments.input_mode,
                 ),
             )
             for queue_item_context in queue_item_context_list

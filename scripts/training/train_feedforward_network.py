@@ -615,6 +615,7 @@ def resolve_runtime_config(training_config: dict) -> dict[str, object]:
 def train_feedforward_network(
     config_path: str | Path = DEFAULT_CONFIG_PATH,
     dataset_name: str | None = None,
+    input_mode: str | None = None,
 ) -> None:
 
     """Run the full feedforward TE training workflow for one configuration.
@@ -627,12 +628,17 @@ def train_feedforward_network(
     Args:
         config_path: Path to the YAML training configuration to execute.
         dataset_name: Optional polished or simplified dataset override.
+        input_mode: Optional setpoints or actual-values input-mode override.
     """
 
     # Load Training Configuration
     training_config = shared_training_infrastructure.apply_dataset_override(
         load_training_config(config_path),
         dataset_name,
+    )
+    training_config = shared_training_infrastructure.apply_input_mode_override(
+        training_config,
+        input_mode,
     )
     training_config = shared_training_infrastructure.prepare_output_artifact_training_config(training_config)
     experiment_identity = shared_training_infrastructure.resolve_experiment_identity(training_config)
@@ -821,6 +827,12 @@ def parse_command_line_arguments() -> argparse.Namespace:
         default=None,
         help="Dataset selector overriding the training YAML. Defaults to polished_dataset when unspecified by the YAML.",
     )
+    argument_parser.add_argument(
+        "--input-mode",
+        choices=["setpoints", "actual_values"],
+        default=None,
+        help="Input-mode selector overriding the training YAML.",
+    )
     repository_path_support.add_platform_arguments(argument_parser)
 
     return argument_parser.parse_args()
@@ -836,7 +848,11 @@ def main() -> None:
     )
 
     # Train Static Neural Model
-    train_feedforward_network(command_line_arguments.config_path, command_line_arguments.dataset)
+    train_feedforward_network(
+        command_line_arguments.config_path,
+        command_line_arguments.dataset,
+        command_line_arguments.input_mode,
+    )
 
 if __name__ == "__main__":
 

@@ -95,6 +95,11 @@ This folder contains the internal project documents derived from the reference P
   and simplified reports use dataset-matched model candidates and shared
   four-curve evidence sets per direction.
 
+- [technical/2026-07/2026-07-07/2026-07-07-01-46-06_dataset_input_mode_retraining_campaigns.md](./technical/2026-07/2026-07-07/2026-07-07-01-46-06_dataset_input_mode_retraining_campaigns.md)
+  Technical plan for the Aries retraining program that separates
+  `simplified_dataset` setpoints, `polished_dataset` setpoints, and
+  `polished_dataset` actual-value model artifacts.
+
 - [scripts/tooling/lan_ai/lan_ai_node_server.md](./scripts/tooling/lan_ai/lan_ai_node_server.md)
   Setup and runtime guide for the remote LAN AI workstation.
 
@@ -110,6 +115,11 @@ This folder contains the internal project documents derived from the reference P
   generates only the four polished/simplified forward/backward reports and
   keeps `global`, collage, overlay, and dataset-difference reports paused by
   default.
+
+- [scripts/campaigns/aries/run_dataset_input_mode_retraining_campaign.md](./scripts/campaigns/aries/run_dataset_input_mode_retraining_campaign.md)
+  Aries launcher note for one-at-a-time dataset input-mode retraining campaigns
+  across `simplified_dataset` setpoints, `polished_dataset` setpoints, and
+  `polished_dataset` actual values.
 
 ### Analysis Reports
 
@@ -495,8 +505,10 @@ This folder contains the internal project documents derived from the reference P
   archive, including source bundles, export completeness, and retuned Tables
   `2`-`5` for both directions.
 
-- [reports/analysis/Training Results Master Summary.md](./reports/analysis/Training%20Results%20Master%20Summary.md)
-  Canonical always-updated summary of current project status, best family results, recent campaign changes, and family-by-family ranked outcomes across the TE training program.
+- [reports/analysis/project_status/current/Training Results Master Summary.md](./reports/analysis/project_status/current/Training%20Results%20Master%20Summary.md)
+  Canonical always-updated summary of current project status, best family
+  results, recent campaign changes, and family-by-family ranked outcomes across
+  the TE training program.
 
 - [reports/analysis/Repository Status Wave Track Synthesis.md](./reports/analysis/Repository%20Status%20Wave%20Track%20Synthesis.md)
   Consolidated state report covering the repository status, `Wave 1`,

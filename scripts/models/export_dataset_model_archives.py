@@ -73,6 +73,12 @@ def parse_command_line_arguments() -> argparse.Namespace:
         help="Dataset archive root to build.",
     )
     argument_parser.add_argument(
+        "--input-mode",
+        required=True,
+        choices=["setpoints", "actual_values"],
+        help="Dataset input mode archive branch to build.",
+    )
+    argument_parser.add_argument(
         "--campaign-manifest",
         action="append",
         default=[],
@@ -81,7 +87,7 @@ def parse_command_line_arguments() -> argparse.Namespace:
     argument_parser.add_argument(
         "--output-root",
         default=None,
-        help="Override output root. Defaults to models/<dataset-id>/exported.",
+        help="Override output root. Defaults to models/<dataset-id>/<input-mode>/exported.",
     )
     argument_parser.add_argument(
         "--export",
@@ -220,7 +226,11 @@ def load_training_config(output_directory: Path) -> dict[str, Any]:
     return load_yaml_dictionary(training_config_path)
 
 
-def build_archive_run_list(manifest_path_list: list[Path], dataset_id: str) -> list[dict[str, Any]]:
+def build_archive_run_list(
+    manifest_path_list: list[Path],
+    dataset_id: str,
+    input_mode: str,
+) -> list[dict[str, Any]]:
 
     """Build archive run records from campaign manifests."""
 
@@ -246,6 +256,14 @@ def build_archive_run_list(manifest_path_list: list[Path], dataset_id: str) -> l
                 or metrics_dictionary.get("dataset_split", {}).get("dataset_name")
             )
             if run_dataset_id != dataset_id:
+                continue
+            run_input_mode = str(
+                run_dictionary.get("input_mode")
+                or metrics_dataset_dictionary.get("input_mode")
+                or metrics_dictionary.get("dataset_split", {}).get("input_mode")
+                or "setpoints"
+            )
+            if run_input_mode != input_mode:
                 continue
             if run_instance_id in seen_run_instance_id_set:
                 continue
@@ -445,6 +463,26 @@ def export_model_to_onnx_with_timeout(
     return str(result_dictionary["status"]), str(result_dictionary["error"])
 
 
+def resolve_archive_input_mode(
+    run_dictionary: dict[str, Any],
+    metrics_dictionary: dict[str, Any],
+    training_config: dict[str, Any],
+) -> str:
+
+    """Resolve an input-mode label across old and new run metadata layouts."""
+
+    metrics_dataset_dictionary = metrics_dictionary.get("dataset", {})
+    metrics_split_dictionary = metrics_dictionary.get("dataset_split", {})
+    training_dataset_dictionary = training_config.get("dataset", {})
+    return str(
+        metrics_dataset_dictionary.get("input_mode")
+        or metrics_split_dictionary.get("input_mode")
+        or training_dataset_dictionary.get("input_mode")
+        or run_dictionary.get("input_mode")
+        or "setpoints"
+    )
+
+
 def copy_run_provenance(output_directory: Path, destination_root: Path) -> dict[str, str]:
 
     """Copy source-run provenance snapshots."""
@@ -474,6 +512,8 @@ def copy_run_provenance(output_directory: Path, destination_root: Path) -> dict[
 def archive_one_run(
     archive_record: dict[str, Any],
     output_root: Path,
+    expected_dataset_id: str,
+    expected_input_mode: str,
     onnx_timeout_seconds: int,
     skip_existing: bool,
 ) -> dict[str, Any]:
@@ -486,6 +526,14 @@ def archive_one_run(
     best_checkpoint_path = archive_record["best_checkpoint_path"]
     surface = str(archive_record["surface"])
     training_config = load_training_config(output_directory)
+    dataset_dictionary = metrics_dictionary["dataset"]
+    archive_input_mode = resolve_archive_input_mode(run_dictionary, metrics_dictionary, training_config)
+    assert dataset_dictionary["dataset_id"] == expected_dataset_id, (
+        f"Dataset mismatch during archive | {dataset_dictionary['dataset_id']} vs {expected_dataset_id}"
+    )
+    assert archive_input_mode == expected_input_mode, (
+        f"Input-mode mismatch during archive | {archive_input_mode} vs {expected_input_mode}"
+    )
     model_family = str(metrics_dictionary["experiment"].get("base_model_family") or metrics_dictionary["comparison_payload"]["model_family"])
     run_name = str(run_dictionary.get("run_name") or metrics_dictionary["experiment"]["run_name"])
     run_instance_id = str(metrics_dictionary["experiment"]["run_instance_id"])
@@ -524,6 +572,7 @@ def archive_one_run(
         "schema_version": 1,
         "dataset_id": metrics_dictionary["dataset"]["dataset_id"],
         "dataset_schema": metrics_dictionary["dataset"]["dataset_schema"],
+        "input_mode": archive_input_mode,
         "model_family": model_family,
         "model_type": model_type,
         "surface": surface,
@@ -546,7 +595,12 @@ def archive_one_run(
     return inventory_dictionary
 
 
-def write_dataset_export_summary(output_root: Path, dataset_id: str, archive_entry_list: list[dict[str, Any]]) -> None:
+def write_dataset_export_summary(
+    output_root: Path,
+    dataset_id: str,
+    input_mode: str,
+    archive_entry_list: list[dict[str, Any]],
+) -> None:
 
     """Write dataset export summary."""
 
@@ -563,6 +617,7 @@ def write_dataset_export_summary(output_root: Path, dataset_id: str, archive_ent
         {
             "schema_version": 1,
             "dataset_id": dataset_id,
+            "input_mode": input_mode,
             "entry_count": len(archive_entry_list),
             "surface_counts": surface_counts,
             "onnx_export_status_counts": status_counts,
@@ -577,14 +632,15 @@ def main() -> None:
 
     arguments = parse_command_line_arguments()
     manifest_path_list = [resolve_project_path(path) for path in arguments.campaign_manifest]
-    output_root = resolve_project_path(arguments.output_root or f"models/{arguments.dataset_id}/exported")
-    archive_run_list = build_archive_run_list(manifest_path_list, arguments.dataset_id)
+    output_root = resolve_project_path(arguments.output_root or f"models/{arguments.dataset_id}/{arguments.input_mode}/exported")
+    archive_run_list = build_archive_run_list(manifest_path_list, arguments.dataset_id, arguments.input_mode)
     surface_counts: dict[str, int] = {"global": 0, "forward": 0, "backward": 0}
     for archive_record in archive_run_list:
         surface = str(archive_record["surface"])
         surface_counts[surface] = surface_counts.get(surface, 0) + 1
 
     print(f"[INFO] Dataset: {arguments.dataset_id}")
+    print(f"[INFO] Input mode: {arguments.input_mode}")
     print(f"[INFO] Runs: {len(archive_run_list)}")
     print(f"[INFO] Surface counts: {surface_counts}")
     if not arguments.export:
@@ -598,11 +654,13 @@ def main() -> None:
             archive_one_run(
                 archive_record,
                 output_root,
+                expected_dataset_id=arguments.dataset_id,
+                expected_input_mode=arguments.input_mode,
                 onnx_timeout_seconds=int(arguments.onnx_timeout_seconds),
                 skip_existing=bool(arguments.skip_existing),
             )
         )
-    write_dataset_export_summary(output_root, arguments.dataset_id, archive_entry_list)
+    write_dataset_export_summary(output_root, arguments.dataset_id, arguments.input_mode, archive_entry_list)
     print(f"[DONE] Dataset export archive: {format_project_relative_path(output_root)}")
 
 

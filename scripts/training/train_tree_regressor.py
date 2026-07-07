@@ -73,7 +73,11 @@ def build_tree_training_report(metrics_snapshot_dictionary: dict[str, object]) -
 
     return "\n".join(report_line_list) + "\n"
 
-def train_tree_regressor(config_path: str | Path, dataset_name: str | None = None) -> None:
+def train_tree_regressor(
+    config_path: str | Path,
+    dataset_name: str | None = None,
+    input_mode: str | None = None,
+) -> None:
 
     """ Train Tree Regressor """
 
@@ -81,6 +85,10 @@ def train_tree_regressor(config_path: str | Path, dataset_name: str | None = Non
     training_config = shared_training_infrastructure.apply_dataset_override(
         shared_training_infrastructure.load_training_config(config_path),
         dataset_name,
+    )
+    training_config = shared_training_infrastructure.apply_input_mode_override(
+        training_config,
+        input_mode,
     )
     training_config = shared_training_infrastructure.prepare_output_artifact_training_config(training_config)
     output_directory = shared_training_infrastructure.resolve_output_directory(training_config)
@@ -140,6 +148,7 @@ def parse_command_line_arguments() -> argparse.Namespace:
     argument_parser = argparse.ArgumentParser(description="Train the configured TE tree-regression baseline.")
     argument_parser.add_argument("--config-path", type=Path, required=True, help="Path to the YAML training configuration file.")
     argument_parser.add_argument("--dataset", choices=["polished_dataset", "simplified_dataset"], default=None, help="Dataset selector overriding the training YAML.")
+    argument_parser.add_argument("--input-mode", choices=["setpoints", "actual_values"], default=None, help="Input-mode selector overriding the training YAML.")
     repository_path_support.add_platform_arguments(argument_parser)
     return argument_parser.parse_args()
 
@@ -152,7 +161,11 @@ def main() -> None:
     repository_path_support.set_runtime_platform(
         repository_path_support.resolve_argument_platform(command_line_arguments)
     )
-    train_tree_regressor(command_line_arguments.config_path, command_line_arguments.dataset)
+    train_tree_regressor(
+        command_line_arguments.config_path,
+        command_line_arguments.dataset,
+        command_line_arguments.input_mode,
+    )
 
 if __name__ == "__main__":
 

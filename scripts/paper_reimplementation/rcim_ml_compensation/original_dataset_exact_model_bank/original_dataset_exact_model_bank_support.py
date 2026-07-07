@@ -153,14 +153,21 @@ def build_original_dataset_exact_model_bank_bundle(
         training_config["paths"]["dataset_config_path"]
     )
     dataset_configuration = transmission_error_dataset.load_dataset_processing_config(dataset_config_path)
-    dataset_root = transmission_error_dataset.resolve_project_relative_path(
-        dataset_configuration["paths"]["dataset_root"]
+    selected_dataset_name, dataset_root = transmission_error_dataset.resolve_dataset_selection(
+        dataset_configuration,
+        training_config.get("dataset", {}).get("name"),
+    )
+    selected_input_mode = transmission_error_dataset.resolve_input_mode_selection(
+        dataset_configuration,
+        selected_dataset_name,
+        training_config.get("dataset", {}).get("input_mode"),
     )
     direction_label, direction_prefix = resolve_original_dataset_direction_settings(training_config)
     exact_paper_model_bank_support.emit_exact_paper_progress_log(
         "INFO",
         "RCIM exact-model-bank dataset resolved | "
-        f"dataset={training_config.get('dataset', {}).get('name', dataset_configuration.get('dataset', {}).get('name', 'unspecified'))} "
+        f"dataset={selected_dataset_name} "
+        f"input_mode={selected_input_mode} "
         f"dataset_root={shared_training_infrastructure.format_project_relative_path(dataset_root)} "
         f"dataset_config={shared_training_infrastructure.format_project_relative_path(dataset_config_path)} "
         f"direction={direction_label}",
@@ -171,6 +178,7 @@ def build_original_dataset_exact_model_bank_bundle(
         dataset_root=dataset_root,
         use_forward_direction=(direction_label == transmission_error_dataset.FORWARD_DIRECTION),
         use_backward_direction=(direction_label == transmission_error_dataset.BACKWARD_DIRECTION),
+        dataset_name=selected_dataset_name,
     )
     exact_paper_model_bank_support.emit_exact_paper_progress_log(
         "INFO",
@@ -220,6 +228,8 @@ def build_original_dataset_exact_model_bank_bundle(
         train_manifest,
         selected_harmonic_list,
         decomposition_point_stride,
+        selected_dataset_name,
+        selected_input_mode,
     )
     exact_paper_model_bank_support.emit_exact_paper_progress_log(
         "INFO",
@@ -230,6 +240,8 @@ def build_original_dataset_exact_model_bank_bundle(
         validation_manifest,
         selected_harmonic_list,
         decomposition_point_stride,
+        selected_dataset_name,
+        selected_input_mode,
     )
     exact_paper_model_bank_support.emit_exact_paper_progress_log(
         "INFO",
@@ -240,6 +252,8 @@ def build_original_dataset_exact_model_bank_bundle(
         test_manifest,
         selected_harmonic_list,
         decomposition_point_stride,
+        selected_dataset_name,
+        selected_input_mode,
     )
     exact_paper_model_bank_support.emit_exact_paper_progress_log(
         "INFO",
@@ -340,6 +354,10 @@ def build_original_dataset_validation_summary(
     experiment_identity = shared_training_infrastructure.resolve_experiment_identity(training_config)
     run_artifact_identity = shared_training_infrastructure.resolve_run_artifact_identity(training_config)
     dataset_name = str(training_config.get("dataset", {}).get("name", "")).strip().lower()
+    input_mode = transmission_error_dataset.normalize_input_mode(
+        dataset_name or None,
+        training_config.get("dataset", {}).get("input_mode"),
+    )
     if dataset_name == "polished_dataset":
         workflow_name = "polished_dataset_rcim_model_bank_reproduction_validation"
         reference_scope = "polished_dataset_directional_rcim_model_bank_reproduction"
@@ -383,6 +401,8 @@ def build_original_dataset_validation_summary(
             "dataset_root": shared_training_infrastructure.format_project_relative_path(
                 original_dataset_bundle.dataset_root
             ),
+            "dataset_name": dataset_name,
+            "input_mode": input_mode,
             "dataset_config_path": shared_training_infrastructure.format_project_relative_path(
                 original_dataset_bundle.dataset_config_path
             ),

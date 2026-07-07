@@ -29,6 +29,9 @@ POLISHED_DATASET = "polished_dataset"
 SIMPLIFIED_DATASET = "simplified_dataset"
 SUPPORTED_DATASET_NAME_LIST = [POLISHED_DATASET, SIMPLIFIED_DATASET]
 DEFAULT_DATASET_NAME = POLISHED_DATASET
+SETPOINT_INPUT_MODE = "setpoints"
+ACTUAL_VALUES_INPUT_MODE = "actual_values"
+SUPPORTED_INPUT_MODE_LIST = [SETPOINT_INPUT_MODE, ACTUAL_VALUES_INPUT_MODE]
 DEFAULT_DATASET_PATH = PROJECT_PATH / "data" / DEFAULT_DATASET_NAME
 DATASET_ROOT_DICTIONARY = {
     POLISHED_DATASET: PROJECT_PATH / "data" / POLISHED_DATASET,
@@ -64,6 +67,7 @@ SIMPLIFIED_INPUT_FEATURE_NAME_LIST = [
     "direction_flag",
 ]
 POLISHED_INPUT_FEATURE_NAME_LIST = list(POLISHED_INPUT_COLUMN_NAME_LIST)
+POLISHED_SETPOINT_INPUT_FEATURE_NAME_LIST = list(SIMPLIFIED_INPUT_FEATURE_NAME_LIST)
 POLISHED_TARGET_FEATURE_NAME_LIST = [POLISHED_TARGET_COLUMN_NAME]
 SIMPLIFIED_TARGET_FEATURE_NAME_LIST = ["transmission_error_deg"]
 
@@ -95,6 +99,7 @@ class TransmissionErrorCurveSample:
     input_feature_matrix: np.ndarray | None = None
     dataset_name: str = SIMPLIFIED_DATASET
     dataset_schema: str = "simplified_curve_v1"
+    input_mode: str = SETPOINT_INPUT_MODE
 
 def normalize_dataset_name(dataset_name: str | None) -> str:
 
@@ -107,6 +112,25 @@ def normalize_dataset_name(dataset_name: str | None) -> str:
     )
     return normalized_dataset_name
 
+def normalize_input_mode(dataset_name: str | None, input_mode: str | None = None) -> str:
+
+    """Normalize and validate the operating-variable input mode."""
+
+    normalized_dataset_name = normalize_dataset_name(dataset_name)
+    if input_mode in [None, ""]:
+        return ACTUAL_VALUES_INPUT_MODE if normalized_dataset_name == POLISHED_DATASET else SETPOINT_INPUT_MODE
+
+    normalized_input_mode = str(input_mode).strip().lower()
+    assert normalized_input_mode in SUPPORTED_INPUT_MODE_LIST, (
+        f"Unsupported Input Mode | {normalized_input_mode} | "
+        f"Supported: {SUPPORTED_INPUT_MODE_LIST}"
+    )
+    assert not (
+        normalized_dataset_name == SIMPLIFIED_DATASET
+        and normalized_input_mode == ACTUAL_VALUES_INPUT_MODE
+    ), "simplified_dataset only supports setpoints input mode"
+    return normalized_input_mode
+
 def infer_dataset_name_from_path(path_value: str | Path) -> str:
 
     """Infer a supported dataset selector from a root or CSV path."""
@@ -118,12 +142,26 @@ def infer_dataset_name_from_path(path_value: str | Path) -> str:
             return normalized_path_part
     return DEFAULT_DATASET_NAME
 
-def resolve_dataset_schema(dataset_name: str | None = None) -> TransmissionErrorDatasetSchema:
+def resolve_dataset_schema(
+    dataset_name: str | None = None,
+    input_mode: str | None = None,
+) -> TransmissionErrorDatasetSchema:
 
     """Resolve the feature contract for one supported dataset."""
 
     normalized_dataset_name = normalize_dataset_name(dataset_name)
+    normalized_input_mode = normalize_input_mode(normalized_dataset_name, input_mode)
     if normalized_dataset_name == POLISHED_DATASET:
+        if normalized_input_mode == SETPOINT_INPUT_MODE:
+            return TransmissionErrorDatasetSchema(
+                dataset_name=POLISHED_DATASET,
+                schema_name="polished_setpoint_curve_v1",
+                input_feature_name_list=list(POLISHED_SETPOINT_INPUT_FEATURE_NAME_LIST),
+                target_feature_name_list=list(POLISHED_TARGET_FEATURE_NAME_LIST),
+                input_feature_dim=len(POLISHED_SETPOINT_INPUT_FEATURE_NAME_LIST),
+                target_feature_dim=1,
+            )
+
         return TransmissionErrorDatasetSchema(
             dataset_name=POLISHED_DATASET,
             schema_name="polished_point_v1",
@@ -133,6 +171,7 @@ def resolve_dataset_schema(dataset_name: str | None = None) -> TransmissionError
             target_feature_dim=1,
         )
 
+    assert normalized_input_mode == SETPOINT_INPUT_MODE, "simplified_dataset supports setpoints only"
     return TransmissionErrorDatasetSchema(
         dataset_name=SIMPLIFIED_DATASET,
         schema_name="simplified_curve_v1",
@@ -182,6 +221,17 @@ def resolve_dataset_selection(dataset_processing_config: dict[str, Any], dataset
         configured_root = configured_root_dictionary.get(selected_dataset_name, configured_root)
 
     return selected_dataset_name, resolve_dataset_root(selected_dataset_name, configured_root)
+
+def resolve_input_mode_selection(
+    dataset_processing_config: dict[str, Any],
+    dataset_name: str,
+    input_mode: str | None = None,
+) -> str:
+
+    """Resolve the dataset input mode from explicit override or YAML config."""
+
+    configured_input_mode = dataset_processing_config.get("dataset", {}).get("input_mode")
+    return normalize_input_mode(dataset_name, input_mode or configured_input_mode)
 
 def load_dataset_processing_config(config_path: str | Path = DEFAULT_CONFIG_PATH) -> dict[str, Any]:
 
@@ -250,7 +300,10 @@ def parse_operating_condition_metadata(csv_file_path: str | Path) -> dict[str, f
     temperature_deg_from_filename = float(filename_match.group("temperature_deg"))
 
     # Parse Parent Folder Metadata
-    parent_folder_match = re.search(r"Test_(?P<temperature_deg>[0-9.]+)degree", csv_file_path.as_posix())
+    normalized_path_text = csv_file_path.as_posix()
+    parent_folder_match = re.search(r"Test_(?P<temperature_deg>[0-9.]+)degree", normalized_path_text)
+    if parent_folder_match is None:
+        parent_folder_match = re.search(r"/(?P<temperature_deg>[0-9.]+)degree/", normalized_path_text)
     assert parent_folder_match is not None, f"Unable to parse Test Temperature from folder path | {csv_file_path}"
 
     temperature_deg_from_folder = float(parent_folder_match.group("temperature_deg"))
@@ -327,11 +380,16 @@ def resolve_direction_from_polished_path(csv_file_path: str | Path) -> str:
     )
     return direction_label
 
-def build_polished_directional_sample(csv_file_path: str | Path, direction_label: str) -> TransmissionErrorCurveSample:
+def build_polished_directional_sample(
+    csv_file_path: str | Path,
+    direction_label: str,
+    input_mode: str | None = None,
+) -> TransmissionErrorCurveSample:
 
-    """Build one directional curve from measured polished CSV columns."""
+    """Build one directional curve from polished CSV columns and input mode."""
 
     resolved_csv_file_path = Path(csv_file_path).resolve()
+    normalized_input_mode = normalize_input_mode(POLISHED_DATASET, input_mode)
     path_direction_label = resolve_direction_from_polished_path(resolved_csv_file_path)
     assert direction_label == path_direction_label, (
         f"Direction mismatch between manifest and polished path | "
@@ -339,23 +397,37 @@ def build_polished_directional_sample(csv_file_path: str | Path, direction_label
     )
 
     polished_dataframe = load_validated_polished_dataframe(str(resolved_csv_file_path))
-    input_feature_matrix = polished_dataframe[POLISHED_INPUT_COLUMN_NAME_LIST].to_numpy(dtype=np.float32)
     transmission_error_deg = polished_dataframe[POLISHED_TARGET_COLUMN_NAME].to_numpy(dtype=np.float32)
     angular_position_deg = polished_dataframe["theta"].to_numpy(dtype=np.float32)
     direction_flag = FORWARD_DIRECTION_FLAG if direction_label == FORWARD_DIRECTION else BACKWARD_DIRECTION_FLAG
+    operating_condition_metadata = parse_operating_condition_metadata(resolved_csv_file_path)
+
+    if normalized_input_mode == ACTUAL_VALUES_INPUT_MODE:
+        input_feature_matrix = polished_dataframe[POLISHED_INPUT_COLUMN_NAME_LIST].to_numpy(dtype=np.float32)
+        speed_rpm = float(np.median(polished_dataframe["theta_dot"].to_numpy(dtype=np.float64)))
+        torque_nm = float(np.median(polished_dataframe["tau_load"].to_numpy(dtype=np.float64)))
+        oil_temperature_deg = float(np.median(polished_dataframe["T"].to_numpy(dtype=np.float64)))
+        dataset_schema = "polished_point_v1"
+    else:
+        input_feature_matrix = None
+        speed_rpm = operating_condition_metadata["speed_rpm"]
+        torque_nm = operating_condition_metadata["torque_nm"]
+        oil_temperature_deg = operating_condition_metadata["oil_temperature_deg"]
+        dataset_schema = "polished_setpoint_curve_v1"
 
     return TransmissionErrorCurveSample(
         source_file_path=resolved_csv_file_path,
         direction_label=direction_label,
         direction_flag=direction_flag,
-        speed_rpm=float(np.median(polished_dataframe["theta_dot"].to_numpy(dtype=np.float64))),
-        torque_nm=float(np.median(polished_dataframe["tau_load"].to_numpy(dtype=np.float64))),
-        oil_temperature_deg=float(np.median(polished_dataframe["T"].to_numpy(dtype=np.float64))),
+        speed_rpm=speed_rpm,
+        torque_nm=torque_nm,
+        oil_temperature_deg=oil_temperature_deg,
         angular_position_deg=angular_position_deg,
         transmission_error_deg=transmission_error_deg,
         input_feature_matrix=input_feature_matrix,
         dataset_name=POLISHED_DATASET,
-        dataset_schema="polished_point_v1",
+        dataset_schema=dataset_schema,
+        input_mode=normalized_input_mode,
     )
 
 def compute_transmission_error(theta_input_deg: np.ndarray, theta_output_deg: np.ndarray, reduction_ratio: float = REDUCTION_RATIO) -> np.ndarray:
@@ -453,6 +525,7 @@ def build_validated_directional_sample(
     csv_file_path: str | Path,
     direction_label: str,
     dataset_name: str | None = None,
+    input_mode: str | None = None,
 ) -> TransmissionErrorCurveSample:
 
     """ Build Validated Directional Sample """
@@ -460,13 +533,14 @@ def build_validated_directional_sample(
     # Resolve Dataset And CSV Path
     csv_file_path = Path(csv_file_path).resolve()
     normalized_dataset_name = normalize_dataset_name(dataset_name or infer_dataset_name_from_path(csv_file_path))
+    normalized_input_mode = normalize_input_mode(normalized_dataset_name, input_mode)
 
     # Validate Direction Label
     assert direction_label in [FORWARD_DIRECTION, BACKWARD_DIRECTION], f"Unsupported Direction Label | {direction_label}"
 
     # Dispatch Polished Pointwise Schema
     if normalized_dataset_name == POLISHED_DATASET:
-        return build_polished_directional_sample(csv_file_path, direction_label)
+        return build_polished_directional_sample(csv_file_path, direction_label, normalized_input_mode)
 
     # Load Validated Dataframe
     validated_dataframe = load_validated_te_dataframe(str(csv_file_path))
@@ -519,23 +593,26 @@ def build_validated_directional_sample(
         oil_temperature_deg=operating_condition_metadata["oil_temperature_deg"],
         angular_position_deg=angular_position_deg,
         transmission_error_deg=transmission_error_deg,
+        input_mode=normalized_input_mode,
     )
 
 def build_validated_directional_samples(
     csv_file_path: str | Path,
     dataset_name: str | None = None,
+    input_mode: str | None = None,
 ) -> list[TransmissionErrorCurveSample]:
 
     """ Build Validated Directional Samples """
 
     # Build Available Directional Samples
     normalized_dataset_name = normalize_dataset_name(dataset_name or infer_dataset_name_from_path(csv_file_path))
+    normalized_input_mode = normalize_input_mode(normalized_dataset_name, input_mode)
     if normalized_dataset_name == POLISHED_DATASET:
         direction_label = resolve_direction_from_polished_path(csv_file_path)
-        return [build_validated_directional_sample(csv_file_path, direction_label, normalized_dataset_name)]
+        return [build_validated_directional_sample(csv_file_path, direction_label, normalized_dataset_name, normalized_input_mode)]
 
-    forward_sample  = build_validated_directional_sample(csv_file_path, FORWARD_DIRECTION, normalized_dataset_name)
-    backward_sample = build_validated_directional_sample(csv_file_path, BACKWARD_DIRECTION, normalized_dataset_name)
+    forward_sample  = build_validated_directional_sample(csv_file_path, FORWARD_DIRECTION, normalized_dataset_name, normalized_input_mode)
+    backward_sample = build_validated_directional_sample(csv_file_path, BACKWARD_DIRECTION, normalized_dataset_name, normalized_input_mode)
 
     return [forward_sample, backward_sample]
 
@@ -585,13 +662,15 @@ class TransmissionErrorCurveDataset(Dataset):
         dataset_name: str | None = None,
         use_forward_direction: bool = True,
         use_backward_direction: bool = True,
+        input_mode: str | None = None,
         directional_file_manifest: list[tuple[str | Path, str]] | None = None,
     ) -> None:
 
         # Initialize Dataset Configuration
         self.dataset_root = Path(dataset_root).resolve()
         self.dataset_name = normalize_dataset_name(dataset_name or infer_dataset_name_from_path(self.dataset_root))
-        self.dataset_schema = resolve_dataset_schema(self.dataset_name)
+        self.input_mode = normalize_input_mode(self.dataset_name, input_mode)
+        self.dataset_schema = resolve_dataset_schema(self.dataset_name, self.input_mode)
         self.use_forward_direction = use_forward_direction
         self.use_backward_direction = use_backward_direction
 
@@ -632,6 +711,7 @@ class TransmissionErrorCurveDataset(Dataset):
             csv_file_path,
             direction_label,
             self.dataset_name,
+            self.input_mode,
         )
 
         # Build Input Feature Matrix
@@ -672,6 +752,7 @@ class TransmissionErrorCurveDataset(Dataset):
             "source_file_path": str(transmission_error_curve_sample.source_file_path),
             "dataset_name": self.dataset_schema.dataset_name,
             "dataset_schema": self.dataset_schema.schema_name,
+            "input_mode": self.input_mode,
             "input_feature_name_list": list(self.dataset_schema.input_feature_name_list),
             "target_feature_name_list": list(self.dataset_schema.target_feature_name_list),
         }

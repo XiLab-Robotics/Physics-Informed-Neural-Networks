@@ -277,11 +277,18 @@ def build_curve_record(
     direction_label: str,
     selected_harmonic_list: list[int],
     decomposition_point_stride: int,
+    dataset_name: str | None = None,
+    input_mode: str | None = None,
 ) -> HarmonicCurveRecord:
 
     """Build one curve record with decomposition targets."""
 
-    curve_sample = transmission_error_dataset.build_validated_directional_sample(csv_file_path, direction_label)
+    curve_sample = transmission_error_dataset.build_validated_directional_sample(
+        csv_file_path,
+        direction_label,
+        dataset_name,
+        input_mode,
+    )
     coefficient_dictionary, amplitude_phase_dictionary = decompose_curve_to_harmonic_targets(
         curve_sample.angular_position_deg,
         curve_sample.transmission_error_deg,
@@ -311,6 +318,8 @@ def build_curve_record_list(
     directional_file_manifest: list[tuple[Path, str]],
     selected_harmonic_list: list[int],
     decomposition_point_stride: int,
+    dataset_name: str | None = None,
+    input_mode: str | None = None,
 ) -> list[HarmonicCurveRecord]:
 
     """Build harmonic curve records for one manifest."""
@@ -323,6 +332,8 @@ def build_curve_record_list(
                 direction_label,
                 selected_harmonic_list,
                 decomposition_point_stride,
+                dataset_name,
+                input_mode,
             )
         )
     return curve_record_list

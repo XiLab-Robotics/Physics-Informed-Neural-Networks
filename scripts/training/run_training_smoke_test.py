@@ -62,6 +62,7 @@ def run_training_smoke_test(
     output_suffix: str = "smoke_test",
     fast_dev_run_batches: int = 1,
     dataset_name: str | None = None,
+    input_mode: str | None = None,
 ) -> None:
 
     """ Run Training Smoke Test """
@@ -72,6 +73,10 @@ def run_training_smoke_test(
     training_config = shared_training_infrastructure.apply_dataset_override(
         shared_training_infrastructure.load_training_config(config_path),
         dataset_name,
+    )
+    training_config = shared_training_infrastructure.apply_input_mode_override(
+        training_config,
+        input_mode,
     )
     training_config = shared_training_infrastructure.prepare_output_artifact_training_config(
         training_config,
@@ -191,6 +196,7 @@ def parse_command_line_arguments() -> argparse.Namespace:
     argument_parser.add_argument("--output-suffix", type=str, default="smoke_test", help="Suffix appended to the run directory for the smoke-test artifacts.")
     argument_parser.add_argument("--fast-dev-run-batches", type=int, default=1, help="Number of fast_dev_run batches used by Lightning.")
     argument_parser.add_argument("--dataset", choices=["polished_dataset", "simplified_dataset"], default=None, help="Dataset selector overriding the training YAML.")
+    argument_parser.add_argument("--input-mode", choices=["setpoints", "actual_values"], default=None, help="Input-mode selector overriding the training YAML.")
     repository_path_support.add_platform_arguments(argument_parser)
     return argument_parser.parse_args()
 
@@ -210,6 +216,7 @@ def main() -> None:
         command_line_arguments.output_suffix,
         command_line_arguments.fast_dev_run_batches,
         command_line_arguments.dataset,
+        command_line_arguments.input_mode,
     )
 
 if __name__ == "__main__":

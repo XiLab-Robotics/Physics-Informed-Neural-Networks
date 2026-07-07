@@ -6,8 +6,8 @@ selection_policy:
   second_tie_breaker: val_mae
   third_tie_breaker: trainable_parameter_count
   direction: minimize
-updated_at: '2026-06-29T15:58:27'
-entry_count: 5
+updated_at: '2026-07-07T02:33:43'
+entry_count: 6
 entry_list:
 - run_instance_id: 2026-06-25-16-04-23__te_tree_fw
   run_name: te_tree_fw
@@ -169,3 +169,43 @@ entry_list:
     third_tie_breaker: trainable_parameter_count
     direction: minimize
   selected_at: '2026-05-07T13:44:29'
+- run_instance_id: 2026-07-07-02-31-39__te_tree_fw__simplified_setpoints
+  run_name: te_tree_fw__simplified_setpoints
+  output_run_name: te_tree_fw__simplified_setpoints
+  output_artifact_kind: training_run
+  model_family: tree_fw
+  base_model_family: tree
+  model_type: hist_gradient_boosting
+  dataset_id: simplified_dataset
+  dataset_schema: simplified_curve_v1
+  input_mode: setpoints
+  input_feature_names:
+  - angular_position_deg
+  - input_speed_rpm
+  - input_torque_nm
+  - oil_temperature_deg
+  - direction_flag
+  target_feature_names:
+  - transmission_error_deg
+  input_feature_dim: 5
+  training_variant: fw
+  direction_scope_label: forward_only
+  use_forward_direction: true
+  use_backward_direction: false
+  trainable_parameter_count: 5
+  total_parameter_count: 5
+  val_mae: 0.0027194633401988267
+  val_rmse: 0.003652226995708031
+  test_mae: 0.0028851175665997324
+  test_rmse: 0.0036068646647811403
+  output_directory: output\training_runs\tree\2026-07-07-02-31-39__te_tree_fw__simplified_setpoints
+  best_checkpoint_path: output\training_runs\tree\2026-07-07-02-31-39__te_tree_fw__simplified_setpoints\tree_model.pkl
+  metrics_path: output\training_runs\tree\2026-07-07-02-31-39__te_tree_fw__simplified_setpoints/metrics_summary.yaml
+  report_path: output\training_runs\tree\2026-07-07-02-31-39__te_tree_fw__simplified_setpoints/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-07-07T02:33:43'

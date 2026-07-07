@@ -1,0 +1,97 @@
+schema_version: 1
+config_path: /scratch1/dferrari/Physics-Informed-Neural-Networks/config/training/queue/dataset_input_mode_retraining/dataset_input_mode_retraining__tree__simplified_setpoints/running/2026-07-07-02-29-35_002_002_tree_fw.yaml
+experiment:
+  model_family: tree_fw
+  model_type: hist_gradient_boosting
+  run_name: te_tree_fw__simplified_setpoints
+  output_run_name: te_tree_fw__simplified_setpoints
+  run_instance_id: 2026-07-07-02-31-39__te_tree_fw__simplified_setpoints
+  output_artifact_kind: training_run
+  base_model_family: tree
+  training_variant: fw
+  direction_scope_label: forward_only
+  use_forward_direction: true
+  use_backward_direction: false
+artifacts:
+  output_directory: /scratch1/dferrari/Physics-Informed-Neural-Networks/output/training_runs/tree/2026-07-07-02-31-39__te_tree_fw__simplified_setpoints
+  best_checkpoint_path: /scratch1/dferrari/Physics-Informed-Neural-Networks/output/training_runs/tree/2026-07-07-02-31-39__te_tree_fw__simplified_setpoints/tree_model.pkl
+dataset_split:
+  train_curve_count: 1356
+  validation_curve_count: 388
+  test_curve_count: 194
+  dataset_name: simplified_dataset
+  dataset_schema: simplified_curve_v1
+  input_mode: setpoints
+  input_feature_name_list:
+  - angular_position_deg
+  - input_speed_rpm
+  - input_torque_nm
+  - oil_temperature_deg
+  - direction_flag
+  target_feature_name_list:
+  - transmission_error_deg
+  input_feature_dim: 5
+  target_feature_dim: 1
+dataset:
+  dataset_id: simplified_dataset
+  dataset_schema: simplified_curve_v1
+  input_feature_names:
+  - angular_position_deg
+  - input_speed_rpm
+  - input_torque_nm
+  - oil_temperature_deg
+  - direction_flag
+  target_feature_names:
+  - transmission_error_deg
+  input_feature_dim: 5
+  target_feature_dim: 1
+model_summary:
+  backbone_name: HistGradientBoostingRegressor
+  trainable_parameter_count: 5
+  frozen_parameter_count: 0
+  total_parameter_count: 5
+runtime_config:
+  accelerator: cpu
+  devices: 1
+  precision: n/a
+  benchmark: false
+  use_non_blocking_transfer: false
+  estimator_backend: scikit-learn
+normalization_statistics:
+  input_feature_mean:
+  - 179.96580505371094
+  - 497.86761474609375
+  - 896.015625
+  - 30.364084243774414
+  - -1.3220243317846325e-06
+  input_feature_std:
+  - 103.92515563964844
+  - 466.80902099609375
+  - 543.8320922851562
+  - 4.080519199371338
+  - 1.0
+  target_mean:
+  - -0.01723981276154518
+  target_std:
+  - 0.04652021452784538
+validation_metrics:
+  val_loss: 1.3338762028178509e-05
+  val_mae: 0.0027194633401988267
+  val_rmse: 0.003652226995708031
+test_metrics:
+  test_loss: 1.3009472710046767e-05
+  test_mae: 0.0028851175665997324
+  test_rmse: 0.0036068646647811403
+comparison_payload:
+  model_family: tree_fw
+  model_type: hist_gradient_boosting
+  run_name: te_tree_fw__simplified_setpoints
+  backbone_name: HistGradientBoostingRegressor
+  trainable_parameter_count: 5
+  total_parameter_count: 5
+  val_mae: 0.0027194633401988267
+  val_rmse: 0.003652226995708031
+  test_mae: 0.0028851175665997324
+  test_rmse: 0.0036068646647811403
+  deployment_notes: ''
+  interpretability_notes: ''
