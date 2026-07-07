@@ -6,8 +6,8 @@ selection_policy:
   second_tie_breaker: val_mae
   third_tie_breaker: trainable_parameter_count
   direction: minimize
-updated_at: '2026-07-07T23:01:08'
-entry_count: 9
+updated_at: '2026-07-07T23:39:40'
+entry_count: 10
 entry_list:
 - run_instance_id: 2026-05-20-10-43-22__te_harmonic_dense360_tracking_fw
   run_name: te_harmonic_dense360_tracking_Fw
@@ -253,6 +253,46 @@ entry_list:
     third_tie_breaker: trainable_parameter_count
     direction: minimize
   selected_at: '2026-06-29T20:42:56'
+- run_instance_id: 2026-07-07-23-29-07__te_harmonic_regression_fw__polished_setpoints
+  run_name: te_harmonic_regression_fw__polished_setpoints
+  output_run_name: te_harmonic_regression_fw__polished_setpoints
+  output_artifact_kind: training_run
+  model_family: harmonic_regression_fw
+  base_model_family: harmonic_regression
+  model_type: harmonic_regression
+  dataset_id: polished_dataset
+  dataset_schema: polished_setpoint_curve_v1
+  input_mode: setpoints
+  input_feature_names:
+  - angular_position_deg
+  - input_speed_rpm
+  - input_torque_nm
+  - oil_temperature_deg
+  - direction_flag
+  target_feature_names:
+  - theta_TE
+  input_feature_dim: 5
+  training_variant: fw
+  direction_scope_label: forward_only
+  use_forward_direction: true
+  use_backward_direction: false
+  trainable_parameter_count: 150
+  total_parameter_count: 150
+  val_mae: 0.01714993268251419
+  val_rmse: 0.019904250279068947
+  test_mae: 0.018003031611442566
+  test_rmse: 0.021014859899878502
+  output_directory: output\training_runs\harmonic_regression\2026-07-07-23-29-07__te_harmonic_regression_fw__polished_setpoints
+  best_checkpoint_path: output\training_runs\harmonic_regression\2026-07-07-23-29-07__te_harmonic_regression_fw__polished_setpoints\checkpoints\harmonic_regression-epoch=032-val_mae=0.01714993.ckpt
+  metrics_path: output\training_runs\harmonic_regression\2026-07-07-23-29-07__te_harmonic_regression_fw__polished_setpoints/metrics_summary.yaml
+  report_path: output\training_runs\harmonic_regression\2026-07-07-23-29-07__te_harmonic_regression_fw__polished_setpoints/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-07-07T23:39:40'
 - run_instance_id: 2026-07-07-22-54-59__te_harmonic_regression_fw__simplified_setpoints
   run_name: te_harmonic_regression_fw__simplified_setpoints
   output_run_name: te_harmonic_regression_fw__simplified_setpoints

@@ -6,7 +6,7 @@ selection_policy:
   second_tie_breaker: val_mae
   third_tie_breaker: trainable_parameter_count
   direction: minimize
-updated_at: '2026-07-07T23:01:08'
+updated_at: '2026-07-07T23:39:40'
 best_entry:
   run_instance_id: 2026-05-20-10-43-22__te_harmonic_dense360_tracking_fw
   run_name: te_harmonic_dense360_tracking_Fw

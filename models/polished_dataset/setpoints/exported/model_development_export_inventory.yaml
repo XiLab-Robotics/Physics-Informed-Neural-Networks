@@ -13,74 +13,74 @@ entries:
   dataset_id: polished_dataset
   dataset_schema: polished_setpoint_curve_v1
   input_mode: setpoints
-  model_family: periodic_mlp
-  model_type: periodic_mlp
+  model_family: harmonic_regression
+  model_type: harmonic_regression
   surface: global
-  run_name: te_periodic_mlp_global__polished_setpoints
-  run_instance_id: 2026-07-07-20-38-26__te_periodic_mlp_global__polished_setpoints
-  source_output_directory: output/training_runs/periodic_mlp/2026-07-07-20-38-26__te_periodic_mlp_global__polished_setpoints
-  source_best_checkpoint_path: output/training_runs/periodic_mlp/2026-07-07-20-38-26__te_periodic_mlp_global__polished_setpoints/checkpoints/periodic_mlp-epoch=080-val_mae=0.00165354.ckpt
-  python_model_path: models/polished_dataset/setpoints/exported/periodic_mlp/global/2026-07-07-20-38-26__te_periodic_mlp_global__polished_setpoints/python/periodic_mlp-epoch=080-val_mae=0.00165354.ckpt
-  onnx_model_path: models/polished_dataset/setpoints/exported/periodic_mlp/global/2026-07-07-20-38-26__te_periodic_mlp_global__polished_setpoints/onnx/model.onnx
+  run_name: te_harmonic_regression_global__polished_setpoints
+  run_instance_id: 2026-07-07-23-18-16__te_harmonic_regression_global__polished_setpoints
+  source_output_directory: output/training_runs/harmonic_regression/2026-07-07-23-18-16__te_harmonic_regression_global__polished_setpoints
+  source_best_checkpoint_path: output/training_runs/harmonic_regression/2026-07-07-23-18-16__te_harmonic_regression_global__polished_setpoints/checkpoints/harmonic_regression-epoch=038-val_mae=0.01714113.ckpt
+  python_model_path: models/polished_dataset/setpoints/exported/harmonic_regression/global/2026-07-07-23-18-16__te_harmonic_regression_global__polished_setpoints/python/harmonic_regression-epoch=038-val_mae=0.01714113.ckpt
+  onnx_model_path: models/polished_dataset/setpoints/exported/harmonic_regression/global/2026-07-07-23-18-16__te_harmonic_regression_global__polished_setpoints/onnx/model.onnx
   onnx_export_status: exported
   onnx_export_error: ''
   source_run_snapshot_path_map:
-    training_config.snapshot.yaml: models/polished_dataset/setpoints/exported/periodic_mlp/global/2026-07-07-20-38-26__te_periodic_mlp_global__polished_setpoints/source_run/training_config.snapshot.yaml
-    metrics_summary.snapshot.yaml: models/polished_dataset/setpoints/exported/periodic_mlp/global/2026-07-07-20-38-26__te_periodic_mlp_global__polished_setpoints/source_run/metrics_summary.snapshot.yaml
-    run_metadata.snapshot.yaml: models/polished_dataset/setpoints/exported/periodic_mlp/global/2026-07-07-20-38-26__te_periodic_mlp_global__polished_setpoints/source_run/run_metadata.snapshot.yaml
-    training_test_report.snapshot.md: models/polished_dataset/setpoints/exported/periodic_mlp/global/2026-07-07-20-38-26__te_periodic_mlp_global__polished_setpoints/source_run/training_test_report.snapshot.md
-    best_checkpoint_path.snapshot.txt: models/polished_dataset/setpoints/exported/periodic_mlp/global/2026-07-07-20-38-26__te_periodic_mlp_global__polished_setpoints/source_run/best_checkpoint_path.snapshot.txt
+    training_config.snapshot.yaml: models/polished_dataset/setpoints/exported/harmonic_regression/global/2026-07-07-23-18-16__te_harmonic_regression_global__polished_setpoints/source_run/training_config.snapshot.yaml
+    metrics_summary.snapshot.yaml: models/polished_dataset/setpoints/exported/harmonic_regression/global/2026-07-07-23-18-16__te_harmonic_regression_global__polished_setpoints/source_run/metrics_summary.snapshot.yaml
+    run_metadata.snapshot.yaml: models/polished_dataset/setpoints/exported/harmonic_regression/global/2026-07-07-23-18-16__te_harmonic_regression_global__polished_setpoints/source_run/run_metadata.snapshot.yaml
+    training_test_report.snapshot.md: models/polished_dataset/setpoints/exported/harmonic_regression/global/2026-07-07-23-18-16__te_harmonic_regression_global__polished_setpoints/source_run/training_test_report.snapshot.md
+    best_checkpoint_path.snapshot.txt: models/polished_dataset/setpoints/exported/harmonic_regression/global/2026-07-07-23-18-16__te_harmonic_regression_global__polished_setpoints/source_run/best_checkpoint_path.snapshot.txt
   metrics:
-    val_mae: 0.0016535355243831873
-    test_mae: 0.001794113079085946
-    test_rmse: 0.0027920117136090994
+    val_mae: 0.017141127958893776
+    test_mae: 0.01803196407854557
+    test_rmse: 0.02102099359035492
 - schema_version: 1
   dataset_id: polished_dataset
   dataset_schema: polished_setpoint_curve_v1
   input_mode: setpoints
-  model_family: periodic_mlp
-  model_type: periodic_mlp
+  model_family: harmonic_regression
+  model_type: harmonic_regression
   surface: forward
-  run_name: te_periodic_mlp_fw__polished_setpoints
-  run_instance_id: 2026-07-07-20-52-32__te_periodic_mlp_fw__polished_setpoints
-  source_output_directory: output/training_runs/periodic_mlp/2026-07-07-20-52-32__te_periodic_mlp_fw__polished_setpoints
-  source_best_checkpoint_path: output/training_runs/periodic_mlp/2026-07-07-20-52-32__te_periodic_mlp_fw__polished_setpoints/checkpoints/periodic_mlp-epoch=089-val_mae=0.00162401.ckpt
-  python_model_path: models/polished_dataset/setpoints/exported/periodic_mlp/forward/2026-07-07-20-52-32__te_periodic_mlp_fw__polished_setpoints/python/periodic_mlp-epoch=089-val_mae=0.00162401.ckpt
-  onnx_model_path: models/polished_dataset/setpoints/exported/periodic_mlp/forward/2026-07-07-20-52-32__te_periodic_mlp_fw__polished_setpoints/onnx/model.onnx
+  run_name: te_harmonic_regression_fw__polished_setpoints
+  run_instance_id: 2026-07-07-23-29-07__te_harmonic_regression_fw__polished_setpoints
+  source_output_directory: output/training_runs/harmonic_regression/2026-07-07-23-29-07__te_harmonic_regression_fw__polished_setpoints
+  source_best_checkpoint_path: output/training_runs/harmonic_regression/2026-07-07-23-29-07__te_harmonic_regression_fw__polished_setpoints/checkpoints/harmonic_regression-epoch=032-val_mae=0.01714993.ckpt
+  python_model_path: models/polished_dataset/setpoints/exported/harmonic_regression/forward/2026-07-07-23-29-07__te_harmonic_regression_fw__polished_setpoints/python/harmonic_regression-epoch=032-val_mae=0.01714993.ckpt
+  onnx_model_path: models/polished_dataset/setpoints/exported/harmonic_regression/forward/2026-07-07-23-29-07__te_harmonic_regression_fw__polished_setpoints/onnx/model.onnx
   onnx_export_status: exported
   onnx_export_error: ''
   source_run_snapshot_path_map:
-    training_config.snapshot.yaml: models/polished_dataset/setpoints/exported/periodic_mlp/forward/2026-07-07-20-52-32__te_periodic_mlp_fw__polished_setpoints/source_run/training_config.snapshot.yaml
-    metrics_summary.snapshot.yaml: models/polished_dataset/setpoints/exported/periodic_mlp/forward/2026-07-07-20-52-32__te_periodic_mlp_fw__polished_setpoints/source_run/metrics_summary.snapshot.yaml
-    run_metadata.snapshot.yaml: models/polished_dataset/setpoints/exported/periodic_mlp/forward/2026-07-07-20-52-32__te_periodic_mlp_fw__polished_setpoints/source_run/run_metadata.snapshot.yaml
-    training_test_report.snapshot.md: models/polished_dataset/setpoints/exported/periodic_mlp/forward/2026-07-07-20-52-32__te_periodic_mlp_fw__polished_setpoints/source_run/training_test_report.snapshot.md
-    best_checkpoint_path.snapshot.txt: models/polished_dataset/setpoints/exported/periodic_mlp/forward/2026-07-07-20-52-32__te_periodic_mlp_fw__polished_setpoints/source_run/best_checkpoint_path.snapshot.txt
+    training_config.snapshot.yaml: models/polished_dataset/setpoints/exported/harmonic_regression/forward/2026-07-07-23-29-07__te_harmonic_regression_fw__polished_setpoints/source_run/training_config.snapshot.yaml
+    metrics_summary.snapshot.yaml: models/polished_dataset/setpoints/exported/harmonic_regression/forward/2026-07-07-23-29-07__te_harmonic_regression_fw__polished_setpoints/source_run/metrics_summary.snapshot.yaml
+    run_metadata.snapshot.yaml: models/polished_dataset/setpoints/exported/harmonic_regression/forward/2026-07-07-23-29-07__te_harmonic_regression_fw__polished_setpoints/source_run/run_metadata.snapshot.yaml
+    training_test_report.snapshot.md: models/polished_dataset/setpoints/exported/harmonic_regression/forward/2026-07-07-23-29-07__te_harmonic_regression_fw__polished_setpoints/source_run/training_test_report.snapshot.md
+    best_checkpoint_path.snapshot.txt: models/polished_dataset/setpoints/exported/harmonic_regression/forward/2026-07-07-23-29-07__te_harmonic_regression_fw__polished_setpoints/source_run/best_checkpoint_path.snapshot.txt
   metrics:
-    val_mae: 0.0016240085242316127
-    test_mae: 0.001769796945154667
-    test_rmse: 0.0027697996702045202
+    val_mae: 0.01714993268251419
+    test_mae: 0.018003031611442566
+    test_rmse: 0.021014859899878502
 - schema_version: 1
   dataset_id: polished_dataset
   dataset_schema: polished_setpoint_curve_v1
   input_mode: setpoints
-  model_family: periodic_mlp
-  model_type: periodic_mlp
+  model_family: harmonic_regression
+  model_type: harmonic_regression
   surface: backward
-  run_name: te_periodic_mlp_bw__polished_setpoints
-  run_instance_id: 2026-07-07-21-11-38__te_periodic_mlp_bw__polished_setpoints
-  source_output_directory: output/training_runs/periodic_mlp/2026-07-07-21-11-38__te_periodic_mlp_bw__polished_setpoints
-  source_best_checkpoint_path: output/training_runs/periodic_mlp/2026-07-07-21-11-38__te_periodic_mlp_bw__polished_setpoints/checkpoints/periodic_mlp-epoch=055-val_mae=0.00165461.ckpt
-  python_model_path: models/polished_dataset/setpoints/exported/periodic_mlp/backward/2026-07-07-21-11-38__te_periodic_mlp_bw__polished_setpoints/python/periodic_mlp-epoch=055-val_mae=0.00165461.ckpt
-  onnx_model_path: models/polished_dataset/setpoints/exported/periodic_mlp/backward/2026-07-07-21-11-38__te_periodic_mlp_bw__polished_setpoints/onnx/model.onnx
+  run_name: te_harmonic_regression_bw__polished_setpoints
+  run_instance_id: 2026-07-07-23-39-40__te_harmonic_regression_bw__polished_setpoints
+  source_output_directory: output/training_runs/harmonic_regression/2026-07-07-23-39-40__te_harmonic_regression_bw__polished_setpoints
+  source_best_checkpoint_path: output/training_runs/harmonic_regression/2026-07-07-23-39-40__te_harmonic_regression_bw__polished_setpoints/checkpoints/harmonic_regression-epoch=044-val_mae=0.01715066.ckpt
+  python_model_path: models/polished_dataset/setpoints/exported/harmonic_regression/backward/2026-07-07-23-39-40__te_harmonic_regression_bw__polished_setpoints/python/harmonic_regression-epoch=044-val_mae=0.01715066.ckpt
+  onnx_model_path: models/polished_dataset/setpoints/exported/harmonic_regression/backward/2026-07-07-23-39-40__te_harmonic_regression_bw__polished_setpoints/onnx/model.onnx
   onnx_export_status: exported
   onnx_export_error: ''
   source_run_snapshot_path_map:
-    training_config.snapshot.yaml: models/polished_dataset/setpoints/exported/periodic_mlp/backward/2026-07-07-21-11-38__te_periodic_mlp_bw__polished_setpoints/source_run/training_config.snapshot.yaml
-    metrics_summary.snapshot.yaml: models/polished_dataset/setpoints/exported/periodic_mlp/backward/2026-07-07-21-11-38__te_periodic_mlp_bw__polished_setpoints/source_run/metrics_summary.snapshot.yaml
-    run_metadata.snapshot.yaml: models/polished_dataset/setpoints/exported/periodic_mlp/backward/2026-07-07-21-11-38__te_periodic_mlp_bw__polished_setpoints/source_run/run_metadata.snapshot.yaml
-    training_test_report.snapshot.md: models/polished_dataset/setpoints/exported/periodic_mlp/backward/2026-07-07-21-11-38__te_periodic_mlp_bw__polished_setpoints/source_run/training_test_report.snapshot.md
-    best_checkpoint_path.snapshot.txt: models/polished_dataset/setpoints/exported/periodic_mlp/backward/2026-07-07-21-11-38__te_periodic_mlp_bw__polished_setpoints/source_run/best_checkpoint_path.snapshot.txt
+    training_config.snapshot.yaml: models/polished_dataset/setpoints/exported/harmonic_regression/backward/2026-07-07-23-39-40__te_harmonic_regression_bw__polished_setpoints/source_run/training_config.snapshot.yaml
+    metrics_summary.snapshot.yaml: models/polished_dataset/setpoints/exported/harmonic_regression/backward/2026-07-07-23-39-40__te_harmonic_regression_bw__polished_setpoints/source_run/metrics_summary.snapshot.yaml
+    run_metadata.snapshot.yaml: models/polished_dataset/setpoints/exported/harmonic_regression/backward/2026-07-07-23-39-40__te_harmonic_regression_bw__polished_setpoints/source_run/run_metadata.snapshot.yaml
+    training_test_report.snapshot.md: models/polished_dataset/setpoints/exported/harmonic_regression/backward/2026-07-07-23-39-40__te_harmonic_regression_bw__polished_setpoints/source_run/training_test_report.snapshot.md
+    best_checkpoint_path.snapshot.txt: models/polished_dataset/setpoints/exported/harmonic_regression/backward/2026-07-07-23-39-40__te_harmonic_regression_bw__polished_setpoints/source_run/best_checkpoint_path.snapshot.txt
   metrics:
-    val_mae: 0.0016546119004487991
-    test_mae: 0.0018529030494391918
-    test_rmse: 0.0028426353819668293
+    val_mae: 0.01715066097676754
+    test_mae: 0.0180220864713192
+    test_rmse: 0.02101392112672329
