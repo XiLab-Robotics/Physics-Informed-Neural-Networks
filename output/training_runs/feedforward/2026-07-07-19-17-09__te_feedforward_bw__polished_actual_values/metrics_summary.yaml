@@ -1,0 +1,107 @@
+schema_version: 1
+config_path: /scratch1/dferrari/Physics-Informed-Neural-Networks/config/training/queue/dataset_input_mode_retraining/dataset_input_mode_retraining__feedforward__polished_actual_values/running/2026-07-07-18-12-11_003_003_feedforward_bw.yaml
+experiment:
+  model_family: feedforward_bw
+  model_type: feedforward
+  run_name: te_feedforward_bw__polished_actual_values
+  output_run_name: te_feedforward_bw__polished_actual_values
+  run_instance_id: 2026-07-07-19-17-09__te_feedforward_bw__polished_actual_values
+  output_artifact_kind: training_run
+  base_model_family: feedforward
+  training_variant: bw
+  direction_scope_label: backward_only
+  use_forward_direction: false
+  use_backward_direction: true
+artifacts:
+  output_directory: /scratch1/dferrari/Physics-Informed-Neural-Networks/output/training_runs/feedforward/2026-07-07-19-17-09__te_feedforward_bw__polished_actual_values
+  best_checkpoint_path: /scratch1/dferrari/Physics-Informed-Neural-Networks/output/training_runs/feedforward/2026-07-07-19-17-09__te_feedforward_bw__polished_actual_values/checkpoints/feedforward-epoch=074-val_mae=0.00164741.ckpt
+dataset_split:
+  train_curve_count: 1356
+  validation_curve_count: 388
+  test_curve_count: 194
+  dataset_name: polished_dataset
+  dataset_schema: polished_point_v1
+  input_mode: actual_values
+  input_feature_name_list:
+  - theta
+  - theta_dot
+  - tau_load
+  - T
+  - direction_flag
+  target_feature_name_list:
+  - theta_TE
+  input_feature_dim: 5
+  target_feature_dim: 1
+dataset:
+  dataset_id: polished_dataset
+  dataset_schema: polished_point_v1
+  input_mode: actual_values
+  input_feature_names:
+  - theta
+  - theta_dot
+  - tau_load
+  - T
+  - direction_flag
+  target_feature_names:
+  - theta_TE
+  input_feature_dim: 5
+  target_feature_dim: 1
+model_summary:
+  backbone_name: FeedForwardNetwork
+  trainable_parameter_count: 109953
+  frozen_parameter_count: 0
+  total_parameter_count: 109953
+runtime_config:
+  accelerator: auto
+  devices: auto
+  precision: '32'
+  benchmark: true
+  use_non_blocking_transfer: true
+normalization_statistics:
+  input_feature_mean:
+  - 180.0000762939453
+  - -14.942256927490234
+  - 1.681342363357544
+  - 30.617416381835938
+  - -0.01724354922771454
+  input_feature_std:
+  - 103.92301940917969
+  - 690.1138305664062
+  - 1055.5772705078125
+  - 4.267345428466797
+  - 0.9998513460159302
+  target_mean:
+  - -0.016667330637574196
+  target_std:
+  - 0.0465485081076622
+validation_metrics:
+  val_loss: 0.002831467892974615
+  val_mae: 0.00164740567561239
+  val_rmse: 0.002238895045593381
+  val_pointwise_loss: 0.002831467892974615
+  val_centered_curve_shape_loss: 0.003417273983359337
+  val_curve_offset_loss: 0.0004524581308942288
+  val_curve_amplitude_loss: 0.056121665984392166
+  val_sparse_harmonic_shape_loss: 0.0
+test_metrics:
+  test_loss: 0.004274415783584118
+  test_mae: 0.0018327736761420965
+  test_rmse: 0.0027919572312384844
+  test_pointwise_loss: 0.004274415783584118
+  test_centered_curve_shape_loss: 0.005632070824503899
+  test_curve_offset_loss: 0.003305653342977166
+  test_curve_amplitude_loss: 0.08201826363801956
+  test_sparse_harmonic_shape_loss: 0.0
+comparison_payload:
+  model_family: feedforward_bw
+  model_type: feedforward
+  run_name: te_feedforward_bw__polished_actual_values
+  backbone_name: FeedForwardNetwork
+  trainable_parameter_count: 109953
+  total_parameter_count: 109953
+  val_mae: 0.00164740567561239
+  val_rmse: 0.002238895045593381
+  test_mae: 0.0018327736761420965
+  test_rmse: 0.0027919572312384844
+  deployment_notes: ''
+  interpretability_notes: ''

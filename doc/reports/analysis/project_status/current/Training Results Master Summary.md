@@ -2,7 +2,7 @@
 
 ## Executive Snapshot
 
-- Generated At: `2026-07-07T17:59:41`
+- Generated At: `2026-07-07T19:39:55`
 - Program State: active.
 - Current Completed Wave: polished-dataset RCIM, early-wave, and full-wave
 - Current Focus: the polished-dataset TE Curve Verification Pipeline refresh is
@@ -34,7 +34,7 @@
 | `wave4_3_mixture_density_k3_global` | Implemented Benchmark | `te_wave4_3_mixture_density_k3_global` | `curve_aware_harmonic_residual_offset_probe` | 0.001544 | 86,976 | `2026-07-01 17:43:31` |
 | `tree_global` | Implemented Benchmark | `te_tree_global__polished_setpoints` | `hist_gradient_boosting` | 0.001699 | 5 | `2026-07-07 10:07:53` |
 | `residual_harmonic_mlp_global` | Implemented Benchmark | `te_residual_harmonic_mlp_global` | `residual_harmonic_mlp` | 0.001710 | 26,138 | `2026-07-07 13:50:19` |
-| `feedforward_global` | Implemented Benchmark | `te_feedforward_global` | `feedforward` | 0.001734 | 109,697 | `2026-07-07 17:25:57` |
+| `feedforward_global` | Implemented Benchmark | `te_feedforward_global` | `feedforward` | 0.001734 | 109,697 | `2026-07-07 18:43:03` |
 | `periodic_mlp_global` | Implemented Benchmark | `te_periodic_mlp_global` | `periodic_mlp` | 0.001741 | 27,137 | `2026-06-29 19:46:45` |
 | `wave4_3_mixture_density_k2_global` | Implemented Benchmark | `te_wave4_3_mixture_density_k2_global` | `curve_aware_harmonic_residual_offset_probe` | 0.001743 | 86,400 | `2026-07-01 14:38:05` |
 | `tree` | Implemented Benchmark | `te_hist_gbr_tabular_global` | `hist_gradient_boosting` | 0.001753 | 4 | `2026-06-22 16:58:47` |
@@ -116,7 +116,7 @@
 | `wave4_3_mixture_density_k3_fw` | Implemented Benchmark | `te_wave4_3_mixture_density_k3_fw` | `curve_aware_harmonic_residual_offset_probe` | 0.001671 | 86,976 | `2026-07-01 18:55:32` |
 | `wave4_3_mixture_density_k2_fw` | Implemented Benchmark | `te_wave4_3_mixture_density_k2_fw` | `curve_aware_harmonic_residual_offset_probe` | 0.001698 | 86,400 | `2026-07-01 15:51:08` |
 | `tree_fw` | Implemented Benchmark | `te_tree_fw__polished_setpoints` | `hist_gradient_boosting` | 0.001699 | 5 | `2026-07-07 10:07:54` |
-| `feedforward_fw` | Implemented Benchmark | `te_feedforward_fw` | `feedforward` | 0.001726 | 109,697 | `2026-07-07 17:41:33` |
+| `feedforward_fw` | Implemented Benchmark | `te_feedforward_fw` | `feedforward` | 0.001726 | 109,697 | `2026-07-07 19:17:09` |
 | `periodic_mlp_fw` | Implemented Benchmark | `te_periodic_mlp_fw` | `periodic_mlp` | 0.001742 | 27,137 | `2026-06-29 20:02:16` |
 | `residual_harmonic_mlp_fw` | Implemented Benchmark | `te_residual_harmonic_mlp_fw__polished_setpoints` | `residual_harmonic_mlp` | 0.001759 | 26,266 | `2026-07-07 14:15:24` |
 | `wave4_2_gaussian_nll_fw` | Implemented Benchmark | `te_wave4_2_gaussian_nll_fw` | `curve_aware_harmonic_residual_offset_probe` | 0.001914 | 85,632 | `2026-07-01 12:57:09` |
@@ -182,7 +182,7 @@
 | `periodic_lstm_sequence_bw` | Implemented Benchmark | `te_periodic_lstm_sequence_bw` | `periodic_lstm_sequence` | 0.001226 | 210,049 | `2026-06-30 06:13:35` |
 | `periodic_mlp_harmonic_bw` | Implemented Benchmark | `te_periodic_mlp_harmonic_bw` | `periodic_mlp` | 0.001279 | 28,417 | `2026-06-29 21:48:10` |
 | `wave52b_offset_harmonic_guided_offset_centered_shape_harmonic_bw` | Implemented Benchmark | `te_wave52b_offset_harmonic_guided_offset_centered_shape_harmonic_bw` | `wave52b_offset_harmonic_guided` | 0.001677 | 22,593 | `2026-07-02 02:27:12` |
-| `feedforward_bw` | Implemented Benchmark | `te_feedforward_bw` | `feedforward` | 0.001686 | 109,697 | `2026-07-07 17:59:36` |
+| `feedforward_bw` | Implemented Benchmark | `te_feedforward_bw` | `feedforward` | 0.001686 | 109,697 | `2026-07-07 19:39:50` |
 | `tree_bw` | Implemented Benchmark | `te_tree_bw__polished_setpoints` | `hist_gradient_boosting` | 0.001699 | 5 | `2026-07-07 10:07:54` |
 | `wave4_3_mixture_density_k3_bw` | Implemented Benchmark | `te_wave4_3_mixture_density_k3_bw` | `curve_aware_harmonic_residual_offset_probe` | 0.001704 | 86,976 | `2026-07-01 19:49:53` |
 | `residual_harmonic_mlp_bw` | Implemented Benchmark | `te_residual_harmonic_mlp_bw` | `residual_harmonic_mlp` | 0.001712 | 26,138 | `2026-07-07 14:47:50` |
@@ -427,11 +427,11 @@ Low-priority exploratory families currently listed in the backlog:
 
 | Campaign | Generated At | Completed | Failed | Winner | Impact |
 | --- | --- | ---: | ---: | --- | --- |
+| `dataset_input_mode_retraining__feedforward__polished_actual_values` | `2026-07-07 19:39:50` | 3 | 0 | `te_feedforward_fw__polished_actual_values` | No family-best change |
 | `dataset_input_mode_retraining__feedforward__polished_setpoints` | `2026-07-07 17:59:36` | 3 | 0 | `te_feedforward_bw__polished_setpoints` | No family-best change |
 | `dataset_input_mode_retraining__feedforward__simplified_setpoints` | `2026-07-07 16:56:41` | 3 | 0 | `te_feedforward_global__simplified_setpoints` | No family-best change |
 | `dataset_input_mode_retraining__residual_harmonic_mlp__polished_actual_values` | `2026-07-07 14:47:50` | 3 | 0 | `te_residual_harmonic_mlp_bw__polished_actual_values` | No family-best change |
 | `dataset_input_mode_retraining__residual_harmonic_mlp__polished_setpoints` | `2026-07-07 13:03:04` | 3 | 0 | `te_residual_harmonic_mlp_bw__polished_setpoints` | No family-best change |
-| `dataset_input_mode_retraining__residual_harmonic_mlp__simplified_setpoints` | `2026-07-07 11:21:45` | 3 | 0 | `te_residual_harmonic_mlp_fw__simplified_setpoints` | No family-best change |
 
 ## Ranking Policy
 
@@ -1774,7 +1774,7 @@ Known failed campaign attempts for this family:
 
 - Best run: `te_feedforward_trial`
 - Best test MAE: `0.002877`
-- Completed tracked runs: `16`
+- Completed tracked runs: `19`
 - Known failed campaign attempts: `1`
 
 | Rank | Run | Model Type | Test MAE [deg] | Test RMSE [deg] | Val MAE [deg] | Params | Duration | Artifact Size | Model Complexity | Training Heaviness | Campaign |
@@ -1783,18 +1783,21 @@ Known failed campaign attempts for this family:
 | 2 | `te_feedforward_bw` | `feedforward` | 0.001719 | 0.002205 | 0.001606 | 109,697 | 3h 19m 34s | 1.28 MB | High | Very High | `polished_dataset_full_wave_retraining_2026_06_22` |
 | 3 | `te_feedforward_fw` | `feedforward` | 0.001726 | 0.002205 | 0.001628 | 109,697 | 1h 44m 25s | 1.28 MB | High | Very High | `polished_dataset_full_wave_retraining_2026_06_22` |
 | 4 | `te_feedforward_global` | `feedforward` | 0.001734 | 0.002220 | 0.001637 | 109,697 | 2h 35m 35s | 1.28 MB | High | Very High | `polished_dataset_full_wave_retraining_2026_06_22` |
-| 5 | `te_feedforward_fw` | `feedforward` | 0.001766 | 0.002254 | 0.001654 | 109,697 | 45m 44s | 1.28 MB | High | High | `polished_dataset_full_wave_retraining_2026_06_22` |
-| 6 | `te_feedforward_global` | `feedforward` | 0.001790 | 0.002281 | 0.001672 | 109,697 | 40m 07s | 1.28 MB | High | High | `polished_dataset_full_wave_retraining_2026_06_22` |
-| 7 | `te_feedforward_bw__polished_setpoints` | `feedforward` | 0.001853 | 0.002874 | 0.001641 | 109,953 | 18m 02s | 1.28 MB | High | Medium | `dataset_input_mode_retraining__feedforward__polished_setpoints` |
-| 8 | `te_feedforward_fw__polished_setpoints` | `feedforward` | 0.001938 | 0.002950 | 0.001683 | 109,953 | 15m 36s | 1.28 MB | High | Medium | `dataset_input_mode_retraining__feedforward__polished_setpoints` |
-| 9 | `te_feedforward_global__polished_setpoints` | `feedforward` | 0.001999 | 0.003006 | 0.001691 | 109,953 | 15m 04s | 1.28 MB | High | Medium | `dataset_input_mode_retraining__feedforward__polished_setpoints` |
-| 10 | `te_feedforward_trial` | `feedforward` | 0.002877 | 0.003835 | 0.002725 | 26,113 | 3m 27s | 0.32 MB | Medium | Low | `polished_dataset_stage1_smoke_2026_06_21` |
-| 11 | `te_feedforward_stride1_high_compute_long_remote_global` | `feedforward` | 0.003150 | 0.003603 | 0.003056 | 109,953 | N/A | 1.28 MB | High | Unknown | `standalone_or_unknown` |
-| 12 | `te_feedforward_stride1_high_compute_long_remote_global_optuna_t0017` | `feedforward` | 0.003208 | 0.003810 | 0.002962 | 43,649 | N/A | 0.52 MB | Medium | Unknown | `standalone_or_unknown` |
-| 13 | `te_feedforward_stride1_high_compute_long_remote_global_optuna_t0012` | `feedforward` | 0.003217 | 0.003847 | 0.003014 | 43,649 | N/A | 0.52 MB | Medium | Unknown | `standalone_or_unknown` |
-| 14 | `te_feedforward_global__simplified_setpoints` | `feedforward` | 0.003243 | 0.003875 | 0.002968 | 109,953 | 18m 18s | 1.28 MB | High | Medium | `dataset_input_mode_retraining__feedforward__simplified_setpoints` |
-| 15 | `te_feedforward_bw__simplified_setpoints` | `feedforward` | 0.003341 | 0.003986 | 0.002974 | 109,953 | 21m 55s | 1.28 MB | High | Medium | `dataset_input_mode_retraining__feedforward__simplified_setpoints` |
-| 16 | `te_feedforward_fw__simplified_setpoints` | `feedforward` | 0.003423 | 0.004082 | 0.002999 | 109,953 | 13m 30s | 1.28 MB | High | Low | `dataset_input_mode_retraining__feedforward__simplified_setpoints` |
+| 5 | `te_feedforward_fw__polished_actual_values` | `feedforward` | 0.001758 | 0.002736 | 0.001616 | 109,953 | 34m 06s | 1.28 MB | High | Medium | `dataset_input_mode_retraining__feedforward__polished_actual_values` |
+| 6 | `te_feedforward_fw` | `feedforward` | 0.001766 | 0.002254 | 0.001654 | 109,697 | 45m 44s | 1.28 MB | High | High | `polished_dataset_full_wave_retraining_2026_06_22` |
+| 7 | `te_feedforward_global` | `feedforward` | 0.001790 | 0.002281 | 0.001672 | 109,697 | 40m 07s | 1.28 MB | High | High | `polished_dataset_full_wave_retraining_2026_06_22` |
+| 8 | `te_feedforward_global__polished_actual_values` | `feedforward` | 0.001809 | 0.002784 | 0.001608 | 109,953 | 30m 52s | 1.28 MB | High | Medium | `dataset_input_mode_retraining__feedforward__polished_actual_values` |
+| 9 | `te_feedforward_bw__polished_actual_values` | `feedforward` | 0.001833 | 0.002792 | 0.001647 | 109,953 | 22m 41s | 1.28 MB | High | Medium | `dataset_input_mode_retraining__feedforward__polished_actual_values` |
+| 10 | `te_feedforward_bw__polished_setpoints` | `feedforward` | 0.001853 | 0.002874 | 0.001641 | 109,953 | 18m 02s | 1.28 MB | High | Medium | `dataset_input_mode_retraining__feedforward__polished_setpoints` |
+| 11 | `te_feedforward_fw__polished_setpoints` | `feedforward` | 0.001938 | 0.002950 | 0.001683 | 109,953 | 15m 36s | 1.28 MB | High | Medium | `dataset_input_mode_retraining__feedforward__polished_setpoints` |
+| 12 | `te_feedforward_global__polished_setpoints` | `feedforward` | 0.001999 | 0.003006 | 0.001691 | 109,953 | 15m 04s | 1.28 MB | High | Medium | `dataset_input_mode_retraining__feedforward__polished_setpoints` |
+| 13 | `te_feedforward_trial` | `feedforward` | 0.002877 | 0.003835 | 0.002725 | 26,113 | 3m 27s | 0.32 MB | Medium | Low | `polished_dataset_stage1_smoke_2026_06_21` |
+| 14 | `te_feedforward_stride1_high_compute_long_remote_global` | `feedforward` | 0.003150 | 0.003603 | 0.003056 | 109,953 | N/A | 1.28 MB | High | Unknown | `standalone_or_unknown` |
+| 15 | `te_feedforward_stride1_high_compute_long_remote_global_optuna_t0017` | `feedforward` | 0.003208 | 0.003810 | 0.002962 | 43,649 | N/A | 0.52 MB | Medium | Unknown | `standalone_or_unknown` |
+| 16 | `te_feedforward_stride1_high_compute_long_remote_global_optuna_t0012` | `feedforward` | 0.003217 | 0.003847 | 0.003014 | 43,649 | N/A | 0.52 MB | Medium | Unknown | `standalone_or_unknown` |
+| 17 | `te_feedforward_global__simplified_setpoints` | `feedforward` | 0.003243 | 0.003875 | 0.002968 | 109,953 | 18m 18s | 1.28 MB | High | Medium | `dataset_input_mode_retraining__feedforward__simplified_setpoints` |
+| 18 | `te_feedforward_bw__simplified_setpoints` | `feedforward` | 0.003341 | 0.003986 | 0.002974 | 109,953 | 21m 55s | 1.28 MB | High | Medium | `dataset_input_mode_retraining__feedforward__simplified_setpoints` |
+| 19 | `te_feedforward_fw__simplified_setpoints` | `feedforward` | 0.003423 | 0.004082 | 0.002999 | 109,953 | 13m 30s | 1.28 MB | High | Low | `dataset_input_mode_retraining__feedforward__simplified_setpoints` |
 
 Known failed campaign attempts for this family:
 

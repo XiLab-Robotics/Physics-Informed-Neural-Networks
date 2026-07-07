@@ -6,8 +6,8 @@ selection_policy:
   second_tie_breaker: val_mae
   third_tie_breaker: trainable_parameter_count
   direction: minimize
-updated_at: '2026-07-07T17:25:57'
-entry_count: 4
+updated_at: '2026-07-07T18:43:03'
+entry_count: 5
 entry_list:
 - run_instance_id: 2026-06-25-17-47-36__te_feedforward_global
   run_name: te_feedforward_global
@@ -85,6 +85,46 @@ entry_list:
     third_tie_breaker: trainable_parameter_count
     direction: minimize
   selected_at: '2026-06-29T17:38:58'
+- run_instance_id: 2026-07-07-18-12-11__te_feedforward_global__polished_actual_values
+  run_name: te_feedforward_global__polished_actual_values
+  output_run_name: te_feedforward_global__polished_actual_values
+  output_artifact_kind: training_run
+  model_family: feedforward_global
+  base_model_family: feedforward
+  model_type: feedforward
+  dataset_id: polished_dataset
+  dataset_schema: polished_point_v1
+  input_mode: actual_values
+  input_feature_names:
+  - theta
+  - theta_dot
+  - tau_load
+  - T
+  - direction_flag
+  target_feature_names:
+  - theta_TE
+  input_feature_dim: 5
+  training_variant: global
+  direction_scope_label: bidirectional
+  use_forward_direction: true
+  use_backward_direction: true
+  trainable_parameter_count: 109953
+  total_parameter_count: 109953
+  val_mae: 0.0016080763889476657
+  val_rmse: 0.00216725654900074
+  test_mae: 0.0018092994578182697
+  test_rmse: 0.002784296404570341
+  output_directory: output\training_runs\feedforward\2026-07-07-18-12-11__te_feedforward_global__polished_actual_values
+  best_checkpoint_path: output\training_runs\feedforward\2026-07-07-18-12-11__te_feedforward_global__polished_actual_values\checkpoints\feedforward-epoch=118-val_mae=0.00160808.ckpt
+  metrics_path: output\training_runs\feedforward\2026-07-07-18-12-11__te_feedforward_global__polished_actual_values/metrics_summary.yaml
+  report_path: output\training_runs\feedforward\2026-07-07-18-12-11__te_feedforward_global__polished_actual_values/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-07-07T18:43:03'
 - run_instance_id: 2026-07-07-17-10-53__te_feedforward_global__polished_setpoints
   run_name: te_feedforward_global__polished_setpoints
   output_run_name: te_feedforward_global__polished_setpoints
