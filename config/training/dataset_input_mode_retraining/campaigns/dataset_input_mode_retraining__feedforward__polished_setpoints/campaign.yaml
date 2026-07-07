@@ -1,0 +1,25 @@
+schema_version: 1
+campaign_name: dataset_input_mode_retraining__feedforward__polished_setpoints
+campaign_type: dataset_input_mode_model_development_retraining
+family_name: feedforward
+dataset_name: polished_dataset
+input_mode: setpoints
+dataset_schema: polished_setpoint_curve_v1
+source_dataset_root: data/polished_dataset
+expected_model_archive_root: models/polished_dataset/setpoints/exported
+expected_surface_list:
+- global
+- fw
+- bw
+expected_run_count: 3
+planning_report_path: doc/reports/campaign_plans/cross_wave/input_modes/2026-07-07-01-46-06_dataset_input_mode_retraining_campaign_plan_report.md
+technical_document_path: doc/technical/2026-07/2026-07-07/2026-07-07-01-46-06_dataset_input_mode_retraining_campaigns.md
+queue_root: config/training/queue/dataset_input_mode_retraining/dataset_input_mode_retraining__feedforward__polished_setpoints
+queue_config_path_list:
+- config/training/dataset_input_mode_retraining/campaigns/dataset_input_mode_retraining__feedforward__polished_setpoints/queue/001_feedforward_global.yaml
+- config/training/dataset_input_mode_retraining/campaigns/dataset_input_mode_retraining__feedforward__polished_setpoints/queue/002_feedforward_fw.yaml
+- config/training/dataset_input_mode_retraining/campaigns/dataset_input_mode_retraining__feedforward__polished_setpoints/queue/003_feedforward_bw.yaml
+execution_policy:
+  operator_run_required: true
+  stop_on_error: true
+  run_te_curve_verification_pipeline: false
