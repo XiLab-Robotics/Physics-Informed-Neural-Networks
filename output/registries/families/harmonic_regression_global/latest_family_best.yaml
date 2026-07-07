@@ -6,43 +6,45 @@ selection_policy:
   second_tie_breaker: val_mae
   third_tie_breaker: trainable_parameter_count
   direction: minimize
-updated_at: '2026-07-07T23:29:07'
+updated_at: '2026-07-08T00:15:14'
 best_entry:
-  run_instance_id: 2026-06-26-03-21-12__te_harmonic_regression_global
-  run_name: te_harmonic_regression_global
-  output_run_name: te_harmonic_regression_global
+  run_instance_id: 2026-07-08-00-01-16__te_harmonic_regression_global__polished_actual_values
+  run_name: te_harmonic_regression_global__polished_actual_values
+  output_run_name: te_harmonic_regression_global__polished_actual_values
   output_artifact_kind: training_run
   model_family: harmonic_regression_global
   base_model_family: harmonic_regression
   model_type: harmonic_regression
   dataset_id: polished_dataset
   dataset_schema: polished_point_v1
+  input_mode: actual_values
   input_feature_names:
   - theta
   - theta_dot
   - tau_load
   - T
+  - direction_flag
   target_feature_names:
   - theta_TE
-  input_feature_dim: 4
+  input_feature_dim: 5
   training_variant: global
   direction_scope_label: bidirectional
   use_forward_direction: true
   use_backward_direction: true
-  trainable_parameter_count: 125
-  total_parameter_count: 125
-  val_mae: 0.0038786563090980053
-  val_rmse: 0.004472250584512949
-  test_mae: 0.003795414697378874
-  test_rmse: 0.004515381064265966
-  output_directory: output\training_runs\harmonic_regression\2026-06-26-03-21-12__te_harmonic_regression_global
-  best_checkpoint_path: output\training_runs\harmonic_regression\2026-06-26-03-21-12__te_harmonic_regression_global\checkpoints\harmonic_regression-epoch=055-val_mae=0.00387866.ckpt
-  metrics_path: output\training_runs\harmonic_regression\2026-06-26-03-21-12__te_harmonic_regression_global/metrics_summary.yaml
-  report_path: output\training_runs\harmonic_regression\2026-06-26-03-21-12__te_harmonic_regression_global/training_test_report.md
+  trainable_parameter_count: 150
+  total_parameter_count: 150
+  val_mae: 0.001823314349167049
+  val_rmse: 0.00243164855055511
+  test_mae: 0.0020709573291242123
+  test_rmse: 0.0031432732939720154
+  output_directory: output\training_runs\harmonic_regression\2026-07-08-00-01-16__te_harmonic_regression_global__polished_actual_values
+  best_checkpoint_path: output\training_runs\harmonic_regression\2026-07-08-00-01-16__te_harmonic_regression_global__polished_actual_values\checkpoints\harmonic_regression-epoch=053-val_mae=0.00182331.ckpt
+  metrics_path: output\training_runs\harmonic_regression\2026-07-08-00-01-16__te_harmonic_regression_global__polished_actual_values/metrics_summary.yaml
+  report_path: output\training_runs\harmonic_regression\2026-07-08-00-01-16__te_harmonic_regression_global__polished_actual_values/training_test_report.md
   selection_policy:
     primary_metric: test_mae
     first_tie_breaker: test_rmse
     second_tie_breaker: val_mae
     third_tie_breaker: trainable_parameter_count
     direction: minimize
-  selected_at: '2026-06-26T03:44:24'
+  selected_at: '2026-07-08T00:15:14'

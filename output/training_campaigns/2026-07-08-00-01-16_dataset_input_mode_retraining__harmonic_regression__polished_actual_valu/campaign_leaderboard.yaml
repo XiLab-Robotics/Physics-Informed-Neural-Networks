@@ -1,0 +1,131 @@
+schema_version: 1
+campaign_name: dataset_input_mode_retraining__harmonic_regression__polished_actual_values
+selection_policy:
+  primary_metric: test_mae
+  first_tie_breaker: test_rmse
+  second_tie_breaker: val_mae
+  third_tie_breaker: trainable_parameter_count
+  direction: minimize
+updated_at: '2026-07-08T00:46:14'
+entry_count: 3
+entry_list:
+- run_instance_id: 2026-07-08-00-15-14__te_harmonic_regression_fw__polished_actual_values
+  run_name: te_harmonic_regression_fw__polished_actual_values
+  output_run_name: te_harmonic_regression_fw__polished_actual_values
+  output_artifact_kind: training_run
+  model_family: harmonic_regression_fw
+  base_model_family: harmonic_regression
+  model_type: harmonic_regression
+  dataset_id: polished_dataset
+  dataset_schema: polished_point_v1
+  input_mode: actual_values
+  input_feature_names:
+  - theta
+  - theta_dot
+  - tau_load
+  - T
+  - direction_flag
+  target_feature_names:
+  - theta_TE
+  input_feature_dim: 5
+  training_variant: fw
+  direction_scope_label: forward_only
+  use_forward_direction: true
+  use_backward_direction: false
+  trainable_parameter_count: 150
+  total_parameter_count: 150
+  val_mae: 0.0018231410067528486
+  val_rmse: 0.0024301905650645494
+  test_mae: 0.0020660595037043095
+  test_rmse: 0.0031351486686617136
+  output_directory: output\training_runs\harmonic_regression\2026-07-08-00-15-14__te_harmonic_regression_fw__polished_actual_values
+  best_checkpoint_path: output\training_runs\harmonic_regression\2026-07-08-00-15-14__te_harmonic_regression_fw__polished_actual_values\checkpoints\harmonic_regression-epoch=073-val_mae=0.00182314.ckpt
+  metrics_path: output\training_runs\harmonic_regression\2026-07-08-00-15-14__te_harmonic_regression_fw__polished_actual_values/metrics_summary.yaml
+  report_path: output\training_runs\harmonic_regression\2026-07-08-00-15-14__te_harmonic_regression_fw__polished_actual_values/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-07-08T00:46:14'
+- run_instance_id: 2026-07-08-00-01-16__te_harmonic_regression_global__polished_actual_values
+  run_name: te_harmonic_regression_global__polished_actual_values
+  output_run_name: te_harmonic_regression_global__polished_actual_values
+  output_artifact_kind: training_run
+  model_family: harmonic_regression_global
+  base_model_family: harmonic_regression
+  model_type: harmonic_regression
+  dataset_id: polished_dataset
+  dataset_schema: polished_point_v1
+  input_mode: actual_values
+  input_feature_names:
+  - theta
+  - theta_dot
+  - tau_load
+  - T
+  - direction_flag
+  target_feature_names:
+  - theta_TE
+  input_feature_dim: 5
+  training_variant: global
+  direction_scope_label: bidirectional
+  use_forward_direction: true
+  use_backward_direction: true
+  trainable_parameter_count: 150
+  total_parameter_count: 150
+  val_mae: 0.001823314349167049
+  val_rmse: 0.00243164855055511
+  test_mae: 0.0020709573291242123
+  test_rmse: 0.0031432732939720154
+  output_directory: output\training_runs\harmonic_regression\2026-07-08-00-01-16__te_harmonic_regression_global__polished_actual_values
+  best_checkpoint_path: output\training_runs\harmonic_regression\2026-07-08-00-01-16__te_harmonic_regression_global__polished_actual_values\checkpoints\harmonic_regression-epoch=053-val_mae=0.00182331.ckpt
+  metrics_path: output\training_runs\harmonic_regression\2026-07-08-00-01-16__te_harmonic_regression_global__polished_actual_values/metrics_summary.yaml
+  report_path: output\training_runs\harmonic_regression\2026-07-08-00-01-16__te_harmonic_regression_global__polished_actual_values/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-07-08T00:46:14'
+- run_instance_id: 2026-07-08-00-32-21__te_harmonic_regression_bw__polished_actual_values
+  run_name: te_harmonic_regression_bw__polished_actual_values
+  output_run_name: te_harmonic_regression_bw__polished_actual_values
+  output_artifact_kind: training_run
+  model_family: harmonic_regression_bw
+  base_model_family: harmonic_regression
+  model_type: harmonic_regression
+  dataset_id: polished_dataset
+  dataset_schema: polished_point_v1
+  input_mode: actual_values
+  input_feature_names:
+  - theta
+  - theta_dot
+  - tau_load
+  - T
+  - direction_flag
+  target_feature_names:
+  - theta_TE
+  input_feature_dim: 5
+  training_variant: bw
+  direction_scope_label: backward_only
+  use_forward_direction: false
+  use_backward_direction: true
+  trainable_parameter_count: 150
+  total_parameter_count: 150
+  val_mae: 0.0018264296231791377
+  val_rmse: 0.0024365719873458147
+  test_mae: 0.0020763834472745657
+  test_rmse: 0.003150173230096698
+  output_directory: output\training_runs\harmonic_regression\2026-07-08-00-32-21__te_harmonic_regression_bw__polished_actual_values
+  best_checkpoint_path: output\training_runs\harmonic_regression\2026-07-08-00-32-21__te_harmonic_regression_bw__polished_actual_values\checkpoints\harmonic_regression-epoch=054-val_mae=0.00182643.ckpt
+  metrics_path: output\training_runs\harmonic_regression\2026-07-08-00-32-21__te_harmonic_regression_bw__polished_actual_values/metrics_summary.yaml
+  report_path: output\training_runs\harmonic_regression\2026-07-08-00-32-21__te_harmonic_regression_bw__polished_actual_values/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-07-08T00:46:14'
