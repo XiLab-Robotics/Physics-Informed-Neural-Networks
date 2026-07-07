@@ -1,0 +1,1 @@
+/scratch1/dferrari/Physics-Informed-Neural-Networks/output/training_runs/residual_harmonic_mlp/2026-07-07-13-50-19__te_residual_harmonic_mlp_fw__polished_actual_values/checkpoints/residual_harmonic_mlp-epoch=052-val_mae=0.00163893.ckpt

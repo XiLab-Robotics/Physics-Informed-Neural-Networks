@@ -1,0 +1,22 @@
+schema_version: 1
+artifact_kind: training_run
+model_family: residual_harmonic_mlp_global
+base_model_family: residual_harmonic_mlp
+training_variant: global
+direction_scope_label: bidirectional
+use_forward_direction: true
+use_backward_direction: true
+run_name: te_residual_harmonic_mlp_global__polished_actual_values
+run_instance_id: 2026-07-07-13-20-06__te_residual_harmonic_mlp_global__polished_actual_values
+output_directory: output\training_runs\residual_harmonic_mlp\2026-07-07-13-20-06__te_residual_harmonic_mlp_global__polished_actual_values
+dataset_id: polished_dataset
+dataset_schema: polished_point_v1
+input_feature_names:
+- theta
+- theta_dot
+- tau_load
+- T
+- direction_flag
+target_feature_names:
+- theta_TE
+input_feature_dim: 5
