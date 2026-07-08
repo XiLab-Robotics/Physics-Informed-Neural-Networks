@@ -6,8 +6,8 @@ selection_policy:
   second_tie_breaker: val_mae
   third_tie_breaker: trainable_parameter_count
   direction: minimize
-updated_at: '2026-07-08T02:43:23'
-entry_count: 4
+updated_at: '2026-07-08T03:56:01'
+entry_count: 5
 entry_list:
 - run_instance_id: 2026-06-26-05-40-23__te_periodic_mlp_harmonic_bw
   run_name: te_periodic_mlp_harmonic_bw
@@ -47,6 +47,46 @@ entry_list:
     third_tie_breaker: trainable_parameter_count
     direction: minimize
   selected_at: '2026-06-26T06:20:09'
+- run_instance_id: 2026-07-08-03-31-01__te_periodic_mlp_harmonic_bw__polished_actual_values
+  run_name: te_periodic_mlp_harmonic_bw__polished_actual_values
+  output_run_name: te_periodic_mlp_harmonic_bw__polished_actual_values
+  output_artifact_kind: training_run
+  model_family: periodic_mlp_harmonic_bw
+  base_model_family: periodic_mlp_harmonic
+  model_type: periodic_mlp
+  dataset_id: polished_dataset
+  dataset_schema: polished_point_v1
+  input_mode: actual_values
+  input_feature_names:
+  - theta
+  - theta_dot
+  - tau_load
+  - T
+  - direction_flag
+  target_feature_names:
+  - theta_TE
+  input_feature_dim: 5
+  training_variant: bw
+  direction_scope_label: backward_only
+  use_forward_direction: false
+  use_backward_direction: true
+  trainable_parameter_count: 28545
+  total_parameter_count: 28545
+  val_mae: 0.0011714595602825284
+  val_rmse: 0.001652772887609899
+  test_mae: 0.0013025462394580245
+  test_rmse: 0.0022197405342012644
+  output_directory: output\training_runs\periodic_mlp_harmonic\2026-07-08-03-31-01__te_periodic_mlp_harmonic_bw__polished_actual_values
+  best_checkpoint_path: output\training_runs\periodic_mlp_harmonic\2026-07-08-03-31-01__te_periodic_mlp_harmonic_bw__polished_actual_values\checkpoints\periodic_mlp-epoch=128-val_mae=0.00117146.ckpt
+  metrics_path: output\training_runs\periodic_mlp_harmonic\2026-07-08-03-31-01__te_periodic_mlp_harmonic_bw__polished_actual_values/metrics_summary.yaml
+  report_path: output\training_runs\periodic_mlp_harmonic\2026-07-08-03-31-01__te_periodic_mlp_harmonic_bw__polished_actual_values/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-07-08T03:56:01'
 - run_instance_id: 2026-06-29-21-27-22__te_periodic_mlp_harmonic_bw
   run_name: te_periodic_mlp_harmonic_bw
   output_run_name: te_periodic_mlp_harmonic_bw
