@@ -13,74 +13,74 @@ entries:
   dataset_id: simplified_dataset
   dataset_schema: simplified_curve_v1
   input_mode: setpoints
-  model_family: gru_sequence
-  model_type: gru_sequence
+  model_family: lstm_sequence
+  model_type: lstm_sequence
   surface: global
-  run_name: te_gru_sequence_global__simplified_setpoints
-  run_instance_id: 2026-07-08-11-17-09__te_gru_sequence_global__simplified_setpoints
-  source_output_directory: output/training_runs/gru_sequence/2026-07-08-11-17-09__te_gru_sequence_global__simplified_setpoints
-  source_best_checkpoint_path: output/training_runs/gru_sequence/2026-07-08-11-17-09__te_gru_sequence_global__simplified_setpoints/checkpoints/gru_sequence-epoch=036-val_mae=0.00377716.ckpt
-  python_model_path: models/simplified_dataset/setpoints/exported/gru_sequence/global/2026-07-08-11-17-09__te_gru_sequence_global__simplified_setpoints/python/gru_sequence-epoch=036-val_mae=0.00377716.ckpt
-  onnx_model_path: models/simplified_dataset/setpoints/exported/gru_sequence/global/2026-07-08-11-17-09__te_gru_sequence_global__simplified_setpoints/onnx/model.onnx
+  run_name: te_lstm_sequence_global__simplified_setpoints
+  run_instance_id: 2026-07-08-14-59-31__te_lstm_sequence_global__simplified_setpoints
+  source_output_directory: output/training_runs/lstm_sequence/2026-07-08-14-59-31__te_lstm_sequence_global__simplified_setpoints
+  source_best_checkpoint_path: output/training_runs/lstm_sequence/2026-07-08-14-59-31__te_lstm_sequence_global__simplified_setpoints/checkpoints/lstm_sequence-epoch=115-val_mae=0.00369210.ckpt
+  python_model_path: models/simplified_dataset/setpoints/exported/lstm_sequence/global/2026-07-08-14-59-31__te_lstm_sequence_global__simplified_setpoints/python/lstm_sequence-epoch=115-val_mae=0.00369210.ckpt
+  onnx_model_path: models/simplified_dataset/setpoints/exported/lstm_sequence/global/2026-07-08-14-59-31__te_lstm_sequence_global__simplified_setpoints/onnx/model.onnx
   onnx_export_status: exported
   onnx_export_error: ''
   source_run_snapshot_path_map:
-    training_config.snapshot.yaml: models/simplified_dataset/setpoints/exported/gru_sequence/global/2026-07-08-11-17-09__te_gru_sequence_global__simplified_setpoints/source_run/training_config.snapshot.yaml
-    metrics_summary.snapshot.yaml: models/simplified_dataset/setpoints/exported/gru_sequence/global/2026-07-08-11-17-09__te_gru_sequence_global__simplified_setpoints/source_run/metrics_summary.snapshot.yaml
-    run_metadata.snapshot.yaml: models/simplified_dataset/setpoints/exported/gru_sequence/global/2026-07-08-11-17-09__te_gru_sequence_global__simplified_setpoints/source_run/run_metadata.snapshot.yaml
-    training_test_report.snapshot.md: models/simplified_dataset/setpoints/exported/gru_sequence/global/2026-07-08-11-17-09__te_gru_sequence_global__simplified_setpoints/source_run/training_test_report.snapshot.md
-    best_checkpoint_path.snapshot.txt: models/simplified_dataset/setpoints/exported/gru_sequence/global/2026-07-08-11-17-09__te_gru_sequence_global__simplified_setpoints/source_run/best_checkpoint_path.snapshot.txt
+    training_config.snapshot.yaml: models/simplified_dataset/setpoints/exported/lstm_sequence/global/2026-07-08-14-59-31__te_lstm_sequence_global__simplified_setpoints/source_run/training_config.snapshot.yaml
+    metrics_summary.snapshot.yaml: models/simplified_dataset/setpoints/exported/lstm_sequence/global/2026-07-08-14-59-31__te_lstm_sequence_global__simplified_setpoints/source_run/metrics_summary.snapshot.yaml
+    run_metadata.snapshot.yaml: models/simplified_dataset/setpoints/exported/lstm_sequence/global/2026-07-08-14-59-31__te_lstm_sequence_global__simplified_setpoints/source_run/run_metadata.snapshot.yaml
+    training_test_report.snapshot.md: models/simplified_dataset/setpoints/exported/lstm_sequence/global/2026-07-08-14-59-31__te_lstm_sequence_global__simplified_setpoints/source_run/training_test_report.snapshot.md
+    best_checkpoint_path.snapshot.txt: models/simplified_dataset/setpoints/exported/lstm_sequence/global/2026-07-08-14-59-31__te_lstm_sequence_global__simplified_setpoints/source_run/best_checkpoint_path.snapshot.txt
   metrics:
-    val_mae: 0.003777161007747054
-    test_mae: 0.00359040847979486
-    test_rmse: 0.004451045300811529
+    val_mae: 0.003692096099257469
+    test_mae: 0.0034460152965039015
+    test_rmse: 0.004293248988687992
 - schema_version: 1
   dataset_id: simplified_dataset
   dataset_schema: simplified_curve_v1
   input_mode: setpoints
-  model_family: gru_sequence
-  model_type: gru_sequence
+  model_family: lstm_sequence
+  model_type: lstm_sequence
   surface: forward
-  run_name: te_gru_sequence_fw__simplified_setpoints
-  run_instance_id: 2026-07-08-11-24-01__te_gru_sequence_fw__simplified_setpoints
-  source_output_directory: output/training_runs/gru_sequence/2026-07-08-11-24-01__te_gru_sequence_fw__simplified_setpoints
-  source_best_checkpoint_path: output/training_runs/gru_sequence/2026-07-08-11-24-01__te_gru_sequence_fw__simplified_setpoints/checkpoints/gru_sequence-epoch=043-val_mae=0.00375895.ckpt
-  python_model_path: models/simplified_dataset/setpoints/exported/gru_sequence/forward/2026-07-08-11-24-01__te_gru_sequence_fw__simplified_setpoints/python/gru_sequence-epoch=043-val_mae=0.00375895.ckpt
-  onnx_model_path: models/simplified_dataset/setpoints/exported/gru_sequence/forward/2026-07-08-11-24-01__te_gru_sequence_fw__simplified_setpoints/onnx/model.onnx
+  run_name: te_lstm_sequence_fw__simplified_setpoints
+  run_instance_id: 2026-07-08-15-14-13__te_lstm_sequence_fw__simplified_setpoints
+  source_output_directory: output/training_runs/lstm_sequence/2026-07-08-15-14-13__te_lstm_sequence_fw__simplified_setpoints
+  source_best_checkpoint_path: output/training_runs/lstm_sequence/2026-07-08-15-14-13__te_lstm_sequence_fw__simplified_setpoints/checkpoints/lstm_sequence-epoch=092-val_mae=0.00370236.ckpt
+  python_model_path: models/simplified_dataset/setpoints/exported/lstm_sequence/forward/2026-07-08-15-14-13__te_lstm_sequence_fw__simplified_setpoints/python/lstm_sequence-epoch=092-val_mae=0.00370236.ckpt
+  onnx_model_path: models/simplified_dataset/setpoints/exported/lstm_sequence/forward/2026-07-08-15-14-13__te_lstm_sequence_fw__simplified_setpoints/onnx/model.onnx
   onnx_export_status: exported
   onnx_export_error: ''
   source_run_snapshot_path_map:
-    training_config.snapshot.yaml: models/simplified_dataset/setpoints/exported/gru_sequence/forward/2026-07-08-11-24-01__te_gru_sequence_fw__simplified_setpoints/source_run/training_config.snapshot.yaml
-    metrics_summary.snapshot.yaml: models/simplified_dataset/setpoints/exported/gru_sequence/forward/2026-07-08-11-24-01__te_gru_sequence_fw__simplified_setpoints/source_run/metrics_summary.snapshot.yaml
-    run_metadata.snapshot.yaml: models/simplified_dataset/setpoints/exported/gru_sequence/forward/2026-07-08-11-24-01__te_gru_sequence_fw__simplified_setpoints/source_run/run_metadata.snapshot.yaml
-    training_test_report.snapshot.md: models/simplified_dataset/setpoints/exported/gru_sequence/forward/2026-07-08-11-24-01__te_gru_sequence_fw__simplified_setpoints/source_run/training_test_report.snapshot.md
-    best_checkpoint_path.snapshot.txt: models/simplified_dataset/setpoints/exported/gru_sequence/forward/2026-07-08-11-24-01__te_gru_sequence_fw__simplified_setpoints/source_run/best_checkpoint_path.snapshot.txt
+    training_config.snapshot.yaml: models/simplified_dataset/setpoints/exported/lstm_sequence/forward/2026-07-08-15-14-13__te_lstm_sequence_fw__simplified_setpoints/source_run/training_config.snapshot.yaml
+    metrics_summary.snapshot.yaml: models/simplified_dataset/setpoints/exported/lstm_sequence/forward/2026-07-08-15-14-13__te_lstm_sequence_fw__simplified_setpoints/source_run/metrics_summary.snapshot.yaml
+    run_metadata.snapshot.yaml: models/simplified_dataset/setpoints/exported/lstm_sequence/forward/2026-07-08-15-14-13__te_lstm_sequence_fw__simplified_setpoints/source_run/run_metadata.snapshot.yaml
+    training_test_report.snapshot.md: models/simplified_dataset/setpoints/exported/lstm_sequence/forward/2026-07-08-15-14-13__te_lstm_sequence_fw__simplified_setpoints/source_run/training_test_report.snapshot.md
+    best_checkpoint_path.snapshot.txt: models/simplified_dataset/setpoints/exported/lstm_sequence/forward/2026-07-08-15-14-13__te_lstm_sequence_fw__simplified_setpoints/source_run/best_checkpoint_path.snapshot.txt
   metrics:
-    val_mae: 0.0037589457351714373
-    test_mae: 0.0035835758317261934
-    test_rmse: 0.004392898641526699
+    val_mae: 0.003702363930642605
+    test_mae: 0.003518945537507534
+    test_rmse: 0.004377674777060747
 - schema_version: 1
   dataset_id: simplified_dataset
   dataset_schema: simplified_curve_v1
   input_mode: setpoints
-  model_family: gru_sequence
-  model_type: gru_sequence
+  model_family: lstm_sequence
+  model_type: lstm_sequence
   surface: backward
-  run_name: te_gru_sequence_bw__simplified_setpoints
-  run_instance_id: 2026-07-08-11-31-51__te_gru_sequence_bw__simplified_setpoints
-  source_output_directory: output/training_runs/gru_sequence/2026-07-08-11-31-51__te_gru_sequence_bw__simplified_setpoints
-  source_best_checkpoint_path: output/training_runs/gru_sequence/2026-07-08-11-31-51__te_gru_sequence_bw__simplified_setpoints/checkpoints/gru_sequence-epoch=132-val_mae=0.00366119.ckpt
-  python_model_path: models/simplified_dataset/setpoints/exported/gru_sequence/backward/2026-07-08-11-31-51__te_gru_sequence_bw__simplified_setpoints/python/gru_sequence-epoch=132-val_mae=0.00366119.ckpt
-  onnx_model_path: models/simplified_dataset/setpoints/exported/gru_sequence/backward/2026-07-08-11-31-51__te_gru_sequence_bw__simplified_setpoints/onnx/model.onnx
+  run_name: te_lstm_sequence_bw__simplified_setpoints
+  run_instance_id: 2026-07-08-15-24-03__te_lstm_sequence_bw__simplified_setpoints
+  source_output_directory: output/training_runs/lstm_sequence/2026-07-08-15-24-03__te_lstm_sequence_bw__simplified_setpoints
+  source_best_checkpoint_path: output/training_runs/lstm_sequence/2026-07-08-15-24-03__te_lstm_sequence_bw__simplified_setpoints/checkpoints/lstm_sequence-epoch=091-val_mae=0.00367749.ckpt
+  python_model_path: models/simplified_dataset/setpoints/exported/lstm_sequence/backward/2026-07-08-15-24-03__te_lstm_sequence_bw__simplified_setpoints/python/lstm_sequence-epoch=091-val_mae=0.00367749.ckpt
+  onnx_model_path: models/simplified_dataset/setpoints/exported/lstm_sequence/backward/2026-07-08-15-24-03__te_lstm_sequence_bw__simplified_setpoints/onnx/model.onnx
   onnx_export_status: exported
   onnx_export_error: ''
   source_run_snapshot_path_map:
-    training_config.snapshot.yaml: models/simplified_dataset/setpoints/exported/gru_sequence/backward/2026-07-08-11-31-51__te_gru_sequence_bw__simplified_setpoints/source_run/training_config.snapshot.yaml
-    metrics_summary.snapshot.yaml: models/simplified_dataset/setpoints/exported/gru_sequence/backward/2026-07-08-11-31-51__te_gru_sequence_bw__simplified_setpoints/source_run/metrics_summary.snapshot.yaml
-    run_metadata.snapshot.yaml: models/simplified_dataset/setpoints/exported/gru_sequence/backward/2026-07-08-11-31-51__te_gru_sequence_bw__simplified_setpoints/source_run/run_metadata.snapshot.yaml
-    training_test_report.snapshot.md: models/simplified_dataset/setpoints/exported/gru_sequence/backward/2026-07-08-11-31-51__te_gru_sequence_bw__simplified_setpoints/source_run/training_test_report.snapshot.md
-    best_checkpoint_path.snapshot.txt: models/simplified_dataset/setpoints/exported/gru_sequence/backward/2026-07-08-11-31-51__te_gru_sequence_bw__simplified_setpoints/source_run/best_checkpoint_path.snapshot.txt
+    training_config.snapshot.yaml: models/simplified_dataset/setpoints/exported/lstm_sequence/backward/2026-07-08-15-24-03__te_lstm_sequence_bw__simplified_setpoints/source_run/training_config.snapshot.yaml
+    metrics_summary.snapshot.yaml: models/simplified_dataset/setpoints/exported/lstm_sequence/backward/2026-07-08-15-24-03__te_lstm_sequence_bw__simplified_setpoints/source_run/metrics_summary.snapshot.yaml
+    run_metadata.snapshot.yaml: models/simplified_dataset/setpoints/exported/lstm_sequence/backward/2026-07-08-15-24-03__te_lstm_sequence_bw__simplified_setpoints/source_run/run_metadata.snapshot.yaml
+    training_test_report.snapshot.md: models/simplified_dataset/setpoints/exported/lstm_sequence/backward/2026-07-08-15-24-03__te_lstm_sequence_bw__simplified_setpoints/source_run/training_test_report.snapshot.md
+    best_checkpoint_path.snapshot.txt: models/simplified_dataset/setpoints/exported/lstm_sequence/backward/2026-07-08-15-24-03__te_lstm_sequence_bw__simplified_setpoints/source_run/best_checkpoint_path.snapshot.txt
   metrics:
-    val_mae: 0.003661188529804349
-    test_mae: 0.003509706584736705
-    test_rmse: 0.004340673331171274
+    val_mae: 0.0036774894688278437
+    test_mae: 0.0034626894630491734
+    test_rmse: 0.00433966564014554
