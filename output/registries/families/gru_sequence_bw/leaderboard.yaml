@@ -6,8 +6,8 @@ selection_policy:
   second_tie_breaker: val_mae
   third_tie_breaker: trainable_parameter_count
   direction: minimize
-updated_at: '2026-06-30T00:09:49'
-entry_count: 3
+updated_at: '2026-07-08T11:47:31'
+entry_count: 4
 entry_list:
 - run_instance_id: 2026-06-29-23-36-20__te_gru_sequence_bw
   run_name: te_gru_sequence_bw
@@ -85,6 +85,46 @@ entry_list:
     third_tie_breaker: trainable_parameter_count
     direction: minimize
   selected_at: '2026-06-26T10:10:50'
+- run_instance_id: 2026-07-08-11-31-51__te_gru_sequence_bw__simplified_setpoints
+  run_name: te_gru_sequence_bw__simplified_setpoints
+  output_run_name: te_gru_sequence_bw__simplified_setpoints
+  output_artifact_kind: training_run
+  model_family: gru_sequence_bw
+  base_model_family: gru_sequence
+  model_type: gru_sequence
+  dataset_id: simplified_dataset
+  dataset_schema: simplified_curve_v1
+  input_mode: setpoints
+  input_feature_names:
+  - angular_position_deg
+  - input_speed_rpm
+  - input_torque_nm
+  - oil_temperature_deg
+  - direction_flag
+  target_feature_names:
+  - transmission_error_deg
+  input_feature_dim: 5
+  training_variant: bw
+  direction_scope_label: backward_only
+  use_forward_direction: false
+  use_backward_direction: true
+  trainable_parameter_count: 151041
+  total_parameter_count: 151041
+  val_mae: 0.003661188529804349
+  val_rmse: 0.004557481966912746
+  test_mae: 0.003509706584736705
+  test_rmse: 0.004340673331171274
+  output_directory: output\training_runs\gru_sequence\2026-07-08-11-31-51__te_gru_sequence_bw__simplified_setpoints
+  best_checkpoint_path: output\training_runs\gru_sequence\2026-07-08-11-31-51__te_gru_sequence_bw__simplified_setpoints\checkpoints\gru_sequence-epoch=132-val_mae=0.00366119.ckpt
+  metrics_path: output\training_runs\gru_sequence\2026-07-08-11-31-51__te_gru_sequence_bw__simplified_setpoints/metrics_summary.yaml
+  report_path: output\training_runs\gru_sequence\2026-07-08-11-31-51__te_gru_sequence_bw__simplified_setpoints/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-07-08T11:47:31'
 - run_instance_id: 2026-05-24-12-00-05__te_gru_sequence_remote_bw
   run_name: te_gru_sequence_remote_Bw
   output_run_name: te_gru_sequence_remote_Bw
