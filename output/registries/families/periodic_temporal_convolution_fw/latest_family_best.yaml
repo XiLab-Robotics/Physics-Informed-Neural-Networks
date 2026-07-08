@@ -6,43 +6,45 @@ selection_policy:
   second_tie_breaker: val_mae
   third_tie_breaker: trainable_parameter_count
   direction: minimize
-updated_at: '2026-07-08T20:12:10'
+updated_at: '2026-07-08T21:27:59'
 best_entry:
-  run_instance_id: 2026-06-26-13-03-57__te_periodic_temporal_convolution_fw
-  run_name: te_periodic_temporal_convolution_fw
-  output_run_name: te_periodic_temporal_convolution_fw
+  run_instance_id: 2026-07-08-21-06-17__te_periodic_temporal_convolution_fw__polished_actual_values
+  run_name: te_periodic_temporal_convolution_fw__polished_actual_values
+  output_run_name: te_periodic_temporal_convolution_fw__polished_actual_values
   output_artifact_kind: training_run
   model_family: periodic_temporal_convolution_fw
   base_model_family: periodic_temporal_convolution
   model_type: periodic_temporal_convolution
   dataset_id: polished_dataset
   dataset_schema: polished_point_v1
+  input_mode: actual_values
   input_feature_names:
   - theta
   - theta_dot
   - tau_load
   - T
+  - direction_flag
   target_feature_names:
   - theta_TE
-  input_feature_dim: 4
+  input_feature_dim: 5
   training_variant: fw
   direction_scope_label: forward_only
   use_forward_direction: true
   use_backward_direction: false
-  trainable_parameter_count: 157889
-  total_parameter_count: 157889
-  val_mae: 0.002065411303192377
-  val_rmse: 0.0025221959222108126
-  test_mae: 0.0021777229849249125
-  test_rmse: 0.0027304082177579403
-  output_directory: output\training_runs\periodic_temporal_convolution\2026-06-26-13-03-57__te_periodic_temporal_convolution_fw
-  best_checkpoint_path: output\training_runs\periodic_temporal_convolution\2026-06-26-13-03-57__te_periodic_temporal_convolution_fw\checkpoints\periodic_temporal_convolution-epoch=055-val_mae=0.00206541.ckpt
-  metrics_path: output\training_runs\periodic_temporal_convolution\2026-06-26-13-03-57__te_periodic_temporal_convolution_fw/metrics_summary.yaml
-  report_path: output\training_runs\periodic_temporal_convolution\2026-06-26-13-03-57__te_periodic_temporal_convolution_fw/training_test_report.md
+  trainable_parameter_count: 158529
+  total_parameter_count: 158529
+  val_mae: 0.0019388817017897964
+  val_rmse: 0.0026869180146604776
+  test_mae: 0.0020768316462635994
+  test_rmse: 0.0030795529019087553
+  output_directory: output\training_runs\periodic_temporal_convolution\2026-07-08-21-06-17__te_periodic_temporal_convolution_fw__polished_actual_values
+  best_checkpoint_path: output\training_runs\periodic_temporal_convolution\2026-07-08-21-06-17__te_periodic_temporal_convolution_fw__polished_actual_values\checkpoints\periodic_temporal_convolution-epoch=087-val_mae=0.00193888.ckpt
+  metrics_path: output\training_runs\periodic_temporal_convolution\2026-07-08-21-06-17__te_periodic_temporal_convolution_fw__polished_actual_values/metrics_summary.yaml
+  report_path: output\training_runs\periodic_temporal_convolution\2026-07-08-21-06-17__te_periodic_temporal_convolution_fw__polished_actual_values/training_test_report.md
   selection_policy:
     primary_metric: test_mae
     first_tie_breaker: test_rmse
     second_tie_breaker: val_mae
     third_tie_breaker: trainable_parameter_count
     direction: minimize
-  selected_at: '2026-06-26T13:35:38'
+  selected_at: '2026-07-08T21:27:59'
