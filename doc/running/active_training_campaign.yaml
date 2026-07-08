@@ -147,10 +147,10 @@ last_completed_campaign:
       te_curve_verification_status: not_run_in_closeout
 next_prepared_campaign:
   status: completed_and_exported
-  campaign_name: dataset_input_mode_retraining__gru_sequence__polished_setpoints
+  campaign_name: dataset_input_mode_retraining__gru_sequence__polished_actual_values
   dataset_id: polished_dataset
-  input_mode: setpoints
-  dataset_schema: polished_setpoint_curve_v1
+  input_mode: actual_values
+  dataset_schema: polished_point_v1
   expected_run_count: 3
   completed_run_count: 3
   failed_run_count: 0
@@ -163,63 +163,64 @@ next_prepared_campaign:
     slurm_memory: 100G
     gpu_request: a100:1
     observed_gpu_memory_sample: about 0.6 to 2.4 GiB on A100 80GB during sampled
-      batch-16 polished setpoint GRU sequence training
-    observed_gpu_utilization_sample: bursty samples from 0 to 48 percent, with short
-      high-power training bursts and fast validation passes
+      batch-16 polished actual-value GRU sequence training
+    observed_gpu_utilization_sample: bursty samples from 0 to 49 percent, with short
+      high-power training bursts and many low-utilization validation or transition
+      samples
     observed_throughput: about 9-10 effective batches per second including validation
-      at 85 batches per epoch, with train-only phases commonly around 13-14 batches
+      at 85 batches per epoch, with train-only phases commonly around 12-13 batches
       per second
     batch_tuning_note: The prepared campaign default was raised from curve_batch_size
-      2 to 16 before submission. Batch 16 remained stable for polished GRU sequence
-      collation and completed all three sequential surfaces in 01:06:54.
-    comparison_note: Global completed in 20:34, Fw in 29:18, and Bw in 16:24. GRU
-      used more VRAM than temporal_convolution but still stayed far below the A100
-      80GB limit.
-    next_campaign_recommendation: Continue gru_sequence polished actual-values at batch
+      2 to 16 before submission. Batch 16 remained stable for polished actual-value
+      GRU sequence collation and completed all three sequential surfaces in 01:30:05.
+    comparison_note: Global completed in 27:43, Fw in 26:08, and Bw in 35:34. The
+      run stayed far below the A100 80GB memory limit; the observed bottleneck remains
+      bursty sequence training, validation, and data movement rather than VRAM.
+    next_campaign_recommendation: Continue the next LSTM sequence campaign at batch
       16 as the accepted baseline unless a new explicit tuning request is made.
   sbatch_submission:
-    slurm_job_id: '135101'
+    slurm_job_id: '135109'
     state: COMPLETED
     exit_code: 0:0
-    elapsed: 01:06:54
-    max_rss: 16116520K
+    elapsed: 01:30:05
+    max_rss: 16559572K
     python_executable: /unimore_home/dferrari/.conda/envs/pinns_env/bin/python
     torch_version: 2.7.1+cu118
     gpu_request: a100:1
-  campaign_manifest_path: config/training/dataset_input_mode_retraining/campaigns/dataset_input_mode_retraining__gru_sequence__polished_setpoints/campaign.yaml
-  campaign_output_directory: output/training_campaigns/2026-07-08-11-57-28_dataset_input_mode_retraining__gru_sequence__polished_setpoints
-  campaign_best_run_path: output/training_campaigns/2026-07-08-11-57-28_dataset_input_mode_retraining__gru_sequence__polished_setpoints/campaign_best_run.yaml
-  campaign_leaderboard_path: output/training_campaigns/2026-07-08-11-57-28_dataset_input_mode_retraining__gru_sequence__polished_setpoints/campaign_leaderboard.yaml
+  campaign_manifest_path: config/training/dataset_input_mode_retraining/campaigns/dataset_input_mode_retraining__gru_sequence__polished_actual_values/campaign.yaml
+  campaign_output_directory: output/training_campaigns/2026-07-08-13-16-43_dataset_input_mode_retraining__gru_sequence__polished_actual_values
+  campaign_best_run_path: output/training_campaigns/2026-07-08-13-16-43_dataset_input_mode_retraining__gru_sequence__polished_actual_values/campaign_best_run.yaml
+  campaign_leaderboard_path: output/training_campaigns/2026-07-08-13-16-43_dataset_input_mode_retraining__gru_sequence__polished_actual_values/campaign_leaderboard.yaml
   best_run:
-    run_name: te_gru_sequence_fw__polished_setpoints
-    run_instance_id: 2026-07-08-12-18-02__te_gru_sequence_fw__polished_setpoints
-    surface: forward
-    test_mae: 0.0024306881241500378
-    test_rmse: 0.0038106588181108236
-    val_mae: 0.0021622295025736094
+    run_name: te_gru_sequence_bw__polished_actual_values
+    run_instance_id: 2026-07-08-14-10-34__te_gru_sequence_bw__polished_actual_values
+    surface: backward
+    test_mae: 0.0022579296492040157
+    test_rmse: 0.003322328208014369
+    val_mae: 0.0021438999101519585
   surface_run_list:
   - surface: global
-    run_name: te_gru_sequence_global__polished_setpoints
-    run_instance_id: 2026-07-08-11-57-28__te_gru_sequence_global__polished_setpoints
-    test_mae: 0.0024738179054111242
-    val_mae: 0.0021736049093306065
-    duration: 00:20:34
+    run_name: te_gru_sequence_global__polished_actual_values
+    run_instance_id: 2026-07-08-13-16-43__te_gru_sequence_global__polished_actual_values
+    test_mae: 0.0022923664655536413
+    val_mae: 0.0021723781246691942
+    duration: 00:27:43
   - surface: forward
-    run_name: te_gru_sequence_fw__polished_setpoints
-    run_instance_id: 2026-07-08-12-18-02__te_gru_sequence_fw__polished_setpoints
-    test_mae: 0.0024306881241500378
-    val_mae: 0.0021622295025736094
-    duration: 00:29:18
+    run_name: te_gru_sequence_fw__polished_actual_values
+    run_instance_id: 2026-07-08-13-44-26__te_gru_sequence_fw__polished_actual_values
+    test_mae: 0.0022740489803254604
+    val_mae: 0.0021652518771588802
+    duration: 00:26:08
   - surface: backward
-    run_name: te_gru_sequence_bw__polished_setpoints
-    run_instance_id: 2026-07-08-12-47-20__te_gru_sequence_bw__polished_setpoints
-    test_mae: 0.0024673594161868095
-    val_mae: 0.0021829267498105764
-    duration: 00:16:24
+    run_name: te_gru_sequence_bw__polished_actual_values
+    run_instance_id: 2026-07-08-14-10-34__te_gru_sequence_bw__polished_actual_values
+    test_mae: 0.0022579296492040157
+    val_mae: 0.0021438999101519585
+    duration: 00:35:34
   export:
     status: completed
-    export_root: models/polished_dataset/setpoints/exported
-    export_inventory_path: models/polished_dataset/setpoints/exported/model_development_export_inventory.yaml
+    export_root: models/polished_dataset/actual_values/exported
+    export_inventory_path: models/polished_dataset/actual_values/exported/model_development_export_inventory.yaml
     exported_entry_count: 3
     onnx_export_status_counts:
       exported: 3

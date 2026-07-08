@@ -6,8 +6,8 @@ selection_policy:
   second_tie_breaker: val_mae
   third_tie_breaker: trainable_parameter_count
   direction: minimize
-updated_at: '2026-07-08T13:03:44'
-entry_count: 5
+updated_at: '2026-07-08T14:46:08'
+entry_count: 6
 entry_list:
 - run_instance_id: 2026-06-29-23-36-20__te_gru_sequence_bw
   run_name: te_gru_sequence_bw
@@ -47,6 +47,46 @@ entry_list:
     third_tie_breaker: trainable_parameter_count
     direction: minimize
   selected_at: '2026-06-30T00:09:49'
+- run_instance_id: 2026-07-08-14-10-34__te_gru_sequence_bw__polished_actual_values
+  run_name: te_gru_sequence_bw__polished_actual_values
+  output_run_name: te_gru_sequence_bw__polished_actual_values
+  output_artifact_kind: training_run
+  model_family: gru_sequence_bw
+  base_model_family: gru_sequence
+  model_type: gru_sequence
+  dataset_id: polished_dataset
+  dataset_schema: polished_point_v1
+  input_mode: actual_values
+  input_feature_names:
+  - theta
+  - theta_dot
+  - tau_load
+  - T
+  - direction_flag
+  target_feature_names:
+  - theta_TE
+  input_feature_dim: 5
+  training_variant: bw
+  direction_scope_label: backward_only
+  use_forward_direction: false
+  use_backward_direction: true
+  trainable_parameter_count: 151041
+  total_parameter_count: 151041
+  val_mae: 0.0021438999101519585
+  val_rmse: 0.0029704782646149397
+  test_mae: 0.0022579296492040157
+  test_rmse: 0.003322328208014369
+  output_directory: output\training_runs\gru_sequence\2026-07-08-14-10-34__te_gru_sequence_bw__polished_actual_values
+  best_checkpoint_path: output\training_runs\gru_sequence\2026-07-08-14-10-34__te_gru_sequence_bw__polished_actual_values\checkpoints\gru_sequence-epoch=172-val_mae=0.00214390.ckpt
+  metrics_path: output\training_runs\gru_sequence\2026-07-08-14-10-34__te_gru_sequence_bw__polished_actual_values/metrics_summary.yaml
+  report_path: output\training_runs\gru_sequence\2026-07-08-14-10-34__te_gru_sequence_bw__polished_actual_values/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-07-08T14:46:08'
 - run_instance_id: 2026-06-26-09-28-46__te_gru_sequence_bw
   run_name: te_gru_sequence_bw
   output_run_name: te_gru_sequence_bw
