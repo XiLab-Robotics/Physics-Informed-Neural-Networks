@@ -1,0 +1,2136 @@
+schema_version: 1
+run_instance_id: 2026-07-08-23-45-38__track2_periodic_temporal_convolution_familywise_onnx_report
+model_family: periodic_temporal_convolution
+report_path: doc/reports/analysis/te_curve_verification_pipeline/03_family_reports/periodic_temporal_convolution/[2026-07-08]/track2_periodic_temporal_convolution_familywise_onnx_report.md
+output_directory: output/validation_checks/track2_familywise_onnx_report/periodic_temporal_convolution/2026-07-08-23-45-38__track2_periodic_temporal_convolution_familywise_onnx_report
+summary_path: output/validation_checks/track2_familywise_onnx_report/periodic_temporal_convolution/2026-07-08-23-45-38__track2_periodic_temporal_convolution_familywise_onnx_report/track2_familywise_onnx_report_summary.yaml
+model_inventory_csv_path: output/validation_checks/track2_familywise_onnx_report/periodic_temporal_convolution/2026-07-08-23-45-38__track2_periodic_temporal_convolution_familywise_onnx_report/model_inventory.csv
+per_curve_metrics_csv_path: output/validation_checks/track2_familywise_onnx_report/periodic_temporal_convolution/2026-07-08-23-45-38__track2_periodic_temporal_convolution_familywise_onnx_report/per_curve_metrics.csv
+curves_per_page: 12
+provider_list:
+- CPUExecutionProvider
+group_summary_list:
+- group_id: simplified_dataset__setpoints
+  group_title: Simplified Dataset + Setpoints
+  dataset_id: simplified_dataset
+  input_mode: setpoints
+  dataset_root: data/simplified_dataset
+  model_summary_list:
+  - dataset_id: simplified_dataset
+    input_mode: setpoints
+    surface: forward
+    run_name: te_periodic_temporal_convolution_fw__simplified_setpoints
+    run_instance_id: 2026-07-08-19-19-28__te_periodic_temporal_convolution_fw__simplified_setpoints
+    dataset_schema: simplified_curve_v1
+    model_type: periodic_temporal_convolution
+    onnx_model_path: models/simplified_dataset/setpoints/exported/periodic_temporal_convolution/forward/2026-07-08-19-19-28__te_periodic_temporal_convolution_fw__simplified_setpoints/onnx/model.onnx
+    python_model_path: models/simplified_dataset/setpoints/exported/periodic_temporal_convolution/forward/2026-07-08-19-19-28__te_periodic_temporal_convolution_fw__simplified_setpoints/python/periodic_temporal_convolution-epoch=050-val_mae=0.00364466.ckpt
+    training_config_path: models/simplified_dataset/setpoints/exported/periodic_temporal_convolution/forward/2026-07-08-19-19-28__te_periodic_temporal_convolution_fw__simplified_setpoints/source_run/training_config.snapshot.yaml
+    source_inventory_path: models/simplified_dataset/setpoints/exported/model_development_export_inventory.yaml
+    evaluated_curve_count: 97
+    aggregate_metrics:
+      mse: 1.6814253539127432e-05
+      mae: 0.003422418298548744
+      rmse: 0.003678535310621483
+      mean_percentage_error_pct: 8.00004928854628
+      signed_mean_offset_deg: -0.001096473273903711
+      absolute_mean_offset_deg: 0.003098520911557851
+      peak_to_peak_error_deg: 0.0020741849313202056
+      centered_mae_deg: 0.001181791041637209
+      centered_rmse_deg: 0.001438314335725677
+      p95_mean_percentage_error_pct: 13.997378078679752
+    onnx_metadata:
+      input_list:
+      - name: input_tensor
+        shape:
+        - batch_size
+        - sequence_length
+        - '5'
+        type: tensor(float)
+      output_list:
+      - name: prediction_tensor
+        shape:
+        - batch_size
+        - '1'
+        type: tensor(float)
+      provider_list:
+      - CPUExecutionProvider
+    collage_path: output/validation_checks/track2_familywise_onnx_report/periodic_temporal_convolution/2026-07-08-23-45-38__track2_periodic_temporal_convolution_familywise_onnx_report/collages/simplified_dataset__setpoints/forward_12_curve_collage.png
+    collage_markdown_path: assets/simplified_dataset__setpoints/forward_12_curve_collage.png
+    selected_curve_list:
+    - dataset_index: 10
+      source_file_path: data/simplified_dataset/Test_25degree/100rpm/100.0rpm100.0Nm25.0deg.csv
+      direction_label: forward
+      speed_rpm: 100.0
+      torque_nm: 100.0
+      oil_temperature_deg: 25.0
+      metrics:
+        mse: 1.0509477077543495e-05
+        mae: 0.0031641150708310306
+        rmse: 0.0032418323641952083
+        mean_percentage_error_pct: 8.551823040301274
+        signed_mean_offset_deg: 0.0031641150708310306
+        absolute_mean_offset_deg: 0.0031641150708310306
+        peak_to_peak_error_deg: 0.0017213914543390274
+        centered_mae_deg: 0.0005833835396818662
+        centered_rmse_deg: 0.0007055869160375897
+    - dataset_index: 36
+      source_file_path: data/simplified_dataset/Test_25degree/200rpm/200.0rpm1700.0Nm25.0deg.csv
+      direction_label: forward
+      speed_rpm: 200.0
+      torque_nm: 1700.0
+      oil_temperature_deg: 25.0
+      metrics:
+        mse: 2.3614801923732207e-05
+        mae: 0.004745231165240209
+        rmse: 0.004859506345682883
+        mean_percentage_error_pct: 10.65878107933214
+        signed_mean_offset_deg: 0.004745231165240209
+        absolute_mean_offset_deg: 0.004745231165240209
+        peak_to_peak_error_deg: 8.680671453475952e-05
+        centered_mae_deg: 0.0007929023850010709
+        centered_rmse_deg: 0.0010476560085091202
+    - dataset_index: 120
+      source_file_path: data/simplified_dataset/Test_30degree/400rpm/400.0rpm0.0Nm30.0deg.csv
+      direction_label: forward
+      speed_rpm: 400.0
+      torque_nm: 0.0
+      oil_temperature_deg: 30.0
+      metrics:
+        mse: 4.548030495080101e-07
+        mae: 0.0005421722841371471
+        rmse: 0.0006743908729423984
+        mean_percentage_error_pct: 1.4762430836362987
+        signed_mean_offset_deg: 6.58638309687376e-05
+        absolute_mean_offset_deg: 6.58638309687376e-05
+        peak_to_peak_error_deg: 0.00033422140404582024
+        centered_mae_deg: 0.0005455838181660511
+        centered_rmse_deg: 0.0006711668982288472
+    - dataset_index: 180
+      source_file_path: data/simplified_dataset/Test_35degree/500rpm/500.0rpm800.0Nm35.0deg.csv
+      direction_label: forward
+      speed_rpm: 500.0
+      torque_nm: 800.0
+      oil_temperature_deg: 35.0
+      metrics:
+        mse: 1.4484384855218234e-05
+        mae: 0.0037335308734327555
+        rmse: 0.0038058356316607047
+        mean_percentage_error_pct: 9.286848338103187
+        signed_mean_offset_deg: 0.0037335308734327555
+        absolute_mean_offset_deg: 0.0037335308734327555
+        peak_to_peak_error_deg: 0.0005589015781879425
+        centered_mae_deg: 0.0005986588997378325
+        centered_rmse_deg: 0.000738330598270639
+    - dataset_index: 128
+      source_file_path: data/simplified_dataset/Test_30degree/600rpm/600.0rpm1700.0Nm30.0deg.csv
+      direction_label: forward
+      speed_rpm: 600.0
+      torque_nm: 1700.0
+      oil_temperature_deg: 30.0
+      metrics:
+        mse: 1.8537012504250496e-05
+        mae: 0.004242217420445134
+        rmse: 0.0043054630998593515
+        mean_percentage_error_pct: 9.724201540864316
+        signed_mean_offset_deg: -0.004242217420445134
+        absolute_mean_offset_deg: 0.004242217420445134
+        peak_to_peak_error_deg: 4.015862941741943e-06
+        centered_mae_deg: 0.0005681984202965397
+        centered_rmse_deg: 0.0007352576840280731
+    - dataset_index: 188
+      source_file_path: data/simplified_dataset/Test_35degree/800rpm/800.0rpm0.0Nm35.0deg.csv
+      direction_label: forward
+      speed_rpm: 800.0
+      torque_nm: 0.0
+      oil_temperature_deg: 35.0
+      metrics:
+        mse: 7.832954142001293e-06
+        mae: 0.0026737910811789334
+        rmse: 0.0027987415282589587
+        mean_percentage_error_pct: 7.0317447323721325
+        signed_mean_offset_deg: 0.0026737910811789334
+        absolute_mean_offset_deg: 0.0026737910811789334
+        peak_to_peak_error_deg: 0.0018238713964819908
+        centered_mae_deg: 0.0006639848130968554
+        centered_rmse_deg: 0.0008269192198814124
+    - dataset_index: 142
+      source_file_path: data/simplified_dataset/Test_30degree/900rpm/900.0rpm200.0Nm30.0deg.csv
+      direction_label: forward
+      speed_rpm: 900.0
+      torque_nm: 200.0
+      oil_temperature_deg: 30.0
+      metrics:
+        mse: 2.3767295213714166e-05
+        mae: 0.004840108595089987
+        rmse: 0.004875171300961041
+        mean_percentage_error_pct: 12.676271779926626
+        signed_mean_offset_deg: 0.004840108595089987
+        absolute_mean_offset_deg: 0.004840108595089987
+        peak_to_peak_error_deg: 0.0004447204992175102
+        centered_mae_deg: 0.0004679993123014965
+        centered_rmse_deg: 0.0005836471549234162
+    - dataset_index: 0
+      source_file_path: data/simplified_dataset/Test_25degree/1000rpm/1000.0rpm1200.0Nm25.0deg.csv
+      direction_label: forward
+      speed_rpm: 1000.0
+      torque_nm: 1200.0
+      oil_temperature_deg: 25.0
+      metrics:
+        mse: 4.806494674898398e-05
+        mae: 0.00686484161997214
+        rmse: 0.006932888773735229
+        mean_percentage_error_pct: 15.959432543338199
+        signed_mean_offset_deg: -0.00686484161997214
+        absolute_mean_offset_deg: 0.00686484161997214
+        peak_to_peak_error_deg: 0.0003922991454601288
+        centered_mae_deg: 0.0007847070119169074
+        centered_rmse_deg: 0.0009689666050397536
+    - dataset_index: 96
+      source_file_path: data/simplified_dataset/Test_30degree/1300rpm/1300.0rpm300.0Nm30.0deg.csv
+      direction_label: forward
+      speed_rpm: 1300.0
+      torque_nm: 300.0
+      oil_temperature_deg: 30.0
+      metrics:
+        mse: 1.4182132524157075e-05
+        mae: 0.003475460641008491
+        rmse: 0.0037659172221594403
+        mean_percentage_error_pct: 8.613554663850744
+        signed_mean_offset_deg: -0.003475460641008491
+        absolute_mean_offset_deg: 0.003475460641008491
+        peak_to_peak_error_deg: 0.0009653409942984581
+        centered_mae_deg: 0.0012287666449992687
+        centered_rmse_deg: 0.0014502778550877487
+    - dataset_index: 100
+      source_file_path: data/simplified_dataset/Test_30degree/1400rpm/1400.0rpm1000.0Nm30.0deg.csv
+      direction_label: forward
+      speed_rpm: 1400.0
+      torque_nm: 1000.0
+      oil_temperature_deg: 30.0
+      metrics:
+        mse: 6.315986444972374e-06
+        mae: 0.0022197267583881817
+        rmse: 0.002513162637986721
+        mean_percentage_error_pct: 5.209548064384993
+        signed_mean_offset_deg: 0.002199255434485773
+        absolute_mean_offset_deg: 0.002199255434485773
+        peak_to_peak_error_deg: 0.0009013302624225616
+        centered_mae_deg: 0.0009896085127062782
+        centered_rmse_deg: 0.001216249143414772
+    - dataset_index: 158
+      source_file_path: data/simplified_dataset/Test_35degree/1600rpm/1600.0rpm1400.0Nm35.0deg.csv
+      direction_label: forward
+      speed_rpm: 1600.0
+      torque_nm: 1400.0
+      oil_temperature_deg: 35.0
+      metrics:
+        mse: 9.268646869702089e-05
+        mae: 0.008363917916237066
+        rmse: 0.009627381196203924
+        mean_percentage_error_pct: 12.334699512900045
+        signed_mean_offset_deg: -0.00307042549441879
+        absolute_mean_offset_deg: 0.00307042549441879
+        peak_to_peak_error_deg: 0.022795088589191437
+        centered_mae_deg: 0.00807465851277003
+        centered_rmse_deg: 0.009124634566942614
+    - dataset_index: 116
+      source_file_path: data/simplified_dataset/Test_30degree/1800rpm/1800.0rpm1000.0Nm30.0deg.csv
+      direction_label: forward
+      speed_rpm: 1800.0
+      torque_nm: 1000.0
+      oil_temperature_deg: 30.0
+      metrics:
+        mse: 3.3361691774659814e-05
+        mae: 0.0048893531784415245
+        rmse: 0.00577595808283438
+        mean_percentage_error_pct: 11.261732475154872
+        signed_mean_offset_deg: -0.00462896788182358
+        absolute_mean_offset_deg: 0.00462896788182358
+        peak_to_peak_error_deg: 0.0011219419538974762
+        centered_mae_deg: 0.0028400751374041042
+        centered_rmse_deg: 0.003454612586630452
+  - dataset_id: simplified_dataset
+    input_mode: setpoints
+    surface: backward
+    run_name: te_periodic_temporal_convolution_bw__simplified_setpoints
+    run_instance_id: 2026-07-08-19-25-24__te_periodic_temporal_convolution_bw__simplified_setpoints
+    dataset_schema: simplified_curve_v1
+    model_type: periodic_temporal_convolution
+    onnx_model_path: models/simplified_dataset/setpoints/exported/periodic_temporal_convolution/backward/2026-07-08-19-25-24__te_periodic_temporal_convolution_bw__simplified_setpoints/onnx/model.onnx
+    python_model_path: models/simplified_dataset/setpoints/exported/periodic_temporal_convolution/backward/2026-07-08-19-25-24__te_periodic_temporal_convolution_bw__simplified_setpoints/python/periodic_temporal_convolution-epoch=066-val_mae=0.00355314.ckpt
+    training_config_path: models/simplified_dataset/setpoints/exported/periodic_temporal_convolution/backward/2026-07-08-19-25-24__te_periodic_temporal_convolution_bw__simplified_setpoints/source_run/training_config.snapshot.yaml
+    source_inventory_path: models/simplified_dataset/setpoints/exported/model_development_export_inventory.yaml
+    evaluated_curve_count: 97
+    aggregate_metrics:
+      mse: 1.9056661394423565e-05
+      mae: 0.003445127353968677
+      rmse: 0.003789534061594272
+      mean_percentage_error_pct: 8.028296415739613
+      signed_mean_offset_deg: 0.00013395858781382704
+      absolute_mean_offset_deg: 0.0028695980658947073
+      peak_to_peak_error_deg: 0.0037626486314131643
+      centered_mae_deg: 0.0015804161227630574
+      centered_rmse_deg: 0.0018972483082414899
+      p95_mean_percentage_error_pct: 14.132375650215407
+    onnx_metadata:
+      input_list:
+      - name: input_tensor
+        shape:
+        - batch_size
+        - sequence_length
+        - '5'
+        type: tensor(float)
+      output_list:
+      - name: prediction_tensor
+        shape:
+        - batch_size
+        - '1'
+        type: tensor(float)
+      provider_list:
+      - CPUExecutionProvider
+    collage_path: output/validation_checks/track2_familywise_onnx_report/periodic_temporal_convolution/2026-07-08-23-45-38__track2_periodic_temporal_convolution_familywise_onnx_report/collages/simplified_dataset__setpoints/backward_12_curve_collage.png
+    collage_markdown_path: assets/simplified_dataset__setpoints/backward_12_curve_collage.png
+    selected_curve_list:
+    - dataset_index: 11
+      source_file_path: data/simplified_dataset/Test_25degree/100rpm/100.0rpm100.0Nm25.0deg.csv
+      direction_label: backward
+      speed_rpm: 100.0
+      torque_nm: 100.0
+      oil_temperature_deg: 25.0
+      metrics:
+        mse: 4.678277403810196e-06
+        mae: 0.0019766417892886543
+        rmse: 0.0021629325934504283
+        mean_percentage_error_pct: 5.322431359251937
+        signed_mean_offset_deg: 0.0019630620778154175
+        absolute_mean_offset_deg: 0.0019630620778154175
+        peak_to_peak_error_deg: 0.00048478879034519196
+        centered_mae_deg: 0.0007166387551136051
+        centered_rmse_deg: 0.0009081105012349604
+    - dataset_index: 37
+      source_file_path: data/simplified_dataset/Test_25degree/200rpm/200.0rpm1700.0Nm25.0deg.csv
+      direction_label: backward
+      speed_rpm: 200.0
+      torque_nm: 1700.0
+      oil_temperature_deg: 25.0
+      metrics:
+        mse: 6.291994522791476e-05
+        mae: 0.007816010300302878
+        rmse: 0.007932209353510203
+        mean_percentage_error_pct: 18.377330060036776
+        signed_mean_offset_deg: 0.007816010300302878
+        absolute_mean_offset_deg: 0.007816010300302878
+        peak_to_peak_error_deg: 0.004487490281462669
+        centered_mae_deg: 0.001119114597107303
+        centered_rmse_deg: 0.0013527483925231927
+    - dataset_index: 121
+      source_file_path: data/simplified_dataset/Test_30degree/400rpm/400.0rpm0.0Nm30.0deg.csv
+      direction_label: backward
+      speed_rpm: 400.0
+      torque_nm: 0.0
+      oil_temperature_deg: 30.0
+      metrics:
+        mse: 5.165032916364488e-06
+        mae: 0.0021506880410697704
+        rmse: 0.002272670877264125
+        mean_percentage_error_pct: 5.599127783120031
+        signed_mean_offset_deg: 0.0021506880410697704
+        absolute_mean_offset_deg: 0.0021506880410697704
+        peak_to_peak_error_deg: 0.001047284109517932
+        centered_mae_deg: 0.0005942896052815172
+        centered_rmse_deg: 0.0007345569183963629
+    - dataset_index: 181
+      source_file_path: data/simplified_dataset/Test_35degree/500rpm/500.0rpm800.0Nm35.0deg.csv
+      direction_label: backward
+      speed_rpm: 500.0
+      torque_nm: 800.0
+      oil_temperature_deg: 35.0
+      metrics:
+        mse: 1.957914546648919e-05
+        mae: 0.004323588757108847
+        rmse: 0.00442483281791405
+        mean_percentage_error_pct: 11.674961031307545
+        signed_mean_offset_deg: 0.004323588757108847
+        absolute_mean_offset_deg: 0.004323588757108847
+        peak_to_peak_error_deg: 0.0014156484976410866
+        centered_mae_deg: 0.0007808369734063255
+        centered_rmse_deg: 0.0009411300260278438
+    - dataset_index: 129
+      source_file_path: data/simplified_dataset/Test_30degree/600rpm/600.0rpm1700.0Nm30.0deg.csv
+      direction_label: backward
+      speed_rpm: 600.0
+      torque_nm: 1700.0
+      oil_temperature_deg: 30.0
+      metrics:
+        mse: 3.452125800508969e-06
+        mae: 0.0016263682822075982
+        rmse: 0.0018579897202377006
+        mean_percentage_error_pct: 3.9391000656434096
+        signed_mean_offset_deg: -0.0016110080565946798
+        absolute_mean_offset_deg: 0.0016110080565946798
+        peak_to_peak_error_deg: 0.0005693249404430389
+        centered_mae_deg: 0.0007640840944481572
+        centered_rmse_deg: 0.0009256234883018052
+    - dataset_index: 189
+      source_file_path: data/simplified_dataset/Test_35degree/800rpm/800.0rpm0.0Nm35.0deg.csv
+      direction_label: backward
+      speed_rpm: 800.0
+      torque_nm: 0.0
+      oil_temperature_deg: 35.0
+      metrics:
+        mse: 6.250200169283579e-06
+        mae: 0.002331761827330562
+        rmse: 0.002500040033536179
+        mean_percentage_error_pct: 6.066138533796922
+        signed_mean_offset_deg: 0.002328294731663997
+        absolute_mean_offset_deg: 0.002328294731663997
+        peak_to_peak_error_deg: 0.0020139528205618262
+        centered_mae_deg: 0.0007065734113936234
+        centered_rmse_deg: 0.0009106282511482135
+    - dataset_index: 143
+      source_file_path: data/simplified_dataset/Test_30degree/900rpm/900.0rpm200.0Nm30.0deg.csv
+      direction_label: backward
+      speed_rpm: 900.0
+      torque_nm: 200.0
+      oil_temperature_deg: 30.0
+      metrics:
+        mse: 6.975026651892835e-06
+        mae: 0.002569622321189513
+        rmse: 0.002641027574996678
+        mean_percentage_error_pct: 6.9273424269231585
+        signed_mean_offset_deg: 0.002569622321189513
+        absolute_mean_offset_deg: 0.002569622321189513
+        peak_to_peak_error_deg: 0.0008661402389407158
+        centered_mae_deg: 0.0004969691217850957
+        centered_rmse_deg: 0.000609973588229403
+    - dataset_index: 1
+      source_file_path: data/simplified_dataset/Test_25degree/1000rpm/1000.0rpm1200.0Nm25.0deg.csv
+      direction_label: backward
+      speed_rpm: 1000.0
+      torque_nm: 1200.0
+      oil_temperature_deg: 25.0
+      metrics:
+        mse: 1.664551359645877e-05
+        mae: 0.0038981036292777085
+        rmse: 0.0040798913706689265
+        mean_percentage_error_pct: 9.488742704709594
+        signed_mean_offset_deg: -0.0038981036292777085
+        absolute_mean_offset_deg: 0.0038981036292777085
+        peak_to_peak_error_deg: 0.0033606793731451035
+        centered_mae_deg: 0.0010157616081616853
+        centered_rmse_deg: 0.0012042847220947073
+    - dataset_index: 97
+      source_file_path: data/simplified_dataset/Test_30degree/1300rpm/1300.0rpm300.0Nm30.0deg.csv
+      direction_label: backward
+      speed_rpm: 1300.0
+      torque_nm: 300.0
+      oil_temperature_deg: 30.0
+      metrics:
+        mse: 1.9554913858048015e-05
+        mae: 0.004204307774974343
+        rmse: 0.004422093831890953
+        mean_percentage_error_pct: 10.62430440412707
+        signed_mean_offset_deg: -0.004204307774974343
+        absolute_mean_offset_deg: 0.004204307774974343
+        peak_to_peak_error_deg: 0.002740694209933281
+        centered_mae_deg: 0.0011130755284385586
+        centered_rmse_deg: 0.0013706604215991277
+    - dataset_index: 101
+      source_file_path: data/simplified_dataset/Test_30degree/1400rpm/1400.0rpm1000.0Nm30.0deg.csv
+      direction_label: backward
+      speed_rpm: 1400.0
+      torque_nm: 1000.0
+      oil_temperature_deg: 30.0
+      metrics:
+        mse: 1.1307232820472339e-05
+        mae: 0.0029493515000969714
+        rmse: 0.003362622907861115
+        mean_percentage_error_pct: 7.573720568552867
+        signed_mean_offset_deg: 0.002935871052088146
+        absolute_mean_offset_deg: 0.002935871052088146
+        peak_to_peak_error_deg: 0.0006041301230652607
+        centered_mae_deg: 0.0013624435597573796
+        centered_rmse_deg: 0.0016394797912701396
+    - dataset_index: 159
+      source_file_path: data/simplified_dataset/Test_35degree/1600rpm/1600.0rpm1400.0Nm35.0deg.csv
+      direction_label: backward
+      speed_rpm: 1600.0
+      torque_nm: 1400.0
+      oil_temperature_deg: 35.0
+      metrics:
+        mse: 7.273144069130416e-05
+        mae: 0.0075539717557451995
+        rmse: 0.0085282730192756
+        mean_percentage_error_pct: 11.095952448097256
+        signed_mean_offset_deg: 8.319358554823945e-05
+        absolute_mean_offset_deg: 8.319358554823945e-05
+        peak_to_peak_error_deg: 0.025525851175189018
+        centered_mae_deg: 0.0075549401843899334
+        centered_rmse_deg: 0.008527867231531445
+    - dataset_index: 117
+      source_file_path: data/simplified_dataset/Test_30degree/1800rpm/1800.0rpm1000.0Nm30.0deg.csv
+      direction_label: backward
+      speed_rpm: 1800.0
+      torque_nm: 1000.0
+      oil_temperature_deg: 30.0
+      metrics:
+        mse: 3.4373273981122516e-05
+        mae: 0.004829446400132535
+        rmse: 0.005862872502547068
+        mean_percentage_error_pct: 9.443025368706627
+        signed_mean_offset_deg: -0.002996469616846298
+        absolute_mean_offset_deg: 0.002996469616846298
+        peak_to_peak_error_deg: 0.01010764145758003
+        centered_mae_deg: 0.004360835340226761
+        centered_rmse_deg: 0.0050392900111463634
+  - dataset_id: simplified_dataset
+    input_mode: setpoints
+    surface: global
+    run_name: te_periodic_temporal_convolution_global__simplified_setpoints
+    run_instance_id: 2026-07-08-19-09-50__te_periodic_temporal_convolution_global__simplified_setpoints
+    dataset_schema: simplified_curve_v1
+    model_type: periodic_temporal_convolution
+    onnx_model_path: models/simplified_dataset/setpoints/exported/periodic_temporal_convolution/global/2026-07-08-19-09-50__te_periodic_temporal_convolution_global__simplified_setpoints/onnx/model.onnx
+    python_model_path: models/simplified_dataset/setpoints/exported/periodic_temporal_convolution/global/2026-07-08-19-09-50__te_periodic_temporal_convolution_global__simplified_setpoints/python/periodic_temporal_convolution-epoch=095-val_mae=0.00360046.ckpt
+    training_config_path: models/simplified_dataset/setpoints/exported/periodic_temporal_convolution/global/2026-07-08-19-09-50__te_periodic_temporal_convolution_global__simplified_setpoints/source_run/training_config.snapshot.yaml
+    source_inventory_path: models/simplified_dataset/setpoints/exported/model_development_export_inventory.yaml
+    evaluated_curve_count: 194
+    aggregate_metrics:
+      mse: 1.7377110183610523e-05
+      mae: 0.0034358705260714552
+      rmse: 0.0037340299580308233
+      mean_percentage_error_pct: 8.043824611762673
+      signed_mean_offset_deg: 0.000342639911099066
+      absolute_mean_offset_deg: 0.0029872517608479443
+      peak_to_peak_error_deg: 0.002564679489966796
+      centered_mae_deg: 0.0013740323249977285
+      centered_rmse_deg: 0.0016624716978226764
+      p95_mean_percentage_error_pct: 13.923150502937755
+    onnx_metadata:
+      input_list:
+      - name: input_tensor
+        shape:
+        - batch_size
+        - sequence_length
+        - '5'
+        type: tensor(float)
+      output_list:
+      - name: prediction_tensor
+        shape:
+        - batch_size
+        - '1'
+        type: tensor(float)
+      provider_list:
+      - CPUExecutionProvider
+    collage_path: output/validation_checks/track2_familywise_onnx_report/periodic_temporal_convolution/2026-07-08-23-45-38__track2_periodic_temporal_convolution_familywise_onnx_report/collages/simplified_dataset__setpoints/global_12_curve_collage.png
+    collage_markdown_path: assets/simplified_dataset__setpoints/global_12_curve_collage.png
+    selected_curve_list:
+    - dataset_index: 11
+      source_file_path: data/simplified_dataset/Test_25degree/100rpm/100.0rpm100.0Nm25.0deg.csv
+      direction_label: backward
+      speed_rpm: 100.0
+      torque_nm: 100.0
+      oil_temperature_deg: 25.0
+      metrics:
+        mse: 2.2038669115790883e-05
+        mae: 0.004650721459199758
+        rmse: 0.004694536091648554
+        mean_percentage_error_pct: 12.522828299860434
+        signed_mean_offset_deg: 0.004650721459199758
+        absolute_mean_offset_deg: 0.004650721459199758
+        peak_to_peak_error_deg: 0.0005057398229837418
+        centered_mae_deg: 0.000515707051059522
+        centered_rmse_deg: 0.0006398898535918136
+    - dataset_index: 121
+      source_file_path: data/simplified_dataset/Test_30degree/400rpm/400.0rpm0.0Nm30.0deg.csv
+      direction_label: backward
+      speed_rpm: 400.0
+      torque_nm: 0.0
+      oil_temperature_deg: 30.0
+      metrics:
+        mse: 1.824878655580977e-05
+        mae: 0.004130294970498956
+        rmse: 0.004271859847397825
+        mean_percentage_error_pct: 10.752860889252233
+        signed_mean_offset_deg: 0.004130294970498956
+        absolute_mean_offset_deg: 0.004130294970498956
+        peak_to_peak_error_deg: 0.0017693683039397001
+        centered_mae_deg: 0.0008851995513753744
+        centered_rmse_deg: 0.0010906190959637547
+    - dataset_index: 183
+      source_file_path: data/simplified_dataset/Test_35degree/600rpm/600.0rpm1800.0Nm35.0deg.csv
+      direction_label: backward
+      speed_rpm: 600.0
+      torque_nm: 1800.0
+      oil_temperature_deg: 35.0
+      metrics:
+        mse: 1.3298071011164815e-05
+        mae: 0.0034531597048044205
+        rmse: 0.003646652027704976
+        mean_percentage_error_pct: 8.205721791524232
+        signed_mean_offset_deg: -0.0034531597048044205
+        absolute_mean_offset_deg: 0.0034531597048044205
+        peak_to_peak_error_deg: 0.0011311285197734833
+        centered_mae_deg: 0.0009533222764730453
+        centered_rmse_deg: 0.0011720746837466725
+    - dataset_index: 143
+      source_file_path: data/simplified_dataset/Test_30degree/900rpm/900.0rpm200.0Nm30.0deg.csv
+      direction_label: backward
+      speed_rpm: 900.0
+      torque_nm: 200.0
+      oil_temperature_deg: 30.0
+      metrics:
+        mse: 2.18104460388777e-05
+        mae: 0.00458136116971275
+        rmse: 0.004670165525854271
+        mean_percentage_error_pct: 12.35070902922345
+        signed_mean_offset_deg: 0.00458136116971275
+        absolute_mean_offset_deg: 0.00458136116971275
+        peak_to_peak_error_deg: 0.0006446344777941704
+        centered_mae_deg: 0.0007485018456168113
+        centered_rmse_deg: 0.0009064082256499701
+    - dataset_index: 99
+      source_file_path: data/simplified_dataset/Test_30degree/1300rpm/1300.0rpm800.0Nm30.0deg.csv
+      direction_label: backward
+      speed_rpm: 1300.0
+      torque_nm: 800.0
+      oil_temperature_deg: 30.0
+      metrics:
+        mse: 2.0944650272399493e-05
+        mae: 0.004031070408776334
+        rmse: 0.004576532559962782
+        mean_percentage_error_pct: 10.080582959721344
+        signed_mean_offset_deg: -0.003976628254198052
+        absolute_mean_offset_deg: 0.003976628254198052
+        peak_to_peak_error_deg: 9.249016875401139e-05
+        centered_mae_deg: 0.0018649239999825164
+        centered_rmse_deg: 0.0022651882924633994
+    - dataset_index: 159
+      source_file_path: data/simplified_dataset/Test_35degree/1600rpm/1600.0rpm1400.0Nm35.0deg.csv
+      direction_label: backward
+      speed_rpm: 1600.0
+      torque_nm: 1400.0
+      oil_temperature_deg: 35.0
+      metrics:
+        mse: 7.150252189454022e-05
+        mae: 0.007458473919541575
+        rmse: 0.00845591638407927
+        mean_percentage_error_pct: 10.955676645688321
+        signed_mean_offset_deg: -0.0014086777858513717
+        absolute_mean_offset_deg: 0.0014086777858513717
+        peak_to_peak_error_deg: 0.023297684267163277
+        centered_mae_deg: 0.007383813863270916
+        centered_rmse_deg: 0.008337754421316875
+    - dataset_index: 36
+      source_file_path: data/simplified_dataset/Test_25degree/200rpm/200.0rpm1700.0Nm25.0deg.csv
+      direction_label: forward
+      speed_rpm: 200.0
+      torque_nm: 1700.0
+      oil_temperature_deg: 25.0
+      metrics:
+        mse: 2.2877915540443945e-05
+        mae: 0.0047128428316985565
+        rmse: 0.004783086403196575
+        mean_percentage_error_pct: 10.586030112156154
+        signed_mean_offset_deg: 0.0047128428316985565
+        absolute_mean_offset_deg: 0.0047128428316985565
+        peak_to_peak_error_deg: 0.0012378022074699402
+        centered_mae_deg: 0.0006499587701303734
+        centered_rmse_deg: 0.0008167178118245459
+    - dataset_index: 126
+      source_file_path: data/simplified_dataset/Test_30degree/500rpm/500.0rpm800.0Nm30.0deg.csv
+      direction_label: forward
+      speed_rpm: 500.0
+      torque_nm: 800.0
+      oil_temperature_deg: 30.0
+      metrics:
+        mse: 1.6333374983391517e-05
+        mae: 0.004001434213326623
+        rmse: 0.004041457037182446
+        mean_percentage_error_pct: 10.207724697936756
+        signed_mean_offset_deg: 0.004001434213326623
+        absolute_mean_offset_deg: 0.004001434213326623
+        peak_to_peak_error_deg: 0.0003817155957221985
+        centered_mae_deg: 0.0004549582441136916
+        centered_rmse_deg: 0.000567361630541463
+    - dataset_index: 188
+      source_file_path: data/simplified_dataset/Test_35degree/800rpm/800.0rpm0.0Nm35.0deg.csv
+      direction_label: forward
+      speed_rpm: 800.0
+      torque_nm: 0.0
+      oil_temperature_deg: 35.0
+      metrics:
+        mse: 7.337346691206716e-06
+        mae: 0.002577341307187453
+        rmse: 0.002708753715494769
+        mean_percentage_error_pct: 6.778093579528868
+        signed_mean_offset_deg: 0.0025740365963429213
+        absolute_mean_offset_deg: 0.0025740365963429213
+        peak_to_peak_error_deg: 0.0016866354271769524
+        centered_mae_deg: 0.0006639476171888722
+        centered_rmse_deg: 0.0008436126432753749
+    - dataset_index: 82
+      source_file_path: data/simplified_dataset/Test_30degree/1000rpm/1000.0rpm1000.0Nm30.0deg.csv
+      direction_label: forward
+      speed_rpm: 1000.0
+      torque_nm: 1000.0
+      oil_temperature_deg: 30.0
+      metrics:
+        mse: 1.0541196082309151e-06
+        mae: 0.0008256867295131087
+        rmse: 0.0010267032717542666
+        mean_percentage_error_pct: 1.9669641092554349
+        signed_mean_offset_deg: 0.0004358727019280195
+        absolute_mean_offset_deg: 0.0004358727019280195
+        peak_to_peak_error_deg: 0.001284230500459671
+        centered_mae_deg: 0.0007418804889312014
+        centered_rmse_deg: 0.000929588401360991
+    - dataset_index: 100
+      source_file_path: data/simplified_dataset/Test_30degree/1400rpm/1400.0rpm1000.0Nm30.0deg.csv
+      direction_label: forward
+      speed_rpm: 1400.0
+      torque_nm: 1000.0
+      oil_temperature_deg: 30.0
+      metrics:
+        mse: 3.093098047606497e-05
+        mae: 0.005441493238322437
+        rmse: 0.005561562772824287
+        mean_percentage_error_pct: 12.770815353710885
+        signed_mean_offset_deg: 0.005441493238322437
+        absolute_mean_offset_deg: 0.005441493238322437
+        peak_to_peak_error_deg: 0.0015840604901313782
+        centered_mae_deg: 0.000945909978327108
+        centered_rmse_deg: 0.0011494049823087466
+    - dataset_index: 116
+      source_file_path: data/simplified_dataset/Test_30degree/1800rpm/1800.0rpm1000.0Nm30.0deg.csv
+      direction_label: forward
+      speed_rpm: 1800.0
+      torque_nm: 1000.0
+      oil_temperature_deg: 30.0
+      metrics:
+        mse: 1.5115691513779115e-05
+        mae: 0.0031949637147287526
+        rmse: 0.0038878903680246843
+        mean_percentage_error_pct: 7.3590156632070265
+        signed_mean_offset_deg: -0.000997178644562761
+        absolute_mean_offset_deg: 0.000997178644562761
+        peak_to_peak_error_deg: 0.0019582323729991913
+        centered_mae_deg: 0.0031081765967731676
+        centered_rmse_deg: 0.0037578353163233605
+- group_id: polished_dataset__setpoints
+  group_title: Polished Dataset + Setpoints
+  dataset_id: polished_dataset
+  input_mode: setpoints
+  dataset_root: data/polished_dataset
+  model_summary_list:
+  - dataset_id: polished_dataset
+    input_mode: setpoints
+    surface: forward
+    run_name: te_periodic_temporal_convolution_fw__polished_setpoints
+    run_instance_id: 2026-07-08-19-59-14__te_periodic_temporal_convolution_fw__polished_setpoints
+    dataset_schema: polished_setpoint_curve_v1
+    model_type: periodic_temporal_convolution
+    onnx_model_path: models/polished_dataset/setpoints/exported/periodic_temporal_convolution/forward/2026-07-08-19-59-14__te_periodic_temporal_convolution_fw__polished_setpoints/onnx/model.onnx
+    python_model_path: models/polished_dataset/setpoints/exported/periodic_temporal_convolution/forward/2026-07-08-19-59-14__te_periodic_temporal_convolution_fw__polished_setpoints/python/periodic_temporal_convolution-epoch=040-val_mae=0.00194544.ckpt
+    training_config_path: models/polished_dataset/setpoints/exported/periodic_temporal_convolution/forward/2026-07-08-19-59-14__te_periodic_temporal_convolution_fw__polished_setpoints/source_run/training_config.snapshot.yaml
+    source_inventory_path: models/polished_dataset/setpoints/exported/model_development_export_inventory.yaml
+    evaluated_curve_count: 100
+    aggregate_metrics:
+      mse: 9.021503013070086e-06
+      mae: 0.001985412918260394
+      rmse: 0.0023363893539669646
+      mean_percentage_error_pct: 4.405752979758051
+      signed_mean_offset_deg: -0.0005385486821044813
+      absolute_mean_offset_deg: 0.001174948039276676
+      peak_to_peak_error_deg: 0.0026553561378386803
+      centered_mae_deg: 0.0014745816011444487
+      centered_rmse_deg: 0.0017907319773200244
+      p95_mean_percentage_error_pct: 10.341172452339393
+    onnx_metadata:
+      input_list:
+      - name: input_tensor
+        shape:
+        - batch_size
+        - sequence_length
+        - '5'
+        type: tensor(float)
+      output_list:
+      - name: prediction_tensor
+        shape:
+        - batch_size
+        - '1'
+        type: tensor(float)
+      provider_list:
+      - CPUExecutionProvider
+    collage_path: output/validation_checks/track2_familywise_onnx_report/periodic_temporal_convolution/2026-07-08-23-45-38__track2_periodic_temporal_convolution_familywise_onnx_report/collages/polished_dataset__setpoints/forward_12_curve_collage.png
+    collage_markdown_path: assets/polished_dataset__setpoints/forward_12_curve_collage.png
+    selected_curve_list:
+    - dataset_index: 164
+      source_file_path: data/polished_dataset/forward/35degree/100rpm/100.0rpm0.0Nm35.0deg.csv
+      direction_label: forward
+      speed_rpm: 100.0
+      torque_nm: 0.0
+      oil_temperature_deg: 35.0
+      metrics:
+        mse: 2.461142071801273e-05
+        mae: 0.004871486366823774
+        rmse: 0.004960989892956115
+        mean_percentage_error_pct: 12.895951635199866
+        signed_mean_offset_deg: -0.004871486366823774
+        absolute_mean_offset_deg: 0.004871486366823774
+        peak_to_peak_error_deg: 0.0004874772857874632
+        centered_mae_deg: 0.000758904929390051
+        centered_rmse_deg: 0.0009381051624753145
+    - dataset_index: 149
+      source_file_path: data/polished_dataset/forward/30degree/200rpm/200.0rpm200.0Nm30.0deg.csv
+      direction_label: forward
+      speed_rpm: 200.0
+      torque_nm: 200.0
+      oil_temperature_deg: 30.0
+      metrics:
+        mse: 8.142523682419414e-07
+        mae: 0.0007050835993140936
+        rmse: 0.0009023593343241601
+        mean_percentage_error_pct: 1.8603292503586542
+        signed_mean_offset_deg: 0.0004296938132029027
+        absolute_mean_offset_deg: 0.0004296938132029027
+        peak_to_peak_error_deg: 0.00019062589854002
+        centered_mae_deg: 0.0006465306266060603
+        centered_rmse_deg: 0.0007934832040674145
+    - dataset_index: 186
+      source_file_path: data/polished_dataset/forward/35degree/400rpm/400.0rpm600.0Nm35.0deg.csv
+      direction_label: forward
+      speed_rpm: 400.0
+      torque_nm: 600.0
+      oil_temperature_deg: 35.0
+      metrics:
+        mse: 1.0782778444949936e-06
+        mae: 0.0008419733979584029
+        rmse: 0.0010384015815160306
+        mean_percentage_error_pct: 2.0839772559714493
+        signed_mean_offset_deg: -0.0005280103747888157
+        absolute_mean_offset_deg: 0.0005280103747888157
+        peak_to_peak_error_deg: 0.001373186707496643
+        centered_mae_deg: 0.0007442366668328759
+        centered_rmse_deg: 0.0008941380702164336
+    - dataset_index: 189
+      source_file_path: data/polished_dataset/forward/35degree/600rpm/600.0rpm0.0Nm35.0deg.csv
+      direction_label: forward
+      speed_rpm: 600.0
+      torque_nm: 0.0
+      oil_temperature_deg: 35.0
+      metrics:
+        mse: 1.3959680111242428e-05
+        mae: 0.0036038404937836313
+        rmse: 0.0037362655300771153
+        mean_percentage_error_pct: 9.402247717121277
+        signed_mean_offset_deg: -0.0036038404937836313
+        absolute_mean_offset_deg: 0.0036038404937836313
+        peak_to_peak_error_deg: 0.0006680686492472887
+        centered_mae_deg: 0.000789354448162157
+        centered_rmse_deg: 0.0009859076055126973
+    - dataset_index: 122
+      source_file_path: data/polished_dataset/forward/25degree/700rpm/700.0rpm1600.0Nm25.0deg.csv
+      direction_label: forward
+      speed_rpm: 700.0
+      torque_nm: 1600.0
+      oil_temperature_deg: 25.0
+      metrics:
+        mse: 2.5067896445405756e-06
+        mae: 0.001396028926440825
+        rmse: 0.0015832844483985105
+        mean_percentage_error_pct: 3.157593692241459
+        signed_mean_offset_deg: -0.0013584911939688027
+        absolute_mean_offset_deg: 0.0013584911939688027
+        peak_to_peak_error_deg: 0.0005392283201217651
+        centered_mae_deg: 0.000663698499314099
+        centered_rmse_deg: 0.0008131982048982845
+    - dataset_index: 193
+      source_file_path: data/polished_dataset/forward/35degree/900rpm/900.0rpm700.0Nm35.0deg.csv
+      direction_label: forward
+      speed_rpm: 900.0
+      torque_nm: 700.0
+      oil_temperature_deg: 35.0
+      metrics:
+        mse: 1.6971356251867843e-06
+        mae: 0.0011274675004339467
+        rmse: 0.0013027415803553613
+        mean_percentage_error_pct: 2.854952715148462
+        signed_mean_offset_deg: -0.0010939714557025582
+        absolute_mean_offset_deg: 0.0010939714557025582
+        peak_to_peak_error_deg: 0.00013215281069278717
+        centered_mae_deg: 0.0005715121330164644
+        centered_rmse_deg: 0.0007073627635766601
+    - dataset_index: 95
+      source_file_path: data/polished_dataset/forward/25degree/1000rpm/1000.0rpm1800.0Nm25.0deg.csv
+      direction_label: forward
+      speed_rpm: 1000.0
+      torque_nm: 1800.0
+      oil_temperature_deg: 25.0
+      metrics:
+        mse: 1.7943937598438712e-06
+        mae: 0.001071970327757299
+        rmse: 0.0013395498347743063
+        mean_percentage_error_pct: 2.353203801355815
+        signed_mean_offset_deg: -0.0008304651128128171
+        absolute_mean_offset_deg: 0.0008304651128128171
+        peak_to_peak_error_deg: 0.0005696937441825867
+        centered_mae_deg: 0.0008398521567869466
+        centered_rmse_deg: 0.0010510573039776024
+    - dataset_index: 103
+      source_file_path: data/polished_dataset/forward/25degree/1300rpm/1300.0rpm100.0Nm25.0deg.csv
+      direction_label: forward
+      speed_rpm: 1300.0
+      torque_nm: 100.0
+      oil_temperature_deg: 25.0
+      metrics:
+        mse: 7.427950844354326e-06
+        mae: 0.0021720979542199834
+        rmse: 0.0027254267270198857
+        mean_percentage_error_pct: 5.256159728456031
+        signed_mean_offset_deg: 0.0019357031051185913
+        absolute_mean_offset_deg: 0.0019357031051185913
+        peak_to_peak_error_deg: 0.0025032819248735905
+        centered_mae_deg: 0.001665478609766069
+        centered_rmse_deg: 0.0019185943638999282
+    - dataset_index: 172
+      source_file_path: data/polished_dataset/forward/35degree/1400rpm/1400.0rpm700.0Nm35.0deg.csv
+      direction_label: forward
+      speed_rpm: 1400.0
+      torque_nm: 700.0
+      oil_temperature_deg: 35.0
+      metrics:
+        mse: 1.8157678111892575e-06
+        mae: 0.0010936659527942538
+        rmse: 0.0013475042898593152
+        mean_percentage_error_pct: 2.7341161806079834
+        signed_mean_offset_deg: 0.0008783481898717582
+        absolute_mean_offset_deg: 0.0008783481898717582
+        peak_to_peak_error_deg: 0.00035660527646541595
+        centered_mae_deg: 0.00082891163159123
+        centered_rmse_deg: 0.0010218964079290343
+    - dataset_index: 175
+      source_file_path: data/polished_dataset/forward/35degree/1500rpm/1500.0rpm800.0Nm35.0deg.csv
+      direction_label: forward
+      speed_rpm: 1500.0
+      torque_nm: 800.0
+      oil_temperature_deg: 35.0
+      metrics:
+        mse: 4.34585741626111e-06
+        mae: 0.0017199393090171118
+        rmse: 0.002084672016471922
+        mean_percentage_error_pct: 3.9623381624503966
+        signed_mean_offset_deg: -0.0012441016927671928
+        absolute_mean_offset_deg: 0.0012441016927671928
+        peak_to_peak_error_deg: 0.0031910985708236694
+        centered_mae_deg: 0.0013817359384928646
+        centered_rmse_deg: 0.001672742775896795
+    - dataset_index: 142
+      source_file_path: data/polished_dataset/forward/30degree/1700rpm/1700.0rpm1100.0Nm30.0deg.csv
+      direction_label: forward
+      speed_rpm: 1700.0
+      torque_nm: 1100.0
+      oil_temperature_deg: 30.0
+      metrics:
+        mse: 2.8093349695941922e-05
+        mae: 0.004251812351867557
+        rmse: 0.0053003159996307695
+        mean_percentage_error_pct: 8.369703931278705
+        signed_mean_offset_deg: -0.0016410209160918991
+        absolute_mean_offset_deg: 0.0016410209160918991
+        peak_to_peak_error_deg: 0.008454445749521255
+        centered_mae_deg: 0.004028789970713357
+        centered_rmse_deg: 0.005039880955825329
+    - dataset_index: 181
+      source_file_path: data/polished_dataset/forward/35degree/1800rpm/1800.0rpm1300.0Nm35.0deg.csv
+      direction_label: forward
+      speed_rpm: 1800.0
+      torque_nm: 1300.0
+      oil_temperature_deg: 35.0
+      metrics:
+        mse: 2.2835226248353803e-05
+        mae: 0.003938796076302727
+        rmse: 0.004778621793818151
+        mean_percentage_error_pct: 8.599611536351112
+        signed_mean_offset_deg: -0.001919713259364168
+        absolute_mean_offset_deg: 0.001919713259364168
+        peak_to_peak_error_deg: 0.0026853345334529877
+        centered_mae_deg: 0.0036193759450624287
+        centered_rmse_deg: 0.004376062985170027
+  - dataset_id: polished_dataset
+    input_mode: setpoints
+    surface: backward
+    run_name: te_periodic_temporal_convolution_bw__polished_setpoints
+    run_instance_id: 2026-07-08-20-12-10__te_periodic_temporal_convolution_bw__polished_setpoints
+    dataset_schema: polished_setpoint_curve_v1
+    model_type: periodic_temporal_convolution
+    onnx_model_path: models/polished_dataset/setpoints/exported/periodic_temporal_convolution/backward/2026-07-08-20-12-10__te_periodic_temporal_convolution_bw__polished_setpoints/onnx/model.onnx
+    python_model_path: models/polished_dataset/setpoints/exported/periodic_temporal_convolution/backward/2026-07-08-20-12-10__te_periodic_temporal_convolution_bw__polished_setpoints/python/periodic_temporal_convolution-epoch=048-val_mae=0.00196877.ckpt
+    training_config_path: models/polished_dataset/setpoints/exported/periodic_temporal_convolution/backward/2026-07-08-20-12-10__te_periodic_temporal_convolution_bw__polished_setpoints/source_run/training_config.snapshot.yaml
+    source_inventory_path: models/polished_dataset/setpoints/exported/model_development_export_inventory.yaml
+    evaluated_curve_count: 94
+    aggregate_metrics:
+      mse: 2.7257029808361813e-05
+      mae: 0.002591381157304195
+      rmse: 0.0030390394429201805
+      mean_percentage_error_pct: 4.862397890154931
+      signed_mean_offset_deg: -0.00021184401875232634
+      absolute_mean_offset_deg: 0.0011416638544320269
+      peak_to_peak_error_deg: 0.005465691828074806
+      centered_mae_deg: 0.0021278405602237305
+      centered_rmse_deg: 0.0025415430527055216
+      p95_mean_percentage_error_pct: 11.26603108801029
+    onnx_metadata:
+      input_list:
+      - name: input_tensor
+        shape:
+        - batch_size
+        - sequence_length
+        - '5'
+        type: tensor(float)
+      output_list:
+      - name: prediction_tensor
+        shape:
+        - batch_size
+        - '1'
+        type: tensor(float)
+      provider_list:
+      - CPUExecutionProvider
+    collage_path: output/validation_checks/track2_familywise_onnx_report/periodic_temporal_convolution/2026-07-08-23-45-38__track2_periodic_temporal_convolution_familywise_onnx_report/collages/polished_dataset__setpoints/backward_12_curve_collage.png
+    collage_markdown_path: assets/polished_dataset__setpoints/backward_12_curve_collage.png
+    selected_curve_list:
+    - dataset_index: 0
+      source_file_path: data/polished_dataset/backward/25degree/100rpm/100.0rpm300.0Nm25.0deg.csv
+      direction_label: backward
+      speed_rpm: 100.0
+      torque_nm: 300.0
+      oil_temperature_deg: 25.0
+      metrics:
+        mse: 2.8827366876695297e-06
+        mae: 0.001530195810156935
+        rmse: 0.0016978623877303867
+        mean_percentage_error_pct: 4.185626810474209
+        signed_mean_offset_deg: -0.0015288714403520014
+        absolute_mean_offset_deg: 0.0015288714403520014
+        peak_to_peak_error_deg: 0.0011215545237064362
+        centered_mae_deg: 0.0005828417317109332
+        centered_rmse_deg: 0.000738436731579305
+    - dataset_index: 79
+      source_file_path: data/polished_dataset/backward/35degree/300rpm/300.0rpm800.0Nm35.0deg.csv
+      direction_label: backward
+      speed_rpm: 300.0
+      torque_nm: 800.0
+      oil_temperature_deg: 35.0
+      metrics:
+        mse: 1.2071129985052564e-06
+        mae: 0.0008655370014215199
+        rmse: 0.001098686942902871
+        mean_percentage_error_pct: 2.260536351186309
+        signed_mean_offset_deg: -0.0006414948366000317
+        absolute_mean_offset_deg: 0.0006414948366000317
+        peak_to_peak_error_deg: 0.002243300899863243
+        centered_mae_deg: 0.0007196022270363756
+        centered_rmse_deg: 0.0008919626523127273
+    - dataset_index: 15
+      source_file_path: data/polished_dataset/backward/25degree/400rpm/400.0rpm1000.0Nm25.0deg.csv
+      direction_label: backward
+      speed_rpm: 400.0
+      torque_nm: 1000.0
+      oil_temperature_deg: 25.0
+      metrics:
+        mse: 1.0389776751715101e-06
+        mae: 0.0008551161687743539
+        rmse: 0.0010193025434931035
+        mean_percentage_error_pct: 2.213983689388018
+        signed_mean_offset_deg: 0.0006134224677225575
+        absolute_mean_offset_deg: 0.0006134224677225575
+        peak_to_peak_error_deg: 0.0011866847053170204
+        centered_mae_deg: 0.0006350765946384248
+        centered_rmse_deg: 0.0008140580761006416
+    - dataset_index: 49
+      source_file_path: data/polished_dataset/backward/30degree/600rpm/600.0rpm1100.0Nm30.0deg.csv
+      direction_label: backward
+      speed_rpm: 600.0
+      torque_nm: 1100.0
+      oil_temperature_deg: 30.0
+      metrics:
+        mse: 2.800223582279856e-06
+        mae: 0.0014865906753887732
+        rmse: 0.0016733868597188924
+        mean_percentage_error_pct: 3.8181630988823523
+        signed_mean_offset_deg: -0.0014775193606813748
+        absolute_mean_offset_deg: 0.0014775193606813748
+        peak_to_peak_error_deg: 0.00036809127777814865
+        centered_mae_deg: 0.000638613972114399
+        centered_rmse_deg: 0.0007855953927382451
+    - dataset_index: 88
+      source_file_path: data/polished_dataset/backward/35degree/700rpm/700.0rpm600.0Nm35.0deg.csv
+      direction_label: backward
+      speed_rpm: 700.0
+      torque_nm: 600.0
+      oil_temperature_deg: 35.0
+      metrics:
+        mse: 4.2904942468582785e-06
+        mae: 0.0018843052560650146
+        rmse: 0.0020713508266004283
+        mean_percentage_error_pct: 5.110372628527137
+        signed_mean_offset_deg: -0.0018823721896505201
+        absolute_mean_offset_deg: 0.0018823721896505201
+        peak_to_peak_error_deg: 0.000731069128960371
+        centered_mae_deg: 0.0007015401263823249
+        centered_rmse_deg: 0.000864389487724478
+    - dataset_index: 92
+      source_file_path: data/polished_dataset/backward/35degree/800rpm/800.0rpm900.0Nm35.0deg.csv
+      direction_label: backward
+      speed_rpm: 800.0
+      torque_nm: 900.0
+      oil_temperature_deg: 35.0
+      metrics:
+        mse: 1.9523815682083106e-06
+        mae: 0.001186362438602373
+        rmse: 0.0013972764823785987
+        mean_percentage_error_pct: 3.112768689531282
+        signed_mean_offset_deg: -0.0011138967868949596
+        absolute_mean_offset_deg: 0.0011138967868949596
+        peak_to_peak_error_deg: 0.00099630793556571
+        centered_mae_deg: 0.0006685237374565784
+        centered_rmse_deg: 0.0008435730652133196
+    - dataset_index: 59
+      source_file_path: data/polished_dataset/backward/35degree/1000rpm/1000.0rpm300.0Nm35.0deg.csv
+      direction_label: backward
+      speed_rpm: 1000.0
+      torque_nm: 300.0
+      oil_temperature_deg: 35.0
+      metrics:
+        mse: 1.923397800081235e-06
+        mae: 0.0011952181862019036
+        rmse: 0.0013868661795866373
+        mean_percentage_error_pct: 3.235435852563723
+        signed_mean_offset_deg: -0.0011400430540788875
+        absolute_mean_offset_deg: 0.0011400430540788875
+        peak_to_peak_error_deg: 0.0005891099572181702
+        centered_mae_deg: 0.0006389054132718286
+        centered_rmse_deg: 0.0007897465637327698
+    - dataset_index: 3
+      source_file_path: data/polished_dataset/backward/25degree/1100rpm/1100.0rpm1600.0Nm25.0deg.csv
+      direction_label: backward
+      speed_rpm: 1100.0
+      torque_nm: 1600.0
+      oil_temperature_deg: 25.0
+      metrics:
+        mse: 4.0579042117687036e-05
+        mae: 0.004939874668101159
+        rmse: 0.006370168138886684
+        mean_percentage_error_pct: 7.672785158513945
+        signed_mean_offset_deg: 0.0009751145019739246
+        absolute_mean_offset_deg: 0.0009751145019739246
+        peak_to_peak_error_deg: 0.024443240836262703
+        centered_mae_deg: 0.004836228584988728
+        centered_rmse_deg: 0.006295092836942691
+    - dataset_index: 7
+      source_file_path: data/polished_dataset/backward/25degree/1400rpm/1400.0rpm400.0Nm25.0deg.csv
+      direction_label: backward
+      speed_rpm: 1400.0
+      torque_nm: 400.0
+      oil_temperature_deg: 25.0
+      metrics:
+        mse: 0.001141361210109765
+        mae: 0.03182483856168498
+        rmse: 0.033784037800561446
+        mean_percentage_error_pct: 36.33299373759897
+        signed_mean_offset_deg: 0.03182483856168498
+        absolute_mean_offset_deg: 0.03182483856168498
+        peak_to_peak_error_deg: 0.05036295764148235
+        centered_mae_deg: 0.009304394568643045
+        centered_rmse_deg: 0.011337586190739787
+    - dataset_index: 10
+      source_file_path: data/polished_dataset/backward/25degree/1600rpm/1600.0rpm200.0Nm25.0deg.csv
+      direction_label: backward
+      speed_rpm: 1600.0
+      torque_nm: 200.0
+      oil_temperature_deg: 25.0
+      metrics:
+        mse: 9.242802284248576e-06
+        mae: 0.002522440777643927
+        rmse: 0.003040197737688879
+        mean_percentage_error_pct: 5.5476895450466115
+        signed_mean_offset_deg: -0.0021256714369239185
+        absolute_mean_offset_deg: 0.0021256714369239185
+        peak_to_peak_error_deg: 0.007274135947227478
+        centered_mae_deg: 0.0018205394926682002
+        centered_rmse_deg: 0.002173550833657768
+    - dataset_index: 74
+      source_file_path: data/polished_dataset/backward/35degree/1700rpm/1700.0rpm700.0Nm35.0deg.csv
+      direction_label: backward
+      speed_rpm: 1700.0
+      torque_nm: 700.0
+      oil_temperature_deg: 35.0
+      metrics:
+        mse: 5.133935739303415e-05
+        mae: 0.006050411403975886
+        rmse: 0.007165148804667922
+        mean_percentage_error_pct: 9.216272215611262
+        signed_mean_offset_deg: -0.0013170090992389305
+        absolute_mean_offset_deg: 0.0013170090992389305
+        peak_to_peak_error_deg: 0.02168573997914791
+        centered_mae_deg: 0.006033730533895702
+        centered_rmse_deg: 0.007043070667369171
+    - dataset_index: 44
+      source_file_path: data/polished_dataset/backward/30degree/1800rpm/1800.0rpm1800.0Nm30.0deg.csv
+      direction_label: backward
+      speed_rpm: 1800.0
+      torque_nm: 1800.0
+      oil_temperature_deg: 30.0
+      metrics:
+        mse: 8.572483519130362e-05
+        mae: 0.008102336568602672
+        rmse: 0.009258770717071657
+        mean_percentage_error_pct: 14.077911067734414
+        signed_mean_offset_deg: -0.0012464658551228542
+        absolute_mean_offset_deg: 0.0012464658551228542
+        peak_to_peak_error_deg: 0.007647290825843811
+        centered_mae_deg: 0.008068828800484576
+        centered_rmse_deg: 0.009174484076138367
+  - dataset_id: polished_dataset
+    input_mode: setpoints
+    surface: global
+    run_name: te_periodic_temporal_convolution_global__polished_setpoints
+    run_instance_id: 2026-07-08-19-44-50__te_periodic_temporal_convolution_global__polished_setpoints
+    dataset_schema: polished_setpoint_curve_v1
+    model_type: periodic_temporal_convolution
+    onnx_model_path: models/polished_dataset/setpoints/exported/periodic_temporal_convolution/global/2026-07-08-19-44-50__te_periodic_temporal_convolution_global__polished_setpoints/onnx/model.onnx
+    python_model_path: models/polished_dataset/setpoints/exported/periodic_temporal_convolution/global/2026-07-08-19-44-50__te_periodic_temporal_convolution_global__polished_setpoints/python/periodic_temporal_convolution-epoch=050-val_mae=0.00196079.ckpt
+    training_config_path: models/polished_dataset/setpoints/exported/periodic_temporal_convolution/global/2026-07-08-19-44-50__te_periodic_temporal_convolution_global__polished_setpoints/source_run/training_config.snapshot.yaml
+    source_inventory_path: models/polished_dataset/setpoints/exported/model_development_export_inventory.yaml
+    evaluated_curve_count: 194
+    aggregate_metrics:
+      mse: 1.7684967926456232e-05
+      mae: 0.002235868067889094
+      rmse: 0.0026380929304870198
+      mean_percentage_error_pct: 4.516607713231793
+      signed_mean_offset_deg: -3.2473974055310516e-05
+      absolute_mean_offset_deg: 0.0010090816187090408
+      peak_to_peak_error_deg: 0.003988378268838188
+      centered_mae_deg: 0.0018117009434375974
+      centered_rmse_deg: 0.0021842909895976367
+      p95_mean_percentage_error_pct: 10.346001335050156
+    onnx_metadata:
+      input_list:
+      - name: input_tensor
+        shape:
+        - batch_size
+        - sequence_length
+        - '5'
+        type: tensor(float)
+      output_list:
+      - name: prediction_tensor
+        shape:
+        - batch_size
+        - '1'
+        type: tensor(float)
+      provider_list:
+      - CPUExecutionProvider
+    collage_path: output/validation_checks/track2_familywise_onnx_report/periodic_temporal_convolution/2026-07-08-23-45-38__track2_periodic_temporal_convolution_familywise_onnx_report/collages/polished_dataset__setpoints/global_12_curve_collage.png
+    collage_markdown_path: assets/polished_dataset__setpoints/global_12_curve_collage.png
+    selected_curve_list:
+    - dataset_index: 0
+      source_file_path: data/polished_dataset/backward/25degree/100rpm/100.0rpm300.0Nm25.0deg.csv
+      direction_label: backward
+      speed_rpm: 100.0
+      torque_nm: 300.0
+      oil_temperature_deg: 25.0
+      metrics:
+        mse: 1.3849081656883406e-06
+        mae: 0.0009142254812483467
+        rmse: 0.001176821212286871
+        mean_percentage_error_pct: 2.5007300763288023
+        signed_mean_offset_deg: -0.0006429577970645065
+        absolute_mean_offset_deg: 0.0006429577970645065
+        peak_to_peak_error_deg: 0.0018511638045310974
+        centered_mae_deg: 0.0008178756972389876
+        centered_rmse_deg: 0.0009856538118844249
+    - dataset_index: 47
+      source_file_path: data/polished_dataset/backward/30degree/400rpm/400.0rpm1300.0Nm30.0deg.csv
+      direction_label: backward
+      speed_rpm: 400.0
+      torque_nm: 1300.0
+      oil_temperature_deg: 30.0
+      metrics:
+        mse: 9.882582709696045e-07
+        mae: 0.0008104644269527247
+        rmse: 0.0009941118000353906
+        mean_percentage_error_pct: 1.9968722820348255
+        signed_mean_offset_deg: -6.444471849439044e-05
+        absolute_mean_offset_deg: 6.444471849439044e-05
+        peak_to_peak_error_deg: 0.0007084831595420837
+        centered_mae_deg: 0.0008107462100370969
+        centered_rmse_deg: 0.0009920207403213822
+    - dataset_index: 85
+      source_file_path: data/polished_dataset/backward/35degree/700rpm/700.0rpm1100.0Nm35.0deg.csv
+      direction_label: backward
+      speed_rpm: 700.0
+      torque_nm: 1100.0
+      oil_temperature_deg: 35.0
+      metrics:
+        mse: 2.8285021512736725e-06
+        mae: 0.001431936485460028
+        rmse: 0.0016818151358795866
+        mean_percentage_error_pct: 3.5954803714466594
+        signed_mean_offset_deg: -0.0013429370398322742
+        absolute_mean_offset_deg: 0.0013429370398322742
+        peak_to_peak_error_deg: 0.0012215785682201385
+        centered_mae_deg: 0.0008155305016164979
+        centered_rmse_deg: 0.00101243382910697
+    - dataset_index: 58
+      source_file_path: data/polished_dataset/backward/35degree/1000rpm/1000.0rpm1400.0Nm35.0deg.csv
+      direction_label: backward
+      speed_rpm: 1000.0
+      torque_nm: 1400.0
+      oil_temperature_deg: 35.0
+      metrics:
+        mse: 2.0341478535796094e-06
+        mae: 0.0011485857151759167
+        rmse: 0.0014262355533289756
+        mean_percentage_error_pct: 2.7214899132442945
+        signed_mean_offset_deg: -0.000812547979876399
+        absolute_mean_offset_deg: 0.000812547979876399
+        peak_to_peak_error_deg: 0.0011640731245279312
+        centered_mae_deg: 0.0009356233810346263
+        centered_rmse_deg: 0.0011721406203943248
+    - dataset_index: 38
+      source_file_path: data/polished_dataset/backward/30degree/1400rpm/1400.0rpm1000.0Nm30.0deg.csv
+      direction_label: backward
+      speed_rpm: 1400.0
+      torque_nm: 1000.0
+      oil_temperature_deg: 30.0
+      metrics:
+        mse: 2.408233574347942e-06
+        mae: 0.0012895430239344325
+        rmse: 0.0015518484379435842
+        mean_percentage_error_pct: 3.3097655848013434
+        signed_mean_offset_deg: 0.00028626076770403114
+        absolute_mean_offset_deg: 0.00028626076770403114
+        peak_to_peak_error_deg: 0.0014322060160338879
+        centered_mae_deg: 0.0012777662056780374
+        centered_rmse_deg: 0.0015252174753855401
+    - dataset_index: 41
+      source_file_path: data/polished_dataset/backward/30degree/1800rpm/1800.0rpm0.0Nm30.0deg.csv
+      direction_label: backward
+      speed_rpm: 1800.0
+      torque_nm: 0.0
+      oil_temperature_deg: 30.0
+      metrics:
+        mse: 1.32270336019437e-06
+        mae: 0.0009195241444407051
+        rmse: 0.001150088414077096
+        mean_percentage_error_pct: 2.3645537107011525
+        signed_mean_offset_deg: 0.0007397896327650718
+        absolute_mean_offset_deg: 0.0007397896327650718
+        peak_to_peak_error_deg: 0.0007105367258191109
+        centered_mae_deg: 0.000722072450243003
+        centered_rmse_deg: 0.0008805763223296948
+    - dataset_index: 116
+      source_file_path: data/polished_dataset/forward/25degree/200rpm/200.0rpm500.0Nm25.0deg.csv
+      direction_label: forward
+      speed_rpm: 200.0
+      torque_nm: 500.0
+      oil_temperature_deg: 25.0
+      metrics:
+        mse: 1.0605794949317792e-06
+        mae: 0.0008472083136439323
+        rmse: 0.0010298444032628324
+        mean_percentage_error_pct: 2.2302660183140697
+        signed_mean_offset_deg: -0.0006995384270946184
+        absolute_mean_offset_deg: 0.0006995384270946184
+        peak_to_peak_error_deg: 0.0004768967628479004
+        centered_mae_deg: 0.0005985466543481582
+        centered_rmse_deg: 0.0007557946043402046
+    - dataset_index: 154
+      source_file_path: data/polished_dataset/forward/30degree/600rpm/600.0rpm1400.0Nm30.0deg.csv
+      direction_label: forward
+      speed_rpm: 600.0
+      torque_nm: 1400.0
+      oil_temperature_deg: 30.0
+      metrics:
+        mse: 1.0709854711182711e-06
+        mae: 0.00082312774611637
+        rmse: 0.0010348842790951418
+        mean_percentage_error_pct: 1.9371141340449518
+        signed_mean_offset_deg: -0.000451303805069377
+        absolute_mean_offset_deg: 0.000451303805069377
+        peak_to_peak_error_deg: 4.418566823005676e-05
+        centered_mae_deg: 0.0007350873030292052
+        centered_rmse_deg: 0.0009312949836910821
+    - dataset_index: 161
+      source_file_path: data/polished_dataset/forward/30degree/900rpm/900.0rpm800.0Nm30.0deg.csv
+      direction_label: forward
+      speed_rpm: 900.0
+      torque_nm: 800.0
+      oil_temperature_deg: 30.0
+      metrics:
+        mse: 2.301907999567027e-06
+        mae: 0.0012909817063094426
+        rmse: 0.0015172040072340394
+        mean_percentage_error_pct: 3.2363034159818356
+        signed_mean_offset_deg: -0.0011854343756567687
+        absolute_mean_offset_deg: 0.0011854343756567687
+        peak_to_peak_error_deg: 0.00010578520596027374
+        centered_mae_deg: 0.0007770471487068183
+        centered_rmse_deg: 0.0009469178108887137
+    - dataset_index: 103
+      source_file_path: data/polished_dataset/forward/25degree/1300rpm/1300.0rpm100.0Nm25.0deg.csv
+      direction_label: forward
+      speed_rpm: 1300.0
+      torque_nm: 100.0
+      oil_temperature_deg: 25.0
+      metrics:
+        mse: 5.984182353321312e-06
+        mae: 0.002059137058192088
+        rmse: 0.0024462588483889665
+        mean_percentage_error_pct: 4.982810862472061
+        signed_mean_offset_deg: 0.0014944258800824173
+        absolute_mean_offset_deg: 0.0014944258800824173
+        peak_to_peak_error_deg: 0.003204470034688711
+        centered_mae_deg: 0.001672151584140617
+        centered_rmse_deg: 0.0019367172334290841
+    - dataset_index: 175
+      source_file_path: data/polished_dataset/forward/35degree/1500rpm/1500.0rpm800.0Nm35.0deg.csv
+      direction_label: forward
+      speed_rpm: 1500.0
+      torque_nm: 800.0
+      oil_temperature_deg: 35.0
+      metrics:
+        mse: 3.882672587534921e-06
+        mae: 0.00162671206635423
+        rmse: 0.0019704498439531318
+        mean_percentage_error_pct: 3.7475643855813408
+        signed_mean_offset_deg: -0.0009149726538453251
+        absolute_mean_offset_deg: 0.0009149726538453251
+        peak_to_peak_error_deg: 0.0032599996775388718
+        centered_mae_deg: 0.0014556675857117323
+        centered_rmse_deg: 0.001745135418885928
+    - dataset_index: 181
+      source_file_path: data/polished_dataset/forward/35degree/1800rpm/1800.0rpm1300.0Nm35.0deg.csv
+      direction_label: forward
+      speed_rpm: 1800.0
+      torque_nm: 1300.0
+      oil_temperature_deg: 35.0
+      metrics:
+        mse: 1.982263597360971e-05
+        mae: 0.0036624790130493543
+        rmse: 0.004452261894094923
+        mean_percentage_error_pct: 7.996325821931779
+        signed_mean_offset_deg: -0.000321767118293792
+        absolute_mean_offset_deg: 0.000321767118293792
+        peak_to_peak_error_deg: 0.0021889321506023407
+        centered_mae_deg: 0.0036539530422790754
+        centered_rmse_deg: 0.004440619539568169
+- group_id: polished_dataset__actual_values
+  group_title: Polished Dataset + Actual Values
+  dataset_id: polished_dataset
+  input_mode: actual_values
+  dataset_root: data/polished_dataset
+  model_summary_list:
+  - dataset_id: polished_dataset
+    input_mode: actual_values
+    surface: forward
+    run_name: te_periodic_temporal_convolution_fw__polished_actual_values
+    run_instance_id: 2026-07-08-21-06-17__te_periodic_temporal_convolution_fw__polished_actual_values
+    dataset_schema: polished_point_v1
+    model_type: periodic_temporal_convolution
+    onnx_model_path: models/polished_dataset/actual_values/exported/periodic_temporal_convolution/forward/2026-07-08-21-06-17__te_periodic_temporal_convolution_fw__polished_actual_values/onnx/model.onnx
+    python_model_path: models/polished_dataset/actual_values/exported/periodic_temporal_convolution/forward/2026-07-08-21-06-17__te_periodic_temporal_convolution_fw__polished_actual_values/python/periodic_temporal_convolution-epoch=087-val_mae=0.00193888.ckpt
+    training_config_path: models/polished_dataset/actual_values/exported/periodic_temporal_convolution/forward/2026-07-08-21-06-17__te_periodic_temporal_convolution_fw__polished_actual_values/source_run/training_config.snapshot.yaml
+    source_inventory_path: models/polished_dataset/actual_values/exported/model_development_export_inventory.yaml
+    evaluated_curve_count: 100
+    aggregate_metrics:
+      mse: 8.452126072011986e-06
+      mae: 0.0018864067565943065
+      rmse: 0.0022373240841764975
+      mean_percentage_error_pct: 4.16034631993697
+      signed_mean_offset_deg: -0.0005502651569416392
+      absolute_mean_offset_deg: 0.0009602078891633186
+      peak_to_peak_error_deg: 0.002522419004526455
+      centered_mae_deg: 0.001505820578000467
+      centered_rmse_deg: 0.001827349355944777
+      p95_mean_percentage_error_pct: 10.34163404511483
+    onnx_metadata:
+      input_list:
+      - name: input_tensor
+        shape:
+        - batch_size
+        - sequence_length
+        - '5'
+        type: tensor(float)
+      output_list:
+      - name: prediction_tensor
+        shape:
+        - batch_size
+        - '1'
+        type: tensor(float)
+      provider_list:
+      - CPUExecutionProvider
+    collage_path: output/validation_checks/track2_familywise_onnx_report/periodic_temporal_convolution/2026-07-08-23-45-38__track2_periodic_temporal_convolution_familywise_onnx_report/collages/polished_dataset__actual_values/forward_12_curve_collage.png
+    collage_markdown_path: assets/polished_dataset__actual_values/forward_12_curve_collage.png
+    selected_curve_list:
+    - dataset_index: 133
+      source_file_path: data/polished_dataset/forward/30degree/100rpm/100.0rpm1700.0Nm30.0deg.csv
+      direction_label: forward
+      speed_rpm: 99.99252853314
+      torque_nm: -1700.02675056458
+      oil_temperature_deg: 30.44
+      metrics:
+        mse: 1.2182444096000764e-06
+        mae: 0.0009118448554848632
+        rmse: 0.0011037410971781727
+        mean_percentage_error_pct: 2.0198963954953486
+        signed_mean_offset_deg: 0.0007331961533054709
+        absolute_mean_offset_deg: 0.0007331961533054709
+        peak_to_peak_error_deg: 0.0002521723508834839
+        centered_mae_deg: 0.0006634752559572613
+        centered_rmse_deg: 0.0008250259452757451
+    - dataset_index: 118
+      source_file_path: data/polished_dataset/forward/25degree/200rpm/200.0rpm900.0Nm25.0deg.csv
+      direction_label: forward
+      speed_rpm: 200.0067942019701
+      torque_nm: -899.938821792602
+      oil_temperature_deg: 25.16
+      metrics:
+        mse: 2.8333324844759776e-06
+        mae: 0.0013918430389215548
+        rmse: 0.00168325057091212
+        mean_percentage_error_pct: 3.5903208065463077
+        signed_mean_offset_deg: -0.0012026263866573572
+        absolute_mean_offset_deg: 0.0012026263866573572
+        peak_to_peak_error_deg: 0.0026342570781707764
+        centered_mae_deg: 0.0009511199968983419
+        centered_rmse_deg: 0.0011777190915457922
+    - dataset_index: 150
+      source_file_path: data/polished_dataset/forward/30degree/400rpm/400.0rpm1400.0Nm30.0deg.csv
+      direction_label: forward
+      speed_rpm: 399.9995626652589
+      torque_nm: -1399.73783493042
+      oil_temperature_deg: 29.95
+      metrics:
+        mse: 8.026297735619099e-07
+        mae: 0.0007257407414726913
+        rmse: 0.0008958960729693538
+        mean_percentage_error_pct: 1.7673254531290936
+        signed_mean_offset_deg: -0.00018803249501312772
+        absolute_mean_offset_deg: 0.00018803249501312772
+        peak_to_peak_error_deg: 0.002457819879055023
+        centered_mae_deg: 0.0007003581427448405
+        centered_rmse_deg: 0.000875941524521499
+    - dataset_index: 121
+      source_file_path: data/polished_dataset/forward/25degree/600rpm/600.0rpm1500.0Nm25.0deg.csv
+      direction_label: forward
+      speed_rpm: 599.9737791987822
+      torque_nm: -1499.89485740662
+      oil_temperature_deg: 24.8
+      metrics:
+        mse: 7.345009684075915e-07
+        mae: 0.0006995733128860593
+        rmse: 0.000857030319421426
+        mean_percentage_error_pct: 1.6469286457985273
+        signed_mean_offset_deg: -0.00021021809273709854
+        absolute_mean_offset_deg: 0.00021021809273709854
+        peak_to_peak_error_deg: 0.0013096407055854797
+        centered_mae_deg: 0.0006701328133608013
+        centered_rmse_deg: 0.0008308485553297715
+    - dataset_index: 158
+      source_file_path: data/polished_dataset/forward/30degree/700rpm/700.0rpm500.0Nm30.0deg.csv
+      direction_label: forward
+      speed_rpm: 699.9952532351153
+      torque_nm: -499.9175071716305
+      oil_temperature_deg: 30.68
+      metrics:
+        mse: 7.865788726778354e-07
+        mae: 0.0007233803529137125
+        rmse: 0.0008868928191601483
+        mean_percentage_error_pct: 1.8321914420034269
+        signed_mean_offset_deg: -0.0004813327589848389
+        absolute_mean_offset_deg: 0.0004813327589848389
+        peak_to_peak_error_deg: 0.000380832701921463
+        centered_mae_deg: 0.000603185937507078
+        centered_rmse_deg: 0.0007449145238253033
+    - dataset_index: 193
+      source_file_path: data/polished_dataset/forward/35degree/900rpm/900.0rpm700.0Nm35.0deg.csv
+      direction_label: forward
+      speed_rpm: 899.979081003169
+      torque_nm: -699.832439422607
+      oil_temperature_deg: 34.73
+      metrics:
+        mse: 2.3010218890110205e-06
+        mae: 0.001358569929531465
+        rmse: 0.0015169119582266535
+        mean_percentage_error_pct: 3.4401460862881383
+        signed_mean_offset_deg: -0.0013505700626410544
+        absolute_mean_offset_deg: 0.0013505700626410544
+        peak_to_peak_error_deg: 0.0003141295164823532
+        centered_mae_deg: 0.0005616424823529087
+        centered_rmse_deg: 0.0006906391206040669
+    - dataset_index: 94
+      source_file_path: data/polished_dataset/forward/25degree/1000rpm/1000.0rpm1000.0Nm25.0deg.csv
+      direction_label: forward
+      speed_rpm: 1000.000722699058
+      torque_nm: -1000.0290870666499
+      oil_temperature_deg: 25.37
+      metrics:
+        mse: 1.5421067777859696e-06
+        mae: 0.0009998890454880893
+        rmse: 0.0012418159194445728
+        mean_percentage_error_pct: 2.3577591244623672
+        signed_mean_offset_deg: 0.0008584528889817497
+        absolute_mean_offset_deg: 0.0008584528889817497
+        peak_to_peak_error_deg: 0.0007230304181575775
+        centered_mae_deg: 0.0007368730730377138
+        centered_rmse_deg: 0.0008973100997898426
+    - dataset_index: 103
+      source_file_path: data/polished_dataset/forward/25degree/1300rpm/1300.0rpm100.0Nm25.0deg.csv
+      direction_label: forward
+      speed_rpm: 1300.0011071332942
+      torque_nm: -100.45349597930951
+      oil_temperature_deg: 25.16
+      metrics:
+        mse: 4.480435354308393e-06
+        mae: 0.0017819006146358636
+        rmse: 0.002116703889141888
+        mean_percentage_error_pct: 4.311939170406087
+        signed_mean_offset_deg: 0.0006997312812018208
+        absolute_mean_offset_deg: 0.0006997312812018208
+        peak_to_peak_error_deg: 0.0023096404038369656
+        centered_mae_deg: 0.0016807265350659388
+        centered_rmse_deg: 0.001997701551387507
+    - dataset_index: 110
+      source_file_path: data/polished_dataset/forward/25degree/1400rpm/1400.0rpm700.0Nm25.0deg.csv
+      direction_label: forward
+      speed_rpm: 1400.0099804306865
+      torque_nm: -700.0133991241455
+      oil_temperature_deg: 27.09
+      metrics:
+        mse: 5.98103271977843e-06
+        mae: 0.00230102018880037
+        rmse: 0.0024456149982731196
+        mean_percentage_error_pct: 5.846576520349877
+        signed_mean_offset_deg: -0.0022969078175568334
+        absolute_mean_offset_deg: 0.0022969078175568334
+        peak_to_peak_error_deg: 0.0007445476949214935
+        centered_mae_deg: 0.0006692850628395615
+        centered_rmse_deg: 0.0008397899722101562
+    - dataset_index: 141
+      source_file_path: data/polished_dataset/forward/30degree/1500rpm/1500.0rpm500.0Nm30.0deg.csv
+      direction_label: forward
+      speed_rpm: 1499.9973960639115
+      torque_nm: -500.521183013916
+      oil_temperature_deg: 32.8
+      metrics:
+        mse: 3.5696931176196654e-06
+        mae: 0.0015553332535394777
+        rmse: 0.001889363151334244
+        mean_percentage_error_pct: 3.6316033675507597
+        signed_mean_offset_deg: 0.0002384308900218457
+        absolute_mean_offset_deg: 0.0002384308900218457
+        peak_to_peak_error_deg: 0.0033249258995056152
+        centered_mae_deg: 0.001555925148750248
+        centered_rmse_deg: 0.0018742582074791764
+    - dataset_index: 144
+      source_file_path: data/polished_dataset/forward/30degree/1700rpm/1700.0rpm1800.0Nm30.0deg.csv
+      direction_label: forward
+      speed_rpm: 1700.0277154257524
+      torque_nm: -1800.06527900696
+      oil_temperature_deg: 31.45
+      metrics:
+        mse: 6.02764004502699e-05
+        mae: 0.0063996369717642665
+        rmse: 0.0077637877643757045
+        mean_percentage_error_pct: 10.794423741757647
+        signed_mean_offset_deg: 0.0020433144721512995
+        absolute_mean_offset_deg: 0.0020433144721512995
+        peak_to_peak_error_deg: 0.01385241374373436
+        centered_mae_deg: 0.006139948543326075
+        centered_rmse_deg: 0.0074900778646264385
+    - dataset_index: 114
+      source_file_path: data/polished_dataset/forward/25degree/1800rpm/1800.0rpm700.0Nm25.0deg.csv
+      direction_label: forward
+      speed_rpm: 1800.0090120011232
+      torque_nm: -700.2687454223632
+      oil_temperature_deg: 26.42
+      metrics:
+        mse: 2.056982397834441e-06
+        mae: 0.0011921388795599341
+        rmse: 0.001434218392656586
+        mean_percentage_error_pct: 2.8846531532189323
+        signed_mean_offset_deg: 0.0006851434203175207
+        absolute_mean_offset_deg: 0.0006851434203175207
+        peak_to_peak_error_deg: 0.0013358015567064285
+        centered_mae_deg: 0.0010231853199608543
+        centered_rmse_deg: 0.0012599844806306345
+  - dataset_id: polished_dataset
+    input_mode: actual_values
+    surface: backward
+    run_name: te_periodic_temporal_convolution_bw__polished_actual_values
+    run_instance_id: 2026-07-08-21-27-59__te_periodic_temporal_convolution_bw__polished_actual_values
+    dataset_schema: polished_point_v1
+    model_type: periodic_temporal_convolution
+    onnx_model_path: models/polished_dataset/actual_values/exported/periodic_temporal_convolution/backward/2026-07-08-21-27-59__te_periodic_temporal_convolution_bw__polished_actual_values/onnx/model.onnx
+    python_model_path: models/polished_dataset/actual_values/exported/periodic_temporal_convolution/backward/2026-07-08-21-27-59__te_periodic_temporal_convolution_bw__polished_actual_values/python/periodic_temporal_convolution-epoch=093-val_mae=0.00186606.ckpt
+    training_config_path: models/polished_dataset/actual_values/exported/periodic_temporal_convolution/backward/2026-07-08-21-27-59__te_periodic_temporal_convolution_bw__polished_actual_values/source_run/training_config.snapshot.yaml
+    source_inventory_path: models/polished_dataset/actual_values/exported/model_development_export_inventory.yaml
+    evaluated_curve_count: 94
+    aggregate_metrics:
+      mse: 1.5660904004600573e-05
+      mae: 0.0021926155045268072
+      rmse: 0.0026533525171980664
+      mean_percentage_error_pct: 4.2381541676469805
+      signed_mean_offset_deg: -3.8027750072016305e-05
+      absolute_mean_offset_deg: 0.0006156113668915603
+      peak_to_peak_error_deg: 0.00486117903888721
+      centered_mae_deg: 0.0020694488635350427
+      centered_rmse_deg: 0.0024872728292924763
+      p95_mean_percentage_error_pct: 10.628498614376744
+    onnx_metadata:
+      input_list:
+      - name: input_tensor
+        shape:
+        - batch_size
+        - sequence_length
+        - '5'
+        type: tensor(float)
+      output_list:
+      - name: prediction_tensor
+        shape:
+        - batch_size
+        - '1'
+        type: tensor(float)
+      provider_list:
+      - CPUExecutionProvider
+    collage_path: output/validation_checks/track2_familywise_onnx_report/periodic_temporal_convolution/2026-07-08-23-45-38__track2_periodic_temporal_convolution_familywise_onnx_report/collages/polished_dataset__actual_values/backward_12_curve_collage.png
+    collage_markdown_path: assets/polished_dataset__actual_values/backward_12_curve_collage.png
+    selected_curve_list:
+    - dataset_index: 42
+      source_file_path: data/polished_dataset/backward/30degree/1800rpm/1800.0rpm1100.0Nm30.0deg.csv
+      direction_label: backward
+      speed_rpm: -1800.0313076676603
+      torque_nm: 1100.3788829301452
+      oil_temperature_deg: 32.25
+      metrics:
+        mse: 3.707739073549629e-05
+        mae: 0.005141286687527706
+        rmse: 0.0060891206865602765
+        mean_percentage_error_pct: 9.67461837604643
+        signed_mean_offset_deg: -0.0017500270005257335
+        absolute_mean_offset_deg: 0.0017500270005257335
+        peak_to_peak_error_deg: 0.00717234518378973
+        centered_mae_deg: 0.005052157544734352
+        centered_rmse_deg: 0.005832220523345049
+    - dataset_index: 73
+      source_file_path: data/polished_dataset/backward/35degree/1700rpm/1700.0rpm500.0Nm35.0deg.csv
+      direction_label: backward
+      speed_rpm: -1700.0049166555143
+      torque_nm: 500.128567234107
+      oil_temperature_deg: 37.16
+      metrics:
+        mse: 5.129399132720184e-05
+        mae: 0.005785644068964757
+        rmse: 0.007161982360157126
+        mean_percentage_error_pct: 9.31610877223188
+        signed_mean_offset_deg: -0.0006518923758752256
+        absolute_mean_offset_deg: 0.0006518923758752256
+        peak_to_peak_error_deg: 0.020391114987432957
+        centered_mae_deg: 0.005773933321336244
+        centered_rmse_deg: 0.007132252635561755
+    - dataset_index: 10
+      source_file_path: data/polished_dataset/backward/25degree/1600rpm/1600.0rpm200.0Nm25.0deg.csv
+      direction_label: backward
+      speed_rpm: -1599.9986973428167
+      torque_nm: 199.8689412914445
+      oil_temperature_deg: 26.84
+      metrics:
+        mse: 6.729765954401195e-06
+        mae: 0.002132688550526988
+        rmse: 0.0025941792448482036
+        mean_percentage_error_pct: 4.690494254398444
+        signed_mean_offset_deg: -0.0014202897949833944
+        absolute_mean_offset_deg: 0.0014202897949833944
+        peak_to_peak_error_deg: 0.00715283676981926
+        centered_mae_deg: 0.0018090999371567467
+        centered_rmse_deg: 0.002170839204701081
+    - dataset_index: 64
+      source_file_path: data/polished_dataset/backward/35degree/1400rpm/1400.0rpm500.0Nm35.0deg.csv
+      direction_label: backward
+      speed_rpm: -1400.0119086852687
+      torque_nm: 499.702990019678
+      oil_temperature_deg: 35.5
+      metrics:
+        mse: 4.1350900511674e-06
+        mae: 0.001611874584114048
+        rmse: 0.002033492082887809
+        mean_percentage_error_pct: 4.034001603137675
+        signed_mean_offset_deg: -0.0007478100455197515
+        absolute_mean_offset_deg: 0.0007478100455197515
+        peak_to_peak_error_deg: 0.00033442117273807526
+        centered_mae_deg: 0.0015705905712866612
+        centered_rmse_deg: 0.001890997140925165
+    - dataset_index: 2
+      source_file_path: data/polished_dataset/backward/25degree/1100rpm/1100.0rpm0.0Nm25.0deg.csv
+      direction_label: backward
+      speed_rpm: -1099.9960453305043
+      torque_nm: 0.0581741402356791
+      oil_temperature_deg: 25.07
+      metrics:
+        mse: 2.5418155484834377e-06
+        mae: 0.0013016075568212198
+        rmse: 0.0015943072315220293
+        mean_percentage_error_pct: 3.065407800045175
+        signed_mean_offset_deg: 6.979835054702714e-05
+        absolute_mean_offset_deg: 6.979835054702714e-05
+        peak_to_peak_error_deg: 0.004393216222524643
+        centered_mae_deg: 0.0013059895700728852
+        centered_rmse_deg: 0.0015927786220138543
+    - dataset_index: 57
+      source_file_path: data/polished_dataset/backward/35degree/1000rpm/1000.0rpm1300.0Nm35.0deg.csv
+      direction_label: backward
+      speed_rpm: -999.9494813383424
+      torque_nm: 1299.787199471855
+      oil_temperature_deg: 36.17
+      metrics:
+        mse: 2.283582768953578e-06
+        mae: 0.00119190879437762
+        rmse: 0.001511152794707927
+        mean_percentage_error_pct: 2.915358629274272
+        signed_mean_offset_deg: 0.0005090373742859811
+        absolute_mean_offset_deg: 0.0005090373742859811
+        peak_to_peak_error_deg: 0.00226774625480175
+        centered_mae_deg: 0.001130562181363833
+        centered_rmse_deg: 0.0014228365052013573
+    - dataset_index: 91
+      source_file_path: data/polished_dataset/backward/35degree/800rpm/800.0rpm300.0Nm35.0deg.csv
+      direction_label: backward
+      speed_rpm: -799.9831997021024
+      torque_nm: 300.13660194118
+      oil_temperature_deg: 34.89
+      metrics:
+        mse: 5.60027281900928e-07
+        mae: 0.000594451386405126
+        rmse: 0.0007483497056195907
+        mean_percentage_error_pct: 1.622642141796901
+        signed_mean_offset_deg: -0.00038144618323106744
+        absolute_mean_offset_deg: 0.00038144618323106744
+        peak_to_peak_error_deg: 0.00040670856833457947
+        centered_mae_deg: 0.0005222374410291448
+        centered_rmse_deg: 0.0006438370067023011
+    - dataset_index: 52
+      source_file_path: data/polished_dataset/backward/30degree/700rpm/700.0rpm1500.0Nm30.0deg.csv
+      direction_label: backward
+      speed_rpm: -699.9885753303945
+      torque_nm: 1499.94343518537
+      oil_temperature_deg: 31.51
+      metrics:
+        mse: 1.6080021257089535e-06
+        mae: 0.0010267884742158155
+        rmse: 0.0012680702368989478
+        mean_percentage_error_pct: 2.528872646512983
+        signed_mean_offset_deg: 0.0001732094290976723
+        absolute_mean_offset_deg: 0.0001732094290976723
+        peak_to_peak_error_deg: 0.0018733460456132889
+        centered_mae_deg: 0.001030113734789969
+        centered_rmse_deg: 0.0012561849463278135
+    - dataset_index: 49
+      source_file_path: data/polished_dataset/backward/30degree/600rpm/600.0rpm1100.0Nm30.0deg.csv
+      direction_label: backward
+      speed_rpm: -599.9669340041113
+      torque_nm: 1100.0430703214502
+      oil_temperature_deg: 31.96
+      metrics:
+        mse: 1.092142091905182e-06
+        mae: 0.0008727653572956721
+        rmse: 0.0010450560233332862
+        mean_percentage_error_pct: 2.2416126620313475
+        signed_mean_offset_deg: -0.0007716422939362625
+        absolute_mean_offset_deg: 0.0007716422939362625
+        peak_to_peak_error_deg: 0.0011926935985684395
+        centered_mae_deg: 0.0005681080765498337
+        centered_rmse_deg: 0.0007047767462920187
+    - dataset_index: 15
+      source_file_path: data/polished_dataset/backward/25degree/400rpm/400.0rpm1000.0Nm25.0deg.csv
+      direction_label: backward
+      speed_rpm: -400.0248199934776
+      torque_nm: 1000.023603442145
+      oil_temperature_deg: 25.68
+      metrics:
+        mse: 9.699304172607976e-07
+        mae: 0.0007974635567128038
+        rmse: 0.0009848504542623706
+        mean_percentage_error_pct: 2.0647151485559143
+        signed_mean_offset_deg: 0.0006848421714191014
+        absolute_mean_offset_deg: 0.0006848421714191014
+        peak_to_peak_error_deg: 0.0011917678639292717
+        centered_mae_deg: 0.0005662180580353985
+        centered_rmse_deg: 0.0007077581631509223
+    - dataset_index: 77
+      source_file_path: data/polished_dataset/backward/35degree/300rpm/300.0rpm1400.0Nm35.0deg.csv
+      direction_label: backward
+      speed_rpm: -299.987755733029
+      torque_nm: 1400.28862956627
+      oil_temperature_deg: 35.35
+      metrics:
+        mse: 1.3146788062766857e-06
+        mae: 0.0009309425950050354
+        rmse: 0.001146594438446605
+        mean_percentage_error_pct: 2.2550115415735097
+        signed_mean_offset_deg: 0.0007795672087619702
+        absolute_mean_offset_deg: 0.0007795672087619702
+        peak_to_peak_error_deg: 0.0021579526364803314
+        centered_mae_deg: 0.0006592348242217364
+        centered_rmse_deg: 0.0008408054312977269
+    - dataset_index: 0
+      source_file_path: data/polished_dataset/backward/25degree/100rpm/100.0rpm300.0Nm25.0deg.csv
+      direction_label: backward
+      speed_rpm: -99.99744592939656
+      torque_nm: 299.967563148446
+      oil_temperature_deg: 24.58
+      metrics:
+        mse: 1.5970297422178366e-06
+        mae: 0.0010464880470332598
+        rmse: 0.0012637364211803964
+        mean_percentage_error_pct: 2.862514978428792
+        signed_mean_offset_deg: -0.0007196775556697806
+        absolute_mean_offset_deg: 0.0007196775556697806
+        peak_to_peak_error_deg: 0.0028874892741441727
+        centered_mae_deg: 0.0008403737438998052
+        centered_rmse_deg: 0.001038794473456134
+  - dataset_id: polished_dataset
+    input_mode: actual_values
+    surface: global
+    run_name: te_periodic_temporal_convolution_global__polished_actual_values
+    run_instance_id: 2026-07-08-20-40-43__te_periodic_temporal_convolution_global__polished_actual_values
+    dataset_schema: polished_point_v1
+    model_type: periodic_temporal_convolution
+    onnx_model_path: models/polished_dataset/actual_values/exported/periodic_temporal_convolution/global/2026-07-08-20-40-43__te_periodic_temporal_convolution_global__polished_actual_values/onnx/model.onnx
+    python_model_path: models/polished_dataset/actual_values/exported/periodic_temporal_convolution/global/2026-07-08-20-40-43__te_periodic_temporal_convolution_global__polished_actual_values/python/periodic_temporal_convolution-epoch=109-val_mae=0.00190820.ckpt
+    training_config_path: models/polished_dataset/actual_values/exported/periodic_temporal_convolution/global/2026-07-08-20-40-43__te_periodic_temporal_convolution_global__polished_actual_values/source_run/training_config.snapshot.yaml
+    source_inventory_path: models/polished_dataset/actual_values/exported/model_development_export_inventory.yaml
+    evaluated_curve_count: 194
+    aggregate_metrics:
+      mse: 1.159416946912163e-05
+      mae: 0.0019996606641866587
+      rmse: 0.002394836164058065
+      mean_percentage_error_pct: 4.116783957349406
+      signed_mean_offset_deg: -5.722336525909191e-05
+      absolute_mean_offset_deg: 0.0007734190670727628
+      peak_to_peak_error_deg: 0.0036489695732748214
+      centered_mae_deg: 0.0017513450146351178
+      centered_rmse_deg: 0.002115145424507042
+      p95_mean_percentage_error_pct: 10.371706118438533
+    onnx_metadata:
+      input_list:
+      - name: input_tensor
+        shape:
+        - batch_size
+        - sequence_length
+        - '5'
+        type: tensor(float)
+      output_list:
+      - name: prediction_tensor
+        shape:
+        - batch_size
+        - '1'
+        type: tensor(float)
+      provider_list:
+      - CPUExecutionProvider
+    collage_path: output/validation_checks/track2_familywise_onnx_report/periodic_temporal_convolution/2026-07-08-23-45-38__track2_periodic_temporal_convolution_familywise_onnx_report/collages/polished_dataset__actual_values/global_12_curve_collage.png
+    collage_markdown_path: assets/polished_dataset__actual_values/global_12_curve_collage.png
+    selected_curve_list:
+    - dataset_index: 42
+      source_file_path: data/polished_dataset/backward/30degree/1800rpm/1800.0rpm1100.0Nm30.0deg.csv
+      direction_label: backward
+      speed_rpm: -1800.0313076676603
+      torque_nm: 1100.3788829301452
+      oil_temperature_deg: 32.25
+      metrics:
+        mse: 3.926327202417075e-05
+        mae: 0.005275342728661296
+        rmse: 0.006266041176386471
+        mean_percentage_error_pct: 9.926878387556258
+        signed_mean_offset_deg: -0.00191312257690394
+        absolute_mean_offset_deg: 0.00191312257690394
+        peak_to_peak_error_deg: 0.0077400607988238335
+        centered_mae_deg: 0.005163810843820708
+        centered_rmse_deg: 0.005966844562238167
+    - dataset_index: 67
+      source_file_path: data/polished_dataset/backward/35degree/1600rpm/1600.0rpm1700.0Nm35.0deg.csv
+      direction_label: backward
+      speed_rpm: -1599.9833026773194
+      torque_nm: 1699.836695174775
+      oil_temperature_deg: 35.64
+      metrics:
+        mse: 8.417197177440195e-05
+        mae: 0.008109884486960558
+        rmse: 0.00917452842245322
+        mean_percentage_error_pct: 10.904741015606296
+        signed_mean_offset_deg: -0.0008778997046950584
+        absolute_mean_offset_deg: 0.0008778997046950584
+        peak_to_peak_error_deg: 0.025233867578208447
+        centered_mae_deg: 0.008080062866206895
+        centered_rmse_deg: 0.009132429243246195
+    - dataset_index: 4
+      source_file_path: data/polished_dataset/backward/25degree/1100rpm/1100.0rpm200.0Nm25.0deg.csv
+      direction_label: backward
+      speed_rpm: -1099.991519342772
+      torque_nm: 199.992918967357
+      oil_temperature_deg: 28.43
+      metrics:
+        mse: 1.1489239392601682e-05
+        mae: 0.002780738161163754
+        rmse: 0.003389578055245473
+        mean_percentage_error_pct: 6.123742439672122
+        signed_mean_offset_deg: 0.0005945009788774769
+        absolute_mean_offset_deg: 0.0005945009788774769
+        peak_to_peak_error_deg: 0.008270703256130219
+        centered_mae_deg: 0.0027259993911741276
+        centered_rmse_deg: 0.0033370358072270373
+    - dataset_index: 28
+      source_file_path: data/polished_dataset/backward/25degree/800rpm/800.0rpm500.0Nm25.0deg.csv
+      direction_label: backward
+      speed_rpm: -799.9762146617502
+      torque_nm: 499.874889835702
+      oil_temperature_deg: 26.76
+      metrics:
+        mse: 3.4777003995504604e-07
+        mae: 0.00048398361218460195
+        rmse: 0.0005897203065479822
+        mean_percentage_error_pct: 1.297195145893867
+        signed_mean_offset_deg: -5.742828989241389e-06
+        absolute_mean_offset_deg: 5.742828989241389e-06
+        peak_to_peak_error_deg: 0.00042960792779922485
+        centered_mae_deg: 0.000483492140403996
+        centered_rmse_deg: 0.0005896923434048015
+    - dataset_index: 20
+      source_file_path: data/polished_dataset/backward/25degree/500rpm/500.0rpm1800.0Nm25.0deg.csv
+      direction_label: backward
+      speed_rpm: -499.960910673224
+      torque_nm: 1799.72646233159
+      oil_temperature_deg: 25.89
+      metrics:
+        mse: 1.1558061344196415e-06
+        mae: 0.0008957562386058271
+        rmse: 0.0010750842452662216
+        mean_percentage_error_pct: 2.132849458686391
+        signed_mean_offset_deg: 0.0006991127544703583
+        absolute_mean_offset_deg: 0.0006991127544703583
+        peak_to_peak_error_deg: 0.0018776096403598785
+        centered_mae_deg: 0.0006614875688279023
+        centered_rmse_deg: 0.0008167297539311948
+    - dataset_index: 13
+      source_file_path: data/polished_dataset/backward/25degree/200rpm/200.0rpm1800.0Nm25.0deg.csv
+      direction_label: backward
+      speed_rpm: -200.07384940111777
+      torque_nm: 1800.22046568638
+      oil_temperature_deg: 25.29
+      metrics:
+        mse: 1.2771939069722699e-06
+        mae: 0.0009367663490896424
+        rmse: 0.0011301300398504014
+        mean_percentage_error_pct: 2.204080938973704
+        signed_mean_offset_deg: 0.0004940106688688198
+        absolute_mean_offset_deg: 0.0004940106688688198
+        peak_to_peak_error_deg: 0.0019336044788360596
+        centered_mae_deg: 0.0008242757766210061
+        centered_rmse_deg: 0.0010164385697207928
+    - dataset_index: 116
+      source_file_path: data/polished_dataset/forward/25degree/200rpm/200.0rpm500.0Nm25.0deg.csv
+      direction_label: forward
+      speed_rpm: 200.01942286882743
+      torque_nm: -499.902009963989
+      oil_temperature_deg: 24.98
+      metrics:
+        mse: 1.270847865357108e-06
+        mae: 0.0009645112634946903
+        rmse: 0.0011273188836159484
+        mean_percentage_error_pct: 2.539064667580038
+        signed_mean_offset_deg: 0.0006428387908575436
+        absolute_mean_offset_deg: 0.0006428387908575436
+        peak_to_peak_error_deg: 0.0012999866157770157
+        centered_mae_deg: 0.0007582159630854015
+        centered_rmse_deg: 0.0009260702750471583
+    - dataset_index: 154
+      source_file_path: data/polished_dataset/forward/30degree/600rpm/600.0rpm1400.0Nm30.0deg.csv
+      direction_label: forward
+      speed_rpm: 599.9788642010087
+      torque_nm: -1399.66821670532
+      oil_temperature_deg: 32.14
+      metrics:
+        mse: 6.195197925013834e-07
+        mae: 0.0006372080921816329
+        rmse: 0.0007870957962671275
+        mean_percentage_error_pct: 1.4995786589829685
+        signed_mean_offset_deg: -0.0002051282402438422
+        absolute_mean_offset_deg: 0.0002051282402438422
+        peak_to_peak_error_deg: 0.00010262802243232727
+        centered_mae_deg: 0.0006169134897694067
+        centered_rmse_deg: 0.0007598961755107391
+    - dataset_index: 161
+      source_file_path: data/polished_dataset/forward/30degree/900rpm/900.0rpm800.0Nm30.0deg.csv
+      direction_label: forward
+      speed_rpm: 899.9790810636249
+      torque_nm: -800.11773109436
+      oil_temperature_deg: 32.36
+      metrics:
+        mse: 7.282729324183351e-07
+        mae: 0.0007024564256425947
+        rmse: 0.0008533890861842183
+        mean_percentage_error_pct: 1.7609561148503252
+        signed_mean_offset_deg: -0.00040974581497721374
+        absolute_mean_offset_deg: 0.00040974581497721374
+        peak_to_peak_error_deg: 0.0004826132208108902
+        centered_mae_deg: 0.0006095175998173848
+        centered_rmse_deg: 0.0007485862004652464
+    - dataset_index: 103
+      source_file_path: data/polished_dataset/forward/25degree/1300rpm/1300.0rpm100.0Nm25.0deg.csv
+      direction_label: forward
+      speed_rpm: 1300.0011071332942
+      torque_nm: -100.45349597930951
+      oil_temperature_deg: 25.16
+      metrics:
+        mse: 6.797676229206819e-06
+        mae: 0.0021194368334060223
+        rmse: 0.0026072353612987876
+        mean_percentage_error_pct: 5.128727509324321
+        signed_mean_offset_deg: 0.0017848843684381184
+        absolute_mean_offset_deg: 0.0017848843684381184
+        peak_to_peak_error_deg: 0.0029554073698818684
+        centered_mae_deg: 0.001646128495217959
+        centered_rmse_deg: 0.0019004904684086364
+    - dataset_index: 141
+      source_file_path: data/polished_dataset/forward/30degree/1500rpm/1500.0rpm500.0Nm30.0deg.csv
+      direction_label: forward
+      speed_rpm: 1499.9973960639115
+      torque_nm: -500.521183013916
+      oil_temperature_deg: 32.8
+      metrics:
+        mse: 3.583293036915498e-06
+        mae: 0.0015599047280071925
+        rmse: 0.001892958804864886
+        mean_percentage_error_pct: 3.642277467158574
+        signed_mean_offset_deg: 0.0006110798082469652
+        absolute_mean_offset_deg: 0.0006110798082469652
+        peak_to_peak_error_deg: 0.0038175806403160095
+        centered_mae_deg: 0.0015153013207762141
+        centered_rmse_deg: 0.001791612264098555
+    - dataset_index: 114
+      source_file_path: data/polished_dataset/forward/25degree/1800rpm/1800.0rpm700.0Nm25.0deg.csv
+      direction_label: forward
+      speed_rpm: 1800.0090120011232
+      torque_nm: -700.2687454223632
+      oil_temperature_deg: 26.42
+      metrics:
+        mse: 1.7541240203067438e-06
+        mae: 0.0010839502501767129
+        rmse: 0.0013244334714536416
+        mean_percentage_error_pct: 2.6228659770403087
+        signed_mean_offset_deg: 0.000624666737470155
+        absolute_mean_offset_deg: 0.000624666737470155
+        peak_to_peak_error_deg: 0.00119878351688385
+        centered_mae_deg: 0.0009070552322454103
+        centered_rmse_deg: 0.001167867923784679
