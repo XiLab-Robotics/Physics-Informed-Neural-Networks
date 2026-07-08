@@ -2,7 +2,7 @@
 
 ## Executive Snapshot
 
-- Generated At: `2026-07-08T22:39:18`
+- Generated At: `2026-07-08T23:41:47`
 - Program State: active.
 - Current Completed Wave: polished-dataset RCIM, early-wave, and full-wave
 - Current Focus: the polished-dataset TE Curve Verification Pipeline refresh is
@@ -27,7 +27,7 @@
 
 | Family | Current Role | Best Run | Model Type | Test MAE [deg] | Params | Last Update |
 | --- | --- | --- | --- | ---: | ---: | --- |
-| `periodic_gru_sequence_global` | Implemented Benchmark | `te_periodic_gru_sequence_global` | `periodic_gru_sequence` | 0.001159 | 157,569 | `2026-07-08 22:14:21` |
+| `periodic_gru_sequence_global` | Implemented Benchmark | `te_periodic_gru_sequence_global` | `periodic_gru_sequence` | 0.001159 | 157,569 | `2026-07-08 22:57:44` |
 | `periodic_lstm_sequence_global` | Implemented Benchmark | `te_periodic_lstm_sequence_global` | `periodic_lstm_sequence` | 0.001187 | 210,049 | `2026-06-30 04:57:16` |
 | `periodic_mlp_harmonic_global` | Implemented Benchmark | `te_periodic_mlp_harmonic_global` | `periodic_mlp` | 0.001264 | 28,417 | `2026-07-08 03:17:38` |
 | `periodic_gru_sequence` | Implemented Benchmark | `te_periodic_gru_sequence_remote_global` | `periodic_gru_sequence` | 0.001279 | 157,569 | `2026-06-22 14:06:48` |
@@ -109,7 +109,7 @@
 
 | Family | Current Role | Best Run | Model Type | Test MAE [deg] | Params | Last Update |
 | --- | --- | --- | --- | ---: | ---: | --- |
-| `periodic_gru_sequence_fw` | Implemented Benchmark | `te_periodic_gru_sequence_fw` | `periodic_gru_sequence` | 0.001101 | 157,569 | `2026-07-08 22:23:26` |
+| `periodic_gru_sequence_fw` | Implemented Benchmark | `te_periodic_gru_sequence_fw` | `periodic_gru_sequence` | 0.001101 | 157,569 | `2026-07-08 23:18:30` |
 | `periodic_mlp_harmonic_fw` | Implemented Benchmark | `te_periodic_mlp_harmonic_fw` | `periodic_mlp` | 0.001326 | 28,417 | `2026-07-08 03:31:01` |
 | `wave52b_offset_harmonic_guided_offset_centered_shape_harmonic_fw` | Implemented Benchmark | `te_wave52b_offset_harmonic_guided_offset_centered_shape_harmonic_fw` | `wave52b_offset_harmonic_guided` | 0.001392 | 22,593 | `2026-07-02 01:57:18` |
 | `periodic_lstm_sequence_fw` | Implemented Benchmark | `te_periodic_lstm_sequence_fw` | `periodic_lstm_sequence` | 0.001547 | 210,049 | `2026-06-30 05:26:56` |
@@ -178,7 +178,7 @@
 
 | Family | Current Role | Best Run | Model Type | Test MAE [deg] | Params | Last Update |
 | --- | --- | --- | --- | ---: | ---: | --- |
-| `periodic_gru_sequence_bw` | Current Program Winner | `te_periodic_gru_sequence_bw` | `periodic_gru_sequence` | 0.001084 | 157,569 | `2026-07-08 22:33:24` |
+| `periodic_gru_sequence_bw` | Current Program Winner | `te_periodic_gru_sequence_bw` | `periodic_gru_sequence` | 0.001084 | 157,569 | `2026-07-08 23:29:58` |
 | `periodic_lstm_sequence_bw` | Implemented Benchmark | `te_periodic_lstm_sequence_bw` | `periodic_lstm_sequence` | 0.001226 | 210,049 | `2026-06-30 06:13:35` |
 | `periodic_mlp_harmonic_bw` | Implemented Benchmark | `te_periodic_mlp_harmonic_bw` | `periodic_mlp` | 0.001279 | 28,417 | `2026-07-08 03:56:01` |
 | `wave52b_offset_harmonic_guided_offset_centered_shape_harmonic_bw` | Implemented Benchmark | `te_wave52b_offset_harmonic_guided_offset_centered_shape_harmonic_bw` | `wave52b_offset_harmonic_guided` | 0.001677 | 22,593 | `2026-07-02 02:27:12` |
@@ -427,11 +427,11 @@ Low-priority exploratory families currently listed in the backlog:
 
 | Campaign | Generated At | Completed | Failed | Winner | Impact |
 | --- | --- | ---: | ---: | --- | --- |
+| `dataset_input_mode_retraining__periodic_gru_sequence__polished_setpoints` | `2026-07-08 23:29:58` | 3 | 0 | `te_periodic_gru_sequence_fw__polished_setpoints` | No family-best change |
 | `dataset_input_mode_retraining__periodic_gru_sequence__simplified_setpoints` | `2026-07-08 22:33:24` | 3 | 0 | `te_periodic_gru_sequence_bw__simplified_setpoints` | No family-best change |
 | `dataset_input_mode_retraining__periodic_temporal_convolution__polished_actual_values` | `2026-07-08 21:50:44` | 3 | 0 | `te_periodic_temporal_convolution_global__polished_actual_values` | Updated periodic_temporal_convolution_global family best |
 | `dataset_input_mode_retraining__periodic_temporal_convolution__polished_setpoints` | `2026-07-08 20:25:10` | 3 | 0 | `te_periodic_temporal_convolution_global__polished_setpoints` | No family-best change |
 | `dataset_input_mode_retraining__periodic_temporal_convolution__simplified_setpoints` | `2026-07-08 19:35:07` | 3 | 0 | `te_periodic_temporal_convolution_bw__simplified_setpoints` | No family-best change |
-| `dataset_input_mode_retraining__lstm_sequence__polished_actual_values` | `2026-07-08 18:46:16` | 3 | 0 | `te_lstm_sequence_fw__polished_actual_values` | Updated lstm_sequence_fw family best |
 
 ## Ranking Policy
 
@@ -1937,7 +1937,7 @@ Known failed campaign attempts for this family:
 
 - Best run: `te_periodic_gru_sequence_remote_global`
 - Best test MAE: `0.001279`
-- Completed tracked runs: `11`
+- Completed tracked runs: `14`
 - Known failed campaign attempts: `0`
 
 | Rank | Run | Model Type | Test MAE [deg] | Test RMSE [deg] | Val MAE [deg] | Params | Duration | Artifact Size | Model Complexity | Training Heaviness | Campaign |
@@ -1949,10 +1949,13 @@ Known failed campaign attempts for this family:
 | 5 | `te_periodic_gru_sequence_bw` | `periodic_gru_sequence` | 0.001166 | 0.001481 | 0.001158 | 157,569 | 45m 02s | 1.82 MB | Very High | High | `polished_dataset_full_wave_retraining_2026_06_22` |
 | 6 | `te_periodic_gru_sequence_global` | `periodic_gru_sequence` | 0.001257 | 0.001613 | 0.001252 | 157,569 | 1h 02m 53s | 1.82 MB | Very High | High | `polished_dataset_full_wave_retraining_2026_06_22` |
 | 7 | `te_periodic_gru_sequence_remote_global` | `periodic_gru_sequence` | 0.001279 | 0.001638 | 0.001274 | 157,569 | 40m 03s | 1.82 MB | Very High | High | `wave2b_harmonic_temporal_hybrid_campaign_2026_05_25` |
-| 8 | `te_periodic_gru_sequence_remote_global` | `periodic_gru_sequence` | 0.002681 | 0.002971 | 0.002507 | 157,953 | 1h 00m 14s | 1.82 MB | Very High | High | `wave2b_harmonic_temporal_hybrid_campaign_2026_05_25` |
-| 9 | `te_periodic_gru_sequence_bw__simplified_setpoints` | `periodic_gru_sequence` | 0.003250 | 0.003969 | 0.003500 | 157,953 | 9m 58s | 1.82 MB | Very High | Low | `dataset_input_mode_retraining__periodic_gru_sequence__simplified_setpoints` |
-| 10 | `te_periodic_gru_sequence_global__simplified_setpoints` | `periodic_gru_sequence` | 0.003332 | 0.004068 | 0.003477 | 157,953 | 9m 35s | 1.82 MB | Very High | Low | `dataset_input_mode_retraining__periodic_gru_sequence__simplified_setpoints` |
-| 11 | `te_periodic_gru_sequence_fw__simplified_setpoints` | `periodic_gru_sequence` | 0.003368 | 0.004076 | 0.003532 | 157,953 | 9m 05s | 1.82 MB | Very High | Low | `dataset_input_mode_retraining__periodic_gru_sequence__simplified_setpoints` |
+| 8 | `te_periodic_gru_sequence_fw__polished_setpoints` | `periodic_gru_sequence` | 0.002108 | 0.003430 | 0.001832 | 157,953 | 20m 46s | 1.82 MB | Very High | Medium | `dataset_input_mode_retraining__periodic_gru_sequence__polished_setpoints` |
+| 9 | `te_periodic_gru_sequence_global__polished_setpoints` | `periodic_gru_sequence` | 0.002143 | 0.003467 | 0.001867 | 157,953 | 13m 48s | 1.82 MB | Very High | Low | `dataset_input_mode_retraining__periodic_gru_sequence__polished_setpoints` |
+| 10 | `te_periodic_gru_sequence_bw__polished_setpoints` | `periodic_gru_sequence` | 0.002168 | 0.003506 | 0.001898 | 157,953 | 11m 27s | 1.82 MB | Very High | Low | `dataset_input_mode_retraining__periodic_gru_sequence__polished_setpoints` |
+| 11 | `te_periodic_gru_sequence_remote_global` | `periodic_gru_sequence` | 0.002681 | 0.002971 | 0.002507 | 157,953 | 1h 00m 14s | 1.82 MB | Very High | High | `wave2b_harmonic_temporal_hybrid_campaign_2026_05_25` |
+| 12 | `te_periodic_gru_sequence_bw__simplified_setpoints` | `periodic_gru_sequence` | 0.003250 | 0.003969 | 0.003500 | 157,953 | 9m 58s | 1.82 MB | Very High | Low | `dataset_input_mode_retraining__periodic_gru_sequence__simplified_setpoints` |
+| 13 | `te_periodic_gru_sequence_global__simplified_setpoints` | `periodic_gru_sequence` | 0.003332 | 0.004068 | 0.003477 | 157,953 | 9m 35s | 1.82 MB | Very High | Low | `dataset_input_mode_retraining__periodic_gru_sequence__simplified_setpoints` |
+| 14 | `te_periodic_gru_sequence_fw__simplified_setpoints` | `periodic_gru_sequence` | 0.003368 | 0.004076 | 0.003532 | 157,953 | 9m 05s | 1.82 MB | Very High | Low | `dataset_input_mode_retraining__periodic_gru_sequence__simplified_setpoints` |
 
 #### periodic_gru_sequence_bw
 

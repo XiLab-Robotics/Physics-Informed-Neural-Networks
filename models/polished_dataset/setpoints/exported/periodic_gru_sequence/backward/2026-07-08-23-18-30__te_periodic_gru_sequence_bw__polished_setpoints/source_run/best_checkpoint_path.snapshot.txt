@@ -1,0 +1,1 @@
+/scratch1/dferrari/Physics-Informed-Neural-Networks/output/training_runs/periodic_gru_sequence/2026-07-08-23-18-30__te_periodic_gru_sequence_bw__polished_setpoints/checkpoints/periodic_gru_sequence-epoch=064-val_mae=0.00189811.ckpt
