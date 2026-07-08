@@ -1,0 +1,25 @@
+schema_version: 1
+dataset_id: polished_dataset
+dataset_schema: polished_setpoint_curve_v1
+input_mode: setpoints
+model_family: lstm_sequence
+model_type: lstm_sequence
+surface: forward
+run_name: te_lstm_sequence_fw__polished_setpoints
+run_instance_id: 2026-07-08-16-05-59__te_lstm_sequence_fw__polished_setpoints
+source_output_directory: output/training_runs/lstm_sequence/2026-07-08-16-05-59__te_lstm_sequence_fw__polished_setpoints
+source_best_checkpoint_path: output/training_runs/lstm_sequence/2026-07-08-16-05-59__te_lstm_sequence_fw__polished_setpoints/checkpoints/lstm_sequence-epoch=078-val_mae=0.00219094.ckpt
+python_model_path: models/polished_dataset/setpoints/exported/lstm_sequence/forward/2026-07-08-16-05-59__te_lstm_sequence_fw__polished_setpoints/python/lstm_sequence-epoch=078-val_mae=0.00219094.ckpt
+onnx_model_path: models/polished_dataset/setpoints/exported/lstm_sequence/forward/2026-07-08-16-05-59__te_lstm_sequence_fw__polished_setpoints/onnx/model.onnx
+onnx_export_status: exported
+onnx_export_error: ''
+source_run_snapshot_path_map:
+  training_config.snapshot.yaml: models/polished_dataset/setpoints/exported/lstm_sequence/forward/2026-07-08-16-05-59__te_lstm_sequence_fw__polished_setpoints/source_run/training_config.snapshot.yaml
+  metrics_summary.snapshot.yaml: models/polished_dataset/setpoints/exported/lstm_sequence/forward/2026-07-08-16-05-59__te_lstm_sequence_fw__polished_setpoints/source_run/metrics_summary.snapshot.yaml
+  run_metadata.snapshot.yaml: models/polished_dataset/setpoints/exported/lstm_sequence/forward/2026-07-08-16-05-59__te_lstm_sequence_fw__polished_setpoints/source_run/run_metadata.snapshot.yaml
+  training_test_report.snapshot.md: models/polished_dataset/setpoints/exported/lstm_sequence/forward/2026-07-08-16-05-59__te_lstm_sequence_fw__polished_setpoints/source_run/training_test_report.snapshot.md
+  best_checkpoint_path.snapshot.txt: models/polished_dataset/setpoints/exported/lstm_sequence/forward/2026-07-08-16-05-59__te_lstm_sequence_fw__polished_setpoints/source_run/best_checkpoint_path.snapshot.txt
+metrics:
+  val_mae: 0.0021909361239522696
+  test_mae: 0.002464499557390809
+  test_rmse: 0.003858801443129778

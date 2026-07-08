@@ -6,7 +6,7 @@ selection_policy:
   second_tie_breaker: val_mae
   third_tie_breaker: trainable_parameter_count
   direction: minimize
-updated_at: '2026-07-08T15:24:03'
+updated_at: '2026-07-08T16:21:04'
 best_entry:
   run_instance_id: 2026-06-26-11-02-55__te_lstm_sequence_fw
   run_name: te_lstm_sequence_fw

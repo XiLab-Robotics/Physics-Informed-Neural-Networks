@@ -1,0 +1,107 @@
+schema_version: 1
+config_path: /scratch1/dferrari/Physics-Informed-Neural-Networks/config/training/queue/dataset_input_mode_retraining/dataset_input_mode_retraining__lstm_sequence__polished_setpoints/running/2026-07-08-15-45-54_002_002_lstm_sequence_fw.yaml
+experiment:
+  model_family: lstm_sequence_fw
+  model_type: lstm_sequence
+  run_name: te_lstm_sequence_fw__polished_setpoints
+  output_run_name: te_lstm_sequence_fw__polished_setpoints
+  run_instance_id: 2026-07-08-16-05-59__te_lstm_sequence_fw__polished_setpoints
+  output_artifact_kind: training_run
+  base_model_family: lstm_sequence
+  training_variant: fw
+  direction_scope_label: forward_only
+  use_forward_direction: true
+  use_backward_direction: false
+artifacts:
+  output_directory: /scratch1/dferrari/Physics-Informed-Neural-Networks/output/training_runs/lstm_sequence/2026-07-08-16-05-59__te_lstm_sequence_fw__polished_setpoints
+  best_checkpoint_path: /scratch1/dferrari/Physics-Informed-Neural-Networks/output/training_runs/lstm_sequence/2026-07-08-16-05-59__te_lstm_sequence_fw__polished_setpoints/checkpoints/lstm_sequence-epoch=078-val_mae=0.00219094.ckpt
+dataset_split:
+  train_curve_count: 1356
+  validation_curve_count: 388
+  test_curve_count: 194
+  dataset_name: polished_dataset
+  dataset_schema: polished_setpoint_curve_v1
+  input_mode: setpoints
+  input_feature_name_list:
+  - angular_position_deg
+  - input_speed_rpm
+  - input_torque_nm
+  - oil_temperature_deg
+  - direction_flag
+  target_feature_name_list:
+  - theta_TE
+  input_feature_dim: 5
+  target_feature_dim: 1
+dataset:
+  dataset_id: polished_dataset
+  dataset_schema: polished_setpoint_curve_v1
+  input_mode: setpoints
+  input_feature_names:
+  - angular_position_deg
+  - input_speed_rpm
+  - input_torque_nm
+  - oil_temperature_deg
+  - direction_flag
+  target_feature_names:
+  - theta_TE
+  input_feature_dim: 5
+  target_feature_dim: 1
+model_summary:
+  backbone_name: RecurrentSequenceNetwork
+  trainable_parameter_count: 201345
+  frozen_parameter_count: 0
+  total_parameter_count: 201345
+runtime_config:
+  accelerator: auto
+  devices: auto
+  precision: '32'
+  benchmark: true
+  use_non_blocking_transfer: true
+normalization_statistics:
+  input_feature_mean:
+  - 180.0000762939453
+  - 506.3013916015625
+  - 899.591552734375
+  - 29.843809127807617
+  - -0.01724354922771454
+  input_feature_std:
+  - 103.92301940917969
+  - 467.61541748046875
+  - 552.3279418945312
+  - 4.094047546386719
+  - 0.9998513460159302
+  target_mean:
+  - -0.016667330637574196
+  target_std:
+  - 0.0465485081076622
+validation_metrics:
+  val_loss: 0.005860791075974703
+  val_mae: 0.0021909361239522696
+  val_rmse: 0.0030238612089306116
+  val_pointwise_loss: 0.005860791075974703
+  val_centered_curve_shape_loss: 0.005370577331632376
+  val_curve_offset_loss: 0.0004902143846265972
+  val_curve_amplitude_loss: 0.05832037702202797
+  val_sparse_harmonic_shape_loss: 0.0
+test_metrics:
+  test_loss: 0.009286101907491684
+  test_mae: 0.002464499557390809
+  test_rmse: 0.003858801443129778
+  test_pointwise_loss: 0.009286101907491684
+  test_centered_curve_shape_loss: 0.006272496655583382
+  test_curve_offset_loss: 0.0030136057175695896
+  test_curve_amplitude_loss: 0.07053417712450027
+  test_sparse_harmonic_shape_loss: 0.0
+comparison_payload:
+  model_family: lstm_sequence_fw
+  model_type: lstm_sequence
+  run_name: te_lstm_sequence_fw__polished_setpoints
+  backbone_name: RecurrentSequenceNetwork
+  trainable_parameter_count: 201345
+  total_parameter_count: 201345
+  val_mae: 0.0021909361239522696
+  val_rmse: 0.0030238612089306116
+  test_mae: 0.002464499557390809
+  test_rmse: 0.003858801443129778
+  deployment_notes: ''
+  interpretability_notes: ''

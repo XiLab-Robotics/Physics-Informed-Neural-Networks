@@ -147,10 +147,10 @@ last_completed_campaign:
       te_curve_verification_status: not_run_in_closeout
 next_prepared_campaign:
   status: completed_and_exported
-  campaign_name: dataset_input_mode_retraining__lstm_sequence__simplified_setpoints
-  dataset_id: simplified_dataset
+  campaign_name: dataset_input_mode_retraining__lstm_sequence__polished_setpoints
+  dataset_id: polished_dataset
   input_mode: setpoints
-  dataset_schema: simplified_curve_v1
+  dataset_schema: polished_setpoint_curve_v1
   expected_run_count: 3
   completed_run_count: 3
   failed_run_count: 0
@@ -163,63 +163,63 @@ next_prepared_campaign:
     slurm_memory: 100G
     gpu_request: a100:1
     observed_gpu_memory_sample: about 2.8 to 3.9 GiB on A100 80GB during sampled
-      batch-16 simplified setpoint LSTM sequence training
-    observed_gpu_utilization_sample: bursty samples from 0 to 63 percent, with short
+      batch-16 polished setpoint LSTM sequence training
+    observed_gpu_utilization_sample: bursty samples from 0 to 35 percent, with short
       high-power training bursts and fast validation passes
-    observed_throughput: about 15-17 effective batches per second including validation
-      at 85 batches per epoch, with train-only phases commonly around 17-18 batches
+    observed_throughput: about 9-10 effective batches per second including validation
+      at 85 batches per epoch, with train-only phases commonly around 12-13 batches
       per second
     batch_tuning_note: The prepared campaign default was raised from curve_batch_size
-      2 to 16 before submission. Batch 16 remained stable for simplified setpoint
-      LSTM sequence collation and completed all three sequential surfaces in 00:37:04.
-    comparison_note: Global completed in 14:41, Fw in 09:50, and Bw in 12:12. LSTM
-      used more sampled VRAM than GRU on simplified setpoints but still stayed far
+      2 to 16 before submission. Batch 16 remained stable for polished setpoint LSTM
+      sequence collation and completed all three sequential surfaces in 00:53:16.
+    comparison_note: Global completed in 20:05, Fw in 15:04, and Bw in 17:36. Polished
+      setpoint validation was slower than simplified setpoints, while VRAM stayed far
       below the A100 80GB limit.
-    next_campaign_recommendation: Continue lstm_sequence polished setpoints at batch
+    next_campaign_recommendation: Continue lstm_sequence polished actual-values at batch
       16 as the accepted baseline unless a new explicit tuning request is made.
   sbatch_submission:
-    slurm_job_id: '135123'
+    slurm_job_id: '135131'
     state: COMPLETED
     exit_code: 0:0
-    elapsed: 00:37:04
-    max_rss: 15957508K
+    elapsed: 00:53:16
+    max_rss: 15931800K
     python_executable: /unimore_home/dferrari/.conda/envs/pinns_env/bin/python
     torch_version: 2.7.1+cu118
     gpu_request: a100:1
-  campaign_manifest_path: config/training/dataset_input_mode_retraining/campaigns/dataset_input_mode_retraining__lstm_sequence__simplified_setpoints/campaign.yaml
-  campaign_output_directory: output/training_campaigns/2026-07-08-14-59-31_dataset_input_mode_retraining__lstm_sequence__simplified_setpoints
-  campaign_best_run_path: output/training_campaigns/2026-07-08-14-59-31_dataset_input_mode_retraining__lstm_sequence__simplified_setpoints/campaign_best_run.yaml
-  campaign_leaderboard_path: output/training_campaigns/2026-07-08-14-59-31_dataset_input_mode_retraining__lstm_sequence__simplified_setpoints/campaign_leaderboard.yaml
+  campaign_manifest_path: config/training/dataset_input_mode_retraining/campaigns/dataset_input_mode_retraining__lstm_sequence__polished_setpoints/campaign.yaml
+  campaign_output_directory: output/training_campaigns/2026-07-08-15-45-54_dataset_input_mode_retraining__lstm_sequence__polished_setpoints
+  campaign_best_run_path: output/training_campaigns/2026-07-08-15-45-54_dataset_input_mode_retraining__lstm_sequence__polished_setpoints/campaign_best_run.yaml
+  campaign_leaderboard_path: output/training_campaigns/2026-07-08-15-45-54_dataset_input_mode_retraining__lstm_sequence__polished_setpoints/campaign_leaderboard.yaml
   best_run:
-    run_name: te_lstm_sequence_global__simplified_setpoints
-    run_instance_id: 2026-07-08-14-59-31__te_lstm_sequence_global__simplified_setpoints
-    surface: global
-    test_mae: 0.0034460152965039015
-    test_rmse: 0.004293248988687992
-    val_mae: 0.003692096099257469
+    run_name: te_lstm_sequence_fw__polished_setpoints
+    run_instance_id: 2026-07-08-16-05-59__te_lstm_sequence_fw__polished_setpoints
+    surface: forward
+    test_mae: 0.002464499557390809
+    test_rmse: 0.003858801443129778
+    val_mae: 0.0021909361239522696
   surface_run_list:
   - surface: global
-    run_name: te_lstm_sequence_global__simplified_setpoints
-    run_instance_id: 2026-07-08-14-59-31__te_lstm_sequence_global__simplified_setpoints
-    test_mae: 0.0034460152965039015
-    val_mae: 0.003692096099257469
-    duration: 00:14:41
+    run_name: te_lstm_sequence_global__polished_setpoints
+    run_instance_id: 2026-07-08-15-45-54__te_lstm_sequence_global__polished_setpoints
+    test_mae: 0.002469944069162011
+    val_mae: 0.0021864830050617456
+    duration: 00:20:05
   - surface: forward
-    run_name: te_lstm_sequence_fw__simplified_setpoints
-    run_instance_id: 2026-07-08-15-14-13__te_lstm_sequence_fw__simplified_setpoints
-    test_mae: 0.003518945537507534
-    val_mae: 0.003702363930642605
-    duration: 00:09:50
+    run_name: te_lstm_sequence_fw__polished_setpoints
+    run_instance_id: 2026-07-08-16-05-59__te_lstm_sequence_fw__polished_setpoints
+    test_mae: 0.002464499557390809
+    val_mae: 0.0021909361239522696
+    duration: 00:15:04
   - surface: backward
-    run_name: te_lstm_sequence_bw__simplified_setpoints
-    run_instance_id: 2026-07-08-15-24-03__te_lstm_sequence_bw__simplified_setpoints
-    test_mae: 0.0034626894630491734
-    val_mae: 0.0036774894688278437
-    duration: 00:12:12
+    run_name: te_lstm_sequence_bw__polished_setpoints
+    run_instance_id: 2026-07-08-16-21-04__te_lstm_sequence_bw__polished_setpoints
+    test_mae: 0.002469063736498356
+    val_mae: 0.002199706854298711
+    duration: 00:17:36
   export:
     status: completed
-    export_root: models/simplified_dataset/setpoints/exported
-    export_inventory_path: models/simplified_dataset/setpoints/exported/model_development_export_inventory.yaml
+    export_root: models/polished_dataset/setpoints/exported
+    export_inventory_path: models/polished_dataset/setpoints/exported/model_development_export_inventory.yaml
     exported_entry_count: 3
     onnx_export_status_counts:
       exported: 3

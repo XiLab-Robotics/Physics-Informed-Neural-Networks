@@ -1,0 +1,69 @@
+campaign_name: dataset_input_mode_retraining__lstm_sequence__polished_setpoints
+generated_at: '2026-07-08T16:38:40'
+queue_root: config/training/queue/dataset_input_mode_retraining/dataset_input_mode_retraining__lstm_sequence__polished_setpoints
+campaign_output_directory: output/training_campaigns/2026-07-08-15-45-54_dataset_input_mode_retraining__lstm_sequence__polished_setpoints
+planning_report_path: doc/reports/campaign_plans/cross_wave/input_modes/2026-07-07-01-46-06_dataset_input_mode_retraining_campaign_plan_report.md
+run_list:
+- original_queue_config_path: config/training/queue/dataset_input_mode_retraining/dataset_input_mode_retraining__lstm_sequence__polished_setpoints/pending/2026-07-08-15-45-54_001_001_lstm_sequence_global.yaml
+  final_queue_config_path: config/training/queue/dataset_input_mode_retraining/dataset_input_mode_retraining__lstm_sequence__polished_setpoints/completed/2026-07-08-15-45-54_001_001_lstm_sequence_global.yaml
+  source_config_path: config/training/dataset_input_mode_retraining/campaigns/dataset_input_mode_retraining__lstm_sequence__polished_setpoints/queue/001_lstm_sequence_global.yaml
+  run_name: te_lstm_sequence_global__polished_setpoints
+  run_instance_id: 2026-07-08-15-45-54__te_lstm_sequence_global__polished_setpoints
+  model_type: lstm_sequence
+  queue_status: completed
+  start_time: '2026-07-08T15:45:54'
+  end_time: '2026-07-08T16:05:59'
+  duration_seconds: 1205.086
+  process_return_code: 0
+  output_directory: output/training_runs/lstm_sequence/2026-07-08-15-45-54__te_lstm_sequence_global__polished_setpoints
+  config_snapshot_path: output/training_runs/lstm_sequence/2026-07-08-15-45-54__te_lstm_sequence_global__polished_setpoints/training_config.yaml
+  best_checkpoint_reference_path: output/training_runs/lstm_sequence/2026-07-08-15-45-54__te_lstm_sequence_global__polished_setpoints/best_checkpoint_path.txt
+  best_checkpoint_path: /scratch1/dferrari/Physics-Informed-Neural-Networks/output/training_runs/lstm_sequence/2026-07-08-15-45-54__te_lstm_sequence_global__polished_setpoints/checkpoints/lstm_sequence-epoch=118-val_mae=0.00218648.ckpt
+  metrics_path: output/training_runs/lstm_sequence/2026-07-08-15-45-54__te_lstm_sequence_global__polished_setpoints/metrics_summary.yaml
+  training_report_path: output/training_runs/lstm_sequence/2026-07-08-15-45-54__te_lstm_sequence_global__polished_setpoints/training_test_report.md
+  log_path: output/training_campaigns/2026-07-08-15-45-54_dataset_input_mode_retraining__lstm_sequence__polished_setpoints/logs/001_te_lstm_sequence_global__polished_setpoints.log
+  planning_report_path: doc/reports/campaign_plans/cross_wave/input_modes/2026-07-07-01-46-06_dataset_input_mode_retraining_campaign_plan_report.md
+  campaign_name: dataset_input_mode_retraining__lstm_sequence__polished_setpoints
+  error_message: null
+- original_queue_config_path: config/training/queue/dataset_input_mode_retraining/dataset_input_mode_retraining__lstm_sequence__polished_setpoints/pending/2026-07-08-15-45-54_002_002_lstm_sequence_fw.yaml
+  final_queue_config_path: config/training/queue/dataset_input_mode_retraining/dataset_input_mode_retraining__lstm_sequence__polished_setpoints/completed/2026-07-08-15-45-54_002_002_lstm_sequence_fw.yaml
+  source_config_path: config/training/dataset_input_mode_retraining/campaigns/dataset_input_mode_retraining__lstm_sequence__polished_setpoints/queue/002_lstm_sequence_fw.yaml
+  run_name: te_lstm_sequence_fw__polished_setpoints
+  run_instance_id: 2026-07-08-16-05-59__te_lstm_sequence_fw__polished_setpoints
+  model_type: lstm_sequence
+  queue_status: completed
+  start_time: '2026-07-08T16:05:59'
+  end_time: '2026-07-08T16:21:04'
+  duration_seconds: 904.407
+  process_return_code: 0
+  output_directory: output/training_runs/lstm_sequence/2026-07-08-16-05-59__te_lstm_sequence_fw__polished_setpoints
+  config_snapshot_path: output/training_runs/lstm_sequence/2026-07-08-16-05-59__te_lstm_sequence_fw__polished_setpoints/training_config.yaml
+  best_checkpoint_reference_path: output/training_runs/lstm_sequence/2026-07-08-16-05-59__te_lstm_sequence_fw__polished_setpoints/best_checkpoint_path.txt
+  best_checkpoint_path: /scratch1/dferrari/Physics-Informed-Neural-Networks/output/training_runs/lstm_sequence/2026-07-08-16-05-59__te_lstm_sequence_fw__polished_setpoints/checkpoints/lstm_sequence-epoch=078-val_mae=0.00219094.ckpt
+  metrics_path: output/training_runs/lstm_sequence/2026-07-08-16-05-59__te_lstm_sequence_fw__polished_setpoints/metrics_summary.yaml
+  training_report_path: output/training_runs/lstm_sequence/2026-07-08-16-05-59__te_lstm_sequence_fw__polished_setpoints/training_test_report.md
+  log_path: output/training_campaigns/2026-07-08-15-45-54_dataset_input_mode_retraining__lstm_sequence__polished_setpoints/logs/002_te_lstm_sequence_fw__polished_setpoints.log
+  planning_report_path: doc/reports/campaign_plans/cross_wave/input_modes/2026-07-07-01-46-06_dataset_input_mode_retraining_campaign_plan_report.md
+  campaign_name: dataset_input_mode_retraining__lstm_sequence__polished_setpoints
+  error_message: null
+- original_queue_config_path: config/training/queue/dataset_input_mode_retraining/dataset_input_mode_retraining__lstm_sequence__polished_setpoints/pending/2026-07-08-15-45-54_003_003_lstm_sequence_bw.yaml
+  final_queue_config_path: config/training/queue/dataset_input_mode_retraining/dataset_input_mode_retraining__lstm_sequence__polished_setpoints/completed/2026-07-08-15-45-54_003_003_lstm_sequence_bw.yaml
+  source_config_path: config/training/dataset_input_mode_retraining/campaigns/dataset_input_mode_retraining__lstm_sequence__polished_setpoints/queue/003_lstm_sequence_bw.yaml
+  run_name: te_lstm_sequence_bw__polished_setpoints
+  run_instance_id: 2026-07-08-16-21-04__te_lstm_sequence_bw__polished_setpoints
+  model_type: lstm_sequence
+  queue_status: completed
+  start_time: '2026-07-08T16:21:04'
+  end_time: '2026-07-08T16:38:40'
+  duration_seconds: 1055.904
+  process_return_code: 0
+  output_directory: output/training_runs/lstm_sequence/2026-07-08-16-21-04__te_lstm_sequence_bw__polished_setpoints
+  config_snapshot_path: output/training_runs/lstm_sequence/2026-07-08-16-21-04__te_lstm_sequence_bw__polished_setpoints/training_config.yaml
+  best_checkpoint_reference_path: output/training_runs/lstm_sequence/2026-07-08-16-21-04__te_lstm_sequence_bw__polished_setpoints/best_checkpoint_path.txt
+  best_checkpoint_path: /scratch1/dferrari/Physics-Informed-Neural-Networks/output/training_runs/lstm_sequence/2026-07-08-16-21-04__te_lstm_sequence_bw__polished_setpoints/checkpoints/lstm_sequence-epoch=070-val_mae=0.00219971.ckpt
+  metrics_path: output/training_runs/lstm_sequence/2026-07-08-16-21-04__te_lstm_sequence_bw__polished_setpoints/metrics_summary.yaml
+  training_report_path: output/training_runs/lstm_sequence/2026-07-08-16-21-04__te_lstm_sequence_bw__polished_setpoints/training_test_report.md
+  log_path: output/training_campaigns/2026-07-08-15-45-54_dataset_input_mode_retraining__lstm_sequence__polished_setpoints/logs/003_te_lstm_sequence_bw__polished_setpoints.log
+  planning_report_path: doc/reports/campaign_plans/cross_wave/input_modes/2026-07-07-01-46-06_dataset_input_mode_retraining_campaign_plan_report.md
+  campaign_name: dataset_input_mode_retraining__lstm_sequence__polished_setpoints
+  error_message: null
