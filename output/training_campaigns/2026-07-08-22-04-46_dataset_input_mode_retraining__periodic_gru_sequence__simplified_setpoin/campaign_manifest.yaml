@@ -1,0 +1,69 @@
+campaign_name: dataset_input_mode_retraining__periodic_gru_sequence__simplified_setpoints
+generated_at: '2026-07-08T22:33:24'
+queue_root: config/training/queue/dataset_input_mode_retraining/dataset_input_mode_retraining__periodic_gru_sequence__simplified_setpoints
+campaign_output_directory: output/training_campaigns/2026-07-08-22-04-46_dataset_input_mode_retraining__periodic_gru_sequence__simplified_setpoin
+planning_report_path: doc/reports/campaign_plans/cross_wave/input_modes/2026-07-07-01-46-06_dataset_input_mode_retraining_campaign_plan_report.md
+run_list:
+- original_queue_config_path: config/training/queue/dataset_input_mode_retraining/dataset_input_mode_retraining__periodic_gru_sequence__simplified_setpoints/pending/2026-07-08-22-04-46_001_001_periodic_gru_sequence_global.yaml
+  final_queue_config_path: config/training/queue/dataset_input_mode_retraining/dataset_input_mode_retraining__periodic_gru_sequence__simplified_setpoints/completed/2026-07-08-22-04-46_001_001_periodic_gru_sequence_global.yaml
+  source_config_path: config/training/dataset_input_mode_retraining/campaigns/dataset_input_mode_retraining__periodic_gru_sequence__simplified_setpoints/queue/001_periodic_gru_sequence_global.yaml
+  run_name: te_periodic_gru_sequence_global__simplified_setpoints
+  run_instance_id: 2026-07-08-22-04-46__te_periodic_gru_sequence_global__simplified_setpoints
+  model_type: periodic_gru_sequence
+  queue_status: completed
+  start_time: '2026-07-08T22:04:46'
+  end_time: '2026-07-08T22:14:21'
+  duration_seconds: 575.403
+  process_return_code: 0
+  output_directory: output/training_runs/periodic_gru_sequence/2026-07-08-22-04-46__te_periodic_gru_sequence_global__simplified_setpoints
+  config_snapshot_path: output/training_runs/periodic_gru_sequence/2026-07-08-22-04-46__te_periodic_gru_sequence_global__simplified_setpoints/training_config.yaml
+  best_checkpoint_reference_path: output/training_runs/periodic_gru_sequence/2026-07-08-22-04-46__te_periodic_gru_sequence_global__simplified_setpoints/best_checkpoint_path.txt
+  best_checkpoint_path: /scratch1/dferrari/Physics-Informed-Neural-Networks/output/training_runs/periodic_gru_sequence/2026-07-08-22-04-46__te_periodic_gru_sequence_global__simplified_setpoints/checkpoints/periodic_gru_sequence-epoch=060-val_mae=0.00347740.ckpt
+  metrics_path: output/training_runs/periodic_gru_sequence/2026-07-08-22-04-46__te_periodic_gru_sequence_global__simplified_setpoints/metrics_summary.yaml
+  training_report_path: output/training_runs/periodic_gru_sequence/2026-07-08-22-04-46__te_periodic_gru_sequence_global__simplified_setpoints/training_test_report.md
+  log_path: output/training_campaigns/2026-07-08-22-04-46_dataset_input_mode_retraining__periodic_gru_sequence__simplified_setpoin/logs/001_te_periodic_gru_sequence_global__simplified_setp.log
+  planning_report_path: doc/reports/campaign_plans/cross_wave/input_modes/2026-07-07-01-46-06_dataset_input_mode_retraining_campaign_plan_report.md
+  campaign_name: dataset_input_mode_retraining__periodic_gru_sequence__simplified_setpoints
+  error_message: null
+- original_queue_config_path: config/training/queue/dataset_input_mode_retraining/dataset_input_mode_retraining__periodic_gru_sequence__simplified_setpoints/pending/2026-07-08-22-04-46_002_002_periodic_gru_sequence_fw.yaml
+  final_queue_config_path: config/training/queue/dataset_input_mode_retraining/dataset_input_mode_retraining__periodic_gru_sequence__simplified_setpoints/completed/2026-07-08-22-04-46_002_002_periodic_gru_sequence_fw.yaml
+  source_config_path: config/training/dataset_input_mode_retraining/campaigns/dataset_input_mode_retraining__periodic_gru_sequence__simplified_setpoints/queue/002_periodic_gru_sequence_fw.yaml
+  run_name: te_periodic_gru_sequence_fw__simplified_setpoints
+  run_instance_id: 2026-07-08-22-14-21__te_periodic_gru_sequence_fw__simplified_setpoints
+  model_type: periodic_gru_sequence
+  queue_status: completed
+  start_time: '2026-07-08T22:14:21'
+  end_time: '2026-07-08T22:23:26'
+  duration_seconds: 545.015
+  process_return_code: 0
+  output_directory: output/training_runs/periodic_gru_sequence/2026-07-08-22-14-21__te_periodic_gru_sequence_fw__simplified_setpoints
+  config_snapshot_path: output/training_runs/periodic_gru_sequence/2026-07-08-22-14-21__te_periodic_gru_sequence_fw__simplified_setpoints/training_config.yaml
+  best_checkpoint_reference_path: output/training_runs/periodic_gru_sequence/2026-07-08-22-14-21__te_periodic_gru_sequence_fw__simplified_setpoints/best_checkpoint_path.txt
+  best_checkpoint_path: /scratch1/dferrari/Physics-Informed-Neural-Networks/output/training_runs/periodic_gru_sequence/2026-07-08-22-14-21__te_periodic_gru_sequence_fw__simplified_setpoints/checkpoints/periodic_gru_sequence-epoch=056-val_mae=0.00353205.ckpt
+  metrics_path: output/training_runs/periodic_gru_sequence/2026-07-08-22-14-21__te_periodic_gru_sequence_fw__simplified_setpoints/metrics_summary.yaml
+  training_report_path: output/training_runs/periodic_gru_sequence/2026-07-08-22-14-21__te_periodic_gru_sequence_fw__simplified_setpoints/training_test_report.md
+  log_path: output/training_campaigns/2026-07-08-22-04-46_dataset_input_mode_retraining__periodic_gru_sequence__simplified_setpoin/logs/002_te_periodic_gru_sequence_fw__simplified_setpoint.log
+  planning_report_path: doc/reports/campaign_plans/cross_wave/input_modes/2026-07-07-01-46-06_dataset_input_mode_retraining_campaign_plan_report.md
+  campaign_name: dataset_input_mode_retraining__periodic_gru_sequence__simplified_setpoints
+  error_message: null
+- original_queue_config_path: config/training/queue/dataset_input_mode_retraining/dataset_input_mode_retraining__periodic_gru_sequence__simplified_setpoints/pending/2026-07-08-22-04-46_003_003_periodic_gru_sequence_bw.yaml
+  final_queue_config_path: config/training/queue/dataset_input_mode_retraining/dataset_input_mode_retraining__periodic_gru_sequence__simplified_setpoints/completed/2026-07-08-22-04-46_003_003_periodic_gru_sequence_bw.yaml
+  source_config_path: config/training/dataset_input_mode_retraining/campaigns/dataset_input_mode_retraining__periodic_gru_sequence__simplified_setpoints/queue/003_periodic_gru_sequence_bw.yaml
+  run_name: te_periodic_gru_sequence_bw__simplified_setpoints
+  run_instance_id: 2026-07-08-22-23-26__te_periodic_gru_sequence_bw__simplified_setpoints
+  model_type: periodic_gru_sequence
+  queue_status: completed
+  start_time: '2026-07-08T22:23:27'
+  end_time: '2026-07-08T22:33:24'
+  duration_seconds: 597.958
+  process_return_code: 0
+  output_directory: output/training_runs/periodic_gru_sequence/2026-07-08-22-23-26__te_periodic_gru_sequence_bw__simplified_setpoints
+  config_snapshot_path: output/training_runs/periodic_gru_sequence/2026-07-08-22-23-26__te_periodic_gru_sequence_bw__simplified_setpoints/training_config.yaml
+  best_checkpoint_reference_path: output/training_runs/periodic_gru_sequence/2026-07-08-22-23-26__te_periodic_gru_sequence_bw__simplified_setpoints/best_checkpoint_path.txt
+  best_checkpoint_path: /scratch1/dferrari/Physics-Informed-Neural-Networks/output/training_runs/periodic_gru_sequence/2026-07-08-22-23-26__te_periodic_gru_sequence_bw__simplified_setpoints/checkpoints/periodic_gru_sequence-epoch=081-val_mae=0.00349987.ckpt
+  metrics_path: output/training_runs/periodic_gru_sequence/2026-07-08-22-23-26__te_periodic_gru_sequence_bw__simplified_setpoints/metrics_summary.yaml
+  training_report_path: output/training_runs/periodic_gru_sequence/2026-07-08-22-23-26__te_periodic_gru_sequence_bw__simplified_setpoints/training_test_report.md
+  log_path: output/training_campaigns/2026-07-08-22-04-46_dataset_input_mode_retraining__periodic_gru_sequence__simplified_setpoin/logs/003_te_periodic_gru_sequence_bw__simplified_setpoint.log
+  planning_report_path: doc/reports/campaign_plans/cross_wave/input_modes/2026-07-07-01-46-06_dataset_input_mode_retraining_campaign_plan_report.md
+  campaign_name: dataset_input_mode_retraining__periodic_gru_sequence__simplified_setpoints
+  error_message: null

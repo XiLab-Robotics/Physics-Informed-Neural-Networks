@@ -1,0 +1,107 @@
+schema_version: 1
+config_path: /scratch1/dferrari/Physics-Informed-Neural-Networks/config/training/queue/dataset_input_mode_retraining/dataset_input_mode_retraining__periodic_gru_sequence__simplified_setpoints/running/2026-07-08-22-04-46_001_001_periodic_gru_sequence_global.yaml
+experiment:
+  model_family: periodic_gru_sequence_global
+  model_type: periodic_gru_sequence
+  run_name: te_periodic_gru_sequence_global__simplified_setpoints
+  output_run_name: te_periodic_gru_sequence_global__simplified_setpoints
+  run_instance_id: 2026-07-08-22-04-46__te_periodic_gru_sequence_global__simplified_setpoints
+  output_artifact_kind: training_run
+  base_model_family: periodic_gru_sequence
+  training_variant: global
+  direction_scope_label: bidirectional
+  use_forward_direction: true
+  use_backward_direction: true
+artifacts:
+  output_directory: /scratch1/dferrari/Physics-Informed-Neural-Networks/output/training_runs/periodic_gru_sequence/2026-07-08-22-04-46__te_periodic_gru_sequence_global__simplified_setpoints
+  best_checkpoint_path: /scratch1/dferrari/Physics-Informed-Neural-Networks/output/training_runs/periodic_gru_sequence/2026-07-08-22-04-46__te_periodic_gru_sequence_global__simplified_setpoints/checkpoints/periodic_gru_sequence-epoch=060-val_mae=0.00347740.ckpt
+dataset_split:
+  train_curve_count: 1356
+  validation_curve_count: 388
+  test_curve_count: 194
+  dataset_name: simplified_dataset
+  dataset_schema: simplified_curve_v1
+  input_mode: setpoints
+  input_feature_name_list:
+  - angular_position_deg
+  - input_speed_rpm
+  - input_torque_nm
+  - oil_temperature_deg
+  - direction_flag
+  target_feature_name_list:
+  - transmission_error_deg
+  input_feature_dim: 5
+  target_feature_dim: 1
+dataset:
+  dataset_id: simplified_dataset
+  dataset_schema: simplified_curve_v1
+  input_mode: setpoints
+  input_feature_names:
+  - angular_position_deg
+  - input_speed_rpm
+  - input_torque_nm
+  - oil_temperature_deg
+  - direction_flag
+  target_feature_names:
+  - transmission_error_deg
+  input_feature_dim: 5
+  target_feature_dim: 1
+model_summary:
+  backbone_name: PeriodicTemporalSequenceNetwork
+  trainable_parameter_count: 157953
+  frozen_parameter_count: 0
+  total_parameter_count: 157953
+runtime_config:
+  accelerator: auto
+  devices: auto
+  precision: '32'
+  benchmark: true
+  use_non_blocking_transfer: true
+normalization_statistics:
+  input_feature_mean:
+  - 179.98074340820312
+  - 497.8580017089844
+  - 896.0145263671875
+  - 30.364091873168945
+  - -4.3438788566163566e-07
+  input_feature_std:
+  - 103.92313385009766
+  - 466.8042297363281
+  - 543.8323974609375
+  - 4.080519676208496
+  - 1.0
+  target_mean:
+  - -0.01724020391702652
+  target_std:
+  - 0.0465201772749424
+validation_metrics:
+  val_loss: 0.010029151104390621
+  val_mae: 0.0034773992374539375
+  val_rmse: 0.0042727310210466385
+  val_pointwise_loss: 0.010029151104390621
+  val_centered_curve_shape_loss: 0.005827406886965036
+  val_curve_offset_loss: 0.004201744683086872
+  val_curve_amplitude_loss: 0.0407770536839962
+  val_sparse_harmonic_shape_loss: 0.0
+test_metrics:
+  test_loss: 0.00787396915256977
+  test_mae: 0.0033321671653538942
+  test_rmse: 0.004067953210324049
+  test_pointwise_loss: 0.00787396915256977
+  test_centered_curve_shape_loss: 0.002833123318850994
+  test_curve_offset_loss: 0.005040847230702639
+  test_curve_amplitude_loss: 0.016642937436699867
+  test_sparse_harmonic_shape_loss: 0.0
+comparison_payload:
+  model_family: periodic_gru_sequence_global
+  model_type: periodic_gru_sequence
+  run_name: te_periodic_gru_sequence_global__simplified_setpoints
+  backbone_name: PeriodicTemporalSequenceNetwork
+  trainable_parameter_count: 157953
+  total_parameter_count: 157953
+  val_mae: 0.0034773992374539375
+  val_rmse: 0.0042727310210466385
+  test_mae: 0.0033321671653538942
+  test_rmse: 0.004067953210324049
+  deployment_notes: ''
+  interpretability_notes: ''

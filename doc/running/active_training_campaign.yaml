@@ -147,10 +147,10 @@ last_completed_campaign:
       te_curve_verification_status: not_run_in_closeout
 next_prepared_campaign:
   status: completed_and_exported
-  campaign_name: dataset_input_mode_retraining__periodic_temporal_convolution__polished_actual_values
-  dataset_id: polished_dataset
-  input_mode: actual_values
-  dataset_schema: polished_point_v1
+  campaign_name: dataset_input_mode_retraining__periodic_gru_sequence__simplified_setpoints
+  dataset_id: simplified_dataset
+  input_mode: setpoints
+  dataset_schema: simplified_curve_v1
   expected_run_count: 3
   completed_run_count: 3
   failed_run_count: 0
@@ -162,73 +162,72 @@ next_prepared_campaign:
     slurm_cpus_per_task: 8
     slurm_memory: 100G
     gpu_request: a100:1
-    observed_gpu_memory_sample: about 1.3 GiB on A100 80GB during early sampled
-      batch-16 polished actual-values periodic temporal convolution training
-    observed_gpu_utilization_sample: bursty samples from 0 to 22 percent after startup,
-      with low sustained utilization and slower polished validation passes
-    observed_throughput: about 8.1-9.2 effective batches per second including
-      validation at 85 batches per epoch, with train-only phases commonly around
-      12-14 batches per second
+    observed_gpu_memory_sample: about 3.2 GiB on A100 80GB during sampled batch-16
+      simplified setpoint periodic GRU sequence training
+    observed_gpu_utilization_sample: bursty samples from 11 to 51 percent after startup,
+      with higher sampled utilization than the periodic TCN campaigns
+    observed_throughput: about 15-16 effective batches per second including validation
+      at 85 batches per epoch, with train-only phases commonly around 17-18 batches
+      per second
     batch_tuning_note: The prepared campaign default was raised from curve_batch_size
-      2 to 16 before submission. Batch 16 remained stable for polished actual-values
-      periodic temporal convolution collation and completed all three sequential
-      surfaces in 01:10:28.
-    comparison_note: Global completed in 25:34, Fw in 21:42, and Bw in 22:45. VRAM
-      stayed far below the A100 80GB limit, while actual-values validation was slower
-      than polished setpoints.
+      2 to 16 before submission. Batch 16 remained stable for simplified setpoint
+      periodic GRU sequence collation and completed all three sequential surfaces in
+      00:29:04.
+    comparison_note: Global completed in 09:35, Fw in 09:05, and Bw in 09:58. VRAM
+      stayed far below the A100 80GB limit.
     next_campaign_recommendation: Continue the remaining dataset input-mode campaigns
       at batch 16 as the accepted baseline unless a new explicit tuning request is
       made.
   sbatch_submission:
-    slurm_job_id: '135153'
+    slurm_job_id: '135157'
     state: COMPLETED
     exit_code: 0:0
-    elapsed: 01:10:28
-    max_rss: 18164960K
+    elapsed: 00:29:04
+    max_rss: 15932036K
     python_executable: /unimore_home/dferrari/.conda/envs/pinns_env/bin/python
     torch_version: 2.7.1+cu118
     gpu_request: a100:1
-  campaign_manifest_path: config/training/dataset_input_mode_retraining/campaigns/dataset_input_mode_retraining__periodic_temporal_convolution__polished_actual_values/campaign.yaml
-  campaign_output_directory: output/training_campaigns/2026-07-08-20-40-43_dataset_input_mode_retraining__periodic_temporal_convolution__polished_a
+  campaign_manifest_path: config/training/dataset_input_mode_retraining/campaigns/dataset_input_mode_retraining__periodic_gru_sequence__simplified_setpoints/campaign.yaml
+  campaign_output_directory: output/training_campaigns/2026-07-08-22-04-46_dataset_input_mode_retraining__periodic_gru_sequence__simplified_setpoin
   campaign_output_directory_note: The runner shortened the physical output directory
-    suffix to polished_a; the manifest campaign_name, queue root, run names, and export
-    archive all retain the full polished_actual_values identifier.
-  campaign_best_run_path: output/training_campaigns/2026-07-08-20-40-43_dataset_input_mode_retraining__periodic_temporal_convolution__polished_a/campaign_best_run.yaml
-  campaign_leaderboard_path: output/training_campaigns/2026-07-08-20-40-43_dataset_input_mode_retraining__periodic_temporal_convolution__polished_a/campaign_leaderboard.yaml
+    suffix to simplified_setpoin; the manifest campaign_name, queue root, run names,
+    and export archive all retain the full simplified_setpoints identifier.
+  campaign_best_run_path: output/training_campaigns/2026-07-08-22-04-46_dataset_input_mode_retraining__periodic_gru_sequence__simplified_setpoin/campaign_best_run.yaml
+  campaign_leaderboard_path: output/training_campaigns/2026-07-08-22-04-46_dataset_input_mode_retraining__periodic_gru_sequence__simplified_setpoin/campaign_leaderboard.yaml
   best_run:
-    run_name: te_periodic_temporal_convolution_global__polished_actual_values
-    run_instance_id: 2026-07-08-20-40-43__te_periodic_temporal_convolution_global__polished_actual_values
-    surface: global
-    test_mae: 0.0019994000904262066
-    test_rmse: 0.002970749046653509
-    val_mae: 0.0019081970676779747
+    run_name: te_periodic_gru_sequence_bw__simplified_setpoints
+    run_instance_id: 2026-07-08-22-23-26__te_periodic_gru_sequence_bw__simplified_setpoints
+    surface: backward
+    test_mae: 0.0032499409280717373
+    test_rmse: 0.003968670964241028
+    val_mae: 0.003499874845147133
   surface_run_list:
   - surface: global
-    run_name: te_periodic_temporal_convolution_global__polished_actual_values
-    run_instance_id: 2026-07-08-20-40-43__te_periodic_temporal_convolution_global__polished_actual_values
-    test_mae: 0.0019994000904262066
-    val_mae: 0.0019081970676779747
-    duration: 00:25:34
+    run_name: te_periodic_gru_sequence_global__simplified_setpoints
+    run_instance_id: 2026-07-08-22-04-46__te_periodic_gru_sequence_global__simplified_setpoints
+    test_mae: 0.0033321671653538942
+    val_mae: 0.0034773992374539375
+    duration: 00:09:35
   - surface: forward
-    run_name: te_periodic_temporal_convolution_fw__polished_actual_values
-    run_instance_id: 2026-07-08-21-06-17__te_periodic_temporal_convolution_fw__polished_actual_values
-    test_mae: 0.0020768316462635994
-    val_mae: 0.0019388817017897964
-    duration: 00:21:42
+    run_name: te_periodic_gru_sequence_fw__simplified_setpoints
+    run_instance_id: 2026-07-08-22-14-21__te_periodic_gru_sequence_fw__simplified_setpoints
+    test_mae: 0.0033679285552352667
+    val_mae: 0.0035320476163178682
+    duration: 00:09:05
   - surface: backward
-    run_name: te_periodic_temporal_convolution_bw__polished_actual_values
-    run_instance_id: 2026-07-08-21-27-59__te_periodic_temporal_convolution_bw__polished_actual_values
-    test_mae: 0.0020011200103908777
-    val_mae: 0.001866061706095934
-    duration: 00:22:45
+    run_name: te_periodic_gru_sequence_bw__simplified_setpoints
+    run_instance_id: 2026-07-08-22-23-26__te_periodic_gru_sequence_bw__simplified_setpoints
+    test_mae: 0.0032499409280717373
+    val_mae: 0.003499874845147133
+    duration: 00:09:58
   export:
     status: completed
-    export_root: models/polished_dataset/actual_values/exported
-    export_inventory_path: models/polished_dataset/actual_values/exported/model_development_export_inventory.yaml
+    export_root: models/simplified_dataset/setpoints/exported
+    export_inventory_path: models/simplified_dataset/setpoints/exported/model_development_export_inventory.yaml
     exported_entry_count: 3
     onnx_export_status_counts:
       exported: 3
     onnx_export_warning_note: ONNX export completed with PyTorch TracerWarning from
       periodic_temporal_sequence_network.py while tracing fixed input-size and harmonic
-      tensor iteration assertions, plus the expected temporal_sequence_network.py
-      fixed input-size assertion warning.
+      tensor iteration assertions, plus temporal_sequence_network.py fixed input-size
+      tracing and the expected PyTorch GRU variable-length batch-size warning.
