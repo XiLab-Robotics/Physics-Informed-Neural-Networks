@@ -109,6 +109,11 @@ This folder contains the internal project documents derived from the reference P
   that evaluates dataset/input-mode matched exported models and produces
   configurable forward, backward, and global curve pages.
 
+- [technical/2026-07/2026-07-08/2026-07-08-11-21-45_familywise_sequence_onnx_report_support.md](./technical/2026-07/2026-07-08/2026-07-08-11-21-45_familywise_sequence_onnx_report_support.md)
+  Technical plan for extending the familywise ONNX report builder to handle
+  sequence-model exports such as `temporal_convolution` while preserving the
+  existing point-model report path.
+
 - [reports/analysis/te_curve_verification_pipeline/03_family_reports/tree/[2026-07-07]/track2_tree_familywise_onnx_report.md](./reports/analysis/te_curve_verification_pipeline/03_family_reports/tree/%5B2026-07-07%5D/track2_tree_familywise_onnx_report.md)
   Familywise `tree` ONNX verification report comparing the completed
   simplified setpoint, polished setpoint, and polished actual-value exports

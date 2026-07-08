@@ -18,12 +18,13 @@ import matplotlib.pyplot as plt
 import numpy as np
 import onnxruntime as ort
 import yaml
+from numpy.lib.stride_tricks import sliding_window_view
 from tqdm import tqdm
 
 # Import Project Utilities
 from scripts.reports.analysis import track2_circular_plotting
 from scripts.tooling import repository_path_support
-from scripts.training import shared_training_infrastructure
+from scripts.training import shared_training_infrastructure, transmission_error_datamodule
 
 DEFAULT_OUTPUT_ROOT = PROJECT_PATH / "output" / "validation_checks" / "track2_familywise_onnx_report"
 DEFAULT_REPORT_ROOT = (
@@ -44,6 +45,7 @@ SUMMARY_FILENAME = "track2_familywise_onnx_report_summary.yaml"
 MODEL_INVENTORY_FILENAME = "model_inventory.csv"
 PER_CURVE_METRICS_FILENAME = "per_curve_metrics.csv"
 DEFAULT_CURVES_PER_PAGE = 12
+TEMPORAL_ONNX_INFERENCE_BATCH_SIZE = 65536
 SURFACE_ORDER_LIST = ["forward", "backward", "global"]
 GROUP_TITLE_DICTIONARY = {
     ("simplified_dataset", "setpoints"): "Simplified Dataset + Setpoints",
@@ -107,6 +109,10 @@ class CurveEvaluationEntry:
     angular_position_deg: np.ndarray
     target_curve_deg: np.ndarray
     prediction_curve_deg: np.ndarray
+    plot_measured_angular_position_deg: np.ndarray
+    plot_measured_curve_deg: np.ndarray
+    plot_prediction_angular_position_deg: np.ndarray
+    plot_prediction_curve_deg: np.ndarray
     metrics: dict[str, float]
 
 
@@ -315,21 +321,180 @@ def load_onnx_session(model_entry: ExportedModelEntry, provider_list: list[str])
     return ort.InferenceSession(str(model_entry.onnx_model_path), providers=provider_list)
 
 
-def predict_curve(session: ort.InferenceSession, input_feature_matrix: np.ndarray) -> np.ndarray:
+def resolve_static_onnx_dimension(dimension_value: Any) -> int | None:
 
-    """Predict one TE curve with an ONNX Runtime session."""
+    """Return an ONNX dimension when it is a concrete integer."""
+
+    if isinstance(dimension_value, int):
+        return int(dimension_value)
+    return None
+
+
+def build_temporal_sequence_window_view(padded_feature_matrix: np.ndarray, sequence_length: int) -> np.ndarray:
+
+    """Build a vectorized temporal sequence-window view."""
+
+    window_view = sliding_window_view(padded_feature_matrix, window_shape=sequence_length, axis=0)
+    return np.transpose(window_view, axes=(0, 2, 1))
+
+
+def predict_rank2_curve(session: ort.InferenceSession, input_feature_matrix: np.ndarray) -> np.ndarray:
+
+    """Predict one pointwise TE curve with a rank-2 ONNX input."""
 
     input_metadata = session.get_inputs()[0]
     output_metadata = session.get_outputs()[0]
     feature_matrix = np.asarray(input_feature_matrix, dtype=np.float32)
-    expected_feature_count = input_metadata.shape[1]
-    if isinstance(expected_feature_count, int):
+    assert feature_matrix.ndim == 2, f"Expected rank-2 feature matrix | observed={feature_matrix.shape}"
+    expected_feature_count = resolve_static_onnx_dimension(input_metadata.shape[1])
+    if expected_feature_count is not None:
         assert feature_matrix.shape[1] == expected_feature_count, (
             "ONNX feature width mismatch | "
             f"expected={expected_feature_count} | observed={feature_matrix.shape[1]}"
         )
     prediction_array = session.run([output_metadata.name], {input_metadata.name: feature_matrix})[0]
     return np.asarray(prediction_array, dtype=np.float32).reshape(-1)
+
+
+def predict_rank3_curve(
+    session: ort.InferenceSession,
+    input_feature_matrix: np.ndarray,
+    training_config: dict[str, Any],
+) -> np.ndarray:
+
+    """Predict one full TE curve for a temporal rank-3 ONNX input."""
+
+    input_metadata = session.get_inputs()[0]
+    output_metadata = session.get_outputs()[0]
+    feature_matrix = np.asarray(input_feature_matrix, dtype=np.float32)
+
+    if feature_matrix.ndim == 3:
+        input_tensor = np.ascontiguousarray(feature_matrix, dtype=np.float32)
+        prediction_array = session.run([output_metadata.name], {input_metadata.name: input_tensor})[0]
+        return np.asarray(prediction_array, dtype=np.float32).reshape(-1)
+
+    assert feature_matrix.ndim == 2, f"Expected rank-2 point matrix for temporal windowing | observed={feature_matrix.shape}"
+    dataset_configuration = training_config.get("dataset", {})
+    configured_sequence_length = int(dataset_configuration.get("sequence_length", 0))
+    expected_sequence_length = resolve_static_onnx_dimension(input_metadata.shape[1]) or configured_sequence_length
+    expected_feature_count = resolve_static_onnx_dimension(input_metadata.shape[2])
+    sequence_target_position = str(dataset_configuration.get("sequence_target_position", "center")).strip().lower()
+
+    assert expected_sequence_length > 0, (
+        "Temporal ONNX input requires a concrete sequence length from the model shape or training config"
+    )
+    assert sequence_target_position in {"center", "last"}, (
+        f"Unsupported Sequence Target Position | {sequence_target_position}"
+    )
+    if sequence_target_position == "center":
+        assert expected_sequence_length % 2 == 1, (
+            "Center-readout full-curve evaluation requires an odd sequence length | "
+            f"{expected_sequence_length}"
+        )
+        left_padding_count = expected_sequence_length // 2
+        right_padding_count = expected_sequence_length // 2
+    else:
+        left_padding_count = expected_sequence_length - 1
+        right_padding_count = 0
+
+    if expected_feature_count is not None:
+        assert feature_matrix.shape[1] == expected_feature_count, (
+            "ONNX feature width mismatch | "
+            f"expected={expected_feature_count} | observed={feature_matrix.shape[1]}"
+        )
+
+    padded_feature_matrix = np.pad(
+        feature_matrix,
+        pad_width=((left_padding_count, right_padding_count), (0, 0)),
+        mode="edge",
+    )
+    sequence_window_view = build_temporal_sequence_window_view(
+        padded_feature_matrix=padded_feature_matrix,
+        sequence_length=expected_sequence_length,
+    )
+    prediction_array_list: list[np.ndarray] = []
+    point_count = int(feature_matrix.shape[0])
+    for batch_start_index in range(0, point_count, TEMPORAL_ONNX_INFERENCE_BATCH_SIZE):
+        batch_end_index = min(batch_start_index + TEMPORAL_ONNX_INFERENCE_BATCH_SIZE, point_count)
+        input_tensor = np.ascontiguousarray(sequence_window_view[batch_start_index:batch_end_index], dtype=np.float32)
+        batch_prediction_array = session.run([output_metadata.name], {input_metadata.name: input_tensor})[0]
+        prediction_array_list.append(np.asarray(batch_prediction_array, dtype=np.float32).reshape(-1))
+
+    return np.concatenate(prediction_array_list, axis=0).astype(np.float32)
+
+
+def predict_curve(
+    session: ort.InferenceSession,
+    input_feature_matrix: np.ndarray,
+    training_config: dict[str, Any],
+) -> np.ndarray:
+
+    """Predict one TE curve with an ONNX Runtime session."""
+
+    input_metadata = session.get_inputs()[0]
+    expected_rank = len(input_metadata.shape)
+    if expected_rank == 2:
+        return predict_rank2_curve(session, input_feature_matrix)
+    if expected_rank == 3:
+        return predict_rank3_curve(session, input_feature_matrix, training_config)
+    raise AssertionError(f"Unsupported ONNX input rank | shape={input_metadata.shape}")
+
+
+def build_model_input_payload(
+    curve_sample: dict[str, Any],
+    session: ort.InferenceSession,
+    training_config: dict[str, Any],
+) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
+
+    """Build input, target, and angular-position arrays for one model contract."""
+
+    input_metadata = session.get_inputs()[0]
+    expected_rank = len(input_metadata.shape)
+    if expected_rank == 2:
+        input_feature_matrix = curve_sample["input_tensor"].detach().cpu().numpy().astype(np.float32)
+        target_curve_deg = curve_sample["target_tensor"].detach().cpu().numpy().reshape(-1).astype(np.float32)
+        angular_position_deg = curve_sample["angular_position_deg"].detach().cpu().numpy().reshape(-1).astype(np.float32)
+        return input_feature_matrix, target_curve_deg, angular_position_deg
+
+    if expected_rank == 3:
+        dataset_configuration = training_config.get("dataset", {})
+        maximum_sequences_per_curve_value = dataset_configuration.get("maximum_sequences_per_curve")
+        maximum_sequences_per_curve = (
+            int(maximum_sequences_per_curve_value)
+            if maximum_sequences_per_curve_value is not None
+            else None
+        )
+        sequence_sample = transmission_error_datamodule.extract_sequence_tensor_from_curve_sample(
+            curve_sample_dictionary=curve_sample,
+            point_stride=int(dataset_configuration.get("point_stride", 1)),
+            sequence_length=int(dataset_configuration.get("sequence_length", 17)),
+            sequence_stride=int(dataset_configuration.get("sequence_stride", 1)),
+            target_position=str(dataset_configuration.get("sequence_target_position", "center")),
+            maximum_sequences_per_curve=maximum_sequences_per_curve,
+        )
+        input_tensor = sequence_sample["input_tensor"].detach().cpu().numpy().astype(np.float32)
+        target_curve_deg = sequence_sample["target_tensor"].detach().cpu().numpy().reshape(-1).astype(np.float32)
+        angular_position_deg = sequence_sample["angular_position_deg"].detach().cpu().numpy().reshape(-1).astype(np.float32)
+        return input_tensor, target_curve_deg, angular_position_deg
+
+    raise AssertionError(f"Unsupported ONNX input rank | shape={input_metadata.shape}")
+
+
+def build_plot_payload(
+    curve_sample: dict[str, Any],
+    prediction_curve_deg: np.ndarray,
+    prediction_angular_position_deg: np.ndarray,
+) -> tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray]:
+
+    """Build full measured and model-aligned prediction arrays for plotting."""
+
+    measured_curve_deg = curve_sample["target_tensor"].detach().cpu().numpy().reshape(-1).astype(np.float32)
+    measured_angular_position_deg = (
+        curve_sample["angular_position_deg"].detach().cpu().numpy().reshape(-1).astype(np.float32)
+    )
+    prediction_curve = np.asarray(prediction_curve_deg, dtype=np.float32).reshape(-1)
+    prediction_angular_position = np.asarray(prediction_angular_position_deg, dtype=np.float32).reshape(-1)
+    return measured_angular_position_deg, measured_curve_deg, prediction_angular_position, prediction_curve
 
 
 def surface_accepts_direction(surface_name: str, direction_label: str) -> bool:
@@ -352,6 +517,7 @@ def evaluate_model_entry(
     """Evaluate one exported ONNX model over its valid test curves."""
 
     session = load_onnx_session(model_entry, provider_list)
+    training_config = load_yaml_dictionary(model_entry.training_config_path)
     test_dataset = load_test_dataset(model_entry)
     curve_entry_list: list[CurveEvaluationEntry] = []
 
@@ -368,15 +534,27 @@ def evaluate_model_entry(
         direction_label = str(curve_sample["direction_label"]).strip().lower()
         if not surface_accepts_direction(model_entry.surface, direction_label):
             continue
-        input_feature_matrix = curve_sample["input_tensor"].detach().cpu().numpy().astype(np.float32)
-        target_curve_deg = curve_sample["target_tensor"].detach().cpu().numpy().reshape(-1).astype(np.float32)
-        angular_position_deg = curve_sample["angular_position_deg"].detach().cpu().numpy().reshape(-1).astype(np.float32)
-        prediction_curve_deg = predict_curve(session, input_feature_matrix)
+        input_feature_matrix, target_curve_deg, angular_position_deg = build_model_input_payload(
+            curve_sample=curve_sample,
+            session=session,
+            training_config=training_config,
+        )
+        prediction_curve_deg = predict_curve(session, input_feature_matrix, training_config)
         assert prediction_curve_deg.shape == target_curve_deg.shape, (
             "Prediction and target curve shapes differ | "
             f"{prediction_curve_deg.shape} vs {target_curve_deg.shape}"
         )
         metric_dictionary = compute_curve_metrics(target_curve_deg, prediction_curve_deg)
+        (
+            plot_measured_angular_position_deg,
+            plot_measured_curve_deg,
+            plot_prediction_angular_position_deg,
+            plot_prediction_curve_deg,
+        ) = build_plot_payload(
+            curve_sample=curve_sample,
+            prediction_curve_deg=prediction_curve_deg,
+            prediction_angular_position_deg=angular_position_deg,
+        )
         curve_entry_list.append(
             CurveEvaluationEntry(
                 group_id=group_id,
@@ -390,6 +568,10 @@ def evaluate_model_entry(
                 angular_position_deg=angular_position_deg,
                 target_curve_deg=target_curve_deg,
                 prediction_curve_deg=prediction_curve_deg,
+                plot_measured_angular_position_deg=plot_measured_angular_position_deg,
+                plot_measured_curve_deg=plot_measured_curve_deg,
+                plot_prediction_angular_position_deg=plot_prediction_angular_position_deg,
+                plot_prediction_curve_deg=plot_prediction_curve_deg,
                 metrics=metric_dictionary,
             )
         )
@@ -461,16 +643,16 @@ def save_surface_collage(
         curve_entry = selected_curve_entry_list[axis_index]
         track2_circular_plotting.plot_circular_angle_curve(
             axis,
-            curve_entry.angular_position_deg,
-            curve_entry.target_curve_deg,
+            curve_entry.plot_measured_angular_position_deg,
+            curve_entry.plot_measured_curve_deg,
             label="Measured TE",
             color="#343434",
             linewidth=1.25,
         )
         track2_circular_plotting.plot_circular_angle_curve(
             axis,
-            curve_entry.angular_position_deg,
-            curve_entry.prediction_curve_deg,
+            curve_entry.plot_prediction_angular_position_deg,
+            curve_entry.plot_prediction_curve_deg,
             label="ONNX prediction",
             color="#0072b2",
             linewidth=1.15,
@@ -689,6 +871,14 @@ def build_report_markdown(
         "retraining program. Each dataset/input-mode section uses dataset-matched",
         "held-out test curves and lists the exact model artifacts loaded from",
         "`models/`.",
+        "",
+        "Rank-3 temporal ONNX exports are evaluated on the sequence-window test",
+        "contract stored in each `training_config.snapshot.yaml`, including",
+        "`sequence_length`, `sequence_stride`, `sequence_target_position`, and",
+        "`maximum_sequences_per_curve`.",
+        "The collage pages keep the measured TE trace at the original full-curve",
+        "resolution; temporal ONNX predictions are overlaid at the evaluated",
+        "sequence-target angles.",
         "",
         "The report is diagnostic and family-specific. It does not replace an",
         "official multi-index model-promotion decision.",
