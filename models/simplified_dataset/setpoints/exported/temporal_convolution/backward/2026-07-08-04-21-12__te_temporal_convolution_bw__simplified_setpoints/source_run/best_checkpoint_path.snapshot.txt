@@ -1,0 +1,1 @@
+/scratch1/dferrari/Physics-Informed-Neural-Networks/output/training_runs/temporal_convolution/2026-07-08-04-21-12__te_temporal_convolution_bw__simplified_setpoints/checkpoints/temporal_convolution-epoch=091-val_mae=0.00381312.ckpt

@@ -147,82 +147,81 @@ last_completed_campaign:
       te_curve_verification_status: not_run_in_closeout
 next_prepared_campaign:
   status: completed_and_exported
-  campaign_name: dataset_input_mode_retraining__periodic_mlp_harmonic__polished_actual_values
-  dataset_id: polished_dataset
-  input_mode: actual_values
-  dataset_schema: polished_point_v1
+  campaign_name: dataset_input_mode_retraining__temporal_convolution__simplified_setpoints
+  dataset_id: simplified_dataset
+  input_mode: setpoints
+  dataset_schema: simplified_curve_v1
   expected_run_count: 3
   completed_run_count: 3
   failed_run_count: 0
   throughput_profile:
     curve_batch_size: 16
-    original_prepared_curve_batch_size: 4
+    original_prepared_curve_batch_size: 2
     num_workers: 8
     pin_memory: true
     slurm_cpus_per_task: 8
     slurm_memory: 100G
     gpu_request: a100:1
-    observed_gpu_memory_peak_sample: about 7.6 GiB on A100 80GB during sampled batch-16
-      polished actual-values training
-    observed_gpu_utilization_sample: bursty samples from 0 to 35 percent, with low
-      samples between kernels and validation/data-loading phases
-    observed_throughput: about 8.8-9.5 effective batches per second including validation
-      at 85 batches per epoch, with train-only phases around 12-13 batches per second
+    observed_gpu_memory_peak_sample: about 1.35 GiB on A100 80GB during sampled batch-16
+      simplified sequence training
+    observed_gpu_utilization_sample: bursty samples from 0 to 26 percent, with validation
+      nearly negligible and short low-utilization gaps
+    observed_throughput: about 16-17 effective batches per second including validation
+      at 85 batches per epoch, with train-only phases around 17-19 batches per second
     batch_tuning_note: The prepared campaign default was raised from curve_batch_size
-      4 to 16 before submission. Batch 32 was not retried because the immediately
-      preceding polished setpoints probe on the same family had worse epoch wall-clock
-      and the actual-values first epochs showed the same bottleneck profile.
-    comparison_note: Global completed in 18:11, Fw in 13:24, and Bw in 25:00. The
-      actual-values campaign completed in almost the same wall-clock as polished
-      setpoints, but with a different surface-duration distribution.
-    next_campaign_recommendation: Keep batch 16 as the conservative default for the
-      next family until early epoch logs show a different throughput profile. Worker
-      count remains capped at 8 under the accepted Aries QoS.
+      2 to 16 before submission. Batch 16 remained stable for sequence collation and
+      completed all three sequential surfaces in 21:08.
+    comparison_note: Global completed in 05:29, Fw in 06:34, and Bw in 08:39. This
+      family benefits clearly from the increased batch size despite low sampled GPU
+      memory, because epoch wall-clock stayed around 5 seconds.
+    next_campaign_recommendation: For temporal_convolution polished variants, batch
+      16 is a good accepted baseline. A batch-32 probe can be considered only if the
+      first polished epochs match this fast simplified profile.
   sbatch_submission:
-    slurm_job_id: '135087'
+    slurm_job_id: '135088'
     state: COMPLETED
     exit_code: 0:0
-    elapsed: 00:56:59
-    max_rss: 16333424K
+    elapsed: 00:21:08
+    max_rss: 17406012K
     python_executable: /unimore_home/dferrari/.conda/envs/pinns_env/bin/python
     torch_version: 2.7.1+cu118
     gpu_request: a100:1
-  campaign_manifest_path: config/training/dataset_input_mode_retraining/campaigns/dataset_input_mode_retraining__periodic_mlp_harmonic__polished_actual_values/campaign.yaml
-  campaign_output_directory: output/training_campaigns/2026-07-08-02-59-27_dataset_input_mode_retraining__periodic_mlp_harmonic__polished_actual_va
-  campaign_best_run_path: output/training_campaigns/2026-07-08-02-59-27_dataset_input_mode_retraining__periodic_mlp_harmonic__polished_actual_va/campaign_best_run.yaml
-  campaign_leaderboard_path: output/training_campaigns/2026-07-08-02-59-27_dataset_input_mode_retraining__periodic_mlp_harmonic__polished_actual_va/campaign_leaderboard.yaml
+  campaign_manifest_path: config/training/dataset_input_mode_retraining/campaigns/dataset_input_mode_retraining__temporal_convolution__simplified_setpoints/campaign.yaml
+  campaign_output_directory: output/training_campaigns/2026-07-08-04-09-09_dataset_input_mode_retraining__temporal_convolution__simplified_setpoint
+  campaign_best_run_path: output/training_campaigns/2026-07-08-04-09-09_dataset_input_mode_retraining__temporal_convolution__simplified_setpoint/campaign_best_run.yaml
+  campaign_leaderboard_path: output/training_campaigns/2026-07-08-04-09-09_dataset_input_mode_retraining__temporal_convolution__simplified_setpoint/campaign_leaderboard.yaml
   best_run:
-    run_name: te_periodic_mlp_harmonic_bw__polished_actual_values
-    run_instance_id: 2026-07-08-03-31-01__te_periodic_mlp_harmonic_bw__polished_actual_values
-    surface: backward
-    test_mae: 0.0013025462394580245
-    test_rmse: 0.0022197405342012644
-    val_mae: 0.0011714595602825284
+    run_name: te_temporal_convolution_fw__simplified_setpoints
+    run_instance_id: 2026-07-08-04-14-38__te_temporal_convolution_fw__simplified_setpoints
+    surface: forward
+    test_mae: 0.003530146786943078
+    test_rmse: 0.00434100441634655
+    val_mae: 0.0037788082845509052
   surface_run_list:
   - surface: global
-    run_name: te_periodic_mlp_harmonic_global__polished_actual_values
-    run_instance_id: 2026-07-08-02-59-27__te_periodic_mlp_harmonic_global__polished_actual_values
-    test_mae: 0.0014451417373493314
-    val_mae: 0.0012377905659377575
-    duration: 00:18:11
+    run_name: te_temporal_convolution_global__simplified_setpoints
+    run_instance_id: 2026-07-08-04-09-09__te_temporal_convolution_global__simplified_setpoints
+    test_mae: 0.003623577766120434
+    val_mae: 0.0038049668073654175
+    duration: 00:05:29
   - surface: forward
-    run_name: te_periodic_mlp_harmonic_fw__polished_actual_values
-    run_instance_id: 2026-07-08-03-17-38__te_periodic_mlp_harmonic_fw__polished_actual_values
-    test_mae: 0.0015897818375378847
-    val_mae: 0.0013106521219015121
-    duration: 00:13:24
+    run_name: te_temporal_convolution_fw__simplified_setpoints
+    run_instance_id: 2026-07-08-04-14-38__te_temporal_convolution_fw__simplified_setpoints
+    test_mae: 0.003530146786943078
+    val_mae: 0.0037788082845509052
+    duration: 00:06:34
   - surface: backward
-    run_name: te_periodic_mlp_harmonic_bw__polished_actual_values
-    run_instance_id: 2026-07-08-03-31-01__te_periodic_mlp_harmonic_bw__polished_actual_values
-    test_mae: 0.0013025462394580245
-    val_mae: 0.0011714595602825284
-    duration: 00:25:00
+    run_name: te_temporal_convolution_bw__simplified_setpoints
+    run_instance_id: 2026-07-08-04-21-12__te_temporal_convolution_bw__simplified_setpoints
+    test_mae: 0.0035467627458274364
+    val_mae: 0.0038131200708448887
+    duration: 00:08:39
   export:
     status: completed
-    export_root: models/polished_dataset/actual_values/exported
-    export_inventory_path: models/polished_dataset/actual_values/exported/model_development_export_inventory.yaml
+    export_root: models/simplified_dataset/setpoints/exported
+    export_inventory_path: models/simplified_dataset/setpoints/exported/model_development_export_inventory.yaml
     exported_entry_count: 3
     onnx_export_status_counts:
       exported: 3
     onnx_export_warning_note: ONNX export completed with PyTorch TracerWarning from
-      periodic_feature_network.py while tracing fixed harmonic multipliers.
+      temporal_sequence_network.py while tracing the fixed input-size assertion.

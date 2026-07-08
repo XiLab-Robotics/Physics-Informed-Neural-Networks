@@ -13,74 +13,74 @@ entries:
   dataset_id: simplified_dataset
   dataset_schema: simplified_curve_v1
   input_mode: setpoints
-  model_family: periodic_mlp_harmonic
-  model_type: periodic_mlp
+  model_family: temporal_convolution
+  model_type: temporal_convolution
   surface: global
-  run_name: te_periodic_mlp_harmonic_global__simplified_setpoints
-  run_instance_id: 2026-07-08-01-02-50__te_periodic_mlp_harmonic_global__simplified_setpoints
-  source_output_directory: output/training_runs/periodic_mlp_harmonic/2026-07-08-01-02-50__te_periodic_mlp_harmonic_global__simplified_setpoints
-  source_best_checkpoint_path: output/training_runs/periodic_mlp_harmonic/2026-07-08-01-02-50__te_periodic_mlp_harmonic_global__simplified_setpoints/checkpoints/periodic_mlp-epoch=059-val_mae=0.00284742.ckpt
-  python_model_path: models/simplified_dataset/setpoints/exported/periodic_mlp_harmonic/global/2026-07-08-01-02-50__te_periodic_mlp_harmonic_global__simplified_setpoints/python/periodic_mlp-epoch=059-val_mae=0.00284742.ckpt
-  onnx_model_path: models/simplified_dataset/setpoints/exported/periodic_mlp_harmonic/global/2026-07-08-01-02-50__te_periodic_mlp_harmonic_global__simplified_setpoints/onnx/model.onnx
+  run_name: te_temporal_convolution_global__simplified_setpoints
+  run_instance_id: 2026-07-08-04-09-09__te_temporal_convolution_global__simplified_setpoints
+  source_output_directory: output/training_runs/temporal_convolution/2026-07-08-04-09-09__te_temporal_convolution_global__simplified_setpoints
+  source_best_checkpoint_path: output/training_runs/temporal_convolution/2026-07-08-04-09-09__te_temporal_convolution_global__simplified_setpoints/checkpoints/temporal_convolution-epoch=016-val_mae=0.00380497.ckpt
+  python_model_path: models/simplified_dataset/setpoints/exported/temporal_convolution/global/2026-07-08-04-09-09__te_temporal_convolution_global__simplified_setpoints/python/temporal_convolution-epoch=016-val_mae=0.00380497.ckpt
+  onnx_model_path: models/simplified_dataset/setpoints/exported/temporal_convolution/global/2026-07-08-04-09-09__te_temporal_convolution_global__simplified_setpoints/onnx/model.onnx
   onnx_export_status: exported
   onnx_export_error: ''
   source_run_snapshot_path_map:
-    training_config.snapshot.yaml: models/simplified_dataset/setpoints/exported/periodic_mlp_harmonic/global/2026-07-08-01-02-50__te_periodic_mlp_harmonic_global__simplified_setpoints/source_run/training_config.snapshot.yaml
-    metrics_summary.snapshot.yaml: models/simplified_dataset/setpoints/exported/periodic_mlp_harmonic/global/2026-07-08-01-02-50__te_periodic_mlp_harmonic_global__simplified_setpoints/source_run/metrics_summary.snapshot.yaml
-    run_metadata.snapshot.yaml: models/simplified_dataset/setpoints/exported/periodic_mlp_harmonic/global/2026-07-08-01-02-50__te_periodic_mlp_harmonic_global__simplified_setpoints/source_run/run_metadata.snapshot.yaml
-    training_test_report.snapshot.md: models/simplified_dataset/setpoints/exported/periodic_mlp_harmonic/global/2026-07-08-01-02-50__te_periodic_mlp_harmonic_global__simplified_setpoints/source_run/training_test_report.snapshot.md
-    best_checkpoint_path.snapshot.txt: models/simplified_dataset/setpoints/exported/periodic_mlp_harmonic/global/2026-07-08-01-02-50__te_periodic_mlp_harmonic_global__simplified_setpoints/source_run/best_checkpoint_path.snapshot.txt
+    training_config.snapshot.yaml: models/simplified_dataset/setpoints/exported/temporal_convolution/global/2026-07-08-04-09-09__te_temporal_convolution_global__simplified_setpoints/source_run/training_config.snapshot.yaml
+    metrics_summary.snapshot.yaml: models/simplified_dataset/setpoints/exported/temporal_convolution/global/2026-07-08-04-09-09__te_temporal_convolution_global__simplified_setpoints/source_run/metrics_summary.snapshot.yaml
+    run_metadata.snapshot.yaml: models/simplified_dataset/setpoints/exported/temporal_convolution/global/2026-07-08-04-09-09__te_temporal_convolution_global__simplified_setpoints/source_run/run_metadata.snapshot.yaml
+    training_test_report.snapshot.md: models/simplified_dataset/setpoints/exported/temporal_convolution/global/2026-07-08-04-09-09__te_temporal_convolution_global__simplified_setpoints/source_run/training_test_report.snapshot.md
+    best_checkpoint_path.snapshot.txt: models/simplified_dataset/setpoints/exported/temporal_convolution/global/2026-07-08-04-09-09__te_temporal_convolution_global__simplified_setpoints/source_run/best_checkpoint_path.snapshot.txt
   metrics:
-    val_mae: 0.0028474191203713417
-    test_mae: 0.003293124958872795
-    test_rmse: 0.00386482710018754
+    val_mae: 0.0038049668073654175
+    test_mae: 0.003623577766120434
+    test_rmse: 0.004478410352021456
 - schema_version: 1
   dataset_id: simplified_dataset
   dataset_schema: simplified_curve_v1
   input_mode: setpoints
-  model_family: periodic_mlp_harmonic
-  model_type: periodic_mlp
+  model_family: temporal_convolution
+  model_type: temporal_convolution
   surface: forward
-  run_name: te_periodic_mlp_harmonic_fw__simplified_setpoints
-  run_instance_id: 2026-07-08-01-11-12__te_periodic_mlp_harmonic_fw__simplified_setpoints
-  source_output_directory: output/training_runs/periodic_mlp_harmonic/2026-07-08-01-11-12__te_periodic_mlp_harmonic_fw__simplified_setpoints
-  source_best_checkpoint_path: output/training_runs/periodic_mlp_harmonic/2026-07-08-01-11-12__te_periodic_mlp_harmonic_fw__simplified_setpoints/checkpoints/periodic_mlp-epoch=055-val_mae=0.00280280.ckpt
-  python_model_path: models/simplified_dataset/setpoints/exported/periodic_mlp_harmonic/forward/2026-07-08-01-11-12__te_periodic_mlp_harmonic_fw__simplified_setpoints/python/periodic_mlp-epoch=055-val_mae=0.00280280.ckpt
-  onnx_model_path: models/simplified_dataset/setpoints/exported/periodic_mlp_harmonic/forward/2026-07-08-01-11-12__te_periodic_mlp_harmonic_fw__simplified_setpoints/onnx/model.onnx
+  run_name: te_temporal_convolution_fw__simplified_setpoints
+  run_instance_id: 2026-07-08-04-14-38__te_temporal_convolution_fw__simplified_setpoints
+  source_output_directory: output/training_runs/temporal_convolution/2026-07-08-04-14-38__te_temporal_convolution_fw__simplified_setpoints
+  source_best_checkpoint_path: output/training_runs/temporal_convolution/2026-07-08-04-14-38__te_temporal_convolution_fw__simplified_setpoints/checkpoints/temporal_convolution-epoch=031-val_mae=0.00377881.ckpt
+  python_model_path: models/simplified_dataset/setpoints/exported/temporal_convolution/forward/2026-07-08-04-14-38__te_temporal_convolution_fw__simplified_setpoints/python/temporal_convolution-epoch=031-val_mae=0.00377881.ckpt
+  onnx_model_path: models/simplified_dataset/setpoints/exported/temporal_convolution/forward/2026-07-08-04-14-38__te_temporal_convolution_fw__simplified_setpoints/onnx/model.onnx
   onnx_export_status: exported
   onnx_export_error: ''
   source_run_snapshot_path_map:
-    training_config.snapshot.yaml: models/simplified_dataset/setpoints/exported/periodic_mlp_harmonic/forward/2026-07-08-01-11-12__te_periodic_mlp_harmonic_fw__simplified_setpoints/source_run/training_config.snapshot.yaml
-    metrics_summary.snapshot.yaml: models/simplified_dataset/setpoints/exported/periodic_mlp_harmonic/forward/2026-07-08-01-11-12__te_periodic_mlp_harmonic_fw__simplified_setpoints/source_run/metrics_summary.snapshot.yaml
-    run_metadata.snapshot.yaml: models/simplified_dataset/setpoints/exported/periodic_mlp_harmonic/forward/2026-07-08-01-11-12__te_periodic_mlp_harmonic_fw__simplified_setpoints/source_run/run_metadata.snapshot.yaml
-    training_test_report.snapshot.md: models/simplified_dataset/setpoints/exported/periodic_mlp_harmonic/forward/2026-07-08-01-11-12__te_periodic_mlp_harmonic_fw__simplified_setpoints/source_run/training_test_report.snapshot.md
-    best_checkpoint_path.snapshot.txt: models/simplified_dataset/setpoints/exported/periodic_mlp_harmonic/forward/2026-07-08-01-11-12__te_periodic_mlp_harmonic_fw__simplified_setpoints/source_run/best_checkpoint_path.snapshot.txt
+    training_config.snapshot.yaml: models/simplified_dataset/setpoints/exported/temporal_convolution/forward/2026-07-08-04-14-38__te_temporal_convolution_fw__simplified_setpoints/source_run/training_config.snapshot.yaml
+    metrics_summary.snapshot.yaml: models/simplified_dataset/setpoints/exported/temporal_convolution/forward/2026-07-08-04-14-38__te_temporal_convolution_fw__simplified_setpoints/source_run/metrics_summary.snapshot.yaml
+    run_metadata.snapshot.yaml: models/simplified_dataset/setpoints/exported/temporal_convolution/forward/2026-07-08-04-14-38__te_temporal_convolution_fw__simplified_setpoints/source_run/run_metadata.snapshot.yaml
+    training_test_report.snapshot.md: models/simplified_dataset/setpoints/exported/temporal_convolution/forward/2026-07-08-04-14-38__te_temporal_convolution_fw__simplified_setpoints/source_run/training_test_report.snapshot.md
+    best_checkpoint_path.snapshot.txt: models/simplified_dataset/setpoints/exported/temporal_convolution/forward/2026-07-08-04-14-38__te_temporal_convolution_fw__simplified_setpoints/source_run/best_checkpoint_path.snapshot.txt
   metrics:
-    val_mae: 0.0028028017841279507
-    test_mae: 0.003064638003706932
-    test_rmse: 0.003709434298798442
+    val_mae: 0.0037788082845509052
+    test_mae: 0.003530146786943078
+    test_rmse: 0.00434100441634655
 - schema_version: 1
   dataset_id: simplified_dataset
   dataset_schema: simplified_curve_v1
   input_mode: setpoints
-  model_family: periodic_mlp_harmonic
-  model_type: periodic_mlp
+  model_family: temporal_convolution
+  model_type: temporal_convolution
   surface: backward
-  run_name: te_periodic_mlp_harmonic_bw__simplified_setpoints
-  run_instance_id: 2026-07-08-01-19-22__te_periodic_mlp_harmonic_bw__simplified_setpoints
-  source_output_directory: output/training_runs/periodic_mlp_harmonic/2026-07-08-01-19-22__te_periodic_mlp_harmonic_bw__simplified_setpoints
-  source_best_checkpoint_path: output/training_runs/periodic_mlp_harmonic/2026-07-08-01-19-22__te_periodic_mlp_harmonic_bw__simplified_setpoints/checkpoints/periodic_mlp-epoch=053-val_mae=0.00280310.ckpt
-  python_model_path: models/simplified_dataset/setpoints/exported/periodic_mlp_harmonic/backward/2026-07-08-01-19-22__te_periodic_mlp_harmonic_bw__simplified_setpoints/python/periodic_mlp-epoch=053-val_mae=0.00280310.ckpt
-  onnx_model_path: models/simplified_dataset/setpoints/exported/periodic_mlp_harmonic/backward/2026-07-08-01-19-22__te_periodic_mlp_harmonic_bw__simplified_setpoints/onnx/model.onnx
+  run_name: te_temporal_convolution_bw__simplified_setpoints
+  run_instance_id: 2026-07-08-04-21-12__te_temporal_convolution_bw__simplified_setpoints
+  source_output_directory: output/training_runs/temporal_convolution/2026-07-08-04-21-12__te_temporal_convolution_bw__simplified_setpoints
+  source_best_checkpoint_path: output/training_runs/temporal_convolution/2026-07-08-04-21-12__te_temporal_convolution_bw__simplified_setpoints/checkpoints/temporal_convolution-epoch=091-val_mae=0.00381312.ckpt
+  python_model_path: models/simplified_dataset/setpoints/exported/temporal_convolution/backward/2026-07-08-04-21-12__te_temporal_convolution_bw__simplified_setpoints/python/temporal_convolution-epoch=091-val_mae=0.00381312.ckpt
+  onnx_model_path: models/simplified_dataset/setpoints/exported/temporal_convolution/backward/2026-07-08-04-21-12__te_temporal_convolution_bw__simplified_setpoints/onnx/model.onnx
   onnx_export_status: exported
   onnx_export_error: ''
   source_run_snapshot_path_map:
-    training_config.snapshot.yaml: models/simplified_dataset/setpoints/exported/periodic_mlp_harmonic/backward/2026-07-08-01-19-22__te_periodic_mlp_harmonic_bw__simplified_setpoints/source_run/training_config.snapshot.yaml
-    metrics_summary.snapshot.yaml: models/simplified_dataset/setpoints/exported/periodic_mlp_harmonic/backward/2026-07-08-01-19-22__te_periodic_mlp_harmonic_bw__simplified_setpoints/source_run/metrics_summary.snapshot.yaml
-    run_metadata.snapshot.yaml: models/simplified_dataset/setpoints/exported/periodic_mlp_harmonic/backward/2026-07-08-01-19-22__te_periodic_mlp_harmonic_bw__simplified_setpoints/source_run/run_metadata.snapshot.yaml
-    training_test_report.snapshot.md: models/simplified_dataset/setpoints/exported/periodic_mlp_harmonic/backward/2026-07-08-01-19-22__te_periodic_mlp_harmonic_bw__simplified_setpoints/source_run/training_test_report.snapshot.md
-    best_checkpoint_path.snapshot.txt: models/simplified_dataset/setpoints/exported/periodic_mlp_harmonic/backward/2026-07-08-01-19-22__te_periodic_mlp_harmonic_bw__simplified_setpoints/source_run/best_checkpoint_path.snapshot.txt
+    training_config.snapshot.yaml: models/simplified_dataset/setpoints/exported/temporal_convolution/backward/2026-07-08-04-21-12__te_temporal_convolution_bw__simplified_setpoints/source_run/training_config.snapshot.yaml
+    metrics_summary.snapshot.yaml: models/simplified_dataset/setpoints/exported/temporal_convolution/backward/2026-07-08-04-21-12__te_temporal_convolution_bw__simplified_setpoints/source_run/metrics_summary.snapshot.yaml
+    run_metadata.snapshot.yaml: models/simplified_dataset/setpoints/exported/temporal_convolution/backward/2026-07-08-04-21-12__te_temporal_convolution_bw__simplified_setpoints/source_run/run_metadata.snapshot.yaml
+    training_test_report.snapshot.md: models/simplified_dataset/setpoints/exported/temporal_convolution/backward/2026-07-08-04-21-12__te_temporal_convolution_bw__simplified_setpoints/source_run/training_test_report.snapshot.md
+    best_checkpoint_path.snapshot.txt: models/simplified_dataset/setpoints/exported/temporal_convolution/backward/2026-07-08-04-21-12__te_temporal_convolution_bw__simplified_setpoints/source_run/best_checkpoint_path.snapshot.txt
   metrics:
-    val_mae: 0.0028031012043356895
-    test_mae: 0.003377139801159501
-    test_rmse: 0.004053632728755474
+    val_mae: 0.0038131200708448887
+    test_mae: 0.0035467627458274364
+    test_rmse: 0.004393330309540033
