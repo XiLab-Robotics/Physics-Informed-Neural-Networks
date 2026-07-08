@@ -6,7 +6,7 @@ selection_policy:
   second_tie_breaker: val_mae
   third_tie_breaker: trainable_parameter_count
   direction: minimize
-updated_at: '2026-07-08T19:25:23'
+updated_at: '2026-07-08T20:12:10'
 best_entry:
   run_instance_id: 2026-06-26-13-03-57__te_periodic_temporal_convolution_fw
   run_name: te_periodic_temporal_convolution_fw
