@@ -147,10 +147,10 @@ last_completed_campaign:
       te_curve_verification_status: not_run_in_closeout
 next_prepared_campaign:
   status: completed_and_exported
-  campaign_name: dataset_input_mode_retraining__temporal_convolution__simplified_setpoints
-  dataset_id: simplified_dataset
+  campaign_name: dataset_input_mode_retraining__temporal_convolution__polished_setpoints
+  dataset_id: polished_dataset
   input_mode: setpoints
-  dataset_schema: simplified_curve_v1
+  dataset_schema: polished_setpoint_curve_v1
   expected_run_count: 3
   completed_run_count: 3
   failed_run_count: 0
@@ -162,64 +162,65 @@ next_prepared_campaign:
     slurm_cpus_per_task: 8
     slurm_memory: 100G
     gpu_request: a100:1
-    observed_gpu_memory_peak_sample: about 1.35 GiB on A100 80GB during sampled batch-16
-      simplified sequence training
-    observed_gpu_utilization_sample: bursty samples from 0 to 26 percent, with validation
-      nearly negligible and short low-utilization gaps
-    observed_throughput: about 16-17 effective batches per second including validation
-      at 85 batches per epoch, with train-only phases around 17-19 batches per second
+    observed_gpu_memory_sample: about 0.5 to 1.35 GiB on A100 80GB during sampled
+      batch-16 polished setpoint sequence training
+    observed_gpu_utilization_sample: bursty samples from 0 to 23 percent, with short
+      higher-power training bursts and low-utilization validation or logging gaps
+    observed_throughput: about 9-10 effective batches per second including validation
+      at 85 batches per epoch, with train-only phases commonly around 13-14 batches
+      per second
     batch_tuning_note: The prepared campaign default was raised from curve_batch_size
-      2 to 16 before submission. Batch 16 remained stable for sequence collation and
-      completed all three sequential surfaces in 21:08.
-    comparison_note: Global completed in 05:29, Fw in 06:34, and Bw in 08:39. This
-      family benefits clearly from the increased batch size despite low sampled GPU
-      memory, because epoch wall-clock stayed around 5 seconds.
-    next_campaign_recommendation: For temporal_convolution polished variants, batch
-      16 is a good accepted baseline. A batch-32 probe can be considered only if the
-      first polished epochs match this fast simplified profile.
+      2 to 16 before submission. Batch 16 remained stable for polished sequence
+      collation and completed all three sequential surfaces in 52:50.
+    comparison_note: Global completed in 13:19, Fw in 12:51, and Bw in 25:06. The
+      polished setpoint variant is slower than the simplified setpoint variant at the
+      same batch size, but it remained stable and produced clean ONNX exports.
+    next_campaign_recommendation: Continue temporal_convolution polished_actual_values
+      at batch 16 as the accepted baseline unless a new explicit tuning request is
+      made.
   sbatch_submission:
-    slurm_job_id: '135088'
+    slurm_job_id: '135090'
     state: COMPLETED
     exit_code: 0:0
-    elapsed: 00:21:08
-    max_rss: 17406012K
+    elapsed: 00:52:50
+    max_rss: 17336080K
     python_executable: /unimore_home/dferrari/.conda/envs/pinns_env/bin/python
     torch_version: 2.7.1+cu118
     gpu_request: a100:1
-  campaign_manifest_path: config/training/dataset_input_mode_retraining/campaigns/dataset_input_mode_retraining__temporal_convolution__simplified_setpoints/campaign.yaml
-  campaign_output_directory: output/training_campaigns/2026-07-08-04-09-09_dataset_input_mode_retraining__temporal_convolution__simplified_setpoint
-  campaign_best_run_path: output/training_campaigns/2026-07-08-04-09-09_dataset_input_mode_retraining__temporal_convolution__simplified_setpoint/campaign_best_run.yaml
-  campaign_leaderboard_path: output/training_campaigns/2026-07-08-04-09-09_dataset_input_mode_retraining__temporal_convolution__simplified_setpoint/campaign_leaderboard.yaml
+  campaign_manifest_path: config/training/dataset_input_mode_retraining/campaigns/dataset_input_mode_retraining__temporal_convolution__polished_setpoints/campaign.yaml
+  campaign_output_directory: output/training_campaigns/2026-07-08-08-48-08_dataset_input_mode_retraining__temporal_convolution__polished_setpoints
+  campaign_best_run_path: output/training_campaigns/2026-07-08-08-48-08_dataset_input_mode_retraining__temporal_convolution__polished_setpoints/campaign_best_run.yaml
+  campaign_leaderboard_path: output/training_campaigns/2026-07-08-08-48-08_dataset_input_mode_retraining__temporal_convolution__polished_setpoints/campaign_leaderboard.yaml
   best_run:
-    run_name: te_temporal_convolution_fw__simplified_setpoints
-    run_instance_id: 2026-07-08-04-14-38__te_temporal_convolution_fw__simplified_setpoints
-    surface: forward
-    test_mae: 0.003530146786943078
-    test_rmse: 0.00434100441634655
-    val_mae: 0.0037788082845509052
+    run_name: te_temporal_convolution_bw__polished_setpoints
+    run_instance_id: 2026-07-08-09-14-19__te_temporal_convolution_bw__polished_setpoints
+    surface: backward
+    test_mae: 0.0025079436600208282
+    test_rmse: 0.0038840738125145435
+    val_mae: 0.0022219978272914886
   surface_run_list:
   - surface: global
-    run_name: te_temporal_convolution_global__simplified_setpoints
-    run_instance_id: 2026-07-08-04-09-09__te_temporal_convolution_global__simplified_setpoints
-    test_mae: 0.003623577766120434
-    val_mae: 0.0038049668073654175
-    duration: 00:05:29
+    run_name: te_temporal_convolution_global__polished_setpoints
+    run_instance_id: 2026-07-08-08-48-08__te_temporal_convolution_global__polished_setpoints
+    test_mae: 0.0025378039572387934
+    val_mae: 0.0022501221392303705
+    duration: 00:13:19
   - surface: forward
-    run_name: te_temporal_convolution_fw__simplified_setpoints
-    run_instance_id: 2026-07-08-04-14-38__te_temporal_convolution_fw__simplified_setpoints
-    test_mae: 0.003530146786943078
-    val_mae: 0.0037788082845509052
-    duration: 00:06:34
+    run_name: te_temporal_convolution_fw__polished_setpoints
+    run_instance_id: 2026-07-08-09-01-27__te_temporal_convolution_fw__polished_setpoints
+    test_mae: 0.002544007496908307
+    val_mae: 0.0022527198307216167
+    duration: 00:12:51
   - surface: backward
-    run_name: te_temporal_convolution_bw__simplified_setpoints
-    run_instance_id: 2026-07-08-04-21-12__te_temporal_convolution_bw__simplified_setpoints
-    test_mae: 0.0035467627458274364
-    val_mae: 0.0038131200708448887
-    duration: 00:08:39
+    run_name: te_temporal_convolution_bw__polished_setpoints
+    run_instance_id: 2026-07-08-09-14-19__te_temporal_convolution_bw__polished_setpoints
+    test_mae: 0.0025079436600208282
+    val_mae: 0.0022219978272914886
+    duration: 00:25:06
   export:
     status: completed
-    export_root: models/simplified_dataset/setpoints/exported
-    export_inventory_path: models/simplified_dataset/setpoints/exported/model_development_export_inventory.yaml
+    export_root: models/polished_dataset/setpoints/exported
+    export_inventory_path: models/polished_dataset/setpoints/exported/model_development_export_inventory.yaml
     exported_entry_count: 3
     onnx_export_status_counts:
       exported: 3

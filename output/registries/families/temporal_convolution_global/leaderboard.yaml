@@ -6,8 +6,8 @@ selection_policy:
   second_tie_breaker: val_mae
   third_tie_breaker: trainable_parameter_count
   direction: minimize
-updated_at: '2026-07-08T04:14:38'
-entry_count: 3
+updated_at: '2026-07-08T09:01:27'
+entry_count: 4
 entry_list:
 - run_instance_id: 2026-06-29-21-48-10__te_temporal_convolution_global
   run_name: te_temporal_convolution_global
@@ -85,6 +85,46 @@ entry_list:
     third_tie_breaker: trainable_parameter_count
     direction: minimize
   selected_at: '2026-06-26T06:49:42'
+- run_instance_id: 2026-07-08-08-48-08__te_temporal_convolution_global__polished_setpoints
+  run_name: te_temporal_convolution_global__polished_setpoints
+  output_run_name: te_temporal_convolution_global__polished_setpoints
+  output_artifact_kind: training_run
+  model_family: temporal_convolution_global
+  base_model_family: temporal_convolution
+  model_type: temporal_convolution
+  dataset_id: polished_dataset
+  dataset_schema: polished_setpoint_curve_v1
+  input_mode: setpoints
+  input_feature_names:
+  - angular_position_deg
+  - input_speed_rpm
+  - input_torque_nm
+  - oil_temperature_deg
+  - direction_flag
+  target_feature_names:
+  - theta_TE
+  input_feature_dim: 5
+  training_variant: global
+  direction_scope_label: bidirectional
+  use_forward_direction: true
+  use_backward_direction: true
+  trainable_parameter_count: 147009
+  total_parameter_count: 147009
+  val_mae: 0.0022501221392303705
+  val_rmse: 0.003105652052909136
+  test_mae: 0.0025378039572387934
+  test_rmse: 0.0039331018924713135
+  output_directory: output\training_runs\temporal_convolution\2026-07-08-08-48-08__te_temporal_convolution_global__polished_setpoints
+  best_checkpoint_path: output\training_runs\temporal_convolution\2026-07-08-08-48-08__te_temporal_convolution_global__polished_setpoints\checkpoints\temporal_convolution-epoch=074-val_mae=0.00225012.ckpt
+  metrics_path: output\training_runs\temporal_convolution\2026-07-08-08-48-08__te_temporal_convolution_global__polished_setpoints/metrics_summary.yaml
+  report_path: output\training_runs\temporal_convolution\2026-07-08-08-48-08__te_temporal_convolution_global__polished_setpoints/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-07-08T09:01:27'
 - run_instance_id: 2026-07-08-04-09-09__te_temporal_convolution_global__simplified_setpoints
   run_name: te_temporal_convolution_global__simplified_setpoints
   output_run_name: te_temporal_convolution_global__simplified_setpoints
