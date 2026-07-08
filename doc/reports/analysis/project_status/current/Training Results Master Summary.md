@@ -2,7 +2,7 @@
 
 ## Executive Snapshot
 
-- Generated At: `2026-07-08T19:06:34`
+- Generated At: `2026-07-08T19:41:55`
 - Program State: active.
 - Current Completed Wave: polished-dataset RCIM, early-wave, and full-wave
 - Current Focus: the polished-dataset TE Curve Verification Pipeline refresh is
@@ -66,7 +66,7 @@
 | `wave3_1_sequential_residual_offset_probe_global` | Implemented Benchmark | `te_wave3_1_sequential_residual_offset_probe_global` | `sequential_residual_offset_probe` | 0.002261 | 92,418 | `2026-06-30 16:25:21` |
 | `wave3_2_clean_sequential_residual_offset_global` | Implemented Benchmark | `te_wave3_2_clean_sequential_residual_offset_global` | `sequential_residual_offset_probe` | 0.002276 | 92,418 | `2026-06-30 17:46:46` |
 | `wave4_4_gru_latent_offset_residual_global` | Implemented Benchmark | `te_wave4_4_gru_latent_offset_residual_global` | `latent_state_hysteresis_probe` | 0.002287 | 124,899 | `2026-07-01 20:26:33` |
-| `periodic_temporal_convolution_global` | Implemented Benchmark | `te_periodic_temporal_convolution_global` | `periodic_temporal_convolution` | 0.002302 | 157,889 | `2026-06-30 01:43:44` |
+| `periodic_temporal_convolution_global` | Implemented Benchmark | `te_periodic_temporal_convolution_global` | `periodic_temporal_convolution` | 0.002302 | 157,889 | `2026-07-08 19:19:28` |
 | `wave4_4_causal_tcn_latent_offset_residual_global` | Implemented Benchmark | `te_wave4_4_causal_tcn_latent_offset_residual_global` | `latent_state_hysteresis_probe` | 0.002315 | 97,155 | `2026-07-01 22:00:09` |
 | `temporal_convolution_global` | Implemented Benchmark | `te_temporal_convolution_global__polished_actual_values` | `temporal_convolution` | 0.002327 | 147,009 | `2026-07-08 10:20:02` |
 | `track2h_latent_state_hysteresis_gru_offset_residual_global` | Implemented Benchmark | `te_track2h_l_gru_offset_residual_global` | `latent_state_hysteresis_probe` | 0.002339 | 124,899 | `2026-06-22 16:00:39` |
@@ -139,7 +139,7 @@
 | `residual_harmonic_gru_sequence_dense240_fw` | Implemented Benchmark | `te_residual_harmonic_gru_sequence_dense240_fw` | `residual_harmonic_gru_sequence` | 0.002143 | 151,138 | `2026-06-30 08:46:28` |
 | `residual_harmonic_lstm_sequence_dense240_fw` | Implemented Benchmark | `te_residual_harmonic_lstm_sequence_dense240_fw` | `residual_harmonic_lstm_sequence` | 0.002147 | 201,314 | `2026-06-30 13:54:14` |
 | `wave5_1_harmonic_prior_smooth_l1_structured_fw` | Implemented Benchmark | `te_wave5_1_harmonic_prior_smooth_l1_structured_fw` | `wave3_harmonic_prior_residual` | 0.002151 | 7,168 | `2026-07-02 01:22:38` |
-| `periodic_temporal_convolution_fw` | Implemented Benchmark | `te_periodic_temporal_convolution_fw` | `periodic_temporal_convolution` | 0.002178 | 157,889 | `2026-06-30 01:59:09` |
+| `periodic_temporal_convolution_fw` | Implemented Benchmark | `te_periodic_temporal_convolution_fw` | `periodic_temporal_convolution` | 0.002178 | 157,889 | `2026-07-08 19:25:23` |
 | `wave5_1_harmonic_prior_pointwise_control_fw` | Implemented Benchmark | `te_wave5_1_harmonic_prior_pointwise_control_fw` | `wave3_harmonic_prior_residual` | 0.002185 | 7,168 | `2026-07-01 23:48:39` |
 | `residual_harmonic_lstm_sequence_dense360_fw` | Implemented Benchmark | `te_residual_harmonic_lstm_sequence_dense360_fw` | `residual_harmonic_lstm_sequence` | 0.002219 | 201,554 | `2026-06-30 15:15:33` |
 | `lstm_sequence_fw` | Implemented Benchmark | `te_lstm_sequence_fw__polished_actual_values` | `lstm_sequence` | 0.002239 | 201,345 | `2026-07-08 18:02:26` |
@@ -209,7 +209,7 @@
 | `wave5_1_harmonic_prior_pointwise_control_bw` | Implemented Benchmark | `te_wave5_1_harmonic_prior_pointwise_control_bw` | `wave3_harmonic_prior_residual` | 0.002105 | 7,168 | `2026-07-02 00:24:37` |
 | `residual_harmonic_lstm_sequence_sparse_rcim_bw` | Implemented Benchmark | `te_residual_harmonic_lstm_sequence_sparse_rcim_bw` | `residual_harmonic_lstm_sequence` | 0.002108 | 200,852 | `2026-06-30 13:02:13` |
 | `residual_harmonic_lstm_sequence_dense240_bw` | Implemented Benchmark | `te_residual_harmonic_lstm_sequence_dense240_bw` | `residual_harmonic_lstm_sequence` | 0.002164 | 201,314 | `2026-06-30 14:20:06` |
-| `periodic_temporal_convolution_bw` | Implemented Benchmark | `te_periodic_temporal_convolution_bw` | `periodic_temporal_convolution` | 0.002174 | 157,889 | `2026-06-30 02:14:43` |
+| `periodic_temporal_convolution_bw` | Implemented Benchmark | `te_periodic_temporal_convolution_bw` | `periodic_temporal_convolution` | 0.002174 | 157,889 | `2026-07-08 19:35:07` |
 | `wave5_1_harmonic_prior_smooth_l1_structured_bw` | Implemented Benchmark | `te_wave5_1_harmonic_prior_smooth_l1_structured_bw` | `wave3_harmonic_prior_residual` | 0.002178 | 7,168 | `2026-07-02 01:47:44` |
 | `wave3_1_sequential_residual_offset_probe_bw` | Implemented Benchmark | `te_wave3_1_sequential_residual_offset_probe_bw` | `sequential_residual_offset_probe` | 0.002225 | 92,418 | `2026-06-30 17:18:40` |
 | `gru_sequence_bw` | Implemented Benchmark | `te_gru_sequence_bw` | `gru_sequence` | 0.002230 | 150,657 | `2026-07-08 14:46:08` |
@@ -427,11 +427,11 @@ Low-priority exploratory families currently listed in the backlog:
 
 | Campaign | Generated At | Completed | Failed | Winner | Impact |
 | --- | --- | ---: | ---: | --- | --- |
+| `dataset_input_mode_retraining__periodic_temporal_convolution__simplified_setpoints` | `2026-07-08 19:35:07` | 3 | 0 | `te_periodic_temporal_convolution_bw__simplified_setpoints` | No family-best change |
 | `dataset_input_mode_retraining__lstm_sequence__polished_actual_values` | `2026-07-08 18:46:16` | 3 | 0 | `te_lstm_sequence_fw__polished_actual_values` | Updated lstm_sequence_fw family best |
 | `dataset_input_mode_retraining__lstm_sequence__polished_setpoints` | `2026-07-08 16:38:40` | 3 | 0 | `te_lstm_sequence_fw__polished_setpoints` | No family-best change |
 | `dataset_input_mode_retraining__lstm_sequence__simplified_setpoints` | `2026-07-08 15:36:15` | 3 | 0 | `te_lstm_sequence_global__simplified_setpoints` | No family-best change |
 | `dataset_input_mode_retraining__gru_sequence__polished_actual_values` | `2026-07-08 14:46:08` | 3 | 0 | `te_gru_sequence_bw__polished_actual_values` | No family-best change |
-| `dataset_input_mode_retraining__gru_sequence__polished_setpoints` | `2026-07-08 13:03:44` | 3 | 0 | `te_gru_sequence_fw__polished_setpoints` | No family-best change |
 
 ## Ranking Policy
 
@@ -1998,7 +1998,7 @@ Known failed campaign attempts for this family:
 
 - Best run: `te_periodic_temporal_convolution_sequence_remote_global`
 - Best test MAE: `0.003508`
-- Completed tracked runs: `7`
+- Completed tracked runs: `10`
 - Known failed campaign attempts: `0`
 
 | Rank | Run | Model Type | Test MAE [deg] | Test RMSE [deg] | Val MAE [deg] | Params | Duration | Artifact Size | Model Complexity | Training Heaviness | Campaign |
@@ -2009,7 +2009,10 @@ Known failed campaign attempts for this family:
 | 4 | `te_periodic_temporal_convolution_fw` | `periodic_temporal_convolution` | 0.002280 | 0.002848 | 0.002209 | 157,889 | 15m 25s | 1.82 MB | Very High | Medium | `polished_dataset_full_wave_retraining_2026_06_22` |
 | 5 | `te_periodic_temporal_convolution_global` | `periodic_temporal_convolution` | 0.002302 | 0.002863 | 0.002160 | 157,889 | 14m 09s | 1.82 MB | Very High | Low | `polished_dataset_full_wave_retraining_2026_06_22` |
 | 6 | `te_periodic_temporal_convolution_global` | `periodic_temporal_convolution` | 0.002319 | 0.002900 | 0.002202 | 157,889 | 22m 15s | 1.82 MB | Very High | Medium | `polished_dataset_full_wave_retraining_2026_06_22` |
-| 7 | `te_periodic_temporal_convolution_sequence_remote_global` | `periodic_temporal_convolution` | 0.003508 | 0.003929 | 0.003634 | 158,529 | 25m 37s | 1.83 MB | Very High | Medium | `wave2b_harmonic_temporal_hybrid_campaign_2026_05_25` |
+| 7 | `te_periodic_temporal_convolution_bw__simplified_setpoints` | `periodic_temporal_convolution` | 0.003388 | 0.004127 | 0.003553 | 158,529 | 9m 43s | 1.83 MB | Very High | Low | `dataset_input_mode_retraining__periodic_temporal_convolution__simplified_setpoints` |
+| 8 | `te_periodic_temporal_convolution_global__simplified_setpoints` | `periodic_temporal_convolution` | 0.003436 | 0.004106 | 0.003600 | 158,529 | 9m 38s | 1.83 MB | Very High | Low | `dataset_input_mode_retraining__periodic_temporal_convolution__simplified_setpoints` |
+| 9 | `te_periodic_temporal_convolution_fw__simplified_setpoints` | `periodic_temporal_convolution` | 0.003474 | 0.004188 | 0.003645 | 158,529 | 5m 56s | 1.83 MB | Very High | Low | `dataset_input_mode_retraining__periodic_temporal_convolution__simplified_setpoints` |
+| 10 | `te_periodic_temporal_convolution_sequence_remote_global` | `periodic_temporal_convolution` | 0.003508 | 0.003929 | 0.003634 | 158,529 | 25m 37s | 1.83 MB | Very High | Medium | `wave2b_harmonic_temporal_hybrid_campaign_2026_05_25` |
 
 #### periodic_temporal_convolution_bw
 

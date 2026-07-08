@@ -1,0 +1,25 @@
+schema_version: 1
+dataset_id: simplified_dataset
+dataset_schema: simplified_curve_v1
+input_mode: setpoints
+model_family: periodic_temporal_convolution
+model_type: periodic_temporal_convolution
+surface: global
+run_name: te_periodic_temporal_convolution_global__simplified_setpoints
+run_instance_id: 2026-07-08-19-09-50__te_periodic_temporal_convolution_global__simplified_setpoints
+source_output_directory: output/training_runs/periodic_temporal_convolution/2026-07-08-19-09-50__te_periodic_temporal_convolution_global__simplified_setpoints
+source_best_checkpoint_path: output/training_runs/periodic_temporal_convolution/2026-07-08-19-09-50__te_periodic_temporal_convolution_global__simplified_setpoints/checkpoints/periodic_temporal_convolution-epoch=095-val_mae=0.00360046.ckpt
+python_model_path: models/simplified_dataset/setpoints/exported/periodic_temporal_convolution/global/2026-07-08-19-09-50__te_periodic_temporal_convolution_global__simplified_setpoints/python/periodic_temporal_convolution-epoch=095-val_mae=0.00360046.ckpt
+onnx_model_path: models/simplified_dataset/setpoints/exported/periodic_temporal_convolution/global/2026-07-08-19-09-50__te_periodic_temporal_convolution_global__simplified_setpoints/onnx/model.onnx
+onnx_export_status: exported
+onnx_export_error: ''
+source_run_snapshot_path_map:
+  training_config.snapshot.yaml: models/simplified_dataset/setpoints/exported/periodic_temporal_convolution/global/2026-07-08-19-09-50__te_periodic_temporal_convolution_global__simplified_setpoints/source_run/training_config.snapshot.yaml
+  metrics_summary.snapshot.yaml: models/simplified_dataset/setpoints/exported/periodic_temporal_convolution/global/2026-07-08-19-09-50__te_periodic_temporal_convolution_global__simplified_setpoints/source_run/metrics_summary.snapshot.yaml
+  run_metadata.snapshot.yaml: models/simplified_dataset/setpoints/exported/periodic_temporal_convolution/global/2026-07-08-19-09-50__te_periodic_temporal_convolution_global__simplified_setpoints/source_run/run_metadata.snapshot.yaml
+  training_test_report.snapshot.md: models/simplified_dataset/setpoints/exported/periodic_temporal_convolution/global/2026-07-08-19-09-50__te_periodic_temporal_convolution_global__simplified_setpoints/source_run/training_test_report.snapshot.md
+  best_checkpoint_path.snapshot.txt: models/simplified_dataset/setpoints/exported/periodic_temporal_convolution/global/2026-07-08-19-09-50__te_periodic_temporal_convolution_global__simplified_setpoints/source_run/best_checkpoint_path.snapshot.txt
+metrics:
+  val_mae: 0.0036004551220685244
+  test_mae: 0.0034358701668679714
+  test_rmse: 0.004105688538402319
