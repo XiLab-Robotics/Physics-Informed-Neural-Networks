@@ -147,10 +147,10 @@ last_completed_campaign:
       te_curve_verification_status: not_run_in_closeout
 next_prepared_campaign:
   status: completed_and_exported
-  campaign_name: dataset_input_mode_retraining__lstm_sequence__polished_setpoints
+  campaign_name: dataset_input_mode_retraining__lstm_sequence__polished_actual_values
   dataset_id: polished_dataset
-  input_mode: setpoints
-  dataset_schema: polished_setpoint_curve_v1
+  input_mode: actual_values
+  dataset_schema: polished_point_v1
   expected_run_count: 3
   completed_run_count: 3
   failed_run_count: 0
@@ -162,67 +162,71 @@ next_prepared_campaign:
     slurm_cpus_per_task: 8
     slurm_memory: 100G
     gpu_request: a100:1
-    observed_gpu_memory_sample: about 2.8 to 3.9 GiB on A100 80GB during sampled
-      batch-16 polished setpoint LSTM sequence training
-    observed_gpu_utilization_sample: bursty samples from 0 to 35 percent, with short
-      high-power training bursts and fast validation passes
-    observed_throughput: about 9-10 effective batches per second including validation
-      at 85 batches per epoch, with train-only phases commonly around 12-13 batches
-      per second
+    observed_gpu_memory_sample: about 2.8 GiB on A100 80GB during sampled batch-16
+      polished actual-values LSTM sequence backward training
+    observed_gpu_utilization_sample: bursty samples from 18 to 47 percent during
+      sampled backward epochs, with short high-power training bursts and validation
+      passes
+    observed_throughput: about 7.6-8.5 effective batches per second including
+      validation at 85 batches per epoch, with train-only phases commonly around
+      10-12 batches per second
     batch_tuning_note: The prepared campaign default was raised from curve_batch_size
-      2 to 16 before submission. Batch 16 remained stable for polished setpoint LSTM
-      sequence collation and completed all three sequential surfaces in 00:53:16.
-    comparison_note: Global completed in 20:05, Fw in 15:04, and Bw in 17:36. Polished
-      setpoint validation was slower than simplified setpoints, while VRAM stayed far
-      below the A100 80GB limit.
-    next_campaign_recommendation: Continue lstm_sequence polished actual-values at batch
-      16 as the accepted baseline unless a new explicit tuning request is made.
+      2 to 16 before submission. Batch 16 remained stable for polished actual-values
+      LSTM sequence collation and completed all three sequential surfaces in 01:55:32.
+    comparison_note: Global completed in 29:05, Fw in 42:07, and Bw in 43:50. Polished
+      actual-values LSTM training was slower than polished setpoints, while VRAM
+      stayed far below the A100 80GB limit.
+    next_campaign_recommendation: Continue the remaining dataset input-mode campaigns
+      at batch 16 as the accepted baseline unless a new explicit tuning request is
+      made.
   sbatch_submission:
-    slurm_job_id: '135131'
+    slurm_job_id: '135139'
     state: COMPLETED
     exit_code: 0:0
-    elapsed: 00:53:16
-    max_rss: 15931800K
+    elapsed: 01:55:32
+    max_rss: 16557460K
     python_executable: /unimore_home/dferrari/.conda/envs/pinns_env/bin/python
     torch_version: 2.7.1+cu118
     gpu_request: a100:1
-  campaign_manifest_path: config/training/dataset_input_mode_retraining/campaigns/dataset_input_mode_retraining__lstm_sequence__polished_setpoints/campaign.yaml
-  campaign_output_directory: output/training_campaigns/2026-07-08-15-45-54_dataset_input_mode_retraining__lstm_sequence__polished_setpoints
-  campaign_best_run_path: output/training_campaigns/2026-07-08-15-45-54_dataset_input_mode_retraining__lstm_sequence__polished_setpoints/campaign_best_run.yaml
-  campaign_leaderboard_path: output/training_campaigns/2026-07-08-15-45-54_dataset_input_mode_retraining__lstm_sequence__polished_setpoints/campaign_leaderboard.yaml
+  campaign_manifest_path: config/training/dataset_input_mode_retraining/campaigns/dataset_input_mode_retraining__lstm_sequence__polished_actual_values/campaign.yaml
+  campaign_output_directory: output/training_campaigns/2026-07-08-16-51-13_dataset_input_mode_retraining__lstm_sequence__polished_actual_values
+  campaign_best_run_path: output/training_campaigns/2026-07-08-16-51-13_dataset_input_mode_retraining__lstm_sequence__polished_actual_values/campaign_best_run.yaml
+  campaign_leaderboard_path: output/training_campaigns/2026-07-08-16-51-13_dataset_input_mode_retraining__lstm_sequence__polished_actual_values/campaign_leaderboard.yaml
   best_run:
-    run_name: te_lstm_sequence_fw__polished_setpoints
-    run_instance_id: 2026-07-08-16-05-59__te_lstm_sequence_fw__polished_setpoints
+    run_name: te_lstm_sequence_fw__polished_actual_values
+    run_instance_id: 2026-07-08-17-20-19__te_lstm_sequence_fw__polished_actual_values
     surface: forward
-    test_mae: 0.002464499557390809
-    test_rmse: 0.003858801443129778
-    val_mae: 0.0021909361239522696
+    test_mae: 0.002238660119473934
+    test_rmse: 0.0033192161936312914
+    val_mae: 0.002151240361854434
   surface_run_list:
   - surface: global
-    run_name: te_lstm_sequence_global__polished_setpoints
-    run_instance_id: 2026-07-08-15-45-54__te_lstm_sequence_global__polished_setpoints
-    test_mae: 0.002469944069162011
-    val_mae: 0.0021864830050617456
-    duration: 00:20:05
+    run_name: te_lstm_sequence_global__polished_actual_values
+    run_instance_id: 2026-07-08-16-51-13__te_lstm_sequence_global__polished_actual_values
+    test_mae: 0.002280530985444784
+    val_mae: 0.002188947983086109
+    duration: 00:29:05
   - surface: forward
-    run_name: te_lstm_sequence_fw__polished_setpoints
-    run_instance_id: 2026-07-08-16-05-59__te_lstm_sequence_fw__polished_setpoints
-    test_mae: 0.002464499557390809
-    val_mae: 0.0021909361239522696
-    duration: 00:15:04
+    run_name: te_lstm_sequence_fw__polished_actual_values
+    run_instance_id: 2026-07-08-17-20-19__te_lstm_sequence_fw__polished_actual_values
+    test_mae: 0.002238660119473934
+    val_mae: 0.002151240361854434
+    duration: 00:42:07
   - surface: backward
-    run_name: te_lstm_sequence_bw__polished_setpoints
-    run_instance_id: 2026-07-08-16-21-04__te_lstm_sequence_bw__polished_setpoints
-    test_mae: 0.002469063736498356
-    val_mae: 0.002199706854298711
-    duration: 00:17:36
+    run_name: te_lstm_sequence_bw__polished_actual_values
+    run_instance_id: 2026-07-08-18-02-26__te_lstm_sequence_bw__polished_actual_values
+    test_mae: 0.002252671169117093
+    val_mae: 0.002145468257367611
+    duration: 00:43:50
   export:
     status: completed
-    export_root: models/polished_dataset/setpoints/exported
-    export_inventory_path: models/polished_dataset/setpoints/exported/model_development_export_inventory.yaml
+    export_root: models/polished_dataset/actual_values/exported
+    export_inventory_path: models/polished_dataset/actual_values/exported/model_development_export_inventory.yaml
     exported_entry_count: 3
     onnx_export_status_counts:
       exported: 3
     onnx_export_warning_note: ONNX export completed with PyTorch TracerWarning from
       temporal_sequence_network.py while tracing the fixed input-size assertion and
-      the expected PyTorch LSTM variable-length batch-size warning.
+      the expected PyTorch LSTM variable-length batch-size warning. The initial
+      240-second export pass timed out on the global ONNX; a 900-second retry exported
+      global, forward, and backward ONNX files successfully.

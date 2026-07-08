@@ -1,0 +1,25 @@
+schema_version: 1
+dataset_id: polished_dataset
+dataset_schema: polished_point_v1
+input_mode: actual_values
+model_family: lstm_sequence
+model_type: lstm_sequence
+surface: global
+run_name: te_lstm_sequence_global__polished_actual_values
+run_instance_id: 2026-07-08-16-51-13__te_lstm_sequence_global__polished_actual_values
+source_output_directory: output/training_runs/lstm_sequence/2026-07-08-16-51-13__te_lstm_sequence_global__polished_actual_values
+source_best_checkpoint_path: output/training_runs/lstm_sequence/2026-07-08-16-51-13__te_lstm_sequence_global__polished_actual_values/checkpoints/lstm_sequence-epoch=160-val_mae=0.00218895.ckpt
+python_model_path: models/polished_dataset/actual_values/exported/lstm_sequence/global/2026-07-08-16-51-13__te_lstm_sequence_global__polished_actual_values/python/lstm_sequence-epoch=160-val_mae=0.00218895.ckpt
+onnx_model_path: models/polished_dataset/actual_values/exported/lstm_sequence/global/2026-07-08-16-51-13__te_lstm_sequence_global__polished_actual_values/onnx/model.onnx
+onnx_export_status: exported
+onnx_export_error: ''
+source_run_snapshot_path_map:
+  training_config.snapshot.yaml: models/polished_dataset/actual_values/exported/lstm_sequence/global/2026-07-08-16-51-13__te_lstm_sequence_global__polished_actual_values/source_run/training_config.snapshot.yaml
+  metrics_summary.snapshot.yaml: models/polished_dataset/actual_values/exported/lstm_sequence/global/2026-07-08-16-51-13__te_lstm_sequence_global__polished_actual_values/source_run/metrics_summary.snapshot.yaml
+  run_metadata.snapshot.yaml: models/polished_dataset/actual_values/exported/lstm_sequence/global/2026-07-08-16-51-13__te_lstm_sequence_global__polished_actual_values/source_run/run_metadata.snapshot.yaml
+  training_test_report.snapshot.md: models/polished_dataset/actual_values/exported/lstm_sequence/global/2026-07-08-16-51-13__te_lstm_sequence_global__polished_actual_values/source_run/training_test_report.snapshot.md
+  best_checkpoint_path.snapshot.txt: models/polished_dataset/actual_values/exported/lstm_sequence/global/2026-07-08-16-51-13__te_lstm_sequence_global__polished_actual_values/source_run/best_checkpoint_path.snapshot.txt
+metrics:
+  val_mae: 0.002188947983086109
+  test_mae: 0.002280530985444784
+  test_rmse: 0.0033455267548561096

@@ -1,0 +1,1 @@
+/scratch1/dferrari/Physics-Informed-Neural-Networks/output/training_runs/lstm_sequence/2026-07-08-17-20-19__te_lstm_sequence_fw__polished_actual_values/checkpoints/lstm_sequence-epoch=210-val_mae=0.00215124.ckpt
