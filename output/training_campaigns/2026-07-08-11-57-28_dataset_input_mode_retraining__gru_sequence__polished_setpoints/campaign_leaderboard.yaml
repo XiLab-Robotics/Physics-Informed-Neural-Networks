@@ -1,0 +1,131 @@
+schema_version: 1
+campaign_name: dataset_input_mode_retraining__gru_sequence__polished_setpoints
+selection_policy:
+  primary_metric: test_mae
+  first_tie_breaker: test_rmse
+  second_tie_breaker: val_mae
+  third_tie_breaker: trainable_parameter_count
+  direction: minimize
+updated_at: '2026-07-08T13:03:44'
+entry_count: 3
+entry_list:
+- run_instance_id: 2026-07-08-12-18-02__te_gru_sequence_fw__polished_setpoints
+  run_name: te_gru_sequence_fw__polished_setpoints
+  output_run_name: te_gru_sequence_fw__polished_setpoints
+  output_artifact_kind: training_run
+  model_family: gru_sequence_fw
+  base_model_family: gru_sequence
+  model_type: gru_sequence
+  dataset_id: polished_dataset
+  dataset_schema: polished_setpoint_curve_v1
+  input_mode: setpoints
+  input_feature_names:
+  - angular_position_deg
+  - input_speed_rpm
+  - input_torque_nm
+  - oil_temperature_deg
+  - direction_flag
+  target_feature_names:
+  - theta_TE
+  input_feature_dim: 5
+  training_variant: fw
+  direction_scope_label: forward_only
+  use_forward_direction: true
+  use_backward_direction: false
+  trainable_parameter_count: 151041
+  total_parameter_count: 151041
+  val_mae: 0.0021622295025736094
+  val_rmse: 0.0029792035929858685
+  test_mae: 0.0024306881241500378
+  test_rmse: 0.0038106588181108236
+  output_directory: output\training_runs\gru_sequence\2026-07-08-12-18-02__te_gru_sequence_fw__polished_setpoints
+  best_checkpoint_path: output\training_runs\gru_sequence\2026-07-08-12-18-02__te_gru_sequence_fw__polished_setpoints\checkpoints\gru_sequence-epoch=152-val_mae=0.00216223.ckpt
+  metrics_path: output\training_runs\gru_sequence\2026-07-08-12-18-02__te_gru_sequence_fw__polished_setpoints/metrics_summary.yaml
+  report_path: output\training_runs\gru_sequence\2026-07-08-12-18-02__te_gru_sequence_fw__polished_setpoints/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-07-08T13:03:44'
+- run_instance_id: 2026-07-08-12-47-20__te_gru_sequence_bw__polished_setpoints
+  run_name: te_gru_sequence_bw__polished_setpoints
+  output_run_name: te_gru_sequence_bw__polished_setpoints
+  output_artifact_kind: training_run
+  model_family: gru_sequence_bw
+  base_model_family: gru_sequence
+  model_type: gru_sequence
+  dataset_id: polished_dataset
+  dataset_schema: polished_setpoint_curve_v1
+  input_mode: setpoints
+  input_feature_names:
+  - angular_position_deg
+  - input_speed_rpm
+  - input_torque_nm
+  - oil_temperature_deg
+  - direction_flag
+  target_feature_names:
+  - theta_TE
+  input_feature_dim: 5
+  training_variant: bw
+  direction_scope_label: backward_only
+  use_forward_direction: false
+  use_backward_direction: true
+  trainable_parameter_count: 151041
+  total_parameter_count: 151041
+  val_mae: 0.0021829267498105764
+  val_rmse: 0.003012718167155981
+  test_mae: 0.0024673594161868095
+  test_rmse: 0.0038491119630634785
+  output_directory: output\training_runs\gru_sequence\2026-07-08-12-47-20__te_gru_sequence_bw__polished_setpoints
+  best_checkpoint_path: output\training_runs\gru_sequence\2026-07-08-12-47-20__te_gru_sequence_bw__polished_setpoints\checkpoints\gru_sequence-epoch=088-val_mae=0.00218293.ckpt
+  metrics_path: output\training_runs\gru_sequence\2026-07-08-12-47-20__te_gru_sequence_bw__polished_setpoints/metrics_summary.yaml
+  report_path: output\training_runs\gru_sequence\2026-07-08-12-47-20__te_gru_sequence_bw__polished_setpoints/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-07-08T13:03:44'
+- run_instance_id: 2026-07-08-11-57-28__te_gru_sequence_global__polished_setpoints
+  run_name: te_gru_sequence_global__polished_setpoints
+  output_run_name: te_gru_sequence_global__polished_setpoints
+  output_artifact_kind: training_run
+  model_family: gru_sequence_global
+  base_model_family: gru_sequence
+  model_type: gru_sequence
+  dataset_id: polished_dataset
+  dataset_schema: polished_setpoint_curve_v1
+  input_mode: setpoints
+  input_feature_names:
+  - angular_position_deg
+  - input_speed_rpm
+  - input_torque_nm
+  - oil_temperature_deg
+  - direction_flag
+  target_feature_names:
+  - theta_TE
+  input_feature_dim: 5
+  training_variant: global
+  direction_scope_label: bidirectional
+  use_forward_direction: true
+  use_backward_direction: true
+  trainable_parameter_count: 151041
+  total_parameter_count: 151041
+  val_mae: 0.0021736049093306065
+  val_rmse: 0.0030081875156611204
+  test_mae: 0.0024738179054111242
+  test_rmse: 0.0038530512247234583
+  output_directory: output\training_runs\gru_sequence\2026-07-08-11-57-28__te_gru_sequence_global__polished_setpoints
+  best_checkpoint_path: output\training_runs\gru_sequence\2026-07-08-11-57-28__te_gru_sequence_global__polished_setpoints\checkpoints\gru_sequence-epoch=091-val_mae=0.00217360.ckpt
+  metrics_path: output\training_runs\gru_sequence\2026-07-08-11-57-28__te_gru_sequence_global__polished_setpoints/metrics_summary.yaml
+  report_path: output\training_runs\gru_sequence\2026-07-08-11-57-28__te_gru_sequence_global__polished_setpoints/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-07-08T13:03:44'

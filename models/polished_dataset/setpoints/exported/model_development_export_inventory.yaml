@@ -13,74 +13,74 @@ entries:
   dataset_id: polished_dataset
   dataset_schema: polished_setpoint_curve_v1
   input_mode: setpoints
-  model_family: temporal_convolution
-  model_type: temporal_convolution
+  model_family: gru_sequence
+  model_type: gru_sequence
   surface: global
-  run_name: te_temporal_convolution_global__polished_setpoints
-  run_instance_id: 2026-07-08-08-48-08__te_temporal_convolution_global__polished_setpoints
-  source_output_directory: output/training_runs/temporal_convolution/2026-07-08-08-48-08__te_temporal_convolution_global__polished_setpoints
-  source_best_checkpoint_path: output/training_runs/temporal_convolution/2026-07-08-08-48-08__te_temporal_convolution_global__polished_setpoints/checkpoints/temporal_convolution-epoch=074-val_mae=0.00225012.ckpt
-  python_model_path: models/polished_dataset/setpoints/exported/temporal_convolution/global/2026-07-08-08-48-08__te_temporal_convolution_global__polished_setpoints/python/temporal_convolution-epoch=074-val_mae=0.00225012.ckpt
-  onnx_model_path: models/polished_dataset/setpoints/exported/temporal_convolution/global/2026-07-08-08-48-08__te_temporal_convolution_global__polished_setpoints/onnx/model.onnx
+  run_name: te_gru_sequence_global__polished_setpoints
+  run_instance_id: 2026-07-08-11-57-28__te_gru_sequence_global__polished_setpoints
+  source_output_directory: output/training_runs/gru_sequence/2026-07-08-11-57-28__te_gru_sequence_global__polished_setpoints
+  source_best_checkpoint_path: output/training_runs/gru_sequence/2026-07-08-11-57-28__te_gru_sequence_global__polished_setpoints/checkpoints/gru_sequence-epoch=091-val_mae=0.00217360.ckpt
+  python_model_path: models/polished_dataset/setpoints/exported/gru_sequence/global/2026-07-08-11-57-28__te_gru_sequence_global__polished_setpoints/python/gru_sequence-epoch=091-val_mae=0.00217360.ckpt
+  onnx_model_path: models/polished_dataset/setpoints/exported/gru_sequence/global/2026-07-08-11-57-28__te_gru_sequence_global__polished_setpoints/onnx/model.onnx
   onnx_export_status: exported
   onnx_export_error: ''
   source_run_snapshot_path_map:
-    training_config.snapshot.yaml: models/polished_dataset/setpoints/exported/temporal_convolution/global/2026-07-08-08-48-08__te_temporal_convolution_global__polished_setpoints/source_run/training_config.snapshot.yaml
-    metrics_summary.snapshot.yaml: models/polished_dataset/setpoints/exported/temporal_convolution/global/2026-07-08-08-48-08__te_temporal_convolution_global__polished_setpoints/source_run/metrics_summary.snapshot.yaml
-    run_metadata.snapshot.yaml: models/polished_dataset/setpoints/exported/temporal_convolution/global/2026-07-08-08-48-08__te_temporal_convolution_global__polished_setpoints/source_run/run_metadata.snapshot.yaml
-    training_test_report.snapshot.md: models/polished_dataset/setpoints/exported/temporal_convolution/global/2026-07-08-08-48-08__te_temporal_convolution_global__polished_setpoints/source_run/training_test_report.snapshot.md
-    best_checkpoint_path.snapshot.txt: models/polished_dataset/setpoints/exported/temporal_convolution/global/2026-07-08-08-48-08__te_temporal_convolution_global__polished_setpoints/source_run/best_checkpoint_path.snapshot.txt
+    training_config.snapshot.yaml: models/polished_dataset/setpoints/exported/gru_sequence/global/2026-07-08-11-57-28__te_gru_sequence_global__polished_setpoints/source_run/training_config.snapshot.yaml
+    metrics_summary.snapshot.yaml: models/polished_dataset/setpoints/exported/gru_sequence/global/2026-07-08-11-57-28__te_gru_sequence_global__polished_setpoints/source_run/metrics_summary.snapshot.yaml
+    run_metadata.snapshot.yaml: models/polished_dataset/setpoints/exported/gru_sequence/global/2026-07-08-11-57-28__te_gru_sequence_global__polished_setpoints/source_run/run_metadata.snapshot.yaml
+    training_test_report.snapshot.md: models/polished_dataset/setpoints/exported/gru_sequence/global/2026-07-08-11-57-28__te_gru_sequence_global__polished_setpoints/source_run/training_test_report.snapshot.md
+    best_checkpoint_path.snapshot.txt: models/polished_dataset/setpoints/exported/gru_sequence/global/2026-07-08-11-57-28__te_gru_sequence_global__polished_setpoints/source_run/best_checkpoint_path.snapshot.txt
   metrics:
-    val_mae: 0.0022501221392303705
-    test_mae: 0.0025378039572387934
-    test_rmse: 0.0039331018924713135
+    val_mae: 0.0021736049093306065
+    test_mae: 0.0024738179054111242
+    test_rmse: 0.0038530512247234583
 - schema_version: 1
   dataset_id: polished_dataset
   dataset_schema: polished_setpoint_curve_v1
   input_mode: setpoints
-  model_family: temporal_convolution
-  model_type: temporal_convolution
+  model_family: gru_sequence
+  model_type: gru_sequence
   surface: forward
-  run_name: te_temporal_convolution_fw__polished_setpoints
-  run_instance_id: 2026-07-08-09-01-27__te_temporal_convolution_fw__polished_setpoints
-  source_output_directory: output/training_runs/temporal_convolution/2026-07-08-09-01-27__te_temporal_convolution_fw__polished_setpoints
-  source_best_checkpoint_path: output/training_runs/temporal_convolution/2026-07-08-09-01-27__te_temporal_convolution_fw__polished_setpoints/checkpoints/temporal_convolution-epoch=042-val_mae=0.00225272.ckpt
-  python_model_path: models/polished_dataset/setpoints/exported/temporal_convolution/forward/2026-07-08-09-01-27__te_temporal_convolution_fw__polished_setpoints/python/temporal_convolution-epoch=042-val_mae=0.00225272.ckpt
-  onnx_model_path: models/polished_dataset/setpoints/exported/temporal_convolution/forward/2026-07-08-09-01-27__te_temporal_convolution_fw__polished_setpoints/onnx/model.onnx
+  run_name: te_gru_sequence_fw__polished_setpoints
+  run_instance_id: 2026-07-08-12-18-02__te_gru_sequence_fw__polished_setpoints
+  source_output_directory: output/training_runs/gru_sequence/2026-07-08-12-18-02__te_gru_sequence_fw__polished_setpoints
+  source_best_checkpoint_path: output/training_runs/gru_sequence/2026-07-08-12-18-02__te_gru_sequence_fw__polished_setpoints/checkpoints/gru_sequence-epoch=152-val_mae=0.00216223.ckpt
+  python_model_path: models/polished_dataset/setpoints/exported/gru_sequence/forward/2026-07-08-12-18-02__te_gru_sequence_fw__polished_setpoints/python/gru_sequence-epoch=152-val_mae=0.00216223.ckpt
+  onnx_model_path: models/polished_dataset/setpoints/exported/gru_sequence/forward/2026-07-08-12-18-02__te_gru_sequence_fw__polished_setpoints/onnx/model.onnx
   onnx_export_status: exported
   onnx_export_error: ''
   source_run_snapshot_path_map:
-    training_config.snapshot.yaml: models/polished_dataset/setpoints/exported/temporal_convolution/forward/2026-07-08-09-01-27__te_temporal_convolution_fw__polished_setpoints/source_run/training_config.snapshot.yaml
-    metrics_summary.snapshot.yaml: models/polished_dataset/setpoints/exported/temporal_convolution/forward/2026-07-08-09-01-27__te_temporal_convolution_fw__polished_setpoints/source_run/metrics_summary.snapshot.yaml
-    run_metadata.snapshot.yaml: models/polished_dataset/setpoints/exported/temporal_convolution/forward/2026-07-08-09-01-27__te_temporal_convolution_fw__polished_setpoints/source_run/run_metadata.snapshot.yaml
-    training_test_report.snapshot.md: models/polished_dataset/setpoints/exported/temporal_convolution/forward/2026-07-08-09-01-27__te_temporal_convolution_fw__polished_setpoints/source_run/training_test_report.snapshot.md
-    best_checkpoint_path.snapshot.txt: models/polished_dataset/setpoints/exported/temporal_convolution/forward/2026-07-08-09-01-27__te_temporal_convolution_fw__polished_setpoints/source_run/best_checkpoint_path.snapshot.txt
+    training_config.snapshot.yaml: models/polished_dataset/setpoints/exported/gru_sequence/forward/2026-07-08-12-18-02__te_gru_sequence_fw__polished_setpoints/source_run/training_config.snapshot.yaml
+    metrics_summary.snapshot.yaml: models/polished_dataset/setpoints/exported/gru_sequence/forward/2026-07-08-12-18-02__te_gru_sequence_fw__polished_setpoints/source_run/metrics_summary.snapshot.yaml
+    run_metadata.snapshot.yaml: models/polished_dataset/setpoints/exported/gru_sequence/forward/2026-07-08-12-18-02__te_gru_sequence_fw__polished_setpoints/source_run/run_metadata.snapshot.yaml
+    training_test_report.snapshot.md: models/polished_dataset/setpoints/exported/gru_sequence/forward/2026-07-08-12-18-02__te_gru_sequence_fw__polished_setpoints/source_run/training_test_report.snapshot.md
+    best_checkpoint_path.snapshot.txt: models/polished_dataset/setpoints/exported/gru_sequence/forward/2026-07-08-12-18-02__te_gru_sequence_fw__polished_setpoints/source_run/best_checkpoint_path.snapshot.txt
   metrics:
-    val_mae: 0.0022527198307216167
-    test_mae: 0.002544007496908307
-    test_rmse: 0.003914165776222944
+    val_mae: 0.0021622295025736094
+    test_mae: 0.0024306881241500378
+    test_rmse: 0.0038106588181108236
 - schema_version: 1
   dataset_id: polished_dataset
   dataset_schema: polished_setpoint_curve_v1
   input_mode: setpoints
-  model_family: temporal_convolution
-  model_type: temporal_convolution
+  model_family: gru_sequence
+  model_type: gru_sequence
   surface: backward
-  run_name: te_temporal_convolution_bw__polished_setpoints
-  run_instance_id: 2026-07-08-09-14-19__te_temporal_convolution_bw__polished_setpoints
-  source_output_directory: output/training_runs/temporal_convolution/2026-07-08-09-14-19__te_temporal_convolution_bw__polished_setpoints
-  source_best_checkpoint_path: output/training_runs/temporal_convolution/2026-07-08-09-14-19__te_temporal_convolution_bw__polished_setpoints/checkpoints/temporal_convolution-epoch=125-val_mae=0.00222200.ckpt
-  python_model_path: models/polished_dataset/setpoints/exported/temporal_convolution/backward/2026-07-08-09-14-19__te_temporal_convolution_bw__polished_setpoints/python/temporal_convolution-epoch=125-val_mae=0.00222200.ckpt
-  onnx_model_path: models/polished_dataset/setpoints/exported/temporal_convolution/backward/2026-07-08-09-14-19__te_temporal_convolution_bw__polished_setpoints/onnx/model.onnx
+  run_name: te_gru_sequence_bw__polished_setpoints
+  run_instance_id: 2026-07-08-12-47-20__te_gru_sequence_bw__polished_setpoints
+  source_output_directory: output/training_runs/gru_sequence/2026-07-08-12-47-20__te_gru_sequence_bw__polished_setpoints
+  source_best_checkpoint_path: output/training_runs/gru_sequence/2026-07-08-12-47-20__te_gru_sequence_bw__polished_setpoints/checkpoints/gru_sequence-epoch=088-val_mae=0.00218293.ckpt
+  python_model_path: models/polished_dataset/setpoints/exported/gru_sequence/backward/2026-07-08-12-47-20__te_gru_sequence_bw__polished_setpoints/python/gru_sequence-epoch=088-val_mae=0.00218293.ckpt
+  onnx_model_path: models/polished_dataset/setpoints/exported/gru_sequence/backward/2026-07-08-12-47-20__te_gru_sequence_bw__polished_setpoints/onnx/model.onnx
   onnx_export_status: exported
   onnx_export_error: ''
   source_run_snapshot_path_map:
-    training_config.snapshot.yaml: models/polished_dataset/setpoints/exported/temporal_convolution/backward/2026-07-08-09-14-19__te_temporal_convolution_bw__polished_setpoints/source_run/training_config.snapshot.yaml
-    metrics_summary.snapshot.yaml: models/polished_dataset/setpoints/exported/temporal_convolution/backward/2026-07-08-09-14-19__te_temporal_convolution_bw__polished_setpoints/source_run/metrics_summary.snapshot.yaml
-    run_metadata.snapshot.yaml: models/polished_dataset/setpoints/exported/temporal_convolution/backward/2026-07-08-09-14-19__te_temporal_convolution_bw__polished_setpoints/source_run/run_metadata.snapshot.yaml
-    training_test_report.snapshot.md: models/polished_dataset/setpoints/exported/temporal_convolution/backward/2026-07-08-09-14-19__te_temporal_convolution_bw__polished_setpoints/source_run/training_test_report.snapshot.md
-    best_checkpoint_path.snapshot.txt: models/polished_dataset/setpoints/exported/temporal_convolution/backward/2026-07-08-09-14-19__te_temporal_convolution_bw__polished_setpoints/source_run/best_checkpoint_path.snapshot.txt
+    training_config.snapshot.yaml: models/polished_dataset/setpoints/exported/gru_sequence/backward/2026-07-08-12-47-20__te_gru_sequence_bw__polished_setpoints/source_run/training_config.snapshot.yaml
+    metrics_summary.snapshot.yaml: models/polished_dataset/setpoints/exported/gru_sequence/backward/2026-07-08-12-47-20__te_gru_sequence_bw__polished_setpoints/source_run/metrics_summary.snapshot.yaml
+    run_metadata.snapshot.yaml: models/polished_dataset/setpoints/exported/gru_sequence/backward/2026-07-08-12-47-20__te_gru_sequence_bw__polished_setpoints/source_run/run_metadata.snapshot.yaml
+    training_test_report.snapshot.md: models/polished_dataset/setpoints/exported/gru_sequence/backward/2026-07-08-12-47-20__te_gru_sequence_bw__polished_setpoints/source_run/training_test_report.snapshot.md
+    best_checkpoint_path.snapshot.txt: models/polished_dataset/setpoints/exported/gru_sequence/backward/2026-07-08-12-47-20__te_gru_sequence_bw__polished_setpoints/source_run/best_checkpoint_path.snapshot.txt
   metrics:
-    val_mae: 0.0022219978272914886
-    test_mae: 0.0025079436600208282
-    test_rmse: 0.0038840738125145435
+    val_mae: 0.0021829267498105764
+    test_mae: 0.0024673594161868095
+    test_rmse: 0.0038491119630634785

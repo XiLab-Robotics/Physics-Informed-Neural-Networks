@@ -1,0 +1,68 @@
+paths:
+  dataset_config_path: config/datasets/transmission_error_dataset.yaml
+  output_root: output/training_runs/gru_sequence
+experiment:
+  run_name: te_gru_sequence_bw__polished_setpoints
+  model_family: gru_sequence_bw
+  model_type: gru_sequence
+metadata:
+  campaign_name: dataset_input_mode_retraining__gru_sequence__polished_setpoints
+  planning_report_path: doc/reports/campaign_plans/cross_wave/input_modes/2026-07-07-01-46-06_dataset_input_mode_retraining_campaign_plan_report.md
+  phase_name: dataset_input_mode_retraining
+  campaign_config_id: gru_sequence_bw
+  notes: Wave 2.1 temporal model entry campaign | family=gru_sequence | direction=bw.
+    Candidate must return through official TE curve verification.
+  random_seed: 42
+  base_model_family: gru_sequence
+  training_variant: bw
+  direction_scope_label: backward_only
+  use_forward_direction: false
+  use_backward_direction: true
+  hydra_transition_policy: wave2_temporal_model_entry_preparation
+  technical_document_path: doc/technical/2026-07/2026-07-07/2026-07-07-01-46-06_dataset_input_mode_retraining_campaigns.md
+  queue_index: 3
+  source_config_path: config/training/queue/polished_dataset_full_wave_retraining/completed/2026-06-29-15-54-17_024_024_gru_sequence_bw.yaml
+  dataset_schema: polished_setpoint_curve_v1
+  output_artifact_kind: training_run
+  output_run_name: te_gru_sequence_bw__polished_setpoints
+  dataset_name: polished_dataset
+  input_mode: setpoints
+  source_dataset_root: data/polished_dataset
+  expected_model_archive_root: models/polished_dataset/setpoints/exported
+dataset:
+  curve_batch_size: 16
+  point_stride: 1
+  maximum_points_per_curve: null
+  collate_mode: sequence
+  sequence_length: 33
+  sequence_stride: 4
+  sequence_target_position: center
+  maximum_sequences_per_curve: 192
+  num_workers: 8
+  pin_memory: true
+  name: polished_dataset
+  input_mode: setpoints
+model:
+  input_size: auto
+  output_size: 1
+  hidden_size: 128
+  num_layers: 2
+  dropout_probability: 0.1
+  bidirectional: false
+  readout_position: center
+training:
+  learning_rate: 0.0005
+  weight_decay: 0.0001
+  min_epochs: 20
+  max_epochs: 260
+  patience: 40
+  min_delta: 1.0e-05
+  log_every_n_steps: 1
+  fast_dev_run: false
+  deterministic: false
+runtime:
+  accelerator: auto
+  devices: auto
+  precision: '32'
+  benchmark: true
+  use_non_blocking_transfer: true
