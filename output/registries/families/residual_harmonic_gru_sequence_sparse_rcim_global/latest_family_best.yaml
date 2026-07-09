@@ -6,7 +6,7 @@ selection_policy:
   second_tie_breaker: val_mae
   third_tie_breaker: trainable_parameter_count
   direction: minimize
-updated_at: '2026-07-09T05:56:34'
+updated_at: '2026-07-09T06:39:47'
 best_entry:
   run_instance_id: 2026-06-30-06-13-35__te_residual_harmonic_gru_sequence_sparse_rcim_global
   run_name: te_residual_harmonic_gru_sequence_sparse_rcim_global
