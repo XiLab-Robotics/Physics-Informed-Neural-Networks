@@ -6,8 +6,8 @@ selection_policy:
   second_tie_breaker: val_mae
   third_tie_breaker: trainable_parameter_count
   direction: minimize
-updated_at: '2026-07-09T10:52:16'
-entry_count: 3
+updated_at: '2026-07-09T11:57:58'
+entry_count: 4
 entry_list:
 - run_instance_id: 2026-06-30-07-33-15__te_residual_harmonic_gru_sequence_dense240_global
   run_name: te_residual_harmonic_gru_sequence_dense240_global
@@ -47,6 +47,46 @@ entry_list:
     third_tie_breaker: trainable_parameter_count
     direction: minimize
   selected_at: '2026-06-30T08:20:41'
+- run_instance_id: 2026-07-09-11-46-57__te_residual_harmonic_gru_sequence_dense240_global__polished_actual_values
+  run_name: te_residual_harmonic_gru_sequence_dense240_global__polished_actual_values
+  output_run_name: te_residual_harmonic_gru_sequence_dense240_global__polished_actual_values
+  output_artifact_kind: training_run
+  model_family: residual_harmonic_gru_sequence_dense240_global
+  base_model_family: residual_harmonic_gru_sequence_dense240
+  model_type: residual_harmonic_gru_sequence
+  dataset_id: polished_dataset
+  dataset_schema: polished_point_v1
+  input_mode: actual_values
+  input_feature_names:
+  - theta
+  - theta_dot
+  - tau_load
+  - T
+  - direction_flag
+  target_feature_names:
+  - theta_TE
+  input_feature_dim: 5
+  training_variant: global
+  direction_scope_label: bidirectional
+  use_forward_direction: true
+  use_backward_direction: true
+  trainable_parameter_count: 151522
+  total_parameter_count: 151522
+  val_mae: 0.0020458281505852938
+  val_rmse: 0.00284242513589561
+  test_mae: 0.0022134939208626747
+  test_rmse: 0.003267519408836961
+  output_directory: output\training_runs\residual_harmonic_gru_sequence_dense240\2026-07-09-11-46-57__te_residual_harmonic_gru_sequence_dense240_global__polished_actual_values
+  best_checkpoint_path: output\training_runs\residual_harmonic_gru_sequence_dense240\2026-07-09-11-46-57__te_residual_harmonic_gru_sequence_dense240_global__polished_actual_values\checkpoints\residual_harmonic_gru_sequence-epoch=056-val_mae=0.00204583.ckpt
+  metrics_path: output\training_runs\residual_harmonic_gru_sequence_dense240\2026-07-09-11-46-57__te_residual_harmonic_gru_sequence_dense240_global__polished_actual_values/metrics_summary.yaml
+  report_path: output\training_runs\residual_harmonic_gru_sequence_dense240\2026-07-09-11-46-57__te_residual_harmonic_gru_sequence_dense240_global__polished_actual_values/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-07-09T11:57:58'
 - run_instance_id: 2026-07-09-10-32-04__te_residual_harmonic_gru_sequence_dense240_global__polished_setpoints
   run_name: te_residual_harmonic_gru_sequence_dense240_global__polished_setpoints
   output_run_name: te_residual_harmonic_gru_sequence_dense240_global__polished_setpoints

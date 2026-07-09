@@ -1,0 +1,111 @@
+schema_version: 1
+config_path: /scratch1/dferrari/Physics-Informed-Neural-Networks/config/training/queue/dataset_input_mode_retraining/dataset_input_mode_retraining__residual_harmonic_gru_sequence_dense240__polished_actual_values/running/2026-07-09-11-46-57_002_002_residual_harmonic_gru_sequence_dense240_fw.yaml
+experiment:
+  model_family: residual_harmonic_gru_sequence_dense240_fw
+  model_type: residual_harmonic_gru_sequence
+  run_name: te_residual_harmonic_gru_sequence_dense240_fw__polished_actual_values
+  output_run_name: te_residual_harmonic_gru_sequence_dense240_fw__polished_actual_values
+  run_instance_id: 2026-07-09-11-57-58__te_residual_harmonic_gru_sequence_dense240_fw__polished_actual_values
+  output_artifact_kind: training_run
+  base_model_family: residual_harmonic_gru_sequence_dense240
+  training_variant: fw
+  direction_scope_label: forward_only
+  use_forward_direction: true
+  use_backward_direction: false
+artifacts:
+  output_directory: /scratch1/dferrari/Physics-Informed-Neural-Networks/output/training_runs/residual_harmonic_gru_sequence_dense240/2026-07-09-11-57-58__te_residual_harmonic_gru_sequence_dense240_fw__polished_actual_values
+  best_checkpoint_path: /scratch1/dferrari/Physics-Informed-Neural-Networks/output/training_runs/residual_harmonic_gru_sequence_dense240/2026-07-09-11-57-58__te_residual_harmonic_gru_sequence_dense240_fw__polished_actual_values/checkpoints/residual_harmonic_gru_sequence-epoch=120-val_mae=0.00196886.ckpt
+dataset_split:
+  train_curve_count: 1356
+  validation_curve_count: 388
+  test_curve_count: 194
+  dataset_name: polished_dataset
+  dataset_schema: polished_point_v1
+  input_mode: actual_values
+  input_feature_name_list:
+  - theta
+  - theta_dot
+  - tau_load
+  - T
+  - direction_flag
+  target_feature_name_list:
+  - theta_TE
+  input_feature_dim: 5
+  target_feature_dim: 1
+dataset:
+  dataset_id: polished_dataset
+  dataset_schema: polished_point_v1
+  input_mode: actual_values
+  input_feature_names:
+  - theta
+  - theta_dot
+  - tau_load
+  - T
+  - direction_flag
+  target_feature_names:
+  - theta_TE
+  input_feature_dim: 5
+  target_feature_dim: 1
+model_summary:
+  backbone_name: ResidualHarmonicTemporalSequenceNetwork
+  trainable_parameter_count: 151522
+  frozen_parameter_count: 0
+  total_parameter_count: 151522
+runtime_config:
+  accelerator: auto
+  devices: auto
+  precision: '32'
+  benchmark: true
+  use_non_blocking_transfer: true
+normalization_statistics:
+  input_feature_mean:
+  - 180.0000762939453
+  - -14.942256927490234
+  - 1.681342363357544
+  - 30.617416381835938
+  - -0.01724354922771454
+  input_feature_std:
+  - 103.92301940917969
+  - 690.1138305664062
+  - 1055.5772705078125
+  - 4.267345428466797
+  - 0.9998513460159302
+  target_mean:
+  - -0.016667330637574196
+  target_std:
+  - 0.0465485081076622
+validation_metrics:
+  val_loss: 0.005249835550785065
+  val_mae: 0.001968858065083623
+  val_rmse: 0.0027617719024419785
+  val_pointwise_loss: 0.005249835550785065
+  val_centered_curve_shape_loss: 0.004925834480673075
+  val_curve_offset_loss: 0.00032400109921582043
+  val_curve_amplitude_loss: 0.03737297281622887
+  val_sparse_harmonic_shape_loss: 0.0
+  val_structured_mae: 0.03968540206551552
+  val_structured_rmse: 0.044200073927640915
+test_metrics:
+  test_loss: 0.006065784953534603
+  test_mae: 0.002101358724758029
+  test_rmse: 0.00313776358962059
+  test_pointwise_loss: 0.006065784953534603
+  test_centered_curve_shape_loss: 0.005675982683897018
+  test_curve_offset_loss: 0.000389801716664806
+  test_curve_amplitude_loss: 0.042115144431591034
+  test_sparse_harmonic_shape_loss: 0.0
+  test_structured_mae: 0.037352304905653
+  test_structured_rmse: 0.04227626696228981
+comparison_payload:
+  model_family: residual_harmonic_gru_sequence_dense240_fw
+  model_type: residual_harmonic_gru_sequence
+  run_name: te_residual_harmonic_gru_sequence_dense240_fw__polished_actual_values
+  backbone_name: ResidualHarmonicTemporalSequenceNetwork
+  trainable_parameter_count: 151522
+  total_parameter_count: 151522
+  val_mae: 0.001968858065083623
+  val_rmse: 0.0027617719024419785
+  test_mae: 0.002101358724758029
+  test_rmse: 0.00313776358962059
+  deployment_notes: ''
+  interpretability_notes: ''
