@@ -1,0 +1,69 @@
+campaign_name: dataset_input_mode_retraining__periodic_lstm_sequence__simplified_setpoints
+generated_at: '2026-07-09T02:43:23'
+queue_root: config/training/queue/dataset_input_mode_retraining/dataset_input_mode_retraining__periodic_lstm_sequence__simplified_setpoints
+campaign_output_directory: output/training_campaigns/2026-07-09-02-10-37_dataset_input_mode_retraining__periodic_lstm_sequence__simplified_setpoi
+planning_report_path: doc/reports/campaign_plans/cross_wave/input_modes/2026-07-07-01-46-06_dataset_input_mode_retraining_campaign_plan_report.md
+run_list:
+- original_queue_config_path: config/training/queue/dataset_input_mode_retraining/dataset_input_mode_retraining__periodic_lstm_sequence__simplified_setpoints/pending/2026-07-09-02-10-37_001_001_periodic_lstm_sequence_global.yaml
+  final_queue_config_path: config/training/queue/dataset_input_mode_retraining/dataset_input_mode_retraining__periodic_lstm_sequence__simplified_setpoints/completed/2026-07-09-02-10-37_001_001_periodic_lstm_sequence_global.yaml
+  source_config_path: config/training/dataset_input_mode_retraining/campaigns/dataset_input_mode_retraining__periodic_lstm_sequence__simplified_setpoints/queue/001_periodic_lstm_sequence_global.yaml
+  run_name: te_periodic_lstm_sequence_global__simplified_setpoints
+  run_instance_id: 2026-07-09-02-10-37__te_periodic_lstm_sequence_global__simplified_setpoints
+  model_type: periodic_lstm_sequence
+  queue_status: completed
+  start_time: '2026-07-09T02:10:37'
+  end_time: '2026-07-09T02:19:42'
+  duration_seconds: 544.786
+  process_return_code: 0
+  output_directory: output/training_runs/periodic_lstm_sequence/2026-07-09-02-10-37__te_periodic_lstm_sequence_global__simplified_setpoints
+  config_snapshot_path: output/training_runs/periodic_lstm_sequence/2026-07-09-02-10-37__te_periodic_lstm_sequence_global__simplified_setpoints/training_config.yaml
+  best_checkpoint_reference_path: output/training_runs/periodic_lstm_sequence/2026-07-09-02-10-37__te_periodic_lstm_sequence_global__simplified_setpoints/best_checkpoint_path.txt
+  best_checkpoint_path: /scratch1/dferrari/Physics-Informed-Neural-Networks/output/training_runs/periodic_lstm_sequence/2026-07-09-02-10-37__te_periodic_lstm_sequence_global__simplified_setpoints/checkpoints/periodic_lstm_sequence-epoch=088-val_mae=0.00353329.ckpt
+  metrics_path: output/training_runs/periodic_lstm_sequence/2026-07-09-02-10-37__te_periodic_lstm_sequence_global__simplified_setpoints/metrics_summary.yaml
+  training_report_path: output/training_runs/periodic_lstm_sequence/2026-07-09-02-10-37__te_periodic_lstm_sequence_global__simplified_setpoints/training_test_report.md
+  log_path: output/training_campaigns/2026-07-09-02-10-37_dataset_input_mode_retraining__periodic_lstm_sequence__simplified_setpoi/logs/001_te_periodic_lstm_sequence_global__simplified_set.log
+  planning_report_path: doc/reports/campaign_plans/cross_wave/input_modes/2026-07-07-01-46-06_dataset_input_mode_retraining_campaign_plan_report.md
+  campaign_name: dataset_input_mode_retraining__periodic_lstm_sequence__simplified_setpoints
+  error_message: null
+- original_queue_config_path: config/training/queue/dataset_input_mode_retraining/dataset_input_mode_retraining__periodic_lstm_sequence__simplified_setpoints/pending/2026-07-09-02-10-37_002_002_periodic_lstm_sequence_fw.yaml
+  final_queue_config_path: config/training/queue/dataset_input_mode_retraining/dataset_input_mode_retraining__periodic_lstm_sequence__simplified_setpoints/completed/2026-07-09-02-10-37_002_002_periodic_lstm_sequence_fw.yaml
+  source_config_path: config/training/dataset_input_mode_retraining/campaigns/dataset_input_mode_retraining__periodic_lstm_sequence__simplified_setpoints/queue/002_periodic_lstm_sequence_fw.yaml
+  run_name: te_periodic_lstm_sequence_fw__simplified_setpoints
+  run_instance_id: 2026-07-09-02-19-42__te_periodic_lstm_sequence_fw__simplified_setpoints
+  model_type: periodic_lstm_sequence
+  queue_status: completed
+  start_time: '2026-07-09T02:19:42'
+  end_time: '2026-07-09T02:32:24'
+  duration_seconds: 761.99
+  process_return_code: 0
+  output_directory: output/training_runs/periodic_lstm_sequence/2026-07-09-02-19-42__te_periodic_lstm_sequence_fw__simplified_setpoints
+  config_snapshot_path: output/training_runs/periodic_lstm_sequence/2026-07-09-02-19-42__te_periodic_lstm_sequence_fw__simplified_setpoints/training_config.yaml
+  best_checkpoint_reference_path: output/training_runs/periodic_lstm_sequence/2026-07-09-02-19-42__te_periodic_lstm_sequence_fw__simplified_setpoints/best_checkpoint_path.txt
+  best_checkpoint_path: /scratch1/dferrari/Physics-Informed-Neural-Networks/output/training_runs/periodic_lstm_sequence/2026-07-09-02-19-42__te_periodic_lstm_sequence_fw__simplified_setpoints/checkpoints/periodic_lstm_sequence-epoch=095-val_mae=0.00348296.ckpt
+  metrics_path: output/training_runs/periodic_lstm_sequence/2026-07-09-02-19-42__te_periodic_lstm_sequence_fw__simplified_setpoints/metrics_summary.yaml
+  training_report_path: output/training_runs/periodic_lstm_sequence/2026-07-09-02-19-42__te_periodic_lstm_sequence_fw__simplified_setpoints/training_test_report.md
+  log_path: output/training_campaigns/2026-07-09-02-10-37_dataset_input_mode_retraining__periodic_lstm_sequence__simplified_setpoi/logs/002_te_periodic_lstm_sequence_fw__simplified_setpoin.log
+  planning_report_path: doc/reports/campaign_plans/cross_wave/input_modes/2026-07-07-01-46-06_dataset_input_mode_retraining_campaign_plan_report.md
+  campaign_name: dataset_input_mode_retraining__periodic_lstm_sequence__simplified_setpoints
+  error_message: null
+- original_queue_config_path: config/training/queue/dataset_input_mode_retraining/dataset_input_mode_retraining__periodic_lstm_sequence__simplified_setpoints/pending/2026-07-09-02-10-37_003_003_periodic_lstm_sequence_bw.yaml
+  final_queue_config_path: config/training/queue/dataset_input_mode_retraining/dataset_input_mode_retraining__periodic_lstm_sequence__simplified_setpoints/completed/2026-07-09-02-10-37_003_003_periodic_lstm_sequence_bw.yaml
+  source_config_path: config/training/dataset_input_mode_retraining/campaigns/dataset_input_mode_retraining__periodic_lstm_sequence__simplified_setpoints/queue/003_periodic_lstm_sequence_bw.yaml
+  run_name: te_periodic_lstm_sequence_bw__simplified_setpoints
+  run_instance_id: 2026-07-09-02-32-24__te_periodic_lstm_sequence_bw__simplified_setpoints
+  model_type: periodic_lstm_sequence
+  queue_status: completed
+  start_time: '2026-07-09T02:32:24'
+  end_time: '2026-07-09T02:43:23'
+  duration_seconds: 659.197
+  process_return_code: 0
+  output_directory: output/training_runs/periodic_lstm_sequence/2026-07-09-02-32-24__te_periodic_lstm_sequence_bw__simplified_setpoints
+  config_snapshot_path: output/training_runs/periodic_lstm_sequence/2026-07-09-02-32-24__te_periodic_lstm_sequence_bw__simplified_setpoints/training_config.yaml
+  best_checkpoint_reference_path: output/training_runs/periodic_lstm_sequence/2026-07-09-02-32-24__te_periodic_lstm_sequence_bw__simplified_setpoints/best_checkpoint_path.txt
+  best_checkpoint_path: /scratch1/dferrari/Physics-Informed-Neural-Networks/output/training_runs/periodic_lstm_sequence/2026-07-09-02-32-24__te_periodic_lstm_sequence_bw__simplified_setpoints/checkpoints/periodic_lstm_sequence-epoch=074-val_mae=0.00352408.ckpt
+  metrics_path: output/training_runs/periodic_lstm_sequence/2026-07-09-02-32-24__te_periodic_lstm_sequence_bw__simplified_setpoints/metrics_summary.yaml
+  training_report_path: output/training_runs/periodic_lstm_sequence/2026-07-09-02-32-24__te_periodic_lstm_sequence_bw__simplified_setpoints/training_test_report.md
+  log_path: output/training_campaigns/2026-07-09-02-10-37_dataset_input_mode_retraining__periodic_lstm_sequence__simplified_setpoi/logs/003_te_periodic_lstm_sequence_bw__simplified_setpoin.log
+  planning_report_path: doc/reports/campaign_plans/cross_wave/input_modes/2026-07-07-01-46-06_dataset_input_mode_retraining_campaign_plan_report.md
+  campaign_name: dataset_input_mode_retraining__periodic_lstm_sequence__simplified_setpoints
+  error_message: null
