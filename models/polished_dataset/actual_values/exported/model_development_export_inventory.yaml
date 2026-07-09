@@ -13,74 +13,74 @@ entries:
   dataset_id: polished_dataset
   dataset_schema: polished_point_v1
   input_mode: actual_values
-  model_family: periodic_lstm_sequence
-  model_type: periodic_lstm_sequence
+  model_family: residual_harmonic_gru_sequence_sparse_rcim
+  model_type: residual_harmonic_gru_sequence
   surface: global
-  run_name: te_periodic_lstm_sequence_global__polished_actual_values
-  run_instance_id: 2026-07-09-04-47-33__te_periodic_lstm_sequence_global__polished_actual_values
-  source_output_directory: output/training_runs/periodic_lstm_sequence/2026-07-09-04-47-33__te_periodic_lstm_sequence_global__polished_actual_values
-  source_best_checkpoint_path: output/training_runs/periodic_lstm_sequence/2026-07-09-04-47-33__te_periodic_lstm_sequence_global__polished_actual_values/checkpoints/periodic_lstm_sequence-epoch=103-val_mae=0.00191666.ckpt
-  python_model_path: models/polished_dataset/actual_values/exported/periodic_lstm_sequence/global/2026-07-09-04-47-33__te_periodic_lstm_sequence_global__polished_actual_values/python/periodic_lstm_sequence-epoch=103-val_mae=0.00191666.ckpt
-  onnx_model_path: models/polished_dataset/actual_values/exported/periodic_lstm_sequence/global/2026-07-09-04-47-33__te_periodic_lstm_sequence_global__polished_actual_values/onnx/model.onnx
+  run_name: te_residual_harmonic_gru_sequence_sparse_rcim_global__polished_actual_values
+  run_instance_id: 2026-07-09-07-39-41__te_residual_harmonic_gru_sequence_sparse_rcim_global__polished_actual_values
+  source_output_directory: output/training_runs/residual_harmonic_gru_sequence_sparse_rcim/2026-07-09-07-39-41__te_residual_harmonic_gru_sequence_sparse_rcim_global__polished_actual_values
+  source_best_checkpoint_path: output/training_runs/residual_harmonic_gru_sequence_sparse_rcim/2026-07-09-07-39-41__te_residual_harmonic_gru_sequence_sparse_rcim_global__polished_actual_values/checkpoints/residual_harmonic_gru_sequence-epoch=226-val_mae=0.00193782.ckpt
+  python_model_path: models/polished_dataset/actual_values/exported/residual_harmonic_gru_sequence_sparse_rcim/global/2026-07-09-07-39-41__te_residual_harmonic_gru_sequence_sparse_rcim_global__polished_actual_values/python/residual_harmonic_gru_sequence-epoch=226-val_mae=0.00193782.ckpt
+  onnx_model_path: models/polished_dataset/actual_values/exported/residual_harmonic_gru_sequence_sparse_rcim/global/2026-07-09-07-39-41__te_residual_harmonic_gru_sequence_sparse_rcim_global__polished_actual_values/onnx/model.onnx
   onnx_export_status: exported
   onnx_export_error: ''
   source_run_snapshot_path_map:
-    training_config.snapshot.yaml: models/polished_dataset/actual_values/exported/periodic_lstm_sequence/global/2026-07-09-04-47-33__te_periodic_lstm_sequence_global__polished_actual_values/source_run/training_config.snapshot.yaml
-    metrics_summary.snapshot.yaml: models/polished_dataset/actual_values/exported/periodic_lstm_sequence/global/2026-07-09-04-47-33__te_periodic_lstm_sequence_global__polished_actual_values/source_run/metrics_summary.snapshot.yaml
-    run_metadata.snapshot.yaml: models/polished_dataset/actual_values/exported/periodic_lstm_sequence/global/2026-07-09-04-47-33__te_periodic_lstm_sequence_global__polished_actual_values/source_run/run_metadata.snapshot.yaml
-    training_test_report.snapshot.md: models/polished_dataset/actual_values/exported/periodic_lstm_sequence/global/2026-07-09-04-47-33__te_periodic_lstm_sequence_global__polished_actual_values/source_run/training_test_report.snapshot.md
-    best_checkpoint_path.snapshot.txt: models/polished_dataset/actual_values/exported/periodic_lstm_sequence/global/2026-07-09-04-47-33__te_periodic_lstm_sequence_global__polished_actual_values/source_run/best_checkpoint_path.snapshot.txt
+    training_config.snapshot.yaml: models/polished_dataset/actual_values/exported/residual_harmonic_gru_sequence_sparse_rcim/global/2026-07-09-07-39-41__te_residual_harmonic_gru_sequence_sparse_rcim_global__polished_actual_values/source_run/training_config.snapshot.yaml
+    metrics_summary.snapshot.yaml: models/polished_dataset/actual_values/exported/residual_harmonic_gru_sequence_sparse_rcim/global/2026-07-09-07-39-41__te_residual_harmonic_gru_sequence_sparse_rcim_global__polished_actual_values/source_run/metrics_summary.snapshot.yaml
+    run_metadata.snapshot.yaml: models/polished_dataset/actual_values/exported/residual_harmonic_gru_sequence_sparse_rcim/global/2026-07-09-07-39-41__te_residual_harmonic_gru_sequence_sparse_rcim_global__polished_actual_values/source_run/run_metadata.snapshot.yaml
+    training_test_report.snapshot.md: models/polished_dataset/actual_values/exported/residual_harmonic_gru_sequence_sparse_rcim/global/2026-07-09-07-39-41__te_residual_harmonic_gru_sequence_sparse_rcim_global__polished_actual_values/source_run/training_test_report.snapshot.md
+    best_checkpoint_path.snapshot.txt: models/polished_dataset/actual_values/exported/residual_harmonic_gru_sequence_sparse_rcim/global/2026-07-09-07-39-41__te_residual_harmonic_gru_sequence_sparse_rcim_global__polished_actual_values/source_run/best_checkpoint_path.snapshot.txt
   metrics:
-    val_mae: 0.0019166645361110568
-    test_mae: 0.0021211891435086727
-    test_rmse: 0.0032997799571603537
+    val_mae: 0.0019378240685909986
+    test_mae: 0.0020621763542294502
+    test_rmse: 0.003120054490864277
 - schema_version: 1
   dataset_id: polished_dataset
   dataset_schema: polished_point_v1
   input_mode: actual_values
-  model_family: periodic_lstm_sequence
-  model_type: periodic_lstm_sequence
+  model_family: residual_harmonic_gru_sequence_sparse_rcim
+  model_type: residual_harmonic_gru_sequence
   surface: forward
-  run_name: te_periodic_lstm_sequence_fw__polished_actual_values
-  run_instance_id: 2026-07-09-05-06-07__te_periodic_lstm_sequence_fw__polished_actual_values
-  source_output_directory: output/training_runs/periodic_lstm_sequence/2026-07-09-05-06-07__te_periodic_lstm_sequence_fw__polished_actual_values
-  source_best_checkpoint_path: output/training_runs/periodic_lstm_sequence/2026-07-09-05-06-07__te_periodic_lstm_sequence_fw__polished_actual_values/checkpoints/periodic_lstm_sequence-epoch=017-val_mae=0.00196587.ckpt
-  python_model_path: models/polished_dataset/actual_values/exported/periodic_lstm_sequence/forward/2026-07-09-05-06-07__te_periodic_lstm_sequence_fw__polished_actual_values/python/periodic_lstm_sequence-epoch=017-val_mae=0.00196587.ckpt
-  onnx_model_path: models/polished_dataset/actual_values/exported/periodic_lstm_sequence/forward/2026-07-09-05-06-07__te_periodic_lstm_sequence_fw__polished_actual_values/onnx/model.onnx
+  run_name: te_residual_harmonic_gru_sequence_sparse_rcim_fw__polished_actual_values
+  run_instance_id: 2026-07-09-08-19-20__te_residual_harmonic_gru_sequence_sparse_rcim_fw__polished_actual_values
+  source_output_directory: output/training_runs/residual_harmonic_gru_sequence_sparse_rcim/2026-07-09-08-19-20__te_residual_harmonic_gru_sequence_sparse_rcim_fw__polished_actual_values
+  source_best_checkpoint_path: output/training_runs/residual_harmonic_gru_sequence_sparse_rcim/2026-07-09-08-19-20__te_residual_harmonic_gru_sequence_sparse_rcim_fw__polished_actual_values/checkpoints/residual_harmonic_gru_sequence-epoch=170-val_mae=0.00195142.ckpt
+  python_model_path: models/polished_dataset/actual_values/exported/residual_harmonic_gru_sequence_sparse_rcim/forward/2026-07-09-08-19-20__te_residual_harmonic_gru_sequence_sparse_rcim_fw__polished_actual_values/python/residual_harmonic_gru_sequence-epoch=170-val_mae=0.00195142.ckpt
+  onnx_model_path: models/polished_dataset/actual_values/exported/residual_harmonic_gru_sequence_sparse_rcim/forward/2026-07-09-08-19-20__te_residual_harmonic_gru_sequence_sparse_rcim_fw__polished_actual_values/onnx/model.onnx
   onnx_export_status: exported
   onnx_export_error: ''
   source_run_snapshot_path_map:
-    training_config.snapshot.yaml: models/polished_dataset/actual_values/exported/periodic_lstm_sequence/forward/2026-07-09-05-06-07__te_periodic_lstm_sequence_fw__polished_actual_values/source_run/training_config.snapshot.yaml
-    metrics_summary.snapshot.yaml: models/polished_dataset/actual_values/exported/periodic_lstm_sequence/forward/2026-07-09-05-06-07__te_periodic_lstm_sequence_fw__polished_actual_values/source_run/metrics_summary.snapshot.yaml
-    run_metadata.snapshot.yaml: models/polished_dataset/actual_values/exported/periodic_lstm_sequence/forward/2026-07-09-05-06-07__te_periodic_lstm_sequence_fw__polished_actual_values/source_run/run_metadata.snapshot.yaml
-    training_test_report.snapshot.md: models/polished_dataset/actual_values/exported/periodic_lstm_sequence/forward/2026-07-09-05-06-07__te_periodic_lstm_sequence_fw__polished_actual_values/source_run/training_test_report.snapshot.md
-    best_checkpoint_path.snapshot.txt: models/polished_dataset/actual_values/exported/periodic_lstm_sequence/forward/2026-07-09-05-06-07__te_periodic_lstm_sequence_fw__polished_actual_values/source_run/best_checkpoint_path.snapshot.txt
+    training_config.snapshot.yaml: models/polished_dataset/actual_values/exported/residual_harmonic_gru_sequence_sparse_rcim/forward/2026-07-09-08-19-20__te_residual_harmonic_gru_sequence_sparse_rcim_fw__polished_actual_values/source_run/training_config.snapshot.yaml
+    metrics_summary.snapshot.yaml: models/polished_dataset/actual_values/exported/residual_harmonic_gru_sequence_sparse_rcim/forward/2026-07-09-08-19-20__te_residual_harmonic_gru_sequence_sparse_rcim_fw__polished_actual_values/source_run/metrics_summary.snapshot.yaml
+    run_metadata.snapshot.yaml: models/polished_dataset/actual_values/exported/residual_harmonic_gru_sequence_sparse_rcim/forward/2026-07-09-08-19-20__te_residual_harmonic_gru_sequence_sparse_rcim_fw__polished_actual_values/source_run/run_metadata.snapshot.yaml
+    training_test_report.snapshot.md: models/polished_dataset/actual_values/exported/residual_harmonic_gru_sequence_sparse_rcim/forward/2026-07-09-08-19-20__te_residual_harmonic_gru_sequence_sparse_rcim_fw__polished_actual_values/source_run/training_test_report.snapshot.md
+    best_checkpoint_path.snapshot.txt: models/polished_dataset/actual_values/exported/residual_harmonic_gru_sequence_sparse_rcim/forward/2026-07-09-08-19-20__te_residual_harmonic_gru_sequence_sparse_rcim_fw__polished_actual_values/source_run/best_checkpoint_path.snapshot.txt
   metrics:
-    val_mae: 0.0019658743403851986
-    test_mae: 0.0022107961121946573
-    test_rmse: 0.0035268724896013737
+    val_mae: 0.0019514167215675116
+    test_mae: 0.002081979298964143
+    test_rmse: 0.0031387037597596645
 - schema_version: 1
   dataset_id: polished_dataset
   dataset_schema: polished_point_v1
   input_mode: actual_values
-  model_family: periodic_lstm_sequence
-  model_type: periodic_lstm_sequence
+  model_family: residual_harmonic_gru_sequence_sparse_rcim
+  model_type: residual_harmonic_gru_sequence
   surface: backward
-  run_name: te_periodic_lstm_sequence_bw__polished_actual_values
-  run_instance_id: 2026-07-09-05-16-31__te_periodic_lstm_sequence_bw__polished_actual_values
-  source_output_directory: output/training_runs/periodic_lstm_sequence/2026-07-09-05-16-31__te_periodic_lstm_sequence_bw__polished_actual_values
-  source_best_checkpoint_path: output/training_runs/periodic_lstm_sequence/2026-07-09-05-16-31__te_periodic_lstm_sequence_bw__polished_actual_values/checkpoints/periodic_lstm_sequence-epoch=053-val_mae=0.00197877.ckpt
-  python_model_path: models/polished_dataset/actual_values/exported/periodic_lstm_sequence/backward/2026-07-09-05-16-31__te_periodic_lstm_sequence_bw__polished_actual_values/python/periodic_lstm_sequence-epoch=053-val_mae=0.00197877.ckpt
-  onnx_model_path: models/polished_dataset/actual_values/exported/periodic_lstm_sequence/backward/2026-07-09-05-16-31__te_periodic_lstm_sequence_bw__polished_actual_values/onnx/model.onnx
+  run_name: te_residual_harmonic_gru_sequence_sparse_rcim_bw__polished_actual_values
+  run_instance_id: 2026-07-09-08-55-01__te_residual_harmonic_gru_sequence_sparse_rcim_bw__polished_actual_values
+  source_output_directory: output/training_runs/residual_harmonic_gru_sequence_sparse_rcim/2026-07-09-08-55-01__te_residual_harmonic_gru_sequence_sparse_rcim_bw__polished_actual_values
+  source_best_checkpoint_path: output/training_runs/residual_harmonic_gru_sequence_sparse_rcim/2026-07-09-08-55-01__te_residual_harmonic_gru_sequence_sparse_rcim_bw__polished_actual_values/checkpoints/residual_harmonic_gru_sequence-epoch=200-val_mae=0.00195317.ckpt
+  python_model_path: models/polished_dataset/actual_values/exported/residual_harmonic_gru_sequence_sparse_rcim/backward/2026-07-09-08-55-01__te_residual_harmonic_gru_sequence_sparse_rcim_bw__polished_actual_values/python/residual_harmonic_gru_sequence-epoch=200-val_mae=0.00195317.ckpt
+  onnx_model_path: models/polished_dataset/actual_values/exported/residual_harmonic_gru_sequence_sparse_rcim/backward/2026-07-09-08-55-01__te_residual_harmonic_gru_sequence_sparse_rcim_bw__polished_actual_values/onnx/model.onnx
   onnx_export_status: exported
   onnx_export_error: ''
   source_run_snapshot_path_map:
-    training_config.snapshot.yaml: models/polished_dataset/actual_values/exported/periodic_lstm_sequence/backward/2026-07-09-05-16-31__te_periodic_lstm_sequence_bw__polished_actual_values/source_run/training_config.snapshot.yaml
-    metrics_summary.snapshot.yaml: models/polished_dataset/actual_values/exported/periodic_lstm_sequence/backward/2026-07-09-05-16-31__te_periodic_lstm_sequence_bw__polished_actual_values/source_run/metrics_summary.snapshot.yaml
-    run_metadata.snapshot.yaml: models/polished_dataset/actual_values/exported/periodic_lstm_sequence/backward/2026-07-09-05-16-31__te_periodic_lstm_sequence_bw__polished_actual_values/source_run/run_metadata.snapshot.yaml
-    training_test_report.snapshot.md: models/polished_dataset/actual_values/exported/periodic_lstm_sequence/backward/2026-07-09-05-16-31__te_periodic_lstm_sequence_bw__polished_actual_values/source_run/training_test_report.snapshot.md
-    best_checkpoint_path.snapshot.txt: models/polished_dataset/actual_values/exported/periodic_lstm_sequence/backward/2026-07-09-05-16-31__te_periodic_lstm_sequence_bw__polished_actual_values/source_run/best_checkpoint_path.snapshot.txt
+    training_config.snapshot.yaml: models/polished_dataset/actual_values/exported/residual_harmonic_gru_sequence_sparse_rcim/backward/2026-07-09-08-55-01__te_residual_harmonic_gru_sequence_sparse_rcim_bw__polished_actual_values/source_run/training_config.snapshot.yaml
+    metrics_summary.snapshot.yaml: models/polished_dataset/actual_values/exported/residual_harmonic_gru_sequence_sparse_rcim/backward/2026-07-09-08-55-01__te_residual_harmonic_gru_sequence_sparse_rcim_bw__polished_actual_values/source_run/metrics_summary.snapshot.yaml
+    run_metadata.snapshot.yaml: models/polished_dataset/actual_values/exported/residual_harmonic_gru_sequence_sparse_rcim/backward/2026-07-09-08-55-01__te_residual_harmonic_gru_sequence_sparse_rcim_bw__polished_actual_values/source_run/run_metadata.snapshot.yaml
+    training_test_report.snapshot.md: models/polished_dataset/actual_values/exported/residual_harmonic_gru_sequence_sparse_rcim/backward/2026-07-09-08-55-01__te_residual_harmonic_gru_sequence_sparse_rcim_bw__polished_actual_values/source_run/training_test_report.snapshot.md
+    best_checkpoint_path.snapshot.txt: models/polished_dataset/actual_values/exported/residual_harmonic_gru_sequence_sparse_rcim/backward/2026-07-09-08-55-01__te_residual_harmonic_gru_sequence_sparse_rcim_bw__polished_actual_values/source_run/best_checkpoint_path.snapshot.txt
   metrics:
-    val_mae: 0.0019787682686001062
-    test_mae: 0.002195663983002305
-    test_rmse: 0.003476467216387391
+    val_mae: 0.001953170169144869
+    test_mae: 0.002082770224660635
+    test_rmse: 0.003142452100291848
