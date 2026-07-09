@@ -1,0 +1,50 @@
+schema_version: 1
+campaign_name: dataset_input_mode_retraining__residual_harmonic_gru_sequence_sparse_rcim__simplified_setpoints
+selection_policy:
+  primary_metric: test_mae
+  first_tie_breaker: test_rmse
+  second_tie_breaker: val_mae
+  third_tie_breaker: trainable_parameter_count
+  direction: minimize
+updated_at: '2026-07-09T06:17:11'
+best_entry:
+  run_instance_id: 2026-07-09-05-56-34__te_residual_harmonic_gru_sequence_sparse_rcim_fw__simplified_setpoints
+  run_name: te_residual_harmonic_gru_sequence_sparse_rcim_fw__simplified_setpoints
+  output_run_name: te_residual_harmonic_gru_sequence_sparse_rcim_fw__simplified_setpoints
+  output_artifact_kind: training_run
+  model_family: residual_harmonic_gru_sequence_sparse_rcim_fw
+  base_model_family: residual_harmonic_gru_sequence_sparse_rcim
+  model_type: residual_harmonic_gru_sequence
+  dataset_id: simplified_dataset
+  dataset_schema: simplified_curve_v1
+  input_mode: setpoints
+  input_feature_names:
+  - angular_position_deg
+  - input_speed_rpm
+  - input_torque_nm
+  - oil_temperature_deg
+  - direction_flag
+  target_feature_names:
+  - transmission_error_deg
+  input_feature_dim: 5
+  training_variant: fw
+  direction_scope_label: forward_only
+  use_forward_direction: true
+  use_backward_direction: false
+  trainable_parameter_count: 151060
+  total_parameter_count: 151060
+  val_mae: 0.003602439071983099
+  val_rmse: 0.004457561299204826
+  test_mae: 0.0034178218338638544
+  test_rmse: 0.004220377188175917
+  output_directory: output\training_runs\residual_harmonic_gru_sequence_sparse_rcim\2026-07-09-05-56-34__te_residual_harmonic_gru_sequence_sparse_rcim_fw__simplified_setpoints
+  best_checkpoint_path: output\training_runs\residual_harmonic_gru_sequence_sparse_rcim\2026-07-09-05-56-34__te_residual_harmonic_gru_sequence_sparse_rcim_fw__simplified_setpoints\checkpoints\residual_harmonic_gru_sequence-epoch=070-val_mae=0.00360244.ckpt
+  metrics_path: output\training_runs\residual_harmonic_gru_sequence_sparse_rcim\2026-07-09-05-56-34__te_residual_harmonic_gru_sequence_sparse_rcim_fw__simplified_setpoints/metrics_summary.yaml
+  report_path: output\training_runs\residual_harmonic_gru_sequence_sparse_rcim\2026-07-09-05-56-34__te_residual_harmonic_gru_sequence_sparse_rcim_fw__simplified_setpoints/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-07-09T06:17:11'

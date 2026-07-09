@@ -1,0 +1,111 @@
+schema_version: 1
+config_path: /scratch1/dferrari/Physics-Informed-Neural-Networks/config/training/queue/dataset_input_mode_retraining/dataset_input_mode_retraining__residual_harmonic_gru_sequence_sparse_rcim__simplified_setpoints/running/2026-07-09-05-46-13_003_003_residual_harmonic_gru_sequence_sparse_rcim_bw.yaml
+experiment:
+  model_family: residual_harmonic_gru_sequence_sparse_rcim_bw
+  model_type: residual_harmonic_gru_sequence
+  run_name: te_residual_harmonic_gru_sequence_sparse_rcim_bw__simplified_setpoints
+  output_run_name: te_residual_harmonic_gru_sequence_sparse_rcim_bw__simplified_setpoints
+  run_instance_id: 2026-07-09-06-07-25__te_residual_harmonic_gru_sequence_sparse_rcim_bw__simplified_setpoints
+  output_artifact_kind: training_run
+  base_model_family: residual_harmonic_gru_sequence_sparse_rcim
+  training_variant: bw
+  direction_scope_label: backward_only
+  use_forward_direction: false
+  use_backward_direction: true
+artifacts:
+  output_directory: /scratch1/dferrari/Physics-Informed-Neural-Networks/output/training_runs/residual_harmonic_gru_sequence_sparse_rcim/2026-07-09-06-07-25__te_residual_harmonic_gru_sequence_sparse_rcim_bw__simplified_setpoints
+  best_checkpoint_path: /scratch1/dferrari/Physics-Informed-Neural-Networks/output/training_runs/residual_harmonic_gru_sequence_sparse_rcim/2026-07-09-06-07-25__te_residual_harmonic_gru_sequence_sparse_rcim_bw__simplified_setpoints/checkpoints/residual_harmonic_gru_sequence-epoch=061-val_mae=0.00359811.ckpt
+dataset_split:
+  train_curve_count: 1356
+  validation_curve_count: 388
+  test_curve_count: 194
+  dataset_name: simplified_dataset
+  dataset_schema: simplified_curve_v1
+  input_mode: setpoints
+  input_feature_name_list:
+  - angular_position_deg
+  - input_speed_rpm
+  - input_torque_nm
+  - oil_temperature_deg
+  - direction_flag
+  target_feature_name_list:
+  - transmission_error_deg
+  input_feature_dim: 5
+  target_feature_dim: 1
+dataset:
+  dataset_id: simplified_dataset
+  dataset_schema: simplified_curve_v1
+  input_mode: setpoints
+  input_feature_names:
+  - angular_position_deg
+  - input_speed_rpm
+  - input_torque_nm
+  - oil_temperature_deg
+  - direction_flag
+  target_feature_names:
+  - transmission_error_deg
+  input_feature_dim: 5
+  target_feature_dim: 1
+model_summary:
+  backbone_name: ResidualHarmonicTemporalSequenceNetwork
+  trainable_parameter_count: 151060
+  frozen_parameter_count: 0
+  total_parameter_count: 151060
+runtime_config:
+  accelerator: auto
+  devices: auto
+  precision: '32'
+  benchmark: true
+  use_non_blocking_transfer: true
+normalization_statistics:
+  input_feature_mean:
+  - 179.98074340820312
+  - 497.8580017089844
+  - 896.0145263671875
+  - 30.364091873168945
+  - -4.3438788566163566e-07
+  input_feature_std:
+  - 103.92313385009766
+  - 466.8042297363281
+  - 543.8323974609375
+  - 4.080519676208496
+  - 1.0
+  target_mean:
+  - -0.01724020391702652
+  target_std:
+  - 0.0465201772749424
+validation_metrics:
+  val_loss: 0.011083993129432201
+  val_mae: 0.0035981102846562862
+  val_rmse: 0.004469243343919516
+  val_pointwise_loss: 0.011083993129432201
+  val_centered_curve_shape_loss: 0.006808857433497906
+  val_curve_offset_loss: 0.004275136161595583
+  val_curve_amplitude_loss: 0.05612730607390404
+  val_sparse_harmonic_shape_loss: 0.0
+  val_structured_mae: 0.037974003702402115
+  val_structured_rmse: 0.04283789172768593
+test_metrics:
+  test_loss: 0.008691593073308468
+  test_mae: 0.0034345053136348724
+  test_rmse: 0.004261459689587355
+  test_pointwise_loss: 0.008691593073308468
+  test_centered_curve_shape_loss: 0.0035009104758501053
+  test_curve_offset_loss: 0.00519068306311965
+  test_curve_amplitude_loss: 0.02626422420144081
+  test_sparse_harmonic_shape_loss: 0.0
+  test_structured_mae: 0.040802501142024994
+  test_structured_rmse: 0.04559962451457977
+comparison_payload:
+  model_family: residual_harmonic_gru_sequence_sparse_rcim_bw
+  model_type: residual_harmonic_gru_sequence
+  run_name: te_residual_harmonic_gru_sequence_sparse_rcim_bw__simplified_setpoints
+  backbone_name: ResidualHarmonicTemporalSequenceNetwork
+  trainable_parameter_count: 151060
+  total_parameter_count: 151060
+  val_mae: 0.0035981102846562862
+  val_rmse: 0.004469243343919516
+  test_mae: 0.0034345053136348724
+  test_rmse: 0.004261459689587355
+  deployment_notes: ''
+  interpretability_notes: ''
