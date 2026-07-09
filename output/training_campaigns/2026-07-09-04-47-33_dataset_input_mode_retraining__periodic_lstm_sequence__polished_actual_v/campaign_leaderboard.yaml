@@ -1,0 +1,131 @@
+schema_version: 1
+campaign_name: dataset_input_mode_retraining__periodic_lstm_sequence__polished_actual_values
+selection_policy:
+  primary_metric: test_mae
+  first_tie_breaker: test_rmse
+  second_tie_breaker: val_mae
+  third_tie_breaker: trainable_parameter_count
+  direction: minimize
+updated_at: '2026-07-09T05:28:43'
+entry_count: 3
+entry_list:
+- run_instance_id: 2026-07-09-04-47-33__te_periodic_lstm_sequence_global__polished_actual_values
+  run_name: te_periodic_lstm_sequence_global__polished_actual_values
+  output_run_name: te_periodic_lstm_sequence_global__polished_actual_values
+  output_artifact_kind: training_run
+  model_family: periodic_lstm_sequence_global
+  base_model_family: periodic_lstm_sequence
+  model_type: periodic_lstm_sequence
+  dataset_id: polished_dataset
+  dataset_schema: polished_point_v1
+  input_mode: actual_values
+  input_feature_names:
+  - theta
+  - theta_dot
+  - tau_load
+  - T
+  - direction_flag
+  target_feature_names:
+  - theta_TE
+  input_feature_dim: 5
+  training_variant: global
+  direction_scope_label: bidirectional
+  use_forward_direction: true
+  use_backward_direction: true
+  trainable_parameter_count: 210561
+  total_parameter_count: 210561
+  val_mae: 0.0019166645361110568
+  val_rmse: 0.0026596279349178076
+  test_mae: 0.0021211891435086727
+  test_rmse: 0.0032997799571603537
+  output_directory: output\training_runs\periodic_lstm_sequence\2026-07-09-04-47-33__te_periodic_lstm_sequence_global__polished_actual_values
+  best_checkpoint_path: output\training_runs\periodic_lstm_sequence\2026-07-09-04-47-33__te_periodic_lstm_sequence_global__polished_actual_values\checkpoints\periodic_lstm_sequence-epoch=103-val_mae=0.00191666.ckpt
+  metrics_path: output\training_runs\periodic_lstm_sequence\2026-07-09-04-47-33__te_periodic_lstm_sequence_global__polished_actual_values/metrics_summary.yaml
+  report_path: output\training_runs\periodic_lstm_sequence\2026-07-09-04-47-33__te_periodic_lstm_sequence_global__polished_actual_values/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-07-09T05:28:43'
+- run_instance_id: 2026-07-09-05-16-31__te_periodic_lstm_sequence_bw__polished_actual_values
+  run_name: te_periodic_lstm_sequence_bw__polished_actual_values
+  output_run_name: te_periodic_lstm_sequence_bw__polished_actual_values
+  output_artifact_kind: training_run
+  model_family: periodic_lstm_sequence_bw
+  base_model_family: periodic_lstm_sequence
+  model_type: periodic_lstm_sequence
+  dataset_id: polished_dataset
+  dataset_schema: polished_point_v1
+  input_mode: actual_values
+  input_feature_names:
+  - theta
+  - theta_dot
+  - tau_load
+  - T
+  - direction_flag
+  target_feature_names:
+  - theta_TE
+  input_feature_dim: 5
+  training_variant: bw
+  direction_scope_label: backward_only
+  use_forward_direction: false
+  use_backward_direction: true
+  trainable_parameter_count: 210561
+  total_parameter_count: 210561
+  val_mae: 0.0019787682686001062
+  val_rmse: 0.0027197522576898336
+  test_mae: 0.002195663983002305
+  test_rmse: 0.003476467216387391
+  output_directory: output\training_runs\periodic_lstm_sequence\2026-07-09-05-16-31__te_periodic_lstm_sequence_bw__polished_actual_values
+  best_checkpoint_path: output\training_runs\periodic_lstm_sequence\2026-07-09-05-16-31__te_periodic_lstm_sequence_bw__polished_actual_values\checkpoints\periodic_lstm_sequence-epoch=053-val_mae=0.00197877.ckpt
+  metrics_path: output\training_runs\periodic_lstm_sequence\2026-07-09-05-16-31__te_periodic_lstm_sequence_bw__polished_actual_values/metrics_summary.yaml
+  report_path: output\training_runs\periodic_lstm_sequence\2026-07-09-05-16-31__te_periodic_lstm_sequence_bw__polished_actual_values/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-07-09T05:28:43'
+- run_instance_id: 2026-07-09-05-06-07__te_periodic_lstm_sequence_fw__polished_actual_values
+  run_name: te_periodic_lstm_sequence_fw__polished_actual_values
+  output_run_name: te_periodic_lstm_sequence_fw__polished_actual_values
+  output_artifact_kind: training_run
+  model_family: periodic_lstm_sequence_fw
+  base_model_family: periodic_lstm_sequence
+  model_type: periodic_lstm_sequence
+  dataset_id: polished_dataset
+  dataset_schema: polished_point_v1
+  input_mode: actual_values
+  input_feature_names:
+  - theta
+  - theta_dot
+  - tau_load
+  - T
+  - direction_flag
+  target_feature_names:
+  - theta_TE
+  input_feature_dim: 5
+  training_variant: fw
+  direction_scope_label: forward_only
+  use_forward_direction: true
+  use_backward_direction: false
+  trainable_parameter_count: 210561
+  total_parameter_count: 210561
+  val_mae: 0.0019658743403851986
+  val_rmse: 0.0027107049245387316
+  test_mae: 0.0022107961121946573
+  test_rmse: 0.0035268724896013737
+  output_directory: output\training_runs\periodic_lstm_sequence\2026-07-09-05-06-07__te_periodic_lstm_sequence_fw__polished_actual_values
+  best_checkpoint_path: output\training_runs\periodic_lstm_sequence\2026-07-09-05-06-07__te_periodic_lstm_sequence_fw__polished_actual_values\checkpoints\periodic_lstm_sequence-epoch=017-val_mae=0.00196587.ckpt
+  metrics_path: output\training_runs\periodic_lstm_sequence\2026-07-09-05-06-07__te_periodic_lstm_sequence_fw__polished_actual_values/metrics_summary.yaml
+  report_path: output\training_runs\periodic_lstm_sequence\2026-07-09-05-06-07__te_periodic_lstm_sequence_fw__polished_actual_values/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-07-09T05:28:43'

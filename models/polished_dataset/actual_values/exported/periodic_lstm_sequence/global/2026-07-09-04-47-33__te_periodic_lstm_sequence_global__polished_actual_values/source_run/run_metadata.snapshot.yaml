@@ -1,0 +1,22 @@
+schema_version: 1
+artifact_kind: training_run
+model_family: periodic_lstm_sequence_global
+base_model_family: periodic_lstm_sequence
+training_variant: global
+direction_scope_label: bidirectional
+use_forward_direction: true
+use_backward_direction: true
+run_name: te_periodic_lstm_sequence_global__polished_actual_values
+run_instance_id: 2026-07-09-04-47-33__te_periodic_lstm_sequence_global__polished_actual_values
+output_directory: output\training_runs\periodic_lstm_sequence\2026-07-09-04-47-33__te_periodic_lstm_sequence_global__polished_actual_values
+dataset_id: polished_dataset
+dataset_schema: polished_point_v1
+input_feature_names:
+- theta
+- theta_dot
+- tau_load
+- T
+- direction_flag
+target_feature_names:
+- theta_TE
+input_feature_dim: 5
