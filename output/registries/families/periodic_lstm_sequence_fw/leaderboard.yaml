@@ -6,8 +6,8 @@ selection_policy:
   second_tie_breaker: val_mae
   third_tie_breaker: trainable_parameter_count
   direction: minimize
-updated_at: '2026-07-09T02:32:24'
-entry_count: 4
+updated_at: '2026-07-09T03:56:20'
+entry_count: 5
 entry_list:
 - run_instance_id: 2026-06-26-19-15-48__te_periodic_lstm_sequence_fw
   run_name: te_periodic_lstm_sequence_fw
@@ -85,6 +85,46 @@ entry_list:
     third_tie_breaker: trainable_parameter_count
     direction: minimize
   selected_at: '2026-06-30T05:26:56'
+- run_instance_id: 2026-07-09-03-42-29__te_periodic_lstm_sequence_fw__polished_setpoints
+  run_name: te_periodic_lstm_sequence_fw__polished_setpoints
+  output_run_name: te_periodic_lstm_sequence_fw__polished_setpoints
+  output_artifact_kind: training_run
+  model_family: periodic_lstm_sequence_fw
+  base_model_family: periodic_lstm_sequence
+  model_type: periodic_lstm_sequence
+  dataset_id: polished_dataset
+  dataset_schema: polished_setpoint_curve_v1
+  input_mode: setpoints
+  input_feature_names:
+  - angular_position_deg
+  - input_speed_rpm
+  - input_torque_nm
+  - oil_temperature_deg
+  - direction_flag
+  target_feature_names:
+  - theta_TE
+  input_feature_dim: 5
+  training_variant: fw
+  direction_scope_label: forward_only
+  use_forward_direction: true
+  use_backward_direction: false
+  trainable_parameter_count: 210561
+  total_parameter_count: 210561
+  val_mae: 0.0018669890705496073
+  val_rmse: 0.0025966339744627476
+  test_mae: 0.002175860572606325
+  test_rmse: 0.003520548576489091
+  output_directory: output\training_runs\periodic_lstm_sequence\2026-07-09-03-42-29__te_periodic_lstm_sequence_fw__polished_setpoints
+  best_checkpoint_path: output\training_runs\periodic_lstm_sequence\2026-07-09-03-42-29__te_periodic_lstm_sequence_fw__polished_setpoints\checkpoints\periodic_lstm_sequence-epoch=047-val_mae=0.00186699.ckpt
+  metrics_path: output\training_runs\periodic_lstm_sequence\2026-07-09-03-42-29__te_periodic_lstm_sequence_fw__polished_setpoints/metrics_summary.yaml
+  report_path: output\training_runs\periodic_lstm_sequence\2026-07-09-03-42-29__te_periodic_lstm_sequence_fw__polished_setpoints/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-07-09T03:56:20'
 - run_instance_id: 2026-05-25-19-20-56__te_periodic_lstm_sequence_remote_fw
   run_name: te_periodic_lstm_sequence_remote_Fw
   output_run_name: te_periodic_lstm_sequence_remote_Fw

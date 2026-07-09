@@ -1,0 +1,107 @@
+schema_version: 1
+config_path: /scratch1/dferrari/Physics-Informed-Neural-Networks/config/training/queue/dataset_input_mode_retraining/dataset_input_mode_retraining__periodic_lstm_sequence__polished_setpoints/running/2026-07-09-03-02-43_003_003_periodic_lstm_sequence_bw.yaml
+experiment:
+  model_family: periodic_lstm_sequence_bw
+  model_type: periodic_lstm_sequence
+  run_name: te_periodic_lstm_sequence_bw__polished_setpoints
+  output_run_name: te_periodic_lstm_sequence_bw__polished_setpoints
+  run_instance_id: 2026-07-09-03-56-20__te_periodic_lstm_sequence_bw__polished_setpoints
+  output_artifact_kind: training_run
+  base_model_family: periodic_lstm_sequence
+  training_variant: bw
+  direction_scope_label: backward_only
+  use_forward_direction: false
+  use_backward_direction: true
+artifacts:
+  output_directory: /scratch1/dferrari/Physics-Informed-Neural-Networks/output/training_runs/periodic_lstm_sequence/2026-07-09-03-56-20__te_periodic_lstm_sequence_bw__polished_setpoints
+  best_checkpoint_path: /scratch1/dferrari/Physics-Informed-Neural-Networks/output/training_runs/periodic_lstm_sequence/2026-07-09-03-56-20__te_periodic_lstm_sequence_bw__polished_setpoints/checkpoints/periodic_lstm_sequence-epoch=208-val_mae=0.00138862.ckpt
+dataset_split:
+  train_curve_count: 1356
+  validation_curve_count: 388
+  test_curve_count: 194
+  dataset_name: polished_dataset
+  dataset_schema: polished_setpoint_curve_v1
+  input_mode: setpoints
+  input_feature_name_list:
+  - angular_position_deg
+  - input_speed_rpm
+  - input_torque_nm
+  - oil_temperature_deg
+  - direction_flag
+  target_feature_name_list:
+  - theta_TE
+  input_feature_dim: 5
+  target_feature_dim: 1
+dataset:
+  dataset_id: polished_dataset
+  dataset_schema: polished_setpoint_curve_v1
+  input_mode: setpoints
+  input_feature_names:
+  - angular_position_deg
+  - input_speed_rpm
+  - input_torque_nm
+  - oil_temperature_deg
+  - direction_flag
+  target_feature_names:
+  - theta_TE
+  input_feature_dim: 5
+  target_feature_dim: 1
+model_summary:
+  backbone_name: PeriodicTemporalSequenceNetwork
+  trainable_parameter_count: 210561
+  frozen_parameter_count: 0
+  total_parameter_count: 210561
+runtime_config:
+  accelerator: auto
+  devices: auto
+  precision: '32'
+  benchmark: true
+  use_non_blocking_transfer: true
+normalization_statistics:
+  input_feature_mean:
+  - 180.0000762939453
+  - 506.3013916015625
+  - 899.591552734375
+  - 29.843809127807617
+  - -0.01724354922771454
+  input_feature_std:
+  - 103.92301940917969
+  - 467.61541748046875
+  - 552.3279418945312
+  - 4.094047546386719
+  - 0.9998513460159302
+  target_mean:
+  - -0.016667330637574196
+  target_std:
+  - 0.0465485081076622
+validation_metrics:
+  val_loss: 0.0018607901874929667
+  val_mae: 0.001388623146340251
+  val_rmse: 0.0018365227151662111
+  val_pointwise_loss: 0.0018607901874929667
+  val_centered_curve_shape_loss: 0.0013356476556509733
+  val_curve_offset_loss: 0.000525142764672637
+  val_curve_amplitude_loss: 0.005788507405668497
+  val_sparse_harmonic_shape_loss: 0.0
+test_metrics:
+  test_loss: 0.004550540819764137
+  test_mae: 0.001640934031456709
+  test_rmse: 0.0025670062750577927
+  test_pointwise_loss: 0.004550540819764137
+  test_centered_curve_shape_loss: 0.0018626090604811907
+  test_curve_offset_loss: 0.0026879319921135902
+  test_curve_amplitude_loss: 0.01288381963968277
+  test_sparse_harmonic_shape_loss: 0.0
+comparison_payload:
+  model_family: periodic_lstm_sequence_bw
+  model_type: periodic_lstm_sequence
+  run_name: te_periodic_lstm_sequence_bw__polished_setpoints
+  backbone_name: PeriodicTemporalSequenceNetwork
+  trainable_parameter_count: 210561
+  total_parameter_count: 210561
+  val_mae: 0.001388623146340251
+  val_rmse: 0.0018365227151662111
+  test_mae: 0.001640934031456709
+  test_rmse: 0.0025670062750577927
+  deployment_notes: ''
+  interpretability_notes: ''

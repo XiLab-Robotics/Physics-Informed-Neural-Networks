@@ -147,10 +147,10 @@ last_completed_campaign:
       te_curve_verification_status: not_run_in_closeout
 next_prepared_campaign:
   status: completed_and_exported
-  campaign_name: dataset_input_mode_retraining__periodic_lstm_sequence__simplified_setpoints
-  dataset_id: simplified_dataset
+  campaign_name: dataset_input_mode_retraining__periodic_lstm_sequence__polished_setpoints
+  dataset_id: polished_dataset
   input_mode: setpoints
-  dataset_schema: simplified_curve_v1
+  dataset_schema: polished_setpoint_curve_v1
   expected_run_count: 3
   completed_run_count: 3
   failed_run_count: 0
@@ -162,59 +162,59 @@ next_prepared_campaign:
     slurm_cpus_per_task: 8
     slurm_memory: 100G
     gpu_request: a100:1
-    observed_throughput: Global completed in 00:09:05, Fw in 00:12:42, and Bw in 00:10:59
+    observed_throughput: Global completed in 00:39:46, Fw in 00:13:51, and Bw in 00:37:47
       at batch 16.
     batch_tuning_note: The prepared campaign default was raised from curve_batch_size 2 to
-      16 before submission. Batch 16 remained stable for simplified setpoint periodic LSTM
-      sequence collation and completed all three sequential surfaces in 00:33:24.
+      16 before submission. Batch 16 remained stable for polished setpoint periodic LSTM sequence
+      collation and completed all three sequential surfaces in 01:31:45.
     next_campaign_recommendation: Continue the remaining dataset input-mode campaigns at batch
       16 unless a new explicit tuning request is made.
   sbatch_submission:
-    slurm_job_id: '135182'
+    slurm_job_id: '135192'
     state: COMPLETED
     exit_code: 0:0
-    elapsed: 00:33:24
-    max_rss: 16237448K
+    elapsed: 01:31:45
+    max_rss: 16518364K
     python_executable: /unimore_home/dferrari/.conda/envs/pinns_env/bin/python
     torch_version: 2.7.1+cu118
     gpu_request: a100:1
-  campaign_manifest_path: config/training/dataset_input_mode_retraining/campaigns/dataset_input_mode_retraining__periodic_lstm_sequence__simplified_setpoints/campaign.yaml
-  campaign_output_directory: output/training_campaigns/2026-07-09-02-10-37_dataset_input_mode_retraining__periodic_lstm_sequence__simplified_setpoi
+  campaign_manifest_path: config/training/dataset_input_mode_retraining/campaigns/dataset_input_mode_retraining__periodic_lstm_sequence__polished_setpoints/campaign.yaml
+  campaign_output_directory: output/training_campaigns/2026-07-09-03-02-43_dataset_input_mode_retraining__periodic_lstm_sequence__polished_setpoint
   campaign_output_directory_note: The runner shortened the physical output directory suffix
-    to simplified_setpoi; the manifest campaign_name, queue root, run names, and export archive
-    all retain the full simplified_setpoints identifier.
-  campaign_best_run_path: output/training_campaigns/2026-07-09-02-10-37_dataset_input_mode_retraining__periodic_lstm_sequence__simplified_setpoi/campaign_best_run.yaml
-  campaign_leaderboard_path: output/training_campaigns/2026-07-09-02-10-37_dataset_input_mode_retraining__periodic_lstm_sequence__simplified_setpoi/campaign_leaderboard.yaml
+    to polished_setpoint; the manifest campaign_name, queue root, run names, and export archive
+    all retain the full polished_setpoints identifier.
+  campaign_best_run_path: output/training_campaigns/2026-07-09-03-02-43_dataset_input_mode_retraining__periodic_lstm_sequence__polished_setpoint/campaign_best_run.yaml
+  campaign_leaderboard_path: output/training_campaigns/2026-07-09-03-02-43_dataset_input_mode_retraining__periodic_lstm_sequence__polished_setpoint/campaign_leaderboard.yaml
   best_run:
-    run_name: te_periodic_lstm_sequence_bw__simplified_setpoints
-    run_instance_id: 2026-07-09-02-32-24__te_periodic_lstm_sequence_bw__simplified_setpoints
-    surface: backward
-    test_mae: 0.0033485605381429195
-    test_rmse: 0.004075785633176565
-    val_mae: 0.0035240822471678257
+    run_name: te_periodic_lstm_sequence_global__polished_setpoints
+    run_instance_id: 2026-07-09-03-02-43__te_periodic_lstm_sequence_global__polished_setpoints
+    surface: global
+    test_mae: 0.0015614760341122746
+    test_rmse: 0.0024109091609716415
+    val_mae: 0.0013707084581255913
   surface_run_list:
   - surface: global
-    run_name: te_periodic_lstm_sequence_global__simplified_setpoints
-    run_instance_id: 2026-07-09-02-10-37__te_periodic_lstm_sequence_global__simplified_setpoints
-    test_mae: 0.003369141137227416
-    val_mae: 0.0035332904662936926
-    duration: 00:09:05
+    run_name: te_periodic_lstm_sequence_global__polished_setpoints
+    run_instance_id: 2026-07-09-03-02-43__te_periodic_lstm_sequence_global__polished_setpoints
+    test_mae: 0.0015614760341122746
+    val_mae: 0.0013707084581255913
+    duration: 00:39:46
   - surface: forward
-    run_name: te_periodic_lstm_sequence_fw__simplified_setpoints
-    run_instance_id: 2026-07-09-02-19-42__te_periodic_lstm_sequence_fw__simplified_setpoints
-    test_mae: 0.0033897901885211468
-    val_mae: 0.003482963191345334
-    duration: 00:12:42
+    run_name: te_periodic_lstm_sequence_fw__polished_setpoints
+    run_instance_id: 2026-07-09-03-42-29__te_periodic_lstm_sequence_fw__polished_setpoints
+    test_mae: 0.002175860572606325
+    val_mae: 0.0018669890705496073
+    duration: 00:13:51
   - surface: backward
-    run_name: te_periodic_lstm_sequence_bw__simplified_setpoints
-    run_instance_id: 2026-07-09-02-32-24__te_periodic_lstm_sequence_bw__simplified_setpoints
-    test_mae: 0.0033485605381429195
-    val_mae: 0.0035240822471678257
-    duration: 00:10:59
+    run_name: te_periodic_lstm_sequence_bw__polished_setpoints
+    run_instance_id: 2026-07-09-03-56-20__te_periodic_lstm_sequence_bw__polished_setpoints
+    test_mae: 0.001640934031456709
+    val_mae: 0.001388623146340251
+    duration: 00:37:47
   export:
     status: completed
-    export_root: models/simplified_dataset/setpoints/exported
-    export_inventory_path: models/simplified_dataset/setpoints/exported/model_development_export_inventory.yaml
+    export_root: models/polished_dataset/setpoints/exported
+    export_inventory_path: models/polished_dataset/setpoints/exported/model_development_export_inventory.yaml
     exported_entry_count: 3
     onnx_export_status_counts:
       exported: 3
