@@ -1,0 +1,1 @@
+/scratch1/dferrari/Physics-Informed-Neural-Networks/output/training_runs/residual_harmonic_gru_sequence_dense240/2026-07-09-10-32-04__te_residual_harmonic_gru_sequence_dense240_global__polished_setpoints/checkpoints/residual_harmonic_gru_sequence-epoch=081-val_mae=0.00198647.ckpt
