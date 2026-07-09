@@ -13,74 +13,74 @@ entries:
   dataset_id: simplified_dataset
   dataset_schema: simplified_curve_v1
   input_mode: setpoints
-  model_family: residual_harmonic_gru_sequence_dense360
-  model_type: residual_harmonic_gru_sequence
+  model_family: residual_harmonic_lstm_sequence_sparse_rcim
+  model_type: residual_harmonic_lstm_sequence
   surface: global
-  run_name: te_residual_harmonic_gru_sequence_dense360_global__simplified_setpoints
-  run_instance_id: 2026-07-09-13-30-19__te_residual_harmonic_gru_sequence_dense360_global__simplified_setpoints
-  source_output_directory: output/training_runs/residual_harmonic_gru_sequence_dense360/2026-07-09-13-30-19__te_residual_harmonic_gru_sequence_dense360_global__simplified_setpoints
-  source_best_checkpoint_path: output/training_runs/residual_harmonic_gru_sequence_dense360/2026-07-09-13-30-19__te_residual_harmonic_gru_sequence_dense360_global__simplified_setpoints/checkpoints/residual_harmonic_gru_sequence-epoch=090-val_mae=0.00360722.ckpt
-  python_model_path: models/simplified_dataset/setpoints/exported/residual_harmonic_gru_sequence_dense360/global/2026-07-09-13-30-19__te_residual_harmonic_gru_sequence_dense360_global__simplified_setpoints/python/residual_harmonic_gru_sequence-epoch=090-val_mae=0.00360722.ckpt
-  onnx_model_path: models/simplified_dataset/setpoints/exported/residual_harmonic_gru_sequence_dense360/global/2026-07-09-13-30-19__te_residual_harmonic_gru_sequence_dense360_global__simplified_setpoints/onnx/model.onnx
+  run_name: te_residual_harmonic_lstm_sequence_sparse_rcim_global__simplified_setpoints
+  run_instance_id: 2026-07-09-18-39-59__te_residual_harmonic_lstm_sequence_sparse_rcim_global__simplified_setpoints
+  source_output_directory: output/training_runs/residual_harmonic_lstm_sequence_sparse_rcim/2026-07-09-18-39-59__te_residual_harmonic_lstm_sequence_sparse_rcim_global__simplified_setpoints
+  source_best_checkpoint_path: output/training_runs/residual_harmonic_lstm_sequence_sparse_rcim/2026-07-09-18-39-59__te_residual_harmonic_lstm_sequence_sparse_rcim_global__simplified_setpoints/checkpoints/residual_harmonic_lstm_sequence-epoch=050-val_mae=0.00361757.ckpt
+  python_model_path: models/simplified_dataset/setpoints/exported/residual_harmonic_lstm_sequence_sparse_rcim/global/2026-07-09-18-39-59__te_residual_harmonic_lstm_sequence_sparse_rcim_global__simplified_setpoints/python/residual_harmonic_lstm_sequence-epoch=050-val_mae=0.00361757.ckpt
+  onnx_model_path: models/simplified_dataset/setpoints/exported/residual_harmonic_lstm_sequence_sparse_rcim/global/2026-07-09-18-39-59__te_residual_harmonic_lstm_sequence_sparse_rcim_global__simplified_setpoints/onnx/model.onnx
   onnx_export_status: exported
   onnx_export_error: ''
   source_run_snapshot_path_map:
-    training_config.snapshot.yaml: models/simplified_dataset/setpoints/exported/residual_harmonic_gru_sequence_dense360/global/2026-07-09-13-30-19__te_residual_harmonic_gru_sequence_dense360_global__simplified_setpoints/source_run/training_config.snapshot.yaml
-    metrics_summary.snapshot.yaml: models/simplified_dataset/setpoints/exported/residual_harmonic_gru_sequence_dense360/global/2026-07-09-13-30-19__te_residual_harmonic_gru_sequence_dense360_global__simplified_setpoints/source_run/metrics_summary.snapshot.yaml
-    run_metadata.snapshot.yaml: models/simplified_dataset/setpoints/exported/residual_harmonic_gru_sequence_dense360/global/2026-07-09-13-30-19__te_residual_harmonic_gru_sequence_dense360_global__simplified_setpoints/source_run/run_metadata.snapshot.yaml
-    training_test_report.snapshot.md: models/simplified_dataset/setpoints/exported/residual_harmonic_gru_sequence_dense360/global/2026-07-09-13-30-19__te_residual_harmonic_gru_sequence_dense360_global__simplified_setpoints/source_run/training_test_report.snapshot.md
-    best_checkpoint_path.snapshot.txt: models/simplified_dataset/setpoints/exported/residual_harmonic_gru_sequence_dense360/global/2026-07-09-13-30-19__te_residual_harmonic_gru_sequence_dense360_global__simplified_setpoints/source_run/best_checkpoint_path.snapshot.txt
+    training_config.snapshot.yaml: models/simplified_dataset/setpoints/exported/residual_harmonic_lstm_sequence_sparse_rcim/global/2026-07-09-18-39-59__te_residual_harmonic_lstm_sequence_sparse_rcim_global__simplified_setpoints/source_run/training_config.snapshot.yaml
+    metrics_summary.snapshot.yaml: models/simplified_dataset/setpoints/exported/residual_harmonic_lstm_sequence_sparse_rcim/global/2026-07-09-18-39-59__te_residual_harmonic_lstm_sequence_sparse_rcim_global__simplified_setpoints/source_run/metrics_summary.snapshot.yaml
+    run_metadata.snapshot.yaml: models/simplified_dataset/setpoints/exported/residual_harmonic_lstm_sequence_sparse_rcim/global/2026-07-09-18-39-59__te_residual_harmonic_lstm_sequence_sparse_rcim_global__simplified_setpoints/source_run/run_metadata.snapshot.yaml
+    training_test_report.snapshot.md: models/simplified_dataset/setpoints/exported/residual_harmonic_lstm_sequence_sparse_rcim/global/2026-07-09-18-39-59__te_residual_harmonic_lstm_sequence_sparse_rcim_global__simplified_setpoints/source_run/training_test_report.snapshot.md
+    best_checkpoint_path.snapshot.txt: models/simplified_dataset/setpoints/exported/residual_harmonic_lstm_sequence_sparse_rcim/global/2026-07-09-18-39-59__te_residual_harmonic_lstm_sequence_sparse_rcim_global__simplified_setpoints/source_run/best_checkpoint_path.snapshot.txt
   metrics:
-    val_mae: 0.0036072165239602327
-    test_mae: 0.003404388204216957
-    test_rmse: 0.004244490992277861
+    val_mae: 0.0036175730638206005
+    test_mae: 0.003399754175916314
+    test_rmse: 0.004178056493401527
 - schema_version: 1
   dataset_id: simplified_dataset
   dataset_schema: simplified_curve_v1
   input_mode: setpoints
-  model_family: residual_harmonic_gru_sequence_dense360
-  model_type: residual_harmonic_gru_sequence
+  model_family: residual_harmonic_lstm_sequence_sparse_rcim
+  model_type: residual_harmonic_lstm_sequence
   surface: forward
-  run_name: te_residual_harmonic_gru_sequence_dense360_fw__simplified_setpoints
-  run_instance_id: 2026-07-09-13-40-47__te_residual_harmonic_gru_sequence_dense360_fw__simplified_setpoints
-  source_output_directory: output/training_runs/residual_harmonic_gru_sequence_dense360/2026-07-09-13-40-47__te_residual_harmonic_gru_sequence_dense360_fw__simplified_setpoints
-  source_best_checkpoint_path: output/training_runs/residual_harmonic_gru_sequence_dense360/2026-07-09-13-40-47__te_residual_harmonic_gru_sequence_dense360_fw__simplified_setpoints/checkpoints/residual_harmonic_gru_sequence-epoch=081-val_mae=0.00358186.ckpt
-  python_model_path: models/simplified_dataset/setpoints/exported/residual_harmonic_gru_sequence_dense360/forward/2026-07-09-13-40-47__te_residual_harmonic_gru_sequence_dense360_fw__simplified_setpoints/python/residual_harmonic_gru_sequence-epoch=081-val_mae=0.00358186.ckpt
-  onnx_model_path: models/simplified_dataset/setpoints/exported/residual_harmonic_gru_sequence_dense360/forward/2026-07-09-13-40-47__te_residual_harmonic_gru_sequence_dense360_fw__simplified_setpoints/onnx/model.onnx
+  run_name: te_residual_harmonic_lstm_sequence_sparse_rcim_fw__simplified_setpoints
+  run_instance_id: 2026-07-09-18-56-39__te_residual_harmonic_lstm_sequence_sparse_rcim_fw__simplified_setpoints
+  source_output_directory: output/training_runs/residual_harmonic_lstm_sequence_sparse_rcim/2026-07-09-18-56-39__te_residual_harmonic_lstm_sequence_sparse_rcim_fw__simplified_setpoints
+  source_best_checkpoint_path: output/training_runs/residual_harmonic_lstm_sequence_sparse_rcim/2026-07-09-18-56-39__te_residual_harmonic_lstm_sequence_sparse_rcim_fw__simplified_setpoints/checkpoints/residual_harmonic_lstm_sequence-epoch=029-val_mae=0.00367824.ckpt
+  python_model_path: models/simplified_dataset/setpoints/exported/residual_harmonic_lstm_sequence_sparse_rcim/forward/2026-07-09-18-56-39__te_residual_harmonic_lstm_sequence_sparse_rcim_fw__simplified_setpoints/python/residual_harmonic_lstm_sequence-epoch=029-val_mae=0.00367824.ckpt
+  onnx_model_path: models/simplified_dataset/setpoints/exported/residual_harmonic_lstm_sequence_sparse_rcim/forward/2026-07-09-18-56-39__te_residual_harmonic_lstm_sequence_sparse_rcim_fw__simplified_setpoints/onnx/model.onnx
   onnx_export_status: exported
   onnx_export_error: ''
   source_run_snapshot_path_map:
-    training_config.snapshot.yaml: models/simplified_dataset/setpoints/exported/residual_harmonic_gru_sequence_dense360/forward/2026-07-09-13-40-47__te_residual_harmonic_gru_sequence_dense360_fw__simplified_setpoints/source_run/training_config.snapshot.yaml
-    metrics_summary.snapshot.yaml: models/simplified_dataset/setpoints/exported/residual_harmonic_gru_sequence_dense360/forward/2026-07-09-13-40-47__te_residual_harmonic_gru_sequence_dense360_fw__simplified_setpoints/source_run/metrics_summary.snapshot.yaml
-    run_metadata.snapshot.yaml: models/simplified_dataset/setpoints/exported/residual_harmonic_gru_sequence_dense360/forward/2026-07-09-13-40-47__te_residual_harmonic_gru_sequence_dense360_fw__simplified_setpoints/source_run/run_metadata.snapshot.yaml
-    training_test_report.snapshot.md: models/simplified_dataset/setpoints/exported/residual_harmonic_gru_sequence_dense360/forward/2026-07-09-13-40-47__te_residual_harmonic_gru_sequence_dense360_fw__simplified_setpoints/source_run/training_test_report.snapshot.md
-    best_checkpoint_path.snapshot.txt: models/simplified_dataset/setpoints/exported/residual_harmonic_gru_sequence_dense360/forward/2026-07-09-13-40-47__te_residual_harmonic_gru_sequence_dense360_fw__simplified_setpoints/source_run/best_checkpoint_path.snapshot.txt
+    training_config.snapshot.yaml: models/simplified_dataset/setpoints/exported/residual_harmonic_lstm_sequence_sparse_rcim/forward/2026-07-09-18-56-39__te_residual_harmonic_lstm_sequence_sparse_rcim_fw__simplified_setpoints/source_run/training_config.snapshot.yaml
+    metrics_summary.snapshot.yaml: models/simplified_dataset/setpoints/exported/residual_harmonic_lstm_sequence_sparse_rcim/forward/2026-07-09-18-56-39__te_residual_harmonic_lstm_sequence_sparse_rcim_fw__simplified_setpoints/source_run/metrics_summary.snapshot.yaml
+    run_metadata.snapshot.yaml: models/simplified_dataset/setpoints/exported/residual_harmonic_lstm_sequence_sparse_rcim/forward/2026-07-09-18-56-39__te_residual_harmonic_lstm_sequence_sparse_rcim_fw__simplified_setpoints/source_run/run_metadata.snapshot.yaml
+    training_test_report.snapshot.md: models/simplified_dataset/setpoints/exported/residual_harmonic_lstm_sequence_sparse_rcim/forward/2026-07-09-18-56-39__te_residual_harmonic_lstm_sequence_sparse_rcim_fw__simplified_setpoints/source_run/training_test_report.snapshot.md
+    best_checkpoint_path.snapshot.txt: models/simplified_dataset/setpoints/exported/residual_harmonic_lstm_sequence_sparse_rcim/forward/2026-07-09-18-56-39__te_residual_harmonic_lstm_sequence_sparse_rcim_fw__simplified_setpoints/source_run/best_checkpoint_path.snapshot.txt
   metrics:
-    val_mae: 0.0035818626638501883
-    test_mae: 0.0034071358386427164
-    test_rmse: 0.004177561495453119
+    val_mae: 0.0036782415118068457
+    test_mae: 0.003371954895555973
+    test_rmse: 0.0041620018891990185
 - schema_version: 1
   dataset_id: simplified_dataset
   dataset_schema: simplified_curve_v1
   input_mode: setpoints
-  model_family: residual_harmonic_gru_sequence_dense360
-  model_type: residual_harmonic_gru_sequence
+  model_family: residual_harmonic_lstm_sequence_sparse_rcim
+  model_type: residual_harmonic_lstm_sequence
   surface: backward
-  run_name: te_residual_harmonic_gru_sequence_dense360_bw__simplified_setpoints
-  run_instance_id: 2026-07-09-13-52-29__te_residual_harmonic_gru_sequence_dense360_bw__simplified_setpoints
-  source_output_directory: output/training_runs/residual_harmonic_gru_sequence_dense360/2026-07-09-13-52-29__te_residual_harmonic_gru_sequence_dense360_bw__simplified_setpoints
-  source_best_checkpoint_path: output/training_runs/residual_harmonic_gru_sequence_dense360/2026-07-09-13-52-29__te_residual_harmonic_gru_sequence_dense360_bw__simplified_setpoints/checkpoints/residual_harmonic_gru_sequence-epoch=077-val_mae=0.00358806.ckpt
-  python_model_path: models/simplified_dataset/setpoints/exported/residual_harmonic_gru_sequence_dense360/backward/2026-07-09-13-52-29__te_residual_harmonic_gru_sequence_dense360_bw__simplified_setpoints/python/residual_harmonic_gru_sequence-epoch=077-val_mae=0.00358806.ckpt
-  onnx_model_path: models/simplified_dataset/setpoints/exported/residual_harmonic_gru_sequence_dense360/backward/2026-07-09-13-52-29__te_residual_harmonic_gru_sequence_dense360_bw__simplified_setpoints/onnx/model.onnx
+  run_name: te_residual_harmonic_lstm_sequence_sparse_rcim_bw__simplified_setpoints
+  run_instance_id: 2026-07-09-19-10-53__te_residual_harmonic_lstm_sequence_sparse_rcim_bw__simplified_setpoints
+  source_output_directory: output/training_runs/residual_harmonic_lstm_sequence_sparse_rcim/2026-07-09-19-10-53__te_residual_harmonic_lstm_sequence_sparse_rcim_bw__simplified_setpoints
+  source_best_checkpoint_path: output/training_runs/residual_harmonic_lstm_sequence_sparse_rcim/2026-07-09-19-10-53__te_residual_harmonic_lstm_sequence_sparse_rcim_bw__simplified_setpoints/checkpoints/residual_harmonic_lstm_sequence-epoch=027-val_mae=0.00365442.ckpt
+  python_model_path: models/simplified_dataset/setpoints/exported/residual_harmonic_lstm_sequence_sparse_rcim/backward/2026-07-09-19-10-53__te_residual_harmonic_lstm_sequence_sparse_rcim_bw__simplified_setpoints/python/residual_harmonic_lstm_sequence-epoch=027-val_mae=0.00365442.ckpt
+  onnx_model_path: models/simplified_dataset/setpoints/exported/residual_harmonic_lstm_sequence_sparse_rcim/backward/2026-07-09-19-10-53__te_residual_harmonic_lstm_sequence_sparse_rcim_bw__simplified_setpoints/onnx/model.onnx
   onnx_export_status: exported
   onnx_export_error: ''
   source_run_snapshot_path_map:
-    training_config.snapshot.yaml: models/simplified_dataset/setpoints/exported/residual_harmonic_gru_sequence_dense360/backward/2026-07-09-13-52-29__te_residual_harmonic_gru_sequence_dense360_bw__simplified_setpoints/source_run/training_config.snapshot.yaml
-    metrics_summary.snapshot.yaml: models/simplified_dataset/setpoints/exported/residual_harmonic_gru_sequence_dense360/backward/2026-07-09-13-52-29__te_residual_harmonic_gru_sequence_dense360_bw__simplified_setpoints/source_run/metrics_summary.snapshot.yaml
-    run_metadata.snapshot.yaml: models/simplified_dataset/setpoints/exported/residual_harmonic_gru_sequence_dense360/backward/2026-07-09-13-52-29__te_residual_harmonic_gru_sequence_dense360_bw__simplified_setpoints/source_run/run_metadata.snapshot.yaml
-    training_test_report.snapshot.md: models/simplified_dataset/setpoints/exported/residual_harmonic_gru_sequence_dense360/backward/2026-07-09-13-52-29__te_residual_harmonic_gru_sequence_dense360_bw__simplified_setpoints/source_run/training_test_report.snapshot.md
-    best_checkpoint_path.snapshot.txt: models/simplified_dataset/setpoints/exported/residual_harmonic_gru_sequence_dense360/backward/2026-07-09-13-52-29__te_residual_harmonic_gru_sequence_dense360_bw__simplified_setpoints/source_run/best_checkpoint_path.snapshot.txt
+    training_config.snapshot.yaml: models/simplified_dataset/setpoints/exported/residual_harmonic_lstm_sequence_sparse_rcim/backward/2026-07-09-19-10-53__te_residual_harmonic_lstm_sequence_sparse_rcim_bw__simplified_setpoints/source_run/training_config.snapshot.yaml
+    metrics_summary.snapshot.yaml: models/simplified_dataset/setpoints/exported/residual_harmonic_lstm_sequence_sparse_rcim/backward/2026-07-09-19-10-53__te_residual_harmonic_lstm_sequence_sparse_rcim_bw__simplified_setpoints/source_run/metrics_summary.snapshot.yaml
+    run_metadata.snapshot.yaml: models/simplified_dataset/setpoints/exported/residual_harmonic_lstm_sequence_sparse_rcim/backward/2026-07-09-19-10-53__te_residual_harmonic_lstm_sequence_sparse_rcim_bw__simplified_setpoints/source_run/run_metadata.snapshot.yaml
+    training_test_report.snapshot.md: models/simplified_dataset/setpoints/exported/residual_harmonic_lstm_sequence_sparse_rcim/backward/2026-07-09-19-10-53__te_residual_harmonic_lstm_sequence_sparse_rcim_bw__simplified_setpoints/source_run/training_test_report.snapshot.md
+    best_checkpoint_path.snapshot.txt: models/simplified_dataset/setpoints/exported/residual_harmonic_lstm_sequence_sparse_rcim/backward/2026-07-09-19-10-53__te_residual_harmonic_lstm_sequence_sparse_rcim_bw__simplified_setpoints/source_run/best_checkpoint_path.snapshot.txt
   metrics:
-    val_mae: 0.003588057355955243
-    test_mae: 0.0033954093232750893
-    test_rmse: 0.00419045751914382
+    val_mae: 0.003654422238469124
+    test_mae: 0.003448914736509323
+    test_rmse: 0.0042316182516515255

@@ -6,8 +6,8 @@ selection_policy:
   second_tie_breaker: val_mae
   third_tie_breaker: trainable_parameter_count
   direction: minimize
-updated_at: '2026-06-30T12:17:13'
-entry_count: 1
+updated_at: '2026-07-09T18:56:39'
+entry_count: 2
 entry_list:
 - run_instance_id: 2026-06-30-11-45-14__te_residual_harmonic_lstm_sequence_sparse_rcim_global
   run_name: te_residual_harmonic_lstm_sequence_sparse_rcim_global
@@ -47,3 +47,43 @@ entry_list:
     third_tie_breaker: trainable_parameter_count
     direction: minimize
   selected_at: '2026-06-30T12:17:13'
+- run_instance_id: 2026-07-09-18-39-59__te_residual_harmonic_lstm_sequence_sparse_rcim_global__simplified_setpoints
+  run_name: te_residual_harmonic_lstm_sequence_sparse_rcim_global__simplified_setpoints
+  output_run_name: te_residual_harmonic_lstm_sequence_sparse_rcim_global__simplified_setpoints
+  output_artifact_kind: training_run
+  model_family: residual_harmonic_lstm_sequence_sparse_rcim_global
+  base_model_family: residual_harmonic_lstm_sequence_sparse_rcim
+  model_type: residual_harmonic_lstm_sequence
+  dataset_id: simplified_dataset
+  dataset_schema: simplified_curve_v1
+  input_mode: setpoints
+  input_feature_names:
+  - angular_position_deg
+  - input_speed_rpm
+  - input_torque_nm
+  - oil_temperature_deg
+  - direction_flag
+  target_feature_names:
+  - transmission_error_deg
+  input_feature_dim: 5
+  training_variant: global
+  direction_scope_label: bidirectional
+  use_forward_direction: true
+  use_backward_direction: true
+  trainable_parameter_count: 201364
+  total_parameter_count: 201364
+  val_mae: 0.0036175730638206005
+  val_rmse: 0.004473882261663675
+  test_mae: 0.003399754175916314
+  test_rmse: 0.004178056493401527
+  output_directory: output\training_runs\residual_harmonic_lstm_sequence_sparse_rcim\2026-07-09-18-39-59__te_residual_harmonic_lstm_sequence_sparse_rcim_global__simplified_setpoints
+  best_checkpoint_path: output\training_runs\residual_harmonic_lstm_sequence_sparse_rcim\2026-07-09-18-39-59__te_residual_harmonic_lstm_sequence_sparse_rcim_global__simplified_setpoints\checkpoints\residual_harmonic_lstm_sequence-epoch=050-val_mae=0.00361757.ckpt
+  metrics_path: output\training_runs\residual_harmonic_lstm_sequence_sparse_rcim\2026-07-09-18-39-59__te_residual_harmonic_lstm_sequence_sparse_rcim_global__simplified_setpoints/metrics_summary.yaml
+  report_path: output\training_runs\residual_harmonic_lstm_sequence_sparse_rcim\2026-07-09-18-39-59__te_residual_harmonic_lstm_sequence_sparse_rcim_global__simplified_setpoints/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-07-09T18:56:39'
