@@ -1,0 +1,131 @@
+schema_version: 1
+campaign_name: dataset_input_mode_retraining__residual_harmonic_gru_sequence_dense360__polished_setpoints
+selection_policy:
+  primary_metric: test_mae
+  first_tie_breaker: test_rmse
+  second_tie_breaker: val_mae
+  third_tie_breaker: trainable_parameter_count
+  direction: minimize
+updated_at: '2026-07-09T16:29:19'
+entry_count: 3
+entry_list:
+- run_instance_id: 2026-07-09-15-45-26__te_residual_harmonic_gru_sequence_dense360_fw__polished_setpoints
+  run_name: te_residual_harmonic_gru_sequence_dense360_fw__polished_setpoints
+  output_run_name: te_residual_harmonic_gru_sequence_dense360_fw__polished_setpoints
+  output_artifact_kind: training_run
+  model_family: residual_harmonic_gru_sequence_dense360_fw
+  base_model_family: residual_harmonic_gru_sequence_dense360
+  model_type: residual_harmonic_gru_sequence
+  dataset_id: polished_dataset
+  dataset_schema: polished_setpoint_curve_v1
+  input_mode: setpoints
+  input_feature_names:
+  - angular_position_deg
+  - input_speed_rpm
+  - input_torque_nm
+  - oil_temperature_deg
+  - direction_flag
+  target_feature_names:
+  - theta_TE
+  input_feature_dim: 5
+  training_variant: fw
+  direction_scope_label: forward_only
+  use_forward_direction: true
+  use_backward_direction: false
+  trainable_parameter_count: 151762
+  total_parameter_count: 151762
+  val_mae: 0.0020015391055494547
+  val_rmse: 0.002772721229121089
+  test_mae: 0.0022834090050309896
+  test_rmse: 0.0036455639638006687
+  output_directory: output\training_runs\residual_harmonic_gru_sequence_dense360\2026-07-09-15-45-26__te_residual_harmonic_gru_sequence_dense360_fw__polished_setpoints
+  best_checkpoint_path: output\training_runs\residual_harmonic_gru_sequence_dense360\2026-07-09-15-45-26__te_residual_harmonic_gru_sequence_dense360_fw__polished_setpoints\checkpoints\residual_harmonic_gru_sequence-epoch=120-val_mae=0.00200154.ckpt
+  metrics_path: output\training_runs\residual_harmonic_gru_sequence_dense360\2026-07-09-15-45-26__te_residual_harmonic_gru_sequence_dense360_fw__polished_setpoints/metrics_summary.yaml
+  report_path: output\training_runs\residual_harmonic_gru_sequence_dense360\2026-07-09-15-45-26__te_residual_harmonic_gru_sequence_dense360_fw__polished_setpoints/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-07-09T16:29:19'
+- run_instance_id: 2026-07-09-15-18-00__te_residual_harmonic_gru_sequence_dense360_global__polished_setpoints
+  run_name: te_residual_harmonic_gru_sequence_dense360_global__polished_setpoints
+  output_run_name: te_residual_harmonic_gru_sequence_dense360_global__polished_setpoints
+  output_artifact_kind: training_run
+  model_family: residual_harmonic_gru_sequence_dense360_global
+  base_model_family: residual_harmonic_gru_sequence_dense360
+  model_type: residual_harmonic_gru_sequence
+  dataset_id: polished_dataset
+  dataset_schema: polished_setpoint_curve_v1
+  input_mode: setpoints
+  input_feature_names:
+  - angular_position_deg
+  - input_speed_rpm
+  - input_torque_nm
+  - oil_temperature_deg
+  - direction_flag
+  target_feature_names:
+  - theta_TE
+  input_feature_dim: 5
+  training_variant: global
+  direction_scope_label: bidirectional
+  use_forward_direction: true
+  use_backward_direction: true
+  trainable_parameter_count: 151762
+  total_parameter_count: 151762
+  val_mae: 0.0019737756811082363
+  val_rmse: 0.0027605146169662476
+  test_mae: 0.0022840499877929688
+  test_rmse: 0.0036597996950149536
+  output_directory: output\training_runs\residual_harmonic_gru_sequence_dense360\2026-07-09-15-18-00__te_residual_harmonic_gru_sequence_dense360_global__polished_setpoints
+  best_checkpoint_path: output\training_runs\residual_harmonic_gru_sequence_dense360\2026-07-09-15-18-00__te_residual_harmonic_gru_sequence_dense360_global__polished_setpoints\checkpoints\residual_harmonic_gru_sequence-epoch=111-val_mae=0.00197378.ckpt
+  metrics_path: output\training_runs\residual_harmonic_gru_sequence_dense360\2026-07-09-15-18-00__te_residual_harmonic_gru_sequence_dense360_global__polished_setpoints/metrics_summary.yaml
+  report_path: output\training_runs\residual_harmonic_gru_sequence_dense360\2026-07-09-15-18-00__te_residual_harmonic_gru_sequence_dense360_global__polished_setpoints/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-07-09T16:29:19'
+- run_instance_id: 2026-07-09-16-10-44__te_residual_harmonic_gru_sequence_dense360_bw__polished_setpoints
+  run_name: te_residual_harmonic_gru_sequence_dense360_bw__polished_setpoints
+  output_run_name: te_residual_harmonic_gru_sequence_dense360_bw__polished_setpoints
+  output_artifact_kind: training_run
+  model_family: residual_harmonic_gru_sequence_dense360_bw
+  base_model_family: residual_harmonic_gru_sequence_dense360
+  model_type: residual_harmonic_gru_sequence
+  dataset_id: polished_dataset
+  dataset_schema: polished_setpoint_curve_v1
+  input_mode: setpoints
+  input_feature_names:
+  - angular_position_deg
+  - input_speed_rpm
+  - input_torque_nm
+  - oil_temperature_deg
+  - direction_flag
+  target_feature_names:
+  - theta_TE
+  input_feature_dim: 5
+  training_variant: bw
+  direction_scope_label: backward_only
+  use_forward_direction: false
+  use_backward_direction: true
+  trainable_parameter_count: 151762
+  total_parameter_count: 151762
+  val_mae: 0.002000237349420786
+  val_rmse: 0.002783155534416437
+  test_mae: 0.0022918619215488434
+  test_rmse: 0.003649135585874319
+  output_directory: output\training_runs\residual_harmonic_gru_sequence_dense360\2026-07-09-16-10-44__te_residual_harmonic_gru_sequence_dense360_bw__polished_setpoints
+  best_checkpoint_path: output\training_runs\residual_harmonic_gru_sequence_dense360\2026-07-09-16-10-44__te_residual_harmonic_gru_sequence_dense360_bw__polished_setpoints\checkpoints\residual_harmonic_gru_sequence-epoch=064-val_mae=0.00200024.ckpt
+  metrics_path: output\training_runs\residual_harmonic_gru_sequence_dense360\2026-07-09-16-10-44__te_residual_harmonic_gru_sequence_dense360_bw__polished_setpoints/metrics_summary.yaml
+  report_path: output\training_runs\residual_harmonic_gru_sequence_dense360\2026-07-09-16-10-44__te_residual_harmonic_gru_sequence_dense360_bw__polished_setpoints/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-07-09T16:29:19'

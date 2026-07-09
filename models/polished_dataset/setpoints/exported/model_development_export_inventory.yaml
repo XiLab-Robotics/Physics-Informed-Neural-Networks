@@ -13,74 +13,74 @@ entries:
   dataset_id: polished_dataset
   dataset_schema: polished_setpoint_curve_v1
   input_mode: setpoints
-  model_family: residual_harmonic_gru_sequence_dense240
+  model_family: residual_harmonic_gru_sequence_dense360
   model_type: residual_harmonic_gru_sequence
   surface: global
-  run_name: te_residual_harmonic_gru_sequence_dense240_global__polished_setpoints
-  run_instance_id: 2026-07-09-10-32-04__te_residual_harmonic_gru_sequence_dense240_global__polished_setpoints
-  source_output_directory: output/training_runs/residual_harmonic_gru_sequence_dense240/2026-07-09-10-32-04__te_residual_harmonic_gru_sequence_dense240_global__polished_setpoints
-  source_best_checkpoint_path: output/training_runs/residual_harmonic_gru_sequence_dense240/2026-07-09-10-32-04__te_residual_harmonic_gru_sequence_dense240_global__polished_setpoints/checkpoints/residual_harmonic_gru_sequence-epoch=081-val_mae=0.00198647.ckpt
-  python_model_path: models/polished_dataset/setpoints/exported/residual_harmonic_gru_sequence_dense240/global/2026-07-09-10-32-04__te_residual_harmonic_gru_sequence_dense240_global__polished_setpoints/python/residual_harmonic_gru_sequence-epoch=081-val_mae=0.00198647.ckpt
-  onnx_model_path: models/polished_dataset/setpoints/exported/residual_harmonic_gru_sequence_dense240/global/2026-07-09-10-32-04__te_residual_harmonic_gru_sequence_dense240_global__polished_setpoints/onnx/model.onnx
+  run_name: te_residual_harmonic_gru_sequence_dense360_global__polished_setpoints
+  run_instance_id: 2026-07-09-15-18-00__te_residual_harmonic_gru_sequence_dense360_global__polished_setpoints
+  source_output_directory: output/training_runs/residual_harmonic_gru_sequence_dense360/2026-07-09-15-18-00__te_residual_harmonic_gru_sequence_dense360_global__polished_setpoints
+  source_best_checkpoint_path: output/training_runs/residual_harmonic_gru_sequence_dense360/2026-07-09-15-18-00__te_residual_harmonic_gru_sequence_dense360_global__polished_setpoints/checkpoints/residual_harmonic_gru_sequence-epoch=111-val_mae=0.00197378.ckpt
+  python_model_path: models/polished_dataset/setpoints/exported/residual_harmonic_gru_sequence_dense360/global/2026-07-09-15-18-00__te_residual_harmonic_gru_sequence_dense360_global__polished_setpoints/python/residual_harmonic_gru_sequence-epoch=111-val_mae=0.00197378.ckpt
+  onnx_model_path: models/polished_dataset/setpoints/exported/residual_harmonic_gru_sequence_dense360/global/2026-07-09-15-18-00__te_residual_harmonic_gru_sequence_dense360_global__polished_setpoints/onnx/model.onnx
   onnx_export_status: exported
   onnx_export_error: ''
   source_run_snapshot_path_map:
-    training_config.snapshot.yaml: models/polished_dataset/setpoints/exported/residual_harmonic_gru_sequence_dense240/global/2026-07-09-10-32-04__te_residual_harmonic_gru_sequence_dense240_global__polished_setpoints/source_run/training_config.snapshot.yaml
-    metrics_summary.snapshot.yaml: models/polished_dataset/setpoints/exported/residual_harmonic_gru_sequence_dense240/global/2026-07-09-10-32-04__te_residual_harmonic_gru_sequence_dense240_global__polished_setpoints/source_run/metrics_summary.snapshot.yaml
-    run_metadata.snapshot.yaml: models/polished_dataset/setpoints/exported/residual_harmonic_gru_sequence_dense240/global/2026-07-09-10-32-04__te_residual_harmonic_gru_sequence_dense240_global__polished_setpoints/source_run/run_metadata.snapshot.yaml
-    training_test_report.snapshot.md: models/polished_dataset/setpoints/exported/residual_harmonic_gru_sequence_dense240/global/2026-07-09-10-32-04__te_residual_harmonic_gru_sequence_dense240_global__polished_setpoints/source_run/training_test_report.snapshot.md
-    best_checkpoint_path.snapshot.txt: models/polished_dataset/setpoints/exported/residual_harmonic_gru_sequence_dense240/global/2026-07-09-10-32-04__te_residual_harmonic_gru_sequence_dense240_global__polished_setpoints/source_run/best_checkpoint_path.snapshot.txt
+    training_config.snapshot.yaml: models/polished_dataset/setpoints/exported/residual_harmonic_gru_sequence_dense360/global/2026-07-09-15-18-00__te_residual_harmonic_gru_sequence_dense360_global__polished_setpoints/source_run/training_config.snapshot.yaml
+    metrics_summary.snapshot.yaml: models/polished_dataset/setpoints/exported/residual_harmonic_gru_sequence_dense360/global/2026-07-09-15-18-00__te_residual_harmonic_gru_sequence_dense360_global__polished_setpoints/source_run/metrics_summary.snapshot.yaml
+    run_metadata.snapshot.yaml: models/polished_dataset/setpoints/exported/residual_harmonic_gru_sequence_dense360/global/2026-07-09-15-18-00__te_residual_harmonic_gru_sequence_dense360_global__polished_setpoints/source_run/run_metadata.snapshot.yaml
+    training_test_report.snapshot.md: models/polished_dataset/setpoints/exported/residual_harmonic_gru_sequence_dense360/global/2026-07-09-15-18-00__te_residual_harmonic_gru_sequence_dense360_global__polished_setpoints/source_run/training_test_report.snapshot.md
+    best_checkpoint_path.snapshot.txt: models/polished_dataset/setpoints/exported/residual_harmonic_gru_sequence_dense360/global/2026-07-09-15-18-00__te_residual_harmonic_gru_sequence_dense360_global__polished_setpoints/source_run/best_checkpoint_path.snapshot.txt
   metrics:
-    val_mae: 0.001986472634598613
-    test_mae: 0.002278426429256797
-    test_rmse: 0.003632948501035571
+    val_mae: 0.0019737756811082363
+    test_mae: 0.0022840499877929688
+    test_rmse: 0.0036597996950149536
 - schema_version: 1
   dataset_id: polished_dataset
   dataset_schema: polished_setpoint_curve_v1
   input_mode: setpoints
-  model_family: residual_harmonic_gru_sequence_dense240
+  model_family: residual_harmonic_gru_sequence_dense360
   model_type: residual_harmonic_gru_sequence
   surface: forward
-  run_name: te_residual_harmonic_gru_sequence_dense240_fw__polished_setpoints
-  run_instance_id: 2026-07-09-10-52-16__te_residual_harmonic_gru_sequence_dense240_fw__polished_setpoints
-  source_output_directory: output/training_runs/residual_harmonic_gru_sequence_dense240/2026-07-09-10-52-16__te_residual_harmonic_gru_sequence_dense240_fw__polished_setpoints
-  source_best_checkpoint_path: output/training_runs/residual_harmonic_gru_sequence_dense240/2026-07-09-10-52-16__te_residual_harmonic_gru_sequence_dense240_fw__polished_setpoints/checkpoints/residual_harmonic_gru_sequence-epoch=110-val_mae=0.00198772.ckpt
-  python_model_path: models/polished_dataset/setpoints/exported/residual_harmonic_gru_sequence_dense240/forward/2026-07-09-10-52-16__te_residual_harmonic_gru_sequence_dense240_fw__polished_setpoints/python/residual_harmonic_gru_sequence-epoch=110-val_mae=0.00198772.ckpt
-  onnx_model_path: models/polished_dataset/setpoints/exported/residual_harmonic_gru_sequence_dense240/forward/2026-07-09-10-52-16__te_residual_harmonic_gru_sequence_dense240_fw__polished_setpoints/onnx/model.onnx
+  run_name: te_residual_harmonic_gru_sequence_dense360_fw__polished_setpoints
+  run_instance_id: 2026-07-09-15-45-26__te_residual_harmonic_gru_sequence_dense360_fw__polished_setpoints
+  source_output_directory: output/training_runs/residual_harmonic_gru_sequence_dense360/2026-07-09-15-45-26__te_residual_harmonic_gru_sequence_dense360_fw__polished_setpoints
+  source_best_checkpoint_path: output/training_runs/residual_harmonic_gru_sequence_dense360/2026-07-09-15-45-26__te_residual_harmonic_gru_sequence_dense360_fw__polished_setpoints/checkpoints/residual_harmonic_gru_sequence-epoch=120-val_mae=0.00200154.ckpt
+  python_model_path: models/polished_dataset/setpoints/exported/residual_harmonic_gru_sequence_dense360/forward/2026-07-09-15-45-26__te_residual_harmonic_gru_sequence_dense360_fw__polished_setpoints/python/residual_harmonic_gru_sequence-epoch=120-val_mae=0.00200154.ckpt
+  onnx_model_path: models/polished_dataset/setpoints/exported/residual_harmonic_gru_sequence_dense360/forward/2026-07-09-15-45-26__te_residual_harmonic_gru_sequence_dense360_fw__polished_setpoints/onnx/model.onnx
   onnx_export_status: exported
   onnx_export_error: ''
   source_run_snapshot_path_map:
-    training_config.snapshot.yaml: models/polished_dataset/setpoints/exported/residual_harmonic_gru_sequence_dense240/forward/2026-07-09-10-52-16__te_residual_harmonic_gru_sequence_dense240_fw__polished_setpoints/source_run/training_config.snapshot.yaml
-    metrics_summary.snapshot.yaml: models/polished_dataset/setpoints/exported/residual_harmonic_gru_sequence_dense240/forward/2026-07-09-10-52-16__te_residual_harmonic_gru_sequence_dense240_fw__polished_setpoints/source_run/metrics_summary.snapshot.yaml
-    run_metadata.snapshot.yaml: models/polished_dataset/setpoints/exported/residual_harmonic_gru_sequence_dense240/forward/2026-07-09-10-52-16__te_residual_harmonic_gru_sequence_dense240_fw__polished_setpoints/source_run/run_metadata.snapshot.yaml
-    training_test_report.snapshot.md: models/polished_dataset/setpoints/exported/residual_harmonic_gru_sequence_dense240/forward/2026-07-09-10-52-16__te_residual_harmonic_gru_sequence_dense240_fw__polished_setpoints/source_run/training_test_report.snapshot.md
-    best_checkpoint_path.snapshot.txt: models/polished_dataset/setpoints/exported/residual_harmonic_gru_sequence_dense240/forward/2026-07-09-10-52-16__te_residual_harmonic_gru_sequence_dense240_fw__polished_setpoints/source_run/best_checkpoint_path.snapshot.txt
+    training_config.snapshot.yaml: models/polished_dataset/setpoints/exported/residual_harmonic_gru_sequence_dense360/forward/2026-07-09-15-45-26__te_residual_harmonic_gru_sequence_dense360_fw__polished_setpoints/source_run/training_config.snapshot.yaml
+    metrics_summary.snapshot.yaml: models/polished_dataset/setpoints/exported/residual_harmonic_gru_sequence_dense360/forward/2026-07-09-15-45-26__te_residual_harmonic_gru_sequence_dense360_fw__polished_setpoints/source_run/metrics_summary.snapshot.yaml
+    run_metadata.snapshot.yaml: models/polished_dataset/setpoints/exported/residual_harmonic_gru_sequence_dense360/forward/2026-07-09-15-45-26__te_residual_harmonic_gru_sequence_dense360_fw__polished_setpoints/source_run/run_metadata.snapshot.yaml
+    training_test_report.snapshot.md: models/polished_dataset/setpoints/exported/residual_harmonic_gru_sequence_dense360/forward/2026-07-09-15-45-26__te_residual_harmonic_gru_sequence_dense360_fw__polished_setpoints/source_run/training_test_report.snapshot.md
+    best_checkpoint_path.snapshot.txt: models/polished_dataset/setpoints/exported/residual_harmonic_gru_sequence_dense360/forward/2026-07-09-15-45-26__te_residual_harmonic_gru_sequence_dense360_fw__polished_setpoints/source_run/best_checkpoint_path.snapshot.txt
   metrics:
-    val_mae: 0.0019877152517437935
-    test_mae: 0.002256169682368636
-    test_rmse: 0.0036140938755124807
+    val_mae: 0.0020015391055494547
+    test_mae: 0.0022834090050309896
+    test_rmse: 0.0036455639638006687
 - schema_version: 1
   dataset_id: polished_dataset
   dataset_schema: polished_setpoint_curve_v1
   input_mode: setpoints
-  model_family: residual_harmonic_gru_sequence_dense240
+  model_family: residual_harmonic_gru_sequence_dense360
   model_type: residual_harmonic_gru_sequence
   surface: backward
-  run_name: te_residual_harmonic_gru_sequence_dense240_bw__polished_setpoints
-  run_instance_id: 2026-07-09-11-12-09__te_residual_harmonic_gru_sequence_dense240_bw__polished_setpoints
-  source_output_directory: output/training_runs/residual_harmonic_gru_sequence_dense240/2026-07-09-11-12-09__te_residual_harmonic_gru_sequence_dense240_bw__polished_setpoints
-  source_best_checkpoint_path: output/training_runs/residual_harmonic_gru_sequence_dense240/2026-07-09-11-12-09__te_residual_harmonic_gru_sequence_dense240_bw__polished_setpoints/checkpoints/residual_harmonic_gru_sequence-epoch=069-val_mae=0.00196095.ckpt
-  python_model_path: models/polished_dataset/setpoints/exported/residual_harmonic_gru_sequence_dense240/backward/2026-07-09-11-12-09__te_residual_harmonic_gru_sequence_dense240_bw__polished_setpoints/python/residual_harmonic_gru_sequence-epoch=069-val_mae=0.00196095.ckpt
-  onnx_model_path: models/polished_dataset/setpoints/exported/residual_harmonic_gru_sequence_dense240/backward/2026-07-09-11-12-09__te_residual_harmonic_gru_sequence_dense240_bw__polished_setpoints/onnx/model.onnx
+  run_name: te_residual_harmonic_gru_sequence_dense360_bw__polished_setpoints
+  run_instance_id: 2026-07-09-16-10-44__te_residual_harmonic_gru_sequence_dense360_bw__polished_setpoints
+  source_output_directory: output/training_runs/residual_harmonic_gru_sequence_dense360/2026-07-09-16-10-44__te_residual_harmonic_gru_sequence_dense360_bw__polished_setpoints
+  source_best_checkpoint_path: output/training_runs/residual_harmonic_gru_sequence_dense360/2026-07-09-16-10-44__te_residual_harmonic_gru_sequence_dense360_bw__polished_setpoints/checkpoints/residual_harmonic_gru_sequence-epoch=064-val_mae=0.00200024.ckpt
+  python_model_path: models/polished_dataset/setpoints/exported/residual_harmonic_gru_sequence_dense360/backward/2026-07-09-16-10-44__te_residual_harmonic_gru_sequence_dense360_bw__polished_setpoints/python/residual_harmonic_gru_sequence-epoch=064-val_mae=0.00200024.ckpt
+  onnx_model_path: models/polished_dataset/setpoints/exported/residual_harmonic_gru_sequence_dense360/backward/2026-07-09-16-10-44__te_residual_harmonic_gru_sequence_dense360_bw__polished_setpoints/onnx/model.onnx
   onnx_export_status: exported
   onnx_export_error: ''
   source_run_snapshot_path_map:
-    training_config.snapshot.yaml: models/polished_dataset/setpoints/exported/residual_harmonic_gru_sequence_dense240/backward/2026-07-09-11-12-09__te_residual_harmonic_gru_sequence_dense240_bw__polished_setpoints/source_run/training_config.snapshot.yaml
-    metrics_summary.snapshot.yaml: models/polished_dataset/setpoints/exported/residual_harmonic_gru_sequence_dense240/backward/2026-07-09-11-12-09__te_residual_harmonic_gru_sequence_dense240_bw__polished_setpoints/source_run/metrics_summary.snapshot.yaml
-    run_metadata.snapshot.yaml: models/polished_dataset/setpoints/exported/residual_harmonic_gru_sequence_dense240/backward/2026-07-09-11-12-09__te_residual_harmonic_gru_sequence_dense240_bw__polished_setpoints/source_run/run_metadata.snapshot.yaml
-    training_test_report.snapshot.md: models/polished_dataset/setpoints/exported/residual_harmonic_gru_sequence_dense240/backward/2026-07-09-11-12-09__te_residual_harmonic_gru_sequence_dense240_bw__polished_setpoints/source_run/training_test_report.snapshot.md
-    best_checkpoint_path.snapshot.txt: models/polished_dataset/setpoints/exported/residual_harmonic_gru_sequence_dense240/backward/2026-07-09-11-12-09__te_residual_harmonic_gru_sequence_dense240_bw__polished_setpoints/source_run/best_checkpoint_path.snapshot.txt
+    training_config.snapshot.yaml: models/polished_dataset/setpoints/exported/residual_harmonic_gru_sequence_dense360/backward/2026-07-09-16-10-44__te_residual_harmonic_gru_sequence_dense360_bw__polished_setpoints/source_run/training_config.snapshot.yaml
+    metrics_summary.snapshot.yaml: models/polished_dataset/setpoints/exported/residual_harmonic_gru_sequence_dense360/backward/2026-07-09-16-10-44__te_residual_harmonic_gru_sequence_dense360_bw__polished_setpoints/source_run/metrics_summary.snapshot.yaml
+    run_metadata.snapshot.yaml: models/polished_dataset/setpoints/exported/residual_harmonic_gru_sequence_dense360/backward/2026-07-09-16-10-44__te_residual_harmonic_gru_sequence_dense360_bw__polished_setpoints/source_run/run_metadata.snapshot.yaml
+    training_test_report.snapshot.md: models/polished_dataset/setpoints/exported/residual_harmonic_gru_sequence_dense360/backward/2026-07-09-16-10-44__te_residual_harmonic_gru_sequence_dense360_bw__polished_setpoints/source_run/training_test_report.snapshot.md
+    best_checkpoint_path.snapshot.txt: models/polished_dataset/setpoints/exported/residual_harmonic_gru_sequence_dense360/backward/2026-07-09-16-10-44__te_residual_harmonic_gru_sequence_dense360_bw__polished_setpoints/source_run/best_checkpoint_path.snapshot.txt
   metrics:
-    val_mae: 0.001960946014150977
-    test_mae: 0.0022622752003371716
-    test_rmse: 0.0036339350044727325
+    val_mae: 0.002000237349420786
+    test_mae: 0.0022918619215488434
+    test_rmse: 0.003649135585874319
