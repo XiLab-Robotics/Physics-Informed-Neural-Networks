@@ -1,0 +1,131 @@
+schema_version: 1
+campaign_name: dataset_input_mode_retraining__residual_harmonic_lstm_sequence_sparse_rcim__polished_setpoints
+selection_policy:
+  primary_metric: test_mae
+  first_tie_breaker: test_rmse
+  second_tie_breaker: val_mae
+  third_tie_breaker: trainable_parameter_count
+  direction: minimize
+updated_at: '2026-07-09T20:39:39'
+entry_count: 3
+entry_list:
+- run_instance_id: 2026-07-09-20-17-04__te_residual_harmonic_lstm_sequence_sparse_rcim_bw__polished_setpoints
+  run_name: te_residual_harmonic_lstm_sequence_sparse_rcim_bw__polished_setpoints
+  output_run_name: te_residual_harmonic_lstm_sequence_sparse_rcim_bw__polished_setpoints
+  output_artifact_kind: training_run
+  model_family: residual_harmonic_lstm_sequence_sparse_rcim_bw
+  base_model_family: residual_harmonic_lstm_sequence_sparse_rcim
+  model_type: residual_harmonic_lstm_sequence
+  dataset_id: polished_dataset
+  dataset_schema: polished_setpoint_curve_v1
+  input_mode: setpoints
+  input_feature_names:
+  - angular_position_deg
+  - input_speed_rpm
+  - input_torque_nm
+  - oil_temperature_deg
+  - direction_flag
+  target_feature_names:
+  - theta_TE
+  input_feature_dim: 5
+  training_variant: bw
+  direction_scope_label: backward_only
+  use_forward_direction: false
+  use_backward_direction: true
+  trainable_parameter_count: 201364
+  total_parameter_count: 201364
+  val_mae: 0.0020448039285838604
+  val_rmse: 0.0028330523055046797
+  test_mae: 0.0023246619384735823
+  test_rmse: 0.0036687084939330816
+  output_directory: output\training_runs\residual_harmonic_lstm_sequence_sparse_rcim\2026-07-09-20-17-04__te_residual_harmonic_lstm_sequence_sparse_rcim_bw__polished_setpoints
+  best_checkpoint_path: output\training_runs\residual_harmonic_lstm_sequence_sparse_rcim\2026-07-09-20-17-04__te_residual_harmonic_lstm_sequence_sparse_rcim_bw__polished_setpoints\checkpoints\residual_harmonic_lstm_sequence-epoch=088-val_mae=0.00204480.ckpt
+  metrics_path: output\training_runs\residual_harmonic_lstm_sequence_sparse_rcim\2026-07-09-20-17-04__te_residual_harmonic_lstm_sequence_sparse_rcim_bw__polished_setpoints/metrics_summary.yaml
+  report_path: output\training_runs\residual_harmonic_lstm_sequence_sparse_rcim\2026-07-09-20-17-04__te_residual_harmonic_lstm_sequence_sparse_rcim_bw__polished_setpoints/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-07-09T20:39:39'
+- run_instance_id: 2026-07-09-19-35-45__te_residual_harmonic_lstm_sequence_sparse_rcim_global__polished_setpoints
+  run_name: te_residual_harmonic_lstm_sequence_sparse_rcim_global__polished_setpoints
+  output_run_name: te_residual_harmonic_lstm_sequence_sparse_rcim_global__polished_setpoints
+  output_artifact_kind: training_run
+  model_family: residual_harmonic_lstm_sequence_sparse_rcim_global
+  base_model_family: residual_harmonic_lstm_sequence_sparse_rcim
+  model_type: residual_harmonic_lstm_sequence
+  dataset_id: polished_dataset
+  dataset_schema: polished_setpoint_curve_v1
+  input_mode: setpoints
+  input_feature_names:
+  - angular_position_deg
+  - input_speed_rpm
+  - input_torque_nm
+  - oil_temperature_deg
+  - direction_flag
+  target_feature_names:
+  - theta_TE
+  input_feature_dim: 5
+  training_variant: global
+  direction_scope_label: bidirectional
+  use_forward_direction: true
+  use_backward_direction: true
+  trainable_parameter_count: 201364
+  total_parameter_count: 201364
+  val_mae: 0.0020429310388863087
+  val_rmse: 0.0028345014434307814
+  test_mae: 0.002349164569750428
+  test_rmse: 0.0037264099810272455
+  output_directory: output\training_runs\residual_harmonic_lstm_sequence_sparse_rcim\2026-07-09-19-35-45__te_residual_harmonic_lstm_sequence_sparse_rcim_global__polished_setpoints
+  best_checkpoint_path: output\training_runs\residual_harmonic_lstm_sequence_sparse_rcim\2026-07-09-19-35-45__te_residual_harmonic_lstm_sequence_sparse_rcim_global__polished_setpoints\checkpoints\residual_harmonic_lstm_sequence-epoch=060-val_mae=0.00204293.ckpt
+  metrics_path: output\training_runs\residual_harmonic_lstm_sequence_sparse_rcim\2026-07-09-19-35-45__te_residual_harmonic_lstm_sequence_sparse_rcim_global__polished_setpoints/metrics_summary.yaml
+  report_path: output\training_runs\residual_harmonic_lstm_sequence_sparse_rcim\2026-07-09-19-35-45__te_residual_harmonic_lstm_sequence_sparse_rcim_global__polished_setpoints/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-07-09T20:39:39'
+- run_instance_id: 2026-07-09-19-52-09__te_residual_harmonic_lstm_sequence_sparse_rcim_fw__polished_setpoints
+  run_name: te_residual_harmonic_lstm_sequence_sparse_rcim_fw__polished_setpoints
+  output_run_name: te_residual_harmonic_lstm_sequence_sparse_rcim_fw__polished_setpoints
+  output_artifact_kind: training_run
+  model_family: residual_harmonic_lstm_sequence_sparse_rcim_fw
+  base_model_family: residual_harmonic_lstm_sequence_sparse_rcim
+  model_type: residual_harmonic_lstm_sequence
+  dataset_id: polished_dataset
+  dataset_schema: polished_setpoint_curve_v1
+  input_mode: setpoints
+  input_feature_names:
+  - angular_position_deg
+  - input_speed_rpm
+  - input_torque_nm
+  - oil_temperature_deg
+  - direction_flag
+  target_feature_names:
+  - theta_TE
+  input_feature_dim: 5
+  training_variant: fw
+  direction_scope_label: forward_only
+  use_forward_direction: true
+  use_backward_direction: false
+  trainable_parameter_count: 201364
+  total_parameter_count: 201364
+  val_mae: 0.002022920409217477
+  val_rmse: 0.0028058383613824844
+  test_mae: 0.00236110994592309
+  test_rmse: 0.003732701763510704
+  output_directory: output\training_runs\residual_harmonic_lstm_sequence_sparse_rcim\2026-07-09-19-52-09__te_residual_harmonic_lstm_sequence_sparse_rcim_fw__polished_setpoints
+  best_checkpoint_path: output\training_runs\residual_harmonic_lstm_sequence_sparse_rcim\2026-07-09-19-52-09__te_residual_harmonic_lstm_sequence_sparse_rcim_fw__polished_setpoints\checkpoints\residual_harmonic_lstm_sequence-epoch=068-val_mae=0.00202292.ckpt
+  metrics_path: output\training_runs\residual_harmonic_lstm_sequence_sparse_rcim\2026-07-09-19-52-09__te_residual_harmonic_lstm_sequence_sparse_rcim_fw__polished_setpoints/metrics_summary.yaml
+  report_path: output\training_runs\residual_harmonic_lstm_sequence_sparse_rcim\2026-07-09-19-52-09__te_residual_harmonic_lstm_sequence_sparse_rcim_fw__polished_setpoints/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-07-09T20:39:39'
