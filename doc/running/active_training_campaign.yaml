@@ -147,10 +147,10 @@ last_completed_campaign:
       te_curve_verification_status: not_run_in_closeout
 next_prepared_campaign:
   status: completed_and_exported
-  campaign_name: dataset_input_mode_retraining__residual_harmonic_gru_sequence_dense240__polished_actual_values
-  dataset_id: polished_dataset
-  input_mode: actual_values
-  dataset_schema: polished_point_v1
+  campaign_name: dataset_input_mode_retraining__residual_harmonic_gru_sequence_dense360__simplified_setpoints
+  dataset_id: simplified_dataset
+  input_mode: setpoints
+  dataset_schema: simplified_curve_v1
   expected_run_count: 3
   completed_run_count: 3
   failed_run_count: 0
@@ -162,64 +162,63 @@ next_prepared_campaign:
     slurm_cpus_per_task: 8
     slurm_memory: 100G
     gpu_request: a100:1
-    observed_throughput: Global completed in 00:11:00, Fw in 00:21:40, and Bw in 00:32:31
+    observed_throughput: Global completed in 00:10:28, Fw in 00:11:42, and Bw in 00:11:25
       at batch 16.
     batch_tuning_note: The prepared campaign default was raised from curve_batch_size
-      2 to 16 before submission. Batch 16 remained stable for polished actual-value
-      residual harmonic GRU dense240 collation and completed all three sequential
-      surfaces in 01:05:41.
+      2 to 16 before submission. Batch 16 remained stable for simplified setpoint
+      residual harmonic GRU dense360 collation and completed all three sequential
+      surfaces in 00:34:28.
     next_campaign_recommendation: Continue the remaining dataset input-mode campaigns
       at batch 16 unless a new explicit tuning request is made.
   sbatch_submission:
-    slurm_job_id: '135262'
+    slurm_job_id: '135274'
     state: COMPLETED
     exit_code: 0:0
-    elapsed: 01:05:41
-    max_rss: 16658036K
+    elapsed: 00:34:28
+    max_rss: 16260508K
     python_executable: /unimore_home/dferrari/.conda/envs/pinns_env/bin/python
     torch_version: 2.7.1+cu118
     gpu_request: a100:1
-  campaign_manifest_path: config/training/dataset_input_mode_retraining/campaigns/dataset_input_mode_retraining__residual_harmonic_gru_sequence_dense240__polished_actual_values/campaign.yaml
-  campaign_output_directory: output/training_campaigns/2026-07-09-11-46-57_dataset_input_mode_retraining__residual_harmonic_gru_sequence_dense240
-  campaign_best_run_path: output/training_campaigns/2026-07-09-11-46-57_dataset_input_mode_retraining__residual_harmonic_gru_sequence_dense240/campaign_best_run.yaml
-  campaign_leaderboard_path: output/training_campaigns/2026-07-09-11-46-57_dataset_input_mode_retraining__residual_harmonic_gru_sequence_dense240/campaign_leaderboard.yaml
+  campaign_manifest_path: config/training/dataset_input_mode_retraining/campaigns/dataset_input_mode_retraining__residual_harmonic_gru_sequence_dense360__simplified_setpoints/campaign.yaml
+  campaign_output_directory: output/training_campaigns/2026-07-09-13-30-19_dataset_input_mode_retraining__residual_harmonic_gru_sequence_dense360
+  campaign_best_run_path: output/training_campaigns/2026-07-09-13-30-19_dataset_input_mode_retraining__residual_harmonic_gru_sequence_dense360/campaign_best_run.yaml
+  campaign_leaderboard_path: output/training_campaigns/2026-07-09-13-30-19_dataset_input_mode_retraining__residual_harmonic_gru_sequence_dense360/campaign_leaderboard.yaml
   best_run:
-    run_name: te_residual_harmonic_gru_sequence_dense240_bw__polished_actual_values
-    run_instance_id: 2026-07-09-12-19-38__te_residual_harmonic_gru_sequence_dense240_bw__polished_actual_values
+    run_name: te_residual_harmonic_gru_sequence_dense360_bw__simplified_setpoints
+    run_instance_id: 2026-07-09-13-52-29__te_residual_harmonic_gru_sequence_dense360_bw__simplified_setpoints
     surface: backward
-    test_mae: 0.0020485310815274715
-    test_rmse: 0.003081377362832427
-    val_mae: 0.001941525493748486
+    test_mae: 0.0033954093232750893
+    test_rmse: 0.00419045751914382
+    val_mae: 0.003588057355955243
   surface_run_list:
   - surface: global
-    run_name: te_residual_harmonic_gru_sequence_dense240_global__polished_actual_values
-    run_instance_id: 2026-07-09-11-46-57__te_residual_harmonic_gru_sequence_dense240_global__polished_actual_values
-    test_mae: 0.0022134939208626747
-    val_mae: 0.0020458281505852938
-    duration: 00:11:00
+    run_name: te_residual_harmonic_gru_sequence_dense360_global__simplified_setpoints
+    run_instance_id: 2026-07-09-13-30-19__te_residual_harmonic_gru_sequence_dense360_global__simplified_setpoints
+    test_mae: 0.003404388204216957
+    val_mae: 0.0036072165239602327
+    duration: 00:10:28
   - surface: forward
-    run_name: te_residual_harmonic_gru_sequence_dense240_fw__polished_actual_values
-    run_instance_id: 2026-07-09-11-57-58__te_residual_harmonic_gru_sequence_dense240_fw__polished_actual_values
-    test_mae: 0.002101358724758029
-    val_mae: 0.001968858065083623
-    duration: 00:21:40
+    run_name: te_residual_harmonic_gru_sequence_dense360_fw__simplified_setpoints
+    run_instance_id: 2026-07-09-13-40-47__te_residual_harmonic_gru_sequence_dense360_fw__simplified_setpoints
+    test_mae: 0.0034071358386427164
+    val_mae: 0.0035818626638501883
+    duration: 00:11:42
   - surface: backward
-    run_name: te_residual_harmonic_gru_sequence_dense240_bw__polished_actual_values
-    run_instance_id: 2026-07-09-12-19-38__te_residual_harmonic_gru_sequence_dense240_bw__polished_actual_values
-    test_mae: 0.0020485310815274715
-    val_mae: 0.001941525493748486
-    duration: 00:32:31
+    run_name: te_residual_harmonic_gru_sequence_dense360_bw__simplified_setpoints
+    run_instance_id: 2026-07-09-13-52-29__te_residual_harmonic_gru_sequence_dense360_bw__simplified_setpoints
+    test_mae: 0.0033954093232750893
+    val_mae: 0.003588057355955243
+    duration: 00:11:25
   export:
     status: completed
-    export_root: models/polished_dataset/actual_values/exported
-    export_inventory_path: models/polished_dataset/actual_values/exported/model_development_export_inventory.yaml
+    export_root: models/simplified_dataset/setpoints/exported
+    export_inventory_path: models/simplified_dataset/setpoints/exported/model_development_export_inventory.yaml
     exported_entry_count: 3
     onnx_export_status_counts:
       exported: 3
-    family_export_directory: models/polished_dataset/actual_values/exported/residual_harmonic_gru_sequence_dense240
+    family_export_directory: models/simplified_dataset/setpoints/exported/residual_harmonic_gru_sequence_dense360
     onnx_warning_note: ONNX export emitted the expected residual harmonic GRU tracing
       warnings and the PyTorch GRU batch-size warning; all three exports completed
       successfully.
   te_curve_verification_status: not_run_in_closeout
-  next_planned_campaign: next model family campaign from the approved dataset input-mode
-    retraining plan
+  next_planned_campaign: dataset_input_mode_retraining__residual_harmonic_gru_sequence_dense360__polished_setpoints
