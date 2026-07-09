@@ -13,74 +13,74 @@ entries:
   dataset_id: polished_dataset
   dataset_schema: polished_point_v1
   input_mode: actual_values
-  model_family: periodic_temporal_convolution
-  model_type: periodic_temporal_convolution
+  model_family: periodic_gru_sequence
+  model_type: periodic_gru_sequence
   surface: global
-  run_name: te_periodic_temporal_convolution_global__polished_actual_values
-  run_instance_id: 2026-07-08-20-40-43__te_periodic_temporal_convolution_global__polished_actual_values
-  source_output_directory: output/training_runs/periodic_temporal_convolution/2026-07-08-20-40-43__te_periodic_temporal_convolution_global__polished_actual_values
-  source_best_checkpoint_path: output/training_runs/periodic_temporal_convolution/2026-07-08-20-40-43__te_periodic_temporal_convolution_global__polished_actual_values/checkpoints/periodic_temporal_convolution-epoch=109-val_mae=0.00190820.ckpt
-  python_model_path: models/polished_dataset/actual_values/exported/periodic_temporal_convolution/global/2026-07-08-20-40-43__te_periodic_temporal_convolution_global__polished_actual_values/python/periodic_temporal_convolution-epoch=109-val_mae=0.00190820.ckpt
-  onnx_model_path: models/polished_dataset/actual_values/exported/periodic_temporal_convolution/global/2026-07-08-20-40-43__te_periodic_temporal_convolution_global__polished_actual_values/onnx/model.onnx
+  run_name: te_periodic_gru_sequence_global__polished_actual_values
+  run_instance_id: 2026-07-08-23-45-29__te_periodic_gru_sequence_global__polished_actual_values
+  source_output_directory: output/training_runs/periodic_gru_sequence/2026-07-08-23-45-29__te_periodic_gru_sequence_global__polished_actual_values
+  source_best_checkpoint_path: output/training_runs/periodic_gru_sequence/2026-07-08-23-45-29__te_periodic_gru_sequence_global__polished_actual_values/checkpoints/periodic_gru_sequence-epoch=259-val_mae=0.00132221.ckpt
+  python_model_path: models/polished_dataset/actual_values/exported/periodic_gru_sequence/global/2026-07-08-23-45-29__te_periodic_gru_sequence_global__polished_actual_values/python/periodic_gru_sequence-epoch=259-val_mae=0.00132221.ckpt
+  onnx_model_path: models/polished_dataset/actual_values/exported/periodic_gru_sequence/global/2026-07-08-23-45-29__te_periodic_gru_sequence_global__polished_actual_values/onnx/model.onnx
   onnx_export_status: exported
   onnx_export_error: ''
   source_run_snapshot_path_map:
-    training_config.snapshot.yaml: models/polished_dataset/actual_values/exported/periodic_temporal_convolution/global/2026-07-08-20-40-43__te_periodic_temporal_convolution_global__polished_actual_values/source_run/training_config.snapshot.yaml
-    metrics_summary.snapshot.yaml: models/polished_dataset/actual_values/exported/periodic_temporal_convolution/global/2026-07-08-20-40-43__te_periodic_temporal_convolution_global__polished_actual_values/source_run/metrics_summary.snapshot.yaml
-    run_metadata.snapshot.yaml: models/polished_dataset/actual_values/exported/periodic_temporal_convolution/global/2026-07-08-20-40-43__te_periodic_temporal_convolution_global__polished_actual_values/source_run/run_metadata.snapshot.yaml
-    training_test_report.snapshot.md: models/polished_dataset/actual_values/exported/periodic_temporal_convolution/global/2026-07-08-20-40-43__te_periodic_temporal_convolution_global__polished_actual_values/source_run/training_test_report.snapshot.md
-    best_checkpoint_path.snapshot.txt: models/polished_dataset/actual_values/exported/periodic_temporal_convolution/global/2026-07-08-20-40-43__te_periodic_temporal_convolution_global__polished_actual_values/source_run/best_checkpoint_path.snapshot.txt
+    training_config.snapshot.yaml: models/polished_dataset/actual_values/exported/periodic_gru_sequence/global/2026-07-08-23-45-29__te_periodic_gru_sequence_global__polished_actual_values/source_run/training_config.snapshot.yaml
+    metrics_summary.snapshot.yaml: models/polished_dataset/actual_values/exported/periodic_gru_sequence/global/2026-07-08-23-45-29__te_periodic_gru_sequence_global__polished_actual_values/source_run/metrics_summary.snapshot.yaml
+    run_metadata.snapshot.yaml: models/polished_dataset/actual_values/exported/periodic_gru_sequence/global/2026-07-08-23-45-29__te_periodic_gru_sequence_global__polished_actual_values/source_run/run_metadata.snapshot.yaml
+    training_test_report.snapshot.md: models/polished_dataset/actual_values/exported/periodic_gru_sequence/global/2026-07-08-23-45-29__te_periodic_gru_sequence_global__polished_actual_values/source_run/training_test_report.snapshot.md
+    best_checkpoint_path.snapshot.txt: models/polished_dataset/actual_values/exported/periodic_gru_sequence/global/2026-07-08-23-45-29__te_periodic_gru_sequence_global__polished_actual_values/source_run/best_checkpoint_path.snapshot.txt
   metrics:
-    val_mae: 0.0019081970676779747
-    test_mae: 0.0019994000904262066
-    test_rmse: 0.002970749046653509
+    val_mae: 0.0013222136767581105
+    test_mae: 0.0013898569159209728
+    test_rmse: 0.0020575537346303463
 - schema_version: 1
   dataset_id: polished_dataset
   dataset_schema: polished_point_v1
   input_mode: actual_values
-  model_family: periodic_temporal_convolution
-  model_type: periodic_temporal_convolution
+  model_family: periodic_gru_sequence
+  model_type: periodic_gru_sequence
   surface: forward
-  run_name: te_periodic_temporal_convolution_fw__polished_actual_values
-  run_instance_id: 2026-07-08-21-06-17__te_periodic_temporal_convolution_fw__polished_actual_values
-  source_output_directory: output/training_runs/periodic_temporal_convolution/2026-07-08-21-06-17__te_periodic_temporal_convolution_fw__polished_actual_values
-  source_best_checkpoint_path: output/training_runs/periodic_temporal_convolution/2026-07-08-21-06-17__te_periodic_temporal_convolution_fw__polished_actual_values/checkpoints/periodic_temporal_convolution-epoch=087-val_mae=0.00193888.ckpt
-  python_model_path: models/polished_dataset/actual_values/exported/periodic_temporal_convolution/forward/2026-07-08-21-06-17__te_periodic_temporal_convolution_fw__polished_actual_values/python/periodic_temporal_convolution-epoch=087-val_mae=0.00193888.ckpt
-  onnx_model_path: models/polished_dataset/actual_values/exported/periodic_temporal_convolution/forward/2026-07-08-21-06-17__te_periodic_temporal_convolution_fw__polished_actual_values/onnx/model.onnx
+  run_name: te_periodic_gru_sequence_fw__polished_actual_values
+  run_instance_id: 2026-07-09-00-29-12__te_periodic_gru_sequence_fw__polished_actual_values
+  source_output_directory: output/training_runs/periodic_gru_sequence/2026-07-09-00-29-12__te_periodic_gru_sequence_fw__polished_actual_values
+  source_best_checkpoint_path: output/training_runs/periodic_gru_sequence/2026-07-09-00-29-12__te_periodic_gru_sequence_fw__polished_actual_values/checkpoints/periodic_gru_sequence-epoch=200-val_mae=0.00150079.ckpt
+  python_model_path: models/polished_dataset/actual_values/exported/periodic_gru_sequence/forward/2026-07-09-00-29-12__te_periodic_gru_sequence_fw__polished_actual_values/python/periodic_gru_sequence-epoch=200-val_mae=0.00150079.ckpt
+  onnx_model_path: models/polished_dataset/actual_values/exported/periodic_gru_sequence/forward/2026-07-09-00-29-12__te_periodic_gru_sequence_fw__polished_actual_values/onnx/model.onnx
   onnx_export_status: exported
   onnx_export_error: ''
   source_run_snapshot_path_map:
-    training_config.snapshot.yaml: models/polished_dataset/actual_values/exported/periodic_temporal_convolution/forward/2026-07-08-21-06-17__te_periodic_temporal_convolution_fw__polished_actual_values/source_run/training_config.snapshot.yaml
-    metrics_summary.snapshot.yaml: models/polished_dataset/actual_values/exported/periodic_temporal_convolution/forward/2026-07-08-21-06-17__te_periodic_temporal_convolution_fw__polished_actual_values/source_run/metrics_summary.snapshot.yaml
-    run_metadata.snapshot.yaml: models/polished_dataset/actual_values/exported/periodic_temporal_convolution/forward/2026-07-08-21-06-17__te_periodic_temporal_convolution_fw__polished_actual_values/source_run/run_metadata.snapshot.yaml
-    training_test_report.snapshot.md: models/polished_dataset/actual_values/exported/periodic_temporal_convolution/forward/2026-07-08-21-06-17__te_periodic_temporal_convolution_fw__polished_actual_values/source_run/training_test_report.snapshot.md
-    best_checkpoint_path.snapshot.txt: models/polished_dataset/actual_values/exported/periodic_temporal_convolution/forward/2026-07-08-21-06-17__te_periodic_temporal_convolution_fw__polished_actual_values/source_run/best_checkpoint_path.snapshot.txt
+    training_config.snapshot.yaml: models/polished_dataset/actual_values/exported/periodic_gru_sequence/forward/2026-07-09-00-29-12__te_periodic_gru_sequence_fw__polished_actual_values/source_run/training_config.snapshot.yaml
+    metrics_summary.snapshot.yaml: models/polished_dataset/actual_values/exported/periodic_gru_sequence/forward/2026-07-09-00-29-12__te_periodic_gru_sequence_fw__polished_actual_values/source_run/metrics_summary.snapshot.yaml
+    run_metadata.snapshot.yaml: models/polished_dataset/actual_values/exported/periodic_gru_sequence/forward/2026-07-09-00-29-12__te_periodic_gru_sequence_fw__polished_actual_values/source_run/run_metadata.snapshot.yaml
+    training_test_report.snapshot.md: models/polished_dataset/actual_values/exported/periodic_gru_sequence/forward/2026-07-09-00-29-12__te_periodic_gru_sequence_fw__polished_actual_values/source_run/training_test_report.snapshot.md
+    best_checkpoint_path.snapshot.txt: models/polished_dataset/actual_values/exported/periodic_gru_sequence/forward/2026-07-09-00-29-12__te_periodic_gru_sequence_fw__polished_actual_values/source_run/best_checkpoint_path.snapshot.txt
   metrics:
-    val_mae: 0.0019388817017897964
-    test_mae: 0.0020768316462635994
-    test_rmse: 0.0030795529019087553
+    val_mae: 0.0015007865149527788
+    test_mae: 0.0015605890657752752
+    test_rmse: 0.002360427286475897
 - schema_version: 1
   dataset_id: polished_dataset
   dataset_schema: polished_point_v1
   input_mode: actual_values
-  model_family: periodic_temporal_convolution
-  model_type: periodic_temporal_convolution
+  model_family: periodic_gru_sequence
+  model_type: periodic_gru_sequence
   surface: backward
-  run_name: te_periodic_temporal_convolution_bw__polished_actual_values
-  run_instance_id: 2026-07-08-21-27-59__te_periodic_temporal_convolution_bw__polished_actual_values
-  source_output_directory: output/training_runs/periodic_temporal_convolution/2026-07-08-21-27-59__te_periodic_temporal_convolution_bw__polished_actual_values
-  source_best_checkpoint_path: output/training_runs/periodic_temporal_convolution/2026-07-08-21-27-59__te_periodic_temporal_convolution_bw__polished_actual_values/checkpoints/periodic_temporal_convolution-epoch=093-val_mae=0.00186606.ckpt
-  python_model_path: models/polished_dataset/actual_values/exported/periodic_temporal_convolution/backward/2026-07-08-21-27-59__te_periodic_temporal_convolution_bw__polished_actual_values/python/periodic_temporal_convolution-epoch=093-val_mae=0.00186606.ckpt
-  onnx_model_path: models/polished_dataset/actual_values/exported/periodic_temporal_convolution/backward/2026-07-08-21-27-59__te_periodic_temporal_convolution_bw__polished_actual_values/onnx/model.onnx
+  run_name: te_periodic_gru_sequence_bw__polished_actual_values
+  run_instance_id: 2026-07-09-01-09-21__te_periodic_gru_sequence_bw__polished_actual_values
+  source_output_directory: output/training_runs/periodic_gru_sequence/2026-07-09-01-09-21__te_periodic_gru_sequence_bw__polished_actual_values
+  source_best_checkpoint_path: output/training_runs/periodic_gru_sequence/2026-07-09-01-09-21__te_periodic_gru_sequence_bw__polished_actual_values/checkpoints/periodic_gru_sequence-epoch=257-val_mae=0.00127934.ckpt
+  python_model_path: models/polished_dataset/actual_values/exported/periodic_gru_sequence/backward/2026-07-09-01-09-21__te_periodic_gru_sequence_bw__polished_actual_values/python/periodic_gru_sequence-epoch=257-val_mae=0.00127934.ckpt
+  onnx_model_path: models/polished_dataset/actual_values/exported/periodic_gru_sequence/backward/2026-07-09-01-09-21__te_periodic_gru_sequence_bw__polished_actual_values/onnx/model.onnx
   onnx_export_status: exported
   onnx_export_error: ''
   source_run_snapshot_path_map:
-    training_config.snapshot.yaml: models/polished_dataset/actual_values/exported/periodic_temporal_convolution/backward/2026-07-08-21-27-59__te_periodic_temporal_convolution_bw__polished_actual_values/source_run/training_config.snapshot.yaml
-    metrics_summary.snapshot.yaml: models/polished_dataset/actual_values/exported/periodic_temporal_convolution/backward/2026-07-08-21-27-59__te_periodic_temporal_convolution_bw__polished_actual_values/source_run/metrics_summary.snapshot.yaml
-    run_metadata.snapshot.yaml: models/polished_dataset/actual_values/exported/periodic_temporal_convolution/backward/2026-07-08-21-27-59__te_periodic_temporal_convolution_bw__polished_actual_values/source_run/run_metadata.snapshot.yaml
-    training_test_report.snapshot.md: models/polished_dataset/actual_values/exported/periodic_temporal_convolution/backward/2026-07-08-21-27-59__te_periodic_temporal_convolution_bw__polished_actual_values/source_run/training_test_report.snapshot.md
-    best_checkpoint_path.snapshot.txt: models/polished_dataset/actual_values/exported/periodic_temporal_convolution/backward/2026-07-08-21-27-59__te_periodic_temporal_convolution_bw__polished_actual_values/source_run/best_checkpoint_path.snapshot.txt
+    training_config.snapshot.yaml: models/polished_dataset/actual_values/exported/periodic_gru_sequence/backward/2026-07-09-01-09-21__te_periodic_gru_sequence_bw__polished_actual_values/source_run/training_config.snapshot.yaml
+    metrics_summary.snapshot.yaml: models/polished_dataset/actual_values/exported/periodic_gru_sequence/backward/2026-07-09-01-09-21__te_periodic_gru_sequence_bw__polished_actual_values/source_run/metrics_summary.snapshot.yaml
+    run_metadata.snapshot.yaml: models/polished_dataset/actual_values/exported/periodic_gru_sequence/backward/2026-07-09-01-09-21__te_periodic_gru_sequence_bw__polished_actual_values/source_run/run_metadata.snapshot.yaml
+    training_test_report.snapshot.md: models/polished_dataset/actual_values/exported/periodic_gru_sequence/backward/2026-07-09-01-09-21__te_periodic_gru_sequence_bw__polished_actual_values/source_run/training_test_report.snapshot.md
+    best_checkpoint_path.snapshot.txt: models/polished_dataset/actual_values/exported/periodic_gru_sequence/backward/2026-07-09-01-09-21__te_periodic_gru_sequence_bw__polished_actual_values/source_run/best_checkpoint_path.snapshot.txt
   metrics:
-    val_mae: 0.001866061706095934
-    test_mae: 0.0020011200103908777
-    test_rmse: 0.0030085307080298662
+    val_mae: 0.001279335469007492
+    test_mae: 0.0013429665705189109
+    test_rmse: 0.0019779889844357967
