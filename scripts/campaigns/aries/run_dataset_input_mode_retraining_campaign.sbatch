@@ -30,6 +30,11 @@ module load Anaconda3
 CONDA_BASE="$(conda info --base)"
 source "${CONDA_BASE}/etc/profile.d/conda.sh"
 conda activate "${CONDA_ENVIRONMENT_NAME}"
+PYTHON_EXECUTABLE="${CONDA_PREFIX}/bin/python"
+if [[ ! -x "${PYTHON_EXECUTABLE}" ]]; then
+  echo "[ERROR] Python executable not found in conda environment: ${PYTHON_EXECUTABLE}" >&2
+  exit 1
+fi
 
 mkdir -p output/slurm
 export LD_LIBRARY_PATH="${CONDA_PREFIX}/lib:${LD_LIBRARY_PATH:-}"
@@ -41,14 +46,15 @@ export NUMEXPR_NUM_THREADS="${SLURM_CPUS_PER_TASK:-1}"
 echo "[INFO] Host: $(hostname)"
 echo "[INFO] SLURM job: ${SLURM_JOB_ID:-none}"
 echo "[INFO] Manifest: ${CAMPAIGN_MANIFEST_PATH}"
-echo "[INFO] Python: $(command -v python)"
-python -V
+echo "[INFO] Conda prefix: ${CONDA_PREFIX}"
+echo "[INFO] Python: ${PYTHON_EXECUTABLE}"
+"${PYTHON_EXECUTABLE}" -V
 nvidia-smi
 
-python -B scripts/campaigns/cross_wave/validate_dataset_input_mode_retraining_campaign.py \
+"${PYTHON_EXECUTABLE}" -B scripts/campaigns/cross_wave/validate_dataset_input_mode_retraining_campaign.py \
   --campaign-manifest-path "${CAMPAIGN_MANIFEST_PATH}"
 
-readarray -t CAMPAIGN_ARGUMENTS < <(python - <<'PY' "${CAMPAIGN_MANIFEST_PATH}"
+readarray -t CAMPAIGN_ARGUMENTS < <("${PYTHON_EXECUTABLE}" - <<'PY' "${CAMPAIGN_MANIFEST_PATH}"
 from pathlib import Path
 import sys
 import yaml
@@ -69,4 +75,4 @@ print("--stop-on-error")
 PY
 )
 
-python -B scripts/training/run_training_campaign.py "${CAMPAIGN_ARGUMENTS[@]}"
+"${PYTHON_EXECUTABLE}" -B scripts/training/run_training_campaign.py "${CAMPAIGN_ARGUMENTS[@]}"
