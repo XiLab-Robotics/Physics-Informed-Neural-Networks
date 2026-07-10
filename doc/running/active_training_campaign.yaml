@@ -147,10 +147,10 @@ last_completed_campaign:
       te_curve_verification_status: not_run_in_closeout
 next_prepared_campaign:
   status: completed_and_exported
-  campaign_name: dataset_input_mode_retraining__residual_harmonic_lstm_sequence_dense360__polished_setpoints
+  campaign_name: dataset_input_mode_retraining__residual_harmonic_lstm_sequence_dense360__polished_actual_values
   dataset_id: polished_dataset
-  input_mode: setpoints
-  dataset_schema: polished_setpoint_curve_v1
+  input_mode: actual_values
+  dataset_schema: polished_point_v1
   expected_run_count: 3
   completed_run_count: 3
   failed_run_count: 0
@@ -162,76 +162,76 @@ next_prepared_campaign:
     slurm_cpus_per_task: 8
     slurm_memory: 100G
     gpu_request: 1g.20gb:1
-    observed_throughput: Global completed in 00:33:55, Fw in 00:23:24, and Bw in 00:33:59
-      at batch 16. The full sequential campaign completed in 01:32:09.
+    observed_throughput: Global completed in 00:15:32, Fw in 00:25:12, and Bw in 00:31:48
+      at batch 16. The full sequential campaign completed in 01:13:12.
     batch_tuning_note: The prepared campaign default was raised from curve_batch_size
-      2 to 16 before submission. Batch 16 remained stable for polished setpoint
+      2 to 16 before submission. Batch 16 remained stable for polished actual-values
       residual harmonic LSTM dense360 sequence collation and kept all three exports
       compatible with the shared 5-feature input contract.
-    resource_note: Job 135338 used gpu_request 1g.20gb:1 with 8 CPU workers and
-      100G host memory. Slurm MaxRSS was 15879464K, so the run remained within
+    resource_note: Job 135339 used gpu_request 1g.20gb:1 with 8 CPU workers and
+      100G host memory. Slurm MaxRSS was 16409340K, so the run remained within
       the 20 GB MIG memory envelope while avoiding full-A100 queue backfill.
-    next_campaign_recommendation: Continue the remaining dataset input-mode campaigns
-      at batch 16. Use full A100 only when immediately available; MIG 1g.20gb
-      remains acceptable while observed model memory stays below the slice limit.
+    next_campaign_recommendation: Continue the remaining Wave 3/4/5 dataset input-mode
+      campaigns at batch 16. Use the same batch/resource profile unless a model
+      family shows higher memory pressure.
   sbatch_submission:
-    slurm_job_id: '135338'
+    slurm_job_id: '135339'
     state: COMPLETED
     exit_code: 0:0
-    elapsed: 01:32:09
-    max_rss: 15879464K
+    elapsed: 01:13:12
+    max_rss: 16409340K
     python_executable: /unimore_home/dferrari/.conda/envs/pinns_env/bin/python
     torch_version: 2.7.1+cu118
     gpu_request: 1g.20gb:1
-  campaign_manifest_path: config/training/dataset_input_mode_retraining/campaigns/dataset_input_mode_retraining__residual_harmonic_lstm_sequence_dense360__polished_setpoints/campaign.yaml
-  campaign_output_directory: output/training_campaigns/2026-07-10-04-53-57_dataset_input_mode_retraining__residual_harmonic_lstm_sequence_dense360
-  campaign_best_run_path: output/training_campaigns/2026-07-10-04-53-57_dataset_input_mode_retraining__residual_harmonic_lstm_sequence_dense360/campaign_best_run.yaml
-  campaign_leaderboard_path: output/training_campaigns/2026-07-10-04-53-57_dataset_input_mode_retraining__residual_harmonic_lstm_sequence_dense360/campaign_leaderboard.yaml
+  campaign_manifest_path: config/training/dataset_input_mode_retraining/campaigns/dataset_input_mode_retraining__residual_harmonic_lstm_sequence_dense360__polished_actual_values/campaign.yaml
+  campaign_output_directory: output/training_campaigns/2026-07-10-06-44-07_dataset_input_mode_retraining__residual_harmonic_lstm_sequence_dense360
+  campaign_best_run_path: output/training_campaigns/2026-07-10-06-44-07_dataset_input_mode_retraining__residual_harmonic_lstm_sequence_dense360/campaign_best_run.yaml
+  campaign_leaderboard_path: output/training_campaigns/2026-07-10-06-44-07_dataset_input_mode_retraining__residual_harmonic_lstm_sequence_dense360/campaign_leaderboard.yaml
   best_run:
-    run_name: te_residual_harmonic_lstm_sequence_dense360_global__polished_setpoints
-    run_instance_id: 2026-07-10-04-53-57__te_residual_harmonic_lstm_sequence_dense360_global__polished_setpoints
-    surface: global
-    test_mae: 0.0022816963028162718
-    test_rmse: 0.003645189106464386
-    val_mae: 0.0019767913036048412
+    run_name: te_residual_harmonic_lstm_sequence_dense360_bw__polished_actual_values
+    run_instance_id: 2026-07-10-07-24-50__te_residual_harmonic_lstm_sequence_dense360_bw__polished_actual_values
+    surface: backward
+    test_mae: 0.002156483940780163
+    test_rmse: 0.003200548468157649
+    val_mae: 0.001998558174818754
   surface_run_list:
   - surface: global
-    run_name: te_residual_harmonic_lstm_sequence_dense360_global__polished_setpoints
-    run_instance_id: 2026-07-10-04-53-57__te_residual_harmonic_lstm_sequence_dense360_global__polished_setpoints
-    test_mae: 0.0022816963028162718
-    val_mae: 0.0019767913036048412
-    duration: 00:33:55
+    run_name: te_residual_harmonic_lstm_sequence_dense360_global__polished_actual_values
+    run_instance_id: 2026-07-10-06-44-07__te_residual_harmonic_lstm_sequence_dense360_global__polished_actual_values
+    test_mae: 0.0023298547603189945
+    val_mae: 0.0020924084819853306
+    duration: 00:15:32
   - surface: forward
-    run_name: te_residual_harmonic_lstm_sequence_dense360_fw__polished_setpoints
-    run_instance_id: 2026-07-10-05-27-52__te_residual_harmonic_lstm_sequence_dense360_fw__polished_setpoints
-    test_mae: 0.002302831504493952
-    val_mae: 0.002012586919590831
-    duration: 00:23:24
+    run_name: te_residual_harmonic_lstm_sequence_dense360_fw__polished_actual_values
+    run_instance_id: 2026-07-10-06-59-39__te_residual_harmonic_lstm_sequence_dense360_fw__polished_actual_values
+    test_mae: 0.0022949494887143373
+    val_mae: 0.0020321093033999205
+    duration: 00:25:12
   - surface: backward
-    run_name: te_residual_harmonic_lstm_sequence_dense360_bw__polished_setpoints
-    run_instance_id: 2026-07-10-05-51-16__te_residual_harmonic_lstm_sequence_dense360_bw__polished_setpoints
-    test_mae: 0.0022819298319518566
-    val_mae: 0.0019907697569578886
-    duration: 00:33:59
+    run_name: te_residual_harmonic_lstm_sequence_dense360_bw__polished_actual_values
+    run_instance_id: 2026-07-10-07-24-50__te_residual_harmonic_lstm_sequence_dense360_bw__polished_actual_values
+    test_mae: 0.002156483940780163
+    val_mae: 0.001998558174818754
+    duration: 00:31:48
   export:
     status: completed
-    export_root: models/polished_dataset/setpoints/exported
-    export_inventory_path: models/polished_dataset/setpoints/exported/model_development_export_inventory.yaml
+    export_root: models/polished_dataset/actual_values/exported
+    export_inventory_path: models/polished_dataset/actual_values/exported/model_development_export_inventory.yaml
     exported_entry_count: 3
     onnx_export_status_counts:
       exported: 3
-    family_export_directory: models/polished_dataset/setpoints/exported/residual_harmonic_lstm_sequence_dense360
+    family_export_directory: models/polished_dataset/actual_values/exported/residual_harmonic_lstm_sequence_dense360
     onnx_warning_note: ONNX export emitted the expected residual harmonic LSTM tracing
       warnings and the PyTorch LSTM batch-size warning; all three exports completed
       successfully.
   input_contract_verification:
     input_feature_dim: 5
     input_feature_names:
-    - angular_position_deg
-    - input_speed_rpm
-    - input_torque_nm
-    - oil_temperature_deg
+    - theta
+    - theta_dot
+    - tau_load
+    - T
     - direction_flag
     assertion_status: passed
   te_curve_verification_status: not_run_in_closeout
-  next_planned_campaign: dataset_input_mode_retraining__residual_harmonic_lstm_sequence_dense360__polished_actual_values
+  next_planned_campaign: dataset_input_mode_retraining__wave3_1_sequential_residual_offset_probe__simplified_setpoints
