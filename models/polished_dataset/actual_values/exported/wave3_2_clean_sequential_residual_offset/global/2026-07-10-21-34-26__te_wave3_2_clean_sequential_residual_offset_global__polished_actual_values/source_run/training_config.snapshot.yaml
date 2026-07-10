@@ -1,0 +1,78 @@
+paths:
+  dataset_config_path: config/datasets/transmission_error_dataset.yaml
+  output_root: output/training_runs/wave3_2_clean_sequential_residual_offset
+experiment:
+  run_name: te_wave3_2_clean_sequential_residual_offset_global__polished_actual_values
+  model_family: wave3_2_clean_sequential_residual_offset_global
+  model_type: sequential_residual_offset_probe
+metadata:
+  campaign_name: dataset_input_mode_retraining__wave3_2_clean_sequential_residual_offset__polished_actual_values
+  planning_report_path: doc/reports/campaign_plans/cross_wave/input_modes/2026-07-07-01-46-06_dataset_input_mode_retraining_campaign_plan_report.md
+  technical_document_path: doc/technical/2026-07/2026-07-07/2026-07-07-01-46-06_dataset_input_mode_retraining_campaigns.md
+  phase_name: dataset_input_mode_retraining
+  campaign_config_id: wave3_2_clean_sequential_residual_offset_global
+  queue_index: 1
+  intervention: clean_sequential_residual_offset_control
+  training_variant: global
+  direction_scope_label: bidirectional
+  use_forward_direction: true
+  use_backward_direction: true
+  runtime_input_contract: current point state plus supported short causal sequence
+    history only
+  promotion_rule: Candidate must return through official TE curve-first verification.
+  notes: Wave 3.2 clean non-harmonic control. Final TE prediction is base_te_prediction
+    + residual_offset_prediction.
+  base_model_family: wave3_2_clean_sequential_residual_offset
+  source_config_path: config/training/queue/polished_dataset_full_wave_retraining/completed/2026-06-29-15-54-17_058_058_wave3_2_clean_sequential_residual_offset_global.yaml
+  dataset_schema: polished_point_v1
+  output_artifact_kind: training_run
+  output_run_name: te_wave3_2_clean_sequential_residual_offset_global__polished_actual_values
+  dataset_name: polished_dataset
+  input_mode: actual_values
+  source_dataset_root: data/polished_dataset
+  expected_model_archive_root: models/polished_dataset/actual_values/exported
+  run_instance_id: 2026-07-10-21-34-26__te_wave3_2_clean_sequential_residual_offset_global__polished_actual_values
+dataset:
+  curve_batch_size: 16
+  point_stride: 1
+  maximum_points_per_curve: null
+  collate_mode: sequence
+  sequence_length: 33
+  sequence_stride: 4
+  sequence_target_position: center
+  maximum_sequences_per_curve: 192
+  num_workers: 8
+  pin_memory: true
+  name: polished_dataset
+  input_mode: actual_values
+model:
+  input_size: auto
+  output_size: 1
+  base_hidden_size:
+  - 96
+  - 64
+  base_activation_name: GELU
+  base_dropout_probability: 0.05
+  base_use_layer_norm: true
+  offset_hidden_size: 96
+  offset_num_layers: 2
+  offset_dropout_probability: 0.1
+  offset_bidirectional: false
+  offset_readout_position: center
+  offset_scale: 1.0
+training:
+  learning_rate: 0.0005
+  weight_decay: 0.0001
+  min_epochs: 20
+  max_epochs: 260
+  patience: 40
+  min_delta: 1.0e-05
+  log_every_n_steps: 1
+  fast_dev_run: false
+  deterministic: false
+runtime:
+  accelerator: auto
+  devices: auto
+  precision: '32'
+  benchmark: true
+  use_non_blocking_transfer: true

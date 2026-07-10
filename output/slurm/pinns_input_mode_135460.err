@@ -1,0 +1,80 @@
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+SLURM auto-requeueing enabled. Setting signal handlers.
+Metric val_mae improved. New best score: 0.006
+Metric val_mae improved by 0.002 >= min_delta = 1e-05. New best score: 0.004
+Metric val_mae improved by 0.000 >= min_delta = 1e-05. New best score: 0.003
+Metric val_mae improved by 0.000 >= min_delta = 1e-05. New best score: 0.003
+Metric val_mae improved by 0.000 >= min_delta = 1e-05. New best score: 0.003
+Metric val_mae improved by 0.000 >= min_delta = 1e-05. New best score: 0.003
+Metric val_mae improved by 0.000 >= min_delta = 1e-05. New best score: 0.003
+Metric val_mae improved by 0.000 >= min_delta = 1e-05. New best score: 0.003
+Metric val_mae improved by 0.000 >= min_delta = 1e-05. New best score: 0.002
+Metric val_mae improved by 0.000 >= min_delta = 1e-05. New best score: 0.002
+Metric val_mae improved by 0.000 >= min_delta = 1e-05. New best score: 0.002
+Metric val_mae improved by 0.000 >= min_delta = 1e-05. New best score: 0.002
+Metric val_mae improved by 0.000 >= min_delta = 1e-05. New best score: 0.002
+Metric val_mae improved by 0.000 >= min_delta = 1e-05. New best score: 0.002
+Metric val_mae improved by 0.000 >= min_delta = 1e-05. New best score: 0.002
+Metric val_mae improved by 0.000 >= min_delta = 1e-05. New best score: 0.002
+Metric val_mae improved by 0.000 >= min_delta = 1e-05. New best score: 0.002
+Metric val_mae improved by 0.000 >= min_delta = 1e-05. New best score: 0.002
+Metric val_mae improved by 0.000 >= min_delta = 1e-05. New best score: 0.002
+Metric val_mae improved by 0.000 >= min_delta = 1e-05. New best score: 0.002
+Metric val_mae improved by 0.000 >= min_delta = 1e-05. New best score: 0.002
+Monitored metric val_mae did not improve in the last 40 records. Best score: 0.002. Signaling Trainer to stop.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+SLURM auto-requeueing enabled. Setting signal handlers.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+SLURM auto-requeueing enabled. Setting signal handlers.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+SLURM auto-requeueing enabled. Setting signal handlers.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+SLURM auto-requeueing enabled. Setting signal handlers.
+Metric val_mae improved. New best score: 0.005
+Metric val_mae improved by 0.002 >= min_delta = 1e-05. New best score: 0.004
+Metric val_mae improved by 0.001 >= min_delta = 1e-05. New best score: 0.003
+Metric val_mae improved by 0.000 >= min_delta = 1e-05. New best score: 0.003
+Metric val_mae improved by 0.000 >= min_delta = 1e-05. New best score: 0.003
+Metric val_mae improved by 0.000 >= min_delta = 1e-05. New best score: 0.003
+Metric val_mae improved by 0.000 >= min_delta = 1e-05. New best score: 0.002
+Metric val_mae improved by 0.000 >= min_delta = 1e-05. New best score: 0.002
+Metric val_mae improved by 0.000 >= min_delta = 1e-05. New best score: 0.002
+Metric val_mae improved by 0.000 >= min_delta = 1e-05. New best score: 0.002
+Metric val_mae improved by 0.000 >= min_delta = 1e-05. New best score: 0.002
+Metric val_mae improved by 0.000 >= min_delta = 1e-05. New best score: 0.002
+Metric val_mae improved by 0.000 >= min_delta = 1e-05. New best score: 0.002
+Metric val_mae improved by 0.000 >= min_delta = 1e-05. New best score: 0.002
+Metric val_mae improved by 0.000 >= min_delta = 1e-05. New best score: 0.002
+Metric val_mae improved by 0.000 >= min_delta = 1e-05. New best score: 0.002
+Metric val_mae improved by 0.000 >= min_delta = 1e-05. New best score: 0.002
+Monitored metric val_mae did not improve in the last 40 records. Best score: 0.002. Signaling Trainer to stop.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+SLURM auto-requeueing enabled. Setting signal handlers.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+SLURM auto-requeueing enabled. Setting signal handlers.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+SLURM auto-requeueing enabled. Setting signal handlers.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+SLURM auto-requeueing enabled. Setting signal handlers.
+Metric val_mae improved. New best score: 0.006
+Metric val_mae improved by 0.002 >= min_delta = 1e-05. New best score: 0.004
+Metric val_mae improved by 0.000 >= min_delta = 1e-05. New best score: 0.003
+Metric val_mae improved by 0.000 >= min_delta = 1e-05. New best score: 0.003
+Metric val_mae improved by 0.000 >= min_delta = 1e-05. New best score: 0.003
+Metric val_mae improved by 0.000 >= min_delta = 1e-05. New best score: 0.003
+Metric val_mae improved by 0.000 >= min_delta = 1e-05. New best score: 0.003
+Metric val_mae improved by 0.000 >= min_delta = 1e-05. New best score: 0.002
+Metric val_mae improved by 0.000 >= min_delta = 1e-05. New best score: 0.002
+Metric val_mae improved by 0.000 >= min_delta = 1e-05. New best score: 0.002
+Metric val_mae improved by 0.000 >= min_delta = 1e-05. New best score: 0.002
+Metric val_mae improved by 0.000 >= min_delta = 1e-05. New best score: 0.002
+Metric val_mae improved by 0.000 >= min_delta = 1e-05. New best score: 0.002
+Metric val_mae improved by 0.000 >= min_delta = 1e-05. New best score: 0.002
+Metric val_mae improved by 0.000 >= min_delta = 1e-05. New best score: 0.002
+Monitored metric val_mae did not improve in the last 40 records. Best score: 0.002. Signaling Trainer to stop.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+SLURM auto-requeueing enabled. Setting signal handlers.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+SLURM auto-requeueing enabled. Setting signal handlers.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+SLURM auto-requeueing enabled. Setting signal handlers.

@@ -13,74 +13,74 @@ entries:
   dataset_id: polished_dataset
   dataset_schema: polished_point_v1
   input_mode: actual_values
-  model_family: wave3_1_sequential_residual_offset_probe
+  model_family: wave3_2_clean_sequential_residual_offset
   model_type: sequential_residual_offset_probe
   surface: global
-  run_name: te_wave3_1_sequential_residual_offset_probe_global__polished_actual_values
-  run_instance_id: 2026-07-10-10-48-41__te_wave3_1_sequential_residual_offset_probe_global__polished_actual_values
-  source_output_directory: output/training_runs/wave3_1_sequential_residual_offset_probe/2026-07-10-10-48-41__te_wave3_1_sequential_residual_offset_probe_global__polished_actual_values
-  source_best_checkpoint_path: output/training_runs/wave3_1_sequential_residual_offset_probe/2026-07-10-10-48-41__te_wave3_1_sequential_residual_offset_probe_global__polished_actual_values/checkpoints/sequential_residual_offset_probe-epoch=077-val_mae=0.00220916.ckpt
-  python_model_path: models/polished_dataset/actual_values/exported/wave3_1_sequential_residual_offset_probe/global/2026-07-10-10-48-41__te_wave3_1_sequential_residual_offset_probe_global__polished_actual_values/python/sequential_residual_offset_probe-epoch=077-val_mae=0.00220916.ckpt
-  onnx_model_path: models/polished_dataset/actual_values/exported/wave3_1_sequential_residual_offset_probe/global/2026-07-10-10-48-41__te_wave3_1_sequential_residual_offset_probe_global__polished_actual_values/onnx/model.onnx
+  run_name: te_wave3_2_clean_sequential_residual_offset_global__polished_actual_values
+  run_instance_id: 2026-07-10-21-34-26__te_wave3_2_clean_sequential_residual_offset_global__polished_actual_values
+  source_output_directory: output/training_runs/wave3_2_clean_sequential_residual_offset/2026-07-10-21-34-26__te_wave3_2_clean_sequential_residual_offset_global__polished_actual_values
+  source_best_checkpoint_path: output/training_runs/wave3_2_clean_sequential_residual_offset/2026-07-10-21-34-26__te_wave3_2_clean_sequential_residual_offset_global__polished_actual_values/checkpoints/sequential_residual_offset_probe-epoch=151-val_mae=0.00216362.ckpt
+  python_model_path: models/polished_dataset/actual_values/exported/wave3_2_clean_sequential_residual_offset/global/2026-07-10-21-34-26__te_wave3_2_clean_sequential_residual_offset_global__polished_actual_values/python/sequential_residual_offset_probe-epoch=151-val_mae=0.00216362.ckpt
+  onnx_model_path: models/polished_dataset/actual_values/exported/wave3_2_clean_sequential_residual_offset/global/2026-07-10-21-34-26__te_wave3_2_clean_sequential_residual_offset_global__polished_actual_values/onnx/model.onnx
   onnx_export_status: exported
   onnx_export_error: ''
   source_run_snapshot_path_map:
-    training_config.snapshot.yaml: models/polished_dataset/actual_values/exported/wave3_1_sequential_residual_offset_probe/global/2026-07-10-10-48-41__te_wave3_1_sequential_residual_offset_probe_global__polished_actual_values/source_run/training_config.snapshot.yaml
-    metrics_summary.snapshot.yaml: models/polished_dataset/actual_values/exported/wave3_1_sequential_residual_offset_probe/global/2026-07-10-10-48-41__te_wave3_1_sequential_residual_offset_probe_global__polished_actual_values/source_run/metrics_summary.snapshot.yaml
-    run_metadata.snapshot.yaml: models/polished_dataset/actual_values/exported/wave3_1_sequential_residual_offset_probe/global/2026-07-10-10-48-41__te_wave3_1_sequential_residual_offset_probe_global__polished_actual_values/source_run/run_metadata.snapshot.yaml
-    training_test_report.snapshot.md: models/polished_dataset/actual_values/exported/wave3_1_sequential_residual_offset_probe/global/2026-07-10-10-48-41__te_wave3_1_sequential_residual_offset_probe_global__polished_actual_values/source_run/training_test_report.snapshot.md
-    best_checkpoint_path.snapshot.txt: models/polished_dataset/actual_values/exported/wave3_1_sequential_residual_offset_probe/global/2026-07-10-10-48-41__te_wave3_1_sequential_residual_offset_probe_global__polished_actual_values/source_run/best_checkpoint_path.snapshot.txt
+    training_config.snapshot.yaml: models/polished_dataset/actual_values/exported/wave3_2_clean_sequential_residual_offset/global/2026-07-10-21-34-26__te_wave3_2_clean_sequential_residual_offset_global__polished_actual_values/source_run/training_config.snapshot.yaml
+    metrics_summary.snapshot.yaml: models/polished_dataset/actual_values/exported/wave3_2_clean_sequential_residual_offset/global/2026-07-10-21-34-26__te_wave3_2_clean_sequential_residual_offset_global__polished_actual_values/source_run/metrics_summary.snapshot.yaml
+    run_metadata.snapshot.yaml: models/polished_dataset/actual_values/exported/wave3_2_clean_sequential_residual_offset/global/2026-07-10-21-34-26__te_wave3_2_clean_sequential_residual_offset_global__polished_actual_values/source_run/run_metadata.snapshot.yaml
+    training_test_report.snapshot.md: models/polished_dataset/actual_values/exported/wave3_2_clean_sequential_residual_offset/global/2026-07-10-21-34-26__te_wave3_2_clean_sequential_residual_offset_global__polished_actual_values/source_run/training_test_report.snapshot.md
+    best_checkpoint_path.snapshot.txt: models/polished_dataset/actual_values/exported/wave3_2_clean_sequential_residual_offset/global/2026-07-10-21-34-26__te_wave3_2_clean_sequential_residual_offset_global__polished_actual_values/source_run/best_checkpoint_path.snapshot.txt
   metrics:
-    val_mae: 0.002209157682955265
-    test_mae: 0.0023787671234458685
-    test_rmse: 0.0034628049470484257
+    val_mae: 0.00216361740604043
+    test_mae: 0.0023022268433123827
+    test_rmse: 0.0033694906160235405
 - schema_version: 1
   dataset_id: polished_dataset
   dataset_schema: polished_point_v1
   input_mode: actual_values
-  model_family: wave3_1_sequential_residual_offset_probe
+  model_family: wave3_2_clean_sequential_residual_offset
   model_type: sequential_residual_offset_probe
   surface: forward
-  run_name: te_wave3_1_sequential_residual_offset_probe_fw__polished_actual_values
-  run_instance_id: 2026-07-10-11-09-33__te_wave3_1_sequential_residual_offset_probe_fw__polished_actual_values
-  source_output_directory: output/training_runs/wave3_1_sequential_residual_offset_probe/2026-07-10-11-09-33__te_wave3_1_sequential_residual_offset_probe_fw__polished_actual_values
-  source_best_checkpoint_path: output/training_runs/wave3_1_sequential_residual_offset_probe/2026-07-10-11-09-33__te_wave3_1_sequential_residual_offset_probe_fw__polished_actual_values/checkpoints/sequential_residual_offset_probe-epoch=097-val_mae=0.00219045.ckpt
-  python_model_path: models/polished_dataset/actual_values/exported/wave3_1_sequential_residual_offset_probe/forward/2026-07-10-11-09-33__te_wave3_1_sequential_residual_offset_probe_fw__polished_actual_values/python/sequential_residual_offset_probe-epoch=097-val_mae=0.00219045.ckpt
-  onnx_model_path: models/polished_dataset/actual_values/exported/wave3_1_sequential_residual_offset_probe/forward/2026-07-10-11-09-33__te_wave3_1_sequential_residual_offset_probe_fw__polished_actual_values/onnx/model.onnx
+  run_name: te_wave3_2_clean_sequential_residual_offset_fw__polished_actual_values
+  run_instance_id: 2026-07-10-22-06-08__te_wave3_2_clean_sequential_residual_offset_fw__polished_actual_values
+  source_output_directory: output/training_runs/wave3_2_clean_sequential_residual_offset/2026-07-10-22-06-08__te_wave3_2_clean_sequential_residual_offset_fw__polished_actual_values
+  source_best_checkpoint_path: output/training_runs/wave3_2_clean_sequential_residual_offset/2026-07-10-22-06-08__te_wave3_2_clean_sequential_residual_offset_fw__polished_actual_values/checkpoints/sequential_residual_offset_probe-epoch=153-val_mae=0.00216939.ckpt
+  python_model_path: models/polished_dataset/actual_values/exported/wave3_2_clean_sequential_residual_offset/forward/2026-07-10-22-06-08__te_wave3_2_clean_sequential_residual_offset_fw__polished_actual_values/python/sequential_residual_offset_probe-epoch=153-val_mae=0.00216939.ckpt
+  onnx_model_path: models/polished_dataset/actual_values/exported/wave3_2_clean_sequential_residual_offset/forward/2026-07-10-22-06-08__te_wave3_2_clean_sequential_residual_offset_fw__polished_actual_values/onnx/model.onnx
   onnx_export_status: exported
   onnx_export_error: ''
   source_run_snapshot_path_map:
-    training_config.snapshot.yaml: models/polished_dataset/actual_values/exported/wave3_1_sequential_residual_offset_probe/forward/2026-07-10-11-09-33__te_wave3_1_sequential_residual_offset_probe_fw__polished_actual_values/source_run/training_config.snapshot.yaml
-    metrics_summary.snapshot.yaml: models/polished_dataset/actual_values/exported/wave3_1_sequential_residual_offset_probe/forward/2026-07-10-11-09-33__te_wave3_1_sequential_residual_offset_probe_fw__polished_actual_values/source_run/metrics_summary.snapshot.yaml
-    run_metadata.snapshot.yaml: models/polished_dataset/actual_values/exported/wave3_1_sequential_residual_offset_probe/forward/2026-07-10-11-09-33__te_wave3_1_sequential_residual_offset_probe_fw__polished_actual_values/source_run/run_metadata.snapshot.yaml
-    training_test_report.snapshot.md: models/polished_dataset/actual_values/exported/wave3_1_sequential_residual_offset_probe/forward/2026-07-10-11-09-33__te_wave3_1_sequential_residual_offset_probe_fw__polished_actual_values/source_run/training_test_report.snapshot.md
-    best_checkpoint_path.snapshot.txt: models/polished_dataset/actual_values/exported/wave3_1_sequential_residual_offset_probe/forward/2026-07-10-11-09-33__te_wave3_1_sequential_residual_offset_probe_fw__polished_actual_values/source_run/best_checkpoint_path.snapshot.txt
+    training_config.snapshot.yaml: models/polished_dataset/actual_values/exported/wave3_2_clean_sequential_residual_offset/forward/2026-07-10-22-06-08__te_wave3_2_clean_sequential_residual_offset_fw__polished_actual_values/source_run/training_config.snapshot.yaml
+    metrics_summary.snapshot.yaml: models/polished_dataset/actual_values/exported/wave3_2_clean_sequential_residual_offset/forward/2026-07-10-22-06-08__te_wave3_2_clean_sequential_residual_offset_fw__polished_actual_values/source_run/metrics_summary.snapshot.yaml
+    run_metadata.snapshot.yaml: models/polished_dataset/actual_values/exported/wave3_2_clean_sequential_residual_offset/forward/2026-07-10-22-06-08__te_wave3_2_clean_sequential_residual_offset_fw__polished_actual_values/source_run/run_metadata.snapshot.yaml
+    training_test_report.snapshot.md: models/polished_dataset/actual_values/exported/wave3_2_clean_sequential_residual_offset/forward/2026-07-10-22-06-08__te_wave3_2_clean_sequential_residual_offset_fw__polished_actual_values/source_run/training_test_report.snapshot.md
+    best_checkpoint_path.snapshot.txt: models/polished_dataset/actual_values/exported/wave3_2_clean_sequential_residual_offset/forward/2026-07-10-22-06-08__te_wave3_2_clean_sequential_residual_offset_fw__polished_actual_values/source_run/best_checkpoint_path.snapshot.txt
   metrics:
-    val_mae: 0.002190449507907033
-    test_mae: 0.002349496353417635
-    test_rmse: 0.0034330934286117554
+    val_mae: 0.002169393701478839
+    test_mae: 0.00228761974722147
+    test_rmse: 0.0033455651719123125
 - schema_version: 1
   dataset_id: polished_dataset
   dataset_schema: polished_point_v1
   input_mode: actual_values
-  model_family: wave3_1_sequential_residual_offset_probe
+  model_family: wave3_2_clean_sequential_residual_offset
   model_type: sequential_residual_offset_probe
   surface: backward
-  run_name: te_wave3_1_sequential_residual_offset_probe_bw__polished_actual_values
-  run_instance_id: 2026-07-10-11-35-18__te_wave3_1_sequential_residual_offset_probe_bw__polished_actual_values
-  source_output_directory: output/training_runs/wave3_1_sequential_residual_offset_probe/2026-07-10-11-35-18__te_wave3_1_sequential_residual_offset_probe_bw__polished_actual_values
-  source_best_checkpoint_path: output/training_runs/wave3_1_sequential_residual_offset_probe/2026-07-10-11-35-18__te_wave3_1_sequential_residual_offset_probe_bw__polished_actual_values/checkpoints/sequential_residual_offset_probe-epoch=197-val_mae=0.00215382.ckpt
-  python_model_path: models/polished_dataset/actual_values/exported/wave3_1_sequential_residual_offset_probe/backward/2026-07-10-11-35-18__te_wave3_1_sequential_residual_offset_probe_bw__polished_actual_values/python/sequential_residual_offset_probe-epoch=197-val_mae=0.00215382.ckpt
-  onnx_model_path: models/polished_dataset/actual_values/exported/wave3_1_sequential_residual_offset_probe/backward/2026-07-10-11-35-18__te_wave3_1_sequential_residual_offset_probe_bw__polished_actual_values/onnx/model.onnx
+  run_name: te_wave3_2_clean_sequential_residual_offset_bw__polished_actual_values
+  run_instance_id: 2026-07-10-22-37-04__te_wave3_2_clean_sequential_residual_offset_bw__polished_actual_values
+  source_output_directory: output/training_runs/wave3_2_clean_sequential_residual_offset/2026-07-10-22-37-04__te_wave3_2_clean_sequential_residual_offset_bw__polished_actual_values
+  source_best_checkpoint_path: output/training_runs/wave3_2_clean_sequential_residual_offset/2026-07-10-22-37-04__te_wave3_2_clean_sequential_residual_offset_bw__polished_actual_values/checkpoints/sequential_residual_offset_probe-epoch=127-val_mae=0.00219453.ckpt
+  python_model_path: models/polished_dataset/actual_values/exported/wave3_2_clean_sequential_residual_offset/backward/2026-07-10-22-37-04__te_wave3_2_clean_sequential_residual_offset_bw__polished_actual_values/python/sequential_residual_offset_probe-epoch=127-val_mae=0.00219453.ckpt
+  onnx_model_path: models/polished_dataset/actual_values/exported/wave3_2_clean_sequential_residual_offset/backward/2026-07-10-22-37-04__te_wave3_2_clean_sequential_residual_offset_bw__polished_actual_values/onnx/model.onnx
   onnx_export_status: exported
   onnx_export_error: ''
   source_run_snapshot_path_map:
-    training_config.snapshot.yaml: models/polished_dataset/actual_values/exported/wave3_1_sequential_residual_offset_probe/backward/2026-07-10-11-35-18__te_wave3_1_sequential_residual_offset_probe_bw__polished_actual_values/source_run/training_config.snapshot.yaml
-    metrics_summary.snapshot.yaml: models/polished_dataset/actual_values/exported/wave3_1_sequential_residual_offset_probe/backward/2026-07-10-11-35-18__te_wave3_1_sequential_residual_offset_probe_bw__polished_actual_values/source_run/metrics_summary.snapshot.yaml
-    run_metadata.snapshot.yaml: models/polished_dataset/actual_values/exported/wave3_1_sequential_residual_offset_probe/backward/2026-07-10-11-35-18__te_wave3_1_sequential_residual_offset_probe_bw__polished_actual_values/source_run/run_metadata.snapshot.yaml
-    training_test_report.snapshot.md: models/polished_dataset/actual_values/exported/wave3_1_sequential_residual_offset_probe/backward/2026-07-10-11-35-18__te_wave3_1_sequential_residual_offset_probe_bw__polished_actual_values/source_run/training_test_report.snapshot.md
-    best_checkpoint_path.snapshot.txt: models/polished_dataset/actual_values/exported/wave3_1_sequential_residual_offset_probe/backward/2026-07-10-11-35-18__te_wave3_1_sequential_residual_offset_probe_bw__polished_actual_values/source_run/best_checkpoint_path.snapshot.txt
+    training_config.snapshot.yaml: models/polished_dataset/actual_values/exported/wave3_2_clean_sequential_residual_offset/backward/2026-07-10-22-37-04__te_wave3_2_clean_sequential_residual_offset_bw__polished_actual_values/source_run/training_config.snapshot.yaml
+    metrics_summary.snapshot.yaml: models/polished_dataset/actual_values/exported/wave3_2_clean_sequential_residual_offset/backward/2026-07-10-22-37-04__te_wave3_2_clean_sequential_residual_offset_bw__polished_actual_values/source_run/metrics_summary.snapshot.yaml
+    run_metadata.snapshot.yaml: models/polished_dataset/actual_values/exported/wave3_2_clean_sequential_residual_offset/backward/2026-07-10-22-37-04__te_wave3_2_clean_sequential_residual_offset_bw__polished_actual_values/source_run/run_metadata.snapshot.yaml
+    training_test_report.snapshot.md: models/polished_dataset/actual_values/exported/wave3_2_clean_sequential_residual_offset/backward/2026-07-10-22-37-04__te_wave3_2_clean_sequential_residual_offset_bw__polished_actual_values/source_run/training_test_report.snapshot.md
+    best_checkpoint_path.snapshot.txt: models/polished_dataset/actual_values/exported/wave3_2_clean_sequential_residual_offset/backward/2026-07-10-22-37-04__te_wave3_2_clean_sequential_residual_offset_bw__polished_actual_values/source_run/best_checkpoint_path.snapshot.txt
   metrics:
-    val_mae: 0.002153824083507061
-    test_mae: 0.0022624481935054064
-    test_rmse: 0.0033262663055211306
+    val_mae: 0.00219453196041286
+    test_mae: 0.0023123216815292835
+    test_rmse: 0.003384440438821912
