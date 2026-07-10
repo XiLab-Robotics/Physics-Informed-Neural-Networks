@@ -833,6 +833,11 @@ This folder contains the internal project documents derived from the reference P
   family, classifying TwinCAT importer compatibility, and extending the
   conversion pipeline with verified family-specific remediation where needed.
 
+- [technical/2026-07/2026-07-10/2026-07-10-18-52-16_tf3820_testrig_migration_branch.md](./technical/2026-07/2026-07-10/2026-07-10-18-52-16_tf3820_testrig_migration_branch.md)
+  Technical plan for creating a separate TestRig migration working copy and
+  implementing a side-by-side `TF3820` Machine Learning Server prediction
+  path for later Beckhoff PLC validation.
+
 - [scripts/tooling/lan_ai/lan_ai_node_server.md](./scripts/tooling/lan_ai/lan_ai_node_server.md)
   Setup and runtime guide for the remote LAN AI workstation.
 
