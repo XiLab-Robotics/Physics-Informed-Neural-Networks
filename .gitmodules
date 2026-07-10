@@ -12,4 +12,4 @@
 	url = https://github.com/davideferrari95/mediapipe_gesture_recognition.git
 [submodule "reference/codes/TestRig"]
 	path = reference/codes/TestRig
-	url = git@github.com:XiLab-Robotics/TestRig.git
+	url = https://github.com/XiLab-Robotics/TestRig.git
