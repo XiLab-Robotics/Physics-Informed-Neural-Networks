@@ -6,8 +6,8 @@ selection_policy:
   second_tie_breaker: val_mae
   third_tie_breaker: trainable_parameter_count
   direction: minimize
-updated_at: '2026-07-10T10:30:35'
-entry_count: 3
+updated_at: '2026-07-10T12:18:02'
+entry_count: 4
 entry_list:
 - run_instance_id: 2026-06-30-16-49-34__te_wave3_1_sequential_residual_offset_probe_bw
   run_name: te_wave3_1_sequential_residual_offset_probe_bw
@@ -47,6 +47,46 @@ entry_list:
     third_tie_breaker: trainable_parameter_count
     direction: minimize
   selected_at: '2026-06-30T17:18:40'
+- run_instance_id: 2026-07-10-11-35-18__te_wave3_1_sequential_residual_offset_probe_bw__polished_actual_values
+  run_name: te_wave3_1_sequential_residual_offset_probe_bw__polished_actual_values
+  output_run_name: te_wave3_1_sequential_residual_offset_probe_bw__polished_actual_values
+  output_artifact_kind: training_run
+  model_family: wave3_1_sequential_residual_offset_probe_bw
+  base_model_family: wave3_1_sequential_residual_offset_probe
+  model_type: sequential_residual_offset_probe
+  dataset_id: polished_dataset
+  dataset_schema: polished_point_v1
+  input_mode: actual_values
+  input_feature_names:
+  - theta
+  - theta_dot
+  - tau_load
+  - T
+  - direction_flag
+  target_feature_names:
+  - theta_TE
+  input_feature_dim: 5
+  training_variant: bw
+  direction_scope_label: backward_only
+  use_forward_direction: false
+  use_backward_direction: true
+  trainable_parameter_count: 92802
+  total_parameter_count: 92802
+  val_mae: 0.002153824083507061
+  val_rmse: 0.0029862152878195047
+  test_mae: 0.0022624481935054064
+  test_rmse: 0.0033262663055211306
+  output_directory: output\training_runs\wave3_1_sequential_residual_offset_probe\2026-07-10-11-35-18__te_wave3_1_sequential_residual_offset_probe_bw__polished_actual_values
+  best_checkpoint_path: output\training_runs\wave3_1_sequential_residual_offset_probe\2026-07-10-11-35-18__te_wave3_1_sequential_residual_offset_probe_bw__polished_actual_values\checkpoints\sequential_residual_offset_probe-epoch=197-val_mae=0.00215382.ckpt
+  metrics_path: output\training_runs\wave3_1_sequential_residual_offset_probe\2026-07-10-11-35-18__te_wave3_1_sequential_residual_offset_probe_bw__polished_actual_values/metrics_summary.yaml
+  report_path: output\training_runs\wave3_1_sequential_residual_offset_probe\2026-07-10-11-35-18__te_wave3_1_sequential_residual_offset_probe_bw__polished_actual_values/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-07-10T12:18:02'
 - run_instance_id: 2026-07-10-10-05-23__te_wave3_1_sequential_residual_offset_probe_bw__polished_setpoints
   run_name: te_wave3_1_sequential_residual_offset_probe_bw__polished_setpoints
   output_run_name: te_wave3_1_sequential_residual_offset_probe_bw__polished_setpoints
