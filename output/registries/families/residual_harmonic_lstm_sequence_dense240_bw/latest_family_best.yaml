@@ -6,7 +6,7 @@ selection_policy:
   second_tie_breaker: val_mae
   third_tie_breaker: trainable_parameter_count
   direction: minimize
-updated_at: '2026-07-10T00:20:55'
+updated_at: '2026-07-10T01:46:42'
 best_entry:
   run_instance_id: 2026-06-30-13-54-15__te_residual_harmonic_lstm_sequence_dense240_bw
   run_name: te_residual_harmonic_lstm_sequence_dense240_bw
