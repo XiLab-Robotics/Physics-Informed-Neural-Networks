@@ -6,8 +6,8 @@ selection_policy:
   second_tie_breaker: val_mae
   third_tie_breaker: trainable_parameter_count
   direction: minimize
-updated_at: '2026-06-30T16:25:21'
-entry_count: 1
+updated_at: '2026-07-10T08:24:57'
+entry_count: 2
 entry_list:
 - run_instance_id: 2026-06-30-16-02-20__te_wave3_1_sequential_residual_offset_probe_global
   run_name: te_wave3_1_sequential_residual_offset_probe_global
@@ -47,3 +47,43 @@ entry_list:
     third_tie_breaker: trainable_parameter_count
     direction: minimize
   selected_at: '2026-06-30T16:25:21'
+- run_instance_id: 2026-07-10-08-11-44__te_wave3_1_sequential_residual_offset_probe_global__simplified_setpoints
+  run_name: te_wave3_1_sequential_residual_offset_probe_global__simplified_setpoints
+  output_run_name: te_wave3_1_sequential_residual_offset_probe_global__simplified_setpoints
+  output_artifact_kind: training_run
+  model_family: wave3_1_sequential_residual_offset_probe_global
+  base_model_family: wave3_1_sequential_residual_offset_probe
+  model_type: sequential_residual_offset_probe
+  dataset_id: simplified_dataset
+  dataset_schema: simplified_curve_v1
+  input_mode: setpoints
+  input_feature_names:
+  - angular_position_deg
+  - input_speed_rpm
+  - input_torque_nm
+  - oil_temperature_deg
+  - direction_flag
+  target_feature_names:
+  - transmission_error_deg
+  input_feature_dim: 5
+  training_variant: global
+  direction_scope_label: bidirectional
+  use_forward_direction: true
+  use_backward_direction: true
+  trainable_parameter_count: 92802
+  total_parameter_count: 92802
+  val_mae: 0.003727308241650462
+  val_rmse: 0.004647023510187864
+  test_mae: 0.003533764509484172
+  test_rmse: 0.004399256315082312
+  output_directory: output\training_runs\wave3_1_sequential_residual_offset_probe\2026-07-10-08-11-44__te_wave3_1_sequential_residual_offset_probe_global__simplified_setpoints
+  best_checkpoint_path: output\training_runs\wave3_1_sequential_residual_offset_probe\2026-07-10-08-11-44__te_wave3_1_sequential_residual_offset_probe_global__simplified_setpoints\checkpoints\sequential_residual_offset_probe-epoch=095-val_mae=0.00372731.ckpt
+  metrics_path: output\training_runs\wave3_1_sequential_residual_offset_probe\2026-07-10-08-11-44__te_wave3_1_sequential_residual_offset_probe_global__simplified_setpoints/metrics_summary.yaml
+  report_path: output\training_runs\wave3_1_sequential_residual_offset_probe\2026-07-10-08-11-44__te_wave3_1_sequential_residual_offset_probe_global__simplified_setpoints/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-07-10T08:24:57'

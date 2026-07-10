@@ -1,0 +1,22 @@
+schema_version: 1
+artifact_kind: training_run
+model_family: wave3_1_sequential_residual_offset_probe_fw
+base_model_family: wave3_1_sequential_residual_offset_probe
+training_variant: fw
+direction_scope_label: forward_only
+use_forward_direction: true
+use_backward_direction: false
+run_name: te_wave3_1_sequential_residual_offset_probe_fw__simplified_setpoints
+run_instance_id: 2026-07-10-08-24-57__te_wave3_1_sequential_residual_offset_probe_fw__simplified_setpoints
+output_directory: output\training_runs\wave3_1_sequential_residual_offset_probe\2026-07-10-08-24-57__te_wave3_1_sequential_residual_offset_probe_fw__simplified_setpoints
+dataset_id: simplified_dataset
+dataset_schema: simplified_curve_v1
+input_feature_names:
+- angular_position_deg
+- input_speed_rpm
+- input_torque_nm
+- oil_temperature_deg
+- direction_flag
+target_feature_names:
+- transmission_error_deg
+input_feature_dim: 5

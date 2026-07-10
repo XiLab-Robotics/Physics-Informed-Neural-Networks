@@ -13,74 +13,74 @@ entries:
   dataset_id: simplified_dataset
   dataset_schema: simplified_curve_v1
   input_mode: setpoints
-  model_family: residual_harmonic_lstm_sequence_dense360
-  model_type: residual_harmonic_lstm_sequence
+  model_family: wave3_1_sequential_residual_offset_probe
+  model_type: sequential_residual_offset_probe
   surface: global
-  run_name: te_residual_harmonic_lstm_sequence_dense360_global__simplified_setpoints
-  run_instance_id: 2026-07-10-03-42-49__te_residual_harmonic_lstm_sequence_dense360_global__simplified_setpoints
-  source_output_directory: output/training_runs/residual_harmonic_lstm_sequence_dense360/2026-07-10-03-42-49__te_residual_harmonic_lstm_sequence_dense360_global__simplified_setpoints
-  source_best_checkpoint_path: output/training_runs/residual_harmonic_lstm_sequence_dense360/2026-07-10-03-42-49__te_residual_harmonic_lstm_sequence_dense360_global__simplified_setpoints/checkpoints/residual_harmonic_lstm_sequence-epoch=055-val_mae=0.00360012.ckpt
-  python_model_path: models/simplified_dataset/setpoints/exported/residual_harmonic_lstm_sequence_dense360/global/2026-07-10-03-42-49__te_residual_harmonic_lstm_sequence_dense360_global__simplified_setpoints/python/residual_harmonic_lstm_sequence-epoch=055-val_mae=0.00360012.ckpt
-  onnx_model_path: models/simplified_dataset/setpoints/exported/residual_harmonic_lstm_sequence_dense360/global/2026-07-10-03-42-49__te_residual_harmonic_lstm_sequence_dense360_global__simplified_setpoints/onnx/model.onnx
+  run_name: te_wave3_1_sequential_residual_offset_probe_global__simplified_setpoints
+  run_instance_id: 2026-07-10-08-11-44__te_wave3_1_sequential_residual_offset_probe_global__simplified_setpoints
+  source_output_directory: output/training_runs/wave3_1_sequential_residual_offset_probe/2026-07-10-08-11-44__te_wave3_1_sequential_residual_offset_probe_global__simplified_setpoints
+  source_best_checkpoint_path: output/training_runs/wave3_1_sequential_residual_offset_probe/2026-07-10-08-11-44__te_wave3_1_sequential_residual_offset_probe_global__simplified_setpoints/checkpoints/sequential_residual_offset_probe-epoch=095-val_mae=0.00372731.ckpt
+  python_model_path: models/simplified_dataset/setpoints/exported/wave3_1_sequential_residual_offset_probe/global/2026-07-10-08-11-44__te_wave3_1_sequential_residual_offset_probe_global__simplified_setpoints/python/sequential_residual_offset_probe-epoch=095-val_mae=0.00372731.ckpt
+  onnx_model_path: models/simplified_dataset/setpoints/exported/wave3_1_sequential_residual_offset_probe/global/2026-07-10-08-11-44__te_wave3_1_sequential_residual_offset_probe_global__simplified_setpoints/onnx/model.onnx
   onnx_export_status: exported
   onnx_export_error: ''
   source_run_snapshot_path_map:
-    training_config.snapshot.yaml: models/simplified_dataset/setpoints/exported/residual_harmonic_lstm_sequence_dense360/global/2026-07-10-03-42-49__te_residual_harmonic_lstm_sequence_dense360_global__simplified_setpoints/source_run/training_config.snapshot.yaml
-    metrics_summary.snapshot.yaml: models/simplified_dataset/setpoints/exported/residual_harmonic_lstm_sequence_dense360/global/2026-07-10-03-42-49__te_residual_harmonic_lstm_sequence_dense360_global__simplified_setpoints/source_run/metrics_summary.snapshot.yaml
-    run_metadata.snapshot.yaml: models/simplified_dataset/setpoints/exported/residual_harmonic_lstm_sequence_dense360/global/2026-07-10-03-42-49__te_residual_harmonic_lstm_sequence_dense360_global__simplified_setpoints/source_run/run_metadata.snapshot.yaml
-    training_test_report.snapshot.md: models/simplified_dataset/setpoints/exported/residual_harmonic_lstm_sequence_dense360/global/2026-07-10-03-42-49__te_residual_harmonic_lstm_sequence_dense360_global__simplified_setpoints/source_run/training_test_report.snapshot.md
-    best_checkpoint_path.snapshot.txt: models/simplified_dataset/setpoints/exported/residual_harmonic_lstm_sequence_dense360/global/2026-07-10-03-42-49__te_residual_harmonic_lstm_sequence_dense360_global__simplified_setpoints/source_run/best_checkpoint_path.snapshot.txt
+    training_config.snapshot.yaml: models/simplified_dataset/setpoints/exported/wave3_1_sequential_residual_offset_probe/global/2026-07-10-08-11-44__te_wave3_1_sequential_residual_offset_probe_global__simplified_setpoints/source_run/training_config.snapshot.yaml
+    metrics_summary.snapshot.yaml: models/simplified_dataset/setpoints/exported/wave3_1_sequential_residual_offset_probe/global/2026-07-10-08-11-44__te_wave3_1_sequential_residual_offset_probe_global__simplified_setpoints/source_run/metrics_summary.snapshot.yaml
+    run_metadata.snapshot.yaml: models/simplified_dataset/setpoints/exported/wave3_1_sequential_residual_offset_probe/global/2026-07-10-08-11-44__te_wave3_1_sequential_residual_offset_probe_global__simplified_setpoints/source_run/run_metadata.snapshot.yaml
+    training_test_report.snapshot.md: models/simplified_dataset/setpoints/exported/wave3_1_sequential_residual_offset_probe/global/2026-07-10-08-11-44__te_wave3_1_sequential_residual_offset_probe_global__simplified_setpoints/source_run/training_test_report.snapshot.md
+    best_checkpoint_path.snapshot.txt: models/simplified_dataset/setpoints/exported/wave3_1_sequential_residual_offset_probe/global/2026-07-10-08-11-44__te_wave3_1_sequential_residual_offset_probe_global__simplified_setpoints/source_run/best_checkpoint_path.snapshot.txt
   metrics:
-    val_mae: 0.0036001233384013176
-    test_mae: 0.00344274053350091
-    test_rmse: 0.004246028605848551
+    val_mae: 0.003727308241650462
+    test_mae: 0.003533764509484172
+    test_rmse: 0.004399256315082312
 - schema_version: 1
   dataset_id: simplified_dataset
   dataset_schema: simplified_curve_v1
   input_mode: setpoints
-  model_family: residual_harmonic_lstm_sequence_dense360
-  model_type: residual_harmonic_lstm_sequence
+  model_family: wave3_1_sequential_residual_offset_probe
+  model_type: sequential_residual_offset_probe
   surface: forward
-  run_name: te_residual_harmonic_lstm_sequence_dense360_fw__simplified_setpoints
-  run_instance_id: 2026-07-10-04-03-58__te_residual_harmonic_lstm_sequence_dense360_fw__simplified_setpoints
-  source_output_directory: output/training_runs/residual_harmonic_lstm_sequence_dense360/2026-07-10-04-03-58__te_residual_harmonic_lstm_sequence_dense360_fw__simplified_setpoints
-  source_best_checkpoint_path: output/training_runs/residual_harmonic_lstm_sequence_dense360/2026-07-10-04-03-58__te_residual_harmonic_lstm_sequence_dense360_fw__simplified_setpoints/checkpoints/residual_harmonic_lstm_sequence-epoch=047-val_mae=0.00358223.ckpt
-  python_model_path: models/simplified_dataset/setpoints/exported/residual_harmonic_lstm_sequence_dense360/forward/2026-07-10-04-03-58__te_residual_harmonic_lstm_sequence_dense360_fw__simplified_setpoints/python/residual_harmonic_lstm_sequence-epoch=047-val_mae=0.00358223.ckpt
-  onnx_model_path: models/simplified_dataset/setpoints/exported/residual_harmonic_lstm_sequence_dense360/forward/2026-07-10-04-03-58__te_residual_harmonic_lstm_sequence_dense360_fw__simplified_setpoints/onnx/model.onnx
+  run_name: te_wave3_1_sequential_residual_offset_probe_fw__simplified_setpoints
+  run_instance_id: 2026-07-10-08-24-57__te_wave3_1_sequential_residual_offset_probe_fw__simplified_setpoints
+  source_output_directory: output/training_runs/wave3_1_sequential_residual_offset_probe/2026-07-10-08-24-57__te_wave3_1_sequential_residual_offset_probe_fw__simplified_setpoints
+  source_best_checkpoint_path: output/training_runs/wave3_1_sequential_residual_offset_probe/2026-07-10-08-24-57__te_wave3_1_sequential_residual_offset_probe_fw__simplified_setpoints/checkpoints/sequential_residual_offset_probe-epoch=138-val_mae=0.00365466.ckpt
+  python_model_path: models/simplified_dataset/setpoints/exported/wave3_1_sequential_residual_offset_probe/forward/2026-07-10-08-24-57__te_wave3_1_sequential_residual_offset_probe_fw__simplified_setpoints/python/sequential_residual_offset_probe-epoch=138-val_mae=0.00365466.ckpt
+  onnx_model_path: models/simplified_dataset/setpoints/exported/wave3_1_sequential_residual_offset_probe/forward/2026-07-10-08-24-57__te_wave3_1_sequential_residual_offset_probe_fw__simplified_setpoints/onnx/model.onnx
   onnx_export_status: exported
   onnx_export_error: ''
   source_run_snapshot_path_map:
-    training_config.snapshot.yaml: models/simplified_dataset/setpoints/exported/residual_harmonic_lstm_sequence_dense360/forward/2026-07-10-04-03-58__te_residual_harmonic_lstm_sequence_dense360_fw__simplified_setpoints/source_run/training_config.snapshot.yaml
-    metrics_summary.snapshot.yaml: models/simplified_dataset/setpoints/exported/residual_harmonic_lstm_sequence_dense360/forward/2026-07-10-04-03-58__te_residual_harmonic_lstm_sequence_dense360_fw__simplified_setpoints/source_run/metrics_summary.snapshot.yaml
-    run_metadata.snapshot.yaml: models/simplified_dataset/setpoints/exported/residual_harmonic_lstm_sequence_dense360/forward/2026-07-10-04-03-58__te_residual_harmonic_lstm_sequence_dense360_fw__simplified_setpoints/source_run/run_metadata.snapshot.yaml
-    training_test_report.snapshot.md: models/simplified_dataset/setpoints/exported/residual_harmonic_lstm_sequence_dense360/forward/2026-07-10-04-03-58__te_residual_harmonic_lstm_sequence_dense360_fw__simplified_setpoints/source_run/training_test_report.snapshot.md
-    best_checkpoint_path.snapshot.txt: models/simplified_dataset/setpoints/exported/residual_harmonic_lstm_sequence_dense360/forward/2026-07-10-04-03-58__te_residual_harmonic_lstm_sequence_dense360_fw__simplified_setpoints/source_run/best_checkpoint_path.snapshot.txt
+    training_config.snapshot.yaml: models/simplified_dataset/setpoints/exported/wave3_1_sequential_residual_offset_probe/forward/2026-07-10-08-24-57__te_wave3_1_sequential_residual_offset_probe_fw__simplified_setpoints/source_run/training_config.snapshot.yaml
+    metrics_summary.snapshot.yaml: models/simplified_dataset/setpoints/exported/wave3_1_sequential_residual_offset_probe/forward/2026-07-10-08-24-57__te_wave3_1_sequential_residual_offset_probe_fw__simplified_setpoints/source_run/metrics_summary.snapshot.yaml
+    run_metadata.snapshot.yaml: models/simplified_dataset/setpoints/exported/wave3_1_sequential_residual_offset_probe/forward/2026-07-10-08-24-57__te_wave3_1_sequential_residual_offset_probe_fw__simplified_setpoints/source_run/run_metadata.snapshot.yaml
+    training_test_report.snapshot.md: models/simplified_dataset/setpoints/exported/wave3_1_sequential_residual_offset_probe/forward/2026-07-10-08-24-57__te_wave3_1_sequential_residual_offset_probe_fw__simplified_setpoints/source_run/training_test_report.snapshot.md
+    best_checkpoint_path.snapshot.txt: models/simplified_dataset/setpoints/exported/wave3_1_sequential_residual_offset_probe/forward/2026-07-10-08-24-57__te_wave3_1_sequential_residual_offset_probe_fw__simplified_setpoints/source_run/best_checkpoint_path.snapshot.txt
   metrics:
-    val_mae: 0.0035822251811623573
-    test_mae: 0.00340180448256433
-    test_rmse: 0.004177093505859375
+    val_mae: 0.003654662286862731
+    test_mae: 0.0034721458796411753
+    test_rmse: 0.004298313986510038
 - schema_version: 1
   dataset_id: simplified_dataset
   dataset_schema: simplified_curve_v1
   input_mode: setpoints
-  model_family: residual_harmonic_lstm_sequence_dense360
-  model_type: residual_harmonic_lstm_sequence
+  model_family: wave3_1_sequential_residual_offset_probe
+  model_type: sequential_residual_offset_probe
   surface: backward
-  run_name: te_residual_harmonic_lstm_sequence_dense360_bw__simplified_setpoints
-  run_instance_id: 2026-07-10-04-23-03__te_residual_harmonic_lstm_sequence_dense360_bw__simplified_setpoints
-  source_output_directory: output/training_runs/residual_harmonic_lstm_sequence_dense360/2026-07-10-04-23-03__te_residual_harmonic_lstm_sequence_dense360_bw__simplified_setpoints
-  source_best_checkpoint_path: output/training_runs/residual_harmonic_lstm_sequence_dense360/2026-07-10-04-23-03__te_residual_harmonic_lstm_sequence_dense360_bw__simplified_setpoints/checkpoints/residual_harmonic_lstm_sequence-epoch=030-val_mae=0.00360440.ckpt
-  python_model_path: models/simplified_dataset/setpoints/exported/residual_harmonic_lstm_sequence_dense360/backward/2026-07-10-04-23-03__te_residual_harmonic_lstm_sequence_dense360_bw__simplified_setpoints/python/residual_harmonic_lstm_sequence-epoch=030-val_mae=0.00360440.ckpt
-  onnx_model_path: models/simplified_dataset/setpoints/exported/residual_harmonic_lstm_sequence_dense360/backward/2026-07-10-04-23-03__te_residual_harmonic_lstm_sequence_dense360_bw__simplified_setpoints/onnx/model.onnx
+  run_name: te_wave3_1_sequential_residual_offset_probe_bw__simplified_setpoints
+  run_instance_id: 2026-07-10-08-46-24__te_wave3_1_sequential_residual_offset_probe_bw__simplified_setpoints
+  source_output_directory: output/training_runs/wave3_1_sequential_residual_offset_probe/2026-07-10-08-46-24__te_wave3_1_sequential_residual_offset_probe_bw__simplified_setpoints
+  source_best_checkpoint_path: output/training_runs/wave3_1_sequential_residual_offset_probe/2026-07-10-08-46-24__te_wave3_1_sequential_residual_offset_probe_bw__simplified_setpoints/checkpoints/sequential_residual_offset_probe-epoch=098-val_mae=0.00372763.ckpt
+  python_model_path: models/simplified_dataset/setpoints/exported/wave3_1_sequential_residual_offset_probe/backward/2026-07-10-08-46-24__te_wave3_1_sequential_residual_offset_probe_bw__simplified_setpoints/python/sequential_residual_offset_probe-epoch=098-val_mae=0.00372763.ckpt
+  onnx_model_path: models/simplified_dataset/setpoints/exported/wave3_1_sequential_residual_offset_probe/backward/2026-07-10-08-46-24__te_wave3_1_sequential_residual_offset_probe_bw__simplified_setpoints/onnx/model.onnx
   onnx_export_status: exported
   onnx_export_error: ''
   source_run_snapshot_path_map:
-    training_config.snapshot.yaml: models/simplified_dataset/setpoints/exported/residual_harmonic_lstm_sequence_dense360/backward/2026-07-10-04-23-03__te_residual_harmonic_lstm_sequence_dense360_bw__simplified_setpoints/source_run/training_config.snapshot.yaml
-    metrics_summary.snapshot.yaml: models/simplified_dataset/setpoints/exported/residual_harmonic_lstm_sequence_dense360/backward/2026-07-10-04-23-03__te_residual_harmonic_lstm_sequence_dense360_bw__simplified_setpoints/source_run/metrics_summary.snapshot.yaml
-    run_metadata.snapshot.yaml: models/simplified_dataset/setpoints/exported/residual_harmonic_lstm_sequence_dense360/backward/2026-07-10-04-23-03__te_residual_harmonic_lstm_sequence_dense360_bw__simplified_setpoints/source_run/run_metadata.snapshot.yaml
-    training_test_report.snapshot.md: models/simplified_dataset/setpoints/exported/residual_harmonic_lstm_sequence_dense360/backward/2026-07-10-04-23-03__te_residual_harmonic_lstm_sequence_dense360_bw__simplified_setpoints/source_run/training_test_report.snapshot.md
-    best_checkpoint_path.snapshot.txt: models/simplified_dataset/setpoints/exported/residual_harmonic_lstm_sequence_dense360/backward/2026-07-10-04-23-03__te_residual_harmonic_lstm_sequence_dense360_bw__simplified_setpoints/source_run/best_checkpoint_path.snapshot.txt
+    training_config.snapshot.yaml: models/simplified_dataset/setpoints/exported/wave3_1_sequential_residual_offset_probe/backward/2026-07-10-08-46-24__te_wave3_1_sequential_residual_offset_probe_bw__simplified_setpoints/source_run/training_config.snapshot.yaml
+    metrics_summary.snapshot.yaml: models/simplified_dataset/setpoints/exported/wave3_1_sequential_residual_offset_probe/backward/2026-07-10-08-46-24__te_wave3_1_sequential_residual_offset_probe_bw__simplified_setpoints/source_run/metrics_summary.snapshot.yaml
+    run_metadata.snapshot.yaml: models/simplified_dataset/setpoints/exported/wave3_1_sequential_residual_offset_probe/backward/2026-07-10-08-46-24__te_wave3_1_sequential_residual_offset_probe_bw__simplified_setpoints/source_run/run_metadata.snapshot.yaml
+    training_test_report.snapshot.md: models/simplified_dataset/setpoints/exported/wave3_1_sequential_residual_offset_probe/backward/2026-07-10-08-46-24__te_wave3_1_sequential_residual_offset_probe_bw__simplified_setpoints/source_run/training_test_report.snapshot.md
+    best_checkpoint_path.snapshot.txt: models/simplified_dataset/setpoints/exported/wave3_1_sequential_residual_offset_probe/backward/2026-07-10-08-46-24__te_wave3_1_sequential_residual_offset_probe_bw__simplified_setpoints/source_run/best_checkpoint_path.snapshot.txt
   metrics:
-    val_mae: 0.0036043976433575153
-    test_mae: 0.003480371320620179
-    test_rmse: 0.004221370443701744
+    val_mae: 0.0037276335060596466
+    test_mae: 0.003600794356316328
+    test_rmse: 0.00444008456543088
