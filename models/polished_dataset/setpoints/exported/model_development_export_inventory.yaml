@@ -13,74 +13,74 @@ entries:
   dataset_id: polished_dataset
   dataset_schema: polished_setpoint_curve_v1
   input_mode: setpoints
-  model_family: wave3_2_clean_sequential_residual_offset
-  model_type: sequential_residual_offset_probe
+  model_family: wave3_2_harmonic_residual_offset
+  model_type: harmonic_residual_offset_probe
   surface: global
-  run_name: te_wave3_2_clean_sequential_residual_offset_global__polished_setpoints
-  run_instance_id: 2026-07-10-13-46-46__te_wave3_2_clean_sequential_residual_offset_global__polished_setpoints
-  source_output_directory: output/training_runs/wave3_2_clean_sequential_residual_offset/2026-07-10-13-46-46__te_wave3_2_clean_sequential_residual_offset_global__polished_setpoints
-  source_best_checkpoint_path: output/training_runs/wave3_2_clean_sequential_residual_offset/2026-07-10-13-46-46__te_wave3_2_clean_sequential_residual_offset_global__polished_setpoints/checkpoints/sequential_residual_offset_probe-epoch=128-val_mae=0.00217355.ckpt
-  python_model_path: models/polished_dataset/setpoints/exported/wave3_2_clean_sequential_residual_offset/global/2026-07-10-13-46-46__te_wave3_2_clean_sequential_residual_offset_global__polished_setpoints/python/sequential_residual_offset_probe-epoch=128-val_mae=0.00217355.ckpt
-  onnx_model_path: models/polished_dataset/setpoints/exported/wave3_2_clean_sequential_residual_offset/global/2026-07-10-13-46-46__te_wave3_2_clean_sequential_residual_offset_global__polished_setpoints/onnx/model.onnx
+  run_name: te_wave3_2_harmonic_residual_offset_global__polished_setpoints
+  run_instance_id: 2026-07-11-00-24-33__te_wave3_2_harmonic_residual_offset_global__polished_setpoints
+  source_output_directory: output/training_runs/wave3_2_harmonic_residual_offset/2026-07-11-00-24-33__te_wave3_2_harmonic_residual_offset_global__polished_setpoints
+  source_best_checkpoint_path: output/training_runs/wave3_2_harmonic_residual_offset/2026-07-11-00-24-33__te_wave3_2_harmonic_residual_offset_global__polished_setpoints/checkpoints/harmonic_residual_offset_probe-epoch=124-val_mae=0.00190522.ckpt
+  python_model_path: models/polished_dataset/setpoints/exported/wave3_2_harmonic_residual_offset/global/2026-07-11-00-24-33__te_wave3_2_harmonic_residual_offset_global__polished_setpoints/python/harmonic_residual_offset_probe-epoch=124-val_mae=0.00190522.ckpt
+  onnx_model_path: models/polished_dataset/setpoints/exported/wave3_2_harmonic_residual_offset/global/2026-07-11-00-24-33__te_wave3_2_harmonic_residual_offset_global__polished_setpoints/onnx/model.onnx
   onnx_export_status: exported
   onnx_export_error: ''
   source_run_snapshot_path_map:
-    training_config.snapshot.yaml: models/polished_dataset/setpoints/exported/wave3_2_clean_sequential_residual_offset/global/2026-07-10-13-46-46__te_wave3_2_clean_sequential_residual_offset_global__polished_setpoints/source_run/training_config.snapshot.yaml
-    metrics_summary.snapshot.yaml: models/polished_dataset/setpoints/exported/wave3_2_clean_sequential_residual_offset/global/2026-07-10-13-46-46__te_wave3_2_clean_sequential_residual_offset_global__polished_setpoints/source_run/metrics_summary.snapshot.yaml
-    run_metadata.snapshot.yaml: models/polished_dataset/setpoints/exported/wave3_2_clean_sequential_residual_offset/global/2026-07-10-13-46-46__te_wave3_2_clean_sequential_residual_offset_global__polished_setpoints/source_run/run_metadata.snapshot.yaml
-    training_test_report.snapshot.md: models/polished_dataset/setpoints/exported/wave3_2_clean_sequential_residual_offset/global/2026-07-10-13-46-46__te_wave3_2_clean_sequential_residual_offset_global__polished_setpoints/source_run/training_test_report.snapshot.md
-    best_checkpoint_path.snapshot.txt: models/polished_dataset/setpoints/exported/wave3_2_clean_sequential_residual_offset/global/2026-07-10-13-46-46__te_wave3_2_clean_sequential_residual_offset_global__polished_setpoints/source_run/best_checkpoint_path.snapshot.txt
+    training_config.snapshot.yaml: models/polished_dataset/setpoints/exported/wave3_2_harmonic_residual_offset/global/2026-07-11-00-24-33__te_wave3_2_harmonic_residual_offset_global__polished_setpoints/source_run/training_config.snapshot.yaml
+    metrics_summary.snapshot.yaml: models/polished_dataset/setpoints/exported/wave3_2_harmonic_residual_offset/global/2026-07-11-00-24-33__te_wave3_2_harmonic_residual_offset_global__polished_setpoints/source_run/metrics_summary.snapshot.yaml
+    run_metadata.snapshot.yaml: models/polished_dataset/setpoints/exported/wave3_2_harmonic_residual_offset/global/2026-07-11-00-24-33__te_wave3_2_harmonic_residual_offset_global__polished_setpoints/source_run/run_metadata.snapshot.yaml
+    training_test_report.snapshot.md: models/polished_dataset/setpoints/exported/wave3_2_harmonic_residual_offset/global/2026-07-11-00-24-33__te_wave3_2_harmonic_residual_offset_global__polished_setpoints/source_run/training_test_report.snapshot.md
+    best_checkpoint_path.snapshot.txt: models/polished_dataset/setpoints/exported/wave3_2_harmonic_residual_offset/global/2026-07-11-00-24-33__te_wave3_2_harmonic_residual_offset_global__polished_setpoints/source_run/best_checkpoint_path.snapshot.txt
   metrics:
-    val_mae: 0.002173546701669693
-    test_mae: 0.002453744877129793
-    test_rmse: 0.00385081279091537
+    val_mae: 0.0019052241696044803
+    test_mae: 0.002219775225967169
+    test_rmse: 0.003586746985092759
 - schema_version: 1
   dataset_id: polished_dataset
   dataset_schema: polished_setpoint_curve_v1
   input_mode: setpoints
-  model_family: wave3_2_clean_sequential_residual_offset
-  model_type: sequential_residual_offset_probe
+  model_family: wave3_2_harmonic_residual_offset
+  model_type: harmonic_residual_offset_probe
   surface: forward
-  run_name: te_wave3_2_clean_sequential_residual_offset_fw__polished_setpoints
-  run_instance_id: 2026-07-10-14-12-44__te_wave3_2_clean_sequential_residual_offset_fw__polished_setpoints
-  source_output_directory: output/training_runs/wave3_2_clean_sequential_residual_offset/2026-07-10-14-12-44__te_wave3_2_clean_sequential_residual_offset_fw__polished_setpoints
-  source_best_checkpoint_path: output/training_runs/wave3_2_clean_sequential_residual_offset/2026-07-10-14-12-44__te_wave3_2_clean_sequential_residual_offset_fw__polished_setpoints/checkpoints/sequential_residual_offset_probe-epoch=092-val_mae=0.00219799.ckpt
-  python_model_path: models/polished_dataset/setpoints/exported/wave3_2_clean_sequential_residual_offset/forward/2026-07-10-14-12-44__te_wave3_2_clean_sequential_residual_offset_fw__polished_setpoints/python/sequential_residual_offset_probe-epoch=092-val_mae=0.00219799.ckpt
-  onnx_model_path: models/polished_dataset/setpoints/exported/wave3_2_clean_sequential_residual_offset/forward/2026-07-10-14-12-44__te_wave3_2_clean_sequential_residual_offset_fw__polished_setpoints/onnx/model.onnx
+  run_name: te_wave3_2_harmonic_residual_offset_fw__polished_setpoints
+  run_instance_id: 2026-07-11-00-52-59__te_wave3_2_harmonic_residual_offset_fw__polished_setpoints
+  source_output_directory: output/training_runs/wave3_2_harmonic_residual_offset/2026-07-11-00-52-59__te_wave3_2_harmonic_residual_offset_fw__polished_setpoints
+  source_best_checkpoint_path: output/training_runs/wave3_2_harmonic_residual_offset/2026-07-11-00-52-59__te_wave3_2_harmonic_residual_offset_fw__polished_setpoints/checkpoints/harmonic_residual_offset_probe-epoch=085-val_mae=0.00188607.ckpt
+  python_model_path: models/polished_dataset/setpoints/exported/wave3_2_harmonic_residual_offset/forward/2026-07-11-00-52-59__te_wave3_2_harmonic_residual_offset_fw__polished_setpoints/python/harmonic_residual_offset_probe-epoch=085-val_mae=0.00188607.ckpt
+  onnx_model_path: models/polished_dataset/setpoints/exported/wave3_2_harmonic_residual_offset/forward/2026-07-11-00-52-59__te_wave3_2_harmonic_residual_offset_fw__polished_setpoints/onnx/model.onnx
   onnx_export_status: exported
   onnx_export_error: ''
   source_run_snapshot_path_map:
-    training_config.snapshot.yaml: models/polished_dataset/setpoints/exported/wave3_2_clean_sequential_residual_offset/forward/2026-07-10-14-12-44__te_wave3_2_clean_sequential_residual_offset_fw__polished_setpoints/source_run/training_config.snapshot.yaml
-    metrics_summary.snapshot.yaml: models/polished_dataset/setpoints/exported/wave3_2_clean_sequential_residual_offset/forward/2026-07-10-14-12-44__te_wave3_2_clean_sequential_residual_offset_fw__polished_setpoints/source_run/metrics_summary.snapshot.yaml
-    run_metadata.snapshot.yaml: models/polished_dataset/setpoints/exported/wave3_2_clean_sequential_residual_offset/forward/2026-07-10-14-12-44__te_wave3_2_clean_sequential_residual_offset_fw__polished_setpoints/source_run/run_metadata.snapshot.yaml
-    training_test_report.snapshot.md: models/polished_dataset/setpoints/exported/wave3_2_clean_sequential_residual_offset/forward/2026-07-10-14-12-44__te_wave3_2_clean_sequential_residual_offset_fw__polished_setpoints/source_run/training_test_report.snapshot.md
-    best_checkpoint_path.snapshot.txt: models/polished_dataset/setpoints/exported/wave3_2_clean_sequential_residual_offset/forward/2026-07-10-14-12-44__te_wave3_2_clean_sequential_residual_offset_fw__polished_setpoints/source_run/best_checkpoint_path.snapshot.txt
+    training_config.snapshot.yaml: models/polished_dataset/setpoints/exported/wave3_2_harmonic_residual_offset/forward/2026-07-11-00-52-59__te_wave3_2_harmonic_residual_offset_fw__polished_setpoints/source_run/training_config.snapshot.yaml
+    metrics_summary.snapshot.yaml: models/polished_dataset/setpoints/exported/wave3_2_harmonic_residual_offset/forward/2026-07-11-00-52-59__te_wave3_2_harmonic_residual_offset_fw__polished_setpoints/source_run/metrics_summary.snapshot.yaml
+    run_metadata.snapshot.yaml: models/polished_dataset/setpoints/exported/wave3_2_harmonic_residual_offset/forward/2026-07-11-00-52-59__te_wave3_2_harmonic_residual_offset_fw__polished_setpoints/source_run/run_metadata.snapshot.yaml
+    training_test_report.snapshot.md: models/polished_dataset/setpoints/exported/wave3_2_harmonic_residual_offset/forward/2026-07-11-00-52-59__te_wave3_2_harmonic_residual_offset_fw__polished_setpoints/source_run/training_test_report.snapshot.md
+    best_checkpoint_path.snapshot.txt: models/polished_dataset/setpoints/exported/wave3_2_harmonic_residual_offset/forward/2026-07-11-00-52-59__te_wave3_2_harmonic_residual_offset_fw__polished_setpoints/source_run/best_checkpoint_path.snapshot.txt
   metrics:
-    val_mae: 0.0021979885641485453
-    test_mae: 0.002484402619302273
-    test_rmse: 0.003852610709145665
+    val_mae: 0.0018860670970752835
+    test_mae: 0.0022222595289349556
+    test_rmse: 0.0035932499449700117
 - schema_version: 1
   dataset_id: polished_dataset
   dataset_schema: polished_setpoint_curve_v1
   input_mode: setpoints
-  model_family: wave3_2_clean_sequential_residual_offset
-  model_type: sequential_residual_offset_probe
+  model_family: wave3_2_harmonic_residual_offset
+  model_type: harmonic_residual_offset_probe
   surface: backward
-  run_name: te_wave3_2_clean_sequential_residual_offset_bw__polished_setpoints
-  run_instance_id: 2026-07-10-14-35-10__te_wave3_2_clean_sequential_residual_offset_bw__polished_setpoints
-  source_output_directory: output/training_runs/wave3_2_clean_sequential_residual_offset/2026-07-10-14-35-10__te_wave3_2_clean_sequential_residual_offset_bw__polished_setpoints
-  source_best_checkpoint_path: output/training_runs/wave3_2_clean_sequential_residual_offset/2026-07-10-14-35-10__te_wave3_2_clean_sequential_residual_offset_bw__polished_setpoints/checkpoints/sequential_residual_offset_probe-epoch=089-val_mae=0.00218161.ckpt
-  python_model_path: models/polished_dataset/setpoints/exported/wave3_2_clean_sequential_residual_offset/backward/2026-07-10-14-35-10__te_wave3_2_clean_sequential_residual_offset_bw__polished_setpoints/python/sequential_residual_offset_probe-epoch=089-val_mae=0.00218161.ckpt
-  onnx_model_path: models/polished_dataset/setpoints/exported/wave3_2_clean_sequential_residual_offset/backward/2026-07-10-14-35-10__te_wave3_2_clean_sequential_residual_offset_bw__polished_setpoints/onnx/model.onnx
+  run_name: te_wave3_2_harmonic_residual_offset_bw__polished_setpoints
+  run_instance_id: 2026-07-11-01-14-42__te_wave3_2_harmonic_residual_offset_bw__polished_setpoints
+  source_output_directory: output/training_runs/wave3_2_harmonic_residual_offset/2026-07-11-01-14-42__te_wave3_2_harmonic_residual_offset_bw__polished_setpoints
+  source_best_checkpoint_path: output/training_runs/wave3_2_harmonic_residual_offset/2026-07-11-01-14-42__te_wave3_2_harmonic_residual_offset_bw__polished_setpoints/checkpoints/harmonic_residual_offset_probe-epoch=120-val_mae=0.00193287.ckpt
+  python_model_path: models/polished_dataset/setpoints/exported/wave3_2_harmonic_residual_offset/backward/2026-07-11-01-14-42__te_wave3_2_harmonic_residual_offset_bw__polished_setpoints/python/harmonic_residual_offset_probe-epoch=120-val_mae=0.00193287.ckpt
+  onnx_model_path: models/polished_dataset/setpoints/exported/wave3_2_harmonic_residual_offset/backward/2026-07-11-01-14-42__te_wave3_2_harmonic_residual_offset_bw__polished_setpoints/onnx/model.onnx
   onnx_export_status: exported
   onnx_export_error: ''
   source_run_snapshot_path_map:
-    training_config.snapshot.yaml: models/polished_dataset/setpoints/exported/wave3_2_clean_sequential_residual_offset/backward/2026-07-10-14-35-10__te_wave3_2_clean_sequential_residual_offset_bw__polished_setpoints/source_run/training_config.snapshot.yaml
-    metrics_summary.snapshot.yaml: models/polished_dataset/setpoints/exported/wave3_2_clean_sequential_residual_offset/backward/2026-07-10-14-35-10__te_wave3_2_clean_sequential_residual_offset_bw__polished_setpoints/source_run/metrics_summary.snapshot.yaml
-    run_metadata.snapshot.yaml: models/polished_dataset/setpoints/exported/wave3_2_clean_sequential_residual_offset/backward/2026-07-10-14-35-10__te_wave3_2_clean_sequential_residual_offset_bw__polished_setpoints/source_run/run_metadata.snapshot.yaml
-    training_test_report.snapshot.md: models/polished_dataset/setpoints/exported/wave3_2_clean_sequential_residual_offset/backward/2026-07-10-14-35-10__te_wave3_2_clean_sequential_residual_offset_bw__polished_setpoints/source_run/training_test_report.snapshot.md
-    best_checkpoint_path.snapshot.txt: models/polished_dataset/setpoints/exported/wave3_2_clean_sequential_residual_offset/backward/2026-07-10-14-35-10__te_wave3_2_clean_sequential_residual_offset_bw__polished_setpoints/source_run/best_checkpoint_path.snapshot.txt
+    training_config.snapshot.yaml: models/polished_dataset/setpoints/exported/wave3_2_harmonic_residual_offset/backward/2026-07-11-01-14-42__te_wave3_2_harmonic_residual_offset_bw__polished_setpoints/source_run/training_config.snapshot.yaml
+    metrics_summary.snapshot.yaml: models/polished_dataset/setpoints/exported/wave3_2_harmonic_residual_offset/backward/2026-07-11-01-14-42__te_wave3_2_harmonic_residual_offset_bw__polished_setpoints/source_run/metrics_summary.snapshot.yaml
+    run_metadata.snapshot.yaml: models/polished_dataset/setpoints/exported/wave3_2_harmonic_residual_offset/backward/2026-07-11-01-14-42__te_wave3_2_harmonic_residual_offset_bw__polished_setpoints/source_run/run_metadata.snapshot.yaml
+    training_test_report.snapshot.md: models/polished_dataset/setpoints/exported/wave3_2_harmonic_residual_offset/backward/2026-07-11-01-14-42__te_wave3_2_harmonic_residual_offset_bw__polished_setpoints/source_run/training_test_report.snapshot.md
+    best_checkpoint_path.snapshot.txt: models/polished_dataset/setpoints/exported/wave3_2_harmonic_residual_offset/backward/2026-07-11-01-14-42__te_wave3_2_harmonic_residual_offset_bw__polished_setpoints/source_run/best_checkpoint_path.snapshot.txt
   metrics:
-    val_mae: 0.0021816114895045757
-    test_mae: 0.002499310066923499
-    test_rmse: 0.0038903127424418926
+    val_mae: 0.001932867569848895
+    test_mae: 0.0022563717793673277
+    test_rmse: 0.0035933174658566713

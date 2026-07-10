@@ -2,7 +2,7 @@
 
 ## Executive Snapshot
 
-- Generated At: `2026-07-11T00:08:20`
+- Generated At: `2026-07-11T01:42:13`
 - Program State: active.
 - Current Completed Wave: polished-dataset RCIM, early-wave, and full-wave
 - Current Focus: the polished-dataset TE Curve Verification Pipeline refresh is
@@ -41,7 +41,7 @@
 | `wave4_2_quantile_p10_p50_p90_global` | Implemented Benchmark | `te_wave4_2_quantile_p10_p50_p90_global` | `curve_aware_harmonic_residual_offset_probe` | 0.001878 | 85,824 | `2026-07-01 09:37:13` |
 | `wave4_1_mae_robust_loss_global` | Implemented Benchmark | `te_wave4_1_mae_robust_loss_global` | `curve_aware_harmonic_residual_offset_probe` | 0.001890 | 85,440 | `2026-07-01 03:49:35` |
 | `wave4_1_log_cosh_robust_loss_global` | Implemented Benchmark | `te_wave4_1_log_cosh_robust_loss_global` | `curve_aware_harmonic_residual_offset_probe` | 0.001913 | 85,440 | `2026-07-01 06:59:33` |
-| `wave3_2_harmonic_residual_offset_global` | Implemented Benchmark | `te_wave3_2_harmonic_residual_offset_global` | `harmonic_residual_offset_probe` | 0.001914 | 85,440 | `2026-07-10 23:36:51` |
+| `wave3_2_harmonic_residual_offset_global` | Implemented Benchmark | `te_wave3_2_harmonic_residual_offset_global` | `harmonic_residual_offset_probe` | 0.001914 | 85,440 | `2026-07-11 00:52:59` |
 | `wave3_3_raw_centered_shape_curve_aware_global` | Implemented Benchmark | `te_wave3_3_raw_centered_shape_curve_aware_global` | `curve_aware_harmonic_residual_offset_probe` | 0.001954 | 85,440 | `2026-06-30 22:31:31` |
 | `wave3_3_curve_aware_pointwise_control_global` | Implemented Benchmark | `te_wave3_3_curve_aware_pointwise_control_global` | `curve_aware_harmonic_residual_offset_probe` | 0.001971 | 85,440 | `2026-06-30 20:40:49` |
 | `periodic_temporal_convolution_global` | Implemented Benchmark | `te_periodic_temporal_convolution_global__polished_actual_values` | `periodic_temporal_convolution` | 0.001999 | 158,529 | `2026-07-08 21:06:17` |
@@ -125,7 +125,7 @@
 | `wave3_3_curve_aware_pointwise_control_fw` | Implemented Benchmark | `te_wave3_3_curve_aware_pointwise_control_fw` | `curve_aware_harmonic_residual_offset_probe` | 0.001919 | 85,440 | `2026-06-30 21:21:08` |
 | `wave4_1_log_cosh_robust_loss_fw` | Implemented Benchmark | `te_wave4_1_log_cosh_robust_loss_fw` | `curve_aware_harmonic_residual_offset_probe` | 0.001921 | 85,440 | `2026-07-01 07:40:32` |
 | `wave52b_offset_harmonic_guided_offset_centered_shape_fw` | Implemented Benchmark | `te_wave52b_offset_harmonic_guided_offset_centered_shape_fw` | `wave52b_offset_harmonic_guided` | 0.001931 | 22,593 | `2026-07-02 00:02:31` |
-| `wave3_2_harmonic_residual_offset_fw` | Implemented Benchmark | `te_wave3_2_harmonic_residual_offset_fw` | `harmonic_residual_offset_probe` | 0.001948 | 85,440 | `2026-07-10 23:52:02` |
+| `wave3_2_harmonic_residual_offset_fw` | Implemented Benchmark | `te_wave3_2_harmonic_residual_offset_fw` | `harmonic_residual_offset_probe` | 0.001948 | 85,440 | `2026-07-11 01:14:42` |
 | `wave52b_offset_harmonic_guided_offset_head_fw` | Implemented Benchmark | `te_wave52b_offset_harmonic_guided_offset_head_fw` | `wave52b_offset_harmonic_guided` | 0.001948 | 22,593 | `2026-07-01 22:04:27` |
 | `wave3_3_raw_offset_curve_aware_fw` | Implemented Benchmark | `te_wave3_3_raw_offset_curve_aware_fw` | `curve_aware_harmonic_residual_offset_probe` | 0.001953 | 85,440 | `2026-07-01 00:39:38` |
 | `wave4_1_mae_robust_loss_fw` | Implemented Benchmark | `te_wave4_1_mae_robust_loss_fw` | `curve_aware_harmonic_residual_offset_probe` | 0.001961 | 85,440 | `2026-07-01 04:16:27` |
@@ -189,7 +189,7 @@
 | `wave4_3_mixture_density_k2_bw` | Implemented Benchmark | `te_wave4_3_mixture_density_k2_bw` | `curve_aware_harmonic_residual_offset_probe` | 0.001725 | 86,400 | `2026-07-01 16:40:21` |
 | `periodic_mlp_bw` | Implemented Benchmark | `te_periodic_mlp_bw` | `periodic_mlp` | 0.001740 | 27,137 | `2026-07-07 22:30:44` |
 | `wave4_2_quantile_p10_p50_p90_bw` | Implemented Benchmark | `te_wave4_2_quantile_p10_p50_p90_bw` | `curve_aware_harmonic_residual_offset_probe` | 0.001888 | 85,824 | `2026-07-01 11:22:24` |
-| `wave3_2_harmonic_residual_offset_bw` | Implemented Benchmark | `te_wave3_2_harmonic_residual_offset_bw` | `harmonic_residual_offset_probe` | 0.001894 | 85,440 | `2026-07-11 00:08:13` |
+| `wave3_2_harmonic_residual_offset_bw` | Implemented Benchmark | `te_wave3_2_harmonic_residual_offset_bw` | `harmonic_residual_offset_probe` | 0.001894 | 85,440 | `2026-07-11 01:42:05` |
 | `wave3_3_raw_offset_curve_aware_bw` | Implemented Benchmark | `te_wave3_3_raw_offset_curve_aware_bw` | `curve_aware_harmonic_residual_offset_probe` | 0.001898 | 85,440 | `2026-07-01 01:29:25` |
 | `wave4_1_log_cosh_robust_loss_bw` | Implemented Benchmark | `te_wave4_1_log_cosh_robust_loss_bw` | `curve_aware_harmonic_residual_offset_probe` | 0.001899 | 85,440 | `2026-07-01 08:37:58` |
 | `wave4_1_mae_robust_loss_bw` | Implemented Benchmark | `te_wave4_1_mae_robust_loss_bw` | `curve_aware_harmonic_residual_offset_probe` | 0.001907 | 85,440 | `2026-07-01 05:08:43` |
@@ -427,11 +427,11 @@ Low-priority exploratory families currently listed in the backlog:
 
 | Campaign | Generated At | Completed | Failed | Winner | Impact |
 | --- | --- | ---: | ---: | --- | --- |
+| `dataset_input_mode_retraining__wave3_2_harmonic_residual_offset__polished_setpoints` | `2026-07-11 01:42:05` | 3 | 0 | `te_wave3_2_harmonic_residual_offset_global__polished_setpoints` | No family-best change |
 | `dataset_input_mode_retraining__wave3_2_harmonic_residual_offset__simplified_setpoints` | `2026-07-11 00:08:13` | 3 | 0 | `te_wave3_2_harmonic_residual_offset_fw__simplified_setpoints` | No family-best change |
 | `dataset_input_mode_retraining__wave3_2_clean_sequential_residual_offset__polished_actual_values` | `2026-07-10 23:01:43` | 3 | 0 | `te_wave3_2_clean_sequential_residual_offset_fw__polished_actual_values` | No family-best change |
 | `dataset_input_mode_retraining__wave3_2_clean_sequential_residual_offset__polished_setpoints` | `2026-07-10 14:57:16` | 3 | 0 | `te_wave3_2_clean_sequential_residual_offset_global__polished_setpoints` | No family-best change |
 | `dataset_input_mode_retraining__wave3_2_clean_sequential_residual_offset__simplified_setpoints` | `2026-07-10 13:32:20` | 3 | 0 | `te_wave3_2_clean_sequential_residual_offset_bw__simplified_setpoints` | No family-best change |
-| `dataset_input_mode_retraining__wave3_1_sequential_residual_offset_probe__polished_actual_values` | `2026-07-10 12:18:02` | 3 | 0 | `te_wave3_1_sequential_residual_offset_probe_bw__polished_actual_values` | No family-best change |
 
 ## Ranking Policy
 
@@ -2477,7 +2477,7 @@ Known failed campaign attempts for this family:
 
 - Best run: `N/A`
 - Best test MAE: `N/A`
-- Completed tracked runs: `6`
+- Completed tracked runs: `9`
 - Known failed campaign attempts: `0`
 
 | Rank | Run | Model Type | Test MAE [deg] | Test RMSE [deg] | Val MAE [deg] | Params | Duration | Artifact Size | Model Complexity | Training Heaviness | Campaign |
@@ -2485,9 +2485,12 @@ Known failed campaign attempts for this family:
 | 1 | `te_wave3_2_harmonic_residual_offset_bw` | `harmonic_residual_offset_probe` | 0.001894 | 0.002440 | 0.001791 | 85,440 | 37m 24s | 1.00 MB | High | Medium | `polished_dataset_full_wave_retraining_2026_06_22` |
 | 2 | `te_wave3_2_harmonic_residual_offset_global` | `harmonic_residual_offset_probe` | 0.001914 | 0.002470 | 0.001783 | 85,440 | 31m 20s | 1.00 MB | High | Medium | `polished_dataset_full_wave_retraining_2026_06_22` |
 | 3 | `te_wave3_2_harmonic_residual_offset_fw` | `harmonic_residual_offset_probe` | 0.001948 | 0.002507 | 0.001809 | 85,440 | 21m 25s | 1.00 MB | High | Medium | `polished_dataset_full_wave_retraining_2026_06_22` |
-| 4 | `te_wave3_2_harmonic_residual_offset_fw__simplified_setpoints` | `harmonic_residual_offset_probe` | 0.003391 | 0.004142 | 0.003623 | 85,747 | 15m 10s | 1.00 MB | High | Medium | `dataset_input_mode_retraining__wave3_2_harmonic_residual_offset__simplified_setpoints` |
-| 5 | `te_wave3_2_harmonic_residual_offset_bw__simplified_setpoints` | `harmonic_residual_offset_probe` | 0.003398 | 0.004083 | 0.003612 | 85,747 | 16m 11s | 1.00 MB | High | Medium | `dataset_input_mode_retraining__wave3_2_harmonic_residual_offset__simplified_setpoints` |
-| 6 | `te_wave3_2_harmonic_residual_offset_global__simplified_setpoints` | `harmonic_residual_offset_probe` | 0.003405 | 0.004128 | 0.003624 | 85,747 | 18m 23s | 1.00 MB | High | Medium | `dataset_input_mode_retraining__wave3_2_harmonic_residual_offset__simplified_setpoints` |
+| 4 | `te_wave3_2_harmonic_residual_offset_global__polished_setpoints` | `harmonic_residual_offset_probe` | 0.002220 | 0.003587 | 0.001905 | 85,747 | 28m 26s | 1.00 MB | High | Medium | `dataset_input_mode_retraining__wave3_2_harmonic_residual_offset__polished_setpoints` |
+| 5 | `te_wave3_2_harmonic_residual_offset_fw__polished_setpoints` | `harmonic_residual_offset_probe` | 0.002222 | 0.003593 | 0.001886 | 85,747 | 21m 43s | 1.00 MB | High | Medium | `dataset_input_mode_retraining__wave3_2_harmonic_residual_offset__polished_setpoints` |
+| 6 | `te_wave3_2_harmonic_residual_offset_bw__polished_setpoints` | `harmonic_residual_offset_probe` | 0.002256 | 0.003593 | 0.001933 | 85,747 | 27m 23s | 1.00 MB | High | Medium | `dataset_input_mode_retraining__wave3_2_harmonic_residual_offset__polished_setpoints` |
+| 7 | `te_wave3_2_harmonic_residual_offset_fw__simplified_setpoints` | `harmonic_residual_offset_probe` | 0.003391 | 0.004142 | 0.003623 | 85,747 | 15m 10s | 1.00 MB | High | Medium | `dataset_input_mode_retraining__wave3_2_harmonic_residual_offset__simplified_setpoints` |
+| 8 | `te_wave3_2_harmonic_residual_offset_bw__simplified_setpoints` | `harmonic_residual_offset_probe` | 0.003398 | 0.004083 | 0.003612 | 85,747 | 16m 11s | 1.00 MB | High | Medium | `dataset_input_mode_retraining__wave3_2_harmonic_residual_offset__simplified_setpoints` |
+| 9 | `te_wave3_2_harmonic_residual_offset_global__simplified_setpoints` | `harmonic_residual_offset_probe` | 0.003405 | 0.004128 | 0.003624 | 85,747 | 18m 23s | 1.00 MB | High | Medium | `dataset_input_mode_retraining__wave3_2_harmonic_residual_offset__simplified_setpoints` |
 
 #### wave3_3_raw_centered_shape_curve_aware
 

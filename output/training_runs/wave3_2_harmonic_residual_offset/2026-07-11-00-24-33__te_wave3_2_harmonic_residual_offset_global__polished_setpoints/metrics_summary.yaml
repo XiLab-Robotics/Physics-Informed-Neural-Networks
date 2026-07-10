@@ -1,0 +1,113 @@
+schema_version: 1
+config_path: /scratch1/dferrari/Physics-Informed-Neural-Networks/config/training/queue/dataset_input_mode_retraining/dataset_input_mode_retraining__wave3_2_harmonic_residual_offset__polished_setpoints/running/2026-07-11-00-24-33_001_001_wave3_2_harmonic_residual_offset_global.yaml
+experiment:
+  model_family: wave3_2_harmonic_residual_offset_global
+  model_type: harmonic_residual_offset_probe
+  run_name: te_wave3_2_harmonic_residual_offset_global__polished_setpoints
+  output_run_name: te_wave3_2_harmonic_residual_offset_global__polished_setpoints
+  run_instance_id: 2026-07-11-00-24-33__te_wave3_2_harmonic_residual_offset_global__polished_setpoints
+  output_artifact_kind: training_run
+  base_model_family: wave3_2_harmonic_residual_offset
+  training_variant: global
+  direction_scope_label: bidirectional
+  use_forward_direction: true
+  use_backward_direction: true
+artifacts:
+  output_directory: /scratch1/dferrari/Physics-Informed-Neural-Networks/output/training_runs/wave3_2_harmonic_residual_offset/2026-07-11-00-24-33__te_wave3_2_harmonic_residual_offset_global__polished_setpoints
+  best_checkpoint_path: /scratch1/dferrari/Physics-Informed-Neural-Networks/output/training_runs/wave3_2_harmonic_residual_offset/2026-07-11-00-24-33__te_wave3_2_harmonic_residual_offset_global__polished_setpoints/checkpoints/harmonic_residual_offset_probe-epoch=124-val_mae=0.00190522.ckpt
+dataset_split:
+  train_curve_count: 1356
+  validation_curve_count: 388
+  test_curve_count: 194
+  dataset_name: polished_dataset
+  dataset_schema: polished_setpoint_curve_v1
+  input_mode: setpoints
+  input_feature_name_list:
+  - angular_position_deg
+  - input_speed_rpm
+  - input_torque_nm
+  - oil_temperature_deg
+  - direction_flag
+  target_feature_name_list:
+  - theta_TE
+  input_feature_dim: 5
+  target_feature_dim: 1
+dataset:
+  dataset_id: polished_dataset
+  dataset_schema: polished_setpoint_curve_v1
+  input_mode: setpoints
+  input_feature_names:
+  - angular_position_deg
+  - input_speed_rpm
+  - input_torque_nm
+  - oil_temperature_deg
+  - direction_flag
+  target_feature_names:
+  - theta_TE
+  input_feature_dim: 5
+  target_feature_dim: 1
+model_summary:
+  backbone_name: HarmonicResidualOffsetNetwork
+  trainable_parameter_count: 85747
+  frozen_parameter_count: 0
+  total_parameter_count: 85747
+runtime_config:
+  accelerator: auto
+  devices: auto
+  precision: '32'
+  benchmark: true
+  use_non_blocking_transfer: true
+normalization_statistics:
+  input_feature_mean:
+  - 180.0000762939453
+  - 506.3013916015625
+  - 899.591552734375
+  - 29.843809127807617
+  - -0.01724354922771454
+  input_feature_std:
+  - 103.92301940917969
+  - 467.61541748046875
+  - 552.3279418945312
+  - 4.094047546386719
+  - 0.9998513460159302
+  target_mean:
+  - -0.016667330637574196
+  target_std:
+  - 0.0465485081076622
+validation_metrics:
+  val_loss: 0.005053361412137747
+  val_mae: 0.0019052241696044803
+  val_rmse: 0.0026788776740431786
+  val_pointwise_loss: 0.005053361412137747
+  val_centered_curve_shape_loss: 0.004567951895296574
+  val_curve_offset_loss: 0.00048540884745307267
+  val_curve_amplitude_loss: 0.032332923263311386
+  val_sparse_harmonic_shape_loss: 0.0
+  val_structured_mae: 0.031004667282104492
+  val_structured_rmse: 0.036472219973802567
+  val_residual_offset_mean_abs: 0.03075675666332245
+test_metrics:
+  test_loss: 0.008466935716569424
+  test_mae: 0.002219775225967169
+  test_rmse: 0.003586746985092759
+  test_pointwise_loss: 0.008466935716569424
+  test_centered_curve_shape_loss: 0.0054596164263784885
+  test_curve_offset_loss: 0.0030073211528360844
+  test_curve_amplitude_loss: 0.04329121485352516
+  test_sparse_harmonic_shape_loss: 0.0
+  test_structured_mae: 0.029155291616916656
+  test_structured_rmse: 0.03512752801179886
+  test_residual_offset_mean_abs: 0.028782228007912636
+comparison_payload:
+  model_family: wave3_2_harmonic_residual_offset_global
+  model_type: harmonic_residual_offset_probe
+  run_name: te_wave3_2_harmonic_residual_offset_global__polished_setpoints
+  backbone_name: HarmonicResidualOffsetNetwork
+  trainable_parameter_count: 85747
+  total_parameter_count: 85747
+  val_mae: 0.0019052241696044803
+  val_rmse: 0.0026788776740431786
+  test_mae: 0.002219775225967169
+  test_rmse: 0.003586746985092759
+  deployment_notes: ''
+  interpretability_notes: ''

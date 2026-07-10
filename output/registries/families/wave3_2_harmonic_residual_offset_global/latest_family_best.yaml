@@ -6,7 +6,7 @@ selection_policy:
   second_tie_breaker: val_mae
   third_tie_breaker: trainable_parameter_count
   direction: minimize
-updated_at: '2026-07-10T23:36:51'
+updated_at: '2026-07-11T00:52:59'
 best_entry:
   run_instance_id: 2026-06-30-18-43-05__te_wave3_2_harmonic_residual_offset_global
   run_name: te_wave3_2_harmonic_residual_offset_global
