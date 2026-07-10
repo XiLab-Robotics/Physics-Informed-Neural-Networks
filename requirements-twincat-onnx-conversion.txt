@@ -1,0 +1,9 @@
+# TwinCAT ONNX conversion helper dependencies.
+#
+# Install the Beckhoff toolbox wheel from the repository-local toolbox copy:
+#   python -m pip install scripts/deployment/twincat_onnx_conversion/ModelManagerAPI/PythonPackage/beckhoff_toolbox-3.1.251201-py3-none-any.whl
+
+numpy>=2.2,<3.0
+onnx>=1.21,<2.0
+onnxruntime>=1.23,<2.0
+PyYAML>=6.0,<7.0

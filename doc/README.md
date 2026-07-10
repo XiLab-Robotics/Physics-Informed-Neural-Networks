@@ -822,9 +822,19 @@ This folder contains the internal project documents derived from the reference P
   model-bank archives across simplified setpoints, polished setpoints, and
   polished actual values, with per-target best-cell highlights for composite
   candidate selection.
+- [technical/2026-07/2026-07-10/2026-07-10-13-05-04_twincat_onnx_conversion_pipeline.md](./technical/2026-07/2026-07-10/2026-07-10-13-05-04_twincat_onnx_conversion_pipeline.md)
+  Technical plan for a TwinCAT-facing ONNX conversion pipeline that wraps the
+  recovered Beckhoff Model Manager API, targets the existing TestRig
+  `TF38x0` XML/BML runtime first, and keeps `TF3820` Machine Learning Server
+  artifacts as an explicit evaluation path.
 
 - [scripts/tooling/lan_ai/lan_ai_node_server.md](./scripts/tooling/lan_ai/lan_ai_node_server.md)
   Setup and runtime guide for the remote LAN AI workstation.
+
+- [scripts/deployment/twincat_onnx_conversion/README.md](./scripts/deployment/twincat_onnx_conversion/README.md)
+  Usage note for the TwinCAT ONNX conversion helper, including Beckhoff
+  Model Manager API toolbox placement, `TF38x0` XML/BML conversion commands,
+  optional `TF3820` preparation, and expected output manifests.
 
 - [scripts/tooling/video_guides/remote_high_quality_video_pipeline.md](./scripts/tooling/video_guides/remote_high_quality_video_pipeline.md)
   Canonical process note for the validated high-quality TwinCAT/TestRig video pipeline.

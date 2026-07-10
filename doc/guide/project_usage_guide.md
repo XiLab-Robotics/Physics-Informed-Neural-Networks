@@ -1038,6 +1038,17 @@ The current usage flow mainly relies on these folders:
   Smoke check for contiguous, sparse RCIM, dense `0..240`, and dense `0..360`
   harmonic-basis model configuration.
 
+- `scripts/deployment/twincat_onnx_conversion/`
+  TwinCAT-facing ONNX conversion helper for Beckhoff `TF38x0` XML/BML
+  artifacts and optional `TF3820` Machine Learning Server preparation.
+
+- `scripts/deployment/twincat_onnx_conversion/convert_onnx_for_twincat.py`
+  Inspects an exported ONNX model, records operator and shape compatibility
+  evidence, runs an optional ONNX Runtime smoke test, and wraps Beckhoff
+  `mllib_toolbox.exe` conversion commands when the complete Model Manager API
+  runtime is available under
+  `scripts/deployment/twincat_onnx_conversion/ModelManagerAPI/`.
+
 - `scripts/tooling/`
   Repository-owned tooling utilities, now grouped by domain.
 
@@ -1089,6 +1100,11 @@ The current usage flow mainly relies on these folders:
 - `doc/scripts/tooling/technical_documents/create_technical_document.md`
   Canonical usage note for creating a new timestamped technical document and
   registering it in the day-local technical index plus `doc/README.md`.
+
+- `doc/scripts/deployment/twincat_onnx_conversion/README.md`
+  Canonical usage note for installing the recovered Beckhoff toolbox, running
+  the default feedforward conversion smoke test, interpreting `TF38x0` versus
+  `TF3820` outputs, and reading the generated conversion manifest.
 
 - `models/`
   Reserved root folder for trained checkpoints and exported model artifacts.
