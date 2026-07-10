@@ -147,10 +147,10 @@ last_completed_campaign:
       te_curve_verification_status: not_run_in_closeout
 next_prepared_campaign:
   status: completed_and_exported
-  campaign_name: dataset_input_mode_retraining__wave3_1_sequential_residual_offset_probe__simplified_setpoints
-  dataset_id: simplified_dataset
+  campaign_name: dataset_input_mode_retraining__wave3_1_sequential_residual_offset_probe__polished_setpoints
+  dataset_id: polished_dataset
   input_mode: setpoints
-  dataset_schema: simplified_curve_v1
+  dataset_schema: polished_setpoint_curve_v1
   expected_run_count: 3
   completed_run_count: 3
   failed_run_count: 0
@@ -162,67 +162,67 @@ next_prepared_campaign:
     slurm_cpus_per_task: 8
     slurm_memory: 100G
     gpu_request: 1g.20gb:1
-    observed_throughput: Global completed in 00:13:12, Fw in 00:21:27, and Bw in 00:12:34
-      at batch 16. The full sequential campaign completed in 00:47:56.
+    observed_throughput: Global completed in 00:27:17, Fw in 00:25:53, and Bw in 00:25:12
+      at batch 16. The full sequential campaign completed in 01:18:51.
     batch_tuning_note: The prepared campaign default was raised from curve_batch_size
-      2 to 16 before submission. Batch 16 remained stable for simplified setpoint
+      2 to 16 before submission. Batch 16 remained stable for polished setpoint
       Wave 3.1 sequential residual offset probe training and kept all three exports
       compatible with the shared 5-feature input contract.
-    resource_note: Job 135340 used gpu_request 1g.20gb:1 with 8 CPU workers and
-      100G host memory. Slurm MaxRSS was 15869320K, so the run remained within
+    resource_note: Job 135341 used gpu_request 1g.20gb:1 with 8 CPU workers and
+      100G host memory. Slurm MaxRSS was 15959716K, so the run remained within
       the 20 GB MIG memory envelope while avoiding full-A100 queue backfill.
-    next_campaign_recommendation: Continue Wave 3.1 polished setpoint campaign at
-      batch 16 with the same resource profile unless observed memory pressure changes.
+    next_campaign_recommendation: Continue Wave 3.1 polished actual-values campaign
+      at batch 16 with the same resource profile unless observed memory pressure changes.
   sbatch_submission:
-    slurm_job_id: '135340'
+    slurm_job_id: '135341'
     state: COMPLETED
     exit_code: 0:0
-    elapsed: 00:47:56
-    max_rss: 15869320K
+    elapsed: 01:18:51
+    max_rss: 15959716K
     python_executable: /unimore_home/dferrari/.conda/envs/pinns_env/bin/python
     torch_version: 2.7.1+cu118
     gpu_request: 1g.20gb:1
-  campaign_manifest_path: config/training/dataset_input_mode_retraining/campaigns/dataset_input_mode_retraining__wave3_1_sequential_residual_offset_probe__simplified_setpoints/campaign.yaml
-  campaign_output_directory: output/training_campaigns/2026-07-10-08-11-44_dataset_input_mode_retraining__wave3_1_sequential_residual_offset_probe
-  campaign_best_run_path: output/training_campaigns/2026-07-10-08-11-44_dataset_input_mode_retraining__wave3_1_sequential_residual_offset_probe/campaign_best_run.yaml
-  campaign_leaderboard_path: output/training_campaigns/2026-07-10-08-11-44_dataset_input_mode_retraining__wave3_1_sequential_residual_offset_probe/campaign_leaderboard.yaml
+  campaign_manifest_path: config/training/dataset_input_mode_retraining/campaigns/dataset_input_mode_retraining__wave3_1_sequential_residual_offset_probe__polished_setpoints/campaign.yaml
+  campaign_output_directory: output/training_campaigns/2026-07-10-09-12-14_dataset_input_mode_retraining__wave3_1_sequential_residual_offset_probe
+  campaign_best_run_path: output/training_campaigns/2026-07-10-09-12-14_dataset_input_mode_retraining__wave3_1_sequential_residual_offset_probe/campaign_best_run.yaml
+  campaign_leaderboard_path: output/training_campaigns/2026-07-10-09-12-14_dataset_input_mode_retraining__wave3_1_sequential_residual_offset_probe/campaign_leaderboard.yaml
   best_run:
-    run_name: te_wave3_1_sequential_residual_offset_probe_fw__simplified_setpoints
-    run_instance_id: 2026-07-10-08-24-57__te_wave3_1_sequential_residual_offset_probe_fw__simplified_setpoints
-    surface: forward
-    test_mae: 0.0034721458796411753
-    test_rmse: 0.004298313986510038
-    val_mae: 0.003654662286862731
+    run_name: te_wave3_1_sequential_residual_offset_probe_bw__polished_setpoints
+    run_instance_id: 2026-07-10-10-05-23__te_wave3_1_sequential_residual_offset_probe_bw__polished_setpoints
+    surface: backward
+    test_mae: 0.002450165804475546
+    test_rmse: 0.003838052973151207
+    val_mae: 0.00216898275539279
   surface_run_list:
   - surface: global
-    run_name: te_wave3_1_sequential_residual_offset_probe_global__simplified_setpoints
-    run_instance_id: 2026-07-10-08-11-44__te_wave3_1_sequential_residual_offset_probe_global__simplified_setpoints
-    test_mae: 0.003533764509484172
-    test_rmse: 0.004399256315082312
-    val_mae: 0.003727308241650462
-    duration: 00:13:12
+    run_name: te_wave3_1_sequential_residual_offset_probe_global__polished_setpoints
+    run_instance_id: 2026-07-10-09-12-14__te_wave3_1_sequential_residual_offset_probe_global__polished_setpoints
+    test_mae: 0.0024748079013079405
+    test_rmse: 0.0038351656403392553
+    val_mae: 0.0021835044026374817
+    duration: 00:27:17
   - surface: forward
-    run_name: te_wave3_1_sequential_residual_offset_probe_fw__simplified_setpoints
-    run_instance_id: 2026-07-10-08-24-57__te_wave3_1_sequential_residual_offset_probe_fw__simplified_setpoints
-    test_mae: 0.0034721458796411753
-    test_rmse: 0.004298313986510038
-    val_mae: 0.003654662286862731
-    duration: 00:21:27
+    run_name: te_wave3_1_sequential_residual_offset_probe_fw__polished_setpoints
+    run_instance_id: 2026-07-10-09-39-31__te_wave3_1_sequential_residual_offset_probe_fw__polished_setpoints
+    test_mae: 0.0024650634732097387
+    test_rmse: 0.0038485690020024776
+    val_mae: 0.002175379078835249
+    duration: 00:25:53
   - surface: backward
-    run_name: te_wave3_1_sequential_residual_offset_probe_bw__simplified_setpoints
-    run_instance_id: 2026-07-10-08-46-24__te_wave3_1_sequential_residual_offset_probe_bw__simplified_setpoints
-    test_mae: 0.003600794356316328
-    test_rmse: 0.00444008456543088
-    val_mae: 0.0037276335060596466
-    duration: 00:12:34
+    run_name: te_wave3_1_sequential_residual_offset_probe_bw__polished_setpoints
+    run_instance_id: 2026-07-10-10-05-23__te_wave3_1_sequential_residual_offset_probe_bw__polished_setpoints
+    test_mae: 0.002450165804475546
+    test_rmse: 0.003838052973151207
+    val_mae: 0.00216898275539279
+    duration: 00:25:12
   export:
     status: completed
-    export_root: models/simplified_dataset/setpoints/exported
-    export_inventory_path: models/simplified_dataset/setpoints/exported/model_development_export_inventory.yaml
+    export_root: models/polished_dataset/setpoints/exported
+    export_inventory_path: models/polished_dataset/setpoints/exported/model_development_export_inventory.yaml
     exported_entry_count: 3
     onnx_export_status_counts:
       exported: 3
-    family_export_directory: models/simplified_dataset/setpoints/exported/wave3_1_sequential_residual_offset_probe
+    family_export_directory: models/polished_dataset/setpoints/exported/wave3_1_sequential_residual_offset_probe
     onnx_warning_note: ONNX export emitted expected sequential residual offset and
       GRU tracing warnings; all three exports completed successfully.
   input_contract_verification:
@@ -235,4 +235,4 @@ next_prepared_campaign:
     - direction_flag
     assertion_status: passed
   te_curve_verification_status: not_run_in_closeout
-  next_planned_campaign: dataset_input_mode_retraining__wave3_1_sequential_residual_offset_probe__polished_setpoints
+  next_planned_campaign: dataset_input_mode_retraining__wave3_1_sequential_residual_offset_probe__polished_actual_values

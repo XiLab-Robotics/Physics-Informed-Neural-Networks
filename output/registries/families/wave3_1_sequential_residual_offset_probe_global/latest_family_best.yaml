@@ -6,7 +6,7 @@ selection_policy:
   second_tie_breaker: val_mae
   third_tie_breaker: trainable_parameter_count
   direction: minimize
-updated_at: '2026-07-10T08:24:57'
+updated_at: '2026-07-10T09:39:31'
 best_entry:
   run_instance_id: 2026-06-30-16-02-20__te_wave3_1_sequential_residual_offset_probe_global
   run_name: te_wave3_1_sequential_residual_offset_probe_global

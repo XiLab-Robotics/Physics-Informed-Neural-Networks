@@ -1,0 +1,113 @@
+schema_version: 1
+config_path: /scratch1/dferrari/Physics-Informed-Neural-Networks/config/training/queue/dataset_input_mode_retraining/dataset_input_mode_retraining__wave3_1_sequential_residual_offset_probe__polished_setpoints/running/2026-07-10-09-12-14_003_003_wave3_1_sequential_residual_offset_probe_bw.yaml
+experiment:
+  model_family: wave3_1_sequential_residual_offset_probe_bw
+  model_type: sequential_residual_offset_probe
+  run_name: te_wave3_1_sequential_residual_offset_probe_bw__polished_setpoints
+  output_run_name: te_wave3_1_sequential_residual_offset_probe_bw__polished_setpoints
+  run_instance_id: 2026-07-10-10-05-23__te_wave3_1_sequential_residual_offset_probe_bw__polished_setpoints
+  output_artifact_kind: training_run
+  base_model_family: wave3_1_sequential_residual_offset_probe
+  training_variant: bw
+  direction_scope_label: backward_only
+  use_forward_direction: false
+  use_backward_direction: true
+artifacts:
+  output_directory: /scratch1/dferrari/Physics-Informed-Neural-Networks/output/training_runs/wave3_1_sequential_residual_offset_probe/2026-07-10-10-05-23__te_wave3_1_sequential_residual_offset_probe_bw__polished_setpoints
+  best_checkpoint_path: /scratch1/dferrari/Physics-Informed-Neural-Networks/output/training_runs/wave3_1_sequential_residual_offset_probe/2026-07-10-10-05-23__te_wave3_1_sequential_residual_offset_probe_bw__polished_setpoints/checkpoints/sequential_residual_offset_probe-epoch=137-val_mae=0.00216898.ckpt
+dataset_split:
+  train_curve_count: 1356
+  validation_curve_count: 388
+  test_curve_count: 194
+  dataset_name: polished_dataset
+  dataset_schema: polished_setpoint_curve_v1
+  input_mode: setpoints
+  input_feature_name_list:
+  - angular_position_deg
+  - input_speed_rpm
+  - input_torque_nm
+  - oil_temperature_deg
+  - direction_flag
+  target_feature_name_list:
+  - theta_TE
+  input_feature_dim: 5
+  target_feature_dim: 1
+dataset:
+  dataset_id: polished_dataset
+  dataset_schema: polished_setpoint_curve_v1
+  input_mode: setpoints
+  input_feature_names:
+  - angular_position_deg
+  - input_speed_rpm
+  - input_torque_nm
+  - oil_temperature_deg
+  - direction_flag
+  target_feature_names:
+  - theta_TE
+  input_feature_dim: 5
+  target_feature_dim: 1
+model_summary:
+  backbone_name: SequentialResidualOffsetNetwork
+  trainable_parameter_count: 92802
+  frozen_parameter_count: 0
+  total_parameter_count: 92802
+runtime_config:
+  accelerator: auto
+  devices: auto
+  precision: '32'
+  benchmark: true
+  use_non_blocking_transfer: true
+normalization_statistics:
+  input_feature_mean:
+  - 180.0000762939453
+  - 506.3013916015625
+  - 899.591552734375
+  - 29.843809127807617
+  - -0.01724354922771454
+  input_feature_std:
+  - 103.92301940917969
+  - 467.61541748046875
+  - 552.3279418945312
+  - 4.094047546386719
+  - 0.9998513460159302
+  target_mean:
+  - -0.016667330637574196
+  target_std:
+  - 0.0465485081076622
+validation_metrics:
+  val_loss: 0.005800500046461821
+  val_mae: 0.00216898275539279
+  val_rmse: 0.002996767172589898
+  val_pointwise_loss: 0.005800500046461821
+  val_centered_curve_shape_loss: 0.005347647704184055
+  val_curve_offset_loss: 0.0004528534191194922
+  val_curve_amplitude_loss: 0.059043943881988525
+  val_sparse_harmonic_shape_loss: 0.0
+  val_base_mae: 0.02550215646624565
+  val_base_rmse: 0.030199935659766197
+  val_residual_offset_mean_abs: 0.025411348789930344
+test_metrics:
+  test_loss: 0.009281222708523273
+  test_mae: 0.002450165804475546
+  test_rmse: 0.003838052973151207
+  test_pointwise_loss: 0.009281222708523273
+  test_centered_curve_shape_loss: 0.006261427886784077
+  test_curve_offset_loss: 0.0030197943560779095
+  test_curve_amplitude_loss: 0.07151900976896286
+  test_sparse_harmonic_shape_loss: 0.0
+  test_base_mae: 0.024113185703754425
+  test_base_rmse: 0.028980424627661705
+  test_residual_offset_mean_abs: 0.023902390152215958
+comparison_payload:
+  model_family: wave3_1_sequential_residual_offset_probe_bw
+  model_type: sequential_residual_offset_probe
+  run_name: te_wave3_1_sequential_residual_offset_probe_bw__polished_setpoints
+  backbone_name: SequentialResidualOffsetNetwork
+  trainable_parameter_count: 92802
+  total_parameter_count: 92802
+  val_mae: 0.00216898275539279
+  val_rmse: 0.002996767172589898
+  test_mae: 0.002450165804475546
+  test_rmse: 0.003838052973151207
+  deployment_notes: ''
+  interpretability_notes: ''
