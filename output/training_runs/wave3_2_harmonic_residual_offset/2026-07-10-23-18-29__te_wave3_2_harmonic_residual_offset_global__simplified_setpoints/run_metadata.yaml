@@ -1,0 +1,22 @@
+schema_version: 1
+artifact_kind: training_run
+model_family: wave3_2_harmonic_residual_offset_global
+base_model_family: wave3_2_harmonic_residual_offset
+training_variant: global
+direction_scope_label: bidirectional
+use_forward_direction: true
+use_backward_direction: true
+run_name: te_wave3_2_harmonic_residual_offset_global__simplified_setpoints
+run_instance_id: 2026-07-10-23-18-29__te_wave3_2_harmonic_residual_offset_global__simplified_setpoints
+output_directory: output\training_runs\wave3_2_harmonic_residual_offset\2026-07-10-23-18-29__te_wave3_2_harmonic_residual_offset_global__simplified_setpoints
+dataset_id: simplified_dataset
+dataset_schema: simplified_curve_v1
+input_feature_names:
+- angular_position_deg
+- input_speed_rpm
+- input_torque_nm
+- oil_temperature_deg
+- direction_flag
+target_feature_names:
+- transmission_error_deg
+input_feature_dim: 5

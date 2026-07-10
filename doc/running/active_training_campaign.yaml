@@ -147,10 +147,10 @@ last_completed_campaign:
       te_curve_verification_status: not_run_in_closeout
 next_prepared_campaign:
   status: completed_and_exported
-  campaign_name: dataset_input_mode_retraining__wave3_2_clean_sequential_residual_offset__polished_actual_values
-  dataset_id: polished_dataset
-  input_mode: actual_values
-  dataset_schema: polished_point_v1
+  campaign_name: dataset_input_mode_retraining__wave3_2_harmonic_residual_offset__simplified_setpoints
+  dataset_id: simplified_dataset
+  input_mode: setpoints
+  dataset_schema: simplified_curve_v1
   expected_run_count: 3
   completed_run_count: 3
   failed_run_count: 0
@@ -162,69 +162,70 @@ next_prepared_campaign:
     slurm_cpus_per_task: 8
     slurm_memory: 100G
     gpu_request: 1g.20gb:1
-    observed_throughput: Global completed in 00:31:42, Fw in 00:30:55, and Bw in 00:24:39
-      at batch 16. The full sequential campaign completed in 01:29:28.
+    observed_throughput: Global completed in 00:18:23, Fw in 00:15:10, and Bw in 00:16:11
+      at batch 16. The full sequential campaign completed in 00:50:37.
     batch_tuning_note: The prepared campaign default was raised from curve_batch_size
-      2 to 16 before submission. Batch 16 remained stable for Wave 3.2 clean sequential
-      residual offset polished actual-values training and preserved the shared 5-feature
+      2 to 16 before submission. Batch 16 remained stable for Wave 3.2 harmonic residual
+      offset simplified-dataset setpoint training and preserved the shared 5-feature
       input contract.
-    resource_note: Job 135460 used gpu_request 1g.20gb:1 with 8 CPU workers and 100G
-      host memory. Slurm MaxRSS was 16313660K.
-    next_campaign_recommendation: Continue Wave 3.2 harmonic residual offset
-      with simplified_setpoints at batch 16 and the same resource profile unless
-      validation or Slurm telemetry changes.
+    resource_note: Job 135472 used gpu_request 1g.20gb:1 with 8 CPU workers and 100G
+      host memory. Slurm MaxRSS was 15715932K.
+    next_campaign_recommendation: Continue Wave 3.2 harmonic residual offset with
+      polished_setpoints at batch 16 and the same resource profile unless validation
+      or Slurm telemetry changes.
   sbatch_submission:
-    slurm_job_id: '135460'
+    slurm_job_id: '135472'
     state: COMPLETED
     exit_code: 0:0
-    elapsed: 01:29:28
-    max_rss: 16313660K
+    elapsed: 00:50:37
+    max_rss: 15715932K
     python_executable: /unimore_home/dferrari/.conda/envs/pinns_env/bin/python
     torch_version: 2.7.1+cu118
     gpu_request: 1g.20gb:1
-  campaign_manifest_path: config/training/dataset_input_mode_retraining/campaigns/dataset_input_mode_retraining__wave3_2_clean_sequential_residual_offset__polished_actual_values/campaign.yaml
-  campaign_output_directory: output/training_campaigns/2026-07-10-21-34-26_dataset_input_mode_retraining__wave3_2_clean_sequential_residual_offset
-  campaign_best_run_path: output/training_campaigns/2026-07-10-21-34-26_dataset_input_mode_retraining__wave3_2_clean_sequential_residual_offset/campaign_best_run.yaml
-  campaign_leaderboard_path: output/training_campaigns/2026-07-10-21-34-26_dataset_input_mode_retraining__wave3_2_clean_sequential_residual_offset/campaign_leaderboard.yaml
+  campaign_manifest_path: config/training/dataset_input_mode_retraining/campaigns/dataset_input_mode_retraining__wave3_2_harmonic_residual_offset__simplified_setpoints/campaign.yaml
+  campaign_output_directory: output/training_campaigns/2026-07-10-23-18-29_dataset_input_mode_retraining__wave3_2_harmonic_residual_offset__simplif
+  campaign_best_run_path: output/training_campaigns/2026-07-10-23-18-29_dataset_input_mode_retraining__wave3_2_harmonic_residual_offset__simplif/campaign_best_run.yaml
+  campaign_leaderboard_path: output/training_campaigns/2026-07-10-23-18-29_dataset_input_mode_retraining__wave3_2_harmonic_residual_offset__simplif/campaign_leaderboard.yaml
   best_run:
-    run_name: te_wave3_2_clean_sequential_residual_offset_fw__polished_actual_values
-    run_instance_id: 2026-07-10-22-06-08__te_wave3_2_clean_sequential_residual_offset_fw__polished_actual_values
+    run_name: te_wave3_2_harmonic_residual_offset_fw__simplified_setpoints
+    run_instance_id: 2026-07-10-23-36-51__te_wave3_2_harmonic_residual_offset_fw__simplified_setpoints
     surface: forward
-    test_mae: 0.00228761974722147
-    test_rmse: 0.0033455651719123125
-    val_mae: 0.002169393701478839
+    test_mae: 0.003391365986317396
+    test_rmse: 0.004142212215811014
+    val_mae: 0.0036225691437721252
   surface_run_list:
   - surface: global
-    run_name: te_wave3_2_clean_sequential_residual_offset_global__polished_actual_values
-    run_instance_id: 2026-07-10-21-34-26__te_wave3_2_clean_sequential_residual_offset_global__polished_actual_values
-    test_mae: 0.0023022268433123827
-    test_rmse: 0.0033694906160235405
-    val_mae: 0.00216361740604043
-    duration: 00:31:42
+    run_name: te_wave3_2_harmonic_residual_offset_global__simplified_setpoints
+    run_instance_id: 2026-07-10-23-18-29__te_wave3_2_harmonic_residual_offset_global__simplified_setpoints
+    test_mae: 0.003405333496630192
+    test_rmse: 0.004128447733819485
+    val_mae: 0.0036237125750631094
+    duration: 00:18:23
   - surface: forward
-    run_name: te_wave3_2_clean_sequential_residual_offset_fw__polished_actual_values
-    run_instance_id: 2026-07-10-22-06-08__te_wave3_2_clean_sequential_residual_offset_fw__polished_actual_values
-    test_mae: 0.00228761974722147
-    test_rmse: 0.0033455651719123125
-    val_mae: 0.002169393701478839
-    duration: 00:30:55
+    run_name: te_wave3_2_harmonic_residual_offset_fw__simplified_setpoints
+    run_instance_id: 2026-07-10-23-36-51__te_wave3_2_harmonic_residual_offset_fw__simplified_setpoints
+    test_mae: 0.003391365986317396
+    test_rmse: 0.004142212215811014
+    val_mae: 0.0036225691437721252
+    duration: 00:15:10
   - surface: backward
-    run_name: te_wave3_2_clean_sequential_residual_offset_bw__polished_actual_values
-    run_instance_id: 2026-07-10-22-37-04__te_wave3_2_clean_sequential_residual_offset_bw__polished_actual_values
-    test_mae: 0.0023123216815292835
-    test_rmse: 0.003384440438821912
-    val_mae: 0.00219453196041286
-    duration: 00:24:39
+    run_name: te_wave3_2_harmonic_residual_offset_bw__simplified_setpoints
+    run_instance_id: 2026-07-10-23-52-02__te_wave3_2_harmonic_residual_offset_bw__simplified_setpoints
+    test_mae: 0.0033982868772000074
+    test_rmse: 0.00408337265253067
+    val_mae: 0.003612156491726637
+    duration: 00:16:11
   export:
     status: completed
-    export_root: models/polished_dataset/actual_values/exported
-    export_inventory_path: models/polished_dataset/actual_values/exported/model_development_export_inventory.yaml
+    export_root: models/simplified_dataset/setpoints/exported
+    export_inventory_path: models/simplified_dataset/setpoints/exported/model_development_export_inventory.yaml
     exported_entry_count: 3
     onnx_export_status_counts:
       exported: 3
-    family_export_directory: models/polished_dataset/actual_values/exported/wave3_2_clean_sequential_residual_offset
-    onnx_warning_note: ONNX export emitted expected sequential residual offset and
-      GRU tracing warnings; all three exports completed successfully.
+    family_export_directory: models/simplified_dataset/setpoints/exported/wave3_2_harmonic_residual_offset
+    onnx_warning_note: ONNX export emitted expected harmonic residual offset, harmonic
+      regression, temporal sequence, and GRU tracing warnings; all three exports completed
+      successfully.
   input_contract_verification:
     input_feature_dim: 5
     input_feature_names:
@@ -233,15 +234,16 @@ next_prepared_campaign:
     - input_torque_nm
     - oil_temperature_deg
     - direction_flag
-    actual_values_source_note: The polished actual-values tensors use row-level speed,
-      torque, and oil-temperature values from the polished CSV columns plus direction_flag,
-      with angular_position_deg from polished curve samples and theta_TE as target.
+    setpoint_source_note: The simplified-dataset setpoint tensors use curve-level
+      speed, torque, and oil-temperature setpoints from the simplified CSV/file metadata
+      plus direction_flag, with angular_position_deg from curve samples and transmission_error_deg
+      as target.
     assertion_status: passed
   next_planned_campaign:
-    campaign_name: dataset_input_mode_retraining__wave3_2_harmonic_residual_offset__simplified_setpoints
+    campaign_name: dataset_input_mode_retraining__wave3_2_harmonic_residual_offset__polished_setpoints
     family: wave3_2_harmonic_residual_offset
-    version: simplified_setpoints
-    dataset_id: simplified_dataset
+    version: polished_setpoints
+    dataset_id: polished_dataset
     input_mode: setpoints
-    dataset_schema: simplified_curve_v1
+    dataset_schema: polished_setpoint_curve_v1
   te_curve_verification_status: not_run_in_closeout
