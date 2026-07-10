@@ -1,0 +1,69 @@
+{
+  "checker_error": "",
+  "checker_status": "passed",
+  "constant_nodes": [],
+  "dynamic_shape_count": 2,
+  "initializer_count": 0,
+  "inputs": [
+    {
+      "element_type": 1,
+      "element_type_name": "FLOAT",
+      "name": "float_input",
+      "shape": [
+        {
+          "kind": "unknown",
+          "value": null
+        },
+        {
+          "kind": "static",
+          "value": 5
+        }
+      ]
+    }
+  ],
+  "int64_max_constant_count": 0,
+  "int64_max_constant_nodes": [],
+  "ir_version": 8,
+  "node_count": 1,
+  "operator_histogram": {
+    "TreeEnsembleRegressor": 1
+  },
+  "opset_imports": [
+    {
+      "domain": "ai.onnx.ml",
+      "version": 1
+    },
+    {
+      "domain": "ai.onnx",
+      "version": 17
+    },
+    {
+      "domain": "ai.onnx",
+      "version": 17
+    }
+  ],
+  "outputs": [
+    {
+      "element_type": 1,
+      "element_type_name": "FLOAT",
+      "name": "variable",
+      "shape": [
+        {
+          "kind": "unknown",
+          "value": null
+        },
+        {
+          "kind": "static",
+          "value": 1
+        }
+      ]
+    }
+  ],
+  "recommended_route": "tf38x0_candidate",
+  "route_notes": [
+    "Dynamic dimensions are present; TF3820 allows only leading dynamic batch dimensions."
+  ],
+  "source_onnx_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_tree/source_model.onnx",
+  "source_onnx_sha256": "9edc31e0d26426ca146ffaf015968b74dcd48b867f04eade4be6dde5af033067",
+  "source_onnx_size_bytes": 281466
+}

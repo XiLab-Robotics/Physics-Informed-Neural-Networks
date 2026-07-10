@@ -1,0 +1,27 @@
+{
+  "inputs": [
+    {
+      "dtype": "float32",
+      "name": "input_tensor",
+      "shape": [
+        1,
+        33,
+        5
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "dtype": "float32",
+      "index": 0,
+      "shape": [
+        1,
+        1
+      ]
+    }
+  ],
+  "provider_list": [
+    "CPUExecutionProvider"
+  ],
+  "status": "passed"
+}

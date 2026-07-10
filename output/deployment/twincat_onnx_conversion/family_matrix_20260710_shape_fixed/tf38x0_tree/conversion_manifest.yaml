@@ -1,0 +1,93 @@
+schema_version: 1
+created_at: '2026-07-10T14:15:10'
+source_onnx_path: models/polished_dataset/actual_values/exported/tree/forward/2026-07-07-09-55-31__te_tree_fw__polished_actual_values/onnx/model.onnx
+source_onnx_sha256: 9edc31e0d26426ca146ffaf015968b74dcd48b867f04eade4be6dde5af033067
+beckhoff_input_onnx_path: output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_tree/source_model.onnx
+beckhoff_input_onnx_sha256: 9edc31e0d26426ca146ffaf015968b74dcd48b867f04eade4be6dde5af033067
+preprocessing_summary_path: output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_tree/preprocessing_summary.yaml
+preprocessing_summary:
+  status: not_needed
+  sequence_length: null
+  fallback_dimension_value: 1
+  frozen_dimension_list: []
+output_directory: output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_tree
+toolbox_executable: scripts/deployment/twincat_onnx_conversion/ModelManagerAPI/mllib_toolbox.exe
+beckhoff_toolbox_status:
+  toolbox_root: scripts/deployment/twincat_onnx_conversion/ModelManagerAPI
+  toolbox_executable: scripts/deployment/twincat_onnx_conversion/ModelManagerAPI/mllib_toolbox.exe
+  toolbox_executable_exists: true
+  required_runtime_file_list:
+  - mllib_um.dll
+  detected_runtime_file_list:
+  - MLAIPlugin.dll
+  - mllib_um.dll
+  - mllib_um32.dll
+  - ML_TcCOM_Extension.dll
+  - ML_TcCOM_Extension.dll.config
+  missing_runtime_file_list: []
+  status: ready
+inspection_summary_path: output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_tree/inspection_summary.json
+onnxruntime_smoke_path: output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_tree/onnxruntime_smoke.json
+onnxruntime_smoke_status: passed
+reference_inventory:
+  schema_version: 1
+  dataset_id: polished_dataset
+  dataset_schema: polished_point_v1
+  input_mode: actual_values
+  model_family: tree
+  model_type: hist_gradient_boosting
+  surface: forward
+  run_name: te_tree_fw__polished_actual_values
+  run_instance_id: 2026-07-07-09-55-31__te_tree_fw__polished_actual_values
+  source_output_directory: output/training_runs/tree/2026-07-07-09-55-31__te_tree_fw__polished_actual_values
+  source_best_checkpoint_path: output/training_runs/tree/2026-07-07-09-55-31__te_tree_fw__polished_actual_values/tree_model.pkl
+  python_model_path: models/polished_dataset/actual_values/exported/tree/forward/2026-07-07-09-55-31__te_tree_fw__polished_actual_values/python/tree_model.pkl
+  onnx_model_path: models/polished_dataset/actual_values/exported/tree/forward/2026-07-07-09-55-31__te_tree_fw__polished_actual_values/onnx/model.onnx
+  onnx_export_status: exported
+  onnx_export_error: ''
+  source_run_snapshot_path_map:
+    training_config.snapshot.yaml: models/polished_dataset/actual_values/exported/tree/forward/2026-07-07-09-55-31__te_tree_fw__polished_actual_values/source_run/training_config.snapshot.yaml
+    metrics_summary.snapshot.yaml: models/polished_dataset/actual_values/exported/tree/forward/2026-07-07-09-55-31__te_tree_fw__polished_actual_values/source_run/metrics_summary.snapshot.yaml
+    run_metadata.snapshot.yaml: models/polished_dataset/actual_values/exported/tree/forward/2026-07-07-09-55-31__te_tree_fw__polished_actual_values/source_run/run_metadata.snapshot.yaml
+    training_test_report.snapshot.md: models/polished_dataset/actual_values/exported/tree/forward/2026-07-07-09-55-31__te_tree_fw__polished_actual_values/source_run/training_test_report.snapshot.md
+  metrics:
+    val_mae: 0.001570162034401711
+    test_mae: 0.001749789661614506
+    test_rmse: 0.0028920609145474366
+tf38x0:
+  status: completed
+  xml_output_path: output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_tree/tf38x0/model.xml
+  bml_output_path: output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_tree/tf38x0/model.bml
+  info_output_path: output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_tree/tf38x0/info.txt
+  commands:
+  - name: tf38x0_onnximport_xml
+    command:
+    - C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\scripts\deployment\twincat_onnx_conversion\ModelManagerAPI\mllib_toolbox.exe
+    - onnximport
+    - C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\deployment\twincat_onnx_conversion\family_matrix_20260710_shape_fixed\tf38x0_tree\source_model.onnx
+    - C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\deployment\twincat_onnx_conversion\family_matrix_20260710_shape_fixed\tf38x0_tree\tf38x0\model.xml
+    return_code: 0
+    succeeded: true
+    stdout_path: output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_tree/logs/tf38x0_onnximport_xml.stdout.log
+    stderr_path: output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_tree/logs/tf38x0_onnximport_xml.stderr.log
+  - name: tf38x0_store_bml
+    command:
+    - C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\scripts\deployment\twincat_onnx_conversion\ModelManagerAPI\mllib_toolbox.exe
+    - store
+    - C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\deployment\twincat_onnx_conversion\family_matrix_20260710_shape_fixed\tf38x0_tree\tf38x0\model.xml
+    - C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\deployment\twincat_onnx_conversion\family_matrix_20260710_shape_fixed\tf38x0_tree\tf38x0\model.bml
+    return_code: 0
+    succeeded: true
+    stdout_path: output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_tree/logs/tf38x0_store_bml.stdout.log
+    stderr_path: output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_tree/logs/tf38x0_store_bml.stderr.log
+  - name: tf38x0_info_xml
+    command:
+    - C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\scripts\deployment\twincat_onnx_conversion\ModelManagerAPI\mllib_toolbox.exe
+    - info
+    - C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\deployment\twincat_onnx_conversion\family_matrix_20260710_shape_fixed\tf38x0_tree\tf38x0\model.xml
+    return_code: 0
+    succeeded: true
+    stdout_path: output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_tree/logs/tf38x0_info_xml.stdout.log
+    stderr_path: output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_tree/logs/tf38x0_info_xml.stderr.log
+tf3820:
+  status: skipped

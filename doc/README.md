@@ -828,6 +828,11 @@ This folder contains the internal project documents derived from the reference P
   `TF38x0` XML/BML runtime first, and keeps `TF3820` Machine Learning Server
   artifacts as an explicit evaluation path.
 
+- [technical/2026-07/2026-07-10/2026-07-10-13-53-04_twincat_onnx_family_compatibility_matrix.md](./technical/2026-07/2026-07-10/2026-07-10-13-53-04_twincat_onnx_family_compatibility_matrix.md)
+  Technical plan for testing one ONNX representative per implemented model
+  family, classifying TwinCAT importer compatibility, and extending the
+  conversion pipeline with verified family-specific remediation where needed.
+
 - [scripts/tooling/lan_ai/lan_ai_node_server.md](./scripts/tooling/lan_ai/lan_ai_node_server.md)
   Setup and runtime guide for the remote LAN AI workstation.
 
@@ -835,6 +840,11 @@ This folder contains the internal project documents derived from the reference P
   Usage note for the TwinCAT ONNX conversion helper, including Beckhoff
   Model Manager API toolbox placement, `TF38x0` XML/BML conversion commands,
   optional `TF3820` preparation, and expected output manifests.
+
+- [reports/analysis/twincat_onnx_conversion/[2026-07-10]/family_compatibility_matrix.md](./reports/analysis/twincat_onnx_conversion/%5B2026-07-10%5D/family_compatibility_matrix.md)
+  Family-wide TwinCAT ONNX compatibility matrix covering one representative
+  ONNX export from each implemented model family, with `TF38x0` and `TF3820`
+  route decisions.
 
 - [scripts/tooling/video_guides/remote_high_quality_video_pipeline.md](./scripts/tooling/video_guides/remote_high_quality_video_pipeline.md)
   Canonical process note for the validated high-quality TwinCAT/TestRig video pipeline.

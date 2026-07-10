@@ -1,0 +1,395 @@
+{
+  "checker_error": "",
+  "checker_status": "passed",
+  "constant_nodes": [
+    {
+      "contains_int64_max": false,
+      "node_index": 4,
+      "node_name": "/regression_module/regression_model/recurrent_network/Constant",
+      "numpy_dtype": "int64",
+      "onnx_dtype": "INT64",
+      "output": [
+        "/regression_module/regression_model/recurrent_network/Constant_output_0"
+      ],
+      "preview": [
+        0
+      ],
+      "shape": []
+    },
+    {
+      "contains_int64_max": false,
+      "node_index": 6,
+      "node_name": "/regression_module/regression_model/recurrent_network/Constant_1",
+      "numpy_dtype": "int64",
+      "onnx_dtype": "INT64",
+      "output": [
+        "/regression_module/regression_model/recurrent_network/Constant_1_output_0"
+      ],
+      "preview": [
+        2
+      ],
+      "shape": [
+        1
+      ]
+    },
+    {
+      "contains_int64_max": false,
+      "node_index": 7,
+      "node_name": "Constant_27",
+      "numpy_dtype": "int64",
+      "onnx_dtype": "INT64",
+      "output": [
+        "onnx::Unsqueeze_25"
+      ],
+      "preview": [
+        0
+      ],
+      "shape": [
+        1
+      ]
+    },
+    {
+      "contains_int64_max": false,
+      "node_index": 9,
+      "node_name": "/regression_module/regression_model/recurrent_network/Constant_2",
+      "numpy_dtype": "int64",
+      "onnx_dtype": "INT64",
+      "output": [
+        "/regression_module/regression_model/recurrent_network/Constant_2_output_0"
+      ],
+      "preview": [
+        128
+      ],
+      "shape": [
+        1
+      ]
+    },
+    {
+      "contains_int64_max": false,
+      "node_index": 13,
+      "node_name": "/regression_module/regression_model/recurrent_network/Constant_3",
+      "numpy_dtype": "int64",
+      "onnx_dtype": "INT64",
+      "output": [
+        "/regression_module/regression_model/recurrent_network/Constant_3_output_0"
+      ],
+      "preview": [
+        0
+      ],
+      "shape": [
+        1
+      ]
+    },
+    {
+      "contains_int64_max": false,
+      "node_index": 14,
+      "node_name": "/regression_module/regression_model/recurrent_network/Constant_4",
+      "numpy_dtype": "int64",
+      "onnx_dtype": "INT64",
+      "output": [
+        "/regression_module/regression_model/recurrent_network/Constant_4_output_0"
+      ],
+      "preview": [
+        0
+      ],
+      "shape": [
+        1
+      ]
+    },
+    {
+      "contains_int64_max": false,
+      "node_index": 15,
+      "node_name": "/regression_module/regression_model/recurrent_network/Constant_5",
+      "numpy_dtype": "int64",
+      "onnx_dtype": "INT64",
+      "output": [
+        "/regression_module/regression_model/recurrent_network/Constant_5_output_0"
+      ],
+      "preview": [
+        1
+      ],
+      "shape": [
+        1
+      ]
+    },
+    {
+      "contains_int64_max": false,
+      "node_index": 17,
+      "node_name": "/regression_module/regression_model/recurrent_network/Constant_6",
+      "numpy_dtype": "int64",
+      "onnx_dtype": "INT64",
+      "output": [
+        "/regression_module/regression_model/recurrent_network/Constant_6_output_0"
+      ],
+      "preview": [
+        0
+      ],
+      "shape": [
+        1
+      ]
+    },
+    {
+      "contains_int64_max": false,
+      "node_index": 18,
+      "node_name": "/regression_module/regression_model/recurrent_network/Constant_7",
+      "numpy_dtype": "int64",
+      "onnx_dtype": "INT64",
+      "output": [
+        "/regression_module/regression_model/recurrent_network/Constant_7_output_0"
+      ],
+      "preview": [
+        0
+      ],
+      "shape": [
+        1
+      ]
+    },
+    {
+      "contains_int64_max": false,
+      "node_index": 19,
+      "node_name": "/regression_module/regression_model/recurrent_network/Constant_8",
+      "numpy_dtype": "int64",
+      "onnx_dtype": "INT64",
+      "output": [
+        "/regression_module/regression_model/recurrent_network/Constant_8_output_0"
+      ],
+      "preview": [
+        1
+      ],
+      "shape": [
+        1
+      ]
+    },
+    {
+      "contains_int64_max": false,
+      "node_index": 22,
+      "node_name": "/regression_module/regression_model/recurrent_network/Constant_9",
+      "numpy_dtype": "int64",
+      "onnx_dtype": "INT64",
+      "output": [
+        "/regression_module/regression_model/recurrent_network/Constant_9_output_0"
+      ],
+      "preview": [
+        1
+      ],
+      "shape": [
+        1
+      ]
+    },
+    {
+      "contains_int64_max": false,
+      "node_index": 24,
+      "node_name": "/regression_module/regression_model/recurrent_network/Constant_10",
+      "numpy_dtype": "int64",
+      "onnx_dtype": "INT64",
+      "output": [
+        "/regression_module/regression_model/recurrent_network/Constant_10_output_0"
+      ],
+      "preview": [
+        0
+      ],
+      "shape": [
+        1
+      ]
+    },
+    {
+      "contains_int64_max": false,
+      "node_index": 25,
+      "node_name": "/regression_module/regression_model/recurrent_network/Constant_11",
+      "numpy_dtype": "int64",
+      "onnx_dtype": "INT64",
+      "output": [
+        "/regression_module/regression_model/recurrent_network/Constant_11_output_0"
+      ],
+      "preview": [
+        1
+      ],
+      "shape": [
+        1
+      ]
+    },
+    {
+      "contains_int64_max": false,
+      "node_index": 26,
+      "node_name": "/regression_module/regression_model/recurrent_network/Constant_12",
+      "numpy_dtype": "int64",
+      "onnx_dtype": "INT64",
+      "output": [
+        "/regression_module/regression_model/recurrent_network/Constant_12_output_0"
+      ],
+      "preview": [
+        2
+      ],
+      "shape": [
+        1
+      ]
+    },
+    {
+      "contains_int64_max": false,
+      "node_index": 28,
+      "node_name": "/regression_module/regression_model/recurrent_network/Constant_13",
+      "numpy_dtype": "int64",
+      "onnx_dtype": "INT64",
+      "output": [
+        "/regression_module/regression_model/recurrent_network/Constant_13_output_0"
+      ],
+      "preview": [
+        0
+      ],
+      "shape": [
+        1
+      ]
+    },
+    {
+      "contains_int64_max": false,
+      "node_index": 29,
+      "node_name": "/regression_module/regression_model/recurrent_network/Constant_14",
+      "numpy_dtype": "int64",
+      "onnx_dtype": "INT64",
+      "output": [
+        "/regression_module/regression_model/recurrent_network/Constant_14_output_0"
+      ],
+      "preview": [
+        1
+      ],
+      "shape": [
+        1
+      ]
+    },
+    {
+      "contains_int64_max": false,
+      "node_index": 30,
+      "node_name": "/regression_module/regression_model/recurrent_network/Constant_15",
+      "numpy_dtype": "int64",
+      "onnx_dtype": "INT64",
+      "output": [
+        "/regression_module/regression_model/recurrent_network/Constant_15_output_0"
+      ],
+      "preview": [
+        2
+      ],
+      "shape": [
+        1
+      ]
+    },
+    {
+      "contains_int64_max": false,
+      "node_index": 33,
+      "node_name": "/regression_module/regression_model/recurrent_network/Constant_16",
+      "numpy_dtype": "int64",
+      "onnx_dtype": "INT64",
+      "output": [
+        "/regression_module/regression_model/recurrent_network/Constant_16_output_0"
+      ],
+      "preview": [
+        1
+      ],
+      "shape": [
+        1
+      ]
+    },
+    {
+      "contains_int64_max": false,
+      "node_index": 37,
+      "node_name": "/regression_module/regression_model/Constant",
+      "numpy_dtype": "int64",
+      "onnx_dtype": "INT64",
+      "output": [
+        "/regression_module/regression_model/Constant_output_0"
+      ],
+      "preview": [
+        1
+      ],
+      "shape": []
+    },
+    {
+      "contains_int64_max": false,
+      "node_index": 39,
+      "node_name": "/regression_module/regression_model/Constant_1",
+      "numpy_dtype": "int64",
+      "onnx_dtype": "INT64",
+      "output": [
+        "/regression_module/regression_model/Constant_1_output_0"
+      ],
+      "preview": [
+        2
+      ],
+      "shape": []
+    }
+  ],
+  "dynamic_shape_count": 2,
+  "initializer_count": 12,
+  "inputs": [
+    {
+      "element_type": 1,
+      "element_type_name": "FLOAT",
+      "name": "input_tensor",
+      "shape": [
+        {
+          "kind": "dynamic",
+          "value": "batch_size"
+        },
+        {
+          "kind": "static",
+          "value": 33
+        },
+        {
+          "kind": "static",
+          "value": 5
+        }
+      ]
+    }
+  ],
+  "int64_max_constant_count": 0,
+  "int64_max_constant_nodes": [],
+  "ir_version": 8,
+  "node_count": 47,
+  "operator_histogram": {
+    "Add": 1,
+    "Cast": 3,
+    "Concat": 1,
+    "Constant": 20,
+    "ConstantOfShape": 1,
+    "Div": 2,
+    "Gather": 3,
+    "Gemm": 1,
+    "LSTM": 2,
+    "Mul": 1,
+    "Shape": 2,
+    "Slice": 4,
+    "Squeeze": 2,
+    "Sub": 1,
+    "Transpose": 2,
+    "Unsqueeze": 1
+  },
+  "opset_imports": [
+    {
+      "domain": "ai.onnx",
+      "version": 17
+    }
+  ],
+  "outputs": [
+    {
+      "element_type": 1,
+      "element_type_name": "FLOAT",
+      "name": "prediction_tensor",
+      "shape": [
+        {
+          "kind": "dynamic",
+          "value": "batch_size"
+        },
+        {
+          "kind": "static",
+          "value": 1
+        }
+      ]
+    }
+  ],
+  "recommended_route": "tf38x0_candidate",
+  "route_notes": [
+    "Dynamic dimensions are present; TF3820 allows only leading dynamic batch dimensions."
+  ],
+  "source_onnx_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_lstm_sequence/source_model.onnx",
+  "source_onnx_sha256": "ccbc6cda90f37ca55bc93c281fabe72dfe1bb51ddc6da1b7a7d09313daa87302",
+  "source_onnx_size_bytes": 816775
+}

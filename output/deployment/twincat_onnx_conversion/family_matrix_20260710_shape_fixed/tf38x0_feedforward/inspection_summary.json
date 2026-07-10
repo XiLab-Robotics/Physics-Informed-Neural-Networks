@@ -1,0 +1,238 @@
+{
+  "checker_error": "",
+  "checker_status": "passed",
+  "constant_nodes": [
+    {
+      "contains_int64_max": false,
+      "node_index": 5,
+      "node_name": "/regression_module/regression_model/network/network.2/Constant",
+      "numpy_dtype": "float32",
+      "onnx_dtype": "FLOAT",
+      "output": [
+        "/regression_module/regression_model/network/network.2/Constant_output_0"
+      ],
+      "preview": [
+        1.4142135381698608
+      ],
+      "shape": []
+    },
+    {
+      "contains_int64_max": false,
+      "node_index": 8,
+      "node_name": "/regression_module/regression_model/network/network.2/Constant_1",
+      "numpy_dtype": "float32",
+      "onnx_dtype": "FLOAT",
+      "output": [
+        "/regression_module/regression_model/network/network.2/Constant_1_output_0"
+      ],
+      "preview": [
+        1.0
+      ],
+      "shape": []
+    },
+    {
+      "contains_int64_max": false,
+      "node_index": 11,
+      "node_name": "/regression_module/regression_model/network/network.2/Constant_2",
+      "numpy_dtype": "float32",
+      "onnx_dtype": "FLOAT",
+      "output": [
+        "/regression_module/regression_model/network/network.2/Constant_2_output_0"
+      ],
+      "preview": [
+        0.5
+      ],
+      "shape": []
+    },
+    {
+      "contains_int64_max": false,
+      "node_index": 15,
+      "node_name": "/regression_module/regression_model/network/network.6/Constant",
+      "numpy_dtype": "float32",
+      "onnx_dtype": "FLOAT",
+      "output": [
+        "/regression_module/regression_model/network/network.6/Constant_output_0"
+      ],
+      "preview": [
+        1.4142135381698608
+      ],
+      "shape": []
+    },
+    {
+      "contains_int64_max": false,
+      "node_index": 18,
+      "node_name": "/regression_module/regression_model/network/network.6/Constant_1",
+      "numpy_dtype": "float32",
+      "onnx_dtype": "FLOAT",
+      "output": [
+        "/regression_module/regression_model/network/network.6/Constant_1_output_0"
+      ],
+      "preview": [
+        1.0
+      ],
+      "shape": []
+    },
+    {
+      "contains_int64_max": false,
+      "node_index": 21,
+      "node_name": "/regression_module/regression_model/network/network.6/Constant_2",
+      "numpy_dtype": "float32",
+      "onnx_dtype": "FLOAT",
+      "output": [
+        "/regression_module/regression_model/network/network.6/Constant_2_output_0"
+      ],
+      "preview": [
+        0.5
+      ],
+      "shape": []
+    },
+    {
+      "contains_int64_max": false,
+      "node_index": 25,
+      "node_name": "/regression_module/regression_model/network/network.10/Constant",
+      "numpy_dtype": "float32",
+      "onnx_dtype": "FLOAT",
+      "output": [
+        "/regression_module/regression_model/network/network.10/Constant_output_0"
+      ],
+      "preview": [
+        1.4142135381698608
+      ],
+      "shape": []
+    },
+    {
+      "contains_int64_max": false,
+      "node_index": 28,
+      "node_name": "/regression_module/regression_model/network/network.10/Constant_1",
+      "numpy_dtype": "float32",
+      "onnx_dtype": "FLOAT",
+      "output": [
+        "/regression_module/regression_model/network/network.10/Constant_1_output_0"
+      ],
+      "preview": [
+        1.0
+      ],
+      "shape": []
+    },
+    {
+      "contains_int64_max": false,
+      "node_index": 31,
+      "node_name": "/regression_module/regression_model/network/network.10/Constant_2",
+      "numpy_dtype": "float32",
+      "onnx_dtype": "FLOAT",
+      "output": [
+        "/regression_module/regression_model/network/network.10/Constant_2_output_0"
+      ],
+      "preview": [
+        0.5
+      ],
+      "shape": []
+    },
+    {
+      "contains_int64_max": false,
+      "node_index": 35,
+      "node_name": "/regression_module/regression_model/network/network.14/Constant",
+      "numpy_dtype": "float32",
+      "onnx_dtype": "FLOAT",
+      "output": [
+        "/regression_module/regression_model/network/network.14/Constant_output_0"
+      ],
+      "preview": [
+        1.4142135381698608
+      ],
+      "shape": []
+    },
+    {
+      "contains_int64_max": false,
+      "node_index": 38,
+      "node_name": "/regression_module/regression_model/network/network.14/Constant_1",
+      "numpy_dtype": "float32",
+      "onnx_dtype": "FLOAT",
+      "output": [
+        "/regression_module/regression_model/network/network.14/Constant_1_output_0"
+      ],
+      "preview": [
+        1.0
+      ],
+      "shape": []
+    },
+    {
+      "contains_int64_max": false,
+      "node_index": 41,
+      "node_name": "/regression_module/regression_model/network/network.14/Constant_2",
+      "numpy_dtype": "float32",
+      "onnx_dtype": "FLOAT",
+      "output": [
+        "/regression_module/regression_model/network/network.14/Constant_2_output_0"
+      ],
+      "preview": [
+        0.5
+      ],
+      "shape": []
+    }
+  ],
+  "dynamic_shape_count": 2,
+  "initializer_count": 22,
+  "inputs": [
+    {
+      "element_type": 1,
+      "element_type_name": "FLOAT",
+      "name": "input_tensor",
+      "shape": [
+        {
+          "kind": "dynamic",
+          "value": "batch_size"
+        },
+        {
+          "kind": "static",
+          "value": 5
+        }
+      ]
+    }
+  ],
+  "int64_max_constant_count": 0,
+  "int64_max_constant_nodes": [],
+  "ir_version": 8,
+  "node_count": 46,
+  "operator_histogram": {
+    "Add": 5,
+    "Cast": 1,
+    "Constant": 12,
+    "Div": 5,
+    "Erf": 4,
+    "Gemm": 5,
+    "LayerNormalization": 4,
+    "Mul": 9,
+    "Sub": 1
+  },
+  "opset_imports": [
+    {
+      "domain": "ai.onnx",
+      "version": 17
+    }
+  ],
+  "outputs": [
+    {
+      "element_type": 1,
+      "element_type_name": "FLOAT",
+      "name": "prediction_tensor",
+      "shape": [
+        {
+          "kind": "dynamic",
+          "value": "batch_size"
+        },
+        {
+          "kind": "static",
+          "value": 1
+        }
+      ]
+    }
+  ],
+  "recommended_route": "tf38x0_candidate",
+  "route_notes": [
+    "Dynamic dimensions are present; TF3820 allows only leading dynamic batch dimensions."
+  ],
+  "source_onnx_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_feedforward/source_model.onnx",
+  "source_onnx_sha256": "d34984f2a579c411e6bc95eaa560f6c106b59c47d3676cc7e72f43de396f97df",
+  "source_onnx_size_bytes": 452570
+}

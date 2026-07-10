@@ -1,0 +1,79 @@
+schema_version: 1
+created_at: '2026-07-10T14:15:25'
+source_onnx_path: models/polished_dataset/actual_values/exported/wave3_1_sequential_residual_offset_probe/forward/2026-07-10-11-09-33__te_wave3_1_sequential_residual_offset_probe_fw__polished_actual_values/onnx/model.onnx
+source_onnx_sha256: 23f9793831137e0054c0e805f2f33453c740125be082ec6a419870b71c4bac5e
+beckhoff_input_onnx_path: output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_wave3_1_sequential_residual_offset_probe/source_model.onnx
+beckhoff_input_onnx_sha256: fd1af0eb50eb8c0d073467f3e00368fa3863b0428b5058bf33a0c7ea83044a88
+preprocessing_summary_path: output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_wave3_1_sequential_residual_offset_probe/preprocessing_summary.yaml
+preprocessing_summary:
+  status: updated
+  sequence_length: 33
+  fallback_dimension_value: 33
+  frozen_dimension_list:
+  - value_name: input_tensor
+    axis: 1
+    original_value: sequence_length
+    frozen_value: 33
+output_directory: output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_wave3_1_sequential_residual_offset_probe
+toolbox_executable: scripts/deployment/twincat_onnx_conversion/ModelManagerAPI/mllib_toolbox.exe
+beckhoff_toolbox_status:
+  toolbox_root: scripts/deployment/twincat_onnx_conversion/ModelManagerAPI
+  toolbox_executable: scripts/deployment/twincat_onnx_conversion/ModelManagerAPI/mllib_toolbox.exe
+  toolbox_executable_exists: true
+  required_runtime_file_list:
+  - mllib_um.dll
+  detected_runtime_file_list:
+  - MLAIPlugin.dll
+  - mllib_um.dll
+  - mllib_um32.dll
+  - ML_TcCOM_Extension.dll
+  - ML_TcCOM_Extension.dll.config
+  missing_runtime_file_list: []
+  status: ready
+inspection_summary_path: output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_wave3_1_sequential_residual_offset_probe/inspection_summary.json
+onnxruntime_smoke_path: output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_wave3_1_sequential_residual_offset_probe/onnxruntime_smoke.json
+onnxruntime_smoke_status: passed
+reference_inventory:
+  schema_version: 1
+  dataset_id: polished_dataset
+  dataset_schema: polished_point_v1
+  input_mode: actual_values
+  model_family: wave3_1_sequential_residual_offset_probe
+  model_type: sequential_residual_offset_probe
+  surface: forward
+  run_name: te_wave3_1_sequential_residual_offset_probe_fw__polished_actual_values
+  run_instance_id: 2026-07-10-11-09-33__te_wave3_1_sequential_residual_offset_probe_fw__polished_actual_values
+  source_output_directory: output/training_runs/wave3_1_sequential_residual_offset_probe/2026-07-10-11-09-33__te_wave3_1_sequential_residual_offset_probe_fw__polished_actual_values
+  source_best_checkpoint_path: output/training_runs/wave3_1_sequential_residual_offset_probe/2026-07-10-11-09-33__te_wave3_1_sequential_residual_offset_probe_fw__polished_actual_values/checkpoints/sequential_residual_offset_probe-epoch=097-val_mae=0.00219045.ckpt
+  python_model_path: models/polished_dataset/actual_values/exported/wave3_1_sequential_residual_offset_probe/forward/2026-07-10-11-09-33__te_wave3_1_sequential_residual_offset_probe_fw__polished_actual_values/python/sequential_residual_offset_probe-epoch=097-val_mae=0.00219045.ckpt
+  onnx_model_path: models/polished_dataset/actual_values/exported/wave3_1_sequential_residual_offset_probe/forward/2026-07-10-11-09-33__te_wave3_1_sequential_residual_offset_probe_fw__polished_actual_values/onnx/model.onnx
+  onnx_export_status: exported
+  onnx_export_error: ''
+  source_run_snapshot_path_map:
+    training_config.snapshot.yaml: models/polished_dataset/actual_values/exported/wave3_1_sequential_residual_offset_probe/forward/2026-07-10-11-09-33__te_wave3_1_sequential_residual_offset_probe_fw__polished_actual_values/source_run/training_config.snapshot.yaml
+    metrics_summary.snapshot.yaml: models/polished_dataset/actual_values/exported/wave3_1_sequential_residual_offset_probe/forward/2026-07-10-11-09-33__te_wave3_1_sequential_residual_offset_probe_fw__polished_actual_values/source_run/metrics_summary.snapshot.yaml
+    run_metadata.snapshot.yaml: models/polished_dataset/actual_values/exported/wave3_1_sequential_residual_offset_probe/forward/2026-07-10-11-09-33__te_wave3_1_sequential_residual_offset_probe_fw__polished_actual_values/source_run/run_metadata.snapshot.yaml
+    training_test_report.snapshot.md: models/polished_dataset/actual_values/exported/wave3_1_sequential_residual_offset_probe/forward/2026-07-10-11-09-33__te_wave3_1_sequential_residual_offset_probe_fw__polished_actual_values/source_run/training_test_report.snapshot.md
+    best_checkpoint_path.snapshot.txt: models/polished_dataset/actual_values/exported/wave3_1_sequential_residual_offset_probe/forward/2026-07-10-11-09-33__te_wave3_1_sequential_residual_offset_probe_fw__polished_actual_values/source_run/best_checkpoint_path.snapshot.txt
+  metrics:
+    val_mae: 0.002190449507907033
+    test_mae: 0.002349496353417635
+    test_rmse: 0.0034330934286117554
+tf38x0:
+  status: failed
+  xml_output_path: null
+  bml_output_path: null
+  info_output_path: null
+  commands:
+  - name: tf38x0_onnximport_xml
+    command:
+    - C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\scripts\deployment\twincat_onnx_conversion\ModelManagerAPI\mllib_toolbox.exe
+    - onnximport
+    - C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\deployment\twincat_onnx_conversion\family_matrix_20260710_shape_fixed\tf38x0_wave3_1_sequential_residual_offset_probe\source_model.onnx
+    - C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\deployment\twincat_onnx_conversion\family_matrix_20260710_shape_fixed\tf38x0_wave3_1_sequential_residual_offset_probe\tf38x0\model.xml
+    return_code: 4294967294
+    succeeded: false
+    stdout_path: output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_wave3_1_sequential_residual_offset_probe/logs/tf38x0_onnximport_xml.stdout.log
+    stderr_path: output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_wave3_1_sequential_residual_offset_probe/logs/tf38x0_onnximport_xml.stderr.log
+tf3820:
+  status: skipped

@@ -1,0 +1,1550 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-07-10T14:15:39",
+  "output_root": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed",
+  "family_count": 37,
+  "represented_family_count": 37,
+  "missing_family_list": [],
+  "classification_counts": {
+    "compatible_tf38x0_xml_bml": 2,
+    "tf3820_plcopen_candidate": 35
+  },
+  "family_results": [
+    {
+      "family": "rcim_track1",
+      "representative_onnx_path": "output/validation_checks/rcim_model_bank_reproduction/2026-06-25-15-19-40__rcim_model_bank_reproduction_polished_dataset_bw_polished_dataset_campaign_validation/onnx_export/MLP/MLPRegressor_ampl0.onnx",
+      "inspection_summary_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_rcim_track1/inspection_summary.json",
+      "operator_histogram": {
+        "Add": 3,
+        "Cast": 1,
+        "MatMul": 3,
+        "Reshape": 1,
+        "Tanh": 2
+      },
+      "dynamic_shape_count": 2,
+      "int64_max_constant_count": 0,
+      "routes": {
+        "tf38x0": {
+          "return_code": 0,
+          "manifest_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_rcim_track1/conversion_manifest.yaml",
+          "status": "completed"
+        },
+        "tf3820": {
+          "return_code": 0,
+          "manifest_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_rcim_track1/conversion_manifest.yaml",
+          "status": "completed",
+          "json_output_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_rcim_track1/tf3820/model.json",
+          "plcopen_output_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_rcim_track1/tf3820/model_plcopen.xml"
+        }
+      },
+      "classification": "compatible_tf38x0_xml_bml"
+    },
+    {
+      "family": "tree",
+      "representative_onnx_path": "models/polished_dataset/actual_values/exported/tree/forward/2026-07-07-09-55-31__te_tree_fw__polished_actual_values/onnx/model.onnx",
+      "inspection_summary_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_tree/inspection_summary.json",
+      "operator_histogram": {
+        "TreeEnsembleRegressor": 1
+      },
+      "dynamic_shape_count": 2,
+      "int64_max_constant_count": 0,
+      "routes": {
+        "tf38x0": {
+          "return_code": 0,
+          "manifest_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_tree/conversion_manifest.yaml",
+          "status": "completed"
+        },
+        "tf3820": {
+          "return_code": 0,
+          "manifest_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_tree/conversion_manifest.yaml",
+          "status": "completed",
+          "json_output_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_tree/tf3820/model.json",
+          "plcopen_output_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_tree/tf3820/model_plcopen.xml"
+        }
+      },
+      "classification": "compatible_tf38x0_xml_bml"
+    },
+    {
+      "family": "residual_harmonic_mlp",
+      "representative_onnx_path": "models/polished_dataset/actual_values/exported/residual_harmonic_mlp/forward/2026-07-07-13-50-19__te_residual_harmonic_mlp_fw__polished_actual_values/onnx/model.onnx",
+      "inspection_summary_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_residual_harmonic_mlp/inspection_summary.json",
+      "operator_histogram": {
+        "Add": 5,
+        "Cast": 1,
+        "Concat": 2,
+        "Constant": 36,
+        "ConstantOfShape": 2,
+        "Cos": 12,
+        "Div": 4,
+        "Equal": 1,
+        "Erf": 3,
+        "Expand": 1,
+        "Gather": 1,
+        "Gemm": 4,
+        "LayerNormalization": 3,
+        "Mul": 22,
+        "ReduceSum": 1,
+        "Reshape": 1,
+        "Shape": 3,
+        "Sin": 12,
+        "Slice": 2,
+        "Sub": 1,
+        "Unsqueeze": 1,
+        "Where": 1
+      },
+      "dynamic_shape_count": 2,
+      "int64_max_constant_count": 1,
+      "routes": {
+        "tf38x0": {
+          "return_code": 1,
+          "manifest_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_residual_harmonic_mlp/conversion_manifest.yaml",
+          "status": "failed"
+        },
+        "tf3820": {
+          "return_code": 0,
+          "manifest_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_residual_harmonic_mlp/conversion_manifest.yaml",
+          "status": "completed",
+          "json_output_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_residual_harmonic_mlp/tf3820/model.json",
+          "plcopen_output_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_residual_harmonic_mlp/tf3820/model_plcopen.xml"
+        }
+      },
+      "classification": "tf3820_plcopen_candidate"
+    },
+    {
+      "family": "feedforward",
+      "representative_onnx_path": "models/polished_dataset/actual_values/exported/feedforward/forward/2026-07-07-18-43-03__te_feedforward_fw__polished_actual_values/onnx/model.onnx",
+      "inspection_summary_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_feedforward/inspection_summary.json",
+      "operator_histogram": {
+        "Add": 5,
+        "Cast": 1,
+        "Constant": 12,
+        "Div": 5,
+        "Erf": 4,
+        "Gemm": 5,
+        "LayerNormalization": 4,
+        "Mul": 9,
+        "Sub": 1
+      },
+      "dynamic_shape_count": 2,
+      "int64_max_constant_count": 0,
+      "routes": {
+        "tf38x0": {
+          "return_code": 1,
+          "manifest_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_feedforward/conversion_manifest.yaml",
+          "status": "failed"
+        },
+        "tf3820": {
+          "return_code": 0,
+          "manifest_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_feedforward/conversion_manifest.yaml",
+          "status": "completed",
+          "json_output_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_feedforward/tf3820/model.json",
+          "plcopen_output_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_feedforward/tf3820/model_plcopen.xml"
+        }
+      },
+      "classification": "tf3820_plcopen_candidate"
+    },
+    {
+      "family": "periodic_mlp",
+      "representative_onnx_path": "models/polished_dataset/actual_values/exported/periodic_mlp/forward/2026-07-07-21-58-17__te_periodic_mlp_fw__polished_actual_values/onnx/model.onnx",
+      "inspection_summary_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_periodic_mlp/inspection_summary.json",
+      "operator_histogram": {
+        "Add": 4,
+        "Cast": 1,
+        "Concat": 1,
+        "Constant": 26,
+        "Cos": 4,
+        "Div": 4,
+        "Erf": 3,
+        "Gemm": 4,
+        "LayerNormalization": 3,
+        "Mul": 12,
+        "Sin": 4,
+        "Slice": 3,
+        "Sub": 1
+      },
+      "dynamic_shape_count": 2,
+      "int64_max_constant_count": 1,
+      "routes": {
+        "tf38x0": {
+          "return_code": 1,
+          "manifest_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_periodic_mlp/conversion_manifest.yaml",
+          "status": "failed"
+        },
+        "tf3820": {
+          "return_code": 0,
+          "manifest_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_periodic_mlp/conversion_manifest.yaml",
+          "status": "completed",
+          "json_output_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_periodic_mlp/tf3820/model.json",
+          "plcopen_output_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_periodic_mlp/tf3820/model_plcopen.xml"
+        }
+      },
+      "classification": "tf3820_plcopen_candidate"
+    },
+    {
+      "family": "harmonic_regression",
+      "representative_onnx_path": "models/polished_dataset/actual_values/exported/harmonic_regression/forward/2026-07-08-00-15-14__te_harmonic_regression_fw__polished_actual_values/onnx/model.onnx",
+      "inspection_summary_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_harmonic_regression/inspection_summary.json",
+      "operator_histogram": {
+        "Add": 2,
+        "Cast": 1,
+        "Concat": 1,
+        "Constant": 22,
+        "ConstantOfShape": 1,
+        "Cos": 12,
+        "Div": 1,
+        "Gemm": 1,
+        "Mul": 15,
+        "ReduceSum": 1,
+        "Shape": 1,
+        "Sin": 12,
+        "Slice": 2,
+        "Sub": 1
+      },
+      "dynamic_shape_count": 2,
+      "int64_max_constant_count": 1,
+      "routes": {
+        "tf38x0": {
+          "return_code": 1,
+          "manifest_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_harmonic_regression/conversion_manifest.yaml",
+          "status": "failed"
+        },
+        "tf3820": {
+          "return_code": 0,
+          "manifest_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_harmonic_regression/conversion_manifest.yaml",
+          "status": "completed",
+          "json_output_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_harmonic_regression/tf3820/model.json",
+          "plcopen_output_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_harmonic_regression/tf3820/model_plcopen.xml"
+        }
+      },
+      "classification": "tf3820_plcopen_candidate"
+    },
+    {
+      "family": "periodic_mlp_harmonic",
+      "representative_onnx_path": "models/polished_dataset/actual_values/exported/periodic_mlp_harmonic/forward/2026-07-08-03-17-38__te_periodic_mlp_harmonic_fw__polished_actual_values/onnx/model.onnx",
+      "inspection_summary_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_periodic_mlp_harmonic/inspection_summary.json",
+      "operator_histogram": {
+        "Add": 4,
+        "Cast": 1,
+        "Concat": 1,
+        "Constant": 31,
+        "Cos": 9,
+        "Div": 4,
+        "Erf": 3,
+        "Gemm": 4,
+        "LayerNormalization": 3,
+        "Mul": 17,
+        "Sin": 9,
+        "Slice": 3,
+        "Sub": 1
+      },
+      "dynamic_shape_count": 2,
+      "int64_max_constant_count": 1,
+      "routes": {
+        "tf38x0": {
+          "return_code": 1,
+          "manifest_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_periodic_mlp_harmonic/conversion_manifest.yaml",
+          "status": "failed"
+        },
+        "tf3820": {
+          "return_code": 0,
+          "manifest_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_periodic_mlp_harmonic/conversion_manifest.yaml",
+          "status": "completed",
+          "json_output_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_periodic_mlp_harmonic/tf3820/model.json",
+          "plcopen_output_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_periodic_mlp_harmonic/tf3820/model_plcopen.xml"
+        }
+      },
+      "classification": "tf3820_plcopen_candidate"
+    },
+    {
+      "family": "temporal_convolution",
+      "representative_onnx_path": "models/polished_dataset/actual_values/exported/temporal_convolution/forward/2026-07-08-10-20-02__te_temporal_convolution_fw__polished_actual_values/onnx/model.onnx",
+      "inspection_summary_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_temporal_convolution/inspection_summary.json",
+      "operator_histogram": {
+        "Add": 4,
+        "Cast": 3,
+        "Constant": 11,
+        "Conv": 3,
+        "Div": 5,
+        "Erf": 3,
+        "Gather": 2,
+        "Gemm": 1,
+        "Mul": 7,
+        "Shape": 1,
+        "Sub": 1,
+        "Transpose": 2
+      },
+      "dynamic_shape_count": 2,
+      "int64_max_constant_count": 0,
+      "routes": {
+        "tf38x0": {
+          "return_code": 1,
+          "manifest_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_temporal_convolution/conversion_manifest.yaml",
+          "status": "failed"
+        },
+        "tf3820": {
+          "return_code": 0,
+          "manifest_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_temporal_convolution/conversion_manifest.yaml",
+          "status": "completed",
+          "json_output_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_temporal_convolution/tf3820/model.json",
+          "plcopen_output_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_temporal_convolution/tf3820/model_plcopen.xml"
+        }
+      },
+      "classification": "tf3820_plcopen_candidate"
+    },
+    {
+      "family": "gru_sequence",
+      "representative_onnx_path": "models/polished_dataset/actual_values/exported/gru_sequence/forward/2026-07-08-13-44-26__te_gru_sequence_fw__polished_actual_values/onnx/model.onnx",
+      "inspection_summary_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_gru_sequence/inspection_summary.json",
+      "operator_histogram": {
+        "Add": 1,
+        "Cast": 3,
+        "Concat": 1,
+        "Constant": 14,
+        "ConstantOfShape": 1,
+        "Div": 2,
+        "GRU": 2,
+        "Gather": 3,
+        "Gemm": 1,
+        "Mul": 1,
+        "Shape": 2,
+        "Slice": 2,
+        "Squeeze": 2,
+        "Sub": 1,
+        "Transpose": 2,
+        "Unsqueeze": 1
+      },
+      "dynamic_shape_count": 2,
+      "int64_max_constant_count": 0,
+      "routes": {
+        "tf38x0": {
+          "return_code": 1,
+          "manifest_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_gru_sequence/conversion_manifest.yaml",
+          "status": "failed"
+        },
+        "tf3820": {
+          "return_code": 0,
+          "manifest_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_gru_sequence/conversion_manifest.yaml",
+          "status": "completed",
+          "json_output_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_gru_sequence/tf3820/model.json",
+          "plcopen_output_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_gru_sequence/tf3820/model_plcopen.xml"
+        }
+      },
+      "classification": "tf3820_plcopen_candidate"
+    },
+    {
+      "family": "lstm_sequence",
+      "representative_onnx_path": "models/polished_dataset/actual_values/exported/lstm_sequence/forward/2026-07-08-17-20-19__te_lstm_sequence_fw__polished_actual_values/onnx/model.onnx",
+      "inspection_summary_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_lstm_sequence/inspection_summary.json",
+      "operator_histogram": {
+        "Add": 1,
+        "Cast": 3,
+        "Concat": 1,
+        "Constant": 20,
+        "ConstantOfShape": 1,
+        "Div": 2,
+        "Gather": 3,
+        "Gemm": 1,
+        "LSTM": 2,
+        "Mul": 1,
+        "Shape": 2,
+        "Slice": 4,
+        "Squeeze": 2,
+        "Sub": 1,
+        "Transpose": 2,
+        "Unsqueeze": 1
+      },
+      "dynamic_shape_count": 2,
+      "int64_max_constant_count": 0,
+      "routes": {
+        "tf38x0": {
+          "return_code": 1,
+          "manifest_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_lstm_sequence/conversion_manifest.yaml",
+          "status": "failed"
+        },
+        "tf3820": {
+          "return_code": 0,
+          "manifest_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_lstm_sequence/conversion_manifest.yaml",
+          "status": "completed",
+          "json_output_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_lstm_sequence/tf3820/model.json",
+          "plcopen_output_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_lstm_sequence/tf3820/model_plcopen.xml"
+        }
+      },
+      "classification": "tf3820_plcopen_candidate"
+    },
+    {
+      "family": "periodic_temporal_convolution",
+      "representative_onnx_path": "models/polished_dataset/actual_values/exported/periodic_temporal_convolution/forward/2026-07-08-21-06-17__te_periodic_temporal_convolution_fw__polished_actual_values/onnx/model.onnx",
+      "inspection_summary_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_periodic_temporal_convolution/inspection_summary.json",
+      "operator_histogram": {
+        "Add": 4,
+        "Cast": 3,
+        "Concat": 1,
+        "Constant": 33,
+        "Conv": 3,
+        "Cos": 9,
+        "Div": 5,
+        "Erf": 3,
+        "Gather": 2,
+        "Gemm": 1,
+        "Mul": 17,
+        "Shape": 1,
+        "Sin": 9,
+        "Slice": 3,
+        "Sub": 1,
+        "Transpose": 2
+      },
+      "dynamic_shape_count": 2,
+      "int64_max_constant_count": 1,
+      "routes": {
+        "tf38x0": {
+          "return_code": 1,
+          "manifest_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_periodic_temporal_convolution/conversion_manifest.yaml",
+          "status": "failed"
+        },
+        "tf3820": {
+          "return_code": 0,
+          "manifest_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_periodic_temporal_convolution/conversion_manifest.yaml",
+          "status": "completed",
+          "json_output_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_periodic_temporal_convolution/tf3820/model.json",
+          "plcopen_output_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_periodic_temporal_convolution/tf3820/model_plcopen.xml"
+        }
+      },
+      "classification": "tf3820_plcopen_candidate"
+    },
+    {
+      "family": "periodic_gru_sequence",
+      "representative_onnx_path": "models/polished_dataset/actual_values/exported/periodic_gru_sequence/forward/2026-07-09-00-29-12__te_periodic_gru_sequence_fw__polished_actual_values/onnx/model.onnx",
+      "inspection_summary_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_periodic_gru_sequence/inspection_summary.json",
+      "operator_histogram": {
+        "Add": 1,
+        "Cast": 3,
+        "Concat": 2,
+        "Constant": 36,
+        "ConstantOfShape": 1,
+        "Cos": 9,
+        "Div": 2,
+        "GRU": 2,
+        "Gather": 3,
+        "Gemm": 1,
+        "Mul": 11,
+        "Shape": 2,
+        "Sin": 9,
+        "Slice": 5,
+        "Squeeze": 2,
+        "Sub": 1,
+        "Transpose": 2,
+        "Unsqueeze": 1
+      },
+      "dynamic_shape_count": 2,
+      "int64_max_constant_count": 1,
+      "routes": {
+        "tf38x0": {
+          "return_code": 1,
+          "manifest_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_periodic_gru_sequence/conversion_manifest.yaml",
+          "status": "failed"
+        },
+        "tf3820": {
+          "return_code": 0,
+          "manifest_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_periodic_gru_sequence/conversion_manifest.yaml",
+          "status": "completed",
+          "json_output_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_periodic_gru_sequence/tf3820/model.json",
+          "plcopen_output_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_periodic_gru_sequence/tf3820/model_plcopen.xml"
+        }
+      },
+      "classification": "tf3820_plcopen_candidate"
+    },
+    {
+      "family": "periodic_lstm_sequence",
+      "representative_onnx_path": "models/polished_dataset/actual_values/exported/periodic_lstm_sequence/forward/2026-07-09-05-06-07__te_periodic_lstm_sequence_fw__polished_actual_values/onnx/model.onnx",
+      "inspection_summary_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_periodic_lstm_sequence/inspection_summary.json",
+      "operator_histogram": {
+        "Add": 1,
+        "Cast": 3,
+        "Concat": 2,
+        "Constant": 42,
+        "ConstantOfShape": 1,
+        "Cos": 9,
+        "Div": 2,
+        "Gather": 3,
+        "Gemm": 1,
+        "LSTM": 2,
+        "Mul": 11,
+        "Shape": 2,
+        "Sin": 9,
+        "Slice": 7,
+        "Squeeze": 2,
+        "Sub": 1,
+        "Transpose": 2,
+        "Unsqueeze": 1
+      },
+      "dynamic_shape_count": 2,
+      "int64_max_constant_count": 1,
+      "routes": {
+        "tf38x0": {
+          "return_code": 1,
+          "manifest_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_periodic_lstm_sequence/conversion_manifest.yaml",
+          "status": "failed"
+        },
+        "tf3820": {
+          "return_code": 0,
+          "manifest_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_periodic_lstm_sequence/conversion_manifest.yaml",
+          "status": "completed",
+          "json_output_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_periodic_lstm_sequence/tf3820/model.json",
+          "plcopen_output_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_periodic_lstm_sequence/tf3820/model_plcopen.xml"
+        }
+      },
+      "classification": "tf3820_plcopen_candidate"
+    },
+    {
+      "family": "residual_harmonic_gru_sequence_sparse_rcim",
+      "representative_onnx_path": "models/polished_dataset/actual_values/exported/residual_harmonic_gru_sequence_sparse_rcim/forward/2026-07-09-08-19-20__te_residual_harmonic_gru_sequence_sparse_rcim_fw__polished_actual_values/onnx/model.onnx",
+      "inspection_summary_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_residual_harmonic_gru_sequence_sparse_rcim/inspection_summary.json",
+      "operator_histogram": {
+        "Add": 2,
+        "Cast": 7,
+        "Concat": 3,
+        "Constant": 42,
+        "ConstantOfShape": 3,
+        "Cos": 9,
+        "Div": 4,
+        "Equal": 1,
+        "Expand": 1,
+        "GRU": 2,
+        "Gather": 8,
+        "Gemm": 1,
+        "Mul": 13,
+        "ReduceSum": 1,
+        "Reshape": 1,
+        "Shape": 7,
+        "Sin": 9,
+        "Slice": 4,
+        "Squeeze": 2,
+        "Sub": 1,
+        "Transpose": 2,
+        "Unsqueeze": 2,
+        "Where": 1
+      },
+      "dynamic_shape_count": 2,
+      "int64_max_constant_count": 1,
+      "routes": {
+        "tf38x0": {
+          "return_code": 1,
+          "manifest_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_residual_harmonic_gru_sequence_sparse_rcim/conversion_manifest.yaml",
+          "status": "failed"
+        },
+        "tf3820": {
+          "return_code": 0,
+          "manifest_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_residual_harmonic_gru_sequence_sparse_rcim/conversion_manifest.yaml",
+          "status": "completed",
+          "json_output_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_residual_harmonic_gru_sequence_sparse_rcim/tf3820/model.json",
+          "plcopen_output_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_residual_harmonic_gru_sequence_sparse_rcim/tf3820/model_plcopen.xml"
+        }
+      },
+      "classification": "tf3820_plcopen_candidate"
+    },
+    {
+      "family": "residual_harmonic_gru_sequence_dense240",
+      "representative_onnx_path": "models/polished_dataset/actual_values/exported/residual_harmonic_gru_sequence_dense240/forward/2026-07-09-11-57-58__te_residual_harmonic_gru_sequence_dense240_fw__polished_actual_values/onnx/model.onnx",
+      "inspection_summary_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_residual_harmonic_gru_sequence_dense240/inspection_summary.json",
+      "operator_histogram": {
+        "Add": 2,
+        "Cast": 7,
+        "Concat": 3,
+        "Constant": 273,
+        "ConstantOfShape": 3,
+        "Cos": 240,
+        "Div": 4,
+        "Equal": 1,
+        "Expand": 1,
+        "GRU": 2,
+        "Gather": 8,
+        "Gemm": 1,
+        "Mul": 244,
+        "ReduceSum": 1,
+        "Reshape": 1,
+        "Shape": 7,
+        "Sin": 240,
+        "Slice": 4,
+        "Squeeze": 2,
+        "Sub": 1,
+        "Transpose": 2,
+        "Unsqueeze": 2,
+        "Where": 1
+      },
+      "dynamic_shape_count": 2,
+      "int64_max_constant_count": 1,
+      "routes": {
+        "tf38x0": {
+          "return_code": 1,
+          "manifest_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_residual_harmonic_gru_sequence_dense240/conversion_manifest.yaml",
+          "status": "failed"
+        },
+        "tf3820": {
+          "return_code": 0,
+          "manifest_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_residual_harmonic_gru_sequence_dense240/conversion_manifest.yaml",
+          "status": "completed",
+          "json_output_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_residual_harmonic_gru_sequence_dense240/tf3820/model.json",
+          "plcopen_output_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_residual_harmonic_gru_sequence_dense240/tf3820/model_plcopen.xml"
+        }
+      },
+      "classification": "tf3820_plcopen_candidate"
+    },
+    {
+      "family": "residual_harmonic_gru_sequence_dense360",
+      "representative_onnx_path": "models/polished_dataset/actual_values/exported/residual_harmonic_gru_sequence_dense360/forward/2026-07-09-17-18-37__te_residual_harmonic_gru_sequence_dense360_fw__polished_actual_values/onnx/model.onnx",
+      "inspection_summary_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_residual_harmonic_gru_sequence_dense360/inspection_summary.json",
+      "operator_histogram": {
+        "Add": 2,
+        "Cast": 7,
+        "Concat": 3,
+        "Constant": 393,
+        "ConstantOfShape": 3,
+        "Cos": 360,
+        "Div": 4,
+        "Equal": 1,
+        "Expand": 1,
+        "GRU": 2,
+        "Gather": 8,
+        "Gemm": 1,
+        "Mul": 364,
+        "ReduceSum": 1,
+        "Reshape": 1,
+        "Shape": 7,
+        "Sin": 360,
+        "Slice": 4,
+        "Squeeze": 2,
+        "Sub": 1,
+        "Transpose": 2,
+        "Unsqueeze": 2,
+        "Where": 1
+      },
+      "dynamic_shape_count": 2,
+      "int64_max_constant_count": 1,
+      "routes": {
+        "tf38x0": {
+          "return_code": 1,
+          "manifest_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_residual_harmonic_gru_sequence_dense360/conversion_manifest.yaml",
+          "status": "failed"
+        },
+        "tf3820": {
+          "return_code": 0,
+          "manifest_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_residual_harmonic_gru_sequence_dense360/conversion_manifest.yaml",
+          "status": "completed",
+          "json_output_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_residual_harmonic_gru_sequence_dense360/tf3820/model.json",
+          "plcopen_output_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_residual_harmonic_gru_sequence_dense360/tf3820/model_plcopen.xml"
+        }
+      },
+      "classification": "tf3820_plcopen_candidate"
+    },
+    {
+      "family": "residual_harmonic_lstm_sequence_sparse_rcim",
+      "representative_onnx_path": "models/polished_dataset/actual_values/exported/residual_harmonic_lstm_sequence_sparse_rcim/forward/2026-07-09-21-46-24__te_residual_harmonic_lstm_sequence_sparse_rcim_fw__polished_actual_values/onnx/model.onnx",
+      "inspection_summary_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_residual_harmonic_lstm_sequence_sparse_rcim/inspection_summary.json",
+      "operator_histogram": {
+        "Add": 2,
+        "Cast": 7,
+        "Concat": 3,
+        "Constant": 48,
+        "ConstantOfShape": 3,
+        "Cos": 9,
+        "Div": 4,
+        "Equal": 1,
+        "Expand": 1,
+        "Gather": 8,
+        "Gemm": 1,
+        "LSTM": 2,
+        "Mul": 13,
+        "ReduceSum": 1,
+        "Reshape": 1,
+        "Shape": 7,
+        "Sin": 9,
+        "Slice": 6,
+        "Squeeze": 2,
+        "Sub": 1,
+        "Transpose": 2,
+        "Unsqueeze": 2,
+        "Where": 1
+      },
+      "dynamic_shape_count": 2,
+      "int64_max_constant_count": 1,
+      "routes": {
+        "tf38x0": {
+          "return_code": 1,
+          "manifest_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_residual_harmonic_lstm_sequence_sparse_rcim/conversion_manifest.yaml",
+          "status": "failed"
+        },
+        "tf3820": {
+          "return_code": 0,
+          "manifest_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_residual_harmonic_lstm_sequence_sparse_rcim/conversion_manifest.yaml",
+          "status": "completed",
+          "json_output_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_residual_harmonic_lstm_sequence_sparse_rcim/tf3820/model.json",
+          "plcopen_output_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_residual_harmonic_lstm_sequence_sparse_rcim/tf3820/model_plcopen.xml"
+        }
+      },
+      "classification": "tf3820_plcopen_candidate"
+    },
+    {
+      "family": "residual_harmonic_lstm_sequence_dense240",
+      "representative_onnx_path": "models/polished_dataset/actual_values/exported/residual_harmonic_lstm_sequence_dense240/forward/2026-07-10-02-31-07__te_residual_harmonic_lstm_sequence_dense240_fw__polished_actual_values/onnx/model.onnx",
+      "inspection_summary_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_residual_harmonic_lstm_sequence_dense240/inspection_summary.json",
+      "operator_histogram": {
+        "Add": 2,
+        "Cast": 7,
+        "Concat": 3,
+        "Constant": 279,
+        "ConstantOfShape": 3,
+        "Cos": 240,
+        "Div": 4,
+        "Equal": 1,
+        "Expand": 1,
+        "Gather": 8,
+        "Gemm": 1,
+        "LSTM": 2,
+        "Mul": 244,
+        "ReduceSum": 1,
+        "Reshape": 1,
+        "Shape": 7,
+        "Sin": 240,
+        "Slice": 6,
+        "Squeeze": 2,
+        "Sub": 1,
+        "Transpose": 2,
+        "Unsqueeze": 2,
+        "Where": 1
+      },
+      "dynamic_shape_count": 2,
+      "int64_max_constant_count": 1,
+      "routes": {
+        "tf38x0": {
+          "return_code": 1,
+          "manifest_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_residual_harmonic_lstm_sequence_dense240/conversion_manifest.yaml",
+          "status": "failed"
+        },
+        "tf3820": {
+          "return_code": 0,
+          "manifest_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_residual_harmonic_lstm_sequence_dense240/conversion_manifest.yaml",
+          "status": "completed",
+          "json_output_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_residual_harmonic_lstm_sequence_dense240/tf3820/model.json",
+          "plcopen_output_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_residual_harmonic_lstm_sequence_dense240/tf3820/model_plcopen.xml"
+        }
+      },
+      "classification": "tf3820_plcopen_candidate"
+    },
+    {
+      "family": "residual_harmonic_lstm_sequence_dense360",
+      "representative_onnx_path": "models/polished_dataset/actual_values/exported/residual_harmonic_lstm_sequence_dense360/forward/2026-07-10-06-59-39__te_residual_harmonic_lstm_sequence_dense360_fw__polished_actual_values/onnx/model.onnx",
+      "inspection_summary_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_residual_harmonic_lstm_sequence_dense360/inspection_summary.json",
+      "operator_histogram": {
+        "Add": 2,
+        "Cast": 7,
+        "Concat": 3,
+        "Constant": 399,
+        "ConstantOfShape": 3,
+        "Cos": 360,
+        "Div": 4,
+        "Equal": 1,
+        "Expand": 1,
+        "Gather": 8,
+        "Gemm": 1,
+        "LSTM": 2,
+        "Mul": 364,
+        "ReduceSum": 1,
+        "Reshape": 1,
+        "Shape": 7,
+        "Sin": 360,
+        "Slice": 6,
+        "Squeeze": 2,
+        "Sub": 1,
+        "Transpose": 2,
+        "Unsqueeze": 2,
+        "Where": 1
+      },
+      "dynamic_shape_count": 2,
+      "int64_max_constant_count": 1,
+      "routes": {
+        "tf38x0": {
+          "return_code": 1,
+          "manifest_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_residual_harmonic_lstm_sequence_dense360/conversion_manifest.yaml",
+          "status": "failed"
+        },
+        "tf3820": {
+          "return_code": 0,
+          "manifest_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_residual_harmonic_lstm_sequence_dense360/conversion_manifest.yaml",
+          "status": "completed",
+          "json_output_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_residual_harmonic_lstm_sequence_dense360/tf3820/model.json",
+          "plcopen_output_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_residual_harmonic_lstm_sequence_dense360/tf3820/model_plcopen.xml"
+        }
+      },
+      "classification": "tf3820_plcopen_candidate"
+    },
+    {
+      "family": "wave3_1_sequential_residual_offset_probe",
+      "representative_onnx_path": "models/polished_dataset/actual_values/exported/wave3_1_sequential_residual_offset_probe/forward/2026-07-10-11-09-33__te_wave3_1_sequential_residual_offset_probe_fw__polished_actual_values/onnx/model.onnx",
+      "inspection_summary_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_wave3_1_sequential_residual_offset_probe/inspection_summary.json",
+      "operator_histogram": {
+        "Add": 4,
+        "Cast": 5,
+        "Concat": 1,
+        "Constant": 23,
+        "ConstantOfShape": 1,
+        "Div": 5,
+        "Erf": 2,
+        "GRU": 2,
+        "Gather": 5,
+        "Gemm": 4,
+        "LayerNormalization": 2,
+        "Mul": 6,
+        "Shape": 3,
+        "Slice": 2,
+        "Squeeze": 2,
+        "Sub": 1,
+        "Transpose": 2,
+        "Unsqueeze": 1
+      },
+      "dynamic_shape_count": 2,
+      "int64_max_constant_count": 0,
+      "routes": {
+        "tf38x0": {
+          "return_code": 1,
+          "manifest_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_wave3_1_sequential_residual_offset_probe/conversion_manifest.yaml",
+          "status": "failed"
+        },
+        "tf3820": {
+          "return_code": 0,
+          "manifest_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_wave3_1_sequential_residual_offset_probe/conversion_manifest.yaml",
+          "status": "completed",
+          "json_output_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_wave3_1_sequential_residual_offset_probe/tf3820/model.json",
+          "plcopen_output_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_wave3_1_sequential_residual_offset_probe/tf3820/model_plcopen.xml"
+        }
+      },
+      "classification": "tf3820_plcopen_candidate"
+    },
+    {
+      "family": "wave3_2_clean_sequential_residual_offset",
+      "representative_onnx_path": "models/polished_dataset/exported/wave3_2_clean_sequential_residual_offset/forward/2026-06-30-17-46-46__te_wave3_2_clean_sequential_residual_offset_fw/onnx/model.onnx",
+      "inspection_summary_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_wave3_2_clean_sequential_residual_offset/inspection_summary.json",
+      "operator_histogram": {
+        "Add": 4,
+        "Cast": 5,
+        "Concat": 1,
+        "Constant": 23,
+        "ConstantOfShape": 1,
+        "Div": 5,
+        "Erf": 2,
+        "GRU": 2,
+        "Gather": 5,
+        "Gemm": 4,
+        "LayerNormalization": 2,
+        "Mul": 6,
+        "Shape": 3,
+        "Slice": 2,
+        "Squeeze": 2,
+        "Sub": 1,
+        "Transpose": 2,
+        "Unsqueeze": 1
+      },
+      "dynamic_shape_count": 2,
+      "int64_max_constant_count": 0,
+      "routes": {
+        "tf38x0": {
+          "return_code": 1,
+          "manifest_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_wave3_2_clean_sequential_residual_offset/conversion_manifest.yaml",
+          "status": "failed"
+        },
+        "tf3820": {
+          "return_code": 0,
+          "manifest_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_wave3_2_clean_sequential_residual_offset/conversion_manifest.yaml",
+          "status": "completed",
+          "json_output_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_wave3_2_clean_sequential_residual_offset/tf3820/model.json",
+          "plcopen_output_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_wave3_2_clean_sequential_residual_offset/tf3820/model_plcopen.xml"
+        }
+      },
+      "classification": "tf3820_plcopen_candidate"
+    },
+    {
+      "family": "wave3_2_harmonic_residual_offset",
+      "representative_onnx_path": "models/polished_dataset/exported/wave3_2_harmonic_residual_offset/forward/2026-06-30-19-14-26__te_wave3_2_harmonic_residual_offset_fw/onnx/model.onnx",
+      "inspection_summary_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_wave3_2_harmonic_residual_offset/inspection_summary.json",
+      "operator_histogram": {
+        "Add": 3,
+        "Cast": 7,
+        "Concat": 2,
+        "Constant": 38,
+        "ConstantOfShape": 2,
+        "Cos": 9,
+        "Div": 4,
+        "GRU": 2,
+        "Gather": 7,
+        "Gemm": 2,
+        "Mul": 13,
+        "ReduceSum": 1,
+        "Shape": 5,
+        "Sin": 9,
+        "Slice": 4,
+        "Squeeze": 2,
+        "Sub": 1,
+        "Transpose": 2,
+        "Unsqueeze": 1
+      },
+      "dynamic_shape_count": 2,
+      "int64_max_constant_count": 1,
+      "routes": {
+        "tf38x0": {
+          "return_code": 1,
+          "manifest_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_wave3_2_harmonic_residual_offset/conversion_manifest.yaml",
+          "status": "failed"
+        },
+        "tf3820": {
+          "return_code": 0,
+          "manifest_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_wave3_2_harmonic_residual_offset/conversion_manifest.yaml",
+          "status": "completed",
+          "json_output_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_wave3_2_harmonic_residual_offset/tf3820/model.json",
+          "plcopen_output_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_wave3_2_harmonic_residual_offset/tf3820/model_plcopen.xml"
+        }
+      },
+      "classification": "tf3820_plcopen_candidate"
+    },
+    {
+      "family": "wave3_3_curve_aware_pointwise_control",
+      "representative_onnx_path": "models/polished_dataset/exported/wave3_3_curve_aware_pointwise_control/forward/2026-06-30-20-40-49__te_wave3_3_curve_aware_pointwise_control_fw/onnx/model.onnx",
+      "inspection_summary_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_wave3_3_curve_aware_pointwise_control/inspection_summary.json",
+      "operator_histogram": {
+        "Add": 3,
+        "Cast": 7,
+        "Concat": 2,
+        "Constant": 38,
+        "ConstantOfShape": 2,
+        "Cos": 9,
+        "Div": 4,
+        "GRU": 2,
+        "Gather": 7,
+        "Gemm": 2,
+        "Mul": 13,
+        "ReduceSum": 1,
+        "Shape": 5,
+        "Sin": 9,
+        "Slice": 4,
+        "Squeeze": 2,
+        "Sub": 1,
+        "Transpose": 2,
+        "Unsqueeze": 1
+      },
+      "dynamic_shape_count": 2,
+      "int64_max_constant_count": 1,
+      "routes": {
+        "tf38x0": {
+          "return_code": 1,
+          "manifest_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_wave3_3_curve_aware_pointwise_control/conversion_manifest.yaml",
+          "status": "failed"
+        },
+        "tf3820": {
+          "return_code": 0,
+          "manifest_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_wave3_3_curve_aware_pointwise_control/conversion_manifest.yaml",
+          "status": "completed",
+          "json_output_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_wave3_3_curve_aware_pointwise_control/tf3820/model.json",
+          "plcopen_output_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_wave3_3_curve_aware_pointwise_control/tf3820/model_plcopen.xml"
+        }
+      },
+      "classification": "tf3820_plcopen_candidate"
+    },
+    {
+      "family": "wave3_3_raw_centered_shape_curve_aware",
+      "representative_onnx_path": "models/polished_dataset/exported/wave3_3_raw_centered_shape_curve_aware/forward/2026-06-30-22-31-32__te_wave3_3_raw_centered_shape_curve_aware_fw/onnx/model.onnx",
+      "inspection_summary_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_wave3_3_raw_centered_shape_curve_aware/inspection_summary.json",
+      "operator_histogram": {
+        "Add": 3,
+        "Cast": 7,
+        "Concat": 2,
+        "Constant": 38,
+        "ConstantOfShape": 2,
+        "Cos": 9,
+        "Div": 4,
+        "GRU": 2,
+        "Gather": 7,
+        "Gemm": 2,
+        "Mul": 13,
+        "ReduceSum": 1,
+        "Shape": 5,
+        "Sin": 9,
+        "Slice": 4,
+        "Squeeze": 2,
+        "Sub": 1,
+        "Transpose": 2,
+        "Unsqueeze": 1
+      },
+      "dynamic_shape_count": 2,
+      "int64_max_constant_count": 1,
+      "routes": {
+        "tf38x0": {
+          "return_code": 1,
+          "manifest_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_wave3_3_raw_centered_shape_curve_aware/conversion_manifest.yaml",
+          "status": "failed"
+        },
+        "tf3820": {
+          "return_code": 0,
+          "manifest_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_wave3_3_raw_centered_shape_curve_aware/conversion_manifest.yaml",
+          "status": "completed",
+          "json_output_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_wave3_3_raw_centered_shape_curve_aware/tf3820/model.json",
+          "plcopen_output_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_wave3_3_raw_centered_shape_curve_aware/tf3820/model_plcopen.xml"
+        }
+      },
+      "classification": "tf3820_plcopen_candidate"
+    },
+    {
+      "family": "wave3_3_raw_offset_curve_aware",
+      "representative_onnx_path": "models/polished_dataset/exported/wave3_3_raw_offset_curve_aware/forward/2026-07-01-00-11-36__te_wave3_3_raw_offset_curve_aware_fw/onnx/model.onnx",
+      "inspection_summary_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_wave3_3_raw_offset_curve_aware/inspection_summary.json",
+      "operator_histogram": {
+        "Add": 3,
+        "Cast": 7,
+        "Concat": 2,
+        "Constant": 38,
+        "ConstantOfShape": 2,
+        "Cos": 9,
+        "Div": 4,
+        "GRU": 2,
+        "Gather": 7,
+        "Gemm": 2,
+        "Mul": 13,
+        "ReduceSum": 1,
+        "Shape": 5,
+        "Sin": 9,
+        "Slice": 4,
+        "Squeeze": 2,
+        "Sub": 1,
+        "Transpose": 2,
+        "Unsqueeze": 1
+      },
+      "dynamic_shape_count": 2,
+      "int64_max_constant_count": 1,
+      "routes": {
+        "tf38x0": {
+          "return_code": 1,
+          "manifest_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_wave3_3_raw_offset_curve_aware/conversion_manifest.yaml",
+          "status": "failed"
+        },
+        "tf3820": {
+          "return_code": 0,
+          "manifest_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_wave3_3_raw_offset_curve_aware/conversion_manifest.yaml",
+          "status": "completed",
+          "json_output_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_wave3_3_raw_offset_curve_aware/tf3820/model.json",
+          "plcopen_output_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_wave3_3_raw_offset_curve_aware/tf3820/model_plcopen.xml"
+        }
+      },
+      "classification": "tf3820_plcopen_candidate"
+    },
+    {
+      "family": "wave3_3_full_curve_composite",
+      "representative_onnx_path": "models/polished_dataset/exported/wave3_3_full_curve_composite/forward/2026-07-01-02-04-09__te_wave3_3_full_curve_composite_fw/onnx/model.onnx",
+      "inspection_summary_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_wave3_3_full_curve_composite/inspection_summary.json",
+      "operator_histogram": {
+        "Add": 3,
+        "Cast": 7,
+        "Concat": 2,
+        "Constant": 38,
+        "ConstantOfShape": 2,
+        "Cos": 9,
+        "Div": 4,
+        "GRU": 2,
+        "Gather": 7,
+        "Gemm": 2,
+        "Mul": 13,
+        "ReduceSum": 1,
+        "Shape": 5,
+        "Sin": 9,
+        "Slice": 4,
+        "Squeeze": 2,
+        "Sub": 1,
+        "Transpose": 2,
+        "Unsqueeze": 1
+      },
+      "dynamic_shape_count": 2,
+      "int64_max_constant_count": 1,
+      "routes": {
+        "tf38x0": {
+          "return_code": 1,
+          "manifest_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_wave3_3_full_curve_composite/conversion_manifest.yaml",
+          "status": "failed"
+        },
+        "tf3820": {
+          "return_code": 0,
+          "manifest_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_wave3_3_full_curve_composite/conversion_manifest.yaml",
+          "status": "completed",
+          "json_output_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_wave3_3_full_curve_composite/tf3820/model.json",
+          "plcopen_output_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_wave3_3_full_curve_composite/tf3820/model_plcopen.xml"
+        }
+      },
+      "classification": "tf3820_plcopen_candidate"
+    },
+    {
+      "family": "wave4_1_mae_robust_loss",
+      "representative_onnx_path": "models/polished_dataset/exported/wave4_1_mae_robust_loss/forward/2026-07-01-03-49-36__te_wave4_1_mae_robust_loss_fw/onnx/model.onnx",
+      "inspection_summary_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_wave4_1_mae_robust_loss/inspection_summary.json",
+      "operator_histogram": {
+        "Add": 3,
+        "Cast": 7,
+        "Concat": 2,
+        "Constant": 38,
+        "ConstantOfShape": 2,
+        "Cos": 9,
+        "Div": 4,
+        "GRU": 2,
+        "Gather": 7,
+        "Gemm": 2,
+        "Mul": 13,
+        "ReduceSum": 1,
+        "Shape": 5,
+        "Sin": 9,
+        "Slice": 4,
+        "Squeeze": 2,
+        "Sub": 1,
+        "Transpose": 2,
+        "Unsqueeze": 1
+      },
+      "dynamic_shape_count": 2,
+      "int64_max_constant_count": 1,
+      "routes": {
+        "tf38x0": {
+          "return_code": 1,
+          "manifest_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_wave4_1_mae_robust_loss/conversion_manifest.yaml",
+          "status": "failed"
+        },
+        "tf3820": {
+          "return_code": 0,
+          "manifest_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_wave4_1_mae_robust_loss/conversion_manifest.yaml",
+          "status": "completed",
+          "json_output_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_wave4_1_mae_robust_loss/tf3820/model.json",
+          "plcopen_output_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_wave4_1_mae_robust_loss/tf3820/model_plcopen.xml"
+        }
+      },
+      "classification": "tf3820_plcopen_candidate"
+    },
+    {
+      "family": "wave4_1_smooth_l1_robust_loss",
+      "representative_onnx_path": "models/polished_dataset/exported/wave4_1_smooth_l1_robust_loss/forward/2026-07-01-05-31-06__te_wave4_1_smooth_l1_robust_loss_fw/onnx/model.onnx",
+      "inspection_summary_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_wave4_1_smooth_l1_robust_loss/inspection_summary.json",
+      "operator_histogram": {
+        "Add": 3,
+        "Cast": 7,
+        "Concat": 2,
+        "Constant": 38,
+        "ConstantOfShape": 2,
+        "Cos": 9,
+        "Div": 4,
+        "GRU": 2,
+        "Gather": 7,
+        "Gemm": 2,
+        "Mul": 13,
+        "ReduceSum": 1,
+        "Shape": 5,
+        "Sin": 9,
+        "Slice": 4,
+        "Squeeze": 2,
+        "Sub": 1,
+        "Transpose": 2,
+        "Unsqueeze": 1
+      },
+      "dynamic_shape_count": 2,
+      "int64_max_constant_count": 1,
+      "routes": {
+        "tf38x0": {
+          "return_code": 1,
+          "manifest_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_wave4_1_smooth_l1_robust_loss/conversion_manifest.yaml",
+          "status": "failed"
+        },
+        "tf3820": {
+          "return_code": 0,
+          "manifest_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_wave4_1_smooth_l1_robust_loss/conversion_manifest.yaml",
+          "status": "completed",
+          "json_output_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_wave4_1_smooth_l1_robust_loss/tf3820/model.json",
+          "plcopen_output_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_wave4_1_smooth_l1_robust_loss/tf3820/model_plcopen.xml"
+        }
+      },
+      "classification": "tf3820_plcopen_candidate"
+    },
+    {
+      "family": "wave4_1_log_cosh_robust_loss",
+      "representative_onnx_path": "models/polished_dataset/exported/wave4_1_log_cosh_robust_loss/forward/2026-07-01-06-59-33__te_wave4_1_log_cosh_robust_loss_fw/onnx/model.onnx",
+      "inspection_summary_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_wave4_1_log_cosh_robust_loss/inspection_summary.json",
+      "operator_histogram": {
+        "Add": 3,
+        "Cast": 7,
+        "Concat": 2,
+        "Constant": 38,
+        "ConstantOfShape": 2,
+        "Cos": 9,
+        "Div": 4,
+        "GRU": 2,
+        "Gather": 7,
+        "Gemm": 2,
+        "Mul": 13,
+        "ReduceSum": 1,
+        "Shape": 5,
+        "Sin": 9,
+        "Slice": 4,
+        "Squeeze": 2,
+        "Sub": 1,
+        "Transpose": 2,
+        "Unsqueeze": 1
+      },
+      "dynamic_shape_count": 2,
+      "int64_max_constant_count": 1,
+      "routes": {
+        "tf38x0": {
+          "return_code": 1,
+          "manifest_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_wave4_1_log_cosh_robust_loss/conversion_manifest.yaml",
+          "status": "failed"
+        },
+        "tf3820": {
+          "return_code": 0,
+          "manifest_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_wave4_1_log_cosh_robust_loss/conversion_manifest.yaml",
+          "status": "completed",
+          "json_output_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_wave4_1_log_cosh_robust_loss/tf3820/model.json",
+          "plcopen_output_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_wave4_1_log_cosh_robust_loss/tf3820/model_plcopen.xml"
+        }
+      },
+      "classification": "tf3820_plcopen_candidate"
+    },
+    {
+      "family": "wave4_2_quantile_p10_p50_p90",
+      "representative_onnx_path": "models/polished_dataset/exported/wave4_2_quantile_p10_p50_p90/forward/2026-07-01-09-37-14__te_wave4_2_quantile_p10_p50_p90_fw/onnx/model.onnx",
+      "inspection_summary_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_wave4_2_quantile_p10_p50_p90/inspection_summary.json",
+      "operator_histogram": {
+        "Add": 3,
+        "Cast": 7,
+        "Concat": 3,
+        "Constant": 43,
+        "ConstantOfShape": 2,
+        "Cos": 9,
+        "Div": 4,
+        "GRU": 2,
+        "Gather": 8,
+        "Gemm": 2,
+        "Mul": 13,
+        "ReduceSum": 1,
+        "Reshape": 1,
+        "Shape": 6,
+        "Sin": 9,
+        "Slice": 4,
+        "Squeeze": 2,
+        "Sub": 1,
+        "Transpose": 2,
+        "Unsqueeze": 3
+      },
+      "dynamic_shape_count": 2,
+      "int64_max_constant_count": 1,
+      "routes": {
+        "tf38x0": {
+          "return_code": 1,
+          "manifest_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_wave4_2_quantile_p10_p50_p90/conversion_manifest.yaml",
+          "status": "failed"
+        },
+        "tf3820": {
+          "return_code": 0,
+          "manifest_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_wave4_2_quantile_p10_p50_p90/conversion_manifest.yaml",
+          "status": "completed",
+          "json_output_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_wave4_2_quantile_p10_p50_p90/tf3820/model.json",
+          "plcopen_output_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_wave4_2_quantile_p10_p50_p90/tf3820/model_plcopen.xml"
+        }
+      },
+      "classification": "tf3820_plcopen_candidate"
+    },
+    {
+      "family": "wave4_2_gaussian_nll",
+      "representative_onnx_path": "models/polished_dataset/exported/wave4_2_gaussian_nll/forward/2026-07-01-11-54-11__te_wave4_2_gaussian_nll_fw/onnx/model.onnx",
+      "inspection_summary_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_wave4_2_gaussian_nll/inspection_summary.json",
+      "operator_histogram": {
+        "Add": 3,
+        "Cast": 7,
+        "Concat": 3,
+        "Constant": 43,
+        "ConstantOfShape": 2,
+        "Cos": 9,
+        "Div": 4,
+        "GRU": 2,
+        "Gather": 8,
+        "Gemm": 2,
+        "Mul": 13,
+        "ReduceSum": 1,
+        "Reshape": 1,
+        "Shape": 6,
+        "Sin": 9,
+        "Slice": 4,
+        "Squeeze": 2,
+        "Sub": 1,
+        "Transpose": 2,
+        "Unsqueeze": 3
+      },
+      "dynamic_shape_count": 2,
+      "int64_max_constant_count": 1,
+      "routes": {
+        "tf38x0": {
+          "return_code": 1,
+          "manifest_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_wave4_2_gaussian_nll/conversion_manifest.yaml",
+          "status": "failed"
+        },
+        "tf3820": {
+          "return_code": 0,
+          "manifest_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_wave4_2_gaussian_nll/conversion_manifest.yaml",
+          "status": "completed",
+          "json_output_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_wave4_2_gaussian_nll/tf3820/model.json",
+          "plcopen_output_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_wave4_2_gaussian_nll/tf3820/model_plcopen.xml"
+        }
+      },
+      "classification": "tf3820_plcopen_candidate"
+    },
+    {
+      "family": "wave4_3_mixture_density_k2",
+      "representative_onnx_path": "models/polished_dataset/exported/wave4_3_mixture_density_k2/forward/2026-07-01-14-38-06__te_wave4_3_mixture_density_k2_fw/onnx/model.onnx",
+      "inspection_summary_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_wave4_3_mixture_density_k2/inspection_summary.json",
+      "operator_histogram": {
+        "Add": 3,
+        "Cast": 7,
+        "Concat": 3,
+        "Constant": 43,
+        "ConstantOfShape": 2,
+        "Cos": 9,
+        "Div": 4,
+        "GRU": 2,
+        "Gather": 8,
+        "Gemm": 2,
+        "Mul": 13,
+        "ReduceSum": 1,
+        "Reshape": 1,
+        "Shape": 6,
+        "Sin": 9,
+        "Slice": 4,
+        "Squeeze": 2,
+        "Sub": 1,
+        "Transpose": 2,
+        "Unsqueeze": 3
+      },
+      "dynamic_shape_count": 2,
+      "int64_max_constant_count": 1,
+      "routes": {
+        "tf38x0": {
+          "return_code": 1,
+          "manifest_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_wave4_3_mixture_density_k2/conversion_manifest.yaml",
+          "status": "failed"
+        },
+        "tf3820": {
+          "return_code": 0,
+          "manifest_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_wave4_3_mixture_density_k2/conversion_manifest.yaml",
+          "status": "completed",
+          "json_output_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_wave4_3_mixture_density_k2/tf3820/model.json",
+          "plcopen_output_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_wave4_3_mixture_density_k2/tf3820/model_plcopen.xml"
+        }
+      },
+      "classification": "tf3820_plcopen_candidate"
+    },
+    {
+      "family": "wave4_3_mixture_density_k3",
+      "representative_onnx_path": "models/polished_dataset/exported/wave4_3_mixture_density_k3/forward/2026-07-01-17-43-32__te_wave4_3_mixture_density_k3_fw/onnx/model.onnx",
+      "inspection_summary_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_wave4_3_mixture_density_k3/inspection_summary.json",
+      "operator_histogram": {
+        "Add": 3,
+        "Cast": 7,
+        "Concat": 3,
+        "Constant": 43,
+        "ConstantOfShape": 2,
+        "Cos": 9,
+        "Div": 4,
+        "GRU": 2,
+        "Gather": 8,
+        "Gemm": 2,
+        "Mul": 13,
+        "ReduceSum": 1,
+        "Reshape": 1,
+        "Shape": 6,
+        "Sin": 9,
+        "Slice": 4,
+        "Squeeze": 2,
+        "Sub": 1,
+        "Transpose": 2,
+        "Unsqueeze": 3
+      },
+      "dynamic_shape_count": 2,
+      "int64_max_constant_count": 1,
+      "routes": {
+        "tf38x0": {
+          "return_code": 1,
+          "manifest_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_wave4_3_mixture_density_k3/conversion_manifest.yaml",
+          "status": "failed"
+        },
+        "tf3820": {
+          "return_code": 0,
+          "manifest_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_wave4_3_mixture_density_k3/conversion_manifest.yaml",
+          "status": "completed",
+          "json_output_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_wave4_3_mixture_density_k3/tf3820/model.json",
+          "plcopen_output_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_wave4_3_mixture_density_k3/tf3820/model_plcopen.xml"
+        }
+      },
+      "classification": "tf3820_plcopen_candidate"
+    },
+    {
+      "family": "wave4_4_gru_latent_offset_residual",
+      "representative_onnx_path": "models/polished_dataset/exported/wave4_4_gru_latent_offset_residual/forward/2026-07-01-20-26-34__te_wave4_4_gru_latent_offset_residual_fw/onnx/model.onnx",
+      "inspection_summary_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_wave4_4_gru_latent_offset_residual/inspection_summary.json",
+      "operator_histogram": {
+        "Add": 9,
+        "Cast": 1,
+        "Concat": 3,
+        "Constant": 32,
+        "ConstantOfShape": 1,
+        "Div": 7,
+        "Erf": 6,
+        "GRU": 2,
+        "Gather": 3,
+        "Gemm": 9,
+        "LayerNormalization": 6,
+        "Mul": 15,
+        "Shape": 1,
+        "Slice": 2,
+        "Squeeze": 1,
+        "Sub": 1,
+        "Transpose": 1,
+        "Unsqueeze": 1
+      },
+      "dynamic_shape_count": 2,
+      "int64_max_constant_count": 0,
+      "routes": {
+        "tf38x0": {
+          "return_code": 1,
+          "manifest_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_wave4_4_gru_latent_offset_residual/conversion_manifest.yaml",
+          "status": "failed"
+        },
+        "tf3820": {
+          "return_code": 0,
+          "manifest_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_wave4_4_gru_latent_offset_residual/conversion_manifest.yaml",
+          "status": "completed",
+          "json_output_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_wave4_4_gru_latent_offset_residual/tf3820/model.json",
+          "plcopen_output_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_wave4_4_gru_latent_offset_residual/tf3820/model_plcopen.xml"
+        }
+      },
+      "classification": "tf3820_plcopen_candidate"
+    },
+    {
+      "family": "wave4_4_causal_tcn_latent_offset_residual",
+      "representative_onnx_path": "models/polished_dataset/exported/wave4_4_causal_tcn_latent_offset_residual/forward/2026-07-01-22-00-10__te_wave4_4_causal_tcn_latent_offset_residual_fw/onnx/model.onnx",
+      "inspection_summary_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_wave4_4_causal_tcn_latent_offset_residual/inspection_summary.json",
+      "operator_histogram": {
+        "Add": 11,
+        "Cast": 3,
+        "Concat": 3,
+        "Constant": 43,
+        "ConstantOfShape": 2,
+        "Conv": 2,
+        "Div": 9,
+        "Erf": 8,
+        "Gather": 2,
+        "Gemm": 10,
+        "LayerNormalization": 6,
+        "Mul": 19,
+        "Pad": 2,
+        "Reshape": 4,
+        "Slice": 2,
+        "Sub": 1,
+        "Transpose": 4
+      },
+      "dynamic_shape_count": 2,
+      "int64_max_constant_count": 0,
+      "routes": {
+        "tf38x0": {
+          "return_code": 1,
+          "manifest_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_wave4_4_causal_tcn_latent_offset_residual/conversion_manifest.yaml",
+          "status": "failed"
+        },
+        "tf3820": {
+          "return_code": 0,
+          "manifest_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_wave4_4_causal_tcn_latent_offset_residual/conversion_manifest.yaml",
+          "status": "completed",
+          "json_output_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_wave4_4_causal_tcn_latent_offset_residual/tf3820/model.json",
+          "plcopen_output_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_wave4_4_causal_tcn_latent_offset_residual/tf3820/model_plcopen.xml"
+        }
+      },
+      "classification": "tf3820_plcopen_candidate"
+    },
+    {
+      "family": "wave5_1_harmonic_prior_pointwise_control",
+      "representative_onnx_path": "models/polished_dataset/exported/wave5_1_harmonic_prior_pointwise_control/forward/2026-07-01-23-29-08__te_wave5_1_harmonic_prior_pointwise_control_fw/onnx/model.onnx",
+      "inspection_summary_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_wave5_1_harmonic_prior_pointwise_control/inspection_summary.json",
+      "operator_histogram": {
+        "Add": 5,
+        "Cast": 5,
+        "Concat": 1,
+        "Constant": 30,
+        "ConstantOfShape": 1,
+        "Cos": 9,
+        "Div": 5,
+        "Erf": 2,
+        "Gather": 4,
+        "Gemm": 4,
+        "LayerNormalization": 2,
+        "Mul": 17,
+        "ReduceSum": 1,
+        "Shape": 3,
+        "Sin": 9,
+        "Slice": 2,
+        "Sub": 1
+      },
+      "dynamic_shape_count": 2,
+      "int64_max_constant_count": 1,
+      "routes": {
+        "tf38x0": {
+          "return_code": 1,
+          "manifest_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_wave5_1_harmonic_prior_pointwise_control/conversion_manifest.yaml",
+          "status": "failed"
+        },
+        "tf3820": {
+          "return_code": 0,
+          "manifest_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_wave5_1_harmonic_prior_pointwise_control/conversion_manifest.yaml",
+          "status": "completed",
+          "json_output_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_wave5_1_harmonic_prior_pointwise_control/tf3820/model.json",
+          "plcopen_output_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_wave5_1_harmonic_prior_pointwise_control/tf3820/model_plcopen.xml"
+        }
+      },
+      "classification": "tf3820_plcopen_candidate"
+    },
+    {
+      "family": "wave5_1_harmonic_prior_smooth_l1_structured",
+      "representative_onnx_path": "models/polished_dataset/exported/wave5_1_harmonic_prior_smooth_l1_structured/forward/2026-07-02-00-54-15__te_wave5_1_harmonic_prior_smooth_l1_structured_fw/onnx/model.onnx",
+      "inspection_summary_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_wave5_1_harmonic_prior_smooth_l1_structured/inspection_summary.json",
+      "operator_histogram": {
+        "Add": 5,
+        "Cast": 5,
+        "Concat": 1,
+        "Constant": 30,
+        "ConstantOfShape": 1,
+        "Cos": 9,
+        "Div": 5,
+        "Erf": 2,
+        "Gather": 4,
+        "Gemm": 4,
+        "LayerNormalization": 2,
+        "Mul": 17,
+        "ReduceSum": 1,
+        "Shape": 3,
+        "Sin": 9,
+        "Slice": 2,
+        "Sub": 1
+      },
+      "dynamic_shape_count": 2,
+      "int64_max_constant_count": 1,
+      "routes": {
+        "tf38x0": {
+          "return_code": 1,
+          "manifest_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_wave5_1_harmonic_prior_smooth_l1_structured/conversion_manifest.yaml",
+          "status": "failed"
+        },
+        "tf3820": {
+          "return_code": 0,
+          "manifest_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_wave5_1_harmonic_prior_smooth_l1_structured/conversion_manifest.yaml",
+          "status": "completed",
+          "json_output_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_wave5_1_harmonic_prior_smooth_l1_structured/tf3820/model.json",
+          "plcopen_output_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_wave5_1_harmonic_prior_smooth_l1_structured/tf3820/model_plcopen.xml"
+        }
+      },
+      "classification": "tf3820_plcopen_candidate"
+    }
+  ]
+}

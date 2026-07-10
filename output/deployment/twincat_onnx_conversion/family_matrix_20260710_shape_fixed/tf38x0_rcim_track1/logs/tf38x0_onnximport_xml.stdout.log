@@ -1,0 +1,22 @@
+
+    ==========================
+      Beckhoff MLlib Toolbox
+    ==========================
+    using Beckhoff MLlib UM library 3.1.251201.0
+    build for Win-x64/Release using clang/LLVM 20.1.4
+
+Executing 'onnximport' command...
+
+input file:  C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\deployment\twincat_onnx_conversion\family_matrix_20260710_shape_fixed\tf38x0_rcim_track1\source_model.onnx
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    model type:           mlp_neural_network
+    model info:           3 layers, 154 neurons, 5350 weights
+    req. target version:  3.1.200902.0
+    input dimension:      3
+    output dimension:     1
+    auto-selected engine: mlp_fp32_engine
+    default engine type:  mlp_fp32_engine
+     - input types:       int8 int16 int32 int64 fp32 fp64  (fp32 preferred)
+     - output types:      int8 int16 int32 int64 fp32 fp64  (fp32 preferred)
+
+'onnximport' command completed successfully in 3 ms.

@@ -1,0 +1,231 @@
+{
+  "checker_error": "",
+  "checker_status": "passed",
+  "constant_nodes": [
+    {
+      "contains_int64_max": false,
+      "node_index": 5,
+      "node_name": "/regression_module/regression_model/temporal_network/temporal_network.1/Constant",
+      "numpy_dtype": "float32",
+      "onnx_dtype": "FLOAT",
+      "output": [
+        "/regression_module/regression_model/temporal_network/temporal_network.1/Constant_output_0"
+      ],
+      "preview": [
+        1.4142135381698608
+      ],
+      "shape": []
+    },
+    {
+      "contains_int64_max": false,
+      "node_index": 8,
+      "node_name": "/regression_module/regression_model/temporal_network/temporal_network.1/Constant_1",
+      "numpy_dtype": "float32",
+      "onnx_dtype": "FLOAT",
+      "output": [
+        "/regression_module/regression_model/temporal_network/temporal_network.1/Constant_1_output_0"
+      ],
+      "preview": [
+        1.0
+      ],
+      "shape": []
+    },
+    {
+      "contains_int64_max": false,
+      "node_index": 11,
+      "node_name": "/regression_module/regression_model/temporal_network/temporal_network.1/Constant_2",
+      "numpy_dtype": "float32",
+      "onnx_dtype": "FLOAT",
+      "output": [
+        "/regression_module/regression_model/temporal_network/temporal_network.1/Constant_2_output_0"
+      ],
+      "preview": [
+        0.5
+      ],
+      "shape": []
+    },
+    {
+      "contains_int64_max": false,
+      "node_index": 14,
+      "node_name": "/regression_module/regression_model/temporal_network/temporal_network.4/Constant",
+      "numpy_dtype": "float32",
+      "onnx_dtype": "FLOAT",
+      "output": [
+        "/regression_module/regression_model/temporal_network/temporal_network.4/Constant_output_0"
+      ],
+      "preview": [
+        1.4142135381698608
+      ],
+      "shape": []
+    },
+    {
+      "contains_int64_max": false,
+      "node_index": 17,
+      "node_name": "/regression_module/regression_model/temporal_network/temporal_network.4/Constant_1",
+      "numpy_dtype": "float32",
+      "onnx_dtype": "FLOAT",
+      "output": [
+        "/regression_module/regression_model/temporal_network/temporal_network.4/Constant_1_output_0"
+      ],
+      "preview": [
+        1.0
+      ],
+      "shape": []
+    },
+    {
+      "contains_int64_max": false,
+      "node_index": 20,
+      "node_name": "/regression_module/regression_model/temporal_network/temporal_network.4/Constant_2",
+      "numpy_dtype": "float32",
+      "onnx_dtype": "FLOAT",
+      "output": [
+        "/regression_module/regression_model/temporal_network/temporal_network.4/Constant_2_output_0"
+      ],
+      "preview": [
+        0.5
+      ],
+      "shape": []
+    },
+    {
+      "contains_int64_max": false,
+      "node_index": 23,
+      "node_name": "/regression_module/regression_model/temporal_network/temporal_network.7/Constant",
+      "numpy_dtype": "float32",
+      "onnx_dtype": "FLOAT",
+      "output": [
+        "/regression_module/regression_model/temporal_network/temporal_network.7/Constant_output_0"
+      ],
+      "preview": [
+        1.4142135381698608
+      ],
+      "shape": []
+    },
+    {
+      "contains_int64_max": false,
+      "node_index": 26,
+      "node_name": "/regression_module/regression_model/temporal_network/temporal_network.7/Constant_1",
+      "numpy_dtype": "float32",
+      "onnx_dtype": "FLOAT",
+      "output": [
+        "/regression_module/regression_model/temporal_network/temporal_network.7/Constant_1_output_0"
+      ],
+      "preview": [
+        1.0
+      ],
+      "shape": []
+    },
+    {
+      "contains_int64_max": false,
+      "node_index": 29,
+      "node_name": "/regression_module/regression_model/temporal_network/temporal_network.7/Constant_2",
+      "numpy_dtype": "float32",
+      "onnx_dtype": "FLOAT",
+      "output": [
+        "/regression_module/regression_model/temporal_network/temporal_network.7/Constant_2_output_0"
+      ],
+      "preview": [
+        0.5
+      ],
+      "shape": []
+    },
+    {
+      "contains_int64_max": false,
+      "node_index": 33,
+      "node_name": "/regression_module/regression_model/Constant",
+      "numpy_dtype": "int64",
+      "onnx_dtype": "INT64",
+      "output": [
+        "/regression_module/regression_model/Constant_output_0"
+      ],
+      "preview": [
+        1
+      ],
+      "shape": []
+    },
+    {
+      "contains_int64_max": false,
+      "node_index": 35,
+      "node_name": "/regression_module/regression_model/Constant_1",
+      "numpy_dtype": "int64",
+      "onnx_dtype": "INT64",
+      "output": [
+        "/regression_module/regression_model/Constant_1_output_0"
+      ],
+      "preview": [
+        2
+      ],
+      "shape": []
+    }
+  ],
+  "dynamic_shape_count": 2,
+  "initializer_count": 12,
+  "inputs": [
+    {
+      "element_type": 1,
+      "element_type_name": "FLOAT",
+      "name": "input_tensor",
+      "shape": [
+        {
+          "kind": "dynamic",
+          "value": "batch_size"
+        },
+        {
+          "kind": "static",
+          "value": 33
+        },
+        {
+          "kind": "static",
+          "value": 5
+        }
+      ]
+    }
+  ],
+  "int64_max_constant_count": 0,
+  "int64_max_constant_nodes": [],
+  "ir_version": 8,
+  "node_count": 43,
+  "operator_histogram": {
+    "Add": 4,
+    "Cast": 3,
+    "Constant": 11,
+    "Conv": 3,
+    "Div": 5,
+    "Erf": 3,
+    "Gather": 2,
+    "Gemm": 1,
+    "Mul": 7,
+    "Shape": 1,
+    "Sub": 1,
+    "Transpose": 2
+  },
+  "opset_imports": [
+    {
+      "domain": "ai.onnx",
+      "version": 17
+    }
+  ],
+  "outputs": [
+    {
+      "element_type": 1,
+      "element_type_name": "FLOAT",
+      "name": "prediction_tensor",
+      "shape": [
+        {
+          "kind": "dynamic",
+          "value": "batch_size"
+        },
+        {
+          "kind": "static",
+          "value": 1
+        }
+      ]
+    }
+  ],
+  "recommended_route": "tf38x0_candidate",
+  "route_notes": [
+    "Dynamic dimensions are present; TF3820 allows only leading dynamic batch dimensions."
+  ],
+  "source_onnx_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_temporal_convolution/source_model.onnx",
+  "source_onnx_sha256": "c38aab27a8a80e6ea3eb17559c3ee2e7f6ce61bbc0b8626e66107b58283b8734",
+  "source_onnx_size_bytes": 599776
+}

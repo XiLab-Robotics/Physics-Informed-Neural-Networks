@@ -1,0 +1,24 @@
+
+    ==========================
+      Beckhoff MLlib Toolbox
+    ==========================
+    using Beckhoff MLlib UM library 3.1.251201.0
+    build for Win-x64/Release using clang/LLVM 20.1.4
+
+Executing 'onnximport' command...
+
+ERROR:   MLLIB_ERROR_INTERNAL_ALLOCATION - 
+    thrown in function '_ReadONNXnodeattributes_toParamTree',
+    located in 'onnx_graph_reader.cpp', line 313.
+
+ERROR:   MLLIB_ERROR_CONFIGURATION_INVALID - ONNX Constant node attributes could not be read.
+    thrown in function '_ReadONNXnode_constant',
+    located in 'onnx_graph_reader.cpp', line 367.
+
+ERROR:   MLLIB_ERROR_CONFIGURATION_INVALID - Could not read ONNX operator node 'Constant'.
+    thrown in function '_ReadONNXnode',
+    located in 'onnx_graph_reader.cpp', line 555.
+
+    More errors are being thrown. Consider adding the '--log' option
+    for a detailed output in the log file.
+

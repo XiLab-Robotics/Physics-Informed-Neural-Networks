@@ -103,6 +103,25 @@ python -B scripts\deployment\twincat_onnx_conversion\convert_onnx_for_twincat.py
 Use these files only for an explicit `TF3820` design review. They do not match
 the current TestRig `FB_MllPrediction` PLC runtime path.
 
+For sequence models, freeze non-batch dynamic dimensions on the run-local ONNX
+copy before preparation:
+
+```powershell
+python -B scripts\deployment\twincat_onnx_conversion\convert_onnx_for_twincat.py `
+  --onnx models\polished_dataset\actual_values\exported\gru_sequence\forward\2026-07-08-13-44-26__te_gru_sequence_fw__polished_actual_values\onnx\model.onnx `
+  --prepare-tf3820 `
+  --skip-tf38x0 `
+  --freeze-nonbatch-dynamic-dims `
+  --run-onnxruntime-smoke
+```
+
+Run the representative family compatibility matrix:
+
+```powershell
+python -B scripts\deployment\twincat_onnx_conversion\run_family_compatibility_matrix.py `
+  --output-root output\deployment\twincat_onnx_conversion\family_matrix_20260710_shape_fixed
+```
+
 ## Output Layout
 
 Each run writes to:
@@ -122,6 +141,8 @@ tf38x0/model.xml
 tf38x0/model.bml
 tf38x0/info.txt
 tf3820/model.json
+tf3820/model.onnx
+tf3820/model_plcopen.xml
 logs/*.log
 ```
 
@@ -167,9 +188,9 @@ output/deployment/twincat_onnx_conversion/rcim_mlp_ampl0_local_source_with_tcmle
 output/deployment/twincat_onnx_conversion/rcim_mlp_ampl0_local_source_with_tcmlextension_dlls/tf38x0/model.bml
 ```
 
-The current PyTorch feedforward smoke model still fails Beckhoff `onnximport`
-after the DLL integration. ONNX checker and ONNX Runtime both pass, but
-Beckhoff MLlib 3.1.251201.0 reports:
+The current PyTorch feedforward smoke model still fails Beckhoff `TF38x0`
+`onnximport` after the DLL integration. ONNX checker and ONNX Runtime both
+pass, but Beckhoff MLlib 3.1.251201.0 reports:
 
 ```text
 MLLIB_ERROR_INTERNAL_ALLOCATION
@@ -177,8 +198,16 @@ ONNX Constant node attributes could not be read.
 Could not read ONNX operator node 'Constant'.
 ```
 
-That failure is now a model-graph compatibility issue, not a missing-runtime or
-path-length issue.
+After scalar-constant normalization and opset 16 re-export experiments,
+`TF38x0` reaches unsupported normalization/reduction operators. The same
+feedforward ONNX succeeds through `TF3820` and produces `model.json` plus
+`model_plcopen.xml`.
+
+The family-wide matrix in
+`output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/`
+tested 37 implemented families. `rcim_track1` and `tree` pass `TF38x0`
+XML/BML. All 37 representatives pass `TF3820` preparation after the converter
+freezes non-batch dynamic dimensions on the run-local source copy where needed.
 
 ## TwinCAT Interpretation
 

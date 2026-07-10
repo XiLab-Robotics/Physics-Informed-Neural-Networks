@@ -1,0 +1,81 @@
+schema_version: 1
+created_at: '2026-07-10T14:15:33'
+source_onnx_path: models/polished_dataset/exported/wave4_2_quantile_p10_p50_p90/forward/2026-07-01-09-37-14__te_wave4_2_quantile_p10_p50_p90_fw/onnx/model.onnx
+source_onnx_sha256: e0fb283287b6fe7368139fbef7f09133c245f342bf73748e51432408c51da64b
+beckhoff_input_onnx_path: output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_wave4_2_quantile_p10_p50_p90/source_model.onnx
+beckhoff_input_onnx_sha256: bf76f6620eadda3af9a29605622dbc5070350eafb36f3eaf5a39fdc38041f1ad
+preprocessing_summary_path: output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_wave4_2_quantile_p10_p50_p90/preprocessing_summary.yaml
+preprocessing_summary:
+  status: updated
+  sequence_length: 33
+  fallback_dimension_value: 33
+  frozen_dimension_list:
+  - value_name: input_tensor
+    axis: 1
+    original_value: sequence_length
+    frozen_value: 33
+output_directory: output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_wave4_2_quantile_p10_p50_p90
+toolbox_executable: scripts/deployment/twincat_onnx_conversion/ModelManagerAPI/mllib_toolbox.exe
+beckhoff_toolbox_status:
+  toolbox_root: scripts/deployment/twincat_onnx_conversion/ModelManagerAPI
+  toolbox_executable: scripts/deployment/twincat_onnx_conversion/ModelManagerAPI/mllib_toolbox.exe
+  toolbox_executable_exists: true
+  required_runtime_file_list:
+  - mllib_um.dll
+  detected_runtime_file_list:
+  - MLAIPlugin.dll
+  - mllib_um.dll
+  - mllib_um32.dll
+  - ML_TcCOM_Extension.dll
+  - ML_TcCOM_Extension.dll.config
+  missing_runtime_file_list: []
+  status: ready
+inspection_summary_path: output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_wave4_2_quantile_p10_p50_p90/inspection_summary.json
+onnxruntime_smoke_path: output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_wave4_2_quantile_p10_p50_p90/onnxruntime_smoke.json
+onnxruntime_smoke_status: passed
+reference_inventory:
+  schema_version: 1
+  dataset_id: polished_dataset
+  dataset_schema: polished_point_v1
+  model_family: wave4_2_quantile_p10_p50_p90
+  model_type: curve_aware_harmonic_residual_offset_probe
+  surface: forward
+  run_name: te_wave4_2_quantile_p10_p50_p90_fw
+  run_instance_id: 2026-07-01-09-37-14__te_wave4_2_quantile_p10_p50_p90_fw
+  source_output_directory: output/training_runs/wave4_2_quantile_p10_p50_p90/2026-07-01-09-37-14__te_wave4_2_quantile_p10_p50_p90_fw
+  source_best_checkpoint_path: output/training_runs/wave4_2_quantile_p10_p50_p90/2026-07-01-09-37-14__te_wave4_2_quantile_p10_p50_p90_fw/checkpoints/curve_aware_harmonic_residual_offset_probe-epoch=202-val_mae=0.00173095.ckpt
+  python_model_path: models/polished_dataset/exported/wave4_2_quantile_p10_p50_p90/forward/2026-07-01-09-37-14__te_wave4_2_quantile_p10_p50_p90_fw/python/curve_aware_harmonic_residual_offset_probe-epoch=202-val_mae=0.00173095.ckpt
+  onnx_model_path: models/polished_dataset/exported/wave4_2_quantile_p10_p50_p90/forward/2026-07-01-09-37-14__te_wave4_2_quantile_p10_p50_p90_fw/onnx/model.onnx
+  onnx_export_status: exported
+  onnx_export_error: ''
+  source_run_snapshot_path_map:
+    training_config.snapshot.yaml: models/polished_dataset/exported/wave4_2_quantile_p10_p50_p90/forward/2026-07-01-09-37-14__te_wave4_2_quantile_p10_p50_p90_fw/source_run/training_config.snapshot.yaml
+    metrics_summary.snapshot.yaml: models/polished_dataset/exported/wave4_2_quantile_p10_p50_p90/forward/2026-07-01-09-37-14__te_wave4_2_quantile_p10_p50_p90_fw/source_run/metrics_summary.snapshot.yaml
+    run_metadata.snapshot.yaml: models/polished_dataset/exported/wave4_2_quantile_p10_p50_p90/forward/2026-07-01-09-37-14__te_wave4_2_quantile_p10_p50_p90_fw/source_run/run_metadata.snapshot.yaml
+    training_test_report.snapshot.md: models/polished_dataset/exported/wave4_2_quantile_p10_p50_p90/forward/2026-07-01-09-37-14__te_wave4_2_quantile_p10_p50_p90_fw/source_run/training_test_report.snapshot.md
+    best_checkpoint_path.snapshot.txt: models/polished_dataset/exported/wave4_2_quantile_p10_p50_p90/forward/2026-07-01-09-37-14__te_wave4_2_quantile_p10_p50_p90_fw/source_run/best_checkpoint_path.snapshot.txt
+  metrics:
+    val_mae: 0.0017309482209384441
+    test_mae: 0.0019138500792905688
+    test_rmse: 0.002457146532833576
+tf38x0:
+  status: skipped
+tf3820:
+  status: completed
+  prepared_onnx_path: output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_wave4_2_quantile_p10_p50_p90/tf3820/model.onnx
+  json_output_path: output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_wave4_2_quantile_p10_p50_p90/tf3820/model.json
+  plcopen_output_path: output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_wave4_2_quantile_p10_p50_p90/tf3820/model_plcopen.xml
+  generated_file_list:
+  - output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_wave4_2_quantile_p10_p50_p90/tf3820/model.json
+  - output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_wave4_2_quantile_p10_p50_p90/tf3820/model.onnx
+  - output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_wave4_2_quantile_p10_p50_p90/tf3820/model_plcopen.xml
+  commands:
+  - name: tf3820_onnxprep
+    command:
+    - C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\scripts\deployment\twincat_onnx_conversion\ModelManagerAPI\mllib_toolbox.exe
+    - onnxprep
+    - C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\deployment\twincat_onnx_conversion\family_matrix_20260710_shape_fixed\tf3820_wave4_2_quantile_p10_p50_p90\tf3820\model.onnx
+    return_code: 0
+    succeeded: true
+    stdout_path: output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_wave4_2_quantile_p10_p50_p90/logs/tf3820_onnxprep.stdout.log
+    stderr_path: output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_wave4_2_quantile_p10_p50_p90/logs/tf3820_onnxprep.stderr.log

@@ -1,0 +1,79 @@
+schema_version: 1
+created_at: '2026-07-10T14:15:24'
+source_onnx_path: models/polished_dataset/actual_values/exported/residual_harmonic_lstm_sequence_dense360/forward/2026-07-10-06-59-39__te_residual_harmonic_lstm_sequence_dense360_fw__polished_actual_values/onnx/model.onnx
+source_onnx_sha256: 08f494415a13b511410f39987a5daa4ebdf4492b9d233e271ccd8df0df1d41d4
+beckhoff_input_onnx_path: output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_residual_harmonic_lstm_sequence_dense360/source_model.onnx
+beckhoff_input_onnx_sha256: 32a29288b529df60b352d0bc61c84481dc7fcd6079d69d74b463ded58cad1552
+preprocessing_summary_path: output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_residual_harmonic_lstm_sequence_dense360/preprocessing_summary.yaml
+preprocessing_summary:
+  status: updated
+  sequence_length: 33
+  fallback_dimension_value: 33
+  frozen_dimension_list:
+  - value_name: input_tensor
+    axis: 1
+    original_value: sequence_length
+    frozen_value: 33
+output_directory: output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_residual_harmonic_lstm_sequence_dense360
+toolbox_executable: scripts/deployment/twincat_onnx_conversion/ModelManagerAPI/mllib_toolbox.exe
+beckhoff_toolbox_status:
+  toolbox_root: scripts/deployment/twincat_onnx_conversion/ModelManagerAPI
+  toolbox_executable: scripts/deployment/twincat_onnx_conversion/ModelManagerAPI/mllib_toolbox.exe
+  toolbox_executable_exists: true
+  required_runtime_file_list:
+  - mllib_um.dll
+  detected_runtime_file_list:
+  - MLAIPlugin.dll
+  - mllib_um.dll
+  - mllib_um32.dll
+  - ML_TcCOM_Extension.dll
+  - ML_TcCOM_Extension.dll.config
+  missing_runtime_file_list: []
+  status: ready
+inspection_summary_path: output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_residual_harmonic_lstm_sequence_dense360/inspection_summary.json
+onnxruntime_smoke_path: output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_residual_harmonic_lstm_sequence_dense360/onnxruntime_smoke.json
+onnxruntime_smoke_status: passed
+reference_inventory:
+  schema_version: 1
+  dataset_id: polished_dataset
+  dataset_schema: polished_point_v1
+  input_mode: actual_values
+  model_family: residual_harmonic_lstm_sequence_dense360
+  model_type: residual_harmonic_lstm_sequence
+  surface: forward
+  run_name: te_residual_harmonic_lstm_sequence_dense360_fw__polished_actual_values
+  run_instance_id: 2026-07-10-06-59-39__te_residual_harmonic_lstm_sequence_dense360_fw__polished_actual_values
+  source_output_directory: output/training_runs/residual_harmonic_lstm_sequence_dense360/2026-07-10-06-59-39__te_residual_harmonic_lstm_sequence_dense360_fw__polished_actual_values
+  source_best_checkpoint_path: output/training_runs/residual_harmonic_lstm_sequence_dense360/2026-07-10-06-59-39__te_residual_harmonic_lstm_sequence_dense360_fw__polished_actual_values/checkpoints/residual_harmonic_lstm_sequence-epoch=062-val_mae=0.00203211.ckpt
+  python_model_path: models/polished_dataset/actual_values/exported/residual_harmonic_lstm_sequence_dense360/forward/2026-07-10-06-59-39__te_residual_harmonic_lstm_sequence_dense360_fw__polished_actual_values/python/residual_harmonic_lstm_sequence-epoch=062-val_mae=0.00203211.ckpt
+  onnx_model_path: models/polished_dataset/actual_values/exported/residual_harmonic_lstm_sequence_dense360/forward/2026-07-10-06-59-39__te_residual_harmonic_lstm_sequence_dense360_fw__polished_actual_values/onnx/model.onnx
+  onnx_export_status: exported
+  onnx_export_error: ''
+  source_run_snapshot_path_map:
+    training_config.snapshot.yaml: models/polished_dataset/actual_values/exported/residual_harmonic_lstm_sequence_dense360/forward/2026-07-10-06-59-39__te_residual_harmonic_lstm_sequence_dense360_fw__polished_actual_values/source_run/training_config.snapshot.yaml
+    metrics_summary.snapshot.yaml: models/polished_dataset/actual_values/exported/residual_harmonic_lstm_sequence_dense360/forward/2026-07-10-06-59-39__te_residual_harmonic_lstm_sequence_dense360_fw__polished_actual_values/source_run/metrics_summary.snapshot.yaml
+    run_metadata.snapshot.yaml: models/polished_dataset/actual_values/exported/residual_harmonic_lstm_sequence_dense360/forward/2026-07-10-06-59-39__te_residual_harmonic_lstm_sequence_dense360_fw__polished_actual_values/source_run/run_metadata.snapshot.yaml
+    training_test_report.snapshot.md: models/polished_dataset/actual_values/exported/residual_harmonic_lstm_sequence_dense360/forward/2026-07-10-06-59-39__te_residual_harmonic_lstm_sequence_dense360_fw__polished_actual_values/source_run/training_test_report.snapshot.md
+    best_checkpoint_path.snapshot.txt: models/polished_dataset/actual_values/exported/residual_harmonic_lstm_sequence_dense360/forward/2026-07-10-06-59-39__te_residual_harmonic_lstm_sequence_dense360_fw__polished_actual_values/source_run/best_checkpoint_path.snapshot.txt
+  metrics:
+    val_mae: 0.0020321093033999205
+    test_mae: 0.0022949494887143373
+    test_rmse: 0.0036243482027202845
+tf38x0:
+  status: failed
+  xml_output_path: null
+  bml_output_path: null
+  info_output_path: null
+  commands:
+  - name: tf38x0_onnximport_xml
+    command:
+    - C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\scripts\deployment\twincat_onnx_conversion\ModelManagerAPI\mllib_toolbox.exe
+    - onnximport
+    - C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\deployment\twincat_onnx_conversion\family_matrix_20260710_shape_fixed\tf38x0_residual_harmonic_lstm_sequence_dense360\source_model.onnx
+    - C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\deployment\twincat_onnx_conversion\family_matrix_20260710_shape_fixed\tf38x0_residual_harmonic_lstm_sequence_dense360\tf38x0\model.xml
+    return_code: 4294967294
+    succeeded: false
+    stdout_path: output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_residual_harmonic_lstm_sequence_dense360/logs/tf38x0_onnximport_xml.stdout.log
+    stderr_path: output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_residual_harmonic_lstm_sequence_dense360/logs/tf38x0_onnximport_xml.stderr.log
+tf3820:
+  status: skipped

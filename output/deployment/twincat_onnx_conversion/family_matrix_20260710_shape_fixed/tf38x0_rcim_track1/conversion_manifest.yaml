@@ -1,0 +1,69 @@
+schema_version: 1
+created_at: '2026-07-10T14:15:09'
+source_onnx_path: output/validation_checks/rcim_model_bank_reproduction/2026-06-25-15-19-40__rcim_model_bank_reproduction_polished_dataset_bw_polished_dataset_campaign_validation/onnx_export/MLP/MLPRegressor_ampl0.onnx
+source_onnx_sha256: 282b91fb3906c50026cf6b040c7a5945c5d70fb020d687b45922cbfa376d0702
+beckhoff_input_onnx_path: output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_rcim_track1/source_model.onnx
+beckhoff_input_onnx_sha256: 282b91fb3906c50026cf6b040c7a5945c5d70fb020d687b45922cbfa376d0702
+preprocessing_summary_path: output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_rcim_track1/preprocessing_summary.yaml
+preprocessing_summary:
+  status: not_needed
+  sequence_length: null
+  fallback_dimension_value: 1
+  frozen_dimension_list: []
+output_directory: output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_rcim_track1
+toolbox_executable: scripts/deployment/twincat_onnx_conversion/ModelManagerAPI/mllib_toolbox.exe
+beckhoff_toolbox_status:
+  toolbox_root: scripts/deployment/twincat_onnx_conversion/ModelManagerAPI
+  toolbox_executable: scripts/deployment/twincat_onnx_conversion/ModelManagerAPI/mllib_toolbox.exe
+  toolbox_executable_exists: true
+  required_runtime_file_list:
+  - mllib_um.dll
+  detected_runtime_file_list:
+  - MLAIPlugin.dll
+  - mllib_um.dll
+  - mllib_um32.dll
+  - ML_TcCOM_Extension.dll
+  - ML_TcCOM_Extension.dll.config
+  missing_runtime_file_list: []
+  status: ready
+inspection_summary_path: output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_rcim_track1/inspection_summary.json
+onnxruntime_smoke_path: output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_rcim_track1/onnxruntime_smoke.json
+onnxruntime_smoke_status: passed
+reference_inventory: null
+tf38x0:
+  status: completed
+  xml_output_path: output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_rcim_track1/tf38x0/model.xml
+  bml_output_path: output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_rcim_track1/tf38x0/model.bml
+  info_output_path: output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_rcim_track1/tf38x0/info.txt
+  commands:
+  - name: tf38x0_onnximport_xml
+    command:
+    - C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\scripts\deployment\twincat_onnx_conversion\ModelManagerAPI\mllib_toolbox.exe
+    - onnximport
+    - C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\deployment\twincat_onnx_conversion\family_matrix_20260710_shape_fixed\tf38x0_rcim_track1\source_model.onnx
+    - C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\deployment\twincat_onnx_conversion\family_matrix_20260710_shape_fixed\tf38x0_rcim_track1\tf38x0\model.xml
+    return_code: 0
+    succeeded: true
+    stdout_path: output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_rcim_track1/logs/tf38x0_onnximport_xml.stdout.log
+    stderr_path: output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_rcim_track1/logs/tf38x0_onnximport_xml.stderr.log
+  - name: tf38x0_store_bml
+    command:
+    - C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\scripts\deployment\twincat_onnx_conversion\ModelManagerAPI\mllib_toolbox.exe
+    - store
+    - C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\deployment\twincat_onnx_conversion\family_matrix_20260710_shape_fixed\tf38x0_rcim_track1\tf38x0\model.xml
+    - C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\deployment\twincat_onnx_conversion\family_matrix_20260710_shape_fixed\tf38x0_rcim_track1\tf38x0\model.bml
+    return_code: 0
+    succeeded: true
+    stdout_path: output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_rcim_track1/logs/tf38x0_store_bml.stdout.log
+    stderr_path: output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_rcim_track1/logs/tf38x0_store_bml.stderr.log
+  - name: tf38x0_info_xml
+    command:
+    - C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\scripts\deployment\twincat_onnx_conversion\ModelManagerAPI\mllib_toolbox.exe
+    - info
+    - C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\deployment\twincat_onnx_conversion\family_matrix_20260710_shape_fixed\tf38x0_rcim_track1\tf38x0\model.xml
+    return_code: 0
+    succeeded: true
+    stdout_path: output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_rcim_track1/logs/tf38x0_info_xml.stdout.log
+    stderr_path: output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf38x0_rcim_track1/logs/tf38x0_info_xml.stderr.log
+tf3820:
+  status: skipped

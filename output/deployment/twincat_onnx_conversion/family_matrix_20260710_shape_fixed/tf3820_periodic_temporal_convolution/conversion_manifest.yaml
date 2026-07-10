@@ -1,0 +1,82 @@
+schema_version: 1
+created_at: '2026-07-10T14:15:17'
+source_onnx_path: models/polished_dataset/actual_values/exported/periodic_temporal_convolution/forward/2026-07-08-21-06-17__te_periodic_temporal_convolution_fw__polished_actual_values/onnx/model.onnx
+source_onnx_sha256: 65988cb3f20b5702245bb58b6ce746087d5588df7ce17b4ff5a669b101dfa4bc
+beckhoff_input_onnx_path: output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_periodic_temporal_convolution/source_model.onnx
+beckhoff_input_onnx_sha256: cbf16e9d8b93091f5821d6319d18c87fdc4f481805ee8323228fb2a492af8f6c
+preprocessing_summary_path: output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_periodic_temporal_convolution/preprocessing_summary.yaml
+preprocessing_summary:
+  status: updated
+  sequence_length: 33
+  fallback_dimension_value: 33
+  frozen_dimension_list:
+  - value_name: input_tensor
+    axis: 1
+    original_value: sequence_length
+    frozen_value: 33
+output_directory: output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_periodic_temporal_convolution
+toolbox_executable: scripts/deployment/twincat_onnx_conversion/ModelManagerAPI/mllib_toolbox.exe
+beckhoff_toolbox_status:
+  toolbox_root: scripts/deployment/twincat_onnx_conversion/ModelManagerAPI
+  toolbox_executable: scripts/deployment/twincat_onnx_conversion/ModelManagerAPI/mllib_toolbox.exe
+  toolbox_executable_exists: true
+  required_runtime_file_list:
+  - mllib_um.dll
+  detected_runtime_file_list:
+  - MLAIPlugin.dll
+  - mllib_um.dll
+  - mllib_um32.dll
+  - ML_TcCOM_Extension.dll
+  - ML_TcCOM_Extension.dll.config
+  missing_runtime_file_list: []
+  status: ready
+inspection_summary_path: output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_periodic_temporal_convolution/inspection_summary.json
+onnxruntime_smoke_path: output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_periodic_temporal_convolution/onnxruntime_smoke.json
+onnxruntime_smoke_status: passed
+reference_inventory:
+  schema_version: 1
+  dataset_id: polished_dataset
+  dataset_schema: polished_point_v1
+  input_mode: actual_values
+  model_family: periodic_temporal_convolution
+  model_type: periodic_temporal_convolution
+  surface: forward
+  run_name: te_periodic_temporal_convolution_fw__polished_actual_values
+  run_instance_id: 2026-07-08-21-06-17__te_periodic_temporal_convolution_fw__polished_actual_values
+  source_output_directory: output/training_runs/periodic_temporal_convolution/2026-07-08-21-06-17__te_periodic_temporal_convolution_fw__polished_actual_values
+  source_best_checkpoint_path: output/training_runs/periodic_temporal_convolution/2026-07-08-21-06-17__te_periodic_temporal_convolution_fw__polished_actual_values/checkpoints/periodic_temporal_convolution-epoch=087-val_mae=0.00193888.ckpt
+  python_model_path: models/polished_dataset/actual_values/exported/periodic_temporal_convolution/forward/2026-07-08-21-06-17__te_periodic_temporal_convolution_fw__polished_actual_values/python/periodic_temporal_convolution-epoch=087-val_mae=0.00193888.ckpt
+  onnx_model_path: models/polished_dataset/actual_values/exported/periodic_temporal_convolution/forward/2026-07-08-21-06-17__te_periodic_temporal_convolution_fw__polished_actual_values/onnx/model.onnx
+  onnx_export_status: exported
+  onnx_export_error: ''
+  source_run_snapshot_path_map:
+    training_config.snapshot.yaml: models/polished_dataset/actual_values/exported/periodic_temporal_convolution/forward/2026-07-08-21-06-17__te_periodic_temporal_convolution_fw__polished_actual_values/source_run/training_config.snapshot.yaml
+    metrics_summary.snapshot.yaml: models/polished_dataset/actual_values/exported/periodic_temporal_convolution/forward/2026-07-08-21-06-17__te_periodic_temporal_convolution_fw__polished_actual_values/source_run/metrics_summary.snapshot.yaml
+    run_metadata.snapshot.yaml: models/polished_dataset/actual_values/exported/periodic_temporal_convolution/forward/2026-07-08-21-06-17__te_periodic_temporal_convolution_fw__polished_actual_values/source_run/run_metadata.snapshot.yaml
+    training_test_report.snapshot.md: models/polished_dataset/actual_values/exported/periodic_temporal_convolution/forward/2026-07-08-21-06-17__te_periodic_temporal_convolution_fw__polished_actual_values/source_run/training_test_report.snapshot.md
+    best_checkpoint_path.snapshot.txt: models/polished_dataset/actual_values/exported/periodic_temporal_convolution/forward/2026-07-08-21-06-17__te_periodic_temporal_convolution_fw__polished_actual_values/source_run/best_checkpoint_path.snapshot.txt
+  metrics:
+    val_mae: 0.0019388817017897964
+    test_mae: 0.0020768316462635994
+    test_rmse: 0.0030795529019087553
+tf38x0:
+  status: skipped
+tf3820:
+  status: completed
+  prepared_onnx_path: output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_periodic_temporal_convolution/tf3820/model.onnx
+  json_output_path: output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_periodic_temporal_convolution/tf3820/model.json
+  plcopen_output_path: output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_periodic_temporal_convolution/tf3820/model_plcopen.xml
+  generated_file_list:
+  - output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_periodic_temporal_convolution/tf3820/model.json
+  - output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_periodic_temporal_convolution/tf3820/model.onnx
+  - output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_periodic_temporal_convolution/tf3820/model_plcopen.xml
+  commands:
+  - name: tf3820_onnxprep
+    command:
+    - C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\scripts\deployment\twincat_onnx_conversion\ModelManagerAPI\mllib_toolbox.exe
+    - onnxprep
+    - C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\deployment\twincat_onnx_conversion\family_matrix_20260710_shape_fixed\tf3820_periodic_temporal_convolution\tf3820\model.onnx
+    return_code: 0
+    succeeded: true
+    stdout_path: output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_periodic_temporal_convolution/logs/tf3820_onnxprep.stdout.log
+    stderr_path: output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_periodic_temporal_convolution/logs/tf3820_onnxprep.stderr.log

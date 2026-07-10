@@ -92,6 +92,8 @@ def parse_arguments() -> argparse.Namespace:
     argument_parser.add_argument("--prepare-tf3820", action="store_true", help="Also run Beckhoff onnxprep for TF3820 Machine Learning Server artifacts.")
     argument_parser.add_argument("--run-onnxruntime-smoke", action="store_true", help="Run a CPU ONNX Runtime smoke inference before Beckhoff conversion.")
     argument_parser.add_argument("--copy-source-onnx", action="store_true", help="Copy the source ONNX into the conversion output directory.")
+    argument_parser.add_argument("--freeze-nonbatch-dynamic-dims", action="store_true", help="Freeze dynamic ONNX input/output dimensions after axis 0 on the run-local source copy.")
+    argument_parser.add_argument("--sequence-length", type=int, default=None, help="Sequence length to use when freezing non-batch dynamic dimensions.")
     argument_parser.add_argument("--fail-fast", action="store_true", help="Stop after the first failed Beckhoff command.")
     return argument_parser.parse_args()
 
@@ -367,6 +369,92 @@ def load_reference_inventory(onnx_path: Path) -> dict[str, Any] | None:
     return None
 
 
+def resolve_reference_training_config_path(reference_inventory: dict[str, Any] | None) -> Path | None:
+
+    """Resolve the archived training configuration path from a reference inventory."""
+
+    if not reference_inventory:
+        return None
+    snapshot_path_map = reference_inventory.get("source_run_snapshot_path_map", {})
+    if not isinstance(snapshot_path_map, dict):
+        return None
+    training_config_path_text = snapshot_path_map.get("training_config.snapshot.yaml")
+    if not training_config_path_text:
+        return None
+    training_config_path = resolve_path(Path(str(training_config_path_text)))
+    return training_config_path if training_config_path.exists() else None
+
+
+def resolve_sequence_length(reference_inventory: dict[str, Any] | None, override_sequence_length: int | None) -> int | None:
+
+    """Resolve the sequence length used to freeze non-batch dynamic dimensions."""
+
+    if override_sequence_length is not None:
+        return override_sequence_length
+    training_config_path = resolve_reference_training_config_path(reference_inventory)
+    if training_config_path is None:
+        return None
+    with training_config_path.open("r", encoding="utf-8") as file_handle:
+        training_config = yaml.safe_load(file_handle)
+    if not isinstance(training_config, dict):
+        return None
+    dataset_dictionary = training_config.get("dataset", {})
+    model_dictionary = training_config.get("model", {})
+    for configuration_dictionary in [dataset_dictionary, model_dictionary]:
+        if not isinstance(configuration_dictionary, dict):
+            continue
+        sequence_length = configuration_dictionary.get("sequence_length")
+        if sequence_length is not None:
+            return int(sequence_length)
+    return None
+
+
+def freeze_value_info_nonbatch_dynamic_dimensions(value_info: Any, fallback_dimension_value: int) -> list[dict[str, Any]]:
+
+    """Freeze dynamic dimensions after axis zero in one ONNX value info."""
+
+    frozen_dimension_list: list[dict[str, Any]] = []
+    tensor_shape = value_info.type.tensor_type.shape
+    for dimension_index, dimension in enumerate(tensor_shape.dim):
+        if dimension_index == 0:
+            continue
+        if not dimension.HasField("dim_param"):
+            continue
+        original_value = dimension.dim_param
+        dimension.ClearField("dim_param")
+        dimension.dim_value = fallback_dimension_value
+        frozen_dimension_list.append({
+            "value_name": value_info.name,
+            "axis": dimension_index,
+            "original_value": original_value,
+            "frozen_value": fallback_dimension_value,
+        })
+    return frozen_dimension_list
+
+
+def freeze_nonbatch_dynamic_dimensions(onnx_path: Path, reference_inventory: dict[str, Any] | None, sequence_length: int | None) -> dict[str, Any]:
+
+    """Freeze non-batch dynamic ONNX I/O dimensions on a run-local model copy."""
+
+    resolved_sequence_length = resolve_sequence_length(reference_inventory, sequence_length)
+    fallback_dimension_value = resolved_sequence_length or 1
+    model = onnx.load(str(onnx_path), load_external_data=True)
+    frozen_dimension_list: list[dict[str, Any]] = []
+    for value_info in [*model.graph.input, *model.graph.output]:
+        frozen_dimension_list.extend(
+            freeze_value_info_nonbatch_dynamic_dimensions(value_info, fallback_dimension_value)
+        )
+    if frozen_dimension_list:
+        onnx.checker.check_model(model)
+        onnx.save(model, str(onnx_path))
+    return {
+        "status": "updated" if frozen_dimension_list else "not_needed",
+        "sequence_length": resolved_sequence_length,
+        "fallback_dimension_value": fallback_dimension_value,
+        "frozen_dimension_list": frozen_dimension_list,
+    }
+
+
 def inspect_beckhoff_toolbox(toolbox_root: Path) -> dict[str, Any]:
 
     """Inspect whether the recovered Beckhoff toolbox is runnable."""
@@ -435,13 +523,18 @@ def run_tf3820_preparation(toolbox_executable: Path, onnx_path: Path, run_direct
 
     output_directory = run_directory / "tf3820"
     output_directory.mkdir(parents=True, exist_ok=True)
-    json_output_path = output_directory / "model.json"
-    command = [str(toolbox_executable), "onnxprep", str(onnx_path), str(json_output_path)]
+    tf3820_input_path = output_directory / "model.onnx"
+    shutil.copy2(onnx_path, tf3820_input_path)
+    command = [str(toolbox_executable), "onnxprep", str(tf3820_input_path)]
     command_result = run_beckhoff_command("tf3820_onnxprep", command, run_directory / "logs")
-    generated_file_list = [project_relative(path) for path in output_directory.glob("*")]
+    json_output_path = tf3820_input_path.with_suffix(".json")
+    plcopen_output_path = tf3820_input_path.with_name(f"{tf3820_input_path.stem}_plcopen.xml")
+    generated_file_list = [project_relative(path) for path in sorted(output_directory.glob("*"))]
     return {
         "status": "completed" if command_result.succeeded else "failed",
+        "prepared_onnx_path": project_relative(tf3820_input_path),
         "json_output_path": project_relative(json_output_path) if json_output_path.exists() else None,
+        "plcopen_output_path": project_relative(plcopen_output_path) if plcopen_output_path.exists() else None,
         "generated_file_list": generated_file_list,
         "commands": [command_result_to_record(command_result)],
     }
@@ -466,23 +559,37 @@ def main() -> int:
     run_directory = create_run_directory(output_root, onnx_path, arguments.run_name)
     print(f"Conversion output: {project_relative(run_directory)}")
 
-    inspection_summary = inspect_onnx_model(onnx_path)
-    write_json(run_directory / "inspection_summary.json", inspection_summary)
+    reference_inventory = load_reference_inventory(onnx_path)
     beckhoff_input_path = run_directory / "source_model.onnx"
     shutil.copy2(onnx_path, beckhoff_input_path)
+    preprocessing_summary: dict[str, Any] = {"status": "not_requested"}
+    if arguments.freeze_nonbatch_dynamic_dims:
+        preprocessing_summary = freeze_nonbatch_dynamic_dimensions(
+            beckhoff_input_path,
+            reference_inventory,
+            arguments.sequence_length,
+        )
+        write_yaml(run_directory / "preprocessing_summary.yaml", preprocessing_summary)
+
+    inspection_summary = inspect_onnx_model(beckhoff_input_path)
+    write_json(run_directory / "inspection_summary.json", inspection_summary)
 
     onnxruntime_smoke = None
     if arguments.run_onnxruntime_smoke:
-        onnxruntime_smoke = run_onnxruntime_smoke(onnx_path, inspection_summary)
+        onnxruntime_smoke = run_onnxruntime_smoke(beckhoff_input_path, inspection_summary)
         write_json(run_directory / "onnxruntime_smoke.json", onnxruntime_smoke)
 
-    reference_inventory = load_reference_inventory(onnx_path)
     conversion_manifest: dict[str, Any] = {
         "schema_version": 1,
         "created_at": datetime.now().isoformat(timespec="seconds"),
         "source_onnx_path": project_relative(onnx_path),
-        "source_onnx_sha256": inspection_summary["source_onnx_sha256"],
+        "source_onnx_sha256": compute_sha256(onnx_path),
         "beckhoff_input_onnx_path": project_relative(beckhoff_input_path),
+        "beckhoff_input_onnx_sha256": inspection_summary["source_onnx_sha256"],
+        "preprocessing_summary_path": project_relative(run_directory / "preprocessing_summary.yaml")
+        if arguments.freeze_nonbatch_dynamic_dims
+        else None,
+        "preprocessing_summary": preprocessing_summary,
         "output_directory": project_relative(run_directory),
         "toolbox_executable": project_relative(toolbox_executable),
         "beckhoff_toolbox_status": beckhoff_toolbox_status,

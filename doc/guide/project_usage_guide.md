@@ -1049,6 +1049,11 @@ The current usage flow mainly relies on these folders:
   runtime is available under
   `scripts/deployment/twincat_onnx_conversion/ModelManagerAPI/`.
 
+- `scripts/deployment/twincat_onnx_conversion/run_family_compatibility_matrix.py`
+  Selects one representative ONNX export per implemented model family, runs
+  the `TF38x0` XML/BML route and the `TF3820` JSON plus PLCopen XML route, and
+  writes a matrix summary under `output/deployment/twincat_onnx_conversion/`.
+
 - `scripts/tooling/`
   Repository-owned tooling utilities, now grouped by domain.
 
@@ -1103,8 +1108,9 @@ The current usage flow mainly relies on these folders:
 
 - `doc/scripts/deployment/twincat_onnx_conversion/README.md`
   Canonical usage note for installing the recovered Beckhoff toolbox, running
-  the default feedforward conversion smoke test, interpreting `TF38x0` versus
-  `TF3820` outputs, and reading the generated conversion manifest.
+  the default feedforward conversion smoke test, running the family matrix,
+  interpreting `TF38x0` versus `TF3820` outputs, and reading the generated
+  conversion manifest.
 
 - `models/`
   Reserved root folder for trained checkpoints and exported model artifacts.

@@ -1,0 +1,81 @@
+schema_version: 1
+created_at: '2026-07-10T14:15:38'
+source_onnx_path: models/polished_dataset/exported/wave5_1_harmonic_prior_pointwise_control/forward/2026-07-01-23-29-08__te_wave5_1_harmonic_prior_pointwise_control_fw/onnx/model.onnx
+source_onnx_sha256: 8a95df94667322e1a4b18d9df25db93a7631d38278e6c1d84f56677b0df0d871
+beckhoff_input_onnx_path: output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_wave5_1_harmonic_prior_pointwise_control/source_model.onnx
+beckhoff_input_onnx_sha256: c843d117c384e45b4fc1aae03f1fe8767cf60d00601dc91cd0ae41398d3d5366
+preprocessing_summary_path: output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_wave5_1_harmonic_prior_pointwise_control/preprocessing_summary.yaml
+preprocessing_summary:
+  status: updated
+  sequence_length: 33
+  fallback_dimension_value: 33
+  frozen_dimension_list:
+  - value_name: input_tensor
+    axis: 1
+    original_value: sequence_length
+    frozen_value: 33
+output_directory: output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_wave5_1_harmonic_prior_pointwise_control
+toolbox_executable: scripts/deployment/twincat_onnx_conversion/ModelManagerAPI/mllib_toolbox.exe
+beckhoff_toolbox_status:
+  toolbox_root: scripts/deployment/twincat_onnx_conversion/ModelManagerAPI
+  toolbox_executable: scripts/deployment/twincat_onnx_conversion/ModelManagerAPI/mllib_toolbox.exe
+  toolbox_executable_exists: true
+  required_runtime_file_list:
+  - mllib_um.dll
+  detected_runtime_file_list:
+  - MLAIPlugin.dll
+  - mllib_um.dll
+  - mllib_um32.dll
+  - ML_TcCOM_Extension.dll
+  - ML_TcCOM_Extension.dll.config
+  missing_runtime_file_list: []
+  status: ready
+inspection_summary_path: output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_wave5_1_harmonic_prior_pointwise_control/inspection_summary.json
+onnxruntime_smoke_path: output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_wave5_1_harmonic_prior_pointwise_control/onnxruntime_smoke.json
+onnxruntime_smoke_status: passed
+reference_inventory:
+  schema_version: 1
+  dataset_id: polished_dataset
+  dataset_schema: polished_point_v1
+  model_family: wave5_1_harmonic_prior_pointwise_control
+  model_type: wave3_harmonic_prior_residual
+  surface: forward
+  run_name: te_wave5_1_harmonic_prior_pointwise_control_fw
+  run_instance_id: 2026-07-01-23-29-08__te_wave5_1_harmonic_prior_pointwise_control_fw
+  source_output_directory: output/training_runs/wave5_1_harmonic_prior_pointwise_control/2026-07-01-23-29-08__te_wave5_1_harmonic_prior_pointwise_control_fw
+  source_best_checkpoint_path: output/training_runs/wave5_1_harmonic_prior_pointwise_control/2026-07-01-23-29-08__te_wave5_1_harmonic_prior_pointwise_control_fw/checkpoints/wave3_harmonic_prior_residual-epoch=058-val_mae=0.00191340.ckpt
+  python_model_path: models/polished_dataset/exported/wave5_1_harmonic_prior_pointwise_control/forward/2026-07-01-23-29-08__te_wave5_1_harmonic_prior_pointwise_control_fw/python/wave3_harmonic_prior_residual-epoch=058-val_mae=0.00191340.ckpt
+  onnx_model_path: models/polished_dataset/exported/wave5_1_harmonic_prior_pointwise_control/forward/2026-07-01-23-29-08__te_wave5_1_harmonic_prior_pointwise_control_fw/onnx/model.onnx
+  onnx_export_status: exported
+  onnx_export_error: ''
+  source_run_snapshot_path_map:
+    training_config.snapshot.yaml: models/polished_dataset/exported/wave5_1_harmonic_prior_pointwise_control/forward/2026-07-01-23-29-08__te_wave5_1_harmonic_prior_pointwise_control_fw/source_run/training_config.snapshot.yaml
+    metrics_summary.snapshot.yaml: models/polished_dataset/exported/wave5_1_harmonic_prior_pointwise_control/forward/2026-07-01-23-29-08__te_wave5_1_harmonic_prior_pointwise_control_fw/source_run/metrics_summary.snapshot.yaml
+    run_metadata.snapshot.yaml: models/polished_dataset/exported/wave5_1_harmonic_prior_pointwise_control/forward/2026-07-01-23-29-08__te_wave5_1_harmonic_prior_pointwise_control_fw/source_run/run_metadata.snapshot.yaml
+    training_test_report.snapshot.md: models/polished_dataset/exported/wave5_1_harmonic_prior_pointwise_control/forward/2026-07-01-23-29-08__te_wave5_1_harmonic_prior_pointwise_control_fw/source_run/training_test_report.snapshot.md
+    best_checkpoint_path.snapshot.txt: models/polished_dataset/exported/wave5_1_harmonic_prior_pointwise_control/forward/2026-07-01-23-29-08__te_wave5_1_harmonic_prior_pointwise_control_fw/source_run/best_checkpoint_path.snapshot.txt
+  metrics:
+    val_mae: 0.001913403975777328
+    test_mae: 0.002184873213991523
+    test_rmse: 0.002775699831545353
+tf38x0:
+  status: skipped
+tf3820:
+  status: completed
+  prepared_onnx_path: output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_wave5_1_harmonic_prior_pointwise_control/tf3820/model.onnx
+  json_output_path: output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_wave5_1_harmonic_prior_pointwise_control/tf3820/model.json
+  plcopen_output_path: output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_wave5_1_harmonic_prior_pointwise_control/tf3820/model_plcopen.xml
+  generated_file_list:
+  - output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_wave5_1_harmonic_prior_pointwise_control/tf3820/model.json
+  - output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_wave5_1_harmonic_prior_pointwise_control/tf3820/model.onnx
+  - output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_wave5_1_harmonic_prior_pointwise_control/tf3820/model_plcopen.xml
+  commands:
+  - name: tf3820_onnxprep
+    command:
+    - C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\scripts\deployment\twincat_onnx_conversion\ModelManagerAPI\mllib_toolbox.exe
+    - onnxprep
+    - C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\deployment\twincat_onnx_conversion\family_matrix_20260710_shape_fixed\tf3820_wave5_1_harmonic_prior_pointwise_control\tf3820\model.onnx
+    return_code: 0
+    succeeded: true
+    stdout_path: output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_wave5_1_harmonic_prior_pointwise_control/logs/tf3820_onnxprep.stdout.log
+    stderr_path: output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_wave5_1_harmonic_prior_pointwise_control/logs/tf3820_onnxprep.stderr.log

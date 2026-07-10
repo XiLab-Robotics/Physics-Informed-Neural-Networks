@@ -1,0 +1,8 @@
+status: updated
+sequence_length: 33
+fallback_dimension_value: 33
+frozen_dimension_list:
+- value_name: input_tensor
+  axis: 1
+  original_value: sequence_length
+  frozen_value: 33

@@ -1,0 +1,753 @@
+{
+  "checker_error": "",
+  "checker_status": "passed",
+  "constant_nodes": [
+    {
+      "contains_int64_max": false,
+      "node_index": 4,
+      "node_name": "/Constant",
+      "numpy_dtype": "int64",
+      "onnx_dtype": "INT64",
+      "output": [
+        "/Constant_output_0"
+      ],
+      "preview": [
+        1
+      ],
+      "shape": []
+    },
+    {
+      "contains_int64_max": false,
+      "node_index": 6,
+      "node_name": "/Constant_1",
+      "numpy_dtype": "int64",
+      "onnx_dtype": "INT64",
+      "output": [
+        "/Constant_1_output_0"
+      ],
+      "preview": [
+        2
+      ],
+      "shape": []
+    },
+    {
+      "contains_int64_max": false,
+      "node_index": 12,
+      "node_name": "/Constant_2",
+      "numpy_dtype": "int64",
+      "onnx_dtype": "INT64",
+      "output": [
+        "/Constant_2_output_0"
+      ],
+      "preview": [
+        1
+      ],
+      "shape": []
+    },
+    {
+      "contains_int64_max": false,
+      "node_index": 14,
+      "node_name": "/Constant_3",
+      "numpy_dtype": "int64",
+      "onnx_dtype": "INT64",
+      "output": [
+        "/Constant_3_output_0"
+      ],
+      "preview": [
+        2
+      ],
+      "shape": []
+    },
+    {
+      "contains_int64_max": false,
+      "node_index": 19,
+      "node_name": "/Constant_4",
+      "numpy_dtype": "int64",
+      "onnx_dtype": "INT64",
+      "output": [
+        "/Constant_4_output_0"
+      ],
+      "preview": [
+        1
+      ],
+      "shape": [
+        1
+      ]
+    },
+    {
+      "contains_int64_max": false,
+      "node_index": 20,
+      "node_name": "/Constant_5",
+      "numpy_dtype": "int64",
+      "onnx_dtype": "INT64",
+      "output": [
+        "/Constant_5_output_0"
+      ],
+      "preview": [
+        0
+      ],
+      "shape": [
+        1
+      ]
+    },
+    {
+      "contains_int64_max": false,
+      "node_index": 21,
+      "node_name": "/Constant_6",
+      "numpy_dtype": "int64",
+      "onnx_dtype": "INT64",
+      "output": [
+        "/Constant_6_output_0"
+      ],
+      "preview": [
+        1
+      ],
+      "shape": [
+        1
+      ]
+    },
+    {
+      "contains_int64_max": false,
+      "node_index": 22,
+      "node_name": "/Constant_7",
+      "numpy_dtype": "int64",
+      "onnx_dtype": "INT64",
+      "output": [
+        "/Constant_7_output_0"
+      ],
+      "preview": [
+        1
+      ],
+      "shape": [
+        1
+      ]
+    },
+    {
+      "contains_int64_max": false,
+      "node_index": 24,
+      "node_name": "/Constant_8",
+      "numpy_dtype": "int64",
+      "onnx_dtype": "INT64",
+      "output": [
+        "/Constant_8_output_0"
+      ],
+      "preview": [
+        1
+      ],
+      "shape": [
+        1
+      ]
+    },
+    {
+      "contains_int64_max": false,
+      "node_index": 25,
+      "node_name": "/Constant_9",
+      "numpy_dtype": "int64",
+      "onnx_dtype": "INT64",
+      "output": [
+        "/Constant_9_output_0"
+      ],
+      "preview": [
+        1
+      ],
+      "shape": [
+        1
+      ]
+    },
+    {
+      "contains_int64_max": true,
+      "node_index": 26,
+      "node_name": "/Constant_10",
+      "numpy_dtype": "int64",
+      "onnx_dtype": "INT64",
+      "output": [
+        "/Constant_10_output_0"
+      ],
+      "preview": [
+        9223372036854775807
+      ],
+      "shape": [
+        1
+      ]
+    },
+    {
+      "contains_int64_max": false,
+      "node_index": 27,
+      "node_name": "/Constant_11",
+      "numpy_dtype": "int64",
+      "onnx_dtype": "INT64",
+      "output": [
+        "/Constant_11_output_0"
+      ],
+      "preview": [
+        1
+      ],
+      "shape": [
+        1
+      ]
+    },
+    {
+      "contains_int64_max": false,
+      "node_index": 29,
+      "node_name": "/Constant_12",
+      "numpy_dtype": "float32",
+      "onnx_dtype": "FLOAT",
+      "output": [
+        "/Constant_12_output_0"
+      ],
+      "preview": [
+        0.01745329238474369
+      ],
+      "shape": []
+    },
+    {
+      "contains_int64_max": false,
+      "node_index": 33,
+      "node_name": "/Constant_13",
+      "numpy_dtype": "float32",
+      "onnx_dtype": "FLOAT",
+      "output": [
+        "/Constant_13_output_0"
+      ],
+      "preview": [
+        1.0
+      ],
+      "shape": []
+    },
+    {
+      "contains_int64_max": false,
+      "node_index": 37,
+      "node_name": "/Constant_14",
+      "numpy_dtype": "float32",
+      "onnx_dtype": "FLOAT",
+      "output": [
+        "/Constant_14_output_0"
+      ],
+      "preview": [
+        3.0
+      ],
+      "shape": []
+    },
+    {
+      "contains_int64_max": false,
+      "node_index": 41,
+      "node_name": "/Constant_15",
+      "numpy_dtype": "float32",
+      "onnx_dtype": "FLOAT",
+      "output": [
+        "/Constant_15_output_0"
+      ],
+      "preview": [
+        39.0
+      ],
+      "shape": []
+    },
+    {
+      "contains_int64_max": false,
+      "node_index": 45,
+      "node_name": "/Constant_16",
+      "numpy_dtype": "float32",
+      "onnx_dtype": "FLOAT",
+      "output": [
+        "/Constant_16_output_0"
+      ],
+      "preview": [
+        40.0
+      ],
+      "shape": []
+    },
+    {
+      "contains_int64_max": false,
+      "node_index": 49,
+      "node_name": "/Constant_17",
+      "numpy_dtype": "float32",
+      "onnx_dtype": "FLOAT",
+      "output": [
+        "/Constant_17_output_0"
+      ],
+      "preview": [
+        78.0
+      ],
+      "shape": []
+    },
+    {
+      "contains_int64_max": false,
+      "node_index": 53,
+      "node_name": "/Constant_18",
+      "numpy_dtype": "float32",
+      "onnx_dtype": "FLOAT",
+      "output": [
+        "/Constant_18_output_0"
+      ],
+      "preview": [
+        81.0
+      ],
+      "shape": []
+    },
+    {
+      "contains_int64_max": false,
+      "node_index": 57,
+      "node_name": "/Constant_19",
+      "numpy_dtype": "float32",
+      "onnx_dtype": "FLOAT",
+      "output": [
+        "/Constant_19_output_0"
+      ],
+      "preview": [
+        156.0
+      ],
+      "shape": []
+    },
+    {
+      "contains_int64_max": false,
+      "node_index": 61,
+      "node_name": "/Constant_20",
+      "numpy_dtype": "float32",
+      "onnx_dtype": "FLOAT",
+      "output": [
+        "/Constant_20_output_0"
+      ],
+      "preview": [
+        162.0
+      ],
+      "shape": []
+    },
+    {
+      "contains_int64_max": false,
+      "node_index": 65,
+      "node_name": "/Constant_21",
+      "numpy_dtype": "float32",
+      "onnx_dtype": "FLOAT",
+      "output": [
+        "/Constant_21_output_0"
+      ],
+      "preview": [
+        240.0
+      ],
+      "shape": []
+    },
+    {
+      "contains_int64_max": false,
+      "node_index": 72,
+      "node_name": "/Constant_22",
+      "numpy_dtype": "int64",
+      "onnx_dtype": "INT64",
+      "output": [
+        "/Constant_22_output_0"
+      ],
+      "preview": [
+        0
+      ],
+      "shape": []
+    },
+    {
+      "contains_int64_max": false,
+      "node_index": 74,
+      "node_name": "Constant_117",
+      "numpy_dtype": "int64",
+      "onnx_dtype": "INT64",
+      "output": [
+        "onnx::Unsqueeze_105"
+      ],
+      "preview": [
+        0
+      ],
+      "shape": [
+        1
+      ]
+    },
+    {
+      "contains_int64_max": false,
+      "node_index": 76,
+      "node_name": "/Constant_23",
+      "numpy_dtype": "int64",
+      "onnx_dtype": "INT64",
+      "output": [
+        "/Constant_23_output_0"
+      ],
+      "preview": [
+        19
+      ],
+      "shape": [
+        1
+      ]
+    },
+    {
+      "contains_int64_max": false,
+      "node_index": 77,
+      "node_name": "/Constant_24",
+      "numpy_dtype": "int64",
+      "onnx_dtype": "INT64",
+      "output": [
+        "/Constant_24_output_0"
+      ],
+      "preview": [
+        3
+      ],
+      "shape": [
+        1
+      ]
+    },
+    {
+      "contains_int64_max": false,
+      "node_index": 81,
+      "node_name": "/Constant_25",
+      "numpy_dtype": "int64",
+      "onnx_dtype": "INT64",
+      "output": [
+        "/Constant_25_output_0"
+      ],
+      "preview": [
+        -1
+      ],
+      "shape": [
+        1
+      ]
+    },
+    {
+      "contains_int64_max": false,
+      "node_index": 84,
+      "node_name": "Constant_127",
+      "numpy_dtype": "int64",
+      "onnx_dtype": "INT64",
+      "output": [
+        "onnx::ReduceSum_119"
+      ],
+      "preview": [
+        1
+      ],
+      "shape": [
+        1
+      ]
+    },
+    {
+      "contains_int64_max": false,
+      "node_index": 87,
+      "node_name": "/residual_offset_branch/recurrent_network/Constant",
+      "numpy_dtype": "int64",
+      "onnx_dtype": "INT64",
+      "output": [
+        "/residual_offset_branch/recurrent_network/Constant_output_0"
+      ],
+      "preview": [
+        0
+      ],
+      "shape": []
+    },
+    {
+      "contains_int64_max": false,
+      "node_index": 89,
+      "node_name": "/residual_offset_branch/recurrent_network/Constant_1",
+      "numpy_dtype": "int64",
+      "onnx_dtype": "INT64",
+      "output": [
+        "/residual_offset_branch/recurrent_network/Constant_1_output_0"
+      ],
+      "preview": [
+        2
+      ],
+      "shape": [
+        1
+      ]
+    },
+    {
+      "contains_int64_max": false,
+      "node_index": 90,
+      "node_name": "Constant_133",
+      "numpy_dtype": "int64",
+      "onnx_dtype": "INT64",
+      "output": [
+        "onnx::Unsqueeze_128"
+      ],
+      "preview": [
+        0
+      ],
+      "shape": [
+        1
+      ]
+    },
+    {
+      "contains_int64_max": false,
+      "node_index": 92,
+      "node_name": "/residual_offset_branch/recurrent_network/Constant_2",
+      "numpy_dtype": "int64",
+      "onnx_dtype": "INT64",
+      "output": [
+        "/residual_offset_branch/recurrent_network/Constant_2_output_0"
+      ],
+      "preview": [
+        96
+      ],
+      "shape": [
+        1
+      ]
+    },
+    {
+      "contains_int64_max": false,
+      "node_index": 96,
+      "node_name": "/residual_offset_branch/recurrent_network/Constant_3",
+      "numpy_dtype": "int64",
+      "onnx_dtype": "INT64",
+      "output": [
+        "/residual_offset_branch/recurrent_network/Constant_3_output_0"
+      ],
+      "preview": [
+        0
+      ],
+      "shape": [
+        1
+      ]
+    },
+    {
+      "contains_int64_max": false,
+      "node_index": 97,
+      "node_name": "/residual_offset_branch/recurrent_network/Constant_4",
+      "numpy_dtype": "int64",
+      "onnx_dtype": "INT64",
+      "output": [
+        "/residual_offset_branch/recurrent_network/Constant_4_output_0"
+      ],
+      "preview": [
+        0
+      ],
+      "shape": [
+        1
+      ]
+    },
+    {
+      "contains_int64_max": false,
+      "node_index": 98,
+      "node_name": "/residual_offset_branch/recurrent_network/Constant_5",
+      "numpy_dtype": "int64",
+      "onnx_dtype": "INT64",
+      "output": [
+        "/residual_offset_branch/recurrent_network/Constant_5_output_0"
+      ],
+      "preview": [
+        1
+      ],
+      "shape": [
+        1
+      ]
+    },
+    {
+      "contains_int64_max": false,
+      "node_index": 101,
+      "node_name": "/residual_offset_branch/recurrent_network/Constant_6",
+      "numpy_dtype": "int64",
+      "onnx_dtype": "INT64",
+      "output": [
+        "/residual_offset_branch/recurrent_network/Constant_6_output_0"
+      ],
+      "preview": [
+        1
+      ],
+      "shape": [
+        1
+      ]
+    },
+    {
+      "contains_int64_max": false,
+      "node_index": 103,
+      "node_name": "/residual_offset_branch/recurrent_network/Constant_7",
+      "numpy_dtype": "int64",
+      "onnx_dtype": "INT64",
+      "output": [
+        "/residual_offset_branch/recurrent_network/Constant_7_output_0"
+      ],
+      "preview": [
+        0
+      ],
+      "shape": [
+        1
+      ]
+    },
+    {
+      "contains_int64_max": false,
+      "node_index": 104,
+      "node_name": "/residual_offset_branch/recurrent_network/Constant_8",
+      "numpy_dtype": "int64",
+      "onnx_dtype": "INT64",
+      "output": [
+        "/residual_offset_branch/recurrent_network/Constant_8_output_0"
+      ],
+      "preview": [
+        1
+      ],
+      "shape": [
+        1
+      ]
+    },
+    {
+      "contains_int64_max": false,
+      "node_index": 105,
+      "node_name": "/residual_offset_branch/recurrent_network/Constant_9",
+      "numpy_dtype": "int64",
+      "onnx_dtype": "INT64",
+      "output": [
+        "/residual_offset_branch/recurrent_network/Constant_9_output_0"
+      ],
+      "preview": [
+        2
+      ],
+      "shape": [
+        1
+      ]
+    },
+    {
+      "contains_int64_max": false,
+      "node_index": 108,
+      "node_name": "/residual_offset_branch/recurrent_network/Constant_10",
+      "numpy_dtype": "int64",
+      "onnx_dtype": "INT64",
+      "output": [
+        "/residual_offset_branch/recurrent_network/Constant_10_output_0"
+      ],
+      "preview": [
+        1
+      ],
+      "shape": [
+        1
+      ]
+    },
+    {
+      "contains_int64_max": false,
+      "node_index": 112,
+      "node_name": "/residual_offset_branch/Constant",
+      "numpy_dtype": "int64",
+      "onnx_dtype": "INT64",
+      "output": [
+        "/residual_offset_branch/Constant_output_0"
+      ],
+      "preview": [
+        1
+      ],
+      "shape": []
+    },
+    {
+      "contains_int64_max": false,
+      "node_index": 114,
+      "node_name": "/residual_offset_branch/Constant_1",
+      "numpy_dtype": "int64",
+      "onnx_dtype": "INT64",
+      "output": [
+        "/residual_offset_branch/Constant_1_output_0"
+      ],
+      "preview": [
+        2
+      ],
+      "shape": []
+    },
+    {
+      "contains_int64_max": false,
+      "node_index": 120,
+      "node_name": "/Constant_26",
+      "numpy_dtype": "float32",
+      "onnx_dtype": "FLOAT",
+      "output": [
+        "/Constant_26_output_0"
+      ],
+      "preview": [
+        1.0
+      ],
+      "shape": []
+    }
+  ],
+  "dynamic_shape_count": 2,
+  "initializer_count": 15,
+  "inputs": [
+    {
+      "element_type": 1,
+      "element_type_name": "FLOAT",
+      "name": "input_tensor",
+      "shape": [
+        {
+          "kind": "dynamic",
+          "value": "batch_size"
+        },
+        {
+          "kind": "static",
+          "value": 33
+        },
+        {
+          "kind": "static",
+          "value": 4
+        }
+      ]
+    }
+  ],
+  "int64_max_constant_count": 1,
+  "int64_max_constant_nodes": [
+    {
+      "contains_int64_max": true,
+      "node_index": 26,
+      "node_name": "/Constant_10",
+      "numpy_dtype": "int64",
+      "onnx_dtype": "INT64",
+      "output": [
+        "/Constant_10_output_0"
+      ],
+      "preview": [
+        9223372036854775807
+      ],
+      "shape": [
+        1
+      ]
+    }
+  ],
+  "ir_version": 8,
+  "node_count": 125,
+  "operator_histogram": {
+    "Add": 3,
+    "Cast": 7,
+    "Concat": 3,
+    "Constant": 43,
+    "ConstantOfShape": 2,
+    "Cos": 9,
+    "Div": 4,
+    "GRU": 2,
+    "Gather": 8,
+    "Gemm": 2,
+    "Mul": 13,
+    "ReduceSum": 1,
+    "Reshape": 1,
+    "Shape": 6,
+    "Sin": 9,
+    "Slice": 4,
+    "Squeeze": 2,
+    "Sub": 1,
+    "Transpose": 2,
+    "Unsqueeze": 3
+  },
+  "opset_imports": [
+    {
+      "domain": "ai.onnx",
+      "version": 17
+    }
+  ],
+  "outputs": [
+    {
+      "element_type": 1,
+      "element_type_name": "FLOAT",
+      "name": "prediction_tensor",
+      "shape": [
+        {
+          "kind": "dynamic",
+          "value": "batch_size"
+        },
+        {
+          "kind": "static",
+          "value": 3
+        }
+      ]
+    }
+  ],
+  "recommended_route": "tf38x0_candidate",
+  "route_notes": [
+    "Dynamic dimensions are present; TF3820 allows only leading dynamic batch dimensions.",
+    "INT64_MAX Constant nodes detected; Beckhoff MLlib may reject open Slice sentinels."
+  ],
+  "source_onnx_path": "output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_wave4_2_quantile_p10_p50_p90/source_model.onnx",
+  "source_onnx_sha256": "bf76f6620eadda3af9a29605622dbc5070350eafb36f3eaf5a39fdc38041f1ad",
+  "source_onnx_size_bytes": 358172
+}

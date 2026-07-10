@@ -1,0 +1,81 @@
+schema_version: 1
+created_at: '2026-07-10T14:15:27'
+source_onnx_path: models/polished_dataset/exported/wave3_2_harmonic_residual_offset/forward/2026-06-30-19-14-26__te_wave3_2_harmonic_residual_offset_fw/onnx/model.onnx
+source_onnx_sha256: ae19da2fa0e6ab4b74074c7711ac477be5f743b47303895e18d42a07ad12871e
+beckhoff_input_onnx_path: output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_wave3_2_harmonic_residual_offset/source_model.onnx
+beckhoff_input_onnx_sha256: 92c38bb7e5a5cbad8f37cc1b326d5200acd4b45c9d8495c32947df4564265d1f
+preprocessing_summary_path: output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_wave3_2_harmonic_residual_offset/preprocessing_summary.yaml
+preprocessing_summary:
+  status: updated
+  sequence_length: 33
+  fallback_dimension_value: 33
+  frozen_dimension_list:
+  - value_name: input_tensor
+    axis: 1
+    original_value: sequence_length
+    frozen_value: 33
+output_directory: output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_wave3_2_harmonic_residual_offset
+toolbox_executable: scripts/deployment/twincat_onnx_conversion/ModelManagerAPI/mllib_toolbox.exe
+beckhoff_toolbox_status:
+  toolbox_root: scripts/deployment/twincat_onnx_conversion/ModelManagerAPI
+  toolbox_executable: scripts/deployment/twincat_onnx_conversion/ModelManagerAPI/mllib_toolbox.exe
+  toolbox_executable_exists: true
+  required_runtime_file_list:
+  - mllib_um.dll
+  detected_runtime_file_list:
+  - MLAIPlugin.dll
+  - mllib_um.dll
+  - mllib_um32.dll
+  - ML_TcCOM_Extension.dll
+  - ML_TcCOM_Extension.dll.config
+  missing_runtime_file_list: []
+  status: ready
+inspection_summary_path: output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_wave3_2_harmonic_residual_offset/inspection_summary.json
+onnxruntime_smoke_path: output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_wave3_2_harmonic_residual_offset/onnxruntime_smoke.json
+onnxruntime_smoke_status: passed
+reference_inventory:
+  schema_version: 1
+  dataset_id: polished_dataset
+  dataset_schema: polished_point_v1
+  model_family: wave3_2_harmonic_residual_offset
+  model_type: harmonic_residual_offset_probe
+  surface: forward
+  run_name: te_wave3_2_harmonic_residual_offset_fw
+  run_instance_id: 2026-06-30-19-14-26__te_wave3_2_harmonic_residual_offset_fw
+  source_output_directory: output/training_runs/wave3_2_harmonic_residual_offset/2026-06-30-19-14-26__te_wave3_2_harmonic_residual_offset_fw
+  source_best_checkpoint_path: output/training_runs/wave3_2_harmonic_residual_offset/2026-06-30-19-14-26__te_wave3_2_harmonic_residual_offset_fw/checkpoints/harmonic_residual_offset_probe-epoch=066-val_mae=0.00180926.ckpt
+  python_model_path: models/polished_dataset/exported/wave3_2_harmonic_residual_offset/forward/2026-06-30-19-14-26__te_wave3_2_harmonic_residual_offset_fw/python/harmonic_residual_offset_probe-epoch=066-val_mae=0.00180926.ckpt
+  onnx_model_path: models/polished_dataset/exported/wave3_2_harmonic_residual_offset/forward/2026-06-30-19-14-26__te_wave3_2_harmonic_residual_offset_fw/onnx/model.onnx
+  onnx_export_status: exported
+  onnx_export_error: ''
+  source_run_snapshot_path_map:
+    training_config.snapshot.yaml: models/polished_dataset/exported/wave3_2_harmonic_residual_offset/forward/2026-06-30-19-14-26__te_wave3_2_harmonic_residual_offset_fw/source_run/training_config.snapshot.yaml
+    metrics_summary.snapshot.yaml: models/polished_dataset/exported/wave3_2_harmonic_residual_offset/forward/2026-06-30-19-14-26__te_wave3_2_harmonic_residual_offset_fw/source_run/metrics_summary.snapshot.yaml
+    run_metadata.snapshot.yaml: models/polished_dataset/exported/wave3_2_harmonic_residual_offset/forward/2026-06-30-19-14-26__te_wave3_2_harmonic_residual_offset_fw/source_run/run_metadata.snapshot.yaml
+    training_test_report.snapshot.md: models/polished_dataset/exported/wave3_2_harmonic_residual_offset/forward/2026-06-30-19-14-26__te_wave3_2_harmonic_residual_offset_fw/source_run/training_test_report.snapshot.md
+    best_checkpoint_path.snapshot.txt: models/polished_dataset/exported/wave3_2_harmonic_residual_offset/forward/2026-06-30-19-14-26__te_wave3_2_harmonic_residual_offset_fw/source_run/best_checkpoint_path.snapshot.txt
+  metrics:
+    val_mae: 0.001809256966225803
+    test_mae: 0.0019476278685033321
+    test_rmse: 0.0025067534297704697
+tf38x0:
+  status: skipped
+tf3820:
+  status: completed
+  prepared_onnx_path: output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_wave3_2_harmonic_residual_offset/tf3820/model.onnx
+  json_output_path: output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_wave3_2_harmonic_residual_offset/tf3820/model.json
+  plcopen_output_path: output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_wave3_2_harmonic_residual_offset/tf3820/model_plcopen.xml
+  generated_file_list:
+  - output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_wave3_2_harmonic_residual_offset/tf3820/model.json
+  - output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_wave3_2_harmonic_residual_offset/tf3820/model.onnx
+  - output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_wave3_2_harmonic_residual_offset/tf3820/model_plcopen.xml
+  commands:
+  - name: tf3820_onnxprep
+    command:
+    - C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\scripts\deployment\twincat_onnx_conversion\ModelManagerAPI\mllib_toolbox.exe
+    - onnxprep
+    - C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\deployment\twincat_onnx_conversion\family_matrix_20260710_shape_fixed\tf3820_wave3_2_harmonic_residual_offset\tf3820\model.onnx
+    return_code: 0
+    succeeded: true
+    stdout_path: output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_wave3_2_harmonic_residual_offset/logs/tf3820_onnxprep.stdout.log
+    stderr_path: output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/tf3820_wave3_2_harmonic_residual_offset/logs/tf3820_onnxprep.stderr.log
