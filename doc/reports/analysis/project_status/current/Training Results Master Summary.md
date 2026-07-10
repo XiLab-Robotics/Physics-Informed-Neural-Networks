@@ -2,7 +2,7 @@
 
 ## Executive Snapshot
 
-- Generated At: `2026-07-10T02:03:45`
+- Generated At: `2026-07-10T03:39:02`
 - Program State: active.
 - Current Completed Wave: polished-dataset RCIM, early-wave, and full-wave
 - Current Focus: the polished-dataset TE Curve Verification Pipeline refresh is
@@ -58,7 +58,7 @@
 | `residual_harmonic_gru_sequence_sparse_rcim` | Implemented Benchmark | `te_residual_harmonic_gru_sequence_remote_global_sparse_rcim` | `residual_harmonic_gru_sequence` | 0.002112 | 150,676 | `2026-06-22 14:31:08` |
 | `wave5_1_harmonic_prior_smooth_l1_structured_global` | Implemented Benchmark | `te_wave5_1_harmonic_prior_smooth_l1_structured_global` | `wave3_harmonic_prior_residual` | 0.002119 | 7,168 | `2026-07-02 00:54:14` |
 | `wave5_1_harmonic_prior_pointwise_control_global` | Implemented Benchmark | `te_wave5_1_harmonic_prior_pointwise_control_global` | `wave3_harmonic_prior_residual` | 0.002159 | 7,168 | `2026-07-01 23:29:07` |
-| `residual_harmonic_lstm_sequence_dense240_global` | Implemented Benchmark | `te_residual_harmonic_lstm_sequence_dense240_global` | `residual_harmonic_lstm_sequence` | 0.002161 | 201,314 | `2026-07-10 00:54:03` |
+| `residual_harmonic_lstm_sequence_dense240_global` | Implemented Benchmark | `te_residual_harmonic_lstm_sequence_dense240_global` | `residual_harmonic_lstm_sequence` | 0.002161 | 201,314 | `2026-07-10 02:31:07` |
 | `wave3_harmonic_prior_residual_smooth_l1_structured_global` | Implemented Benchmark | `te_wave3_harmonic_prior_residual_smooth_l1_structured_global` | `wave3_harmonic_prior_residual` | 0.002168 | 7,168 | `2026-06-22 15:37:36` |
 | `wave52b_offset_harmonic_guided_offset_centered_shape_harmonic_global` | Implemented Benchmark | `te_wave52b_offset_harmonic_guided_offset_centered_shape_harmonic_global` | `wave52b_offset_harmonic_guided` | 0.002215 | 22,593 | `2026-07-02 01:24:47` |
 | `residual_harmonic_lstm_sequence_dense360_global` | Implemented Benchmark | `te_residual_harmonic_lstm_sequence_dense360_global` | `residual_harmonic_lstm_sequence` | 0.002223 | 201,554 | `2026-06-30 14:47:33` |
@@ -138,7 +138,7 @@
 | `residual_harmonic_gru_sequence_dense360_fw` | Implemented Benchmark | `te_residual_harmonic_gru_sequence_dense360_fw__polished_actual_values` | `residual_harmonic_gru_sequence` | 0.002074 | 151,762 | `2026-07-09 17:49:07` |
 | `periodic_temporal_convolution_fw` | Implemented Benchmark | `te_periodic_temporal_convolution_fw__polished_actual_values` | `periodic_temporal_convolution` | 0.002077 | 158,529 | `2026-07-08 21:27:59` |
 | `residual_harmonic_gru_sequence_dense240_fw` | Implemented Benchmark | `te_residual_harmonic_gru_sequence_dense240_fw__polished_actual_values` | `residual_harmonic_gru_sequence` | 0.002101 | 151,522 | `2026-07-09 12:19:38` |
-| `residual_harmonic_lstm_sequence_dense240_fw` | Implemented Benchmark | `te_residual_harmonic_lstm_sequence_dense240_fw` | `residual_harmonic_lstm_sequence` | 0.002147 | 201,314 | `2026-07-10 01:19:43` |
+| `residual_harmonic_lstm_sequence_dense240_fw` | Implemented Benchmark | `te_residual_harmonic_lstm_sequence_dense240_fw` | `residual_harmonic_lstm_sequence` | 0.002147 | 201,314 | `2026-07-10 02:54:22` |
 | `wave5_1_harmonic_prior_smooth_l1_structured_fw` | Implemented Benchmark | `te_wave5_1_harmonic_prior_smooth_l1_structured_fw` | `wave3_harmonic_prior_residual` | 0.002151 | 7,168 | `2026-07-02 01:22:38` |
 | `wave5_1_harmonic_prior_pointwise_control_fw` | Implemented Benchmark | `te_wave5_1_harmonic_prior_pointwise_control_fw` | `wave3_harmonic_prior_residual` | 0.002185 | 7,168 | `2026-07-01 23:48:39` |
 | `residual_harmonic_lstm_sequence_dense360_fw` | Implemented Benchmark | `te_residual_harmonic_lstm_sequence_dense360_fw` | `residual_harmonic_lstm_sequence` | 0.002219 | 201,554 | `2026-06-30 15:15:33` |
@@ -209,7 +209,7 @@
 | `residual_harmonic_lstm_sequence_dense360_bw` | Implemented Benchmark | `te_residual_harmonic_lstm_sequence_dense360_bw` | `residual_harmonic_lstm_sequence` | 0.002097 | 201,554 | `2026-06-30 16:02:19` |
 | `wave5_1_harmonic_prior_pointwise_control_bw` | Implemented Benchmark | `te_wave5_1_harmonic_prior_pointwise_control_bw` | `wave3_harmonic_prior_residual` | 0.002105 | 7,168 | `2026-07-02 00:24:37` |
 | `residual_harmonic_lstm_sequence_sparse_rcim_bw` | Implemented Benchmark | `te_residual_harmonic_lstm_sequence_sparse_rcim_bw` | `residual_harmonic_lstm_sequence` | 0.002108 | 200,852 | `2026-07-09 22:49:53` |
-| `residual_harmonic_lstm_sequence_dense240_bw` | Implemented Benchmark | `te_residual_harmonic_lstm_sequence_dense240_bw` | `residual_harmonic_lstm_sequence` | 0.002164 | 201,314 | `2026-07-10 01:46:42` |
+| `residual_harmonic_lstm_sequence_dense240_bw` | Implemented Benchmark | `te_residual_harmonic_lstm_sequence_dense240_bw__polished_actual_values` | `residual_harmonic_lstm_sequence` | 0.002116 | 201,826 | `2026-07-10 03:27:02` |
 | `wave5_1_harmonic_prior_smooth_l1_structured_bw` | Implemented Benchmark | `te_wave5_1_harmonic_prior_smooth_l1_structured_bw` | `wave3_harmonic_prior_residual` | 0.002178 | 7,168 | `2026-07-02 01:47:44` |
 | `wave3_1_sequential_residual_offset_probe_bw` | Implemented Benchmark | `te_wave3_1_sequential_residual_offset_probe_bw` | `sequential_residual_offset_probe` | 0.002225 | 92,418 | `2026-06-30 17:18:40` |
 | `gru_sequence_bw` | Implemented Benchmark | `te_gru_sequence_bw` | `gru_sequence` | 0.002230 | 150,657 | `2026-07-08 14:46:08` |
@@ -427,11 +427,11 @@ Low-priority exploratory families currently listed in the backlog:
 
 | Campaign | Generated At | Completed | Failed | Winner | Impact |
 | --- | --- | ---: | ---: | --- | --- |
+| `dataset_input_mode_retraining__residual_harmonic_lstm_sequence_dense240__polished_actual_values` | `2026-07-10 03:27:02` | 3 | 0 | `te_residual_harmonic_lstm_sequence_dense240_bw__polished_actual_values` | Updated residual_harmonic_lstm_sequence_dense240_bw family best |
 | `dataset_input_mode_retraining__residual_harmonic_lstm_sequence_dense240__polished_setpoints` | `2026-07-10 01:46:42` | 3 | 0 | `te_residual_harmonic_lstm_sequence_dense240_fw__polished_setpoints` | No family-best change |
 | `dataset_input_mode_retraining__residual_harmonic_lstm_sequence_dense240__simplified_setpoints` | `2026-07-10 00:20:55` | 3 | 0 | `te_residual_harmonic_lstm_sequence_dense240_fw__simplified_setpoints` | No family-best change |
 | `dataset_input_mode_retraining__residual_harmonic_lstm_sequence_sparse_rcim__polished_actual_values` | `2026-07-09 22:49:53` | 3 | 0 | `te_residual_harmonic_lstm_sequence_sparse_rcim_fw__polished_actual_values` | Updated residual_harmonic_lstm_sequence_sparse_rcim_fw family best |
 | `dataset_input_mode_retraining__residual_harmonic_lstm_sequence_sparse_rcim__polished_setpoints` | `2026-07-09 20:39:39` | 3 | 0 | `te_residual_harmonic_lstm_sequence_sparse_rcim_bw__polished_setpoints` | No family-best change |
-| `dataset_input_mode_retraining__residual_harmonic_lstm_sequence_sparse_rcim__simplified_setpoints` | `2026-07-09 19:24:40` | 3 | 0 | `te_residual_harmonic_lstm_sequence_sparse_rcim_fw__simplified_setpoints` | No family-best change |
 
 ## Ranking Policy
 
@@ -631,7 +631,7 @@ Low-priority exploratory families currently listed in the backlog:
 | `residual_harmonic_lstm_sequence_dense360_bw` | `te_residual_harmonic_lstm_sequence_dense360_bw` | `residual_harmonic_lstm_sequence` | 0.002007 | 0.002097 | 0.002693 | 201,554 | N/A | Unknown | Implemented Benchmark |
 | `wave5_1_harmonic_prior_pointwise_control_bw` | `te_wave5_1_harmonic_prior_pointwise_control_bw` | `wave3_harmonic_prior_residual` | 0.001893 | 0.002105 | 0.002680 | 7,168 | N/A | Unknown | Implemented Benchmark |
 | `residual_harmonic_lstm_sequence_sparse_rcim_bw` | `te_residual_harmonic_lstm_sequence_sparse_rcim_bw` | `residual_harmonic_lstm_sequence` | 0.001994 | 0.002108 | 0.002694 | 200,852 | N/A | Unknown | Implemented Benchmark |
-| `residual_harmonic_lstm_sequence_dense240_bw` | `te_residual_harmonic_lstm_sequence_dense240_bw` | `residual_harmonic_lstm_sequence` | 0.002040 | 0.002164 | 0.002757 | 201,314 | N/A | Unknown | Implemented Benchmark |
+| `residual_harmonic_lstm_sequence_dense240_bw` | `te_residual_harmonic_lstm_sequence_dense240_bw__polished_actual_values` | `residual_harmonic_lstm_sequence` | 0.001985 | 0.002116 | 0.003149 | 201,826 | N/A | Unknown | Implemented Benchmark |
 | `wave5_1_harmonic_prior_smooth_l1_structured_bw` | `te_wave5_1_harmonic_prior_smooth_l1_structured_bw` | `wave3_harmonic_prior_residual` | 0.001921 | 0.002178 | 0.002776 | 7,168 | N/A | Unknown | Implemented Benchmark |
 | `wave3_1_sequential_residual_offset_probe_bw` | `te_wave3_1_sequential_residual_offset_probe_bw` | `sequential_residual_offset_probe` | 0.002147 | 0.002225 | 0.002871 | 92,418 | N/A | Unknown | Implemented Benchmark |
 | `gru_sequence_bw` | `te_gru_sequence_bw` | `gru_sequence` | 0.002119 | 0.002230 | 0.002860 | 150,657 | N/A | Unknown | Implemented Benchmark |
@@ -1474,26 +1474,6 @@ Known failed campaign attempts for this family:
 | 13 | `te_residual_harmonic_gru_sequence_remote_global_sparse_rcim` | `residual_harmonic_gru_sequence` | 0.003440 | 0.003848 | 0.003607 | 151,060 | 11m 44s | 1.75 MB | Very High | Low | `wave2c_residual_harmonic_temporal_hybrid_campaign_2026_05_27` |
 | 14 | `te_residual_harmonic_gru_sequence_sparse_rcim_global__simplified_setpoints` | `residual_harmonic_gru_sequence` | 0.003456 | 0.004304 | 0.003581 | 151,060 | 10m 22s | 1.75 MB | Very High | Low | `dataset_input_mode_retraining__residual_harmonic_gru_sequence_sparse_rcim__simplified_setpoints` |
 
-#### residual_harmonic_lstm_sequence_dense240
-
-- Best run: `te_residual_harmonic_lstm_sequence_remote_global_dense240`
-- Best test MAE: `0.003473`
-- Completed tracked runs: `10`
-- Known failed campaign attempts: `0`
-
-| Rank | Run | Model Type | Test MAE [deg] | Test RMSE [deg] | Val MAE [deg] | Params | Duration | Artifact Size | Model Complexity | Training Heaviness | Campaign |
-| --- | --- | --- | ---: | ---: | ---: | ---: | --- | --- | --- | --- | --- |
-| 1 | `te_residual_harmonic_lstm_sequence_dense240_fw` | `residual_harmonic_lstm_sequence` | 0.002147 | 0.002745 | 0.002044 | 201,314 | 21m 58s | 2.32 MB | Very High | Medium | `polished_dataset_full_wave_retraining_2026_06_22` |
-| 2 | `te_residual_harmonic_lstm_sequence_dense240_global` | `residual_harmonic_lstm_sequence` | 0.002161 | 0.002748 | 0.002031 | 201,314 | 30m 03s | 2.32 MB | Very High | Medium | `polished_dataset_full_wave_retraining_2026_06_22` |
-| 3 | `te_residual_harmonic_lstm_sequence_dense240_bw` | `residual_harmonic_lstm_sequence` | 0.002164 | 0.002757 | 0.002040 | 201,314 | 25m 51s | 2.32 MB | Very High | Medium | `polished_dataset_full_wave_retraining_2026_06_22` |
-| 4 | `te_residual_harmonic_lstm_sequence_dense240_fw__polished_setpoints` | `residual_harmonic_lstm_sequence` | 0.002275 | 0.003636 | 0.001995 | 201,826 | 25m 40s | 2.33 MB | Very High | Medium | `dataset_input_mode_retraining__residual_harmonic_lstm_sequence_dense240__polished_setpoints` |
-| 5 | `te_residual_harmonic_lstm_sequence_dense240_global__polished_setpoints` | `residual_harmonic_lstm_sequence` | 0.002297 | 0.003647 | 0.002004 | 201,826 | 20m 56s | 2.33 MB | Very High | Medium | `dataset_input_mode_retraining__residual_harmonic_lstm_sequence_dense240__polished_setpoints` |
-| 6 | `te_residual_harmonic_lstm_sequence_dense240_bw__polished_setpoints` | `residual_harmonic_lstm_sequence` | 0.002316 | 0.003665 | 0.002005 | 201,826 | 26m 59s | 2.33 MB | Very High | Medium | `dataset_input_mode_retraining__residual_harmonic_lstm_sequence_dense240__polished_setpoints` |
-| 7 | `te_residual_harmonic_lstm_sequence_dense240_fw__simplified_setpoints` | `residual_harmonic_lstm_sequence` | 0.003354 | 0.004116 | 0.003561 | 201,826 | 21m 52s | 2.33 MB | Very High | Medium | `dataset_input_mode_retraining__residual_harmonic_lstm_sequence_dense240__simplified_setpoints` |
-| 8 | `te_residual_harmonic_lstm_sequence_dense240_bw__simplified_setpoints` | `residual_harmonic_lstm_sequence` | 0.003367 | 0.004145 | 0.003586 | 201,826 | 27m 02s | 2.33 MB | Very High | Medium | `dataset_input_mode_retraining__residual_harmonic_lstm_sequence_dense240__simplified_setpoints` |
-| 9 | `te_residual_harmonic_lstm_sequence_dense240_global__simplified_setpoints` | `residual_harmonic_lstm_sequence` | 0.003381 | 0.004182 | 0.003604 | 201,826 | 17m 53s | 2.33 MB | Very High | Medium | `dataset_input_mode_retraining__residual_harmonic_lstm_sequence_dense240__simplified_setpoints` |
-| 10 | `te_residual_harmonic_lstm_sequence_remote_global_dense240` | `residual_harmonic_lstm_sequence` | 0.003473 | 0.003925 | 0.003624 | 201,826 | 13m 54s | 2.33 MB | Very High | Low | `wave2c_residual_harmonic_temporal_hybrid_campaign_2026_05_27` |
-
 #### residual_harmonic_lstm_sequence_fw_dense240
 
 - Best run: `te_residual_harmonic_lstm_sequence_remote_Fw_dense240`
@@ -2156,6 +2136,29 @@ Known failed campaign attempts for this family:
 | Rank | Run | Model Type | Test MAE [deg] | Test RMSE [deg] | Val MAE [deg] | Params | Duration | Artifact Size | Model Complexity | Training Heaviness | Campaign |
 | --- | --- | --- | ---: | ---: | ---: | ---: | --- | --- | --- | --- | --- |
 | 1 | `te_residual_harmonic_lstm_sequence_remote_Bw_sparse_rcim` | `residual_harmonic_lstm_sequence` | 0.003440 | 0.004030 | 0.003764 | 201,364 | 7m 48s | 2.32 MB | Very High | Low | `wave2c_residual_harmonic_temporal_hybrid_campaign_2026_05_27` |
+
+#### residual_harmonic_lstm_sequence_dense240
+
+- Best run: `te_residual_harmonic_lstm_sequence_remote_global_dense240`
+- Best test MAE: `0.003473`
+- Completed tracked runs: `13`
+- Known failed campaign attempts: `0`
+
+| Rank | Run | Model Type | Test MAE [deg] | Test RMSE [deg] | Val MAE [deg] | Params | Duration | Artifact Size | Model Complexity | Training Heaviness | Campaign |
+| --- | --- | --- | ---: | ---: | ---: | ---: | --- | --- | --- | --- | --- |
+| 1 | `te_residual_harmonic_lstm_sequence_dense240_bw__polished_actual_values` | `residual_harmonic_lstm_sequence` | 0.002116 | 0.003149 | 0.001985 | 201,826 | 32m 41s | 2.33 MB | Very High | Medium | `dataset_input_mode_retraining__residual_harmonic_lstm_sequence_dense240__polished_actual_values` |
+| 2 | `te_residual_harmonic_lstm_sequence_dense240_fw` | `residual_harmonic_lstm_sequence` | 0.002147 | 0.002745 | 0.002044 | 201,314 | 21m 58s | 2.32 MB | Very High | Medium | `polished_dataset_full_wave_retraining_2026_06_22` |
+| 3 | `te_residual_harmonic_lstm_sequence_dense240_global` | `residual_harmonic_lstm_sequence` | 0.002161 | 0.002748 | 0.002031 | 201,314 | 30m 03s | 2.32 MB | Very High | Medium | `polished_dataset_full_wave_retraining_2026_06_22` |
+| 4 | `te_residual_harmonic_lstm_sequence_dense240_bw` | `residual_harmonic_lstm_sequence` | 0.002164 | 0.002757 | 0.002040 | 201,314 | 25m 51s | 2.32 MB | Very High | Medium | `polished_dataset_full_wave_retraining_2026_06_22` |
+| 5 | `te_residual_harmonic_lstm_sequence_dense240_fw__polished_setpoints` | `residual_harmonic_lstm_sequence` | 0.002275 | 0.003636 | 0.001995 | 201,826 | 25m 40s | 2.33 MB | Very High | Medium | `dataset_input_mode_retraining__residual_harmonic_lstm_sequence_dense240__polished_setpoints` |
+| 6 | `te_residual_harmonic_lstm_sequence_dense240_global__polished_actual_values` | `residual_harmonic_lstm_sequence` | 0.002297 | 0.003625 | 0.002027 | 201,826 | 23m 21s | 2.33 MB | Very High | Medium | `dataset_input_mode_retraining__residual_harmonic_lstm_sequence_dense240__polished_actual_values` |
+| 7 | `te_residual_harmonic_lstm_sequence_dense240_global__polished_setpoints` | `residual_harmonic_lstm_sequence` | 0.002297 | 0.003647 | 0.002004 | 201,826 | 20m 56s | 2.33 MB | Very High | Medium | `dataset_input_mode_retraining__residual_harmonic_lstm_sequence_dense240__polished_setpoints` |
+| 8 | `te_residual_harmonic_lstm_sequence_dense240_fw__polished_actual_values` | `residual_harmonic_lstm_sequence` | 0.002298 | 0.003638 | 0.002025 | 201,826 | 23m 15s | 2.33 MB | Very High | Medium | `dataset_input_mode_retraining__residual_harmonic_lstm_sequence_dense240__polished_actual_values` |
+| 9 | `te_residual_harmonic_lstm_sequence_dense240_bw__polished_setpoints` | `residual_harmonic_lstm_sequence` | 0.002316 | 0.003665 | 0.002005 | 201,826 | 26m 59s | 2.33 MB | Very High | Medium | `dataset_input_mode_retraining__residual_harmonic_lstm_sequence_dense240__polished_setpoints` |
+| 10 | `te_residual_harmonic_lstm_sequence_dense240_fw__simplified_setpoints` | `residual_harmonic_lstm_sequence` | 0.003354 | 0.004116 | 0.003561 | 201,826 | 21m 52s | 2.33 MB | Very High | Medium | `dataset_input_mode_retraining__residual_harmonic_lstm_sequence_dense240__simplified_setpoints` |
+| 11 | `te_residual_harmonic_lstm_sequence_dense240_bw__simplified_setpoints` | `residual_harmonic_lstm_sequence` | 0.003367 | 0.004145 | 0.003586 | 201,826 | 27m 02s | 2.33 MB | Very High | Medium | `dataset_input_mode_retraining__residual_harmonic_lstm_sequence_dense240__simplified_setpoints` |
+| 12 | `te_residual_harmonic_lstm_sequence_dense240_global__simplified_setpoints` | `residual_harmonic_lstm_sequence` | 0.003381 | 0.004182 | 0.003604 | 201,826 | 17m 53s | 2.33 MB | Very High | Medium | `dataset_input_mode_retraining__residual_harmonic_lstm_sequence_dense240__simplified_setpoints` |
+| 13 | `te_residual_harmonic_lstm_sequence_remote_global_dense240` | `residual_harmonic_lstm_sequence` | 0.003473 | 0.003925 | 0.003624 | 201,826 | 13m 54s | 2.33 MB | Very High | Low | `wave2c_residual_harmonic_temporal_hybrid_campaign_2026_05_27` |
 
 #### residual_harmonic_lstm_sequence_dense360
 
