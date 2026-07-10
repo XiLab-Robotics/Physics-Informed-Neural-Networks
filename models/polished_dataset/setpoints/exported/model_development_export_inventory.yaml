@@ -13,74 +13,74 @@ entries:
   dataset_id: polished_dataset
   dataset_schema: polished_setpoint_curve_v1
   input_mode: setpoints
-  model_family: residual_harmonic_lstm_sequence_dense240
+  model_family: residual_harmonic_lstm_sequence_dense360
   model_type: residual_harmonic_lstm_sequence
   surface: global
-  run_name: te_residual_harmonic_lstm_sequence_dense240_global__polished_setpoints
-  run_instance_id: 2026-07-10-00-33-07__te_residual_harmonic_lstm_sequence_dense240_global__polished_setpoints
-  source_output_directory: output/training_runs/residual_harmonic_lstm_sequence_dense240/2026-07-10-00-33-07__te_residual_harmonic_lstm_sequence_dense240_global__polished_setpoints
-  source_best_checkpoint_path: output/training_runs/residual_harmonic_lstm_sequence_dense240/2026-07-10-00-33-07__te_residual_harmonic_lstm_sequence_dense240_global__polished_setpoints/checkpoints/residual_harmonic_lstm_sequence-epoch=045-val_mae=0.00200392.ckpt
-  python_model_path: models/polished_dataset/setpoints/exported/residual_harmonic_lstm_sequence_dense240/global/2026-07-10-00-33-07__te_residual_harmonic_lstm_sequence_dense240_global__polished_setpoints/python/residual_harmonic_lstm_sequence-epoch=045-val_mae=0.00200392.ckpt
-  onnx_model_path: models/polished_dataset/setpoints/exported/residual_harmonic_lstm_sequence_dense240/global/2026-07-10-00-33-07__te_residual_harmonic_lstm_sequence_dense240_global__polished_setpoints/onnx/model.onnx
+  run_name: te_residual_harmonic_lstm_sequence_dense360_global__polished_setpoints
+  run_instance_id: 2026-07-10-04-53-57__te_residual_harmonic_lstm_sequence_dense360_global__polished_setpoints
+  source_output_directory: output/training_runs/residual_harmonic_lstm_sequence_dense360/2026-07-10-04-53-57__te_residual_harmonic_lstm_sequence_dense360_global__polished_setpoints
+  source_best_checkpoint_path: output/training_runs/residual_harmonic_lstm_sequence_dense360/2026-07-10-04-53-57__te_residual_harmonic_lstm_sequence_dense360_global__polished_setpoints/checkpoints/residual_harmonic_lstm_sequence-epoch=101-val_mae=0.00197679.ckpt
+  python_model_path: models/polished_dataset/setpoints/exported/residual_harmonic_lstm_sequence_dense360/global/2026-07-10-04-53-57__te_residual_harmonic_lstm_sequence_dense360_global__polished_setpoints/python/residual_harmonic_lstm_sequence-epoch=101-val_mae=0.00197679.ckpt
+  onnx_model_path: models/polished_dataset/setpoints/exported/residual_harmonic_lstm_sequence_dense360/global/2026-07-10-04-53-57__te_residual_harmonic_lstm_sequence_dense360_global__polished_setpoints/onnx/model.onnx
   onnx_export_status: exported
   onnx_export_error: ''
   source_run_snapshot_path_map:
-    training_config.snapshot.yaml: models/polished_dataset/setpoints/exported/residual_harmonic_lstm_sequence_dense240/global/2026-07-10-00-33-07__te_residual_harmonic_lstm_sequence_dense240_global__polished_setpoints/source_run/training_config.snapshot.yaml
-    metrics_summary.snapshot.yaml: models/polished_dataset/setpoints/exported/residual_harmonic_lstm_sequence_dense240/global/2026-07-10-00-33-07__te_residual_harmonic_lstm_sequence_dense240_global__polished_setpoints/source_run/metrics_summary.snapshot.yaml
-    run_metadata.snapshot.yaml: models/polished_dataset/setpoints/exported/residual_harmonic_lstm_sequence_dense240/global/2026-07-10-00-33-07__te_residual_harmonic_lstm_sequence_dense240_global__polished_setpoints/source_run/run_metadata.snapshot.yaml
-    training_test_report.snapshot.md: models/polished_dataset/setpoints/exported/residual_harmonic_lstm_sequence_dense240/global/2026-07-10-00-33-07__te_residual_harmonic_lstm_sequence_dense240_global__polished_setpoints/source_run/training_test_report.snapshot.md
-    best_checkpoint_path.snapshot.txt: models/polished_dataset/setpoints/exported/residual_harmonic_lstm_sequence_dense240/global/2026-07-10-00-33-07__te_residual_harmonic_lstm_sequence_dense240_global__polished_setpoints/source_run/best_checkpoint_path.snapshot.txt
+    training_config.snapshot.yaml: models/polished_dataset/setpoints/exported/residual_harmonic_lstm_sequence_dense360/global/2026-07-10-04-53-57__te_residual_harmonic_lstm_sequence_dense360_global__polished_setpoints/source_run/training_config.snapshot.yaml
+    metrics_summary.snapshot.yaml: models/polished_dataset/setpoints/exported/residual_harmonic_lstm_sequence_dense360/global/2026-07-10-04-53-57__te_residual_harmonic_lstm_sequence_dense360_global__polished_setpoints/source_run/metrics_summary.snapshot.yaml
+    run_metadata.snapshot.yaml: models/polished_dataset/setpoints/exported/residual_harmonic_lstm_sequence_dense360/global/2026-07-10-04-53-57__te_residual_harmonic_lstm_sequence_dense360_global__polished_setpoints/source_run/run_metadata.snapshot.yaml
+    training_test_report.snapshot.md: models/polished_dataset/setpoints/exported/residual_harmonic_lstm_sequence_dense360/global/2026-07-10-04-53-57__te_residual_harmonic_lstm_sequence_dense360_global__polished_setpoints/source_run/training_test_report.snapshot.md
+    best_checkpoint_path.snapshot.txt: models/polished_dataset/setpoints/exported/residual_harmonic_lstm_sequence_dense360/global/2026-07-10-04-53-57__te_residual_harmonic_lstm_sequence_dense360_global__polished_setpoints/source_run/best_checkpoint_path.snapshot.txt
   metrics:
-    val_mae: 0.0020039204973727465
-    test_mae: 0.002297232626006007
-    test_rmse: 0.0036465609446167946
+    val_mae: 0.0019767913036048412
+    test_mae: 0.0022816963028162718
+    test_rmse: 0.003645189106464386
 - schema_version: 1
   dataset_id: polished_dataset
   dataset_schema: polished_setpoint_curve_v1
   input_mode: setpoints
-  model_family: residual_harmonic_lstm_sequence_dense240
+  model_family: residual_harmonic_lstm_sequence_dense360
   model_type: residual_harmonic_lstm_sequence
   surface: forward
-  run_name: te_residual_harmonic_lstm_sequence_dense240_fw__polished_setpoints
-  run_instance_id: 2026-07-10-00-54-03__te_residual_harmonic_lstm_sequence_dense240_fw__polished_setpoints
-  source_output_directory: output/training_runs/residual_harmonic_lstm_sequence_dense240/2026-07-10-00-54-03__te_residual_harmonic_lstm_sequence_dense240_fw__polished_setpoints
-  source_best_checkpoint_path: output/training_runs/residual_harmonic_lstm_sequence_dense240/2026-07-10-00-54-03__te_residual_harmonic_lstm_sequence_dense240_fw__polished_setpoints/checkpoints/residual_harmonic_lstm_sequence-epoch=067-val_mae=0.00199481.ckpt
-  python_model_path: models/polished_dataset/setpoints/exported/residual_harmonic_lstm_sequence_dense240/forward/2026-07-10-00-54-03__te_residual_harmonic_lstm_sequence_dense240_fw__polished_setpoints/python/residual_harmonic_lstm_sequence-epoch=067-val_mae=0.00199481.ckpt
-  onnx_model_path: models/polished_dataset/setpoints/exported/residual_harmonic_lstm_sequence_dense240/forward/2026-07-10-00-54-03__te_residual_harmonic_lstm_sequence_dense240_fw__polished_setpoints/onnx/model.onnx
+  run_name: te_residual_harmonic_lstm_sequence_dense360_fw__polished_setpoints
+  run_instance_id: 2026-07-10-05-27-52__te_residual_harmonic_lstm_sequence_dense360_fw__polished_setpoints
+  source_output_directory: output/training_runs/residual_harmonic_lstm_sequence_dense360/2026-07-10-05-27-52__te_residual_harmonic_lstm_sequence_dense360_fw__polished_setpoints
+  source_best_checkpoint_path: output/training_runs/residual_harmonic_lstm_sequence_dense360/2026-07-10-05-27-52__te_residual_harmonic_lstm_sequence_dense360_fw__polished_setpoints/checkpoints/residual_harmonic_lstm_sequence-epoch=089-val_mae=0.00201259.ckpt
+  python_model_path: models/polished_dataset/setpoints/exported/residual_harmonic_lstm_sequence_dense360/forward/2026-07-10-05-27-52__te_residual_harmonic_lstm_sequence_dense360_fw__polished_setpoints/python/residual_harmonic_lstm_sequence-epoch=089-val_mae=0.00201259.ckpt
+  onnx_model_path: models/polished_dataset/setpoints/exported/residual_harmonic_lstm_sequence_dense360/forward/2026-07-10-05-27-52__te_residual_harmonic_lstm_sequence_dense360_fw__polished_setpoints/onnx/model.onnx
   onnx_export_status: exported
   onnx_export_error: ''
   source_run_snapshot_path_map:
-    training_config.snapshot.yaml: models/polished_dataset/setpoints/exported/residual_harmonic_lstm_sequence_dense240/forward/2026-07-10-00-54-03__te_residual_harmonic_lstm_sequence_dense240_fw__polished_setpoints/source_run/training_config.snapshot.yaml
-    metrics_summary.snapshot.yaml: models/polished_dataset/setpoints/exported/residual_harmonic_lstm_sequence_dense240/forward/2026-07-10-00-54-03__te_residual_harmonic_lstm_sequence_dense240_fw__polished_setpoints/source_run/metrics_summary.snapshot.yaml
-    run_metadata.snapshot.yaml: models/polished_dataset/setpoints/exported/residual_harmonic_lstm_sequence_dense240/forward/2026-07-10-00-54-03__te_residual_harmonic_lstm_sequence_dense240_fw__polished_setpoints/source_run/run_metadata.snapshot.yaml
-    training_test_report.snapshot.md: models/polished_dataset/setpoints/exported/residual_harmonic_lstm_sequence_dense240/forward/2026-07-10-00-54-03__te_residual_harmonic_lstm_sequence_dense240_fw__polished_setpoints/source_run/training_test_report.snapshot.md
-    best_checkpoint_path.snapshot.txt: models/polished_dataset/setpoints/exported/residual_harmonic_lstm_sequence_dense240/forward/2026-07-10-00-54-03__te_residual_harmonic_lstm_sequence_dense240_fw__polished_setpoints/source_run/best_checkpoint_path.snapshot.txt
+    training_config.snapshot.yaml: models/polished_dataset/setpoints/exported/residual_harmonic_lstm_sequence_dense360/forward/2026-07-10-05-27-52__te_residual_harmonic_lstm_sequence_dense360_fw__polished_setpoints/source_run/training_config.snapshot.yaml
+    metrics_summary.snapshot.yaml: models/polished_dataset/setpoints/exported/residual_harmonic_lstm_sequence_dense360/forward/2026-07-10-05-27-52__te_residual_harmonic_lstm_sequence_dense360_fw__polished_setpoints/source_run/metrics_summary.snapshot.yaml
+    run_metadata.snapshot.yaml: models/polished_dataset/setpoints/exported/residual_harmonic_lstm_sequence_dense360/forward/2026-07-10-05-27-52__te_residual_harmonic_lstm_sequence_dense360_fw__polished_setpoints/source_run/run_metadata.snapshot.yaml
+    training_test_report.snapshot.md: models/polished_dataset/setpoints/exported/residual_harmonic_lstm_sequence_dense360/forward/2026-07-10-05-27-52__te_residual_harmonic_lstm_sequence_dense360_fw__polished_setpoints/source_run/training_test_report.snapshot.md
+    best_checkpoint_path.snapshot.txt: models/polished_dataset/setpoints/exported/residual_harmonic_lstm_sequence_dense360/forward/2026-07-10-05-27-52__te_residual_harmonic_lstm_sequence_dense360_fw__polished_setpoints/source_run/best_checkpoint_path.snapshot.txt
   metrics:
-    val_mae: 0.001994808902963996
-    test_mae: 0.0022754415404051542
-    test_rmse: 0.0036361529491841793
+    val_mae: 0.002012586919590831
+    test_mae: 0.002302831504493952
+    test_rmse: 0.003648348618298769
 - schema_version: 1
   dataset_id: polished_dataset
   dataset_schema: polished_setpoint_curve_v1
   input_mode: setpoints
-  model_family: residual_harmonic_lstm_sequence_dense240
+  model_family: residual_harmonic_lstm_sequence_dense360
   model_type: residual_harmonic_lstm_sequence
   surface: backward
-  run_name: te_residual_harmonic_lstm_sequence_dense240_bw__polished_setpoints
-  run_instance_id: 2026-07-10-01-19-43__te_residual_harmonic_lstm_sequence_dense240_bw__polished_setpoints
-  source_output_directory: output/training_runs/residual_harmonic_lstm_sequence_dense240/2026-07-10-01-19-43__te_residual_harmonic_lstm_sequence_dense240_bw__polished_setpoints
-  source_best_checkpoint_path: output/training_runs/residual_harmonic_lstm_sequence_dense240/2026-07-10-01-19-43__te_residual_harmonic_lstm_sequence_dense240_bw__polished_setpoints/checkpoints/residual_harmonic_lstm_sequence-epoch=073-val_mae=0.00200521.ckpt
-  python_model_path: models/polished_dataset/setpoints/exported/residual_harmonic_lstm_sequence_dense240/backward/2026-07-10-01-19-43__te_residual_harmonic_lstm_sequence_dense240_bw__polished_setpoints/python/residual_harmonic_lstm_sequence-epoch=073-val_mae=0.00200521.ckpt
-  onnx_model_path: models/polished_dataset/setpoints/exported/residual_harmonic_lstm_sequence_dense240/backward/2026-07-10-01-19-43__te_residual_harmonic_lstm_sequence_dense240_bw__polished_setpoints/onnx/model.onnx
+  run_name: te_residual_harmonic_lstm_sequence_dense360_bw__polished_setpoints
+  run_instance_id: 2026-07-10-05-51-16__te_residual_harmonic_lstm_sequence_dense360_bw__polished_setpoints
+  source_output_directory: output/training_runs/residual_harmonic_lstm_sequence_dense360/2026-07-10-05-51-16__te_residual_harmonic_lstm_sequence_dense360_bw__polished_setpoints
+  source_best_checkpoint_path: output/training_runs/residual_harmonic_lstm_sequence_dense360/2026-07-10-05-51-16__te_residual_harmonic_lstm_sequence_dense360_bw__polished_setpoints/checkpoints/residual_harmonic_lstm_sequence-epoch=102-val_mae=0.00199077.ckpt
+  python_model_path: models/polished_dataset/setpoints/exported/residual_harmonic_lstm_sequence_dense360/backward/2026-07-10-05-51-16__te_residual_harmonic_lstm_sequence_dense360_bw__polished_setpoints/python/residual_harmonic_lstm_sequence-epoch=102-val_mae=0.00199077.ckpt
+  onnx_model_path: models/polished_dataset/setpoints/exported/residual_harmonic_lstm_sequence_dense360/backward/2026-07-10-05-51-16__te_residual_harmonic_lstm_sequence_dense360_bw__polished_setpoints/onnx/model.onnx
   onnx_export_status: exported
   onnx_export_error: ''
   source_run_snapshot_path_map:
-    training_config.snapshot.yaml: models/polished_dataset/setpoints/exported/residual_harmonic_lstm_sequence_dense240/backward/2026-07-10-01-19-43__te_residual_harmonic_lstm_sequence_dense240_bw__polished_setpoints/source_run/training_config.snapshot.yaml
-    metrics_summary.snapshot.yaml: models/polished_dataset/setpoints/exported/residual_harmonic_lstm_sequence_dense240/backward/2026-07-10-01-19-43__te_residual_harmonic_lstm_sequence_dense240_bw__polished_setpoints/source_run/metrics_summary.snapshot.yaml
-    run_metadata.snapshot.yaml: models/polished_dataset/setpoints/exported/residual_harmonic_lstm_sequence_dense240/backward/2026-07-10-01-19-43__te_residual_harmonic_lstm_sequence_dense240_bw__polished_setpoints/source_run/run_metadata.snapshot.yaml
-    training_test_report.snapshot.md: models/polished_dataset/setpoints/exported/residual_harmonic_lstm_sequence_dense240/backward/2026-07-10-01-19-43__te_residual_harmonic_lstm_sequence_dense240_bw__polished_setpoints/source_run/training_test_report.snapshot.md
-    best_checkpoint_path.snapshot.txt: models/polished_dataset/setpoints/exported/residual_harmonic_lstm_sequence_dense240/backward/2026-07-10-01-19-43__te_residual_harmonic_lstm_sequence_dense240_bw__polished_setpoints/source_run/best_checkpoint_path.snapshot.txt
+    training_config.snapshot.yaml: models/polished_dataset/setpoints/exported/residual_harmonic_lstm_sequence_dense360/backward/2026-07-10-05-51-16__te_residual_harmonic_lstm_sequence_dense360_bw__polished_setpoints/source_run/training_config.snapshot.yaml
+    metrics_summary.snapshot.yaml: models/polished_dataset/setpoints/exported/residual_harmonic_lstm_sequence_dense360/backward/2026-07-10-05-51-16__te_residual_harmonic_lstm_sequence_dense360_bw__polished_setpoints/source_run/metrics_summary.snapshot.yaml
+    run_metadata.snapshot.yaml: models/polished_dataset/setpoints/exported/residual_harmonic_lstm_sequence_dense360/backward/2026-07-10-05-51-16__te_residual_harmonic_lstm_sequence_dense360_bw__polished_setpoints/source_run/run_metadata.snapshot.yaml
+    training_test_report.snapshot.md: models/polished_dataset/setpoints/exported/residual_harmonic_lstm_sequence_dense360/backward/2026-07-10-05-51-16__te_residual_harmonic_lstm_sequence_dense360_bw__polished_setpoints/source_run/training_test_report.snapshot.md
+    best_checkpoint_path.snapshot.txt: models/polished_dataset/setpoints/exported/residual_harmonic_lstm_sequence_dense360/backward/2026-07-10-05-51-16__te_residual_harmonic_lstm_sequence_dense360_bw__polished_setpoints/source_run/best_checkpoint_path.snapshot.txt
   metrics:
-    val_mae: 0.0020052078180015087
-    test_mae: 0.0023156136739999056
-    test_rmse: 0.0036648663226515055
+    val_mae: 0.0019907697569578886
+    test_mae: 0.0022819298319518566
+    test_rmse: 0.0036274432204663754
