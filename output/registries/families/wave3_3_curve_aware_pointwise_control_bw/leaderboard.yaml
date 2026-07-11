@@ -6,8 +6,8 @@ selection_policy:
   second_tie_breaker: val_mae
   third_tie_breaker: trainable_parameter_count
   direction: minimize
-updated_at: '2026-07-11T08:50:55'
-entry_count: 2
+updated_at: '2026-07-11T12:40:52'
+entry_count: 3
 entry_list:
 - run_instance_id: 2026-06-30-21-21-09__te_wave3_3_curve_aware_pointwise_control_bw
   run_name: te_wave3_3_curve_aware_pointwise_control_bw
@@ -47,6 +47,46 @@ entry_list:
     third_tie_breaker: trainable_parameter_count
     direction: minimize
   selected_at: '2026-06-30T21:57:36'
+- run_instance_id: 2026-07-11-12-11-04__te_wave3_3_curve_aware_pointwise_control_bw__polished_setpoints
+  run_name: te_wave3_3_curve_aware_pointwise_control_bw__polished_setpoints
+  output_run_name: te_wave3_3_curve_aware_pointwise_control_bw__polished_setpoints
+  output_artifact_kind: training_run
+  model_family: wave3_3_curve_aware_pointwise_control_bw
+  base_model_family: wave3_3_curve_aware_pointwise_control
+  model_type: curve_aware_harmonic_residual_offset_probe
+  dataset_id: polished_dataset
+  dataset_schema: polished_setpoint_curve_v1
+  input_mode: setpoints
+  input_feature_names:
+  - angular_position_deg
+  - input_speed_rpm
+  - input_torque_nm
+  - oil_temperature_deg
+  - direction_flag
+  target_feature_names:
+  - theta_TE
+  input_feature_dim: 5
+  training_variant: bw
+  direction_scope_label: backward_only
+  use_forward_direction: false
+  use_backward_direction: true
+  trainable_parameter_count: 85747
+  total_parameter_count: 85747
+  val_mae: 0.0019535261671990156
+  val_rmse: 0.0027274589519947767
+  test_mae: 0.002254055580124259
+  test_rmse: 0.0036117604468017817
+  output_directory: output\training_runs\wave3_3_curve_aware_pointwise_control\2026-07-11-12-11-04__te_wave3_3_curve_aware_pointwise_control_bw__polished_setpoints
+  best_checkpoint_path: output\training_runs\wave3_3_curve_aware_pointwise_control\2026-07-11-12-11-04__te_wave3_3_curve_aware_pointwise_control_bw__polished_setpoints\checkpoints\curve_aware_harmonic_residual_offset_probe-epoch=130-val_mae=0.00195353.ckpt
+  metrics_path: output\training_runs\wave3_3_curve_aware_pointwise_control\2026-07-11-12-11-04__te_wave3_3_curve_aware_pointwise_control_bw__polished_setpoints/metrics_summary.yaml
+  report_path: output\training_runs\wave3_3_curve_aware_pointwise_control\2026-07-11-12-11-04__te_wave3_3_curve_aware_pointwise_control_bw__polished_setpoints/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-07-11T12:40:52'
 - run_instance_id: 2026-07-11-08-23-30__te_wave3_3_curve_aware_pointwise_control_bw__simplified_setpoints
   run_name: te_wave3_3_curve_aware_pointwise_control_bw__simplified_setpoints
   output_run_name: te_wave3_3_curve_aware_pointwise_control_bw__simplified_setpoints

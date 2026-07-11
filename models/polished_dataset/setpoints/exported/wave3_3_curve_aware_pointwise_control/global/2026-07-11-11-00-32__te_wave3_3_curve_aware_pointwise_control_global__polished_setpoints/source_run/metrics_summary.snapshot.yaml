@@ -1,0 +1,113 @@
+schema_version: 1
+config_path: /scratch1/dferrari/Physics-Informed-Neural-Networks/config/training/queue/dataset_input_mode_retraining/dataset_input_mode_retraining__wave3_3_curve_aware_pointwise_control__polished_setpoints/running/2026-07-11-11-00-32_001_001_wave3_3_curve_aware_pointwise_control_global.yaml
+experiment:
+  model_family: wave3_3_curve_aware_pointwise_control_global
+  model_type: curve_aware_harmonic_residual_offset_probe
+  run_name: te_wave3_3_curve_aware_pointwise_control_global__polished_setpoints
+  output_run_name: te_wave3_3_curve_aware_pointwise_control_global__polished_setpoints
+  run_instance_id: 2026-07-11-11-00-32__te_wave3_3_curve_aware_pointwise_control_global__polished_setpoints
+  output_artifact_kind: training_run
+  base_model_family: wave3_3_curve_aware_pointwise_control
+  training_variant: global
+  direction_scope_label: bidirectional
+  use_forward_direction: true
+  use_backward_direction: true
+artifacts:
+  output_directory: /scratch1/dferrari/Physics-Informed-Neural-Networks/output/training_runs/wave3_3_curve_aware_pointwise_control/2026-07-11-11-00-32__te_wave3_3_curve_aware_pointwise_control_global__polished_setpoints
+  best_checkpoint_path: /scratch1/dferrari/Physics-Informed-Neural-Networks/output/training_runs/wave3_3_curve_aware_pointwise_control/2026-07-11-11-00-32__te_wave3_3_curve_aware_pointwise_control_global__polished_setpoints/checkpoints/curve_aware_harmonic_residual_offset_probe-epoch=141-val_mae=0.00193127.ckpt
+dataset_split:
+  train_curve_count: 1356
+  validation_curve_count: 388
+  test_curve_count: 194
+  dataset_name: polished_dataset
+  dataset_schema: polished_setpoint_curve_v1
+  input_mode: setpoints
+  input_feature_name_list:
+  - angular_position_deg
+  - input_speed_rpm
+  - input_torque_nm
+  - oil_temperature_deg
+  - direction_flag
+  target_feature_name_list:
+  - theta_TE
+  input_feature_dim: 5
+  target_feature_dim: 1
+dataset:
+  dataset_id: polished_dataset
+  dataset_schema: polished_setpoint_curve_v1
+  input_mode: setpoints
+  input_feature_names:
+  - angular_position_deg
+  - input_speed_rpm
+  - input_torque_nm
+  - oil_temperature_deg
+  - direction_flag
+  target_feature_names:
+  - theta_TE
+  input_feature_dim: 5
+  target_feature_dim: 1
+model_summary:
+  backbone_name: HarmonicResidualOffsetNetwork
+  trainable_parameter_count: 85747
+  frozen_parameter_count: 0
+  total_parameter_count: 85747
+runtime_config:
+  accelerator: auto
+  devices: auto
+  precision: '32'
+  benchmark: true
+  use_non_blocking_transfer: true
+normalization_statistics:
+  input_feature_mean:
+  - 180.0000762939453
+  - 506.3013916015625
+  - 899.591552734375
+  - 29.843809127807617
+  - -0.01724354922771454
+  input_feature_std:
+  - 103.92301940917969
+  - 467.61541748046875
+  - 552.3279418945312
+  - 4.094047546386719
+  - 0.9998513460159302
+  target_mean:
+  - -0.016667330637574196
+  target_std:
+  - 0.0465485081076622
+validation_metrics:
+  val_loss: 0.005039042327553034
+  val_mae: 0.0019312716322019696
+  val_rmse: 0.002696447540074587
+  val_pointwise_loss: 0.005039042327553034
+  val_centered_curve_shape_loss: 0.0045540425926446915
+  val_curve_offset_loss: 0.0004849993565585464
+  val_curve_amplitude_loss: 0.03219432011246681
+  val_sparse_harmonic_shape_loss: 0.00010107457637786865
+  val_structured_mae: 0.03426409140229225
+  val_structured_rmse: 0.03860779106616974
+  val_residual_offset_mean_abs: 0.03422817587852478
+test_metrics:
+  test_loss: 0.008563214913010597
+  test_mae: 0.0022414301056414843
+  test_rmse: 0.0035945717245340347
+  test_pointwise_loss: 0.008563214913010597
+  test_centered_curve_shape_loss: 0.005426961928606033
+  test_curve_offset_loss: 0.0031362527515739202
+  test_curve_amplitude_loss: 0.04256032034754753
+  test_sparse_harmonic_shape_loss: 0.00010893948638113216
+  test_structured_mae: 0.031167691573500633
+  test_structured_rmse: 0.036192744970321655
+  test_residual_offset_mean_abs: 0.03095698542892933
+comparison_payload:
+  model_family: wave3_3_curve_aware_pointwise_control_global
+  model_type: curve_aware_harmonic_residual_offset_probe
+  run_name: te_wave3_3_curve_aware_pointwise_control_global__polished_setpoints
+  backbone_name: HarmonicResidualOffsetNetwork
+  trainable_parameter_count: 85747
+  total_parameter_count: 85747
+  val_mae: 0.0019312716322019696
+  val_rmse: 0.002696447540074587
+  test_mae: 0.0022414301056414843
+  test_rmse: 0.0035945717245340347
+  deployment_notes: ''
+  interpretability_notes: ''
