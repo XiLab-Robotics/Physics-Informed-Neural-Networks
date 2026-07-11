@@ -1,0 +1,50 @@
+schema_version: 1
+campaign_name: dataset_input_mode_retraining__wave3_3_raw_centered_shape_curve_aware__simplified_setpoints
+selection_policy:
+  primary_metric: test_mae
+  first_tie_breaker: test_rmse
+  second_tie_breaker: val_mae
+  third_tie_breaker: trainable_parameter_count
+  direction: minimize
+updated_at: '2026-07-11T17:14:11'
+best_entry:
+  run_instance_id: 2026-07-11-16-42-36__te_wave3_3_raw_centered_shape_curve_aware_bw__simplified_setpoints
+  run_name: te_wave3_3_raw_centered_shape_curve_aware_bw__simplified_setpoints
+  output_run_name: te_wave3_3_raw_centered_shape_curve_aware_bw__simplified_setpoints
+  output_artifact_kind: training_run
+  model_family: wave3_3_raw_centered_shape_curve_aware_bw
+  base_model_family: wave3_3_raw_centered_shape_curve_aware
+  model_type: curve_aware_harmonic_residual_offset_probe
+  dataset_id: simplified_dataset
+  dataset_schema: simplified_curve_v1
+  input_mode: setpoints
+  input_feature_names:
+  - angular_position_deg
+  - input_speed_rpm
+  - input_torque_nm
+  - oil_temperature_deg
+  - direction_flag
+  target_feature_names:
+  - transmission_error_deg
+  input_feature_dim: 5
+  training_variant: bw
+  direction_scope_label: backward_only
+  use_forward_direction: false
+  use_backward_direction: true
+  trainable_parameter_count: 85747
+  total_parameter_count: 85747
+  val_mae: 0.0035779972095042467
+  val_rmse: 0.004402606748044491
+  test_mae: 0.0033976424019783735
+  test_rmse: 0.004114605486392975
+  output_directory: output\training_runs\wave3_3_raw_centered_shape_curve_aware\2026-07-11-16-42-36__te_wave3_3_raw_centered_shape_curve_aware_bw__simplified_setpoints
+  best_checkpoint_path: output\training_runs\wave3_3_raw_centered_shape_curve_aware\2026-07-11-16-42-36__te_wave3_3_raw_centered_shape_curve_aware_bw__simplified_setpoints\checkpoints\curve_aware_harmonic_residual_offset_probe-epoch=122-val_mae=0.00357800.ckpt
+  metrics_path: output\training_runs\wave3_3_raw_centered_shape_curve_aware\2026-07-11-16-42-36__te_wave3_3_raw_centered_shape_curve_aware_bw__simplified_setpoints/metrics_summary.yaml
+  report_path: output\training_runs\wave3_3_raw_centered_shape_curve_aware\2026-07-11-16-42-36__te_wave3_3_raw_centered_shape_curve_aware_bw__simplified_setpoints/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-07-11T17:14:11'
