@@ -1,0 +1,23 @@
+input_feature_dim: 5
+target_feature_dim: 1
+learning_rate: 0.0005
+weight_decay: 0.0001
+loss_configuration:
+  profile: raw_offset
+  weights:
+    point: 1.0
+    centered: 0.0
+    offset: 0.45
+    amplitude: 0.0
+    harmonic: 0.0
+  harmonic_index_list:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
