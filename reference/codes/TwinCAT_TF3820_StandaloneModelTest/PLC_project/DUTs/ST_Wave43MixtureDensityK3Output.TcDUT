@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4026.20">
+  <DUT Name="ST_Wave43MixtureDensityK3Output" Id="{ab7a7c36-64f5-5264-87ef-9266a355aa26}">
+    <Declaration><![CDATA[TYPE ST_Wave43MixtureDensityK3Output :
+STRUCT
+
+	{attribute 'hide'} _header_DO_NOT_CHANGE : ARRAY[0..63] OF SINT := [-1,-112,120,86,52,18,-1,-1,1,-1,0,0,-1,-1,-112,-112,-7,125,4,-97,-102,90,119,60,42,56,5,-119,53,39,13,-40,-100,88,-5,50,32,-37,-26,55,-13,-68,-19,-92,59,6,68,-15,100,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+	out_prediction_tensor : ARRAY[0..0,0..8] OF REAL;
+
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

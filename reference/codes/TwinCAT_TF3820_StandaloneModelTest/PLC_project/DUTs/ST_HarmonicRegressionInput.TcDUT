@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4026.20">
+  <DUT Name="ST_HarmonicRegressionInput" Id="{c622aa1f-3c29-5511-b0a0-b732be4cdc31}">
+    <Declaration><![CDATA[TYPE ST_HarmonicRegressionInput :
+STRUCT
+
+	{attribute 'hide'} _header_DO_NOT_CHANGE : ARRAY[0..63] OF SINT := [-1,-112,120,86,52,18,-1,-1,1,-1,0,0,-1,-1,-112,-112,61,-49,110,-13,101,63,-28,35,-75,-48,62,84,75,113,93,86,13,-100,61,-11,-76,-124,91,74,-32,110,127,-106,67,10,-85,-84,84,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+	in_input_tensor : ARRAY[0..0,0..4] OF REAL;
+
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

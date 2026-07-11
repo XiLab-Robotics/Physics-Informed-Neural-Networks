@@ -1,0 +1,591 @@
+{
+  "schema_version": 1,
+  "model_count": 37,
+  "model_list": [
+    {
+      "family_id": "feedforward",
+      "enum_name": "Model_Feedforward",
+      "runner_name": "FB_FeedforwardTf3820Runner",
+      "input_shape": [
+        1,
+        5
+      ],
+      "output_shape": [
+        1,
+        1
+      ],
+      "model_directory": "ML_models/feedforward",
+      "target_json_path": "C:\\TwinCAT\\3.1\\Boot\\ML\\tf3820\\standalone\\feedforward\\model.json"
+    },
+    {
+      "family_id": "gru_sequence",
+      "enum_name": "Model_Gru_Sequence",
+      "runner_name": "FB_GruSequenceTf3820Runner",
+      "input_shape": [
+        1,
+        33,
+        5
+      ],
+      "output_shape": [
+        1,
+        1
+      ],
+      "model_directory": "ML_models/gru_sequence",
+      "target_json_path": "C:\\TwinCAT\\3.1\\Boot\\ML\\tf3820\\standalone\\gru_sequence\\model.json"
+    },
+    {
+      "family_id": "harmonic_regression",
+      "enum_name": "Model_Harmonic_Regression",
+      "runner_name": "FB_HarmonicRegressionTf3820Runner",
+      "input_shape": [
+        1,
+        5
+      ],
+      "output_shape": [
+        1,
+        1
+      ],
+      "model_directory": "ML_models/harmonic_regression",
+      "target_json_path": "C:\\TwinCAT\\3.1\\Boot\\ML\\tf3820\\standalone\\harmonic_regression\\model.json"
+    },
+    {
+      "family_id": "lstm_sequence",
+      "enum_name": "Model_Lstm_Sequence",
+      "runner_name": "FB_LstmSequenceTf3820Runner",
+      "input_shape": [
+        1,
+        33,
+        5
+      ],
+      "output_shape": [
+        1,
+        1
+      ],
+      "model_directory": "ML_models/lstm_sequence",
+      "target_json_path": "C:\\TwinCAT\\3.1\\Boot\\ML\\tf3820\\standalone\\lstm_sequence\\model.json"
+    },
+    {
+      "family_id": "periodic_gru_sequence",
+      "enum_name": "Model_Periodic_Gru_Sequence",
+      "runner_name": "FB_PeriodicGruSequenceTf3820Runner",
+      "input_shape": [
+        1,
+        33,
+        5
+      ],
+      "output_shape": [
+        1,
+        1
+      ],
+      "model_directory": "ML_models/periodic_gru_sequence",
+      "target_json_path": "C:\\TwinCAT\\3.1\\Boot\\ML\\tf3820\\standalone\\periodic_gru_sequence\\model.json"
+    },
+    {
+      "family_id": "periodic_lstm_sequence",
+      "enum_name": "Model_Periodic_Lstm_Sequence",
+      "runner_name": "FB_PeriodicLstmSequenceTf3820Runner",
+      "input_shape": [
+        1,
+        33,
+        5
+      ],
+      "output_shape": [
+        1,
+        1
+      ],
+      "model_directory": "ML_models/periodic_lstm_sequence",
+      "target_json_path": "C:\\TwinCAT\\3.1\\Boot\\ML\\tf3820\\standalone\\periodic_lstm_sequence\\model.json"
+    },
+    {
+      "family_id": "periodic_mlp",
+      "enum_name": "Model_Periodic_Mlp",
+      "runner_name": "FB_PeriodicMlpTf3820Runner",
+      "input_shape": [
+        1,
+        5
+      ],
+      "output_shape": [
+        1,
+        1
+      ],
+      "model_directory": "ML_models/periodic_mlp",
+      "target_json_path": "C:\\TwinCAT\\3.1\\Boot\\ML\\tf3820\\standalone\\periodic_mlp\\model.json"
+    },
+    {
+      "family_id": "periodic_mlp_harmonic",
+      "enum_name": "Model_Periodic_Mlp_Harmonic",
+      "runner_name": "FB_PeriodicMlpHarmonicTf3820Runner",
+      "input_shape": [
+        1,
+        5
+      ],
+      "output_shape": [
+        1,
+        1
+      ],
+      "model_directory": "ML_models/periodic_mlp_harmonic",
+      "target_json_path": "C:\\TwinCAT\\3.1\\Boot\\ML\\tf3820\\standalone\\periodic_mlp_harmonic\\model.json"
+    },
+    {
+      "family_id": "periodic_temporal_convolution",
+      "enum_name": "Model_Periodic_Temporal_Convolution",
+      "runner_name": "FB_PeriodicTemporalConvolutionTf3820Runner",
+      "input_shape": [
+        1,
+        33,
+        5
+      ],
+      "output_shape": [
+        1,
+        1
+      ],
+      "model_directory": "ML_models/periodic_temporal_convolution",
+      "target_json_path": "C:\\TwinCAT\\3.1\\Boot\\ML\\tf3820\\standalone\\periodic_temporal_convolution\\model.json"
+    },
+    {
+      "family_id": "rcim_track1",
+      "enum_name": "Model_Rcim_Track1",
+      "runner_name": "FB_RcimTrack1Tf3820Runner",
+      "input_shape": [
+        1,
+        3
+      ],
+      "output_shape": [
+        1,
+        1
+      ],
+      "model_directory": "ML_models/rcim_track1",
+      "target_json_path": "C:\\TwinCAT\\3.1\\Boot\\ML\\tf3820\\standalone\\rcim_track1\\model.json"
+    },
+    {
+      "family_id": "residual_harmonic_gru_sequence_dense240",
+      "enum_name": "Model_Residual_Harmonic_Gru_Sequence_Dense240",
+      "runner_name": "FB_ResidualHarmonicGruSequenceDense240Tf3820Runner",
+      "input_shape": [
+        1,
+        33,
+        5
+      ],
+      "output_shape": [
+        1,
+        1
+      ],
+      "model_directory": "ML_models/residual_harmonic_gru_sequence_dense240",
+      "target_json_path": "C:\\TwinCAT\\3.1\\Boot\\ML\\tf3820\\standalone\\residual_harmonic_gru_sequence_dense240\\model.json"
+    },
+    {
+      "family_id": "residual_harmonic_gru_sequence_dense360",
+      "enum_name": "Model_Residual_Harmonic_Gru_Sequence_Dense360",
+      "runner_name": "FB_ResidualHarmonicGruSequenceDense360Tf3820Runner",
+      "input_shape": [
+        1,
+        33,
+        5
+      ],
+      "output_shape": [
+        1,
+        1
+      ],
+      "model_directory": "ML_models/residual_harmonic_gru_sequence_dense360",
+      "target_json_path": "C:\\TwinCAT\\3.1\\Boot\\ML\\tf3820\\standalone\\residual_harmonic_gru_sequence_dense360\\model.json"
+    },
+    {
+      "family_id": "residual_harmonic_gru_sequence_sparse_rcim",
+      "enum_name": "Model_Residual_Harmonic_Gru_Sequence_Sparse_Rcim",
+      "runner_name": "FB_ResidualHarmonicGruSequenceSparseRcimTf3820Runner",
+      "input_shape": [
+        1,
+        33,
+        5
+      ],
+      "output_shape": [
+        1,
+        1
+      ],
+      "model_directory": "ML_models/residual_harmonic_gru_sequence_sparse_rcim",
+      "target_json_path": "C:\\TwinCAT\\3.1\\Boot\\ML\\tf3820\\standalone\\residual_harmonic_gru_sequence_sparse_rcim\\model.json"
+    },
+    {
+      "family_id": "residual_harmonic_lstm_sequence_dense240",
+      "enum_name": "Model_Residual_Harmonic_Lstm_Sequence_Dense240",
+      "runner_name": "FB_ResidualHarmonicLstmSequenceDense240Tf3820Runner",
+      "input_shape": [
+        1,
+        33,
+        5
+      ],
+      "output_shape": [
+        1,
+        1
+      ],
+      "model_directory": "ML_models/residual_harmonic_lstm_sequence_dense240",
+      "target_json_path": "C:\\TwinCAT\\3.1\\Boot\\ML\\tf3820\\standalone\\residual_harmonic_lstm_sequence_dense240\\model.json"
+    },
+    {
+      "family_id": "residual_harmonic_lstm_sequence_dense360",
+      "enum_name": "Model_Residual_Harmonic_Lstm_Sequence_Dense360",
+      "runner_name": "FB_ResidualHarmonicLstmSequenceDense360Tf3820Runner",
+      "input_shape": [
+        1,
+        33,
+        5
+      ],
+      "output_shape": [
+        1,
+        1
+      ],
+      "model_directory": "ML_models/residual_harmonic_lstm_sequence_dense360",
+      "target_json_path": "C:\\TwinCAT\\3.1\\Boot\\ML\\tf3820\\standalone\\residual_harmonic_lstm_sequence_dense360\\model.json"
+    },
+    {
+      "family_id": "residual_harmonic_lstm_sequence_sparse_rcim",
+      "enum_name": "Model_Residual_Harmonic_Lstm_Sequence_Sparse_Rcim",
+      "runner_name": "FB_ResidualHarmonicLstmSequenceSparseRcimTf3820Runner",
+      "input_shape": [
+        1,
+        33,
+        5
+      ],
+      "output_shape": [
+        1,
+        1
+      ],
+      "model_directory": "ML_models/residual_harmonic_lstm_sequence_sparse_rcim",
+      "target_json_path": "C:\\TwinCAT\\3.1\\Boot\\ML\\tf3820\\standalone\\residual_harmonic_lstm_sequence_sparse_rcim\\model.json"
+    },
+    {
+      "family_id": "residual_harmonic_mlp",
+      "enum_name": "Model_Residual_Harmonic_Mlp",
+      "runner_name": "FB_ResidualHarmonicMlpTf3820Runner",
+      "input_shape": [
+        1,
+        5
+      ],
+      "output_shape": [
+        1,
+        1
+      ],
+      "model_directory": "ML_models/residual_harmonic_mlp",
+      "target_json_path": "C:\\TwinCAT\\3.1\\Boot\\ML\\tf3820\\standalone\\residual_harmonic_mlp\\model.json"
+    },
+    {
+      "family_id": "temporal_convolution",
+      "enum_name": "Model_Temporal_Convolution",
+      "runner_name": "FB_TemporalConvolutionTf3820Runner",
+      "input_shape": [
+        1,
+        33,
+        5
+      ],
+      "output_shape": [
+        1,
+        1
+      ],
+      "model_directory": "ML_models/temporal_convolution",
+      "target_json_path": "C:\\TwinCAT\\3.1\\Boot\\ML\\tf3820\\standalone\\temporal_convolution\\model.json"
+    },
+    {
+      "family_id": "tree",
+      "enum_name": "Model_Tree",
+      "runner_name": "FB_TreeTf3820Runner",
+      "input_shape": [
+        1,
+        5
+      ],
+      "output_shape": [
+        1,
+        1
+      ],
+      "model_directory": "ML_models/tree",
+      "target_json_path": "C:\\TwinCAT\\3.1\\Boot\\ML\\tf3820\\standalone\\tree\\model.json"
+    },
+    {
+      "family_id": "wave3_1_sequential_residual_offset_probe",
+      "enum_name": "Model_Wave3_1_Sequential_Residual_Offset_Probe",
+      "runner_name": "FB_Wave31SequentialResidualOffsetProbeTf3820Runner",
+      "input_shape": [
+        1,
+        33,
+        5
+      ],
+      "output_shape": [
+        1,
+        1
+      ],
+      "model_directory": "ML_models/wave3_1_sequential_residual_offset_probe",
+      "target_json_path": "C:\\TwinCAT\\3.1\\Boot\\ML\\tf3820\\standalone\\wave3_1_sequential_residual_offset_probe\\model.json"
+    },
+    {
+      "family_id": "wave3_2_clean_sequential_residual_offset",
+      "enum_name": "Model_Wave3_2_Clean_Sequential_Residual_Offset",
+      "runner_name": "FB_Wave32CleanSequentialResidualOffsetTf3820Runner",
+      "input_shape": [
+        1,
+        33,
+        4
+      ],
+      "output_shape": [
+        1,
+        1
+      ],
+      "model_directory": "ML_models/wave3_2_clean_sequential_residual_offset",
+      "target_json_path": "C:\\TwinCAT\\3.1\\Boot\\ML\\tf3820\\standalone\\wave3_2_clean_sequential_residual_offset\\model.json"
+    },
+    {
+      "family_id": "wave3_2_harmonic_residual_offset",
+      "enum_name": "Model_Wave3_2_Harmonic_Residual_Offset",
+      "runner_name": "FB_Wave32HarmonicResidualOffsetTf3820Runner",
+      "input_shape": [
+        1,
+        33,
+        4
+      ],
+      "output_shape": [
+        1,
+        1
+      ],
+      "model_directory": "ML_models/wave3_2_harmonic_residual_offset",
+      "target_json_path": "C:\\TwinCAT\\3.1\\Boot\\ML\\tf3820\\standalone\\wave3_2_harmonic_residual_offset\\model.json"
+    },
+    {
+      "family_id": "wave3_3_curve_aware_pointwise_control",
+      "enum_name": "Model_Wave3_3_Curve_Aware_Pointwise_Control",
+      "runner_name": "FB_Wave33CurveAwarePointwiseControlTf3820Runner",
+      "input_shape": [
+        1,
+        33,
+        4
+      ],
+      "output_shape": [
+        1,
+        1
+      ],
+      "model_directory": "ML_models/wave3_3_curve_aware_pointwise_control",
+      "target_json_path": "C:\\TwinCAT\\3.1\\Boot\\ML\\tf3820\\standalone\\wave3_3_curve_aware_pointwise_control\\model.json"
+    },
+    {
+      "family_id": "wave3_3_full_curve_composite",
+      "enum_name": "Model_Wave3_3_Full_Curve_Composite",
+      "runner_name": "FB_Wave33FullCurveCompositeTf3820Runner",
+      "input_shape": [
+        1,
+        33,
+        4
+      ],
+      "output_shape": [
+        1,
+        1
+      ],
+      "model_directory": "ML_models/wave3_3_full_curve_composite",
+      "target_json_path": "C:\\TwinCAT\\3.1\\Boot\\ML\\tf3820\\standalone\\wave3_3_full_curve_composite\\model.json"
+    },
+    {
+      "family_id": "wave3_3_raw_centered_shape_curve_aware",
+      "enum_name": "Model_Wave3_3_Raw_Centered_Shape_Curve_Aware",
+      "runner_name": "FB_Wave33RawCenteredShapeCurveAwareTf3820Runner",
+      "input_shape": [
+        1,
+        33,
+        4
+      ],
+      "output_shape": [
+        1,
+        1
+      ],
+      "model_directory": "ML_models/wave3_3_raw_centered_shape_curve_aware",
+      "target_json_path": "C:\\TwinCAT\\3.1\\Boot\\ML\\tf3820\\standalone\\wave3_3_raw_centered_shape_curve_aware\\model.json"
+    },
+    {
+      "family_id": "wave3_3_raw_offset_curve_aware",
+      "enum_name": "Model_Wave3_3_Raw_Offset_Curve_Aware",
+      "runner_name": "FB_Wave33RawOffsetCurveAwareTf3820Runner",
+      "input_shape": [
+        1,
+        33,
+        4
+      ],
+      "output_shape": [
+        1,
+        1
+      ],
+      "model_directory": "ML_models/wave3_3_raw_offset_curve_aware",
+      "target_json_path": "C:\\TwinCAT\\3.1\\Boot\\ML\\tf3820\\standalone\\wave3_3_raw_offset_curve_aware\\model.json"
+    },
+    {
+      "family_id": "wave4_1_log_cosh_robust_loss",
+      "enum_name": "Model_Wave4_1_Log_Cosh_Robust_Loss",
+      "runner_name": "FB_Wave41LogCoshRobustLossTf3820Runner",
+      "input_shape": [
+        1,
+        33,
+        4
+      ],
+      "output_shape": [
+        1,
+        1
+      ],
+      "model_directory": "ML_models/wave4_1_log_cosh_robust_loss",
+      "target_json_path": "C:\\TwinCAT\\3.1\\Boot\\ML\\tf3820\\standalone\\wave4_1_log_cosh_robust_loss\\model.json"
+    },
+    {
+      "family_id": "wave4_1_mae_robust_loss",
+      "enum_name": "Model_Wave4_1_Mae_Robust_Loss",
+      "runner_name": "FB_Wave41MaeRobustLossTf3820Runner",
+      "input_shape": [
+        1,
+        33,
+        4
+      ],
+      "output_shape": [
+        1,
+        1
+      ],
+      "model_directory": "ML_models/wave4_1_mae_robust_loss",
+      "target_json_path": "C:\\TwinCAT\\3.1\\Boot\\ML\\tf3820\\standalone\\wave4_1_mae_robust_loss\\model.json"
+    },
+    {
+      "family_id": "wave4_1_smooth_l1_robust_loss",
+      "enum_name": "Model_Wave4_1_Smooth_L1_Robust_Loss",
+      "runner_name": "FB_Wave41SmoothL1RobustLossTf3820Runner",
+      "input_shape": [
+        1,
+        33,
+        4
+      ],
+      "output_shape": [
+        1,
+        1
+      ],
+      "model_directory": "ML_models/wave4_1_smooth_l1_robust_loss",
+      "target_json_path": "C:\\TwinCAT\\3.1\\Boot\\ML\\tf3820\\standalone\\wave4_1_smooth_l1_robust_loss\\model.json"
+    },
+    {
+      "family_id": "wave4_2_gaussian_nll",
+      "enum_name": "Model_Wave4_2_Gaussian_Nll",
+      "runner_name": "FB_Wave42GaussianNllTf3820Runner",
+      "input_shape": [
+        1,
+        33,
+        4
+      ],
+      "output_shape": [
+        1,
+        2
+      ],
+      "model_directory": "ML_models/wave4_2_gaussian_nll",
+      "target_json_path": "C:\\TwinCAT\\3.1\\Boot\\ML\\tf3820\\standalone\\wave4_2_gaussian_nll\\model.json"
+    },
+    {
+      "family_id": "wave4_2_quantile_p10_p50_p90",
+      "enum_name": "Model_Wave4_2_Quantile_P10_P50_P90",
+      "runner_name": "FB_Wave42QuantileP10P50P90Tf3820Runner",
+      "input_shape": [
+        1,
+        33,
+        4
+      ],
+      "output_shape": [
+        1,
+        3
+      ],
+      "model_directory": "ML_models/wave4_2_quantile_p10_p50_p90",
+      "target_json_path": "C:\\TwinCAT\\3.1\\Boot\\ML\\tf3820\\standalone\\wave4_2_quantile_p10_p50_p90\\model.json"
+    },
+    {
+      "family_id": "wave4_3_mixture_density_k2",
+      "enum_name": "Model_Wave4_3_Mixture_Density_K2",
+      "runner_name": "FB_Wave43MixtureDensityK2Tf3820Runner",
+      "input_shape": [
+        1,
+        33,
+        4
+      ],
+      "output_shape": [
+        1,
+        6
+      ],
+      "model_directory": "ML_models/wave4_3_mixture_density_k2",
+      "target_json_path": "C:\\TwinCAT\\3.1\\Boot\\ML\\tf3820\\standalone\\wave4_3_mixture_density_k2\\model.json"
+    },
+    {
+      "family_id": "wave4_3_mixture_density_k3",
+      "enum_name": "Model_Wave4_3_Mixture_Density_K3",
+      "runner_name": "FB_Wave43MixtureDensityK3Tf3820Runner",
+      "input_shape": [
+        1,
+        33,
+        4
+      ],
+      "output_shape": [
+        1,
+        9
+      ],
+      "model_directory": "ML_models/wave4_3_mixture_density_k3",
+      "target_json_path": "C:\\TwinCAT\\3.1\\Boot\\ML\\tf3820\\standalone\\wave4_3_mixture_density_k3\\model.json"
+    },
+    {
+      "family_id": "wave4_4_causal_tcn_latent_offset_residual",
+      "enum_name": "Model_Wave4_4_Causal_Tcn_Latent_Offset_Residual",
+      "runner_name": "FB_Wave44CausalTcnLatentOffsetResidualTf3820Runner",
+      "input_shape": [
+        1,
+        33,
+        4
+      ],
+      "output_shape": [
+        1,
+        1
+      ],
+      "model_directory": "ML_models/wave4_4_causal_tcn_latent_offset_residual",
+      "target_json_path": "C:\\TwinCAT\\3.1\\Boot\\ML\\tf3820\\standalone\\wave4_4_causal_tcn_latent_offset_residual\\model.json"
+    },
+    {
+      "family_id": "wave4_4_gru_latent_offset_residual",
+      "enum_name": "Model_Wave4_4_Gru_Latent_Offset_Residual",
+      "runner_name": "FB_Wave44GruLatentOffsetResidualTf3820Runner",
+      "input_shape": [
+        1,
+        33,
+        4
+      ],
+      "output_shape": [
+        1,
+        1
+      ],
+      "model_directory": "ML_models/wave4_4_gru_latent_offset_residual",
+      "target_json_path": "C:\\TwinCAT\\3.1\\Boot\\ML\\tf3820\\standalone\\wave4_4_gru_latent_offset_residual\\model.json"
+    },
+    {
+      "family_id": "wave5_1_harmonic_prior_pointwise_control",
+      "enum_name": "Model_Wave5_1_Harmonic_Prior_Pointwise_Control",
+      "runner_name": "FB_Wave51HarmonicPriorPointwiseControlTf3820Runner",
+      "input_shape": [
+        1,
+        33,
+        4
+      ],
+      "output_shape": [
+        1,
+        1
+      ],
+      "model_directory": "ML_models/wave5_1_harmonic_prior_pointwise_control",
+      "target_json_path": "C:\\TwinCAT\\3.1\\Boot\\ML\\tf3820\\standalone\\wave5_1_harmonic_prior_pointwise_control\\model.json"
+    },
+    {
+      "family_id": "wave5_1_harmonic_prior_smooth_l1_structured",
+      "enum_name": "Model_Wave5_1_Harmonic_Prior_Smooth_L1_Structured",
+      "runner_name": "FB_Wave51HarmonicPriorSmoothL1StructuredTf3820Runner",
+      "input_shape": [
+        1,
+        33,
+        4
+      ],
+      "output_shape": [
+        1,
+        1
+      ],
+      "model_directory": "ML_models/wave5_1_harmonic_prior_smooth_l1_structured",
+      "target_json_path": "C:\\TwinCAT\\3.1\\Boot\\ML\\tf3820\\standalone\\wave5_1_harmonic_prior_smooth_l1_structured\\model.json"
+    }
+  ]
+}

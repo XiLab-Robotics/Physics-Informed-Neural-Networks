@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<TcSmProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4026.20">
+	<Project ProjectGUID="{f7c6b231-410c-5b2c-8e48-62924b50a786}" Target64Bit="true" AutoPrioManagement="true">
+		<System>
+			<Settings MaxCpus="1" NonWinCpus="1">
+				<Cpu CpuId="1" BaseTime="1000"/>
+			</Settings>
+			<Tasks>
+				<Task Id="1" Priority="10" CycleTime="10000" AmsPort="350" DisableFpExceptions="true" AdtTasks="true">
+					<Name>PlcTask_TF3820Standalone</Name>
+				</Task>
+			</Tasks>
+		</System>
+		<Plc>
+			<Project GUID="{0ec11fe0-3bd5-5916-8867-2d72f283fd9c}" Name="TF3820StandalonePLC" PrjFilePath="PLC_project\TF3820StandalonePLC.plcproj" AmsPort="851" FileArchiveSettings="#x000e" SymbolicMapping="true" />
+		</Plc>
+	</Project>
+</TcSmProject>

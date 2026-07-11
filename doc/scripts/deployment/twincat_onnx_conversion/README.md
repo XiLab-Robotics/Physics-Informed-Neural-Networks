@@ -122,6 +122,52 @@ python -B scripts\deployment\twincat_onnx_conversion\run_family_compatibility_ma
   --output-root output\deployment\twincat_onnx_conversion\family_matrix_20260710_shape_fixed
 ```
 
+## Standalone TF3820 PLC Harness
+
+Generate the blank-target PLC harness used to smoke test all prepared `TF3820`
+families without the full TestRig project:
+
+```powershell
+python -B scripts\deployment\twincat_onnx_conversion\build_tf3820_standalone_harness.py --clean
+```
+
+The generator consumes:
+
+```text
+output/deployment/twincat_onnx_conversion/family_matrix_20260710_shape_fixed/
+```
+
+and writes:
+
+```text
+reference/codes/TwinCAT_TF3820_StandaloneModelTest/
+```
+
+That output contains:
+
+- `TwinCAT_TF3820_StandaloneModelTest.sln`;
+- one generated `FB_MlSvrPrediction` runner per prepared family;
+- `P_TF3820StandaloneModelTest`, the top-level synthetic-input PLC program;
+- copied `model.onnx`, `model.json`, and `model_plcopen.xml` artifacts under
+  `ML_models/<family_id>/`;
+- `model_catalog.json`, the generated model inventory and target path map.
+
+For PLC runtime testing, copy `ML_models` to:
+
+```text
+C:\TwinCAT\3.1\Boot\ML\tf3820\standalone
+```
+
+Then open the generated solution in TwinCAT XAE, resolve the `Tc3_MlServer`
+library, build the PLC project, start `TcMlServer`, select a value of
+`SelectedModel`, pulse `bLoadSelectedModel`, and enable `bEnablePrediction`.
+The shared watch variables are `bPredictionReady`, `bError`, `nErrorCode`,
+`nMaxInferenceDuration`, and `aPredictionOutput`.
+
+The generator currently supports the shape groups emitted by the
+`20260710_shape_fixed` matrix: `[1, 3]`, `[1, 5]`, `[1, 33, 4]`, and
+`[1, 33, 5]` inputs with output widths up to nine values.
+
 ## Output Layout
 
 Each run writes to:

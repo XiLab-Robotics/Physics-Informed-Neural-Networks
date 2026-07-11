@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4026.20">
+  <DUT Name="ST_Wave42QuantileP10P50P90Input" Id="{adb19e13-a9d4-5e73-9ec9-69f09ede765d}">
+    <Declaration><![CDATA[TYPE ST_Wave42QuantileP10P50P90Input :
+STRUCT
+
+	{attribute 'hide'} _header_DO_NOT_CHANGE : ARRAY[0..63] OF SINT := [-1,-112,120,86,52,18,-1,-1,1,-1,0,0,-1,-1,-112,-112,55,-22,8,-62,15,-11,-53,-120,-65,-26,40,-59,-103,80,20,5,37,-41,0,-16,-125,-33,-67,117,-59,70,-31,-53,-46,-33,-68,-19,80,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+	in_input_tensor : ARRAY[0..0,0..32,0..3] OF REAL;
+
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

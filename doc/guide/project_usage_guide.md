@@ -70,7 +70,9 @@ At the moment, the implemented workflows are:
 - broader Markdownlint validation for canonical repository Markdown outside `reference/` through a tracked rule profile and terminal runner;
 - styled PDF regeneration for the training-configuration analysis report through a dedicated report-export utility;
 - real exported PDF validation through a dedicated page-rasterization utility;
-- repository-owned TwinCAT/TestRig video-guide analysis through a local media inventory, transcription, frame extraction, and OCR pipeline.
+- repository-owned TwinCAT/TestRig video-guide analysis through a local media inventory, transcription, frame extraction, and OCR pipeline;
+- a generated standalone TwinCAT `TF3820` PLC harness for blank-target model
+  smoke testing across the prepared ONNX family matrix.
 
 The shared neural training entry point now prints model-specific configuration details for feedforward, harmonic regression, periodic-feature MLP, and residual-harmonic MLP runs instead of assuming every model uses the same dense-layer schema.
 
@@ -368,6 +370,51 @@ Dry-run the dataset/surface `TE Curve Verification Pipeline` split:
 ```powershell
 .\scripts\campaigns\track_2\run_track2_dataset_surface_report_split.ps1
 ```
+
+## TwinCAT TF3820 Standalone Harness
+
+Regenerate the blank-target `TF3820` PLC model-test harness from the prepared
+family matrix:
+
+```powershell
+python -B scripts\deployment\twincat_onnx_conversion\build_tf3820_standalone_harness.py --clean
+```
+
+The generated solution is written to:
+
+```text
+reference/codes/TwinCAT_TF3820_StandaloneModelTest/
+```
+
+The harness is independent from the full TestRig project. It contains one
+generated `FB_MlSvrPrediction` runner per prepared model family and the
+top-level program `P_TF3820StandaloneModelTest`, which can generate synthetic
+operating inputs for `theta`, `theta_dot`, `tau_load`, `T`, and
+`direction_flag`.
+
+Before runtime testing on a Beckhoff target, copy:
+
+```text
+reference/codes/TwinCAT_TF3820_StandaloneModelTest/ML_models
+```
+
+to the target folder expected by the PLC:
+
+```text
+C:\TwinCAT\3.1\Boot\ML\tf3820\standalone
+```
+
+Open
+`reference/codes/TwinCAT_TF3820_StandaloneModelTest/TwinCAT_TF3820_StandaloneModelTest.sln`
+in TwinCAT XAE, resolve `Tc3_MlServer`, build the PLC project, start
+`TcMlServer`, pulse `bLoadSelectedModel`, enable `bEnablePrediction`, and watch
+`bPredictionReady`, `bError`, `nErrorCode`, `nMaxInferenceDuration`, and
+`aPredictionOutput`.
+
+The current command-line build route through installed Visual Studio / XAE
+components can fail before useful PLC diagnostics are emitted. Treat XAE GUI or
+Automation Interface build verification on the PLC workstation as the
+deployment acceptance step.
 
 Check the dataset/surface launcher progress rendering before a long run:
 

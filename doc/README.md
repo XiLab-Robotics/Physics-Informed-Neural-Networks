@@ -838,6 +838,11 @@ This folder contains the internal project documents derived from the reference P
   implementing a side-by-side `TF3820` Machine Learning Server prediction
   path for later Beckhoff PLC validation.
 
+- [technical/2026-07/2026-07-11/2026-07-11-12-51-28_tf3820_standalone_plc_test_pipeline.md](./technical/2026-07/2026-07-11/2026-07-11-12-51-28_tf3820_standalone_plc_test_pipeline.md)
+  Technical plan for building a standalone `TF3820` PLC test harness that can
+  run prepared ONNX model artifacts on a blank Beckhoff target without the
+  full TestRig project.
+
 - [scripts/tooling/lan_ai/lan_ai_node_server.md](./scripts/tooling/lan_ai/lan_ai_node_server.md)
   Setup and runtime guide for the remote LAN AI workstation.
 
