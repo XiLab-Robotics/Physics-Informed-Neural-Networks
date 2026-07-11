@@ -6,7 +6,7 @@ selection_policy:
   second_tie_breaker: val_mae
   third_tie_breaker: trainable_parameter_count
   direction: minimize
-updated_at: '2026-07-11T18:25:23'
+updated_at: '2026-07-11T20:41:54'
 best_entry:
   run_instance_id: 2026-06-30-22-31-32__te_wave3_3_raw_centered_shape_curve_aware_fw
   run_name: te_wave3_3_raw_centered_shape_curve_aware_fw
