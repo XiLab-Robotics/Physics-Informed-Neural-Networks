@@ -147,10 +147,10 @@ last_completed_campaign:
       te_curve_verification_status: not_run_in_closeout
 next_prepared_campaign:
   status: completed_and_exported
-  campaign_name: dataset_input_mode_retraining__wave3_3_full_curve_composite__simplified_setpoints
-  dataset_id: simplified_dataset
+  campaign_name: dataset_input_mode_retraining__wave3_3_full_curve_composite__polished_setpoints
+  dataset_id: polished_dataset
   input_mode: setpoints
-  dataset_schema: simplified_curve_v1
+  dataset_schema: polished_setpoint_curve_v1
   expected_run_count: 3
   completed_run_count: 3
   failed_run_count: 0
@@ -162,66 +162,68 @@ next_prepared_campaign:
     slurm_cpus_per_task: 8
     slurm_memory: 100G
     gpu_request: 1g.20gb:1
-    observed_throughput: Global completed in 00:36:52, Fw in 00:30:41, and Bw in 00:34:10
-      at batch 16. The full sequential Slurm campaign completed in 01:42:21 before the repository-side
+    observed_throughput: Global completed in 00:40:00, Fw in 00:32:51, and Bw in 00:26:34
+      at batch 16. The full sequential Slurm campaign completed in 01:40:12 before the repository-side
       model export step.
     batch_tuning_note: The prepared campaign default was raised from curve_batch_size 2 to
-      16 before submission. Batch 16 remained stable for Wave 3.3 full curve composite simplified-dataset
+      16 before submission. Batch 16 remained stable for Wave 3.3 full curve composite polished-dataset
       setpoint training and preserved the shared 5-feature input contract.
-    resource_note: Job 135543 used gpu_request 1g.20gb:1 with 8 CPU workers and 100G host
-      memory. Slurm MaxRSS was 15719144K.
-    next_campaign_recommendation: Continue with Wave 3.3 full curve composite polished_setpoints
+    resource_note: Job 135550 used gpu_request 1g.20gb:1 with 8 CPU workers and 100G host
+      memory. Slurm MaxRSS was 15881952K. Slurm stdout/stderr files were cleaned before commit
+      per operator instruction; per-run campaign terminal logs remain under the campaign output
+      directory.
+    next_campaign_recommendation: Continue with Wave 3.3 full curve composite polished_actual_values
       at batch 16 and the same resource profile unless validation or Slurm telemetry changes.
   sbatch_submission:
-    slurm_job_id: '135543'
+    slurm_job_id: '135550'
     state: COMPLETED
     exit_code: 0:0
-    elapsed: 01:42:21
-    max_rss: 15719144K
+    elapsed: 01:40:12
+    max_rss: 15881952K
     python_executable: /unimore_home/dferrari/.conda/envs/pinns_env/bin/python
     torch_version: 2.7.1+cu118
     gpu_request: 1g.20gb:1
-  campaign_manifest_path: config/training/dataset_input_mode_retraining/campaigns/dataset_input_mode_retraining__wave3_3_full_curve_composite__simplified_setpoints/campaign.yaml
-  campaign_output_directory: output/training_campaigns/2026-07-12-04-02-10_dataset_input_mode_retraining__wave3_3_full_curve_composite__simplified
-  campaign_best_run_path: output/training_campaigns/2026-07-12-04-02-10_dataset_input_mode_retraining__wave3_3_full_curve_composite__simplified/campaign_best_run.yaml
-  campaign_leaderboard_path: output/training_campaigns/2026-07-12-04-02-10_dataset_input_mode_retraining__wave3_3_full_curve_composite__simplified/campaign_leaderboard.yaml
+  campaign_manifest_path: config/training/dataset_input_mode_retraining/campaigns/dataset_input_mode_retraining__wave3_3_full_curve_composite__polished_setpoints/campaign.yaml
+  campaign_output_directory: output/training_campaigns/2026-07-12-09-42-30_dataset_input_mode_retraining__wave3_3_full_curve_composite__polished_se
+  campaign_best_run_path: output/training_campaigns/2026-07-12-09-42-30_dataset_input_mode_retraining__wave3_3_full_curve_composite__polished_se/campaign_best_run.yaml
+  campaign_leaderboard_path: output/training_campaigns/2026-07-12-09-42-30_dataset_input_mode_retraining__wave3_3_full_curve_composite__polished_se/campaign_leaderboard.yaml
   best_run:
-    run_name: te_wave3_3_full_curve_composite_global__simplified_setpoints
-    run_instance_id: 2026-07-12-04-02-10__te_wave3_3_full_curve_composite_global__simplified_setpoints
-    surface: global
-    test_mae: 0.0034191631712019444
-    test_rmse: 0.004197763744741678
-    val_mae: 0.0036387292202562094
+    run_name: te_wave3_3_full_curve_composite_fw__polished_setpoints
+    run_instance_id: 2026-07-12-10-22-30__te_wave3_3_full_curve_composite_fw__polished_setpoints
+    surface: forward
+    test_mae: 0.0023530113976448774
+    test_rmse: 0.0037150071002542973
+    val_mae: 0.002030177740380168
   surface_run_list:
   - surface: global
-    run_name: te_wave3_3_full_curve_composite_global__simplified_setpoints
-    run_instance_id: 2026-07-12-04-02-10__te_wave3_3_full_curve_composite_global__simplified_setpoints
-    test_mae: 0.0034191631712019444
-    test_rmse: 0.004197763744741678
-    val_mae: 0.0036387292202562094
-    duration: 00:36:52
+    run_name: te_wave3_3_full_curve_composite_global__polished_setpoints
+    run_instance_id: 2026-07-12-09-42-30__te_wave3_3_full_curve_composite_global__polished_setpoints
+    test_mae: 0.0023532442282885313
+    test_rmse: 0.0037039117887616158
+    val_mae: 0.002058044308796525
+    duration: 00:40:00
   - surface: forward
-    run_name: te_wave3_3_full_curve_composite_fw__simplified_setpoints
-    run_instance_id: 2026-07-12-04-39-03__te_wave3_3_full_curve_composite_fw__simplified_setpoints
-    test_mae: 0.003575100563466549
-    test_rmse: 0.004321583081036806
-    val_mae: 0.0036791141610592604
-    duration: 00:30:41
+    run_name: te_wave3_3_full_curve_composite_fw__polished_setpoints
+    run_instance_id: 2026-07-12-10-22-30__te_wave3_3_full_curve_composite_fw__polished_setpoints
+    test_mae: 0.0023530113976448774
+    test_rmse: 0.0037150071002542973
+    val_mae: 0.002030177740380168
+    duration: 00:32:51
   - surface: backward
-    run_name: te_wave3_3_full_curve_composite_bw__simplified_setpoints
-    run_instance_id: 2026-07-12-05-09-44__te_wave3_3_full_curve_composite_bw__simplified_setpoints
-    test_mae: 0.0035529464948922396
-    test_rmse: 0.0043073855340480804
-    val_mae: 0.0036568872164934874
-    duration: 00:34:10
+    run_name: te_wave3_3_full_curve_composite_bw__polished_setpoints
+    run_instance_id: 2026-07-12-10-55-22__te_wave3_3_full_curve_composite_bw__polished_setpoints
+    test_mae: 0.0023603253066539764
+    test_rmse: 0.0037128212861716747
+    val_mae: 0.002037136582657695
+    duration: 00:26:34
   export:
     status: completed
-    export_root: models/simplified_dataset/setpoints/exported
-    export_inventory_path: models/simplified_dataset/setpoints/exported/model_development_export_inventory.yaml
+    export_root: models/polished_dataset/setpoints/exported
+    export_inventory_path: models/polished_dataset/setpoints/exported/model_development_export_inventory.yaml
     exported_entry_count: 3
     onnx_export_status_counts:
       exported: 3
-    family_export_directory: models/simplified_dataset/setpoints/exported/wave3_3_full_curve_composite
+    family_export_directory: models/polished_dataset/setpoints/exported/wave3_3_full_curve_composite
     onnx_warning_note: ONNX export emitted expected harmonic residual offset, harmonic regression,
       temporal sequence, and GRU tracing warnings; all three exports completed successfully.
   input_contract_verification:
@@ -232,18 +234,18 @@ next_prepared_campaign:
     - input_torque_nm
     - oil_temperature_deg
     - direction_flag
-    setpoint_source_note: 'The simplified-dataset setpoint tensors use input_speed_rpm, input_torque_nm,
-      and oil_temperature_deg parsed from the curve filename/path setpoints while retaining
-      row-level angular_position_deg/transmission_error_deg and direction_flag for the shared
-      5-feature input contract. Runtime feature statistics in job 135543 showed setpoint-mode
-      values: speed mean 497.858002 with std 466.804230, torque mean 896.014526 with std 543.832397,
-      and oil-temperature mean 30.364092 with std 4.080520.'
+    setpoint_source_note: The polished-dataset setpoint tensors use input_speed_rpm, input_torque_nm,
+      and oil_temperature_deg parsed from curve metadata/setpoints while retaining polished
+      row-level angular_position_deg/theta_TE and direction_flag for the shared 5-feature
+      input contract. The campaign leaderboard and export inventory both confirm input_feature_dim
+      5, dataset_id polished_dataset, input_mode setpoints, and dataset_schema polished_setpoint_curve_v1
+      for all three surfaces.
     assertion_status: passed
   next_planned_campaign:
-    campaign_name: dataset_input_mode_retraining__wave3_3_full_curve_composite__polished_setpoints
+    campaign_name: dataset_input_mode_retraining__wave3_3_full_curve_composite__polished_actual_values
     family: wave3_3_full_curve_composite
-    version: polished_setpoints
+    version: polished_actual_values
     dataset_id: polished_dataset
-    input_mode: setpoints
-    dataset_schema: polished_setpoint_curve_v1
+    input_mode: actual_values
+    dataset_schema: polished_point_v1
   te_curve_verification_status: not_run_in_closeout
