@@ -6,8 +6,8 @@ selection_policy:
   second_tie_breaker: val_mae
   third_tie_breaker: trainable_parameter_count
   direction: minimize
-updated_at: '2026-07-12T14:40:52'
-entry_count: 2
+updated_at: '2026-07-12T16:19:34'
+entry_count: 3
 entry_list:
 - run_instance_id: 2026-07-01-02-59-15__te_wave4_1_mae_robust_loss_global
   run_name: te_wave4_1_mae_robust_loss_global
@@ -47,6 +47,46 @@ entry_list:
     third_tie_breaker: trainable_parameter_count
     direction: minimize
   selected_at: '2026-07-01T03:49:35'
+- run_instance_id: 2026-07-12-15-32-30__te_wave4_1_mae_robust_loss_global__polished_setpoints
+  run_name: te_wave4_1_mae_robust_loss_global__polished_setpoints
+  output_run_name: te_wave4_1_mae_robust_loss_global__polished_setpoints
+  output_artifact_kind: training_run
+  model_family: wave4_1_mae_robust_loss_global
+  base_model_family: wave4_1_mae_robust_loss
+  model_type: curve_aware_harmonic_residual_offset_probe
+  dataset_id: polished_dataset
+  dataset_schema: polished_setpoint_curve_v1
+  input_mode: setpoints
+  input_feature_names:
+  - angular_position_deg
+  - input_speed_rpm
+  - input_torque_nm
+  - oil_temperature_deg
+  - direction_flag
+  target_feature_names:
+  - theta_TE
+  input_feature_dim: 5
+  training_variant: global
+  direction_scope_label: bidirectional
+  use_forward_direction: true
+  use_backward_direction: true
+  trainable_parameter_count: 85747
+  total_parameter_count: 85747
+  val_mae: 0.0017879497027024627
+  val_rmse: 0.0025629200972616673
+  test_mae: 0.002113020047545433
+  test_rmse: 0.003547586500644684
+  output_directory: output\training_runs\wave4_1_mae_robust_loss\2026-07-12-15-32-30__te_wave4_1_mae_robust_loss_global__polished_setpoints
+  best_checkpoint_path: output\training_runs\wave4_1_mae_robust_loss\2026-07-12-15-32-30__te_wave4_1_mae_robust_loss_global__polished_setpoints\checkpoints\curve_aware_harmonic_residual_offset_probe-epoch=178-val_mae=0.00178795.ckpt
+  metrics_path: output\training_runs\wave4_1_mae_robust_loss\2026-07-12-15-32-30__te_wave4_1_mae_robust_loss_global__polished_setpoints/metrics_summary.yaml
+  report_path: output\training_runs\wave4_1_mae_robust_loss\2026-07-12-15-32-30__te_wave4_1_mae_robust_loss_global__polished_setpoints/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-07-12T16:19:34'
 - run_instance_id: 2026-07-12-14-11-27__te_wave4_1_mae_robust_loss_global__simplified_setpoints
   run_name: te_wave4_1_mae_robust_loss_global__simplified_setpoints
   output_run_name: te_wave4_1_mae_robust_loss_global__simplified_setpoints

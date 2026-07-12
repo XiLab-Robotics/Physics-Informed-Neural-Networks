@@ -13,74 +13,74 @@ entries:
   dataset_id: polished_dataset
   dataset_schema: polished_setpoint_curve_v1
   input_mode: setpoints
-  model_family: wave3_3_full_curve_composite
+  model_family: wave4_1_mae_robust_loss
   model_type: curve_aware_harmonic_residual_offset_probe
   surface: global
-  run_name: te_wave3_3_full_curve_composite_global__polished_setpoints
-  run_instance_id: 2026-07-12-09-42-30__te_wave3_3_full_curve_composite_global__polished_setpoints
-  source_output_directory: output/training_runs/wave3_3_full_curve_composite/2026-07-12-09-42-30__te_wave3_3_full_curve_composite_global__polished_setpoints
-  source_best_checkpoint_path: output/training_runs/wave3_3_full_curve_composite/2026-07-12-09-42-30__te_wave3_3_full_curve_composite_global__polished_setpoints/checkpoints/curve_aware_harmonic_residual_offset_probe-epoch=139-val_mae=0.00205804.ckpt
-  python_model_path: models/polished_dataset/setpoints/exported/wave3_3_full_curve_composite/global/2026-07-12-09-42-30__te_wave3_3_full_curve_composite_global__polished_setpoints/python/curve_aware_harmonic_residual_offset_probe-epoch=139-val_mae=0.00205804.ckpt
-  onnx_model_path: models/polished_dataset/setpoints/exported/wave3_3_full_curve_composite/global/2026-07-12-09-42-30__te_wave3_3_full_curve_composite_global__polished_setpoints/onnx/model.onnx
+  run_name: te_wave4_1_mae_robust_loss_global__polished_setpoints
+  run_instance_id: 2026-07-12-15-32-30__te_wave4_1_mae_robust_loss_global__polished_setpoints
+  source_output_directory: output/training_runs/wave4_1_mae_robust_loss/2026-07-12-15-32-30__te_wave4_1_mae_robust_loss_global__polished_setpoints
+  source_best_checkpoint_path: output/training_runs/wave4_1_mae_robust_loss/2026-07-12-15-32-30__te_wave4_1_mae_robust_loss_global__polished_setpoints/checkpoints/curve_aware_harmonic_residual_offset_probe-epoch=178-val_mae=0.00178795.ckpt
+  python_model_path: models/polished_dataset/setpoints/exported/wave4_1_mae_robust_loss/global/2026-07-12-15-32-30__te_wave4_1_mae_robust_loss_global__polished_setpoints/python/curve_aware_harmonic_residual_offset_probe-epoch=178-val_mae=0.00178795.ckpt
+  onnx_model_path: models/polished_dataset/setpoints/exported/wave4_1_mae_robust_loss/global/2026-07-12-15-32-30__te_wave4_1_mae_robust_loss_global__polished_setpoints/onnx/model.onnx
   onnx_export_status: exported
   onnx_export_error: ''
   source_run_snapshot_path_map:
-    training_config.snapshot.yaml: models/polished_dataset/setpoints/exported/wave3_3_full_curve_composite/global/2026-07-12-09-42-30__te_wave3_3_full_curve_composite_global__polished_setpoints/source_run/training_config.snapshot.yaml
-    metrics_summary.snapshot.yaml: models/polished_dataset/setpoints/exported/wave3_3_full_curve_composite/global/2026-07-12-09-42-30__te_wave3_3_full_curve_composite_global__polished_setpoints/source_run/metrics_summary.snapshot.yaml
-    run_metadata.snapshot.yaml: models/polished_dataset/setpoints/exported/wave3_3_full_curve_composite/global/2026-07-12-09-42-30__te_wave3_3_full_curve_composite_global__polished_setpoints/source_run/run_metadata.snapshot.yaml
-    training_test_report.snapshot.md: models/polished_dataset/setpoints/exported/wave3_3_full_curve_composite/global/2026-07-12-09-42-30__te_wave3_3_full_curve_composite_global__polished_setpoints/source_run/training_test_report.snapshot.md
-    best_checkpoint_path.snapshot.txt: models/polished_dataset/setpoints/exported/wave3_3_full_curve_composite/global/2026-07-12-09-42-30__te_wave3_3_full_curve_composite_global__polished_setpoints/source_run/best_checkpoint_path.snapshot.txt
+    training_config.snapshot.yaml: models/polished_dataset/setpoints/exported/wave4_1_mae_robust_loss/global/2026-07-12-15-32-30__te_wave4_1_mae_robust_loss_global__polished_setpoints/source_run/training_config.snapshot.yaml
+    metrics_summary.snapshot.yaml: models/polished_dataset/setpoints/exported/wave4_1_mae_robust_loss/global/2026-07-12-15-32-30__te_wave4_1_mae_robust_loss_global__polished_setpoints/source_run/metrics_summary.snapshot.yaml
+    run_metadata.snapshot.yaml: models/polished_dataset/setpoints/exported/wave4_1_mae_robust_loss/global/2026-07-12-15-32-30__te_wave4_1_mae_robust_loss_global__polished_setpoints/source_run/run_metadata.snapshot.yaml
+    training_test_report.snapshot.md: models/polished_dataset/setpoints/exported/wave4_1_mae_robust_loss/global/2026-07-12-15-32-30__te_wave4_1_mae_robust_loss_global__polished_setpoints/source_run/training_test_report.snapshot.md
+    best_checkpoint_path.snapshot.txt: models/polished_dataset/setpoints/exported/wave4_1_mae_robust_loss/global/2026-07-12-15-32-30__te_wave4_1_mae_robust_loss_global__polished_setpoints/source_run/best_checkpoint_path.snapshot.txt
   metrics:
-    val_mae: 0.002058044308796525
-    test_mae: 0.0023532442282885313
-    test_rmse: 0.0037039117887616158
+    val_mae: 0.0017879497027024627
+    test_mae: 0.002113020047545433
+    test_rmse: 0.003547586500644684
 - schema_version: 1
   dataset_id: polished_dataset
   dataset_schema: polished_setpoint_curve_v1
   input_mode: setpoints
-  model_family: wave3_3_full_curve_composite
+  model_family: wave4_1_mae_robust_loss
   model_type: curve_aware_harmonic_residual_offset_probe
   surface: forward
-  run_name: te_wave3_3_full_curve_composite_fw__polished_setpoints
-  run_instance_id: 2026-07-12-10-22-30__te_wave3_3_full_curve_composite_fw__polished_setpoints
-  source_output_directory: output/training_runs/wave3_3_full_curve_composite/2026-07-12-10-22-30__te_wave3_3_full_curve_composite_fw__polished_setpoints
-  source_best_checkpoint_path: output/training_runs/wave3_3_full_curve_composite/2026-07-12-10-22-30__te_wave3_3_full_curve_composite_fw__polished_setpoints/checkpoints/curve_aware_harmonic_residual_offset_probe-epoch=107-val_mae=0.00203018.ckpt
-  python_model_path: models/polished_dataset/setpoints/exported/wave3_3_full_curve_composite/forward/2026-07-12-10-22-30__te_wave3_3_full_curve_composite_fw__polished_setpoints/python/curve_aware_harmonic_residual_offset_probe-epoch=107-val_mae=0.00203018.ckpt
-  onnx_model_path: models/polished_dataset/setpoints/exported/wave3_3_full_curve_composite/forward/2026-07-12-10-22-30__te_wave3_3_full_curve_composite_fw__polished_setpoints/onnx/model.onnx
+  run_name: te_wave4_1_mae_robust_loss_fw__polished_setpoints
+  run_instance_id: 2026-07-12-16-19-34__te_wave4_1_mae_robust_loss_fw__polished_setpoints
+  source_output_directory: output/training_runs/wave4_1_mae_robust_loss/2026-07-12-16-19-34__te_wave4_1_mae_robust_loss_fw__polished_setpoints
+  source_best_checkpoint_path: output/training_runs/wave4_1_mae_robust_loss/2026-07-12-16-19-34__te_wave4_1_mae_robust_loss_fw__polished_setpoints/checkpoints/curve_aware_harmonic_residual_offset_probe-epoch=105-val_mae=0.00179190.ckpt
+  python_model_path: models/polished_dataset/setpoints/exported/wave4_1_mae_robust_loss/forward/2026-07-12-16-19-34__te_wave4_1_mae_robust_loss_fw__polished_setpoints/python/curve_aware_harmonic_residual_offset_probe-epoch=105-val_mae=0.00179190.ckpt
+  onnx_model_path: models/polished_dataset/setpoints/exported/wave4_1_mae_robust_loss/forward/2026-07-12-16-19-34__te_wave4_1_mae_robust_loss_fw__polished_setpoints/onnx/model.onnx
   onnx_export_status: exported
   onnx_export_error: ''
   source_run_snapshot_path_map:
-    training_config.snapshot.yaml: models/polished_dataset/setpoints/exported/wave3_3_full_curve_composite/forward/2026-07-12-10-22-30__te_wave3_3_full_curve_composite_fw__polished_setpoints/source_run/training_config.snapshot.yaml
-    metrics_summary.snapshot.yaml: models/polished_dataset/setpoints/exported/wave3_3_full_curve_composite/forward/2026-07-12-10-22-30__te_wave3_3_full_curve_composite_fw__polished_setpoints/source_run/metrics_summary.snapshot.yaml
-    run_metadata.snapshot.yaml: models/polished_dataset/setpoints/exported/wave3_3_full_curve_composite/forward/2026-07-12-10-22-30__te_wave3_3_full_curve_composite_fw__polished_setpoints/source_run/run_metadata.snapshot.yaml
-    training_test_report.snapshot.md: models/polished_dataset/setpoints/exported/wave3_3_full_curve_composite/forward/2026-07-12-10-22-30__te_wave3_3_full_curve_composite_fw__polished_setpoints/source_run/training_test_report.snapshot.md
-    best_checkpoint_path.snapshot.txt: models/polished_dataset/setpoints/exported/wave3_3_full_curve_composite/forward/2026-07-12-10-22-30__te_wave3_3_full_curve_composite_fw__polished_setpoints/source_run/best_checkpoint_path.snapshot.txt
+    training_config.snapshot.yaml: models/polished_dataset/setpoints/exported/wave4_1_mae_robust_loss/forward/2026-07-12-16-19-34__te_wave4_1_mae_robust_loss_fw__polished_setpoints/source_run/training_config.snapshot.yaml
+    metrics_summary.snapshot.yaml: models/polished_dataset/setpoints/exported/wave4_1_mae_robust_loss/forward/2026-07-12-16-19-34__te_wave4_1_mae_robust_loss_fw__polished_setpoints/source_run/metrics_summary.snapshot.yaml
+    run_metadata.snapshot.yaml: models/polished_dataset/setpoints/exported/wave4_1_mae_robust_loss/forward/2026-07-12-16-19-34__te_wave4_1_mae_robust_loss_fw__polished_setpoints/source_run/run_metadata.snapshot.yaml
+    training_test_report.snapshot.md: models/polished_dataset/setpoints/exported/wave4_1_mae_robust_loss/forward/2026-07-12-16-19-34__te_wave4_1_mae_robust_loss_fw__polished_setpoints/source_run/training_test_report.snapshot.md
+    best_checkpoint_path.snapshot.txt: models/polished_dataset/setpoints/exported/wave4_1_mae_robust_loss/forward/2026-07-12-16-19-34__te_wave4_1_mae_robust_loss_fw__polished_setpoints/source_run/best_checkpoint_path.snapshot.txt
   metrics:
-    val_mae: 0.002030177740380168
-    test_mae: 0.0023530113976448774
-    test_rmse: 0.0037150071002542973
+    val_mae: 0.0017919032834470272
+    test_mae: 0.0021090346854180098
+    test_rmse: 0.0035446591209620237
 - schema_version: 1
   dataset_id: polished_dataset
   dataset_schema: polished_setpoint_curve_v1
   input_mode: setpoints
-  model_family: wave3_3_full_curve_composite
+  model_family: wave4_1_mae_robust_loss
   model_type: curve_aware_harmonic_residual_offset_probe
   surface: backward
-  run_name: te_wave3_3_full_curve_composite_bw__polished_setpoints
-  run_instance_id: 2026-07-12-10-55-22__te_wave3_3_full_curve_composite_bw__polished_setpoints
-  source_output_directory: output/training_runs/wave3_3_full_curve_composite/2026-07-12-10-55-22__te_wave3_3_full_curve_composite_bw__polished_setpoints
-  source_best_checkpoint_path: output/training_runs/wave3_3_full_curve_composite/2026-07-12-10-55-22__te_wave3_3_full_curve_composite_bw__polished_setpoints/checkpoints/curve_aware_harmonic_residual_offset_probe-epoch=078-val_mae=0.00203714.ckpt
-  python_model_path: models/polished_dataset/setpoints/exported/wave3_3_full_curve_composite/backward/2026-07-12-10-55-22__te_wave3_3_full_curve_composite_bw__polished_setpoints/python/curve_aware_harmonic_residual_offset_probe-epoch=078-val_mae=0.00203714.ckpt
-  onnx_model_path: models/polished_dataset/setpoints/exported/wave3_3_full_curve_composite/backward/2026-07-12-10-55-22__te_wave3_3_full_curve_composite_bw__polished_setpoints/onnx/model.onnx
+  run_name: te_wave4_1_mae_robust_loss_bw__polished_setpoints
+  run_instance_id: 2026-07-12-16-51-03__te_wave4_1_mae_robust_loss_bw__polished_setpoints
+  source_output_directory: output/training_runs/wave4_1_mae_robust_loss/2026-07-12-16-51-03__te_wave4_1_mae_robust_loss_bw__polished_setpoints
+  source_best_checkpoint_path: output/training_runs/wave4_1_mae_robust_loss/2026-07-12-16-51-03__te_wave4_1_mae_robust_loss_bw__polished_setpoints/checkpoints/curve_aware_harmonic_residual_offset_probe-epoch=088-val_mae=0.00183184.ckpt
+  python_model_path: models/polished_dataset/setpoints/exported/wave4_1_mae_robust_loss/backward/2026-07-12-16-51-03__te_wave4_1_mae_robust_loss_bw__polished_setpoints/python/curve_aware_harmonic_residual_offset_probe-epoch=088-val_mae=0.00183184.ckpt
+  onnx_model_path: models/polished_dataset/setpoints/exported/wave4_1_mae_robust_loss/backward/2026-07-12-16-51-03__te_wave4_1_mae_robust_loss_bw__polished_setpoints/onnx/model.onnx
   onnx_export_status: exported
   onnx_export_error: ''
   source_run_snapshot_path_map:
-    training_config.snapshot.yaml: models/polished_dataset/setpoints/exported/wave3_3_full_curve_composite/backward/2026-07-12-10-55-22__te_wave3_3_full_curve_composite_bw__polished_setpoints/source_run/training_config.snapshot.yaml
-    metrics_summary.snapshot.yaml: models/polished_dataset/setpoints/exported/wave3_3_full_curve_composite/backward/2026-07-12-10-55-22__te_wave3_3_full_curve_composite_bw__polished_setpoints/source_run/metrics_summary.snapshot.yaml
-    run_metadata.snapshot.yaml: models/polished_dataset/setpoints/exported/wave3_3_full_curve_composite/backward/2026-07-12-10-55-22__te_wave3_3_full_curve_composite_bw__polished_setpoints/source_run/run_metadata.snapshot.yaml
-    training_test_report.snapshot.md: models/polished_dataset/setpoints/exported/wave3_3_full_curve_composite/backward/2026-07-12-10-55-22__te_wave3_3_full_curve_composite_bw__polished_setpoints/source_run/training_test_report.snapshot.md
-    best_checkpoint_path.snapshot.txt: models/polished_dataset/setpoints/exported/wave3_3_full_curve_composite/backward/2026-07-12-10-55-22__te_wave3_3_full_curve_composite_bw__polished_setpoints/source_run/best_checkpoint_path.snapshot.txt
+    training_config.snapshot.yaml: models/polished_dataset/setpoints/exported/wave4_1_mae_robust_loss/backward/2026-07-12-16-51-03__te_wave4_1_mae_robust_loss_bw__polished_setpoints/source_run/training_config.snapshot.yaml
+    metrics_summary.snapshot.yaml: models/polished_dataset/setpoints/exported/wave4_1_mae_robust_loss/backward/2026-07-12-16-51-03__te_wave4_1_mae_robust_loss_bw__polished_setpoints/source_run/metrics_summary.snapshot.yaml
+    run_metadata.snapshot.yaml: models/polished_dataset/setpoints/exported/wave4_1_mae_robust_loss/backward/2026-07-12-16-51-03__te_wave4_1_mae_robust_loss_bw__polished_setpoints/source_run/run_metadata.snapshot.yaml
+    training_test_report.snapshot.md: models/polished_dataset/setpoints/exported/wave4_1_mae_robust_loss/backward/2026-07-12-16-51-03__te_wave4_1_mae_robust_loss_bw__polished_setpoints/source_run/training_test_report.snapshot.md
+    best_checkpoint_path.snapshot.txt: models/polished_dataset/setpoints/exported/wave4_1_mae_robust_loss/backward/2026-07-12-16-51-03__te_wave4_1_mae_robust_loss_bw__polished_setpoints/source_run/best_checkpoint_path.snapshot.txt
   metrics:
-    val_mae: 0.002037136582657695
-    test_mae: 0.0023603253066539764
-    test_rmse: 0.0037128212861716747
+    val_mae: 0.0018318354850634933
+    test_mae: 0.002150152577087283
+    test_rmse: 0.0035454044118523598
