@@ -13,74 +13,74 @@ entries:
   dataset_id: polished_dataset
   dataset_schema: polished_point_v1
   input_mode: actual_values
-  model_family: wave3_3_raw_offset_curve_aware
+  model_family: wave3_3_full_curve_composite
   model_type: curve_aware_harmonic_residual_offset_probe
   surface: global
-  run_name: te_wave3_3_raw_offset_curve_aware_global__polished_actual_values
-  run_instance_id: 2026-07-12-01-40-59__te_wave3_3_raw_offset_curve_aware_global__polished_actual_values
-  source_output_directory: output/training_runs/wave3_3_raw_offset_curve_aware/2026-07-12-01-40-59__te_wave3_3_raw_offset_curve_aware_global__polished_actual_values
-  source_best_checkpoint_path: output/training_runs/wave3_3_raw_offset_curve_aware/2026-07-12-01-40-59__te_wave3_3_raw_offset_curve_aware_global__polished_actual_values/checkpoints/curve_aware_harmonic_residual_offset_probe-epoch=155-val_mae=0.00187021.ckpt
-  python_model_path: models/polished_dataset/actual_values/exported/wave3_3_raw_offset_curve_aware/global/2026-07-12-01-40-59__te_wave3_3_raw_offset_curve_aware_global__polished_actual_values/python/curve_aware_harmonic_residual_offset_probe-epoch=155-val_mae=0.00187021.ckpt
-  onnx_model_path: models/polished_dataset/actual_values/exported/wave3_3_raw_offset_curve_aware/global/2026-07-12-01-40-59__te_wave3_3_raw_offset_curve_aware_global__polished_actual_values/onnx/model.onnx
+  run_name: te_wave3_3_full_curve_composite_global__polished_actual_values
+  run_instance_id: 2026-07-12-11-35-23__te_wave3_3_full_curve_composite_global__polished_actual_values
+  source_output_directory: output/training_runs/wave3_3_full_curve_composite/2026-07-12-11-35-23__te_wave3_3_full_curve_composite_global__polished_actual_values
+  source_best_checkpoint_path: output/training_runs/wave3_3_full_curve_composite/2026-07-12-11-35-23__te_wave3_3_full_curve_composite_global__polished_actual_values/checkpoints/curve_aware_harmonic_residual_offset_probe-epoch=131-val_mae=0.00200797.ckpt
+  python_model_path: models/polished_dataset/actual_values/exported/wave3_3_full_curve_composite/global/2026-07-12-11-35-23__te_wave3_3_full_curve_composite_global__polished_actual_values/python/curve_aware_harmonic_residual_offset_probe-epoch=131-val_mae=0.00200797.ckpt
+  onnx_model_path: models/polished_dataset/actual_values/exported/wave3_3_full_curve_composite/global/2026-07-12-11-35-23__te_wave3_3_full_curve_composite_global__polished_actual_values/onnx/model.onnx
   onnx_export_status: exported
   onnx_export_error: ''
   source_run_snapshot_path_map:
-    training_config.snapshot.yaml: models/polished_dataset/actual_values/exported/wave3_3_raw_offset_curve_aware/global/2026-07-12-01-40-59__te_wave3_3_raw_offset_curve_aware_global__polished_actual_values/source_run/training_config.snapshot.yaml
-    metrics_summary.snapshot.yaml: models/polished_dataset/actual_values/exported/wave3_3_raw_offset_curve_aware/global/2026-07-12-01-40-59__te_wave3_3_raw_offset_curve_aware_global__polished_actual_values/source_run/metrics_summary.snapshot.yaml
-    run_metadata.snapshot.yaml: models/polished_dataset/actual_values/exported/wave3_3_raw_offset_curve_aware/global/2026-07-12-01-40-59__te_wave3_3_raw_offset_curve_aware_global__polished_actual_values/source_run/run_metadata.snapshot.yaml
-    training_test_report.snapshot.md: models/polished_dataset/actual_values/exported/wave3_3_raw_offset_curve_aware/global/2026-07-12-01-40-59__te_wave3_3_raw_offset_curve_aware_global__polished_actual_values/source_run/training_test_report.snapshot.md
-    best_checkpoint_path.snapshot.txt: models/polished_dataset/actual_values/exported/wave3_3_raw_offset_curve_aware/global/2026-07-12-01-40-59__te_wave3_3_raw_offset_curve_aware_global__polished_actual_values/source_run/best_checkpoint_path.snapshot.txt
+    training_config.snapshot.yaml: models/polished_dataset/actual_values/exported/wave3_3_full_curve_composite/global/2026-07-12-11-35-23__te_wave3_3_full_curve_composite_global__polished_actual_values/source_run/training_config.snapshot.yaml
+    metrics_summary.snapshot.yaml: models/polished_dataset/actual_values/exported/wave3_3_full_curve_composite/global/2026-07-12-11-35-23__te_wave3_3_full_curve_composite_global__polished_actual_values/source_run/metrics_summary.snapshot.yaml
+    run_metadata.snapshot.yaml: models/polished_dataset/actual_values/exported/wave3_3_full_curve_composite/global/2026-07-12-11-35-23__te_wave3_3_full_curve_composite_global__polished_actual_values/source_run/run_metadata.snapshot.yaml
+    training_test_report.snapshot.md: models/polished_dataset/actual_values/exported/wave3_3_full_curve_composite/global/2026-07-12-11-35-23__te_wave3_3_full_curve_composite_global__polished_actual_values/source_run/training_test_report.snapshot.md
+    best_checkpoint_path.snapshot.txt: models/polished_dataset/actual_values/exported/wave3_3_full_curve_composite/global/2026-07-12-11-35-23__te_wave3_3_full_curve_composite_global__polished_actual_values/source_run/best_checkpoint_path.snapshot.txt
   metrics:
-    val_mae: 0.0018702087691053748
-    test_mae: 0.002000687876716256
-    test_rmse: 0.003029343206435442
+    val_mae: 0.0020079747773706913
+    test_mae: 0.0021692339796572924
+    test_rmse: 0.003231959417462349
 - schema_version: 1
   dataset_id: polished_dataset
   dataset_schema: polished_point_v1
   input_mode: actual_values
-  model_family: wave3_3_raw_offset_curve_aware
+  model_family: wave3_3_full_curve_composite
   model_type: curve_aware_harmonic_residual_offset_probe
   surface: forward
-  run_name: te_wave3_3_raw_offset_curve_aware_fw__polished_actual_values
-  run_instance_id: 2026-07-12-02-24-38__te_wave3_3_raw_offset_curve_aware_fw__polished_actual_values
-  source_output_directory: output/training_runs/wave3_3_raw_offset_curve_aware/2026-07-12-02-24-38__te_wave3_3_raw_offset_curve_aware_fw__polished_actual_values
-  source_best_checkpoint_path: output/training_runs/wave3_3_raw_offset_curve_aware/2026-07-12-02-24-38__te_wave3_3_raw_offset_curve_aware_fw__polished_actual_values/checkpoints/curve_aware_harmonic_residual_offset_probe-epoch=103-val_mae=0.00192801.ckpt
-  python_model_path: models/polished_dataset/actual_values/exported/wave3_3_raw_offset_curve_aware/forward/2026-07-12-02-24-38__te_wave3_3_raw_offset_curve_aware_fw__polished_actual_values/python/curve_aware_harmonic_residual_offset_probe-epoch=103-val_mae=0.00192801.ckpt
-  onnx_model_path: models/polished_dataset/actual_values/exported/wave3_3_raw_offset_curve_aware/forward/2026-07-12-02-24-38__te_wave3_3_raw_offset_curve_aware_fw__polished_actual_values/onnx/model.onnx
+  run_name: te_wave3_3_full_curve_composite_fw__polished_actual_values
+  run_instance_id: 2026-07-12-12-13-42__te_wave3_3_full_curve_composite_fw__polished_actual_values
+  source_output_directory: output/training_runs/wave3_3_full_curve_composite/2026-07-12-12-13-42__te_wave3_3_full_curve_composite_fw__polished_actual_values
+  source_best_checkpoint_path: output/training_runs/wave3_3_full_curve_composite/2026-07-12-12-13-42__te_wave3_3_full_curve_composite_fw__polished_actual_values/checkpoints/curve_aware_harmonic_residual_offset_probe-epoch=211-val_mae=0.00198008.ckpt
+  python_model_path: models/polished_dataset/actual_values/exported/wave3_3_full_curve_composite/forward/2026-07-12-12-13-42__te_wave3_3_full_curve_composite_fw__polished_actual_values/python/curve_aware_harmonic_residual_offset_probe-epoch=211-val_mae=0.00198008.ckpt
+  onnx_model_path: models/polished_dataset/actual_values/exported/wave3_3_full_curve_composite/forward/2026-07-12-12-13-42__te_wave3_3_full_curve_composite_fw__polished_actual_values/onnx/model.onnx
   onnx_export_status: exported
   onnx_export_error: ''
   source_run_snapshot_path_map:
-    training_config.snapshot.yaml: models/polished_dataset/actual_values/exported/wave3_3_raw_offset_curve_aware/forward/2026-07-12-02-24-38__te_wave3_3_raw_offset_curve_aware_fw__polished_actual_values/source_run/training_config.snapshot.yaml
-    metrics_summary.snapshot.yaml: models/polished_dataset/actual_values/exported/wave3_3_raw_offset_curve_aware/forward/2026-07-12-02-24-38__te_wave3_3_raw_offset_curve_aware_fw__polished_actual_values/source_run/metrics_summary.snapshot.yaml
-    run_metadata.snapshot.yaml: models/polished_dataset/actual_values/exported/wave3_3_raw_offset_curve_aware/forward/2026-07-12-02-24-38__te_wave3_3_raw_offset_curve_aware_fw__polished_actual_values/source_run/run_metadata.snapshot.yaml
-    training_test_report.snapshot.md: models/polished_dataset/actual_values/exported/wave3_3_raw_offset_curve_aware/forward/2026-07-12-02-24-38__te_wave3_3_raw_offset_curve_aware_fw__polished_actual_values/source_run/training_test_report.snapshot.md
-    best_checkpoint_path.snapshot.txt: models/polished_dataset/actual_values/exported/wave3_3_raw_offset_curve_aware/forward/2026-07-12-02-24-38__te_wave3_3_raw_offset_curve_aware_fw__polished_actual_values/source_run/best_checkpoint_path.snapshot.txt
+    training_config.snapshot.yaml: models/polished_dataset/actual_values/exported/wave3_3_full_curve_composite/forward/2026-07-12-12-13-42__te_wave3_3_full_curve_composite_fw__polished_actual_values/source_run/training_config.snapshot.yaml
+    metrics_summary.snapshot.yaml: models/polished_dataset/actual_values/exported/wave3_3_full_curve_composite/forward/2026-07-12-12-13-42__te_wave3_3_full_curve_composite_fw__polished_actual_values/source_run/metrics_summary.snapshot.yaml
+    run_metadata.snapshot.yaml: models/polished_dataset/actual_values/exported/wave3_3_full_curve_composite/forward/2026-07-12-12-13-42__te_wave3_3_full_curve_composite_fw__polished_actual_values/source_run/run_metadata.snapshot.yaml
+    training_test_report.snapshot.md: models/polished_dataset/actual_values/exported/wave3_3_full_curve_composite/forward/2026-07-12-12-13-42__te_wave3_3_full_curve_composite_fw__polished_actual_values/source_run/training_test_report.snapshot.md
+    best_checkpoint_path.snapshot.txt: models/polished_dataset/actual_values/exported/wave3_3_full_curve_composite/forward/2026-07-12-12-13-42__te_wave3_3_full_curve_composite_fw__polished_actual_values/source_run/best_checkpoint_path.snapshot.txt
   metrics:
-    val_mae: 0.0019280147971585393
-    test_mae: 0.002095577772706747
-    test_rmse: 0.00314329843968153
+    val_mae: 0.001980077475309372
+    test_mae: 0.0021128349471837282
+    test_rmse: 0.0031764560844749212
 - schema_version: 1
   dataset_id: polished_dataset
   dataset_schema: polished_point_v1
   input_mode: actual_values
-  model_family: wave3_3_raw_offset_curve_aware
+  model_family: wave3_3_full_curve_composite
   model_type: curve_aware_harmonic_residual_offset_probe
   surface: backward
-  run_name: te_wave3_3_raw_offset_curve_aware_bw__polished_actual_values
-  run_instance_id: 2026-07-12-02-57-47__te_wave3_3_raw_offset_curve_aware_bw__polished_actual_values
-  source_output_directory: output/training_runs/wave3_3_raw_offset_curve_aware/2026-07-12-02-57-47__te_wave3_3_raw_offset_curve_aware_bw__polished_actual_values
-  source_best_checkpoint_path: output/training_runs/wave3_3_raw_offset_curve_aware/2026-07-12-02-57-47__te_wave3_3_raw_offset_curve_aware_bw__polished_actual_values/checkpoints/curve_aware_harmonic_residual_offset_probe-epoch=199-val_mae=0.00184997.ckpt
-  python_model_path: models/polished_dataset/actual_values/exported/wave3_3_raw_offset_curve_aware/backward/2026-07-12-02-57-47__te_wave3_3_raw_offset_curve_aware_bw__polished_actual_values/python/curve_aware_harmonic_residual_offset_probe-epoch=199-val_mae=0.00184997.ckpt
-  onnx_model_path: models/polished_dataset/actual_values/exported/wave3_3_raw_offset_curve_aware/backward/2026-07-12-02-57-47__te_wave3_3_raw_offset_curve_aware_bw__polished_actual_values/onnx/model.onnx
+  run_name: te_wave3_3_full_curve_composite_bw__polished_actual_values
+  run_instance_id: 2026-07-12-13-09-19__te_wave3_3_full_curve_composite_bw__polished_actual_values
+  source_output_directory: output/training_runs/wave3_3_full_curve_composite/2026-07-12-13-09-19__te_wave3_3_full_curve_composite_bw__polished_actual_values
+  source_best_checkpoint_path: output/training_runs/wave3_3_full_curve_composite/2026-07-12-13-09-19__te_wave3_3_full_curve_composite_bw__polished_actual_values/checkpoints/curve_aware_harmonic_residual_offset_probe-epoch=143-val_mae=0.00194357.ckpt
+  python_model_path: models/polished_dataset/actual_values/exported/wave3_3_full_curve_composite/backward/2026-07-12-13-09-19__te_wave3_3_full_curve_composite_bw__polished_actual_values/python/curve_aware_harmonic_residual_offset_probe-epoch=143-val_mae=0.00194357.ckpt
+  onnx_model_path: models/polished_dataset/actual_values/exported/wave3_3_full_curve_composite/backward/2026-07-12-13-09-19__te_wave3_3_full_curve_composite_bw__polished_actual_values/onnx/model.onnx
   onnx_export_status: exported
   onnx_export_error: ''
   source_run_snapshot_path_map:
-    training_config.snapshot.yaml: models/polished_dataset/actual_values/exported/wave3_3_raw_offset_curve_aware/backward/2026-07-12-02-57-47__te_wave3_3_raw_offset_curve_aware_bw__polished_actual_values/source_run/training_config.snapshot.yaml
-    metrics_summary.snapshot.yaml: models/polished_dataset/actual_values/exported/wave3_3_raw_offset_curve_aware/backward/2026-07-12-02-57-47__te_wave3_3_raw_offset_curve_aware_bw__polished_actual_values/source_run/metrics_summary.snapshot.yaml
-    run_metadata.snapshot.yaml: models/polished_dataset/actual_values/exported/wave3_3_raw_offset_curve_aware/backward/2026-07-12-02-57-47__te_wave3_3_raw_offset_curve_aware_bw__polished_actual_values/source_run/run_metadata.snapshot.yaml
-    training_test_report.snapshot.md: models/polished_dataset/actual_values/exported/wave3_3_raw_offset_curve_aware/backward/2026-07-12-02-57-47__te_wave3_3_raw_offset_curve_aware_bw__polished_actual_values/source_run/training_test_report.snapshot.md
-    best_checkpoint_path.snapshot.txt: models/polished_dataset/actual_values/exported/wave3_3_raw_offset_curve_aware/backward/2026-07-12-02-57-47__te_wave3_3_raw_offset_curve_aware_bw__polished_actual_values/source_run/best_checkpoint_path.snapshot.txt
+    training_config.snapshot.yaml: models/polished_dataset/actual_values/exported/wave3_3_full_curve_composite/backward/2026-07-12-13-09-19__te_wave3_3_full_curve_composite_bw__polished_actual_values/source_run/training_config.snapshot.yaml
+    metrics_summary.snapshot.yaml: models/polished_dataset/actual_values/exported/wave3_3_full_curve_composite/backward/2026-07-12-13-09-19__te_wave3_3_full_curve_composite_bw__polished_actual_values/source_run/metrics_summary.snapshot.yaml
+    run_metadata.snapshot.yaml: models/polished_dataset/actual_values/exported/wave3_3_full_curve_composite/backward/2026-07-12-13-09-19__te_wave3_3_full_curve_composite_bw__polished_actual_values/source_run/run_metadata.snapshot.yaml
+    training_test_report.snapshot.md: models/polished_dataset/actual_values/exported/wave3_3_full_curve_composite/backward/2026-07-12-13-09-19__te_wave3_3_full_curve_composite_bw__polished_actual_values/source_run/training_test_report.snapshot.md
+    best_checkpoint_path.snapshot.txt: models/polished_dataset/actual_values/exported/wave3_3_full_curve_composite/backward/2026-07-12-13-09-19__te_wave3_3_full_curve_composite_bw__polished_actual_values/source_run/best_checkpoint_path.snapshot.txt
   metrics:
-    val_mae: 0.0018499749712646008
-    test_mae: 0.0019749989733099937
-    test_rmse: 0.0030151286628097296
+    val_mae: 0.0019435669528320432
+    test_mae: 0.002069727284833789
+    test_rmse: 0.0031194277107715607
