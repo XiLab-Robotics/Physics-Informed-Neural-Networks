@@ -1,270 +1,126 @@
 # Track 2 Portable ONNX Curve Plotter
 
-This branch is a small, portable package for running the recovered original
-RCIM paper forward ONNX models on measured transmission-error curves.
+This branch is a portable inference package for Track 2 transmission-error
+models. It runs without importing the full research repository.
 
-It is intentionally separate from the full research repository. The goal is to
-load the original paper ONNX models, reconstruct the predicted transmission
-error curve from harmonic amplitude and phase predictions, and plot measured
-TE versus predicted TE without depending on any repository-internal Python
-modules.
+It supports:
 
-## What Is Included
+- `simplified_dataset` and `polished_dataset`;
+- RCIM Track 1 harmonic ONNX banks, reconstructed into full TE curves;
+- direct TE ONNX models that predict transmission error directly;
+- `setpoints` input mode and polished `actual_values` input mode.
+
+## Layout
 
 ```text
 .
-├── data/
-│   └── datasets/
-│       └── Test_<temperature>degree/<speed>rpm/*.csv
-├── models/
-│   └── exact_onnx_paper_release/
-├── output/
-│   ├── plots/
-│   ├── predicted_curves/
-│   └── portable_original_onnx_curve_summary.csv
-├── portable_original_onnx_curve_plotter.py
-├── requirements.txt
-└── README.md
-```
-
-The main entry point is:
-
-```text
-portable_original_onnx_curve_plotter.py
-```
-
-The script uses the ONNX models stored under:
-
-```text
-models/exact_onnx_paper_release/
-```
-
-The bundled dataset follows the original test-rig CSV layout, for example:
-
-```text
-data/datasets/Test_25degree/100rpm/100.0rpm100.0Nm25.0deg.csv
-```
-
-## What The Script Does
-
-For each configured curve CSV, the script:
-
-1. loads the measured transmission-error curve;
-2. extracts the operating point from the CSV filename or from CSV columns;
-3. builds the ONNX input feature row:
-
-   ```text
-   [speed_rpm, oil_temperature_deg, torque_nm]
-   ```
-
-4. runs the selected harmonic amplitude and phase ONNX models;
-5. reconstructs the predicted TE curve from the harmonic components;
-6. plots measured TE and predicted TE on the same graph;
-7. writes output plots, optional predicted-curve CSV files, and a summary CSV.
-
-The default configuration processes four representative curves and writes
-results under:
-
-```text
-output/
+|-- data/
+|   |-- simplified_dataset/
+|   `-- polished_dataset/
+|-- models/
+|   |-- simplified_dataset/
+|   `-- polished_dataset/
+|-- output/
+|-- portable_original_onnx_curve_plotter.py
+|-- requirements.txt
+`-- README.md
 ```
 
 ## Install
-
-Create and activate a Python environment, then install the dependencies:
 
 ```powershell
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 python -m pip install --upgrade pip
-python -m pip install -r requirements.txt matplotlib
-```
-
-The extra `matplotlib` install is required for plot generation. If
-`requirements.txt` is later updated to include `matplotlib`, the last command
-can become:
-
-```powershell
 python -m pip install -r requirements.txt
 ```
 
-## Run The Default Example
+`matplotlib` is only needed when saving plots. Use `--no-save-plots` for a
+headless metric/CSV run.
 
-From the repository root:
+## Run Examples
+
+RCIM harmonic reconstruction on the simplified dataset:
 
 ```powershell
-python portable_original_onnx_curve_plotter.py
+python portable_original_onnx_curve_plotter.py `
+  --dataset-name simplified_dataset `
+  --input-mode setpoints `
+  --model-kind rcim `
+  --surface forward `
+  --model-family SVR
 ```
 
-Expected outputs:
+Direct TE model on polished actual values:
+
+```powershell
+python portable_original_onnx_curve_plotter.py `
+  --dataset-name polished_dataset `
+  --input-mode actual_values `
+  --model-kind direct_te `
+  --surface forward `
+  --model-family periodic_gru_sequence `
+  --curve-csv "data/polished_dataset/forward/25degree/1000rpm/1000.0rpm0.0Nm25.0deg.csv"
+```
+
+Process a directory:
+
+```powershell
+python portable_original_onnx_curve_plotter.py `
+  --dataset-name polished_dataset `
+  --input-mode setpoints `
+  --model-kind direct_te `
+  --surface backward `
+  --model-family tree `
+  --curve-dir "data/polished_dataset/backward/25degree" `
+  --max-curves 5
+```
+
+Outputs are written under:
 
 ```text
-output/plots/*.png
-output/predicted_curves/*_predicted.csv
-output/portable_original_onnx_curve_summary.csv
+output/plots/
+output/predicted_curves/
+output/portable_track2_onnx_curve_summary.csv
 ```
 
-The summary CSV contains one row per processed curve with the operating point,
-point count, plot path, prediction CSV path, and error metrics:
+## Model Contracts
+
+RCIM models use tabular operating-point input:
 
 ```text
-mae_deg
-rmse_deg
-mean_error_pct
-p95_error_pct
+[speed_rpm, oil_temperature_deg, torque_nm]
 ```
 
-## Configure The Curves To Process
-
-Edit the `USER CONFIGURATION` block at the top of
-`portable_original_onnx_curve_plotter.py`.
-
-To process explicit CSV files:
-
-```python
-CURVE_CSV_PATH_LIST = [
-    "data/datasets/Test_25degree/100rpm/100.0rpm100.0Nm25.0deg.csv",
-    "data/datasets/Test_35degree/800rpm/800.0rpm1800.0Nm35.0deg.csv",
-]
-```
-
-To process every CSV in a folder:
-
-```python
-CURVE_CSV_PATH_LIST = []
-CURVE_CSV_DIRECTORY_PATH = "data/datasets/Test_25degree"
-CURVE_CSV_GLOB_PATTERN = "*.csv"
-PROCESS_CURVE_DIRECTORY_RECURSIVELY = True
-```
-
-To write outputs somewhere else:
-
-```python
-OUTPUT_DIRECTORY_PATH = "output/my_run"
-```
-
-## Select Harmonics
-
-By default, the script uses every harmonic represented by the configured paper
-best forward ONNX model list:
-
-```python
-SELECTED_HARMONIC_ORDER_LIST = None
-```
-
-To use only the simplified sparse subset discussed in the RCIM paper notes:
-
-```python
-SELECTED_HARMONIC_ORDER_LIST = [0, 1, 39, 40]
-```
-
-For a non-zero harmonic, both an amplitude model and a phase model must be
-available. Harmonic `0` only needs an amplitude model because it is the
-constant curve offset term.
-
-## Use A New Custom CSV
-
-A custom curve CSV must provide:
-
-- angular position in degrees;
-- measured transmission error in degrees;
-- operating point metadata: speed, torque, and oil temperature.
-
-The script accepts the original dataset column names:
+The script discovers harmonic files from:
 
 ```text
-Poisition_Output_Reducer_Fw
-Transmission_Error_Fw
+models/<dataset>/rcim_track1/<surface>/<family>/
 ```
 
-It also accepts simpler aliases such as:
+Direct TE models use five-feature input:
 
 ```text
-angular_position_deg
-transmission_error_deg
-speed_rpm
-torque_nm
-oil_temperature_deg
+setpoints:
+  [angular_position_deg, input_speed_rpm, input_torque_nm, oil_temperature_deg, direction_flag]
+
+polished actual_values:
+  [theta, theta_dot, tau_load, T, direction_flag]
 ```
 
-If the CSV does not contain speed, torque, and temperature columns, the script
-tries to parse them from the filename pattern:
+Direct models are loaded from:
 
 ```text
-<speed>rpm<torque>Nm<temperature>deg.csv
+models/<dataset>/<input_mode>/<family>/<surface>.onnx
 ```
 
-Example:
+Sequence models are evaluated with rolling windows. The default sequence length
+is `33`, matching the current exported Track 2 sequence-model default.
 
-```text
-800.0rpm1800.0Nm35.0deg.csv
-```
+## Dataset Notes
 
-If neither the CSV columns nor the filename provide the operating point, set
-these values manually in the configuration block:
+`simplified_dataset` CSV files contain both forward and backward curves in one
+file. `polished_dataset` CSV files are direction-specific and infer direction
+from the `forward` or `backward` path segment.
 
-```python
-DEFAULT_SPEED_RPM = 800.0
-DEFAULT_TORQUE_NM = 1800.0
-DEFAULT_OIL_TEMPERATURE_DEG = 35.0
-```
-
-## Use Different ONNX Models
-
-The ONNX paths are hardcoded in:
-
-```python
-ONNX_TARGET_CONFIGURATION_LIST = [
-    ("amplitude", 0, "SVR", "models/exact_onnx_paper_release/SVR/ampl/SVR_ampl0.onnx"),
-    ...
-]
-```
-
-Each entry has this structure:
-
-```text
-(target_kind, harmonic_order, model_family_label, model_path)
-```
-
-Use:
-
-- `target_kind = "amplitude"` for amplitude models;
-- `target_kind = "phase"` for phase models;
-- `harmonic_order = 0, 1, 3, 39, 40, ...`;
-- `model_path` as either a path relative to the repository root or an absolute
-  path.
-
-## Reconstruction Formula
-
-For harmonic `0`, the predicted amplitude is used as the constant term:
-
-```text
-TE_0(theta) = amplitude_0
-```
-
-For every non-zero harmonic:
-
-```text
-cosine_coefficient_h = amplitude_h * cos(phase_h)
-sine_coefficient_h = -amplitude_h * sin(phase_h)
-```
-
-The reconstructed curve is:
-
-```text
-TE(theta) = amplitude_0
-          + sum_h(
-              cosine_coefficient_h * cos(h * theta)
-              + sine_coefficient_h * sin(h * theta)
-            )
-```
-
-`theta` is the angular position converted from degrees to radians.
-
-## Notes
-
-- This branch is for offline ONNX curve plotting and inspection.
-- It does not train models.
-- It does not import the full Track 2 repository pipeline.
-- It does not require the original repository package layout.
-- Generated files under `output/` can be deleted and regenerated at any time.
+Generated `output/` files can be deleted and regenerated.
