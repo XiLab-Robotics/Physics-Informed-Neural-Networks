@@ -147,10 +147,10 @@ last_completed_campaign:
       te_curve_verification_status: not_run_in_closeout
 next_prepared_campaign:
   status: completed_and_exported
-  campaign_name: dataset_input_mode_retraining__wave3_3_full_curve_composite__polished_actual_values
-  dataset_id: polished_dataset
-  input_mode: actual_values
-  dataset_schema: polished_point_v1
+  campaign_name: dataset_input_mode_retraining__wave4_1_mae_robust_loss__simplified_setpoints
+  dataset_id: simplified_dataset
+  input_mode: setpoints
+  dataset_schema: simplified_curve_v1
   expected_run_count: 3
   completed_run_count: 3
   failed_run_count: 0
@@ -162,68 +162,68 @@ next_prepared_campaign:
     slurm_cpus_per_task: 8
     slurm_memory: 100G
     gpu_request: 1g.20gb:1
-    observed_throughput: Global completed in 00:38:19, Fw in 00:55:37, and Bw in 00:41:52
-      at batch 16. The full sequential Slurm campaign completed in 02:16:35 before the repository-side
+    observed_throughput: Global completed in 00:29:25, Fw in 00:17:35, and Bw in 00:22:13
+      at batch 16. The full sequential Slurm campaign completed in 01:10:01 before the repository-side
       model export step.
     batch_tuning_note: The prepared campaign default was raised from curve_batch_size 2 to
-      16 before submission. Batch 16 remained stable for Wave 3.3 full curve composite polished-dataset
-      actual-values training and preserved the shared 5-feature input contract.
-    resource_note: Job 135568 used gpu_request 1g.20gb:1 with 8 CPU workers and 100G host
-      memory. Slurm MaxRSS was 16771844K. Slurm stdout/stderr files were cleaned before commit
+      16 before submission. Batch 16 remained stable for Wave 4.1 MAE robust loss simplified-dataset
+      setpoint training and preserved the shared 5-feature input contract.
+    resource_note: Job 135572 used gpu_request 1g.20gb:1 with 8 CPU workers and 100G host
+      memory. Slurm MaxRSS was 15822316K. Slurm stdout/stderr files were cleaned before commit
       per operator instruction; per-run campaign terminal logs remain under the campaign output
       directory.
-    next_campaign_recommendation: Continue with Wave 4.1 MAE robust loss simplified_setpoints
+    next_campaign_recommendation: Continue with Wave 4.1 MAE robust loss polished_setpoints
       at batch 16 and the same resource profile unless validation or Slurm telemetry changes.
   sbatch_submission:
-    slurm_job_id: '135568'
+    slurm_job_id: '135572'
     state: COMPLETED
     exit_code: 0:0
-    elapsed: 02:16:35
-    max_rss: 16771844K
+    elapsed: 01:10:01
+    max_rss: 15822316K
     python_executable: /unimore_home/dferrari/.conda/envs/pinns_env/bin/python
     torch_version: 2.7.1+cu118
     gpu_request: 1g.20gb:1
-  campaign_manifest_path: config/training/dataset_input_mode_retraining/campaigns/dataset_input_mode_retraining__wave3_3_full_curve_composite__polished_actual_values/campaign.yaml
-  campaign_output_directory: output/training_campaigns/2026-07-12-11-35-23_dataset_input_mode_retraining__wave3_3_full_curve_composite__polished_ac
-  campaign_best_run_path: output/training_campaigns/2026-07-12-11-35-23_dataset_input_mode_retraining__wave3_3_full_curve_composite__polished_ac/campaign_best_run.yaml
-  campaign_leaderboard_path: output/training_campaigns/2026-07-12-11-35-23_dataset_input_mode_retraining__wave3_3_full_curve_composite__polished_ac/campaign_leaderboard.yaml
+  campaign_manifest_path: config/training/dataset_input_mode_retraining/campaigns/dataset_input_mode_retraining__wave4_1_mae_robust_loss__simplified_setpoints/campaign.yaml
+  campaign_output_directory: output/training_campaigns/2026-07-12-14-11-27_dataset_input_mode_retraining__wave4_1_mae_robust_loss__simplified_setpo
+  campaign_best_run_path: output/training_campaigns/2026-07-12-14-11-27_dataset_input_mode_retraining__wave4_1_mae_robust_loss__simplified_setpo/campaign_best_run.yaml
+  campaign_leaderboard_path: output/training_campaigns/2026-07-12-14-11-27_dataset_input_mode_retraining__wave4_1_mae_robust_loss__simplified_setpo/campaign_leaderboard.yaml
   best_run:
-    run_name: te_wave3_3_full_curve_composite_bw__polished_actual_values
-    run_instance_id: 2026-07-12-13-09-19__te_wave3_3_full_curve_composite_bw__polished_actual_values
-    surface: backward
-    test_mae: 0.002069727284833789
-    test_rmse: 0.0031194277107715607
-    val_mae: 0.0019435669528320432
+    run_name: te_wave4_1_mae_robust_loss_global__simplified_setpoints
+    run_instance_id: 2026-07-12-14-11-27__te_wave4_1_mae_robust_loss_global__simplified_setpoints
+    surface: global
+    test_mae: 0.0034777293913066387
+    test_rmse: 0.004270919598639011
+    val_mae: 0.0035551036708056927
   surface_run_list:
   - surface: global
-    run_name: te_wave3_3_full_curve_composite_global__polished_actual_values
-    run_instance_id: 2026-07-12-11-35-23__te_wave3_3_full_curve_composite_global__polished_actual_values
-    test_mae: 0.0021692339796572924
-    test_rmse: 0.003231959417462349
-    val_mae: 0.0020079747773706913
-    duration: 00:38:19
+    run_name: te_wave4_1_mae_robust_loss_global__simplified_setpoints
+    run_instance_id: 2026-07-12-14-11-27__te_wave4_1_mae_robust_loss_global__simplified_setpoints
+    test_mae: 0.0034777293913066387
+    test_rmse: 0.004270919598639011
+    val_mae: 0.0035551036708056927
+    duration: 00:29:25
   - surface: forward
-    run_name: te_wave3_3_full_curve_composite_fw__polished_actual_values
-    run_instance_id: 2026-07-12-12-13-42__te_wave3_3_full_curve_composite_fw__polished_actual_values
-    test_mae: 0.0021128349471837282
-    test_rmse: 0.0031764560844749212
-    val_mae: 0.001980077475309372
-    duration: 00:55:37
+    run_name: te_wave4_1_mae_robust_loss_fw__simplified_setpoints
+    run_instance_id: 2026-07-12-14-40-52__te_wave4_1_mae_robust_loss_fw__simplified_setpoints
+    test_mae: 0.0035605106968432665
+    test_rmse: 0.004315873607993126
+    val_mae: 0.0036441755946725607
+    duration: 00:17:35
   - surface: backward
-    run_name: te_wave3_3_full_curve_composite_bw__polished_actual_values
-    run_instance_id: 2026-07-12-13-09-19__te_wave3_3_full_curve_composite_bw__polished_actual_values
-    test_mae: 0.002069727284833789
-    test_rmse: 0.0031194277107715607
-    val_mae: 0.0019435669528320432
-    duration: 00:41:52
+    run_name: te_wave4_1_mae_robust_loss_bw__simplified_setpoints
+    run_instance_id: 2026-07-12-14-58-28__te_wave4_1_mae_robust_loss_bw__simplified_setpoints
+    test_mae: 0.0035119601525366306
+    test_rmse: 0.0042892806231975555
+    val_mae: 0.003585810074582696
+    duration: 00:22:13
   export:
     status: completed
-    export_root: models/polished_dataset/actual_values/exported
-    export_inventory_path: models/polished_dataset/actual_values/exported/model_development_export_inventory.yaml
+    export_root: models/simplified_dataset/setpoints/exported
+    export_inventory_path: models/simplified_dataset/setpoints/exported/model_development_export_inventory.yaml
     exported_entry_count: 3
     onnx_export_status_counts:
       exported: 3
-    family_export_directory: models/polished_dataset/actual_values/exported/wave3_3_full_curve_composite
+    family_export_directory: models/simplified_dataset/setpoints/exported/wave4_1_mae_robust_loss
     onnx_warning_note: ONNX export emitted expected harmonic residual offset, harmonic regression,
       temporal sequence, and GRU tracing warnings; all three exports completed successfully.
   input_contract_verification:
@@ -234,18 +234,18 @@ next_prepared_campaign:
     - input_torque_nm
     - oil_temperature_deg
     - direction_flag
-    actual_value_source_note: The polished-dataset actual-value tensors use row-level
-      input_speed_rpm, input_torque_nm, and oil_temperature_deg values read from the polished CSV
-      columns while retaining polished row-level angular_position_deg/theta_TE and direction_flag
-      for the shared 5-feature input contract. The campaign leaderboard and export inventory
-      both confirm input_feature_dim 5, dataset_id polished_dataset, input_mode actual_values, and dataset_schema polished_point_v1
+    setpoint_source_note: The simplified-dataset setpoint tensors use input_speed_rpm,
+      input_torque_nm, and oil_temperature_deg parsed from curve metadata/setpoints while retaining
+      row-level angular_position_deg/transmission_error_deg and direction_flag for the shared
+      5-feature input contract. The campaign leaderboard and export inventory both confirm input_feature_dim
+      5, dataset_id simplified_dataset, input_mode setpoints, and dataset_schema simplified_curve_v1
       for all three surfaces.
     assertion_status: passed
   next_planned_campaign:
-    campaign_name: dataset_input_mode_retraining__wave4_1_mae_robust_loss__simplified_setpoints
+    campaign_name: dataset_input_mode_retraining__wave4_1_mae_robust_loss__polished_setpoints
     family: wave4_1_mae_robust_loss
-    version: simplified_setpoints
-    dataset_id: simplified_dataset
+    version: polished_setpoints
+    dataset_id: polished_dataset
     input_mode: setpoints
-    dataset_schema: simplified_curve_v1
+    dataset_schema: polished_setpoint_curve_v1
   te_curve_verification_status: not_run_in_closeout
