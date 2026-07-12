@@ -13,74 +13,74 @@ entries:
   dataset_id: simplified_dataset
   dataset_schema: simplified_curve_v1
   input_mode: setpoints
-  model_family: wave4_1_mae_robust_loss
+  model_family: wave4_1_smooth_l1_robust_loss
   model_type: curve_aware_harmonic_residual_offset_probe
   surface: global
-  run_name: te_wave4_1_mae_robust_loss_global__simplified_setpoints
-  run_instance_id: 2026-07-12-14-11-27__te_wave4_1_mae_robust_loss_global__simplified_setpoints
-  source_output_directory: output/training_runs/wave4_1_mae_robust_loss/2026-07-12-14-11-27__te_wave4_1_mae_robust_loss_global__simplified_setpoints
-  source_best_checkpoint_path: output/training_runs/wave4_1_mae_robust_loss/2026-07-12-14-11-27__te_wave4_1_mae_robust_loss_global__simplified_setpoints/checkpoints/curve_aware_harmonic_residual_offset_probe-epoch=143-val_mae=0.00355510.ckpt
-  python_model_path: models/simplified_dataset/setpoints/exported/wave4_1_mae_robust_loss/global/2026-07-12-14-11-27__te_wave4_1_mae_robust_loss_global__simplified_setpoints/python/curve_aware_harmonic_residual_offset_probe-epoch=143-val_mae=0.00355510.ckpt
-  onnx_model_path: models/simplified_dataset/setpoints/exported/wave4_1_mae_robust_loss/global/2026-07-12-14-11-27__te_wave4_1_mae_robust_loss_global__simplified_setpoints/onnx/model.onnx
+  run_name: te_wave4_1_smooth_l1_robust_loss_global__simplified_setpoints
+  run_instance_id: 2026-07-12-20-13-14__te_wave4_1_smooth_l1_robust_loss_global__simplified_setpoints
+  source_output_directory: output/training_runs/wave4_1_smooth_l1_robust_loss/2026-07-12-20-13-14__te_wave4_1_smooth_l1_robust_loss_global__simplified_setpoints
+  source_best_checkpoint_path: output/training_runs/wave4_1_smooth_l1_robust_loss/2026-07-12-20-13-14__te_wave4_1_smooth_l1_robust_loss_global__simplified_setpoints/checkpoints/curve_aware_harmonic_residual_offset_probe-epoch=087-val_mae=0.00364010.ckpt
+  python_model_path: models/simplified_dataset/setpoints/exported/wave4_1_smooth_l1_robust_loss/global/2026-07-12-20-13-14__te_wave4_1_smooth_l1_robust_loss_global__simplified_setpoints/python/curve_aware_harmonic_residual_offset_probe-epoch=087-val_mae=0.00364010.ckpt
+  onnx_model_path: models/simplified_dataset/setpoints/exported/wave4_1_smooth_l1_robust_loss/global/2026-07-12-20-13-14__te_wave4_1_smooth_l1_robust_loss_global__simplified_setpoints/onnx/model.onnx
   onnx_export_status: exported
   onnx_export_error: ''
   source_run_snapshot_path_map:
-    training_config.snapshot.yaml: models/simplified_dataset/setpoints/exported/wave4_1_mae_robust_loss/global/2026-07-12-14-11-27__te_wave4_1_mae_robust_loss_global__simplified_setpoints/source_run/training_config.snapshot.yaml
-    metrics_summary.snapshot.yaml: models/simplified_dataset/setpoints/exported/wave4_1_mae_robust_loss/global/2026-07-12-14-11-27__te_wave4_1_mae_robust_loss_global__simplified_setpoints/source_run/metrics_summary.snapshot.yaml
-    run_metadata.snapshot.yaml: models/simplified_dataset/setpoints/exported/wave4_1_mae_robust_loss/global/2026-07-12-14-11-27__te_wave4_1_mae_robust_loss_global__simplified_setpoints/source_run/run_metadata.snapshot.yaml
-    training_test_report.snapshot.md: models/simplified_dataset/setpoints/exported/wave4_1_mae_robust_loss/global/2026-07-12-14-11-27__te_wave4_1_mae_robust_loss_global__simplified_setpoints/source_run/training_test_report.snapshot.md
-    best_checkpoint_path.snapshot.txt: models/simplified_dataset/setpoints/exported/wave4_1_mae_robust_loss/global/2026-07-12-14-11-27__te_wave4_1_mae_robust_loss_global__simplified_setpoints/source_run/best_checkpoint_path.snapshot.txt
+    training_config.snapshot.yaml: models/simplified_dataset/setpoints/exported/wave4_1_smooth_l1_robust_loss/global/2026-07-12-20-13-14__te_wave4_1_smooth_l1_robust_loss_global__simplified_setpoints/source_run/training_config.snapshot.yaml
+    metrics_summary.snapshot.yaml: models/simplified_dataset/setpoints/exported/wave4_1_smooth_l1_robust_loss/global/2026-07-12-20-13-14__te_wave4_1_smooth_l1_robust_loss_global__simplified_setpoints/source_run/metrics_summary.snapshot.yaml
+    run_metadata.snapshot.yaml: models/simplified_dataset/setpoints/exported/wave4_1_smooth_l1_robust_loss/global/2026-07-12-20-13-14__te_wave4_1_smooth_l1_robust_loss_global__simplified_setpoints/source_run/run_metadata.snapshot.yaml
+    training_test_report.snapshot.md: models/simplified_dataset/setpoints/exported/wave4_1_smooth_l1_robust_loss/global/2026-07-12-20-13-14__te_wave4_1_smooth_l1_robust_loss_global__simplified_setpoints/source_run/training_test_report.snapshot.md
+    best_checkpoint_path.snapshot.txt: models/simplified_dataset/setpoints/exported/wave4_1_smooth_l1_robust_loss/global/2026-07-12-20-13-14__te_wave4_1_smooth_l1_robust_loss_global__simplified_setpoints/source_run/best_checkpoint_path.snapshot.txt
   metrics:
-    val_mae: 0.0035551036708056927
-    test_mae: 0.0034777293913066387
-    test_rmse: 0.004270919598639011
+    val_mae: 0.003640103153884411
+    test_mae: 0.0033727025147527456
+    test_rmse: 0.004138696938753128
 - schema_version: 1
   dataset_id: simplified_dataset
   dataset_schema: simplified_curve_v1
   input_mode: setpoints
-  model_family: wave4_1_mae_robust_loss
+  model_family: wave4_1_smooth_l1_robust_loss
   model_type: curve_aware_harmonic_residual_offset_probe
   surface: forward
-  run_name: te_wave4_1_mae_robust_loss_fw__simplified_setpoints
-  run_instance_id: 2026-07-12-14-40-52__te_wave4_1_mae_robust_loss_fw__simplified_setpoints
-  source_output_directory: output/training_runs/wave4_1_mae_robust_loss/2026-07-12-14-40-52__te_wave4_1_mae_robust_loss_fw__simplified_setpoints
-  source_best_checkpoint_path: output/training_runs/wave4_1_mae_robust_loss/2026-07-12-14-40-52__te_wave4_1_mae_robust_loss_fw__simplified_setpoints/checkpoints/curve_aware_harmonic_residual_offset_probe-epoch=085-val_mae=0.00364418.ckpt
-  python_model_path: models/simplified_dataset/setpoints/exported/wave4_1_mae_robust_loss/forward/2026-07-12-14-40-52__te_wave4_1_mae_robust_loss_fw__simplified_setpoints/python/curve_aware_harmonic_residual_offset_probe-epoch=085-val_mae=0.00364418.ckpt
-  onnx_model_path: models/simplified_dataset/setpoints/exported/wave4_1_mae_robust_loss/forward/2026-07-12-14-40-52__te_wave4_1_mae_robust_loss_fw__simplified_setpoints/onnx/model.onnx
+  run_name: te_wave4_1_smooth_l1_robust_loss_fw__simplified_setpoints
+  run_instance_id: 2026-07-12-20-38-09__te_wave4_1_smooth_l1_robust_loss_fw__simplified_setpoints
+  source_output_directory: output/training_runs/wave4_1_smooth_l1_robust_loss/2026-07-12-20-38-09__te_wave4_1_smooth_l1_robust_loss_fw__simplified_setpoints
+  source_best_checkpoint_path: output/training_runs/wave4_1_smooth_l1_robust_loss/2026-07-12-20-38-09__te_wave4_1_smooth_l1_robust_loss_fw__simplified_setpoints/checkpoints/curve_aware_harmonic_residual_offset_probe-epoch=086-val_mae=0.00353570.ckpt
+  python_model_path: models/simplified_dataset/setpoints/exported/wave4_1_smooth_l1_robust_loss/forward/2026-07-12-20-38-09__te_wave4_1_smooth_l1_robust_loss_fw__simplified_setpoints/python/curve_aware_harmonic_residual_offset_probe-epoch=086-val_mae=0.00353570.ckpt
+  onnx_model_path: models/simplified_dataset/setpoints/exported/wave4_1_smooth_l1_robust_loss/forward/2026-07-12-20-38-09__te_wave4_1_smooth_l1_robust_loss_fw__simplified_setpoints/onnx/model.onnx
   onnx_export_status: exported
   onnx_export_error: ''
   source_run_snapshot_path_map:
-    training_config.snapshot.yaml: models/simplified_dataset/setpoints/exported/wave4_1_mae_robust_loss/forward/2026-07-12-14-40-52__te_wave4_1_mae_robust_loss_fw__simplified_setpoints/source_run/training_config.snapshot.yaml
-    metrics_summary.snapshot.yaml: models/simplified_dataset/setpoints/exported/wave4_1_mae_robust_loss/forward/2026-07-12-14-40-52__te_wave4_1_mae_robust_loss_fw__simplified_setpoints/source_run/metrics_summary.snapshot.yaml
-    run_metadata.snapshot.yaml: models/simplified_dataset/setpoints/exported/wave4_1_mae_robust_loss/forward/2026-07-12-14-40-52__te_wave4_1_mae_robust_loss_fw__simplified_setpoints/source_run/run_metadata.snapshot.yaml
-    training_test_report.snapshot.md: models/simplified_dataset/setpoints/exported/wave4_1_mae_robust_loss/forward/2026-07-12-14-40-52__te_wave4_1_mae_robust_loss_fw__simplified_setpoints/source_run/training_test_report.snapshot.md
-    best_checkpoint_path.snapshot.txt: models/simplified_dataset/setpoints/exported/wave4_1_mae_robust_loss/forward/2026-07-12-14-40-52__te_wave4_1_mae_robust_loss_fw__simplified_setpoints/source_run/best_checkpoint_path.snapshot.txt
+    training_config.snapshot.yaml: models/simplified_dataset/setpoints/exported/wave4_1_smooth_l1_robust_loss/forward/2026-07-12-20-38-09__te_wave4_1_smooth_l1_robust_loss_fw__simplified_setpoints/source_run/training_config.snapshot.yaml
+    metrics_summary.snapshot.yaml: models/simplified_dataset/setpoints/exported/wave4_1_smooth_l1_robust_loss/forward/2026-07-12-20-38-09__te_wave4_1_smooth_l1_robust_loss_fw__simplified_setpoints/source_run/metrics_summary.snapshot.yaml
+    run_metadata.snapshot.yaml: models/simplified_dataset/setpoints/exported/wave4_1_smooth_l1_robust_loss/forward/2026-07-12-20-38-09__te_wave4_1_smooth_l1_robust_loss_fw__simplified_setpoints/source_run/run_metadata.snapshot.yaml
+    training_test_report.snapshot.md: models/simplified_dataset/setpoints/exported/wave4_1_smooth_l1_robust_loss/forward/2026-07-12-20-38-09__te_wave4_1_smooth_l1_robust_loss_fw__simplified_setpoints/source_run/training_test_report.snapshot.md
+    best_checkpoint_path.snapshot.txt: models/simplified_dataset/setpoints/exported/wave4_1_smooth_l1_robust_loss/forward/2026-07-12-20-38-09__te_wave4_1_smooth_l1_robust_loss_fw__simplified_setpoints/source_run/best_checkpoint_path.snapshot.txt
   metrics:
-    val_mae: 0.0036441755946725607
-    test_mae: 0.0035605106968432665
-    test_rmse: 0.004315873607993126
+    val_mae: 0.003535702358931303
+    test_mae: 0.0034107191022485495
+    test_rmse: 0.004233669023960829
 - schema_version: 1
   dataset_id: simplified_dataset
   dataset_schema: simplified_curve_v1
   input_mode: setpoints
-  model_family: wave4_1_mae_robust_loss
+  model_family: wave4_1_smooth_l1_robust_loss
   model_type: curve_aware_harmonic_residual_offset_probe
   surface: backward
-  run_name: te_wave4_1_mae_robust_loss_bw__simplified_setpoints
-  run_instance_id: 2026-07-12-14-58-28__te_wave4_1_mae_robust_loss_bw__simplified_setpoints
-  source_output_directory: output/training_runs/wave4_1_mae_robust_loss/2026-07-12-14-58-28__te_wave4_1_mae_robust_loss_bw__simplified_setpoints
-  source_best_checkpoint_path: output/training_runs/wave4_1_mae_robust_loss/2026-07-12-14-58-28__te_wave4_1_mae_robust_loss_bw__simplified_setpoints/checkpoints/curve_aware_harmonic_residual_offset_probe-epoch=073-val_mae=0.00358581.ckpt
-  python_model_path: models/simplified_dataset/setpoints/exported/wave4_1_mae_robust_loss/backward/2026-07-12-14-58-28__te_wave4_1_mae_robust_loss_bw__simplified_setpoints/python/curve_aware_harmonic_residual_offset_probe-epoch=073-val_mae=0.00358581.ckpt
-  onnx_model_path: models/simplified_dataset/setpoints/exported/wave4_1_mae_robust_loss/backward/2026-07-12-14-58-28__te_wave4_1_mae_robust_loss_bw__simplified_setpoints/onnx/model.onnx
+  run_name: te_wave4_1_smooth_l1_robust_loss_bw__simplified_setpoints
+  run_instance_id: 2026-07-12-21-02-43__te_wave4_1_smooth_l1_robust_loss_bw__simplified_setpoints
+  source_output_directory: output/training_runs/wave4_1_smooth_l1_robust_loss/2026-07-12-21-02-43__te_wave4_1_smooth_l1_robust_loss_bw__simplified_setpoints
+  source_best_checkpoint_path: output/training_runs/wave4_1_smooth_l1_robust_loss/2026-07-12-21-02-43__te_wave4_1_smooth_l1_robust_loss_bw__simplified_setpoints/checkpoints/curve_aware_harmonic_residual_offset_probe-epoch=142-val_mae=0.00357827.ckpt
+  python_model_path: models/simplified_dataset/setpoints/exported/wave4_1_smooth_l1_robust_loss/backward/2026-07-12-21-02-43__te_wave4_1_smooth_l1_robust_loss_bw__simplified_setpoints/python/curve_aware_harmonic_residual_offset_probe-epoch=142-val_mae=0.00357827.ckpt
+  onnx_model_path: models/simplified_dataset/setpoints/exported/wave4_1_smooth_l1_robust_loss/backward/2026-07-12-21-02-43__te_wave4_1_smooth_l1_robust_loss_bw__simplified_setpoints/onnx/model.onnx
   onnx_export_status: exported
   onnx_export_error: ''
   source_run_snapshot_path_map:
-    training_config.snapshot.yaml: models/simplified_dataset/setpoints/exported/wave4_1_mae_robust_loss/backward/2026-07-12-14-58-28__te_wave4_1_mae_robust_loss_bw__simplified_setpoints/source_run/training_config.snapshot.yaml
-    metrics_summary.snapshot.yaml: models/simplified_dataset/setpoints/exported/wave4_1_mae_robust_loss/backward/2026-07-12-14-58-28__te_wave4_1_mae_robust_loss_bw__simplified_setpoints/source_run/metrics_summary.snapshot.yaml
-    run_metadata.snapshot.yaml: models/simplified_dataset/setpoints/exported/wave4_1_mae_robust_loss/backward/2026-07-12-14-58-28__te_wave4_1_mae_robust_loss_bw__simplified_setpoints/source_run/run_metadata.snapshot.yaml
-    training_test_report.snapshot.md: models/simplified_dataset/setpoints/exported/wave4_1_mae_robust_loss/backward/2026-07-12-14-58-28__te_wave4_1_mae_robust_loss_bw__simplified_setpoints/source_run/training_test_report.snapshot.md
-    best_checkpoint_path.snapshot.txt: models/simplified_dataset/setpoints/exported/wave4_1_mae_robust_loss/backward/2026-07-12-14-58-28__te_wave4_1_mae_robust_loss_bw__simplified_setpoints/source_run/best_checkpoint_path.snapshot.txt
+    training_config.snapshot.yaml: models/simplified_dataset/setpoints/exported/wave4_1_smooth_l1_robust_loss/backward/2026-07-12-21-02-43__te_wave4_1_smooth_l1_robust_loss_bw__simplified_setpoints/source_run/training_config.snapshot.yaml
+    metrics_summary.snapshot.yaml: models/simplified_dataset/setpoints/exported/wave4_1_smooth_l1_robust_loss/backward/2026-07-12-21-02-43__te_wave4_1_smooth_l1_robust_loss_bw__simplified_setpoints/source_run/metrics_summary.snapshot.yaml
+    run_metadata.snapshot.yaml: models/simplified_dataset/setpoints/exported/wave4_1_smooth_l1_robust_loss/backward/2026-07-12-21-02-43__te_wave4_1_smooth_l1_robust_loss_bw__simplified_setpoints/source_run/run_metadata.snapshot.yaml
+    training_test_report.snapshot.md: models/simplified_dataset/setpoints/exported/wave4_1_smooth_l1_robust_loss/backward/2026-07-12-21-02-43__te_wave4_1_smooth_l1_robust_loss_bw__simplified_setpoints/source_run/training_test_report.snapshot.md
+    best_checkpoint_path.snapshot.txt: models/simplified_dataset/setpoints/exported/wave4_1_smooth_l1_robust_loss/backward/2026-07-12-21-02-43__te_wave4_1_smooth_l1_robust_loss_bw__simplified_setpoints/source_run/best_checkpoint_path.snapshot.txt
   metrics:
-    val_mae: 0.003585810074582696
-    test_mae: 0.0035119601525366306
-    test_rmse: 0.0042892806231975555
+    val_mae: 0.003578267525881529
+    test_mae: 0.0034617616329342127
+    test_rmse: 0.004218928050249815

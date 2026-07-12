@@ -6,7 +6,7 @@ selection_policy:
   second_tie_breaker: val_mae
   third_tie_breaker: trainable_parameter_count
   direction: minimize
-updated_at: '2026-07-01T05:31:05'
+updated_at: '2026-07-12T20:38:09'
 best_entry:
   run_instance_id: 2026-07-01-05-08-44__te_wave4_1_smooth_l1_robust_loss_global
   run_name: te_wave4_1_smooth_l1_robust_loss_global
