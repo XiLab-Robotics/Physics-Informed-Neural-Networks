@@ -6,8 +6,8 @@ selection_policy:
   second_tie_breaker: val_mae
   third_tie_breaker: trainable_parameter_count
   direction: minimize
-updated_at: '2026-07-01T02:30:04'
-entry_count: 1
+updated_at: '2026-07-12T05:09:44'
+entry_count: 2
 entry_list:
 - run_instance_id: 2026-07-01-02-04-09__te_wave3_3_full_curve_composite_fw
   run_name: te_wave3_3_full_curve_composite_fw
@@ -47,3 +47,43 @@ entry_list:
     third_tie_breaker: trainable_parameter_count
     direction: minimize
   selected_at: '2026-07-01T02:30:04'
+- run_instance_id: 2026-07-12-04-39-03__te_wave3_3_full_curve_composite_fw__simplified_setpoints
+  run_name: te_wave3_3_full_curve_composite_fw__simplified_setpoints
+  output_run_name: te_wave3_3_full_curve_composite_fw__simplified_setpoints
+  output_artifact_kind: training_run
+  model_family: wave3_3_full_curve_composite_fw
+  base_model_family: wave3_3_full_curve_composite
+  model_type: curve_aware_harmonic_residual_offset_probe
+  dataset_id: simplified_dataset
+  dataset_schema: simplified_curve_v1
+  input_mode: setpoints
+  input_feature_names:
+  - angular_position_deg
+  - input_speed_rpm
+  - input_torque_nm
+  - oil_temperature_deg
+  - direction_flag
+  target_feature_names:
+  - transmission_error_deg
+  input_feature_dim: 5
+  training_variant: fw
+  direction_scope_label: forward_only
+  use_forward_direction: true
+  use_backward_direction: false
+  trainable_parameter_count: 85747
+  total_parameter_count: 85747
+  val_mae: 0.0036791141610592604
+  val_rmse: 0.004554024897515774
+  test_mae: 0.003575100563466549
+  test_rmse: 0.004321583081036806
+  output_directory: output\training_runs\wave3_3_full_curve_composite\2026-07-12-04-39-03__te_wave3_3_full_curve_composite_fw__simplified_setpoints
+  best_checkpoint_path: output\training_runs\wave3_3_full_curve_composite\2026-07-12-04-39-03__te_wave3_3_full_curve_composite_fw__simplified_setpoints\checkpoints\curve_aware_harmonic_residual_offset_probe-epoch=137-val_mae=0.00367911.ckpt
+  metrics_path: output\training_runs\wave3_3_full_curve_composite\2026-07-12-04-39-03__te_wave3_3_full_curve_composite_fw__simplified_setpoints/metrics_summary.yaml
+  report_path: output\training_runs\wave3_3_full_curve_composite\2026-07-12-04-39-03__te_wave3_3_full_curve_composite_fw__simplified_setpoints/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-07-12T05:09:44'
