@@ -147,13 +147,13 @@ last_completed_campaign:
       te_curve_verification_status: not_run_in_closeout
 next_prepared_campaign:
   status: completed_and_exported
-  campaign_name: dataset_input_mode_retraining__wave4_1_log_cosh_robust_loss__simplified_setpoints
-  dataset_id: simplified_dataset
+  campaign_name: dataset_input_mode_retraining__wave4_1_log_cosh_robust_loss__polished_setpoints
+  dataset_id: polished_dataset
   input_mode: setpoints
-  dataset_schema: simplified_curve_v1
+  dataset_schema: polished_setpoint_curve_v1
   expected_run_count: 3
   completed_run_count: 3
-  failed_run_count: 2
+  failed_run_count: 13
   throughput_profile:
     curve_batch_size: 16
     original_prepared_curve_batch_size: 2
@@ -162,86 +162,99 @@ next_prepared_campaign:
     slurm_cpus_per_task: 8
     slurm_memory: 100G
     gpu_request: 1g.20gb:1
-    observed_throughput: Global and Fw completed in the first sbatch job, while Bw
-      completed in retry job 135636 after a quota-related retry failure. The successful
-      Bw retry elapsed 00:27:11 with MaxRSS 13284668K.
-    resource_note: Job 135633 failed with exit 120:0 while Bw was still running. Job
-      135635 failed with no-space-left-on-device while writing the retry manifest.
-      After targeted cleanup, job 135636 completed Bw with exit 0:0.
-    slurm_cleanup_note: Slurm stdout/stderr files for jobs 135633, 135635, and 135636
-      were inspected after terminal state and removed immediately per operator instruction;
-      output/slurm was verified to contain only .gitkeep after cleanup.
-    quota_cleanup_note: Duplicate non-best Lightning last.ckpt files, TensorBoard event
-      files, the incomplete failed Bw run directory, and the failed partial export directory
-      for this campaign were removed. Best checkpoints, per-run metrics, campaign logs,
-      completed campaign manifests, and exported ONNX artifacts remain. Python model archive
-      paths for this campaign are repository-relative symlinks to the canonical best
-      checkpoints because the Aries filesystem rejected hardlinks and the active quota did
-      not allow duplicate checkpoint copies.
-    next_campaign_recommendation: Continue with Wave 4.1 Log Cosh robust loss polished_setpoints
-      at batch 16 and the same resource profile.
+    observed_throughput: Global completed in job 135643. Fw completed in isolated
+      retry job 135648 with elapsed 00:29:24 and MaxRSS 13901404K. Bw completed in
+      isolated retry job 135650 with elapsed 00:20:07 and MaxRSS 14031568K.
+    resource_note: Several earlier attempts failed because the BeeGFS quota rejected
+      direct repository writes or artifact-copy steps. The accepted Fw and Bw runs
+      used node-local /tmp training and campaign output roots, then copied the
+      completed run directories and compressed campaign logs back into the repository.
+      Accepted run, campaign, and model-export artifacts were normalized back to
+      repository-relative paths before closeout.
+    slurm_cleanup_note: Slurm stdout/stderr files for the terminal jobs in this campaign
+      were inspected after completion or failure and removed immediately per operator
+      instruction; output/slurm was verified to contain only .gitkeep after cleanup.
+    quota_cleanup_note: Campaign logs copied back from node-local /tmp were gzip-compressed
+      before repository storage. Python model archive entries are repository-relative
+      symlinks to the canonical best checkpoints because duplicate checkpoint copies
+      would consume unnecessary quota. ONNX files are real exported model files.
+    next_campaign_recommendation: Continue with Wave 4.1 Log Cosh robust loss polished_actual_values
+      at batch 16 and the same resource profile, unless the next preflight shows
+      different quota or node-local storage constraints.
   sbatch_submission:
-    initial_slurm_job_id: '135633'
-    initial_state: FAILED
-    initial_exit_code: 120:0
-    initial_elapsed: 01:22:22
-    initial_max_rss: 15831196K
-    quota_retry_slurm_job_id: '135635'
-    quota_retry_state: FAILED
-    quota_retry_exit_code: 1:0
-    quota_retry_elapsed: 00:01:13
-    successful_retry_slurm_job_id: '135636'
-    successful_retry_state: COMPLETED
-    successful_retry_exit_code: 0:0
-    successful_retry_elapsed: 00:27:11
-    successful_retry_max_rss: 13284668K
+    global_slurm_job_id: '135643'
+    global_state: COMPLETED
+    global_exit_code: 0:0
+    global_elapsed: 00:41:38
+    global_max_rss: 13874964K
+    forward_slurm_job_id: '135648'
+    forward_state: COMPLETED
+    forward_exit_code: 0:0
+    forward_elapsed: 00:29:24
+    forward_max_rss: 13901404K
+    backward_slurm_job_id: '135650'
+    backward_state: COMPLETED
+    backward_exit_code: 0:0
+    backward_elapsed: 00:20:07
+    backward_max_rss: 14031568K
+    failed_attempt_job_id_list:
+    - '135637'
+    - '135638'
+    - '135643'
+    - '135644'
+    - '135645'
+    - '135646'
+    - '135647'
     python_executable: /unimore_home/dferrari/.conda/envs/pinns_env/bin/python
     gpu_request: 1g.20gb:1
-  campaign_manifest_path: config/training/dataset_input_mode_retraining/campaigns/dataset_input_mode_retraining__wave4_1_log_cosh_robust_loss__simplified_setpoints/campaign.yaml
+  campaign_manifest_path: config/training/dataset_input_mode_retraining/campaigns/dataset_input_mode_retraining__wave4_1_log_cosh_robust_loss__polished_setpoints/campaign.yaml
   campaign_output_directory_list:
-  - output/training_campaigns/2026-07-13-02-40-42_dataset_input_mode_retraining__wave4_1_log_cosh_robust_loss__simplified
-  - output/training_campaigns/2026-07-13-04-12-33_dataset_input_mode_retraining__wave4_1_log_cosh_robust_loss__simplified
-  campaign_best_run_path: output/training_campaigns/2026-07-13-02-40-42_dataset_input_mode_retraining__wave4_1_log_cosh_robust_loss__simplified/campaign_best_run.yaml
-  campaign_leaderboard_path: output/training_campaigns/2026-07-13-02-40-42_dataset_input_mode_retraining__wave4_1_log_cosh_robust_loss__simplified/campaign_leaderboard.yaml
-  retry_campaign_best_run_path: output/training_campaigns/2026-07-13-04-12-33_dataset_input_mode_retraining__wave4_1_log_cosh_robust_loss__simplified/campaign_best_run.yaml
-  retry_campaign_leaderboard_path: output/training_campaigns/2026-07-13-04-12-33_dataset_input_mode_retraining__wave4_1_log_cosh_robust_loss__simplified/campaign_leaderboard.yaml
+  - output/training_campaigns/2026-07-13-05-22-10_dataset_input_mode_retraining__wave4_1_log_cosh_robust_loss__polished_se
+  - output/training_campaigns/2026-07-13-07-40-29_dataset_input_mode_retraining__wave4_1_log_cosh_robust_loss__polished_se
+  - output/training_campaigns/2026-07-13-08-11-55_dataset_input_mode_retraining__wave4_1_log_cosh_robust_loss__polished_se
+  campaign_best_run_path: output/training_campaigns/2026-07-13-05-22-10_dataset_input_mode_retraining__wave4_1_log_cosh_robust_loss__polished_se/campaign_best_run.yaml
+  campaign_leaderboard_path: output/training_campaigns/2026-07-13-05-22-10_dataset_input_mode_retraining__wave4_1_log_cosh_robust_loss__polished_se/campaign_leaderboard.yaml
+  forward_campaign_best_run_path: output/training_campaigns/2026-07-13-07-40-29_dataset_input_mode_retraining__wave4_1_log_cosh_robust_loss__polished_se/campaign_best_run.yaml
+  forward_campaign_leaderboard_path: output/training_campaigns/2026-07-13-07-40-29_dataset_input_mode_retraining__wave4_1_log_cosh_robust_loss__polished_se/campaign_leaderboard.yaml
+  backward_campaign_best_run_path: output/training_campaigns/2026-07-13-08-11-55_dataset_input_mode_retraining__wave4_1_log_cosh_robust_loss__polished_se/campaign_best_run.yaml
+  backward_campaign_leaderboard_path: output/training_campaigns/2026-07-13-08-11-55_dataset_input_mode_retraining__wave4_1_log_cosh_robust_loss__polished_se/campaign_leaderboard.yaml
   best_run:
-    run_name: te_wave4_1_log_cosh_robust_loss_global__simplified_setpoints
-    run_instance_id: 2026-07-13-02-40-42__te_wave4_1_log_cosh_robust_loss_global__simplified_setpoints
+    run_name: te_wave4_1_log_cosh_robust_loss_global__polished_setpoints
+    run_instance_id: 2026-07-13-05-22-10__te_wave4_1_log_cosh_robust_loss_global__polished_setpoints
     surface: global
-    test_mae: 0.003339164424687624
-    test_rmse: 0.004047723952680826
-    val_mae: 0.0035730674862861633
+    test_mae: 0.002200285205617547
+    test_rmse: 0.003572094487026334
+    val_mae: 0.0019121065270155668
   surface_run_list:
   - surface: global
-    run_name: te_wave4_1_log_cosh_robust_loss_global__simplified_setpoints
-    run_instance_id: 2026-07-13-02-40-42__te_wave4_1_log_cosh_robust_loss_global__simplified_setpoints
-    test_mae: 0.003339164424687624
-    test_rmse: 0.004047723952680826
-    val_mae: 0.0035730674862861633
+    run_name: te_wave4_1_log_cosh_robust_loss_global__polished_setpoints
+    run_instance_id: 2026-07-13-05-22-10__te_wave4_1_log_cosh_robust_loss_global__polished_setpoints
+    test_mae: 0.002200285205617547
+    test_rmse: 0.003572094487026334
+    val_mae: 0.0019121065270155668
   - surface: forward
-    run_name: te_wave4_1_log_cosh_robust_loss_fw__simplified_setpoints
-    run_instance_id: 2026-07-13-03-10-51__te_wave4_1_log_cosh_robust_loss_fw__simplified_setpoints
-    test_mae: 0.0033979518339037895
-    test_rmse: 0.004187426995486021
-    val_mae: 0.0035422793589532375
+    run_name: te_wave4_1_log_cosh_robust_loss_fw__polished_setpoints
+    run_instance_id: 2026-07-13-07-40-29__te_wave4_1_log_cosh_robust_loss_fw__polished_setpoints
+    test_mae: 0.002288580872118473
+    test_rmse: 0.003640884766355157
+    val_mae: 0.0019600524101406336
   - surface: backward
-    run_name: te_wave4_1_log_cosh_robust_loss_bw__simplified_setpoints
-    run_instance_id: 2026-07-13-04-12-33__te_wave4_1_log_cosh_robust_loss_bw__simplified_setpoints
-    test_mae: 0.0034023025073111057
-    test_rmse: 0.004189230967313051
-    val_mae: 0.0035271497908979654
+    run_name: te_wave4_1_log_cosh_robust_loss_bw__polished_setpoints
+    run_instance_id: 2026-07-13-08-11-55__te_wave4_1_log_cosh_robust_loss_bw__polished_setpoints
+    test_mae: 0.0022896823938935995
+    test_rmse: 0.0036451024934649467
+    val_mae: 0.001966372597962618
   export:
     status: completed
-    export_root: models/simplified_dataset/setpoints/exported
-    export_inventory_path: models/simplified_dataset/setpoints/exported/model_development_export_inventory.yaml
+    export_root: models/polished_dataset/setpoints/exported
+    export_inventory_path: models/polished_dataset/setpoints/exported/model_development_export_inventory.yaml
     exported_entry_count: 3
     onnx_export_status_counts:
       exported: 3
-    family_export_directory: models/simplified_dataset/setpoints/exported/wave4_1_log_cosh_robust_loss
+    family_export_directory: models/polished_dataset/setpoints/exported/wave4_1_log_cosh_robust_loss
     python_archive_storage_note: Python archive entries are symlinks to canonical best
-      checkpoints in output/training_runs for this campaign only, due to active quota
-      pressure during duplicate checkpoint copy. ONNX files are real exported files.
+      checkpoints in output/training_runs for this campaign due to active quota pressure
+      during duplicate checkpoint copy. ONNX files are real exported files.
   input_contract_verification:
     input_feature_dim: 5
     input_feature_names:
@@ -250,11 +263,12 @@ next_prepared_campaign:
     - input_torque_nm
     - oil_temperature_deg
     - direction_flag
-    setpoints_note: Simplified setpoint runs use constant speed, torque, and oil-temperature
-      setpoints per curve while preserving the shared 5-feature input contract.
+    setpoints_note: Polished setpoint runs use constant speed, torque, and oil-temperature
+      setpoints from curve/file metadata while preserving the shared 5-feature input
+      contract.
   next_planned_campaign:
-    campaign_name: dataset_input_mode_retraining__wave4_1_log_cosh_robust_loss__polished_setpoints
+    campaign_name: dataset_input_mode_retraining__wave4_1_log_cosh_robust_loss__polished_actual_values
     dataset_id: polished_dataset
-    input_mode: setpoints
+    input_mode: actual_values
     dataset_schema: polished_point_v1
     expected_run_count: 3

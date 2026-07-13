@@ -1,0 +1,113 @@
+schema_version: 1
+config_path: /scratch1/dferrari/Physics-Informed-Neural-Networks/config/training/queue/dataset_input_mode_retraining/dataset_input_mode_retraining__wave4_1_log_cosh_robust_loss__polished_setpoints/running/2026-07-13-08-11-55_001_003_wave4_1_log_cosh_robust_loss_bw.yaml
+experiment:
+  model_family: wave4_1_log_cosh_robust_loss_bw
+  model_type: curve_aware_harmonic_residual_offset_probe
+  run_name: te_wave4_1_log_cosh_robust_loss_bw__polished_setpoints
+  output_run_name: te_wave4_1_log_cosh_robust_loss_bw__polished_setpoints
+  run_instance_id: 2026-07-13-08-11-55__te_wave4_1_log_cosh_robust_loss_bw__polished_setpoints
+  output_artifact_kind: training_run
+  base_model_family: wave4_1_log_cosh_robust_loss
+  training_variant: bw
+  direction_scope_label: backward_only
+  use_forward_direction: false
+  use_backward_direction: true
+artifacts:
+  output_directory: output/training_runs/wave4_1_log_cosh_robust_loss/2026-07-13-08-11-55__te_wave4_1_log_cosh_robust_loss_bw__polished_setpoints
+  best_checkpoint_path: output/training_runs/wave4_1_log_cosh_robust_loss/2026-07-13-08-11-55__te_wave4_1_log_cosh_robust_loss_bw__polished_setpoints/checkpoints/curve_aware_harmonic_residual_offset_probe-epoch=044-val_mae=0.00196637.ckpt
+dataset_split:
+  train_curve_count: 1356
+  validation_curve_count: 388
+  test_curve_count: 194
+  dataset_name: polished_dataset
+  dataset_schema: polished_setpoint_curve_v1
+  input_mode: setpoints
+  input_feature_name_list:
+  - angular_position_deg
+  - input_speed_rpm
+  - input_torque_nm
+  - oil_temperature_deg
+  - direction_flag
+  target_feature_name_list:
+  - theta_TE
+  input_feature_dim: 5
+  target_feature_dim: 1
+dataset:
+  dataset_id: polished_dataset
+  dataset_schema: polished_setpoint_curve_v1
+  input_mode: setpoints
+  input_feature_names:
+  - angular_position_deg
+  - input_speed_rpm
+  - input_torque_nm
+  - oil_temperature_deg
+  - direction_flag
+  target_feature_names:
+  - theta_TE
+  input_feature_dim: 5
+  target_feature_dim: 1
+model_summary:
+  backbone_name: HarmonicResidualOffsetNetwork
+  trainable_parameter_count: 85747
+  frozen_parameter_count: 0
+  total_parameter_count: 85747
+runtime_config:
+  accelerator: auto
+  devices: auto
+  precision: '32'
+  benchmark: true
+  use_non_blocking_transfer: true
+normalization_statistics:
+  input_feature_mean:
+  - 180.0000762939453
+  - 506.3013916015625
+  - 899.591552734375
+  - 29.843809127807617
+  - -0.01724354922771454
+  input_feature_std:
+  - 103.92301940917969
+  - 467.61541748046875
+  - 552.3279418945312
+  - 4.094047546386719
+  - 0.9998513460159302
+  target_mean:
+  - -0.016667330637574196
+  target_std:
+  - 0.0465485081076622
+validation_metrics:
+  val_loss: 0.002521540503948927
+  val_mae: 0.001966372597962618
+  val_rmse: 0.0027335432823747396
+  val_pointwise_loss: 0.002521540503948927
+  val_centered_curve_shape_loss: 0.004622904118150473
+  val_curve_offset_loss: 0.0005042763077653944
+  val_curve_amplitude_loss: 0.03105193004012108
+  val_sparse_harmonic_shape_loss: 0.000101940066087991
+  val_structured_mae: 0.046375151723623276
+  val_structured_rmse: 0.05148112401366234
+  val_residual_offset_mean_abs: 0.046268027275800705
+test_metrics:
+  test_loss: 0.004134421702474356
+  test_mae: 0.0022896823938935995
+  test_rmse: 0.0036451024934649467
+  test_pointwise_loss: 0.004134421702474356
+  test_centered_curve_shape_loss: 0.00550448801368475
+  test_curve_offset_loss: 0.003162003355100751
+  test_curve_amplitude_loss: 0.04142472520470619
+  test_sparse_harmonic_shape_loss: 0.00011009175068465993
+  test_structured_mae: 0.04269448667764664
+  test_structured_rmse: 0.048661768436431885
+  test_residual_offset_mean_abs: 0.042570289224386215
+comparison_payload:
+  model_family: wave4_1_log_cosh_robust_loss_bw
+  model_type: curve_aware_harmonic_residual_offset_probe
+  run_name: te_wave4_1_log_cosh_robust_loss_bw__polished_setpoints
+  backbone_name: HarmonicResidualOffsetNetwork
+  trainable_parameter_count: 85747
+  total_parameter_count: 85747
+  val_mae: 0.001966372597962618
+  val_rmse: 0.0027335432823747396
+  test_mae: 0.0022896823938935995
+  test_rmse: 0.0036451024934649467
+  deployment_notes: ''
+  interpretability_notes: ''
