@@ -104,6 +104,11 @@ This folder contains the internal project documents derived from the reference P
   Technical plan for aligning `polished_dataset` actual-values inputs to the
   same five-feature width used by setpoint-based retraining paths.
 
+- [technical/2026-07/2026-07-13/2026-07-13-16-31-32_rcim_track1_polished_input_mode_retraining.md](./technical/2026-07/2026-07-13/2026-07-13-16-31-32_rcim_track1_polished_input_mode_retraining.md)
+  Technical plan for retraining only the two missing `rcim_track1`
+  polished-dataset input-mode campaigns while freezing the audited
+  `simplified_dataset` paper-reference baseline.
+
 - [scripts/tooling/lan_ai/lan_ai_node_server.md](./scripts/tooling/lan_ai/lan_ai_node_server.md)
   Setup and runtime guide for the remote LAN AI workstation.
 
@@ -3100,6 +3105,11 @@ This folder contains the internal project documents derived from the reference P
   Styled PDF export of the unified residual-harmonic network guide.
 
 #### Latest Campaign Plans
+
+- [reports/campaign_plans/cross_wave/input_modes/2026-07-13-16-35-39_rcim_track1_polished_input_mode_campaign_plan_report.md](./reports/campaign_plans/cross_wave/input_modes/2026-07-13-16-35-39_rcim_track1_polished_input_mode_campaign_plan_report.md)
+  Planning gate for the two missing `rcim_track1` polished-dataset
+  input-mode campaigns, keeping the audited simplified paper-reference
+  baseline frozen.
 
 - [reports/campaign_plans/track_2/2026-06-16-16-00-57_track2h_latent_state_hysteresis_campaign_plan_report.md](./reports/campaign_plans/track_2/2026-06-16-16-00-57_track2h_latent_state_hysteresis_campaign_plan_report.md)
   Preliminary campaign plan for the next `Wave 4.4` package, focused on

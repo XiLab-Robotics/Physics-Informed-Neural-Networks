@@ -17,9 +17,10 @@ mixed by path.
 ## Current Layout
 
 - `polished_dataset/paper_reference/rcim_track1/`
-  Polished RCIM Model-Bank Reproduction paper-reference archive. It contains
-  the compatible forward and backward RCIM banks retrained or validated against
-  the polished dataset.
+  Reserved for the replacement polished RCIM Model-Bank Reproduction archive.
+  The previous unsplit polished archive was removed before the approved
+  input-mode retraining. Replacement artifacts must be written under
+  `setpoints/` and `actual_values/` subfolders after the new campaigns finish.
 - `polished_dataset/exported/`
   Polished model-development exports from the completed 36-run early-wave and
   108-run full-wave campaigns. The inventory records 144 run archives:
