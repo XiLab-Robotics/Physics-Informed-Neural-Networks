@@ -1,12 +1,12 @@
 schema_version: 1
-model_family: wave4_1_smooth_l1_robust_loss_fw
+campaign_name: dataset_input_mode_retraining__wave4_1_smooth_l1_robust_loss__polished_actual_values
 selection_policy:
   primary_metric: test_mae
   first_tie_breaker: test_rmse
   second_tie_breaker: val_mae
   third_tie_breaker: trainable_parameter_count
   direction: minimize
-updated_at: '2026-07-13T01:50:39'
+updated_at: '2026-07-13T02:22:44'
 best_entry:
   run_instance_id: 2026-07-13-00-54-21__te_wave4_1_smooth_l1_robust_loss_fw__polished_actual_values
   run_name: te_wave4_1_smooth_l1_robust_loss_fw__polished_actual_values
@@ -47,4 +47,4 @@ best_entry:
     second_tie_breaker: val_mae
     third_tie_breaker: trainable_parameter_count
     direction: minimize
-  selected_at: '2026-07-13T01:50:39'
+  selected_at: '2026-07-13T02:22:44'

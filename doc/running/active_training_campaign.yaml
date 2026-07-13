@@ -146,11 +146,11 @@ last_completed_campaign:
       dataset_root: data\polished_dataset
       te_curve_verification_status: not_run_in_closeout
 next_prepared_campaign:
-  status: completed_and_exported_with_post_training_queue_duplicate_failure
-  campaign_name: dataset_input_mode_retraining__wave4_1_smooth_l1_robust_loss__polished_setpoints
+  status: completed_and_exported
+  campaign_name: dataset_input_mode_retraining__wave4_1_smooth_l1_robust_loss__polished_actual_values
   dataset_id: polished_dataset
-  input_mode: setpoints
-  dataset_schema: polished_setpoint_curve_v1
+  input_mode: actual_values
+  dataset_schema: polished_point_v1
   expected_run_count: 3
   completed_run_count: 3
   failed_run_count: 0
@@ -162,77 +162,73 @@ next_prepared_campaign:
     slurm_cpus_per_task: 8
     slurm_memory: 100G
     gpu_request: 1g.20gb:1
-    observed_throughput: Global completed in 00:39:32, Fw in 00:26:00, and Bw in 00:33:22
-      at batch 16. The three training surfaces completed in 01:39:33 before repository-side
-      model export.
-    batch_tuning_note: The prepared campaign default was raised from curve_batch_size 2 to
-      16 before submission. Batch 16 remained stable for Wave 4.1 Smooth L1 robust loss
-      polished-dataset setpoint training and preserved the shared 5-feature input contract.
-    resource_note: Job 135584 used gpu_request 1g.20gb:1 with 8 CPU workers and 100G host
-      memory. Slurm MaxRSS was 16380452K. The Slurm batch step exited 1:0 after all three
-      queue items completed because the runner tried to process a stale duplicate queue item
-      from the earlier 22-20-41 retry. Slurm stdout/stderr files were inspected for the root
-      cause and cleaned immediately after job termination per operator instruction; per-run
-      campaign terminal logs remain under the campaign output directory.
-    quota_cleanup_note: Duplicate non-best Lightning last.ckpt files and TensorBoard event
-      files for this campaign were removed after best-checkpoint evaluation to maintain Aries
-      quota. The best checkpoints, metrics, reports, per-run logs, campaign closeout files,
-      and exported Python/ONNX artifacts remain.
-    next_campaign_recommendation: Continue with Wave 4.1 Smooth L1 robust loss polished_actual_values
-      at batch 16 and the same resource profile, while avoiding duplicate queue re-enqueue on
-      any retry path.
+    observed_throughput: Global, Fw, and Bw completed in one sbatch job with total elapsed
+      02:06:17 at batch 16.
+    batch_tuning_note: The prepared campaign default was raised from curve_batch_size
+      2 to 16 before submission. Batch 16 remained stable for Wave 4.1 Smooth L1 robust
+      loss polished-dataset actual-values training and preserved the shared 5-feature
+      input contract.
+    resource_note: Job 135631 used gpu_request 1g.20gb:1 with 8 CPU workers and 100G
+      host memory. Slurm state was COMPLETED with exit code 0:0 and MaxRSS 16658268K.
+    slurm_cleanup_note: Slurm stdout/stderr files output/slurm/pinns_input_mode_135631.out
+      and .err were inspected after completion and removed immediately per operator
+      instruction; output/slurm was verified to contain only .gitkeep.
+    quota_cleanup_note: Duplicate non-best Lightning last.ckpt files and TensorBoard
+      event files for this campaign were removed after best-checkpoint evaluation. Best
+      checkpoints, metrics, reports, per-run logs, campaign closeout files, and exported
+      Python/ONNX artifacts remain.
+    next_campaign_recommendation: Continue with Wave 4.1 Log Cosh robust loss simplified_setpoints
+      at batch 16 and the same resource profile.
   sbatch_submission:
-    slurm_job_id: '135584'
-    state: FAILED_POST_TRAINING_DUPLICATE_QUEUE
-    exit_code: 1:0
-    elapsed: 01:39:33
-    max_rss: 16380452K
+    slurm_job_id: '135631'
+    state: COMPLETED
+    exit_code: 0:0
+    elapsed: 02:06:17
+    max_rss: 16658268K
     python_executable: /unimore_home/dferrari/.conda/envs/pinns_env/bin/python
     torch_version: 2.7.1+cu118
     gpu_request: 1g.20gb:1
-  campaign_manifest_path: config/training/dataset_input_mode_retraining/campaigns/dataset_input_mode_retraining__wave4_1_smooth_l1_robust_loss__polished_setpoints/campaign.yaml
-  campaign_output_directory: output/training_campaigns/2026-07-12-22-20-41_dataset_input_mode_retraining__wave4_1_smooth_l1_robust_loss__polished_s
-  campaign_best_run_path: output/training_campaigns/2026-07-12-22-20-41_dataset_input_mode_retraining__wave4_1_smooth_l1_robust_loss__polished_s/campaign_best_run.yaml
-  campaign_leaderboard_path: output/training_campaigns/2026-07-12-22-20-41_dataset_input_mode_retraining__wave4_1_smooth_l1_robust_loss__polished_s/campaign_leaderboard.yaml
+  campaign_manifest_path: config/training/dataset_input_mode_retraining/campaigns/dataset_input_mode_retraining__wave4_1_smooth_l1_robust_loss__polished_actual_values/campaign.yaml
+  campaign_output_directory: output/training_campaigns/2026-07-13-00-17-37_dataset_input_mode_retraining__wave4_1_smooth_l1_robust_loss__polished_a
+  campaign_best_run_path: output/training_campaigns/2026-07-13-00-17-37_dataset_input_mode_retraining__wave4_1_smooth_l1_robust_loss__polished_a/campaign_best_run.yaml
+  campaign_leaderboard_path: output/training_campaigns/2026-07-13-00-17-37_dataset_input_mode_retraining__wave4_1_smooth_l1_robust_loss__polished_a/campaign_leaderboard.yaml
   best_run:
-    run_name: te_wave4_1_smooth_l1_robust_loss_global__polished_setpoints
-    run_instance_id: 2026-07-12-22-12-14__te_wave4_1_smooth_l1_robust_loss_global__polished_setpoints
-    surface: global
-    test_mae: 0.0021818664390593767
-    test_rmse: 0.0035509734880179167
-    val_mae: 0.0019016253063455224
+    run_name: te_wave4_1_smooth_l1_robust_loss_fw__polished_actual_values
+    run_instance_id: 2026-07-13-00-54-21__te_wave4_1_smooth_l1_robust_loss_fw__polished_actual_values
+    surface: forward
+    test_mae: 0.001955627929419279
+    test_rmse: 0.0029986072331666946
+    val_mae: 0.001834818976931274
   surface_run_list:
   - surface: global
-    run_name: te_wave4_1_smooth_l1_robust_loss_global__polished_setpoints
-    run_instance_id: 2026-07-12-22-12-14__te_wave4_1_smooth_l1_robust_loss_global__polished_setpoints
-    test_mae: 0.0021818664390593767
-    test_rmse: 0.0035509734880179167
-    val_mae: 0.0019016253063455224
-    duration: 00:39:32
+    run_name: te_wave4_1_smooth_l1_robust_loss_global__polished_actual_values
+    run_instance_id: 2026-07-13-00-17-37__te_wave4_1_smooth_l1_robust_loss_global__polished_actual_values
+    test_mae: 0.0020276368595659733
+    test_rmse: 0.0030669488478451967
+    val_mae: 0.0018820762634277344
   - surface: forward
-    run_name: te_wave4_1_smooth_l1_robust_loss_fw__polished_setpoints
-    run_instance_id: 2026-07-12-23-00-14__te_wave4_1_smooth_l1_robust_loss_fw__polished_setpoints
-    test_mae: 0.0022332165390253067
-    test_rmse: 0.0036022840067744255
-    val_mae: 0.0019293333170935512
-    duration: 00:26:00
+    run_name: te_wave4_1_smooth_l1_robust_loss_fw__polished_actual_values
+    run_instance_id: 2026-07-13-00-54-21__te_wave4_1_smooth_l1_robust_loss_fw__polished_actual_values
+    test_mae: 0.001955627929419279
+    test_rmse: 0.0029986072331666946
+    val_mae: 0.001834818976931274
   - surface: backward
-    run_name: te_wave4_1_smooth_l1_robust_loss_bw__polished_setpoints
-    run_instance_id: 2026-07-12-23-26-15__te_wave4_1_smooth_l1_robust_loss_bw__polished_setpoints
-    test_mae: 0.002256367588415742
-    test_rmse: 0.003637677291408181
-    val_mae: 0.0019379676086828113
-    duration: 00:33:22
+    run_name: te_wave4_1_smooth_l1_robust_loss_bw__polished_actual_values
+    run_instance_id: 2026-07-13-01-50-39__te_wave4_1_smooth_l1_robust_loss_bw__polished_actual_values
+    test_mae: 0.0020114618819206953
+    test_rmse: 0.00305701931938529
+    val_mae: 0.001893735839985311
   export:
     status: completed
-    export_root: models/polished_dataset/setpoints/exported
-    export_inventory_path: models/polished_dataset/setpoints/exported/model_development_export_inventory.yaml
+    export_root: models/polished_dataset/actual_values/exported
+    export_inventory_path: models/polished_dataset/actual_values/exported/model_development_export_inventory.yaml
     exported_entry_count: 3
     onnx_export_status_counts:
       exported: 3
-    family_export_directory: models/polished_dataset/setpoints/exported/wave4_1_smooth_l1_robust_loss
-    onnx_warning_note: ONNX export emitted expected harmonic residual offset, harmonic regression,
-      temporal sequence, and GRU tracing warnings; all three exports completed successfully.
+    family_export_directory: models/polished_dataset/actual_values/exported/wave4_1_smooth_l1_robust_loss
+    onnx_warning_note: ONNX export emitted expected harmonic residual offset, harmonic
+      regression, temporal sequence, and GRU tracing warnings; all three exports completed
+      successfully.
   input_contract_verification:
     input_feature_dim: 5
     input_feature_names:
@@ -241,19 +237,12 @@ next_prepared_campaign:
     - input_torque_nm
     - oil_temperature_deg
     - direction_flag
-    setpoint_source_note: The polished-dataset setpoint tensors use speed, torque, and
-      temperature setpoints from source path or filename metadata while row-level angular_position_deg,
-      transmission_error_deg, and direction_flag preserve the shared 5-feature input contract.
-      The campaign leaderboard confirms input_feature_dim 5, dataset_id polished_dataset,
-      input_mode setpoints, and dataset_schema polished_setpoint_curve_v1 for all three surfaces. The
-      exported source-run snapshots independently confirm the same 5-feature contract for global,
-      forward, and backward artifacts.
-    assertion_status: passed
+    actual_values_note: Actual-values runs use row-level speed, torque, and oil-temperature
+      values from polished CSV columns while preserving the same 5-feature input contract
+      used by setpoint runs.
   next_planned_campaign:
-    campaign_name: dataset_input_mode_retraining__wave4_1_smooth_l1_robust_loss__polished_actual_values
-    family: wave4_1_smooth_l1_robust_loss
-    version: polished_actual_values
-    dataset_id: polished_dataset
-    input_mode: actual_values
-    dataset_schema: polished_point_v1
-  te_curve_verification_status: not_run_in_closeout
+    campaign_name: dataset_input_mode_retraining__wave4_1_log_cosh_robust_loss__simplified_setpoints
+    dataset_id: simplified_dataset
+    input_mode: setpoints
+    dataset_schema: simplified_setpoint_curve_v1
+    expected_run_count: 3
