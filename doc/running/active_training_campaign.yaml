@@ -35,16 +35,13 @@ protected_file_list:
 - doc\technical\2026-07\2026-07-02\2026-07-02-11-12-17_polished_te_curve_verification_refresh.md
 launch_command_list:
 - .\scripts\campaigns\track_2\run_polished_dataset_track2_verification_refresh.ps1
-- .\scripts\campaigns\track_2\run_polished_dataset_track2_verification_refresh.ps1
-  -ResumeAfterVisualReports
-- .\scripts\campaigns\track_2\run_polished_dataset_track2_verification_refresh.ps1
-  -Remote
-notes: Operator-approved TE Curve Verification Pipeline refresh is closed on the 2026-07-03
-  fix3 matrix. The accepted matrix uses data\polished_dataset for refreshed candidates,
-  records data/simplified_dataset only as the historical baseline source contract,
-  and validates that all polished refreshed per-condition rows use polished source
-  paths. Older 2026-07-02, 2026-07-03, and fix2 artifacts are stale and must not be
-  used for official polished-dataset closeout.
+- .\scripts\campaigns\track_2\run_polished_dataset_track2_verification_refresh.ps1 -ResumeAfterVisualReports
+- .\scripts\campaigns\track_2\run_polished_dataset_track2_verification_refresh.ps1 -Remote
+notes: Operator-approved TE Curve Verification Pipeline refresh is closed on the 2026-07-03 fix3 matrix.
+  The accepted matrix uses data\polished_dataset for refreshed candidates, records data/simplified_dataset
+  only as the historical baseline source contract, and validates that all polished refreshed per-condition
+  rows use polished source paths. Older 2026-07-02, 2026-07-03, and fix2 artifacts are stale and must
+  not be used for official polished-dataset closeout.
 last_completed_campaign:
   campaign_name: polished_dataset_full_wave_retraining_2026_06_22
   campaign_type: full_wave_model_development_retraining
@@ -100,8 +97,8 @@ last_completed_campaign:
     source_campaign: polished_dataset_early_wave_parallel_training_2026_06_25
     test_mae: 0.0010836307192221284
     test_rmse: 0.0013926418032497168
-    reason: Earlier polished early-wave run remains better than the full-wave scalar
-      winner under the scalar registry selection policy.
+    reason: Earlier polished early-wave run remains better than the full-wave scalar winner under the
+      scalar registry selection policy.
   te_curve_verification_status: not_run_in_closeout
   previous_completed_campaign:
     campaign_name: polished_dataset_early_wave_parallel_training_2026_06_25
@@ -147,80 +144,107 @@ last_completed_campaign:
       te_curve_verification_status: not_run_in_closeout
 next_prepared_campaign:
   status: completed_and_exported
-  campaign_name: dataset_input_mode_retraining__wave4_1_log_cosh_robust_loss__polished_actual_values
-  dataset_id: polished_dataset
-  input_mode: actual_values
-  dataset_schema: polished_point_v1
+  campaign_name: dataset_input_mode_retraining__wave4_2_quantile_p10_p50_p90__simplified_setpoints
+  dataset_id: simplified_dataset
+  input_mode: setpoints
+  dataset_schema: simplified_curve_v1
   expected_run_count: 3
   completed_run_count: 3
   failed_run_count: 0
+  raw_completed_run_count: 4
+  duplicate_run_note: The raw retry report contains one superseded 2026-07-13 backward record plus the
+    three accepted 2026-07-14 canonical retry runs. Only the 2026-07-14 global, forward, and backward
+    runs were exported to models.
   throughput_profile:
     curve_batch_size: 16
-    original_prepared_curve_batch_size: 2
     num_workers: 8
     pin_memory: true
     slurm_cpus_per_task: 8
-    slurm_memory: 100G
+    slurm_memory: 40G
     gpu_request: 1g.20gb:1
-    observed_throughput: Single sbatch job 135662 completed global, forward, and backward
-      sequentially in 01:55:46 with batch 16.
-    resource_note: The accepted run used direct repository output successfully. Python
-      model archive entries are repository-relative symlinks to canonical best checkpoints
-      to avoid duplicate checkpoint quota pressure; ONNX files are real exported model
-      files.
-    slurm_cleanup_note: Slurm stdout/stderr files for terminal job 135662 were inspected
-      after completion and removed immediately per operator instruction; output/slurm
-      was verified to contain only .gitkeep after cleanup.
-    next_campaign_recommendation: Continue with Wave 4.2 Quantile p10/p50/p90 simplified_setpoints
-      at batch 16 and the same sequential surface resource profile unless preflight
-      shows new quota or node constraints.
+    observed_throughput: Retry sbatch job 135716 completed the canonical 2026-07-14 global, forward, and
+      backward surfaces sequentially after gnode01 returned from DRAIN; job elapsed time was 01:57:15.
+    resource_note: The accepted run used repository-local TMPDIR under output/tmp/slurm_135716 to avoid
+      /tmp/pymp quota failures. ONNX files are real exported model files; Python archive files are checkpoint
+      copies produced by scripts/models/export_dataset_model_archives.py.
+    slurm_cleanup_note: Slurm stdout/stderr files for terminal jobs 135683 and 135716 were inspected after
+      terminal state and removed per operator instruction; output/slurm was verified to contain only .gitkeep
+      after cleanup.
+    next_campaign_recommendation: Continue with Wave 4.2 Quantile p10/p50/p90 polished_setpoints at batch
+      16 and the sequential surface resource profile, keeping TMPDIR under output/tmp.
   sbatch_submission:
-    slurm_job_id: '135662'
+    slurm_job_id: '135716'
     state: COMPLETED
     exit_code: 0:0
-    elapsed: 01:55:46
-    batch_max_rss: 16469680K
-    allocated_tres: billing=100,cpu=8,gres/gpu=1,mem=100G,node=1
+    elapsed: 01:57:15
+    batch_max_rss: 16667M
+    allocated_tres: billing=40,cpu=8,gres/gpu=1,mem=40G,node=1
     python_executable: /unimore_home/dferrari/.conda/envs/pinns_env/bin/python
     gpu_request: 1g.20gb:1
-  campaign_manifest_path: config/training/dataset_input_mode_retraining/campaigns/dataset_input_mode_retraining__wave4_1_log_cosh_robust_loss__polished_actual_values/campaign.yaml
-  campaign_output_directory: output/training_campaigns/2026-07-13-09-01-50_dataset_input_mode_retraining__wave4_1_log_cosh_robust_loss__polished_ac
-  campaign_best_run_path: output/training_campaigns/2026-07-13-09-01-50_dataset_input_mode_retraining__wave4_1_log_cosh_robust_loss__polished_ac/campaign_best_run.yaml
-  campaign_leaderboard_path: output/training_campaigns/2026-07-13-09-01-50_dataset_input_mode_retraining__wave4_1_log_cosh_robust_loss__polished_ac/campaign_leaderboard.yaml
-  best_run: &id001
-    surface: forward
-    run_name: te_wave4_1_log_cosh_robust_loss_fw__polished_actual_values
-    run_instance_id: 2026-07-13-09-34-38__te_wave4_1_log_cosh_robust_loss_fw__polished_actual_values
-    test_mae: 0.001955467974767089
-    test_rmse: 0.002993891015648842
-    val_mae: 0.001826910418458283
-    best_checkpoint_path: output/training_runs/wave4_1_log_cosh_robust_loss/2026-07-13-09-34-38__te_wave4_1_log_cosh_robust_loss_fw__polished_actual_values/checkpoints/curve_aware_harmonic_residual_offset_probe-epoch=193-val_mae=0.00182691.ckpt
+    node: gnode01
+  recovery_submission_history:
+  - slurm_job_id: '135683'
+    state: CANCELLED
+    reason: Backward surface hit /tmp multiprocessing spool exhaustion after global and forward completed;
+      terminal Slurm logs were inspected and removed.
+  - slurm_job_id: '135697'
+    state: CANCELLED
+    reason: Pending on drained gnode01 before execution.
+  - slurm_job_id: '135710'
+    state: CANCELLED
+    reason: Pending on drained gnode01 before execution.
+  campaign_manifest_path: config/training/dataset_input_mode_retraining/campaigns/dataset_input_mode_retraining__wave4_2_quantile_p10_p50_p90__simplified_setpoints/campaign.yaml
+  campaign_output_directory: output/training_campaigns/2026-07-14-10-30-18_dataset_input_mode_retraining__wave4_2_quantile_p10_p50_p90__simplified
+  campaign_best_run_path: output/training_campaigns/2026-07-14-10-30-18_dataset_input_mode_retraining__wave4_2_quantile_p10_p50_p90__simplified/campaign_best_run.yaml
+  campaign_leaderboard_path: output/training_campaigns/2026-07-14-10-30-18_dataset_input_mode_retraining__wave4_2_quantile_p10_p50_p90__simplified/campaign_leaderboard.yaml
+  accepted_export_manifest_filter: accepted_export_manifest.yaml records the three promoted 2026-07-14
+    canonical retry runs and excludes the superseded 2026-07-13 backward retry record.
+  best_run:
+    surface: global
+    run_name: te_wave4_2_quantile_p10_p50_p90_global__simplified_setpoints
+    run_instance_id: 2026-07-14-11-05-29__te_wave4_2_quantile_p10_p50_p90_global__simplified_setpoints
+    test_mae: 0.0033780643716454506
+    test_rmse: 0.004183328244835138
+    val_mae: 0.0035158887039870024
+    best_checkpoint_path: output/training_runs/wave4_2_quantile_p10_p50_p90/2026-07-14-11-05-29__te_wave4_2_quantile_p10_p50_p90_global__simplified_setpoints/checkpoints/curve_aware_harmonic_residual_offset_probe-epoch=096-val_mae=0.00351589.ckpt
   surface_run_list:
   - surface: global
-    run_name: te_wave4_1_log_cosh_robust_loss_global__polished_actual_values
-    run_instance_id: 2026-07-13-09-01-50__te_wave4_1_log_cosh_robust_loss_global__polished_actual_values
-    test_mae: 0.002046010224148631
-    test_rmse: 0.0030903471633791924
-    val_mae: 0.0018990215612575412
-    best_checkpoint_path: output/training_runs/wave4_1_log_cosh_robust_loss/2026-07-13-09-01-50__te_wave4_1_log_cosh_robust_loss_global__polished_actual_values/checkpoints/curve_aware_harmonic_residual_offset_probe-epoch=110-val_mae=0.00189902.ckpt
-  - *id001
+    run_name: te_wave4_2_quantile_p10_p50_p90_global__simplified_setpoints
+    run_instance_id: 2026-07-14-11-05-29__te_wave4_2_quantile_p10_p50_p90_global__simplified_setpoints
+    test_mae: 0.0033780643716454506
+    test_rmse: 0.004183328244835138
+    val_mae: 0.0035158887039870024
+    best_checkpoint_path: output/training_runs/wave4_2_quantile_p10_p50_p90/2026-07-14-11-05-29__te_wave4_2_quantile_p10_p50_p90_global__simplified_setpoints/checkpoints/curve_aware_harmonic_residual_offset_probe-epoch=096-val_mae=0.00351589.ckpt
+    onnx_model_path: models/simplified_dataset/setpoints/exported/wave4_2_quantile_p10_p50_p90/global/2026-07-14-11-05-29__te_wave4_2_quantile_p10_p50_p90_global__simplified_setpoints/onnx/model.onnx
+    python_model_path: models/simplified_dataset/setpoints/exported/wave4_2_quantile_p10_p50_p90/global/2026-07-14-11-05-29__te_wave4_2_quantile_p10_p50_p90_global__simplified_setpoints/python/curve_aware_harmonic_residual_offset_probe-epoch=096-val_mae=0.00351589.ckpt
+  - surface: forward
+    run_name: te_wave4_2_quantile_p10_p50_p90_fw__simplified_setpoints
+    run_instance_id: 2026-07-14-11-30-33__te_wave4_2_quantile_p10_p50_p90_fw__simplified_setpoints
+    test_mae: 0.0034961996134370565
+    test_rmse: 0.004298785235732794
+    val_mae: 0.0034970599226653576
+    best_checkpoint_path: output/training_runs/wave4_2_quantile_p10_p50_p90/2026-07-14-11-30-33__te_wave4_2_quantile_p10_p50_p90_fw__simplified_setpoints/checkpoints/curve_aware_harmonic_residual_offset_probe-epoch=098-val_mae=0.00349706.ckpt
+    onnx_model_path: models/simplified_dataset/setpoints/exported/wave4_2_quantile_p10_p50_p90/forward/2026-07-14-11-30-33__te_wave4_2_quantile_p10_p50_p90_fw__simplified_setpoints/onnx/model.onnx
+    python_model_path: models/simplified_dataset/setpoints/exported/wave4_2_quantile_p10_p50_p90/forward/2026-07-14-11-30-33__te_wave4_2_quantile_p10_p50_p90_fw__simplified_setpoints/python/curve_aware_harmonic_residual_offset_probe-epoch=098-val_mae=0.00349706.ckpt
   - surface: backward
-    run_name: te_wave4_1_log_cosh_robust_loss_bw__polished_actual_values
-    run_instance_id: 2026-07-13-10-23-44__te_wave4_1_log_cosh_robust_loss_bw__polished_actual_values
-    test_mae: 0.0019946235697716475
-    test_rmse: 0.0030572135001420975
-    val_mae: 0.0018710200674831867
-    best_checkpoint_path: output/training_runs/wave4_1_log_cosh_robust_loss/2026-07-13-10-23-44__te_wave4_1_log_cosh_robust_loss_bw__polished_actual_values/checkpoints/curve_aware_harmonic_residual_offset_probe-epoch=127-val_mae=0.00187102.ckpt
+    run_name: te_wave4_2_quantile_p10_p50_p90_bw__simplified_setpoints
+    run_instance_id: 2026-07-14-11-58-31__te_wave4_2_quantile_p10_p50_p90_bw__simplified_setpoints
+    test_mae: 0.003466474125161767
+    test_rmse: 0.004275413695722818
+    val_mae: 0.0035510833840817213
+    best_checkpoint_path: output/training_runs/wave4_2_quantile_p10_p50_p90/2026-07-14-11-58-31__te_wave4_2_quantile_p10_p50_p90_bw__simplified_setpoints/checkpoints/curve_aware_harmonic_residual_offset_probe-epoch=087-val_mae=0.00355108.ckpt
+    onnx_model_path: models/simplified_dataset/setpoints/exported/wave4_2_quantile_p10_p50_p90/backward/2026-07-14-11-58-31__te_wave4_2_quantile_p10_p50_p90_bw__simplified_setpoints/onnx/model.onnx
+    python_model_path: models/simplified_dataset/setpoints/exported/wave4_2_quantile_p10_p50_p90/backward/2026-07-14-11-58-31__te_wave4_2_quantile_p10_p50_p90_bw__simplified_setpoints/python/curve_aware_harmonic_residual_offset_probe-epoch=087-val_mae=0.00355108.ckpt
   export:
     status: completed
-    export_root: models/polished_dataset/actual_values/exported
-    export_inventory_path: models/polished_dataset/actual_values/exported/model_development_export_inventory.yaml
+    export_root: models/simplified_dataset/setpoints/exported
+    export_inventory_path: models/simplified_dataset/setpoints/exported/model_development_export_inventory.yaml
     exported_entry_count: 3
     onnx_export_status_counts:
       exported: 3
-    family_export_directory: models/polished_dataset/actual_values/exported/wave4_1_log_cosh_robust_loss
-    python_archive_storage_note: Python archive entries are symlinks to canonical
-      best checkpoints in output/training_runs. ONNX files are real exported files.
+    family_export_directory: models/simplified_dataset/setpoints/exported/wave4_2_quantile_p10_p50_p90
+    python_archive_storage_note: Python archive files are checkpoint copies generated by the dataset export
+      script. ONNX files are real exported files.
   input_contract_verification:
     input_feature_dim: 5
     input_feature_names:
@@ -229,15 +253,16 @@ next_prepared_campaign:
     - input_torque_nm
     - oil_temperature_deg
     - direction_flag
-    dataset_id: polished_dataset
-    dataset_schema: polished_point_v1
-    input_mode: actual_values
+    dataset_id: simplified_dataset
+    dataset_schema: simplified_curve_v1
+    input_mode: setpoints
+  accepted_export_manifest_path: output/training_campaigns/2026-07-14-10-30-18_dataset_input_mode_retraining__wave4_2_quantile_p10_p50_p90__simplified/accepted_export_manifest.yaml
 next_planned_campaign:
   status: not_started
-  campaign_name: dataset_input_mode_retraining__wave4_2_quantile_p10_p50_p90__simplified_setpoints
-  dataset_id: simplified_dataset
+  campaign_name: dataset_input_mode_retraining__wave4_2_quantile_p10_p50_p90__polished_setpoints
+  dataset_id: polished_dataset
   input_mode: setpoints
-  dataset_schema: simplified_setpoint_curve_v1
+  dataset_schema: polished_point_v1
   expected_run_count: 3
   planned_surface_list:
   - global
@@ -245,5 +270,5 @@ next_planned_campaign:
   - backward
   technical_document_path: doc/technical/2026-07/2026-07-07/2026-07-07-01-46-06_dataset_input_mode_retraining_campaigns.md
   planning_report_path: doc/reports/campaign_plans/cross_wave/input_modes/2026-07-07-01-46-06_dataset_input_mode_retraining_campaign_plan_report.md
-  operator_policy: Run one campaign at a time with sbatch; after terminal state inspect
-    and clean Slurm stdout/stderr, close out artifacts, commit, then proceed.
+  operator_policy: Run one campaign at a time with sbatch; after terminal state inspect and clean Slurm
+    stdout/stderr, close out artifacts, commit, then proceed.

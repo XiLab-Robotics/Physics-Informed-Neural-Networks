@@ -213,3 +213,4 @@ doc/reports/analysis/.tmp_chrome_profiles/
 .temp/
 .tools/
 .tmpdocenv/
+output/tmp/

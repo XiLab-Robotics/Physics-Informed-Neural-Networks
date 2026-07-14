@@ -1,13 +1,13 @@
 schema_version: 1
 dataset_id: simplified_dataset
 input_mode: setpoints
-entry_count: 3
+entry_count: 6
 surface_counts:
-  global: 1
-  forward: 1
-  backward: 1
+  global: 2
+  forward: 2
+  backward: 2
 onnx_export_status_counts:
-  exported: 3
+  exported: 6
 entries:
 - schema_version: 1
   dataset_id: simplified_dataset
@@ -84,3 +84,78 @@ entries:
     val_mae: 0.0035271497908979654
     test_mae: 0.0034023025073111057
     test_rmse: 0.004189230967313051
+- schema_version: 1
+  dataset_id: simplified_dataset
+  dataset_schema: simplified_curve_v1
+  input_mode: setpoints
+  model_family: wave4_2_quantile_p10_p50_p90
+  model_type: curve_aware_harmonic_residual_offset_probe
+  surface: global
+  run_name: te_wave4_2_quantile_p10_p50_p90_global__simplified_setpoints
+  run_instance_id: 2026-07-14-11-05-29__te_wave4_2_quantile_p10_p50_p90_global__simplified_setpoints
+  source_output_directory: output/training_runs/wave4_2_quantile_p10_p50_p90/2026-07-14-11-05-29__te_wave4_2_quantile_p10_p50_p90_global__simplified_setpoints
+  source_best_checkpoint_path: output/training_runs/wave4_2_quantile_p10_p50_p90/2026-07-14-11-05-29__te_wave4_2_quantile_p10_p50_p90_global__simplified_setpoints/checkpoints/curve_aware_harmonic_residual_offset_probe-epoch=096-val_mae=0.00351589.ckpt
+  python_model_path: models/simplified_dataset/setpoints/exported/wave4_2_quantile_p10_p50_p90/global/2026-07-14-11-05-29__te_wave4_2_quantile_p10_p50_p90_global__simplified_setpoints/python/curve_aware_harmonic_residual_offset_probe-epoch=096-val_mae=0.00351589.ckpt
+  onnx_model_path: models/simplified_dataset/setpoints/exported/wave4_2_quantile_p10_p50_p90/global/2026-07-14-11-05-29__te_wave4_2_quantile_p10_p50_p90_global__simplified_setpoints/onnx/model.onnx
+  onnx_export_status: exported
+  onnx_export_error: ''
+  source_run_snapshot_path_map:
+    training_config.snapshot.yaml: models/simplified_dataset/setpoints/exported/wave4_2_quantile_p10_p50_p90/global/2026-07-14-11-05-29__te_wave4_2_quantile_p10_p50_p90_global__simplified_setpoints/source_run/training_config.snapshot.yaml
+    metrics_summary.snapshot.yaml: models/simplified_dataset/setpoints/exported/wave4_2_quantile_p10_p50_p90/global/2026-07-14-11-05-29__te_wave4_2_quantile_p10_p50_p90_global__simplified_setpoints/source_run/metrics_summary.snapshot.yaml
+    run_metadata.snapshot.yaml: models/simplified_dataset/setpoints/exported/wave4_2_quantile_p10_p50_p90/global/2026-07-14-11-05-29__te_wave4_2_quantile_p10_p50_p90_global__simplified_setpoints/source_run/run_metadata.snapshot.yaml
+    training_test_report.snapshot.md: models/simplified_dataset/setpoints/exported/wave4_2_quantile_p10_p50_p90/global/2026-07-14-11-05-29__te_wave4_2_quantile_p10_p50_p90_global__simplified_setpoints/source_run/training_test_report.snapshot.md
+    best_checkpoint_path.snapshot.txt: models/simplified_dataset/setpoints/exported/wave4_2_quantile_p10_p50_p90/global/2026-07-14-11-05-29__te_wave4_2_quantile_p10_p50_p90_global__simplified_setpoints/source_run/best_checkpoint_path.snapshot.txt
+  metrics:
+    val_mae: 0.0035158887039870024
+    test_mae: 0.0033780643716454506
+    test_rmse: 0.004183328244835138
+- schema_version: 1
+  dataset_id: simplified_dataset
+  dataset_schema: simplified_curve_v1
+  input_mode: setpoints
+  model_family: wave4_2_quantile_p10_p50_p90
+  model_type: curve_aware_harmonic_residual_offset_probe
+  surface: forward
+  run_name: te_wave4_2_quantile_p10_p50_p90_fw__simplified_setpoints
+  run_instance_id: 2026-07-14-11-30-33__te_wave4_2_quantile_p10_p50_p90_fw__simplified_setpoints
+  source_output_directory: output/training_runs/wave4_2_quantile_p10_p50_p90/2026-07-14-11-30-33__te_wave4_2_quantile_p10_p50_p90_fw__simplified_setpoints
+  source_best_checkpoint_path: output/training_runs/wave4_2_quantile_p10_p50_p90/2026-07-14-11-30-33__te_wave4_2_quantile_p10_p50_p90_fw__simplified_setpoints/checkpoints/curve_aware_harmonic_residual_offset_probe-epoch=098-val_mae=0.00349706.ckpt
+  python_model_path: models/simplified_dataset/setpoints/exported/wave4_2_quantile_p10_p50_p90/forward/2026-07-14-11-30-33__te_wave4_2_quantile_p10_p50_p90_fw__simplified_setpoints/python/curve_aware_harmonic_residual_offset_probe-epoch=098-val_mae=0.00349706.ckpt
+  onnx_model_path: models/simplified_dataset/setpoints/exported/wave4_2_quantile_p10_p50_p90/forward/2026-07-14-11-30-33__te_wave4_2_quantile_p10_p50_p90_fw__simplified_setpoints/onnx/model.onnx
+  onnx_export_status: exported
+  onnx_export_error: ''
+  source_run_snapshot_path_map:
+    training_config.snapshot.yaml: models/simplified_dataset/setpoints/exported/wave4_2_quantile_p10_p50_p90/forward/2026-07-14-11-30-33__te_wave4_2_quantile_p10_p50_p90_fw__simplified_setpoints/source_run/training_config.snapshot.yaml
+    metrics_summary.snapshot.yaml: models/simplified_dataset/setpoints/exported/wave4_2_quantile_p10_p50_p90/forward/2026-07-14-11-30-33__te_wave4_2_quantile_p10_p50_p90_fw__simplified_setpoints/source_run/metrics_summary.snapshot.yaml
+    run_metadata.snapshot.yaml: models/simplified_dataset/setpoints/exported/wave4_2_quantile_p10_p50_p90/forward/2026-07-14-11-30-33__te_wave4_2_quantile_p10_p50_p90_fw__simplified_setpoints/source_run/run_metadata.snapshot.yaml
+    training_test_report.snapshot.md: models/simplified_dataset/setpoints/exported/wave4_2_quantile_p10_p50_p90/forward/2026-07-14-11-30-33__te_wave4_2_quantile_p10_p50_p90_fw__simplified_setpoints/source_run/training_test_report.snapshot.md
+    best_checkpoint_path.snapshot.txt: models/simplified_dataset/setpoints/exported/wave4_2_quantile_p10_p50_p90/forward/2026-07-14-11-30-33__te_wave4_2_quantile_p10_p50_p90_fw__simplified_setpoints/source_run/best_checkpoint_path.snapshot.txt
+  metrics:
+    val_mae: 0.0034970599226653576
+    test_mae: 0.0034961996134370565
+    test_rmse: 0.004298785235732794
+- schema_version: 1
+  dataset_id: simplified_dataset
+  dataset_schema: simplified_curve_v1
+  input_mode: setpoints
+  model_family: wave4_2_quantile_p10_p50_p90
+  model_type: curve_aware_harmonic_residual_offset_probe
+  surface: backward
+  run_name: te_wave4_2_quantile_p10_p50_p90_bw__simplified_setpoints
+  run_instance_id: 2026-07-14-11-58-31__te_wave4_2_quantile_p10_p50_p90_bw__simplified_setpoints
+  source_output_directory: output/training_runs/wave4_2_quantile_p10_p50_p90/2026-07-14-11-58-31__te_wave4_2_quantile_p10_p50_p90_bw__simplified_setpoints
+  source_best_checkpoint_path: output/training_runs/wave4_2_quantile_p10_p50_p90/2026-07-14-11-58-31__te_wave4_2_quantile_p10_p50_p90_bw__simplified_setpoints/checkpoints/curve_aware_harmonic_residual_offset_probe-epoch=087-val_mae=0.00355108.ckpt
+  python_model_path: models/simplified_dataset/setpoints/exported/wave4_2_quantile_p10_p50_p90/backward/2026-07-14-11-58-31__te_wave4_2_quantile_p10_p50_p90_bw__simplified_setpoints/python/curve_aware_harmonic_residual_offset_probe-epoch=087-val_mae=0.00355108.ckpt
+  onnx_model_path: models/simplified_dataset/setpoints/exported/wave4_2_quantile_p10_p50_p90/backward/2026-07-14-11-58-31__te_wave4_2_quantile_p10_p50_p90_bw__simplified_setpoints/onnx/model.onnx
+  onnx_export_status: exported
+  onnx_export_error: ''
+  source_run_snapshot_path_map:
+    training_config.snapshot.yaml: models/simplified_dataset/setpoints/exported/wave4_2_quantile_p10_p50_p90/backward/2026-07-14-11-58-31__te_wave4_2_quantile_p10_p50_p90_bw__simplified_setpoints/source_run/training_config.snapshot.yaml
+    metrics_summary.snapshot.yaml: models/simplified_dataset/setpoints/exported/wave4_2_quantile_p10_p50_p90/backward/2026-07-14-11-58-31__te_wave4_2_quantile_p10_p50_p90_bw__simplified_setpoints/source_run/metrics_summary.snapshot.yaml
+    run_metadata.snapshot.yaml: models/simplified_dataset/setpoints/exported/wave4_2_quantile_p10_p50_p90/backward/2026-07-14-11-58-31__te_wave4_2_quantile_p10_p50_p90_bw__simplified_setpoints/source_run/run_metadata.snapshot.yaml
+    training_test_report.snapshot.md: models/simplified_dataset/setpoints/exported/wave4_2_quantile_p10_p50_p90/backward/2026-07-14-11-58-31__te_wave4_2_quantile_p10_p50_p90_bw__simplified_setpoints/source_run/training_test_report.snapshot.md
+    best_checkpoint_path.snapshot.txt: models/simplified_dataset/setpoints/exported/wave4_2_quantile_p10_p50_p90/backward/2026-07-14-11-58-31__te_wave4_2_quantile_p10_p50_p90_bw__simplified_setpoints/source_run/best_checkpoint_path.snapshot.txt
+  metrics:
+    val_mae: 0.0035510833840817213
+    test_mae: 0.003466474125161767
+    test_rmse: 0.004275413695722818

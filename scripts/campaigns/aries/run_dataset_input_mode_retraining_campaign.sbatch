@@ -37,6 +37,14 @@ if [[ ! -x "${PYTHON_EXECUTABLE}" ]]; then
 fi
 
 mkdir -p output/slurm
+mkdir -p "${PROJECT_ROOT}/output/tmp/slurm_${SLURM_JOB_ID:-manual}"
+export TMPDIR="${PROJECT_ROOT}/output/tmp/slurm_${SLURM_JOB_ID:-manual}"
+export TMP="${TMPDIR}"
+export TEMP="${TMPDIR}"
+cleanup_job_temp_directory() {
+  rm -rf "${TMPDIR}"
+}
+trap cleanup_job_temp_directory EXIT
 export LD_LIBRARY_PATH="${CONDA_PREFIX}/lib:${LD_LIBRARY_PATH:-}"
 export OMP_NUM_THREADS="${SLURM_CPUS_PER_TASK:-1}"
 export MKL_NUM_THREADS="${SLURM_CPUS_PER_TASK:-1}"
@@ -48,6 +56,7 @@ echo "[INFO] SLURM job: ${SLURM_JOB_ID:-none}"
 echo "[INFO] Manifest: ${CAMPAIGN_MANIFEST_PATH}"
 echo "[INFO] Conda prefix: ${CONDA_PREFIX}"
 echo "[INFO] Python: ${PYTHON_EXECUTABLE}"
+echo "[INFO] TMPDIR: ${TMPDIR}"
 "${PYTHON_EXECUTABLE}" -V
 nvidia-smi
 

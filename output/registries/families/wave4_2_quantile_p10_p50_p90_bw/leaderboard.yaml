@@ -6,8 +6,8 @@ selection_policy:
   second_tie_breaker: val_mae
   third_tie_breaker: trainable_parameter_count
   direction: minimize
-updated_at: '2026-07-01T11:22:24'
-entry_count: 1
+updated_at: '2026-07-14T12:24:22'
+entry_count: 3
 entry_list:
 - run_instance_id: 2026-07-01-10-36-43__te_wave4_2_quantile_p10_p50_p90_bw
   run_name: te_wave4_2_quantile_p10_p50_p90_bw
@@ -47,3 +47,83 @@ entry_list:
     third_tie_breaker: trainable_parameter_count
     direction: minimize
   selected_at: '2026-07-01T11:22:24'
+- run_instance_id: 2026-07-13-12-03-07__te_wave4_2_quantile_p10_p50_p90_bw__simplified_setpoints
+  run_name: te_wave4_2_quantile_p10_p50_p90_bw__simplified_setpoints
+  output_run_name: te_wave4_2_quantile_p10_p50_p90_bw__simplified_setpoints
+  output_artifact_kind: training_run
+  model_family: wave4_2_quantile_p10_p50_p90_bw
+  base_model_family: wave4_2_quantile_p10_p50_p90
+  model_type: curve_aware_harmonic_residual_offset_probe
+  dataset_id: simplified_dataset
+  dataset_schema: simplified_curve_v1
+  input_mode: setpoints
+  input_feature_names:
+  - angular_position_deg
+  - input_speed_rpm
+  - input_torque_nm
+  - oil_temperature_deg
+  - direction_flag
+  target_feature_names:
+  - transmission_error_deg
+  input_feature_dim: 5
+  training_variant: bw
+  direction_scope_label: backward_only
+  use_forward_direction: false
+  use_backward_direction: true
+  trainable_parameter_count: 86169
+  total_parameter_count: 86169
+  val_mae: 0.0035366343799978495
+  val_rmse: 0.0043788873590528965
+  test_mae: 0.0034111617133021355
+  test_rmse: 0.004191512707620859
+  output_directory: output\training_runs\wave4_2_quantile_p10_p50_p90\2026-07-13-12-03-07__te_wave4_2_quantile_p10_p50_p90_bw__simplified_setpoints
+  best_checkpoint_path: output\training_runs\wave4_2_quantile_p10_p50_p90\2026-07-13-12-03-07__te_wave4_2_quantile_p10_p50_p90_bw__simplified_setpoints\checkpoints\curve_aware_harmonic_residual_offset_probe-epoch=136-val_mae=0.00353663.ckpt
+  metrics_path: output\training_runs\wave4_2_quantile_p10_p50_p90\2026-07-13-12-03-07__te_wave4_2_quantile_p10_p50_p90_bw__simplified_setpoints/metrics_summary.yaml
+  report_path: output\training_runs\wave4_2_quantile_p10_p50_p90\2026-07-13-12-03-07__te_wave4_2_quantile_p10_p50_p90_bw__simplified_setpoints/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-07-14T11:05:29'
+- run_instance_id: 2026-07-14-11-58-31__te_wave4_2_quantile_p10_p50_p90_bw__simplified_setpoints
+  run_name: te_wave4_2_quantile_p10_p50_p90_bw__simplified_setpoints
+  output_run_name: te_wave4_2_quantile_p10_p50_p90_bw__simplified_setpoints
+  output_artifact_kind: training_run
+  model_family: wave4_2_quantile_p10_p50_p90_bw
+  base_model_family: wave4_2_quantile_p10_p50_p90
+  model_type: curve_aware_harmonic_residual_offset_probe
+  dataset_id: simplified_dataset
+  dataset_schema: simplified_curve_v1
+  input_mode: setpoints
+  input_feature_names:
+  - angular_position_deg
+  - input_speed_rpm
+  - input_torque_nm
+  - oil_temperature_deg
+  - direction_flag
+  target_feature_names:
+  - transmission_error_deg
+  input_feature_dim: 5
+  training_variant: bw
+  direction_scope_label: backward_only
+  use_forward_direction: false
+  use_backward_direction: true
+  trainable_parameter_count: 86169
+  total_parameter_count: 86169
+  val_mae: 0.0035510833840817213
+  val_rmse: 0.0044104871340096
+  test_mae: 0.003466474125161767
+  test_rmse: 0.004275413695722818
+  output_directory: output\training_runs\wave4_2_quantile_p10_p50_p90\2026-07-14-11-58-31__te_wave4_2_quantile_p10_p50_p90_bw__simplified_setpoints
+  best_checkpoint_path: output\training_runs\wave4_2_quantile_p10_p50_p90\2026-07-14-11-58-31__te_wave4_2_quantile_p10_p50_p90_bw__simplified_setpoints\checkpoints\curve_aware_harmonic_residual_offset_probe-epoch=087-val_mae=0.00355108.ckpt
+  metrics_path: output\training_runs\wave4_2_quantile_p10_p50_p90\2026-07-14-11-58-31__te_wave4_2_quantile_p10_p50_p90_bw__simplified_setpoints/metrics_summary.yaml
+  report_path: output\training_runs\wave4_2_quantile_p10_p50_p90\2026-07-14-11-58-31__te_wave4_2_quantile_p10_p50_p90_bw__simplified_setpoints/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-07-14T12:24:22'

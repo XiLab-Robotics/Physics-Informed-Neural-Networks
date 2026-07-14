@@ -1,0 +1,119 @@
+schema_version: 1
+config_path: /scratch1/dferrari/Physics-Informed-Neural-Networks/config/training/queue/dataset_input_mode_retraining/dataset_input_mode_retraining__wave4_2_quantile_p10_p50_p90__simplified_setpoints/running/2026-07-14-10-30-18_002_002_wave4_2_quantile_p10_p50_p90_fw.yaml
+experiment:
+  model_family: wave4_2_quantile_p10_p50_p90_fw
+  model_type: curve_aware_harmonic_residual_offset_probe
+  run_name: te_wave4_2_quantile_p10_p50_p90_fw__simplified_setpoints
+  output_run_name: te_wave4_2_quantile_p10_p50_p90_fw__simplified_setpoints
+  run_instance_id: 2026-07-14-11-30-33__te_wave4_2_quantile_p10_p50_p90_fw__simplified_setpoints
+  output_artifact_kind: training_run
+  base_model_family: wave4_2_quantile_p10_p50_p90
+  training_variant: fw
+  direction_scope_label: forward_only
+  use_forward_direction: true
+  use_backward_direction: false
+artifacts:
+  output_directory: /scratch1/dferrari/Physics-Informed-Neural-Networks/output/training_runs/wave4_2_quantile_p10_p50_p90/2026-07-14-11-30-33__te_wave4_2_quantile_p10_p50_p90_fw__simplified_setpoints
+  best_checkpoint_path: /scratch1/dferrari/Physics-Informed-Neural-Networks/output/training_runs/wave4_2_quantile_p10_p50_p90/2026-07-14-11-30-33__te_wave4_2_quantile_p10_p50_p90_fw__simplified_setpoints/checkpoints/curve_aware_harmonic_residual_offset_probe-epoch=098-val_mae=0.00349706.ckpt
+dataset_split:
+  train_curve_count: 1356
+  validation_curve_count: 388
+  test_curve_count: 194
+  dataset_name: simplified_dataset
+  dataset_schema: simplified_curve_v1
+  input_mode: setpoints
+  input_feature_name_list:
+  - angular_position_deg
+  - input_speed_rpm
+  - input_torque_nm
+  - oil_temperature_deg
+  - direction_flag
+  target_feature_name_list:
+  - transmission_error_deg
+  input_feature_dim: 5
+  target_feature_dim: 1
+dataset:
+  dataset_id: simplified_dataset
+  dataset_schema: simplified_curve_v1
+  input_mode: setpoints
+  input_feature_names:
+  - angular_position_deg
+  - input_speed_rpm
+  - input_torque_nm
+  - oil_temperature_deg
+  - direction_flag
+  target_feature_names:
+  - transmission_error_deg
+  input_feature_dim: 5
+  target_feature_dim: 1
+model_summary:
+  backbone_name: HarmonicResidualOffsetNetwork
+  trainable_parameter_count: 86169
+  frozen_parameter_count: 0
+  total_parameter_count: 86169
+runtime_config:
+  accelerator: auto
+  devices: auto
+  precision: '32'
+  benchmark: true
+  use_non_blocking_transfer: true
+normalization_statistics:
+  input_feature_mean:
+  - 179.98074340820312
+  - 497.8580017089844
+  - 896.0145263671875
+  - 30.364091873168945
+  - -4.3438788566163566e-07
+  input_feature_std:
+  - 103.92313385009766
+  - 466.8042297363281
+  - 543.8323974609375
+  - 4.080519676208496
+  - 1.0
+  target_mean:
+  - -0.01724020391702652
+  target_std:
+  - 0.0465201772749424
+validation_metrics:
+  val_loss: 0.023529155179858208
+  val_mae: 0.0034970599226653576
+  val_rmse: 0.004406849853694439
+  val_pointwise_loss: 0.023529155179858208
+  val_centered_curve_shape_loss: 0.006489429157227278
+  val_curve_offset_loss: 0.0044264583848416805
+  val_curve_amplitude_loss: 0.052019719034433365
+  val_sparse_harmonic_shape_loss: 0.00015417039685416967
+  val_interval_coverage: 0.8560727834701538
+  val_interval_width: 0.01156599260866642
+  val_quantile_crossing_rate: 0.0
+  val_structured_mae: 0.0312504768371582
+  val_structured_rmse: 0.036874108016490936
+  val_residual_offset_mean_abs: 0.030897079035639763
+test_metrics:
+  test_loss: 0.022212835028767586
+  test_mae: 0.0034961996134370565
+  test_rmse: 0.004298785235732794
+  test_pointwise_loss: 0.022212835028767586
+  test_centered_curve_shape_loss: 0.003183437744155526
+  test_curve_offset_loss: 0.00563025614246726
+  test_curve_amplitude_loss: 0.02283010445535183
+  test_sparse_harmonic_shape_loss: 6.900338485138491e-05
+  test_interval_coverage: 0.8506765365600586
+  test_interval_width: 0.011074491776525974
+  test_quantile_crossing_rate: 0.0
+  test_structured_mae: 0.03405068442225456
+  test_structured_rmse: 0.03951593115925789
+  test_residual_offset_mean_abs: 0.033721018582582474
+comparison_payload:
+  model_family: wave4_2_quantile_p10_p50_p90_fw
+  model_type: curve_aware_harmonic_residual_offset_probe
+  run_name: te_wave4_2_quantile_p10_p50_p90_fw__simplified_setpoints
+  backbone_name: HarmonicResidualOffsetNetwork
+  trainable_parameter_count: 86169
+  total_parameter_count: 86169
+  val_mae: 0.0034970599226653576
+  val_rmse: 0.004406849853694439
+  test_mae: 0.0034961996134370565
+  test_rmse: 0.004298785235732794
+  deployment_notes: ''
+  interpretability_notes: ''
