@@ -239,12 +239,109 @@ next_prepared_campaign:
     dataset_id: polished_dataset
     dataset_schema: polished_setpoint_curve_v1
     input_mode: setpoints
-next_planned_campaign:
-  status: not_started
+latest_completed_campaign:
+  status: completed
   campaign_name: dataset_input_mode_retraining__wave4_2_quantile_p10_p50_p90__polished_actual_values
   dataset_id: polished_dataset
   input_mode: actual_values
   dataset_schema: polished_point_v1
+  model_family: wave4_2_quantile_p10_p50_p90
+  expected_run_count: 3
+  completed_run_count: 3
+  failed_run_count: 0
+  throughput_profile:
+    curve_batch_size: 16
+    num_workers: 8
+    pin_memory: true
+    slurm_cpus_per_task: 8
+    slurm_memory: 40G
+    gpu_request: 1g.20gb:1
+    observed_throughput: Single sbatch job 135826 completed global, forward, and backward sequentially
+      in 02:09:14 with batch 16.
+    resource_note: The accepted run used repository-local TMPDIR under output/tmp/slurm_135826 and completed
+      without /tmp, multiprocessing spool, or quota-write errors after pre-run quota cleanup.
+    slurm_cleanup_note: Slurm stdout/stderr files for terminal job 135826 were inspected after completion
+      and removed immediately per operator instruction; output/slurm was verified to contain only .gitkeep
+      after cleanup.
+    next_campaign_recommendation: Continue with Wave 4.2 Gaussian NLL simplified_setpoints at batch 16
+      and the same sequential surface resource profile.
+  sbatch_submission:
+    slurm_job_id: '135826'
+    state: COMPLETED
+    exit_code: 0:0
+    elapsed: 02:09:14
+    batch_max_rss: 17305376K
+    allocated_tres: billing=40,cpu=8,gres/gpu=1,mem=40G,node=1
+    python_executable: /unimore_home/dferrari/.conda/envs/pinns_env/bin/python
+    gpu_request: 1g.20gb:1
+    node: gnode01
+  campaign_manifest_path: output/training_campaigns/2026-07-14-15-32-15_dataset_input_mode_retraining__wave4_2_quantile_p10_p50_p90__polished_ac/campaign_manifest.yaml
+  campaign_output_directory: output/training_campaigns/2026-07-14-15-32-15_dataset_input_mode_retraining__wave4_2_quantile_p10_p50_p90__polished_ac
+  campaign_best_run_path: output/training_campaigns/2026-07-14-15-32-15_dataset_input_mode_retraining__wave4_2_quantile_p10_p50_p90__polished_ac/campaign_best_run.yaml
+  campaign_leaderboard_path: output/training_campaigns/2026-07-14-15-32-15_dataset_input_mode_retraining__wave4_2_quantile_p10_p50_p90__polished_ac/campaign_leaderboard.yaml
+  best_run:
+    surface: forward
+    run_name: te_wave4_2_quantile_p10_p50_p90_fw__polished_actual_values
+    run_instance_id: 2026-07-14-16-15-03__te_wave4_2_quantile_p10_p50_p90_fw__polished_actual_values
+    test_mae: 0.001918375724926591
+    test_rmse: 0.0030071476940065622
+    val_mae: 0.0017675517592579126
+    best_checkpoint_path: output/training_runs/wave4_2_quantile_p10_p50_p90/2026-07-14-16-15-03__te_wave4_2_quantile_p10_p50_p90_fw__polished_actual_values/checkpoints/curve_aware_harmonic_residual_offset_probe-epoch=250-val_mae=0.00176755.ckpt
+  surface_run_list:
+  - surface: global
+    run_name: te_wave4_2_quantile_p10_p50_p90_global__polished_actual_values
+    run_instance_id: 2026-07-14-15-32-15__te_wave4_2_quantile_p10_p50_p90_global__polished_actual_values
+    test_mae: 0.0019342511659488082
+    test_rmse: 0.00302881165407598
+    val_mae: 0.0017739232862368226
+    best_checkpoint_path: output/training_runs/wave4_2_quantile_p10_p50_p90/2026-07-14-15-32-15__te_wave4_2_quantile_p10_p50_p90_global__polished_actual_values/checkpoints/curve_aware_harmonic_residual_offset_probe-epoch=180-val_mae=0.00177392.ckpt
+    onnx_model_path: models/polished_dataset/actual_values/exported/wave4_2_quantile_p10_p50_p90/global/2026-07-14-15-32-15__te_wave4_2_quantile_p10_p50_p90_global__polished_actual_values/onnx/model.onnx
+    python_model_path: models/polished_dataset/actual_values/exported/wave4_2_quantile_p10_p50_p90/global/2026-07-14-15-32-15__te_wave4_2_quantile_p10_p50_p90_global__polished_actual_values/python/curve_aware_harmonic_residual_offset_probe-epoch=180-val_mae=0.00177392.ckpt
+  - surface: forward
+    run_name: te_wave4_2_quantile_p10_p50_p90_fw__polished_actual_values
+    run_instance_id: 2026-07-14-16-15-03__te_wave4_2_quantile_p10_p50_p90_fw__polished_actual_values
+    test_mae: 0.001918375724926591
+    test_rmse: 0.0030071476940065622
+    val_mae: 0.0017675517592579126
+    best_checkpoint_path: output/training_runs/wave4_2_quantile_p10_p50_p90/2026-07-14-16-15-03__te_wave4_2_quantile_p10_p50_p90_fw__polished_actual_values/checkpoints/curve_aware_harmonic_residual_offset_probe-epoch=250-val_mae=0.00176755.ckpt
+    onnx_model_path: models/polished_dataset/actual_values/exported/wave4_2_quantile_p10_p50_p90/forward/2026-07-14-16-15-03__te_wave4_2_quantile_p10_p50_p90_fw__polished_actual_values/onnx/model.onnx
+    python_model_path: models/polished_dataset/actual_values/exported/wave4_2_quantile_p10_p50_p90/forward/2026-07-14-16-15-03__te_wave4_2_quantile_p10_p50_p90_fw__polished_actual_values/python/curve_aware_harmonic_residual_offset_probe-epoch=250-val_mae=0.00176755.ckpt
+  - surface: backward
+    run_name: te_wave4_2_quantile_p10_p50_p90_bw__polished_actual_values
+    run_instance_id: 2026-07-14-17-11-13__te_wave4_2_quantile_p10_p50_p90_bw__polished_actual_values
+    test_mae: 0.0019523792434483767
+    test_rmse: 0.0030742862727493048
+    val_mae: 0.0017881819512695074
+    best_checkpoint_path: output/training_runs/wave4_2_quantile_p10_p50_p90/2026-07-14-17-11-13__te_wave4_2_quantile_p10_p50_p90_bw__polished_actual_values/checkpoints/curve_aware_harmonic_residual_offset_probe-epoch=123-val_mae=0.00178818.ckpt
+    onnx_model_path: models/polished_dataset/actual_values/exported/wave4_2_quantile_p10_p50_p90/backward/2026-07-14-17-11-13__te_wave4_2_quantile_p10_p50_p90_bw__polished_actual_values/onnx/model.onnx
+    python_model_path: models/polished_dataset/actual_values/exported/wave4_2_quantile_p10_p50_p90/backward/2026-07-14-17-11-13__te_wave4_2_quantile_p10_p50_p90_bw__polished_actual_values/python/curve_aware_harmonic_residual_offset_probe-epoch=123-val_mae=0.00178818.ckpt
+  export:
+    status: completed
+    export_root: models/polished_dataset/actual_values/exported
+    export_inventory_path: models/polished_dataset/actual_values/exported/model_development_export_inventory.yaml
+    exported_entry_count: 3
+    onnx_export_status_counts:
+      exported: 3
+    family_export_directory: models/polished_dataset/actual_values/exported/wave4_2_quantile_p10_p50_p90
+    python_archive_storage_note: Python archive entries are symlinks to canonical best checkpoints in
+      output/training_runs. ONNX files are real exported files.
+  input_contract_verification:
+    input_feature_dim: 5
+    input_feature_names:
+    - angular_position_deg
+    - input_speed_rpm
+    - input_torque_nm
+    - oil_temperature_deg
+    - direction_flag
+    dataset_id: polished_dataset
+    dataset_schema: polished_point_v1
+    input_mode: actual_values
+next_planned_campaign:
+  status: not_started
+  campaign_name: dataset_input_mode_retraining__wave4_2_gaussian_nll__simplified_setpoints
+  dataset_id: simplified_dataset
+  input_mode: setpoints
+  dataset_schema: simplified_curve_v1
   expected_run_count: 3
   planned_surface_list:
   - global

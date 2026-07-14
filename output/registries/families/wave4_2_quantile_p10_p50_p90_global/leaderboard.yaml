@@ -6,8 +6,8 @@ selection_policy:
   second_tie_breaker: val_mae
   third_tie_breaker: trainable_parameter_count
   direction: minimize
-updated_at: '2026-07-14T13:15:27'
-entry_count: 3
+updated_at: '2026-07-14T16:15:03'
+entry_count: 4
 entry_list:
 - run_instance_id: 2026-07-01-08-37-59__te_wave4_2_quantile_p10_p50_p90_global
   run_name: te_wave4_2_quantile_p10_p50_p90_global
@@ -47,6 +47,46 @@ entry_list:
     third_tie_breaker: trainable_parameter_count
     direction: minimize
   selected_at: '2026-07-01T09:37:13'
+- run_instance_id: 2026-07-14-15-32-15__te_wave4_2_quantile_p10_p50_p90_global__polished_actual_values
+  run_name: te_wave4_2_quantile_p10_p50_p90_global__polished_actual_values
+  output_run_name: te_wave4_2_quantile_p10_p50_p90_global__polished_actual_values
+  output_artifact_kind: training_run
+  model_family: wave4_2_quantile_p10_p50_p90_global
+  base_model_family: wave4_2_quantile_p10_p50_p90
+  model_type: curve_aware_harmonic_residual_offset_probe
+  dataset_id: polished_dataset
+  dataset_schema: polished_point_v1
+  input_mode: actual_values
+  input_feature_names:
+  - angular_position_deg
+  - input_speed_rpm
+  - input_torque_nm
+  - oil_temperature_deg
+  - direction_flag
+  target_feature_names:
+  - theta_TE
+  input_feature_dim: 5
+  training_variant: global
+  direction_scope_label: bidirectional
+  use_forward_direction: true
+  use_backward_direction: true
+  trainable_parameter_count: 86169
+  total_parameter_count: 86169
+  val_mae: 0.0017739232862368226
+  val_rmse: 0.0025531260762363672
+  test_mae: 0.0019342511659488082
+  test_rmse: 0.00302881165407598
+  output_directory: output\training_runs\wave4_2_quantile_p10_p50_p90\2026-07-14-15-32-15__te_wave4_2_quantile_p10_p50_p90_global__polished_actual_values
+  best_checkpoint_path: output\training_runs\wave4_2_quantile_p10_p50_p90\2026-07-14-15-32-15__te_wave4_2_quantile_p10_p50_p90_global__polished_actual_values\checkpoints\curve_aware_harmonic_residual_offset_probe-epoch=180-val_mae=0.00177392.ckpt
+  metrics_path: output\training_runs\wave4_2_quantile_p10_p50_p90\2026-07-14-15-32-15__te_wave4_2_quantile_p10_p50_p90_global__polished_actual_values/metrics_summary.yaml
+  report_path: output\training_runs\wave4_2_quantile_p10_p50_p90\2026-07-14-15-32-15__te_wave4_2_quantile_p10_p50_p90_global__polished_actual_values/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-07-14T16:15:03'
 - run_instance_id: 2026-07-14-12-41-50__te_wave4_2_quantile_p10_p50_p90_global__polished_setpoints
   run_name: te_wave4_2_quantile_p10_p50_p90_global__polished_setpoints
   output_run_name: te_wave4_2_quantile_p10_p50_p90_global__polished_setpoints
