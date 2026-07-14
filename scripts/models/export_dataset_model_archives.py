@@ -5,6 +5,7 @@ from __future__ import annotations
 # Import Python Utilities
 import argparse
 import multiprocessing
+import os
 import pickle
 import shutil
 import sys
@@ -108,7 +109,7 @@ def format_project_relative_path(path_value: Path | str) -> str:
     if not path.is_absolute():
         return path.as_posix()
     try:
-        return path.resolve().relative_to(PROJECT_PATH).as_posix()
+        return path.absolute().relative_to(PROJECT_PATH).as_posix()
     except ValueError:
         return path.as_posix()
 
@@ -494,10 +495,8 @@ def resolve_archive_input_mode(
 
 def copy_run_provenance(output_directory: Path, destination_root: Path) -> dict[str, str]:
 
-    """Copy source-run provenance snapshots."""
+    """Reference source-run provenance without duplicating campaign artifacts."""
 
-    source_run_root = destination_root / "source_run"
-    source_run_root.mkdir(parents=True, exist_ok=True)
     source_target_map = {
         "training_config.snapshot.yaml": output_directory / COMMON_TRAINING_CONFIG_FILENAME,
         "metrics_summary.snapshot.yaml": output_directory / COMMON_METRICS_FILENAME,
@@ -512,10 +511,23 @@ def copy_run_provenance(output_directory: Path, destination_root: Path) -> dict[
     for target_name, source_path in source_target_map.items():
         if not source_path.exists():
             continue
-        target_path = source_run_root / target_name
-        shutil.copy2(source_path, target_path)
-        copied_path_map[target_name] = format_project_relative_path(target_path)
+        copied_path_map[target_name] = format_project_relative_path(source_path)
     return copied_path_map
+
+
+def link_or_copy_python_artifact(source_path: Path, destination_path: Path) -> None:
+
+    """Create a repository-local checkpoint reference without duplicating large files."""
+
+    destination_path.parent.mkdir(parents=True, exist_ok=True)
+    if destination_path.exists() or destination_path.is_symlink():
+        destination_path.unlink()
+
+    try:
+        relative_source_path = os.path.relpath(source_path, start=destination_path.parent)
+        destination_path.symlink_to(relative_source_path)
+    except OSError:
+        shutil.copy2(source_path, destination_path)
 
 
 def archive_one_run(
@@ -562,7 +574,7 @@ def archive_one_run(
     onnx_root.mkdir(parents=True, exist_ok=True)
 
     python_artifact_path = python_root / best_checkpoint_path.name
-    shutil.copy2(best_checkpoint_path, python_artifact_path)
+    link_or_copy_python_artifact(best_checkpoint_path, python_artifact_path)
 
     onnx_output_path = onnx_root / "model.onnx"
     model_type = str(metrics_dictionary["comparison_payload"]["model_type"]).strip().lower()

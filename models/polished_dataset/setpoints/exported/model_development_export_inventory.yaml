@@ -1,14 +1,89 @@
 schema_version: 1
 dataset_id: polished_dataset
 input_mode: setpoints
-entry_count: 6
+entry_count: 9
 surface_counts:
-  global: 2
-  forward: 2
-  backward: 2
+  global: 3
+  forward: 3
+  backward: 3
 onnx_export_status_counts:
-  exported: 6
+  exported: 9
 entries:
+- schema_version: 1
+  dataset_id: polished_dataset
+  dataset_schema: polished_setpoint_curve_v1
+  input_mode: setpoints
+  model_family: wave4_1_log_cosh_robust_loss
+  model_type: curve_aware_harmonic_residual_offset_probe
+  surface: global
+  run_name: te_wave4_1_log_cosh_robust_loss_global__polished_setpoints
+  run_instance_id: 2026-07-13-05-22-10__te_wave4_1_log_cosh_robust_loss_global__polished_setpoints
+  source_output_directory: output/training_runs/wave4_1_log_cosh_robust_loss/2026-07-13-05-22-10__te_wave4_1_log_cosh_robust_loss_global__polished_setpoints
+  source_best_checkpoint_path: output/training_runs/wave4_1_log_cosh_robust_loss/2026-07-13-05-22-10__te_wave4_1_log_cosh_robust_loss_global__polished_setpoints/checkpoints/curve_aware_harmonic_residual_offset_probe-epoch=155-val_mae=0.00191211.ckpt
+  python_model_path: models/polished_dataset/setpoints/exported/wave4_1_log_cosh_robust_loss/global/2026-07-13-05-22-10__te_wave4_1_log_cosh_robust_loss_global__polished_setpoints/python/curve_aware_harmonic_residual_offset_probe-epoch=155-val_mae=0.00191211.ckpt
+  onnx_model_path: models/polished_dataset/setpoints/exported/wave4_1_log_cosh_robust_loss/global/2026-07-13-05-22-10__te_wave4_1_log_cosh_robust_loss_global__polished_setpoints/onnx/model.onnx
+  onnx_export_status: exported
+  onnx_export_error: ''
+  source_run_snapshot_path_map:
+    training_config.snapshot.yaml: models/polished_dataset/setpoints/exported/wave4_1_log_cosh_robust_loss/global/2026-07-13-05-22-10__te_wave4_1_log_cosh_robust_loss_global__polished_setpoints/source_run/training_config.snapshot.yaml
+    metrics_summary.snapshot.yaml: models/polished_dataset/setpoints/exported/wave4_1_log_cosh_robust_loss/global/2026-07-13-05-22-10__te_wave4_1_log_cosh_robust_loss_global__polished_setpoints/source_run/metrics_summary.snapshot.yaml
+    run_metadata.snapshot.yaml: models/polished_dataset/setpoints/exported/wave4_1_log_cosh_robust_loss/global/2026-07-13-05-22-10__te_wave4_1_log_cosh_robust_loss_global__polished_setpoints/source_run/run_metadata.snapshot.yaml
+    training_test_report.snapshot.md: models/polished_dataset/setpoints/exported/wave4_1_log_cosh_robust_loss/global/2026-07-13-05-22-10__te_wave4_1_log_cosh_robust_loss_global__polished_setpoints/source_run/training_test_report.snapshot.md
+    best_checkpoint_path.snapshot.txt: models/polished_dataset/setpoints/exported/wave4_1_log_cosh_robust_loss/global/2026-07-13-05-22-10__te_wave4_1_log_cosh_robust_loss_global__polished_setpoints/source_run/best_checkpoint_path.snapshot.txt
+  metrics:
+    val_mae: 0.0019121065270155668
+    test_mae: 0.002200285205617547
+    test_rmse: 0.003572094487026334
+- schema_version: 1
+  dataset_id: polished_dataset
+  dataset_schema: polished_setpoint_curve_v1
+  input_mode: setpoints
+  model_family: wave4_1_log_cosh_robust_loss
+  model_type: curve_aware_harmonic_residual_offset_probe
+  surface: forward
+  run_name: te_wave4_1_log_cosh_robust_loss_fw__polished_setpoints
+  run_instance_id: 2026-07-13-07-40-29__te_wave4_1_log_cosh_robust_loss_fw__polished_setpoints
+  source_output_directory: output/training_runs/wave4_1_log_cosh_robust_loss/2026-07-13-07-40-29__te_wave4_1_log_cosh_robust_loss_fw__polished_setpoints
+  source_best_checkpoint_path: output/training_runs/wave4_1_log_cosh_robust_loss/2026-07-13-07-40-29__te_wave4_1_log_cosh_robust_loss_fw__polished_setpoints/checkpoints/curve_aware_harmonic_residual_offset_probe-epoch=089-val_mae=0.00196005.ckpt
+  python_model_path: models/polished_dataset/setpoints/exported/wave4_1_log_cosh_robust_loss/forward/2026-07-13-07-40-29__te_wave4_1_log_cosh_robust_loss_fw__polished_setpoints/python/curve_aware_harmonic_residual_offset_probe-epoch=089-val_mae=0.00196005.ckpt
+  onnx_model_path: models/polished_dataset/setpoints/exported/wave4_1_log_cosh_robust_loss/forward/2026-07-13-07-40-29__te_wave4_1_log_cosh_robust_loss_fw__polished_setpoints/onnx/model.onnx
+  onnx_export_status: exported
+  onnx_export_error: ''
+  source_run_snapshot_path_map:
+    training_config.snapshot.yaml: models/polished_dataset/setpoints/exported/wave4_1_log_cosh_robust_loss/forward/2026-07-13-07-40-29__te_wave4_1_log_cosh_robust_loss_fw__polished_setpoints/source_run/training_config.snapshot.yaml
+    metrics_summary.snapshot.yaml: models/polished_dataset/setpoints/exported/wave4_1_log_cosh_robust_loss/forward/2026-07-13-07-40-29__te_wave4_1_log_cosh_robust_loss_fw__polished_setpoints/source_run/metrics_summary.snapshot.yaml
+    run_metadata.snapshot.yaml: models/polished_dataset/setpoints/exported/wave4_1_log_cosh_robust_loss/forward/2026-07-13-07-40-29__te_wave4_1_log_cosh_robust_loss_fw__polished_setpoints/source_run/run_metadata.snapshot.yaml
+    training_test_report.snapshot.md: models/polished_dataset/setpoints/exported/wave4_1_log_cosh_robust_loss/forward/2026-07-13-07-40-29__te_wave4_1_log_cosh_robust_loss_fw__polished_setpoints/source_run/training_test_report.snapshot.md
+    best_checkpoint_path.snapshot.txt: models/polished_dataset/setpoints/exported/wave4_1_log_cosh_robust_loss/forward/2026-07-13-07-40-29__te_wave4_1_log_cosh_robust_loss_fw__polished_setpoints/source_run/best_checkpoint_path.snapshot.txt
+  metrics:
+    val_mae: 0.0019600524101406336
+    test_mae: 0.002288580872118473
+    test_rmse: 0.003640884766355157
+- schema_version: 1
+  dataset_id: polished_dataset
+  dataset_schema: polished_setpoint_curve_v1
+  input_mode: setpoints
+  model_family: wave4_1_log_cosh_robust_loss
+  model_type: curve_aware_harmonic_residual_offset_probe
+  surface: backward
+  run_name: te_wave4_1_log_cosh_robust_loss_bw__polished_setpoints
+  run_instance_id: 2026-07-13-08-11-55__te_wave4_1_log_cosh_robust_loss_bw__polished_setpoints
+  source_output_directory: output/training_runs/wave4_1_log_cosh_robust_loss/2026-07-13-08-11-55__te_wave4_1_log_cosh_robust_loss_bw__polished_setpoints
+  source_best_checkpoint_path: output/training_runs/wave4_1_log_cosh_robust_loss/2026-07-13-08-11-55__te_wave4_1_log_cosh_robust_loss_bw__polished_setpoints/checkpoints/curve_aware_harmonic_residual_offset_probe-epoch=044-val_mae=0.00196637.ckpt
+  python_model_path: models/polished_dataset/setpoints/exported/wave4_1_log_cosh_robust_loss/backward/2026-07-13-08-11-55__te_wave4_1_log_cosh_robust_loss_bw__polished_setpoints/python/curve_aware_harmonic_residual_offset_probe-epoch=044-val_mae=0.00196637.ckpt
+  onnx_model_path: models/polished_dataset/setpoints/exported/wave4_1_log_cosh_robust_loss/backward/2026-07-13-08-11-55__te_wave4_1_log_cosh_robust_loss_bw__polished_setpoints/onnx/model.onnx
+  onnx_export_status: exported
+  onnx_export_error: ''
+  source_run_snapshot_path_map:
+    training_config.snapshot.yaml: models/polished_dataset/setpoints/exported/wave4_1_log_cosh_robust_loss/backward/2026-07-13-08-11-55__te_wave4_1_log_cosh_robust_loss_bw__polished_setpoints/source_run/training_config.snapshot.yaml
+    metrics_summary.snapshot.yaml: models/polished_dataset/setpoints/exported/wave4_1_log_cosh_robust_loss/backward/2026-07-13-08-11-55__te_wave4_1_log_cosh_robust_loss_bw__polished_setpoints/source_run/metrics_summary.snapshot.yaml
+    run_metadata.snapshot.yaml: models/polished_dataset/setpoints/exported/wave4_1_log_cosh_robust_loss/backward/2026-07-13-08-11-55__te_wave4_1_log_cosh_robust_loss_bw__polished_setpoints/source_run/run_metadata.snapshot.yaml
+    training_test_report.snapshot.md: models/polished_dataset/setpoints/exported/wave4_1_log_cosh_robust_loss/backward/2026-07-13-08-11-55__te_wave4_1_log_cosh_robust_loss_bw__polished_setpoints/source_run/training_test_report.snapshot.md
+    best_checkpoint_path.snapshot.txt: models/polished_dataset/setpoints/exported/wave4_1_log_cosh_robust_loss/backward/2026-07-13-08-11-55__te_wave4_1_log_cosh_robust_loss_bw__polished_setpoints/source_run/best_checkpoint_path.snapshot.txt
+  metrics:
+    val_mae: 0.001966372597962618
+    test_mae: 0.0022896823938935995
+    test_rmse: 0.0036451024934649467
 - schema_version: 1
   dataset_id: polished_dataset
   dataset_schema: polished_setpoint_curve_v1
@@ -88,74 +163,74 @@ entries:
   dataset_id: polished_dataset
   dataset_schema: polished_setpoint_curve_v1
   input_mode: setpoints
-  model_family: wave4_1_log_cosh_robust_loss
+  model_family: wave4_2_quantile_p10_p50_p90
   model_type: curve_aware_harmonic_residual_offset_probe
   surface: global
-  run_name: te_wave4_1_log_cosh_robust_loss_global__polished_setpoints
-  run_instance_id: 2026-07-13-05-22-10__te_wave4_1_log_cosh_robust_loss_global__polished_setpoints
-  source_output_directory: output/training_runs/wave4_1_log_cosh_robust_loss/2026-07-13-05-22-10__te_wave4_1_log_cosh_robust_loss_global__polished_setpoints
-  source_best_checkpoint_path: output/training_runs/wave4_1_log_cosh_robust_loss/2026-07-13-05-22-10__te_wave4_1_log_cosh_robust_loss_global__polished_setpoints/checkpoints/curve_aware_harmonic_residual_offset_probe-epoch=155-val_mae=0.00191211.ckpt
-  python_model_path: models/polished_dataset/setpoints/exported/wave4_1_log_cosh_robust_loss/global/2026-07-13-05-22-10__te_wave4_1_log_cosh_robust_loss_global__polished_setpoints/python/curve_aware_harmonic_residual_offset_probe-epoch=155-val_mae=0.00191211.ckpt
-  onnx_model_path: models/polished_dataset/setpoints/exported/wave4_1_log_cosh_robust_loss/global/2026-07-13-05-22-10__te_wave4_1_log_cosh_robust_loss_global__polished_setpoints/onnx/model.onnx
+  run_name: te_wave4_2_quantile_p10_p50_p90_global__polished_setpoints
+  run_instance_id: 2026-07-14-12-41-50__te_wave4_2_quantile_p10_p50_p90_global__polished_setpoints
+  source_output_directory: output/training_runs/wave4_2_quantile_p10_p50_p90/2026-07-14-12-41-50__te_wave4_2_quantile_p10_p50_p90_global__polished_setpoints
+  source_best_checkpoint_path: output/training_runs/wave4_2_quantile_p10_p50_p90/2026-07-14-12-41-50__te_wave4_2_quantile_p10_p50_p90_global__polished_setpoints/checkpoints/curve_aware_harmonic_residual_offset_probe-epoch=109-val_mae=0.00179474.ckpt
+  python_model_path: models/polished_dataset/setpoints/exported/wave4_2_quantile_p10_p50_p90/global/2026-07-14-12-41-50__te_wave4_2_quantile_p10_p50_p90_global__polished_setpoints/python/curve_aware_harmonic_residual_offset_probe-epoch=109-val_mae=0.00179474.ckpt
+  onnx_model_path: models/polished_dataset/setpoints/exported/wave4_2_quantile_p10_p50_p90/global/2026-07-14-12-41-50__te_wave4_2_quantile_p10_p50_p90_global__polished_setpoints/onnx/model.onnx
   onnx_export_status: exported
   onnx_export_error: ''
   source_run_snapshot_path_map:
-    training_config.snapshot.yaml: models/polished_dataset/setpoints/exported/wave4_1_log_cosh_robust_loss/global/2026-07-13-05-22-10__te_wave4_1_log_cosh_robust_loss_global__polished_setpoints/source_run/training_config.snapshot.yaml
-    metrics_summary.snapshot.yaml: models/polished_dataset/setpoints/exported/wave4_1_log_cosh_robust_loss/global/2026-07-13-05-22-10__te_wave4_1_log_cosh_robust_loss_global__polished_setpoints/source_run/metrics_summary.snapshot.yaml
-    run_metadata.snapshot.yaml: models/polished_dataset/setpoints/exported/wave4_1_log_cosh_robust_loss/global/2026-07-13-05-22-10__te_wave4_1_log_cosh_robust_loss_global__polished_setpoints/source_run/run_metadata.snapshot.yaml
-    training_test_report.snapshot.md: models/polished_dataset/setpoints/exported/wave4_1_log_cosh_robust_loss/global/2026-07-13-05-22-10__te_wave4_1_log_cosh_robust_loss_global__polished_setpoints/source_run/training_test_report.snapshot.md
-    best_checkpoint_path.snapshot.txt: models/polished_dataset/setpoints/exported/wave4_1_log_cosh_robust_loss/global/2026-07-13-05-22-10__te_wave4_1_log_cosh_robust_loss_global__polished_setpoints/source_run/best_checkpoint_path.snapshot.txt
+    training_config.snapshot.yaml: output/training_runs/wave4_2_quantile_p10_p50_p90/2026-07-14-12-41-50__te_wave4_2_quantile_p10_p50_p90_global__polished_setpoints/training_config.yaml
+    metrics_summary.snapshot.yaml: output/training_runs/wave4_2_quantile_p10_p50_p90/2026-07-14-12-41-50__te_wave4_2_quantile_p10_p50_p90_global__polished_setpoints/metrics_summary.yaml
+    run_metadata.snapshot.yaml: output/training_runs/wave4_2_quantile_p10_p50_p90/2026-07-14-12-41-50__te_wave4_2_quantile_p10_p50_p90_global__polished_setpoints/run_metadata.yaml
+    training_test_report.snapshot.md: output/training_runs/wave4_2_quantile_p10_p50_p90/2026-07-14-12-41-50__te_wave4_2_quantile_p10_p50_p90_global__polished_setpoints/training_test_report.md
+    best_checkpoint_path.snapshot.txt: output/training_runs/wave4_2_quantile_p10_p50_p90/2026-07-14-12-41-50__te_wave4_2_quantile_p10_p50_p90_global__polished_setpoints/best_checkpoint_path.txt
   metrics:
-    val_mae: 0.0019121065270155668
-    test_mae: 0.002200285205617547
-    test_rmse: 0.003572094487026334
+    val_mae: 0.001794740674085915
+    test_mae: 0.002094960305839777
+    test_rmse: 0.0035193078219890594
 - schema_version: 1
   dataset_id: polished_dataset
   dataset_schema: polished_setpoint_curve_v1
   input_mode: setpoints
-  model_family: wave4_1_log_cosh_robust_loss
+  model_family: wave4_2_quantile_p10_p50_p90
   model_type: curve_aware_harmonic_residual_offset_probe
   surface: forward
-  run_name: te_wave4_1_log_cosh_robust_loss_fw__polished_setpoints
-  run_instance_id: 2026-07-13-07-40-29__te_wave4_1_log_cosh_robust_loss_fw__polished_setpoints
-  source_output_directory: output/training_runs/wave4_1_log_cosh_robust_loss/2026-07-13-07-40-29__te_wave4_1_log_cosh_robust_loss_fw__polished_setpoints
-  source_best_checkpoint_path: output/training_runs/wave4_1_log_cosh_robust_loss/2026-07-13-07-40-29__te_wave4_1_log_cosh_robust_loss_fw__polished_setpoints/checkpoints/curve_aware_harmonic_residual_offset_probe-epoch=089-val_mae=0.00196005.ckpt
-  python_model_path: models/polished_dataset/setpoints/exported/wave4_1_log_cosh_robust_loss/forward/2026-07-13-07-40-29__te_wave4_1_log_cosh_robust_loss_fw__polished_setpoints/python/curve_aware_harmonic_residual_offset_probe-epoch=089-val_mae=0.00196005.ckpt
-  onnx_model_path: models/polished_dataset/setpoints/exported/wave4_1_log_cosh_robust_loss/forward/2026-07-13-07-40-29__te_wave4_1_log_cosh_robust_loss_fw__polished_setpoints/onnx/model.onnx
+  run_name: te_wave4_2_quantile_p10_p50_p90_fw__polished_setpoints
+  run_instance_id: 2026-07-14-13-15-27__te_wave4_2_quantile_p10_p50_p90_fw__polished_setpoints
+  source_output_directory: output/training_runs/wave4_2_quantile_p10_p50_p90/2026-07-14-13-15-27__te_wave4_2_quantile_p10_p50_p90_fw__polished_setpoints
+  source_best_checkpoint_path: output/training_runs/wave4_2_quantile_p10_p50_p90/2026-07-14-13-15-27__te_wave4_2_quantile_p10_p50_p90_fw__polished_setpoints/checkpoints/curve_aware_harmonic_residual_offset_probe-epoch=157-val_mae=0.00180121.ckpt
+  python_model_path: models/polished_dataset/setpoints/exported/wave4_2_quantile_p10_p50_p90/forward/2026-07-14-13-15-27__te_wave4_2_quantile_p10_p50_p90_fw__polished_setpoints/python/curve_aware_harmonic_residual_offset_probe-epoch=157-val_mae=0.00180121.ckpt
+  onnx_model_path: models/polished_dataset/setpoints/exported/wave4_2_quantile_p10_p50_p90/forward/2026-07-14-13-15-27__te_wave4_2_quantile_p10_p50_p90_fw__polished_setpoints/onnx/model.onnx
   onnx_export_status: exported
   onnx_export_error: ''
   source_run_snapshot_path_map:
-    training_config.snapshot.yaml: models/polished_dataset/setpoints/exported/wave4_1_log_cosh_robust_loss/forward/2026-07-13-07-40-29__te_wave4_1_log_cosh_robust_loss_fw__polished_setpoints/source_run/training_config.snapshot.yaml
-    metrics_summary.snapshot.yaml: models/polished_dataset/setpoints/exported/wave4_1_log_cosh_robust_loss/forward/2026-07-13-07-40-29__te_wave4_1_log_cosh_robust_loss_fw__polished_setpoints/source_run/metrics_summary.snapshot.yaml
-    run_metadata.snapshot.yaml: models/polished_dataset/setpoints/exported/wave4_1_log_cosh_robust_loss/forward/2026-07-13-07-40-29__te_wave4_1_log_cosh_robust_loss_fw__polished_setpoints/source_run/run_metadata.snapshot.yaml
-    training_test_report.snapshot.md: models/polished_dataset/setpoints/exported/wave4_1_log_cosh_robust_loss/forward/2026-07-13-07-40-29__te_wave4_1_log_cosh_robust_loss_fw__polished_setpoints/source_run/training_test_report.snapshot.md
-    best_checkpoint_path.snapshot.txt: models/polished_dataset/setpoints/exported/wave4_1_log_cosh_robust_loss/forward/2026-07-13-07-40-29__te_wave4_1_log_cosh_robust_loss_fw__polished_setpoints/source_run/best_checkpoint_path.snapshot.txt
+    training_config.snapshot.yaml: output/training_runs/wave4_2_quantile_p10_p50_p90/2026-07-14-13-15-27__te_wave4_2_quantile_p10_p50_p90_fw__polished_setpoints/training_config.yaml
+    metrics_summary.snapshot.yaml: output/training_runs/wave4_2_quantile_p10_p50_p90/2026-07-14-13-15-27__te_wave4_2_quantile_p10_p50_p90_fw__polished_setpoints/metrics_summary.yaml
+    run_metadata.snapshot.yaml: output/training_runs/wave4_2_quantile_p10_p50_p90/2026-07-14-13-15-27__te_wave4_2_quantile_p10_p50_p90_fw__polished_setpoints/run_metadata.yaml
+    training_test_report.snapshot.md: output/training_runs/wave4_2_quantile_p10_p50_p90/2026-07-14-13-15-27__te_wave4_2_quantile_p10_p50_p90_fw__polished_setpoints/training_test_report.md
+    best_checkpoint_path.snapshot.txt: output/training_runs/wave4_2_quantile_p10_p50_p90/2026-07-14-13-15-27__te_wave4_2_quantile_p10_p50_p90_fw__polished_setpoints/best_checkpoint_path.txt
   metrics:
-    val_mae: 0.0019600524101406336
-    test_mae: 0.002288580872118473
-    test_rmse: 0.003640884766355157
+    val_mae: 0.0018012119689956307
+    test_mae: 0.0021410200279206038
+    test_rmse: 0.003552174661308527
 - schema_version: 1
   dataset_id: polished_dataset
   dataset_schema: polished_setpoint_curve_v1
   input_mode: setpoints
-  model_family: wave4_1_log_cosh_robust_loss
+  model_family: wave4_2_quantile_p10_p50_p90
   model_type: curve_aware_harmonic_residual_offset_probe
   surface: backward
-  run_name: te_wave4_1_log_cosh_robust_loss_bw__polished_setpoints
-  run_instance_id: 2026-07-13-08-11-55__te_wave4_1_log_cosh_robust_loss_bw__polished_setpoints
-  source_output_directory: output/training_runs/wave4_1_log_cosh_robust_loss/2026-07-13-08-11-55__te_wave4_1_log_cosh_robust_loss_bw__polished_setpoints
-  source_best_checkpoint_path: output/training_runs/wave4_1_log_cosh_robust_loss/2026-07-13-08-11-55__te_wave4_1_log_cosh_robust_loss_bw__polished_setpoints/checkpoints/curve_aware_harmonic_residual_offset_probe-epoch=044-val_mae=0.00196637.ckpt
-  python_model_path: models/polished_dataset/setpoints/exported/wave4_1_log_cosh_robust_loss/backward/2026-07-13-08-11-55__te_wave4_1_log_cosh_robust_loss_bw__polished_setpoints/python/curve_aware_harmonic_residual_offset_probe-epoch=044-val_mae=0.00196637.ckpt
-  onnx_model_path: models/polished_dataset/setpoints/exported/wave4_1_log_cosh_robust_loss/backward/2026-07-13-08-11-55__te_wave4_1_log_cosh_robust_loss_bw__polished_setpoints/onnx/model.onnx
+  run_name: te_wave4_2_quantile_p10_p50_p90_bw__polished_setpoints
+  run_instance_id: 2026-07-14-13-54-54__te_wave4_2_quantile_p10_p50_p90_bw__polished_setpoints
+  source_output_directory: output/training_runs/wave4_2_quantile_p10_p50_p90/2026-07-14-13-54-54__te_wave4_2_quantile_p10_p50_p90_bw__polished_setpoints
+  source_best_checkpoint_path: output/training_runs/wave4_2_quantile_p10_p50_p90/2026-07-14-13-54-54__te_wave4_2_quantile_p10_p50_p90_bw__polished_setpoints/checkpoints/curve_aware_harmonic_residual_offset_probe-epoch=063-val_mae=0.00181729.ckpt
+  python_model_path: models/polished_dataset/setpoints/exported/wave4_2_quantile_p10_p50_p90/backward/2026-07-14-13-54-54__te_wave4_2_quantile_p10_p50_p90_bw__polished_setpoints/python/curve_aware_harmonic_residual_offset_probe-epoch=063-val_mae=0.00181729.ckpt
+  onnx_model_path: models/polished_dataset/setpoints/exported/wave4_2_quantile_p10_p50_p90/backward/2026-07-14-13-54-54__te_wave4_2_quantile_p10_p50_p90_bw__polished_setpoints/onnx/model.onnx
   onnx_export_status: exported
   onnx_export_error: ''
   source_run_snapshot_path_map:
-    training_config.snapshot.yaml: models/polished_dataset/setpoints/exported/wave4_1_log_cosh_robust_loss/backward/2026-07-13-08-11-55__te_wave4_1_log_cosh_robust_loss_bw__polished_setpoints/source_run/training_config.snapshot.yaml
-    metrics_summary.snapshot.yaml: models/polished_dataset/setpoints/exported/wave4_1_log_cosh_robust_loss/backward/2026-07-13-08-11-55__te_wave4_1_log_cosh_robust_loss_bw__polished_setpoints/source_run/metrics_summary.snapshot.yaml
-    run_metadata.snapshot.yaml: models/polished_dataset/setpoints/exported/wave4_1_log_cosh_robust_loss/backward/2026-07-13-08-11-55__te_wave4_1_log_cosh_robust_loss_bw__polished_setpoints/source_run/run_metadata.snapshot.yaml
-    training_test_report.snapshot.md: models/polished_dataset/setpoints/exported/wave4_1_log_cosh_robust_loss/backward/2026-07-13-08-11-55__te_wave4_1_log_cosh_robust_loss_bw__polished_setpoints/source_run/training_test_report.snapshot.md
-    best_checkpoint_path.snapshot.txt: models/polished_dataset/setpoints/exported/wave4_1_log_cosh_robust_loss/backward/2026-07-13-08-11-55__te_wave4_1_log_cosh_robust_loss_bw__polished_setpoints/source_run/best_checkpoint_path.snapshot.txt
+    training_config.snapshot.yaml: output/training_runs/wave4_2_quantile_p10_p50_p90/2026-07-14-13-54-54__te_wave4_2_quantile_p10_p50_p90_bw__polished_setpoints/training_config.yaml
+    metrics_summary.snapshot.yaml: output/training_runs/wave4_2_quantile_p10_p50_p90/2026-07-14-13-54-54__te_wave4_2_quantile_p10_p50_p90_bw__polished_setpoints/metrics_summary.yaml
+    run_metadata.snapshot.yaml: output/training_runs/wave4_2_quantile_p10_p50_p90/2026-07-14-13-54-54__te_wave4_2_quantile_p10_p50_p90_bw__polished_setpoints/run_metadata.yaml
+    training_test_report.snapshot.md: output/training_runs/wave4_2_quantile_p10_p50_p90/2026-07-14-13-54-54__te_wave4_2_quantile_p10_p50_p90_bw__polished_setpoints/training_test_report.md
+    best_checkpoint_path.snapshot.txt: output/training_runs/wave4_2_quantile_p10_p50_p90/2026-07-14-13-54-54__te_wave4_2_quantile_p10_p50_p90_bw__polished_setpoints/best_checkpoint_path.txt
   metrics:
-    val_mae: 0.001966372597962618
-    test_mae: 0.0022896823938935995
-    test_rmse: 0.0036451024934649467
+    val_mae: 0.0018172860145568848
+    test_mae: 0.0021327317226678133
+    test_rmse: 0.003541745711117983
