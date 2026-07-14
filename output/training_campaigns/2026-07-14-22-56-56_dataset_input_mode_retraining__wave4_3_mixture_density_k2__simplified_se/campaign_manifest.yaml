@@ -1,0 +1,69 @@
+campaign_name: dataset_input_mode_retraining__wave4_3_mixture_density_k2__simplified_setpoints
+generated_at: '2026-07-15T01:20:08'
+queue_root: config/training/queue/dataset_input_mode_retraining/dataset_input_mode_retraining__wave4_3_mixture_density_k2__simplified_setpoints
+campaign_output_directory: output/training_campaigns/2026-07-14-22-56-56_dataset_input_mode_retraining__wave4_3_mixture_density_k2__simplified_se
+planning_report_path: doc/reports/campaign_plans/cross_wave/input_modes/2026-07-07-01-46-06_dataset_input_mode_retraining_campaign_plan_report.md
+run_list:
+- original_queue_config_path: config/training/queue/dataset_input_mode_retraining/dataset_input_mode_retraining__wave4_3_mixture_density_k2__simplified_setpoints/pending/2026-07-14-22-56-56_001_001_wave4_3_mixture_density_k2_global.yaml
+  final_queue_config_path: config/training/queue/dataset_input_mode_retraining/dataset_input_mode_retraining__wave4_3_mixture_density_k2__simplified_setpoints/completed/2026-07-14-22-56-56_001_001_wave4_3_mixture_density_k2_global.yaml
+  source_config_path: config/training/dataset_input_mode_retraining/campaigns/dataset_input_mode_retraining__wave4_3_mixture_density_k2__simplified_setpoints/queue/001_wave4_3_mixture_density_k2_global.yaml
+  run_name: te_wave4_3_mixture_density_k2_global__simplified_setpoints
+  run_instance_id: 2026-07-14-22-56-56__te_wave4_3_mixture_density_k2_global__simplified_setpoints
+  model_type: curve_aware_harmonic_residual_offset_probe
+  queue_status: completed
+  start_time: '2026-07-14T22:56:56'
+  end_time: '2026-07-14T23:46:20'
+  duration_seconds: 2964.698
+  process_return_code: 0
+  output_directory: output/training_runs/wave4_3_mixture_density_k2/2026-07-14-22-56-56__te_wave4_3_mixture_density_k2_global__simplified_setpoints
+  config_snapshot_path: output/training_runs/wave4_3_mixture_density_k2/2026-07-14-22-56-56__te_wave4_3_mixture_density_k2_global__simplified_setpoints/training_config.yaml
+  best_checkpoint_reference_path: output/training_runs/wave4_3_mixture_density_k2/2026-07-14-22-56-56__te_wave4_3_mixture_density_k2_global__simplified_setpoints/best_checkpoint_path.txt
+  best_checkpoint_path: /scratch1/dferrari/Physics-Informed-Neural-Networks/output/training_runs/wave4_3_mixture_density_k2/2026-07-14-22-56-56__te_wave4_3_mixture_density_k2_global__simplified_setpoints/checkpoints/curve_aware_harmonic_residual_offset_probe-epoch=237-val_mae=0.00346790.ckpt
+  metrics_path: output/training_runs/wave4_3_mixture_density_k2/2026-07-14-22-56-56__te_wave4_3_mixture_density_k2_global__simplified_setpoints/metrics_summary.yaml
+  training_report_path: output/training_runs/wave4_3_mixture_density_k2/2026-07-14-22-56-56__te_wave4_3_mixture_density_k2_global__simplified_setpoints/training_test_report.md
+  log_path: output/training_campaigns/2026-07-14-22-56-56_dataset_input_mode_retraining__wave4_3_mixture_density_k2__simplified_se/logs/001_te_wave4_3_mixture_density_k2_global__simplified.log
+  planning_report_path: doc/reports/campaign_plans/cross_wave/input_modes/2026-07-07-01-46-06_dataset_input_mode_retraining_campaign_plan_report.md
+  campaign_name: dataset_input_mode_retraining__wave4_3_mixture_density_k2__simplified_setpoints
+  error_message: null
+- original_queue_config_path: config/training/queue/dataset_input_mode_retraining/dataset_input_mode_retraining__wave4_3_mixture_density_k2__simplified_setpoints/pending/2026-07-14-22-56-56_002_002_wave4_3_mixture_density_k2_fw.yaml
+  final_queue_config_path: config/training/queue/dataset_input_mode_retraining/dataset_input_mode_retraining__wave4_3_mixture_density_k2__simplified_setpoints/completed/2026-07-14-22-56-56_002_002_wave4_3_mixture_density_k2_fw.yaml
+  source_config_path: config/training/dataset_input_mode_retraining/campaigns/dataset_input_mode_retraining__wave4_3_mixture_density_k2__simplified_setpoints/queue/002_wave4_3_mixture_density_k2_fw.yaml
+  run_name: te_wave4_3_mixture_density_k2_fw__simplified_setpoints
+  run_instance_id: 2026-07-14-23-46-20__te_wave4_3_mixture_density_k2_fw__simplified_setpoints
+  model_type: curve_aware_harmonic_residual_offset_probe
+  queue_status: completed
+  start_time: '2026-07-14T23:46:20'
+  end_time: '2026-07-15T00:37:24'
+  duration_seconds: 3063.39
+  process_return_code: 0
+  output_directory: output/training_runs/wave4_3_mixture_density_k2/2026-07-14-23-46-20__te_wave4_3_mixture_density_k2_fw__simplified_setpoints
+  config_snapshot_path: output/training_runs/wave4_3_mixture_density_k2/2026-07-14-23-46-20__te_wave4_3_mixture_density_k2_fw__simplified_setpoints/training_config.yaml
+  best_checkpoint_reference_path: output/training_runs/wave4_3_mixture_density_k2/2026-07-14-23-46-20__te_wave4_3_mixture_density_k2_fw__simplified_setpoints/best_checkpoint_path.txt
+  best_checkpoint_path: /scratch1/dferrari/Physics-Informed-Neural-Networks/output/training_runs/wave4_3_mixture_density_k2/2026-07-14-23-46-20__te_wave4_3_mixture_density_k2_fw__simplified_setpoints/checkpoints/curve_aware_harmonic_residual_offset_probe-epoch=258-val_mae=0.00346706.ckpt
+  metrics_path: output/training_runs/wave4_3_mixture_density_k2/2026-07-14-23-46-20__te_wave4_3_mixture_density_k2_fw__simplified_setpoints/metrics_summary.yaml
+  training_report_path: output/training_runs/wave4_3_mixture_density_k2/2026-07-14-23-46-20__te_wave4_3_mixture_density_k2_fw__simplified_setpoints/training_test_report.md
+  log_path: output/training_campaigns/2026-07-14-22-56-56_dataset_input_mode_retraining__wave4_3_mixture_density_k2__simplified_se/logs/002_te_wave4_3_mixture_density_k2_fw__simplified_set.log
+  planning_report_path: doc/reports/campaign_plans/cross_wave/input_modes/2026-07-07-01-46-06_dataset_input_mode_retraining_campaign_plan_report.md
+  campaign_name: dataset_input_mode_retraining__wave4_3_mixture_density_k2__simplified_setpoints
+  error_message: null
+- original_queue_config_path: config/training/queue/dataset_input_mode_retraining/dataset_input_mode_retraining__wave4_3_mixture_density_k2__simplified_setpoints/pending/2026-07-14-22-56-56_003_003_wave4_3_mixture_density_k2_bw.yaml
+  final_queue_config_path: config/training/queue/dataset_input_mode_retraining/dataset_input_mode_retraining__wave4_3_mixture_density_k2__simplified_setpoints/completed/2026-07-14-22-56-56_003_003_wave4_3_mixture_density_k2_bw.yaml
+  source_config_path: config/training/dataset_input_mode_retraining/campaigns/dataset_input_mode_retraining__wave4_3_mixture_density_k2__simplified_setpoints/queue/003_wave4_3_mixture_density_k2_bw.yaml
+  run_name: te_wave4_3_mixture_density_k2_bw__simplified_setpoints
+  run_instance_id: 2026-07-15-00-37-24__te_wave4_3_mixture_density_k2_bw__simplified_setpoints
+  model_type: curve_aware_harmonic_residual_offset_probe
+  queue_status: completed
+  start_time: '2026-07-15T00:37:24'
+  end_time: '2026-07-15T01:20:08'
+  duration_seconds: 2564.301
+  process_return_code: 0
+  output_directory: output/training_runs/wave4_3_mixture_density_k2/2026-07-15-00-37-24__te_wave4_3_mixture_density_k2_bw__simplified_setpoints
+  config_snapshot_path: output/training_runs/wave4_3_mixture_density_k2/2026-07-15-00-37-24__te_wave4_3_mixture_density_k2_bw__simplified_setpoints/training_config.yaml
+  best_checkpoint_reference_path: output/training_runs/wave4_3_mixture_density_k2/2026-07-15-00-37-24__te_wave4_3_mixture_density_k2_bw__simplified_setpoints/best_checkpoint_path.txt
+  best_checkpoint_path: /scratch1/dferrari/Physics-Informed-Neural-Networks/output/training_runs/wave4_3_mixture_density_k2/2026-07-15-00-37-24__te_wave4_3_mixture_density_k2_bw__simplified_setpoints/checkpoints/curve_aware_harmonic_residual_offset_probe-epoch=185-val_mae=0.00360751.ckpt
+  metrics_path: output/training_runs/wave4_3_mixture_density_k2/2026-07-15-00-37-24__te_wave4_3_mixture_density_k2_bw__simplified_setpoints/metrics_summary.yaml
+  training_report_path: output/training_runs/wave4_3_mixture_density_k2/2026-07-15-00-37-24__te_wave4_3_mixture_density_k2_bw__simplified_setpoints/training_test_report.md
+  log_path: output/training_campaigns/2026-07-14-22-56-56_dataset_input_mode_retraining__wave4_3_mixture_density_k2__simplified_se/logs/003_te_wave4_3_mixture_density_k2_bw__simplified_set.log
+  planning_report_path: doc/reports/campaign_plans/cross_wave/input_modes/2026-07-07-01-46-06_dataset_input_mode_retraining_campaign_plan_report.md
+  campaign_name: dataset_input_mode_retraining__wave4_3_mixture_density_k2__simplified_setpoints
+  error_message: null

@@ -6,8 +6,8 @@ selection_policy:
   second_tie_breaker: val_mae
   third_tie_breaker: trainable_parameter_count
   direction: minimize
-updated_at: '2026-07-01T15:51:08'
-entry_count: 1
+updated_at: '2026-07-15T00:37:24'
+entry_count: 2
 entry_list:
 - run_instance_id: 2026-07-01-14-38-06__te_wave4_3_mixture_density_k2_fw
   run_name: te_wave4_3_mixture_density_k2_fw
@@ -47,3 +47,43 @@ entry_list:
     third_tie_breaker: trainable_parameter_count
     direction: minimize
   selected_at: '2026-07-01T15:51:08'
+- run_instance_id: 2026-07-14-23-46-20__te_wave4_3_mixture_density_k2_fw__simplified_setpoints
+  run_name: te_wave4_3_mixture_density_k2_fw__simplified_setpoints
+  output_run_name: te_wave4_3_mixture_density_k2_fw__simplified_setpoints
+  output_artifact_kind: training_run
+  model_family: wave4_3_mixture_density_k2_fw
+  base_model_family: wave4_3_mixture_density_k2
+  model_type: curve_aware_harmonic_residual_offset_probe
+  dataset_id: simplified_dataset
+  dataset_schema: simplified_curve_v1
+  input_mode: setpoints
+  input_feature_names:
+  - angular_position_deg
+  - input_speed_rpm
+  - input_torque_nm
+  - oil_temperature_deg
+  - direction_flag
+  target_feature_names:
+  - transmission_error_deg
+  input_feature_dim: 5
+  training_variant: fw
+  direction_scope_label: forward_only
+  use_forward_direction: true
+  use_backward_direction: false
+  trainable_parameter_count: 86802
+  total_parameter_count: 86802
+  val_mae: 0.0034670603927224874
+  val_rmse: 0.004380118567496538
+  test_mae: 0.0032829924020916224
+  test_rmse: 0.004146765451878309
+  output_directory: output\training_runs\wave4_3_mixture_density_k2\2026-07-14-23-46-20__te_wave4_3_mixture_density_k2_fw__simplified_setpoints
+  best_checkpoint_path: output\training_runs\wave4_3_mixture_density_k2\2026-07-14-23-46-20__te_wave4_3_mixture_density_k2_fw__simplified_setpoints\checkpoints\curve_aware_harmonic_residual_offset_probe-epoch=258-val_mae=0.00346706.ckpt
+  metrics_path: output\training_runs\wave4_3_mixture_density_k2\2026-07-14-23-46-20__te_wave4_3_mixture_density_k2_fw__simplified_setpoints/metrics_summary.yaml
+  report_path: output\training_runs\wave4_3_mixture_density_k2\2026-07-14-23-46-20__te_wave4_3_mixture_density_k2_fw__simplified_setpoints/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-07-15T00:37:24'
