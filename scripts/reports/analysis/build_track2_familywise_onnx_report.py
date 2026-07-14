@@ -440,6 +440,64 @@ def predict_curve(
     raise AssertionError(f"Unsupported ONNX input rank | shape={input_metadata.shape}")
 
 
+def select_deterministic_prediction_curve(
+    raw_prediction_curve_deg: np.ndarray,
+    target_curve_deg: np.ndarray,
+    training_config: dict[str, Any],
+) -> np.ndarray:
+
+    """Select the deterministic playback channel from multi-output predictions."""
+
+    prediction_array = np.asarray(raw_prediction_curve_deg, dtype=np.float32).reshape(-1)
+    target_array = np.asarray(target_curve_deg, dtype=np.float32).reshape(-1)
+    if prediction_array.shape == target_array.shape:
+        return prediction_array
+
+    model_configuration = training_config.get("model", {})
+    loss_configuration = training_config.get("training", {}).get("loss", {})
+    output_size = int(model_configuration.get("output_size", 1))
+    assert output_size > 1, (
+        "Prediction and target curve shapes differ without a multi-output model contract | "
+        f"{prediction_array.shape} vs {target_array.shape}"
+    )
+    assert prediction_array.size == target_array.size * output_size, (
+        "Multi-output prediction size is not compatible with the target curve | "
+        f"prediction_size={prediction_array.size} | target_size={target_array.size} | output_size={output_size}"
+    )
+
+    prediction_matrix = prediction_array.reshape(target_array.size, output_size)
+    pointwise_loss_name = str(loss_configuration.get("pointwise_loss", "")).strip().lower()
+    if pointwise_loss_name in {"gaussian_nll", "gaussian_negative_log_likelihood"}:
+        return prediction_matrix[:, 0].astype(np.float32)
+
+    if pointwise_loss_name in {"quantile_pinball", "pinball", "quantile"}:
+        deterministic_output_index = int(loss_configuration.get("deterministic_output_index", 0))
+        assert 0 <= deterministic_output_index < output_size, (
+            "Deterministic Output Index out of range | "
+            f"{deterministic_output_index} vs {output_size}"
+        )
+        return prediction_matrix[:, deterministic_output_index].astype(np.float32)
+
+    if pointwise_loss_name in {"mixture_density_nll", "mdn_nll", "mixture_gaussian_nll"}:
+        component_count = int(loss_configuration.get("mixture_component_count", output_size // 3))
+        expected_output_size = component_count * 3
+        assert output_size == expected_output_size, (
+            "MDN output size mismatch | "
+            f"{output_size} vs {expected_output_size}"
+        )
+        mixture_logit_matrix = prediction_matrix[:, 0:component_count]
+        component_mean_matrix = prediction_matrix[:, component_count:2 * component_count]
+        stabilized_logit_matrix = mixture_logit_matrix - np.max(mixture_logit_matrix, axis=1, keepdims=True)
+        mixture_weight_matrix = np.exp(stabilized_logit_matrix)
+        mixture_weight_matrix /= np.sum(mixture_weight_matrix, axis=1, keepdims=True)
+        return np.sum(mixture_weight_matrix * component_mean_matrix, axis=1).astype(np.float32)
+
+    raise AssertionError(
+        "Unsupported multi-output deterministic playback contract | "
+        f"pointwise_loss={pointwise_loss_name or '<missing>'} | output_size={output_size}"
+    )
+
+
 def build_model_input_payload(
     curve_sample: dict[str, Any],
     session: ort.InferenceSession,
@@ -539,7 +597,12 @@ def evaluate_model_entry(
             session=session,
             training_config=training_config,
         )
-        prediction_curve_deg = predict_curve(session, input_feature_matrix, training_config)
+        raw_prediction_curve_deg = predict_curve(session, input_feature_matrix, training_config)
+        prediction_curve_deg = select_deterministic_prediction_curve(
+            raw_prediction_curve_deg=raw_prediction_curve_deg,
+            target_curve_deg=target_curve_deg,
+            training_config=training_config,
+        )
         assert prediction_curve_deg.shape == target_curve_deg.shape, (
             "Prediction and target curve shapes differ | "
             f"{prediction_curve_deg.shape} vs {target_curve_deg.shape}"
