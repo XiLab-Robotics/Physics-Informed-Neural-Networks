@@ -2,7 +2,7 @@
 
 ## Executive Snapshot
 
-- Generated At: `2026-07-14T18:31:23`
+- Generated At: `2026-07-14T20:03:01`
 - Program State: active.
 - Current Completed Wave: polished-dataset RCIM, early-wave, and full-wave
 - Current Focus: the polished-dataset TE Curve Verification Pipeline refresh is
@@ -46,7 +46,7 @@
 | `wave3_3_curve_aware_pointwise_control_global` | Implemented Benchmark | `te_wave3_3_curve_aware_pointwise_control_global` | `curve_aware_harmonic_residual_offset_probe` | 0.001971 | 85,440 | `2026-07-11 13:46:39` |
 | `periodic_temporal_convolution_global` | Implemented Benchmark | `te_periodic_temporal_convolution_global__polished_actual_values` | `periodic_temporal_convolution` | 0.001999 | 158,529 | `2026-07-08 21:06:17` |
 | `wave3_3_raw_offset_curve_aware_global` | Implemented Benchmark | `te_wave3_3_raw_offset_curve_aware_global__polished_actual_values` | `curve_aware_harmonic_residual_offset_probe` | 0.002001 | 85,747 | `2026-07-12 02:24:38` |
-| `wave4_2_gaussian_nll_global` | Implemented Benchmark | `te_wave4_2_gaussian_nll_global` | `curve_aware_harmonic_residual_offset_probe` | 0.002001 | 85,632 | `2026-07-14 18:14:13` |
+| `wave4_2_gaussian_nll_global` | Implemented Benchmark | `te_wave4_2_gaussian_nll_global` | `curve_aware_harmonic_residual_offset_probe` | 0.002001 | 85,632 | `2026-07-14 19:42:55` |
 | `track2g_curve_aware_harmonic_residual_offset_full_curve_composite_global` | Implemented Benchmark | `te_track2g_curve_aware_full_curve_composite_global` | `curve_aware_harmonic_residual_offset_probe` | 0.002008 | 85,440 | `2026-06-22 15:16:05` |
 | `wave4_1_smooth_l1_robust_loss_global` | Implemented Benchmark | `te_wave4_1_smooth_l1_robust_loss_global` | `curve_aware_harmonic_residual_offset_probe` | 0.002017 | 85,440 | `2026-07-13 00:54:21` |
 | `wave3_3_full_curve_composite_global` | Implemented Benchmark | `te_wave3_3_full_curve_composite_global` | `curve_aware_harmonic_residual_offset_probe` | 0.002023 | 85,440 | `2026-07-12 12:13:42` |
@@ -119,7 +119,7 @@
 | `feedforward_fw` | Implemented Benchmark | `te_feedforward_fw` | `feedforward` | 0.001726 | 109,697 | `2026-07-07 19:17:09` |
 | `periodic_mlp_fw` | Implemented Benchmark | `te_periodic_mlp_fw` | `periodic_mlp` | 0.001742 | 27,137 | `2026-07-07 22:12:18` |
 | `residual_harmonic_mlp_fw` | Implemented Benchmark | `te_residual_harmonic_mlp_fw__polished_setpoints` | `residual_harmonic_mlp` | 0.001759 | 26,266 | `2026-07-07 14:15:24` |
-| `wave4_2_gaussian_nll_fw` | Implemented Benchmark | `te_wave4_2_gaussian_nll_fw` | `curve_aware_harmonic_residual_offset_probe` | 0.001914 | 85,632 | `2026-07-14 18:22:47` |
+| `wave4_2_gaussian_nll_fw` | Implemented Benchmark | `te_wave4_2_gaussian_nll_fw` | `curve_aware_harmonic_residual_offset_probe` | 0.001914 | 85,632 | `2026-07-14 19:52:54` |
 | `wave4_2_quantile_p10_p50_p90_fw` | Implemented Benchmark | `te_wave4_2_quantile_p10_p50_p90_fw` | `curve_aware_harmonic_residual_offset_probe` | 0.001914 | 85,824 | `2026-07-14 17:11:13` |
 | `wave3_3_raw_centered_shape_curve_aware_fw` | Implemented Benchmark | `te_wave3_3_raw_centered_shape_curve_aware_fw` | `curve_aware_harmonic_residual_offset_probe` | 0.001917 | 85,440 | `2026-07-11 20:41:54` |
 | `wave3_3_curve_aware_pointwise_control_fw` | Implemented Benchmark | `te_wave3_3_curve_aware_pointwise_control_fw` | `curve_aware_harmonic_residual_offset_probe` | 0.001919 | 85,440 | `2026-07-11 14:43:50` |
@@ -195,7 +195,7 @@
 | `wave4_1_mae_robust_loss_bw` | Implemented Benchmark | `te_wave4_1_mae_robust_loss_bw` | `curve_aware_harmonic_residual_offset_probe` | 0.001907 | 85,440 | `2026-07-12 19:55:36` |
 | `wave3_3_raw_centered_shape_curve_aware_bw` | Implemented Benchmark | `te_wave3_3_raw_centered_shape_curve_aware_bw` | `curve_aware_harmonic_residual_offset_probe` | 0.001916 | 85,440 | `2026-07-11 21:32:35` |
 | `wave3_3_curve_aware_pointwise_control_bw` | Implemented Benchmark | `te_wave3_3_curve_aware_pointwise_control_bw` | `curve_aware_harmonic_residual_offset_probe` | 0.001925 | 85,440 | `2026-07-11 15:28:19` |
-| `wave4_2_gaussian_nll_bw` | Implemented Benchmark | `te_wave4_2_gaussian_nll_bw` | `curve_aware_harmonic_residual_offset_probe` | 0.001927 | 85,632 | `2026-07-14 18:31:15` |
+| `wave4_2_gaussian_nll_bw` | Implemented Benchmark | `te_wave4_2_gaussian_nll_bw` | `curve_aware_harmonic_residual_offset_probe` | 0.001927 | 85,632 | `2026-07-14 20:02:53` |
 | `wave4_1_smooth_l1_robust_loss_bw` | Implemented Benchmark | `te_wave4_1_smooth_l1_robust_loss_bw` | `curve_aware_harmonic_residual_offset_probe` | 0.001968 | 85,440 | `2026-07-13 02:22:43` |
 | `wave52b_offset_harmonic_guided_pointwise_control_bw` | Implemented Benchmark | `te_wave52b_offset_harmonic_guided_pointwise_control_bw` | `wave52b_offset_harmonic_guided` | 0.001979 | 22,593 | `2026-07-01 20:42:26` |
 | `periodic_temporal_convolution_bw` | Implemented Benchmark | `te_periodic_temporal_convolution_bw__polished_actual_values` | `periodic_temporal_convolution` | 0.002001 | 158,529 | `2026-07-08 21:50:44` |
@@ -427,11 +427,11 @@ Low-priority exploratory families currently listed in the backlog:
 
 | Campaign | Generated At | Completed | Failed | Winner | Impact |
 | --- | --- | ---: | ---: | --- | --- |
+| `dataset_input_mode_retraining__wave4_2_gaussian_nll__polished_setpoints` | `2026-07-14 20:02:53` | 3 | 0 | `te_wave4_2_gaussian_nll_global__polished_setpoints` | No family-best change |
 | `dataset_input_mode_retraining__wave4_2_gaussian_nll__simplified_setpoints` | `2026-07-14 18:31:15` | 3 | 0 | `te_wave4_2_gaussian_nll_fw__simplified_setpoints` | No family-best change |
 | `dataset_input_mode_retraining__wave4_2_quantile_p10_p50_p90__polished_actual_values` | `2026-07-14 17:40:45` | 3 | 0 | `te_wave4_2_quantile_p10_p50_p90_fw__polished_actual_values` | No family-best change |
 | `dataset_input_mode_retraining__wave4_2_quantile_p10_p50_p90__polished_setpoints` | `2026-07-14 14:18:57` | 3 | 0 | `te_wave4_2_quantile_p10_p50_p90_global__polished_setpoints` | No family-best change |
 | `dataset_input_mode_retraining__wave4_2_quantile_p10_p50_p90__simplified_setpoints` | `2026-07-14 12:24:22` | 4 | 0 | `te_wave4_2_quantile_p10_p50_p90_global__simplified_setpoints` | No family-best change |
-| `dataset_input_mode_retraining__wave4_2_quantile_p10_p50_p90__simplified_setpoints` | `2026-07-13 12:03:07` | 2 | 0 | `te_wave4_2_quantile_p10_p50_p90_global__simplified_setpoints` | No family-best change |
 
 ## Ranking Policy
 
@@ -1827,7 +1827,7 @@ Known failed campaign attempts for this family:
 
 - Best run: `N/A`
 - Best test MAE: `N/A`
-- Completed tracked runs: `6`
+- Completed tracked runs: `9`
 - Known failed campaign attempts: `0`
 
 | Rank | Run | Model Type | Test MAE [deg] | Test RMSE [deg] | Val MAE [deg] | Params | Duration | Artifact Size | Model Complexity | Training Heaviness | Campaign |
@@ -1835,9 +1835,12 @@ Known failed campaign attempts for this family:
 | 1 | `te_wave4_2_gaussian_nll_fw` | `curve_aware_harmonic_residual_offset_probe` | 0.001914 | 0.002482 | 0.001739 | 85,632 | 1h 02m 58s | 1.00 MB | High | High | `polished_dataset_full_wave_retraining_2026_06_22` |
 | 2 | `te_wave4_2_gaussian_nll_bw` | `curve_aware_harmonic_residual_offset_probe` | 0.001927 | 0.002482 | 0.001778 | 85,632 | 49m 15s | 1.00 MB | High | High | `polished_dataset_full_wave_retraining_2026_06_22` |
 | 3 | `te_wave4_2_gaussian_nll_global` | `curve_aware_harmonic_residual_offset_probe` | 0.002001 | 0.002576 | 0.001825 | 85,632 | 31m 45s | 1.00 MB | High | Medium | `polished_dataset_full_wave_retraining_2026_06_22` |
-| 4 | `te_wave4_2_gaussian_nll_fw__simplified_setpoints` | `curve_aware_harmonic_residual_offset_probe` | 0.092190 | 0.115726 | 0.091721 | 85,958 | 8m 34s | 1.00 MB | High | Low | `dataset_input_mode_retraining__wave4_2_gaussian_nll__simplified_setpoints` |
-| 5 | `te_wave4_2_gaussian_nll_bw__simplified_setpoints` | `curve_aware_harmonic_residual_offset_probe` | 0.099431 | 0.123764 | 0.100961 | 85,958 | 8m 28s | 1.00 MB | High | Low | `dataset_input_mode_retraining__wave4_2_gaussian_nll__simplified_setpoints` |
-| 6 | `te_wave4_2_gaussian_nll_global__simplified_setpoints` | `curve_aware_harmonic_residual_offset_probe` | 0.109411 | 0.135984 | 0.110745 | 85,958 | 8m 22s | 1.00 MB | High | Low | `dataset_input_mode_retraining__wave4_2_gaussian_nll__simplified_setpoints` |
+| 4 | `te_wave4_2_gaussian_nll_global__polished_setpoints` | `curve_aware_harmonic_residual_offset_probe` | 0.002210 | 0.003605 | 0.001882 | 85,958 | 56m 32s | 1.00 MB | High | High | `dataset_input_mode_retraining__wave4_2_gaussian_nll__polished_setpoints` |
+| 5 | `te_wave4_2_gaussian_nll_bw__polished_setpoints` | `curve_aware_harmonic_residual_offset_probe` | 0.084400 | 0.105673 | 0.084195 | 85,958 | 9m 58s | 1.00 MB | High | Low | `dataset_input_mode_retraining__wave4_2_gaussian_nll__polished_setpoints` |
+| 6 | `te_wave4_2_gaussian_nll_fw__polished_setpoints` | `curve_aware_harmonic_residual_offset_probe` | 0.087134 | 0.109389 | 0.088198 | 85,958 | 9m 59s | 1.00 MB | High | Low | `dataset_input_mode_retraining__wave4_2_gaussian_nll__polished_setpoints` |
+| 7 | `te_wave4_2_gaussian_nll_fw__simplified_setpoints` | `curve_aware_harmonic_residual_offset_probe` | 0.092190 | 0.115726 | 0.091721 | 85,958 | 8m 34s | 1.00 MB | High | Low | `dataset_input_mode_retraining__wave4_2_gaussian_nll__simplified_setpoints` |
+| 8 | `te_wave4_2_gaussian_nll_bw__simplified_setpoints` | `curve_aware_harmonic_residual_offset_probe` | 0.099431 | 0.123764 | 0.100961 | 85,958 | 8m 28s | 1.00 MB | High | Low | `dataset_input_mode_retraining__wave4_2_gaussian_nll__simplified_setpoints` |
+| 9 | `te_wave4_2_gaussian_nll_global__simplified_setpoints` | `curve_aware_harmonic_residual_offset_probe` | 0.109411 | 0.135984 | 0.110745 | 85,958 | 8m 22s | 1.00 MB | High | Low | `dataset_input_mode_retraining__wave4_2_gaussian_nll__simplified_setpoints` |
 
 #### wave4_3_mixture_density_k2
 
