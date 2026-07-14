@@ -13,74 +13,74 @@ entries:
   dataset_id: polished_dataset
   dataset_schema: polished_point_v1
   input_mode: actual_values
-  model_family: wave4_2_quantile_p10_p50_p90
+  model_family: wave4_2_gaussian_nll
   model_type: curve_aware_harmonic_residual_offset_probe
   surface: global
-  run_name: te_wave4_2_quantile_p10_p50_p90_global__polished_actual_values
-  run_instance_id: 2026-07-14-15-32-15__te_wave4_2_quantile_p10_p50_p90_global__polished_actual_values
-  source_output_directory: output/training_runs/wave4_2_quantile_p10_p50_p90/2026-07-14-15-32-15__te_wave4_2_quantile_p10_p50_p90_global__polished_actual_values
-  source_best_checkpoint_path: output/training_runs/wave4_2_quantile_p10_p50_p90/2026-07-14-15-32-15__te_wave4_2_quantile_p10_p50_p90_global__polished_actual_values/checkpoints/curve_aware_harmonic_residual_offset_probe-epoch=180-val_mae=0.00177392.ckpt
-  python_model_path: models/polished_dataset/actual_values/exported/wave4_2_quantile_p10_p50_p90/global/2026-07-14-15-32-15__te_wave4_2_quantile_p10_p50_p90_global__polished_actual_values/python/curve_aware_harmonic_residual_offset_probe-epoch=180-val_mae=0.00177392.ckpt
-  onnx_model_path: models/polished_dataset/actual_values/exported/wave4_2_quantile_p10_p50_p90/global/2026-07-14-15-32-15__te_wave4_2_quantile_p10_p50_p90_global__polished_actual_values/onnx/model.onnx
+  run_name: te_wave4_2_gaussian_nll_global__polished_actual_values
+  run_instance_id: 2026-07-14-20-32-49__te_wave4_2_gaussian_nll_global__polished_actual_values
+  source_output_directory: output/training_runs/wave4_2_gaussian_nll/2026-07-14-20-32-49__te_wave4_2_gaussian_nll_global__polished_actual_values
+  source_best_checkpoint_path: output/training_runs/wave4_2_gaussian_nll/2026-07-14-20-32-49__te_wave4_2_gaussian_nll_global__polished_actual_values/checkpoints/curve_aware_harmonic_residual_offset_probe-epoch=000-val_mae=0.10197201.ckpt
+  python_model_path: models/polished_dataset/actual_values/exported/wave4_2_gaussian_nll/global/2026-07-14-20-32-49__te_wave4_2_gaussian_nll_global__polished_actual_values/python/curve_aware_harmonic_residual_offset_probe-epoch=000-val_mae=0.10197201.ckpt
+  onnx_model_path: models/polished_dataset/actual_values/exported/wave4_2_gaussian_nll/global/2026-07-14-20-32-49__te_wave4_2_gaussian_nll_global__polished_actual_values/onnx/model.onnx
   onnx_export_status: exported
   onnx_export_error: ''
   source_run_snapshot_path_map:
-    training_config.snapshot.yaml: output/training_runs/wave4_2_quantile_p10_p50_p90/2026-07-14-15-32-15__te_wave4_2_quantile_p10_p50_p90_global__polished_actual_values/training_config.yaml
-    metrics_summary.snapshot.yaml: output/training_runs/wave4_2_quantile_p10_p50_p90/2026-07-14-15-32-15__te_wave4_2_quantile_p10_p50_p90_global__polished_actual_values/metrics_summary.yaml
-    run_metadata.snapshot.yaml: output/training_runs/wave4_2_quantile_p10_p50_p90/2026-07-14-15-32-15__te_wave4_2_quantile_p10_p50_p90_global__polished_actual_values/run_metadata.yaml
-    training_test_report.snapshot.md: output/training_runs/wave4_2_quantile_p10_p50_p90/2026-07-14-15-32-15__te_wave4_2_quantile_p10_p50_p90_global__polished_actual_values/training_test_report.md
-    best_checkpoint_path.snapshot.txt: output/training_runs/wave4_2_quantile_p10_p50_p90/2026-07-14-15-32-15__te_wave4_2_quantile_p10_p50_p90_global__polished_actual_values/best_checkpoint_path.txt
+    training_config.snapshot.yaml: output/training_runs/wave4_2_gaussian_nll/2026-07-14-20-32-49__te_wave4_2_gaussian_nll_global__polished_actual_values/training_config.yaml
+    metrics_summary.snapshot.yaml: output/training_runs/wave4_2_gaussian_nll/2026-07-14-20-32-49__te_wave4_2_gaussian_nll_global__polished_actual_values/metrics_summary.yaml
+    run_metadata.snapshot.yaml: output/training_runs/wave4_2_gaussian_nll/2026-07-14-20-32-49__te_wave4_2_gaussian_nll_global__polished_actual_values/run_metadata.yaml
+    training_test_report.snapshot.md: output/training_runs/wave4_2_gaussian_nll/2026-07-14-20-32-49__te_wave4_2_gaussian_nll_global__polished_actual_values/training_test_report.md
+    best_checkpoint_path.snapshot.txt: output/training_runs/wave4_2_gaussian_nll/2026-07-14-20-32-49__te_wave4_2_gaussian_nll_global__polished_actual_values/best_checkpoint_path.txt
   metrics:
-    val_mae: 0.0017739232862368226
-    test_mae: 0.0019342511659488082
-    test_rmse: 0.00302881165407598
+    val_mae: 0.10197200626134872
+    test_mae: 0.10111863911151886
+    test_rmse: 0.12383557111024857
 - schema_version: 1
   dataset_id: polished_dataset
   dataset_schema: polished_point_v1
   input_mode: actual_values
-  model_family: wave4_2_quantile_p10_p50_p90
+  model_family: wave4_2_gaussian_nll
   model_type: curve_aware_harmonic_residual_offset_probe
   surface: forward
-  run_name: te_wave4_2_quantile_p10_p50_p90_fw__polished_actual_values
-  run_instance_id: 2026-07-14-16-15-03__te_wave4_2_quantile_p10_p50_p90_fw__polished_actual_values
-  source_output_directory: output/training_runs/wave4_2_quantile_p10_p50_p90/2026-07-14-16-15-03__te_wave4_2_quantile_p10_p50_p90_fw__polished_actual_values
-  source_best_checkpoint_path: output/training_runs/wave4_2_quantile_p10_p50_p90/2026-07-14-16-15-03__te_wave4_2_quantile_p10_p50_p90_fw__polished_actual_values/checkpoints/curve_aware_harmonic_residual_offset_probe-epoch=250-val_mae=0.00176755.ckpt
-  python_model_path: models/polished_dataset/actual_values/exported/wave4_2_quantile_p10_p50_p90/forward/2026-07-14-16-15-03__te_wave4_2_quantile_p10_p50_p90_fw__polished_actual_values/python/curve_aware_harmonic_residual_offset_probe-epoch=250-val_mae=0.00176755.ckpt
-  onnx_model_path: models/polished_dataset/actual_values/exported/wave4_2_quantile_p10_p50_p90/forward/2026-07-14-16-15-03__te_wave4_2_quantile_p10_p50_p90_fw__polished_actual_values/onnx/model.onnx
+  run_name: te_wave4_2_gaussian_nll_fw__polished_actual_values
+  run_instance_id: 2026-07-14-20-42-59__te_wave4_2_gaussian_nll_fw__polished_actual_values
+  source_output_directory: output/training_runs/wave4_2_gaussian_nll/2026-07-14-20-42-59__te_wave4_2_gaussian_nll_fw__polished_actual_values
+  source_best_checkpoint_path: output/training_runs/wave4_2_gaussian_nll/2026-07-14-20-42-59__te_wave4_2_gaussian_nll_fw__polished_actual_values/checkpoints/curve_aware_harmonic_residual_offset_probe-epoch=258-val_mae=0.00181578.ckpt
+  python_model_path: models/polished_dataset/actual_values/exported/wave4_2_gaussian_nll/forward/2026-07-14-20-42-59__te_wave4_2_gaussian_nll_fw__polished_actual_values/python/curve_aware_harmonic_residual_offset_probe-epoch=258-val_mae=0.00181578.ckpt
+  onnx_model_path: models/polished_dataset/actual_values/exported/wave4_2_gaussian_nll/forward/2026-07-14-20-42-59__te_wave4_2_gaussian_nll_fw__polished_actual_values/onnx/model.onnx
   onnx_export_status: exported
   onnx_export_error: ''
   source_run_snapshot_path_map:
-    training_config.snapshot.yaml: output/training_runs/wave4_2_quantile_p10_p50_p90/2026-07-14-16-15-03__te_wave4_2_quantile_p10_p50_p90_fw__polished_actual_values/training_config.yaml
-    metrics_summary.snapshot.yaml: output/training_runs/wave4_2_quantile_p10_p50_p90/2026-07-14-16-15-03__te_wave4_2_quantile_p10_p50_p90_fw__polished_actual_values/metrics_summary.yaml
-    run_metadata.snapshot.yaml: output/training_runs/wave4_2_quantile_p10_p50_p90/2026-07-14-16-15-03__te_wave4_2_quantile_p10_p50_p90_fw__polished_actual_values/run_metadata.yaml
-    training_test_report.snapshot.md: output/training_runs/wave4_2_quantile_p10_p50_p90/2026-07-14-16-15-03__te_wave4_2_quantile_p10_p50_p90_fw__polished_actual_values/training_test_report.md
-    best_checkpoint_path.snapshot.txt: output/training_runs/wave4_2_quantile_p10_p50_p90/2026-07-14-16-15-03__te_wave4_2_quantile_p10_p50_p90_fw__polished_actual_values/best_checkpoint_path.txt
+    training_config.snapshot.yaml: output/training_runs/wave4_2_gaussian_nll/2026-07-14-20-42-59__te_wave4_2_gaussian_nll_fw__polished_actual_values/training_config.yaml
+    metrics_summary.snapshot.yaml: output/training_runs/wave4_2_gaussian_nll/2026-07-14-20-42-59__te_wave4_2_gaussian_nll_fw__polished_actual_values/metrics_summary.yaml
+    run_metadata.snapshot.yaml: output/training_runs/wave4_2_gaussian_nll/2026-07-14-20-42-59__te_wave4_2_gaussian_nll_fw__polished_actual_values/run_metadata.yaml
+    training_test_report.snapshot.md: output/training_runs/wave4_2_gaussian_nll/2026-07-14-20-42-59__te_wave4_2_gaussian_nll_fw__polished_actual_values/training_test_report.md
+    best_checkpoint_path.snapshot.txt: output/training_runs/wave4_2_gaussian_nll/2026-07-14-20-42-59__te_wave4_2_gaussian_nll_fw__polished_actual_values/best_checkpoint_path.txt
   metrics:
-    val_mae: 0.0017675517592579126
-    test_mae: 0.001918375724926591
-    test_rmse: 0.0030071476940065622
+    val_mae: 0.0018157813465222716
+    test_mae: 0.0021128454245626926
+    test_rmse: 0.0035661361180245876
 - schema_version: 1
   dataset_id: polished_dataset
   dataset_schema: polished_point_v1
   input_mode: actual_values
-  model_family: wave4_2_quantile_p10_p50_p90
+  model_family: wave4_2_gaussian_nll
   model_type: curve_aware_harmonic_residual_offset_probe
   surface: backward
-  run_name: te_wave4_2_quantile_p10_p50_p90_bw__polished_actual_values
-  run_instance_id: 2026-07-14-17-11-13__te_wave4_2_quantile_p10_p50_p90_bw__polished_actual_values
-  source_output_directory: output/training_runs/wave4_2_quantile_p10_p50_p90/2026-07-14-17-11-13__te_wave4_2_quantile_p10_p50_p90_bw__polished_actual_values
-  source_best_checkpoint_path: output/training_runs/wave4_2_quantile_p10_p50_p90/2026-07-14-17-11-13__te_wave4_2_quantile_p10_p50_p90_bw__polished_actual_values/checkpoints/curve_aware_harmonic_residual_offset_probe-epoch=123-val_mae=0.00178818.ckpt
-  python_model_path: models/polished_dataset/actual_values/exported/wave4_2_quantile_p10_p50_p90/backward/2026-07-14-17-11-13__te_wave4_2_quantile_p10_p50_p90_bw__polished_actual_values/python/curve_aware_harmonic_residual_offset_probe-epoch=123-val_mae=0.00178818.ckpt
-  onnx_model_path: models/polished_dataset/actual_values/exported/wave4_2_quantile_p10_p50_p90/backward/2026-07-14-17-11-13__te_wave4_2_quantile_p10_p50_p90_bw__polished_actual_values/onnx/model.onnx
+  run_name: te_wave4_2_gaussian_nll_bw__polished_actual_values
+  run_instance_id: 2026-07-14-21-40-47__te_wave4_2_gaussian_nll_bw__polished_actual_values
+  source_output_directory: output/training_runs/wave4_2_gaussian_nll/2026-07-14-21-40-47__te_wave4_2_gaussian_nll_bw__polished_actual_values
+  source_best_checkpoint_path: output/training_runs/wave4_2_gaussian_nll/2026-07-14-21-40-47__te_wave4_2_gaussian_nll_bw__polished_actual_values/checkpoints/curve_aware_harmonic_residual_offset_probe-epoch=255-val_mae=0.00180572.ckpt
+  python_model_path: models/polished_dataset/actual_values/exported/wave4_2_gaussian_nll/backward/2026-07-14-21-40-47__te_wave4_2_gaussian_nll_bw__polished_actual_values/python/curve_aware_harmonic_residual_offset_probe-epoch=255-val_mae=0.00180572.ckpt
+  onnx_model_path: models/polished_dataset/actual_values/exported/wave4_2_gaussian_nll/backward/2026-07-14-21-40-47__te_wave4_2_gaussian_nll_bw__polished_actual_values/onnx/model.onnx
   onnx_export_status: exported
   onnx_export_error: ''
   source_run_snapshot_path_map:
-    training_config.snapshot.yaml: output/training_runs/wave4_2_quantile_p10_p50_p90/2026-07-14-17-11-13__te_wave4_2_quantile_p10_p50_p90_bw__polished_actual_values/training_config.yaml
-    metrics_summary.snapshot.yaml: output/training_runs/wave4_2_quantile_p10_p50_p90/2026-07-14-17-11-13__te_wave4_2_quantile_p10_p50_p90_bw__polished_actual_values/metrics_summary.yaml
-    run_metadata.snapshot.yaml: output/training_runs/wave4_2_quantile_p10_p50_p90/2026-07-14-17-11-13__te_wave4_2_quantile_p10_p50_p90_bw__polished_actual_values/run_metadata.yaml
-    training_test_report.snapshot.md: output/training_runs/wave4_2_quantile_p10_p50_p90/2026-07-14-17-11-13__te_wave4_2_quantile_p10_p50_p90_bw__polished_actual_values/training_test_report.md
-    best_checkpoint_path.snapshot.txt: output/training_runs/wave4_2_quantile_p10_p50_p90/2026-07-14-17-11-13__te_wave4_2_quantile_p10_p50_p90_bw__polished_actual_values/best_checkpoint_path.txt
+    training_config.snapshot.yaml: output/training_runs/wave4_2_gaussian_nll/2026-07-14-21-40-47__te_wave4_2_gaussian_nll_bw__polished_actual_values/training_config.yaml
+    metrics_summary.snapshot.yaml: output/training_runs/wave4_2_gaussian_nll/2026-07-14-21-40-47__te_wave4_2_gaussian_nll_bw__polished_actual_values/metrics_summary.yaml
+    run_metadata.snapshot.yaml: output/training_runs/wave4_2_gaussian_nll/2026-07-14-21-40-47__te_wave4_2_gaussian_nll_bw__polished_actual_values/run_metadata.yaml
+    training_test_report.snapshot.md: output/training_runs/wave4_2_gaussian_nll/2026-07-14-21-40-47__te_wave4_2_gaussian_nll_bw__polished_actual_values/training_test_report.md
+    best_checkpoint_path.snapshot.txt: output/training_runs/wave4_2_gaussian_nll/2026-07-14-21-40-47__te_wave4_2_gaussian_nll_bw__polished_actual_values/best_checkpoint_path.txt
   metrics:
-    val_mae: 0.0017881819512695074
-    test_mae: 0.0019523792434483767
-    test_rmse: 0.0030742862727493048
+    val_mae: 0.0018057163106277585
+    test_mae: 0.002031821059063077
+    test_rmse: 0.0032974083442240953

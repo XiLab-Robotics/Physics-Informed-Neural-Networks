@@ -6,8 +6,8 @@ selection_policy:
   second_tie_breaker: val_mae
   third_tie_breaker: trainable_parameter_count
   direction: minimize
-updated_at: '2026-07-14T20:02:53'
-entry_count: 3
+updated_at: '2026-07-14T22:39:07'
+entry_count: 4
 entry_list:
 - run_instance_id: 2026-07-01-12-57-10__te_wave4_2_gaussian_nll_bw
   run_name: te_wave4_2_gaussian_nll_bw
@@ -47,6 +47,46 @@ entry_list:
     third_tie_breaker: trainable_parameter_count
     direction: minimize
   selected_at: '2026-07-01T13:46:25'
+- run_instance_id: 2026-07-14-21-40-47__te_wave4_2_gaussian_nll_bw__polished_actual_values
+  run_name: te_wave4_2_gaussian_nll_bw__polished_actual_values
+  output_run_name: te_wave4_2_gaussian_nll_bw__polished_actual_values
+  output_artifact_kind: training_run
+  model_family: wave4_2_gaussian_nll_bw
+  base_model_family: wave4_2_gaussian_nll
+  model_type: curve_aware_harmonic_residual_offset_probe
+  dataset_id: polished_dataset
+  dataset_schema: polished_point_v1
+  input_mode: actual_values
+  input_feature_names:
+  - angular_position_deg
+  - input_speed_rpm
+  - input_torque_nm
+  - oil_temperature_deg
+  - direction_flag
+  target_feature_names:
+  - theta_TE
+  input_feature_dim: 5
+  training_variant: bw
+  direction_scope_label: backward_only
+  use_forward_direction: false
+  use_backward_direction: true
+  trainable_parameter_count: 85958
+  total_parameter_count: 85958
+  val_mae: 0.0018057163106277585
+  val_rmse: 0.0025810152292251587
+  test_mae: 0.002031821059063077
+  test_rmse: 0.0032974083442240953
+  output_directory: output\training_runs\wave4_2_gaussian_nll\2026-07-14-21-40-47__te_wave4_2_gaussian_nll_bw__polished_actual_values
+  best_checkpoint_path: output\training_runs\wave4_2_gaussian_nll\2026-07-14-21-40-47__te_wave4_2_gaussian_nll_bw__polished_actual_values\checkpoints\curve_aware_harmonic_residual_offset_probe-epoch=255-val_mae=0.00180572.ckpt
+  metrics_path: output\training_runs\wave4_2_gaussian_nll\2026-07-14-21-40-47__te_wave4_2_gaussian_nll_bw__polished_actual_values/metrics_summary.yaml
+  report_path: output\training_runs\wave4_2_gaussian_nll\2026-07-14-21-40-47__te_wave4_2_gaussian_nll_bw__polished_actual_values/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-07-14T22:39:07'
 - run_instance_id: 2026-07-14-19-52-54__te_wave4_2_gaussian_nll_bw__polished_setpoints
   run_name: te_wave4_2_gaussian_nll_bw__polished_setpoints
   output_run_name: te_wave4_2_gaussian_nll_bw__polished_setpoints
