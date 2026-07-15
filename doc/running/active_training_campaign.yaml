@@ -241,11 +241,11 @@ next_prepared_campaign:
     input_mode: setpoints
 latest_completed_campaign:
   status: completed_and_exported
-  campaign_name: dataset_input_mode_retraining__wave4_4_gru_latent_offset_residual__polished_actual_values
-  dataset_id: polished_dataset
-  input_mode: actual_values
-  dataset_schema: polished_point_v1
-  model_family: wave4_4_gru_latent_offset_residual
+  campaign_name: dataset_input_mode_retraining__wave4_4_causal_tcn_latent_offset_residual__simplified_setpoints
+  dataset_id: simplified_dataset
+  input_mode: setpoints
+  dataset_schema: simplified_curve_v1
+  model_family: wave4_4_causal_tcn_latent_offset_residual
   expected_run_count: 3
   completed_run_count: 3
   failed_run_count: 0
@@ -256,73 +256,73 @@ latest_completed_campaign:
     slurm_cpus_per_task: 8
     slurm_memory: 40G
     gpu_request: 1g.20gb:1
-    observed_throughput: Single sbatch job 135987 completed global, forward, and backward sequentially
-      in 01:38:26 with batch 16.
-    resource_note: The accepted run used repository-local TMPDIR under output/tmp/slurm_135987, explicit
+    observed_throughput: Single sbatch job 135988 completed global, forward, and backward sequentially
+      in 00:45:31 with batch 16.
+    resource_note: The accepted run used repository-local TMPDIR under output/tmp/slurm_135988, explicit
       ReqNodeList=gnode01, and completed without /tmp, multiprocessing spool, or quota-write errors.
-    slurm_cleanup_note: Slurm stdout/stderr files for terminal job 135987 were inspected after completion
+    slurm_cleanup_note: Slurm stdout/stderr files for terminal job 135988 were inspected after completion
       and removed immediately per operator instruction; output/slurm was verified to contain only .gitkeep
       after cleanup.
-    next_campaign_recommendation: Continue with Wave 4.4 causal TCN latent offset residual simplified_setpoints
+    next_campaign_recommendation: Continue with Wave 4.4 causal TCN latent offset residual polished_setpoints
       at batch 16 and the same sequential surface resource profile.
   sbatch_submission:
-    slurm_job_id: '135987'
+    slurm_job_id: '135988'
     state: COMPLETED
     exit_code: 0:0
-    elapsed: 01:38:26
-    batch_max_rss: 16513972K
+    elapsed: 00:45:31
+    batch_max_rss: 17600844K
     allocated_tres: billing=40,cpu=8,gres/gpu=1,mem=40G,node=1
     python_executable: /unimore_home/dferrari/.conda/envs/pinns_env/bin/python
     gpu_request: 1g.20gb:1
     node: gnode01
-  campaign_manifest_path: output/training_campaigns/2026-07-15-18-05-18_dataset_input_mode_retraining__wave4_4_gru_latent_offset_residual__polis/campaign_manifest.yaml
-  campaign_output_directory: output/training_campaigns/2026-07-15-18-05-18_dataset_input_mode_retraining__wave4_4_gru_latent_offset_residual__polis
-  campaign_best_run_path: output/training_campaigns/2026-07-15-18-05-18_dataset_input_mode_retraining__wave4_4_gru_latent_offset_residual__polis/campaign_best_run.yaml
-  campaign_leaderboard_path: output/training_campaigns/2026-07-15-18-05-18_dataset_input_mode_retraining__wave4_4_gru_latent_offset_residual__polis/campaign_leaderboard.yaml
+  campaign_manifest_path: output/training_campaigns/2026-07-15-20-07-16_dataset_input_mode_retraining__wave4_4_causal_tcn_latent_offset_residual/campaign_manifest.yaml
+  campaign_output_directory: output/training_campaigns/2026-07-15-20-07-16_dataset_input_mode_retraining__wave4_4_causal_tcn_latent_offset_residual
+  campaign_best_run_path: output/training_campaigns/2026-07-15-20-07-16_dataset_input_mode_retraining__wave4_4_causal_tcn_latent_offset_residual/campaign_best_run.yaml
+  campaign_leaderboard_path: output/training_campaigns/2026-07-15-20-07-16_dataset_input_mode_retraining__wave4_4_causal_tcn_latent_offset_residual/campaign_leaderboard.yaml
   best_run:
-    surface: global
-    run_name: te_wave4_4_gru_latent_offset_residual_global__polished_actual_values
-    run_instance_id: 2026-07-15-18-05-18__te_wave4_4_gru_latent_offset_residual_global__polished_actual_values
-    test_mae: 0.002271250355988741
-    test_rmse: 0.0033407160080969334
-    val_mae: 0.002172814914956689
-    best_checkpoint_path: output/training_runs/wave4_4_gru_latent_offset_residual/2026-07-15-18-05-18__te_wave4_4_gru_latent_offset_residual_global__polished_actual_values/checkpoints/latent_state_hysteresis_probe-epoch=208-val_mae=0.00217281.ckpt
+    surface: forward
+    run_name: te_wave4_4_causal_tcn_latent_offset_residual_fw__simplified_setpoints
+    run_instance_id: 2026-07-15-20-14-26__te_wave4_4_causal_tcn_latent_offset_residual_fw__simplified_setpoints
+    test_mae: 0.0033426282461732626
+    test_rmse: 0.004237575456500053
+    val_mae: 0.0034984424710273743
+    best_checkpoint_path: output/training_runs/wave4_4_causal_tcn_latent_offset_residual/2026-07-15-20-14-26__te_wave4_4_causal_tcn_latent_offset_residual_fw__simplified_setpoints/checkpoints/latent_state_hysteresis_probe-epoch=236-val_mae=0.00349844.ckpt
   surface_run_list:
   - surface: global
-    run_name: te_wave4_4_gru_latent_offset_residual_global__polished_actual_values
-    run_instance_id: 2026-07-15-18-05-18__te_wave4_4_gru_latent_offset_residual_global__polished_actual_values
-    test_mae: 0.002271250355988741
-    test_rmse: 0.0033407160080969334
-    val_mae: 0.002172814914956689
-    best_checkpoint_path: output/training_runs/wave4_4_gru_latent_offset_residual/2026-07-15-18-05-18__te_wave4_4_gru_latent_offset_residual_global__polished_actual_values/checkpoints/latent_state_hysteresis_probe-epoch=208-val_mae=0.00217281.ckpt
-    onnx_model_path: models/polished_dataset/actual_values/exported/wave4_4_gru_latent_offset_residual/global/2026-07-15-18-05-18__te_wave4_4_gru_latent_offset_residual_global__polished_actual_values/onnx/model.onnx
-    python_model_path: models/polished_dataset/actual_values/exported/wave4_4_gru_latent_offset_residual/global/2026-07-15-18-05-18__te_wave4_4_gru_latent_offset_residual_global__polished_actual_values/python/latent_state_hysteresis_probe-epoch=208-val_mae=0.00217281.ckpt
+    run_name: te_wave4_4_causal_tcn_latent_offset_residual_global__simplified_setpoints
+    run_instance_id: 2026-07-15-20-07-16__te_wave4_4_causal_tcn_latent_offset_residual_global__simplified_setpoints
+    test_mae: 0.0035475315526127815
+    test_rmse: 0.004384447820484638
+    val_mae: 0.00376625033095479
+    best_checkpoint_path: output/training_runs/wave4_4_causal_tcn_latent_offset_residual/2026-07-15-20-07-16__te_wave4_4_causal_tcn_latent_offset_residual_global__simplified_setpoints/checkpoints/latent_state_hysteresis_probe-epoch=055-val_mae=0.00376625.ckpt
+    onnx_model_path: models/simplified_dataset/setpoints/exported/wave4_4_causal_tcn_latent_offset_residual/global/2026-07-15-20-07-16__te_wave4_4_causal_tcn_latent_offset_residual_global__simplified_setpoints/onnx/model.onnx
+    python_model_path: models/simplified_dataset/setpoints/exported/wave4_4_causal_tcn_latent_offset_residual/global/2026-07-15-20-07-16__te_wave4_4_causal_tcn_latent_offset_residual_global__simplified_setpoints/python/latent_state_hysteresis_probe-epoch=055-val_mae=0.00376625.ckpt
   - surface: forward
-    run_name: te_wave4_4_gru_latent_offset_residual_fw__polished_actual_values
-    run_instance_id: 2026-07-15-18-51-23__te_wave4_4_gru_latent_offset_residual_fw__polished_actual_values
-    test_mae: 0.002362751169130206
-    test_rmse: 0.0034194663166999817
-    val_mae: 0.002247460652142763
-    best_checkpoint_path: output/training_runs/wave4_4_gru_latent_offset_residual/2026-07-15-18-51-23__te_wave4_4_gru_latent_offset_residual_fw__polished_actual_values/checkpoints/latent_state_hysteresis_probe-epoch=113-val_mae=0.00224746.ckpt
-    onnx_model_path: models/polished_dataset/actual_values/exported/wave4_4_gru_latent_offset_residual/forward/2026-07-15-18-51-23__te_wave4_4_gru_latent_offset_residual_fw__polished_actual_values/onnx/model.onnx
-    python_model_path: models/polished_dataset/actual_values/exported/wave4_4_gru_latent_offset_residual/forward/2026-07-15-18-51-23__te_wave4_4_gru_latent_offset_residual_fw__polished_actual_values/python/latent_state_hysteresis_probe-epoch=113-val_mae=0.00224746.ckpt
+    run_name: te_wave4_4_causal_tcn_latent_offset_residual_fw__simplified_setpoints
+    run_instance_id: 2026-07-15-20-14-26__te_wave4_4_causal_tcn_latent_offset_residual_fw__simplified_setpoints
+    test_mae: 0.0033426282461732626
+    test_rmse: 0.004237575456500053
+    val_mae: 0.0034984424710273743
+    best_checkpoint_path: output/training_runs/wave4_4_causal_tcn_latent_offset_residual/2026-07-15-20-14-26__te_wave4_4_causal_tcn_latent_offset_residual_fw__simplified_setpoints/checkpoints/latent_state_hysteresis_probe-epoch=236-val_mae=0.00349844.ckpt
+    onnx_model_path: models/simplified_dataset/setpoints/exported/wave4_4_causal_tcn_latent_offset_residual/forward/2026-07-15-20-14-26__te_wave4_4_causal_tcn_latent_offset_residual_fw__simplified_setpoints/onnx/model.onnx
+    python_model_path: models/simplified_dataset/setpoints/exported/wave4_4_causal_tcn_latent_offset_residual/forward/2026-07-15-20-14-26__te_wave4_4_causal_tcn_latent_offset_residual_fw__simplified_setpoints/python/latent_state_hysteresis_probe-epoch=236-val_mae=0.00349844.ckpt
   - surface: backward
-    run_name: te_wave4_4_gru_latent_offset_residual_bw__polished_actual_values
-    run_instance_id: 2026-07-15-19-13-13__te_wave4_4_gru_latent_offset_residual_bw__polished_actual_values
-    test_mae: 0.002327539259567857
-    test_rmse: 0.0033717071637511253
-    val_mae: 0.002228264231234789
-    best_checkpoint_path: output/training_runs/wave4_4_gru_latent_offset_residual/2026-07-15-19-13-13__te_wave4_4_gru_latent_offset_residual_bw__polished_actual_values/checkpoints/latent_state_hysteresis_probe-epoch=140-val_mae=0.00222826.ckpt
-    onnx_model_path: models/polished_dataset/actual_values/exported/wave4_4_gru_latent_offset_residual/backward/2026-07-15-19-13-13__te_wave4_4_gru_latent_offset_residual_bw__polished_actual_values/onnx/model.onnx
-    python_model_path: models/polished_dataset/actual_values/exported/wave4_4_gru_latent_offset_residual/backward/2026-07-15-19-13-13__te_wave4_4_gru_latent_offset_residual_bw__polished_actual_values/python/latent_state_hysteresis_probe-epoch=140-val_mae=0.00222826.ckpt
+    run_name: te_wave4_4_causal_tcn_latent_offset_residual_bw__simplified_setpoints
+    run_instance_id: 2026-07-15-20-38-50__te_wave4_4_causal_tcn_latent_offset_residual_bw__simplified_setpoints
+    test_mae: 0.003554724855348468
+    test_rmse: 0.004414815921336412
+    val_mae: 0.003709336742758751
+    best_checkpoint_path: output/training_runs/wave4_4_causal_tcn_latent_offset_residual/2026-07-15-20-38-50__te_wave4_4_causal_tcn_latent_offset_residual_bw__simplified_setpoints/checkpoints/latent_state_hysteresis_probe-epoch=105-val_mae=0.00370934.ckpt
+    onnx_model_path: models/simplified_dataset/setpoints/exported/wave4_4_causal_tcn_latent_offset_residual/backward/2026-07-15-20-38-50__te_wave4_4_causal_tcn_latent_offset_residual_bw__simplified_setpoints/onnx/model.onnx
+    python_model_path: models/simplified_dataset/setpoints/exported/wave4_4_causal_tcn_latent_offset_residual/backward/2026-07-15-20-38-50__te_wave4_4_causal_tcn_latent_offset_residual_bw__simplified_setpoints/python/latent_state_hysteresis_probe-epoch=105-val_mae=0.00370934.ckpt
   export:
     status: completed
-    export_root: models/polished_dataset/actual_values/exported
-    export_inventory_path: models/polished_dataset/actual_values/exported/model_development_export_inventory.yaml
+    export_root: models/simplified_dataset/setpoints/exported
+    export_inventory_path: models/simplified_dataset/setpoints/exported/model_development_export_inventory.yaml
     exported_entry_count: 3
     onnx_export_status_counts:
       exported: 3
-    family_export_directory: models/polished_dataset/actual_values/exported/wave4_4_gru_latent_offset_residual
+    family_export_directory: models/simplified_dataset/setpoints/exported/wave4_4_causal_tcn_latent_offset_residual
     python_archive_storage_note: Python archive entries are symlinks to canonical best checkpoints in
       output/training_runs. ONNX files are real exported files.
   input_contract_verification:
@@ -334,15 +334,15 @@ latest_completed_campaign:
     - input_torque_nm
     - oil_temperature_deg
     - direction_flag
-    dataset_id: polished_dataset
-    dataset_schema: polished_point_v1
-    input_mode: actual_values
+    dataset_id: simplified_dataset
+    dataset_schema: simplified_curve_v1
+    input_mode: setpoints
 next_planned_campaign:
   status: not_started
-  campaign_name: dataset_input_mode_retraining__wave4_4_causal_tcn_latent_offset_residual__simplified_setpoints
-  dataset_id: simplified_dataset
+  campaign_name: dataset_input_mode_retraining__wave4_4_causal_tcn_latent_offset_residual__polished_setpoints
+  dataset_id: polished_dataset
   input_mode: setpoints
-  dataset_schema: simplified_setpoint_curve_v1
+  dataset_schema: polished_setpoint_curve_v1
   expected_run_count: 3
   planned_surface_list:
   - global
