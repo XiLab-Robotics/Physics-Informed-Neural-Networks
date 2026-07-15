@@ -6,9 +6,49 @@ selection_policy:
   second_tie_breaker: val_mae
   third_tie_breaker: trainable_parameter_count
   direction: minimize
-updated_at: '2026-07-15T17:03:49'
-entry_count: 3
+updated_at: '2026-07-15T18:51:23'
+entry_count: 4
 entry_list:
+- run_instance_id: 2026-07-15-18-05-18__te_wave4_4_gru_latent_offset_residual_global__polished_actual_values
+  run_name: te_wave4_4_gru_latent_offset_residual_global__polished_actual_values
+  output_run_name: te_wave4_4_gru_latent_offset_residual_global__polished_actual_values
+  output_artifact_kind: training_run
+  model_family: wave4_4_gru_latent_offset_residual_global
+  base_model_family: wave4_4_gru_latent_offset_residual
+  model_type: latent_state_hysteresis_probe
+  dataset_id: polished_dataset
+  dataset_schema: polished_point_v1
+  input_mode: actual_values
+  input_feature_names:
+  - angular_position_deg
+  - input_speed_rpm
+  - input_torque_nm
+  - oil_temperature_deg
+  - direction_flag
+  target_feature_names:
+  - theta_TE
+  input_feature_dim: 5
+  training_variant: global
+  direction_scope_label: bidirectional
+  use_forward_direction: true
+  use_backward_direction: true
+  trainable_parameter_count: 125475
+  total_parameter_count: 125475
+  val_mae: 0.002172814914956689
+  val_rmse: 0.0030194020364433527
+  test_mae: 0.002271250355988741
+  test_rmse: 0.0033407160080969334
+  output_directory: output\training_runs\wave4_4_gru_latent_offset_residual\2026-07-15-18-05-18__te_wave4_4_gru_latent_offset_residual_global__polished_actual_values
+  best_checkpoint_path: output\training_runs\wave4_4_gru_latent_offset_residual\2026-07-15-18-05-18__te_wave4_4_gru_latent_offset_residual_global__polished_actual_values\checkpoints\latent_state_hysteresis_probe-epoch=208-val_mae=0.00217281.ckpt
+  metrics_path: output\training_runs\wave4_4_gru_latent_offset_residual\2026-07-15-18-05-18__te_wave4_4_gru_latent_offset_residual_global__polished_actual_values/metrics_summary.yaml
+  report_path: output\training_runs\wave4_4_gru_latent_offset_residual\2026-07-15-18-05-18__te_wave4_4_gru_latent_offset_residual_global__polished_actual_values/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-07-15T18:51:23'
 - run_instance_id: 2026-07-01-19-49-54__te_wave4_4_gru_latent_offset_residual_global
   run_name: te_wave4_4_gru_latent_offset_residual_global
   output_run_name: te_wave4_4_gru_latent_offset_residual_global
