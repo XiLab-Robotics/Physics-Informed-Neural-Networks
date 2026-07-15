@@ -1,0 +1,121 @@
+schema_version: 1
+config_path: /scratch1/dferrari/Physics-Informed-Neural-Networks/config/training/queue/dataset_input_mode_retraining/dataset_input_mode_retraining__wave4_3_mixture_density_k2__polished_actual_values/running/2026-07-15-04-04-29_003_003_wave4_3_mixture_density_k2_bw.yaml
+experiment:
+  model_family: wave4_3_mixture_density_k2_bw
+  model_type: curve_aware_harmonic_residual_offset_probe
+  run_name: te_wave4_3_mixture_density_k2_bw__polished_actual_values
+  output_run_name: te_wave4_3_mixture_density_k2_bw__polished_actual_values
+  run_instance_id: 2026-07-15-06-02-16__te_wave4_3_mixture_density_k2_bw__polished_actual_values
+  output_artifact_kind: training_run
+  base_model_family: wave4_3_mixture_density_k2
+  training_variant: bw
+  direction_scope_label: backward_only
+  use_forward_direction: false
+  use_backward_direction: true
+artifacts:
+  output_directory: /scratch1/dferrari/Physics-Informed-Neural-Networks/output/training_runs/wave4_3_mixture_density_k2/2026-07-15-06-02-16__te_wave4_3_mixture_density_k2_bw__polished_actual_values
+  best_checkpoint_path: /scratch1/dferrari/Physics-Informed-Neural-Networks/output/training_runs/wave4_3_mixture_density_k2/2026-07-15-06-02-16__te_wave4_3_mixture_density_k2_bw__polished_actual_values/checkpoints/curve_aware_harmonic_residual_offset_probe-epoch=129-val_mae=0.00180093.ckpt
+dataset_split:
+  train_curve_count: 1356
+  validation_curve_count: 388
+  test_curve_count: 194
+  dataset_name: polished_dataset
+  dataset_schema: polished_point_v1
+  input_mode: actual_values
+  input_feature_name_list:
+  - angular_position_deg
+  - input_speed_rpm
+  - input_torque_nm
+  - oil_temperature_deg
+  - direction_flag
+  target_feature_name_list:
+  - theta_TE
+  input_feature_dim: 5
+  target_feature_dim: 1
+dataset:
+  dataset_id: polished_dataset
+  dataset_schema: polished_point_v1
+  input_mode: actual_values
+  input_feature_names:
+  - angular_position_deg
+  - input_speed_rpm
+  - input_torque_nm
+  - oil_temperature_deg
+  - direction_flag
+  target_feature_names:
+  - theta_TE
+  input_feature_dim: 5
+  target_feature_dim: 1
+model_summary:
+  backbone_name: HarmonicResidualOffsetNetwork
+  trainable_parameter_count: 86802
+  frozen_parameter_count: 0
+  total_parameter_count: 86802
+runtime_config:
+  accelerator: auto
+  devices: auto
+  precision: '32'
+  benchmark: true
+  use_non_blocking_transfer: true
+normalization_statistics:
+  input_feature_mean:
+  - 180.0000762939453
+  - -14.942256927490234
+  - 1.681342363357544
+  - 30.617416381835938
+  - -0.01724354922771454
+  input_feature_std:
+  - 103.92301940917969
+  - 690.1138305664062
+  - 1055.5772705078125
+  - 4.267345428466797
+  - 0.9998513460159302
+  target_mean:
+  - -0.016667330637574196
+  target_std:
+  - 0.0465485081076622
+validation_metrics:
+  val_loss: -1.7663582563400269
+  val_mae: 0.0018009309424087405
+  val_rmse: 0.0025737157557159662
+  val_pointwise_loss: -1.7663582563400269
+  val_centered_curve_shape_loss: 0.0045973011292517185
+  val_curve_offset_loss: 0.0003332813212182373
+  val_curve_amplitude_loss: 0.03012986108660698
+  val_sparse_harmonic_shape_loss: 0.0001012250577332452
+  val_mixture_weight_entropy: 0.01904952898621559
+  val_mixture_effective_components: 1.0200363397598267
+  val_mixture_mean_sigma: 0.08525481820106506
+  val_mixture_component_separation: 0.05119345337152481
+  val_structured_mae: 0.05795973166823387
+  val_structured_rmse: 0.07946557551622391
+  val_residual_offset_mean_abs: 0.07144534587860107
+test_metrics:
+  test_loss: -1.6784898042678833
+  test_mae: 0.0020860040094703436
+  test_rmse: 0.003378994995728135
+  test_pointwise_loss: -1.6784898042678833
+  test_centered_curve_shape_loss: 0.005420095287263393
+  test_curve_offset_loss: 0.0022467945236712694
+  test_curve_amplitude_loss: 0.0376766100525856
+  test_sparse_harmonic_shape_loss: 0.000110411383502651
+  test_mixture_weight_entropy: 0.019992338493466377
+  test_mixture_effective_components: 1.020910620689392
+  test_mixture_mean_sigma: 0.09283564239740372
+  test_mixture_component_separation: 0.050943613052368164
+  test_structured_mae: 0.057727936655282974
+  test_structured_rmse: 0.07940968126058578
+  test_residual_offset_mean_abs: 0.07045841217041016
+comparison_payload:
+  model_family: wave4_3_mixture_density_k2_bw
+  model_type: curve_aware_harmonic_residual_offset_probe
+  run_name: te_wave4_3_mixture_density_k2_bw__polished_actual_values
+  backbone_name: HarmonicResidualOffsetNetwork
+  trainable_parameter_count: 86802
+  total_parameter_count: 86802
+  val_mae: 0.0018009309424087405
+  val_rmse: 0.0025737157557159662
+  test_mae: 0.0020860040094703436
+  test_rmse: 0.003378994995728135
+  deployment_notes: ''
+  interpretability_notes: ''
