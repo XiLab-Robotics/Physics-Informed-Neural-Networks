@@ -1,0 +1,1 @@
+/scratch1/dferrari/Physics-Informed-Neural-Networks/output/training_runs/wave5_1_harmonic_prior_pointwise_control/2026-07-15-23-32-06__te_wave5_1_harmonic_prior_pointwise_control_global__simplified_setpoints/checkpoints/wave3_harmonic_prior_residual-epoch=120-val_mae=0.00359724.ckpt

@@ -1,0 +1,131 @@
+schema_version: 1
+campaign_name: dataset_input_mode_retraining__wave5_1_harmonic_prior_pointwise_control__simplified_setpoints
+selection_policy:
+  primary_metric: test_mae
+  first_tie_breaker: test_rmse
+  second_tie_breaker: val_mae
+  third_tie_breaker: trainable_parameter_count
+  direction: minimize
+updated_at: '2026-07-16T00:29:31'
+entry_count: 3
+entry_list:
+- run_instance_id: 2026-07-15-23-51-01__te_wave5_1_harmonic_prior_pointwise_control_fw__simplified_setpoints
+  run_name: te_wave5_1_harmonic_prior_pointwise_control_fw__simplified_setpoints
+  output_run_name: te_wave5_1_harmonic_prior_pointwise_control_fw__simplified_setpoints
+  output_artifact_kind: training_run
+  model_family: wave5_1_harmonic_prior_pointwise_control_fw
+  base_model_family: wave5_1_harmonic_prior_pointwise_control
+  model_type: wave3_harmonic_prior_residual
+  dataset_id: simplified_dataset
+  dataset_schema: simplified_curve_v1
+  input_mode: setpoints
+  input_feature_names:
+  - angular_position_deg
+  - input_speed_rpm
+  - input_torque_nm
+  - oil_temperature_deg
+  - direction_flag
+  target_feature_names:
+  - transmission_error_deg
+  input_feature_dim: 5
+  training_variant: fw
+  direction_scope_label: forward_only
+  use_forward_direction: true
+  use_backward_direction: false
+  trainable_parameter_count: 7283
+  total_parameter_count: 7283
+  val_mae: 0.003562851110473275
+  val_rmse: 0.004404560197144747
+  test_mae: 0.0033862905111163855
+  test_rmse: 0.004122171550989151
+  output_directory: output\training_runs\wave5_1_harmonic_prior_pointwise_control\2026-07-15-23-51-01__te_wave5_1_harmonic_prior_pointwise_control_fw__simplified_setpoints
+  best_checkpoint_path: output\training_runs\wave5_1_harmonic_prior_pointwise_control\2026-07-15-23-51-01__te_wave5_1_harmonic_prior_pointwise_control_fw__simplified_setpoints\checkpoints\wave3_harmonic_prior_residual-epoch=223-val_mae=0.00356285.ckpt
+  metrics_path: output\training_runs\wave5_1_harmonic_prior_pointwise_control\2026-07-15-23-51-01__te_wave5_1_harmonic_prior_pointwise_control_fw__simplified_setpoints/metrics_summary.yaml
+  report_path: output\training_runs\wave5_1_harmonic_prior_pointwise_control\2026-07-15-23-51-01__te_wave5_1_harmonic_prior_pointwise_control_fw__simplified_setpoints/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-07-16T00:29:31'
+- run_instance_id: 2026-07-15-23-32-06__te_wave5_1_harmonic_prior_pointwise_control_global__simplified_setpoints
+  run_name: te_wave5_1_harmonic_prior_pointwise_control_global__simplified_setpoints
+  output_run_name: te_wave5_1_harmonic_prior_pointwise_control_global__simplified_setpoints
+  output_artifact_kind: training_run
+  model_family: wave5_1_harmonic_prior_pointwise_control_global
+  base_model_family: wave5_1_harmonic_prior_pointwise_control
+  model_type: wave3_harmonic_prior_residual
+  dataset_id: simplified_dataset
+  dataset_schema: simplified_curve_v1
+  input_mode: setpoints
+  input_feature_names:
+  - angular_position_deg
+  - input_speed_rpm
+  - input_torque_nm
+  - oil_temperature_deg
+  - direction_flag
+  target_feature_names:
+  - transmission_error_deg
+  input_feature_dim: 5
+  training_variant: global
+  direction_scope_label: bidirectional
+  use_forward_direction: true
+  use_backward_direction: true
+  trainable_parameter_count: 7283
+  total_parameter_count: 7283
+  val_mae: 0.0035972383338958025
+  val_rmse: 0.004399600904434919
+  test_mae: 0.0034174739848822355
+  test_rmse: 0.004130215849727392
+  output_directory: output\training_runs\wave5_1_harmonic_prior_pointwise_control\2026-07-15-23-32-06__te_wave5_1_harmonic_prior_pointwise_control_global__simplified_setpoints
+  best_checkpoint_path: output\training_runs\wave5_1_harmonic_prior_pointwise_control\2026-07-15-23-32-06__te_wave5_1_harmonic_prior_pointwise_control_global__simplified_setpoints\checkpoints\wave3_harmonic_prior_residual-epoch=120-val_mae=0.00359724.ckpt
+  metrics_path: output\training_runs\wave5_1_harmonic_prior_pointwise_control\2026-07-15-23-32-06__te_wave5_1_harmonic_prior_pointwise_control_global__simplified_setpoints/metrics_summary.yaml
+  report_path: output\training_runs\wave5_1_harmonic_prior_pointwise_control\2026-07-15-23-32-06__te_wave5_1_harmonic_prior_pointwise_control_global__simplified_setpoints/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-07-16T00:29:31'
+- run_instance_id: 2026-07-16-00-17-20__te_wave5_1_harmonic_prior_pointwise_control_bw__simplified_setpoints
+  run_name: te_wave5_1_harmonic_prior_pointwise_control_bw__simplified_setpoints
+  output_run_name: te_wave5_1_harmonic_prior_pointwise_control_bw__simplified_setpoints
+  output_artifact_kind: training_run
+  model_family: wave5_1_harmonic_prior_pointwise_control_bw
+  base_model_family: wave5_1_harmonic_prior_pointwise_control
+  model_type: wave3_harmonic_prior_residual
+  dataset_id: simplified_dataset
+  dataset_schema: simplified_curve_v1
+  input_mode: setpoints
+  input_feature_names:
+  - angular_position_deg
+  - input_speed_rpm
+  - input_torque_nm
+  - oil_temperature_deg
+  - direction_flag
+  target_feature_names:
+  - transmission_error_deg
+  input_feature_dim: 5
+  training_variant: bw
+  direction_scope_label: backward_only
+  use_forward_direction: false
+  use_backward_direction: true
+  trainable_parameter_count: 7283
+  total_parameter_count: 7283
+  val_mae: 0.0036436005029827356
+  val_rmse: 0.004498099442571402
+  test_mae: 0.0034342901781201363
+  test_rmse: 0.004181359428912401
+  output_directory: output\training_runs\wave5_1_harmonic_prior_pointwise_control\2026-07-16-00-17-20__te_wave5_1_harmonic_prior_pointwise_control_bw__simplified_setpoints
+  best_checkpoint_path: output\training_runs\wave5_1_harmonic_prior_pointwise_control\2026-07-16-00-17-20__te_wave5_1_harmonic_prior_pointwise_control_bw__simplified_setpoints\checkpoints\wave3_harmonic_prior_residual-epoch=063-val_mae=0.00364360.ckpt
+  metrics_path: output\training_runs\wave5_1_harmonic_prior_pointwise_control\2026-07-16-00-17-20__te_wave5_1_harmonic_prior_pointwise_control_bw__simplified_setpoints/metrics_summary.yaml
+  report_path: output\training_runs\wave5_1_harmonic_prior_pointwise_control\2026-07-16-00-17-20__te_wave5_1_harmonic_prior_pointwise_control_bw__simplified_setpoints/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-07-16T00:29:31'

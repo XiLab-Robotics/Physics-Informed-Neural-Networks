@@ -6,7 +6,7 @@ selection_policy:
   second_tie_breaker: val_mae
   third_tie_breaker: trainable_parameter_count
   direction: minimize
-updated_at: '2026-07-01T23:29:07'
+updated_at: '2026-07-15T23:51:01'
 best_entry:
   run_instance_id: 2026-07-01-22-59-08__te_wave5_1_harmonic_prior_pointwise_control_global
   run_name: te_wave5_1_harmonic_prior_pointwise_control_global

@@ -1,53 +1,14 @@
 schema_version: 1
-model_family: wave5_1_harmonic_prior_pointwise_control_fw
+campaign_name: dataset_input_mode_retraining__wave5_1_harmonic_prior_pointwise_control__simplified_setpoints
 selection_policy:
   primary_metric: test_mae
   first_tie_breaker: test_rmse
   second_tie_breaker: val_mae
   third_tie_breaker: trainable_parameter_count
   direction: minimize
-updated_at: '2026-07-16T00:17:20'
-entry_count: 2
-entry_list:
-- run_instance_id: 2026-07-01-23-29-08__te_wave5_1_harmonic_prior_pointwise_control_fw
-  run_name: te_wave5_1_harmonic_prior_pointwise_control_fw
-  output_run_name: te_wave5_1_harmonic_prior_pointwise_control_fw
-  output_artifact_kind: training_run
-  model_family: wave5_1_harmonic_prior_pointwise_control_fw
-  base_model_family: wave5_1_harmonic_prior_pointwise_control
-  model_type: wave3_harmonic_prior_residual
-  dataset_id: polished_dataset
-  dataset_schema: polished_point_v1
-  input_feature_names:
-  - theta
-  - theta_dot
-  - tau_load
-  - T
-  target_feature_names:
-  - theta_TE
-  input_feature_dim: 4
-  training_variant: fw
-  direction_scope_label: forward_only
-  use_forward_direction: true
-  use_backward_direction: false
-  trainable_parameter_count: 7168
-  total_parameter_count: 7168
-  val_mae: 0.001913403975777328
-  val_rmse: 0.0023426846601068974
-  test_mae: 0.002184873213991523
-  test_rmse: 0.002775699831545353
-  output_directory: output\training_runs\wave5_1_harmonic_prior_pointwise_control\2026-07-01-23-29-08__te_wave5_1_harmonic_prior_pointwise_control_fw
-  best_checkpoint_path: output\training_runs\wave5_1_harmonic_prior_pointwise_control\2026-07-01-23-29-08__te_wave5_1_harmonic_prior_pointwise_control_fw\checkpoints\wave3_harmonic_prior_residual-epoch=058-val_mae=0.00191340.ckpt
-  metrics_path: output\training_runs\wave5_1_harmonic_prior_pointwise_control\2026-07-01-23-29-08__te_wave5_1_harmonic_prior_pointwise_control_fw/metrics_summary.yaml
-  report_path: output\training_runs\wave5_1_harmonic_prior_pointwise_control\2026-07-01-23-29-08__te_wave5_1_harmonic_prior_pointwise_control_fw/training_test_report.md
-  selection_policy:
-    primary_metric: test_mae
-    first_tie_breaker: test_rmse
-    second_tie_breaker: val_mae
-    third_tie_breaker: trainable_parameter_count
-    direction: minimize
-  selected_at: '2026-07-01T23:48:39'
-- run_instance_id: 2026-07-15-23-51-01__te_wave5_1_harmonic_prior_pointwise_control_fw__simplified_setpoints
+updated_at: '2026-07-16T00:29:31'
+best_entry:
+  run_instance_id: 2026-07-15-23-51-01__te_wave5_1_harmonic_prior_pointwise_control_fw__simplified_setpoints
   run_name: te_wave5_1_harmonic_prior_pointwise_control_fw__simplified_setpoints
   output_run_name: te_wave5_1_harmonic_prior_pointwise_control_fw__simplified_setpoints
   output_artifact_kind: training_run
@@ -86,4 +47,4 @@ entry_list:
     second_tie_breaker: val_mae
     third_tie_breaker: trainable_parameter_count
     direction: minimize
-  selected_at: '2026-07-16T00:17:20'
+  selected_at: '2026-07-16T00:29:31'

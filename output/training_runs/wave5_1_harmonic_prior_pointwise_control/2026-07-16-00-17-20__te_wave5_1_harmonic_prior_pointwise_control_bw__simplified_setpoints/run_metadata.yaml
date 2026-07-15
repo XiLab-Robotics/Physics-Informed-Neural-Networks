@@ -1,0 +1,22 @@
+schema_version: 1
+artifact_kind: training_run
+model_family: wave5_1_harmonic_prior_pointwise_control_bw
+base_model_family: wave5_1_harmonic_prior_pointwise_control
+training_variant: bw
+direction_scope_label: backward_only
+use_forward_direction: false
+use_backward_direction: true
+run_name: te_wave5_1_harmonic_prior_pointwise_control_bw__simplified_setpoints
+run_instance_id: 2026-07-16-00-17-20__te_wave5_1_harmonic_prior_pointwise_control_bw__simplified_setpoints
+output_directory: output\training_runs\wave5_1_harmonic_prior_pointwise_control\2026-07-16-00-17-20__te_wave5_1_harmonic_prior_pointwise_control_bw__simplified_setpoints
+dataset_id: simplified_dataset
+dataset_schema: simplified_curve_v1
+input_feature_names:
+- angular_position_deg
+- input_speed_rpm
+- input_torque_nm
+- oil_temperature_deg
+- direction_flag
+target_feature_names:
+- transmission_error_deg
+input_feature_dim: 5
