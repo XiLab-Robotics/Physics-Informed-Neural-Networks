@@ -2,7 +2,7 @@
 
 ## Executive Snapshot
 
-- Generated At: `2026-07-15T06:33:29`
+- Generated At: `2026-07-15T07:39:13`
 - Program State: active.
 - Current Completed Wave: polished-dataset RCIM, early-wave, and full-wave
 - Current Focus: the polished-dataset TE Curve Verification Pipeline refresh is
@@ -66,7 +66,7 @@
 | `lstm_sequence_global` | Implemented Benchmark | `te_lstm_sequence_global` | `lstm_sequence` | 0.002258 | 200,833 | `2026-07-08 17:20:19` |
 | `wave3_1_sequential_residual_offset_probe_global` | Implemented Benchmark | `te_wave3_1_sequential_residual_offset_probe_global` | `sequential_residual_offset_probe` | 0.002261 | 92,418 | `2026-07-10 11:09:33` |
 | `wave3_2_clean_sequential_residual_offset_global` | Implemented Benchmark | `te_wave3_2_clean_sequential_residual_offset_global` | `sequential_residual_offset_probe` | 0.002276 | 92,418 | `2026-07-10 22:06:08` |
-| `wave4_4_gru_latent_offset_residual_global` | Implemented Benchmark | `te_wave4_4_gru_latent_offset_residual_global` | `latent_state_hysteresis_probe` | 0.002287 | 124,899 | `2026-07-01 20:26:33` |
+| `wave4_4_gru_latent_offset_residual_global` | Implemented Benchmark | `te_wave4_4_gru_latent_offset_residual_global` | `latent_state_hysteresis_probe` | 0.002287 | 124,899 | `2026-07-15 07:11:49` |
 | `wave4_4_causal_tcn_latent_offset_residual_global` | Implemented Benchmark | `te_wave4_4_causal_tcn_latent_offset_residual_global` | `latent_state_hysteresis_probe` | 0.002315 | 97,155 | `2026-07-01 22:00:09` |
 | `temporal_convolution_global` | Implemented Benchmark | `te_temporal_convolution_global__polished_actual_values` | `temporal_convolution` | 0.002327 | 147,009 | `2026-07-08 10:20:02` |
 | `track2h_latent_state_hysteresis_gru_offset_residual_global` | Implemented Benchmark | `te_track2h_l_gru_offset_residual_global` | `latent_state_hysteresis_probe` | 0.002339 | 124,899 | `2026-06-22 16:00:39` |
@@ -146,7 +146,7 @@
 | `wave3_1_sequential_residual_offset_probe_fw` | Implemented Benchmark | `te_wave3_1_sequential_residual_offset_probe_fw` | `sequential_residual_offset_probe` | 0.002246 | 92,418 | `2026-07-10 11:35:18` |
 | `gru_sequence_fw` | Implemented Benchmark | `te_gru_sequence_fw` | `gru_sequence` | 0.002247 | 150,657 | `2026-07-08 14:10:34` |
 | `wave3_2_clean_sequential_residual_offset_fw` | Implemented Benchmark | `te_wave3_2_clean_sequential_residual_offset_fw` | `sequential_residual_offset_probe` | 0.002258 | 92,418 | `2026-07-10 22:37:03` |
-| `wave4_4_gru_latent_offset_residual_fw` | Implemented Benchmark | `te_wave4_4_gru_latent_offset_residual_fw` | `latent_state_hysteresis_probe` | 0.002300 | 124,899 | `2026-07-01 20:55:24` |
+| `wave4_4_gru_latent_offset_residual_fw` | Implemented Benchmark | `te_wave4_4_gru_latent_offset_residual_fw` | `latent_state_hysteresis_probe` | 0.002300 | 124,899 | `2026-07-15 07:26:38` |
 | `wave4_4_causal_tcn_latent_offset_residual_fw` | Implemented Benchmark | `te_wave4_4_causal_tcn_latent_offset_residual_fw` | `latent_state_hysteresis_probe` | 0.002316 | 97,155 | `2026-07-01 22:28:38` |
 | `temporal_convolution_fw` | Implemented Benchmark | `te_temporal_convolution_fw__polished_actual_values` | `temporal_convolution` | 0.002390 | 147,009 | `2026-07-08 10:34:09` |
 | `track2f_bis_harmonic_residual_offset_fw` | Implemented Benchmark | `te_track2f_bis_harmonic_residual_offset_fw` | `harmonic_residual_offset_probe` | 0.002862 | 85,747 | `2026-06-05 16:32:38` |
@@ -215,7 +215,7 @@
 | `gru_sequence_bw` | Implemented Benchmark | `te_gru_sequence_bw` | `gru_sequence` | 0.002230 | 150,657 | `2026-07-08 14:46:08` |
 | `lstm_sequence_bw` | Implemented Benchmark | `te_lstm_sequence_bw` | `lstm_sequence` | 0.002240 | 200,833 | `2026-07-08 18:46:16` |
 | `wave3_2_clean_sequential_residual_offset_bw` | Implemented Benchmark | `te_wave3_2_clean_sequential_residual_offset_bw` | `sequential_residual_offset_probe` | 0.002242 | 92,418 | `2026-07-10 23:01:43` |
-| `wave4_4_gru_latent_offset_residual_bw` | Implemented Benchmark | `te_wave4_4_gru_latent_offset_residual_bw` | `latent_state_hysteresis_probe` | 0.002260 | 124,899 | `2026-07-01 21:33:26` |
+| `wave4_4_gru_latent_offset_residual_bw` | Implemented Benchmark | `te_wave4_4_gru_latent_offset_residual_bw` | `latent_state_hysteresis_probe` | 0.002260 | 124,899 | `2026-07-15 07:39:05` |
 | `temporal_convolution_bw` | Implemented Benchmark | `te_temporal_convolution_bw__polished_actual_values` | `temporal_convolution` | 0.002303 | 147,009 | `2026-07-08 11:01:13` |
 | `wave4_4_causal_tcn_latent_offset_residual_bw` | Implemented Benchmark | `te_wave4_4_causal_tcn_latent_offset_residual_bw` | `latent_state_hysteresis_probe` | 0.002309 | 97,155 | `2026-07-01 22:59:07` |
 | `track2h_mixture_density_heads_mdn_k2_bw` | Implemented Benchmark | `te_track2h_mdn_k2_bw` | `curve_aware_harmonic_residual_offset_probe` | 0.002658 | 86,802 | `2026-06-13 12:14:13` |
@@ -427,11 +427,11 @@ Low-priority exploratory families currently listed in the backlog:
 
 | Campaign | Generated At | Completed | Failed | Winner | Impact |
 | --- | --- | ---: | ---: | --- | --- |
+| `dataset_input_mode_retraining__wave4_4_gru_latent_offset_residual__simplified_setpoints` | `2026-07-15 07:39:05` | 3 | 0 | `te_wave4_4_gru_latent_offset_residual_bw__simplified_setpoints` | No family-best change |
 | `dataset_input_mode_retraining__wave4_3_mixture_density_k2__polished_actual_values` | `2026-07-15 06:33:19` | 3 | 0 | `te_wave4_3_mixture_density_k2_fw__polished_actual_values` | No family-best change |
 | `dataset_input_mode_retraining__wave4_3_mixture_density_k2__polished_setpoints` | `2026-07-15 03:38:52` | 3 | 0 | `te_wave4_3_mixture_density_k2_fw__polished_setpoints` | No family-best change |
 | `dataset_input_mode_retraining__wave4_3_mixture_density_k2__simplified_setpoints` | `2026-07-15 01:20:08` | 3 | 0 | `te_wave4_3_mixture_density_k2_global__simplified_setpoints` | No family-best change |
 | `dataset_input_mode_retraining__wave4_2_gaussian_nll__polished_actual_values` | `2026-07-14 22:39:07` | 3 | 0 | `te_wave4_2_gaussian_nll_bw__polished_actual_values` | No family-best change |
-| `dataset_input_mode_retraining__wave4_2_gaussian_nll__polished_setpoints` | `2026-07-14 20:02:53` | 3 | 0 | `te_wave4_2_gaussian_nll_global__polished_setpoints` | No family-best change |
 
 ## Ranking Policy
 
@@ -2683,7 +2683,7 @@ Known failed campaign attempts for this family:
 
 - Best run: `N/A`
 - Best test MAE: `N/A`
-- Completed tracked runs: `3`
+- Completed tracked runs: `6`
 - Known failed campaign attempts: `0`
 
 | Rank | Run | Model Type | Test MAE [deg] | Test RMSE [deg] | Val MAE [deg] | Params | Duration | Artifact Size | Model Complexity | Training Heaviness | Campaign |
@@ -2691,6 +2691,9 @@ Known failed campaign attempts for this family:
 | 1 | `te_wave4_4_gru_latent_offset_residual_bw` | `latent_state_hysteresis_probe` | 0.002260 | 0.002915 | 0.002191 | 124,899 | 38m 01s | 1.48 MB | High | Medium | `polished_dataset_full_wave_retraining_2026_06_22` |
 | 2 | `te_wave4_4_gru_latent_offset_residual_global` | `latent_state_hysteresis_probe` | 0.002287 | 0.002934 | 0.002195 | 124,899 | 36m 39s | 1.48 MB | High | Medium | `polished_dataset_full_wave_retraining_2026_06_22` |
 | 3 | `te_wave4_4_gru_latent_offset_residual_fw` | `latent_state_hysteresis_probe` | 0.002300 | 0.002953 | 0.002201 | 124,899 | 28m 49s | 1.48 MB | High | Medium | `polished_dataset_full_wave_retraining_2026_06_22` |
+| 4 | `te_wave4_4_gru_latent_offset_residual_bw__simplified_setpoints` | `latent_state_hysteresis_probe` | 0.003510 | 0.004334 | 0.003772 | 125,475 | 12m 27s | 1.48 MB | High | Low | `dataset_input_mode_retraining__wave4_4_gru_latent_offset_residual__simplified_setpoints` |
+| 5 | `te_wave4_4_gru_latent_offset_residual_global__simplified_setpoints` | `latent_state_hysteresis_probe` | 0.003535 | 0.004351 | 0.003757 | 125,475 | 12m 06s | 1.48 MB | High | Low | `dataset_input_mode_retraining__wave4_4_gru_latent_offset_residual__simplified_setpoints` |
+| 6 | `te_wave4_4_gru_latent_offset_residual_fw__simplified_setpoints` | `latent_state_hysteresis_probe` | 0.003563 | 0.004400 | 0.003719 | 125,475 | 14m 49s | 1.48 MB | High | Low | `dataset_input_mode_retraining__wave4_4_gru_latent_offset_residual__simplified_setpoints` |
 
 #### wave52b_offset_harmonic_guided_offset_centered_shape_bw
 
