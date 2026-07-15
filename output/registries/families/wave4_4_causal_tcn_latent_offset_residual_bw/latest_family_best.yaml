@@ -6,7 +6,7 @@ selection_policy:
   second_tie_breaker: val_mae
   third_tie_breaker: trainable_parameter_count
   direction: minimize
-updated_at: '2026-07-15T20:52:03'
+updated_at: '2026-07-15T22:09:24'
 best_entry:
   run_instance_id: 2026-07-01-22-28-39__te_wave4_4_causal_tcn_latent_offset_residual_bw
   run_name: te_wave4_4_causal_tcn_latent_offset_residual_bw
