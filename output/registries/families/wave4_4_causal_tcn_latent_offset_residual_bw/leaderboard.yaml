@@ -6,8 +6,8 @@ selection_policy:
   second_tie_breaker: val_mae
   third_tie_breaker: trainable_parameter_count
   direction: minimize
-updated_at: '2026-07-15T22:09:24'
-entry_count: 3
+updated_at: '2026-07-15T23:09:39'
+entry_count: 4
 entry_list:
 - run_instance_id: 2026-07-01-22-28-39__te_wave4_4_causal_tcn_latent_offset_residual_bw
   run_name: te_wave4_4_causal_tcn_latent_offset_residual_bw
@@ -47,6 +47,46 @@ entry_list:
     third_tie_breaker: trainable_parameter_count
     direction: minimize
   selected_at: '2026-07-01T22:59:07'
+- run_instance_id: 2026-07-15-22-54-23__te_wave4_4_causal_tcn_latent_offset_residual_bw__polished_actual_values
+  run_name: te_wave4_4_causal_tcn_latent_offset_residual_bw__polished_actual_values
+  output_run_name: te_wave4_4_causal_tcn_latent_offset_residual_bw__polished_actual_values
+  output_artifact_kind: training_run
+  model_family: wave4_4_causal_tcn_latent_offset_residual_bw
+  base_model_family: wave4_4_causal_tcn_latent_offset_residual
+  model_type: latent_state_hysteresis_probe
+  dataset_id: polished_dataset
+  dataset_schema: polished_point_v1
+  input_mode: actual_values
+  input_feature_names:
+  - angular_position_deg
+  - input_speed_rpm
+  - input_torque_nm
+  - oil_temperature_deg
+  - direction_flag
+  target_feature_names:
+  - theta_TE
+  input_feature_dim: 5
+  training_variant: bw
+  direction_scope_label: backward_only
+  use_forward_direction: false
+  use_backward_direction: true
+  trainable_parameter_count: 97923
+  total_parameter_count: 97923
+  val_mae: 0.002226645825430751
+  val_rmse: 0.003064486663788557
+  test_mae: 0.0023435212206095457
+  test_rmse: 0.00343461730517447
+  output_directory: output\training_runs\wave4_4_causal_tcn_latent_offset_residual\2026-07-15-22-54-23__te_wave4_4_causal_tcn_latent_offset_residual_bw__polished_actual_values
+  best_checkpoint_path: output\training_runs\wave4_4_causal_tcn_latent_offset_residual\2026-07-15-22-54-23__te_wave4_4_causal_tcn_latent_offset_residual_bw__polished_actual_values\checkpoints\latent_state_hysteresis_probe-epoch=078-val_mae=0.00222665.ckpt
+  metrics_path: output\training_runs\wave4_4_causal_tcn_latent_offset_residual\2026-07-15-22-54-23__te_wave4_4_causal_tcn_latent_offset_residual_bw__polished_actual_values/metrics_summary.yaml
+  report_path: output\training_runs\wave4_4_causal_tcn_latent_offset_residual\2026-07-15-22-54-23__te_wave4_4_causal_tcn_latent_offset_residual_bw__polished_actual_values/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-07-15T23:09:39'
 - run_instance_id: 2026-07-15-21-50-42__te_wave4_4_causal_tcn_latent_offset_residual_bw__polished_setpoints
   run_name: te_wave4_4_causal_tcn_latent_offset_residual_bw__polished_setpoints
   output_run_name: te_wave4_4_causal_tcn_latent_offset_residual_bw__polished_setpoints

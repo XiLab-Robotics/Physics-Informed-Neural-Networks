@@ -1,0 +1,113 @@
+schema_version: 1
+config_path: /scratch1/dferrari/Physics-Informed-Neural-Networks/config/training/queue/dataset_input_mode_retraining/dataset_input_mode_retraining__wave4_4_causal_tcn_latent_offset_residual__polished_actual_values/running/2026-07-15-22-27-43_003_003_wave4_4_causal_tcn_latent_offset_residual_bw.yaml
+experiment:
+  model_family: wave4_4_causal_tcn_latent_offset_residual_bw
+  model_type: latent_state_hysteresis_probe
+  run_name: te_wave4_4_causal_tcn_latent_offset_residual_bw__polished_actual_values
+  output_run_name: te_wave4_4_causal_tcn_latent_offset_residual_bw__polished_actual_values
+  run_instance_id: 2026-07-15-22-54-23__te_wave4_4_causal_tcn_latent_offset_residual_bw__polished_actual_values
+  output_artifact_kind: training_run
+  base_model_family: wave4_4_causal_tcn_latent_offset_residual
+  training_variant: bw
+  direction_scope_label: backward_only
+  use_forward_direction: false
+  use_backward_direction: true
+artifacts:
+  output_directory: /scratch1/dferrari/Physics-Informed-Neural-Networks/output/training_runs/wave4_4_causal_tcn_latent_offset_residual/2026-07-15-22-54-23__te_wave4_4_causal_tcn_latent_offset_residual_bw__polished_actual_values
+  best_checkpoint_path: /scratch1/dferrari/Physics-Informed-Neural-Networks/output/training_runs/wave4_4_causal_tcn_latent_offset_residual/2026-07-15-22-54-23__te_wave4_4_causal_tcn_latent_offset_residual_bw__polished_actual_values/checkpoints/latent_state_hysteresis_probe-epoch=078-val_mae=0.00222665.ckpt
+dataset_split:
+  train_curve_count: 1356
+  validation_curve_count: 388
+  test_curve_count: 194
+  dataset_name: polished_dataset
+  dataset_schema: polished_point_v1
+  input_mode: actual_values
+  input_feature_name_list:
+  - angular_position_deg
+  - input_speed_rpm
+  - input_torque_nm
+  - oil_temperature_deg
+  - direction_flag
+  target_feature_name_list:
+  - theta_TE
+  input_feature_dim: 5
+  target_feature_dim: 1
+dataset:
+  dataset_id: polished_dataset
+  dataset_schema: polished_point_v1
+  input_mode: actual_values
+  input_feature_names:
+  - angular_position_deg
+  - input_speed_rpm
+  - input_torque_nm
+  - oil_temperature_deg
+  - direction_flag
+  target_feature_names:
+  - theta_TE
+  input_feature_dim: 5
+  target_feature_dim: 1
+model_summary:
+  backbone_name: LatentStateHysteresisNetwork
+  trainable_parameter_count: 97923
+  frozen_parameter_count: 0
+  total_parameter_count: 97923
+runtime_config:
+  accelerator: auto
+  devices: auto
+  precision: '32'
+  benchmark: true
+  use_non_blocking_transfer: true
+normalization_statistics:
+  input_feature_mean:
+  - 180.0000762939453
+  - -14.942256927490234
+  - 1.681342363357544
+  - 30.617416381835938
+  - -0.01724354922771454
+  input_feature_std:
+  - 103.92301940917969
+  - 690.1138305664062
+  - 1055.5772705078125
+  - 4.267345428466797
+  - 0.9998513460159302
+  target_mean:
+  - -0.016667330637574196
+  target_std:
+  - 0.0465485081076622
+validation_metrics:
+  val_loss: 0.005754276644438505
+  val_mae: 0.002226645825430751
+  val_rmse: 0.003064486663788557
+  val_pointwise_loss: 0.0029925780836492777
+  val_centered_curve_shape_loss: 0.005628804676234722
+  val_curve_offset_loss: 0.0003601922944653779
+  val_curve_amplitude_loss: 0.03127799183130264
+  val_sparse_harmonic_shape_loss: 0.0
+  val_base_mae: 0.024712029844522476
+  val_base_rmse: 0.02924775332212448
+  val_residual_offset_mean_abs: 0.01644924096763134
+test_metrics:
+  test_loss: 0.006453118287026882
+  test_mae: 0.0023435212206095457
+  test_rmse: 0.00343461730517447
+  test_pointwise_loss: 0.0034346827305853367
+  test_centered_curve_shape_loss: 0.006509315222501755
+  test_curve_offset_loss: 0.0003606620302889496
+  test_curve_amplitude_loss: 0.03288879618048668
+  test_sparse_harmonic_shape_loss: 0.0
+  test_base_mae: 0.023444822058081627
+  test_base_rmse: 0.02818702720105648
+  test_residual_offset_mean_abs: 0.015387875959277153
+comparison_payload:
+  model_family: wave4_4_causal_tcn_latent_offset_residual_bw
+  model_type: latent_state_hysteresis_probe
+  run_name: te_wave4_4_causal_tcn_latent_offset_residual_bw__polished_actual_values
+  backbone_name: LatentStateHysteresisNetwork
+  trainable_parameter_count: 97923
+  total_parameter_count: 97923
+  val_mae: 0.002226645825430751
+  val_rmse: 0.003064486663788557
+  test_mae: 0.0023435212206095457
+  test_rmse: 0.00343461730517447
+  deployment_notes: ''
+  interpretability_notes: ''
