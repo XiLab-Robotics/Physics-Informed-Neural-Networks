@@ -13,74 +13,74 @@ entries:
   dataset_id: simplified_dataset
   dataset_schema: simplified_curve_v1
   input_mode: setpoints
-  model_family: wave4_4_gru_latent_offset_residual
-  model_type: latent_state_hysteresis_probe
+  model_family: wave4_3_mixture_density_k3
+  model_type: curve_aware_harmonic_residual_offset_probe
   surface: global
-  run_name: te_wave4_4_gru_latent_offset_residual_global__simplified_setpoints
-  run_instance_id: 2026-07-15-06-59-43__te_wave4_4_gru_latent_offset_residual_global__simplified_setpoints
-  source_output_directory: output/training_runs/wave4_4_gru_latent_offset_residual/2026-07-15-06-59-43__te_wave4_4_gru_latent_offset_residual_global__simplified_setpoints
-  source_best_checkpoint_path: output/training_runs/wave4_4_gru_latent_offset_residual/2026-07-15-06-59-43__te_wave4_4_gru_latent_offset_residual_global__simplified_setpoints/checkpoints/latent_state_hysteresis_probe-epoch=065-val_mae=0.00375664.ckpt
-  python_model_path: models/simplified_dataset/setpoints/exported/wave4_4_gru_latent_offset_residual/global/2026-07-15-06-59-43__te_wave4_4_gru_latent_offset_residual_global__simplified_setpoints/python/latent_state_hysteresis_probe-epoch=065-val_mae=0.00375664.ckpt
-  onnx_model_path: models/simplified_dataset/setpoints/exported/wave4_4_gru_latent_offset_residual/global/2026-07-15-06-59-43__te_wave4_4_gru_latent_offset_residual_global__simplified_setpoints/onnx/model.onnx
+  run_name: te_wave4_3_mixture_density_k3_global__simplified_setpoints
+  run_instance_id: 2026-07-15-10-10-10__te_wave4_3_mixture_density_k3_global__simplified_setpoints
+  source_output_directory: output/training_runs/wave4_3_mixture_density_k3/2026-07-15-10-10-10__te_wave4_3_mixture_density_k3_global__simplified_setpoints
+  source_best_checkpoint_path: output/training_runs/wave4_3_mixture_density_k3/2026-07-15-10-10-10__te_wave4_3_mixture_density_k3_global__simplified_setpoints/checkpoints/curve_aware_harmonic_residual_offset_probe-epoch=103-val_mae=0.00358189.ckpt
+  python_model_path: models/simplified_dataset/setpoints/exported/wave4_3_mixture_density_k3/global/2026-07-15-10-10-10__te_wave4_3_mixture_density_k3_global__simplified_setpoints/python/curve_aware_harmonic_residual_offset_probe-epoch=103-val_mae=0.00358189.ckpt
+  onnx_model_path: models/simplified_dataset/setpoints/exported/wave4_3_mixture_density_k3/global/2026-07-15-10-10-10__te_wave4_3_mixture_density_k3_global__simplified_setpoints/onnx/model.onnx
   onnx_export_status: exported
   onnx_export_error: ''
   source_run_snapshot_path_map:
-    training_config.snapshot.yaml: output/training_runs/wave4_4_gru_latent_offset_residual/2026-07-15-06-59-43__te_wave4_4_gru_latent_offset_residual_global__simplified_setpoints/training_config.yaml
-    metrics_summary.snapshot.yaml: output/training_runs/wave4_4_gru_latent_offset_residual/2026-07-15-06-59-43__te_wave4_4_gru_latent_offset_residual_global__simplified_setpoints/metrics_summary.yaml
-    run_metadata.snapshot.yaml: output/training_runs/wave4_4_gru_latent_offset_residual/2026-07-15-06-59-43__te_wave4_4_gru_latent_offset_residual_global__simplified_setpoints/run_metadata.yaml
-    training_test_report.snapshot.md: output/training_runs/wave4_4_gru_latent_offset_residual/2026-07-15-06-59-43__te_wave4_4_gru_latent_offset_residual_global__simplified_setpoints/training_test_report.md
-    best_checkpoint_path.snapshot.txt: output/training_runs/wave4_4_gru_latent_offset_residual/2026-07-15-06-59-43__te_wave4_4_gru_latent_offset_residual_global__simplified_setpoints/best_checkpoint_path.txt
+    training_config.snapshot.yaml: output/training_runs/wave4_3_mixture_density_k3/2026-07-15-10-10-10__te_wave4_3_mixture_density_k3_global__simplified_setpoints/training_config.yaml
+    metrics_summary.snapshot.yaml: output/training_runs/wave4_3_mixture_density_k3/2026-07-15-10-10-10__te_wave4_3_mixture_density_k3_global__simplified_setpoints/metrics_summary.yaml
+    run_metadata.snapshot.yaml: output/training_runs/wave4_3_mixture_density_k3/2026-07-15-10-10-10__te_wave4_3_mixture_density_k3_global__simplified_setpoints/run_metadata.yaml
+    training_test_report.snapshot.md: output/training_runs/wave4_3_mixture_density_k3/2026-07-15-10-10-10__te_wave4_3_mixture_density_k3_global__simplified_setpoints/training_test_report.md
+    best_checkpoint_path.snapshot.txt: output/training_runs/wave4_3_mixture_density_k3/2026-07-15-10-10-10__te_wave4_3_mixture_density_k3_global__simplified_setpoints/best_checkpoint_path.txt
   metrics:
-    val_mae: 0.003756643505766988
-    test_mae: 0.003534950315952301
-    test_rmse: 0.004350604023784399
+    val_mae: 0.0035818929318338633
+    test_mae: 0.0034602140076458454
+    test_rmse: 0.0043012951500713825
 - schema_version: 1
   dataset_id: simplified_dataset
   dataset_schema: simplified_curve_v1
   input_mode: setpoints
-  model_family: wave4_4_gru_latent_offset_residual
-  model_type: latent_state_hysteresis_probe
+  model_family: wave4_3_mixture_density_k3
+  model_type: curve_aware_harmonic_residual_offset_probe
   surface: forward
-  run_name: te_wave4_4_gru_latent_offset_residual_fw__simplified_setpoints
-  run_instance_id: 2026-07-15-07-11-49__te_wave4_4_gru_latent_offset_residual_fw__simplified_setpoints
-  source_output_directory: output/training_runs/wave4_4_gru_latent_offset_residual/2026-07-15-07-11-49__te_wave4_4_gru_latent_offset_residual_fw__simplified_setpoints
-  source_best_checkpoint_path: output/training_runs/wave4_4_gru_latent_offset_residual/2026-07-15-07-11-49__te_wave4_4_gru_latent_offset_residual_fw__simplified_setpoints/checkpoints/latent_state_hysteresis_probe-epoch=081-val_mae=0.00371922.ckpt
-  python_model_path: models/simplified_dataset/setpoints/exported/wave4_4_gru_latent_offset_residual/forward/2026-07-15-07-11-49__te_wave4_4_gru_latent_offset_residual_fw__simplified_setpoints/python/latent_state_hysteresis_probe-epoch=081-val_mae=0.00371922.ckpt
-  onnx_model_path: models/simplified_dataset/setpoints/exported/wave4_4_gru_latent_offset_residual/forward/2026-07-15-07-11-49__te_wave4_4_gru_latent_offset_residual_fw__simplified_setpoints/onnx/model.onnx
+  run_name: te_wave4_3_mixture_density_k3_fw__simplified_setpoints
+  run_instance_id: 2026-07-15-10-35-14__te_wave4_3_mixture_density_k3_fw__simplified_setpoints
+  source_output_directory: output/training_runs/wave4_3_mixture_density_k3/2026-07-15-10-35-14__te_wave4_3_mixture_density_k3_fw__simplified_setpoints
+  source_best_checkpoint_path: output/training_runs/wave4_3_mixture_density_k3/2026-07-15-10-35-14__te_wave4_3_mixture_density_k3_fw__simplified_setpoints/checkpoints/curve_aware_harmonic_residual_offset_probe-epoch=077-val_mae=0.00357399.ckpt
+  python_model_path: models/simplified_dataset/setpoints/exported/wave4_3_mixture_density_k3/forward/2026-07-15-10-35-14__te_wave4_3_mixture_density_k3_fw__simplified_setpoints/python/curve_aware_harmonic_residual_offset_probe-epoch=077-val_mae=0.00357399.ckpt
+  onnx_model_path: models/simplified_dataset/setpoints/exported/wave4_3_mixture_density_k3/forward/2026-07-15-10-35-14__te_wave4_3_mixture_density_k3_fw__simplified_setpoints/onnx/model.onnx
   onnx_export_status: exported
   onnx_export_error: ''
   source_run_snapshot_path_map:
-    training_config.snapshot.yaml: output/training_runs/wave4_4_gru_latent_offset_residual/2026-07-15-07-11-49__te_wave4_4_gru_latent_offset_residual_fw__simplified_setpoints/training_config.yaml
-    metrics_summary.snapshot.yaml: output/training_runs/wave4_4_gru_latent_offset_residual/2026-07-15-07-11-49__te_wave4_4_gru_latent_offset_residual_fw__simplified_setpoints/metrics_summary.yaml
-    run_metadata.snapshot.yaml: output/training_runs/wave4_4_gru_latent_offset_residual/2026-07-15-07-11-49__te_wave4_4_gru_latent_offset_residual_fw__simplified_setpoints/run_metadata.yaml
-    training_test_report.snapshot.md: output/training_runs/wave4_4_gru_latent_offset_residual/2026-07-15-07-11-49__te_wave4_4_gru_latent_offset_residual_fw__simplified_setpoints/training_test_report.md
-    best_checkpoint_path.snapshot.txt: output/training_runs/wave4_4_gru_latent_offset_residual/2026-07-15-07-11-49__te_wave4_4_gru_latent_offset_residual_fw__simplified_setpoints/best_checkpoint_path.txt
+    training_config.snapshot.yaml: output/training_runs/wave4_3_mixture_density_k3/2026-07-15-10-35-14__te_wave4_3_mixture_density_k3_fw__simplified_setpoints/training_config.yaml
+    metrics_summary.snapshot.yaml: output/training_runs/wave4_3_mixture_density_k3/2026-07-15-10-35-14__te_wave4_3_mixture_density_k3_fw__simplified_setpoints/metrics_summary.yaml
+    run_metadata.snapshot.yaml: output/training_runs/wave4_3_mixture_density_k3/2026-07-15-10-35-14__te_wave4_3_mixture_density_k3_fw__simplified_setpoints/run_metadata.yaml
+    training_test_report.snapshot.md: output/training_runs/wave4_3_mixture_density_k3/2026-07-15-10-35-14__te_wave4_3_mixture_density_k3_fw__simplified_setpoints/training_test_report.md
+    best_checkpoint_path.snapshot.txt: output/training_runs/wave4_3_mixture_density_k3/2026-07-15-10-35-14__te_wave4_3_mixture_density_k3_fw__simplified_setpoints/best_checkpoint_path.txt
   metrics:
-    val_mae: 0.003719223430380225
-    test_mae: 0.0035626105964183807
-    test_rmse: 0.004399793688207865
+    val_mae: 0.003573987167328596
+    test_mae: 0.0033332209568470716
+    test_rmse: 0.004102963954210281
 - schema_version: 1
   dataset_id: simplified_dataset
   dataset_schema: simplified_curve_v1
   input_mode: setpoints
-  model_family: wave4_4_gru_latent_offset_residual
-  model_type: latent_state_hysteresis_probe
+  model_family: wave4_3_mixture_density_k3
+  model_type: curve_aware_harmonic_residual_offset_probe
   surface: backward
-  run_name: te_wave4_4_gru_latent_offset_residual_bw__simplified_setpoints
-  run_instance_id: 2026-07-15-07-26-38__te_wave4_4_gru_latent_offset_residual_bw__simplified_setpoints
-  source_output_directory: output/training_runs/wave4_4_gru_latent_offset_residual/2026-07-15-07-26-38__te_wave4_4_gru_latent_offset_residual_bw__simplified_setpoints
-  source_best_checkpoint_path: output/training_runs/wave4_4_gru_latent_offset_residual/2026-07-15-07-26-38__te_wave4_4_gru_latent_offset_residual_bw__simplified_setpoints/checkpoints/latent_state_hysteresis_probe-epoch=072-val_mae=0.00377245.ckpt
-  python_model_path: models/simplified_dataset/setpoints/exported/wave4_4_gru_latent_offset_residual/backward/2026-07-15-07-26-38__te_wave4_4_gru_latent_offset_residual_bw__simplified_setpoints/python/latent_state_hysteresis_probe-epoch=072-val_mae=0.00377245.ckpt
-  onnx_model_path: models/simplified_dataset/setpoints/exported/wave4_4_gru_latent_offset_residual/backward/2026-07-15-07-26-38__te_wave4_4_gru_latent_offset_residual_bw__simplified_setpoints/onnx/model.onnx
+  run_name: te_wave4_3_mixture_density_k3_bw__simplified_setpoints
+  run_instance_id: 2026-07-15-10-57-54__te_wave4_3_mixture_density_k3_bw__simplified_setpoints
+  source_output_directory: output/training_runs/wave4_3_mixture_density_k3/2026-07-15-10-57-54__te_wave4_3_mixture_density_k3_bw__simplified_setpoints
+  source_best_checkpoint_path: output/training_runs/wave4_3_mixture_density_k3/2026-07-15-10-57-54__te_wave4_3_mixture_density_k3_bw__simplified_setpoints/checkpoints/curve_aware_harmonic_residual_offset_probe-epoch=083-val_mae=0.00361315.ckpt
+  python_model_path: models/simplified_dataset/setpoints/exported/wave4_3_mixture_density_k3/backward/2026-07-15-10-57-54__te_wave4_3_mixture_density_k3_bw__simplified_setpoints/python/curve_aware_harmonic_residual_offset_probe-epoch=083-val_mae=0.00361315.ckpt
+  onnx_model_path: models/simplified_dataset/setpoints/exported/wave4_3_mixture_density_k3/backward/2026-07-15-10-57-54__te_wave4_3_mixture_density_k3_bw__simplified_setpoints/onnx/model.onnx
   onnx_export_status: exported
   onnx_export_error: ''
   source_run_snapshot_path_map:
-    training_config.snapshot.yaml: output/training_runs/wave4_4_gru_latent_offset_residual/2026-07-15-07-26-38__te_wave4_4_gru_latent_offset_residual_bw__simplified_setpoints/training_config.yaml
-    metrics_summary.snapshot.yaml: output/training_runs/wave4_4_gru_latent_offset_residual/2026-07-15-07-26-38__te_wave4_4_gru_latent_offset_residual_bw__simplified_setpoints/metrics_summary.yaml
-    run_metadata.snapshot.yaml: output/training_runs/wave4_4_gru_latent_offset_residual/2026-07-15-07-26-38__te_wave4_4_gru_latent_offset_residual_bw__simplified_setpoints/run_metadata.yaml
-    training_test_report.snapshot.md: output/training_runs/wave4_4_gru_latent_offset_residual/2026-07-15-07-26-38__te_wave4_4_gru_latent_offset_residual_bw__simplified_setpoints/training_test_report.md
-    best_checkpoint_path.snapshot.txt: output/training_runs/wave4_4_gru_latent_offset_residual/2026-07-15-07-26-38__te_wave4_4_gru_latent_offset_residual_bw__simplified_setpoints/best_checkpoint_path.txt
+    training_config.snapshot.yaml: output/training_runs/wave4_3_mixture_density_k3/2026-07-15-10-57-54__te_wave4_3_mixture_density_k3_bw__simplified_setpoints/training_config.yaml
+    metrics_summary.snapshot.yaml: output/training_runs/wave4_3_mixture_density_k3/2026-07-15-10-57-54__te_wave4_3_mixture_density_k3_bw__simplified_setpoints/metrics_summary.yaml
+    run_metadata.snapshot.yaml: output/training_runs/wave4_3_mixture_density_k3/2026-07-15-10-57-54__te_wave4_3_mixture_density_k3_bw__simplified_setpoints/run_metadata.yaml
+    training_test_report.snapshot.md: output/training_runs/wave4_3_mixture_density_k3/2026-07-15-10-57-54__te_wave4_3_mixture_density_k3_bw__simplified_setpoints/training_test_report.md
+    best_checkpoint_path.snapshot.txt: output/training_runs/wave4_3_mixture_density_k3/2026-07-15-10-57-54__te_wave4_3_mixture_density_k3_bw__simplified_setpoints/best_checkpoint_path.txt
   metrics:
-    val_mae: 0.0037724487483501434
-    test_mae: 0.003510406007990241
-    test_rmse: 0.00433425372466445
+    val_mae: 0.0036131548695266247
+    test_mae: 0.0035213481169193983
+    test_rmse: 0.004291348624974489

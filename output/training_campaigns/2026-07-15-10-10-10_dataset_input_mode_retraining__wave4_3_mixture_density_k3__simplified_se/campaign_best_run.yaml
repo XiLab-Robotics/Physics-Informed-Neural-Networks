@@ -1,53 +1,14 @@
 schema_version: 1
-model_family: wave4_3_mixture_density_k3_fw
+campaign_name: dataset_input_mode_retraining__wave4_3_mixture_density_k3__simplified_setpoints
 selection_policy:
   primary_metric: test_mae
   first_tie_breaker: test_rmse
   second_tie_breaker: val_mae
   third_tie_breaker: trainable_parameter_count
   direction: minimize
-updated_at: '2026-07-15T10:57:54'
-entry_count: 2
-entry_list:
-- run_instance_id: 2026-07-01-17-43-32__te_wave4_3_mixture_density_k3_fw
-  run_name: te_wave4_3_mixture_density_k3_fw
-  output_run_name: te_wave4_3_mixture_density_k3_fw
-  output_artifact_kind: training_run
-  model_family: wave4_3_mixture_density_k3_fw
-  base_model_family: wave4_3_mixture_density_k3
-  model_type: curve_aware_harmonic_residual_offset_probe
-  dataset_id: polished_dataset
-  dataset_schema: polished_point_v1
-  input_feature_names:
-  - theta
-  - theta_dot
-  - tau_load
-  - T
-  target_feature_names:
-  - theta_TE
-  input_feature_dim: 4
-  training_variant: fw
-  direction_scope_label: forward_only
-  use_forward_direction: true
-  use_backward_direction: false
-  trainable_parameter_count: 86976
-  total_parameter_count: 86976
-  val_mae: 0.0015009117778390646
-  val_rmse: 0.0018856488168239594
-  test_mae: 0.001670546131208539
-  test_rmse: 0.0021807870361953974
-  output_directory: output\training_runs\wave4_3_mixture_density_k3\2026-07-01-17-43-32__te_wave4_3_mixture_density_k3_fw
-  best_checkpoint_path: output\training_runs\wave4_3_mixture_density_k3\2026-07-01-17-43-32__te_wave4_3_mixture_density_k3_fw\checkpoints\curve_aware_harmonic_residual_offset_probe-epoch=240-val_mae=0.00150091.ckpt
-  metrics_path: output\training_runs\wave4_3_mixture_density_k3\2026-07-01-17-43-32__te_wave4_3_mixture_density_k3_fw/metrics_summary.yaml
-  report_path: output\training_runs\wave4_3_mixture_density_k3\2026-07-01-17-43-32__te_wave4_3_mixture_density_k3_fw/training_test_report.md
-  selection_policy:
-    primary_metric: test_mae
-    first_tie_breaker: test_rmse
-    second_tie_breaker: val_mae
-    third_tie_breaker: trainable_parameter_count
-    direction: minimize
-  selected_at: '2026-07-01T18:55:32'
-- run_instance_id: 2026-07-15-10-35-14__te_wave4_3_mixture_density_k3_fw__simplified_setpoints
+updated_at: '2026-07-15T11:22:38'
+best_entry:
+  run_instance_id: 2026-07-15-10-35-14__te_wave4_3_mixture_density_k3_fw__simplified_setpoints
   run_name: te_wave4_3_mixture_density_k3_fw__simplified_setpoints
   output_run_name: te_wave4_3_mixture_density_k3_fw__simplified_setpoints
   output_artifact_kind: training_run
@@ -86,4 +47,4 @@ entry_list:
     second_tie_breaker: val_mae
     third_tie_breaker: trainable_parameter_count
     direction: minimize
-  selected_at: '2026-07-15T10:57:54'
+  selected_at: '2026-07-15T11:22:38'
