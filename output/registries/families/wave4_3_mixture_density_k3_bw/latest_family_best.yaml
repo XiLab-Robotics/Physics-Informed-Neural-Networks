@@ -6,7 +6,7 @@ selection_policy:
   second_tie_breaker: val_mae
   third_tie_breaker: trainable_parameter_count
   direction: minimize
-updated_at: '2026-07-15T11:22:38'
+updated_at: '2026-07-15T13:42:29'
 best_entry:
   run_instance_id: 2026-07-01-18-55-33__te_wave4_3_mixture_density_k3_bw
   run_name: te_wave4_3_mixture_density_k3_bw
