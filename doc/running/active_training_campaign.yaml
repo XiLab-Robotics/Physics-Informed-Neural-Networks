@@ -241,10 +241,10 @@ next_prepared_campaign:
     input_mode: setpoints
 latest_completed_campaign:
   status: completed_and_exported
-  campaign_name: dataset_input_mode_retraining__wave5_1_harmonic_prior_pointwise_control__polished_setpoints
+  campaign_name: dataset_input_mode_retraining__wave5_1_harmonic_prior_pointwise_control__polished_actual_values
   dataset_id: polished_dataset
-  input_mode: setpoints
-  dataset_schema: polished_setpoint_curve_v1
+  input_mode: actual_values
+  dataset_schema: polished_point_v1
   model_family: wave5_1_harmonic_prior_pointwise_control
   expected_run_count: 3
   completed_run_count: 3
@@ -256,73 +256,73 @@ latest_completed_campaign:
     slurm_cpus_per_task: 8
     slurm_memory: 40G
     gpu_request: 1g.20gb:1
-    observed_throughput: Single sbatch job 135999 completed global, forward, and backward sequentially
-      in 01:08:06 with batch 16.
-    resource_note: The accepted run used repository-local TMPDIR under output/tmp/slurm_135999, explicit
+    observed_throughput: Single sbatch job 136000 completed global, forward, and backward sequentially
+      in 01:16:43 with batch 16.
+    resource_note: The accepted run used repository-local TMPDIR under output/tmp/slurm_136000, explicit
       ReqNodeList=gnode01, and completed without /tmp, multiprocessing spool, or quota-write errors.
-    slurm_cleanup_note: Slurm stdout/stderr files for terminal job 135999 were inspected after completion
+    slurm_cleanup_note: Slurm stdout/stderr files for terminal job 136000 were inspected after completion
       and removed immediately per operator instruction; output/slurm was verified to contain only .gitkeep
       after cleanup.
-    next_campaign_recommendation: Continue with Wave 5.1 harmonic-prior pointwise-control polished_actual_values
+    next_campaign_recommendation: Continue with Wave 5.1 harmonic-prior smooth-l1 structured simplified_setpoints
       at batch 16 and the same sequential surface resource profile.
   sbatch_submission:
-    slurm_job_id: '135999'
+    slurm_job_id: '136000'
     state: COMPLETED
     exit_code: 0:0
-    elapsed: 01:08:06
-    batch_max_rss: 15423084K
+    elapsed: 01:16:43
+    batch_max_rss: 15771400K
     allocated_tres: billing=40,cpu=8,gres/gpu=1,mem=40G,node=1
     python_executable: /unimore_home/dferrari/.conda/envs/pinns_env/bin/python
     gpu_request: 1g.20gb:1
     node: gnode01
-  campaign_manifest_path: output/training_campaigns/2026-07-16-00-50-35_dataset_input_mode_retraining__wave5_1_harmonic_prior_pointwise_control/campaign_manifest.yaml
-  campaign_output_directory: output/training_campaigns/2026-07-16-00-50-35_dataset_input_mode_retraining__wave5_1_harmonic_prior_pointwise_control
-  campaign_best_run_path: output/training_campaigns/2026-07-16-00-50-35_dataset_input_mode_retraining__wave5_1_harmonic_prior_pointwise_control/campaign_best_run.yaml
-  campaign_leaderboard_path: output/training_campaigns/2026-07-16-00-50-35_dataset_input_mode_retraining__wave5_1_harmonic_prior_pointwise_control/campaign_leaderboard.yaml
+  campaign_manifest_path: output/training_campaigns/2026-07-16-02-19-49_dataset_input_mode_retraining__wave5_1_harmonic_prior_pointwise_control/campaign_manifest.yaml
+  campaign_output_directory: output/training_campaigns/2026-07-16-02-19-49_dataset_input_mode_retraining__wave5_1_harmonic_prior_pointwise_control
+  campaign_best_run_path: output/training_campaigns/2026-07-16-02-19-49_dataset_input_mode_retraining__wave5_1_harmonic_prior_pointwise_control/campaign_best_run.yaml
+  campaign_leaderboard_path: output/training_campaigns/2026-07-16-02-19-49_dataset_input_mode_retraining__wave5_1_harmonic_prior_pointwise_control/campaign_leaderboard.yaml
   best_run:
-    surface: global
-    run_name: te_wave5_1_harmonic_prior_pointwise_control_global__polished_setpoints
-    run_instance_id: 2026-07-16-00-50-35__te_wave5_1_harmonic_prior_pointwise_control_global__polished_setpoints
-    test_mae: 0.002231063088402152
-    test_rmse: 0.0036034826189279556
-    val_mae: 0.001900798873975873
-    best_checkpoint_path: output/training_runs/wave5_1_harmonic_prior_pointwise_control/2026-07-16-00-50-35__te_wave5_1_harmonic_prior_pointwise_control_global__polished_setpoints/checkpoints/wave3_harmonic_prior_residual-epoch=131-val_mae=0.00190080.ckpt
+    surface: backward
+    run_name: te_wave5_1_harmonic_prior_pointwise_control_bw__polished_actual_values
+    run_instance_id: 2026-07-16-03-08-07__te_wave5_1_harmonic_prior_pointwise_control_bw__polished_actual_values
+    test_mae: 0.0021902553271502256
+    test_rmse: 0.003538577351719141
+    val_mae: 0.001896379515528679
+    best_checkpoint_path: output/training_runs/wave5_1_harmonic_prior_pointwise_control/2026-07-16-03-08-07__te_wave5_1_harmonic_prior_pointwise_control_bw__polished_actual_values/checkpoints/wave3_harmonic_prior_residual-epoch=113-val_mae=0.00189638.ckpt
   surface_run_list:
   - surface: global
-    run_name: te_wave5_1_harmonic_prior_pointwise_control_global__polished_setpoints
-    run_instance_id: 2026-07-16-00-50-35__te_wave5_1_harmonic_prior_pointwise_control_global__polished_setpoints
-    test_mae: 0.002231063088402152
-    test_rmse: 0.0036034826189279556
-    val_mae: 0.001900798873975873
-    best_checkpoint_path: output/training_runs/wave5_1_harmonic_prior_pointwise_control/2026-07-16-00-50-35__te_wave5_1_harmonic_prior_pointwise_control_global__polished_setpoints/checkpoints/wave3_harmonic_prior_residual-epoch=131-val_mae=0.00190080.ckpt
-    onnx_model_path: models/polished_dataset/setpoints/exported/wave5_1_harmonic_prior_pointwise_control/global/2026-07-16-00-50-35__te_wave5_1_harmonic_prior_pointwise_control_global__polished_setpoints/onnx/model.onnx
-    python_model_path: models/polished_dataset/setpoints/exported/wave5_1_harmonic_prior_pointwise_control/global/2026-07-16-00-50-35__te_wave5_1_harmonic_prior_pointwise_control_global__polished_setpoints/python/wave3_harmonic_prior_residual-epoch=131-val_mae=0.00190080.ckpt
+    run_name: te_wave5_1_harmonic_prior_pointwise_control_global__polished_actual_values
+    run_instance_id: 2026-07-16-02-19-49__te_wave5_1_harmonic_prior_pointwise_control_global__polished_actual_values
+    test_mae: 0.0022470541298389435
+    test_rmse: 0.003573107533156872
+    val_mae: 0.0019457405433058739
+    best_checkpoint_path: output/training_runs/wave5_1_harmonic_prior_pointwise_control/2026-07-16-02-19-49__te_wave5_1_harmonic_prior_pointwise_control_global__polished_actual_values/checkpoints/wave3_harmonic_prior_residual-epoch=121-val_mae=0.00194574.ckpt
+    onnx_model_path: models/polished_dataset/actual_values/exported/wave5_1_harmonic_prior_pointwise_control/global/2026-07-16-02-19-49__te_wave5_1_harmonic_prior_pointwise_control_global__polished_actual_values/onnx/model.onnx
+    python_model_path: models/polished_dataset/actual_values/exported/wave5_1_harmonic_prior_pointwise_control/global/2026-07-16-02-19-49__te_wave5_1_harmonic_prior_pointwise_control_global__polished_actual_values/python/wave3_harmonic_prior_residual-epoch=121-val_mae=0.00194574.ckpt
   - surface: forward
-    run_name: te_wave5_1_harmonic_prior_pointwise_control_fw__polished_setpoints
-    run_instance_id: 2026-07-16-01-19-11__te_wave5_1_harmonic_prior_pointwise_control_fw__polished_setpoints
-    test_mae: 0.0022947704419493675
-    test_rmse: 0.0036312895826995373
-    val_mae: 0.0019589117728173733
-    best_checkpoint_path: output/training_runs/wave5_1_harmonic_prior_pointwise_control/2026-07-16-01-19-11__te_wave5_1_harmonic_prior_pointwise_control_fw__polished_setpoints/checkpoints/wave3_harmonic_prior_residual-epoch=084-val_mae=0.00195891.ckpt
-    onnx_model_path: models/polished_dataset/setpoints/exported/wave5_1_harmonic_prior_pointwise_control/forward/2026-07-16-01-19-11__te_wave5_1_harmonic_prior_pointwise_control_fw__polished_setpoints/onnx/model.onnx
-    python_model_path: models/polished_dataset/setpoints/exported/wave5_1_harmonic_prior_pointwise_control/forward/2026-07-16-01-19-11__te_wave5_1_harmonic_prior_pointwise_control_fw__polished_setpoints/python/wave3_harmonic_prior_residual-epoch=084-val_mae=0.00195891.ckpt
+    run_name: te_wave5_1_harmonic_prior_pointwise_control_fw__polished_actual_values
+    run_instance_id: 2026-07-16-02-44-33__te_wave5_1_harmonic_prior_pointwise_control_fw__polished_actual_values
+    test_mae: 0.0021922108717262745
+    test_rmse: 0.003546935273334384
+    val_mae: 0.0019289932679384947
+    best_checkpoint_path: output/training_runs/wave5_1_harmonic_prior_pointwise_control/2026-07-16-02-44-33__te_wave5_1_harmonic_prior_pointwise_control_fw__polished_actual_values/checkpoints/wave3_harmonic_prior_residual-epoch=119-val_mae=0.00192899.ckpt
+    onnx_model_path: models/polished_dataset/actual_values/exported/wave5_1_harmonic_prior_pointwise_control/forward/2026-07-16-02-44-33__te_wave5_1_harmonic_prior_pointwise_control_fw__polished_actual_values/onnx/model.onnx
+    python_model_path: models/polished_dataset/actual_values/exported/wave5_1_harmonic_prior_pointwise_control/forward/2026-07-16-02-44-33__te_wave5_1_harmonic_prior_pointwise_control_fw__polished_actual_values/python/wave3_harmonic_prior_residual-epoch=119-val_mae=0.00192899.ckpt
   - surface: backward
-    run_name: te_wave5_1_harmonic_prior_pointwise_control_bw__polished_setpoints
-    run_instance_id: 2026-07-16-01-39-54__te_wave5_1_harmonic_prior_pointwise_control_bw__polished_setpoints
-    test_mae: 0.0023120837286114693
-    test_rmse: 0.0036625682841986418
-    val_mae: 0.00194036983884871
-    best_checkpoint_path: output/training_runs/wave5_1_harmonic_prior_pointwise_control/2026-07-16-01-39-54__te_wave5_1_harmonic_prior_pointwise_control_bw__polished_setpoints/checkpoints/wave3_harmonic_prior_residual-epoch=074-val_mae=0.00194037.ckpt
-    onnx_model_path: models/polished_dataset/setpoints/exported/wave5_1_harmonic_prior_pointwise_control/backward/2026-07-16-01-39-54__te_wave5_1_harmonic_prior_pointwise_control_bw__polished_setpoints/onnx/model.onnx
-    python_model_path: models/polished_dataset/setpoints/exported/wave5_1_harmonic_prior_pointwise_control/backward/2026-07-16-01-39-54__te_wave5_1_harmonic_prior_pointwise_control_bw__polished_setpoints/python/wave3_harmonic_prior_residual-epoch=074-val_mae=0.00194037.ckpt
+    run_name: te_wave5_1_harmonic_prior_pointwise_control_bw__polished_actual_values
+    run_instance_id: 2026-07-16-03-08-07__te_wave5_1_harmonic_prior_pointwise_control_bw__polished_actual_values
+    test_mae: 0.0021902553271502256
+    test_rmse: 0.003538577351719141
+    val_mae: 0.001896379515528679
+    best_checkpoint_path: output/training_runs/wave5_1_harmonic_prior_pointwise_control/2026-07-16-03-08-07__te_wave5_1_harmonic_prior_pointwise_control_bw__polished_actual_values/checkpoints/wave3_harmonic_prior_residual-epoch=113-val_mae=0.00189638.ckpt
+    onnx_model_path: models/polished_dataset/actual_values/exported/wave5_1_harmonic_prior_pointwise_control/backward/2026-07-16-03-08-07__te_wave5_1_harmonic_prior_pointwise_control_bw__polished_actual_values/onnx/model.onnx
+    python_model_path: models/polished_dataset/actual_values/exported/wave5_1_harmonic_prior_pointwise_control/backward/2026-07-16-03-08-07__te_wave5_1_harmonic_prior_pointwise_control_bw__polished_actual_values/python/wave3_harmonic_prior_residual-epoch=113-val_mae=0.00189638.ckpt
   export:
     status: completed
-    export_root: models/polished_dataset/setpoints/exported
-    export_inventory_path: models/polished_dataset/setpoints/exported/model_development_export_inventory.yaml
+    export_root: models/polished_dataset/actual_values/exported
+    export_inventory_path: models/polished_dataset/actual_values/exported/model_development_export_inventory.yaml
     exported_entry_count: 3
     onnx_export_status_counts:
       exported: 3
-    family_export_directory: models/polished_dataset/setpoints/exported/wave5_1_harmonic_prior_pointwise_control
+    family_export_directory: models/polished_dataset/actual_values/exported/wave5_1_harmonic_prior_pointwise_control
     python_archive_storage_note: Python archive entries are symlinks to canonical best checkpoints in
       output/training_runs. ONNX files are real exported files.
   input_contract_verification:
@@ -335,14 +335,14 @@ latest_completed_campaign:
     - oil_temperature_deg
     - direction_flag
     dataset_id: polished_dataset
-    dataset_schema: polished_setpoint_curve_v1
-    input_mode: setpoints
+    dataset_schema: polished_point_v1
+    input_mode: actual_values
 next_planned_campaign:
   status: not_started
-  campaign_name: dataset_input_mode_retraining__wave5_1_harmonic_prior_pointwise_control__polished_actual_values
-  dataset_id: polished_dataset
-  input_mode: actual_values
-  dataset_schema: polished_point_v1
+  campaign_name: dataset_input_mode_retraining__wave5_1_harmonic_prior_smooth_l1_structured__simplified_setpoints
+  dataset_id: simplified_dataset
+  input_mode: setpoints
+  dataset_schema: simplified_curve_v1
   expected_run_count: 3
   planned_surface_list:
   - global

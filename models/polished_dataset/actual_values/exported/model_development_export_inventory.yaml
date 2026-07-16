@@ -13,74 +13,74 @@ entries:
   dataset_id: polished_dataset
   dataset_schema: polished_point_v1
   input_mode: actual_values
-  model_family: wave4_4_causal_tcn_latent_offset_residual
-  model_type: latent_state_hysteresis_probe
+  model_family: wave5_1_harmonic_prior_pointwise_control
+  model_type: wave3_harmonic_prior_residual
   surface: global
-  run_name: te_wave4_4_causal_tcn_latent_offset_residual_global__polished_actual_values
-  run_instance_id: 2026-07-15-22-27-43__te_wave4_4_causal_tcn_latent_offset_residual_global__polished_actual_values
-  source_output_directory: output/training_runs/wave4_4_causal_tcn_latent_offset_residual/2026-07-15-22-27-43__te_wave4_4_causal_tcn_latent_offset_residual_global__polished_actual_values
-  source_best_checkpoint_path: output/training_runs/wave4_4_causal_tcn_latent_offset_residual/2026-07-15-22-27-43__te_wave4_4_causal_tcn_latent_offset_residual_global__polished_actual_values/checkpoints/latent_state_hysteresis_probe-epoch=041-val_mae=0.00230429.ckpt
-  python_model_path: models/polished_dataset/actual_values/exported/wave4_4_causal_tcn_latent_offset_residual/global/2026-07-15-22-27-43__te_wave4_4_causal_tcn_latent_offset_residual_global__polished_actual_values/python/latent_state_hysteresis_probe-epoch=041-val_mae=0.00230429.ckpt
-  onnx_model_path: models/polished_dataset/actual_values/exported/wave4_4_causal_tcn_latent_offset_residual/global/2026-07-15-22-27-43__te_wave4_4_causal_tcn_latent_offset_residual_global__polished_actual_values/onnx/model.onnx
+  run_name: te_wave5_1_harmonic_prior_pointwise_control_global__polished_actual_values
+  run_instance_id: 2026-07-16-02-19-49__te_wave5_1_harmonic_prior_pointwise_control_global__polished_actual_values
+  source_output_directory: output/training_runs/wave5_1_harmonic_prior_pointwise_control/2026-07-16-02-19-49__te_wave5_1_harmonic_prior_pointwise_control_global__polished_actual_values
+  source_best_checkpoint_path: output/training_runs/wave5_1_harmonic_prior_pointwise_control/2026-07-16-02-19-49__te_wave5_1_harmonic_prior_pointwise_control_global__polished_actual_values/checkpoints/wave3_harmonic_prior_residual-epoch=121-val_mae=0.00194574.ckpt
+  python_model_path: models/polished_dataset/actual_values/exported/wave5_1_harmonic_prior_pointwise_control/global/2026-07-16-02-19-49__te_wave5_1_harmonic_prior_pointwise_control_global__polished_actual_values/python/wave3_harmonic_prior_residual-epoch=121-val_mae=0.00194574.ckpt
+  onnx_model_path: models/polished_dataset/actual_values/exported/wave5_1_harmonic_prior_pointwise_control/global/2026-07-16-02-19-49__te_wave5_1_harmonic_prior_pointwise_control_global__polished_actual_values/onnx/model.onnx
   onnx_export_status: exported
   onnx_export_error: ''
   source_run_snapshot_path_map:
-    training_config.snapshot.yaml: output/training_runs/wave4_4_causal_tcn_latent_offset_residual/2026-07-15-22-27-43__te_wave4_4_causal_tcn_latent_offset_residual_global__polished_actual_values/training_config.yaml
-    metrics_summary.snapshot.yaml: output/training_runs/wave4_4_causal_tcn_latent_offset_residual/2026-07-15-22-27-43__te_wave4_4_causal_tcn_latent_offset_residual_global__polished_actual_values/metrics_summary.yaml
-    run_metadata.snapshot.yaml: output/training_runs/wave4_4_causal_tcn_latent_offset_residual/2026-07-15-22-27-43__te_wave4_4_causal_tcn_latent_offset_residual_global__polished_actual_values/run_metadata.yaml
-    training_test_report.snapshot.md: output/training_runs/wave4_4_causal_tcn_latent_offset_residual/2026-07-15-22-27-43__te_wave4_4_causal_tcn_latent_offset_residual_global__polished_actual_values/training_test_report.md
-    best_checkpoint_path.snapshot.txt: output/training_runs/wave4_4_causal_tcn_latent_offset_residual/2026-07-15-22-27-43__te_wave4_4_causal_tcn_latent_offset_residual_global__polished_actual_values/best_checkpoint_path.txt
+    training_config.snapshot.yaml: output/training_runs/wave5_1_harmonic_prior_pointwise_control/2026-07-16-02-19-49__te_wave5_1_harmonic_prior_pointwise_control_global__polished_actual_values/training_config.yaml
+    metrics_summary.snapshot.yaml: output/training_runs/wave5_1_harmonic_prior_pointwise_control/2026-07-16-02-19-49__te_wave5_1_harmonic_prior_pointwise_control_global__polished_actual_values/metrics_summary.yaml
+    run_metadata.snapshot.yaml: output/training_runs/wave5_1_harmonic_prior_pointwise_control/2026-07-16-02-19-49__te_wave5_1_harmonic_prior_pointwise_control_global__polished_actual_values/run_metadata.yaml
+    training_test_report.snapshot.md: output/training_runs/wave5_1_harmonic_prior_pointwise_control/2026-07-16-02-19-49__te_wave5_1_harmonic_prior_pointwise_control_global__polished_actual_values/training_test_report.md
+    best_checkpoint_path.snapshot.txt: output/training_runs/wave5_1_harmonic_prior_pointwise_control/2026-07-16-02-19-49__te_wave5_1_harmonic_prior_pointwise_control_global__polished_actual_values/best_checkpoint_path.txt
   metrics:
-    val_mae: 0.002304286928847432
-    test_mae: 0.002420227276161313
-    test_rmse: 0.0035420905333012342
+    val_mae: 0.0019457405433058739
+    test_mae: 0.0022470541298389435
+    test_rmse: 0.003573107533156872
 - schema_version: 1
   dataset_id: polished_dataset
   dataset_schema: polished_point_v1
   input_mode: actual_values
-  model_family: wave4_4_causal_tcn_latent_offset_residual
-  model_type: latent_state_hysteresis_probe
+  model_family: wave5_1_harmonic_prior_pointwise_control
+  model_type: wave3_harmonic_prior_residual
   surface: forward
-  run_name: te_wave4_4_causal_tcn_latent_offset_residual_fw__polished_actual_values
-  run_instance_id: 2026-07-15-22-40-16__te_wave4_4_causal_tcn_latent_offset_residual_fw__polished_actual_values
-  source_output_directory: output/training_runs/wave4_4_causal_tcn_latent_offset_residual/2026-07-15-22-40-16__te_wave4_4_causal_tcn_latent_offset_residual_fw__polished_actual_values
-  source_best_checkpoint_path: output/training_runs/wave4_4_causal_tcn_latent_offset_residual/2026-07-15-22-40-16__te_wave4_4_causal_tcn_latent_offset_residual_fw__polished_actual_values/checkpoints/latent_state_hysteresis_probe-epoch=038-val_mae=0.00225416.ckpt
-  python_model_path: models/polished_dataset/actual_values/exported/wave4_4_causal_tcn_latent_offset_residual/forward/2026-07-15-22-40-16__te_wave4_4_causal_tcn_latent_offset_residual_fw__polished_actual_values/python/latent_state_hysteresis_probe-epoch=038-val_mae=0.00225416.ckpt
-  onnx_model_path: models/polished_dataset/actual_values/exported/wave4_4_causal_tcn_latent_offset_residual/forward/2026-07-15-22-40-16__te_wave4_4_causal_tcn_latent_offset_residual_fw__polished_actual_values/onnx/model.onnx
+  run_name: te_wave5_1_harmonic_prior_pointwise_control_fw__polished_actual_values
+  run_instance_id: 2026-07-16-02-44-33__te_wave5_1_harmonic_prior_pointwise_control_fw__polished_actual_values
+  source_output_directory: output/training_runs/wave5_1_harmonic_prior_pointwise_control/2026-07-16-02-44-33__te_wave5_1_harmonic_prior_pointwise_control_fw__polished_actual_values
+  source_best_checkpoint_path: output/training_runs/wave5_1_harmonic_prior_pointwise_control/2026-07-16-02-44-33__te_wave5_1_harmonic_prior_pointwise_control_fw__polished_actual_values/checkpoints/wave3_harmonic_prior_residual-epoch=119-val_mae=0.00192899.ckpt
+  python_model_path: models/polished_dataset/actual_values/exported/wave5_1_harmonic_prior_pointwise_control/forward/2026-07-16-02-44-33__te_wave5_1_harmonic_prior_pointwise_control_fw__polished_actual_values/python/wave3_harmonic_prior_residual-epoch=119-val_mae=0.00192899.ckpt
+  onnx_model_path: models/polished_dataset/actual_values/exported/wave5_1_harmonic_prior_pointwise_control/forward/2026-07-16-02-44-33__te_wave5_1_harmonic_prior_pointwise_control_fw__polished_actual_values/onnx/model.onnx
   onnx_export_status: exported
   onnx_export_error: ''
   source_run_snapshot_path_map:
-    training_config.snapshot.yaml: output/training_runs/wave4_4_causal_tcn_latent_offset_residual/2026-07-15-22-40-16__te_wave4_4_causal_tcn_latent_offset_residual_fw__polished_actual_values/training_config.yaml
-    metrics_summary.snapshot.yaml: output/training_runs/wave4_4_causal_tcn_latent_offset_residual/2026-07-15-22-40-16__te_wave4_4_causal_tcn_latent_offset_residual_fw__polished_actual_values/metrics_summary.yaml
-    run_metadata.snapshot.yaml: output/training_runs/wave4_4_causal_tcn_latent_offset_residual/2026-07-15-22-40-16__te_wave4_4_causal_tcn_latent_offset_residual_fw__polished_actual_values/run_metadata.yaml
-    training_test_report.snapshot.md: output/training_runs/wave4_4_causal_tcn_latent_offset_residual/2026-07-15-22-40-16__te_wave4_4_causal_tcn_latent_offset_residual_fw__polished_actual_values/training_test_report.md
-    best_checkpoint_path.snapshot.txt: output/training_runs/wave4_4_causal_tcn_latent_offset_residual/2026-07-15-22-40-16__te_wave4_4_causal_tcn_latent_offset_residual_fw__polished_actual_values/best_checkpoint_path.txt
+    training_config.snapshot.yaml: output/training_runs/wave5_1_harmonic_prior_pointwise_control/2026-07-16-02-44-33__te_wave5_1_harmonic_prior_pointwise_control_fw__polished_actual_values/training_config.yaml
+    metrics_summary.snapshot.yaml: output/training_runs/wave5_1_harmonic_prior_pointwise_control/2026-07-16-02-44-33__te_wave5_1_harmonic_prior_pointwise_control_fw__polished_actual_values/metrics_summary.yaml
+    run_metadata.snapshot.yaml: output/training_runs/wave5_1_harmonic_prior_pointwise_control/2026-07-16-02-44-33__te_wave5_1_harmonic_prior_pointwise_control_fw__polished_actual_values/run_metadata.yaml
+    training_test_report.snapshot.md: output/training_runs/wave5_1_harmonic_prior_pointwise_control/2026-07-16-02-44-33__te_wave5_1_harmonic_prior_pointwise_control_fw__polished_actual_values/training_test_report.md
+    best_checkpoint_path.snapshot.txt: output/training_runs/wave5_1_harmonic_prior_pointwise_control/2026-07-16-02-44-33__te_wave5_1_harmonic_prior_pointwise_control_fw__polished_actual_values/best_checkpoint_path.txt
   metrics:
-    val_mae: 0.002254159189760685
-    test_mae: 0.002371540293097496
-    test_rmse: 0.003457822371274233
+    val_mae: 0.0019289932679384947
+    test_mae: 0.0021922108717262745
+    test_rmse: 0.003546935273334384
 - schema_version: 1
   dataset_id: polished_dataset
   dataset_schema: polished_point_v1
   input_mode: actual_values
-  model_family: wave4_4_causal_tcn_latent_offset_residual
-  model_type: latent_state_hysteresis_probe
+  model_family: wave5_1_harmonic_prior_pointwise_control
+  model_type: wave3_harmonic_prior_residual
   surface: backward
-  run_name: te_wave4_4_causal_tcn_latent_offset_residual_bw__polished_actual_values
-  run_instance_id: 2026-07-15-22-54-23__te_wave4_4_causal_tcn_latent_offset_residual_bw__polished_actual_values
-  source_output_directory: output/training_runs/wave4_4_causal_tcn_latent_offset_residual/2026-07-15-22-54-23__te_wave4_4_causal_tcn_latent_offset_residual_bw__polished_actual_values
-  source_best_checkpoint_path: output/training_runs/wave4_4_causal_tcn_latent_offset_residual/2026-07-15-22-54-23__te_wave4_4_causal_tcn_latent_offset_residual_bw__polished_actual_values/checkpoints/latent_state_hysteresis_probe-epoch=078-val_mae=0.00222665.ckpt
-  python_model_path: models/polished_dataset/actual_values/exported/wave4_4_causal_tcn_latent_offset_residual/backward/2026-07-15-22-54-23__te_wave4_4_causal_tcn_latent_offset_residual_bw__polished_actual_values/python/latent_state_hysteresis_probe-epoch=078-val_mae=0.00222665.ckpt
-  onnx_model_path: models/polished_dataset/actual_values/exported/wave4_4_causal_tcn_latent_offset_residual/backward/2026-07-15-22-54-23__te_wave4_4_causal_tcn_latent_offset_residual_bw__polished_actual_values/onnx/model.onnx
+  run_name: te_wave5_1_harmonic_prior_pointwise_control_bw__polished_actual_values
+  run_instance_id: 2026-07-16-03-08-07__te_wave5_1_harmonic_prior_pointwise_control_bw__polished_actual_values
+  source_output_directory: output/training_runs/wave5_1_harmonic_prior_pointwise_control/2026-07-16-03-08-07__te_wave5_1_harmonic_prior_pointwise_control_bw__polished_actual_values
+  source_best_checkpoint_path: output/training_runs/wave5_1_harmonic_prior_pointwise_control/2026-07-16-03-08-07__te_wave5_1_harmonic_prior_pointwise_control_bw__polished_actual_values/checkpoints/wave3_harmonic_prior_residual-epoch=113-val_mae=0.00189638.ckpt
+  python_model_path: models/polished_dataset/actual_values/exported/wave5_1_harmonic_prior_pointwise_control/backward/2026-07-16-03-08-07__te_wave5_1_harmonic_prior_pointwise_control_bw__polished_actual_values/python/wave3_harmonic_prior_residual-epoch=113-val_mae=0.00189638.ckpt
+  onnx_model_path: models/polished_dataset/actual_values/exported/wave5_1_harmonic_prior_pointwise_control/backward/2026-07-16-03-08-07__te_wave5_1_harmonic_prior_pointwise_control_bw__polished_actual_values/onnx/model.onnx
   onnx_export_status: exported
   onnx_export_error: ''
   source_run_snapshot_path_map:
-    training_config.snapshot.yaml: output/training_runs/wave4_4_causal_tcn_latent_offset_residual/2026-07-15-22-54-23__te_wave4_4_causal_tcn_latent_offset_residual_bw__polished_actual_values/training_config.yaml
-    metrics_summary.snapshot.yaml: output/training_runs/wave4_4_causal_tcn_latent_offset_residual/2026-07-15-22-54-23__te_wave4_4_causal_tcn_latent_offset_residual_bw__polished_actual_values/metrics_summary.yaml
-    run_metadata.snapshot.yaml: output/training_runs/wave4_4_causal_tcn_latent_offset_residual/2026-07-15-22-54-23__te_wave4_4_causal_tcn_latent_offset_residual_bw__polished_actual_values/run_metadata.yaml
-    training_test_report.snapshot.md: output/training_runs/wave4_4_causal_tcn_latent_offset_residual/2026-07-15-22-54-23__te_wave4_4_causal_tcn_latent_offset_residual_bw__polished_actual_values/training_test_report.md
-    best_checkpoint_path.snapshot.txt: output/training_runs/wave4_4_causal_tcn_latent_offset_residual/2026-07-15-22-54-23__te_wave4_4_causal_tcn_latent_offset_residual_bw__polished_actual_values/best_checkpoint_path.txt
+    training_config.snapshot.yaml: output/training_runs/wave5_1_harmonic_prior_pointwise_control/2026-07-16-03-08-07__te_wave5_1_harmonic_prior_pointwise_control_bw__polished_actual_values/training_config.yaml
+    metrics_summary.snapshot.yaml: output/training_runs/wave5_1_harmonic_prior_pointwise_control/2026-07-16-03-08-07__te_wave5_1_harmonic_prior_pointwise_control_bw__polished_actual_values/metrics_summary.yaml
+    run_metadata.snapshot.yaml: output/training_runs/wave5_1_harmonic_prior_pointwise_control/2026-07-16-03-08-07__te_wave5_1_harmonic_prior_pointwise_control_bw__polished_actual_values/run_metadata.yaml
+    training_test_report.snapshot.md: output/training_runs/wave5_1_harmonic_prior_pointwise_control/2026-07-16-03-08-07__te_wave5_1_harmonic_prior_pointwise_control_bw__polished_actual_values/training_test_report.md
+    best_checkpoint_path.snapshot.txt: output/training_runs/wave5_1_harmonic_prior_pointwise_control/2026-07-16-03-08-07__te_wave5_1_harmonic_prior_pointwise_control_bw__polished_actual_values/best_checkpoint_path.txt
   metrics:
-    val_mae: 0.002226645825430751
-    test_mae: 0.0023435212206095457
-    test_rmse: 0.00343461730517447
+    val_mae: 0.001896379515528679
+    test_mae: 0.0021902553271502256
+    test_rmse: 0.003538577351719141

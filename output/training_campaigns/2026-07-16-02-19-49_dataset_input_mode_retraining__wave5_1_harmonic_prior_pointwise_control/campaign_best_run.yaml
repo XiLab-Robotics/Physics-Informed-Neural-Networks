@@ -1,0 +1,50 @@
+schema_version: 1
+campaign_name: dataset_input_mode_retraining__wave5_1_harmonic_prior_pointwise_control__polished_actual_values
+selection_policy:
+  primary_metric: test_mae
+  first_tie_breaker: test_rmse
+  second_tie_breaker: val_mae
+  third_tie_breaker: trainable_parameter_count
+  direction: minimize
+updated_at: '2026-07-16T03:36:03'
+best_entry:
+  run_instance_id: 2026-07-16-03-08-07__te_wave5_1_harmonic_prior_pointwise_control_bw__polished_actual_values
+  run_name: te_wave5_1_harmonic_prior_pointwise_control_bw__polished_actual_values
+  output_run_name: te_wave5_1_harmonic_prior_pointwise_control_bw__polished_actual_values
+  output_artifact_kind: training_run
+  model_family: wave5_1_harmonic_prior_pointwise_control_bw
+  base_model_family: wave5_1_harmonic_prior_pointwise_control
+  model_type: wave3_harmonic_prior_residual
+  dataset_id: polished_dataset
+  dataset_schema: polished_point_v1
+  input_mode: actual_values
+  input_feature_names:
+  - angular_position_deg
+  - input_speed_rpm
+  - input_torque_nm
+  - oil_temperature_deg
+  - direction_flag
+  target_feature_names:
+  - theta_TE
+  input_feature_dim: 5
+  training_variant: bw
+  direction_scope_label: backward_only
+  use_forward_direction: false
+  use_backward_direction: true
+  trainable_parameter_count: 7283
+  total_parameter_count: 7283
+  val_mae: 0.001896379515528679
+  val_rmse: 0.002674041548743844
+  test_mae: 0.0021902553271502256
+  test_rmse: 0.003538577351719141
+  output_directory: output\training_runs\wave5_1_harmonic_prior_pointwise_control\2026-07-16-03-08-07__te_wave5_1_harmonic_prior_pointwise_control_bw__polished_actual_values
+  best_checkpoint_path: output\training_runs\wave5_1_harmonic_prior_pointwise_control\2026-07-16-03-08-07__te_wave5_1_harmonic_prior_pointwise_control_bw__polished_actual_values\checkpoints\wave3_harmonic_prior_residual-epoch=113-val_mae=0.00189638.ckpt
+  metrics_path: output\training_runs\wave5_1_harmonic_prior_pointwise_control\2026-07-16-03-08-07__te_wave5_1_harmonic_prior_pointwise_control_bw__polished_actual_values/metrics_summary.yaml
+  report_path: output\training_runs\wave5_1_harmonic_prior_pointwise_control\2026-07-16-03-08-07__te_wave5_1_harmonic_prior_pointwise_control_bw__polished_actual_values/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-07-16T03:36:03'
