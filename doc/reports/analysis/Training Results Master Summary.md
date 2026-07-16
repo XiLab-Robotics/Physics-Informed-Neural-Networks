@@ -2,7 +2,7 @@
 
 ## Executive Snapshot
 
-- Generated At: `2026-07-16T00:29:40`
+- Generated At: `2026-07-16T01:57:45`
 - Program State: active.
 - Current Completed Wave: polished-dataset RCIM, early-wave, and full-wave
 - Current Focus: the polished-dataset TE Curve Verification Pipeline refresh is
@@ -57,7 +57,7 @@
 | `residual_harmonic_gru_sequence_dense360_global` | Implemented Benchmark | `te_residual_harmonic_gru_sequence_dense360_global__polished_actual_values` | `residual_harmonic_gru_sequence` | 0.002088 | 151,762 | `2026-07-09 17:18:37` |
 | `residual_harmonic_gru_sequence_sparse_rcim` | Implemented Benchmark | `te_residual_harmonic_gru_sequence_remote_global_sparse_rcim` | `residual_harmonic_gru_sequence` | 0.002112 | 150,676 | `2026-06-22 14:31:08` |
 | `wave5_1_harmonic_prior_smooth_l1_structured_global` | Implemented Benchmark | `te_wave5_1_harmonic_prior_smooth_l1_structured_global` | `wave3_harmonic_prior_residual` | 0.002119 | 7,168 | `2026-07-02 00:54:14` |
-| `wave5_1_harmonic_prior_pointwise_control_global` | Implemented Benchmark | `te_wave5_1_harmonic_prior_pointwise_control_global` | `wave3_harmonic_prior_residual` | 0.002159 | 7,168 | `2026-07-15 23:51:01` |
+| `wave5_1_harmonic_prior_pointwise_control_global` | Implemented Benchmark | `te_wave5_1_harmonic_prior_pointwise_control_global` | `wave3_harmonic_prior_residual` | 0.002159 | 7,168 | `2026-07-16 01:19:11` |
 | `residual_harmonic_lstm_sequence_dense240_global` | Implemented Benchmark | `te_residual_harmonic_lstm_sequence_dense240_global` | `residual_harmonic_lstm_sequence` | 0.002161 | 201,314 | `2026-07-10 02:31:07` |
 | `wave3_harmonic_prior_residual_smooth_l1_structured_global` | Implemented Benchmark | `te_wave3_harmonic_prior_residual_smooth_l1_structured_global` | `wave3_harmonic_prior_residual` | 0.002168 | 7,168 | `2026-06-22 15:37:36` |
 | `wave52b_offset_harmonic_guided_offset_centered_shape_harmonic_global` | Implemented Benchmark | `te_wave52b_offset_harmonic_guided_offset_centered_shape_harmonic_global` | `wave52b_offset_harmonic_guided` | 0.002215 | 22,593 | `2026-07-02 01:24:47` |
@@ -140,7 +140,7 @@
 | `residual_harmonic_gru_sequence_dense240_fw` | Implemented Benchmark | `te_residual_harmonic_gru_sequence_dense240_fw__polished_actual_values` | `residual_harmonic_gru_sequence` | 0.002101 | 151,522 | `2026-07-09 12:19:38` |
 | `residual_harmonic_lstm_sequence_dense240_fw` | Implemented Benchmark | `te_residual_harmonic_lstm_sequence_dense240_fw` | `residual_harmonic_lstm_sequence` | 0.002147 | 201,314 | `2026-07-10 02:54:22` |
 | `wave5_1_harmonic_prior_smooth_l1_structured_fw` | Implemented Benchmark | `te_wave5_1_harmonic_prior_smooth_l1_structured_fw` | `wave3_harmonic_prior_residual` | 0.002151 | 7,168 | `2026-07-02 01:22:38` |
-| `wave5_1_harmonic_prior_pointwise_control_fw` | Implemented Benchmark | `te_wave5_1_harmonic_prior_pointwise_control_fw` | `wave3_harmonic_prior_residual` | 0.002185 | 7,168 | `2026-07-16 00:17:20` |
+| `wave5_1_harmonic_prior_pointwise_control_fw` | Implemented Benchmark | `te_wave5_1_harmonic_prior_pointwise_control_fw` | `wave3_harmonic_prior_residual` | 0.002185 | 7,168 | `2026-07-16 01:39:54` |
 | `residual_harmonic_lstm_sequence_dense360_fw` | Implemented Benchmark | `te_residual_harmonic_lstm_sequence_dense360_fw` | `residual_harmonic_lstm_sequence` | 0.002219 | 201,554 | `2026-07-10 07:24:50` |
 | `lstm_sequence_fw` | Implemented Benchmark | `te_lstm_sequence_fw__polished_actual_values` | `lstm_sequence` | 0.002239 | 201,345 | `2026-07-08 18:02:26` |
 | `wave3_1_sequential_residual_offset_probe_fw` | Implemented Benchmark | `te_wave3_1_sequential_residual_offset_probe_fw` | `sequential_residual_offset_probe` | 0.002246 | 92,418 | `2026-07-10 11:35:18` |
@@ -207,7 +207,7 @@
 | `harmonic_regression_bw` | Implemented Benchmark | `te_harmonic_regression_bw__polished_actual_values` | `harmonic_regression` | 0.002076 | 150 | `2026-07-08 00:46:14` |
 | `residual_harmonic_gru_sequence_sparse_rcim_bw` | Implemented Benchmark | `te_residual_harmonic_gru_sequence_sparse_rcim_bw` | `residual_harmonic_gru_sequence` | 0.002083 | 150,676 | `2026-07-09 09:31:01` |
 | `residual_harmonic_lstm_sequence_dense360_bw` | Implemented Benchmark | `te_residual_harmonic_lstm_sequence_dense360_bw` | `residual_harmonic_lstm_sequence` | 0.002097 | 201,554 | `2026-07-10 07:56:39` |
-| `wave5_1_harmonic_prior_pointwise_control_bw` | Implemented Benchmark | `te_wave5_1_harmonic_prior_pointwise_control_bw` | `wave3_harmonic_prior_residual` | 0.002105 | 7,168 | `2026-07-16 00:29:31` |
+| `wave5_1_harmonic_prior_pointwise_control_bw` | Implemented Benchmark | `te_wave5_1_harmonic_prior_pointwise_control_bw` | `wave3_harmonic_prior_residual` | 0.002105 | 7,168 | `2026-07-16 01:57:35` |
 | `residual_harmonic_lstm_sequence_sparse_rcim_bw` | Implemented Benchmark | `te_residual_harmonic_lstm_sequence_sparse_rcim_bw` | `residual_harmonic_lstm_sequence` | 0.002108 | 200,852 | `2026-07-09 22:49:53` |
 | `residual_harmonic_lstm_sequence_dense240_bw` | Implemented Benchmark | `te_residual_harmonic_lstm_sequence_dense240_bw__polished_actual_values` | `residual_harmonic_lstm_sequence` | 0.002116 | 201,826 | `2026-07-10 03:27:02` |
 | `wave5_1_harmonic_prior_smooth_l1_structured_bw` | Implemented Benchmark | `te_wave5_1_harmonic_prior_smooth_l1_structured_bw` | `wave3_harmonic_prior_residual` | 0.002178 | 7,168 | `2026-07-02 01:47:44` |
@@ -427,11 +427,11 @@ Low-priority exploratory families currently listed in the backlog:
 
 | Campaign | Generated At | Completed | Failed | Winner | Impact |
 | --- | --- | ---: | ---: | --- | --- |
+| `dataset_input_mode_retraining__wave5_1_harmonic_prior_pointwise_control__polished_setpoints` | `2026-07-16 01:57:35` | 3 | 0 | `te_wave5_1_harmonic_prior_pointwise_control_global__polished_setpoints` | No family-best change |
 | `dataset_input_mode_retraining__wave5_1_harmonic_prior_pointwise_control__simplified_setpoints` | `2026-07-16 00:29:31` | 3 | 0 | `te_wave5_1_harmonic_prior_pointwise_control_fw__simplified_setpoints` | No family-best change |
 | `dataset_input_mode_retraining__wave4_4_causal_tcn_latent_offset_residual__polished_actual_values` | `2026-07-15 23:09:39` | 3 | 0 | `te_wave4_4_causal_tcn_latent_offset_residual_bw__polished_actual_values` | No family-best change |
 | `dataset_input_mode_retraining__wave4_4_causal_tcn_latent_offset_residual__polished_setpoints` | `2026-07-15 22:09:24` | 3 | 0 | `te_wave4_4_causal_tcn_latent_offset_residual_fw__polished_setpoints` | No family-best change |
 | `dataset_input_mode_retraining__wave4_4_causal_tcn_latent_offset_residual__simplified_setpoints` | `2026-07-15 20:52:03` | 3 | 0 | `te_wave4_4_causal_tcn_latent_offset_residual_fw__simplified_setpoints` | No family-best change |
-| `dataset_input_mode_retraining__wave4_4_gru_latent_offset_residual__polished_actual_values` | `2026-07-15 19:43:02` | 3 | 0 | `te_wave4_4_gru_latent_offset_residual_global__polished_actual_values` | Updated wave4_4_gru_latent_offset_residual_global family best |
 
 ## Ranking Policy
 
@@ -2767,7 +2767,7 @@ Known failed campaign attempts for this family:
 
 - Best run: `N/A`
 - Best test MAE: `N/A`
-- Completed tracked runs: `6`
+- Completed tracked runs: `9`
 - Known failed campaign attempts: `0`
 
 | Rank | Run | Model Type | Test MAE [deg] | Test RMSE [deg] | Val MAE [deg] | Params | Duration | Artifact Size | Model Complexity | Training Heaviness | Campaign |
@@ -2775,9 +2775,12 @@ Known failed campaign attempts for this family:
 | 1 | `te_wave5_1_harmonic_prior_pointwise_control_bw` | `wave3_harmonic_prior_residual` | 0.002105 | 0.002680 | 0.001893 | 7,168 | 35m 57s | 0.10 MB | Low | Medium | `polished_dataset_full_wave_retraining_2026_06_22` |
 | 2 | `te_wave5_1_harmonic_prior_pointwise_control_global` | `wave3_harmonic_prior_residual` | 0.002159 | 0.002754 | 0.001894 | 7,168 | 30m 00s | 0.10 MB | Low | Medium | `polished_dataset_full_wave_retraining_2026_06_22` |
 | 3 | `te_wave5_1_harmonic_prior_pointwise_control_fw` | `wave3_harmonic_prior_residual` | 0.002185 | 0.002776 | 0.001913 | 7,168 | 19m 31s | 0.10 MB | Low | Medium | `polished_dataset_full_wave_retraining_2026_06_22` |
-| 4 | `te_wave5_1_harmonic_prior_pointwise_control_fw__simplified_setpoints` | `wave3_harmonic_prior_residual` | 0.003386 | 0.004122 | 0.003563 | 7,283 | 26m 19s | 0.11 MB | Low | Medium | `dataset_input_mode_retraining__wave5_1_harmonic_prior_pointwise_control__simplified_setpoints` |
-| 5 | `te_wave5_1_harmonic_prior_pointwise_control_global__simplified_setpoints` | `wave3_harmonic_prior_residual` | 0.003417 | 0.004130 | 0.003597 | 7,283 | 18m 55s | 0.11 MB | Low | Medium | `dataset_input_mode_retraining__wave5_1_harmonic_prior_pointwise_control__simplified_setpoints` |
-| 6 | `te_wave5_1_harmonic_prior_pointwise_control_bw__simplified_setpoints` | `wave3_harmonic_prior_residual` | 0.003434 | 0.004181 | 0.003644 | 7,283 | 12m 11s | 0.11 MB | Low | Low | `dataset_input_mode_retraining__wave5_1_harmonic_prior_pointwise_control__simplified_setpoints` |
+| 4 | `te_wave5_1_harmonic_prior_pointwise_control_global__polished_setpoints` | `wave3_harmonic_prior_residual` | 0.002231 | 0.003603 | 0.001901 | 7,283 | 28m 36s | 0.11 MB | Low | Medium | `dataset_input_mode_retraining__wave5_1_harmonic_prior_pointwise_control__polished_setpoints` |
+| 5 | `te_wave5_1_harmonic_prior_pointwise_control_fw__polished_setpoints` | `wave3_harmonic_prior_residual` | 0.002295 | 0.003631 | 0.001959 | 7,283 | 20m 43s | 0.11 MB | Low | Medium | `dataset_input_mode_retraining__wave5_1_harmonic_prior_pointwise_control__polished_setpoints` |
+| 6 | `te_wave5_1_harmonic_prior_pointwise_control_bw__polished_setpoints` | `wave3_harmonic_prior_residual` | 0.002312 | 0.003663 | 0.001940 | 7,283 | 17m 41s | 0.11 MB | Low | Medium | `dataset_input_mode_retraining__wave5_1_harmonic_prior_pointwise_control__polished_setpoints` |
+| 7 | `te_wave5_1_harmonic_prior_pointwise_control_fw__simplified_setpoints` | `wave3_harmonic_prior_residual` | 0.003386 | 0.004122 | 0.003563 | 7,283 | 26m 19s | 0.11 MB | Low | Medium | `dataset_input_mode_retraining__wave5_1_harmonic_prior_pointwise_control__simplified_setpoints` |
+| 8 | `te_wave5_1_harmonic_prior_pointwise_control_global__simplified_setpoints` | `wave3_harmonic_prior_residual` | 0.003417 | 0.004130 | 0.003597 | 7,283 | 18m 55s | 0.11 MB | Low | Medium | `dataset_input_mode_retraining__wave5_1_harmonic_prior_pointwise_control__simplified_setpoints` |
+| 9 | `te_wave5_1_harmonic_prior_pointwise_control_bw__simplified_setpoints` | `wave3_harmonic_prior_residual` | 0.003434 | 0.004181 | 0.003644 | 7,283 | 12m 11s | 0.11 MB | Low | Low | `dataset_input_mode_retraining__wave5_1_harmonic_prior_pointwise_control__simplified_setpoints` |
 
 ## Source Of Truth
 
