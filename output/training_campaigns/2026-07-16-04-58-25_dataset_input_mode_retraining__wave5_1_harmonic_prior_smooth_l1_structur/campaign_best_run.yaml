@@ -1,0 +1,50 @@
+schema_version: 1
+campaign_name: dataset_input_mode_retraining__wave5_1_harmonic_prior_smooth_l1_structured__polished_setpoints
+selection_policy:
+  primary_metric: test_mae
+  first_tie_breaker: test_rmse
+  second_tie_breaker: val_mae
+  third_tie_breaker: trainable_parameter_count
+  direction: minimize
+updated_at: '2026-07-16T05:59:43'
+best_entry:
+  run_instance_id: 2026-07-16-04-58-25__te_wave5_1_harmonic_prior_smooth_l1_structured_global__polished_setpoints
+  run_name: te_wave5_1_harmonic_prior_smooth_l1_structured_global__polished_setpoints
+  output_run_name: te_wave5_1_harmonic_prior_smooth_l1_structured_global__polished_setpoints
+  output_artifact_kind: training_run
+  model_family: wave5_1_harmonic_prior_smooth_l1_structured_global
+  base_model_family: wave5_1_harmonic_prior_smooth_l1_structured
+  model_type: wave3_harmonic_prior_residual
+  dataset_id: polished_dataset
+  dataset_schema: polished_setpoint_curve_v1
+  input_mode: setpoints
+  input_feature_names:
+  - angular_position_deg
+  - input_speed_rpm
+  - input_torque_nm
+  - oil_temperature_deg
+  - direction_flag
+  target_feature_names:
+  - theta_TE
+  input_feature_dim: 5
+  training_variant: global
+  direction_scope_label: bidirectional
+  use_forward_direction: true
+  use_backward_direction: true
+  trainable_parameter_count: 7283
+  total_parameter_count: 7283
+  val_mae: 0.0019102919613942504
+  val_rmse: 0.002674225252121687
+  test_mae: 0.002236303873360157
+  test_rmse: 0.00358780799433589
+  output_directory: output\training_runs\wave5_1_harmonic_prior_smooth_l1_structured\2026-07-16-04-58-25__te_wave5_1_harmonic_prior_smooth_l1_structured_global__polished_setpoints
+  best_checkpoint_path: output\training_runs\wave5_1_harmonic_prior_smooth_l1_structured\2026-07-16-04-58-25__te_wave5_1_harmonic_prior_smooth_l1_structured_global__polished_setpoints\checkpoints\wave3_harmonic_prior_residual-epoch=135-val_mae=0.00191029.ckpt
+  metrics_path: output\training_runs\wave5_1_harmonic_prior_smooth_l1_structured\2026-07-16-04-58-25__te_wave5_1_harmonic_prior_smooth_l1_structured_global__polished_setpoints/metrics_summary.yaml
+  report_path: output\training_runs\wave5_1_harmonic_prior_smooth_l1_structured\2026-07-16-04-58-25__te_wave5_1_harmonic_prior_smooth_l1_structured_global__polished_setpoints/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-07-16T05:59:43'
