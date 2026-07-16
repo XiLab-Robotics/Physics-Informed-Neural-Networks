@@ -1,0 +1,44 @@
+schema_version: 1
+campaign_name: dataset_input_mode_retraining__rcim_track1__polished_setpoints
+campaign_type: rcim_track1_input_mode_retraining
+family_name: rcim_track1
+dataset_name: polished_dataset
+input_mode: setpoints
+dataset_schema: polished_setpoint_curve_v1
+source_dataset_root: data/polished_dataset
+expected_model_archive_root: models/polished_dataset/paper_reference/rcim_track1/setpoints
+expected_surface_list:
+- global
+- fw
+- bw
+expected_run_count: 3
+planning_report_path: doc/reports/campaign_plans/cross_wave/input_modes/2026-07-13-16-35-39_rcim_track1_polished_input_mode_campaign_plan_report.md
+technical_document_path: doc/technical/2026-07/2026-07-13/2026-07-13-16-31-32_rcim_track1_polished_input_mode_retraining.md
+queue_config_path_list:
+- config/paper_reimplementation/rcim_ml_compensation/rcim_track1_polished_input_mode_retraining/campaigns/dataset_input_mode_retraining__rcim_track1__polished_setpoints/queue/001_rcim_track1_global.yaml
+- config/paper_reimplementation/rcim_ml_compensation/rcim_track1_polished_input_mode_retraining/campaigns/dataset_input_mode_retraining__rcim_track1__polished_setpoints/queue/002_rcim_track1_fw.yaml
+- config/paper_reimplementation/rcim_ml_compensation/rcim_track1_polished_input_mode_retraining/campaigns/dataset_input_mode_retraining__rcim_track1__polished_setpoints/queue/003_rcim_track1_bw.yaml
+execution_policy:
+  operator_run_required: true
+  stop_on_error: true
+  run_te_curve_verification_pipeline: false
+  surface_execution: local_windows_parallel
+  slurm_cleanup_required_after_terminal_state: false
+  aries_reserved_for_other_campaigns: true
+smoke_policy:
+  required_before_first_full_rcim_input_mode_run: true
+  disposable_output_root: output/smoke_tests/rcim_track1_input_mode_retraining
+  cleanup_after_verification: true
+input_contract_verification:
+  input_feature_dim: 5
+  input_feature_names:
+  - angular_position_deg
+  - input_speed_rpm
+  - input_torque_nm
+  - oil_temperature_deg
+  - direction_flag
+  operating_variable_source: filename_or_path_setpoints
+forbidden_output_roots:
+- models/simplified_dataset/paper_reference/rcim_track1
+- models/polished_dataset/paper_reference/rcim_track1/forward
+- models/polished_dataset/paper_reference/rcim_track1/backward

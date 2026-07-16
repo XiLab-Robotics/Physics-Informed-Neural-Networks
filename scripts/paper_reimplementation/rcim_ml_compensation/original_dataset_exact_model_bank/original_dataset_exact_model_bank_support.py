@@ -21,6 +21,7 @@ ORIGINAL_DATASET_EXACT_MODEL_REPORT_TIMESTAMP_FORMAT = "%Y-%m-%d-%H-%M-%S"
 ORIGINAL_DATASET_DIRECTION_PREFIX_MAP = {
     "forward": "Fw",
     "backward": "Bw",
+    "global": "Global",
 }
 
 
@@ -127,6 +128,11 @@ def _build_directional_exact_dataframe(
             "rpm": float(curve_record.speed_rpm),
             "deg": float(curve_record.oil_temperature_deg),
             "tor": float(curve_record.torque_nm),
+            "angular_position_deg": 0.0,
+            "input_speed_rpm": float(curve_record.speed_rpm),
+            "input_torque_nm": float(curve_record.torque_nm),
+            "oil_temperature_deg": float(curve_record.oil_temperature_deg),
+            "direction_flag": float(curve_record.direction_flag),
         }
         for harmonic_order in selected_harmonic_list:
             row_dictionary[f"fft_y_{direction_prefix}_filtered_ampl_{harmonic_order}"] = float(
@@ -176,8 +182,8 @@ def build_original_dataset_exact_model_bank_bundle(
     # Build A Single-Direction Manifest And File-Level Split
     directional_file_manifest = transmission_error_dataset.build_directional_file_manifest(
         dataset_root=dataset_root,
-        use_forward_direction=(direction_label == transmission_error_dataset.FORWARD_DIRECTION),
-        use_backward_direction=(direction_label == transmission_error_dataset.BACKWARD_DIRECTION),
+        use_forward_direction=(direction_label in [transmission_error_dataset.FORWARD_DIRECTION, "global"]),
+        use_backward_direction=(direction_label in [transmission_error_dataset.BACKWARD_DIRECTION, "global"]),
         dataset_name=selected_dataset_name,
     )
     exact_paper_model_bank_support.emit_exact_paper_progress_log(
@@ -437,13 +443,18 @@ def build_original_dataset_validation_summary(
             ),
         },
         "paper_alignment": {
-            "input_feature_schema": ["rpm", "deg", "tor"],
+            "input_feature_schema": list(original_dataset_bundle.exact_dataset_bundle.feature_name_list),
             "feature_origin_mapping": {
                 "rpm": "speed_rpm",
                 "deg": "oil_temperature_deg",
                 "tor": "torque_nm",
+                "angular_position_deg": "constant_curve_level_compatibility_feature",
+                "input_speed_rpm": "speed_rpm",
+                "input_torque_nm": "torque_nm",
+                "oil_temperature_deg": "oil_temperature_deg",
+                "direction_flag": "direction_flag",
             },
-            "separate_direction_models": True,
+            "separate_direction_models": original_dataset_bundle.direction_label != "global",
             "published_paper_tables_reference_scope": "forward_only",
         },
         "dependency_versions": exact_paper_model_bank_support.resolve_dependency_version_dictionary(),

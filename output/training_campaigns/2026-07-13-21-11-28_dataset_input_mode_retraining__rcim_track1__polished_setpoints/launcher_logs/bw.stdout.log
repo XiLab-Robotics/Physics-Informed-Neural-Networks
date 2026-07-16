@@ -1,0 +1,573 @@
+[INFO] Loading Polished-dataset RCIM Model-Bank Reproduction config | config=config\paper_reimplementation\rcim_ml_compensation\rcim_track1_polished_input_mode_retraining\campaigns\dataset_input_mode_retraining__rcim_track1__polished_setpoints\queue\003_rcim_track1_bw.yaml stage=search dataset=polished_dataset
+[INFO] Polished-dataset RCIM Model-Bank Reproduction stage execution plan | stage=search run_evaluation=True run_export=True
+[INFO] Building Polished-dataset RCIM Model-Bank Reproduction bundle
+[INFO] RCIM exact-model-bank dataset resolved | dataset=polished_dataset input_mode=setpoints dataset_root=data\polished_dataset dataset_config=config\datasets\transmission_error_dataset.yaml direction=backward
+[INFO] RCIM exact-model-bank directional manifest built | direction=backward rows=969 unique_files=969
+[INFO] RCIM exact-model-bank split complete | train_rows=678 validation_rows=194 test_rows=97 random_seed=42
+[INFO] RCIM exact-model-bank train curve records built | records=678
+[INFO] RCIM exact-model-bank validation curve records built | records=194
+[INFO] RCIM exact-model-bank test curve records built | records=97
+[INFO] RCIM exact-model-bank directional dataframes built | train_rows=678 validation_rows=194 test_rows=97 total_rows=969
+[INFO] Polished-dataset RCIM Model-Bank Reproduction bundle ready | dataset_root=data\polished_dataset dataset_config=config\datasets\transmission_error_dataset.yaml direction=backward train_rows=678 validation_rows=194 test_rows=97 total_rows=969 features=angular_position_deg,input_speed_rpm,input_torque_nm,oil_temperature_deg,direction_flag targets=19 families=10
+[INFO] Polished-dataset RCIM Model-Bank Reproduction search settings | mode=paper_reference_grid_search grid_search_n_jobs=8 grid_search_verbose=1 historical_cross_validate_verbose=1 grid_search_pre_dispatch=2*n_jobs
+[INFO] Family fit started | family=SVR stage=search estimator=SVR targets=19 threadpool_limit=1 joblib_cpu_limit=8 os_cpu_count=32
+[INFO] Family target scope | family=SVR kinds=ampl,phase harmonics=0,1,3,39,40,78,81,156,162,240 preview=fft_y_Bw_filtered_ampl_0, fft_y_Bw_filtered_ampl_1, fft_y_Bw_filtered_phase_1, ..., fft_y_Bw_filtered_ampl_240, fft_y_Bw_filtered_phase_240
+[INFO] Grid search bypassed for family | family=SVR stage=search configured_disabled_families=SVR
+[DONE] Family fit complete | family=SVR elapsed=0.34s search_mode=paper_reference_grid_search grid_search_disabled_for_family=True best_parameter_source=direct_fit
+[INFO] Family fit started | family=MLP stage=search estimator=MLPRegressor targets=19 threadpool_limit=1 joblib_cpu_limit=8 os_cpu_count=32
+[INFO] Family target scope | family=MLP kinds=ampl,phase harmonics=0,1,3,39,40,78,81,156,162,240 preview=fft_y_Bw_filtered_ampl_0, fft_y_Bw_filtered_ampl_1, fft_y_Bw_filtered_phase_1, ..., fft_y_Bw_filtered_ampl_240, fft_y_Bw_filtered_phase_240
+[INFO] Grid search configured | family=MLP stage=search candidates=40 estimated_cv_fits=200 parameter_count=8 n_jobs=8 verbose=1 historical_cross_validate_verbose=1 pre_dispatch=2*n_jobs
+Fitting 5 folds for each of 40 candidates, totalling 200 fits
+[INFO] Historical search protocol replay started | family=MLP cv=10 targets=19
+[INFO] Historical search protocol plan | family=MLP wrapper_cv_folds=10 target_count=19 target_cv_folds_total=190
+[INFO] Historical wrapper cross-validate started | family=MLP cv=10 targets=19 verbose=1
+Fitting 5 folds for each of 40 candidates, totalling 200 fits
+Fitting 5 folds for each of 40 candidates, totalling 200 fits
+Fitting 5 folds for each of 40 candidates, totalling 200 fits
+Fitting 5 folds for each of 40 candidates, totalling 200 fits
+Fitting 5 folds for each of 40 candidates, totalling 200 fits
+Fitting 5 folds for each of 40 candidates, totalling 200 fits
+Fitting 5 folds for each of 40 candidates, totalling 200 fits
+Fitting 5 folds for each of 40 candidates, totalling 200 fits
+Fitting 5 folds for each of 40 candidates, totalling 200 fits
+Fitting 5 folds for each of 40 candidates, totalling 200 fits
+[DONE] Historical wrapper cross-validate complete | family=MLP elapsed=2084.59s mean_mae=0.201417 mean_rmse=0.309850
+[INFO] Historical target cross-validate started | family=MLP target=1/19 name=fft_y_Bw_filtered_ampl_0 kind=ampl harmonic=0 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=MLP target=1/19 name=fft_y_Bw_filtered_ampl_0 elapsed=6.68s mean_mae=0.013458 mean_rmse=0.020445
+[INFO] Historical target cross-validate started | family=MLP target=2/19 name=fft_y_Bw_filtered_ampl_1 kind=ampl harmonic=1 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=MLP target=2/19 name=fft_y_Bw_filtered_ampl_1 elapsed=8.40s mean_mae=0.008121 mean_rmse=0.016264
+[INFO] Historical target cross-validate started | family=MLP target=3/19 name=fft_y_Bw_filtered_phase_1 kind=phase harmonic=1 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=MLP target=3/19 name=fft_y_Bw_filtered_phase_1 elapsed=5.90s mean_mae=0.010659 mean_rmse=0.018994
+[INFO] Historical target cross-validate started | family=MLP target=4/19 name=fft_y_Bw_filtered_ampl_3 kind=ampl harmonic=3 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=MLP target=4/19 name=fft_y_Bw_filtered_ampl_3 elapsed=6.33s mean_mae=0.009741 mean_rmse=0.019067
+[INFO] Historical target cross-validate started | family=MLP target=5/19 name=fft_y_Bw_filtered_phase_3 kind=phase harmonic=3 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=MLP target=5/19 name=fft_y_Bw_filtered_phase_3 elapsed=8.89s mean_mae=0.063528 mean_rmse=0.081801
+[INFO] Historical target cross-validate started | family=MLP target=6/19 name=fft_y_Bw_filtered_ampl_39 kind=ampl harmonic=39 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=MLP target=6/19 name=fft_y_Bw_filtered_ampl_39 elapsed=7.35s mean_mae=0.008553 mean_rmse=0.016310
+[INFO] Historical target cross-validate started | family=MLP target=7/19 name=fft_y_Bw_filtered_phase_39 kind=phase harmonic=39 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=MLP target=7/19 name=fft_y_Bw_filtered_phase_39 elapsed=5.89s mean_mae=1.030868 mean_rmse=1.616672
+[INFO] Historical target cross-validate started | family=MLP target=8/19 name=fft_y_Bw_filtered_ampl_40 kind=ampl harmonic=40 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=MLP target=8/19 name=fft_y_Bw_filtered_ampl_40 elapsed=6.57s mean_mae=0.009175 mean_rmse=0.017205
+[INFO] Historical target cross-validate started | family=MLP target=9/19 name=fft_y_Bw_filtered_phase_40 kind=phase harmonic=40 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=MLP target=9/19 name=fft_y_Bw_filtered_phase_40 elapsed=5.01s mean_mae=0.208149 mean_rmse=0.315266
+[INFO] Historical target cross-validate started | family=MLP target=10/19 name=fft_y_Bw_filtered_ampl_78 kind=ampl harmonic=78 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=MLP target=10/19 name=fft_y_Bw_filtered_ampl_78 elapsed=5.81s mean_mae=0.010424 mean_rmse=0.019182
+[INFO] Historical target cross-validate started | family=MLP target=11/19 name=fft_y_Bw_filtered_phase_78 kind=phase harmonic=78 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=MLP target=11/19 name=fft_y_Bw_filtered_phase_78 elapsed=4.97s mean_mae=0.117951 mean_rmse=0.165143
+[INFO] Historical target cross-validate started | family=MLP target=12/19 name=fft_y_Bw_filtered_ampl_81 kind=ampl harmonic=81 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=MLP target=12/19 name=fft_y_Bw_filtered_ampl_81 elapsed=6.40s mean_mae=0.009212 mean_rmse=0.018647
+[INFO] Historical target cross-validate started | family=MLP target=13/19 name=fft_y_Bw_filtered_phase_81 kind=phase harmonic=81 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=MLP target=13/19 name=fft_y_Bw_filtered_phase_81 elapsed=3.79s mean_mae=0.179633 mean_rmse=0.227638
+[INFO] Historical target cross-validate started | family=MLP target=14/19 name=fft_y_Bw_filtered_ampl_156 kind=ampl harmonic=156 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=MLP target=14/19 name=fft_y_Bw_filtered_ampl_156 elapsed=8.02s mean_mae=0.008915 mean_rmse=0.017584
+[INFO] Historical target cross-validate started | family=MLP target=15/19 name=fft_y_Bw_filtered_phase_156 kind=phase harmonic=156 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=MLP target=15/19 name=fft_y_Bw_filtered_phase_156 elapsed=1.64s mean_mae=0.647330 mean_rmse=0.994149
+[INFO] Historical target cross-validate started | family=MLP target=16/19 name=fft_y_Bw_filtered_ampl_162 kind=ampl harmonic=162 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=MLP target=16/19 name=fft_y_Bw_filtered_ampl_162 elapsed=5.47s mean_mae=0.010329 mean_rmse=0.018628
+[INFO] Historical target cross-validate started | family=MLP target=17/19 name=fft_y_Bw_filtered_phase_162 kind=phase harmonic=162 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=MLP target=17/19 name=fft_y_Bw_filtered_phase_162 elapsed=2.81s mean_mae=0.777910 mean_rmse=1.100861
+[INFO] Historical target cross-validate started | family=MLP target=18/19 name=fft_y_Bw_filtered_ampl_240 kind=ampl harmonic=240 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=MLP target=18/19 name=fft_y_Bw_filtered_ampl_240 elapsed=6.54s mean_mae=0.008842 mean_rmse=0.016887
+[INFO] Historical target cross-validate started | family=MLP target=19/19 name=fft_y_Bw_filtered_phase_240 kind=phase harmonic=240 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=MLP target=19/19 name=fft_y_Bw_filtered_phase_240 elapsed=5.48s mean_mae=0.694124 mean_rmse=1.186398
+[DONE] Family fit complete | family=MLP elapsed=2360.83s best_score=-60901.403981680574 best_params={'estimator__activation': 'tanh', 'estimator__alpha': 0.0001, 'estimator__early_stopping': True, 'estimator__hidden_layer_sizes': (100, 50), 'estimator__learning_rate': 'adaptive', 'estimator__max_iter': 600, 'estimator__solver': 'adam', 'estimator__tol': 0.0001}
+[INFO] Family fit started | family=RF stage=search estimator=RandomForestRegressor targets=19 threadpool_limit=1 joblib_cpu_limit=8 os_cpu_count=32
+[INFO] Family target scope | family=RF kinds=ampl,phase harmonics=0,1,3,39,40,78,81,156,162,240 preview=fft_y_Bw_filtered_ampl_0, fft_y_Bw_filtered_ampl_1, fft_y_Bw_filtered_phase_1, ..., fft_y_Bw_filtered_ampl_240, fft_y_Bw_filtered_phase_240
+[INFO] Grid search configured | family=RF stage=search candidates=900 estimated_cv_fits=4500 parameter_count=5 n_jobs=8 verbose=1 historical_cross_validate_verbose=1 pre_dispatch=2*n_jobs
+Fitting 5 folds for each of 900 candidates, totalling 4500 fits
+[INFO] Historical search protocol replay started | family=RF cv=10 targets=19
+[INFO] Historical search protocol plan | family=RF wrapper_cv_folds=10 target_count=19 target_cv_folds_total=190
+[INFO] Historical wrapper cross-validate started | family=RF cv=10 targets=19 verbose=1
+Fitting 5 folds for each of 900 candidates, totalling 4500 fits
+Fitting 5 folds for each of 900 candidates, totalling 4500 fits
+Fitting 5 folds for each of 900 candidates, totalling 4500 fits
+Fitting 5 folds for each of 900 candidates, totalling 4500 fits
+Fitting 5 folds for each of 900 candidates, totalling 4500 fits
+Fitting 5 folds for each of 900 candidates, totalling 4500 fits
+Fitting 5 folds for each of 900 candidates, totalling 4500 fits
+Fitting 5 folds for each of 900 candidates, totalling 4500 fits
+Fitting 5 folds for each of 900 candidates, totalling 4500 fits
+Fitting 5 folds for each of 900 candidates, totalling 4500 fits
+[DONE] Historical wrapper cross-validate complete | family=RF elapsed=18094.62s mean_mae=0.062831 mean_rmse=0.142872
+[INFO] Historical target cross-validate started | family=RF target=1/19 name=fft_y_Bw_filtered_ampl_0 kind=ampl harmonic=0 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=RF target=1/19 name=fft_y_Bw_filtered_ampl_0 elapsed=0.99s mean_mae=0.001565 mean_rmse=0.002184
+[INFO] Historical target cross-validate started | family=RF target=2/19 name=fft_y_Bw_filtered_ampl_1 kind=ampl harmonic=1 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=RF target=2/19 name=fft_y_Bw_filtered_ampl_1 elapsed=0.98s mean_mae=0.000024 mean_rmse=0.000036
+[INFO] Historical target cross-validate started | family=RF target=3/19 name=fft_y_Bw_filtered_phase_1 kind=phase harmonic=1 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=RF target=3/19 name=fft_y_Bw_filtered_phase_1 elapsed=1.07s mean_mae=0.002010 mean_rmse=0.003078
+[INFO] Historical target cross-validate started | family=RF target=4/19 name=fft_y_Bw_filtered_ampl_3 kind=ampl harmonic=3 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=RF target=4/19 name=fft_y_Bw_filtered_ampl_3 elapsed=0.98s mean_mae=0.000024 mean_rmse=0.000035
+[INFO] Historical target cross-validate started | family=RF target=5/19 name=fft_y_Bw_filtered_phase_3 kind=phase harmonic=3 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=RF target=5/19 name=fft_y_Bw_filtered_phase_3 elapsed=1.01s mean_mae=0.026209 mean_rmse=0.037811
+[INFO] Historical target cross-validate started | family=RF target=6/19 name=fft_y_Bw_filtered_ampl_39 kind=ampl harmonic=39 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=RF target=6/19 name=fft_y_Bw_filtered_ampl_39 elapsed=0.99s mean_mae=0.000022 mean_rmse=0.000030
+[INFO] Historical target cross-validate started | family=RF target=7/19 name=fft_y_Bw_filtered_phase_39 kind=phase harmonic=39 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=RF target=7/19 name=fft_y_Bw_filtered_phase_39 elapsed=1.02s mean_mae=0.326025 mean_rmse=0.839946
+[INFO] Historical target cross-validate started | family=RF target=8/19 name=fft_y_Bw_filtered_ampl_40 kind=ampl harmonic=40 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=RF target=8/19 name=fft_y_Bw_filtered_ampl_40 elapsed=1.07s mean_mae=0.000026 mean_rmse=0.000038
+[INFO] Historical target cross-validate started | family=RF target=9/19 name=fft_y_Bw_filtered_phase_40 kind=phase harmonic=40 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=RF target=9/19 name=fft_y_Bw_filtered_phase_40 elapsed=0.99s mean_mae=0.100908 mean_rmse=0.151780
+[INFO] Historical target cross-validate started | family=RF target=10/19 name=fft_y_Bw_filtered_ampl_78 kind=ampl harmonic=78 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=RF target=10/19 name=fft_y_Bw_filtered_ampl_78 elapsed=1.04s mean_mae=0.000064 mean_rmse=0.000087
+[INFO] Historical target cross-validate started | family=RF target=11/19 name=fft_y_Bw_filtered_phase_78 kind=phase harmonic=78 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=RF target=11/19 name=fft_y_Bw_filtered_phase_78 elapsed=1.00s mean_mae=0.064585 mean_rmse=0.146410
+[INFO] Historical target cross-validate started | family=RF target=12/19 name=fft_y_Bw_filtered_ampl_81 kind=ampl harmonic=81 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=RF target=12/19 name=fft_y_Bw_filtered_ampl_81 elapsed=1.03s mean_mae=0.000012 mean_rmse=0.000017
+[INFO] Historical target cross-validate started | family=RF target=13/19 name=fft_y_Bw_filtered_phase_81 kind=phase harmonic=81 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=RF target=13/19 name=fft_y_Bw_filtered_phase_81 elapsed=1.04s mean_mae=0.091749 mean_rmse=0.131068
+[INFO] Historical target cross-validate started | family=RF target=14/19 name=fft_y_Bw_filtered_ampl_156 kind=ampl harmonic=156 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=RF target=14/19 name=fft_y_Bw_filtered_ampl_156 elapsed=1.05s mean_mae=0.000391 mean_rmse=0.001016
+[INFO] Historical target cross-validate started | family=RF target=15/19 name=fft_y_Bw_filtered_phase_156 kind=phase harmonic=156 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=RF target=15/19 name=fft_y_Bw_filtered_phase_156 elapsed=1.01s mean_mae=0.209874 mean_rmse=0.450442
+[INFO] Historical target cross-validate started | family=RF target=16/19 name=fft_y_Bw_filtered_ampl_162 kind=ampl harmonic=162 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=RF target=16/19 name=fft_y_Bw_filtered_ampl_162 elapsed=0.96s mean_mae=0.000277 mean_rmse=0.000610
+[INFO] Historical target cross-validate started | family=RF target=17/19 name=fft_y_Bw_filtered_phase_162 kind=phase harmonic=162 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=RF target=17/19 name=fft_y_Bw_filtered_phase_162 elapsed=1.01s mean_mae=0.084712 mean_rmse=0.125957
+[INFO] Historical target cross-validate started | family=RF target=18/19 name=fft_y_Bw_filtered_ampl_240 kind=ampl harmonic=240 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=RF target=18/19 name=fft_y_Bw_filtered_ampl_240 elapsed=0.97s mean_mae=0.000173 mean_rmse=0.000402
+[INFO] Historical target cross-validate started | family=RF target=19/19 name=fft_y_Bw_filtered_phase_240 kind=phase harmonic=240 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=RF target=19/19 name=fft_y_Bw_filtered_phase_240 elapsed=1.08s mean_mae=0.417531 mean_rmse=0.889716
+[DONE] Family fit complete | family=RF elapsed=19673.52s best_score=0.41655366154376045 best_params={'estimator__criterion': 'squared_error', 'estimator__max_depth': 14, 'estimator__max_features': 'log2', 'estimator__min_samples_split': 6, 'estimator__n_estimators': 68}
+[INFO] Family fit started | family=DT stage=search estimator=DecisionTreeRegressor targets=19 threadpool_limit=1 joblib_cpu_limit=8 os_cpu_count=32
+[INFO] Family target scope | family=DT kinds=ampl,phase harmonics=0,1,3,39,40,78,81,156,162,240 preview=fft_y_Bw_filtered_ampl_0, fft_y_Bw_filtered_ampl_1, fft_y_Bw_filtered_phase_1, ..., fft_y_Bw_filtered_ampl_240, fft_y_Bw_filtered_phase_240
+[INFO] Grid search configured | family=DT stage=search candidates=300 estimated_cv_fits=1500 parameter_count=4 n_jobs=8 verbose=1 historical_cross_validate_verbose=1 pre_dispatch=2*n_jobs
+Fitting 5 folds for each of 300 candidates, totalling 1500 fits
+[INFO] Historical search protocol replay started | family=DT cv=10 targets=19
+[INFO] Historical search protocol plan | family=DT wrapper_cv_folds=10 target_count=19 target_cv_folds_total=190
+[INFO] Historical wrapper cross-validate started | family=DT cv=10 targets=19 verbose=1
+Fitting 5 folds for each of 300 candidates, totalling 1500 fits
+Fitting 5 folds for each of 300 candidates, totalling 1500 fits
+Fitting 5 folds for each of 300 candidates, totalling 1500 fits
+Fitting 5 folds for each of 300 candidates, totalling 1500 fits
+Fitting 5 folds for each of 300 candidates, totalling 1500 fits
+Fitting 5 folds for each of 300 candidates, totalling 1500 fits
+Fitting 5 folds for each of 300 candidates, totalling 1500 fits
+Fitting 5 folds for each of 300 candidates, totalling 1500 fits
+Fitting 5 folds for each of 300 candidates, totalling 1500 fits
+Fitting 5 folds for each of 300 candidates, totalling 1500 fits
+[DONE] Historical wrapper cross-validate complete | family=DT elapsed=174.31s mean_mae=0.050142 mean_rmse=0.132287
+[INFO] Historical target cross-validate started | family=DT target=1/19 name=fft_y_Bw_filtered_ampl_0 kind=ampl harmonic=0 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=DT target=1/19 name=fft_y_Bw_filtered_ampl_0 elapsed=0.14s mean_mae=0.002088 mean_rmse=0.002678
+[INFO] Historical target cross-validate started | family=DT target=2/19 name=fft_y_Bw_filtered_ampl_1 kind=ampl harmonic=1 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=DT target=2/19 name=fft_y_Bw_filtered_ampl_1 elapsed=0.15s mean_mae=0.000030 mean_rmse=0.000041
+[INFO] Historical target cross-validate started | family=DT target=3/19 name=fft_y_Bw_filtered_phase_1 kind=phase harmonic=1 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=DT target=3/19 name=fft_y_Bw_filtered_phase_1 elapsed=0.14s mean_mae=0.002599 mean_rmse=0.003970
+[INFO] Historical target cross-validate started | family=DT target=4/19 name=fft_y_Bw_filtered_ampl_3 kind=ampl harmonic=3 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=DT target=4/19 name=fft_y_Bw_filtered_ampl_3 elapsed=0.14s mean_mae=0.000038 mean_rmse=0.000050
+[INFO] Historical target cross-validate started | family=DT target=5/19 name=fft_y_Bw_filtered_phase_3 kind=phase harmonic=3 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=DT target=5/19 name=fft_y_Bw_filtered_phase_3 elapsed=0.15s mean_mae=0.032616 mean_rmse=0.044512
+[INFO] Historical target cross-validate started | family=DT target=6/19 name=fft_y_Bw_filtered_ampl_39 kind=ampl harmonic=39 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=DT target=6/19 name=fft_y_Bw_filtered_ampl_39 elapsed=0.15s mean_mae=0.000028 mean_rmse=0.000040
+[INFO] Historical target cross-validate started | family=DT target=7/19 name=fft_y_Bw_filtered_phase_39 kind=phase harmonic=39 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=DT target=7/19 name=fft_y_Bw_filtered_phase_39 elapsed=0.12s mean_mae=0.245121 mean_rmse=1.050027
+[INFO] Historical target cross-validate started | family=DT target=8/19 name=fft_y_Bw_filtered_ampl_40 kind=ampl harmonic=40 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=DT target=8/19 name=fft_y_Bw_filtered_ampl_40 elapsed=0.15s mean_mae=0.000032 mean_rmse=0.000044
+[INFO] Historical target cross-validate started | family=DT target=9/19 name=fft_y_Bw_filtered_phase_40 kind=phase harmonic=40 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=DT target=9/19 name=fft_y_Bw_filtered_phase_40 elapsed=0.12s mean_mae=0.131057 mean_rmse=0.187361
+[INFO] Historical target cross-validate started | family=DT target=10/19 name=fft_y_Bw_filtered_ampl_78 kind=ampl harmonic=78 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=DT target=10/19 name=fft_y_Bw_filtered_ampl_78 elapsed=0.13s mean_mae=0.000104 mean_rmse=0.000134
+[INFO] Historical target cross-validate started | family=DT target=11/19 name=fft_y_Bw_filtered_phase_78 kind=phase harmonic=78 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=DT target=11/19 name=fft_y_Bw_filtered_phase_78 elapsed=0.15s mean_mae=0.100890 mean_rmse=0.170695
+[INFO] Historical target cross-validate started | family=DT target=12/19 name=fft_y_Bw_filtered_ampl_81 kind=ampl harmonic=81 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=DT target=12/19 name=fft_y_Bw_filtered_ampl_81 elapsed=0.15s mean_mae=0.000014 mean_rmse=0.000022
+[INFO] Historical target cross-validate started | family=DT target=13/19 name=fft_y_Bw_filtered_phase_81 kind=phase harmonic=81 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=DT target=13/19 name=fft_y_Bw_filtered_phase_81 elapsed=0.13s mean_mae=0.133389 mean_rmse=0.186646
+[INFO] Historical target cross-validate started | family=DT target=14/19 name=fft_y_Bw_filtered_ampl_156 kind=ampl harmonic=156 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=DT target=14/19 name=fft_y_Bw_filtered_ampl_156 elapsed=0.14s mean_mae=0.000346 mean_rmse=0.000952
+[INFO] Historical target cross-validate started | family=DT target=15/19 name=fft_y_Bw_filtered_phase_156 kind=phase harmonic=156 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=DT target=15/19 name=fft_y_Bw_filtered_phase_156 elapsed=0.16s mean_mae=0.156850 mean_rmse=0.360629
+[INFO] Historical target cross-validate started | family=DT target=16/19 name=fft_y_Bw_filtered_ampl_162 kind=ampl harmonic=162 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=DT target=16/19 name=fft_y_Bw_filtered_ampl_162 elapsed=0.15s mean_mae=0.000175 mean_rmse=0.000361
+[INFO] Historical target cross-validate started | family=DT target=17/19 name=fft_y_Bw_filtered_phase_162 kind=phase harmonic=162 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=DT target=17/19 name=fft_y_Bw_filtered_phase_162 elapsed=0.13s mean_mae=0.107465 mean_rmse=0.154372
+[INFO] Historical target cross-validate started | family=DT target=18/19 name=fft_y_Bw_filtered_ampl_240 kind=ampl harmonic=240 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=DT target=18/19 name=fft_y_Bw_filtered_ampl_240 elapsed=0.14s mean_mae=0.000169 mean_rmse=0.000327
+[INFO] Historical target cross-validate started | family=DT target=19/19 name=fft_y_Bw_filtered_phase_240 kind=phase harmonic=240 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=DT target=19/19 name=fft_y_Bw_filtered_phase_240 elapsed=0.14s mean_mae=0.318915 mean_rmse=0.894432
+[DONE] Family fit complete | family=DT elapsed=192.67s best_score=0.22677401926402183 best_params={'estimator__criterion': 'absolute_error', 'estimator__max_depth': 14, 'estimator__max_leaf_nodes': 25, 'estimator__min_samples_split': 3}
+[INFO] Family fit started | family=ET stage=search estimator=ExtraTreeRegressor targets=19 threadpool_limit=1 joblib_cpu_limit=8 os_cpu_count=32
+[INFO] Family target scope | family=ET kinds=ampl,phase harmonics=0,1,3,39,40,78,81,156,162,240 preview=fft_y_Bw_filtered_ampl_0, fft_y_Bw_filtered_ampl_1, fft_y_Bw_filtered_phase_1, ..., fft_y_Bw_filtered_ampl_240, fft_y_Bw_filtered_phase_240
+[INFO] Grid search configured | family=ET stage=search candidates=300 estimated_cv_fits=1500 parameter_count=4 n_jobs=8 verbose=1 historical_cross_validate_verbose=1 pre_dispatch=2*n_jobs
+Fitting 5 folds for each of 300 candidates, totalling 1500 fits
+[INFO] Historical search protocol replay started | family=ET cv=10 targets=19
+[INFO] Historical search protocol plan | family=ET wrapper_cv_folds=10 target_count=19 target_cv_folds_total=190
+[INFO] Historical wrapper cross-validate started | family=ET cv=10 targets=19 verbose=1
+Fitting 5 folds for each of 300 candidates, totalling 1500 fits
+Fitting 5 folds for each of 300 candidates, totalling 1500 fits
+Fitting 5 folds for each of 300 candidates, totalling 1500 fits
+Fitting 5 folds for each of 300 candidates, totalling 1500 fits
+Fitting 5 folds for each of 300 candidates, totalling 1500 fits
+Fitting 5 folds for each of 300 candidates, totalling 1500 fits
+Fitting 5 folds for each of 300 candidates, totalling 1500 fits
+Fitting 5 folds for each of 300 candidates, totalling 1500 fits
+Fitting 5 folds for each of 300 candidates, totalling 1500 fits
+Fitting 5 folds for each of 300 candidates, totalling 1500 fits
+[DONE] Historical wrapper cross-validate complete | family=ET elapsed=172.80s mean_mae=0.061108 mean_rmse=0.159777
+[INFO] Historical target cross-validate started | family=ET target=1/19 name=fft_y_Bw_filtered_ampl_0 kind=ampl harmonic=0 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=ET target=1/19 name=fft_y_Bw_filtered_ampl_0 elapsed=0.11s mean_mae=0.000983 mean_rmse=0.001615
+[INFO] Historical target cross-validate started | family=ET target=2/19 name=fft_y_Bw_filtered_ampl_1 kind=ampl harmonic=1 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=ET target=2/19 name=fft_y_Bw_filtered_ampl_1 elapsed=0.09s mean_mae=0.000028 mean_rmse=0.000040
+[INFO] Historical target cross-validate started | family=ET target=3/19 name=fft_y_Bw_filtered_phase_1 kind=phase harmonic=1 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=ET target=3/19 name=fft_y_Bw_filtered_phase_1 elapsed=0.11s mean_mae=0.002235 mean_rmse=0.003368
+[INFO] Historical target cross-validate started | family=ET target=4/19 name=fft_y_Bw_filtered_ampl_3 kind=ampl harmonic=3 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=ET target=4/19 name=fft_y_Bw_filtered_ampl_3 elapsed=0.10s mean_mae=0.000029 mean_rmse=0.000043
+[INFO] Historical target cross-validate started | family=ET target=5/19 name=fft_y_Bw_filtered_phase_3 kind=phase harmonic=3 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=ET target=5/19 name=fft_y_Bw_filtered_phase_3 elapsed=0.10s mean_mae=0.026539 mean_rmse=0.037747
+[INFO] Historical target cross-validate started | family=ET target=6/19 name=fft_y_Bw_filtered_ampl_39 kind=ampl harmonic=39 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=ET target=6/19 name=fft_y_Bw_filtered_ampl_39 elapsed=0.11s mean_mae=0.000023 mean_rmse=0.000033
+[INFO] Historical target cross-validate started | family=ET target=7/19 name=fft_y_Bw_filtered_phase_39 kind=phase harmonic=39 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=ET target=7/19 name=fft_y_Bw_filtered_phase_39 elapsed=0.10s mean_mae=0.272971 mean_rmse=1.095858
+[INFO] Historical target cross-validate started | family=ET target=8/19 name=fft_y_Bw_filtered_ampl_40 kind=ampl harmonic=40 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=ET target=8/19 name=fft_y_Bw_filtered_ampl_40 elapsed=0.09s mean_mae=0.000033 mean_rmse=0.000048
+[INFO] Historical target cross-validate started | family=ET target=9/19 name=fft_y_Bw_filtered_phase_40 kind=phase harmonic=40 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=ET target=9/19 name=fft_y_Bw_filtered_phase_40 elapsed=0.11s mean_mae=0.113860 mean_rmse=0.177937
+[INFO] Historical target cross-validate started | family=ET target=10/19 name=fft_y_Bw_filtered_ampl_78 kind=ampl harmonic=78 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=ET target=10/19 name=fft_y_Bw_filtered_ampl_78 elapsed=0.11s mean_mae=0.000064 mean_rmse=0.000087
+[INFO] Historical target cross-validate started | family=ET target=11/19 name=fft_y_Bw_filtered_phase_78 kind=phase harmonic=78 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=ET target=11/19 name=fft_y_Bw_filtered_phase_78 elapsed=0.12s mean_mae=0.064820 mean_rmse=0.145759
+[INFO] Historical target cross-validate started | family=ET target=12/19 name=fft_y_Bw_filtered_ampl_81 kind=ampl harmonic=81 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=ET target=12/19 name=fft_y_Bw_filtered_ampl_81 elapsed=0.10s mean_mae=0.000012 mean_rmse=0.000018
+[INFO] Historical target cross-validate started | family=ET target=13/19 name=fft_y_Bw_filtered_phase_81 kind=phase harmonic=81 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=ET target=13/19 name=fft_y_Bw_filtered_phase_81 elapsed=0.11s mean_mae=0.108403 mean_rmse=0.151652
+[INFO] Historical target cross-validate started | family=ET target=14/19 name=fft_y_Bw_filtered_ampl_156 kind=ampl harmonic=156 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=ET target=14/19 name=fft_y_Bw_filtered_ampl_156 elapsed=0.10s mean_mae=0.000352 mean_rmse=0.001026
+[INFO] Historical target cross-validate started | family=ET target=15/19 name=fft_y_Bw_filtered_phase_156 kind=phase harmonic=156 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=ET target=15/19 name=fft_y_Bw_filtered_phase_156 elapsed=0.09s mean_mae=0.114941 mean_rmse=0.331729
+[INFO] Historical target cross-validate started | family=ET target=16/19 name=fft_y_Bw_filtered_ampl_162 kind=ampl harmonic=162 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=ET target=16/19 name=fft_y_Bw_filtered_ampl_162 elapsed=0.12s mean_mae=0.000113 mean_rmse=0.000285
+[INFO] Historical target cross-validate started | family=ET target=17/19 name=fft_y_Bw_filtered_phase_162 kind=phase harmonic=162 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=ET target=17/19 name=fft_y_Bw_filtered_phase_162 elapsed=0.11s mean_mae=0.071527 mean_rmse=0.114639
+[INFO] Historical target cross-validate started | family=ET target=18/19 name=fft_y_Bw_filtered_ampl_240 kind=ampl harmonic=240 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=ET target=18/19 name=fft_y_Bw_filtered_ampl_240 elapsed=0.10s mean_mae=0.000120 mean_rmse=0.000269
+[INFO] Historical target cross-validate started | family=ET target=19/19 name=fft_y_Bw_filtered_phase_240 kind=phase harmonic=240 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=ET target=19/19 name=fft_y_Bw_filtered_phase_240 elapsed=0.12s mean_mae=0.364121 mean_rmse=1.111683
+[DONE] Family fit complete | family=ET elapsed=189.97s best_score=0.16176828325461565 best_params={'estimator__criterion': 'squared_error', 'estimator__max_depth': 18, 'estimator__max_leaf_nodes': None, 'estimator__min_samples_split': 3}
+[INFO] Family fit started | family=ERT stage=search estimator=ExtraTreesRegressor targets=19 threadpool_limit=1 joblib_cpu_limit=8 os_cpu_count=32
+[INFO] Family target scope | family=ERT kinds=ampl,phase harmonics=0,1,3,39,40,78,81,156,162,240 preview=fft_y_Bw_filtered_ampl_0, fft_y_Bw_filtered_ampl_1, fft_y_Bw_filtered_phase_1, ..., fft_y_Bw_filtered_ampl_240, fft_y_Bw_filtered_phase_240
+[INFO] Grid search configured | family=ERT stage=search candidates=1500 estimated_cv_fits=7500 parameter_count=5 n_jobs=8 verbose=1 historical_cross_validate_verbose=1 pre_dispatch=2*n_jobs
+Fitting 5 folds for each of 1500 candidates, totalling 7500 fits
+[INFO] Historical search protocol replay started | family=ERT cv=10 targets=19
+[INFO] Historical search protocol plan | family=ERT wrapper_cv_folds=10 target_count=19 target_cv_folds_total=190
+[INFO] Historical wrapper cross-validate started | family=ERT cv=10 targets=19 verbose=1
+Fitting 5 folds for each of 1500 candidates, totalling 7500 fits
+Fitting 5 folds for each of 1500 candidates, totalling 7500 fits
+Fitting 5 folds for each of 1500 candidates, totalling 7500 fits
+Fitting 5 folds for each of 1500 candidates, totalling 7500 fits
+Fitting 5 folds for each of 1500 candidates, totalling 7500 fits
+Fitting 5 folds for each of 1500 candidates, totalling 7500 fits
+Fitting 5 folds for each of 1500 candidates, totalling 7500 fits
+Fitting 5 folds for each of 1500 candidates, totalling 7500 fits
+Fitting 5 folds for each of 1500 candidates, totalling 7500 fits
+Fitting 5 folds for each of 1500 candidates, totalling 7500 fits
+[DONE] Historical wrapper cross-validate complete | family=ERT elapsed=32037.03s mean_mae=0.049882 mean_rmse=0.136045
+[INFO] Historical target cross-validate started | family=ERT target=1/19 name=fft_y_Bw_filtered_ampl_0 kind=ampl harmonic=0 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=ERT target=1/19 name=fft_y_Bw_filtered_ampl_0 elapsed=0.76s mean_mae=0.000758 mean_rmse=0.001286
+[INFO] Historical target cross-validate started | family=ERT target=2/19 name=fft_y_Bw_filtered_ampl_1 kind=ampl harmonic=1 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=ERT target=2/19 name=fft_y_Bw_filtered_ampl_1 elapsed=0.75s mean_mae=0.000023 mean_rmse=0.000032
+[INFO] Historical target cross-validate started | family=ERT target=3/19 name=fft_y_Bw_filtered_phase_1 kind=phase harmonic=1 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=ERT target=3/19 name=fft_y_Bw_filtered_phase_1 elapsed=0.78s mean_mae=0.001975 mean_rmse=0.003082
+[INFO] Historical target cross-validate started | family=ERT target=4/19 name=fft_y_Bw_filtered_ampl_3 kind=ampl harmonic=3 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=ERT target=4/19 name=fft_y_Bw_filtered_ampl_3 elapsed=0.76s mean_mae=0.000023 mean_rmse=0.000033
+[INFO] Historical target cross-validate started | family=ERT target=5/19 name=fft_y_Bw_filtered_phase_3 kind=phase harmonic=3 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=ERT target=5/19 name=fft_y_Bw_filtered_phase_3 elapsed=0.72s mean_mae=0.023211 mean_rmse=0.032705
+[INFO] Historical target cross-validate started | family=ERT target=6/19 name=fft_y_Bw_filtered_ampl_39 kind=ampl harmonic=39 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=ERT target=6/19 name=fft_y_Bw_filtered_ampl_39 elapsed=0.78s mean_mae=0.000018 mean_rmse=0.000027
+[INFO] Historical target cross-validate started | family=ERT target=7/19 name=fft_y_Bw_filtered_phase_39 kind=phase harmonic=39 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=ERT target=7/19 name=fft_y_Bw_filtered_phase_39 elapsed=0.82s mean_mae=0.257119 mean_rmse=0.873040
+[INFO] Historical target cross-validate started | family=ERT target=8/19 name=fft_y_Bw_filtered_ampl_40 kind=ampl harmonic=40 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=ERT target=8/19 name=fft_y_Bw_filtered_ampl_40 elapsed=0.76s mean_mae=0.000026 mean_rmse=0.000038
+[INFO] Historical target cross-validate started | family=ERT target=9/19 name=fft_y_Bw_filtered_phase_40 kind=phase harmonic=40 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=ERT target=9/19 name=fft_y_Bw_filtered_phase_40 elapsed=0.78s mean_mae=0.090022 mean_rmse=0.138602
+[INFO] Historical target cross-validate started | family=ERT target=10/19 name=fft_y_Bw_filtered_ampl_78 kind=ampl harmonic=78 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=ERT target=10/19 name=fft_y_Bw_filtered_ampl_78 elapsed=0.80s mean_mae=0.000044 mean_rmse=0.000062
+[INFO] Historical target cross-validate started | family=ERT target=11/19 name=fft_y_Bw_filtered_phase_78 kind=phase harmonic=78 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=ERT target=11/19 name=fft_y_Bw_filtered_phase_78 elapsed=0.77s mean_mae=0.055536 mean_rmse=0.138213
+[INFO] Historical target cross-validate started | family=ERT target=12/19 name=fft_y_Bw_filtered_ampl_81 kind=ampl harmonic=81 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=ERT target=12/19 name=fft_y_Bw_filtered_ampl_81 elapsed=0.77s mean_mae=0.000010 mean_rmse=0.000015
+[INFO] Historical target cross-validate started | family=ERT target=13/19 name=fft_y_Bw_filtered_phase_81 kind=phase harmonic=81 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=ERT target=13/19 name=fft_y_Bw_filtered_phase_81 elapsed=0.72s mean_mae=0.083783 mean_rmse=0.119037
+[INFO] Historical target cross-validate started | family=ERT target=14/19 name=fft_y_Bw_filtered_ampl_156 kind=ampl harmonic=156 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=ERT target=14/19 name=fft_y_Bw_filtered_ampl_156 elapsed=0.78s mean_mae=0.000193 mean_rmse=0.000519
+[INFO] Historical target cross-validate started | family=ERT target=15/19 name=fft_y_Bw_filtered_phase_156 kind=phase harmonic=156 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=ERT target=15/19 name=fft_y_Bw_filtered_phase_156 elapsed=0.78s mean_mae=0.123962 mean_rmse=0.384981
+[INFO] Historical target cross-validate started | family=ERT target=16/19 name=fft_y_Bw_filtered_ampl_162 kind=ampl harmonic=162 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=ERT target=16/19 name=fft_y_Bw_filtered_ampl_162 elapsed=0.75s mean_mae=0.000100 mean_rmse=0.000256
+[INFO] Historical target cross-validate started | family=ERT target=17/19 name=fft_y_Bw_filtered_phase_162 kind=phase harmonic=162 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=ERT target=17/19 name=fft_y_Bw_filtered_phase_162 elapsed=0.75s mean_mae=0.055618 mean_rmse=0.083704
+[INFO] Historical target cross-validate started | family=ERT target=18/19 name=fft_y_Bw_filtered_ampl_240 kind=ampl harmonic=240 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=ERT target=18/19 name=fft_y_Bw_filtered_ampl_240 elapsed=0.76s mean_mae=0.000090 mean_rmse=0.000175
+[INFO] Historical target cross-validate started | family=ERT target=19/19 name=fft_y_Bw_filtered_phase_240 kind=phase harmonic=240 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=ERT target=19/19 name=fft_y_Bw_filtered_phase_240 elapsed=0.77s mean_mae=0.274968 mean_rmse=0.724998
+[DONE] Family fit complete | family=ERT elapsed=34754.26s best_score=0.3483148442445991 best_params={'estimator__criterion': 'squared_error', 'estimator__max_depth': 18, 'estimator__max_leaf_nodes': None, 'estimator__min_samples_split': 5, 'estimator__n_estimators': 60}
+[INFO] Family fit started | family=GBM stage=search estimator=GradientBoostingRegressor targets=19 threadpool_limit=1 joblib_cpu_limit=8 os_cpu_count=32
+[INFO] Family target scope | family=GBM kinds=ampl,phase harmonics=0,1,3,39,40,78,81,156,162,240 preview=fft_y_Bw_filtered_ampl_0, fft_y_Bw_filtered_ampl_1, fft_y_Bw_filtered_phase_1, ..., fft_y_Bw_filtered_ampl_240, fft_y_Bw_filtered_phase_240
+[INFO] Grid search configured | family=GBM stage=search candidates=2250 estimated_cv_fits=11250 parameter_count=6 n_jobs=8 verbose=1 historical_cross_validate_verbose=1 pre_dispatch=2*n_jobs
+Fitting 5 folds for each of 2250 candidates, totalling 11250 fits
+[INFO] Historical search protocol replay started | family=GBM cv=10 targets=19
+[INFO] Historical search protocol plan | family=GBM wrapper_cv_folds=10 target_count=19 target_cv_folds_total=190
+[INFO] Historical wrapper cross-validate started | family=GBM cv=10 targets=19 verbose=1
+Fitting 5 folds for each of 2250 candidates, totalling 11250 fits
+Fitting 5 folds for each of 2250 candidates, totalling 11250 fits
+Fitting 5 folds for each of 2250 candidates, totalling 11250 fits
+Fitting 5 folds for each of 2250 candidates, totalling 11250 fits
+Fitting 5 folds for each of 2250 candidates, totalling 11250 fits
+Fitting 5 folds for each of 2250 candidates, totalling 11250 fits
+Fitting 5 folds for each of 2250 candidates, totalling 11250 fits
+Fitting 5 folds for each of 2250 candidates, totalling 11250 fits
+Fitting 5 folds for each of 2250 candidates, totalling 11250 fits
+Fitting 5 folds for each of 2250 candidates, totalling 11250 fits
+[DONE] Historical wrapper cross-validate complete | family=GBM elapsed=15153.78s mean_mae=0.056854 mean_rmse=0.135641
+[INFO] Historical target cross-validate started | family=GBM target=1/19 name=fft_y_Bw_filtered_ampl_0 kind=ampl harmonic=0 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=GBM target=1/19 name=fft_y_Bw_filtered_ampl_0 elapsed=0.37s mean_mae=0.002238 mean_rmse=0.002885
+[INFO] Historical target cross-validate started | family=GBM target=2/19 name=fft_y_Bw_filtered_ampl_1 kind=ampl harmonic=1 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=GBM target=2/19 name=fft_y_Bw_filtered_ampl_1 elapsed=0.36s mean_mae=0.000026 mean_rmse=0.000036
+[INFO] Historical target cross-validate started | family=GBM target=3/19 name=fft_y_Bw_filtered_phase_1 kind=phase harmonic=1 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=GBM target=3/19 name=fft_y_Bw_filtered_phase_1 elapsed=0.35s mean_mae=0.002071 mean_rmse=0.003204
+[INFO] Historical target cross-validate started | family=GBM target=4/19 name=fft_y_Bw_filtered_ampl_3 kind=ampl harmonic=3 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=GBM target=4/19 name=fft_y_Bw_filtered_ampl_3 elapsed=0.34s mean_mae=0.000027 mean_rmse=0.000039
+[INFO] Historical target cross-validate started | family=GBM target=5/19 name=fft_y_Bw_filtered_phase_3 kind=phase harmonic=3 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=GBM target=5/19 name=fft_y_Bw_filtered_phase_3 elapsed=0.36s mean_mae=0.034820 mean_rmse=0.045728
+[INFO] Historical target cross-validate started | family=GBM target=6/19 name=fft_y_Bw_filtered_ampl_39 kind=ampl harmonic=39 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=GBM target=6/19 name=fft_y_Bw_filtered_ampl_39 elapsed=0.35s mean_mae=0.000023 mean_rmse=0.000030
+[INFO] Historical target cross-validate started | family=GBM target=7/19 name=fft_y_Bw_filtered_phase_39 kind=phase harmonic=39 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=GBM target=7/19 name=fft_y_Bw_filtered_phase_39 elapsed=0.36s mean_mae=0.449638 mean_rmse=0.938874
+[INFO] Historical target cross-validate started | family=GBM target=8/19 name=fft_y_Bw_filtered_ampl_40 kind=ampl harmonic=40 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=GBM target=8/19 name=fft_y_Bw_filtered_ampl_40 elapsed=0.35s mean_mae=0.000028 mean_rmse=0.000041
+[INFO] Historical target cross-validate started | family=GBM target=9/19 name=fft_y_Bw_filtered_phase_40 kind=phase harmonic=40 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=GBM target=9/19 name=fft_y_Bw_filtered_phase_40 elapsed=0.36s mean_mae=0.103825 mean_rmse=0.159414
+[INFO] Historical target cross-validate started | family=GBM target=10/19 name=fft_y_Bw_filtered_ampl_78 kind=ampl harmonic=78 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=GBM target=10/19 name=fft_y_Bw_filtered_ampl_78 elapsed=0.35s mean_mae=0.000094 mean_rmse=0.000116
+[INFO] Historical target cross-validate started | family=GBM target=11/19 name=fft_y_Bw_filtered_phase_78 kind=phase harmonic=78 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=GBM target=11/19 name=fft_y_Bw_filtered_phase_78 elapsed=0.36s mean_mae=0.062506 mean_rmse=0.135511
+[INFO] Historical target cross-validate started | family=GBM target=12/19 name=fft_y_Bw_filtered_ampl_81 kind=ampl harmonic=81 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=GBM target=12/19 name=fft_y_Bw_filtered_ampl_81 elapsed=0.33s mean_mae=0.000011 mean_rmse=0.000017
+[INFO] Historical target cross-validate started | family=GBM target=13/19 name=fft_y_Bw_filtered_phase_81 kind=phase harmonic=81 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=GBM target=13/19 name=fft_y_Bw_filtered_phase_81 elapsed=0.35s mean_mae=0.102350 mean_rmse=0.139175
+[INFO] Historical target cross-validate started | family=GBM target=14/19 name=fft_y_Bw_filtered_ampl_156 kind=ampl harmonic=156 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=GBM target=14/19 name=fft_y_Bw_filtered_ampl_156 elapsed=0.34s mean_mae=0.000450 mean_rmse=0.001063
+[INFO] Historical target cross-validate started | family=GBM target=15/19 name=fft_y_Bw_filtered_phase_156 kind=phase harmonic=156 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=GBM target=15/19 name=fft_y_Bw_filtered_phase_156 elapsed=0.34s mean_mae=0.237631 mean_rmse=0.465329
+[INFO] Historical target cross-validate started | family=GBM target=16/19 name=fft_y_Bw_filtered_ampl_162 kind=ampl harmonic=162 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=GBM target=16/19 name=fft_y_Bw_filtered_ampl_162 elapsed=0.36s mean_mae=0.000329 mean_rmse=0.000673
+[INFO] Historical target cross-validate started | family=GBM target=17/19 name=fft_y_Bw_filtered_phase_162 kind=phase harmonic=162 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=GBM target=17/19 name=fft_y_Bw_filtered_phase_162 elapsed=0.36s mean_mae=0.161967 mean_rmse=0.229648
+[INFO] Historical target cross-validate started | family=GBM target=18/19 name=fft_y_Bw_filtered_ampl_240 kind=ampl harmonic=240 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=GBM target=18/19 name=fft_y_Bw_filtered_ampl_240 elapsed=0.33s mean_mae=0.000159 mean_rmse=0.000337
+[INFO] Historical target cross-validate started | family=GBM target=19/19 name=fft_y_Bw_filtered_phase_240 kind=phase harmonic=240 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=GBM target=19/19 name=fft_y_Bw_filtered_phase_240 elapsed=0.36s mean_mae=0.395220 mean_rmse=0.937890
+[DONE] Family fit complete | family=GBM elapsed=16462.62s best_score=0.37726523751768154 best_params={'estimator__criterion': 'squared_error', 'estimator__learning_rate': 0.1, 'estimator__max_depth': 17, 'estimator__max_features': 'log2', 'estimator__min_samples_split': 3, 'estimator__n_estimators': 20}
+[INFO] Family fit started | family=HGBM stage=search estimator=HistGradientBoostingRegressor targets=19 threadpool_limit=1 joblib_cpu_limit=8 os_cpu_count=32
+[INFO] Family target scope | family=HGBM kinds=ampl,phase harmonics=0,1,3,39,40,78,81,156,162,240 preview=fft_y_Bw_filtered_ampl_0, fft_y_Bw_filtered_ampl_1, fft_y_Bw_filtered_phase_1, ..., fft_y_Bw_filtered_ampl_240, fft_y_Bw_filtered_phase_240
+[INFO] Grid search configured | family=HGBM stage=search candidates=540 estimated_cv_fits=2700 parameter_count=4 n_jobs=8 verbose=1 historical_cross_validate_verbose=1 pre_dispatch=2*n_jobs
+Fitting 5 folds for each of 540 candidates, totalling 2700 fits
+[INFO] Historical search protocol replay started | family=HGBM cv=10 targets=19
+[INFO] Historical search protocol plan | family=HGBM wrapper_cv_folds=10 target_count=19 target_cv_folds_total=190
+[INFO] Historical wrapper cross-validate started | family=HGBM cv=10 targets=19 verbose=1
+Fitting 5 folds for each of 540 candidates, totalling 2700 fits
+Fitting 5 folds for each of 540 candidates, totalling 2700 fits
+Fitting 5 folds for each of 540 candidates, totalling 2700 fits
+Fitting 5 folds for each of 540 candidates, totalling 2700 fits
+Fitting 5 folds for each of 540 candidates, totalling 2700 fits
+Fitting 5 folds for each of 540 candidates, totalling 2700 fits
+Fitting 5 folds for each of 540 candidates, totalling 2700 fits
+Fitting 5 folds for each of 540 candidates, totalling 2700 fits
+Fitting 5 folds for each of 540 candidates, totalling 2700 fits
+Fitting 5 folds for each of 540 candidates, totalling 2700 fits
+[DONE] Historical wrapper cross-validate complete | family=HGBM elapsed=31794.90s mean_mae=0.063307 mean_rmse=0.134060
+[INFO] Historical target cross-validate started | family=HGBM target=1/19 name=fft_y_Bw_filtered_ampl_0 kind=ampl harmonic=0 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=HGBM target=1/19 name=fft_y_Bw_filtered_ampl_0 elapsed=0.28s mean_mae=0.001808 mean_rmse=0.002389
+[INFO] Historical target cross-validate started | family=HGBM target=2/19 name=fft_y_Bw_filtered_ampl_1 kind=ampl harmonic=1 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=HGBM target=2/19 name=fft_y_Bw_filtered_ampl_1 elapsed=0.25s mean_mae=0.000028 mean_rmse=0.000041
+[INFO] Historical target cross-validate started | family=HGBM target=3/19 name=fft_y_Bw_filtered_phase_1 kind=phase harmonic=1 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=HGBM target=3/19 name=fft_y_Bw_filtered_phase_1 elapsed=0.28s mean_mae=0.002300 mean_rmse=0.003325
+[INFO] Historical target cross-validate started | family=HGBM target=4/19 name=fft_y_Bw_filtered_ampl_3 kind=ampl harmonic=3 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=HGBM target=4/19 name=fft_y_Bw_filtered_ampl_3 elapsed=0.26s mean_mae=0.000030 mean_rmse=0.000042
+[INFO] Historical target cross-validate started | family=HGBM target=5/19 name=fft_y_Bw_filtered_phase_3 kind=phase harmonic=3 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=HGBM target=5/19 name=fft_y_Bw_filtered_phase_3 elapsed=0.28s mean_mae=0.031161 mean_rmse=0.041091
+[INFO] Historical target cross-validate started | family=HGBM target=6/19 name=fft_y_Bw_filtered_ampl_39 kind=ampl harmonic=39 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=HGBM target=6/19 name=fft_y_Bw_filtered_ampl_39 elapsed=0.24s mean_mae=0.000023 mean_rmse=0.000033
+[INFO] Historical target cross-validate started | family=HGBM target=7/19 name=fft_y_Bw_filtered_phase_39 kind=phase harmonic=39 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=HGBM target=7/19 name=fft_y_Bw_filtered_phase_39 elapsed=0.22s mean_mae=0.448782 mean_rmse=0.915830
+[INFO] Historical target cross-validate started | family=HGBM target=8/19 name=fft_y_Bw_filtered_ampl_40 kind=ampl harmonic=40 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=HGBM target=8/19 name=fft_y_Bw_filtered_ampl_40 elapsed=0.27s mean_mae=0.000029 mean_rmse=0.000040
+[INFO] Historical target cross-validate started | family=HGBM target=9/19 name=fft_y_Bw_filtered_phase_40 kind=phase harmonic=40 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=HGBM target=9/19 name=fft_y_Bw_filtered_phase_40 elapsed=0.27s mean_mae=0.133126 mean_rmse=0.191182
+[INFO] Historical target cross-validate started | family=HGBM target=10/19 name=fft_y_Bw_filtered_ampl_78 kind=ampl harmonic=78 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=HGBM target=10/19 name=fft_y_Bw_filtered_ampl_78 elapsed=0.26s mean_mae=0.000090 mean_rmse=0.000113
+[INFO] Historical target cross-validate started | family=HGBM target=11/19 name=fft_y_Bw_filtered_phase_78 kind=phase harmonic=78 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=HGBM target=11/19 name=fft_y_Bw_filtered_phase_78 elapsed=0.27s mean_mae=0.079404 mean_rmse=0.149762
+[INFO] Historical target cross-validate started | family=HGBM target=12/19 name=fft_y_Bw_filtered_ampl_81 kind=ampl harmonic=81 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=HGBM target=12/19 name=fft_y_Bw_filtered_ampl_81 elapsed=0.23s mean_mae=0.000013 mean_rmse=0.000019
+[INFO] Historical target cross-validate started | family=HGBM target=13/19 name=fft_y_Bw_filtered_phase_81 kind=phase harmonic=81 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=HGBM target=13/19 name=fft_y_Bw_filtered_phase_81 elapsed=0.25s mean_mae=0.108977 mean_rmse=0.149574
+[INFO] Historical target cross-validate started | family=HGBM target=14/19 name=fft_y_Bw_filtered_ampl_156 kind=ampl harmonic=156 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=HGBM target=14/19 name=fft_y_Bw_filtered_ampl_156 elapsed=0.27s mean_mae=0.000570 mean_rmse=0.001438
+[INFO] Historical target cross-validate started | family=HGBM target=15/19 name=fft_y_Bw_filtered_phase_156 kind=phase harmonic=156 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=HGBM target=15/19 name=fft_y_Bw_filtered_phase_156 elapsed=0.27s mean_mae=0.272129 mean_rmse=0.550369
+[INFO] Historical target cross-validate started | family=HGBM target=16/19 name=fft_y_Bw_filtered_ampl_162 kind=ampl harmonic=162 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=HGBM target=16/19 name=fft_y_Bw_filtered_ampl_162 elapsed=0.26s mean_mae=0.000390 mean_rmse=0.000864
+[INFO] Historical target cross-validate started | family=HGBM target=17/19 name=fft_y_Bw_filtered_phase_162 kind=phase harmonic=162 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=HGBM target=17/19 name=fft_y_Bw_filtered_phase_162 elapsed=0.24s mean_mae=0.133613 mean_rmse=0.187147
+[INFO] Historical target cross-validate started | family=HGBM target=18/19 name=fft_y_Bw_filtered_ampl_240 kind=ampl harmonic=240 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=HGBM target=18/19 name=fft_y_Bw_filtered_ampl_240 elapsed=0.26s mean_mae=0.000153 mean_rmse=0.000363
+[INFO] Historical target cross-validate started | family=HGBM target=19/19 name=fft_y_Bw_filtered_phase_240 kind=phase harmonic=240 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=HGBM target=19/19 name=fft_y_Bw_filtered_phase_240 elapsed=0.22s mean_mae=0.447482 mean_rmse=0.968476
+[DONE] Family fit complete | family=HGBM elapsed=34355.65s best_score=0.4201905007758809 best_params={'estimator__learning_rate': 0.21, 'estimator__max_depth': 14, 'estimator__max_iter': 10, 'estimator__max_leaf_nodes': 27}
+[INFO] Family fit started | family=XGBM stage=search estimator=XGBRegressor targets=19 threadpool_limit=1 joblib_cpu_limit=8 os_cpu_count=32
+[INFO] Family target scope | family=XGBM kinds=ampl,phase harmonics=0,1,3,39,40,78,81,156,162,240 preview=fft_y_Bw_filtered_ampl_0, fft_y_Bw_filtered_ampl_1, fft_y_Bw_filtered_phase_1, ..., fft_y_Bw_filtered_ampl_240, fft_y_Bw_filtered_phase_240
+[INFO] Grid search configured | family=XGBM stage=search candidates=360 estimated_cv_fits=1800 parameter_count=4 n_jobs=8 verbose=1 historical_cross_validate_verbose=1 pre_dispatch=2*n_jobs
+Fitting 5 folds for each of 360 candidates, totalling 1800 fits
+[INFO] Historical search protocol replay started | family=XGBM cv=10 targets=19
+[INFO] Historical search protocol plan | family=XGBM wrapper_cv_folds=10 target_count=19 target_cv_folds_total=190
+[INFO] Historical wrapper cross-validate started | family=XGBM cv=10 targets=19 verbose=1
+Fitting 5 folds for each of 360 candidates, totalling 1800 fits
+Fitting 5 folds for each of 360 candidates, totalling 1800 fits
+Fitting 5 folds for each of 360 candidates, totalling 1800 fits
+Fitting 5 folds for each of 360 candidates, totalling 1800 fits
+Fitting 5 folds for each of 360 candidates, totalling 1800 fits
+Fitting 5 folds for each of 360 candidates, totalling 1800 fits
+Fitting 5 folds for each of 360 candidates, totalling 1800 fits
+Fitting 5 folds for each of 360 candidates, totalling 1800 fits
+Fitting 5 folds for each of 360 candidates, totalling 1800 fits
+Fitting 5 folds for each of 360 candidates, totalling 1800 fits
+[DONE] Historical wrapper cross-validate complete | family=XGBM elapsed=558.54s mean_mae=0.057005 mean_rmse=0.129747
+[INFO] Historical target cross-validate started | family=XGBM target=1/19 name=fft_y_Bw_filtered_ampl_0 kind=ampl harmonic=0 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=XGBM target=1/19 name=fft_y_Bw_filtered_ampl_0 elapsed=0.14s mean_mae=0.001703 mean_rmse=0.002399
+[INFO] Historical target cross-validate started | family=XGBM target=2/19 name=fft_y_Bw_filtered_ampl_1 kind=ampl harmonic=1 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=XGBM target=2/19 name=fft_y_Bw_filtered_ampl_1 elapsed=0.14s mean_mae=0.000061 mean_rmse=0.000102
+[INFO] Historical target cross-validate started | family=XGBM target=3/19 name=fft_y_Bw_filtered_phase_1 kind=phase harmonic=1 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=XGBM target=3/19 name=fft_y_Bw_filtered_phase_1 elapsed=0.15s mean_mae=0.002436 mean_rmse=0.003483
+[INFO] Historical target cross-validate started | family=XGBM target=4/19 name=fft_y_Bw_filtered_ampl_3 kind=ampl harmonic=3 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=XGBM target=4/19 name=fft_y_Bw_filtered_ampl_3 elapsed=0.10s mean_mae=0.000076 mean_rmse=0.000098
+[INFO] Historical target cross-validate started | family=XGBM target=5/19 name=fft_y_Bw_filtered_phase_3 kind=phase harmonic=3 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=XGBM target=5/19 name=fft_y_Bw_filtered_phase_3 elapsed=0.16s mean_mae=0.026492 mean_rmse=0.038187
+[INFO] Historical target cross-validate started | family=XGBM target=6/19 name=fft_y_Bw_filtered_ampl_39 kind=ampl harmonic=39 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=XGBM target=6/19 name=fft_y_Bw_filtered_ampl_39 elapsed=0.12s mean_mae=0.000087 mean_rmse=0.000105
+[INFO] Historical target cross-validate started | family=XGBM target=7/19 name=fft_y_Bw_filtered_phase_39 kind=phase harmonic=39 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=XGBM target=7/19 name=fft_y_Bw_filtered_phase_39 elapsed=0.16s mean_mae=0.444925 mean_rmse=0.920927
+[INFO] Historical target cross-validate started | family=XGBM target=8/19 name=fft_y_Bw_filtered_ampl_40 kind=ampl harmonic=40 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=XGBM target=8/19 name=fft_y_Bw_filtered_ampl_40 elapsed=0.14s mean_mae=0.000046 mean_rmse=0.000057
+[INFO] Historical target cross-validate started | family=XGBM target=9/19 name=fft_y_Bw_filtered_phase_40 kind=phase harmonic=40 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=XGBM target=9/19 name=fft_y_Bw_filtered_phase_40 elapsed=0.19s mean_mae=0.131844 mean_rmse=0.194553
+[INFO] Historical target cross-validate started | family=XGBM target=10/19 name=fft_y_Bw_filtered_ampl_78 kind=ampl harmonic=78 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=XGBM target=10/19 name=fft_y_Bw_filtered_ampl_78 elapsed=0.14s mean_mae=0.000131 mean_rmse=0.000173
+[INFO] Historical target cross-validate started | family=XGBM target=11/19 name=fft_y_Bw_filtered_phase_78 kind=phase harmonic=78 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=XGBM target=11/19 name=fft_y_Bw_filtered_phase_78 elapsed=0.18s mean_mae=0.086086 mean_rmse=0.178929
+[INFO] Historical target cross-validate started | family=XGBM target=12/19 name=fft_y_Bw_filtered_ampl_81 kind=ampl harmonic=81 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=XGBM target=12/19 name=fft_y_Bw_filtered_ampl_81 elapsed=0.16s mean_mae=0.000027 mean_rmse=0.000035
+[INFO] Historical target cross-validate started | family=XGBM target=13/19 name=fft_y_Bw_filtered_phase_81 kind=phase harmonic=81 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=XGBM target=13/19 name=fft_y_Bw_filtered_phase_81 elapsed=0.17s mean_mae=0.104536 mean_rmse=0.146588
+[INFO] Historical target cross-validate started | family=XGBM target=14/19 name=fft_y_Bw_filtered_ampl_156 kind=ampl harmonic=156 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=XGBM target=14/19 name=fft_y_Bw_filtered_ampl_156 elapsed=0.11s mean_mae=0.000454 mean_rmse=0.001163
+[INFO] Historical target cross-validate started | family=XGBM target=15/19 name=fft_y_Bw_filtered_phase_156 kind=phase harmonic=156 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=XGBM target=15/19 name=fft_y_Bw_filtered_phase_156 elapsed=0.19s mean_mae=0.236198 mean_rmse=0.483180
+[INFO] Historical target cross-validate started | family=XGBM target=16/19 name=fft_y_Bw_filtered_ampl_162 kind=ampl harmonic=162 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=XGBM target=16/19 name=fft_y_Bw_filtered_ampl_162 elapsed=0.13s mean_mae=0.000320 mean_rmse=0.000711
+[INFO] Historical target cross-validate started | family=XGBM target=17/19 name=fft_y_Bw_filtered_phase_162 kind=phase harmonic=162 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=XGBM target=17/19 name=fft_y_Bw_filtered_phase_162 elapsed=0.12s mean_mae=0.135634 mean_rmse=0.202085
+[INFO] Historical target cross-validate started | family=XGBM target=18/19 name=fft_y_Bw_filtered_ampl_240 kind=ampl harmonic=240 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=XGBM target=18/19 name=fft_y_Bw_filtered_ampl_240 elapsed=0.13s mean_mae=0.000218 mean_rmse=0.000485
+[INFO] Historical target cross-validate started | family=XGBM target=19/19 name=fft_y_Bw_filtered_phase_240 kind=phase harmonic=240 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=XGBM target=19/19 name=fft_y_Bw_filtered_phase_240 elapsed=0.17s mean_mae=0.400887 mean_rmse=0.857796
+[DONE] Family fit complete | family=XGBM elapsed=615.29s best_score=0.29639252424240115 best_params={'estimator__colsample_bytree': 0.8, 'estimator__learning_rate': 0.2, 'estimator__max_depth': 14, 'estimator__n_estimators': 20}
+[INFO] Family fit started | family=LGBM stage=search estimator=LGBMRegressor targets=19 threadpool_limit=1 joblib_cpu_limit=8 os_cpu_count=32
+[INFO] Family target scope | family=LGBM kinds=ampl,phase harmonics=0,1,3,39,40,78,81,156,162,240 preview=fft_y_Bw_filtered_ampl_0, fft_y_Bw_filtered_ampl_1, fft_y_Bw_filtered_phase_1, ..., fft_y_Bw_filtered_ampl_240, fft_y_Bw_filtered_phase_240
+[INFO] Grid search configured | family=LGBM stage=search candidates=720 estimated_cv_fits=3600 parameter_count=4 n_jobs=8 verbose=1 historical_cross_validate_verbose=1 pre_dispatch=2*n_jobs
+Fitting 5 folds for each of 720 candidates, totalling 3600 fits
+[INFO] Historical search protocol replay started | family=LGBM cv=10 targets=19
+[INFO] Historical search protocol plan | family=LGBM wrapper_cv_folds=10 target_count=19 target_cv_folds_total=190
+[INFO] Historical wrapper cross-validate started | family=LGBM cv=10 targets=19 verbose=1
+Fitting 5 folds for each of 720 candidates, totalling 3600 fits
+Fitting 5 folds for each of 720 candidates, totalling 3600 fits
+Fitting 5 folds for each of 720 candidates, totalling 3600 fits
+Fitting 5 folds for each of 720 candidates, totalling 3600 fits
+Fitting 5 folds for each of 720 candidates, totalling 3600 fits
+Fitting 5 folds for each of 720 candidates, totalling 3600 fits
+Fitting 5 folds for each of 720 candidates, totalling 3600 fits
+Fitting 5 folds for each of 720 candidates, totalling 3600 fits
+Fitting 5 folds for each of 720 candidates, totalling 3600 fits
+Fitting 5 folds for each of 720 candidates, totalling 3600 fits
+[DONE] Historical wrapper cross-validate complete | family=LGBM elapsed=83692.43s mean_mae=0.065909 mean_rmse=0.137639
+[INFO] Historical target cross-validate started | family=LGBM target=1/19 name=fft_y_Bw_filtered_ampl_0 kind=ampl harmonic=0 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=LGBM target=1/19 name=fft_y_Bw_filtered_ampl_0 elapsed=5.08s mean_mae=0.000737 mean_rmse=0.001272
+[INFO] Historical target cross-validate started | family=LGBM target=2/19 name=fft_y_Bw_filtered_ampl_1 kind=ampl harmonic=1 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=LGBM target=2/19 name=fft_y_Bw_filtered_ampl_1 elapsed=5.11s mean_mae=0.000025 mean_rmse=0.000034
+[INFO] Historical target cross-validate started | family=LGBM target=3/19 name=fft_y_Bw_filtered_phase_1 kind=phase harmonic=1 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=LGBM target=3/19 name=fft_y_Bw_filtered_phase_1 elapsed=4.94s mean_mae=0.002097 mean_rmse=0.003102
+[INFO] Historical target cross-validate started | family=LGBM target=4/19 name=fft_y_Bw_filtered_ampl_3 kind=ampl harmonic=3 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=LGBM target=4/19 name=fft_y_Bw_filtered_ampl_3 elapsed=5.04s mean_mae=0.000021 mean_rmse=0.000031
+[INFO] Historical target cross-validate started | family=LGBM target=5/19 name=fft_y_Bw_filtered_phase_3 kind=phase harmonic=3 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=LGBM target=5/19 name=fft_y_Bw_filtered_phase_3 elapsed=4.96s mean_mae=0.020195 mean_rmse=0.029911
+[INFO] Historical target cross-validate started | family=LGBM target=6/19 name=fft_y_Bw_filtered_ampl_39 kind=ampl harmonic=39 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=LGBM target=6/19 name=fft_y_Bw_filtered_ampl_39 elapsed=4.94s mean_mae=0.000016 mean_rmse=0.000023
+[INFO] Historical target cross-validate started | family=LGBM target=7/19 name=fft_y_Bw_filtered_phase_39 kind=phase harmonic=39 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=LGBM target=7/19 name=fft_y_Bw_filtered_phase_39 elapsed=4.92s mean_mae=0.339568 mean_rmse=0.892958
+[INFO] Historical target cross-validate started | family=LGBM target=8/19 name=fft_y_Bw_filtered_ampl_40 kind=ampl harmonic=40 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=LGBM target=8/19 name=fft_y_Bw_filtered_ampl_40 elapsed=4.99s mean_mae=0.000028 mean_rmse=0.000040
+[INFO] Historical target cross-validate started | family=LGBM target=9/19 name=fft_y_Bw_filtered_phase_40 kind=phase harmonic=40 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=LGBM target=9/19 name=fft_y_Bw_filtered_phase_40 elapsed=4.96s mean_mae=0.100352 mean_rmse=0.147072
+[INFO] Historical target cross-validate started | family=LGBM target=10/19 name=fft_y_Bw_filtered_ampl_78 kind=ampl harmonic=78 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=LGBM target=10/19 name=fft_y_Bw_filtered_ampl_78 elapsed=4.98s mean_mae=0.000031 mean_rmse=0.000044
+[INFO] Historical target cross-validate started | family=LGBM target=11/19 name=fft_y_Bw_filtered_phase_78 kind=phase harmonic=78 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=LGBM target=11/19 name=fft_y_Bw_filtered_phase_78 elapsed=4.95s mean_mae=0.058890 mean_rmse=0.126469
+[INFO] Historical target cross-validate started | family=LGBM target=12/19 name=fft_y_Bw_filtered_ampl_81 kind=ampl harmonic=81 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=LGBM target=12/19 name=fft_y_Bw_filtered_ampl_81 elapsed=4.94s mean_mae=0.000010 mean_rmse=0.000014
+[INFO] Historical target cross-validate started | family=LGBM target=13/19 name=fft_y_Bw_filtered_phase_81 kind=phase harmonic=81 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=LGBM target=13/19 name=fft_y_Bw_filtered_phase_81 elapsed=4.92s mean_mae=0.090529 mean_rmse=0.125997
+[INFO] Historical target cross-validate started | family=LGBM target=14/19 name=fft_y_Bw_filtered_ampl_156 kind=ampl harmonic=156 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=LGBM target=14/19 name=fft_y_Bw_filtered_ampl_156 elapsed=4.84s mean_mae=0.000375 mean_rmse=0.000983
+[INFO] Historical target cross-validate started | family=LGBM target=15/19 name=fft_y_Bw_filtered_phase_156 kind=phase harmonic=156 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=LGBM target=15/19 name=fft_y_Bw_filtered_phase_156 elapsed=4.88s mean_mae=0.165906 mean_rmse=0.375010
+[INFO] Historical target cross-validate started | family=LGBM target=16/19 name=fft_y_Bw_filtered_ampl_162 kind=ampl harmonic=162 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=LGBM target=16/19 name=fft_y_Bw_filtered_ampl_162 elapsed=4.95s mean_mae=0.000190 mean_rmse=0.000448
+[INFO] Historical target cross-validate started | family=LGBM target=17/19 name=fft_y_Bw_filtered_phase_162 kind=phase harmonic=162 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=LGBM target=17/19 name=fft_y_Bw_filtered_phase_162 elapsed=5.01s mean_mae=0.061505 mean_rmse=0.092033
+[INFO] Historical target cross-validate started | family=LGBM target=18/19 name=fft_y_Bw_filtered_ampl_240 kind=ampl harmonic=240 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=LGBM target=18/19 name=fft_y_Bw_filtered_ampl_240 elapsed=4.96s mean_mae=0.000112 mean_rmse=0.000212
+[INFO] Historical target cross-validate started | family=LGBM target=19/19 name=fft_y_Bw_filtered_phase_240 kind=phase harmonic=240 cv=10 verbose=1
+[DONE] Historical target cross-validate complete | family=LGBM target=19/19 name=fft_y_Bw_filtered_phase_240 elapsed=4.85s mean_mae=0.376165 mean_rmse=0.768744
+[DONE] Family fit complete | family=LGBM elapsed=98229.39s best_score=0.29091163386672925 best_params={'estimator__learning_rate': 0.2, 'estimator__max_depth': 15, 'estimator__num_leaves': 28, 'estimator__subsample': 0.1}
+[DONE] Polished-dataset RCIM Model-Bank Reproduction model bundle written | output\validation_checks\rcim_track1\2026-07-13-21-11-39__rcim_track1_polished_setpoints_bw_rcim_track1_polished_input_mode_campaign_validation\paper_family_model_bank.pkl
+[INFO] Family evaluation started | family=SVR targets=19
+[DONE] Family evaluation complete | family=SVR elapsed=0.08s mean_component_mape=53.149% mean_component_mae=0.126566
+[INFO] Family evaluation started | family=MLP targets=19
+[DONE] Family evaluation complete | family=MLP elapsed=0.03s mean_component_mape=3331.713% mean_component_mae=0.203671
+[INFO] Family evaluation started | family=RF targets=19
+[DONE] Family evaluation complete | family=RF elapsed=0.17s mean_component_mape=26.648% mean_component_mae=0.061383
+[INFO] Family evaluation started | family=DT targets=19
+[DONE] Family evaluation complete | family=DT elapsed=0.03s mean_component_mape=36.120% mean_component_mae=0.056082
+[INFO] Family evaluation started | family=ET targets=19
+[DONE] Family evaluation complete | family=ET elapsed=0.02s mean_component_mape=20.890% mean_component_mae=0.050174
+[INFO] Family evaluation started | family=ERT targets=19
+[DONE] Family evaluation complete | family=ERT elapsed=0.16s mean_component_mape=18.246% mean_component_mae=0.045708
+[INFO] Family evaluation started | family=GBM targets=19
+[DONE] Family evaluation complete | family=GBM elapsed=0.03s mean_component_mape=30.468% mean_component_mae=0.065739
+[INFO] Family evaluation started | family=HGBM targets=19
+[DONE] Family evaluation complete | family=HGBM elapsed=0.04s mean_component_mape=34.101% mean_component_mae=0.086951
+[INFO] Family evaluation started | family=XGBM targets=19
+[DONE] Family evaluation complete | family=XGBM elapsed=0.03s mean_component_mape=38.561% mean_component_mae=0.082693
+[INFO] Family evaluation started | family=LGBM targets=19
+[DONE] Family evaluation complete | family=LGBM elapsed=0.03s mean_component_mape=24.084% mean_component_mae=0.061847
+[DONE] Polished-dataset RCIM Model-Bank Reproduction best-parameter summary written | output\validation_checks\rcim_track1\2026-07-13-21-11-39__rcim_track1_polished_setpoints_bw_rcim_track1_polished_input_mode_campaign_validation\best_parameter_summary.yaml
+[INFO] Family Python+ONNX export started | family=SVR targets=19 estimator=SVR
+[DONE] Family Python+ONNX export complete | family=SVR elapsed=0.21s python_exported=19 onnx_exported=19 onnx_failed=0
+[INFO] Family Python+ONNX export started | family=MLP targets=19 estimator=MLPRegressor
+[DONE] Family Python+ONNX export complete | family=MLP elapsed=0.47s python_exported=19 onnx_exported=19 onnx_failed=0
+[INFO] Family Python+ONNX export started | family=RF targets=19 estimator=RandomForestRegressor
+[DONE] Family Python+ONNX export complete | family=RF elapsed=3.33s python_exported=19 onnx_exported=19 onnx_failed=0
+[INFO] Family Python+ONNX export started | family=DT targets=19 estimator=DecisionTreeRegressor
+[DONE] Family Python+ONNX export complete | family=DT elapsed=0.09s python_exported=19 onnx_exported=19 onnx_failed=0
+[INFO] Family Python+ONNX export started | family=ET targets=19 estimator=ExtraTreeRegressor
+[DONE] Family Python+ONNX export complete | family=ET elapsed=0.27s python_exported=19 onnx_exported=19 onnx_failed=0
+[INFO] Family Python+ONNX export started | family=ERT targets=19 estimator=ExtraTreesRegressor
+[DONE] Family Python+ONNX export complete | family=ERT elapsed=6.49s python_exported=19 onnx_exported=19 onnx_failed=0
+[INFO] Family Python+ONNX export started | family=GBM targets=19 estimator=GradientBoostingRegressor
+[DONE] Family Python+ONNX export complete | family=GBM elapsed=3.34s python_exported=19 onnx_exported=19 onnx_failed=0
+[INFO] Family Python+ONNX export started | family=HGBM targets=19 estimator=HistGradientBoostingRegressor
+[DONE] Family Python+ONNX export complete | family=HGBM elapsed=0.18s python_exported=19 onnx_exported=19 onnx_failed=0
+[INFO] Family Python+ONNX export started | family=XGBM targets=19 estimator=XGBRegressor
+[DONE] Family Python+ONNX export complete | family=XGBM elapsed=0.31s python_exported=19 onnx_exported=19 onnx_failed=0
+[INFO] Family Python+ONNX export started | family=LGBM targets=19 estimator=LGBMRegressor
+[DONE] Family Python+ONNX export complete | family=LGBM elapsed=1.86s python_exported=19 onnx_exported=19 onnx_failed=0
+[INFO] Polished-dataset RCIM Model-Bank Reproduction Python+ONNX export complete | python_exported=190 onnx_exported=190 onnx_failed=0
+[DONE] Polished-dataset RCIM Model-Bank Reproduction validation complete | summary=output\validation_checks\rcim_track1\2026-07-13-21-11-39__rcim_track1_polished_setpoints_bw_rcim_track1_polished_input_mode_campaign_validation\validation_summary.yaml report=doc\reports\analysis\validation_checks\2026-07-16-06-40-07_rcim_track1_rcim_trac_00353f50_polished_dataset_rcim_model_bank_reproduction_report.md

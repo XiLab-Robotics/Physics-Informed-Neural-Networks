@@ -107,14 +107,19 @@ archive.
 5. Add or reuse validators that prove the run metadata, model archive metadata,
    ONNX exports, Python exports, and destination folder all agree on
    `dataset_id=polished_dataset` and the intended `input_mode`.
-6. On Aries, run a fast `srun` smoke execution only after the planning report
-   is approved. Remove or quarantine disposable smoke artifacts after
-   verification.
-7. Launch one full campaign at a time with `sbatch`, closing and committing the
-   first campaign before starting the second.
-8. After each terminal campaign, inspect Slurm output, clean Slurm stdout and
-   stderr files per operator policy, close out campaign artifacts, and commit.
-9. Defer any decision to retrain
+6. Run the first polished setpoint campaign on the local Windows workstation,
+   in parallel across the `global`, `forward`, and `backward` surfaces, so the
+   Aries cluster can continue the separate cross-wave retraining queue.
+7. Promote completed surface exports into
+   `models/polished_dataset/paper_reference/rcim_track1/setpoints/` only after
+   validating the dataset root, input mode, surface labels, five-feature input
+   contract, and per-family ONNX/Python export counts.
+8. Decide the execution host for the polished actual-values campaign after the
+   current Aries work completes or remains active: use Aries if it is free,
+   otherwise use the same local Windows parallel policy.
+9. After each terminal campaign, inspect the launcher logs and output
+   artifacts, close out the campaign, and commit.
+10. Defer any decision to retrain
    `dataset_input_mode_retraining__rcim_track1__simplified_setpoints` until the
    two polished campaigns have completed and the value of a normalized
    simplified rerun can be judged against the audited historical baseline.

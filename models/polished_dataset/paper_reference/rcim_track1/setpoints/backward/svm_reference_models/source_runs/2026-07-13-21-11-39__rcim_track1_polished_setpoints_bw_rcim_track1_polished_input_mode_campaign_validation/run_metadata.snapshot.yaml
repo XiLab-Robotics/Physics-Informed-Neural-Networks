@@ -1,0 +1,22 @@
+schema_version: 1
+artifact_kind: validation_check
+model_family: rcim_track1
+base_model_family: rcim_track1
+training_variant: bw
+direction_scope_label: backward_only
+use_forward_direction: false
+use_backward_direction: true
+run_name: rcim_track1_polished_setpoints_bw_rcim_track1_polished_input_mode_campaign_validation
+run_instance_id: 2026-07-13-21-11-39__rcim_track1_polished_setpoints_bw_rcim_track1_polished_input_mode_campaign_validation
+output_directory: output\validation_checks\rcim_track1\2026-07-13-21-11-39__rcim_track1_polished_setpoints_bw_rcim_track1_polished_input_mode_campaign_validation
+dataset_id: polished_dataset
+dataset_schema: polished_setpoint_curve_v1
+input_feature_names:
+- angular_position_deg
+- input_speed_rpm
+- input_torque_nm
+- oil_temperature_deg
+- direction_flag
+target_feature_names:
+- theta_TE
+input_feature_dim: 5

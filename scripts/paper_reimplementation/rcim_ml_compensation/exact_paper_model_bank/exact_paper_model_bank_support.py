@@ -1125,8 +1125,19 @@ def resolve_paper_input_feature_name_list(training_config: dict[str, Any]) -> li
         str(feature_name).strip()
         for feature_name in training_config["data"]["input_feature_names"]
     ]
-    assert input_feature_name_list == ["rpm", "deg", "tor"], (
-        "Exact paper input features must remain ['rpm', 'deg', 'tor']"
+    supported_feature_name_list = [
+        ["rpm", "deg", "tor"],
+        [
+            "angular_position_deg",
+            "input_speed_rpm",
+            "input_torque_nm",
+            "oil_temperature_deg",
+            "direction_flag",
+        ],
+    ]
+    assert input_feature_name_list in supported_feature_name_list, (
+        "Exact paper input features must use the legacy curve-level schema "
+        "or the five-feature dataset input-mode schema"
     )
     return input_feature_name_list
 

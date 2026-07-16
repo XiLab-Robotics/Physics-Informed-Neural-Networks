@@ -130,6 +130,11 @@ This folder contains the internal project documents derived from the reference P
   across `simplified_dataset` setpoints, `polished_dataset` setpoints, and
   `polished_dataset` actual values.
 
+- [scripts/campaigns/cross_wave/run_rcim_track1_polished_setpoints_campaign.md](./scripts/campaigns/cross_wave/run_rcim_track1_polished_setpoints_campaign.md)
+  Launcher note for the prepared `rcim_track1` polished setpoint campaign,
+  including local preflight commands, local parallel Windows execution, and
+  promotion into the official input-mode model archive.
+
 ### Analysis Reports
 
 - [reports/analysis/Complete TE And Dataset Renaming Audit.md](./reports/analysis/Complete%20TE%20And%20Dataset%20Renaming%20Audit.md)
@@ -2787,6 +2792,11 @@ This folder contains the internal project documents derived from the reference P
 - [scripts/campaigns/cross_wave/run_polished_dataset_rcim_model_bank_reproduction_campaign.md](./scripts/campaigns/cross_wave/run_polished_dataset_rcim_model_bank_reproduction_campaign.md)
   Script-level documentation for the prepared polished `RCIM Model-Bank
   Reproduction` launcher with local and `-Remote` execution paths.
+
+- [scripts/campaigns/cross_wave/run_rcim_track1_polished_setpoints_campaign.md](./scripts/campaigns/cross_wave/run_rcim_track1_polished_setpoints_campaign.md)
+  Script-level documentation for the prepared `rcim_track1` polished setpoint
+  campaign with local preflight commands, local parallel Windows execution, and
+  official model-archive promotion.
 
 - [scripts/campaigns/cross_wave/run_polished_dataset_early_wave_parallel_training_campaign.md](./scripts/campaigns/cross_wave/run_polished_dataset_early_wave_parallel_training_campaign.md)
   Script-level documentation for the 36-run early-wave `polished_dataset`

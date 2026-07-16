@@ -1,0 +1,4 @@
+﻿pid=2828
+started_at=2026-07-13T21:11:25.4557880+02:00
+stdout=C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_campaigns\2026-07-13-21-11-25_rcim_track1_polished_setpoints_local_launcher\launcher.stdout.log
+stderr=C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_campaigns\2026-07-13-21-11-25_rcim_track1_polished_setpoints_local_launcher\launcher.stderr.log

@@ -1,0 +1,7 @@
+Parallel RCIM track1 surface run failed | surfaces=global, fw, bw
+At C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\scripts\campaigns\cross_wave\run_rcim_trac
+k1_polished_setpoints_campaign.ps1:129 char:9
++         throw "Parallel RCIM track1 surface run failed | surfaces=$($ ...
++         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : OperationStopped: (Parallel RCIM t...=global, fw, bw:String) [], RuntimeException
+    + FullyQualifiedErrorId : Parallel RCIM track1 surface run failed | surfaces=global, fw, bw

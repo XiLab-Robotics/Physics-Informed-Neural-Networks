@@ -2,7 +2,7 @@
 
 ## Campaign Status
 
-Planning only. No campaign YAML, launcher, Slurm execution, smoke run, or
+Planning only. No campaign YAML, launcher, training execution, smoke run, or
 training has started from this plan.
 
 The approved technical document is:
@@ -56,8 +56,12 @@ actual-value variants.
 Both campaigns use:
 
 - `dataset_id: polished_dataset`;
-- `dataset_schema: polished_point_v1`;
 - `source_dataset_root: data/polished_dataset`.
+
+Dataset schema remains input-mode specific:
+
+- `setpoints`: `polished_setpoint_curve_v1`;
+- `actual_values`: `polished_point_v1`.
 
 Both campaigns must expose the same five-feature model input contract:
 
@@ -141,27 +145,31 @@ No campaign output may be written under:
   or `models/polished_dataset/paper_reference/rcim_track1/backward/` archive
   layout.
 
-## Aries Execution Plan
+## Execution Plan
 
-Execution must happen on the Aries cluster, not in this Windows checkout.
+The first campaign,
+`dataset_input_mode_retraining__rcim_track1__polished_setpoints`, runs on the
+local Windows workstation in parallel across the `global`, `forward`, and
+`backward` surfaces. The Aries cluster remains reserved for the already active
+cross-wave retraining sequence.
 
-The first execution for this RCIM input-mode pair must be a fast GPU `srun`
-smoke check after the package exists and before any full `sbatch` submission.
-The smoke should exercise one small representative surface or reduced workload
-only and must be removed or quarantined after verification.
+The second campaign,
+`dataset_input_mode_retraining__rcim_track1__polished_actual_values`, remains
+location-flexible. If Aries has finished the other retraining work by then, it
+can be submitted there; otherwise it should run locally with the same parallel
+surface policy.
 
-After the smoke succeeds, run one full campaign at a time:
+For the local Windows run:
 
-1. submit `dataset_input_mode_retraining__rcim_track1__polished_setpoints`;
-2. wait for terminal Slurm state;
-3. inspect outputs and Slurm logs;
-4. clean Slurm stdout and stderr files per operator policy;
-5. close out artifacts and commit;
-6. submit `dataset_input_mode_retraining__rcim_track1__polished_actual_values`;
-7. repeat the same terminal-state, cleanup, closeout, and commit sequence.
-
-The surface runs inside each campaign should be sequential unless the operator
-explicitly approves parallel surface execution later.
+1. run the launcher preflight;
+2. launch `global`, `forward`, and `backward` in parallel;
+3. inspect each surface exit code and launcher log;
+4. rerun the campaign package validator;
+5. promote the exported ONNX and Python artifacts into the official
+   input-mode archive with the repository-owned promotion script;
+6. verify final model counts and file-size risk;
+7. close out artifacts and commit before preparing or launching the next RCIM
+   input-mode campaign.
 
 ## Safety Checks
 
@@ -169,12 +177,16 @@ The campaign package and closeout must verify:
 
 - every run declares `dataset_id: polished_dataset`;
 - every run declares the intended `input_mode`;
-- every run declares `dataset_schema: polished_point_v1`;
+- every run declares the expected input-mode-specific `dataset_schema`;
 - every run records `source_dataset_root: data/polished_dataset`;
 - every exported artifact path is under the intended input-mode root;
 - no output path targets the frozen simplified archive;
 - no output path targets the unsplit polished paper-reference archive;
 - `global`, `forward`, and `backward` surfaces are all present;
+- each promoted surface contains exactly `190` ONNX files and `190` Python
+  pickle files;
+- the promoted input-mode archive contains exactly `570` ONNX files and `570`
+  Python pickle files;
 - ONNX and Python artifacts agree with the source run metadata;
 - the run metadata contains the final five-feature input list.
 
@@ -182,5 +194,5 @@ The campaign package and closeout must verify:
 
 This campaign plan requires explicit approval before implementation proceeds.
 After approval, the next work item is campaign package preparation: campaign
-YAML files, Aries launcher or launcher update, launcher note, active campaign
+YAML files, Windows local launcher update, launcher note, active campaign
 state, and validation commands.
