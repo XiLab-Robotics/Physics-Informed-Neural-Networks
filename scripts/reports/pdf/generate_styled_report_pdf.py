@@ -172,6 +172,8 @@ TRACK2_FAMILYWISE_MODEL_INVENTORY_TABLE_CLASS_NAME = "report-table report-table-
 TRACK2_FAMILYWISE_MODEL_PATH_TABLE_CLASS_NAME = "report-table report-table-track2-familywise-model-paths"
 TRACK2_FAMILYWISE_AGGREGATE_METRIC_TABLE_CLASS_NAME = "report-table report-table-track2-familywise-aggregate-metrics"
 TRACK2_FAMILYWISE_OFFSET_SHAPE_TABLE_CLASS_NAME = "report-table report-table-track2-familywise-offset-shape"
+TRACK2_INTERMEDIATE_SHAPE_RANKING_TABLE_CLASS_NAME = "report-table report-table-track2-intermediate-shape-ranking"
+TRACK2_INTERMEDIATE_ACTUAL_VALUES_TABLE_CLASS_NAME = "report-table report-table-track2-intermediate-actual-values"
 TRACK2D_MEAN_OFFSET_TABLE_CLASS_NAME = "report-table report-table-track2d-mean-offset"
 TRACK2E_OFFSET_FEASIBILITY_TABLE_CLASS_NAME = "report-table report-table-track2e-offset-feasibility"
 TRACK2_COMPONENT_HARMONIC_SUMMARY_TABLE_CLASS_NAME = "report-table report-table-track2-component-harmonic-summary"
@@ -670,6 +672,10 @@ REPORT_SPECIFIC_FORCED_PAGE_BREAK_SECTION_SLUGS = {
     "2026-07-02-10-36-59_polished_full_wave_retraining_campaign_results_report": {
         "scalar-leaderboard-snapshot",
     },
+    "te_intermediate_model_selection_cleanup_report": {
+        "backward-result",
+        "forward-result",
+    },
     "track2_forward_reference_curve_comparison_report": {
         "pairwise-predicted-curve-differences",
     },
@@ -957,6 +963,28 @@ REPORT_STYLESHEET = """
       text-align: center;
     }
 
+    .section-backward-result .report-figure,
+    .section-forward-result .report-figure {
+      margin: 8px auto 9px auto;
+      padding: 2px 0 5px 0;
+    }
+
+    .section-backward-result .report-figure img,
+    .section-forward-result .report-figure img {
+      max-width: 160mm;
+    }
+
+    .section-backward-result .report-figure-caption,
+    .section-forward-result .report-figure-caption {
+      margin-top: 6px;
+      max-width: 160mm;
+    }
+
+    .report-table-page-break-before {
+      break-before: page;
+      page-break-before: always;
+    }
+
     .subsection-block {
       break-inside: avoid-page;
       margin: 10px 0 0 0;
@@ -1106,6 +1134,30 @@ REPORT_STYLESHEET = """
     .report-table-track2-familywise-offset-shape td:nth-child(4),
     .report-table-track2-familywise-offset-shape th:nth-child(5),
     .report-table-track2-familywise-offset-shape td:nth-child(5) { width: 22%; }
+
+    .report-table-track2-intermediate-shape-ranking th:nth-child(1),
+    .report-table-track2-intermediate-shape-ranking td:nth-child(1) { width: 5%; }
+    .report-table-track2-intermediate-shape-ranking th:nth-child(2),
+    .report-table-track2-intermediate-shape-ranking td:nth-child(2) { width: 25%; }
+    .report-table-track2-intermediate-shape-ranking th:nth-child(3),
+    .report-table-track2-intermediate-shape-ranking td:nth-child(3) { width: 17%; }
+    .report-table-track2-intermediate-shape-ranking th:nth-child(4),
+    .report-table-track2-intermediate-shape-ranking td:nth-child(4),
+    .report-table-track2-intermediate-shape-ranking th:nth-child(5),
+    .report-table-track2-intermediate-shape-ranking td:nth-child(5),
+    .report-table-track2-intermediate-shape-ranking th:nth-child(6),
+    .report-table-track2-intermediate-shape-ranking td:nth-child(6) { width: 10%; }
+    .report-table-track2-intermediate-shape-ranking th:nth-child(7),
+    .report-table-track2-intermediate-shape-ranking td:nth-child(7) { width: 23%; }
+
+    .report-table-track2-intermediate-actual-values th:nth-child(1),
+    .report-table-track2-intermediate-actual-values td:nth-child(1) { width: 46%; }
+    .report-table-track2-intermediate-actual-values th:nth-child(2),
+    .report-table-track2-intermediate-actual-values td:nth-child(2),
+    .report-table-track2-intermediate-actual-values th:nth-child(3),
+    .report-table-track2-intermediate-actual-values td:nth-child(3),
+    .report-table-track2-intermediate-actual-values th:nth-child(4),
+    .report-table-track2-intermediate-actual-values td:nth-child(4) { width: 18%; }
 
     .report-table-track2-component-h0-extreme th:nth-child(1), .report-table-track2-component-h0-extreme td:nth-child(1) { width: 5%; }
     .report-table-track2-component-h0-extreme th:nth-child(2), .report-table-track2-component-h0-extreme td:nth-child(2) { width: 10%; }
@@ -2968,6 +3020,8 @@ REPORT_STYLESHEET = """
     .report-table-track1-exact-open-cell-ranking .metric-unit,
     .report-table-track1-exact-open-cell-export .metric-unit,
     .report-table-track2-best-model-collage .metric-unit,
+    .report-table-track2-intermediate-actual-values .metric-unit,
+    .report-table-track2-intermediate-shape-ranking .metric-unit,
     .report-table-track2-official-track2fbis-result .metric-unit,
     .report-table-repository-status-scalar-winner .metric-unit,
     .report-table-repository-status-hpo-leader .metric-unit,
@@ -3654,6 +3708,8 @@ def normalize_report_specific_header_cell(header_cell: str, table_class_name: st
         CAMPAIGN_CLOSEOUT_DISPERSION_COMPARISON_TABLE_CLASS_NAME,
         CAMPAIGN_CLOSEOUT_REGISTRY_EFFECTS_TABLE_CLASS_NAME,
         TRACK2_BEST_MODEL_COLLAGE_TABLE_CLASS_NAME,
+        TRACK2_INTERMEDIATE_ACTUAL_VALUES_TABLE_CLASS_NAME,
+        TRACK2_INTERMEDIATE_SHAPE_RANKING_TABLE_CLASS_NAME,
         REPOSITORY_STATUS_SCALAR_WINNER_TABLE_CLASS_NAME,
         REPOSITORY_STATUS_HPO_LEADER_TABLE_CLASS_NAME,
         REPOSITORY_STATUS_HARMONIC_RESULTS_TABLE_CLASS_NAME,
@@ -4020,6 +4076,37 @@ def resolve_track2_metric_summary_column_widths(header_cells: Sequence[str]) -> 
     if (
         normalized_header_cells
         == (
+            "Rank",
+            "Family",
+            "Decision",
+            "MAE [deg]",
+            "P95 [%]",
+            "Worst MAE [deg]",
+            "Shape Risk",
+        )
+    ):
+        return (5.0, 25.0, 17.0, 10.0, 10.0, 10.0, 23.0)
+
+    if (
+        normalized_header_cells
+        == (
+            "Old Rank",
+            "Family",
+            "Revised Decision",
+            "MAE [deg]",
+            "P95 [%]",
+            "Worst MAE [deg]",
+            "Shape Risk",
+        )
+    ):
+        return (5.0, 25.0, 17.0, 10.0, 10.0, 10.0, 23.0)
+
+    if normalized_header_cells == ("Family", "Actual Score", "Actual MAE [deg]", "Actual P95 [%]"):
+        return (46.0, 18.0, 18.0, 18.0)
+
+    if (
+        normalized_header_cells
+        == (
             "Candidate",
             "Source",
             "Surface",
@@ -4045,6 +4132,8 @@ def render_table_colgroup(header_cells: Sequence[str], table_class_name: str) ->
         TRACK2_FAMILYWISE_MODEL_INVENTORY_TABLE_CLASS_NAME,
         TRACK2_FAMILYWISE_MODEL_PATH_TABLE_CLASS_NAME,
         TRACK2_FAMILYWISE_OFFSET_SHAPE_TABLE_CLASS_NAME,
+        TRACK2_INTERMEDIATE_ACTUAL_VALUES_TABLE_CLASS_NAME,
+        TRACK2_INTERMEDIATE_SHAPE_RANKING_TABLE_CLASS_NAME,
         TRACK2_METRIC_SUMMARY_TABLE_CLASS_NAME,
     }:
         return ""
@@ -4265,6 +4354,15 @@ def resolve_standard_table_class_name(
     # Resolve Ranking Table
     if normalized_header_cells in RANKING_TABLE_HEADER_CELL_GROUPS:
         return RANKING_RESULTS_TABLE_CLASS_NAME
+
+    if normalized_header_cells in {
+        ("Rank", "Family", "Decision", "MAE [deg]", "P95 [%]", "Worst MAE [deg]", "Shape Risk"),
+        ("Old Rank", "Family", "Revised Decision", "MAE [deg]", "P95 [%]", "Worst MAE [deg]", "Shape Risk"),
+    }:
+        return TRACK2_INTERMEDIATE_SHAPE_RANKING_TABLE_CLASS_NAME
+
+    if normalized_header_cells == ("Family", "Actual Score", "Actual MAE [deg]", "Actual P95 [%]"):
+        return TRACK2_INTERMEDIATE_ACTUAL_VALUES_TABLE_CLASS_NAME
 
     # Resolve Reusable Ranking/Metric Table Profiles
     if is_wide_identifier_ranking_table(normalized_header_cells):
@@ -5139,7 +5237,15 @@ def render_table(
     )
 
     # Render Generic Markdown Table
-    return render_standard_table(header_cells, alignments, body_rows, table_class_name), current_index
+    table_html = render_standard_table(header_cells, alignments, body_rows, table_class_name)
+    if (
+        report_stem == "te_intermediate_model_selection_cleanup_report"
+        and current_section_slug in {"backward-result", "forward-result"}
+        and table_class_name == TRACK2_INTERMEDIATE_SHAPE_RANKING_TABLE_CLASS_NAME
+    ):
+        table_html = f'<div class="report-table-page-break-before"></div>{table_html}'
+
+    return table_html, current_index
 
 def render_list(markdown_lines: Sequence[str], start_index: int, base_indentation: int) -> tuple[str, int]:
 
@@ -5388,6 +5494,7 @@ def render_markdown_body(markdown_text: str, markdown_path: Path) -> tuple[str, 
                     "2026-06-13-13-24-37_track2h_mixture_density_heads_campaign_results_report",
                     "2026-06-29-10-40-05_polished_early_wave_parallel_training_campaign_results_report",
                     "2026-07-02-10-36-59_polished_full_wave_retraining_campaign_results_report",
+                    "te_intermediate_model_selection_cleanup_report",
                 }
                 and not (
                     report_stem == "2026-04-22-01-08-33_track1_mlp_residual_cell_final_closure_campaign_results_report"

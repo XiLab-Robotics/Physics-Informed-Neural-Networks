@@ -124,6 +124,11 @@ This folder contains the internal project documents derived from the reference P
   polished-dataset input-mode campaigns while freezing the audited
   `simplified_dataset` paper-reference baseline.
 
+- [technical/2026-07/2026-07-17/2026-07-17-11-51-04_intermediate_model_selection_cleanup.md](./technical/2026-07/2026-07-17/2026-07-17-11-51-04_intermediate_model_selection_cleanup.md)
+  Technical plan for the intermediate post-retraining model-selection cleanup
+  report that keeps both temporal-window and non-windowed development paths
+  while closing dead-end exploratory branches.
+
 - [technical/2026-07/2026-07-19/2026-07-19-12-05-00_rcim_track1_polished_actual_values_closeout.md](./technical/2026-07/2026-07-19/2026-07-19-12-05-00_rcim_track1_polished_actual_values_closeout.md)
   Closeout for the Aries `rcim_track1` polished actual-values campaign,
   including Slurm terminal status, archive promotion, and artifact checks.
@@ -279,6 +284,12 @@ This folder contains the internal project documents derived from the reference P
   `global` model selection, defines the reduced active candidate set, and
   records keep, baseline-only, pause, or retire decisions for the implemented
   TE model families.
+
+- [reports/analysis/model_development_waves/intermediate_model_selection_cleanup/[2026-07-17]/te_intermediate_model_selection_cleanup_report.md](./reports/analysis/model_development_waves/intermediate_model_selection_cleanup/%5B2026-07-17%5D/te_intermediate_model_selection_cleanup_report.md)
+  Intermediate post-retraining model-selection cleanup report that preserves
+  one temporal-window path and one non-windowed path, demotes
+  `periodic_lstm_sequence_Bw` as a false scalar leader, and closes dead-end
+  exploratory branches before the next development cycle.
 
 - [reports/analysis/te_curve_verification_pipeline/04_selected_model_reports/[2026-07-06]/](./reports/analysis/te_curve_verification_pipeline/04_selected_model_reports/%5B2026-07-06%5D/)
   Reduced selected-model `TE Curve Verification Pipeline` report bundle with
