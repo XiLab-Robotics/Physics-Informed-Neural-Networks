@@ -50,9 +50,13 @@ Historical rationale and approval history remain in:
 - Current Pruning Gate: near-term model-family selection now excludes
   `global`. `global` remains preserved as a historical and future surface, but
   it is paused until it is the final remaining modeling item in the backlog.
-  Current active reduced families are `periodic_gru_sequence`,
-  `periodic_mlp_harmonic`, `wave4_3_mixture_density_k3`, and
-  `wave52b_offset_centered_shape_harmonic`, plus selected baseline anchors.
+  The `2026-07-17` shape-first cleanup supersedes the previous reduced active
+  set. Current active reduced families are `periodic_gru_sequence`,
+  `wave4_1_mae_robust_loss`, `wave4_2_quantile_p10_p50_p90`, and
+  `periodic_mlp_harmonic`, plus selected simple and RCIM reference anchors.
+  `periodic_lstm_sequence_Bw` is demoted as a false scalar leader unless a
+  future frequency-domain shape gate proves it preserves measured harmonic
+  content.
 - Current Active Report Generation: reduced selected-model `TE Curve
   Verification Pipeline` only, using `polished_dataset` and
   `simplified_dataset` in parallel for `forward` and `backward`. The only
@@ -67,6 +71,7 @@ Current canonical status reports:
 - `doc/reports/analysis/TE Program Status And Closeout Ledger.md`
 - `doc/reports/analysis/te_curve_verification_pipeline/01_official_decisions/official_model_verification_report/[2026-07-03]/track2_official_model_verification_report.md`
 - `doc/reports/analysis/model_development_waves/model_family_pruning/[2026-07-06]/te_model_family_pruning_decision_report.md`
+- `doc/reports/analysis/model_development_waves/intermediate_model_selection_cleanup/[2026-07-17]/te_intermediate_model_selection_cleanup_report.md`
 - `doc/reports/analysis/te_curve_verification_pipeline/04_selected_model_reports/[2026-07-06]/`
 - `doc/scripts/campaigns/track_2/run_reduced_selected_track2_reports.md`
 - `doc/reports/analysis/te_curve_verification_pipeline/00_overview/multi_index_curve_first_selection_policy/[2026-06-16]/track2_multi_index_curve_first_selection_policy.md`
@@ -266,7 +271,9 @@ Next planned diagnostic and training decision branches:
 | `Wave 4 series` dispersion-aware modeling probes | Test robust losses, quantile or probabilistic heads, mixture-density heads, and latent-state or hysteresis-aware features on the offset and fragile-harmonic problem. | robust-loss, quantile/probabilistic, MDN, and `Wave 4.4` latent-state / hysteresis-aware campaigns and official TE Curve Verification refreshes completed; all are exploratory and not promoted |
 | `Wave 5.1` hybrid structured models | Combine harmonic structure, condition-conditioned residual learning, and explicit grouped treatment of stable and fragile harmonic bands. | first real `wave3_harmonic_prior_residual` campaign and official `TE Curve Verification Pipeline` verification refresh closed as a verified exploratory baseline, not promoted |
 | `Wave 5.2` PINN formulation and first PINN | Test soft physics, periodicity, smoothness, harmonic-consistency, and operating-condition constraints in a first narrow PINN branch. | `Wave 5.2A` MMT diagnostic and parameter inventory are generated; dataset-aligned calibration and `Wave 5.2B` / `Wave 5.2C` decision gates remain open |
-| Wave 6 integrated multi-task / multi-head model branch | Shared causal trunk with separate offset, low-frequency, centered-shape, uncertainty or mixture, and optional structured-residual heads. | deferred until `Wave 4 series`, `Wave 5.1`, and `Wave 5.2` identify which mechanisms should be integrated |
+| Intermediate shape-first model-selection cleanup | Reduce the post-retraining active set using raw error, P95, centered shape, P2P behavior, visual collage evidence, and actual-values stability. | completed; active set is `periodic_gru_sequence`, `wave4_1_mae_robust_loss`, `wave4_2_quantile_p10_p50_p90`, and `periodic_mlp_harmonic`; `periodic_lstm_sequence_Bw`, `Wave 4.3`, `Wave 4.4`, and `Wave 5.1` are closed as active branches |
+| Frequency-domain shape-gated reranker | Add measured/predicted FFT amplitude similarity, dominant-harmonic retention, dominant-harmonic phase error, derivative correlation, and per-curve shape pass rate to future reduced reports. | next tooling candidate before reopening any scalar leader that visually loses measured TE shape |
+| Wave 6 integrated multi-task / multi-head model branch | Shared causal trunk with separate offset, low-frequency, centered-shape, uncertainty or mixture, and optional structured-residual heads. | deferred until the shape-gated reduced set identifies ingredients that beat the current temporal and non-windowed targets |
 | Sequential residual calibration branch | Current best causal model plus second causal residual or offset calibrator trained on model error. | candidate after audit |
 
 The `CVP 1.5` offset-predictability feasibility diagnostic is complete in:

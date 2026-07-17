@@ -32,10 +32,10 @@ closeout that changes any of these surfaces:
 | Latest normal campaign closeout | `polished_dataset` full-wave retraining campaign |
 | Latest official TE Curve Verification refresh | polished-dataset RCIM, early-wave, and full-wave refresh, dated `2026-07-03` |
 | Latest curve-verification decision | accepted; polished `periodic_gru_sequence` becomes the model-development baseline |
-| Latest pruning decision | `2026-07-06` forward-led model-family pruning; `global` paused until final backlog stage |
+| Latest pruning decision | `2026-07-17` shape-first intermediate model-selection cleanup; `global` remains paused until final backlog stage |
 | Active report generation | reduced selected-model reports only: `polished_dataset` and `simplified_dataset`, each split into `forward` and `backward` |
 | Current TE Curve Verification Pipeline selection policy | multi-index curve-first selection, dated `2026-06-16` |
-| Next modeling decision | use the reduced active set: `periodic_gru_sequence`, `periodic_mlp_harmonic`, `wave4_3_mixture_density_k3`, `wave52b_offset_centered_shape_harmonic`, and selected baseline anchors |
+| Next modeling decision | use the shape-first reduced active set: temporal `periodic_gru_sequence`, primary non-windowed `wave4_1_mae_robust_loss`, secondary non-windowed `wave4_2_quantile_p10_p50_p90`, lightweight harmonic comparator `periodic_mlp_harmonic`, and selected simple / RCIM anchors |
 
 The repository remains direction-parallel. `Fw`, `Bw`, and `global` are not a
 single destructive competition. Each surface keeps its own best candidate and
@@ -45,6 +45,12 @@ Near-term pruning temporarily pauses `global` model selection. This does not
 delete the `global` branch or change its historical status. It only excludes
 `global` from current model-family pruning and reduced-pipeline planning until
 it is the final remaining modeling item in the backlog.
+
+The `2026-07-17` intermediate cleanup adds a shape-first gate to that pruning
+rule. Scalar leaders that smooth, shift, or lose the measured harmonic TE
+shape are not active development roads. The practical consequence is that
+`periodic_lstm_sequence_Bw` is demoted as a false scalar leader, while
+`periodic_gru_sequence_Fw/Bw` remains the temporal-window path.
 
 Routine `TE Curve Verification Pipeline` report generation is now reduced to
 four selected-model reports: polished forward, polished backward, simplified
@@ -147,6 +153,7 @@ robustness, visual-evidence, and deployment-readiness axes visible.
 | Polished-dataset RCIM Model-Bank Reproduction | closed | Forward and backward paper-faithful RCIM model banks completed on `polished_dataset`; ERT won both surfaces, with `190` Python and `190` ONNX exports per direction. | Normal campaign closeout accepted; official curve-verified leaders unchanged because TE Curve Verification Pipeline refresh remains a separate optional workflow. |
 | Polished-dataset full-wave retraining | closed | One hundred eight full model-development runs completed across `36` families and `global`, `Fw`, and `Bw`; full-wave scalar winner `te_periodic_gru_sequence_fw`, test MAE `0.001121 deg`. | Normal campaign closeout accepted; scalar program winner remains the earlier polished early-wave `te_periodic_gru_sequence_bw` at `0.001084 deg`; official curve-verified leaders unchanged pending separate TE Curve Verification Pipeline refresh. |
 | Polished-dataset official TE Curve Verification refresh | closed | `128` polished RCIM and model-development candidates added to the official `293`-candidate matrix using `data\polished_dataset`; visual collage, overlay, official report, and PDFs regenerated. | Accepted. `polished_periodic_gru_sequence` becomes the model-development baseline; `rcim_retuned_GBM19_Fw` remains the full-matrix forward leader; `polished_rcim_model_bank_reproduction_ET19_Fw` is retained as the polished refreshed-source forward reference-bank leader. |
+| Intermediate model-selection cleanup | closed | Post-retraining familywise ONNX reports were consolidated into a shape-first selection report using `polished_dataset + setpoints` as the primary evidence surface and `polished_dataset + actual_values` as a sensitivity check. | Active development set reduced to `periodic_gru_sequence`, `wave4_1_mae_robust_loss`, `wave4_2_quantile_p10_p50_p90`, and `periodic_mlp_harmonic`; `periodic_lstm_sequence_Bw`, Wave 4.3 MDN, Wave 4.4 latent-state, and Wave 5.1 harmonic-prior branches are closed as active roads unless future shape-gated evidence reopens them. |
 | Wave 5.2 PINN / MMT track | open design branch | MMT diagnostic and parameter inventory exist; feature and soft-constraint gates remain open. | Not campaign-ready. |
 | Wave 6 integrated multi-task / multi-head model | deferred | Intended to combine proven offset, low-frequency, centered-shape, uncertainty, mixture, and structured residual mechanisms. | Deferred until Waves 4.1-4.4, Wave 5.1, and Wave 5.2 evidence identifies what should be integrated. |
 
@@ -245,13 +252,23 @@ models.
 
 ## Current Next Steps
 
-1. Launch the prepared full-wave polished-dataset retraining campaign when the
-   operator is ready.
-2. Keep `Wave 4.1` robust, probabilistic, MDN, and latent-state branches as
-   evidence for later multi-head integration, not as current promoted leaders.
-3. Keep `Wave 5.2` MMT/PINN work behind its dataset-aligned diagnostic and
+1. Build the next reduced evaluation around `periodic_gru_sequence_Fw/Bw`,
+   `wave4_1_mae_robust_loss_Fw/Bw`,
+   `wave4_2_quantile_p10_p50_p90_Fw/Bw`,
+   `periodic_mlp_harmonic_Fw/Bw`, simple anchors, and selected RCIM references
+   after the remaining actual-values RCIM retraining is available.
+2. Add a shape-gated reranker before reopening any scalar leader: FFT
+   amplitude similarity, dominant-harmonic retention, dominant-harmonic phase
+   error, derivative correlation, and per-curve shape pass rate.
+3. Carry forward both active modeling roads: one temporal-window road
+   (`periodic_gru_sequence`) and one non-windowed road
+   (`wave4_1_mae_robust_loss`, with `wave4_2_quantile_p10_p50_p90` as
+   secondary uncertainty-aware evidence).
+4. Keep `Wave 4.3`, `Wave 4.4`, and `Wave 5.1` branches as integration
+   evidence only, not as current active candidates.
+5. Keep `Wave 5.2` MMT/PINN work behind its dataset-aligned diagnostic and
    calibration gates.
-4. Do not open the integrated multi-task / multi-head campaign until the
+6. Do not open the integrated multi-task / multi-head campaign until the
    chosen ingredients are justified by TE Curve Verification Pipeline curve evidence.
 
 ## Closeout Update Rule
@@ -278,6 +295,7 @@ that the ledger was checked and did not require a content change.
 - `doc/running/active_training_campaign.yaml`
 - `doc/running/te_model_live_backlog.md`
 - `doc/reports/analysis/Training Results Master Summary.md`
+- `doc/reports/analysis/model_development_waves/intermediate_model_selection_cleanup/[2026-07-17]/te_intermediate_model_selection_cleanup_report.md`
 - `doc/reports/analysis/te_curve_verification_pipeline/00_overview/TE Curve Verification Pipeline Directional Model Comparison.md`
 - `doc/reports/analysis/te_curve_verification_pipeline/00_overview/multi_index_curve_first_selection_policy/[2026-06-16]/track2_multi_index_curve_first_selection_policy.md`
 - `doc/reports/analysis/te_curve_verification_pipeline/01_official_decisions/official_model_verification_report/[2026-06-18]/track2_official_model_verification_report.md`

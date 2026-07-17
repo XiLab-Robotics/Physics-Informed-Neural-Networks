@@ -16,6 +16,12 @@
 - Current plain MLP anchor: `te_feedforward_trial`
 - Active family-improvement branch count: `0`
 - Implemented and benchmarked family count: `205`
+- Post-retraining shape-first active set:
+  `periodic_gru_sequence`, `wave4_1_mae_robust_loss`,
+  `wave4_2_quantile_p10_p50_p90`, and `periodic_mlp_harmonic`.
+- `periodic_lstm_sequence_Bw` is diagnostic only after the `2026-07-17`
+  shape-first cleanup; its scalar lead is not sufficient when measured TE
+  shape is visibly smoothed, shifted, or lost.
 
 ## Current Project Status
 
@@ -2713,6 +2719,8 @@ Known failed campaign attempts for this family:
 
 - Live backlog: `doc/running/te_model_live_backlog.md`
 - Active campaign state: `doc/running/active_training_campaign.yaml`
+- Intermediate selection cleanup:
+  `doc/reports/analysis/model_development_waves/intermediate_model_selection_cleanup/[2026-07-17]/te_intermediate_model_selection_cleanup_report.md`
 - Program registry: `output/registries/program/current_best_solution.yaml`
 - Family registries root: `output/registries/families`
 - Training campaign root: `output/training_campaigns`
