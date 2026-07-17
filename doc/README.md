@@ -129,6 +129,10 @@ This folder contains the internal project documents derived from the reference P
   report that keeps both temporal-window and non-windowed development paths
   while closing dead-end exploratory branches.
 
+- [technical/2026-07/2026-07-17/2026-07-17-16-43-13_sphinx_pages_build_repair.md](./technical/2026-07/2026-07-17/2026-07-17-16-43-13_sphinx_pages_build_repair.md)
+  Technical plan for repairing the GitHub Pages Sphinx build by aligning the
+  documentation dependency set and the Pages workflow GitHub Actions versions.
+
 - [technical/2026-07/2026-07-19/2026-07-19-12-05-00_rcim_track1_polished_actual_values_closeout.md](./technical/2026-07/2026-07-19/2026-07-19-12-05-00_rcim_track1_polished_actual_values_closeout.md)
   Closeout for the Aries `rcim_track1` polished actual-values campaign,
   including Slurm terminal status, archive promotion, and artifact checks.
