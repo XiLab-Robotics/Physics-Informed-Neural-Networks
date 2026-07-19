@@ -120,6 +120,9 @@ def build_argument_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description="Build the RCIM Track1 familywise Track 2 report.")
     parser.add_argument("--curves-per-page", type=int, default=DEFAULT_CURVES_PER_PAGE)
     parser.add_argument("--report-date", default=None)
+    parser.add_argument("--group-specification", action="append", default=None)
+    parser.add_argument("--report-filename", default=REPORT_FILENAME)
+    parser.add_argument("--asset-directory-name", default="assets")
     parser.add_argument("--output-root", type=Path, default=DEFAULT_OUTPUT_ROOT)
     parser.add_argument("--report-root", type=Path, default=DEFAULT_REPORT_ROOT)
     parser.add_argument("--onnx-provider", action="append", default=None)
@@ -144,6 +147,25 @@ def save_yaml_dictionary(path_value: Path, payload: dict[str, Any]) -> None:
     path_value.parent.mkdir(parents=True, exist_ok=True)
     with path_value.open("w", encoding="utf-8") as output_file:
         yaml.safe_dump(payload, output_file, sort_keys=False, allow_unicode=False)
+
+
+def parse_group_specification(group_specification: str) -> tuple[str, str]:
+
+    """Parse one dataset/input-mode group specification."""
+
+    normalized_group_specification = str(group_specification).strip()
+    if ":" in normalized_group_specification:
+        dataset_id, input_mode = normalized_group_specification.split(":", 1)
+    elif "," in normalized_group_specification:
+        dataset_id, input_mode = normalized_group_specification.split(",", 1)
+    else:
+        raise ValueError(
+            "Expected group specification as dataset_id:input_mode | "
+            f"{group_specification}"
+        )
+    group_tuple = (dataset_id.strip(), input_mode.strip())
+    assert group_tuple in GROUP_TITLE_DICTIONARY, f"Unsupported RCIM group | {group_tuple}"
+    return group_tuple
 
 
 def format_project_path(path_value: str | Path | None) -> str:
@@ -703,13 +725,21 @@ def run_familywise_rcim_track1_report(arguments: argparse.Namespace) -> dict[str
     repository_path_support.set_runtime_platform(repository_path_support.resolve_argument_platform(arguments))
     provider_list = list(arguments.onnx_provider or ["CPUExecutionProvider"])
     curves_per_page = int(arguments.curves_per_page)
+    group_specification_list = [
+        parse_group_specification(group_specification)
+        for group_specification in (arguments.group_specification or [])
+    ] or list(GROUP_SPECIFICATION_LIST)
+    report_filename = str(arguments.report_filename).strip()
+    assert report_filename.endswith(".md"), f"Report filename must be Markdown | {report_filename}"
+    asset_directory_name = str(arguments.asset_directory_name).strip()
+    assert asset_directory_name, "Asset directory name cannot be empty"
     current_timestamp = datetime.now().astimezone()
     report_date = arguments.report_date or current_timestamp.strftime("%Y-%m-%d")
     datetime.strptime(report_date, "%Y-%m-%d")
-    run_instance_id = f"{current_timestamp.strftime('%Y-%m-%d-%H-%M-%S')}__track2_rcim_track1_familywise_onnx_report"
+    run_instance_id = f"{current_timestamp.strftime('%Y-%m-%d-%H-%M-%S')}__{Path(report_filename).stem}"
     output_directory = resolve_project_path(arguments.output_root) / "rcim_track1" / run_instance_id
     report_directory = resolve_project_path(arguments.report_root) / "rcim_track1" / f"[{report_date}]"
-    report_asset_root = report_directory / "assets"
+    report_asset_root = report_directory / asset_directory_name
     if report_asset_root.exists():
         shutil.rmtree(report_asset_root)
     output_directory.mkdir(parents=True, exist_ok=True)
@@ -720,7 +750,7 @@ def run_familywise_rcim_track1_report(arguments: argparse.Namespace) -> dict[str
     per_curve_metric_row_list: list[list[Any]] = []
     group_summary_list: list[dict[str, Any]] = []
 
-    for dataset_id, input_mode in tqdm(GROUP_SPECIFICATION_LIST, desc="RCIM groups", unit="group", ascii=True, ncols=80):
+    for dataset_id, input_mode in tqdm(group_specification_list, desc="RCIM groups", unit="group", ascii=True, ncols=80):
         group_id = f"{dataset_id}__{input_mode}"
         group_title = GROUP_TITLE_DICTIONARY[(dataset_id, input_mode)]
         model_summary_list: list[dict[str, Any]] = []
@@ -857,7 +887,7 @@ def run_familywise_rcim_track1_report(arguments: argparse.Namespace) -> dict[str
     model_inventory_csv_path = output_directory / MODEL_INVENTORY_FILENAME
     component_inventory_csv_path = output_directory / COMPONENT_MODEL_INVENTORY_FILENAME
     per_curve_metrics_csv_path = output_directory / PER_CURVE_METRICS_FILENAME
-    report_path = report_directory / REPORT_FILENAME
+    report_path = report_directory / report_filename
 
     write_csv(
         model_inventory_csv_path,

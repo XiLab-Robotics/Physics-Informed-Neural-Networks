@@ -146,6 +146,10 @@ This folder contains the internal project documents derived from the reference P
   Technical plan for extending the familywise `TE Curve Verification Pipeline`
   report path to evaluate `rcim_track1` paper-reference model-bank archives.
 
+- [technical/2026-07/2026-07-19/2026-07-19-17-07-20_rcim_track1_retuned_best_familywise_report.md](./technical/2026-07/2026-07-19/2026-07-19-17-07-20_rcim_track1_retuned_best_familywise_report.md)
+  Technical plan for refreshing the `rcim_track1` familywise report with the
+  selected retuned polished surface composition.
+
 - [scripts/tooling/lan_ai/lan_ai_node_server.md](./scripts/tooling/lan_ai/lan_ai_node_server.md)
   Setup and runtime guide for the remote LAN AI workstation.
 
