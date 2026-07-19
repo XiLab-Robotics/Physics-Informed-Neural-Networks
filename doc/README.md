@@ -150,6 +150,15 @@ This folder contains the internal project documents derived from the reference P
   Technical plan for refreshing the `rcim_track1` familywise report with the
   selected retuned polished surface composition.
 
+- [technical/2026-07/2026-07-19/2026-07-19-17-15-50_selected_models_track2_full_report_refresh.md](./technical/2026-07/2026-07-19/2026-07-19-17-15-50_selected_models_track2_full_report_refresh.md)
+  Technical plan for regenerating a complete selected-model
+  `TE Curve Verification Pipeline` report using only the shape-first active
+  model set and reference anchors.
+
+- [technical/2026-07/2026-07-19/2026-07-19-18-37-50_selected_active_pdf_layout_fix.md](./technical/2026-07/2026-07-19/2026-07-19-18-37-50_selected_active_pdf_layout_fix.md)
+  Technical plan for fixing selected-active `TE Curve Verification Pipeline`
+  PDF page breaks and table column widths.
+
 - [scripts/tooling/lan_ai/lan_ai_node_server.md](./scripts/tooling/lan_ai/lan_ai_node_server.md)
   Setup and runtime guide for the remote LAN AI workstation.
 
@@ -307,6 +316,11 @@ This folder contains the internal project documents derived from the reference P
   Reduced selected-model `TE Curve Verification Pipeline` report bundle with
   exactly four active reports: polished forward, polished backward, simplified
   forward, and simplified backward.
+
+- [reports/analysis/te_curve_verification_pipeline/04_selected_model_reports/[2026-07-19]/](./reports/analysis/te_curve_verification_pipeline/04_selected_model_reports/%5B2026-07-19%5D/)
+  Selected-active `TE Curve Verification Pipeline` report bundle after the full
+  model-family retraining pass, covering simplified setpoints, polished
+  setpoints, and polished actual values across forward and backward surfaces.
 
 - [reports/analysis/te_curve_verification_pipeline/02_visual_reports/best_model_collage_report/[2026-07-03]/track2_best_model_collage_report.md](./reports/analysis/te_curve_verification_pipeline/02_visual_reports/best_model_collage_report/%5B2026-07-03%5D/track2_best_model_collage_report.md)
   Styled `TE Curve Verification Pipeline` visual report with four-curve

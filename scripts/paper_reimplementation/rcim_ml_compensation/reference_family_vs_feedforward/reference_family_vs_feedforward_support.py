@@ -149,7 +149,7 @@ def resolve_selected_harmonic_list(reference_inventory: dict[str, Any]) -> list[
 
     """Resolve the harmonic orders covered by the curated reference inventory."""
 
-    archive_scope = reference_inventory["archive_scope"]
+    archive_scope = reference_inventory.get("archive_scope")
     if isinstance(archive_scope, dict):
         amplitude_harmonic_order_list = [
             int(harmonic_order)
@@ -180,9 +180,21 @@ def load_reference_model_entries(reference_inventory: dict[str, Any]) -> list[Re
     """Load and validate the reference target-model inventory entries."""
 
     reference_model_entry_list: list[ReferenceModelEntry] = []
+    default_feature_name_list = [
+        str(feature_name)
+        for feature_name in reference_inventory.get("input_feature_names", [])
+    ]
     for reference_entry in reference_inventory["reference_models"]:
         python_model_path = shared_training_infrastructure.resolve_runtime_project_relative_path(
             reference_entry["python_model_path"]
+        )
+        feature_name_list = [
+            str(feature_name)
+            for feature_name in reference_entry.get("feature_name_list", default_feature_name_list)
+        ]
+        assert feature_name_list, (
+            "Reference inventory entry has no feature-name contract | "
+            f"target={reference_entry['target_name']}"
         )
         reference_model_entry_list.append(
             ReferenceModelEntry(
@@ -190,7 +202,7 @@ def load_reference_model_entries(reference_inventory: dict[str, Any]) -> list[Re
                 target_kind=str(reference_entry["target_kind"]).strip().lower(),
                 harmonic_order=int(reference_entry["harmonic_order"]),
                 python_model_path=python_model_path,
-                feature_name_list=[str(feature_name) for feature_name in reference_entry["feature_name_list"]],
+                feature_name_list=feature_name_list,
             )
         )
 
@@ -350,6 +362,32 @@ def load_wave1_registry_model(registry_entry: dict[str, Any]) -> tuple[Any, dict
     )
 
 
+def resolve_exported_python_model_path(model_path: Path) -> Path:
+
+    """Resolve model-archive pointer files to their real Python model artifact."""
+
+    if not model_path.is_file() or model_path.stat().st_size > 4096:
+        return model_path
+
+    try:
+        pointer_text = model_path.read_text(encoding="utf-8").strip()
+    except UnicodeDecodeError:
+        return model_path
+
+    if not pointer_text or "\n" in pointer_text:
+        return model_path
+
+    resolved_pointer_path = shared_training_infrastructure.resolve_runtime_project_relative_path(pointer_text)
+    if resolved_pointer_path.exists():
+        return resolved_pointer_path
+
+    relative_pointer_path = (model_path.parent / pointer_text).resolve()
+    if relative_pointer_path.exists():
+        return relative_pointer_path
+
+    return model_path
+
+
 def load_wave1_exported_model(export_inventory: dict[str, Any]) -> tuple[Any, dict[str, Any]]:
 
     """Load one Wave 1 exported model directly from the `models/` tree."""
@@ -363,6 +401,7 @@ def load_wave1_exported_model(export_inventory: dict[str, Any]) -> tuple[Any, di
     model_path = shared_training_infrastructure.resolve_runtime_project_relative_path(
         export_inventory["python_model_path"]
     )
+    model_path = resolve_exported_python_model_path(model_path)
 
     if model_type in {"hist_gradient_boosting", "random_forest"}:
         return tree_regression_support.load_tree_model(model_path), training_config
@@ -2411,11 +2450,165 @@ def build_track2_directional_comparison_summary(
     }
 
 
+def build_track2_selected_active_comparison_report_markdown(comparison_summary: dict[str, Any]) -> str:
+
+    """Build the selected-active TE Curve Verification Pipeline Markdown report."""
+
+    comparison_scope = comparison_summary["comparison_scope"]
+    candidate_metric_summary = comparison_summary["candidate_metric_summary"]
+    direction_breakdown = comparison_summary["direction_breakdown"]
+    candidate_entry_list = list(comparison_summary["candidate_list"])
+    surface_label_set = {
+        str(candidate_entry["candidate_surface"]).strip()
+        for candidate_entry in candidate_entry_list
+    }
+    direction_label_list = sorted(
+        {
+            str(direction_label)
+            for candidate_entry in candidate_entry_list
+            for direction_label in candidate_entry["allowed_direction_list"]
+        }
+    )
+
+    report_line_list = [
+        "# TE Curve Verification Pipeline Selected Active Model Report",
+        "",
+        "## Overview",
+        "",
+        "This report evaluates only the currently selected active model families",
+        "against the repository held-out TE-curve test split. The `global` surface",
+        "is intentionally excluded from this reduced decision report.",
+        "",
+        "## Dataset And Split",
+        "",
+        f"- dataset config: `{comparison_summary['dataset']['dataset_config_path']}`;",
+        f"- dataset root: `{comparison_summary['dataset']['dataset_root']}`;",
+        f"- comparison mode: `{comparison_scope['comparison_mode']}`;",
+        f"- candidate count: `{comparison_scope['candidate_count']}`;",
+        f"- held-out curve count before candidate filtering: `{comparison_scope['curve_count']}`;",
+        f"- percentage-error denominator: `{comparison_scope['percentage_error_denominator']}`;",
+        f"- evaluated surface: `{', '.join(sorted(surface_label_set))}`;",
+        f"- evaluated direction: `{', '.join(direction_label_list)}`;",
+        "",
+        "## Candidate Inventory",
+        "",
+        "| Candidate | Source | Family | Surface | Valid Directions |",
+        "| --- | --- | --- | --- | --- |",
+    ]
+
+    for candidate_entry in candidate_entry_list:
+        report_line_list.append(
+            f"| `{candidate_entry['candidate_id']}` | "
+            f"`{candidate_entry['candidate_source_label']}` | "
+            f"`{candidate_entry['candidate_family']}` | "
+            f"`{candidate_entry['candidate_surface']}` | "
+            f"`{', '.join(candidate_entry['allowed_direction_list'])}` |"
+        )
+
+    report_line_list.extend(
+        [
+            "",
+            "## Exact Model Paths",
+            "",
+            "| Candidate | Family | Surface | ONNX Model Path | Python Model Path |",
+            "| --- | --- | --- | --- | --- |",
+        ]
+    )
+    for candidate_entry in candidate_entry_list:
+        source_path = shared_training_infrastructure.resolve_runtime_project_relative_path(
+            candidate_entry["source_path"]
+        )
+        inventory_dictionary = load_yaml_dictionary(source_path)
+        report_line_list.append(
+            f"| `{candidate_entry['candidate_id']}` | "
+            f"`{candidate_entry['candidate_family']}` | "
+            f"`{candidate_entry['candidate_surface']}` | "
+            f"`{inventory_dictionary.get('onnx_model_path', '')}` | "
+            f"`{inventory_dictionary.get('python_model_path', candidate_entry.get('model_file_path', ''))}` |"
+        )
+
+    ranked_candidate_id_list = sorted(
+        candidate_metric_summary,
+        key=lambda candidate_id: candidate_metric_summary[candidate_id]["mean_percentage_error_pct"],
+    )
+    report_line_list.extend(
+        [
+            "",
+            "## Metric Ranking",
+            "",
+            "| Rank | Candidate | Curve MAE [deg] | Curve RMSE [deg] | Mean Percentage Error [%] | P95 Mean Percentage Error [%] |",
+            "| ---: | --- | ---: | ---: | ---: | ---: |",
+        ]
+    )
+    for rank_index, candidate_id in enumerate(ranked_candidate_id_list, start=1):
+        metric_dictionary = candidate_metric_summary[candidate_id]
+        report_line_list.append(
+            f"| {rank_index} | `{candidate_id}` | "
+            f"{metric_dictionary['mae']:.6f} | "
+            f"{metric_dictionary['rmse']:.6f} | "
+            f"{metric_dictionary['mean_percentage_error_pct']:.3f} | "
+            f"{metric_dictionary['p95_mean_percentage_error_pct']:.3f} |"
+        )
+
+    report_line_list.extend(
+        [
+            "",
+            "## Direction Breakdown",
+            "",
+            "| Direction | Candidate | Curve MAE [deg] | Curve RMSE [deg] | Mean Percentage Error [%] | P95 Mean Percentage Error [%] |",
+            "| --- | --- | ---: | ---: | ---: | ---: |",
+        ]
+    )
+    for direction_label, direction_entry in sorted(direction_breakdown.items()):
+        for candidate_id, metric_dictionary in sorted(
+            direction_entry.items(),
+            key=lambda row: row[1]["mean_percentage_error_pct"],
+        ):
+            report_line_list.append(
+                f"| `{direction_label}` | `{candidate_id}` | "
+                f"{metric_dictionary['mae']:.6f} | "
+                f"{metric_dictionary['rmse']:.6f} | "
+                f"{metric_dictionary['mean_percentage_error_pct']:.3f} | "
+                f"{metric_dictionary['p95_mean_percentage_error_pct']:.3f} |"
+            )
+
+    report_line_list.extend(
+        [
+            "",
+            "## Artifacts",
+            "",
+            f"- summary YAML: `{comparison_summary['output_directory']}/validation_summary.yaml`;",
+            f"- per-condition CSV: `{comparison_summary['per_condition_metrics_csv_path']}`;",
+            f"- grouped report plot root: `{comparison_summary['report_plot_root']}`;",
+            f"- grouped report plot count: `{comparison_summary['report_plot_count']}`;",
+            "",
+            "## Interpretation",
+            "",
+            "Rows are ranked by mean percentage error within this selected-active",
+            "surface report. The curve-evidence section uses shared deterministic",
+            "held-out operating conditions so visual shape fidelity can be compared",
+            "across the selected families.",
+            "",
+            "## Open Gaps",
+            "",
+            "- This remains an offline TE-curve comparison and does not replace the",
+            "  future online `Table 9` compensation benchmark.",
+            "- RCIM Model-Bank Reproduction remains a separate paper-reference",
+            "  benchmark path and is not part of this selected-active model-only",
+            "  report.",
+        ]
+    )
+    return "\n".join(report_line_list) + "\n"
+
+
 def build_track2_directional_comparison_report_markdown(comparison_summary: dict[str, Any]) -> str:
 
     """Build the direction-aware TE Curve Verification Pipeline Markdown report."""
 
     comparison_scope = comparison_summary["comparison_scope"]
+    if str(comparison_scope.get("comparison_mode", "")).strip() == "selected_active_model_matrix":
+        return build_track2_selected_active_comparison_report_markdown(comparison_summary)
+
     candidate_metric_summary = comparison_summary["candidate_metric_summary"]
     direction_breakdown = comparison_summary["direction_breakdown"]
     has_global_candidate = any(

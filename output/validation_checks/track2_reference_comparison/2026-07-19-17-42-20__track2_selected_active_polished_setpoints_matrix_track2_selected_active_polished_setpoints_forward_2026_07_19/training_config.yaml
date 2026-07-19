@@ -1,0 +1,136 @@
+paths:
+  dataset_config_path: config/datasets/transmission_error_dataset.yaml
+dataset:
+  name: polished_dataset
+  input_mode: setpoints
+experiment:
+  run_name: track2_selected_active_polished_setpoints_matrix
+  model_family: track2_reference_comparison
+  model_type: reference_family_vs_feedforward
+comparison:
+  comparison_mode: selected_active_model_matrix
+  lightweight_test_curve_records: true
+  report_plot_generation_scope: none
+  percentage_error_denominator: peak_to_peak_truth
+  preview_curve_count: 0
+  report_plot_root: doc/reports/campaign_results/track_2/verification_plots/selected_active_model_matrix
+  candidate_list:
+  - candidate_id: polished_setpoints_feedforward_Fw
+    candidate_family: feedforward
+    candidate_kind: wave1_exported_model
+    candidate_source_label: polished_setpoints_model_archive
+    candidate_surface: Fw
+    reference_inventory_path: models/polished_dataset/setpoints/exported/feedforward/forward/2026-07-07-17-25-58__te_feedforward_fw__polished_setpoints/reference_inventory.yaml
+    allowed_direction_list: &id001
+    - forward
+  - candidate_id: polished_setpoints_tree_Fw
+    candidate_family: tree
+    candidate_kind: wave1_exported_model
+    candidate_source_label: polished_setpoints_model_archive
+    candidate_surface: Fw
+    reference_inventory_path: models/polished_dataset/setpoints/exported/tree/forward/2026-07-07-09-34-40__te_tree_fw__polished_setpoints/reference_inventory.yaml
+    allowed_direction_list: *id001
+  - candidate_id: polished_setpoints_harmonic_regression_Fw
+    candidate_family: harmonic_regression
+    candidate_kind: wave1_exported_model
+    candidate_source_label: polished_setpoints_model_archive
+    candidate_surface: Fw
+    reference_inventory_path: models/polished_dataset/setpoints/exported/harmonic_regression/forward/2026-07-07-23-29-07__te_harmonic_regression_fw__polished_setpoints/reference_inventory.yaml
+    allowed_direction_list: *id001
+  - candidate_id: polished_setpoints_periodic_mlp_harmonic_Fw
+    candidate_family: periodic_mlp_harmonic
+    candidate_kind: wave1_exported_model
+    candidate_source_label: polished_setpoints_model_archive
+    candidate_surface: Fw
+    reference_inventory_path: models/polished_dataset/setpoints/exported/periodic_mlp_harmonic/forward/2026-07-08-02-15-59__te_periodic_mlp_harmonic_fw__polished_setpoints/reference_inventory.yaml
+    allowed_direction_list: *id001
+  - candidate_id: polished_setpoints_periodic_gru_sequence_Fw
+    candidate_family: periodic_gru_sequence
+    candidate_kind: wave1_exported_model
+    candidate_source_label: polished_setpoints_model_archive
+    candidate_surface: Fw
+    reference_inventory_path: models/polished_dataset/setpoints/exported/periodic_gru_sequence/forward/2026-07-08-22-57-44__te_periodic_gru_sequence_fw__polished_setpoints/reference_inventory.yaml
+    allowed_direction_list: *id001
+  - candidate_id: polished_setpoints_wave4_1_mae_robust_loss_Fw
+    candidate_family: wave4_1_mae_robust_loss
+    candidate_kind: wave1_exported_model
+    candidate_source_label: polished_setpoints_model_archive
+    candidate_surface: Fw
+    reference_inventory_path: models/polished_dataset/setpoints/exported/wave4_1_mae_robust_loss/forward/2026-07-12-16-19-34__te_wave4_1_mae_robust_loss_fw__polished_setpoints/reference_inventory.yaml
+    allowed_direction_list: *id001
+  - candidate_id: polished_setpoints_wave4_2_quantile_p10_p50_p90_Fw
+    candidate_family: wave4_2_quantile_p10_p50_p90
+    candidate_kind: wave1_exported_model
+    candidate_source_label: polished_setpoints_model_archive
+    candidate_surface: Fw
+    reference_inventory_path: models/polished_dataset/setpoints/exported/wave4_2_quantile_p10_p50_p90/forward/2026-07-14-13-15-27__te_wave4_2_quantile_p10_p50_p90_fw__polished_setpoints/reference_inventory.yaml
+    allowed_direction_list: *id001
+  - candidate_id: polished_setpoints_feedforward_Bw
+    candidate_family: feedforward
+    candidate_kind: wave1_exported_model
+    candidate_source_label: polished_setpoints_model_archive
+    candidate_surface: Bw
+    reference_inventory_path: models/polished_dataset/setpoints/exported/feedforward/backward/2026-07-07-17-41-33__te_feedforward_bw__polished_setpoints/reference_inventory.yaml
+    allowed_direction_list: &id002
+    - backward
+  - candidate_id: polished_setpoints_tree_Bw
+    candidate_family: tree
+    candidate_kind: wave1_exported_model
+    candidate_source_label: polished_setpoints_model_archive
+    candidate_surface: Bw
+    reference_inventory_path: models/polished_dataset/setpoints/exported/tree/backward/2026-07-07-09-37-16__te_tree_bw__polished_setpoints/reference_inventory.yaml
+    allowed_direction_list: *id002
+  - candidate_id: polished_setpoints_harmonic_regression_Bw
+    candidate_family: harmonic_regression
+    candidate_kind: wave1_exported_model
+    candidate_source_label: polished_setpoints_model_archive
+    candidate_surface: Bw
+    reference_inventory_path: models/polished_dataset/setpoints/exported/harmonic_regression/backward/2026-07-07-23-39-40__te_harmonic_regression_bw__polished_setpoints/reference_inventory.yaml
+    allowed_direction_list: *id002
+  - candidate_id: polished_setpoints_periodic_mlp_harmonic_Bw
+    candidate_family: periodic_mlp_harmonic
+    candidate_kind: wave1_exported_model
+    candidate_source_label: polished_setpoints_model_archive
+    candidate_surface: Bw
+    reference_inventory_path: models/polished_dataset/setpoints/exported/periodic_mlp_harmonic/backward/2026-07-08-02-29-32__te_periodic_mlp_harmonic_bw__polished_setpoints/reference_inventory.yaml
+    allowed_direction_list: *id002
+  - candidate_id: polished_setpoints_periodic_gru_sequence_Bw
+    candidate_family: periodic_gru_sequence
+    candidate_kind: wave1_exported_model
+    candidate_source_label: polished_setpoints_model_archive
+    candidate_surface: Bw
+    reference_inventory_path: models/polished_dataset/setpoints/exported/periodic_gru_sequence/backward/2026-07-08-23-18-30__te_periodic_gru_sequence_bw__polished_setpoints/reference_inventory.yaml
+    allowed_direction_list: *id002
+  - candidate_id: polished_setpoints_wave4_1_mae_robust_loss_Bw
+    candidate_family: wave4_1_mae_robust_loss
+    candidate_kind: wave1_exported_model
+    candidate_source_label: polished_setpoints_model_archive
+    candidate_surface: Bw
+    reference_inventory_path: models/polished_dataset/setpoints/exported/wave4_1_mae_robust_loss/backward/2026-07-12-16-51-03__te_wave4_1_mae_robust_loss_bw__polished_setpoints/reference_inventory.yaml
+    allowed_direction_list: *id002
+  - candidate_id: polished_setpoints_wave4_2_quantile_p10_p50_p90_Bw
+    candidate_family: wave4_2_quantile_p10_p50_p90
+    candidate_kind: wave1_exported_model
+    candidate_source_label: polished_setpoints_model_archive
+    candidate_surface: Bw
+    reference_inventory_path: models/polished_dataset/setpoints/exported/wave4_2_quantile_p10_p50_p90/backward/2026-07-14-13-54-54__te_wave4_2_quantile_p10_p50_p90_bw__polished_setpoints/reference_inventory.yaml
+    allowed_direction_list: *id002
+evaluation:
+  selected_harmonics:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  decomposition_point_stride: 1
+model:
+  input_size: auto
+metadata:
+  output_artifact_kind: validation_check
+  output_run_name: track2_selected_active_polished_setpoints_matrix_track2_selected_active_polished_setpoints_forward_2026_07_19
+  run_instance_id: 2026-07-19-17-42-20__track2_selected_active_polished_setpoints_matrix_track2_selected_active_polished_setpoints_forward_2026_07_19

@@ -94,7 +94,55 @@ def build_argument_parser() -> argparse.ArgumentParser:
     argument_parser.add_argument("--report-root", type=Path, default=DEFAULT_REPORT_ROOT)
     argument_parser.add_argument("--validation-root", type=Path, default=DEFAULT_VALIDATION_ROOT)
     argument_parser.add_argument("--curves-per-candidate", type=int, default=4)
+    argument_parser.add_argument(
+        "--report-definition",
+        action="append",
+        default=None,
+        help=(
+            "Report definition as report_filename|config_path|dataset_name|surface_scope|summary_glob. "
+            "May be repeated; defaults to the 2026-07-06 selected-report bundle."
+        ),
+    )
     return argument_parser
+
+
+def parse_report_definition(report_definition_text: str) -> dict[str, str]:
+
+    """Parse one CLI report definition."""
+
+    token_list = [token.strip() for token in report_definition_text.split("|")]
+    assert len(token_list) == 5, (
+        "Report definition must use five pipe-separated fields | "
+        "report_filename|config_path|dataset_name|surface_scope|summary_glob"
+    )
+    report_filename, config_path, dataset_name, surface_scope, summary_glob = token_list
+    assert report_filename, "Report definition has an empty report filename."
+    assert config_path, "Report definition has an empty config path."
+    assert dataset_name, "Report definition has an empty dataset name."
+    assert surface_scope in {"forward", "backward"}, (
+        "Selected visual reports currently support forward/backward surface scopes only | "
+        f"{surface_scope}"
+    )
+    assert summary_glob, "Report definition has an empty summary glob."
+    return {
+        "report_filename": report_filename,
+        "config_path": config_path,
+        "dataset_name": dataset_name,
+        "surface_scope": surface_scope,
+        "summary_glob": summary_glob,
+    }
+
+
+def resolve_report_definition_list(arguments: argparse.Namespace) -> list[dict[str, str]]:
+
+    """Resolve selected-report definitions from CLI or defaults."""
+
+    if arguments.report_definition is None:
+        return list(SELECTED_REPORT_DEFINITION_LIST)
+    return [
+        parse_report_definition(report_definition_text)
+        for report_definition_text in arguments.report_definition
+    ]
 
 
 def load_yaml_dictionary(yaml_path: Path) -> dict[str, Any]:
@@ -416,6 +464,9 @@ def augment_one_report(
     """Regenerate visual evidence for one selected-model report."""
 
     assert curves_per_candidate == 4, "Selected-model visual reports require four curves per candidate."
+    report_config_path = shared_training_infrastructure.resolve_runtime_project_relative_path(
+        report_definition.get("config_path", str(config_path))
+    )
     report_path = report_root / report_definition["report_filename"]
     assert report_path.exists(), f"Selected report Markdown does not exist | {report_path}"
     summary_path = resolve_single_summary_path(validation_root, report_definition["summary_glob"])
@@ -425,7 +476,7 @@ def augment_one_report(
     best_candidate_id = select_best_candidate_id(validation_summary)
 
     training_config = shared_training_infrastructure.apply_dataset_override(
-        shared_training_infrastructure.load_training_config(config_path),
+        shared_training_infrastructure.load_training_config(report_config_path),
         report_definition["dataset_name"],
     )
     selected_harmonic_list = [int(value) for value in training_config["evaluation"]["selected_harmonics"]]
@@ -517,8 +568,9 @@ def run_selected_model_visual_report_builder(arguments: argparse.Namespace) -> l
     config_path = shared_training_infrastructure.resolve_runtime_project_relative_path(arguments.config_path)
     report_root = shared_training_infrastructure.resolve_runtime_project_relative_path(arguments.report_root)
     validation_root = shared_training_infrastructure.resolve_runtime_project_relative_path(arguments.validation_root)
+    report_definition_list = resolve_report_definition_list(arguments)
     shared_condition_key_list_by_surface = build_shared_condition_key_list_by_surface(
-        SELECTED_REPORT_DEFINITION_LIST,
+        report_definition_list,
         validation_root,
         int(arguments.curves_per_candidate),
     )
@@ -531,7 +583,7 @@ def run_selected_model_visual_report_builder(arguments: argparse.Namespace) -> l
             int(arguments.curves_per_candidate),
             shared_condition_key_list_by_surface[report_definition["surface_scope"]],
         )
-        for report_definition in SELECTED_REPORT_DEFINITION_LIST
+        for report_definition in report_definition_list
     ]
 
 

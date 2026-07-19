@@ -1,0 +1,4023 @@
+config_path: config\paper_reimplementation\rcim_ml_compensation\reference_family_vs_feedforward\selected_active_track2_polished_setpoints_matrix.yaml
+output_directory: output\validation_checks\track2_reference_comparison\2026-07-19-17-44-49__track2_selected_active_polished_setpoints_matrix_track2_selected_active_polished_setpoints_backward_2026_07_19
+dataset:
+  dataset_config_path: config/datasets/transmission_error_dataset.yaml
+  dataset_root: data\polished_dataset
+  source_contract: data\polished_dataset
+comparison_scope:
+  comparison_mode: selected_active_model_matrix
+  percentage_error_denominator: peak_to_peak_truth
+  curve_count: 94
+  candidate_count: 7
+  directional_policy:
+    global:
+    - forward
+    - backward
+    Fw:
+    - forward
+    Bw:
+    - backward
+  reference_bank_compatibility_policy:
+    rcim_track1_Fw_h0_sign_multiplier: -1.0
+    reason: RCIM Model-Bank Reproduction forward reference banks store the constant
+      harmonic with the opposite sign convention relative to the TE Curve Verification
+      Pipeline TE-curve reconstruction contract.
+candidate_list:
+- candidate_id: polished_setpoints_feedforward_Bw
+  candidate_family: feedforward
+  candidate_kind: wave1_exported_model
+  candidate_source_label: polished_setpoints_model_archive
+  candidate_surface: Bw
+  allowed_direction_list:
+  - backward
+  source_path: models\polished_dataset\setpoints\exported\feedforward\backward\2026-07-07-17-41-33__te_feedforward_bw__polished_setpoints\reference_inventory.yaml
+  selected_harmonic_list: []
+  registry_run_instance_id: 2026-07-07-17-41-33__te_feedforward_bw__polished_setpoints
+  model_file_path: models/polished_dataset/setpoints/exported/feedforward/backward/2026-07-07-17-41-33__te_feedforward_bw__polished_setpoints/python/feedforward-epoch=057-val_mae=0.00164066.ckpt
+  composite_selection: null
+- candidate_id: polished_setpoints_tree_Bw
+  candidate_family: tree
+  candidate_kind: wave1_exported_model
+  candidate_source_label: polished_setpoints_model_archive
+  candidate_surface: Bw
+  allowed_direction_list:
+  - backward
+  source_path: models\polished_dataset\setpoints\exported\tree\backward\2026-07-07-09-37-16__te_tree_bw__polished_setpoints\reference_inventory.yaml
+  selected_harmonic_list: []
+  registry_run_instance_id: 2026-07-07-09-37-16__te_tree_bw__polished_setpoints
+  model_file_path: models/polished_dataset/setpoints/exported/tree/backward/2026-07-07-09-37-16__te_tree_bw__polished_setpoints/python/tree_model.pkl
+  composite_selection: null
+- candidate_id: polished_setpoints_harmonic_regression_Bw
+  candidate_family: harmonic_regression
+  candidate_kind: wave1_exported_model
+  candidate_source_label: polished_setpoints_model_archive
+  candidate_surface: Bw
+  allowed_direction_list:
+  - backward
+  source_path: models\polished_dataset\setpoints\exported\harmonic_regression\backward\2026-07-07-23-39-40__te_harmonic_regression_bw__polished_setpoints\reference_inventory.yaml
+  selected_harmonic_list: []
+  registry_run_instance_id: 2026-07-07-23-39-40__te_harmonic_regression_bw__polished_setpoints
+  model_file_path: models/polished_dataset/setpoints/exported/harmonic_regression/backward/2026-07-07-23-39-40__te_harmonic_regression_bw__polished_setpoints/python/harmonic_regression-epoch=044-val_mae=0.01715066.ckpt
+  composite_selection: null
+- candidate_id: polished_setpoints_periodic_mlp_harmonic_Bw
+  candidate_family: periodic_mlp_harmonic
+  candidate_kind: wave1_exported_model
+  candidate_source_label: polished_setpoints_model_archive
+  candidate_surface: Bw
+  allowed_direction_list:
+  - backward
+  source_path: models\polished_dataset\setpoints\exported\periodic_mlp_harmonic\backward\2026-07-08-02-29-32__te_periodic_mlp_harmonic_bw__polished_setpoints\reference_inventory.yaml
+  selected_harmonic_list: []
+  registry_run_instance_id: 2026-07-08-02-29-32__te_periodic_mlp_harmonic_bw__polished_setpoints
+  model_file_path: models/polished_dataset/setpoints/exported/periodic_mlp_harmonic/backward/2026-07-08-02-29-32__te_periodic_mlp_harmonic_bw__polished_setpoints/python/periodic_mlp-epoch=081-val_mae=0.00121896.ckpt
+  composite_selection: null
+- candidate_id: polished_setpoints_periodic_gru_sequence_Bw
+  candidate_family: periodic_gru_sequence
+  candidate_kind: wave1_exported_model
+  candidate_source_label: polished_setpoints_model_archive
+  candidate_surface: Bw
+  allowed_direction_list:
+  - backward
+  source_path: models\polished_dataset\setpoints\exported\periodic_gru_sequence\backward\2026-07-08-23-18-30__te_periodic_gru_sequence_bw__polished_setpoints\reference_inventory.yaml
+  selected_harmonic_list: []
+  registry_run_instance_id: 2026-07-08-23-18-30__te_periodic_gru_sequence_bw__polished_setpoints
+  model_file_path: models/polished_dataset/setpoints/exported/periodic_gru_sequence/backward/2026-07-08-23-18-30__te_periodic_gru_sequence_bw__polished_setpoints/python/periodic_gru_sequence-epoch=064-val_mae=0.00189811.ckpt
+  composite_selection: null
+- candidate_id: polished_setpoints_wave4_1_mae_robust_loss_Bw
+  candidate_family: wave4_1_mae_robust_loss
+  candidate_kind: wave1_exported_model
+  candidate_source_label: polished_setpoints_model_archive
+  candidate_surface: Bw
+  allowed_direction_list:
+  - backward
+  source_path: models\polished_dataset\setpoints\exported\wave4_1_mae_robust_loss\backward\2026-07-12-16-51-03__te_wave4_1_mae_robust_loss_bw__polished_setpoints\reference_inventory.yaml
+  selected_harmonic_list: []
+  registry_run_instance_id: 2026-07-12-16-51-03__te_wave4_1_mae_robust_loss_bw__polished_setpoints
+  model_file_path: models/polished_dataset/setpoints/exported/wave4_1_mae_robust_loss/backward/2026-07-12-16-51-03__te_wave4_1_mae_robust_loss_bw__polished_setpoints/python/curve_aware_harmonic_residual_offset_probe-epoch=088-val_mae=0.00183184.ckpt
+  composite_selection: null
+- candidate_id: polished_setpoints_wave4_2_quantile_p10_p50_p90_Bw
+  candidate_family: wave4_2_quantile_p10_p50_p90
+  candidate_kind: wave1_exported_model
+  candidate_source_label: polished_setpoints_model_archive
+  candidate_surface: Bw
+  allowed_direction_list:
+  - backward
+  source_path: models\polished_dataset\setpoints\exported\wave4_2_quantile_p10_p50_p90\backward\2026-07-14-13-54-54__te_wave4_2_quantile_p10_p50_p90_bw__polished_setpoints\reference_inventory.yaml
+  selected_harmonic_list: []
+  registry_run_instance_id: 2026-07-14-13-54-54__te_wave4_2_quantile_p10_p50_p90_bw__polished_setpoints
+  model_file_path: models/polished_dataset/setpoints/exported/wave4_2_quantile_p10_p50_p90/backward/2026-07-14-13-54-54__te_wave4_2_quantile_p10_p50_p90_bw__polished_setpoints/python/curve_aware_harmonic_residual_offset_probe-epoch=063-val_mae=0.00181729.ckpt
+  composite_selection: null
+candidate_target_metric_summary: {}
+candidate_metric_summary:
+  polished_setpoints_feedforward_Bw:
+    mse: 0.0001627710053176103
+    mae: 0.010158932583403177
+    rmse: 0.010736450623396456
+    mean_percentage_error_pct: 20.740877588264514
+    p95_mean_percentage_error_pct: 42.532629526997965
+  polished_setpoints_tree_Bw:
+    mse: 4.2943817294646936e-05
+    mae: 0.003927905690142888
+    rmse: 0.0045023656388900385
+    mean_percentage_error_pct: 7.416506805581016
+    p95_mean_percentage_error_pct: 14.932308416023764
+  polished_setpoints_harmonic_regression_Bw:
+    mse: 0.0004191797030929743
+    mae: 0.017296474942862898
+    rmse: 0.017715264577301677
+    mean_percentage_error_pct: 37.39833753622218
+    p95_mean_percentage_error_pct: 77.57735070578993
+  polished_setpoints_periodic_mlp_harmonic_Bw:
+    mse: 0.0001450141440229579
+    mae: 0.009650516142183093
+    rmse: 0.01015314712531582
+    mean_percentage_error_pct: 19.77109646051431
+    p95_mean_percentage_error_pct: 37.057541611728695
+  polished_setpoints_periodic_gru_sequence_Bw:
+    mse: 9.9382819933647e-05
+    mae: 0.007298157254512301
+    rmse: 0.0078112830339638496
+    mean_percentage_error_pct: 14.582383343082135
+    p95_mean_percentage_error_pct: 29.28310288431208
+  polished_setpoints_wave4_1_mae_robust_loss_Bw:
+    mse: 7.455846427966917e-05
+    mae: 0.006179195436320451
+    rmse: 0.0066970241814651825
+    mean_percentage_error_pct: 12.393727378624195
+    p95_mean_percentage_error_pct: 23.419185793799553
+  polished_setpoints_wave4_2_quantile_p10_p50_p90_Bw:
+    mse: 0.00010723505649315516
+    mae: 0.008245774476749818
+    rmse: 0.008717166872052382
+    mean_percentage_error_pct: 16.914234380187196
+    p95_mean_percentage_error_pct: 29.92231557720664
+direction_breakdown:
+  backward:
+    polished_setpoints_feedforward_Bw:
+      mse: 0.0001627710053176103
+      mae: 0.010158932583403177
+      rmse: 0.010736450623396456
+      mean_percentage_error_pct: 20.740877588264514
+      p95_mean_percentage_error_pct: 42.532629526997965
+    polished_setpoints_tree_Bw:
+      mse: 4.2943817294646936e-05
+      mae: 0.003927905690142888
+      rmse: 0.0045023656388900385
+      mean_percentage_error_pct: 7.416506805581016
+      p95_mean_percentage_error_pct: 14.932308416023764
+    polished_setpoints_harmonic_regression_Bw:
+      mse: 0.0004191797030929743
+      mae: 0.017296474942862898
+      rmse: 0.017715264577301677
+      mean_percentage_error_pct: 37.39833753622218
+      p95_mean_percentage_error_pct: 77.57735070578993
+    polished_setpoints_periodic_mlp_harmonic_Bw:
+      mse: 0.0001450141440229579
+      mae: 0.009650516142183093
+      rmse: 0.01015314712531582
+      mean_percentage_error_pct: 19.77109646051431
+      p95_mean_percentage_error_pct: 37.057541611728695
+    polished_setpoints_periodic_gru_sequence_Bw:
+      mse: 9.9382819933647e-05
+      mae: 0.007298157254512301
+      rmse: 0.0078112830339638496
+      mean_percentage_error_pct: 14.582383343082135
+      p95_mean_percentage_error_pct: 29.28310288431208
+    polished_setpoints_wave4_1_mae_robust_loss_Bw:
+      mse: 7.455846427966917e-05
+      mae: 0.006179195436320451
+      rmse: 0.0066970241814651825
+      mean_percentage_error_pct: 12.393727378624195
+      p95_mean_percentage_error_pct: 23.419185793799553
+    polished_setpoints_wave4_2_quantile_p10_p50_p90_Bw:
+      mse: 0.00010723505649315516
+      mae: 0.008245774476749818
+      rmse: 0.008717166872052382
+      mean_percentage_error_pct: 16.914234380187196
+      p95_mean_percentage_error_pct: 29.92231557720664
+temperature_breakdown:
+  '24.58':
+    polished_setpoints_feedforward_Bw:
+      mse: 7.970522816155733e-07
+      mae: 0.0007164484315500501
+      rmse: 0.0008926606739345245
+      mean_percentage_error_pct: 1.8830710155354313
+      p95_mean_percentage_error_pct: 1.9023716880011188
+    polished_setpoints_tree_Bw:
+      mse: 2.0278542553245266e-06
+      mae: 0.0012317738059673784
+      rmse: 0.0014133099733404343
+      mean_percentage_error_pct: 3.236437587505001
+      p95_mean_percentage_error_pct: 3.67519073639048
+    polished_setpoints_harmonic_regression_Bw:
+      mse: 0.0003295828647253456
+      mae: 0.01803029611596796
+      rmse: 0.018047961236693687
+      mean_percentage_error_pct: 47.403775018347204
+      p95_mean_percentage_error_pct: 52.15512115378228
+    polished_setpoints_periodic_mlp_harmonic_Bw:
+      mse: 4.879814025467004e-07
+      mae: 0.0005609948616497613
+      rmse: 0.0006939232295739199
+      mean_percentage_error_pct: 1.4749569588082951
+      p95_mean_percentage_error_pct: 1.6359937127460475
+    polished_setpoints_periodic_gru_sequence_Bw:
+      mse: 7.98936174327069e-07
+      mae: 0.0007307486320236389
+      rmse: 0.0008839389627644226
+      mean_percentage_error_pct: 1.921491753688898
+      p95_mean_percentage_error_pct: 2.214072475444034
+    polished_setpoints_wave4_1_mae_robust_loss_Bw:
+      mse: 7.538729525862074e-07
+      mae: 0.0007022227656696457
+      rmse: 0.0008611371335255284
+      mean_percentage_error_pct: 1.8463567338469966
+      p95_mean_percentage_error_pct: 2.0801247297707803
+    polished_setpoints_wave4_2_quantile_p10_p50_p90_Bw:
+      mse: 7.164581804262424e-07
+      mae: 0.0006879960546082942
+      rmse: 0.0008418021357349331
+      mean_percentage_error_pct: 1.8088177411515214
+      p95_mean_percentage_error_pct: 1.9882373002522642
+  '25.07':
+    polished_setpoints_feedforward_Bw:
+      mse: 1.9384857306865658e-05
+      mae: 0.004101241530279938
+      rmse: 0.004349514359292585
+      mean_percentage_error_pct: 9.896956949900295
+      p95_mean_percentage_error_pct: 10.617776622198418
+    polished_setpoints_tree_Bw:
+      mse: 1.839266623697357e-06
+      mae: 0.0010285731514088356
+      rmse: 0.0012775589493539685
+      mean_percentage_error_pct: 2.447682414835344
+      p95_mean_percentage_error_pct: 3.1182283369766592
+    polished_setpoints_harmonic_regression_Bw:
+      mse: 0.0011296521969215915
+      mae: 0.033583423966236974
+      rmse: 0.033609877954902105
+      mean_percentage_error_pct: 81.8130939021699
+      p95_mean_percentage_error_pct: 86.87621850797974
+    polished_setpoints_periodic_mlp_harmonic_Bw:
+      mse: 1.2544052009039139e-05
+      mae: 0.003234387595478592
+      rmse: 0.003490763440494828
+      mean_percentage_error_pct: 7.803078995538175
+      p95_mean_percentage_error_pct: 8.400272992652535
+    polished_setpoints_periodic_gru_sequence_Bw:
+      mse: 1.6841735090052383e-06
+      mae: 0.0009825274645717062
+      rmse: 0.0012191231030112492
+      mean_percentage_error_pct: 2.337001697359989
+      p95_mean_percentage_error_pct: 2.9932677264363274
+    polished_setpoints_wave4_1_mae_robust_loss_Bw:
+      mse: 8.316140791634222e-06
+      mae: 0.0025003382473196807
+      rmse: 0.002824501209899257
+      mean_percentage_error_pct: 6.016776559205658
+      p95_mean_percentage_error_pct: 6.697234530370167
+    polished_setpoints_wave4_2_quantile_p10_p50_p90_Bw:
+      mse: 2.6218692849573116e-05
+      mae: 0.00482418951305575
+      rmse: 0.0050329062802903675
+      mean_percentage_error_pct: 11.614910699463337
+      p95_mean_percentage_error_pct: 12.841690269911906
+  '27.32':
+    polished_setpoints_feedforward_Bw:
+      mse: 0.0004291797575318174
+      mae: 0.019319318457632656
+      rmse: 0.02071665411044499
+      mean_percentage_error_pct: 28.044287291257955
+      p95_mean_percentage_error_pct: 28.044287291257955
+    polished_setpoints_tree_Bw:
+      mse: 9.300400873357585e-05
+      mae: 0.007915896049356228
+      rmse: 0.009643858601907012
+      mean_percentage_error_pct: 11.490864103861496
+      p95_mean_percentage_error_pct: 11.490864103861496
+    polished_setpoints_harmonic_regression_Bw:
+      mse: 0.0005145886028629609
+      mae: 0.021510506056809032
+      rmse: 0.022684545463001037
+      mean_percentage_error_pct: 31.22505656503461
+      p95_mean_percentage_error_pct: 31.22505656503461
+    polished_setpoints_periodic_mlp_harmonic_Bw:
+      mse: 0.0002587516767485828
+      mae: 0.014563222839140775
+      rmse: 0.01608576006126483
+      mean_percentage_error_pct: 21.140249128515038
+      p95_mean_percentage_error_pct: 21.140249128515038
+    polished_setpoints_periodic_gru_sequence_Bw:
+      mse: 0.0002154889099981585
+      mae: 0.013107611661677402
+      rmse: 0.014679540524081757
+      mean_percentage_error_pct: 19.02725647120826
+      p95_mean_percentage_error_pct: 19.02725647120826
+    polished_setpoints_wave4_1_mae_robust_loss_Bw:
+      mse: 0.00020429813163403158
+      mae: 0.01268797415209999
+      rmse: 0.014293289741484694
+      mean_percentage_error_pct: 18.418102742385724
+      p95_mean_percentage_error_pct: 18.418102742385724
+    polished_setpoints_wave4_2_quantile_p10_p50_p90_Bw:
+      mse: 0.0002376434886972713
+      mae: 0.013872707871114772
+      rmse: 0.015415689692559048
+      mean_percentage_error_pct: 20.1378845686729
+      p95_mean_percentage_error_pct: 20.1378845686729
+  '28.43':
+    polished_setpoints_feedforward_Bw:
+      mse: 6.111674430021627e-05
+      mae: 0.006991537909990889
+      rmse: 0.00781771989138881
+      mean_percentage_error_pct: 14.17080981514211
+      p95_mean_percentage_error_pct: 14.17080981514211
+    polished_setpoints_tree_Bw:
+      mse: 1.965022866168952e-05
+      mae: 0.003645930396903523
+      rmse: 0.004432857843613928
+      mean_percentage_error_pct: 7.389759866700449
+      p95_mean_percentage_error_pct: 7.389759866700449
+    polished_setpoints_harmonic_regression_Bw:
+      mse: 0.0007510390106795578
+      mae: 0.02719541502087254
+      rmse: 0.027405090962803934
+      mean_percentage_error_pct: 55.12107050924164
+      p95_mean_percentage_error_pct: 55.12107050924164
+    polished_setpoints_periodic_mlp_harmonic_Bw:
+      mse: 7.745633800827266e-05
+      mae: 0.008037581218790484
+      rmse: 0.008800928246967626
+      mean_percentage_error_pct: 16.290984371618247
+      p95_mean_percentage_error_pct: 16.290984371618247
+    polished_setpoints_periodic_gru_sequence_Bw:
+      mse: 4.240646834980654e-05
+      mae: 0.0056139658300747115
+      rmse: 0.006512024903960867
+      mean_percentage_error_pct: 11.378675637732302
+      p95_mean_percentage_error_pct: 11.378675637732302
+    polished_setpoints_wave4_1_mae_robust_loss_Bw:
+      mse: 4.384641440519676e-05
+      mae: 0.005689936792618204
+      rmse: 0.00662166251066881
+      mean_percentage_error_pct: 11.532657504888983
+      p95_mean_percentage_error_pct: 11.532657504888983
+    polished_setpoints_wave4_2_quantile_p10_p50_p90_Bw:
+      mse: 6.576840432352334e-05
+      mae: 0.00727340147345391
+      rmse: 0.00810977214991416
+      mean_percentage_error_pct: 14.742105430366474
+      p95_mean_percentage_error_pct: 14.742105430366474
+  '28.2':
+    polished_setpoints_feedforward_Bw:
+      mse: 0.0004311322800675508
+      mae: 0.020608781693871703
+      rmse: 0.02076372510094349
+      mean_percentage_error_pct: 45.24512453816527
+      p95_mean_percentage_error_pct: 45.24512453816527
+    polished_setpoints_tree_Bw:
+      mse: 6.497358461649988e-05
+      mae: 0.007805894602113039
+      rmse: 0.008060619369285458
+      mean_percentage_error_pct: 17.137290241150883
+      p95_mean_percentage_error_pct: 17.137290241150883
+    polished_setpoints_harmonic_regression_Bw:
+      mse: 0.00012462211501766758
+      mae: 0.010978910906540032
+      rmse: 0.011163427565836022
+      mean_percentage_error_pct: 24.103423416219584
+      p95_mean_percentage_error_pct: 24.103423416219584
+    polished_setpoints_periodic_mlp_harmonic_Bw:
+      mse: 0.00028828838267100224
+      mae: 0.016844483319434795
+      rmse: 0.01697905717850677
+      mean_percentage_error_pct: 36.980873342721885
+      p95_mean_percentage_error_pct: 36.980873342721885
+    polished_setpoints_periodic_gru_sequence_Bw:
+      mse: 0.00019357265603678112
+      mae: 0.013744973682250264
+      rmse: 0.013913039065451556
+      mean_percentage_error_pct: 30.176118863549583
+      p95_mean_percentage_error_pct: 30.176118863549583
+    polished_setpoints_wave4_1_mae_robust_loss_Bw:
+      mse: 0.00016141918972014492
+      mae: 0.0125868212220792
+      rmse: 0.012705085191376912
+      mean_percentage_error_pct: 27.633476941625386
+      p95_mean_percentage_error_pct: 27.633476941625386
+    polished_setpoints_wave4_2_quantile_p10_p50_p90_Bw:
+      mse: 0.00023892109675854357
+      mae: 0.015355520344305556
+      rmse: 0.015457072709880858
+      mean_percentage_error_pct: 33.71196030151711
+      p95_mean_percentage_error_pct: 33.71196030151711
+  '26.66':
+    polished_setpoints_feedforward_Bw:
+      mse: 0.00018760987931545466
+      mae: 0.012750106862681035
+      rmse: 0.013697075575299082
+      mean_percentage_error_pct: 27.563939580726434
+      p95_mean_percentage_error_pct: 27.563939580726434
+    polished_setpoints_tree_Bw:
+      mse: 2.8578672039116972e-05
+      mae: 0.00487306552991556
+      rmse: 0.005345902359669224
+      mean_percentage_error_pct: 10.534882984601808
+      p95_mean_percentage_error_pct: 10.534882984601808
+    polished_setpoints_harmonic_regression_Bw:
+      mse: 0.0007403031527618369
+      mae: 0.027109418854055614
+      rmse: 0.027208512505497925
+      mean_percentage_error_pct: 58.60675454799037
+      p95_mean_percentage_error_pct: 58.60675454799037
+    polished_setpoints_periodic_mlp_harmonic_Bw:
+      mse: 0.0001546911558232514
+      mae: 0.012228521638483475
+      rmse: 0.012437489932588947
+      mean_percentage_error_pct: 26.436345611450633
+      p95_mean_percentage_error_pct: 26.436345611450633
+    polished_setpoints_periodic_gru_sequence_Bw:
+      mse: 0.00014095160380816848
+      mae: 0.011650089423501134
+      rmse: 0.011872304064846404
+      mean_percentage_error_pct: 25.18585643539627
+      p95_mean_percentage_error_pct: 25.18585643539627
+    polished_setpoints_wave4_1_mae_robust_loss_Bw:
+      mse: 0.00012238668799953795
+      mae: 0.010923354337419141
+      rmse: 0.011062851711902223
+      mean_percentage_error_pct: 23.614757289349907
+      p95_mean_percentage_error_pct: 23.614757289349907
+    polished_setpoints_wave4_2_quantile_p10_p50_p90_Bw:
+      mse: 0.00011891636587839984
+      mae: 0.010729325751521034
+      rmse: 0.010904878077190953
+      mean_percentage_error_pct: 23.195294748664615
+      p95_mean_percentage_error_pct: 23.195294748664615
+  '26.27':
+    polished_setpoints_feedforward_Bw:
+      mse: 0.0017190378263330576
+      mae: 0.04043110111528042
+      rmse: 0.041461281050313166
+      mean_percentage_error_pct: 45.62893022596668
+      p95_mean_percentage_error_pct: 45.62893022596668
+    polished_setpoints_tree_Bw:
+      mse: 0.0012945503722830815
+      mae: 0.034330678428734565
+      rmse: 0.035979860648466686
+      mean_percentage_error_pct: 38.74423618017171
+      p95_mean_percentage_error_pct: 38.74423618017171
+    polished_setpoints_harmonic_regression_Bw:
+      mse: 0.0027963528622458045
+      mae: 0.051723128784442275
+      rmse: 0.052880552779313916
+      mean_percentage_error_pct: 58.37266285785242
+      p95_mean_percentage_error_pct: 58.37266285785242
+    polished_setpoints_periodic_mlp_harmonic_Bw:
+      mse: 0.0019359269674873775
+      mae: 0.043262559704150695
+      rmse: 0.043999170077256886
+      mean_percentage_error_pct: 48.82440160382751
+      p95_mean_percentage_error_pct: 48.82440160382751
+    polished_setpoints_periodic_gru_sequence_Bw:
+      mse: 0.0018858646595400384
+      mae: 0.04206122864899859
+      rmse: 0.04342654326031532
+      mean_percentage_error_pct: 47.4686272276232
+      p95_mean_percentage_error_pct: 47.4686272276232
+    polished_setpoints_wave4_1_mae_robust_loss_Bw:
+      mse: 0.0018629477504578979
+      mae: 0.04017462431258399
+      rmse: 0.04316187843986749
+      mean_percentage_error_pct: 45.33948072268832
+      p95_mean_percentage_error_pct: 45.33948072268832
+    polished_setpoints_wave4_2_quantile_p10_p50_p90_Bw:
+      mse: 0.0018070651565073204
+      mae: 0.04128629364300373
+      rmse: 0.04250958899480587
+      mean_percentage_error_pct: 46.59406644785669
+      p95_mean_percentage_error_pct: 46.59406644785669
+  '25.84':
+    polished_setpoints_feedforward_Bw:
+      mse: 0.00025911517567684615
+      mae: 0.01583313444772374
+      rmse: 0.01609705487587236
+      mean_percentage_error_pct: 34.420366847187566
+      p95_mean_percentage_error_pct: 34.420366847187566
+    polished_setpoints_tree_Bw:
+      mse: 2.7877740393313337e-05
+      mae: 0.004734873923232549
+      rmse: 0.005279937536876107
+      mean_percentage_error_pct: 10.293356501894477
+      p95_mean_percentage_error_pct: 10.293356501894477
+    polished_setpoints_harmonic_regression_Bw:
+      mse: 5.2812322168562277e-05
+      mae: 0.006839417166366066
+      rmse: 0.007267208691689147
+      mean_percentage_error_pct: 14.86851821188929
+      p95_mean_percentage_error_pct: 14.86851821188929
+    polished_setpoints_periodic_mlp_harmonic_Bw:
+      mse: 0.0003063184775407589
+      mae: 0.01728916518806314
+      rmse: 0.017501956391808286
+      mean_percentage_error_pct: 37.58569790584408
+      p95_mean_percentage_error_pct: 37.58569790584408
+    polished_setpoints_periodic_gru_sequence_Bw:
+      mse: 0.00019814872391118543
+      mae: 0.013800819420628545
+      rmse: 0.014076530961539687
+      mean_percentage_error_pct: 30.002225321728258
+      p95_mean_percentage_error_pct: 30.002225321728258
+    polished_setpoints_wave4_1_mae_robust_loss_Bw:
+      mse: 0.00015628895534561054
+      mae: 0.012269197856356905
+      rmse: 0.012501558116715314
+      mean_percentage_error_pct: 26.672563953200413
+      p95_mean_percentage_error_pct: 26.672563953200413
+    polished_setpoints_wave4_2_quantile_p10_p50_p90_Bw:
+      mse: 0.00021094138336447496
+      mae: 0.014303543837993116
+      rmse: 0.014523821238381963
+      mean_percentage_error_pct: 31.095120662562987
+      p95_mean_percentage_error_pct: 31.095120662562987
+  '26.13':
+    polished_setpoints_feedforward_Bw:
+      mse: 0.00024191690017149174
+      mae: 0.01524484129021063
+      rmse: 0.015553678027125666
+      mean_percentage_error_pct: 32.88695987024462
+      p95_mean_percentage_error_pct: 32.88695987024462
+    polished_setpoints_tree_Bw:
+      mse: 1.5895237995370406e-05
+      mae: 0.0034131911475305463
+      rmse: 0.003986883243257871
+      mean_percentage_error_pct: 7.363112423504959
+      p95_mean_percentage_error_pct: 7.363112423504959
+    polished_setpoints_harmonic_regression_Bw:
+      mse: 7.430501373081742e-06
+      mae: 0.002240998302729734
+      rmse: 0.002725894600508564
+      mean_percentage_error_pct: 4.834397410124877
+      p95_mean_percentage_error_pct: 4.834397410124877
+    polished_setpoints_periodic_mlp_harmonic_Bw:
+      mse: 0.0002447185485178411
+      mae: 0.015391775885370862
+      rmse: 0.015643482621137825
+      mean_percentage_error_pct: 33.20393477622073
+      p95_mean_percentage_error_pct: 33.20393477622073
+    polished_setpoints_periodic_gru_sequence_Bw:
+      mse: 0.00014529941846189333
+      mae: 0.011725342646118658
+      rmse: 0.012054020842104652
+      mean_percentage_error_pct: 25.29451541849698
+      p95_mean_percentage_error_pct: 25.29451541849698
+    polished_setpoints_wave4_1_mae_robust_loss_Bw:
+      mse: 0.00011242904980132794
+      mae: 0.010315994845643953
+      rmse: 0.010603256565854093
+      mean_percentage_error_pct: 22.254197472570446
+      p95_mean_percentage_error_pct: 22.254197472570446
+    polished_setpoints_wave4_2_quantile_p10_p50_p90_Bw:
+      mse: 0.00016323650519929872
+      mae: 0.012519969682971996
+      rmse: 0.012776404235906858
+      mean_percentage_error_pct: 27.00872594882163
+      p95_mean_percentage_error_pct: 27.00872594882163
+  '26.84':
+    polished_setpoints_feedforward_Bw:
+      mse: 4.9213286865287124e-05
+      mae: 0.00643103979355398
+      rmse: 0.007015218233618048
+      mean_percentage_error_pct: 13.414080335697252
+      p95_mean_percentage_error_pct: 13.414080335697252
+    polished_setpoints_tree_Bw:
+      mse: 7.21652553754765e-06
+      mae: 0.0022115642776510767
+      rmse: 0.002686359160192034
+      mean_percentage_error_pct: 4.612955577993003
+      p95_mean_percentage_error_pct: 4.612955577993003
+    polished_setpoints_harmonic_regression_Bw:
+      mse: 0.0006468357622266563
+      mae: 0.02530065478224207
+      rmse: 0.025432966052481104
+      mean_percentage_error_pct: 52.77296155668537
+      p95_mean_percentage_error_pct: 52.77296155668537
+    polished_setpoints_periodic_mlp_harmonic_Bw:
+      mse: 8.350881236948985e-05
+      mae: 0.008564440832575966
+      rmse: 0.009138315619931819
+      mean_percentage_error_pct: 17.8640003866329
+      p95_mean_percentage_error_pct: 17.8640003866329
+    polished_setpoints_periodic_gru_sequence_Bw:
+      mse: 4.369187402747122e-05
+      mae: 0.006030449229655817
+      rmse: 0.006609982906745767
+      mean_percentage_error_pct: 12.578514987269727
+      p95_mean_percentage_error_pct: 12.578514987269727
+    polished_setpoints_wave4_1_mae_robust_loss_Bw:
+      mse: 3.6223135681997954e-05
+      mae: 0.005361768607583019
+      rmse: 0.006018565915730919
+      mean_percentage_error_pct: 11.183758327172681
+      p95_mean_percentage_error_pct: 11.183758327172681
+    polished_setpoints_wave4_2_quantile_p10_p50_p90_Bw:
+      mse: 7.732999882662471e-05
+      mae: 0.008327006683894828
+      rmse: 0.008793747712245599
+      mean_percentage_error_pct: 17.368752207941945
+      p95_mean_percentage_error_pct: 17.368752207941945
+  '26.03':
+    polished_setpoints_feedforward_Bw:
+      mse: 7.841688804918805e-05
+      mae: 0.00827319722904262
+      rmse: 0.008855331052489684
+      mean_percentage_error_pct: 17.171386578128963
+      p95_mean_percentage_error_pct: 17.171386578128963
+    polished_setpoints_tree_Bw:
+      mse: 9.210643128272763e-06
+      mae: 0.0024502589346768007
+      rmse: 0.0030349041382344783
+      mean_percentage_error_pct: 5.085620736340002
+      p95_mean_percentage_error_pct: 5.085620736340002
+    polished_setpoints_harmonic_regression_Bw:
+      mse: 0.00022834378048600367
+      mae: 0.014869940349114806
+      rmse: 0.01511104829209422
+      mean_percentage_error_pct: 30.863218542889275
+      p95_mean_percentage_error_pct: 30.863218542889275
+    polished_setpoints_periodic_mlp_harmonic_Bw:
+      mse: 0.00016878338219975442
+      mae: 0.012420604621182163
+      rmse: 0.012991665874696532
+      mean_percentage_error_pct: 25.779513962958525
+      p95_mean_percentage_error_pct: 25.779513962958525
+    polished_setpoints_periodic_gru_sequence_Bw:
+      mse: 0.00011939482770588647
+      mae: 0.010612568302527776
+      rmse: 0.01092679402688119
+      mean_percentage_error_pct: 22.02685465659936
+      p95_mean_percentage_error_pct: 22.02685465659936
+    polished_setpoints_wave4_1_mae_robust_loss_Bw:
+      mse: 7.523499151215513e-05
+      mae: 0.008179830645149046
+      rmse: 0.008673810668452195
+      mean_percentage_error_pct: 16.977600105846186
+      p95_mean_percentage_error_pct: 16.977600105846186
+    polished_setpoints_wave4_2_quantile_p10_p50_p90_Bw:
+      mse: 0.00011627492085858877
+      mae: 0.010392474966878049
+      rmse: 0.010783084941638398
+      mean_percentage_error_pct: 21.570041208898115
+      p95_mean_percentage_error_pct: 21.570041208898115
+  '27.94':
+    polished_setpoints_feedforward_Bw:
+      mse: 0.00018874431507601847
+      mae: 0.01351383624115937
+      rmse: 0.013738424766908995
+      mean_percentage_error_pct: 32.4242917178897
+      p95_mean_percentage_error_pct: 32.4242917178897
+    polished_setpoints_tree_Bw:
+      mse: 3.845797526738129e-05
+      mae: 0.006051083916767273
+      rmse: 0.006201449448909609
+      mean_percentage_error_pct: 14.518609418183997
+      p95_mean_percentage_error_pct: 14.518609418183997
+    polished_setpoints_harmonic_regression_Bw:
+      mse: 0.0003197991778863791
+      mae: 0.01782943433703005
+      rmse: 0.017882929790344174
+      mean_percentage_error_pct: 42.778880089435305
+      p95_mean_percentage_error_pct: 42.778880089435305
+    polished_setpoints_periodic_mlp_harmonic_Bw:
+      mse: 0.0003046594534277566
+      mae: 0.017209281992016625
+      rmse: 0.01745449665352045
+      mean_percentage_error_pct: 41.2909235843087
+      p95_mean_percentage_error_pct: 41.2909235843087
+    polished_setpoints_periodic_gru_sequence_Bw:
+      mse: 0.0002158838382622066
+      mae: 0.014599507137258078
+      rmse: 0.014692986022664237
+      mean_percentage_error_pct: 35.02918563672464
+      p95_mean_percentage_error_pct: 35.02918563672464
+    polished_setpoints_wave4_1_mae_robust_loss_Bw:
+      mse: 0.00013201117083296886
+      mae: 0.011383837473376401
+      rmse: 0.011489611430895687
+      mean_percentage_error_pct: 27.31369986426106
+      p95_mean_percentage_error_pct: 27.31369986426106
+    polished_setpoints_wave4_2_quantile_p10_p50_p90_Bw:
+      mse: 0.00020263077997553208
+      mae: 0.014142773791600352
+      rmse: 0.014234843869025472
+      mean_percentage_error_pct: 33.93332692032337
+      p95_mean_percentage_error_pct: 33.93332692032337
+  '25.29':
+    polished_setpoints_feedforward_Bw:
+      mse: 2.8485415962103787e-05
+      mae: 0.004804560174494879
+      rmse: 0.005337173030931617
+      mean_percentage_error_pct: 10.852223762513303
+      p95_mean_percentage_error_pct: 10.852223762513303
+    polished_setpoints_tree_Bw:
+      mse: 4.979041557413842e-06
+      mae: 0.0018585827881707276
+      rmse: 0.002231376605912557
+      mean_percentage_error_pct: 4.198044267497413
+      p95_mean_percentage_error_pct: 4.198044267497413
+    polished_setpoints_harmonic_regression_Bw:
+      mse: 0.0011901186021857548
+      mae: 0.03443078229854392
+      rmse: 0.0344980956312918
+      mean_percentage_error_pct: 77.7699810704242
+      p95_mean_percentage_error_pct: 77.7699810704242
+    polished_setpoints_periodic_mlp_harmonic_Bw:
+      mse: 4.675846780361779e-06
+      mae: 0.0018775506452202587
+      rmse: 0.002162370638989019
+      mean_percentage_error_pct: 4.2408876124698835
+      p95_mean_percentage_error_pct: 4.2408876124698835
+    polished_setpoints_periodic_gru_sequence_Bw:
+      mse: 4.843966839229771e-06
+      mae: 0.001968538842298956
+      rmse: 0.0022009013697187273
+      mean_percentage_error_pct: 4.446405753274415
+      p95_mean_percentage_error_pct: 4.446405753274415
+    polished_setpoints_wave4_1_mae_robust_loss_Bw:
+      mse: 9.228895081105978e-06
+      mae: 0.0028104480868747267
+      rmse: 0.003037909656508234
+      mean_percentage_error_pct: 6.348054848724732
+      p95_mean_percentage_error_pct: 6.348054848724732
+    polished_setpoints_wave4_2_quantile_p10_p50_p90_Bw:
+      mse: 9.218729974563711e-06
+      mae: 0.002788210619462871
+      rmse: 0.0030362361526343287
+      mean_percentage_error_pct: 6.29782632342784
+      p95_mean_percentage_error_pct: 6.29782632342784
+  '25.02':
+    polished_setpoints_feedforward_Bw:
+      mse: 2.9465054117326898e-06
+      mae: 0.0014924353132487371
+      rmse: 0.0017165387882983273
+      mean_percentage_error_pct: 3.8079825388491693
+      p95_mean_percentage_error_pct: 3.8079825388491693
+    polished_setpoints_tree_Bw:
+      mse: 8.943091550740313e-07
+      mae: 0.0007581819301987838
+      rmse: 0.0009456792030461659
+      mean_percentage_error_pct: 1.9345183847085383
+      p95_mean_percentage_error_pct: 1.9345183847085383
+    polished_setpoints_harmonic_regression_Bw:
+      mse: 0.00044426765913556463
+      mae: 0.021058095094061934
+      rmse: 0.02107765781901691
+      mean_percentage_error_pct: 53.73020707011943
+      p95_mean_percentage_error_pct: 53.73020707011943
+    polished_setpoints_periodic_mlp_harmonic_Bw:
+      mse: 2.0613243041138024e-06
+      mae: 0.0012253535307811408
+      rmse: 0.001435731278517607
+      mean_percentage_error_pct: 3.1265173154972654
+      p95_mean_percentage_error_pct: 3.1265173154972654
+    polished_setpoints_periodic_gru_sequence_Bw:
+      mse: 1.4553045753670997e-06
+      mae: 0.0009874012204185378
+      rmse: 0.0012063600521266856
+      mean_percentage_error_pct: 2.5193766006563854
+      p95_mean_percentage_error_pct: 2.5193766006563854
+    polished_setpoints_wave4_1_mae_robust_loss_Bw:
+      mse: 1.2888806581819278e-06
+      mae: 0.0009352201320257003
+      rmse: 0.001135288799461145
+      mean_percentage_error_pct: 2.386235370551391
+      p95_mean_percentage_error_pct: 2.386235370551391
+    polished_setpoints_wave4_2_quantile_p10_p50_p90_Bw:
+      mse: 1.5328246634226923e-06
+      mae: 0.001024067547620853
+      rmse: 0.0012380729636910306
+      mean_percentage_error_pct: 2.6129315658268433
+      p95_mean_percentage_error_pct: 2.6129315658268433
+  '25.68':
+    polished_setpoints_feedforward_Bw:
+      mse: 3.557820666455401e-05
+      mae: 0.005805276790537982
+      rmse: 0.005964746990824842
+      mean_percentage_error_pct: 14.159043083121478
+      p95_mean_percentage_error_pct: 14.159043083121478
+    polished_setpoints_tree_Bw:
+      mse: 4.3440976663621424e-06
+      mae: 0.0018137060485419975
+      rmse: 0.0020842499049687256
+      mean_percentage_error_pct: 4.42362061414204
+      p95_mean_percentage_error_pct: 4.42362061414204
+    polished_setpoints_harmonic_regression_Bw:
+      mse: 1.4685975425368468e-05
+      mae: 0.003630302364194436
+      rmse: 0.003832228519460768
+      mean_percentage_error_pct: 8.854290576319501
+      p95_mean_percentage_error_pct: 8.854290576319501
+    polished_setpoints_periodic_mlp_harmonic_Bw:
+      mse: 3.995239388006493e-05
+      mae: 0.006247854629520005
+      rmse: 0.006320790605617696
+      mean_percentage_error_pct: 15.23848837330902
+      p95_mean_percentage_error_pct: 15.23848837330902
+    polished_setpoints_periodic_gru_sequence_Bw:
+      mse: 2.27736604069232e-05
+      mae: 0.004693385858966398
+      rmse: 0.004772175647115601
+      mean_percentage_error_pct: 11.44714627408144
+      p95_mean_percentage_error_pct: 11.44714627408144
+    polished_setpoints_wave4_1_mae_robust_loss_Bw:
+      mse: 2.5710630820512996e-05
+      mae: 0.0050118562351689966
+      rmse: 0.005070565138178682
+      mean_percentage_error_pct: 12.223894039958877
+      p95_mean_percentage_error_pct: 12.223894039958877
+    polished_setpoints_wave4_2_quantile_p10_p50_p90_Bw:
+      mse: 3.273818648777041e-05
+      mae: 0.005676753749139607
+      rmse: 0.00572172932667829
+      mean_percentage_error_pct: 13.845575983103194
+      p95_mean_percentage_error_pct: 13.845575983103194
+  '26.65':
+    polished_setpoints_feedforward_Bw:
+      mse: 4.993514836887692e-05
+      mae: 0.006861469993835368
+      rmse: 0.00706648062113503
+      mean_percentage_error_pct: 16.26054119110261
+      p95_mean_percentage_error_pct: 16.26054119110261
+    polished_setpoints_tree_Bw:
+      mse: 3.647985546574914e-06
+      mae: 0.0016001039634960792
+      rmse: 0.0019099700381353928
+      mean_percentage_error_pct: 3.791979915652288
+      p95_mean_percentage_error_pct: 3.791979915652288
+    polished_setpoints_harmonic_regression_Bw:
+      mse: 0.00035270773852265173
+      mae: 0.018709806458518646
+      rmse: 0.018780514863087534
+      mean_percentage_error_pct: 44.339125416220504
+      p95_mean_percentage_error_pct: 44.339125416220504
+    polished_setpoints_periodic_mlp_harmonic_Bw:
+      mse: 3.81300963461083e-05
+      mae: 0.006091930910009783
+      rmse: 0.006174957193868497
+      mean_percentage_error_pct: 14.436861719801039
+      p95_mean_percentage_error_pct: 14.436861719801039
+    polished_setpoints_periodic_gru_sequence_Bw:
+      mse: 2.3324983757905272e-05
+      mae: 0.00474465709467085
+      rmse: 0.004829594574900183
+      mean_percentage_error_pct: 11.244047149498288
+      p95_mean_percentage_error_pct: 11.244047149498288
+    polished_setpoints_wave4_1_mae_robust_loss_Bw:
+      mse: 2.756610592347681e-05
+      mae: 0.005170617997263071
+      rmse: 0.005250343410052033
+      mean_percentage_error_pct: 12.253503550039715
+      p95_mean_percentage_error_pct: 12.253503550039715
+    polished_setpoints_wave4_2_quantile_p10_p50_p90_Bw:
+      mse: 4.435788464975242e-05
+      mae: 0.006596176109694466
+      rmse: 0.006660171518043091
+      mean_percentage_error_pct: 15.631838867155052
+      p95_mean_percentage_error_pct: 15.631838867155052
+  '25.8':
+    polished_setpoints_feedforward_Bw:
+      mse: 9.21607044079058e-06
+      mae: 0.002913072535245712
+      rmse: 0.003035798155475851
+      mean_percentage_error_pct: 7.6114341698271035
+      p95_mean_percentage_error_pct: 7.6114341698271035
+    polished_setpoints_tree_Bw:
+      mse: 2.2542229248732292e-06
+      mae: 0.0013230854728989183
+      rmse: 0.0015014069817585202
+      mean_percentage_error_pct: 3.4570295988785755
+      p95_mean_percentage_error_pct: 3.4570295988785755
+    polished_setpoints_harmonic_regression_Bw:
+      mse: 0.0006772856623998609
+      mae: 0.02601305341487055
+      rmse: 0.026024712532511495
+      mean_percentage_error_pct: 67.96831909535088
+      p95_mean_percentage_error_pct: 67.96831909535088
+    polished_setpoints_periodic_mlp_harmonic_Bw:
+      mse: 7.659619190890607e-06
+      mae: 0.0026603960253615833
+      rmse: 0.002767601703802519
+      mean_percentage_error_pct: 6.951227258404455
+      p95_mean_percentage_error_pct: 6.951227258404455
+    polished_setpoints_periodic_gru_sequence_Bw:
+      mse: 3.625773676757148e-06
+      mae: 0.0017242424794285361
+      rmse: 0.001904146443096525
+      mean_percentage_error_pct: 4.5051944179902765
+      p95_mean_percentage_error_pct: 4.5051944179902765
+    polished_setpoints_wave4_1_mae_robust_loss_Bw:
+      mse: 5.094998082449993e-06
+      mae: 0.002136554423779761
+      rmse: 0.0022572102432981277
+      mean_percentage_error_pct: 5.582505464623057
+      p95_mean_percentage_error_pct: 5.582505464623057
+    polished_setpoints_wave4_2_quantile_p10_p50_p90_Bw:
+      mse: 7.3612706101344555e-06
+      mae: 0.002616574393227687
+      rmse: 0.0027131661596987485
+      mean_percentage_error_pct: 6.836727717398897
+      p95_mean_percentage_error_pct: 6.836727717398897
+  '25.48':
+    polished_setpoints_feedforward_Bw:
+      mse: 2.3773371264378393e-05
+      mae: 0.004729377369311531
+      rmse: 0.004875794423925028
+      mean_percentage_error_pct: 11.740601493774921
+      p95_mean_percentage_error_pct: 11.740601493774921
+    polished_setpoints_tree_Bw:
+      mse: 3.1205927615069587e-06
+      mae: 0.0014892146536608383
+      rmse: 0.0017665199578569609
+      mean_percentage_error_pct: 3.6969508715408717
+      p95_mean_percentage_error_pct: 3.6969508715408717
+    polished_setpoints_harmonic_regression_Bw:
+      mse: 1.538289631777561e-05
+      mae: 0.0037511824511365596
+      rmse: 0.0039221035577577
+      mean_percentage_error_pct: 9.312248706355051
+      p95_mean_percentage_error_pct: 9.312248706355051
+    polished_setpoints_periodic_mlp_harmonic_Bw:
+      mse: 3.539267370739479e-05
+      mae: 0.005842966322158019
+      rmse: 0.005949174203819786
+      mean_percentage_error_pct: 14.505067744253887
+      p95_mean_percentage_error_pct: 14.505067744253887
+    polished_setpoints_periodic_gru_sequence_Bw:
+      mse: 2.1262268474602996e-05
+      mae: 0.004513027754220801
+      rmse: 0.004611102739541052
+      mean_percentage_error_pct: 11.203517134511447
+      p95_mean_percentage_error_pct: 11.203517134511447
+    polished_setpoints_wave4_1_mae_robust_loss_Bw:
+      mse: 2.286285231800316e-05
+      mae: 0.00470648040288599
+      rmse: 0.004781511509763745
+      mean_percentage_error_pct: 11.683760151410704
+      p95_mean_percentage_error_pct: 11.683760151410704
+    polished_setpoints_wave4_2_quantile_p10_p50_p90_Bw:
+      mse: 2.5672721612352335e-05
+      mae: 0.005003020291285118
+      rmse: 0.005066825595217614
+      mean_percentage_error_pct: 12.41991554456967
+      p95_mean_percentage_error_pct: 12.41991554456967
+  '25.46':
+    polished_setpoints_feedforward_Bw:
+      mse: 2.6129704072441526e-05
+      mae: 0.004969286601046683
+      rmse: 0.005111722221760639
+      mean_percentage_error_pct: 12.415551094565963
+      p95_mean_percentage_error_pct: 12.415551094565963
+    polished_setpoints_tree_Bw:
+      mse: 3.895484333486306e-06
+      mae: 0.0017412786190388455
+      rmse: 0.0019736981363638936
+      mean_percentage_error_pct: 4.350510525997523
+      p95_mean_percentage_error_pct: 4.350510525997523
+    polished_setpoints_harmonic_regression_Bw:
+      mse: 1.287205262426021e-06
+      mae: 0.0008910241306600364
+      rmse: 0.0011345506874644346
+      mean_percentage_error_pct: 2.2261858711008515
+      p95_mean_percentage_error_pct: 2.2261858711008515
+    polished_setpoints_periodic_mlp_harmonic_Bw:
+      mse: 3.424690881947635e-05
+      mae: 0.005772189601289047
+      rmse: 0.005852085852025442
+      mean_percentage_error_pct: 14.421570071493097
+      p95_mean_percentage_error_pct: 14.421570071493097
+    polished_setpoints_periodic_gru_sequence_Bw:
+      mse: 1.890663852934315e-05
+      mae: 0.0042761207743856385
+      rmse: 0.004348176460235159
+      mean_percentage_error_pct: 10.683705775742018
+      p95_mean_percentage_error_pct: 10.683705775742018
+    polished_setpoints_wave4_1_mae_robust_loss_Bw:
+      mse: 2.109858646972073e-05
+      mae: 0.004541600547331374
+      rmse: 0.004593319765672833
+      mean_percentage_error_pct: 11.346995690412525
+      p95_mean_percentage_error_pct: 11.346995690412525
+    polished_setpoints_wave4_2_quantile_p10_p50_p90_Bw:
+      mse: 2.5303818360191917e-05
+      mae: 0.004989195967475412
+      rmse: 0.005030290087081651
+      mean_percentage_error_pct: 12.465293799304357
+      p95_mean_percentage_error_pct: 12.465293799304357
+  '25.89':
+    polished_setpoints_feedforward_Bw:
+      mse: 9.405569390286005e-05
+      mae: 0.009314496626353098
+      rmse: 0.009698231483258175
+      mean_percentage_error_pct: 21.266831351312998
+      p95_mean_percentage_error_pct: 21.266831351312998
+    polished_setpoints_tree_Bw:
+      mse: 1.1193767510260414e-05
+      mae: 0.0028604506491970868
+      rmse: 0.0033457088203040644
+      mean_percentage_error_pct: 6.530972524389226
+      p95_mean_percentage_error_pct: 6.530972524389226
+    polished_setpoints_harmonic_regression_Bw:
+      mse: 0.0010510075291184475
+      mae: 0.03235855496885186
+      rmse: 0.03241924627622375
+      mean_percentage_error_pct: 73.88095770497908
+      p95_mean_percentage_error_pct: 73.88095770497908
+    polished_setpoints_periodic_mlp_harmonic_Bw:
+      mse: 3.341160028425803e-05
+      mae: 0.005574615302097068
+      rmse: 0.00578027683456926
+      mean_percentage_error_pct: 12.727945291506822
+      p95_mean_percentage_error_pct: 12.727945291506822
+    polished_setpoints_periodic_gru_sequence_Bw:
+      mse: 3.4646846178110904e-05
+      mae: 0.005735289382388041
+      rmse: 0.005886157165597169
+      mean_percentage_error_pct: 13.094795879911974
+      p95_mean_percentage_error_pct: 13.094795879911974
+    polished_setpoints_wave4_1_mae_robust_loss_Bw:
+      mse: 4.5492261080972804e-05
+      mae: 0.006643137080621726
+      rmse: 0.006744795110377543
+      mean_percentage_error_pct: 15.167591079213341
+      p95_mean_percentage_error_pct: 15.167591079213341
+    polished_setpoints_wave4_2_quantile_p10_p50_p90_Bw:
+      mse: 4.230830937907841e-05
+      mae: 0.00637568826566799
+      rmse: 0.006504483790361723
+      mean_percentage_error_pct: 14.556952730100905
+      p95_mean_percentage_error_pct: 14.556952730100905
+  '26.54':
+    polished_setpoints_feedforward_Bw:
+      mse: 1.6783997932663457e-05
+      mae: 0.003985531418124983
+      rmse: 0.004096827788992778
+      mean_percentage_error_pct: 10.433003676139643
+      p95_mean_percentage_error_pct: 10.433003676139643
+    polished_setpoints_tree_Bw:
+      mse: 1.0818040293803357e-06
+      mae: 0.0008715093364247776
+      rmse: 0.0010400980864227834
+      mean_percentage_error_pct: 2.281367064216327
+      p95_mean_percentage_error_pct: 2.281367064216327
+    polished_setpoints_harmonic_regression_Bw:
+      mse: 0.00034367508405074124
+      mae: 0.018523307508639182
+      rmse: 0.01853847577474322
+      mean_percentage_error_pct: 48.48882496648716
+      p95_mean_percentage_error_pct: 48.48882496648716
+    polished_setpoints_periodic_mlp_harmonic_Bw:
+      mse: 2.388814417076878e-05
+      mae: 0.004816057570676885
+      rmse: 0.004887549914913277
+      mean_percentage_error_pct: 12.60708825700604
+      p95_mean_percentage_error_pct: 12.60708825700604
+    polished_setpoints_periodic_gru_sequence_Bw:
+      mse: 1.8769500814347332e-05
+      mae: 0.004271928812641254
+      rmse: 0.0043323781938269575
+      mean_percentage_error_pct: 11.182711746746396
+      p95_mean_percentage_error_pct: 11.182711746746396
+    polished_setpoints_wave4_1_mae_robust_loss_Bw:
+      mse: 1.4570065475771099e-05
+      mae: 0.0037647603208266545
+      rmse: 0.003817075513501285
+      mean_percentage_error_pct: 9.855086849484078
+      p95_mean_percentage_error_pct: 9.855086849484078
+    polished_setpoints_wave4_2_quantile_p10_p50_p90_Bw:
+      mse: 1.6852327533574383e-05
+      mae: 0.004066109054223303
+      rmse: 0.004105158649013992
+      mean_percentage_error_pct: 10.643933332798557
+      p95_mean_percentage_error_pct: 10.643933332798557
+  '26.31':
+    polished_setpoints_feedforward_Bw:
+      mse: 1.8528116180694005e-05
+      mae: 0.004190289406901092
+      rmse: 0.004304429832241897
+      mean_percentage_error_pct: 10.79731370023633
+      p95_mean_percentage_error_pct: 10.79731370023633
+    polished_setpoints_tree_Bw:
+      mse: 2.3088187941460454e-06
+      mae: 0.0013523709370223183
+      rmse: 0.001519479777471897
+      mean_percentage_error_pct: 3.4847171228947027
+      p95_mean_percentage_error_pct: 3.4847171228947027
+    polished_setpoints_harmonic_regression_Bw:
+      mse: 0.0001212779445213303
+      mae: 0.010981392505235629
+      rmse: 0.011012626595019477
+      mean_percentage_error_pct: 28.29626506206901
+      p95_mean_percentage_error_pct: 28.29626506206901
+    polished_setpoints_periodic_mlp_harmonic_Bw:
+      mse: 3.301004997773452e-05
+      mae: 0.005660036169725455
+      rmse: 0.005745437318232139
+      mean_percentage_error_pct: 14.584478575289097
+      p95_mean_percentage_error_pct: 14.584478575289097
+    polished_setpoints_periodic_gru_sequence_Bw:
+      mse: 2.298713233155464e-05
+      mae: 0.004735457528499385
+      rmse: 0.004794489788450346
+      mean_percentage_error_pct: 12.202073767302577
+      p95_mean_percentage_error_pct: 12.202073767302577
+    polished_setpoints_wave4_1_mae_robust_loss_Bw:
+      mse: 2.10897529124521e-05
+      mae: 0.004551490995378487
+      rmse: 0.004592358099326761
+      mean_percentage_error_pct: 11.72803864095071
+      p95_mean_percentage_error_pct: 11.72803864095071
+    polished_setpoints_wave4_2_quantile_p10_p50_p90_Bw:
+      mse: 2.385797747093784e-05
+      mae: 0.004851828912740577
+      rmse: 0.004884462864116979
+      mean_percentage_error_pct: 12.501933328151415
+      p95_mean_percentage_error_pct: 12.501933328151415
+  '26.46':
+    polished_setpoints_feedforward_Bw:
+      mse: 9.240729012520786e-05
+      mae: 0.009487199925362021
+      rmse: 0.009612871065670645
+      mean_percentage_error_pct: 23.683116142878603
+      p95_mean_percentage_error_pct: 23.683116142878603
+    polished_setpoints_tree_Bw:
+      mse: 1.055961344775458e-05
+      mae: 0.0030223695887435223
+      rmse: 0.0032495558846947965
+      mean_percentage_error_pct: 7.544810962143362
+      p95_mean_percentage_error_pct: 7.544810962143362
+    polished_setpoints_harmonic_regression_Bw:
+      mse: 9.769954695314983e-05
+      mae: 0.009803984227622084
+      rmse: 0.009884308117068683
+      mean_percentage_error_pct: 24.473912108146465
+      p95_mean_percentage_error_pct: 24.473912108146465
+    polished_setpoints_periodic_mlp_harmonic_Bw:
+      mse: 8.438221336992743e-05
+      mae: 0.009123101838991125
+      rmse: 0.009185979173170785
+      mean_percentage_error_pct: 22.774209686309675
+      p95_mean_percentage_error_pct: 22.774209686309675
+    polished_setpoints_periodic_gru_sequence_Bw:
+      mse: 5.3965601557588806e-05
+      mae: 0.007286820968648616
+      rmse: 0.007346128337947058
+      mean_percentage_error_pct: 18.190259367416363
+      p95_mean_percentage_error_pct: 18.190259367416363
+    polished_setpoints_wave4_1_mae_robust_loss_Bw:
+      mse: 5.759954630393413e-05
+      mae: 0.007551427892707039
+      rmse: 0.007589436494492468
+      mean_percentage_error_pct: 18.850803739200156
+      p95_mean_percentage_error_pct: 18.850803739200156
+    polished_setpoints_wave4_2_quantile_p10_p50_p90_Bw:
+      mse: 8.400121628454814e-05
+      mae: 0.00913453333518125
+      rmse: 0.009165217743433493
+      mean_percentage_error_pct: 22.802746394093585
+      p95_mean_percentage_error_pct: 22.802746394093585
+  '26.17':
+    polished_setpoints_feedforward_Bw:
+      mse: 0.00011281770398286698
+      mae: 0.010495099909599572
+      rmse: 0.010621567868392452
+      mean_percentage_error_pct: 25.740443589726343
+      p95_mean_percentage_error_pct: 25.740443589726343
+    polished_setpoints_tree_Bw:
+      mse: 1.4348130638151181e-05
+      mae: 0.003561539961991151
+      rmse: 0.003787892638150028
+      mean_percentage_error_pct: 8.73508773368953
+      p95_mean_percentage_error_pct: 8.73508773368953
+    polished_setpoints_harmonic_regression_Bw:
+      mse: 3.258046519399982e-05
+      mae: 0.005560099610691346
+      rmse: 0.00570793002707635
+      mean_percentage_error_pct: 13.636785891990668
+      p95_mean_percentage_error_pct: 13.636785891990668
+    polished_setpoints_periodic_mlp_harmonic_Bw:
+      mse: 0.0001097922041111533
+      mae: 0.010402340968252988
+      rmse: 0.010478177518593264
+      mean_percentage_error_pct: 25.51294158233806
+      p95_mean_percentage_error_pct: 25.51294158233806
+    polished_setpoints_periodic_gru_sequence_Bw:
+      mse: 7.029888163806789e-05
+      mae: 0.00830872902874503
+      rmse: 0.008384442834086705
+      mean_percentage_error_pct: 20.378116712458542
+      p95_mean_percentage_error_pct: 20.378116712458542
+    polished_setpoints_wave4_1_mae_robust_loss_Bw:
+      mse: 7.226843100911289e-05
+      mae: 0.008446969812174056
+      rmse: 0.008501084107871941
+      mean_percentage_error_pct: 20.717168185841818
+      p95_mean_percentage_error_pct: 20.717168185841818
+    polished_setpoints_wave4_2_quantile_p10_p50_p90_Bw:
+      mse: 0.00010031877482404433
+      mae: 0.009969882599926004
+      rmse: 0.01001592605923408
+      mean_percentage_error_pct: 24.45228753133241
+      p95_mean_percentage_error_pct: 24.45228753133241
+  '25.61':
+    polished_setpoints_feedforward_Bw:
+      mse: 2.8297407512829732e-05
+      mae: 0.0051919116320744115
+      rmse: 0.005319530760586852
+      mean_percentage_error_pct: 13.240320345384328
+      p95_mean_percentage_error_pct: 13.240320345384328
+    polished_setpoints_tree_Bw:
+      mse: 4.812211113092456e-06
+      mae: 0.002050614200116574
+      rmse: 0.0021936752524228504
+      mean_percentage_error_pct: 5.229439720546528
+      p95_mean_percentage_error_pct: 5.229439720546528
+    polished_setpoints_harmonic_regression_Bw:
+      mse: 0.00024605584317926595
+      mae: 0.015662372320710164
+      rmse: 0.015686167255874392
+      mean_percentage_error_pct: 39.9419022492159
+      p95_mean_percentage_error_pct: 39.9419022492159
+    polished_setpoints_periodic_mlp_harmonic_Bw:
+      mse: 5.2498699589972166e-05
+      mae: 0.007151216489718567
+      rmse: 0.007245598635721701
+      mean_percentage_error_pct: 18.236904611035875
+      p95_mean_percentage_error_pct: 18.236904611035875
+    polished_setpoints_periodic_gru_sequence_Bw:
+      mse: 4.287188939267239e-05
+      mae: 0.006483882622460138
+      rmse: 0.006547662895466778
+      mean_percentage_error_pct: 16.535081697633263
+      p95_mean_percentage_error_pct: 16.535081697633263
+    polished_setpoints_wave4_1_mae_robust_loss_Bw:
+      mse: 3.477558359859244e-05
+      mae: 0.0058491278963957
+      rmse: 0.005897082634539933
+      mean_percentage_error_pct: 14.916341528420887
+      p95_mean_percentage_error_pct: 14.916341528420887
+    polished_setpoints_wave4_2_quantile_p10_p50_p90_Bw:
+      mse: 4.072873931553174e-05
+      mae: 0.006340694074973057
+      rmse: 0.006381907184810176
+      mean_percentage_error_pct: 16.169924820384615
+      p95_mean_percentage_error_pct: 16.169924820384615
+  '26.62':
+    polished_setpoints_feedforward_Bw:
+      mse: 2.3894025179609213e-05
+      mae: 0.004775473946139849
+      rmse: 0.0048881515094777095
+      mean_percentage_error_pct: 12.134773264332713
+      p95_mean_percentage_error_pct: 12.134773264332713
+    polished_setpoints_tree_Bw:
+      mse: 2.4250280433163997e-06
+      mae: 0.0013145601697600348
+      rmse: 0.001557250154379957
+      mean_percentage_error_pct: 3.3403783126604862
+      p95_mean_percentage_error_pct: 3.3403783126604862
+    polished_setpoints_harmonic_regression_Bw:
+      mse: 0.0009393789640370382
+      mae: 0.030636446667652764
+      rmse: 0.030649289780303852
+      mean_percentage_error_pct: 77.84909689169115
+      p95_mean_percentage_error_pct: 77.84909689169115
+    polished_setpoints_periodic_mlp_harmonic_Bw:
+      mse: 2.1323436514401474e-05
+      mae: 0.004500911301731715
+      rmse: 0.004617730667156918
+      mean_percentage_error_pct: 11.437092683446815
+      p95_mean_percentage_error_pct: 11.437092683446815
+    polished_setpoints_periodic_gru_sequence_Bw:
+      mse: 3.702803535214988e-06
+      mae: 0.0016267485388584038
+      rmse: 0.0019242670124530504
+      mean_percentage_error_pct: 4.133668176137333
+      p95_mean_percentage_error_pct: 4.133668176137333
+    polished_setpoints_wave4_1_mae_robust_loss_Bw:
+      mse: 1.403587708433206e-05
+      mae: 0.0036318905831334595
+      rmse: 0.0037464485962484606
+      mean_percentage_error_pct: 9.228857542572174
+      p95_mean_percentage_error_pct: 9.228857542572174
+    polished_setpoints_wave4_2_quantile_p10_p50_p90_Bw:
+      mse: 2.641961114596313e-05
+      mae: 0.005050510516307501
+      rmse: 0.005140001084237544
+      mean_percentage_error_pct: 12.833658119747325
+      p95_mean_percentage_error_pct: 12.833658119747325
+  '26.76':
+    polished_setpoints_feedforward_Bw:
+      mse: 3.5810500719446806e-05
+      mae: 0.005866620940147641
+      rmse: 0.005984187557174892
+      mean_percentage_error_pct: 14.964389151770519
+      p95_mean_percentage_error_pct: 14.964389151770519
+    polished_setpoints_tree_Bw:
+      mse: 3.4757410914254173e-06
+      mae: 0.001703528287310704
+      rmse: 0.0018643339538359047
+      mean_percentage_error_pct: 4.345305497396763
+      p95_mean_percentage_error_pct: 4.345305497396763
+    polished_setpoints_harmonic_regression_Bw:
+      mse: 0.00024154014885555518
+      mae: 0.015518532755875695
+      rmse: 0.01554156198248925
+      mean_percentage_error_pct: 39.58417726194143
+      p95_mean_percentage_error_pct: 39.58417726194143
+    polished_setpoints_periodic_mlp_harmonic_Bw:
+      mse: 6.353600636720277e-05
+      mae: 0.007866047067708538
+      rmse: 0.007970947645493776
+      mean_percentage_error_pct: 20.064461400905103
+      p95_mean_percentage_error_pct: 20.064461400905103
+    polished_setpoints_periodic_gru_sequence_Bw:
+      mse: 4.914548200661121e-05
+      mae: 0.006950689176223013
+      rmse: 0.007010383870132306
+      mean_percentage_error_pct: 17.729595753187148
+      p95_mean_percentage_error_pct: 17.729595753187148
+    polished_setpoints_wave4_1_mae_robust_loss_Bw:
+      mse: 3.790363582465276e-05
+      mae: 0.006112141854496686
+      rmse: 0.006156592874687489
+      mean_percentage_error_pct: 15.590656051353971
+      p95_mean_percentage_error_pct: 15.590656051353971
+    polished_setpoints_wave4_2_quantile_p10_p50_p90_Bw:
+      mse: 4.71097913151576e-05
+      mae: 0.006826379857477312
+      rmse: 0.0068636572842149975
+      mean_percentage_error_pct: 17.412511516813197
+      p95_mean_percentage_error_pct: 17.412511516813197
+  '26.12':
+    polished_setpoints_feedforward_Bw:
+      mse: 5.3097829163785405e-05
+      mae: 0.007177306013094987
+      rmse: 0.007286825726184578
+      mean_percentage_error_pct: 18.022675753978103
+      p95_mean_percentage_error_pct: 18.022675753978103
+    polished_setpoints_tree_Bw:
+      mse: 8.488541899981743e-06
+      mae: 0.0028016268098267796
+      rmse: 0.0029135102368074398
+      mean_percentage_error_pct: 7.035064616868229
+      p95_mean_percentage_error_pct: 7.035064616868229
+    polished_setpoints_harmonic_regression_Bw:
+      mse: 0.0001517276097781978
+      mae: 0.012285867828650989
+      rmse: 0.01231777617016147
+      mean_percentage_error_pct: 30.850602137907952
+      p95_mean_percentage_error_pct: 30.850602137907952
+    polished_setpoints_periodic_mlp_harmonic_Bw:
+      mse: 9.493497463507852e-05
+      mae: 0.009629693929734917
+      rmse: 0.009743458042968037
+      mean_percentage_error_pct: 24.180779109740705
+      p95_mean_percentage_error_pct: 24.180779109740705
+    polished_setpoints_periodic_gru_sequence_Bw:
+      mse: 6.817884967977258e-05
+      mae: 0.008199019293619287
+      rmse: 0.008257048484765763
+      mean_percentage_error_pct: 20.58826333444721
+      p95_mean_percentage_error_pct: 20.58826333444721
+    polished_setpoints_wave4_1_mae_robust_loss_Bw:
+      mse: 5.555098376756136e-05
+      mae: 0.007415658861734424
+      rmse: 0.007453253233827586
+      mean_percentage_error_pct: 18.621195044952735
+      p95_mean_percentage_error_pct: 18.621195044952735
+    polished_setpoints_wave4_2_quantile_p10_p50_p90_Bw:
+      mse: 6.927020577365234e-05
+      mae: 0.008290950405816136
+      rmse: 0.008322872447277583
+      mean_percentage_error_pct: 20.819108253669473
+      p95_mean_percentage_error_pct: 20.819108253669473
+  '30.58':
+    polished_setpoints_feedforward_Bw:
+      mse: 1.4191835443664427e-05
+      mae: 0.003206202251668723
+      rmse: 0.0037672052563756634
+      mean_percentage_error_pct: 7.197397300037778
+      p95_mean_percentage_error_pct: 7.197397300037778
+    polished_setpoints_tree_Bw:
+      mse: 6.10001389586094e-06
+      mae: 0.0019255909625914523
+      rmse: 0.002469820620178911
+      mean_percentage_error_pct: 4.32263535087956
+      p95_mean_percentage_error_pct: 4.32263535087956
+    polished_setpoints_harmonic_regression_Bw:
+      mse: 0.0010974151547696923
+      mae: 0.03304837524405733
+      rmse: 0.033127256976237744
+      mean_percentage_error_pct: 74.18817282297584
+      p95_mean_percentage_error_pct: 74.18817282297584
+    polished_setpoints_periodic_mlp_harmonic_Bw:
+      mse: 8.47325270383907e-07
+      mae: 0.0007310533114500271
+      rmse: 0.000920502726983417
+      mean_percentage_error_pct: 1.6410945776348231
+      p95_mean_percentage_error_pct: 1.6410945776348231
+    polished_setpoints_periodic_gru_sequence_Bw:
+      mse: 8.971732836837782e-07
+      mae: 0.0007527013689161666
+      rmse: 0.0009471923161025844
+      mean_percentage_error_pct: 1.6896909100329935
+      p95_mean_percentage_error_pct: 1.6896909100329935
+    polished_setpoints_wave4_1_mae_robust_loss_Bw:
+      mse: 2.2727800067320086e-06
+      mae: 0.001223981414649291
+      rmse: 0.0015075742126781052
+      mean_percentage_error_pct: 2.7476371849306083
+      p95_mean_percentage_error_pct: 2.7476371849306083
+    polished_setpoints_wave4_2_quantile_p10_p50_p90_Bw:
+      mse: 2.9576348665806435e-06
+      mae: 0.0013925579595373615
+      rmse: 0.0017197775631111842
+      mean_percentage_error_pct: 3.1260638323436356
+      p95_mean_percentage_error_pct: 3.1260638323436356
+  '29.91':
+    polished_setpoints_feedforward_Bw:
+      mse: 2.7799477569598457e-06
+      mae: 0.0014037249372254505
+      rmse: 0.001667317533333062
+      mean_percentage_error_pct: 3.5116816186977697
+      p95_mean_percentage_error_pct: 3.5116816186977697
+    polished_setpoints_tree_Bw:
+      mse: 2.3579031775368794e-06
+      mae: 0.0012298284961057275
+      rmse: 0.001535546540335681
+      mean_percentage_error_pct: 3.076647004976284
+      p95_mean_percentage_error_pct: 3.076647004976284
+    polished_setpoints_harmonic_regression_Bw:
+      mse: 1.6826594581711304e-06
+      mae: 0.0010851131534441508
+      rmse: 0.0012971736422588652
+      mean_percentage_error_pct: 2.7146143906859903
+      p95_mean_percentage_error_pct: 2.7146143906859903
+    polished_setpoints_periodic_mlp_harmonic_Bw:
+      mse: 2.3821205510716168e-06
+      mae: 0.0014193315485275806
+      rmse: 0.0015434119835842977
+      mean_percentage_error_pct: 3.5507244885552915
+      p95_mean_percentage_error_pct: 3.5507244885552915
+    polished_setpoints_periodic_gru_sequence_Bw:
+      mse: 2.8087746277172337e-07
+      mae: 0.0004230247751317167
+      rmse: 0.0005299787380374078
+      mean_percentage_error_pct: 1.0582759397436123
+      p95_mean_percentage_error_pct: 1.0582759397436123
+    polished_setpoints_wave4_1_mae_robust_loss_Bw:
+      mse: 9.072299300072519e-07
+      mae: 0.0007755316334940424
+      rmse: 0.0009524861836306351
+      mean_percentage_error_pct: 1.94013806397334
+      p95_mean_percentage_error_pct: 1.94013806397334
+    polished_setpoints_wave4_2_quantile_p10_p50_p90_Bw:
+      mse: 9.621365391296864e-07
+      mae: 0.0008227098369616402
+      rmse: 0.0009808855892150146
+      mean_percentage_error_pct: 2.058163202322605
+      p95_mean_percentage_error_pct: 2.058163202322605
+  '31.81':
+    polished_setpoints_feedforward_Bw:
+      mse: 0.0002393552290142241
+      mae: 0.014609267852361676
+      rmse: 0.01542007879803558
+      mean_percentage_error_pct: 27.642520161493874
+      p95_mean_percentage_error_pct: 28.883919209107045
+    polished_setpoints_tree_Bw:
+      mse: 3.926131774638318e-05
+      mae: 0.0051545507410137355
+      rmse: 0.006220116940161814
+      mean_percentage_error_pct: 9.740529272006913
+      p95_mean_percentage_error_pct: 10.531218604385712
+    polished_setpoints_harmonic_regression_Bw:
+      mse: 4.9309350041799825e-05
+      mae: 0.005827188563772295
+      rmse: 0.006999363059391648
+      mean_percentage_error_pct: 11.027068919244012
+      p95_mean_percentage_error_pct: 11.485124774316798
+    polished_setpoints_periodic_mlp_harmonic_Bw:
+      mse: 0.00020487572955415605
+      mae: 0.013550156354801914
+      rmse: 0.014307911188251175
+      mean_percentage_error_pct: 25.68653119781726
+      p95_mean_percentage_error_pct: 25.887722398168233
+    polished_setpoints_periodic_gru_sequence_Bw:
+      mse: 0.0001174879497703888
+      mae: 0.009825858259628884
+      rmse: 0.010825469193126474
+      mean_percentage_error_pct: 18.61280912740872
+      p95_mean_percentage_error_pct: 18.85335008365557
+    polished_setpoints_wave4_1_mae_robust_loss_Bw:
+      mse: 9.265277094284462e-05
+      mae: 0.008498023848544093
+      rmse: 0.009607980285878536
+      mean_percentage_error_pct: 16.090996319559956
+      p95_mean_percentage_error_pct: 16.483360142920827
+    polished_setpoints_wave4_2_quantile_p10_p50_p90_Bw:
+      mse: 0.0001532998560868663
+      mae: 0.011486372481843955
+      rmse: 0.01234365419370136
+      mean_percentage_error_pct: 21.734786232019626
+      p95_mean_percentage_error_pct: 22.677958245896775
+  '32.68':
+    polished_setpoints_feedforward_Bw:
+      mse: 0.00040272244142384474
+      mae: 0.018455488685543166
+      rmse: 0.020067945620412787
+      mean_percentage_error_pct: 26.993429299538956
+      p95_mean_percentage_error_pct: 26.993429299538956
+    polished_setpoints_tree_Bw:
+      mse: 9.825317045871524e-05
+      mae: 0.008061138228442422
+      rmse: 0.009912273727995774
+      mean_percentage_error_pct: 11.790409267987751
+      p95_mean_percentage_error_pct: 11.790409267987751
+    polished_setpoints_harmonic_regression_Bw:
+      mse: 0.0005802574799149504
+      mae: 0.02288114114528588
+      rmse: 0.02408853420021547
+      mean_percentage_error_pct: 33.466492072998626
+      p95_mean_percentage_error_pct: 33.466492072998626
+    polished_setpoints_periodic_mlp_harmonic_Bw:
+      mse: 0.0002216205492940589
+      mae: 0.013088865968968568
+      rmse: 0.014886925447991566
+      mean_percentage_error_pct: 19.14408142555755
+      p95_mean_percentage_error_pct: 19.14408142555755
+    polished_setpoints_periodic_gru_sequence_Bw:
+      mse: 0.0001798599707921619
+      mae: 0.011587909411221401
+      rmse: 0.013411188269208731
+      mean_percentage_error_pct: 16.94874726705515
+      p95_mean_percentage_error_pct: 16.94874726705515
+    polished_setpoints_wave4_1_mae_robust_loss_Bw:
+      mse: 0.00013432139544732882
+      mae: 0.009718718717621653
+      rmse: 0.011589710757707839
+      mean_percentage_error_pct: 14.214825250968692
+      p95_mean_percentage_error_pct: 14.214825250968692
+    polished_setpoints_wave4_2_quantile_p10_p50_p90_Bw:
+      mse: 0.00019664984216332686
+      mae: 0.012233618481548126
+      rmse: 0.014023189443323043
+      mean_percentage_error_pct: 17.89317645204817
+      p95_mean_percentage_error_pct: 17.89317645204817
+  '32.07':
+    polished_setpoints_feedforward_Bw:
+      mse: 0.0001242372784832983
+      mae: 0.009577368833793454
+      rmse: 0.010877610797991516
+      mean_percentage_error_pct: 17.705849592163972
+      p95_mean_percentage_error_pct: 20.103242087837366
+    polished_setpoints_tree_Bw:
+      mse: 5.047781723906325e-05
+      mae: 0.004957369146096893
+      rmse: 0.0060538387942450905
+      mean_percentage_error_pct: 7.948698118767865
+      p95_mean_percentage_error_pct: 10.613832913188503
+    polished_setpoints_harmonic_regression_Bw:
+      mse: 0.000569506944861016
+      mae: 0.021265753057665086
+      rmse: 0.02189527479127157
+      mean_percentage_error_pct: 36.05484398138222
+      p95_mean_percentage_error_pct: 41.20127520096911
+    polished_setpoints_periodic_mlp_harmonic_Bw:
+      mse: 0.00011404784241482568
+      mae: 0.00909469343238181
+      rmse: 0.010248176787196061
+      mean_percentage_error_pct: 16.431024768493373
+      p95_mean_percentage_error_pct: 17.47901769590646
+    polished_setpoints_periodic_gru_sequence_Bw:
+      mse: 0.00010298572570722298
+      mae: 0.00806351176037419
+      rmse: 0.009166874549681951
+      mean_percentage_error_pct: 13.704571646652456
+      p95_mean_percentage_error_pct: 15.548841026611877
+    polished_setpoints_wave4_1_mae_robust_loss_Bw:
+      mse: 8.215837494723633e-05
+      mae: 0.007235237076806182
+      rmse: 0.008330186879105153
+      mean_percentage_error_pct: 12.525894342766563
+      p95_mean_percentage_error_pct: 13.445041055217745
+    polished_setpoints_wave4_2_quantile_p10_p50_p90_Bw:
+      mse: 0.00010474266369555707
+      mae: 0.00880241891015085
+      rmse: 0.009871686784336134
+      mean_percentage_error_pct: 16.010162047126364
+      p95_mean_percentage_error_pct: 17.368733496226984
+  '30.62':
+    polished_setpoints_feedforward_Bw:
+      mse: 0.00012360077493316475
+      mae: 0.010430612807683782
+      rmse: 0.011117588539479447
+      mean_percentage_error_pct: 21.207866492329885
+      p95_mean_percentage_error_pct: 21.207866492329885
+    polished_setpoints_tree_Bw:
+      mse: 2.7777680501264227e-05
+      mae: 0.004356688571325874
+      rmse: 0.00527045353847885
+      mean_percentage_error_pct: 8.858163108237934
+      p95_mean_percentage_error_pct: 8.858163108237934
+    polished_setpoints_harmonic_regression_Bw:
+      mse: 0.00016563815141423774
+      mae: 0.01231916514386466
+      rmse: 0.012870048617399927
+      mean_percentage_error_pct: 25.04773348269473
+      p95_mean_percentage_error_pct: 25.04773348269473
+    polished_setpoints_periodic_mlp_harmonic_Bw:
+      mse: 0.00015783666268506718
+      mae: 0.01194724756668007
+      rmse: 0.012563306200402313
+      mean_percentage_error_pct: 24.29153838001859
+      p95_mean_percentage_error_pct: 24.29153838001859
+    polished_setpoints_periodic_gru_sequence_Bw:
+      mse: 0.0001000040834128046
+      mae: 0.009304616839199222
+      rmse: 0.01000020416855599
+      mean_percentage_error_pct: 18.918454296631193
+      p95_mean_percentage_error_pct: 18.918454296631193
+    polished_setpoints_wave4_1_mae_robust_loss_Bw:
+      mse: 7.387326598602238e-05
+      mae: 0.007764831992443536
+      rmse: 0.008594955845495798
+      mean_percentage_error_pct: 15.787712885843584
+      p95_mean_percentage_error_pct: 15.787712885843584
+    polished_setpoints_wave4_2_quantile_p10_p50_p90_Bw:
+      mse: 0.00010627331821221204
+      mae: 0.009611767853383694
+      rmse: 0.010308895101426341
+      mean_percentage_error_pct: 19.542963884122486
+      p95_mean_percentage_error_pct: 19.542963884122486
+  '31.01':
+    polished_setpoints_feedforward_Bw:
+      mse: 3.995639125464537e-05
+      mae: 0.006181276117924638
+      rmse: 0.0063211068061412605
+      mean_percentage_error_pct: 15.25999689357165
+      p95_mean_percentage_error_pct: 15.25999689357165
+    polished_setpoints_tree_Bw:
+      mse: 9.691218787868556e-07
+      mae: 0.0007933748399643496
+      rmse: 0.0009844398807376993
+      mean_percentage_error_pct: 1.9586404752549331
+      p95_mean_percentage_error_pct: 1.9586404752549331
+    polished_setpoints_harmonic_regression_Bw:
+      mse: 0.0008863323481505933
+      mae: 0.029752330606023763
+      rmse: 0.029771334336078946
+      mean_percentage_error_pct: 73.4509288960346
+      p95_mean_percentage_error_pct: 73.4509288960346
+    polished_setpoints_periodic_mlp_harmonic_Bw:
+      mse: 4.947290339875173e-05
+      mae: 0.006899348819408839
+      rmse: 0.007033697704532924
+      mean_percentage_error_pct: 17.032735561923936
+      p95_mean_percentage_error_pct: 17.032735561923936
+    polished_setpoints_periodic_gru_sequence_Bw:
+      mse: 3.923534210608042e-06
+      mae: 0.0016235926629253163
+      rmse: 0.001980791309201462
+      mean_percentage_error_pct: 4.008236894776445
+      p95_mean_percentage_error_pct: 4.008236894776445
+    polished_setpoints_wave4_1_mae_robust_loss_Bw:
+      mse: 1.728738975152642e-05
+      mae: 0.004000589259410217
+      rmse: 0.004157810692122288
+      mean_percentage_error_pct: 9.876436274060703
+      p95_mean_percentage_error_pct: 9.876436274060703
+    polished_setpoints_wave4_2_quantile_p10_p50_p90_Bw:
+      mse: 4.471666700175293e-05
+      mae: 0.006577636123394056
+      rmse: 0.006687052190745406
+      mean_percentage_error_pct: 16.238508828131554
+      p95_mean_percentage_error_pct: 16.238508828131554
+  '33.33':
+    polished_setpoints_feedforward_Bw:
+      mse: 0.0003903557239962069
+      mae: 0.01960131426092133
+      rmse: 0.019757421997725486
+      mean_percentage_error_pct: 46.546591450917205
+      p95_mean_percentage_error_pct: 46.546591450917205
+    polished_setpoints_tree_Bw:
+      mse: 5.376071126548263e-05
+      mae: 0.0071997024231677115
+      rmse: 0.007332169615160483
+      mean_percentage_error_pct: 17.096894769321153
+      p95_mean_percentage_error_pct: 17.096894769321153
+    polished_setpoints_harmonic_regression_Bw:
+      mse: 3.0092134386980074e-06
+      mae: 0.0013290421036940621
+      rmse: 0.00173470845928012
+      mean_percentage_error_pct: 3.1560322434628065
+      p95_mean_percentage_error_pct: 3.1560322434628065
+    polished_setpoints_periodic_mlp_harmonic_Bw:
+      mse: 0.0002970422607429494
+      mae: 0.017133516510112187
+      rmse: 0.01723491400451274
+      mean_percentage_error_pct: 40.686393906948716
+      p95_mean_percentage_error_pct: 40.686393906948716
+    polished_setpoints_periodic_gru_sequence_Bw:
+      mse: 0.00015956681767998019
+      mae: 0.012526634748499686
+      rmse: 0.01263197600060973
+      mean_percentage_error_pct: 29.746584444887695
+      p95_mean_percentage_error_pct: 29.746584444887695
+    polished_setpoints_wave4_1_mae_robust_loss_Bw:
+      mse: 9.744031772183971e-05
+      mae: 0.009797893984669967
+      rmse: 0.009871186236812662
+      mean_percentage_error_pct: 23.266734174711193
+      p95_mean_percentage_error_pct: 23.266734174711193
+    polished_setpoints_wave4_2_quantile_p10_p50_p90_Bw:
+      mse: 0.00019622305896538236
+      mae: 0.013949757640050965
+      rmse: 0.014007964126359775
+      mean_percentage_error_pct: 33.12602721774041
+      p95_mean_percentage_error_pct: 33.12602721774041
+  '30.75':
+    polished_setpoints_feedforward_Bw:
+      mse: 0.0001957748648505066
+      mae: 0.013869162802651314
+      rmse: 0.01399195714868033
+      mean_percentage_error_pct: 32.893803536469335
+      p95_mean_percentage_error_pct: 32.893803536469335
+    polished_setpoints_tree_Bw:
+      mse: 2.8592395381910738e-05
+      mae: 0.005196890328810747
+      rmse: 0.0053471857441004175
+      mean_percentage_error_pct: 12.3255809964102
+      p95_mean_percentage_error_pct: 12.3255809964102
+    polished_setpoints_harmonic_regression_Bw:
+      mse: 0.0001895367404176756
+      mae: 0.013703723807513665
+      rmse: 0.013767234305323476
+      mean_percentage_error_pct: 32.50142817245036
+      p95_mean_percentage_error_pct: 32.50142817245036
+    polished_setpoints_periodic_mlp_harmonic_Bw:
+      mse: 0.0002469352576725264
+      mae: 0.015580652415926969
+      rmse: 0.01571417378268824
+      mean_percentage_error_pct: 36.952981721545875
+      p95_mean_percentage_error_pct: 36.952981721545875
+    polished_setpoints_periodic_gru_sequence_Bw:
+      mse: 0.0001523048628642039
+      mae: 0.012241540737323137
+      rmse: 0.012341185634460083
+      mean_percentage_error_pct: 29.033535890155985
+      p95_mean_percentage_error_pct: 29.033535890155985
+    polished_setpoints_wave4_1_mae_robust_loss_Bw:
+      mse: 9.823936550680425e-05
+      mae: 0.009829935601459632
+      rmse: 0.009911577347062588
+      mean_percentage_error_pct: 23.313878065426287
+      p95_mean_percentage_error_pct: 23.313878065426287
+    polished_setpoints_wave4_2_quantile_p10_p50_p90_Bw:
+      mse: 0.00015428284797132586
+      mae: 0.012350014334734925
+      rmse: 0.012421064687510723
+      mean_percentage_error_pct: 29.29080514663016
+      p95_mean_percentage_error_pct: 29.29080514663016
+  '31.02':
+    polished_setpoints_feedforward_Bw:
+      mse: 0.0009271168214302783
+      mae: 0.026996132708905878
+      rmse: 0.030448593094431774
+      mean_percentage_error_pct: 30.920448528583186
+      p95_mean_percentage_error_pct: 30.920448528583186
+    polished_setpoints_tree_Bw:
+      mse: 0.00027429430065274794
+      mae: 0.013707940160497548
+      rmse: 0.016561832647770232
+      mean_percentage_error_pct: 15.700606554869065
+      p95_mean_percentage_error_pct: 15.700606554869065
+    polished_setpoints_harmonic_regression_Bw:
+      mse: 0.0003612053157394848
+      mae: 0.015392769155885331
+      rmse: 0.019005402277759997
+      mean_percentage_error_pct: 17.630352151880686
+      p95_mean_percentage_error_pct: 17.630352151880686
+    polished_setpoints_periodic_mlp_harmonic_Bw:
+      mse: 0.0006244984331473255
+      mae: 0.02112073065649921
+      rmse: 0.0249899666495841
+      mean_percentage_error_pct: 24.190963653653665
+      p95_mean_percentage_error_pct: 24.190963653653665
+    polished_setpoints_periodic_gru_sequence_Bw:
+      mse: 0.00047700833304982856
+      mae: 0.018140554893098026
+      rmse: 0.021840520439079022
+      mean_percentage_error_pct: 20.777572102649092
+      p95_mean_percentage_error_pct: 20.777572102649092
+    polished_setpoints_wave4_1_mae_robust_loss_Bw:
+      mse: 0.00038029286359135696
+      mae: 0.015938394470066966
+      rmse: 0.019501099035473795
+      mean_percentage_error_pct: 18.255292754483353
+      p95_mean_percentage_error_pct: 18.255292754483353
+    polished_setpoints_wave4_2_quantile_p10_p50_p90_Bw:
+      mse: 0.00047608616315050604
+      mae: 0.01801225669256469
+      rmse: 0.02181939878068381
+      mean_percentage_error_pct: 20.630623724943415
+      p95_mean_percentage_error_pct: 20.630623724943415
+  '30.07':
+    polished_setpoints_feedforward_Bw:
+      mse: 5.576917299743646e-05
+      mae: 0.007324910345423169
+      rmse: 0.0074678760700373475
+      mean_percentage_error_pct: 17.929313236244106
+      p95_mean_percentage_error_pct: 17.929313236244106
+    polished_setpoints_tree_Bw:
+      mse: 1.585511926362932e-06
+      mae: 0.001022273031228746
+      rmse: 0.001259171126719054
+      mean_percentage_error_pct: 2.5022358671348446
+      p95_mean_percentage_error_pct: 2.5022358671348446
+    polished_setpoints_harmonic_regression_Bw:
+      mse: 0.0010977108985028516
+      mae: 0.03310988397460434
+      rmse: 0.033131720427753995
+      mean_percentage_error_pct: 81.0436514581101
+      p95_mean_percentage_error_pct: 81.0436514581101
+    polished_setpoints_periodic_mlp_harmonic_Bw:
+      mse: 5.8781119307868095e-05
+      mae: 0.0074335804570652845
+      rmse: 0.007666884589444927
+      mean_percentage_error_pct: 18.195306999876518
+      p95_mean_percentage_error_pct: 18.195306999876518
+    polished_setpoints_periodic_gru_sequence_Bw:
+      mse: 3.1563683613930045e-06
+      mae: 0.0014590502726476912
+      rmse: 0.0017766171116458955
+      mean_percentage_error_pct: 3.5713432836858208
+      p95_mean_percentage_error_pct: 3.5713432836858208
+    polished_setpoints_wave4_1_mae_robust_loss_Bw:
+      mse: 2.0957470210429257e-05
+      mae: 0.004301605900099048
+      rmse: 0.004577932962640373
+      mean_percentage_error_pct: 10.529117213010203
+      p95_mean_percentage_error_pct: 10.529117213010203
+    polished_setpoints_wave4_2_quantile_p10_p50_p90_Bw:
+      mse: 8.23164795520711e-05
+      mae: 0.008937167318870377
+      rmse: 0.009072842969657918
+      mean_percentage_error_pct: 21.87566328438028
+      p95_mean_percentage_error_pct: 21.87566328438028
+  '32.25':
+    polished_setpoints_feedforward_Bw:
+      mse: 0.0006149701466550008
+      mae: 0.02422646686579861
+      rmse: 0.024798591626441224
+      mean_percentage_error_pct: 42.62554695033191
+      p95_mean_percentage_error_pct: 42.62554695033191
+    polished_setpoints_tree_Bw:
+      mse: 5.520189472241895e-05
+      mae: 0.006139807773101051
+      rmse: 0.007429797757840986
+      mean_percentage_error_pct: 10.802758237430032
+      p95_mean_percentage_error_pct: 10.802758237430032
+    polished_setpoints_harmonic_regression_Bw:
+      mse: 4.862380256248527e-05
+      mae: 0.005796925354889363
+      rmse: 0.006973076979532441
+      mean_percentage_error_pct: 10.199469664775679
+      p95_mean_percentage_error_pct: 10.199469664775679
+    polished_setpoints_periodic_mlp_harmonic_Bw:
+      mse: 0.00038634800245246836
+      mae: 0.01903017787959807
+      rmse: 0.019655737138364167
+      mean_percentage_error_pct: 33.482874129910215
+      p95_mean_percentage_error_pct: 33.482874129910215
+    polished_setpoints_periodic_gru_sequence_Bw:
+      mse: 0.00022881420498204532
+      mae: 0.014277904457829007
+      rmse: 0.01512660586457006
+      mean_percentage_error_pct: 25.121429806123793
+      p95_mean_percentage_error_pct: 25.121429806123793
+    polished_setpoints_wave4_1_mae_robust_loss_Bw:
+      mse: 0.00012871582990645804
+      mae: 0.010287230511405343
+      rmse: 0.011345299903768875
+      mean_percentage_error_pct: 18.099990790313726
+      p95_mean_percentage_error_pct: 18.099990790313726
+    polished_setpoints_wave4_2_quantile_p10_p50_p90_Bw:
+      mse: 0.0002307110298936314
+      mae: 0.014420505074372664
+      rmse: 0.01518917476012543
+      mean_percentage_error_pct: 25.372330166844947
+      p95_mean_percentage_error_pct: 25.372330166844947
+  '33.015':
+    polished_setpoints_feedforward_Bw:
+      mse: 0.0005499987713659134
+      mae: 0.022555756404547503
+      rmse: 0.02345205260453578
+      mean_percentage_error_pct: 38.05069766436705
+      p95_mean_percentage_error_pct: 38.05069766436705
+    polished_setpoints_tree_Bw:
+      mse: 9.854041326257203e-05
+      mae: 0.00839217720363565
+      rmse: 0.009926752402602376
+      mean_percentage_error_pct: 14.15728170645402
+      p95_mean_percentage_error_pct: 14.15728170645402
+    polished_setpoints_harmonic_regression_Bw:
+      mse: 0.00034993227716407393
+      mae: 0.017855879109939216
+      rmse: 0.018706476877383242
+      mean_percentage_error_pct: 30.12218457044534
+      p95_mean_percentage_error_pct: 30.12218457044534
+    polished_setpoints_periodic_mlp_harmonic_Bw:
+      mse: 0.0003693111605671284
+      mae: 0.018373135657877557
+      rmse: 0.019217470191654477
+      mean_percentage_error_pct: 30.99477656725144
+      p95_mean_percentage_error_pct: 30.99477656725144
+    polished_setpoints_periodic_gru_sequence_Bw:
+      mse: 0.0002822279565564219
+      mae: 0.01575367857374389
+      rmse: 0.016799641560355443
+      mean_percentage_error_pct: 26.57585273399619
+      p95_mean_percentage_error_pct: 26.57585273399619
+    polished_setpoints_wave4_1_mae_robust_loss_Bw:
+      mse: 0.00014159737965173863
+      mae: 0.010569577990272255
+      rmse: 0.011899469721451398
+      mean_percentage_error_pct: 17.830473486879548
+      p95_mean_percentage_error_pct: 17.830473486879548
+    polished_setpoints_wave4_2_quantile_p10_p50_p90_Bw:
+      mse: 0.0002244146336388735
+      mae: 0.013946884782053531
+      rmse: 0.014980475080546462
+      mean_percentage_error_pct: 23.527860767936275
+      p95_mean_percentage_error_pct: 23.527860767936275
+  '32.12':
+    polished_setpoints_feedforward_Bw:
+      mse: 0.00025765075919112165
+      mae: 0.012811106165388116
+      rmse: 0.016051503331187444
+      mean_percentage_error_pct: 21.11557789310982
+      p95_mean_percentage_error_pct: 21.11557789310982
+    polished_setpoints_tree_Bw:
+      mse: 9.705089978910438e-05
+      mae: 0.008040085442674656
+      rmse: 0.009851441508180637
+      mean_percentage_error_pct: 13.251865080216653
+      p95_mean_percentage_error_pct: 13.251865080216653
+    polished_setpoints_harmonic_regression_Bw:
+      mse: 0.0008139148436738659
+      mae: 0.027771689920272263
+      rmse: 0.028529192832498187
+      mean_percentage_error_pct: 45.773977216668875
+      p95_mean_percentage_error_pct: 45.773977216668875
+    polished_setpoints_periodic_mlp_harmonic_Bw:
+      mse: 0.00025113735885780173
+      mae: 0.014347255721308842
+      rmse: 0.015847313931950793
+      mean_percentage_error_pct: 23.647497087655616
+      p95_mean_percentage_error_pct: 23.647497087655616
+    polished_setpoints_periodic_gru_sequence_Bw:
+      mse: 0.00029147896246174313
+      mae: 0.01563351166486326
+      rmse: 0.017072754975742583
+      mean_percentage_error_pct: 25.767535530548027
+      p95_mean_percentage_error_pct: 25.767535530548027
+    polished_setpoints_wave4_1_mae_robust_loss_Bw:
+      mse: 0.00014982721847605008
+      mae: 0.01053438356646371
+      rmse: 0.012240392905297203
+      mean_percentage_error_pct: 17.36302813214737
+      p95_mean_percentage_error_pct: 17.36302813214737
+    polished_setpoints_wave4_2_quantile_p10_p50_p90_Bw:
+      mse: 0.0001475403395982763
+      mae: 0.010443713195380514
+      rmse: 0.012146618442936137
+      mean_percentage_error_pct: 17.213583013319386
+      p95_mean_percentage_error_pct: 17.213583013319386
+  '32.83':
+    polished_setpoints_feedforward_Bw:
+      mse: 0.00013409876977541556
+      mae: 0.010916690201579177
+      rmse: 0.011580102321457076
+      mean_percentage_error_pct: 20.345782194233017
+      p95_mean_percentage_error_pct: 20.345782194233017
+    polished_setpoints_tree_Bw:
+      mse: 2.6460430156104137e-05
+      mae: 0.0042692947840537775
+      rmse: 0.005143970271697158
+      mean_percentage_error_pct: 7.956820262863925
+      p95_mean_percentage_error_pct: 7.956820262863925
+    polished_setpoints_harmonic_regression_Bw:
+      mse: 0.0007652931018302203
+      mae: 0.027440702331057058
+      rmse: 0.027663931423971905
+      mean_percentage_error_pct: 51.14210832910755
+      p95_mean_percentage_error_pct: 51.14210832910755
+    polished_setpoints_periodic_mlp_harmonic_Bw:
+      mse: 0.0001805181776416661
+      mae: 0.01280315258610362
+      rmse: 0.013435705327286175
+      mean_percentage_error_pct: 23.86164204593016
+      p95_mean_percentage_error_pct: 23.86164204593016
+    polished_setpoints_periodic_gru_sequence_Bw:
+      mse: 7.634730237116187e-05
+      mae: 0.007889234547588213
+      rmse: 0.008737694339536138
+      mean_percentage_error_pct: 14.703416953357252
+      p95_mean_percentage_error_pct: 14.703416953357252
+    polished_setpoints_wave4_1_mae_robust_loss_Bw:
+      mse: 6.0787195298920745e-05
+      mae: 0.006915502241755281
+      rmse: 0.0077966143484797775
+      mean_percentage_error_pct: 12.888641133567178
+      p95_mean_percentage_error_pct: 12.888641133567178
+    polished_setpoints_wave4_2_quantile_p10_p50_p90_Bw:
+      mse: 0.00012778615246202953
+      mae: 0.010693328917572789
+      rmse: 0.011304253733087802
+      mean_percentage_error_pct: 19.929496676268904
+      p95_mean_percentage_error_pct: 19.929496676268904
+  '30.03':
+    polished_setpoints_feedforward_Bw:
+      mse: 5.3671129411389247e-05
+      mae: 0.00679254505145191
+      rmse: 0.007326058245154023
+      mean_percentage_error_pct: 15.51805060513163
+      p95_mean_percentage_error_pct: 15.51805060513163
+    polished_setpoints_tree_Bw:
+      mse: 5.255136012289499e-06
+      mae: 0.0019052561975578652
+      rmse: 0.0022924083432690387
+      mean_percentage_error_pct: 4.352692822129152
+      p95_mean_percentage_error_pct: 4.352692822129152
+    polished_setpoints_harmonic_regression_Bw:
+      mse: 0.0011857269227066366
+      mae: 0.034367537019101696
+      rmse: 0.03443438576055389
+      mean_percentage_error_pct: 78.51507418742227
+      p95_mean_percentage_error_pct: 78.51507418742227
+    polished_setpoints_periodic_mlp_harmonic_Bw:
+      mse: 9.19169737285851e-06
+      mae: 0.0027586059703457134
+      rmse: 0.0030317812211402245
+      mean_percentage_error_pct: 6.302230860919024
+      p95_mean_percentage_error_pct: 6.302230860919024
+    polished_setpoints_periodic_gru_sequence_Bw:
+      mse: 1.0537067714949187e-05
+      mae: 0.003065346211919354
+      rmse: 0.0032460849827059654
+      mean_percentage_error_pct: 7.003000683616424
+      p95_mean_percentage_error_pct: 7.003000683616424
+    polished_setpoints_wave4_1_mae_robust_loss_Bw:
+      mse: 1.5799228372360874e-05
+      mae: 0.0038152862453465293
+      rmse: 0.003974824319685195
+      mean_percentage_error_pct: 8.716291843466658
+      p95_mean_percentage_error_pct: 8.716291843466658
+    polished_setpoints_wave4_2_quantile_p10_p50_p90_Bw:
+      mse: 1.5735694987939236e-05
+      mae: 0.003793008948998227
+      rmse: 0.003966824295067685
+      mean_percentage_error_pct: 8.66539778101144
+      p95_mean_percentage_error_pct: 8.66539778101144
+  '29.98':
+    polished_setpoints_feedforward_Bw:
+      mse: 4.308073330693601e-05
+      mae: 0.006355708115937771
+      rmse: 0.006563591494520055
+      mean_percentage_error_pct: 14.932354269437168
+      p95_mean_percentage_error_pct: 14.932354269437168
+    polished_setpoints_tree_Bw:
+      mse: 6.749679549680996e-06
+      mae: 0.002239543373489292
+      rmse: 0.0025980145399287116
+      mean_percentage_error_pct: 5.26167256970993
+      p95_mean_percentage_error_pct: 5.26167256970993
+    polished_setpoints_harmonic_regression_Bw:
+      mse: 0.00025971717556406694
+      mae: 0.01603886760845935
+      rmse: 0.016115743096862364
+      mean_percentage_error_pct: 37.68235558356475
+      p95_mean_percentage_error_pct: 37.68235558356475
+    polished_setpoints_periodic_mlp_harmonic_Bw:
+      mse: 3.111163794433924e-05
+      mae: 0.00548600406052534
+      rmse: 0.005577780736488235
+      mean_percentage_error_pct: 12.889036856477516
+      p95_mean_percentage_error_pct: 12.889036856477516
+    polished_setpoints_periodic_gru_sequence_Bw:
+      mse: 1.531913930678335e-05
+      mae: 0.00381933137482877
+      rmse: 0.003913967208189582
+      mean_percentage_error_pct: 8.973289540831095
+      p95_mean_percentage_error_pct: 8.973289540831095
+    polished_setpoints_wave4_1_mae_robust_loss_Bw:
+      mse: 1.9191635551787355e-05
+      mae: 0.004281930655448591
+      rmse: 0.004380825898365211
+      mean_percentage_error_pct: 10.060138750548576
+      p95_mean_percentage_error_pct: 10.060138750548576
+    polished_setpoints_wave4_2_quantile_p10_p50_p90_Bw:
+      mse: 3.5827832571834365e-05
+      mae: 0.005915508352946889
+      rmse: 0.005985635519461101
+      mean_percentage_error_pct: 13.898131380280423
+      p95_mean_percentage_error_pct: 13.898131380280423
+  '29.63':
+    polished_setpoints_feedforward_Bw:
+      mse: 3.400935149054483e-05
+      mae: 0.005683102807592516
+      rmse: 0.005831753723413295
+      mean_percentage_error_pct: 13.877149811126362
+      p95_mean_percentage_error_pct: 13.877149811126362
+    polished_setpoints_tree_Bw:
+      mse: 6.352051777548613e-06
+      mae: 0.0022818154312139417
+      rmse: 0.002520327712331992
+      mean_percentage_error_pct: 5.571796895525417
+      p95_mean_percentage_error_pct: 5.571796895525417
+    polished_setpoints_harmonic_regression_Bw:
+      mse: 2.649939216114012e-06
+      mae: 0.0012991834441803533
+      rmse: 0.0016278633898807395
+      mean_percentage_error_pct: 3.1723802819367504
+      p95_mean_percentage_error_pct: 3.1723802819367504
+    polished_setpoints_periodic_mlp_harmonic_Bw:
+      mse: 3.3773194969439956e-05
+      mae: 0.005731851892663672
+      rmse: 0.0058114709815536335
+      mean_percentage_error_pct: 13.996186608381548
+      p95_mean_percentage_error_pct: 13.996186608381548
+    polished_setpoints_periodic_gru_sequence_Bw:
+      mse: 1.4124023721528348e-05
+      mae: 0.0036621805445584297
+      rmse: 0.0037581942101930213
+      mean_percentage_error_pct: 8.942408711018613
+      p95_mean_percentage_error_pct: 8.942408711018613
+    polished_setpoints_wave4_1_mae_robust_loss_Bw:
+      mse: 1.717623250039214e-05
+      mae: 0.004064912131442324
+      rmse: 0.004144421853575254
+      mean_percentage_error_pct: 9.925809285330583
+      p95_mean_percentage_error_pct: 9.925809285330583
+    polished_setpoints_wave4_2_quantile_p10_p50_p90_Bw:
+      mse: 2.4467386477625935e-05
+      mae: 0.004889269409382164
+      rmse: 0.004946451907946335
+      mean_percentage_error_pct: 11.938746554137376
+      p95_mean_percentage_error_pct: 11.938746554137376
+  '31.96':
+    polished_setpoints_feedforward_Bw:
+      mse: 6.87337389320522e-05
+      mae: 0.00812072154548433
+      rmse: 0.008290581338606611
+      mean_percentage_error_pct: 19.863561322476386
+      p95_mean_percentage_error_pct: 19.863561322476386
+    polished_setpoints_tree_Bw:
+      mse: 4.113765030409157e-06
+      mae: 0.0017346908376310712
+      rmse: 0.0020282418569808574
+      mean_percentage_error_pct: 4.243112836196582
+      p95_mean_percentage_error_pct: 4.243112836196582
+    polished_setpoints_harmonic_regression_Bw:
+      mse: 7.714816549486973e-05
+      mae: 0.00869522844809165
+      rmse: 0.008783402842570169
+      mean_percentage_error_pct: 21.26882476196375
+      p95_mean_percentage_error_pct: 21.26882476196375
+    polished_setpoints_periodic_mlp_harmonic_Bw:
+      mse: 5.29075600659698e-05
+      mae: 0.007189359911832453
+      rmse: 0.0072737583178141
+      mean_percentage_error_pct: 17.58541906383273
+      p95_mean_percentage_error_pct: 17.58541906383273
+    polished_setpoints_periodic_gru_sequence_Bw:
+      mse: 2.185292769200117e-05
+      mae: 0.004597278686849699
+      rmse: 0.004674711508959796
+      mean_percentage_error_pct: 11.245100155358962
+      p95_mean_percentage_error_pct: 11.245100155358962
+    polished_setpoints_wave4_1_mae_robust_loss_Bw:
+      mse: 2.1796680801380676e-05
+      mae: 0.004594384199755703
+      rmse: 0.004668691551321492
+      mean_percentage_error_pct: 11.23802014140125
+      p95_mean_percentage_error_pct: 11.23802014140125
+    polished_setpoints_wave4_2_quantile_p10_p50_p90_Bw:
+      mse: 4.691033211402564e-05
+      mae: 0.006804029418408503
+      rmse: 0.006849111775553502
+      mean_percentage_error_pct: 16.642887560606532
+      p95_mean_percentage_error_pct: 16.642887560606532
+  '32.16':
+    polished_setpoints_feedforward_Bw:
+      mse: 8.093684677358002e-05
+      mae: 0.008834176904487389
+      rmse: 0.008996490803284357
+      mean_percentage_error_pct: 21.5201309040177
+      p95_mean_percentage_error_pct: 21.5201309040177
+    polished_setpoints_tree_Bw:
+      mse: 6.240684040439669e-06
+      mae: 0.0021657875756859596
+      rmse: 0.002498136113273188
+      mean_percentage_error_pct: 5.275877157880106
+      p95_mean_percentage_error_pct: 5.275877157880106
+    polished_setpoints_harmonic_regression_Bw:
+      mse: 0.00024836826631393396
+      mae: 0.015692381846120602
+      rmse: 0.015759703877736217
+      mean_percentage_error_pct: 38.22677711522937
+      p95_mean_percentage_error_pct: 38.22677711522937
+    polished_setpoints_periodic_mlp_harmonic_Bw:
+      mse: 5.6159722285183136e-05
+      mae: 0.007399649473516569
+      rmse: 0.007493979068904792
+      mean_percentage_error_pct: 18.025609746736485
+      p95_mean_percentage_error_pct: 18.025609746736485
+    polished_setpoints_periodic_gru_sequence_Bw:
+      mse: 2.728498892594604e-05
+      mae: 0.0051458936591667155
+      rmse: 0.005223503510666576
+      mean_percentage_error_pct: 12.53544120303624
+      p95_mean_percentage_error_pct: 12.53544120303624
+    polished_setpoints_wave4_1_mae_robust_loss_Bw:
+      mse: 2.583103779729071e-05
+      mae: 0.004991617948851652
+      rmse: 0.005082424401532276
+      mean_percentage_error_pct: 12.159624246098911
+      p95_mean_percentage_error_pct: 12.159624246098911
+    polished_setpoints_wave4_2_quantile_p10_p50_p90_Bw:
+      mse: 5.844510914440671e-05
+      mae: 0.007586723601468551
+      rmse: 0.007644940100772975
+      mean_percentage_error_pct: 18.481323931069454
+      p95_mean_percentage_error_pct: 18.481323931069454
+  '31.51':
+    polished_setpoints_feedforward_Bw:
+      mse: 0.00015857287388164863
+      mae: 0.012431610242979946
+      rmse: 0.012592572170992257
+      mean_percentage_error_pct: 29.530379494992864
+      p95_mean_percentage_error_pct: 29.530379494992864
+    polished_setpoints_tree_Bw:
+      mse: 1.2669390874971177e-05
+      mae: 0.0032144188731356147
+      rmse: 0.003559408781661805
+      mean_percentage_error_pct: 7.635616571325864
+      p95_mean_percentage_error_pct: 7.635616571325864
+    polished_setpoints_harmonic_regression_Bw:
+      mse: 0.00047645134192887846
+      mae: 0.021762145364993195
+      rmse: 0.021827765390183176
+      mean_percentage_error_pct: 51.694382199308926
+      p95_mean_percentage_error_pct: 51.694382199308926
+    polished_setpoints_periodic_mlp_harmonic_Bw:
+      mse: 8.213484394256284e-05
+      mae: 0.008953932909090804
+      rmse: 0.009062827590910181
+      mean_percentage_error_pct: 21.269411734289953
+      p95_mean_percentage_error_pct: 21.269411734289953
+    polished_setpoints_periodic_gru_sequence_Bw:
+      mse: 5.114992755342512e-05
+      mae: 0.007056002446438087
+      rmse: 0.0071519177535417115
+      mean_percentage_error_pct: 16.761016946986253
+      p95_mean_percentage_error_pct: 16.761016946986253
+    polished_setpoints_wave4_1_mae_robust_loss_Bw:
+      mse: 4.5003527560038036e-05
+      mae: 0.0066070659526082
+      rmse: 0.006708466856148135
+      mean_percentage_error_pct: 15.694601191277181
+      p95_mean_percentage_error_pct: 15.694601191277181
+    polished_setpoints_wave4_2_quantile_p10_p50_p90_Bw:
+      mse: 8.507526418742718e-05
+      mae: 0.009145036559612584
+      rmse: 0.009223625327788807
+      mean_percentage_error_pct: 21.723364457427603
+      p95_mean_percentage_error_pct: 21.723364457427603
+  '32.24':
+    polished_setpoints_feedforward_Bw:
+      mse: 0.00012188523009778217
+      mae: 0.010908056540585243
+      rmse: 0.011040164405378307
+      mean_percentage_error_pct: 27.14687241287456
+      p95_mean_percentage_error_pct: 27.14687241287456
+    polished_setpoints_tree_Bw:
+      mse: 1.2579127424534873e-05
+      mae: 0.0033607558159966314
+      rmse: 0.0035467065602520424
+      mean_percentage_error_pct: 8.363910565391308
+      p95_mean_percentage_error_pct: 8.363910565391308
+    polished_setpoints_harmonic_regression_Bw:
+      mse: 1.228909761409698e-06
+      mae: 0.0008964783044190839
+      rmse: 0.0011085620241599917
+      mean_percentage_error_pct: 2.2310649069728123
+      p95_mean_percentage_error_pct: 2.2310649069728123
+    polished_setpoints_periodic_mlp_harmonic_Bw:
+      mse: 0.00010825714211925533
+      mae: 0.010332987272332004
+      rmse: 0.010404669246028696
+      mean_percentage_error_pct: 25.715697941441338
+      p95_mean_percentage_error_pct: 25.715697941441338
+    polished_setpoints_periodic_gru_sequence_Bw:
+      mse: 4.972415705767436e-05
+      mae: 0.006982404141631284
+      rmse: 0.007051535794256054
+      mean_percentage_error_pct: 17.377104130578843
+      p95_mean_percentage_error_pct: 17.377104130578843
+    polished_setpoints_wave4_1_mae_robust_loss_Bw:
+      mse: 4.206791771176509e-05
+      mae: 0.006429005862901623
+      rmse: 0.006485978546970772
+      mean_percentage_error_pct: 15.999862235078687
+      p95_mean_percentage_error_pct: 15.999862235078687
+    polished_setpoints_wave4_2_quantile_p10_p50_p90_Bw:
+      mse: 7.643555821223583e-05
+      mae: 0.008703446950113838
+      rmse: 0.008742743174326684
+      mean_percentage_error_pct: 21.660262121659855
+      p95_mean_percentage_error_pct: 21.660262121659855
+  '32.49':
+    polished_setpoints_feedforward_Bw:
+      mse: 2.1409331233452194e-05
+      mae: 0.004537087355702991
+      rmse: 0.004627021853574088
+      mean_percentage_error_pct: 11.771410371388189
+      p95_mean_percentage_error_pct: 11.771410371388189
+    polished_setpoints_tree_Bw:
+      mse: 7.844081268335931e-07
+      mae: 0.0007167318295576782
+      rmse: 0.0008856681809987266
+      mean_percentage_error_pct: 1.8595508154266156
+      p95_mean_percentage_error_pct: 1.8595508154266156
+    polished_setpoints_harmonic_regression_Bw:
+      mse: 0.0008922672126048636
+      mae: 0.02986087485224893
+      rmse: 0.029870842181044438
+      mean_percentage_error_pct: 77.47362666329455
+      p95_mean_percentage_error_pct: 77.47362666329455
+    polished_setpoints_periodic_mlp_harmonic_Bw:
+      mse: 2.6668977476988964e-05
+      mae: 0.005078825059309477
+      rmse: 0.005164201533343656
+      mean_percentage_error_pct: 13.176941348169953
+      p95_mean_percentage_error_pct: 13.176941348169953
+    polished_setpoints_periodic_gru_sequence_Bw:
+      mse: 1.1099094217976712e-06
+      mae: 0.0008508538644623851
+      rmse: 0.0010535223878958013
+      mean_percentage_error_pct: 2.207528579338179
+      p95_mean_percentage_error_pct: 2.207528579338179
+    polished_setpoints_wave4_1_mae_robust_loss_Bw:
+      mse: 1.0011481818784909e-05
+      mae: 0.003071398083160817
+      rmse: 0.003164092574307033
+      mean_percentage_error_pct: 7.968699832357343
+      p95_mean_percentage_error_pct: 7.968699832357343
+    polished_setpoints_wave4_2_quantile_p10_p50_p90_Bw:
+      mse: 2.2086773092228196e-05
+      mae: 0.0046262423419882156
+      rmse: 0.004699656699401372
+      mean_percentage_error_pct: 12.002721749799207
+      p95_mean_percentage_error_pct: 12.002721749799207
+  '31.41':
+    polished_setpoints_feedforward_Bw:
+      mse: 0.00021838867093980287
+      mae: 0.014453874700099092
+      rmse: 0.01477797925765911
+      mean_percentage_error_pct: 32.34672260374944
+      p95_mean_percentage_error_pct: 32.34672260374944
+    polished_setpoints_tree_Bw:
+      mse: 2.211833123626212e-05
+      mae: 0.0043045307950254665
+      rmse: 0.004703012995544677
+      mean_percentage_error_pct: 9.633227522377181
+      p95_mean_percentage_error_pct: 9.633227522377181
+    polished_setpoints_harmonic_regression_Bw:
+      mse: 0.0007690615718427307
+      mae: 0.02766076018266311
+      rmse: 0.027731959394221153
+      mean_percentage_error_pct: 61.90277383761375
+      p95_mean_percentage_error_pct: 61.90277383761375
+    polished_setpoints_periodic_mlp_harmonic_Bw:
+      mse: 0.0001013550533707079
+      mae: 0.009882546850152451
+      rmse: 0.010067524689351792
+      mean_percentage_error_pct: 22.116422634980193
+      p95_mean_percentage_error_pct: 22.116422634980193
+    polished_setpoints_periodic_gru_sequence_Bw:
+      mse: 8.679441777612527e-05
+      mae: 0.009180890692794626
+      rmse: 0.009316352171108887
+      mean_percentage_error_pct: 20.546167076786467
+      p95_mean_percentage_error_pct: 20.546167076786467
+    polished_setpoints_wave4_1_mae_robust_loss_Bw:
+      mse: 6.652731276134098e-05
+      mae: 0.008050195278720586
+      rmse: 0.008156427696077552
+      mean_percentage_error_pct: 18.015752799144096
+      p95_mean_percentage_error_pct: 18.015752799144096
+    polished_setpoints_wave4_2_quantile_p10_p50_p90_Bw:
+      mse: 9.643533255354108e-05
+      mae: 0.0097294513818256
+      rmse: 0.009820149314218245
+      mean_percentage_error_pct: 21.773806087610666
+      p95_mean_percentage_error_pct: 21.773806087610666
+  '32.72':
+    polished_setpoints_feedforward_Bw:
+      mse: 3.012968830278064e-05
+      mae: 0.005381629511003415
+      rmse: 0.005489051676089472
+      mean_percentage_error_pct: 13.95948406491735
+      p95_mean_percentage_error_pct: 13.95948406491735
+    polished_setpoints_tree_Bw:
+      mse: 3.5581802781977647e-06
+      mae: 0.0017471630344826341
+      rmse: 0.0018863139394591148
+      mean_percentage_error_pct: 4.53199063384159
+      p95_mean_percentage_error_pct: 4.53199063384159
+    polished_setpoints_harmonic_regression_Bw:
+      mse: 0.00044937025832159907
+      mae: 0.021184977446998363
+      rmse: 0.02119835508527959
+      mean_percentage_error_pct: 54.952009327722635
+      p95_mean_percentage_error_pct: 54.952009327722635
+    polished_setpoints_periodic_mlp_harmonic_Bw:
+      mse: 3.9610689275284624e-05
+      mae: 0.006216894494711109
+      rmse: 0.006293702350388412
+      mean_percentage_error_pct: 16.126089589547192
+      p95_mean_percentage_error_pct: 16.126089589547192
+    polished_setpoints_periodic_gru_sequence_Bw:
+      mse: 1.797443784753483e-05
+      mae: 0.004147508513860195
+      rmse: 0.004239627088263169
+      mean_percentage_error_pct: 10.758280347980591
+      p95_mean_percentage_error_pct: 10.758280347980591
+    polished_setpoints_wave4_1_mae_robust_loss_Bw:
+      mse: 1.039564533402156e-05
+      mae: 0.0031379643381987156
+      rmse: 0.003224227866330412
+      mean_percentage_error_pct: 8.139609589586273
+      p95_mean_percentage_error_pct: 8.139609589586273
+    polished_setpoints_wave4_2_quantile_p10_p50_p90_Bw:
+      mse: 2.0475323695821564e-05
+      mae: 0.004467492406572109
+      rmse: 0.004524966706598134
+      mean_percentage_error_pct: 11.588291043107269
+      p95_mean_percentage_error_pct: 11.588291043107269
+  '36.17':
+    polished_setpoints_feedforward_Bw:
+      mse: 0.00020594235892459884
+      mae: 0.014132019519803992
+      rmse: 0.01435069193191042
+      mean_percentage_error_pct: 31.631471576283836
+      p95_mean_percentage_error_pct: 31.631471576283836
+    polished_setpoints_tree_Bw:
+      mse: 1.5026676470418725e-05
+      mae: 0.003445217250645115
+      rmse: 0.003876425733896978
+      mean_percentage_error_pct: 7.7113742579528495
+      p95_mean_percentage_error_pct: 7.7113742579528495
+    polished_setpoints_harmonic_regression_Bw:
+      mse: 0.00021189875369611233
+      mae: 0.01443155236861289
+      rmse: 0.01455674255100063
+      mean_percentage_error_pct: 32.30191112527997
+      p95_mean_percentage_error_pct: 32.30191112527997
+    polished_setpoints_periodic_mlp_harmonic_Bw:
+      mse: 0.00013011109390159372
+      mae: 0.011203525849635264
+      rmse: 0.011406625000480805
+      mean_percentage_error_pct: 25.076671382337167
+      p95_mean_percentage_error_pct: 25.076671382337167
+    polished_setpoints_periodic_gru_sequence_Bw:
+      mse: 6.423147286925889e-05
+      mae: 0.007863912497093296
+      rmse: 0.008014453996951937
+      mean_percentage_error_pct: 17.601668627870666
+      p95_mean_percentage_error_pct: 17.601668627870666
+    polished_setpoints_wave4_1_mae_robust_loss_Bw:
+      mse: 2.8498068805506445e-05
+      mae: 0.00511205330440284
+      rmse: 0.005338358250015302
+      mean_percentage_error_pct: 11.442226538681503
+      p95_mean_percentage_error_pct: 11.442226538681503
+    polished_setpoints_wave4_2_quantile_p10_p50_p90_Bw:
+      mse: 0.00010315770524780558
+      mae: 0.010043462341384955
+      rmse: 0.010156658173228318
+      mean_percentage_error_pct: 22.480119924388667
+      p95_mean_percentage_error_pct: 22.480119924388667
+  '36.32':
+    polished_setpoints_feedforward_Bw:
+      mse: 0.00021252631320607644
+      mae: 0.014325218801214188
+      rmse: 0.014578282244697982
+      mean_percentage_error_pct: 32.0351585731213
+      p95_mean_percentage_error_pct: 32.0351585731213
+    polished_setpoints_tree_Bw:
+      mse: 1.2138575618329494e-05
+      mae: 0.00303832123989293
+      rmse: 0.003484045869148323
+      mean_percentage_error_pct: 6.794528172079486
+      p95_mean_percentage_error_pct: 6.794528172079486
+    polished_setpoints_harmonic_regression_Bw:
+      mse: 0.0003458525653989999
+      mae: 0.018488579829234953
+      rmse: 0.018597111748844226
+      mean_percentage_error_pct: 41.345587445488256
+      p95_mean_percentage_error_pct: 41.345587445488256
+    polished_setpoints_periodic_mlp_harmonic_Bw:
+      mse: 0.0001133058764060169
+      mae: 0.010413406321150346
+      rmse: 0.010644523305720032
+      mean_percentage_error_pct: 23.287261954848464
+      p95_mean_percentage_error_pct: 23.287261954848464
+    polished_setpoints_periodic_gru_sequence_Bw:
+      mse: 5.829818463349938e-05
+      mae: 0.007469705565748238
+      rmse: 0.007635324788998787
+      mean_percentage_error_pct: 16.704331404207895
+      p95_mean_percentage_error_pct: 16.704331404207895
+    polished_setpoints_wave4_1_mae_robust_loss_Bw:
+      mse: 2.178028274139103e-05
+      mae: 0.004386817304218195
+      rmse: 0.004666935047907891
+      mean_percentage_error_pct: 9.810139022800199
+      p95_mean_percentage_error_pct: 9.810139022800199
+    polished_setpoints_wave4_2_quantile_p10_p50_p90_Bw:
+      mse: 8.967800345926662e-05
+      mae: 0.009339639009647224
+      rmse: 0.009469847066308231
+      mean_percentage_error_pct: 20.886020719236683
+      p95_mean_percentage_error_pct: 20.886020719236683
+  '34.92':
+    polished_setpoints_feedforward_Bw:
+      mse: 4.409802858171742e-05
+      mae: 0.006534639456294286
+      rmse: 0.006640634652028179
+      mean_percentage_error_pct: 16.80417734409618
+      p95_mean_percentage_error_pct: 16.80417734409618
+    polished_setpoints_tree_Bw:
+      mse: 3.1331781033740927e-06
+      mae: 0.0016120786123027828
+      rmse: 0.001770078558531822
+      mean_percentage_error_pct: 4.145546984641543
+      p95_mean_percentage_error_pct: 4.145546984641543
+    polished_setpoints_harmonic_regression_Bw:
+      mse: 0.00046136324893471183
+      mae: 0.02146409880714093
+      rmse: 0.021479367982664477
+      mean_percentage_error_pct: 55.19608622614664
+      p95_mean_percentage_error_pct: 55.19608622614664
+    polished_setpoints_periodic_mlp_harmonic_Bw:
+      mse: 5.373790955267912e-05
+      mae: 0.007251667920703407
+      rmse: 0.007330614541269997
+      mean_percentage_error_pct: 18.648054662391054
+      p95_mean_percentage_error_pct: 18.648054662391054
+    polished_setpoints_periodic_gru_sequence_Bw:
+      mse: 2.1891679805343217e-05
+      mae: 0.0045752996691321044
+      rmse: 0.0046788545398786675
+      mean_percentage_error_pct: 11.765629543405675
+      p95_mean_percentage_error_pct: 11.765629543405675
+    polished_setpoints_wave4_1_mae_robust_loss_Bw:
+      mse: 1.1292419320145807e-05
+      mae: 0.0032557874007187407
+      rmse: 0.0033604195154988917
+      mean_percentage_error_pct: 8.372432670887935
+      p95_mean_percentage_error_pct: 8.372432670887935
+    polished_setpoints_wave4_2_quantile_p10_p50_p90_Bw:
+      mse: 2.6824680852474236e-05
+      mae: 0.005118599827892151
+      rmse: 0.005179254854945278
+      mean_percentage_error_pct: 13.16275516601145
+      p95_mean_percentage_error_pct: 13.16275516601145
+  '35.88':
+    polished_setpoints_feedforward_Bw:
+      mse: 0.0001725908100293213
+      mae: 0.012413519367951015
+      rmse: 0.01313738216043521
+      mean_percentage_error_pct: 25.028175990046666
+      p95_mean_percentage_error_pct: 25.028175990046666
+    polished_setpoints_tree_Bw:
+      mse: 1.9168119948403244e-05
+      mae: 0.0035705910346457695
+      rmse: 0.004378141152178998
+      mean_percentage_error_pct: 7.199036643413064
+      p95_mean_percentage_error_pct: 7.199036643413064
+    polished_setpoints_harmonic_regression_Bw:
+      mse: 2.2574195891049073e-05
+      mae: 0.003915989863793771
+      rmse: 0.0047512309869179245
+      mean_percentage_error_pct: 7.895430826757311
+      p95_mean_percentage_error_pct: 7.895430826757311
+    polished_setpoints_periodic_mlp_harmonic_Bw:
+      mse: 0.00014689067480775403
+      mae: 0.011491768470818831
+      rmse: 0.012119846319477571
+      mean_percentage_error_pct: 23.169738991755214
+      p95_mean_percentage_error_pct: 23.169738991755214
+    polished_setpoints_periodic_gru_sequence_Bw:
+      mse: 6.239223684452077e-05
+      mae: 0.0070173318374823325
+      rmse: 0.007898875669645698
+      mean_percentage_error_pct: 14.148366067926405
+      p95_mean_percentage_error_pct: 14.148366067926405
+    polished_setpoints_wave4_1_mae_robust_loss_Bw:
+      mse: 3.476314248357845e-05
+      mae: 0.004925920291941849
+      rmse: 0.005896027686805622
+      mean_percentage_error_pct: 9.931655667123874
+      p95_mean_percentage_error_pct: 9.931655667123874
+    polished_setpoints_wave4_2_quantile_p10_p50_p90_Bw:
+      mse: 8.17020580951128e-05
+      mae: 0.008236471272143041
+      rmse: 0.00903891907780531
+      mean_percentage_error_pct: 16.606398751701136
+      p95_mean_percentage_error_pct: 16.606398751701136
+  '35.54':
+    polished_setpoints_feedforward_Bw:
+      mse: 0.00017967725805420427
+      mae: 0.012797795671442022
+      rmse: 0.013404374586462596
+      mean_percentage_error_pct: 26.5283565612106
+      p95_mean_percentage_error_pct: 26.5283565612106
+    polished_setpoints_tree_Bw:
+      mse: 2.2784211050353433e-05
+      mae: 0.00426455426306505
+      rmse: 0.0047732809523799696
+      mean_percentage_error_pct: 8.839929857426219
+      p95_mean_percentage_error_pct: 8.839929857426219
+    polished_setpoints_harmonic_regression_Bw:
+      mse: 0.0007974720022401503
+      mae: 0.028141152275851008
+      rmse: 0.028239546778235487
+      mean_percentage_error_pct: 58.333367775435086
+      p95_mean_percentage_error_pct: 58.333367775435086
+    polished_setpoints_periodic_mlp_harmonic_Bw:
+      mse: 0.00011832404361186332
+      mae: 0.01046750006789457
+      rmse: 0.01087768558158689
+      mean_percentage_error_pct: 21.697922144924696
+      p95_mean_percentage_error_pct: 21.697922144924696
+    polished_setpoints_periodic_gru_sequence_Bw:
+      mse: 0.00010151553151483347
+      mae: 0.00979417409564489
+      rmse: 0.010075491626458407
+      mean_percentage_error_pct: 20.302194948433947
+      p95_mean_percentage_error_pct: 20.302194948433947
+    polished_setpoints_wave4_1_mae_robust_loss_Bw:
+      mse: 2.8367776976262718e-05
+      mae: 0.005004301764244373
+      rmse: 0.005326140908412273
+      mean_percentage_error_pct: 10.37334123391356
+      p95_mean_percentage_error_pct: 10.37334123391356
+    polished_setpoints_wave4_2_quantile_p10_p50_p90_Bw:
+      mse: 7.671023346096782e-05
+      mae: 0.00855823930988672
+      rmse: 0.008758437843643569
+      mean_percentage_error_pct: 17.74024447471601
+      p95_mean_percentage_error_pct: 17.74024447471601
+  '35.63':
+    polished_setpoints_feedforward_Bw:
+      mse: 0.00017779051835608377
+      mae: 0.01319267616726653
+      rmse: 0.013333811096460148
+      mean_percentage_error_pct: 31.359461490306085
+      p95_mean_percentage_error_pct: 31.359461490306085
+    polished_setpoints_tree_Bw:
+      mse: 2.0200081396953017e-05
+      mae: 0.004290235706648639
+      rmse: 0.004494450066131897
+      mean_percentage_error_pct: 10.198043196178912
+      p95_mean_percentage_error_pct: 10.198043196178912
+    polished_setpoints_harmonic_regression_Bw:
+      mse: 0.00014039798955711982
+      mae: 0.011781860549837951
+      rmse: 0.011848965758964781
+      mean_percentage_error_pct: 28.005902480463373
+      p95_mean_percentage_error_pct: 28.005902480463373
+    polished_setpoints_periodic_mlp_harmonic_Bw:
+      mse: 0.00018317677743960654
+      mae: 0.013409880584647704
+      rmse: 0.013534281563481918
+      mean_percentage_error_pct: 31.875764132471268
+      p95_mean_percentage_error_pct: 31.875764132471268
+    polished_setpoints_periodic_gru_sequence_Bw:
+      mse: 8.986167125553768e-05
+      mae: 0.009368510909190721
+      rmse: 0.009479539612003195
+      mean_percentage_error_pct: 22.26928436303393
+      p95_mean_percentage_error_pct: 22.26928436303393
+    polished_setpoints_wave4_1_mae_robust_loss_Bw:
+      mse: 3.976228634023505e-05
+      mae: 0.006167659526808699
+      rmse: 0.006305734401339391
+      mean_percentage_error_pct: 14.660746535731239
+      p95_mean_percentage_error_pct: 14.660746535731239
+    polished_setpoints_wave4_2_quantile_p10_p50_p90_Bw:
+      mse: 9.365800742016725e-05
+      mae: 0.00958510919600694
+      rmse: 0.009677706723194667
+      mean_percentage_error_pct: 22.784146211241243
+      p95_mean_percentage_error_pct: 22.784146211241243
+  '36.25':
+    polished_setpoints_feedforward_Bw:
+      mse: 0.00043108003682509123
+      mae: 0.020484844210994797
+      rmse: 0.020762467021649696
+      mean_percentage_error_pct: 44.80990521485206
+      p95_mean_percentage_error_pct: 44.80990521485206
+    polished_setpoints_tree_Bw:
+      mse: 3.104803964893845e-05
+      mae: 0.005206333253203741
+      rmse: 0.005572076780603301
+      mean_percentage_error_pct: 11.38867824378063
+      p95_mean_percentage_error_pct: 11.38867824378063
+    polished_setpoints_harmonic_regression_Bw:
+      mse: 0.00040820053822124123
+      mae: 0.020093925446824545
+      rmse: 0.02020397332757201
+      mean_percentage_error_pct: 43.954783614279954
+      p95_mean_percentage_error_pct: 43.954783614279954
+    polished_setpoints_periodic_mlp_harmonic_Bw:
+      mse: 0.00020173131425156127
+      mae: 0.013944666239659818
+      rmse: 0.014203214926612962
+      mean_percentage_error_pct: 30.503486676092187
+      p95_mean_percentage_error_pct: 30.503486676092187
+    polished_setpoints_periodic_gru_sequence_Bw:
+      mse: 0.00013093779614862177
+      mae: 0.011256702248440057
+      rmse: 0.011442805431738397
+      mean_percentage_error_pct: 24.62365618156271
+      p95_mean_percentage_error_pct: 24.62365618156271
+    polished_setpoints_wave4_1_mae_robust_loss_Bw:
+      mse: 3.952577876909406e-05
+      mae: 0.006074611496233414
+      rmse: 0.006286953059240546
+      mean_percentage_error_pct: 13.288007590371178
+      p95_mean_percentage_error_pct: 13.288007590371178
+    polished_setpoints_wave4_2_quantile_p10_p50_p90_Bw:
+      mse: 0.0001306155914455761
+      mae: 0.011300166020011302
+      rmse: 0.011428717839091843
+      mean_percentage_error_pct: 24.71873171468988
+      p95_mean_percentage_error_pct: 24.71873171468988
+  '35.5':
+    polished_setpoints_feedforward_Bw:
+      mse: 0.00010619127492809934
+      mae: 0.009852309437703042
+      rmse: 0.010028068677628474
+      mean_percentage_error_pct: 23.592758442215448
+      p95_mean_percentage_error_pct: 28.68788782581673
+    polished_setpoints_tree_Bw:
+      mse: 1.173212586339241e-05
+      mae: 0.0031109881250427933
+      rmse: 0.0033714283337642056
+      mean_percentage_error_pct: 7.450393788658292
+      p95_mean_percentage_error_pct: 8.870820666416249
+    polished_setpoints_harmonic_regression_Bw:
+      mse: 0.0001955829818787148
+      mae: 0.013823092986726206
+      rmse: 0.013891207449621804
+      mean_percentage_error_pct: 33.11500783014787
+      p95_mean_percentage_error_pct: 36.53575645293242
+    polished_setpoints_periodic_mlp_harmonic_Bw:
+      mse: 0.00010997044701910972
+      mae: 0.009844324958411272
+      rmse: 0.009975213536546467
+      mean_percentage_error_pct: 23.567084580095816
+      p95_mean_percentage_error_pct: 30.44896068820287
+    polished_setpoints_periodic_gru_sequence_Bw:
+      mse: 5.556801001357031e-05
+      mae: 0.006830777975770834
+      rmse: 0.006928087879649785
+      mean_percentage_error_pct: 16.348811077132247
+      p95_mean_percentage_error_pct: 22.193041038886978
+    polished_setpoints_wave4_1_mae_robust_loss_Bw:
+      mse: 2.56791062290811e-05
+      mae: 0.004775216163595114
+      rmse: 0.004910333410599779
+      mean_percentage_error_pct: 11.434268376874893
+      p95_mean_percentage_error_pct: 14.086027790835258
+    polished_setpoints_wave4_2_quantile_p10_p50_p90_Bw:
+      mse: 6.592951763091654e-05
+      mae: 0.007906096463696584
+      rmse: 0.007986494975582625
+      mean_percentage_error_pct: 18.93601038888162
+      p95_mean_percentage_error_pct: 22.003734589407088
+  '35.16':
+    polished_setpoints_feedforward_Bw:
+      mse: 6.267706038752499e-05
+      mae: 0.007084730553819579
+      rmse: 0.007800335162919469
+      mean_percentage_error_pct: 15.521849193644677
+      p95_mean_percentage_error_pct: 15.601263112198325
+    polished_setpoints_tree_Bw:
+      mse: 1.992251712570771e-05
+      mae: 0.003568116323662507
+      rmse: 0.004047591758549927
+      mean_percentage_error_pct: 7.4803695556295935
+      p95_mean_percentage_error_pct: 10.108272795070318
+    polished_setpoints_harmonic_regression_Bw:
+      mse: 0.00048162840817623517
+      mae: 0.016700289925073972
+      rmse: 0.016883622027801328
+      mean_percentage_error_pct: 33.49986241973376
+      p95_mean_percentage_error_pct: 57.76588307205515
+    polished_setpoints_periodic_mlp_harmonic_Bw:
+      mse: 7.970486985754662e-05
+      mae: 0.008246456054450705
+      rmse: 0.008600640930539152
+      mean_percentage_error_pct: 17.759584771449724
+      p95_mean_percentage_error_pct: 20.10150346806622
+    polished_setpoints_periodic_gru_sequence_Bw:
+      mse: 7.40858912450278e-05
+      mae: 0.0073741979942432605
+      rmse: 0.00762754249590492
+      mean_percentage_error_pct: 15.394593111143825
+      p95_mean_percentage_error_pct: 21.340502782556
+    polished_setpoints_wave4_1_mae_robust_loss_Bw:
+      mse: 2.384155730513575e-05
+      mae: 0.004435982130363812
+      rmse: 0.004714430533666657
+      mean_percentage_error_pct: 9.565242696580087
+      p95_mean_percentage_error_pct: 10.730786802298065
+    polished_setpoints_wave4_2_quantile_p10_p50_p90_Bw:
+      mse: 4.521297523377417e-05
+      mae: 0.0063155590742437215
+      rmse: 0.006534414355404269
+      mean_percentage_error_pct: 13.65121202841597
+      p95_mean_percentage_error_pct: 15.048823828935886
+  '35.12':
+    polished_setpoints_feedforward_Bw:
+      mse: 0.00011466110394840759
+      mae: 0.010542418160191847
+      rmse: 0.01070799252653865
+      mean_percentage_error_pct: 25.287930973253953
+      p95_mean_percentage_error_pct: 25.287930973253953
+    polished_setpoints_tree_Bw:
+      mse: 1.2887992945110957e-05
+      mae: 0.0033976383833154776
+      rmse: 0.0035899850898173597
+      mean_percentage_error_pct: 8.149861218158742
+      p95_mean_percentage_error_pct: 8.149861218158742
+    polished_setpoints_harmonic_regression_Bw:
+      mse: 0.0005367616379639978
+      mae: 0.023136229968811498
+      rmse: 0.023168116841124523
+      mean_percentage_error_pct: 55.496507304353386
+      p95_mean_percentage_error_pct: 55.496507304353386
+    polished_setpoints_periodic_mlp_harmonic_Bw:
+      mse: 0.00014346561599336917
+      mae: 0.01182803427691657
+      rmse: 0.011977713304022983
+      mean_percentage_error_pct: 28.37171793027274
+      p95_mean_percentage_error_pct: 28.37171793027274
+    polished_setpoints_periodic_gru_sequence_Bw:
+      mse: 7.154630941335637e-05
+      mae: 0.008318250796123012
+      rmse: 0.008458505152410582
+      mean_percentage_error_pct: 19.95285604823188
+      p95_mean_percentage_error_pct: 19.95285604823188
+    polished_setpoints_wave4_1_mae_robust_loss_Bw:
+      mse: 3.378809209472956e-05
+      mae: 0.005687866110363912
+      rmse: 0.0058127525402970285
+      mean_percentage_error_pct: 13.643394086483063
+      p95_mean_percentage_error_pct: 13.643394086483063
+    polished_setpoints_wave4_2_quantile_p10_p50_p90_Bw:
+      mse: 8.111665703554731e-05
+      mae: 0.008915649484515955
+      rmse: 0.009006478614616665
+      mean_percentage_error_pct: 21.38582679232901
+      p95_mean_percentage_error_pct: 21.38582679232901
+  '35.64':
+    polished_setpoints_feedforward_Bw:
+      mse: 0.0002878888760779909
+      mae: 0.013866294987821652
+      rmse: 0.016967288412648347
+      mean_percentage_error_pct: 17.27049681961138
+      p95_mean_percentage_error_pct: 17.27049681961138
+    polished_setpoints_tree_Bw:
+      mse: 0.00017875556414909485
+      mae: 0.011262585254378402
+      rmse: 0.013369950042879549
+      mean_percentage_error_pct: 14.027571387106425
+      p95_mean_percentage_error_pct: 14.027571387106425
+    polished_setpoints_harmonic_regression_Bw:
+      mse: 0.0008709355802018788
+      mae: 0.026875728964882255
+      rmse: 0.02951161771577219
+      mean_percentage_error_pct: 33.4737716181858
+      p95_mean_percentage_error_pct: 33.4737716181858
+    polished_setpoints_periodic_mlp_harmonic_Bw:
+      mse: 0.0003208726699526262
+      mae: 0.01446923643419588
+      rmse: 0.01791291907960917
+      mean_percentage_error_pct: 18.021461539542948
+      p95_mean_percentage_error_pct: 18.021461539542948
+    polished_setpoints_periodic_gru_sequence_Bw:
+      mse: 0.0002908085916483947
+      mae: 0.013758480864435188
+      rmse: 0.01705311090823005
+      mean_percentage_error_pct: 17.136214123571055
+      p95_mean_percentage_error_pct: 17.136214123571055
+    polished_setpoints_wave4_1_mae_robust_loss_Bw:
+      mse: 0.00018812848561083355
+      mae: 0.011579645439568492
+      rmse: 0.013715993788669983
+      mean_percentage_error_pct: 14.422470451691451
+      p95_mean_percentage_error_pct: 14.422470451691451
+    polished_setpoints_wave4_2_quantile_p10_p50_p90_Bw:
+      mse: 0.00023453215581387333
+      mae: 0.01245178235326836
+      rmse: 0.01531444271966412
+      mean_percentage_error_pct: 15.508718638935989
+      p95_mean_percentage_error_pct: 15.508718638935989
+  '35.28':
+    polished_setpoints_feedforward_Bw:
+      mse: 0.00014110529224528126
+      mae: 0.01039899859203795
+      rmse: 0.011878774862976454
+      mean_percentage_error_pct: 19.86347996084504
+      p95_mean_percentage_error_pct: 19.86347996084504
+    polished_setpoints_tree_Bw:
+      mse: 3.979760149221981e-05
+      mae: 0.005269405081675087
+      rmse: 0.006308534020849837
+      mean_percentage_error_pct: 10.065269392917152
+      p95_mean_percentage_error_pct: 10.065269392917152
+    polished_setpoints_harmonic_regression_Bw:
+      mse: 0.000770096010058508
+      mae: 0.027180771041573914
+      rmse: 0.027750603778269545
+      mean_percentage_error_pct: 51.91891278050577
+      p95_mean_percentage_error_pct: 51.91891278050577
+    polished_setpoints_periodic_mlp_harmonic_Bw:
+      mse: 0.00017683031108782537
+      mae: 0.011743848887234417
+      rmse: 0.013297755866604912
+      mean_percentage_error_pct: 22.432324129111866
+      p95_mean_percentage_error_pct: 22.432324129111866
+    polished_setpoints_periodic_gru_sequence_Bw:
+      mse: 7.341828091579077e-05
+      mae: 0.006982122323952239
+      rmse: 0.008568446820503164
+      mean_percentage_error_pct: 13.336788695421337
+      p95_mean_percentage_error_pct: 13.336788695421337
+    polished_setpoints_wave4_1_mae_robust_loss_Bw:
+      mse: 6.420829886578582e-05
+      mae: 0.006470943415500451
+      rmse: 0.00801300810343942
+      mean_percentage_error_pct: 12.360368522404576
+      p95_mean_percentage_error_pct: 12.360368522404576
+    polished_setpoints_wave4_2_quantile_p10_p50_p90_Bw:
+      mse: 0.00011666047526444435
+      mae: 0.009196587169942063
+      rmse: 0.010800947887312685
+      mean_percentage_error_pct: 17.566713115835583
+      p95_mean_percentage_error_pct: 17.566713115835583
+  '35.07':
+    polished_setpoints_feedforward_Bw:
+      mse: 0.00014958468589823507
+      mae: 0.010773649206111943
+      rmse: 0.012230481834262912
+      mean_percentage_error_pct: 20.16794481059513
+      p95_mean_percentage_error_pct: 20.16794481059513
+    polished_setpoints_tree_Bw:
+      mse: 4.138545759137518e-05
+      mae: 0.0053412442588800435
+      rmse: 0.006433153005437939
+      mean_percentage_error_pct: 9.998647382345588
+      p95_mean_percentage_error_pct: 9.998647382345588
+    polished_setpoints_harmonic_regression_Bw:
+      mse: 0.0005556730969960318
+      mae: 0.02289945486967007
+      rmse: 0.023572719338167833
+      mean_percentage_error_pct: 42.86708553144822
+      p95_mean_percentage_error_pct: 42.86708553144822
+    polished_setpoints_periodic_mlp_harmonic_Bw:
+      mse: 0.00018899052245288018
+      mae: 0.012187049862475484
+      rmse: 0.013747382385489981
+      mean_percentage_error_pct: 22.81378800517655
+      p95_mean_percentage_error_pct: 22.81378800517655
+    polished_setpoints_periodic_gru_sequence_Bw:
+      mse: 0.00010826095657224714
+      mae: 0.008688007988607695
+      rmse: 0.010404852549279453
+      mean_percentage_error_pct: 16.263687658295655
+      p95_mean_percentage_error_pct: 16.263687658295655
+    polished_setpoints_wave4_1_mae_robust_loss_Bw:
+      mse: 6.497159048379283e-05
+      mae: 0.0065127677996916185
+      rmse: 0.00806049567233882
+      mean_percentage_error_pct: 12.191703946874997
+      p95_mean_percentage_error_pct: 12.191703946874997
+    polished_setpoints_wave4_2_quantile_p10_p50_p90_Bw:
+      mse: 0.0001156506528790508
+      mae: 0.009156289140884516
+      rmse: 0.010754099352295887
+      mean_percentage_error_pct: 17.1402957837582
+      p95_mean_percentage_error_pct: 17.1402957837582
+  '37.26':
+    polished_setpoints_feedforward_Bw:
+      mse: 0.0007730354376229655
+      mae: 0.022883308220119695
+      rmse: 0.027803514842964828
+      mean_percentage_error_pct: 20.830288438946308
+      p95_mean_percentage_error_pct: 20.830288438946308
+    polished_setpoints_tree_Bw:
+      mse: 0.0004908707432908935
+      mae: 0.019383938883834877
+      rmse: 0.022155602977371062
+      mean_percentage_error_pct: 17.644871718249988
+      p95_mean_percentage_error_pct: 17.644871718249988
+    polished_setpoints_harmonic_regression_Bw:
+      mse: 0.0009800467382294566
+      mae: 0.025163600795414926
+      rmse: 0.03130569817508398
+      mean_percentage_error_pct: 22.906000202808524
+      p95_mean_percentage_error_pct: 22.906000202808524
+    polished_setpoints_periodic_mlp_harmonic_Bw:
+      mse: 0.0006908693281311581
+      mae: 0.021807983428660953
+      rmse: 0.0262843932425909
+      mean_percentage_error_pct: 19.85143846864607
+      p95_mean_percentage_error_pct: 19.85143846864607
+    polished_setpoints_periodic_gru_sequence_Bw:
+      mse: 0.0006065922232425914
+      mae: 0.02059055832651693
+      rmse: 0.02462909302517231
+      mean_percentage_error_pct: 18.743236988923965
+      p95_mean_percentage_error_pct: 18.743236988923965
+    polished_setpoints_wave4_1_mae_robust_loss_Bw:
+      mse: 0.0004891041104633793
+      mae: 0.01939217506120803
+      rmse: 0.022115698281161715
+      mean_percentage_error_pct: 17.652368971211263
+      p95_mean_percentage_error_pct: 17.652368971211263
+    polished_setpoints_wave4_2_quantile_p10_p50_p90_Bw:
+      mse: 0.0005691845741939199
+      mae: 0.020308659598346216
+      rmse: 0.023857589446419768
+      mean_percentage_error_pct: 18.486629344527284
+      p95_mean_percentage_error_pct: 18.486629344527284
+  '36.7':
+    polished_setpoints_feedforward_Bw:
+      mse: 0.00015253206710253608
+      mae: 0.010943318861888495
+      rmse: 0.012350387326012739
+      mean_percentage_error_pct: 19.83493225045422
+      p95_mean_percentage_error_pct: 19.83493225045422
+    polished_setpoints_tree_Bw:
+      mse: 3.627167422572076e-05
+      mae: 0.004997191670851389
+      rmse: 0.0060225969669006375
+      mean_percentage_error_pct: 9.05748607756152
+      p95_mean_percentage_error_pct: 9.05748607756152
+    polished_setpoints_harmonic_regression_Bw:
+      mse: 0.0007534291147635743
+      mae: 0.026879325293986005
+      rmse: 0.027448663260049192
+      mean_percentage_error_pct: 48.71918682739789
+      p95_mean_percentage_error_pct: 48.71918682739789
+    polished_setpoints_periodic_mlp_harmonic_Bw:
+      mse: 0.00018240386035718652
+      mae: 0.012197424641184266
+      rmse: 0.013505697329541579
+      mean_percentage_error_pct: 22.108018092251758
+      p95_mean_percentage_error_pct: 22.108018092251758
+    polished_setpoints_periodic_gru_sequence_Bw:
+      mse: 6.581500514093875e-05
+      mae: 0.006713081576564287
+      rmse: 0.008112644768565843
+      mean_percentage_error_pct: 12.167562687645807
+      p95_mean_percentage_error_pct: 12.167562687645807
+    polished_setpoints_wave4_1_mae_robust_loss_Bw:
+      mse: 5.5050134835832986e-05
+      mae: 0.006050491511335835
+      rmse: 0.00741957780711497
+      mean_percentage_error_pct: 10.96660809430022
+      p95_mean_percentage_error_pct: 10.96660809430022
+    polished_setpoints_wave4_2_quantile_p10_p50_p90_Bw:
+      mse: 0.00011349681613326606
+      mae: 0.009169303279332772
+      rmse: 0.010653488449013593
+      mean_percentage_error_pct: 16.61950196505993
+      p95_mean_percentage_error_pct: 16.61950196505993
+  '37.62':
+    polished_setpoints_feedforward_Bw:
+      mse: 0.0002360460421126293
+      mae: 0.013849638082953733
+      rmse: 0.015363789965780882
+      mean_percentage_error_pct: 23.442012393203846
+      p95_mean_percentage_error_pct: 23.442012393203846
+    polished_setpoints_tree_Bw:
+      mse: 5.5018199406968186e-05
+      mae: 0.0060734715947526365
+      rmse: 0.007417425389376572
+      mean_percentage_error_pct: 10.28000844074031
+      p95_mean_percentage_error_pct: 10.28000844074031
+    polished_setpoints_harmonic_regression_Bw:
+      mse: 0.00042412572563772024
+      mae: 0.019515695499609027
+      rmse: 0.020594312944056187
+      mean_percentage_error_pct: 33.032428213911736
+      p95_mean_percentage_error_pct: 33.032428213911736
+    polished_setpoints_periodic_mlp_harmonic_Bw:
+      mse: 0.0002612810538970723
+      mae: 0.014554305633047172
+      rmse: 0.016164190480722266
+      mean_percentage_error_pct: 24.634738538352035
+      p95_mean_percentage_error_pct: 24.634738538352035
+    polished_setpoints_periodic_gru_sequence_Bw:
+      mse: 0.00014872774880194092
+      mae: 0.01060933301783316
+      rmse: 0.012195398673349752
+      mean_percentage_error_pct: 17.957445140301473
+      p95_mean_percentage_error_pct: 17.957445140301473
+    polished_setpoints_wave4_1_mae_robust_loss_Bw:
+      mse: 7.237987318702629e-05
+      mae: 0.007084185249903442
+      rmse: 0.008507636169173332
+      mean_percentage_error_pct: 11.99075076397743
+      p95_mean_percentage_error_pct: 11.99075076397743
+    polished_setpoints_wave4_2_quantile_p10_p50_p90_Bw:
+      mse: 0.0001398249619868841
+      mae: 0.010193623223676656
+      rmse: 0.011824760546703858
+      mean_percentage_error_pct: 17.253811291660522
+      p95_mean_percentage_error_pct: 17.253811291660522
+  '37.16':
+    polished_setpoints_feedforward_Bw:
+      mse: 0.00030859836485973025
+      mae: 0.015633457719534102
+      rmse: 0.017566968004175627
+      mean_percentage_error_pct: 24.46787527685761
+      p95_mean_percentage_error_pct: 24.46787527685761
+    polished_setpoints_tree_Bw:
+      mse: 8.392426807088728e-05
+      mae: 0.0074406876941207215
+      rmse: 0.009161018942829847
+      mean_percentage_error_pct: 11.645396798323937
+      p95_mean_percentage_error_pct: 11.645396798323937
+    polished_setpoints_harmonic_regression_Bw:
+      mse: 0.00031830319839889706
+      mae: 0.01587940503197885
+      rmse: 0.01784105373566531
+      mean_percentage_error_pct: 24.852806638398768
+      p95_mean_percentage_error_pct: 24.852806638398768
+    polished_setpoints_periodic_mlp_harmonic_Bw:
+      mse: 0.000324607033746852
+      mae: 0.015865536689520926
+      rmse: 0.018016854157894825
+      mean_percentage_error_pct: 24.831101339440295
+      p95_mean_percentage_error_pct: 24.831101339440295
+    polished_setpoints_periodic_gru_sequence_Bw:
+      mse: 0.0001900630910796365
+      mae: 0.011838232674457822
+      rmse: 0.013786337116131918
+      mean_percentage_error_pct: 18.527980551297176
+      p95_mean_percentage_error_pct: 18.527980551297176
+    polished_setpoints_wave4_1_mae_robust_loss_Bw:
+      mse: 0.00010414094654975371
+      mae: 0.008422460648916474
+      rmse: 0.010204947160556673
+      mean_percentage_error_pct: 13.18196654758158
+      p95_mean_percentage_error_pct: 13.18196654758158
+    polished_setpoints_wave4_2_quantile_p10_p50_p90_Bw:
+      mse: 0.0001768655107027109
+      mae: 0.011319913674957572
+      rmse: 0.013299079317859222
+      mean_percentage_error_pct: 17.716761123009643
+      p95_mean_percentage_error_pct: 17.716761123009643
+  '37.14':
+    polished_setpoints_feedforward_Bw:
+      mse: 0.00044240801969900825
+      mae: 0.019098134970991783
+      rmse: 0.021033497562198453
+      mean_percentage_error_pct: 28.07327662086001
+      p95_mean_percentage_error_pct: 28.07327662086001
+    polished_setpoints_tree_Bw:
+      mse: 8.826345177483703e-05
+      mae: 0.007836695313377653
+      rmse: 0.009394863052479106
+      mean_percentage_error_pct: 11.519539246110124
+      p95_mean_percentage_error_pct: 11.519539246110124
+    polished_setpoints_harmonic_regression_Bw:
+      mse: 0.0001445032470747377
+      mae: 0.00988851198755669
+      rmse: 0.012020950339916462
+      mean_percentage_error_pct: 14.535604278481701
+      p95_mean_percentage_error_pct: 14.535604278481701
+    polished_setpoints_periodic_mlp_harmonic_Bw:
+      mse: 0.00039126601627167707
+      mae: 0.017675925709942187
+      rmse: 0.019780445300136118
+      mean_percentage_error_pct: 25.982702119274485
+      p95_mean_percentage_error_pct: 25.982702119274485
+    polished_setpoints_periodic_gru_sequence_Bw:
+      mse: 0.00020345973806721544
+      mae: 0.012119800788052446
+      rmse: 0.014263931367866835
+      mean_percentage_error_pct: 17.815484110333752
+      p95_mean_percentage_error_pct: 17.815484110333752
+    polished_setpoints_wave4_1_mae_robust_loss_Bw:
+      mse: 0.00011179528376925332
+      mae: 0.008707666437024447
+      rmse: 0.010573328887784268
+      mean_percentage_error_pct: 12.799822023462804
+      p95_mean_percentage_error_pct: 12.799822023462804
+    polished_setpoints_wave4_2_quantile_p10_p50_p90_Bw:
+      mse: 0.00020012431731766966
+      mae: 0.01188381927285135
+      rmse: 0.014146530221848383
+      mean_percentage_error_pct: 17.468603414197066
+      p95_mean_percentage_error_pct: 17.468603414197066
+  '37.21':
+    polished_setpoints_feedforward_Bw:
+      mse: 0.0004786901599741726
+      mae: 0.02135433269742871
+      rmse: 0.021878989007131307
+      mean_percentage_error_pct: 42.48259706827969
+      p95_mean_percentage_error_pct: 42.48259706827969
+    polished_setpoints_tree_Bw:
+      mse: 3.125949868178777e-05
+      mae: 0.004596862481887296
+      rmse: 0.005591019467126525
+      mean_percentage_error_pct: 9.145060131980838
+      p95_mean_percentage_error_pct: 9.145060131980838
+    polished_setpoints_harmonic_regression_Bw:
+      mse: 3.865816068420439e-05
+      mae: 0.005172521379627234
+      rmse: 0.0062175687116592755
+      mean_percentage_error_pct: 10.290283696114992
+      p95_mean_percentage_error_pct: 10.290283696114992
+    polished_setpoints_periodic_mlp_harmonic_Bw:
+      mse: 0.00036644533554112344
+      mae: 0.018698941239903594
+      rmse: 0.01914276196219144
+      mean_percentage_error_pct: 37.1999255398842
+      p95_mean_percentage_error_pct: 37.1999255398842
+    polished_setpoints_periodic_gru_sequence_Bw:
+      mse: 0.00016721577279670512
+      mae: 0.012292694580419695
+      rmse: 0.01293119378853728
+      mean_percentage_error_pct: 24.455252156218247
+      p95_mean_percentage_error_pct: 24.455252156218247
+    polished_setpoints_wave4_1_mae_robust_loss_Bw:
+      mse: 5.537604012298463e-05
+      mae: 0.006412422432294407
+      rmse: 0.007441507919970564
+      mean_percentage_error_pct: 12.756959549270444
+      p95_mean_percentage_error_pct: 12.756959549270444
+    polished_setpoints_wave4_2_quantile_p10_p50_p90_Bw:
+      mse: 0.0001544381053266458
+      mae: 0.011797012298425813
+      rmse: 0.01242731287634804
+      mean_percentage_error_pct: 23.469135148573844
+      p95_mean_percentage_error_pct: 23.469135148573844
+  '37.35':
+    polished_setpoints_feedforward_Bw:
+      mse: 1.4251419654647566e-05
+      mae: 0.0033348047192526577
+      rmse: 0.0037751052508039513
+      mean_percentage_error_pct: 7.662168027150459
+      p95_mean_percentage_error_pct: 7.662168027150459
+    polished_setpoints_tree_Bw:
+      mse: 3.3024550631248106e-06
+      mae: 0.001479906860639345
+      rmse: 0.0018172658207111063
+      mean_percentage_error_pct: 3.4002875686503704
+      p95_mean_percentage_error_pct: 3.4002875686503704
+    polished_setpoints_harmonic_regression_Bw:
+      mse: 0.000297374400028686
+      mae: 0.01714380174212219
+      rmse: 0.01724454696501726
+      mean_percentage_error_pct: 39.390219407429946
+      p95_mean_percentage_error_pct: 39.390219407429946
+    polished_setpoints_periodic_mlp_harmonic_Bw:
+      mse: 1.1085846254544052e-05
+      mae: 0.0030803089869235463
+      rmse: 0.0033295414480892186
+      mean_percentage_error_pct: 7.077429421006421
+      p95_mean_percentage_error_pct: 7.077429421006421
+    polished_setpoints_periodic_gru_sequence_Bw:
+      mse: 2.8981530956265463e-06
+      mae: 0.0014628176775151565
+      rmse: 0.0017023962804313649
+      mean_percentage_error_pct: 3.3610228429564413
+      p95_mean_percentage_error_pct: 3.3610228429564413
+    polished_setpoints_wave4_1_mae_robust_loss_Bw:
+      mse: 2.361789474912505e-06
+      mae: 0.0012322399945577046
+      rmse: 0.0015368114636846333
+      mean_percentage_error_pct: 2.831239212769258
+      p95_mean_percentage_error_pct: 2.831239212769258
+    polished_setpoints_wave4_2_quantile_p10_p50_p90_Bw:
+      mse: 1.2197946919767363e-05
+      mae: 0.003272457753687545
+      rmse: 0.0034925559293685422
+      mean_percentage_error_pct: 7.518917382402087
+      p95_mean_percentage_error_pct: 7.518917382402087
+  '35.35':
+    polished_setpoints_feedforward_Bw:
+      mse: 2.9418302053953798e-05
+      mae: 0.005129955096147311
+      rmse: 0.005423864125690631
+      mean_percentage_error_pct: 12.01550773334944
+      p95_mean_percentage_error_pct: 12.01550773334944
+    polished_setpoints_tree_Bw:
+      mse: 4.093225899052835e-06
+      mae: 0.0016952618246288671
+      rmse: 0.00202317223662565
+      mean_percentage_error_pct: 3.9706841838007603
+      p95_mean_percentage_error_pct: 3.9706841838007603
+    polished_setpoints_harmonic_regression_Bw:
+      mse: 0.0004112783881951521
+      mae: 0.020204136203025917
+      rmse: 0.02027999970895345
+      mean_percentage_error_pct: 47.32262763380183
+      p95_mean_percentage_error_pct: 47.32262763380183
+    polished_setpoints_periodic_mlp_harmonic_Bw:
+      mse: 1.9569871894139547e-05
+      mae: 0.004296371489734515
+      rmse: 0.004423784792927833
+      mean_percentage_error_pct: 10.063067588840493
+      p95_mean_percentage_error_pct: 10.063067588840493
+    polished_setpoints_periodic_gru_sequence_Bw:
+      mse: 7.773155313067898e-06
+      mae: 0.002698798124781913
+      rmse: 0.0027880378966341
+      mean_percentage_error_pct: 6.321191731954853
+      p95_mean_percentage_error_pct: 6.321191731954853
+    polished_setpoints_wave4_1_mae_robust_loss_Bw:
+      mse: 6.692859759703963e-06
+      mae: 0.002382429910702976
+      rmse: 0.00258705619569888
+      mean_percentage_error_pct: 5.580186274478961
+      p95_mean_percentage_error_pct: 5.580186274478961
+    polished_setpoints_wave4_2_quantile_p10_p50_p90_Bw:
+      mse: 2.3088927644979223e-05
+      mae: 0.004702403314704834
+      rmse: 0.0048050939267593115
+      mean_percentage_error_pct: 11.014085373885207
+      p95_mean_percentage_error_pct: 11.014085373885207
+  '35.38':
+    polished_setpoints_feedforward_Bw:
+      mse: 4.75708770783738e-06
+      mae: 0.0020309578207989257
+      rmse: 0.002181074897347035
+      mean_percentage_error_pct: 5.362035401115463
+      p95_mean_percentage_error_pct: 5.362035401115463
+    polished_setpoints_tree_Bw:
+      mse: 6.564296926425229e-07
+      mae: 0.0006426931215642587
+      rmse: 0.0008102034884166588
+      mean_percentage_error_pct: 1.696806912772485
+      p95_mean_percentage_error_pct: 1.696806912772485
+    polished_setpoints_harmonic_regression_Bw:
+      mse: 0.0006293538249691426
+      mae: 0.02507525155162908
+      rmse: 0.02508692537895273
+      mean_percentage_error_pct: 66.20245144176344
+      p95_mean_percentage_error_pct: 66.20245144176344
+    polished_setpoints_periodic_mlp_harmonic_Bw:
+      mse: 7.545745693190073e-06
+      mae: 0.0026686168469104363
+      rmse: 0.002746952073333292
+      mean_percentage_error_pct: 7.045551541547039
+      p95_mean_percentage_error_pct: 7.045551541547039
+    polished_setpoints_periodic_gru_sequence_Bw:
+      mse: 5.255479535824396e-07
+      mae: 0.0005897696099326662
+      rmse: 0.0007249468625923142
+      mean_percentage_error_pct: 1.5570808485412178
+      p95_mean_percentage_error_pct: 1.5570808485412178
+    polished_setpoints_wave4_1_mae_robust_loss_Bw:
+      mse: 2.1891083243469735e-06
+      mae: 0.001338569081895541
+      rmse: 0.001479563558738513
+      mean_percentage_error_pct: 3.5340245525823337
+      p95_mean_percentage_error_pct: 3.5340245525823337
+    polished_setpoints_wave4_2_quantile_p10_p50_p90_Bw:
+      mse: 3.7462015280186354e-06
+      mae: 0.0018214165309488105
+      rmse: 0.0019355106633699116
+      mean_percentage_error_pct: 4.808814746966314
+      p95_mean_percentage_error_pct: 4.808814746966314
+  '36.45':
+    polished_setpoints_feedforward_Bw:
+      mse: 1.878194057434611e-05
+      mae: 0.004135686526488927
+      rmse: 0.004333813629396875
+      mean_percentage_error_pct: 10.09542125091288
+      p95_mean_percentage_error_pct: 10.09542125091288
+    polished_setpoints_tree_Bw:
+      mse: 1.9054246261434658e-06
+      mae: 0.0011156512759079766
+      rmse: 0.001380371191434922
+      mean_percentage_error_pct: 2.723361533150671
+      p95_mean_percentage_error_pct: 2.723361533150671
+    polished_setpoints_harmonic_regression_Bw:
+      mse: 2.6835930225161276e-06
+      mae: 0.001379912873143675
+      rmse: 0.0016381675807182023
+      mean_percentage_error_pct: 3.36843753865691
+      p95_mean_percentage_error_pct: 3.36843753865691
+    polished_setpoints_periodic_mlp_harmonic_Bw:
+      mse: 1.674622134936785e-05
+      mae: 0.003997863269652482
+      rmse: 0.00409221472424992
+      mean_percentage_error_pct: 9.758987667993841
+      p95_mean_percentage_error_pct: 9.758987667993841
+    polished_setpoints_periodic_gru_sequence_Bw:
+      mse: 2.976173145749741e-06
+      mae: 0.0015778375442432999
+      rmse: 0.001725158875509656
+      mean_percentage_error_pct: 3.851581731985182
+      p95_mean_percentage_error_pct: 3.851581731985182
+    polished_setpoints_wave4_1_mae_robust_loss_Bw:
+      mse: 2.3694839594604715e-06
+      mae: 0.001341522883819301
+      rmse: 0.0015393128205340432
+      mean_percentage_error_pct: 3.2747256212847216
+      p95_mean_percentage_error_pct: 3.2747256212847216
+    polished_setpoints_wave4_2_quantile_p10_p50_p90_Bw:
+      mse: 8.864342897993928e-06
+      mae: 0.0028836449291442094
+      rmse: 0.0029773046364109145
+      mean_percentage_error_pct: 7.039124003067153
+      p95_mean_percentage_error_pct: 7.039124003067153
+  '34.71':
+    polished_setpoints_feedforward_Bw:
+      mse: 2.520816697547891e-05
+      mae: 0.004930865587130972
+      rmse: 0.005020773543536783
+      mean_percentage_error_pct: 12.862146789664529
+      p95_mean_percentage_error_pct: 12.862146789664529
+    polished_setpoints_tree_Bw:
+      mse: 3.4352202768934504e-06
+      mae: 0.0017024711922132962
+      rmse: 0.0018534347242062372
+      mean_percentage_error_pct: 4.440890548015045
+      p95_mean_percentage_error_pct: 4.440890548015045
+    polished_setpoints_harmonic_regression_Bw:
+      mse: 0.00018304926729483247
+      mae: 0.01350593572069594
+      rmse: 0.013529570107539725
+      mean_percentage_error_pct: 35.23018924400273
+      p95_mean_percentage_error_pct: 35.23018924400273
+    polished_setpoints_periodic_mlp_harmonic_Bw:
+      mse: 2.6001389048246317e-05
+      mae: 0.00503843905038287
+      rmse: 0.00509915571916041
+      mean_percentage_error_pct: 13.142751817436855
+      p95_mean_percentage_error_pct: 13.142751817436855
+    polished_setpoints_periodic_gru_sequence_Bw:
+      mse: 1.306572193384535e-05
+      mae: 0.003549958139892669
+      rmse: 0.0036146537778666095
+      mean_percentage_error_pct: 9.260054220831298
+      p95_mean_percentage_error_pct: 9.260054220831298
+    polished_setpoints_wave4_1_mae_robust_loss_Bw:
+      mse: 7.795054122797568e-06
+      mae: 0.0027142988217605034
+      rmse: 0.0027919624142881236
+      mean_percentage_error_pct: 7.080239617079174
+      p95_mean_percentage_error_pct: 7.080239617079174
+    polished_setpoints_wave4_2_quantile_p10_p50_p90_Bw:
+      mse: 1.4601119901499346e-05
+      mae: 0.003780624606832426
+      rmse: 0.003821141177907373
+      mean_percentage_error_pct: 9.861746946947308
+      p95_mean_percentage_error_pct: 9.861746946947308
+  '34.93':
+    polished_setpoints_feedforward_Bw:
+      mse: 6.665419290426917e-05
+      mae: 0.007967434841162168
+      rmse: 0.008164201914717027
+      mean_percentage_error_pct: 19.657430073229122
+      p95_mean_percentage_error_pct: 19.657430073229122
+    polished_setpoints_tree_Bw:
+      mse: 7.357792935423262e-06
+      mae: 0.0023963260585672143
+      rmse: 0.002712525195352711
+      mean_percentage_error_pct: 5.912268235389888
+      p95_mean_percentage_error_pct: 5.912268235389888
+    polished_setpoints_harmonic_regression_Bw:
+      mse: 8.254054425503308e-05
+      mae: 0.008999516588497769
+      rmse: 0.009085182675930798
+      mean_percentage_error_pct: 22.203804807703435
+      p95_mean_percentage_error_pct: 22.203804807703435
+    polished_setpoints_periodic_mlp_harmonic_Bw:
+      mse: 5.055360230594289e-05
+      mae: 0.006999077666493386
+      rmse: 0.00711010564660912
+      mean_percentage_error_pct: 17.268278002776206
+      p95_mean_percentage_error_pct: 17.268278002776206
+    polished_setpoints_periodic_gru_sequence_Bw:
+      mse: 1.716668188636305e-05
+      mae: 0.004056133229664906
+      rmse: 0.004143269468229535
+      mean_percentage_error_pct: 10.007380909839814
+      p95_mean_percentage_error_pct: 10.007380909839814
+    polished_setpoints_wave4_1_mae_robust_loss_Bw:
+      mse: 1.2837350731884761e-05
+      mae: 0.0034725517733022572
+      rmse: 0.0035829248850464002
+      mean_percentage_error_pct: 8.56755593490363
+      p95_mean_percentage_error_pct: 8.56755593490363
+    polished_setpoints_wave4_2_quantile_p10_p50_p90_Bw:
+      mse: 4.144341492423049e-05
+      mae: 0.006385049323240916
+      rmse: 0.0064376560116420085
+      mean_percentage_error_pct: 15.75333380039531
+      p95_mean_percentage_error_pct: 15.75333380039531
+  '36.07':
+    polished_setpoints_feedforward_Bw:
+      mse: 4.63929823645151e-05
+      mae: 0.006720963785029442
+      rmse: 0.00681123941471118
+      mean_percentage_error_pct: 17.301067262708283
+      p95_mean_percentage_error_pct: 17.301067262708283
+    polished_setpoints_tree_Bw:
+      mse: 6.530713326929319e-06
+      mae: 0.002365502877683998
+      rmse: 0.0025555260372239056
+      mean_percentage_error_pct: 6.089264234409437
+      p95_mean_percentage_error_pct: 6.089264234409437
+    polished_setpoints_harmonic_regression_Bw:
+      mse: 0.00010431868376998188
+      mae: 0.010176453003597895
+      rmse: 0.010213651833207448
+      mean_percentage_error_pct: 26.19616821968423
+      p95_mean_percentage_error_pct: 26.19616821968423
+    polished_setpoints_periodic_mlp_harmonic_Bw:
+      mse: 4.598993940927743e-05
+      mae: 0.006719806071561842
+      rmse: 0.006781588265979985
+      mean_percentage_error_pct: 17.298087083196155
+      p95_mean_percentage_error_pct: 17.298087083196155
+    polished_setpoints_periodic_gru_sequence_Bw:
+      mse: 2.040308199389584e-05
+      mae: 0.004453228279299897
+      rmse: 0.00451697708582807
+      mean_percentage_error_pct: 11.463475248591102
+      p95_mean_percentage_error_pct: 11.463475248591102
+    polished_setpoints_wave4_1_mae_robust_loss_Bw:
+      mse: 1.1453659401614878e-05
+      mae: 0.003302972743622407
+      rmse: 0.003384325546045309
+      mean_percentage_error_pct: 8.502493902971247
+      p95_mean_percentage_error_pct: 8.502493902971247
+    polished_setpoints_wave4_2_quantile_p10_p50_p90_Bw:
+      mse: 2.637244780936166e-05
+      mae: 0.005096377141619769
+      rmse: 0.00513541116263943
+      mean_percentage_error_pct: 13.119065441133952
+      p95_mean_percentage_error_pct: 13.119065441133952
+  '36.43':
+    polished_setpoints_feedforward_Bw:
+      mse: 7.908349349873015e-05
+      mae: 0.00866561532573219
+      rmse: 0.008892890053223988
+      mean_percentage_error_pct: 21.25323172266941
+      p95_mean_percentage_error_pct: 21.25323172266941
+    polished_setpoints_tree_Bw:
+      mse: 6.0319133225278e-06
+      mae: 0.0020928554928103813
+      rmse: 0.0024559953832464345
+      mean_percentage_error_pct: 5.132923754263491
+      p95_mean_percentage_error_pct: 5.132923754263491
+    polished_setpoints_harmonic_regression_Bw:
+      mse: 8.51874510017942e-05
+      mae: 0.009122856687883166
+      rmse: 0.009229704816612188
+      mean_percentage_error_pct: 22.374658910202985
+      p95_mean_percentage_error_pct: 22.374658910202985
+    polished_setpoints_periodic_mlp_harmonic_Bw:
+      mse: 5.995576751155207e-05
+      mae: 0.0075887374622964875
+      rmse: 0.007743110971150554
+      mean_percentage_error_pct: 18.61208808678129
+      p95_mean_percentage_error_pct: 18.61208808678129
+    polished_setpoints_periodic_gru_sequence_Bw:
+      mse: 1.8903200995884496e-05
+      mae: 0.004228091833866992
+      rmse: 0.004347781157772835
+      mean_percentage_error_pct: 10.369790500977352
+      p95_mean_percentage_error_pct: 10.369790500977352
+    polished_setpoints_wave4_1_mae_robust_loss_Bw:
+      mse: 9.588206146136018e-06
+      mae: 0.002893471833689767
+      rmse: 0.0030964828670825904
+      mean_percentage_error_pct: 7.096510178777153
+      p95_mean_percentage_error_pct: 7.096510178777153
+    polished_setpoints_wave4_2_quantile_p10_p50_p90_Bw:
+      mse: 4.483423701074107e-05
+      mae: 0.006603588680298759
+      rmse: 0.006695837289745104
+      mean_percentage_error_pct: 16.195918598743905
+      p95_mean_percentage_error_pct: 16.195918598743905
+  '36.58':
+    polished_setpoints_feedforward_Bw:
+      mse: 7.265384162735185e-05
+      mae: 0.008310383218542293
+      rmse: 0.008523722287085134
+      mean_percentage_error_pct: 20.32092435552091
+      p95_mean_percentage_error_pct: 20.32092435552091
+    polished_setpoints_tree_Bw:
+      mse: 3.873547680939483e-06
+      mae: 0.00163285874946658
+      rmse: 0.0019681330445220115
+      mean_percentage_error_pct: 3.9927399565794133
+      p95_mean_percentage_error_pct: 3.9927399565794133
+    polished_setpoints_harmonic_regression_Bw:
+      mse: 0.00017278155204745224
+      mae: 0.013065007779547241
+      rmse: 0.013144639669745696
+      mean_percentage_error_pct: 31.947147058164337
+      p95_mean_percentage_error_pct: 31.947147058164337
+    polished_setpoints_periodic_mlp_harmonic_Bw:
+      mse: 5.313948223567553e-05
+      mae: 0.007109347281025856
+      rmse: 0.007289683274030192
+      mean_percentage_error_pct: 17.384097040496716
+      p95_mean_percentage_error_pct: 17.384097040496716
+    polished_setpoints_periodic_gru_sequence_Bw:
+      mse: 1.7152658340156974e-05
+      mae: 0.004012711976555327
+      rmse: 0.004141576793946597
+      mean_percentage_error_pct: 9.81206454524689
+      p95_mean_percentage_error_pct: 9.81206454524689
+    polished_setpoints_wave4_1_mae_robust_loss_Bw:
+      mse: 7.3542293852448755e-06
+      mae: 0.002471310289540498
+      rmse: 0.0027118682462916365
+      mean_percentage_error_pct: 6.042959528114492
+      p95_mean_percentage_error_pct: 6.042959528114492
+    polished_setpoints_wave4_2_quantile_p10_p50_p90_Bw:
+      mse: 4.312207360559595e-05
+      mae: 0.0064684784178089556
+      rmse: 0.0065667399526398145
+      mean_percentage_error_pct: 15.817015553546511
+      p95_mean_percentage_error_pct: 15.817015553546511
+  '35.53':
+    polished_setpoints_feedforward_Bw:
+      mse: 3.248434179705774e-05
+      mae: 0.005579588057653173
+      rmse: 0.005699503644797303
+      mean_percentage_error_pct: 14.022334761623622
+      p95_mean_percentage_error_pct: 14.022334761623622
+    polished_setpoints_tree_Bw:
+      mse: 1.7881408472667945e-06
+      mae: 0.001121471542735542
+      rmse: 0.0013372138375244232
+      mean_percentage_error_pct: 2.8184248075988996
+      p95_mean_percentage_error_pct: 2.8184248075988996
+    polished_setpoints_harmonic_regression_Bw:
+      mse: 0.0001683048603901715
+      mae: 0.01294018442584075
+      rmse: 0.012973236311351593
+      mean_percentage_error_pct: 32.52060833548482
+      p95_mean_percentage_error_pct: 32.52060833548482
+    polished_setpoints_periodic_mlp_harmonic_Bw:
+      mse: 3.4048645528485006e-05
+      mae: 0.005738061711771413
+      rmse: 0.00583512172353628
+      mean_percentage_error_pct: 14.42060262763493
+      p95_mean_percentage_error_pct: 14.42060262763493
+    polished_setpoints_periodic_gru_sequence_Bw:
+      mse: 1.5290479999949843e-05
+      mae: 0.003803722733788528
+      rmse: 0.0039103043359756335
+      mean_percentage_error_pct: 9.559321039914725
+      p95_mean_percentage_error_pct: 9.559321039914725
+    polished_setpoints_wave4_1_mae_robust_loss_Bw:
+      mse: 6.447636538135673e-06
+      mae: 0.0023949429395055343
+      rmse: 0.0025392196711067896
+      mean_percentage_error_pct: 6.01884785861032
+      p95_mean_percentage_error_pct: 6.01884785861032
+    polished_setpoints_wave4_2_quantile_p10_p50_p90_Bw:
+      mse: 1.6898480561623115e-05
+      mae: 0.004033919891947491
+      rmse: 0.004110776150755854
+      mean_percentage_error_pct: 10.137840740567515
+      p95_mean_percentage_error_pct: 10.137840740567515
+  '35.77':
+    polished_setpoints_feedforward_Bw:
+      mse: 4.2829583125202116e-05
+      mae: 0.006394390665998644
+      rmse: 0.006544431459279111
+      mean_percentage_error_pct: 16.072435786515726
+      p95_mean_percentage_error_pct: 16.072435786515726
+    polished_setpoints_tree_Bw:
+      mse: 3.862900292021335e-06
+      mae: 0.0016628720657188522
+      rmse: 0.0019654262367286477
+      mean_percentage_error_pct: 4.179664004511213
+      p95_mean_percentage_error_pct: 4.179664004511213
+    polished_setpoints_harmonic_regression_Bw:
+      mse: 8.678593457493905e-05
+      mae: 0.00924343113674262
+      rmse: 0.009315896874425942
+      mean_percentage_error_pct: 23.233559091462514
+      p95_mean_percentage_error_pct: 23.233559091462514
+    polished_setpoints_periodic_mlp_harmonic_Bw:
+      mse: 4.333603931119274e-05
+      mae: 0.006455778712984979
+      rmse: 0.006583011416608112
+      mean_percentage_error_pct: 16.226735937192146
+      p95_mean_percentage_error_pct: 16.226735937192146
+    polished_setpoints_periodic_gru_sequence_Bw:
+      mse: 1.7081484225785596e-05
+      mae: 0.003977378125946347
+      rmse: 0.004132975226853603
+      mean_percentage_error_pct: 9.997223796144343
+      p95_mean_percentage_error_pct: 9.997223796144343
+    polished_setpoints_wave4_1_mae_robust_loss_Bw:
+      mse: 8.159351747387015e-06
+      mae: 0.0026426802410619613
+      rmse: 0.002856457902260598
+      mean_percentage_error_pct: 6.642432515832039
+      p95_mean_percentage_error_pct: 6.642432515832039
+    polished_setpoints_wave4_2_quantile_p10_p50_p90_Bw:
+      mse: 2.2196258366235804e-05
+      mae: 0.004599590768280702
+      rmse: 0.004711290520254064
+      mean_percentage_error_pct: 11.561168394126671
+      p95_mean_percentage_error_pct: 11.561168394126671
+  '35.76':
+    polished_setpoints_feedforward_Bw:
+      mse: 0.00010795623918617718
+      mae: 0.010188702586597528
+      rmse: 0.010390199188955772
+      mean_percentage_error_pct: 24.636881322353776
+      p95_mean_percentage_error_pct: 24.636881322353776
+    polished_setpoints_tree_Bw:
+      mse: 8.007344804632276e-06
+      mae: 0.0025887527301669917
+      rmse: 0.0028297252171601887
+      mean_percentage_error_pct: 6.2597561607048675
+      p95_mean_percentage_error_pct: 6.2597561607048675
+    polished_setpoints_harmonic_regression_Bw:
+      mse: 2.537978871162445e-05
+      mae: 0.004896525316488443
+      rmse: 0.005037835717014247
+      mean_percentage_error_pct: 11.840085829270642
+      p95_mean_percentage_error_pct: 11.840085829270642
+    polished_setpoints_periodic_mlp_harmonic_Bw:
+      mse: 8.369346728544877e-05
+      mae: 0.009038673407444155
+      rmse: 0.009148413375304417
+      mean_percentage_error_pct: 21.856043216301327
+      p95_mean_percentage_error_pct: 21.856043216301327
+    polished_setpoints_periodic_gru_sequence_Bw:
+      mse: 2.8879298029006058e-05
+      mae: 0.005285124007417004
+      rmse: 0.005373946224982723
+      mean_percentage_error_pct: 12.779740289596402
+      p95_mean_percentage_error_pct: 12.779740289596402
+    polished_setpoints_wave4_1_mae_robust_loss_Bw:
+      mse: 1.637609777439698e-05
+      mae: 0.0039337974153804
+      rmse: 0.004046739153243878
+      mean_percentage_error_pct: 9.512153215306855
+      p95_mean_percentage_error_pct: 9.512153215306855
+    polished_setpoints_wave4_2_quantile_p10_p50_p90_Bw:
+      mse: 5.653843904595995e-05
+      mae: 0.007465388409260645
+      rmse: 0.007519204681743937
+      mean_percentage_error_pct: 18.051747678469678
+      p95_mean_percentage_error_pct: 18.051747678469678
+  '36.36':
+    polished_setpoints_feedforward_Bw:
+      mse: 0.00012027588022362781
+      mae: 0.010774356338115017
+      rmse: 0.010967036072869817
+      mean_percentage_error_pct: 24.75717641950196
+      p95_mean_percentage_error_pct: 24.75717641950196
+    polished_setpoints_tree_Bw:
+      mse: 5.130079746524624e-06
+      mae: 0.0019196309304102459
+      rmse: 0.0022649679349881807
+      mean_percentage_error_pct: 4.41090308442626
+      p95_mean_percentage_error_pct: 4.41090308442626
+    polished_setpoints_harmonic_regression_Bw:
+      mse: 0.00038770482079536175
+      mae: 0.019625450960004034
+      rmse: 0.019690221451150867
+      mean_percentage_error_pct: 45.095106981964506
+      p95_mean_percentage_error_pct: 45.095106981964506
+    polished_setpoints_periodic_mlp_harmonic_Bw:
+      mse: 6.787774714930396e-05
+      mae: 0.008047544263349271
+      rmse: 0.008238795248657655
+      mean_percentage_error_pct: 18.491542958040416
+      p95_mean_percentage_error_pct: 18.491542958040416
+    polished_setpoints_periodic_gru_sequence_Bw:
+      mse: 3.061106107364297e-05
+      mae: 0.005408346495081368
+      rmse: 0.005532726368947137
+      mean_percentage_error_pct: 12.427228515067808
+      p95_mean_percentage_error_pct: 12.427228515067808
+    polished_setpoints_wave4_1_mae_robust_loss_Bw:
+      mse: 1.117573973107502e-05
+      mae: 0.0031245036982766395
+      rmse: 0.0033430135702798187
+      mean_percentage_error_pct: 7.179444122149223
+      p95_mean_percentage_error_pct: 7.179444122149223
+    polished_setpoints_wave4_2_quantile_p10_p50_p90_Bw:
+      mse: 5.8440553750138716e-05
+      mae: 0.007550515420964838
+      rmse: 0.007644642159718054
+      mean_percentage_error_pct: 17.34947652266902
+      p95_mean_percentage_error_pct: 17.34947652266902
+  '34.89':
+    polished_setpoints_feedforward_Bw:
+      mse: 2.7870932615753493e-05
+      mae: 0.005185019662680753
+      rmse: 0.0052792928139811955
+      mean_percentage_error_pct: 13.537500794111322
+      p95_mean_percentage_error_pct: 13.537500794111322
+    polished_setpoints_tree_Bw:
+      mse: 1.7886446939978056e-06
+      mae: 0.0011711325381700258
+      rmse: 0.0013374022184809646
+      mean_percentage_error_pct: 3.0576948009661757
+      p95_mean_percentage_error_pct: 3.0576948009661757
+    polished_setpoints_harmonic_regression_Bw:
+      mse: 0.00044403026308974974
+      mae: 0.021058549834568986
+      rmse: 0.02107202560480956
+      mean_percentage_error_pct: 54.98149547246243
+      p95_mean_percentage_error_pct: 54.98149547246243
+    polished_setpoints_periodic_mlp_harmonic_Bw:
+      mse: 3.379788953563053e-05
+      mae: 0.005747534150465032
+      rmse: 0.005813595233212451
+      mean_percentage_error_pct: 15.006162596859758
+      p95_mean_percentage_error_pct: 15.006162596859758
+    polished_setpoints_periodic_gru_sequence_Bw:
+      mse: 1.2238855978938746e-05
+      mae: 0.0033990187902359775
+      rmse: 0.003498407634758812
+      mean_percentage_error_pct: 8.874454209538838
+      p95_mean_percentage_error_pct: 8.874454209538838
+    polished_setpoints_wave4_1_mae_robust_loss_Bw:
+      mse: 6.764418729035782e-06
+      mae: 0.002490363304039882
+      rmse: 0.002600849616766756
+      mean_percentage_error_pct: 6.5020573496986875
+      p95_mean_percentage_error_pct: 6.5020573496986875
+    polished_setpoints_wave4_2_quantile_p10_p50_p90_Bw:
+      mse: 1.5460885237894467e-05
+      mae: 0.003867752207673439
+      rmse: 0.003932033219327434
+      mean_percentage_error_pct: 10.09826422832388
+      p95_mean_percentage_error_pct: 10.09826422832388
+  '35.68':
+    polished_setpoints_feedforward_Bw:
+      mse: 9.96956161484545e-05
+      mae: 0.009796477136366959
+      rmse: 0.00998476920857235
+      mean_percentage_error_pct: 24.588196137220425
+      p95_mean_percentage_error_pct: 24.588196137220425
+    polished_setpoints_tree_Bw:
+      mse: 6.827441881890701e-06
+      mae: 0.002393538186962835
+      rmse: 0.002612937404893332
+      mean_percentage_error_pct: 6.007545935517268
+      p95_mean_percentage_error_pct: 6.007545935517268
+    polished_setpoints_harmonic_regression_Bw:
+      mse: 3.152345393286279e-06
+      mae: 0.0014875157275562915
+      rmse: 0.0017754845516889971
+      mean_percentage_error_pct: 3.7335184839637425
+      p95_mean_percentage_error_pct: 3.7335184839637425
+    polished_setpoints_periodic_mlp_harmonic_Bw:
+      mse: 8.074258426398566e-05
+      mae: 0.00889135107409531
+      rmse: 0.008985687745742429
+      mean_percentage_error_pct: 22.316418554498608
+      p95_mean_percentage_error_pct: 22.316418554498608
+    polished_setpoints_periodic_gru_sequence_Bw:
+      mse: 2.6254753785875315e-05
+      mae: 0.005036535726844835
+      rmse: 0.005123939283976277
+      mean_percentage_error_pct: 12.641210363678232
+      p95_mean_percentage_error_pct: 12.641210363678232
+    polished_setpoints_wave4_1_mae_robust_loss_Bw:
+      mse: 1.4786092500009882e-05
+      mae: 0.0037385756421619604
+      rmse: 0.003845268846258982
+      mean_percentage_error_pct: 9.38345793939183
+      p95_mean_percentage_error_pct: 9.38345793939183
+    polished_setpoints_wave4_2_quantile_p10_p50_p90_Bw:
+      mse: 4.834706385600245e-05
+      mae: 0.006902269322095523
+      rmse: 0.006953205293675892
+      mean_percentage_error_pct: 17.32401857536954
+      p95_mean_percentage_error_pct: 17.32401857536954
+  '34.65':
+    polished_setpoints_feedforward_Bw:
+      mse: 6.157554536075581e-05
+      mae: 0.0077538025318887515
+      rmse: 0.007847008688714179
+      mean_percentage_error_pct: 19.929813358021224
+      p95_mean_percentage_error_pct: 19.929813358021224
+    polished_setpoints_tree_Bw:
+      mse: 7.062838445315385e-06
+      mae: 0.002551768229267008
+      rmse: 0.0026576001289350107
+      mean_percentage_error_pct: 6.558880540620589
+      p95_mean_percentage_error_pct: 6.558880540620589
+    polished_setpoints_harmonic_regression_Bw:
+      mse: 0.00020280116260432683
+      mae: 0.01421781713855119
+      rmse: 0.014240827314602435
+      mean_percentage_error_pct: 36.544449096355464
+      p95_mean_percentage_error_pct: 36.544449096355464
+    polished_setpoints_periodic_mlp_harmonic_Bw:
+      mse: 6.977278021011346e-05
+      mae: 0.00826567061198714
+      rmse: 0.008353010248414248
+      mean_percentage_error_pct: 21.245482058421388
+      p95_mean_percentage_error_pct: 21.245482058421388
+    polished_setpoints_periodic_gru_sequence_Bw:
+      mse: 3.730309441969555e-05
+      mae: 0.006041725247510373
+      rmse: 0.00610762592335971
+      mean_percentage_error_pct: 15.529213704904025
+      p95_mean_percentage_error_pct: 15.529213704904025
+    polished_setpoints_wave4_1_mae_robust_loss_Bw:
+      mse: 1.8865340710057227e-05
+      mae: 0.004273663433879312
+      rmse: 0.0043434249976323095
+      mean_percentage_error_pct: 10.984715465982775
+      p95_mean_percentage_error_pct: 10.984715465982775
+    polished_setpoints_wave4_2_quantile_p10_p50_p90_Bw:
+      mse: 3.886668246449101e-05
+      mae: 0.006194011298903479
+      rmse: 0.00623431491540899
+      mean_percentage_error_pct: 15.920638759748094
+      p95_mean_percentage_error_pct: 15.920638759748094
+preview_plot_path_list: []
+report_plot_root: doc\reports\campaign_results\track_2\verification_plots\selected_active_model_matrix
+report_plot_path_list: []
+report_plot_count: 0
+per_condition_metrics_csv_path: output\validation_checks\track2_reference_comparison\2026-07-19-17-44-49__track2_selected_active_polished_setpoints_matrix_track2_selected_active_polished_setpoints_backward_2026_07_19\per_condition_metrics.csv
+sample_preview_list:
+- source_file_path: data\polished_dataset\backward\25degree\100rpm\100.0rpm300.0Nm25.0deg.csv
+  direction_label: backward
+  candidate_id: polished_setpoints_feedforward_Bw
+  speed_rpm: -99.99744592939656
+  torque_nm: 299.967563148446
+  oil_temperature_deg: 24.58
+  mean_percentage_error_pct: 1.86162582390689
+- source_file_path: data\polished_dataset\backward\25degree\100rpm\100.0rpm400.0Nm25.0deg.csv
+  direction_label: backward
+  candidate_id: polished_setpoints_feedforward_Bw
+  speed_rpm: -99.99884292977265
+  torque_nm: 400.029945377105
+  oil_temperature_deg: 24.58
+  mean_percentage_error_pct: 1.904516207163973
+- source_file_path: data\polished_dataset\backward\25degree\1100rpm\1100.0rpm0.0Nm25.0deg.csv
+  direction_label: backward
+  candidate_id: polished_setpoints_feedforward_Bw
+  speed_rpm: -1099.9960453305043
+  torque_nm: 0.0581741402356791
+  oil_temperature_deg: 25.07
+  mean_percentage_error_pct: 10.69786769689821
+- source_file_path: data\polished_dataset\backward\25degree\1100rpm\1100.0rpm1600.0Nm25.0deg.csv
+  direction_label: backward
+  candidate_id: polished_setpoints_feedforward_Bw
+  speed_rpm: -1099.9681613381993
+  torque_nm: 1599.964094157705
+  oil_temperature_deg: 27.32
+  mean_percentage_error_pct: 28.044287291257955
+- source_file_path: data\polished_dataset\backward\25degree\1100rpm\1100.0rpm200.0Nm25.0deg.csv
+  direction_label: backward
+  candidate_id: polished_setpoints_feedforward_Bw
+  speed_rpm: -1099.991519342772
+  torque_nm: 199.992918967357
+  oil_temperature_deg: 28.43
+  mean_percentage_error_pct: 14.17080981514211

@@ -175,6 +175,9 @@ TRACK2_FAMILYWISE_AGGREGATE_METRIC_TABLE_CLASS_NAME = "report-table report-table
 TRACK2_FAMILYWISE_OFFSET_SHAPE_TABLE_CLASS_NAME = "report-table report-table-track2-familywise-offset-shape"
 TRACK2_INTERMEDIATE_SHAPE_RANKING_TABLE_CLASS_NAME = "report-table report-table-track2-intermediate-shape-ranking"
 TRACK2_INTERMEDIATE_ACTUAL_VALUES_TABLE_CLASS_NAME = "report-table report-table-track2-intermediate-actual-values"
+TRACK2_SELECTED_ACTIVE_MODEL_PATH_TABLE_CLASS_NAME = "report-table report-table-track2-selected-active-model-paths"
+TRACK2_SELECTED_ACTIVE_METRIC_RANKING_TABLE_CLASS_NAME = "report-table report-table-track2-selected-active-metric-ranking"
+TRACK2_SELECTED_ACTIVE_DIRECTION_BREAKDOWN_TABLE_CLASS_NAME = "report-table report-table-track2-selected-active-direction-breakdown"
 TRACK2D_MEAN_OFFSET_TABLE_CLASS_NAME = "report-table report-table-track2d-mean-offset"
 TRACK2E_OFFSET_FEASIBILITY_TABLE_CLASS_NAME = "report-table report-table-track2e-offset-feasibility"
 TRACK2_COMPONENT_HARMONIC_SUMMARY_TABLE_CLASS_NAME = "report-table report-table-track2-component-harmonic-summary"
@@ -900,6 +903,11 @@ REPORT_STYLESHEET = """
       page-break-before: always;
     }
 
+    .section-force-page-break-after {
+      break-after: page;
+      page-break-after: always;
+    }
+
     .explicit-page-break {
       break-before: page;
       page-break-before: always;
@@ -1169,6 +1177,54 @@ REPORT_STYLESHEET = """
     .report-table-track2-intermediate-actual-values td:nth-child(3),
     .report-table-track2-intermediate-actual-values th:nth-child(4),
     .report-table-track2-intermediate-actual-values td:nth-child(4) { width: 18%; }
+
+    .report-table-track2-selected-active-model-paths {
+      font-size: 6.2pt;
+      line-height: 1.08;
+    }
+
+    .report-table-track2-selected-active-model-paths th,
+    .report-table-track2-selected-active-model-paths td {
+      padding: 3px 3px;
+      overflow-wrap: anywhere;
+    }
+
+    .report-table-track2-selected-active-model-paths th:nth-child(1),
+    .report-table-track2-selected-active-model-paths td:nth-child(1) { width: 22%; }
+    .report-table-track2-selected-active-model-paths th:nth-child(2),
+    .report-table-track2-selected-active-model-paths td:nth-child(2) { width: 14%; }
+    .report-table-track2-selected-active-model-paths th:nth-child(3),
+    .report-table-track2-selected-active-model-paths td:nth-child(3) { width: 5%; }
+    .report-table-track2-selected-active-model-paths th:nth-child(4),
+    .report-table-track2-selected-active-model-paths td:nth-child(4),
+    .report-table-track2-selected-active-model-paths th:nth-child(5),
+    .report-table-track2-selected-active-model-paths td:nth-child(5) { width: 29.5%; }
+
+    .report-table-track2-selected-active-metric-ranking th:nth-child(1),
+    .report-table-track2-selected-active-metric-ranking td:nth-child(1) { width: 6%; }
+    .report-table-track2-selected-active-metric-ranking th:nth-child(2),
+    .report-table-track2-selected-active-metric-ranking td:nth-child(2) { width: 34%; }
+    .report-table-track2-selected-active-metric-ranking th:nth-child(3),
+    .report-table-track2-selected-active-metric-ranking td:nth-child(3),
+    .report-table-track2-selected-active-metric-ranking th:nth-child(4),
+    .report-table-track2-selected-active-metric-ranking td:nth-child(4),
+    .report-table-track2-selected-active-metric-ranking th:nth-child(5),
+    .report-table-track2-selected-active-metric-ranking td:nth-child(5),
+    .report-table-track2-selected-active-metric-ranking th:nth-child(6),
+    .report-table-track2-selected-active-metric-ranking td:nth-child(6) { width: 15%; }
+
+    .report-table-track2-selected-active-direction-breakdown th:nth-child(1),
+    .report-table-track2-selected-active-direction-breakdown td:nth-child(1) { width: 8%; }
+    .report-table-track2-selected-active-direction-breakdown th:nth-child(2),
+    .report-table-track2-selected-active-direction-breakdown td:nth-child(2) { width: 32%; }
+    .report-table-track2-selected-active-direction-breakdown th:nth-child(3),
+    .report-table-track2-selected-active-direction-breakdown td:nth-child(3),
+    .report-table-track2-selected-active-direction-breakdown th:nth-child(4),
+    .report-table-track2-selected-active-direction-breakdown td:nth-child(4),
+    .report-table-track2-selected-active-direction-breakdown th:nth-child(5),
+    .report-table-track2-selected-active-direction-breakdown td:nth-child(5),
+    .report-table-track2-selected-active-direction-breakdown th:nth-child(6),
+    .report-table-track2-selected-active-direction-breakdown td:nth-child(6) { width: 15%; }
 
     .report-table-track2-component-h0-extreme th:nth-child(1), .report-table-track2-component-h0-extreme td:nth-child(1) { width: 5%; }
     .report-table-track2-component-h0-extreme th:nth-child(2), .report-table-track2-component-h0-extreme td:nth-child(2) { width: 10%; }
@@ -3721,6 +3777,8 @@ def normalize_report_specific_header_cell(header_cell: str, table_class_name: st
         TRACK2_BEST_MODEL_COLLAGE_TABLE_CLASS_NAME,
         TRACK2_INTERMEDIATE_ACTUAL_VALUES_TABLE_CLASS_NAME,
         TRACK2_INTERMEDIATE_SHAPE_RANKING_TABLE_CLASS_NAME,
+        TRACK2_SELECTED_ACTIVE_DIRECTION_BREAKDOWN_TABLE_CLASS_NAME,
+        TRACK2_SELECTED_ACTIVE_METRIC_RANKING_TABLE_CLASS_NAME,
         REPOSITORY_STATUS_SCALAR_WINNER_TABLE_CLASS_NAME,
         REPOSITORY_STATUS_HPO_LEADER_TABLE_CLASS_NAME,
         REPOSITORY_STATUS_HARMONIC_RESULTS_TABLE_CLASS_NAME,
@@ -4053,6 +4111,35 @@ def resolve_track2_metric_summary_column_widths(header_cells: Sequence[str]) -> 
     if normalized_header_cells == ("Candidate", "Source", "Family", "Surface", "Valid Directions"):
         return (36.0, 27.0, 19.0, 6.0, 12.0)
 
+    if normalized_header_cells == ("Candidate", "Family", "Surface", "ONNX Model Path", "Python Model Path"):
+        return (22.0, 14.0, 5.0, 29.5, 29.5)
+
+    if (
+        normalized_header_cells
+        == (
+            "Rank",
+            "Candidate",
+            "Curve MAE [deg]",
+            "Curve RMSE [deg]",
+            "Mean Percentage Error [%]",
+            "P95 Mean Percentage Error [%]",
+        )
+    ):
+        return (6.0, 34.0, 15.0, 15.0, 15.0, 15.0)
+
+    if (
+        normalized_header_cells
+        == (
+            "Direction",
+            "Candidate",
+            "Curve MAE [deg]",
+            "Curve RMSE [deg]",
+            "Mean Percentage Error [%]",
+            "P95 Mean Percentage Error [%]",
+        )
+    ):
+        return (8.0, 32.0, 15.0, 15.0, 15.0, 15.0)
+
     if (
         normalized_header_cells
         == ("Candidate", "Source", "Surface", "Curve MAE [deg]", "Curve RMSE [deg]", "Mean Error")
@@ -4146,6 +4233,9 @@ def render_table_colgroup(header_cells: Sequence[str], table_class_name: str) ->
         TRACK2_INTERMEDIATE_ACTUAL_VALUES_TABLE_CLASS_NAME,
         TRACK2_INTERMEDIATE_SHAPE_RANKING_TABLE_CLASS_NAME,
         TRACK2_METRIC_SUMMARY_TABLE_CLASS_NAME,
+        TRACK2_SELECTED_ACTIVE_DIRECTION_BREAKDOWN_TABLE_CLASS_NAME,
+        TRACK2_SELECTED_ACTIVE_METRIC_RANKING_TABLE_CLASS_NAME,
+        TRACK2_SELECTED_ACTIVE_MODEL_PATH_TABLE_CLASS_NAME,
     }:
         return ""
 
@@ -4687,6 +4777,44 @@ def resolve_standard_table_class_name(
         == ("Candidate", "Source", "Surface", "Curve MAE [deg]", "Curve RMSE [deg]", "Mean Error")
     ):
         return TRACK2_BEST_MODEL_COLLAGE_TABLE_CLASS_NAME
+
+    # Resolve TE Curve Verification Pipeline Selected-Active Report Tables
+    if report_stem.startswith("track2_selected_active_") and report_stem.endswith("_report"):
+
+        if (
+            current_section_slug == "exact-model-paths"
+            and normalized_header_cells
+            == ("Candidate", "Family", "Surface", "ONNX Model Path", "Python Model Path")
+        ):
+            return TRACK2_SELECTED_ACTIVE_MODEL_PATH_TABLE_CLASS_NAME
+
+        if (
+            current_section_slug == "metric-ranking"
+            and normalized_header_cells
+            == (
+                "Rank",
+                "Candidate",
+                "Curve MAE [deg]",
+                "Curve RMSE [deg]",
+                "Mean Percentage Error [%]",
+                "P95 Mean Percentage Error [%]",
+            )
+        ):
+            return TRACK2_SELECTED_ACTIVE_METRIC_RANKING_TABLE_CLASS_NAME
+
+        if (
+            current_section_slug == "direction-breakdown"
+            and normalized_header_cells
+            == (
+                "Direction",
+                "Candidate",
+                "Curve MAE [deg]",
+                "Curve RMSE [deg]",
+                "Mean Percentage Error [%]",
+                "P95 Mean Percentage Error [%]",
+            )
+        ):
+            return TRACK2_SELECTED_ACTIVE_DIRECTION_BREAKDOWN_TABLE_CLASS_NAME
 
     if (
         "Candidate" in normalized_header_cells
@@ -5407,6 +5535,16 @@ def should_force_page_break_before_section(report_stem: str, current_section_slu
     report_specific_section_slugs = REPORT_SPECIFIC_FORCED_PAGE_BREAK_SECTION_SLUGS.get(report_stem, set())
     return current_section_slug in FORCED_PAGE_BREAK_SECTION_SLUGS or current_section_slug in report_specific_section_slugs
 
+def should_force_page_break_after_section(report_stem: str, current_section_slug: str) -> bool:
+
+    """Report whether the section should end with a fresh PDF page boundary."""
+
+    return (
+        report_stem.startswith("track2_selected_active_")
+        and report_stem.endswith("_report")
+        and current_section_slug == "candidate-inventory"
+    )
+
 def render_markdown_body(markdown_text: str, markdown_path: Path) -> tuple[str, str]:
 
     """ Render Markdown Body """
@@ -5483,6 +5621,9 @@ def render_markdown_body(markdown_text: str, markdown_path: Path) -> tuple[str, 
             force_page_break_before_section = should_force_page_break_before_section(report_stem, current_section_slug)
             if force_page_break_before_section:
                 section_class_names.append("section-force-page-break")
+
+            if should_force_page_break_after_section(report_stem, current_section_slug):
+                section_class_names.append("section-force-page-break-after")
 
             if should_keep_section_together(current_section_body_tokens):
                 section_class_names.append("section-keep-together")

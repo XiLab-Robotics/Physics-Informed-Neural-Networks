@@ -1,0 +1,368 @@
+config_path: config\paper_reimplementation\rcim_ml_compensation\reference_family_vs_feedforward\selected_active_track2_simplified_setpoints_matrix.yaml
+output_directory: output\validation_checks\track2_reference_comparison\2026-07-19-17-30-20__track2_selected_active_simplified_setpoints_matrix_track2_selected_active_simplified_setpoints_forward_2026_07_19
+dataset:
+  dataset_config_path: config/datasets/transmission_error_dataset.yaml
+  dataset_root: data\simplified_dataset
+  source_contract: data\simplified_dataset
+comparison_scope:
+  comparison_mode: selected_active_model_matrix
+  percentage_error_denominator: peak_to_peak_truth
+  curve_count: 97
+  candidate_count: 7
+  directional_policy:
+    global:
+    - forward
+    - backward
+    Fw:
+    - forward
+    Bw:
+    - backward
+  reference_bank_compatibility_policy:
+    rcim_track1_Fw_h0_sign_multiplier: -1.0
+    reason: RCIM Model-Bank Reproduction forward reference banks store the constant
+      harmonic with the opposite sign convention relative to the TE Curve Verification
+      Pipeline TE-curve reconstruction contract.
+candidate_list:
+- candidate_id: simplified_setpoints_feedforward_Fw
+  candidate_family: feedforward
+  candidate_kind: wave1_exported_model
+  candidate_source_label: simplified_setpoints_model_archive
+  candidate_surface: Fw
+  allowed_direction_list:
+  - forward
+  source_path: models\simplified_dataset\setpoints\exported\feedforward\forward\2026-07-07-16-21-15__te_feedforward_fw__simplified_setpoints\reference_inventory.yaml
+  selected_harmonic_list: []
+  registry_run_instance_id: 2026-07-07-16-21-15__te_feedforward_fw__simplified_setpoints
+  model_file_path: models/simplified_dataset/setpoints/exported/feedforward/forward/2026-07-07-16-21-15__te_feedforward_fw__simplified_setpoints/python/feedforward-epoch=057-val_mae=0.00299942.ckpt
+  composite_selection: null
+- candidate_id: simplified_setpoints_tree_Fw
+  candidate_family: tree
+  candidate_kind: wave1_exported_model
+  candidate_source_label: simplified_setpoints_model_archive
+  candidate_surface: Fw
+  allowed_direction_list:
+  - forward
+  source_path: models\simplified_dataset\setpoints\exported\tree\forward\2026-07-07-02-31-39__te_tree_fw__simplified_setpoints\reference_inventory.yaml
+  selected_harmonic_list: []
+  registry_run_instance_id: 2026-07-07-02-31-39__te_tree_fw__simplified_setpoints
+  model_file_path: models/simplified_dataset/setpoints/exported/tree/forward/2026-07-07-02-31-39__te_tree_fw__simplified_setpoints/python/tree_model.pkl
+  composite_selection: null
+- candidate_id: simplified_setpoints_harmonic_regression_Fw
+  candidate_family: harmonic_regression
+  candidate_kind: wave1_exported_model
+  candidate_source_label: simplified_setpoints_model_archive
+  candidate_surface: Fw
+  allowed_direction_list:
+  - forward
+  source_path: models\simplified_dataset\setpoints\exported\harmonic_regression\forward\2026-07-07-22-54-59__te_harmonic_regression_fw__simplified_setpoints\reference_inventory.yaml
+  selected_harmonic_list: []
+  registry_run_instance_id: 2026-07-07-22-54-59__te_harmonic_regression_fw__simplified_setpoints
+  model_file_path: models/simplified_dataset/setpoints/exported/harmonic_regression/forward/2026-07-07-22-54-59__te_harmonic_regression_fw__simplified_setpoints/python/harmonic_regression-epoch=033-val_mae=0.01699562.ckpt
+  composite_selection: null
+- candidate_id: simplified_setpoints_periodic_mlp_harmonic_Fw
+  candidate_family: periodic_mlp_harmonic
+  candidate_kind: wave1_exported_model
+  candidate_source_label: simplified_setpoints_model_archive
+  candidate_surface: Fw
+  allowed_direction_list:
+  - forward
+  source_path: models\simplified_dataset\setpoints\exported\periodic_mlp_harmonic\forward\2026-07-08-01-11-12__te_periodic_mlp_harmonic_fw__simplified_setpoints\reference_inventory.yaml
+  selected_harmonic_list: []
+  registry_run_instance_id: 2026-07-08-01-11-12__te_periodic_mlp_harmonic_fw__simplified_setpoints
+  model_file_path: models/simplified_dataset/setpoints/exported/periodic_mlp_harmonic/forward/2026-07-08-01-11-12__te_periodic_mlp_harmonic_fw__simplified_setpoints/python/periodic_mlp-epoch=055-val_mae=0.00280280.ckpt
+  composite_selection: null
+- candidate_id: simplified_setpoints_periodic_gru_sequence_Fw
+  candidate_family: periodic_gru_sequence
+  candidate_kind: wave1_exported_model
+  candidate_source_label: simplified_setpoints_model_archive
+  candidate_surface: Fw
+  allowed_direction_list:
+  - forward
+  source_path: models\simplified_dataset\setpoints\exported\periodic_gru_sequence\forward\2026-07-08-22-14-21__te_periodic_gru_sequence_fw__simplified_setpoints\reference_inventory.yaml
+  selected_harmonic_list: []
+  registry_run_instance_id: 2026-07-08-22-14-21__te_periodic_gru_sequence_fw__simplified_setpoints
+  model_file_path: models/simplified_dataset/setpoints/exported/periodic_gru_sequence/forward/2026-07-08-22-14-21__te_periodic_gru_sequence_fw__simplified_setpoints/python/periodic_gru_sequence-epoch=056-val_mae=0.00353205.ckpt
+  composite_selection: null
+- candidate_id: simplified_setpoints_wave4_1_mae_robust_loss_Fw
+  candidate_family: wave4_1_mae_robust_loss
+  candidate_kind: wave1_exported_model
+  candidate_source_label: simplified_setpoints_model_archive
+  candidate_surface: Fw
+  allowed_direction_list:
+  - forward
+  source_path: models\simplified_dataset\setpoints\exported\wave4_1_mae_robust_loss\forward\2026-07-12-14-40-52__te_wave4_1_mae_robust_loss_fw__simplified_setpoints\reference_inventory.yaml
+  selected_harmonic_list: []
+  registry_run_instance_id: 2026-07-12-14-40-52__te_wave4_1_mae_robust_loss_fw__simplified_setpoints
+  model_file_path: models/simplified_dataset/setpoints/exported/wave4_1_mae_robust_loss/forward/2026-07-12-14-40-52__te_wave4_1_mae_robust_loss_fw__simplified_setpoints/python/curve_aware_harmonic_residual_offset_probe-epoch=085-val_mae=0.00364418.ckpt
+  composite_selection: null
+- candidate_id: simplified_setpoints_wave4_2_quantile_p10_p50_p90_Fw
+  candidate_family: wave4_2_quantile_p10_p50_p90
+  candidate_kind: wave1_exported_model
+  candidate_source_label: simplified_setpoints_model_archive
+  candidate_surface: Fw
+  allowed_direction_list:
+  - forward
+  source_path: models\simplified_dataset\setpoints\exported\wave4_2_quantile_p10_p50_p90\forward\2026-07-14-11-30-33__te_wave4_2_quantile_p10_p50_p90_fw__simplified_setpoints\reference_inventory.yaml
+  selected_harmonic_list: []
+  registry_run_instance_id: 2026-07-14-11-30-33__te_wave4_2_quantile_p10_p50_p90_fw__simplified_setpoints
+  model_file_path: models/simplified_dataset/setpoints/exported/wave4_2_quantile_p10_p50_p90/forward/2026-07-14-11-30-33__te_wave4_2_quantile_p10_p50_p90_fw__simplified_setpoints/python/curve_aware_harmonic_residual_offset_probe-epoch=098-val_mae=0.00349706.ckpt
+  composite_selection: null
+candidate_target_metric_summary: {}
+candidate_metric_summary:
+  simplified_setpoints_feedforward_Fw:
+    mse: 1.8300096141498914e-05
+    mae: 0.0034377037225628458
+    rmse: 0.0038717297721327358
+    mean_percentage_error_pct: 7.631340277637771
+    p95_mean_percentage_error_pct: 14.40570833724708
+  simplified_setpoints_tree_Fw:
+    mse: 1.4686691294884922e-05
+    mae: 0.0030645570538361034
+    rmse: 0.0034349532126842974
+    mean_percentage_error_pct: 6.739921453944621
+    p95_mean_percentage_error_pct: 11.934071645156193
+  simplified_setpoints_harmonic_regression_Fw:
+    mse: 0.0004452272419525158
+    mae: 0.01806411071533262
+    rmse: 0.018299488884707855
+    mean_percentage_error_pct: 41.17600019411685
+    p95_mean_percentage_error_pct: 78.83938053819755
+  simplified_setpoints_periodic_mlp_harmonic_Fw:
+    mse: 1.4029507828450128e-05
+    mae: 0.003111162901639017
+    rmse: 0.003363395259005101
+    mean_percentage_error_pct: 6.899006234714381
+    p95_mean_percentage_error_pct: 11.569573948242622
+  simplified_setpoints_periodic_gru_sequence_Fw:
+    mse: 1.4246338513368262e-05
+    mae: 0.003153320817280466
+    rmse: 0.0034114784339341524
+    mean_percentage_error_pct: 7.003516356066445
+    p95_mean_percentage_error_pct: 12.18722526142665
+  simplified_setpoints_wave4_1_mae_robust_loss_Fw:
+    mse: 1.6934929488290508e-05
+    mae: 0.0033710403968858042
+    rmse: 0.0036399501821608947
+    mean_percentage_error_pct: 7.4815629596780155
+    p95_mean_percentage_error_pct: 13.793735133462436
+  simplified_setpoints_wave4_2_quantile_p10_p50_p90_Fw:
+    mse: 1.6590425346864083e-05
+    mae: 0.003376592145935245
+    rmse: 0.0036451071370704633
+    mean_percentage_error_pct: 7.512247127983909
+    p95_mean_percentage_error_pct: 14.422254029988164
+direction_breakdown:
+  forward:
+    simplified_setpoints_feedforward_Fw:
+      mse: 1.8300096141498914e-05
+      mae: 0.0034377037225628458
+      rmse: 0.0038717297721327358
+      mean_percentage_error_pct: 7.631340277637771
+      p95_mean_percentage_error_pct: 14.40570833724708
+    simplified_setpoints_tree_Fw:
+      mse: 1.4686691294884922e-05
+      mae: 0.0030645570538361034
+      rmse: 0.0034349532126842974
+      mean_percentage_error_pct: 6.739921453944621
+      p95_mean_percentage_error_pct: 11.934071645156193
+    simplified_setpoints_harmonic_regression_Fw:
+      mse: 0.0004452272419525158
+      mae: 0.01806411071533262
+      rmse: 0.018299488884707855
+      mean_percentage_error_pct: 41.17600019411685
+      p95_mean_percentage_error_pct: 78.83938053819755
+    simplified_setpoints_periodic_mlp_harmonic_Fw:
+      mse: 1.4029507828450128e-05
+      mae: 0.003111162901639017
+      rmse: 0.003363395259005101
+      mean_percentage_error_pct: 6.899006234714381
+      p95_mean_percentage_error_pct: 11.569573948242622
+    simplified_setpoints_periodic_gru_sequence_Fw:
+      mse: 1.4246338513368262e-05
+      mae: 0.003153320817280466
+      rmse: 0.0034114784339341524
+      mean_percentage_error_pct: 7.003516356066445
+      p95_mean_percentage_error_pct: 12.18722526142665
+    simplified_setpoints_wave4_1_mae_robust_loss_Fw:
+      mse: 1.6934929488290508e-05
+      mae: 0.0033710403968858042
+      rmse: 0.0036399501821608947
+      mean_percentage_error_pct: 7.4815629596780155
+      p95_mean_percentage_error_pct: 13.793735133462436
+    simplified_setpoints_wave4_2_quantile_p10_p50_p90_Fw:
+      mse: 1.6590425346864083e-05
+      mae: 0.003376592145935245
+      rmse: 0.0036451071370704633
+      mean_percentage_error_pct: 7.512247127983909
+      p95_mean_percentage_error_pct: 14.422254029988164
+temperature_breakdown:
+  '25.0':
+    simplified_setpoints_feedforward_Fw:
+      mse: 1.448254492338535e-05
+      mae: 0.003177012792912489
+      rmse: 0.003536515311396814
+      mean_percentage_error_pct: 7.40101792795649
+      p95_mean_percentage_error_pct: 13.832301474936736
+    simplified_setpoints_tree_Fw:
+      mse: 1.0719410237227537e-05
+      mae: 0.002685708059832959
+      rmse: 0.002970692773776548
+      mean_percentage_error_pct: 6.209846054166427
+      p95_mean_percentage_error_pct: 12.531672345311458
+    simplified_setpoints_harmonic_regression_Fw:
+      mse: 0.0004491539890922287
+      mae: 0.018521321549359378
+      rmse: 0.018634943758344694
+      mean_percentage_error_pct: 43.511296706516724
+      p95_mean_percentage_error_pct: 77.30300324670495
+    simplified_setpoints_periodic_mlp_harmonic_Fw:
+      mse: 1.0314682112573671e-05
+      mae: 0.0028196353307961097
+      rmse: 0.00297233201972079
+      mean_percentage_error_pct: 6.583587533846429
+      p95_mean_percentage_error_pct: 11.179605140474372
+    simplified_setpoints_periodic_gru_sequence_Fw:
+      mse: 1.1258809002379562e-05
+      mae: 0.002872938842679693
+      rmse: 0.003029523307798356
+      mean_percentage_error_pct: 6.7137828560673976
+      p95_mean_percentage_error_pct: 12.371800985445526
+    simplified_setpoints_wave4_1_mae_robust_loss_Fw:
+      mse: 1.4120514353998445e-05
+      mae: 0.003188887737805972
+      rmse: 0.0033538261153739347
+      mean_percentage_error_pct: 7.414795880788577
+      p95_mean_percentage_error_pct: 13.612385909439796
+    simplified_setpoints_wave4_2_quantile_p10_p50_p90_Fw:
+      mse: 1.4284248165243464e-05
+      mae: 0.0031449221562650596
+      rmse: 0.0033086054548252136
+      mean_percentage_error_pct: 7.356524140422388
+      p95_mean_percentage_error_pct: 14.612781694419072
+  '30.0':
+    simplified_setpoints_feedforward_Fw:
+      mse: 1.8765004965327605e-05
+      mae: 0.003458774476757252
+      rmse: 0.003944433775867998
+      mean_percentage_error_pct: 7.47779769547237
+      p95_mean_percentage_error_pct: 13.735320597824566
+    simplified_setpoints_tree_Fw:
+      mse: 1.630381128684191e-05
+      mae: 0.0032220318872163613
+      rmse: 0.0036612963673428064
+      mean_percentage_error_pct: 6.9055810728066
+      p95_mean_percentage_error_pct: 11.55532751903834
+    simplified_setpoints_harmonic_regression_Fw:
+      mse: 0.00041394210351497517
+      mae: 0.01699801709527667
+      rmse: 0.017300630107646885
+      mean_percentage_error_pct: 38.06740586568945
+      p95_mean_percentage_error_pct: 76.20317988118195
+    simplified_setpoints_periodic_mlp_harmonic_Fw:
+      mse: 1.5946911331332653e-05
+      mae: 0.0033294664499147635
+      rmse: 0.003648320208349061
+      mean_percentage_error_pct: 7.2039830597538295
+      p95_mean_percentage_error_pct: 10.698479710612485
+    simplified_setpoints_periodic_gru_sequence_Fw:
+      mse: 1.6171208835562733e-05
+      mae: 0.0033302390353976614
+      rmse: 0.0036543999904401713
+      mean_percentage_error_pct: 7.206774277686711
+      p95_mean_percentage_error_pct: 11.74846350618547
+    simplified_setpoints_wave4_1_mae_robust_loss_Fw:
+      mse: 1.681447928724044e-05
+      mae: 0.0033894715667527075
+      rmse: 0.0037205483085711822
+      mean_percentage_error_pct: 7.3224331682139825
+      p95_mean_percentage_error_pct: 11.65249529738756
+    simplified_setpoints_wave4_2_quantile_p10_p50_p90_Fw:
+      mse: 1.6364279467745564e-05
+      mae: 0.003312713092673395
+      rmse: 0.0036598283646944317
+      mean_percentage_error_pct: 7.147738562697767
+      p95_mean_percentage_error_pct: 11.713320488328101
+  '35.0':
+    simplified_setpoints_feedforward_Fw:
+      mse: 2.3984393197657572e-05
+      mae: 0.0038391091119883646
+      rmse: 0.0043313285231079204
+      mean_percentage_error_pct: 8.199461733000168
+      p95_mean_percentage_error_pct: 15.875910002328002
+    simplified_setpoints_tree_Fw:
+      mse: 1.918780343941639e-05
+      mae: 0.0034906006106097355
+      rmse: 0.003915674820716459
+      mean_percentage_error_pct: 7.403827182192007
+      p95_mean_percentage_error_pct: 12.568674210203133
+    simplified_setpoints_harmonic_regression_Fw:
+      mse: 0.0004775809483059376
+      mae: 0.018636241036398115
+      rmse: 0.018987927775499056
+      mean_percentage_error_pct: 41.20077088103098
+      p95_mean_percentage_error_pct: 78.56505181371645
+    simplified_setpoints_periodic_mlp_harmonic_Fw:
+      mse: 1.774424165891322e-05
+      mae: 0.003318571717959466
+      rmse: 0.0036514320342448596
+      mean_percentage_error_pct: 7.03812164108892
+      p95_mean_percentage_error_pct: 12.768954849307798
+    simplified_setpoints_periodic_gru_sequence_Fw:
+      mse: 1.675904771186858e-05
+      mae: 0.0033937686651604065
+      rmse: 0.0037366621107293883
+      mean_percentage_error_pct: 7.226639473255755
+      p95_mean_percentage_error_pct: 10.519623950645595
+    simplified_setpoints_wave4_1_mae_robust_loss_Fw:
+      mse: 2.169992855783159e-05
+      mae: 0.003646916107141768
+      rmse: 0.004009251974942756
+      mean_percentage_error_pct: 7.7883819104720935
+      p95_mean_percentage_error_pct: 14.99038225728271
+    simplified_setpoints_wave4_2_quantile_p10_p50_p90_Fw:
+      mse: 2.065297681482887e-05
+      mae: 0.003835740955039044
+      rmse: 0.0041787155736989524
+      mean_percentage_error_pct: 8.219623448539608
+      p95_mean_percentage_error_pct: 12.72817471810943
+preview_plot_path_list: []
+report_plot_root: doc\reports\campaign_results\track_2\verification_plots\selected_active_model_matrix
+report_plot_path_list: []
+report_plot_count: 0
+per_condition_metrics_csv_path: output\validation_checks\track2_reference_comparison\2026-07-19-17-30-20__track2_selected_active_simplified_setpoints_matrix_track2_selected_active_simplified_setpoints_forward_2026_07_19\per_condition_metrics.csv
+sample_preview_list:
+- source_file_path: data\simplified_dataset\Test_25degree\1000rpm\1000.0rpm1200.0Nm25.0deg.csv
+  direction_label: forward
+  candidate_id: simplified_setpoints_feedforward_Fw
+  speed_rpm: 1000.0
+  torque_nm: 1200.0
+  oil_temperature_deg: 25.0
+  mean_percentage_error_pct: 7.763946489651392
+- source_file_path: data\simplified_dataset\Test_25degree\1000rpm\1000.0rpm1300.0Nm25.0deg.csv
+  direction_label: forward
+  candidate_id: simplified_setpoints_feedforward_Fw
+  speed_rpm: 1000.0
+  torque_nm: 1300.0
+  oil_temperature_deg: 25.0
+  mean_percentage_error_pct: 4.6464418474160905
+- source_file_path: data\simplified_dataset\Test_25degree\1000rpm\1000.0rpm1800.0Nm25.0deg.csv
+  direction_label: forward
+  candidate_id: simplified_setpoints_feedforward_Fw
+  speed_rpm: 1000.0
+  torque_nm: 1800.0
+  oil_temperature_deg: 25.0
+  mean_percentage_error_pct: 5.8845795072020755
+- source_file_path: data\simplified_dataset\Test_25degree\1000rpm\1000.0rpm400.0Nm25.0deg.csv
+  direction_label: forward
+  candidate_id: simplified_setpoints_feedforward_Fw
+  speed_rpm: 1000.0
+  torque_nm: 400.0
+  oil_temperature_deg: 25.0
+  mean_percentage_error_pct: 3.8547634769037304
+- source_file_path: data\simplified_dataset\Test_25degree\1000rpm\1000.0rpm800.0Nm25.0deg.csv
+  direction_label: forward
+  candidate_id: simplified_setpoints_feedforward_Fw
+  speed_rpm: 1000.0
+  torque_nm: 800.0
+  oil_temperature_deg: 25.0
+  mean_percentage_error_pct: 8.99611030698773
