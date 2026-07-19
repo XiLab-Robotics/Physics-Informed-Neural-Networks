@@ -76,6 +76,11 @@ def parse_arguments() -> argparse.Namespace:
         help="Campaign name recorded in promoted archive inventories.",
     )
     parser.add_argument(
+        "--execution-environment",
+        default="local Windows workstation",
+        help="Human-readable execution environment recorded in generated README files.",
+    )
+    parser.add_argument(
         "--replace",
         action="store_true",
         help="Replace an existing target input-mode archive after path safety checks.",
@@ -87,6 +92,10 @@ def resolve_project_path(input_path: Path) -> Path:
     if input_path.is_absolute():
         return input_path.resolve()
     return (PROJECT_ROOT / input_path).resolve()
+
+
+def resolve_manifest_path(path_value: Any) -> Path:
+    return resolve_project_path(Path(str(path_value).replace("\\", "/")))
 
 
 def assert_within_project(resolved_path: Path) -> None:
@@ -195,6 +204,7 @@ def build_family_inventory(
     surface: str,
     input_mode: str,
     campaign_name: str,
+    execution_environment: str,
 ) -> dict[str, Any]:
     family_name = str(family_export["family_name"])
     reference_model_list: list[dict[str, Any]] = []
@@ -202,8 +212,8 @@ def build_family_inventory(
     for export_target in family_export["exported_targets"]:
         export_target_name = str(export_target["export_target_name"])
         target_kind, harmonic_order = parse_target_kind_and_harmonic(export_target_name)
-        source_onnx_path = resolve_project_path(Path(str(export_target["onnx_export_path"])))
-        source_python_path = resolve_project_path(Path(str(export_target["python_export_path"])))
+        source_onnx_path = resolve_manifest_path(export_target["onnx_export_path"])
+        source_python_path = resolve_manifest_path(export_target["python_export_path"])
         archived_onnx_path = (
             family_archive_root
             / "onnx"
@@ -255,6 +265,7 @@ def build_family_inventory(
         "dataset_name": "polished_dataset",
         "dataset_root": validation_summary["dataset"]["dataset_root"],
         "input_mode": input_mode,
+        "execution_environment": execution_environment,
         "direction_label": surface,
         "input_feature_names": validation_summary["dataset"]["feature_name_list"],
         "paper_family_name": family_name,
@@ -279,8 +290,8 @@ def write_family_readme(family_archive_root: Path, inventory: dict[str, Any]) ->
             f"# {family_name} RCIM Track 1 Polished {inventory['input_mode']} Archive",
             "",
             "This archive contains the promoted ONNX and Python fitted-estimator",
-            "exports from the completed local Windows RCIM Track 1 input-mode",
-            "campaign.",
+            "exports from the completed RCIM Track 1 input-mode campaign.",
+            f"Execution environment: {inventory['execution_environment']}.",
             "",
             "Archive contract:",
             "",
@@ -305,6 +316,7 @@ def promote_surface(
     input_mode: str,
     surface: str,
     campaign_name: str,
+    execution_environment: str,
 ) -> dict[str, Any]:
     source_validation_directory = resolve_latest_surface_directory(validation_root, input_mode, surface)
     validation_summary_path = source_validation_directory / "validation_summary.yaml"
@@ -340,6 +352,7 @@ def promote_surface(
             surface=surface,
             input_mode=input_mode,
             campaign_name=campaign_name,
+            execution_environment=execution_environment,
         )
         write_family_readme(family_archive_root, inventory)
         family_inventory_list.append(
@@ -384,8 +397,8 @@ def write_root_readme(target_input_root: Path, promotion_inventory: dict[str, An
             f"# RCIM Track 1 Polished {promotion_inventory['input_mode']} Archive",
             "",
             "This folder contains the official promoted RCIM Track 1 polished-dataset",
-            f"{promotion_inventory['input_mode']} model bank. The source run was executed locally on Windows",
-            "while Aries continued the independent model-development campaign stream.",
+            f"{promotion_inventory['input_mode']} model bank.",
+            f"Execution environment: {promotion_inventory['execution_environment']}.",
             "",
             "Input contract:",
             "",
@@ -430,6 +443,7 @@ def main() -> None:
                 input_mode=arguments.input_mode,
                 surface=surface,
                 campaign_name=arguments.campaign_name,
+                execution_environment=arguments.execution_environment,
             )
         )
 
@@ -438,6 +452,7 @@ def main() -> None:
         "campaign_name": arguments.campaign_name,
         "dataset_name": "polished_dataset",
         "input_mode": arguments.input_mode,
+        "execution_environment": arguments.execution_environment,
         "target_archive_root": format_project_relative_path(target_input_root),
         "surface_count": len(surface_inventory_list),
         "total_python_exported_file_count": sum(

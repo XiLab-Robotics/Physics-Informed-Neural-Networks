@@ -1367,9 +1367,36 @@ def resolve_exact_paper_hyperparameter_search_settings(
     }
 
 
-def create_exact_paper_base_estimator(family_name: str) -> object:
+def resolve_exact_paper_estimator_runtime_parameters(
+    training_config: dict[str, Any] | None,
+    family_name: str,
+) -> dict[str, Any]:
+
+    """Resolve non-search estimator parameters used only for runtime control."""
+
+    training_section = dict((training_config or {}).get("training", {}))
+    runtime_section = training_section.get("estimator_runtime_parameters", {})
+    if not isinstance(runtime_section, dict):
+        return {}
+
+    normalized_family_name = str(family_name).strip().upper()
+    for configured_family_name, runtime_parameter_dictionary in runtime_section.items():
+        if str(configured_family_name).strip().upper() != normalized_family_name:
+            continue
+        if not isinstance(runtime_parameter_dictionary, dict):
+            return {}
+        return dict(runtime_parameter_dictionary)
+    return {}
+
+
+def create_exact_paper_base_estimator(
+    family_name: str,
+    runtime_parameter_dictionary: dict[str, Any] | None = None,
+) -> object:
 
     """Create one exact-paper base estimator matching the recovered workflow."""
+
+    resolved_runtime_parameter_dictionary = dict(runtime_parameter_dictionary or {})
 
     # Create Recovered Original Family Estimators
     if family_name == "SVR":
@@ -1453,6 +1480,7 @@ def create_exact_paper_base_estimator(family_name: str) -> object:
             max_depth=12,
             subsample=0.1,
             random_state=0,
+            **resolved_runtime_parameter_dictionary,
         )
 
     if family_name == "ELM":
@@ -1991,7 +2019,14 @@ def fit_exact_family_model_bank(
     for family_name in enabled_family_list:
         family_fit_start_time = time.perf_counter()
         loaded_best_parameter_dictionary = None
-        base_estimator = create_exact_paper_base_estimator(family_name)
+        estimator_runtime_parameter_dictionary = resolve_exact_paper_estimator_runtime_parameters(
+            training_config,
+            family_name,
+        )
+        base_estimator = create_exact_paper_base_estimator(
+            family_name,
+            runtime_parameter_dictionary=estimator_runtime_parameter_dictionary,
+        )
         if best_parameter_override_map is not None and family_name in best_parameter_override_map:
             stored_best_parameter_dictionary = dict(best_parameter_override_map[family_name])
             if family_name == "SVR" and is_exact_svr_variant_payload(stored_best_parameter_dictionary):
@@ -2022,6 +2057,7 @@ def fit_exact_family_model_bank(
             f"targets={len(dataset_bundle.target_name_list)} "
             f"threadpool_limit={threadpool_limit} "
             f"joblib_cpu_limit={joblib_cpu_limit if joblib_cpu_limit > 0 else 'system_default'} "
+            f"estimator_runtime_parameters={estimator_runtime_parameter_dictionary or '{}'} "
             f"os_cpu_count={os.cpu_count()}",
         )
         emit_exact_paper_progress_log(
@@ -2103,6 +2139,7 @@ def fit_exact_family_model_bank(
                 "grid_search_verbose": int(search_settings["grid_search_verbose"]),
                 "historical_cross_validate_verbose": int(search_settings["historical_cross_validate_verbose"]),
                 "grid_search_pre_dispatch": search_settings["grid_search_pre_dispatch"],
+                "estimator_runtime_parameters": dict(estimator_runtime_parameter_dictionary),
                 "grid_search_cv": (
                     int(grid_search_estimator.n_splits_)
                     if hasattr(grid_search_estimator, "n_splits_")
@@ -2152,6 +2189,7 @@ def fit_exact_family_model_bank(
             "grid_search_verbose": None,
             "historical_cross_validate_verbose": None,
             "grid_search_pre_dispatch": None,
+            "estimator_runtime_parameters": dict(estimator_runtime_parameter_dictionary),
             "grid_search_cv": None,
             "parameter_grid": None,
             "best_params": (

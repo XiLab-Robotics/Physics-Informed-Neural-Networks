@@ -17,10 +17,9 @@ mixed by path.
 ## Current Layout
 
 - `polished_dataset/paper_reference/rcim_track1/`
-  Reserved for the replacement polished RCIM Model-Bank Reproduction archive.
-  The previous unsplit polished archive was removed before the approved
-  input-mode retraining. Replacement artifacts must be written under
-  `setpoints/` and `actual_values/` subfolders after the new campaigns finish.
+  Official polished RCIM Model-Bank Reproduction archives split by input mode.
+  `setpoints/` and `actual_values/` each contain `global`, `forward`, and
+  `backward` surfaces with 570 ONNX files and 570 Python pickle files.
 - `polished_dataset/exported/`
   Polished model-development exports from the completed 36-run early-wave and
   108-run full-wave campaigns. The inventory records 144 run archives:

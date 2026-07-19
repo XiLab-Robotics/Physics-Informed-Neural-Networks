@@ -21,3 +21,6 @@ output/validation_checks/rcim_model_bank_reproduction/2026-06-22-23-42-04__rcim_
 output/validation_checks/rcim_model_bank_reproduction/2026-06-25-15-19-40__rcim_model_bank_reproduction_polished_dataset_bw_polished_dataset_campaign_validation/paper_family_model_bank.pkl filter=lfs diff=lfs merge=lfs -text
 output/validation_checks/rcim_track1/2026-07-13-21-11-39__rcim_track1_polished_setpoints_fw_rcim_track1_polished_input_mode_campaign_validation/paper_family_model_bank.pkl filter=lfs diff=lfs merge=lfs -text
 output/validation_checks/rcim_track1/2026-07-13-21-11-39__rcim_track1_polished_setpoints_global_rcim_track1_polished_input_mode_campaign_validation/paper_family_model_bank.pkl filter=lfs diff=lfs merge=lfs -text
+output/validation_checks/rcim_track1/2026-07-18-11-55-05__rcim_track1_polished_actual_values_fw_rcim_track1_polished_input_mode_campaign_validation/paper_family_model_bank.pkl filter=lfs diff=lfs merge=lfs -text
+output/validation_checks/rcim_track1/2026-07-18-11-55-05__rcim_track1_polished_actual_values_global_rcim_track1_polished_input_mode_campaign_validation/paper_family_model_bank.pkl filter=lfs diff=lfs merge=lfs -text
+output/validation_checks/rcim_track1/2026-07-18-11-56-46__rcim_track1_polished_actual_values_bw_rcim_track1_polished_input_mode_campaign_validation/paper_family_model_bank.pkl filter=lfs diff=lfs merge=lfs -text

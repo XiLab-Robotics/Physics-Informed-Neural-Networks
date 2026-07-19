@@ -1,0 +1,99 @@
+paths:
+  dataset_config_path: config/datasets/transmission_error_dataset.yaml
+  exact_onnx_reference_root: ""
+  output_root: output/validation_checks/rcim_track1_input_mode_retraining/polished_actual_values
+
+experiment:
+  run_name: rcim_track1_polished_actual_values_global
+  model_family: rcim_track1
+  model_type: exact_model_bank_global
+
+dataset:
+  name: polished_dataset
+  input_mode: actual_values
+
+data:
+  direction_label: global
+  input_feature_names:
+  - angular_position_deg
+  - input_speed_rpm
+  - input_torque_nm
+  - oil_temperature_deg
+  - direction_flag
+
+evaluation:
+  selected_harmonics:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  decomposition_point_stride: 1
+
+target_scope:
+  mode: all
+  include_phase_zero: false
+
+training:
+  enabled_families:
+  - SVR
+  - MLP
+  - RF
+  - DT
+  - ET
+  - ERT
+  - GBM
+  - HGBM
+  - XGBM
+  - LGBM
+  validation_split: 0.20
+  test_size: 0.10
+  random_seed: 42
+  deterministic: true
+  threadpool_limit: 1
+  joblib_cpu_limit: 16
+  estimator_runtime_parameters:
+    LGBM:
+      n_jobs: 1
+  grid_search_disabled_families:
+  - SVR
+  hyperparameter_search:
+    mode: paper_reference_grid_search
+    grid_search_n_jobs: 16
+    grid_search_verbose: 1
+    grid_search_pre_dispatch: n_jobs
+
+export:
+  enable_onnx_export: true
+  target_opset: 12
+  export_failure_mode: continue
+  enable_empty_svr_constant_surrogate: true
+
+metadata:
+  campaign_name: dataset_input_mode_retraining__rcim_track1__polished_actual_values
+  planning_report_path: doc/reports/campaign_plans/cross_wave/input_modes/2026-07-13-16-35-39_rcim_track1_polished_input_mode_campaign_plan_report.md
+  technical_document_path: doc/technical/2026-07/2026-07-13/2026-07-13-16-31-32_rcim_track1_polished_input_mode_retraining.md
+  phase_name: rcim_track1_input_mode_retraining
+  campaign_config_id: rcim_track1_global
+  base_model_family: rcim_track1
+  training_variant: global
+  direction_scope_label: bidirectional
+  use_forward_direction: true
+  use_backward_direction: true
+  dataset_name: polished_dataset
+  input_mode: actual_values
+  dataset_schema: polished_point_v1
+  source_dataset_root: data/polished_dataset
+  expected_model_archive_root: models/polished_dataset/paper_reference/rcim_track1/actual_values
+  expected_input_feature_names:
+  - angular_position_deg
+  - input_speed_rpm
+  - input_torque_nm
+  - oil_temperature_deg
+  - direction_flag
+  expected_operating_variable_source: row_level_actual_values

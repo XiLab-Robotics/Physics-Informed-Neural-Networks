@@ -109,6 +109,10 @@ This folder contains the internal project documents derived from the reference P
   polished-dataset input-mode campaigns while freezing the audited
   `simplified_dataset` paper-reference baseline.
 
+- [technical/2026-07/2026-07-19/2026-07-19-12-05-00_rcim_track1_polished_actual_values_closeout.md](./technical/2026-07/2026-07-19/2026-07-19-12-05-00_rcim_track1_polished_actual_values_closeout.md)
+  Closeout for the Aries `rcim_track1` polished actual-values campaign,
+  including Slurm terminal status, archive promotion, and artifact checks.
+
 - [scripts/tooling/lan_ai/lan_ai_node_server.md](./scripts/tooling/lan_ai/lan_ai_node_server.md)
   Setup and runtime guide for the remote LAN AI workstation.
 
@@ -134,6 +138,10 @@ This folder contains the internal project documents derived from the reference P
   Launcher note for the prepared `rcim_track1` polished setpoint campaign,
   including local preflight commands, local parallel Windows execution, and
   promotion into the official input-mode model archive.
+
+- [scripts/campaigns/aries/run_rcim_track1_input_mode_campaign.md](./scripts/campaigns/aries/run_rcim_track1_input_mode_campaign.md)
+  Aries CPU/RAM Slurm launcher note for the polished `rcim_track1`
+  input-mode campaign package.
 
 ### Analysis Reports
 
@@ -2797,6 +2805,10 @@ This folder contains the internal project documents derived from the reference P
   Script-level documentation for the prepared `rcim_track1` polished setpoint
   campaign with local preflight commands, local parallel Windows execution, and
   official model-archive promotion.
+
+- [scripts/campaigns/aries/run_rcim_track1_input_mode_campaign.md](./scripts/campaigns/aries/run_rcim_track1_input_mode_campaign.md)
+  Script-level documentation for the Aries CPU/RAM Slurm launcher that runs
+  the polished `rcim_track1` input-mode surfaces sequentially.
 
 - [scripts/campaigns/cross_wave/run_polished_dataset_early_wave_parallel_training_campaign.md](./scripts/campaigns/cross_wave/run_polished_dataset_early_wave_parallel_training_campaign.md)
   Script-level documentation for the 36-run early-wave `polished_dataset`

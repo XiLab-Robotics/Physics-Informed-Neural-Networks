@@ -1,0 +1,214 @@
+schema_version: 1
+campaign_name: dataset_input_mode_retraining__rcim_track1__polished_actual_values
+dataset_name: polished_dataset
+input_mode: actual_values
+execution_environment: Aries cnode Slurm jobs 136266,136267,136268
+target_archive_root: models/polished_dataset/paper_reference/rcim_track1/actual_values
+surface_count: 3
+total_python_exported_file_count: 570
+total_onnx_exported_file_count: 570
+surfaces:
+- surface: global
+  surface_short_name: global
+  source_validation_directory: output/validation_checks/rcim_track1/2026-07-18-11-55-05__rcim_track1_polished_actual_values_global_rcim_track1_polished_input_mode_campaign_validation
+  surface_archive_root: models/polished_dataset/paper_reference/rcim_track1/actual_values/global
+  family_count: 10
+  python_exported_file_count: 190
+  onnx_exported_file_count: 190
+  family_archives:
+  - family_name: SVR
+    archive_root: models/polished_dataset/paper_reference/rcim_track1/actual_values/global/svm_reference_models
+    reference_inventory_path: models/polished_dataset/paper_reference/rcim_track1/actual_values/global/svm_reference_models/reference_inventory.yaml
+    python_exported_file_count: 19
+    onnx_exported_file_count: 19
+    failed_onnx_target_count: 0
+  - family_name: MLP
+    archive_root: models/polished_dataset/paper_reference/rcim_track1/actual_values/global/mlp_reference_models
+    reference_inventory_path: models/polished_dataset/paper_reference/rcim_track1/actual_values/global/mlp_reference_models/reference_inventory.yaml
+    python_exported_file_count: 19
+    onnx_exported_file_count: 19
+    failed_onnx_target_count: 0
+  - family_name: RF
+    archive_root: models/polished_dataset/paper_reference/rcim_track1/actual_values/global/rf_reference_models
+    reference_inventory_path: models/polished_dataset/paper_reference/rcim_track1/actual_values/global/rf_reference_models/reference_inventory.yaml
+    python_exported_file_count: 19
+    onnx_exported_file_count: 19
+    failed_onnx_target_count: 0
+  - family_name: DT
+    archive_root: models/polished_dataset/paper_reference/rcim_track1/actual_values/global/dt_reference_models
+    reference_inventory_path: models/polished_dataset/paper_reference/rcim_track1/actual_values/global/dt_reference_models/reference_inventory.yaml
+    python_exported_file_count: 19
+    onnx_exported_file_count: 19
+    failed_onnx_target_count: 0
+  - family_name: ET
+    archive_root: models/polished_dataset/paper_reference/rcim_track1/actual_values/global/et_reference_models
+    reference_inventory_path: models/polished_dataset/paper_reference/rcim_track1/actual_values/global/et_reference_models/reference_inventory.yaml
+    python_exported_file_count: 19
+    onnx_exported_file_count: 19
+    failed_onnx_target_count: 0
+  - family_name: ERT
+    archive_root: models/polished_dataset/paper_reference/rcim_track1/actual_values/global/ert_reference_models
+    reference_inventory_path: models/polished_dataset/paper_reference/rcim_track1/actual_values/global/ert_reference_models/reference_inventory.yaml
+    python_exported_file_count: 19
+    onnx_exported_file_count: 19
+    failed_onnx_target_count: 0
+  - family_name: GBM
+    archive_root: models/polished_dataset/paper_reference/rcim_track1/actual_values/global/gbm_reference_models
+    reference_inventory_path: models/polished_dataset/paper_reference/rcim_track1/actual_values/global/gbm_reference_models/reference_inventory.yaml
+    python_exported_file_count: 19
+    onnx_exported_file_count: 19
+    failed_onnx_target_count: 0
+  - family_name: HGBM
+    archive_root: models/polished_dataset/paper_reference/rcim_track1/actual_values/global/hgbm_reference_models
+    reference_inventory_path: models/polished_dataset/paper_reference/rcim_track1/actual_values/global/hgbm_reference_models/reference_inventory.yaml
+    python_exported_file_count: 19
+    onnx_exported_file_count: 19
+    failed_onnx_target_count: 0
+  - family_name: XGBM
+    archive_root: models/polished_dataset/paper_reference/rcim_track1/actual_values/global/xgbm_reference_models
+    reference_inventory_path: models/polished_dataset/paper_reference/rcim_track1/actual_values/global/xgbm_reference_models/reference_inventory.yaml
+    python_exported_file_count: 19
+    onnx_exported_file_count: 19
+    failed_onnx_target_count: 0
+  - family_name: LGBM
+    archive_root: models/polished_dataset/paper_reference/rcim_track1/actual_values/global/lgbm_reference_models
+    reference_inventory_path: models/polished_dataset/paper_reference/rcim_track1/actual_values/global/lgbm_reference_models/reference_inventory.yaml
+    python_exported_file_count: 19
+    onnx_exported_file_count: 19
+    failed_onnx_target_count: 0
+- surface: forward
+  surface_short_name: fw
+  source_validation_directory: output/validation_checks/rcim_track1/2026-07-18-11-55-05__rcim_track1_polished_actual_values_fw_rcim_track1_polished_input_mode_campaign_validation
+  surface_archive_root: models/polished_dataset/paper_reference/rcim_track1/actual_values/forward
+  family_count: 10
+  python_exported_file_count: 190
+  onnx_exported_file_count: 190
+  family_archives:
+  - family_name: SVR
+    archive_root: models/polished_dataset/paper_reference/rcim_track1/actual_values/forward/svm_reference_models
+    reference_inventory_path: models/polished_dataset/paper_reference/rcim_track1/actual_values/forward/svm_reference_models/reference_inventory.yaml
+    python_exported_file_count: 19
+    onnx_exported_file_count: 19
+    failed_onnx_target_count: 0
+  - family_name: MLP
+    archive_root: models/polished_dataset/paper_reference/rcim_track1/actual_values/forward/mlp_reference_models
+    reference_inventory_path: models/polished_dataset/paper_reference/rcim_track1/actual_values/forward/mlp_reference_models/reference_inventory.yaml
+    python_exported_file_count: 19
+    onnx_exported_file_count: 19
+    failed_onnx_target_count: 0
+  - family_name: RF
+    archive_root: models/polished_dataset/paper_reference/rcim_track1/actual_values/forward/rf_reference_models
+    reference_inventory_path: models/polished_dataset/paper_reference/rcim_track1/actual_values/forward/rf_reference_models/reference_inventory.yaml
+    python_exported_file_count: 19
+    onnx_exported_file_count: 19
+    failed_onnx_target_count: 0
+  - family_name: DT
+    archive_root: models/polished_dataset/paper_reference/rcim_track1/actual_values/forward/dt_reference_models
+    reference_inventory_path: models/polished_dataset/paper_reference/rcim_track1/actual_values/forward/dt_reference_models/reference_inventory.yaml
+    python_exported_file_count: 19
+    onnx_exported_file_count: 19
+    failed_onnx_target_count: 0
+  - family_name: ET
+    archive_root: models/polished_dataset/paper_reference/rcim_track1/actual_values/forward/et_reference_models
+    reference_inventory_path: models/polished_dataset/paper_reference/rcim_track1/actual_values/forward/et_reference_models/reference_inventory.yaml
+    python_exported_file_count: 19
+    onnx_exported_file_count: 19
+    failed_onnx_target_count: 0
+  - family_name: ERT
+    archive_root: models/polished_dataset/paper_reference/rcim_track1/actual_values/forward/ert_reference_models
+    reference_inventory_path: models/polished_dataset/paper_reference/rcim_track1/actual_values/forward/ert_reference_models/reference_inventory.yaml
+    python_exported_file_count: 19
+    onnx_exported_file_count: 19
+    failed_onnx_target_count: 0
+  - family_name: GBM
+    archive_root: models/polished_dataset/paper_reference/rcim_track1/actual_values/forward/gbm_reference_models
+    reference_inventory_path: models/polished_dataset/paper_reference/rcim_track1/actual_values/forward/gbm_reference_models/reference_inventory.yaml
+    python_exported_file_count: 19
+    onnx_exported_file_count: 19
+    failed_onnx_target_count: 0
+  - family_name: HGBM
+    archive_root: models/polished_dataset/paper_reference/rcim_track1/actual_values/forward/hgbm_reference_models
+    reference_inventory_path: models/polished_dataset/paper_reference/rcim_track1/actual_values/forward/hgbm_reference_models/reference_inventory.yaml
+    python_exported_file_count: 19
+    onnx_exported_file_count: 19
+    failed_onnx_target_count: 0
+  - family_name: XGBM
+    archive_root: models/polished_dataset/paper_reference/rcim_track1/actual_values/forward/xgbm_reference_models
+    reference_inventory_path: models/polished_dataset/paper_reference/rcim_track1/actual_values/forward/xgbm_reference_models/reference_inventory.yaml
+    python_exported_file_count: 19
+    onnx_exported_file_count: 19
+    failed_onnx_target_count: 0
+  - family_name: LGBM
+    archive_root: models/polished_dataset/paper_reference/rcim_track1/actual_values/forward/lgbm_reference_models
+    reference_inventory_path: models/polished_dataset/paper_reference/rcim_track1/actual_values/forward/lgbm_reference_models/reference_inventory.yaml
+    python_exported_file_count: 19
+    onnx_exported_file_count: 19
+    failed_onnx_target_count: 0
+- surface: backward
+  surface_short_name: bw
+  source_validation_directory: output/validation_checks/rcim_track1/2026-07-18-11-56-46__rcim_track1_polished_actual_values_bw_rcim_track1_polished_input_mode_campaign_validation
+  surface_archive_root: models/polished_dataset/paper_reference/rcim_track1/actual_values/backward
+  family_count: 10
+  python_exported_file_count: 190
+  onnx_exported_file_count: 190
+  family_archives:
+  - family_name: SVR
+    archive_root: models/polished_dataset/paper_reference/rcim_track1/actual_values/backward/svm_reference_models
+    reference_inventory_path: models/polished_dataset/paper_reference/rcim_track1/actual_values/backward/svm_reference_models/reference_inventory.yaml
+    python_exported_file_count: 19
+    onnx_exported_file_count: 19
+    failed_onnx_target_count: 0
+  - family_name: MLP
+    archive_root: models/polished_dataset/paper_reference/rcim_track1/actual_values/backward/mlp_reference_models
+    reference_inventory_path: models/polished_dataset/paper_reference/rcim_track1/actual_values/backward/mlp_reference_models/reference_inventory.yaml
+    python_exported_file_count: 19
+    onnx_exported_file_count: 19
+    failed_onnx_target_count: 0
+  - family_name: RF
+    archive_root: models/polished_dataset/paper_reference/rcim_track1/actual_values/backward/rf_reference_models
+    reference_inventory_path: models/polished_dataset/paper_reference/rcim_track1/actual_values/backward/rf_reference_models/reference_inventory.yaml
+    python_exported_file_count: 19
+    onnx_exported_file_count: 19
+    failed_onnx_target_count: 0
+  - family_name: DT
+    archive_root: models/polished_dataset/paper_reference/rcim_track1/actual_values/backward/dt_reference_models
+    reference_inventory_path: models/polished_dataset/paper_reference/rcim_track1/actual_values/backward/dt_reference_models/reference_inventory.yaml
+    python_exported_file_count: 19
+    onnx_exported_file_count: 19
+    failed_onnx_target_count: 0
+  - family_name: ET
+    archive_root: models/polished_dataset/paper_reference/rcim_track1/actual_values/backward/et_reference_models
+    reference_inventory_path: models/polished_dataset/paper_reference/rcim_track1/actual_values/backward/et_reference_models/reference_inventory.yaml
+    python_exported_file_count: 19
+    onnx_exported_file_count: 19
+    failed_onnx_target_count: 0
+  - family_name: ERT
+    archive_root: models/polished_dataset/paper_reference/rcim_track1/actual_values/backward/ert_reference_models
+    reference_inventory_path: models/polished_dataset/paper_reference/rcim_track1/actual_values/backward/ert_reference_models/reference_inventory.yaml
+    python_exported_file_count: 19
+    onnx_exported_file_count: 19
+    failed_onnx_target_count: 0
+  - family_name: GBM
+    archive_root: models/polished_dataset/paper_reference/rcim_track1/actual_values/backward/gbm_reference_models
+    reference_inventory_path: models/polished_dataset/paper_reference/rcim_track1/actual_values/backward/gbm_reference_models/reference_inventory.yaml
+    python_exported_file_count: 19
+    onnx_exported_file_count: 19
+    failed_onnx_target_count: 0
+  - family_name: HGBM
+    archive_root: models/polished_dataset/paper_reference/rcim_track1/actual_values/backward/hgbm_reference_models
+    reference_inventory_path: models/polished_dataset/paper_reference/rcim_track1/actual_values/backward/hgbm_reference_models/reference_inventory.yaml
+    python_exported_file_count: 19
+    onnx_exported_file_count: 19
+    failed_onnx_target_count: 0
+  - family_name: XGBM
+    archive_root: models/polished_dataset/paper_reference/rcim_track1/actual_values/backward/xgbm_reference_models
+    reference_inventory_path: models/polished_dataset/paper_reference/rcim_track1/actual_values/backward/xgbm_reference_models/reference_inventory.yaml
+    python_exported_file_count: 19
+    onnx_exported_file_count: 19
+    failed_onnx_target_count: 0
+  - family_name: LGBM
+    archive_root: models/polished_dataset/paper_reference/rcim_track1/actual_values/backward/lgbm_reference_models
+    reference_inventory_path: models/polished_dataset/paper_reference/rcim_track1/actual_values/backward/lgbm_reference_models/reference_inventory.yaml
+    python_exported_file_count: 19
+    onnx_exported_file_count: 19
+    failed_onnx_target_count: 0

@@ -1,0 +1,37 @@
+{
+  "best_params": {
+    "estimator__learning_rate": 0.77,
+    "estimator__max_depth": 12,
+    "estimator__num_leaves": 28,
+    "estimator__subsample": 0.1
+  },
+  "best_score": -0.06798731378937455,
+  "candidate_limit": 8,
+  "candidate_offset": 700,
+  "candidate_stride": 1,
+  "config_path": "config/paper_reimplementation/rcim_ml_compensation/rcim_track1_polished_input_mode_retraining/campaigns/dataset_input_mode_retraining__rcim_track1__polished_actual_values/queue/002_rcim_track1_fw.yaml",
+  "dataset_name": "polished_dataset",
+  "device_type": "cpu",
+  "direction_label": "forward",
+  "elapsed_seconds": 67.10230503976345,
+  "estimated_cv_fits": 40,
+  "features": [
+    "angular_position_deg",
+    "input_speed_rpm",
+    "input_torque_nm",
+    "oil_temperature_deg",
+    "direction_flag"
+  ],
+  "fit_elapsed_seconds": 14.19779258966446,
+  "full_candidate_count": 720,
+  "grid_search_n_jobs": 8,
+  "hostname": "cnode04.hpc.unimo.lan",
+  "input_mode": "actual_values",
+  "lgbm_n_jobs": 6,
+  "pre_dispatch": "n_jobs",
+  "schema_version": 1,
+  "seconds_per_cv_fit": 0.3549448147416115,
+  "targets": 19,
+  "threadpool_limit": 6,
+  "train_rows": 678
+}

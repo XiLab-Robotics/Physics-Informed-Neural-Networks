@@ -1,250 +1,124 @@
 status: completed
-campaign_name: polished_dataset_te_curve_verification_refresh_2026_07_02
-prepared_at: '2026-07-02T11:12:17+02:00'
-completed_at: '2026-07-03T18:43:42+02:00'
-closed_at: '2026-07-03T18:47:10+02:00'
-campaign_output_directory: output\validation_checks\track2_reference_comparison
-planning_report_path: doc/reports/campaign_plans/cross_wave/polished_dataset/2026-07-02-11-12-17_polished_te_curve_verification_refresh_campaign_plan_report.md
-technical_document_path: doc/technical/2026-07/2026-07-02/2026-07-02-11-12-17_polished_te_curve_verification_refresh.md
-matrix_summary_path: output\validation_checks\track2_reference_comparison\2026-07-03-17-46-19__track2_full_directional_family_matrix_polished_dataset_te_curve_verification_refresh_2026_07_03_fix3\validation_summary.yaml
-per_condition_metrics_path: output\validation_checks\track2_reference_comparison\2026-07-03-17-46-19__track2_full_directional_family_matrix_polished_dataset_te_curve_verification_refresh_2026_07_03_fix3\per_condition_metrics.csv
-official_report_path: doc\reports\analysis\te_curve_verification_pipeline\01_official_decisions\official_model_verification_report\[2026-07-03]\track2_official_model_verification_report.md
-official_report_pdf_path: doc\reports\analysis\te_curve_verification_pipeline\01_official_decisions\official_model_verification_report\[2026-07-03]\track2_official_model_verification_report.pdf
-collage_report_path: doc\reports\analysis\te_curve_verification_pipeline\02_visual_reports\best_model_collage_report\[2026-07-03]\track2_best_model_collage_report.md
-overlay_report_path: doc\reports\analysis\te_curve_verification_pipeline\02_visual_reports\multi_model_curve_comparison_report\[2026-07-03]\track2_multi_model_curve_comparison_report.md
-te_curve_verification_status: completed
+completed_at: '2026-07-19T12:05:00+02:00'
+closeout_document_path: doc/technical/2026-07/2026-07-19/2026-07-19-12-05-00_rcim_track1_polished_actual_values_closeout.md
+promoted_archive_root: models/polished_dataset/paper_reference/rcim_track1/actual_values
+promoted_onnx_file_count: 570
+promoted_python_pickle_file_count: 570
+promoted_metadata_file_count: 182
+accepted_slurm_job_list:
+- surface: fw
+  slurm_job_id: '136266'
+  state: COMPLETED
+  exit_code: '0:0'
+  elapsed: '13:04:30'
+- surface: bw
+  slurm_job_id: '136267'
+  state: COMPLETED
+  exit_code: '0:0'
+  elapsed: '12:58:15'
+- surface: global
+  slurm_job_id: '136268'
+  state: COMPLETED
+  exit_code: '0:0'
+  elapsed: '23:56:16'
+submitted_at: '2026-07-16T20:55:58+02:00'
+slurm_job_id: '136143'
+previous_oversubscribed_slurm_job_id: '136095'
+cancelled_oversubscribed_slurm_job_id: '136095'
+cancelled_oversubscribed_slurm_job_cancelled_at: '2026-07-16T20:54:56+02:00'
+cancelled_oversubscribed_slurm_job_cancel_reason: User-approved cancellation after diagnostics showed GridSearchCV n_jobs=32 combined with BLAS/OpenMP thread env at 32, causing heavy CPU oversubscription during MLP global.
+relaunch_resource_fix:
+  internal_thread_env: 1
+  joblib_cpu_limit: 16
+  grid_search_n_jobs: 16
+  grid_search_pre_dispatch: n_jobs
+  rationale: Keep the 32 CPU Slurm allocation but prevent each joblib worker from spawning many BLAS/OpenMP threads.
+previous_32cpu_slurm_job_id: '136082'
+previous_32cpu_slurm_job_cancelled_at: '2026-07-16T14:58:45+02:00'
+previous_32cpu_slurm_job_cancel_reason: Resubmitting with 24h time limit because Slurm denied live TimeLimit update and 12h was risky for three sequential RCIM surfaces.
+previous_high_slurm_job_id: '136067'
+previous_high_slurm_job_cancelled_at: '2026-07-16T13:23:03+02:00'
+previous_high_slurm_job_cancel_reason: Resubmitting with 32 CPU and 300g memory after Slurm confirmed immediate fnode03 placement.
+previous_cpu_slurm_job_id: '136065'
+previous_cpu_slurm_job_cancelled_at: '2026-07-16T13:20:13+02:00'
+previous_cpu_slurm_job_cancel_reason: Resubmitting on high CPU partition after low started slowly while reserved for higher-priority partitions.
+campaign_name: dataset_input_mode_retraining__rcim_track1__polished_actual_values
+campaign_type: rcim_track1_input_mode_retraining
+prepared_at: '2026-07-16T13:14:11+02:00'
+previous_slurm_job_id: '136052'
+previous_slurm_job_cancelled_at: '2026-07-16T13:18:40+02:00'
+previous_slurm_job_cancel_reason: Resubmitting on CPU partition after Slurm placed the no-GPU ice4hpc job on gnode01.
+execution_host: aries
+execution_mode: slurm_cpu_ram_global_plus_parallel_fw_bw
 dataset_id: polished_dataset
+input_mode: actual_values
 dataset_schema: polished_point_v1
-dataset_root: data\polished_dataset
-accepted_model_development_family: polished_periodic_gru_sequence
-accepted_forward_full_matrix_leader: rcim_retuned_GBM19_Fw
-accepted_forward_polished_reference_bank_leader: polished_rcim_model_bank_reproduction_ET19_Fw
-accepted_forward_polished_model_development_fallback: polished_periodic_gru_sequence_Fw
-accepted_backward_leader: polished_periodic_gru_sequence_Bw
-accepted_global_leader: polished_periodic_gru_sequence_global
+dataset_root: data/polished_dataset
+model_family: rcim_track1
+expected_run_count: 3
+surface_list:
+- global
+- fw
+- bw
+campaign_manifest_path: config/paper_reimplementation/rcim_ml_compensation/rcim_track1_polished_input_mode_retraining/campaigns/dataset_input_mode_retraining__rcim_track1__polished_actual_values/campaign.yaml
 queue_config_path_list:
-- config\paper_reimplementation\rcim_ml_compensation\reference_family_vs_feedforward\full_track2_matrix_template.yaml
+- config/paper_reimplementation/rcim_ml_compensation/rcim_track1_polished_input_mode_retraining/campaigns/dataset_input_mode_retraining__rcim_track1__polished_actual_values/queue/001_rcim_track1_global.yaml
+- config/paper_reimplementation/rcim_ml_compensation/rcim_track1_polished_input_mode_retraining/campaigns/dataset_input_mode_retraining__rcim_track1__polished_actual_values/queue/002_rcim_track1_fw.yaml
+- config/paper_reimplementation/rcim_ml_compensation/rcim_track1_polished_input_mode_retraining/campaigns/dataset_input_mode_retraining__rcim_track1__polished_actual_values/queue/003_rcim_track1_bw.yaml
+planning_report_path: doc/reports/campaign_plans/cross_wave/input_modes/2026-07-13-16-35-39_rcim_track1_polished_input_mode_campaign_plan_report.md
+technical_document_path: doc/technical/2026-07/2026-07-13/2026-07-13-16-31-32_rcim_track1_polished_input_mode_retraining.md
+launcher_path: scripts/campaigns/aries/run_rcim_track1_input_mode_campaign.sbatch
+launcher_note_path: doc/scripts/campaigns/aries/run_rcim_track1_input_mode_campaign.md
+expected_model_archive_root: models/polished_dataset/paper_reference/rcim_track1/actual_values
+slurm_request:
+  partition: high
+  account: xilab
+  qos: high
+  nodes: 1
+  ntasks: 1
+  cpus_per_task: 32
+  memory: 300g
+  time_limit: '24:00:00'
+  gpu_request: none
+running_slurm_job_time_limit: '24:00:00'
+running_slurm_job_time_limit_update_attempt: denied_by_slurm_for_cancelled_136082
 protected_file_list:
-- config\paper_reimplementation\rcim_ml_compensation\reference_family_vs_feedforward\full_track2_matrix_template.yaml
-- scripts\campaigns\track_2\run_polished_dataset_track2_verification_refresh.ps1
-- scripts\paper_reimplementation\rcim_ml_compensation\reference_family_vs_feedforward\reference_family_vs_feedforward_support.py
-- scripts\paper_reimplementation\rcim_ml_compensation\reference_family_vs_feedforward\build_polished_rcim_reference_inventories.py
-- scripts\reports\analysis\build_track2_official_model_verification_report.py
-- doc\scripts\campaigns\track_2\run_polished_dataset_track2_verification_refresh.md
-- doc\reports\campaign_plans\cross_wave\polished_dataset\2026-07-02-11-12-17_polished_te_curve_verification_refresh_campaign_plan_report.md
-- doc\technical\2026-07\2026-07-02\2026-07-02-11-12-17_polished_te_curve_verification_refresh.md
+- config/paper_reimplementation/rcim_ml_compensation/rcim_track1_polished_input_mode_retraining/campaigns/dataset_input_mode_retraining__rcim_track1__polished_actual_values/campaign.yaml
+- config/paper_reimplementation/rcim_ml_compensation/rcim_track1_polished_input_mode_retraining/campaigns/dataset_input_mode_retraining__rcim_track1__polished_actual_values/queue/001_rcim_track1_global.yaml
+- config/paper_reimplementation/rcim_ml_compensation/rcim_track1_polished_input_mode_retraining/campaigns/dataset_input_mode_retraining__rcim_track1__polished_actual_values/queue/002_rcim_track1_fw.yaml
+- config/paper_reimplementation/rcim_ml_compensation/rcim_track1_polished_input_mode_retraining/campaigns/dataset_input_mode_retraining__rcim_track1__polished_actual_values/queue/003_rcim_track1_bw.yaml
+- scripts/campaigns/aries/run_rcim_track1_input_mode_campaign.sbatch
+- doc/scripts/campaigns/aries/run_rcim_track1_input_mode_campaign.md
+- doc/reports/campaign_plans/cross_wave/input_modes/2026-07-13-16-35-39_rcim_track1_polished_input_mode_campaign_plan_report.md
+- doc/technical/2026-07/2026-07-13/2026-07-13-16-31-32_rcim_track1_polished_input_mode_retraining.md
 launch_command_list:
-- .\scripts\campaigns\track_2\run_polished_dataset_track2_verification_refresh.ps1
-- .\scripts\campaigns\track_2\run_polished_dataset_track2_verification_refresh.ps1 -ResumeAfterVisualReports
-- .\scripts\campaigns\track_2\run_polished_dataset_track2_verification_refresh.ps1 -Remote
-notes: Operator-approved TE Curve Verification Pipeline refresh is closed on the 2026-07-03 fix3 matrix.
-  The accepted matrix uses data\polished_dataset for refreshed candidates, records data/simplified_dataset
-  only as the historical baseline source contract, and validates that all polished refreshed per-condition
-  rows use polished source paths. Older 2026-07-02, 2026-07-03, and fix2 artifacts are stale and must
-  not be used for official polished-dataset closeout.
-last_completed_campaign:
-  campaign_name: polished_dataset_full_wave_retraining_2026_06_22
-  campaign_type: full_wave_model_development_retraining
-  prepared_at: '2026-06-22T22:55:55+02:00'
-  completed_at: '2026-07-02T01:47:45+02:00'
-  closed_at: '2026-07-02T10:36:59+02:00'
-  campaign_output_directory: output/training_campaigns/2026-06-29-15-54-18_polished_dataset_full_wave_retraining_2026_06_22
-  planning_report_path: doc/reports/campaign_plans/cross_wave/polished_dataset/2026-06-22-22-55-55_polished_full_wave_retraining_campaign_plan_report.md
-  technical_document_path: doc/technical/2026-06/2026-06-22/2026-06-22-22-55-55_polished_rcim_and_full_wave_retraining_campaigns.md
-  closeout_technical_document_path: doc/technical/2026-07/2026-07-02/2026-07-02-10-36-59_polished_full_wave_retraining_closeout.md
-  campaign_results_report_path: doc/reports/campaign_results/cross_wave/polished_dataset/2026-07-02-10-36-59_polished_full_wave_retraining_campaign_results_report.md
-  campaign_results_pdf_path: doc/reports/campaign_results/cross_wave/polished_dataset/2026-07-02-10-36-59_polished_full_wave_retraining_campaign_results_report.pdf
-  completed_run_count: 108
-  failed_run_count: 0
-  dataset_id: polished_dataset
-  dataset_schema: polished_point_v1
-  dataset_root: data\polished_dataset
-  best_run:
-    run_name: te_periodic_gru_sequence_fw
-    run_instance_id: 2026-06-30-02-56-10__te_periodic_gru_sequence_fw
-    model_family: periodic_gru_sequence_fw
-    base_model_family: periodic_gru_sequence
-    training_variant: fw
-    test_mae: 0.001120887347497046
-    test_rmse: 0.0014436584897339344
-    val_mae: 0.0010840588947758079
-    best_checkpoint_path: output\training_runs\periodic_gru_sequence\2026-06-30-02-56-10__te_periodic_gru_sequence_fw\checkpoints\periodic_gru_sequence-epoch=235-val_mae=0.00108406.ckpt
-  surface_best_run_list:
-  - surface: global
-    run_name: te_periodic_gru_sequence_global
-    model_family: periodic_gru_sequence_global
-    base_model_family: periodic_gru_sequence
-    test_mae: 0.0011594819370657206
-    test_rmse: 0.0014652268728241324
-    val_mae: 0.001132011879235506
-  - surface: fw
-    run_name: te_periodic_gru_sequence_fw
-    model_family: periodic_gru_sequence_fw
-    base_model_family: periodic_gru_sequence
-    test_mae: 0.001120887347497046
-    test_rmse: 0.0014436584897339344
-    val_mae: 0.0010840588947758079
-  - surface: bw
-    run_name: te_periodic_gru_sequence_bw
-    model_family: periodic_gru_sequence_bw
-    base_model_family: periodic_gru_sequence
-    test_mae: 0.0011664234334602952
-    test_rmse: 0.001480567967519164
-    val_mae: 0.001157755614258349
-  scalar_program_winner_after_closeout:
-    run_name: te_periodic_gru_sequence_bw
-    run_instance_id: 2026-06-26-16-26-19__te_periodic_gru_sequence_bw
-    source_campaign: polished_dataset_early_wave_parallel_training_2026_06_25
-    test_mae: 0.0010836307192221284
-    test_rmse: 0.0013926418032497168
-    reason: Earlier polished early-wave run remains better than the full-wave scalar winner under the
-      scalar registry selection policy.
-  te_curve_verification_status: not_run_in_closeout
-  previous_completed_campaign:
-    campaign_name: polished_dataset_early_wave_parallel_training_2026_06_25
-    campaign_type: polished_early_wave_parallel_training
-    prepared_at: '2026-06-25T15:28:26+02:00'
-    completed_at: '2026-06-29T10:40:05+02:00'
-    closed_at: '2026-06-29T10:40:05+02:00'
-    campaign_output_directory: output/training_campaigns/2026-06-25-16-01-23_polished_dataset_early_wave_parallel_training_2026_06_25
-    planning_report_path: doc/reports/campaign_plans/cross_wave/polished_dataset/2026-06-25-15-28-26_polished_early_wave_parallel_training_campaign_plan_report.md
-    technical_document_path: doc/technical/2026-06/2026-06-25/2026-06-25-15-28-26_polished_early_wave_parallel_training.md
-    closeout_technical_document_path: doc/technical/2026-06/2026-06-29/2026-06-29-10-40-05_polished_early_wave_parallel_training_closeout.md
-    campaign_results_report_path: doc/reports/campaign_results/cross_wave/polished_dataset/2026-06-29-10-40-05_polished_early_wave_parallel_training_campaign_results_report.md
-    campaign_results_pdf_path: doc/reports/campaign_results/cross_wave/polished_dataset/2026-06-29-10-40-05_polished_early_wave_parallel_training_campaign_results_report.pdf
-    completed_run_count: 36
-    failed_run_count: 0
-    best_run:
-      run_name: te_periodic_gru_sequence_bw
-      run_instance_id: 2026-06-26-16-26-19__te_periodic_gru_sequence_bw
-      model_family: periodic_gru_sequence_bw
-      base_model_family: periodic_gru_sequence
-      training_variant: bw
-      test_mae: 0.0010836307192221284
-      test_rmse: 0.0013926418032497168
-      val_mae: 0.0010879483306780457
-    te_curve_verification_status: not_run_in_closeout
-    previous_completed_campaign:
-      campaign_name: polished_dataset_rcim_model_bank_reproduction_2026_06_22
-      campaign_type: rcim_model_bank_reproduction
-      prepared_at: '2026-06-22T23:14:57.574023+02:00'
-      forward_completed_at: '2026-06-23T18:47:42+02:00'
-      backward_completed_at: '2026-06-26T09:33:39+02:00'
-      closeout_at: '2026-06-29T10:39:38+02:00'
-      campaign_output_directory: output/training_campaigns/cross_wave/polished_dataset/rcim_model_bank_reproduction/polished_dataset_rcim_model_bank_reproduction_2026_06_22
-      planning_report_path: doc/reports/campaign_plans/cross_wave/polished_dataset/2026-06-22-22-55-55_polished_rcim_model_bank_reproduction_campaign_plan_report.md
-      technical_document_path: doc/technical/2026-06/2026-06-22/2026-06-22-22-55-55_polished_rcim_and_full_wave_retraining_campaigns.md
-      closeout_technical_document_path: doc/technical/2026-06/2026-06-29/2026-06-29-10-39-38_polished_rcim_model_bank_closeout.md
-      closeout_report_path: doc/reports/campaign_results/cross_wave/polished_dataset/2026-06-29-10-39-38_polished_rcim_model_bank_reproduction_campaign_results_report.md
-      completed_surface_count: 2
-      failed_surface_count: 0
-      dataset_id: polished_dataset
-      dataset_schema: polished_point_v1
-      dataset_root: data\polished_dataset
-      te_curve_verification_status: not_run_in_closeout
-latest_completed_campaign:
-  status: completed_and_exported
-  campaign_name: dataset_input_mode_retraining__wave5_1_harmonic_prior_smooth_l1_structured__polished_actual_values
-  dataset_id: polished_dataset
-  input_mode: actual_values
-  dataset_schema: polished_point_v1
-  model_family: wave5_1_harmonic_prior_smooth_l1_structured
-  expected_run_count: 3
-  completed_run_count: 3
-  failed_run_count: 0
-  throughput_profile:
-    curve_batch_size: 16
-    num_workers: 8
-    pin_memory: true
-    slurm_cpus_per_task: 8
-    slurm_memory: 40G
-    gpu_request: 1g.20gb:1
-    observed_throughput: Single sbatch job 136003 completed global, forward, and backward sequentially
-      in 01:07:02 with batch 16.
-    resource_note: The accepted run used repository-local TMPDIR under output/tmp/slurm_136003, explicit
-      ReqNodeList=gnode01, and completed without /tmp, multiprocessing spool, or quota-write errors.
-    slurm_cleanup_note: Slurm stdout/stderr files for terminal job 136003 were inspected after completion
-      and removed immediately per operator instruction; output/slurm was verified to contain only .gitkeep
-      after cleanup.
-    next_campaign_recommendation: No remaining non-rcim dataset-input-mode retraining campaign is listed
-      after Wave 5.1 harmonic-prior smooth-l1 structured polished_actual_values in the approved technical
-      plan.
-  sbatch_submission:
-    slurm_job_id: '136003'
-    state: COMPLETED
-    exit_code: 0:0
-    elapsed: 01:07:02
-    batch_max_rss: 16286124K
-    allocated_tres: billing=40,cpu=8,gres/gpu=1,mem=40G,node=1
-    python_executable: /unimore_home/dferrari/.conda/envs/pinns_env/bin/python
-    gpu_request: 1g.20gb:1
-    node: gnode01
-  campaign_manifest_path: output/training_campaigns/2026-07-16-06-16-41_dataset_input_mode_retraining__wave5_1_harmonic_prior_smooth_l1_structur/campaign_manifest.yaml
-  campaign_output_directory: output/training_campaigns/2026-07-16-06-16-41_dataset_input_mode_retraining__wave5_1_harmonic_prior_smooth_l1_structur
-  campaign_best_run_path: output/training_campaigns/2026-07-16-06-16-41_dataset_input_mode_retraining__wave5_1_harmonic_prior_smooth_l1_structur/campaign_best_run.yaml
-  campaign_leaderboard_path: output/training_campaigns/2026-07-16-06-16-41_dataset_input_mode_retraining__wave5_1_harmonic_prior_smooth_l1_structur/campaign_leaderboard.yaml
-  best_run:
-    surface: global
-    run_name: te_wave5_1_harmonic_prior_smooth_l1_structured_global__polished_actual_values
-    run_instance_id: 2026-07-16-06-16-41__te_wave5_1_harmonic_prior_smooth_l1_structured_global__polished_actual_values
-    test_mae: 0.002190608764067292
-    test_rmse: 0.003547391854226589
-    val_mae: 0.0019014590652659535
-    best_checkpoint_path: output/training_runs/wave5_1_harmonic_prior_smooth_l1_structured/2026-07-16-06-16-41__te_wave5_1_harmonic_prior_smooth_l1_structured_global__polished_actual_values/checkpoints/wave3_harmonic_prior_residual-epoch=086-val_mae=0.00190146.ckpt
-  surface_run_list:
-  - surface: global
-    run_name: te_wave5_1_harmonic_prior_smooth_l1_structured_global__polished_actual_values
-    run_instance_id: 2026-07-16-06-16-41__te_wave5_1_harmonic_prior_smooth_l1_structured_global__polished_actual_values
-    test_mae: 0.002190608764067292
-    test_rmse: 0.003547391854226589
-    val_mae: 0.0019014590652659535
-    best_checkpoint_path: output/training_runs/wave5_1_harmonic_prior_smooth_l1_structured/2026-07-16-06-16-41__te_wave5_1_harmonic_prior_smooth_l1_structured_global__polished_actual_values/checkpoints/wave3_harmonic_prior_residual-epoch=086-val_mae=0.00190146.ckpt
-    onnx_model_path: models/polished_dataset/actual_values/exported/wave5_1_harmonic_prior_smooth_l1_structured/global/2026-07-16-06-16-41__te_wave5_1_harmonic_prior_smooth_l1_structured_global__polished_actual_values/onnx/model.onnx
-    python_model_path: models/polished_dataset/actual_values/exported/wave5_1_harmonic_prior_smooth_l1_structured/global/2026-07-16-06-16-41__te_wave5_1_harmonic_prior_smooth_l1_structured_global__polished_actual_values/python/wave3_harmonic_prior_residual-epoch=086-val_mae=0.00190146.ckpt
-  - surface: backward
-    run_name: te_wave5_1_harmonic_prior_smooth_l1_structured_bw__polished_actual_values
-    run_instance_id: 2026-07-16-06-57-05__te_wave5_1_harmonic_prior_smooth_l1_structured_bw__polished_actual_values
-    test_mae: 0.0022004754282534122
-    test_rmse: 0.0035278990399092436
-    val_mae: 0.0019297663820907474
-    best_checkpoint_path: output/training_runs/wave5_1_harmonic_prior_smooth_l1_structured/2026-07-16-06-57-05__te_wave5_1_harmonic_prior_smooth_l1_structured_bw__polished_actual_values/checkpoints/wave3_harmonic_prior_residual-epoch=101-val_mae=0.00192977.ckpt
-    onnx_model_path: models/polished_dataset/actual_values/exported/wave5_1_harmonic_prior_smooth_l1_structured/backward/2026-07-16-06-57-05__te_wave5_1_harmonic_prior_smooth_l1_structured_bw__polished_actual_values/onnx/model.onnx
-    python_model_path: models/polished_dataset/actual_values/exported/wave5_1_harmonic_prior_smooth_l1_structured/backward/2026-07-16-06-57-05__te_wave5_1_harmonic_prior_smooth_l1_structured_bw__polished_actual_values/python/wave3_harmonic_prior_residual-epoch=101-val_mae=0.00192977.ckpt
-  - surface: forward
-    run_name: te_wave5_1_harmonic_prior_smooth_l1_structured_fw__polished_actual_values
-    run_instance_id: 2026-07-16-06-39-53__te_wave5_1_harmonic_prior_smooth_l1_structured_fw__polished_actual_values
-    test_mae: 0.0022120613139122725
-    test_rmse: 0.003574300790205598
-    val_mae: 0.0019332938827574253
-    best_checkpoint_path: output/training_runs/wave5_1_harmonic_prior_smooth_l1_structured/2026-07-16-06-39-53__te_wave5_1_harmonic_prior_smooth_l1_structured_fw__polished_actual_values/checkpoints/wave3_harmonic_prior_residual-epoch=071-val_mae=0.00193329.ckpt
-    onnx_model_path: models/polished_dataset/actual_values/exported/wave5_1_harmonic_prior_smooth_l1_structured/forward/2026-07-16-06-39-53__te_wave5_1_harmonic_prior_smooth_l1_structured_fw__polished_actual_values/onnx/model.onnx
-    python_model_path: models/polished_dataset/actual_values/exported/wave5_1_harmonic_prior_smooth_l1_structured/forward/2026-07-16-06-39-53__te_wave5_1_harmonic_prior_smooth_l1_structured_fw__polished_actual_values/python/wave3_harmonic_prior_residual-epoch=071-val_mae=0.00193329.ckpt
-  export:
-    status: completed
-    export_root: models/polished_dataset/actual_values/exported
-    export_inventory_path: models/polished_dataset/actual_values/exported/model_development_export_inventory.yaml
-    exported_entry_count: 3
-    onnx_export_status_counts:
-      exported: 3
-    family_export_directory: models/polished_dataset/actual_values/exported/wave5_1_harmonic_prior_smooth_l1_structured
-    python_archive_storage_note: Python archive entries are symlinks to canonical best checkpoints in
-      output/training_runs. ONNX files are real exported files.
-  input_contract_verification:
-    input_feature_dim: 5
-    onnx_output_dim: 1
-    input_feature_names:
-    - angular_position_deg
-    - input_speed_rpm
-    - input_torque_nm
-    - oil_temperature_deg
-    - direction_flag
-    dataset_id: polished_dataset
-    dataset_schema: polished_point_v1
-    input_mode: actual_values
-next_planned_campaign:
-  status: none_remaining_in_current_non_rcim_scope
-  technical_document_path: doc/technical/2026-07/2026-07-07/2026-07-07-01-46-06_dataset_input_mode_retraining_campaigns.md
-  planning_report_path: doc/reports/campaign_plans/cross_wave/input_modes/2026-07-07-01-46-06_dataset_input_mode_retraining_campaign_plan_report.md
-  operator_policy: The active objective excluded rcim_track1 from the remaining completion scope; all
-    listed non-rcim dataset-input-mode campaigns through Wave 5.1 harmonic-prior smooth-l1 structured
-    are now completed and exported.
+- sbatch scripts/campaigns/aries/run_rcim_track1_input_mode_campaign.sbatch config/paper_reimplementation/rcim_ml_compensation/rcim_track1_polished_input_mode_retraining/campaigns/dataset_input_mode_retraining__rcim_track1__polished_actual_values/campaign.yaml
+parallel_surface_job_list:
+- surface: global
+  slurm_job_id: '136143'
+  queue_config_path: config/paper_reimplementation/rcim_ml_compensation/rcim_track1_polished_input_mode_retraining/campaigns/dataset_input_mode_retraining__rcim_track1__polished_actual_values/queue/001_rcim_track1_global.yaml
+  launch_mode: original_manifest_run
+  terminal_state: TIMEOUT
+  terminal_at: '2026-07-17T21:06:24+02:00'
+  terminal_reason: High-partition 24h limit reached during LGBM before export or validation.
+- surface: global
+  slurm_job_id: '136191'
+  queue_config_path: config/paper_reimplementation/rcim_ml_compensation/rcim_track1_polished_input_mode_retraining/campaigns/dataset_input_mode_retraining__rcim_track1__polished_actual_values/queue/001_rcim_track1_global.yaml
+  launch_mode: ulow_single_queue_timeout_risk_backup
+  submitted_at: '2026-07-17T14:39:00+02:00'
+  reason: Original high-partition global job was still in GBM after 17h43m of a 24h allocation.
+- surface: fw
+  slurm_job_id: '136169'
+  queue_config_path: config/paper_reimplementation/rcim_ml_compensation/rcim_track1_polished_input_mode_retraining/campaigns/dataset_input_mode_retraining__rcim_track1__polished_actual_values/queue/002_rcim_track1_fw.yaml
+  launch_mode: single_queue_manifest_validated
+- surface: bw
+  slurm_job_id: '136170'
+  queue_config_path: config/paper_reimplementation/rcim_ml_compensation/rcim_track1_polished_input_mode_retraining/campaigns/dataset_input_mode_retraining__rcim_track1__polished_actual_values/queue/003_rcim_track1_bw.yaml
+  launch_mode: single_queue_manifest_validated
+notes: Prepared on Aries after syncing origin/main to commit 0bf581e5dd9f19f34104d0dc604d47817a7e0005.
+  This campaign is the second polished rcim_track1 input-mode campaign and uses row-level actual values.
+  Slurm stdout/stderr must be inspected after terminal state and then cleaned before closeout commit.
+  On 2026-07-17, fw and bw were submitted as independent manifest-validated queue runs to execute in parallel with the already-running global job.
+  On 2026-07-17, a global-only ulow backup was submitted because the original global job was still in GBM after 17h43m on a 24h high allocation.
+  The original high-partition global job 136143 timed out during LGBM and is not a valid completed global surface.
+  On 2026-07-19, accepted final jobs 136266, 136267, and 136268 completed and were promoted into the official actual_values archive.
