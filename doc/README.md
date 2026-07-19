@@ -113,6 +113,11 @@ This folder contains the internal project documents derived from the reference P
   Closeout for the Aries `rcim_track1` polished actual-values campaign,
   including Slurm terminal status, archive promotion, and artifact checks.
 
+- [technical/2026-07/2026-07-19/2026-07-19-13-20-00_aries_training_operational_runbook.md](./technical/2026-07/2026-07-19/2026-07-19-13-20-00_aries_training_operational_runbook.md)
+  Operational runbook for Aries training work, covering normal GPU campaigns,
+  the CPU/RAM `rcim_track1` paper-bank pipeline, Slurm cleanup, promotion, and
+  Git LFS handling.
+
 - [scripts/tooling/lan_ai/lan_ai_node_server.md](./scripts/tooling/lan_ai/lan_ai_node_server.md)
   Setup and runtime guide for the remote LAN AI workstation.
 
