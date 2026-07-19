@@ -142,6 +142,10 @@ This folder contains the internal project documents derived from the reference P
   the CPU/RAM `rcim_track1` paper-bank pipeline, Slurm cleanup, promotion, and
   Git LFS handling.
 
+- [technical/2026-07/2026-07-19/2026-07-19-14-56-02_rcim_track1_familywise_track2_report.md](./technical/2026-07/2026-07-19/2026-07-19-14-56-02_rcim_track1_familywise_track2_report.md)
+  Technical plan for extending the familywise `TE Curve Verification Pipeline`
+  report path to evaluate `rcim_track1` paper-reference model-bank archives.
+
 - [scripts/tooling/lan_ai/lan_ai_node_server.md](./scripts/tooling/lan_ai/lan_ai_node_server.md)
   Setup and runtime guide for the remote LAN AI workstation.
 

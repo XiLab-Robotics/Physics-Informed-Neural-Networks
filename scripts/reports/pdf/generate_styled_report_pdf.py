@@ -51,6 +51,7 @@ REPORT_SPECIFIC_SUBTITLE_DICTIONARY = {
     "2026-06-29-10-39-38_polished_rcim_model_bank_reproduction_campaign_results_report": "Polished RCIM Model-Bank Reproduction Closeout",
     "2026-07-02-10-36-59_polished_full_wave_retraining_campaign_results_report": "Polished Full-Wave Retraining Closeout",
 }
+FAMILYWISE_ONNX_REPORT_SUBTITLE = "TE Curve Verification Familywise ONNX Diagnostics"
 
 # Report Styles
 ALIGN_LEFT = "align-left"
@@ -780,6 +781,16 @@ def is_familywise_onnx_report(report_stem: str) -> bool:
     """Report Whether The Report Is A Familywise Track 2 ONNX Export."""
 
     return report_stem.startswith("track2_") and report_stem.endswith("_familywise_onnx_report")
+
+def resolve_report_subtitle(report_stem: str, fallback_subtitle: str) -> str:
+
+    """Resolve the styled PDF subtitle for one Markdown report."""
+
+    if report_stem in REPORT_SPECIFIC_SUBTITLE_DICTIONARY:
+        return REPORT_SPECIFIC_SUBTITLE_DICTIONARY[report_stem]
+    if is_familywise_onnx_report(report_stem):
+        return FAMILYWISE_ONNX_REPORT_SUBTITLE
+    return fallback_subtitle
 
 # Browser And Report Constants
 BROWSER_PDF_EXPORT_ARGUMENTS = (
@@ -5717,10 +5728,7 @@ def main() -> None:
     # Render Styled HTML Document
     markdown_text = input_markdown_path.read_text(encoding="utf-8")
     report_title, body_html = render_markdown_body(markdown_text, input_markdown_path)
-    report_subtitle = REPORT_SPECIFIC_SUBTITLE_DICTIONARY.get(
-        input_markdown_path.stem,
-        parsed_arguments.report_subtitle,
-    )
+    report_subtitle = resolve_report_subtitle(input_markdown_path.stem, parsed_arguments.report_subtitle)
     html_document = build_html_document(
         report_title,
         report_subtitle,
