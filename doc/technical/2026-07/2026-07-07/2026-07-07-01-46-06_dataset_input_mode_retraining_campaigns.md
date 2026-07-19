@@ -236,9 +236,9 @@ surface runs before any optional `TE Curve Verification Pipeline` refresh.
 - training outputs under `output/training_campaigns/`
 - run outputs under `output/training_runs/`
 - model archives under:
-  - `models/simplified_dataset/setpoints/exported/`
-  - `models/polished_dataset/setpoints/exported/`
-  - `models/polished_dataset/actual_values/exported/`
+  - `models/simplified_dataset/setpoints/`
+  - `models/polished_dataset/setpoints/`
+  - `models/polished_dataset/actual_values/`
 
 The existing `models/polished_dataset/exported/` and
 `models/simplified_dataset/exported/` roots must be treated as compatibility

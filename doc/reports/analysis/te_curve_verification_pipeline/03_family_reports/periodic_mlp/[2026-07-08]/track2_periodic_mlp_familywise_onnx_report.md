@@ -36,9 +36,9 @@ Exact model paths:
 
 | Surface | ONNX Model Path | Python Model Path |
 | --- | --- | --- |
-| forward | `models/simplified_dataset/setpoints/exported/periodic_mlp/forward/2026-07-07-20-14-15__te_periodic_mlp_fw__simplified_setpoints/onnx/model.onnx` | `models/simplified_dataset/setpoints/exported/periodic_mlp/forward/2026-07-07-20-14-15__te_periodic_mlp_fw__simplified_setpoints/python/periodic_mlp-epoch=037-val_mae=0.00302141.ckpt` |
-| backward | `models/simplified_dataset/setpoints/exported/periodic_mlp/backward/2026-07-07-20-20-54__te_periodic_mlp_bw__simplified_setpoints/onnx/model.onnx` | `models/simplified_dataset/setpoints/exported/periodic_mlp/backward/2026-07-07-20-20-54__te_periodic_mlp_bw__simplified_setpoints/python/periodic_mlp-epoch=062-val_mae=0.00301630.ckpt` |
-| global | `models/simplified_dataset/setpoints/exported/periodic_mlp/global/2026-07-07-20-03-02__te_periodic_mlp_global__simplified_setpoints/onnx/model.onnx` | `models/simplified_dataset/setpoints/exported/periodic_mlp/global/2026-07-07-20-03-02__te_periodic_mlp_global__simplified_setpoints/python/periodic_mlp-epoch=090-val_mae=0.00301298.ckpt` |
+| forward | `models/simplified_dataset/setpoints/periodic_mlp/forward/onnx/model.onnx` | `models/simplified_dataset/setpoints/periodic_mlp/forward/python/periodic_mlp-epoch=037-val_mae=0.00302141.ckpt` |
+| backward | `models/simplified_dataset/setpoints/periodic_mlp/backward/onnx/model.onnx` | `models/simplified_dataset/setpoints/periodic_mlp/backward/python/periodic_mlp-epoch=062-val_mae=0.00301630.ckpt` |
+| global | `models/simplified_dataset/setpoints/periodic_mlp/global/onnx/model.onnx` | `models/simplified_dataset/setpoints/periodic_mlp/global/python/periodic_mlp-epoch=090-val_mae=0.00301298.ckpt` |
 
 ### Aggregate Metrics
 
@@ -87,9 +87,9 @@ Exact model paths:
 
 | Surface | ONNX Model Path | Python Model Path |
 | --- | --- | --- |
-| forward | `models/polished_dataset/setpoints/exported/periodic_mlp/forward/2026-07-07-20-52-32__te_periodic_mlp_fw__polished_setpoints/onnx/model.onnx` | `models/polished_dataset/setpoints/exported/periodic_mlp/forward/2026-07-07-20-52-32__te_periodic_mlp_fw__polished_setpoints/python/periodic_mlp-epoch=089-val_mae=0.00162401.ckpt` |
-| backward | `models/polished_dataset/setpoints/exported/periodic_mlp/backward/2026-07-07-21-11-38__te_periodic_mlp_bw__polished_setpoints/onnx/model.onnx` | `models/polished_dataset/setpoints/exported/periodic_mlp/backward/2026-07-07-21-11-38__te_periodic_mlp_bw__polished_setpoints/python/periodic_mlp-epoch=055-val_mae=0.00165461.ckpt` |
-| global | `models/polished_dataset/setpoints/exported/periodic_mlp/global/2026-07-07-20-38-26__te_periodic_mlp_global__polished_setpoints/onnx/model.onnx` | `models/polished_dataset/setpoints/exported/periodic_mlp/global/2026-07-07-20-38-26__te_periodic_mlp_global__polished_setpoints/python/periodic_mlp-epoch=080-val_mae=0.00165354.ckpt` |
+| forward | `models/polished_dataset/setpoints/periodic_mlp/forward/onnx/model.onnx` | `models/polished_dataset/setpoints/periodic_mlp/forward/python/periodic_mlp-epoch=089-val_mae=0.00162401.ckpt` |
+| backward | `models/polished_dataset/setpoints/periodic_mlp/backward/onnx/model.onnx` | `models/polished_dataset/setpoints/periodic_mlp/backward/python/periodic_mlp-epoch=055-val_mae=0.00165461.ckpt` |
+| global | `models/polished_dataset/setpoints/periodic_mlp/global/onnx/model.onnx` | `models/polished_dataset/setpoints/periodic_mlp/global/python/periodic_mlp-epoch=080-val_mae=0.00165354.ckpt` |
 
 ### Aggregate Metrics
 
@@ -138,9 +138,9 @@ Exact model paths:
 
 | Surface | ONNX Model Path | Python Model Path |
 | --- | --- | --- |
-| forward | `models/polished_dataset/actual_values/exported/periodic_mlp/forward/2026-07-07-21-58-17__te_periodic_mlp_fw__polished_actual_values/onnx/model.onnx` | `models/polished_dataset/actual_values/exported/periodic_mlp/forward/2026-07-07-21-58-17__te_periodic_mlp_fw__polished_actual_values/python/periodic_mlp-epoch=048-val_mae=0.00168924.ckpt` |
-| backward | `models/polished_dataset/actual_values/exported/periodic_mlp/backward/2026-07-07-22-12-18__te_periodic_mlp_bw__polished_actual_values/onnx/model.onnx` | `models/polished_dataset/actual_values/exported/periodic_mlp/backward/2026-07-07-22-12-18__te_periodic_mlp_bw__polished_actual_values/python/periodic_mlp-epoch=076-val_mae=0.00167645.ckpt` |
-| global | `models/polished_dataset/actual_values/exported/periodic_mlp/global/2026-07-07-21-37-50__te_periodic_mlp_global__polished_actual_values/onnx/model.onnx` | `models/polished_dataset/actual_values/exported/periodic_mlp/global/2026-07-07-21-37-50__te_periodic_mlp_global__polished_actual_values/python/periodic_mlp-epoch=094-val_mae=0.00165445.ckpt` |
+| forward | `models/polished_dataset/actual_values/periodic_mlp/forward/onnx/model.onnx` | `models/polished_dataset/actual_values/periodic_mlp/forward/python/periodic_mlp-epoch=048-val_mae=0.00168924.ckpt` |
+| backward | `models/polished_dataset/actual_values/periodic_mlp/backward/onnx/model.onnx` | `models/polished_dataset/actual_values/periodic_mlp/backward/python/periodic_mlp-epoch=076-val_mae=0.00167645.ckpt` |
+| global | `models/polished_dataset/actual_values/periodic_mlp/global/onnx/model.onnx` | `models/polished_dataset/actual_values/periodic_mlp/global/python/periodic_mlp-epoch=094-val_mae=0.00165445.ckpt` |
 
 ### Aggregate Metrics
 

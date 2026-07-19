@@ -30,10 +30,10 @@ candidate_list:
   candidate_surface: Bw
   allowed_direction_list:
   - backward
-  source_path: models\polished_dataset\setpoints\exported\feedforward\backward\2026-07-07-17-41-33__te_feedforward_bw__polished_setpoints\reference_inventory.yaml
+  source_path: models\polished_dataset\setpoints\feedforward\backward\reference_inventory.yaml
   selected_harmonic_list: []
   registry_run_instance_id: 2026-07-07-17-41-33__te_feedforward_bw__polished_setpoints
-  model_file_path: models/polished_dataset/setpoints/exported/feedforward/backward/2026-07-07-17-41-33__te_feedforward_bw__polished_setpoints/python/feedforward-epoch=057-val_mae=0.00164066.ckpt
+  model_file_path: models/polished_dataset/setpoints/feedforward/backward/python/feedforward-epoch=057-val_mae=0.00164066.ckpt
   composite_selection: null
 - candidate_id: polished_setpoints_tree_Bw
   candidate_family: tree
@@ -42,10 +42,10 @@ candidate_list:
   candidate_surface: Bw
   allowed_direction_list:
   - backward
-  source_path: models\polished_dataset\setpoints\exported\tree\backward\2026-07-07-09-37-16__te_tree_bw__polished_setpoints\reference_inventory.yaml
+  source_path: models\polished_dataset\setpoints\tree\backward\reference_inventory.yaml
   selected_harmonic_list: []
   registry_run_instance_id: 2026-07-07-09-37-16__te_tree_bw__polished_setpoints
-  model_file_path: models/polished_dataset/setpoints/exported/tree/backward/2026-07-07-09-37-16__te_tree_bw__polished_setpoints/python/tree_model.pkl
+  model_file_path: models/polished_dataset/setpoints/tree/backward/python/tree_model.pkl
   composite_selection: null
 - candidate_id: polished_setpoints_harmonic_regression_Bw
   candidate_family: harmonic_regression
@@ -54,10 +54,10 @@ candidate_list:
   candidate_surface: Bw
   allowed_direction_list:
   - backward
-  source_path: models\polished_dataset\setpoints\exported\harmonic_regression\backward\2026-07-07-23-39-40__te_harmonic_regression_bw__polished_setpoints\reference_inventory.yaml
+  source_path: models\polished_dataset\setpoints\harmonic_regression\backward\reference_inventory.yaml
   selected_harmonic_list: []
   registry_run_instance_id: 2026-07-07-23-39-40__te_harmonic_regression_bw__polished_setpoints
-  model_file_path: models/polished_dataset/setpoints/exported/harmonic_regression/backward/2026-07-07-23-39-40__te_harmonic_regression_bw__polished_setpoints/python/harmonic_regression-epoch=044-val_mae=0.01715066.ckpt
+  model_file_path: models/polished_dataset/setpoints/harmonic_regression/backward/python/harmonic_regression-epoch=044-val_mae=0.01715066.ckpt
   composite_selection: null
 - candidate_id: polished_setpoints_periodic_mlp_harmonic_Bw
   candidate_family: periodic_mlp_harmonic
@@ -66,10 +66,10 @@ candidate_list:
   candidate_surface: Bw
   allowed_direction_list:
   - backward
-  source_path: models\polished_dataset\setpoints\exported\periodic_mlp_harmonic\backward\2026-07-08-02-29-32__te_periodic_mlp_harmonic_bw__polished_setpoints\reference_inventory.yaml
+  source_path: models\polished_dataset\setpoints\periodic_mlp_harmonic\backward\reference_inventory.yaml
   selected_harmonic_list: []
   registry_run_instance_id: 2026-07-08-02-29-32__te_periodic_mlp_harmonic_bw__polished_setpoints
-  model_file_path: models/polished_dataset/setpoints/exported/periodic_mlp_harmonic/backward/2026-07-08-02-29-32__te_periodic_mlp_harmonic_bw__polished_setpoints/python/periodic_mlp-epoch=081-val_mae=0.00121896.ckpt
+  model_file_path: models/polished_dataset/setpoints/periodic_mlp_harmonic/backward/python/periodic_mlp-epoch=081-val_mae=0.00121896.ckpt
   composite_selection: null
 - candidate_id: polished_setpoints_periodic_gru_sequence_Bw
   candidate_family: periodic_gru_sequence
@@ -78,10 +78,10 @@ candidate_list:
   candidate_surface: Bw
   allowed_direction_list:
   - backward
-  source_path: models\polished_dataset\setpoints\exported\periodic_gru_sequence\backward\2026-07-08-23-18-30__te_periodic_gru_sequence_bw__polished_setpoints\reference_inventory.yaml
+  source_path: models\polished_dataset\setpoints\periodic_gru_sequence\backward\reference_inventory.yaml
   selected_harmonic_list: []
   registry_run_instance_id: 2026-07-08-23-18-30__te_periodic_gru_sequence_bw__polished_setpoints
-  model_file_path: models/polished_dataset/setpoints/exported/periodic_gru_sequence/backward/2026-07-08-23-18-30__te_periodic_gru_sequence_bw__polished_setpoints/python/periodic_gru_sequence-epoch=064-val_mae=0.00189811.ckpt
+  model_file_path: models/polished_dataset/setpoints/periodic_gru_sequence/backward/python/periodic_gru_sequence-epoch=064-val_mae=0.00189811.ckpt
   composite_selection: null
 - candidate_id: polished_setpoints_wave4_1_mae_robust_loss_Bw
   candidate_family: wave4_1_mae_robust_loss
@@ -90,10 +90,10 @@ candidate_list:
   candidate_surface: Bw
   allowed_direction_list:
   - backward
-  source_path: models\polished_dataset\setpoints\exported\wave4_1_mae_robust_loss\backward\2026-07-12-16-51-03__te_wave4_1_mae_robust_loss_bw__polished_setpoints\reference_inventory.yaml
+  source_path: models\polished_dataset\setpoints\wave4_1_mae_robust_loss\backward\reference_inventory.yaml
   selected_harmonic_list: []
   registry_run_instance_id: 2026-07-12-16-51-03__te_wave4_1_mae_robust_loss_bw__polished_setpoints
-  model_file_path: models/polished_dataset/setpoints/exported/wave4_1_mae_robust_loss/backward/2026-07-12-16-51-03__te_wave4_1_mae_robust_loss_bw__polished_setpoints/python/curve_aware_harmonic_residual_offset_probe-epoch=088-val_mae=0.00183184.ckpt
+  model_file_path: models/polished_dataset/setpoints/wave4_1_mae_robust_loss/backward/python/curve_aware_harmonic_residual_offset_probe-epoch=088-val_mae=0.00183184.ckpt
   composite_selection: null
 - candidate_id: polished_setpoints_wave4_2_quantile_p10_p50_p90_Bw
   candidate_family: wave4_2_quantile_p10_p50_p90
@@ -102,10 +102,10 @@ candidate_list:
   candidate_surface: Bw
   allowed_direction_list:
   - backward
-  source_path: models\polished_dataset\setpoints\exported\wave4_2_quantile_p10_p50_p90\backward\2026-07-14-13-54-54__te_wave4_2_quantile_p10_p50_p90_bw__polished_setpoints\reference_inventory.yaml
+  source_path: models\polished_dataset\setpoints\wave4_2_quantile_p10_p50_p90\backward\reference_inventory.yaml
   selected_harmonic_list: []
   registry_run_instance_id: 2026-07-14-13-54-54__te_wave4_2_quantile_p10_p50_p90_bw__polished_setpoints
-  model_file_path: models/polished_dataset/setpoints/exported/wave4_2_quantile_p10_p50_p90/backward/2026-07-14-13-54-54__te_wave4_2_quantile_p10_p50_p90_bw__polished_setpoints/python/curve_aware_harmonic_residual_offset_probe-epoch=063-val_mae=0.00181729.ckpt
+  model_file_path: models/polished_dataset/setpoints/wave4_2_quantile_p10_p50_p90/backward/python/curve_aware_harmonic_residual_offset_probe-epoch=063-val_mae=0.00181729.ckpt
   composite_selection: null
 candidate_target_metric_summary: {}
 candidate_metric_summary:

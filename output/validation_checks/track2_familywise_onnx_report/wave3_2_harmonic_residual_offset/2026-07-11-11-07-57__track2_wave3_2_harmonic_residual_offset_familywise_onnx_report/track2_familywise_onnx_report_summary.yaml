@@ -23,10 +23,10 @@ group_summary_list:
     run_instance_id: 2026-07-10-23-36-51__te_wave3_2_harmonic_residual_offset_fw__simplified_setpoints
     dataset_schema: simplified_curve_v1
     model_type: harmonic_residual_offset_probe
-    onnx_model_path: models/simplified_dataset/setpoints/exported/wave3_2_harmonic_residual_offset/forward/2026-07-10-23-36-51__te_wave3_2_harmonic_residual_offset_fw__simplified_setpoints/onnx/model.onnx
-    python_model_path: models/simplified_dataset/setpoints/exported/wave3_2_harmonic_residual_offset/forward/2026-07-10-23-36-51__te_wave3_2_harmonic_residual_offset_fw__simplified_setpoints/python/harmonic_residual_offset_probe-epoch=121-val_mae=0.00362257.ckpt
-    training_config_path: models/simplified_dataset/setpoints/exported/wave3_2_harmonic_residual_offset/forward/2026-07-10-23-36-51__te_wave3_2_harmonic_residual_offset_fw__simplified_setpoints/source_run/training_config.snapshot.yaml
-    source_inventory_path: models/simplified_dataset/setpoints/exported/model_development_export_inventory.yaml
+    onnx_model_path: models/simplified_dataset/setpoints/wave3_2_harmonic_residual_offset/forward/onnx/model.onnx
+    python_model_path: models/simplified_dataset/setpoints/wave3_2_harmonic_residual_offset/forward/python/harmonic_residual_offset_probe-epoch=121-val_mae=0.00362257.ckpt
+    training_config_path: models/simplified_dataset/setpoints/wave3_2_harmonic_residual_offset/forward/source_run/training_config.snapshot.yaml
+    source_inventory_path: models/simplified_dataset/setpoints/model_development_export_inventory.yaml
     evaluated_curve_count: 97
     aggregate_metrics:
       mse: 1.5194630761363465e-05
@@ -257,10 +257,10 @@ group_summary_list:
     run_instance_id: 2026-07-10-23-52-02__te_wave3_2_harmonic_residual_offset_bw__simplified_setpoints
     dataset_schema: simplified_curve_v1
     model_type: harmonic_residual_offset_probe
-    onnx_model_path: models/simplified_dataset/setpoints/exported/wave3_2_harmonic_residual_offset/backward/2026-07-10-23-52-02__te_wave3_2_harmonic_residual_offset_bw__simplified_setpoints/onnx/model.onnx
-    python_model_path: models/simplified_dataset/setpoints/exported/wave3_2_harmonic_residual_offset/backward/2026-07-10-23-52-02__te_wave3_2_harmonic_residual_offset_bw__simplified_setpoints/python/harmonic_residual_offset_probe-epoch=091-val_mae=0.00361216.ckpt
-    training_config_path: models/simplified_dataset/setpoints/exported/wave3_2_harmonic_residual_offset/backward/2026-07-10-23-52-02__te_wave3_2_harmonic_residual_offset_bw__simplified_setpoints/source_run/training_config.snapshot.yaml
-    source_inventory_path: models/simplified_dataset/setpoints/exported/model_development_export_inventory.yaml
+    onnx_model_path: models/simplified_dataset/setpoints/wave3_2_harmonic_residual_offset/backward/onnx/model.onnx
+    python_model_path: models/simplified_dataset/setpoints/wave3_2_harmonic_residual_offset/backward/python/harmonic_residual_offset_probe-epoch=091-val_mae=0.00361216.ckpt
+    training_config_path: models/simplified_dataset/setpoints/wave3_2_harmonic_residual_offset/backward/source_run/training_config.snapshot.yaml
+    source_inventory_path: models/simplified_dataset/setpoints/model_development_export_inventory.yaml
     evaluated_curve_count: 97
     aggregate_metrics:
       mse: 1.9664388183898454e-05
@@ -491,10 +491,10 @@ group_summary_list:
     run_instance_id: 2026-07-10-23-18-29__te_wave3_2_harmonic_residual_offset_global__simplified_setpoints
     dataset_schema: simplified_curve_v1
     model_type: harmonic_residual_offset_probe
-    onnx_model_path: models/simplified_dataset/setpoints/exported/wave3_2_harmonic_residual_offset/global/2026-07-10-23-18-29__te_wave3_2_harmonic_residual_offset_global__simplified_setpoints/onnx/model.onnx
-    python_model_path: models/simplified_dataset/setpoints/exported/wave3_2_harmonic_residual_offset/global/2026-07-10-23-18-29__te_wave3_2_harmonic_residual_offset_global__simplified_setpoints/python/harmonic_residual_offset_probe-epoch=138-val_mae=0.00362371.ckpt
-    training_config_path: models/simplified_dataset/setpoints/exported/wave3_2_harmonic_residual_offset/global/2026-07-10-23-18-29__te_wave3_2_harmonic_residual_offset_global__simplified_setpoints/source_run/training_config.snapshot.yaml
-    source_inventory_path: models/simplified_dataset/setpoints/exported/model_development_export_inventory.yaml
+    onnx_model_path: models/simplified_dataset/setpoints/wave3_2_harmonic_residual_offset/global/onnx/model.onnx
+    python_model_path: models/simplified_dataset/setpoints/wave3_2_harmonic_residual_offset/global/python/harmonic_residual_offset_probe-epoch=138-val_mae=0.00362371.ckpt
+    training_config_path: models/simplified_dataset/setpoints/wave3_2_harmonic_residual_offset/global/source_run/training_config.snapshot.yaml
+    source_inventory_path: models/simplified_dataset/setpoints/model_development_export_inventory.yaml
     evaluated_curve_count: 194
     aggregate_metrics:
       mse: 1.7666737407667585e-05
@@ -731,10 +731,10 @@ group_summary_list:
     run_instance_id: 2026-07-11-00-52-59__te_wave3_2_harmonic_residual_offset_fw__polished_setpoints
     dataset_schema: polished_setpoint_curve_v1
     model_type: harmonic_residual_offset_probe
-    onnx_model_path: models/polished_dataset/setpoints/exported/wave3_2_harmonic_residual_offset/forward/2026-07-11-00-52-59__te_wave3_2_harmonic_residual_offset_fw__polished_setpoints/onnx/model.onnx
-    python_model_path: models/polished_dataset/setpoints/exported/wave3_2_harmonic_residual_offset/forward/2026-07-11-00-52-59__te_wave3_2_harmonic_residual_offset_fw__polished_setpoints/python/harmonic_residual_offset_probe-epoch=085-val_mae=0.00188607.ckpt
-    training_config_path: models/polished_dataset/setpoints/exported/wave3_2_harmonic_residual_offset/forward/2026-07-11-00-52-59__te_wave3_2_harmonic_residual_offset_fw__polished_setpoints/source_run/training_config.snapshot.yaml
-    source_inventory_path: models/polished_dataset/setpoints/exported/model_development_export_inventory.yaml
+    onnx_model_path: models/polished_dataset/setpoints/wave3_2_harmonic_residual_offset/forward/onnx/model.onnx
+    python_model_path: models/polished_dataset/setpoints/wave3_2_harmonic_residual_offset/forward/python/harmonic_residual_offset_probe-epoch=085-val_mae=0.00188607.ckpt
+    training_config_path: models/polished_dataset/setpoints/wave3_2_harmonic_residual_offset/forward/source_run/training_config.snapshot.yaml
+    source_inventory_path: models/polished_dataset/setpoints/model_development_export_inventory.yaml
     evaluated_curve_count: 100
     aggregate_metrics:
       mse: 9.032373683702386e-06
@@ -965,10 +965,10 @@ group_summary_list:
     run_instance_id: 2026-07-11-01-14-42__te_wave3_2_harmonic_residual_offset_bw__polished_setpoints
     dataset_schema: polished_setpoint_curve_v1
     model_type: harmonic_residual_offset_probe
-    onnx_model_path: models/polished_dataset/setpoints/exported/wave3_2_harmonic_residual_offset/backward/2026-07-11-01-14-42__te_wave3_2_harmonic_residual_offset_bw__polished_setpoints/onnx/model.onnx
-    python_model_path: models/polished_dataset/setpoints/exported/wave3_2_harmonic_residual_offset/backward/2026-07-11-01-14-42__te_wave3_2_harmonic_residual_offset_bw__polished_setpoints/python/harmonic_residual_offset_probe-epoch=120-val_mae=0.00193287.ckpt
-    training_config_path: models/polished_dataset/setpoints/exported/wave3_2_harmonic_residual_offset/backward/2026-07-11-01-14-42__te_wave3_2_harmonic_residual_offset_bw__polished_setpoints/source_run/training_config.snapshot.yaml
-    source_inventory_path: models/polished_dataset/setpoints/exported/model_development_export_inventory.yaml
+    onnx_model_path: models/polished_dataset/setpoints/wave3_2_harmonic_residual_offset/backward/onnx/model.onnx
+    python_model_path: models/polished_dataset/setpoints/wave3_2_harmonic_residual_offset/backward/python/harmonic_residual_offset_probe-epoch=120-val_mae=0.00193287.ckpt
+    training_config_path: models/polished_dataset/setpoints/wave3_2_harmonic_residual_offset/backward/source_run/training_config.snapshot.yaml
+    source_inventory_path: models/polished_dataset/setpoints/model_development_export_inventory.yaml
     evaluated_curve_count: 94
     aggregate_metrics:
       mse: 2.8096633190543058e-05
@@ -1199,10 +1199,10 @@ group_summary_list:
     run_instance_id: 2026-07-11-00-24-33__te_wave3_2_harmonic_residual_offset_global__polished_setpoints
     dataset_schema: polished_setpoint_curve_v1
     model_type: harmonic_residual_offset_probe
-    onnx_model_path: models/polished_dataset/setpoints/exported/wave3_2_harmonic_residual_offset/global/2026-07-11-00-24-33__te_wave3_2_harmonic_residual_offset_global__polished_setpoints/onnx/model.onnx
-    python_model_path: models/polished_dataset/setpoints/exported/wave3_2_harmonic_residual_offset/global/2026-07-11-00-24-33__te_wave3_2_harmonic_residual_offset_global__polished_setpoints/python/harmonic_residual_offset_probe-epoch=124-val_mae=0.00190522.ckpt
-    training_config_path: models/polished_dataset/setpoints/exported/wave3_2_harmonic_residual_offset/global/2026-07-11-00-24-33__te_wave3_2_harmonic_residual_offset_global__polished_setpoints/source_run/training_config.snapshot.yaml
-    source_inventory_path: models/polished_dataset/setpoints/exported/model_development_export_inventory.yaml
+    onnx_model_path: models/polished_dataset/setpoints/wave3_2_harmonic_residual_offset/global/onnx/model.onnx
+    python_model_path: models/polished_dataset/setpoints/wave3_2_harmonic_residual_offset/global/python/harmonic_residual_offset_probe-epoch=124-val_mae=0.00190522.ckpt
+    training_config_path: models/polished_dataset/setpoints/wave3_2_harmonic_residual_offset/global/source_run/training_config.snapshot.yaml
+    source_inventory_path: models/polished_dataset/setpoints/model_development_export_inventory.yaml
     evaluated_curve_count: 194
     aggregate_metrics:
       mse: 1.8346054421965612e-05
@@ -1439,10 +1439,10 @@ group_summary_list:
     run_instance_id: 2026-07-11-05-29-51__te_wave3_2_harmonic_residual_offset_fw__polished_actual_values
     dataset_schema: polished_point_v1
     model_type: harmonic_residual_offset_probe
-    onnx_model_path: models/polished_dataset/actual_values/exported/wave3_2_harmonic_residual_offset/forward/2026-07-11-05-29-51__te_wave3_2_harmonic_residual_offset_fw__polished_actual_values/onnx/model.onnx
-    python_model_path: models/polished_dataset/actual_values/exported/wave3_2_harmonic_residual_offset/forward/2026-07-11-05-29-51__te_wave3_2_harmonic_residual_offset_fw__polished_actual_values/python/harmonic_residual_offset_probe-epoch=205-val_mae=0.00184965.ckpt
-    training_config_path: models/polished_dataset/actual_values/exported/wave3_2_harmonic_residual_offset/forward/2026-07-11-05-29-51__te_wave3_2_harmonic_residual_offset_fw__polished_actual_values/source_run/training_config.snapshot.yaml
-    source_inventory_path: models/polished_dataset/actual_values/exported/model_development_export_inventory.yaml
+    onnx_model_path: models/polished_dataset/actual_values/wave3_2_harmonic_residual_offset/forward/onnx/model.onnx
+    python_model_path: models/polished_dataset/actual_values/wave3_2_harmonic_residual_offset/forward/python/harmonic_residual_offset_probe-epoch=205-val_mae=0.00184965.ckpt
+    training_config_path: models/polished_dataset/actual_values/wave3_2_harmonic_residual_offset/forward/source_run/training_config.snapshot.yaml
+    source_inventory_path: models/polished_dataset/actual_values/model_development_export_inventory.yaml
     evaluated_curve_count: 100
     aggregate_metrics:
       mse: 7.926275310033788e-06
@@ -1673,10 +1673,10 @@ group_summary_list:
     run_instance_id: 2026-07-11-06-13-40__te_wave3_2_harmonic_residual_offset_bw__polished_actual_values
     dataset_schema: polished_point_v1
     model_type: harmonic_residual_offset_probe
-    onnx_model_path: models/polished_dataset/actual_values/exported/wave3_2_harmonic_residual_offset/backward/2026-07-11-06-13-40__te_wave3_2_harmonic_residual_offset_bw__polished_actual_values/onnx/model.onnx
-    python_model_path: models/polished_dataset/actual_values/exported/wave3_2_harmonic_residual_offset/backward/2026-07-11-06-13-40__te_wave3_2_harmonic_residual_offset_bw__polished_actual_values/python/harmonic_residual_offset_probe-epoch=205-val_mae=0.00185299.ckpt
-    training_config_path: models/polished_dataset/actual_values/exported/wave3_2_harmonic_residual_offset/backward/2026-07-11-06-13-40__te_wave3_2_harmonic_residual_offset_bw__polished_actual_values/source_run/training_config.snapshot.yaml
-    source_inventory_path: models/polished_dataset/actual_values/exported/model_development_export_inventory.yaml
+    onnx_model_path: models/polished_dataset/actual_values/wave3_2_harmonic_residual_offset/backward/onnx/model.onnx
+    python_model_path: models/polished_dataset/actual_values/wave3_2_harmonic_residual_offset/backward/python/harmonic_residual_offset_probe-epoch=205-val_mae=0.00185299.ckpt
+    training_config_path: models/polished_dataset/actual_values/wave3_2_harmonic_residual_offset/backward/source_run/training_config.snapshot.yaml
+    source_inventory_path: models/polished_dataset/actual_values/model_development_export_inventory.yaml
     evaluated_curve_count: 94
     aggregate_metrics:
       mse: 1.6803339395550203e-05
@@ -1907,10 +1907,10 @@ group_summary_list:
     run_instance_id: 2026-07-11-04-51-02__te_wave3_2_harmonic_residual_offset_global__polished_actual_values
     dataset_schema: polished_point_v1
     model_type: harmonic_residual_offset_probe
-    onnx_model_path: models/polished_dataset/actual_values/exported/wave3_2_harmonic_residual_offset/global/2026-07-11-04-51-02__te_wave3_2_harmonic_residual_offset_global__polished_actual_values/onnx/model.onnx
-    python_model_path: models/polished_dataset/actual_values/exported/wave3_2_harmonic_residual_offset/global/2026-07-11-04-51-02__te_wave3_2_harmonic_residual_offset_global__polished_actual_values/python/harmonic_residual_offset_probe-epoch=201-val_mae=0.00183635.ckpt
-    training_config_path: models/polished_dataset/actual_values/exported/wave3_2_harmonic_residual_offset/global/2026-07-11-04-51-02__te_wave3_2_harmonic_residual_offset_global__polished_actual_values/source_run/training_config.snapshot.yaml
-    source_inventory_path: models/polished_dataset/actual_values/exported/model_development_export_inventory.yaml
+    onnx_model_path: models/polished_dataset/actual_values/wave3_2_harmonic_residual_offset/global/onnx/model.onnx
+    python_model_path: models/polished_dataset/actual_values/wave3_2_harmonic_residual_offset/global/python/harmonic_residual_offset_probe-epoch=201-val_mae=0.00183635.ckpt
+    training_config_path: models/polished_dataset/actual_values/wave3_2_harmonic_residual_offset/global/source_run/training_config.snapshot.yaml
+    source_inventory_path: models/polished_dataset/actual_values/model_development_export_inventory.yaml
     evaluated_curve_count: 194
     aggregate_metrics:
       mse: 1.2261507444457973e-05

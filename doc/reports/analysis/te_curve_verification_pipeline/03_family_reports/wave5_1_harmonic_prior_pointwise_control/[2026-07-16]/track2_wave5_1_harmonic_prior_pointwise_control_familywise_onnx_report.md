@@ -44,9 +44,9 @@ Exact model paths:
 
 | Surface | ONNX Model Path | Python Model Path |
 | --- | --- | --- |
-| forward | `models/simplified_dataset/setpoints/exported/wave5_1_harmonic_prior_pointwise_control/forward/2026-07-15-23-51-01__te_wave5_1_harmonic_prior_pointwise_control_fw__simplified_setpoints/onnx/model.onnx` | `models/simplified_dataset/setpoints/exported/wave5_1_harmonic_prior_pointwise_control/forward/2026-07-15-23-51-01__te_wave5_1_harmonic_prior_pointwise_control_fw__simplified_setpoints/python/wave3_harmonic_prior_residual-epoch=223-val_mae=0.00356285.ckpt` |
-| backward | `models/simplified_dataset/setpoints/exported/wave5_1_harmonic_prior_pointwise_control/backward/2026-07-16-00-17-20__te_wave5_1_harmonic_prior_pointwise_control_bw__simplified_setpoints/onnx/model.onnx` | `models/simplified_dataset/setpoints/exported/wave5_1_harmonic_prior_pointwise_control/backward/2026-07-16-00-17-20__te_wave5_1_harmonic_prior_pointwise_control_bw__simplified_setpoints/python/wave3_harmonic_prior_residual-epoch=063-val_mae=0.00364360.ckpt` |
-| global | `models/simplified_dataset/setpoints/exported/wave5_1_harmonic_prior_pointwise_control/global/2026-07-15-23-32-06__te_wave5_1_harmonic_prior_pointwise_control_global__simplified_setpoints/onnx/model.onnx` | `models/simplified_dataset/setpoints/exported/wave5_1_harmonic_prior_pointwise_control/global/2026-07-15-23-32-06__te_wave5_1_harmonic_prior_pointwise_control_global__simplified_setpoints/python/wave3_harmonic_prior_residual-epoch=120-val_mae=0.00359724.ckpt` |
+| forward | `models/simplified_dataset/setpoints/wave5_1_harmonic_prior_pointwise_control/forward/onnx/model.onnx` | `models/simplified_dataset/setpoints/wave5_1_harmonic_prior_pointwise_control/forward/python/wave3_harmonic_prior_residual-epoch=223-val_mae=0.00356285.ckpt` |
+| backward | `models/simplified_dataset/setpoints/wave5_1_harmonic_prior_pointwise_control/backward/onnx/model.onnx` | `models/simplified_dataset/setpoints/wave5_1_harmonic_prior_pointwise_control/backward/python/wave3_harmonic_prior_residual-epoch=063-val_mae=0.00364360.ckpt` |
+| global | `models/simplified_dataset/setpoints/wave5_1_harmonic_prior_pointwise_control/global/onnx/model.onnx` | `models/simplified_dataset/setpoints/wave5_1_harmonic_prior_pointwise_control/global/python/wave3_harmonic_prior_residual-epoch=120-val_mae=0.00359724.ckpt` |
 
 ### Aggregate Metrics
 
@@ -95,9 +95,9 @@ Exact model paths:
 
 | Surface | ONNX Model Path | Python Model Path |
 | --- | --- | --- |
-| forward | `models/polished_dataset/setpoints/exported/wave5_1_harmonic_prior_pointwise_control/forward/2026-07-16-01-19-11__te_wave5_1_harmonic_prior_pointwise_control_fw__polished_setpoints/onnx/model.onnx` | `models/polished_dataset/setpoints/exported/wave5_1_harmonic_prior_pointwise_control/forward/2026-07-16-01-19-11__te_wave5_1_harmonic_prior_pointwise_control_fw__polished_setpoints/python/wave3_harmonic_prior_residual-epoch=084-val_mae=0.00195891.ckpt` |
-| backward | `models/polished_dataset/setpoints/exported/wave5_1_harmonic_prior_pointwise_control/backward/2026-07-16-01-39-54__te_wave5_1_harmonic_prior_pointwise_control_bw__polished_setpoints/onnx/model.onnx` | `models/polished_dataset/setpoints/exported/wave5_1_harmonic_prior_pointwise_control/backward/2026-07-16-01-39-54__te_wave5_1_harmonic_prior_pointwise_control_bw__polished_setpoints/python/wave3_harmonic_prior_residual-epoch=074-val_mae=0.00194037.ckpt` |
-| global | `models/polished_dataset/setpoints/exported/wave5_1_harmonic_prior_pointwise_control/global/2026-07-16-00-50-35__te_wave5_1_harmonic_prior_pointwise_control_global__polished_setpoints/onnx/model.onnx` | `models/polished_dataset/setpoints/exported/wave5_1_harmonic_prior_pointwise_control/global/2026-07-16-00-50-35__te_wave5_1_harmonic_prior_pointwise_control_global__polished_setpoints/python/wave3_harmonic_prior_residual-epoch=131-val_mae=0.00190080.ckpt` |
+| forward | `models/polished_dataset/setpoints/wave5_1_harmonic_prior_pointwise_control/forward/onnx/model.onnx` | `models/polished_dataset/setpoints/wave5_1_harmonic_prior_pointwise_control/forward/python/wave3_harmonic_prior_residual-epoch=084-val_mae=0.00195891.ckpt` |
+| backward | `models/polished_dataset/setpoints/wave5_1_harmonic_prior_pointwise_control/backward/onnx/model.onnx` | `models/polished_dataset/setpoints/wave5_1_harmonic_prior_pointwise_control/backward/python/wave3_harmonic_prior_residual-epoch=074-val_mae=0.00194037.ckpt` |
+| global | `models/polished_dataset/setpoints/wave5_1_harmonic_prior_pointwise_control/global/onnx/model.onnx` | `models/polished_dataset/setpoints/wave5_1_harmonic_prior_pointwise_control/global/python/wave3_harmonic_prior_residual-epoch=131-val_mae=0.00190080.ckpt` |
 
 ### Aggregate Metrics
 
@@ -146,9 +146,9 @@ Exact model paths:
 
 | Surface | ONNX Model Path | Python Model Path |
 | --- | --- | --- |
-| forward | `models/polished_dataset/actual_values/exported/wave5_1_harmonic_prior_pointwise_control/forward/2026-07-16-02-44-33__te_wave5_1_harmonic_prior_pointwise_control_fw__polished_actual_values/onnx/model.onnx` | `models/polished_dataset/actual_values/exported/wave5_1_harmonic_prior_pointwise_control/forward/2026-07-16-02-44-33__te_wave5_1_harmonic_prior_pointwise_control_fw__polished_actual_values/python/wave3_harmonic_prior_residual-epoch=119-val_mae=0.00192899.ckpt` |
-| backward | `models/polished_dataset/actual_values/exported/wave5_1_harmonic_prior_pointwise_control/backward/2026-07-16-03-08-07__te_wave5_1_harmonic_prior_pointwise_control_bw__polished_actual_values/onnx/model.onnx` | `models/polished_dataset/actual_values/exported/wave5_1_harmonic_prior_pointwise_control/backward/2026-07-16-03-08-07__te_wave5_1_harmonic_prior_pointwise_control_bw__polished_actual_values/python/wave3_harmonic_prior_residual-epoch=113-val_mae=0.00189638.ckpt` |
-| global | `models/polished_dataset/actual_values/exported/wave5_1_harmonic_prior_pointwise_control/global/2026-07-16-02-19-49__te_wave5_1_harmonic_prior_pointwise_control_global__polished_actual_values/onnx/model.onnx` | `models/polished_dataset/actual_values/exported/wave5_1_harmonic_prior_pointwise_control/global/2026-07-16-02-19-49__te_wave5_1_harmonic_prior_pointwise_control_global__polished_actual_values/python/wave3_harmonic_prior_residual-epoch=121-val_mae=0.00194574.ckpt` |
+| forward | `models/polished_dataset/actual_values/wave5_1_harmonic_prior_pointwise_control/forward/onnx/model.onnx` | `models/polished_dataset/actual_values/wave5_1_harmonic_prior_pointwise_control/forward/python/wave3_harmonic_prior_residual-epoch=119-val_mae=0.00192899.ckpt` |
+| backward | `models/polished_dataset/actual_values/wave5_1_harmonic_prior_pointwise_control/backward/onnx/model.onnx` | `models/polished_dataset/actual_values/wave5_1_harmonic_prior_pointwise_control/backward/python/wave3_harmonic_prior_residual-epoch=113-val_mae=0.00189638.ckpt` |
+| global | `models/polished_dataset/actual_values/wave5_1_harmonic_prior_pointwise_control/global/onnx/model.onnx` | `models/polished_dataset/actual_values/wave5_1_harmonic_prior_pointwise_control/global/python/wave3_harmonic_prior_residual-epoch=121-val_mae=0.00194574.ckpt` |
 
 ### Aggregate Metrics
 

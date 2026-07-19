@@ -23,10 +23,10 @@ group_summary_list:
     run_instance_id: 2026-07-08-19-19-28__te_periodic_temporal_convolution_fw__simplified_setpoints
     dataset_schema: simplified_curve_v1
     model_type: periodic_temporal_convolution
-    onnx_model_path: models/simplified_dataset/setpoints/exported/periodic_temporal_convolution/forward/2026-07-08-19-19-28__te_periodic_temporal_convolution_fw__simplified_setpoints/onnx/model.onnx
-    python_model_path: models/simplified_dataset/setpoints/exported/periodic_temporal_convolution/forward/2026-07-08-19-19-28__te_periodic_temporal_convolution_fw__simplified_setpoints/python/periodic_temporal_convolution-epoch=050-val_mae=0.00364466.ckpt
-    training_config_path: models/simplified_dataset/setpoints/exported/periodic_temporal_convolution/forward/2026-07-08-19-19-28__te_periodic_temporal_convolution_fw__simplified_setpoints/source_run/training_config.snapshot.yaml
-    source_inventory_path: models/simplified_dataset/setpoints/exported/model_development_export_inventory.yaml
+    onnx_model_path: models/simplified_dataset/setpoints/periodic_temporal_convolution/forward/onnx/model.onnx
+    python_model_path: models/simplified_dataset/setpoints/periodic_temporal_convolution/forward/python/periodic_temporal_convolution-epoch=050-val_mae=0.00364466.ckpt
+    training_config_path: models/simplified_dataset/setpoints/periodic_temporal_convolution/forward/source_run/training_config.snapshot.yaml
+    source_inventory_path: models/simplified_dataset/setpoints/model_development_export_inventory.yaml
     evaluated_curve_count: 97
     aggregate_metrics:
       mse: 1.6814253539127432e-05
@@ -257,10 +257,10 @@ group_summary_list:
     run_instance_id: 2026-07-08-19-25-24__te_periodic_temporal_convolution_bw__simplified_setpoints
     dataset_schema: simplified_curve_v1
     model_type: periodic_temporal_convolution
-    onnx_model_path: models/simplified_dataset/setpoints/exported/periodic_temporal_convolution/backward/2026-07-08-19-25-24__te_periodic_temporal_convolution_bw__simplified_setpoints/onnx/model.onnx
-    python_model_path: models/simplified_dataset/setpoints/exported/periodic_temporal_convolution/backward/2026-07-08-19-25-24__te_periodic_temporal_convolution_bw__simplified_setpoints/python/periodic_temporal_convolution-epoch=066-val_mae=0.00355314.ckpt
-    training_config_path: models/simplified_dataset/setpoints/exported/periodic_temporal_convolution/backward/2026-07-08-19-25-24__te_periodic_temporal_convolution_bw__simplified_setpoints/source_run/training_config.snapshot.yaml
-    source_inventory_path: models/simplified_dataset/setpoints/exported/model_development_export_inventory.yaml
+    onnx_model_path: models/simplified_dataset/setpoints/periodic_temporal_convolution/backward/onnx/model.onnx
+    python_model_path: models/simplified_dataset/setpoints/periodic_temporal_convolution/backward/python/periodic_temporal_convolution-epoch=066-val_mae=0.00355314.ckpt
+    training_config_path: models/simplified_dataset/setpoints/periodic_temporal_convolution/backward/source_run/training_config.snapshot.yaml
+    source_inventory_path: models/simplified_dataset/setpoints/model_development_export_inventory.yaml
     evaluated_curve_count: 97
     aggregate_metrics:
       mse: 1.9056661394423565e-05
@@ -491,10 +491,10 @@ group_summary_list:
     run_instance_id: 2026-07-08-19-09-50__te_periodic_temporal_convolution_global__simplified_setpoints
     dataset_schema: simplified_curve_v1
     model_type: periodic_temporal_convolution
-    onnx_model_path: models/simplified_dataset/setpoints/exported/periodic_temporal_convolution/global/2026-07-08-19-09-50__te_periodic_temporal_convolution_global__simplified_setpoints/onnx/model.onnx
-    python_model_path: models/simplified_dataset/setpoints/exported/periodic_temporal_convolution/global/2026-07-08-19-09-50__te_periodic_temporal_convolution_global__simplified_setpoints/python/periodic_temporal_convolution-epoch=095-val_mae=0.00360046.ckpt
-    training_config_path: models/simplified_dataset/setpoints/exported/periodic_temporal_convolution/global/2026-07-08-19-09-50__te_periodic_temporal_convolution_global__simplified_setpoints/source_run/training_config.snapshot.yaml
-    source_inventory_path: models/simplified_dataset/setpoints/exported/model_development_export_inventory.yaml
+    onnx_model_path: models/simplified_dataset/setpoints/periodic_temporal_convolution/global/onnx/model.onnx
+    python_model_path: models/simplified_dataset/setpoints/periodic_temporal_convolution/global/python/periodic_temporal_convolution-epoch=095-val_mae=0.00360046.ckpt
+    training_config_path: models/simplified_dataset/setpoints/periodic_temporal_convolution/global/source_run/training_config.snapshot.yaml
+    source_inventory_path: models/simplified_dataset/setpoints/model_development_export_inventory.yaml
     evaluated_curve_count: 194
     aggregate_metrics:
       mse: 1.7377110183610523e-05
@@ -731,10 +731,10 @@ group_summary_list:
     run_instance_id: 2026-07-08-19-59-14__te_periodic_temporal_convolution_fw__polished_setpoints
     dataset_schema: polished_setpoint_curve_v1
     model_type: periodic_temporal_convolution
-    onnx_model_path: models/polished_dataset/setpoints/exported/periodic_temporal_convolution/forward/2026-07-08-19-59-14__te_periodic_temporal_convolution_fw__polished_setpoints/onnx/model.onnx
-    python_model_path: models/polished_dataset/setpoints/exported/periodic_temporal_convolution/forward/2026-07-08-19-59-14__te_periodic_temporal_convolution_fw__polished_setpoints/python/periodic_temporal_convolution-epoch=040-val_mae=0.00194544.ckpt
-    training_config_path: models/polished_dataset/setpoints/exported/periodic_temporal_convolution/forward/2026-07-08-19-59-14__te_periodic_temporal_convolution_fw__polished_setpoints/source_run/training_config.snapshot.yaml
-    source_inventory_path: models/polished_dataset/setpoints/exported/model_development_export_inventory.yaml
+    onnx_model_path: models/polished_dataset/setpoints/periodic_temporal_convolution/forward/onnx/model.onnx
+    python_model_path: models/polished_dataset/setpoints/periodic_temporal_convolution/forward/python/periodic_temporal_convolution-epoch=040-val_mae=0.00194544.ckpt
+    training_config_path: models/polished_dataset/setpoints/periodic_temporal_convolution/forward/source_run/training_config.snapshot.yaml
+    source_inventory_path: models/polished_dataset/setpoints/model_development_export_inventory.yaml
     evaluated_curve_count: 100
     aggregate_metrics:
       mse: 9.021503013070086e-06
@@ -965,10 +965,10 @@ group_summary_list:
     run_instance_id: 2026-07-08-20-12-10__te_periodic_temporal_convolution_bw__polished_setpoints
     dataset_schema: polished_setpoint_curve_v1
     model_type: periodic_temporal_convolution
-    onnx_model_path: models/polished_dataset/setpoints/exported/periodic_temporal_convolution/backward/2026-07-08-20-12-10__te_periodic_temporal_convolution_bw__polished_setpoints/onnx/model.onnx
-    python_model_path: models/polished_dataset/setpoints/exported/periodic_temporal_convolution/backward/2026-07-08-20-12-10__te_periodic_temporal_convolution_bw__polished_setpoints/python/periodic_temporal_convolution-epoch=048-val_mae=0.00196877.ckpt
-    training_config_path: models/polished_dataset/setpoints/exported/periodic_temporal_convolution/backward/2026-07-08-20-12-10__te_periodic_temporal_convolution_bw__polished_setpoints/source_run/training_config.snapshot.yaml
-    source_inventory_path: models/polished_dataset/setpoints/exported/model_development_export_inventory.yaml
+    onnx_model_path: models/polished_dataset/setpoints/periodic_temporal_convolution/backward/onnx/model.onnx
+    python_model_path: models/polished_dataset/setpoints/periodic_temporal_convolution/backward/python/periodic_temporal_convolution-epoch=048-val_mae=0.00196877.ckpt
+    training_config_path: models/polished_dataset/setpoints/periodic_temporal_convolution/backward/source_run/training_config.snapshot.yaml
+    source_inventory_path: models/polished_dataset/setpoints/model_development_export_inventory.yaml
     evaluated_curve_count: 94
     aggregate_metrics:
       mse: 2.7257029808361813e-05
@@ -1199,10 +1199,10 @@ group_summary_list:
     run_instance_id: 2026-07-08-19-44-50__te_periodic_temporal_convolution_global__polished_setpoints
     dataset_schema: polished_setpoint_curve_v1
     model_type: periodic_temporal_convolution
-    onnx_model_path: models/polished_dataset/setpoints/exported/periodic_temporal_convolution/global/2026-07-08-19-44-50__te_periodic_temporal_convolution_global__polished_setpoints/onnx/model.onnx
-    python_model_path: models/polished_dataset/setpoints/exported/periodic_temporal_convolution/global/2026-07-08-19-44-50__te_periodic_temporal_convolution_global__polished_setpoints/python/periodic_temporal_convolution-epoch=050-val_mae=0.00196079.ckpt
-    training_config_path: models/polished_dataset/setpoints/exported/periodic_temporal_convolution/global/2026-07-08-19-44-50__te_periodic_temporal_convolution_global__polished_setpoints/source_run/training_config.snapshot.yaml
-    source_inventory_path: models/polished_dataset/setpoints/exported/model_development_export_inventory.yaml
+    onnx_model_path: models/polished_dataset/setpoints/periodic_temporal_convolution/global/onnx/model.onnx
+    python_model_path: models/polished_dataset/setpoints/periodic_temporal_convolution/global/python/periodic_temporal_convolution-epoch=050-val_mae=0.00196079.ckpt
+    training_config_path: models/polished_dataset/setpoints/periodic_temporal_convolution/global/source_run/training_config.snapshot.yaml
+    source_inventory_path: models/polished_dataset/setpoints/model_development_export_inventory.yaml
     evaluated_curve_count: 194
     aggregate_metrics:
       mse: 1.7684967926456232e-05
@@ -1439,10 +1439,10 @@ group_summary_list:
     run_instance_id: 2026-07-08-21-06-17__te_periodic_temporal_convolution_fw__polished_actual_values
     dataset_schema: polished_point_v1
     model_type: periodic_temporal_convolution
-    onnx_model_path: models/polished_dataset/actual_values/exported/periodic_temporal_convolution/forward/2026-07-08-21-06-17__te_periodic_temporal_convolution_fw__polished_actual_values/onnx/model.onnx
-    python_model_path: models/polished_dataset/actual_values/exported/periodic_temporal_convolution/forward/2026-07-08-21-06-17__te_periodic_temporal_convolution_fw__polished_actual_values/python/periodic_temporal_convolution-epoch=087-val_mae=0.00193888.ckpt
-    training_config_path: models/polished_dataset/actual_values/exported/periodic_temporal_convolution/forward/2026-07-08-21-06-17__te_periodic_temporal_convolution_fw__polished_actual_values/source_run/training_config.snapshot.yaml
-    source_inventory_path: models/polished_dataset/actual_values/exported/model_development_export_inventory.yaml
+    onnx_model_path: models/polished_dataset/actual_values/periodic_temporal_convolution/forward/onnx/model.onnx
+    python_model_path: models/polished_dataset/actual_values/periodic_temporal_convolution/forward/python/periodic_temporal_convolution-epoch=087-val_mae=0.00193888.ckpt
+    training_config_path: models/polished_dataset/actual_values/periodic_temporal_convolution/forward/source_run/training_config.snapshot.yaml
+    source_inventory_path: models/polished_dataset/actual_values/model_development_export_inventory.yaml
     evaluated_curve_count: 100
     aggregate_metrics:
       mse: 8.452126072011986e-06
@@ -1673,10 +1673,10 @@ group_summary_list:
     run_instance_id: 2026-07-08-21-27-59__te_periodic_temporal_convolution_bw__polished_actual_values
     dataset_schema: polished_point_v1
     model_type: periodic_temporal_convolution
-    onnx_model_path: models/polished_dataset/actual_values/exported/periodic_temporal_convolution/backward/2026-07-08-21-27-59__te_periodic_temporal_convolution_bw__polished_actual_values/onnx/model.onnx
-    python_model_path: models/polished_dataset/actual_values/exported/periodic_temporal_convolution/backward/2026-07-08-21-27-59__te_periodic_temporal_convolution_bw__polished_actual_values/python/periodic_temporal_convolution-epoch=093-val_mae=0.00186606.ckpt
-    training_config_path: models/polished_dataset/actual_values/exported/periodic_temporal_convolution/backward/2026-07-08-21-27-59__te_periodic_temporal_convolution_bw__polished_actual_values/source_run/training_config.snapshot.yaml
-    source_inventory_path: models/polished_dataset/actual_values/exported/model_development_export_inventory.yaml
+    onnx_model_path: models/polished_dataset/actual_values/periodic_temporal_convolution/backward/onnx/model.onnx
+    python_model_path: models/polished_dataset/actual_values/periodic_temporal_convolution/backward/python/periodic_temporal_convolution-epoch=093-val_mae=0.00186606.ckpt
+    training_config_path: models/polished_dataset/actual_values/periodic_temporal_convolution/backward/source_run/training_config.snapshot.yaml
+    source_inventory_path: models/polished_dataset/actual_values/model_development_export_inventory.yaml
     evaluated_curve_count: 94
     aggregate_metrics:
       mse: 1.5660904004600573e-05
@@ -1907,10 +1907,10 @@ group_summary_list:
     run_instance_id: 2026-07-08-20-40-43__te_periodic_temporal_convolution_global__polished_actual_values
     dataset_schema: polished_point_v1
     model_type: periodic_temporal_convolution
-    onnx_model_path: models/polished_dataset/actual_values/exported/periodic_temporal_convolution/global/2026-07-08-20-40-43__te_periodic_temporal_convolution_global__polished_actual_values/onnx/model.onnx
-    python_model_path: models/polished_dataset/actual_values/exported/periodic_temporal_convolution/global/2026-07-08-20-40-43__te_periodic_temporal_convolution_global__polished_actual_values/python/periodic_temporal_convolution-epoch=109-val_mae=0.00190820.ckpt
-    training_config_path: models/polished_dataset/actual_values/exported/periodic_temporal_convolution/global/2026-07-08-20-40-43__te_periodic_temporal_convolution_global__polished_actual_values/source_run/training_config.snapshot.yaml
-    source_inventory_path: models/polished_dataset/actual_values/exported/model_development_export_inventory.yaml
+    onnx_model_path: models/polished_dataset/actual_values/periodic_temporal_convolution/global/onnx/model.onnx
+    python_model_path: models/polished_dataset/actual_values/periodic_temporal_convolution/global/python/periodic_temporal_convolution-epoch=109-val_mae=0.00190820.ckpt
+    training_config_path: models/polished_dataset/actual_values/periodic_temporal_convolution/global/source_run/training_config.snapshot.yaml
+    source_inventory_path: models/polished_dataset/actual_values/model_development_export_inventory.yaml
     evaluated_curve_count: 194
     aggregate_metrics:
       mse: 1.159416946912163e-05

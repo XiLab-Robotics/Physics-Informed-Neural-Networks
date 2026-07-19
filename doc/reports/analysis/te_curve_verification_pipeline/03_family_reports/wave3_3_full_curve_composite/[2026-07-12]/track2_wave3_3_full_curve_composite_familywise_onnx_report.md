@@ -44,9 +44,9 @@ Exact model paths:
 
 | Surface | ONNX Model Path | Python Model Path |
 | --- | --- | --- |
-| forward | `models/simplified_dataset/setpoints/exported/wave3_3_full_curve_composite/forward/2026-07-12-04-39-03__te_wave3_3_full_curve_composite_fw__simplified_setpoints/onnx/model.onnx` | `models/simplified_dataset/setpoints/exported/wave3_3_full_curve_composite/forward/2026-07-12-04-39-03__te_wave3_3_full_curve_composite_fw__simplified_setpoints/python/curve_aware_harmonic_residual_offset_probe-epoch=137-val_mae=0.00367911.ckpt` |
-| backward | `models/simplified_dataset/setpoints/exported/wave3_3_full_curve_composite/backward/2026-07-12-05-09-44__te_wave3_3_full_curve_composite_bw__simplified_setpoints/onnx/model.onnx` | `models/simplified_dataset/setpoints/exported/wave3_3_full_curve_composite/backward/2026-07-12-05-09-44__te_wave3_3_full_curve_composite_bw__simplified_setpoints/python/curve_aware_harmonic_residual_offset_probe-epoch=140-val_mae=0.00365689.ckpt` |
-| global | `models/simplified_dataset/setpoints/exported/wave3_3_full_curve_composite/global/2026-07-12-04-02-10__te_wave3_3_full_curve_composite_global__simplified_setpoints/onnx/model.onnx` | `models/simplified_dataset/setpoints/exported/wave3_3_full_curve_composite/global/2026-07-12-04-02-10__te_wave3_3_full_curve_composite_global__simplified_setpoints/python/curve_aware_harmonic_residual_offset_probe-epoch=172-val_mae=0.00363873.ckpt` |
+| forward | `models/simplified_dataset/setpoints/wave3_3_full_curve_composite/forward/onnx/model.onnx` | `models/simplified_dataset/setpoints/wave3_3_full_curve_composite/forward/python/curve_aware_harmonic_residual_offset_probe-epoch=137-val_mae=0.00367911.ckpt` |
+| backward | `models/simplified_dataset/setpoints/wave3_3_full_curve_composite/backward/onnx/model.onnx` | `models/simplified_dataset/setpoints/wave3_3_full_curve_composite/backward/python/curve_aware_harmonic_residual_offset_probe-epoch=140-val_mae=0.00365689.ckpt` |
+| global | `models/simplified_dataset/setpoints/wave3_3_full_curve_composite/global/onnx/model.onnx` | `models/simplified_dataset/setpoints/wave3_3_full_curve_composite/global/python/curve_aware_harmonic_residual_offset_probe-epoch=172-val_mae=0.00363873.ckpt` |
 
 ### Aggregate Metrics
 
@@ -95,9 +95,9 @@ Exact model paths:
 
 | Surface | ONNX Model Path | Python Model Path |
 | --- | --- | --- |
-| forward | `models/polished_dataset/setpoints/exported/wave3_3_full_curve_composite/forward/2026-07-12-10-22-30__te_wave3_3_full_curve_composite_fw__polished_setpoints/onnx/model.onnx` | `models/polished_dataset/setpoints/exported/wave3_3_full_curve_composite/forward/2026-07-12-10-22-30__te_wave3_3_full_curve_composite_fw__polished_setpoints/python/curve_aware_harmonic_residual_offset_probe-epoch=107-val_mae=0.00203018.ckpt` |
-| backward | `models/polished_dataset/setpoints/exported/wave3_3_full_curve_composite/backward/2026-07-12-10-55-22__te_wave3_3_full_curve_composite_bw__polished_setpoints/onnx/model.onnx` | `models/polished_dataset/setpoints/exported/wave3_3_full_curve_composite/backward/2026-07-12-10-55-22__te_wave3_3_full_curve_composite_bw__polished_setpoints/python/curve_aware_harmonic_residual_offset_probe-epoch=078-val_mae=0.00203714.ckpt` |
-| global | `models/polished_dataset/setpoints/exported/wave3_3_full_curve_composite/global/2026-07-12-09-42-30__te_wave3_3_full_curve_composite_global__polished_setpoints/onnx/model.onnx` | `models/polished_dataset/setpoints/exported/wave3_3_full_curve_composite/global/2026-07-12-09-42-30__te_wave3_3_full_curve_composite_global__polished_setpoints/python/curve_aware_harmonic_residual_offset_probe-epoch=139-val_mae=0.00205804.ckpt` |
+| forward | `models/polished_dataset/setpoints/wave3_3_full_curve_composite/forward/onnx/model.onnx` | `models/polished_dataset/setpoints/wave3_3_full_curve_composite/forward/python/curve_aware_harmonic_residual_offset_probe-epoch=107-val_mae=0.00203018.ckpt` |
+| backward | `models/polished_dataset/setpoints/wave3_3_full_curve_composite/backward/onnx/model.onnx` | `models/polished_dataset/setpoints/wave3_3_full_curve_composite/backward/python/curve_aware_harmonic_residual_offset_probe-epoch=078-val_mae=0.00203714.ckpt` |
+| global | `models/polished_dataset/setpoints/wave3_3_full_curve_composite/global/onnx/model.onnx` | `models/polished_dataset/setpoints/wave3_3_full_curve_composite/global/python/curve_aware_harmonic_residual_offset_probe-epoch=139-val_mae=0.00205804.ckpt` |
 
 ### Aggregate Metrics
 
@@ -146,9 +146,9 @@ Exact model paths:
 
 | Surface | ONNX Model Path | Python Model Path |
 | --- | --- | --- |
-| forward | `models/polished_dataset/actual_values/exported/wave3_3_full_curve_composite/forward/2026-07-12-12-13-42__te_wave3_3_full_curve_composite_fw__polished_actual_values/onnx/model.onnx` | `models/polished_dataset/actual_values/exported/wave3_3_full_curve_composite/forward/2026-07-12-12-13-42__te_wave3_3_full_curve_composite_fw__polished_actual_values/python/curve_aware_harmonic_residual_offset_probe-epoch=211-val_mae=0.00198008.ckpt` |
-| backward | `models/polished_dataset/actual_values/exported/wave3_3_full_curve_composite/backward/2026-07-12-13-09-19__te_wave3_3_full_curve_composite_bw__polished_actual_values/onnx/model.onnx` | `models/polished_dataset/actual_values/exported/wave3_3_full_curve_composite/backward/2026-07-12-13-09-19__te_wave3_3_full_curve_composite_bw__polished_actual_values/python/curve_aware_harmonic_residual_offset_probe-epoch=143-val_mae=0.00194357.ckpt` |
-| global | `models/polished_dataset/actual_values/exported/wave3_3_full_curve_composite/global/2026-07-12-11-35-23__te_wave3_3_full_curve_composite_global__polished_actual_values/onnx/model.onnx` | `models/polished_dataset/actual_values/exported/wave3_3_full_curve_composite/global/2026-07-12-11-35-23__te_wave3_3_full_curve_composite_global__polished_actual_values/python/curve_aware_harmonic_residual_offset_probe-epoch=131-val_mae=0.00200797.ckpt` |
+| forward | `models/polished_dataset/actual_values/wave3_3_full_curve_composite/forward/onnx/model.onnx` | `models/polished_dataset/actual_values/wave3_3_full_curve_composite/forward/python/curve_aware_harmonic_residual_offset_probe-epoch=211-val_mae=0.00198008.ckpt` |
+| backward | `models/polished_dataset/actual_values/wave3_3_full_curve_composite/backward/onnx/model.onnx` | `models/polished_dataset/actual_values/wave3_3_full_curve_composite/backward/python/curve_aware_harmonic_residual_offset_probe-epoch=143-val_mae=0.00194357.ckpt` |
+| global | `models/polished_dataset/actual_values/wave3_3_full_curve_composite/global/onnx/model.onnx` | `models/polished_dataset/actual_values/wave3_3_full_curve_composite/global/python/curve_aware_harmonic_residual_offset_probe-epoch=131-val_mae=0.00200797.ckpt` |
 
 ### Aggregate Metrics
 

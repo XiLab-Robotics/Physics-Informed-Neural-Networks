@@ -6,7 +6,7 @@ dataset_name: polished_dataset
 input_mode: actual_values
 dataset_schema: polished_point_v1
 source_dataset_root: data/polished_dataset
-expected_model_archive_root: models/polished_dataset/actual_values/exported
+expected_model_archive_root: models/polished_dataset/actual_values
 expected_surface_list:
 - global
 - fw

@@ -129,9 +129,9 @@ MLP, RF, DT, ET, ERT, GBM, HGBM, XGBM, and LGBM where supported.
 
 Each accepted training run must export to exactly one dataset/input-mode root:
 
-- `models/simplified_dataset/setpoints/exported/<family>/<surface>/<run_instance_id>/`
-- `models/polished_dataset/setpoints/exported/<family>/<surface>/<run_instance_id>/`
-- `models/polished_dataset/actual_values/exported/<family>/<surface>/<run_instance_id>/`
+- `models/simplified_dataset/setpoints/<family>/<surface>/<run_instance_id>/`
+- `models/polished_dataset/setpoints/<family>/<surface>/<run_instance_id>/`
+- `models/polished_dataset/actual_values/<family>/<surface>/<run_instance_id>/`
 
 Every export directory must include:
 

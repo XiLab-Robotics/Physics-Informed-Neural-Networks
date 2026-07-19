@@ -44,9 +44,9 @@ Exact model paths:
 
 | Surface | ONNX Model Path | Python Model Path |
 | --- | --- | --- |
-| forward | `models/simplified_dataset/setpoints/exported/wave3_1_sequential_residual_offset_probe/forward/2026-07-10-08-24-57__te_wave3_1_sequential_residual_offset_probe_fw__simplified_setpoints/onnx/model.onnx` | `models/simplified_dataset/setpoints/exported/wave3_1_sequential_residual_offset_probe/forward/2026-07-10-08-24-57__te_wave3_1_sequential_residual_offset_probe_fw__simplified_setpoints/python/sequential_residual_offset_probe-epoch=138-val_mae=0.00365466.ckpt` |
-| backward | `models/simplified_dataset/setpoints/exported/wave3_1_sequential_residual_offset_probe/backward/2026-07-10-08-46-24__te_wave3_1_sequential_residual_offset_probe_bw__simplified_setpoints/onnx/model.onnx` | `models/simplified_dataset/setpoints/exported/wave3_1_sequential_residual_offset_probe/backward/2026-07-10-08-46-24__te_wave3_1_sequential_residual_offset_probe_bw__simplified_setpoints/python/sequential_residual_offset_probe-epoch=098-val_mae=0.00372763.ckpt` |
-| global | `models/simplified_dataset/setpoints/exported/wave3_1_sequential_residual_offset_probe/global/2026-07-10-08-11-44__te_wave3_1_sequential_residual_offset_probe_global__simplified_setpoints/onnx/model.onnx` | `models/simplified_dataset/setpoints/exported/wave3_1_sequential_residual_offset_probe/global/2026-07-10-08-11-44__te_wave3_1_sequential_residual_offset_probe_global__simplified_setpoints/python/sequential_residual_offset_probe-epoch=095-val_mae=0.00372731.ckpt` |
+| forward | `models/simplified_dataset/setpoints/wave3_1_sequential_residual_offset_probe/forward/onnx/model.onnx` | `models/simplified_dataset/setpoints/wave3_1_sequential_residual_offset_probe/forward/python/sequential_residual_offset_probe-epoch=138-val_mae=0.00365466.ckpt` |
+| backward | `models/simplified_dataset/setpoints/wave3_1_sequential_residual_offset_probe/backward/onnx/model.onnx` | `models/simplified_dataset/setpoints/wave3_1_sequential_residual_offset_probe/backward/python/sequential_residual_offset_probe-epoch=098-val_mae=0.00372763.ckpt` |
+| global | `models/simplified_dataset/setpoints/wave3_1_sequential_residual_offset_probe/global/onnx/model.onnx` | `models/simplified_dataset/setpoints/wave3_1_sequential_residual_offset_probe/global/python/sequential_residual_offset_probe-epoch=095-val_mae=0.00372731.ckpt` |
 
 ### Aggregate Metrics
 
@@ -95,9 +95,9 @@ Exact model paths:
 
 | Surface | ONNX Model Path | Python Model Path |
 | --- | --- | --- |
-| forward | `models/polished_dataset/setpoints/exported/wave3_1_sequential_residual_offset_probe/forward/2026-07-10-09-39-31__te_wave3_1_sequential_residual_offset_probe_fw__polished_setpoints/onnx/model.onnx` | `models/polished_dataset/setpoints/exported/wave3_1_sequential_residual_offset_probe/forward/2026-07-10-09-39-31__te_wave3_1_sequential_residual_offset_probe_fw__polished_setpoints/python/sequential_residual_offset_probe-epoch=111-val_mae=0.00217538.ckpt` |
-| backward | `models/polished_dataset/setpoints/exported/wave3_1_sequential_residual_offset_probe/backward/2026-07-10-10-05-23__te_wave3_1_sequential_residual_offset_probe_bw__polished_setpoints/onnx/model.onnx` | `models/polished_dataset/setpoints/exported/wave3_1_sequential_residual_offset_probe/backward/2026-07-10-10-05-23__te_wave3_1_sequential_residual_offset_probe_bw__polished_setpoints/python/sequential_residual_offset_probe-epoch=137-val_mae=0.00216898.ckpt` |
-| global | `models/polished_dataset/setpoints/exported/wave3_1_sequential_residual_offset_probe/global/2026-07-10-09-12-14__te_wave3_1_sequential_residual_offset_probe_global__polished_setpoints/onnx/model.onnx` | `models/polished_dataset/setpoints/exported/wave3_1_sequential_residual_offset_probe/global/2026-07-10-09-12-14__te_wave3_1_sequential_residual_offset_probe_global__polished_setpoints/python/sequential_residual_offset_probe-epoch=155-val_mae=0.00218350.ckpt` |
+| forward | `models/polished_dataset/setpoints/wave3_1_sequential_residual_offset_probe/forward/onnx/model.onnx` | `models/polished_dataset/setpoints/wave3_1_sequential_residual_offset_probe/forward/python/sequential_residual_offset_probe-epoch=111-val_mae=0.00217538.ckpt` |
+| backward | `models/polished_dataset/setpoints/wave3_1_sequential_residual_offset_probe/backward/onnx/model.onnx` | `models/polished_dataset/setpoints/wave3_1_sequential_residual_offset_probe/backward/python/sequential_residual_offset_probe-epoch=137-val_mae=0.00216898.ckpt` |
+| global | `models/polished_dataset/setpoints/wave3_1_sequential_residual_offset_probe/global/onnx/model.onnx` | `models/polished_dataset/setpoints/wave3_1_sequential_residual_offset_probe/global/python/sequential_residual_offset_probe-epoch=155-val_mae=0.00218350.ckpt` |
 
 ### Aggregate Metrics
 
@@ -146,9 +146,9 @@ Exact model paths:
 
 | Surface | ONNX Model Path | Python Model Path |
 | --- | --- | --- |
-| forward | `models/polished_dataset/actual_values/exported/wave3_1_sequential_residual_offset_probe/forward/2026-07-10-11-09-33__te_wave3_1_sequential_residual_offset_probe_fw__polished_actual_values/onnx/model.onnx` | `models/polished_dataset/actual_values/exported/wave3_1_sequential_residual_offset_probe/forward/2026-07-10-11-09-33__te_wave3_1_sequential_residual_offset_probe_fw__polished_actual_values/python/sequential_residual_offset_probe-epoch=097-val_mae=0.00219045.ckpt` |
-| backward | `models/polished_dataset/actual_values/exported/wave3_1_sequential_residual_offset_probe/backward/2026-07-10-11-35-18__te_wave3_1_sequential_residual_offset_probe_bw__polished_actual_values/onnx/model.onnx` | `models/polished_dataset/actual_values/exported/wave3_1_sequential_residual_offset_probe/backward/2026-07-10-11-35-18__te_wave3_1_sequential_residual_offset_probe_bw__polished_actual_values/python/sequential_residual_offset_probe-epoch=197-val_mae=0.00215382.ckpt` |
-| global | `models/polished_dataset/actual_values/exported/wave3_1_sequential_residual_offset_probe/global/2026-07-10-10-48-41__te_wave3_1_sequential_residual_offset_probe_global__polished_actual_values/onnx/model.onnx` | `models/polished_dataset/actual_values/exported/wave3_1_sequential_residual_offset_probe/global/2026-07-10-10-48-41__te_wave3_1_sequential_residual_offset_probe_global__polished_actual_values/python/sequential_residual_offset_probe-epoch=077-val_mae=0.00220916.ckpt` |
+| forward | `models/polished_dataset/actual_values/wave3_1_sequential_residual_offset_probe/forward/onnx/model.onnx` | `models/polished_dataset/actual_values/wave3_1_sequential_residual_offset_probe/forward/python/sequential_residual_offset_probe-epoch=097-val_mae=0.00219045.ckpt` |
+| backward | `models/polished_dataset/actual_values/wave3_1_sequential_residual_offset_probe/backward/onnx/model.onnx` | `models/polished_dataset/actual_values/wave3_1_sequential_residual_offset_probe/backward/python/sequential_residual_offset_probe-epoch=197-val_mae=0.00215382.ckpt` |
+| global | `models/polished_dataset/actual_values/wave3_1_sequential_residual_offset_probe/global/onnx/model.onnx` | `models/polished_dataset/actual_values/wave3_1_sequential_residual_offset_probe/global/python/sequential_residual_offset_probe-epoch=077-val_mae=0.00220916.ckpt` |
 
 ### Aggregate Metrics
 

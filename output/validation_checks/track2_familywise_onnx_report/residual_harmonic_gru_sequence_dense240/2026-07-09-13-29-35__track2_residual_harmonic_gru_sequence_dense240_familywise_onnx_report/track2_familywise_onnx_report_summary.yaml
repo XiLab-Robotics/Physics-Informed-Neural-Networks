@@ -23,10 +23,10 @@ group_summary_list:
     run_instance_id: 2026-07-09-09-59-06__te_residual_harmonic_gru_sequence_dense240_fw__simplified_setpoints
     dataset_schema: simplified_curve_v1
     model_type: residual_harmonic_gru_sequence
-    onnx_model_path: models/simplified_dataset/setpoints/exported/residual_harmonic_gru_sequence_dense240/forward/2026-07-09-09-59-06__te_residual_harmonic_gru_sequence_dense240_fw__simplified_setpoints/onnx/model.onnx
-    python_model_path: models/simplified_dataset/setpoints/exported/residual_harmonic_gru_sequence_dense240/forward/2026-07-09-09-59-06__te_residual_harmonic_gru_sequence_dense240_fw__simplified_setpoints/python/residual_harmonic_gru_sequence-epoch=065-val_mae=0.00358712.ckpt
-    training_config_path: models/simplified_dataset/setpoints/exported/residual_harmonic_gru_sequence_dense240/forward/2026-07-09-09-59-06__te_residual_harmonic_gru_sequence_dense240_fw__simplified_setpoints/source_run/training_config.snapshot.yaml
-    source_inventory_path: models/simplified_dataset/setpoints/exported/model_development_export_inventory.yaml
+    onnx_model_path: models/simplified_dataset/setpoints/residual_harmonic_gru_sequence_dense240/forward/onnx/model.onnx
+    python_model_path: models/simplified_dataset/setpoints/residual_harmonic_gru_sequence_dense240/forward/python/residual_harmonic_gru_sequence-epoch=065-val_mae=0.00358712.ckpt
+    training_config_path: models/simplified_dataset/setpoints/residual_harmonic_gru_sequence_dense240/forward/source_run/training_config.snapshot.yaml
+    source_inventory_path: models/simplified_dataset/setpoints/model_development_export_inventory.yaml
     evaluated_curve_count: 97
     aggregate_metrics:
       mse: 1.519426376164955e-05
@@ -257,10 +257,10 @@ group_summary_list:
     run_instance_id: 2026-07-09-10-09-38__te_residual_harmonic_gru_sequence_dense240_bw__simplified_setpoints
     dataset_schema: simplified_curve_v1
     model_type: residual_harmonic_gru_sequence
-    onnx_model_path: models/simplified_dataset/setpoints/exported/residual_harmonic_gru_sequence_dense240/backward/2026-07-09-10-09-38__te_residual_harmonic_gru_sequence_dense240_bw__simplified_setpoints/onnx/model.onnx
-    python_model_path: models/simplified_dataset/setpoints/exported/residual_harmonic_gru_sequence_dense240/backward/2026-07-09-10-09-38__te_residual_harmonic_gru_sequence_dense240_bw__simplified_setpoints/python/residual_harmonic_gru_sequence-epoch=057-val_mae=0.00359522.ckpt
-    training_config_path: models/simplified_dataset/setpoints/exported/residual_harmonic_gru_sequence_dense240/backward/2026-07-09-10-09-38__te_residual_harmonic_gru_sequence_dense240_bw__simplified_setpoints/source_run/training_config.snapshot.yaml
-    source_inventory_path: models/simplified_dataset/setpoints/exported/model_development_export_inventory.yaml
+    onnx_model_path: models/simplified_dataset/setpoints/residual_harmonic_gru_sequence_dense240/backward/onnx/model.onnx
+    python_model_path: models/simplified_dataset/setpoints/residual_harmonic_gru_sequence_dense240/backward/python/residual_harmonic_gru_sequence-epoch=057-val_mae=0.00359522.ckpt
+    training_config_path: models/simplified_dataset/setpoints/residual_harmonic_gru_sequence_dense240/backward/source_run/training_config.snapshot.yaml
+    source_inventory_path: models/simplified_dataset/setpoints/model_development_export_inventory.yaml
     evaluated_curve_count: 97
     aggregate_metrics:
       mse: 2.0330973811954774e-05
@@ -491,10 +491,10 @@ group_summary_list:
     run_instance_id: 2026-07-09-09-48-12__te_residual_harmonic_gru_sequence_dense240_global__simplified_setpoints
     dataset_schema: simplified_curve_v1
     model_type: residual_harmonic_gru_sequence
-    onnx_model_path: models/simplified_dataset/setpoints/exported/residual_harmonic_gru_sequence_dense240/global/2026-07-09-09-48-12__te_residual_harmonic_gru_sequence_dense240_global__simplified_setpoints/onnx/model.onnx
-    python_model_path: models/simplified_dataset/setpoints/exported/residual_harmonic_gru_sequence_dense240/global/2026-07-09-09-48-12__te_residual_harmonic_gru_sequence_dense240_global__simplified_setpoints/python/residual_harmonic_gru_sequence-epoch=102-val_mae=0.00361734.ckpt
-    training_config_path: models/simplified_dataset/setpoints/exported/residual_harmonic_gru_sequence_dense240/global/2026-07-09-09-48-12__te_residual_harmonic_gru_sequence_dense240_global__simplified_setpoints/source_run/training_config.snapshot.yaml
-    source_inventory_path: models/simplified_dataset/setpoints/exported/model_development_export_inventory.yaml
+    onnx_model_path: models/simplified_dataset/setpoints/residual_harmonic_gru_sequence_dense240/global/onnx/model.onnx
+    python_model_path: models/simplified_dataset/setpoints/residual_harmonic_gru_sequence_dense240/global/python/residual_harmonic_gru_sequence-epoch=102-val_mae=0.00361734.ckpt
+    training_config_path: models/simplified_dataset/setpoints/residual_harmonic_gru_sequence_dense240/global/source_run/training_config.snapshot.yaml
+    source_inventory_path: models/simplified_dataset/setpoints/model_development_export_inventory.yaml
     evaluated_curve_count: 194
     aggregate_metrics:
       mse: 1.8049824233364374e-05
@@ -731,10 +731,10 @@ group_summary_list:
     run_instance_id: 2026-07-09-10-52-16__te_residual_harmonic_gru_sequence_dense240_fw__polished_setpoints
     dataset_schema: polished_setpoint_curve_v1
     model_type: residual_harmonic_gru_sequence
-    onnx_model_path: models/polished_dataset/setpoints/exported/residual_harmonic_gru_sequence_dense240/forward/2026-07-09-10-52-16__te_residual_harmonic_gru_sequence_dense240_fw__polished_setpoints/onnx/model.onnx
-    python_model_path: models/polished_dataset/setpoints/exported/residual_harmonic_gru_sequence_dense240/forward/2026-07-09-10-52-16__te_residual_harmonic_gru_sequence_dense240_fw__polished_setpoints/python/residual_harmonic_gru_sequence-epoch=110-val_mae=0.00198772.ckpt
-    training_config_path: models/polished_dataset/setpoints/exported/residual_harmonic_gru_sequence_dense240/forward/2026-07-09-10-52-16__te_residual_harmonic_gru_sequence_dense240_fw__polished_setpoints/source_run/training_config.snapshot.yaml
-    source_inventory_path: models/polished_dataset/setpoints/exported/model_development_export_inventory.yaml
+    onnx_model_path: models/polished_dataset/setpoints/residual_harmonic_gru_sequence_dense240/forward/onnx/model.onnx
+    python_model_path: models/polished_dataset/setpoints/residual_harmonic_gru_sequence_dense240/forward/python/residual_harmonic_gru_sequence-epoch=110-val_mae=0.00198772.ckpt
+    training_config_path: models/polished_dataset/setpoints/residual_harmonic_gru_sequence_dense240/forward/source_run/training_config.snapshot.yaml
+    source_inventory_path: models/polished_dataset/setpoints/model_development_export_inventory.yaml
     evaluated_curve_count: 100
     aggregate_metrics:
       mse: 9.26802979943649e-06
@@ -965,10 +965,10 @@ group_summary_list:
     run_instance_id: 2026-07-09-11-12-09__te_residual_harmonic_gru_sequence_dense240_bw__polished_setpoints
     dataset_schema: polished_setpoint_curve_v1
     model_type: residual_harmonic_gru_sequence
-    onnx_model_path: models/polished_dataset/setpoints/exported/residual_harmonic_gru_sequence_dense240/backward/2026-07-09-11-12-09__te_residual_harmonic_gru_sequence_dense240_bw__polished_setpoints/onnx/model.onnx
-    python_model_path: models/polished_dataset/setpoints/exported/residual_harmonic_gru_sequence_dense240/backward/2026-07-09-11-12-09__te_residual_harmonic_gru_sequence_dense240_bw__polished_setpoints/python/residual_harmonic_gru_sequence-epoch=069-val_mae=0.00196095.ckpt
-    training_config_path: models/polished_dataset/setpoints/exported/residual_harmonic_gru_sequence_dense240/backward/2026-07-09-11-12-09__te_residual_harmonic_gru_sequence_dense240_bw__polished_setpoints/source_run/training_config.snapshot.yaml
-    source_inventory_path: models/polished_dataset/setpoints/exported/model_development_export_inventory.yaml
+    onnx_model_path: models/polished_dataset/setpoints/residual_harmonic_gru_sequence_dense240/backward/onnx/model.onnx
+    python_model_path: models/polished_dataset/setpoints/residual_harmonic_gru_sequence_dense240/backward/python/residual_harmonic_gru_sequence-epoch=069-val_mae=0.00196095.ckpt
+    training_config_path: models/polished_dataset/setpoints/residual_harmonic_gru_sequence_dense240/backward/source_run/training_config.snapshot.yaml
+    source_inventory_path: models/polished_dataset/setpoints/model_development_export_inventory.yaml
     evaluated_curve_count: 94
     aggregate_metrics:
       mse: 2.883111119244397e-05
@@ -1199,10 +1199,10 @@ group_summary_list:
     run_instance_id: 2026-07-09-10-32-04__te_residual_harmonic_gru_sequence_dense240_global__polished_setpoints
     dataset_schema: polished_setpoint_curve_v1
     model_type: residual_harmonic_gru_sequence
-    onnx_model_path: models/polished_dataset/setpoints/exported/residual_harmonic_gru_sequence_dense240/global/2026-07-09-10-32-04__te_residual_harmonic_gru_sequence_dense240_global__polished_setpoints/onnx/model.onnx
-    python_model_path: models/polished_dataset/setpoints/exported/residual_harmonic_gru_sequence_dense240/global/2026-07-09-10-32-04__te_residual_harmonic_gru_sequence_dense240_global__polished_setpoints/python/residual_harmonic_gru_sequence-epoch=081-val_mae=0.00198647.ckpt
-    training_config_path: models/polished_dataset/setpoints/exported/residual_harmonic_gru_sequence_dense240/global/2026-07-09-10-32-04__te_residual_harmonic_gru_sequence_dense240_global__polished_setpoints/source_run/training_config.snapshot.yaml
-    source_inventory_path: models/polished_dataset/setpoints/exported/model_development_export_inventory.yaml
+    onnx_model_path: models/polished_dataset/setpoints/residual_harmonic_gru_sequence_dense240/global/onnx/model.onnx
+    python_model_path: models/polished_dataset/setpoints/residual_harmonic_gru_sequence_dense240/global/python/residual_harmonic_gru_sequence-epoch=081-val_mae=0.00198647.ckpt
+    training_config_path: models/polished_dataset/setpoints/residual_harmonic_gru_sequence_dense240/global/source_run/training_config.snapshot.yaml
+    source_inventory_path: models/polished_dataset/setpoints/model_development_export_inventory.yaml
     evaluated_curve_count: 194
     aggregate_metrics:
       mse: 1.8586015331599994e-05
@@ -1439,10 +1439,10 @@ group_summary_list:
     run_instance_id: 2026-07-09-11-57-58__te_residual_harmonic_gru_sequence_dense240_fw__polished_actual_values
     dataset_schema: polished_point_v1
     model_type: residual_harmonic_gru_sequence
-    onnx_model_path: models/polished_dataset/actual_values/exported/residual_harmonic_gru_sequence_dense240/forward/2026-07-09-11-57-58__te_residual_harmonic_gru_sequence_dense240_fw__polished_actual_values/onnx/model.onnx
-    python_model_path: models/polished_dataset/actual_values/exported/residual_harmonic_gru_sequence_dense240/forward/2026-07-09-11-57-58__te_residual_harmonic_gru_sequence_dense240_fw__polished_actual_values/python/residual_harmonic_gru_sequence-epoch=120-val_mae=0.00196886.ckpt
-    training_config_path: models/polished_dataset/actual_values/exported/residual_harmonic_gru_sequence_dense240/forward/2026-07-09-11-57-58__te_residual_harmonic_gru_sequence_dense240_fw__polished_actual_values/source_run/training_config.snapshot.yaml
-    source_inventory_path: models/polished_dataset/actual_values/exported/model_development_export_inventory.yaml
+    onnx_model_path: models/polished_dataset/actual_values/residual_harmonic_gru_sequence_dense240/forward/onnx/model.onnx
+    python_model_path: models/polished_dataset/actual_values/residual_harmonic_gru_sequence_dense240/forward/python/residual_harmonic_gru_sequence-epoch=120-val_mae=0.00196886.ckpt
+    training_config_path: models/polished_dataset/actual_values/residual_harmonic_gru_sequence_dense240/forward/source_run/training_config.snapshot.yaml
+    source_inventory_path: models/polished_dataset/actual_values/model_development_export_inventory.yaml
     evaluated_curve_count: 100
     aggregate_metrics:
       mse: 8.598950280316589e-06
@@ -1673,10 +1673,10 @@ group_summary_list:
     run_instance_id: 2026-07-09-12-19-38__te_residual_harmonic_gru_sequence_dense240_bw__polished_actual_values
     dataset_schema: polished_point_v1
     model_type: residual_harmonic_gru_sequence
-    onnx_model_path: models/polished_dataset/actual_values/exported/residual_harmonic_gru_sequence_dense240/backward/2026-07-09-12-19-38__te_residual_harmonic_gru_sequence_dense240_bw__polished_actual_values/onnx/model.onnx
-    python_model_path: models/polished_dataset/actual_values/exported/residual_harmonic_gru_sequence_dense240/backward/2026-07-09-12-19-38__te_residual_harmonic_gru_sequence_dense240_bw__polished_actual_values/python/residual_harmonic_gru_sequence-epoch=180-val_mae=0.00194153.ckpt
-    training_config_path: models/polished_dataset/actual_values/exported/residual_harmonic_gru_sequence_dense240/backward/2026-07-09-12-19-38__te_residual_harmonic_gru_sequence_dense240_bw__polished_actual_values/source_run/training_config.snapshot.yaml
-    source_inventory_path: models/polished_dataset/actual_values/exported/model_development_export_inventory.yaml
+    onnx_model_path: models/polished_dataset/actual_values/residual_harmonic_gru_sequence_dense240/backward/onnx/model.onnx
+    python_model_path: models/polished_dataset/actual_values/residual_harmonic_gru_sequence_dense240/backward/python/residual_harmonic_gru_sequence-epoch=180-val_mae=0.00194153.ckpt
+    training_config_path: models/polished_dataset/actual_values/residual_harmonic_gru_sequence_dense240/backward/source_run/training_config.snapshot.yaml
+    source_inventory_path: models/polished_dataset/actual_values/model_development_export_inventory.yaml
     evaluated_curve_count: 94
     aggregate_metrics:
       mse: 1.748867294721224e-05
@@ -1907,10 +1907,10 @@ group_summary_list:
     run_instance_id: 2026-07-09-11-46-57__te_residual_harmonic_gru_sequence_dense240_global__polished_actual_values
     dataset_schema: polished_point_v1
     model_type: residual_harmonic_gru_sequence
-    onnx_model_path: models/polished_dataset/actual_values/exported/residual_harmonic_gru_sequence_dense240/global/2026-07-09-11-46-57__te_residual_harmonic_gru_sequence_dense240_global__polished_actual_values/onnx/model.onnx
-    python_model_path: models/polished_dataset/actual_values/exported/residual_harmonic_gru_sequence_dense240/global/2026-07-09-11-46-57__te_residual_harmonic_gru_sequence_dense240_global__polished_actual_values/python/residual_harmonic_gru_sequence-epoch=056-val_mae=0.00204583.ckpt
-    training_config_path: models/polished_dataset/actual_values/exported/residual_harmonic_gru_sequence_dense240/global/2026-07-09-11-46-57__te_residual_harmonic_gru_sequence_dense240_global__polished_actual_values/source_run/training_config.snapshot.yaml
-    source_inventory_path: models/polished_dataset/actual_values/exported/model_development_export_inventory.yaml
+    onnx_model_path: models/polished_dataset/actual_values/residual_harmonic_gru_sequence_dense240/global/onnx/model.onnx
+    python_model_path: models/polished_dataset/actual_values/residual_harmonic_gru_sequence_dense240/global/python/residual_harmonic_gru_sequence-epoch=056-val_mae=0.00204583.ckpt
+    training_config_path: models/polished_dataset/actual_values/residual_harmonic_gru_sequence_dense240/global/source_run/training_config.snapshot.yaml
+    source_inventory_path: models/polished_dataset/actual_values/model_development_export_inventory.yaml
     evaluated_curve_count: 194
     aggregate_metrics:
       mse: 1.383369186280016e-05

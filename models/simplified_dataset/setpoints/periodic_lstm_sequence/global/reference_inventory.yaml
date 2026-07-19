@@ -1,0 +1,25 @@
+schema_version: 1
+dataset_id: simplified_dataset
+dataset_schema: simplified_curve_v1
+input_mode: setpoints
+model_family: periodic_lstm_sequence
+model_type: periodic_lstm_sequence
+surface: global
+run_name: te_periodic_lstm_sequence_global__simplified_setpoints
+run_instance_id: 2026-07-09-02-10-37__te_periodic_lstm_sequence_global__simplified_setpoints
+source_output_directory: output/training_runs/periodic_lstm_sequence/2026-07-09-02-10-37__te_periodic_lstm_sequence_global__simplified_setpoints
+source_best_checkpoint_path: output/training_runs/periodic_lstm_sequence/2026-07-09-02-10-37__te_periodic_lstm_sequence_global__simplified_setpoints/checkpoints/periodic_lstm_sequence-epoch=088-val_mae=0.00353329.ckpt
+python_model_path: models/simplified_dataset/setpoints/periodic_lstm_sequence/global/python/periodic_lstm_sequence-epoch=088-val_mae=0.00353329.ckpt
+onnx_model_path: models/simplified_dataset/setpoints/periodic_lstm_sequence/global/onnx/model.onnx
+onnx_export_status: exported
+onnx_export_error: ''
+source_run_snapshot_path_map:
+  training_config.snapshot.yaml: models/simplified_dataset/setpoints/periodic_lstm_sequence/global/source_run/training_config.snapshot.yaml
+  metrics_summary.snapshot.yaml: models/simplified_dataset/setpoints/periodic_lstm_sequence/global/source_run/metrics_summary.snapshot.yaml
+  run_metadata.snapshot.yaml: models/simplified_dataset/setpoints/periodic_lstm_sequence/global/source_run/run_metadata.snapshot.yaml
+  training_test_report.snapshot.md: models/simplified_dataset/setpoints/periodic_lstm_sequence/global/source_run/training_test_report.snapshot.md
+  best_checkpoint_path.snapshot.txt: models/simplified_dataset/setpoints/periodic_lstm_sequence/global/source_run/best_checkpoint_path.snapshot.txt
+metrics:
+  val_mae: 0.0035332904662936926
+  test_mae: 0.003369141137227416
+  test_rmse: 0.004027078859508038

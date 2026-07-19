@@ -36,9 +36,9 @@ Exact model paths:
 
 | Surface | ONNX Model Path | Python Model Path |
 | --- | --- | --- |
-| forward | `models/simplified_dataset/setpoints/exported/tree/forward/2026-07-07-02-31-39__te_tree_fw__simplified_setpoints/onnx/model.onnx` | `models/simplified_dataset/setpoints/exported/tree/forward/2026-07-07-02-31-39__te_tree_fw__simplified_setpoints/python/tree_model.pkl` |
-| backward | `models/simplified_dataset/setpoints/exported/tree/backward/2026-07-07-02-33-43__te_tree_bw__simplified_setpoints/onnx/model.onnx` | `models/simplified_dataset/setpoints/exported/tree/backward/2026-07-07-02-33-43__te_tree_bw__simplified_setpoints/python/tree_model.pkl` |
-| global | `models/simplified_dataset/setpoints/exported/tree/global/2026-07-07-02-29-36__te_tree_global__simplified_setpoints/onnx/model.onnx` | `models/simplified_dataset/setpoints/exported/tree/global/2026-07-07-02-29-36__te_tree_global__simplified_setpoints/python/tree_model.pkl` |
+| forward | `models/simplified_dataset/setpoints/tree/forward/onnx/model.onnx` | `models/simplified_dataset/setpoints/tree/forward/python/tree_model.pkl` |
+| backward | `models/simplified_dataset/setpoints/tree/backward/onnx/model.onnx` | `models/simplified_dataset/setpoints/tree/backward/python/tree_model.pkl` |
+| global | `models/simplified_dataset/setpoints/tree/global/onnx/model.onnx` | `models/simplified_dataset/setpoints/tree/global/python/tree_model.pkl` |
 
 ### Aggregate Metrics
 
@@ -87,9 +87,9 @@ Exact model paths:
 
 | Surface | ONNX Model Path | Python Model Path |
 | --- | --- | --- |
-| forward | `models/polished_dataset/setpoints/exported/tree/forward/2026-07-07-09-34-40__te_tree_fw__polished_setpoints/onnx/model.onnx` | `models/polished_dataset/setpoints/exported/tree/forward/2026-07-07-09-34-40__te_tree_fw__polished_setpoints/python/tree_model.pkl` |
-| backward | `models/polished_dataset/setpoints/exported/tree/backward/2026-07-07-09-37-16__te_tree_bw__polished_setpoints/onnx/model.onnx` | `models/polished_dataset/setpoints/exported/tree/backward/2026-07-07-09-37-16__te_tree_bw__polished_setpoints/python/tree_model.pkl` |
-| global | `models/polished_dataset/setpoints/exported/tree/global/2026-07-07-09-31-48__te_tree_global__polished_setpoints/onnx/model.onnx` | `models/polished_dataset/setpoints/exported/tree/global/2026-07-07-09-31-48__te_tree_global__polished_setpoints/python/tree_model.pkl` |
+| forward | `models/polished_dataset/setpoints/tree/forward/onnx/model.onnx` | `models/polished_dataset/setpoints/tree/forward/python/tree_model.pkl` |
+| backward | `models/polished_dataset/setpoints/tree/backward/onnx/model.onnx` | `models/polished_dataset/setpoints/tree/backward/python/tree_model.pkl` |
+| global | `models/polished_dataset/setpoints/tree/global/onnx/model.onnx` | `models/polished_dataset/setpoints/tree/global/python/tree_model.pkl` |
 
 ### Aggregate Metrics
 
@@ -138,9 +138,9 @@ Exact model paths:
 
 | Surface | ONNX Model Path | Python Model Path |
 | --- | --- | --- |
-| forward | `models/polished_dataset/actual_values/exported/tree/forward/2026-07-07-09-55-31__te_tree_fw__polished_actual_values/onnx/model.onnx` | `models/polished_dataset/actual_values/exported/tree/forward/2026-07-07-09-55-31__te_tree_fw__polished_actual_values/python/tree_model.pkl` |
-| backward | `models/polished_dataset/actual_values/exported/tree/backward/2026-07-07-09-58-04__te_tree_bw__polished_actual_values/onnx/model.onnx` | `models/polished_dataset/actual_values/exported/tree/backward/2026-07-07-09-58-04__te_tree_bw__polished_actual_values/python/tree_model.pkl` |
-| global | `models/polished_dataset/actual_values/exported/tree/global/2026-07-07-09-52-50__te_tree_global__polished_actual_values/onnx/model.onnx` | `models/polished_dataset/actual_values/exported/tree/global/2026-07-07-09-52-50__te_tree_global__polished_actual_values/python/tree_model.pkl` |
+| forward | `models/polished_dataset/actual_values/tree/forward/onnx/model.onnx` | `models/polished_dataset/actual_values/tree/forward/python/tree_model.pkl` |
+| backward | `models/polished_dataset/actual_values/tree/backward/onnx/model.onnx` | `models/polished_dataset/actual_values/tree/backward/python/tree_model.pkl` |
+| global | `models/polished_dataset/actual_values/tree/global/onnx/model.onnx` | `models/polished_dataset/actual_values/tree/global/python/tree_model.pkl` |
 
 ### Aggregate Metrics
 

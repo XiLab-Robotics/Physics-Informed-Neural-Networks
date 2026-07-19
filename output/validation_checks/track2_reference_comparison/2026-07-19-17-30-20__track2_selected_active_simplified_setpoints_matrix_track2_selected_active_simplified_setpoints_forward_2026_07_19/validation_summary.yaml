@@ -30,10 +30,10 @@ candidate_list:
   candidate_surface: Fw
   allowed_direction_list:
   - forward
-  source_path: models\simplified_dataset\setpoints\exported\feedforward\forward\2026-07-07-16-21-15__te_feedforward_fw__simplified_setpoints\reference_inventory.yaml
+  source_path: models\simplified_dataset\setpoints\feedforward\forward\reference_inventory.yaml
   selected_harmonic_list: []
   registry_run_instance_id: 2026-07-07-16-21-15__te_feedforward_fw__simplified_setpoints
-  model_file_path: models/simplified_dataset/setpoints/exported/feedforward/forward/2026-07-07-16-21-15__te_feedforward_fw__simplified_setpoints/python/feedforward-epoch=057-val_mae=0.00299942.ckpt
+  model_file_path: models/simplified_dataset/setpoints/feedforward/forward/python/feedforward-epoch=057-val_mae=0.00299942.ckpt
   composite_selection: null
 - candidate_id: simplified_setpoints_tree_Fw
   candidate_family: tree
@@ -42,10 +42,10 @@ candidate_list:
   candidate_surface: Fw
   allowed_direction_list:
   - forward
-  source_path: models\simplified_dataset\setpoints\exported\tree\forward\2026-07-07-02-31-39__te_tree_fw__simplified_setpoints\reference_inventory.yaml
+  source_path: models\simplified_dataset\setpoints\tree\forward\reference_inventory.yaml
   selected_harmonic_list: []
   registry_run_instance_id: 2026-07-07-02-31-39__te_tree_fw__simplified_setpoints
-  model_file_path: models/simplified_dataset/setpoints/exported/tree/forward/2026-07-07-02-31-39__te_tree_fw__simplified_setpoints/python/tree_model.pkl
+  model_file_path: models/simplified_dataset/setpoints/tree/forward/python/tree_model.pkl
   composite_selection: null
 - candidate_id: simplified_setpoints_harmonic_regression_Fw
   candidate_family: harmonic_regression
@@ -54,10 +54,10 @@ candidate_list:
   candidate_surface: Fw
   allowed_direction_list:
   - forward
-  source_path: models\simplified_dataset\setpoints\exported\harmonic_regression\forward\2026-07-07-22-54-59__te_harmonic_regression_fw__simplified_setpoints\reference_inventory.yaml
+  source_path: models\simplified_dataset\setpoints\harmonic_regression\forward\reference_inventory.yaml
   selected_harmonic_list: []
   registry_run_instance_id: 2026-07-07-22-54-59__te_harmonic_regression_fw__simplified_setpoints
-  model_file_path: models/simplified_dataset/setpoints/exported/harmonic_regression/forward/2026-07-07-22-54-59__te_harmonic_regression_fw__simplified_setpoints/python/harmonic_regression-epoch=033-val_mae=0.01699562.ckpt
+  model_file_path: models/simplified_dataset/setpoints/harmonic_regression/forward/python/harmonic_regression-epoch=033-val_mae=0.01699562.ckpt
   composite_selection: null
 - candidate_id: simplified_setpoints_periodic_mlp_harmonic_Fw
   candidate_family: periodic_mlp_harmonic
@@ -66,10 +66,10 @@ candidate_list:
   candidate_surface: Fw
   allowed_direction_list:
   - forward
-  source_path: models\simplified_dataset\setpoints\exported\periodic_mlp_harmonic\forward\2026-07-08-01-11-12__te_periodic_mlp_harmonic_fw__simplified_setpoints\reference_inventory.yaml
+  source_path: models\simplified_dataset\setpoints\periodic_mlp_harmonic\forward\reference_inventory.yaml
   selected_harmonic_list: []
   registry_run_instance_id: 2026-07-08-01-11-12__te_periodic_mlp_harmonic_fw__simplified_setpoints
-  model_file_path: models/simplified_dataset/setpoints/exported/periodic_mlp_harmonic/forward/2026-07-08-01-11-12__te_periodic_mlp_harmonic_fw__simplified_setpoints/python/periodic_mlp-epoch=055-val_mae=0.00280280.ckpt
+  model_file_path: models/simplified_dataset/setpoints/periodic_mlp_harmonic/forward/python/periodic_mlp-epoch=055-val_mae=0.00280280.ckpt
   composite_selection: null
 - candidate_id: simplified_setpoints_periodic_gru_sequence_Fw
   candidate_family: periodic_gru_sequence
@@ -78,10 +78,10 @@ candidate_list:
   candidate_surface: Fw
   allowed_direction_list:
   - forward
-  source_path: models\simplified_dataset\setpoints\exported\periodic_gru_sequence\forward\2026-07-08-22-14-21__te_periodic_gru_sequence_fw__simplified_setpoints\reference_inventory.yaml
+  source_path: models\simplified_dataset\setpoints\periodic_gru_sequence\forward\reference_inventory.yaml
   selected_harmonic_list: []
   registry_run_instance_id: 2026-07-08-22-14-21__te_periodic_gru_sequence_fw__simplified_setpoints
-  model_file_path: models/simplified_dataset/setpoints/exported/periodic_gru_sequence/forward/2026-07-08-22-14-21__te_periodic_gru_sequence_fw__simplified_setpoints/python/periodic_gru_sequence-epoch=056-val_mae=0.00353205.ckpt
+  model_file_path: models/simplified_dataset/setpoints/periodic_gru_sequence/forward/python/periodic_gru_sequence-epoch=056-val_mae=0.00353205.ckpt
   composite_selection: null
 - candidate_id: simplified_setpoints_wave4_1_mae_robust_loss_Fw
   candidate_family: wave4_1_mae_robust_loss
@@ -90,10 +90,10 @@ candidate_list:
   candidate_surface: Fw
   allowed_direction_list:
   - forward
-  source_path: models\simplified_dataset\setpoints\exported\wave4_1_mae_robust_loss\forward\2026-07-12-14-40-52__te_wave4_1_mae_robust_loss_fw__simplified_setpoints\reference_inventory.yaml
+  source_path: models\simplified_dataset\setpoints\wave4_1_mae_robust_loss\forward\reference_inventory.yaml
   selected_harmonic_list: []
   registry_run_instance_id: 2026-07-12-14-40-52__te_wave4_1_mae_robust_loss_fw__simplified_setpoints
-  model_file_path: models/simplified_dataset/setpoints/exported/wave4_1_mae_robust_loss/forward/2026-07-12-14-40-52__te_wave4_1_mae_robust_loss_fw__simplified_setpoints/python/curve_aware_harmonic_residual_offset_probe-epoch=085-val_mae=0.00364418.ckpt
+  model_file_path: models/simplified_dataset/setpoints/wave4_1_mae_robust_loss/forward/python/curve_aware_harmonic_residual_offset_probe-epoch=085-val_mae=0.00364418.ckpt
   composite_selection: null
 - candidate_id: simplified_setpoints_wave4_2_quantile_p10_p50_p90_Fw
   candidate_family: wave4_2_quantile_p10_p50_p90
@@ -102,10 +102,10 @@ candidate_list:
   candidate_surface: Fw
   allowed_direction_list:
   - forward
-  source_path: models\simplified_dataset\setpoints\exported\wave4_2_quantile_p10_p50_p90\forward\2026-07-14-11-30-33__te_wave4_2_quantile_p10_p50_p90_fw__simplified_setpoints\reference_inventory.yaml
+  source_path: models\simplified_dataset\setpoints\wave4_2_quantile_p10_p50_p90\forward\reference_inventory.yaml
   selected_harmonic_list: []
   registry_run_instance_id: 2026-07-14-11-30-33__te_wave4_2_quantile_p10_p50_p90_fw__simplified_setpoints
-  model_file_path: models/simplified_dataset/setpoints/exported/wave4_2_quantile_p10_p50_p90/forward/2026-07-14-11-30-33__te_wave4_2_quantile_p10_p50_p90_fw__simplified_setpoints/python/curve_aware_harmonic_residual_offset_probe-epoch=098-val_mae=0.00349706.ckpt
+  model_file_path: models/simplified_dataset/setpoints/wave4_2_quantile_p10_p50_p90/forward/python/curve_aware_harmonic_residual_offset_probe-epoch=098-val_mae=0.00349706.ckpt
   composite_selection: null
 candidate_target_metric_summary: {}
 candidate_metric_summary:

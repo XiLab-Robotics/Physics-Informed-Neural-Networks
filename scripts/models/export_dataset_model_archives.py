@@ -61,7 +61,7 @@ def parse_command_line_arguments() -> argparse.Namespace:
     argument_parser.add_argument(
         "--output-root",
         default=None,
-        help="Override output root. Defaults to models/<dataset-id>/<input-mode>/exported.",
+        help="Override output root. Defaults to models/<dataset-id>/<input-mode>.",
     )
     argument_parser.add_argument(
         "--export",
@@ -71,7 +71,7 @@ def parse_command_line_arguments() -> argparse.Namespace:
     argument_parser.add_argument(
         "--skip-existing",
         action="store_true",
-        help="Skip run archives that already contain reference_inventory.yaml.",
+        help="Skip family/surface archives that already contain reference_inventory.yaml.",
     )
     argument_parser.add_argument(
         "--onnx-timeout-seconds",
@@ -559,7 +559,7 @@ def archive_one_run(
     run_name = str(run_dictionary.get("run_name") or metrics_dictionary["experiment"]["run_name"])
     run_instance_id = str(metrics_dictionary["experiment"]["run_instance_id"])
 
-    archive_root = output_root / model_family / surface / run_instance_id
+    archive_root = output_root / model_family / surface
     existing_inventory_path = archive_root / "reference_inventory.yaml"
     if skip_existing and existing_inventory_path.exists():
         existing_inventory = load_yaml_dictionary(existing_inventory_path)
@@ -653,7 +653,7 @@ def main() -> None:
 
     arguments = parse_command_line_arguments()
     manifest_path_list = [resolve_project_path(path) for path in arguments.campaign_manifest]
-    output_root = resolve_project_path(arguments.output_root or f"models/{arguments.dataset_id}/{arguments.input_mode}/exported")
+    output_root = resolve_project_path(arguments.output_root or f"models/{arguments.dataset_id}/{arguments.input_mode}")
     archive_run_list = build_archive_run_list(manifest_path_list, arguments.dataset_id, arguments.input_mode)
     surface_counts: dict[str, int] = {"global": 0, "forward": 0, "backward": 0}
     for archive_record in archive_run_list:

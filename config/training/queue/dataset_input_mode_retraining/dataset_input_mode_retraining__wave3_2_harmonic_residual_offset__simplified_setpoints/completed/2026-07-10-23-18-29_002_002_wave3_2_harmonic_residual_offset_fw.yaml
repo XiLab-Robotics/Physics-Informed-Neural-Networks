@@ -42,7 +42,7 @@ metadata:
   dataset_name: simplified_dataset
   input_mode: setpoints
   source_dataset_root: data/simplified_dataset
-  expected_model_archive_root: models/simplified_dataset/setpoints/exported
+  expected_model_archive_root: models/simplified_dataset/setpoints
   run_instance_id: 2026-07-10-23-36-51__te_wave3_2_harmonic_residual_offset_fw__simplified_setpoints
 dataset:
   curve_batch_size: 16

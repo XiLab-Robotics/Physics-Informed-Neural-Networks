@@ -1,1 +1,0 @@
-C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_runs\gru_sequence\2026-06-26-09-28-46__te_gru_sequence_bw\checkpoints\gru_sequence-epoch=094-val_mae=0.00214655.ckpt

@@ -44,9 +44,9 @@ Exact model paths:
 
 | Surface | ONNX Model Path | Python Model Path |
 | --- | --- | --- |
-| forward | `models/simplified_dataset/setpoints/exported/wave4_1_mae_robust_loss/forward/2026-07-12-14-40-52__te_wave4_1_mae_robust_loss_fw__simplified_setpoints/onnx/model.onnx` | `models/simplified_dataset/setpoints/exported/wave4_1_mae_robust_loss/forward/2026-07-12-14-40-52__te_wave4_1_mae_robust_loss_fw__simplified_setpoints/python/curve_aware_harmonic_residual_offset_probe-epoch=085-val_mae=0.00364418.ckpt` |
-| backward | `models/simplified_dataset/setpoints/exported/wave4_1_mae_robust_loss/backward/2026-07-12-14-58-28__te_wave4_1_mae_robust_loss_bw__simplified_setpoints/onnx/model.onnx` | `models/simplified_dataset/setpoints/exported/wave4_1_mae_robust_loss/backward/2026-07-12-14-58-28__te_wave4_1_mae_robust_loss_bw__simplified_setpoints/python/curve_aware_harmonic_residual_offset_probe-epoch=073-val_mae=0.00358581.ckpt` |
-| global | `models/simplified_dataset/setpoints/exported/wave4_1_mae_robust_loss/global/2026-07-12-14-11-27__te_wave4_1_mae_robust_loss_global__simplified_setpoints/onnx/model.onnx` | `models/simplified_dataset/setpoints/exported/wave4_1_mae_robust_loss/global/2026-07-12-14-11-27__te_wave4_1_mae_robust_loss_global__simplified_setpoints/python/curve_aware_harmonic_residual_offset_probe-epoch=143-val_mae=0.00355510.ckpt` |
+| forward | `models/simplified_dataset/setpoints/wave4_1_mae_robust_loss/forward/onnx/model.onnx` | `models/simplified_dataset/setpoints/wave4_1_mae_robust_loss/forward/python/curve_aware_harmonic_residual_offset_probe-epoch=085-val_mae=0.00364418.ckpt` |
+| backward | `models/simplified_dataset/setpoints/wave4_1_mae_robust_loss/backward/onnx/model.onnx` | `models/simplified_dataset/setpoints/wave4_1_mae_robust_loss/backward/python/curve_aware_harmonic_residual_offset_probe-epoch=073-val_mae=0.00358581.ckpt` |
+| global | `models/simplified_dataset/setpoints/wave4_1_mae_robust_loss/global/onnx/model.onnx` | `models/simplified_dataset/setpoints/wave4_1_mae_robust_loss/global/python/curve_aware_harmonic_residual_offset_probe-epoch=143-val_mae=0.00355510.ckpt` |
 
 ### Aggregate Metrics
 
@@ -95,9 +95,9 @@ Exact model paths:
 
 | Surface | ONNX Model Path | Python Model Path |
 | --- | --- | --- |
-| forward | `models/polished_dataset/setpoints/exported/wave4_1_mae_robust_loss/forward/2026-07-12-16-19-34__te_wave4_1_mae_robust_loss_fw__polished_setpoints/onnx/model.onnx` | `models/polished_dataset/setpoints/exported/wave4_1_mae_robust_loss/forward/2026-07-12-16-19-34__te_wave4_1_mae_robust_loss_fw__polished_setpoints/python/curve_aware_harmonic_residual_offset_probe-epoch=105-val_mae=0.00179190.ckpt` |
-| backward | `models/polished_dataset/setpoints/exported/wave4_1_mae_robust_loss/backward/2026-07-12-16-51-03__te_wave4_1_mae_robust_loss_bw__polished_setpoints/onnx/model.onnx` | `models/polished_dataset/setpoints/exported/wave4_1_mae_robust_loss/backward/2026-07-12-16-51-03__te_wave4_1_mae_robust_loss_bw__polished_setpoints/python/curve_aware_harmonic_residual_offset_probe-epoch=088-val_mae=0.00183184.ckpt` |
-| global | `models/polished_dataset/setpoints/exported/wave4_1_mae_robust_loss/global/2026-07-12-15-32-30__te_wave4_1_mae_robust_loss_global__polished_setpoints/onnx/model.onnx` | `models/polished_dataset/setpoints/exported/wave4_1_mae_robust_loss/global/2026-07-12-15-32-30__te_wave4_1_mae_robust_loss_global__polished_setpoints/python/curve_aware_harmonic_residual_offset_probe-epoch=178-val_mae=0.00178795.ckpt` |
+| forward | `models/polished_dataset/setpoints/wave4_1_mae_robust_loss/forward/onnx/model.onnx` | `models/polished_dataset/setpoints/wave4_1_mae_robust_loss/forward/python/curve_aware_harmonic_residual_offset_probe-epoch=105-val_mae=0.00179190.ckpt` |
+| backward | `models/polished_dataset/setpoints/wave4_1_mae_robust_loss/backward/onnx/model.onnx` | `models/polished_dataset/setpoints/wave4_1_mae_robust_loss/backward/python/curve_aware_harmonic_residual_offset_probe-epoch=088-val_mae=0.00183184.ckpt` |
+| global | `models/polished_dataset/setpoints/wave4_1_mae_robust_loss/global/onnx/model.onnx` | `models/polished_dataset/setpoints/wave4_1_mae_robust_loss/global/python/curve_aware_harmonic_residual_offset_probe-epoch=178-val_mae=0.00178795.ckpt` |
 
 ### Aggregate Metrics
 
@@ -146,9 +146,9 @@ Exact model paths:
 
 | Surface | ONNX Model Path | Python Model Path |
 | --- | --- | --- |
-| forward | `models/polished_dataset/actual_values/exported/wave4_1_mae_robust_loss/forward/2026-07-12-18-19-09__te_wave4_1_mae_robust_loss_fw__polished_actual_values/onnx/model.onnx` | `models/polished_dataset/actual_values/exported/wave4_1_mae_robust_loss/forward/2026-07-12-18-19-09__te_wave4_1_mae_robust_loss_fw__polished_actual_values/python/curve_aware_harmonic_residual_offset_probe-epoch=202-val_mae=0.00173420.ckpt` |
-| backward | `models/polished_dataset/actual_values/exported/wave4_1_mae_robust_loss/backward/2026-07-12-19-08-24__te_wave4_1_mae_robust_loss_bw__polished_actual_values/onnx/model.onnx` | `models/polished_dataset/actual_values/exported/wave4_1_mae_robust_loss/backward/2026-07-12-19-08-24__te_wave4_1_mae_robust_loss_bw__polished_actual_values/python/curve_aware_harmonic_residual_offset_probe-epoch=173-val_mae=0.00178689.ckpt` |
-| global | `models/polished_dataset/actual_values/exported/wave4_1_mae_robust_loss/global/2026-07-12-17-35-21__te_wave4_1_mae_robust_loss_global__polished_actual_values/onnx/model.onnx` | `models/polished_dataset/actual_values/exported/wave4_1_mae_robust_loss/global/2026-07-12-17-35-21__te_wave4_1_mae_robust_loss_global__polished_actual_values/python/curve_aware_harmonic_residual_offset_probe-epoch=157-val_mae=0.00176826.ckpt` |
+| forward | `models/polished_dataset/actual_values/wave4_1_mae_robust_loss/forward/onnx/model.onnx` | `models/polished_dataset/actual_values/wave4_1_mae_robust_loss/forward/python/curve_aware_harmonic_residual_offset_probe-epoch=202-val_mae=0.00173420.ckpt` |
+| backward | `models/polished_dataset/actual_values/wave4_1_mae_robust_loss/backward/onnx/model.onnx` | `models/polished_dataset/actual_values/wave4_1_mae_robust_loss/backward/python/curve_aware_harmonic_residual_offset_probe-epoch=173-val_mae=0.00178689.ckpt` |
+| global | `models/polished_dataset/actual_values/wave4_1_mae_robust_loss/global/onnx/model.onnx` | `models/polished_dataset/actual_values/wave4_1_mae_robust_loss/global/python/curve_aware_harmonic_residual_offset_probe-epoch=157-val_mae=0.00176826.ckpt` |
 
 ### Aggregate Metrics
 

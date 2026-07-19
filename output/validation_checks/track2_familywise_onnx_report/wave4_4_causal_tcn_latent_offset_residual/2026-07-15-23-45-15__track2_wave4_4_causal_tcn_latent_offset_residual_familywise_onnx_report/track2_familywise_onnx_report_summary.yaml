@@ -23,10 +23,10 @@ group_summary_list:
     run_instance_id: 2026-07-15-20-14-26__te_wave4_4_causal_tcn_latent_offset_residual_fw__simplified_setpoints
     dataset_schema: simplified_curve_v1
     model_type: latent_state_hysteresis_probe
-    onnx_model_path: models/simplified_dataset/setpoints/exported/wave4_4_causal_tcn_latent_offset_residual/forward/2026-07-15-20-14-26__te_wave4_4_causal_tcn_latent_offset_residual_fw__simplified_setpoints/onnx/model.onnx
-    python_model_path: models/simplified_dataset/setpoints/exported/wave4_4_causal_tcn_latent_offset_residual/forward/2026-07-15-20-14-26__te_wave4_4_causal_tcn_latent_offset_residual_fw__simplified_setpoints/python/latent_state_hysteresis_probe-epoch=236-val_mae=0.00349844.ckpt
+    onnx_model_path: models/simplified_dataset/setpoints/wave4_4_causal_tcn_latent_offset_residual/forward/onnx/model.onnx
+    python_model_path: models/simplified_dataset/setpoints/wave4_4_causal_tcn_latent_offset_residual/forward/python/latent_state_hysteresis_probe-epoch=236-val_mae=0.00349844.ckpt
     training_config_path: output/training_runs/wave4_4_causal_tcn_latent_offset_residual/2026-07-15-20-14-26__te_wave4_4_causal_tcn_latent_offset_residual_fw__simplified_setpoints/training_config.yaml
-    source_inventory_path: models/simplified_dataset/setpoints/exported/model_development_export_inventory.yaml
+    source_inventory_path: models/simplified_dataset/setpoints/model_development_export_inventory.yaml
     evaluated_curve_count: 97
     aggregate_metrics:
       mse: 1.6555270896018728e-05
@@ -257,10 +257,10 @@ group_summary_list:
     run_instance_id: 2026-07-15-20-38-50__te_wave4_4_causal_tcn_latent_offset_residual_bw__simplified_setpoints
     dataset_schema: simplified_curve_v1
     model_type: latent_state_hysteresis_probe
-    onnx_model_path: models/simplified_dataset/setpoints/exported/wave4_4_causal_tcn_latent_offset_residual/backward/2026-07-15-20-38-50__te_wave4_4_causal_tcn_latent_offset_residual_bw__simplified_setpoints/onnx/model.onnx
-    python_model_path: models/simplified_dataset/setpoints/exported/wave4_4_causal_tcn_latent_offset_residual/backward/2026-07-15-20-38-50__te_wave4_4_causal_tcn_latent_offset_residual_bw__simplified_setpoints/python/latent_state_hysteresis_probe-epoch=105-val_mae=0.00370934.ckpt
+    onnx_model_path: models/simplified_dataset/setpoints/wave4_4_causal_tcn_latent_offset_residual/backward/onnx/model.onnx
+    python_model_path: models/simplified_dataset/setpoints/wave4_4_causal_tcn_latent_offset_residual/backward/python/latent_state_hysteresis_probe-epoch=105-val_mae=0.00370934.ckpt
     training_config_path: output/training_runs/wave4_4_causal_tcn_latent_offset_residual/2026-07-15-20-38-50__te_wave4_4_causal_tcn_latent_offset_residual_bw__simplified_setpoints/training_config.yaml
-    source_inventory_path: models/simplified_dataset/setpoints/exported/model_development_export_inventory.yaml
+    source_inventory_path: models/simplified_dataset/setpoints/model_development_export_inventory.yaml
     evaluated_curve_count: 97
     aggregate_metrics:
       mse: 2.3017185496949053e-05
@@ -491,10 +491,10 @@ group_summary_list:
     run_instance_id: 2026-07-15-20-07-16__te_wave4_4_causal_tcn_latent_offset_residual_global__simplified_setpoints
     dataset_schema: simplified_curve_v1
     model_type: latent_state_hysteresis_probe
-    onnx_model_path: models/simplified_dataset/setpoints/exported/wave4_4_causal_tcn_latent_offset_residual/global/2026-07-15-20-07-16__te_wave4_4_causal_tcn_latent_offset_residual_global__simplified_setpoints/onnx/model.onnx
-    python_model_path: models/simplified_dataset/setpoints/exported/wave4_4_causal_tcn_latent_offset_residual/global/2026-07-15-20-07-16__te_wave4_4_causal_tcn_latent_offset_residual_global__simplified_setpoints/python/latent_state_hysteresis_probe-epoch=055-val_mae=0.00376625.ckpt
+    onnx_model_path: models/simplified_dataset/setpoints/wave4_4_causal_tcn_latent_offset_residual/global/onnx/model.onnx
+    python_model_path: models/simplified_dataset/setpoints/wave4_4_causal_tcn_latent_offset_residual/global/python/latent_state_hysteresis_probe-epoch=055-val_mae=0.00376625.ckpt
     training_config_path: output/training_runs/wave4_4_causal_tcn_latent_offset_residual/2026-07-15-20-07-16__te_wave4_4_causal_tcn_latent_offset_residual_global__simplified_setpoints/training_config.yaml
-    source_inventory_path: models/simplified_dataset/setpoints/exported/model_development_export_inventory.yaml
+    source_inventory_path: models/simplified_dataset/setpoints/model_development_export_inventory.yaml
     evaluated_curve_count: 194
     aggregate_metrics:
       mse: 1.9903813833728577e-05
@@ -731,10 +731,10 @@ group_summary_list:
     run_instance_id: 2026-07-15-21-27-08__te_wave4_4_causal_tcn_latent_offset_residual_fw__polished_setpoints
     dataset_schema: polished_setpoint_curve_v1
     model_type: latent_state_hysteresis_probe
-    onnx_model_path: models/polished_dataset/setpoints/exported/wave4_4_causal_tcn_latent_offset_residual/forward/2026-07-15-21-27-08__te_wave4_4_causal_tcn_latent_offset_residual_fw__polished_setpoints/onnx/model.onnx
-    python_model_path: models/polished_dataset/setpoints/exported/wave4_4_causal_tcn_latent_offset_residual/forward/2026-07-15-21-27-08__te_wave4_4_causal_tcn_latent_offset_residual_fw__polished_setpoints/python/latent_state_hysteresis_probe-epoch=107-val_mae=0.00221473.ckpt
+    onnx_model_path: models/polished_dataset/setpoints/wave4_4_causal_tcn_latent_offset_residual/forward/onnx/model.onnx
+    python_model_path: models/polished_dataset/setpoints/wave4_4_causal_tcn_latent_offset_residual/forward/python/latent_state_hysteresis_probe-epoch=107-val_mae=0.00221473.ckpt
     training_config_path: output/training_runs/wave4_4_causal_tcn_latent_offset_residual/2026-07-15-21-27-08__te_wave4_4_causal_tcn_latent_offset_residual_fw__polished_setpoints/training_config.yaml
-    source_inventory_path: models/polished_dataset/setpoints/exported/model_development_export_inventory.yaml
+    source_inventory_path: models/polished_dataset/setpoints/model_development_export_inventory.yaml
     evaluated_curve_count: 100
     aggregate_metrics:
       mse: 1.1643604281459801e-05
@@ -965,10 +965,10 @@ group_summary_list:
     run_instance_id: 2026-07-15-21-50-42__te_wave4_4_causal_tcn_latent_offset_residual_bw__polished_setpoints
     dataset_schema: polished_setpoint_curve_v1
     model_type: latent_state_hysteresis_probe
-    onnx_model_path: models/polished_dataset/setpoints/exported/wave4_4_causal_tcn_latent_offset_residual/backward/2026-07-15-21-50-42__te_wave4_4_causal_tcn_latent_offset_residual_bw__polished_setpoints/onnx/model.onnx
-    python_model_path: models/polished_dataset/setpoints/exported/wave4_4_causal_tcn_latent_offset_residual/backward/2026-07-15-21-50-42__te_wave4_4_causal_tcn_latent_offset_residual_bw__polished_setpoints/python/latent_state_hysteresis_probe-epoch=074-val_mae=0.00224017.ckpt
+    onnx_model_path: models/polished_dataset/setpoints/wave4_4_causal_tcn_latent_offset_residual/backward/onnx/model.onnx
+    python_model_path: models/polished_dataset/setpoints/wave4_4_causal_tcn_latent_offset_residual/backward/python/latent_state_hysteresis_probe-epoch=074-val_mae=0.00224017.ckpt
     training_config_path: output/training_runs/wave4_4_causal_tcn_latent_offset_residual/2026-07-15-21-50-42__te_wave4_4_causal_tcn_latent_offset_residual_bw__polished_setpoints/training_config.yaml
-    source_inventory_path: models/polished_dataset/setpoints/exported/model_development_export_inventory.yaml
+    source_inventory_path: models/polished_dataset/setpoints/model_development_export_inventory.yaml
     evaluated_curve_count: 94
     aggregate_metrics:
       mse: 2.952442846303588e-05
@@ -1199,10 +1199,10 @@ group_summary_list:
     run_instance_id: 2026-07-15-21-10-35__te_wave4_4_causal_tcn_latent_offset_residual_global__polished_setpoints
     dataset_schema: polished_setpoint_curve_v1
     model_type: latent_state_hysteresis_probe
-    onnx_model_path: models/polished_dataset/setpoints/exported/wave4_4_causal_tcn_latent_offset_residual/global/2026-07-15-21-10-35__te_wave4_4_causal_tcn_latent_offset_residual_global__polished_setpoints/onnx/model.onnx
-    python_model_path: models/polished_dataset/setpoints/exported/wave4_4_causal_tcn_latent_offset_residual/global/2026-07-15-21-10-35__te_wave4_4_causal_tcn_latent_offset_residual_global__polished_setpoints/python/latent_state_hysteresis_probe-epoch=060-val_mae=0.00222789.ckpt
+    onnx_model_path: models/polished_dataset/setpoints/wave4_4_causal_tcn_latent_offset_residual/global/onnx/model.onnx
+    python_model_path: models/polished_dataset/setpoints/wave4_4_causal_tcn_latent_offset_residual/global/python/latent_state_hysteresis_probe-epoch=060-val_mae=0.00222789.ckpt
     training_config_path: output/training_runs/wave4_4_causal_tcn_latent_offset_residual/2026-07-15-21-10-35__te_wave4_4_causal_tcn_latent_offset_residual_global__polished_setpoints/training_config.yaml
-    source_inventory_path: models/polished_dataset/setpoints/exported/model_development_export_inventory.yaml
+    source_inventory_path: models/polished_dataset/setpoints/model_development_export_inventory.yaml
     evaluated_curve_count: 194
     aggregate_metrics:
       mse: 1.9882561489844014e-05
@@ -1439,10 +1439,10 @@ group_summary_list:
     run_instance_id: 2026-07-15-22-40-16__te_wave4_4_causal_tcn_latent_offset_residual_fw__polished_actual_values
     dataset_schema: polished_point_v1
     model_type: latent_state_hysteresis_probe
-    onnx_model_path: models/polished_dataset/actual_values/exported/wave4_4_causal_tcn_latent_offset_residual/forward/2026-07-15-22-40-16__te_wave4_4_causal_tcn_latent_offset_residual_fw__polished_actual_values/onnx/model.onnx
-    python_model_path: models/polished_dataset/actual_values/exported/wave4_4_causal_tcn_latent_offset_residual/forward/2026-07-15-22-40-16__te_wave4_4_causal_tcn_latent_offset_residual_fw__polished_actual_values/python/latent_state_hysteresis_probe-epoch=038-val_mae=0.00225416.ckpt
+    onnx_model_path: models/polished_dataset/actual_values/wave4_4_causal_tcn_latent_offset_residual/forward/onnx/model.onnx
+    python_model_path: models/polished_dataset/actual_values/wave4_4_causal_tcn_latent_offset_residual/forward/python/latent_state_hysteresis_probe-epoch=038-val_mae=0.00225416.ckpt
     training_config_path: output/training_runs/wave4_4_causal_tcn_latent_offset_residual/2026-07-15-22-40-16__te_wave4_4_causal_tcn_latent_offset_residual_fw__polished_actual_values/training_config.yaml
-    source_inventory_path: models/polished_dataset/actual_values/exported/model_development_export_inventory.yaml
+    source_inventory_path: models/polished_dataset/actual_values/model_development_export_inventory.yaml
     evaluated_curve_count: 100
     aggregate_metrics:
       mse: 1.0411518773310873e-05
@@ -1673,10 +1673,10 @@ group_summary_list:
     run_instance_id: 2026-07-15-22-54-23__te_wave4_4_causal_tcn_latent_offset_residual_bw__polished_actual_values
     dataset_schema: polished_point_v1
     model_type: latent_state_hysteresis_probe
-    onnx_model_path: models/polished_dataset/actual_values/exported/wave4_4_causal_tcn_latent_offset_residual/backward/2026-07-15-22-54-23__te_wave4_4_causal_tcn_latent_offset_residual_bw__polished_actual_values/onnx/model.onnx
-    python_model_path: models/polished_dataset/actual_values/exported/wave4_4_causal_tcn_latent_offset_residual/backward/2026-07-15-22-54-23__te_wave4_4_causal_tcn_latent_offset_residual_bw__polished_actual_values/python/latent_state_hysteresis_probe-epoch=078-val_mae=0.00222665.ckpt
+    onnx_model_path: models/polished_dataset/actual_values/wave4_4_causal_tcn_latent_offset_residual/backward/onnx/model.onnx
+    python_model_path: models/polished_dataset/actual_values/wave4_4_causal_tcn_latent_offset_residual/backward/python/latent_state_hysteresis_probe-epoch=078-val_mae=0.00222665.ckpt
     training_config_path: output/training_runs/wave4_4_causal_tcn_latent_offset_residual/2026-07-15-22-54-23__te_wave4_4_causal_tcn_latent_offset_residual_bw__polished_actual_values/training_config.yaml
-    source_inventory_path: models/polished_dataset/actual_values/exported/model_development_export_inventory.yaml
+    source_inventory_path: models/polished_dataset/actual_values/model_development_export_inventory.yaml
     evaluated_curve_count: 94
     aggregate_metrics:
       mse: 1.9917768890824354e-05
@@ -1907,10 +1907,10 @@ group_summary_list:
     run_instance_id: 2026-07-15-22-27-43__te_wave4_4_causal_tcn_latent_offset_residual_global__polished_actual_values
     dataset_schema: polished_point_v1
     model_type: latent_state_hysteresis_probe
-    onnx_model_path: models/polished_dataset/actual_values/exported/wave4_4_causal_tcn_latent_offset_residual/global/2026-07-15-22-27-43__te_wave4_4_causal_tcn_latent_offset_residual_global__polished_actual_values/onnx/model.onnx
-    python_model_path: models/polished_dataset/actual_values/exported/wave4_4_causal_tcn_latent_offset_residual/global/2026-07-15-22-27-43__te_wave4_4_causal_tcn_latent_offset_residual_global__polished_actual_values/python/latent_state_hysteresis_probe-epoch=041-val_mae=0.00230429.ckpt
+    onnx_model_path: models/polished_dataset/actual_values/wave4_4_causal_tcn_latent_offset_residual/global/onnx/model.onnx
+    python_model_path: models/polished_dataset/actual_values/wave4_4_causal_tcn_latent_offset_residual/global/python/latent_state_hysteresis_probe-epoch=041-val_mae=0.00230429.ckpt
     training_config_path: output/training_runs/wave4_4_causal_tcn_latent_offset_residual/2026-07-15-22-27-43__te_wave4_4_causal_tcn_latent_offset_residual_global__polished_actual_values/training_config.yaml
-    source_inventory_path: models/polished_dataset/actual_values/exported/model_development_export_inventory.yaml
+    source_inventory_path: models/polished_dataset/actual_values/model_development_export_inventory.yaml
     evaluated_curve_count: 194
     aggregate_metrics:
       mse: 1.592728827920427e-05

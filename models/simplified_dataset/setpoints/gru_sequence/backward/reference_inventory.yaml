@@ -1,0 +1,25 @@
+schema_version: 1
+dataset_id: simplified_dataset
+dataset_schema: simplified_curve_v1
+input_mode: setpoints
+model_family: gru_sequence
+model_type: gru_sequence
+surface: backward
+run_name: te_gru_sequence_bw__simplified_setpoints
+run_instance_id: 2026-07-08-11-31-51__te_gru_sequence_bw__simplified_setpoints
+source_output_directory: output/training_runs/gru_sequence/2026-07-08-11-31-51__te_gru_sequence_bw__simplified_setpoints
+source_best_checkpoint_path: output/training_runs/gru_sequence/2026-07-08-11-31-51__te_gru_sequence_bw__simplified_setpoints/checkpoints/gru_sequence-epoch=132-val_mae=0.00366119.ckpt
+python_model_path: models/simplified_dataset/setpoints/gru_sequence/backward/python/gru_sequence-epoch=132-val_mae=0.00366119.ckpt
+onnx_model_path: models/simplified_dataset/setpoints/gru_sequence/backward/onnx/model.onnx
+onnx_export_status: exported
+onnx_export_error: ''
+source_run_snapshot_path_map:
+  training_config.snapshot.yaml: models/simplified_dataset/setpoints/gru_sequence/backward/source_run/training_config.snapshot.yaml
+  metrics_summary.snapshot.yaml: models/simplified_dataset/setpoints/gru_sequence/backward/source_run/metrics_summary.snapshot.yaml
+  run_metadata.snapshot.yaml: models/simplified_dataset/setpoints/gru_sequence/backward/source_run/run_metadata.snapshot.yaml
+  training_test_report.snapshot.md: models/simplified_dataset/setpoints/gru_sequence/backward/source_run/training_test_report.snapshot.md
+  best_checkpoint_path.snapshot.txt: models/simplified_dataset/setpoints/gru_sequence/backward/source_run/best_checkpoint_path.snapshot.txt
+metrics:
+  val_mae: 0.003661188529804349
+  test_mae: 0.003509706584736705
+  test_rmse: 0.004340673331171274

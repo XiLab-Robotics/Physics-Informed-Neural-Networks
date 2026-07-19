@@ -6,7 +6,7 @@ dataset_name: polished_dataset
 input_mode: setpoints
 dataset_schema: polished_setpoint_curve_v1
 source_dataset_root: data/polished_dataset
-expected_model_archive_root: models/polished_dataset/setpoints/exported
+expected_model_archive_root: models/polished_dataset/setpoints
 expected_surface_list:
 - global
 - fw

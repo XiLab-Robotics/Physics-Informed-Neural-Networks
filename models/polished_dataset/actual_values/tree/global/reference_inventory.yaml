@@ -1,0 +1,24 @@
+schema_version: 1
+dataset_id: polished_dataset
+dataset_schema: polished_point_v1
+input_mode: actual_values
+model_family: tree
+model_type: hist_gradient_boosting
+surface: global
+run_name: te_tree_global__polished_actual_values
+run_instance_id: 2026-07-07-09-52-50__te_tree_global__polished_actual_values
+source_output_directory: output/training_runs/tree/2026-07-07-09-52-50__te_tree_global__polished_actual_values
+source_best_checkpoint_path: output/training_runs/tree/2026-07-07-09-52-50__te_tree_global__polished_actual_values/tree_model.pkl
+python_model_path: models/polished_dataset/actual_values/tree/global/python/tree_model.pkl
+onnx_model_path: models/polished_dataset/actual_values/tree/global/onnx/model.onnx
+onnx_export_status: exported
+onnx_export_error: ''
+source_run_snapshot_path_map:
+  training_config.snapshot.yaml: models/polished_dataset/actual_values/tree/global/source_run/training_config.snapshot.yaml
+  metrics_summary.snapshot.yaml: models/polished_dataset/actual_values/tree/global/source_run/metrics_summary.snapshot.yaml
+  run_metadata.snapshot.yaml: models/polished_dataset/actual_values/tree/global/source_run/run_metadata.snapshot.yaml
+  training_test_report.snapshot.md: models/polished_dataset/actual_values/tree/global/source_run/training_test_report.snapshot.md
+metrics:
+  val_mae: 0.001570162034401711
+  test_mae: 0.001749789661614506
+  test_rmse: 0.0028920609145474366

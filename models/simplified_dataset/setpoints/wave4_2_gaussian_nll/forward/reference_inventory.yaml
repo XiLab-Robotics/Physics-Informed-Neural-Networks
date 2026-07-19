@@ -1,0 +1,25 @@
+schema_version: 1
+dataset_id: simplified_dataset
+dataset_schema: simplified_curve_v1
+input_mode: setpoints
+model_family: wave4_2_gaussian_nll
+model_type: curve_aware_harmonic_residual_offset_probe
+surface: forward
+run_name: te_wave4_2_gaussian_nll_fw__simplified_setpoints
+run_instance_id: 2026-07-14-18-14-13__te_wave4_2_gaussian_nll_fw__simplified_setpoints
+source_output_directory: output/training_runs/wave4_2_gaussian_nll/2026-07-14-18-14-13__te_wave4_2_gaussian_nll_fw__simplified_setpoints
+source_best_checkpoint_path: output/training_runs/wave4_2_gaussian_nll/2026-07-14-18-14-13__te_wave4_2_gaussian_nll_fw__simplified_setpoints/checkpoints/curve_aware_harmonic_residual_offset_probe-epoch=000-val_mae=0.09172054.ckpt
+python_model_path: models/simplified_dataset/setpoints/wave4_2_gaussian_nll/forward/python/curve_aware_harmonic_residual_offset_probe-epoch=000-val_mae=0.09172054.ckpt
+onnx_model_path: models/simplified_dataset/setpoints/wave4_2_gaussian_nll/forward/onnx/model.onnx
+onnx_export_status: exported
+onnx_export_error: ''
+source_run_snapshot_path_map:
+  training_config.snapshot.yaml: output/training_runs/wave4_2_gaussian_nll/2026-07-14-18-14-13__te_wave4_2_gaussian_nll_fw__simplified_setpoints/training_config.yaml
+  metrics_summary.snapshot.yaml: output/training_runs/wave4_2_gaussian_nll/2026-07-14-18-14-13__te_wave4_2_gaussian_nll_fw__simplified_setpoints/metrics_summary.yaml
+  run_metadata.snapshot.yaml: output/training_runs/wave4_2_gaussian_nll/2026-07-14-18-14-13__te_wave4_2_gaussian_nll_fw__simplified_setpoints/run_metadata.yaml
+  training_test_report.snapshot.md: output/training_runs/wave4_2_gaussian_nll/2026-07-14-18-14-13__te_wave4_2_gaussian_nll_fw__simplified_setpoints/training_test_report.md
+  best_checkpoint_path.snapshot.txt: output/training_runs/wave4_2_gaussian_nll/2026-07-14-18-14-13__te_wave4_2_gaussian_nll_fw__simplified_setpoints/best_checkpoint_path.txt
+metrics:
+  val_mae: 0.09172054380178452
+  test_mae: 0.09219042211771011
+  test_rmse: 0.11572623252868652

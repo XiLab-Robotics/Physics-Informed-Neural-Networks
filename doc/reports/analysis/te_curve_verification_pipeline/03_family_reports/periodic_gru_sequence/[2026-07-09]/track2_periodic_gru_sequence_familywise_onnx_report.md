@@ -44,9 +44,9 @@ Exact model paths:
 
 | Surface | ONNX Model Path | Python Model Path |
 | --- | --- | --- |
-| forward | `models/simplified_dataset/setpoints/exported/periodic_gru_sequence/forward/2026-07-08-22-14-21__te_periodic_gru_sequence_fw__simplified_setpoints/onnx/model.onnx` | `models/simplified_dataset/setpoints/exported/periodic_gru_sequence/forward/2026-07-08-22-14-21__te_periodic_gru_sequence_fw__simplified_setpoints/python/periodic_gru_sequence-epoch=056-val_mae=0.00353205.ckpt` |
-| backward | `models/simplified_dataset/setpoints/exported/periodic_gru_sequence/backward/2026-07-08-22-23-26__te_periodic_gru_sequence_bw__simplified_setpoints/onnx/model.onnx` | `models/simplified_dataset/setpoints/exported/periodic_gru_sequence/backward/2026-07-08-22-23-26__te_periodic_gru_sequence_bw__simplified_setpoints/python/periodic_gru_sequence-epoch=081-val_mae=0.00349987.ckpt` |
-| global | `models/simplified_dataset/setpoints/exported/periodic_gru_sequence/global/2026-07-08-22-04-46__te_periodic_gru_sequence_global__simplified_setpoints/onnx/model.onnx` | `models/simplified_dataset/setpoints/exported/periodic_gru_sequence/global/2026-07-08-22-04-46__te_periodic_gru_sequence_global__simplified_setpoints/python/periodic_gru_sequence-epoch=060-val_mae=0.00347740.ckpt` |
+| forward | `models/simplified_dataset/setpoints/periodic_gru_sequence/forward/onnx/model.onnx` | `models/simplified_dataset/setpoints/periodic_gru_sequence/forward/python/periodic_gru_sequence-epoch=056-val_mae=0.00353205.ckpt` |
+| backward | `models/simplified_dataset/setpoints/periodic_gru_sequence/backward/onnx/model.onnx` | `models/simplified_dataset/setpoints/periodic_gru_sequence/backward/python/periodic_gru_sequence-epoch=081-val_mae=0.00349987.ckpt` |
+| global | `models/simplified_dataset/setpoints/periodic_gru_sequence/global/onnx/model.onnx` | `models/simplified_dataset/setpoints/periodic_gru_sequence/global/python/periodic_gru_sequence-epoch=060-val_mae=0.00347740.ckpt` |
 
 ### Aggregate Metrics
 
@@ -95,9 +95,9 @@ Exact model paths:
 
 | Surface | ONNX Model Path | Python Model Path |
 | --- | --- | --- |
-| forward | `models/polished_dataset/setpoints/exported/periodic_gru_sequence/forward/2026-07-08-22-57-44__te_periodic_gru_sequence_fw__polished_setpoints/onnx/model.onnx` | `models/polished_dataset/setpoints/exported/periodic_gru_sequence/forward/2026-07-08-22-57-44__te_periodic_gru_sequence_fw__polished_setpoints/python/periodic_gru_sequence-epoch=091-val_mae=0.00183161.ckpt` |
-| backward | `models/polished_dataset/setpoints/exported/periodic_gru_sequence/backward/2026-07-08-23-18-30__te_periodic_gru_sequence_bw__polished_setpoints/onnx/model.onnx` | `models/polished_dataset/setpoints/exported/periodic_gru_sequence/backward/2026-07-08-23-18-30__te_periodic_gru_sequence_bw__polished_setpoints/python/periodic_gru_sequence-epoch=064-val_mae=0.00189811.ckpt` |
-| global | `models/polished_dataset/setpoints/exported/periodic_gru_sequence/global/2026-07-08-22-43-56__te_periodic_gru_sequence_global__polished_setpoints/onnx/model.onnx` | `models/polished_dataset/setpoints/exported/periodic_gru_sequence/global/2026-07-08-22-43-56__te_periodic_gru_sequence_global__polished_setpoints/python/periodic_gru_sequence-epoch=045-val_mae=0.00186736.ckpt` |
+| forward | `models/polished_dataset/setpoints/periodic_gru_sequence/forward/onnx/model.onnx` | `models/polished_dataset/setpoints/periodic_gru_sequence/forward/python/periodic_gru_sequence-epoch=091-val_mae=0.00183161.ckpt` |
+| backward | `models/polished_dataset/setpoints/periodic_gru_sequence/backward/onnx/model.onnx` | `models/polished_dataset/setpoints/periodic_gru_sequence/backward/python/periodic_gru_sequence-epoch=064-val_mae=0.00189811.ckpt` |
+| global | `models/polished_dataset/setpoints/periodic_gru_sequence/global/onnx/model.onnx` | `models/polished_dataset/setpoints/periodic_gru_sequence/global/python/periodic_gru_sequence-epoch=045-val_mae=0.00186736.ckpt` |
 
 ### Aggregate Metrics
 
@@ -146,9 +146,9 @@ Exact model paths:
 
 | Surface | ONNX Model Path | Python Model Path |
 | --- | --- | --- |
-| forward | `models/polished_dataset/actual_values/exported/periodic_gru_sequence/forward/2026-07-09-00-29-12__te_periodic_gru_sequence_fw__polished_actual_values/onnx/model.onnx` | `models/polished_dataset/actual_values/exported/periodic_gru_sequence/forward/2026-07-09-00-29-12__te_periodic_gru_sequence_fw__polished_actual_values/python/periodic_gru_sequence-epoch=200-val_mae=0.00150079.ckpt` |
-| backward | `models/polished_dataset/actual_values/exported/periodic_gru_sequence/backward/2026-07-09-01-09-21__te_periodic_gru_sequence_bw__polished_actual_values/onnx/model.onnx` | `models/polished_dataset/actual_values/exported/periodic_gru_sequence/backward/2026-07-09-01-09-21__te_periodic_gru_sequence_bw__polished_actual_values/python/periodic_gru_sequence-epoch=257-val_mae=0.00127934.ckpt` |
-| global | `models/polished_dataset/actual_values/exported/periodic_gru_sequence/global/2026-07-08-23-45-29__te_periodic_gru_sequence_global__polished_actual_values/onnx/model.onnx` | `models/polished_dataset/actual_values/exported/periodic_gru_sequence/global/2026-07-08-23-45-29__te_periodic_gru_sequence_global__polished_actual_values/python/periodic_gru_sequence-epoch=259-val_mae=0.00132221.ckpt` |
+| forward | `models/polished_dataset/actual_values/periodic_gru_sequence/forward/onnx/model.onnx` | `models/polished_dataset/actual_values/periodic_gru_sequence/forward/python/periodic_gru_sequence-epoch=200-val_mae=0.00150079.ckpt` |
+| backward | `models/polished_dataset/actual_values/periodic_gru_sequence/backward/onnx/model.onnx` | `models/polished_dataset/actual_values/periodic_gru_sequence/backward/python/periodic_gru_sequence-epoch=257-val_mae=0.00127934.ckpt` |
+| global | `models/polished_dataset/actual_values/periodic_gru_sequence/global/onnx/model.onnx` | `models/polished_dataset/actual_values/periodic_gru_sequence/global/python/periodic_gru_sequence-epoch=259-val_mae=0.00132221.ckpt` |
 
 ### Aggregate Metrics
 

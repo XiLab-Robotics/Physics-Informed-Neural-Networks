@@ -1,1 +1,0 @@
-C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_runs\wave3_3_raw_offset_curve_aware\2026-06-30-23-45-36__te_wave3_3_raw_offset_curve_aware_global\checkpoints\curve_aware_harmonic_residual_offset_probe-epoch=058-val_mae=0.00186253.ckpt

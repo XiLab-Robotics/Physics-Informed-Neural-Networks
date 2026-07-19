@@ -23,10 +23,10 @@ group_summary_list:
     run_instance_id: 2026-07-08-01-11-12__te_periodic_mlp_harmonic_fw__simplified_setpoints
     dataset_schema: simplified_curve_v1
     model_type: periodic_mlp
-    onnx_model_path: models/simplified_dataset/setpoints/exported/periodic_mlp_harmonic/forward/2026-07-08-01-11-12__te_periodic_mlp_harmonic_fw__simplified_setpoints/onnx/model.onnx
-    python_model_path: models/simplified_dataset/setpoints/exported/periodic_mlp_harmonic/forward/2026-07-08-01-11-12__te_periodic_mlp_harmonic_fw__simplified_setpoints/python/periodic_mlp-epoch=055-val_mae=0.00280280.ckpt
-    training_config_path: models/simplified_dataset/setpoints/exported/periodic_mlp_harmonic/forward/2026-07-08-01-11-12__te_periodic_mlp_harmonic_fw__simplified_setpoints/source_run/training_config.snapshot.yaml
-    source_inventory_path: models/simplified_dataset/setpoints/exported/model_development_export_inventory.yaml
+    onnx_model_path: models/simplified_dataset/setpoints/periodic_mlp_harmonic/forward/onnx/model.onnx
+    python_model_path: models/simplified_dataset/setpoints/periodic_mlp_harmonic/forward/python/periodic_mlp-epoch=055-val_mae=0.00280280.ckpt
+    training_config_path: models/simplified_dataset/setpoints/periodic_mlp_harmonic/forward/source_run/training_config.snapshot.yaml
+    source_inventory_path: models/simplified_dataset/setpoints/model_development_export_inventory.yaml
     evaluated_curve_count: 97
     aggregate_metrics:
       mse: 1.4029508063546218e-05
@@ -256,10 +256,10 @@ group_summary_list:
     run_instance_id: 2026-07-08-01-19-22__te_periodic_mlp_harmonic_bw__simplified_setpoints
     dataset_schema: simplified_curve_v1
     model_type: periodic_mlp
-    onnx_model_path: models/simplified_dataset/setpoints/exported/periodic_mlp_harmonic/backward/2026-07-08-01-19-22__te_periodic_mlp_harmonic_bw__simplified_setpoints/onnx/model.onnx
-    python_model_path: models/simplified_dataset/setpoints/exported/periodic_mlp_harmonic/backward/2026-07-08-01-19-22__te_periodic_mlp_harmonic_bw__simplified_setpoints/python/periodic_mlp-epoch=053-val_mae=0.00280310.ckpt
-    training_config_path: models/simplified_dataset/setpoints/exported/periodic_mlp_harmonic/backward/2026-07-08-01-19-22__te_periodic_mlp_harmonic_bw__simplified_setpoints/source_run/training_config.snapshot.yaml
-    source_inventory_path: models/simplified_dataset/setpoints/exported/model_development_export_inventory.yaml
+    onnx_model_path: models/simplified_dataset/setpoints/periodic_mlp_harmonic/backward/onnx/model.onnx
+    python_model_path: models/simplified_dataset/setpoints/periodic_mlp_harmonic/backward/python/periodic_mlp-epoch=053-val_mae=0.00280310.ckpt
+    training_config_path: models/simplified_dataset/setpoints/periodic_mlp_harmonic/backward/source_run/training_config.snapshot.yaml
+    source_inventory_path: models/simplified_dataset/setpoints/model_development_export_inventory.yaml
     evaluated_curve_count: 97
     aggregate_metrics:
       mse: 2.3182508038973184e-05
@@ -489,10 +489,10 @@ group_summary_list:
     run_instance_id: 2026-07-08-01-02-50__te_periodic_mlp_harmonic_global__simplified_setpoints
     dataset_schema: simplified_curve_v1
     model_type: periodic_mlp
-    onnx_model_path: models/simplified_dataset/setpoints/exported/periodic_mlp_harmonic/global/2026-07-08-01-02-50__te_periodic_mlp_harmonic_global__simplified_setpoints/onnx/model.onnx
-    python_model_path: models/simplified_dataset/setpoints/exported/periodic_mlp_harmonic/global/2026-07-08-01-02-50__te_periodic_mlp_harmonic_global__simplified_setpoints/python/periodic_mlp-epoch=059-val_mae=0.00284742.ckpt
-    training_config_path: models/simplified_dataset/setpoints/exported/periodic_mlp_harmonic/global/2026-07-08-01-02-50__te_periodic_mlp_harmonic_global__simplified_setpoints/source_run/training_config.snapshot.yaml
-    source_inventory_path: models/simplified_dataset/setpoints/exported/model_development_export_inventory.yaml
+    onnx_model_path: models/simplified_dataset/setpoints/periodic_mlp_harmonic/global/onnx/model.onnx
+    python_model_path: models/simplified_dataset/setpoints/periodic_mlp_harmonic/global/python/periodic_mlp-epoch=059-val_mae=0.00284742.ckpt
+    training_config_path: models/simplified_dataset/setpoints/periodic_mlp_harmonic/global/source_run/training_config.snapshot.yaml
+    source_inventory_path: models/simplified_dataset/setpoints/model_development_export_inventory.yaml
     evaluated_curve_count: 194
     aggregate_metrics:
       mse: 1.8709623998690613e-05
@@ -728,10 +728,10 @@ group_summary_list:
     run_instance_id: 2026-07-08-02-15-59__te_periodic_mlp_harmonic_fw__polished_setpoints
     dataset_schema: polished_setpoint_curve_v1
     model_type: periodic_mlp
-    onnx_model_path: models/polished_dataset/setpoints/exported/periodic_mlp_harmonic/forward/2026-07-08-02-15-59__te_periodic_mlp_harmonic_fw__polished_setpoints/onnx/model.onnx
-    python_model_path: models/polished_dataset/setpoints/exported/periodic_mlp_harmonic/forward/2026-07-08-02-15-59__te_periodic_mlp_harmonic_fw__polished_setpoints/python/periodic_mlp-epoch=051-val_mae=0.00120808.ckpt
-    training_config_path: models/polished_dataset/setpoints/exported/periodic_mlp_harmonic/forward/2026-07-08-02-15-59__te_periodic_mlp_harmonic_fw__polished_setpoints/source_run/training_config.snapshot.yaml
-    source_inventory_path: models/polished_dataset/setpoints/exported/model_development_export_inventory.yaml
+    onnx_model_path: models/polished_dataset/setpoints/periodic_mlp_harmonic/forward/onnx/model.onnx
+    python_model_path: models/polished_dataset/setpoints/periodic_mlp_harmonic/forward/python/periodic_mlp-epoch=051-val_mae=0.00120808.ckpt
+    training_config_path: models/polished_dataset/setpoints/periodic_mlp_harmonic/forward/source_run/training_config.snapshot.yaml
+    source_inventory_path: models/polished_dataset/setpoints/model_development_export_inventory.yaml
     evaluated_curve_count: 100
     aggregate_metrics:
       mse: 9.027257243761042e-06
@@ -961,10 +961,10 @@ group_summary_list:
     run_instance_id: 2026-07-08-02-29-32__te_periodic_mlp_harmonic_bw__polished_setpoints
     dataset_schema: polished_setpoint_curve_v1
     model_type: periodic_mlp
-    onnx_model_path: models/polished_dataset/setpoints/exported/periodic_mlp_harmonic/backward/2026-07-08-02-29-32__te_periodic_mlp_harmonic_bw__polished_setpoints/onnx/model.onnx
-    python_model_path: models/polished_dataset/setpoints/exported/periodic_mlp_harmonic/backward/2026-07-08-02-29-32__te_periodic_mlp_harmonic_bw__polished_setpoints/python/periodic_mlp-epoch=081-val_mae=0.00121896.ckpt
-    training_config_path: models/polished_dataset/setpoints/exported/periodic_mlp_harmonic/backward/2026-07-08-02-29-32__te_periodic_mlp_harmonic_bw__polished_setpoints/source_run/training_config.snapshot.yaml
-    source_inventory_path: models/polished_dataset/setpoints/exported/model_development_export_inventory.yaml
+    onnx_model_path: models/polished_dataset/setpoints/periodic_mlp_harmonic/backward/onnx/model.onnx
+    python_model_path: models/polished_dataset/setpoints/periodic_mlp_harmonic/backward/python/periodic_mlp-epoch=081-val_mae=0.00121896.ckpt
+    training_config_path: models/polished_dataset/setpoints/periodic_mlp_harmonic/backward/source_run/training_config.snapshot.yaml
+    source_inventory_path: models/polished_dataset/setpoints/model_development_export_inventory.yaml
     evaluated_curve_count: 94
     aggregate_metrics:
       mse: 2.681169766585428e-05
@@ -1194,10 +1194,10 @@ group_summary_list:
     run_instance_id: 2026-07-08-01-46-27__te_periodic_mlp_harmonic_global__polished_setpoints
     dataset_schema: polished_setpoint_curve_v1
     model_type: periodic_mlp
-    onnx_model_path: models/polished_dataset/setpoints/exported/periodic_mlp_harmonic/global/2026-07-08-01-46-27__te_periodic_mlp_harmonic_global__polished_setpoints/onnx/model.onnx
-    python_model_path: models/polished_dataset/setpoints/exported/periodic_mlp_harmonic/global/2026-07-08-01-46-27__te_periodic_mlp_harmonic_global__polished_setpoints/python/periodic_mlp-epoch=183-val_mae=0.00113740.ckpt
-    training_config_path: models/polished_dataset/setpoints/exported/periodic_mlp_harmonic/global/2026-07-08-01-46-27__te_periodic_mlp_harmonic_global__polished_setpoints/source_run/training_config.snapshot.yaml
-    source_inventory_path: models/polished_dataset/setpoints/exported/model_development_export_inventory.yaml
+    onnx_model_path: models/polished_dataset/setpoints/periodic_mlp_harmonic/global/onnx/model.onnx
+    python_model_path: models/polished_dataset/setpoints/periodic_mlp_harmonic/global/python/periodic_mlp-epoch=183-val_mae=0.00113740.ckpt
+    training_config_path: models/polished_dataset/setpoints/periodic_mlp_harmonic/global/source_run/training_config.snapshot.yaml
+    source_inventory_path: models/polished_dataset/setpoints/model_development_export_inventory.yaml
     evaluated_curve_count: 194
     aggregate_metrics:
       mse: 1.6674270751677548e-05
@@ -1433,10 +1433,10 @@ group_summary_list:
     run_instance_id: 2026-07-08-03-17-38__te_periodic_mlp_harmonic_fw__polished_actual_values
     dataset_schema: polished_point_v1
     model_type: periodic_mlp
-    onnx_model_path: models/polished_dataset/actual_values/exported/periodic_mlp_harmonic/forward/2026-07-08-03-17-38__te_periodic_mlp_harmonic_fw__polished_actual_values/onnx/model.onnx
-    python_model_path: models/polished_dataset/actual_values/exported/periodic_mlp_harmonic/forward/2026-07-08-03-17-38__te_periodic_mlp_harmonic_fw__polished_actual_values/python/periodic_mlp-epoch=045-val_mae=0.00131065.ckpt
-    training_config_path: models/polished_dataset/actual_values/exported/periodic_mlp_harmonic/forward/2026-07-08-03-17-38__te_periodic_mlp_harmonic_fw__polished_actual_values/source_run/training_config.snapshot.yaml
-    source_inventory_path: models/polished_dataset/actual_values/exported/model_development_export_inventory.yaml
+    onnx_model_path: models/polished_dataset/actual_values/periodic_mlp_harmonic/forward/onnx/model.onnx
+    python_model_path: models/polished_dataset/actual_values/periodic_mlp_harmonic/forward/python/periodic_mlp-epoch=045-val_mae=0.00131065.ckpt
+    training_config_path: models/polished_dataset/actual_values/periodic_mlp_harmonic/forward/source_run/training_config.snapshot.yaml
+    source_inventory_path: models/polished_dataset/actual_values/model_development_export_inventory.yaml
     evaluated_curve_count: 100
     aggregate_metrics:
       mse: 8.479645385624344e-06
@@ -1666,10 +1666,10 @@ group_summary_list:
     run_instance_id: 2026-07-08-03-31-01__te_periodic_mlp_harmonic_bw__polished_actual_values
     dataset_schema: polished_point_v1
     model_type: periodic_mlp
-    onnx_model_path: models/polished_dataset/actual_values/exported/periodic_mlp_harmonic/backward/2026-07-08-03-31-01__te_periodic_mlp_harmonic_bw__polished_actual_values/onnx/model.onnx
-    python_model_path: models/polished_dataset/actual_values/exported/periodic_mlp_harmonic/backward/2026-07-08-03-31-01__te_periodic_mlp_harmonic_bw__polished_actual_values/python/periodic_mlp-epoch=128-val_mae=0.00117146.ckpt
-    training_config_path: models/polished_dataset/actual_values/exported/periodic_mlp_harmonic/backward/2026-07-08-03-31-01__te_periodic_mlp_harmonic_bw__polished_actual_values/source_run/training_config.snapshot.yaml
-    source_inventory_path: models/polished_dataset/actual_values/exported/model_development_export_inventory.yaml
+    onnx_model_path: models/polished_dataset/actual_values/periodic_mlp_harmonic/backward/onnx/model.onnx
+    python_model_path: models/polished_dataset/actual_values/periodic_mlp_harmonic/backward/python/periodic_mlp-epoch=128-val_mae=0.00117146.ckpt
+    training_config_path: models/polished_dataset/actual_values/periodic_mlp_harmonic/backward/source_run/training_config.snapshot.yaml
+    source_inventory_path: models/polished_dataset/actual_values/model_development_export_inventory.yaml
     evaluated_curve_count: 94
     aggregate_metrics:
       mse: 2.729457577716127e-05
@@ -1899,10 +1899,10 @@ group_summary_list:
     run_instance_id: 2026-07-08-02-59-27__te_periodic_mlp_harmonic_global__polished_actual_values
     dataset_schema: polished_point_v1
     model_type: periodic_mlp
-    onnx_model_path: models/polished_dataset/actual_values/exported/periodic_mlp_harmonic/global/2026-07-08-02-59-27__te_periodic_mlp_harmonic_global__polished_actual_values/onnx/model.onnx
-    python_model_path: models/polished_dataset/actual_values/exported/periodic_mlp_harmonic/global/2026-07-08-02-59-27__te_periodic_mlp_harmonic_global__polished_actual_values/python/periodic_mlp-epoch=074-val_mae=0.00123779.ckpt
-    training_config_path: models/polished_dataset/actual_values/exported/periodic_mlp_harmonic/global/2026-07-08-02-59-27__te_periodic_mlp_harmonic_global__polished_actual_values/source_run/training_config.snapshot.yaml
-    source_inventory_path: models/polished_dataset/actual_values/exported/model_development_export_inventory.yaml
+    onnx_model_path: models/polished_dataset/actual_values/periodic_mlp_harmonic/global/onnx/model.onnx
+    python_model_path: models/polished_dataset/actual_values/periodic_mlp_harmonic/global/python/periodic_mlp-epoch=074-val_mae=0.00123779.ckpt
+    training_config_path: models/polished_dataset/actual_values/periodic_mlp_harmonic/global/source_run/training_config.snapshot.yaml
+    source_inventory_path: models/polished_dataset/actual_values/model_development_export_inventory.yaml
     evaluated_curve_count: 194
     aggregate_metrics:
       mse: 1.7697609143316727e-05

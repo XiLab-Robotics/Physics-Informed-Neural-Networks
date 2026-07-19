@@ -28,7 +28,7 @@ metadata:
   dataset_name: polished_dataset
   input_mode: setpoints
   source_dataset_root: data/polished_dataset
-  expected_model_archive_root: models/polished_dataset/setpoints/exported
+  expected_model_archive_root: models/polished_dataset/setpoints
   run_instance_id: 2026-07-08-12-47-20__te_gru_sequence_bw__polished_setpoints
 dataset:
   curve_batch_size: 16

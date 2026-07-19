@@ -1,0 +1,25 @@
+schema_version: 1
+dataset_id: polished_dataset
+dataset_schema: polished_point_v1
+input_mode: actual_values
+model_family: wave3_3_curve_aware_pointwise_control
+model_type: curve_aware_harmonic_residual_offset_probe
+surface: forward
+run_name: te_wave3_3_curve_aware_pointwise_control_fw__polished_actual_values
+run_instance_id: 2026-07-11-13-46-39__te_wave3_3_curve_aware_pointwise_control_fw__polished_actual_values
+source_output_directory: output/training_runs/wave3_3_curve_aware_pointwise_control/2026-07-11-13-46-39__te_wave3_3_curve_aware_pointwise_control_fw__polished_actual_values
+source_best_checkpoint_path: output/training_runs/wave3_3_curve_aware_pointwise_control/2026-07-11-13-46-39__te_wave3_3_curve_aware_pointwise_control_fw__polished_actual_values/checkpoints/curve_aware_harmonic_residual_offset_probe-epoch=256-val_mae=0.00183289.ckpt
+python_model_path: models/polished_dataset/actual_values/wave3_3_curve_aware_pointwise_control/forward/python/curve_aware_harmonic_residual_offset_probe-epoch=256-val_mae=0.00183289.ckpt
+onnx_model_path: models/polished_dataset/actual_values/wave3_3_curve_aware_pointwise_control/forward/onnx/model.onnx
+onnx_export_status: exported
+onnx_export_error: ''
+source_run_snapshot_path_map:
+  training_config.snapshot.yaml: models/polished_dataset/actual_values/wave3_3_curve_aware_pointwise_control/forward/source_run/training_config.snapshot.yaml
+  metrics_summary.snapshot.yaml: models/polished_dataset/actual_values/wave3_3_curve_aware_pointwise_control/forward/source_run/metrics_summary.snapshot.yaml
+  run_metadata.snapshot.yaml: models/polished_dataset/actual_values/wave3_3_curve_aware_pointwise_control/forward/source_run/run_metadata.snapshot.yaml
+  training_test_report.snapshot.md: models/polished_dataset/actual_values/wave3_3_curve_aware_pointwise_control/forward/source_run/training_test_report.snapshot.md
+  best_checkpoint_path.snapshot.txt: models/polished_dataset/actual_values/wave3_3_curve_aware_pointwise_control/forward/source_run/best_checkpoint_path.snapshot.txt
+metrics:
+  val_mae: 0.0018328940495848656
+  test_mae: 0.001943023526109755
+  test_rmse: 0.00297743733972311

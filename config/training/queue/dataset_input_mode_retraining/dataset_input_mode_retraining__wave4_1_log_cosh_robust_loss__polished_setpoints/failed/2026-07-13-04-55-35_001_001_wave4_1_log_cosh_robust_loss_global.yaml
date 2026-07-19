@@ -45,7 +45,7 @@ metadata:
   dataset_name: polished_dataset
   input_mode: setpoints
   source_dataset_root: data/polished_dataset
-  expected_model_archive_root: models/polished_dataset/setpoints/exported
+  expected_model_archive_root: models/polished_dataset/setpoints
   run_instance_id: 2026-07-13-04-55-35__te_wave4_1_log_cosh_robust_loss_global__polished_setpoints
 dataset:
   curve_batch_size: 16

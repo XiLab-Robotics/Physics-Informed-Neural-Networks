@@ -36,9 +36,9 @@ Exact model paths:
 
 | Surface | ONNX Model Path | Python Model Path |
 | --- | --- | --- |
-| forward | `models/simplified_dataset/setpoints/exported/harmonic_regression/forward/2026-07-07-22-54-59__te_harmonic_regression_fw__simplified_setpoints/onnx/model.onnx` | `models/simplified_dataset/setpoints/exported/harmonic_regression/forward/2026-07-07-22-54-59__te_harmonic_regression_fw__simplified_setpoints/python/harmonic_regression-epoch=033-val_mae=0.01699562.ckpt` |
-| backward | `models/simplified_dataset/setpoints/exported/harmonic_regression/backward/2026-07-07-23-01-08__te_harmonic_regression_bw__simplified_setpoints/onnx/model.onnx` | `models/simplified_dataset/setpoints/exported/harmonic_regression/backward/2026-07-07-23-01-08__te_harmonic_regression_bw__simplified_setpoints/python/harmonic_regression-epoch=060-val_mae=0.01698885.ckpt` |
-| global | `models/simplified_dataset/setpoints/exported/harmonic_regression/global/2026-07-07-22-48-30__te_harmonic_regression_global__simplified_setpoints/onnx/model.onnx` | `models/simplified_dataset/setpoints/exported/harmonic_regression/global/2026-07-07-22-48-30__te_harmonic_regression_global__simplified_setpoints/python/harmonic_regression-epoch=063-val_mae=0.01699328.ckpt` |
+| forward | `models/simplified_dataset/setpoints/harmonic_regression/forward/onnx/model.onnx` | `models/simplified_dataset/setpoints/harmonic_regression/forward/python/harmonic_regression-epoch=033-val_mae=0.01699562.ckpt` |
+| backward | `models/simplified_dataset/setpoints/harmonic_regression/backward/onnx/model.onnx` | `models/simplified_dataset/setpoints/harmonic_regression/backward/python/harmonic_regression-epoch=060-val_mae=0.01698885.ckpt` |
+| global | `models/simplified_dataset/setpoints/harmonic_regression/global/onnx/model.onnx` | `models/simplified_dataset/setpoints/harmonic_regression/global/python/harmonic_regression-epoch=063-val_mae=0.01699328.ckpt` |
 
 ### Aggregate Metrics
 
@@ -87,9 +87,9 @@ Exact model paths:
 
 | Surface | ONNX Model Path | Python Model Path |
 | --- | --- | --- |
-| forward | `models/polished_dataset/setpoints/exported/harmonic_regression/forward/2026-07-07-23-29-07__te_harmonic_regression_fw__polished_setpoints/onnx/model.onnx` | `models/polished_dataset/setpoints/exported/harmonic_regression/forward/2026-07-07-23-29-07__te_harmonic_regression_fw__polished_setpoints/python/harmonic_regression-epoch=032-val_mae=0.01714993.ckpt` |
-| backward | `models/polished_dataset/setpoints/exported/harmonic_regression/backward/2026-07-07-23-39-40__te_harmonic_regression_bw__polished_setpoints/onnx/model.onnx` | `models/polished_dataset/setpoints/exported/harmonic_regression/backward/2026-07-07-23-39-40__te_harmonic_regression_bw__polished_setpoints/python/harmonic_regression-epoch=044-val_mae=0.01715066.ckpt` |
-| global | `models/polished_dataset/setpoints/exported/harmonic_regression/global/2026-07-07-23-18-16__te_harmonic_regression_global__polished_setpoints/onnx/model.onnx` | `models/polished_dataset/setpoints/exported/harmonic_regression/global/2026-07-07-23-18-16__te_harmonic_regression_global__polished_setpoints/python/harmonic_regression-epoch=038-val_mae=0.01714113.ckpt` |
+| forward | `models/polished_dataset/setpoints/harmonic_regression/forward/onnx/model.onnx` | `models/polished_dataset/setpoints/harmonic_regression/forward/python/harmonic_regression-epoch=032-val_mae=0.01714993.ckpt` |
+| backward | `models/polished_dataset/setpoints/harmonic_regression/backward/onnx/model.onnx` | `models/polished_dataset/setpoints/harmonic_regression/backward/python/harmonic_regression-epoch=044-val_mae=0.01715066.ckpt` |
+| global | `models/polished_dataset/setpoints/harmonic_regression/global/onnx/model.onnx` | `models/polished_dataset/setpoints/harmonic_regression/global/python/harmonic_regression-epoch=038-val_mae=0.01714113.ckpt` |
 
 ### Aggregate Metrics
 
@@ -138,9 +138,9 @@ Exact model paths:
 
 | Surface | ONNX Model Path | Python Model Path |
 | --- | --- | --- |
-| forward | `models/polished_dataset/actual_values/exported/harmonic_regression/forward/2026-07-08-00-15-14__te_harmonic_regression_fw__polished_actual_values/onnx/model.onnx` | `models/polished_dataset/actual_values/exported/harmonic_regression/forward/2026-07-08-00-15-14__te_harmonic_regression_fw__polished_actual_values/python/harmonic_regression-epoch=073-val_mae=0.00182314.ckpt` |
-| backward | `models/polished_dataset/actual_values/exported/harmonic_regression/backward/2026-07-08-00-32-21__te_harmonic_regression_bw__polished_actual_values/onnx/model.onnx` | `models/polished_dataset/actual_values/exported/harmonic_regression/backward/2026-07-08-00-32-21__te_harmonic_regression_bw__polished_actual_values/python/harmonic_regression-epoch=054-val_mae=0.00182643.ckpt` |
-| global | `models/polished_dataset/actual_values/exported/harmonic_regression/global/2026-07-08-00-01-16__te_harmonic_regression_global__polished_actual_values/onnx/model.onnx` | `models/polished_dataset/actual_values/exported/harmonic_regression/global/2026-07-08-00-01-16__te_harmonic_regression_global__polished_actual_values/python/harmonic_regression-epoch=053-val_mae=0.00182331.ckpt` |
+| forward | `models/polished_dataset/actual_values/harmonic_regression/forward/onnx/model.onnx` | `models/polished_dataset/actual_values/harmonic_regression/forward/python/harmonic_regression-epoch=073-val_mae=0.00182314.ckpt` |
+| backward | `models/polished_dataset/actual_values/harmonic_regression/backward/onnx/model.onnx` | `models/polished_dataset/actual_values/harmonic_regression/backward/python/harmonic_regression-epoch=054-val_mae=0.00182643.ckpt` |
+| global | `models/polished_dataset/actual_values/harmonic_regression/global/onnx/model.onnx` | `models/polished_dataset/actual_values/harmonic_regression/global/python/harmonic_regression-epoch=053-val_mae=0.00182331.ckpt` |
 
 ### Aggregate Metrics
 

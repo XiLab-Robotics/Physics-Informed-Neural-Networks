@@ -23,10 +23,10 @@ group_summary_list:
     run_instance_id: 2026-07-14-18-14-13__te_wave4_2_gaussian_nll_fw__simplified_setpoints
     dataset_schema: simplified_curve_v1
     model_type: curve_aware_harmonic_residual_offset_probe
-    onnx_model_path: models/simplified_dataset/setpoints/exported/wave4_2_gaussian_nll/forward/2026-07-14-18-14-13__te_wave4_2_gaussian_nll_fw__simplified_setpoints/onnx/model.onnx
-    python_model_path: models/simplified_dataset/setpoints/exported/wave4_2_gaussian_nll/forward/2026-07-14-18-14-13__te_wave4_2_gaussian_nll_fw__simplified_setpoints/python/curve_aware_harmonic_residual_offset_probe-epoch=000-val_mae=0.09172054.ckpt
+    onnx_model_path: models/simplified_dataset/setpoints/wave4_2_gaussian_nll/forward/onnx/model.onnx
+    python_model_path: models/simplified_dataset/setpoints/wave4_2_gaussian_nll/forward/python/curve_aware_harmonic_residual_offset_probe-epoch=000-val_mae=0.09172054.ckpt
     training_config_path: output/training_runs/wave4_2_gaussian_nll/2026-07-14-18-14-13__te_wave4_2_gaussian_nll_fw__simplified_setpoints/training_config.yaml
-    source_inventory_path: models/simplified_dataset/setpoints/exported/model_development_export_inventory.yaml
+    source_inventory_path: models/simplified_dataset/setpoints/model_development_export_inventory.yaml
     evaluated_curve_count: 97
     aggregate_metrics:
       mse: 0.011034239491788535
@@ -257,10 +257,10 @@ group_summary_list:
     run_instance_id: 2026-07-14-18-22-47__te_wave4_2_gaussian_nll_bw__simplified_setpoints
     dataset_schema: simplified_curve_v1
     model_type: curve_aware_harmonic_residual_offset_probe
-    onnx_model_path: models/simplified_dataset/setpoints/exported/wave4_2_gaussian_nll/backward/2026-07-14-18-22-47__te_wave4_2_gaussian_nll_bw__simplified_setpoints/onnx/model.onnx
-    python_model_path: models/simplified_dataset/setpoints/exported/wave4_2_gaussian_nll/backward/2026-07-14-18-22-47__te_wave4_2_gaussian_nll_bw__simplified_setpoints/python/curve_aware_harmonic_residual_offset_probe-epoch=000-val_mae=0.10096127.ckpt
+    onnx_model_path: models/simplified_dataset/setpoints/wave4_2_gaussian_nll/backward/onnx/model.onnx
+    python_model_path: models/simplified_dataset/setpoints/wave4_2_gaussian_nll/backward/python/curve_aware_harmonic_residual_offset_probe-epoch=000-val_mae=0.10096127.ckpt
     training_config_path: output/training_runs/wave4_2_gaussian_nll/2026-07-14-18-22-47__te_wave4_2_gaussian_nll_bw__simplified_setpoints/training_config.yaml
-    source_inventory_path: models/simplified_dataset/setpoints/exported/model_development_export_inventory.yaml
+    source_inventory_path: models/simplified_dataset/setpoints/model_development_export_inventory.yaml
     evaluated_curve_count: 97
     aggregate_metrics:
       mse: 0.011599974262276963
@@ -491,10 +491,10 @@ group_summary_list:
     run_instance_id: 2026-07-14-18-05-51__te_wave4_2_gaussian_nll_global__simplified_setpoints
     dataset_schema: simplified_curve_v1
     model_type: curve_aware_harmonic_residual_offset_probe
-    onnx_model_path: models/simplified_dataset/setpoints/exported/wave4_2_gaussian_nll/global/2026-07-14-18-05-51__te_wave4_2_gaussian_nll_global__simplified_setpoints/onnx/model.onnx
-    python_model_path: models/simplified_dataset/setpoints/exported/wave4_2_gaussian_nll/global/2026-07-14-18-05-51__te_wave4_2_gaussian_nll_global__simplified_setpoints/python/curve_aware_harmonic_residual_offset_probe-epoch=000-val_mae=0.11074460.ckpt
+    onnx_model_path: models/simplified_dataset/setpoints/wave4_2_gaussian_nll/global/onnx/model.onnx
+    python_model_path: models/simplified_dataset/setpoints/wave4_2_gaussian_nll/global/python/curve_aware_harmonic_residual_offset_probe-epoch=000-val_mae=0.11074460.ckpt
     training_config_path: output/training_runs/wave4_2_gaussian_nll/2026-07-14-18-05-51__te_wave4_2_gaussian_nll_global__simplified_setpoints/training_config.yaml
-    source_inventory_path: models/simplified_dataset/setpoints/exported/model_development_export_inventory.yaml
+    source_inventory_path: models/simplified_dataset/setpoints/model_development_export_inventory.yaml
     evaluated_curve_count: 194
     aggregate_metrics:
       mse: 0.018549328440987906
@@ -731,10 +731,10 @@ group_summary_list:
     run_instance_id: 2026-07-14-19-42-55__te_wave4_2_gaussian_nll_fw__polished_setpoints
     dataset_schema: polished_setpoint_curve_v1
     model_type: curve_aware_harmonic_residual_offset_probe
-    onnx_model_path: models/polished_dataset/setpoints/exported/wave4_2_gaussian_nll/forward/2026-07-14-19-42-55__te_wave4_2_gaussian_nll_fw__polished_setpoints/onnx/model.onnx
-    python_model_path: models/polished_dataset/setpoints/exported/wave4_2_gaussian_nll/forward/2026-07-14-19-42-55__te_wave4_2_gaussian_nll_fw__polished_setpoints/python/curve_aware_harmonic_residual_offset_probe-epoch=001-val_mae=0.08819758.ckpt
+    onnx_model_path: models/polished_dataset/setpoints/wave4_2_gaussian_nll/forward/onnx/model.onnx
+    python_model_path: models/polished_dataset/setpoints/wave4_2_gaussian_nll/forward/python/curve_aware_harmonic_residual_offset_probe-epoch=001-val_mae=0.08819758.ckpt
     training_config_path: output/training_runs/wave4_2_gaussian_nll/2026-07-14-19-42-55__te_wave4_2_gaussian_nll_fw__polished_setpoints/training_config.yaml
-    source_inventory_path: models/polished_dataset/setpoints/exported/model_development_export_inventory.yaml
+    source_inventory_path: models/polished_dataset/setpoints/model_development_export_inventory.yaml
     evaluated_curve_count: 100
     aggregate_metrics:
       mse: 0.011373399226431689
@@ -965,10 +965,10 @@ group_summary_list:
     run_instance_id: 2026-07-14-19-52-54__te_wave4_2_gaussian_nll_bw__polished_setpoints
     dataset_schema: polished_setpoint_curve_v1
     model_type: curve_aware_harmonic_residual_offset_probe
-    onnx_model_path: models/polished_dataset/setpoints/exported/wave4_2_gaussian_nll/backward/2026-07-14-19-52-54__te_wave4_2_gaussian_nll_bw__polished_setpoints/onnx/model.onnx
-    python_model_path: models/polished_dataset/setpoints/exported/wave4_2_gaussian_nll/backward/2026-07-14-19-52-54__te_wave4_2_gaussian_nll_bw__polished_setpoints/python/curve_aware_harmonic_residual_offset_probe-epoch=000-val_mae=0.08419463.ckpt
+    onnx_model_path: models/polished_dataset/setpoints/wave4_2_gaussian_nll/backward/onnx/model.onnx
+    python_model_path: models/polished_dataset/setpoints/wave4_2_gaussian_nll/backward/python/curve_aware_harmonic_residual_offset_probe-epoch=000-val_mae=0.08419463.ckpt
     training_config_path: output/training_runs/wave4_2_gaussian_nll/2026-07-14-19-52-54__te_wave4_2_gaussian_nll_bw__polished_setpoints/training_config.yaml
-    source_inventory_path: models/polished_dataset/setpoints/exported/model_development_export_inventory.yaml
+    source_inventory_path: models/polished_dataset/setpoints/model_development_export_inventory.yaml
     evaluated_curve_count: 94
     aggregate_metrics:
       mse: 0.012698183560498575
@@ -1199,10 +1199,10 @@ group_summary_list:
     run_instance_id: 2026-07-14-18-46-23__te_wave4_2_gaussian_nll_global__polished_setpoints
     dataset_schema: polished_setpoint_curve_v1
     model_type: curve_aware_harmonic_residual_offset_probe
-    onnx_model_path: models/polished_dataset/setpoints/exported/wave4_2_gaussian_nll/global/2026-07-14-18-46-23__te_wave4_2_gaussian_nll_global__polished_setpoints/onnx/model.onnx
-    python_model_path: models/polished_dataset/setpoints/exported/wave4_2_gaussian_nll/global/2026-07-14-18-46-23__te_wave4_2_gaussian_nll_global__polished_setpoints/python/curve_aware_harmonic_residual_offset_probe-epoch=240-val_mae=0.00188169.ckpt
+    onnx_model_path: models/polished_dataset/setpoints/wave4_2_gaussian_nll/global/onnx/model.onnx
+    python_model_path: models/polished_dataset/setpoints/wave4_2_gaussian_nll/global/python/curve_aware_harmonic_residual_offset_probe-epoch=240-val_mae=0.00188169.ckpt
     training_config_path: output/training_runs/wave4_2_gaussian_nll/2026-07-14-18-46-23__te_wave4_2_gaussian_nll_global__polished_setpoints/training_config.yaml
-    source_inventory_path: models/polished_dataset/setpoints/exported/model_development_export_inventory.yaml
+    source_inventory_path: models/polished_dataset/setpoints/model_development_export_inventory.yaml
     evaluated_curve_count: 194
     aggregate_metrics:
       mse: 1.8660170817324238e-05
@@ -1439,10 +1439,10 @@ group_summary_list:
     run_instance_id: 2026-07-14-20-42-59__te_wave4_2_gaussian_nll_fw__polished_actual_values
     dataset_schema: polished_point_v1
     model_type: curve_aware_harmonic_residual_offset_probe
-    onnx_model_path: models/polished_dataset/actual_values/exported/wave4_2_gaussian_nll/forward/2026-07-14-20-42-59__te_wave4_2_gaussian_nll_fw__polished_actual_values/onnx/model.onnx
-    python_model_path: models/polished_dataset/actual_values/exported/wave4_2_gaussian_nll/forward/2026-07-14-20-42-59__te_wave4_2_gaussian_nll_fw__polished_actual_values/python/curve_aware_harmonic_residual_offset_probe-epoch=258-val_mae=0.00181578.ckpt
+    onnx_model_path: models/polished_dataset/actual_values/wave4_2_gaussian_nll/forward/onnx/model.onnx
+    python_model_path: models/polished_dataset/actual_values/wave4_2_gaussian_nll/forward/python/curve_aware_harmonic_residual_offset_probe-epoch=258-val_mae=0.00181578.ckpt
     training_config_path: output/training_runs/wave4_2_gaussian_nll/2026-07-14-20-42-59__te_wave4_2_gaussian_nll_fw__polished_actual_values/training_config.yaml
-    source_inventory_path: models/polished_dataset/actual_values/exported/model_development_export_inventory.yaml
+    source_inventory_path: models/polished_dataset/actual_values/model_development_export_inventory.yaml
     evaluated_curve_count: 100
     aggregate_metrics:
       mse: 8.203412865868171e-06
@@ -1673,10 +1673,10 @@ group_summary_list:
     run_instance_id: 2026-07-14-21-40-47__te_wave4_2_gaussian_nll_bw__polished_actual_values
     dataset_schema: polished_point_v1
     model_type: curve_aware_harmonic_residual_offset_probe
-    onnx_model_path: models/polished_dataset/actual_values/exported/wave4_2_gaussian_nll/backward/2026-07-14-21-40-47__te_wave4_2_gaussian_nll_bw__polished_actual_values/onnx/model.onnx
-    python_model_path: models/polished_dataset/actual_values/exported/wave4_2_gaussian_nll/backward/2026-07-14-21-40-47__te_wave4_2_gaussian_nll_bw__polished_actual_values/python/curve_aware_harmonic_residual_offset_probe-epoch=255-val_mae=0.00180572.ckpt
+    onnx_model_path: models/polished_dataset/actual_values/wave4_2_gaussian_nll/backward/onnx/model.onnx
+    python_model_path: models/polished_dataset/actual_values/wave4_2_gaussian_nll/backward/python/curve_aware_harmonic_residual_offset_probe-epoch=255-val_mae=0.00180572.ckpt
     training_config_path: output/training_runs/wave4_2_gaussian_nll/2026-07-14-21-40-47__te_wave4_2_gaussian_nll_bw__polished_actual_values/training_config.yaml
-    source_inventory_path: models/polished_dataset/actual_values/exported/model_development_export_inventory.yaml
+    source_inventory_path: models/polished_dataset/actual_values/model_development_export_inventory.yaml
     evaluated_curve_count: 94
     aggregate_metrics:
       mse: 2.3797359790860143e-05
@@ -1907,10 +1907,10 @@ group_summary_list:
     run_instance_id: 2026-07-14-20-32-49__te_wave4_2_gaussian_nll_global__polished_actual_values
     dataset_schema: polished_point_v1
     model_type: curve_aware_harmonic_residual_offset_probe
-    onnx_model_path: models/polished_dataset/actual_values/exported/wave4_2_gaussian_nll/global/2026-07-14-20-32-49__te_wave4_2_gaussian_nll_global__polished_actual_values/onnx/model.onnx
-    python_model_path: models/polished_dataset/actual_values/exported/wave4_2_gaussian_nll/global/2026-07-14-20-32-49__te_wave4_2_gaussian_nll_global__polished_actual_values/python/curve_aware_harmonic_residual_offset_probe-epoch=000-val_mae=0.10197201.ckpt
+    onnx_model_path: models/polished_dataset/actual_values/wave4_2_gaussian_nll/global/onnx/model.onnx
+    python_model_path: models/polished_dataset/actual_values/wave4_2_gaussian_nll/global/python/curve_aware_harmonic_residual_offset_probe-epoch=000-val_mae=0.10197201.ckpt
     training_config_path: output/training_runs/wave4_2_gaussian_nll/2026-07-14-20-32-49__te_wave4_2_gaussian_nll_global__polished_actual_values/training_config.yaml
-    source_inventory_path: models/polished_dataset/actual_values/exported/model_development_export_inventory.yaml
+    source_inventory_path: models/polished_dataset/actual_values/model_development_export_inventory.yaml
     evaluated_curve_count: 194
     aggregate_metrics:
       mse: 0.015472364699267728

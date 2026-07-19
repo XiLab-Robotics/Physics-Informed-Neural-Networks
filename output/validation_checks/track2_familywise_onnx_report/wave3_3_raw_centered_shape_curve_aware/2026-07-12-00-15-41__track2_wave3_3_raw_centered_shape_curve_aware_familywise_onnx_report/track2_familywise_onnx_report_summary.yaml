@@ -23,10 +23,10 @@ group_summary_list:
     run_instance_id: 2026-07-11-16-12-47__te_wave3_3_raw_centered_shape_curve_aware_fw__simplified_setpoints
     dataset_schema: simplified_curve_v1
     model_type: curve_aware_harmonic_residual_offset_probe
-    onnx_model_path: models/simplified_dataset/setpoints/exported/wave3_3_raw_centered_shape_curve_aware/forward/2026-07-11-16-12-47__te_wave3_3_raw_centered_shape_curve_aware_fw__simplified_setpoints/onnx/model.onnx
-    python_model_path: models/simplified_dataset/setpoints/exported/wave3_3_raw_centered_shape_curve_aware/forward/2026-07-11-16-12-47__te_wave3_3_raw_centered_shape_curve_aware_fw__simplified_setpoints/python/curve_aware_harmonic_residual_offset_probe-epoch=119-val_mae=0.00356710.ckpt
-    training_config_path: models/simplified_dataset/setpoints/exported/wave3_3_raw_centered_shape_curve_aware/forward/2026-07-11-16-12-47__te_wave3_3_raw_centered_shape_curve_aware_fw__simplified_setpoints/source_run/training_config.snapshot.yaml
-    source_inventory_path: models/simplified_dataset/setpoints/exported/model_development_export_inventory.yaml
+    onnx_model_path: models/simplified_dataset/setpoints/wave3_3_raw_centered_shape_curve_aware/forward/onnx/model.onnx
+    python_model_path: models/simplified_dataset/setpoints/wave3_3_raw_centered_shape_curve_aware/forward/python/curve_aware_harmonic_residual_offset_probe-epoch=119-val_mae=0.00356710.ckpt
+    training_config_path: models/simplified_dataset/setpoints/wave3_3_raw_centered_shape_curve_aware/forward/source_run/training_config.snapshot.yaml
+    source_inventory_path: models/simplified_dataset/setpoints/model_development_export_inventory.yaml
     evaluated_curve_count: 97
     aggregate_metrics:
       mse: 1.6437041669271957e-05
@@ -257,10 +257,10 @@ group_summary_list:
     run_instance_id: 2026-07-11-16-42-36__te_wave3_3_raw_centered_shape_curve_aware_bw__simplified_setpoints
     dataset_schema: simplified_curve_v1
     model_type: curve_aware_harmonic_residual_offset_probe
-    onnx_model_path: models/simplified_dataset/setpoints/exported/wave3_3_raw_centered_shape_curve_aware/backward/2026-07-11-16-42-36__te_wave3_3_raw_centered_shape_curve_aware_bw__simplified_setpoints/onnx/model.onnx
-    python_model_path: models/simplified_dataset/setpoints/exported/wave3_3_raw_centered_shape_curve_aware/backward/2026-07-11-16-42-36__te_wave3_3_raw_centered_shape_curve_aware_bw__simplified_setpoints/python/curve_aware_harmonic_residual_offset_probe-epoch=122-val_mae=0.00357800.ckpt
-    training_config_path: models/simplified_dataset/setpoints/exported/wave3_3_raw_centered_shape_curve_aware/backward/2026-07-11-16-42-36__te_wave3_3_raw_centered_shape_curve_aware_bw__simplified_setpoints/source_run/training_config.snapshot.yaml
-    source_inventory_path: models/simplified_dataset/setpoints/exported/model_development_export_inventory.yaml
+    onnx_model_path: models/simplified_dataset/setpoints/wave3_3_raw_centered_shape_curve_aware/backward/onnx/model.onnx
+    python_model_path: models/simplified_dataset/setpoints/wave3_3_raw_centered_shape_curve_aware/backward/python/curve_aware_harmonic_residual_offset_probe-epoch=122-val_mae=0.00357800.ckpt
+    training_config_path: models/simplified_dataset/setpoints/wave3_3_raw_centered_shape_curve_aware/backward/source_run/training_config.snapshot.yaml
+    source_inventory_path: models/simplified_dataset/setpoints/model_development_export_inventory.yaml
     evaluated_curve_count: 97
     aggregate_metrics:
       mse: 2.0101659569250016e-05
@@ -491,10 +491,10 @@ group_summary_list:
     run_instance_id: 2026-07-11-15-43-36__te_wave3_3_raw_centered_shape_curve_aware_global__simplified_setpoints
     dataset_schema: simplified_curve_v1
     model_type: curve_aware_harmonic_residual_offset_probe
-    onnx_model_path: models/simplified_dataset/setpoints/exported/wave3_3_raw_centered_shape_curve_aware/global/2026-07-11-15-43-36__te_wave3_3_raw_centered_shape_curve_aware_global__simplified_setpoints/onnx/model.onnx
-    python_model_path: models/simplified_dataset/setpoints/exported/wave3_3_raw_centered_shape_curve_aware/global/2026-07-11-15-43-36__te_wave3_3_raw_centered_shape_curve_aware_global__simplified_setpoints/python/curve_aware_harmonic_residual_offset_probe-epoch=114-val_mae=0.00357026.ckpt
-    training_config_path: models/simplified_dataset/setpoints/exported/wave3_3_raw_centered_shape_curve_aware/global/2026-07-11-15-43-36__te_wave3_3_raw_centered_shape_curve_aware_global__simplified_setpoints/source_run/training_config.snapshot.yaml
-    source_inventory_path: models/simplified_dataset/setpoints/exported/model_development_export_inventory.yaml
+    onnx_model_path: models/simplified_dataset/setpoints/wave3_3_raw_centered_shape_curve_aware/global/onnx/model.onnx
+    python_model_path: models/simplified_dataset/setpoints/wave3_3_raw_centered_shape_curve_aware/global/python/curve_aware_harmonic_residual_offset_probe-epoch=114-val_mae=0.00357026.ckpt
+    training_config_path: models/simplified_dataset/setpoints/wave3_3_raw_centered_shape_curve_aware/global/source_run/training_config.snapshot.yaml
+    source_inventory_path: models/simplified_dataset/setpoints/model_development_export_inventory.yaml
     evaluated_curve_count: 194
     aggregate_metrics:
       mse: 1.9150629227947457e-05
@@ -731,10 +731,10 @@ group_summary_list:
     run_instance_id: 2026-07-11-18-01-02__te_wave3_3_raw_centered_shape_curve_aware_fw__polished_setpoints
     dataset_schema: polished_setpoint_curve_v1
     model_type: curve_aware_harmonic_residual_offset_probe
-    onnx_model_path: models/polished_dataset/setpoints/exported/wave3_3_raw_centered_shape_curve_aware/forward/2026-07-11-18-01-02__te_wave3_3_raw_centered_shape_curve_aware_fw__polished_setpoints/onnx/model.onnx
-    python_model_path: models/polished_dataset/setpoints/exported/wave3_3_raw_centered_shape_curve_aware/forward/2026-07-11-18-01-02__te_wave3_3_raw_centered_shape_curve_aware_fw__polished_setpoints/python/curve_aware_harmonic_residual_offset_probe-epoch=068-val_mae=0.00194145.ckpt
-    training_config_path: models/polished_dataset/setpoints/exported/wave3_3_raw_centered_shape_curve_aware/forward/2026-07-11-18-01-02__te_wave3_3_raw_centered_shape_curve_aware_fw__polished_setpoints/source_run/training_config.snapshot.yaml
-    source_inventory_path: models/polished_dataset/setpoints/exported/model_development_export_inventory.yaml
+    onnx_model_path: models/polished_dataset/setpoints/wave3_3_raw_centered_shape_curve_aware/forward/onnx/model.onnx
+    python_model_path: models/polished_dataset/setpoints/wave3_3_raw_centered_shape_curve_aware/forward/python/curve_aware_harmonic_residual_offset_probe-epoch=068-val_mae=0.00194145.ckpt
+    training_config_path: models/polished_dataset/setpoints/wave3_3_raw_centered_shape_curve_aware/forward/source_run/training_config.snapshot.yaml
+    source_inventory_path: models/polished_dataset/setpoints/model_development_export_inventory.yaml
     evaluated_curve_count: 100
     aggregate_metrics:
       mse: 9.632439633249788e-06
@@ -965,10 +965,10 @@ group_summary_list:
     run_instance_id: 2026-07-11-18-25-23__te_wave3_3_raw_centered_shape_curve_aware_bw__polished_setpoints
     dataset_schema: polished_setpoint_curve_v1
     model_type: curve_aware_harmonic_residual_offset_probe
-    onnx_model_path: models/polished_dataset/setpoints/exported/wave3_3_raw_centered_shape_curve_aware/backward/2026-07-11-18-25-23__te_wave3_3_raw_centered_shape_curve_aware_bw__polished_setpoints/onnx/model.onnx
-    python_model_path: models/polished_dataset/setpoints/exported/wave3_3_raw_centered_shape_curve_aware/backward/2026-07-11-18-25-23__te_wave3_3_raw_centered_shape_curve_aware_bw__polished_setpoints/python/curve_aware_harmonic_residual_offset_probe-epoch=121-val_mae=0.00193931.ckpt
-    training_config_path: models/polished_dataset/setpoints/exported/wave3_3_raw_centered_shape_curve_aware/backward/2026-07-11-18-25-23__te_wave3_3_raw_centered_shape_curve_aware_bw__polished_setpoints/source_run/training_config.snapshot.yaml
-    source_inventory_path: models/polished_dataset/setpoints/exported/model_development_export_inventory.yaml
+    onnx_model_path: models/polished_dataset/setpoints/wave3_3_raw_centered_shape_curve_aware/backward/onnx/model.onnx
+    python_model_path: models/polished_dataset/setpoints/wave3_3_raw_centered_shape_curve_aware/backward/python/curve_aware_harmonic_residual_offset_probe-epoch=121-val_mae=0.00193931.ckpt
+    training_config_path: models/polished_dataset/setpoints/wave3_3_raw_centered_shape_curve_aware/backward/source_run/training_config.snapshot.yaml
+    source_inventory_path: models/polished_dataset/setpoints/model_development_export_inventory.yaml
     evaluated_curve_count: 94
     aggregate_metrics:
       mse: 2.8057661197172195e-05
@@ -1199,10 +1199,10 @@ group_summary_list:
     run_instance_id: 2026-07-11-17-26-29__te_wave3_3_raw_centered_shape_curve_aware_global__polished_setpoints
     dataset_schema: polished_setpoint_curve_v1
     model_type: curve_aware_harmonic_residual_offset_probe
-    onnx_model_path: models/polished_dataset/setpoints/exported/wave3_3_raw_centered_shape_curve_aware/global/2026-07-11-17-26-29__te_wave3_3_raw_centered_shape_curve_aware_global__polished_setpoints/onnx/model.onnx
-    python_model_path: models/polished_dataset/setpoints/exported/wave3_3_raw_centered_shape_curve_aware/global/2026-07-11-17-26-29__te_wave3_3_raw_centered_shape_curve_aware_global__polished_setpoints/python/curve_aware_harmonic_residual_offset_probe-epoch=112-val_mae=0.00195150.ckpt
-    training_config_path: models/polished_dataset/setpoints/exported/wave3_3_raw_centered_shape_curve_aware/global/2026-07-11-17-26-29__te_wave3_3_raw_centered_shape_curve_aware_global__polished_setpoints/source_run/training_config.snapshot.yaml
-    source_inventory_path: models/polished_dataset/setpoints/exported/model_development_export_inventory.yaml
+    onnx_model_path: models/polished_dataset/setpoints/wave3_3_raw_centered_shape_curve_aware/global/onnx/model.onnx
+    python_model_path: models/polished_dataset/setpoints/wave3_3_raw_centered_shape_curve_aware/global/python/curve_aware_harmonic_residual_offset_probe-epoch=112-val_mae=0.00195150.ckpt
+    training_config_path: models/polished_dataset/setpoints/wave3_3_raw_centered_shape_curve_aware/global/source_run/training_config.snapshot.yaml
+    source_inventory_path: models/polished_dataset/setpoints/model_development_export_inventory.yaml
     evaluated_curve_count: 194
     aggregate_metrics:
       mse: 1.8554788759177827e-05
@@ -1439,10 +1439,10 @@ group_summary_list:
     run_instance_id: 2026-07-11-20-11-00__te_wave3_3_raw_centered_shape_curve_aware_fw__polished_actual_values
     dataset_schema: polished_point_v1
     model_type: curve_aware_harmonic_residual_offset_probe
-    onnx_model_path: models/polished_dataset/actual_values/exported/wave3_3_raw_centered_shape_curve_aware/forward/2026-07-11-20-11-00__te_wave3_3_raw_centered_shape_curve_aware_fw__polished_actual_values/onnx/model.onnx
-    python_model_path: models/polished_dataset/actual_values/exported/wave3_3_raw_centered_shape_curve_aware/forward/2026-07-11-20-11-00__te_wave3_3_raw_centered_shape_curve_aware_fw__polished_actual_values/python/curve_aware_harmonic_residual_offset_probe-epoch=095-val_mae=0.00193478.ckpt
-    training_config_path: models/polished_dataset/actual_values/exported/wave3_3_raw_centered_shape_curve_aware/forward/2026-07-11-20-11-00__te_wave3_3_raw_centered_shape_curve_aware_fw__polished_actual_values/source_run/training_config.snapshot.yaml
-    source_inventory_path: models/polished_dataset/actual_values/exported/model_development_export_inventory.yaml
+    onnx_model_path: models/polished_dataset/actual_values/wave3_3_raw_centered_shape_curve_aware/forward/onnx/model.onnx
+    python_model_path: models/polished_dataset/actual_values/wave3_3_raw_centered_shape_curve_aware/forward/python/curve_aware_harmonic_residual_offset_probe-epoch=095-val_mae=0.00193478.ckpt
+    training_config_path: models/polished_dataset/actual_values/wave3_3_raw_centered_shape_curve_aware/forward/source_run/training_config.snapshot.yaml
+    source_inventory_path: models/polished_dataset/actual_values/model_development_export_inventory.yaml
     evaluated_curve_count: 100
     aggregate_metrics:
       mse: 8.7232253766837e-06
@@ -1673,10 +1673,10 @@ group_summary_list:
     run_instance_id: 2026-07-11-20-41-54__te_wave3_3_raw_centered_shape_curve_aware_bw__polished_actual_values
     dataset_schema: polished_point_v1
     model_type: curve_aware_harmonic_residual_offset_probe
-    onnx_model_path: models/polished_dataset/actual_values/exported/wave3_3_raw_centered_shape_curve_aware/backward/2026-07-11-20-41-54__te_wave3_3_raw_centered_shape_curve_aware_bw__polished_actual_values/onnx/model.onnx
-    python_model_path: models/polished_dataset/actual_values/exported/wave3_3_raw_centered_shape_curve_aware/backward/2026-07-11-20-41-54__te_wave3_3_raw_centered_shape_curve_aware_bw__polished_actual_values/python/curve_aware_harmonic_residual_offset_probe-epoch=186-val_mae=0.00185514.ckpt
-    training_config_path: models/polished_dataset/actual_values/exported/wave3_3_raw_centered_shape_curve_aware/backward/2026-07-11-20-41-54__te_wave3_3_raw_centered_shape_curve_aware_bw__polished_actual_values/source_run/training_config.snapshot.yaml
-    source_inventory_path: models/polished_dataset/actual_values/exported/model_development_export_inventory.yaml
+    onnx_model_path: models/polished_dataset/actual_values/wave3_3_raw_centered_shape_curve_aware/backward/onnx/model.onnx
+    python_model_path: models/polished_dataset/actual_values/wave3_3_raw_centered_shape_curve_aware/backward/python/curve_aware_harmonic_residual_offset_probe-epoch=186-val_mae=0.00185514.ckpt
+    training_config_path: models/polished_dataset/actual_values/wave3_3_raw_centered_shape_curve_aware/backward/source_run/training_config.snapshot.yaml
+    source_inventory_path: models/polished_dataset/actual_values/model_development_export_inventory.yaml
     evaluated_curve_count: 94
     aggregate_metrics:
       mse: 1.679336394450628e-05
@@ -1907,10 +1907,10 @@ group_summary_list:
     run_instance_id: 2026-07-11-19-14-45__te_wave3_3_raw_centered_shape_curve_aware_global__polished_actual_values
     dataset_schema: polished_point_v1
     model_type: curve_aware_harmonic_residual_offset_probe
-    onnx_model_path: models/polished_dataset/actual_values/exported/wave3_3_raw_centered_shape_curve_aware/global/2026-07-11-19-14-45__te_wave3_3_raw_centered_shape_curve_aware_global__polished_actual_values/onnx/model.onnx
-    python_model_path: models/polished_dataset/actual_values/exported/wave3_3_raw_centered_shape_curve_aware/global/2026-07-11-19-14-45__te_wave3_3_raw_centered_shape_curve_aware_global__polished_actual_values/python/curve_aware_harmonic_residual_offset_probe-epoch=210-val_mae=0.00182815.ckpt
-    training_config_path: models/polished_dataset/actual_values/exported/wave3_3_raw_centered_shape_curve_aware/global/2026-07-11-19-14-45__te_wave3_3_raw_centered_shape_curve_aware_global__polished_actual_values/source_run/training_config.snapshot.yaml
-    source_inventory_path: models/polished_dataset/actual_values/exported/model_development_export_inventory.yaml
+    onnx_model_path: models/polished_dataset/actual_values/wave3_3_raw_centered_shape_curve_aware/global/onnx/model.onnx
+    python_model_path: models/polished_dataset/actual_values/wave3_3_raw_centered_shape_curve_aware/global/python/curve_aware_harmonic_residual_offset_probe-epoch=210-val_mae=0.00182815.ckpt
+    training_config_path: models/polished_dataset/actual_values/wave3_3_raw_centered_shape_curve_aware/global/source_run/training_config.snapshot.yaml
+    source_inventory_path: models/polished_dataset/actual_values/model_development_export_inventory.yaml
     evaluated_curve_count: 194
     aggregate_metrics:
       mse: 1.2213987917732478e-05

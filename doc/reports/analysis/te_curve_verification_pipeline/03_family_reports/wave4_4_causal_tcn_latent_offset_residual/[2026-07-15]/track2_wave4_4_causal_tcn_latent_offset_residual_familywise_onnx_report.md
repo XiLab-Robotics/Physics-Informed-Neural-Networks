@@ -44,9 +44,9 @@ Exact model paths:
 
 | Surface | ONNX Model Path | Python Model Path |
 | --- | --- | --- |
-| forward | `models/simplified_dataset/setpoints/exported/wave4_4_causal_tcn_latent_offset_residual/forward/2026-07-15-20-14-26__te_wave4_4_causal_tcn_latent_offset_residual_fw__simplified_setpoints/onnx/model.onnx` | `models/simplified_dataset/setpoints/exported/wave4_4_causal_tcn_latent_offset_residual/forward/2026-07-15-20-14-26__te_wave4_4_causal_tcn_latent_offset_residual_fw__simplified_setpoints/python/latent_state_hysteresis_probe-epoch=236-val_mae=0.00349844.ckpt` |
-| backward | `models/simplified_dataset/setpoints/exported/wave4_4_causal_tcn_latent_offset_residual/backward/2026-07-15-20-38-50__te_wave4_4_causal_tcn_latent_offset_residual_bw__simplified_setpoints/onnx/model.onnx` | `models/simplified_dataset/setpoints/exported/wave4_4_causal_tcn_latent_offset_residual/backward/2026-07-15-20-38-50__te_wave4_4_causal_tcn_latent_offset_residual_bw__simplified_setpoints/python/latent_state_hysteresis_probe-epoch=105-val_mae=0.00370934.ckpt` |
-| global | `models/simplified_dataset/setpoints/exported/wave4_4_causal_tcn_latent_offset_residual/global/2026-07-15-20-07-16__te_wave4_4_causal_tcn_latent_offset_residual_global__simplified_setpoints/onnx/model.onnx` | `models/simplified_dataset/setpoints/exported/wave4_4_causal_tcn_latent_offset_residual/global/2026-07-15-20-07-16__te_wave4_4_causal_tcn_latent_offset_residual_global__simplified_setpoints/python/latent_state_hysteresis_probe-epoch=055-val_mae=0.00376625.ckpt` |
+| forward | `models/simplified_dataset/setpoints/wave4_4_causal_tcn_latent_offset_residual/forward/onnx/model.onnx` | `models/simplified_dataset/setpoints/wave4_4_causal_tcn_latent_offset_residual/forward/python/latent_state_hysteresis_probe-epoch=236-val_mae=0.00349844.ckpt` |
+| backward | `models/simplified_dataset/setpoints/wave4_4_causal_tcn_latent_offset_residual/backward/onnx/model.onnx` | `models/simplified_dataset/setpoints/wave4_4_causal_tcn_latent_offset_residual/backward/python/latent_state_hysteresis_probe-epoch=105-val_mae=0.00370934.ckpt` |
+| global | `models/simplified_dataset/setpoints/wave4_4_causal_tcn_latent_offset_residual/global/onnx/model.onnx` | `models/simplified_dataset/setpoints/wave4_4_causal_tcn_latent_offset_residual/global/python/latent_state_hysteresis_probe-epoch=055-val_mae=0.00376625.ckpt` |
 
 ### Aggregate Metrics
 
@@ -95,9 +95,9 @@ Exact model paths:
 
 | Surface | ONNX Model Path | Python Model Path |
 | --- | --- | --- |
-| forward | `models/polished_dataset/setpoints/exported/wave4_4_causal_tcn_latent_offset_residual/forward/2026-07-15-21-27-08__te_wave4_4_causal_tcn_latent_offset_residual_fw__polished_setpoints/onnx/model.onnx` | `models/polished_dataset/setpoints/exported/wave4_4_causal_tcn_latent_offset_residual/forward/2026-07-15-21-27-08__te_wave4_4_causal_tcn_latent_offset_residual_fw__polished_setpoints/python/latent_state_hysteresis_probe-epoch=107-val_mae=0.00221473.ckpt` |
-| backward | `models/polished_dataset/setpoints/exported/wave4_4_causal_tcn_latent_offset_residual/backward/2026-07-15-21-50-42__te_wave4_4_causal_tcn_latent_offset_residual_bw__polished_setpoints/onnx/model.onnx` | `models/polished_dataset/setpoints/exported/wave4_4_causal_tcn_latent_offset_residual/backward/2026-07-15-21-50-42__te_wave4_4_causal_tcn_latent_offset_residual_bw__polished_setpoints/python/latent_state_hysteresis_probe-epoch=074-val_mae=0.00224017.ckpt` |
-| global | `models/polished_dataset/setpoints/exported/wave4_4_causal_tcn_latent_offset_residual/global/2026-07-15-21-10-35__te_wave4_4_causal_tcn_latent_offset_residual_global__polished_setpoints/onnx/model.onnx` | `models/polished_dataset/setpoints/exported/wave4_4_causal_tcn_latent_offset_residual/global/2026-07-15-21-10-35__te_wave4_4_causal_tcn_latent_offset_residual_global__polished_setpoints/python/latent_state_hysteresis_probe-epoch=060-val_mae=0.00222789.ckpt` |
+| forward | `models/polished_dataset/setpoints/wave4_4_causal_tcn_latent_offset_residual/forward/onnx/model.onnx` | `models/polished_dataset/setpoints/wave4_4_causal_tcn_latent_offset_residual/forward/python/latent_state_hysteresis_probe-epoch=107-val_mae=0.00221473.ckpt` |
+| backward | `models/polished_dataset/setpoints/wave4_4_causal_tcn_latent_offset_residual/backward/onnx/model.onnx` | `models/polished_dataset/setpoints/wave4_4_causal_tcn_latent_offset_residual/backward/python/latent_state_hysteresis_probe-epoch=074-val_mae=0.00224017.ckpt` |
+| global | `models/polished_dataset/setpoints/wave4_4_causal_tcn_latent_offset_residual/global/onnx/model.onnx` | `models/polished_dataset/setpoints/wave4_4_causal_tcn_latent_offset_residual/global/python/latent_state_hysteresis_probe-epoch=060-val_mae=0.00222789.ckpt` |
 
 ### Aggregate Metrics
 
@@ -146,9 +146,9 @@ Exact model paths:
 
 | Surface | ONNX Model Path | Python Model Path |
 | --- | --- | --- |
-| forward | `models/polished_dataset/actual_values/exported/wave4_4_causal_tcn_latent_offset_residual/forward/2026-07-15-22-40-16__te_wave4_4_causal_tcn_latent_offset_residual_fw__polished_actual_values/onnx/model.onnx` | `models/polished_dataset/actual_values/exported/wave4_4_causal_tcn_latent_offset_residual/forward/2026-07-15-22-40-16__te_wave4_4_causal_tcn_latent_offset_residual_fw__polished_actual_values/python/latent_state_hysteresis_probe-epoch=038-val_mae=0.00225416.ckpt` |
-| backward | `models/polished_dataset/actual_values/exported/wave4_4_causal_tcn_latent_offset_residual/backward/2026-07-15-22-54-23__te_wave4_4_causal_tcn_latent_offset_residual_bw__polished_actual_values/onnx/model.onnx` | `models/polished_dataset/actual_values/exported/wave4_4_causal_tcn_latent_offset_residual/backward/2026-07-15-22-54-23__te_wave4_4_causal_tcn_latent_offset_residual_bw__polished_actual_values/python/latent_state_hysteresis_probe-epoch=078-val_mae=0.00222665.ckpt` |
-| global | `models/polished_dataset/actual_values/exported/wave4_4_causal_tcn_latent_offset_residual/global/2026-07-15-22-27-43__te_wave4_4_causal_tcn_latent_offset_residual_global__polished_actual_values/onnx/model.onnx` | `models/polished_dataset/actual_values/exported/wave4_4_causal_tcn_latent_offset_residual/global/2026-07-15-22-27-43__te_wave4_4_causal_tcn_latent_offset_residual_global__polished_actual_values/python/latent_state_hysteresis_probe-epoch=041-val_mae=0.00230429.ckpt` |
+| forward | `models/polished_dataset/actual_values/wave4_4_causal_tcn_latent_offset_residual/forward/onnx/model.onnx` | `models/polished_dataset/actual_values/wave4_4_causal_tcn_latent_offset_residual/forward/python/latent_state_hysteresis_probe-epoch=038-val_mae=0.00225416.ckpt` |
+| backward | `models/polished_dataset/actual_values/wave4_4_causal_tcn_latent_offset_residual/backward/onnx/model.onnx` | `models/polished_dataset/actual_values/wave4_4_causal_tcn_latent_offset_residual/backward/python/latent_state_hysteresis_probe-epoch=078-val_mae=0.00222665.ckpt` |
+| global | `models/polished_dataset/actual_values/wave4_4_causal_tcn_latent_offset_residual/global/onnx/model.onnx` | `models/polished_dataset/actual_values/wave4_4_causal_tcn_latent_offset_residual/global/python/latent_state_hysteresis_probe-epoch=041-val_mae=0.00230429.ckpt` |
 
 ### Aggregate Metrics
 

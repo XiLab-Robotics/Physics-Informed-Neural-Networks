@@ -44,9 +44,9 @@ Exact model paths:
 
 | Surface | ONNX Model Path | Python Model Path |
 | --- | --- | --- |
-| forward | `models/simplified_dataset/setpoints/exported/wave4_2_quantile_p10_p50_p90/forward/2026-07-14-11-30-33__te_wave4_2_quantile_p10_p50_p90_fw__simplified_setpoints/onnx/model.onnx` | `models/simplified_dataset/setpoints/exported/wave4_2_quantile_p10_p50_p90/forward/2026-07-14-11-30-33__te_wave4_2_quantile_p10_p50_p90_fw__simplified_setpoints/python/curve_aware_harmonic_residual_offset_probe-epoch=098-val_mae=0.00349706.ckpt` |
-| backward | `models/simplified_dataset/setpoints/exported/wave4_2_quantile_p10_p50_p90/backward/2026-07-14-11-58-31__te_wave4_2_quantile_p10_p50_p90_bw__simplified_setpoints/onnx/model.onnx` | `models/simplified_dataset/setpoints/exported/wave4_2_quantile_p10_p50_p90/backward/2026-07-14-11-58-31__te_wave4_2_quantile_p10_p50_p90_bw__simplified_setpoints/python/curve_aware_harmonic_residual_offset_probe-epoch=087-val_mae=0.00355108.ckpt` |
-| global | `models/simplified_dataset/setpoints/exported/wave4_2_quantile_p10_p50_p90/global/2026-07-14-11-05-29__te_wave4_2_quantile_p10_p50_p90_global__simplified_setpoints/onnx/model.onnx` | `models/simplified_dataset/setpoints/exported/wave4_2_quantile_p10_p50_p90/global/2026-07-14-11-05-29__te_wave4_2_quantile_p10_p50_p90_global__simplified_setpoints/python/curve_aware_harmonic_residual_offset_probe-epoch=096-val_mae=0.00351589.ckpt` |
+| forward | `models/simplified_dataset/setpoints/wave4_2_quantile_p10_p50_p90/forward/onnx/model.onnx` | `models/simplified_dataset/setpoints/wave4_2_quantile_p10_p50_p90/forward/python/curve_aware_harmonic_residual_offset_probe-epoch=098-val_mae=0.00349706.ckpt` |
+| backward | `models/simplified_dataset/setpoints/wave4_2_quantile_p10_p50_p90/backward/onnx/model.onnx` | `models/simplified_dataset/setpoints/wave4_2_quantile_p10_p50_p90/backward/python/curve_aware_harmonic_residual_offset_probe-epoch=087-val_mae=0.00355108.ckpt` |
+| global | `models/simplified_dataset/setpoints/wave4_2_quantile_p10_p50_p90/global/onnx/model.onnx` | `models/simplified_dataset/setpoints/wave4_2_quantile_p10_p50_p90/global/python/curve_aware_harmonic_residual_offset_probe-epoch=096-val_mae=0.00351589.ckpt` |
 
 ### Aggregate Metrics
 
@@ -95,9 +95,9 @@ Exact model paths:
 
 | Surface | ONNX Model Path | Python Model Path |
 | --- | --- | --- |
-| forward | `models/polished_dataset/setpoints/exported/wave4_2_quantile_p10_p50_p90/forward/2026-07-14-13-15-27__te_wave4_2_quantile_p10_p50_p90_fw__polished_setpoints/onnx/model.onnx` | `models/polished_dataset/setpoints/exported/wave4_2_quantile_p10_p50_p90/forward/2026-07-14-13-15-27__te_wave4_2_quantile_p10_p50_p90_fw__polished_setpoints/python/curve_aware_harmonic_residual_offset_probe-epoch=157-val_mae=0.00180121.ckpt` |
-| backward | `models/polished_dataset/setpoints/exported/wave4_2_quantile_p10_p50_p90/backward/2026-07-14-13-54-54__te_wave4_2_quantile_p10_p50_p90_bw__polished_setpoints/onnx/model.onnx` | `models/polished_dataset/setpoints/exported/wave4_2_quantile_p10_p50_p90/backward/2026-07-14-13-54-54__te_wave4_2_quantile_p10_p50_p90_bw__polished_setpoints/python/curve_aware_harmonic_residual_offset_probe-epoch=063-val_mae=0.00181729.ckpt` |
-| global | `models/polished_dataset/setpoints/exported/wave4_2_quantile_p10_p50_p90/global/2026-07-14-12-41-50__te_wave4_2_quantile_p10_p50_p90_global__polished_setpoints/onnx/model.onnx` | `models/polished_dataset/setpoints/exported/wave4_2_quantile_p10_p50_p90/global/2026-07-14-12-41-50__te_wave4_2_quantile_p10_p50_p90_global__polished_setpoints/python/curve_aware_harmonic_residual_offset_probe-epoch=109-val_mae=0.00179474.ckpt` |
+| forward | `models/polished_dataset/setpoints/wave4_2_quantile_p10_p50_p90/forward/onnx/model.onnx` | `models/polished_dataset/setpoints/wave4_2_quantile_p10_p50_p90/forward/python/curve_aware_harmonic_residual_offset_probe-epoch=157-val_mae=0.00180121.ckpt` |
+| backward | `models/polished_dataset/setpoints/wave4_2_quantile_p10_p50_p90/backward/onnx/model.onnx` | `models/polished_dataset/setpoints/wave4_2_quantile_p10_p50_p90/backward/python/curve_aware_harmonic_residual_offset_probe-epoch=063-val_mae=0.00181729.ckpt` |
+| global | `models/polished_dataset/setpoints/wave4_2_quantile_p10_p50_p90/global/onnx/model.onnx` | `models/polished_dataset/setpoints/wave4_2_quantile_p10_p50_p90/global/python/curve_aware_harmonic_residual_offset_probe-epoch=109-val_mae=0.00179474.ckpt` |
 
 ### Aggregate Metrics
 
@@ -146,9 +146,9 @@ Exact model paths:
 
 | Surface | ONNX Model Path | Python Model Path |
 | --- | --- | --- |
-| forward | `models/polished_dataset/actual_values/exported/wave4_2_quantile_p10_p50_p90/forward/2026-07-14-16-15-03__te_wave4_2_quantile_p10_p50_p90_fw__polished_actual_values/onnx/model.onnx` | `models/polished_dataset/actual_values/exported/wave4_2_quantile_p10_p50_p90/forward/2026-07-14-16-15-03__te_wave4_2_quantile_p10_p50_p90_fw__polished_actual_values/python/curve_aware_harmonic_residual_offset_probe-epoch=250-val_mae=0.00176755.ckpt` |
-| backward | `models/polished_dataset/actual_values/exported/wave4_2_quantile_p10_p50_p90/backward/2026-07-14-17-11-13__te_wave4_2_quantile_p10_p50_p90_bw__polished_actual_values/onnx/model.onnx` | `models/polished_dataset/actual_values/exported/wave4_2_quantile_p10_p50_p90/backward/2026-07-14-17-11-13__te_wave4_2_quantile_p10_p50_p90_bw__polished_actual_values/python/curve_aware_harmonic_residual_offset_probe-epoch=123-val_mae=0.00178818.ckpt` |
-| global | `models/polished_dataset/actual_values/exported/wave4_2_quantile_p10_p50_p90/global/2026-07-14-15-32-15__te_wave4_2_quantile_p10_p50_p90_global__polished_actual_values/onnx/model.onnx` | `models/polished_dataset/actual_values/exported/wave4_2_quantile_p10_p50_p90/global/2026-07-14-15-32-15__te_wave4_2_quantile_p10_p50_p90_global__polished_actual_values/python/curve_aware_harmonic_residual_offset_probe-epoch=180-val_mae=0.00177392.ckpt` |
+| forward | `models/polished_dataset/actual_values/wave4_2_quantile_p10_p50_p90/forward/onnx/model.onnx` | `models/polished_dataset/actual_values/wave4_2_quantile_p10_p50_p90/forward/python/curve_aware_harmonic_residual_offset_probe-epoch=250-val_mae=0.00176755.ckpt` |
+| backward | `models/polished_dataset/actual_values/wave4_2_quantile_p10_p50_p90/backward/onnx/model.onnx` | `models/polished_dataset/actual_values/wave4_2_quantile_p10_p50_p90/backward/python/curve_aware_harmonic_residual_offset_probe-epoch=123-val_mae=0.00178818.ckpt` |
+| global | `models/polished_dataset/actual_values/wave4_2_quantile_p10_p50_p90/global/onnx/model.onnx` | `models/polished_dataset/actual_values/wave4_2_quantile_p10_p50_p90/global/python/curve_aware_harmonic_residual_offset_probe-epoch=180-val_mae=0.00177392.ckpt` |
 
 ### Aggregate Metrics
 

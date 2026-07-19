@@ -44,9 +44,9 @@ Exact model paths:
 
 | Surface | ONNX Model Path | Python Model Path |
 | --- | --- | --- |
-| forward | `models/simplified_dataset/setpoints/exported/residual_harmonic_lstm_sequence_sparse_rcim/forward/2026-07-09-18-56-39__te_residual_harmonic_lstm_sequence_sparse_rcim_fw__simplified_setpoints/onnx/model.onnx` | `models/simplified_dataset/setpoints/exported/residual_harmonic_lstm_sequence_sparse_rcim/forward/2026-07-09-18-56-39__te_residual_harmonic_lstm_sequence_sparse_rcim_fw__simplified_setpoints/python/residual_harmonic_lstm_sequence-epoch=029-val_mae=0.00367824.ckpt` |
-| backward | `models/simplified_dataset/setpoints/exported/residual_harmonic_lstm_sequence_sparse_rcim/backward/2026-07-09-19-10-53__te_residual_harmonic_lstm_sequence_sparse_rcim_bw__simplified_setpoints/onnx/model.onnx` | `models/simplified_dataset/setpoints/exported/residual_harmonic_lstm_sequence_sparse_rcim/backward/2026-07-09-19-10-53__te_residual_harmonic_lstm_sequence_sparse_rcim_bw__simplified_setpoints/python/residual_harmonic_lstm_sequence-epoch=027-val_mae=0.00365442.ckpt` |
-| global | `models/simplified_dataset/setpoints/exported/residual_harmonic_lstm_sequence_sparse_rcim/global/2026-07-09-18-39-59__te_residual_harmonic_lstm_sequence_sparse_rcim_global__simplified_setpoints/onnx/model.onnx` | `models/simplified_dataset/setpoints/exported/residual_harmonic_lstm_sequence_sparse_rcim/global/2026-07-09-18-39-59__te_residual_harmonic_lstm_sequence_sparse_rcim_global__simplified_setpoints/python/residual_harmonic_lstm_sequence-epoch=050-val_mae=0.00361757.ckpt` |
+| forward | `models/simplified_dataset/setpoints/residual_harmonic_lstm_sequence_sparse_rcim/forward/onnx/model.onnx` | `models/simplified_dataset/setpoints/residual_harmonic_lstm_sequence_sparse_rcim/forward/python/residual_harmonic_lstm_sequence-epoch=029-val_mae=0.00367824.ckpt` |
+| backward | `models/simplified_dataset/setpoints/residual_harmonic_lstm_sequence_sparse_rcim/backward/onnx/model.onnx` | `models/simplified_dataset/setpoints/residual_harmonic_lstm_sequence_sparse_rcim/backward/python/residual_harmonic_lstm_sequence-epoch=027-val_mae=0.00365442.ckpt` |
+| global | `models/simplified_dataset/setpoints/residual_harmonic_lstm_sequence_sparse_rcim/global/onnx/model.onnx` | `models/simplified_dataset/setpoints/residual_harmonic_lstm_sequence_sparse_rcim/global/python/residual_harmonic_lstm_sequence-epoch=050-val_mae=0.00361757.ckpt` |
 
 ### Aggregate Metrics
 
@@ -95,9 +95,9 @@ Exact model paths:
 
 | Surface | ONNX Model Path | Python Model Path |
 | --- | --- | --- |
-| forward | `models/polished_dataset/setpoints/exported/residual_harmonic_lstm_sequence_sparse_rcim/forward/2026-07-09-19-52-09__te_residual_harmonic_lstm_sequence_sparse_rcim_fw__polished_setpoints/onnx/model.onnx` | `models/polished_dataset/setpoints/exported/residual_harmonic_lstm_sequence_sparse_rcim/forward/2026-07-09-19-52-09__te_residual_harmonic_lstm_sequence_sparse_rcim_fw__polished_setpoints/python/residual_harmonic_lstm_sequence-epoch=068-val_mae=0.00202292.ckpt` |
-| backward | `models/polished_dataset/setpoints/exported/residual_harmonic_lstm_sequence_sparse_rcim/backward/2026-07-09-20-17-04__te_residual_harmonic_lstm_sequence_sparse_rcim_bw__polished_setpoints/onnx/model.onnx` | `models/polished_dataset/setpoints/exported/residual_harmonic_lstm_sequence_sparse_rcim/backward/2026-07-09-20-17-04__te_residual_harmonic_lstm_sequence_sparse_rcim_bw__polished_setpoints/python/residual_harmonic_lstm_sequence-epoch=088-val_mae=0.00204480.ckpt` |
-| global | `models/polished_dataset/setpoints/exported/residual_harmonic_lstm_sequence_sparse_rcim/global/2026-07-09-19-35-45__te_residual_harmonic_lstm_sequence_sparse_rcim_global__polished_setpoints/onnx/model.onnx` | `models/polished_dataset/setpoints/exported/residual_harmonic_lstm_sequence_sparse_rcim/global/2026-07-09-19-35-45__te_residual_harmonic_lstm_sequence_sparse_rcim_global__polished_setpoints/python/residual_harmonic_lstm_sequence-epoch=060-val_mae=0.00204293.ckpt` |
+| forward | `models/polished_dataset/setpoints/residual_harmonic_lstm_sequence_sparse_rcim/forward/onnx/model.onnx` | `models/polished_dataset/setpoints/residual_harmonic_lstm_sequence_sparse_rcim/forward/python/residual_harmonic_lstm_sequence-epoch=068-val_mae=0.00202292.ckpt` |
+| backward | `models/polished_dataset/setpoints/residual_harmonic_lstm_sequence_sparse_rcim/backward/onnx/model.onnx` | `models/polished_dataset/setpoints/residual_harmonic_lstm_sequence_sparse_rcim/backward/python/residual_harmonic_lstm_sequence-epoch=088-val_mae=0.00204480.ckpt` |
+| global | `models/polished_dataset/setpoints/residual_harmonic_lstm_sequence_sparse_rcim/global/onnx/model.onnx` | `models/polished_dataset/setpoints/residual_harmonic_lstm_sequence_sparse_rcim/global/python/residual_harmonic_lstm_sequence-epoch=060-val_mae=0.00204293.ckpt` |
 
 ### Aggregate Metrics
 
@@ -146,9 +146,9 @@ Exact model paths:
 
 | Surface | ONNX Model Path | Python Model Path |
 | --- | --- | --- |
-| forward | `models/polished_dataset/actual_values/exported/residual_harmonic_lstm_sequence_sparse_rcim/forward/2026-07-09-21-46-24__te_residual_harmonic_lstm_sequence_sparse_rcim_fw__polished_actual_values/onnx/model.onnx` | `models/polished_dataset/actual_values/exported/residual_harmonic_lstm_sequence_sparse_rcim/forward/2026-07-09-21-46-24__te_residual_harmonic_lstm_sequence_sparse_rcim_fw__polished_actual_values/python/residual_harmonic_lstm_sequence-epoch=219-val_mae=0.00195141.ckpt` |
-| backward | `models/polished_dataset/actual_values/exported/residual_harmonic_lstm_sequence_sparse_rcim/backward/2026-07-09-22-37-02__te_residual_harmonic_lstm_sequence_sparse_rcim_bw__polished_actual_values/onnx/model.onnx` | `models/polished_dataset/actual_values/exported/residual_harmonic_lstm_sequence_sparse_rcim/backward/2026-07-09-22-37-02__te_residual_harmonic_lstm_sequence_sparse_rcim_bw__polished_actual_values/python/residual_harmonic_lstm_sequence-epoch=010-val_mae=0.00215380.ckpt` |
-| global | `models/polished_dataset/actual_values/exported/residual_harmonic_lstm_sequence_sparse_rcim/global/2026-07-09-20-53-57__te_residual_harmonic_lstm_sequence_sparse_rcim_global__polished_actual_values/onnx/model.onnx` | `models/polished_dataset/actual_values/exported/residual_harmonic_lstm_sequence_sparse_rcim/global/2026-07-09-20-53-57__te_residual_harmonic_lstm_sequence_sparse_rcim_global__polished_actual_values/python/residual_harmonic_lstm_sequence-epoch=189-val_mae=0.00196022.ckpt` |
+| forward | `models/polished_dataset/actual_values/residual_harmonic_lstm_sequence_sparse_rcim/forward/onnx/model.onnx` | `models/polished_dataset/actual_values/residual_harmonic_lstm_sequence_sparse_rcim/forward/python/residual_harmonic_lstm_sequence-epoch=219-val_mae=0.00195141.ckpt` |
+| backward | `models/polished_dataset/actual_values/residual_harmonic_lstm_sequence_sparse_rcim/backward/onnx/model.onnx` | `models/polished_dataset/actual_values/residual_harmonic_lstm_sequence_sparse_rcim/backward/python/residual_harmonic_lstm_sequence-epoch=010-val_mae=0.00215380.ckpt` |
+| global | `models/polished_dataset/actual_values/residual_harmonic_lstm_sequence_sparse_rcim/global/onnx/model.onnx` | `models/polished_dataset/actual_values/residual_harmonic_lstm_sequence_sparse_rcim/global/python/residual_harmonic_lstm_sequence-epoch=189-val_mae=0.00196022.ckpt` |
 
 ### Aggregate Metrics
 

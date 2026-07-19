@@ -44,9 +44,9 @@ Exact model paths:
 
 | Surface | ONNX Model Path | Python Model Path |
 | --- | --- | --- |
-| forward | `models/simplified_dataset/setpoints/exported/periodic_temporal_convolution/forward/2026-07-08-19-19-28__te_periodic_temporal_convolution_fw__simplified_setpoints/onnx/model.onnx` | `models/simplified_dataset/setpoints/exported/periodic_temporal_convolution/forward/2026-07-08-19-19-28__te_periodic_temporal_convolution_fw__simplified_setpoints/python/periodic_temporal_convolution-epoch=050-val_mae=0.00364466.ckpt` |
-| backward | `models/simplified_dataset/setpoints/exported/periodic_temporal_convolution/backward/2026-07-08-19-25-24__te_periodic_temporal_convolution_bw__simplified_setpoints/onnx/model.onnx` | `models/simplified_dataset/setpoints/exported/periodic_temporal_convolution/backward/2026-07-08-19-25-24__te_periodic_temporal_convolution_bw__simplified_setpoints/python/periodic_temporal_convolution-epoch=066-val_mae=0.00355314.ckpt` |
-| global | `models/simplified_dataset/setpoints/exported/periodic_temporal_convolution/global/2026-07-08-19-09-50__te_periodic_temporal_convolution_global__simplified_setpoints/onnx/model.onnx` | `models/simplified_dataset/setpoints/exported/periodic_temporal_convolution/global/2026-07-08-19-09-50__te_periodic_temporal_convolution_global__simplified_setpoints/python/periodic_temporal_convolution-epoch=095-val_mae=0.00360046.ckpt` |
+| forward | `models/simplified_dataset/setpoints/periodic_temporal_convolution/forward/onnx/model.onnx` | `models/simplified_dataset/setpoints/periodic_temporal_convolution/forward/python/periodic_temporal_convolution-epoch=050-val_mae=0.00364466.ckpt` |
+| backward | `models/simplified_dataset/setpoints/periodic_temporal_convolution/backward/onnx/model.onnx` | `models/simplified_dataset/setpoints/periodic_temporal_convolution/backward/python/periodic_temporal_convolution-epoch=066-val_mae=0.00355314.ckpt` |
+| global | `models/simplified_dataset/setpoints/periodic_temporal_convolution/global/onnx/model.onnx` | `models/simplified_dataset/setpoints/periodic_temporal_convolution/global/python/periodic_temporal_convolution-epoch=095-val_mae=0.00360046.ckpt` |
 
 ### Aggregate Metrics
 
@@ -95,9 +95,9 @@ Exact model paths:
 
 | Surface | ONNX Model Path | Python Model Path |
 | --- | --- | --- |
-| forward | `models/polished_dataset/setpoints/exported/periodic_temporal_convolution/forward/2026-07-08-19-59-14__te_periodic_temporal_convolution_fw__polished_setpoints/onnx/model.onnx` | `models/polished_dataset/setpoints/exported/periodic_temporal_convolution/forward/2026-07-08-19-59-14__te_periodic_temporal_convolution_fw__polished_setpoints/python/periodic_temporal_convolution-epoch=040-val_mae=0.00194544.ckpt` |
-| backward | `models/polished_dataset/setpoints/exported/periodic_temporal_convolution/backward/2026-07-08-20-12-10__te_periodic_temporal_convolution_bw__polished_setpoints/onnx/model.onnx` | `models/polished_dataset/setpoints/exported/periodic_temporal_convolution/backward/2026-07-08-20-12-10__te_periodic_temporal_convolution_bw__polished_setpoints/python/periodic_temporal_convolution-epoch=048-val_mae=0.00196877.ckpt` |
-| global | `models/polished_dataset/setpoints/exported/periodic_temporal_convolution/global/2026-07-08-19-44-50__te_periodic_temporal_convolution_global__polished_setpoints/onnx/model.onnx` | `models/polished_dataset/setpoints/exported/periodic_temporal_convolution/global/2026-07-08-19-44-50__te_periodic_temporal_convolution_global__polished_setpoints/python/periodic_temporal_convolution-epoch=050-val_mae=0.00196079.ckpt` |
+| forward | `models/polished_dataset/setpoints/periodic_temporal_convolution/forward/onnx/model.onnx` | `models/polished_dataset/setpoints/periodic_temporal_convolution/forward/python/periodic_temporal_convolution-epoch=040-val_mae=0.00194544.ckpt` |
+| backward | `models/polished_dataset/setpoints/periodic_temporal_convolution/backward/onnx/model.onnx` | `models/polished_dataset/setpoints/periodic_temporal_convolution/backward/python/periodic_temporal_convolution-epoch=048-val_mae=0.00196877.ckpt` |
+| global | `models/polished_dataset/setpoints/periodic_temporal_convolution/global/onnx/model.onnx` | `models/polished_dataset/setpoints/periodic_temporal_convolution/global/python/periodic_temporal_convolution-epoch=050-val_mae=0.00196079.ckpt` |
 
 ### Aggregate Metrics
 
@@ -146,9 +146,9 @@ Exact model paths:
 
 | Surface | ONNX Model Path | Python Model Path |
 | --- | --- | --- |
-| forward | `models/polished_dataset/actual_values/exported/periodic_temporal_convolution/forward/2026-07-08-21-06-17__te_periodic_temporal_convolution_fw__polished_actual_values/onnx/model.onnx` | `models/polished_dataset/actual_values/exported/periodic_temporal_convolution/forward/2026-07-08-21-06-17__te_periodic_temporal_convolution_fw__polished_actual_values/python/periodic_temporal_convolution-epoch=087-val_mae=0.00193888.ckpt` |
-| backward | `models/polished_dataset/actual_values/exported/periodic_temporal_convolution/backward/2026-07-08-21-27-59__te_periodic_temporal_convolution_bw__polished_actual_values/onnx/model.onnx` | `models/polished_dataset/actual_values/exported/periodic_temporal_convolution/backward/2026-07-08-21-27-59__te_periodic_temporal_convolution_bw__polished_actual_values/python/periodic_temporal_convolution-epoch=093-val_mae=0.00186606.ckpt` |
-| global | `models/polished_dataset/actual_values/exported/periodic_temporal_convolution/global/2026-07-08-20-40-43__te_periodic_temporal_convolution_global__polished_actual_values/onnx/model.onnx` | `models/polished_dataset/actual_values/exported/periodic_temporal_convolution/global/2026-07-08-20-40-43__te_periodic_temporal_convolution_global__polished_actual_values/python/periodic_temporal_convolution-epoch=109-val_mae=0.00190820.ckpt` |
+| forward | `models/polished_dataset/actual_values/periodic_temporal_convolution/forward/onnx/model.onnx` | `models/polished_dataset/actual_values/periodic_temporal_convolution/forward/python/periodic_temporal_convolution-epoch=087-val_mae=0.00193888.ckpt` |
+| backward | `models/polished_dataset/actual_values/periodic_temporal_convolution/backward/onnx/model.onnx` | `models/polished_dataset/actual_values/periodic_temporal_convolution/backward/python/periodic_temporal_convolution-epoch=093-val_mae=0.00186606.ckpt` |
+| global | `models/polished_dataset/actual_values/periodic_temporal_convolution/global/onnx/model.onnx` | `models/polished_dataset/actual_values/periodic_temporal_convolution/global/python/periodic_temporal_convolution-epoch=109-val_mae=0.00190820.ckpt` |
 
 ### Aggregate Metrics
 

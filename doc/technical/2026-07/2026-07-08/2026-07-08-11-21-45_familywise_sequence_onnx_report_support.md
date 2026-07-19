@@ -33,9 +33,9 @@ registries, or the heavy official matrix configuration.
 ## Involved Components
 
 - `scripts/reports/analysis/build_track2_familywise_onnx_report.py`
-- `models/simplified_dataset/setpoints/exported/model_development_export_inventory.yaml`
-- `models/polished_dataset/setpoints/exported/model_development_export_inventory.yaml`
-- `models/polished_dataset/actual_values/exported/model_development_export_inventory.yaml`
+- `models/simplified_dataset/setpoints/model_development_export_inventory.yaml`
+- `models/polished_dataset/setpoints/model_development_export_inventory.yaml`
+- `models/polished_dataset/actual_values/model_development_export_inventory.yaml`
 - `doc/reports/analysis/te_curve_verification_pipeline/03_family_reports/`
 - `output/validation_checks/track2_familywise_onnx_report/`
 - `scripts/reports/pdf/run_report_pipeline.py`

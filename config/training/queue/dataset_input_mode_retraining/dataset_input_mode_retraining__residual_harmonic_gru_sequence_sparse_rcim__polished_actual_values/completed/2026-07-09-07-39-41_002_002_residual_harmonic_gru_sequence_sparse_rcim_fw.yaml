@@ -31,7 +31,7 @@ metadata:
   dataset_name: polished_dataset
   input_mode: actual_values
   source_dataset_root: data/polished_dataset
-  expected_model_archive_root: models/polished_dataset/actual_values/exported
+  expected_model_archive_root: models/polished_dataset/actual_values
   run_instance_id: 2026-07-09-08-19-20__te_residual_harmonic_gru_sequence_sparse_rcim_fw__polished_actual_values
 dataset:
   curve_batch_size: 16

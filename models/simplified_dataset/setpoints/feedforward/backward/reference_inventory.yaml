@@ -1,0 +1,25 @@
+schema_version: 1
+dataset_id: simplified_dataset
+dataset_schema: simplified_curve_v1
+input_mode: setpoints
+model_family: feedforward
+model_type: feedforward
+surface: backward
+run_name: te_feedforward_bw__simplified_setpoints
+run_instance_id: 2026-07-07-16-34-46__te_feedforward_bw__simplified_setpoints
+source_output_directory: output/training_runs/feedforward/2026-07-07-16-34-46__te_feedforward_bw__simplified_setpoints
+source_best_checkpoint_path: output/training_runs/feedforward/2026-07-07-16-34-46__te_feedforward_bw__simplified_setpoints/checkpoints/feedforward-epoch=128-val_mae=0.00297364.ckpt
+python_model_path: models/simplified_dataset/setpoints/feedforward/backward/python/feedforward-epoch=128-val_mae=0.00297364.ckpt
+onnx_model_path: models/simplified_dataset/setpoints/feedforward/backward/onnx/model.onnx
+onnx_export_status: exported
+onnx_export_error: ''
+source_run_snapshot_path_map:
+  training_config.snapshot.yaml: models/simplified_dataset/setpoints/feedforward/backward/source_run/training_config.snapshot.yaml
+  metrics_summary.snapshot.yaml: models/simplified_dataset/setpoints/feedforward/backward/source_run/metrics_summary.snapshot.yaml
+  run_metadata.snapshot.yaml: models/simplified_dataset/setpoints/feedforward/backward/source_run/run_metadata.snapshot.yaml
+  training_test_report.snapshot.md: models/simplified_dataset/setpoints/feedforward/backward/source_run/training_test_report.snapshot.md
+  best_checkpoint_path.snapshot.txt: models/simplified_dataset/setpoints/feedforward/backward/source_run/best_checkpoint_path.snapshot.txt
+metrics:
+  val_mae: 0.002973637543618679
+  test_mae: 0.0033409877214580774
+  test_rmse: 0.003985952120274305

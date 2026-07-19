@@ -45,7 +45,7 @@ metadata:
   dataset_name: polished_dataset
   input_mode: actual_values
   source_dataset_root: data/polished_dataset
-  expected_model_archive_root: models/polished_dataset/actual_values/exported
+  expected_model_archive_root: models/polished_dataset/actual_values
   run_instance_id: 2026-07-13-10-23-44__te_wave4_1_log_cosh_robust_loss_bw__polished_actual_values
 dataset:
   curve_batch_size: 16

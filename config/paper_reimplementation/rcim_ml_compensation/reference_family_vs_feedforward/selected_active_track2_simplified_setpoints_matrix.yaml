@@ -20,7 +20,7 @@ comparison:
     candidate_kind: wave1_exported_model
     candidate_source_label: simplified_setpoints_model_archive
     candidate_surface: Fw
-    reference_inventory_path: models/simplified_dataset/setpoints/exported/feedforward/forward/2026-07-07-16-21-15__te_feedforward_fw__simplified_setpoints/reference_inventory.yaml
+    reference_inventory_path: models/simplified_dataset/setpoints/feedforward/forward/reference_inventory.yaml
     allowed_direction_list: &id001
     - forward
   - candidate_id: simplified_setpoints_tree_Fw
@@ -28,49 +28,49 @@ comparison:
     candidate_kind: wave1_exported_model
     candidate_source_label: simplified_setpoints_model_archive
     candidate_surface: Fw
-    reference_inventory_path: models/simplified_dataset/setpoints/exported/tree/forward/2026-07-07-02-31-39__te_tree_fw__simplified_setpoints/reference_inventory.yaml
+    reference_inventory_path: models/simplified_dataset/setpoints/tree/forward/reference_inventory.yaml
     allowed_direction_list: *id001
   - candidate_id: simplified_setpoints_harmonic_regression_Fw
     candidate_family: harmonic_regression
     candidate_kind: wave1_exported_model
     candidate_source_label: simplified_setpoints_model_archive
     candidate_surface: Fw
-    reference_inventory_path: models/simplified_dataset/setpoints/exported/harmonic_regression/forward/2026-07-07-22-54-59__te_harmonic_regression_fw__simplified_setpoints/reference_inventory.yaml
+    reference_inventory_path: models/simplified_dataset/setpoints/harmonic_regression/forward/reference_inventory.yaml
     allowed_direction_list: *id001
   - candidate_id: simplified_setpoints_periodic_mlp_harmonic_Fw
     candidate_family: periodic_mlp_harmonic
     candidate_kind: wave1_exported_model
     candidate_source_label: simplified_setpoints_model_archive
     candidate_surface: Fw
-    reference_inventory_path: models/simplified_dataset/setpoints/exported/periodic_mlp_harmonic/forward/2026-07-08-01-11-12__te_periodic_mlp_harmonic_fw__simplified_setpoints/reference_inventory.yaml
+    reference_inventory_path: models/simplified_dataset/setpoints/periodic_mlp_harmonic/forward/reference_inventory.yaml
     allowed_direction_list: *id001
   - candidate_id: simplified_setpoints_periodic_gru_sequence_Fw
     candidate_family: periodic_gru_sequence
     candidate_kind: wave1_exported_model
     candidate_source_label: simplified_setpoints_model_archive
     candidate_surface: Fw
-    reference_inventory_path: models/simplified_dataset/setpoints/exported/periodic_gru_sequence/forward/2026-07-08-22-14-21__te_periodic_gru_sequence_fw__simplified_setpoints/reference_inventory.yaml
+    reference_inventory_path: models/simplified_dataset/setpoints/periodic_gru_sequence/forward/reference_inventory.yaml
     allowed_direction_list: *id001
   - candidate_id: simplified_setpoints_wave4_1_mae_robust_loss_Fw
     candidate_family: wave4_1_mae_robust_loss
     candidate_kind: wave1_exported_model
     candidate_source_label: simplified_setpoints_model_archive
     candidate_surface: Fw
-    reference_inventory_path: models/simplified_dataset/setpoints/exported/wave4_1_mae_robust_loss/forward/2026-07-12-14-40-52__te_wave4_1_mae_robust_loss_fw__simplified_setpoints/reference_inventory.yaml
+    reference_inventory_path: models/simplified_dataset/setpoints/wave4_1_mae_robust_loss/forward/reference_inventory.yaml
     allowed_direction_list: *id001
   - candidate_id: simplified_setpoints_wave4_2_quantile_p10_p50_p90_Fw
     candidate_family: wave4_2_quantile_p10_p50_p90
     candidate_kind: wave1_exported_model
     candidate_source_label: simplified_setpoints_model_archive
     candidate_surface: Fw
-    reference_inventory_path: models/simplified_dataset/setpoints/exported/wave4_2_quantile_p10_p50_p90/forward/2026-07-14-11-30-33__te_wave4_2_quantile_p10_p50_p90_fw__simplified_setpoints/reference_inventory.yaml
+    reference_inventory_path: models/simplified_dataset/setpoints/wave4_2_quantile_p10_p50_p90/forward/reference_inventory.yaml
     allowed_direction_list: *id001
   - candidate_id: simplified_setpoints_feedforward_Bw
     candidate_family: feedforward
     candidate_kind: wave1_exported_model
     candidate_source_label: simplified_setpoints_model_archive
     candidate_surface: Bw
-    reference_inventory_path: models/simplified_dataset/setpoints/exported/feedforward/backward/2026-07-07-16-34-46__te_feedforward_bw__simplified_setpoints/reference_inventory.yaml
+    reference_inventory_path: models/simplified_dataset/setpoints/feedforward/backward/reference_inventory.yaml
     allowed_direction_list: &id002
     - backward
   - candidate_id: simplified_setpoints_tree_Bw
@@ -78,42 +78,42 @@ comparison:
     candidate_kind: wave1_exported_model
     candidate_source_label: simplified_setpoints_model_archive
     candidate_surface: Bw
-    reference_inventory_path: models/simplified_dataset/setpoints/exported/tree/backward/2026-07-07-02-33-43__te_tree_bw__simplified_setpoints/reference_inventory.yaml
+    reference_inventory_path: models/simplified_dataset/setpoints/tree/backward/reference_inventory.yaml
     allowed_direction_list: *id002
   - candidate_id: simplified_setpoints_harmonic_regression_Bw
     candidate_family: harmonic_regression
     candidate_kind: wave1_exported_model
     candidate_source_label: simplified_setpoints_model_archive
     candidate_surface: Bw
-    reference_inventory_path: models/simplified_dataset/setpoints/exported/harmonic_regression/backward/2026-07-07-23-01-08__te_harmonic_regression_bw__simplified_setpoints/reference_inventory.yaml
+    reference_inventory_path: models/simplified_dataset/setpoints/harmonic_regression/backward/reference_inventory.yaml
     allowed_direction_list: *id002
   - candidate_id: simplified_setpoints_periodic_mlp_harmonic_Bw
     candidate_family: periodic_mlp_harmonic
     candidate_kind: wave1_exported_model
     candidate_source_label: simplified_setpoints_model_archive
     candidate_surface: Bw
-    reference_inventory_path: models/simplified_dataset/setpoints/exported/periodic_mlp_harmonic/backward/2026-07-08-01-19-22__te_periodic_mlp_harmonic_bw__simplified_setpoints/reference_inventory.yaml
+    reference_inventory_path: models/simplified_dataset/setpoints/periodic_mlp_harmonic/backward/reference_inventory.yaml
     allowed_direction_list: *id002
   - candidate_id: simplified_setpoints_periodic_gru_sequence_Bw
     candidate_family: periodic_gru_sequence
     candidate_kind: wave1_exported_model
     candidate_source_label: simplified_setpoints_model_archive
     candidate_surface: Bw
-    reference_inventory_path: models/simplified_dataset/setpoints/exported/periodic_gru_sequence/backward/2026-07-08-22-23-26__te_periodic_gru_sequence_bw__simplified_setpoints/reference_inventory.yaml
+    reference_inventory_path: models/simplified_dataset/setpoints/periodic_gru_sequence/backward/reference_inventory.yaml
     allowed_direction_list: *id002
   - candidate_id: simplified_setpoints_wave4_1_mae_robust_loss_Bw
     candidate_family: wave4_1_mae_robust_loss
     candidate_kind: wave1_exported_model
     candidate_source_label: simplified_setpoints_model_archive
     candidate_surface: Bw
-    reference_inventory_path: models/simplified_dataset/setpoints/exported/wave4_1_mae_robust_loss/backward/2026-07-12-14-58-28__te_wave4_1_mae_robust_loss_bw__simplified_setpoints/reference_inventory.yaml
+    reference_inventory_path: models/simplified_dataset/setpoints/wave4_1_mae_robust_loss/backward/reference_inventory.yaml
     allowed_direction_list: *id002
   - candidate_id: simplified_setpoints_wave4_2_quantile_p10_p50_p90_Bw
     candidate_family: wave4_2_quantile_p10_p50_p90
     candidate_kind: wave1_exported_model
     candidate_source_label: simplified_setpoints_model_archive
     candidate_surface: Bw
-    reference_inventory_path: models/simplified_dataset/setpoints/exported/wave4_2_quantile_p10_p50_p90/backward/2026-07-14-11-58-31__te_wave4_2_quantile_p10_p50_p90_bw__simplified_setpoints/reference_inventory.yaml
+    reference_inventory_path: models/simplified_dataset/setpoints/wave4_2_quantile_p10_p50_p90/backward/reference_inventory.yaml
     allowed_direction_list: *id002
 evaluation:
   selected_harmonics:

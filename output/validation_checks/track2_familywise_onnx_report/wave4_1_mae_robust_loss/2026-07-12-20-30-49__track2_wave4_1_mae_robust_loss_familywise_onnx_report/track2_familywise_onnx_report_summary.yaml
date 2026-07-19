@@ -23,10 +23,10 @@ group_summary_list:
     run_instance_id: 2026-07-12-14-40-52__te_wave4_1_mae_robust_loss_fw__simplified_setpoints
     dataset_schema: simplified_curve_v1
     model_type: curve_aware_harmonic_residual_offset_probe
-    onnx_model_path: models/simplified_dataset/setpoints/exported/wave4_1_mae_robust_loss/forward/2026-07-12-14-40-52__te_wave4_1_mae_robust_loss_fw__simplified_setpoints/onnx/model.onnx
-    python_model_path: models/simplified_dataset/setpoints/exported/wave4_1_mae_robust_loss/forward/2026-07-12-14-40-52__te_wave4_1_mae_robust_loss_fw__simplified_setpoints/python/curve_aware_harmonic_residual_offset_probe-epoch=085-val_mae=0.00364418.ckpt
-    training_config_path: models/simplified_dataset/setpoints/exported/wave4_1_mae_robust_loss/forward/2026-07-12-14-40-52__te_wave4_1_mae_robust_loss_fw__simplified_setpoints/source_run/training_config.snapshot.yaml
-    source_inventory_path: models/simplified_dataset/setpoints/exported/model_development_export_inventory.yaml
+    onnx_model_path: models/simplified_dataset/setpoints/wave4_1_mae_robust_loss/forward/onnx/model.onnx
+    python_model_path: models/simplified_dataset/setpoints/wave4_1_mae_robust_loss/forward/python/curve_aware_harmonic_residual_offset_probe-epoch=085-val_mae=0.00364418.ckpt
+    training_config_path: models/simplified_dataset/setpoints/wave4_1_mae_robust_loss/forward/source_run/training_config.snapshot.yaml
+    source_inventory_path: models/simplified_dataset/setpoints/model_development_export_inventory.yaml
     evaluated_curve_count: 97
     aggregate_metrics:
       mse: 1.7035023390345855e-05
@@ -257,10 +257,10 @@ group_summary_list:
     run_instance_id: 2026-07-12-14-58-28__te_wave4_1_mae_robust_loss_bw__simplified_setpoints
     dataset_schema: simplified_curve_v1
     model_type: curve_aware_harmonic_residual_offset_probe
-    onnx_model_path: models/simplified_dataset/setpoints/exported/wave4_1_mae_robust_loss/backward/2026-07-12-14-58-28__te_wave4_1_mae_robust_loss_bw__simplified_setpoints/onnx/model.onnx
-    python_model_path: models/simplified_dataset/setpoints/exported/wave4_1_mae_robust_loss/backward/2026-07-12-14-58-28__te_wave4_1_mae_robust_loss_bw__simplified_setpoints/python/curve_aware_harmonic_residual_offset_probe-epoch=073-val_mae=0.00358581.ckpt
-    training_config_path: models/simplified_dataset/setpoints/exported/wave4_1_mae_robust_loss/backward/2026-07-12-14-58-28__te_wave4_1_mae_robust_loss_bw__simplified_setpoints/source_run/training_config.snapshot.yaml
-    source_inventory_path: models/simplified_dataset/setpoints/exported/model_development_export_inventory.yaml
+    onnx_model_path: models/simplified_dataset/setpoints/wave4_1_mae_robust_loss/backward/onnx/model.onnx
+    python_model_path: models/simplified_dataset/setpoints/wave4_1_mae_robust_loss/backward/python/curve_aware_harmonic_residual_offset_probe-epoch=073-val_mae=0.00358581.ckpt
+    training_config_path: models/simplified_dataset/setpoints/wave4_1_mae_robust_loss/backward/source_run/training_config.snapshot.yaml
+    source_inventory_path: models/simplified_dataset/setpoints/model_development_export_inventory.yaml
     evaluated_curve_count: 97
     aggregate_metrics:
       mse: 2.0081183532480117e-05
@@ -491,10 +491,10 @@ group_summary_list:
     run_instance_id: 2026-07-12-14-11-27__te_wave4_1_mae_robust_loss_global__simplified_setpoints
     dataset_schema: simplified_curve_v1
     model_type: curve_aware_harmonic_residual_offset_probe
-    onnx_model_path: models/simplified_dataset/setpoints/exported/wave4_1_mae_robust_loss/global/2026-07-12-14-11-27__te_wave4_1_mae_robust_loss_global__simplified_setpoints/onnx/model.onnx
-    python_model_path: models/simplified_dataset/setpoints/exported/wave4_1_mae_robust_loss/global/2026-07-12-14-11-27__te_wave4_1_mae_robust_loss_global__simplified_setpoints/python/curve_aware_harmonic_residual_offset_probe-epoch=143-val_mae=0.00355510.ckpt
-    training_config_path: models/simplified_dataset/setpoints/exported/wave4_1_mae_robust_loss/global/2026-07-12-14-11-27__te_wave4_1_mae_robust_loss_global__simplified_setpoints/source_run/training_config.snapshot.yaml
-    source_inventory_path: models/simplified_dataset/setpoints/exported/model_development_export_inventory.yaml
+    onnx_model_path: models/simplified_dataset/setpoints/wave4_1_mae_robust_loss/global/onnx/model.onnx
+    python_model_path: models/simplified_dataset/setpoints/wave4_1_mae_robust_loss/global/python/curve_aware_harmonic_residual_offset_probe-epoch=143-val_mae=0.00355510.ckpt
+    training_config_path: models/simplified_dataset/setpoints/wave4_1_mae_robust_loss/global/source_run/training_config.snapshot.yaml
+    source_inventory_path: models/simplified_dataset/setpoints/model_development_export_inventory.yaml
     evaluated_curve_count: 194
     aggregate_metrics:
       mse: 1.8876343168612945e-05
@@ -731,10 +731,10 @@ group_summary_list:
     run_instance_id: 2026-07-12-16-19-34__te_wave4_1_mae_robust_loss_fw__polished_setpoints
     dataset_schema: polished_setpoint_curve_v1
     model_type: curve_aware_harmonic_residual_offset_probe
-    onnx_model_path: models/polished_dataset/setpoints/exported/wave4_1_mae_robust_loss/forward/2026-07-12-16-19-34__te_wave4_1_mae_robust_loss_fw__polished_setpoints/onnx/model.onnx
-    python_model_path: models/polished_dataset/setpoints/exported/wave4_1_mae_robust_loss/forward/2026-07-12-16-19-34__te_wave4_1_mae_robust_loss_fw__polished_setpoints/python/curve_aware_harmonic_residual_offset_probe-epoch=105-val_mae=0.00179190.ckpt
-    training_config_path: models/polished_dataset/setpoints/exported/wave4_1_mae_robust_loss/forward/2026-07-12-16-19-34__te_wave4_1_mae_robust_loss_fw__polished_setpoints/source_run/training_config.snapshot.yaml
-    source_inventory_path: models/polished_dataset/setpoints/exported/model_development_export_inventory.yaml
+    onnx_model_path: models/polished_dataset/setpoints/wave4_1_mae_robust_loss/forward/onnx/model.onnx
+    python_model_path: models/polished_dataset/setpoints/wave4_1_mae_robust_loss/forward/python/curve_aware_harmonic_residual_offset_probe-epoch=105-val_mae=0.00179190.ckpt
+    training_config_path: models/polished_dataset/setpoints/wave4_1_mae_robust_loss/forward/source_run/training_config.snapshot.yaml
+    source_inventory_path: models/polished_dataset/setpoints/model_development_export_inventory.yaml
     evaluated_curve_count: 100
     aggregate_metrics:
       mse: 8.28394748653626e-06
@@ -965,10 +965,10 @@ group_summary_list:
     run_instance_id: 2026-07-12-16-51-03__te_wave4_1_mae_robust_loss_bw__polished_setpoints
     dataset_schema: polished_setpoint_curve_v1
     model_type: curve_aware_harmonic_residual_offset_probe
-    onnx_model_path: models/polished_dataset/setpoints/exported/wave4_1_mae_robust_loss/backward/2026-07-12-16-51-03__te_wave4_1_mae_robust_loss_bw__polished_setpoints/onnx/model.onnx
-    python_model_path: models/polished_dataset/setpoints/exported/wave4_1_mae_robust_loss/backward/2026-07-12-16-51-03__te_wave4_1_mae_robust_loss_bw__polished_setpoints/python/curve_aware_harmonic_residual_offset_probe-epoch=088-val_mae=0.00183184.ckpt
-    training_config_path: models/polished_dataset/setpoints/exported/wave4_1_mae_robust_loss/backward/2026-07-12-16-51-03__te_wave4_1_mae_robust_loss_bw__polished_setpoints/source_run/training_config.snapshot.yaml
-    source_inventory_path: models/polished_dataset/setpoints/exported/model_development_export_inventory.yaml
+    onnx_model_path: models/polished_dataset/setpoints/wave4_1_mae_robust_loss/backward/onnx/model.onnx
+    python_model_path: models/polished_dataset/setpoints/wave4_1_mae_robust_loss/backward/python/curve_aware_harmonic_residual_offset_probe-epoch=088-val_mae=0.00183184.ckpt
+    training_config_path: models/polished_dataset/setpoints/wave4_1_mae_robust_loss/backward/source_run/training_config.snapshot.yaml
+    source_inventory_path: models/polished_dataset/setpoints/model_development_export_inventory.yaml
     evaluated_curve_count: 94
     aggregate_metrics:
       mse: 2.911572067024972e-05
@@ -1199,10 +1199,10 @@ group_summary_list:
     run_instance_id: 2026-07-12-15-32-30__te_wave4_1_mae_robust_loss_global__polished_setpoints
     dataset_schema: polished_setpoint_curve_v1
     model_type: curve_aware_harmonic_residual_offset_probe
-    onnx_model_path: models/polished_dataset/setpoints/exported/wave4_1_mae_robust_loss/global/2026-07-12-15-32-30__te_wave4_1_mae_robust_loss_global__polished_setpoints/onnx/model.onnx
-    python_model_path: models/polished_dataset/setpoints/exported/wave4_1_mae_robust_loss/global/2026-07-12-15-32-30__te_wave4_1_mae_robust_loss_global__polished_setpoints/python/curve_aware_harmonic_residual_offset_probe-epoch=178-val_mae=0.00178795.ckpt
-    training_config_path: models/polished_dataset/setpoints/exported/wave4_1_mae_robust_loss/global/2026-07-12-15-32-30__te_wave4_1_mae_robust_loss_global__polished_setpoints/source_run/training_config.snapshot.yaml
-    source_inventory_path: models/polished_dataset/setpoints/exported/model_development_export_inventory.yaml
+    onnx_model_path: models/polished_dataset/setpoints/wave4_1_mae_robust_loss/global/onnx/model.onnx
+    python_model_path: models/polished_dataset/setpoints/wave4_1_mae_robust_loss/global/python/curve_aware_harmonic_residual_offset_probe-epoch=178-val_mae=0.00178795.ckpt
+    training_config_path: models/polished_dataset/setpoints/wave4_1_mae_robust_loss/global/source_run/training_config.snapshot.yaml
+    source_inventory_path: models/polished_dataset/setpoints/model_development_export_inventory.yaml
     evaluated_curve_count: 194
     aggregate_metrics:
       mse: 1.8768232059875948e-05
@@ -1439,10 +1439,10 @@ group_summary_list:
     run_instance_id: 2026-07-12-18-19-09__te_wave4_1_mae_robust_loss_fw__polished_actual_values
     dataset_schema: polished_point_v1
     model_type: curve_aware_harmonic_residual_offset_probe
-    onnx_model_path: models/polished_dataset/actual_values/exported/wave4_1_mae_robust_loss/forward/2026-07-12-18-19-09__te_wave4_1_mae_robust_loss_fw__polished_actual_values/onnx/model.onnx
-    python_model_path: models/polished_dataset/actual_values/exported/wave4_1_mae_robust_loss/forward/2026-07-12-18-19-09__te_wave4_1_mae_robust_loss_fw__polished_actual_values/python/curve_aware_harmonic_residual_offset_probe-epoch=202-val_mae=0.00173420.ckpt
-    training_config_path: models/polished_dataset/actual_values/exported/wave4_1_mae_robust_loss/forward/2026-07-12-18-19-09__te_wave4_1_mae_robust_loss_fw__polished_actual_values/source_run/training_config.snapshot.yaml
-    source_inventory_path: models/polished_dataset/actual_values/exported/model_development_export_inventory.yaml
+    onnx_model_path: models/polished_dataset/actual_values/wave4_1_mae_robust_loss/forward/onnx/model.onnx
+    python_model_path: models/polished_dataset/actual_values/wave4_1_mae_robust_loss/forward/python/curve_aware_harmonic_residual_offset_probe-epoch=202-val_mae=0.00173420.ckpt
+    training_config_path: models/polished_dataset/actual_values/wave4_1_mae_robust_loss/forward/source_run/training_config.snapshot.yaml
+    source_inventory_path: models/polished_dataset/actual_values/model_development_export_inventory.yaml
     evaluated_curve_count: 100
     aggregate_metrics:
       mse: 7.667936566113766e-06
@@ -1673,10 +1673,10 @@ group_summary_list:
     run_instance_id: 2026-07-12-19-08-24__te_wave4_1_mae_robust_loss_bw__polished_actual_values
     dataset_schema: polished_point_v1
     model_type: curve_aware_harmonic_residual_offset_probe
-    onnx_model_path: models/polished_dataset/actual_values/exported/wave4_1_mae_robust_loss/backward/2026-07-12-19-08-24__te_wave4_1_mae_robust_loss_bw__polished_actual_values/onnx/model.onnx
-    python_model_path: models/polished_dataset/actual_values/exported/wave4_1_mae_robust_loss/backward/2026-07-12-19-08-24__te_wave4_1_mae_robust_loss_bw__polished_actual_values/python/curve_aware_harmonic_residual_offset_probe-epoch=173-val_mae=0.00178689.ckpt
-    training_config_path: models/polished_dataset/actual_values/exported/wave4_1_mae_robust_loss/backward/2026-07-12-19-08-24__te_wave4_1_mae_robust_loss_bw__polished_actual_values/source_run/training_config.snapshot.yaml
-    source_inventory_path: models/polished_dataset/actual_values/exported/model_development_export_inventory.yaml
+    onnx_model_path: models/polished_dataset/actual_values/wave4_1_mae_robust_loss/backward/onnx/model.onnx
+    python_model_path: models/polished_dataset/actual_values/wave4_1_mae_robust_loss/backward/python/curve_aware_harmonic_residual_offset_probe-epoch=173-val_mae=0.00178689.ckpt
+    training_config_path: models/polished_dataset/actual_values/wave4_1_mae_robust_loss/backward/source_run/training_config.snapshot.yaml
+    source_inventory_path: models/polished_dataset/actual_values/model_development_export_inventory.yaml
     evaluated_curve_count: 94
     aggregate_metrics:
       mse: 2.5055303153872634e-05
@@ -1907,10 +1907,10 @@ group_summary_list:
     run_instance_id: 2026-07-12-17-35-21__te_wave4_1_mae_robust_loss_global__polished_actual_values
     dataset_schema: polished_point_v1
     model_type: curve_aware_harmonic_residual_offset_probe
-    onnx_model_path: models/polished_dataset/actual_values/exported/wave4_1_mae_robust_loss/global/2026-07-12-17-35-21__te_wave4_1_mae_robust_loss_global__polished_actual_values/onnx/model.onnx
-    python_model_path: models/polished_dataset/actual_values/exported/wave4_1_mae_robust_loss/global/2026-07-12-17-35-21__te_wave4_1_mae_robust_loss_global__polished_actual_values/python/curve_aware_harmonic_residual_offset_probe-epoch=157-val_mae=0.00176826.ckpt
-    training_config_path: models/polished_dataset/actual_values/exported/wave4_1_mae_robust_loss/global/2026-07-12-17-35-21__te_wave4_1_mae_robust_loss_global__polished_actual_values/source_run/training_config.snapshot.yaml
-    source_inventory_path: models/polished_dataset/actual_values/exported/model_development_export_inventory.yaml
+    onnx_model_path: models/polished_dataset/actual_values/wave4_1_mae_robust_loss/global/onnx/model.onnx
+    python_model_path: models/polished_dataset/actual_values/wave4_1_mae_robust_loss/global/python/curve_aware_harmonic_residual_offset_probe-epoch=157-val_mae=0.00176826.ckpt
+    training_config_path: models/polished_dataset/actual_values/wave4_1_mae_robust_loss/global/source_run/training_config.snapshot.yaml
+    source_inventory_path: models/polished_dataset/actual_values/model_development_export_inventory.yaml
     evaluated_curve_count: 194
     aggregate_metrics:
       mse: 1.7849958768933533e-05

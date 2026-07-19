@@ -23,10 +23,10 @@ group_summary_list:
     run_instance_id: 2026-07-10-08-24-57__te_wave3_1_sequential_residual_offset_probe_fw__simplified_setpoints
     dataset_schema: simplified_curve_v1
     model_type: sequential_residual_offset_probe
-    onnx_model_path: models/simplified_dataset/setpoints/exported/wave3_1_sequential_residual_offset_probe/forward/2026-07-10-08-24-57__te_wave3_1_sequential_residual_offset_probe_fw__simplified_setpoints/onnx/model.onnx
-    python_model_path: models/simplified_dataset/setpoints/exported/wave3_1_sequential_residual_offset_probe/forward/2026-07-10-08-24-57__te_wave3_1_sequential_residual_offset_probe_fw__simplified_setpoints/python/sequential_residual_offset_probe-epoch=138-val_mae=0.00365466.ckpt
-    training_config_path: models/simplified_dataset/setpoints/exported/wave3_1_sequential_residual_offset_probe/forward/2026-07-10-08-24-57__te_wave3_1_sequential_residual_offset_probe_fw__simplified_setpoints/source_run/training_config.snapshot.yaml
-    source_inventory_path: models/simplified_dataset/setpoints/exported/model_development_export_inventory.yaml
+    onnx_model_path: models/simplified_dataset/setpoints/wave3_1_sequential_residual_offset_probe/forward/onnx/model.onnx
+    python_model_path: models/simplified_dataset/setpoints/wave3_1_sequential_residual_offset_probe/forward/python/sequential_residual_offset_probe-epoch=138-val_mae=0.00365466.ckpt
+    training_config_path: models/simplified_dataset/setpoints/wave3_1_sequential_residual_offset_probe/forward/source_run/training_config.snapshot.yaml
+    source_inventory_path: models/simplified_dataset/setpoints/model_development_export_inventory.yaml
     evaluated_curve_count: 97
     aggregate_metrics:
       mse: 1.7389526881053007e-05
@@ -257,10 +257,10 @@ group_summary_list:
     run_instance_id: 2026-07-10-08-46-24__te_wave3_1_sequential_residual_offset_probe_bw__simplified_setpoints
     dataset_schema: simplified_curve_v1
     model_type: sequential_residual_offset_probe
-    onnx_model_path: models/simplified_dataset/setpoints/exported/wave3_1_sequential_residual_offset_probe/backward/2026-07-10-08-46-24__te_wave3_1_sequential_residual_offset_probe_bw__simplified_setpoints/onnx/model.onnx
-    python_model_path: models/simplified_dataset/setpoints/exported/wave3_1_sequential_residual_offset_probe/backward/2026-07-10-08-46-24__te_wave3_1_sequential_residual_offset_probe_bw__simplified_setpoints/python/sequential_residual_offset_probe-epoch=098-val_mae=0.00372763.ckpt
-    training_config_path: models/simplified_dataset/setpoints/exported/wave3_1_sequential_residual_offset_probe/backward/2026-07-10-08-46-24__te_wave3_1_sequential_residual_offset_probe_bw__simplified_setpoints/source_run/training_config.snapshot.yaml
-    source_inventory_path: models/simplified_dataset/setpoints/exported/model_development_export_inventory.yaml
+    onnx_model_path: models/simplified_dataset/setpoints/wave3_1_sequential_residual_offset_probe/backward/onnx/model.onnx
+    python_model_path: models/simplified_dataset/setpoints/wave3_1_sequential_residual_offset_probe/backward/python/sequential_residual_offset_probe-epoch=098-val_mae=0.00372763.ckpt
+    training_config_path: models/simplified_dataset/setpoints/wave3_1_sequential_residual_offset_probe/backward/source_run/training_config.snapshot.yaml
+    source_inventory_path: models/simplified_dataset/setpoints/model_development_export_inventory.yaml
     evaluated_curve_count: 97
     aggregate_metrics:
       mse: 2.2735439315242003e-05
@@ -491,10 +491,10 @@ group_summary_list:
     run_instance_id: 2026-07-10-08-11-44__te_wave3_1_sequential_residual_offset_probe_global__simplified_setpoints
     dataset_schema: simplified_curve_v1
     model_type: sequential_residual_offset_probe
-    onnx_model_path: models/simplified_dataset/setpoints/exported/wave3_1_sequential_residual_offset_probe/global/2026-07-10-08-11-44__te_wave3_1_sequential_residual_offset_probe_global__simplified_setpoints/onnx/model.onnx
-    python_model_path: models/simplified_dataset/setpoints/exported/wave3_1_sequential_residual_offset_probe/global/2026-07-10-08-11-44__te_wave3_1_sequential_residual_offset_probe_global__simplified_setpoints/python/sequential_residual_offset_probe-epoch=095-val_mae=0.00372731.ckpt
-    training_config_path: models/simplified_dataset/setpoints/exported/wave3_1_sequential_residual_offset_probe/global/2026-07-10-08-11-44__te_wave3_1_sequential_residual_offset_probe_global__simplified_setpoints/source_run/training_config.snapshot.yaml
-    source_inventory_path: models/simplified_dataset/setpoints/exported/model_development_export_inventory.yaml
+    onnx_model_path: models/simplified_dataset/setpoints/wave3_1_sequential_residual_offset_probe/global/onnx/model.onnx
+    python_model_path: models/simplified_dataset/setpoints/wave3_1_sequential_residual_offset_probe/global/python/sequential_residual_offset_probe-epoch=095-val_mae=0.00372731.ckpt
+    training_config_path: models/simplified_dataset/setpoints/wave3_1_sequential_residual_offset_probe/global/source_run/training_config.snapshot.yaml
+    source_inventory_path: models/simplified_dataset/setpoints/model_development_export_inventory.yaml
     evaluated_curve_count: 194
     aggregate_metrics:
       mse: 1.998576818427974e-05
@@ -731,10 +731,10 @@ group_summary_list:
     run_instance_id: 2026-07-10-09-39-31__te_wave3_1_sequential_residual_offset_probe_fw__polished_setpoints
     dataset_schema: polished_setpoint_curve_v1
     model_type: sequential_residual_offset_probe
-    onnx_model_path: models/polished_dataset/setpoints/exported/wave3_1_sequential_residual_offset_probe/forward/2026-07-10-09-39-31__te_wave3_1_sequential_residual_offset_probe_fw__polished_setpoints/onnx/model.onnx
-    python_model_path: models/polished_dataset/setpoints/exported/wave3_1_sequential_residual_offset_probe/forward/2026-07-10-09-39-31__te_wave3_1_sequential_residual_offset_probe_fw__polished_setpoints/python/sequential_residual_offset_probe-epoch=111-val_mae=0.00217538.ckpt
-    training_config_path: models/polished_dataset/setpoints/exported/wave3_1_sequential_residual_offset_probe/forward/2026-07-10-09-39-31__te_wave3_1_sequential_residual_offset_probe_fw__polished_setpoints/source_run/training_config.snapshot.yaml
-    source_inventory_path: models/polished_dataset/setpoints/exported/model_development_export_inventory.yaml
+    onnx_model_path: models/polished_dataset/setpoints/wave3_1_sequential_residual_offset_probe/forward/onnx/model.onnx
+    python_model_path: models/polished_dataset/setpoints/wave3_1_sequential_residual_offset_probe/forward/python/sequential_residual_offset_probe-epoch=111-val_mae=0.00217538.ckpt
+    training_config_path: models/polished_dataset/setpoints/wave3_1_sequential_residual_offset_probe/forward/source_run/training_config.snapshot.yaml
+    source_inventory_path: models/polished_dataset/setpoints/model_development_export_inventory.yaml
     evaluated_curve_count: 100
     aggregate_metrics:
       mse: 1.060996881790692e-05
@@ -965,10 +965,10 @@ group_summary_list:
     run_instance_id: 2026-07-10-10-05-23__te_wave3_1_sequential_residual_offset_probe_bw__polished_setpoints
     dataset_schema: polished_setpoint_curve_v1
     model_type: sequential_residual_offset_probe
-    onnx_model_path: models/polished_dataset/setpoints/exported/wave3_1_sequential_residual_offset_probe/backward/2026-07-10-10-05-23__te_wave3_1_sequential_residual_offset_probe_bw__polished_setpoints/onnx/model.onnx
-    python_model_path: models/polished_dataset/setpoints/exported/wave3_1_sequential_residual_offset_probe/backward/2026-07-10-10-05-23__te_wave3_1_sequential_residual_offset_probe_bw__polished_setpoints/python/sequential_residual_offset_probe-epoch=137-val_mae=0.00216898.ckpt
-    training_config_path: models/polished_dataset/setpoints/exported/wave3_1_sequential_residual_offset_probe/backward/2026-07-10-10-05-23__te_wave3_1_sequential_residual_offset_probe_bw__polished_setpoints/source_run/training_config.snapshot.yaml
-    source_inventory_path: models/polished_dataset/setpoints/exported/model_development_export_inventory.yaml
+    onnx_model_path: models/polished_dataset/setpoints/wave3_1_sequential_residual_offset_probe/backward/onnx/model.onnx
+    python_model_path: models/polished_dataset/setpoints/wave3_1_sequential_residual_offset_probe/backward/python/sequential_residual_offset_probe-epoch=137-val_mae=0.00216898.ckpt
+    training_config_path: models/polished_dataset/setpoints/wave3_1_sequential_residual_offset_probe/backward/source_run/training_config.snapshot.yaml
+    source_inventory_path: models/polished_dataset/setpoints/model_development_export_inventory.yaml
     evaluated_curve_count: 94
     aggregate_metrics:
       mse: 3.0327047729637587e-05
@@ -1199,10 +1199,10 @@ group_summary_list:
     run_instance_id: 2026-07-10-09-12-14__te_wave3_1_sequential_residual_offset_probe_global__polished_setpoints
     dataset_schema: polished_setpoint_curve_v1
     model_type: sequential_residual_offset_probe
-    onnx_model_path: models/polished_dataset/setpoints/exported/wave3_1_sequential_residual_offset_probe/global/2026-07-10-09-12-14__te_wave3_1_sequential_residual_offset_probe_global__polished_setpoints/onnx/model.onnx
-    python_model_path: models/polished_dataset/setpoints/exported/wave3_1_sequential_residual_offset_probe/global/2026-07-10-09-12-14__te_wave3_1_sequential_residual_offset_probe_global__polished_setpoints/python/sequential_residual_offset_probe-epoch=155-val_mae=0.00218350.ckpt
-    training_config_path: models/polished_dataset/setpoints/exported/wave3_1_sequential_residual_offset_probe/global/2026-07-10-09-12-14__te_wave3_1_sequential_residual_offset_probe_global__polished_setpoints/source_run/training_config.snapshot.yaml
-    source_inventory_path: models/polished_dataset/setpoints/exported/model_development_export_inventory.yaml
+    onnx_model_path: models/polished_dataset/setpoints/wave3_1_sequential_residual_offset_probe/global/onnx/model.onnx
+    python_model_path: models/polished_dataset/setpoints/wave3_1_sequential_residual_offset_probe/global/python/sequential_residual_offset_probe-epoch=155-val_mae=0.00218350.ckpt
+    training_config_path: models/polished_dataset/setpoints/wave3_1_sequential_residual_offset_probe/global/source_run/training_config.snapshot.yaml
+    source_inventory_path: models/polished_dataset/setpoints/model_development_export_inventory.yaml
     evaluated_curve_count: 194
     aggregate_metrics:
       mse: 1.9915608268559136e-05
@@ -1439,10 +1439,10 @@ group_summary_list:
     run_instance_id: 2026-07-10-11-09-33__te_wave3_1_sequential_residual_offset_probe_fw__polished_actual_values
     dataset_schema: polished_point_v1
     model_type: sequential_residual_offset_probe
-    onnx_model_path: models/polished_dataset/actual_values/exported/wave3_1_sequential_residual_offset_probe/forward/2026-07-10-11-09-33__te_wave3_1_sequential_residual_offset_probe_fw__polished_actual_values/onnx/model.onnx
-    python_model_path: models/polished_dataset/actual_values/exported/wave3_1_sequential_residual_offset_probe/forward/2026-07-10-11-09-33__te_wave3_1_sequential_residual_offset_probe_fw__polished_actual_values/python/sequential_residual_offset_probe-epoch=097-val_mae=0.00219045.ckpt
-    training_config_path: models/polished_dataset/actual_values/exported/wave3_1_sequential_residual_offset_probe/forward/2026-07-10-11-09-33__te_wave3_1_sequential_residual_offset_probe_fw__polished_actual_values/source_run/training_config.snapshot.yaml
-    source_inventory_path: models/polished_dataset/actual_values/exported/model_development_export_inventory.yaml
+    onnx_model_path: models/polished_dataset/actual_values/wave3_1_sequential_residual_offset_probe/forward/onnx/model.onnx
+    python_model_path: models/polished_dataset/actual_values/wave3_1_sequential_residual_offset_probe/forward/python/sequential_residual_offset_probe-epoch=097-val_mae=0.00219045.ckpt
+    training_config_path: models/polished_dataset/actual_values/wave3_1_sequential_residual_offset_probe/forward/source_run/training_config.snapshot.yaml
+    source_inventory_path: models/polished_dataset/actual_values/model_development_export_inventory.yaml
     evaluated_curve_count: 100
     aggregate_metrics:
       mse: 1.0727454361361629e-05
@@ -1673,10 +1673,10 @@ group_summary_list:
     run_instance_id: 2026-07-10-11-35-18__te_wave3_1_sequential_residual_offset_probe_bw__polished_actual_values
     dataset_schema: polished_point_v1
     model_type: sequential_residual_offset_probe
-    onnx_model_path: models/polished_dataset/actual_values/exported/wave3_1_sequential_residual_offset_probe/backward/2026-07-10-11-35-18__te_wave3_1_sequential_residual_offset_probe_bw__polished_actual_values/onnx/model.onnx
-    python_model_path: models/polished_dataset/actual_values/exported/wave3_1_sequential_residual_offset_probe/backward/2026-07-10-11-35-18__te_wave3_1_sequential_residual_offset_probe_bw__polished_actual_values/python/sequential_residual_offset_probe-epoch=197-val_mae=0.00215382.ckpt
-    training_config_path: models/polished_dataset/actual_values/exported/wave3_1_sequential_residual_offset_probe/backward/2026-07-10-11-35-18__te_wave3_1_sequential_residual_offset_probe_bw__polished_actual_values/source_run/training_config.snapshot.yaml
-    source_inventory_path: models/polished_dataset/actual_values/exported/model_development_export_inventory.yaml
+    onnx_model_path: models/polished_dataset/actual_values/wave3_1_sequential_residual_offset_probe/backward/onnx/model.onnx
+    python_model_path: models/polished_dataset/actual_values/wave3_1_sequential_residual_offset_probe/backward/python/sequential_residual_offset_probe-epoch=197-val_mae=0.00215382.ckpt
+    training_config_path: models/polished_dataset/actual_values/wave3_1_sequential_residual_offset_probe/backward/source_run/training_config.snapshot.yaml
+    source_inventory_path: models/polished_dataset/actual_values/model_development_export_inventory.yaml
     evaluated_curve_count: 94
     aggregate_metrics:
       mse: 1.913609954374417e-05
@@ -1907,10 +1907,10 @@ group_summary_list:
     run_instance_id: 2026-07-10-10-48-41__te_wave3_1_sequential_residual_offset_probe_global__polished_actual_values
     dataset_schema: polished_point_v1
     model_type: sequential_residual_offset_probe
-    onnx_model_path: models/polished_dataset/actual_values/exported/wave3_1_sequential_residual_offset_probe/global/2026-07-10-10-48-41__te_wave3_1_sequential_residual_offset_probe_global__polished_actual_values/onnx/model.onnx
-    python_model_path: models/polished_dataset/actual_values/exported/wave3_1_sequential_residual_offset_probe/global/2026-07-10-10-48-41__te_wave3_1_sequential_residual_offset_probe_global__polished_actual_values/python/sequential_residual_offset_probe-epoch=077-val_mae=0.00220916.ckpt
-    training_config_path: models/polished_dataset/actual_values/exported/wave3_1_sequential_residual_offset_probe/global/2026-07-10-10-48-41__te_wave3_1_sequential_residual_offset_probe_global__polished_actual_values/source_run/training_config.snapshot.yaml
-    source_inventory_path: models/polished_dataset/actual_values/exported/model_development_export_inventory.yaml
+    onnx_model_path: models/polished_dataset/actual_values/wave3_1_sequential_residual_offset_probe/global/onnx/model.onnx
+    python_model_path: models/polished_dataset/actual_values/wave3_1_sequential_residual_offset_probe/global/python/sequential_residual_offset_probe-epoch=077-val_mae=0.00220916.ckpt
+    training_config_path: models/polished_dataset/actual_values/wave3_1_sequential_residual_offset_probe/global/source_run/training_config.snapshot.yaml
+    source_inventory_path: models/polished_dataset/actual_values/model_development_export_inventory.yaml
     evaluated_curve_count: 194
     aggregate_metrics:
       mse: 1.5141951888688514e-05

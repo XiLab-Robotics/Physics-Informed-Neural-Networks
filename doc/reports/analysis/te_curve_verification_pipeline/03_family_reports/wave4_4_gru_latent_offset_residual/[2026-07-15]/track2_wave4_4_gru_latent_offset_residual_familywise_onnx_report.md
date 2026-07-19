@@ -44,9 +44,9 @@ Exact model paths:
 
 | Surface | ONNX Model Path | Python Model Path |
 | --- | --- | --- |
-| forward | `models/simplified_dataset/setpoints/exported/wave4_4_gru_latent_offset_residual/forward/2026-07-15-07-11-49__te_wave4_4_gru_latent_offset_residual_fw__simplified_setpoints/onnx/model.onnx` | `models/simplified_dataset/setpoints/exported/wave4_4_gru_latent_offset_residual/forward/2026-07-15-07-11-49__te_wave4_4_gru_latent_offset_residual_fw__simplified_setpoints/python/latent_state_hysteresis_probe-epoch=081-val_mae=0.00371922.ckpt` |
-| backward | `models/simplified_dataset/setpoints/exported/wave4_4_gru_latent_offset_residual/backward/2026-07-15-07-26-38__te_wave4_4_gru_latent_offset_residual_bw__simplified_setpoints/onnx/model.onnx` | `models/simplified_dataset/setpoints/exported/wave4_4_gru_latent_offset_residual/backward/2026-07-15-07-26-38__te_wave4_4_gru_latent_offset_residual_bw__simplified_setpoints/python/latent_state_hysteresis_probe-epoch=072-val_mae=0.00377245.ckpt` |
-| global | `models/simplified_dataset/setpoints/exported/wave4_4_gru_latent_offset_residual/global/2026-07-15-06-59-43__te_wave4_4_gru_latent_offset_residual_global__simplified_setpoints/onnx/model.onnx` | `models/simplified_dataset/setpoints/exported/wave4_4_gru_latent_offset_residual/global/2026-07-15-06-59-43__te_wave4_4_gru_latent_offset_residual_global__simplified_setpoints/python/latent_state_hysteresis_probe-epoch=065-val_mae=0.00375664.ckpt` |
+| forward | `models/simplified_dataset/setpoints/wave4_4_gru_latent_offset_residual/forward/onnx/model.onnx` | `models/simplified_dataset/setpoints/wave4_4_gru_latent_offset_residual/forward/python/latent_state_hysteresis_probe-epoch=081-val_mae=0.00371922.ckpt` |
+| backward | `models/simplified_dataset/setpoints/wave4_4_gru_latent_offset_residual/backward/onnx/model.onnx` | `models/simplified_dataset/setpoints/wave4_4_gru_latent_offset_residual/backward/python/latent_state_hysteresis_probe-epoch=072-val_mae=0.00377245.ckpt` |
+| global | `models/simplified_dataset/setpoints/wave4_4_gru_latent_offset_residual/global/onnx/model.onnx` | `models/simplified_dataset/setpoints/wave4_4_gru_latent_offset_residual/global/python/latent_state_hysteresis_probe-epoch=065-val_mae=0.00375664.ckpt` |
 
 ### Aggregate Metrics
 
@@ -95,9 +95,9 @@ Exact model paths:
 
 | Surface | ONNX Model Path | Python Model Path |
 | --- | --- | --- |
-| forward | `models/polished_dataset/setpoints/exported/wave4_4_gru_latent_offset_residual/forward/2026-07-15-17-03-49__te_wave4_4_gru_latent_offset_residual_fw__polished_setpoints/onnx/model.onnx` | `models/polished_dataset/setpoints/exported/wave4_4_gru_latent_offset_residual/forward/2026-07-15-17-03-49__te_wave4_4_gru_latent_offset_residual_fw__polished_setpoints/python/latent_state_hysteresis_probe-epoch=164-val_mae=0.00221821.ckpt` |
-| backward | `models/polished_dataset/setpoints/exported/wave4_4_gru_latent_offset_residual/backward/2026-07-15-17-34-55__te_wave4_4_gru_latent_offset_residual_bw__polished_setpoints/onnx/model.onnx` | `models/polished_dataset/setpoints/exported/wave4_4_gru_latent_offset_residual/backward/2026-07-15-17-34-55__te_wave4_4_gru_latent_offset_residual_bw__polished_setpoints/python/latent_state_hysteresis_probe-epoch=036-val_mae=0.00226526.ckpt` |
-| global | `models/polished_dataset/setpoints/exported/wave4_4_gru_latent_offset_residual/global/2026-07-15-16-39-39__te_wave4_4_gru_latent_offset_residual_global__polished_setpoints/onnx/model.onnx` | `models/polished_dataset/setpoints/exported/wave4_4_gru_latent_offset_residual/global/2026-07-15-16-39-39__te_wave4_4_gru_latent_offset_residual_global__polished_setpoints/python/latent_state_hysteresis_probe-epoch=100-val_mae=0.00222289.ckpt` |
+| forward | `models/polished_dataset/setpoints/wave4_4_gru_latent_offset_residual/forward/onnx/model.onnx` | `models/polished_dataset/setpoints/wave4_4_gru_latent_offset_residual/forward/python/latent_state_hysteresis_probe-epoch=164-val_mae=0.00221821.ckpt` |
+| backward | `models/polished_dataset/setpoints/wave4_4_gru_latent_offset_residual/backward/onnx/model.onnx` | `models/polished_dataset/setpoints/wave4_4_gru_latent_offset_residual/backward/python/latent_state_hysteresis_probe-epoch=036-val_mae=0.00226526.ckpt` |
+| global | `models/polished_dataset/setpoints/wave4_4_gru_latent_offset_residual/global/onnx/model.onnx` | `models/polished_dataset/setpoints/wave4_4_gru_latent_offset_residual/global/python/latent_state_hysteresis_probe-epoch=100-val_mae=0.00222289.ckpt` |
 
 ### Aggregate Metrics
 
@@ -146,9 +146,9 @@ Exact model paths:
 
 | Surface | ONNX Model Path | Python Model Path |
 | --- | --- | --- |
-| forward | `models/polished_dataset/actual_values/exported/wave4_4_gru_latent_offset_residual/forward/2026-07-15-18-51-23__te_wave4_4_gru_latent_offset_residual_fw__polished_actual_values/onnx/model.onnx` | `models/polished_dataset/actual_values/exported/wave4_4_gru_latent_offset_residual/forward/2026-07-15-18-51-23__te_wave4_4_gru_latent_offset_residual_fw__polished_actual_values/python/latent_state_hysteresis_probe-epoch=113-val_mae=0.00224746.ckpt` |
-| backward | `models/polished_dataset/actual_values/exported/wave4_4_gru_latent_offset_residual/backward/2026-07-15-19-13-13__te_wave4_4_gru_latent_offset_residual_bw__polished_actual_values/onnx/model.onnx` | `models/polished_dataset/actual_values/exported/wave4_4_gru_latent_offset_residual/backward/2026-07-15-19-13-13__te_wave4_4_gru_latent_offset_residual_bw__polished_actual_values/python/latent_state_hysteresis_probe-epoch=140-val_mae=0.00222826.ckpt` |
-| global | `models/polished_dataset/actual_values/exported/wave4_4_gru_latent_offset_residual/global/2026-07-15-18-05-18__te_wave4_4_gru_latent_offset_residual_global__polished_actual_values/onnx/model.onnx` | `models/polished_dataset/actual_values/exported/wave4_4_gru_latent_offset_residual/global/2026-07-15-18-05-18__te_wave4_4_gru_latent_offset_residual_global__polished_actual_values/python/latent_state_hysteresis_probe-epoch=208-val_mae=0.00217281.ckpt` |
+| forward | `models/polished_dataset/actual_values/wave4_4_gru_latent_offset_residual/forward/onnx/model.onnx` | `models/polished_dataset/actual_values/wave4_4_gru_latent_offset_residual/forward/python/latent_state_hysteresis_probe-epoch=113-val_mae=0.00224746.ckpt` |
+| backward | `models/polished_dataset/actual_values/wave4_4_gru_latent_offset_residual/backward/onnx/model.onnx` | `models/polished_dataset/actual_values/wave4_4_gru_latent_offset_residual/backward/python/latent_state_hysteresis_probe-epoch=140-val_mae=0.00222826.ckpt` |
+| global | `models/polished_dataset/actual_values/wave4_4_gru_latent_offset_residual/global/onnx/model.onnx` | `models/polished_dataset/actual_values/wave4_4_gru_latent_offset_residual/global/python/latent_state_hysteresis_probe-epoch=208-val_mae=0.00217281.ckpt` |
 
 ### Aggregate Metrics
 

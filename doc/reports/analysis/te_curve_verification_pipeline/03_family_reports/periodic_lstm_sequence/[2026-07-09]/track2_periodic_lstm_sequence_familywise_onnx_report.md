@@ -44,9 +44,9 @@ Exact model paths:
 
 | Surface | ONNX Model Path | Python Model Path |
 | --- | --- | --- |
-| forward | `models/simplified_dataset/setpoints/exported/periodic_lstm_sequence/forward/2026-07-09-02-19-42__te_periodic_lstm_sequence_fw__simplified_setpoints/onnx/model.onnx` | `models/simplified_dataset/setpoints/exported/periodic_lstm_sequence/forward/2026-07-09-02-19-42__te_periodic_lstm_sequence_fw__simplified_setpoints/python/periodic_lstm_sequence-epoch=095-val_mae=0.00348296.ckpt` |
-| backward | `models/simplified_dataset/setpoints/exported/periodic_lstm_sequence/backward/2026-07-09-02-32-24__te_periodic_lstm_sequence_bw__simplified_setpoints/onnx/model.onnx` | `models/simplified_dataset/setpoints/exported/periodic_lstm_sequence/backward/2026-07-09-02-32-24__te_periodic_lstm_sequence_bw__simplified_setpoints/python/periodic_lstm_sequence-epoch=074-val_mae=0.00352408.ckpt` |
-| global | `models/simplified_dataset/setpoints/exported/periodic_lstm_sequence/global/2026-07-09-02-10-37__te_periodic_lstm_sequence_global__simplified_setpoints/onnx/model.onnx` | `models/simplified_dataset/setpoints/exported/periodic_lstm_sequence/global/2026-07-09-02-10-37__te_periodic_lstm_sequence_global__simplified_setpoints/python/periodic_lstm_sequence-epoch=088-val_mae=0.00353329.ckpt` |
+| forward | `models/simplified_dataset/setpoints/periodic_lstm_sequence/forward/onnx/model.onnx` | `models/simplified_dataset/setpoints/periodic_lstm_sequence/forward/python/periodic_lstm_sequence-epoch=095-val_mae=0.00348296.ckpt` |
+| backward | `models/simplified_dataset/setpoints/periodic_lstm_sequence/backward/onnx/model.onnx` | `models/simplified_dataset/setpoints/periodic_lstm_sequence/backward/python/periodic_lstm_sequence-epoch=074-val_mae=0.00352408.ckpt` |
+| global | `models/simplified_dataset/setpoints/periodic_lstm_sequence/global/onnx/model.onnx` | `models/simplified_dataset/setpoints/periodic_lstm_sequence/global/python/periodic_lstm_sequence-epoch=088-val_mae=0.00353329.ckpt` |
 
 ### Aggregate Metrics
 
@@ -95,9 +95,9 @@ Exact model paths:
 
 | Surface | ONNX Model Path | Python Model Path |
 | --- | --- | --- |
-| forward | `models/polished_dataset/setpoints/exported/periodic_lstm_sequence/forward/2026-07-09-03-42-29__te_periodic_lstm_sequence_fw__polished_setpoints/onnx/model.onnx` | `models/polished_dataset/setpoints/exported/periodic_lstm_sequence/forward/2026-07-09-03-42-29__te_periodic_lstm_sequence_fw__polished_setpoints/python/periodic_lstm_sequence-epoch=047-val_mae=0.00186699.ckpt` |
-| backward | `models/polished_dataset/setpoints/exported/periodic_lstm_sequence/backward/2026-07-09-03-56-20__te_periodic_lstm_sequence_bw__polished_setpoints/onnx/model.onnx` | `models/polished_dataset/setpoints/exported/periodic_lstm_sequence/backward/2026-07-09-03-56-20__te_periodic_lstm_sequence_bw__polished_setpoints/python/periodic_lstm_sequence-epoch=208-val_mae=0.00138862.ckpt` |
-| global | `models/polished_dataset/setpoints/exported/periodic_lstm_sequence/global/2026-07-09-03-02-43__te_periodic_lstm_sequence_global__polished_setpoints/onnx/model.onnx` | `models/polished_dataset/setpoints/exported/periodic_lstm_sequence/global/2026-07-09-03-02-43__te_periodic_lstm_sequence_global__polished_setpoints/python/periodic_lstm_sequence-epoch=245-val_mae=0.00137071.ckpt` |
+| forward | `models/polished_dataset/setpoints/periodic_lstm_sequence/forward/onnx/model.onnx` | `models/polished_dataset/setpoints/periodic_lstm_sequence/forward/python/periodic_lstm_sequence-epoch=047-val_mae=0.00186699.ckpt` |
+| backward | `models/polished_dataset/setpoints/periodic_lstm_sequence/backward/onnx/model.onnx` | `models/polished_dataset/setpoints/periodic_lstm_sequence/backward/python/periodic_lstm_sequence-epoch=208-val_mae=0.00138862.ckpt` |
+| global | `models/polished_dataset/setpoints/periodic_lstm_sequence/global/onnx/model.onnx` | `models/polished_dataset/setpoints/periodic_lstm_sequence/global/python/periodic_lstm_sequence-epoch=245-val_mae=0.00137071.ckpt` |
 
 ### Aggregate Metrics
 
@@ -146,9 +146,9 @@ Exact model paths:
 
 | Surface | ONNX Model Path | Python Model Path |
 | --- | --- | --- |
-| forward | `models/polished_dataset/actual_values/exported/periodic_lstm_sequence/forward/2026-07-09-05-06-07__te_periodic_lstm_sequence_fw__polished_actual_values/onnx/model.onnx` | `models/polished_dataset/actual_values/exported/periodic_lstm_sequence/forward/2026-07-09-05-06-07__te_periodic_lstm_sequence_fw__polished_actual_values/python/periodic_lstm_sequence-epoch=017-val_mae=0.00196587.ckpt` |
-| backward | `models/polished_dataset/actual_values/exported/periodic_lstm_sequence/backward/2026-07-09-05-16-31__te_periodic_lstm_sequence_bw__polished_actual_values/onnx/model.onnx` | `models/polished_dataset/actual_values/exported/periodic_lstm_sequence/backward/2026-07-09-05-16-31__te_periodic_lstm_sequence_bw__polished_actual_values/python/periodic_lstm_sequence-epoch=053-val_mae=0.00197877.ckpt` |
-| global | `models/polished_dataset/actual_values/exported/periodic_lstm_sequence/global/2026-07-09-04-47-33__te_periodic_lstm_sequence_global__polished_actual_values/onnx/model.onnx` | `models/polished_dataset/actual_values/exported/periodic_lstm_sequence/global/2026-07-09-04-47-33__te_periodic_lstm_sequence_global__polished_actual_values/python/periodic_lstm_sequence-epoch=103-val_mae=0.00191666.ckpt` |
+| forward | `models/polished_dataset/actual_values/periodic_lstm_sequence/forward/onnx/model.onnx` | `models/polished_dataset/actual_values/periodic_lstm_sequence/forward/python/periodic_lstm_sequence-epoch=017-val_mae=0.00196587.ckpt` |
+| backward | `models/polished_dataset/actual_values/periodic_lstm_sequence/backward/onnx/model.onnx` | `models/polished_dataset/actual_values/periodic_lstm_sequence/backward/python/periodic_lstm_sequence-epoch=053-val_mae=0.00197877.ckpt` |
+| global | `models/polished_dataset/actual_values/periodic_lstm_sequence/global/onnx/model.onnx` | `models/polished_dataset/actual_values/periodic_lstm_sequence/global/python/periodic_lstm_sequence-epoch=103-val_mae=0.00191666.ckpt` |
 
 ### Aggregate Metrics
 

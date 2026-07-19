@@ -44,9 +44,9 @@ Exact model paths:
 
 | Surface | ONNX Model Path | Python Model Path |
 | --- | --- | --- |
-| forward | `models/simplified_dataset/setpoints/exported/wave4_3_mixture_density_k3/forward/2026-07-15-10-35-14__te_wave4_3_mixture_density_k3_fw__simplified_setpoints/onnx/model.onnx` | `models/simplified_dataset/setpoints/exported/wave4_3_mixture_density_k3/forward/2026-07-15-10-35-14__te_wave4_3_mixture_density_k3_fw__simplified_setpoints/python/curve_aware_harmonic_residual_offset_probe-epoch=077-val_mae=0.00357399.ckpt` |
-| backward | `models/simplified_dataset/setpoints/exported/wave4_3_mixture_density_k3/backward/2026-07-15-10-57-54__te_wave4_3_mixture_density_k3_bw__simplified_setpoints/onnx/model.onnx` | `models/simplified_dataset/setpoints/exported/wave4_3_mixture_density_k3/backward/2026-07-15-10-57-54__te_wave4_3_mixture_density_k3_bw__simplified_setpoints/python/curve_aware_harmonic_residual_offset_probe-epoch=083-val_mae=0.00361315.ckpt` |
-| global | `models/simplified_dataset/setpoints/exported/wave4_3_mixture_density_k3/global/2026-07-15-10-10-10__te_wave4_3_mixture_density_k3_global__simplified_setpoints/onnx/model.onnx` | `models/simplified_dataset/setpoints/exported/wave4_3_mixture_density_k3/global/2026-07-15-10-10-10__te_wave4_3_mixture_density_k3_global__simplified_setpoints/python/curve_aware_harmonic_residual_offset_probe-epoch=103-val_mae=0.00358189.ckpt` |
+| forward | `models/simplified_dataset/setpoints/wave4_3_mixture_density_k3/forward/onnx/model.onnx` | `models/simplified_dataset/setpoints/wave4_3_mixture_density_k3/forward/python/curve_aware_harmonic_residual_offset_probe-epoch=077-val_mae=0.00357399.ckpt` |
+| backward | `models/simplified_dataset/setpoints/wave4_3_mixture_density_k3/backward/onnx/model.onnx` | `models/simplified_dataset/setpoints/wave4_3_mixture_density_k3/backward/python/curve_aware_harmonic_residual_offset_probe-epoch=083-val_mae=0.00361315.ckpt` |
+| global | `models/simplified_dataset/setpoints/wave4_3_mixture_density_k3/global/onnx/model.onnx` | `models/simplified_dataset/setpoints/wave4_3_mixture_density_k3/global/python/curve_aware_harmonic_residual_offset_probe-epoch=103-val_mae=0.00358189.ckpt` |
 
 ### Aggregate Metrics
 
@@ -95,9 +95,9 @@ Exact model paths:
 
 | Surface | ONNX Model Path | Python Model Path |
 | --- | --- | --- |
-| forward | `models/polished_dataset/setpoints/exported/wave4_3_mixture_density_k3/forward/2026-07-15-12-21-49__te_wave4_3_mixture_density_k3_fw__polished_setpoints/onnx/model.onnx` | `models/polished_dataset/setpoints/exported/wave4_3_mixture_density_k3/forward/2026-07-15-12-21-49__te_wave4_3_mixture_density_k3_fw__polished_setpoints/python/curve_aware_harmonic_residual_offset_probe-epoch=140-val_mae=0.00184649.ckpt` |
-| backward | `models/polished_dataset/setpoints/exported/wave4_3_mixture_density_k3/backward/2026-07-15-12-55-40__te_wave4_3_mixture_density_k3_bw__polished_setpoints/onnx/model.onnx` | `models/polished_dataset/setpoints/exported/wave4_3_mixture_density_k3/backward/2026-07-15-12-55-40__te_wave4_3_mixture_density_k3_bw__polished_setpoints/python/curve_aware_harmonic_residual_offset_probe-epoch=166-val_mae=0.00183407.ckpt` |
-| global | `models/polished_dataset/setpoints/exported/wave4_3_mixture_density_k3/global/2026-07-15-11-41-10__te_wave4_3_mixture_density_k3_global__polished_setpoints/onnx/model.onnx` | `models/polished_dataset/setpoints/exported/wave4_3_mixture_density_k3/global/2026-07-15-11-41-10__te_wave4_3_mixture_density_k3_global__polished_setpoints/python/curve_aware_harmonic_residual_offset_probe-epoch=177-val_mae=0.00183826.ckpt` |
+| forward | `models/polished_dataset/setpoints/wave4_3_mixture_density_k3/forward/onnx/model.onnx` | `models/polished_dataset/setpoints/wave4_3_mixture_density_k3/forward/python/curve_aware_harmonic_residual_offset_probe-epoch=140-val_mae=0.00184649.ckpt` |
+| backward | `models/polished_dataset/setpoints/wave4_3_mixture_density_k3/backward/onnx/model.onnx` | `models/polished_dataset/setpoints/wave4_3_mixture_density_k3/backward/python/curve_aware_harmonic_residual_offset_probe-epoch=166-val_mae=0.00183407.ckpt` |
+| global | `models/polished_dataset/setpoints/wave4_3_mixture_density_k3/global/onnx/model.onnx` | `models/polished_dataset/setpoints/wave4_3_mixture_density_k3/global/python/curve_aware_harmonic_residual_offset_probe-epoch=177-val_mae=0.00183826.ckpt` |
 
 ### Aggregate Metrics
 
@@ -146,9 +146,9 @@ Exact model paths:
 
 | Surface | ONNX Model Path | Python Model Path |
 | --- | --- | --- |
-| forward | `models/polished_dataset/actual_values/exported/wave4_3_mixture_density_k3/forward/2026-07-15-14-39-00__te_wave4_3_mixture_density_k3_fw__polished_actual_values/onnx/model.onnx` | `models/polished_dataset/actual_values/exported/wave4_3_mixture_density_k3/forward/2026-07-15-14-39-00__te_wave4_3_mixture_density_k3_fw__polished_actual_values/python/curve_aware_harmonic_residual_offset_probe-epoch=240-val_mae=0.00161545.ckpt` |
-| backward | `models/polished_dataset/actual_values/exported/wave4_3_mixture_density_k3/backward/2026-07-15-15-39-35__te_wave4_3_mixture_density_k3_bw__polished_actual_values/onnx/model.onnx` | `models/polished_dataset/actual_values/exported/wave4_3_mixture_density_k3/backward/2026-07-15-15-39-35__te_wave4_3_mixture_density_k3_bw__polished_actual_values/python/curve_aware_harmonic_residual_offset_probe-epoch=076-val_mae=0.00181385.ckpt` |
-| global | `models/polished_dataset/actual_values/exported/wave4_3_mixture_density_k3/global/2026-07-15-13-58-20__te_wave4_3_mixture_density_k3_global__polished_actual_values/onnx/model.onnx` | `models/polished_dataset/actual_values/exported/wave4_3_mixture_density_k3/global/2026-07-15-13-58-20__te_wave4_3_mixture_density_k3_global__polished_actual_values/python/curve_aware_harmonic_residual_offset_probe-epoch=164-val_mae=0.00178681.ckpt` |
+| forward | `models/polished_dataset/actual_values/wave4_3_mixture_density_k3/forward/onnx/model.onnx` | `models/polished_dataset/actual_values/wave4_3_mixture_density_k3/forward/python/curve_aware_harmonic_residual_offset_probe-epoch=240-val_mae=0.00161545.ckpt` |
+| backward | `models/polished_dataset/actual_values/wave4_3_mixture_density_k3/backward/onnx/model.onnx` | `models/polished_dataset/actual_values/wave4_3_mixture_density_k3/backward/python/curve_aware_harmonic_residual_offset_probe-epoch=076-val_mae=0.00181385.ckpt` |
+| global | `models/polished_dataset/actual_values/wave4_3_mixture_density_k3/global/onnx/model.onnx` | `models/polished_dataset/actual_values/wave4_3_mixture_density_k3/global/python/curve_aware_harmonic_residual_offset_probe-epoch=164-val_mae=0.00178681.ckpt` |
 
 ### Aggregate Metrics
 

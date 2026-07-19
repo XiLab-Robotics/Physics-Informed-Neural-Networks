@@ -23,10 +23,10 @@ group_summary_list:
     run_instance_id: 2026-07-07-02-31-39__te_tree_fw__simplified_setpoints
     dataset_schema: simplified_curve_v1
     model_type: hist_gradient_boosting
-    onnx_model_path: models/simplified_dataset/setpoints/exported/tree/forward/2026-07-07-02-31-39__te_tree_fw__simplified_setpoints/onnx/model.onnx
-    python_model_path: models/simplified_dataset/setpoints/exported/tree/forward/2026-07-07-02-31-39__te_tree_fw__simplified_setpoints/python/tree_model.pkl
-    training_config_path: models/simplified_dataset/setpoints/exported/tree/forward/2026-07-07-02-31-39__te_tree_fw__simplified_setpoints/source_run/training_config.snapshot.yaml
-    source_inventory_path: models/simplified_dataset/setpoints/exported/model_development_export_inventory.yaml
+    onnx_model_path: models/simplified_dataset/setpoints/tree/forward/onnx/model.onnx
+    python_model_path: models/simplified_dataset/setpoints/tree/forward/python/tree_model.pkl
+    training_config_path: models/simplified_dataset/setpoints/tree/forward/source_run/training_config.snapshot.yaml
+    source_inventory_path: models/simplified_dataset/setpoints/model_development_export_inventory.yaml
     evaluated_curve_count: 97
     aggregate_metrics:
       mse: 1.4686688931957397e-05
@@ -256,10 +256,10 @@ group_summary_list:
     run_instance_id: 2026-07-07-02-33-43__te_tree_bw__simplified_setpoints
     dataset_schema: simplified_curve_v1
     model_type: hist_gradient_boosting
-    onnx_model_path: models/simplified_dataset/setpoints/exported/tree/backward/2026-07-07-02-33-43__te_tree_bw__simplified_setpoints/onnx/model.onnx
-    python_model_path: models/simplified_dataset/setpoints/exported/tree/backward/2026-07-07-02-33-43__te_tree_bw__simplified_setpoints/python/tree_model.pkl
-    training_config_path: models/simplified_dataset/setpoints/exported/tree/backward/2026-07-07-02-33-43__te_tree_bw__simplified_setpoints/source_run/training_config.snapshot.yaml
-    source_inventory_path: models/simplified_dataset/setpoints/exported/model_development_export_inventory.yaml
+    onnx_model_path: models/simplified_dataset/setpoints/tree/backward/onnx/model.onnx
+    python_model_path: models/simplified_dataset/setpoints/tree/backward/python/tree_model.pkl
+    training_config_path: models/simplified_dataset/setpoints/tree/backward/source_run/training_config.snapshot.yaml
+    source_inventory_path: models/simplified_dataset/setpoints/model_development_export_inventory.yaml
     evaluated_curve_count: 97
     aggregate_metrics:
       mse: 1.9651281357515454e-05
@@ -489,10 +489,10 @@ group_summary_list:
     run_instance_id: 2026-07-07-02-29-36__te_tree_global__simplified_setpoints
     dataset_schema: simplified_curve_v1
     model_type: hist_gradient_boosting
-    onnx_model_path: models/simplified_dataset/setpoints/exported/tree/global/2026-07-07-02-29-36__te_tree_global__simplified_setpoints/onnx/model.onnx
-    python_model_path: models/simplified_dataset/setpoints/exported/tree/global/2026-07-07-02-29-36__te_tree_global__simplified_setpoints/python/tree_model.pkl
-    training_config_path: models/simplified_dataset/setpoints/exported/tree/global/2026-07-07-02-29-36__te_tree_global__simplified_setpoints/source_run/training_config.snapshot.yaml
-    source_inventory_path: models/simplified_dataset/setpoints/exported/model_development_export_inventory.yaml
+    onnx_model_path: models/simplified_dataset/setpoints/tree/global/onnx/model.onnx
+    python_model_path: models/simplified_dataset/setpoints/tree/global/python/tree_model.pkl
+    training_config_path: models/simplified_dataset/setpoints/tree/global/source_run/training_config.snapshot.yaml
+    source_inventory_path: models/simplified_dataset/setpoints/model_development_export_inventory.yaml
     evaluated_curve_count: 194
     aggregate_metrics:
       mse: 1.7168985144736426e-05
@@ -728,10 +728,10 @@ group_summary_list:
     run_instance_id: 2026-07-07-09-34-40__te_tree_fw__polished_setpoints
     dataset_schema: polished_setpoint_curve_v1
     model_type: hist_gradient_boosting
-    onnx_model_path: models/polished_dataset/setpoints/exported/tree/forward/2026-07-07-09-34-40__te_tree_fw__polished_setpoints/onnx/model.onnx
-    python_model_path: models/polished_dataset/setpoints/exported/tree/forward/2026-07-07-09-34-40__te_tree_fw__polished_setpoints/python/tree_model.pkl
-    training_config_path: models/polished_dataset/setpoints/exported/tree/forward/2026-07-07-09-34-40__te_tree_fw__polished_setpoints/source_run/training_config.snapshot.yaml
-    source_inventory_path: models/polished_dataset/setpoints/exported/model_development_export_inventory.yaml
+    onnx_model_path: models/polished_dataset/setpoints/tree/forward/onnx/model.onnx
+    python_model_path: models/polished_dataset/setpoints/tree/forward/python/tree_model.pkl
+    training_config_path: models/polished_dataset/setpoints/tree/forward/source_run/training_config.snapshot.yaml
+    source_inventory_path: models/polished_dataset/setpoints/model_development_export_inventory.yaml
     evaluated_curve_count: 100
     aggregate_metrics:
       mse: 1.0074851730444456e-05
@@ -961,10 +961,10 @@ group_summary_list:
     run_instance_id: 2026-07-07-09-37-16__te_tree_bw__polished_setpoints
     dataset_schema: polished_setpoint_curve_v1
     model_type: hist_gradient_boosting
-    onnx_model_path: models/polished_dataset/setpoints/exported/tree/backward/2026-07-07-09-37-16__te_tree_bw__polished_setpoints/onnx/model.onnx
-    python_model_path: models/polished_dataset/setpoints/exported/tree/backward/2026-07-07-09-37-16__te_tree_bw__polished_setpoints/python/tree_model.pkl
-    training_config_path: models/polished_dataset/setpoints/exported/tree/backward/2026-07-07-09-37-16__te_tree_bw__polished_setpoints/source_run/training_config.snapshot.yaml
-    source_inventory_path: models/polished_dataset/setpoints/exported/model_development_export_inventory.yaml
+    onnx_model_path: models/polished_dataset/setpoints/tree/backward/onnx/model.onnx
+    python_model_path: models/polished_dataset/setpoints/tree/backward/python/tree_model.pkl
+    training_config_path: models/polished_dataset/setpoints/tree/backward/source_run/training_config.snapshot.yaml
+    source_inventory_path: models/polished_dataset/setpoints/model_development_export_inventory.yaml
     evaluated_curve_count: 94
     aggregate_metrics:
       mse: 2.9417760514777876e-05
@@ -1194,10 +1194,10 @@ group_summary_list:
     run_instance_id: 2026-07-07-09-31-48__te_tree_global__polished_setpoints
     dataset_schema: polished_setpoint_curve_v1
     model_type: hist_gradient_boosting
-    onnx_model_path: models/polished_dataset/setpoints/exported/tree/global/2026-07-07-09-31-48__te_tree_global__polished_setpoints/onnx/model.onnx
-    python_model_path: models/polished_dataset/setpoints/exported/tree/global/2026-07-07-09-31-48__te_tree_global__polished_setpoints/python/tree_model.pkl
-    training_config_path: models/polished_dataset/setpoints/exported/tree/global/2026-07-07-09-31-48__te_tree_global__polished_setpoints/source_run/training_config.snapshot.yaml
-    source_inventory_path: models/polished_dataset/setpoints/exported/model_development_export_inventory.yaml
+    onnx_model_path: models/polished_dataset/setpoints/tree/global/onnx/model.onnx
+    python_model_path: models/polished_dataset/setpoints/tree/global/python/tree_model.pkl
+    training_config_path: models/polished_dataset/setpoints/tree/global/source_run/training_config.snapshot.yaml
+    source_inventory_path: models/polished_dataset/setpoints/model_development_export_inventory.yaml
     evaluated_curve_count: 194
     aggregate_metrics:
       mse: 1.944718897646168e-05
@@ -1433,10 +1433,10 @@ group_summary_list:
     run_instance_id: 2026-07-07-09-55-31__te_tree_fw__polished_actual_values
     dataset_schema: polished_point_v1
     model_type: hist_gradient_boosting
-    onnx_model_path: models/polished_dataset/actual_values/exported/tree/forward/2026-07-07-09-55-31__te_tree_fw__polished_actual_values/onnx/model.onnx
-    python_model_path: models/polished_dataset/actual_values/exported/tree/forward/2026-07-07-09-55-31__te_tree_fw__polished_actual_values/python/tree_model.pkl
-    training_config_path: models/polished_dataset/actual_values/exported/tree/forward/2026-07-07-09-55-31__te_tree_fw__polished_actual_values/source_run/training_config.snapshot.yaml
-    source_inventory_path: models/polished_dataset/actual_values/exported/model_development_export_inventory.yaml
+    onnx_model_path: models/polished_dataset/actual_values/tree/forward/onnx/model.onnx
+    python_model_path: models/polished_dataset/actual_values/tree/forward/python/tree_model.pkl
+    training_config_path: models/polished_dataset/actual_values/tree/forward/source_run/training_config.snapshot.yaml
+    source_inventory_path: models/polished_dataset/actual_values/model_development_export_inventory.yaml
     evaluated_curve_count: 100
     aggregate_metrics:
       mse: 1.0060988447838231e-05
@@ -1666,10 +1666,10 @@ group_summary_list:
     run_instance_id: 2026-07-07-09-58-04__te_tree_bw__polished_actual_values
     dataset_schema: polished_point_v1
     model_type: hist_gradient_boosting
-    onnx_model_path: models/polished_dataset/actual_values/exported/tree/backward/2026-07-07-09-58-04__te_tree_bw__polished_actual_values/onnx/model.onnx
-    python_model_path: models/polished_dataset/actual_values/exported/tree/backward/2026-07-07-09-58-04__te_tree_bw__polished_actual_values/python/tree_model.pkl
-    training_config_path: models/polished_dataset/actual_values/exported/tree/backward/2026-07-07-09-58-04__te_tree_bw__polished_actual_values/source_run/training_config.snapshot.yaml
-    source_inventory_path: models/polished_dataset/actual_values/exported/model_development_export_inventory.yaml
+    onnx_model_path: models/polished_dataset/actual_values/tree/backward/onnx/model.onnx
+    python_model_path: models/polished_dataset/actual_values/tree/backward/python/tree_model.pkl
+    training_config_path: models/polished_dataset/actual_values/tree/backward/source_run/training_config.snapshot.yaml
+    source_inventory_path: models/polished_dataset/actual_values/model_development_export_inventory.yaml
     evaluated_curve_count: 94
     aggregate_metrics:
       mse: 2.7005338938147147e-05
@@ -1899,10 +1899,10 @@ group_summary_list:
     run_instance_id: 2026-07-07-09-52-50__te_tree_global__polished_actual_values
     dataset_schema: polished_point_v1
     model_type: hist_gradient_boosting
-    onnx_model_path: models/polished_dataset/actual_values/exported/tree/global/2026-07-07-09-52-50__te_tree_global__polished_actual_values/onnx/model.onnx
-    python_model_path: models/polished_dataset/actual_values/exported/tree/global/2026-07-07-09-52-50__te_tree_global__polished_actual_values/python/tree_model.pkl
-    training_config_path: models/polished_dataset/actual_values/exported/tree/global/2026-07-07-09-52-50__te_tree_global__polished_actual_values/source_run/training_config.snapshot.yaml
-    source_inventory_path: models/polished_dataset/actual_values/exported/model_development_export_inventory.yaml
+    onnx_model_path: models/polished_dataset/actual_values/tree/global/onnx/model.onnx
+    python_model_path: models/polished_dataset/actual_values/tree/global/python/tree_model.pkl
+    training_config_path: models/polished_dataset/actual_values/tree/global/source_run/training_config.snapshot.yaml
+    source_inventory_path: models/polished_dataset/actual_values/model_development_export_inventory.yaml
     evaluated_curve_count: 194
     aggregate_metrics:
       mse: 1.8271137654482758e-05

@@ -44,9 +44,9 @@ Exact model paths:
 
 | Surface | ONNX Model Path | Python Model Path |
 | --- | --- | --- |
-| forward | `models/simplified_dataset/setpoints/exported/residual_harmonic_gru_sequence_sparse_rcim/forward/2026-07-09-05-56-34__te_residual_harmonic_gru_sequence_sparse_rcim_fw__simplified_setpoints/onnx/model.onnx` | `models/simplified_dataset/setpoints/exported/residual_harmonic_gru_sequence_sparse_rcim/forward/2026-07-09-05-56-34__te_residual_harmonic_gru_sequence_sparse_rcim_fw__simplified_setpoints/python/residual_harmonic_gru_sequence-epoch=070-val_mae=0.00360244.ckpt` |
-| backward | `models/simplified_dataset/setpoints/exported/residual_harmonic_gru_sequence_sparse_rcim/backward/2026-07-09-06-07-25__te_residual_harmonic_gru_sequence_sparse_rcim_bw__simplified_setpoints/onnx/model.onnx` | `models/simplified_dataset/setpoints/exported/residual_harmonic_gru_sequence_sparse_rcim/backward/2026-07-09-06-07-25__te_residual_harmonic_gru_sequence_sparse_rcim_bw__simplified_setpoints/python/residual_harmonic_gru_sequence-epoch=061-val_mae=0.00359811.ckpt` |
-| global | `models/simplified_dataset/setpoints/exported/residual_harmonic_gru_sequence_sparse_rcim/global/2026-07-09-05-46-13__te_residual_harmonic_gru_sequence_sparse_rcim_global__simplified_setpoints/onnx/model.onnx` | `models/simplified_dataset/setpoints/exported/residual_harmonic_gru_sequence_sparse_rcim/global/2026-07-09-05-46-13__te_residual_harmonic_gru_sequence_sparse_rcim_global__simplified_setpoints/python/residual_harmonic_gru_sequence-epoch=106-val_mae=0.00358149.ckpt` |
+| forward | `models/simplified_dataset/setpoints/residual_harmonic_gru_sequence_sparse_rcim/forward/onnx/model.onnx` | `models/simplified_dataset/setpoints/residual_harmonic_gru_sequence_sparse_rcim/forward/python/residual_harmonic_gru_sequence-epoch=070-val_mae=0.00360244.ckpt` |
+| backward | `models/simplified_dataset/setpoints/residual_harmonic_gru_sequence_sparse_rcim/backward/onnx/model.onnx` | `models/simplified_dataset/setpoints/residual_harmonic_gru_sequence_sparse_rcim/backward/python/residual_harmonic_gru_sequence-epoch=061-val_mae=0.00359811.ckpt` |
+| global | `models/simplified_dataset/setpoints/residual_harmonic_gru_sequence_sparse_rcim/global/onnx/model.onnx` | `models/simplified_dataset/setpoints/residual_harmonic_gru_sequence_sparse_rcim/global/python/residual_harmonic_gru_sequence-epoch=106-val_mae=0.00358149.ckpt` |
 
 ### Aggregate Metrics
 
@@ -95,9 +95,9 @@ Exact model paths:
 
 | Surface | ONNX Model Path | Python Model Path |
 | --- | --- | --- |
-| forward | `models/polished_dataset/setpoints/exported/residual_harmonic_gru_sequence_sparse_rcim/forward/2026-07-09-06-39-47__te_residual_harmonic_gru_sequence_sparse_rcim_fw__polished_setpoints/onnx/model.onnx` | `models/polished_dataset/setpoints/exported/residual_harmonic_gru_sequence_sparse_rcim/forward/2026-07-09-06-39-47__te_residual_harmonic_gru_sequence_sparse_rcim_fw__polished_setpoints/python/residual_harmonic_gru_sequence-epoch=116-val_mae=0.00198454.ckpt` |
-| backward | `models/polished_dataset/setpoints/exported/residual_harmonic_gru_sequence_sparse_rcim/backward/2026-07-09-07-04-00__te_residual_harmonic_gru_sequence_sparse_rcim_bw__polished_setpoints/onnx/model.onnx` | `models/polished_dataset/setpoints/exported/residual_harmonic_gru_sequence_sparse_rcim/backward/2026-07-09-07-04-00__te_residual_harmonic_gru_sequence_sparse_rcim_bw__polished_setpoints/python/residual_harmonic_gru_sequence-epoch=058-val_mae=0.00205854.ckpt` |
-| global | `models/polished_dataset/setpoints/exported/residual_harmonic_gru_sequence_sparse_rcim/global/2026-07-09-06-26-33__te_residual_harmonic_gru_sequence_sparse_rcim_global__polished_setpoints/onnx/model.onnx` | `models/polished_dataset/setpoints/exported/residual_harmonic_gru_sequence_sparse_rcim/global/2026-07-09-06-26-33__te_residual_harmonic_gru_sequence_sparse_rcim_global__polished_setpoints/python/residual_harmonic_gru_sequence-epoch=060-val_mae=0.00203207.ckpt` |
+| forward | `models/polished_dataset/setpoints/residual_harmonic_gru_sequence_sparse_rcim/forward/onnx/model.onnx` | `models/polished_dataset/setpoints/residual_harmonic_gru_sequence_sparse_rcim/forward/python/residual_harmonic_gru_sequence-epoch=116-val_mae=0.00198454.ckpt` |
+| backward | `models/polished_dataset/setpoints/residual_harmonic_gru_sequence_sparse_rcim/backward/onnx/model.onnx` | `models/polished_dataset/setpoints/residual_harmonic_gru_sequence_sparse_rcim/backward/python/residual_harmonic_gru_sequence-epoch=058-val_mae=0.00205854.ckpt` |
+| global | `models/polished_dataset/setpoints/residual_harmonic_gru_sequence_sparse_rcim/global/onnx/model.onnx` | `models/polished_dataset/setpoints/residual_harmonic_gru_sequence_sparse_rcim/global/python/residual_harmonic_gru_sequence-epoch=060-val_mae=0.00203207.ckpt` |
 
 ### Aggregate Metrics
 
@@ -146,9 +146,9 @@ Exact model paths:
 
 | Surface | ONNX Model Path | Python Model Path |
 | --- | --- | --- |
-| forward | `models/polished_dataset/actual_values/exported/residual_harmonic_gru_sequence_sparse_rcim/forward/2026-07-09-08-19-20__te_residual_harmonic_gru_sequence_sparse_rcim_fw__polished_actual_values/onnx/model.onnx` | `models/polished_dataset/actual_values/exported/residual_harmonic_gru_sequence_sparse_rcim/forward/2026-07-09-08-19-20__te_residual_harmonic_gru_sequence_sparse_rcim_fw__polished_actual_values/python/residual_harmonic_gru_sequence-epoch=170-val_mae=0.00195142.ckpt` |
-| backward | `models/polished_dataset/actual_values/exported/residual_harmonic_gru_sequence_sparse_rcim/backward/2026-07-09-08-55-01__te_residual_harmonic_gru_sequence_sparse_rcim_bw__polished_actual_values/onnx/model.onnx` | `models/polished_dataset/actual_values/exported/residual_harmonic_gru_sequence_sparse_rcim/backward/2026-07-09-08-55-01__te_residual_harmonic_gru_sequence_sparse_rcim_bw__polished_actual_values/python/residual_harmonic_gru_sequence-epoch=200-val_mae=0.00195317.ckpt` |
-| global | `models/polished_dataset/actual_values/exported/residual_harmonic_gru_sequence_sparse_rcim/global/2026-07-09-07-39-41__te_residual_harmonic_gru_sequence_sparse_rcim_global__polished_actual_values/onnx/model.onnx` | `models/polished_dataset/actual_values/exported/residual_harmonic_gru_sequence_sparse_rcim/global/2026-07-09-07-39-41__te_residual_harmonic_gru_sequence_sparse_rcim_global__polished_actual_values/python/residual_harmonic_gru_sequence-epoch=226-val_mae=0.00193782.ckpt` |
+| forward | `models/polished_dataset/actual_values/residual_harmonic_gru_sequence_sparse_rcim/forward/onnx/model.onnx` | `models/polished_dataset/actual_values/residual_harmonic_gru_sequence_sparse_rcim/forward/python/residual_harmonic_gru_sequence-epoch=170-val_mae=0.00195142.ckpt` |
+| backward | `models/polished_dataset/actual_values/residual_harmonic_gru_sequence_sparse_rcim/backward/onnx/model.onnx` | `models/polished_dataset/actual_values/residual_harmonic_gru_sequence_sparse_rcim/backward/python/residual_harmonic_gru_sequence-epoch=200-val_mae=0.00195317.ckpt` |
+| global | `models/polished_dataset/actual_values/residual_harmonic_gru_sequence_sparse_rcim/global/onnx/model.onnx` | `models/polished_dataset/actual_values/residual_harmonic_gru_sequence_sparse_rcim/global/python/residual_harmonic_gru_sequence-epoch=226-val_mae=0.00193782.ckpt` |
 
 ### Aggregate Metrics
 

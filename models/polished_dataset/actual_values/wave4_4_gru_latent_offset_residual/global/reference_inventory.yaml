@@ -1,0 +1,25 @@
+schema_version: 1
+dataset_id: polished_dataset
+dataset_schema: polished_point_v1
+input_mode: actual_values
+model_family: wave4_4_gru_latent_offset_residual
+model_type: latent_state_hysteresis_probe
+surface: global
+run_name: te_wave4_4_gru_latent_offset_residual_global__polished_actual_values
+run_instance_id: 2026-07-15-18-05-18__te_wave4_4_gru_latent_offset_residual_global__polished_actual_values
+source_output_directory: output/training_runs/wave4_4_gru_latent_offset_residual/2026-07-15-18-05-18__te_wave4_4_gru_latent_offset_residual_global__polished_actual_values
+source_best_checkpoint_path: output/training_runs/wave4_4_gru_latent_offset_residual/2026-07-15-18-05-18__te_wave4_4_gru_latent_offset_residual_global__polished_actual_values/checkpoints/latent_state_hysteresis_probe-epoch=208-val_mae=0.00217281.ckpt
+python_model_path: models/polished_dataset/actual_values/wave4_4_gru_latent_offset_residual/global/python/latent_state_hysteresis_probe-epoch=208-val_mae=0.00217281.ckpt
+onnx_model_path: models/polished_dataset/actual_values/wave4_4_gru_latent_offset_residual/global/onnx/model.onnx
+onnx_export_status: exported
+onnx_export_error: ''
+source_run_snapshot_path_map:
+  training_config.snapshot.yaml: output/training_runs/wave4_4_gru_latent_offset_residual/2026-07-15-18-05-18__te_wave4_4_gru_latent_offset_residual_global__polished_actual_values/training_config.yaml
+  metrics_summary.snapshot.yaml: output/training_runs/wave4_4_gru_latent_offset_residual/2026-07-15-18-05-18__te_wave4_4_gru_latent_offset_residual_global__polished_actual_values/metrics_summary.yaml
+  run_metadata.snapshot.yaml: output/training_runs/wave4_4_gru_latent_offset_residual/2026-07-15-18-05-18__te_wave4_4_gru_latent_offset_residual_global__polished_actual_values/run_metadata.yaml
+  training_test_report.snapshot.md: output/training_runs/wave4_4_gru_latent_offset_residual/2026-07-15-18-05-18__te_wave4_4_gru_latent_offset_residual_global__polished_actual_values/training_test_report.md
+  best_checkpoint_path.snapshot.txt: output/training_runs/wave4_4_gru_latent_offset_residual/2026-07-15-18-05-18__te_wave4_4_gru_latent_offset_residual_global__polished_actual_values/best_checkpoint_path.txt
+metrics:
+  val_mae: 0.002172814914956689
+  test_mae: 0.002271250355988741
+  test_rmse: 0.0033407160080969334

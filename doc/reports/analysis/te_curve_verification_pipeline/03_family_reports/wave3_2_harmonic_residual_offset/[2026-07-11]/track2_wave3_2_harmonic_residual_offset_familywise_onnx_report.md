@@ -44,9 +44,9 @@ Exact model paths:
 
 | Surface | ONNX Model Path | Python Model Path |
 | --- | --- | --- |
-| forward | `models/simplified_dataset/setpoints/exported/wave3_2_harmonic_residual_offset/forward/2026-07-10-23-36-51__te_wave3_2_harmonic_residual_offset_fw__simplified_setpoints/onnx/model.onnx` | `models/simplified_dataset/setpoints/exported/wave3_2_harmonic_residual_offset/forward/2026-07-10-23-36-51__te_wave3_2_harmonic_residual_offset_fw__simplified_setpoints/python/harmonic_residual_offset_probe-epoch=121-val_mae=0.00362257.ckpt` |
-| backward | `models/simplified_dataset/setpoints/exported/wave3_2_harmonic_residual_offset/backward/2026-07-10-23-52-02__te_wave3_2_harmonic_residual_offset_bw__simplified_setpoints/onnx/model.onnx` | `models/simplified_dataset/setpoints/exported/wave3_2_harmonic_residual_offset/backward/2026-07-10-23-52-02__te_wave3_2_harmonic_residual_offset_bw__simplified_setpoints/python/harmonic_residual_offset_probe-epoch=091-val_mae=0.00361216.ckpt` |
-| global | `models/simplified_dataset/setpoints/exported/wave3_2_harmonic_residual_offset/global/2026-07-10-23-18-29__te_wave3_2_harmonic_residual_offset_global__simplified_setpoints/onnx/model.onnx` | `models/simplified_dataset/setpoints/exported/wave3_2_harmonic_residual_offset/global/2026-07-10-23-18-29__te_wave3_2_harmonic_residual_offset_global__simplified_setpoints/python/harmonic_residual_offset_probe-epoch=138-val_mae=0.00362371.ckpt` |
+| forward | `models/simplified_dataset/setpoints/wave3_2_harmonic_residual_offset/forward/onnx/model.onnx` | `models/simplified_dataset/setpoints/wave3_2_harmonic_residual_offset/forward/python/harmonic_residual_offset_probe-epoch=121-val_mae=0.00362257.ckpt` |
+| backward | `models/simplified_dataset/setpoints/wave3_2_harmonic_residual_offset/backward/onnx/model.onnx` | `models/simplified_dataset/setpoints/wave3_2_harmonic_residual_offset/backward/python/harmonic_residual_offset_probe-epoch=091-val_mae=0.00361216.ckpt` |
+| global | `models/simplified_dataset/setpoints/wave3_2_harmonic_residual_offset/global/onnx/model.onnx` | `models/simplified_dataset/setpoints/wave3_2_harmonic_residual_offset/global/python/harmonic_residual_offset_probe-epoch=138-val_mae=0.00362371.ckpt` |
 
 ### Aggregate Metrics
 
@@ -95,9 +95,9 @@ Exact model paths:
 
 | Surface | ONNX Model Path | Python Model Path |
 | --- | --- | --- |
-| forward | `models/polished_dataset/setpoints/exported/wave3_2_harmonic_residual_offset/forward/2026-07-11-00-52-59__te_wave3_2_harmonic_residual_offset_fw__polished_setpoints/onnx/model.onnx` | `models/polished_dataset/setpoints/exported/wave3_2_harmonic_residual_offset/forward/2026-07-11-00-52-59__te_wave3_2_harmonic_residual_offset_fw__polished_setpoints/python/harmonic_residual_offset_probe-epoch=085-val_mae=0.00188607.ckpt` |
-| backward | `models/polished_dataset/setpoints/exported/wave3_2_harmonic_residual_offset/backward/2026-07-11-01-14-42__te_wave3_2_harmonic_residual_offset_bw__polished_setpoints/onnx/model.onnx` | `models/polished_dataset/setpoints/exported/wave3_2_harmonic_residual_offset/backward/2026-07-11-01-14-42__te_wave3_2_harmonic_residual_offset_bw__polished_setpoints/python/harmonic_residual_offset_probe-epoch=120-val_mae=0.00193287.ckpt` |
-| global | `models/polished_dataset/setpoints/exported/wave3_2_harmonic_residual_offset/global/2026-07-11-00-24-33__te_wave3_2_harmonic_residual_offset_global__polished_setpoints/onnx/model.onnx` | `models/polished_dataset/setpoints/exported/wave3_2_harmonic_residual_offset/global/2026-07-11-00-24-33__te_wave3_2_harmonic_residual_offset_global__polished_setpoints/python/harmonic_residual_offset_probe-epoch=124-val_mae=0.00190522.ckpt` |
+| forward | `models/polished_dataset/setpoints/wave3_2_harmonic_residual_offset/forward/onnx/model.onnx` | `models/polished_dataset/setpoints/wave3_2_harmonic_residual_offset/forward/python/harmonic_residual_offset_probe-epoch=085-val_mae=0.00188607.ckpt` |
+| backward | `models/polished_dataset/setpoints/wave3_2_harmonic_residual_offset/backward/onnx/model.onnx` | `models/polished_dataset/setpoints/wave3_2_harmonic_residual_offset/backward/python/harmonic_residual_offset_probe-epoch=120-val_mae=0.00193287.ckpt` |
+| global | `models/polished_dataset/setpoints/wave3_2_harmonic_residual_offset/global/onnx/model.onnx` | `models/polished_dataset/setpoints/wave3_2_harmonic_residual_offset/global/python/harmonic_residual_offset_probe-epoch=124-val_mae=0.00190522.ckpt` |
 
 ### Aggregate Metrics
 
@@ -146,9 +146,9 @@ Exact model paths:
 
 | Surface | ONNX Model Path | Python Model Path |
 | --- | --- | --- |
-| forward | `models/polished_dataset/actual_values/exported/wave3_2_harmonic_residual_offset/forward/2026-07-11-05-29-51__te_wave3_2_harmonic_residual_offset_fw__polished_actual_values/onnx/model.onnx` | `models/polished_dataset/actual_values/exported/wave3_2_harmonic_residual_offset/forward/2026-07-11-05-29-51__te_wave3_2_harmonic_residual_offset_fw__polished_actual_values/python/harmonic_residual_offset_probe-epoch=205-val_mae=0.00184965.ckpt` |
-| backward | `models/polished_dataset/actual_values/exported/wave3_2_harmonic_residual_offset/backward/2026-07-11-06-13-40__te_wave3_2_harmonic_residual_offset_bw__polished_actual_values/onnx/model.onnx` | `models/polished_dataset/actual_values/exported/wave3_2_harmonic_residual_offset/backward/2026-07-11-06-13-40__te_wave3_2_harmonic_residual_offset_bw__polished_actual_values/python/harmonic_residual_offset_probe-epoch=205-val_mae=0.00185299.ckpt` |
-| global | `models/polished_dataset/actual_values/exported/wave3_2_harmonic_residual_offset/global/2026-07-11-04-51-02__te_wave3_2_harmonic_residual_offset_global__polished_actual_values/onnx/model.onnx` | `models/polished_dataset/actual_values/exported/wave3_2_harmonic_residual_offset/global/2026-07-11-04-51-02__te_wave3_2_harmonic_residual_offset_global__polished_actual_values/python/harmonic_residual_offset_probe-epoch=201-val_mae=0.00183635.ckpt` |
+| forward | `models/polished_dataset/actual_values/wave3_2_harmonic_residual_offset/forward/onnx/model.onnx` | `models/polished_dataset/actual_values/wave3_2_harmonic_residual_offset/forward/python/harmonic_residual_offset_probe-epoch=205-val_mae=0.00184965.ckpt` |
+| backward | `models/polished_dataset/actual_values/wave3_2_harmonic_residual_offset/backward/onnx/model.onnx` | `models/polished_dataset/actual_values/wave3_2_harmonic_residual_offset/backward/python/harmonic_residual_offset_probe-epoch=205-val_mae=0.00185299.ckpt` |
+| global | `models/polished_dataset/actual_values/wave3_2_harmonic_residual_offset/global/onnx/model.onnx` | `models/polished_dataset/actual_values/wave3_2_harmonic_residual_offset/global/python/harmonic_residual_offset_probe-epoch=201-val_mae=0.00183635.ckpt` |
 
 ### Aggregate Metrics
 

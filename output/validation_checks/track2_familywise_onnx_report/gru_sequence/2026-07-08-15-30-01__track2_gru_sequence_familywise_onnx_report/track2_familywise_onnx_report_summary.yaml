@@ -23,10 +23,10 @@ group_summary_list:
     run_instance_id: 2026-07-08-11-24-01__te_gru_sequence_fw__simplified_setpoints
     dataset_schema: simplified_curve_v1
     model_type: gru_sequence
-    onnx_model_path: models/simplified_dataset/setpoints/exported/gru_sequence/forward/2026-07-08-11-24-01__te_gru_sequence_fw__simplified_setpoints/onnx/model.onnx
-    python_model_path: models/simplified_dataset/setpoints/exported/gru_sequence/forward/2026-07-08-11-24-01__te_gru_sequence_fw__simplified_setpoints/python/gru_sequence-epoch=043-val_mae=0.00375895.ckpt
-    training_config_path: models/simplified_dataset/setpoints/exported/gru_sequence/forward/2026-07-08-11-24-01__te_gru_sequence_fw__simplified_setpoints/source_run/training_config.snapshot.yaml
-    source_inventory_path: models/simplified_dataset/setpoints/exported/model_development_export_inventory.yaml
+    onnx_model_path: models/simplified_dataset/setpoints/gru_sequence/forward/onnx/model.onnx
+    python_model_path: models/simplified_dataset/setpoints/gru_sequence/forward/python/gru_sequence-epoch=043-val_mae=0.00375895.ckpt
+    training_config_path: models/simplified_dataset/setpoints/gru_sequence/forward/source_run/training_config.snapshot.yaml
+    source_inventory_path: models/simplified_dataset/setpoints/model_development_export_inventory.yaml
     evaluated_curve_count: 97
     aggregate_metrics:
       mse: 1.7344388258399445e-05
@@ -257,10 +257,10 @@ group_summary_list:
     run_instance_id: 2026-07-08-11-31-51__te_gru_sequence_bw__simplified_setpoints
     dataset_schema: simplified_curve_v1
     model_type: gru_sequence
-    onnx_model_path: models/simplified_dataset/setpoints/exported/gru_sequence/backward/2026-07-08-11-31-51__te_gru_sequence_bw__simplified_setpoints/onnx/model.onnx
-    python_model_path: models/simplified_dataset/setpoints/exported/gru_sequence/backward/2026-07-08-11-31-51__te_gru_sequence_bw__simplified_setpoints/python/gru_sequence-epoch=132-val_mae=0.00366119.ckpt
-    training_config_path: models/simplified_dataset/setpoints/exported/gru_sequence/backward/2026-07-08-11-31-51__te_gru_sequence_bw__simplified_setpoints/source_run/training_config.snapshot.yaml
-    source_inventory_path: models/simplified_dataset/setpoints/exported/model_development_export_inventory.yaml
+    onnx_model_path: models/simplified_dataset/setpoints/gru_sequence/backward/onnx/model.onnx
+    python_model_path: models/simplified_dataset/setpoints/gru_sequence/backward/python/gru_sequence-epoch=132-val_mae=0.00366119.ckpt
+    training_config_path: models/simplified_dataset/setpoints/gru_sequence/backward/source_run/training_config.snapshot.yaml
+    source_inventory_path: models/simplified_dataset/setpoints/model_development_export_inventory.yaml
     evaluated_curve_count: 97
     aggregate_metrics:
       mse: 2.1232970866730867e-05
@@ -491,10 +491,10 @@ group_summary_list:
     run_instance_id: 2026-07-08-11-17-09__te_gru_sequence_global__simplified_setpoints
     dataset_schema: simplified_curve_v1
     model_type: gru_sequence
-    onnx_model_path: models/simplified_dataset/setpoints/exported/gru_sequence/global/2026-07-08-11-17-09__te_gru_sequence_global__simplified_setpoints/onnx/model.onnx
-    python_model_path: models/simplified_dataset/setpoints/exported/gru_sequence/global/2026-07-08-11-17-09__te_gru_sequence_global__simplified_setpoints/python/gru_sequence-epoch=036-val_mae=0.00377716.ckpt
-    training_config_path: models/simplified_dataset/setpoints/exported/gru_sequence/global/2026-07-08-11-17-09__te_gru_sequence_global__simplified_setpoints/source_run/training_config.snapshot.yaml
-    source_inventory_path: models/simplified_dataset/setpoints/exported/model_development_export_inventory.yaml
+    onnx_model_path: models/simplified_dataset/setpoints/gru_sequence/global/onnx/model.onnx
+    python_model_path: models/simplified_dataset/setpoints/gru_sequence/global/python/gru_sequence-epoch=036-val_mae=0.00377716.ckpt
+    training_config_path: models/simplified_dataset/setpoints/gru_sequence/global/source_run/training_config.snapshot.yaml
+    source_inventory_path: models/simplified_dataset/setpoints/model_development_export_inventory.yaml
     evaluated_curve_count: 194
     aggregate_metrics:
       mse: 2.0412968165675726e-05
@@ -731,10 +731,10 @@ group_summary_list:
     run_instance_id: 2026-07-08-12-18-02__te_gru_sequence_fw__polished_setpoints
     dataset_schema: polished_setpoint_curve_v1
     model_type: gru_sequence
-    onnx_model_path: models/polished_dataset/setpoints/exported/gru_sequence/forward/2026-07-08-12-18-02__te_gru_sequence_fw__polished_setpoints/onnx/model.onnx
-    python_model_path: models/polished_dataset/setpoints/exported/gru_sequence/forward/2026-07-08-12-18-02__te_gru_sequence_fw__polished_setpoints/python/gru_sequence-epoch=152-val_mae=0.00216223.ckpt
-    training_config_path: models/polished_dataset/setpoints/exported/gru_sequence/forward/2026-07-08-12-18-02__te_gru_sequence_fw__polished_setpoints/source_run/training_config.snapshot.yaml
-    source_inventory_path: models/polished_dataset/setpoints/exported/model_development_export_inventory.yaml
+    onnx_model_path: models/polished_dataset/setpoints/gru_sequence/forward/onnx/model.onnx
+    python_model_path: models/polished_dataset/setpoints/gru_sequence/forward/python/gru_sequence-epoch=152-val_mae=0.00216223.ckpt
+    training_config_path: models/polished_dataset/setpoints/gru_sequence/forward/source_run/training_config.snapshot.yaml
+    source_inventory_path: models/polished_dataset/setpoints/model_development_export_inventory.yaml
     evaluated_curve_count: 100
     aggregate_metrics:
       mse: 1.0327653383810096e-05
@@ -965,10 +965,10 @@ group_summary_list:
     run_instance_id: 2026-07-08-12-47-20__te_gru_sequence_bw__polished_setpoints
     dataset_schema: polished_setpoint_curve_v1
     model_type: gru_sequence
-    onnx_model_path: models/polished_dataset/setpoints/exported/gru_sequence/backward/2026-07-08-12-47-20__te_gru_sequence_bw__polished_setpoints/onnx/model.onnx
-    python_model_path: models/polished_dataset/setpoints/exported/gru_sequence/backward/2026-07-08-12-47-20__te_gru_sequence_bw__polished_setpoints/python/gru_sequence-epoch=088-val_mae=0.00218293.ckpt
-    training_config_path: models/polished_dataset/setpoints/exported/gru_sequence/backward/2026-07-08-12-47-20__te_gru_sequence_bw__polished_setpoints/source_run/training_config.snapshot.yaml
-    source_inventory_path: models/polished_dataset/setpoints/exported/model_development_export_inventory.yaml
+    onnx_model_path: models/polished_dataset/setpoints/gru_sequence/backward/onnx/model.onnx
+    python_model_path: models/polished_dataset/setpoints/gru_sequence/backward/python/gru_sequence-epoch=088-val_mae=0.00218293.ckpt
+    training_config_path: models/polished_dataset/setpoints/gru_sequence/backward/source_run/training_config.snapshot.yaml
+    source_inventory_path: models/polished_dataset/setpoints/model_development_export_inventory.yaml
     evaluated_curve_count: 94
     aggregate_metrics:
       mse: 3.0350677119401167e-05
@@ -1199,10 +1199,10 @@ group_summary_list:
     run_instance_id: 2026-07-08-11-57-28__te_gru_sequence_global__polished_setpoints
     dataset_schema: polished_setpoint_curve_v1
     model_type: gru_sequence
-    onnx_model_path: models/polished_dataset/setpoints/exported/gru_sequence/global/2026-07-08-11-57-28__te_gru_sequence_global__polished_setpoints/onnx/model.onnx
-    python_model_path: models/polished_dataset/setpoints/exported/gru_sequence/global/2026-07-08-11-57-28__te_gru_sequence_global__polished_setpoints/python/gru_sequence-epoch=091-val_mae=0.00217360.ckpt
-    training_config_path: models/polished_dataset/setpoints/exported/gru_sequence/global/2026-07-08-11-57-28__te_gru_sequence_global__polished_setpoints/source_run/training_config.snapshot.yaml
-    source_inventory_path: models/polished_dataset/setpoints/exported/model_development_export_inventory.yaml
+    onnx_model_path: models/polished_dataset/setpoints/gru_sequence/global/onnx/model.onnx
+    python_model_path: models/polished_dataset/setpoints/gru_sequence/global/python/gru_sequence-epoch=091-val_mae=0.00217360.ckpt
+    training_config_path: models/polished_dataset/setpoints/gru_sequence/global/source_run/training_config.snapshot.yaml
+    source_inventory_path: models/polished_dataset/setpoints/model_development_export_inventory.yaml
     evaluated_curve_count: 194
     aggregate_metrics:
       mse: 2.0122806109039523e-05
@@ -1439,10 +1439,10 @@ group_summary_list:
     run_instance_id: 2026-07-08-13-44-26__te_gru_sequence_fw__polished_actual_values
     dataset_schema: polished_point_v1
     model_type: gru_sequence
-    onnx_model_path: models/polished_dataset/actual_values/exported/gru_sequence/forward/2026-07-08-13-44-26__te_gru_sequence_fw__polished_actual_values/onnx/model.onnx
-    python_model_path: models/polished_dataset/actual_values/exported/gru_sequence/forward/2026-07-08-13-44-26__te_gru_sequence_fw__polished_actual_values/python/gru_sequence-epoch=149-val_mae=0.00216525.ckpt
-    training_config_path: models/polished_dataset/actual_values/exported/gru_sequence/forward/2026-07-08-13-44-26__te_gru_sequence_fw__polished_actual_values/source_run/training_config.snapshot.yaml
-    source_inventory_path: models/polished_dataset/actual_values/exported/model_development_export_inventory.yaml
+    onnx_model_path: models/polished_dataset/actual_values/gru_sequence/forward/onnx/model.onnx
+    python_model_path: models/polished_dataset/actual_values/gru_sequence/forward/python/gru_sequence-epoch=149-val_mae=0.00216525.ckpt
+    training_config_path: models/polished_dataset/actual_values/gru_sequence/forward/source_run/training_config.snapshot.yaml
+    source_inventory_path: models/polished_dataset/actual_values/model_development_export_inventory.yaml
     evaluated_curve_count: 100
     aggregate_metrics:
       mse: 9.547403524210086e-06
@@ -1673,10 +1673,10 @@ group_summary_list:
     run_instance_id: 2026-07-08-14-10-34__te_gru_sequence_bw__polished_actual_values
     dataset_schema: polished_point_v1
     model_type: gru_sequence
-    onnx_model_path: models/polished_dataset/actual_values/exported/gru_sequence/backward/2026-07-08-14-10-34__te_gru_sequence_bw__polished_actual_values/onnx/model.onnx
-    python_model_path: models/polished_dataset/actual_values/exported/gru_sequence/backward/2026-07-08-14-10-34__te_gru_sequence_bw__polished_actual_values/python/gru_sequence-epoch=172-val_mae=0.00214390.ckpt
-    training_config_path: models/polished_dataset/actual_values/exported/gru_sequence/backward/2026-07-08-14-10-34__te_gru_sequence_bw__polished_actual_values/source_run/training_config.snapshot.yaml
-    source_inventory_path: models/polished_dataset/actual_values/exported/model_development_export_inventory.yaml
+    onnx_model_path: models/polished_dataset/actual_values/gru_sequence/backward/onnx/model.onnx
+    python_model_path: models/polished_dataset/actual_values/gru_sequence/backward/python/gru_sequence-epoch=172-val_mae=0.00214390.ckpt
+    training_config_path: models/polished_dataset/actual_values/gru_sequence/backward/source_run/training_config.snapshot.yaml
+    source_inventory_path: models/polished_dataset/actual_values/model_development_export_inventory.yaml
     evaluated_curve_count: 94
     aggregate_metrics:
       mse: 1.889682617608937e-05
@@ -1907,10 +1907,10 @@ group_summary_list:
     run_instance_id: 2026-07-08-13-16-43__te_gru_sequence_global__polished_actual_values
     dataset_schema: polished_point_v1
     model_type: gru_sequence
-    onnx_model_path: models/polished_dataset/actual_values/exported/gru_sequence/global/2026-07-08-13-16-43__te_gru_sequence_global__polished_actual_values/onnx/model.onnx
-    python_model_path: models/polished_dataset/actual_values/exported/gru_sequence/global/2026-07-08-13-16-43__te_gru_sequence_global__polished_actual_values/python/gru_sequence-epoch=141-val_mae=0.00217238.ckpt
-    training_config_path: models/polished_dataset/actual_values/exported/gru_sequence/global/2026-07-08-13-16-43__te_gru_sequence_global__polished_actual_values/source_run/training_config.snapshot.yaml
-    source_inventory_path: models/polished_dataset/actual_values/exported/model_development_export_inventory.yaml
+    onnx_model_path: models/polished_dataset/actual_values/gru_sequence/global/onnx/model.onnx
+    python_model_path: models/polished_dataset/actual_values/gru_sequence/global/python/gru_sequence-epoch=141-val_mae=0.00217238.ckpt
+    training_config_path: models/polished_dataset/actual_values/gru_sequence/global/source_run/training_config.snapshot.yaml
+    source_inventory_path: models/polished_dataset/actual_values/model_development_export_inventory.yaml
     evaluated_curve_count: 194
     aggregate_metrics:
       mse: 1.4380399039129237e-05

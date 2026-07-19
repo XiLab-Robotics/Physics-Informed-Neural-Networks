@@ -1,0 +1,25 @@
+schema_version: 1
+dataset_id: polished_dataset
+dataset_schema: polished_setpoint_curve_v1
+input_mode: setpoints
+model_family: wave3_2_clean_sequential_residual_offset
+model_type: sequential_residual_offset_probe
+surface: global
+run_name: te_wave3_2_clean_sequential_residual_offset_global__polished_setpoints
+run_instance_id: 2026-07-10-13-46-46__te_wave3_2_clean_sequential_residual_offset_global__polished_setpoints
+source_output_directory: output/training_runs/wave3_2_clean_sequential_residual_offset/2026-07-10-13-46-46__te_wave3_2_clean_sequential_residual_offset_global__polished_setpoints
+source_best_checkpoint_path: output/training_runs/wave3_2_clean_sequential_residual_offset/2026-07-10-13-46-46__te_wave3_2_clean_sequential_residual_offset_global__polished_setpoints/checkpoints/sequential_residual_offset_probe-epoch=128-val_mae=0.00217355.ckpt
+python_model_path: models/polished_dataset/setpoints/wave3_2_clean_sequential_residual_offset/global/python/sequential_residual_offset_probe-epoch=128-val_mae=0.00217355.ckpt
+onnx_model_path: models/polished_dataset/setpoints/wave3_2_clean_sequential_residual_offset/global/onnx/model.onnx
+onnx_export_status: exported
+onnx_export_error: ''
+source_run_snapshot_path_map:
+  training_config.snapshot.yaml: models/polished_dataset/setpoints/wave3_2_clean_sequential_residual_offset/global/source_run/training_config.snapshot.yaml
+  metrics_summary.snapshot.yaml: models/polished_dataset/setpoints/wave3_2_clean_sequential_residual_offset/global/source_run/metrics_summary.snapshot.yaml
+  run_metadata.snapshot.yaml: models/polished_dataset/setpoints/wave3_2_clean_sequential_residual_offset/global/source_run/run_metadata.snapshot.yaml
+  training_test_report.snapshot.md: models/polished_dataset/setpoints/wave3_2_clean_sequential_residual_offset/global/source_run/training_test_report.snapshot.md
+  best_checkpoint_path.snapshot.txt: models/polished_dataset/setpoints/wave3_2_clean_sequential_residual_offset/global/source_run/best_checkpoint_path.snapshot.txt
+metrics:
+  val_mae: 0.002173546701669693
+  test_mae: 0.002453744877129793
+  test_rmse: 0.00385081279091537

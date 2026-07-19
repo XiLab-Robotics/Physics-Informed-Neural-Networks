@@ -1,1 +1,0 @@
-C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_runs\residual_harmonic_lstm_sequence_dense360\2026-06-30-14-20-06__te_residual_harmonic_lstm_sequence_dense360_global\checkpoints\residual_harmonic_lstm_sequence-epoch=037-val_mae=0.00207083.ckpt

@@ -1,0 +1,25 @@
+schema_version: 1
+dataset_id: polished_dataset
+dataset_schema: polished_setpoint_curve_v1
+input_mode: setpoints
+model_family: residual_harmonic_lstm_sequence_sparse_rcim
+model_type: residual_harmonic_lstm_sequence
+surface: global
+run_name: te_residual_harmonic_lstm_sequence_sparse_rcim_global__polished_setpoints
+run_instance_id: 2026-07-09-19-35-45__te_residual_harmonic_lstm_sequence_sparse_rcim_global__polished_setpoints
+source_output_directory: output/training_runs/residual_harmonic_lstm_sequence_sparse_rcim/2026-07-09-19-35-45__te_residual_harmonic_lstm_sequence_sparse_rcim_global__polished_setpoints
+source_best_checkpoint_path: output/training_runs/residual_harmonic_lstm_sequence_sparse_rcim/2026-07-09-19-35-45__te_residual_harmonic_lstm_sequence_sparse_rcim_global__polished_setpoints/checkpoints/residual_harmonic_lstm_sequence-epoch=060-val_mae=0.00204293.ckpt
+python_model_path: models/polished_dataset/setpoints/residual_harmonic_lstm_sequence_sparse_rcim/global/python/residual_harmonic_lstm_sequence-epoch=060-val_mae=0.00204293.ckpt
+onnx_model_path: models/polished_dataset/setpoints/residual_harmonic_lstm_sequence_sparse_rcim/global/onnx/model.onnx
+onnx_export_status: exported
+onnx_export_error: ''
+source_run_snapshot_path_map:
+  training_config.snapshot.yaml: models/polished_dataset/setpoints/residual_harmonic_lstm_sequence_sparse_rcim/global/source_run/training_config.snapshot.yaml
+  metrics_summary.snapshot.yaml: models/polished_dataset/setpoints/residual_harmonic_lstm_sequence_sparse_rcim/global/source_run/metrics_summary.snapshot.yaml
+  run_metadata.snapshot.yaml: models/polished_dataset/setpoints/residual_harmonic_lstm_sequence_sparse_rcim/global/source_run/run_metadata.snapshot.yaml
+  training_test_report.snapshot.md: models/polished_dataset/setpoints/residual_harmonic_lstm_sequence_sparse_rcim/global/source_run/training_test_report.snapshot.md
+  best_checkpoint_path.snapshot.txt: models/polished_dataset/setpoints/residual_harmonic_lstm_sequence_sparse_rcim/global/source_run/best_checkpoint_path.snapshot.txt
+metrics:
+  val_mae: 0.0020429310388863087
+  test_mae: 0.002349164569750428
+  test_rmse: 0.0037264099810272455

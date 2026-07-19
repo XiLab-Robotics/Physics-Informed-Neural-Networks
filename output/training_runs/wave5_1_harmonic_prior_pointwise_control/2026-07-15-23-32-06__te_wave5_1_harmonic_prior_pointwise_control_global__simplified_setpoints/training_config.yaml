@@ -60,7 +60,7 @@ metadata:
   dataset_name: simplified_dataset
   input_mode: setpoints
   source_dataset_root: data/simplified_dataset
-  expected_model_archive_root: models/simplified_dataset/setpoints/exported
+  expected_model_archive_root: models/simplified_dataset/setpoints
   run_instance_id: 2026-07-15-23-32-06__te_wave5_1_harmonic_prior_pointwise_control_global__simplified_setpoints
 dataset:
   curve_batch_size: 16

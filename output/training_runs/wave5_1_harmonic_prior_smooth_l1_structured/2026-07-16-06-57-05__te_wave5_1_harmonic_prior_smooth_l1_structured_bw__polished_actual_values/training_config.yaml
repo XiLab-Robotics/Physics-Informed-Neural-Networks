@@ -58,7 +58,7 @@ metadata:
   dataset_name: polished_dataset
   input_mode: actual_values
   source_dataset_root: data/polished_dataset
-  expected_model_archive_root: models/polished_dataset/actual_values/exported
+  expected_model_archive_root: models/polished_dataset/actual_values
   run_instance_id: 2026-07-16-06-57-05__te_wave5_1_harmonic_prior_smooth_l1_structured_bw__polished_actual_values
 dataset:
   curve_batch_size: 16

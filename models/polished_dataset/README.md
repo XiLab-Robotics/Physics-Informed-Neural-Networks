@@ -12,21 +12,19 @@ contract uses five inputs:
 theta, theta_dot, tau_load, T, direction_flag
 ```
 
-Archived exports that predate this alignment may still contain historical
-four-input polished models and should remain in their existing immutable
-locations.
-
 ## Contents
 
 - `paper_reference/rcim_track1/`
   Polished RCIM Model-Bank Reproduction archive, split into `forward/` and
   `backward/` direction roots.
-- `exported/`
-  Model-development export archive built from the completed polished early-wave
-  and full-wave campaigns. The summary inventory records 144 runs:
-  48 `global`, 48 `forward`, and 48 `backward`.
-- `artifact_inventory.yaml`
-  Dataset-local inventory with artifact counts and source provenance.
+- `setpoints/`
+  Curated best model-development exports for the setpoint-input branch. Each
+  model family and surface is stored as `<model_family>/<surface>/` with
+  provenance in the leaf `reference_inventory.yaml`.
+- `actual_values/`
+  Curated best model-development exports for the actual-values input branch.
+  Each model family and surface is stored as `<model_family>/<surface>/` with
+  provenance in the leaf `reference_inventory.yaml`.
 
 ## Contract
 

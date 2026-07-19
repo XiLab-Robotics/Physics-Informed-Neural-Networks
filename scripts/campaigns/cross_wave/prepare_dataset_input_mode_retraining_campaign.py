@@ -38,21 +38,21 @@ INPUT_MODE_VERSION_DICTIONARY = {
         "input_mode": transmission_error_dataset.SETPOINT_INPUT_MODE,
         "dataset_schema": "simplified_curve_v1",
         "source_dataset_root": "data/simplified_dataset",
-        "model_archive_root": "models/simplified_dataset/setpoints/exported",
+        "model_archive_root": "models/simplified_dataset/setpoints",
     },
     "polished_setpoints": {
         "dataset_name": transmission_error_dataset.POLISHED_DATASET,
         "input_mode": transmission_error_dataset.SETPOINT_INPUT_MODE,
         "dataset_schema": "polished_setpoint_curve_v1",
         "source_dataset_root": "data/polished_dataset",
-        "model_archive_root": "models/polished_dataset/setpoints/exported",
+        "model_archive_root": "models/polished_dataset/setpoints",
     },
     "polished_actual_values": {
         "dataset_name": transmission_error_dataset.POLISHED_DATASET,
         "input_mode": transmission_error_dataset.ACTUAL_VALUES_INPUT_MODE,
         "dataset_schema": "polished_point_v1",
         "source_dataset_root": "data/polished_dataset",
-        "model_archive_root": "models/polished_dataset/actual_values/exported",
+        "model_archive_root": "models/polished_dataset/actual_values",
     },
 }
 SURFACE_NAME_LIST = ["global", "fw", "bw"]

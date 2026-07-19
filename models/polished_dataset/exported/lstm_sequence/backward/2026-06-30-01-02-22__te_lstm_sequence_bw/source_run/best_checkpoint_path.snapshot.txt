@@ -1,1 +1,0 @@
-C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_runs\lstm_sequence\2026-06-30-01-02-22__te_lstm_sequence_bw\checkpoints\lstm_sequence-epoch=138-val_mae=0.00214675.ckpt

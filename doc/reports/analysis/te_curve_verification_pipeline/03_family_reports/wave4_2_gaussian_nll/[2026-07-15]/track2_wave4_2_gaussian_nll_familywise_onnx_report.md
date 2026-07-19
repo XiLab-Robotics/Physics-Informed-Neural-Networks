@@ -44,9 +44,9 @@ Exact model paths:
 
 | Surface | ONNX Model Path | Python Model Path |
 | --- | --- | --- |
-| forward | `models/simplified_dataset/setpoints/exported/wave4_2_gaussian_nll/forward/2026-07-14-18-14-13__te_wave4_2_gaussian_nll_fw__simplified_setpoints/onnx/model.onnx` | `models/simplified_dataset/setpoints/exported/wave4_2_gaussian_nll/forward/2026-07-14-18-14-13__te_wave4_2_gaussian_nll_fw__simplified_setpoints/python/curve_aware_harmonic_residual_offset_probe-epoch=000-val_mae=0.09172054.ckpt` |
-| backward | `models/simplified_dataset/setpoints/exported/wave4_2_gaussian_nll/backward/2026-07-14-18-22-47__te_wave4_2_gaussian_nll_bw__simplified_setpoints/onnx/model.onnx` | `models/simplified_dataset/setpoints/exported/wave4_2_gaussian_nll/backward/2026-07-14-18-22-47__te_wave4_2_gaussian_nll_bw__simplified_setpoints/python/curve_aware_harmonic_residual_offset_probe-epoch=000-val_mae=0.10096127.ckpt` |
-| global | `models/simplified_dataset/setpoints/exported/wave4_2_gaussian_nll/global/2026-07-14-18-05-51__te_wave4_2_gaussian_nll_global__simplified_setpoints/onnx/model.onnx` | `models/simplified_dataset/setpoints/exported/wave4_2_gaussian_nll/global/2026-07-14-18-05-51__te_wave4_2_gaussian_nll_global__simplified_setpoints/python/curve_aware_harmonic_residual_offset_probe-epoch=000-val_mae=0.11074460.ckpt` |
+| forward | `models/simplified_dataset/setpoints/wave4_2_gaussian_nll/forward/onnx/model.onnx` | `models/simplified_dataset/setpoints/wave4_2_gaussian_nll/forward/python/curve_aware_harmonic_residual_offset_probe-epoch=000-val_mae=0.09172054.ckpt` |
+| backward | `models/simplified_dataset/setpoints/wave4_2_gaussian_nll/backward/onnx/model.onnx` | `models/simplified_dataset/setpoints/wave4_2_gaussian_nll/backward/python/curve_aware_harmonic_residual_offset_probe-epoch=000-val_mae=0.10096127.ckpt` |
+| global | `models/simplified_dataset/setpoints/wave4_2_gaussian_nll/global/onnx/model.onnx` | `models/simplified_dataset/setpoints/wave4_2_gaussian_nll/global/python/curve_aware_harmonic_residual_offset_probe-epoch=000-val_mae=0.11074460.ckpt` |
 
 ### Aggregate Metrics
 
@@ -95,9 +95,9 @@ Exact model paths:
 
 | Surface | ONNX Model Path | Python Model Path |
 | --- | --- | --- |
-| forward | `models/polished_dataset/setpoints/exported/wave4_2_gaussian_nll/forward/2026-07-14-19-42-55__te_wave4_2_gaussian_nll_fw__polished_setpoints/onnx/model.onnx` | `models/polished_dataset/setpoints/exported/wave4_2_gaussian_nll/forward/2026-07-14-19-42-55__te_wave4_2_gaussian_nll_fw__polished_setpoints/python/curve_aware_harmonic_residual_offset_probe-epoch=001-val_mae=0.08819758.ckpt` |
-| backward | `models/polished_dataset/setpoints/exported/wave4_2_gaussian_nll/backward/2026-07-14-19-52-54__te_wave4_2_gaussian_nll_bw__polished_setpoints/onnx/model.onnx` | `models/polished_dataset/setpoints/exported/wave4_2_gaussian_nll/backward/2026-07-14-19-52-54__te_wave4_2_gaussian_nll_bw__polished_setpoints/python/curve_aware_harmonic_residual_offset_probe-epoch=000-val_mae=0.08419463.ckpt` |
-| global | `models/polished_dataset/setpoints/exported/wave4_2_gaussian_nll/global/2026-07-14-18-46-23__te_wave4_2_gaussian_nll_global__polished_setpoints/onnx/model.onnx` | `models/polished_dataset/setpoints/exported/wave4_2_gaussian_nll/global/2026-07-14-18-46-23__te_wave4_2_gaussian_nll_global__polished_setpoints/python/curve_aware_harmonic_residual_offset_probe-epoch=240-val_mae=0.00188169.ckpt` |
+| forward | `models/polished_dataset/setpoints/wave4_2_gaussian_nll/forward/onnx/model.onnx` | `models/polished_dataset/setpoints/wave4_2_gaussian_nll/forward/python/curve_aware_harmonic_residual_offset_probe-epoch=001-val_mae=0.08819758.ckpt` |
+| backward | `models/polished_dataset/setpoints/wave4_2_gaussian_nll/backward/onnx/model.onnx` | `models/polished_dataset/setpoints/wave4_2_gaussian_nll/backward/python/curve_aware_harmonic_residual_offset_probe-epoch=000-val_mae=0.08419463.ckpt` |
+| global | `models/polished_dataset/setpoints/wave4_2_gaussian_nll/global/onnx/model.onnx` | `models/polished_dataset/setpoints/wave4_2_gaussian_nll/global/python/curve_aware_harmonic_residual_offset_probe-epoch=240-val_mae=0.00188169.ckpt` |
 
 ### Aggregate Metrics
 
@@ -146,9 +146,9 @@ Exact model paths:
 
 | Surface | ONNX Model Path | Python Model Path |
 | --- | --- | --- |
-| forward | `models/polished_dataset/actual_values/exported/wave4_2_gaussian_nll/forward/2026-07-14-20-42-59__te_wave4_2_gaussian_nll_fw__polished_actual_values/onnx/model.onnx` | `models/polished_dataset/actual_values/exported/wave4_2_gaussian_nll/forward/2026-07-14-20-42-59__te_wave4_2_gaussian_nll_fw__polished_actual_values/python/curve_aware_harmonic_residual_offset_probe-epoch=258-val_mae=0.00181578.ckpt` |
-| backward | `models/polished_dataset/actual_values/exported/wave4_2_gaussian_nll/backward/2026-07-14-21-40-47__te_wave4_2_gaussian_nll_bw__polished_actual_values/onnx/model.onnx` | `models/polished_dataset/actual_values/exported/wave4_2_gaussian_nll/backward/2026-07-14-21-40-47__te_wave4_2_gaussian_nll_bw__polished_actual_values/python/curve_aware_harmonic_residual_offset_probe-epoch=255-val_mae=0.00180572.ckpt` |
-| global | `models/polished_dataset/actual_values/exported/wave4_2_gaussian_nll/global/2026-07-14-20-32-49__te_wave4_2_gaussian_nll_global__polished_actual_values/onnx/model.onnx` | `models/polished_dataset/actual_values/exported/wave4_2_gaussian_nll/global/2026-07-14-20-32-49__te_wave4_2_gaussian_nll_global__polished_actual_values/python/curve_aware_harmonic_residual_offset_probe-epoch=000-val_mae=0.10197201.ckpt` |
+| forward | `models/polished_dataset/actual_values/wave4_2_gaussian_nll/forward/onnx/model.onnx` | `models/polished_dataset/actual_values/wave4_2_gaussian_nll/forward/python/curve_aware_harmonic_residual_offset_probe-epoch=258-val_mae=0.00181578.ckpt` |
+| backward | `models/polished_dataset/actual_values/wave4_2_gaussian_nll/backward/onnx/model.onnx` | `models/polished_dataset/actual_values/wave4_2_gaussian_nll/backward/python/curve_aware_harmonic_residual_offset_probe-epoch=255-val_mae=0.00180572.ckpt` |
+| global | `models/polished_dataset/actual_values/wave4_2_gaussian_nll/global/onnx/model.onnx` | `models/polished_dataset/actual_values/wave4_2_gaussian_nll/global/python/curve_aware_harmonic_residual_offset_probe-epoch=000-val_mae=0.10197201.ckpt` |
 
 ### Aggregate Metrics
 

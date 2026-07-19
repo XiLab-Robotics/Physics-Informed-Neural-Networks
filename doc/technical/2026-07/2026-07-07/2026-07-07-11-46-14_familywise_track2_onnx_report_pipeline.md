@@ -31,9 +31,9 @@ No Codex subagent is planned for the first implementation pass.
 Create a repository-owned familywise report pipeline that discovers exported
 model-development artifacts from:
 
-- `models/simplified_dataset/setpoints/exported/model_development_export_inventory.yaml`;
-- `models/polished_dataset/setpoints/exported/model_development_export_inventory.yaml`;
-- `models/polished_dataset/actual_values/exported/model_development_export_inventory.yaml`.
+- `models/simplified_dataset/setpoints/model_development_export_inventory.yaml`;
+- `models/polished_dataset/setpoints/model_development_export_inventory.yaml`;
+- `models/polished_dataset/actual_values/model_development_export_inventory.yaml`.
 
 The pipeline will accept a `--model-family tree` argument and, later, any other
 family once its three dataset/input-mode campaign groups have finished and their

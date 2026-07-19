@@ -31,7 +31,7 @@ metadata:
   dataset_name: simplified_dataset
   input_mode: setpoints
   source_dataset_root: data/simplified_dataset
-  expected_model_archive_root: models/simplified_dataset/setpoints/exported
+  expected_model_archive_root: models/simplified_dataset/setpoints
   run_instance_id: 2026-07-09-18-56-39__te_residual_harmonic_lstm_sequence_sparse_rcim_fw__simplified_setpoints
 dataset:
   curve_batch_size: 16

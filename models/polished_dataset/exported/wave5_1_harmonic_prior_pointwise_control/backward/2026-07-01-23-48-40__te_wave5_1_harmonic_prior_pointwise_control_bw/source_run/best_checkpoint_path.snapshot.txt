@@ -1,1 +1,0 @@
-C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_runs\wave5_1_harmonic_prior_pointwise_control\2026-07-01-23-48-40__te_wave5_1_harmonic_prior_pointwise_control_bw\checkpoints\wave3_harmonic_prior_residual-epoch=106-val_mae=0.00189325.ckpt
