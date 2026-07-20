@@ -67,7 +67,11 @@ DEFAULT_HARMONIC_ORDER_LIST = [1, 3, 39, 40, 78, 81, 156, 162, 240]
 PER_CURVE_METRICS_FILENAME = "shape_gated_per_curve_metrics.csv"
 CANDIDATE_SUMMARY_FILENAME = "shape_gated_candidate_summary.csv"
 SURFACE_DECISION_FILENAME = "shape_gated_surface_decisions.yaml"
+THRESHOLD_SWEEP_FILENAME = "shape_gate_threshold_sweep.csv"
 REPORT_FILENAME = "shape_gated_te_curve_reranker_report.md"
+DERIVATIVE_SMOOTHING_WINDOW = 7
+DERIVATIVE_SIGN_EPSILON = 1.0e-8
+BASELINE_ANCHOR_FAMILY_SET = {"tree", "feedforward", "harmonic_regression"}
 
 
 @dataclass(frozen=True)
@@ -77,10 +81,19 @@ class ShapeGateThresholds:
 
     minimum_fft_amplitude_similarity: float
     minimum_derivative_correlation: float
+    minimum_smoothed_derivative_correlation: float
+    minimum_derivative_sign_agreement_rate: float
+    maximum_normalized_derivative_rmse: float
     maximum_mean_harmonic_amplitude_error_pct: float
     maximum_mean_harmonic_phase_error_deg: float
     maximum_peak_to_peak_error_pct: float
     minimum_per_curve_shape_pass_rate: float
+    near_pass_minimum_fft_amplitude_similarity: float
+    near_pass_maximum_mean_harmonic_amplitude_error_pct: float
+    near_pass_maximum_mean_harmonic_phase_error_deg: float
+    near_pass_maximum_peak_to_peak_error_pct: float
+    near_pass_minimum_derivative_sign_agreement_rate: float
+    near_pass_maximum_normalized_derivative_rmse: float
 
 
 @dataclass(frozen=True)
@@ -113,7 +126,12 @@ class ShapeCurveMetric:
     mean_harmonic_amplitude_error_pct: float
     mean_harmonic_phase_error_deg: float
     derivative_correlation: float
+    centered_derivative_correlation: float
+    smoothed_derivative_correlation: float
+    derivative_sign_agreement_rate: float
     derivative_rmse_deg_per_deg: float
+    normalized_derivative_rmse: float
+    shape_failure_reason: str
     shape_pass: bool
 
     def to_csv_row(self) -> dict[str, Any]:
@@ -146,7 +164,12 @@ class ShapeCurveMetric:
             "mean_harmonic_amplitude_error_pct": format_float(self.mean_harmonic_amplitude_error_pct),
             "mean_harmonic_phase_error_deg": format_float(self.mean_harmonic_phase_error_deg),
             "derivative_correlation": format_float(self.derivative_correlation),
+            "centered_derivative_correlation": format_float(self.centered_derivative_correlation),
+            "smoothed_derivative_correlation": format_float(self.smoothed_derivative_correlation),
+            "derivative_sign_agreement_rate": format_float(self.derivative_sign_agreement_rate),
             "derivative_rmse_deg_per_deg": format_float(self.derivative_rmse_deg_per_deg),
+            "normalized_derivative_rmse": format_float(self.normalized_derivative_rmse),
+            "shape_failure_reason": self.shape_failure_reason,
             "shape_pass": str(self.shape_pass).lower(),
         }
 
@@ -193,7 +216,10 @@ class ShapeCandidateSummary:
     mean_harmonic_amplitude_error_pct: float
     mean_harmonic_phase_error_deg: float
     mean_derivative_correlation: float
+    mean_smoothed_derivative_correlation: float
+    mean_derivative_sign_agreement_rate: float
     mean_derivative_rmse_deg_per_deg: float
+    mean_normalized_derivative_rmse: float
     per_curve_shape_pass_rate: float
     raw_error_score: float
     shape_score: float
@@ -211,9 +237,10 @@ class ShapeCandidateSummary:
         decision_order = {
             "candidate": 0,
             "recommended_candidate": 0,
-            "baseline_anchor_only": 1,
-            "shape_gate_failed": 2,
-            "insufficient_evidence": 3,
+            "near_pass": 1,
+            "baseline_anchor_only": 2,
+            "shape_gate_failed": 3,
+            "insufficient_evidence": 4,
         }
         return (
             decision_order.get(self.decision_label, 4),
@@ -249,7 +276,10 @@ class ShapeCandidateSummary:
             "mean_harmonic_amplitude_error_pct": format_float(self.mean_harmonic_amplitude_error_pct),
             "mean_harmonic_phase_error_deg": format_float(self.mean_harmonic_phase_error_deg),
             "mean_derivative_correlation": format_float(self.mean_derivative_correlation),
+            "mean_smoothed_derivative_correlation": format_float(self.mean_smoothed_derivative_correlation),
+            "mean_derivative_sign_agreement_rate": format_float(self.mean_derivative_sign_agreement_rate),
             "mean_derivative_rmse_deg_per_deg": format_float(self.mean_derivative_rmse_deg_per_deg),
+            "mean_normalized_derivative_rmse": format_float(self.mean_normalized_derivative_rmse),
             "per_curve_shape_pass_rate": format_float(self.per_curve_shape_pass_rate),
             "raw_error_score": format_float(self.raw_error_score),
             "shape_score": format_float(self.shape_score),
@@ -297,10 +327,19 @@ def build_argument_parser() -> argparse.ArgumentParser:
     )
     argument_parser.add_argument("--minimum-fft-amplitude-similarity", type=float, default=0.82)
     argument_parser.add_argument("--minimum-derivative-correlation", type=float, default=0.70)
+    argument_parser.add_argument("--minimum-smoothed-derivative-correlation", type=float, default=0.25)
+    argument_parser.add_argument("--minimum-derivative-sign-agreement-rate", type=float, default=0.54)
+    argument_parser.add_argument("--maximum-normalized-derivative-rmse", type=float, default=1.00)
     argument_parser.add_argument("--maximum-mean-harmonic-amplitude-error-pct", type=float, default=55.0)
     argument_parser.add_argument("--maximum-mean-harmonic-phase-error-deg", type=float, default=75.0)
     argument_parser.add_argument("--maximum-peak-to-peak-error-pct", type=float, default=35.0)
     argument_parser.add_argument("--minimum-per-curve-shape-pass-rate", type=float, default=0.60)
+    argument_parser.add_argument("--near-pass-minimum-fft-amplitude-similarity", type=float, default=0.95)
+    argument_parser.add_argument("--near-pass-maximum-mean-harmonic-amplitude-error-pct", type=float, default=38.0)
+    argument_parser.add_argument("--near-pass-maximum-mean-harmonic-phase-error-deg", type=float, default=55.0)
+    argument_parser.add_argument("--near-pass-maximum-peak-to-peak-error-pct", type=float, default=32.0)
+    argument_parser.add_argument("--near-pass-minimum-derivative-sign-agreement-rate", type=float, default=0.50)
+    argument_parser.add_argument("--near-pass-maximum-normalized-derivative-rmse", type=float, default=1.35)
     return argument_parser
 
 
@@ -371,6 +410,42 @@ def compute_correlation(left_array: np.ndarray, right_array: np.ndarray) -> floa
     if float(np.std(left_array)) <= 1.0e-12 or float(np.std(right_array)) <= 1.0e-12:
         return math.nan
     return float(np.corrcoef(left_array, right_array)[0, 1])
+
+
+def compute_centered_array(value_array: np.ndarray) -> np.ndarray:
+
+    """Return a mean-centered float array."""
+
+    return value_array.astype(float) - float(np.mean(value_array.astype(float)))
+
+
+def compute_moving_average(value_array: np.ndarray, window_size: int) -> np.ndarray:
+
+    """Return an edge-padded moving average with a fixed odd window."""
+
+    if window_size <= 1 or value_array.size < window_size:
+        return value_array.astype(float)
+    assert window_size % 2 == 1, "The smoothing window must be odd."
+    pad_width = window_size // 2
+    padded_array = np.pad(value_array.astype(float), pad_width=pad_width, mode="edge")
+    kernel_array = np.ones(window_size, dtype=float) / float(window_size)
+    return np.convolve(padded_array, kernel_array, mode="valid")
+
+
+def compute_derivative_sign_agreement_rate(
+    truth_derivative: np.ndarray,
+    predicted_derivative: np.ndarray,
+) -> float:
+
+    """Compute derivative sign agreement while ignoring near-flat truth samples."""
+
+    finite_mask = np.isfinite(truth_derivative) & np.isfinite(predicted_derivative)
+    informative_mask = finite_mask & (np.abs(truth_derivative) > DERIVATIVE_SIGN_EPSILON)
+    if not bool(np.any(informative_mask)):
+        return math.nan
+    truth_sign_array = np.sign(truth_derivative[informative_mask])
+    predicted_sign_array = np.sign(predicted_derivative[informative_mask])
+    return float(np.mean(truth_sign_array == predicted_sign_array))
 
 
 def compute_fft_amplitude_similarity(truth_curve_deg: np.ndarray, predicted_curve_deg: np.ndarray) -> float:
@@ -450,12 +525,54 @@ def compute_shape_pass(metric: ShapeCurveMetric, thresholds: ShapeGateThresholds
 
     """Return whether one curve satisfies the shape gate."""
 
+    return not build_shape_failure_reason_list(metric, thresholds)
+
+
+def build_shape_failure_reason_list(metric: ShapeCurveMetric, thresholds: ShapeGateThresholds) -> list[str]:
+
+    """Return the strict shape-gate failure reasons for one curve."""
+
+    failure_reason_list: list[str] = []
+    if metric.fft_amplitude_similarity < thresholds.minimum_fft_amplitude_similarity:
+        failure_reason_list.append("fft_amplitude_similarity")
+    if metric.mean_harmonic_amplitude_error_pct > thresholds.maximum_mean_harmonic_amplitude_error_pct:
+        failure_reason_list.append("mean_harmonic_amplitude_error")
+    if metric.mean_harmonic_phase_error_deg > thresholds.maximum_mean_harmonic_phase_error_deg:
+        failure_reason_list.append("mean_harmonic_phase_error")
+    if metric.peak_to_peak_error_pct > thresholds.maximum_peak_to_peak_error_pct:
+        failure_reason_list.append("peak_to_peak_error")
+    if not derivative_gate_passes(metric, thresholds):
+        failure_reason_list.append("derivative_agreement")
+    return failure_reason_list
+
+
+def derivative_gate_passes(metric: ShapeCurveMetric, thresholds: ShapeGateThresholds) -> bool:
+
+    """Return whether one curve passes at least one derivative-agreement screen."""
+
     return (
-        metric.fft_amplitude_similarity >= thresholds.minimum_fft_amplitude_similarity
-        and metric.derivative_correlation >= thresholds.minimum_derivative_correlation
-        and metric.mean_harmonic_amplitude_error_pct <= thresholds.maximum_mean_harmonic_amplitude_error_pct
-        and metric.mean_harmonic_phase_error_deg <= thresholds.maximum_mean_harmonic_phase_error_deg
-        and metric.peak_to_peak_error_pct <= thresholds.maximum_peak_to_peak_error_pct
+        metric.derivative_correlation >= thresholds.minimum_derivative_correlation
+        or metric.smoothed_derivative_correlation >= thresholds.minimum_smoothed_derivative_correlation
+        or metric.derivative_sign_agreement_rate >= thresholds.minimum_derivative_sign_agreement_rate
+        or metric.normalized_derivative_rmse <= thresholds.maximum_normalized_derivative_rmse
+    )
+
+
+def near_pass_gate_passes(summary: ShapeCandidateSummary, thresholds: ShapeGateThresholds) -> bool:
+
+    """Return whether a failed active candidate is close enough to keep under review."""
+
+    derivative_near_pass = (
+        summary.mean_derivative_sign_agreement_rate >= thresholds.near_pass_minimum_derivative_sign_agreement_rate
+        or summary.mean_normalized_derivative_rmse <= thresholds.near_pass_maximum_normalized_derivative_rmse
+    )
+    return (
+        summary.mean_fft_amplitude_similarity >= thresholds.near_pass_minimum_fft_amplitude_similarity
+        and summary.mean_harmonic_amplitude_error_pct
+        <= thresholds.near_pass_maximum_mean_harmonic_amplitude_error_pct
+        and summary.mean_harmonic_phase_error_deg <= thresholds.near_pass_maximum_mean_harmonic_phase_error_deg
+        and summary.mean_peak_to_peak_error_pct <= thresholds.near_pass_maximum_peak_to_peak_error_pct
+        and derivative_near_pass
     )
 
 
@@ -466,10 +583,25 @@ def build_thresholds(arguments: argparse.Namespace) -> ShapeGateThresholds:
     return ShapeGateThresholds(
         minimum_fft_amplitude_similarity=float(arguments.minimum_fft_amplitude_similarity),
         minimum_derivative_correlation=float(arguments.minimum_derivative_correlation),
+        minimum_smoothed_derivative_correlation=float(arguments.minimum_smoothed_derivative_correlation),
+        minimum_derivative_sign_agreement_rate=float(arguments.minimum_derivative_sign_agreement_rate),
+        maximum_normalized_derivative_rmse=float(arguments.maximum_normalized_derivative_rmse),
         maximum_mean_harmonic_amplitude_error_pct=float(arguments.maximum_mean_harmonic_amplitude_error_pct),
         maximum_mean_harmonic_phase_error_deg=float(arguments.maximum_mean_harmonic_phase_error_deg),
         maximum_peak_to_peak_error_pct=float(arguments.maximum_peak_to_peak_error_pct),
         minimum_per_curve_shape_pass_rate=float(arguments.minimum_per_curve_shape_pass_rate),
+        near_pass_minimum_fft_amplitude_similarity=float(arguments.near_pass_minimum_fft_amplitude_similarity),
+        near_pass_maximum_mean_harmonic_amplitude_error_pct=float(
+            arguments.near_pass_maximum_mean_harmonic_amplitude_error_pct
+        ),
+        near_pass_maximum_mean_harmonic_phase_error_deg=float(
+            arguments.near_pass_maximum_mean_harmonic_phase_error_deg
+        ),
+        near_pass_maximum_peak_to_peak_error_pct=float(arguments.near_pass_maximum_peak_to_peak_error_pct),
+        near_pass_minimum_derivative_sign_agreement_rate=float(
+            arguments.near_pass_minimum_derivative_sign_agreement_rate
+        ),
+        near_pass_maximum_normalized_derivative_rmse=float(arguments.near_pass_maximum_normalized_derivative_rmse),
     )
 
 
@@ -603,8 +735,8 @@ def compute_curve_metric(
 
     truth_mean_deg = float(np.mean(truth_curve_deg))
     predicted_mean_deg = float(np.mean(predicted_curve_deg))
-    truth_centered_deg = truth_curve_deg - truth_mean_deg
-    predicted_centered_deg = predicted_curve_deg - predicted_mean_deg
+    truth_centered_deg = compute_centered_array(truth_curve_deg)
+    predicted_centered_deg = compute_centered_array(predicted_curve_deg)
     centered_residual_deg = predicted_centered_deg - truth_centered_deg
     truth_peak_to_peak_deg = float(np.ptp(truth_curve_deg))
     predicted_peak_to_peak_deg = float(np.ptp(predicted_curve_deg))
@@ -617,9 +749,19 @@ def compute_curve_metric(
 
     truth_derivative = np.gradient(truth_curve_deg, angle_deg_array)
     predicted_derivative = np.gradient(predicted_curve_deg, angle_deg_array)
+    truth_centered_derivative = np.gradient(truth_centered_deg, angle_deg_array)
+    predicted_centered_derivative = np.gradient(predicted_centered_deg, angle_deg_array)
+    smoothed_truth_curve_deg = compute_moving_average(truth_curve_deg, DERIVATIVE_SMOOTHING_WINDOW)
+    smoothed_predicted_curve_deg = compute_moving_average(predicted_curve_deg, DERIVATIVE_SMOOTHING_WINDOW)
+    smoothed_truth_derivative = np.gradient(smoothed_truth_curve_deg, angle_deg_array)
+    smoothed_predicted_derivative = np.gradient(smoothed_predicted_curve_deg, angle_deg_array)
     derivative_difference = predicted_derivative - truth_derivative
     derivative_rmse_deg_per_deg = float(np.sqrt(np.mean(np.square(derivative_difference))))
     derivative_correlation = compute_correlation(truth_derivative, predicted_derivative)
+    centered_derivative_correlation = compute_correlation(truth_centered_derivative, predicted_centered_derivative)
+    smoothed_derivative_correlation = compute_correlation(smoothed_truth_derivative, smoothed_predicted_derivative)
+    derivative_sign_agreement_rate = compute_derivative_sign_agreement_rate(truth_derivative, predicted_derivative)
+    normalized_derivative_rmse = derivative_rmse_deg_per_deg / max(truth_peak_to_peak_deg, 1.0e-12)
 
     (
         mean_harmonic_amplitude_error_pct,
@@ -663,13 +805,20 @@ def compute_curve_metric(
         mean_harmonic_amplitude_error_pct=mean_harmonic_amplitude_error_pct,
         mean_harmonic_phase_error_deg=mean_harmonic_phase_error_deg,
         derivative_correlation=derivative_correlation,
+        centered_derivative_correlation=centered_derivative_correlation,
+        smoothed_derivative_correlation=smoothed_derivative_correlation,
+        derivative_sign_agreement_rate=derivative_sign_agreement_rate,
         derivative_rmse_deg_per_deg=derivative_rmse_deg_per_deg,
+        normalized_derivative_rmse=normalized_derivative_rmse,
+        shape_failure_reason="",
         shape_pass=False,
     )
+    failure_reason_list = build_shape_failure_reason_list(pending_metric, thresholds)
     return ShapeCurveMetric(
         **{
             **pending_metric.__dict__,
-            "shape_pass": compute_shape_pass(pending_metric, thresholds),
+            "shape_failure_reason": ";".join(failure_reason_list),
+            "shape_pass": not failure_reason_list,
         }
     )
 
@@ -718,63 +867,97 @@ def build_candidate_summary_list(
     for candidate_id, metric_list in sorted(grouped_metric_map.items()):
         first_metric = metric_list[0]
         pass_rate = safe_mean([1.0 if metric.shape_pass else 0.0 for metric in metric_list])
+        failure_reason_counter: dict[str, int] = defaultdict(int)
+        for metric in metric_list:
+            for failure_reason in metric.shape_failure_reason.split(";"):
+                if failure_reason:
+                    failure_reason_counter[failure_reason] += 1
+        dominant_failure_reason = ", ".join(
+            f"{reason}:{count}" for reason, count in sorted(failure_reason_counter.items())
+        )
+
+        summary_dictionary = {
+            "rank": 0,
+            "candidate_id": candidate_id,
+            "candidate_family": first_metric.candidate_family,
+            "candidate_kind": first_metric.candidate_kind,
+            "candidate_source_label": first_metric.candidate_source_label,
+            "candidate_surface": first_metric.candidate_surface,
+            "direction_label": first_metric.direction_label,
+            "curve_count": len(metric_list),
+            "mean_raw_mae_deg": safe_mean([metric.raw_mae_deg for metric in metric_list]),
+            "mean_raw_rmse_deg": safe_mean([metric.raw_rmse_deg for metric in metric_list]),
+            "mean_percentage_error_pct": safe_mean([metric.mean_percentage_error_pct for metric in metric_list]),
+            "p95_mean_percentage_error_pct": percentile(
+                [metric.mean_percentage_error_pct for metric in metric_list],
+                95.0,
+            ),
+            "mean_absolute_offset_error_deg": safe_mean([metric.absolute_offset_error_deg for metric in metric_list]),
+            "mean_centered_mae_deg": safe_mean([metric.centered_mae_deg for metric in metric_list]),
+            "mean_centered_rmse_deg": safe_mean([metric.centered_rmse_deg for metric in metric_list]),
+            "mean_peak_to_peak_error_pct": safe_mean([metric.peak_to_peak_error_pct for metric in metric_list]),
+            "mean_fft_amplitude_similarity": safe_mean(
+                [metric.fft_amplitude_similarity for metric in metric_list]
+            ),
+            "mean_dominant_harmonic_retention_pct": safe_mean(
+                [metric.dominant_harmonic_retention_pct for metric in metric_list]
+            ),
+            "mean_dominant_harmonic_phase_error_deg": safe_mean(
+                [metric.dominant_harmonic_phase_error_deg for metric in metric_list]
+            ),
+            "mean_harmonic_amplitude_error_pct": safe_mean(
+                [metric.mean_harmonic_amplitude_error_pct for metric in metric_list]
+            ),
+            "mean_harmonic_phase_error_deg": safe_mean(
+                [metric.mean_harmonic_phase_error_deg for metric in metric_list]
+            ),
+            "mean_derivative_correlation": safe_mean([metric.derivative_correlation for metric in metric_list]),
+            "mean_smoothed_derivative_correlation": safe_mean(
+                [metric.smoothed_derivative_correlation for metric in metric_list]
+            ),
+            "mean_derivative_sign_agreement_rate": safe_mean(
+                [metric.derivative_sign_agreement_rate for metric in metric_list]
+            ),
+            "mean_derivative_rmse_deg_per_deg": safe_mean(
+                [metric.derivative_rmse_deg_per_deg for metric in metric_list]
+            ),
+            "mean_normalized_derivative_rmse": safe_mean(
+                [metric.normalized_derivative_rmse for metric in metric_list]
+            ),
+            "per_curve_shape_pass_rate": pass_rate,
+            "raw_error_score": 0.0,
+            "shape_score": 0.0,
+            "harmonic_score": 0.0,
+            "offset_score": 0.0,
+            "robustness_score": 0.0,
+            "composite_score": 0.0,
+            "decision_label": "candidate",
+            "veto_reason": "",
+        }
+        pending_summary = ShapeCandidateSummary(**summary_dictionary)
+
         decision_label = "candidate"
         veto_reason = ""
         if pass_rate < thresholds.minimum_per_curve_shape_pass_rate:
-            decision_label = "shape_gate_failed"
-            veto_reason = "per-curve shape pass rate below threshold"
-        elif first_metric.candidate_family in {"tree", "feedforward", "harmonic_regression"}:
+            if first_metric.candidate_family not in BASELINE_ANCHOR_FAMILY_SET and near_pass_gate_passes(
+                pending_summary,
+                thresholds,
+            ):
+                decision_label = "near_pass"
+                veto_reason = "below strict pass rate but retained by aggregate near-pass screen"
+            else:
+                decision_label = "shape_gate_failed"
+                veto_reason = f"per-curve shape pass rate below threshold; failures={dominant_failure_reason}"
+        elif first_metric.candidate_family in BASELINE_ANCHOR_FAMILY_SET:
             decision_label = "baseline_anchor_only"
 
         pending_summary_list.append(
             ShapeCandidateSummary(
-                rank=0,
-                candidate_id=candidate_id,
-                candidate_family=first_metric.candidate_family,
-                candidate_kind=first_metric.candidate_kind,
-                candidate_source_label=first_metric.candidate_source_label,
-                candidate_surface=first_metric.candidate_surface,
-                direction_label=first_metric.direction_label,
-                curve_count=len(metric_list),
-                mean_raw_mae_deg=safe_mean([metric.raw_mae_deg for metric in metric_list]),
-                mean_raw_rmse_deg=safe_mean([metric.raw_rmse_deg for metric in metric_list]),
-                mean_percentage_error_pct=safe_mean([metric.mean_percentage_error_pct for metric in metric_list]),
-                p95_mean_percentage_error_pct=percentile(
-                    [metric.mean_percentage_error_pct for metric in metric_list],
-                    95.0,
-                ),
-                mean_absolute_offset_error_deg=safe_mean([metric.absolute_offset_error_deg for metric in metric_list]),
-                mean_centered_mae_deg=safe_mean([metric.centered_mae_deg for metric in metric_list]),
-                mean_centered_rmse_deg=safe_mean([metric.centered_rmse_deg for metric in metric_list]),
-                mean_peak_to_peak_error_pct=safe_mean([metric.peak_to_peak_error_pct for metric in metric_list]),
-                mean_fft_amplitude_similarity=safe_mean(
-                    [metric.fft_amplitude_similarity for metric in metric_list]
-                ),
-                mean_dominant_harmonic_retention_pct=safe_mean(
-                    [metric.dominant_harmonic_retention_pct for metric in metric_list]
-                ),
-                mean_dominant_harmonic_phase_error_deg=safe_mean(
-                    [metric.dominant_harmonic_phase_error_deg for metric in metric_list]
-                ),
-                mean_harmonic_amplitude_error_pct=safe_mean(
-                    [metric.mean_harmonic_amplitude_error_pct for metric in metric_list]
-                ),
-                mean_harmonic_phase_error_deg=safe_mean(
-                    [metric.mean_harmonic_phase_error_deg for metric in metric_list]
-                ),
-                mean_derivative_correlation=safe_mean([metric.derivative_correlation for metric in metric_list]),
-                mean_derivative_rmse_deg_per_deg=safe_mean(
-                    [metric.derivative_rmse_deg_per_deg for metric in metric_list]
-                ),
-                per_curve_shape_pass_rate=pass_rate,
-                raw_error_score=0.0,
-                shape_score=0.0,
-                harmonic_score=0.0,
-                offset_score=0.0,
-                robustness_score=0.0,
-                composite_score=0.0,
-                decision_label=decision_label,
-                veto_reason=veto_reason,
+                **{
+                    **summary_dictionary,
+                    "decision_label": decision_label,
+                    "veto_reason": veto_reason,
+                }
             )
         )
 
@@ -810,7 +993,10 @@ def build_failure_summary_list(failure_list: list[EvaluationFailure]) -> list[Sh
             mean_harmonic_amplitude_error_pct=math.nan,
             mean_harmonic_phase_error_deg=math.nan,
             mean_derivative_correlation=math.nan,
+            mean_smoothed_derivative_correlation=math.nan,
+            mean_derivative_sign_agreement_rate=math.nan,
             mean_derivative_rmse_deg_per_deg=math.nan,
+            mean_normalized_derivative_rmse=math.nan,
             per_curve_shape_pass_rate=0.0,
             raw_error_score=1.0,
             shape_score=1.0,
@@ -834,6 +1020,13 @@ def add_block_scores(summary_list: list[ShapeCandidateSummary]) -> list[ShapeCan
     centered_mae_list = [summary.mean_centered_mae_deg for summary in summary_list]
     fft_similarity_list = [summary.mean_fft_amplitude_similarity for summary in summary_list]
     derivative_correlation_list = [summary.mean_derivative_correlation for summary in summary_list]
+    smoothed_derivative_correlation_list = [
+        summary.mean_smoothed_derivative_correlation for summary in summary_list
+    ]
+    derivative_sign_agreement_rate_list = [
+        summary.mean_derivative_sign_agreement_rate for summary in summary_list
+    ]
+    normalized_derivative_rmse_list = [summary.mean_normalized_derivative_rmse for summary in summary_list]
     harmonic_amplitude_error_list = [summary.mean_harmonic_amplitude_error_pct for summary in summary_list]
     harmonic_phase_error_list = [summary.mean_harmonic_phase_error_deg for summary in summary_list]
     offset_error_list = [summary.mean_absolute_offset_error_deg for summary in summary_list]
@@ -852,6 +1045,17 @@ def add_block_scores(summary_list: list[ShapeCandidateSummary]) -> list[ShapeCan
                 normalize_score(summary.mean_centered_mae_deg, centered_mae_list),
                 normalize_score(summary.mean_fft_amplitude_similarity, fft_similarity_list, higher_is_better=True),
                 normalize_score(summary.mean_derivative_correlation, derivative_correlation_list, higher_is_better=True),
+                normalize_score(
+                    summary.mean_smoothed_derivative_correlation,
+                    smoothed_derivative_correlation_list,
+                    higher_is_better=True,
+                ),
+                normalize_score(
+                    summary.mean_derivative_sign_agreement_rate,
+                    derivative_sign_agreement_rate_list,
+                    higher_is_better=True,
+                ),
+                normalize_score(summary.mean_normalized_derivative_rmse, normalized_derivative_rmse_list),
             ]
         )
         harmonic_score = safe_mean(
@@ -946,6 +1150,88 @@ def build_shape_metrics_for_surface(
     return attach_candidate_p95(metric_list), failure_list
 
 
+def build_threshold_sweep_row_list(
+    per_curve_metric_list: list[ShapeCurveMetric],
+    thresholds: ShapeGateThresholds,
+) -> list[dict[str, Any]]:
+
+    """Build compact derivative-threshold sweep rows for calibration review."""
+
+    grouped_metric_map: dict[str, list[ShapeCurveMetric]] = defaultdict(list)
+    for metric in per_curve_metric_list:
+        grouped_metric_map[metric.candidate_id].append(metric)
+
+    sweep_configuration_list = [
+        (
+            "strict_raw_derivative",
+            f"raw_corr>={thresholds.minimum_derivative_correlation:.2f}",
+            lambda metric: metric.derivative_correlation >= thresholds.minimum_derivative_correlation,
+        ),
+        (
+            "strict_smoothed_derivative",
+            f"smoothed_corr>={thresholds.minimum_smoothed_derivative_correlation:.2f}",
+            lambda metric: metric.smoothed_derivative_correlation
+            >= thresholds.minimum_smoothed_derivative_correlation,
+        ),
+        (
+            "strict_sign_agreement",
+            f"sign_agreement>={thresholds.minimum_derivative_sign_agreement_rate:.2f}",
+            lambda metric: metric.derivative_sign_agreement_rate
+            >= thresholds.minimum_derivative_sign_agreement_rate,
+        ),
+        (
+            "strict_normalized_derivative_rmse",
+            f"normalized_rmse<={thresholds.maximum_normalized_derivative_rmse:.2f}",
+            lambda metric: metric.normalized_derivative_rmse <= thresholds.maximum_normalized_derivative_rmse,
+        ),
+        (
+            "near_pass_sign_agreement",
+            f"sign_agreement>={thresholds.near_pass_minimum_derivative_sign_agreement_rate:.2f}",
+            lambda metric: metric.derivative_sign_agreement_rate
+            >= thresholds.near_pass_minimum_derivative_sign_agreement_rate,
+        ),
+        (
+            "near_pass_normalized_derivative_rmse",
+            f"normalized_rmse<={thresholds.near_pass_maximum_normalized_derivative_rmse:.2f}",
+            lambda metric: metric.normalized_derivative_rmse
+            <= thresholds.near_pass_maximum_normalized_derivative_rmse,
+        ),
+    ]
+
+    row_list: list[dict[str, Any]] = []
+    for candidate_id, metric_list in sorted(grouped_metric_map.items()):
+        first_metric = metric_list[0]
+        non_derivative_pass_list = [
+            metric.fft_amplitude_similarity >= thresholds.minimum_fft_amplitude_similarity
+            and metric.mean_harmonic_amplitude_error_pct <= thresholds.maximum_mean_harmonic_amplitude_error_pct
+            and metric.mean_harmonic_phase_error_deg <= thresholds.maximum_mean_harmonic_phase_error_deg
+            and metric.peak_to_peak_error_pct <= thresholds.maximum_peak_to_peak_error_pct
+            for metric in metric_list
+        ]
+        for sweep_name, sweep_rule, derivative_pass_function in sweep_configuration_list:
+            curve_pass_list = [
+                non_derivative_pass and derivative_pass_function(metric)
+                for metric, non_derivative_pass in zip(metric_list, non_derivative_pass_list)
+            ]
+            pass_rate = safe_mean([1.0 if curve_pass else 0.0 for curve_pass in curve_pass_list])
+            row_list.append(
+                {
+                    "candidate_id": candidate_id,
+                    "candidate_family": first_metric.candidate_family,
+                    "candidate_surface": first_metric.candidate_surface,
+                    "direction_label": first_metric.direction_label,
+                    "sweep_name": sweep_name,
+                    "sweep_rule": sweep_rule,
+                    "curve_count": len(metric_list),
+                    "per_curve_shape_pass_rate": format_float(pass_rate),
+                    "candidate_passes_threshold": str(
+                        pass_rate >= thresholds.minimum_per_curve_shape_pass_rate
+                    ).lower(),
+                }
+            )
+    return row_list
+
+
 def write_csv(csv_path: Path, row_list: list[dict[str, Any]]) -> None:
 
     """Write a CSV file from dictionaries."""
@@ -1022,11 +1308,20 @@ def build_report_markdown(
         "| Metric | Threshold |",
         "| --- | ---: |",
         f"| FFT amplitude similarity | >= {thresholds.minimum_fft_amplitude_similarity:.3f} |",
-        f"| Derivative correlation | >= {thresholds.minimum_derivative_correlation:.3f} |",
+        f"| Raw derivative correlation | >= {thresholds.minimum_derivative_correlation:.3f} |",
+        f"| Smoothed derivative correlation | >= {thresholds.minimum_smoothed_derivative_correlation:.3f} |",
+        f"| Derivative sign agreement rate | >= {thresholds.minimum_derivative_sign_agreement_rate:.3f} |",
+        f"| Normalized derivative RMSE | <= {thresholds.maximum_normalized_derivative_rmse:.3f} |",
         f"| Mean harmonic amplitude error [%] | <= {thresholds.maximum_mean_harmonic_amplitude_error_pct:.3f} |",
         f"| Mean harmonic phase error [deg] | <= {thresholds.maximum_mean_harmonic_phase_error_deg:.3f} |",
         f"| Peak-to-peak error [%] | <= {thresholds.maximum_peak_to_peak_error_pct:.3f} |",
         f"| Per-curve shape pass rate | >= {thresholds.minimum_per_curve_shape_pass_rate:.3f} |",
+        f"| Near-pass FFT amplitude similarity | >= {thresholds.near_pass_minimum_fft_amplitude_similarity:.3f} |",
+        f"| Near-pass mean harmonic amplitude error [%] | <= {thresholds.near_pass_maximum_mean_harmonic_amplitude_error_pct:.3f} |",
+        f"| Near-pass mean harmonic phase error [deg] | <= {thresholds.near_pass_maximum_mean_harmonic_phase_error_deg:.3f} |",
+        f"| Near-pass peak-to-peak error [%] | <= {thresholds.near_pass_maximum_peak_to_peak_error_pct:.3f} |",
+        f"| Near-pass derivative sign agreement rate | >= {thresholds.near_pass_minimum_derivative_sign_agreement_rate:.3f} |",
+        f"| Near-pass normalized derivative RMSE | <= {thresholds.near_pass_maximum_normalized_derivative_rmse:.3f} |",
         "",
         "## Surface Decisions",
         "",
@@ -1037,8 +1332,8 @@ def build_report_markdown(
             [
                 f"### {surface_scope.title()}",
                 "",
-                "| Rank | Candidate | Label | Raw MAE [deg] | Centered MAE [deg] | FFT Similarity | Harmonic Amp Err [%] | Harmonic Phase Err [deg] | Derivative Corr | Shape Pass Rate | Composite |",
-                "| ---: | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |",
+                "| Rank | Candidate | Label | Raw MAE [deg] | Centered MAE [deg] | FFT Similarity | Harmonic Amp Err [%] | Harmonic Phase Err [deg] | Raw Deriv Corr | Smoothed Deriv Corr | Deriv Sign Rate | Norm Deriv RMSE | Shape Pass Rate | Composite |",
+                "| ---: | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |",
             ]
         )
         for summary in summary_list:
@@ -1050,6 +1345,9 @@ def build_report_markdown(
                 f"{summary.mean_harmonic_amplitude_error_pct:.3f} | "
                 f"{summary.mean_harmonic_phase_error_deg:.3f} | "
                 f"{summary.mean_derivative_correlation:.3f} | "
+                f"{summary.mean_smoothed_derivative_correlation:.3f} | "
+                f"{summary.mean_derivative_sign_agreement_rate:.3f} | "
+                f"{summary.mean_normalized_derivative_rmse:.3f} | "
                 f"{summary.per_curve_shape_pass_rate:.3f} | "
                 f"{summary.composite_score:.3f} |"
             )
@@ -1063,18 +1361,24 @@ def build_report_markdown(
             "  shape gate after block-score reranking.",
             "- `baseline_anchor_only` entries remain useful references, but they do not",
             "  replace the active development baseline in this reduced pass.",
-        "- `shape_gate_failed` entries may still have good scalar error, but they",
-        "  are demoted until the curve-shape evidence improves.",
-        "- `insufficient_evidence` entries could not be evaluated from their",
-        "  referenced artifact and must not be promoted until provenance is",
-        "  repaired.",
-        "- All FFT, centered-shape, derivative, and harmonic diagnostics are",
+            "- `near_pass` entries miss the strict per-curve pass-rate gate but keep",
+            "  enough aggregate FFT, harmonic, peak-to-peak, and derivative evidence",
+            "  to remain visible for review.",
+            "- `shape_gate_failed` entries may still have good scalar error, but they",
+            "  are demoted until the curve-shape evidence improves.",
+            "- `insufficient_evidence` entries could not be evaluated from their",
+            "  referenced artifact and must not be promoted until provenance is",
+            "  repaired.",
+            "- All FFT, centered-shape, derivative, and harmonic diagnostics are",
             "  validation-time evidence only, not deployable runtime corrections.",
+            "- The threshold sweep is calibration evidence only; it is not a second",
+            "  promotion policy.",
             "",
             "## Output Artifacts",
             "",
             f"- per-curve metrics: `{shared_training_infrastructure.format_project_relative_path(output_directory / PER_CURVE_METRICS_FILENAME)}`;",
             f"- candidate summary: `{shared_training_infrastructure.format_project_relative_path(output_directory / CANDIDATE_SUMMARY_FILENAME)}`;",
+            f"- threshold sweep: `{shared_training_infrastructure.format_project_relative_path(output_directory / THRESHOLD_SWEEP_FILENAME)}`;",
             f"- surface decisions: `{shared_training_infrastructure.format_project_relative_path(output_directory / SURFACE_DECISION_FILENAME)}`;",
         ]
     )
@@ -1129,6 +1433,7 @@ def main() -> None:
             for summary in surface_summary_map[surface_scope]
         ],
     )
+    write_csv(output_directory / THRESHOLD_SWEEP_FILENAME, build_threshold_sweep_row_list(all_metric_list, thresholds))
 
     decision_payload = build_surface_decision_payload(
         run_instance_id,

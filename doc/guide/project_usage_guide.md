@@ -845,7 +845,8 @@ conda run -n pinns_env python -B scripts/reports/analysis/build_track2_curve_pay
 
 The shape-gated selected-active reranker evaluates the reduced forward/backward
 candidate set with FFT amplitude, harmonic, phase, derivative, offset, and
-per-curve pass-rate diagnostics. It does not launch training:
+per-curve pass-rate diagnostics. It also writes a compact threshold-sweep CSV
+for derivative-gate calibration and does not launch training:
 
 ```powershell
 conda run -n pinns_env python -B scripts/reports/analysis/build_shape_gated_te_curve_reranker.py `
@@ -853,6 +854,11 @@ conda run -n pinns_env python -B scripts/reports/analysis/build_shape_gated_te_c
   --dataset polished_dataset `
   --report-date 2026-07-20
 ```
+
+The strict gate keeps `recommended_candidate` limited to active candidates that
+meet the configured per-curve pass rate. `near_pass` candidates remain visible
+for review when their aggregate FFT, harmonic, peak-to-peak, and derivative
+evidence is close but not strong enough for promotion.
 
 The repository also exposes a separate original-dataset exact-model-bank branch
 for the bidirectional `RCIM Model-Bank Reproduction` rebuild:

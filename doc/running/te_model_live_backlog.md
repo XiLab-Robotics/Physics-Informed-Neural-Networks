@@ -267,12 +267,13 @@ Next planned diagnostic and training decision branches:
 | `CVP 1.4 Mean-Offset Full-Matrix Audit` | Apply raw, offset, centered-shape, amplitude, harmonic phase, and condition-stratified metrics to the full official curve-verification candidate matrix. | completed |
 | Offset-aware checkpoint selection | Monitor curve-bias, centered-shape, P95, harmonic phase, then scalar `val_mae`. | next decision candidate |
 | Curve-aware loss branch | Add pointwise, bias, centered-shape, slope, harmonic amplitude, and harmonic phase terms while preserving causal inputs. | next decision candidate |
+| Shape-gate metric loss pilot | Evaluate whether the shape-gated reranker metrics can become normalized auxiliary training losses or checkpoint-selection monitors for a small polished `periodic_gru_sequence`-anchored pilot. | future decision item after gate calibration; must not use validation-only full-curve postprocessing at inference and must prove improvement over scalar MAE baselines |
 | Component-offset identification | Test whether curve offset is dominated by `a_0` / `Component 0`, multiple components, condition/regime behavior, or experimental repeatability limits. | measured `h0`, signed-offset cross-check, and predicted-mean surface diagnostics completed; `h0` is the right mean channel, but the actionable issue is model-side mean-surface bias/compression |
 | `Wave 4 series` dispersion-aware modeling probes | Test robust losses, quantile or probabilistic heads, mixture-density heads, and latent-state or hysteresis-aware features on the offset and fragile-harmonic problem. | robust-loss, quantile/probabilistic, MDN, and `Wave 4.4` latent-state / hysteresis-aware campaigns and official TE Curve Verification refreshes completed; all are exploratory and not promoted |
 | `Wave 5.1` hybrid structured models | Combine harmonic structure, condition-conditioned residual learning, and explicit grouped treatment of stable and fragile harmonic bands. | first real `wave3_harmonic_prior_residual` campaign and official `TE Curve Verification Pipeline` verification refresh closed as a verified exploratory baseline, not promoted |
 | `Wave 5.2` PINN formulation and first PINN | Test soft physics, periodicity, smoothness, harmonic-consistency, and operating-condition constraints in a first narrow PINN branch. | `Wave 5.2A` MMT diagnostic and parameter inventory are generated; dataset-aligned calibration and `Wave 5.2B` / `Wave 5.2C` decision gates remain open |
 | Intermediate shape-first model-selection cleanup | Reduce the post-retraining active set using raw error, P95, centered shape, P2P behavior, visual collage evidence, and actual-values stability. | completed; active set is `periodic_gru_sequence`, `wave4_1_mae_robust_loss`, `wave4_2_quantile_p10_p50_p90`, and `periodic_mlp_harmonic`; `periodic_lstm_sequence_Bw`, `Wave 4.3`, `Wave 4.4`, and `Wave 5.1` are closed as active branches |
-| Frequency-domain shape-gated reranker | Add measured/predicted FFT amplitude similarity, dominant-harmonic retention, dominant-harmonic phase error, derivative correlation, and per-curve shape pass rate to future reduced reports. | next tooling candidate before reopening any scalar leader that visually loses measured TE shape |
+| Frequency-domain shape-gated reranker | Add measured/predicted FFT amplitude similarity, dominant-harmonic retention, dominant-harmonic phase error, robust derivative agreement, threshold sweep, and per-curve shape pass rate to future reduced reports. | implemented as reduced Fw/Bw tooling; calibration is the current screen before reopening any scalar leader that visually loses measured TE shape |
 | Wave 6 integrated multi-task / multi-head model branch | Shared causal trunk with separate offset, low-frequency, centered-shape, uncertainty or mixture, and optional structured-residual heads. | deferred until the shape-gated reduced set identifies ingredients that beat the current temporal and non-windowed targets |
 | Sequential residual calibration branch | Current best causal model plus second causal residual or offset calibrator trained on model error. | candidate after audit |
 
@@ -589,6 +590,9 @@ Default decision path after TE Curve Verification closeout:
   channel while avoiding the unsupported claim that it is the only cause;
 - test dispersion-aware losses and heads, hybrid structured models, and a
   first PINN before committing to a large integrated multi-head architecture;
+- evaluate calibrated shape-gate metrics as future auxiliary losses or
+  checkpoint monitors only after the reduced reranker proves which FFT,
+  harmonic, phase, offset, and derivative terms are stable enough to train on;
 - preserve causal runtime inputs: point-level state, optional short past
   history, and causal derived features only;
 - keep `Wave 2.1` temporal models as verified exploratory baselines;
