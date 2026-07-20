@@ -164,6 +164,10 @@ This folder contains the internal project documents derived from the reference P
   removing redundant `exported/` and timestamped run-directory levels while
   preserving leaf `reference_inventory.yaml` provenance.
 
+- [technical/2026-07/2026-07-20/2026-07-20-00-42-54_selected_report_markdownlint_spacing_fix.md](./technical/2026-07/2026-07-20/2026-07-20-00-42-54_selected_report_markdownlint_spacing_fix.md)
+  Technical plan for repairing `MD032` list-spacing failures in selected-model
+  `TE Curve Verification Pipeline` reports.
+
 - [scripts/tooling/lan_ai/lan_ai_node_server.md](./scripts/tooling/lan_ai/lan_ai_node_server.md)
   Setup and runtime guide for the remote LAN AI workstation.
 
