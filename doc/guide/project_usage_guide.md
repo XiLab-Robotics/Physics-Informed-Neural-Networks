@@ -843,6 +843,17 @@ payload samples for inspection while computing metrics on the full curves:
 conda run -n pinns_env python -B scripts/reports/analysis/build_track2_curve_payload_diagnostics_report.py
 ```
 
+The shape-gated selected-active reranker evaluates the reduced forward/backward
+candidate set with FFT amplitude, harmonic, phase, derivative, offset, and
+per-curve pass-rate diagnostics. It does not launch training:
+
+```powershell
+conda run -n pinns_env python -B scripts/reports/analysis/build_shape_gated_te_curve_reranker.py `
+  --config-path config/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/selected_active_track2_polished_actual_values_matrix.yaml `
+  --dataset polished_dataset `
+  --report-date 2026-07-20
+```
+
 The repository also exposes a separate original-dataset exact-model-bank branch
 for the bidirectional `RCIM Model-Bank Reproduction` rebuild:
 

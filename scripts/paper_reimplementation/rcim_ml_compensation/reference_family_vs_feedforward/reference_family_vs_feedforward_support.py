@@ -385,6 +385,16 @@ def resolve_exported_python_model_path(model_path: Path) -> Path:
     if relative_pointer_path.exists():
         return relative_pointer_path
 
+    normalized_pointer_text = pointer_text.replace("\\", "/")
+    output_marker = "output/"
+    output_marker_index = normalized_pointer_text.find(output_marker)
+    if output_marker_index >= 0:
+        repository_relative_pointer_path = shared_training_infrastructure.resolve_runtime_project_relative_path(
+            normalized_pointer_text[output_marker_index:]
+        )
+        if repository_relative_pointer_path.exists():
+            return repository_relative_pointer_path
+
     return model_path
 
 

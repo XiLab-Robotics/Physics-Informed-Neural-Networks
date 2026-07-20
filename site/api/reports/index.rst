@@ -11,6 +11,7 @@ repository reporting workflow.
    plot_wave1_best_model_te_curves
    build_track2_curve_first_reranking_report
    build_track2_curve_payload_diagnostics_report
+   build_shape_gated_te_curve_reranker
    build_track2_dataset_difference_report
    build_track2_mean_centered_collage_report
    build_track2_original_onnx_fw_collage_report
