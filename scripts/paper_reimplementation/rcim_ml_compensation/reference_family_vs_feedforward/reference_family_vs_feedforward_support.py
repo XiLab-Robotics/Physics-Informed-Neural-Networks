@@ -440,6 +440,11 @@ def build_curve_record_list(
             dataset_configuration,
             training_config.get("dataset", {}).get("name"),
         )
+        selected_input_mode = transmission_error_dataset.resolve_input_mode_selection(
+            dataset_configuration,
+            selected_dataset_name,
+            training_config.get("dataset", {}).get("input_mode"),
+        )
         direction_configuration = dataset_configuration["directions"]
         split_configuration = dataset_configuration["split"]
         directional_file_manifest = transmission_error_dataset.build_directional_file_manifest(
@@ -460,6 +465,7 @@ def build_curve_record_list(
                 csv_file_path.resolve(),
                 direction_label,
                 dataset_name=selected_dataset_name,
+                input_mode=selected_input_mode,
             )
             curve_record_list.append(
                 harmonic_wise_support.HarmonicCurveRecord(

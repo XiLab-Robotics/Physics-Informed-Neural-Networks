@@ -33,18 +33,18 @@ is intentionally excluded from this reduced decision report.
 
 | Rank | Candidate | Curve MAE [deg] | Curve RMSE [deg] | Mean Percentage Error [%] | P95 Mean Percentage Error [%] |
 | ---: | --- | ---: | ---: | ---: | ---: |
-| 1 | `shape_gate_loss_pilot_periodic_gru_sequence_Fw` | 0.041773 | 0.042025 | 90.071 | 162.615 |
+| 1 | `shape_gate_loss_pilot_periodic_gru_sequence_Fw` | 0.002398 | 0.002780 | 5.063 | 9.691 |
 
 ## Direction Breakdown
 
 | Direction | Candidate | Curve MAE [deg] | Curve RMSE [deg] | Mean Percentage Error [%] | P95 Mean Percentage Error [%] |
 | --- | --- | ---: | ---: | ---: | ---: |
-| `forward` | `shape_gate_loss_pilot_periodic_gru_sequence_Fw` | 0.041773 | 0.042025 | 90.071 | 162.615 |
+| `forward` | `shape_gate_loss_pilot_periodic_gru_sequence_Fw` | 0.002398 | 0.002780 | 5.063 | 9.691 |
 
 ## Artifacts
 
-- summary YAML: `output\validation_checks\track2_reference_comparison\2026-07-20-23-37-32__shape_gate_loss_pilot_only_track2_polished_setpoints_fw_matrix_shape_gate_loss_pilot_only_track2_polished_setpoints_fw/validation_summary.yaml`;
-- per-condition CSV: `output\validation_checks\track2_reference_comparison\2026-07-20-23-37-32__shape_gate_loss_pilot_only_track2_polished_setpoints_fw_matrix_shape_gate_loss_pilot_only_track2_polished_setpoints_fw\per_condition_metrics.csv`;
+- summary YAML: `output\validation_checks\track2_reference_comparison\2026-07-21-00-18-53__shape_gate_loss_pilot_only_track2_polished_setpoints_fw_matrix_shape_gate_loss_pilot_only_track2_polished_setpoints_fw_input_mode_fixed/validation_summary.yaml`;
+- per-condition CSV: `output\validation_checks\track2_reference_comparison\2026-07-21-00-18-53__shape_gate_loss_pilot_only_track2_polished_setpoints_fw_matrix_shape_gate_loss_pilot_only_track2_polished_setpoints_fw_input_mode_fixed\per_condition_metrics.csv`;
 - grouped report plot root: `doc\reports\campaign_results\track_2\verification_plots\shape_gate_loss_pilot_track2_polished_setpoints_fw`;
 - grouped report plot count: `0`;
 

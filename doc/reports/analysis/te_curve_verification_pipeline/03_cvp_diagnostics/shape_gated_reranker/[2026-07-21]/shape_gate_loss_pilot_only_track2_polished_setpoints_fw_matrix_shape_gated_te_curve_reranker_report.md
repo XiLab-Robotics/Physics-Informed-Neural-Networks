@@ -9,7 +9,7 @@ contract.
 
 ## Scope
 
-- run instance: `2026-07-20-23-38-28__shape_gated_te_curve_reranker`;
+- run instance: `2026-07-21-00-19-44__shape_gated_te_curve_reranker`;
 - config path: `config\paper_reimplementation\rcim_ml_compensation\reference_family_vs_feedforward\shape_gate_loss_pilot_only_track2_polished_setpoints_fw_matrix.yaml`;
 - dataset: `polished_dataset`;
 - evaluated surfaces: `forward`;
@@ -41,7 +41,7 @@ contract.
 
 | Rank | Candidate | Label | Raw MAE [deg] | Centered MAE [deg] | FFT Similarity | Harmonic Amp Err [%] | Harmonic Phase Err [deg] | Raw Deriv Corr | Smoothed Deriv Corr | Deriv Sign Rate | Norm Deriv RMSE | Shape Pass Rate | Composite |
 | ---: | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| 1 | `shape_gate_loss_pilot_periodic_gru_sequence_Fw` | `shape_gate_failed` | 0.041773 | 0.003646 | 0.980 | 47.325 | 49.950 | -0.012 | -0.019 | 0.493 | 0.358 | 0.340 | 0.000 |
+| 1 | `shape_gate_loss_pilot_periodic_gru_sequence_Fw` | `recommended_candidate` | 0.002398 | 0.001603 | 0.985 | 30.115 | 20.382 | 0.121 | 0.246 | 0.538 | 0.352 | 0.920 | 0.000 |
 
 ## Interpretation Rules
 
@@ -64,7 +64,7 @@ contract.
 
 ## Output Artifacts
 
-- per-curve metrics: `output\validation_checks\shape_gated_te_curve_reranker\2026-07-20-23-38-28__shape_gated_te_curve_reranker\shape_gated_per_curve_metrics.csv`;
-- candidate summary: `output\validation_checks\shape_gated_te_curve_reranker\2026-07-20-23-38-28__shape_gated_te_curve_reranker\shape_gated_candidate_summary.csv`;
-- threshold sweep: `output\validation_checks\shape_gated_te_curve_reranker\2026-07-20-23-38-28__shape_gated_te_curve_reranker\shape_gate_threshold_sweep.csv`;
-- surface decisions: `output\validation_checks\shape_gated_te_curve_reranker\2026-07-20-23-38-28__shape_gated_te_curve_reranker\shape_gated_surface_decisions.yaml`;
+- per-curve metrics: `output\validation_checks\shape_gated_te_curve_reranker\2026-07-21-00-19-44__shape_gated_te_curve_reranker\shape_gated_per_curve_metrics.csv`;
+- candidate summary: `output\validation_checks\shape_gated_te_curve_reranker\2026-07-21-00-19-44__shape_gated_te_curve_reranker\shape_gated_candidate_summary.csv`;
+- threshold sweep: `output\validation_checks\shape_gated_te_curve_reranker\2026-07-21-00-19-44__shape_gated_te_curve_reranker\shape_gate_threshold_sweep.csv`;
+- surface decisions: `output\validation_checks\shape_gated_te_curve_reranker\2026-07-21-00-19-44__shape_gated_te_curve_reranker\shape_gated_surface_decisions.yaml`;

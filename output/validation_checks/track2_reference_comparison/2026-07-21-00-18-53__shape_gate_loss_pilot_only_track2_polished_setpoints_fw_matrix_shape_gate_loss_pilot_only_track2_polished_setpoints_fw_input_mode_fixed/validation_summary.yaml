@@ -1,0 +1,116 @@
+config_path: config\paper_reimplementation\rcim_ml_compensation\reference_family_vs_feedforward\shape_gate_loss_pilot_only_track2_polished_setpoints_fw_matrix.yaml
+output_directory: output\validation_checks\track2_reference_comparison\2026-07-21-00-18-53__shape_gate_loss_pilot_only_track2_polished_setpoints_fw_matrix_shape_gate_loss_pilot_only_track2_polished_setpoints_fw_input_mode_fixed
+dataset:
+  dataset_config_path: config/datasets/transmission_error_dataset.yaml
+  dataset_root: data\polished_dataset
+  source_contract: data\polished_dataset
+comparison_scope:
+  comparison_mode: selected_active_model_matrix
+  percentage_error_denominator: peak_to_peak_truth
+  curve_count: 100
+  candidate_count: 1
+  directional_policy:
+    global:
+    - forward
+    - backward
+    Fw:
+    - forward
+    Bw:
+    - backward
+  reference_bank_compatibility_policy:
+    rcim_track1_Fw_h0_sign_multiplier: -1.0
+    reason: RCIM Model-Bank Reproduction forward reference banks store the constant
+      harmonic with the opposite sign convention relative to the TE Curve Verification
+      Pipeline TE-curve reconstruction contract.
+candidate_list:
+- candidate_id: shape_gate_loss_pilot_periodic_gru_sequence_Fw
+  candidate_family: shape_gate_loss_pilot_periodic_gru_sequence
+  candidate_kind: wave1_registry_model
+  candidate_source_label: shape_gate_loss_pilot
+  candidate_surface: Fw
+  allowed_direction_list:
+  - forward
+  source_path: output\registries\families\shape_gate_loss_pilot_periodic_gru_sequence_fw\latest_family_best.yaml
+  selected_harmonic_list: []
+  registry_run_instance_id: 2026-07-20-19-59-14__te_shape_gate_loss_periodic_gru_sequence_fw__polished_setpoints
+  model_file_path: null
+  composite_selection: null
+candidate_target_metric_summary: {}
+candidate_metric_summary:
+  shape_gate_loss_pilot_periodic_gru_sequence_Fw:
+    mse: 1.071302974562826e-05
+    mae: 0.0023980804903023694
+    rmse: 0.00277990485780434
+    mean_percentage_error_pct: 5.062771463400837
+    p95_mean_percentage_error_pct: 9.691284354990875
+direction_breakdown:
+  forward:
+    shape_gate_loss_pilot_periodic_gru_sequence_Fw:
+      mse: 1.071302974562826e-05
+      mae: 0.0023980804903023694
+      rmse: 0.00277990485780434
+      mean_percentage_error_pct: 5.062771463400837
+      p95_mean_percentage_error_pct: 9.691284354990875
+temperature_breakdown:
+  '25.0':
+    shape_gate_loss_pilot_periodic_gru_sequence_Fw:
+      mse: 8.267988213987877e-06
+      mae: 0.002200216564849275
+      rmse: 0.0025438746758165483
+      mean_percentage_error_pct: 4.915556175113398
+      p95_mean_percentage_error_pct: 10.02114570328584
+  '30.0':
+    shape_gate_loss_pilot_periodic_gru_sequence_Fw:
+      mse: 9.608708183835611e-06
+      mae: 0.002252124512670788
+      rmse: 0.0026569543853460645
+      mean_percentage_error_pct: 4.656743998299843
+      p95_mean_percentage_error_pct: 7.664812966527601
+  '35.0':
+    shape_gate_loss_pilot_periodic_gru_sequence_Fw:
+      mse: 1.4568023030516352e-05
+      mae: 0.002766633384068684
+      rmse: 0.003168389284998879
+      mean_percentage_error_pct: 5.634416127825203
+      p95_mean_percentage_error_pct: 11.952626216116489
+preview_plot_path_list: []
+report_plot_root: doc\reports\campaign_results\track_2\verification_plots\shape_gate_loss_pilot_track2_polished_setpoints_fw
+report_plot_path_list: []
+report_plot_count: 0
+per_condition_metrics_csv_path: output\validation_checks\track2_reference_comparison\2026-07-21-00-18-53__shape_gate_loss_pilot_only_track2_polished_setpoints_fw_matrix_shape_gate_loss_pilot_only_track2_polished_setpoints_fw_input_mode_fixed\per_condition_metrics.csv
+sample_preview_list:
+- source_file_path: data\polished_dataset\forward\25degree\1000rpm\1000.0rpm1000.0Nm25.0deg.csv
+  direction_label: forward
+  candidate_id: shape_gate_loss_pilot_periodic_gru_sequence_Fw
+  speed_rpm: 1000.0
+  torque_nm: 1000.0
+  oil_temperature_deg: 25.0
+  mean_percentage_error_pct: 3.5316267955210936
+- source_file_path: data\polished_dataset\forward\25degree\1000rpm\1000.0rpm1800.0Nm25.0deg.csv
+  direction_label: forward
+  candidate_id: shape_gate_loss_pilot_periodic_gru_sequence_Fw
+  speed_rpm: 1000.0
+  torque_nm: 1800.0
+  oil_temperature_deg: 25.0
+  mean_percentage_error_pct: 3.1644460835895276
+- source_file_path: data\polished_dataset\forward\25degree\1000rpm\1000.0rpm800.0Nm25.0deg.csv
+  direction_label: forward
+  candidate_id: shape_gate_loss_pilot_periodic_gru_sequence_Fw
+  speed_rpm: 1000.0
+  torque_nm: 800.0
+  oil_temperature_deg: 25.0
+  mean_percentage_error_pct: 2.574130242893959
+- source_file_path: data\polished_dataset\forward\25degree\100rpm\100.0rpm1300.0Nm25.0deg.csv
+  direction_label: forward
+  candidate_id: shape_gate_loss_pilot_periodic_gru_sequence_Fw
+  speed_rpm: 100.0
+  torque_nm: 1300.0
+  oil_temperature_deg: 25.0
+  mean_percentage_error_pct: 4.368958594667289
+- source_file_path: data\polished_dataset\forward\25degree\100rpm\100.0rpm400.0Nm25.0deg.csv
+  direction_label: forward
+  candidate_id: shape_gate_loss_pilot_periodic_gru_sequence_Fw
+  speed_rpm: 100.0
+  torque_nm: 400.0
+  oil_temperature_deg: 25.0
+  mean_percentage_error_pct: 2.8520349953447606

@@ -1,0 +1,44 @@
+curve_count: 100
+mean_full_mae_deg: 0.00239808049030237
+p95_full_mae_deg: 0.005147111134137113
+mean_full_offset_error_deg: 0.0015924784028330528
+p95_full_offset_error_deg: 0.003558117734464309
+mean_full_centered_mae_deg: 0.0016034451506705591
+p95_full_centered_mae_deg: 0.004791849519941706
+mean_sampled_full_mae_deg: 0.0023690094877952105
+p95_sampled_full_mae_deg: 0.005132156377658247
+mean_sampled_full_offset_error_deg: 0.0015861886100378797
+p95_sampled_full_offset_error_deg: 0.003561862871356424
+mean_sampled_full_centered_mae_deg: 0.0015634472272358835
+p95_sampled_full_centered_mae_deg: 0.00438555732835084
+mean_training_like_mae_deg: 0.0023690094991457044
+p95_training_like_mae_deg: 0.005132157056505093
+mean_training_like_offset_error_deg: 0.0015861886219704503
+p95_training_like_offset_error_deg: 0.0035618626487121208
+mean_training_like_centered_mae_deg: 0.00156344722097856
+p95_training_like_centered_mae_deg: 0.00438555756700225
+datamodule_test_sample_count: 12416
+datamodule_test_mae_deg: 0.0025222577147435434
+datamodule_test_rmse_deg: 0.004311665740237197
+datamodule_test_direction_curve_count:
+  backward: 94
+  forward: 100
+datamodule_test_source_path_preview:
+- C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\data\polished_dataset\backward\25degree\100rpm\100.0rpm300.0Nm25.0deg.csv
+- C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\data\polished_dataset\backward\25degree\100rpm\100.0rpm400.0Nm25.0deg.csv
+- C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\data\polished_dataset\backward\25degree\1100rpm\1100.0rpm0.0Nm25.0deg.csv
+- C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\data\polished_dataset\backward\25degree\1100rpm\1100.0rpm1600.0Nm25.0deg.csv
+- C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\data\polished_dataset\backward\25degree\1100rpm\1100.0rpm200.0Nm25.0deg.csv
+- C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\data\polished_dataset\backward\25degree\1300rpm\1300.0rpm1300.0Nm25.0deg.csv
+- C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\data\polished_dataset\backward\25degree\1300rpm\1300.0rpm1700.0Nm25.0deg.csv
+- C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\data\polished_dataset\backward\25degree\1400rpm\1400.0rpm400.0Nm25.0deg.csv
+- C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\data\polished_dataset\backward\25degree\1500rpm\1500.0rpm800.0Nm25.0deg.csv
+- C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\data\polished_dataset\backward\25degree\1500rpm\1500.0rpm900.0Nm25.0deg.csv
+- C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\data\polished_dataset\backward\25degree\1600rpm\1600.0rpm200.0Nm25.0deg.csv
+- C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\data\polished_dataset\backward\25degree\1600rpm\1600.0rpm500.0Nm25.0deg.csv
+datamodule_train_curve_count: 1356
+datamodule_validation_curve_count: 388
+datamodule_test_curve_count: 194
+config_path: config\paper_reimplementation\rcim_ml_compensation\reference_family_vs_feedforward\shape_gate_loss_pilot_only_track2_polished_setpoints_fw_matrix.yaml
+surface_scope: forward
+csv_path: output\validation_checks\shape_gate_pilot_track2_playback_contract_audit\2026-07-21-00-21-30_full_patched\shape_gate_pilot_track2_playback_contract_audit.csv

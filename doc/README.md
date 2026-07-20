@@ -220,19 +220,27 @@ This folder contains the internal project documents derived from the reference P
   inside the shape-gated `TE Curve Verification Pipeline` and attempting
   Track 2 visual generation without promoting from scalar campaign metrics.
 
-- [reports/analysis/validation_checks/te_curve_verification_pipeline/2026-07-20-23-38-10_shape_gate_loss_pilot_only_track2_polished_setpoints_fw_matrix_shape_gate_loss_pilot_only_track2_polished_setpoints_fw_report.md](./reports/analysis/validation_checks/te_curve_verification_pipeline/2026-07-20-23-38-10_shape_gate_loss_pilot_only_track2_polished_setpoints_fw_matrix_shape_gate_loss_pilot_only_track2_polished_setpoints_fw_report.md)
-  Pilot-only `TE Curve Verification Pipeline` comparison report for the
-  completed shape-gate loss checkpoint on `polished_dataset` setpoint
-  `forward` curves.
-
-- [reports/analysis/te_curve_verification_pipeline/03_cvp_diagnostics/shape_gated_reranker/[2026-07-20]/shape_gate_loss_pilot_only_track2_polished_setpoints_fw_matrix_shape_gated_te_curve_reranker_report.md](./reports/analysis/te_curve_verification_pipeline/03_cvp_diagnostics/shape_gated_reranker/%5B2026-07-20%5D/shape_gate_loss_pilot_only_track2_polished_setpoints_fw_matrix_shape_gated_te_curve_reranker_report.md)
-  Shape-gated reranker result for the shape-gate loss pilot checkpoint,
-  recording a forward-only gate failure before any full-surface campaign
-  promotion.
-
 - [reports/campaign_results/track_2/verification_plots/shape_gate_loss_pilot_track2_polished_setpoints_fw/track2_candidate_curve_plot_summary.yaml](./reports/campaign_results/track_2/verification_plots/shape_gate_loss_pilot_track2_polished_setpoints_fw/track2_candidate_curve_plot_summary.yaml)
   Summary for the bounded Track 2 truth-versus-prediction PNG plots generated
   from the shape-gate loss pilot checkpoint.
+
+- [technical/2026-07/2026-07-21/2026-07-21-00-01-30_shape_gate_pilot_track2_playback_contract_audit.md](./technical/2026-07/2026-07-21/2026-07-21-00-01-30_shape_gate_pilot_track2_playback_contract_audit.md)
+  Technical plan for auditing the checkpoint-to-Track-2 playback contract
+  behind the shape-gate loss pilot's offset-dominated full-curve failure.
+
+- [reports/analysis/validation_checks/te_curve_verification_pipeline/2026-07-21-00-19-31_shape_gate_loss_pilot_only_track2_polished_setpoints_fw_matrix_shape_gate_loss_pilot_only_track2_polished_setpoints_fw_input_mode_fixed_report.md](./reports/analysis/validation_checks/te_curve_verification_pipeline/2026-07-21-00-19-31_shape_gate_loss_pilot_only_track2_polished_setpoints_fw_matrix_shape_gate_loss_pilot_only_track2_polished_setpoints_fw_input_mode_fixed_report.md)
+  Corrected pilot-only `TE Curve Verification Pipeline` comparison report for
+  the completed shape-gate loss checkpoint on `polished_dataset` setpoint
+  `forward` curves, after fixing lightweight Track 2 input-mode propagation.
+
+- [reports/analysis/te_curve_verification_pipeline/03_cvp_diagnostics/shape_gated_reranker/[2026-07-21]/shape_gate_loss_pilot_only_track2_polished_setpoints_fw_matrix_shape_gated_te_curve_reranker_report.md](./reports/analysis/te_curve_verification_pipeline/03_cvp_diagnostics/shape_gated_reranker/%5B2026-07-21%5D/shape_gate_loss_pilot_only_track2_polished_setpoints_fw_matrix_shape_gated_te_curve_reranker_report.md)
+  Corrected shape-gated reranker result for the shape-gate loss pilot
+  checkpoint, recording a forward-only recommended-candidate decision after
+  fixing polished setpoint input-mode playback.
+
+- [../output/validation_checks/shape_gate_pilot_track2_playback_contract_audit/2026-07-21-00-21-30_full_patched/shape_gate_pilot_track2_playback_contract_audit.md](../output/validation_checks/shape_gate_pilot_track2_playback_contract_audit/2026-07-21-00-21-30_full_patched/shape_gate_pilot_track2_playback_contract_audit.md)
+  Full playback-contract audit proving that the earlier offset-dominated Track
+  2 failure came from polished input-mode drift, not from the checkpoint.
 
 - [reports/analysis/te_curve_verification_pipeline/03_cvp_diagnostics/rcim_track1_familywise_crosscheck/[2026-07-20]/rcim_track1_familywise_crosscheck_report.md](./reports/analysis/te_curve_verification_pipeline/03_cvp_diagnostics/rcim_track1_familywise_crosscheck/%5B2026-07-20%5D/rcim_track1_familywise_crosscheck_report.md)
   Diagnostic cross-check separating the latest `rcim_track1` forward `h0`
