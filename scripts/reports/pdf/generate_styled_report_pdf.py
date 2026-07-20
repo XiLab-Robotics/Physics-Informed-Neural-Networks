@@ -179,6 +179,8 @@ TRACK2_INTERMEDIATE_ACTUAL_VALUES_TABLE_CLASS_NAME = "report-table report-table-
 TRACK2_SELECTED_ACTIVE_MODEL_PATH_TABLE_CLASS_NAME = "report-table report-table-track2-selected-active-model-paths"
 TRACK2_SELECTED_ACTIVE_METRIC_RANKING_TABLE_CLASS_NAME = "report-table report-table-track2-selected-active-metric-ranking"
 TRACK2_SELECTED_ACTIVE_DIRECTION_BREAKDOWN_TABLE_CLASS_NAME = "report-table report-table-track2-selected-active-direction-breakdown"
+SHAPE_GATE_LOSS_METRIC_BREAKDOWN_TABLE_CLASS_NAME = "report-table report-table-shape-gate-loss-metric-breakdown"
+SHAPE_GATE_LOSS_BASELINE_TABLE_CLASS_NAME = "report-table report-table-shape-gate-loss-baseline"
 TRACK2D_MEAN_OFFSET_TABLE_CLASS_NAME = "report-table report-table-track2d-mean-offset"
 TRACK2E_OFFSET_FEASIBILITY_TABLE_CLASS_NAME = "report-table report-table-track2e-offset-feasibility"
 TRACK2_COMPONENT_HARMONIC_SUMMARY_TABLE_CLASS_NAME = "report-table report-table-track2-component-harmonic-summary"
@@ -676,6 +678,9 @@ REPORT_SPECIFIC_FORCED_PAGE_BREAK_SECTION_SLUGS = {
     },
     "2026-07-02-10-36-59_polished_full_wave_retraining_campaign_results_report": {
         "scalar-leaderboard-snapshot",
+    },
+    "2026-07-20-20-12-45_shape_gate_loss_pilot_campaign_results_report": {
+        "metric-breakdown",
     },
     "te_intermediate_model_selection_cleanup_report": {
         "backward-result",
@@ -3066,6 +3071,42 @@ REPORT_STYLESHEET = """
     .report-table-family-estimator-metric-ranking th:nth-child(5), .report-table-family-estimator-metric-ranking td:nth-child(5) { width: 20%; }
     .report-table-family-estimator-metric-ranking th:nth-child(6), .report-table-family-estimator-metric-ranking td:nth-child(6) { width: 20%; }
 
+    .report-table-shape-gate-loss-metric-breakdown th:nth-child(1),
+    .report-table-shape-gate-loss-metric-breakdown td:nth-child(1) { width: 33.33%; }
+    .report-table-shape-gate-loss-metric-breakdown th:nth-child(2),
+    .report-table-shape-gate-loss-metric-breakdown td:nth-child(2) { width: 33.33%; }
+    .report-table-shape-gate-loss-metric-breakdown th:nth-child(3),
+    .report-table-shape-gate-loss-metric-breakdown td:nth-child(3) { width: 33.34%; }
+
+    .report-table-shape-gate-loss-baseline {
+      font-size: 6.95pt;
+      line-height: 1.18;
+    }
+
+    .report-table-shape-gate-loss-baseline th,
+    .report-table-shape-gate-loss-baseline td {
+      padding: 4px 4px;
+    }
+
+    .report-table-shape-gate-loss-baseline th {
+      white-space: normal;
+      overflow-wrap: normal;
+      word-break: normal;
+      hyphens: none;
+      line-height: 1.14;
+    }
+
+    .report-table-shape-gate-loss-baseline th:nth-child(1),
+    .report-table-shape-gate-loss-baseline td:nth-child(1) { width: 32%; }
+    .report-table-shape-gate-loss-baseline th:nth-child(2),
+    .report-table-shape-gate-loss-baseline td:nth-child(2) { width: 8%; }
+    .report-table-shape-gate-loss-baseline th:nth-child(3),
+    .report-table-shape-gate-loss-baseline td:nth-child(3) { width: 15%; }
+    .report-table-shape-gate-loss-baseline th:nth-child(4),
+    .report-table-shape-gate-loss-baseline td:nth-child(4) { width: 15%; }
+    .report-table-shape-gate-loss-baseline th:nth-child(5),
+    .report-table-shape-gate-loss-baseline td:nth-child(5) { width: 30%; }
+
     .report-table-targeted-remote-followup-completed .metric-unit,
     .report-table-targeted-remote-followup-family-bests .metric-unit,
     .report-table-track1-second-iteration-completed .metric-unit,
@@ -4477,6 +4518,18 @@ def resolve_standard_table_class_name(
     if normalized_header_cells == ("Family", "Actual Score", "Actual MAE [deg]", "Actual P95 [%]"):
         return TRACK2_INTERMEDIATE_ACTUAL_VALUES_TABLE_CLASS_NAME
 
+    if (
+        report_stem == "2026-07-20-20-12-45_shape_gate_loss_pilot_campaign_results_report"
+        and normalized_header_cells == ("Metric", "Validation", "Test")
+    ):
+        return SHAPE_GATE_LOSS_METRIC_BREAKDOWN_TABLE_CLASS_NAME
+
+    if (
+        report_stem == "2026-07-20-20-12-45_shape_gate_loss_pilot_campaign_results_report"
+        and normalized_header_cells == ("Family", "Surface", "Validation MAE", "Test MAE", "Decision")
+    ):
+        return SHAPE_GATE_LOSS_BASELINE_TABLE_CLASS_NAME
+
     # Resolve Reusable Ranking/Metric Table Profiles
     if is_wide_identifier_ranking_table(normalized_header_cells):
         return WIDE_IDENTIFIER_RANKING_TABLE_CLASS_NAME
@@ -5658,6 +5711,7 @@ def render_markdown_body(markdown_text: str, markdown_path: Path) -> tuple[str, 
                     "2026-06-13-13-24-37_track2h_mixture_density_heads_campaign_results_report",
                     "2026-06-29-10-40-05_polished_early_wave_parallel_training_campaign_results_report",
                     "2026-07-02-10-36-59_polished_full_wave_retraining_campaign_results_report",
+                    "2026-07-20-20-12-45_shape_gate_loss_pilot_campaign_results_report",
                     "te_intermediate_model_selection_cleanup_report",
                 }
                 and not (

@@ -1,0 +1,107 @@
+schema_version: 1
+config_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\config\training\queue\shape_gate_loss_pilot\running\2026-07-20-19-59-14_001_001_shape_gate_loss_periodic_gru_sequence_fw.yaml
+experiment:
+  model_family: shape_gate_loss_pilot_periodic_gru_sequence_fw
+  model_type: periodic_gru_sequence
+  run_name: te_shape_gate_loss_periodic_gru_sequence_fw__polished_setpoints
+  output_run_name: te_shape_gate_loss_periodic_gru_sequence_fw__polished_setpoints
+  run_instance_id: 2026-07-20-19-59-14__te_shape_gate_loss_periodic_gru_sequence_fw__polished_setpoints
+  output_artifact_kind: training_run
+  base_model_family: periodic_gru_sequence
+  training_variant: fw
+  direction_scope_label: forward_only
+  use_forward_direction: true
+  use_backward_direction: false
+artifacts:
+  output_directory: R:\output\training_runs\shape_gate_loss_pilot_periodic_gru_sequence\2026-07-20-19-59-14__te_shape_gate_loss_periodic_gru_sequence_fw__polished_setpoints
+  best_checkpoint_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_runs\shape_gate_loss_pilot_periodic_gru_sequence\2026-07-20-19-59-14__te_shape_gate_loss_periodic_gru_sequence_fw__polished_setpoints\checkpoints\periodic_gru_sequence-epoch=007-val_mae=0.00229675.ckpt
+dataset_split:
+  train_curve_count: 1356
+  validation_curve_count: 388
+  test_curve_count: 194
+  dataset_name: polished_dataset
+  dataset_schema: polished_setpoint_curve_v1
+  input_mode: setpoints
+  input_feature_name_list:
+  - angular_position_deg
+  - input_speed_rpm
+  - input_torque_nm
+  - oil_temperature_deg
+  - direction_flag
+  target_feature_name_list:
+  - theta_TE
+  input_feature_dim: 5
+  target_feature_dim: 1
+dataset:
+  dataset_id: polished_dataset
+  dataset_schema: polished_setpoint_curve_v1
+  input_mode: setpoints
+  input_feature_names:
+  - angular_position_deg
+  - input_speed_rpm
+  - input_torque_nm
+  - oil_temperature_deg
+  - direction_flag
+  target_feature_names:
+  - theta_TE
+  input_feature_dim: 5
+  target_feature_dim: 1
+model_summary:
+  backbone_name: PeriodicTemporalSequenceNetwork
+  trainable_parameter_count: 157953
+  frozen_parameter_count: 0
+  total_parameter_count: 157953
+runtime_config:
+  accelerator: auto
+  devices: auto
+  precision: '32'
+  benchmark: true
+  use_non_blocking_transfer: true
+normalization_statistics:
+  input_feature_mean:
+  - 180.0000762939453
+  - 506.3013916015625
+  - 899.591552734375
+  - 29.843809127807617
+  - -0.01724354922771454
+  input_feature_std:
+  - 103.92301940917969
+  - 467.61541748046875
+  - 552.3279418945312
+  - 4.094047546386719
+  - 0.9998513460159302
+  target_mean:
+  - -0.016667330637574196
+  target_std:
+  - 0.0465485081076622
+validation_metrics:
+  val_loss: 0.008241862989962101
+  val_mae: 0.002296747174113989
+  val_rmse: 0.0027499725110828876
+  val_pointwise_loss: 0.005696987267583609
+  val_centered_curve_shape_loss: 0.004500445444136858
+  val_curve_offset_loss: 0.0011965421726927161
+  val_curve_amplitude_loss: 0.015341950580477715
+  val_sparse_harmonic_shape_loss: 0.0001077355700545013
+test_metrics:
+  test_loss: 0.011919386684894562
+  test_mae: 0.00252225692383945
+  test_rmse: 0.003132739569991827
+  test_pointwise_loss: 0.008579829707741737
+  test_centered_curve_shape_loss: 0.005241870880126953
+  test_curve_offset_loss: 0.0033379599917680025
+  test_curve_amplitude_loss: 0.018935345113277435
+  test_sparse_harmonic_shape_loss: 0.00011307535169180483
+comparison_payload:
+  model_family: shape_gate_loss_pilot_periodic_gru_sequence_fw
+  model_type: periodic_gru_sequence
+  run_name: te_shape_gate_loss_periodic_gru_sequence_fw__polished_setpoints
+  backbone_name: PeriodicTemporalSequenceNetwork
+  trainable_parameter_count: 157953
+  total_parameter_count: 157953
+  val_mae: 0.002296747174113989
+  val_rmse: 0.0027499725110828876
+  test_mae: 0.00252225692383945
+  test_rmse: 0.003132739569991827
+  deployment_notes: ''
+  interpretability_notes: ''

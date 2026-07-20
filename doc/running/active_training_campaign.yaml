@@ -1,124 +1,80 @@
 status: completed
-completed_at: '2026-07-19T12:05:00+02:00'
-closeout_document_path: doc/technical/2026-07/2026-07-19/2026-07-19-12-05-00_rcim_track1_polished_actual_values_closeout.md
-promoted_archive_root: models/polished_dataset/paper_reference/rcim_track1/actual_values
-promoted_onnx_file_count: 570
-promoted_python_pickle_file_count: 570
-promoted_metadata_file_count: 182
-accepted_slurm_job_list:
-- surface: fw
-  slurm_job_id: '136266'
-  state: COMPLETED
-  exit_code: '0:0'
-  elapsed: '13:04:30'
-- surface: bw
-  slurm_job_id: '136267'
-  state: COMPLETED
-  exit_code: '0:0'
-  elapsed: '12:58:15'
-- surface: global
-  slurm_job_id: '136268'
-  state: COMPLETED
-  exit_code: '0:0'
-  elapsed: '23:56:16'
-submitted_at: '2026-07-16T20:55:58+02:00'
-slurm_job_id: '136143'
-previous_oversubscribed_slurm_job_id: '136095'
-cancelled_oversubscribed_slurm_job_id: '136095'
-cancelled_oversubscribed_slurm_job_cancelled_at: '2026-07-16T20:54:56+02:00'
-cancelled_oversubscribed_slurm_job_cancel_reason: User-approved cancellation after diagnostics showed GridSearchCV n_jobs=32 combined with BLAS/OpenMP thread env at 32, causing heavy CPU oversubscription during MLP global.
-relaunch_resource_fix:
-  internal_thread_env: 1
-  joblib_cpu_limit: 16
-  grid_search_n_jobs: 16
-  grid_search_pre_dispatch: n_jobs
-  rationale: Keep the 32 CPU Slurm allocation but prevent each joblib worker from spawning many BLAS/OpenMP threads.
-previous_32cpu_slurm_job_id: '136082'
-previous_32cpu_slurm_job_cancelled_at: '2026-07-16T14:58:45+02:00'
-previous_32cpu_slurm_job_cancel_reason: Resubmitting with 24h time limit because Slurm denied live TimeLimit update and 12h was risky for three sequential RCIM surfaces.
-previous_high_slurm_job_id: '136067'
-previous_high_slurm_job_cancelled_at: '2026-07-16T13:23:03+02:00'
-previous_high_slurm_job_cancel_reason: Resubmitting with 32 CPU and 300g memory after Slurm confirmed immediate fnode03 placement.
-previous_cpu_slurm_job_id: '136065'
-previous_cpu_slurm_job_cancelled_at: '2026-07-16T13:20:13+02:00'
-previous_cpu_slurm_job_cancel_reason: Resubmitting on high CPU partition after low started slowly while reserved for higher-priority partitions.
-campaign_name: dataset_input_mode_retraining__rcim_track1__polished_actual_values
-campaign_type: rcim_track1_input_mode_retraining
-prepared_at: '2026-07-16T13:14:11+02:00'
-previous_slurm_job_id: '136052'
-previous_slurm_job_cancelled_at: '2026-07-16T13:18:40+02:00'
-previous_slurm_job_cancel_reason: Resubmitting on CPU partition after Slurm placed the no-GPU ice4hpc job on gnode01.
-execution_host: aries
-execution_mode: slurm_cpu_ram_global_plus_parallel_fw_bw
+prepared_at: '2026-07-20T19:28:28+02:00'
+completed_at: '2026-07-20T20:07:19+02:00'
+campaign_name: shape_gate_loss_pilot_2026_07_20
+campaign_type: shape_gate_loss_pilot
+execution_host: local_or_remote_aries
+execution_mode: operator_launched_local_or_remote
 dataset_id: polished_dataset
-input_mode: actual_values
-dataset_schema: polished_point_v1
+input_mode: setpoints
+dataset_schema: polished_setpoint_curve_v1
 dataset_root: data/polished_dataset
-model_family: rcim_track1
-expected_run_count: 3
+model_family: shape_gate_loss_pilot_periodic_gru_sequence
+base_model_family: periodic_gru_sequence
+expected_run_count: 1
 surface_list:
+- fw
+primary_surface: fw
+pilot_only: true
+promotion_requires_full_matrix: true
+full_matrix_target_list:
+- simplified_setpoints
+- polished_setpoints
+- polished_actual_values
+full_matrix_surface_list:
 - global
 - fw
 - bw
-campaign_manifest_path: config/paper_reimplementation/rcim_ml_compensation/rcim_track1_polished_input_mode_retraining/campaigns/dataset_input_mode_retraining__rcim_track1__polished_actual_values/campaign.yaml
+campaign_manifest_path: config/training/shape_gate_loss_pilot/campaigns/2026-07-20_shape_gate_loss_pilot/campaign.yaml
 queue_config_path_list:
-- config/paper_reimplementation/rcim_ml_compensation/rcim_track1_polished_input_mode_retraining/campaigns/dataset_input_mode_retraining__rcim_track1__polished_actual_values/queue/001_rcim_track1_global.yaml
-- config/paper_reimplementation/rcim_ml_compensation/rcim_track1_polished_input_mode_retraining/campaigns/dataset_input_mode_retraining__rcim_track1__polished_actual_values/queue/002_rcim_track1_fw.yaml
-- config/paper_reimplementation/rcim_ml_compensation/rcim_track1_polished_input_mode_retraining/campaigns/dataset_input_mode_retraining__rcim_track1__polished_actual_values/queue/003_rcim_track1_bw.yaml
-planning_report_path: doc/reports/campaign_plans/cross_wave/input_modes/2026-07-13-16-35-39_rcim_track1_polished_input_mode_campaign_plan_report.md
-technical_document_path: doc/technical/2026-07/2026-07-13/2026-07-13-16-31-32_rcim_track1_polished_input_mode_retraining.md
-launcher_path: scripts/campaigns/aries/run_rcim_track1_input_mode_campaign.sbatch
-launcher_note_path: doc/scripts/campaigns/aries/run_rcim_track1_input_mode_campaign.md
-expected_model_archive_root: models/polished_dataset/paper_reference/rcim_track1/actual_values
-slurm_request:
-  partition: high
-  account: xilab
-  qos: high
-  nodes: 1
-  ntasks: 1
-  cpus_per_task: 32
-  memory: 300g
-  time_limit: '24:00:00'
-  gpu_request: none
-running_slurm_job_time_limit: '24:00:00'
-running_slurm_job_time_limit_update_attempt: denied_by_slurm_for_cancelled_136082
+- config/training/shape_gate_loss_pilot/campaigns/2026-07-20_shape_gate_loss_pilot/queue/001_shape_gate_loss_periodic_gru_sequence_fw.yaml
+planning_report_path: doc/reports/campaign_plans/cross_wave/shape_gate_loss/2026-07-20-19-10-23_shape_gate_loss_pilot_campaign_plan_report.md
+technical_document_path: doc/technical/2026-07/2026-07-20/2026-07-20-18-10-35_shape_gate_loss_pilot_and_full_surface_campaign.md
+launcher_path: scripts/campaigns/cross_wave/run_shape_gate_loss_pilot_campaign.ps1
+launcher_note_path: doc/scripts/campaigns/cross_wave/run_shape_gate_loss_pilot_campaign.md
+expected_training_output_root: output/training_runs/shape_gate_loss_pilot_periodic_gru_sequence
+campaign_output_root: output/training_campaigns/2026-07-20-19-59-14_shape_gate_loss_pilot_2026_07_20
+completed_run_instance_id: 2026-07-20-19-59-14__te_shape_gate_loss_periodic_gru_sequence_fw__polished_setpoints
+completed_queue_config_path: config/training/queue/shape_gate_loss_pilot/completed/2026-07-20-19-59-14_001_001_shape_gate_loss_periodic_gru_sequence_fw.yaml
+campaign_leaderboard_path: output/training_campaigns/2026-07-20-19-59-14_shape_gate_loss_pilot_2026_07_20/campaign_leaderboard.yaml
+campaign_best_run_path: output/training_campaigns/2026-07-20-19-59-14_shape_gate_loss_pilot_2026_07_20/campaign_best_run.yaml
+campaign_best_run_report_path: output/training_campaigns/2026-07-20-19-59-14_shape_gate_loss_pilot_2026_07_20/campaign_best_run.md
+training_run_output_directory: output/training_runs/shape_gate_loss_pilot_periodic_gru_sequence/2026-07-20-19-59-14__te_shape_gate_loss_periodic_gru_sequence_fw__polished_setpoints
+training_metrics_path: output/training_runs/shape_gate_loss_pilot_periodic_gru_sequence/2026-07-20-19-59-14__te_shape_gate_loss_periodic_gru_sequence_fw__polished_setpoints/metrics_summary.yaml
+training_report_path: output/training_runs/shape_gate_loss_pilot_periodic_gru_sequence/2026-07-20-19-59-14__te_shape_gate_loss_periodic_gru_sequence_fw__polished_setpoints/training_test_report.md
+best_checkpoint_path: output/training_runs/shape_gate_loss_pilot_periodic_gru_sequence/2026-07-20-19-59-14__te_shape_gate_loss_periodic_gru_sequence_fw__polished_setpoints/checkpoints/periodic_gru_sequence-epoch=007-val_mae=0.00229675.ckpt
+result_summary:
+  val_mae: 0.002296747174113989
+  val_rmse: 0.0027499725110828876
+  test_mae: 0.00252225692383945
+  test_rmse: 0.003132739569991827
+  assessment: stable but not scalar-competitive against the current polished setpoints forward reduced-set leaders
 protected_file_list:
-- config/paper_reimplementation/rcim_ml_compensation/rcim_track1_polished_input_mode_retraining/campaigns/dataset_input_mode_retraining__rcim_track1__polished_actual_values/campaign.yaml
-- config/paper_reimplementation/rcim_ml_compensation/rcim_track1_polished_input_mode_retraining/campaigns/dataset_input_mode_retraining__rcim_track1__polished_actual_values/queue/001_rcim_track1_global.yaml
-- config/paper_reimplementation/rcim_ml_compensation/rcim_track1_polished_input_mode_retraining/campaigns/dataset_input_mode_retraining__rcim_track1__polished_actual_values/queue/002_rcim_track1_fw.yaml
-- config/paper_reimplementation/rcim_ml_compensation/rcim_track1_polished_input_mode_retraining/campaigns/dataset_input_mode_retraining__rcim_track1__polished_actual_values/queue/003_rcim_track1_bw.yaml
-- scripts/campaigns/aries/run_rcim_track1_input_mode_campaign.sbatch
-- doc/scripts/campaigns/aries/run_rcim_track1_input_mode_campaign.md
-- doc/reports/campaign_plans/cross_wave/input_modes/2026-07-13-16-35-39_rcim_track1_polished_input_mode_campaign_plan_report.md
-- doc/technical/2026-07/2026-07-13/2026-07-13-16-31-32_rcim_track1_polished_input_mode_retraining.md
+- config/training/shape_gate_loss_pilot/campaigns/2026-07-20_shape_gate_loss_pilot/campaign.yaml
+- config/training/shape_gate_loss_pilot/campaigns/2026-07-20_shape_gate_loss_pilot/queue/001_shape_gate_loss_periodic_gru_sequence_fw.yaml
+- config/training/shape_gate_loss_pilot/campaigns/2026-07-20_shape_gate_loss_pilot/README.md
+- scripts/campaigns/cross_wave/run_shape_gate_loss_pilot_campaign.ps1
+- doc/scripts/campaigns/cross_wave/run_shape_gate_loss_pilot_campaign.md
+- doc/reports/campaign_plans/cross_wave/shape_gate_loss/2026-07-20-19-10-23_shape_gate_loss_pilot_campaign_plan_report.md
+- doc/technical/2026-07/2026-07-20/2026-07-20-18-10-35_shape_gate_loss_pilot_and_full_surface_campaign.md
+- output/training_campaigns/2026-07-20-19-59-14_shape_gate_loss_pilot_2026_07_20/campaign_leaderboard.yaml
+- output/training_campaigns/2026-07-20-19-59-14_shape_gate_loss_pilot_2026_07_20/campaign_best_run.yaml
+- output/training_campaigns/2026-07-20-19-59-14_shape_gate_loss_pilot_2026_07_20/campaign_best_run.md
+- output/training_runs/shape_gate_loss_pilot_periodic_gru_sequence/2026-07-20-19-59-14__te_shape_gate_loss_periodic_gru_sequence_fw__polished_setpoints/metrics_summary.yaml
+- output/training_runs/shape_gate_loss_pilot_periodic_gru_sequence/2026-07-20-19-59-14__te_shape_gate_loss_periodic_gru_sequence_fw__polished_setpoints/training_test_report.md
 launch_command_list:
-- sbatch scripts/campaigns/aries/run_rcim_track1_input_mode_campaign.sbatch config/paper_reimplementation/rcim_ml_compensation/rcim_track1_polished_input_mode_retraining/campaigns/dataset_input_mode_retraining__rcim_track1__polished_actual_values/campaign.yaml
-parallel_surface_job_list:
-- surface: global
-  slurm_job_id: '136143'
-  queue_config_path: config/paper_reimplementation/rcim_ml_compensation/rcim_track1_polished_input_mode_retraining/campaigns/dataset_input_mode_retraining__rcim_track1__polished_actual_values/queue/001_rcim_track1_global.yaml
-  launch_mode: original_manifest_run
-  terminal_state: TIMEOUT
-  terminal_at: '2026-07-17T21:06:24+02:00'
-  terminal_reason: High-partition 24h limit reached during LGBM before export or validation.
-- surface: global
-  slurm_job_id: '136191'
-  queue_config_path: config/paper_reimplementation/rcim_ml_compensation/rcim_track1_polished_input_mode_retraining/campaigns/dataset_input_mode_retraining__rcim_track1__polished_actual_values/queue/001_rcim_track1_global.yaml
-  launch_mode: ulow_single_queue_timeout_risk_backup
-  submitted_at: '2026-07-17T14:39:00+02:00'
-  reason: Original high-partition global job was still in GBM after 17h43m of a 24h allocation.
-- surface: fw
-  slurm_job_id: '136169'
-  queue_config_path: config/paper_reimplementation/rcim_ml_compensation/rcim_track1_polished_input_mode_retraining/campaigns/dataset_input_mode_retraining__rcim_track1__polished_actual_values/queue/002_rcim_track1_fw.yaml
-  launch_mode: single_queue_manifest_validated
-- surface: bw
-  slurm_job_id: '136170'
-  queue_config_path: config/paper_reimplementation/rcim_ml_compensation/rcim_track1_polished_input_mode_retraining/campaigns/dataset_input_mode_retraining__rcim_track1__polished_actual_values/queue/003_rcim_track1_bw.yaml
-  launch_mode: single_queue_manifest_validated
-notes: Prepared on Aries after syncing origin/main to commit 0bf581e5dd9f19f34104d0dc604d47817a7e0005.
-  This campaign is the second polished rcim_track1 input-mode campaign and uses row-level actual values.
-  Slurm stdout/stderr must be inspected after terminal state and then cleaned before closeout commit.
-  On 2026-07-17, fw and bw were submitted as independent manifest-validated queue runs to execute in parallel with the already-running global job.
-  On 2026-07-17, a global-only ulow backup was submitted because the original global job was still in GBM after 17h43m on a 24h high allocation.
-  The original high-partition global job 136143 timed out during LGBM and is not a valid completed global surface.
-  On 2026-07-19, accepted final jobs 136266, 136267, and 136268 completed and were promoted into the official actual_values archive.
+- .\scripts\campaigns\cross_wave\run_shape_gate_loss_pilot_campaign.ps1
+- .\scripts\campaigns\cross_wave\run_shape_gate_loss_pilot_campaign.ps1 -Remote
+preflight_command_list:
+- .\scripts\campaigns\cross_wave\run_shape_gate_loss_pilot_campaign.ps1 -PreflightOnly
+- .\scripts\campaigns\cross_wave\run_shape_gate_loss_pilot_campaign.ps1 -PreflightOnly -RunOneBatchValidation
+acceptance_gate:
+  scalar_mae_only_promotion_allowed: false
+  required_post_run_screen: calibrated_shape_gated_reranker
+  primary_reranker_report: doc/reports/analysis/te_curve_verification_pipeline/03_cvp_diagnostics/shape_gated_reranker/[2026-07-20]/selected_active_track2_polished_setpoints_matrix_shape_gated_te_curve_reranker_report.md
+previous_completed_campaign:
+  campaign_name: dataset_input_mode_retraining__rcim_track1__polished_actual_values
+  completed_at: '2026-07-19T12:05:00+02:00'
+  closeout_document_path: doc/technical/2026-07/2026-07-19/2026-07-19-12-05-00_rcim_track1_polished_actual_values_closeout.md
+  promoted_archive_root: models/polished_dataset/paper_reference/rcim_track1/actual_values
+notes: Completed on xilab-remote after relaunching with the correct remote repository path, C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks. The wrapper timed out locally before final sync, so artifacts were recovered manually from the remote completed queue and output directories. The package is intentionally a one-run pilot on polished setpoints Fw and is not a promotable full campaign by itself.

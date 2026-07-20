@@ -1,32 +1,30 @@
-﻿{
-    "run_status":  "failed",
-    "stage":  "remote_run",
-    "remote_host_alias":  "xilab-remote",
-    "remote_repository_path":  "C:\\Users\\Martina Salami\\Documents\\Davide\\Physics-Informed-Neural-Networks",
-    "remote_conda_environment_name":  "pinns_env",
-    "campaign_name":  "wave3_harmonic_prior_residual_campaign_2026_06_14",
-    "planning_report_path":  "doc\\reports\\campaign_plans\\wave3_wave4\\2026-06-14-19-54-55_wave3_harmonic_prior_residual_campaign_plan_report.md",
-    "campaign_config_path_list":  [
-                                      "config\\training\\wave3_harmonic_prior_residual\\campaigns\\2026-06-14_wave3_harmonic_prior_residual_campaign\\queue\\01_pointwise_control_global.yaml",
-                                      "config\\training\\wave3_harmonic_prior_residual\\campaigns\\2026-06-14_wave3_harmonic_prior_residual_campaign\\queue\\02_pointwise_control_fw.yaml",
-                                      "config\\training\\wave3_harmonic_prior_residual\\campaigns\\2026-06-14_wave3_harmonic_prior_residual_campaign\\queue\\03_pointwise_control_bw.yaml",
-                                      "config\\training\\wave3_harmonic_prior_residual\\campaigns\\2026-06-14_wave3_harmonic_prior_residual_campaign\\queue\\04_smooth_l1_structured_global.yaml",
-                                      "config\\training\\wave3_harmonic_prior_residual\\campaigns\\2026-06-14_wave3_harmonic_prior_residual_campaign\\queue\\05_smooth_l1_structured_fw.yaml",
-                                      "config\\training\\wave3_harmonic_prior_residual\\campaigns\\2026-06-14_wave3_harmonic_prior_residual_campaign\\queue\\06_smooth_l1_structured_bw.yaml"
-                                  ],
-    "source_sync_path_list":  [
-                                  "scripts",
-                                  "config",
-                                  "doc",
-                                  "requirements.txt",
-                                  "AGENTS.md"
-                              ],
-    "local_log_path":  "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\.temp\\remote_training_campaigns\\2026-06-15-10-13-57_wave3_harmonic_prior_residual_campaign_2026_06_14\\remote_training_campaign.log",
-    "remote_campaign_output_directory":  "",
-    "remote_manifest_path":  "",
-    "last_failure_message":  "Remote training campaign failed | campaign=wave3_harmonic_prior_residual_campaign_2026_06_14 | host=xilab-remote | log=C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\.temp\\remote_training_campaigns\\2026-06-15-10-13-57_wave3_harmonic_prior_residual_campaign_2026_06_14\\remote_training_campaign.log",
-    "synced_path_list":  [
-
-                         ],
-    "updated_at":  "2026-06-15T13:25:18.7986536+02:00"
+{
+  "run_status": "completed_manual_sync",
+  "stage": "artifact_recovery",
+  "remote_host_alias": "xilab-remote",
+  "remote_repository_path": "C:\\Users\\Martina Salami\\Documents\\Davide\\Physics-Informed-Neural-Networks",
+  "remote_conda_environment_name": "pinns_env",
+  "campaign_name": "shape_gate_loss_pilot_2026_07_20",
+  "planning_report_path": "doc/reports/campaign_plans/cross_wave/shape_gate_loss/2026-07-20-19-10-23_shape_gate_loss_pilot_campaign_plan_report.md",
+  "campaign_config_path_list": [
+    "config/training/shape_gate_loss_pilot/campaigns/2026-07-20_shape_gate_loss_pilot/queue/001_shape_gate_loss_periodic_gru_sequence_fw.yaml"
+  ],
+  "source_sync_path_list": [
+    "scripts",
+    "config",
+    "doc",
+    "site",
+    "requirements.txt",
+    "AGENTS.md"
+  ],
+  "local_log_path": "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\.temp\\remote_training_campaigns\\2026-07-20-19-56-26_shape_gate_loss_pilot_2026_07_20\\remote_training_campaign.log",
+  "remote_campaign_output_directory": "C:\\Users\\Martina Salami\\Documents\\Davide\\Physics-Informed-Neural-Networks\\output\\training_campaigns\\2026-07-20-19-59-14_shape_gate_loss_pilot_2026_07_20",
+  "remote_manifest_path": "C:\\Users\\Martina Salami\\Documents\\Davide\\Physics-Informed-Neural-Networks\\output\\training_campaigns\\2026-07-20-19-59-14_shape_gate_loss_pilot_2026_07_20\\campaign_manifest.yaml",
+  "last_failure_message": "The SSH wrapper exceeded the local tool timeout before final sync, but the remote queue completed successfully. Artifacts were recovered manually from the remote training_runs, training_campaigns, and completed queue paths.",
+  "synced_path_list": [
+    "output/training_runs/shape_gate_loss_pilot_periodic_gru_sequence/2026-07-20-19-59-14__te_shape_gate_loss_periodic_gru_sequence_fw__polished_setpoints",
+    "output/training_campaigns/2026-07-20-19-59-14_shape_gate_loss_pilot_2026_07_20",
+    "config/training/queue/shape_gate_loss_pilot/completed/2026-07-20-19-59-14_001_001_shape_gate_loss_periodic_gru_sequence_fw.yaml"
+  ],
+  "updated_at": "2026-07-20T20:07:19+02:00"
 }

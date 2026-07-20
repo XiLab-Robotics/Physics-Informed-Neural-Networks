@@ -1,0 +1,27 @@
+campaign_name: shape_gate_loss_pilot_2026_07_20
+generated_at: '2026-07-20T20:07:19'
+queue_root: C:/Users/Martina Salami/Documents/Davide/Physics-Informed-Neural-Networks/config/training/queue/shape_gate_loss_pilot
+campaign_output_directory: C:/Users/Martina Salami/Documents/Davide/Physics-Informed-Neural-Networks/output/training_campaigns/2026-07-20-19-59-14_shape_gate_loss_pilot_2026_07_20
+planning_report_path: C:/Users/Martina Salami/Documents/Davide/Physics-Informed-Neural-Networks/doc/reports/campaign_plans/cross_wave/shape_gate_loss/2026-07-20-19-10-23_shape_gate_loss_pilot_campaign_plan_report.md
+run_list:
+- original_queue_config_path: C:/Users/Martina Salami/Documents/Davide/Physics-Informed-Neural-Networks/config/training/queue/shape_gate_loss_pilot/pending/2026-07-20-19-59-14_001_001_shape_gate_loss_periodic_gru_sequence_fw.yaml
+  final_queue_config_path: C:/Users/Martina Salami/Documents/Davide/Physics-Informed-Neural-Networks/config/training/queue/shape_gate_loss_pilot/completed/2026-07-20-19-59-14_001_001_shape_gate_loss_periodic_gru_sequence_fw.yaml
+  source_config_path: C:/Users/Martina Salami/Documents/Davide/Physics-Informed-Neural-Networks/config/training/shape_gate_loss_pilot/campaigns/2026-07-20_shape_gate_loss_pilot/queue/001_shape_gate_loss_periodic_gru_sequence_fw.yaml
+  run_name: te_shape_gate_loss_periodic_gru_sequence_fw__polished_setpoints
+  run_instance_id: 2026-07-20-19-59-14__te_shape_gate_loss_periodic_gru_sequence_fw__polished_setpoints
+  model_type: periodic_gru_sequence
+  queue_status: completed
+  start_time: '2026-07-20T19:59:14'
+  end_time: '2026-07-20T20:07:19'
+  duration_seconds: 485.116
+  process_return_code: 0
+  output_directory: C:/Users/Martina Salami/Documents/Davide/Physics-Informed-Neural-Networks/output/training_runs/shape_gate_loss_pilot_periodic_gru_sequence/2026-07-20-19-59-14__te_shape_gate_loss_periodic_gru_sequence_fw__polished_setpoints
+  config_snapshot_path: C:/Users/Martina Salami/Documents/Davide/Physics-Informed-Neural-Networks/output/training_runs/shape_gate_loss_pilot_periodic_gru_sequence/2026-07-20-19-59-14__te_shape_gate_loss_periodic_gru_sequence_fw__polished_setpoints/training_config.yaml
+  best_checkpoint_reference_path: C:/Users/Martina Salami/Documents/Davide/Physics-Informed-Neural-Networks/output/training_runs/shape_gate_loss_pilot_periodic_gru_sequence/2026-07-20-19-59-14__te_shape_gate_loss_periodic_gru_sequence_fw__polished_setpoints/best_checkpoint_path.txt
+  best_checkpoint_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_runs\shape_gate_loss_pilot_periodic_gru_sequence\2026-07-20-19-59-14__te_shape_gate_loss_periodic_gru_sequence_fw__polished_setpoints\checkpoints\periodic_gru_sequence-epoch=007-val_mae=0.00229675.ckpt
+  metrics_path: C:/Users/Martina Salami/Documents/Davide/Physics-Informed-Neural-Networks/output/training_runs/shape_gate_loss_pilot_periodic_gru_sequence/2026-07-20-19-59-14__te_shape_gate_loss_periodic_gru_sequence_fw__polished_setpoints/metrics_summary.yaml
+  training_report_path: C:/Users/Martina Salami/Documents/Davide/Physics-Informed-Neural-Networks/output/training_runs/shape_gate_loss_pilot_periodic_gru_sequence/2026-07-20-19-59-14__te_shape_gate_loss_periodic_gru_sequence_fw__polished_setpoints/training_test_report.md
+  log_path: C:/Users/Martina Salami/Documents/Davide/Physics-Informed-Neural-Networks/output/training_campaigns/2026-07-20-19-59-14_shape_gate_loss_pilot_2026_07_20/logs/001_te_shape_gate_loss_periodic_gru_sequence_fw__pol.log
+  planning_report_path: doc/reports/campaign_plans/cross_wave/shape_gate_loss/2026-07-20-19-10-23_shape_gate_loss_pilot_campaign_plan_report.md
+  campaign_name: shape_gate_loss_pilot_2026_07_20
+  error_message: null

@@ -190,6 +190,31 @@ This folder contains the internal project documents derived from the reference P
   evaluation of shape, harmonic, phase, offset, and derivative-aware training
   losses.
 
+- [technical/2026-07/2026-07-20/2026-07-20-18-10-35_shape_gate_loss_pilot_and_full_surface_campaign.md](./technical/2026-07/2026-07-20/2026-07-20-18-10-35_shape_gate_loss_pilot_and_full_surface_campaign.md)
+  Technical plan for using `polished_dataset` setpoint forward training as the
+  first shape-gate loss pilot while preserving the full promotion rule across
+  simplified setpoints, polished setpoints, polished actual values, and
+  `global` / `Fw` / `Bw` surfaces.
+
+- [reports/campaign_plans/cross_wave/shape_gate_loss/2026-07-20-19-10-23_shape_gate_loss_pilot_campaign_plan_report.md](./reports/campaign_plans/cross_wave/shape_gate_loss/2026-07-20-19-10-23_shape_gate_loss_pilot_campaign_plan_report.md)
+  Campaign plan for the one-run shape-gate loss pilot on `polished_dataset`
+  setpoints `Fw`, with full promotion deferred until a later three-target,
+  three-surface Aries campaign.
+
+- [scripts/campaigns/cross_wave/run_shape_gate_loss_pilot_campaign.md](./scripts/campaigns/cross_wave/run_shape_gate_loss_pilot_campaign.md)
+  Launcher note for validating or launching the shape-gate loss pilot locally
+  or through the repository-owned remote campaign workflow.
+
+- [reports/analysis/validation_checks/2026-07-20-19-34-33_shape_ga_a3f8de47_te_shape_gate_loss_period_aa0a58de_validation_setup_report.md](./reports/analysis/validation_checks/2026-07-20-19-34-33_shape_ga_a3f8de47_te_shape_gate_loss_period_aa0a58de_validation_setup_report.md)
+  One-batch validation report for the `polished_dataset` setpoint `Fw`
+  shape-gate loss pilot configuration.
+
+- [reports/campaign_results/cross_wave/shape_gate_loss/2026-07-20-20-12-45_shape_gate_loss_pilot_campaign_results_report.md](./reports/campaign_results/cross_wave/shape_gate_loss/2026-07-20-20-12-45_shape_gate_loss_pilot_campaign_results_report.md)
+  Final results report for the completed one-run shape-gate loss pilot on
+  `polished_dataset` setpoints `Fw`, including manual remote artifact recovery,
+  scalar baseline comparison, and the decision not to promote before a
+  checkpoint-level shape-gated reranker pass.
+
 - [reports/analysis/te_curve_verification_pipeline/03_cvp_diagnostics/rcim_track1_familywise_crosscheck/[2026-07-20]/rcim_track1_familywise_crosscheck_report.md](./reports/analysis/te_curve_verification_pipeline/03_cvp_diagnostics/rcim_track1_familywise_crosscheck/%5B2026-07-20%5D/rcim_track1_familywise_crosscheck_report.md)
   Diagnostic cross-check separating the latest `rcim_track1` forward `h0`
   offset bug, Wave 4.3 Mixture Density ONNX playback mismatch, Gaussian NLL
@@ -3457,6 +3482,12 @@ This folder contains the internal project documents derived from the reference P
   Technical rule document for the new `doc/reports/` topic-root, dated-bundle, and readable-filename convention.
 
 #### Campaign Results
+
+- [reports/campaign_results/cross_wave/shape_gate_loss/2026-07-20-20-12-45_shape_gate_loss_pilot_campaign_results_report.md](./reports/campaign_results/cross_wave/shape_gate_loss/2026-07-20-20-12-45_shape_gate_loss_pilot_campaign_results_report.md)
+  Final results report for the completed one-run shape-gate loss pilot on
+  `polished_dataset` setpoints `Fw`, including manual remote artifact recovery,
+  scalar baseline comparison, and the decision not to promote before a
+  checkpoint-level shape-gated reranker pass.
 
 - [reports/campaign_results/cross_wave/polished_dataset/2026-06-29-10-39-38_polished_rcim_model_bank_reproduction_campaign_results_report.md](./reports/campaign_results/cross_wave/polished_dataset/2026-06-29-10-39-38_polished_rcim_model_bank_reproduction_campaign_results_report.md)
   Final results report for the completed polished `RCIM Model-Bank

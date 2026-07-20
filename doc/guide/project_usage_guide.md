@@ -201,6 +201,20 @@ Prepared `Wave 5.2B` polished offset/harmonic guided preflight:
 .\scripts\campaigns\wave_5_2\run_wave52b_offset_harmonic_guided_campaign.ps1 -PreflightOnly
 ```
 
+Prepared shape-gate loss pilot preflight:
+
+```powershell
+.\scripts\campaigns\cross_wave\run_shape_gate_loss_pilot_campaign.ps1 -PreflightOnly
+```
+
+Prepared shape-gate loss pilot one-batch validation without training:
+
+```powershell
+.\scripts\campaigns\cross_wave\run_shape_gate_loss_pilot_campaign.ps1 `
+  -PreflightOnly `
+  -RunOneBatchValidation
+```
+
 Operator-launched `Wave 5.2B` TE Curve Verification Pipeline refresh:
 
 ```powershell
