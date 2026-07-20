@@ -14,14 +14,17 @@ ONNX and Python path is recorded in the component inventory CSV.
 The surface path table intentionally uses archive-root glob patterns
 because one `rcim_track1` surface is assembled from 19 component ONNX
 models rather than from a single surface-level ONNX file.
+The harmonic reconstruction applies the paper-faithful `h0` sign
+convention per curve direction: forward curves use `-1`, backward
+curves use `+1`.
 
 ## Output Artifacts
 
-- output directory: `output/validation_checks/track2_familywise_onnx_report/rcim_track1/2026-07-19-15-08-46__track2_rcim_track1_familywise_onnx_report`;
-- summary YAML: `output/validation_checks/track2_familywise_onnx_report/rcim_track1/2026-07-19-15-08-46__track2_rcim_track1_familywise_onnx_report/track2_familywise_onnx_report_summary.yaml`;
-- model inventory CSV: `output/validation_checks/track2_familywise_onnx_report/rcim_track1/2026-07-19-15-08-46__track2_rcim_track1_familywise_onnx_report/model_inventory.csv`;
-- component model inventory CSV: `output/validation_checks/track2_familywise_onnx_report/rcim_track1/2026-07-19-15-08-46__track2_rcim_track1_familywise_onnx_report/component_model_inventory.csv`;
-- per-curve metrics CSV: `output/validation_checks/track2_familywise_onnx_report/rcim_track1/2026-07-19-15-08-46__track2_rcim_track1_familywise_onnx_report/per_curve_metrics.csv`.
+- output directory: `output/validation_checks/track2_familywise_onnx_report/rcim_track1/2026-07-20-12-53-15__track2_rcim_track1_familywise_onnx_report`;
+- summary YAML: `output/validation_checks/track2_familywise_onnx_report/rcim_track1/2026-07-20-12-53-15__track2_rcim_track1_familywise_onnx_report/track2_familywise_onnx_report_summary.yaml`;
+- model inventory CSV: `output/validation_checks/track2_familywise_onnx_report/rcim_track1/2026-07-20-12-53-15__track2_rcim_track1_familywise_onnx_report/model_inventory.csv`;
+- component model inventory CSV: `output/validation_checks/track2_familywise_onnx_report/rcim_track1/2026-07-20-12-53-15__track2_rcim_track1_familywise_onnx_report/component_model_inventory.csv`;
+- per-curve metrics CSV: `output/validation_checks/track2_familywise_onnx_report/rcim_track1/2026-07-20-12-53-15__track2_rcim_track1_familywise_onnx_report/per_curve_metrics.csv`.
 
 ## Simplified Dataset + Setpoints
 
@@ -49,14 +52,14 @@ Exact model paths:
 
 | Surface | Curves | MAE [deg] | RMSE [deg] | Mean Error [%] | P95 Error [%] |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| forward | 97 | 0.113298 | 0.113311 | 249.235 | 361.796 |
+| forward | 97 | 0.003223 | 0.003465 | 7.099 | 15.049 |
 | backward | 97 | 0.004107 | 0.004324 | 9.385 | 22.179 |
 
 Offset And Shape Metrics:
 
 | Surface | Signed Offset [deg] | Absolute Offset [deg] | Centered MAE [deg] | P2P Error [deg] |
 | --- | ---: | ---: | ---: | ---: |
-| forward | 0.113298 | 0.113298 | 0.001044 | 0.004022 |
+| forward | 0.000370 | 0.003028 | 0.001044 | 0.004022 |
 | backward | 0.001922 | 0.003809 | 0.001066 | 0.003162 |
 
 Unavailable surfaces:
@@ -98,17 +101,17 @@ Exact model paths:
 
 | Surface | Curves | MAE [deg] | RMSE [deg] | Mean Error [%] | P95 Error [%] |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| forward | 97 | 0.115062 | 0.115071 | 255.560 | 382.580 |
+| forward | 97 | 0.001169 | 0.001389 | 2.527 | 5.814 |
 | backward | 97 | 0.003582 | 0.003794 | 8.356 | 42.764 |
-| global | 194 | 0.057251 | 0.057389 | 124.423 | 353.865 |
+| global | 194 | 0.002490 | 0.002756 | 5.218 | 21.742 |
 
 Offset And Shape Metrics:
 
 | Surface | Signed Offset [deg] | Absolute Offset [deg] | Centered MAE [deg] | P2P Error [deg] |
 | --- | ---: | ---: | ---: | ---: |
-| forward | 0.115062 | 0.115062 | 0.000850 | 0.003634 |
+| forward | -0.000111 | 0.000769 | 0.000850 | 0.003634 |
 | backward | 0.002612 | 0.003175 | 0.000970 | 0.002682 |
-| global | 0.056691 | 0.056939 | 0.001174 | 0.004152 |
+| global | 0.001207 | 0.001837 | 0.001174 | 0.004152 |
 
 ### Forward 12-Curve Page
 
@@ -149,17 +152,17 @@ Exact model paths:
 
 | Surface | Curves | MAE [deg] | RMSE [deg] | Mean Error [%] | P95 Error [%] |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| forward | 97 | 0.114912 | 0.114921 | 255.235 | 382.323 |
+| forward | 97 | 0.001250 | 0.001469 | 2.700 | 6.166 |
 | backward | 97 | 0.004765 | 0.004951 | 11.063 | 42.080 |
-| global | 194 | 0.057194 | 0.057339 | 124.306 | 354.098 |
+| global | 194 | 0.002532 | 0.002810 | 5.291 | 20.392 |
 
 Offset And Shape Metrics:
 
 | Surface | Signed Offset [deg] | Absolute Offset [deg] | Centered MAE [deg] | P2P Error [deg] |
 | --- | ---: | ---: | ---: | ---: |
-| forward | 0.114912 | 0.114912 | 0.000872 | 0.003662 |
+| forward | 0.000039 | 0.000808 | 0.000872 | 0.003662 |
 | backward | 0.003020 | 0.004626 | 0.000920 | 0.002679 |
-| global | 0.056603 | 0.056874 | 0.001231 | 0.003953 |
+| global | 0.001284 | 0.001857 | 0.001231 | 0.003953 |
 
 ### Forward 12-Curve Page
 

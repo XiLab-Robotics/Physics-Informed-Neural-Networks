@@ -507,10 +507,21 @@ def predict_component_vector(
     return np.asarray(prediction_array, dtype=np.float64).reshape(-1)
 
 
+def resolve_h0_sign_multiplier(direction_label: str) -> float:
+
+    """Return the paper-faithful RCIM h0 sign convention for one curve direction."""
+
+    normalized_direction_label = str(direction_label).strip().lower()
+    if normalized_direction_label == transmission_error_dataset.FORWARD_DIRECTION:
+        return -1.0
+    return 1.0
+
+
 def convert_amplitude_phase_vector_to_coefficient_dictionary(
     target_vector: np.ndarray,
     target_name_list: list[str],
     selected_harmonic_list: list[int],
+    h0_sign_multiplier: float,
 ) -> dict[str, float]:
 
     """Convert one amplitude/phase vector into harmonic coefficients."""
@@ -527,7 +538,7 @@ def convert_amplitude_phase_vector_to_coefficient_dictionary(
             ]
         )
         if harmonic_order == 0:
-            coefficient_dictionary["coefficient_cos_h0"] = amplitude_value
+            coefficient_dictionary["coefficient_cos_h0"] = float(h0_sign_multiplier) * amplitude_value
             continue
         phase_value = float(
             target_dictionary[
@@ -559,10 +570,12 @@ def evaluate_surface_bank(
     prediction_matrix = np.column_stack(prediction_column_list).astype(np.float64)
     curve_entry_list: list[build_track2_familywise_onnx_report.CurveEvaluationEntry] = []
     for sample_index, curve_record in enumerate(evaluation_bundle.test_record_list):
+        h0_sign_multiplier = resolve_h0_sign_multiplier(str(curve_record.direction_label))
         predicted_coefficient_dictionary = convert_amplitude_phase_vector_to_coefficient_dictionary(
             prediction_matrix[sample_index],
             evaluation_bundle.target_name_list,
             evaluation_bundle.selected_harmonic_list,
+            h0_sign_multiplier,
         )
         prediction_curve_deg = harmonic_wise_support.reconstruct_curve_from_coefficients(
             curve_record.angular_position_deg,
@@ -639,6 +652,9 @@ def build_report_markdown(
         "The surface path table intentionally uses archive-root glob patterns",
         "because one `rcim_track1` surface is assembled from 19 component ONNX",
         "models rather than from a single surface-level ONNX file.",
+        "The harmonic reconstruction applies the paper-faithful `h0` sign",
+        "convention per curve direction: forward curves use `-1`, backward",
+        "curves use `+1`.",
         "",
         "## Output Artifacts",
         "",
@@ -960,6 +976,7 @@ def run_familywise_rcim_track1_report(arguments: argparse.Namespace) -> dict[str
         "per_curve_metrics_csv_path": format_project_path(per_curve_metrics_csv_path),
         "curves_per_page": curves_per_page,
         "provider_list": provider_list,
+        "h0_sign_convention": "forward=-1, backward=+1",
         "group_summary_list": group_summary_list,
     }
     save_yaml_dictionary(summary_path, summary_dictionary)

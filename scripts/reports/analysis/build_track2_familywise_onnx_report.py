@@ -128,6 +128,12 @@ def build_argument_parser() -> argparse.ArgumentParser:
     parser.add_argument("--output-root", type=Path, default=DEFAULT_OUTPUT_ROOT, help="Root for machine-readable output artifacts.")
     parser.add_argument("--report-root", type=Path, default=DEFAULT_REPORT_ROOT, help="Root for dated family report bundles.")
     parser.add_argument("--onnx-provider", action="append", default=None, help="ONNX Runtime provider. Defaults to CPUExecutionProvider.")
+    parser.add_argument(
+        "--mdn-playback-channel",
+        default="maximum_weight_component",
+        choices=["maximum_weight_component", "mixture_expectation"],
+        help="Deterministic playback contract for MDN ONNX exports.",
+    )
     repository_path_support.add_platform_arguments(parser)
     return parser
 
@@ -187,7 +193,22 @@ def resolve_inventory_path(dataset_id: str, input_mode: str) -> Path:
 
     """Resolve the exported model-development inventory for one group."""
 
-    return PROJECT_PATH / "models" / dataset_id / input_mode / "exported" / "model_development_export_inventory.yaml"
+    canonical_inventory_path = PROJECT_PATH / "models" / dataset_id / input_mode / "model_development_export_inventory.yaml"
+    legacy_inventory_path = PROJECT_PATH / "models" / dataset_id / input_mode / "exported" / "model_development_export_inventory.yaml"
+    existing_inventory_path_list = [
+        inventory_path
+        for inventory_path in [canonical_inventory_path, legacy_inventory_path]
+        if inventory_path.exists()
+    ]
+    assert existing_inventory_path_list, (
+        "Missing export inventory | "
+        f"canonical={canonical_inventory_path} | legacy={legacy_inventory_path}"
+    )
+    assert len(existing_inventory_path_list) == 1, (
+        "Ambiguous export inventory after archive path migration | "
+        f"canonical={canonical_inventory_path} | legacy={legacy_inventory_path}"
+    )
+    return existing_inventory_path_list[0]
 
 
 def normalize_surface_name(surface_name: str) -> str:
@@ -444,6 +465,7 @@ def select_deterministic_prediction_curve(
     raw_prediction_curve_deg: np.ndarray,
     target_curve_deg: np.ndarray,
     training_config: dict[str, Any],
+    mdn_playback_channel: str,
 ) -> np.ndarray:
 
     """Select the deterministic playback channel from multi-output predictions."""
@@ -479,6 +501,11 @@ def select_deterministic_prediction_curve(
         return prediction_matrix[:, deterministic_output_index].astype(np.float32)
 
     if pointwise_loss_name in {"mixture_density_nll", "mdn_nll", "mixture_gaussian_nll"}:
+        normalized_mdn_playback_channel = str(mdn_playback_channel).strip().lower()
+        assert normalized_mdn_playback_channel in {"maximum_weight_component", "mixture_expectation"}, (
+            "Unsupported MDN playback channel | "
+            f"{mdn_playback_channel}"
+        )
         component_count = int(loss_configuration.get("mixture_component_count", output_size // 3))
         expected_output_size = component_count * 3
         assert output_size == expected_output_size, (
@@ -487,6 +514,10 @@ def select_deterministic_prediction_curve(
         )
         mixture_logit_matrix = prediction_matrix[:, 0:component_count]
         component_mean_matrix = prediction_matrix[:, component_count:2 * component_count]
+        if normalized_mdn_playback_channel == "maximum_weight_component":
+            maximum_weight_component_index_array = np.argmax(mixture_logit_matrix, axis=1)
+            point_index_array = np.arange(target_array.size)
+            return component_mean_matrix[point_index_array, maximum_weight_component_index_array].astype(np.float32)
         stabilized_logit_matrix = mixture_logit_matrix - np.max(mixture_logit_matrix, axis=1, keepdims=True)
         mixture_weight_matrix = np.exp(stabilized_logit_matrix)
         mixture_weight_matrix /= np.sum(mixture_weight_matrix, axis=1, keepdims=True)
@@ -570,6 +601,7 @@ def evaluate_model_entry(
     group_id: str,
     model_entry: ExportedModelEntry,
     provider_list: list[str],
+    mdn_playback_channel: str,
 ) -> tuple[list[CurveEvaluationEntry], dict[str, float], dict[str, Any]]:
 
     """Evaluate one exported ONNX model over its valid test curves."""
@@ -602,6 +634,7 @@ def evaluate_model_entry(
             raw_prediction_curve_deg=raw_prediction_curve_deg,
             target_curve_deg=target_curve_deg,
             training_config=training_config,
+            mdn_playback_channel=mdn_playback_channel,
         )
         assert prediction_curve_deg.shape == target_curve_deg.shape, (
             "Prediction and target curve shapes differ | "
@@ -921,6 +954,7 @@ def build_report_markdown(
     per_curve_metrics_csv_path: Path,
     output_directory: Path,
     curves_per_page: int,
+    mdn_playback_channel: str,
 ) -> str:
 
     """Build the Markdown report body."""
@@ -942,6 +976,10 @@ def build_report_markdown(
         "The collage pages keep the measured TE trace at the original full-curve",
         "resolution; temporal ONNX predictions are overlaid at the evaluated",
         "sequence-target angles.",
+        "",
+        "MDN multi-output exports use the configured deterministic playback",
+        f"channel `{mdn_playback_channel}` when reducing component outputs to one",
+        "curve.",
         "",
         "The report is diagnostic and family-specific. It does not replace an",
         "official multi-index model-promotion decision.",
@@ -1001,6 +1039,7 @@ def run_familywise_onnx_report(arguments: argparse.Namespace) -> dict[str, Any]:
     curves_per_page = int(arguments.curves_per_page)
     assert curves_per_page > 0, f"Curves per page must be positive | {curves_per_page}"
     provider_list = list(arguments.onnx_provider or ["CPUExecutionProvider"])
+    mdn_playback_channel = str(arguments.mdn_playback_channel).strip().lower()
     group_specification_list = list(arguments.group_specification_list or DEFAULT_GROUP_SPECIFICATION_LIST)
     group_pair_list = [parse_group_specification(group_specification) for group_specification in group_specification_list]
 
@@ -1030,7 +1069,12 @@ def run_familywise_onnx_report(arguments: argparse.Namespace) -> dict[str, Any]:
 
         for surface_name in SURFACE_ORDER_LIST:
             model_entry = model_entry_dictionary[surface_name]
-            curve_entry_list, aggregate_metrics, onnx_metadata = evaluate_model_entry(group_id, model_entry, provider_list)
+            curve_entry_list, aggregate_metrics, onnx_metadata = evaluate_model_entry(
+                group_id,
+                model_entry,
+                provider_list,
+                mdn_playback_channel,
+            )
             selected_curve_entry_list = select_representative_curve_entries(curve_entry_list, curves_per_page)
             collage_filename = f"{surface_name}_{curves_per_page}_curve_collage.png"
             collage_path = output_directory / "collages" / group_id / collage_filename
@@ -1125,6 +1169,7 @@ def run_familywise_onnx_report(arguments: argparse.Namespace) -> dict[str, Any]:
         "per_curve_metrics_csv_path": format_project_path(per_curve_metrics_csv_path),
         "curves_per_page": curves_per_page,
         "provider_list": provider_list,
+        "mdn_playback_channel": mdn_playback_channel,
         "group_summary_list": group_summary_list,
     }
     save_yaml_dictionary(summary_path, summary_dictionary)
@@ -1139,6 +1184,7 @@ def run_familywise_onnx_report(arguments: argparse.Namespace) -> dict[str, Any]:
             per_curve_metrics_csv_path,
             output_directory,
             curves_per_page,
+            mdn_playback_channel,
         ),
         encoding="utf-8",
     )

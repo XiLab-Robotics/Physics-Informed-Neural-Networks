@@ -15,15 +15,19 @@ The collage pages keep the measured TE trace at the original full-curve
 resolution; temporal ONNX predictions are overlaid at the evaluated
 sequence-target angles.
 
+MDN multi-output exports use the configured deterministic playback
+channel `maximum_weight_component` when reducing component outputs to one
+curve.
+
 The report is diagnostic and family-specific. It does not replace an
 official multi-index model-promotion decision.
 
 ## Output Artifacts
 
-- output directory: `output/validation_checks/track2_familywise_onnx_report/wave4_3_mixture_density_k2/2026-07-15-09-53-26__track2_wave4_3_mixture_density_k2_familywise_onnx_report`;
-- summary YAML: `output/validation_checks/track2_familywise_onnx_report/wave4_3_mixture_density_k2/2026-07-15-09-53-26__track2_wave4_3_mixture_density_k2_familywise_onnx_report/track2_familywise_onnx_report_summary.yaml`;
-- model inventory CSV: `output/validation_checks/track2_familywise_onnx_report/wave4_3_mixture_density_k2/2026-07-15-09-53-26__track2_wave4_3_mixture_density_k2_familywise_onnx_report/model_inventory.csv`;
-- per-curve metrics CSV: `output/validation_checks/track2_familywise_onnx_report/wave4_3_mixture_density_k2/2026-07-15-09-53-26__track2_wave4_3_mixture_density_k2_familywise_onnx_report/per_curve_metrics.csv`.
+- output directory: `output/validation_checks/track2_familywise_onnx_report/wave4_3_mixture_density_k2/2026-07-20-12-56-40__track2_wave4_3_mixture_density_k2_familywise_onnx_report`;
+- summary YAML: `output/validation_checks/track2_familywise_onnx_report/wave4_3_mixture_density_k2/2026-07-20-12-56-40__track2_wave4_3_mixture_density_k2_familywise_onnx_report/track2_familywise_onnx_report_summary.yaml`;
+- model inventory CSV: `output/validation_checks/track2_familywise_onnx_report/wave4_3_mixture_density_k2/2026-07-20-12-56-40__track2_wave4_3_mixture_density_k2_familywise_onnx_report/model_inventory.csv`;
+- per-curve metrics CSV: `output/validation_checks/track2_familywise_onnx_report/wave4_3_mixture_density_k2/2026-07-20-12-56-40__track2_wave4_3_mixture_density_k2_familywise_onnx_report/per_curve_metrics.csv`.
 
 ## Simplified Dataset + Setpoints
 
@@ -52,17 +56,17 @@ Exact model paths:
 
 | Surface | Curves | MAE [deg] | RMSE [deg] | Mean Error [%] | P95 Error [%] |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| forward | 97 | 0.010679 | 0.012442 | 24.812 | 54.414 |
-| backward | 97 | 0.011148 | 0.013701 | 26.465 | 42.420 |
-| global | 194 | 0.022125 | 0.027346 | 52.474 | 81.762 |
+| forward | 97 | 0.002994 | 0.003265 | 6.986 | 14.094 |
+| backward | 97 | 0.003497 | 0.003808 | 8.129 | 15.260 |
+| global | 194 | 0.003240 | 0.003529 | 7.508 | 13.522 |
 
 Offset And Shape Metrics:
 
 | Surface | Signed Offset [deg] | Absolute Offset [deg] | Centered MAE [deg] | P2P Error [deg] |
 | --- | ---: | ---: | ---: | ---: |
-| forward | 0.004585 | 0.009190 | 0.005742 | 0.016011 |
-| backward | -0.005816 | 0.007644 | 0.008396 | 0.029506 |
-| global | 0.005751 | 0.011646 | 0.019236 | 0.097188 |
+| forward | 0.000488 | 0.002525 | 0.001239 | 0.003018 |
+| backward | 0.000896 | 0.002857 | 0.001512 | 0.003335 |
+| global | -0.000130 | 0.002721 | 0.001373 | 0.003544 |
 
 ### Forward 12-Curve Page
 
@@ -103,17 +107,17 @@ Exact model paths:
 
 | Surface | Curves | MAE [deg] | RMSE [deg] | Mean Error [%] | P95 Error [%] |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| forward | 100 | 0.017215 | 0.021524 | 40.412 | 60.359 |
-| backward | 94 | 0.013118 | 0.015721 | 30.408 | 60.543 |
-| global | 194 | 0.019799 | 0.024430 | 46.824 | 72.498 |
+| forward | 100 | 0.001829 | 0.002185 | 3.990 | 9.554 |
+| backward | 94 | 0.002449 | 0.002881 | 4.376 | 10.908 |
+| global | 194 | 0.002207 | 0.002602 | 4.365 | 10.832 |
 
 Offset And Shape Metrics:
 
 | Surface | Signed Offset [deg] | Absolute Offset [deg] | Centered MAE [deg] | P2P Error [deg] |
 | --- | ---: | ---: | ---: | ---: |
-| forward | 0.004753 | 0.006789 | 0.015895 | 0.071707 |
-| backward | -0.007703 | 0.009631 | 0.008996 | 0.017015 |
-| global | -0.000462 | 0.010660 | 0.016442 | 0.074638 |
+| forward | -0.000288 | 0.000830 | 0.001529 | 0.004313 |
+| backward | 0.000260 | 0.000945 | 0.002086 | 0.006232 |
+| global | -0.000206 | 0.001090 | 0.001765 | 0.005126 |
 
 ### Forward 12-Curve Page
 
@@ -154,17 +158,17 @@ Exact model paths:
 
 | Surface | Curves | MAE [deg] | RMSE [deg] | Mean Error [%] | P95 Error [%] |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| forward | 100 | 0.005174 | 0.006329 | 12.160 | 21.195 |
-| backward | 94 | 0.019883 | 0.024875 | 46.089 | 64.564 |
-| global | 194 | 0.014640 | 0.017919 | 33.940 | 57.444 |
+| forward | 100 | 0.001679 | 0.002025 | 3.603 | 9.146 |
+| backward | 94 | 0.002391 | 0.002822 | 4.327 | 10.790 |
+| global | 194 | 0.001990 | 0.002398 | 3.889 | 10.567 |
 
 Offset And Shape Metrics:
 
 | Surface | Signed Offset [deg] | Absolute Offset [deg] | Centered MAE [deg] | P2P Error [deg] |
 | --- | ---: | ---: | ---: | ---: |
-| forward | 0.001978 | 0.002181 | 0.004645 | 0.014298 |
-| backward | -0.001380 | 0.005265 | 0.019178 | 0.087269 |
-| global | 0.001971 | 0.009325 | 0.011718 | 0.044567 |
+| forward | -0.000162 | 0.000670 | 0.001508 | 0.003909 |
+| backward | 0.000291 | 0.000839 | 0.002054 | 0.005978 |
+| global | -0.000148 | 0.000626 | 0.001843 | 0.005603 |
 
 ### Forward 12-Curve Page
 
