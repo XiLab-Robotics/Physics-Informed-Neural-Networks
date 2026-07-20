@@ -173,10 +173,21 @@ This folder contains the internal project documents derived from the reference P
   retraining offset behavior against simplified, retuned, and original paper
   reference paths.
 
+- [technical/2026-07/2026-07-20/2026-07-20-15-08-33_rcim_track1_retrained_paper_tables_report.md](./technical/2026-07/2026-07-20/2026-07-20-15-08-33_rcim_track1_retrained_paper_tables_report.md)
+  Technical plan for generating paper Tables 2-5 equivalents from retrained
+  `rcim_track1` model-bank archives across simplified, polished setpoint, and
+  polished actual-value datasets.
+
 - [reports/analysis/te_curve_verification_pipeline/03_cvp_diagnostics/rcim_track1_familywise_crosscheck/[2026-07-20]/rcim_track1_familywise_crosscheck_report.md](./reports/analysis/te_curve_verification_pipeline/03_cvp_diagnostics/rcim_track1_familywise_crosscheck/%5B2026-07-20%5D/rcim_track1_familywise_crosscheck_report.md)
   Diagnostic cross-check separating the latest `rcim_track1` forward `h0`
   offset bug, Wave 4.3 Mixture Density ONNX playback mismatch, Gaussian NLL
   setpoints outlier, and familywise inventory-layout drift.
+
+- [reports/analysis/te_curve_verification_pipeline/03_family_reports/rcim_track1/[2026-07-19]/track2_rcim_track1_retrained_paper_tables_report.md](./reports/analysis/te_curve_verification_pipeline/03_family_reports/rcim_track1/%5B2026-07-19%5D/track2_rcim_track1_retrained_paper_tables_report.md)
+  Paper Table 2-5 equivalents for the current `rcim_track1` retrained
+  model-bank archives across simplified setpoints, polished setpoints, and
+  polished actual values, with per-target best-cell highlights for composite
+  candidate selection.
 
 - [scripts/tooling/lan_ai/lan_ai_node_server.md](./scripts/tooling/lan_ai/lan_ai_node_server.md)
   Setup and runtime guide for the remote LAN AI workstation.

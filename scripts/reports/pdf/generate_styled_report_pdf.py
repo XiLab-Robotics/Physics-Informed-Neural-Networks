@@ -173,6 +173,7 @@ TRACK2_FAMILYWISE_MODEL_INVENTORY_TABLE_CLASS_NAME = "report-table report-table-
 TRACK2_FAMILYWISE_MODEL_PATH_TABLE_CLASS_NAME = "report-table report-table-track2-familywise-model-paths"
 TRACK2_FAMILYWISE_AGGREGATE_METRIC_TABLE_CLASS_NAME = "report-table report-table-track2-familywise-aggregate-metrics"
 TRACK2_FAMILYWISE_OFFSET_SHAPE_TABLE_CLASS_NAME = "report-table report-table-track2-familywise-offset-shape"
+RCIM_TRACK1_PAPER_TABLES_TABLE_CLASS_NAME = "report-table report-table-rcim-track1-paper-tables"
 TRACK2_INTERMEDIATE_SHAPE_RANKING_TABLE_CLASS_NAME = "report-table report-table-track2-intermediate-shape-ranking"
 TRACK2_INTERMEDIATE_ACTUAL_VALUES_TABLE_CLASS_NAME = "report-table report-table-track2-intermediate-actual-values"
 TRACK2_SELECTED_ACTIVE_MODEL_PATH_TABLE_CLASS_NAME = "report-table report-table-track2-selected-active-model-paths"
@@ -4223,6 +4224,14 @@ def render_table_colgroup(header_cells: Sequence[str], table_class_name: str) ->
 
     """Render an optional table colgroup for PDF-stable table widths."""
 
+    if table_class_name == RCIM_TRACK1_PAPER_TABLES_TABLE_CLASS_NAME:
+        uniform_column_width = 100.0 / max(1, len(header_cells))
+        column_html = "".join(
+            f'<col style="width: {uniform_column_width:.4g}%;" />'
+            for _ in header_cells
+        )
+        return f"<colgroup>{column_html}</colgroup>"
+
     if table_class_name not in {
         TRACK2_BEST_MODEL_COLLAGE_TABLE_CLASS_NAME,
         TRACK2_CANDIDATE_INVENTORY_TABLE_CLASS_NAME,
@@ -4395,6 +4404,9 @@ def resolve_standard_table_class_name(
     """ Resolve Standard Table Class Name """
 
     normalized_header_cells = tuple(header_cells)
+
+    if report_stem == "track2_rcim_track1_retrained_paper_tables_report":
+        return RCIM_TRACK1_PAPER_TABLES_TABLE_CLASS_NAME
 
     if normalized_header_cells == TRACK2_COMPONENT_HARMONIC_SUMMARY_TABLE_HEADER_CELLS:
         return TRACK2_COMPONENT_HARMONIC_SUMMARY_TABLE_CLASS_NAME
