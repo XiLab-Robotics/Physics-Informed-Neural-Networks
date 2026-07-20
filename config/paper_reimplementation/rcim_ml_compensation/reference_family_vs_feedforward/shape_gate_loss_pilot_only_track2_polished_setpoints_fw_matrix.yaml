@@ -1,0 +1,41 @@
+paths:
+  dataset_config_path: config/datasets/transmission_error_dataset.yaml
+dataset:
+  name: polished_dataset
+  input_mode: setpoints
+experiment:
+  run_name: shape_gate_loss_pilot_only_track2_polished_setpoints_fw_matrix
+  model_family: track2_reference_comparison
+  model_type: reference_family_vs_feedforward
+comparison:
+  comparison_mode: selected_active_model_matrix
+  lightweight_test_curve_records: true
+  report_plot_generation_scope: incremental_current_candidates
+  percentage_error_denominator: peak_to_peak_truth
+  preview_curve_count: 4
+  report_plot_root: doc/reports/campaign_results/track_2/verification_plots/shape_gate_loss_pilot_track2_polished_setpoints_fw
+  candidate_list:
+  - candidate_id: shape_gate_loss_pilot_periodic_gru_sequence_Fw
+    candidate_family: shape_gate_loss_pilot_periodic_gru_sequence
+    candidate_kind: wave1_registry_model
+    candidate_source_label: shape_gate_loss_pilot
+    candidate_surface: Fw
+    family_registry_path: output/registries/families/shape_gate_loss_pilot_periodic_gru_sequence_fw/latest_family_best.yaml
+    dataset_scope_list:
+    - polished_dataset
+    expected_dataset_name: polished_dataset
+    allowed_direction_list:
+    - forward
+evaluation:
+  selected_harmonics:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  decomposition_point_stride: 1

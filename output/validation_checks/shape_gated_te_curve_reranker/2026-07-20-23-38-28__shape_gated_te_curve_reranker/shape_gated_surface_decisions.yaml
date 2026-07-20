@@ -1,0 +1,59 @@
+run_instance_id: 2026-07-20-23-38-28__shape_gated_te_curve_reranker
+config_path: config\paper_reimplementation\rcim_ml_compensation\reference_family_vs_feedforward\shape_gate_loss_pilot_only_track2_polished_setpoints_fw_matrix.yaml
+dataset_name: polished_dataset
+thresholds:
+  minimum_fft_amplitude_similarity: 0.82
+  minimum_derivative_correlation: 0.7
+  minimum_smoothed_derivative_correlation: 0.25
+  minimum_derivative_sign_agreement_rate: 0.54
+  maximum_normalized_derivative_rmse: 1.0
+  maximum_mean_harmonic_amplitude_error_pct: 55.0
+  maximum_mean_harmonic_phase_error_deg: 75.0
+  maximum_peak_to_peak_error_pct: 35.0
+  minimum_per_curve_shape_pass_rate: 0.6
+  near_pass_minimum_fft_amplitude_similarity: 0.95
+  near_pass_maximum_mean_harmonic_amplitude_error_pct: 38.0
+  near_pass_maximum_mean_harmonic_phase_error_deg: 55.0
+  near_pass_maximum_peak_to_peak_error_pct: 32.0
+  near_pass_minimum_derivative_sign_agreement_rate: 0.5
+  near_pass_maximum_normalized_derivative_rmse: 1.35
+surface_decisions:
+  forward:
+    recommended_candidate: null
+    summary_list:
+    - rank: 1
+      candidate_id: shape_gate_loss_pilot_periodic_gru_sequence_Fw
+      candidate_family: shape_gate_loss_pilot_periodic_gru_sequence
+      candidate_kind: wave1_registry_model
+      candidate_source_label: shape_gate_loss_pilot
+      candidate_surface: Fw
+      direction_label: forward
+      curve_count: 100
+      mean_raw_mae_deg: '0.041773'
+      mean_raw_rmse_deg: '0.042025'
+      mean_percentage_error_pct: '90.071420'
+      p95_mean_percentage_error_pct: '162.614592'
+      mean_absolute_offset_error_deg: '0.041760'
+      mean_centered_mae_deg: '0.003646'
+      mean_centered_rmse_deg: '0.004285'
+      mean_peak_to_peak_error_pct: '35.948705'
+      mean_fft_amplitude_similarity: '0.980238'
+      mean_dominant_harmonic_retention_pct: '72.373200'
+      mean_dominant_harmonic_phase_error_deg: '0.377258'
+      mean_harmonic_amplitude_error_pct: '47.324992'
+      mean_harmonic_phase_error_deg: '49.950405'
+      mean_derivative_correlation: '-0.012083'
+      mean_smoothed_derivative_correlation: '-0.018518'
+      mean_derivative_sign_agreement_rate: '0.493229'
+      mean_derivative_rmse_deg_per_deg: '0.016983'
+      mean_normalized_derivative_rmse: '0.357854'
+      per_curve_shape_pass_rate: '0.340000'
+      raw_error_score: '0.000000'
+      shape_score: '0.000000'
+      harmonic_score: '0.000000'
+      offset_score: '0.000000'
+      robustness_score: '0.000000'
+      composite_score: '0.000000'
+      decision_label: shape_gate_failed
+      veto_reason: per-curve shape pass rate below threshold; failures=derivative_agreement:3,
+        fft_amplitude_similarity:2, mean_harmonic_amplitude_error:27, peak_to_peak_error:52

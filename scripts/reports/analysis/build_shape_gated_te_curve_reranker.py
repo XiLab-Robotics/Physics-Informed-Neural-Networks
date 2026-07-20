@@ -1285,12 +1285,14 @@ def build_report_markdown(
 
     """Build the human-readable shape-gated reranking report."""
 
+    evaluated_surface_label = ", ".join(f"`{surface_scope}`" for surface_scope in surface_summary_map)
+
     report_line_list = [
         "# Shape-Gated TE Curve Reranker Report",
         "",
         "## Overview",
         "",
-        "This report applies a reduced forward/backward shape-first gate to the",
+        "This report applies a reduced shape-first gate to the",
         "selected-active `TE Curve Verification Pipeline` candidate set. It does",
         "not run training and does not change the deployable runtime input",
         "contract.",
@@ -1300,8 +1302,8 @@ def build_report_markdown(
         f"- run instance: `{run_instance_id}`;",
         f"- config path: `{shared_training_infrastructure.format_project_relative_path(config_path)}`;",
         f"- dataset: `{dataset_name}`;",
-        "- reduced surfaces: `forward`, `backward`;",
-        "- `global` remains paused for this reduced selection pass;",
+        f"- evaluated surfaces: {evaluated_surface_label};",
+        "- non-evaluated surfaces remain unchanged by this reduced selection pass;",
         "",
         "## Gate Thresholds",
         "",

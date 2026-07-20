@@ -1,0 +1,753 @@
+config_path: config\paper_reimplementation\rcim_ml_compensation\reference_family_vs_feedforward\shape_gate_loss_pilot_only_track2_polished_setpoints_fw_matrix.yaml
+output_directory: output\validation_checks\track2_reference_comparison\2026-07-20-23-37-32__shape_gate_loss_pilot_only_track2_polished_setpoints_fw_matrix_shape_gate_loss_pilot_only_track2_polished_setpoints_fw
+dataset:
+  dataset_config_path: config/datasets/transmission_error_dataset.yaml
+  dataset_root: data\polished_dataset
+  source_contract: data\polished_dataset
+comparison_scope:
+  comparison_mode: selected_active_model_matrix
+  percentage_error_denominator: peak_to_peak_truth
+  curve_count: 100
+  candidate_count: 1
+  directional_policy:
+    global:
+    - forward
+    - backward
+    Fw:
+    - forward
+    Bw:
+    - backward
+  reference_bank_compatibility_policy:
+    rcim_track1_Fw_h0_sign_multiplier: -1.0
+    reason: RCIM Model-Bank Reproduction forward reference banks store the constant
+      harmonic with the opposite sign convention relative to the TE Curve Verification
+      Pipeline TE-curve reconstruction contract.
+candidate_list:
+- candidate_id: shape_gate_loss_pilot_periodic_gru_sequence_Fw
+  candidate_family: shape_gate_loss_pilot_periodic_gru_sequence
+  candidate_kind: wave1_registry_model
+  candidate_source_label: shape_gate_loss_pilot
+  candidate_surface: Fw
+  allowed_direction_list:
+  - forward
+  source_path: output\registries\families\shape_gate_loss_pilot_periodic_gru_sequence_fw\latest_family_best.yaml
+  selected_harmonic_list: []
+  registry_run_instance_id: 2026-07-20-19-59-14__te_shape_gate_loss_periodic_gru_sequence_fw__polished_setpoints
+  model_file_path: null
+  composite_selection: null
+candidate_target_metric_summary: {}
+candidate_metric_summary:
+  shape_gate_loss_pilot_periodic_gru_sequence_Fw:
+    mse: 0.002230395368992385
+    mae: 0.04177300431889676
+    rmse: 0.042025004163655455
+    mean_percentage_error_pct: 90.07141967807071
+    p95_mean_percentage_error_pct: 162.61459245654433
+direction_breakdown:
+  forward:
+    shape_gate_loss_pilot_periodic_gru_sequence_Fw:
+      mse: 0.002230395368992385
+      mae: 0.04177300431889676
+      rmse: 0.042025004163655455
+      mean_percentage_error_pct: 90.07141967807071
+      p95_mean_percentage_error_pct: 162.61459245654433
+temperature_breakdown:
+  '25.37':
+    shape_gate_loss_pilot_periodic_gru_sequence_Fw:
+      mse: 0.0021413982010560786
+      mae: 0.046057801672454865
+      rmse: 0.04627524393297218
+      mean_percentage_error_pct: 104.78986205103398
+      p95_mean_percentage_error_pct: 104.78986205103398
+  '27.06':
+    shape_gate_loss_pilot_periodic_gru_sequence_Fw:
+      mse: 0.005497603260999586
+      mae: 0.07383363340840457
+      rmse: 0.07414582429914436
+      mean_percentage_error_pct: 157.5528708171809
+      p95_mean_percentage_error_pct: 157.5528708171809
+  '25.24':
+    shape_gate_loss_pilot_periodic_gru_sequence_Fw:
+      mse: 0.001425743326899371
+      mae: 0.037569317984185856
+      rmse: 0.03775901649804151
+      mean_percentage_error_pct: 86.40100145849341
+      p95_mean_percentage_error_pct: 86.40100145849341
+  '24.35':
+    shape_gate_loss_pilot_periodic_gru_sequence_Fw:
+      mse: 0.0036634987969481323
+      mae: 0.06031405384084612
+      rmse: 0.0605268436063548
+      mean_percentage_error_pct: 137.8481727129185
+      p95_mean_percentage_error_pct: 137.8481727129185
+  '24.55':
+    shape_gate_loss_pilot_periodic_gru_sequence_Fw:
+      mse: 0.000640327339529386
+      mae: 0.025240269498578598
+      rmse: 0.025304690069814846
+      mean_percentage_error_pct: 63.192974387203535
+      p95_mean_percentage_error_pct: 63.192974387203535
+  '27.89':
+    shape_gate_loss_pilot_periodic_gru_sequence_Fw:
+      mse: 0.0035541824805421086
+      mae: 0.058991757763935115
+      rmse: 0.05961696470420235
+      mean_percentage_error_pct: 92.67801685233584
+      p95_mean_percentage_error_pct: 92.67801685233584
+  '28.32':
+    shape_gate_loss_pilot_periodic_gru_sequence_Fw:
+      mse: 0.00036615617494969776
+      mae: 0.018819982872449896
+      rmse: 0.01913520773207591
+      mean_percentage_error_pct: 37.58076999024432
+      p95_mean_percentage_error_pct: 37.58076999024432
+  '28.06':
+    shape_gate_loss_pilot_periodic_gru_sequence_Fw:
+      mse: 0.0008051675019629867
+      mae: 0.028057398350324166
+      rmse: 0.02837547359891966
+      mean_percentage_error_pct: 53.85445925877057
+      p95_mean_percentage_error_pct: 53.85445925877057
+  '26.15':
+    shape_gate_loss_pilot_periodic_gru_sequence_Fw:
+      mse: 0.001219886115069145
+      mae: 0.03461965564392806
+      rmse: 0.03492686809705595
+      mean_percentage_error_pct: 67.48986414390396
+      p95_mean_percentage_error_pct: 67.48986414390396
+  '25.16':
+    shape_gate_loss_pilot_periodic_gru_sequence_Fw:
+      mse: 0.0010656948026533967
+      mae: 0.02686021983296226
+      rmse: 0.0270599670503906
+      mean_percentage_error_pct: 63.759609184023404
+      p95_mean_percentage_error_pct: 103.39434662429224
+  '28.15':
+    shape_gate_loss_pilot_periodic_gru_sequence_Fw:
+      mse: 0.0027700038787151775
+      mae: 0.052365942864636576
+      rmse: 0.052630826316097085
+      mean_percentage_error_pct: 117.4125881718419
+      p95_mean_percentage_error_pct: 117.4125881718419
+  '26.22':
+    shape_gate_loss_pilot_periodic_gru_sequence_Fw:
+      mse: 0.00020952104795222534
+      mae: 0.014381911018802287
+      rmse: 0.014474841897313606
+      mean_percentage_error_pct: 35.27812801009284
+      p95_mean_percentage_error_pct: 35.27812801009284
+  '27.44':
+    shape_gate_loss_pilot_periodic_gru_sequence_Fw:
+      mse: 0.000947341928953525
+      mae: 0.030582723081781036
+      rmse: 0.030778920204476392
+      mean_percentage_error_pct: 67.9102453072071
+      p95_mean_percentage_error_pct: 67.9102453072071
+  '27.93':
+    shape_gate_loss_pilot_periodic_gru_sequence_Fw:
+      mse: 0.001175884811124164
+      mae: 0.034062768514951304
+      rmse: 0.0342911768699204
+      mean_percentage_error_pct: 72.68768323296715
+      p95_mean_percentage_error_pct: 72.68768323296715
+  '25.29':
+    shape_gate_loss_pilot_periodic_gru_sequence_Fw:
+      mse: 0.0030350914878518862
+      mae: 0.05477368822364894
+      rmse: 0.05509166441351982
+      mean_percentage_error_pct: 125.09137318662968
+      p95_mean_percentage_error_pct: 125.09137318662968
+  '27.67':
+    shape_gate_loss_pilot_periodic_gru_sequence_Fw:
+      mse: 0.00020843393767081488
+      mae: 0.014302766782453092
+      rmse: 0.014437241345590053
+      mean_percentage_error_pct: 32.579670887991824
+      p95_mean_percentage_error_pct: 32.579670887991824
+  '27.09':
+    shape_gate_loss_pilot_periodic_gru_sequence_Fw:
+      mse: 0.001098720123777712
+      mae: 0.03293884356966129
+      rmse: 0.033146947427745314
+      mean_percentage_error_pct: 75.5746355909404
+      p95_mean_percentage_error_pct: 75.5746355909404
+  '27.14':
+    shape_gate_loss_pilot_periodic_gru_sequence_Fw:
+      mse: 0.0016587480194317674
+      mae: 0.04048050832887058
+      rmse: 0.04072773034962503
+      mean_percentage_error_pct: 89.57408439535533
+      p95_mean_percentage_error_pct: 89.57408439535533
+  '26.0':
+    shape_gate_loss_pilot_periodic_gru_sequence_Fw:
+      mse: 2.5594712303412518e-05
+      mae: 0.004380454662082098
+      rmse: 0.005059121692884301
+      mean_percentage_error_pct: 9.475014843341798
+      p95_mean_percentage_error_pct: 9.475014843341798
+  '26.41':
+    shape_gate_loss_pilot_periodic_gru_sequence_Fw:
+      mse: 0.0013923012251417083
+      mae: 0.03704952408226103
+      rmse: 0.03731355283461638
+      mean_percentage_error_pct: 85.84905298077173
+      p95_mean_percentage_error_pct: 85.84905298077173
+  '26.42':
+    shape_gate_loss_pilot_periodic_gru_sequence_Fw:
+      mse: 0.0010629609530458228
+      mae: 0.0323987830229345
+      rmse: 0.03260308195624798
+      mean_percentage_error_pct: 75.5243050957777
+      p95_mean_percentage_error_pct: 75.5243050957777
+  '25.01':
+    shape_gate_loss_pilot_periodic_gru_sequence_Fw:
+      mse: 0.00040524322959687597
+      mae: 0.02007637750252951
+      rmse: 0.0201306539783703
+      mean_percentage_error_pct: 50.090564719155076
+      p95_mean_percentage_error_pct: 50.090564719155076
+  '24.98':
+    shape_gate_loss_pilot_periodic_gru_sequence_Fw:
+      mse: 0.0008904783658427829
+      mae: 0.029750432716768787
+      rmse: 0.02984088413306119
+      mean_percentage_error_pct: 73.13778572534687
+      p95_mean_percentage_error_pct: 73.13778572534687
+  '25.05':
+    shape_gate_loss_pilot_periodic_gru_sequence_Fw:
+      mse: 0.0014315959427682204
+      mae: 0.03771200698467907
+      rmse: 0.037836436708128585
+      mean_percentage_error_pct: 92.3101973324919
+      p95_mean_percentage_error_pct: 92.3101973324919
+  '25.87':
+    shape_gate_loss_pilot_periodic_gru_sequence_Fw:
+      mse: 0.0016642266926149825
+      mae: 0.04064771804856539
+      rmse: 0.04079493464408274
+      mean_percentage_error_pct: 99.52501554245792
+      p95_mean_percentage_error_pct: 99.52501554245792
+  '25.3':
+    shape_gate_loss_pilot_periodic_gru_sequence_Fw:
+      mse: 0.0008302648973199442
+      mae: 0.028717501315986736
+      rmse: 0.0288143175751213
+      mean_percentage_error_pct: 71.63862730967284
+      p95_mean_percentage_error_pct: 71.63862730967284
+  '24.8':
+    shape_gate_loss_pilot_periodic_gru_sequence_Fw:
+      mse: 0.004265333342995784
+      mae: 0.06503934792780466
+      rmse: 0.06530951954344623
+      mean_percentage_error_pct: 147.79061146148157
+      p95_mean_percentage_error_pct: 147.79061146148157
+  '26.79':
+    shape_gate_loss_pilot_periodic_gru_sequence_Fw:
+      mse: 0.00468975867500518
+      mae: 0.06820190716845383
+      rmse: 0.06848181273159451
+      mean_percentage_error_pct: 148.6193393760713
+      p95_mean_percentage_error_pct: 148.6193393760713
+  '25.82':
+    shape_gate_loss_pilot_periodic_gru_sequence_Fw:
+      mse: 0.005170681972194189
+      mae: 0.07161218026859982
+      rmse: 0.07190745421855921
+      mean_percentage_error_pct: 153.27761944070454
+      p95_mean_percentage_error_pct: 153.27761944070454
+  '25.31':
+    shape_gate_loss_pilot_periodic_gru_sequence_Fw:
+      mse: 0.0025405603031679502
+      mae: 0.05018314545602373
+      rmse: 0.05040397110514161
+      mean_percentage_error_pct: 118.70547176598352
+      p95_mean_percentage_error_pct: 118.70547176598352
+  '25.27':
+    shape_gate_loss_pilot_periodic_gru_sequence_Fw:
+      mse: 0.005694174133774831
+      mae: 0.07515283648307922
+      rmse: 0.07545975174737081
+      mean_percentage_error_pct: 163.99498732850986
+      p95_mean_percentage_error_pct: 163.99498732850986
+  '25.4':
+    shape_gate_loss_pilot_periodic_gru_sequence_Fw:
+      mse: 2.6612181732528273e-06
+      mae: 0.001427005428519989
+      rmse: 0.0016313240552547576
+      mean_percentage_error_pct: 3.6746169991941837
+      p95_mean_percentage_error_pct: 3.6746169991941837
+  '27.72':
+    shape_gate_loss_pilot_periodic_gru_sequence_Fw:
+      mse: 0.0010329316815280932
+      mae: 0.03201418134732624
+      rmse: 0.03213925452663912
+      mean_percentage_error_pct: 77.54430852118593
+      p95_mean_percentage_error_pct: 77.54430852118593
+  '26.26':
+    shape_gate_loss_pilot_periodic_gru_sequence_Fw:
+      mse: 0.0001874609437873942
+      mae: 0.013630396379804652
+      rmse: 0.013691637732112042
+      mean_percentage_error_pct: 33.38271106191029
+      p95_mean_percentage_error_pct: 33.38271106191029
+  '25.89':
+    shape_gate_loss_pilot_periodic_gru_sequence_Fw:
+      mse: 0.0018521084510331061
+      mae: 0.042843464769905915
+      rmse: 0.04303612960098882
+      mean_percentage_error_pct: 101.9922476642957
+      p95_mean_percentage_error_pct: 101.9922476642957
+  '32.23':
+    shape_gate_loss_pilot_periodic_gru_sequence_Fw:
+      mse: 0.0002147679620426749
+      mae: 0.014608152707465714
+      rmse: 0.014654963733925611
+      mean_percentage_error_pct: 37.17959085434537
+      p95_mean_percentage_error_pct: 37.17959085434537
+  '30.21':
+    shape_gate_loss_pilot_periodic_gru_sequence_Fw:
+      mse: 0.0017726100343476415
+      mae: 0.03687006962537668
+      rmse: 0.036973724970732626
+      mean_percentage_error_pct: 86.53896101434847
+      p95_mean_percentage_error_pct: 126.37024222072331
+  '31.0':
+    shape_gate_loss_pilot_periodic_gru_sequence_Fw:
+      mse: 0.0056698675955752075
+      mae: 0.07505705191607126
+      rmse: 0.07529852319650902
+      mean_percentage_error_pct: 162.54194009486193
+      p95_mean_percentage_error_pct: 162.54194009486193
+  '30.44':
+    shape_gate_loss_pilot_periodic_gru_sequence_Fw:
+      mse: 0.006183816674068461
+      mae: 0.07838427914787513
+      rmse: 0.07863724737087674
+      mean_percentage_error_pct: 169.00199126032433
+      p95_mean_percentage_error_pct: 169.00199126032433
+  '29.79':
+    shape_gate_loss_pilot_periodic_gru_sequence_Fw:
+      mse: 0.0008208008958892133
+      mae: 0.02859419587627358
+      rmse: 0.028649622962426805
+      mean_percentage_error_pct: 70.85463114878377
+      p95_mean_percentage_error_pct: 70.85463114878377
+  '31.57':
+    shape_gate_loss_pilot_periodic_gru_sequence_Fw:
+      mse: 0.005668610299625728
+      mae: 0.07482044248820201
+      rmse: 0.07529017399120372
+      mean_percentage_error_pct: 120.7360328964033
+      p95_mean_percentage_error_pct: 120.7360328964033
+  '32.24':
+    shape_gate_loss_pilot_periodic_gru_sequence_Fw:
+      mse: 0.0026282800476185213
+      mae: 0.05103473087323819
+      rmse: 0.05126675382368696
+      mean_percentage_error_pct: 113.35863209839611
+      p95_mean_percentage_error_pct: 113.35863209839611
+  '32.62':
+    shape_gate_loss_pilot_periodic_gru_sequence_Fw:
+      mse: 0.003280555823671481
+      mae: 0.057012990621902744
+      rmse: 0.05727613659868725
+      mean_percentage_error_pct: 120.4252516495125
+      p95_mean_percentage_error_pct: 120.4252516495125
+  '31.07':
+    shape_gate_loss_pilot_periodic_gru_sequence_Fw:
+      mse: 0.0036519334822839363
+      mae: 0.06014746793338002
+      rmse: 0.06043122936267255
+      mean_percentage_error_pct: 125.52180583222835
+      p95_mean_percentage_error_pct: 125.52180583222835
+  '31.45':
+    shape_gate_loss_pilot_periodic_gru_sequence_Fw:
+      mse: 0.005682427578051436
+      mae: 0.07487903352668998
+      rmse: 0.07537916896030389
+      mean_percentage_error_pct: 131.43317033397236
+      p95_mean_percentage_error_pct: 149.40428704142272
+  '31.25':
+    shape_gate_loss_pilot_periodic_gru_sequence_Fw:
+      mse: 0.004074784427847945
+      mae: 0.0635348777135081
+      rmse: 0.06383403816027892
+      mean_percentage_error_pct: 134.9933708132284
+      p95_mean_percentage_error_pct: 134.9933708132284
+  '32.8':
+    shape_gate_loss_pilot_periodic_gru_sequence_Fw:
+      mse: 0.000883863900480134
+      mae: 0.029586841836450956
+      rmse: 0.029729848645429293
+      mean_percentage_error_pct: 66.29163953927964
+      p95_mean_percentage_error_pct: 66.29163953927964
+  '31.8':
+    shape_gate_loss_pilot_periodic_gru_sequence_Fw:
+      mse: 0.00248682351774812
+      mae: 0.04936413038754917
+      rmse: 0.04986806109874455
+      mean_percentage_error_pct: 84.85241385310391
+      p95_mean_percentage_error_pct: 84.85241385310391
+  '31.59':
+    shape_gate_loss_pilot_periodic_gru_sequence_Fw:
+      mse: 0.003384828165746564
+      mae: 0.05762881452757678
+      rmse: 0.0581792760847586
+      mean_percentage_error_pct: 92.2875586040472
+      p95_mean_percentage_error_pct: 92.2875586040472
+  '31.88':
+    shape_gate_loss_pilot_periodic_gru_sequence_Fw:
+      mse: 0.0018761479570898847
+      mae: 0.04287078229976924
+      rmse: 0.04331452362764578
+      mean_percentage_error_pct: 76.08601549679042
+      p95_mean_percentage_error_pct: 76.08601549679042
+  '29.75':
+    shape_gate_loss_pilot_periodic_gru_sequence_Fw:
+      mse: 2.3292082691650553e-06
+      mae: 0.0012340372019168542
+      rmse: 0.0015261743901550226
+      mean_percentage_error_pct: 2.9684951870233314
+      p95_mean_percentage_error_pct: 2.9684951870233314
+  '31.9':
+    shape_gate_loss_pilot_periodic_gru_sequence_Fw:
+      mse: 0.002134017590666135
+      mae: 0.045892547420139804
+      rmse: 0.04619542824421195
+      mean_percentage_error_pct: 93.35087182910489
+      p95_mean_percentage_error_pct: 93.35087182910489
+  '30.28':
+    shape_gate_loss_pilot_periodic_gru_sequence_Fw:
+      mse: 0.00036953226730890385
+      mae: 0.018978970283556176
+      rmse: 0.01922322208447127
+      mean_percentage_error_pct: 42.73353644896964
+      p95_mean_percentage_error_pct: 42.73353644896964
+  '29.95':
+    shape_gate_loss_pilot_periodic_gru_sequence_Fw:
+      mse: 0.004201179420417166
+      mae: 0.06458477167257418
+      rmse: 0.06481650577142496
+      mean_percentage_error_pct: 144.21424719083146
+      p95_mean_percentage_error_pct: 144.21424719083146
+  '32.33':
+    shape_gate_loss_pilot_periodic_gru_sequence_Fw:
+      mse: 0.0051073097091925085
+      mae: 0.07121641762169469
+      rmse: 0.07146544416144426
+      mean_percentage_error_pct: 158.1786647415778
+      p95_mean_percentage_error_pct: 158.1786647415778
+  '31.37':
+    shape_gate_loss_pilot_periodic_gru_sequence_Fw:
+      mse: 0.001541668142267255
+      mae: 0.039143497961378795
+      rmse: 0.03926408208868832
+      mean_percentage_error_pct: 95.6203673986802
+      p95_mean_percentage_error_pct: 95.6203673986802
+  '31.66':
+    shape_gate_loss_pilot_periodic_gru_sequence_Fw:
+      mse: 0.002191793539800191
+      mae: 0.04666317178098362
+      rmse: 0.04681659470529858
+      mean_percentage_error_pct: 112.29920451700525
+      p95_mean_percentage_error_pct: 112.29920451700525
+  '32.14':
+    shape_gate_loss_pilot_periodic_gru_sequence_Fw:
+      mse: 0.004104871347928349
+      mae: 0.06383426333608014
+      rmse: 0.06406926991880232
+      mean_percentage_error_pct: 146.092727113909
+      p95_mean_percentage_error_pct: 146.092727113909
+  '32.79':
+    shape_gate_loss_pilot_periodic_gru_sequence_Fw:
+      mse: 0.003196457149512465
+      mae: 0.056327758004916254
+      rmse: 0.05653721915262958
+      mean_percentage_error_pct: 128.9743403212982
+      p95_mean_percentage_error_pct: 128.9743403212982
+  '30.36':
+    shape_gate_loss_pilot_periodic_gru_sequence_Fw:
+      mse: 0.003954718583069977
+      mae: 0.06264629012378783
+      rmse: 0.0628865532770717
+      mean_percentage_error_pct: 143.12133946070009
+      p95_mean_percentage_error_pct: 143.12133946070009
+  '30.24':
+    shape_gate_loss_pilot_periodic_gru_sequence_Fw:
+      mse: 0.0006420218898746356
+      mae: 0.025261318629685295
+      rmse: 0.025338150877177987
+      mean_percentage_error_pct: 62.14266675507848
+      p95_mean_percentage_error_pct: 62.14266675507848
+  '30.68':
+    shape_gate_loss_pilot_periodic_gru_sequence_Fw:
+      mse: 0.0008897827722392544
+      mae: 0.029735223023561876
+      rmse: 0.029829226812628826
+      mean_percentage_error_pct: 73.9300791168939
+      p95_mean_percentage_error_pct: 73.9300791168939
+  '31.42':
+    shape_gate_loss_pilot_periodic_gru_sequence_Fw:
+      mse: 0.0014536552250918014
+      mae: 0.037997091758743294
+      rmse: 0.03812683077691879
+      mean_percentage_error_pct: 92.03763444452007
+      p95_mean_percentage_error_pct: 92.03763444452007
+  '32.98':
+    shape_gate_loss_pilot_periodic_gru_sequence_Fw:
+      mse: 0.0002513028609828634
+      mae: 0.01581031888891529
+      rmse: 0.01585253484408293
+      mean_percentage_error_pct: 39.5240137600556
+      p95_mean_percentage_error_pct: 39.5240137600556
+  '32.36':
+    shape_gate_loss_pilot_periodic_gru_sequence_Fw:
+      mse: 0.0017267507637008192
+      mae: 0.041403611738311856
+      rmse: 0.04155419068759274
+      mean_percentage_error_pct: 99.44225906020588
+      p95_mean_percentage_error_pct: 99.44225906020588
+  '34.65':
+    shape_gate_loss_pilot_periodic_gru_sequence_Fw:
+      mse: 0.0002488882003589742
+      mae: 0.015735740101380742
+      rmse: 0.015776190933142708
+      mean_percentage_error_pct: 40.21135722355178
+      p95_mean_percentage_error_pct: 40.21135722355178
+  '34.86':
+    shape_gate_loss_pilot_periodic_gru_sequence_Fw:
+      mse: 0.0006829803545632746
+      mae: 0.026059164553056683
+      rmse: 0.026133892832168625
+      mean_percentage_error_pct: 64.55007687213931
+      p95_mean_percentage_error_pct: 64.55007687213931
+  '34.4':
+    shape_gate_loss_pilot_periodic_gru_sequence_Fw:
+      mse: 2.4666095633708178e-05
+      mae: 0.00484920738864273
+      rmse: 0.004966497320416893
+      mean_percentage_error_pct: 12.434534139646203
+      p95_mean_percentage_error_pct: 12.434534139646203
+  '36.93':
+    shape_gate_loss_pilot_periodic_gru_sequence_Fw:
+      mse: 0.006850446412793997
+      mae: 0.08250938221656337
+      rmse: 0.08276742362061294
+      mean_percentage_error_pct: 174.6788533477956
+      p95_mean_percentage_error_pct: 174.6788533477956
+  '35.39':
+    shape_gate_loss_pilot_periodic_gru_sequence_Fw:
+      mse: 0.004246486865743359
+      mae: 0.06307170525856973
+      rmse: 0.06326734807606932
+      mean_percentage_error_pct: 139.31749977059832
+      p95_mean_percentage_error_pct: 163.0721382734681
+  '34.9':
+    shape_gate_loss_pilot_periodic_gru_sequence_Fw:
+      mse: 9.37910791386718e-05
+      mae: 0.008948225906832679
+      rmse: 0.009684579450790405
+      mean_percentage_error_pct: 17.315224992157866
+      p95_mean_percentage_error_pct: 17.315224992157866
+  '35.98':
+    shape_gate_loss_pilot_periodic_gru_sequence_Fw:
+      mse: 0.002439842922799085
+      mae: 0.04906757785495231
+      rmse: 0.04939476614783276
+      mean_percentage_error_pct: 89.49325482937329
+      p95_mean_percentage_error_pct: 89.49325482937329
+  '34.89':
+    shape_gate_loss_pilot_periodic_gru_sequence_Fw:
+      mse: 0.00600171744668222
+      mae: 0.07709146561059972
+      rmse: 0.07747075220160328
+      mean_percentage_error_pct: 132.47845185130856
+      p95_mean_percentage_error_pct: 132.47845185130856
+  '34.62':
+    shape_gate_loss_pilot_periodic_gru_sequence_Fw:
+      mse: 7.929328666562982e-05
+      mae: 0.0086882346339802
+      rmse: 0.008904677796845308
+      mean_percentage_error_pct: 20.138914468938886
+      p95_mean_percentage_error_pct: 20.138914468938886
+  '34.54':
+    shape_gate_loss_pilot_periodic_gru_sequence_Fw:
+      mse: 0.002454156599661173
+      mae: 0.04932638973059374
+      rmse: 0.049539444886485894
+      mean_percentage_error_pct: 107.94880561819807
+      p95_mean_percentage_error_pct: 107.94880561819807
+  '35.72':
+    shape_gate_loss_pilot_periodic_gru_sequence_Fw:
+      mse: 0.001542318816587784
+      mae: 0.039123976516496996
+      rmse: 0.03927236708663973
+      mean_percentage_error_pct: 90.21647699579563
+      p95_mean_percentage_error_pct: 90.21647699579563
+  '34.48':
+    shape_gate_loss_pilot_periodic_gru_sequence_Fw:
+      mse: 0.004739757720590096
+      mae: 0.06854678992143211
+      rmse: 0.06884589835705607
+      mean_percentage_error_pct: 142.73275485303088
+      p95_mean_percentage_error_pct: 142.73275485303088
+  '34.8':
+    shape_gate_loss_pilot_periodic_gru_sequence_Fw:
+      mse: 0.00040806326517776783
+      mae: 0.020093512231050013
+      rmse: 0.02020057586252847
+      mean_percentage_error_pct: 47.024794009834814
+      p95_mean_percentage_error_pct: 47.024794009834814
+  '34.71':
+    shape_gate_loss_pilot_periodic_gru_sequence_Fw:
+      mse: 0.0016898584304723024
+      mae: 0.04092127097185621
+      rmse: 0.0411078876916864
+      mean_percentage_error_pct: 92.81887663338482
+      p95_mean_percentage_error_pct: 92.81887663338482
+  '34.76':
+    shape_gate_loss_pilot_periodic_gru_sequence_Fw:
+      mse: 0.0011748244103393197
+      mae: 0.02494509225845233
+      rmse: 0.02563390834948664
+      mean_percentage_error_pct: 38.38284238923192
+      p95_mean_percentage_error_pct: 66.83670198288767
+  '34.94':
+    shape_gate_loss_pilot_periodic_gru_sequence_Fw:
+      mse: 0.003930961827832397
+      mae: 0.06182837627238859
+      rmse: 0.06257259781061066
+      mean_percentage_error_pct: 99.96785579007707
+      p95_mean_percentage_error_pct: 109.76994246755665
+  '35.81':
+    shape_gate_loss_pilot_periodic_gru_sequence_Fw:
+      mse: 0.001794884980124377
+      mae: 0.04159924117158408
+      rmse: 0.0423660828980492
+      mean_percentage_error_pct: 68.04142873602176
+      p95_mean_percentage_error_pct: 68.04142873602176
+  '34.47':
+    shape_gate_loss_pilot_periodic_gru_sequence_Fw:
+      mse: 1.3536009332767054e-05
+      mae: 0.0032303943812860537
+      rmse: 0.003679131600359935
+      mean_percentage_error_pct: 7.79169669748733
+      p95_mean_percentage_error_pct: 7.79169669748733
+  '35.73':
+    shape_gate_loss_pilot_periodic_gru_sequence_Fw:
+      mse: 0.0023916443237819106
+      mae: 0.04862885075190139
+      rmse: 0.048904440736827884
+      mean_percentage_error_pct: 97.3665228762195
+      p95_mean_percentage_error_pct: 97.3665228762195
+  '34.98':
+    shape_gate_loss_pilot_periodic_gru_sequence_Fw:
+      mse: 0.00010683451372442189
+      mae: 0.010303833522297799
+      rmse: 0.010336078256496604
+      mean_percentage_error_pct: 26.2176679180937
+      p95_mean_percentage_error_pct: 26.2176679180937
+  '35.96':
+    shape_gate_loss_pilot_periodic_gru_sequence_Fw:
+      mse: 0.0013817172006782353
+      mae: 0.03707379905928076
+      rmse: 0.03717145680059144
+      mean_percentage_error_pct: 91.13262341878031
+      p95_mean_percentage_error_pct: 91.13262341878031
+  '36.44':
+    shape_gate_loss_pilot_periodic_gru_sequence_Fw:
+      mse: 0.0020381311129016436
+      mae: 0.045014575179939356
+      rmse: 0.04514566549406093
+      mean_percentage_error_pct: 108.28580564839845
+      p95_mean_percentage_error_pct: 108.28580564839845
+  '35.19':
+    shape_gate_loss_pilot_periodic_gru_sequence_Fw:
+      mse: 0.0013167961280957732
+      mae: 0.03617503795004354
+      rmse: 0.03628768562606016
+      mean_percentage_error_pct: 85.40505139421259
+      p95_mean_percentage_error_pct: 85.40505139421259
+  '35.84':
+    shape_gate_loss_pilot_periodic_gru_sequence_Fw:
+      mse: 0.0024251430487591875
+      mae: 0.04909074454068172
+      rmse: 0.04924574142765228
+      mean_percentage_error_pct: 112.00108855665032
+      p95_mean_percentage_error_pct: 112.00108855665032
+  '34.69':
+    shape_gate_loss_pilot_periodic_gru_sequence_Fw:
+      mse: 0.0002736757672233806
+      mae: 0.016500757873075565
+      rmse: 0.016543148649014208
+      mean_percentage_error_pct: 41.45877211370023
+      p95_mean_percentage_error_pct: 41.45877211370023
+  '35.85':
+    shape_gate_loss_pilot_periodic_gru_sequence_Fw:
+      mse: 0.0060552009349475085
+      mae: 0.07754216397181153
+      rmse: 0.07781517162448148
+      mean_percentage_error_pct: 169.3033066624198
+      p95_mean_percentage_error_pct: 169.3033066624198
+  '35.83':
+    shape_gate_loss_pilot_periodic_gru_sequence_Fw:
+      mse: 0.0015834705737033771
+      mae: 0.039666358292572854
+      rmse: 0.03979284576030442
+      mean_percentage_error_pct: 96.31650433806547
+      p95_mean_percentage_error_pct: 96.31650433806547
+  '34.84':
+    shape_gate_loss_pilot_periodic_gru_sequence_Fw:
+      mse: 0.003067031360886364
+      mae: 0.05516859612440587
+      rmse: 0.05538078512341951
+      mean_percentage_error_pct: 127.56883643959594
+      p95_mean_percentage_error_pct: 127.56883643959594
+  '34.73':
+    shape_gate_loss_pilot_periodic_gru_sequence_Fw:
+      mse: 0.0014411628822831237
+      mae: 0.03783181312373253
+      rmse: 0.03796265114929572
+      mean_percentage_error_pct: 92.62021109714169
+      p95_mean_percentage_error_pct: 92.62021109714169
+preview_plot_path_list: []
+report_plot_root: doc\reports\campaign_results\track_2\verification_plots\shape_gate_loss_pilot_track2_polished_setpoints_fw
+report_plot_path_list: []
+report_plot_count: 0
+per_condition_metrics_csv_path: output\validation_checks\track2_reference_comparison\2026-07-20-23-37-32__shape_gate_loss_pilot_only_track2_polished_setpoints_fw_matrix_shape_gate_loss_pilot_only_track2_polished_setpoints_fw\per_condition_metrics.csv
+sample_preview_list:
+- source_file_path: data\polished_dataset\forward\25degree\1000rpm\1000.0rpm1000.0Nm25.0deg.csv
+  direction_label: forward
+  candidate_id: shape_gate_loss_pilot_periodic_gru_sequence_Fw
+  speed_rpm: 1000.000722699058
+  torque_nm: -1000.0290870666499
+  oil_temperature_deg: 25.37
+  mean_percentage_error_pct: 104.78986205103398
+- source_file_path: data\polished_dataset\forward\25degree\1000rpm\1000.0rpm1800.0Nm25.0deg.csv
+  direction_label: forward
+  candidate_id: shape_gate_loss_pilot_periodic_gru_sequence_Fw
+  speed_rpm: 1000.0000521336565
+  torque_nm: -1799.78680610657
+  oil_temperature_deg: 27.06
+  mean_percentage_error_pct: 157.5528708171809
+- source_file_path: data\polished_dataset\forward\25degree\1000rpm\1000.0rpm800.0Nm25.0deg.csv
+  direction_label: forward
+  candidate_id: shape_gate_loss_pilot_periodic_gru_sequence_Fw
+  speed_rpm: 999.9954700688777
+  torque_nm: -799.9339103698729
+  oil_temperature_deg: 25.24
+  mean_percentage_error_pct: 86.40100145849341
+- source_file_path: data\polished_dataset\forward\25degree\100rpm\100.0rpm1300.0Nm25.0deg.csv
+  direction_label: forward
+  candidate_id: shape_gate_loss_pilot_periodic_gru_sequence_Fw
+  speed_rpm: 99.99412113060635
+  torque_nm: -1299.95310306549
+  oil_temperature_deg: 24.35
+  mean_percentage_error_pct: 137.8481727129185
+- source_file_path: data\polished_dataset\forward\25degree\100rpm\100.0rpm400.0Nm25.0deg.csv
+  direction_label: forward
+  candidate_id: shape_gate_loss_pilot_periodic_gru_sequence_Fw
+  speed_rpm: 99.99778120179246
+  torque_nm: -399.97124671936
+  oil_temperature_deg: 24.55
+  mean_percentage_error_pct: 63.192974387203535

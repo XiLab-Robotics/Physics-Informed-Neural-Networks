@@ -215,6 +215,25 @@ This folder contains the internal project documents derived from the reference P
   scalar baseline comparison, and the decision not to promote before a
   checkpoint-level shape-gated reranker pass.
 
+- [technical/2026-07/2026-07-20/2026-07-20-23-31-11_shape_gate_loss_pilot_track2_shape_evaluation.md](./technical/2026-07/2026-07-20/2026-07-20-23-31-11_shape_gate_loss_pilot_track2_shape_evaluation.md)
+  Technical plan for evaluating the completed shape-gate loss pilot checkpoint
+  inside the shape-gated `TE Curve Verification Pipeline` and attempting
+  Track 2 visual generation without promoting from scalar campaign metrics.
+
+- [reports/analysis/validation_checks/te_curve_verification_pipeline/2026-07-20-23-38-10_shape_gate_loss_pilot_only_track2_polished_setpoints_fw_matrix_shape_gate_loss_pilot_only_track2_polished_setpoints_fw_report.md](./reports/analysis/validation_checks/te_curve_verification_pipeline/2026-07-20-23-38-10_shape_gate_loss_pilot_only_track2_polished_setpoints_fw_matrix_shape_gate_loss_pilot_only_track2_polished_setpoints_fw_report.md)
+  Pilot-only `TE Curve Verification Pipeline` comparison report for the
+  completed shape-gate loss checkpoint on `polished_dataset` setpoint
+  `forward` curves.
+
+- [reports/analysis/te_curve_verification_pipeline/03_cvp_diagnostics/shape_gated_reranker/[2026-07-20]/shape_gate_loss_pilot_only_track2_polished_setpoints_fw_matrix_shape_gated_te_curve_reranker_report.md](./reports/analysis/te_curve_verification_pipeline/03_cvp_diagnostics/shape_gated_reranker/%5B2026-07-20%5D/shape_gate_loss_pilot_only_track2_polished_setpoints_fw_matrix_shape_gated_te_curve_reranker_report.md)
+  Shape-gated reranker result for the shape-gate loss pilot checkpoint,
+  recording a forward-only gate failure before any full-surface campaign
+  promotion.
+
+- [reports/campaign_results/track_2/verification_plots/shape_gate_loss_pilot_track2_polished_setpoints_fw/track2_candidate_curve_plot_summary.yaml](./reports/campaign_results/track_2/verification_plots/shape_gate_loss_pilot_track2_polished_setpoints_fw/track2_candidate_curve_plot_summary.yaml)
+  Summary for the bounded Track 2 truth-versus-prediction PNG plots generated
+  from the shape-gate loss pilot checkpoint.
+
 - [reports/analysis/te_curve_verification_pipeline/03_cvp_diagnostics/rcim_track1_familywise_crosscheck/[2026-07-20]/rcim_track1_familywise_crosscheck_report.md](./reports/analysis/te_curve_verification_pipeline/03_cvp_diagnostics/rcim_track1_familywise_crosscheck/%5B2026-07-20%5D/rcim_track1_familywise_crosscheck_report.md)
   Diagnostic cross-check separating the latest `rcim_track1` forward `h0`
   offset bug, Wave 4.3 Mixture Density ONNX playback mismatch, Gaussian NLL
