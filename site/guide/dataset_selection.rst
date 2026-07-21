@@ -109,6 +109,24 @@ Remote launch delegates to the repository-owned remote campaign runner:
 
    .\scripts\campaigns\cross_wave\run_shape_gate_loss_v2_checkpoint_selection_pilot_campaign.ps1 -Remote
 
+Shape-gate loss v2 bounded TE Curve Verification screen
+-------------------------------------------------------
+
+After the checkpoint-selection pilot is closed out, validate the bounded
+``polished_dataset`` setpoint ``Fw`` verification-screen package with:
+
+.. code-block:: powershell
+
+   .\scripts\campaigns\track_2\run_shape_gate_loss_v2_bounded_track2_screen.ps1 `
+     -PreflightOnly
+
+Launch the bounded screen on the remote workstation with:
+
+.. code-block:: powershell
+
+   .\scripts\campaigns\track_2\run_shape_gate_loss_v2_bounded_track2_screen.ps1 `
+     -Remote
+
 After normal campaign closeout, the separate operator-launched official TE
 Curve Verification Pipeline refresh evaluates the selected harmonic-profile
 registry candidates across ``global``, ``Fw``, and ``Bw``. Run it locally with:

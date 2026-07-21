@@ -1,0 +1,95 @@
+W0721 16:01:42.016000 7528 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+[INFO] Building TE Curve Verification Pipeline held-out curve records
+[INFO] Built TE Curve Verification Pipeline held-out curve records | curve_count=100 | dataset=polished_dataset | surface_scope=forward
+System.Management.Automation.RemoteException
+TE matrix candidates:   0%|                        | 0/9 [00:00<?, ?candidate/s]
+
+System.Management.Automation.RemoteException
+TE matrix candidates:   0%|                        | 0/9 [00:00<?, ?candidate/s]
+
+System.Management.Automation.RemoteException
+TE matrix candidates:   0%|                        | 0/9 [00:00<?, ?candidate/s]
+TE matrix candidates:  11%|#7              | 1/9 [00:29<03:57, 29.67s/candidate]
+
+System.Management.Automation.RemoteException
+TE matrix candidates:  11%|#7              | 1/9 [00:29<03:57, 29.67s/candidate]
+
+System.Management.Automation.RemoteException
+TE matrix candidates:  11%|#7              | 1/9 [00:29<03:57, 29.67s/candidate]
+TE matrix candidates:  22%|###5            | 2/9 [00:59<03:30, 30.05s/candidate]
+
+System.Management.Automation.RemoteException
+TE matrix candidates:  22%|###5            | 2/9 [01:00<03:30, 30.05s/candidate]
+
+System.Management.Automation.RemoteException
+TE matrix candidates:  22%|###5            | 2/9 [01:00<03:30, 30.05s/candidate]
+TE matrix candidates:  33%|#####3          | 3/9 [01:00<01:40, 16.69s/candidate]
+
+System.Management.Automation.RemoteException
+TE matrix candidates:  33%|#####3          | 3/9 [01:00<01:40, 16.69s/candidate]C:\Users\Martina Salami\.conda\envs\pinns_env\Lib\site-packages\sklearn\base.py:463: InconsistentVersionWarning: Trying to unpickle estimator _BinMapper from version 1.6.1 when using version 1.8.0. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+  warnings.warn(
+C:\Users\Martina Salami\.conda\envs\pinns_env\Lib\site-packages\sklearn\base.py:463: InconsistentVersionWarning: Trying to unpickle estimator HistGradientBoostingRegressor from version 1.6.1 when using version 1.8.0. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+  warnings.warn(
+System.Management.Automation.RemoteException
+
+System.Management.Automation.RemoteException
+TE matrix candidates:  33%|#####3          | 3/9 [01:00<01:40, 16.69s/candidate]
+TE matrix candidates:  44%|#######1        | 4/9 [01:07<01:03, 12.70s/candidate]
+
+System.Management.Automation.RemoteException
+TE matrix candidates:  44%|#######1        | 4/9 [01:07<01:03, 12.70s/candidate]
+
+System.Management.Automation.RemoteException
+TE matrix candidates:  44%|#######1        | 4/9 [01:07<01:03, 12.70s/candidate]
+TE matrix candidates:  56%|########8       | 5/9 [01:08<00:33,  8.45s/candidate]
+
+System.Management.Automation.RemoteException
+TE matrix candidates:  56%|########8       | 5/9 [01:08<00:33,  8.45s/candidate]
+
+System.Management.Automation.RemoteException
+TE matrix candidates:  56%|########8       | 5/9 [01:08<00:33,  8.45s/candidate]
+TE matrix candidates:  67%|##########6     | 6/9 [01:09<00:17,  5.88s/candidate]
+
+System.Management.Automation.RemoteException
+TE matrix candidates:  67%|##########6     | 6/9 [01:09<00:17,  5.88s/candidate]
+
+System.Management.Automation.RemoteException
+TE matrix candidates:  67%|##########6     | 6/9 [01:09<00:17,  5.88s/candidate]
+TE matrix candidates:  78%|############4   | 7/9 [01:39<00:27, 13.73s/candidate]
+
+System.Management.Automation.RemoteException
+TE matrix candidates:  78%|############4   | 7/9 [01:39<00:27, 13.73s/candidate]
+
+System.Management.Automation.RemoteException
+TE matrix candidates:  78%|############4   | 7/9 [01:39<00:27, 13.73s/candidate]
+TE matrix candidates:  89%|##############2 | 8/9 [02:04<00:17, 17.41s/candidate]
+
+System.Management.Automation.RemoteException
+TE matrix candidates:  89%|##############2 | 8/9 [02:04<00:17, 17.41s/candidate]
+
+System.Management.Automation.RemoteException
+TE matrix candidates:  89%|##############2 | 8/9 [02:04<00:17, 17.41s/candidate]
+TE matrix candidates: 100%|################| 9/9 [02:32<00:00, 20.68s/candidate]
+TE matrix candidates: 100%|################| 9/9 [02:32<00:00, 16.91s/candidate]
+[INFO] Loading TE Curve Verification Pipeline candidate | 1/9 | shape_gate_loss_v2_checkpoint_selection_periodic_gru_sequence_Fw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 1/9 | shape_gate_loss_v2_checkpoint_selection_periodic_gru_sequence_Fw
+[INFO] Loading TE Curve Verification Pipeline candidate | 2/9 | shape_gate_loss_pilot_periodic_gru_sequence_Fw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 2/9 | shape_gate_loss_pilot_periodic_gru_sequence_Fw
+[INFO] Loading TE Curve Verification Pipeline candidate | 3/9 | polished_setpoints_feedforward_Fw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 3/9 | polished_setpoints_feedforward_Fw
+[INFO] Loading TE Curve Verification Pipeline candidate | 4/9 | polished_setpoints_tree_Fw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 4/9 | polished_setpoints_tree_Fw
+[INFO] Loading TE Curve Verification Pipeline candidate | 5/9 | polished_setpoints_harmonic_regression_Fw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 5/9 | polished_setpoints_harmonic_regression_Fw
+[INFO] Loading TE Curve Verification Pipeline candidate | 6/9 | polished_setpoints_periodic_mlp_harmonic_Fw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 6/9 | polished_setpoints_periodic_mlp_harmonic_Fw
+[INFO] Loading TE Curve Verification Pipeline candidate | 7/9 | polished_setpoints_periodic_gru_sequence_Fw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 7/9 | polished_setpoints_periodic_gru_sequence_Fw
+[INFO] Loading TE Curve Verification Pipeline candidate | 8/9 | polished_setpoints_wave4_1_mae_robust_loss_Fw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 8/9 | polished_setpoints_wave4_1_mae_robust_loss_Fw
+[INFO] Loading TE Curve Verification Pipeline candidate | 9/9 | polished_setpoints_wave4_2_quantile_p10_p50_p90_Fw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 9/9 | polished_setpoints_wave4_2_quantile_p10_p50_p90_Fw
+[DONE] Reference family comparison summary written | output\validation_checks\track2_reference_comparison\2026-07-21-16-01-42__shape_gate_loss_v2_bounded_track2_screen_polished_setpoints_fw_matrix_shape_gate_loss_v2_bounded_track2_screen_polished_setpoints_fw\validation_summary.yaml
+[DONE] Reference family comparison report written | doc\reports\analysis\validation_checks\te_curve_verification_pipeline\2026-07-21-16-04-22_shape_gate_loss_v2_bounded_track2_screen_polished_setpoints_fw_matrix_shape_gate_loss_v2_bounded_track2_screen_polished_setpoints_fw_report.md

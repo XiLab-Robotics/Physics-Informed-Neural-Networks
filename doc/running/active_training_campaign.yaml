@@ -1,85 +1,85 @@
-﻿status: completed
-prepared_at: '2026-07-21T12:21:36+02:00'
-started_at: '2026-07-21T13:03:55+02:00'
-completed_at: '2026-07-21T13:08:39+02:00'
-closed_out_at: '2026-07-21T14:48:36+02:00'
-campaign_name: shape_gate_loss_v2_checkpoint_selection_pilot_2026_07_21
-campaign_type: shape_gate_loss_v2_checkpoint_selection_pilot
-execution_host: xilab-remote
-execution_mode: remote_operator_launched_recovered_sync
+status: completed
+prepared_at: '2026-07-21T15:20:56+02:00'
+started_at: '2026-07-21T16:00:46+02:00'
+completed_at: '2026-07-21T16:08:05+02:00'
+campaign_name: shape_gate_loss_v2_bounded_track2_screen_2026_07_21
+campaign_type: te_curve_verification_pipeline_bounded_screen
+execution_mode: remote_operator_launched_codex_monitored
+remote_host_alias: xilab-remote
+remote_conda_environment_name: pinns_env
 dataset_id: polished_dataset
 input_mode: setpoints
 dataset_schema: polished_setpoint_curve_v1
 dataset_root: data/polished_dataset
-model_family: shape_gate_loss_v2_checkpoint_selection_periodic_gru_sequence_fw
-base_model_family: periodic_gru_sequence
-expected_run_count: 1
-completed_run_count: 1
-failed_run_count: 0
 surface_list:
 - fw
 primary_surface: fw
-pilot_only: true
-promotion_requires_full_matrix: true
-full_matrix_target_list:
-- simplified_setpoints
-- polished_setpoints
-- polished_actual_values
-full_matrix_surface_list:
-- global
-- fw
-- bw
-campaign_manifest_path: config/training/shape_gate_loss_v2_pilot/campaigns/2026-07-21_shape_gate_loss_v2_checkpoint_selection_pilot/campaign.yaml
-queue_config_path_list:
-- config/training/shape_gate_loss_v2_pilot/campaigns/2026-07-21_shape_gate_loss_v2_checkpoint_selection_pilot/queue/001_shape_gate_loss_v2_periodic_gru_sequence_fw.yaml
-completed_queue_config_path_list:
-- config/training/queue/shape_gate_loss_v2_pilot/completed/2026-07-21-13-03-55_001_001_shape_gate_loss_v2_periodic_gru_sequence_fw.yaml
-planning_report_path: doc/reports/campaign_plans/cross_wave/shape_gate_loss_v2/2026-07-21-12-21-36_shape_gate_loss_v2_checkpoint_selection_pilot_campaign_plan_report.md
-technical_document_path: doc/technical/2026-07/2026-07-21/2026-07-21-12-18-54_shape_gate_loss_v2_checkpoint_selection_pilot.md
-launcher_path: scripts/campaigns/cross_wave/run_shape_gate_loss_v2_checkpoint_selection_pilot_campaign.ps1
-launcher_note_path: doc/scripts/campaigns/cross_wave/run_shape_gate_loss_v2_checkpoint_selection_pilot_campaign.md
-campaign_output_directory: output/training_campaigns/2026-07-21-13-03-55_shape_gate_loss_v2_checkpoint_selection_pilot_2026_07_21
-training_output_directory: output/training_runs/shape_gate_loss_v2_checkpoint_selection_periodic_gru_sequence/2026-07-21-13-03-55__te_shape_gate_loss_v2_periodic_gru_sequence_fw__polished_setpoints
-campaign_leaderboard_path: output/training_campaigns/2026-07-21-13-03-55_shape_gate_loss_v2_checkpoint_selection_pilot_2026_07_21/campaign_leaderboard.yaml
-campaign_best_run_path: output/training_campaigns/2026-07-21-13-03-55_shape_gate_loss_v2_checkpoint_selection_pilot_2026_07_21/campaign_best_run.yaml
-campaign_best_run_report_path: output/training_campaigns/2026-07-21-13-03-55_shape_gate_loss_v2_checkpoint_selection_pilot_2026_07_21/campaign_best_run.md
-campaign_results_report_path: doc/reports/campaign_results/cross_wave/shape_gate_loss_v2/2026-07-21-14-48-36_shape_gate_loss_v2_checkpoint_selection_pilot_campaign_results_report.md
-metrics_summary_path: output/training_runs/shape_gate_loss_v2_checkpoint_selection_periodic_gru_sequence/2026-07-21-13-03-55__te_shape_gate_loss_v2_periodic_gru_sequence_fw__polished_setpoints/metrics_summary.yaml
-training_report_path: output/training_runs/shape_gate_loss_v2_checkpoint_selection_periodic_gru_sequence/2026-07-21-13-03-55__te_shape_gate_loss_v2_periodic_gru_sequence_fw__polished_setpoints/training_test_report.md
-best_checkpoint_path: output/training_runs/shape_gate_loss_v2_checkpoint_selection_periodic_gru_sequence/2026-07-21-13-03-55__te_shape_gate_loss_v2_periodic_gru_sequence_fw__polished_setpoints/checkpoints/periodic_gru_sequence-epoch=008-val_mae=0.00198279.ckpt
-family_registry_path: output/registries/families/shape_gate_loss_v2_checkpoint_selection_periodic_gru_sequence_fw/latest_family_best.yaml
-program_registry_path: output/registries/program/current_best_solution.yaml
+screen_scope: bounded_checkpoint_level_fw_only
+source_campaign:
+  campaign_name: shape_gate_loss_v2_checkpoint_selection_pilot_2026_07_21
+  status: completed
+  completed_at: '2026-07-21T13:08:39+02:00'
+  closed_out_at: '2026-07-21T14:48:36+02:00'
+  campaign_results_report_path: doc/reports/campaign_results/cross_wave/shape_gate_loss_v2/2026-07-21-14-48-36_shape_gate_loss_v2_checkpoint_selection_pilot_campaign_results_report.md
+candidate_under_test:
+  model_family: shape_gate_loss_v2_checkpoint_selection_periodic_gru_sequence_fw
+  base_model_family: periodic_gru_sequence
+  family_registry_path: output/registries/families/shape_gate_loss_v2_checkpoint_selection_periodic_gru_sequence_fw/latest_family_best.yaml
+  best_checkpoint_path: output/training_runs/shape_gate_loss_v2_checkpoint_selection_periodic_gru_sequence/2026-07-21-13-03-55__te_shape_gate_loss_v2_periodic_gru_sequence_fw__polished_setpoints/checkpoints/periodic_gru_sequence-epoch=008-val_mae=0.00198279.ckpt
+  scalar_result:
+    val_mae: 0.0019827946089208126
+    val_rmse: 0.0024452684447169304
+    test_mae: 0.0014626294141635299
+    test_rmse: 0.0018308096332475543
+comparison_baseline_list:
+- polished_setpoints_feedforward_Fw
+- polished_setpoints_tree_Fw
+- polished_setpoints_harmonic_regression_Fw
+- polished_setpoints_periodic_mlp_harmonic_Fw
+- polished_setpoints_periodic_gru_sequence_Fw
+- polished_setpoints_wave4_1_mae_robust_loss_Fw
+- polished_setpoints_wave4_2_quantile_p10_p50_p90_Fw
+- shape_gate_loss_pilot_periodic_gru_sequence_Fw
+matrix_config_path: config/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/shape_gate_loss_v2_bounded_track2_screen_polished_setpoints_fw_matrix.yaml
+launcher_path: scripts/campaigns/track_2/run_shape_gate_loss_v2_bounded_track2_screen.ps1
+launcher_note_path: doc/scripts/campaigns/track_2/run_shape_gate_loss_v2_bounded_track2_screen.md
+planning_report_path: doc/reports/campaign_plans/cross_wave/shape_gate_loss_v2/2026-07-21-15-20-56_shape_gate_loss_v2_bounded_track2_screen_plan_report.md
+technical_document_path: doc/technical/2026-07/2026-07-21/2026-07-21-15-20-56_shape_gate_loss_v2_bounded_track2_screen.md
+local_preflight_command: .\scripts\campaigns\track_2\run_shape_gate_loss_v2_bounded_track2_screen.ps1 -PreflightOnly
+remote_preflight_command: .\scripts\campaigns\track_2\run_shape_gate_loss_v2_bounded_track2_screen.ps1 -Remote -PreflightOnly
+launch_command_list:
+- .\scripts\campaigns\track_2\run_shape_gate_loss_v2_bounded_track2_screen.ps1
+- .\scripts\campaigns\track_2\run_shape_gate_loss_v2_bounded_track2_screen.ps1 -Remote
+expected_output_list:
+- output/validation_checks/track2_reference_comparison/
+- output/validation_checks/shape_gated_te_curve_reranker/
+- output/validation_checks/track2_operator_launch_logs/
+- doc/reports/analysis/te_curve_verification_pipeline/03_cvp_diagnostics/shape_gated_reranker/[2026-07-21]/
+matrix_output_directory: output/validation_checks/track2_reference_comparison/2026-07-21-16-01-42__shape_gate_loss_v2_bounded_track2_screen_polished_setpoints_fw_matrix_shape_gate_loss_v2_bounded_track2_screen_polished_setpoints_fw
+matrix_validation_summary_path: output/validation_checks/track2_reference_comparison/2026-07-21-16-01-42__shape_gate_loss_v2_bounded_track2_screen_polished_setpoints_fw_matrix_shape_gate_loss_v2_bounded_track2_screen_polished_setpoints_fw/validation_summary.yaml
+matrix_report_path: doc/reports/analysis/validation_checks/te_curve_verification_pipeline/2026-07-21-16-04-22_shape_gate_loss_v2_bounded_track2_screen_polished_setpoints_fw_matrix_shape_gate_loss_v2_bounded_track2_screen_polished_setpoints_fw_report.md
+reranker_output_directory: output/validation_checks/shape_gated_te_curve_reranker/2026-07-21-16-04-28__shape_gated_te_curve_reranker
+reranker_decision_path: output/validation_checks/shape_gated_te_curve_reranker/2026-07-21-16-04-28__shape_gated_te_curve_reranker/shape_gated_surface_decisions.yaml
+reranker_report_path: doc/reports/analysis/te_curve_verification_pipeline/03_cvp_diagnostics/shape_gated_reranker/[2026-07-21]/shape_gate_loss_v2_bounded_track2_screen_polished_setpoints_fw_matrix_shape_gated_te_curve_reranker_report.md
+local_operator_log_directory: .temp/shape_gate_loss_v2_bounded_track2_screen_remote_2026-07-21-16-00-45
+synced_operator_log_directory: output/validation_checks/track2_operator_launch_logs/2026-07-21-16-01-36_shape_gate_loss_v2_bounded_track2_screen_polished_setpoints_fw
 protected_file_list: []
-scalar_result:
-  val_mae: 0.0019827946089208126
-  val_rmse: 0.0024452684447169304
-  test_mae: 0.0014626294141635299
-  test_rmse: 0.0018308096332475543
-  trainable_parameter_count: 157953
-remote_recovery:
-  status: completed_recovered
-  remote_host_alias: xilab-remote
-  remote_repository_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks
-  local_status_path: doc/running/remote_training_campaign_status.json
-  local_checklist_path: doc/running/remote_training_campaign_checklist.md
-  note: Original local SSH transport remained open before marker capture; completed remote artifacts were recovered manually and synchronized into the local repository.
 acceptance_gate:
   scalar_mae_only_promotion_allowed: false
-  required_post_run_screen: calibrated_shape_gated_reranker
-  required_forward_baseline: polished_setpoints_periodic_gru_sequence_Fw
-  required_first_pilot_baseline: shape_gate_loss_pilot_periodic_gru_sequence_Fw
-  required_full_matrix_targets:
-  - simplified_setpoints
-  - polished_setpoints
-  - polished_actual_values
-  required_full_matrix_surfaces:
-  - global
-  - fw
-  - bw
-previous_completed_campaign:
-  campaign_name: shape_gate_loss_pilot_2026_07_20
-  completed_at: '2026-07-20T20:07:19+02:00'
-  campaign_best_run_path: output/training_campaigns/2026-07-20-19-59-14_shape_gate_loss_pilot_2026_07_20/campaign_best_run.yaml
-  patched_expansion_commit: 909c4a777
-next_step: Run a bounded checkpoint-level TE Curve Verification Pipeline screen and calibrated shape-gated reranker before any full-matrix campaign expansion.
-notes: Completed pilot only. The scalar result improved over the first shape-gate loss pilot, but promotion remains blocked on shape-gated curve evidence and full-matrix coverage.
+  required_screen: bounded_shape_gated_te_curve_reranker
+  required_surface: fw
+  required_dataset: polished_dataset
+  required_input_mode: setpoints
+  promotion_decision_requires_curve_first_evidence: true
+bounded_screen_result:
+  recommended_candidate: polished_setpoints_periodic_gru_sequence_Fw
+  shape_gate_loss_v2_rank: 5
+  shape_gate_loss_v2_decision_label: candidate
+  shape_gate_loss_v2_mean_raw_mae_deg: 0.001973
+  shape_gate_loss_v2_mean_centered_mae_deg: 0.001541
+  shape_gate_loss_v2_shape_pass_rate: 0.96
+  shape_gate_loss_v2_composite_score: 0.541641
+  first_shape_gate_loss_pilot_rank: 6
+  first_shape_gate_loss_pilot_composite_score: 0.833710
+  promotion_decision: not_promoted_by_bounded_screen
+notes: Completed bounded Fw screen. The v2 checkpoint improved over the first shape-gate loss pilot but did not beat the polished setpoint periodic GRU sequence recommendation.

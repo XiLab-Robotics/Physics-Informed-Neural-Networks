@@ -2,12 +2,12 @@
 
 ## Executive Snapshot
 
-- Generated At: `2026-07-21T14:51:05`
+- Generated At: `2026-07-21T16:15:00`
 - Program State: active.
 - Current Completed Wave: polished-dataset RCIM, early-wave, and full-wave
 - Current Focus: the polished-dataset TE Curve Verification Pipeline refresh is
 - Active Campaign Status: `completed`
-- Active Campaign Name: `shape_gate_loss_v2_checkpoint_selection_pilot_2026_07_21`
+- Active Campaign Name: `shape_gate_loss_v2_bounded_track2_screen_2026_07_21`
 - Current Program Winner: `te_periodic_gru_sequence_bw` | Family `periodic_gru_sequence_bw` | Test MAE `0.001084`
 
 ## Main Takeaways
@@ -16,6 +16,9 @@
 - Current plain MLP anchor: `te_feedforward_trial`
 - Active family-improvement branch count: `0`
 - Implemented and benchmarked family count: `207`
+- Latest bounded curve screen: shape-gate loss v2 is a valid improvement over
+  the first shape-gate loss pilot, but it is not promoted. The forward
+  recommendation remains `polished_setpoints_periodic_gru_sequence_Fw`.
 
 ## Current Project Status
 

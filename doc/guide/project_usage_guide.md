@@ -230,6 +230,21 @@ Prepared shape-gate loss v2 one-batch validation without training:
   -RunOneBatchValidation
 ```
 
+Prepared shape-gate loss v2 bounded `TE Curve Verification Pipeline` screen
+preflight:
+
+```powershell
+.\scripts\campaigns\track_2\run_shape_gate_loss_v2_bounded_track2_screen.ps1 `
+  -PreflightOnly
+```
+
+Remote shape-gate loss v2 bounded `TE Curve Verification Pipeline` screen:
+
+```powershell
+.\scripts\campaigns\track_2\run_shape_gate_loss_v2_bounded_track2_screen.ps1 `
+  -Remote
+```
+
 Operator-launched `Wave 5.2B` TE Curve Verification Pipeline refresh:
 
 ```powershell

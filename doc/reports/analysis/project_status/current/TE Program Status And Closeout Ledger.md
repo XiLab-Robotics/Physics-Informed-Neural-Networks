@@ -31,11 +31,11 @@ closeout that changes any of these surfaces:
 | Current accepted global neural curve-verified leader | `polished_periodic_gru_sequence_global` |
 | Latest normal campaign closeout | `shape_gate_loss_v2_checkpoint_selection_pilot_2026_07_21` |
 | Latest official TE Curve Verification refresh | polished-dataset RCIM, early-wave, and full-wave refresh, dated `2026-07-03` |
-| Latest curve-verification decision | accepted; polished `periodic_gru_sequence` becomes the model-development baseline |
+| Latest curve-verification decision | bounded shape-gate loss v2 screen closed; v2 retained as a candidate, not promoted |
 | Latest pruning decision | `2026-07-17` shape-first intermediate model-selection cleanup; `global` remains paused until final backlog stage |
 | Active report generation | reduced selected-model reports only: `polished_dataset` and `simplified_dataset`, each split into `forward` and `backward` |
 | Current TE Curve Verification Pipeline selection policy | multi-index curve-first selection, dated `2026-06-16` |
-| Next modeling decision | run a bounded checkpoint-level `TE Curve Verification Pipeline` screen and calibrated shape-gated reranker for the completed v2 shape-gate checkpoint before any full-matrix expansion |
+| Next modeling decision | stop expanding shape-gate loss v2 as-is; keep `polished_setpoints_periodic_gru_sequence_Fw` as the forward recommendation and only reopen shape-gated losses with a materially different objective or architecture |
 
 The repository remains direction-parallel. `Fw`, `Bw`, and `global` are not a
 single destructive competition. Each surface keeps its own best candidate and
@@ -156,6 +156,7 @@ robustness, visual-evidence, and deployment-readiness axes visible.
 | Intermediate model-selection cleanup | closed | Post-retraining familywise ONNX reports were consolidated into a shape-first selection report using `polished_dataset + setpoints` as the primary evidence surface and `polished_dataset + actual_values` as a sensitivity check. | Active development set reduced to `periodic_gru_sequence`, `wave4_1_mae_robust_loss`, `wave4_2_quantile_p10_p50_p90`, and `periodic_mlp_harmonic`; `periodic_lstm_sequence_Bw`, Wave 4.3 MDN, Wave 4.4 latent-state, and Wave 5.1 harmonic-prior branches are closed as active roads unless future shape-gated evidence reopens them. |
 | Shape-gate loss pilot patched Track 2 expansion | closed diagnostic | Corrected polished setpoint playback was used to compare the one-run shape-gate loss pilot against the reduced active polished-setpoint Fw/Bw candidate set and to generate bounded Track 2 plots. | The pilot is viable but not promoted: `polished_setpoints_periodic_gru_sequence_Fw` remains the forward recommendation, `polished_setpoints_periodic_mlp_harmonic_Bw` is the backward recommendation, and the pilot ranks fifth on forward. The next training step should be a stricter second pilot or checkpoint-selection variant, not a full Aries campaign from this exact profile. |
 | Shape-gate loss v2 checkpoint-selection pilot | closed pilot | One remote `polished_dataset` setpoint `Fw` run completed successfully; best checkpoint `periodic_gru_sequence-epoch=008-val_mae=0.00198279.ckpt`, validation MAE `0.001983 deg`, test MAE `0.001463 deg`. | Accepted as a completed pilot and scalar improvement over the first shape-gate loss pilot. Not promoted until a bounded checkpoint-level `TE Curve Verification Pipeline` screen and calibrated shape-gated reranker confirm curve-shape, harmonic, derivative, and phase behavior. |
+| Shape-gate loss v2 bounded Track 2 screen | closed diagnostic | Remote bounded `polished_dataset` setpoint `Fw` screen completed on `2026-07-21`; matrix evaluated 9 candidates over 100 forward held-out curves and the shape-gated reranker wrote `2026-07-21-16-04-28__shape_gated_te_curve_reranker`. | Not promoted. `polished_setpoints_periodic_gru_sequence_Fw` remains the forward recommendation; shape-gate loss v2 ranks fifth by composite score (`0.541641`) with raw MAE `0.001973 deg`, centered MAE `0.001541 deg`, and shape pass rate `0.960`. It improves over the first shape-gate loss pilot but does not justify full-matrix expansion. |
 | Wave 5.2 PINN / MMT track | open design branch | MMT diagnostic and parameter inventory exist; feature and soft-constraint gates remain open. | Not campaign-ready. |
 | Wave 6 integrated multi-task / multi-head model | deferred | Intended to combine proven offset, low-frequency, centered-shape, uncertainty, mixture, and structured residual mechanisms. | Deferred until Waves 4.1-4.4, Wave 5.1, and Wave 5.2 evidence identifies what should be integrated. |
 
@@ -254,15 +255,16 @@ models.
 
 ## Current Next Steps
 
-1. Run a bounded checkpoint-level `TE Curve Verification Pipeline` screen for
-   the completed v2 shape-gate checkpoint on `polished_dataset` setpoints `Fw`,
-   followed by the calibrated shape-gated reranker.
+1. Do not expand the current shape-gate loss v2 checkpoint into a full matrix:
+   the bounded `polished_dataset` setpoint `Fw` screen retained
+   `polished_setpoints_periodic_gru_sequence_Fw` as the forward recommendation.
 2. Build the next reduced evaluation around `periodic_gru_sequence_Fw/Bw`,
    `wave4_1_mae_robust_loss_Fw/Bw`,
    `wave4_2_quantile_p10_p50_p90_Fw/Bw`,
    `periodic_mlp_harmonic_Fw/Bw`, simple anchors, and selected RCIM references
    after the remaining actual-values RCIM retraining is available.
-3. Add a shape-gated reranker before reopening any scalar leader: FFT
+3. Keep the shape-gated reranker as the gate before reopening any scalar
+   leader: FFT
    amplitude similarity, dominant-harmonic retention, dominant-harmonic phase
    error, derivative correlation, and per-curve shape pass rate.
 4. Carry forward both active modeling roads: one temporal-window road

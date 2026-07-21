@@ -259,13 +259,31 @@ This folder contains the internal project documents derived from the reference P
   Technical plan for permanent styled-PDF table-width rules covering campaign
   metric-breakdown and pilot-comparison tables.
 
+- [technical/2026-07/2026-07-21/2026-07-21-15-20-56_shape_gate_loss_v2_bounded_track2_screen.md](./technical/2026-07/2026-07-21/2026-07-21-15-20-56_shape_gate_loss_v2_bounded_track2_screen.md)
+  Technical plan for a bounded `TE Curve Verification Pipeline` screen of the
+  completed shape-gate loss v2 checkpoint before any full-matrix expansion.
+
 - [reports/campaign_plans/cross_wave/shape_gate_loss_v2/2026-07-21-12-21-36_shape_gate_loss_v2_checkpoint_selection_pilot_campaign_plan_report.md](./reports/campaign_plans/cross_wave/shape_gate_loss_v2/2026-07-21-12-21-36_shape_gate_loss_v2_checkpoint_selection_pilot_campaign_plan_report.md)
   Campaign plan for the one-run `polished_dataset` setpoint `Fw` shape-gate
   loss v2 checkpoint-selection pilot.
 
+- [reports/campaign_plans/cross_wave/shape_gate_loss_v2/2026-07-21-15-20-56_shape_gate_loss_v2_bounded_track2_screen_plan_report.md](./reports/campaign_plans/cross_wave/shape_gate_loss_v2/2026-07-21-15-20-56_shape_gate_loss_v2_bounded_track2_screen_plan_report.md)
+  Plan for a bounded `polished_dataset` setpoint `Fw`
+  `TE Curve Verification Pipeline` screen of the completed shape-gate loss v2
+  checkpoint.
+
 - [scripts/campaigns/cross_wave/run_shape_gate_loss_v2_checkpoint_selection_pilot_campaign.md](./scripts/campaigns/cross_wave/run_shape_gate_loss_v2_checkpoint_selection_pilot_campaign.md)
   Launcher note for validating or launching the shape-gate loss v2
   checkpoint-selection pilot locally or through the remote campaign workflow.
+
+- [scripts/campaigns/track_2/run_shape_gate_loss_v2_bounded_track2_screen.md](./scripts/campaigns/track_2/run_shape_gate_loss_v2_bounded_track2_screen.md)
+  Launcher note for the bounded `polished_dataset` setpoint `Fw`
+  `TE Curve Verification Pipeline` screen of the shape-gate loss v2 checkpoint.
+
+- [../config/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/shape_gate_loss_v2_bounded_track2_screen_polished_setpoints_fw_matrix.yaml](../config/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/shape_gate_loss_v2_bounded_track2_screen_polished_setpoints_fw_matrix.yaml)
+  Forward-only comparison matrix for the bounded shape-gate loss v2 screen,
+  covering the v2 registry candidate, the prior shape-gate loss pilot, and
+  polished-setpoint forward exported baselines.
 
 - [../config/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/shape_gate_pilot_expansion_polished_setpoints_fw_bw_matrix.yaml](../config/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/shape_gate_pilot_expansion_polished_setpoints_fw_bw_matrix.yaml)
   Patched polished-setpoint Fw/Bw `TE Curve Verification Pipeline` comparison
