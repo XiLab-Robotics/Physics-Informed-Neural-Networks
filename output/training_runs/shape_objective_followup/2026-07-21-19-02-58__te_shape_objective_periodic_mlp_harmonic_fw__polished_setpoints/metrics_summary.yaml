@@ -1,0 +1,107 @@
+schema_version: 1
+config_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\config\training\queue\shape_objective_followup\parallel_shape_objective_followup_2026_07_21\running\2026-07-21-18-52-44_002_002_shape_objective_periodic_mlp_harmonic_fw.yaml
+experiment:
+  model_family: shape_objective_periodic_mlp_harmonic_fw
+  model_type: periodic_mlp
+  run_name: te_shape_objective_periodic_mlp_harmonic_fw__polished_setpoints
+  output_run_name: te_shape_objective_periodic_mlp_harmonic_fw__polished_setpoints
+  run_instance_id: 2026-07-21-19-02-58__te_shape_objective_periodic_mlp_harmonic_fw__polished_setpoints
+  output_artifact_kind: training_run
+  base_model_family: periodic_mlp_harmonic
+  training_variant: fw
+  direction_scope_label: forward_only
+  use_forward_direction: true
+  use_backward_direction: false
+artifacts:
+  output_directory: R:\output\training_runs\shape_objective_followup\2026-07-21-19-02-58__te_shape_objective_periodic_mlp_harmonic_fw__polished_setpoints
+  best_checkpoint_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_runs\shape_objective_followup\2026-07-21-19-02-58__te_shape_objective_periodic_mlp_harmonic_fw__polished_setpoints\checkpoints\periodic_mlp-epoch=025-val_mae=0.00142880.ckpt
+dataset_split:
+  train_curve_count: 678
+  validation_curve_count: 194
+  test_curve_count: 97
+  dataset_name: polished_dataset
+  dataset_schema: polished_setpoint_curve_v1
+  input_mode: setpoints
+  input_feature_name_list:
+  - angular_position_deg
+  - input_speed_rpm
+  - input_torque_nm
+  - oil_temperature_deg
+  - direction_flag
+  target_feature_name_list:
+  - theta_TE
+  input_feature_dim: 5
+  target_feature_dim: 1
+dataset:
+  dataset_id: polished_dataset
+  dataset_schema: polished_setpoint_curve_v1
+  input_mode: setpoints
+  input_feature_names:
+  - angular_position_deg
+  - input_speed_rpm
+  - input_torque_nm
+  - oil_temperature_deg
+  - direction_flag
+  target_feature_names:
+  - theta_TE
+  input_feature_dim: 5
+  target_feature_dim: 1
+model_summary:
+  backbone_name: PeriodicFeatureNetwork
+  trainable_parameter_count: 28545
+  frozen_parameter_count: 0
+  total_parameter_count: 28545
+runtime_config:
+  accelerator: auto
+  devices: auto
+  precision: '32'
+  benchmark: true
+  use_non_blocking_transfer: true
+normalization_statistics:
+  input_feature_mean:
+  - 179.9995574951172
+  - 497.8607177734375
+  - 896.0148315429688
+  - 30.364091873168945
+  - 1.0
+  input_feature_std:
+  - 103.92352294921875
+  - 466.8061218261719
+  - 543.8323364257812
+  - 4.080519676208496
+  - 9.999999974752427e-07
+  target_mean:
+  - -0.05639513209462166
+  target_std:
+  - 0.02412978745996952
+validation_metrics:
+  val_loss: 0.01824907399713993
+  val_mae: 0.0014288033125922084
+  val_rmse: 0.0018666005926206708
+  val_pointwise_loss: 0.008832549676299095
+  val_centered_curve_shape_loss: 0.007328022737056017
+  val_curve_offset_loss: 0.0027972974348813295
+  val_curve_amplitude_loss: 0.0991518646478653
+  val_sparse_harmonic_shape_loss: 0.0001274234091397375
+test_metrics:
+  test_loss: 0.013323661871254444
+  test_mae: 0.0012364950962364674
+  test_rmse: 0.00167159887496382
+  test_pointwise_loss: 0.005923055112361908
+  test_centered_curve_shape_loss: 0.005083099938929081
+  test_curve_offset_loss: 0.0022948516998440027
+  test_curve_amplitude_loss: 0.07942061871290207
+  test_sparse_harmonic_shape_loss: 8.643398905405775e-05
+comparison_payload:
+  model_family: shape_objective_periodic_mlp_harmonic_fw
+  model_type: periodic_mlp
+  run_name: te_shape_objective_periodic_mlp_harmonic_fw__polished_setpoints
+  backbone_name: PeriodicFeatureNetwork
+  trainable_parameter_count: 28545
+  total_parameter_count: 28545
+  val_mae: 0.0014288033125922084
+  val_rmse: 0.0018666005926206708
+  test_mae: 0.0012364950962364674
+  test_rmse: 0.00167159887496382
+  deployment_notes: ''
+  interpretability_notes: ''

@@ -1,0 +1,105 @@
+paths:
+  dataset_config_path: config/datasets/transmission_error_dataset.yaml
+  output_root: output/training_runs/shape_objective_followup
+experiment:
+  run_name: te_shape_objective_curve_aware_residual_fw__polished_setpoints
+  model_family: shape_objective_curve_aware_residual_fw
+  model_type: curve_aware_harmonic_residual_offset_probe
+metadata:
+  campaign_name: parallel_shape_objective_followup_2026_07_21
+  planning_report_path: doc/reports/campaign_plans/cross_wave/shape_objective/2026-07-21-18-36-30_parallel_shape_objective_followup_campaign_plan_report.md
+  technical_document_path: doc/technical/2026-07/2026-07-21/2026-07-21-18-36-30_parallel_shape_objective_followup.md
+  phase_name: parallel_shape_objective_followup
+  campaign_config_id: shape_objective_curve_aware_residual_fw
+  queue_index: 3
+  intervention: curve_aware_shape_objective_on_robust_residual_backbone
+  probe_group: shape_objective_followup
+  loss_profile: curve_aware_centered_derivative_harmonic_mae
+  base_model_family: curve_aware_harmonic_residual_offset_probe
+  source_config_path: config/training/queue/polished_dataset_full_wave_retraining/completed/2026-06-29-15-54-17_077_077_wave4_1_mae_robust_loss_fw.yaml
+  output_run_name: te_shape_objective_curve_aware_residual_fw__polished_setpoints
+  dataset_name: polished_dataset
+  input_mode: setpoints
+  dataset_schema: polished_setpoint_curve_v1
+  source_dataset_root: data/polished_dataset
+  training_variant: fw
+  direction_scope_label: forward_only
+  use_forward_direction: true
+  use_backward_direction: false
+  runtime_input_contract: Current point state plus supported short causal sequence history.
+  promotion_rule: Pilot output must beat the current robust reference or expose a materially better shape-first tradeoff.
+  harmonic_basis: sparse_rcim
+  harmonic_index_list: &harmonic_index_list
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+dataset:
+  curve_batch_size: 2
+  point_stride: 1
+  maximum_points_per_curve: null
+  collate_mode: sequence
+  sequence_length: 33
+  sequence_stride: 8
+  sequence_target_position: center
+  maximum_sequences_per_curve: 64
+  shuffle_training_batch_elements: false
+  num_workers: 2
+  pin_memory: true
+  name: polished_dataset
+  input_mode: setpoints
+model:
+  input_size: auto
+  output_size: 1
+  harmonic_order: 240
+  coefficient_mode: linear_conditioned
+  harmonic_index_list: *harmonic_index_list
+  offset_hidden_size: 96
+  offset_num_layers: 2
+  offset_dropout_probability: 0.1
+  offset_bidirectional: false
+  offset_readout_position: center
+  offset_scale: 1.0
+  freeze_structured_branch: false
+training:
+  learning_rate: 0.0005
+  weight_decay: 0.0001
+  min_epochs: 4
+  max_epochs: 42
+  patience: 8
+  min_delta: 1.0e-05
+  log_every_n_steps: 1
+  fast_dev_run: false
+  deterministic: false
+  loss:
+    profile: curve_aware_centered_derivative_harmonic_mae
+    pointwise_loss: mae
+    weights:
+      point: 1.0
+      centered: 0.20
+      offset: 0.04
+      amplitude: 0.08
+      harmonic: 0.12
+      derivative: 0.08
+    harmonic_index_list:
+    - 1
+    - 3
+    - 39
+    - 40
+    - 78
+    - 81
+    - 156
+    - 162
+    - 240
+runtime:
+  accelerator: auto
+  devices: auto
+  precision: '32'
+  benchmark: true
+  use_non_blocking_transfer: true

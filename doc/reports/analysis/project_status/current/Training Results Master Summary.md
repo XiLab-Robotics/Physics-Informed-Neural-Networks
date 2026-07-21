@@ -2,12 +2,12 @@
 
 ## Executive Snapshot
 
-- Generated At: `2026-07-21T16:15:00`
+- Generated At: `2026-07-21T19:35:54`
 - Program State: active.
 - Current Completed Wave: polished-dataset RCIM, early-wave, and full-wave
 - Current Focus: the polished-dataset TE Curve Verification Pipeline refresh is
 - Active Campaign Status: `completed`
-- Active Campaign Name: `shape_gate_loss_v2_bounded_track2_screen_2026_07_21`
+- Active Campaign Name: `parallel_shape_objective_followup_2026_07_21`
 - Current Program Winner: `te_periodic_gru_sequence_bw` | Family `periodic_gru_sequence_bw` | Test MAE `0.001084`
 
 ## Main Takeaways
@@ -15,10 +15,7 @@
 - Strongest current neural family: `periodic_gru_sequence_bw`
 - Current plain MLP anchor: `te_feedforward_trial`
 - Active family-improvement branch count: `0`
-- Implemented and benchmarked family count: `207`
-- Latest bounded curve screen: shape-gate loss v2 is a valid improvement over
-  the first shape-gate loss pilot, but it is not promoted. The forward
-  recommendation remains `polished_setpoints_periodic_gru_sequence_Fw`.
+- Implemented and benchmarked family count: `210`
 
 ## Current Project Status
 
@@ -113,9 +110,12 @@
 | Family | Current Role | Best Run | Model Type | Test MAE [deg] | Params | Last Update |
 | --- | --- | --- | --- | ---: | ---: | --- |
 | `periodic_gru_sequence_fw` | Implemented Benchmark | `te_periodic_gru_sequence_fw` | `periodic_gru_sequence` | 0.001101 | 157,569 | `2026-07-09 01:09:21` |
+| `shape_objective_periodic_mlp_harmonic_fw` | Implemented Benchmark | `te_shape_objective_periodic_mlp_harmonic_fw__polished_setpoints` | `periodic_mlp` | 0.001236 | 28,545 | `2026-07-21 19:12:09` |
 | `periodic_mlp_harmonic_fw` | Implemented Benchmark | `te_periodic_mlp_harmonic_fw` | `periodic_mlp` | 0.001326 | 28,417 | `2026-07-08 03:31:01` |
 | `wave52b_offset_harmonic_guided_offset_centered_shape_harmonic_fw` | Implemented Benchmark | `te_wave52b_offset_harmonic_guided_offset_centered_shape_harmonic_fw` | `wave52b_offset_harmonic_guided` | 0.001392 | 22,593 | `2026-07-02 01:57:18` |
+| `shape_objective_v3_periodic_gru_sequence_fw` | Implemented Benchmark | `te_shape_objective_v3_periodic_gru_sequence_fw__polished_setpoints` | `periodic_gru_sequence` | 0.001400 | 157,953 | `2026-07-21 19:02:58` |
 | `shape_gate_loss_v2_checkpoint_selection_periodic_gru_sequence_fw` | Implemented Benchmark | `te_shape_gate_loss_v2_periodic_gru_sequence_fw__polished_setpoints` | `periodic_gru_sequence` | 0.001463 | 157,953 | `2026-07-21 13:08:39` |
+| `shape_objective_curve_aware_residual_fw` | Implemented Benchmark | `te_shape_objective_curve_aware_residual_fw__polished_setpoints` | `curve_aware_harmonic_residual_offset_probe` | 0.001463 | 85,747 | `2026-07-21 19:20:11` |
 | `periodic_lstm_sequence_fw` | Implemented Benchmark | `te_periodic_lstm_sequence_fw` | `periodic_lstm_sequence` | 0.001547 | 210,049 | `2026-07-09 05:16:31` |
 | `wave4_3_mixture_density_k3_fw` | Implemented Benchmark | `te_wave4_3_mixture_density_k3_fw` | `curve_aware_harmonic_residual_offset_probe` | 0.001671 | 86,976 | `2026-07-15 15:39:35` |
 | `wave4_3_mixture_density_k2_fw` | Implemented Benchmark | `te_wave4_3_mixture_density_k2_fw` | `curve_aware_harmonic_residual_offset_probe` | 0.001698 | 86,400 | `2026-07-15 06:02:16` |
@@ -432,11 +432,11 @@ Low-priority exploratory families currently listed in the backlog:
 
 | Campaign | Generated At | Completed | Failed | Winner | Impact |
 | --- | --- | ---: | ---: | --- | --- |
+| `parallel_shape_objective_followup_2026_07_21` | `2026-07-21 19:20:11` | 3 | 0 | `te_shape_objective_periodic_mlp_harmonic_fw__polished_setpoints` | Updated shape_objective_periodic_mlp_harmonic_fw family best |
 | `shape_gate_loss_v2_checkpoint_selection_pilot_2026_07_21` | `2026-07-21 13:08:39` | 1 | 0 | `te_shape_gate_loss_v2_periodic_gru_sequence_fw__polished_setpoints` | Updated shape_gate_loss_v2_checkpoint_selection_periodic_gru_sequence_fw family best |
 | `shape_gate_loss_pilot_2026_07_20` | `2026-07-20 20:07:19` | 1 | 0 | `te_shape_gate_loss_periodic_gru_sequence_fw__polished_setpoints` | Updated shape_gate_loss_pilot_periodic_gru_sequence_fw family best |
 | `dataset_input_mode_retraining__wave5_1_harmonic_prior_smooth_l1_structured__polished_actual_values` | `2026-07-16 07:23:05` | 3 | 0 | `te_wave5_1_harmonic_prior_smooth_l1_structured_global__polished_actual_values` | No family-best change |
 | `dataset_input_mode_retraining__wave5_1_harmonic_prior_smooth_l1_structured__polished_setpoints` | `2026-07-16 05:59:43` | 3 | 0 | `te_wave5_1_harmonic_prior_smooth_l1_structured_global__polished_setpoints` | No family-best change |
-| `dataset_input_mode_retraining__wave5_1_harmonic_prior_smooth_l1_structured__simplified_setpoints` | `2026-07-16 04:41:37` | 3 | 0 | `te_wave5_1_harmonic_prior_smooth_l1_structured_fw__simplified_setpoints` | No family-best change |
 
 ## Ranking Policy
 
@@ -537,9 +537,12 @@ Low-priority exploratory families currently listed in the backlog:
 | Family | Best Run | Model Type | Val MAE [deg] | Test MAE [deg] | Test RMSE [deg] | Params | Artifact Size | Training Cost | Current Role |
 | --- | --- | --- | ---: | ---: | ---: | ---: | --- | --- | --- |
 | `periodic_gru_sequence_fw` | `te_periodic_gru_sequence_fw` | `periodic_gru_sequence` | 0.001099 | 0.001101 | 0.001409 | 157,569 | N/A | Unknown | Implemented Benchmark |
+| `shape_objective_periodic_mlp_harmonic_fw` | `te_shape_objective_periodic_mlp_harmonic_fw__polished_setpoints` | `periodic_mlp` | 0.001429 | 0.001236 | 0.001672 | 28,545 | N/A | Unknown | Implemented Benchmark |
 | `periodic_mlp_harmonic_fw` | `te_periodic_mlp_harmonic_fw` | `periodic_mlp` | 0.001144 | 0.001326 | 0.001780 | 28,417 | N/A | Unknown | Implemented Benchmark |
 | `wave52b_offset_harmonic_guided_offset_centered_shape_harmonic_fw` | `te_wave52b_offset_harmonic_guided_offset_centered_shape_harmonic_fw` | `wave52b_offset_harmonic_guided` | 0.001809 | 0.001392 | 0.001771 | 22,593 | 0.30 MB | Medium | Implemented Benchmark |
+| `shape_objective_v3_periodic_gru_sequence_fw` | `te_shape_objective_v3_periodic_gru_sequence_fw__polished_setpoints` | `periodic_gru_sequence` | 0.001820 | 0.001400 | 0.001756 | 157,953 | N/A | Unknown | Implemented Benchmark |
 | `shape_gate_loss_v2_checkpoint_selection_periodic_gru_sequence_fw` | `te_shape_gate_loss_v2_periodic_gru_sequence_fw__polished_setpoints` | `periodic_gru_sequence` | 0.001983 | 0.001463 | 0.001831 | 157,953 | N/A | Unknown | Implemented Benchmark |
+| `shape_objective_curve_aware_residual_fw` | `te_shape_objective_curve_aware_residual_fw__polished_setpoints` | `curve_aware_harmonic_residual_offset_probe` | 0.001972 | 0.001463 | 0.001854 | 85,747 | N/A | Unknown | Implemented Benchmark |
 | `periodic_lstm_sequence_fw` | `te_periodic_lstm_sequence_fw` | `periodic_lstm_sequence` | 0.001495 | 0.001547 | 0.001976 | 210,049 | N/A | Unknown | Implemented Benchmark |
 | `wave4_3_mixture_density_k3_fw` | `te_wave4_3_mixture_density_k3_fw` | `curve_aware_harmonic_residual_offset_probe` | 0.001501 | 0.001671 | 0.002181 | 86,976 | N/A | Unknown | Implemented Benchmark |
 | `wave4_3_mixture_density_k2_fw` | `te_wave4_3_mixture_density_k2_fw` | `curve_aware_harmonic_residual_offset_probe` | 0.001493 | 0.001698 | 0.002196 | 86,400 | N/A | Unknown | Implemented Benchmark |
@@ -1601,6 +1604,19 @@ Known failed campaign attempts for this family:
 | Rank | Run | Model Type | Test MAE [deg] | Test RMSE [deg] | Val MAE [deg] | Params | Duration | Artifact Size | Model Complexity | Training Heaviness | Campaign |
 | --- | --- | --- | ---: | ---: | ---: | ---: | --- | --- | --- | --- | --- |
 | 1 | `te_shape_gate_loss_v2_periodic_gru_sequence_fw__polished_setpoints` | `periodic_gru_sequence` | 0.001463 | 0.001831 | 0.001983 | 157,953 | 4m 43s | 1.82 MB | Very High | Low | `shape_gate_loss_v2_checkpoint_selection_pilot_2026_07_21` |
+
+#### shape_objective_followup
+
+- Best run: `N/A`
+- Best test MAE: `N/A`
+- Completed tracked runs: `3`
+- Known failed campaign attempts: `0`
+
+| Rank | Run | Model Type | Test MAE [deg] | Test RMSE [deg] | Val MAE [deg] | Params | Duration | Artifact Size | Model Complexity | Training Heaviness | Campaign |
+| --- | --- | --- | ---: | ---: | ---: | ---: | --- | --- | --- | --- | --- |
+| 1 | `te_shape_objective_periodic_mlp_harmonic_fw__polished_setpoints` | `periodic_mlp` | 0.001236 | 0.001672 | 0.001429 | 28,545 | 9m 12s | 0.35 MB | Medium | Low | `parallel_shape_objective_followup_2026_07_21` |
+| 2 | `te_shape_objective_v3_periodic_gru_sequence_fw__polished_setpoints` | `periodic_gru_sequence` | 0.001400 | 0.001756 | 0.001820 | 157,953 | 10m 14s | 1.82 MB | Very High | Low | `parallel_shape_objective_followup_2026_07_21` |
+| 3 | `te_shape_objective_curve_aware_residual_fw__polished_setpoints` | `curve_aware_harmonic_residual_offset_probe` | 0.001463 | 0.001854 | 0.001972 | 85,747 | 8m 01s | 1.00 MB | High | Low | `parallel_shape_objective_followup_2026_07_21` |
 
 #### temporal_convolution_fw
 

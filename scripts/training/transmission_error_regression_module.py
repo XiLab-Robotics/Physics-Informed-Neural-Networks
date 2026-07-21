@@ -125,6 +125,7 @@ class TransmissionErrorRegressionModule(LightningModule):
             "offset_weight": float(weight_dictionary.get("offset", 0.0)),
             "amplitude_weight": float(weight_dictionary.get("amplitude", 0.0)),
             "harmonic_weight": float(weight_dictionary.get("harmonic", 0.0)),
+            "derivative_weight": float(weight_dictionary.get("derivative", 0.0)),
             "harmonic_index_list": [int(harmonic_index) for harmonic_index in harmonic_index_list if int(harmonic_index) > 0],
         }
 
@@ -383,6 +384,7 @@ class TransmissionErrorRegressionModule(LightningModule):
         offset_weight = float(self.loss_configuration["offset_weight"])
         amplitude_weight = float(self.loss_configuration["amplitude_weight"])
         harmonic_weight = float(self.loss_configuration["harmonic_weight"])
+        derivative_weight = float(self.loss_configuration["derivative_weight"])
         harmonic_index_list = list(self.loss_configuration["harmonic_index_list"])
 
         # Initialize Loss Terms
@@ -391,6 +393,7 @@ class TransmissionErrorRegressionModule(LightningModule):
         curve_offset_loss = zero_loss
         curve_amplitude_loss = zero_loss
         sparse_harmonic_shape_loss = zero_loss
+        curve_derivative_shape_loss = zero_loss
 
         curve_count_tensor = batch_dictionary.get("curve_count", None)
         count_per_curve_tensor = batch_dictionary.get("sequence_count_per_curve", batch_dictionary.get("point_count_per_curve", None))
@@ -407,6 +410,7 @@ class TransmissionErrorRegressionModule(LightningModule):
             offset_loss_list: list[torch.Tensor] = []
             amplitude_loss_list: list[torch.Tensor] = []
             harmonic_loss_list: list[torch.Tensor] = []
+            derivative_loss_list: list[torch.Tensor] = []
             start_index = 0
 
             # Walk Contiguous Per-Curve Segments In The Collated Batch
@@ -432,6 +436,11 @@ class TransmissionErrorRegressionModule(LightningModule):
                 target_amplitude_tensor = torch.max(curve_target_tensor, dim=0).values - torch.min(curve_target_tensor, dim=0).values
                 amplitude_loss_list.append(torch.mean(torch.square(prediction_amplitude_tensor - target_amplitude_tensor)))
 
+                if int(curve_prediction_tensor.shape[0]) > 1:
+                    prediction_derivative_tensor = curve_prediction_tensor[1:] - curve_prediction_tensor[:-1]
+                    target_derivative_tensor = curve_target_tensor[1:] - curve_target_tensor[:-1]
+                    derivative_loss_list.append(torch.mean(torch.square(prediction_derivative_tensor - target_derivative_tensor)))
+
                 if harmonic_index_list:
                     harmonic_loss_list.append(
                         self.compute_sparse_harmonic_shape_loss(
@@ -448,6 +457,8 @@ class TransmissionErrorRegressionModule(LightningModule):
                 curve_amplitude_loss = torch.stack(amplitude_loss_list).mean()
                 if harmonic_loss_list:
                     sparse_harmonic_shape_loss = torch.stack(harmonic_loss_list).mean()
+                if derivative_loss_list:
+                    curve_derivative_shape_loss = torch.stack(derivative_loss_list).mean()
 
         # Combine Weighted Terms
         total_loss = (
@@ -456,6 +467,7 @@ class TransmissionErrorRegressionModule(LightningModule):
             + offset_weight * curve_offset_loss
             + amplitude_weight * curve_amplitude_loss
             + harmonic_weight * sparse_harmonic_shape_loss
+            + derivative_weight * curve_derivative_shape_loss
         )
 
         return {
@@ -465,6 +477,7 @@ class TransmissionErrorRegressionModule(LightningModule):
             "curve_offset_loss": curve_offset_loss,
             "curve_amplitude_loss": curve_amplitude_loss,
             "sparse_harmonic_shape_loss": sparse_harmonic_shape_loss,
+            "curve_derivative_shape_loss": curve_derivative_shape_loss,
             "curve_aware_curve_count": torch.as_tensor(
                 int(curve_count_tensor) if isinstance(curve_count_tensor, int) else int(count_per_curve_tensor.numel()) if can_compute_curve_terms else 0,
                 device=pointwise_loss.device,

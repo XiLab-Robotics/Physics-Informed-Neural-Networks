@@ -263,6 +263,20 @@ This folder contains the internal project documents derived from the reference P
   Technical plan for a bounded `TE Curve Verification Pipeline` screen of the
   completed shape-gate loss v2 checkpoint before any full-matrix expansion.
 
+- [technical/2026-07/2026-07-21/2026-07-21-18-36-30_parallel_shape_objective_followup.md](./technical/2026-07/2026-07-21/2026-07-21-18-36-30_parallel_shape_objective_followup.md)
+  Technical plan for a bounded three-arm follow-up that compares windowed,
+  non-windowed, and curve-aware shape-objective candidates before any full
+  expansion.
+
+- [technical/2026-07/2026-07-21/2026-07-21-20-34-26_pilot_track2_curve_plot_report_fix.md](./technical/2026-07/2026-07-21/2026-07-21-20-34-26_pilot_track2_curve_plot_report_fix.md)
+  Technical plan for correcting pilot closeout reports so the pilot graph
+  bundle uses Track 2 measured-versus-predicted TE curve evidence instead of
+  scalar-only summary plots.
+
+- [technical/2026-07/2026-07-21/2026-07-21-20-51-39_campaign_pdf_section_pagebreak_rules.md](./technical/2026-07/2026-07-21/2026-07-21-20-51-39_campaign_pdf_section_pagebreak_rules.md)
+  Technical plan for permanent campaign styled-PDF page-break rules covering
+  `Execution Summary` and the opening `Pilot Graphs` Track 2 plot block.
+
 - [reports/campaign_plans/cross_wave/shape_gate_loss_v2/2026-07-21-12-21-36_shape_gate_loss_v2_checkpoint_selection_pilot_campaign_plan_report.md](./reports/campaign_plans/cross_wave/shape_gate_loss_v2/2026-07-21-12-21-36_shape_gate_loss_v2_checkpoint_selection_pilot_campaign_plan_report.md)
   Campaign plan for the one-run `polished_dataset` setpoint `Fw` shape-gate
   loss v2 checkpoint-selection pilot.
@@ -271,6 +285,15 @@ This folder contains the internal project documents derived from the reference P
   Plan for a bounded `polished_dataset` setpoint `Fw`
   `TE Curve Verification Pipeline` screen of the completed shape-gate loss v2
   checkpoint.
+
+- [reports/campaign_plans/cross_wave/shape_objective/2026-07-21-18-36-30_parallel_shape_objective_followup_campaign_plan_report.md](./reports/campaign_plans/cross_wave/shape_objective/2026-07-21-18-36-30_parallel_shape_objective_followup_campaign_plan_report.md)
+  Campaign plan for a three-arm bounded shape-objective follow-up comparing
+  windowed, non-windowed, and curve-aware candidates on `polished_dataset`
+  setpoint `Fw`.
+
+- [scripts/campaigns/cross_wave/run_parallel_shape_objective_followup_campaign.md](./scripts/campaigns/cross_wave/run_parallel_shape_objective_followup_campaign.md)
+  Launcher note for validating or launching the three-arm shape-objective
+  follow-up locally or through the repository-owned remote campaign workflow.
 
 - [scripts/campaigns/cross_wave/run_shape_gate_loss_v2_checkpoint_selection_pilot_campaign.md](./scripts/campaigns/cross_wave/run_shape_gate_loss_v2_checkpoint_selection_pilot_campaign.md)
   Launcher note for validating or launching the shape-gate loss v2
@@ -3177,6 +3200,11 @@ This folder contains the internal project documents derived from the reference P
   Script-level documentation for the broader Markdownlint runner that applies the tracked canonical-scope rule profile outside `reference/`.
 
 ### Reports
+
+- [Parallel Shape-Objective Follow-Up Track 2 Curve Plot Summary](reports/campaign_results/track_2/verification_plots/shape_objective_followup_polished_setpoints_fw/track2_candidate_curve_plot_summary.yaml)
+  Manifest for the bounded Track 2 measured-versus-predicted TE curve plots generated for the shape-objective follow-up pilot.
+
+- [Parallel Shape-Objective Follow-Up Campaign Results](reports/campaign_results/cross_wave/shape_objective/2026-07-21-19-31-21_parallel_shape_objective_followup_campaign_results_report.md)
 
 #### Analysis
 

@@ -127,6 +127,25 @@ Launch the bounded screen on the remote workstation with:
    .\scripts\campaigns\track_2\run_shape_gate_loss_v2_bounded_track2_screen.ps1 `
      -Remote
 
+Parallel shape-objective follow-up
+----------------------------------
+
+Validate the prepared three-arm ``polished_dataset`` setpoint ``Fw`` follow-up
+without training:
+
+.. code-block:: powershell
+
+   .\scripts\campaigns\cross_wave\run_parallel_shape_objective_followup_campaign.ps1 `
+     -PreflightOnly `
+     -RunOneBatchValidation
+
+Launch the follow-up on the remote workstation with:
+
+.. code-block:: powershell
+
+   .\scripts\campaigns\cross_wave\run_parallel_shape_objective_followup_campaign.ps1 `
+     -Remote
+
 After normal campaign closeout, the separate operator-launched official TE
 Curve Verification Pipeline refresh evaluates the selected harmonic-profile
 registry candidates across ``global``, ``Fw``, and ``Bw``. Run it locally with:

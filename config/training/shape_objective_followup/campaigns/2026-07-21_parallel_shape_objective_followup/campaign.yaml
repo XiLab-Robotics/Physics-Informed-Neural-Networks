@@ -1,0 +1,33 @@
+schema_version: 1
+campaign_name: parallel_shape_objective_followup_2026_07_21
+campaign_type: parallel_shape_objective_followup
+family_name: shape_objective_followup
+dataset_name: polished_dataset
+input_mode: setpoints
+dataset_schema: polished_setpoint_curve_v1
+source_dataset_root: data/polished_dataset
+primary_surface: fw
+expected_surface_list:
+- fw
+expected_run_count: 3
+planning_report_path: doc/reports/campaign_plans/cross_wave/shape_objective/2026-07-21-18-36-30_parallel_shape_objective_followup_campaign_plan_report.md
+technical_document_path: doc/technical/2026-07/2026-07-21/2026-07-21-18-36-30_parallel_shape_objective_followup.md
+queue_root: config/training/queue/shape_objective_followup/parallel_shape_objective_followup_2026_07_21
+queue_config_path_list:
+- config/training/shape_objective_followup/campaigns/2026-07-21_parallel_shape_objective_followup/queue/001_shape_objective_v3_periodic_gru_sequence_fw.yaml
+- config/training/shape_objective_followup/campaigns/2026-07-21_parallel_shape_objective_followup/queue/002_shape_objective_periodic_mlp_harmonic_fw.yaml
+- config/training/shape_objective_followup/campaigns/2026-07-21_parallel_shape_objective_followup/queue/003_shape_objective_curve_aware_residual_fw.yaml
+execution_policy:
+  operator_run_required: true
+  stop_on_error: true
+  run_te_curve_verification_pipeline: false
+  promotion_requires_bounded_screen: true
+  pilot_graph_bundle_required: true
+acceptance_screen:
+  primary_reranker: scripts/reports/analysis/build_shape_gated_te_curve_reranker.py
+  scalar_mae_only_promotion_allowed: false
+  required_windowed_baseline: polished_setpoints_periodic_gru_sequence_Fw
+  required_non_windowed_baseline: polished_setpoints_periodic_mlp_harmonic_Fw
+  required_robust_reference: polished_setpoints_wave4_1_mae_robust_loss_Fw
+  bounded_surface: fw
+notes: Three-arm bounded follow-up after the shape-gate loss v2 screen.

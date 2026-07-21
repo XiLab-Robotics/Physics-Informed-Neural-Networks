@@ -245,6 +245,22 @@ Remote shape-gate loss v2 bounded `TE Curve Verification Pipeline` screen:
   -Remote
 ```
 
+Prepared parallel shape-objective follow-up one-batch validation without
+training:
+
+```powershell
+.\scripts\campaigns\cross_wave\run_parallel_shape_objective_followup_campaign.ps1 `
+  -PreflightOnly `
+  -RunOneBatchValidation
+```
+
+Remote parallel shape-objective follow-up:
+
+```powershell
+.\scripts\campaigns\cross_wave\run_parallel_shape_objective_followup_campaign.ps1 `
+  -Remote
+```
+
 Operator-launched `Wave 5.2B` TE Curve Verification Pipeline refresh:
 
 ```powershell
@@ -428,6 +444,12 @@ The current usage flow mainly relies on these folders:
   validates a `polished_dataset` setpoint `Fw` `periodic_gru_sequence` queue
   entry, then launches locally or delegates to the repository-owned remote
   campaign runner after approval.
+
+- `scripts/campaigns/cross_wave/run_parallel_shape_objective_followup_campaign.ps1`
+  Prepared three-arm shape-objective follow-up launcher. It validates windowed,
+  non-windowed, and curve-aware `polished_dataset` setpoint `Fw` queue entries,
+  then launches locally or delegates to the repository-owned remote campaign
+  runner after approval.
 
 - `scripts/campaigns/wave_5_2/run_wave52b_te_curve_verification_refresh.ps1`
   Operator-facing `Wave 5.2B` official TE Curve Verification Pipeline refresh

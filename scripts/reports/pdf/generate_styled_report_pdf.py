@@ -653,6 +653,12 @@ FORCED_PAGE_BREAK_SECTION_SLUGS = {
     "cross-campaign-ranking",
 }
 
+CAMPAIGN_RESULTS_FORCED_PAGE_BREAK_SECTION_SLUGS = {
+    "execution-summary",
+    "pilot-comparison",
+    "pilot-graphs",
+}
+
 REPORT_SPECIFIC_FORCED_PAGE_BREAK_SECTION_SLUGS = {
     "track2d_mean_offset_full_matrix_audit": {
         "diagnostic-label-counts",
@@ -792,6 +798,12 @@ def is_familywise_onnx_report(report_stem: str) -> bool:
     """Report Whether The Report Is A Familywise Track 2 ONNX Export."""
 
     return report_stem.startswith("track2_") and report_stem.endswith("_familywise_onnx_report")
+
+def is_campaign_results_report(report_stem: str) -> bool:
+
+    """Report whether one Markdown source is a campaign-results closeout."""
+
+    return report_stem.endswith("_campaign_results_report")
 
 def resolve_report_subtitle(report_stem: str, fallback_subtitle: str) -> str:
 
@@ -1005,6 +1017,38 @@ REPORT_STYLESHEET = """
     .section-forward-result .report-figure-caption {
       margin-top: 6px;
       max-width: 160mm;
+    }
+
+    .section-pilot-graphs .pilot-graph-opening-block {
+      break-inside: avoid-page;
+      page-break-inside: avoid;
+      margin: 0;
+      padding: 0;
+    }
+
+    .section-pilot-graphs .pilot-graph-opening-block .subsection-block {
+      break-inside: auto;
+      page-break-inside: auto;
+      margin-top: 7px;
+      padding: 0;
+      border: none;
+      background: transparent;
+    }
+
+    .section-pilot-graphs .pilot-graph-opening-block .report-figure {
+      margin: 6px auto 7px auto;
+      padding: 1px 0 3px 0;
+    }
+
+    .section-pilot-graphs .pilot-graph-opening-block .report-figure img {
+      max-width: 138mm;
+    }
+
+    .section-pilot-graphs .pilot-graph-opening-block .report-figure-caption {
+      margin-top: 5px;
+      max-width: 138mm;
+      font-size: 7.4pt;
+      line-height: 1.2;
     }
 
     .report-table-page-break-before {
@@ -5603,6 +5647,38 @@ def should_keep_section_together(section_body_tokens: Sequence[str]) -> bool:
 
     return visible_word_count <= 165
 
+def should_wrap_pilot_graph_opening(report_stem: str, current_section_slug: str) -> bool:
+
+    """Report Whether The First Pilot Graph Subsection Needs A Keep-Together Wrapper."""
+
+    return (
+        is_campaign_results_report(report_stem)
+        and current_section_slug == "pilot-graphs"
+    )
+
+def wrap_pilot_graph_opening_block(section_body_tokens: Sequence[str]) -> list[str]:
+
+    """Wrap the pilot graph introduction and first candidate plots together."""
+
+    first_subsection_index = -1
+    second_subsection_index = -1
+    for token_index, body_token in enumerate(section_body_tokens):
+        if 'class="subsection-block"' not in body_token:
+            continue
+        if first_subsection_index < 0:
+            first_subsection_index = token_index
+        else:
+            second_subsection_index = token_index
+            break
+
+    if first_subsection_index < 0:
+        return list(section_body_tokens)
+
+    opening_end_index = second_subsection_index if second_subsection_index >= 0 else len(section_body_tokens)
+    opening_html = "".join(section_body_tokens[:opening_end_index])
+    wrapped_opening_html = f'<div class="pilot-graph-opening-block">{opening_html}</div>'
+    return [wrapped_opening_html, *section_body_tokens[opening_end_index:]]
+
 def should_force_page_break_before_section(report_stem: str, current_section_slug: str) -> bool:
 
     """Report Whether The Section Should Start On A Fresh PDF Page."""
@@ -5610,6 +5686,12 @@ def should_force_page_break_before_section(report_stem: str, current_section_slu
     if (
         is_familywise_onnx_report(report_stem)
         and current_section_slug in FAMILYWISE_ONNX_REPORT_FORCED_PAGE_BREAK_SECTION_SLUGS
+    ):
+        return True
+
+    if (
+        is_campaign_results_report(report_stem)
+        and current_section_slug in CAMPAIGN_RESULTS_FORCED_PAGE_BREAK_SECTION_SLUGS
     ):
         return True
 
@@ -5698,6 +5780,10 @@ def render_markdown_body(markdown_text: str, markdown_path: Path) -> tuple[str, 
 
             # Append Section Block
             section_title_html = convert_inline_markup(current_section_title)
+            section_body_tokens = list(current_section_body_tokens)
+            if should_wrap_pilot_graph_opening(report_stem, current_section_slug):
+                section_body_tokens = wrap_pilot_graph_opening_block(section_body_tokens)
+
             section_class_names = ["section-card", f"section-{current_section_slug}"]
             force_page_break_before_section = should_force_page_break_before_section(report_stem, current_section_slug)
             if force_page_break_before_section:
@@ -5706,12 +5792,13 @@ def render_markdown_body(markdown_text: str, markdown_path: Path) -> tuple[str, 
             if should_force_page_break_after_section(report_stem, current_section_slug):
                 section_class_names.append("section-force-page-break-after")
 
-            if should_keep_section_together(current_section_body_tokens):
+            if should_keep_section_together(section_body_tokens):
                 section_class_names.append("section-keep-together")
 
             if (
                 force_page_break_before_section
                 and not is_familywise_onnx_report(report_stem)
+                and not is_campaign_results_report(report_stem)
                 and report_stem not in {
                     "track2_curve_first_reranking_report",
                     "track2_curve_payload_diagnostics_report",
@@ -5738,7 +5825,7 @@ def render_markdown_body(markdown_text: str, markdown_path: Path) -> tuple[str, 
                 document_html_tokens.append('<div class="explicit-page-break"></div>')
 
             document_html_tokens.append(
-                f'<section id="{current_section_slug}" class="{" ".join(section_class_names)}"><h2>{section_title_html}</h2>{"".join(current_section_body_tokens)}</section>'
+                f'<section id="{current_section_slug}" class="{" ".join(section_class_names)}"><h2>{section_title_html}</h2>{"".join(section_body_tokens)}</section>'
             )
 
         current_section_title = ""
