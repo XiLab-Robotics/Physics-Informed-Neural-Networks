@@ -11,6 +11,68 @@ import numpy as np
 
 DEFAULT_CIRCULAR_PERIOD_DEG = 360.0
 DEFAULT_WRAP_THRESHOLD_DEG = 180.0
+ANGLE_RANGE_TOLERANCE_DEG = 1.0e-6
+
+
+def prepare_sorted_circular_angle_curve_arrays(
+    angular_position_deg: np.ndarray,
+    *curve_value_array_list: np.ndarray,
+) -> tuple[np.ndarray, ...]:
+
+    """Return finite angle and curve arrays sorted by angular position.
+
+    Args:
+        angular_position_deg: Angular positions in degrees.
+        *curve_value_array_list: One or more curve arrays aligned with
+            `angular_position_deg`.
+
+    Returns:
+        Tuple containing the sorted angular array followed by each sorted curve
+        array.
+    """
+
+    # Normalize Inputs
+    angle_array = np.asarray(angular_position_deg, dtype=np.float64).reshape(-1)
+    aligned_curve_array_list = [
+        np.asarray(curve_value_array, dtype=np.float64).reshape(-1)
+        for curve_value_array in curve_value_array_list
+    ]
+    assert aligned_curve_array_list, "At least one curve array is required for angular plotting."
+    for curve_array in aligned_curve_array_list:
+        assert angle_array.shape == curve_array.shape, (
+            "Angular and curve arrays must have the same shape | "
+            f"{angle_array.shape} vs {curve_array.shape}"
+        )
+
+    # Keep Finite Samples
+    finite_mask = np.isfinite(angle_array)
+    for curve_array in aligned_curve_array_list:
+        finite_mask &= np.isfinite(curve_array)
+    angle_array = angle_array[finite_mask]
+    aligned_curve_array_list = [curve_array[finite_mask] for curve_array in aligned_curve_array_list]
+    assert angle_array.size >= 2, "At least two finite angular samples are required for plotting."
+
+    # Enforce Plotting Range
+    minimum_angle_deg = float(np.min(angle_array))
+    maximum_angle_deg = float(np.max(angle_array))
+    assert minimum_angle_deg >= -ANGLE_RANGE_TOLERANCE_DEG, (
+        f"Angular position must not be below 0 deg | {minimum_angle_deg:.9f}"
+    )
+    assert maximum_angle_deg <= DEFAULT_CIRCULAR_PERIOD_DEG + ANGLE_RANGE_TOLERANCE_DEG, (
+        f"Angular position must not exceed 360 deg | {maximum_angle_deg:.9f}"
+    )
+
+    # Sort Angle And Aligned Curves
+    sorting_index_array = np.argsort(angle_array, kind="stable")
+    sorted_angle_array = angle_array[sorting_index_array]
+    sorted_curve_array_list = [
+        curve_array[sorting_index_array]
+        for curve_array in aligned_curve_array_list
+    ]
+    assert np.all(np.diff(sorted_angle_array) >= -ANGLE_RANGE_TOLERANCE_DEG), (
+        "Angular positions are not sorted after applying the plotting guard."
+    )
+    return tuple([sorted_angle_array, *sorted_curve_array_list])
 
 
 def split_circular_angle_curve_segments(
@@ -31,12 +93,10 @@ def split_circular_angle_curve_segments(
         drawing a nonphysical line across the circular boundary.
     """
 
-    # Normalize Inputs
-    angle_array = np.asarray(angular_position_deg, dtype=np.float64).reshape(-1)
-    curve_array = np.asarray(curve_value_deg, dtype=np.float64).reshape(-1)
-    assert angle_array.shape == curve_array.shape, (
-        "Angular and curve arrays must have the same shape | "
-        f"{angle_array.shape} vs {curve_array.shape}"
+    # Normalize And Sort Inputs
+    angle_array, curve_array = prepare_sorted_circular_angle_curve_arrays(
+        angular_position_deg,
+        curve_value_deg,
     )
 
     if angle_array.size <= 1:

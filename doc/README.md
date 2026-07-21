@@ -242,6 +242,37 @@ This folder contains the internal project documents derived from the reference P
   Full playback-contract audit proving that the earlier offset-dominated Track
   2 failure came from polished input-mode drift, not from the checkpoint.
 
+- [technical/2026-07/2026-07-21/2026-07-21-00-35-29_shape_gate_pilot_patched_polished_setpoints_expansion.md](./technical/2026-07/2026-07-21/2026-07-21-00-35-29_shape_gate_pilot_patched_polished_setpoints_expansion.md)
+  Technical plan for a patched polished-setpoint Fw/Bw expansion test after
+  correcting the shape-gate pilot Track 2 input-mode playback contract.
+
+- [technical/2026-07/2026-07-21/2026-07-21-09-53-39_track2_sorted_angular_plot_guard.md](./technical/2026-07/2026-07-21/2026-07-21-09-53-39_track2_sorted_angular_plot_guard.md)
+  Technical plan for enforcing sorted `0` to `360` degree angular positions in
+  Track 2 plotting helpers before rendering measured and predicted TE curves.
+
+- [../config/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/shape_gate_pilot_expansion_polished_setpoints_fw_bw_matrix.yaml](../config/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/shape_gate_pilot_expansion_polished_setpoints_fw_bw_matrix.yaml)
+  Patched polished-setpoint Fw/Bw `TE Curve Verification Pipeline` comparison
+  matrix adding the completed shape-gate loss pilot checkpoint to the reduced
+  active set.
+
+- [reports/analysis/validation_checks/te_curve_verification_pipeline/2026-07-21-00-49-22_shape_gate_pilot_expansion_polished_setpoints_fw_bw_matrix_shape_gate_pilot_expansion_polished_setpoints_fw_bw_report.md](./reports/analysis/validation_checks/te_curve_verification_pipeline/2026-07-21-00-49-22_shape_gate_pilot_expansion_polished_setpoints_fw_bw_matrix_shape_gate_pilot_expansion_polished_setpoints_fw_bw_report.md)
+  Patched polished-setpoint Fw/Bw comparison report confirming the shape-gate
+  loss pilot is viable but not the strongest reduced-set candidate.
+
+- [reports/analysis/te_curve_verification_pipeline/03_cvp_diagnostics/shape_gated_reranker/[2026-07-21]/shape_gate_pilot_expansion_polished_setpoints_fw_bw_matrix_shape_gated_te_curve_reranker_report.md](./reports/analysis/te_curve_verification_pipeline/03_cvp_diagnostics/shape_gated_reranker/%5B2026-07-21%5D/shape_gate_pilot_expansion_polished_setpoints_fw_bw_matrix_shape_gated_te_curve_reranker_report.md)
+  Shape-gated reranker result for the patched polished-setpoint Fw/Bw expansion:
+  `periodic_gru_sequence_Fw` remains the forward recommendation,
+  `periodic_mlp_harmonic_Bw` becomes the backward recommendation, and the
+  shape-gate loss pilot remains a non-promoted forward candidate.
+
+- [reports/campaign_results/track_2/verification_plots/shape_gate_pilot_expansion_polished_setpoints_fw_bw/track2_candidate_curve_plot_summary.yaml](./reports/campaign_results/track_2/verification_plots/shape_gate_pilot_expansion_polished_setpoints_fw_bw/track2_candidate_curve_plot_summary.yaml)
+  Forward polished-setpoint Track 2 plot summary for the patched shape-gate
+  pilot expansion, covering two representative curves per candidate.
+
+- [reports/campaign_results/track_2/verification_plots/shape_gate_pilot_expansion_polished_setpoints_fw_bw_backward/track2_candidate_curve_plot_summary.yaml](./reports/campaign_results/track_2/verification_plots/shape_gate_pilot_expansion_polished_setpoints_fw_bw_backward/track2_candidate_curve_plot_summary.yaml)
+  Backward polished-setpoint Track 2 plot summary for the same patched
+  expansion.
+
 - [reports/analysis/te_curve_verification_pipeline/03_cvp_diagnostics/rcim_track1_familywise_crosscheck/[2026-07-20]/rcim_track1_familywise_crosscheck_report.md](./reports/analysis/te_curve_verification_pipeline/03_cvp_diagnostics/rcim_track1_familywise_crosscheck/%5B2026-07-20%5D/rcim_track1_familywise_crosscheck_report.md)
   Diagnostic cross-check separating the latest `rcim_track1` forward `h0`
   offset bug, Wave 4.3 Mixture Density ONNX playback mismatch, Gaussian NLL

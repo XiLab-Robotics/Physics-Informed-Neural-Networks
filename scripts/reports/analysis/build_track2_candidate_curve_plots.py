@@ -21,6 +21,7 @@ from scripts.paper_reimplementation.rcim_ml_compensation.reference_family_vs_fee
     reference_family_vs_feedforward_support,
     run_reference_family_vs_feedforward_comparison,
 )
+from scripts.reports.analysis import track2_circular_plotting
 from scripts.training import shared_training_infrastructure
 
 
@@ -44,6 +45,7 @@ def load_candidate_payloads(
     config_path: Path,
     dataset_name: str | None,
     surface_scope: str,
+    max_plots_per_candidate: int,
 ) -> list[dict[str, Any]]:
 
     """Evaluate configured candidates with curve payloads retained."""
@@ -79,13 +81,15 @@ def load_candidate_payloads(
         curve_record_list,
         surface_scope,
     )
+    plot_curve_record_list = curve_record_list[:max_plots_per_candidate]
+    assert plot_curve_record_list, f"No curve records available for plotting | surface_scope={surface_scope}"
 
     payload_list: list[dict[str, Any]] = []
     for candidate_configuration in candidate_configuration_list:
         candidate = reference_family_vs_feedforward_support.load_track2_candidate(candidate_configuration)
         candidate_payload_list, _ = reference_family_vs_feedforward_support.evaluate_track2_candidate(
             candidate,
-            curve_record_list,
+            plot_curve_record_list,
             str(training_config["comparison"].get("percentage_error_denominator", "peak_to_peak_truth")),
             include_curve_payload=True,
         )
@@ -116,9 +120,28 @@ def save_candidate_curve_plots(
         candidate_output_directory = output_root / candidate_id
         candidate_output_directory.mkdir(parents=True, exist_ok=True)
         for plot_index, payload in enumerate(candidate_payload_list[:max_plots_per_candidate], start=1):
+            angular_position_deg, truth_curve_deg, predicted_curve_deg = (
+                track2_circular_plotting.prepare_sorted_circular_angle_curve_arrays(
+                    payload["angular_position_deg"],
+                    payload["truth_curve_deg"],
+                    payload["predicted_curve_deg"],
+                )
+            )
             figure, axis = plt.subplots(figsize=(8.0, 4.0))
-            axis.plot(payload["angular_position_deg"], payload["truth_curve_deg"], label="Truth", linewidth=1.5)
-            axis.plot(payload["angular_position_deg"], payload["predicted_curve_deg"], label=candidate_id, linewidth=1.1)
+            track2_circular_plotting.plot_circular_angle_curve(
+                axis,
+                angular_position_deg,
+                truth_curve_deg,
+                label="Truth",
+                linewidth=1.5,
+            )
+            track2_circular_plotting.plot_circular_angle_curve(
+                axis,
+                angular_position_deg,
+                predicted_curve_deg,
+                label=candidate_id,
+                linewidth=1.1,
+            )
             axis.set_title(
                 f"{payload['direction_label']} | {float(payload['speed_rpm']):.0f} rpm | "
                 f"{float(payload['torque_nm']):.0f} Nm | {float(payload['oil_temperature_deg']):.1f} C"
@@ -158,6 +181,7 @@ def main() -> None:
         parsed_arguments.config_path,
         parsed_arguments.dataset,
         parsed_arguments.surface_scope,
+        parsed_arguments.max_plots_per_candidate,
     )
     output_root = shared_training_infrastructure.resolve_runtime_project_relative_path(parsed_arguments.output_root)
     plot_path_list = save_candidate_curve_plots(
