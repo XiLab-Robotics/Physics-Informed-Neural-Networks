@@ -765,6 +765,7 @@ def create_datamodule_from_training_config(training_config: dict[str, Any]) -> T
 
     # Resolve Runtime Config for DataModule Creation
     runtime_config = resolve_runtime_config(training_config)
+    training_variant_details = resolve_training_variant_details(training_config)
 
     # Create and Return TransmissionErrorDataModule
     return TransmissionErrorDataModule(
@@ -779,10 +780,13 @@ def create_datamodule_from_training_config(training_config: dict[str, Any]) -> T
         sequence_stride=int(training_config["dataset"].get("sequence_stride", 1)),
         sequence_target_position=str(training_config["dataset"].get("sequence_target_position", "center")),
         maximum_sequences_per_curve=training_config["dataset"].get("maximum_sequences_per_curve"),
+        maximum_normalization_curve_count=training_config["dataset"].get("maximum_normalization_curve_count"),
         shuffle_training_batch_elements=bool(training_config["dataset"].get("shuffle_training_batch_elements", True)),
         num_workers=resolve_dataloader_num_workers(training_config["dataset"].get("num_workers", 0)),
         pin_memory=parse_boolean_config_value(training_config["dataset"].get("pin_memory", False), "dataset.pin_memory"),
         use_non_blocking_transfer=bool(runtime_config["use_non_blocking_transfer"]),
+        use_forward_direction=bool(training_variant_details["use_forward_direction"]),
+        use_backward_direction=bool(training_variant_details["use_backward_direction"]),
     )
 
 def resolve_model_configuration_for_input_dim(training_config: dict[str, Any], input_feature_dim: int) -> dict[str, Any]:

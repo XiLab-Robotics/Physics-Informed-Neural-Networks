@@ -25,6 +25,9 @@ from scripts.training import tree_regression_support
 TREE_MODEL_TYPE_LIST = ["random_forest", "hist_gradient_boosting"]
 VALIDATION_REPORT_ROOT = PROJECT_PATH / "doc" / "reports" / "analysis" / "validation_checks"
 VALIDATION_REPORT_TIMESTAMP_FORMAT = "%Y-%m-%d-%H-%M-%S"
+VALIDATION_MAXIMUM_NORMALIZATION_CURVE_COUNT = 4
+VALIDATION_MAXIMUM_POINTS_PER_CURVE = 256
+VALIDATION_CURVE_BATCH_SIZE = 1
 
 def build_validation_summary(
     config_path: Path,
@@ -325,6 +328,13 @@ def validate_training_setup(
     # Force Single-Process Validation To Keep The Check Robust In Restricted Environments
     training_config["dataset"]["num_workers"] = 0
     training_config["dataset"]["pin_memory"] = False
+    training_config["dataset"]["curve_batch_size"] = min(
+        int(training_config["dataset"].get("curve_batch_size", VALIDATION_CURVE_BATCH_SIZE)),
+        VALIDATION_CURVE_BATCH_SIZE,
+    )
+    training_config["dataset"]["maximum_normalization_curve_count"] = VALIDATION_MAXIMUM_NORMALIZATION_CURVE_COUNT
+    if training_config["dataset"].get("maximum_points_per_curve") is None:
+        training_config["dataset"]["maximum_points_per_curve"] = VALIDATION_MAXIMUM_POINTS_PER_CURVE
     if "n_jobs" in training_config["model"]:
         training_config["model"]["n_jobs"] = 1
 

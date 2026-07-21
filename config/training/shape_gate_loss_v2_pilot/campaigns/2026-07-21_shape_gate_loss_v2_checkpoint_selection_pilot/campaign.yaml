@@ -1,0 +1,36 @@
+schema_version: 1
+campaign_name: shape_gate_loss_v2_checkpoint_selection_pilot_2026_07_21
+campaign_type: shape_gate_loss_v2_checkpoint_selection_pilot
+family_name: shape_gate_loss_v2_checkpoint_selection_periodic_gru_sequence
+dataset_name: polished_dataset
+input_mode: setpoints
+dataset_schema: polished_setpoint_curve_v1
+source_dataset_root: data/polished_dataset
+primary_surface: fw
+expected_surface_list:
+- fw
+expected_run_count: 1
+planning_report_path: doc/reports/campaign_plans/cross_wave/shape_gate_loss_v2/2026-07-21-12-21-36_shape_gate_loss_v2_checkpoint_selection_pilot_campaign_plan_report.md
+technical_document_path: doc/technical/2026-07/2026-07-21/2026-07-21-12-18-54_shape_gate_loss_v2_checkpoint_selection_pilot.md
+queue_root: config/training/queue/shape_gate_loss_v2_pilot/shape_gate_loss_v2_checkpoint_selection_pilot_2026_07_21
+queue_config_path_list:
+- config/training/shape_gate_loss_v2_pilot/campaigns/2026-07-21_shape_gate_loss_v2_checkpoint_selection_pilot/queue/001_shape_gate_loss_v2_periodic_gru_sequence_fw.yaml
+execution_policy:
+  operator_run_required: true
+  stop_on_error: true
+  run_te_curve_verification_pipeline: false
+  promotion_requires_full_matrix: true
+  full_matrix_targets:
+  - simplified_setpoints
+  - polished_setpoints
+  - polished_actual_values
+  full_matrix_surfaces:
+  - global
+  - fw
+  - bw
+acceptance_screen:
+  primary_reranker: scripts/reports/analysis/build_shape_gated_te_curve_reranker.py
+  primary_expansion_report: doc/reports/analysis/te_curve_verification_pipeline/03_cvp_diagnostics/shape_gated_reranker/[2026-07-21]/shape_gate_pilot_expansion_polished_setpoints_fw_bw_matrix_shape_gated_te_curve_reranker_report.md
+  scalar_mae_only_promotion_allowed: false
+  required_forward_baseline: polished_setpoints_periodic_gru_sequence_Fw
+  required_first_pilot_baseline: shape_gate_loss_pilot_periodic_gru_sequence_Fw

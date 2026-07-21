@@ -181,6 +181,8 @@ TRACK2_SELECTED_ACTIVE_METRIC_RANKING_TABLE_CLASS_NAME = "report-table report-ta
 TRACK2_SELECTED_ACTIVE_DIRECTION_BREAKDOWN_TABLE_CLASS_NAME = "report-table report-table-track2-selected-active-direction-breakdown"
 SHAPE_GATE_LOSS_METRIC_BREAKDOWN_TABLE_CLASS_NAME = "report-table report-table-shape-gate-loss-metric-breakdown"
 SHAPE_GATE_LOSS_BASELINE_TABLE_CLASS_NAME = "report-table report-table-shape-gate-loss-baseline"
+SHAPE_GATE_LOSS_METRIC_BREAKDOWN_TABLE_HEADER_CELLS = ("Metric", "Validation", "Test")
+SHAPE_GATE_LOSS_BASELINE_TABLE_HEADER_CELLS = ("Family", "Surface", "Validation MAE", "Test MAE", "Decision")
 TRACK2D_MEAN_OFFSET_TABLE_CLASS_NAME = "report-table report-table-track2d-mean-offset"
 TRACK2E_OFFSET_FEASIBILITY_TABLE_CLASS_NAME = "report-table report-table-track2e-offset-feasibility"
 TRACK2_COMPONENT_HARMONIC_SUMMARY_TABLE_CLASS_NAME = "report-table report-table-track2-component-harmonic-summary"
@@ -4261,6 +4263,18 @@ def resolve_track2_metric_summary_column_widths(header_cells: Sequence[str]) -> 
 
     return None
 
+def resolve_campaign_results_column_widths(table_class_name: str) -> tuple[float, ...] | None:
+
+    """Resolve reusable campaign-results table widths for styled PDF output."""
+
+    if table_class_name == SHAPE_GATE_LOSS_METRIC_BREAKDOWN_TABLE_CLASS_NAME:
+        return (33.3333, 33.3333, 33.3334)
+
+    if table_class_name == SHAPE_GATE_LOSS_BASELINE_TABLE_CLASS_NAME:
+        return (32.0, 8.0, 15.0, 15.0, 30.0)
+
+    return None
+
 def render_table_colgroup(header_cells: Sequence[str], table_class_name: str) -> str:
 
     """Render an optional table colgroup for PDF-stable table widths."""
@@ -4270,6 +4284,14 @@ def render_table_colgroup(header_cells: Sequence[str], table_class_name: str) ->
         column_html = "".join(
             f'<col style="width: {uniform_column_width:.4g}%;" />'
             for _ in header_cells
+        )
+        return f"<colgroup>{column_html}</colgroup>"
+
+    campaign_results_column_widths = resolve_campaign_results_column_widths(table_class_name)
+    if campaign_results_column_widths is not None:
+        column_html = "".join(
+            f'<col style="width: {column_width:.4g}%;" />'
+            for column_width in campaign_results_column_widths
         )
         return f"<colgroup>{column_html}</colgroup>"
 
@@ -4518,16 +4540,10 @@ def resolve_standard_table_class_name(
     if normalized_header_cells == ("Family", "Actual Score", "Actual MAE [deg]", "Actual P95 [%]"):
         return TRACK2_INTERMEDIATE_ACTUAL_VALUES_TABLE_CLASS_NAME
 
-    if (
-        report_stem == "2026-07-20-20-12-45_shape_gate_loss_pilot_campaign_results_report"
-        and normalized_header_cells == ("Metric", "Validation", "Test")
-    ):
+    if normalized_header_cells == SHAPE_GATE_LOSS_METRIC_BREAKDOWN_TABLE_HEADER_CELLS:
         return SHAPE_GATE_LOSS_METRIC_BREAKDOWN_TABLE_CLASS_NAME
 
-    if (
-        report_stem == "2026-07-20-20-12-45_shape_gate_loss_pilot_campaign_results_report"
-        and normalized_header_cells == ("Family", "Surface", "Validation MAE", "Test MAE", "Decision")
-    ):
+    if normalized_header_cells == SHAPE_GATE_LOSS_BASELINE_TABLE_HEADER_CELLS:
         return SHAPE_GATE_LOSS_BASELINE_TABLE_CLASS_NAME
 
     # Resolve Reusable Ranking/Metric Table Profiles

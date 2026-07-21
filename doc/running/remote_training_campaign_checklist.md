@@ -1,20 +1,20 @@
-﻿# Remote Training Campaign Checklist
+# Remote Training Campaign Checklist
 
-- Run status: completed_manual_sync
-- Stage: artifact_recovery
+- Run status: completed_recovered
+- Stage: sync_down_recovered
 - Remote host alias: xilab-remote
 - Remote repository path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks
 - Remote Conda environment: pinns_env
-- Campaign name: shape_gate_loss_pilot_2026_07_20
-- Planning report path: doc/reports/campaign_plans/cross_wave/shape_gate_loss/2026-07-20-19-10-23_shape_gate_loss_pilot_campaign_plan_report.md
-- Local log path: C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\.temp\remote_training_campaigns\2026-07-20-19-56-26_shape_gate_loss_pilot_2026_07_20\remote_training_campaign.log
-- Remote campaign output directory: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_campaigns\2026-07-20-19-59-14_shape_gate_loss_pilot_2026_07_20
-- Remote manifest path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_campaigns\2026-07-20-19-59-14_shape_gate_loss_pilot_2026_07_20\campaign_manifest.yaml
-- Updated at: 2026-07-20 20:07:19
+- Campaign name: shape_gate_loss_v2_checkpoint_selection_pilot_2026_07_21
+- Planning report path: doc/reports/campaign_plans/cross_wave/shape_gate_loss_v2/2026-07-21-12-21-36_shape_gate_loss_v2_checkpoint_selection_pilot_campaign_plan_report.md
+- Local log path: C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\.temp\remote_training_campaigns\2026-07-21-13-00-44_shape_gate_loss_v2_checkpoint_selection_pilot_2026_07_21\remote_training_campaign.log
+- Remote campaign output directory: output\training_campaigns\2026-07-21-13-03-55_shape_gate_loss_v2_checkpoint_selection_pilot_2026_07_21
+- Remote manifest path: output\training_campaigns\2026-07-21-13-03-55_shape_gate_loss_v2_checkpoint_selection_pilot_2026_07_21\campaign_manifest.yaml
+- Updated at: 2026-07-21 14:47:37
 
 ## Campaign Config Paths
 
-- config/training/shape_gate_loss_pilot/campaigns/2026-07-20_shape_gate_loss_pilot/queue/001_shape_gate_loss_periodic_gru_sequence_fw.yaml
+- config/training/shape_gate_loss_v2_pilot/campaigns/2026-07-21_shape_gate_loss_v2_checkpoint_selection_pilot/queue/001_shape_gate_loss_v2_periodic_gru_sequence_fw.yaml
 
 ## Source Sync Paths
 
@@ -27,12 +27,13 @@
 
 ## Synced Artifact Paths
 
-- output/training_runs/shape_gate_loss_pilot_periodic_gru_sequence/2026-07-20-19-59-14__te_shape_gate_loss_periodic_gru_sequence_fw__polished_setpoints
-- output/training_campaigns/2026-07-20-19-59-14_shape_gate_loss_pilot_2026_07_20
-- config/training/queue/shape_gate_loss_pilot/completed/2026-07-20-19-59-14_001_001_shape_gate_loss_periodic_gru_sequence_fw.yaml
+- output\training_campaigns\2026-07-21-13-03-55_shape_gate_loss_v2_checkpoint_selection_pilot_2026_07_21
+- output\training_runs\shape_gate_loss_v2_checkpoint_selection_periodic_gru_sequence\2026-07-21-13-03-55__te_shape_gate_loss_v2_periodic_gru_sequence_fw__polished_setpoints
+- config\training\queue\shape_gate_loss_v2_pilot\completed\2026-07-21-13-03-55_001_001_shape_gate_loss_v2_periodic_gru_sequence_fw.yaml
+- output\registries\families\shape_gate_loss_v2_checkpoint_selection_periodic_gru_sequence_fw\leaderboard.yaml
+- output\registries\families\shape_gate_loss_v2_checkpoint_selection_periodic_gru_sequence_fw\latest_family_best.yaml
+- output\registries\program\current_best_solution.yaml
 
 ## Recovery Note
 
-The SSH wrapper exceeded the local tool timeout before final sync, but the
-remote queue completed successfully. The listed artifacts were recovered
-manually from the remote repository.
+The remote run completed successfully, but the original local SSH transport remained open before marker capture. The listed artifacts were recovered manually from the remote repository and synchronized into the local repository.

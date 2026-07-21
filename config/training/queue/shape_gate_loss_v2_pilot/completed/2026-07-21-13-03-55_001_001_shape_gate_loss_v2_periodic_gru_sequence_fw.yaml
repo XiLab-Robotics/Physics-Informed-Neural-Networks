@@ -1,0 +1,119 @@
+paths:
+  dataset_config_path: config/datasets/transmission_error_dataset.yaml
+  output_root: output/training_runs/shape_gate_loss_v2_checkpoint_selection_periodic_gru_sequence
+experiment:
+  run_name: te_shape_gate_loss_v2_periodic_gru_sequence_fw__polished_setpoints
+  model_family: shape_gate_loss_v2_checkpoint_selection_periodic_gru_sequence_fw
+  model_type: periodic_gru_sequence
+metadata:
+  campaign_name: shape_gate_loss_v2_checkpoint_selection_pilot_2026_07_21
+  planning_report_path: doc/reports/campaign_plans/cross_wave/shape_gate_loss_v2/2026-07-21-12-21-36_shape_gate_loss_v2_checkpoint_selection_pilot_campaign_plan_report.md
+  technical_document_path: doc/technical/2026-07/2026-07-21/2026-07-21-12-18-54_shape_gate_loss_v2_checkpoint_selection_pilot.md
+  phase_name: shape_gate_loss_v2_checkpoint_selection_pilot
+  campaign_config_id: shape_gate_loss_v2_periodic_gru_sequence_fw
+  queue_index: 1
+  intervention: light_shape_pressure_checkpoint_selection
+  probe_group: shape_gate_loss_v2
+  loss_profile: shape_gate_v2_light_centered_offset_amplitude_harmonic
+  base_model_family: periodic_gru_sequence
+  source_config_path: config/training/queue/polished_dataset_full_wave_retraining/completed/2026-06-29-15-54-17_032_032_periodic_gru_sequence_fw.yaml
+  output_run_name: te_shape_gate_loss_v2_periodic_gru_sequence_fw__polished_setpoints
+  dataset_name: polished_dataset
+  input_mode: setpoints
+  dataset_schema: polished_setpoint_curve_v1
+  source_dataset_root: data/polished_dataset
+  training_variant: fw
+  direction_scope_label: forward_only
+  use_forward_direction: true
+  use_backward_direction: false
+  primary_pilot_surface: polished_dataset_setpoints_fw
+  promotion_rule: Pilot-only output is not promotable until the same profile passes
+    simplified_setpoints, polished_setpoints, and polished_actual_values across global,
+    Fw, and Bw.
+  checkpoint_policy: Existing checkpoint callback remains training-compatible; corrected
+    shape-gate metrics decide post-run acceptance before any full campaign.
+  runtime_input_contract: Causal sequence inputs only; full-curve shape terms are
+    train-time pressure and validation evidence, not inference-time corrections.
+  harmonic_basis: sparse_rcim_nonzero
+  harmonic_index_list:
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  output_artifact_kind: training_run
+  run_instance_id: 2026-07-21-13-03-55__te_shape_gate_loss_v2_periodic_gru_sequence_fw__polished_setpoints
+dataset:
+  curve_batch_size: 2
+  point_stride: 1
+  maximum_points_per_curve: null
+  collate_mode: sequence
+  sequence_length: 33
+  sequence_stride: 8
+  sequence_target_position: center
+  maximum_sequences_per_curve: 64
+  shuffle_training_batch_elements: false
+  num_workers: 2
+  pin_memory: true
+  name: polished_dataset
+  input_mode: setpoints
+model:
+  input_size: auto
+  output_size: 1
+  harmonic_order: 240
+  harmonic_index_list:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  include_raw_angle_feature: true
+  hidden_size: 128
+  num_layers: 2
+  dropout_probability: 0.1
+  bidirectional: false
+  readout_position: center
+training:
+  learning_rate: 0.0005
+  weight_decay: 0.0001
+  min_epochs: 3
+  max_epochs: 30
+  patience: 6
+  min_delta: 1.0e-05
+  log_every_n_steps: 1
+  fast_dev_run: false
+  deterministic: false
+  loss:
+    profile: shape_gate_v2_light_centered_offset_amplitude_harmonic
+    pointwise_loss: mse
+    weights:
+      point: 1.0
+      centered: 0.1
+      offset: 0.08
+      amplitude: 0.04
+      harmonic: 0.06
+    harmonic_index_list:
+    - 1
+    - 3
+    - 39
+    - 40
+    - 78
+    - 81
+    - 156
+    - 162
+    - 240
+runtime:
+  accelerator: auto
+  devices: auto
+  precision: '32'
+  benchmark: true
+  use_non_blocking_transfer: true

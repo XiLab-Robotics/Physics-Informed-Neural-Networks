@@ -215,6 +215,21 @@ Prepared shape-gate loss pilot one-batch validation without training:
   -RunOneBatchValidation
 ```
 
+Prepared shape-gate loss v2 checkpoint-selection pilot preflight:
+
+```powershell
+.\scripts\campaigns\cross_wave\run_shape_gate_loss_v2_checkpoint_selection_pilot_campaign.ps1 `
+  -PreflightOnly
+```
+
+Prepared shape-gate loss v2 one-batch validation without training:
+
+```powershell
+.\scripts\campaigns\cross_wave\run_shape_gate_loss_v2_checkpoint_selection_pilot_campaign.ps1 `
+  -PreflightOnly `
+  -RunOneBatchValidation
+```
+
 Operator-launched `Wave 5.2B` TE Curve Verification Pipeline refresh:
 
 ```powershell
@@ -392,6 +407,12 @@ The current usage flow mainly relies on these folders:
   Prepared `Wave 5.2B` polished offset and harmonic guided campaign launcher.
   It validates 12 queue entries across `global`, `Fw`, and `Bw`, then launches
   locally or delegates to the repository-owned remote campaign runner.
+
+- `scripts/campaigns/cross_wave/run_shape_gate_loss_v2_checkpoint_selection_pilot_campaign.ps1`
+  Prepared one-run shape-gate loss v2 checkpoint-selection pilot launcher. It
+  validates a `polished_dataset` setpoint `Fw` `periodic_gru_sequence` queue
+  entry, then launches locally or delegates to the repository-owned remote
+  campaign runner after approval.
 
 - `scripts/campaigns/wave_5_2/run_wave52b_te_curve_verification_refresh.ps1`
   Operator-facing `Wave 5.2B` official TE Curve Verification Pipeline refresh

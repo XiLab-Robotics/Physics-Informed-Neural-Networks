@@ -1,17 +1,21 @@
-status: completed
-prepared_at: '2026-07-20T19:28:28+02:00'
-completed_at: '2026-07-20T20:07:19+02:00'
-campaign_name: shape_gate_loss_pilot_2026_07_20
-campaign_type: shape_gate_loss_pilot
-execution_host: local_or_remote_aries
-execution_mode: operator_launched_local_or_remote
+﻿status: completed
+prepared_at: '2026-07-21T12:21:36+02:00'
+started_at: '2026-07-21T13:03:55+02:00'
+completed_at: '2026-07-21T13:08:39+02:00'
+closed_out_at: '2026-07-21T14:48:36+02:00'
+campaign_name: shape_gate_loss_v2_checkpoint_selection_pilot_2026_07_21
+campaign_type: shape_gate_loss_v2_checkpoint_selection_pilot
+execution_host: xilab-remote
+execution_mode: remote_operator_launched_recovered_sync
 dataset_id: polished_dataset
 input_mode: setpoints
 dataset_schema: polished_setpoint_curve_v1
 dataset_root: data/polished_dataset
-model_family: shape_gate_loss_pilot_periodic_gru_sequence
+model_family: shape_gate_loss_v2_checkpoint_selection_periodic_gru_sequence_fw
 base_model_family: periodic_gru_sequence
 expected_run_count: 1
+completed_run_count: 1
+failed_run_count: 0
 surface_list:
 - fw
 primary_surface: fw
@@ -25,56 +29,57 @@ full_matrix_surface_list:
 - global
 - fw
 - bw
-campaign_manifest_path: config/training/shape_gate_loss_pilot/campaigns/2026-07-20_shape_gate_loss_pilot/campaign.yaml
+campaign_manifest_path: config/training/shape_gate_loss_v2_pilot/campaigns/2026-07-21_shape_gate_loss_v2_checkpoint_selection_pilot/campaign.yaml
 queue_config_path_list:
-- config/training/shape_gate_loss_pilot/campaigns/2026-07-20_shape_gate_loss_pilot/queue/001_shape_gate_loss_periodic_gru_sequence_fw.yaml
-planning_report_path: doc/reports/campaign_plans/cross_wave/shape_gate_loss/2026-07-20-19-10-23_shape_gate_loss_pilot_campaign_plan_report.md
-technical_document_path: doc/technical/2026-07/2026-07-20/2026-07-20-18-10-35_shape_gate_loss_pilot_and_full_surface_campaign.md
-launcher_path: scripts/campaigns/cross_wave/run_shape_gate_loss_pilot_campaign.ps1
-launcher_note_path: doc/scripts/campaigns/cross_wave/run_shape_gate_loss_pilot_campaign.md
-expected_training_output_root: output/training_runs/shape_gate_loss_pilot_periodic_gru_sequence
-campaign_output_root: output/training_campaigns/2026-07-20-19-59-14_shape_gate_loss_pilot_2026_07_20
-completed_run_instance_id: 2026-07-20-19-59-14__te_shape_gate_loss_periodic_gru_sequence_fw__polished_setpoints
-completed_queue_config_path: config/training/queue/shape_gate_loss_pilot/completed/2026-07-20-19-59-14_001_001_shape_gate_loss_periodic_gru_sequence_fw.yaml
-campaign_leaderboard_path: output/training_campaigns/2026-07-20-19-59-14_shape_gate_loss_pilot_2026_07_20/campaign_leaderboard.yaml
-campaign_best_run_path: output/training_campaigns/2026-07-20-19-59-14_shape_gate_loss_pilot_2026_07_20/campaign_best_run.yaml
-campaign_best_run_report_path: output/training_campaigns/2026-07-20-19-59-14_shape_gate_loss_pilot_2026_07_20/campaign_best_run.md
-training_run_output_directory: output/training_runs/shape_gate_loss_pilot_periodic_gru_sequence/2026-07-20-19-59-14__te_shape_gate_loss_periodic_gru_sequence_fw__polished_setpoints
-training_metrics_path: output/training_runs/shape_gate_loss_pilot_periodic_gru_sequence/2026-07-20-19-59-14__te_shape_gate_loss_periodic_gru_sequence_fw__polished_setpoints/metrics_summary.yaml
-training_report_path: output/training_runs/shape_gate_loss_pilot_periodic_gru_sequence/2026-07-20-19-59-14__te_shape_gate_loss_periodic_gru_sequence_fw__polished_setpoints/training_test_report.md
-best_checkpoint_path: output/training_runs/shape_gate_loss_pilot_periodic_gru_sequence/2026-07-20-19-59-14__te_shape_gate_loss_periodic_gru_sequence_fw__polished_setpoints/checkpoints/periodic_gru_sequence-epoch=007-val_mae=0.00229675.ckpt
-result_summary:
-  val_mae: 0.002296747174113989
-  val_rmse: 0.0027499725110828876
-  test_mae: 0.00252225692383945
-  test_rmse: 0.003132739569991827
-  assessment: stable but not scalar-competitive against the current polished setpoints forward reduced-set leaders
-protected_file_list:
-- config/training/shape_gate_loss_pilot/campaigns/2026-07-20_shape_gate_loss_pilot/campaign.yaml
-- config/training/shape_gate_loss_pilot/campaigns/2026-07-20_shape_gate_loss_pilot/queue/001_shape_gate_loss_periodic_gru_sequence_fw.yaml
-- config/training/shape_gate_loss_pilot/campaigns/2026-07-20_shape_gate_loss_pilot/README.md
-- scripts/campaigns/cross_wave/run_shape_gate_loss_pilot_campaign.ps1
-- doc/scripts/campaigns/cross_wave/run_shape_gate_loss_pilot_campaign.md
-- doc/reports/campaign_plans/cross_wave/shape_gate_loss/2026-07-20-19-10-23_shape_gate_loss_pilot_campaign_plan_report.md
-- doc/technical/2026-07/2026-07-20/2026-07-20-18-10-35_shape_gate_loss_pilot_and_full_surface_campaign.md
-- output/training_campaigns/2026-07-20-19-59-14_shape_gate_loss_pilot_2026_07_20/campaign_leaderboard.yaml
-- output/training_campaigns/2026-07-20-19-59-14_shape_gate_loss_pilot_2026_07_20/campaign_best_run.yaml
-- output/training_campaigns/2026-07-20-19-59-14_shape_gate_loss_pilot_2026_07_20/campaign_best_run.md
-- output/training_runs/shape_gate_loss_pilot_periodic_gru_sequence/2026-07-20-19-59-14__te_shape_gate_loss_periodic_gru_sequence_fw__polished_setpoints/metrics_summary.yaml
-- output/training_runs/shape_gate_loss_pilot_periodic_gru_sequence/2026-07-20-19-59-14__te_shape_gate_loss_periodic_gru_sequence_fw__polished_setpoints/training_test_report.md
-launch_command_list:
-- .\scripts\campaigns\cross_wave\run_shape_gate_loss_pilot_campaign.ps1
-- .\scripts\campaigns\cross_wave\run_shape_gate_loss_pilot_campaign.ps1 -Remote
-preflight_command_list:
-- .\scripts\campaigns\cross_wave\run_shape_gate_loss_pilot_campaign.ps1 -PreflightOnly
-- .\scripts\campaigns\cross_wave\run_shape_gate_loss_pilot_campaign.ps1 -PreflightOnly -RunOneBatchValidation
+- config/training/shape_gate_loss_v2_pilot/campaigns/2026-07-21_shape_gate_loss_v2_checkpoint_selection_pilot/queue/001_shape_gate_loss_v2_periodic_gru_sequence_fw.yaml
+completed_queue_config_path_list:
+- config/training/queue/shape_gate_loss_v2_pilot/completed/2026-07-21-13-03-55_001_001_shape_gate_loss_v2_periodic_gru_sequence_fw.yaml
+planning_report_path: doc/reports/campaign_plans/cross_wave/shape_gate_loss_v2/2026-07-21-12-21-36_shape_gate_loss_v2_checkpoint_selection_pilot_campaign_plan_report.md
+technical_document_path: doc/technical/2026-07/2026-07-21/2026-07-21-12-18-54_shape_gate_loss_v2_checkpoint_selection_pilot.md
+launcher_path: scripts/campaigns/cross_wave/run_shape_gate_loss_v2_checkpoint_selection_pilot_campaign.ps1
+launcher_note_path: doc/scripts/campaigns/cross_wave/run_shape_gate_loss_v2_checkpoint_selection_pilot_campaign.md
+campaign_output_directory: output/training_campaigns/2026-07-21-13-03-55_shape_gate_loss_v2_checkpoint_selection_pilot_2026_07_21
+training_output_directory: output/training_runs/shape_gate_loss_v2_checkpoint_selection_periodic_gru_sequence/2026-07-21-13-03-55__te_shape_gate_loss_v2_periodic_gru_sequence_fw__polished_setpoints
+campaign_leaderboard_path: output/training_campaigns/2026-07-21-13-03-55_shape_gate_loss_v2_checkpoint_selection_pilot_2026_07_21/campaign_leaderboard.yaml
+campaign_best_run_path: output/training_campaigns/2026-07-21-13-03-55_shape_gate_loss_v2_checkpoint_selection_pilot_2026_07_21/campaign_best_run.yaml
+campaign_best_run_report_path: output/training_campaigns/2026-07-21-13-03-55_shape_gate_loss_v2_checkpoint_selection_pilot_2026_07_21/campaign_best_run.md
+campaign_results_report_path: doc/reports/campaign_results/cross_wave/shape_gate_loss_v2/2026-07-21-14-48-36_shape_gate_loss_v2_checkpoint_selection_pilot_campaign_results_report.md
+metrics_summary_path: output/training_runs/shape_gate_loss_v2_checkpoint_selection_periodic_gru_sequence/2026-07-21-13-03-55__te_shape_gate_loss_v2_periodic_gru_sequence_fw__polished_setpoints/metrics_summary.yaml
+training_report_path: output/training_runs/shape_gate_loss_v2_checkpoint_selection_periodic_gru_sequence/2026-07-21-13-03-55__te_shape_gate_loss_v2_periodic_gru_sequence_fw__polished_setpoints/training_test_report.md
+best_checkpoint_path: output/training_runs/shape_gate_loss_v2_checkpoint_selection_periodic_gru_sequence/2026-07-21-13-03-55__te_shape_gate_loss_v2_periodic_gru_sequence_fw__polished_setpoints/checkpoints/periodic_gru_sequence-epoch=008-val_mae=0.00198279.ckpt
+family_registry_path: output/registries/families/shape_gate_loss_v2_checkpoint_selection_periodic_gru_sequence_fw/latest_family_best.yaml
+program_registry_path: output/registries/program/current_best_solution.yaml
+protected_file_list: []
+scalar_result:
+  val_mae: 0.0019827946089208126
+  val_rmse: 0.0024452684447169304
+  test_mae: 0.0014626294141635299
+  test_rmse: 0.0018308096332475543
+  trainable_parameter_count: 157953
+remote_recovery:
+  status: completed_recovered
+  remote_host_alias: xilab-remote
+  remote_repository_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks
+  local_status_path: doc/running/remote_training_campaign_status.json
+  local_checklist_path: doc/running/remote_training_campaign_checklist.md
+  note: Original local SSH transport remained open before marker capture; completed remote artifacts were recovered manually and synchronized into the local repository.
 acceptance_gate:
   scalar_mae_only_promotion_allowed: false
   required_post_run_screen: calibrated_shape_gated_reranker
-  primary_reranker_report: doc/reports/analysis/te_curve_verification_pipeline/03_cvp_diagnostics/shape_gated_reranker/[2026-07-20]/selected_active_track2_polished_setpoints_matrix_shape_gated_te_curve_reranker_report.md
+  required_forward_baseline: polished_setpoints_periodic_gru_sequence_Fw
+  required_first_pilot_baseline: shape_gate_loss_pilot_periodic_gru_sequence_Fw
+  required_full_matrix_targets:
+  - simplified_setpoints
+  - polished_setpoints
+  - polished_actual_values
+  required_full_matrix_surfaces:
+  - global
+  - fw
+  - bw
 previous_completed_campaign:
-  campaign_name: dataset_input_mode_retraining__rcim_track1__polished_actual_values
-  completed_at: '2026-07-19T12:05:00+02:00'
-  closeout_document_path: doc/technical/2026-07/2026-07-19/2026-07-19-12-05-00_rcim_track1_polished_actual_values_closeout.md
-  promoted_archive_root: models/polished_dataset/paper_reference/rcim_track1/actual_values
-notes: Completed on xilab-remote after relaunching with the correct remote repository path, C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks. The wrapper timed out locally before final sync, so artifacts were recovered manually from the remote completed queue and output directories. The package is intentionally a one-run pilot on polished setpoints Fw and is not a promotable full campaign by itself.
+  campaign_name: shape_gate_loss_pilot_2026_07_20
+  completed_at: '2026-07-20T20:07:19+02:00'
+  campaign_best_run_path: output/training_campaigns/2026-07-20-19-59-14_shape_gate_loss_pilot_2026_07_20/campaign_best_run.yaml
+  patched_expansion_commit: 909c4a777
+next_step: Run a bounded checkpoint-level TE Curve Verification Pipeline screen and calibrated shape-gated reranker before any full-matrix campaign expansion.
+notes: Completed pilot only. The scalar result improved over the first shape-gate loss pilot, but promotion remains blocked on shape-gated curve evidence and full-matrix coverage.

@@ -367,10 +367,13 @@ class TransmissionErrorDataModule(LightningDataModule):
         sequence_stride: int = 1,
         sequence_target_position: str = "center",
         maximum_sequences_per_curve: int | None = None,
+        maximum_normalization_curve_count: int | None = None,
         shuffle_training_batch_elements: bool = True,
         num_workers: int = 0,
         pin_memory: bool = False,
         use_non_blocking_transfer: bool = False,
+        use_forward_direction: bool = True,
+        use_backward_direction: bool = True,
     ) -> None:
         """Initialize the reusable TE training datamodule.
 
@@ -387,12 +390,18 @@ class TransmissionErrorDataModule(LightningDataModule):
             sequence_stride: Step between consecutive temporal windows.
             sequence_target_position: Window point aligned with the target.
             maximum_sequences_per_curve: Optional cap on windows per curve.
+            maximum_normalization_curve_count: Optional cap on training curves
+                scanned for normalization statistics.
             shuffle_training_batch_elements: Whether training batches should
                 shuffle points or windows after curve-level collation.
             num_workers: PyTorch dataloader worker count.
             pin_memory: Whether dataloaders should pin host memory.
             use_non_blocking_transfer: Whether device transfer should request
                 non-blocking CUDA copies when possible.
+            use_forward_direction: Whether forward-direction curves are
+                included in the dataset manifest.
+            use_backward_direction: Whether backward-direction curves are
+                included in the dataset manifest.
         """
 
         super().__init__()
@@ -403,7 +412,9 @@ class TransmissionErrorDataModule(LightningDataModule):
         assert collate_mode in ["point", "sequence"], f"Unsupported Collate Mode | {collate_mode}"
         assert sequence_length > 0, f"Sequence Length must be positive | {sequence_length}"
         assert sequence_stride > 0, f"Sequence Stride must be positive | {sequence_stride}"
+        if maximum_normalization_curve_count is not None: assert maximum_normalization_curve_count > 0, (f"Maximum Normalization Curve Count must be positive | {maximum_normalization_curve_count}")
         assert num_workers >= 0, f"Num Workers must be non-negative | {num_workers}"
+        assert use_forward_direction or use_backward_direction, "At least one direction must be enabled"
 
         # Save Dataset Parameters
         self.dataset_config_path = resolve_project_relative_path(dataset_config_path)
@@ -417,10 +428,13 @@ class TransmissionErrorDataModule(LightningDataModule):
         self.sequence_stride = sequence_stride
         self.sequence_target_position = sequence_target_position
         self.maximum_sequences_per_curve = maximum_sequences_per_curve
+        self.maximum_normalization_curve_count = maximum_normalization_curve_count
         self.shuffle_training_batch_elements = shuffle_training_batch_elements
         self.num_workers = num_workers
         self.pin_memory = pin_memory
         self.use_non_blocking_transfer = use_non_blocking_transfer
+        self.use_forward_direction = use_forward_direction
+        self.use_backward_direction = use_backward_direction
 
         # Initialize Runtime Attributes
         self.train_dataset: TransmissionErrorCurveDataset | None = None
@@ -470,8 +484,8 @@ class TransmissionErrorDataModule(LightningDataModule):
         # Build Directional File Manifest
         directional_file_manifest = build_directional_file_manifest(
             dataset_root,
-            bool(dataset_processing_config["directions"]["use_forward_direction"]),
-            bool(dataset_processing_config["directions"]["use_backward_direction"]),
+            self.use_forward_direction,
+            self.use_backward_direction,
             selected_dataset_name,
         )
 
@@ -534,8 +548,12 @@ class TransmissionErrorDataModule(LightningDataModule):
         target_squared_sum = torch.zeros(self.target_feature_dim, dtype=torch.float64)
         total_point_count = 0
 
+        normalization_curve_count = len(curve_dataset)
+        if self.maximum_normalization_curve_count is not None:
+            normalization_curve_count = min(normalization_curve_count, self.maximum_normalization_curve_count)
+
         # Scan Training Curves
-        for curve_index in range(len(curve_dataset)):
+        for curve_index in range(normalization_curve_count):
 
             curve_sample_dictionary = curve_dataset[curve_index]
             point_sample_dictionary = extract_point_tensor_from_curve_sample(

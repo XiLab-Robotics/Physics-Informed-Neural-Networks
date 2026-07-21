@@ -80,6 +80,35 @@ Remote launch delegates to the repository-owned remote campaign runner:
 
    .\scripts\campaigns\wave_5_2\run_wave52b_offset_harmonic_guided_campaign.ps1 -Remote
 
+Shape-gate loss v2 checkpoint-selection pilot
+---------------------------------------------
+
+Validate the prepared one-run polished setpoint forward pilot without training:
+
+.. code-block:: powershell
+
+   .\scripts\campaigns\cross_wave\run_shape_gate_loss_v2_checkpoint_selection_pilot_campaign.ps1 -PreflightOnly
+
+Run one-batch validation without launching training:
+
+.. code-block:: powershell
+
+   .\scripts\campaigns\cross_wave\run_shape_gate_loss_v2_checkpoint_selection_pilot_campaign.ps1 `
+     -PreflightOnly `
+     -RunOneBatchValidation
+
+Launch locally only after confirming the prepared campaign state is intended:
+
+.. code-block:: powershell
+
+   .\scripts\campaigns\cross_wave\run_shape_gate_loss_v2_checkpoint_selection_pilot_campaign.ps1
+
+Remote launch delegates to the repository-owned remote campaign runner:
+
+.. code-block:: powershell
+
+   .\scripts\campaigns\cross_wave\run_shape_gate_loss_v2_checkpoint_selection_pilot_campaign.ps1 -Remote
+
 After normal campaign closeout, the separate operator-launched official TE
 Curve Verification Pipeline refresh evaluates the selected harmonic-profile
 registry candidates across ``global``, ``Fw``, and ``Bw``. Run it locally with:

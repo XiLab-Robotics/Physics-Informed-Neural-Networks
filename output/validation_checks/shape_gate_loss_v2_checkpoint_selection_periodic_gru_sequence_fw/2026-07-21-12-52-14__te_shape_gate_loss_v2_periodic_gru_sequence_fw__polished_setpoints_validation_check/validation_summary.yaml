@@ -1,0 +1,28 @@
+schema_version: 1
+config_path: C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML
+  - Codex\config\training\shape_gate_loss_v2_pilot\campaigns\2026-07-21_shape_gate_loss_v2_checkpoint_selection_pilot\queue\001_shape_gate_loss_v2_periodic_gru_sequence_fw.yaml
+output_directory: C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML
+  - Codex\output\validation_checks\shape_gate_loss_v2_checkpoint_selection_periodic_gru_sequence_fw\2026-07-21-12-52-14__te_shape_gate_loss_v2_periodic_gru_sequence_fw__polished_setpoints_validation_check
+experiment:
+  run_name: te_shape_gate_loss_v2_periodic_gru_sequence_fw__polished_setpoints
+  output_run_name: te_shape_gate_loss_v2_periodic_gru_sequence_fw__polished_setpoints_validation_check
+  run_instance_id: 2026-07-21-12-52-14__te_shape_gate_loss_v2_periodic_gru_sequence_fw__polished_setpoints_validation_check
+  model_family: shape_gate_loss_v2_checkpoint_selection_periodic_gru_sequence_fw
+  model_type: periodic_gru_sequence
+batch_summary:
+  batch_mode: sequence
+  point_batch_size: 0
+  sequence_batch_size: 64
+  sequence_length: 33
+  input_feature_dim: 5
+  target_feature_dim: 1
+  curve_count: 1
+checks:
+  finite_loss: true
+  finite_mae: true
+  finite_rmse: true
+  finite_prediction_tensor: true
+metrics:
+  loss: 0.5283637046813965
+  mae: 0.011760656721889973
+  rmse: 0.013771510683000088

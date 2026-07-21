@@ -250,6 +250,23 @@ This folder contains the internal project documents derived from the reference P
   Technical plan for enforcing sorted `0` to `360` degree angular positions in
   Track 2 plotting helpers before rendering measured and predicted TE curves.
 
+- [technical/2026-07/2026-07-21/2026-07-21-12-18-54_shape_gate_loss_v2_checkpoint_selection_pilot.md](./technical/2026-07/2026-07-21/2026-07-21-12-18-54_shape_gate_loss_v2_checkpoint_selection_pilot.md)
+  Technical plan for a stricter second shape-gate pilot that treats
+  derivative, ripple, harmonic, offset, and per-curve pass-rate metrics as
+  checkpoint-selection evidence before any full Aries matrix campaign.
+
+- [technical/2026-07/2026-07-21/2026-07-21-14-59-55_campaign_results_pdf_table_width_fix.md](./technical/2026-07/2026-07-21/2026-07-21-14-59-55_campaign_results_pdf_table_width_fix.md)
+  Technical plan for permanent styled-PDF table-width rules covering campaign
+  metric-breakdown and pilot-comparison tables.
+
+- [reports/campaign_plans/cross_wave/shape_gate_loss_v2/2026-07-21-12-21-36_shape_gate_loss_v2_checkpoint_selection_pilot_campaign_plan_report.md](./reports/campaign_plans/cross_wave/shape_gate_loss_v2/2026-07-21-12-21-36_shape_gate_loss_v2_checkpoint_selection_pilot_campaign_plan_report.md)
+  Campaign plan for the one-run `polished_dataset` setpoint `Fw` shape-gate
+  loss v2 checkpoint-selection pilot.
+
+- [scripts/campaigns/cross_wave/run_shape_gate_loss_v2_checkpoint_selection_pilot_campaign.md](./scripts/campaigns/cross_wave/run_shape_gate_loss_v2_checkpoint_selection_pilot_campaign.md)
+  Launcher note for validating or launching the shape-gate loss v2
+  checkpoint-selection pilot locally or through the remote campaign workflow.
+
 - [../config/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/shape_gate_pilot_expansion_polished_setpoints_fw_bw_matrix.yaml](../config/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/shape_gate_pilot_expansion_polished_setpoints_fw_bw_matrix.yaml)
   Patched polished-setpoint Fw/Bw `TE Curve Verification Pipeline` comparison
   matrix adding the completed shape-gate loss pilot checkpoint to the reduced

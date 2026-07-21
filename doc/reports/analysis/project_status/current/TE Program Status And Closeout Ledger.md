@@ -29,13 +29,13 @@ closeout that changes any of these surfaces:
 | Current accepted forward curve-verified leader | `rcim_retuned_GBM19_Fw`; polished refreshed-source leader `polished_rcim_model_bank_reproduction_ET19_Fw`; polished model-development fallback `polished_periodic_gru_sequence_Fw` |
 | Current accepted backward curve-verified leader | `polished_periodic_gru_sequence_Bw` |
 | Current accepted global neural curve-verified leader | `polished_periodic_gru_sequence_global` |
-| Latest normal campaign closeout | `polished_dataset` full-wave retraining campaign |
+| Latest normal campaign closeout | `shape_gate_loss_v2_checkpoint_selection_pilot_2026_07_21` |
 | Latest official TE Curve Verification refresh | polished-dataset RCIM, early-wave, and full-wave refresh, dated `2026-07-03` |
 | Latest curve-verification decision | accepted; polished `periodic_gru_sequence` becomes the model-development baseline |
 | Latest pruning decision | `2026-07-17` shape-first intermediate model-selection cleanup; `global` remains paused until final backlog stage |
 | Active report generation | reduced selected-model reports only: `polished_dataset` and `simplified_dataset`, each split into `forward` and `backward` |
 | Current TE Curve Verification Pipeline selection policy | multi-index curve-first selection, dated `2026-06-16` |
-| Next modeling decision | use the shape-first reduced active set: temporal `periodic_gru_sequence`, primary non-windowed `wave4_1_mae_robust_loss`, secondary non-windowed `wave4_2_quantile_p10_p50_p90`, lightweight harmonic comparator `periodic_mlp_harmonic`, and selected simple / RCIM anchors |
+| Next modeling decision | run a bounded checkpoint-level `TE Curve Verification Pipeline` screen and calibrated shape-gated reranker for the completed v2 shape-gate checkpoint before any full-matrix expansion |
 
 The repository remains direction-parallel. `Fw`, `Bw`, and `global` are not a
 single destructive competition. Each surface keeps its own best candidate and
@@ -155,6 +155,7 @@ robustness, visual-evidence, and deployment-readiness axes visible.
 | Polished-dataset official TE Curve Verification refresh | closed | `128` polished RCIM and model-development candidates added to the official `293`-candidate matrix using `data\polished_dataset`; visual collage, overlay, official report, and PDFs regenerated. | Accepted. `polished_periodic_gru_sequence` becomes the model-development baseline; `rcim_retuned_GBM19_Fw` remains the full-matrix forward leader; `polished_rcim_model_bank_reproduction_ET19_Fw` is retained as the polished refreshed-source forward reference-bank leader. |
 | Intermediate model-selection cleanup | closed | Post-retraining familywise ONNX reports were consolidated into a shape-first selection report using `polished_dataset + setpoints` as the primary evidence surface and `polished_dataset + actual_values` as a sensitivity check. | Active development set reduced to `periodic_gru_sequence`, `wave4_1_mae_robust_loss`, `wave4_2_quantile_p10_p50_p90`, and `periodic_mlp_harmonic`; `periodic_lstm_sequence_Bw`, Wave 4.3 MDN, Wave 4.4 latent-state, and Wave 5.1 harmonic-prior branches are closed as active roads unless future shape-gated evidence reopens them. |
 | Shape-gate loss pilot patched Track 2 expansion | closed diagnostic | Corrected polished setpoint playback was used to compare the one-run shape-gate loss pilot against the reduced active polished-setpoint Fw/Bw candidate set and to generate bounded Track 2 plots. | The pilot is viable but not promoted: `polished_setpoints_periodic_gru_sequence_Fw` remains the forward recommendation, `polished_setpoints_periodic_mlp_harmonic_Bw` is the backward recommendation, and the pilot ranks fifth on forward. The next training step should be a stricter second pilot or checkpoint-selection variant, not a full Aries campaign from this exact profile. |
+| Shape-gate loss v2 checkpoint-selection pilot | closed pilot | One remote `polished_dataset` setpoint `Fw` run completed successfully; best checkpoint `periodic_gru_sequence-epoch=008-val_mae=0.00198279.ckpt`, validation MAE `0.001983 deg`, test MAE `0.001463 deg`. | Accepted as a completed pilot and scalar improvement over the first shape-gate loss pilot. Not promoted until a bounded checkpoint-level `TE Curve Verification Pipeline` screen and calibrated shape-gated reranker confirm curve-shape, harmonic, derivative, and phase behavior. |
 | Wave 5.2 PINN / MMT track | open design branch | MMT diagnostic and parameter inventory exist; feature and soft-constraint gates remain open. | Not campaign-ready. |
 | Wave 6 integrated multi-task / multi-head model | deferred | Intended to combine proven offset, low-frequency, centered-shape, uncertainty, mixture, and structured residual mechanisms. | Deferred until Waves 4.1-4.4, Wave 5.1, and Wave 5.2 evidence identifies what should be integrated. |
 
@@ -253,23 +254,26 @@ models.
 
 ## Current Next Steps
 
-1. Build the next reduced evaluation around `periodic_gru_sequence_Fw/Bw`,
+1. Run a bounded checkpoint-level `TE Curve Verification Pipeline` screen for
+   the completed v2 shape-gate checkpoint on `polished_dataset` setpoints `Fw`,
+   followed by the calibrated shape-gated reranker.
+2. Build the next reduced evaluation around `periodic_gru_sequence_Fw/Bw`,
    `wave4_1_mae_robust_loss_Fw/Bw`,
    `wave4_2_quantile_p10_p50_p90_Fw/Bw`,
    `periodic_mlp_harmonic_Fw/Bw`, simple anchors, and selected RCIM references
    after the remaining actual-values RCIM retraining is available.
-2. Add a shape-gated reranker before reopening any scalar leader: FFT
+3. Add a shape-gated reranker before reopening any scalar leader: FFT
    amplitude similarity, dominant-harmonic retention, dominant-harmonic phase
    error, derivative correlation, and per-curve shape pass rate.
-3. Carry forward both active modeling roads: one temporal-window road
+4. Carry forward both active modeling roads: one temporal-window road
    (`periodic_gru_sequence`) and one non-windowed road
    (`wave4_1_mae_robust_loss`, with `wave4_2_quantile_p10_p50_p90` as
    secondary uncertainty-aware evidence).
-4. Keep `Wave 4.3`, `Wave 4.4`, and `Wave 5.1` branches as integration
+5. Keep `Wave 4.3`, `Wave 4.4`, and `Wave 5.1` branches as integration
    evidence only, not as current active candidates.
-5. Keep `Wave 5.2` MMT/PINN work behind its dataset-aligned diagnostic and
+6. Keep `Wave 5.2` MMT/PINN work behind its dataset-aligned diagnostic and
    calibration gates.
-6. Do not open the integrated multi-task / multi-head campaign until the
+7. Do not open the integrated multi-task / multi-head campaign until the
    chosen ingredients are justified by TE Curve Verification Pipeline curve evidence.
 
 ## Closeout Update Rule

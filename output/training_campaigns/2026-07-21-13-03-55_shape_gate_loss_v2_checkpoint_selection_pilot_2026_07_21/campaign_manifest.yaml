@@ -1,0 +1,27 @@
+campaign_name: shape_gate_loss_v2_checkpoint_selection_pilot_2026_07_21
+generated_at: '2026-07-21T13:08:39'
+queue_root: C:/Users/Martina Salami/Documents/Davide/Physics-Informed-Neural-Networks/config/training/queue/shape_gate_loss_v2_pilot
+campaign_output_directory: C:/Users/Martina Salami/Documents/Davide/Physics-Informed-Neural-Networks/output/training_campaigns/2026-07-21-13-03-55_shape_gate_loss_v2_checkpoint_selection_pilot_2026_07_21
+planning_report_path: C:/Users/Martina Salami/Documents/Davide/Physics-Informed-Neural-Networks/doc/reports/campaign_plans/cross_wave/shape_gate_loss_v2/2026-07-21-12-21-36_shape_gate_loss_v2_checkpoint_selection_pilot_campaign_plan_report.md
+run_list:
+- original_queue_config_path: C:/Users/Martina Salami/Documents/Davide/Physics-Informed-Neural-Networks/config/training/queue/shape_gate_loss_v2_pilot/pending/2026-07-21-13-03-55_001_001_shape_gate_loss_v2_periodic_gru_sequence_fw.yaml
+  final_queue_config_path: C:/Users/Martina Salami/Documents/Davide/Physics-Informed-Neural-Networks/config/training/queue/shape_gate_loss_v2_pilot/completed/2026-07-21-13-03-55_001_001_shape_gate_loss_v2_periodic_gru_sequence_fw.yaml
+  source_config_path: C:/Users/Martina Salami/Documents/Davide/Physics-Informed-Neural-Networks/config/training/shape_gate_loss_v2_pilot/campaigns/2026-07-21_shape_gate_loss_v2_checkpoint_selection_pilot/queue/001_shape_gate_loss_v2_periodic_gru_sequence_fw.yaml
+  run_name: te_shape_gate_loss_v2_periodic_gru_sequence_fw__polished_setpoints
+  run_instance_id: 2026-07-21-13-03-55__te_shape_gate_loss_v2_periodic_gru_sequence_fw__polished_setpoints
+  model_type: periodic_gru_sequence
+  queue_status: completed
+  start_time: '2026-07-21T13:03:55'
+  end_time: '2026-07-21T13:08:39'
+  duration_seconds: 283.279
+  process_return_code: 0
+  output_directory: C:/Users/Martina Salami/Documents/Davide/Physics-Informed-Neural-Networks/output/training_runs/shape_gate_loss_v2_checkpoint_selection_periodic_gru_sequence/2026-07-21-13-03-55__te_shape_gate_loss_v2_periodic_gru_sequence_fw__polished_setpoints
+  config_snapshot_path: C:/Users/Martina Salami/Documents/Davide/Physics-Informed-Neural-Networks/output/training_runs/shape_gate_loss_v2_checkpoint_selection_periodic_gru_sequence/2026-07-21-13-03-55__te_shape_gate_loss_v2_periodic_gru_sequence_fw__polished_setpoints/training_config.yaml
+  best_checkpoint_reference_path: C:/Users/Martina Salami/Documents/Davide/Physics-Informed-Neural-Networks/output/training_runs/shape_gate_loss_v2_checkpoint_selection_periodic_gru_sequence/2026-07-21-13-03-55__te_shape_gate_loss_v2_periodic_gru_sequence_fw__polished_setpoints/best_checkpoint_path.txt
+  best_checkpoint_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_runs\shape_gate_loss_v2_checkpoint_selection_periodic_gru_sequence\2026-07-21-13-03-55__te_shape_gate_loss_v2_periodic_gru_sequence_fw__polished_setpoints\checkpoints\periodic_gru_sequence-epoch=008-val_mae=0.00198279.ckpt
+  metrics_path: C:/Users/Martina Salami/Documents/Davide/Physics-Informed-Neural-Networks/output/training_runs/shape_gate_loss_v2_checkpoint_selection_periodic_gru_sequence/2026-07-21-13-03-55__te_shape_gate_loss_v2_periodic_gru_sequence_fw__polished_setpoints/metrics_summary.yaml
+  training_report_path: C:/Users/Martina Salami/Documents/Davide/Physics-Informed-Neural-Networks/output/training_runs/shape_gate_loss_v2_checkpoint_selection_periodic_gru_sequence/2026-07-21-13-03-55__te_shape_gate_loss_v2_periodic_gru_sequence_fw__polished_setpoints/training_test_report.md
+  log_path: C:/Users/Martina Salami/Documents/Davide/Physics-Informed-Neural-Networks/output/training_campaigns/2026-07-21-13-03-55_shape_gate_loss_v2_checkpoint_selection_pilot_2026_07_21/logs/001_te_shape_gate_loss_v2_periodic_gru_sequence_fw.log
+  planning_report_path: doc/reports/campaign_plans/cross_wave/shape_gate_loss_v2/2026-07-21-12-21-36_shape_gate_loss_v2_checkpoint_selection_pilot_campaign_plan_report.md
+  campaign_name: shape_gate_loss_v2_checkpoint_selection_pilot_2026_07_21
+  error_message: null
