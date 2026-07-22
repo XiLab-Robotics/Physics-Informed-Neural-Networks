@@ -297,6 +297,15 @@ This folder contains the internal project documents derived from the reference P
   shape-first distillation pilot candidates against the accepted
   polished-setpoint forward baselines.
 
+- [technical/2026-07/2026-07-22/2026-07-22-16-27-19_wave52_post_shape_loss_decision_gate.md](./technical/2026-07/2026-07-22/2026-07-22-16-27-19_wave52_post_shape_loss_decision_gate.md)
+  Technical plan for a post-shape-loss `Wave 5.2` decision gate that chooses
+  the next physics-informed or offset-calibration branch before any new
+  training campaign.
+
+- [reports/analysis/model_development_waves/wave_5_2/post_shape_loss_decision_gate/[2026-07-22]/wave52_post_shape_loss_decision_gate.md](./reports/analysis/model_development_waves/wave_5_2/post_shape_loss_decision_gate/%5B2026-07-22%5D/wave52_post_shape_loss_decision_gate.md)
+  Decision gate report closing the shape-threshold-loss branch and selecting
+  a causal offset / mean calibration pilot as the next prepared branch.
+
 - [reports/campaign_plans/cross_wave/shape_gate_loss_v2/2026-07-21-12-21-36_shape_gate_loss_v2_checkpoint_selection_pilot_campaign_plan_report.md](./reports/campaign_plans/cross_wave/shape_gate_loss_v2/2026-07-21-12-21-36_shape_gate_loss_v2_checkpoint_selection_pilot_campaign_plan_report.md)
   Campaign plan for the one-run `polished_dataset` setpoint `Fw` shape-gate
   loss v2 checkpoint-selection pilot.

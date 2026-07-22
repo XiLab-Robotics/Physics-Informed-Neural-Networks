@@ -2,7 +2,7 @@
 
 ## Executive Snapshot
 
-- Generated At: `2026-07-22T16:05:19`
+- Generated At: `2026-07-22T16:27:19`
 - Program State: active.
 - Current Completed Wave: polished-dataset RCIM, early-wave, and full-wave
 - Current Focus: the polished-dataset TE Curve Verification Pipeline refresh is
@@ -19,6 +19,9 @@
 - Latest bounded curve-first decision: `polished_setpoints_periodic_gru_sequence_Fw`
   remains the accepted forward recommendation; neither shape-first
   distillation candidate is promoted.
+- Latest design-gate decision: direct shape-threshold training pressure is
+  closed for now; the next prepared branch should be a causal offset / mean
+  calibration pilot anchored to `polished_setpoints_periodic_gru_sequence_Fw`.
 
 ## Current Project Status
 

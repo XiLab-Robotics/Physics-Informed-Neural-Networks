@@ -1,0 +1,9 @@
+field,value
+decision,prepare_causal_offset_mean_calibration_pilot
+primary_anchor,polished_setpoints_periodic_gru_sequence_Fw
+required_comparator,polished_setpoints_periodic_mlp_harmonic_Fw
+dataset,polished_dataset
+input_mode,setpoints
+first_surface,Fw
+training_status,not_prepared
+campaign_status,not_prepared

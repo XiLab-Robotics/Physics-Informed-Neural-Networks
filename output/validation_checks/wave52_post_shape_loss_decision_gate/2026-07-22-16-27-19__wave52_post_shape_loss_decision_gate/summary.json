@@ -1,0 +1,19 @@
+{
+  "run_id": "2026-07-22-16-27-19__wave52_post_shape_loss_decision_gate",
+  "report_path": "doc/reports/analysis/model_development_waves/wave_5_2/post_shape_loss_decision_gate/[2026-07-22]/wave52_post_shape_loss_decision_gate.md",
+  "decision": "prepare_causal_offset_mean_calibration_pilot",
+  "primary_anchor": "polished_setpoints_periodic_gru_sequence_Fw",
+  "required_comparator": "polished_setpoints_periodic_mlp_harmonic_Fw",
+  "dataset": "polished_dataset",
+  "input_mode": "setpoints",
+  "first_surface": "Fw",
+  "training_status": "not_prepared",
+  "campaign_status": "not_prepared",
+  "rejected_paths": [
+    "continue_shape_threshold_loss_directly",
+    "rerun_wave52b_unchanged",
+    "start_wave52c_dirty_to_clean_transfer_first",
+    "start_full_pinn_or_mmt_soft_loss",
+    "start_wave6_integrated_multi_head_model"
+  ]
+}

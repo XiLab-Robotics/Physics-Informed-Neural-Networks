@@ -35,7 +35,7 @@ closeout that changes any of these surfaces:
 | Latest pruning decision | `2026-07-17` shape-first intermediate model-selection cleanup; `global` remains paused until final backlog stage |
 | Active report generation | reduced selected-model reports only: `polished_dataset` and `simplified_dataset`, each split into `forward` and `backward` |
 | Current TE Curve Verification Pipeline selection policy | multi-index curve-first selection, dated `2026-06-16` |
-| Next modeling decision | do not expand the current shape-first distillation branch; use the bounded screen evidence to design the next loss/selection change only if it directly addresses raw error, offset, harmonic amplitude, and robustness regressions |
+| Next modeling decision | prepare a causal offset / mean calibration pilot anchored to `polished_setpoints_periodic_gru_sequence_Fw`, keeping `polished_setpoints_periodic_mlp_harmonic_Fw` as the required non-windowed comparator |
 
 The repository remains direction-parallel. `Fw`, `Bw`, and `global` are not a
 single destructive competition. Each surface keeps its own best candidate and
@@ -161,6 +161,7 @@ robustness, visual-evidence, and deployment-readiness axes visible.
 | Shape-objective bounded Track 2 screen | closed diagnostic | Remote bounded `polished_dataset` setpoint `Fw` screen completed on `2026-07-22`; matrix evaluated 3 candidates over 100 forward held-out curves and the shape-gated reranker wrote `2026-07-22-12-16-27__shape_gated_te_curve_reranker`. | Not promoted. `polished_setpoints_periodic_gru_sequence_Fw` remains recommended with raw MAE `0.001837 deg`, centered MAE `0.001483 deg`, and shape pass rate `0.950`; `shape_objective_periodic_mlp_harmonic_Fw` ranked third with raw MAE `0.002035 deg`, centered MAE `0.001578 deg`, and shape pass rate `0.910`. The scalar pilot win did not survive curve-first validation. |
 | Shape-first training-rule distillation pilot | closed pilot | Two remote `polished_dataset` setpoint `Fw` arms completed: time-windowed `shape_first_distilled_periodic_gru_sequence_fw` and non-windowed `shape_first_distilled_periodic_mlp_harmonic_fw`. The non-windowed harmonic MLP won scalar selection with validation MAE `0.001573 deg` and test MAE `0.001420 deg`; the time-windowed GRU retained better test offset and amplitude losses. | Accepted as a completed pilot, not promoted. The next step is a bounded `TE Curve Verification Pipeline` screen against both `polished_setpoints_periodic_gru_sequence_Fw` and `polished_setpoints_periodic_mlp_harmonic_Fw`, keeping both time-windowed and non-windowed roads alive until curve-first evidence separates them. |
 | Shape-first distillation bounded Track 2 screen | closed diagnostic | Remote bounded `polished_dataset` setpoint `Fw` screen completed on `2026-07-22`; matrix evaluated 4 candidates over 100 forward held-out curves, generated 8 measured-vs-predicted Track 2 plots, and the shape-gated reranker wrote `2026-07-22-15-59-37__shape_gated_te_curve_reranker`. | Not promoted. `polished_setpoints_periodic_gru_sequence_Fw` remains recommended with raw MAE `0.001837 deg`, centered MAE `0.001483 deg`, and shape pass rate `0.950`; the non-windowed distillation scalar winner ranked fourth with raw MAE `0.002079 deg`, centered MAE `0.001637 deg`, and shape pass rate `0.900`; the time-windowed distillation GRU ranked third with raw MAE `0.002032 deg`, centered MAE `0.001561 deg`, and shape pass rate `0.920`. |
+| Wave 5.2 post-shape-loss decision gate | closed design gate | The gate compared recent shape-gate, shape-objective, and shape-first distillation screens against prior `Wave 5.2A/B` evidence. Direct shape-threshold loss was rejected for now, unchanged `Wave 5.2B` rerun was rejected, and `Wave 5.2C`, full PINN, and Wave 6 were deferred. | Next branch selected: prepare a narrow causal offset / mean calibration pilot on `polished_dataset` setpoint `Fw`, anchored to `polished_setpoints_periodic_gru_sequence_Fw` and screened against the non-windowed `polished_setpoints_periodic_mlp_harmonic_Fw` comparator before any expansion. |
 | Wave 5.2 PINN / MMT track | open design branch | MMT diagnostic and parameter inventory exist; feature and soft-constraint gates remain open. | Not campaign-ready. |
 | Wave 6 integrated multi-task / multi-head model | deferred | Intended to combine proven offset, low-frequency, centered-shape, uncertainty, mixture, and structured residual mechanisms. | Deferred until Waves 4.1-4.4, Wave 5.1, and Wave 5.2 evidence identifies what should be integrated. |
 
@@ -259,16 +260,20 @@ models.
 
 ## Current Next Steps
 
-1. Do not expand the current shape-first distillation pilot: the bounded
+1. Prepare a causal offset / mean calibration pilot anchored to
+   `polished_setpoints_periodic_gru_sequence_Fw`, with
+   `polished_setpoints_periodic_mlp_harmonic_Fw` retained as the required
+   non-windowed comparator.
+2. Do not expand the current shape-first distillation pilot: the bounded
    `polished_dataset` setpoint `Fw` screen retained
    `polished_setpoints_periodic_gru_sequence_Fw` as the accepted forward
    recommendation and ranked the distillation candidates behind both
    polished-setpoint baselines.
-2. Keep both time-windowed and non-windowed roads active as comparison
+3. Keep both time-windowed and non-windowed roads active as comparison
    categories, but require the next branch to beat the accepted baseline on
    curve-first raw error, offset, harmonic amplitude, robustness, and visual
    TE measured-vs-predicted evidence before promotion.
-3. Do not expand the current `shape_objective_periodic_mlp_harmonic_fw` pilot:
+4. Do not expand the current `shape_objective_periodic_mlp_harmonic_fw` pilot:
    the bounded `polished_dataset` setpoint `Fw` screen retained
    `polished_setpoints_periodic_gru_sequence_Fw` as the accepted forward
    recommendation and ranked the shape-objective candidate third.
