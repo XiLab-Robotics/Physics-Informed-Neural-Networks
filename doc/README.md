@@ -282,6 +282,12 @@ This folder contains the internal project documents derived from the reference P
   screen of the shape-objective periodic MLP harmonic pilot winner before any
   promotion decision.
 
+- [technical/2026-07/2026-07-22/2026-07-22-12-54-02_shape_first_training_rule_distillation.md](./technical/2026-07/2026-07-22/2026-07-22-12-54-02_shape_first_training_rule_distillation.md)
+  Technical plan for distilling `TE Curve Verification Pipeline`
+  shape-first screen rules into training diagnostics, checkpoint-selection
+  monitors, and conservative auxiliary-loss candidates without treating the
+  failed shape-objective branch as promoted evidence.
+
 - [reports/campaign_plans/cross_wave/shape_gate_loss_v2/2026-07-21-12-21-36_shape_gate_loss_v2_checkpoint_selection_pilot_campaign_plan_report.md](./reports/campaign_plans/cross_wave/shape_gate_loss_v2/2026-07-21-12-21-36_shape_gate_loss_v2_checkpoint_selection_pilot_campaign_plan_report.md)
   Campaign plan for the one-run `polished_dataset` setpoint `Fw` shape-gate
   loss v2 checkpoint-selection pilot.
