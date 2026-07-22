@@ -261,6 +261,21 @@ Remote parallel shape-objective follow-up:
   -Remote
 ```
 
+Prepared shape-objective bounded `TE Curve Verification Pipeline` screen
+preflight:
+
+```powershell
+.\scripts\campaigns\track_2\run_shape_objective_bounded_track2_screen.ps1 `
+  -PreflightOnly
+```
+
+Remote shape-objective bounded `TE Curve Verification Pipeline` screen:
+
+```powershell
+.\scripts\campaigns\track_2\run_shape_objective_bounded_track2_screen.ps1 `
+  -Remote
+```
+
 Operator-launched `Wave 5.2B` TE Curve Verification Pipeline refresh:
 
 ```powershell
@@ -450,6 +465,13 @@ The current usage flow mainly relies on these folders:
   non-windowed, and curve-aware `polished_dataset` setpoint `Fw` queue entries,
   then launches locally or delegates to the repository-owned remote campaign
   runner after approval.
+
+- `scripts/campaigns/track_2/run_shape_objective_bounded_track2_screen.ps1`
+  Operator-facing bounded `TE Curve Verification Pipeline` screen for the
+  shape-objective `polished_dataset` setpoint `Fw` candidate. It compares the
+  candidate against the current GRU and non-windowed harmonic baselines, then
+  runs the shape-gated reranker locally or through the repository-owned remote
+  launcher.
 
 - `scripts/campaigns/wave_5_2/run_wave52b_te_curve_verification_refresh.ps1`
   Operator-facing `Wave 5.2B` official TE Curve Verification Pipeline refresh

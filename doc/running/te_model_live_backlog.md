@@ -64,6 +64,10 @@ Historical rationale and approval history remain in:
   `04_selected_model_reports/[YYYY-MM-DD]/`. `global`, collage, overlay, broad
   full-matrix, and simplified-vs-polished dataset-difference reports are paused
   and generated only after an explicit request.
+- Latest Bounded Screen: the `2026-07-22` shape-objective forward screen is
+  closed. `shape_objective_periodic_mlp_harmonic_fw` remained a completed
+  scalar pilot but ranked behind both polished setpoint baselines in
+  curve-first validation, so it is not promoted or expanded.
 
 Current canonical status reports:
 

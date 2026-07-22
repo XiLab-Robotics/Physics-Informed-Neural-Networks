@@ -1,0 +1,35 @@
+W0722 12:15:42.917000 38252 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+[INFO] Building TE Curve Verification Pipeline held-out curve records
+[INFO] Built TE Curve Verification Pipeline held-out curve records | curve_count=100 | dataset=polished_dataset | surface_scope=forward
+System.Management.Automation.RemoteException
+TE matrix candidates:   0%|                        | 0/3 [00:00<?, ?candidate/s]
+
+System.Management.Automation.RemoteException
+TE matrix candidates:   0%|                        | 0/3 [00:00<?, ?candidate/s]
+
+System.Management.Automation.RemoteException
+TE matrix candidates:   0%|                        | 0/3 [00:00<?, ?candidate/s]
+TE matrix candidates:  33%|#####3          | 1/3 [00:00<00:01,  1.08candidate/s]
+
+System.Management.Automation.RemoteException
+TE matrix candidates:  33%|#####3          | 1/3 [00:00<00:01,  1.08candidate/s]
+
+System.Management.Automation.RemoteException
+TE matrix candidates:  33%|#####3          | 1/3 [00:00<00:01,  1.08candidate/s]
+TE matrix candidates:  67%|##########6     | 2/3 [00:30<00:17, 17.93s/candidate]
+
+System.Management.Automation.RemoteException
+TE matrix candidates:  67%|##########6     | 2/3 [00:30<00:17, 17.93s/candidate]
+
+System.Management.Automation.RemoteException
+TE matrix candidates:  67%|##########6     | 2/3 [00:30<00:17, 17.93s/candidate]
+TE matrix candidates: 100%|################| 3/3 [00:31<00:00, 10.03s/candidate]
+TE matrix candidates: 100%|################| 3/3 [00:31<00:00, 10.46s/candidate]
+[INFO] Loading TE Curve Verification Pipeline candidate | 1/3 | shape_objective_periodic_mlp_harmonic_Fw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 1/3 | shape_objective_periodic_mlp_harmonic_Fw
+[INFO] Loading TE Curve Verification Pipeline candidate | 2/3 | polished_setpoints_periodic_gru_sequence_Fw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 2/3 | polished_setpoints_periodic_gru_sequence_Fw
+[INFO] Loading TE Curve Verification Pipeline candidate | 3/3 | polished_setpoints_periodic_mlp_harmonic_Fw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 3/3 | polished_setpoints_periodic_mlp_harmonic_Fw
+[DONE] Reference family comparison summary written | output\validation_checks\track2_reference_comparison\2026-07-22-12-15-43__shape_objective_bounded_track2_screen_polished_setpoints_fw_matrix_shape_objective_bounded_track2_screen_polished_setpoints_fw\validation_summary.yaml
+[DONE] Reference family comparison report written | doc\reports\analysis\validation_checks\te_curve_verification_pipeline\2026-07-22-12-16-21_shape_objective_bounded_track2_screen_polished_setpoints_fw_matrix_shape_objective_bounded_track2_screen_polished_setpoints_fw_report.md

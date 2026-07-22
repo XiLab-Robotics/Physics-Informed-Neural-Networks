@@ -2,12 +2,12 @@
 
 ## Executive Snapshot
 
-- Generated At: `2026-07-21T19:35:54`
+- Generated At: `2026-07-22T12:16:27`
 - Program State: active.
 - Current Completed Wave: polished-dataset RCIM, early-wave, and full-wave
 - Current Focus: the polished-dataset TE Curve Verification Pipeline refresh is
 - Active Campaign Status: `completed`
-- Active Campaign Name: `parallel_shape_objective_followup_2026_07_21`
+- Active Campaign Name: `shape_objective_bounded_track2_screen_2026_07_22`
 - Current Program Winner: `te_periodic_gru_sequence_bw` | Family `periodic_gru_sequence_bw` | Test MAE `0.001084`
 
 ## Main Takeaways
@@ -16,6 +16,9 @@
 - Current plain MLP anchor: `te_feedforward_trial`
 - Active family-improvement branch count: `0`
 - Implemented and benchmarked family count: `210`
+- Latest bounded curve-first decision: `shape_objective_periodic_mlp_harmonic_fw`
+  was not promoted; `polished_setpoints_periodic_gru_sequence_Fw` remains the
+  forward model-development recommendation.
 
 ## Current Project Status
 
@@ -251,6 +254,8 @@
 ### Active Training Or Improvement Branches
 
 - No campaign is currently in `prepared` or `running` state.
+- The latest bounded screen is complete and did not promote the shape-objective
+  non-windowed pilot.
 - The next active implementation branch should therefore be read from the live backlog focus and the next approved campaign plan.
 
 ### Roadmap And Planned Work

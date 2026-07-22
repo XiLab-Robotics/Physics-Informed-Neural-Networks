@@ -277,6 +277,11 @@ This folder contains the internal project documents derived from the reference P
   Technical plan for permanent campaign styled-PDF page-break rules covering
   `Execution Summary` and the opening `Pilot Graphs` Track 2 plot block.
 
+- [technical/2026-07/2026-07-22/2026-07-22-12-06-03_shape_objective_bounded_track2_screen.md](./technical/2026-07/2026-07-22/2026-07-22-12-06-03_shape_objective_bounded_track2_screen.md)
+  Technical plan for the bounded forward `TE Curve Verification Pipeline`
+  screen of the shape-objective periodic MLP harmonic pilot winner before any
+  promotion decision.
+
 - [reports/campaign_plans/cross_wave/shape_gate_loss_v2/2026-07-21-12-21-36_shape_gate_loss_v2_checkpoint_selection_pilot_campaign_plan_report.md](./reports/campaign_plans/cross_wave/shape_gate_loss_v2/2026-07-21-12-21-36_shape_gate_loss_v2_checkpoint_selection_pilot_campaign_plan_report.md)
   Campaign plan for the one-run `polished_dataset` setpoint `Fw` shape-gate
   loss v2 checkpoint-selection pilot.
@@ -291,6 +296,11 @@ This folder contains the internal project documents derived from the reference P
   windowed, non-windowed, and curve-aware candidates on `polished_dataset`
   setpoint `Fw`.
 
+- [reports/campaign_plans/cross_wave/shape_objective/2026-07-22-12-06-03_shape_objective_bounded_track2_screen_plan_report.md](./reports/campaign_plans/cross_wave/shape_objective/2026-07-22-12-06-03_shape_objective_bounded_track2_screen_plan_report.md)
+  Plan for a bounded `polished_dataset` setpoint `Fw`
+  `TE Curve Verification Pipeline` screen of the shape-objective periodic MLP
+  harmonic pilot winner against windowed and non-windowed polished baselines.
+
 - [scripts/campaigns/cross_wave/run_parallel_shape_objective_followup_campaign.md](./scripts/campaigns/cross_wave/run_parallel_shape_objective_followup_campaign.md)
   Launcher note for validating or launching the three-arm shape-objective
   follow-up locally or through the repository-owned remote campaign workflow.
@@ -303,10 +313,20 @@ This folder contains the internal project documents derived from the reference P
   Launcher note for the bounded `polished_dataset` setpoint `Fw`
   `TE Curve Verification Pipeline` screen of the shape-gate loss v2 checkpoint.
 
+- [scripts/campaigns/track_2/run_shape_objective_bounded_track2_screen.md](./scripts/campaigns/track_2/run_shape_objective_bounded_track2_screen.md)
+  Launcher note for the bounded `polished_dataset` setpoint `Fw`
+  `TE Curve Verification Pipeline` screen of the shape-objective periodic MLP
+  harmonic pilot winner.
+
 - [../config/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/shape_gate_loss_v2_bounded_track2_screen_polished_setpoints_fw_matrix.yaml](../config/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/shape_gate_loss_v2_bounded_track2_screen_polished_setpoints_fw_matrix.yaml)
   Forward-only comparison matrix for the bounded shape-gate loss v2 screen,
   covering the v2 registry candidate, the prior shape-gate loss pilot, and
   polished-setpoint forward exported baselines.
+
+- [../config/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/shape_objective_bounded_track2_screen_polished_setpoints_fw_matrix.yaml](../config/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/shape_objective_bounded_track2_screen_polished_setpoints_fw_matrix.yaml)
+  Forward-only comparison matrix for the bounded shape-objective screen,
+  covering the periodic MLP harmonic pilot winner and the required windowed and
+  non-windowed polished-setpoint baselines.
 
 - [../config/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/shape_gate_pilot_expansion_polished_setpoints_fw_bw_matrix.yaml](../config/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/shape_gate_pilot_expansion_polished_setpoints_fw_bw_matrix.yaml)
   Patched polished-setpoint Fw/Bw `TE Curve Verification Pipeline` comparison

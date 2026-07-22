@@ -146,6 +146,24 @@ Launch the follow-up on the remote workstation with:
    .\scripts\campaigns\cross_wave\run_parallel_shape_objective_followup_campaign.ps1 `
      -Remote
 
+Shape-objective bounded TE Curve Verification screen
+----------------------------------------------------
+
+After the shape-objective follow-up is closed out, validate the bounded
+``polished_dataset`` setpoint ``Fw`` verification-screen package with:
+
+.. code-block:: powershell
+
+   .\scripts\campaigns\track_2\run_shape_objective_bounded_track2_screen.ps1 `
+     -PreflightOnly
+
+Launch the bounded screen on the remote workstation with:
+
+.. code-block:: powershell
+
+   .\scripts\campaigns\track_2\run_shape_objective_bounded_track2_screen.ps1 `
+     -Remote
+
 After normal campaign closeout, the separate operator-launched official TE
 Curve Verification Pipeline refresh evaluates the selected harmonic-profile
 registry candidates across ``global``, ``Fw``, and ``Bw``. Run it locally with:
