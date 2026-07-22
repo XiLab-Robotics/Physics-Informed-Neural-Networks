@@ -158,6 +158,11 @@ The remote PowerShell transport no longer depends on stdin-fed
 removes the temporary remote script. This hardens marker capture on the Windows
 LAN node.
 
+The local SSH stream reader uses asynchronous stdout/stderr handlers instead of
+blocking `Peek()` polling. This prevents completed remote campaigns from
+leaving the operator terminal stuck in `remote_run` after the remote training
+process has already emitted the final manifest and sync markers.
+
 ## Sync Contract
 
 The remote path does not blindly overwrite the whole local repository after the

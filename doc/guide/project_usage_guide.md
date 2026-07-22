@@ -276,6 +276,22 @@ Remote shape-objective bounded `TE Curve Verification Pipeline` screen:
   -Remote
 ```
 
+Prepared shape-first training-rule distillation one-batch validation without
+training:
+
+```powershell
+.\scripts\campaigns\cross_wave\run_shape_first_training_rule_distillation_pilot_campaign.ps1 `
+  -PreflightOnly `
+  -RunOneBatchValidation
+```
+
+Remote shape-first training-rule distillation pilot:
+
+```powershell
+.\scripts\campaigns\cross_wave\run_shape_first_training_rule_distillation_pilot_campaign.ps1 `
+  -Remote
+```
+
 Operator-launched `Wave 5.2B` TE Curve Verification Pipeline refresh:
 
 ```powershell
@@ -465,6 +481,12 @@ The current usage flow mainly relies on these folders:
   non-windowed, and curve-aware `polished_dataset` setpoint `Fw` queue entries,
   then launches locally or delegates to the repository-owned remote campaign
   runner after approval.
+
+- `scripts/campaigns/cross_wave/run_shape_first_training_rule_distillation_pilot_campaign.ps1`
+  Prepared two-arm shape-first training-rule distillation launcher. It
+  validates one time-windowed and one non-windowed `polished_dataset` setpoint
+  `Fw` queue entry, then launches locally or delegates to the repository-owned
+  remote campaign runner after approval.
 
 - `scripts/campaigns/track_2/run_shape_objective_bounded_track2_screen.ps1`
   Operator-facing bounded `TE Curve Verification Pipeline` screen for the

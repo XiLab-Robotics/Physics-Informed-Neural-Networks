@@ -288,6 +288,10 @@ This folder contains the internal project documents derived from the reference P
   monitors, and conservative auxiliary-loss candidates without treating the
   failed shape-objective branch as promoted evidence.
 
+- [technical/2026-07/2026-07-22/2026-07-22-15-14-36_remote_training_stream_completion_fix.md](./technical/2026-07/2026-07-22/2026-07-22-15-14-36_remote_training_stream_completion_fix.md)
+  Technical plan for fixing completed LAN-remote training campaigns that leave
+  the local operator terminal stuck in `remote_run` before artifact sync-back.
+
 - [reports/campaign_plans/cross_wave/shape_gate_loss_v2/2026-07-21-12-21-36_shape_gate_loss_v2_checkpoint_selection_pilot_campaign_plan_report.md](./reports/campaign_plans/cross_wave/shape_gate_loss_v2/2026-07-21-12-21-36_shape_gate_loss_v2_checkpoint_selection_pilot_campaign_plan_report.md)
   Campaign plan for the one-run `polished_dataset` setpoint `Fw` shape-gate
   loss v2 checkpoint-selection pilot.
@@ -307,9 +311,29 @@ This folder contains the internal project documents derived from the reference P
   `TE Curve Verification Pipeline` screen of the shape-objective periodic MLP
   harmonic pilot winner against windowed and non-windowed polished baselines.
 
+- [reports/campaign_plans/cross_wave/shape_first_training_rule_distillation/2026-07-22-13-14-28_shape_first_training_rule_distillation_pilot_campaign_plan_report.md](./reports/campaign_plans/cross_wave/shape_first_training_rule_distillation/2026-07-22-13-14-28_shape_first_training_rule_distillation_pilot_campaign_plan_report.md)
+  Campaign plan for a two-arm shape-first training-rule distillation mini-pilot
+  that keeps one time-windowed and one non-windowed `polished_dataset` setpoint
+  `Fw` candidate in scope.
+
 - [scripts/campaigns/cross_wave/run_parallel_shape_objective_followup_campaign.md](./scripts/campaigns/cross_wave/run_parallel_shape_objective_followup_campaign.md)
   Launcher note for validating or launching the three-arm shape-objective
   follow-up locally or through the repository-owned remote campaign workflow.
+
+- [scripts/campaigns/cross_wave/run_shape_first_training_rule_distillation_pilot_campaign.md](./scripts/campaigns/cross_wave/run_shape_first_training_rule_distillation_pilot_campaign.md)
+  Launcher note for validating or launching the two-arm shape-first
+  training-rule distillation pilot locally or through the remote campaign
+  workflow.
+
+- [reports/campaign_results/cross_wave/shape_first_training_rule_distillation/2026-07-22-15-20-49_shape_first_training_rule_distillation_pilot_campaign_results_report.md](./reports/campaign_results/cross_wave/shape_first_training_rule_distillation/2026-07-22-15-20-49_shape_first_training_rule_distillation_pilot_campaign_results_report.md)
+  Final results report for the completed two-arm shape-first training-rule
+  distillation pilot, including the remote stream recovery note, scalar
+  winner, time-windowed versus non-windowed comparison, and bounded
+  curve-first next step.
+
+- [reports/campaign_results/cross_wave/shape_first_training_rule_distillation/2026-07-22-15-20-49_shape_first_training_rule_distillation_pilot_campaign_results_report.pdf](./reports/campaign_results/cross_wave/shape_first_training_rule_distillation/2026-07-22-15-20-49_shape_first_training_rule_distillation_pilot_campaign_results_report.pdf)
+  Styled PDF export of the shape-first training-rule distillation pilot
+  closeout report.
 
 - [scripts/campaigns/cross_wave/run_shape_gate_loss_v2_checkpoint_selection_pilot_campaign.md](./scripts/campaigns/cross_wave/run_shape_gate_loss_v2_checkpoint_selection_pilot_campaign.md)
   Launcher note for validating or launching the shape-gate loss v2
@@ -3226,6 +3250,14 @@ This folder contains the internal project documents derived from the reference P
   Script-level documentation for the broader Markdownlint runner that applies the tracked canonical-scope rule profile outside `reference/`.
 
 ### Reports
+
+- [Shape-First Training-Rule Distillation Pilot Campaign Results](reports/campaign_results/cross_wave/shape_first_training_rule_distillation/2026-07-22-15-20-49_shape_first_training_rule_distillation_pilot_campaign_results_report.md)
+  Final closeout report for the two-arm time-windowed versus non-windowed
+  shape-first training-rule distillation pilot.
+
+- [Shape-First Training-Rule Distillation Pilot Campaign Results PDF](reports/campaign_results/cross_wave/shape_first_training_rule_distillation/2026-07-22-15-20-49_shape_first_training_rule_distillation_pilot_campaign_results_report.pdf)
+  Styled PDF export for the shape-first training-rule distillation pilot
+  closeout.
 
 - [Parallel Shape-Objective Follow-Up Track 2 Curve Plot Summary](reports/campaign_results/track_2/verification_plots/shape_objective_followup_polished_setpoints_fw/track2_candidate_curve_plot_summary.yaml)
   Manifest for the bounded Track 2 measured-versus-predicted TE curve plots generated for the shape-objective follow-up pilot.

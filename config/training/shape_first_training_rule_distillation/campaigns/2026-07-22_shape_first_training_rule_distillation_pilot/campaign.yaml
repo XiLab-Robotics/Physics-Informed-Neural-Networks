@@ -1,0 +1,35 @@
+schema_version: 1
+campaign_name: shape_first_training_rule_distillation_pilot_2026_07_22
+campaign_type: shape_first_training_rule_distillation_pilot
+family_name: shape_first_training_rule_distillation
+dataset_name: polished_dataset
+input_mode: setpoints
+dataset_schema: polished_setpoint_curve_v1
+source_dataset_root: data/polished_dataset
+primary_surface: fw
+expected_surface_list:
+- fw
+expected_run_count: 2
+planning_report_path: doc/reports/campaign_plans/cross_wave/shape_first_training_rule_distillation/2026-07-22-13-14-28_shape_first_training_rule_distillation_pilot_campaign_plan_report.md
+technical_document_path: doc/technical/2026-07/2026-07-22/2026-07-22-12-54-02_shape_first_training_rule_distillation.md
+queue_root: config/training/queue/shape_first_training_rule_distillation/shape_first_training_rule_distillation_pilot_2026_07_22
+queue_config_path_list:
+- config/training/shape_first_training_rule_distillation/campaigns/2026-07-22_shape_first_training_rule_distillation_pilot/queue/001_shape_first_distilled_periodic_gru_sequence_fw.yaml
+- config/training/shape_first_training_rule_distillation/campaigns/2026-07-22_shape_first_training_rule_distillation_pilot/queue/002_shape_first_distilled_periodic_mlp_harmonic_fw.yaml
+execution_policy:
+  operator_run_required: true
+  stop_on_error: true
+  run_te_curve_verification_pipeline: false
+  promotion_requires_bounded_screen: true
+  preserve_windowed_and_non_windowed_paths: true
+acceptance_screen:
+  primary_reranker: scripts/reports/analysis/build_shape_gated_te_curve_reranker.py
+  scalar_mae_only_promotion_allowed: false
+  required_windowed_baseline: polished_setpoints_periodic_gru_sequence_Fw
+  required_non_windowed_baseline: polished_setpoints_periodic_mlp_harmonic_Fw
+  bounded_surface: fw
+  bounded_dataset: polished_dataset
+  bounded_input_mode: setpoints
+notes: Two-arm monitor-first pilot that distills shape-first Track 2 screen evidence
+  into conservative training pressure while keeping one time-windowed and one
+  non-windowed candidate in scope.

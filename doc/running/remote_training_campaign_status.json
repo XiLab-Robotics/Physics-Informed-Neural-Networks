@@ -1,39 +1,36 @@
 {
-  "run_status": "completed",
-  "stage": "completed_with_manual_sync_recovery",
-  "remote_host_alias": "xilab-remote",
-  "remote_repository_path": "C:\\Users\\Martina Salami\\Documents\\Davide\\Physics-Informed-Neural-Networks",
-  "remote_conda_environment_name": "pinns_env",
-  "campaign_name": "parallel_shape_objective_followup_2026_07_21",
-  "planning_report_path": "doc/reports/campaign_plans/cross_wave/shape_objective/2026-07-21-18-36-30_parallel_shape_objective_followup_campaign_plan_report.md",
-  "campaign_config_path_list": [
-    "config/training/shape_objective_followup/campaigns/2026-07-21_parallel_shape_objective_followup/queue/001_shape_objective_v3_periodic_gru_sequence_fw.yaml",
-    "config/training/shape_objective_followup/campaigns/2026-07-21_parallel_shape_objective_followup/queue/002_shape_objective_periodic_mlp_harmonic_fw.yaml",
-    "config/training/shape_objective_followup/campaigns/2026-07-21_parallel_shape_objective_followup/queue/003_shape_objective_curve_aware_residual_fw.yaml"
-  ],
-  "source_sync_path_list": [
-    "scripts",
-    "config",
-    "doc",
-    "site",
-    "requirements.txt",
-    "AGENTS.md"
-  ],
-  "local_log_path": "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\.temp\\remote_training_campaigns\\2026-07-21-18-51-06_parallel_shape_objective_followup_2026_07_21\\remote_training_campaign.log",
-  "remote_campaign_output_directory": "output/training_campaigns/2026-07-21-18-52-44_parallel_shape_objective_followup_2026_07_21",
-  "remote_manifest_path": "output/training_campaigns/2026-07-21-18-52-44_parallel_shape_objective_followup_2026_07_21/campaign_manifest.yaml",
-  "last_failure_message": "",
-  "manual_sync_recovery_note": "Remote training completed successfully. The local SSH wrapper was stale after remote completion and was stopped after verifying remote artifacts; artifacts were synchronized manually from the remote campaign manifest and run directories.",
-  "synced_path_list": [
-    "output/training_campaigns/2026-07-21-18-52-44_parallel_shape_objective_followup_2026_07_21",
-    "output/training_runs/shape_objective_followup/2026-07-21-18-52-44__te_shape_objective_v3_periodic_gru_sequence_fw__polished_setpoints",
-    "output/training_runs/shape_objective_followup/2026-07-21-19-02-58__te_shape_objective_periodic_mlp_harmonic_fw__polished_setpoints",
-    "output/training_runs/shape_objective_followup/2026-07-21-19-12-09__te_shape_objective_curve_aware_residual_fw__polished_setpoints",
-    "config/training/queue/shape_objective_followup/parallel_shape_objective_followup_2026_07_21",
-    "output/registries/families/shape_objective_v3_periodic_gru_sequence_fw",
-    "output/registries/families/shape_objective_periodic_mlp_harmonic_fw",
-    "output/registries/families/shape_objective_curve_aware_residual_fw",
-    "output/registries/program/current_best_solution.yaml"
-  ],
-  "updated_at": "2026-07-21T19:29:30+02:00"
+    "run_status": "completed",
+    "stage": "completed_with_manual_recovery",
+    "remote_host_alias": "xilab-remote",
+    "remote_repository_path": "C:\\Users\\Martina Salami\\Documents\\Davide\\Physics-Informed-Neural-Networks",
+    "remote_conda_environment_name": "pinns_env",
+    "campaign_name": "shape_first_training_rule_distillation_pilot_2026_07_22",
+    "planning_report_path": "doc/reports/campaign_plans/cross_wave/shape_first_training_rule_distillation/2026-07-22-13-14-28_shape_first_training_rule_distillation_pilot_campaign_plan_report.md",
+    "campaign_config_path_list": [
+        "config/training/shape_first_training_rule_distillation/campaigns/2026-07-22_shape_first_training_rule_distillation_pilot/queue/001_shape_first_distilled_periodic_gru_sequence_fw.yaml",
+        "config/training/shape_first_training_rule_distillation/campaigns/2026-07-22_shape_first_training_rule_distillation_pilot/queue/002_shape_first_distilled_periodic_mlp_harmonic_fw.yaml"
+    ],
+    "source_sync_path_list": [
+        "scripts",
+        "config",
+        "doc",
+        "site",
+        "requirements.txt",
+        "AGENTS.md"
+    ],
+    "local_log_path": "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\.temp\\remote_training_campaigns\\2026-07-22-14-35-47_shape_first_training_rule_distillation_pilot_2026_07_22\\remote_training_campaign.log",
+    "remote_campaign_output_directory": "output/training_campaigns/2026-07-22-14-38-51_shape_first_training_rule_distillation_pilot_2026_07_22",
+    "remote_manifest_path": "output/training_campaigns/2026-07-22-14-38-51_shape_first_training_rule_distillation_pilot_2026_07_22/campaign_manifest.yaml",
+    "last_failure_message": "",
+    "recovery_note": "Remote training completed successfully, but the local SSH wrapper stayed active because the previous stream reader used blocking Peek() polling. The hung local ssh/cmd processes were stopped after remote completion was verified and artifacts were recovered. The shared remote runner now uses asynchronous stdout/stderr handlers.",
+    "synced_path_list": [
+        "output/training_campaigns/2026-07-22-14-38-51_shape_first_training_rule_distillation_pilot_2026_07_22",
+        "output/training_runs/shape_first_training_rule_distillation/2026-07-22-14-38-51__te_shape_first_distilled_periodic_gru_sequence_fw__polished_setpoints",
+        "output/training_runs/shape_first_training_rule_distillation/2026-07-22-14-43-06__te_shape_first_distilled_periodic_mlp_harmonic_fw__polished_setpoints",
+        "config/training/queue/shape_first_training_rule_distillation/shape_first_training_rule_distillation_pilot_2026_07_22/completed",
+        "output/registries/families/shape_first_distilled_periodic_gru_sequence_fw",
+        "output/registries/families/shape_first_distilled_periodic_mlp_harmonic_fw",
+        "output/registries/program/current_best_solution.yaml"
+    ],
+    "updated_at": "2026-07-22T15:20:49+02:00"
 }

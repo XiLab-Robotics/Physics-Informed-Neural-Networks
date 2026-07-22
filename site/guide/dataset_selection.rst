@@ -164,6 +164,25 @@ Launch the bounded screen on the remote workstation with:
    .\scripts\campaigns\track_2\run_shape_objective_bounded_track2_screen.ps1 `
      -Remote
 
+Shape-first training-rule distillation pilot
+--------------------------------------------
+
+Validate the prepared two-arm ``polished_dataset`` setpoint ``Fw`` pilot
+without training:
+
+.. code-block:: powershell
+
+   .\scripts\campaigns\cross_wave\run_shape_first_training_rule_distillation_pilot_campaign.ps1 `
+     -PreflightOnly `
+     -RunOneBatchValidation
+
+Launch the pilot on the remote workstation with:
+
+.. code-block:: powershell
+
+   .\scripts\campaigns\cross_wave\run_shape_first_training_rule_distillation_pilot_campaign.ps1 `
+     -Remote
+
 After normal campaign closeout, the separate operator-launched official TE
 Curve Verification Pipeline refresh evaluates the selected harmonic-profile
 registry candidates across ``global``, ``Fw``, and ``Bw``. Run it locally with:

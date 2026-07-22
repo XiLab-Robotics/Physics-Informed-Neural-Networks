@@ -64,10 +64,13 @@ Historical rationale and approval history remain in:
   `04_selected_model_reports/[YYYY-MM-DD]/`. `global`, collage, overlay, broad
   full-matrix, and simplified-vs-polished dataset-difference reports are paused
   and generated only after an explicit request.
-- Latest Bounded Screen: the `2026-07-22` shape-objective forward screen is
-  closed. `shape_objective_periodic_mlp_harmonic_fw` remained a completed
-  scalar pilot but ranked behind both polished setpoint baselines in
-  curve-first validation, so it is not promoted or expanded.
+- Latest Training Pilot: the `2026-07-22` shape-first training-rule
+  distillation pilot is closed. The non-windowed
+  `shape_first_distilled_periodic_mlp_harmonic_fw` arm won scalar selection
+  with validation MAE `0.001573 deg` and test MAE `0.001420 deg`; the
+  time-windowed `shape_first_distilled_periodic_gru_sequence_fw` arm retained
+  better test offset and amplitude losses. The scalar winner is not promoted
+  until a bounded curve-first screen beats the accepted forward baselines.
 
 Current canonical status reports:
 
@@ -279,6 +282,7 @@ Next planned diagnostic and training decision branches:
 | Intermediate shape-first model-selection cleanup | Reduce the post-retraining active set using raw error, P95, centered shape, P2P behavior, visual collage evidence, and actual-values stability. | completed; active set is `periodic_gru_sequence`, `wave4_1_mae_robust_loss`, `wave4_2_quantile_p10_p50_p90`, and `periodic_mlp_harmonic`; `periodic_lstm_sequence_Bw`, `Wave 4.3`, `Wave 4.4`, and `Wave 5.1` are closed as active branches |
 | Frequency-domain shape-gated reranker | Add measured/predicted FFT amplitude similarity, dominant-harmonic retention, dominant-harmonic phase error, robust derivative agreement, threshold sweep, and per-curve shape pass rate to future reduced reports. | implemented as reduced Fw/Bw tooling; calibration is the current screen before reopening any scalar leader that visually loses measured TE shape |
 | Shape-gate loss pilot | Test whether calibrated shape-gate evidence can improve training or checkpoint selection. | patched polished-setpoint Fw/Bw expansion completed. Forward recommendation remains `polished_setpoints_periodic_gru_sequence_Fw`; backward recommendation is `polished_setpoints_periodic_mlp_harmonic_Bw`; the shape-gate loss pilot remains a viable but non-promoted forward candidate. Future training should evaluate a stricter second pilot or checkpoint-selection variant focused on derivative/ripple preservation before any full `simplified_setpoints`, `polished_setpoints`, and `polished_actual_values` x `global`/`Fw`/`Bw` Aries campaign. |
+| Shape-first training-rule distillation | Use stable `TE Curve Verification Pipeline` shape-first checks as auxiliary training rules while preserving both time-windowed and non-windowed candidate roads. | first two-arm `polished_dataset` setpoint `Fw` pilot completed. The non-windowed harmonic MLP won scalar selection, but the time-windowed GRU kept better test offset and amplitude losses. Next action is a bounded curve-first screen against `polished_setpoints_periodic_gru_sequence_Fw` and `polished_setpoints_periodic_mlp_harmonic_Fw`, not promotion. |
 | Wave 6 integrated multi-task / multi-head model branch | Shared causal trunk with separate offset, low-frequency, centered-shape, uncertainty or mixture, and optional structured-residual heads. | deferred until the shape-gated reduced set identifies ingredients that beat the current temporal and non-windowed targets |
 | Sequential residual calibration branch | Current best causal model plus second causal residual or offset calibrator trained on model error. | candidate after audit |
 

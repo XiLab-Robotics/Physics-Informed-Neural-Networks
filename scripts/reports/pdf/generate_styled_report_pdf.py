@@ -50,6 +50,7 @@ REPORT_SPECIFIC_SUBTITLE_DICTIONARY = {
     "2026-06-09-01-56-25_track2g_curve_aware_training_campaign_results_report": "Wave 3.3 Campaign Closeout",
     "2026-06-29-10-39-38_polished_rcim_model_bank_reproduction_campaign_results_report": "Polished RCIM Model-Bank Reproduction Closeout",
     "2026-07-02-10-36-59_polished_full_wave_retraining_campaign_results_report": "Polished Full-Wave Retraining Closeout",
+    "2026-07-22-15-20-49_shape_first_training_rule_distillation_pilot_campaign_results_report": "Shape-First Training-Rule Distillation Pilot Closeout",
 }
 FAMILYWISE_ONNX_REPORT_SUBTITLE = "TE Curve Verification Familywise ONNX Diagnostics"
 

@@ -312,7 +312,10 @@ function Invoke-RemotePowerShellScriptWithStreamingLog {
     $utf8Encoding = [System.Text.ASCIIEncoding]::new()
     $logWriter = [System.IO.StreamWriter]::new($resolvedLogPath, $true, $utf8Encoding)
     $collectedLineList = [System.Collections.Generic.List[string]]::new()
+    $streamLock = [object]::new()
     $process = $null
+    $outputDataReceivedHandler = $null
+    $errorDataReceivedHandler = $null
     $normalizedRemoteScriptText = $RemoteScriptText.TrimStart([char]0xFEFF)
     $localTemporaryScriptPath = Join-Path $logDirectoryPath ("remote_command_{0}.ps1" -f ([guid]::NewGuid().ToString("N")))
     $remoteTemporaryDirectoryPath = $remoteStagingRootPath
@@ -356,39 +359,52 @@ function Invoke-RemotePowerShellScriptWithStreamingLog {
 
         $process = [System.Diagnostics.Process]::new()
         $process.StartInfo = $startInfo
+
+        $outputDataReceivedHandler = [System.Diagnostics.DataReceivedEventHandler] {
+            param($Sender, $EventArguments)
+
+            if ($null -eq $EventArguments.Data) {
+                return
+            }
+
+            [System.Threading.Monitor]::Enter($streamLock)
+            try {
+                Write-StreamingLine `
+                    -LineText $EventArguments.Data `
+                    -LogWriter $logWriter `
+                    -CollectedLineList $collectedLineList
+            }
+            finally {
+                [System.Threading.Monitor]::Exit($streamLock)
+            }
+        }
+
+        $errorDataReceivedHandler = [System.Diagnostics.DataReceivedEventHandler] {
+            param($Sender, $EventArguments)
+
+            if ($null -eq $EventArguments.Data) {
+                return
+            }
+
+            [System.Threading.Monitor]::Enter($streamLock)
+            try {
+                Write-StreamingLine `
+                    -LineText $EventArguments.Data `
+                    -LogWriter $logWriter `
+                    -CollectedLineList $collectedLineList
+            }
+            finally {
+                [System.Threading.Monitor]::Exit($streamLock)
+            }
+        }
+
+        $process.add_OutputDataReceived($outputDataReceivedHandler)
+        $process.add_ErrorDataReceived($errorDataReceivedHandler)
+
         $null = $process.Start()
-
-        while (-not $process.HasExited) {
-            while ($process.StandardOutput.Peek() -ge 0) {
-                Write-StreamingLine `
-                    -LineText $process.StandardOutput.ReadLine() `
-                    -LogWriter $logWriter `
-                    -CollectedLineList $collectedLineList
-            }
-
-            while ($process.StandardError.Peek() -ge 0) {
-                Write-StreamingLine `
-                    -LineText $process.StandardError.ReadLine() `
-                    -LogWriter $logWriter `
-                    -CollectedLineList $collectedLineList
-            }
-
-            $null = $process.WaitForExit(200)
-        }
-
-        while (-not $process.StandardOutput.EndOfStream) {
-            Write-StreamingLine `
-                -LineText $process.StandardOutput.ReadLine() `
-                -LogWriter $logWriter `
-                -CollectedLineList $collectedLineList
-        }
-
-        while (-not $process.StandardError.EndOfStream) {
-            Write-StreamingLine `
-                -LineText $process.StandardError.ReadLine() `
-                -LogWriter $logWriter `
-                -CollectedLineList $collectedLineList
-        }
+        $process.BeginOutputReadLine()
+        $process.BeginErrorReadLine()
+        $process.WaitForExit()
 
         return @{
             exit_code = [int]$process.ExitCode
