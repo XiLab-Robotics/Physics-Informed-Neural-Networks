@@ -302,6 +302,15 @@ This folder contains the internal project documents derived from the reference P
   the next physics-informed or offset-calibration branch before any new
   training campaign.
 
+- [technical/2026-07/2026-07-22/2026-07-22-17-38-44_causal_offset_mean_calibration_pilot.md](./technical/2026-07/2026-07-22/2026-07-22-17-38-44_causal_offset_mean_calibration_pilot.md)
+  Technical plan for a bounded causal offset / mean calibration pilot anchored
+  to the accepted polished-setpoint periodic GRU forward baseline.
+
+- [reports/analysis/model_development_waves/wave_5_2/causal_offset_mean_calibration/[2026-07-22]/causal_offset_mean_calibration_pilot_model_report.md](./reports/analysis/model_development_waves/wave_5_2/causal_offset_mean_calibration/%5B2026-07-22%5D/causal_offset_mean_calibration_pilot_model_report.md)
+  Model report for the causal offset / mean calibration pilot, covering the
+  reused residual-offset sequence branch, non-windowed harmonic comparator, and
+  promotion discipline.
+
 - [reports/analysis/model_development_waves/wave_5_2/post_shape_loss_decision_gate/[2026-07-22]/wave52_post_shape_loss_decision_gate.md](./reports/analysis/model_development_waves/wave_5_2/post_shape_loss_decision_gate/%5B2026-07-22%5D/wave52_post_shape_loss_decision_gate.md)
   Decision gate report closing the shape-threshold-loss branch and selecting
   a causal offset / mean calibration pilot as the next prepared branch.
@@ -336,6 +345,11 @@ This folder contains the internal project documents derived from the reference P
   time-windowed and non-windowed candidates against the accepted polished
   forward baselines.
 
+- [reports/campaign_plans/cross_wave/causal_offset_mean_calibration/2026-07-22-17-42-11_causal_offset_mean_calibration_pilot_plan_report.md](./reports/campaign_plans/cross_wave/causal_offset_mean_calibration/2026-07-22-17-42-11_causal_offset_mean_calibration_pilot_plan_report.md)
+  Campaign plan for the two-arm causal offset / mean calibration pilot on
+  `polished_dataset` setpoints `Fw`, preserving both the time-windowed and
+  non-windowed development roads.
+
 - [scripts/campaigns/cross_wave/run_parallel_shape_objective_followup_campaign.md](./scripts/campaigns/cross_wave/run_parallel_shape_objective_followup_campaign.md)
   Launcher note for validating or launching the three-arm shape-objective
   follow-up locally or through the repository-owned remote campaign workflow.
@@ -344,6 +358,29 @@ This folder contains the internal project documents derived from the reference P
   Launcher note for validating or launching the two-arm shape-first
   training-rule distillation pilot locally or through the remote campaign
   workflow.
+
+- [scripts/campaigns/cross_wave/run_causal_offset_mean_calibration_pilot_campaign.md](./scripts/campaigns/cross_wave/run_causal_offset_mean_calibration_pilot_campaign.md)
+  Launcher note for validating or launching the two-arm causal offset / mean
+  calibration pilot locally or through the remote campaign workflow.
+
+- [reports/analysis/validation_checks/2026-07-22-17-50-16_causal_o_b0af0bbf_te_causal_offset_mean_gru_46bd6a65_validation_setup_report.md](./reports/analysis/validation_checks/2026-07-22-17-50-16_causal_o_b0af0bbf_te_causal_offset_mean_gru_46bd6a65_validation_setup_report.md)
+  One-batch validation report for the causal offset / mean calibration GRU
+  sequence queue entry on `polished_dataset` setpoints `Fw`.
+
+- [reports/analysis/validation_checks/2026-07-22-17-50-25_causal_o_c9487618_te_causal_offset_mean_per_644ee343_validation_setup_report.md](./reports/analysis/validation_checks/2026-07-22-17-50-25_causal_o_c9487618_te_causal_offset_mean_per_644ee343_validation_setup_report.md)
+  One-batch validation report for the causal offset / mean calibration
+  non-windowed periodic MLP harmonic queue entry on `polished_dataset`
+  setpoints `Fw`.
+
+- [reports/campaign_results/cross_wave/causal_offset_mean_calibration/2026-07-22-18-33-02_causal_offset_mean_calibration_pilot_campaign_results_report.md](./reports/campaign_results/cross_wave/causal_offset_mean_calibration/2026-07-22-18-33-02_causal_offset_mean_calibration_pilot_campaign_results_report.md)
+  Final results report for the completed two-arm causal offset / mean
+  calibration pilot, including scalar winner selection, time-windowed versus
+  non-windowed interpretation, remote recovery note, and bounded curve-first
+  next step.
+
+- [reports/campaign_results/cross_wave/causal_offset_mean_calibration/2026-07-22-18-33-02_causal_offset_mean_calibration_pilot_campaign_results_report.pdf](./reports/campaign_results/cross_wave/causal_offset_mean_calibration/2026-07-22-18-33-02_causal_offset_mean_calibration_pilot_campaign_results_report.pdf)
+  Styled PDF export of the causal offset / mean calibration pilot closeout
+  report.
 
 - [reports/campaign_results/cross_wave/shape_first_training_rule_distillation/2026-07-22-15-20-49_shape_first_training_rule_distillation_pilot_campaign_results_report.md](./reports/campaign_results/cross_wave/shape_first_training_rule_distillation/2026-07-22-15-20-49_shape_first_training_rule_distillation_pilot_campaign_results_report.md)
   Final results report for the completed two-arm shape-first training-rule
@@ -3293,6 +3330,13 @@ This folder contains the internal project documents derived from the reference P
   Script-level documentation for the broader Markdownlint runner that applies the tracked canonical-scope rule profile outside `reference/`.
 
 ### Reports
+
+- [Causal Offset Mean Calibration Pilot Campaign Results](reports/campaign_results/cross_wave/causal_offset_mean_calibration/2026-07-22-18-33-02_causal_offset_mean_calibration_pilot_campaign_results_report.md)
+  Final closeout report for the two-arm time-windowed versus non-windowed
+  causal offset / mean calibration pilot.
+
+- [Causal Offset Mean Calibration Pilot Campaign Results PDF](reports/campaign_results/cross_wave/causal_offset_mean_calibration/2026-07-22-18-33-02_causal_offset_mean_calibration_pilot_campaign_results_report.pdf)
+  Styled PDF export for the causal offset / mean calibration pilot closeout.
 
 - [Shape-First Training-Rule Distillation Pilot Campaign Results](reports/campaign_results/cross_wave/shape_first_training_rule_distillation/2026-07-22-15-20-49_shape_first_training_rule_distillation_pilot_campaign_results_report.md)
   Final closeout report for the two-arm time-windowed versus non-windowed

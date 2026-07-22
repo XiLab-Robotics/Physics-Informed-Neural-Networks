@@ -1,11 +1,11 @@
-status: completed
-prepared_at: '2026-07-22T15:45:38+02:00'
-started_at: '2026-07-22T15:58:20+02:00'
-completed_at: '2026-07-22T16:01:25+02:00'
-closed_at: '2026-07-22T16:05:19+02:00'
-campaign_name: shape_first_distillation_bounded_track2_screen_2026_07_22
-campaign_type: bounded_te_curve_verification_screen
-execution_mode: remote
+status: closed
+prepared_at: '2026-07-22T17:42:11+02:00'
+started_at: '2026-07-22T18:09:27+02:00'
+completed_at: '2026-07-22T18:23:32+02:00'
+closed_at: '2026-07-22T18:36:21+02:00'
+campaign_name: causal_offset_mean_calibration_pilot_2026_07_22
+campaign_type: causal_offset_mean_calibration_pilot
+execution_mode: remote_manual_recovery
 remote_host_alias: xilab-remote
 remote_conda_environment_name: pinns_env
 dataset_id: polished_dataset
@@ -15,45 +15,59 @@ dataset_root: data/polished_dataset
 surface_list:
 - fw
 primary_surface: fw
-source_campaign_name: shape_first_training_rule_distillation_pilot_2026_07_22
-source_campaign_status: completed
-source_campaign_best_run_path: output/training_campaigns/2026-07-22-14-38-51_shape_first_training_rule_distillation_pilot_2026_07_22/campaign_best_run.yaml
-source_campaign_leaderboard_path: output/training_campaigns/2026-07-22-14-38-51_shape_first_training_rule_distillation_pilot_2026_07_22/campaign_leaderboard.yaml
-windowed_candidate_family: shape_first_distilled_periodic_gru_sequence_fw
-windowed_candidate_registry_path: output/registries/families/shape_first_distilled_periodic_gru_sequence_fw/latest_family_best.yaml
-non_windowed_candidate_family: shape_first_distilled_periodic_mlp_harmonic_fw
-non_windowed_candidate_registry_path: output/registries/families/shape_first_distilled_periodic_mlp_harmonic_fw/latest_family_best.yaml
+expected_run_count: 2
+completed_run_count: 2
+failed_run_count: 0
+windowed_candidate_family: causal_offset_mean_gru_sequence_fw
+non_windowed_candidate_family: causal_offset_mean_periodic_mlp_harmonic_fw
 comparison_baseline_list:
 - polished_setpoints_periodic_gru_sequence_Fw
 - polished_setpoints_periodic_mlp_harmonic_Fw
-verification_matrix_config_path: config/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/shape_first_distillation_bounded_track2_screen_polished_setpoints_fw_matrix.yaml
-launcher_path: scripts/campaigns/track_2/run_shape_first_distillation_bounded_track2_screen.ps1
-launcher_note_path: doc/scripts/campaigns/track_2/run_shape_first_distillation_bounded_track2_screen.md
-planning_report_path: doc/reports/campaign_plans/cross_wave/shape_first_training_rule_distillation/2026-07-22-15-45-38_shape_first_distillation_bounded_track2_screen_plan_report.md
-technical_document_path: doc/technical/2026-07/2026-07-22/2026-07-22-15-45-38_shape_first_distillation_bounded_track2_screen.md
-local_preflight_command: .\scripts\campaigns\track_2\run_shape_first_distillation_bounded_track2_screen.ps1
+campaign_manifest_path: config/training/causal_offset_mean_calibration/campaigns/2026-07-22_causal_offset_mean_calibration_pilot/campaign.yaml
+campaign_output_directory: output/training_campaigns/2026-07-22-18-09-27_causal_offset_mean_calibration_pilot_2026_07_22
+campaign_config_path_list:
+- config/training/causal_offset_mean_calibration/campaigns/2026-07-22_causal_offset_mean_calibration_pilot/queue/001_causal_offset_mean_gru_sequence_fw.yaml
+- config/training/causal_offset_mean_calibration/campaigns/2026-07-22_causal_offset_mean_calibration_pilot/queue/002_causal_offset_mean_periodic_mlp_harmonic_fw.yaml
+queue_root: config/training/queue/causal_offset_mean_calibration/causal_offset_mean_calibration_pilot_2026_07_22
+launcher_path: scripts/campaigns/cross_wave/run_causal_offset_mean_calibration_pilot_campaign.ps1
+launcher_note_path: doc/scripts/campaigns/cross_wave/run_causal_offset_mean_calibration_pilot_campaign.md
+planning_report_path: doc/reports/campaign_plans/cross_wave/causal_offset_mean_calibration/2026-07-22-17-42-11_causal_offset_mean_calibration_pilot_plan_report.md
+technical_document_path: doc/technical/2026-07/2026-07-22/2026-07-22-17-38-44_causal_offset_mean_calibration_pilot.md
+model_report_path: doc/reports/analysis/model_development_waves/wave_5_2/causal_offset_mean_calibration/[2026-07-22]/causal_offset_mean_calibration_pilot_model_report.md
+campaign_leaderboard_path: output/training_campaigns/2026-07-22-18-09-27_causal_offset_mean_calibration_pilot_2026_07_22/campaign_leaderboard.yaml
+campaign_best_run_path: output/training_campaigns/2026-07-22-18-09-27_causal_offset_mean_calibration_pilot_2026_07_22/campaign_best_run.yaml
+campaign_best_run_report_path: output/training_campaigns/2026-07-22-18-09-27_causal_offset_mean_calibration_pilot_2026_07_22/campaign_best_run.md
+campaign_results_report_path: doc/reports/campaign_results/cross_wave/causal_offset_mean_calibration/2026-07-22-18-33-02_causal_offset_mean_calibration_pilot_campaign_results_report.md
+campaign_results_pdf_path: doc/reports/campaign_results/cross_wave/causal_offset_mean_calibration/2026-07-22-18-33-02_causal_offset_mean_calibration_pilot_campaign_results_report.pdf
+local_preflight_command: .\scripts\campaigns\cross_wave\run_causal_offset_mean_calibration_pilot_campaign.ps1
   -PreflightOnly
-remote_preflight_command: .\scripts\campaigns\track_2\run_shape_first_distillation_bounded_track2_screen.ps1
-  -Remote -PreflightOnly
-local_launch_command: .\scripts\campaigns\track_2\run_shape_first_distillation_bounded_track2_screen.ps1
-remote_launch_command: .\scripts\campaigns\track_2\run_shape_first_distillation_bounded_track2_screen.ps1
+local_one_batch_validation_command: .\scripts\campaigns\cross_wave\run_causal_offset_mean_calibration_pilot_campaign.ps1
+  -PreflightOnly -RunOneBatchValidation
+remote_launch_command: .\scripts\campaigns\cross_wave\run_causal_offset_mean_calibration_pilot_campaign.ps1
   -Remote
 launch_command_list:
-- .\scripts\campaigns\track_2\run_shape_first_distillation_bounded_track2_screen.ps1
+- .\scripts\campaigns\cross_wave\run_causal_offset_mean_calibration_pilot_campaign.ps1
   -PreflightOnly
-- .\scripts\campaigns\track_2\run_shape_first_distillation_bounded_track2_screen.ps1
-- .\scripts\campaigns\track_2\run_shape_first_distillation_bounded_track2_screen.ps1
-  -Remote -PreflightOnly
-- .\scripts\campaigns\track_2\run_shape_first_distillation_bounded_track2_screen.ps1
+- .\scripts\campaigns\cross_wave\run_causal_offset_mean_calibration_pilot_campaign.ps1
+  -PreflightOnly -RunOneBatchValidation
+- .\scripts\campaigns\cross_wave\run_causal_offset_mean_calibration_pilot_campaign.ps1
   -Remote
-artifact_list:
-- output/validation_checks/track2_reference_comparison/2026-07-22-15-58-24__shape_first_distillation_bounded_track2_screen_polished_setpoints_fw_matrix_shape_first_distillation_bounded_track2_screen_polished_setpoints_fw/validation_summary.yaml
-- output/validation_checks/shape_gated_te_curve_reranker/2026-07-22-15-59-37__shape_gated_te_curve_reranker/shape_gated_surface_decisions.yaml
-- output/validation_checks/track2_operator_launch_logs/2026-07-22-15-57-14_shape_first_distillation_bounded_track2_screen_polished_setpoints_fw/remote_artifacts.zip
-- doc/reports/analysis/validation_checks/te_curve_verification_pipeline/2026-07-22-15-59-32_shape_first_distillation_bounded_track2_screen_polished_setpoints_fw_matrix_shape_first_distillation_bounded_track2_screen_polished_setpoints_fw_report.md
-- doc/reports/analysis/te_curve_verification_pipeline/03_cvp_diagnostics/shape_gated_reranker/[2026-07-22]/shape_first_distillation_bounded_track2_screen_polished_setpoints_fw_matrix_shape_gated_te_curve_reranker_report.md
-- doc/reports/campaign_results/track_2/verification_plots/shape_first_distillation_bounded_track2_screen_polished_setpoints_fw/track2_candidate_curve_plot_summary.yaml
 protected_file_list: []
+artifact_list:
+- output/validation_checks/causal_offset_mean_gru_sequence_fw/2026-07-22-17-50-15__te_causal_offset_mean_gru_sequence_fw__polished_setpoints_validation_check/validation_summary.yaml
+- output/validation_checks/causal_offset_mean_periodic_mlp_harmonic_fw/2026-07-22-17-50-24__te_causal_offset_mean_periodic_mlp_harmonic_fw__polished_setpoints_validation_check/validation_summary.yaml
+- doc/reports/analysis/validation_checks/2026-07-22-17-50-16_causal_o_b0af0bbf_te_causal_offset_mean_gru_46bd6a65_validation_setup_report.md
+- doc/reports/analysis/validation_checks/2026-07-22-17-50-25_causal_o_c9487618_te_causal_offset_mean_per_644ee343_validation_setup_report.md
+- output/training_campaigns/2026-07-22-18-09-27_causal_offset_mean_calibration_pilot_2026_07_22
+- output/training_runs/causal_offset_mean_calibration/2026-07-22-18-09-27__te_causal_offset_mean_gru_sequence_fw__polished_setpoints
+- output/training_runs/causal_offset_mean_calibration/2026-07-22-18-15-50__te_causal_offset_mean_periodic_mlp_harmonic_fw__polished_setpoints
+- config/training/queue/causal_offset_mean_calibration/causal_offset_mean_calibration_pilot_2026_07_22/completed/2026-07-22-18-09-27_001_001_causal_offset_mean_gru_sequence_fw.yaml
+- config/training/queue/causal_offset_mean_calibration/causal_offset_mean_calibration_pilot_2026_07_22/completed/2026-07-22-18-09-27_002_002_causal_offset_mean_periodic_mlp_harmonic_fw.yaml
+- output/registries/program/current_best_solution.yaml
+- doc/reports/analysis/Training Results Master Summary.md
+- doc/reports/analysis/project_status/current/Training Results Master Summary.md
+- doc/reports/campaign_results/cross_wave/causal_offset_mean_calibration/2026-07-22-18-33-02_causal_offset_mean_calibration_pilot_campaign_results_report.md
+- doc/reports/campaign_results/cross_wave/causal_offset_mean_calibration/2026-07-22-18-33-02_causal_offset_mean_calibration_pilot_campaign_results_report.pdf
 acceptance_gate:
   scalar_mae_only_promotion_allowed: false
   promotion_decision_requires_curve_first_evidence: true
@@ -63,47 +77,46 @@ acceptance_gate:
   required_input_mode: setpoints
   required_windowed_baseline: polished_setpoints_periodic_gru_sequence_Fw
   required_non_windowed_baseline: polished_setpoints_periodic_mlp_harmonic_Fw
-  accepted_program_baseline_change_allowed_during_screen: false
-bounded_screen_decision:
+  accepted_program_baseline_change_allowed_during_campaign: false
+remote_recovery_notes: >
+  The repository-owned remote launcher and the user's terminal both exited
+  early around remote preflight / transport handling. Direct SSH execution with
+  uploaded temporary PowerShell scripts completed the campaign on the remote
+  workstation. The training runner reported Completed 2 and Failed 0, but
+  conda run returned -1073740791 after successful campaign output generation;
+  artifacts were synchronized back manually from the generated remote sync
+  manifest. The sync manifest listed a missing aggregate family registry under
+  output/registries/families/causal_offset_mean_calibration/leaderboard.yaml,
+  so campaign leaderboard artifacts are the canonical ranking surface for this
+  closeout.
+campaign_result_summary:
   promoted: false
-  recommended_candidate: polished_setpoints_periodic_gru_sequence_Fw
-  candidate_count: 4
-  curve_count: 100
+  scalar_campaign_winner: causal_offset_mean_periodic_mlp_harmonic_fw
   ranking:
   - rank: 1
-    candidate_id: polished_setpoints_periodic_gru_sequence_Fw
-    raw_mae_deg: 0.001837
-    centered_mae_deg: 0.001483
-    shape_pass_rate: 0.950000
-    composite_score: 0.019752
+    model_family: causal_offset_mean_periodic_mlp_harmonic_fw
+    model_type: periodic_mlp
+    run_instance_id: 2026-07-22-18-15-50__te_causal_offset_mean_periodic_mlp_harmonic_fw__polished_setpoints
+    val_mae: 0.0014689491363242269
+    test_mae: 0.0012772574555128813
+    test_rmse: 0.0017385343089699745
   - rank: 2
-    candidate_id: polished_setpoints_periodic_mlp_harmonic_Fw
-    raw_mae_deg: 0.001938
-    centered_mae_deg: 0.001490
-    shape_pass_rate: 0.920000
-    composite_score: 0.381829
-  - rank: 3
-    candidate_id: shape_first_distilled_periodic_gru_sequence_Fw
-    raw_mae_deg: 0.002032
-    centered_mae_deg: 0.001561
-    shape_pass_rate: 0.920000
-    composite_score: 0.811574
-  - rank: 4
-    candidate_id: shape_first_distilled_periodic_mlp_harmonic_Fw
-    raw_mae_deg: 0.002079
-    centered_mae_deg: 0.001637
-    shape_pass_rate: 0.900000
-    composite_score: 0.862539
+    model_family: causal_offset_mean_gru_sequence_fw
+    model_type: sequential_residual_offset_probe
+    run_instance_id: 2026-07-22-18-09-27__te_causal_offset_mean_gru_sequence_fw__polished_setpoints
+    val_mae: 0.002428425243124366
+    test_mae: 0.002100362442433834
+    test_rmse: 0.0026104035787284374
 notes: >
-  Completed the bounded forward TE Curve Verification screen for the
-  shape-first training-rule distillation pilot. The first remote operator
-  attempt failed because baseline model archives were not synchronized
-  idempotently to the existing remote target. The launcher now removes the
-  remote target before scp sync and suppresses Compress-Archive progress noise.
-  The completed screen retained the accepted polished-setpoint periodic GRU
-  forward baseline and did not promote either distillation candidate.
+  Completed the two-arm causal offset / mean calibration pilot after the
+  shape-first distillation bounded screen failed to promote a new forward
+  baseline. The campaign kept the time-windowed and non-windowed roads active.
+  Normal campaign-results closeout selected the non-windowed harmonic MLP as
+  the scalar campaign winner, rejected immediate promotion, and left bounded
+  curve-first verification as the next required gate.
 monitoring:
-  last_checked_at: '2026-07-22T16:05:19+02:00'
-  remote_status: completed
-  remote_stage: closed
-  latest_observation: Remote bounded screen completed; reranker and measured-vs-predicted Track 2 plots synced locally.
+  last_checked_at: '2026-07-22T18:40:00+02:00'
+  remote_status: closed
+  remote_stage: normal_closeout_reported_and_pdf_validated
+  latest_observation: Campaign artifacts are synced, scalar closeout report is
+    registered, and the styled PDF was exported and raster-validated.

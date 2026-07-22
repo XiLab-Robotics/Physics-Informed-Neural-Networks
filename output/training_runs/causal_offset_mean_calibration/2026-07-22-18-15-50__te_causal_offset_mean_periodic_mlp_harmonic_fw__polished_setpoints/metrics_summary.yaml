@@ -1,0 +1,107 @@
+schema_version: 1
+config_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\config\training\queue\causal_offset_mean_calibration\causal_offset_mean_calibration_pilot_2026_07_22\running\2026-07-22-18-09-27_002_002_causal_offset_mean_periodic_mlp_harmonic_fw.yaml
+experiment:
+  model_family: causal_offset_mean_periodic_mlp_harmonic_fw
+  model_type: periodic_mlp
+  run_name: te_causal_offset_mean_periodic_mlp_harmonic_fw__polished_setpoints
+  output_run_name: te_causal_offset_mean_periodic_mlp_harmonic_fw__polished_setpoints
+  run_instance_id: 2026-07-22-18-15-50__te_causal_offset_mean_periodic_mlp_harmonic_fw__polished_setpoints
+  output_artifact_kind: training_run
+  base_model_family: periodic_mlp_harmonic
+  training_variant: fw
+  direction_scope_label: forward_only
+  use_forward_direction: true
+  use_backward_direction: false
+artifacts:
+  output_directory: R:\output\training_runs\causal_offset_mean_calibration\2026-07-22-18-15-50__te_causal_offset_mean_periodic_mlp_harmonic_fw__polished_setpoints
+  best_checkpoint_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_runs\causal_offset_mean_calibration\2026-07-22-18-15-50__te_causal_offset_mean_periodic_mlp_harmonic_fw__polished_setpoints\checkpoints\periodic_mlp-epoch=020-val_mae=0.00146895.ckpt
+dataset_split:
+  train_curve_count: 678
+  validation_curve_count: 194
+  test_curve_count: 97
+  dataset_name: polished_dataset
+  dataset_schema: polished_setpoint_curve_v1
+  input_mode: setpoints
+  input_feature_name_list:
+  - angular_position_deg
+  - input_speed_rpm
+  - input_torque_nm
+  - oil_temperature_deg
+  - direction_flag
+  target_feature_name_list:
+  - theta_TE
+  input_feature_dim: 5
+  target_feature_dim: 1
+dataset:
+  dataset_id: polished_dataset
+  dataset_schema: polished_setpoint_curve_v1
+  input_mode: setpoints
+  input_feature_names:
+  - angular_position_deg
+  - input_speed_rpm
+  - input_torque_nm
+  - oil_temperature_deg
+  - direction_flag
+  target_feature_names:
+  - theta_TE
+  input_feature_dim: 5
+  target_feature_dim: 1
+model_summary:
+  backbone_name: PeriodicFeatureNetwork
+  trainable_parameter_count: 28545
+  frozen_parameter_count: 0
+  total_parameter_count: 28545
+runtime_config:
+  accelerator: auto
+  devices: auto
+  precision: '32'
+  benchmark: true
+  use_non_blocking_transfer: true
+normalization_statistics:
+  input_feature_mean:
+  - 179.9995574951172
+  - 497.8607177734375
+  - 896.0148315429688
+  - 30.364091873168945
+  - 1.0
+  input_feature_std:
+  - 103.92352294921875
+  - 466.8061218261719
+  - 543.8323364257812
+  - 4.080519676208496
+  - 9.999999974752427e-07
+  target_mean:
+  - -0.05639513209462166
+  target_std:
+  - 0.02412978745996952
+validation_metrics:
+  val_loss: 0.01596485637128353
+  val_mae: 0.0014689491363242269
+  val_rmse: 0.0019009384559467435
+  val_pointwise_loss: 0.008758338168263435
+  val_centered_curve_shape_loss: 0.007616166956722736
+  val_curve_offset_loss: 0.002398151671513915
+  val_curve_amplitude_loss: 0.098801389336586
+  val_sparse_harmonic_shape_loss: 0.00013360251614358276
+test_metrics:
+  test_loss: 0.011485816910862923
+  test_mae: 0.0012772574555128813
+  test_rmse: 0.0017385343089699745
+  test_pointwise_loss: 0.006205084268003702
+  test_centered_curve_shape_loss: 0.005440448876470327
+  test_curve_offset_loss: 0.002523757517337799
+  test_curve_amplitude_loss: 0.0708889588713646
+  test_sparse_harmonic_shape_loss: 9.364144352730364e-05
+comparison_payload:
+  model_family: causal_offset_mean_periodic_mlp_harmonic_fw
+  model_type: periodic_mlp
+  run_name: te_causal_offset_mean_periodic_mlp_harmonic_fw__polished_setpoints
+  backbone_name: PeriodicFeatureNetwork
+  trainable_parameter_count: 28545
+  total_parameter_count: 28545
+  val_mae: 0.0014689491363242269
+  val_rmse: 0.0019009384559467435
+  test_mae: 0.0012772574555128813
+  test_rmse: 0.0017385343089699745
+  deployment_notes: ''
+  interpretability_notes: ''

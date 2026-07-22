@@ -1,0 +1,36 @@
+schema_version: 1
+campaign_name: causal_offset_mean_calibration_pilot_2026_07_22
+campaign_type: causal_offset_mean_calibration_pilot
+family_name: causal_offset_mean_calibration
+dataset_name: polished_dataset
+input_mode: setpoints
+dataset_schema: polished_setpoint_curve_v1
+source_dataset_root: data/polished_dataset
+primary_surface: fw
+expected_surface_list:
+- fw
+expected_run_count: 2
+planning_report_path: doc/reports/campaign_plans/cross_wave/causal_offset_mean_calibration/2026-07-22-17-42-11_causal_offset_mean_calibration_pilot_plan_report.md
+technical_document_path: doc/technical/2026-07/2026-07-22/2026-07-22-17-38-44_causal_offset_mean_calibration_pilot.md
+model_report_path: doc/reports/analysis/model_development_waves/wave_5_2/causal_offset_mean_calibration/[2026-07-22]/causal_offset_mean_calibration_pilot_model_report.md
+queue_root: config/training/queue/causal_offset_mean_calibration/causal_offset_mean_calibration_pilot_2026_07_22
+queue_config_path_list:
+- config/training/causal_offset_mean_calibration/campaigns/2026-07-22_causal_offset_mean_calibration_pilot/queue/001_causal_offset_mean_gru_sequence_fw.yaml
+- config/training/causal_offset_mean_calibration/campaigns/2026-07-22_causal_offset_mean_calibration_pilot/queue/002_causal_offset_mean_periodic_mlp_harmonic_fw.yaml
+execution_policy:
+  operator_run_required: true
+  stop_on_error: true
+  run_te_curve_verification_pipeline: false
+  promotion_requires_bounded_screen: true
+  preserve_windowed_and_non_windowed_paths: true
+acceptance_screen:
+  primary_reranker: scripts/reports/analysis/build_shape_gated_te_curve_reranker.py
+  scalar_mae_only_promotion_allowed: false
+  required_windowed_baseline: polished_setpoints_periodic_gru_sequence_Fw
+  required_non_windowed_baseline: polished_setpoints_periodic_mlp_harmonic_Fw
+  bounded_surface: fw
+  bounded_dataset: polished_dataset
+  bounded_input_mode: setpoints
+notes: Two-arm causal offset / mean calibration pilot that keeps both the
+  time-windowed GRU-sequence road and the non-windowed harmonic MLP road active
+  after shape-first loss escalation failed to promote a new forward baseline.

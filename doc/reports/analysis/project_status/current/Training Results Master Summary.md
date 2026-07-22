@@ -2,12 +2,12 @@
 
 ## Executive Snapshot
 
-- Generated At: `2026-07-22T16:27:19`
+- Generated At: `2026-07-22T18:38:51`
 - Program State: active.
 - Current Completed Wave: polished-dataset RCIM, early-wave, and full-wave
 - Current Focus: the polished-dataset TE Curve Verification Pipeline refresh is
-- Active Campaign Status: `completed`
-- Active Campaign Name: `shape_first_distillation_bounded_track2_screen_2026_07_22`
+- Active Campaign Status: `closed`
+- Active Campaign Name: `causal_offset_mean_calibration_pilot_2026_07_22`
 - Current Program Winner: `te_periodic_gru_sequence_bw` | Family `periodic_gru_sequence_bw` | Test MAE `0.001084`
 
 ## Main Takeaways
@@ -16,12 +16,6 @@
 - Current plain MLP anchor: `te_feedforward_trial`
 - Active family-improvement branch count: `0`
 - Implemented and benchmarked family count: `212`
-- Latest bounded curve-first decision: `polished_setpoints_periodic_gru_sequence_Fw`
-  remains the accepted forward recommendation; neither shape-first
-  distillation candidate is promoted.
-- Latest design-gate decision: direct shape-threshold training pressure is
-  closed for now; the next prepared branch should be a causal offset / mean
-  calibration pilot anchored to `polished_setpoints_periodic_gru_sequence_Fw`.
 
 ## Current Project Status
 
@@ -440,11 +434,11 @@ Low-priority exploratory families currently listed in the backlog:
 
 | Campaign | Generated At | Completed | Failed | Winner | Impact |
 | --- | --- | ---: | ---: | --- | --- |
+| `causal_offset_mean_calibration_pilot_2026_07_22` | `2026-07-22 18:23:32` | 2 | 0 | `te_causal_offset_mean_periodic_mlp_harmonic_fw__polished_setpoints` | No family-best change |
 | `shape_first_training_rule_distillation_pilot_2026_07_22` | `2026-07-22 14:48:11` | 2 | 0 | `te_shape_first_distilled_periodic_mlp_harmonic_fw__polished_setpoints` | Updated shape_first_distilled_periodic_mlp_harmonic_fw family best |
 | `parallel_shape_objective_followup_2026_07_21` | `2026-07-21 19:20:11` | 3 | 0 | `te_shape_objective_periodic_mlp_harmonic_fw__polished_setpoints` | Updated shape_objective_periodic_mlp_harmonic_fw family best |
 | `shape_gate_loss_v2_checkpoint_selection_pilot_2026_07_21` | `2026-07-21 13:08:39` | 1 | 0 | `te_shape_gate_loss_v2_periodic_gru_sequence_fw__polished_setpoints` | Updated shape_gate_loss_v2_checkpoint_selection_periodic_gru_sequence_fw family best |
 | `shape_gate_loss_pilot_2026_07_20` | `2026-07-20 20:07:19` | 1 | 0 | `te_shape_gate_loss_periodic_gru_sequence_fw__polished_setpoints` | Updated shape_gate_loss_pilot_periodic_gru_sequence_fw family best |
-| `dataset_input_mode_retraining__wave5_1_harmonic_prior_smooth_l1_structured__polished_actual_values` | `2026-07-16 07:23:05` | 3 | 0 | `te_wave5_1_harmonic_prior_smooth_l1_structured_global__polished_actual_values` | No family-best change |
 
 ## Ranking Policy
 
@@ -1317,6 +1311,18 @@ Known failed campaign attempts for this family:
 | 3 | `te_wave5_1_harmonic_prior_smooth_l1_structured_bw` | `wave3_harmonic_prior_residual` | 0.002178 | 0.002776 | 0.001921 | 7,168 | 25m 05s | 0.10 MB | Low | Medium | `polished_dataset_full_wave_retraining_2026_06_22` |
 
 ### Forward Models
+
+#### causal_offset_mean_calibration
+
+- Best run: `N/A`
+- Best test MAE: `N/A`
+- Completed tracked runs: `2`
+- Known failed campaign attempts: `0`
+
+| Rank | Run | Model Type | Test MAE [deg] | Test RMSE [deg] | Val MAE [deg] | Params | Duration | Artifact Size | Model Complexity | Training Heaviness | Campaign |
+| --- | --- | --- | ---: | ---: | ---: | ---: | --- | --- | --- | --- | --- |
+| 1 | `te_causal_offset_mean_periodic_mlp_harmonic_fw__polished_setpoints` | `periodic_mlp` | 0.001277 | 0.001739 | 0.001469 | 28,545 | 7m 42s | 0.35 MB | Medium | Low | `causal_offset_mean_calibration_pilot_2026_07_22` |
+| 2 | `te_causal_offset_mean_gru_sequence_fw__polished_setpoints` | `sequential_residual_offset_probe` | 0.002100 | 0.002610 | 0.002428 | 92,802 | 6m 23s | 1.09 MB | High | Low | `causal_offset_mean_calibration_pilot_2026_07_22` |
 
 #### feedforward_fw
 

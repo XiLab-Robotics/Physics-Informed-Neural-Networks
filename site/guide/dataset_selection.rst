@@ -109,6 +109,25 @@ Remote launch delegates to the repository-owned remote campaign runner:
 
    .\scripts\campaigns\cross_wave\run_shape_gate_loss_v2_checkpoint_selection_pilot_campaign.ps1 -Remote
 
+Causal offset / mean calibration pilot
+--------------------------------------
+
+Validate the prepared two-arm ``polished_dataset`` setpoint ``Fw`` pilot
+without training:
+
+.. code-block:: powershell
+
+   .\scripts\campaigns\cross_wave\run_causal_offset_mean_calibration_pilot_campaign.ps1 `
+     -PreflightOnly `
+     -RunOneBatchValidation
+
+Launch the pilot on the remote workstation with:
+
+.. code-block:: powershell
+
+   .\scripts\campaigns\cross_wave\run_causal_offset_mean_calibration_pilot_campaign.ps1 `
+     -Remote
+
 Shape-gate loss v2 bounded TE Curve Verification screen
 -------------------------------------------------------
 

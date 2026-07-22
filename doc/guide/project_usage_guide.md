@@ -292,6 +292,22 @@ Remote shape-first training-rule distillation pilot:
   -Remote
 ```
 
+Prepared causal offset / mean calibration one-batch validation without
+training:
+
+```powershell
+.\scripts\campaigns\cross_wave\run_causal_offset_mean_calibration_pilot_campaign.ps1 `
+  -PreflightOnly `
+  -RunOneBatchValidation
+```
+
+Remote causal offset / mean calibration pilot:
+
+```powershell
+.\scripts\campaigns\cross_wave\run_causal_offset_mean_calibration_pilot_campaign.ps1 `
+  -Remote
+```
+
 Prepared shape-first distillation bounded `TE Curve Verification Pipeline`
 screen preflight:
 
@@ -503,6 +519,13 @@ The current usage flow mainly relies on these folders:
   validates one time-windowed and one non-windowed `polished_dataset` setpoint
   `Fw` queue entry, then launches locally or delegates to the repository-owned
   remote campaign runner after approval.
+
+- `scripts/campaigns/cross_wave/run_causal_offset_mean_calibration_pilot_campaign.ps1`
+  Prepared two-arm causal offset / mean calibration launcher. It validates one
+  time-windowed residual-offset `GRU` sequence candidate and one non-windowed
+  harmonic `MLP` candidate for `polished_dataset` setpoint `Fw`, then launches
+  locally or delegates to the repository-owned remote campaign runner after
+  approval.
 
 - `scripts/campaigns/track_2/run_shape_objective_bounded_track2_screen.ps1`
   Operator-facing bounded `TE Curve Verification Pipeline` screen for the
