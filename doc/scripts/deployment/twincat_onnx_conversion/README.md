@@ -143,6 +143,18 @@ and writes:
 reference/codes/TwinCAT_TF3820_StandaloneModelTest/
 ```
 
+That path is a Git submodule backed by:
+
+```text
+https://github.com/XiLab-Robotics/TwinCAT-TF3820-StandaloneModelTest
+```
+
+Initialize or refresh it after cloning the main repository with:
+
+```powershell
+git submodule update --init --recursive reference/codes/TwinCAT_TF3820_StandaloneModelTest
+```
+
 That output contains:
 
 - `TwinCAT_TF3820_StandaloneModelTest.sln`;
