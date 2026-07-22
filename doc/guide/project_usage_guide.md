@@ -292,6 +292,22 @@ Remote shape-first training-rule distillation pilot:
   -Remote
 ```
 
+Prepared shape-first distillation bounded `TE Curve Verification Pipeline`
+screen preflight:
+
+```powershell
+.\scripts\campaigns\track_2\run_shape_first_distillation_bounded_track2_screen.ps1 `
+  -PreflightOnly
+```
+
+Remote shape-first distillation bounded `TE Curve Verification Pipeline`
+screen:
+
+```powershell
+.\scripts\campaigns\track_2\run_shape_first_distillation_bounded_track2_screen.ps1 `
+  -Remote
+```
+
 Operator-launched `Wave 5.2B` TE Curve Verification Pipeline refresh:
 
 ```powershell

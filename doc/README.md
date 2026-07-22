@@ -292,6 +292,11 @@ This folder contains the internal project documents derived from the reference P
   Technical plan for fixing completed LAN-remote training campaigns that leave
   the local operator terminal stuck in `remote_run` before artifact sync-back.
 
+- [technical/2026-07/2026-07-22/2026-07-22-15-45-38_shape_first_distillation_bounded_track2_screen.md](./technical/2026-07/2026-07-22/2026-07-22-15-45-38_shape_first_distillation_bounded_track2_screen.md)
+  Technical plan for a bounded `TE Curve Verification Pipeline` screen of the
+  shape-first distillation pilot candidates against the accepted
+  polished-setpoint forward baselines.
+
 - [reports/campaign_plans/cross_wave/shape_gate_loss_v2/2026-07-21-12-21-36_shape_gate_loss_v2_checkpoint_selection_pilot_campaign_plan_report.md](./reports/campaign_plans/cross_wave/shape_gate_loss_v2/2026-07-21-12-21-36_shape_gate_loss_v2_checkpoint_selection_pilot_campaign_plan_report.md)
   Campaign plan for the one-run `polished_dataset` setpoint `Fw` shape-gate
   loss v2 checkpoint-selection pilot.
@@ -315,6 +320,12 @@ This folder contains the internal project documents derived from the reference P
   Campaign plan for a two-arm shape-first training-rule distillation mini-pilot
   that keeps one time-windowed and one non-windowed `polished_dataset` setpoint
   `Fw` candidate in scope.
+
+- [reports/campaign_plans/cross_wave/shape_first_training_rule_distillation/2026-07-22-15-45-38_shape_first_distillation_bounded_track2_screen_plan_report.md](./reports/campaign_plans/cross_wave/shape_first_training_rule_distillation/2026-07-22-15-45-38_shape_first_distillation_bounded_track2_screen_plan_report.md)
+  Plan for a bounded `polished_dataset` setpoint `Fw`
+  `TE Curve Verification Pipeline` screen of the shape-first distillation
+  time-windowed and non-windowed candidates against the accepted polished
+  forward baselines.
 
 - [scripts/campaigns/cross_wave/run_parallel_shape_objective_followup_campaign.md](./scripts/campaigns/cross_wave/run_parallel_shape_objective_followup_campaign.md)
   Launcher note for validating or launching the three-arm shape-objective
@@ -348,6 +359,11 @@ This folder contains the internal project documents derived from the reference P
   `TE Curve Verification Pipeline` screen of the shape-objective periodic MLP
   harmonic pilot winner.
 
+- [scripts/campaigns/track_2/run_shape_first_distillation_bounded_track2_screen.md](./scripts/campaigns/track_2/run_shape_first_distillation_bounded_track2_screen.md)
+  Launcher note for the bounded `polished_dataset` setpoint `Fw`
+  `TE Curve Verification Pipeline` screen of the shape-first distillation
+  time-windowed and non-windowed candidates.
+
 - [../config/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/shape_gate_loss_v2_bounded_track2_screen_polished_setpoints_fw_matrix.yaml](../config/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/shape_gate_loss_v2_bounded_track2_screen_polished_setpoints_fw_matrix.yaml)
   Forward-only comparison matrix for the bounded shape-gate loss v2 screen,
   covering the v2 registry candidate, the prior shape-gate loss pilot, and
@@ -357,6 +373,24 @@ This folder contains the internal project documents derived from the reference P
   Forward-only comparison matrix for the bounded shape-objective screen,
   covering the periodic MLP harmonic pilot winner and the required windowed and
   non-windowed polished-setpoint baselines.
+
+- [../config/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/shape_first_distillation_bounded_track2_screen_polished_setpoints_fw_matrix.yaml](../config/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/shape_first_distillation_bounded_track2_screen_polished_setpoints_fw_matrix.yaml)
+  Forward-only comparison matrix for the bounded shape-first distillation
+  screen, covering the two pilot candidates and the required windowed and
+  non-windowed polished-setpoint baselines.
+
+- [reports/analysis/validation_checks/te_curve_verification_pipeline/2026-07-22-15-59-32_shape_first_distillation_bounded_track2_screen_polished_setpoints_fw_matrix_shape_first_distillation_bounded_track2_screen_polished_setpoints_fw_report.md](./reports/analysis/validation_checks/te_curve_verification_pipeline/2026-07-22-15-59-32_shape_first_distillation_bounded_track2_screen_polished_setpoints_fw_matrix_shape_first_distillation_bounded_track2_screen_polished_setpoints_fw_report.md)
+  Matrix report for the completed bounded shape-first distillation
+  `polished_dataset` setpoint `Fw` screen.
+
+- [reports/analysis/te_curve_verification_pipeline/03_cvp_diagnostics/shape_gated_reranker/[2026-07-22]/shape_first_distillation_bounded_track2_screen_polished_setpoints_fw_matrix_shape_gated_te_curve_reranker_report.md](./reports/analysis/te_curve_verification_pipeline/03_cvp_diagnostics/shape_gated_reranker/%5B2026-07-22%5D/shape_first_distillation_bounded_track2_screen_polished_setpoints_fw_matrix_shape_gated_te_curve_reranker_report.md)
+  Shape-gated reranker result for the completed bounded shape-first
+  distillation screen: the accepted polished-setpoint GRU sequence remains the
+  forward recommendation.
+
+- [reports/campaign_results/track_2/verification_plots/shape_first_distillation_bounded_track2_screen_polished_setpoints_fw/track2_candidate_curve_plot_summary.yaml](./reports/campaign_results/track_2/verification_plots/shape_first_distillation_bounded_track2_screen_polished_setpoints_fw/track2_candidate_curve_plot_summary.yaml)
+  Manifest for the bounded Track 2 measured-versus-predicted TE curve plots
+  generated for the shape-first distillation screen.
 
 - [../config/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/shape_gate_pilot_expansion_polished_setpoints_fw_bw_matrix.yaml](../config/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/shape_gate_pilot_expansion_polished_setpoints_fw_bw_matrix.yaml)
   Patched polished-setpoint Fw/Bw `TE Curve Verification Pipeline` comparison

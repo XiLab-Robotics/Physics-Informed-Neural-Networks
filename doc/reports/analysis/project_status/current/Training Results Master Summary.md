@@ -2,12 +2,12 @@
 
 ## Executive Snapshot
 
-- Generated At: `2026-07-22T15:27:04`
+- Generated At: `2026-07-22T16:05:19`
 - Program State: active.
 - Current Completed Wave: polished-dataset RCIM, early-wave, and full-wave
 - Current Focus: the polished-dataset TE Curve Verification Pipeline refresh is
 - Active Campaign Status: `completed`
-- Active Campaign Name: `shape_first_training_rule_distillation_pilot_2026_07_22`
+- Active Campaign Name: `shape_first_distillation_bounded_track2_screen_2026_07_22`
 - Current Program Winner: `te_periodic_gru_sequence_bw` | Family `periodic_gru_sequence_bw` | Test MAE `0.001084`
 
 ## Main Takeaways
@@ -16,6 +16,9 @@
 - Current plain MLP anchor: `te_feedforward_trial`
 - Active family-improvement branch count: `0`
 - Implemented and benchmarked family count: `212`
+- Latest bounded curve-first decision: `polished_setpoints_periodic_gru_sequence_Fw`
+  remains the accepted forward recommendation; neither shape-first
+  distillation candidate is promoted.
 
 ## Current Project Status
 
