@@ -114,6 +114,10 @@ This folder contains the internal project documents derived from the reference P
   sequence-model exports such as `temporal_convolution` while preserving the
   existing point-model report path.
 
+- [technical/2026-07/2026-07-23/2026-07-23-15-07-27_track2_closeout_report_path_cleanup.md](./technical/2026-07/2026-07-23/2026-07-23-15-07-27_track2_closeout_report_path_cleanup.md)
+  Technical plan for moving bounded Track 2 closeout deliverables under the
+  `campaign_closeouts` subtree while preserving PDF export and plot links.
+
 - [reports/analysis/te_curve_verification_pipeline/03_family_reports/tree/[2026-07-07]/track2_tree_familywise_onnx_report.md](./reports/analysis/te_curve_verification_pipeline/03_family_reports/tree/%5B2026-07-07%5D/track2_tree_familywise_onnx_report.md)
   Familywise `tree` ONNX verification report comparing the completed
   simplified setpoint, polished setpoint, and polished actual-value exports
@@ -454,13 +458,13 @@ This folder contains the internal project documents derived from the reference P
   calibration screen, covering the two pilot candidates, the required
   polished-setpoint baselines, and the scalar high-water MLP reference.
 
-- [reports/campaign_results/track_2/2026-07-23-13-18-49_causal_offset_bounded_track2_screen_closeout_report.md](./reports/campaign_results/track_2/2026-07-23-13-18-49_causal_offset_bounded_track2_screen_closeout_report.md)
+- [reports/campaign_results/track_2/campaign_closeouts/2026-07-23-13-18-49_causal_offset_bounded_track2_screen_closeout_report.md](./reports/campaign_results/track_2/campaign_closeouts/2026-07-23-13-18-49_causal_offset_bounded_track2_screen_closeout_report.md)
   Closeout report for the bounded causal offset / mean calibration
   `TE Curve Verification Pipeline` screen, retaining the accepted
   polished-setpoint GRU sequence forward recommendation and documenting the
   missing plot-output gap.
 
-- [reports/campaign_results/track_2/2026-07-23-13-18-49_causal_offset_bounded_track2_screen_closeout_report.pdf](./reports/campaign_results/track_2/2026-07-23-13-18-49_causal_offset_bounded_track2_screen_closeout_report.pdf)
+- [reports/campaign_results/track_2/campaign_closeouts/2026-07-23-13-18-49_causal_offset_bounded_track2_screen_closeout_report.pdf](./reports/campaign_results/track_2/campaign_closeouts/2026-07-23-13-18-49_causal_offset_bounded_track2_screen_closeout_report.pdf)
   Styled PDF export of the bounded causal offset / mean calibration screen
   closeout report.
 

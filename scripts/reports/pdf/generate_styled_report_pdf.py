@@ -838,7 +838,7 @@ def is_campaign_results_report(report_stem: str) -> bool:
 
     """Report whether one Markdown source is a campaign-results closeout."""
 
-    return report_stem.endswith("_campaign_results_report")
+    return report_stem.endswith("_campaign_results_report") or report_stem.endswith("_closeout_report")
 
 def resolve_report_subtitle(report_stem: str, fallback_subtitle: str) -> str:
 

@@ -148,8 +148,8 @@ next_prepared_screen:
   matrix_report_path: doc/reports/analysis/validation_checks/te_curve_verification_pipeline/2026-07-23-13-08-58_causal_offset_bounded_track2_screen_polished_setpoints_fw_matrix_causal_offset_bounded_track2_screen_polished_setpoints_fw_report.md
   reranker_output_directory: output/validation_checks/shape_gated_te_curve_reranker/2026-07-23-13-09-03__shape_gated_te_curve_reranker
   reranker_report_path: doc/reports/analysis/te_curve_verification_pipeline/03_cvp_diagnostics/shape_gated_reranker/[2026-07-22]/causal_offset_bounded_track2_screen_polished_setpoints_fw_matrix_shape_gated_te_curve_reranker_report.md
-  closeout_report_path: doc/reports/campaign_results/track_2/2026-07-23-13-18-49_causal_offset_bounded_track2_screen_closeout_report.md
-  closeout_pdf_path: doc/reports/campaign_results/track_2/2026-07-23-13-18-49_causal_offset_bounded_track2_screen_closeout_report.pdf
+  closeout_report_path: doc/reports/campaign_results/track_2/campaign_closeouts/2026-07-23-13-18-49_causal_offset_bounded_track2_screen_closeout_report.md
+  closeout_pdf_path: doc/reports/campaign_results/track_2/campaign_closeouts/2026-07-23-13-18-49_causal_offset_bounded_track2_screen_closeout_report.pdf
   report_plot_count: 0
   post_fix_plot_count: 10
   post_fix_plot_summary_path: doc/reports/campaign_results/track_2/verification_plots/causal_offset_bounded_track2_screen_polished_setpoints_fw/track2_candidate_curve_plot_summary.yaml

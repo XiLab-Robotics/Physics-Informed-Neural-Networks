@@ -84,3 +84,7 @@ Approved implementation applies the fix at two levels:
   source path, execute PowerShell remoting with text output, remove temporary
   artifact bundles after extraction, filter known remoting/progress noise from
   local step logs, and run the bounded candidate-curve plot builder explicitly.
+- bounded Track 2 closeout PDFs are now treated as campaign-result reports by
+  the styled-PDF layer, so `Execution Summary`, `Metric Ranking`, and
+  `Pilot Graphs` page-break behavior remains consistent for future analogous
+  closeouts.

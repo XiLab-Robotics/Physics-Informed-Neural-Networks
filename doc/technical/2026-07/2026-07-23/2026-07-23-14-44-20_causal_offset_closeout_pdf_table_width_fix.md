@@ -3,7 +3,7 @@
 ## Overview
 
 The styled PDF
-`doc/reports/campaign_results/track_2/2026-07-23-13-18-49_causal_offset_bounded_track2_screen_closeout_report.pdf`
+`doc/reports/campaign_results/track_2/campaign_closeouts/2026-07-23-13-18-49_causal_offset_bounded_track2_screen_closeout_report.pdf`
 needs table-width corrections in the `Execution Summary`, `Metric Ranking`,
 `Shape-Gated Decision`, and `Harmonic Breakdown` sections.
 
@@ -33,8 +33,8 @@ The implementation will:
 
 ## Involved Components
 
-- `doc/reports/campaign_results/track_2/2026-07-23-13-18-49_causal_offset_bounded_track2_screen_closeout_report.md`
-- `doc/reports/campaign_results/track_2/2026-07-23-13-18-49_causal_offset_bounded_track2_screen_closeout_report.pdf`
+- `doc/reports/campaign_results/track_2/campaign_closeouts/2026-07-23-13-18-49_causal_offset_bounded_track2_screen_closeout_report.md`
+- `doc/reports/campaign_results/track_2/campaign_closeouts/2026-07-23-13-18-49_causal_offset_bounded_track2_screen_closeout_report.pdf`
 - `scripts/reports/pdf/generate_styled_report_pdf.py`
 - `scripts/reports/pdf/run_report_pipeline.py`
 - `scripts/reports/pdf/validate_report_pdf.py`

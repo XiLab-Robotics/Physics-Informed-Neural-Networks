@@ -24,7 +24,8 @@ shape-objective high-water reference.
 | Matrix report | `doc/reports/analysis/validation_checks/te_curve_verification_pipeline/2026-07-23-13-08-58_causal_offset_bounded_track2_screen_polished_setpoints_fw_matrix_causal_offset_bounded_track2_screen_polished_setpoints_fw_report.md` |
 | Reranker output | `output/validation_checks/shape_gated_te_curve_reranker/2026-07-23-13-09-03__shape_gated_te_curve_reranker` |
 | Reranker report | `doc/reports/analysis/te_curve_verification_pipeline/03_cvp_diagnostics/shape_gated_reranker/[2026-07-22]/causal_offset_bounded_track2_screen_polished_setpoints_fw_matrix_shape_gated_te_curve_reranker_report.md` |
-| Plot count | `0` |
+| Plot count | `10` |
+| Plot summary | `doc/reports/campaign_results/track_2/verification_plots/causal_offset_bounded_track2_screen_polished_setpoints_fw/track2_candidate_curve_plot_summary.yaml` |
 
 ## Metric Ranking
 
@@ -56,6 +57,42 @@ shape-objective high-water reference.
 | 4 | `causal_offset_mean_periodic_mlp_harmonic_Fw` | 0.983672 | 19.654545 | 18.516624 |
 | 5 | `causal_offset_mean_gru_sequence_Fw` | 0.975176 | 77.578652 | 71.215158 |
 
+## Pilot Graphs
+
+The bounded screen plot contract was backfilled after the closeout finding.
+The package now contains two measured-versus-predicted TE curve plots for each
+bounded-screen candidate.
+
+### Polished Setpoints Periodic GRU Sequence Fw
+
+![polished_setpoints_periodic_gru_sequence_Fw measured-versus-predicted TE curve](../verification_plots/causal_offset_bounded_track2_screen_polished_setpoints_fw/polished_setpoints_periodic_gru_sequence_Fw/01_polished_setpoints_periodic_gru_sequence_Fw.png)
+
+![polished_setpoints_periodic_gru_sequence_Fw measured-versus-predicted TE curve](../verification_plots/causal_offset_bounded_track2_screen_polished_setpoints_fw/polished_setpoints_periodic_gru_sequence_Fw/02_polished_setpoints_periodic_gru_sequence_Fw.png)
+
+### Polished Setpoints Periodic MLP Harmonic Fw
+
+![polished_setpoints_periodic_mlp_harmonic_Fw measured-versus-predicted TE curve](../verification_plots/causal_offset_bounded_track2_screen_polished_setpoints_fw/polished_setpoints_periodic_mlp_harmonic_Fw/01_polished_setpoints_periodic_mlp_harmonic_Fw.png)
+
+![polished_setpoints_periodic_mlp_harmonic_Fw measured-versus-predicted TE curve](../verification_plots/causal_offset_bounded_track2_screen_polished_setpoints_fw/polished_setpoints_periodic_mlp_harmonic_Fw/02_polished_setpoints_periodic_mlp_harmonic_Fw.png)
+
+### Shape Objective Periodic MLP Harmonic Fw
+
+![shape_objective_periodic_mlp_harmonic_Fw measured-versus-predicted TE curve](../verification_plots/causal_offset_bounded_track2_screen_polished_setpoints_fw/shape_objective_periodic_mlp_harmonic_Fw/01_shape_objective_periodic_mlp_harmonic_Fw.png)
+
+![shape_objective_periodic_mlp_harmonic_Fw measured-versus-predicted TE curve](../verification_plots/causal_offset_bounded_track2_screen_polished_setpoints_fw/shape_objective_periodic_mlp_harmonic_Fw/02_shape_objective_periodic_mlp_harmonic_Fw.png)
+
+### Causal Offset Mean Periodic MLP Harmonic Fw
+
+![causal_offset_mean_periodic_mlp_harmonic_Fw measured-versus-predicted TE curve](../verification_plots/causal_offset_bounded_track2_screen_polished_setpoints_fw/causal_offset_mean_periodic_mlp_harmonic_Fw/01_causal_offset_mean_periodic_mlp_harmonic_Fw.png)
+
+![causal_offset_mean_periodic_mlp_harmonic_Fw measured-versus-predicted TE curve](../verification_plots/causal_offset_bounded_track2_screen_polished_setpoints_fw/causal_offset_mean_periodic_mlp_harmonic_Fw/02_causal_offset_mean_periodic_mlp_harmonic_Fw.png)
+
+### Causal Offset Mean GRU Sequence Fw
+
+![causal_offset_mean_gru_sequence_Fw measured-versus-predicted TE curve](../verification_plots/causal_offset_bounded_track2_screen_polished_setpoints_fw/causal_offset_mean_gru_sequence_Fw/01_causal_offset_mean_gru_sequence_Fw.png)
+
+![causal_offset_mean_gru_sequence_Fw measured-versus-predicted TE curve](../verification_plots/causal_offset_bounded_track2_screen_polished_setpoints_fw/causal_offset_mean_gru_sequence_Fw/02_causal_offset_mean_gru_sequence_Fw.png)
+
 ## Interpretation
 
 The bounded screen does not promote either causal offset / mean calibration
@@ -75,17 +112,19 @@ shape pass rate is `0.000000`, and the reranker reports failures dominated by
 harmonic amplitude error, phase error, derivative agreement, FFT similarity,
 and peak-to-peak error.
 
-## Output Quality Finding
+## Output Quality Closeout
 
-The matrix summary reports `report_plot_count: 0` with empty preview and report
-plot lists. Therefore this screen has scalar and shape-gated evidence, but it
-does not have the expected Track 2 measured-versus-predicted plot package.
+The original matrix summary reported `report_plot_count: 0` with empty preview
+and report plot lists. The bounded-screen tooling fix has now backfilled the
+expected Track 2 measured-versus-predicted plot package and made the future
+bounded launchers run the plot builder explicitly.
 
 The local operator log `.temp/campaing_log.log` also contains very long
 unwrapped transfer/progress lines and PowerShell host records. The most visible
 source is interactive `scp` transfer progress emitted during remote sync. This
-is an operator-output problem, not a model-result change, and should be fixed
-permanently in the campaign launcher/tooling after this closeout commit.
+was an operator-output problem, not a model-result change. The permanent
+launcher/tooling fix now suppresses noisy transfer progress while preserving
+repository-owned step summaries and failure status.
 
 ## Decision
 
@@ -97,8 +136,8 @@ Keep both time-windowed and non-windowed roads as comparison categories for
 future designs, but close this direct causal-offset mean-calibration profile as
 non-promoted.
 
-The next repository step is to repair bounded campaign output ergonomics:
-remote sync logs should not flood the terminal with unwrapped progress lines,
-and bounded Track 2 screens should reliably produce the expected measured-versus
-predicted TE curve plots when plot generation is part of the operator-facing
-reporting contract.
+The bounded campaign output contract is now repaired for future analogous
+screens: remote sync logs should not flood the terminal with unwrapped progress
+lines, and bounded Track 2 screens should reliably produce the expected
+measured-versus-predicted TE curve plots when plot generation is part of the
+operator-facing reporting contract.
