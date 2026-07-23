@@ -316,6 +316,10 @@ This folder contains the internal project documents derived from the reference P
   or summarizing noisy transfer progress and restoring bounded Track 2
   measured-versus-predicted plot output.
 
+- [technical/2026-07/2026-07-23/2026-07-23-14-44-20_causal_offset_closeout_pdf_table_width_fix.md](./technical/2026-07/2026-07-23/2026-07-23-14-44-20_causal_offset_closeout_pdf_table_width_fix.md)
+  Technical plan for persistent styled-PDF table width rules covering the
+  causal-offset closeout report and analogous future Track 2 metric tables.
+
 - [reports/analysis/model_development_waves/wave_5_2/causal_offset_mean_calibration/[2026-07-22]/causal_offset_mean_calibration_pilot_model_report.md](./reports/analysis/model_development_waves/wave_5_2/causal_offset_mean_calibration/%5B2026-07-22%5D/causal_offset_mean_calibration_pilot_model_report.md)
   Model report for the causal offset / mean calibration pilot, covering the
   reused residual-offset sequence branch, non-windowed harmonic comparator, and

@@ -184,6 +184,34 @@ SHAPE_GATE_LOSS_METRIC_BREAKDOWN_TABLE_CLASS_NAME = "report-table report-table-s
 SHAPE_GATE_LOSS_BASELINE_TABLE_CLASS_NAME = "report-table report-table-shape-gate-loss-baseline"
 SHAPE_GATE_LOSS_METRIC_BREAKDOWN_TABLE_HEADER_CELLS = ("Metric", "Validation", "Test")
 SHAPE_GATE_LOSS_BASELINE_TABLE_HEADER_CELLS = ("Family", "Surface", "Validation MAE", "Test MAE", "Decision")
+TRACK2_CLOSEOUT_EXECUTION_SUMMARY_TABLE_CLASS_NAME = "report-table report-table-track2-closeout-execution-summary"
+TRACK2_CLOSEOUT_METRIC_RANKING_TABLE_CLASS_NAME = "report-table report-table-track2-closeout-metric-ranking"
+TRACK2_CLOSEOUT_SHAPE_DECISION_TABLE_CLASS_NAME = "report-table report-table-track2-closeout-shape-decision"
+TRACK2_CLOSEOUT_HARMONIC_BREAKDOWN_TABLE_CLASS_NAME = "report-table report-table-track2-closeout-harmonic-breakdown"
+TRACK2_CLOSEOUT_EXECUTION_SUMMARY_TABLE_HEADER_CELLS = ("Item", "Value")
+TRACK2_CLOSEOUT_METRIC_RANKING_TABLE_HEADER_CELLS = (
+    "Rank",
+    "Candidate",
+    "Raw MAE [deg]",
+    "RMSE [deg]",
+    "Mean Error [%]",
+    "P95 Error [%]",
+)
+TRACK2_CLOSEOUT_SHAPE_DECISION_TABLE_HEADER_CELLS = (
+    "Rank",
+    "Candidate",
+    "Centered MAE [deg]",
+    "Shape Pass",
+    "Composite",
+    "Decision",
+)
+TRACK2_CLOSEOUT_HARMONIC_BREAKDOWN_TABLE_HEADER_CELLS = (
+    "Rank",
+    "Candidate",
+    "FFT Sim.",
+    "Amp Err. [%]",
+    "Phase Err. [deg]",
+)
 TRACK2D_MEAN_OFFSET_TABLE_CLASS_NAME = "report-table report-table-track2d-mean-offset"
 TRACK2E_OFFSET_FEASIBILITY_TABLE_CLASS_NAME = "report-table report-table-track2e-offset-feasibility"
 TRACK2_COMPONENT_HARMONIC_SUMMARY_TABLE_CLASS_NAME = "report-table report-table-track2-component-harmonic-summary"
@@ -658,6 +686,12 @@ CAMPAIGN_RESULTS_FORCED_PAGE_BREAK_SECTION_SLUGS = {
     "execution-summary",
     "pilot-comparison",
     "pilot-graphs",
+}
+
+REPORT_SPECIFIC_EXPLICIT_PAGE_BREAK_SECTION_SLUGS = {
+    "2026-07-23-13-18-49_causal_offset_bounded_track2_screen_closeout_report": {
+        "metric-ranking",
+    },
 }
 
 REPORT_SPECIFIC_FORCED_PAGE_BREAK_SECTION_SLUGS = {
@@ -4318,6 +4352,18 @@ def resolve_campaign_results_column_widths(table_class_name: str) -> tuple[float
     if table_class_name == SHAPE_GATE_LOSS_BASELINE_TABLE_CLASS_NAME:
         return (32.0, 8.0, 15.0, 15.0, 30.0)
 
+    if table_class_name == TRACK2_CLOSEOUT_EXECUTION_SUMMARY_TABLE_CLASS_NAME:
+        return (18.0, 82.0)
+
+    if table_class_name == TRACK2_CLOSEOUT_METRIC_RANKING_TABLE_CLASS_NAME:
+        return (6.0, 42.0, 13.0, 13.0, 13.0, 13.0)
+
+    if table_class_name == TRACK2_CLOSEOUT_SHAPE_DECISION_TABLE_CLASS_NAME:
+        return (6.0, 36.0, 15.0, 15.0, 15.0, 13.0)
+
+    if table_class_name == TRACK2_CLOSEOUT_HARMONIC_BREAKDOWN_TABLE_CLASS_NAME:
+        return (6.0, 52.0, 14.0, 14.0, 14.0)
+
     return None
 
 def render_table_colgroup(header_cells: Sequence[str], table_class_name: str) -> str:
@@ -4512,6 +4558,18 @@ def resolve_standard_table_class_name(
     """ Resolve Standard Table Class Name """
 
     normalized_header_cells = tuple(header_cells)
+
+    if normalized_header_cells == TRACK2_CLOSEOUT_EXECUTION_SUMMARY_TABLE_HEADER_CELLS:
+        return TRACK2_CLOSEOUT_EXECUTION_SUMMARY_TABLE_CLASS_NAME
+
+    if normalized_header_cells == TRACK2_CLOSEOUT_METRIC_RANKING_TABLE_HEADER_CELLS:
+        return TRACK2_CLOSEOUT_METRIC_RANKING_TABLE_CLASS_NAME
+
+    if normalized_header_cells == TRACK2_CLOSEOUT_SHAPE_DECISION_TABLE_HEADER_CELLS:
+        return TRACK2_CLOSEOUT_SHAPE_DECISION_TABLE_CLASS_NAME
+
+    if normalized_header_cells == TRACK2_CLOSEOUT_HARMONIC_BREAKDOWN_TABLE_HEADER_CELLS:
+        return TRACK2_CLOSEOUT_HARMONIC_BREAKDOWN_TABLE_CLASS_NAME
 
     if report_stem == "track2_rcim_track1_retrained_paper_tables_report":
         return RCIM_TRACK1_PAPER_TABLES_TABLE_CLASS_NAME
@@ -5699,6 +5757,13 @@ def should_force_page_break_before_section(report_stem: str, current_section_slu
     report_specific_section_slugs = REPORT_SPECIFIC_FORCED_PAGE_BREAK_SECTION_SLUGS.get(report_stem, set())
     return current_section_slug in FORCED_PAGE_BREAK_SECTION_SLUGS or current_section_slug in report_specific_section_slugs
 
+def should_insert_explicit_page_break_before_section(report_stem: str, current_section_slug: str) -> bool:
+
+    """Report whether a standalone page-break element should precede the section."""
+
+    report_specific_section_slugs = REPORT_SPECIFIC_EXPLICIT_PAGE_BREAK_SECTION_SLUGS.get(report_stem, set())
+    return current_section_slug in report_specific_section_slugs
+
 def should_force_page_break_after_section(report_stem: str, current_section_slug: str) -> bool:
 
     """Report whether the section should end with a fresh PDF page boundary."""
@@ -5787,6 +5852,10 @@ def render_markdown_body(markdown_text: str, markdown_path: Path) -> tuple[str, 
 
             section_class_names = ["section-card", f"section-{current_section_slug}"]
             force_page_break_before_section = should_force_page_break_before_section(report_stem, current_section_slug)
+            insert_explicit_page_break_before_section = should_insert_explicit_page_break_before_section(
+                report_stem,
+                current_section_slug,
+            )
             if force_page_break_before_section:
                 section_class_names.append("section-force-page-break")
 
@@ -5797,30 +5866,33 @@ def render_markdown_body(markdown_text: str, markdown_path: Path) -> tuple[str, 
                 section_class_names.append("section-keep-together")
 
             if (
-                force_page_break_before_section
-                and not is_familywise_onnx_report(report_stem)
-                and not is_campaign_results_report(report_stem)
-                and report_stem not in {
-                    "track2_curve_first_reranking_report",
-                    "track2_curve_payload_diagnostics_report",
-                    "track2_best_model_collage_report",
-                    "track2_multi_model_curve_comparison_report",
-                    "track2_forward_reference_curve_comparison_report",
-                    "track2d_mean_offset_full_matrix_audit",
-                    "track2e_offset_predictability_feasibility",
-                    "2026-05-28-11-35-34_wave2c_residual_harmonic_temporal_hybrid_campaign_results_report",
-                    "2026-06-04-12-28-46_track2f_offset_aware_probe_campaign_results_report",
-                    "2026-06-05-16-49-50_track2f_bis_harmonic_offset_probe_campaign_results_report",
-                    "2026-06-09-01-56-25_track2g_curve_aware_training_campaign_results_report",
-                    "2026-06-13-13-24-37_track2h_mixture_density_heads_campaign_results_report",
-                    "2026-06-29-10-40-05_polished_early_wave_parallel_training_campaign_results_report",
-                    "2026-07-02-10-36-59_polished_full_wave_retraining_campaign_results_report",
-                    "2026-07-20-20-12-45_shape_gate_loss_pilot_campaign_results_report",
-                    "te_intermediate_model_selection_cleanup_report",
-                }
-                and not (
-                    report_stem == "2026-04-22-01-08-33_track1_mlp_residual_cell_final_closure_campaign_results_report"
-                    and current_section_slug == "targeted-pair-outcome"
+                insert_explicit_page_break_before_section
+                or (
+                    force_page_break_before_section
+                    and not is_familywise_onnx_report(report_stem)
+                    and not is_campaign_results_report(report_stem)
+                    and report_stem not in {
+                        "track2_curve_first_reranking_report",
+                        "track2_curve_payload_diagnostics_report",
+                        "track2_best_model_collage_report",
+                        "track2_multi_model_curve_comparison_report",
+                        "track2_forward_reference_curve_comparison_report",
+                        "track2d_mean_offset_full_matrix_audit",
+                        "track2e_offset_predictability_feasibility",
+                        "2026-05-28-11-35-34_wave2c_residual_harmonic_temporal_hybrid_campaign_results_report",
+                        "2026-06-04-12-28-46_track2f_offset_aware_probe_campaign_results_report",
+                        "2026-06-05-16-49-50_track2f_bis_harmonic_offset_probe_campaign_results_report",
+                        "2026-06-09-01-56-25_track2g_curve_aware_training_campaign_results_report",
+                        "2026-06-13-13-24-37_track2h_mixture_density_heads_campaign_results_report",
+                        "2026-06-29-10-40-05_polished_early_wave_parallel_training_campaign_results_report",
+                        "2026-07-02-10-36-59_polished_full_wave_retraining_campaign_results_report",
+                        "2026-07-20-20-12-45_shape_gate_loss_pilot_campaign_results_report",
+                        "te_intermediate_model_selection_cleanup_report",
+                    }
+                    and not (
+                        report_stem == "2026-04-22-01-08-33_track1_mlp_residual_cell_final_closure_campaign_results_report"
+                        and current_section_slug == "targeted-pair-outcome"
+                    )
                 )
             ):
                 document_html_tokens.append('<div class="explicit-page-break"></div>')

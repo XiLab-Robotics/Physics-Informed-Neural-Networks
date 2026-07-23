@@ -28,7 +28,7 @@ shape-objective high-water reference.
 
 ## Metric Ranking
 
-| Rank | Candidate | Raw MAE deg | RMSE deg | Mean error % | P95 error % |
+| Rank | Candidate | Raw MAE [deg] | RMSE [deg] | Mean Error [%] | P95 Error [%] |
 | ---: | --- | ---: | ---: | ---: | ---: |
 | 1 | `polished_setpoints_periodic_gru_sequence_Fw` | 0.001837 | 0.002179 | 3.750629 | 8.248098 |
 | 2 | `polished_setpoints_periodic_mlp_harmonic_Fw` | 0.001938 | 0.002276 | 3.987765 | 10.017324 |
@@ -38,7 +38,7 @@ shape-objective high-water reference.
 
 ## Shape-Gated Decision
 
-| Rank | Candidate | Centered MAE deg | Shape pass | Composite | Decision |
+| Rank | Candidate | Centered MAE [deg] | Shape Pass | Composite | Decision |
 | ---: | --- | ---: | ---: | ---: | --- |
 | 1 | `polished_setpoints_periodic_gru_sequence_Fw` | 0.001483 | 0.950000 | 0.007008 | recommended |
 | 2 | `polished_setpoints_periodic_mlp_harmonic_Fw` | 0.001490 | 0.920000 | 0.239545 | candidate |
@@ -48,7 +48,7 @@ shape-objective high-water reference.
 
 ## Harmonic Breakdown
 
-| Rank | Candidate | FFT sim. | Amp err. % | Phase err. deg |
+| Rank | Candidate | FFT Sim. | Amp Err. [%] | Phase Err. [deg] |
 | ---: | --- | ---: | ---: | ---: |
 | 1 | `polished_setpoints_periodic_gru_sequence_Fw` | 0.984971 | 17.554759 | 12.349713 |
 | 2 | `polished_setpoints_periodic_mlp_harmonic_Fw` | 0.983739 | 15.623668 | 12.951608 |
