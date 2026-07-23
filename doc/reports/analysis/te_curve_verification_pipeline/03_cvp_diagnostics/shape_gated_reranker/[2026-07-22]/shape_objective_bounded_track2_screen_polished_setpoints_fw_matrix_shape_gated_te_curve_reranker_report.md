@@ -9,7 +9,7 @@ contract.
 
 ## Scope
 
-- run instance: `2026-07-22-12-16-27__shape_gated_te_curve_reranker`;
+- run instance: `2026-07-23-20-44-14__shape_gated_te_curve_reranker`;
 - config path: `config\paper_reimplementation\rcim_ml_compensation\reference_family_vs_feedforward\shape_objective_bounded_track2_screen_polished_setpoints_fw_matrix.yaml`;
 - dataset: `polished_dataset`;
 - evaluated surfaces: `forward`;
@@ -66,7 +66,7 @@ contract.
 
 ## Output Artifacts
 
-- per-curve metrics: `output\validation_checks\shape_gated_te_curve_reranker\2026-07-22-12-16-27__shape_gated_te_curve_reranker\shape_gated_per_curve_metrics.csv`;
-- candidate summary: `output\validation_checks\shape_gated_te_curve_reranker\2026-07-22-12-16-27__shape_gated_te_curve_reranker\shape_gated_candidate_summary.csv`;
-- threshold sweep: `output\validation_checks\shape_gated_te_curve_reranker\2026-07-22-12-16-27__shape_gated_te_curve_reranker\shape_gate_threshold_sweep.csv`;
-- surface decisions: `output\validation_checks\shape_gated_te_curve_reranker\2026-07-22-12-16-27__shape_gated_te_curve_reranker\shape_gated_surface_decisions.yaml`;
+- per-curve metrics: `output\validation_checks\shape_gated_te_curve_reranker\2026-07-23-20-44-14__shape_gated_te_curve_reranker\shape_gated_per_curve_metrics.csv`;
+- candidate summary: `output\validation_checks\shape_gated_te_curve_reranker\2026-07-23-20-44-14__shape_gated_te_curve_reranker\shape_gated_candidate_summary.csv`;
+- threshold sweep: `output\validation_checks\shape_gated_te_curve_reranker\2026-07-23-20-44-14__shape_gated_te_curve_reranker\shape_gate_threshold_sweep.csv`;
+- surface decisions: `output\validation_checks\shape_gated_te_curve_reranker\2026-07-23-20-44-14__shape_gated_te_curve_reranker\shape_gated_surface_decisions.yaml`;

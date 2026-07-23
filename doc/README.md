@@ -118,6 +118,11 @@ This folder contains the internal project documents derived from the reference P
   Technical plan for moving bounded Track 2 closeout deliverables under the
   `campaign_closeouts` subtree while preserving PDF export and plot links.
 
+- [technical/2026-07/2026-07-23/2026-07-23-17-33-25_shape_objective_bounded_screen_state_gate_fix.md](./technical/2026-07/2026-07-23/2026-07-23-17-33-25_shape_objective_bounded_screen_state_gate_fix.md)
+  Technical plan for allowing the standalone shape-objective bounded
+  `TE Curve Verification Pipeline` screen to run after the previous active
+  campaign state has been closed.
+
 - [reports/analysis/te_curve_verification_pipeline/03_family_reports/tree/[2026-07-07]/track2_tree_familywise_onnx_report.md](./reports/analysis/te_curve_verification_pipeline/03_family_reports/tree/%5B2026-07-07%5D/track2_tree_familywise_onnx_report.md)
   Familywise `tree` ONNX verification report comparing the completed
   simplified setpoint, polished setpoint, and polished actual-value exports

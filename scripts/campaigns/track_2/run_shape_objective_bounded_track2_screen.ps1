@@ -269,8 +269,15 @@ function Invoke-LocalPreflight {
     Assert-RelativePathExists "models/polished_dataset/setpoints/periodic_gru_sequence/forward/reference_inventory.yaml"
 
     $activeStateText = Get-Content -Raw -LiteralPath (Join-Path $RepositoryRoot $ActiveStatePath)
-    if ($activeStateText -notmatch "shape_objective_bounded_track2_screen_2026_07_22") {
-        throw "Active campaign state is not prepared for shape_objective_bounded_track2_screen_2026_07_22."
+    $activeStateStatus = "unknown"
+    if ($activeStateText -match "(?m)^status:\s*(.+)$") {
+        $activeStateStatus = $Matches[1].Trim(" '""")
+    }
+    if ($activeStateText -match "shape_objective_bounded_track2_screen_2026_07_22") {
+        Write-LogLine "INFO" "Active campaign state references this bounded screen."
+    }
+    else {
+        Write-LogLine "INFO" ("Active campaign state is {0}; running this standalone bounded screen from its launcher contract." -f $activeStateStatus)
     }
 
     Write-CommandPreview "reference_family_vs_feedforward_matrix" (@("run", "--no-capture-output", "-n", $CondaEnvironmentName, "python") + (New-MatrixArgumentList))
@@ -288,7 +295,12 @@ function Convert-ToRemotePath {
 function Convert-ToEncodedPowerShellCommand {
     param([string]$CommandText)
 
-    $commandBytes = [System.Text.Encoding]::Unicode.GetBytes($CommandText)
+    $wrappedCommandText = @"
+`$ProgressPreference = 'SilentlyContinue'
+`$InformationPreference = 'Continue'
+$CommandText
+"@
+    $commandBytes = [System.Text.Encoding]::Unicode.GetBytes($wrappedCommandText)
     return [Convert]::ToBase64String($commandBytes)
 }
 

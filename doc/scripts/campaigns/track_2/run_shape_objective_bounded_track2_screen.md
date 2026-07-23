@@ -10,6 +10,12 @@ launches the approved bounded `TE Curve Verification Pipeline` screen for the
 This launcher is a screening gate. It does not promote the model or update the
 accepted program baseline by itself.
 
+The screen is standalone once its matrix configuration, model inventories,
+registered shape-objective family artifact, and launcher note are present. It
+may run after a previously prepared active campaign state has been closed; in
+that case the launcher reports the current active-state status and continues
+from its own bounded-screen contract.
+
 ## Candidate Matrix
 
 The launcher uses
