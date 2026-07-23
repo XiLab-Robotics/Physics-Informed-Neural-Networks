@@ -324,6 +324,21 @@ screen:
   -Remote
 ```
 
+Prepared causal offset bounded `TE Curve Verification Pipeline` screen
+preflight:
+
+```powershell
+.\scripts\campaigns\track_2\run_causal_offset_bounded_track2_screen.ps1 `
+  -PreflightOnly
+```
+
+Remote causal offset bounded `TE Curve Verification Pipeline` screen:
+
+```powershell
+.\scripts\campaigns\track_2\run_causal_offset_bounded_track2_screen.ps1 `
+  -Remote
+```
+
 Operator-launched `Wave 5.2B` TE Curve Verification Pipeline refresh:
 
 ```powershell
@@ -533,6 +548,12 @@ The current usage flow mainly relies on these folders:
   candidate against the current GRU and non-windowed harmonic baselines, then
   runs the shape-gated reranker locally or through the repository-owned remote
   launcher.
+
+- `scripts/campaigns/track_2/run_causal_offset_bounded_track2_screen.ps1`
+  Operator-facing bounded `TE Curve Verification Pipeline` screen for the
+  causal offset / mean calibration pilot candidates. It compares the
+  time-windowed and non-windowed causal-offset arms against the current GRU,
+  non-windowed harmonic baseline, and scalar high-water MLP reference.
 
 - `scripts/campaigns/wave_5_2/run_wave52b_te_curve_verification_refresh.ps1`
   Operator-facing `Wave 5.2B` official TE Curve Verification Pipeline refresh

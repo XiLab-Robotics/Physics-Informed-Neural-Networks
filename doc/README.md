@@ -306,6 +306,11 @@ This folder contains the internal project documents derived from the reference P
   Technical plan for a bounded causal offset / mean calibration pilot anchored
   to the accepted polished-setpoint periodic GRU forward baseline.
 
+- [technical/2026-07/2026-07-22/2026-07-22-18-48-18_causal_offset_bounded_track2_screen.md](./technical/2026-07/2026-07-22/2026-07-22-18-48-18_causal_offset_bounded_track2_screen.md)
+  Technical plan for the bounded `TE Curve Verification Pipeline` screen of
+  the causal offset / mean calibration pilot candidates against the accepted
+  polished-setpoint forward baselines.
+
 - [reports/analysis/model_development_waves/wave_5_2/causal_offset_mean_calibration/[2026-07-22]/causal_offset_mean_calibration_pilot_model_report.md](./reports/analysis/model_development_waves/wave_5_2/causal_offset_mean_calibration/%5B2026-07-22%5D/causal_offset_mean_calibration_pilot_model_report.md)
   Model report for the causal offset / mean calibration pilot, covering the
   reused residual-offset sequence branch, non-windowed harmonic comparator, and
@@ -349,6 +354,11 @@ This folder contains the internal project documents derived from the reference P
   Campaign plan for the two-arm causal offset / mean calibration pilot on
   `polished_dataset` setpoints `Fw`, preserving both the time-windowed and
   non-windowed development roads.
+
+- [reports/campaign_plans/cross_wave/causal_offset_mean_calibration/2026-07-22-18-48-18_causal_offset_bounded_track2_screen_plan_report.md](./reports/campaign_plans/cross_wave/causal_offset_mean_calibration/2026-07-22-18-48-18_causal_offset_bounded_track2_screen_plan_report.md)
+  Plan for a bounded `polished_dataset` setpoint `Fw`
+  `TE Curve Verification Pipeline` screen of the causal offset / mean
+  calibration pilot candidates against the accepted forward baselines.
 
 - [scripts/campaigns/cross_wave/run_parallel_shape_objective_followup_campaign.md](./scripts/campaigns/cross_wave/run_parallel_shape_objective_followup_campaign.md)
   Launcher note for validating or launching the three-arm shape-objective
@@ -410,6 +420,11 @@ This folder contains the internal project documents derived from the reference P
   `TE Curve Verification Pipeline` screen of the shape-first distillation
   time-windowed and non-windowed candidates.
 
+- [scripts/campaigns/track_2/run_causal_offset_bounded_track2_screen.md](./scripts/campaigns/track_2/run_causal_offset_bounded_track2_screen.md)
+  Launcher note for the bounded `polished_dataset` setpoint `Fw`
+  `TE Curve Verification Pipeline` screen of the causal offset / mean
+  calibration pilot candidates.
+
 - [../config/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/shape_gate_loss_v2_bounded_track2_screen_polished_setpoints_fw_matrix.yaml](../config/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/shape_gate_loss_v2_bounded_track2_screen_polished_setpoints_fw_matrix.yaml)
   Forward-only comparison matrix for the bounded shape-gate loss v2 screen,
   covering the v2 registry candidate, the prior shape-gate loss pilot, and
@@ -424,6 +439,30 @@ This folder contains the internal project documents derived from the reference P
   Forward-only comparison matrix for the bounded shape-first distillation
   screen, covering the two pilot candidates and the required windowed and
   non-windowed polished-setpoint baselines.
+
+- [../config/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/causal_offset_bounded_track2_screen_polished_setpoints_fw_matrix.yaml](../config/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/causal_offset_bounded_track2_screen_polished_setpoints_fw_matrix.yaml)
+  Forward-only comparison matrix for the bounded causal offset / mean
+  calibration screen, covering the two pilot candidates, the required
+  polished-setpoint baselines, and the scalar high-water MLP reference.
+
+- [reports/campaign_results/track_2/2026-07-23-13-18-49_causal_offset_bounded_track2_screen_closeout_report.md](./reports/campaign_results/track_2/2026-07-23-13-18-49_causal_offset_bounded_track2_screen_closeout_report.md)
+  Closeout report for the bounded causal offset / mean calibration
+  `TE Curve Verification Pipeline` screen, retaining the accepted
+  polished-setpoint GRU sequence forward recommendation and documenting the
+  missing plot-output gap.
+
+- [reports/campaign_results/track_2/2026-07-23-13-18-49_causal_offset_bounded_track2_screen_closeout_report.pdf](./reports/campaign_results/track_2/2026-07-23-13-18-49_causal_offset_bounded_track2_screen_closeout_report.pdf)
+  Styled PDF export of the bounded causal offset / mean calibration screen
+  closeout report.
+
+- [reports/analysis/validation_checks/te_curve_verification_pipeline/2026-07-23-13-08-58_causal_offset_bounded_track2_screen_polished_setpoints_fw_matrix_causal_offset_bounded_track2_screen_polished_setpoints_fw_report.md](./reports/analysis/validation_checks/te_curve_verification_pipeline/2026-07-23-13-08-58_causal_offset_bounded_track2_screen_polished_setpoints_fw_matrix_causal_offset_bounded_track2_screen_polished_setpoints_fw_report.md)
+  Matrix report for the completed bounded causal offset / mean calibration
+  `polished_dataset` setpoint `Fw` screen.
+
+- [reports/analysis/te_curve_verification_pipeline/03_cvp_diagnostics/shape_gated_reranker/[2026-07-22]/causal_offset_bounded_track2_screen_polished_setpoints_fw_matrix_shape_gated_te_curve_reranker_report.md](./reports/analysis/te_curve_verification_pipeline/03_cvp_diagnostics/shape_gated_reranker/%5B2026-07-22%5D/causal_offset_bounded_track2_screen_polished_setpoints_fw_matrix_shape_gated_te_curve_reranker_report.md)
+  Shape-gated reranker result for the completed bounded causal offset / mean
+  calibration screen: the accepted polished-setpoint GRU sequence remains the
+  forward recommendation.
 
 - [reports/analysis/validation_checks/te_curve_verification_pipeline/2026-07-22-15-59-32_shape_first_distillation_bounded_track2_screen_polished_setpoints_fw_matrix_shape_first_distillation_bounded_track2_screen_polished_setpoints_fw_report.md](./reports/analysis/validation_checks/te_curve_verification_pipeline/2026-07-22-15-59-32_shape_first_distillation_bounded_track2_screen_polished_setpoints_fw_matrix_shape_first_distillation_bounded_track2_screen_polished_setpoints_fw_report.md)
   Matrix report for the completed bounded shape-first distillation

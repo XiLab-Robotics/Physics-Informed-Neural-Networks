@@ -220,6 +220,24 @@ Launch the bounded screen on the remote workstation with:
    .\scripts\campaigns\track_2\run_shape_first_distillation_bounded_track2_screen.ps1 `
      -Remote
 
+Causal offset bounded TE Curve Verification screen
+--------------------------------------------------
+
+After the causal offset / mean calibration pilot is closed out, validate the
+bounded ``polished_dataset`` setpoint ``Fw`` verification-screen package with:
+
+.. code-block:: powershell
+
+   .\scripts\campaigns\track_2\run_causal_offset_bounded_track2_screen.ps1 `
+     -PreflightOnly
+
+Launch the bounded screen on the remote workstation with:
+
+.. code-block:: powershell
+
+   .\scripts\campaigns\track_2\run_causal_offset_bounded_track2_screen.ps1 `
+     -Remote
+
 After normal campaign closeout, the separate operator-launched official TE
 Curve Verification Pipeline refresh evaluates the selected harmonic-profile
 registry candidates across ``global``, ``Fw``, and ``Bw``. Run it locally with:

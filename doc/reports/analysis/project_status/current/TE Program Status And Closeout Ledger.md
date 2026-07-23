@@ -31,11 +31,11 @@ closeout that changes any of these surfaces:
 | Current accepted global neural curve-verified leader | `polished_periodic_gru_sequence_global` |
 | Latest normal campaign closeout | `causal_offset_mean_calibration_pilot_2026_07_22` |
 | Latest official TE Curve Verification refresh | polished-dataset RCIM, early-wave, and full-wave refresh, dated `2026-07-03` |
-| Latest curve-verification decision | bounded shape-first distillation screen closed on `2026-07-22`; both distillation candidates retained as completed scalar pilots, not promoted |
+| Latest curve-verification decision | bounded causal offset / mean calibration screen closed on `2026-07-23`; causal offset candidates retained as completed scalar pilots, not promoted |
 | Latest pruning decision | `2026-07-17` shape-first intermediate model-selection cleanup; `global` remains paused until final backlog stage |
 | Active report generation | reduced selected-model reports only: `polished_dataset` and `simplified_dataset`, each split into `forward` and `backward` |
 | Current TE Curve Verification Pipeline selection policy | multi-index curve-first selection, dated `2026-06-16` |
-| Next modeling decision | run a bounded `TE Curve Verification Pipeline` screen for the causal offset / mean calibration candidates against `polished_setpoints_periodic_gru_sequence_Fw` and `polished_setpoints_periodic_mlp_harmonic_Fw` |
+| Next modeling decision | repair bounded campaign output/logging and measured-versus-predicted plot generation before launching the next modeling campaign |
 
 The repository remains direction-parallel. `Fw`, `Bw`, and `global` are not a
 single destructive competition. Each surface keeps its own best candidate and
@@ -163,6 +163,7 @@ robustness, visual-evidence, and deployment-readiness axes visible.
 | Shape-first distillation bounded Track 2 screen | closed diagnostic | Remote bounded `polished_dataset` setpoint `Fw` screen completed on `2026-07-22`; matrix evaluated 4 candidates over 100 forward held-out curves, generated 8 measured-vs-predicted Track 2 plots, and the shape-gated reranker wrote `2026-07-22-15-59-37__shape_gated_te_curve_reranker`. | Not promoted. `polished_setpoints_periodic_gru_sequence_Fw` remains recommended with raw MAE `0.001837 deg`, centered MAE `0.001483 deg`, and shape pass rate `0.950`; the non-windowed distillation scalar winner ranked fourth with raw MAE `0.002079 deg`, centered MAE `0.001637 deg`, and shape pass rate `0.900`; the time-windowed distillation GRU ranked third with raw MAE `0.002032 deg`, centered MAE `0.001561 deg`, and shape pass rate `0.920`. |
 | Wave 5.2 post-shape-loss decision gate | closed design gate | The gate compared recent shape-gate, shape-objective, and shape-first distillation screens against prior `Wave 5.2A/B` evidence. Direct shape-threshold loss was rejected for now, unchanged `Wave 5.2B` rerun was rejected, and `Wave 5.2C`, full PINN, and Wave 6 were deferred. | Next branch selected: prepare a narrow causal offset / mean calibration pilot on `polished_dataset` setpoint `Fw`, anchored to `polished_setpoints_periodic_gru_sequence_Fw` and screened against the non-windowed `polished_setpoints_periodic_mlp_harmonic_Fw` comparator before any expansion. |
 | Causal offset / mean calibration pilot | closed pilot | Two remote/manual-recovery `polished_dataset` setpoint `Fw` arms completed. The non-windowed `causal_offset_mean_periodic_mlp_harmonic_fw` arm won scalar selection with validation MAE `0.001469 deg` and test MAE `0.001277 deg`; the time-windowed residual-offset GRU finished at test MAE `0.002100 deg`. | Accepted as a completed pilot, not promoted. The non-windowed MLP improves against the original non-windowed harmonic comparator but does not beat the accepted forward GRU scalar baseline or the prior shape-objective scalar high-water mark. Next step is a bounded `TE Curve Verification Pipeline` screen; do not expand the residual-offset GRU profile from this result. |
+| Causal offset bounded Track 2 screen | closed diagnostic | Remote bounded `polished_dataset` setpoint `Fw` screen completed on `2026-07-23`; matrix evaluated 5 candidates over 100 forward held-out curves and the shape-gated reranker wrote `2026-07-23-13-09-03__shape_gated_te_curve_reranker`. The run did not emit the expected measured-versus-predicted plot package. | Not promoted. `polished_setpoints_periodic_gru_sequence_Fw` remains recommended with raw MAE `0.001837 deg`, centered MAE `0.001483 deg`, and shape pass rate `0.950`; the non-windowed causal MLP ranked fourth with raw MAE `0.002075 deg`; the time-windowed causal GRU failed the shape gate with pass rate `0.000`. Next step is output/logging repair before another modeling campaign. |
 | Wave 5.2 PINN / MMT track | open design branch | MMT diagnostic and parameter inventory exist; feature and soft-constraint gates remain open. | Not campaign-ready. |
 | Wave 6 integrated multi-task / multi-head model | deferred | Intended to combine proven offset, low-frequency, centered-shape, uncertainty, mixture, and structured residual mechanisms. | Deferred until Waves 4.1-4.4, Wave 5.1, and Wave 5.2 evidence identifies what should be integrated. |
 
@@ -261,30 +262,30 @@ models.
 
 ## Current Next Steps
 
-1. Run a bounded `TE Curve Verification Pipeline` screen for
-   `causal_offset_mean_periodic_mlp_harmonic_fw` and
-   `causal_offset_mean_gru_sequence_fw` against
-   `polished_setpoints_periodic_gru_sequence_Fw` and
-   `polished_setpoints_periodic_mlp_harmonic_Fw`. Treat
-   `shape_objective_periodic_mlp_harmonic_Fw` as an optional scalar high-water
-   reference, not as the automatic promotion target.
-2. Do not expand the current shape-first distillation pilot: the bounded
+1. Repair bounded campaign output/logging and measured-versus-predicted plot
+   generation before launching another modeling campaign.
+2. Do not expand the causal offset / mean calibration profile: its bounded
+   `polished_dataset` setpoint `Fw` screen retained
+   `polished_setpoints_periodic_gru_sequence_Fw` as the accepted forward
+   recommendation, ranked the non-windowed causal MLP fourth, and rejected the
+   time-windowed causal GRU through the shape gate.
+3. Do not expand the current shape-first distillation pilot: the bounded
    `polished_dataset` setpoint `Fw` screen retained
    `polished_setpoints_periodic_gru_sequence_Fw` as the accepted forward
    recommendation and ranked the distillation candidates behind both
    polished-setpoint baselines.
-3. Keep both time-windowed and non-windowed roads active as comparison
-   categories, but do not expand the causal residual-offset GRU profile unless
-   curve-first evidence reverses this pilot's scalar weakness.
-4. Do not expand the current `shape_objective_periodic_mlp_harmonic_fw` pilot:
+4. Keep both time-windowed and non-windowed roads active as comparison
+   categories for future designs, but require bounded curve-first evidence
+   before promotion.
+5. Do not expand the current `shape_objective_periodic_mlp_harmonic_fw` pilot:
    the bounded `polished_dataset` setpoint `Fw` screen retained
    `polished_setpoints_periodic_gru_sequence_Fw` as the accepted forward
    recommendation and ranked the shape-objective candidate third.
-5. Do not expand the current shape-gate loss v2 checkpoint into a full matrix:
+6. Do not expand the current shape-gate loss v2 checkpoint into a full matrix:
    the bounded `polished_dataset` setpoint `Fw` screen retained
    `polished_setpoints_periodic_gru_sequence_Fw` as the accepted forward
    recommendation.
-6. Build the next reduced evaluation around `periodic_gru_sequence_Fw/Bw`,
+7. Build the next reduced evaluation around `periodic_gru_sequence_Fw/Bw`,
    `wave4_1_mae_robust_loss_Fw/Bw`,
    `wave4_2_quantile_p10_p50_p90_Fw/Bw`,
    `periodic_mlp_harmonic_Fw/Bw`, simple anchors, and selected RCIM references

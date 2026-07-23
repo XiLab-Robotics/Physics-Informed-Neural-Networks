@@ -1,0 +1,3 @@
+W0723 13:09:03.826000 12724 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+[DONE] Shape-gated reranker report written | C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\doc\reports\analysis\te_curve_verification_pipeline\03_cvp_diagnostics\shape_gated_reranker\[2026-07-22]\causal_offset_bounded_track2_screen_polished_setpoints_fw_matrix_shape_gated_te_curve_reranker_report.md
+[DONE] Shape-gated reranker artifacts written | C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\validation_checks\shape_gated_te_curve_reranker\2026-07-23-13-09-03__shape_gated_te_curve_reranker

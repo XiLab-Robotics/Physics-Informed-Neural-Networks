@@ -1,0 +1,53 @@
+W0723 13:07:44.592000 37076 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+[INFO] Building TE Curve Verification Pipeline held-out curve records
+[INFO] Built TE Curve Verification Pipeline held-out curve records | curve_count=100 | dataset=polished_dataset | surface_scope=forward
+System.Management.Automation.RemoteException
+TE matrix candidates:   0%|                        | 0/5 [00:00<?, ?candidate/s]
+
+System.Management.Automation.RemoteException
+TE matrix candidates:   0%|                        | 0/5 [00:00<?, ?candidate/s]
+
+System.Management.Automation.RemoteException
+TE matrix candidates:   0%|                        | 0/5 [00:00<?, ?candidate/s]
+TE matrix candidates:  20%|###2            | 1/5 [00:33<02:12, 33.19s/candidate]
+
+System.Management.Automation.RemoteException
+TE matrix candidates:  20%|###2            | 1/5 [00:33<02:12, 33.19s/candidate]
+
+System.Management.Automation.RemoteException
+TE matrix candidates:  20%|###2            | 1/5 [00:33<02:12, 33.19s/candidate]
+TE matrix candidates:  40%|######4         | 2/5 [00:33<00:42, 14.04s/candidate]
+
+System.Management.Automation.RemoteException
+TE matrix candidates:  40%|######4         | 2/5 [00:33<00:42, 14.04s/candidate]
+
+System.Management.Automation.RemoteException
+TE matrix candidates:  40%|######4         | 2/5 [00:33<00:42, 14.04s/candidate]
+TE matrix candidates:  60%|#########6      | 3/5 [00:34<00:15,  7.91s/candidate]
+
+System.Management.Automation.RemoteException
+TE matrix candidates:  60%|#########6      | 3/5 [00:34<00:15,  7.91s/candidate]
+
+System.Management.Automation.RemoteException
+TE matrix candidates:  60%|#########6      | 3/5 [00:34<00:15,  7.91s/candidate]
+TE matrix candidates:  80%|############8   | 4/5 [01:03<00:16, 16.13s/candidate]
+
+System.Management.Automation.RemoteException
+TE matrix candidates:  80%|############8   | 4/5 [01:03<00:16, 16.13s/candidate]
+
+System.Management.Automation.RemoteException
+TE matrix candidates:  80%|############8   | 4/5 [01:03<00:16, 16.13s/candidate]
+TE matrix candidates: 100%|################| 5/5 [01:03<00:00, 10.52s/candidate]
+TE matrix candidates: 100%|################| 5/5 [01:03<00:00, 12.75s/candidate]
+[INFO] Loading TE Curve Verification Pipeline candidate | 1/5 | polished_setpoints_periodic_gru_sequence_Fw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 1/5 | polished_setpoints_periodic_gru_sequence_Fw
+[INFO] Loading TE Curve Verification Pipeline candidate | 2/5 | polished_setpoints_periodic_mlp_harmonic_Fw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 2/5 | polished_setpoints_periodic_mlp_harmonic_Fw
+[INFO] Loading TE Curve Verification Pipeline candidate | 3/5 | causal_offset_mean_periodic_mlp_harmonic_Fw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 3/5 | causal_offset_mean_periodic_mlp_harmonic_Fw
+[INFO] Loading TE Curve Verification Pipeline candidate | 4/5 | causal_offset_mean_gru_sequence_Fw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 4/5 | causal_offset_mean_gru_sequence_Fw
+[INFO] Loading TE Curve Verification Pipeline candidate | 5/5 | shape_objective_periodic_mlp_harmonic_Fw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 5/5 | shape_objective_periodic_mlp_harmonic_Fw
+[DONE] Reference family comparison summary written | output\validation_checks\track2_reference_comparison\2026-07-23-13-07-44__causal_offset_bounded_track2_screen_polished_setpoints_fw_matrix_causal_offset_bounded_track2_screen_polished_setpoints_fw\validation_summary.yaml
+[DONE] Reference family comparison report written | doc\reports\analysis\validation_checks\te_curve_verification_pipeline\2026-07-23-13-08-58_causal_offset_bounded_track2_screen_polished_setpoints_fw_matrix_causal_offset_bounded_track2_screen_polished_setpoints_fw_report.md

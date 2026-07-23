@@ -52,7 +52,6 @@ launch_command_list:
   -PreflightOnly -RunOneBatchValidation
 - .\scripts\campaigns\cross_wave\run_causal_offset_mean_calibration_pilot_campaign.ps1
   -Remote
-protected_file_list: []
 artifact_list:
 - output/validation_checks/causal_offset_mean_gru_sequence_fw/2026-07-22-17-50-15__te_causal_offset_mean_gru_sequence_fw__polished_setpoints_validation_check/validation_summary.yaml
 - output/validation_checks/causal_offset_mean_periodic_mlp_harmonic_fw/2026-07-22-17-50-24__te_causal_offset_mean_periodic_mlp_harmonic_fw__polished_setpoints_validation_check/validation_summary.yaml
@@ -115,8 +114,55 @@ notes: >
   the scalar campaign winner, rejected immediate promotion, and left bounded
   curve-first verification as the next required gate.
 monitoring:
-  last_checked_at: '2026-07-22T18:40:00+02:00'
+  last_checked_at: '2026-07-23T13:18:49+02:00'
   remote_status: closed
-  remote_stage: normal_closeout_reported_and_pdf_validated
-  latest_observation: Campaign artifacts are synced, scalar closeout report is
-    registered, and the styled PDF was exported and raster-validated.
+  remote_stage: bounded_track2_screen_closed
+  latest_observation: Bounded causal offset TE Curve Verification Pipeline screen
+    completed, retained polished_setpoints_periodic_gru_sequence_Fw as the forward
+    recommendation, and did not promote either causal offset candidate. The
+    screen produced scalar and shape-gated evidence but no measured-vs-predicted
+    plot package.
+next_prepared_screen:
+  prepared_at: '2026-07-23T12:04:37+02:00'
+  completed_at: '2026-07-23T13:10:49+02:00'
+  closed_at: '2026-07-23T13:18:49+02:00'
+  status: closed
+  screen_name: causal_offset_bounded_track2_screen_2026_07_22
+  screen_type: bounded_te_curve_verification_pipeline
+  dataset_id: polished_dataset
+  input_mode: setpoints
+  surface_scope: forward
+  output_suffix: causal_offset_bounded_track2_screen_polished_setpoints_fw
+  matrix_config_path: config/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/causal_offset_bounded_track2_screen_polished_setpoints_fw_matrix.yaml
+  launcher_path: scripts/campaigns/track_2/run_causal_offset_bounded_track2_screen.ps1
+  launcher_note_path: doc/scripts/campaigns/track_2/run_causal_offset_bounded_track2_screen.md
+  planning_report_path: doc/reports/campaign_plans/cross_wave/causal_offset_mean_calibration/2026-07-22-18-48-18_causal_offset_bounded_track2_screen_plan_report.md
+  technical_document_path: doc/technical/2026-07/2026-07-22/2026-07-22-18-48-18_causal_offset_bounded_track2_screen.md
+  candidate_list:
+  - polished_setpoints_periodic_gru_sequence_Fw
+  - polished_setpoints_periodic_mlp_harmonic_Fw
+  - causal_offset_mean_periodic_mlp_harmonic_Fw
+  - causal_offset_mean_gru_sequence_Fw
+  - shape_objective_periodic_mlp_harmonic_Fw
+  matrix_output_directory: output/validation_checks/track2_reference_comparison/2026-07-23-13-07-44__causal_offset_bounded_track2_screen_polished_setpoints_fw_matrix_causal_offset_bounded_track2_screen_polished_setpoints_fw
+  matrix_report_path: doc/reports/analysis/validation_checks/te_curve_verification_pipeline/2026-07-23-13-08-58_causal_offset_bounded_track2_screen_polished_setpoints_fw_matrix_causal_offset_bounded_track2_screen_polished_setpoints_fw_report.md
+  reranker_output_directory: output/validation_checks/shape_gated_te_curve_reranker/2026-07-23-13-09-03__shape_gated_te_curve_reranker
+  reranker_report_path: doc/reports/analysis/te_curve_verification_pipeline/03_cvp_diagnostics/shape_gated_reranker/[2026-07-22]/causal_offset_bounded_track2_screen_polished_setpoints_fw_matrix_shape_gated_te_curve_reranker_report.md
+  closeout_report_path: doc/reports/campaign_results/track_2/2026-07-23-13-18-49_causal_offset_bounded_track2_screen_closeout_report.md
+  closeout_pdf_path: doc/reports/campaign_results/track_2/2026-07-23-13-18-49_causal_offset_bounded_track2_screen_closeout_report.pdf
+  report_plot_count: 0
+  recommended_candidate: polished_setpoints_periodic_gru_sequence_Fw
+  promoted_candidate: null
+  decision: not_promoted
+  output_quality_gap: bounded Track 2 measured-versus-predicted plot package was
+    not generated; remote sync logs emitted long unwrapped transfer/progress
+    lines.
+  launch_command_list:
+  - .\scripts\campaigns\track_2\run_causal_offset_bounded_track2_screen.ps1
+    -PreflightOnly
+  - .\scripts\campaigns\track_2\run_causal_offset_bounded_track2_screen.ps1
+  - .\scripts\campaigns\track_2\run_causal_offset_bounded_track2_screen.ps1
+    -Remote -PreflightOnly
+  - .\scripts\campaigns\track_2\run_causal_offset_bounded_track2_screen.ps1
+    -Remote
+protected_file_list: []

@@ -2,7 +2,7 @@
 
 ## Executive Snapshot
 
-- Generated At: `2026-07-22T18:38:51`
+- Generated At: `2026-07-23T13:22:44`
 - Program State: active.
 - Current Completed Wave: polished-dataset RCIM, early-wave, and full-wave
 - Current Focus: the polished-dataset TE Curve Verification Pipeline refresh is
@@ -15,7 +15,7 @@
 - Strongest current neural family: `periodic_gru_sequence_bw`
 - Current plain MLP anchor: `te_feedforward_trial`
 - Active family-improvement branch count: `0`
-- Implemented and benchmarked family count: `212`
+- Implemented and benchmarked family count: `214`
 
 ## Current Project Status
 
@@ -111,6 +111,7 @@
 | --- | --- | --- | --- | ---: | ---: | --- |
 | `periodic_gru_sequence_fw` | Implemented Benchmark | `te_periodic_gru_sequence_fw` | `periodic_gru_sequence` | 0.001101 | 157,569 | `2026-07-09 01:09:21` |
 | `shape_objective_periodic_mlp_harmonic_fw` | Implemented Benchmark | `te_shape_objective_periodic_mlp_harmonic_fw__polished_setpoints` | `periodic_mlp` | 0.001236 | 28,545 | `2026-07-21 19:12:09` |
+| `causal_offset_mean_periodic_mlp_harmonic_fw` | Implemented Benchmark | `te_causal_offset_mean_periodic_mlp_harmonic_fw__polished_setpoints` | `periodic_mlp` | 0.001277 | 28,545 | `2026-07-22 18:23:32` |
 | `periodic_mlp_harmonic_fw` | Implemented Benchmark | `te_periodic_mlp_harmonic_fw` | `periodic_mlp` | 0.001326 | 28,417 | `2026-07-08 03:31:01` |
 | `wave52b_offset_harmonic_guided_offset_centered_shape_harmonic_fw` | Implemented Benchmark | `te_wave52b_offset_harmonic_guided_offset_centered_shape_harmonic_fw` | `wave52b_offset_harmonic_guided` | 0.001392 | 22,593 | `2026-07-02 01:57:18` |
 | `shape_objective_v3_periodic_gru_sequence_fw` | Implemented Benchmark | `te_shape_objective_v3_periodic_gru_sequence_fw__polished_setpoints` | `periodic_gru_sequence` | 0.001400 | 157,953 | `2026-07-21 19:02:58` |
@@ -143,6 +144,7 @@
 | `residual_harmonic_lstm_sequence_sparse_rcim_fw` | Implemented Benchmark | `te_residual_harmonic_lstm_sequence_sparse_rcim_fw__polished_actual_values` | `residual_harmonic_lstm_sequence` | 0.002067 | 201,364 | `2026-07-09 22:37:02` |
 | `residual_harmonic_gru_sequence_dense360_fw` | Implemented Benchmark | `te_residual_harmonic_gru_sequence_dense360_fw__polished_actual_values` | `residual_harmonic_gru_sequence` | 0.002074 | 151,762 | `2026-07-09 17:49:07` |
 | `periodic_temporal_convolution_fw` | Implemented Benchmark | `te_periodic_temporal_convolution_fw__polished_actual_values` | `periodic_temporal_convolution` | 0.002077 | 158,529 | `2026-07-08 21:27:59` |
+| `causal_offset_mean_gru_sequence_fw` | Implemented Benchmark | `te_causal_offset_mean_gru_sequence_fw__polished_setpoints` | `sequential_residual_offset_probe` | 0.002100 | 92,802 | `2026-07-22 18:23:32` |
 | `residual_harmonic_gru_sequence_dense240_fw` | Implemented Benchmark | `te_residual_harmonic_gru_sequence_dense240_fw__polished_actual_values` | `residual_harmonic_gru_sequence` | 0.002101 | 151,522 | `2026-07-09 12:19:38` |
 | `residual_harmonic_lstm_sequence_dense240_fw` | Implemented Benchmark | `te_residual_harmonic_lstm_sequence_dense240_fw` | `residual_harmonic_lstm_sequence` | 0.002147 | 201,314 | `2026-07-10 02:54:22` |
 | `wave5_1_harmonic_prior_smooth_l1_structured_fw` | Implemented Benchmark | `te_wave5_1_harmonic_prior_smooth_l1_structured_fw` | `wave3_harmonic_prior_residual` | 0.002151 | 7,168 | `2026-07-16 06:57:05` |
@@ -434,7 +436,7 @@ Low-priority exploratory families currently listed in the backlog:
 
 | Campaign | Generated At | Completed | Failed | Winner | Impact |
 | --- | --- | ---: | ---: | --- | --- |
-| `causal_offset_mean_calibration_pilot_2026_07_22` | `2026-07-22 18:23:32` | 2 | 0 | `te_causal_offset_mean_periodic_mlp_harmonic_fw__polished_setpoints` | No family-best change |
+| `causal_offset_mean_calibration_pilot_2026_07_22` | `2026-07-22 18:23:32` | 2 | 0 | `te_causal_offset_mean_periodic_mlp_harmonic_fw__polished_setpoints` | Updated causal_offset_mean_periodic_mlp_harmonic_fw family best |
 | `shape_first_training_rule_distillation_pilot_2026_07_22` | `2026-07-22 14:48:11` | 2 | 0 | `te_shape_first_distilled_periodic_mlp_harmonic_fw__polished_setpoints` | Updated shape_first_distilled_periodic_mlp_harmonic_fw family best |
 | `parallel_shape_objective_followup_2026_07_21` | `2026-07-21 19:20:11` | 3 | 0 | `te_shape_objective_periodic_mlp_harmonic_fw__polished_setpoints` | Updated shape_objective_periodic_mlp_harmonic_fw family best |
 | `shape_gate_loss_v2_checkpoint_selection_pilot_2026_07_21` | `2026-07-21 13:08:39` | 1 | 0 | `te_shape_gate_loss_v2_periodic_gru_sequence_fw__polished_setpoints` | Updated shape_gate_loss_v2_checkpoint_selection_periodic_gru_sequence_fw family best |
@@ -540,6 +542,7 @@ Low-priority exploratory families currently listed in the backlog:
 | --- | --- | --- | ---: | ---: | ---: | ---: | --- | --- | --- |
 | `periodic_gru_sequence_fw` | `te_periodic_gru_sequence_fw` | `periodic_gru_sequence` | 0.001099 | 0.001101 | 0.001409 | 157,569 | N/A | Unknown | Implemented Benchmark |
 | `shape_objective_periodic_mlp_harmonic_fw` | `te_shape_objective_periodic_mlp_harmonic_fw__polished_setpoints` | `periodic_mlp` | 0.001429 | 0.001236 | 0.001672 | 28,545 | N/A | Unknown | Implemented Benchmark |
+| `causal_offset_mean_periodic_mlp_harmonic_fw` | `te_causal_offset_mean_periodic_mlp_harmonic_fw__polished_setpoints` | `periodic_mlp` | 0.001469 | 0.001277 | 0.001739 | 28,545 | N/A | Unknown | Implemented Benchmark |
 | `periodic_mlp_harmonic_fw` | `te_periodic_mlp_harmonic_fw` | `periodic_mlp` | 0.001144 | 0.001326 | 0.001780 | 28,417 | N/A | Unknown | Implemented Benchmark |
 | `wave52b_offset_harmonic_guided_offset_centered_shape_harmonic_fw` | `te_wave52b_offset_harmonic_guided_offset_centered_shape_harmonic_fw` | `wave52b_offset_harmonic_guided` | 0.001809 | 0.001392 | 0.001771 | 22,593 | 0.30 MB | Medium | Implemented Benchmark |
 | `shape_objective_v3_periodic_gru_sequence_fw` | `te_shape_objective_v3_periodic_gru_sequence_fw__polished_setpoints` | `periodic_gru_sequence` | 0.001820 | 0.001400 | 0.001756 | 157,953 | N/A | Unknown | Implemented Benchmark |
@@ -572,6 +575,7 @@ Low-priority exploratory families currently listed in the backlog:
 | `residual_harmonic_lstm_sequence_sparse_rcim_fw` | `te_residual_harmonic_lstm_sequence_sparse_rcim_fw__polished_actual_values` | `residual_harmonic_lstm_sequence` | 0.001951 | 0.002067 | 0.003129 | 201,364 | N/A | Unknown | Implemented Benchmark |
 | `residual_harmonic_gru_sequence_dense360_fw` | `te_residual_harmonic_gru_sequence_dense360_fw__polished_actual_values` | `residual_harmonic_gru_sequence` | 0.001955 | 0.002074 | 0.003114 | 151,762 | N/A | Unknown | Implemented Benchmark |
 | `periodic_temporal_convolution_fw` | `te_periodic_temporal_convolution_fw__polished_actual_values` | `periodic_temporal_convolution` | 0.001939 | 0.002077 | 0.003080 | 158,529 | N/A | Unknown | Implemented Benchmark |
+| `causal_offset_mean_gru_sequence_fw` | `te_causal_offset_mean_gru_sequence_fw__polished_setpoints` | `sequential_residual_offset_probe` | 0.002428 | 0.002100 | 0.002610 | 92,802 | N/A | Unknown | Implemented Benchmark |
 | `residual_harmonic_gru_sequence_dense240_fw` | `te_residual_harmonic_gru_sequence_dense240_fw__polished_actual_values` | `residual_harmonic_gru_sequence` | 0.001969 | 0.002101 | 0.003138 | 151,522 | N/A | Unknown | Implemented Benchmark |
 | `residual_harmonic_lstm_sequence_dense240_fw` | `te_residual_harmonic_lstm_sequence_dense240_fw` | `residual_harmonic_lstm_sequence` | 0.002044 | 0.002147 | 0.002745 | 201,314 | N/A | Unknown | Implemented Benchmark |
 | `wave5_1_harmonic_prior_smooth_l1_structured_fw` | `te_wave5_1_harmonic_prior_smooth_l1_structured_fw` | `wave3_harmonic_prior_residual` | 0.001912 | 0.002151 | 0.002745 | 7,168 | N/A | Unknown | Implemented Benchmark |

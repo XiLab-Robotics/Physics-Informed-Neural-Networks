@@ -1,0 +1,284 @@
+config_path: config\paper_reimplementation\rcim_ml_compensation\reference_family_vs_feedforward\causal_offset_bounded_track2_screen_polished_setpoints_fw_matrix.yaml
+output_directory: output\validation_checks\track2_reference_comparison\2026-07-23-13-07-44__causal_offset_bounded_track2_screen_polished_setpoints_fw_matrix_causal_offset_bounded_track2_screen_polished_setpoints_fw
+dataset:
+  dataset_config_path: config/datasets/transmission_error_dataset.yaml
+  dataset_root: data\polished_dataset
+  source_contract: data\polished_dataset
+comparison_scope:
+  comparison_mode: selected_active_model_matrix
+  percentage_error_denominator: peak_to_peak_truth
+  curve_count: 100
+  candidate_count: 5
+  directional_policy:
+    global:
+    - forward
+    - backward
+    Fw:
+    - forward
+    Bw:
+    - backward
+  reference_bank_compatibility_policy:
+    rcim_track1_Fw_h0_sign_multiplier: -1.0
+    reason: RCIM Model-Bank Reproduction forward reference banks store the constant
+      harmonic with the opposite sign convention relative to the TE Curve Verification
+      Pipeline TE-curve reconstruction contract.
+candidate_list:
+- candidate_id: polished_setpoints_periodic_gru_sequence_Fw
+  candidate_family: periodic_gru_sequence
+  candidate_kind: wave1_exported_model
+  candidate_source_label: polished_setpoints_model_archive
+  candidate_surface: Fw
+  allowed_direction_list:
+  - forward
+  source_path: models\polished_dataset\setpoints\periodic_gru_sequence\forward\reference_inventory.yaml
+  selected_harmonic_list: []
+  registry_run_instance_id: 2026-07-08-22-57-44__te_periodic_gru_sequence_fw__polished_setpoints
+  model_file_path: models/polished_dataset/setpoints/periodic_gru_sequence/forward/python/periodic_gru_sequence-epoch=091-val_mae=0.00183161.ckpt
+  composite_selection: null
+- candidate_id: polished_setpoints_periodic_mlp_harmonic_Fw
+  candidate_family: periodic_mlp_harmonic
+  candidate_kind: wave1_exported_model
+  candidate_source_label: polished_setpoints_model_archive
+  candidate_surface: Fw
+  allowed_direction_list:
+  - forward
+  source_path: models\polished_dataset\setpoints\periodic_mlp_harmonic\forward\reference_inventory.yaml
+  selected_harmonic_list: []
+  registry_run_instance_id: 2026-07-08-02-15-59__te_periodic_mlp_harmonic_fw__polished_setpoints
+  model_file_path: models/polished_dataset/setpoints/periodic_mlp_harmonic/forward/python/periodic_mlp-epoch=051-val_mae=0.00120808.ckpt
+  composite_selection: null
+- candidate_id: causal_offset_mean_periodic_mlp_harmonic_Fw
+  candidate_family: causal_offset_mean_periodic_mlp_harmonic_fw
+  candidate_kind: wave1_registry_model
+  candidate_source_label: causal_offset_mean_calibration_pilot
+  candidate_surface: Fw
+  allowed_direction_list:
+  - forward
+  source_path: output\registries\families\causal_offset_mean_periodic_mlp_harmonic_fw\latest_family_best.yaml
+  selected_harmonic_list: []
+  registry_run_instance_id: 2026-07-22-18-15-50__te_causal_offset_mean_periodic_mlp_harmonic_fw__polished_setpoints
+  model_file_path: null
+  composite_selection: null
+- candidate_id: causal_offset_mean_gru_sequence_Fw
+  candidate_family: causal_offset_mean_gru_sequence_fw
+  candidate_kind: wave1_registry_model
+  candidate_source_label: causal_offset_mean_calibration_pilot
+  candidate_surface: Fw
+  allowed_direction_list:
+  - forward
+  source_path: output\registries\families\causal_offset_mean_gru_sequence_fw\latest_family_best.yaml
+  selected_harmonic_list: []
+  registry_run_instance_id: 2026-07-22-18-09-27__te_causal_offset_mean_gru_sequence_fw__polished_setpoints
+  model_file_path: null
+  composite_selection: null
+- candidate_id: shape_objective_periodic_mlp_harmonic_Fw
+  candidate_family: shape_objective_periodic_mlp_harmonic_fw
+  candidate_kind: wave1_registry_model
+  candidate_source_label: shape_objective_followup
+  candidate_surface: Fw
+  allowed_direction_list:
+  - forward
+  source_path: output\registries\families\shape_objective_periodic_mlp_harmonic_fw\latest_family_best.yaml
+  selected_harmonic_list: []
+  registry_run_instance_id: 2026-07-21-19-02-58__te_shape_objective_periodic_mlp_harmonic_fw__polished_setpoints
+  model_file_path: null
+  composite_selection: null
+candidate_target_metric_summary: {}
+candidate_metric_summary:
+  polished_setpoints_periodic_gru_sequence_Fw:
+    mse: 8.308504598015123e-06
+    mae: 0.0018369222901505322
+    rmse: 0.0021793110919211484
+    mean_percentage_error_pct: 3.7506291465334543
+    p95_mean_percentage_error_pct: 8.248097870109055
+  polished_setpoints_periodic_mlp_harmonic_Fw:
+    mse: 9.027257786516614e-06
+    mae: 0.0019375318490306367
+    rmse: 0.0022763385054401443
+    mean_percentage_error_pct: 3.98776468451354
+    p95_mean_percentage_error_pct: 10.017324240347223
+  causal_offset_mean_periodic_mlp_harmonic_Fw:
+    mse: 9.543641282669841e-06
+    mae: 0.0020751721468440414
+    rmse: 0.0024776980719300006
+    mean_percentage_error_pct: 4.314267777420563
+    p95_mean_percentage_error_pct: 9.71711197251208
+  causal_offset_mean_gru_sequence_Fw:
+    mse: 1.1490034368704179e-05
+    mae: 0.0023920165135558917
+    rmse: 0.002868105762519906
+    mean_percentage_error_pct: 5.009841184411462
+    p95_mean_percentage_error_pct: 10.26900901713926
+  shape_objective_periodic_mlp_harmonic_Fw:
+    mse: 9.548850265818408e-06
+    mae: 0.0020346154075384965
+    rmse: 0.0024117538187143793
+    mean_percentage_error_pct: 4.222146296235125
+    p95_mean_percentage_error_pct: 10.956482854976686
+direction_breakdown:
+  forward:
+    polished_setpoints_periodic_gru_sequence_Fw:
+      mse: 8.308504598015123e-06
+      mae: 0.0018369222901505322
+      rmse: 0.0021793110919211484
+      mean_percentage_error_pct: 3.7506291465334543
+      p95_mean_percentage_error_pct: 8.248097870109055
+    polished_setpoints_periodic_mlp_harmonic_Fw:
+      mse: 9.027257786516614e-06
+      mae: 0.0019375318490306367
+      rmse: 0.0022763385054401443
+      mean_percentage_error_pct: 3.98776468451354
+      p95_mean_percentage_error_pct: 10.017324240347223
+    causal_offset_mean_periodic_mlp_harmonic_Fw:
+      mse: 9.543641282669841e-06
+      mae: 0.0020751721468440414
+      rmse: 0.0024776980719300006
+      mean_percentage_error_pct: 4.314267777420563
+      p95_mean_percentage_error_pct: 9.71711197251208
+    causal_offset_mean_gru_sequence_Fw:
+      mse: 1.1490034368704179e-05
+      mae: 0.0023920165135558917
+      rmse: 0.002868105762519906
+      mean_percentage_error_pct: 5.009841184411462
+      p95_mean_percentage_error_pct: 10.26900901713926
+    shape_objective_periodic_mlp_harmonic_Fw:
+      mse: 9.548850265818408e-06
+      mae: 0.0020346154075384965
+      rmse: 0.0024117538187143793
+      mean_percentage_error_pct: 4.222146296235125
+      p95_mean_percentage_error_pct: 10.956482854976686
+temperature_breakdown:
+  '25.0':
+    polished_setpoints_periodic_gru_sequence_Fw:
+      mse: 6.583407531279879e-06
+      mae: 0.0017702597765420001
+      rmse: 0.0020777080696392516
+      mean_percentage_error_pct: 3.930498114564502
+      p95_mean_percentage_error_pct: 7.512146823687651
+    polished_setpoints_periodic_mlp_harmonic_Fw:
+      mse: 6.685044982351369e-06
+      mae: 0.0017554683948490836
+      rmse: 0.0020515099131919673
+      mean_percentage_error_pct: 3.893495449164016
+      p95_mean_percentage_error_pct: 8.094291927070717
+    causal_offset_mean_periodic_mlp_harmonic_Fw:
+      mse: 6.839978682350163e-06
+      mae: 0.0018652205592475618
+      rmse: 0.002212185125663056
+      mean_percentage_error_pct: 4.1542405861526355
+      p95_mean_percentage_error_pct: 8.36177112435278
+    causal_offset_mean_gru_sequence_Fw:
+      mse: 8.202904552822362e-06
+      mae: 0.002157674204197019
+      rmse: 0.0025933074039736787
+      mean_percentage_error_pct: 4.819881081287787
+      p95_mean_percentage_error_pct: 7.603136739161011
+    shape_objective_periodic_mlp_harmonic_Fw:
+      mse: 6.425312486685343e-06
+      mae: 0.0017562209455525963
+      rmse: 0.0020775871074282595
+      mean_percentage_error_pct: 3.8969323571636942
+      p95_mean_percentage_error_pct: 7.176091720186582
+  '30.0':
+    polished_setpoints_periodic_gru_sequence_Fw:
+      mse: 7.440719832453662e-06
+      mae: 0.001681047801233812
+      rmse: 0.0020280999892720963
+      mean_percentage_error_pct: 3.3084984923033183
+      p95_mean_percentage_error_pct: 7.6514114402137885
+    polished_setpoints_periodic_mlp_harmonic_Fw:
+      mse: 8.094216529835748e-06
+      mae: 0.0017248767357684997
+      rmse: 0.0020945209876197766
+      mean_percentage_error_pct: 3.3940782282008177
+      p95_mean_percentage_error_pct: 7.907270851373014
+    causal_offset_mean_periodic_mlp_harmonic_Fw:
+      mse: 8.51074602461536e-06
+      mae: 0.0018892599155533403
+      rmse: 0.0023225190404142066
+      mean_percentage_error_pct: 3.776585901313082
+      p95_mean_percentage_error_pct: 7.922884694315981
+    causal_offset_mean_gru_sequence_Fw:
+      mse: 1.0376184034375021e-05
+      mae: 0.0022584642173585365
+      rmse: 0.002758861405008397
+      mean_percentage_error_pct: 4.602401262646081
+      p95_mean_percentage_error_pct: 8.13847655547764
+    shape_objective_periodic_mlp_harmonic_Fw:
+      mse: 8.421493984152374e-06
+      mae: 0.0018460919315576726
+      rmse: 0.0022525444813938193
+      mean_percentage_error_pct: 3.681765148665332
+      p95_mean_percentage_error_pct: 7.7763474837067985
+  '35.0':
+    polished_setpoints_periodic_gru_sequence_Fw:
+      mse: 1.1117023563653726e-05
+      mae: 0.002067792106876851
+      rmse: 0.002444825594637337
+      mean_percentage_error_pct: 3.9904072117286606
+      p95_mean_percentage_error_pct: 10.548105787645135
+    polished_setpoints_periodic_mlp_harmonic_Fw:
+      mse: 1.2595288447883386e-05
+      mae: 0.002355008348247022
+      rmse: 0.002711088189539712
+      mean_percentage_error_pct: 4.6875040305944795
+      p95_mean_percentage_error_pct: 11.796277266192496
+    causal_offset_mean_periodic_mlp_harmonic_Fw:
+      mse: 1.3618156966083983e-05
+      mae: 0.0024972799141807834
+      rmse: 0.002931579167996108
+      mean_percentage_error_pct: 5.03198024370446
+      p95_mean_percentage_error_pct: 12.145253555441997
+    causal_offset_mean_gru_sequence_Fw:
+      mse: 1.6301905745900365e-05
+      mae: 0.0027892039077819777
+      rmse: 0.003286498273395926
+      mean_percentage_error_pct: 5.630986222190972
+      p95_mean_percentage_error_pct: 13.164561237932421
+    shape_objective_periodic_mlp_harmonic_Fw:
+      mse: 1.419018654900915e-05
+      mae: 0.0025363326532534558
+      rmse: 0.002946900706231825
+      mean_percentage_error_pct: 5.128393125260278
+      p95_mean_percentage_error_pct: 12.62408387214688
+preview_plot_path_list: []
+report_plot_root: doc\reports\campaign_results\track_2\verification_plots\causal_offset_bounded_track2_screen_polished_setpoints_fw
+report_plot_path_list: []
+report_plot_count: 0
+per_condition_metrics_csv_path: output\validation_checks\track2_reference_comparison\2026-07-23-13-07-44__causal_offset_bounded_track2_screen_polished_setpoints_fw_matrix_causal_offset_bounded_track2_screen_polished_setpoints_fw\per_condition_metrics.csv
+sample_preview_list:
+- source_file_path: data\polished_dataset\forward\25degree\1000rpm\1000.0rpm1000.0Nm25.0deg.csv
+  direction_label: forward
+  candidate_id: polished_setpoints_periodic_gru_sequence_Fw
+  speed_rpm: 1000.0
+  torque_nm: 1000.0
+  oil_temperature_deg: 25.0
+  mean_percentage_error_pct: 4.142081415573159
+- source_file_path: data\polished_dataset\forward\25degree\1000rpm\1000.0rpm1800.0Nm25.0deg.csv
+  direction_label: forward
+  candidate_id: polished_setpoints_periodic_gru_sequence_Fw
+  speed_rpm: 1000.0
+  torque_nm: 1800.0
+  oil_temperature_deg: 25.0
+  mean_percentage_error_pct: 3.3264289504770805
+- source_file_path: data\polished_dataset\forward\25degree\1000rpm\1000.0rpm800.0Nm25.0deg.csv
+  direction_label: forward
+  candidate_id: polished_setpoints_periodic_gru_sequence_Fw
+  speed_rpm: 1000.0
+  torque_nm: 800.0
+  oil_temperature_deg: 25.0
+  mean_percentage_error_pct: 2.051883193108297
+- source_file_path: data\polished_dataset\forward\25degree\100rpm\100.0rpm1300.0Nm25.0deg.csv
+  direction_label: forward
+  candidate_id: polished_setpoints_periodic_gru_sequence_Fw
+  speed_rpm: 100.0
+  torque_nm: 1300.0
+  oil_temperature_deg: 25.0
+  mean_percentage_error_pct: 1.0074684906977307
+- source_file_path: data\polished_dataset\forward\25degree\100rpm\100.0rpm400.0Nm25.0deg.csv
+  direction_label: forward
+  candidate_id: polished_setpoints_periodic_gru_sequence_Fw
+  speed_rpm: 100.0
+  torque_nm: 400.0
+  oil_temperature_deg: 25.0
+  mean_percentage_error_pct: 1.3488582028658334
