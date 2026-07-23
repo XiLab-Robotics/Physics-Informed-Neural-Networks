@@ -1,0 +1,15 @@
+W0723 15:58:54.100000 35408 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+[INFO] Building TE Curve Verification Pipeline held-out curve records
+[INFO] Built TE Curve Verification Pipeline held-out curve records | curve_count=100 | dataset=polished_dataset | surface_scope=forward
+[INFO] Loading TE Curve Verification Pipeline candidate | 1/5 | polished_setpoints_periodic_gru_sequence_Fw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 1/5 | polished_setpoints_periodic_gru_sequence_Fw
+[INFO] Loading TE Curve Verification Pipeline candidate | 2/5 | polished_setpoints_periodic_mlp_harmonic_Fw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 2/5 | polished_setpoints_periodic_mlp_harmonic_Fw
+[INFO] Loading TE Curve Verification Pipeline candidate | 3/5 | causal_offset_mean_periodic_mlp_harmonic_Fw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 3/5 | causal_offset_mean_periodic_mlp_harmonic_Fw
+[INFO] Loading TE Curve Verification Pipeline candidate | 4/5 | causal_offset_mean_gru_sequence_Fw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 4/5 | causal_offset_mean_gru_sequence_Fw
+[INFO] Loading TE Curve Verification Pipeline candidate | 5/5 | shape_objective_periodic_mlp_harmonic_Fw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 5/5 | shape_objective_periodic_mlp_harmonic_Fw
+[DONE] Reference family comparison summary written | output\validation_checks\track2_reference_comparison\2026-07-23-15-58-54__causal_offset_bounded_track2_screen_polished_setpoints_fw_matrix_causal_offset_bounded_track2_screen_polished_setpoints_fw\validation_summary.yaml
+[DONE] Reference family comparison report written | doc\reports\analysis\validation_checks\te_curve_verification_pipeline\2026-07-23-16-00-07_causal_offset_bounded_track2_screen_polished_setpoints_fw_matrix_causal_offset_bounded_track2_screen_polished_setpoints_fw_report.md

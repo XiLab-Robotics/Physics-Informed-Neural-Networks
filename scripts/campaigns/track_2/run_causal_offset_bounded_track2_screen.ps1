@@ -30,6 +30,37 @@ $ActiveFamilyList = @(
     "shape_objective_periodic_mlp_harmonic_fw"
 )
 
+function Write-PlainOutputLine {
+    param([string]$Message)
+
+    [Console]::Out.WriteLine($Message)
+}
+
+function Write-WrappedOutputLine {
+    param([string]$Message)
+
+    $maximumLineLength = 160
+    if ($Message.Length -le $maximumLineLength) {
+        Write-PlainOutputLine $Message
+        return
+    }
+
+    $remainingText = $Message
+    $linePrefix = ""
+    while ($remainingText.Length -gt $maximumLineLength) {
+        $splitIndex = $remainingText.LastIndexOfAny(@(" ", "|", "\", "/"), $maximumLineLength)
+        if ($splitIndex -lt 80) {
+            $splitIndex = $maximumLineLength
+        }
+        Write-PlainOutputLine ("{0}{1}" -f $linePrefix, $remainingText.Substring(0, $splitIndex).TrimEnd())
+        $remainingText = $remainingText.Substring($splitIndex).TrimStart(" ", "|", "\", "/")
+        $linePrefix = "      "
+    }
+    if ($remainingText.Length -gt 0) {
+        Write-PlainOutputLine ("{0}{1}" -f $linePrefix, $remainingText)
+    }
+}
+
 function Write-LogLine {
     param(
         [string]$Level,
@@ -37,7 +68,7 @@ function Write-LogLine {
     )
 
     $timestamp = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
-    Write-Host ("[{0}] [{1}] {2}" -f $timestamp, $Level, $Message)
+    Write-WrappedOutputLine ("[{0}] [{1}] {2}" -f $timestamp, $Level, $Message)
 }
 
 function Assert-RelativePathExists {
@@ -62,6 +93,27 @@ function Join-CommandLine {
     param([string[]]$ArgumentList)
 
     return (($ArgumentList | ForEach-Object { Format-CommandArgument $_ }) -join " ")
+}
+
+function Write-CommandPreview {
+    param(
+        [string]$CommandName,
+        [string[]]$ArgumentList
+    )
+
+    Write-LogLine "CMD" $CommandName
+    $currentLine = "    conda"
+    foreach ($argument in $ArgumentList) {
+        $formattedArgument = Format-CommandArgument $argument
+        if (($currentLine.Length + 1 + $formattedArgument.Length) -gt 118) {
+            Write-PlainOutputLine $currentLine
+            $currentLine = "      $formattedArgument"
+        }
+        else {
+            $currentLine = "$currentLine $formattedArgument"
+        }
+    }
+    Write-PlainOutputLine $currentLine
 }
 
 function New-MatrixArgumentList {
@@ -122,6 +174,9 @@ function New-PlotArgumentList {
 function Test-SuppressedOutputLine {
     param([string]$OutputLine)
 
+    if ([string]::IsNullOrWhiteSpace($OutputLine)) {
+        return $true
+    }
     if ($OutputLine -eq "System.Management.Automation.RemoteException") {
         return $true
     }
@@ -141,7 +196,7 @@ function Invoke-LoggedCondaPython {
     $logPath = Join-Path $LogRoot ("{0}.log" -f $StepName)
     $condaArgumentList = @("run", "--no-capture-output", "-n", $CondaEnvironmentName, "python") + $PythonArgumentList
     Write-LogLine "STEP" ("Running {0}" -f $StepName)
-    Write-LogLine "CMD" ("conda {0}" -f (Join-CommandLine $condaArgumentList))
+    Write-CommandPreview $StepName $condaArgumentList
 
     Push-Location $RepositoryRoot
     try {
@@ -154,7 +209,7 @@ function Invoke-LoggedCondaPython {
             & conda @condaArgumentList 2>&1 | ForEach-Object {
                 $outputLine = $_.ToString()
                 if (-not (Test-SuppressedOutputLine -OutputLine $outputLine)) {
-                    Write-Host $outputLine
+                    Write-WrappedOutputLine $outputLine
                     Add-Content -LiteralPath $logPath -Value $outputLine
                 }
             }
@@ -199,11 +254,7 @@ function Repair-TextArtifactWhitespace {
 
 function Repair-BoundedScreenArtifacts {
     Repair-TextArtifactWhitespace @(
-        "output/validation_checks/track2_reference_comparison",
-        "output/validation_checks/shape_gated_te_curve_reranker",
-        "output/validation_checks/track2_operator_launch_logs",
         $RerankerReportRoot,
-        "doc/reports/analysis/validation_checks/te_curve_verification_pipeline",
         $PlotReportRoot
     )
 }
@@ -227,12 +278,9 @@ function Invoke-LocalPreflight {
         throw "Active campaign state is not prepared for causal_offset_bounded_track2_screen_2026_07_22."
     }
 
-    $matrixCommandLine = "conda " + (Join-CommandLine (@("run", "--no-capture-output", "-n", $CondaEnvironmentName, "python") + (New-MatrixArgumentList)))
-    $rerankerCommandLine = "conda " + (Join-CommandLine (@("run", "--no-capture-output", "-n", $CondaEnvironmentName, "python") + (New-RerankerArgumentList)))
-    $plotCommandLine = "conda " + (Join-CommandLine (@("run", "--no-capture-output", "-n", $CondaEnvironmentName, "python") + (New-PlotArgumentList)))
-    Write-LogLine "CMD" $matrixCommandLine
-    Write-LogLine "CMD" $rerankerCommandLine
-    Write-LogLine "CMD" $plotCommandLine
+    Write-CommandPreview "reference_family_vs_feedforward_matrix" (@("run", "--no-capture-output", "-n", $CondaEnvironmentName, "python") + (New-MatrixArgumentList))
+    Write-CommandPreview "shape_gated_reranker" (@("run", "--no-capture-output", "-n", $CondaEnvironmentName, "python") + (New-RerankerArgumentList))
+    Write-CommandPreview "track2_candidate_curve_plots" (@("run", "--no-capture-output", "-n", $CondaEnvironmentName, "python") + (New-PlotArgumentList))
     Write-LogLine "INFO" "Preflight passed. No verification run was launched."
 }
 
@@ -268,6 +316,34 @@ function Invoke-RemoteCommandWithOutput {
         throw "Remote command failed with exit code $LASTEXITCODE."
     }
     return $commandOutput
+}
+
+function Invoke-RemotePowerShellScriptWithOutput {
+    param(
+        [string]$ScriptText,
+        [string]$ScriptName
+    )
+
+    New-Item -ItemType Directory -Force -Path $LogRoot | Out-Null
+    $localScriptPath = Join-Path $LogRoot $ScriptName
+    Set-Content -LiteralPath $localScriptPath -Value $ScriptText -Encoding UTF8
+
+    $remoteRelativeScriptPath = Join-Path ".temp" $ScriptName
+    $remoteScriptPath = Convert-ToRemotePath (Join-Path $RemoteRepositoryPath $remoteRelativeScriptPath)
+    $remoteScriptParent = Split-Path -Parent $remoteScriptPath
+    Invoke-RemoteCommand ("New-Item -ItemType Directory -Force -Path '{0}' | Out-Null" -f $remoteScriptParent)
+    scp -q $localScriptPath ("{0}:`"{1}`"" -f $RemoteHostAlias, $remoteScriptPath)
+    if ($LASTEXITCODE -ne 0) {
+        throw "Remote script upload failed."
+    }
+
+    try {
+        return Invoke-RemoteCommandWithOutput ("& '{0}'" -f $remoteScriptPath)
+    }
+    finally {
+        Remove-Item -LiteralPath $localScriptPath -Force -ErrorAction SilentlyContinue
+        Invoke-RemoteCommand ("Remove-Item -LiteralPath '{0}' -Force -ErrorAction SilentlyContinue" -f $remoteScriptPath)
+    }
 }
 
 function Copy-PathToRemote {
@@ -325,15 +401,45 @@ function Invoke-RemoteArtifactSync {
     $remotePowerShell = @"
 `$ProgressPreference = 'SilentlyContinue'
 `$RepositoryRoot = '$RemoteRepositoryPath'
+`$OutputSuffix = '$OutputSuffix'
 Set-Location -LiteralPath `$RepositoryRoot
-`$artifactMap = @(
-  @{ Source = 'output/validation_checks/track2_reference_comparison'; Target = 'output/validation_checks/track2_reference_comparison' },
-  @{ Source = 'output/validation_checks/shape_gated_te_curve_reranker'; Target = 'output/validation_checks/shape_gated_te_curve_reranker' },
-  @{ Source = 'output/validation_checks/track2_operator_launch_logs'; Target = 'output/validation_checks/track2_operator_launch_logs' },
-  @{ Source = '$RerankerReportRoot'; Target = '$RerankerReportRoot' },
-  @{ Source = 'doc/reports/analysis/validation_checks/te_curve_verification_pipeline'; Target = 'doc/reports/analysis/validation_checks/te_curve_verification_pipeline' },
-  @{ Source = '$PlotReportRoot'; Target = '$PlotReportRoot' }
-)
+`$artifactMap = @()
+function Add-ExactArtifactPath {
+  param([string]`$RelativePath)
+  if (Test-Path -LiteralPath `$RelativePath) {
+    `$script:artifactMap += @{ Source = `$RelativePath; Target = `$RelativePath }
+  }
+}
+function Add-LatestArtifactDirectory {
+  param([string]`$RootPath, [string]`$NamePattern)
+  if (-not (Test-Path -LiteralPath `$RootPath)) {
+    return
+  }
+  `$latestDirectory = Get-ChildItem -LiteralPath `$RootPath -Directory -Filter `$NamePattern |
+    Sort-Object -Property LastWriteTime -Descending |
+    Select-Object -First 1
+  if (`$null -ne `$latestDirectory) {
+    Add-ExactArtifactPath (Join-Path `$RootPath `$latestDirectory.Name)
+  }
+}
+function Add-LatestArtifactFile {
+  param([string]`$RootPath, [string]`$NamePattern)
+  if (-not (Test-Path -LiteralPath `$RootPath)) {
+    return
+  }
+  `$latestFile = Get-ChildItem -LiteralPath `$RootPath -File -Filter `$NamePattern |
+    Sort-Object -Property LastWriteTime -Descending |
+    Select-Object -First 1
+  if (`$null -ne `$latestFile) {
+    Add-ExactArtifactPath (Join-Path `$RootPath `$latestFile.Name)
+  }
+}
+Add-LatestArtifactDirectory 'output/validation_checks/track2_reference_comparison' ("*{0}*" -f `$OutputSuffix)
+Add-LatestArtifactDirectory 'output/validation_checks/shape_gated_te_curve_reranker' '*'
+Add-LatestArtifactDirectory 'output/validation_checks/track2_operator_launch_logs' ("*{0}" -f `$OutputSuffix)
+Add-LatestArtifactFile 'doc/reports/analysis/validation_checks/te_curve_verification_pipeline' ("*{0}*report.md" -f `$OutputSuffix)
+Add-ExactArtifactPath '$RerankerReportRoot/${OutputSuffix}_matrix_shape_gated_te_curve_reranker_report.md'
+Add-ExactArtifactPath '$PlotReportRoot'
 `$bundleRoot = Join-Path `$env:TEMP ('causal_offset_bounded_track2_screen_bundle_$RunStamp')
 if (Test-Path -LiteralPath `$bundleRoot) {
   Remove-Item -LiteralPath `$bundleRoot -Recurse -Force
@@ -360,7 +466,7 @@ if (Test-Path -LiteralPath `$archivePath) {
 Compress-Archive -Path (Join-Path `$bundleRoot '*') -DestinationPath `$archivePath -Force
 Write-Output `$archivePath
 "@
-    $remoteArchivePath = Invoke-RemoteCommandWithOutput $remotePowerShell
+    $remoteArchivePath = Invoke-RemotePowerShellScriptWithOutput $remotePowerShell ("{0}_remote_artifact_sync_{1}.ps1" -f $OutputSuffix, $RunStamp)
 
     $localArchivePath = Join-Path $LogRoot "remote_artifacts.zip"
     New-Item -ItemType Directory -Force -Path $LogRoot | Out-Null

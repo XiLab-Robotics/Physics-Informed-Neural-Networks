@@ -88,3 +88,15 @@ Approved implementation applies the fix at two levels:
   the styled-PDF layer, so `Execution Summary`, `Metric Ranking`, and
   `Pilot Graphs` page-break behavior remains consistent for future analogous
   closeouts.
+- bounded Track 2 screen launchers now emit operator messages through plain
+  console stdout instead of the PowerShell information stream, wrap long command
+  and artifact path lines, suppress blank progress-renderer lines, and restrict
+  post-run whitespace repair to screen-local report roots instead of broad
+  historical validation-output trees.
+- bounded Track 2 screen remote artifact sync now builds the remote bundle from
+  the current screen's latest matrix output, latest matrix report, latest
+  operator log, latest reranker output, screen-local reranker report, and
+  screen-local plot root instead of copying full historical output roots.
+- long remote artifact-sync logic is uploaded as a temporary PowerShell script
+  and then invoked remotely, avoiding `ssh -EncodedCommand` command-line length
+  limits while keeping terminal output text-only.

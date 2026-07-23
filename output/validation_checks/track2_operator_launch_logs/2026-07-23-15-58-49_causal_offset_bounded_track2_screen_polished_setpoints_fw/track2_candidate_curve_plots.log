@@ -1,0 +1,2 @@
+W0723 16:02:00.645000 25996 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+[DONE] Track 2 candidate curve plots written | C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\doc\reports\campaign_results\track_2\verification_plots\causal_offset_bounded_track2_screen_polished_setpoints_fw\track2_candidate_curve_plot_summary.yaml

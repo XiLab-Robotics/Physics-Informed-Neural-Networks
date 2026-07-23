@@ -92,3 +92,14 @@ Remote sync output is intentionally quiet. The terminal reports the
 repository-owned sync stage and per-path source summary instead of raw `scp`
 progress bars, and the temporary artifact bundle is removed locally after it is
 expanded.
+
+Operator output is emitted as plain stdout, not PowerShell information-stream
+records. Long command and artifact-path lines are wrapped for readability, and
+blank progress-renderer lines are suppressed from the terminal stream.
+
+Remote artifact sync is intentionally bounded to the current screen's latest
+matrix output, latest matrix report, latest operator log, latest reranker
+output, screen-local reranker report, and screen-local plot root. The launcher
+uploads the artifact-sync logic as a temporary remote PowerShell script instead
+of passing a large inline command through `ssh`, so the readable terminal output
+path does not hit command-line length limits.
