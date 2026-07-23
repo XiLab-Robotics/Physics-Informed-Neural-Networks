@@ -335,6 +335,7 @@ function Invoke-RemotePowerShellScriptWithStreamingLog {
         }
 
         $scpArgumentList = @(
+            "-q",
             $localTemporaryScriptPath,
             ('{0}:{1}' -f $RemoteHostAlias, $remoteTemporaryScpPath)
         )
@@ -454,7 +455,7 @@ function Invoke-RemoteTarExtract {
         throw "Local source archive build failed | path=$localArchivePath"
     }
 
-    & scp $localArchivePath "${RemoteHostAlias}:${remoteScpArchivePath}"
+    & scp -q $localArchivePath "${RemoteHostAlias}:${remoteScpArchivePath}"
     if ($LASTEXITCODE -ne 0) {
         throw "Remote source archive upload failed | host=$RemoteHostAlias"
     }
@@ -517,7 +518,7 @@ exit 0
         }
 
         # Upload Local Source File To Remote Temporary Path
-        & scp $localSourceFilePath "${RemoteHostAlias}:${remoteTemporaryDirectoryScpPath}"
+        & scp -q $localSourceFilePath "${RemoteHostAlias}:${remoteTemporaryDirectoryScpPath}"
         if ($LASTEXITCODE -ne 0) {
             throw "Remote source-file upload failed | host=$RemoteHostAlias | path=$relativeFilePath"
         }
@@ -690,7 +691,7 @@ exit `$LASTEXITCODE
             throw "Remote artifact archive build failed | host=$RemoteHostAlias | path=$relativePath"
         }
 
-        & scp "${RemoteHostAlias}:${remoteScpArchivePath}" $localArchivePath
+        & scp -q "${RemoteHostAlias}:${remoteScpArchivePath}" $localArchivePath
         if ($LASTEXITCODE -ne 0) {
             throw "Remote artifact archive download failed | host=$RemoteHostAlias | path=$relativePath"
         }

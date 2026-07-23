@@ -58,15 +58,31 @@ LAN workstation environment.
 
 The local and remote paths use the suffix
 `shape_objective_bounded_track2_screen_polished_setpoints_fw`. Expected outputs
-include reference-family comparison artifacts under
-`output/validation_checks/track2_reference_comparison/`, reranker artifacts
-under `output/validation_checks/shape_gated_te_curve_reranker/`, run logs under
-`output/validation_checks/track2_operator_launch_logs/`, and the reranker
-report under
-`doc/reports/analysis/te_curve_verification_pipeline/03_cvp_diagnostics/shape_gated_reranker/[2026-07-22]/`.
+include:
+
+- reference-family comparison artifacts under
+  `output/validation_checks/track2_reference_comparison/`;
+- shape-gated reranker artifacts under
+  `output/validation_checks/shape_gated_te_curve_reranker/`;
+- run logs under `output/validation_checks/track2_operator_launch_logs/`;
+- matrix reports under
+  `doc/reports/analysis/validation_checks/te_curve_verification_pipeline/`;
+- reranker reports under
+  `doc/reports/analysis/te_curve_verification_pipeline/03_cvp_diagnostics/shape_gated_reranker/[2026-07-22]/`;
+- measured-versus-predicted TE curve plot manifests under
+  `doc/reports/campaign_results/track_2/verification_plots/shape_objective_bounded_track2_screen_polished_setpoints_fw/`.
+
+The launcher runs the bounded Track 2 plot builder explicitly after the matrix
+and shape-gated reranker steps. It generates up to two measured-versus-predicted
+TE curve overlays per candidate for compact pilot review.
 
 ## Operating Notes
 
 After the run completes, inspect the generated curve-first evidence before
 deciding whether to expand the shape-objective periodic MLP harmonic family
 into a broader full-matrix or Fw/Bw campaign.
+
+Remote sync output is intentionally quiet. The terminal reports the
+repository-owned sync stage and per-path source summary instead of raw `scp`
+progress bars, and the temporary artifact bundle is removed locally after it is
+expanded.

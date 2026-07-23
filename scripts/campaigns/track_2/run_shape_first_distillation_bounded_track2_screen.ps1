@@ -16,6 +16,7 @@ $RepositoryRoot = (Resolve-Path (Join-Path $PSScriptRoot "..\..\..")).Path
 $ConfigPath = "config/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/shape_first_distillation_bounded_track2_screen_polished_setpoints_fw_matrix.yaml"
 $MatrixRunnerPath = "scripts/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/run_reference_family_vs_feedforward_comparison.py"
 $RerankerRunnerPath = "scripts/reports/analysis/build_shape_gated_te_curve_reranker.py"
+$PlotBuilderRunnerPath = "scripts/reports/analysis/build_track2_candidate_curve_plots.py"
 $ActiveStatePath = "doc/running/active_training_campaign.yaml"
 $RunStamp = Get-Date -Format "yyyy-MM-dd-HH-mm-ss"
 $LogRoot = Join-Path $RepositoryRoot ("output/validation_checks/track2_operator_launch_logs/{0}_{1}" -f $RunStamp, $OutputSuffix)
@@ -99,6 +100,36 @@ function New-RerankerArgumentList {
     return $argumentList
 }
 
+function New-PlotArgumentList {
+    return @(
+        "-B",
+        $PlotBuilderRunnerPath,
+        "--config-path",
+        $ConfigPath,
+        "--output-root",
+        $PlotReportRoot,
+        "--dataset",
+        "polished_dataset",
+        "--surface-scope",
+        "forward",
+        "--max-plots-per-candidate",
+        "2",
+        "--windows"
+    )
+}
+
+function Test-SuppressedOutputLine {
+    param([string]$OutputLine)
+
+    if ($OutputLine -eq "System.Management.Automation.RemoteException") {
+        return $true
+    }
+    if ($OutputLine -match "^TE matrix candidates:\s+\d+%.*\|.*\[[^\]]+\]") {
+        return $true
+    }
+    return $false
+}
+
 function Invoke-LoggedCondaPython {
     param(
         [string]$StepName,
@@ -121,8 +152,10 @@ function Invoke-LoggedCondaPython {
         try {
             & conda @condaArgumentList 2>&1 | ForEach-Object {
                 $outputLine = $_.ToString()
-                Write-Host $outputLine
-                Add-Content -LiteralPath $logPath -Value $outputLine
+                if (-not (Test-SuppressedOutputLine -OutputLine $outputLine)) {
+                    Write-Host $outputLine
+                    Add-Content -LiteralPath $logPath -Value $outputLine
+                }
             }
             $condaExitCode = $LASTEXITCODE
         }
@@ -179,6 +212,7 @@ function Invoke-LocalPreflight {
     Assert-RelativePathExists $ConfigPath
     Assert-RelativePathExists $MatrixRunnerPath
     Assert-RelativePathExists $RerankerRunnerPath
+    Assert-RelativePathExists $PlotBuilderRunnerPath
     Assert-RelativePathExists $ActiveStatePath
     Assert-RelativePathExists "output/registries/families/shape_first_distilled_periodic_gru_sequence_fw/latest_family_best.yaml"
     Assert-RelativePathExists "output/registries/families/shape_first_distilled_periodic_mlp_harmonic_fw/latest_family_best.yaml"
@@ -193,8 +227,10 @@ function Invoke-LocalPreflight {
 
     $matrixCommandLine = "conda " + (Join-CommandLine (@("run", "--no-capture-output", "-n", $CondaEnvironmentName, "python") + (New-MatrixArgumentList)))
     $rerankerCommandLine = "conda " + (Join-CommandLine (@("run", "--no-capture-output", "-n", $CondaEnvironmentName, "python") + (New-RerankerArgumentList)))
+    $plotCommandLine = "conda " + (Join-CommandLine (@("run", "--no-capture-output", "-n", $CondaEnvironmentName, "python") + (New-PlotArgumentList)))
     Write-LogLine "CMD" $matrixCommandLine
     Write-LogLine "CMD" $rerankerCommandLine
+    Write-LogLine "CMD" $plotCommandLine
     Write-LogLine "INFO" "Preflight passed. No verification run was launched."
 }
 
@@ -215,7 +251,7 @@ function Invoke-RemoteCommand {
     param([string]$CommandText)
 
     $encodedCommand = Convert-ToEncodedPowerShellCommand $CommandText
-    ssh $RemoteHostAlias powershell -NoProfile -EncodedCommand $encodedCommand
+    ssh $RemoteHostAlias powershell -NoProfile -NonInteractive -OutputFormat Text -EncodedCommand $encodedCommand
     if ($LASTEXITCODE -ne 0) {
         throw "Remote command failed with exit code $LASTEXITCODE."
     }
@@ -225,7 +261,7 @@ function Invoke-RemoteCommandWithOutput {
     param([string]$CommandText)
 
     $encodedCommand = Convert-ToEncodedPowerShellCommand $CommandText
-    $commandOutput = ssh $RemoteHostAlias powershell -NoProfile -EncodedCommand $encodedCommand
+    $commandOutput = ssh $RemoteHostAlias powershell -NoProfile -NonInteractive -OutputFormat Text -EncodedCommand $encodedCommand
     if ($LASTEXITCODE -ne 0) {
         throw "Remote command failed with exit code $LASTEXITCODE."
     }
@@ -242,9 +278,10 @@ function Copy-PathToRemote {
 
     $remoteTarget = Convert-ToRemotePath (Join-Path $RemoteRepositoryPath $RelativePath)
     $remoteParent = Split-Path -Parent $remoteTarget
+    Write-LogLine "INFO" ("Syncing source path: {0}" -f $RelativePath)
     Invoke-RemoteCommand ("New-Item -ItemType Directory -Force -Path '{0}' | Out-Null" -f $remoteParent)
     Invoke-RemoteCommand ("if (Test-Path -LiteralPath '{0}') {{ Remove-Item -LiteralPath '{0}' -Recurse -Force }}" -f $remoteTarget)
-    scp -r $localPath ("{0}:`"{1}`"" -f $RemoteHostAlias, $remoteTarget)
+    scp -q -r $localPath ("{0}:`"{1}`"" -f $RemoteHostAlias, $remoteTarget)
     if ($LASTEXITCODE -ne 0) {
         throw "Failed to sync $RelativePath to $RemoteHostAlias."
     }
@@ -323,14 +360,16 @@ Write-Output `$archivePath
 
     $localArchivePath = Join-Path $LogRoot "remote_artifacts.zip"
     New-Item -ItemType Directory -Force -Path $LogRoot | Out-Null
-    scp ("{0}:`"{1}`"" -f $RemoteHostAlias, $remoteArchivePath.Trim()) $localArchivePath
+    Write-LogLine "INFO" "Downloading bounded screen artifact bundle."
+    scp -q ("{0}:`"{1}`"" -f $RemoteHostAlias, $remoteArchivePath.Trim()) $localArchivePath
     if ($LASTEXITCODE -ne 0) {
         throw "Remote artifact download failed."
     }
 
     Expand-Archive -LiteralPath $localArchivePath -DestinationPath $RepositoryRoot -Force
+    Remove-Item -LiteralPath $localArchivePath -Force -ErrorAction SilentlyContinue
     Repair-BoundedScreenArtifacts
-    Write-LogLine "INFO" ("Remote artifacts synchronized from {0}" -f $localArchivePath)
+    Write-LogLine "INFO" "Remote artifacts synchronized."
 }
 
 function Invoke-RemoteRun {
@@ -361,5 +400,6 @@ if ($PreflightOnly) {
 
 Invoke-LoggedCondaPython -StepName "reference_family_vs_feedforward_matrix" -PythonArgumentList (New-MatrixArgumentList)
 Invoke-LoggedCondaPython -StepName "shape_gated_reranker" -PythonArgumentList (New-RerankerArgumentList)
+Invoke-LoggedCondaPython -StepName "track2_candidate_curve_plots" -PythonArgumentList (New-PlotArgumentList)
 Repair-BoundedScreenArtifacts
 Write-LogLine "INFO" ("Bounded screen completed. Logs: {0}" -f $LogRoot)

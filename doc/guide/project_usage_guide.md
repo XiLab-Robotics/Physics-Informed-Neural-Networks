@@ -546,14 +546,17 @@ The current usage flow mainly relies on these folders:
   Operator-facing bounded `TE Curve Verification Pipeline` screen for the
   shape-objective `polished_dataset` setpoint `Fw` candidate. It compares the
   candidate against the current GRU and non-windowed harmonic baselines, then
-  runs the shape-gated reranker locally or through the repository-owned remote
-  launcher.
+  runs the shape-gated reranker and compact measured-versus-predicted plot
+  generation locally or through the repository-owned remote launcher.
 
 - `scripts/campaigns/track_2/run_causal_offset_bounded_track2_screen.ps1`
   Operator-facing bounded `TE Curve Verification Pipeline` screen for the
   causal offset / mean calibration pilot candidates. It compares the
   time-windowed and non-windowed causal-offset arms against the current GRU,
-  non-windowed harmonic baseline, and scalar high-water MLP reference.
+  non-windowed harmonic baseline, and scalar high-water MLP reference. Bounded
+  screen launchers use quiet remote transfer output, summarize synchronized
+  source paths, remove temporary artifact bundles after expansion, and generate
+  up to two measured-versus-predicted TE curve overlays per candidate.
 
 - `scripts/campaigns/wave_5_2/run_wave52b_te_curve_verification_refresh.ps1`
   Operator-facing `Wave 5.2B` official TE Curve Verification Pipeline refresh
@@ -2863,6 +2866,10 @@ The artifact return path now pulls the synchronized result set path by path
 instead of packing the whole remote payload into one large multi-path archive.
 This keeps the sync explicit and inspectable while avoiding the brittle
 completion-path behavior seen in the first long remote follow-up run.
+
+Remote source and artifact transfer commands use quiet `scp` mode. Operator
+logs should contain repository-owned stage messages and path summaries instead
+of raw transfer progress bars or long unwrapped progress records.
 
 The sync phase is now hardened against stale manifest paths. If one run entry in
 the campaign manifest no longer matches the real immutable output folder, the

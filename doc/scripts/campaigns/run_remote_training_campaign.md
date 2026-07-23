@@ -190,6 +190,10 @@ packing the full artifact set into one large multi-path archive. This keeps the
 sync contract manifest-driven, but removes the brittle completion-path behavior
 that appeared in the first long remote follow-up campaign.
 
+Remote source and artifact transfer commands run in quiet `scp` mode. The
+operator terminal should show repository-owned stage and summary lines, not
+interactive transfer progress bars or long unwrapped transfer records.
+
 ## Bookkeeping Hardening
 
 The launcher now relies on two complementary protections:

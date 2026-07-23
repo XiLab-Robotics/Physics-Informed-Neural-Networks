@@ -73,6 +73,10 @@ Expected outputs include:
 - measured-versus-predicted TE curve plot manifests under
   `doc/reports/campaign_results/track_2/verification_plots/shape_first_distillation_bounded_track2_screen_polished_setpoints_fw/`.
 
+The launcher runs the bounded Track 2 plot builder explicitly after the matrix
+and shape-gated reranker steps. It generates up to two measured-versus-predicted
+TE curve overlays per candidate for compact pilot review.
+
 ## Operating Notes
 
 After the run completes, inspect the generated curve-first evidence before
@@ -80,3 +84,8 @@ deciding whether the non-windowed scalar winner should be promoted, rejected,
 or kept as a controlled exploratory candidate. The time-windowed candidate
 must remain visible in the same screen because the pilot showed better offset
 and amplitude behavior for that branch.
+
+Remote sync output is intentionally quiet. The terminal reports the
+repository-owned sync stage and per-path source summary instead of raw `scp`
+progress bars, and the temporary artifact bundle is removed locally after it is
+expanded.

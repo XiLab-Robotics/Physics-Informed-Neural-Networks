@@ -311,6 +311,11 @@ This folder contains the internal project documents derived from the reference P
   the causal offset / mean calibration pilot candidates against the accepted
   polished-setpoint forward baselines.
 
+- [technical/2026-07/2026-07-23/2026-07-23-13-26-30_remote_campaign_output_readability_fix.md](./technical/2026-07/2026-07-23/2026-07-23-13-26-30_remote_campaign_output_readability_fix.md)
+  Technical plan for making future remote campaign logs readable by suppressing
+  or summarizing noisy transfer progress and restoring bounded Track 2
+  measured-versus-predicted plot output.
+
 - [reports/analysis/model_development_waves/wave_5_2/causal_offset_mean_calibration/[2026-07-22]/causal_offset_mean_calibration_pilot_model_report.md](./reports/analysis/model_development_waves/wave_5_2/causal_offset_mean_calibration/%5B2026-07-22%5D/causal_offset_mean_calibration_pilot_model_report.md)
   Model report for the causal offset / mean calibration pilot, covering the
   reused residual-offset sequence branch, non-windowed harmonic comparator, and
@@ -463,6 +468,11 @@ This folder contains the internal project documents derived from the reference P
   Shape-gated reranker result for the completed bounded causal offset / mean
   calibration screen: the accepted polished-setpoint GRU sequence remains the
   forward recommendation.
+
+- [reports/campaign_results/track_2/verification_plots/causal_offset_bounded_track2_screen_polished_setpoints_fw/track2_candidate_curve_plot_summary.yaml](./reports/campaign_results/track_2/verification_plots/causal_offset_bounded_track2_screen_polished_setpoints_fw/track2_candidate_curve_plot_summary.yaml)
+  Backfilled measured-versus-predicted TE curve plot manifest for the bounded
+  causal offset / mean calibration screen, generated after the output
+  readability fix made plot generation explicit for future bounded screens.
 
 - [reports/analysis/validation_checks/te_curve_verification_pipeline/2026-07-22-15-59-32_shape_first_distillation_bounded_track2_screen_polished_setpoints_fw_matrix_shape_first_distillation_bounded_track2_screen_polished_setpoints_fw_report.md](./reports/analysis/validation_checks/te_curve_verification_pipeline/2026-07-22-15-59-32_shape_first_distillation_bounded_track2_screen_polished_setpoints_fw_matrix_shape_first_distillation_bounded_track2_screen_polished_setpoints_fw_report.md)
   Matrix report for the completed bounded shape-first distillation

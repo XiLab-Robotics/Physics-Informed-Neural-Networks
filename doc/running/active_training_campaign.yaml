@@ -151,12 +151,17 @@ next_prepared_screen:
   closeout_report_path: doc/reports/campaign_results/track_2/2026-07-23-13-18-49_causal_offset_bounded_track2_screen_closeout_report.md
   closeout_pdf_path: doc/reports/campaign_results/track_2/2026-07-23-13-18-49_causal_offset_bounded_track2_screen_closeout_report.pdf
   report_plot_count: 0
+  post_fix_plot_count: 10
+  post_fix_plot_summary_path: doc/reports/campaign_results/track_2/verification_plots/causal_offset_bounded_track2_screen_polished_setpoints_fw/track2_candidate_curve_plot_summary.yaml
   recommended_candidate: polished_setpoints_periodic_gru_sequence_Fw
   promoted_candidate: null
   decision: not_promoted
   output_quality_gap: bounded Track 2 measured-versus-predicted plot package was
     not generated; remote sync logs emitted long unwrapped transfer/progress
     lines.
+  output_quality_repair: remote campaign output readability fix backfilled the
+    bounded Track 2 measured-versus-predicted plot package with 10 plots and
+    updated future bounded screen launchers to generate plots explicitly.
   launch_command_list:
   - .\scripts\campaigns\track_2\run_causal_offset_bounded_track2_screen.ps1
     -PreflightOnly
