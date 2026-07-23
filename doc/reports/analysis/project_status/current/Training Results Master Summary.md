@@ -255,7 +255,11 @@
 ### Active Training Or Improvement Branches
 
 - No campaign is currently in `prepared` or `running` state.
-- The next active implementation branch should therefore be read from the live backlog focus and the next approved campaign plan.
+- The next approved branch is a non-training MMT residual-explanatory
+  diagnostic across accepted windowed and non-windowed `Fw` / `Bw` baselines.
+- No MMT feature, auxiliary-head, soft-constraint, or full-PINN campaign should
+  be prepared until the diagnostic shows held-out value beyond metadata-only
+  and shuffled controls.
 
 ### Roadmap And Planned Work
 
@@ -401,7 +405,7 @@ Low-priority exploratory families currently listed in the backlog:
 - `Neural ODE`
 - `Hamiltonian-Inspired Model`
 - `optional Kernel Ridge / Gaussian Process benchmark`
-| Wave 5.2. PINN Formulation And First PINN | status: pre-implemented at `Wave 5.2A` diagnostic level, not campaign-ready;; current scaffold:; diagnostic adapter:; diagnostic report builder:; parameter-inventory report builder:; generated diagnostic report:; generated parameter-inventory report:; companion artifacts:; parameter-inventory artifacts:; updated priority: execute dataset-aligned diagnostic calibration after the; mandatory rule: prepare or justify `global`, `forward`, and `backward`; paper-reproduction scope:; prepare PINN-side model and loss formulations for later offline and; test whether soft physics, periodicity, smoothness, harmonic-consistency,; keep online compensation execution out of Wave 5.2 unless Track 3 is; completed inventory conclusions:; known geometry constants are safe for diagnostics and feature generation;; operating metadata can be used for stratification and causal conditioning;; five equivalent-error groups are train-only calibratable;; contact geometry remains unavailable or ambiguous and blocks calibrated; measured TE remains target-only and must not become an inference input.; next implementation steps:; compare MMT diagnostic signatures against dataset-aligned curve summaries; design a train-only equivalent-error calibration policy for candidate; decide whether the MMT path remains diagnostic-only, becomes a feature; do not treat the current demonstration harmonic summary as dataset |
+| Wave 5.2. PINN Formulation And First PINN | status: diagnostic-only after completed `Wave 5.2A`, `Wave 5.2B`, and post-causal-offset decision gates; not campaign-ready;; next branch: non-training MMT residual-explanatory diagnostic over accepted windowed and non-windowed `Fw` / `Bw` baselines;; required controls: metadata-only and shuffled signatures;; promotion boundary: held-out explanatory value before any MMT feature, auxiliary-head, or weak-soft-constraint pilot;; full PINN and Wave 6 remain deferred |
 
 Low-priority exploratory families currently listed in the backlog:
 

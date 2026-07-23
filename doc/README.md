@@ -123,6 +123,11 @@ This folder contains the internal project documents derived from the reference P
   `TE Curve Verification Pipeline` screen to run after the previous active
   campaign state has been closed.
 
+- [technical/2026-07/2026-07-23/2026-07-23-20-56-21_wave52_post_causal_offset_decision_gate.md](./technical/2026-07/2026-07-23/2026-07-23-20-56-21_wave52_post_causal_offset_decision_gate.md)
+  Technical plan for closing the completed causal-offset branch and selecting
+  the next evidence-backed `Wave 5.2` MMT/PINN decision path without
+  authorizing implementation or training.
+
 - [reports/analysis/te_curve_verification_pipeline/03_family_reports/tree/[2026-07-07]/track2_tree_familywise_onnx_report.md](./reports/analysis/te_curve_verification_pipeline/03_family_reports/tree/%5B2026-07-07%5D/track2_tree_familywise_onnx_report.md)
   Familywise `tree` ONNX verification report comparing the completed
   simplified setpoint, polished setpoint, and polished actual-value exports
@@ -337,6 +342,11 @@ This folder contains the internal project documents derived from the reference P
 - [reports/analysis/model_development_waves/wave_5_2/post_shape_loss_decision_gate/[2026-07-22]/wave52_post_shape_loss_decision_gate.md](./reports/analysis/model_development_waves/wave_5_2/post_shape_loss_decision_gate/%5B2026-07-22%5D/wave52_post_shape_loss_decision_gate.md)
   Decision gate report closing the shape-threshold-loss branch and selecting
   a causal offset / mean calibration pilot as the next prepared branch.
+
+- [reports/analysis/model_development_waves/wave_5_2/post_causal_offset_decision_gate/[2026-07-23]/wave52_post_causal_offset_decision_gate.md](./reports/analysis/model_development_waves/wave_5_2/post_causal_offset_decision_gate/%5B2026-07-23%5D/wave52_post_causal_offset_decision_gate.md)
+  Decision gate report keeping the MMT path diagnostic-only until a
+  leakage-safe residual-explanatory check proves held-out value beyond
+  operating metadata.
 
 - [reports/campaign_plans/cross_wave/shape_gate_loss_v2/2026-07-21-12-21-36_shape_gate_loss_v2_checkpoint_selection_pilot_campaign_plan_report.md](./reports/campaign_plans/cross_wave/shape_gate_loss_v2/2026-07-21-12-21-36_shape_gate_loss_v2_checkpoint_selection_pilot_campaign_plan_report.md)
   Campaign plan for the one-run `polished_dataset` setpoint `Fw` shape-gate
