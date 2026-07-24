@@ -1,0 +1,17 @@
+schema_version: 1
+run_instance_id: 2026-07-24-08-29-32__wave52_mmt_residual_explanatory_diagnostic
+decision: blocked_by_missing_training_residuals
+training_executed: false
+registry_updated: false
+fit_performed: false
+split_coverage:
+  train: 0
+  validation: 0
+  test: 388
+blocker_list:
+- configured residual artifact contains no training residual rows
+- configured residual artifact contains no validation residual rows
+- train-only calibrated equivalent-error signatures are not materialized
+- current geometry-locked MMT signatures are constant across operating conditions
+next_action: generate provenance-matched training and validation residual replay for
+  the four frozen baselines

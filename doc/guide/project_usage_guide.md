@@ -46,6 +46,8 @@ At the moment, the implemented workflows are:
   dataset/input-mode retraining exports under `models/`;
 - a `Wave 5.2A` MMT equation diagnostic report generator for harmonic-summary
   inspection before PINN integration;
+- a non-training Wave 5.2 MMT residual-explanatory diagnostic with exact split
+  provenance, leakage gates, and metadata-only or shuffled controls;
 - a dry-run `Wave 5.2B` MMT feature-generator check that writes leakage-aware
   feature schema artifacts without creating a campaign;
 - explicit isolated-mode session management through a repository-owned tooling entry point with locked-file snapshots, staging roots, and manifest/checklist generation;
@@ -586,6 +588,18 @@ The current usage flow mainly relies on these folders:
 - `scripts/reports/analysis/build_wave4a_mmt_equation_diagnostic_report.py`
   Report generator for the `Wave 5.2A` MMT equation-chain diagnostic. It writes
   a Markdown report and companion harmonic tables without training a model.
+
+- `scripts/reports/analysis/build_wave52_mmt_residual_explanatory_diagnostic.py`
+  Non-training residual provenance and explanatory-value diagnostic for four
+  frozen accepted `Fw` / `Bw` baselines. Run it with:
+
+  ```powershell
+  conda run --no-capture-output -n pinns_env python -B scripts/reports/analysis/build_wave52_mmt_residual_explanatory_diagnostic.py --self-test
+  ```
+
+  The builder refuses to fit on validation or test residuals. The current
+  canonical run therefore closes with a provenance blocker until exact
+  training and validation residual replay is available.
 
 - `scripts/training/`
   Static neural and tree training entry points, shared datamodule/regression infrastructure, campaign runner, and validation/smoke-test utilities.

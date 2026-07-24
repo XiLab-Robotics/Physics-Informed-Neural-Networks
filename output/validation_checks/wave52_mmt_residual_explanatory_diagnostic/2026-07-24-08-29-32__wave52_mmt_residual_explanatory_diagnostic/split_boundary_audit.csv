@@ -1,0 +1,5 @@
+candidate_id,surface,architecture_class,split_name,residual_row_count,fit_allowed
+polished_setpoints_periodic_gru_sequence_Bw,Bw,windowed,test,94,False
+polished_setpoints_periodic_gru_sequence_Fw,Fw,windowed,test,100,False
+polished_setpoints_periodic_mlp_harmonic_Bw,Bw,non_windowed,test,94,False
+polished_setpoints_periodic_mlp_harmonic_Fw,Fw,non_windowed,test,100,False

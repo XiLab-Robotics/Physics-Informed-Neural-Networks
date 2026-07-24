@@ -255,8 +255,10 @@
 ### Active Training Or Improvement Branches
 
 - No campaign is currently in `prepared` or `running` state.
-- The next approved branch is a non-training MMT residual-explanatory
-  diagnostic across accepted windowed and non-windowed `Fw` / `Bw` baselines.
+- The first non-training MMT residual-explanatory diagnostic closed with a
+  provenance blocker: all 388 selected residual rows belong to the test split.
+- The next branch is frozen-baseline residual replay over the exact training
+  and validation manifests, followed by the same leakage-safe comparison.
 - No MMT feature, auxiliary-head, soft-constraint, or full-PINN campaign should
   be prepared until the diagnostic shows held-out value beyond metadata-only
   and shuffled controls.
@@ -405,7 +407,7 @@ Low-priority exploratory families currently listed in the backlog:
 - `Neural ODE`
 - `Hamiltonian-Inspired Model`
 - `optional Kernel Ridge / Gaussian Process benchmark`
-| Wave 5.2. PINN Formulation And First PINN | status: diagnostic-only after completed `Wave 5.2A`, `Wave 5.2B`, and post-causal-offset decision gates; not campaign-ready;; next branch: non-training MMT residual-explanatory diagnostic over accepted windowed and non-windowed `Fw` / `Bw` baselines;; required controls: metadata-only and shuffled signatures;; promotion boundary: held-out explanatory value before any MMT feature, auxiliary-head, or weak-soft-constraint pilot;; full PINN and Wave 6 remain deferred |
+| Wave 5.2. PINN Formulation And First PINN | status: diagnostic-only after the residual audit closed with a test-only provenance blocker; not campaign-ready;; next branch: frozen-baseline residual replay over exact training and validation manifests, then rerun the explanatory comparison;; required controls: metadata-only and shuffled signatures;; promotion boundary: held-out explanatory value before any MMT feature, auxiliary-head, or weak-soft-constraint pilot;; full PINN and Wave 6 remain deferred |
 
 Low-priority exploratory families currently listed in the backlog:
 

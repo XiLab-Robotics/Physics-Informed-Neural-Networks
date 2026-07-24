@@ -19,3 +19,4 @@ repository reporting workflow.
    build_track2_forward_reference_curve_comparison_report
    build_track2_familywise_onnx_report
    build_wave4a_mmt_equation_diagnostic_report
+   build_wave52_mmt_residual_explanatory_diagnostic

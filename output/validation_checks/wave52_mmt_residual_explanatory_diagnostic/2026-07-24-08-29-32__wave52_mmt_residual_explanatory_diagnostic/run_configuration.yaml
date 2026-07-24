@@ -1,0 +1,90 @@
+schema_version: 1
+metadata:
+  diagnostic_id: wave52_mmt_residual_explanatory_diagnostic
+  dataset_id: polished_dataset
+  input_mode: setpoints
+  training_allowed: false
+  registry_update_allowed: false
+  random_seed: 20260724
+paths:
+  dataset_root: data/polished_dataset
+  dataset_config_path: config/datasets/transmission_error_dataset.yaml
+  residual_metrics_path: output/validation_checks/shape_gated_te_curve_reranker/2026-07-21-00-50-05__shape_gated_te_curve_reranker/shape_gated_per_curve_metrics.csv
+  output_root: output/validation_checks/wave52_mmt_residual_explanatory_diagnostic
+  report_path: doc/reports/analysis/model_development_waves/wave_5_2/mmt_residual_explanatory_diagnostic/[2026-07-24]/wave52_mmt_residual_explanatory_diagnostic.md
+split:
+  validation_split: 0.2
+  test_split: 0.1
+  random_seed: 42
+  required_fit_split_list:
+  - train
+  evaluation_split_list:
+  - validation
+  - test
+mmt:
+  sample_count: 720
+  harmonic_index_list:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+baselines:
+- candidate_id: polished_setpoints_periodic_gru_sequence_Fw
+  surface: Fw
+  direction_label: forward
+  architecture_class: windowed
+  registry_path: output/registries/families/periodic_gru_sequence_fw/polished_dataset_family_best.yaml
+  reference_inventory_path: models/polished_dataset/setpoints/periodic_gru_sequence/forward/reference_inventory.yaml
+- candidate_id: polished_setpoints_periodic_mlp_harmonic_Fw
+  surface: Fw
+  direction_label: forward
+  architecture_class: non_windowed
+  registry_path: output/registries/families/periodic_mlp_harmonic_fw/polished_dataset_family_best.yaml
+  reference_inventory_path: models/polished_dataset/setpoints/periodic_mlp_harmonic/forward/reference_inventory.yaml
+- candidate_id: polished_setpoints_periodic_gru_sequence_Bw
+  surface: Bw
+  direction_label: backward
+  architecture_class: windowed
+  registry_path: output/registries/families/periodic_gru_sequence_bw/polished_dataset_family_best.yaml
+  reference_inventory_path: models/polished_dataset/setpoints/periodic_gru_sequence/backward/reference_inventory.yaml
+- candidate_id: polished_setpoints_periodic_mlp_harmonic_Bw
+  surface: Bw
+  direction_label: backward
+  architecture_class: non_windowed
+  registry_path: output/registries/families/periodic_mlp_harmonic_bw/polished_dataset_family_best.yaml
+  reference_inventory_path: models/polished_dataset/setpoints/periodic_mlp_harmonic/backward/reference_inventory.yaml
+comparison:
+  metadata_feature_name_list:
+  - speed_rpm
+  - torque_nm
+  - oil_temperature_deg
+  residual_target_name_list:
+  - raw_mae_deg
+  - absolute_offset_error_deg
+  - centered_mae_deg
+  - peak_to_peak_error_pct
+  - mean_harmonic_amplitude_error_pct
+  - mean_harmonic_phase_error_deg
+  - normalized_derivative_rmse
+  comparison_name_list:
+  - metadata_only
+  - geometry_locked_mmt
+  - metadata_plus_geometry_locked_mmt
+  - shuffled_mmt_control
+decision_gate:
+  require_training_residual_rows: true
+  require_metadata_control: true
+  require_shuffled_control: true
+  require_both_surface_list:
+  - Fw
+  - Bw
+  require_both_architecture_class_list:
+  - windowed
+  - non_windowed
+  allow_single_scalar_promotion: false

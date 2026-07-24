@@ -128,6 +128,16 @@ This folder contains the internal project documents derived from the reference P
   the next evidence-backed `Wave 5.2` MMT/PINN decision path without
   authorizing implementation or training.
 
+- [technical/2026-07/2026-07-23/2026-07-23-21-44-26_wave52_mmt_residual_explanatory_diagnostic.md](./technical/2026-07/2026-07-23/2026-07-23-21-44-26_wave52_mmt_residual_explanatory_diagnostic.md)
+  Technical plan for a non-training MMT residual-explanatory diagnostic across
+  accepted windowed and non-windowed `Fw` / `Bw` baselines with explicit
+  metadata-only, shuffled-control, provenance, and leakage gates.
+
+- [reports/analysis/model_development_waves/wave_5_2/mmt_residual_explanatory_diagnostic/[2026-07-24]/wave52_mmt_residual_explanatory_diagnostic.md](./reports/analysis/model_development_waves/wave_5_2/mmt_residual_explanatory_diagnostic/%5B2026-07-24%5D/wave52_mmt_residual_explanatory_diagnostic.md)
+  Completed non-training Wave 5.2 provenance audit. The selected residual
+  source contains held-out test rows only, so MMT fitting remains blocked until
+  frozen-baseline train and validation residual replay is available.
+
 - [reports/analysis/te_curve_verification_pipeline/03_family_reports/tree/[2026-07-07]/track2_tree_familywise_onnx_report.md](./reports/analysis/te_curve_verification_pipeline/03_family_reports/tree/%5B2026-07-07%5D/track2_tree_familywise_onnx_report.md)
   Familywise `tree` ONNX verification report comparing the completed
   simplified setpoint, polished setpoint, and polished actual-value exports

@@ -71,11 +71,12 @@ Historical rationale and approval history remain in:
   screen ranked it fourth and retained
   `polished_setpoints_periodic_gru_sequence_Fw` as the forward recommendation.
   The time-windowed residual-offset GRU failed the shape gate.
-- Current Next Branch: prepare a non-training MMT residual-explanatory
-  diagnostic across the accepted windowed and non-windowed `Fw` / `Bw`
-  baselines. The bounded output/logging and measured-versus-predicted plot
-  contract is repaired. Do not prepare MMT-guided training until held-out
-  explanatory value exceeds metadata-only and shuffled controls.
+- Current Next Branch: generate a non-training, provenance-matched residual
+  replay for the four frozen accepted windowed and non-windowed `Fw` / `Bw`
+  baselines over their exact training and validation manifests. The first MMT
+  residual-explanatory audit closed on `2026-07-24` with test-only residuals,
+  so fitting was correctly blocked. Do not prepare MMT-guided training until
+  held-out explanatory value exceeds metadata-only and shuffled controls.
 
 Current canonical status reports:
 
@@ -583,8 +584,10 @@ active next step is:
   `2026-07-23` bounded screen;
 - keep both time-windowed and non-windowed candidate roads alive for future
   designs, but require a bounded curve-first pass before promotion;
-- prepare a non-training MMT residual-explanatory diagnostic for the accepted
-  windowed and non-windowed `Fw` / `Bw` baselines;
+- generate provenance-matched training and validation residual replay for the
+  four frozen accepted windowed and non-windowed `Fw` / `Bw` baselines;
+- rerun the completed MMT residual-explanatory diagnostic only after those
+  leakage-safe calibration rows exist;
 - require held-out value beyond metadata-only and shuffled controls before
   preparing an MMT feature, auxiliary-head, or weak-soft-constraint pilot.
 
@@ -1221,9 +1224,11 @@ Entry rule:
     `output/validation_checks/wave4_mmt_equation_diagnostic/2026-06-11-19-25-32__wave4a_mmt_equation_diagnostic/`;
   - parameter-inventory artifacts:
     `output/validation_checks/wave4_mmt_parameter_inventory/2026-06-11-20-29-51__wave4a_mmt_parameter_inventory/`;
-- updated priority: execute a leakage-safe MMT residual-explanatory diagnostic
-  against accepted windowed and non-windowed `Fw` / `Bw` baselines before any
-  new MMT-guided training;
+  - residual-explanatory diagnostic report:
+    `doc/reports/analysis/model_development_waves/wave_5_2/mmt_residual_explanatory_diagnostic/[2026-07-24]/wave52_mmt_residual_explanatory_diagnostic.md`;
+- updated priority: generate exact-manifest training and validation residual
+  replay for the four frozen baselines, then rerun the leakage-safe MMT
+  residual-explanatory comparison before any new MMT-guided training;
 - mandatory rule: prepare or justify `global`, `forward`, and `backward`
   surfaces;
 - paper-reproduction scope:
@@ -1242,8 +1247,10 @@ Entry rule:
     analytical-baseline claims;
   - measured TE remains target-only and must not become an inference input.
 - next implementation steps:
+  - replay the frozen baselines over the exact training and validation
+    manifests without changing their archived artifacts;
   - compare geometry-locked and train-only calibrated MMT signatures against
-    held-out baseline residuals without leakage;
+    held-out baseline residuals without leakage after replay;
   - include metadata-only and shuffled-signature controls;
   - keep both windowed and non-windowed `Fw` / `Bw` baselines visible;
   - authorize an MMT feature or auxiliary-output pilot only if the diagnostic

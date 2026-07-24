@@ -35,7 +35,7 @@ closeout that changes any of these surfaces:
 | Latest pruning decision | `2026-07-17` shape-first intermediate model-selection cleanup; `global` remains paused until final backlog stage |
 | Active report generation | reduced selected-model reports only: `polished_dataset` and `simplified_dataset`, each split into `forward` and `backward` |
 | Current TE Curve Verification Pipeline selection policy | multi-index curve-first selection, dated `2026-06-16` |
-| Next modeling decision | prepare a non-training MMT residual-explanatory diagnostic across accepted windowed and non-windowed `Fw` / `Bw` baselines before any new MMT-guided campaign |
+| Next modeling decision | generate provenance-matched training and validation residual replay for four frozen accepted `Fw` / `Bw` baselines, then rerun the MMT residual-explanatory comparison |
 
 The repository remains direction-parallel. `Fw`, `Bw`, and `global` are not a
 single destructive competition. Each surface keeps its own best candidate and
@@ -165,7 +165,8 @@ robustness, visual-evidence, and deployment-readiness axes visible.
 | Causal offset / mean calibration pilot | closed pilot | Two remote/manual-recovery `polished_dataset` setpoint `Fw` arms completed. The non-windowed `causal_offset_mean_periodic_mlp_harmonic_fw` arm won scalar selection with validation MAE `0.001469 deg` and test MAE `0.001277 deg`; the time-windowed residual-offset GRU finished at test MAE `0.002100 deg`. | Accepted as a completed pilot, not promoted. The non-windowed MLP improves against the original non-windowed harmonic comparator but does not beat the accepted forward GRU scalar baseline or the prior shape-objective scalar high-water mark. Next step is a bounded `TE Curve Verification Pipeline` screen; do not expand the residual-offset GRU profile from this result. |
 | Causal offset bounded Track 2 screen | closed diagnostic | Remote bounded `polished_dataset` setpoint `Fw` screen completed on `2026-07-23`; matrix evaluated 5 candidates over 100 forward held-out curves and the shape-gated reranker wrote `2026-07-23-13-09-03__shape_gated_te_curve_reranker`. The measured-versus-predicted plot package and remote-output readability gaps were subsequently repaired. | Not promoted. `polished_setpoints_periodic_gru_sequence_Fw` remains recommended with raw MAE `0.001837 deg`, centered MAE `0.001483 deg`, and shape pass rate `0.950`; the non-windowed causal MLP ranked fourth with raw MAE `0.002075 deg`; the time-windowed causal GRU failed the shape gate with pass rate `0.000`. |
 | Wave 5.2 post-causal-offset decision gate | closed design gate | The gate combined the MMT paper, parameter inventory, paired-dataset diagnostics, completed `Wave 5.2B` evidence, and recent bounded shape and causal-offset screens. | Keep MMT diagnostic-only. Next prepare a leakage-safe residual-explanatory diagnostic across accepted windowed and non-windowed `Fw` / `Bw` baselines; require held-out value beyond metadata-only and shuffled controls before any feature, auxiliary-head, or soft-constraint pilot. |
-| Wave 5.2 PINN / MMT track | open diagnostic branch | MMT diagnostics, parameter inventory, `Wave 5.2B`, and the post-causal-offset decision gate are complete. Contact geometry remains unavailable or ambiguous, and five equivalent-error groups remain train-only calibratable. | Not campaign-ready; full PINN and weak soft-constraint training remain deferred. |
+| Wave 5.2 MMT residual-explanatory diagnostic | closed with provenance blocker | The exact dataset split was reconstructed as 1,356 training, 388 validation, and 194 test curves. All 388 selected per-candidate residual rows resolve to the held-out test split; no fit was performed. Geometry-locked signatures are constant across operating conditions and train-only calibrated signatures are not materialized. | Generate frozen-baseline residual replay on the exact training and validation manifests, then rerun the comparison. MMT remains diagnostic-only. |
+| Wave 5.2 PINN / MMT track | open diagnostic branch | MMT diagnostics, parameter inventory, `Wave 5.2B`, the post-causal-offset decision gate, and the residual provenance audit are complete. Contact geometry remains unavailable or ambiguous, and five equivalent-error groups remain train-only calibratable. | Not campaign-ready; full PINN and weak soft-constraint training remain deferred. |
 | Wave 6 integrated multi-task / multi-head model | deferred | Intended to combine proven offset, low-frequency, centered-shape, uncertainty, mixture, and structured residual mechanisms. | Deferred until Waves 4.1-4.4, Wave 5.1, and Wave 5.2 evidence identifies what should be integrated. |
 
 ## CVP Modules And Waves 3.1 Through 4.4
@@ -263,9 +264,11 @@ models.
 
 ## Current Next Steps
 
-1. Prepare a non-training MMT residual-explanatory diagnostic across accepted
-   windowed and non-windowed `Fw` / `Bw` baselines.
-2. Require held-out explanatory value beyond metadata-only and shuffled
+1. Generate provenance-matched residual replay for the four frozen accepted
+   windowed and non-windowed `Fw` / `Bw` baselines over their exact training
+   and validation manifests.
+2. Rerun the MMT residual-explanatory comparison and require held-out
+   explanatory value beyond metadata-only and shuffled
    controls before preparing an MMT feature, auxiliary-head, weak
    soft-constraint, or full-PINN campaign.
 3. Do not expand the causal offset / mean calibration profile: its bounded
