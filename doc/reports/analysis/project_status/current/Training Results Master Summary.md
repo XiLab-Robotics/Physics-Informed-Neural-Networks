@@ -265,8 +265,12 @@
 - Geometry-locked MMT signatures added exactly zero held-out gain beyond
   metadata-only and shuffled controls; 56 equivalent-error arms were blocked
   because causal component-error and contact-state inputs are unavailable.
-- Wave 5.2 is therefore blocked by parameter availability. No MMT feature,
-  auxiliary head, weak constraint, full PINN, or Wave 6 campaign is authorized.
+- Wave 5.2 MMT is therefore an inactive future TODO after the
+  parameter-availability blocker. It may be reopened only with new causal
+  physical inputs and no longer blocks the remaining non-MMT roadmap.
+- The non-MMT prerequisite audit confirmed complete polished actual-values
+  RCIM archives for both sparse RCIM temporal families across `global`, `Fw`,
+  and `Bw`. The next reduced evaluation can proceed to technical planning.
 
 ### Roadmap And Planned Work
 
@@ -412,7 +416,7 @@ Low-priority exploratory families currently listed in the backlog:
 - `Neural ODE`
 - `Hamiltonian-Inspired Model`
 - `optional Kernel Ridge / Gaussian Process benchmark`
-| Wave 5.2. PINN Formulation And First PINN | status: blocked by parameter availability; not campaign-ready;; replay evidence: 3,876 rows across direction-specific training, validation, and test manifests for four accepted baselines;; explanatory evidence: 224 fitted comparisons over seven residual views, with zero metadata-plus-MMT gain and identical shuffled-control behavior;; blocked evidence: 56 equivalent-error arms lack causal component-error or contact-state inputs;; decision: keep MMT diagnostic-only; no feature, auxiliary-head, weak-soft-constraint, full-PINN, or Wave 6 campaign is authorized |
+| Wave 5.2. PINN Formulation And First PINN | status: deferred future TODO; inactive and not campaign-ready;; replay evidence: 3,876 rows across direction-specific training, validation, and test manifests for four accepted baselines;; explanatory evidence: 224 fitted comparisons over seven residual views, with zero metadata-plus-MMT gain and identical shuffled-control behavior;; blocked evidence: 56 equivalent-error arms lack causal component-error or contact-state inputs;; reopening gate: independent component-error measurements or validated causal contact-state reconstruction;; roadmap effect: non-blocking for remaining non-MMT work |
 
 Low-priority exploratory families currently listed in the backlog:
 

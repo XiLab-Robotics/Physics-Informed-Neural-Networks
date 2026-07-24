@@ -35,7 +35,7 @@ closeout that changes any of these surfaces:
 | Latest pruning decision | `2026-07-17` shape-first intermediate model-selection cleanup; `global` remains paused until final backlog stage |
 | Active report generation | reduced selected-model reports only: `polished_dataset` and `simplified_dataset`, each split into `forward` and `backward` |
 | Current TE Curve Verification Pipeline selection policy | multi-index curve-first selection, dated `2026-06-16` |
-| Next modeling decision | keep Wave 5.2 MMT diagnostic-only; require independent component-error measurements or validated causal contact-state reconstruction before reopening it |
+| Next modeling decision | prepare the technical plan for the next non-MMT reduced evaluation and cross-wave comparison; all six polished actual-values RCIM archive cells are available and Wave 5.2 MMT is an inactive future TODO |
 
 The repository remains direction-parallel. `Fw`, `Bw`, and `global` are not a
 single destructive competition. Each surface keeps its own best candidate and
@@ -164,11 +164,11 @@ robustness, visual-evidence, and deployment-readiness axes visible.
 | Wave 5.2 post-shape-loss decision gate | closed design gate | The gate compared recent shape-gate, shape-objective, and shape-first distillation screens against prior `Wave 5.2A/B` evidence. Direct shape-threshold loss was rejected for now, unchanged `Wave 5.2B` rerun was rejected, and `Wave 5.2C`, full PINN, and Wave 6 were deferred. | Next branch selected: prepare a narrow causal offset / mean calibration pilot on `polished_dataset` setpoint `Fw`, anchored to `polished_setpoints_periodic_gru_sequence_Fw` and screened against the non-windowed `polished_setpoints_periodic_mlp_harmonic_Fw` comparator before any expansion. |
 | Causal offset / mean calibration pilot | closed pilot | Two remote/manual-recovery `polished_dataset` setpoint `Fw` arms completed. The non-windowed `causal_offset_mean_periodic_mlp_harmonic_fw` arm won scalar selection with validation MAE `0.001469 deg` and test MAE `0.001277 deg`; the time-windowed residual-offset GRU finished at test MAE `0.002100 deg`. | Accepted as a completed pilot, not promoted. The non-windowed MLP improves against the original non-windowed harmonic comparator but does not beat the accepted forward GRU scalar baseline or the prior shape-objective scalar high-water mark. Next step is a bounded `TE Curve Verification Pipeline` screen; do not expand the residual-offset GRU profile from this result. |
 | Causal offset bounded Track 2 screen | closed diagnostic | Remote bounded `polished_dataset` setpoint `Fw` screen completed on `2026-07-23`; matrix evaluated 5 candidates over 100 forward held-out curves and the shape-gated reranker wrote `2026-07-23-13-09-03__shape_gated_te_curve_reranker`. The measured-versus-predicted plot package and remote-output readability gaps were subsequently repaired. | Not promoted. `polished_setpoints_periodic_gru_sequence_Fw` remains recommended with raw MAE `0.001837 deg`, centered MAE `0.001483 deg`, and shape pass rate `0.950`; the non-windowed causal MLP ranked fourth with raw MAE `0.002075 deg`; the time-windowed causal GRU failed the shape gate with pass rate `0.000`. |
-| Wave 5.2 post-causal-offset decision gate | closed design gate | The gate combined the MMT paper, parameter inventory, paired-dataset diagnostics, completed `Wave 5.2B` evidence, and recent bounded shape and causal-offset screens. | Keep MMT diagnostic-only. Next prepare a leakage-safe residual-explanatory diagnostic across accepted windowed and non-windowed `Fw` / `Bw` baselines; require held-out value beyond metadata-only and shuffled controls before any feature, auxiliary-head, or soft-constraint pilot. |
+| Wave 5.2 post-causal-offset decision gate | closed design gate | The gate combined the MMT paper, parameter inventory, paired-dataset diagnostics, completed `Wave 5.2B` evidence, and bounded shape and causal-offset screens. Its follow-up residual replay and leakage-safe diagnostic are complete. | Final outcome `blocked_by_parameter_availability`; preserve MMT as an inactive future TODO and continue non-MMT work. |
 | Wave 5.2 frozen-baseline residual replay | completed | Four accepted polished-setpoint ONNX baselines were replayed over their exact direction-specific manifests, producing 3,876 per-curve residual rows: 678 training, 194 validation, and 97 test rows per candidate. The selected July archive IDs differ from older June family-registry entries and are recorded explicitly. | Provenance blocker closed. Use these immutable split labels for the leakage-safe MMT rerun; do not substitute the earlier combined-direction audit split. |
 | Wave 5.2 MMT residual-explanatory diagnostic | completed with parameter blocker | The rerun fitted 224 permitted comparisons on training residuals and evaluated validation and test across seven residual targets for four `Fw` / `Bw` baselines. Geometry-locked MMT signatures were condition-invariant: metadata-plus-MMT and shuffled-control gains were both exactly zero. All 56 calibrated equivalent-error arms were blocked without using target-derived proxies. | Decision `blocked_by_parameter_availability`; current MMT evidence does not justify a feature, auxiliary head, weak soft constraint, or full PINN. |
-| Wave 5.2 PINN / MMT track | blocked by parameter availability | MMT diagnostics, parameter inventory, `Wave 5.2B`, the post-causal-offset gate, exact-manifest replay, and leakage-safe explanatory rerun are complete. Contact geometry and causal observations for five equivalent-error groups remain unavailable. | Keep diagnostic-only. Reopen only after independent component-error measurements or validated causal contact-state reconstruction provides condition-varying physical inputs. |
-| Wave 6 integrated multi-task / multi-head model | deferred | Intended to combine proven offset, low-frequency, centered-shape, uncertainty, mixture, and structured residual mechanisms. | Deferred until Waves 4.1-4.4, Wave 5.1, and Wave 5.2 evidence identifies what should be integrated. |
+| Wave 5.2 PINN / MMT track | deferred future TODO | MMT diagnostics, parameter inventory, `Wave 5.2B`, the post-causal-offset gate, exact-manifest replay, and leakage-safe explanatory rerun are complete. Contact geometry and causal observations for five equivalent-error groups remain unavailable. | Inactive and non-blocking for the rest of the roadmap. Reopen only after independent component-error measurements or validated causal contact-state reconstruction provides condition-varying physical inputs. |
+| Wave 6 integrated multi-task / multi-head model | deferred | Intended to combine proven offset, low-frequency, centered-shape, uncertainty, mixture, and structured residual mechanisms. | Separately deferred until non-MMT evidence identifies what should be integrated. Exclude MMT unless its future TODO is explicitly reopened. |
 
 ## CVP Modules And Waves 3.1 Through 4.4
 
@@ -265,48 +265,50 @@ models.
 
 ## Current Next Steps
 
-1. Keep Wave 5.2 MMT diagnostic-only after the completed explanatory rerun
-   found zero held-out gain beyond metadata and shuffled controls. Do not
-   prepare an MMT feature, auxiliary head, weak soft constraint, full PINN, or
-   Wave 6 campaign without new condition-varying physical inputs.
-2. Do not expand the causal offset / mean calibration profile: its bounded
+1. Keep Wave 5.2 MMT as an inactive future TODO. Reopen it only with new
+   condition-varying physical inputs; do not let it block non-MMT roadmap work.
+2. Prepare the technical plan for the next reduced evaluation and cross-wave
+   comparison. The live audit confirmed all six expected polished
+   actual-values RCIM archives across `GRU` / `LSTM` and `global` / `Fw` /
+   `Bw`.
+3. Do not expand the causal offset / mean calibration profile: its bounded
    `polished_dataset` setpoint `Fw` screen retained
    `polished_setpoints_periodic_gru_sequence_Fw` as the accepted forward
    recommendation, ranked the non-windowed causal MLP fourth, and rejected the
    time-windowed causal GRU through the shape gate.
-3. Do not expand the current shape-first distillation pilot: the bounded
+4. Do not expand the current shape-first distillation pilot: the bounded
    `polished_dataset` setpoint `Fw` screen retained
    `polished_setpoints_periodic_gru_sequence_Fw` as the accepted forward
    recommendation and ranked the distillation candidates behind both
    polished-setpoint baselines.
-4. Keep both time-windowed and non-windowed roads active as comparison
+5. Keep both time-windowed and non-windowed roads active as comparison
    categories for future designs, but require bounded curve-first evidence
    before promotion.
-5. Do not expand the current `shape_objective_periodic_mlp_harmonic_fw` pilot:
+6. Do not expand the current `shape_objective_periodic_mlp_harmonic_fw` pilot:
    the bounded `polished_dataset` setpoint `Fw` screen retained
    `polished_setpoints_periodic_gru_sequence_Fw` as the accepted forward
    recommendation and ranked the shape-objective candidate third.
-6. Do not expand the current shape-gate loss v2 checkpoint into a full matrix:
+7. Do not expand the current shape-gate loss v2 checkpoint into a full matrix:
    the bounded `polished_dataset` setpoint `Fw` screen retained
    `polished_setpoints_periodic_gru_sequence_Fw` as the accepted forward
    recommendation.
-7. Build the next reduced evaluation around `periodic_gru_sequence_Fw/Bw`,
+8. Build the next reduced evaluation around `periodic_gru_sequence_Fw/Bw`,
    `wave4_1_mae_robust_loss_Fw/Bw`,
    `wave4_2_quantile_p10_p50_p90_Fw/Bw`,
-   `periodic_mlp_harmonic_Fw/Bw`, simple anchors, and selected RCIM references
-   after the remaining actual-values RCIM retraining is available.
-8. Keep the shape-gated reranker as the gate before reopening any scalar
+   `periodic_mlp_harmonic_Fw/Bw`, simple anchors, and selected RCIM references.
+   The polished actual-values RCIM archive prerequisite is complete.
+9. Keep the shape-gated reranker as the gate before reopening any scalar
    leader: FFT
    amplitude similarity, dominant-harmonic retention, dominant-harmonic phase
    error, derivative correlation, and per-curve shape pass rate.
-9. Carry forward the temporal-window road (`periodic_gru_sequence`) as the
+10. Carry forward the temporal-window road (`periodic_gru_sequence`) as the
    current model-development recommendation. Keep non-windowed branches as
    controlled comparisons until they beat the GRU path on curve-first evidence.
-10. Keep `Wave 4.3`, `Wave 4.4`, and `Wave 5.1` branches as integration
+11. Keep `Wave 4.3`, `Wave 4.4`, and `Wave 5.1` branches as integration
    evidence only, not as current active candidates.
-11. Keep `Wave 5.2` MMT/PINN work behind its dataset-aligned diagnostic and
-   calibration gates.
-12. Do not open the integrated multi-task / multi-head campaign until the
+12. Keep `Wave 5.2` MMT/PINN inactive behind its future physical-input
+   reopening gate.
+13. Do not open the integrated multi-task / multi-head campaign until the
    chosen ingredients are justified by TE Curve Verification Pipeline curve evidence.
 
 ## Closeout Update Rule
