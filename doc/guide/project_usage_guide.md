@@ -597,9 +597,11 @@ The current usage flow mainly relies on these folders:
   conda run --no-capture-output -n pinns_env python -B scripts/reports/analysis/build_wave52_mmt_residual_explanatory_diagnostic.py --self-test
   ```
 
-  The builder refuses to fit on validation or test residuals. The current
-  canonical run therefore closes with a provenance blocker until exact
-  training and validation residual replay is available.
+  The builder reads the exact split labels from the frozen-baseline replay,
+  fits permitted linear comparisons on training residuals only, and evaluates
+  validation and test without target leakage. The canonical rerun records
+  geometry-locked MMT signatures as condition-invariant and blocks
+  equivalent-error calibration when causal physical inputs are unavailable.
 
 - `scripts/reports/analysis/build_wave52_frozen_baseline_residual_replay.py`
   Replays the four frozen polished-setpoint ONNX baselines over their exact

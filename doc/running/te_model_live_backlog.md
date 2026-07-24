@@ -71,12 +71,12 @@ Historical rationale and approval history remain in:
   screen ranked it fourth and retained
   `polished_setpoints_periodic_gru_sequence_Fw` as the forward recommendation.
   The time-windowed residual-offset GRU failed the shape gate.
-- Current Next Branch: rerun the non-training MMT residual-explanatory
-  comparison using the completed 3,876-row frozen-baseline replay. The replay
-  covers exact direction-specific training, validation, and test manifests for
-  all four accepted windowed and non-windowed `Fw` / `Bw` baselines. Do not
-  prepare MMT-guided training until held-out explanatory value exceeds
-  metadata-only and shuffled controls.
+- Current Next Branch: no MMT-guided training branch is authorized. The
+  leakage-safe rerun fitted 224 permitted comparisons across seven residual
+  views and found exactly zero held-out gain from geometry-locked MMT
+  signatures beyond metadata-only and shuffled controls. Reopen MMT only after
+  independent component-error measurements or a validated causal contact-state
+  reconstruction provides condition-varying physical inputs.
 
 Current canonical status reports:
 
@@ -284,7 +284,7 @@ Next planned diagnostic and training decision branches:
 | Component-offset identification | Test whether curve offset is dominated by `a_0` / `Component 0`, multiple components, condition/regime behavior, or experimental repeatability limits. | measured `h0`, signed-offset cross-check, and predicted-mean surface diagnostics completed; `h0` is the right mean channel, but the actionable issue is model-side mean-surface bias/compression |
 | `Wave 4 series` dispersion-aware modeling probes | Test robust losses, quantile or probabilistic heads, mixture-density heads, and latent-state or hysteresis-aware features on the offset and fragile-harmonic problem. | robust-loss, quantile/probabilistic, MDN, and `Wave 4.4` latent-state / hysteresis-aware campaigns and official TE Curve Verification refreshes completed; all are exploratory and not promoted |
 | `Wave 5.1` hybrid structured models | Combine harmonic structure, condition-conditioned residual learning, and explicit grouped treatment of stable and fragile harmonic bands. | first real `wave3_harmonic_prior_residual` campaign and official `TE Curve Verification Pipeline` verification refresh closed as a verified exploratory baseline, not promoted |
-| `Wave 5.2` PINN formulation and first PINN | Test soft physics, periodicity, smoothness, harmonic-consistency, and operating-condition constraints in a first narrow PINN branch. | MMT diagnostics, parameter inventory, `Wave 5.2B`, and the post-causal-offset decision gate are complete. Keep MMT diagnostic-only until a leakage-safe residual-explanatory check proves held-out value beyond metadata-only and shuffled controls. |
+| `Wave 5.2` PINN formulation and first PINN | Test soft physics, periodicity, smoothness, harmonic-consistency, and operating-condition constraints in a first narrow PINN branch. | blocked by parameter availability; the leakage-safe residual-explanatory rerun found zero incremental held-out value from condition-invariant geometry signatures, while five equivalent-error groups lack causal observed inputs. No MMT feature, auxiliary head, weak constraint, or full PINN is authorized. |
 | Intermediate shape-first model-selection cleanup | Reduce the post-retraining active set using raw error, P95, centered shape, P2P behavior, visual collage evidence, and actual-values stability. | completed; active set is `periodic_gru_sequence`, `wave4_1_mae_robust_loss`, `wave4_2_quantile_p10_p50_p90`, and `periodic_mlp_harmonic`; `periodic_lstm_sequence_Bw`, `Wave 4.3`, `Wave 4.4`, and `Wave 5.1` are closed as active branches |
 | Frequency-domain shape-gated reranker | Add measured/predicted FFT amplitude similarity, dominant-harmonic retention, dominant-harmonic phase error, robust derivative agreement, threshold sweep, and per-curve shape pass rate to future reduced reports. | implemented as reduced Fw/Bw tooling; calibration is the current screen before reopening any scalar leader that visually loses measured TE shape |
 | Shape-gate loss pilot | Test whether calibrated shape-gate evidence can improve training or checkpoint selection. | patched polished-setpoint Fw/Bw expansion completed. Forward recommendation remains `polished_setpoints_periodic_gru_sequence_Fw`; backward recommendation is `polished_setpoints_periodic_mlp_harmonic_Bw`; the shape-gate loss pilot remains a viable but non-promoted forward candidate. Future training should evaluate a stricter second pilot or checkpoint-selection variant focused on derivative/ripple preservation before any full `simplified_setpoints`, `polished_setpoints`, and `polished_actual_values` x `global`/`Fw`/`Bw` Aries campaign. |
@@ -584,12 +584,11 @@ active next step is:
   `2026-07-23` bounded screen;
 - keep both time-windowed and non-windowed candidate roads alive for future
   designs, but require a bounded curve-first pass before promotion;
-- generate provenance-matched training and validation residual replay for the
-  four frozen accepted windowed and non-windowed `Fw` / `Bw` baselines;
-- rerun the completed MMT residual-explanatory diagnostic only after those
-  leakage-safe calibration rows exist;
-- require held-out value beyond metadata-only and shuffled controls before
-  preparing an MMT feature, auxiliary-head, or weak-soft-constraint pilot.
+- preserve the completed 3,876-row frozen-baseline replay as the canonical
+  split-safe residual source;
+- keep the completed MMT rerun at `blocked_by_parameter_availability`;
+- do not prepare an MMT feature, auxiliary head, weak soft constraint, full
+  PINN, or Wave 6 campaign without new condition-varying physical inputs.
 
 The previous temporal refresh answered three concrete questions:
 
@@ -1226,9 +1225,11 @@ Entry rule:
     `output/validation_checks/wave4_mmt_parameter_inventory/2026-06-11-20-29-51__wave4a_mmt_parameter_inventory/`;
   - residual-explanatory diagnostic report:
     `doc/reports/analysis/model_development_waves/wave_5_2/mmt_residual_explanatory_diagnostic/[2026-07-24]/wave52_mmt_residual_explanatory_diagnostic.md`;
-- updated priority: use the completed exact-manifest frozen-baseline residual
-  replay to rerun the leakage-safe MMT residual-explanatory comparison before
-  any new MMT-guided training;
+  - leakage-safe residual-explanatory rerun:
+    `doc/reports/analysis/model_development_waves/wave_5_2/mmt_residual_explanatory_diagnostic/[2026-07-24]/wave52_mmt_residual_explanatory_rerun.md`;
+- updated priority: keep MMT diagnostic-only and require independent
+  component-error measurements or validated causal contact-state
+  reconstruction before reopening the branch;
 - mandatory rule: prepare or justify `global`, `forward`, and `backward`
   surfaces;
 - paper-reproduction scope:
@@ -1246,17 +1247,16 @@ Entry rule:
   - contact geometry remains unavailable or ambiguous and blocks calibrated
     analytical-baseline claims;
   - measured TE remains target-only and must not become an inference input.
-- next implementation steps:
-  - consume the completed frozen-baseline replay without changing its archived
-    model artifacts or split memberships;
-  - compare geometry-locked and train-only calibrated MMT signatures against
-    held-out baseline residuals without leakage after replay;
-  - include metadata-only and shuffled-signature controls;
-  - keep both windowed and non-windowed `Fw` / `Bw` baselines visible;
-  - authorize an MMT feature or auxiliary-output pilot only if the diagnostic
-    passes; keep weak soft constraints secondary;
-  - do not treat the current demonstration harmonic summary as dataset
-    causality.
+- closed implementation conclusions:
+  - exact-manifest replay preserves all archived model artifacts and split
+    memberships;
+  - 224 metadata, geometry, combined, and shuffled comparisons were fitted on
+    training residuals and evaluated on validation and test;
+  - geometry-locked MMT signatures produced zero incremental held-out gain;
+  - 56 calibrated equivalent-error arms were explicitly blocked because
+    causal component-error and contact-state inputs are unavailable;
+  - no MMT feature, auxiliary-output, weak-loss, or full-PINN pilot is
+    justified by current evidence.
 
 ### Wave 5. Cross-Wave Comparison And Best Solution
 
@@ -1296,9 +1296,9 @@ Entry rule:
 - `TE Curve Verification Pipeline` is the canonical offline verification baseline; diagnostic
   extensions now continue as CVP 1.1, CVP 1.2, mean-centered collage, and
   completed `CVP 1.4`;
-- the next planned branch before any new broad model-family wave is a
-  non-training MMT residual-explanatory diagnostic with metadata-only and
-  shuffled controls;
+- the Wave 5.2 MMT diagnostic branch is closed at
+  `blocked_by_parameter_availability`; it must not be reopened without new
+  condition-varying physical inputs;
 - future wave planning must keep direction-separated modeling and reporting in
   scope from the start;
 - Track 3 is the future online compensation and deployment-evaluation branch;

@@ -1,0 +1,13 @@
+candidate_id,surface,architecture_class,split_name,residual_row_count,fit_allowed
+polished_setpoints_periodic_gru_sequence_Bw,Bw,windowed,test,97,False
+polished_setpoints_periodic_gru_sequence_Bw,Bw,windowed,train,678,True
+polished_setpoints_periodic_gru_sequence_Bw,Bw,windowed,validation,194,False
+polished_setpoints_periodic_gru_sequence_Fw,Fw,windowed,test,97,False
+polished_setpoints_periodic_gru_sequence_Fw,Fw,windowed,train,678,True
+polished_setpoints_periodic_gru_sequence_Fw,Fw,windowed,validation,194,False
+polished_setpoints_periodic_mlp_harmonic_Bw,Bw,non_windowed,test,97,False
+polished_setpoints_periodic_mlp_harmonic_Bw,Bw,non_windowed,train,678,True
+polished_setpoints_periodic_mlp_harmonic_Bw,Bw,non_windowed,validation,194,False
+polished_setpoints_periodic_mlp_harmonic_Fw,Fw,non_windowed,test,97,False
+polished_setpoints_periodic_mlp_harmonic_Fw,Fw,non_windowed,train,678,True
+polished_setpoints_periodic_mlp_harmonic_Fw,Fw,non_windowed,validation,194,False

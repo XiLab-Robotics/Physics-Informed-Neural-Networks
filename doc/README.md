@@ -149,6 +149,12 @@ This folder contains the internal project documents derived from the reference P
   resulting 3,876 per-curve rows close the provenance blocker for the
   leakage-safe MMT explanatory rerun.
 
+- [reports/analysis/model_development_waves/wave_5_2/mmt_residual_explanatory_diagnostic/[2026-07-24]/wave52_mmt_residual_explanatory_rerun.md](./reports/analysis/model_development_waves/wave_5_2/mmt_residual_explanatory_diagnostic/%5B2026-07-24%5D/wave52_mmt_residual_explanatory_rerun.md)
+  Leakage-safe Wave 5.2 rerun fitted 224 permitted training-only comparisons
+  over seven residual views. Geometry-locked MMT signatures added zero
+  held-out value beyond metadata and shuffled controls; equivalent-error
+  calibration remains blocked by unavailable causal physical inputs.
+
 - [reports/analysis/te_curve_verification_pipeline/03_family_reports/tree/[2026-07-07]/track2_tree_familywise_onnx_report.md](./reports/analysis/te_curve_verification_pipeline/03_family_reports/tree/%5B2026-07-07%5D/track2_tree_familywise_onnx_report.md)
   Familywise `tree` ONNX verification report comparing the completed
   simplified setpoint, polished setpoint, and polished actual-value exports

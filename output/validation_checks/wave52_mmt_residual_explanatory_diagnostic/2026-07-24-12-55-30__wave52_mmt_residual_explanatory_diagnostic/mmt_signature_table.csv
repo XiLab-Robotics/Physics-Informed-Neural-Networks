@@ -1,0 +1,23 @@
+signature_name,signature_group,harmonic_index,value,usage_policy,condition_varying,notes
+mmt_rte_mean_arcsec,geometry_locked_curve_summary,,-565.628931404,inference_safe,False,Current MMT demo value is fixed across operating conditions.
+mmt_rte_peak_to_peak_arcsec,geometry_locked_curve_summary,,525.201502214,inference_safe,False,Current MMT demo value is fixed across operating conditions.
+mmt_harmonic_amplitude_arcsec,geometry_locked_harmonic,0,565.628931404,inference_safe,False,"Current analytical signature is geometry-locked and has no validated speed, torque, or temperature calibration."
+mmt_harmonic_phase_rad,geometry_locked_harmonic,0,0.000000000,inference_safe,False,"Current analytical signature is geometry-locked and has no validated speed, torque, or temperature calibration."
+mmt_harmonic_amplitude_arcsec,geometry_locked_harmonic,1,0.000000000,inference_safe,False,"Current analytical signature is geometry-locked and has no validated speed, torque, or temperature calibration."
+mmt_harmonic_phase_rad,geometry_locked_harmonic,1,-2.062556034,inference_safe,False,"Current analytical signature is geometry-locked and has no validated speed, torque, or temperature calibration."
+mmt_harmonic_amplitude_arcsec,geometry_locked_harmonic,3,0.000000000,inference_safe,False,"Current analytical signature is geometry-locked and has no validated speed, torque, or temperature calibration."
+mmt_harmonic_phase_rad,geometry_locked_harmonic,3,-2.550460052,inference_safe,False,"Current analytical signature is geometry-locked and has no validated speed, torque, or temperature calibration."
+mmt_harmonic_amplitude_arcsec,geometry_locked_harmonic,39,0.000000000,inference_safe,False,"Current analytical signature is geometry-locked and has no validated speed, torque, or temperature calibration."
+mmt_harmonic_phase_rad,geometry_locked_harmonic,39,-2.069477590,inference_safe,False,"Current analytical signature is geometry-locked and has no validated speed, torque, or temperature calibration."
+mmt_harmonic_amplitude_arcsec,geometry_locked_harmonic,40,0.000000000,inference_safe,False,"Current analytical signature is geometry-locked and has no validated speed, torque, or temperature calibration."
+mmt_harmonic_phase_rad,geometry_locked_harmonic,40,-0.572253020,inference_safe,False,"Current analytical signature is geometry-locked and has no validated speed, torque, or temperature calibration."
+mmt_harmonic_amplitude_arcsec,geometry_locked_harmonic,78,25.198140050,inference_safe,False,"Current analytical signature is geometry-locked and has no validated speed, torque, or temperature calibration."
+mmt_harmonic_phase_rad,geometry_locked_harmonic,78,-0.262658793,inference_safe,False,"Current analytical signature is geometry-locked and has no validated speed, torque, or temperature calibration."
+mmt_harmonic_amplitude_arcsec,geometry_locked_harmonic,81,0.000000000,inference_safe,False,"Current analytical signature is geometry-locked and has no validated speed, torque, or temperature calibration."
+mmt_harmonic_phase_rad,geometry_locked_harmonic,81,-1.572767250,inference_safe,False,"Current analytical signature is geometry-locked and has no validated speed, torque, or temperature calibration."
+mmt_harmonic_amplitude_arcsec,geometry_locked_harmonic,156,5.414471632,inference_safe,False,"Current analytical signature is geometry-locked and has no validated speed, torque, or temperature calibration."
+mmt_harmonic_phase_rad,geometry_locked_harmonic,156,0.259545888,inference_safe,False,"Current analytical signature is geometry-locked and has no validated speed, torque, or temperature calibration."
+mmt_harmonic_amplitude_arcsec,geometry_locked_harmonic,162,4.236381683,inference_safe,False,"Current analytical signature is geometry-locked and has no validated speed, torque, or temperature calibration."
+mmt_harmonic_phase_rad,geometry_locked_harmonic,162,2.830715349,inference_safe,False,"Current analytical signature is geometry-locked and has no validated speed, torque, or temperature calibration."
+mmt_harmonic_amplitude_arcsec,geometry_locked_harmonic,240,2.188342719,inference_safe,False,"Current analytical signature is geometry-locked and has no validated speed, torque, or temperature calibration."
+mmt_harmonic_phase_rad,geometry_locked_harmonic,240,-0.584306564,inference_safe,False,"Current analytical signature is geometry-locked and has no validated speed, torque, or temperature calibration."

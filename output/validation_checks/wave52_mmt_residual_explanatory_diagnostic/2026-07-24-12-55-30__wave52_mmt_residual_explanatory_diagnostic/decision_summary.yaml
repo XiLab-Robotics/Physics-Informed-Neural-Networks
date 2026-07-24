@@ -1,0 +1,24 @@
+schema_version: 1
+run_instance_id: 2026-07-24-12-55-30__wave52_mmt_residual_explanatory_diagnostic
+decision: blocked_by_parameter_availability
+training_executed: false
+registry_updated: false
+fit_performed: true
+split_coverage:
+  train: 2712
+  validation: 776
+  test: 388
+comparison_evidence:
+  fitted_comparison_row_count: 224
+  calibrated_equivalent_error_blocked_row_count: 56
+  maximum_absolute_metadata_plus_mmt_mae_gain: 0.0
+  maximum_absolute_shuffled_control_mae_gain: 0.0
+  condition_varying_mmt_signature_available: false
+blocker_list:
+- train-only equivalent-error groups are unavailable as causal condition-level inputs
+  and cannot be physically calibrated
+- current geometry-locked MMT signatures are invariant across operating conditions
+  and collapse to the fitted intercept
+next_action: keep MMT diagnostic-only until independent component-error measurements
+  or validated causal contact-state reconstruction provides condition-varying MMT
+  inputs

@@ -1,0 +1,29 @@
+schema_version: 1
+run_instance_id: 2026-07-24-12-55-30__wave52_mmt_residual_explanatory_diagnostic
+status: completed_with_parameter_blocker
+decision: blocked_by_parameter_availability
+baseline_count: 4
+dataset_split_count:
+  train: 1356
+  validation: 388
+  test: 194
+  total: 1938
+residual_row_count: 3876
+mmt_signature_row_count: 22
+comparison_row_count: 280
+self_test:
+  status: passed
+  random_seed: 20260724
+  metadata_only_evaluation_r_squared: 0.209392151133734
+  combined_evaluation_r_squared: 0.9960283271632314
+  shuffled_evaluation_r_squared: 0.21562344468400296
+artifact_path_list:
+- output/validation_checks/wave52_mmt_residual_explanatory_diagnostic/2026-07-24-12-55-30__wave52_mmt_residual_explanatory_diagnostic/resolved_baseline_manifest.yaml
+- output/validation_checks/wave52_mmt_residual_explanatory_diagnostic/2026-07-24-12-55-30__wave52_mmt_residual_explanatory_diagnostic/split_boundary_audit.csv
+- output/validation_checks/wave52_mmt_residual_explanatory_diagnostic/2026-07-24-12-55-30__wave52_mmt_residual_explanatory_diagnostic/per_curve_residual_features.csv
+- output/validation_checks/wave52_mmt_residual_explanatory_diagnostic/2026-07-24-12-55-30__wave52_mmt_residual_explanatory_diagnostic/mmt_signature_table.csv
+- output/validation_checks/wave52_mmt_residual_explanatory_diagnostic/2026-07-24-12-55-30__wave52_mmt_residual_explanatory_diagnostic/descriptive_split_summary.csv
+- output/validation_checks/wave52_mmt_residual_explanatory_diagnostic/2026-07-24-12-55-30__wave52_mmt_residual_explanatory_diagnostic/explanatory_comparison.csv
+- output/validation_checks/wave52_mmt_residual_explanatory_diagnostic/2026-07-24-12-55-30__wave52_mmt_residual_explanatory_diagnostic/run_configuration.yaml
+- output/validation_checks/wave52_mmt_residual_explanatory_diagnostic/2026-07-24-12-55-30__wave52_mmt_residual_explanatory_diagnostic/decision_summary.yaml
+- doc/reports/analysis/model_development_waves/wave_5_2/mmt_residual_explanatory_diagnostic/[2026-07-24]/wave52_mmt_residual_explanatory_rerun.md

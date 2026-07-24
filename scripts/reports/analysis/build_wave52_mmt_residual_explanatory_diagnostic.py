@@ -45,9 +45,10 @@ DEFAULT_CONFIG_PATH = (
     / "wave52_mmt_residual_explanatory_diagnostic.yaml"
 )
 DEFAULT_FLOAT_FORMAT = ".9f"
-BLOCKED_DECISION = "blocked_by_missing_training_residuals"
-DIAGNOSTIC_ONLY_DECISION = "mmt_remains_diagnostic_only"
-FEATURE_PILOT_DECISION = "mmt_feature_or_auxiliary_pilot_justified"
+MISSING_RESIDUAL_DECISION = "blocked_by_missing_training_residuals"
+PARAMETER_BLOCKED_DECISION = "blocked_by_parameter_availability"
+DIAGNOSTIC_ONLY_DECISION = "diagnostic_only"
+FEATURE_PILOT_DECISION = "feature_or_auxiliary_pilot_justified"
 
 
 @dataclass(frozen=True)
@@ -327,11 +328,11 @@ def build_dataset_split_lookup(
 def load_selected_residual_row_list(
     residual_metrics_path: Path,
     baseline_specification_list: list[BaselineSpecification],
-    split_lookup: dict[str, str],
+    split_lookup: dict[str, str] | None,
     residual_target_name_list: list[str],
 ) -> list[dict[str, Any]]:
 
-    """Load selected baseline residual rows and attach audited split labels."""
+    """Load selected baseline residual rows with authoritative split labels."""
 
     assert residual_metrics_path.exists(), (
         f"Residual metrics path does not exist | {residual_metrics_path}"
@@ -356,6 +357,10 @@ def load_selected_residual_row_list(
             "oil_temperature_deg",
             *residual_target_name_list,
         }
+        source_has_split_labels = "split_name" in reader.fieldnames
+        assert source_has_split_labels or split_lookup is not None, (
+            "Residual CSV must contain split_name or receive a split lookup"
+        )
         missing_column_set = required_column_set.difference(reader.fieldnames)
         assert not missing_column_set, (
             f"Residual CSV is missing required columns | {sorted(missing_column_set)}"
@@ -368,11 +373,18 @@ def load_selected_residual_row_list(
 
             specification = baseline_dictionary[candidate_id]
             source_file_path = resolve_project_path(source_row["source_file_path"])
-            split_name = split_lookup.get(str(source_file_path).lower())
-            assert split_name is not None, (
-                f"Residual source path is absent from the dataset split | "
-                f"{source_file_path}"
-            )
+            if source_has_split_labels:
+                split_name = str(source_row["split_name"]).strip().lower()
+                assert split_name in {"train", "validation", "test"}, (
+                    f"Unsupported residual split label | {split_name}"
+                )
+            else:
+                assert split_lookup is not None
+                split_name = split_lookup.get(str(source_file_path).lower())
+                assert split_name is not None, (
+                    f"Residual source path is absent from the dataset split | "
+                    f"{source_file_path}"
+                )
             assert str(source_row["direction_label"]).lower() == (
                 specification.direction_label
             ), (
@@ -407,6 +419,33 @@ def load_selected_residual_row_list(
         f"Found: {sorted(found_candidate_id_set)}"
     )
     return selected_row_list
+
+
+def build_split_count_dictionary_from_residual_rows(
+    residual_row_list: list[dict[str, Any]],
+) -> dict[str, int]:
+
+    """Count unique dataset files using replay-provided split membership."""
+
+    path_split_dictionary: dict[str, str] = {}
+    for row in residual_row_list:
+        source_file_path = str(row["source_file_path"]).lower()
+        split_name = str(row["split_name"])
+        previous_split_name = path_split_dictionary.get(source_file_path)
+        assert previous_split_name in {None, split_name}, (
+            "One source curve has conflicting split labels across baselines | "
+            f"{row['source_file_path']} | {previous_split_name} vs {split_name}"
+        )
+        path_split_dictionary[source_file_path] = split_name
+
+    split_count_dictionary = {
+        split_name: sum(
+            value == split_name for value in path_split_dictionary.values()
+        )
+        for split_name in ["train", "validation", "test"]
+    }
+    split_count_dictionary["total"] = len(path_split_dictionary)
+    return split_count_dictionary
 
 
 def build_baseline_manifest_row_list(
@@ -596,28 +635,35 @@ def build_descriptive_summary_row_list(
     candidate_id_list = sorted({str(row["candidate_id"]) for row in residual_row_list})
     summary_row_list: list[dict[str, Any]] = []
     for candidate_id in candidate_id_list:
-        candidate_row_list = [
-            row for row in residual_row_list if row["candidate_id"] == candidate_id
-        ]
-        for target_name in residual_target_name_list:
-            value_list = [float(row[target_name]) for row in candidate_row_list]
-            summary_row_list.append(
-                {
-                    "candidate_id": candidate_id,
-                    "surface": candidate_row_list[0]["surface"],
-                    "architecture_class": candidate_row_list[0][
-                        "architecture_class"
-                    ],
-                    "split_name": candidate_row_list[0]["split_name"],
-                    "target_name": target_name,
-                    "row_count": len(value_list),
-                    "mean": format_float(fmean(value_list)),
-                    "standard_deviation": format_float(pstdev(value_list)),
-                    "minimum": format_float(min(value_list)),
-                    "maximum": format_float(max(value_list)),
-                    "fit_performed": False,
-                }
+        for split_name in ["train", "validation", "test"]:
+            candidate_row_list = [
+                row
+                for row in residual_row_list
+                if row["candidate_id"] == candidate_id
+                and row["split_name"] == split_name
+            ]
+            assert candidate_row_list, (
+                f"Missing descriptive split coverage | {candidate_id} | {split_name}"
             )
+            for target_name in residual_target_name_list:
+                value_list = [float(row[target_name]) for row in candidate_row_list]
+                summary_row_list.append(
+                    {
+                        "candidate_id": candidate_id,
+                        "surface": candidate_row_list[0]["surface"],
+                        "architecture_class": candidate_row_list[0][
+                            "architecture_class"
+                        ],
+                        "split_name": split_name,
+                        "target_name": target_name,
+                        "row_count": len(value_list),
+                        "mean": format_float(fmean(value_list)),
+                        "standard_deviation": format_float(pstdev(value_list)),
+                        "minimum": format_float(min(value_list)),
+                        "maximum": format_float(max(value_list)),
+                        "fit_performed": False,
+                    }
+                )
     return summary_row_list
 
 
@@ -800,15 +846,13 @@ def build_comparison_row_list(
     config_dictionary: dict[str, Any],
 ) -> tuple[list[dict[str, Any]], str, list[str]]:
 
-    """Build fitted comparisons or explicit blocker rows.
-
-    Actual fitting is permitted only when the source artifact contains training
-    residual rows. The current curve-first residual artifact is expected to
-    contain test rows only, in which case every comparison is recorded as
-    blocked rather than fitting on held-out targets.
-    """
+    """Fit allowed controls and expose unavailable physical calibration."""
 
     comparison_dictionary = config_dictionary["comparison"]
+    metadata_feature_name_list = [
+        str(value)
+        for value in comparison_dictionary["metadata_feature_name_list"]
+    ]
     residual_target_name_list = [
         str(value)
         for value in comparison_dictionary["residual_target_name_list"]
@@ -835,15 +879,13 @@ def build_comparison_row_list(
         blocker_list.append(
             "configured residual artifact contains no validation residual rows"
         )
-    blocker_list.append(
-        "train-only calibrated equivalent-error signatures are not materialized"
-    )
-    blocker_list.append(
-        "current geometry-locked MMT signatures are constant across operating conditions"
-    )
+    if test_row_count == 0:
+        blocker_list.append(
+            "configured residual artifact contains no held-out test residual rows"
+        )
 
     comparison_row_list: list[dict[str, Any]] = []
-    if training_row_count == 0:
+    if training_row_count == 0 or validation_row_count == 0 or test_row_count == 0:
         for specification in baseline_specification_list:
             for target_name in residual_target_name_list:
                 for comparison_name in comparison_name_list:
@@ -854,27 +896,261 @@ def build_comparison_row_list(
                             "architecture_class": specification.architecture_class,
                             "target_name": target_name,
                             "comparison_name": comparison_name,
-                            "fit_status": BLOCKED_DECISION,
+                            "evaluation_split": "",
+                            "fit_status": MISSING_RESIDUAL_DECISION,
                             "training_row_count": training_row_count,
                             "validation_row_count": validation_row_count,
                             "test_row_count": test_row_count,
                             "matrix_rank": "",
+                            "coefficient_vector_json": "",
                             "train_mae": "",
                             "evaluation_mae": "",
                             "evaluation_r_squared": "",
+                            "mae_improvement_vs_metadata": "",
+                            "r_squared_delta_vs_metadata": "",
                             "decision_eligible": False,
                             "notes": (
-                                "No coefficients were fitted because the residual "
-                                "artifact contains held-out test rows only."
+                                "No coefficients were fitted because required "
+                                "split coverage is incomplete."
                             ),
                         }
                     )
-        return comparison_row_list, BLOCKED_DECISION, blocker_list
+        return (
+            comparison_row_list,
+            MISSING_RESIDUAL_DECISION,
+            blocker_list,
+        )
 
-    raise AssertionError(
-        "Training residual rows are now available, but condition-varying MMT "
-        "signature fitting has not yet been authorized by the current config."
+    blocker_list.extend(
+        [
+            (
+                "train-only equivalent-error groups are unavailable as causal "
+                "condition-level inputs and cannot be physically calibrated"
+            ),
+            (
+                "current geometry-locked MMT signatures are invariant across "
+                "operating conditions and collapse to the fitted intercept"
+            ),
+        ]
     )
+
+    mmt_signature_row_list = build_mmt_signature_row_list(config_dictionary)
+    geometry_signature_vector = np.asarray(
+        [float(row["value"]) for row in mmt_signature_row_list],
+        dtype=float,
+    )
+    assert geometry_signature_vector.size > 0
+    evaluation_split_name_list = [
+        str(value) for value in config_dictionary["split"]["evaluation_split_list"]
+    ]
+    random_generator = np.random.default_rng(
+        int(config_dictionary["metadata"]["random_seed"])
+    )
+
+    for specification in baseline_specification_list:
+        candidate_row_list = [
+            row
+            for row in residual_row_list
+            if row["candidate_id"] == specification.candidate_id
+        ]
+        training_row_list = [
+            row for row in candidate_row_list if row["split_name"] == "train"
+        ]
+        assert training_row_list, (
+            f"Candidate has no training residual rows | {specification.candidate_id}"
+        )
+        training_metadata_matrix = np.asarray(
+            [
+                [float(row[name]) for name in metadata_feature_name_list]
+                for row in training_row_list
+            ],
+            dtype=float,
+        )
+        training_geometry_matrix = np.repeat(
+            geometry_signature_vector.reshape(1, -1),
+            len(training_row_list),
+            axis=0,
+        )
+
+        for evaluation_split_name in evaluation_split_name_list:
+            evaluation_row_list = [
+                row
+                for row in candidate_row_list
+                if row["split_name"] == evaluation_split_name
+            ]
+            assert evaluation_row_list, (
+                f"Candidate has no evaluation rows | "
+                f"{specification.candidate_id} | {evaluation_split_name}"
+            )
+            evaluation_metadata_matrix = np.asarray(
+                [
+                    [float(row[name]) for name in metadata_feature_name_list]
+                    for row in evaluation_row_list
+                ],
+                dtype=float,
+            )
+            evaluation_geometry_matrix = np.repeat(
+                geometry_signature_vector.reshape(1, -1),
+                len(evaluation_row_list),
+                axis=0,
+            )
+
+            for target_name in residual_target_name_list:
+                training_target_vector = np.asarray(
+                    [float(row[target_name]) for row in training_row_list],
+                    dtype=float,
+                )
+                evaluation_target_vector = np.asarray(
+                    [float(row[target_name]) for row in evaluation_row_list],
+                    dtype=float,
+                )
+                metadata_result = fit_transparent_linear_model(
+                    training_metadata_matrix,
+                    training_target_vector,
+                    evaluation_metadata_matrix,
+                    evaluation_target_vector,
+                )
+
+                fitted_result_dictionary = {
+                    "metadata_only": metadata_result,
+                    "geometry_locked_mmt": fit_transparent_linear_model(
+                        training_geometry_matrix,
+                        training_target_vector,
+                        evaluation_geometry_matrix,
+                        evaluation_target_vector,
+                    ),
+                    "metadata_plus_geometry_locked_mmt": (
+                        fit_transparent_linear_model(
+                            np.column_stack(
+                                [
+                                    training_metadata_matrix,
+                                    training_geometry_matrix,
+                                ]
+                            ),
+                            training_target_vector,
+                            np.column_stack(
+                                [
+                                    evaluation_metadata_matrix,
+                                    evaluation_geometry_matrix,
+                                ]
+                            ),
+                            evaluation_target_vector,
+                        )
+                    ),
+                }
+                shuffled_training_geometry_matrix = (
+                    training_geometry_matrix[
+                        random_generator.permutation(
+                            training_geometry_matrix.shape[0]
+                        )
+                    ]
+                )
+                shuffled_evaluation_geometry_matrix = (
+                    evaluation_geometry_matrix[
+                        random_generator.permutation(
+                            evaluation_geometry_matrix.shape[0]
+                        )
+                    ]
+                )
+                fitted_result_dictionary["shuffled_mmt_control"] = (
+                    fit_transparent_linear_model(
+                        np.column_stack(
+                            [
+                                training_metadata_matrix,
+                                shuffled_training_geometry_matrix,
+                            ]
+                        ),
+                        training_target_vector,
+                        np.column_stack(
+                            [
+                                evaluation_metadata_matrix,
+                                shuffled_evaluation_geometry_matrix,
+                            ]
+                        ),
+                        evaluation_target_vector,
+                    )
+                )
+
+                for comparison_name in comparison_name_list:
+                    common_row = {
+                        "candidate_id": specification.candidate_id,
+                        "surface": specification.surface,
+                        "architecture_class": specification.architecture_class,
+                        "target_name": target_name,
+                        "comparison_name": comparison_name,
+                        "evaluation_split": evaluation_split_name,
+                        "training_row_count": len(training_row_list),
+                        "validation_row_count": sum(
+                            row["split_name"] == "validation"
+                            for row in candidate_row_list
+                        ),
+                        "test_row_count": sum(
+                            row["split_name"] == "test"
+                            for row in candidate_row_list
+                        ),
+                    }
+                    if (
+                        comparison_name
+                        == "train_only_calibrated_equivalent_error"
+                    ):
+                        comparison_row_list.append(
+                            {
+                                **common_row,
+                                "fit_status": PARAMETER_BLOCKED_DECISION,
+                                "matrix_rank": "",
+                                "coefficient_vector_json": "",
+                                "train_mae": "",
+                                "evaluation_mae": "",
+                                "evaluation_r_squared": "",
+                                "mae_improvement_vs_metadata": "",
+                                "r_squared_delta_vs_metadata": "",
+                                "decision_eligible": False,
+                                "notes": (
+                                    "No component-error observations or causal "
+                                    "contact-state reconstruction are available; "
+                                    "target-derived proxy calibration is forbidden."
+                                ),
+                            }
+                        )
+                        continue
+
+                    assert comparison_name in fitted_result_dictionary, (
+                        f"Unsupported comparison arm | {comparison_name}"
+                    )
+                    fit_result = fitted_result_dictionary[comparison_name]
+                    comparison_row_list.append(
+                        {
+                            **common_row,
+                            "fit_status": "fitted_training_only",
+                            "matrix_rank": fit_result.matrix_rank,
+                            "coefficient_vector_json": json.dumps(
+                                fit_result.coefficient_vector.tolist()
+                            ),
+                            "train_mae": format_float(fit_result.train_mae),
+                            "evaluation_mae": format_float(
+                                fit_result.evaluation_mae
+                            ),
+                            "evaluation_r_squared": format_float(
+                                fit_result.evaluation_r_squared
+                            ),
+                            "mae_improvement_vs_metadata": format_float(
+                                metadata_result.evaluation_mae
+                                - fit_result.evaluation_mae
+                            ),
+                            "r_squared_delta_vs_metadata": format_float(
+                                fit_result.evaluation_r_squared
+                                - metadata_result.evaluation_r_squared
+                            ),
+                            "decision_eligible": False,
+                            "notes": (
+                                "Geometry-locked values are condition-invariant; "
+                                "the combined and shuffled arms therefore span "
+                                "the same held-out design space as metadata only."
+                            ),
+                        }
+                    )
+
+    return comparison_row_list, PARAMETER_BLOCKED_DECISION, blocker_list
 
 
 def build_report_markdown(
@@ -887,6 +1163,7 @@ def build_report_markdown(
     split_audit_row_list: list[dict[str, Any]],
     descriptive_summary_row_list: list[dict[str, Any]],
     mmt_signature_row_list: list[dict[str, Any]],
+    comparison_row_list: list[dict[str, Any]],
     decision: str,
     blocker_list: list[str],
 ) -> str:
@@ -910,107 +1187,136 @@ def build_report_markdown(
     )
 
     report_line_list = [
-        "# Wave 5.2 MMT Residual-Explanatory Diagnostic",
+        "# Wave 5.2 MMT Residual-Explanatory Diagnostic Rerun",
         "",
         "## Overview",
         "",
-        "This report audits whether the current repository artifacts can support",
-        "a leakage-safe fitted test of MMT signatures against baseline residuals.",
-        "It does not train a TE model, update a registry, or modify campaign state.",
+        "This non-training rerun tests whether repository-available MMT",
+        "signatures explain frozen-baseline residual metrics beyond causal",
+        "operating metadata. Coefficients are fitted on training rows only;",
+        "validation and test rows remain held out.",
         "",
         "## Decision",
         "",
         f"Decision: `{decision}`.",
         "",
+        "The exact-manifest replay closes the earlier residual-provenance",
+        "blocker. The remaining blocker is physical parameter availability:",
+        "geometry-locked MMT values are constant across operating conditions,",
+        "while the five equivalent-error groups lack observed causal inputs or",
+        "a validated contact-state reconstruction. Target-derived substitutes",
+        "were not created.",
+        "",
+        "## Provenance And Split Isolation",
+        "",
+        f"- run instance: `{run_instance_id}`;",
+        f"- config: `{format_project_path(config_path)}`;",
+        f"- residual source: `{format_project_path(residual_metrics_path)}`;",
+        f"- output directory: `{format_project_path(output_directory)}`;",
+        f"- resolved baselines: `{len(baseline_manifest_row_list)}`;",
+        f"- unique dataset files: `{split_count_dictionary['total']}`;",
+        f"- train files: `{split_count_dictionary['train']}`;",
+        f"- validation files: `{split_count_dictionary['validation']}`;",
+        f"- test files: `{split_count_dictionary['test']}`.",
+        "",
+        "Split membership comes directly from the replayed direction-specific",
+        "training snapshots. No global replacement split or held-out fitting was",
+        "performed.",
+        "",
+        "| Residual split | Candidate rows | Policy |",
+        "| --- | ---: | --- |",
+        f"| train | {training_residual_row_count} | fit allowed |",
+        f"| validation | {validation_residual_row_count} | evaluation only |",
+        f"| test | {test_residual_row_count} | final held-out evaluation only |",
+        "",
+        "## MMT Evidence Arms",
+        "",
+        f"The diagnostic materialized `{len(mmt_signature_row_list)}`",
+        "geometry-locked curve-summary and harmonic signature values. It fitted",
+        "four permitted arms: metadata only, geometry only, metadata plus",
+        "geometry, and metadata plus shuffled geometry. The fifth arm,",
+        "train-only calibrated equivalent errors, is recorded as blocked rather",
+        "than synthesized from TE targets.",
+        "",
+        "Because every geometry signature is identical for every operating",
+        "condition, standardization maps those columns to zero. Geometry-only",
+        "therefore reduces to an intercept; combined and shuffled arms are",
+        "algebraically equivalent to metadata only.",
+        "",
+        "## Held-Out Test Comparison",
+        "",
+        "| Candidate | Residual target | Metadata MAE | Metadata + MMT MAE | "
+        "MAE gain | Shuffled gain |",
+        "| --- | --- | ---: | ---: | ---: | ---: |",
     ]
 
-    if decision == BLOCKED_DECISION:
-        report_line_list.extend(
-            [
-                "Do not fit an MMT residual-explanation model from the configured",
-                "curve-first artifact. It contains held-out test residuals only.",
-                "Fitting coefficients on those rows would convert the test surface",
-                "into a calibration surface and violate the approved leakage gate.",
-                "",
-                "The MMT path therefore remains diagnostic-only. The next required",
-                "artifact is a provenance-matched residual replay for the existing",
-                "training and validation curve manifests, generated without changing",
-                "the archived baseline models.",
-                "",
-            ]
+    test_comparison_lookup = {
+        (
+            str(row["candidate_id"]),
+            str(row["target_name"]),
+            str(row["comparison_name"]),
+        ): row
+        for row in comparison_row_list
+        if row["evaluation_split"] == "test"
+        and row["fit_status"] == "fitted_training_only"
+    }
+    candidate_target_pair_list = sorted(
+        {
+            (str(row["candidate_id"]), str(row["target_name"]))
+            for row in comparison_row_list
+            if row["evaluation_split"] == "test"
+        }
+    )
+    for candidate_id, target_name in candidate_target_pair_list:
+        metadata_row = test_comparison_lookup[
+            (candidate_id, target_name, "metadata_only")
+        ]
+        combined_row = test_comparison_lookup[
+            (
+                candidate_id,
+                target_name,
+                "metadata_plus_geometry_locked_mmt",
+            )
+        ]
+        shuffled_row = test_comparison_lookup[
+            (candidate_id, target_name, "shuffled_mmt_control")
+        ]
+        report_line_list.append(
+            f"| `{candidate_id}` | `{target_name}` | "
+            f"{float(metadata_row['evaluation_mae']):.6f} | "
+            f"{float(combined_row['evaluation_mae']):.6f} | "
+            f"{float(combined_row['mae_improvement_vs_metadata']):.9f} | "
+            f"{float(shuffled_row['mae_improvement_vs_metadata']):.9f} |"
         )
 
+    test_summary_lookup: dict[tuple[str, str], str] = {
+        (str(row["candidate_id"]), str(row["target_name"])): str(row["mean"])
+        for row in descriptive_summary_row_list
+        if row["split_name"] == "test"
+    }
     report_line_list.extend(
         [
-            "## Provenance Audit",
             "",
-            f"- run instance: `{run_instance_id}`;",
-            f"- config: `{format_project_path(config_path)}`;",
-            f"- residual source: `{format_project_path(residual_metrics_path)}`;",
-            f"- output directory: `{format_project_path(output_directory)}`;",
-            f"- resolved baselines: `{len(baseline_manifest_row_list)}`;",
-            f"- dataset files: `{split_count_dictionary['total']}`;",
-            f"- train files: `{split_count_dictionary['train']}`;",
-            f"- validation files: `{split_count_dictionary['validation']}`;",
-            f"- test files: `{split_count_dictionary['test']}`;",
-            "",
-            "All four archived baseline inventories, ONNX models, Python",
-            "checkpoints, and training-config snapshots resolved successfully.",
-            "",
-            "## Residual Split Coverage",
-            "",
-            "| Residual split | Candidate rows | Fit allowed |",
-            "| --- | ---: | --- |",
-            f"| train | {training_residual_row_count} | no rows available |",
-            f"| validation | {validation_residual_row_count} | evaluation only |",
-            f"| test | {test_residual_row_count} | evaluation only |",
-            "",
-            "The `194` unique test curves produce `200` forward candidate rows and",
-            "`188` backward candidate rows across the four configured baselines",
-            "(`388` rows in total). No replacement random split was made.",
-            "",
-            "## Geometry-Locked MMT Signatures",
-            "",
-            f"The builder materialized `{len(mmt_signature_row_list)}` analytical",
-            "curve-summary and harmonic signature rows from the repository MMT",
-            "equation-chain demonstration.",
-            "",
-            "These signatures are currently fixed across operating conditions.",
-            "The paper supports their mechanical interpretation, but the repository",
-            "does not yet have a validated speed, torque, or temperature calibration",
-            "for the equivalent-error amplitudes. Constant signatures cannot prove",
-            "incremental between-condition explanatory value over an intercept.",
+            "All metadata-plus-MMT and shuffled gains are expected to be numerical",
+            "zero because the available MMT design columns are constant. This is",
+            "a structural result, not evidence that the underlying mechanical",
+            "equations are false.",
             "",
             "## Descriptive Test Evidence",
-            "",
-            "The report preserves descriptive summaries of the existing held-out",
-            "residual metrics without fitting coefficients. Representative raw and",
-            "centered MAE means are:",
             "",
             "| Candidate | Raw MAE [deg] | Centered MAE [deg] |",
             "| --- | ---: | ---: |",
         ]
     )
-
-    summary_lookup: dict[tuple[str, str], str] = {
-        (str(row["candidate_id"]), str(row["target_name"])): str(row["mean"])
-        for row in descriptive_summary_row_list
-    }
     for manifest_row in baseline_manifest_row_list:
         candidate_id = str(manifest_row["candidate_id"])
         report_line_list.append(
             f"| `{candidate_id}` | "
-            f"{float(summary_lookup[(candidate_id, 'raw_mae_deg')]):.6f} | "
-            f"{float(summary_lookup[(candidate_id, 'centered_mae_deg')]):.6f} |"
+            f"{float(test_summary_lookup[(candidate_id, 'raw_mae_deg')]):.6f} | "
+            f"{float(test_summary_lookup[(candidate_id, 'centered_mae_deg')]):.6f} |"
         )
 
-    report_line_list.extend(
-        [
-            "",
-            "## Blockers",
-            "",
-        ]
-    )
+    report_line_list.extend(["", "## Blockers", ""])
     for blocker in blocker_list:
         report_line_list.append(f"- {blocker}.")
 
@@ -1019,14 +1325,11 @@ def build_report_markdown(
             "",
             "## Next Action",
             "",
-            "Prepare a narrow non-training residual replay that runs the four frozen",
-            "baseline artifacts over their exact training and validation file",
-            "manifests and emits the same per-curve residual schema used here.",
-            "",
-            "After that artifact exists, configure it as the residual source and",
-            "rerun the same comparison workflow. Only a held-out improvement over",
-            "metadata-only and shuffled controls can justify a later MMT feature",
-            "or auxiliary-prediction pilot.",
+            "Keep MMT diagnostic-only. Do not prepare an MMT feature, auxiliary",
+            "head, weak soft constraint, full PINN, or Wave 6 campaign from this",
+            "evidence. Reopen the gate only after independent component-error",
+            "measurements or a validated causal contact-state reconstruction",
+            "provides condition-varying MMT inputs without using held-out TE.",
             "",
             "## Machine-Readable Artifacts",
             "",
@@ -1034,7 +1337,7 @@ def build_report_markdown(
             f"- split audit: `{format_project_path(output_directory / 'split_boundary_audit.csv')}`;",
             f"- residual features: `{format_project_path(output_directory / 'per_curve_residual_features.csv')}`;",
             f"- MMT signatures: `{format_project_path(output_directory / 'mmt_signature_table.csv')}`;",
-            f"- descriptive summary: `{format_project_path(output_directory / 'descriptive_test_summary.csv')}`;",
+            f"- descriptive summary: `{format_project_path(output_directory / 'descriptive_split_summary.csv')}`;",
             f"- comparison table: `{format_project_path(output_directory / 'explanatory_comparison.csv')}`;",
             f"- decision summary: `{format_project_path(output_directory / 'decision_summary.yaml')}`;",
             f"- validation summary: `{format_project_path(output_directory / 'validation_summary.yaml')}`.",
@@ -1081,12 +1384,8 @@ def execute_diagnostic(
     baseline_manifest_row_list = build_baseline_manifest_row_list(
         baseline_specification_list
     )
-    split_lookup, split_count_dictionary = build_dataset_split_lookup(
-        dataset_root=resolve_project_path(path_dictionary["dataset_root"]),
-        validation_split=float(split_dictionary["validation_split"]),
-        test_split=float(split_dictionary["test_split"]),
-        random_seed=int(split_dictionary["random_seed"]),
-    )
+    dataset_root = resolve_project_path(path_dictionary["dataset_root"])
+    assert dataset_root.exists(), f"Dataset root does not exist | {dataset_root}"
 
     # Load Residual Evidence
     residual_target_name_list = [
@@ -1096,8 +1395,11 @@ def execute_diagnostic(
     residual_row_list = load_selected_residual_row_list(
         residual_metrics_path=residual_metrics_path,
         baseline_specification_list=baseline_specification_list,
-        split_lookup=split_lookup,
+        split_lookup=None,
         residual_target_name_list=residual_target_name_list,
+    )
+    split_count_dictionary = build_split_count_dictionary_from_residual_rows(
+        residual_row_list
     )
     split_audit_row_list = build_split_audit_row_list(residual_row_list)
     descriptive_summary_row_list = build_descriptive_summary_row_list(
@@ -1133,7 +1435,7 @@ def execute_diagnostic(
         mmt_signature_row_list,
     )
     descriptive_summary_path = write_csv(
-        output_directory / "descriptive_test_summary.csv",
+        output_directory / "descriptive_split_summary.csv",
         descriptive_summary_row_list,
     )
     comparison_path = write_csv(
@@ -1153,18 +1455,58 @@ def execute_diagnostic(
         )
         for split_name in ["train", "validation", "test"]
     }
+    fitted_comparison_row_list = [
+        row
+        for row in comparison_row_list
+        if row["fit_status"] == "fitted_training_only"
+    ]
+    metadata_plus_mmt_row_list = [
+        row
+        for row in fitted_comparison_row_list
+        if row["comparison_name"] == "metadata_plus_geometry_locked_mmt"
+    ]
+    shuffled_control_row_list = [
+        row
+        for row in fitted_comparison_row_list
+        if row["comparison_name"] == "shuffled_mmt_control"
+    ]
+    calibrated_blocked_row_count = sum(
+        row["fit_status"] == PARAMETER_BLOCKED_DECISION
+        and row["comparison_name"]
+        == "train_only_calibrated_equivalent_error"
+        for row in comparison_row_list
+    )
     decision_summary_dictionary = {
         "schema_version": 1,
         "run_instance_id": run_instance_id,
         "decision": decision,
         "training_executed": False,
         "registry_updated": False,
-        "fit_performed": decision != BLOCKED_DECISION,
+        "fit_performed": any(
+            row["fit_status"] == "fitted_training_only"
+            for row in comparison_row_list
+        ),
         "split_coverage": split_coverage_dictionary,
+        "comparison_evidence": {
+            "fitted_comparison_row_count": len(fitted_comparison_row_list),
+            "calibrated_equivalent_error_blocked_row_count": (
+                calibrated_blocked_row_count
+            ),
+            "maximum_absolute_metadata_plus_mmt_mae_gain": max(
+                abs(float(row["mae_improvement_vs_metadata"]))
+                for row in metadata_plus_mmt_row_list
+            ),
+            "maximum_absolute_shuffled_control_mae_gain": max(
+                abs(float(row["mae_improvement_vs_metadata"]))
+                for row in shuffled_control_row_list
+            ),
+            "condition_varying_mmt_signature_available": False,
+        },
         "blocker_list": blocker_list,
         "next_action": (
-            "generate provenance-matched training and validation residual replay "
-            "for the four frozen baselines"
+            "keep MMT diagnostic-only until independent component-error "
+            "measurements or validated causal contact-state reconstruction "
+            "provides condition-varying MMT inputs"
         ),
     }
     decision_summary_path = write_yaml(
@@ -1175,8 +1517,8 @@ def execute_diagnostic(
     validation_summary_dictionary = {
         "schema_version": 1,
         "run_instance_id": run_instance_id,
-        "status": "completed_with_blocker"
-        if decision == BLOCKED_DECISION
+        "status": "completed_with_parameter_blocker"
+        if decision == PARAMETER_BLOCKED_DECISION
         else "completed",
         "decision": decision,
         "baseline_count": len(baseline_manifest_row_list),
@@ -1213,6 +1555,7 @@ def execute_diagnostic(
         split_audit_row_list=split_audit_row_list,
         descriptive_summary_row_list=descriptive_summary_row_list,
         mmt_signature_row_list=mmt_signature_row_list,
+        comparison_row_list=comparison_row_list,
         decision=decision,
         blocker_list=blocker_list,
     )

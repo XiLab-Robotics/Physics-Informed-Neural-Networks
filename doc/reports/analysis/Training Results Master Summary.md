@@ -260,11 +260,13 @@
 - The frozen-baseline replay has now produced 3,876 provenance-matched rows
   across the exact direction-specific training, validation, and test manifests
   for all four accepted `Fw` / `Bw` baselines.
-- The next branch is the leakage-safe MMT explanatory comparison fitted only
-  on those training residuals and evaluated on held-out validation and test.
-- No MMT feature, auxiliary-head, soft-constraint, or full-PINN campaign should
-  be prepared until the diagnostic shows held-out value beyond metadata-only
-  and shuffled controls.
+- The leakage-safe rerun fitted 224 permitted training-only comparisons over
+  seven residual views and evaluated validation and test without leakage.
+- Geometry-locked MMT signatures added exactly zero held-out gain beyond
+  metadata-only and shuffled controls; 56 equivalent-error arms were blocked
+  because causal component-error and contact-state inputs are unavailable.
+- Wave 5.2 is therefore blocked by parameter availability. No MMT feature,
+  auxiliary head, weak constraint, full PINN, or Wave 6 campaign is authorized.
 
 ### Roadmap And Planned Work
 
@@ -410,7 +412,7 @@ Low-priority exploratory families currently listed in the backlog:
 - `Neural ODE`
 - `Hamiltonian-Inspired Model`
 - `optional Kernel Ridge / Gaussian Process benchmark`
-| Wave 5.2. PINN Formulation And First PINN | status: diagnostic-only after the exact-manifest frozen-baseline replay closed the residual-provenance blocker; not campaign-ready;; replay evidence: 3,876 rows across direction-specific training, validation, and test manifests for four accepted baselines;; next branch: rerun the explanatory comparison fitted on training residuals only;; required controls: metadata-only and shuffled signatures;; promotion boundary: held-out explanatory value before any MMT feature, auxiliary-head, or weak-soft-constraint pilot;; full PINN and Wave 6 remain deferred |
+| Wave 5.2. PINN Formulation And First PINN | status: blocked by parameter availability; not campaign-ready;; replay evidence: 3,876 rows across direction-specific training, validation, and test manifests for four accepted baselines;; explanatory evidence: 224 fitted comparisons over seven residual views, with zero metadata-plus-MMT gain and identical shuffled-control behavior;; blocked evidence: 56 equivalent-error arms lack causal component-error or contact-state inputs;; decision: keep MMT diagnostic-only; no feature, auxiliary-head, weak-soft-constraint, full-PINN, or Wave 6 campaign is authorized |
 
 Low-priority exploratory families currently listed in the backlog:
 

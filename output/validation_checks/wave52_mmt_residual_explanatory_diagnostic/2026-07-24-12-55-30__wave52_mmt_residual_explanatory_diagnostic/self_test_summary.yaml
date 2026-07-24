@@ -1,0 +1,5 @@
+status: passed
+random_seed: 20260724
+metadata_only_evaluation_r_squared: 0.209392151133734
+combined_evaluation_r_squared: 0.9960283271632314
+shuffled_evaluation_r_squared: 0.21562344468400296
