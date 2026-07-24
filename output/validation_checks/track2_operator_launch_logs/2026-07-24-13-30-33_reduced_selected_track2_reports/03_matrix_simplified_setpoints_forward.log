@@ -1,0 +1,74 @@
+W0724 13:34:22.188000 32116 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+[INFO] Building TE Curve Verification Pipeline held-out curve records
+[INFO] Built TE Curve Verification Pipeline held-out curve records | curve_count=97 | dataset=simplified_dataset | surface_scope=forward
+
+TE matrix candidates:   0%|                        | 0/7 [00:00<?, ?candidate/s]
+
+
+TE matrix candidates:   0%|                        | 0/7 [00:00<?, ?candidate/s]
+
+
+TE matrix candidates:   0%|                        | 0/7 [00:00<?, ?candidate/s]
+
+
+TE matrix candidates:   0%|                        | 0/7 [00:00<?, ?candidate/s]C:\Users\Martina Salami\.conda\envs\pinns_env\Lib\site-packages\sklearn\base.py:463: InconsistentVersionWarning: Trying to unpickle estimator _BinMapper from version 1.6.1 when using version 1.8.0. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+  warnings.warn(
+C:\Users\Martina Salami\.conda\envs\pinns_env\Lib\site-packages\sklearn\base.py:463: InconsistentVersionWarning: Trying to unpickle estimator HistGradientBoostingRegressor from version 1.6.1 when using version 1.8.0. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+  warnings.warn(
+
+
+
+TE matrix candidates:   0%|                        | 0/7 [00:00<?, ?candidate/s]
+
+
+TE matrix candidates:   0%|                        | 0/7 [00:07<?, ?candidate/s]
+
+
+TE matrix candidates:   0%|                        | 0/7 [00:07<?, ?candidate/s]
+
+
+TE matrix candidates:   0%|                        | 0/7 [00:08<?, ?candidate/s]
+
+
+TE matrix candidates:   0%|                        | 0/7 [00:08<?, ?candidate/s]
+
+
+TE matrix candidates:   0%|                        | 0/7 [00:08<?, ?candidate/s]
+
+
+TE matrix candidates:   0%|                        | 0/7 [00:08<?, ?candidate/s]
+TE matrix candidates:  71%|###########4    | 5/7 [00:38<00:15,  7.72s/candidate]
+
+
+TE matrix candidates:  71%|###########4    | 5/7 [00:38<00:15,  7.72s/candidate]
+
+
+TE matrix candidates:  71%|###########4    | 5/7 [00:38<00:15,  7.72s/candidate]
+TE matrix candidates:  71%|###########4    | 5/7 [00:50<00:15,  7.72s/candidate]
+TE matrix candidates:  86%|#############7  | 6/7 [01:01<00:11, 11.17s/candidate]
+
+
+TE matrix candidates:  86%|#############7  | 6/7 [01:01<00:11, 11.17s/candidate]
+
+
+TE matrix candidates:  86%|#############7  | 6/7 [01:01<00:11, 11.17s/candidate]
+TE matrix candidates: 100%|################| 7/7 [01:24<00:00, 13.96s/candidate]
+TE matrix candidates: 100%|################| 7/7 [01:24<00:00, 12.09s/candidate]
+[INFO] Loading TE Curve Verification Pipeline candidate | 1/7 | simplified_setpoints_feedforward_Fw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 1/7 | simplified_setpoints_feedforward_Fw
+[INFO] Loading TE Curve Verification Pipeline candidate | 2/7 | simplified_setpoints_tree_Fw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 2/7 | simplified_setpoints_tree_Fw
+[INFO] Loading TE Curve Verification Pipeline candidate | 3/7 | simplified_setpoints_harmonic_regression_Fw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 3/7 | simplified_setpoints_harmonic_regression_Fw
+[INFO] Loading TE Curve Verification Pipeline candidate | 4/7 | simplified_setpoints_periodic_mlp_harmonic_Fw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 4/7 | simplified_setpoints_periodic_mlp_harmonic_Fw
+[INFO] Loading TE Curve Verification Pipeline candidate | 5/7 | simplified_setpoints_periodic_gru_sequence_Fw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 5/7 | simplified_setpoints_periodic_gru_sequence_Fw
+[INFO] Loading TE Curve Verification Pipeline candidate | 6/7 | simplified_setpoints_wave4_1_mae_robust_loss_Fw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 6/7 | simplified_setpoints_wave4_1_mae_robust_loss_Fw
+[INFO] Loading TE Curve Verification Pipeline candidate | 7/7 | simplified_setpoints_wave4_2_quantile_p10_p50_p90_Fw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 7/7 | simplified_setpoints_wave4_2_quantile_p10_p50_p90_Fw
+[DONE] Reference family comparison summary written | output\validation_checks\track2_reference_comparison\2026-07-24-13-34-22__track2_selected_active_simplified_setpoints_matrix_track2_selected_simplified_dataset_setpoints_forward_2026_07_24_13_30_33\validation_summary.yaml
+[DONE] Reference family comparison report written | doc\reports\analysis\validation_checks\te_curve_verification_pipeline\2026-07-24-13-35-50_track2_selected_active_simplified_setpoints_matrix_track2_selected_simplified_dataset_setpoints_forward_2026_07_24_13_30_33_report.md

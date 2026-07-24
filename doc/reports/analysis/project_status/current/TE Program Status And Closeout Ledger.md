@@ -31,11 +31,11 @@ closeout that changes any of these surfaces:
 | Current accepted global neural curve-verified leader | `polished_periodic_gru_sequence_global` |
 | Latest normal campaign closeout | `causal_offset_mean_calibration_pilot_2026_07_22` |
 | Latest official TE Curve Verification refresh | polished-dataset RCIM, early-wave, and full-wave refresh, dated `2026-07-03` |
-| Latest curve-verification decision | bounded causal offset / mean calibration screen closed on `2026-07-23`; causal offset candidates retained as completed scalar pilots, not promoted |
+| Latest curve-verification decision | six-cell non-MMT reduced comparison closed on `2026-07-24`; periodic GRU recommended in four cells and periodic harmonic MLP in two; no official promotion |
 | Latest pruning decision | `2026-07-17` shape-first intermediate model-selection cleanup; `global` remains paused until final backlog stage |
-| Active report generation | reduced selected-model reports only: `polished_dataset` and `simplified_dataset`, each split into `forward` and `backward` |
+| Active report generation | six reduced selected-model reports completed for polished setpoints, simplified setpoints, and polished actual values, each split into `forward` and `backward` |
 | Current TE Curve Verification Pipeline selection policy | multi-index curve-first selection, dated `2026-06-16` |
-| Next modeling decision | prepare the technical plan for the next non-MMT reduced evaluation and cross-wave comparison; all six polished actual-values RCIM archive cells are available and Wave 5.2 MMT is an inactive future TODO |
+| Next modeling decision | prepare a bounded non-MMT Wave 6 technical design using periodic GRU, periodic harmonic MLP, and Wave 4.1-informed offset/raw-error behavior; training is not authorized |
 
 The repository remains direction-parallel. `Fw`, `Bw`, and `global` are not a
 single destructive competition. Each surface keeps its own best candidate and
@@ -53,12 +53,13 @@ shape are not active development roads. The practical consequence is that
 `periodic_gru_sequence_Fw/Bw` remains the temporal-window path.
 
 Routine `TE Curve Verification Pipeline` report generation is now reduced to
-four selected-model reports: polished forward, polished backward, simplified
-forward, and simplified backward. Broad full-matrix regeneration, `global`
-reports, collage reports, overlay reports, and simplified-vs-polished
-dataset-difference reports are paused and should be regenerated only after an
-explicit request. The current reduced report bundle is
-`doc/reports/analysis/te_curve_verification_pipeline/04_selected_model_reports/[2026-07-06]/`.
+six selected-model reports: polished-setpoint, simplified-setpoint, and
+polished-actual-values evidence, each split into forward and backward. Broad
+full-matrix regeneration, `global` reports, overlay reports, and
+simplified-vs-polished dataset-difference reports are paused and should be
+regenerated only after an explicit request. The current reduced report bundle
+is
+`doc/reports/analysis/te_curve_verification_pipeline/04_selected_model_reports/[2026-07-24]/`.
 
 ## Canonical Program Taxonomy
 
@@ -168,7 +169,8 @@ robustness, visual-evidence, and deployment-readiness axes visible.
 | Wave 5.2 frozen-baseline residual replay | completed | Four accepted polished-setpoint ONNX baselines were replayed over their exact direction-specific manifests, producing 3,876 per-curve residual rows: 678 training, 194 validation, and 97 test rows per candidate. The selected July archive IDs differ from older June family-registry entries and are recorded explicitly. | Provenance blocker closed. Use these immutable split labels for the leakage-safe MMT rerun; do not substitute the earlier combined-direction audit split. |
 | Wave 5.2 MMT residual-explanatory diagnostic | completed with parameter blocker | The rerun fitted 224 permitted comparisons on training residuals and evaluated validation and test across seven residual targets for four `Fw` / `Bw` baselines. Geometry-locked MMT signatures were condition-invariant: metadata-plus-MMT and shuffled-control gains were both exactly zero. All 56 calibrated equivalent-error arms were blocked without using target-derived proxies. | Decision `blocked_by_parameter_availability`; current MMT evidence does not justify a feature, auxiliary head, weak soft constraint, or full PINN. |
 | Wave 5.2 PINN / MMT track | deferred future TODO | MMT diagnostics, parameter inventory, `Wave 5.2B`, the post-causal-offset gate, exact-manifest replay, and leakage-safe explanatory rerun are complete. Contact geometry and causal observations for five equivalent-error groups remain unavailable. | Inactive and non-blocking for the rest of the roadmap. Reopen only after independent component-error measurements or validated causal contact-state reconstruction provides condition-varying physical inputs. |
-| Wave 6 integrated multi-task / multi-head model | deferred | Intended to combine proven offset, low-frequency, centered-shape, uncertainty, mixture, and structured residual mechanisms. | Separately deferred until non-MMT evidence identifies what should be integrated. Exclude MMT unless its future TODO is explicitly reopened. |
+| Six-cell non-MMT reduced cross-wave comparison | closed diagnostic | Six remote selected-model reports and three direction-paired shape-gated reranks covered polished setpoints, simplified setpoints, and polished actual values. Forty-six curve collages were reviewed. | No official promotion. Periodic GRU wins four cells, periodic harmonic MLP wins two, Wave 4.1 remains the raw-error/offset ingredient, and sparse-RCIM temporal models remain reference-only. |
+| Wave 6 integrated multi-task / multi-head model | ready for technical planning | Intended to combine proven offset, low-frequency, centered-shape, uncertainty, mixture, and structured residual mechanisms. | Prepare a bounded non-MMT design around periodic GRU, periodic harmonic MLP, and Wave 4.1-informed offset/raw-error behavior. Exclude MMT unless its future TODO is explicitly reopened. |
 
 ## CVP Modules And Waves 3.1 Through 4.4
 
@@ -336,6 +338,7 @@ that the ledger was checked and did not require a content change.
 - `doc/running/te_model_live_backlog.md`
 - `doc/reports/analysis/Training Results Master Summary.md`
 - `doc/reports/analysis/model_development_waves/intermediate_model_selection_cleanup/[2026-07-17]/te_intermediate_model_selection_cleanup_report.md`
+- `doc/reports/analysis/te_curve_verification_pipeline/03_cvp_diagnostics/non_mmt_cross_wave_comparison/[2026-07-24]/non_mmt_cross_wave_comparison_report.md`
 - `doc/reports/analysis/te_curve_verification_pipeline/00_overview/TE Curve Verification Pipeline Directional Model Comparison.md`
 - `doc/reports/analysis/te_curve_verification_pipeline/00_overview/multi_index_curve_first_selection_policy/[2026-06-16]/track2_multi_index_curve_first_selection_policy.md`
 - `doc/reports/analysis/te_curve_verification_pipeline/01_official_decisions/official_model_verification_report/[2026-06-18]/track2_official_model_verification_report.md`

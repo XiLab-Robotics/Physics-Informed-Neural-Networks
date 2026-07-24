@@ -143,6 +143,11 @@ This folder contains the internal project documents derived from the reference P
   TODO after the parameter-availability blocker, while allowing the remaining
   non-MMT roadmap to proceed independently.
 
+- [technical/2026-07/2026-07-24/2026-07-24-13-10-16_non_mmt_reduced_evaluation_and_cross_wave_comparison.md](./technical/2026-07/2026-07-24/2026-07-24-13-10-16_non_mmt_reduced_evaluation_and_cross_wave_comparison.md)
+  Technical plan for a six-cell non-MMT reduced TE Curve Verification Pipeline
+  evaluation across polished setpoints, simplified setpoints, and polished
+  actual-values evidence, followed by multi-index cross-wave comparison.
+
 - [reports/analysis/model_development_waves/wave_5_2/mmt_residual_explanatory_diagnostic/[2026-07-24]/wave52_mmt_residual_explanatory_diagnostic.md](./reports/analysis/model_development_waves/wave_5_2/mmt_residual_explanatory_diagnostic/%5B2026-07-24%5D/wave52_mmt_residual_explanatory_diagnostic.md)
   Completed non-training Wave 5.2 provenance audit. The selected residual
   source contains held-out test rows only, so MMT fitting remains blocked until
@@ -159,6 +164,14 @@ This folder contains the internal project documents derived from the reference P
   over seven residual views. Geometry-locked MMT signatures added zero
   held-out value beyond metadata and shuffled controls; equivalent-error
   calibration remains blocked by unavailable causal physical inputs.
+
+- [reports/analysis/te_curve_verification_pipeline/03_cvp_diagnostics/non_mmt_cross_wave_comparison/[2026-07-24]/non_mmt_cross_wave_comparison_report.md](./reports/analysis/te_curve_verification_pipeline/03_cvp_diagnostics/non_mmt_cross_wave_comparison/%5B2026-07-24%5D/non_mmt_cross_wave_comparison_report.md)
+  Six-cell reduced cross-wave comparison across polished setpoints, simplified
+  setpoints, and polished actual values. The result retains periodic GRU and
+  periodic harmonic MLP as complementary active ingredients without changing
+  the official program leaders. A
+  [validated styled PDF companion](./reports/analysis/te_curve_verification_pipeline/03_cvp_diagnostics/non_mmt_cross_wave_comparison/%5B2026-07-24%5D/non_mmt_cross_wave_comparison_report.pdf)
+  includes the representative winner and caution curve collages.
 
 - [reports/analysis/te_curve_verification_pipeline/03_family_reports/tree/[2026-07-07]/track2_tree_familywise_onnx_report.md](./reports/analysis/te_curve_verification_pipeline/03_family_reports/tree/%5B2026-07-07%5D/track2_tree_familywise_onnx_report.md)
   Familywise `tree` ONNX verification report comparing the completed
@@ -596,10 +609,9 @@ This folder contains the internal project documents derived from the reference P
   Pipeline` refresh with local and remote commands.
 
 - [scripts/campaigns/track_2/run_reduced_selected_track2_reports.md](./scripts/campaigns/track_2/run_reduced_selected_track2_reports.md)
-  Active reduced selected-model `TE Curve Verification Pipeline` launcher that
-  generates only the four polished/simplified forward/backward reports and
-  keeps `global`, collage, overlay, and dataset-difference reports paused by
-  default.
+  Active non-MMT reduced `TE Curve Verification Pipeline` launcher for six
+  polished/simplified setpoint and polished actual-value forward/backward
+  cells, with local and remote execution plus resumable artifact sync.
 
 - [scripts/campaigns/aries/run_dataset_input_mode_retraining_campaign.md](./scripts/campaigns/aries/run_dataset_input_mode_retraining_campaign.md)
   Aries launcher note for one-at-a-time dataset input-mode retraining campaigns

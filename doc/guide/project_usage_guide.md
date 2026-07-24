@@ -1067,6 +1067,26 @@ meet the configured per-curve pass rate. `near_pass` candidates remain visible
 for review when their aggregate FFT, harmonic, peak-to-peak, and derivative
 evidence is close but not strong enough for promotion.
 
+The reduced non-MMT cross-wave launcher evaluates polished setpoints,
+simplified setpoints, and polished actual values as six separate forward and
+backward cells. A dry run is the default:
+
+```powershell
+.\scripts\campaigns\track_2\run_reduced_selected_track2_reports.ps1
+```
+
+Run the prepared evaluation locally or on the configured LAN workstation:
+
+```powershell
+.\scripts\campaigns\track_2\run_reduced_selected_track2_reports.ps1 -Run
+.\scripts\campaigns\track_2\run_reduced_selected_track2_reports.ps1 -Remote -Run
+```
+
+The launcher excludes MMT and `global`, uses the dataset- and input-mode-specific
+selected-active matrices, and keeps official promotion separate from matrix
+execution. The polished actual-value cells add the sparse-RCIM residual
+harmonic GRU and LSTM archives as temporal references.
+
 The repository also exposes a separate original-dataset exact-model-bank branch
 for the bidirectional `RCIM Model-Bank Reproduction` rebuild:
 

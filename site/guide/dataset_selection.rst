@@ -251,3 +251,26 @@ Or delegate it to the remote campaign runner:
 .. code-block:: powershell
 
    .\scripts\campaigns\wave_5_2\run_wave52b_te_curve_verification_refresh.ps1 -Remote
+
+Reduced non-MMT cross-wave evaluation
+-------------------------------------
+
+The reduced cross-wave launcher keeps forward and backward surfaces separate
+across polished setpoints, simplified setpoints, and polished actual values.
+Print the six-cell plan without evaluating models:
+
+.. code-block:: powershell
+
+   .\scripts\campaigns\track_2\run_reduced_selected_track2_reports.ps1
+
+Run the prepared evaluation locally or on the configured LAN workstation:
+
+.. code-block:: powershell
+
+   .\scripts\campaigns\track_2\run_reduced_selected_track2_reports.ps1 -Run
+   .\scripts\campaigns\track_2\run_reduced_selected_track2_reports.ps1 -Remote -Run
+
+The launcher excludes MMT and ``global``. It synchronizes required code,
+configuration, documentation, and selected model archives before remote
+execution, then retrieves the generated reports, matrix artifacts, and logs.
+Official promotion remains a separate curve-first review step.

@@ -57,13 +57,11 @@ Historical rationale and approval history remain in:
   `periodic_lstm_sequence_Bw` is demoted as a false scalar leader unless a
   future frequency-domain shape gate proves it preserves measured harmonic
   content.
-- Current Active Report Generation: reduced selected-model `TE Curve
-  Verification Pipeline` only, using `polished_dataset` and
-  `simplified_dataset` in parallel for `forward` and `backward`. The only
-  routine reports are the four selected-model reports under
-  `04_selected_model_reports/[YYYY-MM-DD]/`. `global`, collage, overlay, broad
-  full-matrix, and simplified-vs-polished dataset-difference reports are paused
-  and generated only after an explicit request.
+- Current Active Report Generation: the six-cell reduced selected-model
+  `TE Curve Verification Pipeline` pass completed on `2026-07-24`, covering
+  polished setpoints, simplified setpoints, and polished actual values for
+  `forward` and `backward`. `global`, broad full-matrix, overlay, and
+  dataset-difference reports remain paused and on-demand.
 - Latest Training Pilot: the `2026-07-22` causal offset / mean calibration
   pilot and its bounded `TE Curve Verification Pipeline` screen are closed.
   The non-windowed `causal_offset_mean_periodic_mlp_harmonic_fw` arm won scalar
@@ -76,10 +74,14 @@ Historical rationale and approval history remain in:
   calibrate unobserved equivalent-error groups. Reopen it only after
   independent component-error measurements or a validated causal contact-state
   reconstruction provides condition-varying physical inputs.
-- Current Next Branch: prepare the technical plan for the next non-MMT reduced
-  evaluation and cross-wave comparison. The live prerequisite audit confirmed
-  all six expected polished actual-values RCIM archives across `GRU` / `LSTM`
-  and `global` / `Fw` / `Bw`; MMT is no longer a blocking dependency.
+- Latest Reduced Decision: periodic GRU is recommended in four of six cells;
+  periodic harmonic MLP wins polished-setpoint `Bw` and simplified-setpoint
+  `Fw`. Wave 4.1 remains the raw-error and offset diagnostic ingredient.
+  Sparse-RCIM temporal candidates remain actual-values references only.
+- Current Next Branch: prepare a bounded non-MMT Wave 6 technical design using
+  periodic GRU, periodic harmonic MLP, and an explicit Wave 4.1-informed
+  offset/raw-error head. Do not start training before the separate technical
+  document and campaign-plan approval gates.
 
 Current canonical status reports:
 
@@ -88,7 +90,8 @@ Current canonical status reports:
 - `doc/reports/analysis/te_curve_verification_pipeline/01_official_decisions/official_model_verification_report/[2026-07-03]/track2_official_model_verification_report.md`
 - `doc/reports/analysis/model_development_waves/model_family_pruning/[2026-07-06]/te_model_family_pruning_decision_report.md`
 - `doc/reports/analysis/model_development_waves/intermediate_model_selection_cleanup/[2026-07-17]/te_intermediate_model_selection_cleanup_report.md`
-- `doc/reports/analysis/te_curve_verification_pipeline/04_selected_model_reports/[2026-07-06]/`
+- `doc/reports/analysis/te_curve_verification_pipeline/03_cvp_diagnostics/non_mmt_cross_wave_comparison/[2026-07-24]/non_mmt_cross_wave_comparison_report.md`
+- `doc/reports/analysis/te_curve_verification_pipeline/04_selected_model_reports/[2026-07-24]/`
 - `doc/scripts/campaigns/track_2/run_reduced_selected_track2_reports.md`
 - `doc/reports/analysis/te_curve_verification_pipeline/00_overview/multi_index_curve_first_selection_policy/[2026-06-16]/track2_multi_index_curve_first_selection_policy.md`
 - `doc/reports/analysis/te_curve_verification_pipeline/02_visual_reports/best_model_collage_report/[2026-07-03]/track2_best_model_collage_report.md`
@@ -289,13 +292,13 @@ Next planned diagnostic and training decision branches:
 | `Wave 5.1` hybrid structured models | Combine harmonic structure, condition-conditioned residual learning, and explicit grouped treatment of stable and fragile harmonic bands. | first real `wave3_harmonic_prior_residual` campaign and official `TE Curve Verification Pipeline` verification refresh closed as a verified exploratory baseline, not promoted |
 | `Wave 5.2` PINN formulation and first PINN | Preserve the completed MMT evidence and reopen only if causal physical inputs become available. | deferred future TODO after the parameter-availability blocker; no MMT feature, auxiliary head, weak constraint, or full PINN is authorized. The remaining non-MMT roadmap may proceed independently. |
 | Intermediate shape-first model-selection cleanup | Reduce the post-retraining active set using raw error, P95, centered shape, P2P behavior, visual collage evidence, and actual-values stability. | completed; active set is `periodic_gru_sequence`, `wave4_1_mae_robust_loss`, `wave4_2_quantile_p10_p50_p90`, and `periodic_mlp_harmonic`; `periodic_lstm_sequence_Bw`, `Wave 4.3`, `Wave 4.4`, and `Wave 5.1` are closed as active branches |
-| Frequency-domain shape-gated reranker | Add measured/predicted FFT amplitude similarity, dominant-harmonic retention, dominant-harmonic phase error, robust derivative agreement, threshold sweep, and per-curve shape pass rate to future reduced reports. | implemented as reduced Fw/Bw tooling; calibration is the current screen before reopening any scalar leader that visually loses measured TE shape |
+| Frequency-domain shape-gated reranker | Add measured/predicted FFT amplitude similarity, dominant-harmonic retention, dominant-harmonic phase error, robust derivative agreement, threshold sweep, and per-curve shape pass rate to future reduced reports. | completed across the six-cell non-MMT reduced pass; periodic GRU wins four cells, periodic harmonic MLP wins two, and the simplified tree scalar leader remains vetoed by weak shape retention |
 | Shape-gate loss pilot | Test whether calibrated shape-gate evidence can improve training or checkpoint selection. | patched polished-setpoint Fw/Bw expansion completed. Forward recommendation remains `polished_setpoints_periodic_gru_sequence_Fw`; backward recommendation is `polished_setpoints_periodic_mlp_harmonic_Bw`; the shape-gate loss pilot remains a viable but non-promoted forward candidate. Future training should evaluate a stricter second pilot or checkpoint-selection variant focused on derivative/ripple preservation before any full `simplified_setpoints`, `polished_setpoints`, and `polished_actual_values` x `global`/`Fw`/`Bw` Aries campaign. |
 | Shape-first training-rule distillation | Use stable `TE Curve Verification Pipeline` shape-first checks as auxiliary training rules while preserving both time-windowed and non-windowed candidate roads. | first two-arm `polished_dataset` setpoint `Fw` pilot and bounded curve-first screen completed. `polished_setpoints_periodic_gru_sequence_Fw` remains recommended; the time-windowed distillation GRU ranked third and the non-windowed distillation MLP ranked fourth. Do not expand this profile; carry the evidence into the next loss or checkpoint-selection design only if it directly addresses the raw-error, offset, harmonic-amplitude, and robustness regressions. |
 | Post-shape-loss `Wave 5.2` decision gate | Choose the next branch after direct shape-threshold training pressure failed to promote. | completed; selected the causal offset / mean calibration pilot anchored to `polished_setpoints_periodic_gru_sequence_Fw`, with `polished_setpoints_periodic_mlp_harmonic_Fw` kept as the required non-windowed comparator. Do not rerun `Wave 5.2B` unchanged and do not start `Wave 5.2C`, full PINN, or Wave 6 before this narrow offset gate is curve-screened. |
 | Causal offset / mean calibration pilot | Test whether direct offset / curve-mean pressure improves the next `polished_dataset` setpoint `Fw` branch while preserving both time-windowed and non-windowed roads. | completed and bounded-screened; the non-windowed harmonic MLP won scalar selection but ranked fourth in the bounded curve-first screen, while the time-windowed residual-offset GRU failed the shape gate. Do not promote or expand this direct causal-offset profile. |
 | Post-causal-offset `Wave 5.2` decision gate | Decide whether MMT should remain diagnostic-only, become a feature or auxiliary-output path, or become a weak soft constraint. | completed; the follow-up replay and leakage-safe diagnostic selected `blocked_by_parameter_availability`. MMT is now an inactive future TODO and does not block non-MMT work. |
-| Wave 6 integrated multi-task / multi-head model branch | Shared causal trunk with separate offset, low-frequency, centered-shape, uncertainty or mixture, and optional structured-residual heads. | separately deferred until the shape-gated reduced set identifies ingredients that beat the current temporal and non-windowed targets; do not include MMT unless its future TODO is explicitly reopened |
+| Wave 6 integrated multi-task / multi-head model branch | Shared causal trunk with separate offset, low-frequency, centered-shape, uncertainty or mixture, and optional structured-residual heads. | ready for bounded technical planning after the six-cell reduced pass identified periodic GRU, periodic harmonic MLP, and Wave 4.1 offset/raw-error behavior as the ingredients; do not include MMT unless its future TODO is explicitly reopened |
 | Sequential residual calibration branch | Current best causal model plus second causal residual or offset calibrator trained on model error. | candidate after audit |
 
 The `CVP 1.5` offset-predictability feasibility diagnostic is complete in:
@@ -576,22 +579,18 @@ Official closeout package:
 
 ### Planned Next Step
 
-After the completed `CVP 1.1`, `CVP 1.2`, mean-centered collage,
-`CVP 1.4` full-matrix, h0/error cross-check, predicted-mean h0 surface
-diagnostics, and completed `Wave 4.1` robust/probabilistic/MDN refreshes, the
-active next step is:
+After the completed six-cell non-MMT reduced comparison, the active next step
+is:
 
-- treat the bounded output/logging and measured-versus-predicted plot repair as
-  completed;
-- do not expand the direct causal offset / mean calibration profile from the
-  `2026-07-23` bounded screen;
-- keep both time-windowed and non-windowed candidate roads alive for future
-  designs, but require a bounded curve-first pass before promotion;
-- preserve the completed 3,876-row frozen-baseline replay as the canonical
-  split-safe residual source;
-- keep the completed MMT rerun at `blocked_by_parameter_availability`;
-- do not prepare an MMT feature, auxiliary head, weak soft constraint, full
-  PINN, or Wave 6 campaign without new condition-varying physical inputs.
+- prepare a bounded technical design for the Wave 6 integrated multi-head
+  branch;
+- retain periodic GRU as the primary time-windowed path;
+- retain periodic harmonic MLP as the non-windowed complement;
+- use Wave 4.1 raw-error and offset behavior as an explicit diagnostic
+  ingredient;
+- keep Wave 4.2 quantile behavior as a secondary uncertainty benchmark;
+- exclude MMT unless its inactive future TODO is explicitly reopened;
+- do not train Wave 6 before an approved technical document and campaign plan.
 
 The previous temporal refresh answered three concrete questions:
 

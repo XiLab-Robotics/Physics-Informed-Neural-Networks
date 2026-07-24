@@ -2,13 +2,16 @@
 
 ## Executive Snapshot
 
-- Generated At: `2026-07-23T13:22:44`
+- Generated At: `2026-07-24T14:56:59+02:00`
 - Program State: active.
 - Current Completed Wave: polished-dataset RCIM, early-wave, and full-wave
 - Current Focus: the polished-dataset TE Curve Verification Pipeline refresh is
 - Active Campaign Status: `closed`
 - Active Campaign Name: `causal_offset_mean_calibration_pilot_2026_07_22`
 - Current Program Winner: `te_periodic_gru_sequence_bw` | Family `periodic_gru_sequence_bw` | Test MAE `0.001084`
+- Latest Reduced Evaluation: six-cell non-MMT cross-wave comparison completed;
+  periodic GRU recommended in four cells and periodic harmonic MLP in two; no
+  official registry promotion.
 
 ## Main Takeaways
 
@@ -268,9 +271,16 @@
 - Wave 5.2 MMT is therefore an inactive future TODO after the
   parameter-availability blocker. It may be reopened only with new causal
   physical inputs and no longer blocks the remaining non-MMT roadmap.
-- The non-MMT prerequisite audit confirmed complete polished actual-values
-  RCIM archives for both sparse RCIM temporal families across `global`, `Fw`,
-  and `Bw`. The next reduced evaluation can proceed to technical planning.
+- The six-cell non-MMT reduced comparison is complete across polished
+  setpoints, simplified setpoints, and polished actual values for `Fw` and
+  `Bw`.
+- Periodic GRU remains the primary time-windowed ingredient; periodic harmonic
+  MLP remains the non-windowed complement; Wave 4.1 remains the raw-error and
+  offset diagnostic ingredient.
+- Sparse-RCIM temporal models remain actual-values reference anchors and MMT
+  remains an inactive future TODO.
+- The next step is bounded technical planning for a non-MMT Wave 6 integrated
+  multi-head design. Training is not authorized.
 
 ### Roadmap And Planned Work
 

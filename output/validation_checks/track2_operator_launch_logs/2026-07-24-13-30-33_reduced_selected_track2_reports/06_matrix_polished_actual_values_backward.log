@@ -1,0 +1,92 @@
+W0724 13:40:28.532000 3940 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+[INFO] Building TE Curve Verification Pipeline held-out curve records
+[INFO] Built TE Curve Verification Pipeline held-out curve records | curve_count=94 | dataset=polished_dataset | surface_scope=backward
+
+TE matrix candidates:   0%|                        | 0/9 [00:00<?, ?candidate/s]
+
+
+TE matrix candidates:   0%|                        | 0/9 [00:00<?, ?candidate/s]
+
+
+TE matrix candidates:   0%|                        | 0/9 [00:00<?, ?candidate/s]
+
+
+TE matrix candidates:   0%|                        | 0/9 [00:00<?, ?candidate/s]C:\Users\Martina Salami\.conda\envs\pinns_env\Lib\site-packages\sklearn\base.py:463: InconsistentVersionWarning: Trying to unpickle estimator _BinMapper from version 1.6.1 when using version 1.8.0. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+  warnings.warn(
+C:\Users\Martina Salami\.conda\envs\pinns_env\Lib\site-packages\sklearn\base.py:463: InconsistentVersionWarning: Trying to unpickle estimator HistGradientBoostingRegressor from version 1.6.1 when using version 1.8.0. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+  warnings.warn(
+
+
+
+TE matrix candidates:   0%|                        | 0/9 [00:00<?, ?candidate/s]
+
+
+TE matrix candidates:   0%|                        | 0/9 [00:05<?, ?candidate/s]
+
+
+TE matrix candidates:   0%|                        | 0/9 [00:05<?, ?candidate/s]
+
+
+TE matrix candidates:   0%|                        | 0/9 [00:06<?, ?candidate/s]
+
+
+TE matrix candidates:   0%|                        | 0/9 [00:06<?, ?candidate/s]
+
+
+TE matrix candidates:   0%|                        | 0/9 [00:06<?, ?candidate/s]
+
+
+TE matrix candidates:   0%|                        | 0/9 [00:06<?, ?candidate/s]
+TE matrix candidates:  56%|########8       | 5/9 [00:30<00:24,  6.01s/candidate]
+
+
+TE matrix candidates:  56%|########8       | 5/9 [00:30<00:24,  6.01s/candidate]
+
+
+TE matrix candidates:  56%|########8       | 5/9 [00:30<00:24,  6.01s/candidate]
+TE matrix candidates:  56%|########8       | 5/9 [00:40<00:24,  6.01s/candidate]
+TE matrix candidates:  67%|##########6     | 6/9 [00:54<00:30, 10.09s/candidate]
+
+
+TE matrix candidates:  67%|##########6     | 6/9 [00:54<00:30, 10.09s/candidate]
+
+
+TE matrix candidates:  67%|##########6     | 6/9 [00:54<00:30, 10.09s/candidate]
+TE matrix candidates:  78%|############4   | 7/9 [01:25<00:30, 15.14s/candidate]
+
+
+TE matrix candidates:  78%|############4   | 7/9 [01:25<00:30, 15.14s/candidate]
+
+
+TE matrix candidates:  78%|############4   | 7/9 [01:25<00:30, 15.14s/candidate]
+TE matrix candidates:  89%|##############2 | 8/9 [01:44<00:16, 16.25s/candidate]
+
+
+TE matrix candidates:  89%|##############2 | 8/9 [01:44<00:16, 16.25s/candidate]
+
+
+TE matrix candidates:  89%|##############2 | 8/9 [01:44<00:16, 16.25s/candidate]
+TE matrix candidates: 100%|################| 9/9 [02:04<00:00, 17.11s/candidate]
+TE matrix candidates: 100%|################| 9/9 [02:04<00:00, 13.82s/candidate]
+[INFO] Loading TE Curve Verification Pipeline candidate | 1/9 | polished_actual_values_feedforward_Bw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 1/9 | polished_actual_values_feedforward_Bw
+[INFO] Loading TE Curve Verification Pipeline candidate | 2/9 | polished_actual_values_tree_Bw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 2/9 | polished_actual_values_tree_Bw
+[INFO] Loading TE Curve Verification Pipeline candidate | 3/9 | polished_actual_values_harmonic_regression_Bw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 3/9 | polished_actual_values_harmonic_regression_Bw
+[INFO] Loading TE Curve Verification Pipeline candidate | 4/9 | polished_actual_values_periodic_mlp_harmonic_Bw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 4/9 | polished_actual_values_periodic_mlp_harmonic_Bw
+[INFO] Loading TE Curve Verification Pipeline candidate | 5/9 | polished_actual_values_periodic_gru_sequence_Bw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 5/9 | polished_actual_values_periodic_gru_sequence_Bw
+[INFO] Loading TE Curve Verification Pipeline candidate | 6/9 | polished_actual_values_residual_harmonic_gru_sequence_sparse_rcim_Bw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 6/9 | polished_actual_values_residual_harmonic_gru_sequence_sparse_rcim_Bw
+[INFO] Loading TE Curve Verification Pipeline candidate | 7/9 | polished_actual_values_residual_harmonic_lstm_sequence_sparse_rcim_Bw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 7/9 | polished_actual_values_residual_harmonic_lstm_sequence_sparse_rcim_Bw
+[INFO] Loading TE Curve Verification Pipeline candidate | 8/9 | polished_actual_values_wave4_1_mae_robust_loss_Bw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 8/9 | polished_actual_values_wave4_1_mae_robust_loss_Bw
+[INFO] Loading TE Curve Verification Pipeline candidate | 9/9 | polished_actual_values_wave4_2_quantile_p10_p50_p90_Bw
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 9/9 | polished_actual_values_wave4_2_quantile_p10_p50_p90_Bw
+[DONE] Reference family comparison summary written | output\validation_checks\track2_reference_comparison\2026-07-24-13-40-28__track2_selected_active_polished_actual_values_matrix_track2_selected_polished_dataset_actual_values_backward_2026_07_24_13_30_33\validation_summary.yaml
+[DONE] Reference family comparison report written | doc\reports\analysis\validation_checks\te_curve_verification_pipeline\2026-07-24-13-42-39_track2_selected_active_polished_actual_values_matrix_track2_selected_polished_dataset_actual_values_backward_2026_07_24_13_30_33_report.md

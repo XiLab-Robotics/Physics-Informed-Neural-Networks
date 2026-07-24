@@ -51,6 +51,20 @@ comparison:
     candidate_surface: Fw
     reference_inventory_path: models/polished_dataset/actual_values/periodic_gru_sequence/forward/reference_inventory.yaml
     allowed_direction_list: *id001
+  - candidate_id: polished_actual_values_residual_harmonic_gru_sequence_sparse_rcim_Fw
+    candidate_family: residual_harmonic_gru_sequence_sparse_rcim
+    candidate_kind: wave1_exported_model
+    candidate_source_label: polished_actual_values_sparse_rcim_temporal_reference
+    candidate_surface: Fw
+    reference_inventory_path: models/polished_dataset/actual_values/residual_harmonic_gru_sequence_sparse_rcim/forward/reference_inventory.yaml
+    allowed_direction_list: *id001
+  - candidate_id: polished_actual_values_residual_harmonic_lstm_sequence_sparse_rcim_Fw
+    candidate_family: residual_harmonic_lstm_sequence_sparse_rcim
+    candidate_kind: wave1_exported_model
+    candidate_source_label: polished_actual_values_sparse_rcim_temporal_reference
+    candidate_surface: Fw
+    reference_inventory_path: models/polished_dataset/actual_values/residual_harmonic_lstm_sequence_sparse_rcim/forward/reference_inventory.yaml
+    allowed_direction_list: *id001
   - candidate_id: polished_actual_values_wave4_1_mae_robust_loss_Fw
     candidate_family: wave4_1_mae_robust_loss
     candidate_kind: wave1_exported_model
@@ -100,6 +114,20 @@ comparison:
     candidate_source_label: polished_actual_values_model_archive
     candidate_surface: Bw
     reference_inventory_path: models/polished_dataset/actual_values/periodic_gru_sequence/backward/reference_inventory.yaml
+    allowed_direction_list: *id002
+  - candidate_id: polished_actual_values_residual_harmonic_gru_sequence_sparse_rcim_Bw
+    candidate_family: residual_harmonic_gru_sequence_sparse_rcim
+    candidate_kind: wave1_exported_model
+    candidate_source_label: polished_actual_values_sparse_rcim_temporal_reference
+    candidate_surface: Bw
+    reference_inventory_path: models/polished_dataset/actual_values/residual_harmonic_gru_sequence_sparse_rcim/backward/reference_inventory.yaml
+    allowed_direction_list: *id002
+  - candidate_id: polished_actual_values_residual_harmonic_lstm_sequence_sparse_rcim_Bw
+    candidate_family: residual_harmonic_lstm_sequence_sparse_rcim
+    candidate_kind: wave1_exported_model
+    candidate_source_label: polished_actual_values_sparse_rcim_temporal_reference
+    candidate_surface: Bw
+    reference_inventory_path: models/polished_dataset/actual_values/residual_harmonic_lstm_sequence_sparse_rcim/backward/reference_inventory.yaml
     allowed_direction_list: *id002
   - candidate_id: polished_actual_values_wave4_1_mae_robust_loss_Bw
     candidate_family: wave4_1_mae_robust_loss
