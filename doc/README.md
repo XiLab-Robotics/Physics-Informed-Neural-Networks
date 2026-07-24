@@ -133,6 +133,11 @@ This folder contains the internal project documents derived from the reference P
   accepted windowed and non-windowed `Fw` / `Bw` baselines with explicit
   metadata-only, shuffled-control, provenance, and leakage gates.
 
+- [technical/2026-07/2026-07-24/2026-07-24-12-23-47_wave52_mmt_completion_sequence.md](./technical/2026-07/2026-07-24/2026-07-24-12-23-47_wave52_mmt_completion_sequence.md)
+  Evidence-gated implementation sequence for frozen-baseline residual replay,
+  leakage-safe MMT explanatory rerun, per-step reporting, and conditional
+  authorization of later Wave 5.2 training work.
+
 - [reports/analysis/model_development_waves/wave_5_2/mmt_residual_explanatory_diagnostic/[2026-07-24]/wave52_mmt_residual_explanatory_diagnostic.md](./reports/analysis/model_development_waves/wave_5_2/mmt_residual_explanatory_diagnostic/%5B2026-07-24%5D/wave52_mmt_residual_explanatory_diagnostic.md)
   Completed non-training Wave 5.2 provenance audit. The selected residual
   source contains held-out test rows only, so MMT fitting remains blocked until
