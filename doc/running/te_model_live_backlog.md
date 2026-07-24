@@ -71,12 +71,12 @@ Historical rationale and approval history remain in:
   screen ranked it fourth and retained
   `polished_setpoints_periodic_gru_sequence_Fw` as the forward recommendation.
   The time-windowed residual-offset GRU failed the shape gate.
-- Current Next Branch: generate a non-training, provenance-matched residual
-  replay for the four frozen accepted windowed and non-windowed `Fw` / `Bw`
-  baselines over their exact training and validation manifests. The first MMT
-  residual-explanatory audit closed on `2026-07-24` with test-only residuals,
-  so fitting was correctly blocked. Do not prepare MMT-guided training until
-  held-out explanatory value exceeds metadata-only and shuffled controls.
+- Current Next Branch: rerun the non-training MMT residual-explanatory
+  comparison using the completed 3,876-row frozen-baseline replay. The replay
+  covers exact direction-specific training, validation, and test manifests for
+  all four accepted windowed and non-windowed `Fw` / `Bw` baselines. Do not
+  prepare MMT-guided training until held-out explanatory value exceeds
+  metadata-only and shuffled controls.
 
 Current canonical status reports:
 
@@ -1226,9 +1226,9 @@ Entry rule:
     `output/validation_checks/wave4_mmt_parameter_inventory/2026-06-11-20-29-51__wave4a_mmt_parameter_inventory/`;
   - residual-explanatory diagnostic report:
     `doc/reports/analysis/model_development_waves/wave_5_2/mmt_residual_explanatory_diagnostic/[2026-07-24]/wave52_mmt_residual_explanatory_diagnostic.md`;
-- updated priority: generate exact-manifest training and validation residual
-  replay for the four frozen baselines, then rerun the leakage-safe MMT
-  residual-explanatory comparison before any new MMT-guided training;
+- updated priority: use the completed exact-manifest frozen-baseline residual
+  replay to rerun the leakage-safe MMT residual-explanatory comparison before
+  any new MMT-guided training;
 - mandatory rule: prepare or justify `global`, `forward`, and `backward`
   surfaces;
 - paper-reproduction scope:
@@ -1247,8 +1247,8 @@ Entry rule:
     analytical-baseline claims;
   - measured TE remains target-only and must not become an inference input.
 - next implementation steps:
-  - replay the frozen baselines over the exact training and validation
-    manifests without changing their archived artifacts;
+  - consume the completed frozen-baseline replay without changing its archived
+    model artifacts or split memberships;
   - compare geometry-locked and train-only calibrated MMT signatures against
     held-out baseline residuals without leakage after replay;
   - include metadata-only and shuffled-signature controls;

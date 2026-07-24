@@ -1,0 +1,6 @@
+schema_version: 1
+status: passed
+synthetic_raw_mae_deg: 0.0010000000000000007
+synthetic_absolute_offset_error_deg: 0.0009999999999999994
+synthetic_centered_mae_deg: 4.259158171600228e-19
+synthetic_fft_amplitude_similarity: 0.9999999999999999

@@ -257,8 +257,11 @@
 - No campaign is currently in `prepared` or `running` state.
 - The first non-training MMT residual-explanatory diagnostic closed with a
   provenance blocker: all 388 selected residual rows belong to the test split.
-- The next branch is frozen-baseline residual replay over the exact training
-  and validation manifests, followed by the same leakage-safe comparison.
+- The frozen-baseline replay has now produced 3,876 provenance-matched rows
+  across the exact direction-specific training, validation, and test manifests
+  for all four accepted `Fw` / `Bw` baselines.
+- The next branch is the leakage-safe MMT explanatory comparison fitted only
+  on those training residuals and evaluated on held-out validation and test.
 - No MMT feature, auxiliary-head, soft-constraint, or full-PINN campaign should
   be prepared until the diagnostic shows held-out value beyond metadata-only
   and shuffled controls.
@@ -407,7 +410,7 @@ Low-priority exploratory families currently listed in the backlog:
 - `Neural ODE`
 - `Hamiltonian-Inspired Model`
 - `optional Kernel Ridge / Gaussian Process benchmark`
-| Wave 5.2. PINN Formulation And First PINN | status: diagnostic-only after the residual audit closed with a test-only provenance blocker; not campaign-ready;; next branch: frozen-baseline residual replay over exact training and validation manifests, then rerun the explanatory comparison;; required controls: metadata-only and shuffled signatures;; promotion boundary: held-out explanatory value before any MMT feature, auxiliary-head, or weak-soft-constraint pilot;; full PINN and Wave 6 remain deferred |
+| Wave 5.2. PINN Formulation And First PINN | status: diagnostic-only after the exact-manifest frozen-baseline replay closed the residual-provenance blocker; not campaign-ready;; replay evidence: 3,876 rows across direction-specific training, validation, and test manifests for four accepted baselines;; next branch: rerun the explanatory comparison fitted on training residuals only;; required controls: metadata-only and shuffled signatures;; promotion boundary: held-out explanatory value before any MMT feature, auxiliary-head, or weak-soft-constraint pilot;; full PINN and Wave 6 remain deferred |
 
 Low-priority exploratory families currently listed in the backlog:
 

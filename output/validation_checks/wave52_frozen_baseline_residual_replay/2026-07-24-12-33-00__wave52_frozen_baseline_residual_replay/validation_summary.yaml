@@ -1,0 +1,22 @@
+schema_version: 1
+run_instance_id: 2026-07-24-12-33-00__wave52_frozen_baseline_residual_replay
+status: completed
+decision: residual_replay_ready_for_mmt_explanatory_rerun
+training_executed: false
+registry_updated: false
+baseline_count: 4
+split_name_list:
+- train
+- validation
+- test
+residual_row_count: 3876
+coverage_row_count: 12
+all_candidate_split_cells_non_empty: true
+artifact_path_list:
+- output\validation_checks\wave52_frozen_baseline_residual_replay\2026-07-24-12-33-00__wave52_frozen_baseline_residual_replay\self_test_summary.yaml
+- output\validation_checks\wave52_frozen_baseline_residual_replay\2026-07-24-12-33-00__wave52_frozen_baseline_residual_replay\resolved_baseline_manifest.yaml
+- output\validation_checks\wave52_frozen_baseline_residual_replay\2026-07-24-12-33-00__wave52_frozen_baseline_residual_replay\per_curve_residual_metrics.csv
+- output\validation_checks\wave52_frozen_baseline_residual_replay\2026-07-24-12-33-00__wave52_frozen_baseline_residual_replay\split_coverage_audit.csv
+- output\validation_checks\wave52_frozen_baseline_residual_replay\2026-07-24-12-33-00__wave52_frozen_baseline_residual_replay\aggregate_residual_summary.csv
+- output\validation_checks\wave52_frozen_baseline_residual_replay\2026-07-24-12-33-00__wave52_frozen_baseline_residual_replay\run_configuration.yaml
+- doc\reports\analysis\model_development_waves\wave_5_2\frozen_baseline_residual_replay\[2026-07-24]\wave52_frozen_baseline_residual_replay.md

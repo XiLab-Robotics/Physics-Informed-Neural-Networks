@@ -601,6 +601,18 @@ The current usage flow mainly relies on these folders:
   canonical run therefore closes with a provenance blocker until exact
   training and validation residual replay is available.
 
+- `scripts/reports/analysis/build_wave52_frozen_baseline_residual_replay.py`
+  Replays the four frozen polished-setpoint ONNX baselines over their exact
+  direction-specific training, validation, and test manifests. Run it with:
+
+  ```powershell
+  conda run --no-capture-output -n pinns_env python -B scripts/reports/analysis/build_wave52_frozen_baseline_residual_replay.py --self-test
+  ```
+
+  The command performs inference only, writes 3,876 per-curve residual rows,
+  and does not modify checkpoints or registries. Its output is the canonical
+  fitting source for the leakage-safe MMT explanatory rerun.
+
 - `scripts/training/`
   Static neural and tree training entry points, shared datamodule/regression infrastructure, campaign runner, and validation/smoke-test utilities.
 

@@ -1,0 +1,54 @@
+schema_version: 1
+metadata:
+  replay_id: wave52_frozen_baseline_residual_replay
+  dataset_id: polished_dataset
+  input_mode: setpoints
+  training_allowed: false
+  registry_update_allowed: false
+paths:
+  output_root: output/validation_checks/wave52_frozen_baseline_residual_replay
+  report_path: doc/reports/analysis/model_development_waves/wave_5_2/frozen_baseline_residual_replay/[2026-07-24]/wave52_frozen_baseline_residual_replay.md
+runtime:
+  provider_list:
+  - CPUExecutionProvider
+  split_name_list:
+  - train
+  - validation
+  - test
+  mdn_playback_channel: maximum_weight_component
+metrics:
+  harmonic_order_list:
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+baselines:
+- candidate_id: polished_setpoints_periodic_gru_sequence_Fw
+  surface: Fw
+  direction_label: forward
+  architecture_class: windowed
+  registry_path: output/registries/families/periodic_gru_sequence_fw/polished_dataset_family_best.yaml
+  reference_inventory_path: models/polished_dataset/setpoints/periodic_gru_sequence/forward/reference_inventory.yaml
+- candidate_id: polished_setpoints_periodic_mlp_harmonic_Fw
+  surface: Fw
+  direction_label: forward
+  architecture_class: non_windowed
+  registry_path: output/registries/families/periodic_mlp_harmonic_fw/polished_dataset_family_best.yaml
+  reference_inventory_path: models/polished_dataset/setpoints/periodic_mlp_harmonic/forward/reference_inventory.yaml
+- candidate_id: polished_setpoints_periodic_gru_sequence_Bw
+  surface: Bw
+  direction_label: backward
+  architecture_class: windowed
+  registry_path: output/registries/families/periodic_gru_sequence_bw/polished_dataset_family_best.yaml
+  reference_inventory_path: models/polished_dataset/setpoints/periodic_gru_sequence/backward/reference_inventory.yaml
+- candidate_id: polished_setpoints_periodic_mlp_harmonic_Bw
+  surface: Bw
+  direction_label: backward
+  architecture_class: non_windowed
+  registry_path: output/registries/families/periodic_mlp_harmonic_bw/polished_dataset_family_best.yaml
+  reference_inventory_path: models/polished_dataset/setpoints/periodic_mlp_harmonic/backward/reference_inventory.yaml

@@ -1,0 +1,13 @@
+candidate_id,surface,direction_label,split_name,residual_row_count,fit_allowed
+polished_setpoints_periodic_gru_sequence_Bw,Bw,backward,test,97,false
+polished_setpoints_periodic_gru_sequence_Bw,Bw,backward,train,678,true
+polished_setpoints_periodic_gru_sequence_Bw,Bw,backward,validation,194,false
+polished_setpoints_periodic_gru_sequence_Fw,Fw,forward,test,97,false
+polished_setpoints_periodic_gru_sequence_Fw,Fw,forward,train,678,true
+polished_setpoints_periodic_gru_sequence_Fw,Fw,forward,validation,194,false
+polished_setpoints_periodic_mlp_harmonic_Bw,Bw,backward,test,97,false
+polished_setpoints_periodic_mlp_harmonic_Bw,Bw,backward,train,678,true
+polished_setpoints_periodic_mlp_harmonic_Bw,Bw,backward,validation,194,false
+polished_setpoints_periodic_mlp_harmonic_Fw,Fw,forward,test,97,false
+polished_setpoints_periodic_mlp_harmonic_Fw,Fw,forward,train,678,true
+polished_setpoints_periodic_mlp_harmonic_Fw,Fw,forward,validation,194,false

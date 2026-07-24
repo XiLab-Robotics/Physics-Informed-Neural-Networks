@@ -143,6 +143,12 @@ This folder contains the internal project documents derived from the reference P
   source contains held-out test rows only, so MMT fitting remains blocked until
   frozen-baseline train and validation residual replay is available.
 
+- [reports/analysis/model_development_waves/wave_5_2/frozen_baseline_residual_replay/[2026-07-24]/wave52_frozen_baseline_residual_replay.md](./reports/analysis/model_development_waves/wave_5_2/frozen_baseline_residual_replay/%5B2026-07-24%5D/wave52_frozen_baseline_residual_replay.md)
+  Completed non-training replay of four frozen polished-setpoint baselines over
+  their exact direction-specific training, validation, and test manifests. The
+  resulting 3,876 per-curve rows close the provenance blocker for the
+  leakage-safe MMT explanatory rerun.
+
 - [reports/analysis/te_curve_verification_pipeline/03_family_reports/tree/[2026-07-07]/track2_tree_familywise_onnx_report.md](./reports/analysis/te_curve_verification_pipeline/03_family_reports/tree/%5B2026-07-07%5D/track2_tree_familywise_onnx_report.md)
   Familywise `tree` ONNX verification report comparing the completed
   simplified setpoint, polished setpoint, and polished actual-value exports
