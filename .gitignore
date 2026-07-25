@@ -211,6 +211,7 @@ doc/reports/analysis/.tmp_chrome_profiles/
 
 # .temp and .tools Folders
 .temp/
+tmp/
 .tools/
 .tmpdocenv/
 output/tmp/
