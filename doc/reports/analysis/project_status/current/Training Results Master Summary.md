@@ -2,7 +2,7 @@
 
 ## Executive Snapshot
 
-- Generated At: `2026-07-25T13:29:01`
+- Generated At: `2026-07-25T17:21:07`
 - Program State: active.
 - Current Completed Wave: polished-dataset RCIM, early-wave, and full-wave
 - Current Focus: Wave 5.2 full-PINN equation audit and analytical benchmark

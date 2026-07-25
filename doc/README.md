@@ -186,6 +186,16 @@ This folder contains the internal project documents derived from the reference P
   duplicate-safe reference organization, full scientific reading, MATLAB and
   polynomial-Fourier analysis, and Wave 5.2 PINN knowledge distillation.
 
+- [technical/2026-07/2026-07-25/2026-07-25-16-59-05_polynomial_fourier_common_split_benchmark.md](./technical/2026-07/2026-07-25/2026-07-25-16-59-05_polynomial_fourier_common_split_benchmark.md)
+  Technical plan for a common-split Bauer, recovered ONNX, and PLC
+  Polynomial-Fourier analytical benchmark that prepares the first physical
+  residual while preserving a broad multi-formulation PINN program.
+
+- [technical/2026-07/2026-07-25/2026-07-25-17-17-11_full_pinn_theory_validation_program_roadmap.md](./technical/2026-07/2026-07-25/2026-07-25-17-17-11_full_pinn_theory_validation_program_roadmap.md)
+  Technical plan for the complete source-traceable program of analytical,
+  measured-data, synthetic-oracle, causal-state, instrumentation, isolated
+  PINN, and multi-physics integration tests.
+
 - [reports/analysis/model_development_waves/wave_5_2/mmt_residual_explanatory_diagnostic/[2026-07-24]/wave52_mmt_residual_explanatory_diagnostic.md](./reports/analysis/model_development_waves/wave_5_2/mmt_residual_explanatory_diagnostic/%5B2026-07-24%5D/wave52_mmt_residual_explanatory_diagnostic.md)
   Completed non-training Wave 5.2 provenance audit. The selected residual
   source contains held-out test rows only, so MMT fitting remains blocked until
@@ -216,6 +226,11 @@ This folder contains the internal project documents derived from the reference P
 - [reports/analysis/model_development_waves/wave_5_2/full_pinn_program/[2026-07-25]/sharepoint_reference_evidence_matrix.md](./reports/analysis/model_development_waves/wave_5_2/full_pinn_program/%5B2026-07-25%5D/sharepoint_reference_evidence_matrix.md)
   Per-source evidence, observability, identifiability, oracle, and formulation
   decisions for the imported SharePoint TE source package.
+
+- [reports/analysis/model_development_waves/wave_5_2/full_pinn_program/[2026-07-25]/full_pinn_theory_validation_test_roadmap.md](./reports/analysis/model_development_waves/wave_5_2/full_pinn_program/%5B2026-07-25%5D/full_pinn_theory_validation_test_roadmap.md)
+  Complete test roadmap for Polynomial-Fourier, harmonic, compliance,
+  hysteresis, bidirectional, dynamic, contact, efficiency, MMT, manufacturing,
+  wear, electromechanical, hybrid, and integrated PINN formulations.
 
 - [reports/analysis/te_curve_verification_pipeline/03_cvp_diagnostics/non_mmt_cross_wave_comparison/[2026-07-24]/non_mmt_cross_wave_comparison_report.md](./reports/analysis/te_curve_verification_pipeline/03_cvp_diagnostics/non_mmt_cross_wave_comparison/%5B2026-07-24%5D/non_mmt_cross_wave_comparison_report.md)
   Six-cell reduced cross-wave comparison across polished setpoints, simplified

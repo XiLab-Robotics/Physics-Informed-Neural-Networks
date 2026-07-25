@@ -93,6 +93,22 @@ one auditable analytical benchmark package that:
 Only after that benchmark should the project select one physical residual for
 the first full-PINN pilot.
 
+## Complete Program Routing
+
+The remaining evidence is not discarded after the first pilot. Its complete
+test sequence is defined in `full_pinn_theory_validation_test_roadmap.md`.
+
+That roadmap routes:
+
+- Polynomial-Fourier, harmonic, and compliance formulations through the
+  immediate analytical lane;
+- hysteresis, bidirectional lost motion, and dynamic formulations through the
+  causal-state lane;
+- contact, efficiency, geometry, MMT, wear, and electromechanical formulations
+  through the offline-physics and instrumentation lane;
+- validated components through hybrid, cross-formulation, and integrated
+  multi-physics tests before Wave 6.
+
 ## Explicit Non-Decisions
 
 - MMT has not been reactivated.

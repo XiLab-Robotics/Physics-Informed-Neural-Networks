@@ -35,7 +35,7 @@ closeout that changes any of these surfaces:
 | Latest pruning decision | `2026-07-17` shape-first intermediate model-selection cleanup; `global` remains paused until final backlog stage |
 | Active report generation | six reduced selected-model reports completed for polished setpoints, simplified setpoints, and polished actual values, each split into `forward` and `backward` |
 | Current TE Curve Verification Pipeline selection policy | multi-index curve-first selection, dated `2026-06-16` |
-| Next modeling decision | reproduce and compare the Bauer quadratic, recovered ONNX, and PLC Polynomial-Fourier variants on common Fw and Bw held-out conditions, then select one bounded Wave 5.2 physical residual; implementation and training are not authorized |
+| Next modeling decision | execute Phase 1 of the complete 16-phase theory-validation roadmap: reproduce and compare the Bauer quadratic, recovered ONNX, and PLC Polynomial-Fourier variants on common Fw and Bw held-out conditions; implementation and training are not authorized |
 
 The repository remains direction-parallel. `Fw`, `Bw`, and `global` are not a
 single destructive competition. Each surface keeps its own best candidate and
@@ -169,6 +169,7 @@ robustness, visual-evidence, and deployment-readiness axes visible.
 | Wave 5.2 frozen-baseline residual replay | completed | Four accepted polished-setpoint ONNX baselines were replayed over their exact direction-specific manifests, producing 3,876 per-curve residual rows: 678 training, 194 validation, and 97 test rows per candidate. The selected July archive IDs differ from older June family-registry entries and are recorded explicitly. | Provenance blocker closed. Use these immutable split labels for the leakage-safe MMT rerun; do not substitute the earlier combined-direction audit split. |
 | Wave 5.2 MMT residual-explanatory diagnostic | completed with parameter blocker | The rerun fitted 224 permitted comparisons on training residuals and evaluated validation and test across seven residual targets for four `Fw` / `Bw` baselines. Geometry-locked MMT signatures were condition-invariant: metadata-plus-MMT and shuffled-control gains were both exactly zero. All 56 calibrated equivalent-error arms were blocked without using target-derived proxies. | Decision `blocked_by_parameter_availability`; current MMT evidence does not justify a feature, auxiliary head, weak soft constraint, or full PINN. |
 | Wave 5.2 general full-PINN program | active equation audit | The SharePoint intake closed with 31 unique curated files, 17 hash-confirmed duplicate dispositions, six detailed reference summaries, and a per-source evidence matrix. The imported evidence separates periodic, hysteretic, dynamic, bidirectional, contact, tolerance, efficiency, wear, and electromechanical branches. | Reproduce and compare the Bauer quadratic, recovered ONNX, and PLC Polynomial-Fourier variants first. No implementation or training is authorized yet. |
+| Wave 5.2 complete theory-validation program | roadmap complete | Sixteen phases preserve every ingested mechanism through common foundations, isolated formulations, synthetic and offline oracles, causal reconstruction, instrumentation gates, cross-formulation comparison, multi-physics integration, and Wave 6 entry criteria. | Run the analytical, causal-state, and offline-physics lanes without combining unverified mechanisms. Each training pilot remains separately approval-gated. |
 | Wave 5.2 paper-faithful MMT full PINN | deferred future TODO | MMT diagnostics, parameter inventory, `Wave 5.2B`, the post-causal-offset gate, exact-manifest replay, and leakage-safe explanatory rerun are complete. Contact geometry and causal observations for five equivalent-error groups remain unavailable. | Inactive without blocking the general full-PINN program. Reopen only after independent component-error measurements or validated causal contact-state reconstruction provides condition-varying physical inputs. |
 | Six-cell non-MMT reduced cross-wave comparison | closed diagnostic | Six remote selected-model reports and three direction-paired shape-gated reranks covered polished setpoints, simplified setpoints, and polished actual values. Forty-six curve collages were reviewed. | No official promotion. Periodic GRU wins four cells, periodic harmonic MLP wins two, Wave 4.1 remains the raw-error/offset ingredient, and sparse-RCIM temporal models remain reference-only. |
 | Wave 6 integrated multi-task / multi-head model | sequenced after Wave 5.2 PINN evidence | Intended to combine proven offset, low-frequency, centered-shape, uncertainty, mixture, and validated physics-informed mechanisms. | Do not prepare a campaign until bounded Wave 5.2 pilots and curve-first verification identify the physics-informed ingredients worth integrating. |
@@ -273,45 +274,48 @@ models.
 2. Reproduce the Bauer processing and complete quadratic law, reconstruct the
    recovered ONNX and PLC Polynomial-Fourier conventions, and compare all three
    on common `Fw` and `Bw` held-out conditions.
-3. Keep the paper-faithful MMT full PINN as an inactive future TODO. Reopen it
+3. Continue the complete theory portfolio through the immediate analytical,
+   causal-state, and offline-physics lanes. Preserve blocked formulations as
+   oracle or instrumentation tasks rather than silently dropping them.
+4. Keep the paper-faithful MMT full PINN as an inactive future TODO. Reopen it
    only with new condition-varying causal physical inputs; do not let it block
    other physics-informed formulations.
-4. Do not expand the causal offset / mean calibration profile: its bounded
+5. Do not expand the causal offset / mean calibration profile: its bounded
    `polished_dataset` setpoint `Fw` screen retained
    `polished_setpoints_periodic_gru_sequence_Fw` as the accepted forward
    recommendation, ranked the non-windowed causal MLP fourth, and rejected the
    time-windowed causal GRU through the shape gate.
-5. Do not expand the current shape-first distillation pilot: the bounded
+6. Do not expand the current shape-first distillation pilot: the bounded
    `polished_dataset` setpoint `Fw` screen retained
    `polished_setpoints_periodic_gru_sequence_Fw` as the accepted forward
    recommendation and ranked the distillation candidates behind both
    polished-setpoint baselines.
-6. Keep both time-windowed and non-windowed roads active as comparison
+7. Keep both time-windowed and non-windowed roads active as comparison
    categories for future designs, but require bounded curve-first evidence
    before promotion.
-7. Do not expand the current `shape_objective_periodic_mlp_harmonic_fw` pilot:
+8. Do not expand the current `shape_objective_periodic_mlp_harmonic_fw` pilot:
    the bounded `polished_dataset` setpoint `Fw` screen retained
    `polished_setpoints_periodic_gru_sequence_Fw` as the accepted forward
    recommendation and ranked the shape-objective candidate third.
-8. Do not expand the current shape-gate loss v2 checkpoint into a full matrix:
+9. Do not expand the current shape-gate loss v2 checkpoint into a full matrix:
    the bounded `polished_dataset` setpoint `Fw` screen retained
    `polished_setpoints_periodic_gru_sequence_Fw` as the accepted forward
    recommendation.
-9. Use Waves 3, 4, and 5.1 as formulation evidence for offset, centered shape,
+10. Use Waves 3, 4, and 5.1 as formulation evidence for offset, centered shape,
    robustness, uncertainty, state, harmonic structure, and residual learning;
    do not treat them as substitutes for a full PINN.
-10. Keep the shape-gated reranker as the gate before reopening any scalar
+11. Keep the shape-gated reranker as the gate before reopening any scalar
    leader: FFT
    amplitude similarity, dominant-harmonic retention, dominant-harmonic phase
    error, derivative correlation, and per-curve shape pass rate.
-11. Carry forward the temporal-window road (`periodic_gru_sequence`) as the
+12. Carry forward the temporal-window road (`periodic_gru_sequence`) as the
    current model-development recommendation. Keep non-windowed branches as
    controlled comparisons until they beat the GRU path on curve-first evidence.
-12. Keep `Wave 4.3`, `Wave 4.4`, and `Wave 5.1` branches as integration
+13. Keep `Wave 4.3`, `Wave 4.4`, and `Wave 5.1` branches as integration
    evidence only, not as current active candidates.
-13. Select one first full-PINN formulation only after equation, unit,
+14. Select one first full-PINN formulation only after equation, unit,
     observability, identifiability, causality, and analytical-oracle checks.
-14. Do not open the integrated multi-task / multi-head campaign until bounded
+15. Do not open the integrated multi-task / multi-head campaign until bounded
     PINN pilots and TE Curve Verification Pipeline evidence justify the chosen
     physics-informed ingredients.
 

@@ -105,5 +105,10 @@ The supplied source intake is complete. The next action is a common-split
 analytical benchmark audit of the Bauer quadratic law, recovered ONNX
 coefficient predictor, and existing PLC polynomial implementation.
 
+All registered sources now have a program route in
+`full_pinn_theory_validation_test_roadmap.md`. Formulations blocked for direct
+online inference remain active as synthetic-oracle, reduced-order,
+causal-reconstruction, or instrumentation-dependent branches.
+
 No formulation will be selected merely by publication authority or conceptual
 appeal; it must survive the project-specific evidence gates.

@@ -17,6 +17,11 @@ No PINN implementation or training campaign is authorized by this roadmap.
 Each bounded pilot will require a new approved technical document and campaign
 plan.
 
+The complete source-to-test sequence is defined in
+`full_pinn_theory_validation_test_roadmap.md`. That roadmap preserves every
+ingested theory through a direct-data, causal-reconstruction, offline-oracle,
+instrumentation, isolated-PINN, or integration path.
+
 ## Corrected Program Structure
 
 | Program branch | Current state | Decision |
@@ -150,7 +155,7 @@ Every candidate must document:
 | Work package | Deliverable | Current state |
 | --- | --- | --- |
 | WP1 Reference intake | Source inventory and per-reference synthesis | SharePoint bundle complete; future sources remain append-only |
-| WP2 Equation audit | Verified equations, units, assumptions, and observable-variable map | active; Polynomial-Fourier benchmark is first |
+| WP2 Equation audit | Verified equations, units, assumptions, and observable-variable map | active; complete multi-formulation test roadmap defined and Polynomial-Fourier benchmark is first |
 | WP3 Analytical verification | Equation tests on measured curves plus synthetic or analytical oracles | pending WP2 |
 | WP4 Bounded formulation pilots | One isolated formulation per approved campaign | not authorized |
 | WP5 Curve-first verification | Separate raw, centered-shape, offset, harmonic, robustness, visual, and deployment surfaces | pending pilots |
@@ -190,6 +195,14 @@ not be mixed in the first experiment.
 6. Create the implementation-specific technical document and campaign plan.
 7. Run a bounded single-formulation pilot before any Wave 6 campaign design.
 
+Subsequent pilots follow the three-lane program defined in the complete test
+roadmap:
+
+- immediate analytical formulations;
+- causal state and history formulations;
+- offline physics, synthetic oracle, and instrumentation-dependent
+  formulations.
+
 ## Canonical Inputs
 
 - `doc/reports/analysis/te_curve_verification_pipeline/00_overview/multi_index_curve_first_selection_policy/[2026-06-16]/track2_multi_index_curve_first_selection_policy.md`
@@ -204,6 +217,7 @@ not be mixed in the first experiment.
 - `doc/reference_summaries/13_RV_Reducer_Theoretical_Mechanics_Reference_Synthesis.md`
 - `doc/reference_summaries/14_MMT_Linkage_Matlab_Project_Summary.md`
 - `doc/reports/analysis/model_development_waves/wave_5_2/full_pinn_program/[2026-07-25]/sharepoint_reference_evidence_matrix.md`
+- `doc/reports/analysis/model_development_waves/wave_5_2/full_pinn_program/[2026-07-25]/full_pinn_theory_validation_test_roadmap.md`
 - `reference/codes/TestRig/PLC_project/POUs/Library/0_Function Blocks/06_PolynomialFourierSeriesModel/`
 - `reference/te_modeling/`
 - `reference/MMT_TEModeling.pdf`
