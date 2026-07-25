@@ -35,10 +35,12 @@ Historical rationale and approval history remain in:
   offline model-verification
   report, closed as the canonical direction-aware verification surface for new
   model families.
-- Current Focus: Wave 5.2 full-PINN equation audit and analytical benchmark
-  design. The SharePoint reference intake is complete, and the first selected
-  task is a common-split audit of the Bauer, recovered ONNX, and PLC
-  Polynomial-Fourier variants. The complete theory-validation roadmap now
+- Current Focus: Wave 5.2 Phase 1 Polynomial-Fourier analytical benchmark.
+  Phase 0 is complete after scanning 1,938 curves and 75,585,373 rows,
+  versioning the coordinate, unit, domain, temporal, causality, PLC, and
+  harmonic contracts, and quarantining three anomalous training conditions.
+  The Bauer, recovered ONNX, and PLC variants will therefore use 966 eligible
+  paired conditions. The complete theory-validation roadmap
   preserves harmonic, compliance, hysteresis, bidirectional, dynamic, contact,
   efficiency, geometry, MMT, wear, electromechanical, hybrid, and integrated
   PINN branches. The polished `periodic_gru_sequence` family remains the
@@ -75,11 +77,12 @@ Historical rationale and approval history remain in:
   screen ranked it fourth and retained
   `polished_setpoints_periodic_gru_sequence_Fw` as the forward recommendation.
   The time-windowed residual-offset GRU failed the shape gate.
-- Active Wave 5.2 Program: the general full-PINN branch is active at the
-  reference-intake and formulation-design stage. Candidate physics include the
-  existing Polynomial Fourier Series law, harmonic-kinematic constraints, and
-  additional source-backed formulations. No implementation or training is
-  authorized yet.
+- Active Wave 5.2 Program: Phase 0 is completed and the general full-PINN
+  branch is active at the Phase 1 analytical-benchmark stage. The paired
+  common-split tooling, foundation audit, and data contracts are implemented
+  and validated. Candidate physics include the existing
+  Polynomial Fourier Series law, harmonic-kinematic constraints, and additional
+  source-backed formulations. No PINN training is authorized yet.
 - Deferred MMT Subbranch: only the paper-faithful MMT full PINN is inactive
   after the leakage-safe rerun found zero held-out gain from geometry-locked
   signatures and could not calibrate unobserved equivalent-error groups.
@@ -90,8 +93,9 @@ Historical rationale and approval history remain in:
   periodic harmonic MLP wins polished-setpoint `Bw` and simplified-setpoint
   `Fw`. Wave 4.1 remains the raw-error and offset diagnostic ingredient.
   Sparse-RCIM temporal candidates remain actual-values references only.
-- Current Next Branch: reproduce the Bauer signal-processing and quadratic
-  coefficient law, reconcile it with the recovered ONNX and PLC
+- Current Next Branch: reproduce the Bauer signal-processing and complete
+  quadratic coefficient law on the frozen common split, then reconcile it with
+  the recovered ONNX and PLC
   Polynomial-Fourier variants, and benchmark all three on common `Fw` and `Bw`
   held-out conditions. Select the first bounded full-PINN formulation only
   after equation, observability, identifiability, causal-input, and analytical
@@ -305,8 +309,8 @@ Next planned diagnostic and training decision branches:
 | Component-offset identification | Test whether curve offset is dominated by `a_0` / `Component 0`, multiple components, condition/regime behavior, or experimental repeatability limits. | measured `h0`, signed-offset cross-check, and predicted-mean surface diagnostics completed; `h0` is the right mean channel, but the actionable issue is model-side mean-surface bias/compression |
 | `Wave 4 series` dispersion-aware modeling probes | Test robust losses, quantile or probabilistic heads, mixture-density heads, and latent-state or hysteresis-aware features on the offset and fragile-harmonic problem. | robust-loss, quantile/probabilistic, MDN, and `Wave 4.4` latent-state / hysteresis-aware campaigns and official TE Curve Verification refreshes completed; all are exploratory and not promoted |
 | `Wave 5.1` hybrid structured models | Combine harmonic structure, condition-conditioned residual learning, and explicit grouped treatment of stable and fragile harmonic bands. | first real `wave3_harmonic_prior_residual` campaign and official `TE Curve Verification Pipeline` verification refresh closed as a verified exploratory baseline, not promoted |
-| `Wave 5.2` general full-PINN program | Audit and test explicit differentiable physics formulations derived from harmonic behavior, the Polynomial Fourier Series law, Wave 3 through Wave 5.1 evidence, and additional references. | SharePoint reference intake complete; active at Polynomial-Fourier equation-audit and analytical-benchmark stage; implementation and training are not yet authorized |
-| `Wave 5.2` complete theory-validation program | Preserve and falsify every ingested physical mechanism through direct-data, causal-state, offline-oracle, instrumentation, isolated-PINN, cross-formulation, and integration tests. | roadmap complete; 16 phases across immediate analytical, causal-state, and offline-physics lanes; first implementation remains the common-split Polynomial-Fourier benchmark |
+| `Wave 5.2` general full-PINN program | Audit and test explicit differentiable physics formulations derived from harmonic behavior, the Polynomial Fourier Series law, Wave 3 through Wave 5.1 evidence, and additional references. | Phase 0 passed after a full 1,938-curve audit; 966 paired conditions remain eligible after three anomalous training conditions were quarantined; Bauer formulation reproduction is next; no PINN training is authorized |
+| `Wave 5.2` complete theory-validation program | Preserve and falsify every ingested physical mechanism through direct-data, causal-state, offline-oracle, instrumentation, isolated-PINN, cross-formulation, and integration tests. | roadmap complete; Phase 0 of 16 completed; Phase 1 Polynomial-Fourier formulations pending |
 | `Wave 5.2` paper-faithful MMT full PINN | Preserve the completed MMT evidence and reopen only if causal physical inputs become available. | deferred future TODO after the parameter-availability blocker; no MMT feature, auxiliary head, weak constraint, or MMT full PINN is authorized |
 | Intermediate shape-first model-selection cleanup | Reduce the post-retraining active set using raw error, P95, centered shape, P2P behavior, visual collage evidence, and actual-values stability. | completed; active set is `periodic_gru_sequence`, `wave4_1_mae_robust_loss`, `wave4_2_quantile_p10_p50_p90`, and `periodic_mlp_harmonic`; `periodic_lstm_sequence_Bw`, `Wave 4.3`, `Wave 4.4`, and `Wave 5.1` are closed as active branches |
 | Frequency-domain shape-gated reranker | Add measured/predicted FFT amplitude similarity, dominant-harmonic retention, dominant-harmonic phase error, robust derivative agreement, threshold sweep, and per-curve shape pass rate to future reduced reports. | completed across the six-cell non-MMT reduced pass; periodic GRU wins four cells, periodic harmonic MLP wins two, and the simplified tree scalar leader remains vetoed by weak shape retention |
@@ -598,10 +602,10 @@ Official closeout package:
 
 ### Planned Next Step
 
-After the completed SharePoint reference intake, the active next step is:
+After the completed Phase 0 foundation contract, the active next step is:
 
 - reproduce the Bauer spatial-processing and complete quadratic coefficient
-  law on the repository dataset;
+  law on the eligible 675 / 194 / 97 paired-condition split;
 - reconstruct the recovered ONNX and PLC Polynomial-Fourier equations, units,
   coefficients, angular convention, direction logic, and validity range;
 - compare all three variants on identical `Fw` and `Bw` held-out conditions;

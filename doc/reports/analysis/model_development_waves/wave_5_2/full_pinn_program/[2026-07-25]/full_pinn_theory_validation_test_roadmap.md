@@ -111,6 +111,23 @@ or causal-estimation support exists.
 
 ## Phase 0: Program Foundations
 
+### Current Progress
+
+Phase 0 is complete and passed:
+
+- all 1,938 directional curves and 75,585,373 numeric rows were scanned;
+- `Fw`, `Bw`, and global-pairable coverage each contain 969 conditions;
+- all curves cover one output-equivalent revolution and pass direction-sign
+  checks;
+- the nominal grid is the complete `17 x 19 x 3` Cartesian product;
+- all 291 validation and test conditions remain inside training-supported axis
+  values;
+- causal, PLC, temporal, acceleration, inertia, and unavailable-signal
+  classifications are versioned;
+- harmonics 1 through 400 were audited on 2,048-point normalized revolutions;
+- three nominal-versus-measured metadata anomalies are retained for provenance
+  but excluded from Phase 1 fitting, leaving 966 eligible paired conditions.
+
 ### Purpose
 
 Create the shared contracts required by all later experiments.
@@ -136,6 +153,24 @@ No physical formulation advances until its required inputs and held-out
 conditions are represented in a versioned contract.
 
 ## Phase 1: Polynomial-Fourier Analytical Benchmark
+
+### Current Progress
+
+The common-data foundation is implemented:
+
+- 969 nominal operating conditions are paired across `Fw` and `Bw`;
+- the pair is assigned once to 678 training, 194 validation, and 97 test
+  conditions;
+- all 1,938 directional CSV files carry SHA-256 provenance;
+- split disjointness, exact pairing, schema compatibility, sizes, and content
+  hashes pass the repository validator;
+- the stable split-assignment signature is
+  `c1aa8718fb9bf88cc2021c121dc4f3b4010fc1d2e45ac90af5f4376aa64f8e16`.
+- the Phase 0 measurement audit excludes three anomalous training conditions,
+  leaving 675 training, 194 validation, and 97 test conditions eligible for
+  Phase 1.
+
+The analytical formulations and their curve-first comparison remain pending.
 
 ### Source Basis
 
@@ -683,5 +718,6 @@ Phase 12 begins as soon as one analytical and one learned residual component
 are validated. Phase 13 compares all survivors. Phase 14 integrates them.
 Phase 15 opens Wave 6.
 
-The immediate next implementation remains Phase 1, the common-split
-Polynomial-Fourier benchmark.
+The immediate next implementation remains Phase 1: reproduce the Bauer
+preprocessing, coefficient fitting, and Fourier reconstruction on the frozen
+common split before adding the recovered ONNX and PLC paths.

@@ -89,6 +89,10 @@ This folder contains the internal project documents derived from the reference P
 
 ### Tooling Notes
 
+- [scripts/analysis/README.md](./scripts/analysis/README.md)
+  Index of non-training analysis-script usage notes, including the
+  Polynomial-Fourier paired common-split workflow.
+
 - [scripts/tooling/README.md](./scripts/tooling/README.md)
   Index of repository-owned tooling notes grouped by domain.
 
@@ -196,6 +200,11 @@ This folder contains the internal project documents derived from the reference P
   measured-data, synthetic-oracle, causal-state, instrumentation, isolated
   PINN, and multi-physics integration tests.
 
+- [technical/2026-07/2026-07-25/2026-07-25-19-50-19_phase_0_pinn_program_foundations.md](./technical/2026-07/2026-07-25/2026-07-25-19-50-19_phase_0_pinn_program_foundations.md)
+  Automatically approved Phase 0 implementation plan for completing the
+  shared dataset, coordinate, unit, causality, domain, temporal, and harmonic
+  contracts required by all later PINN formulations.
+
 - [reports/analysis/model_development_waves/wave_5_2/mmt_residual_explanatory_diagnostic/[2026-07-24]/wave52_mmt_residual_explanatory_diagnostic.md](./reports/analysis/model_development_waves/wave_5_2/mmt_residual_explanatory_diagnostic/%5B2026-07-24%5D/wave52_mmt_residual_explanatory_diagnostic.md)
   Completed non-training Wave 5.2 provenance audit. The selected residual
   source contains held-out test rows only, so MMT fitting remains blocked until
@@ -231,6 +240,16 @@ This folder contains the internal project documents derived from the reference P
   Complete test roadmap for Polynomial-Fourier, harmonic, compliance,
   hysteresis, bidirectional, dynamic, contact, efficiency, MMT, manufacturing,
   wear, electromechanical, hybrid, and integrated PINN formulations.
+
+- [reports/analysis/model_development_waves/wave_5_2/full_pinn_program/[2026-07-25]/phase0_pinn_program_foundations_report.md](./reports/analysis/model_development_waves/wave_5_2/full_pinn_program/%5B2026-07-25%5D/phase0_pinn_program_foundations_report.md)
+  Completed Phase 0 audit of 1,938 directional curves, including coordinate,
+  unit, direction, domain, temporal, causality, PLC-availability, harmonic,
+  duplicate, leakage, and operating-metadata evidence.
+
+- [reports/analysis/model_development_waves/wave_5_2/polynomial_fourier_benchmark/[2026-07-25]/common_split_data_contract.md](./reports/analysis/model_development_waves/wave_5_2/polynomial_fourier_benchmark/%5B2026-07-25%5D/common_split_data_contract.md)
+  Content-addressed data contract for 969 paired `Fw` and `Bw` operating
+  conditions, split once into common train, validation, and test surfaces for
+  the Bauer, recovered ONNX, and PLC comparison.
 
 - [reports/analysis/te_curve_verification_pipeline/03_cvp_diagnostics/non_mmt_cross_wave_comparison/[2026-07-24]/non_mmt_cross_wave_comparison_report.md](./reports/analysis/te_curve_verification_pipeline/03_cvp_diagnostics/non_mmt_cross_wave_comparison/%5B2026-07-24%5D/non_mmt_cross_wave_comparison_report.md)
   Six-cell reduced cross-wave comparison across polished setpoints, simplified

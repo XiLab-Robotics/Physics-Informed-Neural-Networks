@@ -1,0 +1,32 @@
+schema_version: 1
+metadata:
+  benchmark_id: polynomial_fourier_common_split_benchmark
+  dataset_id: polished_dataset
+  dataset_schema: polished_setpoint_curve_v1
+  training_allowed: false
+dataset:
+  root: data/polished_dataset
+  direction_directory_map:
+    Fw: forward
+    Bw: backward
+  expected_csv_column_list:
+  - theta
+  - theta_dot
+  - tau_load
+  - T
+  - theta_TE
+  angular_position_unit: degree
+  transmission_error_unit: degree
+  input_speed_unit: rpm
+  output_torque_unit: Nm
+  oil_temperature_unit: degree_Celsius
+split:
+  random_seed: 42
+  validation_fraction: 0.2
+  test_fraction: 0.1
+  require_paired_directions: true
+  content_hash_algorithm: sha256
+outputs:
+  manifest_yaml: output/analysis/polynomial_fourier_benchmark/common_split_manifest.yaml
+  manifest_csv: output/analysis/polynomial_fourier_benchmark/common_split_manifest.csv
+  data_contract_report: doc/reports/analysis/model_development_waves/wave_5_2/polynomial_fourier_benchmark/[2026-07-25]/common_split_data_contract.md

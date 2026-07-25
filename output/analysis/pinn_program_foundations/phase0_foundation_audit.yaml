@@ -1,0 +1,210 @@
+schema_version: 1
+audit_id: wave52_phase0_pinn_program_foundations
+generated_at_utc: '2026-07-25T18:04:50.266157+00:00'
+source_configuration:
+  path: config/analysis/pinn_program_foundations/phase0_foundation_audit.yaml
+  sha256: 399c283357124a9308d9e45f4c6ba11d27ef2665a5c3d9de68e4cf763f8b48a8
+paired_manifest:
+  path: output/analysis/polynomial_fourier_benchmark/common_split_manifest.yaml
+  sha256: 1d65c12211de66c2924fe12e4b976983517811610eb45fbf5d1845cf1a215973
+  assignment_sha256: c1aa8718fb9bf88cc2021c121dc4f3b4010fc1d2e45ac90af5f4376aa64f8e16
+  condition_count_by_split:
+    train: 678
+    validation: 194
+    test: 97
+dataset_inventory:
+  paired_condition_count: 969
+  directional_curve_count: 1938
+  total_numeric_row_count: 75585373
+  minimum_curve_row_count: 10799
+  maximum_curve_row_count: 194401
+  unique_axis_value_map:
+    input_speed_rpm:
+    - 100.0
+    - 200.0
+    - 300.0
+    - 400.0
+    - 500.0
+    - 600.0
+    - 700.0
+    - 800.0
+    - 900.0
+    - 1000.0
+    - 1100.0
+    - 1300.0
+    - 1400.0
+    - 1500.0
+    - 1600.0
+    - 1700.0
+    - 1800.0
+    output_torque_nm:
+    - 0.0
+    - 100.0
+    - 200.0
+    - 300.0
+    - 400.0
+    - 500.0
+    - 600.0
+    - 700.0
+    - 800.0
+    - 900.0
+    - 1000.0
+    - 1100.0
+    - 1200.0
+    - 1300.0
+    - 1400.0
+    - 1500.0
+    - 1600.0
+    - 1700.0
+    - 1800.0
+    oil_temperature_deg_c:
+    - 25.0
+    - 30.0
+    - 35.0
+  expected_cartesian_condition_count: 969
+  full_cartesian_grid_pass: true
+  surface_curve_count:
+    Fw: 969
+    Bw: 969
+    global_pairable_conditions: 969
+measurement_audit:
+  unwrapped_revolution_count_range:
+  - 0.9998148490220851
+  - 1.0000104473811804
+  nominal_speed_error_rpm_range:
+  - -0.0869733469660332
+  - 900.0001319203996
+  nominal_torque_magnitude_error_nm_range:
+  - -199.90011757930816
+  - 1.209637449111483
+  nominal_temperature_error_deg_c_range:
+  - -1.3642856481481473
+  - 4.025149663328243
+  phase1_eligible_condition_count: 966
+  phase1_eligible_condition_count_by_split:
+    train: 675
+    validation: 194
+    test: 97
+  phase1_excluded_condition_count: 3
+  phase1_excluded_condition_list:
+  - condition_id: speed_500rpm__torque_600Nm__temperature_35degC
+    split: train
+    reason: nominal_speed_mismatch
+  - condition_id: speed_800rpm__torque_200Nm__temperature_25degC
+    split: train
+    reason: nominal_torque_mismatch
+  - condition_id: speed_1400rpm__torque_800Nm__temperature_35degC
+    split: train
+    reason: nominal_torque_mismatch
+  policy: retain every curve for provenance; exclude nominal-versus-measured speed or torque mismatches from Phase 1 fitting
+    and held-out scoring
+coordinate_contract:
+  theta_definition: input encoder cumulative angle divided by reduction ratio 81 and wrapped to [0, 360) output-equivalent
+    degrees
+  theta_te_definition: zeroing-corrected output encoder angle minus ratio-scaled input encoder angle, in degrees
+  curve_coverage: one output-equivalent revolution per directional file
+  normalized_angular_sample_count: 2048
+  direction_mapping:
+    Fw: positive measured mean theta_dot
+    Bw: negative measured mean theta_dot
+  torque_rule: directory defines direction; measured tau_load remains signed; filename torque is a nonnegative nominal magnitude
+unit_contract:
+  theta: degree_output_equivalent
+  theta_dot: rpm_input_side
+  tau_load: Nm_output_side_signed
+  T: degree_Celsius_oil
+  theta_TE: degree_output_side
+  fft_phase: radian
+  harmonic_order: cycles_per_output_revolution
+domain_support:
+  held_out_condition_count: 291
+  held_out_extrapolation_condition_count: 0
+  held_out_unsupported_axis_condition_count: 0
+  interpretation: current validation and test conditions are withheld Cartesian combinations inside training-supported axis
+    values
+temporal_contract:
+  row_order_preserved: true
+  explicit_timestamp_column: false
+  sample_interval_s_from_provenance: 0.00025
+  angular_acceleration: causally reconstructable from theta_dot history
+  continuous_reversal_trajectory: false
+  load_inertia: unavailable
+  DataValid: applied upstream and absent from polished files
+harmonic_contract:
+  frequency_unit: cycles_per_output_revolution
+  maximum_audited_order: 400
+  top_prevalent_order_map:
+    Fw:
+    - 1
+    - 39
+    - 3
+    - 40
+    - 78
+    - 240
+    - 81
+    - 159
+    - 2
+    - 156
+    - 162
+    - 80
+    - 120
+    - 237
+    - 42
+    - 234
+    - 243
+    - 191
+    - 206
+    - 297
+    Bw:
+    - 1
+    - 3
+    - 78
+    - 156
+    - 39
+    - 240
+    - 159
+    - 2
+    - 40
+    - 162
+    - 42
+    - 237
+    - 158
+    - 80
+    - 160
+    - 287
+    - 234
+    - 243
+    - 318
+    - 206
+  phase0_role: measured evidence map; formulation-specific order selection remains a later phase decision
+signal_availability_class_count:
+  measured_derived: 2
+  measured: 2
+  causal_derived: 1
+  target_only: 1
+  known_constant: 1
+  reconstructable: 1
+  unavailable_in_curve_files: 1
+  offline_upstream_only: 1
+  unavailable: 5
+  offline_oracle_only: 1
+exit_gate:
+  status: passed
+  check_map:
+    paired_manifest_validated: true
+    all_directional_curves_scanned: true
+    all_values_finite: true
+    all_curves_cover_one_revolution: true
+    all_direction_speed_signs_valid: true
+    full_nominal_cartesian_grid: true
+    all_held_out_axes_supported_by_training: true
+    operating_metadata_anomalies_explicitly_quarantined: true
+    all_three_surfaces_represented: true
+    signal_causality_matrix_complete: true
+    harmonic_map_complete: true
+    duplicate_and_leakage_audit_passed: true
+artifact_sha256:
+  curve_audit_csv: 8b8c75267acdb53a6a23beaa9632f6ba956a8260aa5444f75d98bfaaf892ba46
+  condition_support_csv: da77002e4e14a0b9d743d862fabc9ea8c28d457eba6afa2692282f77405a8aa8
+  harmonic_prevalence_csv: 731fe7834d12e5f5b422bc0956053e6c3b49fc0ef9c7d7954ce34d0a799df39c
+  signal_availability_csv: 6f0c010f6d0c20ebfd443e71fb2b66d8817504c60cf1cdfb079409f30b302835

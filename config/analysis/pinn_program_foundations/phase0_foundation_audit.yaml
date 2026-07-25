@@ -1,0 +1,146 @@
+schema_version: 1
+metadata:
+  audit_id: wave52_phase0_pinn_program_foundations
+  training_allowed: false
+inputs:
+  paired_manifest: output/analysis/polynomial_fourier_benchmark/common_split_manifest.yaml
+  expected_dataset_id: polished_dataset
+constants:
+  reduction_ratio: 81.0
+  sample_interval_s: 0.00025
+  normalized_angular_sample_count: 2048
+  maximum_harmonic_order: 400
+  dominant_harmonic_count_per_curve: 10
+thresholds:
+  minimum_unwrapped_revolution_fraction: 0.99
+  maximum_unwrapped_revolution_fraction: 1.01
+  maximum_absolute_nominal_speed_error_rpm: 1.0
+  maximum_absolute_nominal_torque_error_nm: 5.0
+units:
+  theta: degree_output_equivalent
+  theta_dot: rpm_input_side
+  tau_load: Nm_output_side_signed
+  T: degree_Celsius_oil
+  theta_TE: degree_output_side
+  fft_phase: radian
+  harmonic_order: cycles_per_output_revolution
+signal_availability:
+- signal: theta
+  source: derived_from_input_encoder
+  phase0_class: measured_derived
+  causal_runtime: true
+  plc_test_rig: true
+  online_model_input: true
+  note: input encoder angle divided by 81 and wrapped to one output-equivalent revolution
+- signal: theta_dot
+  source: input_encoder_finite_difference
+  phase0_class: measured_derived
+  causal_runtime: true
+  plc_test_rig: true
+  online_model_input: true
+  note: current and previous encoder samples support causal reconstruction
+- signal: tau_load
+  source: manner_output_torque_sensor
+  phase0_class: measured
+  causal_runtime: true
+  plc_test_rig: true
+  online_model_input: true
+  note: signed measured torque; deployment availability remains hardware-dependent
+- signal: T
+  source: reducer_oil_temperature_sensor
+  phase0_class: measured
+  causal_runtime: true
+  plc_test_rig: true
+  online_model_input: true
+  note: measured oil temperature
+- signal: direction_flag
+  source: commanded_or_measured_motion_direction
+  phase0_class: causal_derived
+  causal_runtime: true
+  plc_test_rig: true
+  online_model_input: true
+  note: explicit Fw or Bw state; never infer from torque sign
+- signal: theta_TE
+  source: two_encoder_difference_after_zeroing
+  phase0_class: target_only
+  causal_runtime: false
+  plc_test_rig: true
+  online_model_input: false
+  note: evaluation target; unavailable to single-encoder deployment inference
+- signal: sample_time
+  source: acquisition_configuration
+  phase0_class: known_constant
+  causal_runtime: true
+  plc_test_rig: true
+  online_model_input: false
+  note: 0.25 ms provenance constant; no explicit timestamp column in polished CSV
+- signal: angular_acceleration
+  source: causal_difference_of_theta_dot
+  phase0_class: reconstructable
+  causal_runtime: true
+  plc_test_rig: true
+  online_model_input: conditional
+  note: reconstructable with a one-step history; not directly stored
+- signal: reversal_cycle_history
+  source: ordered_motion_session
+  phase0_class: unavailable_in_curve_files
+  causal_runtime: conditional
+  plc_test_rig: true
+  online_model_input: conditional
+  note: Fw and Bw files are paired but not a continuous reversal trajectory
+- signal: DataValid
+  source: raw_dataset_validity_channels
+  phase0_class: offline_upstream_only
+  causal_runtime: true
+  plc_test_rig: true
+  online_model_input: false
+  note: applied during polished export but absent from polished CSV
+- signal: load_inertia
+  source: rig_configuration
+  phase0_class: unavailable
+  causal_runtime: false
+  plc_test_rig: false
+  online_model_input: false
+  note: no per-condition inertia channel or validated configuration registry
+- signal: component_manufacturing_errors
+  source: metrology
+  phase0_class: unavailable
+  causal_runtime: false
+  plc_test_rig: false
+  online_model_input: false
+  note: required for paper-faithful MMT and detailed bidirectional mechanics
+- signal: contact_stiffness_and_forces
+  source: contact_model_or_instrumentation
+  phase0_class: offline_oracle_only
+  causal_runtime: false
+  plc_test_rig: false
+  online_model_input: false
+  note: absent from the measured dataset
+- signal: efficiency_and_friction_loss
+  source: force_and_power_measurement
+  phase0_class: unavailable
+  causal_runtime: false
+  plc_test_rig: false
+  online_model_input: false
+  note: torque and speed alone do not identify internal loss distribution
+- signal: wear_and_lubrication_state
+  source: longitudinal_inspection
+  phase0_class: unavailable
+  causal_runtime: false
+  plc_test_rig: false
+  online_model_input: false
+  note: temperature is not a unique wear or lubrication-state label
+- signal: motor_current_and_drive_state
+  source: drive_telemetry
+  phase0_class: unavailable
+  causal_runtime: conditional
+  plc_test_rig: conditional
+  online_model_input: false
+  note: not synchronized into the canonical TE dataset
+outputs:
+  audit_yaml: output/analysis/pinn_program_foundations/phase0_foundation_audit.yaml
+  curve_audit_csv: output/analysis/pinn_program_foundations/phase0_curve_audit.csv
+  harmonic_prevalence_csv: output/analysis/pinn_program_foundations/phase0_harmonic_prevalence.csv
+  condition_support_csv: output/analysis/pinn_program_foundations/phase0_condition_support.csv
+  signal_availability_csv: output/analysis/pinn_program_foundations/phase0_signal_availability.csv
+  report_markdown: doc/reports/analysis/model_development_waves/wave_5_2/full_pinn_program/[2026-07-25]/phase0_pinn_program_foundations_report.md

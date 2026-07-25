@@ -50,6 +50,12 @@ At the moment, the implemented workflows are:
   provenance, leakage gates, and metadata-only or shuffled controls;
 - a dry-run `Wave 5.2B` MMT feature-generator check that writes leakage-aware
   feature schema artifacts without creating a campaign;
+- a non-training Polynomial-Fourier common-split builder and validator that
+  freezes paired `Fw` and `Bw` operating conditions with source-file hashes
+  before the Bauer, recovered ONNX, and PLC comparison;
+- a full-population Phase 0 PINN-foundation audit that scans coordinates,
+  units, directions, operating-domain support, temporal evidence, causal and
+  PLC signal availability, and measured harmonic prevalence;
 - explicit isolated-mode session management through a repository-owned tooling entry point with locked-file snapshots, staging roots, and manifest/checklist generation;
 - timestamped technical-document scaffolding and index registration through a
   repository-owned tooling entry point;
@@ -403,12 +409,62 @@ workstation:
 .\scripts\campaigns\cross_wave\run_polished_dataset_early_wave_parallel_training_campaign.ps1
 ```
 
+## Polynomial-Fourier Common Split
+
+Build the paired, content-addressed `Fw` and `Bw` operating-condition manifest
+used by the Wave 5.2 Polynomial-Fourier benchmark:
+
+```powershell
+conda run --no-capture-output -n pinns_env python `
+  scripts/analysis/polynomial_fourier_benchmark/build_common_split_manifest.py
+```
+
+Validate split disjointness, direction pairing, current source-file sizes, and
+every source-file SHA-256:
+
+```powershell
+conda run --no-capture-output -n pinns_env python `
+  scripts/analysis/polynomial_fourier_benchmark/validate_common_split_manifest.py
+```
+
+This workflow does not train or select a model. It freezes the common data
+surface required before comparing the Bauer law, recovered ONNX coefficient
+models, and PLC polynomial evaluator.
+
+## Phase 0 PINN Foundation Audit
+
+Run the full-population foundation audit:
+
+```powershell
+conda run --no-capture-output -n pinns_env python -B `
+  scripts/analysis/pinn_program_foundations/build_phase0_foundation_audit.py
+```
+
+Validate the persisted artifact hashes, evidence-row counts, eligibility
+contract, and Phase 0 exit gate without repeating the 6.7 GiB source scan:
+
+```powershell
+conda run --no-capture-output -n pinns_env python -B `
+  scripts/analysis/pinn_program_foundations/validate_phase0_foundation_audit.py
+```
+
+The audit retains every source curve for provenance but excludes explicit
+nominal-versus-measured speed or torque anomalies from later fitting and
+held-out scoring.
+
 ## Relevant Project Paths
 
 The current usage flow mainly relies on these folders:
 
 - `scripts/datasets/`
   Dataset processing and visualization utilities.
+
+- `scripts/analysis/polynomial_fourier_benchmark/`
+  Paired common-split generation and content-addressed validation for the
+  analytical Wave 5.2 Polynomial-Fourier benchmark.
+
+- `scripts/analysis/pinn_program_foundations/`
+  Full-population Phase 0 contracts and validation for later PINN phases.
 
 - `scripts/reports/`
   Styled report-export utilities.

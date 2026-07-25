@@ -1,0 +1,17 @@
+signal,source,phase0_class,causal_runtime,plc_test_rig,online_model_input,note
+theta,derived_from_input_encoder,measured_derived,True,True,True,input encoder angle divided by 81 and wrapped to one output-equivalent revolution
+theta_dot,input_encoder_finite_difference,measured_derived,True,True,True,current and previous encoder samples support causal reconstruction
+tau_load,manner_output_torque_sensor,measured,True,True,True,signed measured torque; deployment availability remains hardware-dependent
+T,reducer_oil_temperature_sensor,measured,True,True,True,measured oil temperature
+direction_flag,commanded_or_measured_motion_direction,causal_derived,True,True,True,explicit Fw or Bw state; never infer from torque sign
+theta_TE,two_encoder_difference_after_zeroing,target_only,False,True,False,evaluation target; unavailable to single-encoder deployment inference
+sample_time,acquisition_configuration,known_constant,True,True,False,0.25 ms provenance constant; no explicit timestamp column in polished CSV
+angular_acceleration,causal_difference_of_theta_dot,reconstructable,True,True,conditional,reconstructable with a one-step history; not directly stored
+reversal_cycle_history,ordered_motion_session,unavailable_in_curve_files,conditional,True,conditional,Fw and Bw files are paired but not a continuous reversal trajectory
+DataValid,raw_dataset_validity_channels,offline_upstream_only,True,True,False,applied during polished export but absent from polished CSV
+load_inertia,rig_configuration,unavailable,False,False,False,no per-condition inertia channel or validated configuration registry
+component_manufacturing_errors,metrology,unavailable,False,False,False,required for paper-faithful MMT and detailed bidirectional mechanics
+contact_stiffness_and_forces,contact_model_or_instrumentation,offline_oracle_only,False,False,False,absent from the measured dataset
+efficiency_and_friction_loss,force_and_power_measurement,unavailable,False,False,False,torque and speed alone do not identify internal loss distribution
+wear_and_lubrication_state,longitudinal_inspection,unavailable,False,False,False,temperature is not a unique wear or lubrication-state label
+motor_current_and_drive_state,drive_telemetry,unavailable,conditional,conditional,False,not synchronized into the canonical TE dataset
