@@ -34,6 +34,30 @@ This folder contains the internal project documents derived from the reference P
   transmission-error datasets, including lineage, schemas, equations, audit
   results, and future-use guidance.
 
+- [reference_summaries/09_TE_Modeling_Reference_Library_Summary.md](./reference_summaries/09_TE_Modeling_Reference_Library_Summary.md)
+  Curated-library structure, SHA-256 deduplication result, evidence classes,
+  and principal Wave 5.2 conclusions from the SharePoint source bundle.
+
+- [reference_summaries/10_Polynomial_Fourier_TE_Model_Project_Summary.md](./reference_summaries/10_Polynomial_Fourier_TE_Model_Project_Summary.md)
+  Detailed reconstruction of the Bauer quadratic Fourier law, internal design
+  note, recovered MATLAB ONNX predictor, and existing PLC implementation.
+
+- [reference_summaries/11_Hysteresis_Backlash_And_Harmonic_TE_Reference_Synthesis.md](./reference_summaries/11_Hysteresis_Backlash_And_Harmonic_TE_Reference_Synthesis.md)
+  Source-backed synthesis of periodic error, nonlinear elasticity, hysteresis,
+  friction, compliance, memory-state, and directional implications.
+
+- [reference_summaries/12_ML_Compensation_Reference_Synthesis.md](./reference_summaries/12_ML_Compensation_Reference_Synthesis.md)
+  Hybrid analytical-and-learned compensation patterns and controller-aware
+  validation lessons from state-dependent rack-and-pinion studies.
+
+- [reference_summaries/13_RV_Reducer_Theoretical_Mechanics_Reference_Synthesis.md](./reference_summaries/13_RV_Reducer_Theoretical_Mechanics_Reference_Synthesis.md)
+  Detailed RV-reducer mechanics synthesis covering dynamics, bidirectional TE,
+  rigidity, contact, efficiency, tolerances, wear, FEA, and observability.
+
+- [reference_summaries/14_MMT_Linkage_Matlab_Project_Summary.md](./reference_summaries/14_MMT_Linkage_Matlab_Project_Summary.md)
+  Code-level explanation of the simplified MMT harmonic diagnostic and the
+  boundary between its valid use and the deferred paper-faithful formulation.
+
 ### Reference Asset Roots
 
 - [../reference/README.md](../reference/README.md)
@@ -44,6 +68,10 @@ This folder contains the internal project documents derived from the reference P
   Canonical index of the recovered RCIM paper asset package, including exact
   ONNX models, original and later code snapshots, backup material, TwinCAT XML
   exports, and the archived `instance_v1` subtree.
+
+- [../reference/te_modeling/README.md](../reference/te_modeling/README.md)
+  Curated TE modeling bibliography and implementation library, including the
+  exact source inventory and duplicate mapping.
 
 ### Reference Code Notes
 
@@ -148,6 +176,16 @@ This folder contains the internal project documents derived from the reference P
   evaluation across polished setpoints, simplified setpoints, and polished
   actual-values evidence, followed by multi-index cross-wave comparison.
 
+- [technical/2026-07/2026-07-25/2026-07-25-10-13-54_reopen_full_pinn_program_and_resequence_wave6.md](./technical/2026-07/2026-07-25/2026-07-25-10-13-54_reopen_full_pinn_program_and_resequence_wave6.md)
+  Technical plan to separate the deferred MMT-paper-faithful formulation from
+  the active general full-PINN program, audit multiple physics formulations,
+  and place Wave 6 after bounded Wave 5.2 PINN evidence.
+
+- [technical/2026-07/2026-07-25/2026-07-25-13-05-36_sharepoint_te_reference_library_ingestion_and_synthesis.md](./technical/2026-07/2026-07-25/2026-07-25-13-05-36_sharepoint_te_reference_library_ingestion_and_synthesis.md)
+  Technical plan for hash-based ingestion of the SharePoint TE source package,
+  duplicate-safe reference organization, full scientific reading, MATLAB and
+  polynomial-Fourier analysis, and Wave 5.2 PINN knowledge distillation.
+
 - [reports/analysis/model_development_waves/wave_5_2/mmt_residual_explanatory_diagnostic/[2026-07-24]/wave52_mmt_residual_explanatory_diagnostic.md](./reports/analysis/model_development_waves/wave_5_2/mmt_residual_explanatory_diagnostic/%5B2026-07-24%5D/wave52_mmt_residual_explanatory_diagnostic.md)
   Completed non-training Wave 5.2 provenance audit. The selected residual
   source contains held-out test rows only, so MMT fitting remains blocked until
@@ -164,6 +202,20 @@ This folder contains the internal project documents derived from the reference P
   over seven residual views. Geometry-locked MMT signatures added zero
   held-out value beyond metadata and shuffled controls; equivalent-error
   calibration remains blocked by unavailable causal physical inputs.
+
+- [reports/analysis/model_development_waves/wave_5_2/full_pinn_program/[2026-07-25]/full_pinn_physics_formulation_roadmap.md](./reports/analysis/model_development_waves/wave_5_2/full_pinn_program/%5B2026-07-25%5D/full_pinn_physics_formulation_roadmap.md)
+  Canonical roadmap that keeps the general Wave 5.2 full-PINN program active,
+  defers only the paper-faithful MMT formulation, and places Wave 6 after
+  bounded physics-formulation evidence.
+
+- [reports/analysis/model_development_waves/wave_5_2/full_pinn_program/[2026-07-25]/physics_reference_intake_register.md](./reports/analysis/model_development_waves/wave_5_2/full_pinn_program/%5B2026-07-25%5D/physics_reference_intake_register.md)
+  Controlled intake register for equations, observability, identifiability,
+  causal availability, falsification tests, and deployment implications of
+  current and future PINN references.
+
+- [reports/analysis/model_development_waves/wave_5_2/full_pinn_program/[2026-07-25]/sharepoint_reference_evidence_matrix.md](./reports/analysis/model_development_waves/wave_5_2/full_pinn_program/%5B2026-07-25%5D/sharepoint_reference_evidence_matrix.md)
+  Per-source evidence, observability, identifiability, oracle, and formulation
+  decisions for the imported SharePoint TE source package.
 
 - [reports/analysis/te_curve_verification_pipeline/03_cvp_diagnostics/non_mmt_cross_wave_comparison/[2026-07-24]/non_mmt_cross_wave_comparison_report.md](./reports/analysis/te_curve_verification_pipeline/03_cvp_diagnostics/non_mmt_cross_wave_comparison/%5B2026-07-24%5D/non_mmt_cross_wave_comparison_report.md)
   Six-cell reduced cross-wave comparison across polished setpoints, simplified

@@ -32,6 +32,15 @@ implementation, deployment constraints, and coding style decisions.
   contains generic recovered code snapshots plus forward-only benchmark
   artifacts such as the shipped `Fw` dataframe and exact ONNX paper release.
 
+## TE Modeling Reference Library
+
+- [te_modeling/README.md](./te_modeling/README.md)
+  Deduplicated scientific and implementation library covering
+  Polynomial-Fourier TE, harmonic and hysteretic behavior, ML compensation,
+  RV-reducer theoretical mechanics, the MMT MATLAB diagnostic, and the
+  recovered MATLAB ONNX predictor. Exact source hashes and duplicate mappings
+  are stored in `te_modeling/source_inventory.yaml`.
+
 ## Usage
 
 - Treat this folder as read-mostly reference material.
@@ -39,6 +48,8 @@ implementation, deployment constraints, and coding style decisions.
   repository-facing conclusions rather than raw source artifacts.
 - Use the recovered RCIM asset package when you need exact paper-era models,
   recovered paper code, or deployment-facing backup exports.
+- Use the TE modeling library for Wave 5.2 equation audits, source-backed
+  formulation decisions, and analytical benchmark design.
 - Treat the currently stored recovered RCIM exact ONNX release and shipped
   `Fw` dataframe as `forward-only` unless a future repository update
   explicitly adds the missing backward-side recovered assets.

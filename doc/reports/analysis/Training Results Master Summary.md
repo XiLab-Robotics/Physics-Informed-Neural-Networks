@@ -2,10 +2,10 @@
 
 ## Executive Snapshot
 
-- Generated At: `2026-07-23T13:22:44`
+- Generated At: `2026-07-25T13:29:01`
 - Program State: active.
 - Current Completed Wave: polished-dataset RCIM, early-wave, and full-wave
-- Current Focus: the polished-dataset TE Curve Verification Pipeline refresh is
+- Current Focus: Wave 5.2 full-PINN equation audit and analytical benchmark
 - Active Campaign Status: `closed`
 - Active Campaign Name: `causal_offset_mean_calibration_pilot_2026_07_22`
 - Current Program Winner: `te_periodic_gru_sequence_bw` | Family `periodic_gru_sequence_bw` | Test MAE `0.001084`
@@ -255,22 +255,7 @@
 ### Active Training Or Improvement Branches
 
 - No campaign is currently in `prepared` or `running` state.
-- The first non-training MMT residual-explanatory diagnostic closed with a
-  provenance blocker: all 388 selected residual rows belong to the test split.
-- The frozen-baseline replay has now produced 3,876 provenance-matched rows
-  across the exact direction-specific training, validation, and test manifests
-  for all four accepted `Fw` / `Bw` baselines.
-- The leakage-safe rerun fitted 224 permitted training-only comparisons over
-  seven residual views and evaluated validation and test without leakage.
-- Geometry-locked MMT signatures added exactly zero held-out gain beyond
-  metadata-only and shuffled controls; 56 equivalent-error arms were blocked
-  because causal component-error and contact-state inputs are unavailable.
-- Wave 5.2 MMT is therefore an inactive future TODO after the
-  parameter-availability blocker. It may be reopened only with new causal
-  physical inputs and no longer blocks the remaining non-MMT roadmap.
-- The non-MMT prerequisite audit confirmed complete polished actual-values
-  RCIM archives for both sparse RCIM temporal families across `global`, `Fw`,
-  and `Bw`. The next reduced evaluation can proceed to technical planning.
+- The next active implementation branch should therefore be read from the live backlog focus and the next approved campaign plan.
 
 ### Roadmap And Planned Work
 
@@ -406,7 +391,7 @@ Low-priority exploratory families currently listed in the backlog:
 - `Neural ODE`
 - `Hamiltonian-Inspired Model`
 - `optional Kernel Ridge / Gaussian Process benchmark`
-| Wave 5.1. Hybrid Structured Models | status: first real campaign closed successfully as a scalar training; current scaffold:; model type: `wave3_harmonic_prior_residual`;; model class:; dry-run skeleton checker:; training-smoke-ready checker:; final one-batch validation artifact:; prepared package:; prepared launcher:; campaign closeout report:; scalar training winner:; scalar decision: no program-best promotion; the current program winner; official TE Curve Verification Pipeline launcher:; official TE curve-verification report:; strongest Wave 5.1 TE Curve Verification Pipeline candidate:; updated priority: use the completed Wave 5.1 curve, offset, collage, overlay,; mandatory rule: prepare or justify `global`, `forward`, and `backward`; paper-reproduction scope:; compare hybrid structured predictors against the paper-style harmonic stack;; test condition-conditioned residual structure and separate treatment of; prepare the repository-owned deployable predictor package after the; next implementation steps:; proceed to `Wave 5.2` / integrated multi-head planning with hidden-state |
+| Wave 5.1. Hybrid Structured Models | status: first real campaign closed successfully as a scalar training; current scaffold:; model type: `wave3_harmonic_prior_residual`;; model class:; dry-run skeleton checker:; training-smoke-ready checker:; final one-batch validation artifact:; prepared package:; prepared launcher:; campaign closeout report:; scalar training winner:; scalar decision: no program-best promotion; the current program winner; official TE Curve Verification Pipeline launcher:; official TE curve-verification report:; strongest Wave 5.1 TE Curve Verification Pipeline candidate:; updated priority: use the completed Wave 5.1 curve, offset, collage, overlay,; mandatory rule: prepare or justify `global`, `forward`, and `backward`; paper-reproduction scope:; compare hybrid structured predictors against the paper-style harmonic stack;; test condition-conditioned residual structure and separate treatment of; prepare the repository-owned deployable predictor package after the; next implementation steps:; proceed to Wave 5.2 reference intake, equation audit, and formulation |
 
 Low-priority exploratory families currently listed in the backlog:
 
@@ -416,7 +401,7 @@ Low-priority exploratory families currently listed in the backlog:
 - `Neural ODE`
 - `Hamiltonian-Inspired Model`
 - `optional Kernel Ridge / Gaussian Process benchmark`
-| Wave 5.2. PINN Formulation And First PINN | status: deferred future TODO; inactive and not campaign-ready;; replay evidence: 3,876 rows across direction-specific training, validation, and test manifests for four accepted baselines;; explanatory evidence: 224 fitted comparisons over seven residual views, with zero metadata-plus-MMT gain and identical shuffled-control behavior;; blocked evidence: 56 equivalent-error arms lack causal component-error or contact-state inputs;; reopening gate: independent component-error measurements or validated causal contact-state reconstruction;; roadmap effect: non-blocking for remaining non-MMT work |
+| Wave 5.2. PINN Formulation And First PINN | status: active at reference-intake and formulation-design stage; not yet; canonical roadmap:; physics reference-intake register:; active general formulation families:; Polynomial-Fourier structured residual PINN;; harmonic-kinematic constraint PINN;; contact-regime or energy-consistency PINN where references and observable; additional reference-derived formulations, kept separate until their; full-PINN qualification rule:; training must contain an explicit differentiable physical residual,; harmonic features, Fourier heads, curve metrics, or ungrounded soft; active evidence base:; Waves 3.1 through 3.3 for offset, centered shape, slope, amplitude, phase,; Waves 4.1 through 4.4 for robustness, uncertainty, mixture behavior, and; Wave 5.1 for harmonic priors and structured residual learning;; periodic GRU and periodic harmonic MLP as time-windowed and non-windowed; the existing direction-specific Polynomial Fourier Series PLC; current scaffold:; diagnostic adapter:; diagnostic report builder:; parameter-inventory report builder:; generated diagnostic report:; generated parameter-inventory report:; companion artifacts:; parameter-inventory artifacts:; residual-explanatory diagnostic report:; leakage-safe residual-explanatory rerun:; updated priority: audit multiple non-MMT physics formulations, validate their; mandatory rule: prepare or justify `global`, `forward`, and `backward`; paper-reproduction scope:; prepare explicit PINN model and physics-loss formulations for later; test whether soft physics, periodicity, smoothness, harmonic-consistency,; keep online compensation execution out of Wave 5.2 unless Track 3 is; completed inventory conclusions:; known geometry constants are safe for diagnostics and feature generation;; operating metadata can be used for stratification and causal conditioning;; five equivalent-error groups are train-only calibratable;; contact geometry remains unavailable or ambiguous and blocks calibrated; measured TE remains target-only and must not become an inference input.; MMT-specific closed implementation conclusions:; exact-manifest replay preserves all archived model artifacts and split; 224 metadata, geometry, combined, and shuffled comparisons were fitted on; geometry-locked MMT signatures produced zero incremental held-out gain;; 56 calibrated equivalent-error arms were explicitly blocked because; no MMT feature, auxiliary-output, weak-loss, or paper-faithful MMT; MMT future TODO reopening gate:; obtain independent component-error measurements or a validated causal; prove that the resulting MMT inputs vary by operating condition without; create a new technical document and, if training is proposed, a new; until those conditions are met, the MMT-paper-faithful subbranch is not; general full-PINN evidence gates:; register and synthesize each supplied reference;; verify equations, units, assumptions, observability, identifiability,; test equations against measured curves and synthetic or analytical oracles; prepare a separate approved technical document and campaign plan for one; apply multi-index curve-first verification before accepting, combining, or; use validated findings to define the later Wave 6 architecture. |
 
 Low-priority exploratory families currently listed in the backlog:
 

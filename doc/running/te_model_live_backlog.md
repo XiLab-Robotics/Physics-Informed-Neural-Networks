@@ -35,10 +35,13 @@ Historical rationale and approval history remain in:
   offline model-verification
   report, closed as the canonical direction-aware verification surface for new
   model families.
-- Current Focus: the polished-dataset TE Curve Verification Pipeline refresh is
-  accepted. The polished `periodic_gru_sequence` family is the accepted
+- Current Focus: Wave 5.2 full-PINN equation audit and analytical benchmark
+  design. The SharePoint reference intake is complete, and the first selected
+  task is a common-split audit of the Bauer, recovered ONNX, and PLC
+  Polynomial-Fourier variants. The polished `periodic_gru_sequence` family
+  remains the accepted
   model-development baseline; `polished_rcim_model_bank_reproduction_ET19_Fw`
-  is retained as the polished RCIM reference-bank forward leader.
+  remains the polished RCIM reference-bank forward leader.
 - Parallel Diagnostic Focus: component-offset, `CVP 1.4` h0 cross-check, and
   predicted-mean versus measured-h0 diagnostics are complete; `h0` is the
   correct mean-like channel to inspect, but not the confirmed sole cause of the
@@ -69,24 +72,33 @@ Historical rationale and approval history remain in:
   screen ranked it fourth and retained
   `polished_setpoints_periodic_gru_sequence_Fw` as the forward recommendation.
   The time-windowed residual-offset GRU failed the shape gate.
-- Deferred Future TODO: Wave 5.2 MMT is inactive after the leakage-safe rerun
-  found zero held-out gain from geometry-locked signatures and could not
-  calibrate unobserved equivalent-error groups. Reopen it only after
-  independent component-error measurements or a validated causal contact-state
-  reconstruction provides condition-varying physical inputs.
+- Active Wave 5.2 Program: the general full-PINN branch is active at the
+  reference-intake and formulation-design stage. Candidate physics include the
+  existing Polynomial Fourier Series law, harmonic-kinematic constraints, and
+  additional source-backed formulations. No implementation or training is
+  authorized yet.
+- Deferred MMT Subbranch: only the paper-faithful MMT full PINN is inactive
+  after the leakage-safe rerun found zero held-out gain from geometry-locked
+  signatures and could not calibrate unobserved equivalent-error groups.
+  Reopen it only after independent component-error measurements or a validated
+  causal contact-state reconstruction provides condition-varying physical
+  inputs.
 - Latest Reduced Decision: periodic GRU is recommended in four of six cells;
   periodic harmonic MLP wins polished-setpoint `Bw` and simplified-setpoint
   `Fw`. Wave 4.1 remains the raw-error and offset diagnostic ingredient.
   Sparse-RCIM temporal candidates remain actual-values references only.
-- Current Next Branch: prepare a bounded non-MMT Wave 6 technical design using
-  periodic GRU, periodic harmonic MLP, and an explicit Wave 4.1-informed
-  offset/raw-error head. Do not start training before the separate technical
-  document and campaign-plan approval gates.
+- Current Next Branch: reproduce the Bauer signal-processing and quadratic
+  coefficient law, reconcile it with the recovered ONNX and PLC
+  Polynomial-Fourier variants, and benchmark all three on common `Fw` and `Bw`
+  held-out conditions. Select the first bounded full-PINN formulation only
+  after equation, observability, identifiability, causal-input, and analytical
+  checks. Wave 6 follows the bounded PINN evidence and is not the immediate
+  implementation branch.
 
 Current canonical status reports:
 
 - `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
-- `doc/reports/analysis/TE Program Status And Closeout Ledger.md`
+- `doc/reports/analysis/project_status/current/TE Program Status And Closeout Ledger.md`
 - `doc/reports/analysis/te_curve_verification_pipeline/01_official_decisions/official_model_verification_report/[2026-07-03]/track2_official_model_verification_report.md`
 - `doc/reports/analysis/model_development_waves/model_family_pruning/[2026-07-06]/te_model_family_pruning_decision_report.md`
 - `doc/reports/analysis/model_development_waves/intermediate_model_selection_cleanup/[2026-07-17]/te_intermediate_model_selection_cleanup_report.md`
@@ -290,7 +302,8 @@ Next planned diagnostic and training decision branches:
 | Component-offset identification | Test whether curve offset is dominated by `a_0` / `Component 0`, multiple components, condition/regime behavior, or experimental repeatability limits. | measured `h0`, signed-offset cross-check, and predicted-mean surface diagnostics completed; `h0` is the right mean channel, but the actionable issue is model-side mean-surface bias/compression |
 | `Wave 4 series` dispersion-aware modeling probes | Test robust losses, quantile or probabilistic heads, mixture-density heads, and latent-state or hysteresis-aware features on the offset and fragile-harmonic problem. | robust-loss, quantile/probabilistic, MDN, and `Wave 4.4` latent-state / hysteresis-aware campaigns and official TE Curve Verification refreshes completed; all are exploratory and not promoted |
 | `Wave 5.1` hybrid structured models | Combine harmonic structure, condition-conditioned residual learning, and explicit grouped treatment of stable and fragile harmonic bands. | first real `wave3_harmonic_prior_residual` campaign and official `TE Curve Verification Pipeline` verification refresh closed as a verified exploratory baseline, not promoted |
-| `Wave 5.2` PINN formulation and first PINN | Preserve the completed MMT evidence and reopen only if causal physical inputs become available. | deferred future TODO after the parameter-availability blocker; no MMT feature, auxiliary head, weak constraint, or full PINN is authorized. The remaining non-MMT roadmap may proceed independently. |
+| `Wave 5.2` general full-PINN program | Audit and test explicit differentiable physics formulations derived from harmonic behavior, the Polynomial Fourier Series law, Wave 3 through Wave 5.1 evidence, and additional references. | SharePoint reference intake complete; active at Polynomial-Fourier equation-audit and analytical-benchmark stage; implementation and training are not yet authorized |
+| `Wave 5.2` paper-faithful MMT full PINN | Preserve the completed MMT evidence and reopen only if causal physical inputs become available. | deferred future TODO after the parameter-availability blocker; no MMT feature, auxiliary head, weak constraint, or MMT full PINN is authorized |
 | Intermediate shape-first model-selection cleanup | Reduce the post-retraining active set using raw error, P95, centered shape, P2P behavior, visual collage evidence, and actual-values stability. | completed; active set is `periodic_gru_sequence`, `wave4_1_mae_robust_loss`, `wave4_2_quantile_p10_p50_p90`, and `periodic_mlp_harmonic`; `periodic_lstm_sequence_Bw`, `Wave 4.3`, `Wave 4.4`, and `Wave 5.1` are closed as active branches |
 | Frequency-domain shape-gated reranker | Add measured/predicted FFT amplitude similarity, dominant-harmonic retention, dominant-harmonic phase error, robust derivative agreement, threshold sweep, and per-curve shape pass rate to future reduced reports. | completed across the six-cell non-MMT reduced pass; periodic GRU wins four cells, periodic harmonic MLP wins two, and the simplified tree scalar leader remains vetoed by weak shape retention |
 | Shape-gate loss pilot | Test whether calibrated shape-gate evidence can improve training or checkpoint selection. | patched polished-setpoint Fw/Bw expansion completed. Forward recommendation remains `polished_setpoints_periodic_gru_sequence_Fw`; backward recommendation is `polished_setpoints_periodic_mlp_harmonic_Bw`; the shape-gate loss pilot remains a viable but non-promoted forward candidate. Future training should evaluate a stricter second pilot or checkpoint-selection variant focused on derivative/ripple preservation before any full `simplified_setpoints`, `polished_setpoints`, and `polished_actual_values` x `global`/`Fw`/`Bw` Aries campaign. |
@@ -298,7 +311,7 @@ Next planned diagnostic and training decision branches:
 | Post-shape-loss `Wave 5.2` decision gate | Choose the next branch after direct shape-threshold training pressure failed to promote. | completed; selected the causal offset / mean calibration pilot anchored to `polished_setpoints_periodic_gru_sequence_Fw`, with `polished_setpoints_periodic_mlp_harmonic_Fw` kept as the required non-windowed comparator. Do not rerun `Wave 5.2B` unchanged and do not start `Wave 5.2C`, full PINN, or Wave 6 before this narrow offset gate is curve-screened. |
 | Causal offset / mean calibration pilot | Test whether direct offset / curve-mean pressure improves the next `polished_dataset` setpoint `Fw` branch while preserving both time-windowed and non-windowed roads. | completed and bounded-screened; the non-windowed harmonic MLP won scalar selection but ranked fourth in the bounded curve-first screen, while the time-windowed residual-offset GRU failed the shape gate. Do not promote or expand this direct causal-offset profile. |
 | Post-causal-offset `Wave 5.2` decision gate | Decide whether MMT should remain diagnostic-only, become a feature or auxiliary-output path, or become a weak soft constraint. | completed; the follow-up replay and leakage-safe diagnostic selected `blocked_by_parameter_availability`. MMT is now an inactive future TODO and does not block non-MMT work. |
-| Wave 6 integrated multi-task / multi-head model branch | Shared causal trunk with separate offset, low-frequency, centered-shape, uncertainty or mixture, and optional structured-residual heads. | ready for bounded technical planning after the six-cell reduced pass identified periodic GRU, periodic harmonic MLP, and Wave 4.1 offset/raw-error behavior as the ingredients; do not include MMT unless its future TODO is explicitly reopened |
+| Wave 6 integrated multi-task / multi-head model branch | Shared causal trunk with separate offset, low-frequency, centered-shape, uncertainty or mixture, and validated physics-informed heads. | sequenced after bounded Wave 5.2 PINN pilots and curve-first verification; do not prepare a campaign until the useful physics-informed ingredients are known |
 | Sequential residual calibration branch | Current best causal model plus second causal residual or offset calibrator trained on model error. | candidate after audit |
 
 The `CVP 1.5` offset-predictability feasibility diagnostic is complete in:
@@ -316,10 +329,12 @@ Current `CVP 1.5` observations:
 
 Recommended next gate:
 
-- treat `Wave 5.2` first-PINN formulation as the next physics-informed branch
-  after the hidden-state question is tested or explicitly deferred; `Wave 5.2`
-  resumes from the `Wave 5.2A` MMT diagnostic report, completed parameter
-  inventory, and dataset-aligned calibration gate;
+- treat Wave 5.2 reference intake, equation audit, and first-PINN formulation
+  selection as the next physics-informed branch;
+- use the MMT diagnostic as retained evidence without making its missing
+  parameters a blocker for Polynomial-Fourier, harmonic-kinematic, or other
+  source-backed formulations;
+- keep Wave 6 after bounded PINN pilots and curve-first formulation decisions;
 - do not document `a_0` / `Component 0` as the confirmed sole cause unless
   repeatability, component-level error, and model-side surface diagnostics
   support that conclusion.
@@ -579,18 +594,26 @@ Official closeout package:
 
 ### Planned Next Step
 
-After the completed six-cell non-MMT reduced comparison, the active next step
-is:
+After the completed SharePoint reference intake, the active next step is:
 
-- prepare a bounded technical design for the Wave 6 integrated multi-head
-  branch;
-- retain periodic GRU as the primary time-windowed path;
-- retain periodic harmonic MLP as the non-windowed complement;
-- use Wave 4.1 raw-error and offset behavior as an explicit diagnostic
-  ingredient;
-- keep Wave 4.2 quantile behavior as a secondary uncertainty benchmark;
-- exclude MMT unless its inactive future TODO is explicitly reopened;
-- do not train Wave 6 before an approved technical document and campaign plan.
+- reproduce the Bauer spatial-processing and complete quadratic coefficient
+  law on the repository dataset;
+- reconstruct the recovered ONNX and PLC Polynomial-Fourier equations, units,
+  coefficients, angular convention, direction logic, and validity range;
+- compare all three variants on identical `Fw` and `Bw` held-out conditions;
+- retain the imported harmonic, hysteretic, dynamic, bidirectional, contact,
+  efficiency, tolerance, wear, and electromechanical sources as separate
+  formulation or oracle branches;
+- retain periodic GRU as the primary time-windowed reference;
+- retain periodic harmonic MLP as the non-windowed structured reference;
+- use Waves 3, 4, and 5.1 as experimental evidence for PINN loss, offset,
+  robustness, uncertainty, state, and harmonic-design decisions;
+- select one formulation for the first bounded pilot only after equation,
+  observability, identifiability, causality, and oracle checks;
+- keep the paper-faithful MMT formulation deferred behind its physical-input
+  reopening gate;
+- defer Wave 6 campaign design until bounded PINN evidence identifies useful
+  physics-informed ingredients.
 
 The previous temporal refresh answered three concrete questions:
 
@@ -1192,7 +1215,7 @@ Entry rule:
   `0.003360 deg`;
 - updated priority: use the completed Wave 5.1 curve, offset, collage, overlay,
   and completed `Wave 4.4` official TE Curve Verification Pipeline evidence as baselines for the
-  next `Wave 5.2` or integrated multi-head decision;
+  active Wave 5.2 full-PINN formulation program;
 - mandatory rule: prepare or justify `global`, `forward`, and `backward`
   surfaces;
 - paper-reproduction scope:
@@ -1202,15 +1225,40 @@ Entry rule:
   - prepare the repository-owned deployable predictor package after the
     research branch has identified a viable structure.
 - next implementation steps:
-  - proceed to `Wave 5.2` / integrated multi-head planning with hidden-state
-    modeling treated as verified exploratory integration evidence, not as a
-    promoted branch.
+  - proceed to Wave 5.2 reference intake, equation audit, and formulation
+    selection, with hidden-state modeling treated as verified exploratory
+    evidence rather than a promoted branch.
 
 ### Wave 5.2. PINN Formulation And First PINN
 
-- status: deferred future TODO after completed `Wave 5.2A`, `Wave 5.2B`,
-  post-causal-offset decision gates, residual replay, and explanatory rerun;
-  inactive and not campaign-ready;
+- status: active at reference-intake and formulation-design stage; not yet
+  implementation-ready or campaign-ready;
+- canonical roadmap:
+  `doc/reports/analysis/model_development_waves/wave_5_2/full_pinn_program/[2026-07-25]/full_pinn_physics_formulation_roadmap.md`;
+- physics reference-intake register:
+  `doc/reports/analysis/model_development_waves/wave_5_2/full_pinn_program/[2026-07-25]/physics_reference_intake_register.md`;
+- active general formulation families:
+  - Polynomial-Fourier structured residual PINN;
+  - harmonic-kinematic constraint PINN;
+  - contact-regime or energy-consistency PINN where references and observable
+    variables support the equations;
+  - additional reference-derived formulations, kept separate until their
+    assumptions are reconciled;
+- full-PINN qualification rule:
+  - training must contain an explicit differentiable physical residual,
+    compatibility equation, or mathematically specified physical constraint;
+  - harmonic features, Fourier heads, curve metrics, or ungrounded soft
+    regularization alone do not qualify as a full PINN;
+- active evidence base:
+  - Waves 3.1 through 3.3 for offset, centered shape, slope, amplitude, phase,
+    and curve-level objectives;
+  - Waves 4.1 through 4.4 for robustness, uncertainty, mixture behavior, and
+    causal state;
+  - Wave 5.1 for harmonic priors and structured residual learning;
+  - periodic GRU and periodic harmonic MLP as time-windowed and non-windowed
+    comparison references;
+  - the existing direction-specific Polynomial Fourier Series PLC
+    implementation as the first semi-analytical formulation to audit;
 - current scaffold:
   - diagnostic adapter:
     `scripts/models/wave4_mmt_diagnostic_adapter.py`;
@@ -1230,14 +1278,14 @@ Entry rule:
     `doc/reports/analysis/model_development_waves/wave_5_2/mmt_residual_explanatory_diagnostic/[2026-07-24]/wave52_mmt_residual_explanatory_diagnostic.md`;
   - leakage-safe residual-explanatory rerun:
     `doc/reports/analysis/model_development_waves/wave_5_2/mmt_residual_explanatory_diagnostic/[2026-07-24]/wave52_mmt_residual_explanatory_rerun.md`;
-- updated priority: keep MMT diagnostic-only and require independent
-  component-error measurements or validated causal contact-state
-  reconstruction before reopening the branch;
+- updated priority: audit multiple non-MMT physics formulations, validate their
+  equations and observable variables, and select one bounded first pilot before
+  Wave 6 design;
 - mandatory rule: prepare or justify `global`, `forward`, and `backward`
   surfaces;
 - paper-reproduction scope:
-  - prepare PINN-side model and loss formulations for later offline and
-    deployment evaluation;
+  - prepare explicit PINN model and physics-loss formulations for later
+    offline and deployment evaluation;
   - test whether soft physics, periodicity, smoothness, harmonic-consistency,
     and operating-condition constraints reduce offset and fragile-harmonic
     errors;
@@ -1250,7 +1298,7 @@ Entry rule:
   - contact geometry remains unavailable or ambiguous and blocks calibrated
     analytical-baseline claims;
   - measured TE remains target-only and must not become an inference input.
-- closed implementation conclusions:
+- MMT-specific closed implementation conclusions:
   - exact-manifest replay preserves all archived model artifacts and split
     memberships;
   - 224 metadata, geometry, combined, and shuffled comparisons were fitted on
@@ -1258,17 +1306,29 @@ Entry rule:
   - geometry-locked MMT signatures produced zero incremental held-out gain;
   - 56 calibrated equivalent-error arms were explicitly blocked because
     causal component-error and contact-state inputs are unavailable;
-  - no MMT feature, auxiliary-output, weak-loss, or full-PINN pilot is
-    justified by current evidence.
-- future TODO reopening gate:
+  - no MMT feature, auxiliary-output, weak-loss, or paper-faithful MMT
+    full-PINN pilot is justified by current evidence.
+- MMT future TODO reopening gate:
   - obtain independent component-error measurements or a validated causal
     contact-state reconstruction;
   - prove that the resulting MMT inputs vary by operating condition without
     using validation or test TE targets;
   - create a new technical document and, if training is proposed, a new
     campaign plan before reactivation;
-  - until those conditions are met, MMT is not part of active model
-    development and does not block the remaining roadmap.
+  - until those conditions are met, the MMT-paper-faithful subbranch is not
+    part of active model development and does not block the general Wave 5.2
+    full-PINN program.
+- general full-PINN evidence gates:
+  - register and synthesize each supplied reference;
+  - verify equations, units, assumptions, observability, identifiability,
+    differentiability, and causal inference-time availability;
+  - test equations against measured curves and synthetic or analytical oracles
+    where possible;
+  - prepare a separate approved technical document and campaign plan for one
+    bounded formulation pilot;
+  - apply multi-index curve-first verification before accepting, combining, or
+    rejecting a formulation;
+  - use validated findings to define the later Wave 6 architecture.
 
 ### Wave 5. Cross-Wave Comparison And Best Solution
 
@@ -1308,9 +1368,11 @@ Entry rule:
 - `TE Curve Verification Pipeline` is the canonical offline verification baseline; diagnostic
   extensions now continue as CVP 1.1, CVP 1.2, mean-centered collage, and
   completed `CVP 1.4`;
-- the Wave 5.2 MMT diagnostic branch is an inactive future TODO after
-  `blocked_by_parameter_availability`; it must not be reopened without new
-  condition-varying physical inputs and does not block non-MMT roadmap work;
+- the general Wave 5.2 full-PINN program is active at reference intake and
+  formulation design; the paper-faithful MMT subbranch alone remains an
+  inactive future TODO after `blocked_by_parameter_availability`;
+- Wave 6 follows bounded PINN formulation evidence and is no longer the
+  immediate next design branch;
 - the polished actual-values RCIM prerequisite is complete across the six
   expected `GRU` / `LSTM` and `global` / `Fw` / `Bw` archive cells; the next
   reduced evaluation can move to technical planning;
