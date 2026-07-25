@@ -154,9 +154,9 @@ conditions are represented in a versioned contract.
 
 ## Phase 1: Polynomial-Fourier Analytical Benchmark
 
-### Current Progress
+### Completion Evidence
 
-The common-data foundation is implemented:
+The common-data foundation and analytical comparison are implemented:
 
 - 969 nominal operating conditions are paired across `Fw` and `Bw`;
 - the pair is assigned once to 678 training, 194 validation, and 97 test
@@ -168,9 +168,18 @@ The common-data foundation is implemented:
   `c1aa8718fb9bf88cc2021c121dc4f3b4010fc1d2e45ac90af5f4376aa64f8e16`.
 - the Phase 0 measurement audit excludes three anomalous training conditions,
   leaving 675 training, 194 validation, and 97 test conditions eligible for
-  Phase 1.
-
-The analytical formulations and their curve-first comparison remain pending.
+  Phase 1;
+- all 1,932 eligible directional curves are normalized to 2,048 angular
+  samples and evaluated through six analytical variants;
+- deterministic Fourier, phase-wrapping, quadratic-recovery, PLC-basis, PLC
+  parser, and ONNX I/O contracts pass;
+- the local-order Bauer quadratic wins the held-out multi-index rank with
+  combined-direction mean raw MAE `0.001887 deg`;
+- the reduced common-order quadratic is retained as the alternative comparator
+  with combined-direction mean raw MAE `0.001906 deg`;
+- the paper-order transfer is weaker, recovered ONNX remains a forward-only
+  comparator, PLC degree 10 is unstable on parts of the forward common domain,
+  and the direct Fourier oracle remains target-leaking.
 
 ### Source Basis
 
@@ -207,6 +216,10 @@ The analytical formulations and their curve-first comparison remain pending.
 
 Select one analytical reference and one alternative comparator. Do not call
 either a full PINN yet.
+
+**Status: passed.** `PF_A_LOCAL_QUADRATIC` is the analytical reference and
+`PF_E_REDUCED_QUADRATIC` is the alternative comparator. Phase 2 is the active
+next phase; no PINN training has yet been authorized.
 
 ## Phase 2: Harmonic And Kinematic Constraint PINNs
 

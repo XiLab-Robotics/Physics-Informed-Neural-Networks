@@ -35,7 +35,7 @@ closeout that changes any of these surfaces:
 | Latest pruning decision | `2026-07-17` shape-first intermediate model-selection cleanup; `global` remains paused until final backlog stage |
 | Active report generation | six reduced selected-model reports completed for polished setpoints, simplified setpoints, and polished actual values, each split into `forward` and `backward` |
 | Current TE Curve Verification Pipeline selection policy | multi-index curve-first selection, dated `2026-06-16` |
-| Next modeling decision | Phase 0 is complete; continue Phase 1 of the 16-phase theory-validation roadmap on 966 eligible paired Fw/Bw conditions after three anomalous training conditions were quarantined; reproduce the Bauer quadratic first, then compare recovered ONNX and PLC Polynomial-Fourier variants on the same held-out conditions; PINN training is not authorized |
+| Next modeling decision | Phases 0 and 1 are complete; prepare Phase 2 harmonic and kinematic constraint PINNs using the local-order Bauer quadratic as analytical reference and the reduced-order quadratic as comparator; PINN training is not authorized until the campaign plan is explicitly approved |
 
 The repository remains direction-parallel. `Fw`, `Bw`, and `global` are not a
 single destructive competition. Each surface keeps its own best candidate and
@@ -168,8 +168,8 @@ robustness, visual-evidence, and deployment-readiness axes visible.
 | Wave 5.2 post-causal-offset decision gate | closed design gate | The gate combined the MMT paper, parameter inventory, paired-dataset diagnostics, completed `Wave 5.2B` evidence, and bounded shape and causal-offset screens. Its follow-up residual replay and leakage-safe diagnostic are complete. | Final outcome `blocked_by_parameter_availability`; preserve MMT as an inactive future TODO and continue non-MMT work. |
 | Wave 5.2 frozen-baseline residual replay | completed | Four accepted polished-setpoint ONNX baselines were replayed over their exact direction-specific manifests, producing 3,876 per-curve residual rows: 678 training, 194 validation, and 97 test rows per candidate. The selected July archive IDs differ from older June family-registry entries and are recorded explicitly. | Provenance blocker closed. Use these immutable split labels for the leakage-safe MMT rerun; do not substitute the earlier combined-direction audit split. |
 | Wave 5.2 MMT residual-explanatory diagnostic | completed with parameter blocker | The rerun fitted 224 permitted comparisons on training residuals and evaluated validation and test across seven residual targets for four `Fw` / `Bw` baselines. Geometry-locked MMT signatures were condition-invariant: metadata-plus-MMT and shuffled-control gains were both exactly zero. All 56 calibrated equivalent-error arms were blocked without using target-derived proxies. | Decision `blocked_by_parameter_availability`; current MMT evidence does not justify a feature, auxiliary head, weak soft constraint, or full PINN. |
-| Wave 5.2 general full-PINN program | Phase 0 complete; Phase 1 active | The SharePoint intake closed with 31 unique curated files, 17 hash-confirmed duplicate dispositions, six detailed reference summaries, and a per-source evidence matrix. Phase 0 scanned 1,938 curves and 75,585,373 rows, passed all foundation gates, and quarantined three anomalous training conditions. | Reproduce the Bauer quadratic on the 675 / 194 / 97 eligible split, then add recovered ONNX and PLC Polynomial-Fourier parity paths. No PINN training is authorized yet. |
-| Wave 5.2 complete theory-validation program | Phase 0 of 16 complete | Sixteen phases preserve every ingested mechanism through common foundations, isolated formulations, synthetic and offline oracles, causal reconstruction, instrumentation gates, cross-formulation comparison, multi-physics integration, and Wave 6 entry criteria. | Continue Phase 1 without combining unverified mechanisms. Each training pilot remains separately approval-gated. |
+| Wave 5.2 general full-PINN program | Phases 0 and 1 complete; Phase 2 preparation active | Phase 1 evaluated 1,932 curves across local and paper-order Bauer laws, recovered ONNX, parsed PLC degree 10, direct Fourier oracle, and a reduced-order quadratic. The local-order quadratic won the held-out multi-index rank at combined mean raw MAE `0.001887 deg`; the reduced-order variant reached `0.001906 deg` and is retained as comparator. | Prepare isolated harmonic and kinematic residual variants. No PINN training is authorized until its campaign plan is explicitly approved. |
+| Wave 5.2 complete theory-validation program | Phases 0 and 1 of 16 complete | Sixteen phases preserve every ingested mechanism through common foundations, isolated formulations, synthetic and offline oracles, causal reconstruction, instrumentation gates, cross-formulation comparison, multi-physics integration, and Wave 6 entry criteria. | Continue Phase 2 without combining unverified mechanisms. Each training pilot remains separately approval-gated. |
 | Wave 5.2 paper-faithful MMT full PINN | deferred future TODO | MMT diagnostics, parameter inventory, `Wave 5.2B`, the post-causal-offset gate, exact-manifest replay, and leakage-safe explanatory rerun are complete. Contact geometry and causal observations for five equivalent-error groups remain unavailable. | Inactive without blocking the general full-PINN program. Reopen only after independent component-error measurements or validated causal contact-state reconstruction provides condition-varying physical inputs. |
 | Six-cell non-MMT reduced cross-wave comparison | closed diagnostic | Six remote selected-model reports and three direction-paired shape-gated reranks covered polished setpoints, simplified setpoints, and polished actual values. Forty-six curve collages were reviewed. | No official promotion. Periodic GRU wins four cells, periodic harmonic MLP wins two, Wave 4.1 remains the raw-error/offset ingredient, and sparse-RCIM temporal models remain reference-only. |
 | Wave 6 integrated multi-task / multi-head model | sequenced after Wave 5.2 PINN evidence | Intended to combine proven offset, low-frequency, centered-shape, uncertainty, mixture, and validated physics-informed mechanisms. | Do not prepare a campaign until bounded Wave 5.2 pilots and curve-first verification identify the physics-informed ingredients worth integrating. |
@@ -269,12 +269,11 @@ models.
 
 ## Current Next Steps
 
-1. Treat Phase 0 as complete and keep the general Wave 5.2 full-PINN program
-   active at Phase 1 analytical benchmark implementation.
-2. Use the validated 966-condition eligible surface to reproduce the Bauer
-   processing and complete quadratic law, then reconstruct the recovered ONNX
-   and PLC Polynomial-Fourier conventions and compare all three on the same
-   `Fw` and `Bw` held-out conditions.
+1. Treat Phases 0 and 1 as complete and keep the general Wave 5.2 full-PINN
+   program active at Phase 2 preparation.
+2. Use `PF_A_LOCAL_QUADRATIC` as the analytical reference and
+   `PF_E_REDUCED_QUADRATIC` as the alternative comparator for the first
+   harmonic and kinematic residual tests.
 3. Continue the complete theory portfolio through the immediate analytical,
    causal-state, and offline-physics lanes. Preserve blocked formulations as
    oracle or instrumentation tasks rather than silently dropping them.

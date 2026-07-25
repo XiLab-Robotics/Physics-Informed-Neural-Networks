@@ -1,0 +1,80 @@
+schema_version: 1
+benchmark_id: wave52_phase1_polynomial_fourier_benchmark
+status: complete
+training_executed: false
+coverage:
+  eligible_condition_count: 966
+  directional_curve_count: 1932
+  angular_sample_count: 2048
+  curve_count_by_split:
+    train: 1350
+    validation: 388
+    test: 194
+provenance:
+  split_assignment_sha256: c1aa8718fb9bf88cc2021c121dc4f3b4010fc1d2e45ac90af5f4376aa64f8e16
+  phase0_audit_status: passed
+  quarantined_condition_count: 3
+  onnx_model_sha256_map:
+    A0: 41ebed830dde286761ed5ba7b3c0068a276831771ed144ab1237a1fe4f677f20
+    A1: 5f0a49388f79744c8a81a7e688cc96d5a297b6aef065e17a908199037fae4d9b
+    phi1: adb9ebe01aae506ee724f3f12124fa907ffb4e9827057909ee72ad2382b439d6
+    A39: 5b859d4dac2360ec327c0f27cf05a58e8162b6c62cd34c7728bf559602aaf11a
+    phi39: dda0a68cfa3f6064f0fc7ce5ee393eef48ca71cfe0c01cbe2dbeadac9d644754
+    A40: 63aae179361e1a2c7d6fc3130421e5e6e95eef48f2c6cec6f17bb87db5cd343e
+    phi40: 9863aad17f1ca5caad484fcae69bddf1b4f0b9bd775ee8ac47c5114a06c98b5d
+  plc_source_sha256: 2ab674689ac283f62c34e97f93c8a80cdd4ff4d50050fe90b4e7d3f7f084c2f0
+selection:
+  policy: equal-rank sum across test raw MAE, centered MAE, offset error, and derivative
+    MAE; PF-D is target-leaking and PF-B is Fw-only
+  score_map:
+    PF_A_LOCAL_QUADRATIC: 2.0
+    PF_E_REDUCED_QUADRATIC: 3.0
+    PF_A_PAPER_QUADRATIC: 7.0
+    PF_C_PLC_ORDER10: 12.0
+  component_map:
+    PF_A_LOCAL_QUADRATIC:
+      raw_mae_deg: 0.001886933141447724
+      centered_mae_deg: 0.0015559543955891999
+      offset_abs_error_deg: 0.0008293423107689644
+      derivative_mae_deg_per_sample: 0.001011404554556189
+    PF_A_PAPER_QUADRATIC:
+      raw_mae_deg: 0.0021712489109260947
+      centered_mae_deg: 0.0019111915193587709
+      offset_abs_error_deg: 0.0008293423107689642
+      derivative_mae_deg_per_sample: 0.0010533267370476573
+    PF_C_PLC_ORDER10:
+      raw_mae_deg: 59.29099783456959
+      centered_mae_deg: 7.362945668194791
+      offset_abs_error_deg: 59.29041719169846
+      derivative_mae_deg_per_sample: 2.840736563720053
+    PF_E_REDUCED_QUADRATIC:
+      raw_mae_deg: 0.0019058585849747538
+      centered_mae_deg: 0.001569648839788947
+      offset_abs_error_deg: 0.000829342310768964
+      derivative_mae_deg_per_sample: 0.0010176698814205205
+  analytical_reference_model_id: PF_A_LOCAL_QUADRATIC
+  alternative_comparator_model_id: PF_E_REDUCED_QUADRATIC
+  full_pinn_claim: false
+deterministic_tests:
+  fourier_reconstruction_max_abs_error_deg: 2.0816681711721685e-17
+  quadratic_recovery_max_abs_error: 1.7763568394002505e-14
+  phase_wrap_equivalence_error_rad: 2.4492935982947064e-16
+  plc_basis_term_count: 35
+  onnx_contract_model_count: 7
+  status: pass
+output_paths:
+  benchmark_yaml: output/analysis/polynomial_fourier_benchmark/phase1_benchmark_summary.yaml
+  per_curve_metrics_csv: output/analysis/polynomial_fourier_benchmark/phase1_per_curve_metrics.csv
+  aggregate_metrics_csv: output/analysis/polynomial_fourier_benchmark/phase1_aggregate_metrics.csv
+  preprocessing_audit_csv: output/analysis/polynomial_fourier_benchmark/phase1_bauer_preprocessing_audit.csv
+  coefficient_models_yaml: output/analysis/polynomial_fourier_benchmark/phase1_coefficient_models.yaml
+  onnx_example_metrics_csv: output/analysis/polynomial_fourier_benchmark/phase1_onnx_matlab_example_metrics.csv
+  plc_parity_yaml: output/analysis/polynomial_fourier_benchmark/phase1_plc_parity.yaml
+  plot_directory: output/analysis/polynomial_fourier_benchmark/phase1_plots
+  report_markdown: doc/reports/analysis/model_development_waves/wave_5_2/polynomial_fourier_benchmark/[2026-07-25]/phase1_polynomial_fourier_analytical_benchmark_report.md
+plot_path_list:
+- output/analysis/polynomial_fourier_benchmark/phase1_plots/phase1_fw_median_comparison.png
+- output/analysis/polynomial_fourier_benchmark/phase1_plots/phase1_fw_worst_comparison.png
+- output/analysis/polynomial_fourier_benchmark/phase1_plots/phase1_bw_median_comparison.png
+- output/analysis/polynomial_fourier_benchmark/phase1_plots/phase1_bw_worst_comparison.png
+elapsed_seconds: 62.65524450002704

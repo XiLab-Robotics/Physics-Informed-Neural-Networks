@@ -251,6 +251,12 @@ This folder contains the internal project documents derived from the reference P
   conditions, split once into common train, validation, and test surfaces for
   the Bauer, recovered ONNX, and PLC comparison.
 
+- [reports/analysis/model_development_waves/wave_5_2/polynomial_fourier_benchmark/[2026-07-25]/phase1_polynomial_fourier_analytical_benchmark_report.md](./reports/analysis/model_development_waves/wave_5_2/polynomial_fourier_benchmark/%5B2026-07-25%5D/phase1_polynomial_fourier_analytical_benchmark_report.md)
+  Completed Phase 1 common-split comparison of Bauer, recovered ONNX, PLC,
+  direct-oracle, and reduced Polynomial-Fourier formulations. The local-order
+  quadratic is the analytical reference and the reduced-order quadratic is the
+  alternative comparator for Phase 2.
+
 - [reports/analysis/te_curve_verification_pipeline/03_cvp_diagnostics/non_mmt_cross_wave_comparison/[2026-07-24]/non_mmt_cross_wave_comparison_report.md](./reports/analysis/te_curve_verification_pipeline/03_cvp_diagnostics/non_mmt_cross_wave_comparison/%5B2026-07-24%5D/non_mmt_cross_wave_comparison_report.md)
   Six-cell reduced cross-wave comparison across polished setpoints, simplified
   setpoints, and polished actual values. The result retains periodic GRU and

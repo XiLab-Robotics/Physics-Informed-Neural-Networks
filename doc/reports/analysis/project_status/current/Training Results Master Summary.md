@@ -5,7 +5,7 @@
 - Generated At: `2026-07-25T20:06:07`
 - Program State: active.
 - Current Completed Wave: polished-dataset RCIM, early-wave, and full-wave
-- Current Focus: Wave 5.2 Phase 1 Polynomial-Fourier analytical benchmark.
+- Current Focus: Wave 5.2 Phase 2 harmonic and kinematic PINN preparation.
 - Active Campaign Status: `closed`
 - Active Campaign Name: `causal_offset_mean_calibration_pilot_2026_07_22`
 - Current Program Winner: `te_periodic_gru_sequence_bw` | Family `periodic_gru_sequence_bw` | Test MAE `0.001084`

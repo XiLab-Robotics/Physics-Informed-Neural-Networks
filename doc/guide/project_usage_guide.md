@@ -431,6 +431,26 @@ This workflow does not train or select a model. It freezes the common data
 surface required before comparing the Bauer law, recovered ONNX coefficient
 models, and PLC polynomial evaluator.
 
+Run the complete Phase 1 analytical benchmark:
+
+```powershell
+conda run --no-capture-output -n pinns_env python -B `
+  scripts/analysis/polynomial_fourier_benchmark/run_phase1_polynomial_fourier_benchmark.py
+```
+
+Validate the persisted metrics, analytical identities, ONNX examples, PLC
+parity, plots, and selected reference:
+
+```powershell
+conda run --no-capture-output -n pinns_env python -B `
+  scripts/analysis/polynomial_fourier_benchmark/validate_phase1_polynomial_fourier_benchmark.py
+```
+
+The completed benchmark selects the local-order complete-quadratic
+Polynomial-Fourier model as the Phase 2 analytical reference and the reduced
+common-order variant as its alternative comparator. It does not train or claim
+a full PINN.
+
 ## Phase 0 PINN Foundation Audit
 
 Run the full-population foundation audit:

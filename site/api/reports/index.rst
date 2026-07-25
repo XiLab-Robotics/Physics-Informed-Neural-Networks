@@ -21,3 +21,5 @@ repository reporting workflow.
    build_wave4a_mmt_equation_diagnostic_report
    build_wave52_frozen_baseline_residual_replay
    build_wave52_mmt_residual_explanatory_diagnostic
+   run_phase1_polynomial_fourier_benchmark
+   validate_phase1_polynomial_fourier_benchmark

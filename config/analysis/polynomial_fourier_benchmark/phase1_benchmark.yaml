@@ -1,0 +1,80 @@
+schema_version: 1
+metadata:
+  benchmark_id: wave52_phase1_polynomial_fourier_benchmark
+  training_allowed: false
+inputs:
+  paired_manifest: output/analysis/polynomial_fourier_benchmark/common_split_manifest.yaml
+  phase0_audit: output/analysis/pinn_program_foundations/phase0_foundation_audit.yaml
+  phase0_condition_support: output/analysis/pinn_program_foundations/phase0_condition_support.csv
+  plc_model_source: reference/codes/TestRig/PLC_project/POUs/Library/0_Function Blocks/06_PolynomialFourierSeriesModel/TE_Model_Axes0.TcPOU
+  plc_evaluator_source: reference/codes/TestRig/PLC_project/POUs/Library/0_Function Blocks/06_PolynomialFourierSeriesModel/evaluateOrder10Polynomial.TcPOU
+  matlab_predictor_source: reference/te_modeling/implementations/polynomial_fourier_te_predictor_matlab/TE_Predictor_FromONNX.m
+  matlab_experiment_directory: reference/te_modeling/implementations/polynomial_fourier_te_predictor_matlab/Experiments
+runtime:
+  normalized_angular_sample_count: 2048
+  bauer_zero_padding_factor: 16
+  representative_plot_count_per_direction: 2
+  onnx_provider_list:
+  - CPUExecutionProvider
+harmonic_order_sets:
+  local_plc_common:
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  reduced_common:
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 156
+  - 240
+  recovered_onnx_sparse:
+  - 1
+  - 39
+  - 40
+  bauer_paper_rh380:
+  - 1
+  - 3
+  - 4
+  - 6
+  - 9
+  - 12
+  - 13
+  - 14
+  - 18
+  - 19
+  - 24
+  - 27
+  - 46
+  - 90
+  - 92
+  - 135
+  - 138
+  - 180
+  - 184
+  - 276
+onnx_models:
+  A0: reference/rcim_ml_compensation_recovered_assets/models/exact_onnx_paper_release/ERT/ampl/ExtraTreesRegressor_ampl0.onnx
+  A1: reference/rcim_ml_compensation_recovered_assets/models/exact_onnx_paper_release/RF/ampl/RandomForestRegressor_ampl1.onnx
+  phi1: reference/rcim_ml_compensation_recovered_assets/models/exact_onnx_paper_release/RF/phase/RandomForestRegressor_phase1.onnx
+  A39: reference/rcim_ml_compensation_recovered_assets/models/exact_onnx_paper_release/HGBM/ampl/HistGradientBoostingRegressor_ampl39.onnx
+  phi39: reference/rcim_ml_compensation_recovered_assets/models/exact_onnx_paper_release/HGBM/phase/HistGradientBoostingRegressor_phase39.onnx
+  A40: reference/rcim_ml_compensation_recovered_assets/models/exact_onnx_paper_release/ERT/ampl/ExtraTreesRegressor_ampl40.onnx
+  phi40: reference/rcim_ml_compensation_recovered_assets/models/exact_onnx_paper_release/GBM/phase/GradientBoostingRegressor_phase40.onnx
+outputs:
+  benchmark_yaml: output/analysis/polynomial_fourier_benchmark/phase1_benchmark_summary.yaml
+  per_curve_metrics_csv: output/analysis/polynomial_fourier_benchmark/phase1_per_curve_metrics.csv
+  aggregate_metrics_csv: output/analysis/polynomial_fourier_benchmark/phase1_aggregate_metrics.csv
+  preprocessing_audit_csv: output/analysis/polynomial_fourier_benchmark/phase1_bauer_preprocessing_audit.csv
+  coefficient_models_yaml: output/analysis/polynomial_fourier_benchmark/phase1_coefficient_models.yaml
+  onnx_example_metrics_csv: output/analysis/polynomial_fourier_benchmark/phase1_onnx_matlab_example_metrics.csv
+  plc_parity_yaml: output/analysis/polynomial_fourier_benchmark/phase1_plc_parity.yaml
+  plot_directory: output/analysis/polynomial_fourier_benchmark/phase1_plots
+  report_markdown: doc/reports/analysis/model_development_waves/wave_5_2/polynomial_fourier_benchmark/[2026-07-25]/phase1_polynomial_fourier_analytical_benchmark_report.md
