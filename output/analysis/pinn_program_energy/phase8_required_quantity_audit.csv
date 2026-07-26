@@ -1,0 +1,12 @@
+quantity,availability_class,causal_runtime,online_model_input,evidence
+output_load_torque,measured,True,True,Phase 0 output-side torque sensor
+input_speed,measured_derived,True,True,Phase 0 encoder derivative
+oil_temperature,measured,True,True,Phase 0 oil-temperature sensor
+direction,causal_derived,True,True,Phase 0 direction contract
+input_motor_torque,unavailable,False,False,no synchronized motor-torque channel
+motor_current_and_drive_state,unavailable,False,False,Phase 0 signal contract
+input_power,unavailable,False,False,input torque or electrical power is absent
+output_power,reconstructable,True,False,output torque and ratio-scaled speed support a proxy
+internal_contact_force,offline_oracle_only,False,False,requires contact model or force instrumentation
+friction_loss,unavailable,False,False,torque and speed do not identify internal loss distribution
+transmission_efficiency,unavailable,False,False,both input and output power are required

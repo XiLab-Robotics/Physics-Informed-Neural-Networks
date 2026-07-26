@@ -651,6 +651,19 @@ observe stiffness, clearance, force, load share, or active contact state, and
 no validated local contact solver supplies paired oracle outputs. Phase 7
 therefore closes without training; Phase 8 is next.
 
+## Phase 8 Energy Portfolio Audit
+
+```powershell
+python -B scripts/analysis/pinn_program_portfolios/build_physics_portfolio_feasibility_audit.py `
+  --config config/analysis/pinn_program_portfolios/phase8_energy_portfolio_audit.yaml
+python -B scripts/analysis/pinn_program_portfolios/validate_physics_portfolio_feasibility_audit.py `
+  --config config/analysis/pinn_program_portfolios/phase8_energy_portfolio_audit.yaml
+```
+
+The output-side power proxy does not close an efficiency or dissipation
+balance because input torque or electrical power, internal force, and friction
+loss are not measured. Phase 8 closes without training; Phase 9 is next.
+
 ## Relevant Project Paths
 
 The current usage flow mainly relies on these folders:

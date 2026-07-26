@@ -532,8 +532,13 @@ blocked. No Phase 7 physical residual is promoted.
 Energy constraints may be retained as auxiliary physics only when their
 required power or force quantities are measured or validated causally.
 
-**Status: active next.** Start with force, power, efficiency, dissipation,
-friction-loss, temperature, and deployment-observability audits.
+**Status: completed feasibility result; no training authorized.** Five
+evidence files, eleven required quantities, and five energy formulations were
+audited. Output torque, speed, temperature, and direction are causal, but
+input torque or power, internal contact force, friction loss, and efficiency
+are absent. `PINN-E1/E2` remain synthetic-oracle-only, `PINN-E5` is
+offline-oracle-only, and `PINN-E3/E4` are blocked. No Phase 8 physical
+residual is promoted.
 
 ## Phase 9: Geometry, Tolerances, MMT, And Manufacturing Priors
 
@@ -571,6 +576,9 @@ friction-loss, temperature, and deployment-observability audits.
 Paper-faithful MMT remains deferred until condition-varying causal component
 errors exist. Synthetic and manufacturing-prior branches may proceed
 independently.
+
+**Status: active next.** Start with geometry, tolerance, component-error, MMT,
+synthetic-population, instance-identity, and transfer-protocol audits.
 
 ## Phase 10: Wear And Degradation PINNs
 

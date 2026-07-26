@@ -1,0 +1,42 @@
+schema_version: 1
+phase_number: 8
+audit_id: wave52_phase8_energy_portfolio_feasibility
+phase_title: Energy, Friction, And Efficiency PINNs
+domain_slug: energy
+generated_at_utc: '2026-07-26T19:25:46.121364+00:00'
+source_configuration:
+  path: config/analysis/pinn_program_portfolios/phase8_energy_portfolio_audit.yaml
+  sha256: 5ad90772c3f63469e9d9663008457b2bac3eaa443f7ede320e262fc92cc1e895
+evidence_file_count: 5
+required_evidence_file_count: 5
+all_required_evidence_files_exist: true
+executable_oracle_count: 0
+required_quantity_count: 11
+availability_class_count:
+  causal_derived: 1
+  measured: 2
+  measured_derived: 1
+  offline_oracle_only: 1
+  reconstructable: 1
+  unavailable: 5
+candidate_formulation_count: 5
+formulation_class_count:
+  blocked_by_data_contract: 2
+  offline_oracle_only: 1
+  synthetic_oracle_only: 2
+full_pinn_training_authorized: false
+decision:
+  status: failed_no_training_authorized
+  summary: Output torque, speed, temperature, and direction are causal, but input
+    power, internal force, friction loss, and efficiency are not observed. Energy
+    inequalities remain synthetic and the balance remains offline.
+  key_findings:
+  - All five energy and friction evidence paths are present.
+  - Output power is reconstructable only as a one-sided proxy.
+  - Input torque, electrical power, internal force, and friction loss are absent.
+  - Efficiency cannot be identified from output power alone.
+  physical_residual_promoted: false
+  campaign_preparation_required: false
+  advance_to_next_phase: true
+  next_phase_number: 9
+  next_phase_title: Geometry, Tolerances, MMT, And Manufacturing Priors

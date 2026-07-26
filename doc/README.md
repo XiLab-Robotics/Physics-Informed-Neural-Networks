@@ -235,6 +235,11 @@ This folder contains the internal project documents derived from the reference P
   geometry and state observability, synthetic-oracle preservation, and
   leakage-safe contact candidate classification.
 
+- [technical/2026-07/2026-07-26/2026-07-26-21-24-45_phase_8_energy_friction_efficiency_gate.md](./technical/2026-07/2026-07-26/2026-07-26-21-24-45_phase_8_energy_friction_efficiency_gate.md)
+  Automatically approved Phase 8 design for energy-source verification,
+  power and loss observability, synthetic inequality preservation, and
+  leakage-safe efficiency candidate classification.
+
 - [reports/analysis/model_development_waves/wave_5_2/hysteresis_friction_memory_pinn/[2026-07-26]/phase4_hysteresis_friction_memory_feasibility_report.md](./reports/analysis/model_development_waves/wave_5_2/hysteresis_friction_memory_pinn/%5B2026-07-26%5D/phase4_hysteresis_friction_memory_feasibility_report.md)
   Completed full-population Phase 4 raw-chronology audit. All `969` canonical
   conditions preserve one direction reversal, but repeated loops, controlled

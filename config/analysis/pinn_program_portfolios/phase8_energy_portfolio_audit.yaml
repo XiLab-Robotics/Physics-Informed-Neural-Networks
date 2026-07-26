@@ -1,0 +1,147 @@
+schema_version: 1
+metadata:
+  phase_number: 8
+  audit_id: wave52_phase8_energy_portfolio_feasibility
+  phase_title: Energy, Friction, And Efficiency PINNs
+  domain_slug: energy
+  training_allowed_by_configuration: false
+evidence_files:
+  - evidence_id: MECHANICS-SYNTHESIS
+    path: doc/reference_summaries/13_RV_Reducer_Theoretical_Mechanics_Reference_Synthesis.md
+    role: efficiency and force-model synthesis
+    required: true
+    executable_oracle: false
+  - evidence_id: HYSTERESIS-SYNTHESIS
+    path: doc/reference_summaries/11_Hysteresis_Backlash_And_Harmonic_TE_Reference_Synthesis.md
+    role: load and temperature dependence of friction
+    required: true
+    executable_oracle: false
+  - evidence_id: WANG-EFFICIENCY
+    path: reference/te_modeling/theoretical_mechanics/dynamics_hysteresis_and_efficiency/2024_wang_nonlinear_transmission_efficiency_cycloid_reducer.pdf
+    role: nonlinear efficiency and internal loss source
+    required: true
+    executable_oracle: false
+  - evidence_id: MESMER-FRICTION
+    path: reference/te_modeling/bibliography/hysteresis_and_backlash/2023_mesmer_investigation_compensation_hysteresis_robot_joints_cycloidal_drives.pdf
+    role: load- and temperature-dependent friction source
+    required: true
+    executable_oracle: false
+  - evidence_id: ELECTROMECHANICAL
+    path: reference/te_modeling/theoretical_mechanics/dynamics_hysteresis_and_efficiency/2026_e_electromechanical_coupling_fault_diagnosis_rv_reducer.pdf
+    role: motor-drive and mechanical power coupling source
+    required: true
+    executable_oracle: false
+required_quantities:
+  - quantity: output_load_torque
+    availability_class: measured
+    causal_runtime: true
+    online_model_input: true
+    evidence: Phase 0 output-side torque sensor
+  - quantity: input_speed
+    availability_class: measured_derived
+    causal_runtime: true
+    online_model_input: true
+    evidence: Phase 0 encoder derivative
+  - quantity: oil_temperature
+    availability_class: measured
+    causal_runtime: true
+    online_model_input: true
+    evidence: Phase 0 oil-temperature sensor
+  - quantity: direction
+    availability_class: causal_derived
+    causal_runtime: true
+    online_model_input: true
+    evidence: Phase 0 direction contract
+  - quantity: input_motor_torque
+    availability_class: unavailable
+    causal_runtime: false
+    online_model_input: false
+    evidence: no synchronized motor-torque channel
+  - quantity: motor_current_and_drive_state
+    availability_class: unavailable
+    causal_runtime: false
+    online_model_input: false
+    evidence: Phase 0 signal contract
+  - quantity: input_power
+    availability_class: unavailable
+    causal_runtime: false
+    online_model_input: false
+    evidence: input torque or electrical power is absent
+  - quantity: output_power
+    availability_class: reconstructable
+    causal_runtime: true
+    online_model_input: false
+    evidence: output torque and ratio-scaled speed support a proxy
+  - quantity: internal_contact_force
+    availability_class: offline_oracle_only
+    causal_runtime: false
+    online_model_input: false
+    evidence: requires contact model or force instrumentation
+  - quantity: friction_loss
+    availability_class: unavailable
+    causal_runtime: false
+    online_model_input: false
+    evidence: torque and speed do not identify internal loss distribution
+  - quantity: transmission_efficiency
+    availability_class: unavailable
+    causal_runtime: false
+    online_model_input: false
+    evidence: both input and output power are required
+candidate_formulations:
+  - formulation_id: PINN-E1
+    name: non-negative dissipation constraint
+    feasibility_class: synthetic_oracle_only
+    full_pinn_eligible: false
+    reason: >-
+      Non-negative dissipation is a valid synthetic inequality, but dissipated
+      power is not independently observed in the local dataset.
+  - formulation_id: PINN-E2
+    name: bounded efficiency surface
+    feasibility_class: synthetic_oracle_only
+    full_pinn_eligible: false
+    reason: >-
+      Efficiency bounds can be unit-tested, while input power and measured
+      efficiency targets are unavailable.
+  - formulation_id: PINN-E3
+    name: load- and speed-dependent friction residual
+    feasibility_class: blocked_by_data_contract
+    full_pinn_eligible: false
+    reason: >-
+      Internal friction loss is not identifiable from output torque, speed,
+      and TE without input torque, contact force, or power measurements.
+  - formulation_id: PINN-E4
+    name: temperature-conditioned loss model
+    feasibility_class: blocked_by_data_contract
+    full_pinn_eligible: false
+    reason: >-
+      Temperature is measured but is not a unique friction-loss label or
+      internal energy state.
+  - formulation_id: PINN-E5
+    name: auxiliary energy-consistency head
+    feasibility_class: offline_oracle_only
+    full_pinn_eligible: false
+    reason: >-
+      The head can be evaluated if future input-power or simulator oracles are
+      supplied, but current output-power proxies cannot close the balance.
+decision:
+  status: failed_no_training_authorized
+  summary: >-
+    Output torque, speed, temperature, and direction are causal, but input
+    power, internal force, friction loss, and efficiency are not observed.
+    Energy inequalities remain synthetic and the balance remains offline.
+  key_findings:
+    - All five energy and friction evidence paths are present.
+    - Output power is reconstructable only as a one-sided proxy.
+    - Input torque, electrical power, internal force, and friction loss are absent.
+    - Efficiency cannot be identified from output power alone.
+  physical_residual_promoted: false
+  campaign_preparation_required: false
+  advance_to_next_phase: true
+  next_phase_number: 9
+  next_phase_title: Geometry, Tolerances, MMT, And Manufacturing Priors
+outputs:
+  evidence_csv: output/analysis/pinn_program_energy/phase8_evidence_file_audit.csv
+  quantity_csv: output/analysis/pinn_program_energy/phase8_required_quantity_audit.csv
+  formulation_csv: output/analysis/pinn_program_energy/phase8_formulation_feasibility.csv
+  audit_yaml: output/analysis/pinn_program_energy/phase8_energy_portfolio_audit.yaml
+  report_markdown: doc/reports/analysis/model_development_waves/wave_5_2/energy_friction_efficiency_pinn/[2026-07-26]/phase8_energy_friction_efficiency_report.md

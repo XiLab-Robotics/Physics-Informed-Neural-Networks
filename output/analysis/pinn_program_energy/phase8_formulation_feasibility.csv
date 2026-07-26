@@ -1,0 +1,6 @@
+formulation_id,name,feasibility_class,full_pinn_eligible,reason
+PINN-E1,non-negative dissipation constraint,synthetic_oracle_only,False,"Non-negative dissipation is a valid synthetic inequality, but dissipated power is not independently observed in the local dataset."
+PINN-E2,bounded efficiency surface,synthetic_oracle_only,False,"Efficiency bounds can be unit-tested, while input power and measured efficiency targets are unavailable."
+PINN-E3,load- and speed-dependent friction residual,blocked_by_data_contract,False,"Internal friction loss is not identifiable from output torque, speed, and TE without input torque, contact force, or power measurements."
+PINN-E4,temperature-conditioned loss model,blocked_by_data_contract,False,Temperature is measured but is not a unique friction-loss label or internal energy state.
+PINN-E5,auxiliary energy-consistency head,offline_oracle_only,False,"The head can be evaluated if future input-power or simulator oracles are supplied, but current output-power proxies cannot close the balance."
