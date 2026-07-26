@@ -1,0 +1,67 @@
+schema_version: 1
+audit_id: wave52_phase4_hysteresis_friction_memory_feasibility
+generated_at_utc: '2026-07-26T18:41:08.719155+00:00'
+source_configuration:
+  path: config/analysis/pinn_program_hysteresis/phase4_hysteresis_feasibility_audit.yaml
+  sha256: 9bb4127b33fbab82bd11dc328aa110d9ae8805711e0201311b750f49a889059b
+source_evidence:
+  phase0_foundation_audit:
+    path: output/analysis/pinn_program_foundations/phase0_foundation_audit.yaml
+    sha256: d0447d28dd16571b2c6a887b2df03dc13a916546b417c413cb7021ff7adb7570
+  phase0_curve_audit:
+    path: output/analysis/pinn_program_foundations/phase0_curve_audit.csv
+    sha256: 8b8c75267acdb53a6a23beaa9632f6ba956a8260aa5444f75d98bfaaf892ba46
+  wave4_4_closeout_report:
+    path: doc/reports/campaign_results/track_2/campaign_closeouts/2026-06-17-01-27-10_track2h_latent_state_hysteresis_campaign_results_report.md
+    sha256: e01a5d5ec536bf8346667250546d22e0c1d9c6a15df1c67fc14d6b168e36b084
+inventory:
+  raw_csv_file_count: 975
+  canonical_raw_condition_count: 969
+  ignored_source_file_count: 6
+  polished_directional_file_count: 1938
+  simplified_file_count: 969
+chronology_evidence:
+  ordered_direction_window_count: 969
+  single_reversal_pair_count: 969
+  repeated_reversal_cycle_count: 0
+  repeated_major_loop_count: 0
+  minor_loop_marker_count: 0
+  controlled_warmup_label_count: 0
+  deterministic_reset_marker_count: 0
+  offline_reversal_oracle_count: 969
+  real_hysteresis_training_eligible_count: 0
+  minimum_inter_window_gap_duration_s: 2.00175
+  maximum_inter_window_gap_duration_s: 9.72225
+  minimum_sustained_direction_reversal_count: 1
+  maximum_sustained_direction_reversal_count: 1
+dataset_contract_class_count:
+  blocked_by_data_contract: 2
+  exploratory_comparator_only: 1
+  offline_oracle_only: 1
+formulation_class_count:
+  blocked_by_data_contract: 1
+  offline_oracle_only: 1
+  synthetic_oracle_only: 4
+exit_gate:
+  status: failed_no_training_authorized
+  real_data_training_authorized: false
+  phase4_physical_residual_promoted: false
+  advance_to_phase5: true
+  check_map:
+    all_canonical_raw_files_scanned: true
+    ordered_acquisition_available: true
+    single_reversal_transition_available: true
+    repeated_reversal_cycles_available: false
+    repeated_major_and_minor_loops_available: false
+    controlled_warmup_state_available: false
+    deterministic_reset_evidence_available: false
+    stable_causal_state_evolution_testable: false
+  decision: Close Phase 4 as a valid feasibility result. Preserve raw trajectories
+    as offline reversal oracles and physical state laws as synthetic-oracle tests;
+    do not train a promotable hysteresis PINN on the current data contract.
+artifact_paths:
+  raw_trajectory_csv: output/analysis/pinn_program_hysteresis/phase4_raw_trajectory_audit.csv
+  dataset_contract_csv: output/analysis/pinn_program_hysteresis/phase4_dataset_contract_audit.csv
+  formulation_feasibility_csv: output/analysis/pinn_program_hysteresis/phase4_formulation_feasibility.csv
+  summary_yaml: output/analysis/pinn_program_hysteresis/phase4_hysteresis_feasibility_audit.yaml
+  report_markdown: doc/reports/analysis/model_development_waves/wave_5_2/hysteresis_friction_memory_pinn/[2026-07-26]/phase4_hysteresis_friction_memory_feasibility_report.md

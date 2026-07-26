@@ -309,7 +309,7 @@ stable with a `2.48%` coefficient of variation, but only two of three C1-Fw
 initializations improved the matched control across raw, offset, centered,
 harmonic-amplitude, and phase gates. C2-Bw and C5-global exposed useful
 tradeoffs but failed the joint exit rule. No Phase 3 compliance residual was
-promoted. Phase 4 is active next as a feasibility-first state-data audit.
+promoted. Phase 4 subsequently closed as a non-training feasibility result.
 
 ## Phase 4: Hysteresis, Friction, And Memory PINNs
 
@@ -349,11 +349,15 @@ promoted. Phase 4 is active next as a feasibility-first state-data audit.
 No hysteresis model advances without repeated reversal cycles and stable causal
 state evolution.
 
-**Status: active feasibility gate.** Begin with a source-data chronology,
-reversal-cycle, repeated-loop, warm-up, and causal-state audit. Do not prepare
-training until the audit proves that real ordered state evolution is
-available, or explicitly limits a formulation to a synthetic or offline
-oracle.
+**Status: completed feasibility result; no training authorized.** The audit
+scanned all `969` canonical raw operating-condition files. Every file
+preserves one ordered `Fw`-to-`Bw` transition and therefore supports an
+offline reversal oracle, but none contains repeated reversal cycles or
+repeated major loops. Minor-loop labels, controlled warm-up labels, and
+deterministic reset markers are also absent. `PINN-Y1`, `PINN-Y2`, `PINN-Y3`,
+and `PINN-Y5` remain synthetic-oracle-only; `PINN-Y4` is blocked by the data
+contract; `PINN-Y6` is offline-oracle-only. No Phase 4 physical residual is
+promoted.
 
 ## Phase 5: Bidirectional TE, Backlash, And Lost-Motion PINNs
 
@@ -389,6 +393,11 @@ oracle.
 
 Advance only reduced compatibility laws that remain identifiable without
 target-derived component errors.
+
+**Status: active next.** Start with paired-condition `Fw`/`Bw` compatibility,
+lost-motion, and observability audits. The Phase 4 raw reversal trajectories
+may support offline transition evidence, but their missing repeated-loop and
+reset contract must not be converted into a trainable state label.
 
 ## Phase 6: Dynamic Acceleration, Inertia, And Trajectory PINNs
 

@@ -558,7 +558,32 @@ Phase 3 is closed. The main campaign completed twelve runs and the stability
 package completed two runs. No compliance residual was promoted because one of
 three C1-Fw initializations failed the joint raw, offset, centered-shape,
 harmonic-amplitude, and phase gate. Use the launchers for reproduction only;
-the active roadmap proceeds to the Phase 4 hysteresis-state feasibility audit.
+the completed Phase 4 audit now governs any hysteresis-state reuse.
+
+## Phase 4 Hysteresis Feasibility Audit
+
+Scan all canonical raw source trajectories and rebuild the Phase 4 chronology,
+reversal, loop, warm-up, reset, and formulation-feasibility evidence:
+
+```powershell
+conda run --no-capture-output -n pinns_env python -B `
+  scripts/analysis/pinn_program_hysteresis/build_phase4_hysteresis_feasibility_audit.py
+```
+
+Validate artifact counts, split coverage, the six formulation decisions, and
+the no-training exit gate without repeating the 11.5 GiB raw scan:
+
+```powershell
+conda run --no-capture-output -n pinns_env python -B `
+  scripts/analysis/pinn_program_hysteresis/validate_phase4_hysteresis_feasibility_audit.py
+```
+
+The complete scan found one ordered `Fw`-to-`Bw` reversal in every one of the
+`969` canonical raw conditions, but no repeated reversal cycle, repeated major
+loop, minor-loop label, controlled warm-up label, or deterministic reset
+marker. The raw trajectories are therefore retained as offline reversal
+oracles; no Phase 4 real-data PINN training is authorized. Phase 5 is the next
+active roadmap gate.
 
 ## Relevant Project Paths
 
@@ -573,6 +598,9 @@ The current usage flow mainly relies on these folders:
 
 - `scripts/analysis/pinn_program_foundations/`
   Full-population Phase 0 contracts and validation for later PINN phases.
+
+- `scripts/analysis/pinn_program_hysteresis/`
+  Full raw-trajectory Phase 4 chronology and hysteresis-feasibility audit.
 
 - `scripts/reports/`
   Styled report-export utilities.

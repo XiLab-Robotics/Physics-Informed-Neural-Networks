@@ -2,12 +2,12 @@
 
 ## Executive Snapshot
 
-- Generated At: `2026-07-26T17:06:35`
+- Generated At: `2026-07-26T20:48:06`
 - Program State: active.
 - Current Completed Wave: polished-dataset RCIM, early-wave, and full-wave
-- Current Focus: Wave 5.2 Phase 3 quasi-static compliance and elastic-offset
-- Active Campaign Status: `closed`
-- Active Campaign Name: `phase2_harmonic_kinematic_pinn_runtime_bounded_restart_2026_07_26`
+- Current Focus: Wave 5.2 Phase 5 bidirectional TE, backlash, and lost-motion
+- Active Campaign Status: `completed`
+- Active Campaign Name: `phase3_c1_fw_stability_repeat_2026_07_26`
 - Current Program Winner: `te_periodic_gru_sequence_bw` | Family `periodic_gru_sequence_bw` | Test MAE `0.001084`
 
 ## Main Takeaways
@@ -15,7 +15,7 @@
 - Strongest current neural family: `periodic_gru_sequence_bw`
 - Current plain MLP anchor: `te_feedforward_trial`
 - Active family-improvement branch count: `0`
-- Implemented and benchmarked family count: `222`
+- Implemented and benchmarked family count: `236`
 
 ## Current Project Status
 
@@ -50,11 +50,13 @@
 | `track2g_curve_aware_harmonic_residual_offset_full_curve_composite_global` | Implemented Benchmark | `te_track2g_curve_aware_full_curve_composite_global` | `curve_aware_harmonic_residual_offset_probe` | 0.002008 | 85,440 | `2026-06-22 15:16:05` |
 | `wave4_1_smooth_l1_robust_loss_global` | Implemented Benchmark | `te_wave4_1_smooth_l1_robust_loss_global` | `curve_aware_harmonic_residual_offset_probe` | 0.002017 | 85,440 | `2026-07-13 00:54:21` |
 | `wave3_3_full_curve_composite_global` | Implemented Benchmark | `te_wave3_3_full_curve_composite_global` | `curve_aware_harmonic_residual_offset_probe` | 0.002023 | 85,440 | `2026-07-12 12:13:42` |
+| `phase3_pinn_c0_learned_mean_control_global` | Implemented Benchmark | `te_phase3_pinn_c0_learned_mean_control_global__polished_setpoints` | `quasi_static_compliance_pinn` | 0.002050 | 7,212 | `2026-07-26 18:14:00` |
 | `residual_harmonic_lstm_sequence_sparse_rcim_global` | Implemented Benchmark | `te_residual_harmonic_lstm_sequence_sparse_rcim_global` | `residual_harmonic_lstm_sequence` | 0.002062 | 200,852 | `2026-07-09 21:46:24` |
 | `residual_harmonic_gru_sequence_sparse_rcim_global` | Implemented Benchmark | `te_residual_harmonic_gru_sequence_sparse_rcim_global__polished_actual_values` | `residual_harmonic_gru_sequence` | 0.002062 | 151,060 | `2026-07-09 08:19:20` |
 | `harmonic_regression_global` | Implemented Benchmark | `te_harmonic_regression_global__polished_actual_values` | `harmonic_regression` | 0.002071 | 150 | `2026-07-08 00:15:14` |
 | `residual_harmonic_gru_sequence_dense240_global` | Implemented Benchmark | `te_residual_harmonic_gru_sequence_dense240_global` | `residual_harmonic_gru_sequence` | 0.002076 | 151,138 | `2026-07-09 11:57:58` |
 | `residual_harmonic_gru_sequence_dense360_global` | Implemented Benchmark | `te_residual_harmonic_gru_sequence_dense360_global__polished_actual_values` | `residual_harmonic_gru_sequence` | 0.002088 | 151,762 | `2026-07-09 17:18:37` |
+| `phase3_pinn_c5_shared_stiffness_global` | Implemented Benchmark | `te_phase3_pinn_c5_shared_stiffness_global__polished_setpoints` | `quasi_static_compliance_pinn` | 0.002103 | 5,611 | `2026-07-26 19:23:35` |
 | `residual_harmonic_gru_sequence_sparse_rcim` | Implemented Benchmark | `te_residual_harmonic_gru_sequence_remote_global_sparse_rcim` | `residual_harmonic_gru_sequence` | 0.002112 | 150,676 | `2026-06-22 14:31:08` |
 | `wave5_1_harmonic_prior_smooth_l1_structured_global` | Implemented Benchmark | `te_wave5_1_harmonic_prior_smooth_l1_structured_global` | `wave3_harmonic_prior_residual` | 0.002119 | 7,168 | `2026-07-16 06:39:53` |
 | `wave5_1_harmonic_prior_pointwise_control_global` | Implemented Benchmark | `te_wave5_1_harmonic_prior_pointwise_control_global` | `wave3_harmonic_prior_residual` | 0.002159 | 7,168 | `2026-07-16 02:44:33` |
@@ -119,15 +121,21 @@
 | `shape_first_distilled_periodic_mlp_harmonic_fw` | Implemented Benchmark | `te_shape_first_distilled_periodic_mlp_harmonic_fw__polished_setpoints` | `periodic_mlp` | 0.001420 | 28,545 | `2026-07-22 14:48:11` |
 | `shape_gate_loss_v2_checkpoint_selection_periodic_gru_sequence_fw` | Implemented Benchmark | `te_shape_gate_loss_v2_periodic_gru_sequence_fw__polished_setpoints` | `periodic_gru_sequence` | 0.001463 | 157,953 | `2026-07-21 13:08:39` |
 | `shape_objective_curve_aware_residual_fw` | Implemented Benchmark | `te_shape_objective_curve_aware_residual_fw__polished_setpoints` | `curve_aware_harmonic_residual_offset_probe` | 0.001463 | 85,747 | `2026-07-21 19:20:11` |
+| `phase3_pinn_c1_linear_compliance_soft_fw_seed_314159` | Implemented Benchmark | `te_phase3_pinn_c1_linear_compliance_soft_fw_seed_314159__polished_setpoints` | `quasi_static_compliance_pinn` | 0.001472 | 7,212 | `2026-07-26 20:00:21` |
+| `phase3_pinn_c1_linear_compliance_soft_fw` | Implemented Benchmark | `te_phase3_pinn_c1_linear_compliance_soft_fw__polished_setpoints` | `quasi_static_compliance_pinn` | 0.001495 | 7,212 | `2026-07-26 18:21:36` |
 | `shape_first_distilled_periodic_gru_sequence_fw` | Implemented Benchmark | `te_shape_first_distilled_periodic_gru_sequence_fw__polished_setpoints` | `periodic_gru_sequence` | 0.001523 | 157,953 | `2026-07-22 14:43:06` |
 | `periodic_lstm_sequence_fw` | Implemented Benchmark | `te_periodic_lstm_sequence_fw` | `periodic_lstm_sequence` | 0.001547 | 210,049 | `2026-07-09 05:16:31` |
+| `phase3_pinn_c2_temperature_compliance_soft_fw` | Implemented Benchmark | `te_phase3_pinn_c2_temperature_compliance_soft_fw__polished_setpoints` | `quasi_static_compliance_pinn` | 0.001551 | 7,212 | `2026-07-26 18:37:03` |
+| `phase3_pinn_c0_learned_mean_control_fw` | Implemented Benchmark | `te_phase3_pinn_c0_learned_mean_control_fw__polished_setpoints` | `quasi_static_compliance_pinn` | 0.001611 | 7,212 | `2026-07-26 17:53:30` |
 | `wave4_3_mixture_density_k3_fw` | Implemented Benchmark | `te_wave4_3_mixture_density_k3_fw` | `curve_aware_harmonic_residual_offset_probe` | 0.001671 | 86,976 | `2026-07-15 15:39:35` |
 | `wave4_3_mixture_density_k2_fw` | Implemented Benchmark | `te_wave4_3_mixture_density_k2_fw` | `curve_aware_harmonic_residual_offset_probe` | 0.001698 | 86,400 | `2026-07-15 06:02:16` |
 | `tree_fw` | Implemented Benchmark | `te_tree_fw__polished_setpoints` | `hist_gradient_boosting` | 0.001699 | 5 | `2026-07-07 10:07:54` |
 | `feedforward_fw` | Implemented Benchmark | `te_feedforward_fw` | `feedforward` | 0.001726 | 109,697 | `2026-07-07 19:17:09` |
 | `periodic_mlp_fw` | Implemented Benchmark | `te_periodic_mlp_fw` | `periodic_mlp` | 0.001742 | 27,137 | `2026-07-07 22:12:18` |
+| `phase3_pinn_c3_nonlinear_compliance_soft_fw` | Implemented Benchmark | `te_phase3_pinn_c3_nonlinear_compliance_soft_fw__polished_setpoints` | `quasi_static_compliance_pinn` | 0.001745 | 7,212 | `2026-07-26 18:52:22` |
 | `residual_harmonic_mlp_fw` | Implemented Benchmark | `te_residual_harmonic_mlp_fw__polished_setpoints` | `residual_harmonic_mlp` | 0.001759 | 26,266 | `2026-07-07 14:15:24` |
 | `phase2_pinn_h2_oscillator_periodic_closure_fw` | Implemented Benchmark | `te_phase2_pinn_h2_oscillator_periodic_closure_fw__polished_setpoints` | `harmonic_kinematic_pinn` | 0.001784 | 16,570 | `2026-07-26 15:35:48` |
+| `phase3_pinn_c1_linear_compliance_soft_fw_seed_271828` | Implemented Benchmark | `te_phase3_pinn_c1_linear_compliance_soft_fw_seed_271828__polished_setpoints` | `quasi_static_compliance_pinn` | 0.001898 | 7,212 | `2026-07-26 20:07:49` |
 | `wave4_2_gaussian_nll_fw` | Implemented Benchmark | `te_wave4_2_gaussian_nll_fw` | `curve_aware_harmonic_residual_offset_probe` | 0.001914 | 85,632 | `2026-07-14 21:40:47` |
 | `wave4_2_quantile_p10_p50_p90_fw` | Implemented Benchmark | `te_wave4_2_quantile_p10_p50_p90_fw` | `curve_aware_harmonic_residual_offset_probe` | 0.001914 | 85,824 | `2026-07-14 17:11:13` |
 | `wave3_3_raw_centered_shape_curve_aware_fw` | Implemented Benchmark | `te_wave3_3_raw_centered_shape_curve_aware_fw` | `curve_aware_harmonic_residual_offset_probe` | 0.001917 | 85,440 | `2026-07-11 20:41:54` |
@@ -147,6 +155,7 @@
 | `residual_harmonic_lstm_sequence_sparse_rcim_fw` | Implemented Benchmark | `te_residual_harmonic_lstm_sequence_sparse_rcim_fw__polished_actual_values` | `residual_harmonic_lstm_sequence` | 0.002067 | 201,364 | `2026-07-09 22:37:02` |
 | `residual_harmonic_gru_sequence_dense360_fw` | Implemented Benchmark | `te_residual_harmonic_gru_sequence_dense360_fw__polished_actual_values` | `residual_harmonic_gru_sequence` | 0.002074 | 151,762 | `2026-07-09 17:49:07` |
 | `periodic_temporal_convolution_fw` | Implemented Benchmark | `te_periodic_temporal_convolution_fw__polished_actual_values` | `periodic_temporal_convolution` | 0.002077 | 158,529 | `2026-07-08 21:27:59` |
+| `phase3_pinn_c4_hard_elastic_offset_fw` | Implemented Benchmark | `te_phase3_pinn_c4_hard_elastic_offset_fw__polished_setpoints` | `quasi_static_compliance_pinn` | 0.002087 | 5,611 | `2026-07-26 19:06:07` |
 | `causal_offset_mean_gru_sequence_fw` | Implemented Benchmark | `te_causal_offset_mean_gru_sequence_fw__polished_setpoints` | `sequential_residual_offset_probe` | 0.002100 | 92,802 | `2026-07-22 18:23:32` |
 | `residual_harmonic_gru_sequence_dense240_fw` | Implemented Benchmark | `te_residual_harmonic_gru_sequence_dense240_fw__polished_actual_values` | `residual_harmonic_gru_sequence` | 0.002101 | 151,522 | `2026-07-09 12:19:38` |
 | `residual_harmonic_lstm_sequence_dense240_fw` | Implemented Benchmark | `te_residual_harmonic_lstm_sequence_dense240_fw` | `residual_harmonic_lstm_sequence` | 0.002147 | 201,314 | `2026-07-10 02:54:22` |
@@ -195,6 +204,7 @@
 | `periodic_lstm_sequence_bw` | Implemented Benchmark | `te_periodic_lstm_sequence_bw` | `periodic_lstm_sequence` | 0.001226 | 210,049 | `2026-07-09 05:28:43` |
 | `periodic_mlp_harmonic_bw` | Implemented Benchmark | `te_periodic_mlp_harmonic_bw` | `periodic_mlp` | 0.001279 | 28,417 | `2026-07-08 03:56:01` |
 | `phase2_pinn_h0_fourier_control_bw` | Implemented Benchmark | `te_phase2_pinn_h0_fourier_control_bw__polished_setpoints` | `harmonic_kinematic_pinn` | 0.001498 | 5,635 | `2026-07-26 14:16:04` |
+| `phase3_pinn_c2_temperature_compliance_soft_bw` | Implemented Benchmark | `te_phase3_pinn_c2_temperature_compliance_soft_bw__polished_setpoints` | `quasi_static_compliance_pinn` | 0.001624 | 7,212 | `2026-07-26 18:44:42` |
 | `wave52b_offset_harmonic_guided_offset_centered_shape_harmonic_bw` | Implemented Benchmark | `te_wave52b_offset_harmonic_guided_offset_centered_shape_harmonic_bw` | `wave52b_offset_harmonic_guided` | 0.001677 | 22,593 | `2026-07-02 02:27:12` |
 | `feedforward_bw` | Implemented Benchmark | `te_feedforward_bw` | `feedforward` | 0.001686 | 109,697 | `2026-07-07 19:39:50` |
 | `tree_bw` | Implemented Benchmark | `te_tree_bw__polished_setpoints` | `hist_gradient_boosting` | 0.001699 | 5 | `2026-07-07 10:07:54` |
@@ -203,6 +213,8 @@
 | `phase2_pinn_h1_oscillator_residual_bw` | Implemented Benchmark | `te_phase2_pinn_h1_oscillator_residual_bw__polished_setpoints` | `harmonic_kinematic_pinn` | 0.001723 | 16,570 | `2026-07-26 15:08:52` |
 | `wave4_3_mixture_density_k2_bw` | Implemented Benchmark | `te_wave4_3_mixture_density_k2_bw` | `curve_aware_harmonic_residual_offset_probe` | 0.001725 | 86,400 | `2026-07-15 06:33:19` |
 | `periodic_mlp_bw` | Implemented Benchmark | `te_periodic_mlp_bw` | `periodic_mlp` | 0.001740 | 27,137 | `2026-07-07 22:30:44` |
+| `phase3_pinn_c0_learned_mean_control_bw` | Implemented Benchmark | `te_phase3_pinn_c0_learned_mean_control_bw__polished_setpoints` | `quasi_static_compliance_pinn` | 0.001825 | 7,212 | `2026-07-26 18:00:41` |
+| `phase3_pinn_c1_linear_compliance_soft_bw` | Implemented Benchmark | `te_phase3_pinn_c1_linear_compliance_soft_bw__polished_setpoints` | `quasi_static_compliance_pinn` | 0.001877 | 7,212 | `2026-07-26 18:29:08` |
 | `wave4_2_quantile_p10_p50_p90_bw` | Implemented Benchmark | `te_wave4_2_quantile_p10_p50_p90_bw` | `curve_aware_harmonic_residual_offset_probe` | 0.001888 | 85,824 | `2026-07-14 17:40:45` |
 | `wave3_2_harmonic_residual_offset_bw` | Implemented Benchmark | `te_wave3_2_harmonic_residual_offset_bw` | `harmonic_residual_offset_probe` | 0.001894 | 85,440 | `2026-07-11 06:57:20` |
 | `wave3_3_raw_offset_curve_aware_bw` | Implemented Benchmark | `te_wave3_3_raw_offset_curve_aware_bw` | `curve_aware_harmonic_residual_offset_probe` | 0.001898 | 85,440 | `2026-07-12 03:46:43` |
@@ -210,6 +222,7 @@
 | `wave4_1_mae_robust_loss_bw` | Implemented Benchmark | `te_wave4_1_mae_robust_loss_bw` | `curve_aware_harmonic_residual_offset_probe` | 0.001907 | 85,440 | `2026-07-12 19:55:36` |
 | `wave3_3_raw_centered_shape_curve_aware_bw` | Implemented Benchmark | `te_wave3_3_raw_centered_shape_curve_aware_bw` | `curve_aware_harmonic_residual_offset_probe` | 0.001916 | 85,440 | `2026-07-11 21:32:35` |
 | `wave3_3_curve_aware_pointwise_control_bw` | Implemented Benchmark | `te_wave3_3_curve_aware_pointwise_control_bw` | `curve_aware_harmonic_residual_offset_probe` | 0.001925 | 85,440 | `2026-07-11 15:28:19` |
+| `phase3_pinn_c3_nonlinear_compliance_soft_bw` | Implemented Benchmark | `te_phase3_pinn_c3_nonlinear_compliance_soft_bw__polished_setpoints` | `quasi_static_compliance_pinn` | 0.001926 | 7,212 | `2026-07-26 18:59:06` |
 | `wave4_2_gaussian_nll_bw` | Implemented Benchmark | `te_wave4_2_gaussian_nll_bw` | `curve_aware_harmonic_residual_offset_probe` | 0.001927 | 85,632 | `2026-07-14 22:39:07` |
 | `phase2_pinn_h3_oscillator_periodic_bauer_anchor_bw` | Implemented Benchmark | `te_phase2_pinn_h3_oscillator_periodic_bauer_anchor_bw__polished_setpoints` | `harmonic_kinematic_pinn` | 0.001931 | 16,570 | `2026-07-26 16:38:48` |
 | `phase2_pinn_h2_oscillator_periodic_closure_bw` | Implemented Benchmark | `te_phase2_pinn_h2_oscillator_periodic_closure_bw__polished_setpoints` | `harmonic_kinematic_pinn` | 0.001966 | 16,570 | `2026-07-26 15:56:14` |
@@ -235,6 +248,7 @@
 | `wave4_4_gru_latent_offset_residual_bw` | Implemented Benchmark | `te_wave4_4_gru_latent_offset_residual_bw` | `latent_state_hysteresis_probe` | 0.002260 | 124,899 | `2026-07-15 19:43:02` |
 | `temporal_convolution_bw` | Implemented Benchmark | `te_temporal_convolution_bw__polished_actual_values` | `temporal_convolution` | 0.002303 | 147,009 | `2026-07-08 11:01:13` |
 | `wave4_4_causal_tcn_latent_offset_residual_bw` | Implemented Benchmark | `te_wave4_4_causal_tcn_latent_offset_residual_bw` | `latent_state_hysteresis_probe` | 0.002309 | 97,155 | `2026-07-15 23:09:39` |
+| `phase3_pinn_c4_hard_elastic_offset_bw` | Implemented Benchmark | `te_phase3_pinn_c4_hard_elastic_offset_bw__polished_setpoints` | `quasi_static_compliance_pinn` | 0.002350 | 5,611 | `2026-07-26 19:10:25` |
 | `track2h_mixture_density_heads_mdn_k2_bw` | Implemented Benchmark | `te_track2h_mdn_k2_bw` | `curve_aware_harmonic_residual_offset_probe` | 0.002658 | 86,802 | `2026-06-13 12:14:13` |
 | `track2h_mixture_density_heads_mdn_k3_bw` | Implemented Benchmark | `te_track2h_mdn_k3_bw` | `curve_aware_harmonic_residual_offset_probe` | 0.002721 | 87,435 | `2026-06-13 13:10:07` |
 | `track2h_quantile_probabilistic_quantile_p10_p50_p90_bw` | Implemented Benchmark | `te_track2h_quantile_p10_p50_p90_bw` | `curve_aware_harmonic_residual_offset_probe` | 0.002927 | 86,169 | `2026-06-12 12:10:23` |
@@ -409,7 +423,7 @@ Low-priority exploratory families currently listed in the backlog:
 - `Neural ODE`
 - `Hamiltonian-Inspired Model`
 - `optional Kernel Ridge / Gaussian Process benchmark`
-| Wave 5.2. PINN Formulation And First PINN | status: active at reference-intake and formulation-design stage; not yet; canonical roadmap:; physics reference-intake register:; active general formulation families:; Polynomial-Fourier structured residual PINN;; harmonic-kinematic constraint PINN;; contact-regime or energy-consistency PINN where references and observable; additional reference-derived formulations, kept separate until their; full-PINN qualification rule:; training must contain an explicit differentiable physical residual,; harmonic features, Fourier heads, curve metrics, or ungrounded soft; active evidence base:; Waves 3.1 through 3.3 for offset, centered shape, slope, amplitude, phase,; Waves 4.1 through 4.4 for robustness, uncertainty, mixture behavior, and; Wave 5.1 for harmonic priors and structured residual learning;; periodic GRU and periodic harmonic MLP as time-windowed and non-windowed; the existing direction-specific Polynomial Fourier Series PLC; current scaffold:; diagnostic adapter:; diagnostic report builder:; parameter-inventory report builder:; generated diagnostic report:; generated parameter-inventory report:; companion artifacts:; parameter-inventory artifacts:; residual-explanatory diagnostic report:; leakage-safe residual-explanatory rerun:; updated priority: audit multiple non-MMT physics formulations, validate their; mandatory rule: prepare or justify `global`, `forward`, and `backward`; paper-reproduction scope:; prepare explicit PINN model and physics-loss formulations for later; test whether soft physics, periodicity, smoothness, harmonic-consistency,; keep online compensation execution out of Wave 5.2 unless Track 3 is; completed inventory conclusions:; known geometry constants are safe for diagnostics and feature generation;; operating metadata can be used for stratification and causal conditioning;; five equivalent-error groups are train-only calibratable;; contact geometry remains unavailable or ambiguous and blocks calibrated; measured TE remains target-only and must not become an inference input.; MMT-specific closed implementation conclusions:; exact-manifest replay preserves all archived model artifacts and split; 224 metadata, geometry, combined, and shuffled comparisons were fitted on; geometry-locked MMT signatures produced zero incremental held-out gain;; 56 calibrated equivalent-error arms were explicitly blocked because; no MMT feature, auxiliary-output, weak-loss, or paper-faithful MMT; MMT future TODO reopening gate:; obtain independent component-error measurements or a validated causal; prove that the resulting MMT inputs vary by operating condition without; create a new technical document and, if training is proposed, a new; until those conditions are met, the MMT-paper-faithful subbranch is not; general full-PINN evidence gates:; register and synthesize each supplied reference;; verify equations, units, assumptions, observability, identifiability,; test equations against measured curves and synthetic or analytical oracles; prepare a separate approved technical document and campaign plan for one; apply multi-index curve-first verification before accepting, combining, or; use validated findings to define the later Wave 6 architecture. |
+| Wave 5.2. PINN Formulation And First PINN | status: Phases 0 through 4 complete; Phase 5 bidirectional TE, backlash, and; canonical roadmap:; physics reference-intake register:; active general formulation families:; Polynomial-Fourier structured residual PINN;; harmonic-kinematic constraint PINN;; contact-regime or energy-consistency PINN where references and observable; additional reference-derived formulations, kept separate until their; full-PINN qualification rule:; training must contain an explicit differentiable physical residual,; harmonic features, Fourier heads, curve metrics, or ungrounded soft; active evidence base:; Waves 3.1 through 3.3 for offset, centered shape, slope, amplitude, phase,; Waves 4.1 through 4.4 for robustness, uncertainty, mixture behavior, and; Wave 5.1 for harmonic priors and structured residual learning;; periodic GRU and periodic harmonic MLP as time-windowed and non-windowed; the existing direction-specific Polynomial Fourier Series PLC; current scaffold:; diagnostic adapter:; diagnostic report builder:; parameter-inventory report builder:; generated diagnostic report:; generated parameter-inventory report:; companion artifacts:; parameter-inventory artifacts:; residual-explanatory diagnostic report:; leakage-safe residual-explanatory rerun:; completed Phase 4 evidence:; all `969` canonical raw files preserve one ordered `Fw`-to-`Bw`; no condition contains repeated reversal cycles or repeated major loops;; minor-loop, controlled warm-up, and deterministic reset labels are absent;; `PINN-Y1`, `PINN-Y2`, `PINN-Y3`, and `PINN-Y5` are; no Phase 4 training campaign or physical-residual promotion is authorized;; updated priority: start the Phase 5 paired-direction compatibility and; mandatory rule: prepare or justify `global`, `forward`, and `backward`; paper-reproduction scope:; prepare explicit PINN model and physics-loss formulations for later; test whether soft physics, periodicity, smoothness, harmonic-consistency,; keep online compensation execution out of Wave 5.2 unless Track 3 is; completed inventory conclusions:; known geometry constants are safe for diagnostics and feature generation;; operating metadata can be used for stratification and causal conditioning;; five equivalent-error groups are train-only calibratable;; contact geometry remains unavailable or ambiguous and blocks calibrated; measured TE remains target-only and must not become an inference input.; MMT-specific closed implementation conclusions:; exact-manifest replay preserves all archived model artifacts and split; 224 metadata, geometry, combined, and shuffled comparisons were fitted on; geometry-locked MMT signatures produced zero incremental held-out gain;; 56 calibrated equivalent-error arms were explicitly blocked because; no MMT feature, auxiliary-output, weak-loss, or paper-faithful MMT; MMT future TODO reopening gate:; obtain independent component-error measurements or a validated causal; prove that the resulting MMT inputs vary by operating condition without; create a new technical document and, if training is proposed, a new; until those conditions are met, the MMT-paper-faithful subbranch is not; general full-PINN evidence gates:; register and synthesize each supplied reference;; verify equations, units, assumptions, observability, identifiability,; test equations against measured curves and synthetic or analytical oracles; prepare a separate approved technical document and campaign plan for one; apply multi-index curve-first verification before accepting, combining, or; use validated findings to define the later Wave 6 architecture. |
 
 Low-priority exploratory families currently listed in the backlog:
 
@@ -444,11 +458,11 @@ Low-priority exploratory families currently listed in the backlog:
 
 | Campaign | Generated At | Completed | Failed | Winner | Impact |
 | --- | --- | ---: | ---: | --- | --- |
+| `phase3_c1_fw_stability_repeat_2026_07_26` | `2026-07-26 20:07:49` | 2 | 0 | `te_phase3_pinn_c1_linear_compliance_soft_fw_seed_314159__polished_setpoints` | Updated phase3_pinn_c1_linear_compliance_soft_fw_seed_314159 family best |
+| `phase3_quasi_static_compliance_pinn_2026_07_26` | `2026-07-26 19:23:35` | 12 | 0 | `te_phase3_pinn_c1_linear_compliance_soft_fw__polished_setpoints` | Updated phase3_pinn_c1_linear_compliance_soft_fw family best |
 | `phase2_harmonic_kinematic_pinn_runtime_bounded_restart_2026_07_26` | `2026-07-26 16:38:48` | 8 | 0 | `te_phase2_pinn_h0_fourier_control_fw__polished_setpoints` | No family-best change |
 | `phase2_harmonic_kinematic_pinn_common_split_restart_2026_07_26` | `2026-07-26 13:56:44` | 2 | 0 | `te_phase2_pinn_h0_fourier_control_fw__polished_setpoints` | Updated phase2_pinn_h0_fourier_control_fw family best |
 | `phase2_harmonic_kinematic_pinn_2026_07_26` | `2026-07-26 13:09:58` | 1 | 0 | `te_phase2_pinn_h0_fourier_control_bw__polished_setpoints` | No family-best change |
-| `phase2_harmonic_kinematic_pinn_2026_07_26` | `2026-07-26 13:01:51` | 0 | 1 | N/A | No winner artifact |
-| `phase2_harmonic_kinematic_pinn_2026_07_26` | `2026-07-26 12:50:34` | 0 | 1 | N/A | No winner artifact |
 
 ## Ranking Policy
 
@@ -489,11 +503,13 @@ Low-priority exploratory families currently listed in the backlog:
 | `track2g_curve_aware_harmonic_residual_offset_full_curve_composite_global` | `te_track2g_curve_aware_full_curve_composite_global` | `curve_aware_harmonic_residual_offset_probe` | 0.001872 | 0.002008 | 0.002581 | 85,440 | 1.00 MB | High | Implemented Benchmark |
 | `wave4_1_smooth_l1_robust_loss_global` | `te_wave4_1_smooth_l1_robust_loss_global` | `curve_aware_harmonic_residual_offset_probe` | 0.001866 | 0.002017 | 0.002559 | 85,440 | N/A | Unknown | Implemented Benchmark |
 | `wave3_3_full_curve_composite_global` | `te_wave3_3_full_curve_composite_global` | `curve_aware_harmonic_residual_offset_probe` | 0.001894 | 0.002023 | 0.002587 | 85,440 | N/A | Unknown | Implemented Benchmark |
+| `phase3_pinn_c0_learned_mean_control_global` | `te_phase3_pinn_c0_learned_mean_control_global__polished_setpoints` | `quasi_static_compliance_pinn` | 0.001977 | 0.002050 | 0.002529 | 7,212 | N/A | Unknown | Implemented Benchmark |
 | `residual_harmonic_lstm_sequence_sparse_rcim_global` | `te_residual_harmonic_lstm_sequence_sparse_rcim_global` | `residual_harmonic_lstm_sequence` | 0.001954 | 0.002062 | 0.002651 | 200,852 | N/A | Unknown | Implemented Benchmark |
 | `residual_harmonic_gru_sequence_sparse_rcim_global` | `te_residual_harmonic_gru_sequence_sparse_rcim_global__polished_actual_values` | `residual_harmonic_gru_sequence` | 0.001938 | 0.002062 | 0.003120 | 151,060 | N/A | Unknown | Implemented Benchmark |
 | `harmonic_regression_global` | `te_harmonic_regression_global__polished_actual_values` | `harmonic_regression` | 0.001823 | 0.002071 | 0.003143 | 150 | N/A | Unknown | Implemented Benchmark |
 | `residual_harmonic_gru_sequence_dense240_global` | `te_residual_harmonic_gru_sequence_dense240_global` | `residual_harmonic_gru_sequence` | 0.001967 | 0.002076 | 0.002660 | 151,138 | N/A | Unknown | Implemented Benchmark |
 | `residual_harmonic_gru_sequence_dense360_global` | `te_residual_harmonic_gru_sequence_dense360_global__polished_actual_values` | `residual_harmonic_gru_sequence` | 0.001960 | 0.002088 | 0.003113 | 151,762 | N/A | Unknown | Implemented Benchmark |
+| `phase3_pinn_c5_shared_stiffness_global` | `te_phase3_pinn_c5_shared_stiffness_global__polished_setpoints` | `quasi_static_compliance_pinn` | 0.002448 | 0.002103 | 0.002550 | 5,611 | N/A | Unknown | Implemented Benchmark |
 | `residual_harmonic_gru_sequence_sparse_rcim` | `te_residual_harmonic_gru_sequence_remote_global_sparse_rcim` | `residual_harmonic_gru_sequence` | 0.001978 | 0.002112 | 0.002699 | 150,676 | 1.74 MB | Medium | Implemented Benchmark |
 | `wave5_1_harmonic_prior_smooth_l1_structured_global` | `te_wave5_1_harmonic_prior_smooth_l1_structured_global` | `wave3_harmonic_prior_residual` | 0.001870 | 0.002119 | 0.002712 | 7,168 | N/A | Unknown | Implemented Benchmark |
 | `wave5_1_harmonic_prior_pointwise_control_global` | `te_wave5_1_harmonic_prior_pointwise_control_global` | `wave3_harmonic_prior_residual` | 0.001894 | 0.002159 | 0.002754 | 7,168 | N/A | Unknown | Implemented Benchmark |
@@ -558,15 +574,21 @@ Low-priority exploratory families currently listed in the backlog:
 | `shape_first_distilled_periodic_mlp_harmonic_fw` | `te_shape_first_distilled_periodic_mlp_harmonic_fw__polished_setpoints` | `periodic_mlp` | 0.001573 | 0.001420 | 0.001866 | 28,545 | N/A | Unknown | Implemented Benchmark |
 | `shape_gate_loss_v2_checkpoint_selection_periodic_gru_sequence_fw` | `te_shape_gate_loss_v2_periodic_gru_sequence_fw__polished_setpoints` | `periodic_gru_sequence` | 0.001983 | 0.001463 | 0.001831 | 157,953 | N/A | Unknown | Implemented Benchmark |
 | `shape_objective_curve_aware_residual_fw` | `te_shape_objective_curve_aware_residual_fw__polished_setpoints` | `curve_aware_harmonic_residual_offset_probe` | 0.001972 | 0.001463 | 0.001854 | 85,747 | N/A | Unknown | Implemented Benchmark |
+| `phase3_pinn_c1_linear_compliance_soft_fw_seed_314159` | `te_phase3_pinn_c1_linear_compliance_soft_fw_seed_314159__polished_setpoints` | `quasi_static_compliance_pinn` | 0.001676 | 0.001472 | 0.001864 | 7,212 | N/A | Unknown | Implemented Benchmark |
+| `phase3_pinn_c1_linear_compliance_soft_fw` | `te_phase3_pinn_c1_linear_compliance_soft_fw__polished_setpoints` | `quasi_static_compliance_pinn` | 0.001702 | 0.001495 | 0.001887 | 7,212 | N/A | Unknown | Implemented Benchmark |
 | `shape_first_distilled_periodic_gru_sequence_fw` | `te_shape_first_distilled_periodic_gru_sequence_fw__polished_setpoints` | `periodic_gru_sequence` | 0.002004 | 0.001523 | 0.001920 | 157,953 | N/A | Unknown | Implemented Benchmark |
 | `periodic_lstm_sequence_fw` | `te_periodic_lstm_sequence_fw` | `periodic_lstm_sequence` | 0.001495 | 0.001547 | 0.001976 | 210,049 | N/A | Unknown | Implemented Benchmark |
+| `phase3_pinn_c2_temperature_compliance_soft_fw` | `te_phase3_pinn_c2_temperature_compliance_soft_fw__polished_setpoints` | `quasi_static_compliance_pinn` | 0.001672 | 0.001551 | 0.001950 | 7,212 | N/A | Unknown | Implemented Benchmark |
+| `phase3_pinn_c0_learned_mean_control_fw` | `te_phase3_pinn_c0_learned_mean_control_fw__polished_setpoints` | `quasi_static_compliance_pinn` | 0.001774 | 0.001611 | 0.002017 | 7,212 | N/A | Unknown | Implemented Benchmark |
 | `wave4_3_mixture_density_k3_fw` | `te_wave4_3_mixture_density_k3_fw` | `curve_aware_harmonic_residual_offset_probe` | 0.001501 | 0.001671 | 0.002181 | 86,976 | N/A | Unknown | Implemented Benchmark |
 | `wave4_3_mixture_density_k2_fw` | `te_wave4_3_mixture_density_k2_fw` | `curve_aware_harmonic_residual_offset_probe` | 0.001493 | 0.001698 | 0.002196 | 86,400 | N/A | Unknown | Implemented Benchmark |
 | `tree_fw` | `te_tree_fw__polished_setpoints` | `hist_gradient_boosting` | 0.001498 | 0.001699 | 0.002947 | 5 | N/A | Unknown | Implemented Benchmark |
 | `feedforward_fw` | `te_feedforward_fw` | `feedforward` | 0.001628 | 0.001726 | 0.002205 | 109,697 | N/A | Unknown | Implemented Benchmark |
 | `periodic_mlp_fw` | `te_periodic_mlp_fw` | `periodic_mlp` | 0.001597 | 0.001742 | 0.002329 | 27,137 | N/A | Unknown | Implemented Benchmark |
+| `phase3_pinn_c3_nonlinear_compliance_soft_fw` | `te_phase3_pinn_c3_nonlinear_compliance_soft_fw__polished_setpoints` | `quasi_static_compliance_pinn` | 0.001942 | 0.001745 | 0.002209 | 7,212 | N/A | Unknown | Implemented Benchmark |
 | `residual_harmonic_mlp_fw` | `te_residual_harmonic_mlp_fw__polished_setpoints` | `residual_harmonic_mlp` | 0.001599 | 0.001759 | 0.002336 | 26,266 | N/A | Unknown | Implemented Benchmark |
 | `phase2_pinn_h2_oscillator_periodic_closure_fw` | `te_phase2_pinn_h2_oscillator_periodic_closure_fw__polished_setpoints` | `harmonic_kinematic_pinn` | 0.002074 | 0.001784 | 0.002245 | 16,570 | N/A | Unknown | Implemented Benchmark |
+| `phase3_pinn_c1_linear_compliance_soft_fw_seed_271828` | `te_phase3_pinn_c1_linear_compliance_soft_fw_seed_271828__polished_setpoints` | `quasi_static_compliance_pinn` | 0.002123 | 0.001898 | 0.002340 | 7,212 | N/A | Unknown | Implemented Benchmark |
 | `wave4_2_gaussian_nll_fw` | `te_wave4_2_gaussian_nll_fw` | `curve_aware_harmonic_residual_offset_probe` | 0.001739 | 0.001914 | 0.002482 | 85,632 | N/A | Unknown | Implemented Benchmark |
 | `wave4_2_quantile_p10_p50_p90_fw` | `te_wave4_2_quantile_p10_p50_p90_fw` | `curve_aware_harmonic_residual_offset_probe` | 0.001731 | 0.001914 | 0.002457 | 85,824 | N/A | Unknown | Implemented Benchmark |
 | `wave3_3_raw_centered_shape_curve_aware_fw` | `te_wave3_3_raw_centered_shape_curve_aware_fw` | `curve_aware_harmonic_residual_offset_probe` | 0.001789 | 0.001917 | 0.002466 | 85,440 | N/A | Unknown | Implemented Benchmark |
@@ -586,6 +608,7 @@ Low-priority exploratory families currently listed in the backlog:
 | `residual_harmonic_lstm_sequence_sparse_rcim_fw` | `te_residual_harmonic_lstm_sequence_sparse_rcim_fw__polished_actual_values` | `residual_harmonic_lstm_sequence` | 0.001951 | 0.002067 | 0.003129 | 201,364 | N/A | Unknown | Implemented Benchmark |
 | `residual_harmonic_gru_sequence_dense360_fw` | `te_residual_harmonic_gru_sequence_dense360_fw__polished_actual_values` | `residual_harmonic_gru_sequence` | 0.001955 | 0.002074 | 0.003114 | 151,762 | N/A | Unknown | Implemented Benchmark |
 | `periodic_temporal_convolution_fw` | `te_periodic_temporal_convolution_fw__polished_actual_values` | `periodic_temporal_convolution` | 0.001939 | 0.002077 | 0.003080 | 158,529 | N/A | Unknown | Implemented Benchmark |
+| `phase3_pinn_c4_hard_elastic_offset_fw` | `te_phase3_pinn_c4_hard_elastic_offset_fw__polished_setpoints` | `quasi_static_compliance_pinn` | 0.002301 | 0.002087 | 0.002481 | 5,611 | N/A | Unknown | Implemented Benchmark |
 | `causal_offset_mean_gru_sequence_fw` | `te_causal_offset_mean_gru_sequence_fw__polished_setpoints` | `sequential_residual_offset_probe` | 0.002428 | 0.002100 | 0.002610 | 92,802 | N/A | Unknown | Implemented Benchmark |
 | `residual_harmonic_gru_sequence_dense240_fw` | `te_residual_harmonic_gru_sequence_dense240_fw__polished_actual_values` | `residual_harmonic_gru_sequence` | 0.001969 | 0.002101 | 0.003138 | 151,522 | N/A | Unknown | Implemented Benchmark |
 | `residual_harmonic_lstm_sequence_dense240_fw` | `te_residual_harmonic_lstm_sequence_dense240_fw` | `residual_harmonic_lstm_sequence` | 0.002044 | 0.002147 | 0.002745 | 201,314 | N/A | Unknown | Implemented Benchmark |
@@ -634,6 +657,7 @@ Low-priority exploratory families currently listed in the backlog:
 | `periodic_lstm_sequence_bw` | `te_periodic_lstm_sequence_bw` | `periodic_lstm_sequence` | 0.001230 | 0.001226 | 0.001558 | 210,049 | N/A | Unknown | Implemented Benchmark |
 | `periodic_mlp_harmonic_bw` | `te_periodic_mlp_harmonic_bw` | `periodic_mlp` | 0.001103 | 0.001279 | 0.001719 | 28,417 | N/A | Unknown | Implemented Benchmark |
 | `phase2_pinn_h0_fourier_control_bw` | `te_phase2_pinn_h0_fourier_control_bw__polished_setpoints` | `harmonic_kinematic_pinn` | 0.001624 | 0.001498 | 0.001809 | 5,635 | N/A | Unknown | Implemented Benchmark |
+| `phase3_pinn_c2_temperature_compliance_soft_bw` | `te_phase3_pinn_c2_temperature_compliance_soft_bw__polished_setpoints` | `quasi_static_compliance_pinn` | 0.001727 | 0.001624 | 0.002068 | 7,212 | N/A | Unknown | Implemented Benchmark |
 | `wave52b_offset_harmonic_guided_offset_centered_shape_harmonic_bw` | `te_wave52b_offset_harmonic_guided_offset_centered_shape_harmonic_bw` | `wave52b_offset_harmonic_guided` | 0.002320 | 0.001677 | 0.002151 | 22,593 | 0.30 MB | Medium | Implemented Benchmark |
 | `feedforward_bw` | `te_feedforward_bw` | `feedforward` | 0.001630 | 0.001686 | 0.002175 | 109,697 | N/A | Unknown | Implemented Benchmark |
 | `tree_bw` | `te_tree_bw__polished_setpoints` | `hist_gradient_boosting` | 0.001498 | 0.001699 | 0.002947 | 5 | N/A | Unknown | Implemented Benchmark |
@@ -642,6 +666,8 @@ Low-priority exploratory families currently listed in the backlog:
 | `phase2_pinn_h1_oscillator_residual_bw` | `te_phase2_pinn_h1_oscillator_residual_bw__polished_setpoints` | `harmonic_kinematic_pinn` | 0.001856 | 0.001723 | 0.002210 | 16,570 | N/A | Unknown | Implemented Benchmark |
 | `wave4_3_mixture_density_k2_bw` | `te_wave4_3_mixture_density_k2_bw` | `curve_aware_harmonic_residual_offset_probe` | 0.001528 | 0.001725 | 0.002226 | 86,400 | N/A | Unknown | Implemented Benchmark |
 | `periodic_mlp_bw` | `te_periodic_mlp_bw` | `periodic_mlp` | 0.001658 | 0.001740 | 0.002328 | 27,137 | N/A | Unknown | Implemented Benchmark |
+| `phase3_pinn_c0_learned_mean_control_bw` | `te_phase3_pinn_c0_learned_mean_control_bw__polished_setpoints` | `quasi_static_compliance_pinn` | 0.001927 | 0.001825 | 0.002313 | 7,212 | N/A | Unknown | Implemented Benchmark |
+| `phase3_pinn_c1_linear_compliance_soft_bw` | `te_phase3_pinn_c1_linear_compliance_soft_bw__polished_setpoints` | `quasi_static_compliance_pinn` | 0.001970 | 0.001877 | 0.002386 | 7,212 | N/A | Unknown | Implemented Benchmark |
 | `wave4_2_quantile_p10_p50_p90_bw` | `te_wave4_2_quantile_p10_p50_p90_bw` | `curve_aware_harmonic_residual_offset_probe` | 0.001741 | 0.001888 | 0.002435 | 85,824 | N/A | Unknown | Implemented Benchmark |
 | `wave3_2_harmonic_residual_offset_bw` | `te_wave3_2_harmonic_residual_offset_bw` | `harmonic_residual_offset_probe` | 0.001791 | 0.001894 | 0.002440 | 85,440 | N/A | Unknown | Implemented Benchmark |
 | `wave3_3_raw_offset_curve_aware_bw` | `te_wave3_3_raw_offset_curve_aware_bw` | `curve_aware_harmonic_residual_offset_probe` | 0.001768 | 0.001898 | 0.002445 | 85,440 | N/A | Unknown | Implemented Benchmark |
@@ -649,6 +675,7 @@ Low-priority exploratory families currently listed in the backlog:
 | `wave4_1_mae_robust_loss_bw` | `te_wave4_1_mae_robust_loss_bw` | `curve_aware_harmonic_residual_offset_probe` | 0.001757 | 0.001907 | 0.002455 | 85,440 | N/A | Unknown | Implemented Benchmark |
 | `wave3_3_raw_centered_shape_curve_aware_bw` | `te_wave3_3_raw_centered_shape_curve_aware_bw` | `curve_aware_harmonic_residual_offset_probe` | 0.001804 | 0.001916 | 0.002460 | 85,440 | N/A | Unknown | Implemented Benchmark |
 | `wave3_3_curve_aware_pointwise_control_bw` | `te_wave3_3_curve_aware_pointwise_control_bw` | `curve_aware_harmonic_residual_offset_probe` | 0.001815 | 0.001925 | 0.002473 | 85,440 | N/A | Unknown | Implemented Benchmark |
+| `phase3_pinn_c3_nonlinear_compliance_soft_bw` | `te_phase3_pinn_c3_nonlinear_compliance_soft_bw__polished_setpoints` | `quasi_static_compliance_pinn` | 0.002038 | 0.001926 | 0.002441 | 7,212 | N/A | Unknown | Implemented Benchmark |
 | `wave4_2_gaussian_nll_bw` | `te_wave4_2_gaussian_nll_bw` | `curve_aware_harmonic_residual_offset_probe` | 0.001778 | 0.001927 | 0.002482 | 85,632 | N/A | Unknown | Implemented Benchmark |
 | `phase2_pinn_h3_oscillator_periodic_bauer_anchor_bw` | `te_phase2_pinn_h3_oscillator_periodic_bauer_anchor_bw__polished_setpoints` | `harmonic_kinematic_pinn` | 0.002087 | 0.001931 | 0.002469 | 16,570 | N/A | Unknown | Implemented Benchmark |
 | `phase2_pinn_h2_oscillator_periodic_closure_bw` | `te_phase2_pinn_h2_oscillator_periodic_closure_bw__polished_setpoints` | `harmonic_kinematic_pinn` | 0.002018 | 0.001966 | 0.002545 | 16,570 | N/A | Unknown | Implemented Benchmark |
@@ -674,6 +701,7 @@ Low-priority exploratory families currently listed in the backlog:
 | `wave4_4_gru_latent_offset_residual_bw` | `te_wave4_4_gru_latent_offset_residual_bw` | `latent_state_hysteresis_probe` | 0.002191 | 0.002260 | 0.002915 | 124,899 | N/A | Unknown | Implemented Benchmark |
 | `temporal_convolution_bw` | `te_temporal_convolution_bw__polished_actual_values` | `temporal_convolution` | 0.002198 | 0.002303 | 0.003366 | 147,009 | N/A | Unknown | Implemented Benchmark |
 | `wave4_4_causal_tcn_latent_offset_residual_bw` | `te_wave4_4_causal_tcn_latent_offset_residual_bw` | `latent_state_hysteresis_probe` | 0.002204 | 0.002309 | 0.002974 | 97,155 | N/A | Unknown | Implemented Benchmark |
+| `phase3_pinn_c4_hard_elastic_offset_bw` | `te_phase3_pinn_c4_hard_elastic_offset_bw__polished_setpoints` | `quasi_static_compliance_pinn` | 0.002758 | 0.002350 | 0.002859 | 5,611 | N/A | Unknown | Implemented Benchmark |
 | `track2h_mixture_density_heads_mdn_k2_bw` | `te_track2h_mdn_k2_bw` | `curve_aware_harmonic_residual_offset_probe` | 0.002914 | 0.002658 | 0.003198 | 86,802 | 1.01 MB | Medium | Implemented Benchmark |
 | `track2h_mixture_density_heads_mdn_k3_bw` | `te_track2h_mdn_k3_bw` | `curve_aware_harmonic_residual_offset_probe` | 0.002775 | 0.002721 | 0.003250 | 87,435 | 1.02 MB | Medium | Implemented Benchmark |
 | `track2h_quantile_probabilistic_quantile_p10_p50_p90_bw` | `te_track2h_quantile_p10_p50_p90_bw` | `curve_aware_harmonic_residual_offset_probe` | 0.003436 | 0.002927 | 0.003519 | 86,169 | 1.01 MB | Medium | Implemented Benchmark |
@@ -1527,6 +1555,30 @@ Known failed campaign attempts for this family:
 | Rank | Run | Model Type | Test MAE [deg] | Test RMSE [deg] | Val MAE [deg] | Params | Duration | Artifact Size | Model Complexity | Training Heaviness | Campaign |
 | --- | --- | --- | ---: | ---: | ---: | ---: | --- | --- | --- | --- | --- |
 | 1 | `te_periodic_temporal_convolution_sequence_remote_Fw` | `periodic_temporal_convolution` | 0.003337 | 0.003830 | 0.003321 | 158,529 | 8m 15s | 1.83 MB | Very High | Low | `wave2b_harmonic_temporal_hybrid_campaign_2026_05_25` |
+
+#### quasi_static_compliance_pinn
+
+- Best run: `N/A`
+- Best test MAE: `N/A`
+- Completed tracked runs: `14`
+- Known failed campaign attempts: `0`
+
+| Rank | Run | Model Type | Test MAE [deg] | Test RMSE [deg] | Val MAE [deg] | Params | Duration | Artifact Size | Model Complexity | Training Heaviness | Campaign |
+| --- | --- | --- | ---: | ---: | ---: | ---: | --- | --- | --- | --- | --- |
+| 1 | `te_phase3_pinn_c1_linear_compliance_soft_fw_seed_314159__polished_setpoints` | `quasi_static_compliance_pinn` | 0.001472 | 0.001864 | 0.001676 | 7,212 | 7m 36s | 0.11 MB | Low | Low | `phase3_c1_fw_stability_repeat_2026_07_26` |
+| 2 | `te_phase3_pinn_c1_linear_compliance_soft_fw__polished_setpoints` | `quasi_static_compliance_pinn` | 0.001495 | 0.001887 | 0.001702 | 7,212 | 7m 36s | 0.11 MB | Low | Low | `phase3_quasi_static_compliance_pinn_2026_07_26` |
+| 3 | `te_phase3_pinn_c2_temperature_compliance_soft_fw__polished_setpoints` | `quasi_static_compliance_pinn` | 0.001551 | 0.001950 | 0.001672 | 7,212 | 7m 54s | 0.11 MB | Low | Low | `phase3_quasi_static_compliance_pinn_2026_07_26` |
+| 4 | `te_phase3_pinn_c0_learned_mean_control_fw__polished_setpoints` | `quasi_static_compliance_pinn` | 0.001611 | 0.002017 | 0.001774 | 7,212 | 7m 12s | 0.11 MB | Low | Low | `phase3_quasi_static_compliance_pinn_2026_07_26` |
+| 5 | `te_phase3_pinn_c2_temperature_compliance_soft_bw__polished_setpoints` | `quasi_static_compliance_pinn` | 0.001624 | 0.002068 | 0.001727 | 7,212 | 7m 39s | 0.11 MB | Low | Low | `phase3_quasi_static_compliance_pinn_2026_07_26` |
+| 6 | `te_phase3_pinn_c3_nonlinear_compliance_soft_fw__polished_setpoints` | `quasi_static_compliance_pinn` | 0.001745 | 0.002209 | 0.001942 | 7,212 | 7m 40s | 0.11 MB | Low | Low | `phase3_quasi_static_compliance_pinn_2026_07_26` |
+| 7 | `te_phase3_pinn_c0_learned_mean_control_bw__polished_setpoints` | `quasi_static_compliance_pinn` | 0.001825 | 0.002313 | 0.001927 | 7,212 | 7m 10s | 0.11 MB | Low | Low | `phase3_quasi_static_compliance_pinn_2026_07_26` |
+| 8 | `te_phase3_pinn_c1_linear_compliance_soft_bw__polished_setpoints` | `quasi_static_compliance_pinn` | 0.001877 | 0.002386 | 0.001970 | 7,212 | 7m 32s | 0.11 MB | Low | Low | `phase3_quasi_static_compliance_pinn_2026_07_26` |
+| 9 | `te_phase3_pinn_c1_linear_compliance_soft_fw_seed_271828__polished_setpoints` | `quasi_static_compliance_pinn` | 0.001898 | 0.002340 | 0.002123 | 7,212 | 7m 28s | 0.11 MB | Low | Low | `phase3_c1_fw_stability_repeat_2026_07_26` |
+| 10 | `te_phase3_pinn_c3_nonlinear_compliance_soft_bw__polished_setpoints` | `quasi_static_compliance_pinn` | 0.001926 | 0.002441 | 0.002038 | 7,212 | 6m 44s | 0.11 MB | Low | Low | `phase3_quasi_static_compliance_pinn_2026_07_26` |
+| 11 | `te_phase3_pinn_c0_learned_mean_control_global__polished_setpoints` | `quasi_static_compliance_pinn` | 0.002050 | 0.002529 | 0.001977 | 7,212 | 13m 20s | 0.11 MB | Low | Low | `phase3_quasi_static_compliance_pinn_2026_07_26` |
+| 12 | `te_phase3_pinn_c4_hard_elastic_offset_fw__polished_setpoints` | `quasi_static_compliance_pinn` | 0.002087 | 0.002481 | 0.002301 | 5,611 | 7m 01s | 0.09 MB | Low | Low | `phase3_quasi_static_compliance_pinn_2026_07_26` |
+| 13 | `te_phase3_pinn_c5_shared_stiffness_global__polished_setpoints` | `quasi_static_compliance_pinn` | 0.002103 | 0.002550 | 0.002448 | 5,611 | 13m 10s | 0.09 MB | Low | Low | `phase3_quasi_static_compliance_pinn_2026_07_26` |
+| 14 | `te_phase3_pinn_c4_hard_elastic_offset_bw__polished_setpoints` | `quasi_static_compliance_pinn` | 0.002350 | 0.002859 | 0.002758 | 5,611 | 4m 18s | 0.09 MB | Low | Low | `phase3_quasi_static_compliance_pinn_2026_07_26` |
 
 #### residual_harmonic_gru_sequence_fw_dense240
 

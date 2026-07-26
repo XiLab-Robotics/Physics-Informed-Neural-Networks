@@ -3,8 +3,8 @@
 ## Executive Decision
 
 Wave 5.2 remains the physics-informed model-development wave. Its general
-full-PINN program is active at the reference-intake and formulation-design
-stage.
+full-PINN program has completed Phases 0 through 4 and now advances to the
+Phase 5 bidirectional TE, backlash, and lost-motion formulation gate.
 
 Only the paper-faithful MMT implementation is deferred. The completed MMT
 diagnostic established that the available geometry-locked signatures are
@@ -26,7 +26,7 @@ instrumentation, isolated-PINN, or integration path.
 
 | Program branch | Current state | Decision |
 | --- | --- | --- |
-| General Wave 5.2 full-PINN program | active formulation research | Audit references, formalize candidate equations, and validate them before implementation. |
+| General Wave 5.2 full-PINN program | Phases 0-4 complete; Phase 5 active next | Audit references, formalize candidate equations, and validate them before implementation. |
 | MMT-paper-faithful full PINN | deferred future TODO | Reopen only with condition-varying causal component-error measurements or a validated causal contact-state reconstruction. |
 | Wave 6 integrated multi-task and multi-head models | sequenced after Wave 5.2 evidence | Do not design a training campaign until bounded PINN pilots identify useful physics-informed components. |
 
@@ -156,10 +156,10 @@ Every candidate must document:
 | --- | --- | --- |
 | WP1 Reference intake | Source inventory and per-reference synthesis | SharePoint bundle complete; future sources remain append-only |
 | WP2 Equation audit | Verified equations, units, assumptions, and observable-variable map | active across later mechanisms; harmonic and compliance equations audited |
-| WP3 Analytical verification | Equation tests on measured curves plus synthetic or analytical oracles | Phase 1 benchmark and Phase 3 identifiability audit complete; later mechanisms pending |
-| WP4 Bounded formulation pilots | One isolated formulation per approved campaign | Phases 2 and 3 complete as negative screens; Phase 4 feasibility gate next |
+| WP3 Analytical verification | Equation tests on measured curves plus synthetic or analytical oracles | Phase 1 benchmark, Phase 3 identifiability audit, and Phase 4 raw-chronology audit complete; later mechanisms pending |
+| WP4 Bounded formulation pilots | One isolated formulation per approved campaign | Phases 2 and 3 complete as negative screens; Phase 4 closed without training after its feasibility gate failed |
 | WP5 Curve-first verification | Separate raw, centered-shape, offset, harmonic, robustness, visual, and deployment surfaces | complete for Phases 2 and 3; retained as mandatory |
-| WP6 Formulation decision | Accept, revise, combine, or reject each formulation | Phase 2 and Phase 3 constraints rejected at tested formulations and weights |
+| WP6 Formulation decision | Accept, revise, combine, or reject each formulation | Phase 2 and Phase 3 constraints rejected; Phase 4 real-data hysteresis training rejected while synthetic and offline-oracle lanes are retained |
 | WP7 Wave 6 design | Integrate only validated physics-informed ingredients into multi-task or multi-head models | blocked by WP4 through WP6 |
 
 ## Pilot Acceptance Policy
@@ -183,18 +183,21 @@ not be mixed in the first experiment.
 
 ## Immediate TODO
 
-Phases 0 through 3 are complete. The Phase 2 harmonic/kinematic and Phase 3
-quasi-static compliance campaigns both closed as valid negative results with
-no promoted physical loss. Their implementations, audits, and curve-first
-evidence remain reusable.
+Phases 0 through 4 are complete. Phases 2 and 3 closed as valid negative
+training results. Phase 4 scanned all `969` canonical raw conditions and found
+one ordered `Fw`-to-`Bw` reversal per condition, but no repeated reversal
+cycles, repeated major loops, minor-loop labels, controlled warm-up labels, or
+deterministic reset markers. Real-data hysteresis training is therefore not
+authorized; synthetic and offline reversal-oracle lanes remain reusable.
 
-1. Begin Phase 4 with a source-data chronology and causal-state feasibility
-   audit.
-2. Verify ordered acquisition, repeated cycles, reversals, minor and major
-   loops, warm-up state, and deterministic reset evidence before training.
-3. Classify Bouc-Wen, rolling-friction, play/stop, and white-box hysteresis
-   formulations as directly trainable, synthetic-oracle-only, or blocked.
-4. Preserve a matched NARX or GRU comparator if causal history is available.
+1. Begin Phase 5 with a paired-condition bidirectional TE and lost-motion
+   identifiability audit.
+2. Quantify `Fw`/`Bw` mean, centered-shape, offset, and phase compatibility on
+   the common split without using target-derived component errors.
+3. Classify `PINN-B1` through `PINN-B5` as directly trainable,
+   offline-oracle-only, synthetic-oracle-only, or blocked.
+4. Keep the Phase 4 raw reversal trajectories as offline evidence only; do not
+   reinterpret a single reversal as an identified hysteresis state.
 5. Keep Phase 2 and Phase 3 physics weights at zero by default.
 6. Continue using the common split and accepted time-windowed and
    non-windowed references where the data contract remains valid.

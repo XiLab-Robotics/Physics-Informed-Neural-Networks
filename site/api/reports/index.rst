@@ -23,3 +23,5 @@ repository reporting workflow.
    build_wave52_mmt_residual_explanatory_diagnostic
    run_phase1_polynomial_fourier_benchmark
    validate_phase1_polynomial_fourier_benchmark
+   build_phase4_hysteresis_feasibility_audit
+   validate_phase4_hysteresis_feasibility_audit

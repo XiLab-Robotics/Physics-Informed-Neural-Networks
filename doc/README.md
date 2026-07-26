@@ -215,6 +215,17 @@ This folder contains the internal project documents derived from the reference P
   temperature-conditioned stiffness, nonlinear elastic response, explicit
   elastic-offset decomposition, and direction-coupled compatibility tests.
 
+- [technical/2026-07/2026-07-26/2026-07-26-20-29-17_phase_4_hysteresis_friction_memory_feasibility_gate.md](./technical/2026-07/2026-07-26/2026-07-26-20-29-17_phase_4_hysteresis_friction_memory_feasibility_gate.md)
+  Automatically approved Phase 4 design for auditing real causal chronology,
+  repeated reversal cycles, warm-up and reset evidence, and the feasibility of
+  Bouc-Wen, rolling-friction, play/stop, white-box, and matched-history models.
+
+- [reports/analysis/model_development_waves/wave_5_2/hysteresis_friction_memory_pinn/[2026-07-26]/phase4_hysteresis_friction_memory_feasibility_report.md](./reports/analysis/model_development_waves/wave_5_2/hysteresis_friction_memory_pinn/%5B2026-07-26%5D/phase4_hysteresis_friction_memory_feasibility_report.md)
+  Completed full-population Phase 4 raw-chronology audit. All `969` canonical
+  conditions preserve one direction reversal, but repeated loops, controlled
+  warm-up, and deterministic reset evidence are absent, so no real-data
+  hysteresis training is authorized.
+
 - [reports/campaign_plans/model_development_waves/wave_5_2/quasi_static_compliance_pinn/2026-07-26-17-16-41_phase3_quasi_static_compliance_pinn_campaign_plan_report.md](./reports/campaign_plans/model_development_waves/wave_5_2/quasi_static_compliance_pinn/2026-07-26-17-16-41_phase3_quasi_static_compliance_pinn_campaign_plan_report.md)
   Automatically approved twelve-run Phase 3 plan covering directional
   compliance arms, paired-direction shared-stiffness controls, the mandatory

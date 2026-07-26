@@ -1,0 +1,86 @@
+schema_version: 1
+audit_id: wave52_phase4_hysteresis_friction_memory_feasibility
+
+source_paths:
+  raw_dataset_root: data/original_dataset
+  polished_dataset_root: data/polished_dataset
+  simplified_dataset_root: data/simplified_dataset
+  phase0_curve_audit: output/analysis/pinn_program_foundations/phase0_curve_audit.csv
+  phase0_foundation_audit: output/analysis/pinn_program_foundations/phase0_foundation_audit.yaml
+  wave4_4_closeout_report: doc/reports/campaign_results/track_2/campaign_closeouts/2026-06-17-01-27-10_track2h_latent_state_hysteresis_campaign_results_report.md
+
+output_paths:
+  output_directory: output/analysis/pinn_program_hysteresis
+  raw_trajectory_csv: phase4_raw_trajectory_audit.csv
+  dataset_contract_csv: phase4_dataset_contract_audit.csv
+  formulation_feasibility_csv: phase4_formulation_feasibility.csv
+  summary_yaml: phase4_hysteresis_feasibility_audit.yaml
+  report_markdown: doc/reports/analysis/model_development_waves/wave_5_2/hysteresis_friction_memory_pinn/[2026-07-26]/phase4_hysteresis_friction_memory_feasibility_report.md
+
+raw_column_indices:
+  theta_encoder_deg: 1
+  load_torque_nm: 3
+  valid_forward: 4
+  valid_backward: 5
+  oil_temperature_deg_c: 7
+
+constants:
+  sample_interval_s: 0.00025
+
+thresholds:
+  minimum_motion_speed_rpm: 1.0
+  minimum_sustained_direction_rows: 100
+  minimum_reversal_count_for_repeated_cycle: 2
+  minimum_valid_segments_per_direction_for_repeated_loop: 2
+  minimum_controlled_warmup_rows: 100
+
+expected_inventory:
+  raw_csv_file_count: 975
+  canonical_raw_condition_count: 969
+  ignored_duplicate_or_connection_file_count: 6
+  polished_directional_file_count: 1938
+  simplified_file_count: 969
+  formulation_count: 6
+
+formulation_portfolio:
+  - formulation_id: PINN-Y1
+    name: Bouc-Wen state residual
+    feasibility_class: synthetic_oracle_only
+    reason: >
+      The raw files expose one ordered forward-to-backward transition per
+      condition but do not expose repeated loops, minor loops, or a verified
+      state-reset convention.
+  - formulation_id: PINN-Y2
+    name: rolling-friction hysteresis residual
+    feasibility_class: synthetic_oracle_only
+    reason: >
+      Measured torque and motion are available, but internal rolling-friction
+      state cannot be identified from one direction pair without repeated
+      reversal cycles and reset evidence.
+  - formulation_id: PINN-Y3
+    name: rate-independent play or stop operator
+    feasibility_class: synthetic_oracle_only
+    reason: >
+      A play or stop operator requires repeated major and minor loops to
+      identify memory and saturation; those excitation patterns are absent.
+  - formulation_id: PINN-Y4
+    name: temperature- and load-conditioned hysteresis
+    feasibility_class: blocked_by_data_contract
+    reason: >
+      Temperature and load vary across conditions, but there are no repeated
+      loops at matched conditions and no acquisition-level reset or warm-up
+      labels for separating state from condition effects.
+  - formulation_id: PINN-Y5
+    name: white-box hysteresis state plus learned residual
+    feasibility_class: synthetic_oracle_only
+    reason: >
+      The white-box state can be exercised with a synthetic oracle, while a
+      learned real-data residual would otherwise absorb unknown initial state
+      and unvalidated transition samples.
+  - formulation_id: PINN-Y6
+    name: matched-history NARX or GRU comparator
+    feasibility_class: offline_oracle_only
+    reason: >
+      Raw row order supports an offline reconstructed reversal trajectory, but
+      the current Wave 4.4 windows do not provide repeated physical loops or a
+      deterministic reset contract required for a promotable comparator.
