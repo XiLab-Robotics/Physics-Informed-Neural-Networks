@@ -1,0 +1,25 @@
+schema_version: 1
+metadata:
+  audit_id: wave52_phase3_quasi_static_compliance
+  training_allowed_after_exit_gate: true
+inputs:
+  phase0_curve_audit_csv: output/analysis/pinn_program_foundations/phase0_curve_audit.csv
+  common_split_manifest_csv: output/analysis/polynomial_fourier_benchmark/common_split_manifest.csv
+  common_split_manifest_yaml: output/analysis/polynomial_fourier_benchmark/common_split_manifest.yaml
+outputs:
+  output_directory: output/analysis/pinn_program_compliance
+  condition_audit_csv: phase3_condition_compliance_audit.csv
+  formulation_metrics_csv: phase3_compliance_formulation_metrics.csv
+  summary_yaml: phase3_compliance_audit.yaml
+  report_markdown: doc/reports/analysis/model_development_waves/wave_5_2/quasi_static_compliance_pinn/[2026-07-26]/phase3_compliance_identifiability_audit.md
+analysis:
+  reference_temperature_deg_c: 30.0
+  temperature_scale_deg_c: 10.0
+  nonlinear_torque_scale_nm: 400.0
+  low_torque_threshold_nm: 10.0
+  maximum_design_condition_number: 1000000.0
+  expected_eligible_condition_count: 966
+  expected_curve_count_per_direction:
+    train: 675
+    validation: 194
+    test: 97

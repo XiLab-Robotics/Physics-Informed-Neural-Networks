@@ -513,6 +513,53 @@ Phase 2 candidate, so no Phase 2 physics weight is promoted. Phase 3 therefore
 starts independently with quasi-static compliance and elastic-offset
 formulations.
 
+## Phase 3 Quasi-Static Compliance PINN Campaign
+
+Validate the Phase 3 audit and all six deterministic model formulations:
+
+```powershell
+.\scripts\campaigns\wave_5_2\run_phase3_quasi_static_compliance_pinn_campaign.ps1 `
+  -PreflightOnly
+```
+
+Validate one real dataset batch for all twelve queue entries:
+
+```powershell
+.\scripts\campaigns\wave_5_2\run_phase3_quasi_static_compliance_pinn_campaign.ps1 `
+  -PreflightOnly `
+  -RunOneBatchValidation
+```
+
+The corresponding local and remote execution commands are:
+
+```powershell
+.\scripts\campaigns\wave_5_2\run_phase3_quasi_static_compliance_pinn_campaign.ps1
+
+.\scripts\campaigns\wave_5_2\run_phase3_quasi_static_compliance_pinn_campaign.ps1 `
+  -Remote
+```
+
+The campaign evaluates learned controls, differential-residual compliance
+PINNs, hard elastic equations, and one paired-direction shared-stiffness
+formulation. All arms reuse the exact common split and the audited convention
+that measured torque is negative for `Fw` and positive for `Bw`.
+
+After an arm passes the initial bounded curve-first screen, run its authorized
+initialization-stability package. Phase 3 retained C1-Fw for this gate:
+
+```powershell
+.\scripts\campaigns\wave_5_2\run_phase3_c1_fw_stability_repeat_campaign.ps1 -PreflightOnly
+.\scripts\campaigns\wave_5_2\run_phase3_c1_fw_stability_repeat_campaign.ps1 -PreflightOnly -RunOneBatchValidation
+.\scripts\campaigns\wave_5_2\run_phase3_c1_fw_stability_repeat_campaign.ps1
+.\scripts\campaigns\wave_5_2\run_phase3_c1_fw_stability_repeat_campaign.ps1 -Remote
+```
+
+Phase 3 is closed. The main campaign completed twelve runs and the stability
+package completed two runs. No compliance residual was promoted because one of
+three C1-Fw initializations failed the joint raw, offset, centered-shape,
+harmonic-amplitude, and phase gate. Use the launchers for reproduction only;
+the active roadmap proceeds to the Phase 4 hysteresis-state feasibility audit.
+
 ## Relevant Project Paths
 
 The current usage flow mainly relies on these folders:

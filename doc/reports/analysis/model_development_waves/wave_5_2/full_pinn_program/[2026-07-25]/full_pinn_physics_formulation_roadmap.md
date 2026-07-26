@@ -155,11 +155,11 @@ Every candidate must document:
 | Work package | Deliverable | Current state |
 | --- | --- | --- |
 | WP1 Reference intake | Source inventory and per-reference synthesis | SharePoint bundle complete; future sources remain append-only |
-| WP2 Equation audit | Verified equations, units, assumptions, and observable-variable map | active; complete multi-formulation test roadmap defined and Polynomial-Fourier benchmark is first |
-| WP3 Analytical verification | Equation tests on measured curves plus synthetic or analytical oracles | pending WP2 |
-| WP4 Bounded formulation pilots | One isolated formulation per approved campaign | not authorized |
-| WP5 Curve-first verification | Separate raw, centered-shape, offset, harmonic, robustness, visual, and deployment surfaces | pending pilots |
-| WP6 Formulation decision | Accept, revise, combine, or reject each formulation | pending verification |
+| WP2 Equation audit | Verified equations, units, assumptions, and observable-variable map | active across later mechanisms; harmonic and compliance equations audited |
+| WP3 Analytical verification | Equation tests on measured curves plus synthetic or analytical oracles | Phase 1 benchmark and Phase 3 identifiability audit complete; later mechanisms pending |
+| WP4 Bounded formulation pilots | One isolated formulation per approved campaign | Phases 2 and 3 complete as negative screens; Phase 4 feasibility gate next |
+| WP5 Curve-first verification | Separate raw, centered-shape, offset, harmonic, robustness, visual, and deployment surfaces | complete for Phases 2 and 3; retained as mandatory |
+| WP6 Formulation decision | Accept, revise, combine, or reject each formulation | Phase 2 and Phase 3 constraints rejected at tested formulations and weights |
 | WP7 Wave 6 design | Integrate only validated physics-informed ingredients into multi-task or multi-head models | blocked by WP4 through WP6 |
 
 ## Pilot Acceptance Policy
@@ -183,19 +183,21 @@ not be mixed in the first experiment.
 
 ## Immediate TODO
 
-Phases 0 through 2 are complete. The Bauer benchmark selected its analytical
-reference, and the first bounded harmonic/kinematic full-PINN campaign closed
-as a valid negative result with no promoted physical loss.
+Phases 0 through 3 are complete. The Phase 2 harmonic/kinematic and Phase 3
+quasi-static compliance campaigns both closed as valid negative results with
+no promoted physical loss. Their implementations, audits, and curve-first
+evidence remain reusable.
 
-1. Prepare Phase 3 quasi-static compliance and elastic-offset formulations.
-2. Verify torque sign, zero-torque intercept, monotonicity, stiffness bounds,
-   temperature conditioning, and direction-specific offset assumptions.
-3. Separate directly observable tests from synthetic and offline-oracle tests.
-4. Reuse the common split and accepted time-windowed and non-windowed
-   baselines.
-5. Create the Phase 3 technical document and campaign plan before training.
-6. Run the isolated Phase 3 formulation before mixing it with Phase 2 or any
-   later mechanism.
+1. Begin Phase 4 with a source-data chronology and causal-state feasibility
+   audit.
+2. Verify ordered acquisition, repeated cycles, reversals, minor and major
+   loops, warm-up state, and deterministic reset evidence before training.
+3. Classify Bouc-Wen, rolling-friction, play/stop, and white-box hysteresis
+   formulations as directly trainable, synthetic-oracle-only, or blocked.
+4. Preserve a matched NARX or GRU comparator if causal history is available.
+5. Keep Phase 2 and Phase 3 physics weights at zero by default.
+6. Continue using the common split and accepted time-windowed and
+   non-windowed references where the data contract remains valid.
 7. Keep Wave 6 deferred until at least two complementary physical components
    pass isolated pilots.
 

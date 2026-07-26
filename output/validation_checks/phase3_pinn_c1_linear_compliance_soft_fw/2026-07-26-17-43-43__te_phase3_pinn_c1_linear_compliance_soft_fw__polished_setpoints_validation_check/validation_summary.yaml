@@ -1,0 +1,32 @@
+schema_version: 1
+config_path: C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML
+  - Codex\config\training\quasi_static_compliance_pinn\campaigns\2026-07-26_phase3_quasi_static_compliance_pinn\queue\004_c1_linear_compliance_soft_fw.yaml
+output_directory: C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML
+  - Codex\output\validation_checks\phase3_pinn_c1_linear_compliance_soft_fw\2026-07-26-17-43-43__te_phase3_pinn_c1_linear_compliance_soft_fw__polished_setpoints_validation_check
+experiment:
+  run_name: te_phase3_pinn_c1_linear_compliance_soft_fw__polished_setpoints
+  output_run_name: te_phase3_pinn_c1_linear_compliance_soft_fw__polished_setpoints_validation_check
+  run_instance_id: 2026-07-26-17-43-43__te_phase3_pinn_c1_linear_compliance_soft_fw__polished_setpoints_validation_check
+  model_family: phase3_pinn_c1_linear_compliance_soft_fw
+  model_type: quasi_static_compliance_pinn
+dataset_split:
+  train_curve_count: 675
+  validation_curve_count: 194
+  test_curve_count: 97
+batch_summary:
+  batch_mode: point
+  point_batch_size: 4050
+  sequence_batch_size: 0
+  sequence_length: 0
+  input_feature_dim: 5
+  target_feature_dim: 1
+  curve_count: 1
+checks:
+  finite_loss: true
+  finite_mae: true
+  finite_rmse: true
+  finite_prediction_tensor: true
+metrics:
+  loss: 1.2657265663146973
+  mae: 0.012707005254924297
+  rmse: 0.014798300340771675

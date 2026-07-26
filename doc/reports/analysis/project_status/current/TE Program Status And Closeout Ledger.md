@@ -29,13 +29,13 @@ closeout that changes any of these surfaces:
 | Current accepted forward curve-verified leader | `rcim_retuned_GBM19_Fw`; polished refreshed-source leader `polished_rcim_model_bank_reproduction_ET19_Fw`; polished model-development fallback `polished_periodic_gru_sequence_Fw` |
 | Current accepted backward curve-verified leader | `polished_periodic_gru_sequence_Bw` |
 | Current accepted global neural curve-verified leader | `polished_periodic_gru_sequence_global` |
-| Latest normal campaign closeout | Phase 2 harmonic and kinematic PINN, `8 / 8` runs completed on `2026-07-26`; no physics constraint promoted |
+| Latest normal campaign closeout | Phase 3 quasi-static compliance PINN, `12 / 12` main runs and `2 / 2` C1-Fw repeats completed on `2026-07-26`; no physics constraint promoted |
 | Latest official TE Curve Verification refresh | polished-dataset RCIM, early-wave, and full-wave refresh, dated `2026-07-03` |
 | Latest curve-verification decision | six-cell non-MMT reduced comparison closed on `2026-07-24`; periodic GRU recommended in four cells and periodic harmonic MLP in two; no official promotion |
 | Latest pruning decision | `2026-07-17` shape-first intermediate model-selection cleanup; `global` remains paused until final backlog stage |
 | Active report generation | six reduced selected-model reports completed for polished setpoints, simplified setpoints, and polished actual values, each split into `forward` and `backward` |
 | Current TE Curve Verification Pipeline selection policy | multi-index curve-first selection, dated `2026-06-16` |
-| Next modeling decision | Phases 0 through 2 are complete; prepare Phase 3 quasi-static compliance and elastic-offset PINNs without inheriting the rejected Phase 2 physics weights |
+| Next modeling decision | Phases 0 through 3 are complete; begin the Phase 4 chronology and causal-state feasibility audit before any hysteresis, friction, or memory training |
 
 The repository remains direction-parallel. `Fw`, `Bw`, and `global` are not a
 single destructive competition. Each surface keeps its own best candidate and
@@ -169,8 +169,9 @@ robustness, visual-evidence, and deployment-readiness axes visible.
 | Wave 5.2 frozen-baseline residual replay | completed | Four accepted polished-setpoint ONNX baselines were replayed over their exact direction-specific manifests, producing 3,876 per-curve residual rows: 678 training, 194 validation, and 97 test rows per candidate. The selected July archive IDs differ from older June family-registry entries and are recorded explicitly. | Provenance blocker closed. Use these immutable split labels for the leakage-safe MMT rerun; do not substitute the earlier combined-direction audit split. |
 | Wave 5.2 MMT residual-explanatory diagnostic | completed with parameter blocker | The rerun fitted 224 permitted comparisons on training residuals and evaluated validation and test across seven residual targets for four `Fw` / `Bw` baselines. Geometry-locked MMT signatures were condition-invariant: metadata-plus-MMT and shuffled-control gains were both exactly zero. All 56 calibrated equivalent-error arms were blocked without using target-derived proxies. | Decision `blocked_by_parameter_availability`; current MMT evidence does not justify a feature, auxiliary head, weak soft constraint, or full PINN. |
 | Wave 5.2 Phase 2 harmonic and kinematic PINN | completed negative result | Eight canonical direction-separated runs completed with no failures. The common-split curve-payload diagnostic evaluated all checkpoints and accepted references over `97` held-out curves per direction. `H1-Bw` improved raw error and selected orders but worsened aggregate harmonic-amplitude fidelity; periodic closure improved its own residual without curve-first gain; the Bauer anchor was directionally unstable. | Promote no Phase 2 physics constraint. Retain the implementation and `H1-Bw` as exploratory evidence only. |
-| Wave 5.2 general full-PINN program | Phases 0 through 2 complete; Phase 3 preparation active | Phase 2 delivered the first target-free differentiable oscillator residual, periodic closure, frozen analytical anchoring, exact common-split checkpoint playback, and per-order harmonic diagnostics. No tested constraint passed the joint exit gate. | Prepare isolated quasi-static compliance and elastic-offset formulations. Do not inherit nonzero Phase 2 physics weights. |
-| Wave 5.2 complete theory-validation program | Phases 0 through 2 of 16 complete | Sixteen phases preserve every ingested mechanism through common foundations, isolated formulations, synthetic and offline oracles, causal reconstruction, instrumentation gates, cross-formulation comparison, multi-physics integration, and Wave 6 entry criteria. | Continue Phase 3 without combining unverified mechanisms. |
+| Wave 5.2 Phase 3 quasi-static compliance PINN | completed negative result | Twelve C0-C5 main runs and two C1-Fw stability repeats completed without failures. Bounded forward stiffness was stable with `2.48%` population CV, but only `2 / 3` C1-Fw initializations passed the raw, offset, centered-shape, harmonic-amplitude, and phase gate. C2-Bw and C5-global exposed tradeoffs but failed the joint rule. | Promote no Phase 3 compliance residual. Retain the implementation and parameter audit as falsification evidence; accepted periodic GRU and harmonic MLP references remain unchanged. |
+| Wave 5.2 general full-PINN program | Phases 0 through 3 complete; Phase 4 feasibility active | Phases 2 and 3 delivered target-free residuals, bounded physical parameters, exact common-split checkpoint playback, and multi-index diagnostics. Neither phase produced a stable promoted physical ingredient. | Audit chronology, reversals, repeated loops, warm-up, and causal reset support before preparing any Phase 4 hysteresis training. |
+| Wave 5.2 complete theory-validation program | Phases 0 through 3 of 16 complete | Sixteen phases preserve every ingested mechanism through common foundations, isolated formulations, synthetic and offline oracles, causal reconstruction, instrumentation gates, cross-formulation comparison, multi-physics integration, and Wave 6 entry criteria. | Continue Phase 4 as a feasibility-first gate without combining rejected mechanisms. |
 | Wave 5.2 paper-faithful MMT full PINN | deferred future TODO | MMT diagnostics, parameter inventory, `Wave 5.2B`, the post-causal-offset gate, exact-manifest replay, and leakage-safe explanatory rerun are complete. Contact geometry and causal observations for five equivalent-error groups remain unavailable. | Inactive without blocking the general full-PINN program. Reopen only after independent component-error measurements or validated causal contact-state reconstruction provides condition-varying physical inputs. |
 | Six-cell non-MMT reduced cross-wave comparison | closed diagnostic | Six remote selected-model reports and three direction-paired shape-gated reranks covered polished setpoints, simplified setpoints, and polished actual values. Forty-six curve collages were reviewed. | No official promotion. Periodic GRU wins four cells, periodic harmonic MLP wins two, Wave 4.1 remains the raw-error/offset ingredient, and sparse-RCIM temporal models remain reference-only. |
 | Wave 6 integrated multi-task / multi-head model | sequenced after Wave 5.2 PINN evidence | Intended to combine proven offset, low-frequency, centered-shape, uncertainty, mixture, and validated physics-informed mechanisms. | Do not prepare a campaign until bounded Wave 5.2 pilots and curve-first verification identify the physics-informed ingredients worth integrating. |
@@ -270,11 +271,10 @@ models.
 
 ## Current Next Steps
 
-1. Treat Phases 0 and 1 as complete and keep the general Wave 5.2 full-PINN
-   program active at Phase 2 preparation.
-2. Use `PF_A_LOCAL_QUADRATIC` as the analytical reference and
-   `PF_E_REDUCED_QUADRATIC` as the alternative comparator for the first
-   harmonic and kinematic residual tests.
+1. Treat Phases 0 through 3 as complete and keep the general Wave 5.2
+   full-PINN program active at the Phase 4 feasibility gate.
+2. Audit ordered acquisition, reversal cycles, repeated loops, warm-up state,
+   memory length, and deterministic reset support before any Phase 4 campaign.
 3. Continue the complete theory portfolio through the immediate analytical,
    causal-state, and offline-physics lanes. Preserve blocked formulations as
    oracle or instrumentation tasks rather than silently dropping them.

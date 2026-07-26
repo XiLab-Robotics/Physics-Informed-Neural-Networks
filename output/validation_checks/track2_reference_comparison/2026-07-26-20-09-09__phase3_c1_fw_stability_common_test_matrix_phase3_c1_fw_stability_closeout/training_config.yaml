@@ -1,0 +1,93 @@
+paths:
+  dataset_config_path: config/datasets/transmission_error_dataset.yaml
+dataset:
+  name: polished_dataset
+  input_mode: setpoints
+  split_manifest_path: output/analysis/polynomial_fourier_benchmark/common_split_manifest.yaml
+  excluded_condition_id_list:
+  - speed_500rpm__torque_600Nm__temperature_35degC
+  - speed_800rpm__torque_200Nm__temperature_25degC
+  - speed_1400rpm__torque_800Nm__temperature_35degC
+  expected_curve_count_by_split:
+    train: 1350
+    validation: 388
+    test: 194
+experiment:
+  run_name: phase3_c1_fw_stability_common_test_matrix
+  model_family: track2_reference_comparison
+  model_type: reference_family_vs_feedforward
+comparison:
+  comparison_mode: phase3_c1_fw_initialization_stability_curve_first
+  lightweight_test_curve_records: true
+  percentage_error_denominator: peak_to_peak_truth
+  preview_curve_count: 3
+  candidate_list:
+  - candidate_id: phase3_c0_learned_mean_control_Fw
+    candidate_family: phase3_pinn_c0_learned_mean_control_fw
+    candidate_kind: wave1_registry_model
+    candidate_source_label: phase3_canonical_campaign_control
+    candidate_surface: Fw
+    family_registry_path: output/training_campaigns/2026-07-26-17-46-18_phase3_quasi_static_compliance_pinn_2026_07_26/candidate_registries/c0_learned_mean_control_fw.yaml
+    expected_dataset_name: polished_dataset
+    allowed_direction_list:
+    - forward
+  - candidate_id: phase3_c1_linear_compliance_soft_Fw
+    candidate_family: phase3_pinn_c1_linear_compliance_soft_fw
+    candidate_kind: wave1_registry_model
+    candidate_source_label: phase3_canonical_campaign_initial_run
+    candidate_surface: Fw
+    family_registry_path: output/training_campaigns/2026-07-26-17-46-18_phase3_quasi_static_compliance_pinn_2026_07_26/candidate_registries/c1_linear_compliance_soft_fw.yaml
+    expected_dataset_name: polished_dataset
+    allowed_direction_list:
+    - forward
+  - candidate_id: phase3_c1_fw_seed_271828
+    candidate_family: phase3_pinn_c1_linear_compliance_soft_fw_seed_271828
+    candidate_kind: wave1_registry_model
+    candidate_source_label: phase3_initialization_stability_repeat
+    candidate_surface: Fw
+    family_registry_path: output/training_campaigns/2026-07-26-19-52-45_phase3_c1_fw_stability_repeat_2026_07_26/candidate_registries/c1_linear_compliance_soft_fw_seed_271828.yaml
+    expected_dataset_name: polished_dataset
+    allowed_direction_list:
+    - forward
+  - candidate_id: phase3_c1_fw_seed_314159
+    candidate_family: phase3_pinn_c1_linear_compliance_soft_fw_seed_314159
+    candidate_kind: wave1_registry_model
+    candidate_source_label: phase3_initialization_stability_repeat
+    candidate_surface: Fw
+    family_registry_path: output/training_campaigns/2026-07-26-19-52-45_phase3_c1_fw_stability_repeat_2026_07_26/candidate_registries/c1_linear_compliance_soft_fw_seed_314159.yaml
+    expected_dataset_name: polished_dataset
+    allowed_direction_list:
+    - forward
+  - candidate_id: accepted_periodic_mlp_harmonic_Fw
+    candidate_family: periodic_mlp_harmonic
+    candidate_kind: wave1_exported_model
+    candidate_source_label: accepted_non_windowed_reference
+    candidate_surface: Fw
+    reference_inventory_path: models/polished_dataset/setpoints/periodic_mlp_harmonic/forward/reference_inventory.yaml
+    allowed_direction_list:
+    - forward
+  - candidate_id: accepted_periodic_gru_sequence_Fw
+    candidate_family: periodic_gru_sequence
+    candidate_kind: wave1_exported_model
+    candidate_source_label: accepted_time_windowed_reference
+    candidate_surface: Fw
+    reference_inventory_path: models/polished_dataset/setpoints/periodic_gru_sequence/forward/reference_inventory.yaml
+    allowed_direction_list:
+    - forward
+evaluation:
+  selected_harmonics:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  decomposition_point_stride: 1
+metadata:
+  output_artifact_kind: validation_check
+  output_run_name: phase3_c1_fw_stability_common_test_matrix_phase3_c1_fw_stability_closeout
+  run_instance_id: 2026-07-26-20-09-09__phase3_c1_fw_stability_common_test_matrix_phase3_c1_fw_stability_closeout

@@ -1,0 +1,114 @@
+schema_version: 1
+audit_name: phase3_c1_fw_initialization_stability
+curve_diagnostics_summary_path: output/validation_checks/phase3_c1_fw_stability_curve_payload_diagnostics/2026-07-26-20-10-35__track2c_curve_payload_diagnostics/track2_curve_payload_diagnostics_summary.yaml
+run_count: 3
+control_candidate_id: phase3_c0_learned_mean_control_Fw
+thresholds:
+  stiffness_population_cv_maximum: 0.1
+  centered_shape_control_ratio_maximum: 1.02
+  harmonic_control_ratio_maximum: 1.05
+run_list:
+- candidate_id: phase3_c1_linear_compliance_soft_Fw
+  run_role: initial_screen
+  run_instance_id: 2026-07-26-18-14-00__te_phase3_pinn_c1_linear_compliance_soft_fw__polished_setpoints
+  training_random_seed: null
+  output_directory: output/training_runs/quasi_static_compliance_pinn/2026-07-26-18-14-00__te_phase3_pinn_c1_linear_compliance_soft_fw__polished_setpoints
+  best_checkpoint_path: output/training_runs/quasi_static_compliance_pinn/2026-07-26-18-14-00__te_phase3_pinn_c1_linear_compliance_soft_fw__polished_setpoints/checkpoints/quasi_static_compliance_pinn-epoch=017-val_mae=0.00170183.ckpt
+  minimum_stiffness_nm_per_deg: 5000.0
+  maximum_stiffness_nm_per_deg: 100000.0
+  fitted_forward_stiffness_nm_per_deg: 28275.587931275368
+  fitted_forward_intercept_deg: -0.022369997575879097
+  validation_mae_deg: 0.00170182716101408
+  test_mae_deg: 0.0014947345480322838
+  test_rmse_deg: 0.0018873440567404032
+  test_physics_compliance_equation_loss: 0.00021757249487563968
+  test_physics_zero_torque_boundary_loss: 2.2791866740590194e-06
+  test_physics_compliance_monotonicity_loss: 0.0
+  test_physics_stiffness_bounds_loss: 0.0
+  mean_curve_mae_deg: 0.001843
+  mean_signed_curve_mean_error_deg: -9.0e-06
+  mean_absolute_curve_mean_error_deg: 0.000932
+  mean_centered_curve_mae_deg: 0.001481
+  mean_peak_to_peak_error_pct: 10.0087
+  mean_harmonic_amplitude_error_pct: 34.128423
+  mean_harmonic_phase_error_deg: 21.434153
+  raw_error_improves_control: true
+  offset_error_improves_control: true
+  centered_shape_within_gate: true
+  harmonic_amplitude_within_gate: true
+  harmonic_phase_within_gate: true
+  run_curve_first_gate_pass: true
+- candidate_id: phase3_c1_fw_seed_271828
+  run_role: seeded_repeat
+  run_instance_id: 2026-07-26-20-00-21__te_phase3_pinn_c1_linear_compliance_soft_fw_seed_271828__polished_setpoints
+  training_random_seed: 271828
+  output_directory: output/training_runs/quasi_static_compliance_pinn/2026-07-26-20-00-21__te_phase3_pinn_c1_linear_compliance_soft_fw_seed_271828__polished_setpoints
+  best_checkpoint_path: output/training_runs/quasi_static_compliance_pinn/2026-07-26-20-00-21__te_phase3_pinn_c1_linear_compliance_soft_fw_seed_271828__polished_setpoints/checkpoints/quasi_static_compliance_pinn-epoch=016-val_mae=0.00212320.ckpt
+  minimum_stiffness_nm_per_deg: 5000.0
+  maximum_stiffness_nm_per_deg: 100000.0
+  fitted_forward_stiffness_nm_per_deg: 28958.11453461647
+  fitted_forward_intercept_deg: -0.022283852100372314
+  validation_mae_deg: 0.0021231968421489
+  test_mae_deg: 0.001897743670269847
+  test_rmse_deg: 0.002340055536478758
+  test_physics_compliance_equation_loss: 0.0006936295540072024
+  test_physics_zero_torque_boundary_loss: 2.031573785643559e-06
+  test_physics_compliance_monotonicity_loss: 0.0
+  test_physics_stiffness_bounds_loss: 0.0
+  mean_curve_mae_deg: 0.002198
+  mean_signed_curve_mean_error_deg: 7.0e-06
+  mean_absolute_curve_mean_error_deg: 0.00135
+  mean_centered_curve_mae_deg: 0.001605
+  mean_peak_to_peak_error_pct: 6.827516
+  mean_harmonic_amplitude_error_pct: 45.692679
+  mean_harmonic_phase_error_deg: 22.965806
+  raw_error_improves_control: false
+  offset_error_improves_control: false
+  centered_shape_within_gate: true
+  harmonic_amplitude_within_gate: false
+  harmonic_phase_within_gate: true
+  run_curve_first_gate_pass: false
+- candidate_id: phase3_c1_fw_seed_314159
+  run_role: seeded_repeat
+  run_instance_id: 2026-07-26-19-52-45__te_phase3_pinn_c1_linear_compliance_soft_fw_seed_314159__polished_setpoints
+  training_random_seed: 314159
+  output_directory: output/training_runs/quasi_static_compliance_pinn/2026-07-26-19-52-45__te_phase3_pinn_c1_linear_compliance_soft_fw_seed_314159__polished_setpoints
+  best_checkpoint_path: output/training_runs/quasi_static_compliance_pinn/2026-07-26-19-52-45__te_phase3_pinn_c1_linear_compliance_soft_fw_seed_314159__polished_setpoints/checkpoints/quasi_static_compliance_pinn-epoch=019-val_mae=0.00167640.ckpt
+  minimum_stiffness_nm_per_deg: 5000.0
+  maximum_stiffness_nm_per_deg: 100000.0
+  fitted_forward_stiffness_nm_per_deg: 27259.39206779003
+  fitted_forward_intercept_deg: -0.020961789414286613
+  validation_mae_deg: 0.0016763968160375953
+  test_mae_deg: 0.0014724736101925373
+  test_rmse_deg: 0.0018639324698597193
+  test_physics_compliance_equation_loss: 0.000305295514408499
+  test_physics_zero_torque_boundary_loss: 3.313896741019562e-06
+  test_physics_compliance_monotonicity_loss: 0.0
+  test_physics_stiffness_bounds_loss: 0.0
+  mean_curve_mae_deg: 0.001816
+  mean_signed_curve_mean_error_deg: -0.000306
+  mean_absolute_curve_mean_error_deg: 0.000872
+  mean_centered_curve_mae_deg: 0.001513
+  mean_peak_to_peak_error_pct: 6.383986
+  mean_harmonic_amplitude_error_pct: 41.194147
+  mean_harmonic_phase_error_deg: 20.029616
+  raw_error_improves_control: true
+  offset_error_improves_control: true
+  centered_shape_within_gate: true
+  harmonic_amplitude_within_gate: true
+  harmonic_phase_within_gate: true
+  run_curve_first_gate_pass: true
+aggregate:
+  stiffness_mean_nm_per_deg: 28164.364844560623
+  stiffness_population_std_nm_per_deg: 697.9457648886444
+  stiffness_population_cv: 0.024781164735672656
+  curve_first_gate_pass_count: 2
+  all_stiffness_bound_losses_zero: true
+decision:
+  retain_c1_fw_physical_ingredient: false
+  replace_accepted_reference: false
+  official_track2_promotion: false
+  decision_scope: Phase 3 physical-ingredient selection only
+artifact_paths:
+  csv: output/analysis/pinn_program_compliance/phase3_c1_fw_stability_audit.csv
+  report: doc/reports/analysis/model_development_waves/wave_5_2/quasi_static_compliance_pinn/[2026-07-26]/phase3_c1_fw_stability_audit.md

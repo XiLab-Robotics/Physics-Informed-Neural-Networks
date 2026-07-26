@@ -1,0 +1,51 @@
+schema_version: 1
+model_family: phase3_pinn_c0_learned_mean_control_fw
+selection_policy:
+  primary_metric: test_mae
+  first_tie_breaker: test_rmse
+  second_tie_breaker: val_mae
+  third_tie_breaker: trainable_parameter_count
+  direction: minimize
+updated_at: '2026-07-26T17:53:30'
+entry_count: 1
+entry_list:
+- run_instance_id: 2026-07-26-17-46-18__te_phase3_pinn_c0_learned_mean_control_fw__polished_setpoints
+  run_name: te_phase3_pinn_c0_learned_mean_control_fw__polished_setpoints
+  output_run_name: te_phase3_pinn_c0_learned_mean_control_fw__polished_setpoints
+  output_artifact_kind: training_run
+  model_family: phase3_pinn_c0_learned_mean_control_fw
+  base_model_family: phase3_pinn_c0_learned_mean_control_fw
+  model_type: quasi_static_compliance_pinn
+  dataset_id: polished_dataset
+  dataset_schema: polished_setpoint_curve_v1
+  input_mode: setpoints
+  input_feature_names:
+  - angular_position_deg
+  - input_speed_rpm
+  - input_torque_nm
+  - oil_temperature_deg
+  - direction_flag
+  target_feature_names:
+  - theta_TE
+  input_feature_dim: 5
+  training_variant: fw
+  direction_scope_label: forward_only
+  use_forward_direction: true
+  use_backward_direction: false
+  trainable_parameter_count: 7212
+  total_parameter_count: 7212
+  val_mae: 0.0017735579749569297
+  val_rmse: 0.0022502830252051353
+  test_mae: 0.0016107871197164059
+  test_rmse: 0.0020166311878710985
+  output_directory: output\training_runs\quasi_static_compliance_pinn\2026-07-26-17-46-18__te_phase3_pinn_c0_learned_mean_control_fw__polished_setpoints
+  best_checkpoint_path: output\training_runs\quasi_static_compliance_pinn\2026-07-26-17-46-18__te_phase3_pinn_c0_learned_mean_control_fw__polished_setpoints\checkpoints\quasi_static_compliance_pinn-epoch=016-val_mae=0.00177356.ckpt
+  metrics_path: output\training_runs\quasi_static_compliance_pinn\2026-07-26-17-46-18__te_phase3_pinn_c0_learned_mean_control_fw__polished_setpoints/metrics_summary.yaml
+  report_path: output\training_runs\quasi_static_compliance_pinn\2026-07-26-17-46-18__te_phase3_pinn_c0_learned_mean_control_fw__polished_setpoints/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-07-26T17:53:30'

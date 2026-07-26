@@ -1,0 +1,36 @@
+input_feature_dim: 5
+learning_rate: 0.0005
+loss_configuration:
+  enable_physics_diagnostics: false
+  harmonic_index_list:
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  physics_maximum_boundary_conditions: 12
+  physics_maximum_collocation_points: 64
+  pointwise_loss: mse
+  profile: phase3_learned_mean_control
+  weights:
+    amplitude: 0.04
+    centered: 0.1
+    derivative: 0.01
+    harmonic: 0.1
+    offset: 0.12
+    physics_analytical_anchor: 0.0
+    physics_compliance_equation: 0.0
+    physics_compliance_monotonicity: 0.0
+    physics_oscillator: 0.0
+    physics_periodic_mean: 0.0
+    physics_periodic_slope: 0.0
+    physics_periodic_value: 0.0
+    physics_stiffness_bounds: 0.0
+    physics_zero_torque_boundary: 0.0
+    point: 1.0
+target_feature_dim: 1
+weight_decay: 1.0e-05

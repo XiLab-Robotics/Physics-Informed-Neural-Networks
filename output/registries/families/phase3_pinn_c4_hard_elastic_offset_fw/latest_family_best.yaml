@@ -1,0 +1,50 @@
+schema_version: 1
+model_family: phase3_pinn_c4_hard_elastic_offset_fw
+selection_policy:
+  primary_metric: test_mae
+  first_tie_breaker: test_rmse
+  second_tie_breaker: val_mae
+  third_tie_breaker: trainable_parameter_count
+  direction: minimize
+updated_at: '2026-07-26T19:06:07'
+best_entry:
+  run_instance_id: 2026-07-26-18-59-06__te_phase3_pinn_c4_hard_elastic_offset_fw__polished_setpoints
+  run_name: te_phase3_pinn_c4_hard_elastic_offset_fw__polished_setpoints
+  output_run_name: te_phase3_pinn_c4_hard_elastic_offset_fw__polished_setpoints
+  output_artifact_kind: training_run
+  model_family: phase3_pinn_c4_hard_elastic_offset_fw
+  base_model_family: phase3_pinn_c4_hard_elastic_offset_fw
+  model_type: quasi_static_compliance_pinn
+  dataset_id: polished_dataset
+  dataset_schema: polished_setpoint_curve_v1
+  input_mode: setpoints
+  input_feature_names:
+  - angular_position_deg
+  - input_speed_rpm
+  - input_torque_nm
+  - oil_temperature_deg
+  - direction_flag
+  target_feature_names:
+  - theta_TE
+  input_feature_dim: 5
+  training_variant: fw
+  direction_scope_label: forward_only
+  use_forward_direction: true
+  use_backward_direction: false
+  trainable_parameter_count: 5611
+  total_parameter_count: 5611
+  val_mae: 0.002300641965121031
+  val_rmse: 0.002729372587054968
+  test_mae: 0.0020871274173259735
+  test_rmse: 0.0024809413589537144
+  output_directory: output\training_runs\quasi_static_compliance_pinn\2026-07-26-18-59-06__te_phase3_pinn_c4_hard_elastic_offset_fw__polished_setpoints
+  best_checkpoint_path: output\training_runs\quasi_static_compliance_pinn\2026-07-26-18-59-06__te_phase3_pinn_c4_hard_elastic_offset_fw__polished_setpoints\checkpoints\quasi_static_compliance_pinn-epoch=012-val_mae=0.00230064.ckpt
+  metrics_path: output\training_runs\quasi_static_compliance_pinn\2026-07-26-18-59-06__te_phase3_pinn_c4_hard_elastic_offset_fw__polished_setpoints/metrics_summary.yaml
+  report_path: output\training_runs\quasi_static_compliance_pinn\2026-07-26-18-59-06__te_phase3_pinn_c4_hard_elastic_offset_fw__polished_setpoints/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-07-26T19:06:07'

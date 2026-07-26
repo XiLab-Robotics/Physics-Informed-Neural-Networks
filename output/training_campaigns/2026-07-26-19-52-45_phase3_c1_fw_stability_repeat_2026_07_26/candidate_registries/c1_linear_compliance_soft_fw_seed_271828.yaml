@@ -1,0 +1,11 @@
+schema_version: 1
+campaign_name: phase3_c1_fw_stability_repeat_2026_07_26
+selection_role: initialization_stability_checkpoint
+training_random_seed: 271828
+best_entry:
+  run_instance_id: 2026-07-26-20-00-21__te_phase3_pinn_c1_linear_compliance_soft_fw_seed_271828__polished_setpoints
+  model_family: phase3_pinn_c1_linear_compliance_soft_fw_seed_271828
+  model_type: quasi_static_compliance_pinn
+  dataset_id: polished_dataset
+  output_directory: output/training_runs/quasi_static_compliance_pinn/2026-07-26-20-00-21__te_phase3_pinn_c1_linear_compliance_soft_fw_seed_271828__polished_setpoints
+  best_checkpoint_path: output/training_runs/quasi_static_compliance_pinn/2026-07-26-20-00-21__te_phase3_pinn_c1_linear_compliance_soft_fw_seed_271828__polished_setpoints/checkpoints/quasi_static_compliance_pinn-epoch=016-val_mae=0.00212320.ckpt

@@ -149,6 +149,24 @@ class TransmissionErrorRegressionModule(LightningModule):
             "physics_analytical_anchor_weight": float(
                 weight_dictionary.get("physics_analytical_anchor", 0.0)
             ),
+            "physics_compliance_equation_weight": float(
+                weight_dictionary.get("physics_compliance_equation", 0.0)
+            ),
+            "physics_zero_torque_boundary_weight": float(
+                weight_dictionary.get("physics_zero_torque_boundary", 0.0)
+            ),
+            "physics_compliance_monotonicity_weight": float(
+                weight_dictionary.get(
+                    "physics_compliance_monotonicity",
+                    0.0,
+                )
+            ),
+            "physics_stiffness_bounds_weight": float(
+                weight_dictionary.get("physics_stiffness_bounds", 0.0)
+            ),
+            "physics_periodic_mean_weight": float(
+                weight_dictionary.get("physics_periodic_mean", 0.0)
+            ),
             "enable_physics_diagnostics": enable_physics_diagnostics,
             "physics_maximum_collocation_points": (
                 physics_maximum_collocation_points
@@ -427,6 +445,23 @@ class TransmissionErrorRegressionModule(LightningModule):
         physics_analytical_anchor_weight = float(
             self.loss_configuration["physics_analytical_anchor_weight"]
         )
+        physics_compliance_equation_weight = float(
+            self.loss_configuration["physics_compliance_equation_weight"]
+        )
+        physics_zero_torque_boundary_weight = float(
+            self.loss_configuration["physics_zero_torque_boundary_weight"]
+        )
+        physics_compliance_monotonicity_weight = float(
+            self.loss_configuration[
+                "physics_compliance_monotonicity_weight"
+            ]
+        )
+        physics_stiffness_bounds_weight = float(
+            self.loss_configuration["physics_stiffness_bounds_weight"]
+        )
+        physics_periodic_mean_weight = float(
+            self.loss_configuration["physics_periodic_mean_weight"]
+        )
         harmonic_index_list = list(self.loss_configuration["harmonic_index_list"])
 
         # Initialize Loss Terms
@@ -440,6 +475,11 @@ class TransmissionErrorRegressionModule(LightningModule):
         physics_periodic_value_loss = zero_loss
         physics_periodic_slope_loss = zero_loss
         physics_analytical_anchor_loss = zero_loss
+        physics_compliance_equation_loss = zero_loss
+        physics_zero_torque_boundary_loss = zero_loss
+        physics_compliance_monotonicity_loss = zero_loss
+        physics_stiffness_bounds_loss = zero_loss
+        physics_periodic_mean_loss = zero_loss
         physics_collocation_point_count = zero_loss
         physics_boundary_condition_count = zero_loss
 
@@ -514,6 +554,11 @@ class TransmissionErrorRegressionModule(LightningModule):
             + physics_periodic_value_weight
             + physics_periodic_slope_weight
             + physics_analytical_anchor_weight
+            + physics_compliance_equation_weight
+            + physics_zero_torque_boundary_weight
+            + physics_compliance_monotonicity_weight
+            + physics_stiffness_bounds_weight
+            + physics_periodic_mean_weight
         )
         should_compute_physics = bool(
             self.loss_configuration["enable_physics_diagnostics"]
@@ -560,6 +605,28 @@ class TransmissionErrorRegressionModule(LightningModule):
             physics_analytical_anchor_loss = physics_loss_dictionary[
                 "physics_analytical_anchor_loss"
             ]
+            physics_compliance_equation_loss = physics_loss_dictionary.get(
+                "physics_compliance_equation_loss",
+                zero_loss,
+            )
+            physics_zero_torque_boundary_loss = physics_loss_dictionary.get(
+                "physics_zero_torque_boundary_loss",
+                zero_loss,
+            )
+            physics_compliance_monotonicity_loss = (
+                physics_loss_dictionary.get(
+                    "physics_compliance_monotonicity_loss",
+                    zero_loss,
+                )
+            )
+            physics_stiffness_bounds_loss = physics_loss_dictionary.get(
+                "physics_stiffness_bounds_loss",
+                zero_loss,
+            )
+            physics_periodic_mean_loss = physics_loss_dictionary.get(
+                "physics_periodic_mean_loss",
+                zero_loss,
+            )
             physics_collocation_point_count = physics_loss_dictionary[
                 "physics_collocation_point_count"
             ]
@@ -579,6 +646,15 @@ class TransmissionErrorRegressionModule(LightningModule):
             + physics_periodic_value_weight * physics_periodic_value_loss
             + physics_periodic_slope_weight * physics_periodic_slope_loss
             + physics_analytical_anchor_weight * physics_analytical_anchor_loss
+            + physics_compliance_equation_weight
+            * physics_compliance_equation_loss
+            + physics_zero_torque_boundary_weight
+            * physics_zero_torque_boundary_loss
+            + physics_compliance_monotonicity_weight
+            * physics_compliance_monotonicity_loss
+            + physics_stiffness_bounds_weight
+            * physics_stiffness_bounds_loss
+            + physics_periodic_mean_weight * physics_periodic_mean_loss
         )
 
         return {
@@ -595,6 +671,17 @@ class TransmissionErrorRegressionModule(LightningModule):
             "physics_periodic_value_loss": physics_periodic_value_loss,
             "physics_periodic_slope_loss": physics_periodic_slope_loss,
             "physics_analytical_anchor_loss": physics_analytical_anchor_loss,
+            "physics_compliance_equation_loss": (
+                physics_compliance_equation_loss
+            ),
+            "physics_zero_torque_boundary_loss": (
+                physics_zero_torque_boundary_loss
+            ),
+            "physics_compliance_monotonicity_loss": (
+                physics_compliance_monotonicity_loss
+            ),
+            "physics_stiffness_bounds_loss": physics_stiffness_bounds_loss,
+            "physics_periodic_mean_loss": physics_periodic_mean_loss,
             "physics_collocation_point_count": physics_collocation_point_count,
             "physics_boundary_condition_count": (
                 physics_boundary_condition_count
@@ -667,6 +754,12 @@ class TransmissionErrorRegressionModule(LightningModule):
         self.input_feature_std.copy_(torch.clamp(normalization_statistics.input_feature_std.float(), min=1.0e-8))
         self.target_mean.copy_(normalization_statistics.target_mean.float())
         self.target_std.copy_(torch.clamp(normalization_statistics.target_std.float(), min=1.0e-8))
+
+        # Propagate Statistics To Physics-Embedded Backbones
+        if hasattr(self.regression_model, "set_normalization_statistics"):
+            self.regression_model.set_normalization_statistics(
+                normalization_statistics
+            )
 
         # Mark Statistics As Ready
         self.normalization_statistics_initialized = True
@@ -862,6 +955,47 @@ class TransmissionErrorRegressionModule(LightningModule):
             prog_bar=False,
             batch_size=batch_size,
         )
+        for compliance_metric_name in [
+            "physics_compliance_equation_loss",
+            "physics_zero_torque_boundary_loss",
+            "physics_compliance_monotonicity_loss",
+            "physics_stiffness_bounds_loss",
+            "physics_periodic_mean_loss",
+        ]:
+            self.log(
+                f"{log_prefix}_{compliance_metric_name}",
+                batch_output_dictionary[compliance_metric_name],
+                on_step=False,
+                on_epoch=True,
+                prog_bar=False,
+                batch_size=batch_size,
+            )
+
+        # Log Phase 3 Inspectable Physical Quantities
+        effective_stiffness_tensor = batch_output_dictionary.get(
+            "effective_stiffness_nm_per_deg"
+        )
+        if isinstance(effective_stiffness_tensor, torch.Tensor):
+            self.log(
+                f"{log_prefix}_effective_stiffness_nm_per_deg",
+                torch.mean(effective_stiffness_tensor),
+                on_step=False,
+                on_epoch=True,
+                prog_bar=False,
+                batch_size=batch_size,
+            )
+        elastic_prediction_deg = batch_output_dictionary.get(
+            "elastic_prediction_deg"
+        )
+        if isinstance(elastic_prediction_deg, torch.Tensor):
+            self.log(
+                f"{log_prefix}_elastic_prediction_mean_abs_deg",
+                torch.mean(torch.abs(elastic_prediction_deg)),
+                on_step=False,
+                on_epoch=True,
+                prog_bar=False,
+                batch_size=batch_size,
+            )
         for probabilistic_metric_name in [
             "interval_coverage",
             "interval_width",

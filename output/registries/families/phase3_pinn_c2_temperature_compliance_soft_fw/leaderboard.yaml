@@ -1,0 +1,51 @@
+schema_version: 1
+model_family: phase3_pinn_c2_temperature_compliance_soft_fw
+selection_policy:
+  primary_metric: test_mae
+  first_tie_breaker: test_rmse
+  second_tie_breaker: val_mae
+  third_tie_breaker: trainable_parameter_count
+  direction: minimize
+updated_at: '2026-07-26T18:37:03'
+entry_count: 1
+entry_list:
+- run_instance_id: 2026-07-26-18-29-09__te_phase3_pinn_c2_temperature_compliance_soft_fw__polished_setpoints
+  run_name: te_phase3_pinn_c2_temperature_compliance_soft_fw__polished_setpoints
+  output_run_name: te_phase3_pinn_c2_temperature_compliance_soft_fw__polished_setpoints
+  output_artifact_kind: training_run
+  model_family: phase3_pinn_c2_temperature_compliance_soft_fw
+  base_model_family: phase3_pinn_c2_temperature_compliance_soft_fw
+  model_type: quasi_static_compliance_pinn
+  dataset_id: polished_dataset
+  dataset_schema: polished_setpoint_curve_v1
+  input_mode: setpoints
+  input_feature_names:
+  - angular_position_deg
+  - input_speed_rpm
+  - input_torque_nm
+  - oil_temperature_deg
+  - direction_flag
+  target_feature_names:
+  - theta_TE
+  input_feature_dim: 5
+  training_variant: fw
+  direction_scope_label: forward_only
+  use_forward_direction: true
+  use_backward_direction: false
+  trainable_parameter_count: 7212
+  total_parameter_count: 7212
+  val_mae: 0.0016716625541448593
+  val_rmse: 0.0021227397955954075
+  test_mae: 0.001550988294184208
+  test_rmse: 0.0019503564108163118
+  output_directory: output\training_runs\quasi_static_compliance_pinn\2026-07-26-18-29-09__te_phase3_pinn_c2_temperature_compliance_soft_fw__polished_setpoints
+  best_checkpoint_path: output\training_runs\quasi_static_compliance_pinn\2026-07-26-18-29-09__te_phase3_pinn_c2_temperature_compliance_soft_fw__polished_setpoints\checkpoints\quasi_static_compliance_pinn-epoch=019-val_mae=0.00167166.ckpt
+  metrics_path: output\training_runs\quasi_static_compliance_pinn\2026-07-26-18-29-09__te_phase3_pinn_c2_temperature_compliance_soft_fw__polished_setpoints/metrics_summary.yaml
+  report_path: output\training_runs\quasi_static_compliance_pinn\2026-07-26-18-29-09__te_phase3_pinn_c2_temperature_compliance_soft_fw__polished_setpoints/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-07-26T18:37:03'

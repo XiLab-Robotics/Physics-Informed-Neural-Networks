@@ -210,6 +210,24 @@ This folder contains the internal project documents derived from the reference P
   residuals, parameter-matched Fourier controls, direction-separated
   campaigns, and the harmonic-fidelity exit gate.
 
+- [technical/2026-07/2026-07-26/2026-07-26-17-14-40_phase_3_quasi_static_compliance_pinn.md](./technical/2026-07/2026-07-26/2026-07-26-17-14-40_phase_3_quasi_static_compliance_pinn.md)
+  Automatically approved Phase 3 design for bounded positive compliance,
+  temperature-conditioned stiffness, nonlinear elastic response, explicit
+  elastic-offset decomposition, and direction-coupled compatibility tests.
+
+- [reports/campaign_plans/model_development_waves/wave_5_2/quasi_static_compliance_pinn/2026-07-26-17-16-41_phase3_quasi_static_compliance_pinn_campaign_plan_report.md](./reports/campaign_plans/model_development_waves/wave_5_2/quasi_static_compliance_pinn/2026-07-26-17-16-41_phase3_quasi_static_compliance_pinn_campaign_plan_report.md)
+  Automatically approved twelve-run Phase 3 plan covering directional
+  compliance arms, paired-direction shared-stiffness controls, the mandatory
+  identifiability audit, and the multi-index promotion gate.
+
+- [scripts/campaigns/wave_5_2/run_phase3_quasi_static_compliance_pinn_campaign.md](./scripts/campaigns/wave_5_2/run_phase3_quasi_static_compliance_pinn_campaign.md)
+  Local, remote, deterministic-preflight, and twelve-arm one-batch-validation
+  commands for the prepared Phase 3 campaign.
+
+- [scripts/campaigns/wave_5_2/run_phase3_c1_fw_stability_repeat_campaign.md](./scripts/campaigns/wave_5_2/run_phase3_c1_fw_stability_repeat_campaign.md)
+  Local and remote commands for the two seeded C1-Fw stability repeats
+  authorized by the Phase 3 multi-index gate.
+
 - [reports/analysis/model_development_waves/wave_5_2/mmt_residual_explanatory_diagnostic/[2026-07-24]/wave52_mmt_residual_explanatory_diagnostic.md](./reports/analysis/model_development_waves/wave_5_2/mmt_residual_explanatory_diagnostic/%5B2026-07-24%5D/wave52_mmt_residual_explanatory_diagnostic.md)
   Completed non-training Wave 5.2 provenance audit. The selected residual
   source contains held-out test rows only, so MMT fitting remains blocked until
@@ -278,6 +296,31 @@ This folder contains the internal project documents derived from the reference P
 - [reports/analysis/model_development_waves/wave_5_2/harmonic_kinematic_pinn/curve_payload_diagnostics/[2026-07-26]/track2_curve_payload_diagnostics_report.md](./reports/analysis/model_development_waves/wave_5_2/harmonic_kinematic_pinn/curve_payload_diagnostics/%5B2026-07-26%5D/track2_curve_payload_diagnostics_report.md)
   Bounded `CVP 1.2` playback of the eight canonical Phase 2 checkpoints and
   four accepted references over the exact common test conditions.
+
+- [reports/analysis/model_development_waves/wave_5_2/quasi_static_compliance_pinn/[2026-07-26]/phase3_compliance_identifiability_audit.md](./reports/analysis/model_development_waves/wave_5_2/quasi_static_compliance_pinn/%5B2026-07-26%5D/phase3_compliance_identifiability_audit.md)
+  Training-only Phase 3 audit of signed torque, temperature coverage,
+  quasi-static mean behavior, formulation rank, and stiffness
+  identifiability over the exact common split.
+
+- [reports/analysis/model_development_waves/wave_5_2/quasi_static_compliance_pinn/[2026-07-26]/phase3_quasi_static_compliance_pinn_model_report.md](./reports/analysis/model_development_waves/wave_5_2/quasi_static_compliance_pinn/%5B2026-07-26%5D/phase3_quasi_static_compliance_pinn_model_report.md)
+  Model report for the six quasi-static compliance formulations, including
+  signed-torque semantics, bounded stiffness, soft and hard physics laws,
+  implementation surfaces, limitations, and deterministic evidence.
+
+- [reports/analysis/model_development_waves/wave_5_2/quasi_static_compliance_pinn/[2026-07-26]/phase3_c1_fw_stability_audit.md](./reports/analysis/model_development_waves/wave_5_2/quasi_static_compliance_pinn/%5B2026-07-26%5D/phase3_c1_fw_stability_audit.md)
+  Checkpoint-level C1-Fw parameter and multi-index stability audit. Bounded
+  stiffness is stable, but only two of three initializations pass the complete
+  curve-first gate.
+
+- [reports/analysis/model_development_waves/wave_5_2/quasi_static_compliance_pinn/c1_fw_stability_curve_payload_diagnostics/[2026-07-26]/track2_curve_payload_diagnostics_report.md](./reports/analysis/model_development_waves/wave_5_2/quasi_static_compliance_pinn/c1_fw_stability_curve_payload_diagnostics/%5B2026-07-26%5D/track2_curve_payload_diagnostics_report.md)
+  Bounded CVP 1.2 replay of the initial C1-Fw run, two seeded repeats, its
+  matched C0 control, and both accepted Fw references.
+
+- [reports/campaign_results/wave_5_2/2026-07-26-20-13-18_phase3_quasi_static_compliance_pinn_campaign_results_report.md](./reports/campaign_results/wave_5_2/2026-07-26-20-13-18_phase3_quasi_static_compliance_pinn_campaign_results_report.md)
+  Complete Phase 3 closeout for twelve main runs, two stability repeats,
+  full-curve diagnostics, and the negative physical-ingredient decision. A
+  [validated styled PDF companion](./reports/campaign_results/wave_5_2/2026-07-26-20-13-18_phase3_quasi_static_compliance_pinn_campaign_results_report.pdf)
+  preserves the full evidence record.
 
 - [reports/analysis/te_curve_verification_pipeline/03_cvp_diagnostics/non_mmt_cross_wave_comparison/[2026-07-24]/non_mmt_cross_wave_comparison_report.md](./reports/analysis/te_curve_verification_pipeline/03_cvp_diagnostics/non_mmt_cross_wave_comparison/%5B2026-07-24%5D/non_mmt_cross_wave_comparison_report.md)
   Six-cell reduced cross-wave comparison across polished setpoints, simplified

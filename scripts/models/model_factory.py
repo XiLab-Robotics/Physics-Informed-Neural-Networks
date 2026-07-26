@@ -20,6 +20,9 @@ from scripts.models.harmonic_residual_offset_network import HarmonicResidualOffs
 from scripts.models.latent_state_hysteresis_network import LatentStateHysteresisNetwork
 from scripts.models.periodic_feature_network import PeriodicFeatureNetwork
 from scripts.models.periodic_temporal_sequence_network import PeriodicTemporalSequenceNetwork
+from scripts.models.quasi_static_compliance_pinn_network import (
+    QuasiStaticCompliancePinnNetwork,
+)
 from scripts.models.residual_harmonic_network import ResidualHarmonicNetwork
 from scripts.models.residual_harmonic_temporal_sequence_network import ResidualHarmonicTemporalSequenceNetwork
 from scripts.models.sequential_residual_offset_network import SequentialResidualOffsetNetwork
@@ -366,6 +369,97 @@ def create_model(model_type: str, model_configuration: dict[str, Any]) -> nn.Mod
                     model_configuration.get(
                         "analytical_anchor_coefficient_matrix"
                     ),
+                )
+            ),
+        )
+
+    # Create Wave 5.2 Phase 3 Quasi-Static Compliance PINN
+    if normalized_model_type == "quasi_static_compliance_pinn":
+        return QuasiStaticCompliancePinnNetwork(
+            input_size=int(model_configuration["input_size"]),
+            output_size=int(model_configuration.get("output_size", 1)),
+            harmonic_index_list=list(
+                model_configuration["harmonic_index_list"]
+            ),
+            condition_hidden_size=list(
+                model_configuration.get("condition_hidden_size", [64, 48])
+            ),
+            condition_latent_size=int(
+                model_configuration.get("condition_latent_size", 32)
+            ),
+            mean_hidden_size=list(
+                model_configuration.get("mean_hidden_size", [32, 16])
+            ),
+            formulation=str(
+                model_configuration.get("formulation", "C1")
+            ),
+            activation_name=str(
+                model_configuration.get("activation_name", "Tanh")
+            ),
+            dropout_probability=float(
+                model_configuration.get("dropout_probability", 0.0)
+            ),
+            use_layer_norm=bool(
+                model_configuration.get("use_layer_norm", False)
+            ),
+            minimum_stiffness_nm_per_deg=float(
+                model_configuration.get(
+                    "minimum_stiffness_nm_per_deg",
+                    5000.0,
+                )
+            ),
+            maximum_stiffness_nm_per_deg=float(
+                model_configuration.get(
+                    "maximum_stiffness_nm_per_deg",
+                    100000.0,
+                )
+            ),
+            initial_stiffness_nm_per_deg=float(
+                model_configuration.get(
+                    "initial_stiffness_nm_per_deg",
+                    27250.0,
+                )
+            ),
+            initial_forward_intercept_deg=float(
+                model_configuration.get(
+                    "initial_forward_intercept_deg",
+                    -0.0217,
+                )
+            ),
+            initial_backward_intercept_deg=float(
+                model_configuration.get(
+                    "initial_backward_intercept_deg",
+                    -0.0116,
+                )
+            ),
+            reference_temperature_deg_c=float(
+                model_configuration.get(
+                    "reference_temperature_deg_c",
+                    30.0,
+                )
+            ),
+            temperature_scale_deg_c=float(
+                model_configuration.get(
+                    "temperature_scale_deg_c",
+                    10.0,
+                )
+            ),
+            nonlinear_torque_scale_nm=float(
+                model_configuration.get(
+                    "nonlinear_torque_scale_nm",
+                    400.0,
+                )
+            ),
+            maximum_nonlinear_amplitude_deg=float(
+                model_configuration.get(
+                    "maximum_nonlinear_amplitude_deg",
+                    0.02,
+                )
+            ),
+            torque_input_mode=str(
+                model_configuration.get(
+                    "torque_input_mode",
+                    "nominal_magnitude",
                 )
             ),
         )

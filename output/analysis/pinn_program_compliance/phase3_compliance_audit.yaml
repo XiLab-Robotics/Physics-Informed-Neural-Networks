@@ -1,0 +1,299 @@
+schema_version: 1
+audit_id: wave52_phase3_quasi_static_compliance
+generated_at_utc: '2026-07-26T15:24:24.471061+00:00'
+source_configuration:
+  path: config/analysis/pinn_program_compliance/phase3_compliance_audit.yaml
+  sha256: 212ff944e3445b5aabee0b885305ee8e12249c83aef0774b9ea08092f01e1546
+source_evidence:
+  phase0_curve_audit_csv:
+    path: output/analysis/pinn_program_foundations/phase0_curve_audit.csv
+    sha256: 8b8c75267acdb53a6a23beaa9632f6ba956a8260aa5444f75d98bfaaf892ba46
+  common_split_manifest_csv:
+    path: output/analysis/polynomial_fourier_benchmark/common_split_manifest.csv
+    sha256: 32a3a77b8b7a5c49b44c72d16c002d929634026d9294026e163f1b75eb6e39d4
+  common_split_manifest_yaml:
+    path: output/analysis/polynomial_fourier_benchmark/common_split_manifest.yaml
+    sha256: 1d65c12211de66c2924fe12e4b976983517811610eb45fbf5d1845cf1a215973
+    assignment_sha256: c1aa8718fb9bf88cc2021c121dc4f3b4010fc1d2e45ac90af5f4376aa64f8e16
+support:
+  eligible_directional_curve_count: 1932
+  expected_directional_curve_count: 1932
+  paired_direction_contract_pass: true
+  zero_torque_support_pass: true
+  direction_torque_sign_contract_pass: true
+  by_direction:
+    Fw:
+      curve_count_by_split:
+        train: 675
+        validation: 194
+        test: 97
+      signed_torque_range_nm:
+      - -1800.6104808579746
+      - 0.11440786597166451
+      temperature_range_deg_c:
+      - 24.259157510288066
+      - 37.64155236625514
+      unique_nominal_torque_count: 19
+      unique_temperature_count: 107
+      low_torque_curve_count_by_split:
+        train: 34
+        validation: 12
+        test: 5
+      direction_torque_sign_pass_rate: 1.0
+      training_correlation:
+        torque_temperature: -0.02246551552982019
+        torque_curve_mean: 0.9873410666606918
+        temperature_curve_mean: -0.028363137456822285
+      curve_mean_quantile_deg:
+        q05: -0.08600263654978993
+        q50: -0.05570834298521605
+        q95: -0.021515346969003295
+    Bw:
+      curve_count_by_split:
+        train: 675
+        validation: 194
+        test: 97
+      signed_torque_range_nm:
+      - -0.29010645287670295
+      - 1800.5152555920984
+      temperature_range_deg_c:
+      - 24.13541532921811
+      - 37.654947966768695
+      unique_nominal_torque_count: 19
+      unique_temperature_count: 115
+      low_torque_curve_count_by_split:
+        train: 34
+        validation: 12
+        test: 5
+      direction_torque_sign_pass_rate: 1.0
+      training_correlation:
+        torque_temperature: 0.030923646631257882
+        torque_curve_mean: 0.9871688458379803
+        temperature_curve_mean: 0.09854353608166465
+      curve_mean_quantile_deg:
+        q05: -0.009686379114430602
+        q50: 0.02249835966733563
+        q95: 0.052653608087253674
+identifiability:
+  c0_control:
+    surface_count: 2
+    full_rank: true
+    condition_number_pass: true
+    maximum_condition_number: 1.0
+    all_unconstrained_physical_sign_pass: false
+    surface_result_list:
+    - surface: Fw
+      coefficient_list:
+      - -0.055262156916496726
+      design_rank: 1
+      design_column_count: 1
+      design_condition_number: 1.0
+      physical:
+        linear_compliance_deg_per_nm: 0.0
+        effective_stiffness_nm_per_deg: 0.0
+        minimum_compliance_derivative_deg_per_nm: 0.0
+        positive_stiffness_pass: false
+        monotonicity_pass: false
+      validation_mae_deg: 0.017461288209103833
+      test_mae_deg: 0.016815748641681765
+    - surface: Bw
+      coefficient_list:
+      - 0.021969288106710835
+      design_rank: 1
+      design_column_count: 1
+      design_condition_number: 1.0
+      physical:
+        linear_compliance_deg_per_nm: 0.0
+        effective_stiffness_nm_per_deg: 0.0
+        minimum_compliance_derivative_deg_per_nm: 0.0
+        positive_stiffness_pass: false
+        monotonicity_pass: false
+      validation_mae_deg: 0.017530094901876587
+      test_mae_deg: 0.017222085388167857
+  c1_linear:
+    surface_count: 2
+    full_rank: true
+    condition_number_pass: true
+    maximum_condition_number: 2074.373718078233
+    all_unconstrained_physical_sign_pass: true
+    surface_result_list:
+    - surface: Fw
+      coefficient_list:
+      - -0.021711242381271714
+      - 3.67051668718517e-05
+      design_rank: 2
+      design_column_count: 2
+      design_condition_number: 2074.373718078233
+      physical:
+        linear_compliance_deg_per_nm: 3.67051668718517e-05
+        effective_stiffness_nm_per_deg: 27244.120793437276
+        minimum_compliance_derivative_deg_per_nm: 3.67051668718517e-05
+        positive_stiffness_pass: true
+        monotonicity_pass: true
+      validation_mae_deg: 0.0016889096726510212
+      test_mae_deg: 0.0016306988537678894
+    - surface: Bw
+      coefficient_list:
+      - -0.011554744725194376
+      - 3.667699346275647e-05
+      design_rank: 2
+      design_column_count: 2
+      design_condition_number: 2074.2724170320803
+      physical:
+        linear_compliance_deg_per_nm: 3.667699346275647e-05
+        effective_stiffness_nm_per_deg: 27265.0483474183
+        minimum_compliance_derivative_deg_per_nm: 3.667699346275647e-05
+        positive_stiffness_pass: true
+        monotonicity_pass: true
+      validation_mae_deg: 0.0019628077197454607
+      test_mae_deg: 0.0016900640512737255
+  c2_temperature:
+    surface_count: 2
+    full_rank: true
+    condition_number_pass: true
+    maximum_condition_number: 2091.726965622219
+    all_unconstrained_physical_sign_pass: true
+    surface_result_list:
+    - surface: Fw
+      coefficient_list:
+      - -0.021706028687383336
+      - 3.6656759946957924e-05
+      - 5.989854483426454e-07
+      design_rank: 3
+      design_column_count: 3
+      design_condition_number: 2084.0015116832487
+      physical:
+        linear_compliance_deg_per_nm: 3.6656759946957924e-05
+        effective_stiffness_nm_per_deg: 27280.09789864115
+        minimum_compliance_derivative_deg_per_nm: 3.631289183570146e-05
+        positive_stiffness_pass: true
+        monotonicity_pass: true
+      validation_mae_deg: 0.0017207087668323277
+      test_mae_deg: 0.0016852817201282629
+    - surface: Bw
+      coefficient_list:
+      - -0.011575945411229955
+      - 3.6366753550897907e-05
+      - 2.7444695659515494e-06
+      design_rank: 3
+      design_column_count: 3
+      design_condition_number: 2091.726965622219
+      physical:
+        linear_compliance_deg_per_nm: 3.6366753550897907e-05
+        effective_stiffness_nm_per_deg: 27497.642829196386
+        minimum_compliance_derivative_deg_per_nm: 3.475723613630722e-05
+        positive_stiffness_pass: true
+        monotonicity_pass: true
+      validation_mae_deg: 0.0016726142647577461
+      test_mae_deg: 0.0015313622684150197
+  c3_nonlinear:
+    surface_count: 2
+    full_rank: true
+    condition_number_pass: true
+    maximum_condition_number: 6845.525691202369
+    all_unconstrained_physical_sign_pass: true
+    surface_result_list:
+    - surface: Fw
+      coefficient_list:
+      - -0.020543617183582014
+      - 3.566810756668724e-05
+      - 0.00254711369307445
+      design_rank: 3
+      design_column_count: 3
+      design_condition_number: 6845.525691202369
+      physical:
+        linear_compliance_deg_per_nm: 3.566810756668724e-05
+        effective_stiffness_nm_per_deg: 28036.250539234243
+        minimum_compliance_derivative_deg_per_nm: 3.5671240603457986e-05
+        positive_stiffness_pass: true
+        monotonicity_pass: true
+      validation_mae_deg: 0.0016458509676049924
+      test_mae_deg: 0.0015795914400827359
+    - surface: Bw
+      coefficient_list:
+      - -0.011464245262965772
+      - 3.675738306870799e-05
+      - -0.00019743123103856274
+      design_rank: 3
+      design_column_count: 3
+      design_condition_number: 6844.9171963778435
+      physical:
+        linear_compliance_deg_per_nm: 3.675738306870799e-05
+        effective_stiffness_nm_per_deg: 27205.418789764506
+        minimum_compliance_derivative_deg_per_nm: 3.626380525073897e-05
+        positive_stiffness_pass: true
+        monotonicity_pass: true
+      validation_mae_deg: 0.001965606501759073
+      test_mae_deg: 0.0016920844376791494
+  c5_shared:
+    surface_count: 1
+    full_rank: true
+    condition_number_pass: true
+    maximum_condition_number: 2933.5348632242826
+    all_unconstrained_physical_sign_pass: true
+    surface_result_list:
+    - surface: global
+      coefficient_list:
+      - -0.021724118526212127
+      - -0.011567620478417199
+      - 3.6691080190300734e-05
+      design_rank: 3
+      design_column_count: 3
+      design_condition_number: 2933.5348632242826
+      physical:
+        linear_compliance_deg_per_nm: 3.6691080190300734e-05
+        effective_stiffness_nm_per_deg: 27254.580536016747
+        minimum_compliance_derivative_deg_per_nm: 3.6691080190300734e-05
+        positive_stiffness_pass: true
+        monotonicity_pass: true
+      validation_mae_deg: 0.0018253701203601305
+      test_mae_deg: 0.0016596802919937664
+  c4_hard_decomposition:
+    mean_surface_law: same bounded linear compliance basis as C1
+    periodic_zero_mean_constraint_testable: true
+    full_rank: true
+    condition_number_pass: true
+observability_limitations:
+  repeated_directional_conditions_available: false
+  ordered_load_unload_trajectories_available: false
+  reversal_state_available: false
+  decision: Do not infer hysteresis, friction, or load-unload state in Phase 3; retain those mechanisms
+    for Phase 4.
+entry_gate:
+  status: pass
+  required_check_map:
+    paired_direction_contract: true
+    zero_torque_support: true
+    direction_torque_sign_contract: true
+    c1_full_rank: true
+    c2_full_rank: true
+    c3_full_rank: true
+    c5_full_rank: true
+    c1_condition_number: true
+    c2_condition_number: true
+    c3_condition_number: true
+    c5_condition_number: true
+  training_allowed: true
+  authorized_formulation_list:
+  - C0
+  - C1
+  - C2
+  - C3
+  - C4
+  - C5
+  non_authorized_mechanism_list:
+  - hysteresis
+  - friction_state
+  - load_unload_memory
+  - contact_state
+  - wear
+  - mmt_parameter_estimation
+output_identity:
+  condition_audit_csv:
+    path: output/analysis/pinn_program_compliance/phase3_condition_compliance_audit.csv
+    sha256: a7626f280fe10f175ac8d28083df8958bf41fba17089477b53f3de7d727acaf0
+    row_count: 1932
+  formulation_metrics_csv:
+    path: output/analysis/pinn_program_compliance/phase3_compliance_formulation_metrics.csv
+    sha256: cb59d0cffe960dae6f2d90288464d909d49c961e4aa6964ca5004899235b63a5
+    row_count: 27

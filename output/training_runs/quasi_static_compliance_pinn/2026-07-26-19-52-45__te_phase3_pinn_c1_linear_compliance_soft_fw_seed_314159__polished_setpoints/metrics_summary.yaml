@@ -1,0 +1,132 @@
+schema_version: 1
+config_path: C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML
+  - Codex\config\training\queue\quasi_static_compliance_pinn\phase3_c1_fw_stability_repeat_2026_07_26\running\2026-07-26-19-52-45_001_001_c1_linear_compliance_soft_fw_seed_314159.yaml
+experiment:
+  model_family: phase3_pinn_c1_linear_compliance_soft_fw_seed_314159
+  model_type: quasi_static_compliance_pinn
+  run_name: te_phase3_pinn_c1_linear_compliance_soft_fw_seed_314159__polished_setpoints
+  output_run_name: te_phase3_pinn_c1_linear_compliance_soft_fw_seed_314159__polished_setpoints
+  run_instance_id: 2026-07-26-19-52-45__te_phase3_pinn_c1_linear_compliance_soft_fw_seed_314159__polished_setpoints
+  output_artifact_kind: training_run
+  base_model_family: phase3_pinn_c1_linear_compliance_soft_fw_seed_314159
+  training_variant: fw
+  direction_scope_label: forward_only
+  use_forward_direction: true
+  use_backward_direction: false
+artifacts:
+  output_directory: C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML
+    - Codex\output\training_runs\quasi_static_compliance_pinn\2026-07-26-19-52-45__te_phase3_pinn_c1_linear_compliance_soft_fw_seed_314159__polished_setpoints
+  best_checkpoint_path: C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML
+    - Codex\output\training_runs\quasi_static_compliance_pinn\2026-07-26-19-52-45__te_phase3_pinn_c1_linear_compliance_soft_fw_seed_314159__polished_setpoints\checkpoints\quasi_static_compliance_pinn-epoch=019-val_mae=0.00167640.ckpt
+dataset_split:
+  train_curve_count: 675
+  validation_curve_count: 194
+  test_curve_count: 97
+  dataset_name: polished_dataset
+  dataset_schema: polished_setpoint_curve_v1
+  input_mode: setpoints
+  input_feature_name_list:
+  - angular_position_deg
+  - input_speed_rpm
+  - input_torque_nm
+  - oil_temperature_deg
+  - direction_flag
+  target_feature_name_list:
+  - theta_TE
+  input_feature_dim: 5
+  target_feature_dim: 1
+dataset:
+  dataset_id: polished_dataset
+  dataset_schema: polished_setpoint_curve_v1
+  input_mode: setpoints
+  input_feature_names:
+  - angular_position_deg
+  - input_speed_rpm
+  - input_torque_nm
+  - oil_temperature_deg
+  - direction_flag
+  target_feature_names:
+  - theta_TE
+  input_feature_dim: 5
+  target_feature_dim: 1
+model_summary:
+  backbone_name: QuasiStaticCompliancePinnNetwork
+  trainable_parameter_count: 7212
+  frozen_parameter_count: 0
+  total_parameter_count: 7212
+runtime_config:
+  accelerator: auto
+  devices: auto
+  precision: '32'
+  benchmark: true
+  use_non_blocking_transfer: true
+normalization_statistics:
+  input_feature_mean:
+  - 179.9701385498047
+  - 733.17431640625
+  - 916.5514526367188
+  - 29.96807098388672
+  - 1.0
+  input_feature_std:
+  - 103.93706512451172
+  - 488.6419372558594
+  - 549.6129150390625
+  - 4.113563537597656
+  - 9.999999974752427e-07
+  target_mean:
+  - -0.05610445886850357
+  target_std:
+  - 0.02406206727027893
+validation_metrics:
+  val_loss: 0.013524172827601433
+  val_mae: 0.0016763968160375953
+  val_rmse: 0.0021521905437111855
+  val_pointwise_loss: 0.011035696603357792
+  val_centered_curve_shape_loss: 0.007320243399590254
+  val_curve_offset_loss: 0.003692223923280835
+  val_curve_amplitude_loss: 0.031602632254362106
+  val_sparse_harmonic_shape_loss: 0.0001241736754309386
+  val_physics_oscillator_residual_loss: 0.0
+  val_physics_periodic_value_loss: 0.0
+  val_physics_periodic_slope_loss: 0.0
+  val_physics_analytical_anchor_loss: 0.0
+  val_physics_compliance_equation_loss: 0.00027961510932072997
+  val_physics_zero_torque_boundary_loss: 2.723978695939877e-06
+  val_physics_compliance_monotonicity_loss: 0.0
+  val_physics_stiffness_bounds_loss: 0.0
+  val_physics_periodic_mean_loss: 1.00492666488608e-14
+  val_effective_stiffness_nm_per_deg: 27259.390625
+  val_elastic_prediction_mean_abs_deg: 0.03391885384917259
+test_metrics:
+  test_loss: 0.01123824529349804
+  test_mae: 0.0014724736101925373
+  test_rmse: 0.0018639324698597193
+  test_pointwise_loss: 0.008951614610850811
+  test_centered_curve_shape_loss: 0.006830902770161629
+  test_curve_offset_loss: 0.0020451857708394527
+  test_curve_amplitude_loss: 0.03276175260543823
+  test_sparse_harmonic_shape_loss: 0.00012427577166818082
+  test_physics_oscillator_residual_loss: 0.0
+  test_physics_periodic_value_loss: 0.0
+  test_physics_periodic_slope_loss: 0.0
+  test_physics_analytical_anchor_loss: 0.0
+  test_physics_compliance_equation_loss: 0.000305295514408499
+  test_physics_zero_torque_boundary_loss: 3.313896741019562e-06
+  test_physics_compliance_monotonicity_loss: 0.0
+  test_physics_stiffness_bounds_loss: 0.0
+  test_physics_periodic_mean_loss: 1.0993790547245228e-14
+  test_effective_stiffness_nm_per_deg: 27259.396484375
+  test_elastic_prediction_mean_abs_deg: 0.027913721278309822
+comparison_payload:
+  model_family: phase3_pinn_c1_linear_compliance_soft_fw_seed_314159
+  model_type: quasi_static_compliance_pinn
+  run_name: te_phase3_pinn_c1_linear_compliance_soft_fw_seed_314159__polished_setpoints
+  backbone_name: QuasiStaticCompliancePinnNetwork
+  trainable_parameter_count: 7212
+  total_parameter_count: 7212
+  val_mae: 0.0016763968160375953
+  val_rmse: 0.0021521905437111855
+  test_mae: 0.0014724736101925373
+  test_rmse: 0.0018639324698597193
+  deployment_notes: ''
+  interpretability_notes: ''

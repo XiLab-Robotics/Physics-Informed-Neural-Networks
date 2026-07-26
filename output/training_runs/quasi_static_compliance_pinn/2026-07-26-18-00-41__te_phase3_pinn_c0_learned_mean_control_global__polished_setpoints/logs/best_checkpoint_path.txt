@@ -1,0 +1,1 @@
+C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_runs\quasi_static_compliance_pinn\2026-07-26-18-00-41__te_phase3_pinn_c0_learned_mean_control_global__polished_setpoints\checkpoints\quasi_static_compliance_pinn-epoch=018-val_mae=0.00197682.ckpt

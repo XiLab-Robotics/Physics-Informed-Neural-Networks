@@ -1,45 +1,54 @@
-status: closed
-prepared_at: '2026-07-26T12:37:56+02:00'
-started_at: '2026-07-26T14:03:27+02:00'
-completed_at: '2026-07-26T16:38:48+02:00'
-closed_at: '2026-07-26T16:53:50+02:00'
-campaign_name: phase2_harmonic_kinematic_pinn_runtime_bounded_restart_2026_07_26
-campaign_type: wave_5_2_phase_2_harmonic_kinematic_pinn
-execution_mode: local_background_runtime_bounded_restart
+status: completed
+prepared_at: '2026-07-26T19:50:44+02:00'
+started_at: '2026-07-26T19:52:29+02:00'
+completed_at: '2026-07-26T20:07:49+02:00'
+closed_at: '2026-07-26T20:20:07+02:00'
+campaign_name: phase3_c1_fw_stability_repeat_2026_07_26
+campaign_type: wave_5_2_phase_3_c1_fw_initialization_stability
+execution_mode: local_background
+background_process_id: 49068
+background_stdout_path: .temp/phase3_c1_fw_stability_repeat/campaign_stdout.log
+background_stderr_path: .temp/phase3_c1_fw_stability_repeat/campaign_stderr.log
 remote_host_alias: xilab-remote
 remote_conda_environment_name: pinns_env
+parent_campaign:
+  campaign_name: phase3_quasi_static_compliance_pinn_2026_07_26
+  status: completed_pending_phase_closeout
+  completed_run_count: 12
+  failed_run_count: 0
+  campaign_output_directory: output/training_campaigns/2026-07-26-17-46-18_phase3_quasi_static_compliance_pinn_2026_07_26
+  campaign_leaderboard_path: output/training_campaigns/2026-07-26-17-46-18_phase3_quasi_static_compliance_pinn_2026_07_26/campaign_leaderboard.yaml
+  campaign_best_run_path: output/training_campaigns/2026-07-26-17-46-18_phase3_quasi_static_compliance_pinn_2026_07_26/campaign_best_run.yaml
+  bounded_curve_first_summary_path: output/validation_checks/track2_reference_comparison/2026-07-26-19-30-10__phase3_quasi_static_compliance_pinn_common_test_matrix_phase3_closeout_retry/validation_summary.yaml
+  curve_payload_diagnostics_path: output/validation_checks/phase3_quasi_static_compliance_pinn_curve_payload_diagnostics/2026-07-26-19-39-21__track2c_curve_payload_diagnostics
+  retained_stability_candidate: phase3_pinn_c1_linear_compliance_soft_fw
 dataset_id: polished_dataset
 input_mode: setpoints
 dataset_schema: polished_setpoint_curve_v1
 dataset_root: data/polished_dataset
 surface_list:
 - fw
-- bw
-primary_surface: direction_separated
-expected_run_count: 8
-completed_run_count: 8
+primary_surface: fw
+formulation: C1
+expected_run_count: 2
+completed_run_count: 2
 failed_run_count: 0
-background_process_id: 35020
-background_stdout_path: .temp/phase2_harmonic_kinematic_runtime_bounded_restart/campaign_stdout.log
-background_stderr_path: .temp/phase2_harmonic_kinematic_runtime_bounded_restart/campaign_stderr.log
-campaign_manifest_path: config/training/harmonic_kinematic_pinn/campaigns/2026-07-26_phase2_harmonic_kinematic_pinn/campaign.yaml
+random_seed_list:
+- 314159
+- 271828
+campaign_manifest_path: config/training/quasi_static_compliance_pinn/campaigns/2026-07-26_phase3_c1_fw_stability_repeat/campaign.yaml
 campaign_config_path_list:
-- config/training/harmonic_kinematic_pinn/campaigns/2026-07-26_phase2_harmonic_kinematic_pinn/queue/001_h0_fourier_control_fw.yaml
-- config/training/harmonic_kinematic_pinn/campaigns/2026-07-26_phase2_harmonic_kinematic_pinn/queue/002_h0_fourier_control_bw.yaml
-- config/training/harmonic_kinematic_pinn/campaigns/2026-07-26_phase2_harmonic_kinematic_pinn/queue/003_h1_oscillator_residual_fw.yaml
-- config/training/harmonic_kinematic_pinn/campaigns/2026-07-26_phase2_harmonic_kinematic_pinn/queue/004_h1_oscillator_residual_bw.yaml
-- config/training/harmonic_kinematic_pinn/campaigns/2026-07-26_phase2_harmonic_kinematic_pinn/queue/005_h2_oscillator_periodic_closure_fw.yaml
-- config/training/harmonic_kinematic_pinn/campaigns/2026-07-26_phase2_harmonic_kinematic_pinn/queue/006_h2_oscillator_periodic_closure_bw.yaml
-- config/training/harmonic_kinematic_pinn/campaigns/2026-07-26_phase2_harmonic_kinematic_pinn/queue/007_h3_oscillator_periodic_bauer_anchor_fw.yaml
-- config/training/harmonic_kinematic_pinn/campaigns/2026-07-26_phase2_harmonic_kinematic_pinn/queue/008_h3_oscillator_periodic_bauer_anchor_bw.yaml
-queue_root: config/training/queue/harmonic_kinematic_pinn/phase2_harmonic_kinematic_pinn_runtime_bounded_restart_2026_07_26
-launcher_path: scripts/campaigns/wave_5_2/run_phase2_harmonic_kinematic_pinn_campaign.ps1
-launcher_note_path: doc/scripts/campaigns/wave_5_2/run_phase2_harmonic_kinematic_pinn_campaign.md
-planning_report_path: doc/reports/campaign_plans/model_development_waves/wave_5_2/harmonic_kinematic_pinn/2026-07-25-20-44-23_phase2_harmonic_kinematic_pinn_campaign_plan_report.md
-technical_document_path: doc/technical/2026-07/2026-07-25/2026-07-25-20-40-44_phase_2_harmonic_kinematic_pinn.md
-model_report_path: doc/reports/analysis/model_development_waves/wave_5_2/harmonic_kinematic_pinn/[2026-07-26]/phase2_harmonic_kinematic_pinn_model_report.md
-analytical_anchor_path: output/analysis/polynomial_fourier_benchmark/phase1_coefficient_models.yaml
+- config/training/quasi_static_compliance_pinn/campaigns/2026-07-26_phase3_c1_fw_stability_repeat/queue/001_c1_linear_compliance_soft_fw_seed_314159.yaml
+- config/training/quasi_static_compliance_pinn/campaigns/2026-07-26_phase3_c1_fw_stability_repeat/queue/002_c1_linear_compliance_soft_fw_seed_271828.yaml
+queue_root: config/training/queue/quasi_static_compliance_pinn/phase3_c1_fw_stability_repeat_2026_07_26
+launcher_path: scripts/campaigns/wave_5_2/run_phase3_c1_fw_stability_repeat_campaign.ps1
+launcher_note_path: doc/scripts/campaigns/wave_5_2/run_phase3_c1_fw_stability_repeat_campaign.md
+planning_report_path: doc/reports/campaign_plans/model_development_waves/wave_5_2/quasi_static_compliance_pinn/2026-07-26-17-16-41_phase3_quasi_static_compliance_pinn_campaign_plan_report.md
+technical_document_path: doc/technical/2026-07/2026-07-26/2026-07-26-17-14-40_phase_3_quasi_static_compliance_pinn.md
+model_report_path: doc/reports/analysis/model_development_waves/wave_5_2/quasi_static_compliance_pinn/[2026-07-26]/phase3_quasi_static_compliance_pinn_model_report.md
+audit_artifact_path: output/analysis/pinn_program_compliance/phase3_compliance_audit.yaml
 common_split_manifest_path: output/analysis/polynomial_fourier_benchmark/common_split_manifest.yaml
+common_split_signature: c1aa8718fb9bf88cc2021c121dc4f3b4010fc1d2e45ac90af5f4376aa64f8e16
 excluded_condition_id_list:
 - speed_500rpm__torque_600Nm__temperature_35degC
 - speed_800rpm__torque_200Nm__temperature_25degC
@@ -51,56 +60,59 @@ expected_curve_count_by_split:
 approval:
   status: approved
   scope: >
-    Campaign plan, preparation, preflight, and training work required by the
+    Phase 3 stability-repeat preparation, protected-file edits, preflight,
+    training, curve-first evaluation, closeout, and Phase 3 commit under the
     approved sixteen-phase PINN roadmap.
   approved_at: '2026-07-26T12:37:56+02:00'
   expires_at: '2026-07-26T22:37:56+02:00'
   source: user standing approval for the next ten hours
-local_preflight_command: .\scripts\campaigns\wave_5_2\run_phase2_harmonic_kinematic_pinn_campaign.ps1 -PreflightOnly
-local_one_batch_validation_command: .\scripts\campaigns\wave_5_2\run_phase2_harmonic_kinematic_pinn_campaign.ps1 -PreflightOnly -RunOneBatchValidation
-local_launch_command: .\scripts\campaigns\wave_5_2\run_phase2_harmonic_kinematic_pinn_campaign.ps1
-remote_launch_command: .\scripts\campaigns\wave_5_2\run_phase2_harmonic_kinematic_pinn_campaign.ps1 -Remote
+local_preflight_command: .\scripts\campaigns\wave_5_2\run_phase3_c1_fw_stability_repeat_campaign.ps1 -PreflightOnly
+local_one_batch_validation_command: .\scripts\campaigns\wave_5_2\run_phase3_c1_fw_stability_repeat_campaign.ps1 -PreflightOnly -RunOneBatchValidation
+local_launch_command: .\scripts\campaigns\wave_5_2\run_phase3_c1_fw_stability_repeat_campaign.ps1
+remote_launch_command: .\scripts\campaigns\wave_5_2\run_phase3_c1_fw_stability_repeat_campaign.ps1 -Remote
 launch_command_list:
-- .\scripts\campaigns\wave_5_2\run_phase2_harmonic_kinematic_pinn_campaign.ps1 -PreflightOnly
-- .\scripts\campaigns\wave_5_2\run_phase2_harmonic_kinematic_pinn_campaign.ps1 -PreflightOnly -RunOneBatchValidation
-- .\scripts\campaigns\wave_5_2\run_phase2_harmonic_kinematic_pinn_campaign.ps1
-- .\scripts\campaigns\wave_5_2\run_phase2_harmonic_kinematic_pinn_campaign.ps1 -Remote
+- .\scripts\campaigns\wave_5_2\run_phase3_c1_fw_stability_repeat_campaign.ps1 -PreflightOnly
+- .\scripts\campaigns\wave_5_2\run_phase3_c1_fw_stability_repeat_campaign.ps1 -PreflightOnly -RunOneBatchValidation
+- .\scripts\campaigns\wave_5_2\run_phase3_c1_fw_stability_repeat_campaign.ps1
+- .\scripts\campaigns\wave_5_2\run_phase3_c1_fw_stability_repeat_campaign.ps1 -Remote
 acceptance_gate:
   scalar_mae_only_promotion_allowed: false
   promotion_decision_requires_curve_first_evidence: true
   required_surface_list:
   - fw
-  - bw
   required_dataset: polished_dataset
   required_input_mode: setpoints
-  phase_exit_rule: >
-    A genuine physics-residual arm must improve held-out harmonic fidelity over
-    the parameter-matched Fourier control without materially degrading raw
-    error, offset behavior, or continuity.
-campaign_output_directory: output/training_campaigns/2026-07-26-14-03-44_phase2_harmonic_kinematic_pinn_runtime_bounded_restart_2026_07_26
-campaign_leaderboard_path: output/training_campaigns/2026-07-26-14-03-44_phase2_harmonic_kinematic_pinn_runtime_bounded_restart_2026_07_26/campaign_leaderboard.yaml
-campaign_best_run_path: output/training_campaigns/2026-07-26-14-03-44_phase2_harmonic_kinematic_pinn_runtime_bounded_restart_2026_07_26/campaign_best_run.yaml
-campaign_best_run_report_path: output/training_campaigns/2026-07-26-14-03-44_phase2_harmonic_kinematic_pinn_runtime_bounded_restart_2026_07_26/campaign_best_run.md
-campaign_results_report_path: doc/reports/campaign_results/wave_5_2/2026-07-26-16-53-50_phase2_harmonic_kinematic_pinn_campaign_results_report.md
-campaign_results_pdf_path: doc/reports/campaign_results/wave_5_2/2026-07-26-16-53-50_phase2_harmonic_kinematic_pinn_campaign_results_report.pdf
-curve_payload_diagnostics_output_directory: output/validation_checks/phase2_harmonic_kinematic_pinn_curve_payload_diagnostics/2026-07-26-16-49-48__track2c_curve_payload_diagnostics
-curve_payload_diagnostics_report_path: doc/reports/analysis/model_development_waves/wave_5_2/harmonic_kinematic_pinn/curve_payload_diagnostics/[2026-07-26]/track2_curve_payload_diagnostics_report.md
-campaign_result_summary:
-  scalar_campaign_winner: phase2_pinn_h0_fourier_control_fw
-  phase_status: completed_negative_result
-  promoted: false
-  promoted_physics_constraint: null
-  retained_exploratory_signal: phase2_pinn_h1_oscillator_residual_bw
-  decision: >
-    No oscillator, periodic-boundary, or Bauer-anchor constraint passed the
-    joint raw-error, harmonic-fidelity, offset, and continuity gate.
-  next_phase: phase_3_quasi_static_compliance_and_elastic_offset_pinn
-protected_file_list: []
+  repeat_exit_rule: >
+    Retain C1-Fw as a Phase 3 physical ingredient only when its positive
+    bounded stiffness and multi-index held-out advantage are stable across the
+    initial run and both seeded repeats.
+campaign_output_directory: output/training_campaigns/2026-07-26-19-52-45_phase3_c1_fw_stability_repeat_2026_07_26
+campaign_leaderboard_path: output/training_campaigns/2026-07-26-19-52-45_phase3_c1_fw_stability_repeat_2026_07_26/campaign_leaderboard.yaml
+campaign_best_run_path: output/training_campaigns/2026-07-26-19-52-45_phase3_c1_fw_stability_repeat_2026_07_26/campaign_best_run.yaml
+campaign_best_run_report_path: output/training_campaigns/2026-07-26-19-52-45_phase3_c1_fw_stability_repeat_2026_07_26/campaign_best_run.md
+curve_first_comparison_summary_path: output/validation_checks/track2_reference_comparison/2026-07-26-20-09-09__phase3_c1_fw_stability_common_test_matrix_phase3_c1_fw_stability_closeout/validation_summary.yaml
+curve_payload_diagnostics_path: output/validation_checks/phase3_c1_fw_stability_curve_payload_diagnostics/2026-07-26-20-10-35__track2c_curve_payload_diagnostics
+stability_audit_path: output/analysis/pinn_program_compliance/phase3_c1_fw_stability_audit.yaml
+campaign_results_report_path: doc/reports/campaign_results/wave_5_2/2026-07-26-20-13-18_phase3_quasi_static_compliance_pinn_campaign_results_report.md
+campaign_results_pdf_path: doc/reports/campaign_results/wave_5_2/2026-07-26-20-13-18_phase3_quasi_static_compliance_pinn_campaign_results_report.pdf
+protected_file_list:
+- doc/running/active_training_campaign.yaml
+- config/training/quasi_static_compliance_pinn/campaigns/2026-07-26_phase3_c1_fw_stability_repeat/
+- scripts/campaigns/wave_5_2/prepare_phase3_c1_fw_stability_repeat_campaign.py
+- scripts/campaigns/wave_5_2/run_phase3_c1_fw_stability_repeat_campaign.ps1
+- doc/scripts/campaigns/wave_5_2/run_phase3_c1_fw_stability_repeat_campaign.md
+- scripts/training/train_feedforward_network.py
+- scripts/models/quasi_static_compliance_pinn_network.py
+- scripts/training/transmission_error_regression_module.py
 notes: >
-  Canonical Phase 2 campaign completed 8 of 8 runs with no failures. The
-  bounded common-split curve-payload diagnostic evaluated all eight canonical
-  checkpoints and four accepted direction-specific references over 97 test
-  curves per direction. H1-Bw improved raw error and selected harmonic orders
-  relative to H0-Bw but worsened aggregate harmonic amplitude fidelity; no
-  physics term was promoted. Earlier attempts remain ineligible for the phase
-  decision. Phase 3 is the next active roadmap step.
+  The parent twelve-arm campaign completed without failures. Its bounded
+  curve-first comparison retained only C1-Fw for the campaign-plan stability
+  gate because it improved raw error, offset error, centered-shape error,
+  harmonic-amplitude error, and phase error over C0-Fw, despite a material
+  peak-to-peak regression. Both reproducibly seeded repeats completed without
+  queue failures. Seed 314159 reached test MAE 0.00147247 deg and seed 271828
+  reached 0.00189774 deg. The full-curve audit found stable bounded stiffness
+  with 2.48 percent population CV, but only two of three C1-Fw
+  initializations passed the joint curve-first gate. Phase 3 is closed as a
+  valid negative result with no promoted compliance residual and no accepted
+  reference change.

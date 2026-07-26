@@ -86,6 +86,9 @@ class CurveDiagnosticEntry:
     oil_temperature_deg: float
     curve_mae_deg: float
     curve_rmse_deg: float
+    signed_curve_mean_error_deg: float
+    absolute_curve_mean_error_deg: float
+    centered_curve_mae_deg: float
     mean_percentage_error_pct: float
     truth_peak_to_peak_deg: float
     predicted_peak_to_peak_deg: float
@@ -116,6 +119,15 @@ class CurveDiagnosticEntry:
             "oil_temperature_deg": format_float(self.oil_temperature_deg),
             "curve_mae_deg": format_float(self.curve_mae_deg),
             "curve_rmse_deg": format_float(self.curve_rmse_deg),
+            "signed_curve_mean_error_deg": format_float(
+                self.signed_curve_mean_error_deg
+            ),
+            "absolute_curve_mean_error_deg": format_float(
+                self.absolute_curve_mean_error_deg
+            ),
+            "centered_curve_mae_deg": format_float(
+                self.centered_curve_mae_deg
+            ),
             "mean_percentage_error_pct": format_float(self.mean_percentage_error_pct),
             "truth_peak_to_peak_deg": format_float(self.truth_peak_to_peak_deg),
             "predicted_peak_to_peak_deg": format_float(self.predicted_peak_to_peak_deg),
@@ -146,6 +158,9 @@ class CandidateDiagnosticSummary:
     curve_count: int
     mean_percentage_error_pct: float
     mean_curve_mae_deg: float
+    mean_signed_curve_mean_error_deg: float
+    mean_absolute_curve_mean_error_deg: float
+    mean_centered_curve_mae_deg: float
     mean_peak_to_peak_error_pct: float
     mean_residual_peak_to_peak_pct: float
     mean_derivative_rmse_deg_per_deg: float
@@ -173,6 +188,15 @@ class CandidateDiagnosticSummary:
             "curve_count": self.curve_count,
             "mean_percentage_error_pct": format_float(self.mean_percentage_error_pct),
             "mean_curve_mae_deg": format_float(self.mean_curve_mae_deg),
+            "mean_signed_curve_mean_error_deg": format_float(
+                self.mean_signed_curve_mean_error_deg
+            ),
+            "mean_absolute_curve_mean_error_deg": format_float(
+                self.mean_absolute_curve_mean_error_deg
+            ),
+            "mean_centered_curve_mae_deg": format_float(
+                self.mean_centered_curve_mae_deg
+            ),
             "mean_peak_to_peak_error_pct": format_float(self.mean_peak_to_peak_error_pct),
             "mean_residual_peak_to_peak_pct": format_float(self.mean_residual_peak_to_peak_pct),
             "mean_derivative_rmse_deg_per_deg": format_float(self.mean_derivative_rmse_deg_per_deg),
@@ -441,6 +465,21 @@ def compute_curve_diagnostic_entry(
     truth_curve_deg = np.asarray(candidate_entry["truth_curve_deg"], dtype=float)
     predicted_curve_deg = np.asarray(candidate_entry["predicted_curve_deg"], dtype=float)
     residual_curve_deg = predicted_curve_deg - truth_curve_deg
+    signed_curve_mean_error_deg = float(np.mean(residual_curve_deg))
+    absolute_curve_mean_error_deg = abs(signed_curve_mean_error_deg)
+    centered_truth_curve_deg = (
+        truth_curve_deg - float(np.mean(truth_curve_deg))
+    )
+    centered_predicted_curve_deg = (
+        predicted_curve_deg - float(np.mean(predicted_curve_deg))
+    )
+    centered_curve_mae_deg = float(
+        np.mean(
+            np.abs(
+                centered_predicted_curve_deg - centered_truth_curve_deg
+            )
+        )
+    )
     metric_dictionary = candidate_entry["metrics"]
 
     truth_peak_to_peak_deg = float(np.ptp(truth_curve_deg))
@@ -485,6 +524,9 @@ def compute_curve_diagnostic_entry(
         oil_temperature_deg=float(candidate_entry["oil_temperature_deg"]),
         curve_mae_deg=float(metric_dictionary["mae"]),
         curve_rmse_deg=float(metric_dictionary["rmse"]),
+        signed_curve_mean_error_deg=signed_curve_mean_error_deg,
+        absolute_curve_mean_error_deg=absolute_curve_mean_error_deg,
+        centered_curve_mae_deg=centered_curve_mae_deg,
         mean_percentage_error_pct=float(metric_dictionary["mean_percentage_error_pct"]),
         truth_peak_to_peak_deg=truth_peak_to_peak_deg,
         predicted_peak_to_peak_deg=predicted_peak_to_peak_deg,
@@ -574,6 +616,21 @@ def compute_candidate_summary_list(
                 curve_count=len(entry_list),
                 mean_percentage_error_pct=safe_mean([entry.mean_percentage_error_pct for entry in entry_list]),
                 mean_curve_mae_deg=safe_mean([entry.curve_mae_deg for entry in entry_list]),
+                mean_signed_curve_mean_error_deg=safe_mean(
+                    [
+                        entry.signed_curve_mean_error_deg
+                        for entry in entry_list
+                    ]
+                ),
+                mean_absolute_curve_mean_error_deg=safe_mean(
+                    [
+                        entry.absolute_curve_mean_error_deg
+                        for entry in entry_list
+                    ]
+                ),
+                mean_centered_curve_mae_deg=safe_mean(
+                    [entry.centered_curve_mae_deg for entry in entry_list]
+                ),
                 mean_peak_to_peak_error_pct=safe_mean([entry.peak_to_peak_error_pct for entry in entry_list]),
                 mean_residual_peak_to_peak_pct=safe_mean([entry.residual_peak_to_peak_pct for entry in entry_list]),
                 mean_derivative_rmse_deg_per_deg=safe_mean(
@@ -627,6 +684,15 @@ def compute_candidate_summary_list(
             curve_count=summary.curve_count,
             mean_percentage_error_pct=summary.mean_percentage_error_pct,
             mean_curve_mae_deg=summary.mean_curve_mae_deg,
+            mean_signed_curve_mean_error_deg=(
+                summary.mean_signed_curve_mean_error_deg
+            ),
+            mean_absolute_curve_mean_error_deg=(
+                summary.mean_absolute_curve_mean_error_deg
+            ),
+            mean_centered_curve_mae_deg=(
+                summary.mean_centered_curve_mae_deg
+            ),
             mean_peak_to_peak_error_pct=summary.mean_peak_to_peak_error_pct,
             mean_residual_peak_to_peak_pct=summary.mean_residual_peak_to_peak_pct,
             mean_derivative_rmse_deg_per_deg=summary.mean_derivative_rmse_deg_per_deg,
@@ -748,6 +814,7 @@ def build_report_lines(
         "Computed diagnostics:",
         "",
         "- peak-to-peak amplitude error and residual peak-to-peak ratio;",
+        "- signed and absolute curve-mean error plus mean-centered shape MAE;",
         "- selected-harmonic amplitude and wrapped phase error;",
         "- local derivative `RMSE`;",
         "- residual second-derivative smoothness;",
@@ -768,6 +835,8 @@ def build_report_lines(
                 ", ".join(summary.valid_direction_list),
                 str(summary.curve_count),
                 format_float(summary.mean_percentage_error_pct),
+                format_float(summary.mean_absolute_curve_mean_error_deg),
+                format_float(summary.mean_centered_curve_mae_deg),
                 format_float(summary.mean_harmonic_amplitude_error_pct),
                 format_float(summary.mean_harmonic_phase_error_deg),
                 format_float(summary.mean_peak_to_peak_error_pct),
@@ -786,6 +855,8 @@ def build_report_lines(
                 "Directions",
                 "Curves",
                 "Mean MPE [%]",
+                "Mean Abs Offset Error [deg]",
+                "Centered Shape MAE [deg]",
                 "Mean Harmonic Amp Error [%]",
                 "Mean Harmonic Phase Error [deg]",
                 "Mean P2P Error [%]",

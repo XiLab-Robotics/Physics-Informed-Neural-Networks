@@ -1,0 +1,22 @@
+schema_version: 1
+artifact_kind: training_run
+model_family: phase3_pinn_c1_linear_compliance_soft_fw_seed_314159
+base_model_family: phase3_pinn_c1_linear_compliance_soft_fw_seed_314159
+training_variant: fw
+direction_scope_label: forward_only
+use_forward_direction: true
+use_backward_direction: false
+run_name: te_phase3_pinn_c1_linear_compliance_soft_fw_seed_314159__polished_setpoints
+run_instance_id: 2026-07-26-19-52-45__te_phase3_pinn_c1_linear_compliance_soft_fw_seed_314159__polished_setpoints
+output_directory: output\training_runs\quasi_static_compliance_pinn\2026-07-26-19-52-45__te_phase3_pinn_c1_linear_compliance_soft_fw_seed_314159__polished_setpoints
+dataset_id: polished_dataset
+dataset_schema: polished_setpoint_curve_v1
+input_feature_names:
+- angular_position_deg
+- input_speed_rpm
+- input_torque_nm
+- oil_temperature_deg
+- direction_flag
+target_feature_names:
+- theta_TE
+input_feature_dim: 5

@@ -1,0 +1,52 @@
+schema_version: 1
+campaign_name: phase3_quasi_static_compliance_pinn_2026_07_26
+campaign_type: wave_5_2_phase_3_quasi_static_compliance_pinn
+family_name: quasi_static_compliance_pinn
+dataset_name: polished_dataset
+input_mode: setpoints
+dataset_schema: polished_setpoint_curve_v1
+source_dataset_root: data/polished_dataset
+primary_surface: direction_separated_with_global_controls
+expected_surface_list:
+- fw
+- bw
+- global
+expected_run_count: 12
+planning_report_path: doc/reports/campaign_plans/model_development_waves/wave_5_2/quasi_static_compliance_pinn/2026-07-26-17-16-41_phase3_quasi_static_compliance_pinn_campaign_plan_report.md
+technical_document_path: doc/technical/2026-07/2026-07-26/2026-07-26-17-14-40_phase_3_quasi_static_compliance_pinn.md
+model_report_path: doc/reports/analysis/model_development_waves/wave_5_2/quasi_static_compliance_pinn/[2026-07-26]/phase3_quasi_static_compliance_pinn_model_report.md
+audit_artifact_path: output/analysis/pinn_program_compliance/phase3_compliance_audit.yaml
+common_split_manifest_path: output/analysis/polynomial_fourier_benchmark/common_split_manifest.yaml
+common_split_signature: c1aa8718fb9bf88cc2021c121dc4f3b4010fc1d2e45ac90af5f4376aa64f8e16
+excluded_condition_id_list:
+- speed_500rpm__torque_600Nm__temperature_35degC
+- speed_800rpm__torque_200Nm__temperature_25degC
+- speed_1400rpm__torque_800Nm__temperature_35degC
+directional_curve_count_by_split:
+  train: 675
+  validation: 194
+  test: 97
+global_curve_count_by_split:
+  train: 1350
+  validation: 388
+  test: 194
+queue_root: config/training/queue/quasi_static_compliance_pinn/phase3_quasi_static_compliance_pinn_2026_07_26
+queue_config_path_list:
+- config/training/quasi_static_compliance_pinn/campaigns/2026-07-26_phase3_quasi_static_compliance_pinn/queue/001_c0_learned_mean_control_fw.yaml
+- config/training/quasi_static_compliance_pinn/campaigns/2026-07-26_phase3_quasi_static_compliance_pinn/queue/002_c0_learned_mean_control_bw.yaml
+- config/training/quasi_static_compliance_pinn/campaigns/2026-07-26_phase3_quasi_static_compliance_pinn/queue/003_c0_learned_mean_control_global.yaml
+- config/training/quasi_static_compliance_pinn/campaigns/2026-07-26_phase3_quasi_static_compliance_pinn/queue/004_c1_linear_compliance_soft_fw.yaml
+- config/training/quasi_static_compliance_pinn/campaigns/2026-07-26_phase3_quasi_static_compliance_pinn/queue/005_c1_linear_compliance_soft_bw.yaml
+- config/training/quasi_static_compliance_pinn/campaigns/2026-07-26_phase3_quasi_static_compliance_pinn/queue/006_c2_temperature_compliance_soft_fw.yaml
+- config/training/quasi_static_compliance_pinn/campaigns/2026-07-26_phase3_quasi_static_compliance_pinn/queue/007_c2_temperature_compliance_soft_bw.yaml
+- config/training/quasi_static_compliance_pinn/campaigns/2026-07-26_phase3_quasi_static_compliance_pinn/queue/008_c3_nonlinear_compliance_soft_fw.yaml
+- config/training/quasi_static_compliance_pinn/campaigns/2026-07-26_phase3_quasi_static_compliance_pinn/queue/009_c3_nonlinear_compliance_soft_bw.yaml
+- config/training/quasi_static_compliance_pinn/campaigns/2026-07-26_phase3_quasi_static_compliance_pinn/queue/010_c4_hard_elastic_offset_fw.yaml
+- config/training/quasi_static_compliance_pinn/campaigns/2026-07-26_phase3_quasi_static_compliance_pinn/queue/011_c4_hard_elastic_offset_bw.yaml
+- config/training/quasi_static_compliance_pinn/campaigns/2026-07-26_phase3_quasi_static_compliance_pinn/queue/012_c5_shared_stiffness_global.yaml
+execution_policy:
+  operator_run_required: false
+  standing_approval_applies: true
+  stop_on_error: true
+  run_te_curve_verification_pipeline: false
+  scalar_mae_only_promotion_allowed: false

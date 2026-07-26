@@ -1,0 +1,761 @@
+config_path: config\paper_reimplementation\rcim_ml_compensation\reference_family_vs_feedforward\phase3_quasi_static_compliance_pinn_common_test_matrix.yaml
+output_directory: output\validation_checks\track2_reference_comparison\2026-07-26-19-30-10__phase3_quasi_static_compliance_pinn_common_test_matrix_phase3_closeout_retry
+dataset:
+  dataset_config_path: config/datasets/transmission_error_dataset.yaml
+  dataset_root: data\polished_dataset
+  source_contract: data\polished_dataset
+comparison_scope:
+  comparison_mode: phase3_common_split_bounded_curve_payload_diagnostics
+  percentage_error_denominator: peak_to_peak_truth
+  curve_count: 194
+  candidate_count: 16
+  directional_policy:
+    global:
+    - forward
+    - backward
+    Fw:
+    - forward
+    Bw:
+    - backward
+  reference_bank_compatibility_policy:
+    rcim_track1_Fw_h0_sign_multiplier: -1.0
+    reason: RCIM Model-Bank Reproduction forward reference banks store the constant
+      harmonic with the opposite sign convention relative to the TE Curve Verification
+      Pipeline TE-curve reconstruction contract.
+candidate_list:
+- candidate_id: phase3_c0_learned_mean_control_Bw
+  candidate_family: phase3_pinn_c0_learned_mean_control_bw
+  candidate_kind: wave1_registry_model
+  candidate_source_label: phase3_canonical_campaign
+  candidate_surface: Bw
+  allowed_direction_list:
+  - backward
+  source_path: output\training_campaigns\2026-07-26-17-46-18_phase3_quasi_static_compliance_pinn_2026_07_26\candidate_registries\c0_learned_mean_control_bw.yaml
+  selected_harmonic_list: []
+  registry_run_instance_id: 2026-07-26-17-53-30__te_phase3_pinn_c0_learned_mean_control_bw__polished_setpoints
+  model_file_path: null
+  composite_selection: null
+- candidate_id: phase3_c1_linear_compliance_soft_Bw
+  candidate_family: phase3_pinn_c1_linear_compliance_soft_bw
+  candidate_kind: wave1_registry_model
+  candidate_source_label: phase3_canonical_campaign
+  candidate_surface: Bw
+  allowed_direction_list:
+  - backward
+  source_path: output\training_campaigns\2026-07-26-17-46-18_phase3_quasi_static_compliance_pinn_2026_07_26\candidate_registries\c1_linear_compliance_soft_bw.yaml
+  selected_harmonic_list: []
+  registry_run_instance_id: 2026-07-26-18-21-36__te_phase3_pinn_c1_linear_compliance_soft_bw__polished_setpoints
+  model_file_path: null
+  composite_selection: null
+- candidate_id: phase3_c2_temperature_compliance_soft_Bw
+  candidate_family: phase3_pinn_c2_temperature_compliance_soft_bw
+  candidate_kind: wave1_registry_model
+  candidate_source_label: phase3_canonical_campaign
+  candidate_surface: Bw
+  allowed_direction_list:
+  - backward
+  source_path: output\training_campaigns\2026-07-26-17-46-18_phase3_quasi_static_compliance_pinn_2026_07_26\candidate_registries\c2_temperature_compliance_soft_bw.yaml
+  selected_harmonic_list: []
+  registry_run_instance_id: 2026-07-26-18-37-03__te_phase3_pinn_c2_temperature_compliance_soft_bw__polished_setpoints
+  model_file_path: null
+  composite_selection: null
+- candidate_id: phase3_c3_nonlinear_compliance_soft_Bw
+  candidate_family: phase3_pinn_c3_nonlinear_compliance_soft_bw
+  candidate_kind: wave1_registry_model
+  candidate_source_label: phase3_canonical_campaign
+  candidate_surface: Bw
+  allowed_direction_list:
+  - backward
+  source_path: output\training_campaigns\2026-07-26-17-46-18_phase3_quasi_static_compliance_pinn_2026_07_26\candidate_registries\c3_nonlinear_compliance_soft_bw.yaml
+  selected_harmonic_list: []
+  registry_run_instance_id: 2026-07-26-18-52-22__te_phase3_pinn_c3_nonlinear_compliance_soft_bw__polished_setpoints
+  model_file_path: null
+  composite_selection: null
+- candidate_id: phase3_c4_hard_elastic_offset_Bw
+  candidate_family: phase3_pinn_c4_hard_elastic_offset_bw
+  candidate_kind: wave1_registry_model
+  candidate_source_label: phase3_canonical_campaign
+  candidate_surface: Bw
+  allowed_direction_list:
+  - backward
+  source_path: output\training_campaigns\2026-07-26-17-46-18_phase3_quasi_static_compliance_pinn_2026_07_26\candidate_registries\c4_hard_elastic_offset_bw.yaml
+  selected_harmonic_list: []
+  registry_run_instance_id: 2026-07-26-19-06-07__te_phase3_pinn_c4_hard_elastic_offset_bw__polished_setpoints
+  model_file_path: null
+  composite_selection: null
+- candidate_id: phase3_c0_learned_mean_control_Fw
+  candidate_family: phase3_pinn_c0_learned_mean_control_fw
+  candidate_kind: wave1_registry_model
+  candidate_source_label: phase3_canonical_campaign
+  candidate_surface: Fw
+  allowed_direction_list:
+  - forward
+  source_path: output\training_campaigns\2026-07-26-17-46-18_phase3_quasi_static_compliance_pinn_2026_07_26\candidate_registries\c0_learned_mean_control_fw.yaml
+  selected_harmonic_list: []
+  registry_run_instance_id: 2026-07-26-17-46-18__te_phase3_pinn_c0_learned_mean_control_fw__polished_setpoints
+  model_file_path: null
+  composite_selection: null
+- candidate_id: phase3_c1_linear_compliance_soft_Fw
+  candidate_family: phase3_pinn_c1_linear_compliance_soft_fw
+  candidate_kind: wave1_registry_model
+  candidate_source_label: phase3_canonical_campaign
+  candidate_surface: Fw
+  allowed_direction_list:
+  - forward
+  source_path: output\training_campaigns\2026-07-26-17-46-18_phase3_quasi_static_compliance_pinn_2026_07_26\candidate_registries\c1_linear_compliance_soft_fw.yaml
+  selected_harmonic_list: []
+  registry_run_instance_id: 2026-07-26-18-14-00__te_phase3_pinn_c1_linear_compliance_soft_fw__polished_setpoints
+  model_file_path: null
+  composite_selection: null
+- candidate_id: phase3_c2_temperature_compliance_soft_Fw
+  candidate_family: phase3_pinn_c2_temperature_compliance_soft_fw
+  candidate_kind: wave1_registry_model
+  candidate_source_label: phase3_canonical_campaign
+  candidate_surface: Fw
+  allowed_direction_list:
+  - forward
+  source_path: output\training_campaigns\2026-07-26-17-46-18_phase3_quasi_static_compliance_pinn_2026_07_26\candidate_registries\c2_temperature_compliance_soft_fw.yaml
+  selected_harmonic_list: []
+  registry_run_instance_id: 2026-07-26-18-29-09__te_phase3_pinn_c2_temperature_compliance_soft_fw__polished_setpoints
+  model_file_path: null
+  composite_selection: null
+- candidate_id: phase3_c3_nonlinear_compliance_soft_Fw
+  candidate_family: phase3_pinn_c3_nonlinear_compliance_soft_fw
+  candidate_kind: wave1_registry_model
+  candidate_source_label: phase3_canonical_campaign
+  candidate_surface: Fw
+  allowed_direction_list:
+  - forward
+  source_path: output\training_campaigns\2026-07-26-17-46-18_phase3_quasi_static_compliance_pinn_2026_07_26\candidate_registries\c3_nonlinear_compliance_soft_fw.yaml
+  selected_harmonic_list: []
+  registry_run_instance_id: 2026-07-26-18-44-42__te_phase3_pinn_c3_nonlinear_compliance_soft_fw__polished_setpoints
+  model_file_path: null
+  composite_selection: null
+- candidate_id: phase3_c4_hard_elastic_offset_Fw
+  candidate_family: phase3_pinn_c4_hard_elastic_offset_fw
+  candidate_kind: wave1_registry_model
+  candidate_source_label: phase3_canonical_campaign
+  candidate_surface: Fw
+  allowed_direction_list:
+  - forward
+  source_path: output\training_campaigns\2026-07-26-17-46-18_phase3_quasi_static_compliance_pinn_2026_07_26\candidate_registries\c4_hard_elastic_offset_fw.yaml
+  selected_harmonic_list: []
+  registry_run_instance_id: 2026-07-26-18-59-06__te_phase3_pinn_c4_hard_elastic_offset_fw__polished_setpoints
+  model_file_path: null
+  composite_selection: null
+- candidate_id: phase3_c0_learned_mean_control_global
+  candidate_family: phase3_pinn_c0_learned_mean_control_global
+  candidate_kind: wave1_registry_model
+  candidate_source_label: phase3_canonical_campaign
+  candidate_surface: global
+  allowed_direction_list:
+  - forward
+  - backward
+  source_path: output\training_campaigns\2026-07-26-17-46-18_phase3_quasi_static_compliance_pinn_2026_07_26\candidate_registries\c0_learned_mean_control_global.yaml
+  selected_harmonic_list: []
+  registry_run_instance_id: 2026-07-26-18-00-41__te_phase3_pinn_c0_learned_mean_control_global__polished_setpoints
+  model_file_path: null
+  composite_selection: null
+- candidate_id: phase3_c5_shared_stiffness_global
+  candidate_family: phase3_pinn_c5_shared_stiffness_global
+  candidate_kind: wave1_registry_model
+  candidate_source_label: phase3_canonical_campaign
+  candidate_surface: global
+  allowed_direction_list:
+  - forward
+  - backward
+  source_path: output\training_campaigns\2026-07-26-17-46-18_phase3_quasi_static_compliance_pinn_2026_07_26\candidate_registries\c5_shared_stiffness_global.yaml
+  selected_harmonic_list: []
+  registry_run_instance_id: 2026-07-26-19-10-25__te_phase3_pinn_c5_shared_stiffness_global__polished_setpoints
+  model_file_path: null
+  composite_selection: null
+- candidate_id: accepted_periodic_mlp_harmonic_Fw
+  candidate_family: periodic_mlp_harmonic
+  candidate_kind: wave1_exported_model
+  candidate_source_label: accepted_non_windowed_reference
+  candidate_surface: Fw
+  allowed_direction_list:
+  - forward
+  source_path: models\polished_dataset\setpoints\periodic_mlp_harmonic\forward\reference_inventory.yaml
+  selected_harmonic_list: []
+  registry_run_instance_id: 2026-07-08-02-15-59__te_periodic_mlp_harmonic_fw__polished_setpoints
+  model_file_path: models/polished_dataset/setpoints/periodic_mlp_harmonic/forward/python/periodic_mlp-epoch=051-val_mae=0.00120808.ckpt
+  composite_selection: null
+- candidate_id: accepted_periodic_gru_sequence_Fw
+  candidate_family: periodic_gru_sequence
+  candidate_kind: wave1_exported_model
+  candidate_source_label: accepted_time_windowed_reference
+  candidate_surface: Fw
+  allowed_direction_list:
+  - forward
+  source_path: models\polished_dataset\setpoints\periodic_gru_sequence\forward\reference_inventory.yaml
+  selected_harmonic_list: []
+  registry_run_instance_id: 2026-07-08-22-57-44__te_periodic_gru_sequence_fw__polished_setpoints
+  model_file_path: models/polished_dataset/setpoints/periodic_gru_sequence/forward/python/periodic_gru_sequence-epoch=091-val_mae=0.00183161.ckpt
+  composite_selection: null
+- candidate_id: accepted_periodic_mlp_harmonic_Bw
+  candidate_family: periodic_mlp_harmonic
+  candidate_kind: wave1_exported_model
+  candidate_source_label: accepted_non_windowed_reference
+  candidate_surface: Bw
+  allowed_direction_list:
+  - backward
+  source_path: models\polished_dataset\setpoints\periodic_mlp_harmonic\backward\reference_inventory.yaml
+  selected_harmonic_list: []
+  registry_run_instance_id: 2026-07-08-02-29-32__te_periodic_mlp_harmonic_bw__polished_setpoints
+  model_file_path: models/polished_dataset/setpoints/periodic_mlp_harmonic/backward/python/periodic_mlp-epoch=081-val_mae=0.00121896.ckpt
+  composite_selection: null
+- candidate_id: accepted_periodic_gru_sequence_Bw
+  candidate_family: periodic_gru_sequence
+  candidate_kind: wave1_exported_model
+  candidate_source_label: accepted_time_windowed_reference
+  candidate_surface: Bw
+  allowed_direction_list:
+  - backward
+  source_path: models\polished_dataset\setpoints\periodic_gru_sequence\backward\reference_inventory.yaml
+  selected_harmonic_list: []
+  registry_run_instance_id: 2026-07-08-23-18-30__te_periodic_gru_sequence_bw__polished_setpoints
+  model_file_path: models/polished_dataset/setpoints/periodic_gru_sequence/backward/python/periodic_gru_sequence-epoch=064-val_mae=0.00189811.ckpt
+  composite_selection: null
+candidate_target_metric_summary: {}
+candidate_metric_summary:
+  phase3_c0_learned_mean_control_Bw:
+    mse: 1.5311443627383692e-05
+    mae: 0.0022832567375623905
+    rmse: 0.0026925936825743088
+    mean_percentage_error_pct: 4.5248741457073445
+    p95_mean_percentage_error_pct: 9.636359005405936
+  phase3_c1_linear_compliance_soft_Bw:
+    mse: 1.5367982768966108e-05
+    mae: 0.0023306652069630973
+    rmse: 0.0027823833793653337
+    mean_percentage_error_pct: 4.656223378333524
+    p95_mean_percentage_error_pct: 9.645784199948023
+  phase3_c2_temperature_compliance_soft_Bw:
+    mse: 1.463497128240065e-05
+    mae: 0.0020973170762929993
+    rmse: 0.0025101567612902448
+    mean_percentage_error_pct: 4.069326827416277
+    p95_mean_percentage_error_pct: 9.367507145464728
+  phase3_c3_nonlinear_compliance_soft_Bw:
+    mse: 1.5925910799694407e-05
+    mae: 0.0023746429067877744
+    rmse: 0.0028161436459858765
+    mean_percentage_error_pct: 4.755507120003546
+    p95_mean_percentage_error_pct: 10.043666101728666
+  phase3_c4_hard_elastic_offset_Bw:
+    mse: 1.9129834143178835e-05
+    mae: 0.002812855144507945
+    rmse: 0.0032839790404737205
+    mean_percentage_error_pct: 5.755080082621567
+    p95_mean_percentage_error_pct: 12.435959356933978
+  phase3_c0_learned_mean_control_Fw:
+    mse: 8.737694298904743e-06
+    mae: 0.0019526969917670126
+    rmse: 0.0023358014792658494
+    mean_percentage_error_pct: 4.076406350131668
+    p95_mean_percentage_error_pct: 8.035979492644493
+  phase3_c1_linear_compliance_soft_Fw:
+    mse: 8.240108241503853e-06
+    mae: 0.0018434283680442796
+    rmse: 0.002192529945872135
+    mean_percentage_error_pct: 3.8245041216937405
+    p95_mean_percentage_error_pct: 8.849412799715676
+  phase3_c2_temperature_compliance_soft_Fw:
+    mse: 8.641134301691508e-06
+    mae: 0.0019097887614061462
+    rmse: 0.00228815496036162
+    mean_percentage_error_pct: 3.9708394250437724
+    p95_mean_percentage_error_pct: 7.907079637509144
+  phase3_c3_nonlinear_compliance_soft_Fw:
+    mse: 9.463628443717037e-06
+    mae: 0.002068396930838247
+    rmse: 0.002470184490166127
+    mean_percentage_error_pct: 4.359660909924759
+    p95_mean_percentage_error_pct: 9.248951841046425
+  phase3_c4_hard_elastic_offset_Fw:
+    mse: 1.1819384330133436e-05
+    mae: 0.002386510761589496
+    rmse: 0.002713956979484539
+    mean_percentage_error_pct: 5.0924469816530715
+    p95_mean_percentage_error_pct: 11.570900311319885
+  phase3_c0_learned_mean_control_global:
+    mse: 1.3914517182138684e-05
+    mae: 0.0023860685434972445
+    rmse: 0.0028000332516030704
+    mean_percentage_error_pct: 4.963158813448494
+    p95_mean_percentage_error_pct: 10.837860245866338
+  phase3_c5_shared_stiffness_global:
+    mse: 1.4972888405439265e-05
+    mae: 0.0025067483909676836
+    rmse: 0.0028779629014631047
+    mean_percentage_error_pct: 5.195130907352834
+    p95_mean_percentage_error_pct: 12.510414835018508
+  accepted_periodic_mlp_harmonic_Fw:
+    mse: 8.014564330318983e-06
+    mae: 0.0016935390832040677
+    rmse: 0.002007653718413881
+    mean_percentage_error_pct: 3.4385997834790043
+    p95_mean_percentage_error_pct: 7.6516175962190465
+  accepted_periodic_gru_sequence_Fw:
+    mse: 7.427613737826045e-06
+    mae: 0.0016183567563272233
+    rmse: 0.001930580403824366
+    mean_percentage_error_pct: 3.278411627285458
+    p95_mean_percentage_error_pct: 7.224709479203755
+  accepted_periodic_mlp_harmonic_Bw:
+    mse: 1.4553027170488366e-05
+    mae: 0.0019121120349138026
+    rmse: 0.0022633449430178323
+    mean_percentage_error_pct: 3.5811633784859507
+    p95_mean_percentage_error_pct: 9.741981951611717
+  accepted_periodic_gru_sequence_Bw:
+    mse: 1.2231448201329964e-05
+    mae: 0.00183704790692008
+    rmse: 0.002196461703264932
+    mean_percentage_error_pct: 3.4944241024374327
+    p95_mean_percentage_error_pct: 8.824262588453504
+direction_breakdown:
+  backward:
+    phase3_c0_learned_mean_control_Bw:
+      mse: 1.5311443627383692e-05
+      mae: 0.0022832567375623905
+      rmse: 0.0026925936825743088
+      mean_percentage_error_pct: 4.5248741457073445
+      p95_mean_percentage_error_pct: 9.636359005405936
+    phase3_c1_linear_compliance_soft_Bw:
+      mse: 1.5367982768966108e-05
+      mae: 0.0023306652069630973
+      rmse: 0.0027823833793653337
+      mean_percentage_error_pct: 4.656223378333524
+      p95_mean_percentage_error_pct: 9.645784199948023
+    phase3_c2_temperature_compliance_soft_Bw:
+      mse: 1.463497128240065e-05
+      mae: 0.0020973170762929993
+      rmse: 0.0025101567612902448
+      mean_percentage_error_pct: 4.069326827416277
+      p95_mean_percentage_error_pct: 9.367507145464728
+    phase3_c3_nonlinear_compliance_soft_Bw:
+      mse: 1.5925910799694407e-05
+      mae: 0.0023746429067877744
+      rmse: 0.0028161436459858765
+      mean_percentage_error_pct: 4.755507120003546
+      p95_mean_percentage_error_pct: 10.043666101728666
+    phase3_c4_hard_elastic_offset_Bw:
+      mse: 1.9129834143178835e-05
+      mae: 0.002812855144507945
+      rmse: 0.0032839790404737205
+      mean_percentage_error_pct: 5.755080082621567
+      p95_mean_percentage_error_pct: 12.435959356933978
+    phase3_c0_learned_mean_control_global:
+      mse: 1.821606504521526e-05
+      mae: 0.002644531694642859
+      rmse: 0.0030919921182343255
+      mean_percentage_error_pct: 5.435797893961414
+      p95_mean_percentage_error_pct: 12.68576077022505
+    phase3_c5_shared_stiffness_global:
+      mse: 1.8146211994499197e-05
+      mae: 0.0026679601859014674
+      rmse: 0.0030682307502215805
+      mean_percentage_error_pct: 5.407197647418388
+      p95_mean_percentage_error_pct: 12.508591371843409
+    accepted_periodic_mlp_harmonic_Bw:
+      mse: 1.4553027170488366e-05
+      mae: 0.0019121120349138026
+      rmse: 0.0022633449430178323
+      mean_percentage_error_pct: 3.5811633784859507
+      p95_mean_percentage_error_pct: 9.741981951611717
+    accepted_periodic_gru_sequence_Bw:
+      mse: 1.2231448201329964e-05
+      mae: 0.00183704790692008
+      rmse: 0.002196461703264932
+      mean_percentage_error_pct: 3.4944241024374327
+      p95_mean_percentage_error_pct: 8.824262588453504
+  forward:
+    phase3_c0_learned_mean_control_Fw:
+      mse: 8.737694298904743e-06
+      mae: 0.0019526969917670126
+      rmse: 0.0023358014792658494
+      mean_percentage_error_pct: 4.076406350131668
+      p95_mean_percentage_error_pct: 8.035979492644493
+    phase3_c1_linear_compliance_soft_Fw:
+      mse: 8.240108241503853e-06
+      mae: 0.0018434283680442796
+      rmse: 0.002192529945872135
+      mean_percentage_error_pct: 3.8245041216937405
+      p95_mean_percentage_error_pct: 8.849412799715676
+    phase3_c2_temperature_compliance_soft_Fw:
+      mse: 8.641134301691508e-06
+      mae: 0.0019097887614061462
+      rmse: 0.00228815496036162
+      mean_percentage_error_pct: 3.9708394250437724
+      p95_mean_percentage_error_pct: 7.907079637509144
+    phase3_c3_nonlinear_compliance_soft_Fw:
+      mse: 9.463628443717037e-06
+      mae: 0.002068396930838247
+      rmse: 0.002470184490166127
+      mean_percentage_error_pct: 4.359660909924759
+      p95_mean_percentage_error_pct: 9.248951841046425
+    phase3_c4_hard_elastic_offset_Fw:
+      mse: 1.1819384330133436e-05
+      mae: 0.002386510761589496
+      rmse: 0.002713956979484539
+      mean_percentage_error_pct: 5.0924469816530715
+      p95_mean_percentage_error_pct: 11.570900311319885
+    phase3_c0_learned_mean_control_global:
+      mse: 9.612969319062115e-06
+      mae: 0.0021276053923516315
+      rmse: 0.002508074384971818
+      mean_percentage_error_pct: 4.490519732935577
+      p95_mean_percentage_error_pct: 8.211297346123848
+    phase3_c5_shared_stiffness_global:
+      mse: 1.1799564816379324e-05
+      mae: 0.0023455365960339024
+      rmse: 0.002687695052704628
+      mean_percentage_error_pct: 4.983064167287276
+      p95_mean_percentage_error_pct: 10.929400068415978
+    accepted_periodic_mlp_harmonic_Fw:
+      mse: 8.014564330318983e-06
+      mae: 0.0016935390832040677
+      rmse: 0.002007653718413881
+      mean_percentage_error_pct: 3.4385997834790043
+      p95_mean_percentage_error_pct: 7.6516175962190465
+    accepted_periodic_gru_sequence_Fw:
+      mse: 7.427613737826045e-06
+      mae: 0.0016183567563272233
+      rmse: 0.001930580403824366
+      mean_percentage_error_pct: 3.278411627285458
+      p95_mean_percentage_error_pct: 7.224709479203755
+temperature_breakdown:
+  '30.0':
+    phase3_c0_learned_mean_control_Bw:
+      mse: 1.270002811708901e-05
+      mae: 0.002296004827001286
+      rmse: 0.002757516967945617
+      mean_percentage_error_pct: 4.5887287358239295
+      p95_mean_percentage_error_pct: 9.185184554398933
+    phase3_c1_linear_compliance_soft_Bw:
+      mse: 1.2747911626357055e-05
+      mae: 0.0023335871666417406
+      rmse: 0.002820874483404515
+      mean_percentage_error_pct: 4.698824577578709
+      p95_mean_percentage_error_pct: 9.13302998619151
+    phase3_c2_temperature_compliance_soft_Bw:
+      mse: 1.1969835009401699e-05
+      mae: 0.0021422912684989333
+      rmse: 0.002609631661864891
+      mean_percentage_error_pct: 4.222992901259767
+      p95_mean_percentage_error_pct: 9.382843777303506
+    phase3_c3_nonlinear_compliance_soft_Bw:
+      mse: 1.303045103603097e-05
+      mae: 0.0023645499952902192
+      rmse: 0.002843891685340324
+      mean_percentage_error_pct: 4.772464320438177
+      p95_mean_percentage_error_pct: 9.439909345921647
+    phase3_c4_hard_elastic_offset_Bw:
+      mse: 1.5497714413259048e-05
+      mae: 0.002633403042876781
+      rmse: 0.0031853915418739408
+      mean_percentage_error_pct: 5.343641774095463
+      p95_mean_percentage_error_pct: 9.879615260177935
+    phase3_c0_learned_mean_control_Fw:
+      mse: 9.832571743833725e-06
+      mae: 0.002171587219570647
+      rmse: 0.002591256226656623
+      mean_percentage_error_pct: 4.489338679401361
+      p95_mean_percentage_error_pct: 7.152453174044086
+    phase3_c1_linear_compliance_soft_Fw:
+      mse: 8.917527637475432e-06
+      mae: 0.0019827105062613466
+      rmse: 0.0023584224563387387
+      mean_percentage_error_pct: 4.061688420926241
+      p95_mean_percentage_error_pct: 7.328909679320604
+    phase3_c2_temperature_compliance_soft_Fw:
+      mse: 9.474171357049926e-06
+      mae: 0.00204826735022714
+      rmse: 0.0024610892159962904
+      mean_percentage_error_pct: 4.192826228441219
+      p95_mean_percentage_error_pct: 7.294888166094716
+    phase3_c3_nonlinear_compliance_soft_Fw:
+      mse: 9.89512690185532e-06
+      mae: 0.0021743943225956855
+      rmse: 0.002610213265393741
+      mean_percentage_error_pct: 4.518139402015777
+      p95_mean_percentage_error_pct: 7.876362647785405
+    phase3_c4_hard_elastic_offset_Fw:
+      mse: 1.2290883345075554e-05
+      mae: 0.0025429513016142612
+      rmse: 0.002903841657890984
+      mean_percentage_error_pct: 5.380510410801395
+      p95_mean_percentage_error_pct: 11.055697772736576
+    phase3_c0_learned_mean_control_global:
+      mse: 1.3460609495854548e-05
+      mae: 0.0025981474348864175
+      rmse: 0.0030571869647135403
+      mean_percentage_error_pct: 5.446621569308637
+      p95_mean_percentage_error_pct: 10.885834454367423
+    phase3_c5_shared_stiffness_global:
+      mse: 1.2989640556594451e-05
+      mae: 0.0024412333566086308
+      rmse: 0.002859754973393016
+      mean_percentage_error_pct: 5.006173963868717
+      p95_mean_percentage_error_pct: 10.201265871568852
+    accepted_periodic_mlp_harmonic_Fw:
+      mse: 8.673526567545868e-06
+      mae: 0.0017768462306125491
+      rmse: 0.0021299505669365986
+      mean_percentage_error_pct: 3.5297175796459177
+      p95_mean_percentage_error_pct: 6.8411365620570805
+    accepted_periodic_gru_sequence_Fw:
+      mse: 7.735849416923895e-06
+      mae: 0.0016155951272204601
+      rmse: 0.0019482360046352287
+      mean_percentage_error_pct: 3.1582318095998585
+      p95_mean_percentage_error_pct: 6.541677863879652
+    accepted_periodic_mlp_harmonic_Bw:
+      mse: 1.1460722700481999e-05
+      mae: 0.0019722124048034565
+      rmse: 0.002368742337902667
+      mean_percentage_error_pct: 3.7892316311458782
+      p95_mean_percentage_error_pct: 9.814608570801603
+    accepted_periodic_gru_sequence_Bw:
+      mse: 1.0152023669228228e-05
+      mae: 0.0019076779059155485
+      rmse: 0.0023052242729924024
+      mean_percentage_error_pct: 3.6915114762914087
+      p95_mean_percentage_error_pct: 8.866542480667572
+  '35.0':
+    phase3_c0_learned_mean_control_Bw:
+      mse: 2.6904577958840558e-05
+      mae: 0.002908646785693893
+      rmse: 0.0033472562294284934
+      mean_percentage_error_pct: 5.333101008759703
+      p95_mean_percentage_error_pct: 10.129565890538348
+    phase3_c1_linear_compliance_soft_Bw:
+      mse: 2.6809660449923585e-05
+      mae: 0.002925148644793244
+      rmse: 0.003432467497601408
+      mean_percentage_error_pct: 5.382365523171065
+      p95_mean_percentage_error_pct: 10.527813237202796
+    phase3_c2_temperature_compliance_soft_Bw:
+      mse: 2.637883836925933e-05
+      mae: 0.00270684789349295
+      rmse: 0.0031618912362115863
+      mean_percentage_error_pct: 4.810332627459626
+      p95_mean_percentage_error_pct: 9.948451507002073
+    phase3_c3_nonlinear_compliance_soft_Bw:
+      mse: 2.7420492799320026e-05
+      mae: 0.002875801630277043
+      rmse: 0.003347768480201747
+      mean_percentage_error_pct: 5.235979974773522
+      p95_mean_percentage_error_pct: 10.763620487091414
+    phase3_c4_hard_elastic_offset_Bw:
+      mse: 3.101625052304099e-05
+      mae: 0.003496951292977602
+      rmse: 0.003979009313220282
+      mean_percentage_error_pct: 6.730500334057375
+      p95_mean_percentage_error_pct: 13.281198011576969
+    phase3_c0_learned_mean_control_Fw:
+      mse: 1.0915859441873978e-05
+      mae: 0.002034278405401966
+      rmse: 0.0024271671481428413
+      mean_percentage_error_pct: 4.078878211887824
+      p95_mean_percentage_error_pct: 10.293367733404544
+    phase3_c1_linear_compliance_soft_Fw:
+      mse: 1.0887324178486162e-05
+      mae: 0.0020101726501156815
+      rmse: 0.002373330300543857
+      mean_percentage_error_pct: 4.0155260850185295
+      p95_mean_percentage_error_pct: 11.196132311445497
+    phase3_c2_temperature_compliance_soft_Fw:
+      mse: 1.0948418003366164e-05
+      mae: 0.0020603568950274508
+      rmse: 0.0024645963457296392
+      mean_percentage_error_pct: 4.13554474545676
+      p95_mean_percentage_error_pct: 9.303879552335587
+    phase3_c3_nonlinear_compliance_soft_Fw:
+      mse: 1.244130079925902e-05
+      mae: 0.0022523359706051907
+      rmse: 0.002680066933249726
+      mean_percentage_error_pct: 4.610572469505355
+      p95_mean_percentage_error_pct: 11.377917781681663
+    phase3_c4_hard_elastic_offset_Fw:
+      mse: 1.2618698211685076e-05
+      mae: 0.002300228346594709
+      rmse: 0.002661532132824464
+      mean_percentage_error_pct: 4.687902891647218
+      p95_mean_percentage_error_pct: 11.075938541365291
+    phase3_c0_learned_mean_control_global:
+      mse: 2.1783734588696883e-05
+      mae: 0.0027972949415019255
+      rmse: 0.0032386774384496886
+      mean_percentage_error_pct: 5.495381803038862
+      p95_mean_percentage_error_pct: 12.830241911391063
+    phase3_c5_shared_stiffness_global:
+      mse: 2.174122497006038e-05
+      mae: 0.002877570854811219
+      rmse: 0.0032845305149602523
+      mean_percentage_error_pct: 5.651423088589696
+      p95_mean_percentage_error_pct: 12.534610965968996
+    accepted_periodic_mlp_harmonic_Fw:
+      mse: 1.0865505157684968e-05
+      mae: 0.001903378748887893
+      rmse: 0.0022155081584177023
+      mean_percentage_error_pct: 3.7255537413259203
+      p95_mean_percentage_error_pct: 10.153749670688988
+    accepted_periodic_gru_sequence_Fw:
+      mse: 9.871950858031822e-06
+      mae: 0.0018093140031235173
+      rmse: 0.0021500444412596454
+      mean_percentage_error_pct: 3.5434277919697132
+      p95_mean_percentage_error_pct: 9.446718170249152
+    accepted_periodic_mlp_harmonic_Bw:
+      mse: 2.71276214204411e-05
+      mae: 0.002466662435046871
+      rmse: 0.002863356033965745
+      mean_percentage_error_pct: 4.13918074547403
+      p95_mean_percentage_error_pct: 10.532594403616974
+    accepted_periodic_gru_sequence_Bw:
+      mse: 2.192499882527055e-05
+      mae: 0.0023141414498111987
+      rmse: 0.0027270511929001684
+      mean_percentage_error_pct: 3.9767523733947097
+      p95_mean_percentage_error_pct: 9.565496919597214
+  '25.0':
+    phase3_c0_learned_mean_control_Bw:
+      mse: 3.5141325122502696e-06
+      mae: 0.0014133491761564242
+      rmse: 0.0017035692250882272
+      mean_percentage_error_pct: 3.328626634978926
+      p95_mean_percentage_error_pct: 6.003285768058065
+    phase3_c1_linear_compliance_soft_Bw:
+      mse: 3.7898092596297016e-06
+      mae: 0.0015177263528025591
+      rmse: 0.00183976250042472
+      mean_percentage_error_pct: 3.6039162385017898
+      p95_mean_percentage_error_pct: 5.4589239481629
+    phase3_c2_temperature_compliance_soft_Bw:
+      mse: 2.7143191792312466e-06
+      mae: 0.0011999943927480466
+      rmse: 0.0014725960265237572
+      mean_percentage_error_pct: 2.8279865071152233
+      p95_mean_percentage_error_pct: 5.790385634482563
+    phase3_c3_nonlinear_compliance_soft_Bw:
+      mse: 4.694378120971971e-06
+      mae: 0.0017084082683186516
+      rmse: 0.0020509568516335354
+      mean_percentage_error_pct: 4.076289092855742
+      p95_mean_percentage_error_pct: 7.010164708188812
+    phase3_c4_hard_elastic_offset_Bw:
+      mse: 8.485129856044386e-06
+      mae: 0.0021552515770685786
+      rmse: 0.002488590867410064
+      mean_percentage_error_pct: 5.053894769628542
+      p95_mean_percentage_error_pct: 11.751835483482129
+    phase3_c0_learned_mean_control_Fw:
+      mse: 4.111175988174543e-06
+      mae: 0.0015090331229619513
+      rmse: 0.0018232529535591637
+      mean_percentage_error_pct: 3.4453874776533713
+      p95_mean_percentage_error_pct: 6.320558236722592
+    phase3_c1_linear_compliance_soft_Fw:
+      mse: 3.6102170853311134e-06
+      mae: 0.0014049472943372288
+      rmse: 0.0016944848476093558
+      mean_percentage_error_pct: 3.204194116738621
+      p95_mean_percentage_error_pct: 5.901424343446515
+    phase3_c2_temperature_compliance_soft_Fw:
+      mse: 4.237012143269187e-06
+      mae: 0.0014945286446732611
+      rmse: 0.0017853346076964162
+      mean_percentage_error_pct: 3.409420248117999
+      p95_mean_percentage_error_pct: 7.205348787320339
+    phase3_c3_nonlinear_compliance_soft_Fw:
+      mse: 4.758116383809748e-06
+      mae: 0.0016571238012838977
+      rmse: 0.0019719006292264582
+      mean_percentage_error_pct: 3.777533880916792
+      p95_mean_percentage_error_pct: 6.550562414227863
+    phase3_c4_hard_elastic_offset_Fw:
+      mse: 1.001563894851118e-05
+      mae: 0.0022660652251447603
+      rmse: 0.002496630059764442
+      mean_percentage_error_pct: 5.204770531755583
+      p95_mean_percentage_error_pct: 12.603299579646754
+    phase3_c0_learned_mean_control_global:
+      mse: 3.902321192371441e-06
+      mae: 0.0015044407272993374
+      rmse: 0.0018126035135637606
+      mean_percentage_error_pct: 3.504472158698178
+      p95_mean_percentage_error_pct: 6.273108529311856
+    phase3_c5_shared_stiffness_global:
+      mse: 8.782487407798656e-06
+      mae: 0.00210201269236624
+      rmse: 0.002352706997773517
+      mean_percentage_error_pct: 4.861788094966553
+      p95_mean_percentage_error_pct: 12.979750138104766
+    accepted_periodic_mlp_harmonic_Fw:
+      mse: 3.1356622045163805e-06
+      mae: 0.0012815302738131765
+      rmse: 0.0015390804702541535
+      mean_percentage_error_pct: 2.9098433506334844
+      p95_mean_percentage_error_pct: 5.586113254530722
+    accepted_periodic_gru_sequence_Fw:
+      mse: 3.634797022117462e-06
+      mae: 0.0013628525769265446
+      rmse: 0.0016052727996798727
+      mean_percentage_error_pct: 3.1006629661969827
+      p95_mean_percentage_error_pct: 6.590498506771466
+    accepted_periodic_mlp_harmonic_Bw:
+      mse: 2.1518817849623362e-06
+      mae: 0.0010665709285005572
+      rmse: 0.0012871258191037222
+      mean_percentage_error_pct: 2.5059960153390715
+      p95_mean_percentage_error_pct: 4.7254385904092615
+    accepted_periodic_gru_sequence_Bw:
+      mse: 2.2089446415654184e-06
+      mae: 0.0010808430901150456
+      rmse: 0.0013095408913752582
+      mean_percentage_error_pct: 2.538884845677492
+      p95_mean_percentage_error_pct: 5.242963756182057
+preview_plot_path_list: []
+report_plot_root: null
+report_plot_path_list: []
+report_plot_count: 0
+per_condition_metrics_csv_path: output\validation_checks\track2_reference_comparison\2026-07-26-19-30-10__phase3_quasi_static_compliance_pinn_common_test_matrix_phase3_closeout_retry\per_condition_metrics.csv
+sample_preview_list:
+- source_file_path: data\polished_dataset\backward\30degree\100rpm\100.0rpm100.0Nm30.0deg.csv
+  direction_label: backward
+  candidate_id: phase3_c0_learned_mean_control_Bw
+  speed_rpm: 100.0
+  torque_nm: 100.0
+  oil_temperature_deg: 30.0
+  mean_percentage_error_pct: 6.881457643946651
+- source_file_path: data\polished_dataset\backward\35degree\100rpm\100.0rpm100.0Nm35.0deg.csv
+  direction_label: backward
+  candidate_id: phase3_c0_learned_mean_control_Bw
+  speed_rpm: 100.0
+  torque_nm: 100.0
+  oil_temperature_deg: 35.0
+  mean_percentage_error_pct: 7.786058719304972
+- source_file_path: data\polished_dataset\backward\30degree\100rpm\100.0rpm300.0Nm30.0deg.csv
+  direction_label: backward
+  candidate_id: phase3_c0_learned_mean_control_Bw
+  speed_rpm: 100.0
+  torque_nm: 300.0
+  oil_temperature_deg: 30.0
+  mean_percentage_error_pct: 1.680045869790901
+- source_file_path: data\polished_dataset\backward\30degree\100rpm\100.0rpm400.0Nm30.0deg.csv
+  direction_label: backward
+  candidate_id: phase3_c0_learned_mean_control_Bw
+  speed_rpm: 100.0
+  torque_nm: 400.0
+  oil_temperature_deg: 30.0
+  mean_percentage_error_pct: 1.9083857514050035
+- source_file_path: data\polished_dataset\backward\35degree\100rpm\100.0rpm500.0Nm35.0deg.csv
+  direction_label: backward
+  candidate_id: phase3_c0_learned_mean_control_Bw
+  speed_rpm: 100.0
+  torque_nm: 500.0
+  oil_temperature_deg: 35.0
+  mean_percentage_error_pct: 1.9395356095571303

@@ -264,7 +264,8 @@ completed without failures and the bounded common-split curve-payload
 diagnostic evaluated `97` held-out curves per direction. `H1-Bw` improved raw
 error and selected orders relative to the Fourier control but worsened
 aggregate harmonic-amplitude fidelity. No oscillator, periodic-boundary, or
-Bauer-anchor constraint was promoted. Phase 3 is active next.
+Bauer-anchor constraint was promoted. Phase 3 subsequently completed without
+promoting a compliance constraint.
 
 ## Phase 3: Quasi-Static Compliance And Elastic Offset PINNs
 
@@ -301,6 +302,14 @@ Bauer-anchor constraint was promoted. Phase 3 is active next.
 
 Retain a compliance residual only if stiffness-like parameters are stable,
 physically signed, and predictive outside the fitting conditions.
+
+**Status: completed negative result.** The twelve-arm campaign and two-run
+C1-Fw stability follow-up completed without failures. Bounded stiffness was
+stable with a `2.48%` coefficient of variation, but only two of three C1-Fw
+initializations improved the matched control across raw, offset, centered,
+harmonic-amplitude, and phase gates. C2-Bw and C5-global exposed useful
+tradeoffs but failed the joint exit rule. No Phase 3 compliance residual was
+promoted. Phase 4 is active next as a feasibility-first state-data audit.
 
 ## Phase 4: Hysteresis, Friction, And Memory PINNs
 
@@ -339,6 +348,12 @@ physically signed, and predictive outside the fitting conditions.
 
 No hysteresis model advances without repeated reversal cycles and stable causal
 state evolution.
+
+**Status: active feasibility gate.** Begin with a source-data chronology,
+reversal-cycle, repeated-loop, warm-up, and causal-state audit. Do not prepare
+training until the audit proves that real ordered state evolution is
+available, or explicitly limits a formulation to a synthetic or offline
+oracle.
 
 ## Phase 5: Bidirectional TE, Backlash, And Lost-Motion PINNs
 
