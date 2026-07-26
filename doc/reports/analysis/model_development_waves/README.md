@@ -12,14 +12,15 @@ model-development waves.
   naming material.
 - `wave_4/` contains PINN, MMT, and physics-guided design reports.
   - `wave_5_2/` contains dataset-aware Wave `5.2` diagnostics, the sixteen-phase
-    full-PINN program, and completed Phase 0-8 evidence. Phases 2 and 3 are
+    full-PINN program, and completed Phase 0-9 evidence. Phases 2 and 3 are
     valid negative training results. Phases 4 and 5 are completed feasibility
     and identifiability results that retain raw reversal and paired-direction
     evidence without promoting hysteresis, backlash, or lost-motion residuals.
     Phase 6 adds a causal derivative and dynamic observability rejection;
     Phase 7 retains contact mechanics as synthetic-oracle work; Phase 8 does
     the same for energy inequalities without an input-power measurement.
-    Phase 9 is next.
+    Phase 9 retains geometry and MMT as synthetic or deferred work. Phase 10
+    is next.
 
 The folder names use stable filesystem slugs. Human-facing report titles may
 retain legacy wave labels when they describe completed historical work.

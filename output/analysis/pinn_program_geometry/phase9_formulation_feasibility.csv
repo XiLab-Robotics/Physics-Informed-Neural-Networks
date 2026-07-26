@@ -1,0 +1,6 @@
+formulation_id,name,feasibility_class,full_pinn_eligible,reason
+PINN-G1,manufacturing-prior parameter regularization,synthetic_oracle_only,False,Manufacturing priors can be tested synthetically but are not unit-specific.
+PINN-G2,geometry-to-harmonic sensitivity surrogate,synthetic_oracle_only,False,"Source studies motivate a surrogate, but their simulation population is not available locally."
+PINN-G3,MMT synthetic-oracle PINN,synthetic_oracle_only,False,The retained MMT equation chain supports synthetic tests without claiming local identification.
+PINN-G4,condition-varying MMT model,blocked_by_data_contract,False,Condition-varying component errors and causal contact states remain unavailable.
+PINN-G5,geometry-latent hierarchical model across reducer instances,blocked_by_data_contract,False,One unidentified reducer instance cannot identify a hierarchical geometry latent.

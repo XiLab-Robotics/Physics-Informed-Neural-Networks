@@ -1,0 +1,127 @@
+schema_version: 1
+metadata:
+  phase_number: 9
+  audit_id: wave52_phase9_geometry_portfolio_feasibility
+  phase_title: Geometry, Tolerances, MMT, And Manufacturing Priors
+  domain_slug: geometry
+  training_allowed_by_configuration: false
+evidence_files:
+  - evidence_id: MMT-PAPER
+    path: reference/MMT_TEModeling.pdf
+    role: paper-faithful equivalent-mechanism source
+    required: true
+    executable_oracle: false
+  - evidence_id: MMT-MATLAB
+    path: reference/te_modeling/implementations/mmt_linkage_matlab/main.m
+    role: harmonic linkage synthetic demonstrator
+    required: true
+    executable_oracle: true
+  - evidence_id: JIN-TOLERANCE
+    path: reference/te_modeling/theoretical_mechanics/numerical_and_fea_models/2025_jin_part_tolerances_virtual_prototype_rv40e.pdf
+    role: part-tolerance virtual prototype source
+    required: true
+    executable_oracle: false
+  - evidence_id: CHEN-GEOMETRY
+    path: reference/te_modeling/theoretical_mechanics/numerical_and_fea_models/2026_chen_predictive_te_geometric_errors_wear_rv_reducer.pdf
+    role: geometric-error and wear source
+    required: true
+    executable_oracle: false
+  - evidence_id: WANG-FEA
+    path: reference/te_modeling/theoretical_mechanics/numerical_and_fea_models/2026_wang_ensemble_learning_te_prediction_optimization_rv_reducer.pdf
+    role: FEA population and surrogate source
+    required: true
+    executable_oracle: false
+  - evidence_id: MMT-SUMMARY
+    path: doc/reference_summaries/14_MMT_Linkage_Matlab_Project_Summary.md
+    role: current MMT blocker and reusable oracle decision
+    required: true
+    executable_oracle: false
+required_quantities:
+  - quantity: nominal_reducer_geometry
+    availability_class: known_constant
+    causal_runtime: true
+    online_model_input: true
+    evidence: repository geometry constants and reduction ratio
+  - quantity: unit_specific_component_errors
+    availability_class: unavailable
+    causal_runtime: false
+    online_model_input: false
+    evidence: no metrology for the tested reducer
+  - quantity: unit_specific_tolerances
+    availability_class: unavailable
+    causal_runtime: false
+    online_model_input: false
+    evidence: no as-built tolerance record
+  - quantity: reducer_instance_identity
+    availability_class: unavailable
+    causal_runtime: false
+    online_model_input: false
+    evidence: canonical dataset contains one unidentified reducer instance
+  - quantity: condition_varying_mmt_errors
+    availability_class: unavailable
+    causal_runtime: false
+    online_model_input: false
+    evidence: completed MMT parameter blocker
+  - quantity: validated_fea_population
+    availability_class: unavailable
+    causal_runtime: false
+    online_model_input: false
+    evidence: source population is not shipped as repository data
+  - quantity: synthetic_geometry_oracle
+    availability_class: synthetic_oracle_only
+    causal_runtime: false
+    online_model_input: false
+    evidence: equations and MATLAB demonstrator support bounded synthetic tests
+  - quantity: synthetic_to_real_transfer_protocol
+    availability_class: unavailable
+    causal_runtime: false
+    online_model_input: false
+    evidence: no validation against unit-specific metrology
+candidate_formulations:
+  - formulation_id: PINN-G1
+    name: manufacturing-prior parameter regularization
+    feasibility_class: synthetic_oracle_only
+    full_pinn_eligible: false
+    reason: Manufacturing priors can be tested synthetically but are not unit-specific.
+  - formulation_id: PINN-G2
+    name: geometry-to-harmonic sensitivity surrogate
+    feasibility_class: synthetic_oracle_only
+    full_pinn_eligible: false
+    reason: Source studies motivate a surrogate, but their simulation population is not available locally.
+  - formulation_id: PINN-G3
+    name: MMT synthetic-oracle PINN
+    feasibility_class: synthetic_oracle_only
+    full_pinn_eligible: false
+    reason: The retained MMT equation chain supports synthetic tests without claiming local identification.
+  - formulation_id: PINN-G4
+    name: condition-varying MMT model
+    feasibility_class: blocked_by_data_contract
+    full_pinn_eligible: false
+    reason: Condition-varying component errors and causal contact states remain unavailable.
+  - formulation_id: PINN-G5
+    name: geometry-latent hierarchical model across reducer instances
+    feasibility_class: blocked_by_data_contract
+    full_pinn_eligible: false
+    reason: One unidentified reducer instance cannot identify a hierarchical geometry latent.
+decision:
+  status: failed_no_training_authorized
+  summary: >-
+    Geometry and manufacturing knowledge is retained for synthetic recovery,
+    sensitivity, and oracle work. No unit-specific metrology, multi-instance
+    population, or validated synthetic-to-real transfer closes the real-data gate.
+  key_findings:
+    - All six MMT, tolerance, geometry, FEA, and synthesis paths are present.
+    - Nominal constants are available but are condition-invariant.
+    - Unit-specific errors, tolerances, instance identity, and FEA populations are absent.
+    - Paper-faithful MMT remains deferred while synthetic MMT tests remain allowed.
+  physical_residual_promoted: false
+  campaign_preparation_required: false
+  advance_to_next_phase: true
+  next_phase_number: 10
+  next_phase_title: Wear And Degradation PINNs
+outputs:
+  evidence_csv: output/analysis/pinn_program_geometry/phase9_evidence_file_audit.csv
+  quantity_csv: output/analysis/pinn_program_geometry/phase9_required_quantity_audit.csv
+  formulation_csv: output/analysis/pinn_program_geometry/phase9_formulation_feasibility.csv
+  audit_yaml: output/analysis/pinn_program_geometry/phase9_geometry_portfolio_audit.yaml
+  report_markdown: doc/reports/analysis/model_development_waves/wave_5_2/geometry_tolerances_mmt_pinn/[2026-07-26]/phase9_geometry_tolerances_mmt_manufacturing_report.md

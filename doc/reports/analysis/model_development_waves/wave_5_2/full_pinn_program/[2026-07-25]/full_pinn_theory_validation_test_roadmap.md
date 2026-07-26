@@ -577,8 +577,12 @@ Paper-faithful MMT remains deferred until condition-varying causal component
 errors exist. Synthetic and manufacturing-prior branches may proceed
 independently.
 
-**Status: active next.** Start with geometry, tolerance, component-error, MMT,
-synthetic-population, instance-identity, and transfer-protocol audits.
+**Status: completed feasibility result; no training authorized.** Six evidence
+files, eight quantities, and five geometry formulations were audited. Nominal
+constants exist, but unit-specific errors and tolerances, reducer-instance
+identity, a local FEA population, and synthetic-to-real validation do not.
+`PINN-G1/G2/G3` remain synthetic-oracle-only; `PINN-G4/G5` are blocked.
+Paper-faithful MMT remains deferred and no Phase 9 residual is promoted.
 
 ## Phase 10: Wear And Degradation PINNs
 
@@ -612,6 +616,10 @@ synthetic-population, instance-identity, and transfer-protocol audits.
 
 Wear PINNs remain research models until longitudinal data or validated wear
 labels distinguish degradation from operating-condition drift.
+
+**Status: active next.** Start with session chronology, reducer identity, load
+cycles, lubrication, wear measurements, maintenance labels, and longitudinal
+transfer audits.
 
 ## Phase 11: Electromechanical Coupling PINNs
 

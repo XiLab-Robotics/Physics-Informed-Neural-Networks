@@ -30,13 +30,13 @@ closeout that changes any of these surfaces:
 | Current accepted backward curve-verified leader | `polished_periodic_gru_sequence_Bw` |
 | Current accepted global neural curve-verified leader | `polished_periodic_gru_sequence_global` |
 | Latest normal campaign closeout | Phase 3 quasi-static compliance PINN, `12 / 12` main runs and `2 / 2` C1-Fw repeats completed on `2026-07-26`; no physics constraint promoted |
-| Latest non-training PINN gate | Phase 8 energy audit verified five evidence files and eleven required quantities; output power is only a one-sided proxy and input power, internal force, friction loss, and efficiency are absent, so no training was authorized |
+| Latest non-training PINN gate | Phase 9 geometry audit verified six evidence files and eight quantities; unit-specific metrology, multi-instance identity, local FEA populations, and synthetic-to-real validation are absent, so MMT remains deferred and no training was authorized |
 | Latest official TE Curve Verification refresh | polished-dataset RCIM, early-wave, and full-wave refresh, dated `2026-07-03` |
 | Latest curve-verification decision | six-cell non-MMT reduced comparison closed on `2026-07-24`; periodic GRU recommended in four cells and periodic harmonic MLP in two; no official promotion |
 | Latest pruning decision | `2026-07-17` shape-first intermediate model-selection cleanup; `global` remains paused until final backlog stage |
 | Active report generation | six reduced selected-model reports completed for polished setpoints, simplified setpoints, and polished actual values, each split into `forward` and `backward` |
 | Current TE Curve Verification Pipeline selection policy | multi-index curve-first selection, dated `2026-06-16` |
-| Next modeling decision | Phases 0 through 8 are complete; begin Phase 9 geometry, tolerance, MMT, manufacturing-prior, instance-identity, and transfer feasibility |
+| Next modeling decision | Phases 0 through 9 are complete; begin Phase 10 wear, degradation, load-cycle, longitudinal-session, and maintenance-label feasibility |
 
 The repository remains direction-parallel. `Fw`, `Bw`, and `global` are not a
 single destructive competition. Each surface keeps its own best candidate and
@@ -176,8 +176,9 @@ robustness, visual-evidence, and deployment-readiness axes visible.
 | Wave 5.2 Phase 6 dynamic acceleration, inertia, and trajectory | completed observability result | All `969` raw conditions and `99,696,607` rows were audited with causal derivatives. All valid windows have stable speed, but no transition passes the fourfold P95 acceleration-separation gate. | Authorize no dynamic full-PINN training and promote no residual. Retain `PINN-D1/D3` as offline oracles and `PINN-D4` as an empirical comparator; keep `PINN-D2/D5` blocked. |
 | Wave 5.2 Phase 7 contact, mesh stiffness, and load sharing | completed feasibility result | Six source and implementation files, eleven required quantities, and six `PINN-K` candidates were audited. Basic operating inputs are causal, but contact parameters and states are unavailable. | Authorize no contact training and promote no residual. Retain `PINN-K1-K5` as synthetic-oracle work and keep `PINN-K6` blocked. |
 | Wave 5.2 Phase 8 energy, friction, and efficiency | completed feasibility result | Five evidence files, eleven required quantities, and five `PINN-E` candidates were audited. Output power is reconstructable, but the input and internal loss sides of the balance are absent. | Authorize no energy training and promote no residual. Retain `PINN-E1/E2` as synthetic, `PINN-E5` as offline, and keep `PINN-E3/E4` blocked. |
-| Wave 5.2 general full-PINN program | Phases 0 through 8 complete; Phase 9 active next | Phases 2 and 3 delivered target-free residuals and falsification infrastructure. Phases 4 through 8 preserve state, bidirectional, dynamic, contact, and energy theory through explicit negative, offline, synthetic, or blocked decisions. | Start Phase 9 with geometry and transfer observability tests; do not combine rejected or blocked mechanisms. |
-| Wave 5.2 complete theory-validation program | Phases 0 through 8 of 16 complete | Sixteen phases preserve every ingested mechanism through common foundations, isolated formulations, synthetic and offline oracles, causal reconstruction, instrumentation gates, cross-formulation comparison, multi-physics integration, and Wave 6 entry criteria. | Continue Phase 9 as an observability-first gate. |
+| Wave 5.2 Phase 9 geometry, tolerances, MMT, and manufacturing priors | completed feasibility result | Six evidence files, eight quantities, and five `PINN-G` candidates were audited. Nominal constants exist, but unit-specific and transfer evidence do not. | Authorize no geometry training and promote no residual. Retain `PINN-G1/G2/G3` as synthetic, keep `PINN-G4/G5` blocked, and preserve MMT deferral. |
+| Wave 5.2 general full-PINN program | Phases 0 through 9 complete; Phase 10 active next | Phases 4 through 9 preserve state, bidirectional, dynamic, contact, energy, geometry, and MMT theory through explicit negative, offline, synthetic, deferred, or blocked decisions. | Start Phase 10 with longitudinal wear observability; do not combine rejected or blocked mechanisms. |
+| Wave 5.2 complete theory-validation program | Phases 0 through 9 of 16 complete | Sixteen phases preserve every ingested mechanism through common foundations, isolated formulations, synthetic and offline oracles, causal reconstruction, instrumentation gates, cross-formulation comparison, multi-physics integration, and Wave 6 entry criteria. | Continue Phase 10 as an observability-first gate. |
 | Wave 5.2 paper-faithful MMT full PINN | deferred future TODO | MMT diagnostics, parameter inventory, `Wave 5.2B`, the post-causal-offset gate, exact-manifest replay, and leakage-safe explanatory rerun are complete. Contact geometry and causal observations for five equivalent-error groups remain unavailable. | Inactive without blocking the general full-PINN program. Reopen only after independent component-error measurements or validated causal contact-state reconstruction provides condition-varying physical inputs. |
 | Six-cell non-MMT reduced cross-wave comparison | closed diagnostic | Six remote selected-model reports and three direction-paired shape-gated reranks covered polished setpoints, simplified setpoints, and polished actual values. Forty-six curve collages were reviewed. | No official promotion. Periodic GRU wins four cells, periodic harmonic MLP wins two, Wave 4.1 remains the raw-error/offset ingredient, and sparse-RCIM temporal models remain reference-only. |
 | Wave 6 integrated multi-task / multi-head model | sequenced after Wave 5.2 PINN evidence | Intended to combine proven offset, low-frequency, centered-shape, uncertainty, mixture, and validated physics-informed mechanisms. | Do not prepare a campaign until bounded Wave 5.2 pilots and curve-first verification identify the physics-informed ingredients worth integrating. |
@@ -277,10 +278,10 @@ models.
 
 ## Current Next Steps
 
-1. Treat Phases 0 through 8 as complete and keep the general Wave 5.2
-   full-PINN program active at the Phase 9 geometry formulation gate.
-2. Audit geometry, tolerances, component errors, MMT, instance identity, and
-   synthetic-to-real transfer before selecting a Phase 9 formulation.
+1. Treat Phases 0 through 9 as complete and keep the general Wave 5.2
+   full-PINN program active at the Phase 10 wear formulation gate.
+2. Audit longitudinal sessions, reducer identity, load cycles, lubrication,
+   wear measurements, and maintenance events before selecting Phase 10.
 3. Continue the complete theory portfolio through the immediate analytical,
    causal-state, and offline-physics lanes. Preserve blocked formulations as
    oracle or instrumentation tasks rather than silently dropping them.

@@ -664,6 +664,19 @@ The output-side power proxy does not close an efficiency or dissipation
 balance because input torque or electrical power, internal force, and friction
 loss are not measured. Phase 8 closes without training; Phase 9 is next.
 
+## Phase 9 Geometry And MMT Portfolio Audit
+
+```powershell
+python -B scripts/analysis/pinn_program_portfolios/build_physics_portfolio_feasibility_audit.py `
+  --config config/analysis/pinn_program_portfolios/phase9_geometry_portfolio_audit.yaml
+python -B scripts/analysis/pinn_program_portfolios/validate_physics_portfolio_feasibility_audit.py `
+  --config config/analysis/pinn_program_portfolios/phase9_geometry_portfolio_audit.yaml
+```
+
+Nominal geometry supports synthetic tests, but unit-specific metrology,
+multi-instance data, a local FEA population, and synthetic-to-real validation
+are absent. MMT remains deferred; Phase 10 is next.
+
 ## Relevant Project Paths
 
 The current usage flow mainly relies on these folders:

@@ -1,0 +1,38 @@
+schema_version: 1
+phase_number: 9
+audit_id: wave52_phase9_geometry_portfolio_feasibility
+phase_title: Geometry, Tolerances, MMT, And Manufacturing Priors
+domain_slug: geometry
+generated_at_utc: '2026-07-26T19:29:53.396990+00:00'
+source_configuration:
+  path: config/analysis/pinn_program_portfolios/phase9_geometry_portfolio_audit.yaml
+  sha256: 242fbc7c2c4d1edacd6f10c4db38fc32a9fe988f3c5fef5af0954c081aef851a
+evidence_file_count: 6
+required_evidence_file_count: 6
+all_required_evidence_files_exist: true
+executable_oracle_count: 1
+required_quantity_count: 8
+availability_class_count:
+  known_constant: 1
+  synthetic_oracle_only: 1
+  unavailable: 6
+candidate_formulation_count: 5
+formulation_class_count:
+  blocked_by_data_contract: 2
+  synthetic_oracle_only: 3
+full_pinn_training_authorized: false
+decision:
+  status: failed_no_training_authorized
+  summary: Geometry and manufacturing knowledge is retained for synthetic recovery,
+    sensitivity, and oracle work. No unit-specific metrology, multi-instance population,
+    or validated synthetic-to-real transfer closes the real-data gate.
+  key_findings:
+  - All six MMT, tolerance, geometry, FEA, and synthesis paths are present.
+  - Nominal constants are available but are condition-invariant.
+  - Unit-specific errors, tolerances, instance identity, and FEA populations are absent.
+  - Paper-faithful MMT remains deferred while synthetic MMT tests remain allowed.
+  physical_residual_promoted: false
+  campaign_preparation_required: false
+  advance_to_next_phase: true
+  next_phase_number: 10
+  next_phase_title: Wear And Degradation PINNs

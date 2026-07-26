@@ -1,0 +1,9 @@
+quantity,availability_class,causal_runtime,online_model_input,evidence
+nominal_reducer_geometry,known_constant,True,True,repository geometry constants and reduction ratio
+unit_specific_component_errors,unavailable,False,False,no metrology for the tested reducer
+unit_specific_tolerances,unavailable,False,False,no as-built tolerance record
+reducer_instance_identity,unavailable,False,False,canonical dataset contains one unidentified reducer instance
+condition_varying_mmt_errors,unavailable,False,False,completed MMT parameter blocker
+validated_fea_population,unavailable,False,False,source population is not shipped as repository data
+synthetic_geometry_oracle,synthetic_oracle_only,False,False,equations and MATLAB demonstrator support bounded synthetic tests
+synthetic_to_real_transfer_protocol,unavailable,False,False,no validation against unit-specific metrology

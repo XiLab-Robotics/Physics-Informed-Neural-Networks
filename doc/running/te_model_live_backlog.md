@@ -35,12 +35,11 @@ Historical rationale and approval history remain in:
   offline model-verification
   report, closed as the canonical direction-aware verification surface for new
   model families.
-- Current Focus: Wave 5.2 Phase 9 geometry, tolerances, MMT, and manufacturing
-  priors. Phases 0 through 8 are complete. Phase 8 verified that output power
-  is only a one-sided proxy: input power, internal force, friction loss, and
-  efficiency remain unavailable. Energy inequalities are retained as
-  synthetic or offline work; no residual was promoted. The complete
-  theory-validation roadmap
+- Current Focus: Wave 5.2 Phase 10 wear and degradation. Phases 0 through 9
+  are complete. Phase 9 retained nominal geometry, MMT, tolerance, and FEA
+  knowledge as synthetic priors because unit-specific metrology, multi-instance
+  data, a local simulation population, and synthetic-to-real validation are
+  absent. The complete theory-validation roadmap
   preserves harmonic, compliance, hysteresis, bidirectional, dynamic, contact,
   efficiency, geometry, MMT, wear, electromechanical, hybrid, and integrated
   PINN branches. The polished `periodic_gru_sequence` family remains the
@@ -76,8 +75,8 @@ Historical rationale and approval history remain in:
   seed `271828` regressed raw, offset, and harmonic behavior relative to the
   matched C0 control. The accepted periodic GRU and periodic harmonic MLP
   remain unchanged.
-- Active Wave 5.2 Program: Phases 0 through 8 are completed and the general
-  full-PINN branch advances to Phase 9. Phases 2 and 3 delivered reusable
+- Active Wave 5.2 Program: Phases 0 through 9 are completed and the general
+  full-PINN branch advances to Phase 10. Phases 2 and 3 delivered reusable
   target-free residual, bounded-parameter, checkpoint playback, and
   multi-index diagnostic infrastructure while rejecting the tested harmonic,
   kinematic, and compliance constraints as defaults. Phase 4 retains the raw
@@ -88,6 +87,7 @@ Historical rationale and approval history remain in:
   rejecting unidentifiable acceleration and inertia residuals. Phase 7
   preserves contact laws as synthetic or instrumentation branches. Phase 8
   preserves energy inequalities without claiming an identified balance.
+  Phase 9 preserves manufacturing theory without reopening MMT.
 - Deferred MMT Subbranch: only the paper-faithful MMT full PINN is inactive
   after the leakage-safe rerun found zero held-out gain from geometry-locked
   signatures and could not calibrate unobserved equivalent-error groups.
@@ -98,9 +98,9 @@ Historical rationale and approval history remain in:
   periodic harmonic MLP wins polished-setpoint `Bw` and simplified-setpoint
   `Fw`. Wave 4.1 remains the raw-error and offset diagnostic ingredient.
   Sparse-RCIM temporal candidates remain actual-values references only.
-- Current Next Branch: begin Phase 9 with geometry, tolerance, component-error,
-  MMT, synthetic-population, instance-identity, and transfer-protocol audits.
-  Preserve MMT as deferred unless its parameter blocker closes.
+- Current Next Branch: begin Phase 10 with longitudinal session chronology,
+  reducer identity, load cycles, lubrication, wear measurements, maintenance
+  labels, and degradation transfer.
 
 Current canonical status reports:
 
@@ -310,8 +310,8 @@ Next planned diagnostic and training decision branches:
 | Component-offset identification | Test whether curve offset is dominated by `a_0` / `Component 0`, multiple components, condition/regime behavior, or experimental repeatability limits. | measured `h0`, signed-offset cross-check, and predicted-mean surface diagnostics completed; `h0` is the right mean channel, but the actionable issue is model-side mean-surface bias/compression |
 | `Wave 4 series` dispersion-aware modeling probes | Test robust losses, quantile or probabilistic heads, mixture-density heads, and latent-state or hysteresis-aware features on the offset and fragile-harmonic problem. | robust-loss, quantile/probabilistic, MDN, and `Wave 4.4` latent-state / hysteresis-aware campaigns and official TE Curve Verification refreshes completed; all are exploratory and not promoted |
 | `Wave 5.1` hybrid structured models | Combine harmonic structure, condition-conditioned residual learning, and explicit grouped treatment of stable and fragile harmonic bands. | first real `wave3_harmonic_prior_residual` campaign and official `TE Curve Verification Pipeline` verification refresh closed as a verified exploratory baseline, not promoted |
-| `Wave 5.2` general full-PINN program | Audit and test explicit differentiable physics formulations derived from harmonic behavior, the Polynomial Fourier Series law, Wave 3 through Wave 5.1 evidence, and additional references. | Phases 0 through 8 complete; Phase 8 retained energy inequalities as synthetic or offline work because input power, internal force, loss, and efficiency are absent; Phase 9 is next |
-| `Wave 5.2` complete theory-validation program | Preserve and falsify every ingested physical mechanism through direct-data, causal-state, offline-oracle, instrumentation, isolated-PINN, cross-formulation, and integration tests. | roadmap complete; Phases 0 through 8 of 16 completed; Phase 9 active next |
+| `Wave 5.2` general full-PINN program | Audit and test explicit differentiable physics formulations derived from harmonic behavior, the Polynomial Fourier Series law, Wave 3 through Wave 5.1 evidence, and additional references. | Phases 0 through 9 complete; Phase 9 retained geometry, tolerance, FEA, and MMT knowledge as synthetic or deferred because unit-specific and transfer evidence are absent; Phase 10 is next |
+| `Wave 5.2` complete theory-validation program | Preserve and falsify every ingested physical mechanism through direct-data, causal-state, offline-oracle, instrumentation, isolated-PINN, cross-formulation, and integration tests. | roadmap complete; Phases 0 through 9 of 16 completed; Phase 10 active next |
 | `Wave 5.2` paper-faithful MMT full PINN | Preserve the completed MMT evidence and reopen only if causal physical inputs become available. | deferred future TODO after the parameter-availability blocker; no MMT feature, auxiliary head, weak constraint, or MMT full PINN is authorized |
 | Intermediate shape-first model-selection cleanup | Reduce the post-retraining active set using raw error, P95, centered shape, P2P behavior, visual collage evidence, and actual-values stability. | completed; active set is `periodic_gru_sequence`, `wave4_1_mae_robust_loss`, `wave4_2_quantile_p10_p50_p90`, and `periodic_mlp_harmonic`; `periodic_lstm_sequence_Bw`, `Wave 4.3`, `Wave 4.4`, and `Wave 5.1` are closed as active branches |
 | Frequency-domain shape-gated reranker | Add measured/predicted FFT amplitude similarity, dominant-harmonic retention, dominant-harmonic phase error, robust derivative agreement, threshold sweep, and per-curve shape pass rate to future reduced reports. | completed across the six-cell non-MMT reduced pass; periodic GRU wins four cells, periodic harmonic MLP wins two, and the simplified tree scalar leader remains vetoed by weak shape retention |
@@ -1249,8 +1249,8 @@ Entry rule:
 
 ### Wave 5.2. PINN Formulation And First PINN
 
-- status: Phases 0 through 8 complete; Phase 9 geometry, tolerances, MMT, and
-  manufacturing-prior feasibility active next;
+- status: Phases 0 through 9 complete; Phase 10 wear and degradation
+  feasibility active next;
 - canonical roadmap:
   `doc/reports/analysis/model_development_waves/wave_5_2/full_pinn_program/[2026-07-25]/full_pinn_physics_formulation_roadmap.md`;
 - physics reference-intake register:
@@ -1337,8 +1337,15 @@ Entry rule:
   - `PINN-E1/E2` are synthetic-only, `PINN-E5` is offline-only, and
     `PINN-E3/E4` are blocked;
   - no Phase 8 training campaign or physical-residual promotion is authorized;
-- updated priority: start the Phase 9 geometry, tolerance, MMT,
-  manufacturing-prior, and synthetic-transfer feasibility audit;
+- completed Phase 9 evidence:
+  - six evidence files, eight quantities, and five `PINN-G` candidates were
+    audited;
+  - nominal geometry exists, while unit metrology, multi-instance identity,
+    local FEA populations, and synthetic-to-real validation are absent;
+  - `PINN-G1/G2/G3` are synthetic-only and `PINN-G4/G5` are blocked;
+  - MMT remains deferred and no Phase 9 training or residual is authorized;
+- updated priority: start the Phase 10 wear, degradation, load-cycle, and
+  longitudinal-data feasibility audit;
 - mandatory rule: prepare or justify `global`, `forward`, and `backward`
   surfaces;
 - paper-reproduction scope:
