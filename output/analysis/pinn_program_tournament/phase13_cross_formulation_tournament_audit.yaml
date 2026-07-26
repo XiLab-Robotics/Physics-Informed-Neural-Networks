@@ -1,0 +1,39 @@
+schema_version: 1
+phase_number: 13
+audit_id: wave52_phase13_cross_formulation_tournament_entry
+phase_title: Cross-Formulation Tournament
+domain_slug: cross_formulation_tournament
+generated_at_utc: '2026-07-26T19:49:47.867147+00:00'
+source_configuration:
+  path: config/analysis/pinn_program_portfolios/phase13_cross_formulation_tournament_audit.yaml
+  sha256: 499df50e058a6e17b699a7ba5e3c32df37c9ad4cc82f31f3377dc68b6b06b695
+evidence_file_count: 13
+required_evidence_file_count: 13
+all_required_evidence_files_exist: true
+executable_oracle_count: 1
+required_quantity_count: 8
+availability_class_count:
+  available: 5
+  empty: 1
+  zero_candidates: 2
+candidate_formulation_count: 12
+formulation_class_count:
+  offline_oracle_only: 3
+  real_data_trainable: 4
+  synthetic_oracle_only: 5
+full_pinn_training_authorized: false
+decision:
+  status: failed_no_training_authorized
+  summary: The Phase 13 roster contains zero isolated full-PINN-eligible candidates,
+    so the correct tournament result is no contest and no training campaign.
+  key_findings:
+  - All thirteen phase-evidence files exist.
+  - Zero isolated formulations passed the full-PINN entry gate.
+  - Semi-analytical and empirical candidates remain valid reference branches.
+  - Rejected, offline, synthetic, deferred, and blocked mechanisms were not ranked
+    as winners.
+  physical_residual_promoted: false
+  campaign_preparation_required: false
+  advance_to_next_phase: true
+  next_phase_number: 14
+  next_phase_title: Integrated Multi-Physics PINNs

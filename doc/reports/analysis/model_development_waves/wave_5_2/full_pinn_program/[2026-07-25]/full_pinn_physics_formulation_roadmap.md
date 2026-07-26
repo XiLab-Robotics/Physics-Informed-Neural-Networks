@@ -3,8 +3,8 @@
 ## Executive Decision
 
 Wave 5.2 remains the physics-informed model-development wave. Its general
-full-PINN program has completed Phases 0 through 12 and now advances to the
-Phase 13 cross-formulation tournament gate.
+full-PINN program has completed Phases 0 through 13 and now advances to the
+Phase 14 integrated multi-physics gate.
 
 Only the paper-faithful MMT implementation is deferred. The completed MMT
 diagnostic established that the available geometry-locked signatures are
@@ -26,7 +26,7 @@ instrumentation, isolated-PINN, or integration path.
 
 | Program branch | Current state | Decision |
 | --- | --- | --- |
-| General Wave 5.2 full-PINN program | Phases 0-12 complete; Phase 13 active next | Audit references, formalize candidate equations, and validate them before implementation. |
+| General Wave 5.2 full-PINN program | Phases 0-13 complete; Phase 14 active next | Audit references, formalize candidate equations, and validate them before implementation. |
 | MMT-paper-faithful full PINN | deferred future TODO | Reopen only with condition-varying causal component-error measurements or a validated causal contact-state reconstruction. |
 | Wave 6 integrated multi-task and multi-head models | sequenced after Wave 5.2 evidence | Do not design a training campaign until bounded PINN pilots identify useful physics-informed components. |
 
@@ -183,17 +183,16 @@ not be mixed in the first experiment.
 
 ## Immediate TODO
 
-Phases 0 through 12 are complete. Phase 12 verified four evidence files, eight
-required quantities, and six `PINN-R` candidates. Five architectures are
-empirically trainable, but none qualifies as a full PINN because no isolated
-physical residual was promoted and the Phase 1 anchor is semi-analytical.
+Phases 0 through 13 are complete. Phase 13 verified all thirteen phase-evidence
+files and twelve formulation families. Zero isolated candidates are full-PINN
+eligible, so the tournament closed as no contest without training.
 
-1. Begin Phase 13 with a roster of every isolated formulation and its exact
-   promotion, rejection, synthetic, offline, deferred, or blocked status.
-2. Apply the common curve-first, identifiability, causality, and deployment
-   entry criteria before allowing a tournament run.
-3. Produce an explicit no-contest decision if zero full-PINN candidates meet
-   the entry gate.
+1. Begin Phase 14 by requiring at least two complementary promoted physical
+   components before constructing an integrated model.
+2. Audit loss compatibility, shared variables, scales, interfaces, and causal
+   deployment prerequisites.
+3. Produce an explicit no-integration decision when the minimum component gate
+   is not met.
 4. Keep Wave 6 integration deferred until at least two complementary physical
    components pass isolated pilots.
 

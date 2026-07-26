@@ -1,0 +1,13 @@
+formulation_id,name,feasibility_class,full_pinn_eligible,reason
+TOUR-P1,Polynomial-Fourier semi-analytical benchmark,real_data_trainable,False,Benchmark is useful but not a governing-law PINN.
+TOUR-P2,Harmonic and kinematic constraints,offline_oracle_only,False,Tested constraints failed curve-first promotion.
+TOUR-P3,Quasi-static compliance constraints,offline_oracle_only,False,Compliance residual failed repeatability and joint gates.
+TOUR-P4,Hysteresis and memory,offline_oracle_only,False,Current data support reversal comparison but not repeated-loop training.
+TOUR-P5,Bidirectional and lost-motion models,real_data_trainable,False,Empirical paired comparator exists without identifiable physical state.
+TOUR-P6,Dynamic trajectory models,real_data_trainable,False,Empirical dynamic comparator exists without identifiable inertia residual.
+TOUR-P7,Contact and stiffness models,synthetic_oracle_only,False,Contact states and parameters are unavailable.
+TOUR-P8,Energy and efficiency models,synthetic_oracle_only,False,Input power and internal loss are unavailable.
+TOUR-P9,Geometry and MMT models,synthetic_oracle_only,False,Unit metrology and causal MMT parameters are unavailable.
+TOUR-P10,Wear and degradation models,synthetic_oracle_only,False,Longitudinal lifecycle evidence is unavailable.
+TOUR-P11,Electromechanical coupling models,synthetic_oracle_only,False,Synchronized electrical evidence is unavailable.
+TOUR-P12,Hybrid analytical and learned residuals,real_data_trainable,False,Empirical hybrids contain no promoted physical residual.

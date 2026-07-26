@@ -1,0 +1,9 @@
+quantity,availability_class,causal_runtime,online_model_input,evidence
+common_split_contract,available,False,False,Phase 0
+curve_first_promotion,zero_candidates,False,False,Phase 2 and Phase 3 negative results
+isolated_full_pinn_candidate,zero_candidates,False,False,Phases 2 through 12
+semi_analytical_benchmark,available,True,True,Phase 1
+empirical_comparators,available,True,True,"Phases 5, 6, and 12"
+offline_oracles,available,False,False,mechanism-specific phase reports
+synthetic_oracles,available,False,False,Phases 4 and 7 through 11
+tournament_training_roster,empty,False,False,zero eligible isolated candidates

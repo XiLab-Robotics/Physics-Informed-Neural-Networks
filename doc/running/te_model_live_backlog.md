@@ -35,11 +35,10 @@ Historical rationale and approval history remain in:
   offline model-verification
   report, closed as the canonical direction-aware verification surface for new
   model families.
-- Current Focus: Wave 5.2 Phase 13 cross-formulation tournament entry. Phases
-  0 through 12 are complete. Phase 12 retained five empirically trainable
-  analytical-plus-learned hybrids, but promoted none as a full PINN because no
-  isolated physical residual survived and the Phase 1 anchor remains
-  semi-analytical. The complete theory-validation roadmap
+- Current Focus: Wave 5.2 Phase 14 integrated multi-physics gate. Phases 0
+  through 13 are complete. Phase 13 audited twelve formulation families and
+  closed the tournament as no contest because zero isolated candidates are
+  full-PINN eligible. The complete theory-validation roadmap
   preserves harmonic, compliance, hysteresis, bidirectional, dynamic, contact,
   efficiency, geometry, MMT, wear, electromechanical, hybrid, and integrated
   PINN branches. The polished `periodic_gru_sequence` family remains the
@@ -75,8 +74,8 @@ Historical rationale and approval history remain in:
   seed `271828` regressed raw, offset, and harmonic behavior relative to the
   matched C0 control. The accepted periodic GRU and periodic harmonic MLP
   remain unchanged.
-- Active Wave 5.2 Program: Phases 0 through 12 are completed and the general
-  full-PINN branch advances to Phase 13. Phases 2 and 3 delivered reusable
+- Active Wave 5.2 Program: Phases 0 through 13 are completed and the general
+  full-PINN branch advances to Phase 14. Phases 2 and 3 delivered reusable
   target-free residual, bounded-parameter, checkpoint playback, and
   multi-index diagnostic infrastructure while rejecting the tested harmonic,
   kinematic, and compliance constraints as defaults. Phase 4 retains the raw
@@ -92,6 +91,7 @@ Historical rationale and approval history remain in:
   Phase 11 preserves electromechanical equations without claiming unavailable
   current sidebands as local evidence. Phase 12 separates empirical hybrid
   trainability from full-PINN eligibility.
+  Phase 13 preserves the full roster without manufacturing a winner.
 - Deferred MMT Subbranch: only the paper-faithful MMT full PINN is inactive
   after the leakage-safe rerun found zero held-out gain from geometry-locked
   signatures and could not calibrate unobserved equivalent-error groups.
@@ -102,9 +102,8 @@ Historical rationale and approval history remain in:
   periodic harmonic MLP wins polished-setpoint `Bw` and simplified-setpoint
   `Fw`. Wave 4.1 remains the raw-error and offset diagnostic ingredient.
   Sparse-RCIM temporal candidates remain actual-values references only.
-- Current Next Branch: begin Phase 13 with a complete isolated-formulation
-  roster and require at least one eligible full-PINN candidate before any
-  cross-formulation training.
+- Current Next Branch: begin Phase 14 by requiring at least two complementary
+  promoted physical components and auditing their integration compatibility.
 
 Current canonical status reports:
 
@@ -314,8 +313,8 @@ Next planned diagnostic and training decision branches:
 | Component-offset identification | Test whether curve offset is dominated by `a_0` / `Component 0`, multiple components, condition/regime behavior, or experimental repeatability limits. | measured `h0`, signed-offset cross-check, and predicted-mean surface diagnostics completed; `h0` is the right mean channel, but the actionable issue is model-side mean-surface bias/compression |
 | `Wave 4 series` dispersion-aware modeling probes | Test robust losses, quantile or probabilistic heads, mixture-density heads, and latent-state or hysteresis-aware features on the offset and fragile-harmonic problem. | robust-loss, quantile/probabilistic, MDN, and `Wave 4.4` latent-state / hysteresis-aware campaigns and official TE Curve Verification refreshes completed; all are exploratory and not promoted |
 | `Wave 5.1` hybrid structured models | Combine harmonic structure, condition-conditioned residual learning, and explicit grouped treatment of stable and fragile harmonic bands. | first real `wave3_harmonic_prior_residual` campaign and official `TE Curve Verification Pipeline` verification refresh closed as a verified exploratory baseline, not promoted |
-| `Wave 5.2` general full-PINN program | Audit and test explicit differentiable physics formulations derived from harmonic behavior, the Polynomial Fourier Series law, Wave 3 through Wave 5.1 evidence, and additional references. | Phases 0 through 12 complete; Phase 12 retained empirical hybrid architectures but promoted no full PINN; Phase 13 is next |
-| `Wave 5.2` complete theory-validation program | Preserve and falsify every ingested physical mechanism through direct-data, causal-state, offline-oracle, instrumentation, isolated-PINN, cross-formulation, and integration tests. | roadmap complete; Phases 0 through 12 of 16 completed; Phase 13 active next |
+| `Wave 5.2` general full-PINN program | Audit and test explicit differentiable physics formulations derived from harmonic behavior, the Polynomial Fourier Series law, Wave 3 through Wave 5.1 evidence, and additional references. | Phases 0 through 13 complete; Phase 13 closed as no contest with zero eligible isolated candidates; Phase 14 is next |
+| `Wave 5.2` complete theory-validation program | Preserve and falsify every ingested physical mechanism through direct-data, causal-state, offline-oracle, instrumentation, isolated-PINN, cross-formulation, and integration tests. | roadmap complete; Phases 0 through 13 of 16 completed; Phase 14 active next |
 | `Wave 5.2` paper-faithful MMT full PINN | Preserve the completed MMT evidence and reopen only if causal physical inputs become available. | deferred future TODO after the parameter-availability blocker; no MMT feature, auxiliary head, weak constraint, or MMT full PINN is authorized |
 | Intermediate shape-first model-selection cleanup | Reduce the post-retraining active set using raw error, P95, centered shape, P2P behavior, visual collage evidence, and actual-values stability. | completed; active set is `periodic_gru_sequence`, `wave4_1_mae_robust_loss`, `wave4_2_quantile_p10_p50_p90`, and `periodic_mlp_harmonic`; `periodic_lstm_sequence_Bw`, `Wave 4.3`, `Wave 4.4`, and `Wave 5.1` are closed as active branches |
 | Frequency-domain shape-gated reranker | Add measured/predicted FFT amplitude similarity, dominant-harmonic retention, dominant-harmonic phase error, robust derivative agreement, threshold sweep, and per-curve shape pass rate to future reduced reports. | completed across the six-cell non-MMT reduced pass; periodic GRU wins four cells, periodic harmonic MLP wins two, and the simplified tree scalar leader remains vetoed by weak shape retention |
@@ -1253,8 +1252,8 @@ Entry rule:
 
 ### Wave 5.2. PINN Formulation And First PINN
 
-- status: Phases 0 through 12 complete; Phase 13 cross-formulation tournament
-  entry active next;
+- status: Phases 0 through 13 complete; Phase 14 integrated multi-physics gate
+  active next;
 - canonical roadmap:
   `doc/reports/analysis/model_development_waves/wave_5_2/full_pinn_program/[2026-07-25]/full_pinn_physics_formulation_roadmap.md`;
 - physics reference-intake register:
@@ -1369,8 +1368,14 @@ Entry rule:
     eligible;
   - `PINN-R5` is blocked because no validated physical regime gate exists;
   - no Phase 12 full-PINN campaign or physical residual is authorized;
-- updated priority: start the Phase 13 tournament-entry roster and no-contest
-  gate;
+- completed Phase 13 evidence:
+  - all thirteen phase-evidence files and twelve formulation families were
+    audited;
+  - zero isolated candidates are full-PINN eligible;
+  - the tournament closed as no contest without training or a fabricated
+    winner;
+- updated priority: start the Phase 14 minimum-component and integration
+  compatibility gate;
 - mandatory rule: prepare or justify `global`, `forward`, and `backward`
   surfaces;
 - paper-reproduction scope:

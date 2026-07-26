@@ -1,0 +1,64 @@
+schema_version: 1
+metadata:
+  phase_number: 13
+  audit_id: wave52_phase13_cross_formulation_tournament_entry
+  phase_title: Cross-Formulation Tournament
+  domain_slug: cross_formulation_tournament
+  training_allowed_by_configuration: false
+evidence_files:
+  - {evidence_id: PHASE0, path: "doc/reports/analysis/model_development_waves/wave_5_2/full_pinn_program/[2026-07-25]/phase0_pinn_program_foundations_report.md", role: common contract, required: true, executable_oracle: false}
+  - {evidence_id: PHASE1, path: "doc/reports/analysis/model_development_waves/wave_5_2/polynomial_fourier_benchmark/[2026-07-25]/phase1_polynomial_fourier_analytical_benchmark_report.md", role: semi-analytical benchmark, required: true, executable_oracle: true}
+  - {evidence_id: PHASE2, path: "doc/reports/campaign_results/wave_5_2/2026-07-26-16-53-50_phase2_harmonic_kinematic_pinn_campaign_results_report.md", role: harmonic decision, required: true, executable_oracle: false}
+  - {evidence_id: PHASE3, path: "doc/reports/campaign_results/wave_5_2/2026-07-26-20-13-18_phase3_quasi_static_compliance_pinn_campaign_results_report.md", role: compliance decision, required: true, executable_oracle: false}
+  - {evidence_id: PHASE4, path: "doc/reports/analysis/model_development_waves/wave_5_2/hysteresis_friction_memory_pinn/[2026-07-26]/phase4_hysteresis_friction_memory_feasibility_report.md", role: hysteresis decision, required: true, executable_oracle: false}
+  - {evidence_id: PHASE5, path: "doc/reports/analysis/model_development_waves/wave_5_2/bidirectional_backlash_lost_motion_pinn/[2026-07-26]/phase5_bidirectional_te_backlash_lost_motion_report.md", role: bidirectional decision, required: true, executable_oracle: false}
+  - {evidence_id: PHASE6, path: "doc/reports/analysis/model_development_waves/wave_5_2/dynamic_acceleration_inertia_pinn/[2026-07-26]/phase6_dynamic_acceleration_inertia_trajectory_report.md", role: dynamics decision, required: true, executable_oracle: false}
+  - {evidence_id: PHASE7, path: "doc/reports/analysis/model_development_waves/wave_5_2/contact_mesh_stiffness_load_sharing_pinn/[2026-07-26]/phase7_contact_mesh_stiffness_load_sharing_report.md", role: contact decision, required: true, executable_oracle: false}
+  - {evidence_id: PHASE8, path: "doc/reports/analysis/model_development_waves/wave_5_2/energy_friction_efficiency_pinn/[2026-07-26]/phase8_energy_friction_efficiency_report.md", role: energy decision, required: true, executable_oracle: false}
+  - {evidence_id: PHASE9, path: "doc/reports/analysis/model_development_waves/wave_5_2/geometry_tolerances_mmt_pinn/[2026-07-26]/phase9_geometry_tolerances_mmt_manufacturing_report.md", role: geometry decision, required: true, executable_oracle: false}
+  - {evidence_id: PHASE10, path: "doc/reports/analysis/model_development_waves/wave_5_2/wear_degradation_pinn/[2026-07-26]/phase10_wear_degradation_report.md", role: wear decision, required: true, executable_oracle: false}
+  - {evidence_id: PHASE11, path: "doc/reports/analysis/model_development_waves/wave_5_2/electromechanical_coupling_pinn/[2026-07-26]/phase11_electromechanical_coupling_report.md", role: electromechanical decision, required: true, executable_oracle: false}
+  - {evidence_id: PHASE12, path: "doc/reports/analysis/model_development_waves/wave_5_2/hybrid_analytical_learned_residual_pinn/[2026-07-26]/phase12_hybrid_analytical_learned_residual_report.md", role: hybrid decision, required: true, executable_oracle: false}
+required_quantities:
+  - {quantity: common_split_contract, availability_class: available, causal_runtime: false, online_model_input: false, evidence: Phase 0}
+  - {quantity: curve_first_promotion, availability_class: zero_candidates, causal_runtime: false, online_model_input: false, evidence: Phase 2 and Phase 3 negative results}
+  - {quantity: isolated_full_pinn_candidate, availability_class: zero_candidates, causal_runtime: false, online_model_input: false, evidence: Phases 2 through 12}
+  - {quantity: semi_analytical_benchmark, availability_class: available, causal_runtime: true, online_model_input: true, evidence: Phase 1}
+  - {quantity: empirical_comparators, availability_class: available, causal_runtime: true, online_model_input: true, evidence: "Phases 5, 6, and 12"}
+  - {quantity: offline_oracles, availability_class: available, causal_runtime: false, online_model_input: false, evidence: mechanism-specific phase reports}
+  - {quantity: synthetic_oracles, availability_class: available, causal_runtime: false, online_model_input: false, evidence: Phases 4 and 7 through 11}
+  - {quantity: tournament_training_roster, availability_class: empty, causal_runtime: false, online_model_input: false, evidence: zero eligible isolated candidates}
+candidate_formulations:
+  - {formulation_id: TOUR-P1, name: Polynomial-Fourier semi-analytical benchmark, feasibility_class: real_data_trainable, full_pinn_eligible: false, reason: Benchmark is useful but not a governing-law PINN.}
+  - {formulation_id: TOUR-P2, name: Harmonic and kinematic constraints, feasibility_class: offline_oracle_only, full_pinn_eligible: false, reason: Tested constraints failed curve-first promotion.}
+  - {formulation_id: TOUR-P3, name: Quasi-static compliance constraints, feasibility_class: offline_oracle_only, full_pinn_eligible: false, reason: Compliance residual failed repeatability and joint gates.}
+  - {formulation_id: TOUR-P4, name: Hysteresis and memory, feasibility_class: offline_oracle_only, full_pinn_eligible: false, reason: Current data support reversal comparison but not repeated-loop training.}
+  - {formulation_id: TOUR-P5, name: Bidirectional and lost-motion models, feasibility_class: real_data_trainable, full_pinn_eligible: false, reason: Empirical paired comparator exists without identifiable physical state.}
+  - {formulation_id: TOUR-P6, name: Dynamic trajectory models, feasibility_class: real_data_trainable, full_pinn_eligible: false, reason: Empirical dynamic comparator exists without identifiable inertia residual.}
+  - {formulation_id: TOUR-P7, name: Contact and stiffness models, feasibility_class: synthetic_oracle_only, full_pinn_eligible: false, reason: Contact states and parameters are unavailable.}
+  - {formulation_id: TOUR-P8, name: Energy and efficiency models, feasibility_class: synthetic_oracle_only, full_pinn_eligible: false, reason: Input power and internal loss are unavailable.}
+  - {formulation_id: TOUR-P9, name: Geometry and MMT models, feasibility_class: synthetic_oracle_only, full_pinn_eligible: false, reason: Unit metrology and causal MMT parameters are unavailable.}
+  - {formulation_id: TOUR-P10, name: Wear and degradation models, feasibility_class: synthetic_oracle_only, full_pinn_eligible: false, reason: Longitudinal lifecycle evidence is unavailable.}
+  - {formulation_id: TOUR-P11, name: Electromechanical coupling models, feasibility_class: synthetic_oracle_only, full_pinn_eligible: false, reason: Synchronized electrical evidence is unavailable.}
+  - {formulation_id: TOUR-P12, name: Hybrid analytical and learned residuals, feasibility_class: real_data_trainable, full_pinn_eligible: false, reason: Empirical hybrids contain no promoted physical residual.}
+decision:
+  status: failed_no_training_authorized
+  summary: >-
+    The Phase 13 roster contains zero isolated full-PINN-eligible candidates,
+    so the correct tournament result is no contest and no training campaign.
+  key_findings:
+    - All thirteen phase-evidence files exist.
+    - Zero isolated formulations passed the full-PINN entry gate.
+    - Semi-analytical and empirical candidates remain valid reference branches.
+    - Rejected, offline, synthetic, deferred, and blocked mechanisms were not ranked as winners.
+  physical_residual_promoted: false
+  campaign_preparation_required: false
+  advance_to_next_phase: true
+  next_phase_number: 14
+  next_phase_title: Integrated Multi-Physics PINNs
+outputs:
+  evidence_csv: output/analysis/pinn_program_tournament/phase13_evidence_file_audit.csv
+  quantity_csv: output/analysis/pinn_program_tournament/phase13_required_quantity_audit.csv
+  formulation_csv: output/analysis/pinn_program_tournament/phase13_formulation_feasibility.csv
+  audit_yaml: output/analysis/pinn_program_tournament/phase13_cross_formulation_tournament_audit.yaml
+  report_markdown: doc/reports/analysis/model_development_waves/wave_5_2/cross_formulation_tournament/[2026-07-26]/phase13_cross_formulation_tournament_report.md

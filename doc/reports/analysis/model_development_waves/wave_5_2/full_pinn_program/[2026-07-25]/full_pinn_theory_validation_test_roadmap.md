@@ -708,9 +708,11 @@ a validated physical regime gate.
 
 Every surviving isolated formulation enters a common comparison.
 
-**Status: active next.** Build the entry roster first. Run no tournament
-training unless at least one isolated formulation is full-PINN eligible under
-the common evidence and curve-first gates.
+**Status: completed no-contest result; no training authorized.** All thirteen
+phase-evidence files and twelve formulation families were audited. Zero
+isolated candidates are full-PINN eligible, so rejected, empirical, offline,
+synthetic, deferred, and blocked branches were preserved without manufacturing
+a tournament winner.
 
 ### Required Surfaces
 
@@ -741,6 +743,10 @@ There will be no single scalar winner. A formulation may remain valuable as an
 offset, harmonic, dynamic, state, uncertainty, or diagnostic component.
 
 ## Phase 14: Integrated Multi-Physics PINNs
+
+**Status: active next.** Require at least two complementary promoted physical
+components and verify loss, variable, scale, interface, causal, and deployment
+compatibility before authorizing any integrated model.
 
 Only independently validated components may be combined.
 
