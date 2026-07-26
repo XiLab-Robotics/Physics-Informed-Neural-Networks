@@ -609,6 +609,31 @@ component-error metrology, contact clearance, or repeated transition-state
 contract is available. No Phase 5 full-PINN residual or training campaign is
 authorized; Phase 6 is the next active roadmap gate.
 
+## Phase 6 Dynamic Observability Audit
+
+Rebuild the raw-trajectory speed, causal acceleration, derivative-noise,
+validity-window, and transition-region evidence:
+
+```powershell
+conda run --no-capture-output -n pinns_env python -B `
+  scripts/analysis/pinn_program_dynamics/build_phase6_dynamic_observability_audit.py
+```
+
+Validate all `969` raw conditions, the three split surfaces, five dynamic
+candidate decisions, and the non-training exit gate:
+
+```powershell
+conda run --no-capture-output -n pinns_env python -B `
+  scripts/analysis/pinn_program_dynamics/validate_phase6_dynamic_observability_audit.py
+```
+
+The audit scanned `99,696,607` raw rows. Directional `DataValid` windows have
+stable speed, but transition acceleration is not robustly separated from
+valid-window derivative noise at P95 after a 101-row causal filter. Load
+inertia, commanded drive law, repeated dynamic trajectories, and a validated
+transient TE target are unavailable. No Phase 6 dynamic full-PINN residual or
+training campaign is authorized; Phase 7 is the next active gate.
+
 ## Relevant Project Paths
 
 The current usage flow mainly relies on these folders:
@@ -628,6 +653,9 @@ The current usage flow mainly relies on these folders:
 
 - `scripts/analysis/pinn_program_bidirectional/`
   Paired-curve Phase 5 compatibility and identifiability audit.
+
+- `scripts/analysis/pinn_program_dynamics/`
+  Raw-trajectory Phase 6 causal-derivative and dynamic observability audit.
 
 - `scripts/reports/`
   Styled report-export utilities.

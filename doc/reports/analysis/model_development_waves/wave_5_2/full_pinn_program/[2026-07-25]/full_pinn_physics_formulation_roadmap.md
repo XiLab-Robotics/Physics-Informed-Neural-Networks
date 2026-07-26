@@ -3,8 +3,8 @@
 ## Executive Decision
 
 Wave 5.2 remains the physics-informed model-development wave. Its general
-full-PINN program has completed Phases 0 through 5 and now advances to the
-Phase 6 dynamic acceleration, inertia, and trajectory formulation gate.
+full-PINN program has completed Phases 0 through 6 and now advances to the
+Phase 7 contact, mesh-stiffness, and load-sharing formulation gate.
 
 Only the paper-faithful MMT implementation is deferred. The completed MMT
 diagnostic established that the available geometry-locked signatures are
@@ -26,7 +26,7 @@ instrumentation, isolated-PINN, or integration path.
 
 | Program branch | Current state | Decision |
 | --- | --- | --- |
-| General Wave 5.2 full-PINN program | Phases 0-5 complete; Phase 6 active next | Audit references, formalize candidate equations, and validate them before implementation. |
+| General Wave 5.2 full-PINN program | Phases 0-6 complete; Phase 7 active next | Audit references, formalize candidate equations, and validate them before implementation. |
 | MMT-paper-faithful full PINN | deferred future TODO | Reopen only with condition-varying causal component-error measurements or a validated causal contact-state reconstruction. |
 | Wave 6 integrated multi-task and multi-head models | sequenced after Wave 5.2 evidence | Do not design a training campaign until bounded PINN pilots identify useful physics-informed components. |
 
@@ -183,23 +183,22 @@ not be mixed in the first experiment.
 
 ## Immediate TODO
 
-Phases 0 through 5 are complete. Phase 5 scanned `37,805,294` rows across all
-`969` paired conditions. Median centered `Fw`/`Bw` correlation is
-`0.985-0.990`, while the median absolute directional mean gap is
-`3.79-4.78 arcmin`. The gap is target-derived offline evidence, not an
-independent lost-motion or backlash observation. No Phase 5 full-PINN
-residual or training campaign was therefore promoted.
+Phases 0 through 6 are complete. Phase 6 scanned `99,696,607` raw rows. All
+`969` directional validity windows have stable speed, but no inter-window
+transition has P95 acceleration robustly separated from valid-window
+derivative noise after a 101-row causal filter. Load inertia, commanded drive
+law, and a validated transient TE target are unavailable. No Phase 6 dynamic
+residual or training campaign was promoted.
 
-1. Begin Phase 6 with an acceleration, inertia, and trajectory observability
-   audit.
-2. Separate constant-speed null behavior from the `Fw`-to-`Bw` transition and
-   any acceleration or deceleration segments preserved in raw trajectories.
-3. Quantify causal finite-difference acceleration noise and smoothing
-   sensitivity without centered or future-looking derivatives.
-4. Classify `PINN-D1` through `PINN-D5` as directly trainable,
+1. Begin Phase 7 with a contact, mesh-stiffness, and load-sharing
+   observability and synthetic-oracle audit.
+2. Inventory bearing stiffness, interface stiffness, tooth and pin clearance,
+   contact force, load-sharing, geometry, and component-error availability.
+3. Separate exact paper-faithful equations from reduced inequalities,
+   complementarity laws, and synthetic contact oracles.
+4. Classify the Phase 7 candidate portfolio as directly trainable,
    offline-oracle-only, synthetic-oracle-only, or blocked.
-5. Keep the Phase 5 paired-direction gap and target-derived alignment as
-   offline evidence only.
+5. Keep Phase 5 directional-gap and Phase 6 trajectory evidence offline-only.
 6. Keep rejected Phase 2 and Phase 3 physics weights at zero by default.
 7. Continue using the common split and accepted time-windowed and
    non-windowed references where the data contract remains valid.

@@ -1,0 +1,105 @@
+schema_version: 1
+audit_id: wave52_phase6_dynamic_observability
+generated_at_utc: '2026-07-26T19:12:45.764917+00:00'
+source_configuration:
+  path: config/analysis/pinn_program_dynamics/phase6_dynamic_observability_audit.yaml
+  sha256: 06bd1fad58d4e8c6268b29036c15d64b21c831ee1fabc9ee178161a36e811d38
+input_evidence:
+  phase0_foundation_audit:
+    path: output/analysis/pinn_program_foundations/phase0_foundation_audit.yaml
+    sha256: d0447d28dd16571b2c6a887b2df03dc13a916546b417c413cb7021ff7adb7570
+    load_inertia_class: unavailable
+    exit_status: passed
+  phase4_raw_trajectory_audit:
+    path: output/analysis/pinn_program_hysteresis/phase4_raw_trajectory_audit.csv
+    sha256: 59a296a4573da52cac8684554e8c9d22e86801baca839f52018c0c1726c2de1d
+    row_count: 969
+  phase4_hysteresis_audit:
+    path: output/analysis/pinn_program_hysteresis/phase4_hysteresis_feasibility_audit.yaml
+    sha256: 16c33b17a7036c7cf8837b7a83fd810ff1c9225925789d744ef290c39397913f
+    single_reversal_count: 969
+condition_count: 969
+raw_row_count: 99696607
+condition_count_by_split:
+  train: 678
+  validation: 194
+  test: 97
+split_summary:
+- split: train
+  condition_count: 678
+  median_raw_speed_outlier_fraction: 1.57423295499268e-05
+  median_forward_valid_speed_mad_rpm: 0.446573834778917
+  median_backward_valid_speed_mad_rpm: 0.5423089084312807
+  median_valid_causal_101_acceleration_p95_rpm_per_s: 69.70920858445879
+  median_transition_causal_101_acceleration_p95_rpm_per_s: 69.98280762970806
+  median_causal_101_valid_to_transition_p95_ratio: 0.9958174310349559
+  valid_speed_stability_pass_count: 678
+  robust_transition_excitation_pass_count: 0
+- split: validation
+  condition_count: 194
+  median_raw_speed_outlier_fraction: 1.616359658161894e-05
+  median_forward_valid_speed_mad_rpm: 0.4651397490912359
+  median_backward_valid_speed_mad_rpm: 0.5617273321452956
+  median_valid_causal_101_acceleration_p95_rpm_per_s: 70.2390096227191
+  median_transition_causal_101_acceleration_p95_rpm_per_s: 70.88428685181042
+  median_causal_101_valid_to_transition_p95_ratio: 0.9993879310354121
+  valid_speed_stability_pass_count: 194
+  robust_transition_excitation_pass_count: 0
+- split: test
+  condition_count: 97
+  median_raw_speed_outlier_fraction: 1.2970168612191959e-05
+  median_forward_valid_speed_mad_rpm: 0.41780987036554507
+  median_backward_valid_speed_mad_rpm: 0.4774886571492516
+  median_valid_causal_101_acceleration_p95_rpm_per_s: 65.72905728014572
+  median_transition_causal_101_acceleration_p95_rpm_per_s: 66.06544718715664
+  median_causal_101_valid_to_transition_p95_ratio: 1.0049053537190678
+  valid_speed_stability_pass_count: 97
+  robust_transition_excitation_pass_count: 0
+observability:
+  causal_acceleration_reconstructable: true
+  causal_filter_policy_required: true
+  validated_transient_te_target_available: false
+  load_inertia_available: false
+  commanded_drive_law_available: false
+  repeated_dynamic_trajectory_available: false
+  steady_directional_te_windows_available: true
+  single_reversal_transition_available: true
+candidate_formulations:
+- formulation_id: PINN-D1
+  name: acceleration-conditioned TE residual
+  feasibility_class: offline_oracle_only
+  full_pinn_eligible: false
+  reason: Acceleration is causally reconstructable, but the selected TE windows are
+    steady-direction regions and the reversal acceleration lies outside the validated
+    curve-extraction contract.
+- formulation_id: PINN-D2
+  name: reduced inertia and acceleration balance
+  feasibility_class: blocked_by_data_contract
+  full_pinn_eligible: false
+  reason: No per-condition load inertia or validated rig-inertia registry is available,
+    so an inertia-weighted balance is not identifiable.
+- formulation_id: PINN-D3
+  name: causal state-space dynamic residual
+  feasibility_class: offline_oracle_only
+  full_pinn_eligible: false
+  reason: Raw ordering and one reversal support offline trajectory analysis, but repeated
+    drive laws, state resets, and validated transient TE targets are absent.
+- formulation_id: PINN-D4
+  name: periodic analytical component plus temporal dynamic residual
+  feasibility_class: real_data_trainable
+  full_pinn_eligible: false
+  reason: The empirical temporal comparator is trainable on causal windows, but the
+    current steady-speed target windows do not identify a new dynamic physical residual.
+- formulation_id: PINN-D5
+  name: learned latent inertia with bounded prior
+  feasibility_class: blocked_by_data_contract
+  full_pinn_eligible: false
+  reason: A latent inertia is algebraically confounded with residual amplitude without
+    an independent inertia observation or source-backed local prior.
+exit_gate:
+  status: failed_no_training_authorized
+  full_pinn_training_authorized: false
+  physical_residual_promoted: false
+  empirical_temporal_comparator_retained: true
+  campaign_preparation_required: false
+  advance_to_phase7: true

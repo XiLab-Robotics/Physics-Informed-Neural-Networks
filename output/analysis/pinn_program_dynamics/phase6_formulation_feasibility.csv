@@ -1,0 +1,6 @@
+formulation_id,name,feasibility_class,full_pinn_eligible,reason
+PINN-D1,acceleration-conditioned TE residual,offline_oracle_only,False,"Acceleration is causally reconstructable, but the selected TE windows are steady-direction regions and the reversal acceleration lies outside the validated curve-extraction contract."
+PINN-D2,reduced inertia and acceleration balance,blocked_by_data_contract,False,"No per-condition load inertia or validated rig-inertia registry is available, so an inertia-weighted balance is not identifiable."
+PINN-D3,causal state-space dynamic residual,offline_oracle_only,False,"Raw ordering and one reversal support offline trajectory analysis, but repeated drive laws, state resets, and validated transient TE targets are absent."
+PINN-D4,periodic analytical component plus temporal dynamic residual,real_data_trainable,False,"The empirical temporal comparator is trainable on causal windows, but the current steady-speed target windows do not identify a new dynamic physical residual."
+PINN-D5,learned latent inertia with bounded prior,blocked_by_data_contract,False,A latent inertia is algebraically confounded with residual amplitude without an independent inertia observation or source-backed local prior.

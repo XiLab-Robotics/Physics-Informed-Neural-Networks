@@ -441,9 +441,16 @@ synthetic-oracle-only. No Phase 5 physical residual is promoted.
 Dynamic residuals advance only if acceleration or inertia adds held-out value
 beyond causal temporal baselines and remains robust to derivative noise.
 
-**Status: active next.** Start with a raw-trajectory acceleration,
-constant-speed-null, inertia-availability, causal-derivative, and transition
-separation audit before preparing any dynamic training campaign.
+**Status: completed observability result; no training authorized.** The audit
+scanned `99,696,607` raw rows across all `969` conditions. Every directional
+validity window passes the speed-stability check, but no inter-window
+transition achieves a fourfold P95 acceleration separation after a 101-row
+causal filter; median valid-to-transition ratios are `0.996-1.005`. Raw upper
+tails are contaminated by encoder discontinuities. Load inertia, commanded
+drive law, repeated dynamic trajectories, and a validated transient TE target
+are unavailable. `PINN-D1` and `PINN-D3` remain offline-oracle-only;
+`PINN-D2` and `PINN-D5` are blocked; `PINN-D4` is an empirical trainable
+comparator but not a full PINN. No Phase 6 physical residual is promoted.
 
 ## Phase 7: Contact, Mesh Stiffness, And Load-Sharing PINNs
 
@@ -482,6 +489,10 @@ separation audit before preparing any dynamic training campaign.
 
 Detailed contact equations remain offline until a reduced formulation is both
 identifiable and supported by causally available inputs.
+
+**Status: active next.** Start with a source-equation, geometry, stiffness,
+clearance, contact-force, load-sharing, and simulator-availability audit
+before implementing a contact residual.
 
 ## Phase 8: Energy, Friction, And Efficiency PINNs
 

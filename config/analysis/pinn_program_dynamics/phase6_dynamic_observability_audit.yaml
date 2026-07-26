@@ -1,0 +1,76 @@
+schema_version: 1
+metadata:
+  audit_id: wave52_phase6_dynamic_observability
+  training_allowed_by_configuration: false
+inputs:
+  phase0_foundation_audit: output/analysis/pinn_program_foundations/phase0_foundation_audit.yaml
+  phase4_raw_trajectory_audit: output/analysis/pinn_program_hysteresis/phase4_raw_trajectory_audit.csv
+  phase4_hysteresis_audit: output/analysis/pinn_program_hysteresis/phase4_hysteresis_feasibility_audit.yaml
+raw_column_indices:
+  theta_encoder_deg: 1
+  valid_forward: 4
+  valid_backward: 5
+constants:
+  sample_interval_s: 0.00025
+  causal_smoothing_window_rows:
+    - 5
+    - 21
+    - 101
+  speed_outlier_multiplier: 2.0
+  speed_outlier_margin_rpm: 50.0
+expected:
+  canonical_condition_count: 969
+  condition_count_by_split:
+    train: 678
+    validation: 194
+    test: 97
+candidate_formulations:
+  - formulation_id: PINN-D1
+    name: acceleration-conditioned TE residual
+    feasibility_class: offline_oracle_only
+    full_pinn_eligible: false
+    reason: >-
+      Acceleration is causally reconstructable, but the selected TE windows are
+      steady-direction regions and the reversal acceleration lies outside the
+      validated curve-extraction contract.
+  - formulation_id: PINN-D2
+    name: reduced inertia and acceleration balance
+    feasibility_class: blocked_by_data_contract
+    full_pinn_eligible: false
+    reason: >-
+      No per-condition load inertia or validated rig-inertia registry is
+      available, so an inertia-weighted balance is not identifiable.
+  - formulation_id: PINN-D3
+    name: causal state-space dynamic residual
+    feasibility_class: offline_oracle_only
+    full_pinn_eligible: false
+    reason: >-
+      Raw ordering and one reversal support offline trajectory analysis, but
+      repeated drive laws, state resets, and validated transient TE targets
+      are absent.
+  - formulation_id: PINN-D4
+    name: periodic analytical component plus temporal dynamic residual
+    feasibility_class: real_data_trainable
+    full_pinn_eligible: false
+    reason: >-
+      The empirical temporal comparator is trainable on causal windows, but
+      the current steady-speed target windows do not identify a new dynamic
+      physical residual.
+  - formulation_id: PINN-D5
+    name: learned latent inertia with bounded prior
+    feasibility_class: blocked_by_data_contract
+    full_pinn_eligible: false
+    reason: >-
+      A latent inertia is algebraically confounded with residual amplitude
+      without an independent inertia observation or source-backed local prior.
+outputs:
+  condition_audit_csv: output/analysis/pinn_program_dynamics/phase6_dynamic_condition_audit.csv
+  split_summary_csv: output/analysis/pinn_program_dynamics/phase6_dynamic_split_summary.csv
+  formulation_feasibility_csv: output/analysis/pinn_program_dynamics/phase6_formulation_feasibility.csv
+  audit_yaml: output/analysis/pinn_program_dynamics/phase6_dynamic_observability_audit.yaml
+  report_markdown: doc/reports/analysis/model_development_waves/wave_5_2/dynamic_acceleration_inertia_pinn/[2026-07-26]/phase6_dynamic_acceleration_inertia_trajectory_report.md
+exit_gate:
+  require_validated_transient_te_target: true
+  require_load_inertia_observation_for_inertia_balance: true
+  require_causal_derivative_robustness: true
+  advance_to_phase7_after_closeout: true

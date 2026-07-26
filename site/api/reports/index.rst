@@ -27,3 +27,5 @@ repository reporting workflow.
    validate_phase4_hysteresis_feasibility_audit
    build_phase5_bidirectional_identifiability_audit
    validate_phase5_bidirectional_identifiability_audit
+   build_phase6_dynamic_observability_audit
+   validate_phase6_dynamic_observability_audit
