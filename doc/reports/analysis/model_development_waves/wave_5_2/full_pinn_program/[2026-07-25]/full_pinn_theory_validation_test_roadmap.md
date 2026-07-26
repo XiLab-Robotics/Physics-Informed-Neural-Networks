@@ -783,10 +783,6 @@ multiple curve-first surfaces and retain inspectable intermediate quantities.
 
 ## Phase 15: Wave 6 Entry
 
-**Status: active next.** Evaluate every entry criterion explicitly and keep
-physics-integrated Wave 6 closed unless the required isolated and combined
-evidence exists.
-
 Wave 6 may begin when:
 
 - at least two complementary physical components pass isolated pilots;
@@ -797,6 +793,13 @@ Wave 6 may begin when:
 
 Wave 6 will then treat validated physics as explicit multi-task or multi-head
 ingredients rather than speculative regularization.
+
+**Status: completed no-entry closeout.** Four final evidence files and all five
+entry prerequisites were audited. Physics-integrated Wave 6 is not authorized:
+zero of two required physical components are promoted, and no valid component
+pair exists for causal-input closure, interaction and identifiability testing,
+curve-first integration verification, or TwinCAT deployment. Future empirical
+multi-task work remains a separate branch and must not claim validated physics.
 
 ## Experiment Package Required For Every Pilot
 
@@ -837,8 +840,10 @@ The phases are not a single rigid serial queue. They form three parallel lanes:
 
 Phase 12 begins as soon as one analytical and one learned residual component
 are validated. Phase 13 compares all survivors. Phase 14 integrates them.
-Phase 15 opens Wave 6.
+Phase 15 decides whether Wave 6 may open; the completed gate did not authorize
+physics-integrated entry.
 
-The immediate next implementation remains Phase 1: reproduce the Bauer
-preprocessing, coefficient fitting, and Fourier reconstruction on the frozen
-common split before adding the recovered ONNX and PLC paths.
+All sixteen phases are complete. There is no automatic next phase. Reopen an
+isolated mechanism only when its recorded evidence gate changes, or prepare a
+separate empirical multi-task and multi-head roadmap without a
+physics-integrated claim.

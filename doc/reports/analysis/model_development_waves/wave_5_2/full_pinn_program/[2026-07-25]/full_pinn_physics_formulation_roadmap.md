@@ -3,8 +3,9 @@
 ## Executive Decision
 
 Wave 5.2 remains the physics-informed model-development wave. Its general
-full-PINN program has completed Phases 0 through 14 and now advances to the
-Phase 15 Wave 6 entry gate.
+full-PINN program has completed all sixteen phases, from Phase 0 through
+Phase 15. The theory-validation roadmap is closed with no promoted full-PINN
+component and no authorization for physics-integrated Wave 6 entry.
 
 Only the paper-faithful MMT implementation is deferred. The completed MMT
 diagnostic established that the available geometry-locked signatures are
@@ -26,9 +27,10 @@ instrumentation, isolated-PINN, or integration path.
 
 | Program branch | Current state | Decision |
 | --- | --- | --- |
-| General Wave 5.2 full-PINN program | Phases 0-14 complete; Phase 15 active next | Audit references, formalize candidate equations, and validate them before implementation. |
+| General Wave 5.2 full-PINN program | Phases 0-15 complete; evidence closeout | Preserve the negative, empirical, offline, synthetic, deferred, and blocked results; reopen mechanisms only when their recorded evidence gates change. |
 | MMT-paper-faithful full PINN | deferred future TODO | Reopen only with condition-varying causal component-error measurements or a validated causal contact-state reconstruction. |
-| Wave 6 integrated multi-task and multi-head models | sequenced after Wave 5.2 evidence | Do not design a training campaign until bounded PINN pilots identify useful physics-informed components. |
+| Wave 6 physics-integrated multi-task and multi-head models | entry not authorized | Reopen only after at least two complementary physical components pass isolated and integrated gates. |
+| Future empirical multi-task and multi-head models | separate future branch | May be designed without claiming validated physics, under a new technical document and campaign gate. |
 
 ## Definition Of A Full PINN
 
@@ -183,16 +185,19 @@ not be mixed in the first experiment.
 
 ## Immediate TODO
 
-Phases 0 through 14 are complete. Phase 14 verified four evidence files, eight
-integration requirements, and eight planned combinations. Zero promoted
-components are available against a minimum of two, so integration closed
-without training.
+All sixteen phases are complete. Phase 15 verified four evidence files and all
+five Wave 6 entry prerequisites. Every physics-integrated prerequisite fails:
+zero of two required promoted components, no valid causal component set, no
+interaction or joint-identifiability test, no integrated curve-first candidate,
+and no integrated TwinCAT path.
 
-1. Begin Phase 15 by evaluating every Wave 6 entry criterion explicitly.
-2. Separate entry to a physics-integrated Wave 6 branch from future empirical
-   multi-task or multi-head research.
-3. Close the sixteen-phase Wave 5.2 roadmap with reopening conditions and one
-   concrete next program decision.
+1. Keep physics-integrated Wave 6 closed until at least two complementary
+   physical components pass isolated pilots and their combination passes the
+   full entry contract.
+2. Preserve empirical hybrid designs as a separate future multi-task or
+   multi-head branch without a physics claim.
+3. Reopen individual mechanisms only when the explicit data, instrumentation,
+   identifiability, or promotion evidence recorded in their phase changes.
 4. Keep Wave 6 integration deferred until at least two complementary physical
    components pass isolated pilots.
 

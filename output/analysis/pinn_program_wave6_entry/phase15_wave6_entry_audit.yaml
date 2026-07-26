@@ -1,0 +1,41 @@
+schema_version: 1
+phase_number: 15
+audit_id: wave52_phase15_wave6_entry_closeout
+phase_title: Wave 6 Entry
+domain_slug: wave6_entry
+generated_at_utc: '2026-07-26T19:57:18.096222+00:00'
+source_configuration:
+  path: config/analysis/pinn_program_portfolios/phase15_wave6_entry_audit.yaml
+  sha256: f8906f87674495f29edbfaa7e39b3564405a7ce12d76c55afadeca0348157bf4
+evidence_file_count: 4
+required_evidence_file_count: 4
+all_required_evidence_files_exist: true
+executable_oracle_count: 0
+required_quantity_count: 8
+availability_class_count:
+  available: 1
+  failed_no_architecture: 1
+  failed_no_components: 1
+  failed_no_integrated_candidate: 1
+  failed_not_executable: 1
+  failed_zero_of_two: 1
+  not_authorized: 1
+  permitted_separate_branch: 1
+candidate_formulation_count: 6
+formulation_class_count:
+  blocked_by_data_contract: 5
+  real_data_trainable: 1
+full_pinn_training_authorized: false
+decision:
+  status: failed_no_training_authorized
+  summary: Physics-integrated Wave 6 entry is not authorized because all five entry
+    prerequisites fail. The sixteen-phase Wave 5.2 roadmap is complete with no promoted
+    full-PINN component; future empirical multi-task research remains a separate branch.
+  key_findings:
+  - All four final-entry evidence paths exist.
+  - Zero of the required two complementary physical components are promoted.
+  - No valid pair exists for interaction, identifiability, or integration verification.
+  - Empirical multi-task work may be planned separately without a physics claim.
+  physical_residual_promoted: false
+  campaign_preparation_required: false
+  advance_to_next_phase: false

@@ -28,7 +28,9 @@ model-development waves.
     physical residual survived isolation. Phase 13 closes the tournament as no
     contest with zero eligible full-PINN candidates. Phase 14 closes
     integration because zero promoted components are available against the
-    minimum of two. Phase 15 Wave 6 entry is next.
+    minimum of two. Phase 15 closes all sixteen phases and does not authorize
+    physics-integrated Wave 6; empirical multi-task work remains a separate
+    future branch.
 
 The folder names use stable filesystem slugs. Human-facing report titles may
 retain legacy wave labels when they describe completed historical work.

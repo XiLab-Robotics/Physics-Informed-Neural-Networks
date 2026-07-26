@@ -268,6 +268,10 @@ This folder contains the internal project documents derived from the reference P
   Automatically approved Phase 14 design for minimum-component enforcement,
   multi-physics compatibility, and explicit no-integration handling.
 
+- [technical/2026-07/2026-07-26/2026-07-26-21-54-59_phase_15_wave_6_entry_and_program_closeout.md](./technical/2026-07/2026-07-26/2026-07-26-21-54-59_phase_15_wave_6_entry_and_program_closeout.md)
+  Automatically approved Phase 15 design for physics-integrated Wave 6 entry,
+  terminal roadmap handling, reopening criteria, and program closeout.
+
 - [reports/analysis/model_development_waves/wave_5_2/hysteresis_friction_memory_pinn/[2026-07-26]/phase4_hysteresis_friction_memory_feasibility_report.md](./reports/analysis/model_development_waves/wave_5_2/hysteresis_friction_memory_pinn/%5B2026-07-26%5D/phase4_hysteresis_friction_memory_feasibility_report.md)
   Completed full-population Phase 4 raw-chronology audit. All `969` canonical
   conditions preserve one direction reversal, but repeated loops, controlled

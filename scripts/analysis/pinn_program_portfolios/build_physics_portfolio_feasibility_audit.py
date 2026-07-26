@@ -215,11 +215,28 @@ def build_report(
             "- `full_pinn_training_authorized: false`",
             f"- `physical_residual_promoted: "
             f"{str(bool(summary['decision']['physical_residual_promoted'])).lower()}`",
-            f"- `advance_to_phase{summary['decision']['next_phase_number']}: "
-            f"{str(bool(summary['decision']['advance_to_next_phase'])).lower()}`",
-            "",
-            f"Next: Phase {summary['decision']['next_phase_number']}, "
-            f"{summary['decision']['next_phase_title']}.",
+        ]
+    )
+    if summary["decision"]["advance_to_next_phase"]:
+        lines.extend(
+            [
+                f"- `advance_to_phase"
+                f"{summary['decision']['next_phase_number']}: true`",
+                "",
+                f"Next: Phase {summary['decision']['next_phase_number']}, "
+                f"{summary['decision']['next_phase_title']}.",
+            ]
+        )
+    else:
+        lines.extend(
+            [
+                "- `advance_to_next_phase: false`",
+                "",
+                "Next: no automatic phase advance.",
+            ]
+        )
+    lines.extend(
+        [
             "",
             "## Reproduction",
             "",

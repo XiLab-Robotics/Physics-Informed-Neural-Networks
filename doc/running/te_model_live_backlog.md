@@ -35,10 +35,9 @@ Historical rationale and approval history remain in:
   offline model-verification
   report, closed as the canonical direction-aware verification surface for new
   model families.
-- Current Focus: Wave 5.2 Phase 15 Wave 6 entry gate. Phases 0 through 14 are
-  complete. Phase 14 audited eight planned integrations and closed without
-  training because zero promoted physical components are available against the
-  minimum requirement of two. The complete theory-validation roadmap
+- Current Focus: Wave 5.2 sixteen-phase theory-validation closeout. Phases 0
+  through 15 are complete. Phase 15 rejected physics-integrated Wave 6 entry
+  because all five prerequisites fail. The complete theory-validation roadmap
   preserves harmonic, compliance, hysteresis, bidirectional, dynamic, contact,
   efficiency, geometry, MMT, wear, electromechanical, hybrid, and integrated
   PINN branches. The polished `periodic_gru_sequence` family remains the
@@ -74,8 +73,8 @@ Historical rationale and approval history remain in:
   seed `271828` regressed raw, offset, and harmonic behavior relative to the
   matched C0 control. The accepted periodic GRU and periodic harmonic MLP
   remain unchanged.
-- Active Wave 5.2 Program: Phases 0 through 14 are completed and the general
-  full-PINN branch advances to Phase 15. Phases 2 and 3 delivered reusable
+- Active Wave 5.2 Program: Phases 0 through 15 are completed and the general
+  full-PINN theory-validation branch is closed. Phases 2 and 3 delivered reusable
   target-free residual, bounded-parameter, checkpoint playback, and
   multi-index diagnostic infrastructure while rejecting the tested harmonic,
   kinematic, and compliance constraints as defaults. Phase 4 retains the raw
@@ -93,6 +92,7 @@ Historical rationale and approval history remain in:
   trainability from full-PINN eligibility.
   Phase 13 preserves the full roster without manufacturing a winner.
   Phase 14 preserves integration designs without combining unvalidated physics.
+  Phase 15 preserves the reopening contract and closes automatic advancement.
 - Deferred MMT Subbranch: only the paper-faithful MMT full PINN is inactive
   after the leakage-safe rerun found zero held-out gain from geometry-locked
   signatures and could not calibrate unobserved equivalent-error groups.
@@ -103,8 +103,9 @@ Historical rationale and approval history remain in:
   periodic harmonic MLP wins polished-setpoint `Bw` and simplified-setpoint
   `Fw`. Wave 4.1 remains the raw-error and offset diagnostic ingredient.
   Sparse-RCIM temporal candidates remain actual-values references only.
-- Current Next Branch: begin Phase 15 by evaluating every physics-integrated
-  Wave 6 entry criterion and closing the sixteen-phase roadmap.
+- Current Next Branch: no automatic PINN phase. Physics-integrated Wave 6
+  remains closed; a separate empirical multi-task and multi-head roadmap may
+  be prepared without a physics claim.
 
 Current canonical status reports:
 
@@ -314,8 +315,8 @@ Next planned diagnostic and training decision branches:
 | Component-offset identification | Test whether curve offset is dominated by `a_0` / `Component 0`, multiple components, condition/regime behavior, or experimental repeatability limits. | measured `h0`, signed-offset cross-check, and predicted-mean surface diagnostics completed; `h0` is the right mean channel, but the actionable issue is model-side mean-surface bias/compression |
 | `Wave 4 series` dispersion-aware modeling probes | Test robust losses, quantile or probabilistic heads, mixture-density heads, and latent-state or hysteresis-aware features on the offset and fragile-harmonic problem. | robust-loss, quantile/probabilistic, MDN, and `Wave 4.4` latent-state / hysteresis-aware campaigns and official TE Curve Verification refreshes completed; all are exploratory and not promoted |
 | `Wave 5.1` hybrid structured models | Combine harmonic structure, condition-conditioned residual learning, and explicit grouped treatment of stable and fragile harmonic bands. | first real `wave3_harmonic_prior_residual` campaign and official `TE Curve Verification Pipeline` verification refresh closed as a verified exploratory baseline, not promoted |
-| `Wave 5.2` general full-PINN program | Audit and test explicit differentiable physics formulations derived from harmonic behavior, the Polynomial Fourier Series law, Wave 3 through Wave 5.1 evidence, and additional references. | Phases 0 through 14 complete; Phase 14 closed with zero promoted components available for integration; Phase 15 is next |
-| `Wave 5.2` complete theory-validation program | Preserve and falsify every ingested physical mechanism through direct-data, causal-state, offline-oracle, instrumentation, isolated-PINN, cross-formulation, and integration tests. | roadmap complete; Phases 0 through 14 of 16 completed; Phase 15 active next |
+| `Wave 5.2` general full-PINN program | Audit and test explicit differentiable physics formulations derived from harmonic behavior, the Polynomial Fourier Series law, Wave 3 through Wave 5.1 evidence, and additional references. | Phases 0 through 15 complete; no physical residual promoted and no automatic phase advance |
+| `Wave 5.2` complete theory-validation program | Preserve and falsify every ingested physical mechanism through direct-data, causal-state, offline-oracle, instrumentation, isolated-PINN, cross-formulation, and integration tests. | completed 16 of 16; physics-integrated Wave 6 entry not authorized |
 | `Wave 5.2` paper-faithful MMT full PINN | Preserve the completed MMT evidence and reopen only if causal physical inputs become available. | deferred future TODO after the parameter-availability blocker; no MMT feature, auxiliary head, weak constraint, or MMT full PINN is authorized |
 | Intermediate shape-first model-selection cleanup | Reduce the post-retraining active set using raw error, P95, centered shape, P2P behavior, visual collage evidence, and actual-values stability. | completed; active set is `periodic_gru_sequence`, `wave4_1_mae_robust_loss`, `wave4_2_quantile_p10_p50_p90`, and `periodic_mlp_harmonic`; `periodic_lstm_sequence_Bw`, `Wave 4.3`, `Wave 4.4`, and `Wave 5.1` are closed as active branches |
 | Frequency-domain shape-gated reranker | Add measured/predicted FFT amplitude similarity, dominant-harmonic retention, dominant-harmonic phase error, robust derivative agreement, threshold sweep, and per-curve shape pass rate to future reduced reports. | completed across the six-cell non-MMT reduced pass; periodic GRU wins four cells, periodic harmonic MLP wins two, and the simplified tree scalar leader remains vetoed by weak shape retention |
@@ -324,7 +325,8 @@ Next planned diagnostic and training decision branches:
 | Post-shape-loss `Wave 5.2` decision gate | Choose the next branch after direct shape-threshold training pressure failed to promote. | completed; selected the causal offset / mean calibration pilot anchored to `polished_setpoints_periodic_gru_sequence_Fw`, with `polished_setpoints_periodic_mlp_harmonic_Fw` kept as the required non-windowed comparator. Do not rerun `Wave 5.2B` unchanged and do not start `Wave 5.2C`, full PINN, or Wave 6 before this narrow offset gate is curve-screened. |
 | Causal offset / mean calibration pilot | Test whether direct offset / curve-mean pressure improves the next `polished_dataset` setpoint `Fw` branch while preserving both time-windowed and non-windowed roads. | completed and bounded-screened; the non-windowed harmonic MLP won scalar selection but ranked fourth in the bounded curve-first screen, while the time-windowed residual-offset GRU failed the shape gate. Do not promote or expand this direct causal-offset profile. |
 | Post-causal-offset `Wave 5.2` decision gate | Decide whether MMT should remain diagnostic-only, become a feature or auxiliary-output path, or become a weak soft constraint. | completed; the follow-up replay and leakage-safe diagnostic selected `blocked_by_parameter_availability`. MMT is now an inactive future TODO and does not block non-MMT work. |
-| Wave 6 integrated multi-task / multi-head model branch | Shared causal trunk with separate offset, low-frequency, centered-shape, uncertainty or mixture, and validated physics-informed heads. | sequenced after bounded Wave 5.2 PINN pilots and curve-first verification; do not prepare a campaign until the useful physics-informed ingredients are known |
+| Wave 6 physics-integrated multi-task / multi-head branch | Shared causal trunk with separate offset, low-frequency, centered-shape, uncertainty or mixture, and validated physics-informed heads. | entry not authorized; reopen only after two complementary physical components pass isolated and integrated gates |
+| Future empirical multi-task / multi-head branch | Combine accepted empirical offset, shape, temporal, and uncertainty ingredients without a validated-physics claim. | separate future roadmap candidate; requires a new technical document and campaign gate |
 | Sequential residual calibration branch | Current best causal model plus second causal residual or offset calibrator trained on model error. | candidate after audit |
 
 The `CVP 1.5` offset-predictability feasibility diagnostic is complete in:
@@ -1253,7 +1255,7 @@ Entry rule:
 
 ### Wave 5.2. PINN Formulation And First PINN
 
-- status: Phases 0 through 14 complete; Phase 15 Wave 6 entry gate active next;
+- status: Phases 0 through 15 complete; sixteen-phase roadmap closed;
 - canonical roadmap:
   `doc/reports/analysis/model_development_waves/wave_5_2/full_pinn_program/[2026-07-25]/full_pinn_physics_formulation_roadmap.md`;
 - physics reference-intake register:
@@ -1380,7 +1382,13 @@ Entry rule:
   - zero promoted components are available against a minimum requirement of
     two;
   - no integrated campaign or combined residual is authorized;
-- updated priority: complete the Phase 15 physics-integrated Wave 6 entry gate;
+- completed Phase 15 evidence:
+  - four final evidence files and all five Wave 6 entry prerequisites were
+    audited;
+  - all five physics-integrated entry prerequisites fail;
+  - no campaign, residual, or automatic phase advance is authorized;
+- updated priority: preserve reopening conditions and, if desired, prepare a
+  separate empirical multi-task and multi-head roadmap without a physics claim;
 - mandatory rule: prepare or justify `global`, `forward`, and `backward`
   surfaces;
 - paper-reproduction scope:

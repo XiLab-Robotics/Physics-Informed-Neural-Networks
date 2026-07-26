@@ -748,6 +748,20 @@ components; the current roster contains zero. Phase 14 therefore closes
 without a campaign and preserves all eight planned combinations with explicit
 reopening conditions. Phase 15 evaluates Wave 6 entry.
 
+## Phase 15 Wave 6 Entry And Program Closeout
+
+```powershell
+python -B scripts/analysis/pinn_program_portfolios/build_physics_portfolio_feasibility_audit.py `
+  --config config/analysis/pinn_program_portfolios/phase15_wave6_entry_audit.yaml
+python -B scripts/analysis/pinn_program_portfolios/validate_physics_portfolio_feasibility_audit.py `
+  --config config/analysis/pinn_program_portfolios/phase15_wave6_entry_audit.yaml
+```
+
+All five physics-integrated Wave 6 entry prerequisites fail. The sixteen-phase
+Wave 5.2 roadmap is complete, no training is authorized, and there is no
+automatic phase advance. A future empirical multi-task or multi-head branch may
+be designed separately, but it must not claim validated physics.
+
 ## Relevant Project Paths
 
 The current usage flow mainly relies on these folders:

@@ -87,7 +87,9 @@ def main() -> None:
     assert decision["status"] == "failed_no_training_authorized"
     assert not bool(decision["physical_residual_promoted"])
     assert not bool(decision["campaign_preparation_required"])
-    assert bool(decision["advance_to_next_phase"])
+    assert bool(decision["advance_to_next_phase"]) == bool(
+        configuration["decision"]["advance_to_next_phase"]
+    )
     assert output_path_map["report_markdown"].is_file()
 
     print(

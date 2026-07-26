@@ -1,0 +1,49 @@
+schema_version: 1
+metadata:
+  phase_number: 15
+  audit_id: wave52_phase15_wave6_entry_closeout
+  phase_title: Wave 6 Entry
+  domain_slug: wave6_entry
+  training_allowed_by_configuration: false
+evidence_files:
+  - {evidence_id: PHASE13-ROSTER, path: "doc/reports/analysis/model_development_waves/wave_5_2/cross_formulation_tournament/[2026-07-26]/phase13_cross_formulation_tournament_report.md", role: isolated candidate and promotion roster, required: true, executable_oracle: false}
+  - {evidence_id: PHASE14-INTEGRATION, path: "doc/reports/analysis/model_development_waves/wave_5_2/integrated_multi_physics_pinn/[2026-07-26]/phase14_integrated_multi_physics_report.md", role: integrated multi-physics decision, required: true, executable_oracle: false}
+  - {evidence_id: CURVE-FIRST-POLICY, path: "doc/reports/analysis/te_curve_verification_pipeline/00_overview/multi_index_curve_first_selection_policy/[2026-06-16]/track2_multi_index_curve_first_selection_policy.md", role: official promotion policy, required: true, executable_oracle: false}
+  - {evidence_id: PROGRAM-REGISTRY, path: output/registries/program/current_best_solution.yaml, role: current accepted empirical solution registry, required: true, executable_oracle: false}
+required_quantities:
+  - {quantity: complementary_promoted_components, availability_class: failed_zero_of_two, causal_runtime: false, online_model_input: false, evidence: Phase 13 and Phase 14}
+  - {quantity: causal_inputs_for_components, availability_class: failed_no_components, causal_runtime: false, online_model_input: false, evidence: no eligible component set}
+  - {quantity: interaction_and_identifiability_tests, availability_class: failed_not_executable, causal_runtime: false, online_model_input: false, evidence: no valid component pair}
+  - {quantity: curve_first_integration_support, availability_class: failed_no_integrated_candidate, causal_runtime: false, online_model_input: false, evidence: Phase 14 no-integration result}
+  - {quantity: twincat_integrated_execution_path, availability_class: failed_no_architecture, causal_runtime: false, online_model_input: false, evidence: no integrated model exists}
+  - {quantity: accepted_empirical_baselines, availability_class: available, causal_runtime: true, online_model_input: true, evidence: program registry}
+  - {quantity: empirical_multi_task_future_work, availability_class: permitted_separate_branch, causal_runtime: true, online_model_input: true, evidence: does not claim validated physics}
+  - {quantity: physics_integrated_wave6_entry, availability_class: not_authorized, causal_runtime: false, online_model_input: false, evidence: all five entry prerequisites fail}
+candidate_formulations:
+  - {formulation_id: W6-E1, name: two complementary promoted components, feasibility_class: blocked_by_data_contract, full_pinn_eligible: false, reason: Zero promoted components exist against the minimum of two.}
+  - {formulation_id: W6-E2, name: causal physical input set, feasibility_class: blocked_by_data_contract, full_pinn_eligible: false, reason: There is no eligible component set whose inputs can be closed.}
+  - {formulation_id: W6-E3, name: interaction and joint-identifiability evidence, feasibility_class: blocked_by_data_contract, full_pinn_eligible: false, reason: No valid component pair exists for interaction tests.}
+  - {formulation_id: W6-E4, name: curve-first integrated candidate support, feasibility_class: blocked_by_data_contract, full_pinn_eligible: false, reason: No integrated candidate exists for official verification.}
+  - {formulation_id: W6-E5, name: credible integrated TwinCAT path, feasibility_class: blocked_by_data_contract, full_pinn_eligible: false, reason: No validated integrated architecture exists to deploy.}
+  - {formulation_id: W6-EMP, name: separate empirical multi-task or multi-head research, feasibility_class: real_data_trainable, full_pinn_eligible: false, reason: May proceed later under its own roadmap without claiming physics integration.}
+decision:
+  status: failed_no_training_authorized
+  summary: >-
+    Physics-integrated Wave 6 entry is not authorized because all five entry
+    prerequisites fail. The sixteen-phase Wave 5.2 roadmap is complete with no
+    promoted full-PINN component; future empirical multi-task research remains
+    a separate branch.
+  key_findings:
+    - All four final-entry evidence paths exist.
+    - Zero of the required two complementary physical components are promoted.
+    - No valid pair exists for interaction, identifiability, or integration verification.
+    - Empirical multi-task work may be planned separately without a physics claim.
+  physical_residual_promoted: false
+  campaign_preparation_required: false
+  advance_to_next_phase: false
+outputs:
+  evidence_csv: output/analysis/pinn_program_wave6_entry/phase15_evidence_file_audit.csv
+  quantity_csv: output/analysis/pinn_program_wave6_entry/phase15_required_quantity_audit.csv
+  formulation_csv: output/analysis/pinn_program_wave6_entry/phase15_formulation_feasibility.csv
+  audit_yaml: output/analysis/pinn_program_wave6_entry/phase15_wave6_entry_audit.yaml
+  report_markdown: doc/reports/analysis/model_development_waves/wave_5_2/wave6_entry/[2026-07-26]/phase15_wave6_entry_and_program_closeout_report.md

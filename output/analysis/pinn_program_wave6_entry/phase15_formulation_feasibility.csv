@@ -1,0 +1,7 @@
+formulation_id,name,feasibility_class,full_pinn_eligible,reason
+W6-E1,two complementary promoted components,blocked_by_data_contract,False,Zero promoted components exist against the minimum of two.
+W6-E2,causal physical input set,blocked_by_data_contract,False,There is no eligible component set whose inputs can be closed.
+W6-E3,interaction and joint-identifiability evidence,blocked_by_data_contract,False,No valid component pair exists for interaction tests.
+W6-E4,curve-first integrated candidate support,blocked_by_data_contract,False,No integrated candidate exists for official verification.
+W6-E5,credible integrated TwinCAT path,blocked_by_data_contract,False,No validated integrated architecture exists to deploy.
+W6-EMP,separate empirical multi-task or multi-head research,real_data_trainable,False,May proceed later under its own roadmap without claiming physics integration.

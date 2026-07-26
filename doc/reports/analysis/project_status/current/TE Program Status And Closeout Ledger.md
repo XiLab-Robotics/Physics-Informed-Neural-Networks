@@ -30,13 +30,13 @@ closeout that changes any of these surfaces:
 | Current accepted backward curve-verified leader | `polished_periodic_gru_sequence_Bw` |
 | Current accepted global neural curve-verified leader | `polished_periodic_gru_sequence_global` |
 | Latest normal campaign closeout | Phase 3 quasi-static compliance PINN, `12 / 12` main runs and `2 / 2` C1-Fw repeats completed on `2026-07-26`; no physics constraint promoted |
-| Latest non-training PINN gate | Phase 14 audited four evidence files, eight integration requirements, and eight combinations; zero promoted components are available against the minimum of two, so integration closed without training |
+| Latest non-training PINN gate | Phase 15 audited four evidence files and all five physics-integrated Wave 6 prerequisites; all five fail, so the sixteen-phase roadmap closed without training or automatic advancement |
 | Latest official TE Curve Verification refresh | polished-dataset RCIM, early-wave, and full-wave refresh, dated `2026-07-03` |
 | Latest curve-verification decision | six-cell non-MMT reduced comparison closed on `2026-07-24`; periodic GRU recommended in four cells and periodic harmonic MLP in two; no official promotion |
 | Latest pruning decision | `2026-07-17` shape-first intermediate model-selection cleanup; `global` remains paused until final backlog stage |
 | Active report generation | six reduced selected-model reports completed for polished setpoints, simplified setpoints, and polished actual values, each split into `forward` and `backward` |
 | Current TE Curve Verification Pipeline selection policy | multi-index curve-first selection, dated `2026-06-16` |
-| Next modeling decision | Phases 0 through 14 are complete; begin Phase 15 physics-integrated Wave 6 entry gating and roadmap closeout |
+| Next modeling decision | Phases 0 through 15 are complete; keep physics-integrated Wave 6 closed and optionally prepare a separate empirical multi-task roadmap without a physics claim |
 
 The repository remains direction-parallel. `Fw`, `Bw`, and `global` are not a
 single destructive competition. Each surface keeps its own best candidate and
@@ -182,11 +182,13 @@ robustness, visual-evidence, and deployment-readiness axes visible.
 | Wave 5.2 Phase 12 hybrid analytical and learned residual | completed qualification result | Four evidence files, eight quantities, and six `PINN-R` candidates were audited. Five are empirically trainable, but no candidate includes a promoted physical residual. | Authorize no full-PINN campaign. Preserve `PINN-R1/R2/R3/R4/R6` as empirical designs and keep `PINN-R5` blocked. |
 | Wave 5.2 Phase 13 cross-formulation tournament | completed no-contest result | Thirteen phase-evidence files and twelve formulation families were audited. Zero isolated candidates passed full-PINN entry. | Authorize no tournament training and declare no winner. Preserve every candidate state for future reopening. |
 | Wave 5.2 Phase 14 integrated multi-physics | completed no-integration result | Four evidence files, eight requirements, and eight planned combinations were audited. Zero promoted components exist against the minimum of two. | Authorize no integrated campaign or combined residual. Preserve every planned pair with reopening conditions. |
-| Wave 5.2 general full-PINN program | Phases 0 through 14 complete; Phase 15 active next | Phases 4 through 14 preserve every tested mechanism, separate empirical feasibility from full-PINN eligibility, and prevent invalid integration. | Complete Phase 15 Wave 6 entry gating. |
-| Wave 5.2 complete theory-validation program | Phases 0 through 14 of 16 complete | Sixteen phases preserve every ingested mechanism through common foundations, isolated formulations, synthetic and offline oracles, causal reconstruction, instrumentation gates, cross-formulation comparison, multi-physics integration, and Wave 6 entry criteria. | Continue Phase 15 as the final entry and closeout gate. |
+| Wave 5.2 Phase 15 Wave 6 entry | completed no-entry closeout | Four evidence files and five entry prerequisites were audited. All five physics-integrated prerequisites fail. | Authorize no physics-integrated Wave 6 campaign and no automatic phase advance. Empirical multi-task research remains separate. |
+| Wave 5.2 general full-PINN program | Phases 0 through 15 complete; evidence closeout | All mechanisms are preserved with explicit empirical, rejected, offline, synthetic, deferred, blocked, or no-entry decisions. | Reopen only when a recorded evidence gate changes. |
+| Wave 5.2 complete theory-validation program | completed 16 of 16 | The program covered foundations, isolated formulations, synthetic and offline oracles, causal reconstruction, instrumentation, tournament, integration, and Wave 6 entry. | Preserve the closeout; do not weaken full-PINN or Wave 6 entry definitions. |
 | Wave 5.2 paper-faithful MMT full PINN | deferred future TODO | MMT diagnostics, parameter inventory, `Wave 5.2B`, the post-causal-offset gate, exact-manifest replay, and leakage-safe explanatory rerun are complete. Contact geometry and causal observations for five equivalent-error groups remain unavailable. | Inactive without blocking the general full-PINN program. Reopen only after independent component-error measurements or validated causal contact-state reconstruction provides condition-varying physical inputs. |
 | Six-cell non-MMT reduced cross-wave comparison | closed diagnostic | Six remote selected-model reports and three direction-paired shape-gated reranks covered polished setpoints, simplified setpoints, and polished actual values. Forty-six curve collages were reviewed. | No official promotion. Periodic GRU wins four cells, periodic harmonic MLP wins two, Wave 4.1 remains the raw-error/offset ingredient, and sparse-RCIM temporal models remain reference-only. |
-| Wave 6 integrated multi-task / multi-head model | sequenced after Wave 5.2 PINN evidence | Intended to combine proven offset, low-frequency, centered-shape, uncertainty, mixture, and validated physics-informed mechanisms. | Do not prepare a campaign until bounded Wave 5.2 pilots and curve-first verification identify the physics-informed ingredients worth integrating. |
+| Wave 6 physics-integrated multi-task / multi-head model | entry not authorized | Intended to combine proven offset, low-frequency, centered-shape, uncertainty, mixture, and validated physics-informed mechanisms. | Reopen only after at least two complementary physical components pass isolated and integrated gates. |
+| Future empirical multi-task / multi-head model | separate future branch | May combine accepted empirical ingredients without calling them validated physics. | Prepare a new technical roadmap and campaign gate if selected. |
 
 ## CVP Modules And Waves 3.1 Through 4.4
 
@@ -283,10 +285,12 @@ models.
 
 ## Current Next Steps
 
-1. Treat Phases 0 through 14 as complete and keep the general Wave 5.2
-   full-PINN program active at the Phase 15 Wave 6 entry gate.
-2. Evaluate every physics-integrated Wave 6 prerequisite and close the
-   sixteen-phase roadmap without weakening the entry contract.
+1. Treat Phases 0 through 15 as complete and preserve the Wave 5.2 evidence
+   closeout.
+2. Keep physics-integrated Wave 6 closed until at least two complementary
+   physical components pass isolated and integrated gates.
+3. If selected, prepare a separate empirical multi-task and multi-head roadmap
+   without a validated-physics claim.
 3. Continue the complete theory portfolio through the immediate analytical,
    causal-state, and offline-physics lanes. Preserve blocked formulations as
    oracle or instrumentation tasks rather than silently dropping them.

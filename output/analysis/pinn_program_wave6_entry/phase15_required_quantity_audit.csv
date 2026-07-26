@@ -1,0 +1,9 @@
+quantity,availability_class,causal_runtime,online_model_input,evidence
+complementary_promoted_components,failed_zero_of_two,False,False,Phase 13 and Phase 14
+causal_inputs_for_components,failed_no_components,False,False,no eligible component set
+interaction_and_identifiability_tests,failed_not_executable,False,False,no valid component pair
+curve_first_integration_support,failed_no_integrated_candidate,False,False,Phase 14 no-integration result
+twincat_integrated_execution_path,failed_no_architecture,False,False,no integrated model exists
+accepted_empirical_baselines,available,True,True,program registry
+empirical_multi_task_future_work,permitted_separate_branch,True,True,does not claim validated physics
+physics_integrated_wave6_entry,not_authorized,False,False,all five entry prerequisites fail
