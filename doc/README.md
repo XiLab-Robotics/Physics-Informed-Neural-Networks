@@ -250,6 +250,11 @@ This folder contains the internal project documents derived from the reference P
   cumulative usage, wear-label observability, synthetic progression, and
   degradation candidate classification.
 
+- [technical/2026-07/2026-07-26/2026-07-26-21-40-47_phase_11_electromechanical_coupling_gate.md](./technical/2026-07/2026-07-26/2026-07-26-21-40-47_phase_11_electromechanical_coupling_gate.md)
+  Automatically approved Phase 11 design for synchronized electrical-channel
+  observability, current-sideband evidence, motor-mechanical coupling, and
+  electromechanical candidate classification.
+
 - [reports/analysis/model_development_waves/wave_5_2/hysteresis_friction_memory_pinn/[2026-07-26]/phase4_hysteresis_friction_memory_feasibility_report.md](./reports/analysis/model_development_waves/wave_5_2/hysteresis_friction_memory_pinn/%5B2026-07-26%5D/phase4_hysteresis_friction_memory_feasibility_report.md)
   Completed full-population Phase 4 raw-chronology audit. All `969` canonical
   conditions preserve one direction reversal, but repeated loops, controlled

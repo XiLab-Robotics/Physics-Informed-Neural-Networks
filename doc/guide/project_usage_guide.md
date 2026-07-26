@@ -691,6 +691,21 @@ acquisition chronology, cumulative load cycles, lubrication state, direct wear
 measurements, or maintenance events. Phase 10 closes without training; the
 wear laws remain synthetic or blocked and Phase 11 is next.
 
+## Phase 11 Electromechanical Coupling Portfolio Audit
+
+```powershell
+python -B scripts/analysis/pinn_program_portfolios/build_physics_portfolio_feasibility_audit.py `
+  --config config/analysis/pinn_program_portfolios/phase11_electromechanical_portfolio_audit.yaml
+python -B scripts/analysis/pinn_program_portfolios/validate_physics_portfolio_feasibility_audit.py `
+  --config config/analysis/pinn_program_portfolios/phase11_electromechanical_portfolio_audit.yaml
+```
+
+Mechanical speed, torque, and angle are available, but the dataset does not
+contain synchronized motor current, drive state, electrical power, current
+sidebands, health labels, or latency calibration. Phase 11 closes without
+training; electromechanical coupling remains synthetic or blocked and Phase 12
+is next.
+
 ## Relevant Project Paths
 
 The current usage flow mainly relies on these folders:

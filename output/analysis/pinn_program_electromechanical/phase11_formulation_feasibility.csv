@@ -1,0 +1,5 @@
+formulation_id,name,feasibility_class,full_pinn_eligible,reason
+PINN-M1,current-sideband consistency loss,blocked_by_data_contract,False,Synchronized motor current and locally observed sidebands are absent.
+PINN-M2,motor-torque and mechanical-state coupling,synthetic_oracle_only,False,"Mechanical states exist, but electrical input and drive states do not."
+PINN-M3,joint TE and fault-health multi-task model,blocked_by_data_contract,False,Fault or health labels and synchronized electrical channels are absent.
+PINN-M4,electromechanical state observer plus TE residual,synthetic_oracle_only,False,Observer equations can be tested synthetically but not identified locally.

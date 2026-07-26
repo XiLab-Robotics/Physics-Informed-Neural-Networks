@@ -1,0 +1,107 @@
+schema_version: 1
+metadata:
+  phase_number: 11
+  audit_id: wave52_phase11_electromechanical_portfolio_feasibility
+  phase_title: Electromechanical Coupling PINNs
+  domain_slug: electromechanical
+  training_allowed_by_configuration: false
+evidence_files:
+  - evidence_id: E-ELECTROMECHANICAL
+    path: reference/te_modeling/theoretical_mechanics/dynamics_hysteresis_and_efficiency/2026_e_electromechanical_coupling_fault_diagnosis_rv_reducer.pdf
+    role: PMSM, reducer dynamics, and current-sideband source
+    required: true
+    executable_oracle: false
+  - evidence_id: MECHANICS-SYNTHESIS
+    path: doc/reference_summaries/13_RV_Reducer_Theoretical_Mechanics_Reference_Synthesis.md
+    role: electromechanical implementation and observability synthesis
+    required: true
+    executable_oracle: false
+  - evidence_id: DATASET-SUMMARY
+    path: doc/reference_summaries/08_Transmission_Error_Dataset_Family_Reference.md
+    role: verified local measurement schema
+    required: true
+    executable_oracle: false
+required_quantities:
+  - quantity: mechanical_speed_torque_angle
+    availability_class: measured
+    causal_runtime: true
+    online_model_input: true
+    evidence: raw encoder and load-torque channels
+  - quantity: synchronized_motor_current
+    availability_class: unavailable
+    causal_runtime: false
+    online_model_input: false
+    evidence: absent from the verified dataset schema
+  - quantity: drive_voltage_and_switching_state
+    availability_class: unavailable
+    causal_runtime: false
+    online_model_input: false
+    evidence: no synchronized drive-state channel
+  - quantity: electrical_input_power
+    availability_class: unavailable
+    causal_runtime: false
+    online_model_input: false
+    evidence: current and voltage are both absent
+  - quantity: current_frequency_sidebands
+    availability_class: unavailable
+    causal_runtime: false
+    online_model_input: false
+    evidence: paper evidence is not a local synchronized observation
+  - quantity: fault_or_health_label
+    availability_class: unavailable
+    causal_runtime: false
+    online_model_input: false
+    evidence: no healthy-fault state contract
+  - quantity: synchronized_sensor_latency
+    availability_class: unavailable
+    causal_runtime: false
+    online_model_input: false
+    evidence: no cross-domain timestamp or latency calibration
+  - quantity: synthetic_electromechanical_oracle
+    availability_class: synthetic_oracle_only
+    causal_runtime: false
+    online_model_input: false
+    evidence: coupled PMSM and reducer equations can be tested synthetically
+candidate_formulations:
+  - formulation_id: PINN-M1
+    name: current-sideband consistency loss
+    feasibility_class: blocked_by_data_contract
+    full_pinn_eligible: false
+    reason: Synchronized motor current and locally observed sidebands are absent.
+  - formulation_id: PINN-M2
+    name: motor-torque and mechanical-state coupling
+    feasibility_class: synthetic_oracle_only
+    full_pinn_eligible: false
+    reason: Mechanical states exist, but electrical input and drive states do not.
+  - formulation_id: PINN-M3
+    name: joint TE and fault-health multi-task model
+    feasibility_class: blocked_by_data_contract
+    full_pinn_eligible: false
+    reason: Fault or health labels and synchronized electrical channels are absent.
+  - formulation_id: PINN-M4
+    name: electromechanical state observer plus TE residual
+    feasibility_class: synthetic_oracle_only
+    full_pinn_eligible: false
+    reason: Observer equations can be tested synthetically but not identified locally.
+decision:
+  status: failed_no_training_authorized
+  summary: >-
+    Electromechanical PINNs are not identifiable from the current TE dataset
+    because synchronized motor-current, drive-state, electrical-power,
+    sideband, health-label, and latency channels are absent.
+  key_findings:
+    - All three electromechanical evidence paths are present.
+    - Mechanical speed, torque, and angle do not close an electrical balance.
+    - Paper-reported current sidebands are not local measured features.
+    - TwinCAT acquisition must be extended before this branch can activate.
+  physical_residual_promoted: false
+  campaign_preparation_required: false
+  advance_to_next_phase: true
+  next_phase_number: 12
+  next_phase_title: Hybrid Analytical And Learned Residual PINNs
+outputs:
+  evidence_csv: output/analysis/pinn_program_electromechanical/phase11_evidence_file_audit.csv
+  quantity_csv: output/analysis/pinn_program_electromechanical/phase11_required_quantity_audit.csv
+  formulation_csv: output/analysis/pinn_program_electromechanical/phase11_formulation_feasibility.csv
+  audit_yaml: output/analysis/pinn_program_electromechanical/phase11_electromechanical_portfolio_audit.yaml
+  report_markdown: doc/reports/analysis/model_development_waves/wave_5_2/electromechanical_coupling_pinn/[2026-07-26]/phase11_electromechanical_coupling_report.md

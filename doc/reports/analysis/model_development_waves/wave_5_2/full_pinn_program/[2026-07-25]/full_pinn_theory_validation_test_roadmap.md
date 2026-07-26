@@ -656,9 +656,12 @@ maintenance events are absent. `PINN-W2/W3/W4` remain synthetic-oracle-only;
 This branch activates only when synchronized motor-current and drive-state
 signals are available.
 
-**Status: active next.** Audit synchronized electrical and mechanical channels,
-frequency-sideband observability, sensor latency, and TwinCAT acquisition
-feasibility before selecting any electromechanical residual.
+**Status: completed feasibility result; no training authorized.** Three
+evidence files, eight quantities, and four electromechanical formulations were
+audited. Mechanical channels are present, but synchronized current, drive
+state, electrical power, current sidebands, health labels, and latency
+calibration are absent. `PINN-M2/M4` remain synthetic-oracle-only;
+`PINN-M1/M3` are blocked. No Phase 11 residual is promoted.
 
 ## Phase 12: Hybrid Analytical And Learned Residual PINNs
 
@@ -693,6 +696,10 @@ feasibility before selecting any electromechanical residual.
 
 Hybrid models advance only when the learned residual adds held-out value
 without erasing the interpretability or stability of the physical component.
+
+**Status: active next.** Audit the surviving analytical and empirical
+components, define the three-way ablation contract, and verify whether any
+hybrid candidate can qualify as a full PINN before preparing training.
 
 ## Phase 13: Cross-Formulation Tournament
 

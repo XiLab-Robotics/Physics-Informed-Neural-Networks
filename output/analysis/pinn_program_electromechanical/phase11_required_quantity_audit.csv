@@ -1,0 +1,9 @@
+quantity,availability_class,causal_runtime,online_model_input,evidence
+mechanical_speed_torque_angle,measured,True,True,raw encoder and load-torque channels
+synchronized_motor_current,unavailable,False,False,absent from the verified dataset schema
+drive_voltage_and_switching_state,unavailable,False,False,no synchronized drive-state channel
+electrical_input_power,unavailable,False,False,current and voltage are both absent
+current_frequency_sidebands,unavailable,False,False,paper evidence is not a local synchronized observation
+fault_or_health_label,unavailable,False,False,no healthy-fault state contract
+synchronized_sensor_latency,unavailable,False,False,no cross-domain timestamp or latency calibration
+synthetic_electromechanical_oracle,synthetic_oracle_only,False,False,coupled PMSM and reducer equations can be tested synthetically

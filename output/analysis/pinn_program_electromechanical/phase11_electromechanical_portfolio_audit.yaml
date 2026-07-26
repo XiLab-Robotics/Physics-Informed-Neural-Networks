@@ -1,0 +1,38 @@
+schema_version: 1
+phase_number: 11
+audit_id: wave52_phase11_electromechanical_portfolio_feasibility
+phase_title: Electromechanical Coupling PINNs
+domain_slug: electromechanical
+generated_at_utc: '2026-07-26T19:42:24.270366+00:00'
+source_configuration:
+  path: config/analysis/pinn_program_portfolios/phase11_electromechanical_portfolio_audit.yaml
+  sha256: 6c80be74ac72c121255a4632327341072ff1194ed1f245499668eb2846b2812e
+evidence_file_count: 3
+required_evidence_file_count: 3
+all_required_evidence_files_exist: true
+executable_oracle_count: 0
+required_quantity_count: 8
+availability_class_count:
+  measured: 1
+  synthetic_oracle_only: 1
+  unavailable: 6
+candidate_formulation_count: 4
+formulation_class_count:
+  blocked_by_data_contract: 2
+  synthetic_oracle_only: 2
+full_pinn_training_authorized: false
+decision:
+  status: failed_no_training_authorized
+  summary: Electromechanical PINNs are not identifiable from the current TE dataset
+    because synchronized motor-current, drive-state, electrical-power, sideband, health-label,
+    and latency channels are absent.
+  key_findings:
+  - All three electromechanical evidence paths are present.
+  - Mechanical speed, torque, and angle do not close an electrical balance.
+  - Paper-reported current sidebands are not local measured features.
+  - TwinCAT acquisition must be extended before this branch can activate.
+  physical_residual_promoted: false
+  campaign_preparation_required: false
+  advance_to_next_phase: true
+  next_phase_number: 12
+  next_phase_title: Hybrid Analytical And Learned Residual PINNs

@@ -21,7 +21,9 @@ model-development waves.
     the same for energy inequalities without an input-power measurement.
     Phase 9 retains geometry and MMT as synthetic or deferred work. Phase 10
     retains wear and degradation laws as synthetic-only because longitudinal
-    lifecycle evidence is absent. Phase 11 electromechanical coupling is next.
+    lifecycle evidence is absent. Phase 11 preserves electromechanical coupling
+    as synthetic or instrumentation-blocked work because synchronized
+    electrical channels are absent. Phase 12 hybrid residual design is next.
 
 The folder names use stable filesystem slugs. Human-facing report titles may
 retain legacy wave labels when they describe completed historical work.
