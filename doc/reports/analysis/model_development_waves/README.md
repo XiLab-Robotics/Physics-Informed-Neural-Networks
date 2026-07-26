@@ -20,7 +20,8 @@ model-development waves.
     Phase 7 retains contact mechanics as synthetic-oracle work; Phase 8 does
     the same for energy inequalities without an input-power measurement.
     Phase 9 retains geometry and MMT as synthetic or deferred work. Phase 10
-    is next.
+    retains wear and degradation laws as synthetic-only because longitudinal
+    lifecycle evidence is absent. Phase 11 electromechanical coupling is next.
 
 The folder names use stable filesystem slugs. Human-facing report titles may
 retain legacy wave labels when they describe completed historical work.

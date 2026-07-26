@@ -1,0 +1,112 @@
+schema_version: 1
+metadata:
+  phase_number: 10
+  audit_id: wave52_phase10_wear_portfolio_feasibility
+  phase_title: Wear And Degradation PINNs
+  domain_slug: wear
+  training_allowed_by_configuration: false
+evidence_files:
+  - evidence_id: CHEN-WEAR
+    path: reference/te_modeling/theoretical_mechanics/numerical_and_fea_models/2026_chen_predictive_te_geometric_errors_wear_rv_reducer.pdf
+    role: Archard wear and contact progression source
+    required: true
+    executable_oracle: false
+  - evidence_id: MECHANICS-SYNTHESIS
+    path: doc/reference_summaries/13_RV_Reducer_Theoretical_Mechanics_Reference_Synthesis.md
+    role: wear and geometry implementation synthesis
+    required: true
+    executable_oracle: false
+  - evidence_id: DATASET-SUMMARY
+    path: doc/reference_summaries/08_Transmission_Error_Dataset_Family_Reference.md
+    role: dataset chronology and identity contract
+    required: true
+    executable_oracle: false
+required_quantities:
+  - quantity: torque_speed_temperature
+    availability_class: measured
+    causal_runtime: true
+    online_model_input: true
+    evidence: Phase 0 operating inputs
+  - quantity: reducer_instance_identity
+    availability_class: unavailable
+    causal_runtime: false
+    online_model_input: false
+    evidence: no multi-unit identity contract
+  - quantity: acquisition_session_time
+    availability_class: unavailable
+    causal_runtime: false
+    online_model_input: false
+    evidence: filesystem timestamps are not acquisition evidence
+  - quantity: cumulative_load_cycles
+    availability_class: unavailable
+    causal_runtime: false
+    online_model_input: false
+    evidence: no lifecycle counter
+  - quantity: lubrication_state
+    availability_class: unavailable
+    causal_runtime: false
+    online_model_input: false
+    evidence: temperature is not a unique lubrication label
+  - quantity: direct_wear_measurement
+    availability_class: unavailable
+    causal_runtime: false
+    online_model_input: false
+    evidence: no inspection or metrology channel
+  - quantity: maintenance_event
+    availability_class: unavailable
+    causal_runtime: false
+    online_model_input: false
+    evidence: no reset or service registry
+  - quantity: synthetic_wear_oracle
+    availability_class: synthetic_oracle_only
+    causal_runtime: false
+    online_model_input: false
+    evidence: Archard-inspired progression can be tested synthetically
+candidate_formulations:
+  - formulation_id: PINN-W1
+    name: cumulative load-cycle wear state
+    feasibility_class: blocked_by_data_contract
+    full_pinn_eligible: false
+    reason: Cumulative load cycles and session chronology are unavailable.
+  - formulation_id: PINN-W2
+    name: Archard-inspired latent degradation residual
+    feasibility_class: synthetic_oracle_only
+    full_pinn_eligible: false
+    reason: Archard progression is testable synthetically but not identifiable locally.
+  - formulation_id: PINN-W3
+    name: monotonic health-state constraint
+    feasibility_class: synthetic_oracle_only
+    full_pinn_eligible: false
+    reason: Monotonicity is a synthetic prior without longitudinal health labels.
+  - formulation_id: PINN-W4
+    name: contact-oracle wear surrogate
+    feasibility_class: synthetic_oracle_only
+    full_pinn_eligible: false
+    reason: A future contact simulator can supply oracle data; none is validated locally.
+  - formulation_id: PINN-W5
+    name: multi-session hierarchical degradation model
+    feasibility_class: blocked_by_data_contract
+    full_pinn_eligible: false
+    reason: Reducer identity, ordered sessions, and maintenance events are absent.
+decision:
+  status: failed_no_training_authorized
+  summary: >-
+    Wear laws remain synthetic research because the repository has no
+    longitudinal reducer identity, acquisition chronology, load-cycle count,
+    wear measurement, lubrication state, or maintenance-event contract.
+  key_findings:
+    - All three wear and provenance evidence paths are present.
+    - Operating inputs do not establish lifecycle chronology.
+    - Filesystem modification time is not acquisition evidence.
+    - Temperature and TE drift cannot be relabeled as degradation.
+  physical_residual_promoted: false
+  campaign_preparation_required: false
+  advance_to_next_phase: true
+  next_phase_number: 11
+  next_phase_title: Electromechanical Coupling PINNs
+outputs:
+  evidence_csv: output/analysis/pinn_program_wear/phase10_evidence_file_audit.csv
+  quantity_csv: output/analysis/pinn_program_wear/phase10_required_quantity_audit.csv
+  formulation_csv: output/analysis/pinn_program_wear/phase10_formulation_feasibility.csv
+  audit_yaml: output/analysis/pinn_program_wear/phase10_wear_portfolio_audit.yaml
+  report_markdown: doc/reports/analysis/model_development_waves/wave_5_2/wear_degradation_pinn/[2026-07-26]/phase10_wear_degradation_report.md

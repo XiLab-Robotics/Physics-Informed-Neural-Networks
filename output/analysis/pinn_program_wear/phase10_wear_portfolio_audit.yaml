@@ -1,0 +1,38 @@
+schema_version: 1
+phase_number: 10
+audit_id: wave52_phase10_wear_portfolio_feasibility
+phase_title: Wear And Degradation PINNs
+domain_slug: wear
+generated_at_utc: '2026-07-26T19:34:58.926913+00:00'
+source_configuration:
+  path: config/analysis/pinn_program_portfolios/phase10_wear_portfolio_audit.yaml
+  sha256: fe51ef811fa77d83857c004f23eb0286235c6ec381ec15a076fafb3717491cab
+evidence_file_count: 3
+required_evidence_file_count: 3
+all_required_evidence_files_exist: true
+executable_oracle_count: 0
+required_quantity_count: 8
+availability_class_count:
+  measured: 1
+  synthetic_oracle_only: 1
+  unavailable: 6
+candidate_formulation_count: 5
+formulation_class_count:
+  blocked_by_data_contract: 2
+  synthetic_oracle_only: 3
+full_pinn_training_authorized: false
+decision:
+  status: failed_no_training_authorized
+  summary: Wear laws remain synthetic research because the repository has no longitudinal
+    reducer identity, acquisition chronology, load-cycle count, wear measurement,
+    lubrication state, or maintenance-event contract.
+  key_findings:
+  - All three wear and provenance evidence paths are present.
+  - Operating inputs do not establish lifecycle chronology.
+  - Filesystem modification time is not acquisition evidence.
+  - Temperature and TE drift cannot be relabeled as degradation.
+  physical_residual_promoted: false
+  campaign_preparation_required: false
+  advance_to_next_phase: true
+  next_phase_number: 11
+  next_phase_title: Electromechanical Coupling PINNs

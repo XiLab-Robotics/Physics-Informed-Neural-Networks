@@ -245,6 +245,11 @@ This folder contains the internal project documents derived from the reference P
   observability, MMT deferral enforcement, synthetic populations, and
   manufacturing-prior candidate classification.
 
+- [technical/2026-07/2026-07-26/2026-07-26-21-33-05_phase_10_wear_degradation_gate.md](./technical/2026-07/2026-07-26/2026-07-26-21-33-05_phase_10_wear_degradation_gate.md)
+  Automatically approved Phase 10 design for longitudinal provenance,
+  cumulative usage, wear-label observability, synthetic progression, and
+  degradation candidate classification.
+
 - [reports/analysis/model_development_waves/wave_5_2/hysteresis_friction_memory_pinn/[2026-07-26]/phase4_hysteresis_friction_memory_feasibility_report.md](./reports/analysis/model_development_waves/wave_5_2/hysteresis_friction_memory_pinn/%5B2026-07-26%5D/phase4_hysteresis_friction_memory_feasibility_report.md)
   Completed full-population Phase 4 raw-chronology audit. All `969` canonical
   conditions preserve one direction reversal, but repeated loops, controlled

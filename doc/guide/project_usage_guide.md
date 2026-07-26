@@ -677,6 +677,20 @@ Nominal geometry supports synthetic tests, but unit-specific metrology,
 multi-instance data, a local FEA population, and synthetic-to-real validation
 are absent. MMT remains deferred; Phase 10 is next.
 
+## Phase 10 Wear And Degradation Portfolio Audit
+
+```powershell
+python -B scripts/analysis/pinn_program_portfolios/build_physics_portfolio_feasibility_audit.py `
+  --config config/analysis/pinn_program_portfolios/phase10_wear_portfolio_audit.yaml
+python -B scripts/analysis/pinn_program_portfolios/validate_physics_portfolio_feasibility_audit.py `
+  --config config/analysis/pinn_program_portfolios/phase10_wear_portfolio_audit.yaml
+```
+
+The operating-condition contract does not provide reducer identity,
+acquisition chronology, cumulative load cycles, lubrication state, direct wear
+measurements, or maintenance events. Phase 10 closes without training; the
+wear laws remain synthetic or blocked and Phase 11 is next.
+
 ## Relevant Project Paths
 
 The current usage flow mainly relies on these folders:

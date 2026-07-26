@@ -3,8 +3,8 @@
 ## Executive Decision
 
 Wave 5.2 remains the physics-informed model-development wave. Its general
-full-PINN program has completed Phases 0 through 9 and now advances to the
-Phase 10 wear and degradation gate.
+full-PINN program has completed Phases 0 through 10 and now advances to the
+Phase 11 electromechanical coupling gate.
 
 Only the paper-faithful MMT implementation is deferred. The completed MMT
 diagnostic established that the available geometry-locked signatures are
@@ -26,7 +26,7 @@ instrumentation, isolated-PINN, or integration path.
 
 | Program branch | Current state | Decision |
 | --- | --- | --- |
-| General Wave 5.2 full-PINN program | Phases 0-9 complete; Phase 10 active next | Audit references, formalize candidate equations, and validate them before implementation. |
+| General Wave 5.2 full-PINN program | Phases 0-10 complete; Phase 11 active next | Audit references, formalize candidate equations, and validate them before implementation. |
 | MMT-paper-faithful full PINN | deferred future TODO | Reopen only with condition-varying causal component-error measurements or a validated causal contact-state reconstruction. |
 | Wave 6 integrated multi-task and multi-head models | sequenced after Wave 5.2 evidence | Do not design a training campaign until bounded PINN pilots identify useful physics-informed components. |
 
@@ -183,15 +183,15 @@ not be mixed in the first experiment.
 
 ## Immediate TODO
 
-Phases 0 through 9 are complete. Phase 9 verified six sources, eight required
-quantities, and five `PINN-G` candidates. Nominal geometry supports synthetic
-tests, but unit-specific metrology, multi-instance data, a local FEA
-population, and synthetic-to-real validation are absent. MMT remains deferred.
+Phases 0 through 10 are complete. Phase 10 verified three evidence files, eight
+required quantities, and five `PINN-W` candidates. Operating inputs exist, but
+longitudinal reducer identity, acquisition chronology, cumulative load cycles,
+lubrication state, wear measurements, and maintenance events are absent.
 
-1. Begin Phase 10 with wear, load-cycle, lubrication, session chronology, and
-   longitudinal-health observability.
-2. Separate synthetic monotonic wear laws from real degradation labels.
-3. Classify the `PINN-W` portfolio under the common feasibility taxonomy.
+1. Begin Phase 11 with synchronized motor-current, drive-state, and electrical
+   power observability.
+2. Separate offline frequency-sideband evidence from causal runtime inputs.
+3. Classify the `PINN-M` portfolio under the common feasibility taxonomy.
 4. Keep Wave 6 integration deferred until at least two complementary physical
    components pass isolated pilots.
 

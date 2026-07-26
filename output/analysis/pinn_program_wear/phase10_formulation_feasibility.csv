@@ -1,0 +1,6 @@
+formulation_id,name,feasibility_class,full_pinn_eligible,reason
+PINN-W1,cumulative load-cycle wear state,blocked_by_data_contract,False,Cumulative load cycles and session chronology are unavailable.
+PINN-W2,Archard-inspired latent degradation residual,synthetic_oracle_only,False,Archard progression is testable synthetically but not identifiable locally.
+PINN-W3,monotonic health-state constraint,synthetic_oracle_only,False,Monotonicity is a synthetic prior without longitudinal health labels.
+PINN-W4,contact-oracle wear surrogate,synthetic_oracle_only,False,A future contact simulator can supply oracle data; none is validated locally.
+PINN-W5,multi-session hierarchical degradation model,blocked_by_data_contract,False,"Reducer identity, ordered sessions, and maintenance events are absent."

@@ -1,0 +1,9 @@
+quantity,availability_class,causal_runtime,online_model_input,evidence
+torque_speed_temperature,measured,True,True,Phase 0 operating inputs
+reducer_instance_identity,unavailable,False,False,no multi-unit identity contract
+acquisition_session_time,unavailable,False,False,filesystem timestamps are not acquisition evidence
+cumulative_load_cycles,unavailable,False,False,no lifecycle counter
+lubrication_state,unavailable,False,False,temperature is not a unique lubrication label
+direct_wear_measurement,unavailable,False,False,no inspection or metrology channel
+maintenance_event,unavailable,False,False,no reset or service registry
+synthetic_wear_oracle,synthetic_oracle_only,False,False,Archard-inspired progression can be tested synthetically

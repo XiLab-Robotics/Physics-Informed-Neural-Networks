@@ -617,9 +617,12 @@ Paper-faithful MMT remains deferred and no Phase 9 residual is promoted.
 Wear PINNs remain research models until longitudinal data or validated wear
 labels distinguish degradation from operating-condition drift.
 
-**Status: active next.** Start with session chronology, reducer identity, load
-cycles, lubrication, wear measurements, maintenance labels, and longitudinal
-transfer audits.
+**Status: completed feasibility result; no training authorized.** Three
+evidence files, eight required quantities, and five wear formulations were
+audited. Operating conditions are available, but reducer identity, acquisition
+chronology, load cycles, lubrication state, direct wear measurements, and
+maintenance events are absent. `PINN-W2/W3/W4` remain synthetic-oracle-only;
+`PINN-W1/W5` are blocked. No Phase 10 residual is promoted.
 
 ## Phase 11: Electromechanical Coupling PINNs
 
@@ -652,6 +655,10 @@ transfer audits.
 
 This branch activates only when synchronized motor-current and drive-state
 signals are available.
+
+**Status: active next.** Audit synchronized electrical and mechanical channels,
+frequency-sideband observability, sensor latency, and TwinCAT acquisition
+feasibility before selecting any electromechanical residual.
 
 ## Phase 12: Hybrid Analytical And Learned Residual PINNs
 
