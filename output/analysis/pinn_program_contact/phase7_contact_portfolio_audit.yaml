@@ -1,0 +1,41 @@
+schema_version: 1
+phase_number: 7
+audit_id: wave52_phase7_contact_portfolio_feasibility
+phase_title: Contact, Mesh Stiffness, And Load-Sharing PINNs
+domain_slug: contact
+generated_at_utc: '2026-07-26T19:20:41.301517+00:00'
+source_configuration:
+  path: config/analysis/pinn_program_portfolios/phase7_contact_portfolio_audit.yaml
+  sha256: 1a7634dc7e5bf8f9a930a6b67ebd65c8c87ae62bd75958a7333ace16a7d0b9d8
+evidence_file_count: 6
+required_evidence_file_count: 6
+all_required_evidence_files_exist: true
+executable_oracle_count: 1
+required_quantity_count: 11
+availability_class_count:
+  causal_derived: 1
+  measured: 1
+  measured_derived: 1
+  offline_oracle_only: 3
+  unavailable: 5
+candidate_formulation_count: 6
+formulation_class_count:
+  blocked_by_data_contract: 1
+  synthetic_oracle_only: 5
+full_pinn_training_authorized: false
+decision:
+  status: failed_no_training_authorized
+  summary: Contact equations are scientifically relevant but remain synthetic-oracle
+    or instrumentation work. The current dataset cannot identify stiffness, clearance,
+    force, load share, or contact state independently of TE.
+  key_findings:
+  - All six required source and implementation paths are present.
+  - Basic angle, torque, and direction inputs are causal.
+  - Unit-specific geometry, stiffness, clearance, force, and contact state are absent.
+  - The retained MMT MATLAB demonstrator is not a validated condition-varying contact
+    solver.
+  physical_residual_promoted: false
+  campaign_preparation_required: false
+  advance_to_next_phase: true
+  next_phase_number: 8
+  next_phase_title: Energy, Friction, And Efficiency PINNs

@@ -1,0 +1,12 @@
+quantity,availability_class,causal_runtime,online_model_input,evidence
+angular_position,measured_derived,True,True,Phase 0 encoder coordinate contract
+load_torque,measured,True,True,Phase 0 measured output-side torque
+direction,causal_derived,True,True,Phase 0 explicit direction contract
+component_manufacturing_errors,unavailable,False,False,Phase 0 and MMT parameter audit
+bearing_stiffness,unavailable,False,False,no unit-specific stiffness registry
+mesh_or_interface_stiffness,offline_oracle_only,False,False,source equations only; absent from measured dataset
+contact_clearance,unavailable,False,False,no unit-specific clearance metrology
+contact_force,offline_oracle_only,False,False,requires contact model or instrumentation
+normalized_load_share,offline_oracle_only,False,False,no measured per-contact force distribution
+active_contact_state,unavailable,False,False,no validated causal contact-state reconstruction
+trusted_contact_simulator_output,unavailable,False,False,papers and demonstrator exist but no validated local contact solver

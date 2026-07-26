@@ -1,0 +1,159 @@
+schema_version: 1
+metadata:
+  phase_number: 7
+  audit_id: wave52_phase7_contact_portfolio_feasibility
+  phase_title: Contact, Mesh Stiffness, And Load-Sharing PINNs
+  domain_slug: contact
+  training_allowed_by_configuration: false
+evidence_files:
+  - evidence_id: REF-SYNTHESIS
+    path: doc/reference_summaries/13_RV_Reducer_Theoretical_Mechanics_Reference_Synthesis.md
+    role: implementation-facing mechanics synthesis
+    required: true
+    executable_oracle: false
+  - evidence_id: MMT-SYNTHESIS
+    path: doc/reference_summaries/14_MMT_Linkage_Matlab_Project_Summary.md
+    role: equivalent-mechanism and contact-state limitations
+    required: true
+    executable_oracle: false
+  - evidence_id: XU-CONTACT
+    path: reference/te_modeling/theoretical_mechanics/dynamics_hysteresis_and_efficiency/2025_xu_hysteresis_torsional_rigidity_lost_motion_rv_reducer.pdf
+    role: stiffness, clearance, hysteresis, and lost-motion source
+    required: true
+    executable_oracle: false
+  - evidence_id: CHEN-CONTACT
+    path: reference/te_modeling/theoretical_mechanics/numerical_and_fea_models/2026_chen_predictive_te_geometric_errors_wear_rv_reducer.pdf
+    role: tooth and load contact, Hertz contact, and wear source
+    required: true
+    executable_oracle: false
+  - evidence_id: MMT-PAPER
+    path: reference/MMT_TEModeling.pdf
+    role: equivalent contact mechanism source
+    required: true
+    executable_oracle: false
+  - evidence_id: MMT-MATLAB
+    path: reference/te_modeling/implementations/mmt_linkage_matlab/main.m
+    role: retained harmonic linkage demonstrator
+    required: true
+    executable_oracle: true
+required_quantities:
+  - quantity: angular_position
+    availability_class: measured_derived
+    causal_runtime: true
+    online_model_input: true
+    evidence: Phase 0 encoder coordinate contract
+  - quantity: load_torque
+    availability_class: measured
+    causal_runtime: true
+    online_model_input: true
+    evidence: Phase 0 measured output-side torque
+  - quantity: direction
+    availability_class: causal_derived
+    causal_runtime: true
+    online_model_input: true
+    evidence: Phase 0 explicit direction contract
+  - quantity: component_manufacturing_errors
+    availability_class: unavailable
+    causal_runtime: false
+    online_model_input: false
+    evidence: Phase 0 and MMT parameter audit
+  - quantity: bearing_stiffness
+    availability_class: unavailable
+    causal_runtime: false
+    online_model_input: false
+    evidence: no unit-specific stiffness registry
+  - quantity: mesh_or_interface_stiffness
+    availability_class: offline_oracle_only
+    causal_runtime: false
+    online_model_input: false
+    evidence: source equations only; absent from measured dataset
+  - quantity: contact_clearance
+    availability_class: unavailable
+    causal_runtime: false
+    online_model_input: false
+    evidence: no unit-specific clearance metrology
+  - quantity: contact_force
+    availability_class: offline_oracle_only
+    causal_runtime: false
+    online_model_input: false
+    evidence: requires contact model or instrumentation
+  - quantity: normalized_load_share
+    availability_class: offline_oracle_only
+    causal_runtime: false
+    online_model_input: false
+    evidence: no measured per-contact force distribution
+  - quantity: active_contact_state
+    availability_class: unavailable
+    causal_runtime: false
+    online_model_input: false
+    evidence: no validated causal contact-state reconstruction
+  - quantity: trusted_contact_simulator_output
+    availability_class: unavailable
+    causal_runtime: false
+    online_model_input: false
+    evidence: papers and demonstrator exist but no validated local contact solver
+candidate_formulations:
+  - formulation_id: PINN-K1
+    name: reduced positive mesh-stiffness residual
+    feasibility_class: synthetic_oracle_only
+    full_pinn_eligible: false
+    reason: >-
+      Positive stiffness is a valid synthetic constraint, but no unit-specific
+      mesh stiffness or independently observed elastic contact state exists.
+  - formulation_id: PINN-K2
+    name: non-penetration and contact-activation constraint
+    feasibility_class: synthetic_oracle_only
+    full_pinn_eligible: false
+    reason: >-
+      Non-penetration can be unit-tested synthetically, while clearance,
+      geometry, and active-contact state are unavailable on real samples.
+  - formulation_id: PINN-K3
+    name: smooth complementarity contact PINN
+    feasibility_class: synthetic_oracle_only
+    full_pinn_eligible: false
+    reason: >-
+      Smooth complementarity is differentiable, but its gap and force
+      variables have no independent local observations.
+  - formulation_id: PINN-K4
+    name: normalized load-sharing constraint
+    feasibility_class: synthetic_oracle_only
+    full_pinn_eligible: false
+    reason: >-
+      The load-share sum can be tested against synthetic force partitions, but
+      the repository does not measure individual contact forces.
+  - formulation_id: PINN-K5
+    name: reduced contact oracle plus learned correction
+    feasibility_class: synthetic_oracle_only
+    full_pinn_eligible: false
+    reason: >-
+      The references support future oracle construction, but no validated
+      repository contact solver currently produces paired oracle targets.
+  - formulation_id: PINN-K6
+    name: latent contact-state model bounded by offline simulations
+    feasibility_class: blocked_by_data_contract
+    full_pinn_eligible: false
+    reason: >-
+      Neither a trusted simulation population nor measured contact-state
+      labels exist, leaving the latent state unidentifiable from TE alone.
+decision:
+  status: failed_no_training_authorized
+  summary: >-
+    Contact equations are scientifically relevant but remain synthetic-oracle
+    or instrumentation work. The current dataset cannot identify stiffness,
+    clearance, force, load share, or contact state independently of TE.
+  key_findings:
+    - All six required source and implementation paths are present.
+    - Basic angle, torque, and direction inputs are causal.
+    - Unit-specific geometry, stiffness, clearance, force, and contact state are absent.
+    - The retained MMT MATLAB demonstrator is not a validated condition-varying contact solver.
+  physical_residual_promoted: false
+  campaign_preparation_required: false
+  advance_to_next_phase: true
+  next_phase_number: 8
+  next_phase_title: Energy, Friction, And Efficiency PINNs
+outputs:
+  evidence_csv: output/analysis/pinn_program_contact/phase7_evidence_file_audit.csv
+  quantity_csv: output/analysis/pinn_program_contact/phase7_required_quantity_audit.csv
+  formulation_csv: output/analysis/pinn_program_contact/phase7_formulation_feasibility.csv
+  audit_yaml: output/analysis/pinn_program_contact/phase7_contact_portfolio_audit.yaml
+  report_markdown: doc/reports/analysis/model_development_waves/wave_5_2/contact_mesh_stiffness_load_sharing_pinn/[2026-07-26]/phase7_contact_mesh_stiffness_load_sharing_report.md

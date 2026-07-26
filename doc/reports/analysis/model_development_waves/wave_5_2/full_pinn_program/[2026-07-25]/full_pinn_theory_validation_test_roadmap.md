@@ -490,9 +490,13 @@ comparator but not a full PINN. No Phase 6 physical residual is promoted.
 Detailed contact equations remain offline until a reduced formulation is both
 identifiable and supported by causally available inputs.
 
-**Status: active next.** Start with a source-equation, geometry, stiffness,
-clearance, contact-force, load-sharing, and simulator-availability audit
-before implementing a contact residual.
+**Status: completed feasibility result; no training authorized.** Six evidence
+files, eleven required quantities, and six contact formulations were audited.
+Angle, torque, and direction are causal, but component errors, bearing and
+mesh stiffness, clearances, contact force, load share, active contact state,
+and a trusted local solver are unavailable for real-data identification.
+`PINN-K1` through `PINN-K5` remain synthetic-oracle-only and `PINN-K6` is
+blocked. No Phase 7 physical residual is promoted.
 
 ## Phase 8: Energy, Friction, And Efficiency PINNs
 
@@ -527,6 +531,9 @@ before implementing a contact residual.
 
 Energy constraints may be retained as auxiliary physics only when their
 required power or force quantities are measured or validated causally.
+
+**Status: active next.** Start with force, power, efficiency, dissipation,
+friction-loss, temperature, and deployment-observability audits.
 
 ## Phase 9: Geometry, Tolerances, MMT, And Manufacturing Priors
 

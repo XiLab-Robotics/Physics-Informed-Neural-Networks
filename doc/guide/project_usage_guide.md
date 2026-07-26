@@ -634,6 +634,23 @@ inertia, commanded drive law, repeated dynamic trajectories, and a validated
 transient TE target are unavailable. No Phase 6 dynamic full-PINN residual or
 training campaign is authorized; Phase 7 is the next active gate.
 
+## Phase 7 Contact Portfolio Audit
+
+Build and validate the source, required-quantity, and formulation feasibility
+matrices:
+
+```powershell
+python -B scripts/analysis/pinn_program_portfolios/build_physics_portfolio_feasibility_audit.py `
+  --config config/analysis/pinn_program_portfolios/phase7_contact_portfolio_audit.yaml
+python -B scripts/analysis/pinn_program_portfolios/validate_physics_portfolio_feasibility_audit.py `
+  --config config/analysis/pinn_program_portfolios/phase7_contact_portfolio_audit.yaml
+```
+
+All six evidence paths exist. The current contract does not independently
+observe stiffness, clearance, force, load share, or active contact state, and
+no validated local contact solver supplies paired oracle outputs. Phase 7
+therefore closes without training; Phase 8 is next.
+
 ## Relevant Project Paths
 
 The current usage flow mainly relies on these folders:
@@ -656,6 +673,9 @@ The current usage flow mainly relies on these folders:
 
 - `scripts/analysis/pinn_program_dynamics/`
   Raw-trajectory Phase 6 causal-derivative and dynamic observability audit.
+
+- `scripts/analysis/pinn_program_portfolios/`
+  Configuration-driven feasibility audits for source-heavy physics branches.
 
 - `scripts/reports/`
   Styled report-export utilities.

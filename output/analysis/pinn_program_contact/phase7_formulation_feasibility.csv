@@ -1,0 +1,7 @@
+formulation_id,name,feasibility_class,full_pinn_eligible,reason
+PINN-K1,reduced positive mesh-stiffness residual,synthetic_oracle_only,False,"Positive stiffness is a valid synthetic constraint, but no unit-specific mesh stiffness or independently observed elastic contact state exists."
+PINN-K2,non-penetration and contact-activation constraint,synthetic_oracle_only,False,"Non-penetration can be unit-tested synthetically, while clearance, geometry, and active-contact state are unavailable on real samples."
+PINN-K3,smooth complementarity contact PINN,synthetic_oracle_only,False,"Smooth complementarity is differentiable, but its gap and force variables have no independent local observations."
+PINN-K4,normalized load-sharing constraint,synthetic_oracle_only,False,"The load-share sum can be tested against synthetic force partitions, but the repository does not measure individual contact forces."
+PINN-K5,reduced contact oracle plus learned correction,synthetic_oracle_only,False,"The references support future oracle construction, but no validated repository contact solver currently produces paired oracle targets."
+PINN-K6,latent contact-state model bounded by offline simulations,blocked_by_data_contract,False,"Neither a trusted simulation population nor measured contact-state labels exist, leaving the latent state unidentifiable from TE alone."
