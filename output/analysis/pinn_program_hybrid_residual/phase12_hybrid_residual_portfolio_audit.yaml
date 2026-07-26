@@ -1,0 +1,42 @@
+schema_version: 1
+phase_number: 12
+audit_id: wave52_phase12_hybrid_residual_portfolio_feasibility
+phase_title: Hybrid Analytical And Learned Residual PINNs
+domain_slug: hybrid_residual
+generated_at_utc: '2026-07-26T19:45:59.415379+00:00'
+source_configuration:
+  path: config/analysis/pinn_program_portfolios/phase12_hybrid_residual_portfolio_audit.yaml
+  sha256: d564bae918e66f88ffe187e5d7b7d964e1fbbf69301ab054810d327e3800d649
+evidence_file_count: 4
+required_evidence_file_count: 4
+all_required_evidence_files_exist: true
+executable_oracle_count: 1
+required_quantity_count: 8
+availability_class_count:
+  available: 1
+  available_for_windowed_models: 1
+  measured_data_benchmarked: 1
+  offline_evaluation_only: 1
+  reference_implementation: 1
+  target_only: 1
+  unavailable: 2
+candidate_formulation_count: 6
+formulation_class_count:
+  blocked_by_data_contract: 1
+  real_data_trainable: 5
+full_pinn_training_authorized: false
+decision:
+  status: failed_no_training_authorized
+  summary: Five hybrid architectures are empirically trainable, but none qualifies
+    as a full PINN because Phases 2 through 11 promoted no validated physical residual
+    and the Phase 1 anchor remains a semi-analytical predictor.
+  key_findings:
+  - The Polynomial-Fourier anchor and learned residuals can be combined causally.
+  - Empirical trainability is not equivalent to full-PINN eligibility.
+  - Phase 2 and Phase 3 physical constraints failed promotion.
+  - A regime-gated mixture is blocked because no physical regime was validated.
+  physical_residual_promoted: false
+  campaign_preparation_required: false
+  advance_to_next_phase: true
+  next_phase_number: 13
+  next_phase_title: Cross-Formulation Tournament

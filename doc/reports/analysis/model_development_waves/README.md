@@ -23,7 +23,9 @@ model-development waves.
     retains wear and degradation laws as synthetic-only because longitudinal
     lifecycle evidence is absent. Phase 11 preserves electromechanical coupling
     as synthetic or instrumentation-blocked work because synchronized
-    electrical channels are absent. Phase 12 hybrid residual design is next.
+    electrical channels are absent. Phase 12 preserves five empirically
+    trainable hybrid architectures but promotes none as a full PINN because no
+    physical residual survived isolation. Phase 13 tournament entry is next.
 
 The folder names use stable filesystem slugs. Human-facing report titles may
 retain legacy wave labels when they describe completed historical work.

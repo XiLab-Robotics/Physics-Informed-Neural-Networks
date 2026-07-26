@@ -1,0 +1,122 @@
+schema_version: 1
+metadata:
+  phase_number: 12
+  audit_id: wave52_phase12_hybrid_residual_portfolio_feasibility
+  phase_title: Hybrid Analytical And Learned Residual PINNs
+  domain_slug: hybrid_residual
+  training_allowed_by_configuration: false
+evidence_files:
+  - evidence_id: PHASE1-BENCHMARK
+    path: doc/reports/analysis/model_development_waves/wave_5_2/polynomial_fourier_benchmark/[2026-07-25]/phase1_polynomial_fourier_analytical_benchmark_report.md
+    role: semi-analytical Polynomial-Fourier benchmark
+    required: true
+    executable_oracle: true
+  - evidence_id: PHASE2-CLOSEOUT
+    path: doc/reports/campaign_results/wave_5_2/2026-07-26-16-53-50_phase2_harmonic_kinematic_pinn_campaign_results_report.md
+    role: harmonic and kinematic constraint decision
+    required: true
+    executable_oracle: false
+  - evidence_id: PHASE3-CLOSEOUT
+    path: doc/reports/campaign_results/wave_5_2/2026-07-26-20-13-18_phase3_quasi_static_compliance_pinn_campaign_results_report.md
+    role: compliance residual decision
+    required: true
+    executable_oracle: false
+  - evidence_id: HYBRID-SYNTHESIS
+    path: doc/reference_summaries/12_ML_Compensation_Reference_Synthesis.md
+    role: analytical plus learned compensation pattern
+    required: true
+    executable_oracle: false
+required_quantities:
+  - quantity: semi_analytical_curve_component
+    availability_class: measured_data_benchmarked
+    causal_runtime: true
+    online_model_input: true
+    evidence: Phase 1 Polynomial-Fourier implementations
+  - quantity: promoted_physical_residual
+    availability_class: unavailable
+    causal_runtime: false
+    online_model_input: false
+    evidence: Phase 2 and Phase 3 promoted no tested residual
+  - quantity: learned_residual_target
+    availability_class: target_only
+    causal_runtime: false
+    online_model_input: false
+    evidence: measured TE can supervise training but is not an inference input
+  - quantity: direction_specific_structure
+    availability_class: available
+    causal_runtime: true
+    online_model_input: true
+    evidence: direction-separated common split and reference implementations
+  - quantity: temporal_history
+    availability_class: available_for_windowed_models
+    causal_runtime: true
+    online_model_input: true
+    evidence: accepted periodic GRU contract
+  - quantity: uncertainty_evidence
+    availability_class: offline_evaluation_only
+    causal_runtime: false
+    online_model_input: false
+    evidence: Wave 4.2 exploratory quantile results
+  - quantity: validated_physical_regime_gate
+    availability_class: unavailable
+    causal_runtime: false
+    online_model_input: false
+    evidence: no isolated physical mechanism was promoted
+  - quantity: plc_analytical_execution_path
+    availability_class: reference_implementation
+    causal_runtime: true
+    online_model_input: true
+    evidence: direction-specific Polynomial Fourier Series PLC implementation
+candidate_formulations:
+  - formulation_id: PINN-R1
+    name: analytical law plus bounded MLP residual
+    feasibility_class: real_data_trainable
+    full_pinn_eligible: false
+    reason: Trainable as an empirical hybrid, but no promoted physical constraint survives.
+  - formulation_id: PINN-R2
+    name: analytical law plus temporal residual
+    feasibility_class: real_data_trainable
+    full_pinn_eligible: false
+    reason: Causal temporal residuals are feasible, but the anchor is semi-analytical.
+  - formulation_id: PINN-R3
+    name: global physical component plus localized learned residual
+    feasibility_class: real_data_trainable
+    full_pinn_eligible: false
+    reason: Localization is testable, but the component is not a validated physical law.
+  - formulation_id: PINN-R4
+    name: uncertainty-aware physical residual
+    feasibility_class: real_data_trainable
+    full_pinn_eligible: false
+    reason: Uncertainty can be modeled empirically but does not supply physical consistency.
+  - formulation_id: PINN-R5
+    name: mixture model gated by validated physical regime
+    feasibility_class: blocked_by_data_contract
+    full_pinn_eligible: false
+    reason: No physical regime gate passed an isolated pilot.
+  - formulation_id: PINN-R6
+    name: shared analytical trunk with direction-specific residuals
+    feasibility_class: real_data_trainable
+    full_pinn_eligible: false
+    reason: Directional sharing is feasible, but the trunk remains semi-analytical.
+decision:
+  status: failed_no_training_authorized
+  summary: >-
+    Five hybrid architectures are empirically trainable, but none qualifies as
+    a full PINN because Phases 2 through 11 promoted no validated physical
+    residual and the Phase 1 anchor remains a semi-analytical predictor.
+  key_findings:
+    - The Polynomial-Fourier anchor and learned residuals can be combined causally.
+    - Empirical trainability is not equivalent to full-PINN eligibility.
+    - Phase 2 and Phase 3 physical constraints failed promotion.
+    - A regime-gated mixture is blocked because no physical regime was validated.
+  physical_residual_promoted: false
+  campaign_preparation_required: false
+  advance_to_next_phase: true
+  next_phase_number: 13
+  next_phase_title: Cross-Formulation Tournament
+outputs:
+  evidence_csv: output/analysis/pinn_program_hybrid_residual/phase12_evidence_file_audit.csv
+  quantity_csv: output/analysis/pinn_program_hybrid_residual/phase12_required_quantity_audit.csv
+  formulation_csv: output/analysis/pinn_program_hybrid_residual/phase12_formulation_feasibility.csv
+  audit_yaml: output/analysis/pinn_program_hybrid_residual/phase12_hybrid_residual_portfolio_audit.yaml
+  report_markdown: doc/reports/analysis/model_development_waves/wave_5_2/hybrid_analytical_learned_residual_pinn/[2026-07-26]/phase12_hybrid_analytical_learned_residual_report.md

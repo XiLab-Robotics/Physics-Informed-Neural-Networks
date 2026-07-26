@@ -697,13 +697,20 @@ calibration are absent. `PINN-M2/M4` remain synthetic-oracle-only;
 Hybrid models advance only when the learned residual adds held-out value
 without erasing the interpretability or stability of the physical component.
 
-**Status: active next.** Audit the surviving analytical and empirical
-components, define the three-way ablation contract, and verify whether any
-hybrid candidate can qualify as a full PINN before preparing training.
+**Status: completed qualification result; no full-PINN training authorized.**
+Four evidence files, eight quantities, and six hybrid formulations were
+audited. `PINN-R1/R2/R3/R4/R6` are empirically trainable, but none is full-PINN
+eligible because no physical residual survived Phases 2 through 11 and the
+Phase 1 anchor remains semi-analytical. `PINN-R5` is blocked by the absence of
+a validated physical regime gate.
 
 ## Phase 13: Cross-Formulation Tournament
 
 Every surviving isolated formulation enters a common comparison.
+
+**Status: active next.** Build the entry roster first. Run no tournament
+training unless at least one isolated formulation is full-PINN eligible under
+the common evidence and curve-first gates.
 
 ### Required Surfaces
 

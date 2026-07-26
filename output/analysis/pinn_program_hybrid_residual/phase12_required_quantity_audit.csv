@@ -1,0 +1,9 @@
+quantity,availability_class,causal_runtime,online_model_input,evidence
+semi_analytical_curve_component,measured_data_benchmarked,True,True,Phase 1 Polynomial-Fourier implementations
+promoted_physical_residual,unavailable,False,False,Phase 2 and Phase 3 promoted no tested residual
+learned_residual_target,target_only,False,False,measured TE can supervise training but is not an inference input
+direction_specific_structure,available,True,True,direction-separated common split and reference implementations
+temporal_history,available_for_windowed_models,True,True,accepted periodic GRU contract
+uncertainty_evidence,offline_evaluation_only,False,False,Wave 4.2 exploratory quantile results
+validated_physical_regime_gate,unavailable,False,False,no isolated physical mechanism was promoted
+plc_analytical_execution_path,reference_implementation,True,True,direction-specific Polynomial Fourier Series PLC implementation

@@ -706,6 +706,20 @@ sidebands, health labels, or latency calibration. Phase 11 closes without
 training; electromechanical coupling remains synthetic or blocked and Phase 12
 is next.
 
+## Phase 12 Hybrid Residual Portfolio Audit
+
+```powershell
+python -B scripts/analysis/pinn_program_portfolios/build_physics_portfolio_feasibility_audit.py `
+  --config config/analysis/pinn_program_portfolios/phase12_hybrid_residual_portfolio_audit.yaml
+python -B scripts/analysis/pinn_program_portfolios/validate_physics_portfolio_feasibility_audit.py `
+  --config config/analysis/pinn_program_portfolios/phase12_hybrid_residual_portfolio_audit.yaml
+```
+
+Five analytical-plus-learned architectures are empirically trainable, but none
+qualifies as a full PINN: the Polynomial-Fourier anchor is semi-analytical and
+Phases 2 through 11 promoted no physical residual. Phase 12 closes without a
+campaign and Phase 13 evaluates tournament entry.
+
 ## Relevant Project Paths
 
 The current usage flow mainly relies on these folders:

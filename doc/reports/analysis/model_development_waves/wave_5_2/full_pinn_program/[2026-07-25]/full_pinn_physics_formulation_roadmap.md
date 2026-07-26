@@ -3,8 +3,8 @@
 ## Executive Decision
 
 Wave 5.2 remains the physics-informed model-development wave. Its general
-full-PINN program has completed Phases 0 through 11 and now advances to the
-Phase 12 hybrid analytical and learned residual gate.
+full-PINN program has completed Phases 0 through 12 and now advances to the
+Phase 13 cross-formulation tournament gate.
 
 Only the paper-faithful MMT implementation is deferred. The completed MMT
 diagnostic established that the available geometry-locked signatures are
@@ -26,7 +26,7 @@ instrumentation, isolated-PINN, or integration path.
 
 | Program branch | Current state | Decision |
 | --- | --- | --- |
-| General Wave 5.2 full-PINN program | Phases 0-11 complete; Phase 12 active next | Audit references, formalize candidate equations, and validate them before implementation. |
+| General Wave 5.2 full-PINN program | Phases 0-12 complete; Phase 13 active next | Audit references, formalize candidate equations, and validate them before implementation. |
 | MMT-paper-faithful full PINN | deferred future TODO | Reopen only with condition-varying causal component-error measurements or a validated causal contact-state reconstruction. |
 | Wave 6 integrated multi-task and multi-head models | sequenced after Wave 5.2 evidence | Do not design a training campaign until bounded PINN pilots identify useful physics-informed components. |
 
@@ -183,17 +183,17 @@ not be mixed in the first experiment.
 
 ## Immediate TODO
 
-Phases 0 through 11 are complete. Phase 11 verified three evidence files, eight
-required quantities, and four `PINN-M` candidates. Mechanical channels exist,
-but synchronized motor current, drive state, electrical power, current
-sidebands, health labels, and cross-domain latency calibration are absent.
+Phases 0 through 12 are complete. Phase 12 verified four evidence files, eight
+required quantities, and six `PINN-R` candidates. Five architectures are
+empirically trainable, but none qualifies as a full PINN because no isolated
+physical residual was promoted and the Phase 1 anchor is semi-analytical.
 
-1. Begin Phase 12 with the analytical-only, learned-only, and combined
-   ablation contract.
-2. Inventory which Phase 1 through Phase 11 components are validated,
-   empirical, rejected, synthetic, offline, or blocked.
-3. Classify the `PINN-R` portfolio without relabeling a learned residual as a
-   full PINN when no physical consistency term survives.
+1. Begin Phase 13 with a roster of every isolated formulation and its exact
+   promotion, rejection, synthetic, offline, deferred, or blocked status.
+2. Apply the common curve-first, identifiability, causality, and deployment
+   entry criteria before allowing a tournament run.
+3. Produce an explicit no-contest decision if zero full-PINN candidates meet
+   the entry gate.
 4. Keep Wave 6 integration deferred until at least two complementary physical
    components pass isolated pilots.
 

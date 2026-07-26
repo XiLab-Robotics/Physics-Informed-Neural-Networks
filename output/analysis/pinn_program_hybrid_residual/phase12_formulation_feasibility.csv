@@ -1,0 +1,7 @@
+formulation_id,name,feasibility_class,full_pinn_eligible,reason
+PINN-R1,analytical law plus bounded MLP residual,real_data_trainable,False,"Trainable as an empirical hybrid, but no promoted physical constraint survives."
+PINN-R2,analytical law plus temporal residual,real_data_trainable,False,"Causal temporal residuals are feasible, but the anchor is semi-analytical."
+PINN-R3,global physical component plus localized learned residual,real_data_trainable,False,"Localization is testable, but the component is not a validated physical law."
+PINN-R4,uncertainty-aware physical residual,real_data_trainable,False,Uncertainty can be modeled empirically but does not supply physical consistency.
+PINN-R5,mixture model gated by validated physical regime,blocked_by_data_contract,False,No physical regime gate passed an isolated pilot.
+PINN-R6,shared analytical trunk with direction-specific residuals,real_data_trainable,False,"Directional sharing is feasible, but the trunk remains semi-analytical."
