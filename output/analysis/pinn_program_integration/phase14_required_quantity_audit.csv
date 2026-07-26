@@ -1,0 +1,9 @@
+quantity,availability_class,causal_runtime,online_model_input,evidence
+promoted_physical_component_count,zero,False,False,Phase 13 roster
+minimum_required_component_count,two,False,False,Phase 14 contract
+shared_variable_contract,unavailable,False,False,no eligible component pair
+unit_and_scale_compatibility,untestable,False,False,no eligible component pair
+gradient_and_loss_compatibility,untestable,False,False,no eligible component pair
+joint_identifiability,untestable,False,False,no eligible component pair
+complete_causal_input_matrix,unavailable,False,False,mechanism inputs remain missing
+integrated_twincat_path,unavailable,False,False,no integrated architecture

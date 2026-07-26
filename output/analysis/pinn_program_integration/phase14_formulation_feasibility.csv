@@ -1,0 +1,9 @@
+formulation_id,name,feasibility_class,full_pinn_eligible,reason
+INT-1,periodic plus compliance,blocked_by_data_contract,False,Both tested physical constraints failed promotion.
+INT-2,periodic plus hysteresis,blocked_by_data_contract,False,Periodic constraint was rejected and hysteresis lacks repeated loops.
+INT-3,periodic plus dynamic state,blocked_by_data_contract,False,Periodic constraint was rejected and dynamic inertia is unidentifiable.
+INT-4,periodic plus bidirectional compatibility,blocked_by_data_contract,False,Neither isolated physical component passed promotion.
+INT-5,compliance plus hysteresis,blocked_by_data_contract,False,Compliance was rejected and hysteresis is not trainable locally.
+INT-6,reduced contact plus dynamic state,synthetic_oracle_only,False,Contact is synthetic and dynamic state lacks identifiable excitation.
+INT-7,uncertainty around validated physics,blocked_by_data_contract,False,No validated physical component exists to wrap.
+INT-8,wear or electromechanical auxiliary heads,synthetic_oracle_only,False,Both branches require unavailable longitudinal or electrical datasets.

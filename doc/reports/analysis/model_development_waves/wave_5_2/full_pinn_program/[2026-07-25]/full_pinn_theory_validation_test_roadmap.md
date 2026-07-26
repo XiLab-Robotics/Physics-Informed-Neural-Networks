@@ -744,9 +744,11 @@ offset, harmonic, dynamic, state, uncertainty, or diagnostic component.
 
 ## Phase 14: Integrated Multi-Physics PINNs
 
-**Status: active next.** Require at least two complementary promoted physical
-components and verify loss, variable, scale, interface, causal, and deployment
-compatibility before authorizing any integrated model.
+**Status: completed no-integration result; no training authorized.** Four
+evidence files, eight integration requirements, and eight planned combinations
+were audited. Zero promoted physical components are available against the
+minimum requirement of two, so loss interactions, joint identifiability, and
+an integrated deployment path cannot be validly tested.
 
 Only independently validated components may be combined.
 
@@ -780,6 +782,10 @@ An integrated model must outperform its strongest isolated components on
 multiple curve-first surfaces and retain inspectable intermediate quantities.
 
 ## Phase 15: Wave 6 Entry
+
+**Status: active next.** Evaluate every entry criterion explicitly and keep
+physics-integrated Wave 6 closed unless the required isolated and combined
+evidence exists.
 
 Wave 6 may begin when:
 

@@ -1,0 +1,67 @@
+schema_version: 1
+metadata:
+  phase_number: 14
+  audit_id: wave52_phase14_integrated_multi_physics_gate
+  phase_title: Integrated Multi-Physics PINNs
+  domain_slug: integrated_multi_physics
+  training_allowed_by_configuration: false
+evidence_files:
+  - evidence_id: PHASE13-ROSTER
+    path: doc/reports/analysis/model_development_waves/wave_5_2/cross_formulation_tournament/[2026-07-26]/phase13_cross_formulation_tournament_report.md
+    role: authoritative isolated-formulation roster
+    required: true
+    executable_oracle: false
+  - evidence_id: PHASE2-CLOSEOUT
+    path: doc/reports/campaign_results/wave_5_2/2026-07-26-16-53-50_phase2_harmonic_kinematic_pinn_campaign_results_report.md
+    role: rejected periodic and harmonic physical constraints
+    required: true
+    executable_oracle: false
+  - evidence_id: PHASE3-CLOSEOUT
+    path: doc/reports/campaign_results/wave_5_2/2026-07-26-20-13-18_phase3_quasi_static_compliance_pinn_campaign_results_report.md
+    role: rejected compliance physical constraints
+    required: true
+    executable_oracle: false
+  - evidence_id: PHASE12-HYBRID
+    path: doc/reports/analysis/model_development_waves/wave_5_2/hybrid_analytical_learned_residual_pinn/[2026-07-26]/phase12_hybrid_analytical_learned_residual_report.md
+    role: empirical hybrid qualification boundary
+    required: true
+    executable_oracle: false
+required_quantities:
+  - {quantity: promoted_physical_component_count, availability_class: zero, causal_runtime: false, online_model_input: false, evidence: Phase 13 roster}
+  - {quantity: minimum_required_component_count, availability_class: two, causal_runtime: false, online_model_input: false, evidence: Phase 14 contract}
+  - {quantity: shared_variable_contract, availability_class: unavailable, causal_runtime: false, online_model_input: false, evidence: no eligible component pair}
+  - {quantity: unit_and_scale_compatibility, availability_class: untestable, causal_runtime: false, online_model_input: false, evidence: no eligible component pair}
+  - {quantity: gradient_and_loss_compatibility, availability_class: untestable, causal_runtime: false, online_model_input: false, evidence: no eligible component pair}
+  - {quantity: joint_identifiability, availability_class: untestable, causal_runtime: false, online_model_input: false, evidence: no eligible component pair}
+  - {quantity: complete_causal_input_matrix, availability_class: unavailable, causal_runtime: false, online_model_input: false, evidence: mechanism inputs remain missing}
+  - {quantity: integrated_twincat_path, availability_class: unavailable, causal_runtime: false, online_model_input: false, evidence: no integrated architecture}
+candidate_formulations:
+  - {formulation_id: INT-1, name: periodic plus compliance, feasibility_class: blocked_by_data_contract, full_pinn_eligible: false, reason: Both tested physical constraints failed promotion.}
+  - {formulation_id: INT-2, name: periodic plus hysteresis, feasibility_class: blocked_by_data_contract, full_pinn_eligible: false, reason: Periodic constraint was rejected and hysteresis lacks repeated loops.}
+  - {formulation_id: INT-3, name: periodic plus dynamic state, feasibility_class: blocked_by_data_contract, full_pinn_eligible: false, reason: Periodic constraint was rejected and dynamic inertia is unidentifiable.}
+  - {formulation_id: INT-4, name: periodic plus bidirectional compatibility, feasibility_class: blocked_by_data_contract, full_pinn_eligible: false, reason: Neither isolated physical component passed promotion.}
+  - {formulation_id: INT-5, name: compliance plus hysteresis, feasibility_class: blocked_by_data_contract, full_pinn_eligible: false, reason: Compliance was rejected and hysteresis is not trainable locally.}
+  - {formulation_id: INT-6, name: reduced contact plus dynamic state, feasibility_class: synthetic_oracle_only, full_pinn_eligible: false, reason: Contact is synthetic and dynamic state lacks identifiable excitation.}
+  - {formulation_id: INT-7, name: uncertainty around validated physics, feasibility_class: blocked_by_data_contract, full_pinn_eligible: false, reason: No validated physical component exists to wrap.}
+  - {formulation_id: INT-8, name: wear or electromechanical auxiliary heads, feasibility_class: synthetic_oracle_only, full_pinn_eligible: false, reason: Both branches require unavailable longitudinal or electrical datasets.}
+decision:
+  status: failed_no_training_authorized
+  summary: >-
+    Integrated multi-physics training is not authorized because zero promoted
+    physical components are available against a minimum requirement of two.
+  key_findings:
+    - The authoritative Phase 13 roster contains zero eligible physical components.
+    - Loss and identifiability interactions cannot be tested without a valid pair.
+    - Empirical, rejected, and synthetic mechanisms are not integration-ready physics.
+    - The integration sequence remains preserved with explicit reopening conditions.
+  physical_residual_promoted: false
+  campaign_preparation_required: false
+  advance_to_next_phase: true
+  next_phase_number: 15
+  next_phase_title: Wave 6 Entry
+outputs:
+  evidence_csv: output/analysis/pinn_program_integration/phase14_evidence_file_audit.csv
+  quantity_csv: output/analysis/pinn_program_integration/phase14_required_quantity_audit.csv
+  formulation_csv: output/analysis/pinn_program_integration/phase14_formulation_feasibility.csv
+  audit_yaml: output/analysis/pinn_program_integration/phase14_integrated_multi_physics_audit.yaml
+  report_markdown: doc/reports/analysis/model_development_waves/wave_5_2/integrated_multi_physics_pinn/[2026-07-26]/phase14_integrated_multi_physics_report.md

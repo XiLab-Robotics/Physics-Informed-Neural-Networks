@@ -734,6 +734,20 @@ full-PINN-eligible candidates. The correct tournament result is no contest:
 no training and no artificial ranking of rejected, empirical, offline,
 synthetic, deferred, or blocked mechanisms. Phase 14 integration is next.
 
+## Phase 14 Integrated Multi-Physics Portfolio Audit
+
+```powershell
+python -B scripts/analysis/pinn_program_portfolios/build_physics_portfolio_feasibility_audit.py `
+  --config config/analysis/pinn_program_portfolios/phase14_integrated_multi_physics_audit.yaml
+python -B scripts/analysis/pinn_program_portfolios/validate_physics_portfolio_feasibility_audit.py `
+  --config config/analysis/pinn_program_portfolios/phase14_integrated_multi_physics_audit.yaml
+```
+
+The integration contract requires at least two complementary promoted physical
+components; the current roster contains zero. Phase 14 therefore closes
+without a campaign and preserves all eight planned combinations with explicit
+reopening conditions. Phase 15 evaluates Wave 6 entry.
+
 ## Relevant Project Paths
 
 The current usage flow mainly relies on these folders:

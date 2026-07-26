@@ -3,8 +3,8 @@
 ## Executive Decision
 
 Wave 5.2 remains the physics-informed model-development wave. Its general
-full-PINN program has completed Phases 0 through 13 and now advances to the
-Phase 14 integrated multi-physics gate.
+full-PINN program has completed Phases 0 through 14 and now advances to the
+Phase 15 Wave 6 entry gate.
 
 Only the paper-faithful MMT implementation is deferred. The completed MMT
 diagnostic established that the available geometry-locked signatures are
@@ -26,7 +26,7 @@ instrumentation, isolated-PINN, or integration path.
 
 | Program branch | Current state | Decision |
 | --- | --- | --- |
-| General Wave 5.2 full-PINN program | Phases 0-13 complete; Phase 14 active next | Audit references, formalize candidate equations, and validate them before implementation. |
+| General Wave 5.2 full-PINN program | Phases 0-14 complete; Phase 15 active next | Audit references, formalize candidate equations, and validate them before implementation. |
 | MMT-paper-faithful full PINN | deferred future TODO | Reopen only with condition-varying causal component-error measurements or a validated causal contact-state reconstruction. |
 | Wave 6 integrated multi-task and multi-head models | sequenced after Wave 5.2 evidence | Do not design a training campaign until bounded PINN pilots identify useful physics-informed components. |
 
@@ -183,16 +183,16 @@ not be mixed in the first experiment.
 
 ## Immediate TODO
 
-Phases 0 through 13 are complete. Phase 13 verified all thirteen phase-evidence
-files and twelve formulation families. Zero isolated candidates are full-PINN
-eligible, so the tournament closed as no contest without training.
+Phases 0 through 14 are complete. Phase 14 verified four evidence files, eight
+integration requirements, and eight planned combinations. Zero promoted
+components are available against a minimum of two, so integration closed
+without training.
 
-1. Begin Phase 14 by requiring at least two complementary promoted physical
-   components before constructing an integrated model.
-2. Audit loss compatibility, shared variables, scales, interfaces, and causal
-   deployment prerequisites.
-3. Produce an explicit no-integration decision when the minimum component gate
-   is not met.
+1. Begin Phase 15 by evaluating every Wave 6 entry criterion explicitly.
+2. Separate entry to a physics-integrated Wave 6 branch from future empirical
+   multi-task or multi-head research.
+3. Close the sixteen-phase Wave 5.2 roadmap with reopening conditions and one
+   concrete next program decision.
 4. Keep Wave 6 integration deferred until at least two complementary physical
    components pass isolated pilots.
 

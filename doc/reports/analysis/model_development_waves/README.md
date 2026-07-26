@@ -26,8 +26,9 @@ model-development waves.
     electrical channels are absent. Phase 12 preserves five empirically
     trainable hybrid architectures but promotes none as a full PINN because no
     physical residual survived isolation. Phase 13 closes the tournament as no
-    contest with zero eligible full-PINN candidates. Phase 14 integration is
-    next.
+    contest with zero eligible full-PINN candidates. Phase 14 closes
+    integration because zero promoted components are available against the
+    minimum of two. Phase 15 Wave 6 entry is next.
 
 The folder names use stable filesystem slugs. Human-facing report titles may
 retain legacy wave labels when they describe completed historical work.

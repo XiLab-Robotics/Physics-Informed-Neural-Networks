@@ -1,0 +1,38 @@
+schema_version: 1
+phase_number: 14
+audit_id: wave52_phase14_integrated_multi_physics_gate
+phase_title: Integrated Multi-Physics PINNs
+domain_slug: integrated_multi_physics
+generated_at_utc: '2026-07-26T19:52:47.684078+00:00'
+source_configuration:
+  path: config/analysis/pinn_program_portfolios/phase14_integrated_multi_physics_audit.yaml
+  sha256: ba1d94bad298628e48772027d724720a3278afadec39fc98fb8866d9d33c8053
+evidence_file_count: 4
+required_evidence_file_count: 4
+all_required_evidence_files_exist: true
+executable_oracle_count: 0
+required_quantity_count: 8
+availability_class_count:
+  two: 1
+  unavailable: 3
+  untestable: 3
+  zero: 1
+candidate_formulation_count: 8
+formulation_class_count:
+  blocked_by_data_contract: 6
+  synthetic_oracle_only: 2
+full_pinn_training_authorized: false
+decision:
+  status: failed_no_training_authorized
+  summary: Integrated multi-physics training is not authorized because zero promoted
+    physical components are available against a minimum requirement of two.
+  key_findings:
+  - The authoritative Phase 13 roster contains zero eligible physical components.
+  - Loss and identifiability interactions cannot be tested without a valid pair.
+  - Empirical, rejected, and synthetic mechanisms are not integration-ready physics.
+  - The integration sequence remains preserved with explicit reopening conditions.
+  physical_residual_promoted: false
+  campaign_preparation_required: false
+  advance_to_next_phase: true
+  next_phase_number: 15
+  next_phase_title: Wave 6 Entry
