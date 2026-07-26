@@ -1,0 +1,10 @@
+schema_version: 1
+campaign_name: phase2_harmonic_kinematic_pinn_runtime_bounded_restart_2026_07_26
+selection_role: canonical_campaign_checkpoint
+best_entry:
+  run_instance_id: 2026-07-26-14-33-28__te_phase2_pinn_h1_oscillator_residual_bw__polished_setpoints
+  model_family: phase2_pinn_h1_oscillator_residual_bw
+  model_type: harmonic_kinematic_pinn
+  dataset_id: polished_dataset
+  output_directory: output/training_runs/harmonic_kinematic_pinn/2026-07-26-14-33-28__te_phase2_pinn_h1_oscillator_residual_bw__polished_setpoints
+  best_checkpoint_path: output/training_runs/harmonic_kinematic_pinn/2026-07-26-14-33-28__te_phase2_pinn_h1_oscillator_residual_bw__polished_setpoints/checkpoints/harmonic_kinematic_pinn-epoch=018-val_mae=0.00185636.ckpt

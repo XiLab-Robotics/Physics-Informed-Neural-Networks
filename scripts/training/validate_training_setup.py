@@ -34,6 +34,7 @@ def build_validation_summary(
     output_directory: Path,
     batch_summary: dict[str, object],
     batch_output_dictionary: dict[str, torch.Tensor],
+    datamodule,
     training_config: dict[str, object],
 ) -> dict[str, object]:
 
@@ -45,6 +46,7 @@ def build_validation_summary(
         batch_summary: Structural batch summary from the validation step.
         batch_output_dictionary: Output tensors and metrics computed by the
             regression module.
+        datamodule: Prepared data module exposing the exact split summary.
         training_config: Prepared training configuration with artifact metadata.
 
     Returns:
@@ -53,6 +55,7 @@ def build_validation_summary(
 
     # Resolve Experiment Identity For Validation Summary
     experiment_identity = shared_training_infrastructure.resolve_experiment_identity(training_config)
+    dataset_split_summary = datamodule.get_dataset_split_summary()
 
     return {
         "schema_version": 1,
@@ -64,6 +67,11 @@ def build_validation_summary(
             "run_instance_id": shared_training_infrastructure.resolve_run_instance_id(training_config),
             "model_family": experiment_identity.model_family,
             "model_type": experiment_identity.model_type,
+        },
+        "dataset_split": {
+            "train_curve_count": dataset_split_summary.train_curve_count,
+            "validation_curve_count": dataset_split_summary.validation_curve_count,
+            "test_curve_count": dataset_split_summary.test_curve_count,
         },
         "batch_summary": batch_summary,
         "checks": {
@@ -92,6 +100,7 @@ def build_tree_validation_summary(
     """ Build Tree Validation Summary """
 
     experiment_identity = shared_training_infrastructure.resolve_experiment_identity(training_config)
+    dataset_split_summary = datamodule.get_dataset_split_summary()
 
     return {
         "schema_version": 1,
@@ -103,6 +112,11 @@ def build_tree_validation_summary(
             "run_instance_id": shared_training_infrastructure.resolve_run_instance_id(training_config),
             "model_family": experiment_identity.model_family,
             "model_type": experiment_identity.model_type,
+        },
+        "dataset_split": {
+            "train_curve_count": dataset_split_summary.train_curve_count,
+            "validation_curve_count": dataset_split_summary.validation_curve_count,
+            "test_curve_count": dataset_split_summary.test_curve_count,
         },
         "batch_summary": {
             "point_batch_size": int(validation_input.shape[0]),
@@ -171,6 +185,7 @@ def build_validation_report_markdown(
 
     experiment_dictionary = validation_summary["experiment"]
     batch_summary_dictionary = validation_summary["batch_summary"]
+    dataset_split_dictionary = validation_summary.get("dataset_split", {})
     check_dictionary = validation_summary["checks"]
     metric_dictionary = validation_summary["metrics"]
     all_checks_passed = all(bool(value) for value in check_dictionary.values())
@@ -227,6 +242,14 @@ def build_validation_report_markdown(
 | Input Feature Dim | {batch_summary_dictionary["input_feature_dim"]} |
 | Target Feature Dim | {batch_summary_dictionary["target_feature_dim"]} |
 | Curve Count | {batch_summary_dictionary["curve_count"]} |
+
+## Dataset Split
+
+| Split | Curve Count |
+| --- | ---: |
+| Train | {dataset_split_dictionary.get("train_curve_count", "not recorded")} |
+| Validation | {dataset_split_dictionary.get("validation_curve_count", "not recorded")} |
+| Test | {dataset_split_dictionary.get("test_curve_count", "not recorded")} |
 
 ## Finite Checks
 
@@ -412,6 +435,7 @@ def validate_training_setup(
         output_directory,
         batch_summary,
         batch_output_dictionary,
+        datamodule,
         training_config,
     )
     validation_summary_path, validation_report_path = save_validation_outputs(

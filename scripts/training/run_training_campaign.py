@@ -51,6 +51,7 @@ SUPPORTED_MODEL_ENTRYPOINT_NAME_DICTIONARY = {
     "latent_state_hysteresis_probe": "scripts/training/train_feedforward_network.py",
     "wave3_harmonic_prior_residual": "scripts/training/train_feedforward_network.py",
     "wave52b_offset_harmonic_guided": "scripts/training/train_feedforward_network.py",
+    "harmonic_kinematic_pinn": "scripts/training/train_feedforward_network.py",
     "random_forest": "scripts/training/train_tree_regressor.py",
     "hist_gradient_boosting": "scripts/training/train_tree_regressor.py",
 }
@@ -121,6 +122,7 @@ class TeeTerminalStream:
         self.terminal_stream = terminal_stream
         self.log_file = log_file
         self.log_file_is_available = True
+        self.terminal_stream_is_available = True
 
     def write_log_message(self, log_message: str) -> None:
 
@@ -149,18 +151,26 @@ class TeeTerminalStream:
         if message == "":
             return 0
 
-        self.terminal_stream.write(message)
-        self.terminal_stream.flush()
-
         log_message = message.replace("\r", "\n")
         self.write_log_message(log_message)
+
+        if self.terminal_stream_is_available:
+            try:
+                self.terminal_stream.write(message)
+                self.terminal_stream.flush()
+            except (OSError, ValueError):
+                self.terminal_stream_is_available = False
         return len(message)
 
     def flush(self) -> None:
 
         """ Flush Streams """
 
-        self.terminal_stream.flush()
+        if self.terminal_stream_is_available:
+            try:
+                self.terminal_stream.flush()
+            except (OSError, ValueError):
+                self.terminal_stream_is_available = False
 
         if not self.log_file_is_available:
             return
@@ -181,6 +191,8 @@ class TeeTerminalStream:
 
         """ Check Interactive Terminal """
 
+        if not self.terminal_stream_is_available:
+            return False
         terminal_isatty = getattr(self.terminal_stream, "isatty", None)
         if callable(terminal_isatty): return bool(terminal_isatty())
         return False
@@ -577,6 +589,7 @@ def resolve_training_handler(model_type: str) -> Callable[[str | Path], None]:
         "latent_state_hysteresis_probe": run_feedforward_training,
         "wave3_harmonic_prior_residual": run_feedforward_training,
         "wave52b_offset_harmonic_guided": run_feedforward_training,
+        "harmonic_kinematic_pinn": run_feedforward_training,
         "random_forest": run_tree_regression_training,
         "hist_gradient_boosting": run_tree_regression_training,
     }

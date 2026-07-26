@@ -1,0 +1,41 @@
+schema_version: 1
+campaign_name: phase2_harmonic_kinematic_pinn_runtime_bounded_restart_2026_07_26
+campaign_type: wave_5_2_phase_2_harmonic_kinematic_pinn
+family_name: harmonic_kinematic_pinn
+dataset_name: polished_dataset
+input_mode: setpoints
+dataset_schema: polished_setpoint_curve_v1
+source_dataset_root: data/polished_dataset
+primary_surface: direction_separated
+expected_surface_list:
+- fw
+- bw
+expected_run_count: 8
+planning_report_path: doc/reports/campaign_plans/model_development_waves/wave_5_2/harmonic_kinematic_pinn/2026-07-25-20-44-23_phase2_harmonic_kinematic_pinn_campaign_plan_report.md
+technical_document_path: doc/technical/2026-07/2026-07-25/2026-07-25-20-40-44_phase_2_harmonic_kinematic_pinn.md
+model_report_path: doc/reports/analysis/model_development_waves/wave_5_2/harmonic_kinematic_pinn/[2026-07-26]/phase2_harmonic_kinematic_pinn_model_report.md
+analytical_anchor_path: output/analysis/polynomial_fourier_benchmark/phase1_coefficient_models.yaml
+common_split_manifest_path: output/analysis/polynomial_fourier_benchmark/common_split_manifest.yaml
+excluded_condition_id_list:
+- speed_500rpm__torque_600Nm__temperature_35degC
+- speed_800rpm__torque_200Nm__temperature_25degC
+- speed_1400rpm__torque_800Nm__temperature_35degC
+expected_curve_count_by_split:
+  train: 675
+  validation: 194
+  test: 97
+queue_root: config/training/queue/harmonic_kinematic_pinn/phase2_harmonic_kinematic_pinn_runtime_bounded_restart_2026_07_26
+queue_config_path_list:
+- config/training/harmonic_kinematic_pinn/campaigns/2026-07-26_phase2_harmonic_kinematic_pinn/queue/001_h0_fourier_control_fw.yaml
+- config/training/harmonic_kinematic_pinn/campaigns/2026-07-26_phase2_harmonic_kinematic_pinn/queue/002_h0_fourier_control_bw.yaml
+- config/training/harmonic_kinematic_pinn/campaigns/2026-07-26_phase2_harmonic_kinematic_pinn/queue/003_h1_oscillator_residual_fw.yaml
+- config/training/harmonic_kinematic_pinn/campaigns/2026-07-26_phase2_harmonic_kinematic_pinn/queue/004_h1_oscillator_residual_bw.yaml
+- config/training/harmonic_kinematic_pinn/campaigns/2026-07-26_phase2_harmonic_kinematic_pinn/queue/005_h2_oscillator_periodic_closure_fw.yaml
+- config/training/harmonic_kinematic_pinn/campaigns/2026-07-26_phase2_harmonic_kinematic_pinn/queue/006_h2_oscillator_periodic_closure_bw.yaml
+- config/training/harmonic_kinematic_pinn/campaigns/2026-07-26_phase2_harmonic_kinematic_pinn/queue/007_h3_oscillator_periodic_bauer_anchor_fw.yaml
+- config/training/harmonic_kinematic_pinn/campaigns/2026-07-26_phase2_harmonic_kinematic_pinn/queue/008_h3_oscillator_periodic_bauer_anchor_bw.yaml
+execution_policy:
+  operator_run_required: true
+  stop_on_error: true
+  run_te_curve_verification_pipeline: false
+  scalar_mae_only_promotion_allowed: false

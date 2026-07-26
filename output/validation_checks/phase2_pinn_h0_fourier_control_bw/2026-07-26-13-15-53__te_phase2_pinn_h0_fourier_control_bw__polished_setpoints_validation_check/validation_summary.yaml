@@ -1,0 +1,28 @@
+schema_version: 1
+config_path: C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML
+  - Codex\config\training\harmonic_kinematic_pinn\campaigns\2026-07-26_phase2_harmonic_kinematic_pinn\queue\002_h0_fourier_control_bw.yaml
+output_directory: C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML
+  - Codex\output\validation_checks\phase2_pinn_h0_fourier_control_bw\2026-07-26-13-15-53__te_phase2_pinn_h0_fourier_control_bw__polished_setpoints_validation_check
+experiment:
+  run_name: te_phase2_pinn_h0_fourier_control_bw__polished_setpoints
+  output_run_name: te_phase2_pinn_h0_fourier_control_bw__polished_setpoints_validation_check
+  run_instance_id: 2026-07-26-13-15-53__te_phase2_pinn_h0_fourier_control_bw__polished_setpoints_validation_check
+  model_family: phase2_pinn_h0_fourier_control_bw
+  model_type: harmonic_kinematic_pinn
+batch_summary:
+  batch_mode: point
+  point_batch_size: 256
+  sequence_batch_size: 0
+  sequence_length: 0
+  input_feature_dim: 5
+  target_feature_dim: 1
+  curve_count: 1
+checks:
+  finite_loss: true
+  finite_mae: true
+  finite_rmse: true
+  finite_prediction_tensor: true
+metrics:
+  loss: 0.6840510964393616
+  mae: 0.014030547812581062
+  rmse: 0.017156967893242836

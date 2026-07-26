@@ -1,0 +1,118 @@
+schema_version: 1
+config_path: C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML
+  - Codex\config\training\queue\harmonic_kinematic_pinn\phase2_harmonic_kinematic_pinn_common_split_restart_2026_07_26\running\2026-07-26-13-34-07_002_002_h0_fourier_control_bw.yaml
+experiment:
+  model_family: phase2_pinn_h0_fourier_control_bw
+  model_type: harmonic_kinematic_pinn
+  run_name: te_phase2_pinn_h0_fourier_control_bw__polished_setpoints
+  output_run_name: te_phase2_pinn_h0_fourier_control_bw__polished_setpoints
+  run_instance_id: 2026-07-26-13-46-40__te_phase2_pinn_h0_fourier_control_bw__polished_setpoints
+  output_artifact_kind: training_run
+  base_model_family: phase2_pinn_h0_fourier_control_bw
+  training_variant: bw
+  direction_scope_label: backward_only
+  use_forward_direction: false
+  use_backward_direction: true
+artifacts:
+  output_directory: C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML
+    - Codex\output\training_runs\harmonic_kinematic_pinn\2026-07-26-13-46-40__te_phase2_pinn_h0_fourier_control_bw__polished_setpoints
+  best_checkpoint_path: C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML
+    - Codex\output\training_runs\harmonic_kinematic_pinn\2026-07-26-13-46-40__te_phase2_pinn_h0_fourier_control_bw__polished_setpoints\checkpoints\harmonic_kinematic_pinn-epoch=026-val_mae=0.00162406.ckpt
+dataset_split:
+  train_curve_count: 675
+  validation_curve_count: 194
+  test_curve_count: 97
+  dataset_name: polished_dataset
+  dataset_schema: polished_setpoint_curve_v1
+  input_mode: setpoints
+  input_feature_name_list:
+  - angular_position_deg
+  - input_speed_rpm
+  - input_torque_nm
+  - oil_temperature_deg
+  - direction_flag
+  target_feature_name_list:
+  - theta_TE
+  input_feature_dim: 5
+  target_feature_dim: 1
+dataset:
+  dataset_id: polished_dataset
+  dataset_schema: polished_setpoint_curve_v1
+  input_mode: setpoints
+  input_feature_names:
+  - angular_position_deg
+  - input_speed_rpm
+  - input_torque_nm
+  - oil_temperature_deg
+  - direction_flag
+  target_feature_names:
+  - theta_TE
+  input_feature_dim: 5
+  target_feature_dim: 1
+model_summary:
+  backbone_name: HarmonicKinematicPinnNetwork
+  trainable_parameter_count: 5635
+  frozen_parameter_count: 0
+  total_parameter_count: 5635
+runtime_config:
+  accelerator: auto
+  devices: auto
+  precision: '32'
+  benchmark: true
+  use_non_blocking_transfer: true
+normalization_statistics:
+  input_feature_mean:
+  - 180.01138305664062
+  - 498.2565612792969
+  - 925.1359252929688
+  - 29.821712493896484
+  - -1.0
+  input_feature_std:
+  - 103.92831420898438
+  - 466.2514953613281
+  - 553.9645385742188
+  - 4.152109146118164
+  - 9.999999974752427e-07
+  target_mean:
+  - 0.02385943941771984
+  target_std:
+  - 0.024346614256501198
+validation_metrics:
+  val_loss: 0.01313829980790615
+  val_mae: 0.0016240582335740328
+  val_rmse: 0.001978779910132289
+  val_pointwise_loss: 0.010506120510399342
+  val_centered_curve_shape_loss: 0.007981476373970509
+  val_curve_offset_loss: 0.002508109901100397
+  val_curve_amplitude_loss: 0.039656803011894226
+  val_sparse_harmonic_shape_loss: 0.00016234077338594943
+  val_physics_oscillator_residual_loss: 0.0
+  val_physics_periodic_value_loss: 0.0
+  val_physics_periodic_slope_loss: 0.0
+  val_physics_analytical_anchor_loss: 0.0
+test_metrics:
+  test_loss: 0.01204081904143095
+  test_mae: 0.0014976316597312689
+  test_rmse: 0.0018090097000822425
+  test_pointwise_loss: 0.009647167287766933
+  test_centered_curve_shape_loss: 0.006958130747079849
+  test_curve_offset_loss: 0.0028090348932892084
+  test_curve_amplitude_loss: 0.03578659147024155
+  test_sparse_harmonic_shape_loss: 0.0001425269729224965
+  test_physics_oscillator_residual_loss: 0.0
+  test_physics_periodic_value_loss: 0.0
+  test_physics_periodic_slope_loss: 0.0
+  test_physics_analytical_anchor_loss: 0.0
+comparison_payload:
+  model_family: phase2_pinn_h0_fourier_control_bw
+  model_type: harmonic_kinematic_pinn
+  run_name: te_phase2_pinn_h0_fourier_control_bw__polished_setpoints
+  backbone_name: HarmonicKinematicPinnNetwork
+  trainable_parameter_count: 5635
+  total_parameter_count: 5635
+  val_mae: 0.0016240582335740328
+  val_rmse: 0.001978779910132289
+  test_mae: 0.0014976316597312689
+  test_rmse: 0.0018090097000822425
+  deployment_notes: ''
+  interpretability_notes: ''

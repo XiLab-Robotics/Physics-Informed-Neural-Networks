@@ -1,0 +1,32 @@
+schema_version: 1
+config_path: C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML
+  - Codex\config\training\harmonic_kinematic_pinn\campaigns\2026-07-26_phase2_harmonic_kinematic_pinn\queue\006_h2_oscillator_periodic_closure_bw.yaml
+output_directory: C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML
+  - Codex\output\validation_checks\phase2_pinn_h2_oscillator_periodic_closure_bw\2026-07-26-13-32-25__te_phase2_pinn_h2_oscillator_periodic_closure_bw__polished_setpoints_validation_check
+experiment:
+  run_name: te_phase2_pinn_h2_oscillator_periodic_closure_bw__polished_setpoints
+  output_run_name: te_phase2_pinn_h2_oscillator_periodic_closure_bw__polished_setpoints_validation_check
+  run_instance_id: 2026-07-26-13-32-25__te_phase2_pinn_h2_oscillator_periodic_closure_bw__polished_setpoints_validation_check
+  model_family: phase2_pinn_h2_oscillator_periodic_closure_bw
+  model_type: harmonic_kinematic_pinn
+dataset_split:
+  train_curve_count: 675
+  validation_curve_count: 194
+  test_curve_count: 97
+batch_summary:
+  batch_mode: point
+  point_batch_size: 256
+  sequence_batch_size: 0
+  sequence_length: 0
+  input_feature_dim: 5
+  target_feature_dim: 1
+  curve_count: 1
+checks:
+  finite_loss: true
+  finite_mae: true
+  finite_rmse: true
+  finite_prediction_tensor: true
+metrics:
+  loss: 18.509918212890625
+  mae: 0.052000001072883606
+  rmse: 0.05335037782788277

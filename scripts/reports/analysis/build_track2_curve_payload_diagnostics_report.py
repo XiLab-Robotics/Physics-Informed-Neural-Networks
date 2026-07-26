@@ -66,6 +66,7 @@ REPORT_FILENAME = "track2_curve_payload_diagnostics_report.md"
 SUMMARY_FILENAME = "track2_curve_payload_diagnostics_summary.yaml"
 CURVE_DIAGNOSTICS_FILENAME = "curve_payload_diagnostics.csv"
 CANDIDATE_DIAGNOSTICS_FILENAME = "candidate_payload_diagnostics.csv"
+HARMONIC_DIAGNOSTICS_FILENAME = "harmonic_payload_diagnostics.csv"
 PAYLOAD_JSONL_FILENAME = "curve_payload_samples.jsonl"
 
 
@@ -842,6 +843,7 @@ def build_report_lines(
             "",
             f"- `{(output_directory / CANDIDATE_DIAGNOSTICS_FILENAME).relative_to(PROJECT_PATH)}`",
             f"- `{(output_directory / CURVE_DIAGNOSTICS_FILENAME).relative_to(PROJECT_PATH)}`",
+            f"- `{(output_directory / HARMONIC_DIAGNOSTICS_FILENAME).relative_to(PROJECT_PATH)}`",
             f"- `{(output_directory / PAYLOAD_JSONL_FILENAME).relative_to(PROJECT_PATH)}`",
             f"- `{(output_directory / SUMMARY_FILENAME).relative_to(PROJECT_PATH)}`",
             "",
@@ -913,6 +915,7 @@ def main() -> None:
 
     all_candidate_entry_list: list[dict[str, Any]] = []
     curve_diagnostic_entry_list: list[CurveDiagnosticEntry] = []
+    harmonic_diagnostic_row_list: list[dict[str, Any]] = []
     harmonic_diagnostic_map: dict[tuple[str, str], list[dict[str, float]]] = {}
     for candidate_index, candidate_configuration in enumerate(candidate_configuration_list, start=1):
         print(
@@ -935,6 +938,35 @@ def main() -> None:
             )
             curve_diagnostic_entry_list.append(diagnostic_entry)
             harmonic_diagnostic_map[(diagnostic_entry.candidate_id, diagnostic_entry.source_file_path)] = harmonic_row_list
+            for harmonic_row in harmonic_row_list:
+                harmonic_diagnostic_row_list.append(
+                    {
+                        "candidate_id": diagnostic_entry.candidate_id,
+                        "candidate_family": diagnostic_entry.candidate_family,
+                        "candidate_source_label": diagnostic_entry.candidate_source_label,
+                        "candidate_surface": diagnostic_entry.candidate_surface,
+                        "direction_label": diagnostic_entry.direction_label,
+                        "source_file_path": diagnostic_entry.source_file_path,
+                        "speed_rpm": format_float(diagnostic_entry.speed_rpm),
+                        "torque_nm": format_float(diagnostic_entry.torque_nm),
+                        "oil_temperature_deg": format_float(
+                            diagnostic_entry.oil_temperature_deg
+                        ),
+                        "harmonic_order": int(harmonic_row["harmonic_order"]),
+                        "truth_amplitude_deg": format_float(
+                            harmonic_row["truth_amplitude_deg"]
+                        ),
+                        "predicted_amplitude_deg": format_float(
+                            harmonic_row["predicted_amplitude_deg"]
+                        ),
+                        "amplitude_error_pct": format_float(
+                            harmonic_row["amplitude_error_pct"]
+                        ),
+                        "phase_error_deg": format_float(
+                            harmonic_row["phase_error_deg"]
+                        ),
+                    }
+                )
         all_candidate_entry_list.extend(candidate_entry_list)
 
     candidate_summary_list = compute_candidate_summary_list(curve_diagnostic_entry_list)
@@ -945,6 +977,10 @@ def main() -> None:
     write_csv(
         output_directory / CANDIDATE_DIAGNOSTICS_FILENAME,
         [summary.to_csv_row() for summary in candidate_summary_list],
+    )
+    write_csv(
+        output_directory / HARMONIC_DIAGNOSTICS_FILENAME,
+        harmonic_diagnostic_row_list,
     )
     write_payload_sample_jsonl(
         payload_path=output_directory / PAYLOAD_JSONL_FILENAME,

@@ -1,0 +1,22 @@
+schema_version: 1
+artifact_kind: training_run
+model_family: phase2_pinn_h0_fourier_control_fw
+base_model_family: phase2_pinn_h0_fourier_control_fw
+training_variant: fw
+direction_scope_label: forward_only
+use_forward_direction: true
+use_backward_direction: false
+run_name: te_phase2_pinn_h0_fourier_control_fw__polished_setpoints
+run_instance_id: 2026-07-26-13-17-38__te_phase2_pinn_h0_fourier_control_fw__polished_setpoints
+output_directory: output\training_runs\harmonic_kinematic_pinn\2026-07-26-13-17-38__te_phase2_pinn_h0_fourier_control_fw__polished_setpoints
+dataset_id: polished_dataset
+dataset_schema: polished_setpoint_curve_v1
+input_feature_names:
+- angular_position_deg
+- input_speed_rpm
+- input_torque_nm
+- oil_temperature_deg
+- direction_flag
+target_feature_names:
+- theta_TE
+input_feature_dim: 5

@@ -259,6 +259,13 @@ next phase; no PINN training has yet been authorized.
 Promote only constraints that improve held-out harmonic fidelity without
 degrading raw error, offset behavior, or direction-specific continuity.
 
+**Status: completed negative result.** The canonical eight-run campaign
+completed without failures and the bounded common-split curve-payload
+diagnostic evaluated `97` held-out curves per direction. `H1-Bw` improved raw
+error and selected orders relative to the Fourier control but worsened
+aggregate harmonic-amplitude fidelity. No oscillator, periodic-boundary, or
+Bauer-anchor constraint was promoted. Phase 3 is active next.
+
 ## Phase 3: Quasi-Static Compliance And Elastic Offset PINNs
 
 ### Source Basis

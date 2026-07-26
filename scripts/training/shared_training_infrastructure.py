@@ -787,6 +787,13 @@ def create_datamodule_from_training_config(training_config: dict[str, Any]) -> T
         use_non_blocking_transfer=bool(runtime_config["use_non_blocking_transfer"]),
         use_forward_direction=bool(training_variant_details["use_forward_direction"]),
         use_backward_direction=bool(training_variant_details["use_backward_direction"]),
+        split_manifest_path=training_config["dataset"].get("split_manifest_path"),
+        excluded_condition_id_list=training_config["dataset"].get(
+            "excluded_condition_id_list"
+        ),
+        expected_curve_count_by_split=training_config["dataset"].get(
+            "expected_curve_count_by_split"
+        ),
     )
 
 def resolve_model_configuration_for_input_dim(training_config: dict[str, Any], input_feature_dim: int) -> dict[str, Any]:

@@ -1,0 +1,33 @@
+schema_version: 1
+updated_at: '2026-07-26T16:53:50+02:00'
+program: wave_5_2_full_pinn_theory_validation
+phase: 2
+phase_name: harmonic_kinematic_pinn
+status: completed_negative_result
+canonical_campaign_id: phase2_harmonic_kinematic_pinn_runtime_bounded_restart_2026_07_26
+canonical_campaign_output: output/training_campaigns/2026-07-26-14-03-44_phase2_harmonic_kinematic_pinn_runtime_bounded_restart_2026_07_26
+completed_runs: 8
+failed_runs: 0
+common_split:
+  source: output/analysis/polynomial_fourier_benchmark/2026-07-25-14-17-27_phase1_polynomial_fourier_benchmark/splits/phase1_common_split_manifest.yaml
+  train_curves_per_direction: 675
+  validation_curves_per_direction: 194
+  test_curves_per_direction: 97
+curve_first_diagnostic: output/validation_checks/phase2_harmonic_kinematic_pinn_curve_payload_diagnostics/2026-07-26-16-49-48__track2c_curve_payload_diagnostics
+decision:
+  promoted_physics_constraint: null
+  accepted_baselines_retained:
+    - periodic_feature_mlp_fw
+    - periodic_feature_mlp_bw
+    - periodic_gru_sequence_fw
+    - periodic_gru_sequence_bw
+  exploratory_signal:
+    candidate: phase2_pinn_h1_oscillator_residual_bw
+    interpretation: >-
+      Improved selected low-order harmonic terms without passing the complete
+      raw-error, shape, offset, harmonic, and robustness promotion gate.
+  inherit_nonzero_phase2_physics_weights: false
+next_phase:
+  phase: 3
+  name: quasi_static_compliance_and_elastic_offset
+  status: next

@@ -205,6 +205,11 @@ This folder contains the internal project documents derived from the reference P
   shared dataset, coordinate, unit, causality, domain, temporal, and harmonic
   contracts required by all later PINN formulations.
 
+- [technical/2026-07/2026-07-25/2026-07-25-20-40-44_phase_2_harmonic_kinematic_pinn.md](./technical/2026-07/2026-07-25/2026-07-25-20-40-44_phase_2_harmonic_kinematic_pinn.md)
+  Automatically approved Phase 2 design for explicit angular-oscillator PINN
+  residuals, parameter-matched Fourier controls, direction-separated
+  campaigns, and the harmonic-fidelity exit gate.
+
 - [reports/analysis/model_development_waves/wave_5_2/mmt_residual_explanatory_diagnostic/[2026-07-24]/wave52_mmt_residual_explanatory_diagnostic.md](./reports/analysis/model_development_waves/wave_5_2/mmt_residual_explanatory_diagnostic/%5B2026-07-24%5D/wave52_mmt_residual_explanatory_diagnostic.md)
   Completed non-training Wave 5.2 provenance audit. The selected residual
   source contains held-out test rows only, so MMT fitting remains blocked until
@@ -256,6 +261,23 @@ This folder contains the internal project documents derived from the reference P
   direct-oracle, and reduced Polynomial-Fourier formulations. The local-order
   quadratic is the analytical reference and the reduced-order quadratic is the
   alternative comparator for Phase 2.
+
+- [reports/analysis/model_development_waves/wave_5_2/harmonic_kinematic_pinn/[2026-07-26]/phase2_harmonic_kinematic_pinn_model_report.md](./reports/analysis/model_development_waves/wave_5_2/harmonic_kinematic_pinn/%5B2026-07-26%5D/phase2_harmonic_kinematic_pinn_model_report.md)
+  Model report for the explicit Fourier control and the first genuine
+  angular-oscillator PINN, including architecture, residual equations,
+  implementation surfaces, limitations, and deterministic evidence.
+
+- [reports/campaign_results/wave_5_2/2026-07-26-16-53-50_phase2_harmonic_kinematic_pinn_campaign_results_report.md](./reports/campaign_results/wave_5_2/2026-07-26-16-53-50_phase2_harmonic_kinematic_pinn_campaign_results_report.md)
+  Completed eight-run Phase 2 closeout with common-split curve-payload and
+  per-order harmonic evidence. The phase closed as a valid negative result
+  and promoted no oscillator, periodic-boundary, or Bauer-anchor constraint.
+  A
+  [validated styled PDF companion](./reports/campaign_results/wave_5_2/2026-07-26-16-53-50_phase2_harmonic_kinematic_pinn_campaign_results_report.pdf)
+  contains the complete decision record.
+
+- [reports/analysis/model_development_waves/wave_5_2/harmonic_kinematic_pinn/curve_payload_diagnostics/[2026-07-26]/track2_curve_payload_diagnostics_report.md](./reports/analysis/model_development_waves/wave_5_2/harmonic_kinematic_pinn/curve_payload_diagnostics/%5B2026-07-26%5D/track2_curve_payload_diagnostics_report.md)
+  Bounded `CVP 1.2` playback of the eight canonical Phase 2 checkpoints and
+  four accepted references over the exact common test conditions.
 
 - [reports/analysis/te_curve_verification_pipeline/03_cvp_diagnostics/non_mmt_cross_wave_comparison/[2026-07-24]/non_mmt_cross_wave_comparison_report.md](./reports/analysis/te_curve_verification_pipeline/03_cvp_diagnostics/non_mmt_cross_wave_comparison/%5B2026-07-24%5D/non_mmt_cross_wave_comparison_report.md)
   Six-cell reduced cross-wave comparison across polished setpoints, simplified
@@ -524,6 +546,11 @@ This folder contains the internal project documents derived from the reference P
   Plan for a bounded `polished_dataset` setpoint `Fw`
   `TE Curve Verification Pipeline` screen of the causal offset / mean
   calibration pilot candidates against the accepted forward baselines.
+
+- [reports/campaign_plans/model_development_waves/wave_5_2/harmonic_kinematic_pinn/2026-07-25-20-44-23_phase2_harmonic_kinematic_pinn_campaign_plan_report.md](./reports/campaign_plans/model_development_waves/wave_5_2/harmonic_kinematic_pinn/2026-07-25-20-44-23_phase2_harmonic_kinematic_pinn_campaign_plan_report.md)
+  Preliminary eight-arm Fw/Bw campaign plan for comparing a parameter-matched
+  Fourier control with explicit oscillator, periodic-boundary, and analytical
+  anchor PINN residuals. Training still requires explicit approval.
 
 - [scripts/campaigns/cross_wave/run_parallel_shape_objective_followup_campaign.md](./scripts/campaigns/cross_wave/run_parallel_shape_objective_followup_campaign.md)
   Launcher note for validating or launching the three-arm shape-objective

@@ -1,0 +1,27 @@
+campaign_name: phase2_harmonic_kinematic_pinn_2026_07_26
+generated_at: '2026-07-26T13:01:51'
+queue_root: config/training/queue/harmonic_kinematic_pinn/phase2_harmonic_kinematic_pinn_2026_07_26
+campaign_output_directory: output/training_campaigns/2026-07-26-12-51-55_phase2_harmonic_kinematic_pinn_2026_07_26
+planning_report_path: doc/reports/campaign_plans/model_development_waves/wave_5_2/harmonic_kinematic_pinn/2026-07-25-20-44-23_phase2_harmonic_kinematic_pinn_campaign_plan_report.md
+run_list:
+- original_queue_config_path: config/training/queue/harmonic_kinematic_pinn/phase2_harmonic_kinematic_pinn_2026_07_26/pending/2026-07-26-12-50-33_001_001_h0_fourier_control_fw.yaml
+  final_queue_config_path: config/training/queue/harmonic_kinematic_pinn/phase2_harmonic_kinematic_pinn_2026_07_26/failed/2026-07-26-12-50-33_001_001_h0_fourier_control_fw.yaml
+  source_config_path: N/A
+  run_name: te_phase2_pinn_h0_fourier_control_fw__polished_setpoints
+  run_instance_id: 2026-07-26-12-50-34__te_phase2_pinn_h0_fourier_control_fw__polished_setpoints
+  model_type: harmonic_kinematic_pinn
+  queue_status: failed
+  start_time: '2026-07-26T12:51:55'
+  end_time: '2026-07-26T13:01:51'
+  duration_seconds: 595.95
+  process_return_code: null
+  output_directory: output/training_runs/harmonic_kinematic_pinn/2026-07-26-12-50-34__te_phase2_pinn_h0_fourier_control_fw__polished_setpoints
+  config_snapshot_path: output/training_runs/harmonic_kinematic_pinn/2026-07-26-12-50-34__te_phase2_pinn_h0_fourier_control_fw__polished_setpoints/training_config.yaml
+  best_checkpoint_reference_path: N/A
+  best_checkpoint_path: null
+  metrics_path: N/A
+  training_report_path: N/A
+  log_path: output/training_campaigns/2026-07-26-12-51-55_phase2_harmonic_kinematic_pinn_2026_07_26/logs/001_te_phase2_pinn_h0_fourier_control_fw__polished_s.log
+  planning_report_path: doc/reports/campaign_plans/model_development_waves/wave_5_2/harmonic_kinematic_pinn/2026-07-25-20-44-23_phase2_harmonic_kinematic_pinn_campaign_plan_report.md
+  campaign_name: phase2_harmonic_kinematic_pinn_2026_07_26
+  error_message: '[Errno 22] Invalid argument'

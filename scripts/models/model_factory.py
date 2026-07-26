@@ -3,7 +3,11 @@
 from __future__ import annotations
 
 # Import Typing Utilities
+from pathlib import Path
 from typing import Any
+
+# Import YAML Utilities
+import yaml
 
 # Import PyTorch Utilities
 import torch.nn as nn
@@ -11,6 +15,7 @@ import torch.nn as nn
 # Import Project Models
 from scripts.models.feedforward_network import FeedForwardNetwork
 from scripts.models.harmonic_regression import HarmonicRegression
+from scripts.models.harmonic_kinematic_pinn_network import HarmonicKinematicPinnNetwork
 from scripts.models.harmonic_residual_offset_network import HarmonicResidualOffsetNetwork
 from scripts.models.latent_state_hysteresis_network import LatentStateHysteresisNetwork
 from scripts.models.periodic_feature_network import PeriodicFeatureNetwork
@@ -23,6 +28,41 @@ from scripts.models.temporal_sequence_network import TemporalConvolutionNetwork
 from scripts.models.wave3_grouped_harmonic_heads_network import Wave3GroupedHarmonicHeadsNetwork
 from scripts.models.wave3_harmonic_prior_residual_network import Wave3HarmonicPriorResidualNetwork
 from scripts.models.wave52b_offset_harmonic_guided_network import Wave52BOffsetHarmonicGuidedNetwork
+
+
+def load_harmonic_analytical_anchor_configuration(
+    model_configuration: dict[str, Any],
+) -> dict[str, Any]:
+    """Load one frozen Phase 1 Polynomial-Fourier surface when configured."""
+
+    anchor_path_text = model_configuration.get("analytical_anchor_path")
+    if anchor_path_text in [None, ""]:
+        return {}
+
+    anchor_path = Path(str(anchor_path_text))
+    assert anchor_path.is_file(), f"Analytical Anchor does not exist | {anchor_path}"
+    with anchor_path.open("r", encoding="utf-8") as source_file:
+        anchor_payload = yaml.safe_load(source_file)
+    assert isinstance(anchor_payload, dict)
+    model_id = str(
+        model_configuration.get(
+            "analytical_anchor_model_id",
+            "PF_A_LOCAL_QUADRATIC",
+        )
+    )
+    direction_label = str(model_configuration["analytical_anchor_direction"])
+    surface_payload = anchor_payload["surface_map"][model_id][direction_label]
+    assert list(surface_payload["harmonic_order_list"]) == list(
+        model_configuration["harmonic_index_list"]
+    ), "Analytical Anchor harmonic orders do not match the PINN configuration"
+    return {
+        "analytical_anchor_feature_mean": surface_payload["feature_mean"],
+        "analytical_anchor_feature_scale": surface_payload["feature_scale"],
+        "analytical_anchor_coefficient_matrix": (
+            surface_payload["coefficient_matrix"]
+        ),
+    }
+
 
 def create_model(model_type: str, model_configuration: dict[str, Any]) -> nn.Module:
 
@@ -276,6 +316,58 @@ def create_model(model_type: str, model_configuration: dict[str, Any]) -> nn.Mod
             low_order_harmonic_index_list=model_configuration.get("low_order_harmonic_index_list"),
             stable_middle_harmonic_index_list=model_configuration.get("stable_middle_harmonic_index_list"),
             high_order_harmonic_index_list=model_configuration.get("high_order_harmonic_index_list"),
+        )
+
+    # Create Wave 5.2 Phase 2 Harmonic-Kinematic PINN
+    if normalized_model_type == "harmonic_kinematic_pinn":
+        analytical_anchor_configuration = (
+            load_harmonic_analytical_anchor_configuration(
+                model_configuration
+            )
+        )
+        return HarmonicKinematicPinnNetwork(
+            input_size=int(model_configuration["input_size"]),
+            output_size=int(model_configuration.get("output_size", 1)),
+            harmonic_index_list=list(
+                model_configuration["harmonic_index_list"]
+            ),
+            condition_hidden_size=list(
+                model_configuration.get("condition_hidden_size", [96, 64])
+            ),
+            condition_latent_size=int(
+                model_configuration.get("condition_latent_size", 48)
+            ),
+            component_hidden_size=list(
+                model_configuration.get("component_hidden_size", [32, 32])
+            ),
+            head_mode=str(
+                model_configuration.get("head_mode", "implicit_pinn")
+            ),
+            activation_name=str(
+                model_configuration.get("activation_name", "Tanh")
+            ),
+            dropout_probability=float(
+                model_configuration.get("dropout_probability", 0.0)
+            ),
+            use_layer_norm=bool(
+                model_configuration.get("use_layer_norm", False)
+            ),
+            analytical_anchor_feature_mean=analytical_anchor_configuration.get(
+                "analytical_anchor_feature_mean",
+                model_configuration.get("analytical_anchor_feature_mean"),
+            ),
+            analytical_anchor_feature_scale=analytical_anchor_configuration.get(
+                "analytical_anchor_feature_scale",
+                model_configuration.get("analytical_anchor_feature_scale"),
+            ),
+            analytical_anchor_coefficient_matrix=(
+                analytical_anchor_configuration.get(
+                    "analytical_anchor_coefficient_matrix",
+                    model_configuration.get(
+                        "analytical_anchor_coefficient_matrix"
+                    ),
+                )
+            ),
         )
 
     # Create Embryonic Wave 5.1 Grouped Harmonic-Heads Skeleton

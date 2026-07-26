@@ -1,0 +1,118 @@
+schema_version: 1
+config_path: C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML
+  - Codex\config\training\queue\harmonic_kinematic_pinn\phase2_harmonic_kinematic_pinn_runtime_bounded_restart_2026_07_26\running\2026-07-26-14-03-44_006_006_h2_oscillator_periodic_closure_bw.yaml
+experiment:
+  model_family: phase2_pinn_h2_oscillator_periodic_closure_bw
+  model_type: harmonic_kinematic_pinn
+  run_name: te_phase2_pinn_h2_oscillator_periodic_closure_bw__polished_setpoints
+  output_run_name: te_phase2_pinn_h2_oscillator_periodic_closure_bw__polished_setpoints
+  run_instance_id: 2026-07-26-15-35-48__te_phase2_pinn_h2_oscillator_periodic_closure_bw__polished_setpoints
+  output_artifact_kind: training_run
+  base_model_family: phase2_pinn_h2_oscillator_periodic_closure_bw
+  training_variant: bw
+  direction_scope_label: backward_only
+  use_forward_direction: false
+  use_backward_direction: true
+artifacts:
+  output_directory: C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML
+    - Codex\output\training_runs\harmonic_kinematic_pinn\2026-07-26-15-35-48__te_phase2_pinn_h2_oscillator_periodic_closure_bw__polished_setpoints
+  best_checkpoint_path: C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML
+    - Codex\output\training_runs\harmonic_kinematic_pinn\2026-07-26-15-35-48__te_phase2_pinn_h2_oscillator_periodic_closure_bw__polished_setpoints\checkpoints\harmonic_kinematic_pinn-epoch=007-val_mae=0.00201763.ckpt
+dataset_split:
+  train_curve_count: 675
+  validation_curve_count: 194
+  test_curve_count: 97
+  dataset_name: polished_dataset
+  dataset_schema: polished_setpoint_curve_v1
+  input_mode: setpoints
+  input_feature_name_list:
+  - angular_position_deg
+  - input_speed_rpm
+  - input_torque_nm
+  - oil_temperature_deg
+  - direction_flag
+  target_feature_name_list:
+  - theta_TE
+  input_feature_dim: 5
+  target_feature_dim: 1
+dataset:
+  dataset_id: polished_dataset
+  dataset_schema: polished_setpoint_curve_v1
+  input_mode: setpoints
+  input_feature_names:
+  - angular_position_deg
+  - input_speed_rpm
+  - input_torque_nm
+  - oil_temperature_deg
+  - direction_flag
+  target_feature_names:
+  - theta_TE
+  input_feature_dim: 5
+  target_feature_dim: 1
+model_summary:
+  backbone_name: HarmonicKinematicPinnNetwork
+  trainable_parameter_count: 16570
+  frozen_parameter_count: 0
+  total_parameter_count: 16570
+runtime_config:
+  accelerator: auto
+  devices: auto
+  precision: '32'
+  benchmark: true
+  use_non_blocking_transfer: true
+normalization_statistics:
+  input_feature_mean:
+  - 180.0279998779297
+  - 733.1741943359375
+  - 916.5513305664062
+  - 29.968059539794922
+  - -1.0
+  input_feature_std:
+  - 103.93717956542969
+  - 488.641357421875
+  - 549.6130981445312
+  - 4.113565921783447
+  - 9.999999974752427e-07
+  target_mean:
+  - 0.022706547752022743
+  target_std:
+  - 0.02409065142273903
+validation_metrics:
+  val_loss: 0.023337334394454956
+  val_mae: 0.0020176288671791553
+  val_rmse: 0.00251576560549438
+  val_pointwise_loss: 0.017124198377132416
+  val_centered_curve_shape_loss: 0.012943416833877563
+  val_curve_offset_loss: 0.004087768029421568
+  val_curve_amplitude_loss: 0.10657597333192825
+  val_sparse_harmonic_shape_loss: 0.00027452450012788177
+  val_physics_oscillator_residual_loss: 0.024258984252810478
+  val_physics_periodic_value_loss: 5.639117443934083e-05
+  val_physics_periodic_slope_loss: 0.0029871808364987373
+  val_physics_analytical_anchor_loss: 0.0
+test_metrics:
+  test_loss: 0.025250419974327087
+  test_mae: 0.0019664017017930746
+  test_rmse: 0.0025452030822634697
+  test_pointwise_loss: 0.018750743940472603
+  test_centered_curve_shape_loss: 0.013990961946547031
+  test_curve_offset_loss: 0.004461916629225016
+  test_curve_amplitude_loss: 0.10998239368200302
+  test_sparse_harmonic_shape_loss: 0.0003065956989303231
+  test_physics_oscillator_residual_loss: 0.025173433125019073
+  test_physics_periodic_value_loss: 6.464721809606999e-05
+  test_physics_periodic_slope_loss: 0.001812322181649506
+  test_physics_analytical_anchor_loss: 0.0
+comparison_payload:
+  model_family: phase2_pinn_h2_oscillator_periodic_closure_bw
+  model_type: harmonic_kinematic_pinn
+  run_name: te_phase2_pinn_h2_oscillator_periodic_closure_bw__polished_setpoints
+  backbone_name: HarmonicKinematicPinnNetwork
+  trainable_parameter_count: 16570
+  total_parameter_count: 16570
+  val_mae: 0.0020176288671791553
+  val_rmse: 0.00251576560549438
+  test_mae: 0.0019664017017930746
+  test_rmse: 0.0025452030822634697
+  deployment_notes: ''
+  interpretability_notes: ''

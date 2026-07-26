@@ -8,6 +8,9 @@ from functools import partial
 from pathlib import Path
 from typing import Any
 
+# Import YAML Utilities
+import yaml
+
 # Import PyTorch Lightning Utilities
 from lightning.pytorch import LightningDataModule
 
@@ -26,6 +29,123 @@ from scripts.datasets.transmission_error_dataset import resolve_input_mode_selec
 from scripts.datasets.transmission_error_dataset import resolve_dataset_selection
 from scripts.datasets.transmission_error_dataset import resolve_project_relative_path
 from scripts.datasets.transmission_error_dataset import split_directional_file_manifest
+
+COMMON_SPLIT_NAME_LIST = ("train", "validation", "test")
+COMMON_SPLIT_DIRECTION_MAP = {
+    "Fw": "forward",
+    "Bw": "backward",
+}
+
+
+def split_directional_file_manifest_from_common_manifest(
+    directional_file_manifest: list[tuple[Path, str]],
+    split_manifest_path: str | Path,
+    excluded_condition_id_list: list[str] | None = None,
+) -> tuple[list[tuple[Path, str]], list[tuple[Path, str]], list[tuple[Path, str]]]:
+    """Apply a repository-owned paired-condition split manifest.
+
+    Args:
+        directional_file_manifest: Direction-filtered dataset file manifest.
+        split_manifest_path: YAML manifest containing paired Fw/Bw split
+            assignments.
+        excluded_condition_id_list: Optional condition identifiers quarantined
+            after the common split is applied.
+
+    Returns:
+        Train, validation, and test directional file manifests.
+    """
+
+    # Load Common Split Manifest
+    resolved_split_manifest_path = resolve_project_relative_path(split_manifest_path)
+    assert resolved_split_manifest_path.is_file(), (
+        f"Common Split Manifest does not exist | {resolved_split_manifest_path}"
+    )
+    split_manifest_payload = yaml.safe_load(
+        resolved_split_manifest_path.read_text(encoding="utf-8")
+    )
+    assert isinstance(split_manifest_payload, dict), (
+        "Common Split Manifest must contain a YAML mapping"
+    )
+    manifest_entry_list = split_manifest_payload.get("entry_list")
+    assert isinstance(manifest_entry_list, list) and manifest_entry_list, (
+        "Common Split Manifest entry_list is empty"
+    )
+
+    # Index The Direction-Filtered Dataset Paths
+    directional_entry_by_path: dict[Path, tuple[Path, str]] = {}
+    for csv_file_path, direction_label in directional_file_manifest:
+        resolved_csv_file_path = Path(csv_file_path).resolve()
+        assert resolved_csv_file_path not in directional_entry_by_path, (
+            f"Directional dataset path appears more than once | {resolved_csv_file_path}"
+        )
+        directional_entry_by_path[resolved_csv_file_path] = (
+            resolved_csv_file_path,
+            direction_label,
+        )
+
+    # Apply Paired Split Assignments And Quarantine
+    excluded_condition_id_set = set(excluded_condition_id_list or [])
+    observed_condition_id_set: set[str] = set()
+    matched_directional_path_set: set[Path] = set()
+    split_directional_manifest_map: dict[str, list[tuple[Path, str]]] = {
+        split_name: [] for split_name in COMMON_SPLIT_NAME_LIST
+    }
+
+    for manifest_entry in manifest_entry_list:
+        condition_id = str(manifest_entry["condition_id"])
+        split_name = str(manifest_entry["split"])
+        assert split_name in COMMON_SPLIT_NAME_LIST, (
+            f"Unsupported Common Split name | {split_name}"
+        )
+
+        if condition_id in excluded_condition_id_set:
+            assert split_name == "train", (
+                "Quarantined conditions must belong to the training split | "
+                f"{condition_id} | {split_name}"
+            )
+            observed_condition_id_set.add(condition_id)
+            continue
+
+        direction_file_map = manifest_entry["direction_files"]
+        for common_direction_name, dataset_direction_label in COMMON_SPLIT_DIRECTION_MAP.items():
+            source_record = direction_file_map[common_direction_name]
+            resolved_source_path = resolve_project_relative_path(source_record["path"])
+            if resolved_source_path not in directional_entry_by_path:
+                continue
+
+            dataset_entry = directional_entry_by_path[resolved_source_path]
+            assert dataset_entry[1] == dataset_direction_label, (
+                "Common Split direction differs from dataset direction | "
+                f"{resolved_source_path} | {dataset_entry[1]} vs {dataset_direction_label}"
+            )
+            split_directional_manifest_map[split_name].append(dataset_entry)
+            matched_directional_path_set.add(resolved_source_path)
+
+    # Require Exact Quarantine And Dataset Coverage
+    assert observed_condition_id_set == excluded_condition_id_set, (
+        "Requested quarantined conditions were not found exactly in the Common Split | "
+        f"observed={sorted(observed_condition_id_set)} | "
+        f"expected={sorted(excluded_condition_id_set)}"
+    )
+    unmatched_directional_path_set = (
+        set(directional_entry_by_path) - matched_directional_path_set
+    )
+    quarantined_directional_path_count = len(excluded_condition_id_set) * (
+        int(any(label == "forward" for _, label in directional_file_manifest))
+        + int(any(label == "backward" for _, label in directional_file_manifest))
+    )
+    assert len(unmatched_directional_path_set) == quarantined_directional_path_count, (
+        "Common Split does not cover the direction-filtered dataset exactly after "
+        f"quarantine | unmatched={len(unmatched_directional_path_set)} | "
+        f"expected_quarantined={quarantined_directional_path_count}"
+    )
+
+    return (
+        split_directional_manifest_map["train"],
+        split_directional_manifest_map["validation"],
+        split_directional_manifest_map["test"],
+    )
+
 
 @dataclass
 class NormalizationStatistics:
@@ -374,6 +494,9 @@ class TransmissionErrorDataModule(LightningDataModule):
         use_non_blocking_transfer: bool = False,
         use_forward_direction: bool = True,
         use_backward_direction: bool = True,
+        split_manifest_path: str | Path | None = None,
+        excluded_condition_id_list: list[str] | None = None,
+        expected_curve_count_by_split: dict[str, int] | None = None,
     ) -> None:
         """Initialize the reusable TE training datamodule.
 
@@ -402,6 +525,12 @@ class TransmissionErrorDataModule(LightningDataModule):
                 included in the dataset manifest.
             use_backward_direction: Whether backward-direction curves are
                 included in the dataset manifest.
+            split_manifest_path: Optional paired-condition split manifest that
+                replaces the generated random split.
+            excluded_condition_id_list: Optional manifest condition IDs to
+                quarantine after assigning splits.
+            expected_curve_count_by_split: Optional exact post-quarantine curve
+                counts for train, validation, and test.
         """
 
         super().__init__()
@@ -435,6 +564,24 @@ class TransmissionErrorDataModule(LightningDataModule):
         self.use_non_blocking_transfer = use_non_blocking_transfer
         self.use_forward_direction = use_forward_direction
         self.use_backward_direction = use_backward_direction
+        self.split_manifest_path = (
+            resolve_project_relative_path(split_manifest_path)
+            if split_manifest_path is not None
+            else None
+        )
+        self.excluded_condition_id_list = list(excluded_condition_id_list or [])
+        self.expected_curve_count_by_split = (
+            {
+                split_name: int(curve_count)
+                for split_name, curve_count in expected_curve_count_by_split.items()
+            }
+            if expected_curve_count_by_split is not None
+            else None
+        )
+        if self.expected_curve_count_by_split is not None:
+            assert set(self.expected_curve_count_by_split) == set(COMMON_SPLIT_NAME_LIST), (
+                "Expected Curve Count map must define train, validation, and test"
+            )
 
         # Initialize Runtime Attributes
         self.train_dataset: TransmissionErrorCurveDataset | None = None
@@ -490,12 +637,40 @@ class TransmissionErrorDataModule(LightningDataModule):
         )
 
         # Split Directional File Manifest
-        train_directional_file_manifest, validation_directional_file_manifest, test_directional_file_manifest = split_directional_file_manifest(
-            directional_file_manifest,
-            float(dataset_processing_config["split"]["validation_split"]),
-            float(dataset_processing_config["split"].get("test_split", 0.0)),
-            int(dataset_processing_config["split"]["random_seed"]),
-        )
+        if self.split_manifest_path is not None:
+            (
+                train_directional_file_manifest,
+                validation_directional_file_manifest,
+                test_directional_file_manifest,
+            ) = split_directional_file_manifest_from_common_manifest(
+                directional_file_manifest=directional_file_manifest,
+                split_manifest_path=self.split_manifest_path,
+                excluded_condition_id_list=self.excluded_condition_id_list,
+            )
+        else:
+            (
+                train_directional_file_manifest,
+                validation_directional_file_manifest,
+                test_directional_file_manifest,
+            ) = split_directional_file_manifest(
+                directional_file_manifest,
+                float(dataset_processing_config["split"]["validation_split"]),
+                float(dataset_processing_config["split"].get("test_split", 0.0)),
+                int(dataset_processing_config["split"]["random_seed"]),
+            )
+
+        # Validate Exact Post-Quarantine Split Counts
+        if self.expected_curve_count_by_split is not None:
+            observed_curve_count_by_split = {
+                "train": len(train_directional_file_manifest),
+                "validation": len(validation_directional_file_manifest),
+                "test": len(test_directional_file_manifest),
+            }
+            assert observed_curve_count_by_split == self.expected_curve_count_by_split, (
+                "Dataset split differs from the configured exact curve-count contract | "
+                f"observed={observed_curve_count_by_split} | "
+                f"expected={self.expected_curve_count_by_split}"
+            )
 
         # Build Train Dataset Object
         self.train_dataset = TransmissionErrorCurveDataset(

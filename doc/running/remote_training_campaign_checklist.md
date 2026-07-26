@@ -1,38 +1,52 @@
-# Remote Training Campaign Checklist
+﻿# Remote Training Campaign Checklist
 
 - Run status: closed
-- Stage: closeout reported
+- Stage: local campaign closeout complete
 - Remote host alias: xilab-remote
 - Remote repository path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks
 - Remote Conda environment: pinns_env
-- Campaign name: causal_offset_mean_calibration_pilot_2026_07_22
-- Planning report path: doc/reports/campaign_plans/cross_wave/causal_offset_mean_calibration/2026-07-22-17-42-11_causal_offset_mean_calibration_pilot_plan_report.md
-- Remote campaign output directory: output\training_campaigns\2026-07-22-18-09-27_causal_offset_mean_calibration_pilot_2026_07_22
-- Remote manifest path: output\training_campaigns\2026-07-22-18-09-27_causal_offset_mean_calibration_pilot_2026_07_22\campaign_manifest.yaml
-- Campaign results report path: doc/reports/campaign_results/cross_wave/causal_offset_mean_calibration/2026-07-22-18-33-02_causal_offset_mean_calibration_pilot_campaign_results_report.md
-- Campaign results PDF path: doc/reports/campaign_results/cross_wave/causal_offset_mean_calibration/2026-07-22-18-33-02_causal_offset_mean_calibration_pilot_campaign_results_report.pdf
-- Updated at: 2026-07-22 18:36:21
+- Campaign name:
+  `phase2_harmonic_kinematic_pinn_runtime_bounded_restart_2026_07_26`
+- Planning report path: doc/reports/campaign_plans/model_development_waves/wave_5_2/harmonic_kinematic_pinn/2026-07-25-20-44-23_phase2_harmonic_kinematic_pinn_campaign_plan_report.md
+- Local log path: C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\.temp\remote_training_campaigns\2026-07-26-12-49-13_phase2_harmonic_kinematic_pinn_2026_07_26\remote_training_campaign.log
+- Remote campaign output directory: not applicable to the local campaign
+- Remote manifest path: not applicable to the local campaign
+- Execution mode: local background runtime-bounded restart
+- Remote launch used: no
+- Completed runs: `8`
+- Failed runs: `0`
+- Updated at: `2026-07-26 16:53:50 +02:00`
 
 ## Campaign Config Paths
 
-- config/training/causal_offset_mean_calibration/campaigns/2026-07-22_causal_offset_mean_calibration_pilot/queue/001_causal_offset_mean_gru_sequence_fw.yaml
-- config/training/causal_offset_mean_calibration/campaigns/2026-07-22_causal_offset_mean_calibration_pilot/queue/002_causal_offset_mean_periodic_mlp_harmonic_fw.yaml
+- config/training/harmonic_kinematic_pinn/campaigns/2026-07-26_phase2_harmonic_kinematic_pinn/queue/001_h0_fourier_control_fw.yaml
+- config/training/harmonic_kinematic_pinn/campaigns/2026-07-26_phase2_harmonic_kinematic_pinn/queue/002_h0_fourier_control_bw.yaml
+- config/training/harmonic_kinematic_pinn/campaigns/2026-07-26_phase2_harmonic_kinematic_pinn/queue/003_h1_oscillator_residual_fw.yaml
+- config/training/harmonic_kinematic_pinn/campaigns/2026-07-26_phase2_harmonic_kinematic_pinn/queue/004_h1_oscillator_residual_bw.yaml
+- config/training/harmonic_kinematic_pinn/campaigns/2026-07-26_phase2_harmonic_kinematic_pinn/queue/005_h2_oscillator_periodic_closure_fw.yaml
+- config/training/harmonic_kinematic_pinn/campaigns/2026-07-26_phase2_harmonic_kinematic_pinn/queue/006_h2_oscillator_periodic_closure_bw.yaml
+- config/training/harmonic_kinematic_pinn/campaigns/2026-07-26_phase2_harmonic_kinematic_pinn/queue/007_h3_oscillator_periodic_bauer_anchor_fw.yaml
+- config/training/harmonic_kinematic_pinn/campaigns/2026-07-26_phase2_harmonic_kinematic_pinn/queue/008_h3_oscillator_periodic_bauer_anchor_bw.yaml
 
-## Synced Artifact Paths
+## Source Sync Paths
 
-- output\training_campaigns\2026-07-22-18-09-27_causal_offset_mean_calibration_pilot_2026_07_22
-- output\training_runs\causal_offset_mean_calibration\2026-07-22-18-09-27__te_causal_offset_mean_gru_sequence_fw__polished_setpoints
-- output\training_runs\causal_offset_mean_calibration\2026-07-22-18-15-50__te_causal_offset_mean_periodic_mlp_harmonic_fw__polished_setpoints
-- config\training\queue\causal_offset_mean_calibration\causal_offset_mean_calibration_pilot_2026_07_22\completed\2026-07-22-18-09-27_001_001_causal_offset_mean_gru_sequence_fw.yaml
-- config\training\queue\causal_offset_mean_calibration\causal_offset_mean_calibration_pilot_2026_07_22\completed\2026-07-22-18-09-27_002_002_causal_offset_mean_periodic_mlp_harmonic_fw.yaml
-- output\registries\program\current_best_solution.yaml
+- scripts
+- config
+- doc
+- site
+- requirements.txt
+- AGENTS.md
+- output/analysis/polynomial_fourier_benchmark/phase1_coefficient_models.yaml
 
-## Recovery Note
+## Closeout
 
-The shared remote launcher exited during remote preflight and direct
-`conda run` returned `-1073740791` after the campaign had already written a
-complete `Completed 2 | Failed 0` output package. Artifacts were synchronized
-manually from the remote sync manifest. The manifest referenced a missing
-aggregate family registry under
-`output/registries/families/causal_offset_mean_calibration/leaderboard.yaml`,
-so the campaign leaderboard is the canonical ranking surface for this run.
+The earlier remote preflight status did not represent an active remote run.
+The canonical campaign completed locally, and no remote synchronization is
+pending.
+
+- Campaign output:
+  `output/training_campaigns/2026-07-26-14-03-44_phase2_harmonic_kinematic_pinn_runtime_bounded_restart_2026_07_26`
+- Results report:
+  `doc/reports/campaign_results/wave_5_2/2026-07-26-16-53-50_phase2_harmonic_kinematic_pinn_campaign_results_report.md`
+- Results PDF:
+  `doc/reports/campaign_results/wave_5_2/2026-07-26-16-53-50_phase2_harmonic_kinematic_pinn_campaign_results_report.pdf`

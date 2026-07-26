@@ -1,14 +1,20 @@
 {
   "run_status": "closed",
-  "stage": "closeout_reported",
+  "stage": "local_campaign_closeout_complete",
   "remote_host_alias": "xilab-remote",
   "remote_repository_path": "C:\\Users\\Martina Salami\\Documents\\Davide\\Physics-Informed-Neural-Networks",
   "remote_conda_environment_name": "pinns_env",
-  "campaign_name": "causal_offset_mean_calibration_pilot_2026_07_22",
-  "planning_report_path": "doc/reports/campaign_plans/cross_wave/causal_offset_mean_calibration/2026-07-22-17-42-11_causal_offset_mean_calibration_pilot_plan_report.md",
+  "campaign_name": "phase2_harmonic_kinematic_pinn_runtime_bounded_restart_2026_07_26",
+  "planning_report_path": "doc/reports/campaign_plans/model_development_waves/wave_5_2/harmonic_kinematic_pinn/2026-07-25-20-44-23_phase2_harmonic_kinematic_pinn_campaign_plan_report.md",
   "campaign_config_path_list": [
-    "config/training/causal_offset_mean_calibration/campaigns/2026-07-22_causal_offset_mean_calibration_pilot/queue/001_causal_offset_mean_gru_sequence_fw.yaml",
-    "config/training/causal_offset_mean_calibration/campaigns/2026-07-22_causal_offset_mean_calibration_pilot/queue/002_causal_offset_mean_periodic_mlp_harmonic_fw.yaml"
+    "config/training/harmonic_kinematic_pinn/campaigns/2026-07-26_phase2_harmonic_kinematic_pinn/queue/001_h0_fourier_control_fw.yaml",
+    "config/training/harmonic_kinematic_pinn/campaigns/2026-07-26_phase2_harmonic_kinematic_pinn/queue/002_h0_fourier_control_bw.yaml",
+    "config/training/harmonic_kinematic_pinn/campaigns/2026-07-26_phase2_harmonic_kinematic_pinn/queue/003_h1_oscillator_residual_fw.yaml",
+    "config/training/harmonic_kinematic_pinn/campaigns/2026-07-26_phase2_harmonic_kinematic_pinn/queue/004_h1_oscillator_residual_bw.yaml",
+    "config/training/harmonic_kinematic_pinn/campaigns/2026-07-26_phase2_harmonic_kinematic_pinn/queue/005_h2_oscillator_periodic_closure_fw.yaml",
+    "config/training/harmonic_kinematic_pinn/campaigns/2026-07-26_phase2_harmonic_kinematic_pinn/queue/006_h2_oscillator_periodic_closure_bw.yaml",
+    "config/training/harmonic_kinematic_pinn/campaigns/2026-07-26_phase2_harmonic_kinematic_pinn/queue/007_h3_oscillator_periodic_bauer_anchor_fw.yaml",
+    "config/training/harmonic_kinematic_pinn/campaigns/2026-07-26_phase2_harmonic_kinematic_pinn/queue/008_h3_oscillator_periodic_bauer_anchor_bw.yaml"
   ],
   "source_sync_path_list": [
     "scripts",
@@ -16,21 +22,19 @@
     "doc",
     "site",
     "requirements.txt",
-    "AGENTS.md"
+    "AGENTS.md",
+    "output/analysis/polynomial_fourier_benchmark/phase1_coefficient_models.yaml"
   ],
-  "local_log_path": ".temp\\manual_causal_offset_run_remote.ps1",
-  "remote_campaign_output_directory": "output\\training_campaigns\\2026-07-22-18-09-27_causal_offset_mean_calibration_pilot_2026_07_22",
-  "remote_manifest_path": "output\\training_campaigns\\2026-07-22-18-09-27_causal_offset_mean_calibration_pilot_2026_07_22\\campaign_manifest.yaml",
-  "campaign_results_report_path": "doc\\reports\\campaign_results\\cross_wave\\causal_offset_mean_calibration\\2026-07-22-18-33-02_causal_offset_mean_calibration_pilot_campaign_results_report.md",
-  "campaign_results_pdf_path": "doc\\reports\\campaign_results\\cross_wave\\causal_offset_mean_calibration\\2026-07-22-18-33-02_causal_offset_mean_calibration_pilot_campaign_results_report.pdf",
-  "last_failure_message": "Shared remote launcher exited during preflight and direct conda run returned -1073740791 after successful campaign completion; artifacts were synchronized manually from the remote sync manifest.",
-  "synced_path_list": [
-    "output\\training_campaigns\\2026-07-22-18-09-27_causal_offset_mean_calibration_pilot_2026_07_22",
-    "output\\training_runs\\causal_offset_mean_calibration\\2026-07-22-18-09-27__te_causal_offset_mean_gru_sequence_fw__polished_setpoints",
-    "output\\training_runs\\causal_offset_mean_calibration\\2026-07-22-18-15-50__te_causal_offset_mean_periodic_mlp_harmonic_fw__polished_setpoints",
-    "config\\training\\queue\\causal_offset_mean_calibration\\causal_offset_mean_calibration_pilot_2026_07_22\\completed\\2026-07-22-18-09-27_001_001_causal_offset_mean_gru_sequence_fw.yaml",
-    "config\\training\\queue\\causal_offset_mean_calibration\\causal_offset_mean_calibration_pilot_2026_07_22\\completed\\2026-07-22-18-09-27_002_002_causal_offset_mean_periodic_mlp_harmonic_fw.yaml",
-    "output\\registries\\program\\current_best_solution.yaml"
-  ],
-  "updated_at": "2026-07-22T18:36:21+02:00"
+  "local_log_path": "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\.temp\\remote_training_campaigns\\2026-07-26-12-49-13_phase2_harmonic_kinematic_pinn_2026_07_26\\remote_training_campaign.log",
+  "remote_campaign_output_directory": "",
+  "remote_manifest_path": "",
+  "last_failure_message": "",
+  "execution_mode": "local_background_runtime_bounded_restart",
+  "remote_launch_used": false,
+  "completed_run_count": 8,
+  "failed_run_count": 0,
+  "campaign_output_directory": "output/training_campaigns/2026-07-26-14-03-44_phase2_harmonic_kinematic_pinn_runtime_bounded_restart_2026_07_26",
+  "campaign_results_report_path": "doc/reports/campaign_results/wave_5_2/2026-07-26-16-53-50_phase2_harmonic_kinematic_pinn_campaign_results_report.md",
+  "synced_path_list": [],
+  "updated_at": "2026-07-26T16:53:50+02:00"
 }

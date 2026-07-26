@@ -76,7 +76,11 @@ The shared neural training entry point now prints model-specific configuration d
 
 For the tree benchmark, the current workstation should use conservative `RandomForestRegressor` settings. A follow-up validation on a higher-memory machine is still required to check whether the previously observed memory failure is hardware-specific and whether a larger RAM budget allows stronger tree configurations.
 
-Recurrent models, LSTM-based models, inference/export flows, and PINN-specific training are still planned future extensions. They are not yet exposed as runnable project workflows.
+Recurrent and LSTM-based models are exposed through the shared training
+infrastructure, and Wave 5.2 now includes a runnable harmonic-kinematic PINN
+workflow. The completed Phase 2 campaign did not promote an oscillator,
+periodic-closure, or Bauer-anchor constraint; inference/export integration
+remains a later program activity.
 
 ## Prerequisites
 
@@ -471,6 +475,43 @@ conda run --no-capture-output -n pinns_env python -B `
 The audit retains every source curve for provenance but excludes explicit
 nominal-versus-measured speed or torque anomalies from later fitting and
 held-out scoring.
+
+## Phase 2 Harmonic-Kinematic PINN Campaign
+
+Run the deterministic checks for the first explicit angular-oscillator PINN:
+
+```powershell
+conda run --no-capture-output -n pinns_env python -B `
+  scripts/testing/validate_harmonic_kinematic_pinn.py
+```
+
+The check verifies exact and inadmissible oscillator residuals, model-factory
+construction, periodic shift behavior, first and second angular derivatives,
+physics-to-parameter gradients, and Lightning loss integration.
+
+Validate the prepared eight-run campaign without training:
+
+```powershell
+.\scripts\campaigns\wave_5_2\run_phase2_harmonic_kinematic_pinn_campaign.ps1 `
+  -PreflightOnly
+```
+
+The corresponding local and remote execution commands are:
+
+```powershell
+.\scripts\campaigns\wave_5_2\run_phase2_harmonic_kinematic_pinn_campaign.ps1 `
+  -Run
+
+.\scripts\campaigns\wave_5_2\run_phase2_harmonic_kinematic_pinn_campaign.ps1 `
+  -Remote -Run
+```
+
+The canonical local campaign completed all eight H0-H3 directional arms on
+the exact Phase 0/Phase 1 common split. The bounded Curve Payload Diagnostics
+comparison retained the accepted periodic MLP and GRU baselines above every
+Phase 2 candidate, so no Phase 2 physics weight is promoted. Phase 3 therefore
+starts independently with quasi-static compliance and elastic-offset
+formulations.
 
 ## Relevant Project Paths
 

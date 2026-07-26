@@ -183,17 +183,21 @@ not be mixed in the first experiment.
 
 ## Immediate TODO
 
-1. Reproduce the Bauer signal-processing and complete quadratic coefficient
-   law on the repository dataset.
-2. Reconstruct the recovered ONNX and PLC coefficient conventions, units,
-   directions, and harmonic sets.
-3. Benchmark all three Polynomial-Fourier variants on identical `Fw` and `Bw`
-   held-out conditions.
-4. Complete the equation, variable, unit, and observability matrix for the
-   selected compatibility residual.
-5. Select the first full-PINN formulation only after the analytical audit.
-6. Create the implementation-specific technical document and campaign plan.
-7. Run a bounded single-formulation pilot before any Wave 6 campaign design.
+Phases 0 through 2 are complete. The Bauer benchmark selected its analytical
+reference, and the first bounded harmonic/kinematic full-PINN campaign closed
+as a valid negative result with no promoted physical loss.
+
+1. Prepare Phase 3 quasi-static compliance and elastic-offset formulations.
+2. Verify torque sign, zero-torque intercept, monotonicity, stiffness bounds,
+   temperature conditioning, and direction-specific offset assumptions.
+3. Separate directly observable tests from synthetic and offline-oracle tests.
+4. Reuse the common split and accepted time-windowed and non-windowed
+   baselines.
+5. Create the Phase 3 technical document and campaign plan before training.
+6. Run the isolated Phase 3 formulation before mixing it with Phase 2 or any
+   later mechanism.
+7. Keep Wave 6 deferred until at least two complementary physical components
+   pass isolated pilots.
 
 Subsequent pilots follow the three-lane program defined in the complete test
 roadmap:

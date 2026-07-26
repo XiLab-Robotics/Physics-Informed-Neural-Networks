@@ -24,6 +24,7 @@ from scripts.models.model_factory import create_model
 from scripts.paper_reimplementation.rcim_ml_compensation.harmonic_wise_comparison import harmonic_wise_support
 from scripts.training import shared_training_infrastructure
 from scripts.training import tree_regression_support
+from scripts.training import transmission_error_datamodule
 from scripts.training.transmission_error_regression_module import TransmissionErrorRegressionModule
 
 COMPARISON_REPORT_ROOT = (
@@ -453,12 +454,52 @@ def build_curve_record_list(
             use_backward_direction=bool(direction_configuration["use_backward_direction"]),
             dataset_name=selected_dataset_name,
         )
-        train_manifest, validation_manifest, test_manifest = transmission_error_dataset.split_directional_file_manifest(
-            directional_file_manifest,
-            validation_split=float(split_configuration["validation_split"]),
-            test_split=float(split_configuration["test_split"]),
-            random_seed=int(split_configuration["random_seed"]),
+        common_split_manifest_path = training_config.get("dataset", {}).get(
+            "split_manifest_path"
         )
+        if common_split_manifest_path:
+            train_manifest, validation_manifest, test_manifest = (
+                transmission_error_datamodule.split_directional_file_manifest_from_common_manifest(
+                    directional_file_manifest=directional_file_manifest,
+                    split_manifest_path=common_split_manifest_path,
+                    excluded_condition_id_list=training_config.get("dataset", {}).get(
+                        "excluded_condition_id_list",
+                        [],
+                    ),
+                )
+            )
+        else:
+            train_manifest, validation_manifest, test_manifest = (
+                transmission_error_dataset.split_directional_file_manifest(
+                    directional_file_manifest,
+                    validation_split=float(split_configuration["validation_split"]),
+                    test_split=float(split_configuration["test_split"]),
+                    random_seed=int(split_configuration["random_seed"]),
+                )
+            )
+
+        expected_curve_count_by_split = training_config.get("dataset", {}).get(
+            "expected_curve_count_by_split"
+        )
+        if expected_curve_count_by_split:
+            observed_curve_count_by_split = {
+                "train": len(train_manifest),
+                "validation": len(validation_manifest),
+                "test": len(test_manifest),
+            }
+            normalized_expected_curve_count_by_split = {
+                split_name: int(expected_curve_count_by_split[split_name])
+                for split_name in ("train", "validation", "test")
+            }
+            assert (
+                observed_curve_count_by_split
+                == normalized_expected_curve_count_by_split
+            ), (
+                "TE Curve Verification Pipeline common split counts differ "
+                "from the configured contract | "
+                f"observed={observed_curve_count_by_split} | "
+                f"expected={normalized_expected_curve_count_by_split}"
+            )
         curve_record_list = []
         for csv_file_path, direction_label in test_manifest:
             curve_sample = transmission_error_dataset.build_validated_directional_sample(

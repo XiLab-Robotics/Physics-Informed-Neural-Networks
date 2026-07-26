@@ -6,6 +6,7 @@ Models API
 
    feedforward_network
    harmonic_regression
+   harmonic_kinematic_pinn_network
    harmonic_residual_offset_network
    latent_state_hysteresis_network
    periodic_feature_network

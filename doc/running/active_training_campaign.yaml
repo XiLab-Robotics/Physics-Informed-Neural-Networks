@@ -1,11 +1,11 @@
 status: closed
-prepared_at: '2026-07-22T17:42:11+02:00'
-started_at: '2026-07-22T18:09:27+02:00'
-completed_at: '2026-07-22T18:23:32+02:00'
-closed_at: '2026-07-22T18:36:21+02:00'
-campaign_name: causal_offset_mean_calibration_pilot_2026_07_22
-campaign_type: causal_offset_mean_calibration_pilot
-execution_mode: remote_manual_recovery
+prepared_at: '2026-07-26T12:37:56+02:00'
+started_at: '2026-07-26T14:03:27+02:00'
+completed_at: '2026-07-26T16:38:48+02:00'
+closed_at: '2026-07-26T16:53:50+02:00'
+campaign_name: phase2_harmonic_kinematic_pinn_runtime_bounded_restart_2026_07_26
+campaign_type: wave_5_2_phase_2_harmonic_kinematic_pinn
+execution_mode: local_background_runtime_bounded_restart
 remote_host_alias: xilab-remote
 remote_conda_environment_name: pinns_env
 dataset_id: polished_dataset
@@ -14,160 +14,93 @@ dataset_schema: polished_setpoint_curve_v1
 dataset_root: data/polished_dataset
 surface_list:
 - fw
-primary_surface: fw
-expected_run_count: 2
-completed_run_count: 2
+- bw
+primary_surface: direction_separated
+expected_run_count: 8
+completed_run_count: 8
 failed_run_count: 0
-windowed_candidate_family: causal_offset_mean_gru_sequence_fw
-non_windowed_candidate_family: causal_offset_mean_periodic_mlp_harmonic_fw
-comparison_baseline_list:
-- polished_setpoints_periodic_gru_sequence_Fw
-- polished_setpoints_periodic_mlp_harmonic_Fw
-campaign_manifest_path: config/training/causal_offset_mean_calibration/campaigns/2026-07-22_causal_offset_mean_calibration_pilot/campaign.yaml
-campaign_output_directory: output/training_campaigns/2026-07-22-18-09-27_causal_offset_mean_calibration_pilot_2026_07_22
+background_process_id: 35020
+background_stdout_path: .temp/phase2_harmonic_kinematic_runtime_bounded_restart/campaign_stdout.log
+background_stderr_path: .temp/phase2_harmonic_kinematic_runtime_bounded_restart/campaign_stderr.log
+campaign_manifest_path: config/training/harmonic_kinematic_pinn/campaigns/2026-07-26_phase2_harmonic_kinematic_pinn/campaign.yaml
 campaign_config_path_list:
-- config/training/causal_offset_mean_calibration/campaigns/2026-07-22_causal_offset_mean_calibration_pilot/queue/001_causal_offset_mean_gru_sequence_fw.yaml
-- config/training/causal_offset_mean_calibration/campaigns/2026-07-22_causal_offset_mean_calibration_pilot/queue/002_causal_offset_mean_periodic_mlp_harmonic_fw.yaml
-queue_root: config/training/queue/causal_offset_mean_calibration/causal_offset_mean_calibration_pilot_2026_07_22
-launcher_path: scripts/campaigns/cross_wave/run_causal_offset_mean_calibration_pilot_campaign.ps1
-launcher_note_path: doc/scripts/campaigns/cross_wave/run_causal_offset_mean_calibration_pilot_campaign.md
-planning_report_path: doc/reports/campaign_plans/cross_wave/causal_offset_mean_calibration/2026-07-22-17-42-11_causal_offset_mean_calibration_pilot_plan_report.md
-technical_document_path: doc/technical/2026-07/2026-07-22/2026-07-22-17-38-44_causal_offset_mean_calibration_pilot.md
-model_report_path: doc/reports/analysis/model_development_waves/wave_5_2/causal_offset_mean_calibration/[2026-07-22]/causal_offset_mean_calibration_pilot_model_report.md
-campaign_leaderboard_path: output/training_campaigns/2026-07-22-18-09-27_causal_offset_mean_calibration_pilot_2026_07_22/campaign_leaderboard.yaml
-campaign_best_run_path: output/training_campaigns/2026-07-22-18-09-27_causal_offset_mean_calibration_pilot_2026_07_22/campaign_best_run.yaml
-campaign_best_run_report_path: output/training_campaigns/2026-07-22-18-09-27_causal_offset_mean_calibration_pilot_2026_07_22/campaign_best_run.md
-campaign_results_report_path: doc/reports/campaign_results/cross_wave/causal_offset_mean_calibration/2026-07-22-18-33-02_causal_offset_mean_calibration_pilot_campaign_results_report.md
-campaign_results_pdf_path: doc/reports/campaign_results/cross_wave/causal_offset_mean_calibration/2026-07-22-18-33-02_causal_offset_mean_calibration_pilot_campaign_results_report.pdf
-local_preflight_command: .\scripts\campaigns\cross_wave\run_causal_offset_mean_calibration_pilot_campaign.ps1
-  -PreflightOnly
-local_one_batch_validation_command: .\scripts\campaigns\cross_wave\run_causal_offset_mean_calibration_pilot_campaign.ps1
-  -PreflightOnly -RunOneBatchValidation
-remote_launch_command: .\scripts\campaigns\cross_wave\run_causal_offset_mean_calibration_pilot_campaign.ps1
-  -Remote
+- config/training/harmonic_kinematic_pinn/campaigns/2026-07-26_phase2_harmonic_kinematic_pinn/queue/001_h0_fourier_control_fw.yaml
+- config/training/harmonic_kinematic_pinn/campaigns/2026-07-26_phase2_harmonic_kinematic_pinn/queue/002_h0_fourier_control_bw.yaml
+- config/training/harmonic_kinematic_pinn/campaigns/2026-07-26_phase2_harmonic_kinematic_pinn/queue/003_h1_oscillator_residual_fw.yaml
+- config/training/harmonic_kinematic_pinn/campaigns/2026-07-26_phase2_harmonic_kinematic_pinn/queue/004_h1_oscillator_residual_bw.yaml
+- config/training/harmonic_kinematic_pinn/campaigns/2026-07-26_phase2_harmonic_kinematic_pinn/queue/005_h2_oscillator_periodic_closure_fw.yaml
+- config/training/harmonic_kinematic_pinn/campaigns/2026-07-26_phase2_harmonic_kinematic_pinn/queue/006_h2_oscillator_periodic_closure_bw.yaml
+- config/training/harmonic_kinematic_pinn/campaigns/2026-07-26_phase2_harmonic_kinematic_pinn/queue/007_h3_oscillator_periodic_bauer_anchor_fw.yaml
+- config/training/harmonic_kinematic_pinn/campaigns/2026-07-26_phase2_harmonic_kinematic_pinn/queue/008_h3_oscillator_periodic_bauer_anchor_bw.yaml
+queue_root: config/training/queue/harmonic_kinematic_pinn/phase2_harmonic_kinematic_pinn_runtime_bounded_restart_2026_07_26
+launcher_path: scripts/campaigns/wave_5_2/run_phase2_harmonic_kinematic_pinn_campaign.ps1
+launcher_note_path: doc/scripts/campaigns/wave_5_2/run_phase2_harmonic_kinematic_pinn_campaign.md
+planning_report_path: doc/reports/campaign_plans/model_development_waves/wave_5_2/harmonic_kinematic_pinn/2026-07-25-20-44-23_phase2_harmonic_kinematic_pinn_campaign_plan_report.md
+technical_document_path: doc/technical/2026-07/2026-07-25/2026-07-25-20-40-44_phase_2_harmonic_kinematic_pinn.md
+model_report_path: doc/reports/analysis/model_development_waves/wave_5_2/harmonic_kinematic_pinn/[2026-07-26]/phase2_harmonic_kinematic_pinn_model_report.md
+analytical_anchor_path: output/analysis/polynomial_fourier_benchmark/phase1_coefficient_models.yaml
+common_split_manifest_path: output/analysis/polynomial_fourier_benchmark/common_split_manifest.yaml
+excluded_condition_id_list:
+- speed_500rpm__torque_600Nm__temperature_35degC
+- speed_800rpm__torque_200Nm__temperature_25degC
+- speed_1400rpm__torque_800Nm__temperature_35degC
+expected_curve_count_by_split:
+  train: 675
+  validation: 194
+  test: 97
+approval:
+  status: approved
+  scope: >
+    Campaign plan, preparation, preflight, and training work required by the
+    approved sixteen-phase PINN roadmap.
+  approved_at: '2026-07-26T12:37:56+02:00'
+  expires_at: '2026-07-26T22:37:56+02:00'
+  source: user standing approval for the next ten hours
+local_preflight_command: .\scripts\campaigns\wave_5_2\run_phase2_harmonic_kinematic_pinn_campaign.ps1 -PreflightOnly
+local_one_batch_validation_command: .\scripts\campaigns\wave_5_2\run_phase2_harmonic_kinematic_pinn_campaign.ps1 -PreflightOnly -RunOneBatchValidation
+local_launch_command: .\scripts\campaigns\wave_5_2\run_phase2_harmonic_kinematic_pinn_campaign.ps1
+remote_launch_command: .\scripts\campaigns\wave_5_2\run_phase2_harmonic_kinematic_pinn_campaign.ps1 -Remote
 launch_command_list:
-- .\scripts\campaigns\cross_wave\run_causal_offset_mean_calibration_pilot_campaign.ps1
-  -PreflightOnly
-- .\scripts\campaigns\cross_wave\run_causal_offset_mean_calibration_pilot_campaign.ps1
-  -PreflightOnly -RunOneBatchValidation
-- .\scripts\campaigns\cross_wave\run_causal_offset_mean_calibration_pilot_campaign.ps1
-  -Remote
-artifact_list:
-- output/validation_checks/causal_offset_mean_gru_sequence_fw/2026-07-22-17-50-15__te_causal_offset_mean_gru_sequence_fw__polished_setpoints_validation_check/validation_summary.yaml
-- output/validation_checks/causal_offset_mean_periodic_mlp_harmonic_fw/2026-07-22-17-50-24__te_causal_offset_mean_periodic_mlp_harmonic_fw__polished_setpoints_validation_check/validation_summary.yaml
-- doc/reports/analysis/validation_checks/2026-07-22-17-50-16_causal_o_b0af0bbf_te_causal_offset_mean_gru_46bd6a65_validation_setup_report.md
-- doc/reports/analysis/validation_checks/2026-07-22-17-50-25_causal_o_c9487618_te_causal_offset_mean_per_644ee343_validation_setup_report.md
-- output/training_campaigns/2026-07-22-18-09-27_causal_offset_mean_calibration_pilot_2026_07_22
-- output/training_runs/causal_offset_mean_calibration/2026-07-22-18-09-27__te_causal_offset_mean_gru_sequence_fw__polished_setpoints
-- output/training_runs/causal_offset_mean_calibration/2026-07-22-18-15-50__te_causal_offset_mean_periodic_mlp_harmonic_fw__polished_setpoints
-- config/training/queue/causal_offset_mean_calibration/causal_offset_mean_calibration_pilot_2026_07_22/completed/2026-07-22-18-09-27_001_001_causal_offset_mean_gru_sequence_fw.yaml
-- config/training/queue/causal_offset_mean_calibration/causal_offset_mean_calibration_pilot_2026_07_22/completed/2026-07-22-18-09-27_002_002_causal_offset_mean_periodic_mlp_harmonic_fw.yaml
-- output/registries/program/current_best_solution.yaml
-- doc/reports/analysis/Training Results Master Summary.md
-- doc/reports/analysis/project_status/current/Training Results Master Summary.md
-- doc/reports/campaign_results/cross_wave/causal_offset_mean_calibration/2026-07-22-18-33-02_causal_offset_mean_calibration_pilot_campaign_results_report.md
-- doc/reports/campaign_results/cross_wave/causal_offset_mean_calibration/2026-07-22-18-33-02_causal_offset_mean_calibration_pilot_campaign_results_report.pdf
+- .\scripts\campaigns\wave_5_2\run_phase2_harmonic_kinematic_pinn_campaign.ps1 -PreflightOnly
+- .\scripts\campaigns\wave_5_2\run_phase2_harmonic_kinematic_pinn_campaign.ps1 -PreflightOnly -RunOneBatchValidation
+- .\scripts\campaigns\wave_5_2\run_phase2_harmonic_kinematic_pinn_campaign.ps1
+- .\scripts\campaigns\wave_5_2\run_phase2_harmonic_kinematic_pinn_campaign.ps1 -Remote
 acceptance_gate:
   scalar_mae_only_promotion_allowed: false
   promotion_decision_requires_curve_first_evidence: true
-  preserve_windowed_and_non_windowed_paths: true
-  required_surface: fw
+  required_surface_list:
+  - fw
+  - bw
   required_dataset: polished_dataset
   required_input_mode: setpoints
-  required_windowed_baseline: polished_setpoints_periodic_gru_sequence_Fw
-  required_non_windowed_baseline: polished_setpoints_periodic_mlp_harmonic_Fw
-  accepted_program_baseline_change_allowed_during_campaign: false
-remote_recovery_notes: >
-  The repository-owned remote launcher and the user's terminal both exited
-  early around remote preflight / transport handling. Direct SSH execution with
-  uploaded temporary PowerShell scripts completed the campaign on the remote
-  workstation. The training runner reported Completed 2 and Failed 0, but
-  conda run returned -1073740791 after successful campaign output generation;
-  artifacts were synchronized back manually from the generated remote sync
-  manifest. The sync manifest listed a missing aggregate family registry under
-  output/registries/families/causal_offset_mean_calibration/leaderboard.yaml,
-  so campaign leaderboard artifacts are the canonical ranking surface for this
-  closeout.
+  phase_exit_rule: >
+    A genuine physics-residual arm must improve held-out harmonic fidelity over
+    the parameter-matched Fourier control without materially degrading raw
+    error, offset behavior, or continuity.
+campaign_output_directory: output/training_campaigns/2026-07-26-14-03-44_phase2_harmonic_kinematic_pinn_runtime_bounded_restart_2026_07_26
+campaign_leaderboard_path: output/training_campaigns/2026-07-26-14-03-44_phase2_harmonic_kinematic_pinn_runtime_bounded_restart_2026_07_26/campaign_leaderboard.yaml
+campaign_best_run_path: output/training_campaigns/2026-07-26-14-03-44_phase2_harmonic_kinematic_pinn_runtime_bounded_restart_2026_07_26/campaign_best_run.yaml
+campaign_best_run_report_path: output/training_campaigns/2026-07-26-14-03-44_phase2_harmonic_kinematic_pinn_runtime_bounded_restart_2026_07_26/campaign_best_run.md
+campaign_results_report_path: doc/reports/campaign_results/wave_5_2/2026-07-26-16-53-50_phase2_harmonic_kinematic_pinn_campaign_results_report.md
+campaign_results_pdf_path: doc/reports/campaign_results/wave_5_2/2026-07-26-16-53-50_phase2_harmonic_kinematic_pinn_campaign_results_report.pdf
+curve_payload_diagnostics_output_directory: output/validation_checks/phase2_harmonic_kinematic_pinn_curve_payload_diagnostics/2026-07-26-16-49-48__track2c_curve_payload_diagnostics
+curve_payload_diagnostics_report_path: doc/reports/analysis/model_development_waves/wave_5_2/harmonic_kinematic_pinn/curve_payload_diagnostics/[2026-07-26]/track2_curve_payload_diagnostics_report.md
 campaign_result_summary:
+  scalar_campaign_winner: phase2_pinn_h0_fourier_control_fw
+  phase_status: completed_negative_result
   promoted: false
-  scalar_campaign_winner: causal_offset_mean_periodic_mlp_harmonic_fw
-  ranking:
-  - rank: 1
-    model_family: causal_offset_mean_periodic_mlp_harmonic_fw
-    model_type: periodic_mlp
-    run_instance_id: 2026-07-22-18-15-50__te_causal_offset_mean_periodic_mlp_harmonic_fw__polished_setpoints
-    val_mae: 0.0014689491363242269
-    test_mae: 0.0012772574555128813
-    test_rmse: 0.0017385343089699745
-  - rank: 2
-    model_family: causal_offset_mean_gru_sequence_fw
-    model_type: sequential_residual_offset_probe
-    run_instance_id: 2026-07-22-18-09-27__te_causal_offset_mean_gru_sequence_fw__polished_setpoints
-    val_mae: 0.002428425243124366
-    test_mae: 0.002100362442433834
-    test_rmse: 0.0026104035787284374
-notes: >
-  Completed the two-arm causal offset / mean calibration pilot after the
-  shape-first distillation bounded screen failed to promote a new forward
-  baseline. The campaign kept the time-windowed and non-windowed roads active.
-  Normal campaign-results closeout selected the non-windowed harmonic MLP as
-  the scalar campaign winner, rejected immediate promotion, and left bounded
-  curve-first verification as the next required gate.
-monitoring:
-  last_checked_at: '2026-07-23T13:18:49+02:00'
-  remote_status: closed
-  remote_stage: bounded_track2_screen_closed
-  latest_observation: Bounded causal offset TE Curve Verification Pipeline screen
-    completed, retained polished_setpoints_periodic_gru_sequence_Fw as the forward
-    recommendation, and did not promote either causal offset candidate. The
-    screen produced scalar and shape-gated evidence but no measured-vs-predicted
-    plot package.
-next_prepared_screen:
-  prepared_at: '2026-07-23T12:04:37+02:00'
-  completed_at: '2026-07-23T13:10:49+02:00'
-  closed_at: '2026-07-23T13:18:49+02:00'
-  status: closed
-  screen_name: causal_offset_bounded_track2_screen_2026_07_22
-  screen_type: bounded_te_curve_verification_pipeline
-  dataset_id: polished_dataset
-  input_mode: setpoints
-  surface_scope: forward
-  output_suffix: causal_offset_bounded_track2_screen_polished_setpoints_fw
-  matrix_config_path: config/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/causal_offset_bounded_track2_screen_polished_setpoints_fw_matrix.yaml
-  launcher_path: scripts/campaigns/track_2/run_causal_offset_bounded_track2_screen.ps1
-  launcher_note_path: doc/scripts/campaigns/track_2/run_causal_offset_bounded_track2_screen.md
-  planning_report_path: doc/reports/campaign_plans/cross_wave/causal_offset_mean_calibration/2026-07-22-18-48-18_causal_offset_bounded_track2_screen_plan_report.md
-  technical_document_path: doc/technical/2026-07/2026-07-22/2026-07-22-18-48-18_causal_offset_bounded_track2_screen.md
-  candidate_list:
-  - polished_setpoints_periodic_gru_sequence_Fw
-  - polished_setpoints_periodic_mlp_harmonic_Fw
-  - causal_offset_mean_periodic_mlp_harmonic_Fw
-  - causal_offset_mean_gru_sequence_Fw
-  - shape_objective_periodic_mlp_harmonic_Fw
-  matrix_output_directory: output/validation_checks/track2_reference_comparison/2026-07-23-13-07-44__causal_offset_bounded_track2_screen_polished_setpoints_fw_matrix_causal_offset_bounded_track2_screen_polished_setpoints_fw
-  matrix_report_path: doc/reports/analysis/validation_checks/te_curve_verification_pipeline/2026-07-23-13-08-58_causal_offset_bounded_track2_screen_polished_setpoints_fw_matrix_causal_offset_bounded_track2_screen_polished_setpoints_fw_report.md
-  reranker_output_directory: output/validation_checks/shape_gated_te_curve_reranker/2026-07-23-13-09-03__shape_gated_te_curve_reranker
-  reranker_report_path: doc/reports/analysis/te_curve_verification_pipeline/03_cvp_diagnostics/shape_gated_reranker/[2026-07-22]/causal_offset_bounded_track2_screen_polished_setpoints_fw_matrix_shape_gated_te_curve_reranker_report.md
-  closeout_report_path: doc/reports/campaign_results/track_2/campaign_closeouts/2026-07-23-13-18-49_causal_offset_bounded_track2_screen_closeout_report.md
-  closeout_pdf_path: doc/reports/campaign_results/track_2/campaign_closeouts/2026-07-23-13-18-49_causal_offset_bounded_track2_screen_closeout_report.pdf
-  report_plot_count: 0
-  post_fix_plot_count: 10
-  post_fix_plot_summary_path: doc/reports/campaign_results/track_2/verification_plots/causal_offset_bounded_track2_screen_polished_setpoints_fw/track2_candidate_curve_plot_summary.yaml
-  recommended_candidate: polished_setpoints_periodic_gru_sequence_Fw
-  promoted_candidate: null
-  decision: not_promoted
-  output_quality_gap: bounded Track 2 measured-versus-predicted plot package was
-    not generated; remote sync logs emitted long unwrapped transfer/progress
-    lines.
-  output_quality_repair: remote campaign output readability fix backfilled the
-    bounded Track 2 measured-versus-predicted plot package with 10 plots and
-    updated future bounded screen launchers to generate plots explicitly.
-  launch_command_list:
-  - .\scripts\campaigns\track_2\run_causal_offset_bounded_track2_screen.ps1
-    -PreflightOnly
-  - .\scripts\campaigns\track_2\run_causal_offset_bounded_track2_screen.ps1
-  - .\scripts\campaigns\track_2\run_causal_offset_bounded_track2_screen.ps1
-    -Remote -PreflightOnly
-  - .\scripts\campaigns\track_2\run_causal_offset_bounded_track2_screen.ps1
-    -Remote
+  promoted_physics_constraint: null
+  retained_exploratory_signal: phase2_pinn_h1_oscillator_residual_bw
+  decision: >
+    No oscillator, periodic-boundary, or Bauer-anchor constraint passed the
+    joint raw-error, harmonic-fidelity, offset, and continuity gate.
+  next_phase: phase_3_quasi_static_compliance_and_elastic_offset_pinn
 protected_file_list: []
+notes: >
+  Canonical Phase 2 campaign completed 8 of 8 runs with no failures. The
+  bounded common-split curve-payload diagnostic evaluated all eight canonical
+  checkpoints and four accepted direction-specific references over 97 test
+  curves per direction. H1-Bw improved raw error and selected harmonic orders
+  relative to H0-Bw but worsened aggregate harmonic amplitude fidelity; no
+  physics term was promoted. Earlier attempts remain ineligible for the phase
+  decision. Phase 3 is the next active roadmap step.

@@ -35,11 +35,11 @@ Historical rationale and approval history remain in:
   offline model-verification
   report, closed as the canonical direction-aware verification surface for new
   model families.
-- Current Focus: Wave 5.2 Phase 2 harmonic and kinematic constraint PINN
-  preparation. Phase 1 is complete across 966 eligible paired conditions and
-  1,932 directional curves. The local-order complete-quadratic
-  Polynomial-Fourier law is the analytical reference; the reduced common-order
-  quadratic is the alternative comparator. The complete theory-validation
+- Current Focus: Wave 5.2 Phase 3 quasi-static compliance and elastic-offset
+  PINN preparation. Phases 0 through 2 are complete. Phase 2 trained eight
+  direction-separated harmonic and kinematic arms with no failures and closed
+  as a valid negative result: no oscillator, periodic-boundary, or Bauer-anchor
+  constraint passed the joint curve-first gate. The complete theory-validation
   roadmap
   preserves harmonic, compliance, hysteresis, bidirectional, dynamic, contact,
   efficiency, geometry, MMT, wear, electromechanical, hybrid, and integrated
@@ -70,19 +70,17 @@ Historical rationale and approval history remain in:
   polished setpoints, simplified setpoints, and polished actual values for
   `forward` and `backward`. `global`, broad full-matrix, overlay, and
   dataset-difference reports remain paused and on-demand.
-- Latest Training Pilot: the `2026-07-22` causal offset / mean calibration
-  pilot and its bounded `TE Curve Verification Pipeline` screen are closed.
-  The non-windowed `causal_offset_mean_periodic_mlp_harmonic_fw` arm won scalar
-  pilot selection with test MAE `0.001277 deg`, but the bounded curve-first
-  screen ranked it fourth and retained
-  `polished_setpoints_periodic_gru_sequence_Fw` as the forward recommendation.
-  The time-windowed residual-offset GRU failed the shape gate.
-- Active Wave 5.2 Program: Phases 0 and 1 are completed and the general
-  full-PINN branch is active at Phase 2 preparation. The Phase 1 benchmark
-  validated the common split, local and paper-order Bauer laws, recovered ONNX
-  path, PLC degree-10 evaluator, direct Fourier ceiling, and reduced-order
-  comparator. Candidate physics now move to isolated harmonic and kinematic
-  constraints. No PINN training is authorized yet.
+- Latest Training Pilot: the Phase 2 harmonic and kinematic PINN campaign is
+  closed with `8 / 8` completed runs. `H0-Fw` is the scalar campaign winner;
+  `H1-Bw` improved raw error and selected harmonics relative to `H0-Bw`, but
+  worsened aggregate harmonic-amplitude fidelity. The bounded common-split
+  curve-payload diagnostic retained the accepted periodic GRU and periodic
+  harmonic MLP references and promoted no Phase 2 constraint.
+- Active Wave 5.2 Program: Phases 0 through 2 are completed and the general
+  full-PINN branch advances to Phase 3. Phase 2 delivered the first genuine
+  differentiable target-free physics residual, exact common-split PINN
+  playback, and per-order harmonic diagnostics, while rejecting all tested
+  harmonic/kinematic constraints as default ingredients.
 - Deferred MMT Subbranch: only the paper-faithful MMT full PINN is inactive
   after the leakage-safe rerun found zero held-out gain from geometry-locked
   signatures and could not calibrate unobserved equivalent-error groups.
@@ -93,11 +91,12 @@ Historical rationale and approval history remain in:
   periodic harmonic MLP wins polished-setpoint `Bw` and simplified-setpoint
   `Fw`. Wave 4.1 remains the raw-error and offset diagnostic ingredient.
   Sparse-RCIM temporal candidates remain actual-values references only.
-- Current Next Branch: define and prepare the first bounded Phase 2 harmonic
-  and kinematic constraint PINN against `PF_A_LOCAL_QUADRATIC`, with
-  `PF_E_REDUCED_QUADRATIC` as the analytical ablation. Training remains behind
-  the campaign-plan approval gate. Wave 6 follows the bounded PINN evidence
-  and is not the immediate implementation branch.
+- Current Next Branch: define and prepare Phase 3 quasi-static compliance and
+  elastic-offset PINNs, including bounded signed torque-to-deflection,
+  temperature-conditioned stiffness, direction-specific offset, zero-torque
+  intercept, and monotonicity tests. Reuse the Phase 2 infrastructure but do
+  not inherit its rejected nonzero physics weights. Wave 6 remains sequenced
+  after multiple isolated physics components pass.
 
 Current canonical status reports:
 
@@ -306,8 +305,8 @@ Next planned diagnostic and training decision branches:
 | Component-offset identification | Test whether curve offset is dominated by `a_0` / `Component 0`, multiple components, condition/regime behavior, or experimental repeatability limits. | measured `h0`, signed-offset cross-check, and predicted-mean surface diagnostics completed; `h0` is the right mean channel, but the actionable issue is model-side mean-surface bias/compression |
 | `Wave 4 series` dispersion-aware modeling probes | Test robust losses, quantile or probabilistic heads, mixture-density heads, and latent-state or hysteresis-aware features on the offset and fragile-harmonic problem. | robust-loss, quantile/probabilistic, MDN, and `Wave 4.4` latent-state / hysteresis-aware campaigns and official TE Curve Verification refreshes completed; all are exploratory and not promoted |
 | `Wave 5.1` hybrid structured models | Combine harmonic structure, condition-conditioned residual learning, and explicit grouped treatment of stable and fragile harmonic bands. | first real `wave3_harmonic_prior_residual` campaign and official `TE Curve Verification Pipeline` verification refresh closed as a verified exploratory baseline, not promoted |
-| `Wave 5.2` general full-PINN program | Audit and test explicit differentiable physics formulations derived from harmonic behavior, the Polynomial Fourier Series law, Wave 3 through Wave 5.1 evidence, and additional references. | Phases 0 and 1 passed; local-order Bauer is the analytical reference and reduced-order Bauer is the comparator; Phase 2 harmonic and kinematic PINN preparation is next; no PINN training is authorized |
-| `Wave 5.2` complete theory-validation program | Preserve and falsify every ingested physical mechanism through direct-data, causal-state, offline-oracle, instrumentation, isolated-PINN, cross-formulation, and integration tests. | roadmap complete; Phases 0 and 1 of 16 completed; Phase 2 preparation active |
+| `Wave 5.2` general full-PINN program | Audit and test explicit differentiable physics formulations derived from harmonic behavior, the Polynomial Fourier Series law, Wave 3 through Wave 5.1 evidence, and additional references. | Phases 0 through 2 complete; Phase 2 closed as a valid negative result with no promoted harmonic, periodic-boundary, or Bauer-anchor constraint; Phase 3 compliance and elastic-offset preparation is next |
+| `Wave 5.2` complete theory-validation program | Preserve and falsify every ingested physical mechanism through direct-data, causal-state, offline-oracle, instrumentation, isolated-PINN, cross-formulation, and integration tests. | roadmap complete; Phases 0 through 2 of 16 completed; Phase 3 preparation active |
 | `Wave 5.2` paper-faithful MMT full PINN | Preserve the completed MMT evidence and reopen only if causal physical inputs become available. | deferred future TODO after the parameter-availability blocker; no MMT feature, auxiliary head, weak constraint, or MMT full PINN is authorized |
 | Intermediate shape-first model-selection cleanup | Reduce the post-retraining active set using raw error, P95, centered shape, P2P behavior, visual collage evidence, and actual-values stability. | completed; active set is `periodic_gru_sequence`, `wave4_1_mae_robust_loss`, `wave4_2_quantile_p10_p50_p90`, and `periodic_mlp_harmonic`; `periodic_lstm_sequence_Bw`, `Wave 4.3`, `Wave 4.4`, and `Wave 5.1` are closed as active branches |
 | Frequency-domain shape-gated reranker | Add measured/predicted FFT amplitude similarity, dominant-harmonic retention, dominant-harmonic phase error, robust derivative agreement, threshold sweep, and per-curve shape pass rate to future reduced reports. | completed across the six-cell non-MMT reduced pass; periodic GRU wins four cells, periodic harmonic MLP wins two, and the simplified tree scalar leader remains vetoed by weak shape retention |
@@ -599,14 +598,21 @@ Official closeout package:
 
 ### Planned Next Step
 
-After the completed Phase 1 analytical benchmark, the active next step is:
+After the completed Phase 2 negative closeout, the active next step is:
 
-- prepare the bounded Phase 2 harmonic and kinematic constraint PINN against
-  the selected local-order quadratic analytical reference;
-- retain the reduced-order quadratic as the analytical ablation;
-- keep recovered ONNX as forward-only evidence, PLC degree 10 as a
-  deployment-facing but domain-sensitive comparator, and the direct Fourier
-  reconstruction as a target-leaking ceiling;
+- prepare Phase 3 quasi-static compliance and elastic-offset PINNs;
+- test bounded signed torque-to-deflection and temperature-conditioned
+  stiffness without assuming that a scalar improvement proves physical
+  validity;
+- keep direction-specific elastic and backlash offsets explicit;
+- test zero-torque intercept, monotonicity, parameter sign, held-out
+  extrapolation, and identifiability;
+- retain the Phase 2 Fourier control and accepted periodic GRU and harmonic MLP
+  as comparison surfaces;
+- reuse the common split, target-free collocation, per-term logging, checkpoint
+  playback, and per-order harmonic diagnostics;
+- do not inherit nonzero oscillator, periodic-boundary, or Bauer-anchor
+  weights from Phase 2;
 - retain the imported harmonic, hysteretic, dynamic, bidirectional, contact,
   efficiency, tolerance, wear, and electromechanical sources as separate
   formulation or oracle branches;

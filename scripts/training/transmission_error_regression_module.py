@@ -77,6 +77,15 @@ class TransmissionErrorRegressionModule(LightningModule):
         pointwise_loss_name = str(loss_configuration.get("pointwise_loss", "mse")).strip().lower()
         weight_dictionary = dict(loss_configuration.get("weights", {}))
         harmonic_index_list = list(loss_configuration.get("harmonic_index_list", []))
+        enable_physics_diagnostics = bool(
+            loss_configuration.get("enable_physics_diagnostics", False)
+        )
+        physics_maximum_collocation_points = int(
+            loss_configuration.get("physics_maximum_collocation_points", 256)
+        )
+        physics_maximum_boundary_conditions = int(
+            loss_configuration.get("physics_maximum_boundary_conditions", 16)
+        )
         huber_delta = float(loss_configuration.get("huber_delta", loss_configuration.get("smooth_l1_beta", 1.0)))
         quantile_level_list = [
             float(quantile_level)
@@ -105,6 +114,8 @@ class TransmissionErrorRegressionModule(LightningModule):
         assert all(0.0 < quantile_level < 1.0 for quantile_level in quantile_level_list), (
             f"Quantile levels must be inside (0, 1) | {quantile_level_list}"
         )
+        assert physics_maximum_collocation_points > 0
+        assert physics_maximum_boundary_conditions > 0
 
         return {
             "profile": loss_profile,
@@ -126,6 +137,25 @@ class TransmissionErrorRegressionModule(LightningModule):
             "amplitude_weight": float(weight_dictionary.get("amplitude", 0.0)),
             "harmonic_weight": float(weight_dictionary.get("harmonic", 0.0)),
             "derivative_weight": float(weight_dictionary.get("derivative", 0.0)),
+            "physics_oscillator_weight": float(
+                weight_dictionary.get("physics_oscillator", 0.0)
+            ),
+            "physics_periodic_value_weight": float(
+                weight_dictionary.get("physics_periodic_value", 0.0)
+            ),
+            "physics_periodic_slope_weight": float(
+                weight_dictionary.get("physics_periodic_slope", 0.0)
+            ),
+            "physics_analytical_anchor_weight": float(
+                weight_dictionary.get("physics_analytical_anchor", 0.0)
+            ),
+            "enable_physics_diagnostics": enable_physics_diagnostics,
+            "physics_maximum_collocation_points": (
+                physics_maximum_collocation_points
+            ),
+            "physics_maximum_boundary_conditions": (
+                physics_maximum_boundary_conditions
+            ),
             "harmonic_index_list": [int(harmonic_index) for harmonic_index in harmonic_index_list if int(harmonic_index) > 0],
         }
 
@@ -385,6 +415,18 @@ class TransmissionErrorRegressionModule(LightningModule):
         amplitude_weight = float(self.loss_configuration["amplitude_weight"])
         harmonic_weight = float(self.loss_configuration["harmonic_weight"])
         derivative_weight = float(self.loss_configuration["derivative_weight"])
+        physics_oscillator_weight = float(
+            self.loss_configuration["physics_oscillator_weight"]
+        )
+        physics_periodic_value_weight = float(
+            self.loss_configuration["physics_periodic_value_weight"]
+        )
+        physics_periodic_slope_weight = float(
+            self.loss_configuration["physics_periodic_slope_weight"]
+        )
+        physics_analytical_anchor_weight = float(
+            self.loss_configuration["physics_analytical_anchor_weight"]
+        )
         harmonic_index_list = list(self.loss_configuration["harmonic_index_list"])
 
         # Initialize Loss Terms
@@ -394,6 +436,12 @@ class TransmissionErrorRegressionModule(LightningModule):
         curve_amplitude_loss = zero_loss
         sparse_harmonic_shape_loss = zero_loss
         curve_derivative_shape_loss = zero_loss
+        physics_oscillator_residual_loss = zero_loss
+        physics_periodic_value_loss = zero_loss
+        physics_periodic_slope_loss = zero_loss
+        physics_analytical_anchor_loss = zero_loss
+        physics_collocation_point_count = zero_loss
+        physics_boundary_condition_count = zero_loss
 
         curve_count_tensor = batch_dictionary.get("curve_count", None)
         count_per_curve_tensor = batch_dictionary.get("sequence_count_per_curve", batch_dictionary.get("point_count_per_curve", None))
@@ -460,6 +508,65 @@ class TransmissionErrorRegressionModule(LightningModule):
                 if derivative_loss_list:
                     curve_derivative_shape_loss = torch.stack(derivative_loss_list).mean()
 
+        # Compute Target-Free PINN Residuals Through The Model Contract
+        physics_weight_sum = (
+            physics_oscillator_weight
+            + physics_periodic_value_weight
+            + physics_periodic_slope_weight
+            + physics_analytical_anchor_weight
+        )
+        should_compute_physics = bool(
+            self.loss_configuration["enable_physics_diagnostics"]
+        ) or physics_weight_sum > 0.0
+        if should_compute_physics:
+            assert hasattr(
+                self.regression_model,
+                "compute_physics_residual_dictionary",
+            ), (
+                "Configured physics diagnostics require a model physics "
+                "residual contract"
+            )
+            raw_input_tensor = batch_dictionary["input_tensor"].float()
+            normalized_input_tensor = self.normalize_input_tensor(
+                raw_input_tensor
+            )
+            physics_loss_dictionary = (
+                self.regression_model.compute_physics_residual_dictionary(
+                    raw_input_tensor,
+                    normalized_input_tensor,
+                    maximum_collocation_points=int(
+                        self.loss_configuration[
+                            "physics_maximum_collocation_points"
+                        ]
+                    ),
+                    maximum_boundary_conditions=int(
+                        self.loss_configuration[
+                            "physics_maximum_boundary_conditions"
+                        ]
+                    ),
+                    target_mean_tensor=self.target_mean,
+                    target_std_tensor=self.target_std,
+                )
+            )
+            physics_oscillator_residual_loss = physics_loss_dictionary[
+                "physics_oscillator_residual_loss"
+            ]
+            physics_periodic_value_loss = physics_loss_dictionary[
+                "physics_periodic_value_loss"
+            ]
+            physics_periodic_slope_loss = physics_loss_dictionary[
+                "physics_periodic_slope_loss"
+            ]
+            physics_analytical_anchor_loss = physics_loss_dictionary[
+                "physics_analytical_anchor_loss"
+            ]
+            physics_collocation_point_count = physics_loss_dictionary[
+                "physics_collocation_point_count"
+            ]
+            physics_boundary_condition_count = physics_loss_dictionary[
+                "physics_boundary_condition_count"
+            ]
+
         # Combine Weighted Terms
         total_loss = (
             point_weight * pointwise_loss
@@ -468,6 +575,10 @@ class TransmissionErrorRegressionModule(LightningModule):
             + amplitude_weight * curve_amplitude_loss
             + harmonic_weight * sparse_harmonic_shape_loss
             + derivative_weight * curve_derivative_shape_loss
+            + physics_oscillator_weight * physics_oscillator_residual_loss
+            + physics_periodic_value_weight * physics_periodic_value_loss
+            + physics_periodic_slope_weight * physics_periodic_slope_loss
+            + physics_analytical_anchor_weight * physics_analytical_anchor_loss
         )
 
         return {
@@ -478,6 +589,16 @@ class TransmissionErrorRegressionModule(LightningModule):
             "curve_amplitude_loss": curve_amplitude_loss,
             "sparse_harmonic_shape_loss": sparse_harmonic_shape_loss,
             "curve_derivative_shape_loss": curve_derivative_shape_loss,
+            "physics_oscillator_residual_loss": (
+                physics_oscillator_residual_loss
+            ),
+            "physics_periodic_value_loss": physics_periodic_value_loss,
+            "physics_periodic_slope_loss": physics_periodic_slope_loss,
+            "physics_analytical_anchor_loss": physics_analytical_anchor_loss,
+            "physics_collocation_point_count": physics_collocation_point_count,
+            "physics_boundary_condition_count": (
+                physics_boundary_condition_count
+            ),
             "curve_aware_curve_count": torch.as_tensor(
                 int(curve_count_tensor) if isinstance(curve_count_tensor, int) else int(count_per_curve_tensor.numel()) if can_compute_curve_terms else 0,
                 device=pointwise_loss.device,
@@ -709,6 +830,38 @@ class TransmissionErrorRegressionModule(LightningModule):
         self.log(f"{log_prefix}_curve_offset_loss", batch_output_dictionary["curve_offset_loss"], on_step=False, on_epoch=True, prog_bar=False, batch_size=batch_size)
         self.log(f"{log_prefix}_curve_amplitude_loss", batch_output_dictionary["curve_amplitude_loss"], on_step=False, on_epoch=True, prog_bar=False, batch_size=batch_size)
         self.log(f"{log_prefix}_sparse_harmonic_shape_loss", batch_output_dictionary["sparse_harmonic_shape_loss"], on_step=False, on_epoch=True, prog_bar=False, batch_size=batch_size)
+        self.log(
+            f"{log_prefix}_physics_oscillator_residual_loss",
+            batch_output_dictionary["physics_oscillator_residual_loss"],
+            on_step=False,
+            on_epoch=True,
+            prog_bar=False,
+            batch_size=batch_size,
+        )
+        self.log(
+            f"{log_prefix}_physics_periodic_value_loss",
+            batch_output_dictionary["physics_periodic_value_loss"],
+            on_step=False,
+            on_epoch=True,
+            prog_bar=False,
+            batch_size=batch_size,
+        )
+        self.log(
+            f"{log_prefix}_physics_periodic_slope_loss",
+            batch_output_dictionary["physics_periodic_slope_loss"],
+            on_step=False,
+            on_epoch=True,
+            prog_bar=False,
+            batch_size=batch_size,
+        )
+        self.log(
+            f"{log_prefix}_physics_analytical_anchor_loss",
+            batch_output_dictionary["physics_analytical_anchor_loss"],
+            on_step=False,
+            on_epoch=True,
+            prog_bar=False,
+            batch_size=batch_size,
+        )
         for probabilistic_metric_name in [
             "interval_coverage",
             "interval_width",

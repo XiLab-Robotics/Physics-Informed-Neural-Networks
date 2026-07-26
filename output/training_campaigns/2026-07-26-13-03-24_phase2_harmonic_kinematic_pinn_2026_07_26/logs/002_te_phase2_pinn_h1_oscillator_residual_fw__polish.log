@@ -1,0 +1,226 @@
+Command: C:\Users\XiLabTRig\miniconda3\envs\pinns_env\python.exe C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\scripts\training\train_feedforward_network.py --config-path C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\config\training\queue\harmonic_kinematic_pinn\phase2_harmonic_kinematic_pinn_2026_07_26\running\2026-07-26-12-50-33_003_003_h1_oscillator_residual_fw.yaml
+Working Directory: C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex
+
+
+================================================================================================
+Campaign Progress 2/8 [###---------------------]
+================================================================================================
+[INFO] Campaign Name | phase2_harmonic_kinematic_pinn_2026_07_26
+[INFO] Run Name | te_phase2_pinn_h1_oscillator_residual_fw__polished_setpoints
+[INFO] Queue Config | C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\config\training\queue\harmonic_kinematic_pinn\phase2_harmonic_kinematic_pinn_2026_07_26\running\2026-07-26-12-50-33_003_003_h1_oscillator_residual_fw.yaml
+[INFO] Source Config | N/A
+
+[36m[1m================================================================================================
+[36m[1mHarmonic Kinematic Pinn Training Configuration
+[36m[1m================================================================================================
+[34m[1m[INFO][0m Resolved YAML configuration for the current training run
+
+[35m[1mPaths
+[35m-----
+[37m[1mDataset Config Path               [0m[33mconfig/datasets/transmission_error_dataset.yaml[0m
+[37m[1mOutput Root                       [0m[33moutput/training_runs/harmonic_kinematic_pinn[0m
+
+[35m[1mExperiment
+[35m----------
+[37m[1mRun Name                          [0m[33mte_phase2_pinn_h1_oscillator_residual_fw__polished_setpoints[0m
+[37m[1mModel Family                      [0m[33mphase2_pinn_h1_oscillator_residual_fw[0m
+[37m[1mModel Type                        [0m[33mharmonic_kinematic_pinn[0m
+
+[35m[1mDataset
+[35m-------
+[37m[1mCurve Batch Size                  [0m[33m2[0m
+[37m[1mPoint Stride                      [0m[33m2[0m
+[37m[1mMaximum Points Per Curve          [0m[33mNone[0m
+[37m[1mCollate Mode                      [0m[33mpoint[0m
+[37m[1mShuffle Training Batch Elements   [0m[33mTrue[0m
+[37m[1mNum Workers                       [0m[33m2[0m
+[37m[1mPin Memory                        [0m[33mTrue[0m
+
+[35m[1mModel
+[35m-----
+[37m[1mInput Size                        [0m[33mauto[0m
+[37m[1mOutput Size                       [0m[33m1[0m
+[37m[1mModel Config Keys                 [0m[33m[activation_name, component_hidden_size, condition_hidden_size, condition_latent_size, dropout_probability, harmonic_index_list, head_mode, input_size, output_size, use_layer_norm][0m
+
+[35m[1mOptimization
+[35m------------
+[37m[1mLearning Rate                     [0m[33m0.000500[0m
+[37m[1mWeight Decay                      [0m[33m1.000000e-05[0m
+[37m[1mMin Epochs                        [0m[33m4[0m
+[37m[1mMax Epochs                        [0m[33m36[0m
+[37m[1mPatience                          [0m[33m7[0m
+[37m[1mMin Delta                         [0m[33m1.000000e-05[0m
+[37m[1mLog Every N Steps                 [0m[33m1[0m
+[37m[1mFast Dev Run                      [0m[33mFalse[0m
+[37m[1mDeterministic                     [0m[33mFalse[0m
+[37m[1mLoss Profile                      [0m[33mphase2_oscillator_residual[0m
+[37m[1mLoss Weights                      [0m[33m{'point': 1.0, 'centered': 0.1, 'offset': 0.08, 'amplitude': 0.04, 'harmonic': 0.1, 'derivative': 0.01, 'physics_oscillator': 0.01, 'physics_periodic_value': 0.0, 'physics_periodic_slope': 0.0, 'physics_analytical_anchor': 0.0}[0m
+
+[35m[1mRuntime
+[35m-------
+[37m[1mAccelerator                       [0m[33mauto[0m
+[37m[1mDevices                           [0m[33mauto[0m
+[37m[1mPrecision                         [0m[33m32[0m
+[37m[1mBenchmark                         [0m[33mTrue[0m
+[37m[1mNon-Blocking Transfer             [0m[33mTrue[0m
+
+[36m[1m================================================================================================
+[36m[1mDataset Summary
+[36m[1m================================================================================================
+[37m[1mInput Feature Dim                 [0m[33m5[0m
+[37m[1mTarget Feature Dim                [0m[33m1[0m
+[37m[1mTrain Curves                      [0m[33m678[0m
+[37m[1mValidation Curves                 [0m[33m194[0m
+[37m[1mTest Curves                       [0m[33m97[0m
+[37m[1mPoint Stride                      [0m[33m2[0m
+[37m[1mMaximum Points Per Curve          [0m[33mNone[0m
+[37m[1mCollate Mode                      [0m[33mpoint[0m
+[37m[1mPersistent Workers                [0m[33mTrue[0m
+
+[36m[1m================================================================================================
+[36m[1mModel Summary
+[36m[1m================================================================================================
+[37m[1mBackbone                          [0m[33mHarmonicKinematicPinnNetwork[0m
+[37m[1mTrainable Parameters              [0m[33m16570[0m
+[37m[1mFrozen Parameters                 [0m[33m0[0m
+[37m[1mTotal Parameters                  [0m[33m16570[0m
+
+[36m[1m================================================================================================
+[36m[1mNormalization Statistics
+[36m[1m================================================================================================
+
+[35m[1mInput Features
+[35m--------------
+[37m[1mangular_position_deg | mean       [0m[33m179.999557[0m
+[37m[1mangular_position_deg | std        [0m[33m103.923523[0m
+[37m[1minput_speed_rpm | mean            [0m[33m497.860718[0m
+[37m[1minput_speed_rpm | std             [0m[33m466.806122[0m
+[37m[1minput_torque_nm | mean            [0m[33m896.014832[0m
+[37m[1minput_torque_nm | std             [0m[33m543.832336[0m
+[37m[1moil_temperature_deg | mean        [0m[33m30.364092[0m
+[37m[1moil_temperature_deg | std         [0m[33m4.080520[0m
+[37m[1mdirection_flag | mean             [0m[33m1.000000[0m
+[37m[1mdirection_flag | std              [0m[33m1.000000e-06[0m
+
+[35m[1mTarget
+[35m------
+[37m[1mtransmission_error_deg | mean     [0m[33m-0.056395[0m
+[37m[1mtransmission_error_deg | std      [0m[33m0.024130[0m
+
+[36m[1m================================================================================================
+[36m[1mRuntime Summary
+[36m[1m================================================================================================
+[37m[1mConfigured Accelerator            [0m[33mauto[0m
+[37m[1mConfigured Devices                [0m[33mauto[0m
+[37m[1mConfigured Precision              [0m[33m32[0m
+[37m[1mcuDNN Benchmark                   [0m[33mTrue[0m
+[37m[1mNon-Blocking Transfer             [0m[33mTrue[0m
+[37m[1mCUDA Available                    [0m[33mTrue[0m
+[37m[1mCUDA Device Count                 [0m[33m1[0m
+[37m[1mCUDA Device Name                  [0m[33mNVIDIA RTX 1000 Ada Generation Laptop GPU[0m
+
+[36m[1m================================================================================================
+[36m[1mTraining Loop
+[36m[1m================================================================================================
+[34m[1m[INFO][0m Starting Lightning fit loop
+
+Sanity Checking: |          | 0/? [00:00<?, ?it/s]
+Sanity Checking: |          | 0/? [00:00<?, ?it/s]
+Sanity Checking DataLoader 0:   0%|          | 0/2 [00:00<?, ?it/s]
+Sanity Checking DataLoader 0: 100%|██████████| 2/2 [00:00<00:00,  4.54it/s]
+
+
+Training: |          | 0/? [00:00<?, ?it/s]
+Training: |          | 0/? [00:00<?, ?it/s]
+Training: |          | 0/? [00:00<?, ?it/s]
+
+Training: |          | 0/? [00:00<?, ?it/s]
+Epoch 0:   0%|          | 0/339 [00:00<?, ?it/s]
+Epoch 0:   3%|▎         | 10/339 [00:04<02:22,  2.31it/s]
+Epoch 0:   3%|▎         | 10/339 [00:04<02:22,  2.31it/s]
+Epoch 0:   6%|▌         | 20/339 [00:09<02:23,  2.22it/s]
+Epoch 0:   6%|▌         | 20/339 [00:09<02:23,  2.22it/s]
+Epoch 0:   9%|▉         | 30/339 [00:13<02:21,  2.19it/s]
+Epoch 0:   9%|▉         | 30/339 [00:13<02:21,  2.19it/s]
+Epoch 0:  12%|█▏        | 40/339 [00:18<02:19,  2.15it/s]
+Epoch 0:  12%|█▏        | 40/339 [00:18<02:19,  2.15it/s]
+Epoch 0:  15%|█▍        | 50/339 [00:23<02:15,  2.14it/s]
+Epoch 0:  15%|█▍        | 50/339 [00:23<02:15,  2.14it/s]
+Epoch 0:  18%|█▊        | 60/339 [00:29<02:17,  2.03it/s]
+Epoch 0:  18%|█▊        | 60/339 [00:29<02:17,  2.03it/s]
+Epoch 0:  21%|██        | 70/339 [00:35<02:14,  2.00it/s]
+Epoch 0:  21%|██        | 70/339 [00:35<02:14,  2.00it/s]
+Epoch 0:  24%|██▎       | 80/339 [00:40<02:11,  1.97it/s]
+Epoch 0:  24%|██▎       | 80/339 [00:40<02:11,  1.97it/s]
+Epoch 0:  27%|██▋       | 90/339 [00:45<02:05,  1.98it/s]
+Epoch 0:  27%|██▋       | 90/339 [00:45<02:05,  1.98it/s]
+Epoch 0:  29%|██▉       | 100/339 [00:50<02:00,  1.99it/s]
+Epoch 0:  29%|██▉       | 100/339 [00:50<02:00,  1.99it/s]
+Epoch 0:  32%|███▏      | 110/339 [00:54<01:53,  2.01it/s]
+Epoch 0:  32%|███▏      | 110/339 [00:54<01:53,  2.01it/s]
+Epoch 0:  35%|███▌      | 120/339 [00:58<01:47,  2.03it/s]
+Epoch 0:  35%|███▌      | 120/339 [00:58<01:47,  2.03it/s]
+Epoch 0:  38%|███▊      | 130/339 [01:03<01:41,  2.06it/s]
+Epoch 0:  38%|███▊      | 130/339 [01:03<01:41,  2.06it/s]
+Epoch 0:  41%|████▏     | 140/339 [01:07<01:36,  2.07it/s]
+Epoch 0:  41%|████▏     | 140/339 [01:07<01:36,  2.07it/s]
+Epoch 0:  44%|████▍     | 150/339 [01:11<01:30,  2.08it/s]
+Epoch 0:  44%|████▍     | 150/339 [01:11<01:30,  2.08it/s]
+Epoch 0:  47%|████▋     | 160/339 [01:16<01:25,  2.10it/s]
+Epoch 0:  47%|████▋     | 160/339 [01:16<01:25,  2.10it/s]
+Epoch 0:  50%|█████     | 170/339 [01:20<01:20,  2.11it/s]
+Epoch 0:  50%|█████     | 170/339 [01:20<01:20,  2.11it/s]
+Epoch 0:  53%|█████▎    | 180/339 [01:24<01:14,  2.12it/s]
+Epoch 0:  53%|█████▎    | 180/339 [01:24<01:15,  2.12it/s]
+Epoch 0:  56%|█████▌    | 190/339 [01:29<01:10,  2.13it/s]
+Epoch 0:  56%|█████▌    | 190/339 [01:29<01:10,  2.13it/s]
+Epoch 0:  59%|█████▉    | 200/339 [01:33<01:05,  2.13it/s]
+Epoch 0:  59%|█████▉    | 200/339 [01:33<01:05,  2.13it/s]
+Epoch 0:  62%|██████▏   | 210/339 [01:38<01:00,  2.13it/s]
+Epoch 0:  62%|██████▏   | 210/339 [01:38<01:00,  2.13it/s]
+Epoch 0:  65%|██████▍   | 220/339 [01:42<00:55,  2.14it/s]
+Epoch 0:  65%|██████▍   | 220/339 [01:42<00:55,  2.14it/s]
+Epoch 0:  68%|██████▊   | 230/339 [01:48<00:51,  2.12it/s]
+Epoch 0:  68%|██████▊   | 230/339 [01:48<00:51,  2.12it/s]
+Epoch 0:  71%|███████   | 240/339 [01:53<00:46,  2.11it/s]
+Epoch 0:  71%|███████   | 240/339 [01:53<00:46,  2.11it/s]
+Epoch 0:  74%|███████▎  | 250/339 [01:58<00:42,  2.11it/s]
+Epoch 0:  74%|███████▎  | 250/339 [01:58<00:42,  2.11it/s]
+Epoch 0:  77%|███████▋  | 260/339 [02:03<00:37,  2.11it/s]
+Epoch 0:  77%|███████▋  | 260/339 [02:03<00:37,  2.11it/s]
+Epoch 0:  80%|███████▉  | 270/339 [02:08<00:32,  2.10it/s]
+Epoch 0:  80%|███████▉  | 270/339 [02:08<00:32,  2.10it/s]
+Epoch 0:  83%|████████▎ | 280/339 [02:12<00:28,  2.11it/s]
+Epoch 0:  83%|████████▎ | 280/339 [02:12<00:28,  2.11it/s]
+Epoch 0:  86%|████████▌ | 290/339 [02:17<00:23,  2.11it/s]
+Epoch 0:  86%|████████▌ | 290/339 [02:17<00:23,  2.11it/s]
+Epoch 0:  88%|████████▊ | 300/339 [02:22<00:18,  2.11it/s]
+Epoch 0:  88%|████████▊ | 300/339 [02:22<00:18,  2.11it/s]
+Epoch 0:  91%|█████████▏| 310/339 [02:27<00:13,  2.10it/s]
+Epoch 0:  91%|█████████▏| 310/339 [02:27<00:13,  2.10it/s]
+Epoch 0:  94%|█████████▍| 320/339 [02:32<00:09,  2.10it/s]
+Epoch 0:  94%|█████████▍| 320/339 [02:32<00:09,  2.10it/s]
+Epoch 0:  97%|█████████▋| 330/339 [02:37<00:04,  2.09it/s]
+Epoch 0:  97%|█████████▋| 330/339 [02:38<00:04,  2.09it/s]
+Epoch 0: 100%|██████████| 339/339 [02:42<00:00,  2.08it/s]
+Epoch 0: 100%|██████████| 339/339 [02:42<00:00,  2.08it/s]
+
+Validation: |          | 0/? [00:00<?, ?it/s][A
+
+Validation: |          | 0/? [00:00<?, ?it/s][A
+
+Validation DataLoader 0:   0%|          | 0/97 [00:00<?, ?it/s][A
+
+Validation DataLoader 0:  10%|█         | 10/97 [00:02<00:19,  4.55it/s][A
+
+Validation DataLoader 0:  21%|██        | 20/97 [00:04<00:17,  4.43it/s][A
+
+Validation DataLoader 0:  31%|███       | 30/97 [00:06<00:14,  4.56it/s][A
+
+Validation DataLoader 0:  41%|████      | 40/97 [00:08<00:12,  4.67it/s][A
+
+Validation DataLoader 0:  52%|█████▏    | 50/97 [00:10<00:09,  4.71it/s][A
+
+Validation DataLoader 0:  62%|██████▏   | 60/97 [00:12<00:07,  4.82it/s][A
+
+Validation DataLoader 0:  72%|███████▏  | 70/97 [00:14<00:05,  4.78it/s][A
