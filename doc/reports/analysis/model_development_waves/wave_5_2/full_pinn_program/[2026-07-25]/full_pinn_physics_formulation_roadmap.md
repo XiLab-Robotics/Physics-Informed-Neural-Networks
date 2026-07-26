@@ -3,8 +3,8 @@
 ## Executive Decision
 
 Wave 5.2 remains the physics-informed model-development wave. Its general
-full-PINN program has completed Phases 0 through 4 and now advances to the
-Phase 5 bidirectional TE, backlash, and lost-motion formulation gate.
+full-PINN program has completed Phases 0 through 5 and now advances to the
+Phase 6 dynamic acceleration, inertia, and trajectory formulation gate.
 
 Only the paper-faithful MMT implementation is deferred. The completed MMT
 diagnostic established that the available geometry-locked signatures are
@@ -26,7 +26,7 @@ instrumentation, isolated-PINN, or integration path.
 
 | Program branch | Current state | Decision |
 | --- | --- | --- |
-| General Wave 5.2 full-PINN program | Phases 0-4 complete; Phase 5 active next | Audit references, formalize candidate equations, and validate them before implementation. |
+| General Wave 5.2 full-PINN program | Phases 0-5 complete; Phase 6 active next | Audit references, formalize candidate equations, and validate them before implementation. |
 | MMT-paper-faithful full PINN | deferred future TODO | Reopen only with condition-varying causal component-error measurements or a validated causal contact-state reconstruction. |
 | Wave 6 integrated multi-task and multi-head models | sequenced after Wave 5.2 evidence | Do not design a training campaign until bounded PINN pilots identify useful physics-informed components. |
 
@@ -183,26 +183,28 @@ not be mixed in the first experiment.
 
 ## Immediate TODO
 
-Phases 0 through 4 are complete. Phases 2 and 3 closed as valid negative
-training results. Phase 4 scanned all `969` canonical raw conditions and found
-one ordered `Fw`-to-`Bw` reversal per condition, but no repeated reversal
-cycles, repeated major loops, minor-loop labels, controlled warm-up labels, or
-deterministic reset markers. Real-data hysteresis training is therefore not
-authorized; synthetic and offline reversal-oracle lanes remain reusable.
+Phases 0 through 5 are complete. Phase 5 scanned `37,805,294` rows across all
+`969` paired conditions. Median centered `Fw`/`Bw` correlation is
+`0.985-0.990`, while the median absolute directional mean gap is
+`3.79-4.78 arcmin`. The gap is target-derived offline evidence, not an
+independent lost-motion or backlash observation. No Phase 5 full-PINN
+residual or training campaign was therefore promoted.
 
-1. Begin Phase 5 with a paired-condition bidirectional TE and lost-motion
-   identifiability audit.
-2. Quantify `Fw`/`Bw` mean, centered-shape, offset, and phase compatibility on
-   the common split without using target-derived component errors.
-3. Classify `PINN-B1` through `PINN-B5` as directly trainable,
+1. Begin Phase 6 with an acceleration, inertia, and trajectory observability
+   audit.
+2. Separate constant-speed null behavior from the `Fw`-to-`Bw` transition and
+   any acceleration or deceleration segments preserved in raw trajectories.
+3. Quantify causal finite-difference acceleration noise and smoothing
+   sensitivity without centered or future-looking derivatives.
+4. Classify `PINN-D1` through `PINN-D5` as directly trainable,
    offline-oracle-only, synthetic-oracle-only, or blocked.
-4. Keep the Phase 4 raw reversal trajectories as offline evidence only; do not
-   reinterpret a single reversal as an identified hysteresis state.
-5. Keep Phase 2 and Phase 3 physics weights at zero by default.
-6. Continue using the common split and accepted time-windowed and
+5. Keep the Phase 5 paired-direction gap and target-derived alignment as
+   offline evidence only.
+6. Keep rejected Phase 2 and Phase 3 physics weights at zero by default.
+7. Continue using the common split and accepted time-windowed and
    non-windowed references where the data contract remains valid.
-7. Keep Wave 6 deferred until at least two complementary physical components
-   pass isolated pilots.
+8. Keep Wave 6 integration deferred until at least two complementary physical
+   components pass isolated pilots.
 
 Subsequent pilots follow the three-lane program defined in the complete test
 roadmap:

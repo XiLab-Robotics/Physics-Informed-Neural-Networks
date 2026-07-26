@@ -1,0 +1,105 @@
+schema_version: 1
+audit_id: wave52_phase5_bidirectional_identifiability
+generated_at_utc: '2026-07-26T18:59:42.282377+00:00'
+source_configuration:
+  path: config/analysis/pinn_program_bidirectional/phase5_bidirectional_identifiability_audit.yaml
+  sha256: 94644cdcc801d0b6272b8a3a2ecc88c339dbc107f14ec33f50b2ca0641249c3e
+input_evidence:
+  paired_manifest:
+    path: output/analysis/polynomial_fourier_benchmark/common_split_manifest.yaml
+    sha256: 1d65c12211de66c2924fe12e4b976983517811610eb45fbf5d1845cf1a215973
+    assignment_sha256: c1aa8718fb9bf88cc2021c121dc4f3b4010fc1d2e45ac90af5f4376aa64f8e16
+  phase0_foundation_audit:
+    path: output/analysis/pinn_program_foundations/phase0_foundation_audit.yaml
+    sha256: d0447d28dd16571b2c6a887b2df03dc13a916546b417c413cb7021ff7adb7570
+    exit_status: passed
+  phase4_hysteresis_audit:
+    path: output/analysis/pinn_program_hysteresis/phase4_hysteresis_feasibility_audit.yaml
+    sha256: 16c33b17a7036c7cf8837b7a83fd810ff1c9225925789d744ef290c39397913f
+    training_authorized: false
+paired_condition_count: 969
+source_row_count: 37805294
+finite_value_pass: true
+condition_count_by_split:
+  train: 678
+  validation: 194
+  test: 97
+split_summary:
+- split: train
+  condition_count: 678
+  median_absolute_mean_gap_arcmin: 4.674202078474439
+  p95_absolute_mean_gap_arcmin: 8.322073063371565
+  median_raw_pair_rmse_deg: 0.07793906878856431
+  median_centered_pair_rmse_deg: 0.0021084261840160325
+  median_centered_pair_correlation: 0.9851873126736437
+  median_absolute_target_derived_shift_deg: 0.703125
+  median_target_derived_aligned_centered_rmse_deg: 0.001835360484050206
+  median_slope_pair_rmse_deg_per_deg: 0.00555794059017428
+- split: validation
+  condition_count: 194
+  median_absolute_mean_gap_arcmin: 4.780030118558642
+  p95_absolute_mean_gap_arcmin: 8.433419073465409
+  median_raw_pair_rmse_deg: 0.07985382196978058
+  median_centered_pair_rmse_deg: 0.0019752085258722164
+  median_centered_pair_correlation: 0.9870269372775782
+  median_absolute_target_derived_shift_deg: 0.703125
+  median_target_derived_aligned_centered_rmse_deg: 0.0017785711391142386
+  median_slope_pair_rmse_deg_per_deg: 0.005591316250916365
+- split: test
+  condition_count: 97
+  median_absolute_mean_gap_arcmin: 3.7929226645942693
+  p95_absolute_mean_gap_arcmin: 8.169104768554384
+  median_raw_pair_rmse_deg: 0.06323697599182172
+  median_centered_pair_rmse_deg: 0.0017206034083448
+  median_centered_pair_correlation: 0.9899575634794728
+  median_absolute_target_derived_shift_deg: 0.703125
+  median_target_derived_aligned_centered_rmse_deg: 0.0015856037024545497
+  median_slope_pair_rmse_deg_per_deg: 0.004960954055861365
+observability:
+  direction_flag_causal: true
+  paired_directional_te_target_available_offline: true
+  independent_global_lost_motion_measurement_available: false
+  component_error_metrology_available: false
+  contact_clearance_available: false
+  contact_force_available: false
+  repeated_transition_state_contract_available: false
+  target_derived_alignment_online_eligible: false
+candidate_formulations:
+- formulation_id: PINN-B1
+  name: separate Fw and Bw heads with shared periodic trunk
+  feasibility_class: real_data_trainable
+  full_pinn_eligible: false
+  reason: Direction and all basic operating inputs are causal, but a shared-trunk
+    multi-head model is an empirical architecture rather than a physical residual.
+- formulation_id: PINN-B2
+  name: forward-reverse compatibility loss
+  feasibility_class: blocked_by_data_contract
+  full_pinn_eligible: false
+  reason: The paper-faithful compatibility equation requires component errors and
+    geometry-specific equivalence parameters, while a target-fitted compatibility
+    relation would not be an independent physical law.
+- formulation_id: PINN-B3
+  name: global lost-motion latent variable
+  feasibility_class: offline_oracle_only
+  full_pinn_eligible: false
+  reason: Paired TE curves expose an offline directional-gap proxy, but no independent
+    global lost-motion measurement identifies the latent state.
+- formulation_id: PINN-B4
+  name: backlash dead-zone or smooth complementarity residual
+  feasibility_class: synthetic_oracle_only
+  full_pinn_eligible: false
+  reason: Clearance, contact force, interface stiffness, and dead-zone state are unavailable
+    in the measured data contract.
+- formulation_id: PINN-B5
+  name: direction-transition state model
+  feasibility_class: offline_oracle_only
+  full_pinn_eligible: false
+  reason: Raw trajectories contain one Fw-to-Bw transition per condition but no repeated
+    loops or deterministic reset contract for trainable state identification.
+exit_gate:
+  status: failed_no_training_authorized
+  full_pinn_training_authorized: false
+  physical_residual_promoted: false
+  empirical_bidirectional_comparator_retained: true
+  campaign_preparation_required: false
+  advance_to_phase6: true

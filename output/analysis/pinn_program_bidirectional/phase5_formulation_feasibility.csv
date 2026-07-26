@@ -1,0 +1,6 @@
+formulation_id,name,feasibility_class,full_pinn_eligible,reason
+PINN-B1,separate Fw and Bw heads with shared periodic trunk,real_data_trainable,False,"Direction and all basic operating inputs are causal, but a shared-trunk multi-head model is an empirical architecture rather than a physical residual."
+PINN-B2,forward-reverse compatibility loss,blocked_by_data_contract,False,"The paper-faithful compatibility equation requires component errors and geometry-specific equivalence parameters, while a target-fitted compatibility relation would not be an independent physical law."
+PINN-B3,global lost-motion latent variable,offline_oracle_only,False,"Paired TE curves expose an offline directional-gap proxy, but no independent global lost-motion measurement identifies the latent state."
+PINN-B4,backlash dead-zone or smooth complementarity residual,synthetic_oracle_only,False,"Clearance, contact force, interface stiffness, and dead-zone state are unavailable in the measured data contract."
+PINN-B5,direction-transition state model,offline_oracle_only,False,Raw trajectories contain one Fw-to-Bw transition per condition but no repeated loops or deterministic reset contract for trainable state identification.

@@ -25,3 +25,5 @@ repository reporting workflow.
    validate_phase1_polynomial_fourier_benchmark
    build_phase4_hysteresis_feasibility_audit
    validate_phase4_hysteresis_feasibility_audit
+   build_phase5_bidirectional_identifiability_audit
+   validate_phase5_bidirectional_identifiability_audit

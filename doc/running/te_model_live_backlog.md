@@ -35,13 +35,13 @@ Historical rationale and approval history remain in:
   offline model-verification
   report, closed as the canonical direction-aware verification surface for new
   model families.
-- Current Focus: Wave 5.2 Phase 5 bidirectional TE, backlash, and lost-motion
-  feasibility. Phases 0 through 4 are complete. Phase 4 scanned all `969`
-  canonical raw trajectories: every condition preserves one ordered
-  `Fw`-to-`Bw` reversal, but none provides repeated reversal cycles, repeated
-  major loops, minor-loop labels, controlled warm-up labels, or deterministic
-  reset evidence. No real-data hysteresis training or physical residual was
-  authorized. The complete theory-validation roadmap
+- Current Focus: Wave 5.2 Phase 6 dynamic acceleration, inertia, and trajectory
+  feasibility. Phases 0 through 5 are complete. Phase 5 scanned all `969`
+  paired operating conditions and found strongly compatible centered
+  directional shapes, but the measured directional gap and circular alignment
+  remain target-derived offline evidence. No independent lost-motion,
+  backlash, or transition state was identified, and no Phase 5 full-PINN
+  residual was promoted. The complete theory-validation roadmap
   preserves harmonic, compliance, hysteresis, bidirectional, dynamic, contact,
   efficiency, geometry, MMT, wear, electromechanical, hybrid, and integrated
   PINN branches. The polished `periodic_gru_sequence` family remains the
@@ -77,13 +77,15 @@ Historical rationale and approval history remain in:
   seed `271828` regressed raw, offset, and harmonic behavior relative to the
   matched C0 control. The accepted periodic GRU and periodic harmonic MLP
   remain unchanged.
-- Active Wave 5.2 Program: Phases 0 through 4 are completed and the general
-  full-PINN branch advances to Phase 5. Phases 2 and 3 delivered reusable
+- Active Wave 5.2 Program: Phases 0 through 5 are completed and the general
+  full-PINN branch advances to Phase 6. Phases 2 and 3 delivered reusable
   target-free residual, bounded-parameter, checkpoint playback, and
   multi-index diagnostic infrastructure while rejecting the tested harmonic,
   kinematic, and compliance constraints as defaults. Phase 4 retains the raw
   reversal population as an offline oracle while rejecting promotable
-  hysteresis training on the current data contract.
+  hysteresis training on the current data contract. Phase 5 preserves strong
+  paired-direction shape evidence while rejecting target-derived lost-motion
+  and backlash states.
 - Deferred MMT Subbranch: only the paper-faithful MMT full PINN is inactive
   after the leakage-safe rerun found zero held-out gain from geometry-locked
   signatures and could not calibrate unobserved equivalent-error groups.
@@ -94,12 +96,11 @@ Historical rationale and approval history remain in:
   periodic harmonic MLP wins polished-setpoint `Bw` and simplified-setpoint
   `Fw`. Wave 4.1 remains the raw-error and offset diagnostic ingredient.
   Sparse-RCIM temporal candidates remain actual-values references only.
-- Current Next Branch: begin Phase 5 with paired-condition `Fw`/`Bw`
-  compatibility, lost-motion, and backlash observability audits. Preserve
-  separate raw, centered-shape, offset, and continuity surfaces; do not use
-  target-derived component errors or infer a transition state from the single
-  raw reversal. Wave 6 remains sequenced after multiple isolated physics
-  components pass.
+- Current Next Branch: begin Phase 6 with acceleration, inertia, trajectory,
+  constant-speed-null, and causal-derivative audits. Preserve the Phase 5
+  paired-direction gap as offline target evidence only; do not infer a
+  lost-motion, backlash, or transition state from it. Wave 6 integration
+  remains sequenced after multiple isolated physics components pass.
 
 Current canonical status reports:
 
@@ -309,8 +310,8 @@ Next planned diagnostic and training decision branches:
 | Component-offset identification | Test whether curve offset is dominated by `a_0` / `Component 0`, multiple components, condition/regime behavior, or experimental repeatability limits. | measured `h0`, signed-offset cross-check, and predicted-mean surface diagnostics completed; `h0` is the right mean channel, but the actionable issue is model-side mean-surface bias/compression |
 | `Wave 4 series` dispersion-aware modeling probes | Test robust losses, quantile or probabilistic heads, mixture-density heads, and latent-state or hysteresis-aware features on the offset and fragile-harmonic problem. | robust-loss, quantile/probabilistic, MDN, and `Wave 4.4` latent-state / hysteresis-aware campaigns and official TE Curve Verification refreshes completed; all are exploratory and not promoted |
 | `Wave 5.1` hybrid structured models | Combine harmonic structure, condition-conditioned residual learning, and explicit grouped treatment of stable and fragile harmonic bands. | first real `wave3_harmonic_prior_residual` campaign and official `TE Curve Verification Pipeline` verification refresh closed as a verified exploratory baseline, not promoted |
-| `Wave 5.2` general full-PINN program | Audit and test explicit differentiable physics formulations derived from harmonic behavior, the Polynomial Fourier Series law, Wave 3 through Wave 5.1 evidence, and additional references. | Phases 0 through 4 complete; Phases 2 and 3 closed as valid negative training results and Phase 4 closed without training after the repeated-reversal gate failed; Phase 5 is next |
-| `Wave 5.2` complete theory-validation program | Preserve and falsify every ingested physical mechanism through direct-data, causal-state, offline-oracle, instrumentation, isolated-PINN, cross-formulation, and integration tests. | roadmap complete; Phases 0 through 4 of 16 completed; Phase 5 active next |
+| `Wave 5.2` general full-PINN program | Audit and test explicit differentiable physics formulations derived from harmonic behavior, the Polynomial Fourier Series law, Wave 3 through Wave 5.1 evidence, and additional references. | Phases 0 through 5 complete; Phases 2 and 3 closed as valid negative training results, Phase 4 rejected real-data hysteresis training, and Phase 5 rejected unidentifiable bidirectional physics while retaining an empirical multi-head comparator; Phase 6 is next |
+| `Wave 5.2` complete theory-validation program | Preserve and falsify every ingested physical mechanism through direct-data, causal-state, offline-oracle, instrumentation, isolated-PINN, cross-formulation, and integration tests. | roadmap complete; Phases 0 through 5 of 16 completed; Phase 6 active next |
 | `Wave 5.2` paper-faithful MMT full PINN | Preserve the completed MMT evidence and reopen only if causal physical inputs become available. | deferred future TODO after the parameter-availability blocker; no MMT feature, auxiliary head, weak constraint, or MMT full PINN is authorized |
 | Intermediate shape-first model-selection cleanup | Reduce the post-retraining active set using raw error, P95, centered shape, P2P behavior, visual collage evidence, and actual-values stability. | completed; active set is `periodic_gru_sequence`, `wave4_1_mae_robust_loss`, `wave4_2_quantile_p10_p50_p90`, and `periodic_mlp_harmonic`; `periodic_lstm_sequence_Bw`, `Wave 4.3`, `Wave 4.4`, and `Wave 5.1` are closed as active branches |
 | Frequency-domain shape-gated reranker | Add measured/predicted FFT amplitude similarity, dominant-harmonic retention, dominant-harmonic phase error, robust derivative agreement, threshold sweep, and per-curve shape pass rate to future reduced reports. | completed across the six-cell non-MMT reduced pass; periodic GRU wins four cells, periodic harmonic MLP wins two, and the simplified tree scalar leader remains vetoed by weak shape retention |
@@ -1248,8 +1249,8 @@ Entry rule:
 
 ### Wave 5.2. PINN Formulation And First PINN
 
-- status: Phases 0 through 4 complete; Phase 5 bidirectional TE, backlash, and
-  lost-motion feasibility active next;
+- status: Phases 0 through 5 complete; Phase 6 dynamic acceleration, inertia,
+  and trajectory feasibility active next;
 - canonical roadmap:
   `doc/reports/analysis/model_development_waves/wave_5_2/full_pinn_program/[2026-07-25]/full_pinn_physics_formulation_roadmap.md`;
 - physics reference-intake register:
@@ -1304,8 +1305,18 @@ Entry rule:
     synthetic-oracle-only, `PINN-Y4` is blocked, and `PINN-Y6` is
     offline-oracle-only;
   - no Phase 4 training campaign or physical-residual promotion is authorized;
-- updated priority: start the Phase 5 paired-direction compatibility and
-  lost-motion identifiability audit without target-derived component errors;
+- completed Phase 5 evidence:
+  - all `969` common-split condition pairs and `37,805,294` simplified-source
+    rows were audited;
+  - median centered `Fw`/`Bw` correlation is `0.985-0.990`;
+  - the median absolute directional mean gap is `3.79-4.78 arcmin`, but it is
+    a target-derived offline proxy rather than independent lost motion;
+  - `PINN-B1` remains an empirical real-data-trainable comparator but is not a
+    full PINN; `PINN-B2` is blocked, `PINN-B3` and `PINN-B5` are offline-only,
+    and `PINN-B4` is synthetic-only;
+  - no Phase 5 training campaign or physical-residual promotion is authorized;
+- updated priority: start the Phase 6 acceleration, inertia, trajectory, and
+  causal-derivative feasibility audit;
 - mandatory rule: prepare or justify `global`, `forward`, and `backward`
   surfaces;
 - paper-reproduction scope:

@@ -394,10 +394,16 @@ promoted.
 Advance only reduced compatibility laws that remain identifiable without
 target-derived component errors.
 
-**Status: active next.** Start with paired-condition `Fw`/`Bw` compatibility,
-lost-motion, and observability audits. The Phase 4 raw reversal trajectories
-may support offline transition evidence, but their missing repeated-loop and
-reset contract must not be converted into a trainable state label.
+**Status: completed identifiability result; no training authorized.** All
+`969` paired conditions and `37,805,294` simplified-source rows were audited.
+Median centered `Fw`/`Bw` correlation is `0.985-0.990`, but the median
+absolute directional mean gap is `3.79-4.78 arcmin`. The paired gap and the
+`0.703125 deg` median target-derived alignment are offline target evidence,
+not independent lost-motion or backlash states. `PINN-B1` remains a
+real-data-trainable empirical comparator but is not a full PINN; `PINN-B2` is
+blocked by missing component errors and geometry-specific equivalence
+parameters; `PINN-B3` and `PINN-B5` are offline-oracle-only; `PINN-B4` is
+synthetic-oracle-only. No Phase 5 physical residual is promoted.
 
 ## Phase 6: Dynamic Acceleration, Inertia, And Trajectory PINNs
 
@@ -434,6 +440,10 @@ reset contract must not be converted into a trainable state label.
 
 Dynamic residuals advance only if acceleration or inertia adds held-out value
 beyond causal temporal baselines and remains robust to derivative noise.
+
+**Status: active next.** Start with a raw-trajectory acceleration,
+constant-speed-null, inertia-availability, causal-derivative, and transition
+separation audit before preparing any dynamic training campaign.
 
 ## Phase 7: Contact, Mesh Stiffness, And Load-Sharing PINNs
 

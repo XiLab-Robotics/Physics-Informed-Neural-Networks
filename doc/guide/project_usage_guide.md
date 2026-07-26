@@ -582,8 +582,32 @@ The complete scan found one ordered `Fw`-to-`Bw` reversal in every one of the
 `969` canonical raw conditions, but no repeated reversal cycle, repeated major
 loop, minor-loop label, controlled warm-up label, or deterministic reset
 marker. The raw trajectories are therefore retained as offline reversal
-oracles; no Phase 4 real-data PINN training is authorized. Phase 5 is the next
-active roadmap gate.
+oracles; no Phase 4 real-data PINN training is authorized.
+
+## Phase 5 Bidirectional Identifiability Audit
+
+Rebuild the paired `Fw`/`Bw` compatibility, directional-gap, harmonic-phase,
+and candidate-identifiability evidence:
+
+```powershell
+conda run --no-capture-output -n pinns_env python -B `
+  scripts/analysis/pinn_program_bidirectional/build_phase5_bidirectional_identifiability_audit.py
+```
+
+Validate all `969` condition pairs, the common split, five candidate
+decisions, and the non-training exit gate:
+
+```powershell
+conda run --no-capture-output -n pinns_env python -B `
+  scripts/analysis/pinn_program_bidirectional/validate_phase5_bidirectional_identifiability_audit.py
+```
+
+The audit scanned `37,805,294` source rows. Centered `Fw` and `Bw` shapes are
+strongly correlated, but their measured mean gap and best circular alignment
+are target-derived offline evidence. No independent lost-motion measurement,
+component-error metrology, contact clearance, or repeated transition-state
+contract is available. No Phase 5 full-PINN residual or training campaign is
+authorized; Phase 6 is the next active roadmap gate.
 
 ## Relevant Project Paths
 
@@ -601,6 +625,9 @@ The current usage flow mainly relies on these folders:
 
 - `scripts/analysis/pinn_program_hysteresis/`
   Full raw-trajectory Phase 4 chronology and hysteresis-feasibility audit.
+
+- `scripts/analysis/pinn_program_bidirectional/`
+  Paired-curve Phase 5 compatibility and identifiability audit.
 
 - `scripts/reports/`
   Styled report-export utilities.

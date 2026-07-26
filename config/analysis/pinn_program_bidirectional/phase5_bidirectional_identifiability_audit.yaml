@@ -1,0 +1,75 @@
+schema_version: 1
+metadata:
+  audit_id: wave52_phase5_bidirectional_identifiability
+  training_allowed_by_configuration: false
+inputs:
+  paired_manifest: output/analysis/polynomial_fourier_benchmark/common_split_manifest.yaml
+  phase0_foundation_audit: output/analysis/pinn_program_foundations/phase0_foundation_audit.yaml
+  phase4_hysteresis_audit: output/analysis/pinn_program_hysteresis/phase4_hysteresis_feasibility_audit.yaml
+  simplified_dataset_root: data/simplified_dataset
+constants:
+  normalized_angular_sample_count: 2048
+  harmonic_order_list:
+    - 1
+    - 3
+    - 39
+    - 40
+    - 78
+    - 81
+  degree_to_arcmin: 60.0
+expected:
+  paired_condition_count: 969
+  condition_count_by_split:
+    train: 678
+    validation: 194
+    test: 97
+candidate_formulations:
+  - formulation_id: PINN-B1
+    name: separate Fw and Bw heads with shared periodic trunk
+    feasibility_class: real_data_trainable
+    full_pinn_eligible: false
+    reason: >-
+      Direction and all basic operating inputs are causal, but a shared-trunk
+      multi-head model is an empirical architecture rather than a physical
+      residual.
+  - formulation_id: PINN-B2
+    name: forward-reverse compatibility loss
+    feasibility_class: blocked_by_data_contract
+    full_pinn_eligible: false
+    reason: >-
+      The paper-faithful compatibility equation requires component errors and
+      geometry-specific equivalence parameters, while a target-fitted
+      compatibility relation would not be an independent physical law.
+  - formulation_id: PINN-B3
+    name: global lost-motion latent variable
+    feasibility_class: offline_oracle_only
+    full_pinn_eligible: false
+    reason: >-
+      Paired TE curves expose an offline directional-gap proxy, but no
+      independent global lost-motion measurement identifies the latent state.
+  - formulation_id: PINN-B4
+    name: backlash dead-zone or smooth complementarity residual
+    feasibility_class: synthetic_oracle_only
+    full_pinn_eligible: false
+    reason: >-
+      Clearance, contact force, interface stiffness, and dead-zone state are
+      unavailable in the measured data contract.
+  - formulation_id: PINN-B5
+    name: direction-transition state model
+    feasibility_class: offline_oracle_only
+    full_pinn_eligible: false
+    reason: >-
+      Raw trajectories contain one Fw-to-Bw transition per condition but no
+      repeated loops or deterministic reset contract for trainable state
+      identification.
+outputs:
+  condition_audit_csv: output/analysis/pinn_program_bidirectional/phase5_paired_condition_audit.csv
+  split_summary_csv: output/analysis/pinn_program_bidirectional/phase5_split_summary.csv
+  formulation_feasibility_csv: output/analysis/pinn_program_bidirectional/phase5_formulation_feasibility.csv
+  audit_yaml: output/analysis/pinn_program_bidirectional/phase5_bidirectional_identifiability_audit.yaml
+  report_markdown: doc/reports/analysis/model_development_waves/wave_5_2/bidirectional_backlash_lost_motion_pinn/[2026-07-26]/phase5_bidirectional_te_backlash_lost_motion_report.md
+exit_gate:
+  require_independent_global_lost_motion_observation: true
+  require_no_target_derived_physics_input: true
+  require_source_complete_compatibility_equation: true
+  advance_to_phase6_after_closeout: true
