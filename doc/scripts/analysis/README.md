@@ -26,3 +26,7 @@ analytical workflows under `scripts/analysis/`.
 - [wave_5_2r_stage2_evaluation_and_optimization_instrumentation/README.md](./wave_5_2r_stage2_evaluation_and_optimization_instrumentation/README.md)
   Validate named loss units, per-loss gradients, adaptive adapters, staged
   activation, conflict projection, and deterministic dataloader behavior.
+
+- [wave_5_2r_stage3_analytical_anchor_reproduction_and_stress_tests/README.md](./wave_5_2r_stage3_analytical_anchor_reproduction_and_stress_tests/README.md)
+  Refit PF-A on the frozen forward training split and validate reproduction,
+  stability, holdout, corruption, and deployment-envelope evidence.

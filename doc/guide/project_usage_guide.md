@@ -566,6 +566,38 @@ Existing campaign behavior is unchanged. A future campaign must explicitly
 adopt the utility in
 `scripts/training/physics_guided_optimization_instrumentation.py`.
 
+## Wave 5.2R Stage 3 Analytical Anchor Stress Tests
+
+Refit and stress-test the PF-A Polynomial-Fourier analytical anchor:
+
+```powershell
+conda run --no-capture-output -n pinns_env python -B `
+  scripts/analysis/wave_5_2r/stage3_analytical_anchor_reproduction_and_stress_tests/run_stage3_analytical_anchor_stress_tests.py
+```
+
+Validate the persisted evidence without refitting:
+
+```powershell
+conda run --no-capture-output -n pinns_env python -B `
+  scripts/analysis/wave_5_2r/stage3_analytical_anchor_reproduction_and_stress_tests/validate_stage3_analytical_anchor_stress_tests.py
+```
+
+This is a non-training workflow. It reproduces the Phase 1 PF-A surface from
+the frozen training split, compares five alternative analytical formulations,
+runs deterministic bootstrap and operating-condition holdouts, applies four
+families of analytical corruption, and assigns every eligible forward
+condition to a deployment-support tier.
+
+Machine-readable evidence is written under:
+
+```text
+output/analysis/wave_5_2r/stage3_analytical_anchor_reproduction_and_stress_tests/
+```
+
+Use PF-A as a qualified analytical component only for `supported_core`.
+`supported_sparse_or_corner` is low-trust, while
+`unsupported_extrapolation` requires a fallback or explicit review.
+
 ## Phase 0 PINN Foundation Audit
 
 Run the full-population foundation audit:

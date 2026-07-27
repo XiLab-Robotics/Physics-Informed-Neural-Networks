@@ -1,0 +1,130 @@
+{
+  "schema_version": 1,
+  "stage": "Wave 5.2R Stage 3: Analytical Anchor Reproduction And Stress Tests",
+  "status": "pass",
+  "training_executed": false,
+  "split_signature": "c1aa8718fb9bf88cc2021c121dc4f3b4010fc1d2e45ac90af5f4376aa64f8e16",
+  "forward_curve_count_by_split": {
+    "train": 675,
+    "validation": 194,
+    "test": 97
+  },
+  "canonical_anchor": "PF_A_LOCAL_QUADRATIC",
+  "canonical_anchor_status": "qualified_analytical_component",
+  "design_condition_number": 5.3615528602303195,
+  "test_mae_deg": 0.0018070841658319636,
+  "test_centered_mae_deg": 0.0013848160711092954,
+  "test_offset_abs_error_deg": 0.0009650903815303466,
+  "bootstrap_repeat_count": 64,
+  "bootstrap_summary": {
+    "condition_number_median": 5.391522688371094,
+    "condition_number_p95": 5.6127148198979695,
+    "condition_number_maximum": 5.70500012799939,
+    "relative_coefficient_delta_median": 0.013684562957426923,
+    "relative_coefficient_delta_p95": 0.02991163596352983,
+    "prediction_deviation_to_base_mae_ratio_median": 0.13124314529048559,
+    "prediction_deviation_to_base_mae_ratio_p95": 0.19663395465247238
+  },
+  "variant_rank_by_raw_mae": [
+    {
+      "rank": 1,
+      "model_id": "PF_A_LOCAL_QUADRATIC",
+      "mae_deg": 0.0018070841658319636,
+      "deployment_status": "qualified_anchor"
+    },
+    {
+      "rank": 2,
+      "model_id": "PF_E_REDUCED_QUADRATIC",
+      "mae_deg": 0.0018233054459864805,
+      "deployment_status": "comparator_only"
+    },
+    {
+      "rank": 3,
+      "model_id": "PF_G_PLC_SAFE_CORE_QUADRATIC",
+      "mae_deg": 0.0019447501420281122,
+      "deployment_status": "comparator_only"
+    },
+    {
+      "rank": 4,
+      "model_id": "PF_H_ONNX_ORDER_QUADRATIC",
+      "mae_deg": 0.0020111061260450615,
+      "deployment_status": "comparator_only"
+    },
+    {
+      "rank": 5,
+      "model_id": "PF_A_PAPER_QUADRATIC",
+      "mae_deg": 0.0021259347330265946,
+      "deployment_status": "comparator_only"
+    },
+    {
+      "rank": 6,
+      "model_id": "PF_B_RECOVERED_ONNX",
+      "mae_deg": 0.003047435560496282,
+      "deployment_status": "comparator_only"
+    }
+  ],
+  "holdout_count": 17,
+  "worst_holdout": {
+    "holdout_id": "temperature_low_25",
+    "mae_deg": 0.004741599340907949,
+    "mae_ratio_to_full_train_anchor": 2.669655515432849
+  },
+  "corruption_arm_count": 38,
+  "most_sensitive_corruption": {
+    "corruption_id": "omit_low_orders",
+    "anchor_deviation_mae_deg": 0.010982130967798395
+  },
+  "validity_envelope": {
+    "supported_distance_threshold": 0.3032073878617265,
+    "tier_count_by_split": {
+      "train": {
+        "supported_core": 675,
+        "supported_sparse_or_corner": 0,
+        "unsupported_extrapolation": 0
+      },
+      "validation": {
+        "supported_core": 186,
+        "supported_sparse_or_corner": 7,
+        "unsupported_extrapolation": 1
+      },
+      "test": {
+        "supported_core": 90,
+        "supported_sparse_or_corner": 6,
+        "unsupported_extrapolation": 1
+      }
+    },
+    "finite_prediction_count": 966
+  },
+  "gate_dictionary": {
+    "split_signature_match": true,
+    "training_only_refit": true,
+    "phase1_reproduction": true,
+    "explicit_offset_and_complex_coefficients": true,
+    "condition_number_stability": true,
+    "bootstrap_coefficient_stability": true,
+    "bootstrap_prediction_stability": true,
+    "required_forward_variant_roster": true,
+    "train_only_axis_and_corner_holdouts": true,
+    "all_corruption_families": true,
+    "deployable_validity_envelope": true,
+    "finite_all_valid_forward_conditions": true
+  },
+  "gate_count": 12,
+  "gate_pass_count": 12,
+  "artifact_dictionary": {
+    "refit_surface": "output/analysis/wave_5_2r/stage3_analytical_anchor_reproduction_and_stress_tests/stage3_pf_a_refit_surface.yaml",
+    "coefficient_surfaces": "output/analysis/wave_5_2r/stage3_analytical_anchor_reproduction_and_stress_tests/stage3_pf_a_coefficient_surfaces.csv",
+    "reproduction": "output/analysis/wave_5_2r/stage3_analytical_anchor_reproduction_and_stress_tests/stage3_reproduction_comparison.csv",
+    "variant_comparison": "output/analysis/wave_5_2r/stage3_analytical_anchor_reproduction_and_stress_tests/stage3_forward_variant_comparison.csv",
+    "bootstrap_repeats": "output/analysis/wave_5_2r/stage3_analytical_anchor_reproduction_and_stress_tests/stage3_bootstrap_repeat_diagnostics.csv",
+    "bootstrap_targets": "output/analysis/wave_5_2r/stage3_analytical_anchor_reproduction_and_stress_tests/stage3_bootstrap_target_stability.csv",
+    "holdouts": "output/analysis/wave_5_2r/stage3_analytical_anchor_reproduction_and_stress_tests/stage3_train_only_holdout_diagnostics.csv",
+    "corruptions": "output/analysis/wave_5_2r/stage3_analytical_anchor_reproduction_and_stress_tests/stage3_anchor_corruption_diagnostics.csv",
+    "envelope_conditions": "output/analysis/wave_5_2r/stage3_analytical_anchor_reproduction_and_stress_tests/stage3_validity_envelope_conditions.csv",
+    "envelope_summary": "output/analysis/wave_5_2r/stage3_analytical_anchor_reproduction_and_stress_tests/stage3_validity_envelope.yaml",
+    "variant_plot": "doc/reports/analysis/model_development_waves/wave_5_2/physics_guided_pinn_reassessment/[2026-07-27]/stage3_analytical_anchor_reproduction_and_stress_tests/assets/stage3_variant_comparison.png",
+    "stability_plot": "doc/reports/analysis/model_development_waves/wave_5_2/physics_guided_pinn_reassessment/[2026-07-27]/stage3_analytical_anchor_reproduction_and_stress_tests/assets/stage3_stability_holdouts.png",
+    "corruption_plot": "doc/reports/analysis/model_development_waves/wave_5_2/physics_guided_pinn_reassessment/[2026-07-27]/stage3_analytical_anchor_reproduction_and_stress_tests/assets/stage3_corruption_sensitivity.png"
+  },
+  "conclusion": "PF-A exactly reproduces Phase 1, remains finite across every eligible forward condition, and is qualified as a bounded analytical component inside the declared support envelope. Alternative and corrupted formulations remain comparators."
+}

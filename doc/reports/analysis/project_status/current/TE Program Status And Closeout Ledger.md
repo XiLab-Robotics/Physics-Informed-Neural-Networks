@@ -36,7 +36,7 @@ closeout that changes any of these surfaces:
 | Latest pruning decision | `2026-07-17` shape-first intermediate model-selection cleanup; `global` remains paused until final backlog stage |
 | Active report generation | six reduced selected-model reports completed for polished setpoints, simplified setpoints, and polished actual values, each split into `forward` and `backward` |
 | Current TE Curve Verification Pipeline selection policy | multi-index curve-first selection, dated `2026-06-16` |
-| Next modeling decision | Execute `Wave 5.2R` Stage 3 Analytical Anchor Reproduction And Stress Tests. Stage 2 passed all twelve loss, gradient, adapter, schedule, and determinism checks without project-data training; physics-integrated Wave 6 remains closed. |
+| Next modeling decision | Execute `Wave 5.2R` Stage 4 Data-Only Residual Capacity Ladder. Stage 3 exactly reproduced PF-A, passed all twelve analytical stress gates, and qualified it only inside the supported-core envelope; physics-integrated Wave 6 remains closed. |
 
 The repository remains direction-parallel. `Fw`, `Bw`, and `global` are not a
 single destructive competition. Each surface keeps its own best candidate and
@@ -185,7 +185,7 @@ robustness, visual-evidence, and deployment-readiness axes visible.
 | Wave 5.2 Phase 15 Wave 6 entry | completed no-entry closeout | Four evidence files and five entry prerequisites were audited. All five physics-integrated prerequisites fail. | Authorize no physics-integrated Wave 6 campaign and no automatic phase advance. Empirical multi-task research remains separate. |
 | Wave 5.2 general full-PINN program | Phases 0 through 15 complete; evidence closeout | All mechanisms are preserved with explicit empirical, rejected, offline, synthetic, deferred, blocked, or no-entry decisions. | Reopen only when a recorded evidence gate changes. |
 | Wave 5.2 complete theory-validation program | completed 16 of 16 | The program covered foundations, isolated formulations, synthetic and offline oracles, causal reconstruction, instrumentation, tournament, integration, and Wave 6 entry. | Preserve the closeout; do not weaken full-PINN or Wave 6 entry definitions. |
-| Wave 5.2R polished-setpoint forward physics-guided reassessment | Stages 0 through 2 of 16 complete | The immutable evidence contract and thirty-technique register are frozen. Stage 2 adds named normalized losses, EMAs, per-loss gradient norms, pairwise cosines, update ratios, fixed and adaptive adapters, conflict projection, schedules, deterministic dataloaders, and four matched controls; all twelve smoke checks pass. | Execute Stage 3 analytical-anchor reproduction and stress tests; retain separate campaign approval for later training stages. |
+| Wave 5.2R polished-setpoint forward physics-guided reassessment | Stages 0 through 3 of 16 complete | The immutable evidence and optimization contracts are frozen. Stage 3 exactly reproduces PF-A from 675 training curves, passes all twelve gates, remains finite on all 966 forward conditions, and exposes temperature, low-order, torque-input, and support-envelope sensitivities. | Execute Stage 4 data-only residual capacity ladder with PF-A bounded to supported core and retain the normal campaign gate. |
 | Wave 5.2 paper-faithful MMT full PINN | deferred future TODO | MMT diagnostics, parameter inventory, `Wave 5.2B`, the post-causal-offset gate, exact-manifest replay, and leakage-safe explanatory rerun are complete. Contact geometry and causal observations for five equivalent-error groups remain unavailable. | Inactive without blocking the general full-PINN program. Reopen only after independent component-error measurements or validated causal contact-state reconstruction provides condition-varying physical inputs. |
 | Six-cell non-MMT reduced cross-wave comparison | closed diagnostic | Six remote selected-model reports and three direction-paired shape-gated reranks covered polished setpoints, simplified setpoints, and polished actual values. Forty-six curve collages were reviewed. | No official promotion. Periodic GRU wins four cells, periodic harmonic MLP wins two, Wave 4.1 remains the raw-error/offset ingredient, and sparse-RCIM temporal models remain reference-only. |
 | Wave 6 physics-integrated multi-task / multi-head model | entry not authorized | Intended to combine proven offset, low-frequency, centered-shape, uncertainty, mixture, and validated physics-informed mechanisms. | Reopen only after at least two complementary physical components pass isolated and integrated gates. |
@@ -293,8 +293,9 @@ models.
 3. Preserve the completed Stage 0 forward freeze: `97` eligible test
    conditions and the accepted periodic GRU, periodic harmonic MLP, and
    `PF-A` references reproduce on one contract.
-4. Execute Stage 3 Analytical Anchor Reproduction And Stress Tests using the
-   completed Stage 2 instrumentation contract.
+4. Execute Stage 4 Data-Only Residual Capacity Ladder using the qualified PF-A
+   anchor, the Stage 2 instrumentation contract, and matched zero-residual and
+   direct-black-box controls.
 5. Keep physics-integrated Wave 6 closed until at least two complementary
    physical components pass isolated and integrated gates.
 6. Keep the paper-faithful MMT full PINN as an inactive future TODO. Reopen it

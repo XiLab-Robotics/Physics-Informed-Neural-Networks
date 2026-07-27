@@ -289,6 +289,11 @@ This folder contains the internal project documents derived from the reference P
   gradient-interaction diagnostics, optimization adapters, schedules, and
   deterministic smoke validation.
 
+- [technical/2026-07/2026-07-27/2026-07-27-22-12-27_wave52r_stage3_analytical_anchor_reproduction_and_stress_tests.md](./technical/2026-07/2026-07-27/2026-07-27-22-12-27_wave52r_stage3_analytical_anchor_reproduction_and_stress_tests.md)
+  Automatically approved Stage 3 design for independent `PF-A` refitting,
+  coefficient stability, forward comparator, holdout, corruption, and
+  deployable validity-envelope tests.
+
 - [reports/analysis/model_development_waves/wave_5_2/physics_guided_pinn_reassessment/[2026-07-27]/physics_guided_pinn_reassessment_report.md](./reports/analysis/model_development_waves/wave_5_2/physics_guided_pinn_reassessment/%5B2026-07-27%5D/physics_guided_pinn_reassessment_report.md)
   Detailed reassessment of how analytical structure, weak physical priors,
   grey-box residuals, and modern PINN optimization can improve polished
@@ -315,6 +320,12 @@ This folder contains the internal project documents derived from the reference P
   adaptive and conflict-aware adapter validation, schedule checks,
   deterministic dataloader proof, and matched-control freeze.
   [Validated PDF companion](./reports/analysis/model_development_waves/wave_5_2/physics_guided_pinn_reassessment/%5B2026-07-27%5D/stage2_evaluation_and_optimization_instrumentation/stage2_evaluation_and_optimization_instrumentation_report.pdf).
+
+- [reports/analysis/model_development_waves/wave_5_2/physics_guided_pinn_reassessment/[2026-07-27]/stage3_analytical_anchor_reproduction_and_stress_tests/stage3_analytical_anchor_reproduction_and_stress_tests_report.md](./reports/analysis/model_development_waves/wave_5_2/physics_guided_pinn_reassessment/%5B2026-07-27%5D/stage3_analytical_anchor_reproduction_and_stress_tests/stage3_analytical_anchor_reproduction_and_stress_tests_report.md)
+  Completed Stage 3 independent PF-A refit, exact Phase 1 reproduction,
+  analytical-variant comparison, bootstrap and holdout stability tests,
+  corruption sweeps, and deployable validity-envelope qualification.
+  [Validated PDF companion](./reports/analysis/model_development_waves/wave_5_2/physics_guided_pinn_reassessment/%5B2026-07-27%5D/stage3_analytical_anchor_reproduction_and_stress_tests/stage3_analytical_anchor_reproduction_and_stress_tests_report.pdf).
 
 - [reports/analysis/model_development_waves/wave_5_2/hysteresis_friction_memory_pinn/[2026-07-26]/phase4_hysteresis_friction_memory_feasibility_report.md](./reports/analysis/model_development_waves/wave_5_2/hysteresis_friction_memory_pinn/%5B2026-07-26%5D/phase4_hysteresis_friction_memory_feasibility_report.md)
   Completed full-population Phase 4 raw-chronology audit. All `969` canonical

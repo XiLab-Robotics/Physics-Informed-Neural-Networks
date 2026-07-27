@@ -1,0 +1,53 @@
+schema_version: 1
+dataset: polished_dataset
+input_mode: setpoints
+surface: Fw
+fit_scope: frozen training split only
+feature_order:
+- signed_torque_nm
+- absolute_speed_rpm
+- temperature_deg_c
+axis_bound_dictionary:
+  signed_torque_nm:
+    minimum: -1800.6104808579746
+    mean: -914.0651683279601
+    maximum: 0.11440786597166451
+    scale: 547.0432960619789
+  absolute_speed_rpm:
+    minimum: 99.99995052176371
+    mean: 934.5186378637147
+    maximum: 1800.000557691506
+    scale: 534.9777075532251
+  temperature_deg_c:
+    minimum: 24.259157510288066
+    mean: 30.84950735652782
+    maximum: 37.64155236625514
+    scale: 4.00643128441992
+supported_distance_threshold: 0.3032073878617265
+supported_distance_derivation: training-only P95 leave-one-out nearest standardized
+  distance
+tier_definition_dictionary:
+  supported_core: inside every training axis bound and no farther than the train-only
+    density threshold
+  supported_sparse_or_corner: inside every axis bound but farther than the train-only
+    density threshold
+  unsupported_extrapolation: outside at least one measured training axis bound
+tier_count_by_split:
+  train:
+    supported_core: 675
+    supported_sparse_or_corner: 0
+    unsupported_extrapolation: 0
+  validation:
+    supported_core: 186
+    supported_sparse_or_corner: 7
+    unsupported_extrapolation: 1
+  test:
+    supported_core: 90
+    supported_sparse_or_corner: 6
+    unsupported_extrapolation: 1
+eligible_forward_condition_count: 966
+finite_prediction_count: 966
+envelope_grid_point_count: 27
+envelope_grid_finite: true
+deployment_rule: Use PF-A as a qualified anchor only in supported_core. Treat supported_sparse_or_corner
+  as low-trust and route unsupported_extrapolation to fallback or explicit review.

@@ -48,7 +48,8 @@ The accepted forward references at roadmap entry are:
 | Stage 0: Evidence Freeze And Reproducibility Harness | completed | All eight exit-gate checks and all twelve reproduction comparisons pass. Stage 1 is authorized. |
 | Stage 1: Extended Scientific Technique Discovery | completed | Thirty techniques and all thirteen search families are registered; thirteen techniques are active, eleven are conditional, and no real-data candidate requires a missing or target-derived runtime variable. Stage 2 is authorized. |
 | Stage 2: Evaluation And Optimization Instrumentation | completed | All twelve instrumentation checks pass. Named normalized losses, EMAs, per-loss gradients, pairwise cosines, update ratios, four adapters, schedules, deterministic loaders, and four matched controls are available. Stage 3 is authorized. |
-| Stages 3 through 15 | planned | Continue in order; training stages retain their campaign approval gates. |
+| Stage 3: Analytical Anchor Reproduction And Stress Tests | completed | PF-A exactly reproduces Phase 1, all twelve gates pass, all 966 forward predictions are finite, and the supported-core deployment envelope is frozen. Stage 4 is authorized. |
+| Stages 4 through 15 | planned | Continue in order; training stages retain their campaign approval gates. |
 
 ## Non-Negotiable Experimental Contract
 
@@ -637,15 +638,15 @@ These recommendations remain outside the `Wave 5.2R` training scope.
 
 ## Governance And Execution Order
 
-Stages 0 through 2 are complete. The next executable project is:
+Stages 0 through 3 are complete. The next executable project is:
 
 ```text
-Stage 3:
-Analytical Anchor Reproduction And Stress Tests
+Stage 4:
+Data-Only Residual Capacity Ladder
 ```
 
-Stage 2 passed its deterministic and smoke gates. The first training package
-should still combine evidence from Stages 2 through 4 only:
+Stage 3 qualified PF-A only inside its supported-core envelope. The first
+training package combines evidence from Stages 2 through 4:
 
 ```text
 Instrumentation

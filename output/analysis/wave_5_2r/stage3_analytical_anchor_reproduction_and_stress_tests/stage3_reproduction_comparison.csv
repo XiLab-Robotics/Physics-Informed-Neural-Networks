@@ -1,0 +1,15 @@
+comparison_id,refit_value,phase1_value,absolute_difference,tolerance,status
+feature_mean_max_abs,0.0,0.0,0.0,1e-12,pass
+feature_scale_max_abs,0.0,0.0,0.0,1e-12,pass
+coefficient_matrix_max_abs,0.0,0.0,0.0,1e-12,pass
+design_condition_number,5.3615528602303195,5.3615528602303195,0.0,1e-12,pass
+test_mae_deg_mean,0.0018070841658319636,0.0018070841658319636,0.0,1e-12,pass
+test_rmse_deg_mean,0.002119728904142692,0.002119728904142692,0.0,1e-12,pass
+test_centered_mae_deg_mean,0.0013848160711092954,0.0013848160711092954,0.0,1e-12,pass
+test_centered_rmse_deg_mean,0.0016680957239185866,0.0016680957239185866,0.0,1e-12,pass
+test_offset_abs_error_deg_mean,0.0009650903815303466,0.0009650903815303466,0.0,1e-12,pass
+test_peak_to_peak_abs_error_deg_mean,0.004693234043519542,0.004693234043519542,0.0,1e-12,pass
+test_derivative_mae_deg_per_sample_mean,0.000938593057749118,0.000938593057749118,0.0,1e-12,pass
+test_periodic_closure_error_deg_mean,0.000300207428333873,0.000300207428333873,0.0,1e-12,pass
+test_retained_amplitude_mae_deg_mean,0.0001944219022189958,0.0001944219022189958,0.0,1e-12,pass
+test_retained_phase_mae_rad_mean,0.34930147307479886,0.34930147307479886,0.0,1e-12,pass
