@@ -2,10 +2,11 @@
 
 ## Executive Snapshot
 
-- Generated At: `2026-07-26T21:58:54`
+- Generated At: `2026-07-27T12:09:46`
 - Program State: active.
 - Current Completed Wave: polished-dataset RCIM, early-wave, and full-wave
-- Current Focus: Wave 5.2 sixteen-phase theory-validation closeout. Phases 0
+- Current Focus: `Wave 5.2R` polished-setpoint `Fw` physics-guided reassessment
+  roadmap; completed Wave 5.2 Phases 0 through 15 remain closed evidence.
 - Active Campaign Status: `completed`
 - Active Campaign Name: `phase3_c1_fw_stability_repeat_2026_07_26`
 - Current Program Winner: `te_periodic_gru_sequence_bw` | Family `periodic_gru_sequence_bw` | Test MAE `0.001084`

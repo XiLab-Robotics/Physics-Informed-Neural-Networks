@@ -272,6 +272,20 @@ This folder contains the internal project documents derived from the reference P
   Automatically approved Phase 15 design for physics-integrated Wave 6 entry,
   terminal roadmap handling, reopening criteria, and program closeout.
 
+- [technical/2026-07/2026-07-27/2026-07-27-11-58-59_physics_guided_pinn_forward_setpoint_report_and_roadmap.md](./technical/2026-07/2026-07-27/2026-07-27-11-58-59_physics_guided_pinn_forward_setpoint_report_and_roadmap.md)
+  Approval-gated plan for a detailed physics-guided PINN reassessment report,
+  validated PDF, and staged roadmap restricted to polished setpoint `Fw` data.
+
+- [reports/analysis/model_development_waves/wave_5_2/physics_guided_pinn_reassessment/[2026-07-27]/physics_guided_pinn_reassessment_report.md](./reports/analysis/model_development_waves/wave_5_2/physics_guided_pinn_reassessment/%5B2026-07-27%5D/physics_guided_pinn_reassessment_report.md)
+  Detailed reassessment of how analytical structure, weak physical priors,
+  grey-box residuals, and modern PINN optimization can improve polished
+  setpoint `Fw` transmission-error prediction.
+  [Validated PDF companion](./reports/analysis/model_development_waves/wave_5_2/physics_guided_pinn_reassessment/%5B2026-07-27%5D/physics_guided_pinn_reassessment_report.pdf).
+
+- [reports/analysis/model_development_waves/wave_5_2/physics_guided_pinn_reassessment/[2026-07-27]/polished_setpoint_fw_physics_guided_pinn_implementation_roadmap.md](./reports/analysis/model_development_waves/wave_5_2/physics_guided_pinn_reassessment/%5B2026-07-27%5D/polished_setpoint_fw_physics_guided_pinn_implementation_roadmap.md)
+  Fifteen-stage `Wave 5.2R` implementation and falsification roadmap restricted
+  to `polished_dataset`, setpoint inputs, and the forward surface.
+
 - [reports/analysis/model_development_waves/wave_5_2/hysteresis_friction_memory_pinn/[2026-07-26]/phase4_hysteresis_friction_memory_feasibility_report.md](./reports/analysis/model_development_waves/wave_5_2/hysteresis_friction_memory_pinn/%5B2026-07-26%5D/phase4_hysteresis_friction_memory_feasibility_report.md)
   Completed full-population Phase 4 raw-chronology audit. All `969` canonical
   conditions preserve one direction reversal, but repeated loops, controlled
