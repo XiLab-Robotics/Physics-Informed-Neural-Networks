@@ -18,3 +18,7 @@ analytical workflows under `scripts/analysis/`.
 - [wave_5_2r_stage0_forward_evidence_freeze/README.md](./wave_5_2r_stage0_forward_evidence_freeze/README.md)
   Build and validate the immutable polished-setpoint `Fw` baseline contract
   for the three `Wave 5.2R` entry references.
+
+- [wave_5_2r_stage1_extended_scientific_technique_discovery/README.md](./wave_5_2r_stage1_extended_scientific_technique_discovery/README.md)
+  Validate the source-backed Stage 1 technique register and reject mechanisms
+  that are unobservable under the forward setpoint contract.

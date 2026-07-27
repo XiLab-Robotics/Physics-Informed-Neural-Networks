@@ -1,0 +1,96 @@
+{
+  "schema_version": "wave52r_stage1_exit_gate_summary_v1",
+  "generated_at": "2026-07-27",
+  "scope": {
+    "dataset_id": "polished_dataset",
+    "input_mode": "setpoints",
+    "surface": "Fw"
+  },
+  "source_register_sha256": "cd2e978b1df59862c68aeafde6893779dc89ec29cbbceece9677f215130f1ac1",
+  "technique_register_sha256": "fcaac703314f6c7e8b0f0d738d1f23d1f9078543ae97cc83a109e153d873fb70",
+  "technique_count": 30,
+  "roster_counts": {
+    "active_real_data": 13,
+    "conditional_real_data": 11,
+    "excluded": 3,
+    "oracle_only": 3
+  },
+  "priority_counts": {
+    "excluded": 4,
+    "high": 11,
+    "low": 7,
+    "medium": 8
+  },
+  "target_stage_counts": {
+    "2": 3,
+    "3": 1,
+    "4": 3,
+    "5": 1,
+    "6": 3,
+    "7": 1,
+    "8": 1,
+    "9": 1,
+    "10": 2,
+    "11": 1,
+    "12": 5,
+    "13": 8
+  },
+  "covered_search_family_count": 13,
+  "required_search_family_count": 13,
+  "covered_search_families": [
+    "adaptive_weighting_and_constraints",
+    "certified_residual_bounds",
+    "curriculum_transfer_and_synthetic_to_real",
+    "failure_informed_sampling",
+    "gradient_conflict",
+    "mechanical_system_identification",
+    "model_discrepancy_and_grey_box",
+    "neural_operators",
+    "sobolev_and_derivative_training",
+    "sparse_and_symbolic_discovery",
+    "spectral_bias_and_coordinate_networks",
+    "uncertainty_aware_weighting",
+    "weak_form_and_variational"
+  ],
+  "real_data_technique_ids": [
+    "W52R-T01",
+    "W52R-T02",
+    "W52R-T03",
+    "W52R-T04",
+    "W52R-T05",
+    "W52R-T06",
+    "W52R-T07",
+    "W52R-T08",
+    "W52R-T09",
+    "W52R-T10",
+    "W52R-T11",
+    "W52R-T12",
+    "W52R-T13",
+    "W52R-T14",
+    "W52R-T15",
+    "W52R-T16",
+    "W52R-T17",
+    "W52R-T18",
+    "W52R-T19",
+    "W52R-T20",
+    "W52R-T21",
+    "W52R-T22",
+    "W52R-T23",
+    "W52R-T24"
+  ],
+  "oracle_only_technique_ids": [
+    "W52R-T27",
+    "W52R-T28",
+    "W52R-T29"
+  ],
+  "excluded_technique_ids": [
+    "W52R-T25",
+    "W52R-T26",
+    "W52R-T30"
+  ],
+  "target_derived_runtime_variable_count": 0,
+  "real_data_missing_variable_count": 0,
+  "exit_gate_passed": true,
+  "error_list": [],
+  "decision": "freeze_candidate_register"
+}

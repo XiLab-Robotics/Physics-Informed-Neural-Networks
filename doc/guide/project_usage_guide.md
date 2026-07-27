@@ -524,6 +524,22 @@ The workflow is inference-only and writes its canonical machine-readable
 contract under
 `output/analysis/wave_5_2r/stage0_forward_evidence_freeze/frozen_contract/`.
 
+## Wave 5.2R Stage 1 Technique Register
+
+Validate the source-backed candidate register before implementing Stage 2:
+
+```powershell
+conda run --no-capture-output -n pinns_env python -B `
+  scripts/analysis/wave_5_2r/stage1_extended_scientific_technique_discovery/validate_stage1_technique_register.py
+```
+
+The workflow is non-training. It verifies that every retained real-data
+technique uses only the frozen causal forward contract, has no missing
+variables, and defines a source, local formulation, matched control,
+falsification rule, deployment assessment, priority, and target stage. It
+writes the generated candidate CSV and exit-gate JSON under
+`output/analysis/wave_5_2r/stage1_extended_scientific_technique_discovery/`.
+
 ## Phase 0 PINN Foundation Audit
 
 Run the full-population foundation audit:

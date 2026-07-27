@@ -46,7 +46,8 @@ The accepted forward references at roadmap entry are:
 | Stage | Status | Decision |
 | --- | --- | --- |
 | Stage 0: Evidence Freeze And Reproducibility Harness | completed | All eight exit-gate checks and all twelve reproduction comparisons pass. Stage 1 is authorized. |
-| Stages 1 through 15 | planned | Continue in order; training stages retain their campaign approval gates. |
+| Stage 1: Extended Scientific Technique Discovery | completed | Thirty techniques and all thirteen search families are registered; thirteen techniques are active, eleven are conditional, and no real-data candidate requires a missing or target-derived runtime variable. Stage 2 is authorized. |
+| Stages 2 through 15 | planned | Continue in order; training stages retain their campaign approval gates. |
 
 ## Non-Negotiable Experimental Contract
 
@@ -635,17 +636,16 @@ These recommendations remain outside the `Wave 5.2R` training scope.
 
 ## Governance And Execution Order
 
-The immediate approved documentation sequence ends with this roadmap.
-
-The next executable project should be:
+Stages 0 and 1 are complete. The next executable project is:
 
 ```text
-Stage 0:
-Forward Evidence Freeze And Reproducibility Harness
+Stage 2:
+Evaluation And Optimization Instrumentation
 ```
 
-After Stage 0 closes, Stage 1 technique discovery is refreshed and the first
-training package should combine Stages 2 through 4 only:
+After the Stage 2 instrumentation passes its deterministic and smoke gates, the
+first separately approved training package should combine evidence from Stages
+2 through 4 only:
 
 ```text
 Instrumentation

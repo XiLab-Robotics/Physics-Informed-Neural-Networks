@@ -1,0 +1,247 @@
+schema_version: wave52r_stage1_source_register_v1
+generated_at: '2026-07-27'
+scope:
+  dataset_id: polished_dataset
+  input_mode: setpoints
+  surface: Fw
+sources:
+  - source_id: SRC-01
+    title: Modeling Load-, Velocity-, and Temperature-Dependent Transmission Errors of Cycloidal Drives for Industrial Robots Using Fourier Series
+    authors: Bauer et al.
+    year: 2025
+    source_kind: repository_primary
+    locator: reference/te_modeling/bibliography/polynomial_fourier/2025_bauer_load_velocity_temperature_dependent_cycloidal_te_fourier_model.pdf
+    url: null
+    retained_claim: A low-order operating-condition polynomial can predict complex Fourier coefficients and reconstruct TE curves accurately.
+  - source_id: SRC-02
+    title: Wave 5.2R Stage 0 Forward Evidence Freeze
+    authors: Repository evidence
+    year: 2026
+    source_kind: repository_primary
+    locator: output/analysis/wave_5_2r/stage0_forward_evidence_freeze/frozen_contract/
+    url: null
+    retained_claim: PF-A, the accepted harmonic MLP, and the accepted sequence GRU are reproducible on the same 97-condition forward test surface.
+  - source_id: SRC-03
+    title: Correcting model misspecification in physics-informed neural networks
+    authors: Zou, Meng, and Karniadakis
+    year: 2023
+    source_kind: primary_paper
+    locator: arXiv:2310.10776
+    url: https://arxiv.org/abs/2310.10776
+    retained_claim: A learned discrepancy network can correct an imperfect encoded model, while ensembles or Bayesian variants can expose uncertainty.
+  - source_id: SRC-04
+    title: Hybrid modelling and identification of mechanical systems using Physics-Enhanced Machine Learning
+    authors: Research article
+    year: 2025
+    source_kind: primary_paper
+    locator: doi:10.1016/j.engappai.2025.111762
+    url: https://doi.org/10.1016/j.engappai.2025.111762
+    retained_claim: Discrepancy modelling can combine partial mechanical knowledge with a neural correction while preserving interpretable physical parameters.
+  - source_id: SRC-05
+    title: Variational Physics-Informed Neural Networks For Solving Partial Differential Equations
+    authors: Kharazmi, Zhang, and Karniadakis
+    year: 2019
+    source_kind: primary_paper
+    locator: arXiv:1912.00873
+    url: https://arxiv.org/abs/1912.00873
+    retained_claim: Petrov-Galerkin test functions and integrated residuals can reduce derivative order and replace pointwise enforcement with weak-form constraints.
+  - source_id: SRC-06
+    title: Enhanced Physics-Informed Neural Networks with Augmented Lagrangian Relaxation Method
+    authors: Lu et al.
+    year: 2022
+    source_kind: primary_paper
+    locator: arXiv:2205.01059
+    url: https://arxiv.org/abs/2205.01059
+    retained_claim: Augmented-Lagrangian relaxation can improve enforcement of difficult constraints compared with a fixed soft-penalty sum.
+  - source_id: SRC-07
+    title: Understanding and mitigating gradient pathologies in physics-informed neural networks
+    authors: Wang, Teng, and Perdikaris
+    year: 2020
+    source_kind: primary_paper
+    locator: arXiv:2001.04536
+    url: https://arxiv.org/abs/2001.04536
+    retained_claim: Composite PINN objectives can produce numerically stiff and unbalanced gradients; gradient-statistics annealing is a testable mitigation.
+  - source_id: SRC-08
+    title: Multi-Objective Loss Balancing for Physics-Informed Deep Learning
+    authors: Bischof and Kraus
+    year: 2025
+    source_kind: primary_paper
+    locator: doi:10.1016/j.cma.2025.117914
+    url: https://doi.org/10.1016/j.cma.2025.117914
+    retained_claim: Relative Loss Balancing with Random Lookback adapts composite-loss weights from relative progress with low overhead.
+  - source_id: SRC-09
+    title: Gradient Surgery for Multi-Task Learning
+    authors: Yu et al.
+    year: 2020
+    source_kind: primary_paper
+    locator: NeurIPS 2020
+    url: https://proceedings.neurips.cc/paper/2020/hash/3fe78a8acf5fda99de95303940a2420c-Abstract.html
+    retained_claim: PCGrad projects a task gradient away from another task gradient when their dot product is negative.
+  - source_id: SRC-10
+    title: Conflict-Averse Gradient Descent for Multi-task Learning
+    authors: Liu et al.
+    year: 2021
+    source_kind: primary_paper
+    locator: NeurIPS 2021
+    url: https://proceedings.neurips.cc/paper/2021/hash/9d27fdf2477ffbff837d73ef7ae23db9-Abstract.html
+    retained_claim: CAGrad balances average-loss descent with the worst local task improvement and retains a convergence guarantee for the average objective.
+  - source_id: SRC-11
+    title: On the Spectral Bias of Neural Networks
+    authors: Rahaman et al.
+    year: 2019
+    source_kind: primary_paper
+    locator: ICML 2019
+    url: https://proceedings.mlr.press/v97/rahaman19a.html
+    retained_claim: Standard neural networks learn low-frequency components faster than high-frequency components.
+  - source_id: SRC-12
+    title: Fourier Features Let Networks Learn High Frequency Functions in Low Dimensional Domains
+    authors: Tancik et al.
+    year: 2020
+    source_kind: primary_paper
+    locator: NeurIPS 2020
+    url: https://proceedings.neurips.cc/paper/2020/hash/55053683268957697aa39fba6f231c68-Abstract.html
+    retained_claim: Fourier feature mappings give low-dimensional MLPs a tunable spectral bandwidth and improve high-frequency learning.
+  - source_id: SRC-13
+    title: Implicit Neural Representations with Periodic Activation Functions
+    authors: Sitzmann et al.
+    year: 2020
+    source_kind: primary_paper
+    locator: NeurIPS 2020
+    url: https://proceedings.neurips.cc/paper/2020/hash/53c04118df112c13a8c34b38343b9c10-Abstract.html
+    retained_claim: SIREN periodic activations can represent fine signal detail and its derivatives when paired with the prescribed initialization.
+  - source_id: SRC-14
+    title: Sobolev Training for Physics Informed Neural Networks
+    authors: Son et al.
+    year: 2021
+    source_kind: primary_paper
+    locator: arXiv:2101.08932
+    url: https://arxiv.org/abs/2101.08932
+    retained_claim: Derivative-aware objectives can reduce error in a Sobolev norm and accelerate convergence in the studied PINN problems.
+  - source_id: SRC-15
+    title: Discovering governing equations from data by sparse identification of nonlinear dynamical systems
+    authors: Brunton, Proctor, and Kutz
+    year: 2016
+    source_kind: primary_paper
+    locator: doi:10.1073/pnas.1517384113
+    url: https://doi.org/10.1073/pnas.1517384113
+    retained_claim: Sparse regression over a predeclared nonlinear library can identify parsimonious dynamical terms when the relevant state and derivatives are observable.
+  - source_id: SRC-16
+    title: AI Feynman - A physics-inspired method for symbolic regression
+    authors: Udrescu and Tegmark
+    year: 2020
+    source_kind: primary_paper
+    locator: doi:10.1126/sciadv.aay2631
+    url: https://doi.org/10.1126/sciadv.aay2631
+    retained_claim: Symmetry, separability, and compositional structure can make symbolic regression tractable for certain scientific functions.
+  - source_id: SRC-17
+    title: Adaptive weighting of Bayesian physics informed neural networks for multitask and multiscale forward and inverse problems
+    authors: Perez et al.
+    year: 2023
+    source_kind: primary_paper
+    locator: doi:10.1016/j.jcp.2023.112342
+    url: https://doi.org/10.1016/j.jcp.2023.112342
+    retained_claim: Bayesian objective weights can encode task uncertainty, measurement noise, and model adequacy while improving multi-objective stability.
+  - source_id: SRC-18
+    title: Characterizing possible failure modes in physics-informed neural networks
+    authors: Krishnapriyan et al.
+    year: 2021
+    source_kind: primary_paper
+    locator: NeurIPS 2021
+    url: https://papers.nips.cc/paper/2021/hash/df438e5206f31600e6ae4af72f2725f1-Abstract.html
+    retained_claim: PINN failure can arise from optimization rather than expressivity; curriculum regularization and sequence decomposition are candidate remedies.
+  - source_id: SRC-19
+    title: Failure-informed adaptive sampling for PINNs
+    authors: Gao, Yan, and Zhou
+    year: 2023
+    source_kind: primary_paper
+    locator: arXiv:2210.00279
+    url: https://arxiv.org/abs/2210.00279
+    retained_claim: Residual-derived failure probability can guide adaptive enrichment toward regions where a PINN is inaccurate.
+  - source_id: SRC-20
+    title: Self-Adaptive Physics-Informed Neural Networks using a Soft Attention Mechanism
+    authors: McClenny and Braga-Neto
+    year: 2020
+    source_kind: primary_paper
+    locator: arXiv:2009.04544
+    url: https://arxiv.org/abs/2009.04544
+    retained_claim: Trainable pointwise weights can focus optimization on persistently difficult regions.
+  - source_id: SRC-21
+    title: Efficient Error Certification for Physics-Informed Neural Networks
+    authors: Eiras et al.
+    year: 2023
+    source_kind: primary_paper
+    locator: arXiv:2305.10157
+    url: https://arxiv.org/abs/2305.10157
+    retained_claim: Post-training bound propagation can certify residual and solution-error bounds over continuous domains for supported PINN formulations.
+  - source_id: SRC-22
+    title: Physics-Informed Neural Operator for Learning Partial Differential Equations
+    authors: Li et al.
+    year: 2021
+    source_kind: primary_paper
+    locator: arXiv:2111.03794
+    url: https://arxiv.org/abs/2111.03794
+    retained_claim: PINO combines data and high-resolution PDE constraints to learn a solution operator over a family of parametric PDEs.
+  - source_id: SRC-23
+    title: Wavelets based physics informed neural networks to solve non-linear differential equations
+    authors: Uddin et al.
+    year: 2023
+    source_kind: primary_paper
+    locator: doi:10.1038/s41598-023-29806-3
+    url: https://doi.org/10.1038/s41598-023-29806-3
+    retained_claim: Wavelet activations can be effective function approximators in selected differential-equation PINN benchmarks.
+  - source_id: SRC-24
+    title: Universal Differential Equations for Scientific Machine Learning
+    authors: Rackauckas et al.
+    year: 2020
+    source_kind: primary_paper
+    locator: arXiv:2001.04385
+    url: https://arxiv.org/abs/2001.04385
+    retained_claim: Universal approximators can be embedded in partially known differential equations to learn missing dynamics.
+  - source_id: SRC-25
+    title: Exact imposition of boundary conditions with distance functions in physics-informed deep neural networks
+    authors: Sukumar and Srivastava
+    year: 2021
+    source_kind: primary_paper
+    locator: arXiv:2104.08426
+    url: https://arxiv.org/abs/2104.08426
+    retained_claim: Architectural output transforms can impose known constraints exactly instead of optimizing them as soft penalties.
+  - source_id: SRC-26
+    title: Mitigating Propagation Failures in Physics-informed Neural Networks using Retain-Resample-Release Sampling
+    authors: Daw et al.
+    year: 2023
+    source_kind: primary_paper
+    locator: ICML 2023
+    url: https://proceedings.mlr.press/v202/daw23a.html
+    retained_claim: Retaining high-residual points while resampling and releasing easier points can mitigate propagation failures.
+  - source_id: SRC-27
+    title: Transmission Error Dataset Family Reference
+    authors: Repository reference synthesis
+    year: 2026
+    source_kind: repository_primary
+    locator: doc/reference_summaries/08_Transmission_Error_Dataset_Family_Reference.md
+    url: null
+    retained_claim: The polished-setpoint forward runtime contract exposes angle and operating setpoints, but not causal contact, reversal, current, wear, or unit-geometry state.
+  - source_id: SRC-28
+    title: Hysteresis, Backlash, And Harmonic TE Reference Synthesis
+    authors: Repository reference synthesis
+    year: 2026
+    source_kind: repository_primary
+    locator: doc/reference_summaries/11_Hysteresis_Backlash_And_Harmonic_TE_Reference_Synthesis.md
+    url: null
+    retained_claim: Harmonic structure is directly testable, whereas hysteresis and backlash require direction, reversal, and memory state not present in the forward setpoint contract.
+  - source_id: SRC-29
+    title: RV Reducer Theoretical Mechanics Reference Synthesis
+    authors: Repository reference synthesis
+    year: 2026
+    source_kind: repository_primary
+    locator: doc/reference_summaries/13_RV_Reducer_Theoretical_Mechanics_Reference_Synthesis.md
+    url: null
+    retained_claim: Contact, stiffness, friction, geometry, and load-sharing equations identify useful mechanisms but depend on unobserved local states in the current dataset.
+  - source_id: SRC-30
+    title: MMT Linkage Matlab Project Summary
+    authors: Repository reference synthesis
+    year: 2026
+    source_kind: repository_primary
+    locator: doc/reference_summaries/14_MMT_Linkage_Matlab_Project_Summary.md
+    url: null
+    retained_claim: The paper-faithful MMT mapping is useful as a synthetic oracle, but equivalent-error groups cannot be calibrated causally from the current setpoint data.

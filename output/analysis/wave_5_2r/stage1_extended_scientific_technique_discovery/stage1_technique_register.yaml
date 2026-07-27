@@ -1,0 +1,499 @@
+schema_version: wave52r_stage1_technique_register_v1
+generated_at: '2026-07-27'
+contract:
+  dataset_id: polished_dataset
+  input_mode: setpoints
+  surface: Fw
+  split_signature: c1aa8718fb9bf88cc2021c121dc4f3b4010fc1d2e45ac90af5f4376aa64f8e16
+  runtime_variable_allowlist:
+    - theta
+    - speed_setpoint
+    - torque_setpoint
+    - temperature_setpoint
+  training_only_variable_allowlist:
+    - measured_te_train
+    - pf_a_prediction_train
+    - harmonic_coefficients_train
+    - angular_derivatives_train
+    - residual_metrics_train
+techniques:
+  - technique_id: W52R-T01
+    family: model_discrepancy
+    technique: Bounded PF-A analytical-discrepancy residual
+    source_ids: [SRC-01, SRC-02, SRC-03, SRC-04]
+    claimed_benefit: Preserve the strong Polynomial-Fourier anchor while learning only its systematic misspecification.
+    required_variables: [theta, speed_setpoint, torque_setpoint, temperature_setpoint, pf_a_prediction_train, measured_te_train]
+    availability: train_derived
+    missing_variables: []
+    local_formulation: y_hat = PF_A(theta,z) + b(z) * tanh(r_theta(theta,z) / b(z)), with b fitted from training residual envelopes only.
+    matched_control: Parameter-matched data-only residual network with identical inputs and budget but no PF-A addition.
+    falsification: Reject if three-seed curve-first gain over both PF-A and the matched control is absent, or if anchor corruption causes unbounded residual takeover.
+    deployment_impact: medium
+    deployment_note: Requires inspectable PF-A coefficient evaluation plus one bounded residual network.
+    priority: high
+    roster: active_real_data
+    target_stage: 3
+  - technique_id: W52R-T02
+    family: harmonic_supervision
+    technique: Complex harmonic-coefficient residual
+    source_ids: [SRC-01, SRC-11, SRC-12]
+    claimed_benefit: Penalize amplitude and phase jointly without phase-wrap discontinuities.
+    required_variables: [theta, speed_setpoint, torque_setpoint, temperature_setpoint, harmonic_coefficients_train]
+    availability: train_derived
+    missing_variables: []
+    local_formulation: Predict delta complex coefficients relative to PF-A and minimize weighted squared distance in real-imaginary coefficient space before inverse Fourier reconstruction.
+    matched_control: Same coefficient head trained with pointwise TE loss only.
+    falsification: Reject if held-out harmonic amplitude and circular phase do not improve without worsening raw or centered-shape error beyond the predeclared tolerance.
+    deployment_impact: low
+    deployment_note: Fixed-order real-imaginary coefficients and deterministic Fourier reconstruction are PLC-friendly.
+    priority: high
+    roster: active_real_data
+    target_stage: 5
+  - technique_id: W52R-T03
+    family: structured_output
+    technique: Mean and centered-shape multi-head construction
+    source_ids: [SRC-01, SRC-02]
+    claimed_benefit: Separate the difficult operating-condition offset surface from the periodic centered curve shape.
+    required_variables: [theta, speed_setpoint, torque_setpoint, temperature_setpoint, measured_te_train]
+    availability: train_derived
+    missing_variables: []
+    local_formulation: y_hat(theta,z) = mu_hat(z) + s_hat(theta,z) - mean_theta(s_hat), enforcing exact zero mean on the shape head.
+    matched_control: Parameter-matched single-head predictor with the same features and losses.
+    falsification: Reject if absolute offset error or centered-shape metrics fail to improve jointly over the single-head control.
+    deployment_impact: low
+    deployment_note: Adds one scalar mean head and one deterministic centering operation.
+    priority: high
+    roster: active_real_data
+    target_stage: 7
+  - technique_id: W52R-T04
+    family: spectral_architecture
+    technique: Fourier-feature coordinate residual
+    source_ids: [SRC-11, SRC-12]
+    claimed_benefit: Reduce low-frequency learning bias for known angular harmonics.
+    required_variables: [theta, speed_setpoint, torque_setpoint, temperature_setpoint, measured_te_train]
+    availability: train_derived
+    missing_variables: []
+    local_formulation: Encode theta with a frozen, predeclared bank of sin(k*theta) and cos(k*theta) terms; feed these and z to a bounded residual MLP.
+    matched_control: Same-width raw-angle MLP and parameter-matched learned-frequency feature control.
+    falsification: Reject if high-order held-out harmonic fidelity does not improve or if unsupported high-frequency energy increases.
+    deployment_impact: low
+    deployment_note: Uses a fixed finite trigonometric bank that can be exported or evaluated explicitly.
+    priority: high
+    roster: active_real_data
+    target_stage: 4
+  - technique_id: W52R-T05
+    family: spectral_architecture
+    technique: SIREN coordinate residual
+    source_ids: [SRC-13]
+    claimed_benefit: Represent smooth periodic detail and stable angular derivatives with periodic activations.
+    required_variables: [theta, speed_setpoint, torque_setpoint, temperature_setpoint, measured_te_train]
+    availability: train_derived
+    missing_variables: []
+    local_formulation: Use the prescribed SIREN initialization for an angular residual network, with bounded output and explicit periodic-closure testing.
+    matched_control: Parameter-matched tanh residual MLP using the same inputs and training budget.
+    falsification: Reject if derivative and harmonic metrics do not improve across seeds or if ONNX and PLC feasibility is materially worse.
+    deployment_impact: medium
+    deployment_note: Sinusoidal activations require explicit ONNX and Beckhoff operator validation.
+    priority: medium
+    roster: active_real_data
+    target_stage: 4
+  - technique_id: W52R-T06
+    family: spectral_architecture
+    technique: Wavelet-activation coordinate network
+    source_ids: [SRC-23]
+    claimed_benefit: Offer localized multiscale basis functions when errors are angularly localized.
+    required_variables: [theta, speed_setpoint, torque_setpoint, temperature_setpoint, measured_te_train, residual_metrics_train]
+    availability: train_derived
+    missing_variables: []
+    local_formulation: Activate only after Stage 2 diagnostics show localized multiscale residuals not captured by the harmonic bank.
+    matched_control: Parameter-matched Fourier-feature and SIREN residual networks.
+    falsification: Reject if localization diagnostics are absent or if the wavelet network fails to beat the simpler spectral controls.
+    deployment_impact: high
+    deployment_note: Custom activations and multiscale branches increase export and PLC complexity.
+    priority: low
+    roster: conditional_real_data
+    target_stage: 6
+  - technique_id: W52R-T07
+    family: spectral_objective
+    technique: Complex spectral supervision
+    source_ids: [SRC-01, SRC-11]
+    claimed_benefit: Directly optimize the harmonic content that curve-first diagnostics identify as compensation-relevant.
+    required_variables: [theta, speed_setpoint, torque_setpoint, temperature_setpoint, harmonic_coefficients_train]
+    availability: train_derived
+    missing_variables: []
+    local_formulation: Add a training-only DFT loss over predeclared harmonic bands with normalized complex coefficients and no test-fitted weights.
+    matched_control: Identical architecture trained with pointwise and centered-shape losses only.
+    falsification: Reject if aggregate held-out harmonic amplitude and phase do not improve without material raw-error regression.
+    deployment_impact: none
+    deployment_note: The loss is training-only and adds no inference operators.
+    priority: high
+    roster: active_real_data
+    target_stage: 6
+  - technique_id: W52R-T08
+    family: derivative_guidance
+    technique: Angular Sobolev supervision
+    source_ids: [SRC-14]
+    claimed_benefit: Match curve slope and curvature so pointwise fit does not hide distorted local shape.
+    required_variables: [theta, speed_setpoint, torque_setpoint, temperature_setpoint, angular_derivatives_train]
+    availability: train_derived
+    missing_variables: []
+    local_formulation: Penalize first angular derivative mismatch, and test second derivative only behind smoothing and noise-stability gates fitted on training curves.
+    matched_control: Identical architecture and parameter count without derivative loss.
+    falsification: Reject if derivative metrics or centered shape fail to improve, or if the result is sensitive to derivative estimator and smoothing choice.
+    deployment_impact: none
+    deployment_note: Automatic differentiation and target derivatives are used only during training.
+    priority: high
+    roster: active_real_data
+    target_stage: 6
+  - technique_id: W52R-T09
+    family: weak_form
+    technique: Local Fourier-moment weak residual
+    source_ids: [SRC-05, SRC-01]
+    claimed_benefit: Compare integrated residual structure instead of enforcing a noisy or misspecified relation point by point.
+    required_variables: [theta, speed_setpoint, torque_setpoint, temperature_setpoint, measured_te_train, pf_a_prediction_train]
+    availability: train_derived
+    missing_variables: []
+    local_formulation: Minimize squared residual moments against fixed sine, cosine, and compact angular test functions over each complete training curve.
+    matched_control: Same model with pointwise PF-A residual loss and no integrated moments.
+    falsification: Reject if weak moments shrink without improving full-curve held-out metrics, or if gains disappear under alternative fixed test-function sets.
+    deployment_impact: none
+    deployment_note: Test functions and quadrature are training-only.
+    priority: medium
+    roster: active_real_data
+    target_stage: 13
+  - technique_id: W52R-T10
+    family: weak_mechanical_prior
+    technique: Forward quasi-static compliance sign and bound prior
+    source_ids: [SRC-04, SRC-29]
+    claimed_benefit: Constrain implausible torque response without claiming a complete contact law.
+    required_variables: [speed_setpoint, torque_setpoint, temperature_setpoint, measured_te_train]
+    availability: train_derived
+    missing_variables: []
+    local_formulation: Apply a soft sign or interval penalty only to a training-estimated mean-response derivative where the sign is stable under bootstrap.
+    matched_control: Same architecture with no compliance penalty and a shuffled-torque penalty control.
+    falsification: Reject unless sign stability is supported on training resamples and held-out offset and raw error improve across seeds.
+    deployment_impact: none
+    deployment_note: The weak prior affects training only; no contact-state computation is added at runtime.
+    priority: medium
+    roster: conditional_real_data
+    target_stage: 8
+  - technique_id: W52R-T11
+    family: objective_optimization
+    technique: Gradient-statistics loss annealing
+    source_ids: [SRC-07]
+    claimed_benefit: Prevent one objective from dominating shared-parameter updates because of scale or stiffness.
+    required_variables: [measured_te_train, residual_metrics_train]
+    availability: train_derived
+    missing_variables: []
+    local_formulation: Track per-loss gradient norms and adapt physics-guidance weights relative to the primary data objective with bounded updates.
+    matched_control: Manually normalized fixed weights on the same candidate.
+    falsification: Reject if it does not reduce gradient imbalance or improve repeatability without suppressing the data objective.
+    deployment_impact: none
+    deployment_note: Training-only optimizer instrumentation.
+    priority: high
+    roster: active_real_data
+    target_stage: 2
+  - technique_id: W52R-T12
+    family: objective_optimization
+    technique: ReLoBRaLo relative-progress balancing
+    source_ids: [SRC-08]
+    claimed_benefit: Balance competing objectives by their relative training progress with modest overhead.
+    required_variables: [measured_te_train, residual_metrics_train]
+    availability: train_derived
+    missing_variables: []
+    local_formulation: Adapt bounded loss weights from relative loss ratios over deterministic and random lookback windows while preserving a minimum data-loss weight.
+    matched_control: Fixed normalized weights and gradient-statistics annealing on the same candidate.
+    falsification: Reject if weights become non-finite, collapse the data objective, or fail to improve three-seed stability and curve-first metrics.
+    deployment_impact: none
+    deployment_note: Training-only loss adapter.
+    priority: high
+    roster: active_real_data
+    target_stage: 2
+  - technique_id: W52R-T13
+    family: objective_optimization
+    technique: PCGrad main-loss-preserving projection
+    source_ids: [SRC-09]
+    claimed_benefit: Remove measured destructive interference between data and guidance gradients.
+    required_variables: [measured_te_train, residual_metrics_train]
+    availability: train_derived
+    missing_variables: []
+    local_formulation: Project only a secondary guidance gradient when its cosine with the primary data gradient is negative; never project the primary gradient.
+    matched_control: Same model and weights without projection.
+    falsification: Do not activate unless Stage 2 records persistent negative cosine; reject if projection improves guidance but worsens the primary held-out metrics.
+    deployment_impact: none
+    deployment_note: Training-only gradient surgery with extra backward-pass cost.
+    priority: medium
+    roster: conditional_real_data
+    target_stage: 12
+  - technique_id: W52R-T14
+    family: objective_optimization
+    technique: Conflict-Averse Gradient Descent
+    source_ids: [SRC-10]
+    claimed_benefit: Balance average progress and worst local objective improvement when several heads conflict.
+    required_variables: [measured_te_train, residual_metrics_train]
+    availability: train_derived
+    missing_variables: []
+    local_formulation: Test only after persistent multi-objective conflict is measured and PCGrad has a bounded comparator.
+    matched_control: Same candidate with normalized fixed weights, ReLoBRaLo, and main-loss-preserving PCGrad.
+    falsification: Reject if compute overhead is not offset by better repeatability or the average held-out objective regresses.
+    deployment_impact: none
+    deployment_note: Training-only but computationally heavier than scalarized optimization.
+    priority: low
+    roster: conditional_real_data
+    target_stage: 12
+  - technique_id: W52R-T15
+    family: constraint_optimization
+    technique: Augmented-Lagrangian constraint enforcement
+    source_ids: [SRC-06]
+    claimed_benefit: Enforce a validated inequality or equality more reliably than a fixed penalty.
+    required_variables: [measured_te_train, residual_metrics_train]
+    availability: train_derived
+    missing_variables: []
+    local_formulation: Introduce multipliers only for a prior that first shows incremental signal with a simple bounded soft penalty.
+    matched_control: The same candidate with fixed and adaptive soft penalties.
+    falsification: Reject if feasibility improves without held-out curve-first gain, or if multipliers become unstable.
+    deployment_impact: none
+    deployment_note: Training-only constraint optimizer.
+    priority: low
+    roster: conditional_real_data
+    target_stage: 12
+  - technique_id: W52R-T16
+    family: curriculum_transfer
+    technique: Staged guidance curriculum
+    source_ids: [SRC-18]
+    claimed_benefit: Avoid an ill-conditioned loss landscape by learning data fit and simple structure before activating harder guidance.
+    required_variables: [measured_te_train, residual_metrics_train]
+    availability: train_derived
+    missing_variables: []
+    local_formulation: Train data-only, activate analytical residual, then spectral or derivative terms using fixed schedule and freeze-unfreeze ablations.
+    matched_control: Same total budget with all losses active from epoch zero.
+    falsification: Reject if final held-out performance and seed stability do not improve after controlling for total optimizer steps.
+    deployment_impact: none
+    deployment_note: Training schedule only.
+    priority: high
+    roster: active_real_data
+    target_stage: 2
+  - technique_id: W52R-T17
+    family: adaptive_sampling
+    technique: Failure-informed operating-cell and angle enrichment
+    source_ids: [SRC-19, SRC-26]
+    claimed_benefit: Focus training on angular regions or operating cells with persistent residual failure.
+    required_variables: [theta, speed_setpoint, torque_setpoint, temperature_setpoint, residual_metrics_train]
+    availability: train_derived
+    missing_variables: []
+    local_formulation: Reweight or resample training-only cells from cross-fitted failure scores while retaining uniform-coverage batches.
+    matched_control: Uniform sampling and static stratification with identical update count.
+    falsification: Reject if localized failures are not stable across folds, global coverage degrades, or matched-budget held-out metrics do not improve.
+    deployment_impact: none
+    deployment_note: Training sampler only.
+    priority: medium
+    roster: conditional_real_data
+    target_stage: 12
+  - technique_id: W52R-T18
+    family: adaptive_sampling
+    technique: Self-adaptive pointwise weights
+    source_ids: [SRC-20]
+    claimed_benefit: Concentrate optimization on stubborn angular locations without manually defining them.
+    required_variables: [theta, measured_te_train, residual_metrics_train]
+    availability: train_derived
+    missing_variables: []
+    local_formulation: Learn bounded training-point weights with entropy and effective-sample-size diagnostics.
+    matched_control: Uniform point weights and failure-informed resampling.
+    falsification: Reject if weights collapse onto a small sample set, correlate with noise rather than cross-fitted error, or fail to improve held-out curves.
+    deployment_impact: none
+    deployment_note: Training-only attention mask with memory overhead.
+    priority: low
+    roster: conditional_real_data
+    target_stage: 12
+  - technique_id: W52R-T19
+    family: uncertainty
+    technique: Ensemble discrepancy and anchor-trust calibration
+    source_ids: [SRC-03, SRC-17]
+    claimed_benefit: Identify operating cells where the analytical anchor or learned residual is unreliable.
+    required_variables: [speed_setpoint, torque_setpoint, temperature_setpoint, measured_te_train, pf_a_prediction_train]
+    availability: train_derived
+    missing_variables: []
+    local_formulation: Combine a three-to-five-member deep ensemble with condition-distance and PF-A discrepancy features; calibrate uncertainty on validation data only.
+    matched_control: Single deterministic model and uncalibrated ensemble variance.
+    falsification: Reject if uncertainty-error rank correlation and high-error capture fail, or intervals widen without localizing error.
+    deployment_impact: high
+    deployment_note: Full ensembles multiply memory and inference cost; distilled trust heads require separate validation.
+    priority: medium
+    roster: conditional_real_data
+    target_stage: 11
+  - technique_id: W52R-T20
+    family: sparse_discovery
+    technique: SINDy-style sparse harmonic-condition library
+    source_ids: [SRC-15, SRC-24]
+    claimed_benefit: Identify a parsimonious set of operating-condition and harmonic interactions missing from PF-A.
+    required_variables: [speed_setpoint, torque_setpoint, temperature_setpoint, harmonic_coefficients_train]
+    availability: train_derived
+    missing_variables: []
+    local_formulation: Fit a predeclared polynomial-harmonic interaction dictionary on training conditions with bootstrap stability selection.
+    matched_control: Complete quadratic PF-A, ridge regression on the same library, and label-shuffled stability control.
+    falsification: Reject unstable signs or magnitudes and any term lacking held-out gain over the simpler complete-quadratic law.
+    deployment_impact: low
+    deployment_note: A retained sparse formula is highly inspectable and PLC-friendly.
+    priority: medium
+    roster: conditional_real_data
+    target_stage: 10
+  - technique_id: W52R-T21
+    family: symbolic_discovery
+    technique: Constrained symbolic residual search
+    source_ids: [SRC-16]
+    claimed_benefit: Search beyond a fixed polynomial dictionary for compact separable or symmetric coefficient laws.
+    required_variables: [speed_setpoint, torque_setpoint, temperature_setpoint, harmonic_coefficients_train]
+    availability: train_derived
+    missing_variables: []
+    local_formulation: Run complexity-bounded symbolic regression on training-only coefficient residuals with unit-safe operators and nested validation.
+    matched_control: SINDy-style predeclared library and parameter-count-matched MLP coefficient residual.
+    falsification: Reject expressions that are unstable across bootstrap splits, exceed complexity limits, or lack held-out gain.
+    deployment_impact: low
+    deployment_note: Accepted compact expressions are suitable for explicit PLC evaluation.
+    priority: low
+    roster: conditional_real_data
+    target_stage: 10
+  - technique_id: W52R-T22
+    family: temporal_grey_box
+    technique: Temporal PF-A plus bounded GRU residual
+    source_ids: [SRC-03, SRC-04, SRC-18]
+    claimed_benefit: Combine the analytical anchor with the strongest accepted temporal inductive bias.
+    required_variables: [theta, speed_setpoint, torque_setpoint, temperature_setpoint, pf_a_prediction_train, measured_te_train]
+    availability: train_derived
+    missing_variables: []
+    local_formulation: Feed the PF-A curve and causal operating inputs into a deterministic-state GRU that predicts a bounded residual sequence.
+    matched_control: Accepted GRU, PF-A alone, and parameter-matched GRU without the anchor.
+    falsification: Reject unless it beats the accepted GRU across the multi-index gate and remains stable under deterministic hidden-state reset.
+    deployment_impact: high
+    deployment_note: Adds recurrent state, reset semantics, PF-A evaluation, and parity requirements.
+    priority: high
+    roster: active_real_data
+    target_stage: 9
+  - technique_id: W52R-T23
+    family: hard_constraints
+    technique: Exact periodic output construction
+    source_ids: [SRC-25, SRC-12]
+    claimed_benefit: Enforce angular periodicity by construction instead of spending optimization capacity on a closure penalty.
+    required_variables: [theta, speed_setpoint, torque_setpoint, temperature_setpoint, measured_te_train]
+    availability: train_derived
+    missing_variables: []
+    local_formulation: Use only periodic angular features and exact mean-centering so y_hat(theta+2*pi,z) equals y_hat(theta,z) structurally.
+    matched_control: Same parameter budget with raw angle and a soft periodic-closure loss.
+    falsification: Reject if exact closure does not improve held-out shape or restricts fit relative to the soft control.
+    deployment_impact: low
+    deployment_note: Fixed trigonometric features and centering are explicit and deterministic.
+    priority: high
+    roster: active_real_data
+    target_stage: 4
+  - technique_id: W52R-T24
+    family: certification
+    technique: Post-training residual bound certification
+    source_ids: [SRC-21]
+    claimed_benefit: Replace sampled-only residual claims with bounds over a continuous normalized input domain.
+    required_variables: [theta, speed_setpoint, torque_setpoint, temperature_setpoint]
+    availability: available
+    missing_variables: []
+    local_formulation: Attempt bound propagation only for a tournament-qualified feedforward candidate and a locally meaningful residual.
+    matched_control: Dense-grid adversarial residual search on the same normalized domain.
+    falsification: Reject operational use if bounds are vacuous, unsupported by the architecture, or unrelated to empirical TE error.
+    deployment_impact: none
+    deployment_note: Certification is offline, but it may constrain the supported architecture.
+    priority: low
+    roster: conditional_real_data
+    target_stage: 13
+  - technique_id: W52R-T25
+    family: neural_operator
+    technique: Physics-informed neural operator
+    source_ids: [SRC-22]
+    claimed_benefit: Learn a solution operator over function-valued inputs and multiple resolutions.
+    required_variables: [function_valued_excitation, governing_pde, boundary_conditions]
+    availability: unavailable
+    missing_variables: [function_valued_excitation, governing_pde, boundary_conditions]
+    local_formulation: None for the current point-condition setpoint contract; reconsider only after a function-valued excitation and governing operator are available.
+    matched_control: Not applicable in the active contract.
+    falsification: Exclude while the local task remains finite-dimensional condition-to-curve regression.
+    deployment_impact: high
+    deployment_note: Operator architectures are unnecessary and deployment-heavy for the current input contract.
+    priority: excluded
+    roster: excluded
+    target_stage: 13
+  - technique_id: W52R-T26
+    family: dynamic_equation_hybrid
+    technique: Universal differential-equation residual
+    source_ids: [SRC-24, SRC-04]
+    claimed_benefit: Embed a learned missing term in a partially known dynamical equation.
+    required_variables: [causal_acceleration, inertia, damping_state, initial_state]
+    availability: unavailable
+    missing_variables: [causal_acceleration, inertia, damping_state, initial_state]
+    local_formulation: No real-data formulation under steady forward setpoint curves; retain as a future dynamic-instrumentation design.
+    matched_control: Not applicable until the state and differential equation are observable.
+    falsification: Exclude from real-data training until repeated trajectories and deterministic initial-state semantics exist.
+    deployment_impact: high
+    deployment_note: Would require an online state integrator and validated dynamic parameters.
+    priority: excluded
+    roster: excluded
+    target_stage: 13
+  - technique_id: W52R-T27
+    family: synthetic_transfer
+    technique: Misspecified-anchor synthetic-to-real curriculum
+    source_ids: [SRC-03, SRC-18, SRC-24]
+    claimed_benefit: Verify that candidate architectures can recover known omissions before interpreting real-data residuals.
+    required_variables: [synthetic_ground_truth, synthetic_anchor_corruption]
+    availability: synthetic_only
+    missing_variables: [synthetic_ground_truth, synthetic_anchor_corruption]
+    local_formulation: Generate controlled PF-A coefficient omissions, phase shifts, nonlinear compliance, and noise; pretrain only after a from-scratch real-data control is defined.
+    matched_control: Identical real-data training from scratch and synthetic pretraining with shuffled or irrelevant corruptions.
+    falsification: Reject transfer if it does not improve sample efficiency or held-out real-data metrics over the from-scratch control.
+    deployment_impact: none
+    deployment_note: Synthetic generation and pretraining are offline.
+    priority: medium
+    roster: oracle_only
+    target_stage: 13
+  - technique_id: W52R-T28
+    family: mmt_oracle
+    technique: Paper-faithful MMT synthetic oracle
+    source_ids: [SRC-30, SRC-29]
+    claimed_benefit: Test whether a candidate can recover structured component-error signatures under known geometry.
+    required_variables: [component_error_groups, unit_geometry, contact_state]
+    availability: synthetic_only
+    missing_variables: [component_error_groups, unit_geometry, contact_state]
+    local_formulation: Use the Matlab MMT mapping to generate synthetic diagnostic curves only; do not calibrate equivalent-error groups from held-out TE.
+    matched_control: Harmonic injection with matched spectrum but shuffled MMT structure.
+    falsification: Do not advance to real data unless independent component-error observations become available.
+    deployment_impact: high
+    deployment_note: Paper-faithful geometry and contact mapping is unsuitable for the current runtime contract.
+    priority: low
+    roster: oracle_only
+    target_stage: 13
+  - technique_id: W52R-T29
+    family: contact_mechanics
+    technique: Contact, load-sharing, friction, and energy residuals
+    source_ids: [SRC-29]
+    claimed_benefit: Encode genuine reducer mechanics when forces, geometry, stiffness, and loss channels are observed.
+    required_variables: [contact_force, mesh_stiffness, load_sharing, friction_state, unit_geometry]
+    availability: unavailable
+    missing_variables: [contact_force, mesh_stiffness, load_sharing, friction_state, unit_geometry]
+    local_formulation: Synthetic-oracle studies only; no real-data loss may substitute target TE for the missing internal states.
+    matched_control: Mechanism-preserving and shuffled synthetic oracles.
+    falsification: Exclude from real-data training until independent instrumentation identifies the required quantities.
+    deployment_impact: high
+    deployment_note: A full implementation would require unavailable online mechanical states.
+    priority: excluded
+    roster: oracle_only
+    target_stage: 13
+  - technique_id: W52R-T30
+    family: hysteresis_backlash
+    technique: Hysteresis and backlash memory residual
+    source_ids: [SRC-28, SRC-27]
+    claimed_benefit: Represent reversal-dependent lost motion and loop memory.
+    required_variables: [direction_state, repeated_reversals, loop_history, deterministic_reset]
+    availability: unavailable
+    missing_variables: [direction_state, repeated_reversals, loop_history, deterministic_reset]
+    local_formulation: None for forward-only setpoint curves; retain only offline or synthetic reversal studies.
+    matched_control: Not applicable to the active forward-only contract.
+    falsification: Exclude until repeated major and minor loops with causal reset semantics are recorded.
+    deployment_impact: high
+    deployment_note: Requires explicit persistent state and deterministic PLC reset behavior.
+    priority: excluded
+    roster: excluded
+    target_stage: 13
