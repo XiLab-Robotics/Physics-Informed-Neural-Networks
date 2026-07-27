@@ -502,6 +502,28 @@ Polynomial-Fourier model as the Phase 2 analytical reference and the reduced
 common-order variant as its alternative comparator. It does not train or claim
 a full PINN.
 
+## Wave 5.2R Stage 0 Forward Evidence Freeze
+
+Rebuild the immutable polished-setpoint `Fw` evidence contract after the
+isolated `PF-A` and accepted-neural replay artifacts are available:
+
+```powershell
+conda run --no-capture-output -n pinns_env python -B `
+  scripts/analysis/wave_5_2r/stage0_forward_evidence_freeze/build_stage0_forward_evidence_freeze.py
+```
+
+Validate the persisted split identity, three-candidate roster, `97` held-out
+operating cells, source hashes, and reproduction tolerances:
+
+```powershell
+conda run --no-capture-output -n pinns_env python -B `
+  scripts/analysis/wave_5_2r/stage0_forward_evidence_freeze/validate_stage0_forward_evidence_freeze.py
+```
+
+The workflow is inference-only and writes its canonical machine-readable
+contract under
+`output/analysis/wave_5_2r/stage0_forward_evidence_freeze/frozen_contract/`.
+
 ## Phase 0 PINN Foundation Audit
 
 Run the full-population foundation audit:

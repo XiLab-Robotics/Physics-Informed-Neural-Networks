@@ -1,0 +1,158 @@
+config_path: config\analysis\wave_5_2r\stage0_forward_evidence_freeze\accepted_forward_neural_replay.yaml
+output_directory: output\validation_checks\track2_reference_comparison\2026-07-27-12-40-51__wave52r_stage0_accepted_forward_neural_replay_stage0_freeze
+dataset:
+  dataset_config_path: config/datasets/transmission_error_dataset.yaml
+  dataset_root: data\polished_dataset
+  source_contract: data\polished_dataset
+comparison_scope:
+  comparison_mode: wave52r_stage0_forward_evidence_freeze
+  percentage_error_denominator: peak_to_peak_truth
+  curve_count: 97
+  candidate_count: 2
+  directional_policy:
+    global:
+    - forward
+    - backward
+    Fw:
+    - forward
+    Bw:
+    - backward
+  reference_bank_compatibility_policy:
+    rcim_track1_Fw_h0_sign_multiplier: -1.0
+    reason: RCIM Model-Bank Reproduction forward reference banks store the constant
+      harmonic with the opposite sign convention relative to the TE Curve Verification
+      Pipeline TE-curve reconstruction contract.
+candidate_list:
+- candidate_id: accepted_periodic_mlp_harmonic_Fw
+  candidate_family: periodic_mlp_harmonic
+  candidate_kind: wave1_exported_model
+  candidate_source_label: accepted_non_windowed_reference
+  candidate_surface: Fw
+  allowed_direction_list:
+  - forward
+  source_path: models\polished_dataset\setpoints\periodic_mlp_harmonic\forward\reference_inventory.yaml
+  selected_harmonic_list: []
+  registry_run_instance_id: 2026-07-08-02-15-59__te_periodic_mlp_harmonic_fw__polished_setpoints
+  model_file_path: models/polished_dataset/setpoints/periodic_mlp_harmonic/forward/python/periodic_mlp-epoch=051-val_mae=0.00120808.ckpt
+  composite_selection: null
+- candidate_id: accepted_periodic_gru_sequence_Fw
+  candidate_family: periodic_gru_sequence
+  candidate_kind: wave1_exported_model
+  candidate_source_label: accepted_time_windowed_reference
+  candidate_surface: Fw
+  allowed_direction_list:
+  - forward
+  source_path: models\polished_dataset\setpoints\periodic_gru_sequence\forward\reference_inventory.yaml
+  selected_harmonic_list: []
+  registry_run_instance_id: 2026-07-08-22-57-44__te_periodic_gru_sequence_fw__polished_setpoints
+  model_file_path: models/polished_dataset/setpoints/periodic_gru_sequence/forward/python/periodic_gru_sequence-epoch=091-val_mae=0.00183161.ckpt
+  composite_selection: null
+candidate_target_metric_summary: {}
+candidate_metric_summary:
+  accepted_periodic_mlp_harmonic_Fw:
+    mse: 8.014564382186647e-06
+    mae: 0.0016935390879788035
+    rmse: 0.002007653722969696
+    mean_percentage_error_pct: 3.43859979308155
+    p95_mean_percentage_error_pct: 7.651617731232104
+  accepted_periodic_gru_sequence_Fw:
+    mse: 7.427667581001869e-06
+    mae: 0.0016183627018365335
+    rmse: 0.0019305818861007262
+    mean_percentage_error_pct: 3.278426689015875
+    p95_mean_percentage_error_pct: 7.224709479351243
+direction_breakdown:
+  forward:
+    accepted_periodic_mlp_harmonic_Fw:
+      mse: 8.014564382186647e-06
+      mae: 0.0016935390879788035
+      rmse: 0.002007653722969696
+      mean_percentage_error_pct: 3.43859979308155
+      p95_mean_percentage_error_pct: 7.651617731232104
+    accepted_periodic_gru_sequence_Fw:
+      mse: 7.427667581001869e-06
+      mae: 0.0016183627018365335
+      rmse: 0.0019305818861007262
+      mean_percentage_error_pct: 3.278426689015875
+      p95_mean_percentage_error_pct: 7.224709479351243
+temperature_breakdown:
+  '30.0':
+    accepted_periodic_mlp_harmonic_Fw:
+      mse: 8.67352660208544e-06
+      mae: 0.0017768462369050625
+      rmse: 0.002129950570350495
+      mean_percentage_error_pct: 3.5297175926836424
+      p95_mean_percentage_error_pct: 6.841136589384341
+    accepted_periodic_gru_sequence_Fw:
+      mse: 7.735912414135515e-06
+      mae: 0.0016155885253684693
+      rmse: 0.0019482290158619102
+      mean_percentage_error_pct: 3.158214250792484
+      p95_mean_percentage_error_pct: 6.541658654271576
+  '35.0':
+    accepted_periodic_mlp_harmonic_Fw:
+      mse: 1.086550528081844e-05
+      mae: 0.001903378757509044
+      rmse: 0.002215508171143272
+      mean_percentage_error_pct: 3.725553759436885
+      p95_mean_percentage_error_pct: 10.153749662951276
+    accepted_periodic_gru_sequence_Fw:
+      mse: 9.872068480044556e-06
+      mae: 0.0018093462367137297
+      rmse: 0.0021500703764926513
+      mean_percentage_error_pct: 3.5435106762800928
+      p95_mean_percentage_error_pct: 9.4467475731695
+  '25.0':
+    accepted_periodic_mlp_harmonic_Fw:
+      mse: 3.1356621858012464e-06
+      mae: 0.001281530271049763
+      rmse: 0.001539080465434817
+      mean_percentage_error_pct: 2.90984334344311
+      p95_mean_percentage_error_pct: 5.586113315419715
+    accepted_periodic_gru_sequence_Fw:
+      mse: 3.634750211940667e-06
+      mae: 0.0013628418426350037
+      rmse: 0.0016052539019307047
+      mean_percentage_error_pct: 3.100635372436092
+      p95_mean_percentage_error_pct: 6.590387095932805
+preview_plot_path_list: []
+report_plot_root: null
+report_plot_path_list: []
+report_plot_count: 0
+per_condition_metrics_csv_path: output\validation_checks\track2_reference_comparison\2026-07-27-12-40-51__wave52r_stage0_accepted_forward_neural_replay_stage0_freeze\per_condition_metrics.csv
+sample_preview_list:
+- source_file_path: data\polished_dataset\forward\30degree\100rpm\100.0rpm100.0Nm30.0deg.csv
+  direction_label: forward
+  candidate_id: accepted_periodic_mlp_harmonic_Fw
+  speed_rpm: 100.0
+  torque_nm: 100.0
+  oil_temperature_deg: 30.0
+  mean_percentage_error_pct: 2.044546587615428
+- source_file_path: data\polished_dataset\forward\35degree\100rpm\100.0rpm100.0Nm35.0deg.csv
+  direction_label: forward
+  candidate_id: accepted_periodic_mlp_harmonic_Fw
+  speed_rpm: 100.0
+  torque_nm: 100.0
+  oil_temperature_deg: 35.0
+  mean_percentage_error_pct: 3.2997841819733593
+- source_file_path: data\polished_dataset\forward\30degree\100rpm\100.0rpm300.0Nm30.0deg.csv
+  direction_label: forward
+  candidate_id: accepted_periodic_mlp_harmonic_Fw
+  speed_rpm: 100.0
+  torque_nm: 300.0
+  oil_temperature_deg: 30.0
+  mean_percentage_error_pct: 0.961832870211653
+- source_file_path: data\polished_dataset\forward\30degree\100rpm\100.0rpm400.0Nm30.0deg.csv
+  direction_label: forward
+  candidate_id: accepted_periodic_mlp_harmonic_Fw
+  speed_rpm: 100.0
+  torque_nm: 400.0
+  oil_temperature_deg: 30.0
+  mean_percentage_error_pct: 1.2828844430036788
+- source_file_path: data\polished_dataset\forward\35degree\100rpm\100.0rpm500.0Nm35.0deg.csv
+  direction_label: forward
+  candidate_id: accepted_periodic_mlp_harmonic_Fw
+  speed_rpm: 100.0
+  torque_nm: 500.0
+  oil_temperature_deg: 35.0
+  mean_percentage_error_pct: 1.9083300182109872

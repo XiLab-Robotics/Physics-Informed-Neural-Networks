@@ -1,0 +1,47 @@
+schema_version: 1
+status: pass
+source_sha256: 2ab674689ac283f62c34e97f93c8a80cdd4ff4d50050fe90b4e7d3f7f084c2f0
+gear_factor: 81.0
+active_polynomial_degree: 10
+basis_term_count: 35
+harmonic_order_list:
+- 1
+- 3
+- 39
+- 40
+- 78
+- 81
+- 156
+- 162
+- 240
+positive_offset_shape:
+- 35
+positive_amplitude_shape:
+- 9
+- 35
+positive_phase_shape:
+- 9
+- 35
+negative_offset_shape:
+- 35
+negative_amplitude_shape:
+- 9
+- 35
+negative_phase_shape:
+- 9
+- 35
+unit_contract:
+  position_input: motor degree; divided by gear factor in PLC
+  benchmark_angle: output degree converted directly to radian
+  speed_input: rpm converted to absolute radian_per_second
+  torque_input: signed newton_metre
+  temperature_input: degree_Celsius
+  internal_te: radian
+  output_te: degree
+deterministic_tests:
+  fourier_reconstruction_max_abs_error_deg: 2.0816681711721685e-17
+  quadratic_recovery_max_abs_error: 1.7763568394002505e-14
+  phase_wrap_equivalence_error_rad: 2.4492935982947064e-16
+  plc_basis_term_count: 35
+  onnx_contract_model_count: 7
+  status: pass

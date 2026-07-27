@@ -14,3 +14,7 @@ analytical workflows under `scripts/analysis/`.
   Scan the complete polished dataset and validate the coordinate, unit,
   direction, domain, temporal, causality, PLC-availability, and harmonic
   contracts that close Phase 0 of the PINN roadmap.
+
+- [wave_5_2r_stage0_forward_evidence_freeze/README.md](./wave_5_2r_stage0_forward_evidence_freeze/README.md)
+  Build and validate the immutable polished-setpoint `Fw` baseline contract
+  for the three `Wave 5.2R` entry references.

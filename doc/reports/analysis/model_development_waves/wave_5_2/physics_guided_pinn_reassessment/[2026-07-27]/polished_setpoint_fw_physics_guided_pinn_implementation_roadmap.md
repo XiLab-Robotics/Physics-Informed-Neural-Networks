@@ -41,6 +41,13 @@ The accepted forward references at roadmap entry are:
 - non-windowed: `polished_setpoints_periodic_mlp_harmonic_Fw`;
 - analytical: `PF_A_LOCAL_QUADRATIC`.
 
+## Execution Status
+
+| Stage | Status | Decision |
+| --- | --- | --- |
+| Stage 0: Evidence Freeze And Reproducibility Harness | completed | All eight exit-gate checks and all twelve reproduction comparisons pass. Stage 1 is authorized. |
+| Stages 1 through 15 | planned | Continue in order; training stages retain their campaign approval gates. |
+
 ## Non-Negotiable Experimental Contract
 
 ### Data

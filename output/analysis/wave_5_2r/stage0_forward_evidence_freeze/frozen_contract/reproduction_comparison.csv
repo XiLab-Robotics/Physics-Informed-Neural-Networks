@@ -1,0 +1,13 @@
+candidate_id,metric_name,canonical_value,reproduced_value,absolute_difference,absolute_tolerance,within_tolerance
+PF_A_LOCAL_QUADRATIC,mae_deg_mean,0.0018070841658319636,0.0018070841658319636,0.0,1e-12,true
+PF_A_LOCAL_QUADRATIC,rmse_deg_mean,0.002119728904142692,0.002119728904142692,0.0,1e-12,true
+PF_A_LOCAL_QUADRATIC,centered_mae_deg_mean,0.0013848160711092954,0.0013848160711092954,0.0,1e-12,true
+PF_A_LOCAL_QUADRATIC,offset_abs_error_deg_mean,0.0009650903815303466,0.0009650903815303466,0.0,1e-12,true
+accepted_periodic_mlp_harmonic_Fw,mean_curve_mae_deg,0.001694,0.001694,0.0,1e-06,true
+accepted_periodic_mlp_harmonic_Fw,mean_percentage_error_pct,3.4386,3.4386,0.0,0.01,true
+accepted_periodic_mlp_harmonic_Fw,mean_harmonic_amplitude_error_pct,15.380051,15.380051,0.0,0.01,true
+accepted_periodic_mlp_harmonic_Fw,mean_harmonic_phase_error_deg,13.591649,13.591649,0.0,0.01,true
+accepted_periodic_gru_sequence_Fw,mean_curve_mae_deg,0.001618,0.001618,0.0,1e-06,true
+accepted_periodic_gru_sequence_Fw,mean_percentage_error_pct,3.278412,3.278427,1.5000000000320313e-05,0.01,true
+accepted_periodic_gru_sequence_Fw,mean_harmonic_amplitude_error_pct,19.23746,19.23686,0.0005999999999986017,0.01,true
+accepted_periodic_gru_sequence_Fw,mean_harmonic_phase_error_deg,12.166874,12.165789,0.0010849999999997806,0.01,true

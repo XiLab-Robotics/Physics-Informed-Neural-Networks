@@ -1,0 +1,42 @@
+schema_version: 1
+stage_id: wave52r_stage0_forward_evidence_freeze
+generated_at_utc: '2026-07-27T14:44:16.513091+00:00'
+scope:
+  dataset_id: polished_dataset
+  input_mode: setpoints
+  surface: Fw
+  angular_unit: degree
+  test_condition_count: 97
+split_contract:
+  assignment_sha256: c1aa8718fb9bf88cc2021c121dc4f3b4010fc1d2e45ac90af5f4376aa64f8e16
+  eligible_condition_count_by_split:
+    train: 675
+    validation: 194
+    test: 97
+  excluded_condition_id_list:
+  - speed_1400rpm__torque_800Nm__temperature_35degC
+  - speed_500rpm__torque_600Nm__temperature_35degC
+  - speed_800rpm__torque_200Nm__temperature_25degC
+candidate_id_list:
+- PF_A_LOCAL_QUADRATIC
+- accepted_periodic_mlp_harmonic_Fw
+- accepted_periodic_gru_sequence_Fw
+artifact_map:
+  forward_condition_manifest_csv: output/analysis/wave_5_2r/stage0_forward_evidence_freeze/frozen_contract/forward_condition_manifest.csv
+  baseline_metrics_csv: output/analysis/wave_5_2r/stage0_forward_evidence_freeze/frozen_contract/baseline_metrics.csv
+  operating_cell_metrics_csv: output/analysis/wave_5_2r/stage0_forward_evidence_freeze/frozen_contract/operating_cell_metrics.csv
+  harmonic_band_metrics_csv: output/analysis/wave_5_2r/stage0_forward_evidence_freeze/frozen_contract/harmonic_band_metrics.csv
+  provenance_csv: output/analysis/wave_5_2r/stage0_forward_evidence_freeze/frozen_contract/provenance.csv
+  reproduction_comparison_csv: output/analysis/wave_5_2r/stage0_forward_evidence_freeze/frozen_contract/reproduction_comparison.csv
+exit_gate:
+  status: passed
+  check_map:
+    split_identity_pass: true
+    eligible_condition_count_pass: true
+    test_curve_count_pass: true
+    candidate_roster_pass: true
+    forward_only_pass: true
+    finite_metric_pass: true
+    reproduction_tolerance_pass: true
+    no_test_fit_pass: true
+decision: Stage 0 evidence freeze accepted. Stage 1 may begin.

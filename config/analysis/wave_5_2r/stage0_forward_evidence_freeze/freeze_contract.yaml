@@ -1,0 +1,46 @@
+schema_version: 1
+metadata:
+  stage_id: wave52r_stage0_forward_evidence_freeze
+  training_allowed: false
+  dataset_id: polished_dataset
+  input_mode: setpoints
+  surface: Fw
+inputs:
+  split_manifest_yaml: output/analysis/polynomial_fourier_benchmark/common_split_manifest.yaml
+  split_manifest_csv: output/analysis/polynomial_fourier_benchmark/common_split_manifest.csv
+  phase0_audit: output/analysis/pinn_program_foundations/phase0_foundation_audit.yaml
+  canonical_pf_aggregate_metrics: output/analysis/polynomial_fourier_benchmark/phase1_aggregate_metrics.csv
+  reproduced_pf_aggregate_metrics: output/analysis/wave_5_2r/stage0_forward_evidence_freeze/pf_a_reproduction/aggregate_metrics.csv
+  reproduced_pf_per_curve_metrics: output/analysis/wave_5_2r/stage0_forward_evidence_freeze/pf_a_reproduction/per_curve_metrics.csv
+  reproduced_pf_summary: output/analysis/wave_5_2r/stage0_forward_evidence_freeze/pf_a_reproduction/benchmark_summary.yaml
+  reproduced_pf_coefficients: output/analysis/wave_5_2r/stage0_forward_evidence_freeze/pf_a_reproduction/coefficient_models.yaml
+  neural_replay_summary: output/validation_checks/track2_reference_comparison/2026-07-27-12-40-51__wave52r_stage0_accepted_forward_neural_replay_stage0_freeze/validation_summary.yaml
+  neural_replay_metrics: output/validation_checks/track2_reference_comparison/2026-07-27-12-40-51__wave52r_stage0_accepted_forward_neural_replay_stage0_freeze/per_condition_metrics.csv
+  neural_curve_diagnostics: output/validation_checks/wave52r_stage0_forward_curve_payload_diagnostics/2026-07-27-16-42-37__track2c_curve_payload_diagnostics/curve_payload_diagnostics.csv
+  neural_candidate_diagnostics: output/validation_checks/wave52r_stage0_forward_curve_payload_diagnostics/2026-07-27-16-42-37__track2c_curve_payload_diagnostics/candidate_payload_diagnostics.csv
+  neural_harmonic_diagnostics: output/validation_checks/wave52r_stage0_forward_curve_payload_diagnostics/2026-07-27-16-42-37__track2c_curve_payload_diagnostics/harmonic_payload_diagnostics.csv
+  historical_neural_candidate_diagnostics: output/validation_checks/phase2_harmonic_kinematic_pinn_curve_payload_diagnostics/2026-07-26-16-49-48__track2c_curve_payload_diagnostics/candidate_payload_diagnostics.csv
+outputs:
+  root: output/analysis/wave_5_2r/stage0_forward_evidence_freeze/frozen_contract
+  forward_condition_manifest_csv: forward_condition_manifest.csv
+  baseline_metrics_csv: baseline_metrics.csv
+  operating_cell_metrics_csv: operating_cell_metrics.csv
+  harmonic_band_metrics_csv: harmonic_band_metrics.csv
+  provenance_csv: provenance.csv
+  reproduction_comparison_csv: reproduction_comparison.csv
+  summary_yaml: stage0_forward_evidence_freeze.yaml
+contract:
+  expected_split_assignment_sha256: c1aa8718fb9bf88cc2021c121dc4f3b4010fc1d2e45ac90af5f4376aa64f8e16
+  expected_eligible_condition_count_by_split:
+    train: 675
+    validation: 194
+    test: 97
+  expected_test_curve_count: 97
+  expected_candidate_id_list:
+  - PF_A_LOCAL_QUADRATIC
+  - accepted_periodic_mlp_harmonic_Fw
+  - accepted_periodic_gru_sequence_Fw
+  reproduction_tolerance:
+    pf_absolute_deg: 1.0e-12
+    neural_absolute_deg: 1.0e-6
+    neural_percentage_point: 1.0e-2

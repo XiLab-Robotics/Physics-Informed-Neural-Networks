@@ -276,6 +276,10 @@ This folder contains the internal project documents derived from the reference P
   Approval-gated plan for a detailed physics-guided PINN reassessment report,
   validated PDF, and staged roadmap restricted to polished setpoint `Fw` data.
 
+- [technical/2026-07/2026-07-27/2026-07-27-12-34-45_wave52r_stage0_forward_evidence_freeze.md](./technical/2026-07/2026-07-27/2026-07-27-12-34-45_wave52r_stage0_forward_evidence_freeze.md)
+  Automatically approved Stage 0 design for immutable forward baseline
+  reproduction, provenance freezing, and entry-gate validation.
+
 - [reports/analysis/model_development_waves/wave_5_2/physics_guided_pinn_reassessment/[2026-07-27]/physics_guided_pinn_reassessment_report.md](./reports/analysis/model_development_waves/wave_5_2/physics_guided_pinn_reassessment/%5B2026-07-27%5D/physics_guided_pinn_reassessment_report.md)
   Detailed reassessment of how analytical structure, weak physical priors,
   grey-box residuals, and modern PINN optimization can improve polished
@@ -283,8 +287,13 @@ This folder contains the internal project documents derived from the reference P
   [Validated PDF companion](./reports/analysis/model_development_waves/wave_5_2/physics_guided_pinn_reassessment/%5B2026-07-27%5D/physics_guided_pinn_reassessment_report.pdf).
 
 - [reports/analysis/model_development_waves/wave_5_2/physics_guided_pinn_reassessment/[2026-07-27]/polished_setpoint_fw_physics_guided_pinn_implementation_roadmap.md](./reports/analysis/model_development_waves/wave_5_2/physics_guided_pinn_reassessment/%5B2026-07-27%5D/polished_setpoint_fw_physics_guided_pinn_implementation_roadmap.md)
-  Fifteen-stage `Wave 5.2R` implementation and falsification roadmap restricted
+  Sixteen-stage `Wave 5.2R` implementation and falsification roadmap restricted
   to `polished_dataset`, setpoint inputs, and the forward surface.
+
+- [reports/analysis/model_development_waves/wave_5_2/physics_guided_pinn_reassessment/[2026-07-27]/stage0_forward_evidence_freeze/stage0_forward_evidence_freeze_report.md](./reports/analysis/model_development_waves/wave_5_2/physics_guided_pinn_reassessment/%5B2026-07-27%5D/stage0_forward_evidence_freeze/stage0_forward_evidence_freeze_report.md)
+  Completed Stage 0 split, provenance, baseline-reproduction, operating-cell,
+  and harmonic-band freeze for the three accepted forward references.
+  [Validated PDF companion](./reports/analysis/model_development_waves/wave_5_2/physics_guided_pinn_reassessment/%5B2026-07-27%5D/stage0_forward_evidence_freeze/stage0_forward_evidence_freeze_report.pdf).
 
 - [reports/analysis/model_development_waves/wave_5_2/hysteresis_friction_memory_pinn/[2026-07-26]/phase4_hysteresis_friction_memory_feasibility_report.md](./reports/analysis/model_development_waves/wave_5_2/hysteresis_friction_memory_pinn/%5B2026-07-26%5D/phase4_hysteresis_friction_memory_feasibility_report.md)
   Completed full-population Phase 4 raw-chronology audit. All `969` canonical
