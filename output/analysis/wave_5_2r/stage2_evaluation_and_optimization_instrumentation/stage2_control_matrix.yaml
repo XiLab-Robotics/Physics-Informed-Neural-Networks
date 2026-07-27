@@ -1,0 +1,61 @@
+schema_version: 1
+stage: 'Wave 5.2R Stage 2: Evaluation And Optimization Instrumentation'
+data_contract:
+  dataset: polished_dataset
+  input_mode: setpoints
+  surface: Fw
+  split_signature: c1aa8718fb9bf88cc2021c121dc4f3b4010fc1d2e45ac90af5f4376aa64f8e16
+  training_executed: false
+  validation_scope: deterministic synthetic shared-parameter smoke harness
+control_list:
+- control_id: C0_FIXED_EQUAL
+  description: Fixed equal weights without unit rescaling.
+  adapter: fixed
+  component_set:
+  - data_fit
+  - harmonic_shape
+  - weak_physics
+  normalization: identity
+- control_id: C1_FIXED_MANUAL_NORMALIZATION
+  description: Fixed equal coefficients after explicit initial-loss normalization.
+  adapter: fixed
+  component_set:
+  - data_fit
+  - harmonic_shape
+  - weak_physics
+  normalization: declared_per_component_scale
+- control_id: C2_ADAPTIVE_WITHOUT_PHYSICS
+  description: Gradient-statistics weighting on data and harmonic losses without a
+    physical residual.
+  adapter: gradient_statistics
+  component_set:
+  - data_fit
+  - harmonic_shape
+  normalization: declared_per_component_scale
+- control_id: C3_PHYSICS_IDENTICAL_FIXED
+  description: Weak-physics component with the same fixed coefficients as the matched
+    non-adaptive model.
+  adapter: fixed
+  component_set:
+  - data_fit
+  - harmonic_shape
+  - weak_physics
+  normalization: declared_per_component_scale
+adapter_list:
+- fixed
+- gradient_statistics
+- relobralo_style
+- conflict_aware
+exit_gate_check_list:
+- named_loss_units_and_normalization
+- loss_value_and_ema_tracking
+- per_loss_gradient_norms
+- pairwise_gradient_cosines
+- update_to_parameter_ratio
+- all_required_adapter_modes
+- staged_loss_activation
+- freeze_unfreeze_schedule
+- deterministic_seed_and_dataloader
+- functional_diagnostics_preserve_grad_buffers
+- main_loss_preserving_conflict_projection
+- all_required_controls_registered

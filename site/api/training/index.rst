@@ -10,5 +10,6 @@ Training API
    compose_hydra_training_config
    transmission_error_datamodule
    transmission_error_regression_module
+   physics_guided_optimization_instrumentation
    train_feedforward_network
    validate_training_setup

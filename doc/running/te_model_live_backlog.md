@@ -38,11 +38,13 @@ Historical rationale and approval history remain in:
 - Current Focus: `Wave 5.2R` physics-guided forward reassessment execution,
   restricted to `polished_dataset`, setpoint inputs, and `Fw`. The completed
   Phases 0 through 15 closeout remains valid and physics-integrated Wave 6
-  remains closed. Stages 0 and 1 are complete: the accepted periodic GRU,
+  remains closed. Stages 0 through 2 are complete: the accepted periodic GRU,
   periodic harmonic MLP, and `PF_A_LOCAL_QUADRATIC` are frozen as controls,
-  while a source-backed register now separates thirteen active real-data
+  a source-backed register separates thirteen active real-data
   techniques, eleven conditional techniques, three oracle-only techniques,
-  and three excluded techniques.
+  and three excluded techniques, and reusable loss-interaction instrumentation
+  exposes normalized losses, EMAs, gradient norms, pairwise cosines, update
+  ratios, adapter behavior, schedules, and deterministic batch identity.
 - Parallel Diagnostic Focus: component-offset, `CVP 1.4` h0 cross-check, and
   predicted-mean versus measured-h0 diagnostics are complete; `h0` is the
   correct mean-like channel to inspect, but not the confirmed sole cause of the
@@ -102,12 +104,10 @@ Historical rationale and approval history remain in:
   periodic harmonic MLP wins polished-setpoint `Bw` and simplified-setpoint
   `Fw`. Wave 4.1 remains the raw-error and offset diagnostic ingredient.
   Sparse-RCIM temporal candidates remain actual-values references only.
-- Current Next Branch: execute `Wave 5.2R` Stage 2, Evaluation And
-  Optimization Instrumentation. Stage 1 covered all thirteen scientific
-  search families and froze thirty techniques with no missing or
-  target-derived runtime variables in the real-data roster. Stage 2 is a
-  non-training implementation gate; later training still requires a campaign
-  plan and explicit approval.
+- Current Next Branch: execute `Wave 5.2R` Stage 3, Analytical Anchor
+  Reproduction And Stress Tests. Stage 2 passed all twelve deterministic
+  instrumentation checks without project-data training. Later training still
+  requires a campaign plan and explicit approval.
 
 Current canonical status reports:
 
@@ -319,7 +319,7 @@ Next planned diagnostic and training decision branches:
 | `Wave 5.1` hybrid structured models | Combine harmonic structure, condition-conditioned residual learning, and explicit grouped treatment of stable and fragile harmonic bands. | first real `wave3_harmonic_prior_residual` campaign and official `TE Curve Verification Pipeline` verification refresh closed as a verified exploratory baseline, not promoted |
 | `Wave 5.2` general full-PINN program | Audit and test explicit differentiable physics formulations derived from harmonic behavior, the Polynomial Fourier Series law, Wave 3 through Wave 5.1 evidence, and additional references. | Phases 0 through 15 complete; no physical residual promoted and no automatic phase advance |
 | `Wave 5.2` complete theory-validation program | Preserve and falsify every ingested physical mechanism through direct-data, causal-state, offline-oracle, instrumentation, isolated-PINN, cross-formulation, and integration tests. | completed 16 of 16; physics-integrated Wave 6 entry not authorized |
-| `Wave 5.2R` polished-setpoint forward physics-guided reassessment | Reassess observable forward physics through Polynomial-Fourier residual learning, complex harmonic supervision, mean/shape heads, weak compliance, temporal residuals, adaptive loss balancing, and matched controls. | Stages 0 and 1 of 16 complete; the evidence contract and thirty-technique register are frozen; Stage 2 evaluation and optimization instrumentation is next |
+| `Wave 5.2R` polished-setpoint forward physics-guided reassessment | Reassess observable forward physics through Polynomial-Fourier residual learning, complex harmonic supervision, mean/shape heads, weak compliance, temporal residuals, adaptive loss balancing, and matched controls. | Stages 0 through 2 of 16 complete; the evidence contract, thirty-technique register, and twelve-check optimization-instrumentation gate are frozen; Stage 3 analytical-anchor reproduction and stress testing is next |
 | `Wave 5.2` paper-faithful MMT full PINN | Preserve the completed MMT evidence and reopen only if causal physical inputs become available. | deferred future TODO after the parameter-availability blocker; no MMT feature, auxiliary head, weak constraint, or MMT full PINN is authorized |
 | Intermediate shape-first model-selection cleanup | Reduce the post-retraining active set using raw error, P95, centered shape, P2P behavior, visual collage evidence, and actual-values stability. | completed; active set is `periodic_gru_sequence`, `wave4_1_mae_robust_loss`, `wave4_2_quantile_p10_p50_p90`, and `periodic_mlp_harmonic`; `periodic_lstm_sequence_Bw`, `Wave 4.3`, `Wave 4.4`, and `Wave 5.1` are closed as active branches |
 | Frequency-domain shape-gated reranker | Add measured/predicted FFT amplitude similarity, dominant-harmonic retention, dominant-harmonic phase error, robust derivative agreement, threshold sweep, and per-curve shape pass rate to future reduced reports. | completed across the six-cell non-MMT reduced pass; periodic GRU wins four cells, periodic harmonic MLP wins two, and the simplified tree scalar leader remains vetoed by weak shape retention |

@@ -540,6 +540,32 @@ falsification rule, deployment assessment, priority, and target stage. It
 writes the generated candidate CSV and exit-gate JSON under
 `output/analysis/wave_5_2r/stage1_extended_scientific_technique_discovery/`.
 
+## Wave 5.2R Stage 2 Optimization Instrumentation
+
+Validate loss and gradient instrumentation before analytical-anchor or
+physics-guided model training:
+
+```powershell
+conda run --no-capture-output -n pinns_env python -B `
+  scripts/analysis/wave_5_2r/stage2_evaluation_and_optimization_instrumentation/validate_stage2_instrumentation.py
+```
+
+This command is a deterministic synthetic smoke test, not a project-data
+training run. It validates named normalized losses, loss EMAs, per-component
+gradient norms, pairwise gradient cosines, update-to-parameter ratios, all four
+optimization adapters, staged activation, freeze-unfreeze schedules, exact
+dataloader fingerprints, and the four matched controls.
+
+The machine-readable evidence is written under:
+
+```text
+output/analysis/wave_5_2r/stage2_evaluation_and_optimization_instrumentation/
+```
+
+Existing campaign behavior is unchanged. A future campaign must explicitly
+adopt the utility in
+`scripts/training/physics_guided_optimization_instrumentation.py`.
+
 ## Phase 0 PINN Foundation Audit
 
 Run the full-population foundation audit:

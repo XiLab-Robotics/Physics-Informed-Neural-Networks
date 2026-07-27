@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "stage": "Wave 5.2R Stage 2: Evaluation And Optimization Instrumentation",
+  "status": "pass",
+  "training_executed": false,
+  "random_seed": 314159,
+  "component_count": 3,
+  "adapter_count": 4,
+  "required_control_count": 4,
+  "exit_gate_check_count": 12,
+  "exit_gate_pass_count": 12,
+  "update_to_parameter_ratio": 0.4569128453731537,
+  "negative_data_physics_cosine_before_projection": -0.9548378586769104,
+  "data_physics_cosine_after_projection": 1.9703558962191892e-07,
+  "weak_physics_projection_applied": true,
+  "staged_activation_multiplier_dictionary": {
+    "0": 0.0,
+    "2": 0.0,
+    "4": 0.5,
+    "6": 1.0,
+    "7": 1.0
+  },
+  "freeze_unfreeze_parameter_name_list": [
+    "auxiliary_head.weight"
+  ],
+  "deterministic_dataloader": {
+    "seed": 314159,
+    "repeated_seed_fingerprint": "3f2f9376bb36308f27f2a7d982f1993e42333d282cd108820fa59254a06e3c24",
+    "repeated_seed_match": true,
+    "alternate_seed": 314160,
+    "alternate_seed_fingerprint": "7b411d9c79e0d69ced80eb4837e7da87200db8452a57d1429d8d601e20ebf626",
+    "alternate_seed_differs": true
+  },
+  "artifact_dictionary": {
+    "control_matrix": "output/analysis/wave_5_2r/stage2_evaluation_and_optimization_instrumentation/stage2_control_matrix.yaml",
+    "diagnostic_records": "output/analysis/wave_5_2r/stage2_evaluation_and_optimization_instrumentation/stage2_diagnostic_records.csv",
+    "gradient_interaction_matrix": "output/analysis/wave_5_2r/stage2_evaluation_and_optimization_instrumentation/stage2_gradient_interaction_matrix.csv",
+    "exit_gate_summary": "output/analysis/wave_5_2r/stage2_evaluation_and_optimization_instrumentation/stage2_exit_gate_summary.json"
+  },
+  "conclusion": "Loss interaction is observable and all Stage 2 adapters, schedules, deterministic checks, and matched controls pass the synthetic shared-parameter smoke gate."
+}

@@ -284,6 +284,11 @@ This folder contains the internal project documents derived from the reference P
   Automatically approved Stage 1 plan for an implementation-facing scientific
   search and falsifiable forward candidate register.
 
+- [technical/2026-07/2026-07-27/2026-07-27-17-16-24_wave52r_stage2_evaluation_and_optimization_instrumentation.md](./technical/2026-07/2026-07-27/2026-07-27-17-16-24_wave52r_stage2_evaluation_and_optimization_instrumentation.md)
+  Automatically approved Stage 2 design for named loss instrumentation,
+  gradient-interaction diagnostics, optimization adapters, schedules, and
+  deterministic smoke validation.
+
 - [reports/analysis/model_development_waves/wave_5_2/physics_guided_pinn_reassessment/[2026-07-27]/physics_guided_pinn_reassessment_report.md](./reports/analysis/model_development_waves/wave_5_2/physics_guided_pinn_reassessment/%5B2026-07-27%5D/physics_guided_pinn_reassessment_report.md)
   Detailed reassessment of how analytical structure, weak physical priors,
   grey-box residuals, and modern PINN optimization can improve polished
@@ -304,6 +309,12 @@ This folder contains the internal project documents derived from the reference P
   controls, falsification rules, deployment assessment, and thirty-technique
   roster freeze.
   [Validated PDF companion](./reports/analysis/model_development_waves/wave_5_2/physics_guided_pinn_reassessment/%5B2026-07-27%5D/stage1_extended_scientific_technique_discovery/stage1_extended_scientific_technique_discovery_report.pdf).
+
+- [reports/analysis/model_development_waves/wave_5_2/physics_guided_pinn_reassessment/[2026-07-27]/stage2_evaluation_and_optimization_instrumentation/stage2_evaluation_and_optimization_instrumentation_report.md](./reports/analysis/model_development_waves/wave_5_2/physics_guided_pinn_reassessment/%5B2026-07-27%5D/stage2_evaluation_and_optimization_instrumentation/stage2_evaluation_and_optimization_instrumentation_report.md)
+  Completed Stage 2 named loss instrumentation, per-loss gradient diagnostics,
+  adaptive and conflict-aware adapter validation, schedule checks,
+  deterministic dataloader proof, and matched-control freeze.
+  [Validated PDF companion](./reports/analysis/model_development_waves/wave_5_2/physics_guided_pinn_reassessment/%5B2026-07-27%5D/stage2_evaluation_and_optimization_instrumentation/stage2_evaluation_and_optimization_instrumentation_report.pdf).
 
 - [reports/analysis/model_development_waves/wave_5_2/hysteresis_friction_memory_pinn/[2026-07-26]/phase4_hysteresis_friction_memory_feasibility_report.md](./reports/analysis/model_development_waves/wave_5_2/hysteresis_friction_memory_pinn/%5B2026-07-26%5D/phase4_hysteresis_friction_memory_feasibility_report.md)
   Completed full-population Phase 4 raw-chronology audit. All `969` canonical
@@ -3723,6 +3734,15 @@ This folder contains the internal project documents derived from the reference P
 
 - [scripts/training/run_training_smoke_test.md](./scripts/training/run_training_smoke_test.md)
   Script-level documentation for the minimal Lightning smoke-test entry point used by the shared Wave 0 training infrastructure.
+
+- [scripts/training/physics_guided_optimization_instrumentation.md](./scripts/training/physics_guided_optimization_instrumentation.md)
+  Script-level documentation for Wave 5.2R named loss diagnostics, adaptive
+  weighting, main-loss-preserving conflict projection, schedules, and
+  deterministic dataloaders.
+
+- [scripts/analysis/wave_5_2r_stage2_evaluation_and_optimization_instrumentation/README.md](./scripts/analysis/wave_5_2r_stage2_evaluation_and_optimization_instrumentation/README.md)
+  Validation contract for the Stage 2 shared-parameter instrumentation smoke
+  harness and its machine-readable evidence.
 
 - [scripts/tooling/session/isolated_mode.md](./scripts/tooling/session/isolated_mode.md)
   Script-level documentation for the isolated-session manager that creates locked snapshots, manifest/checklist files, lock-validation reports, and session close-out actions.

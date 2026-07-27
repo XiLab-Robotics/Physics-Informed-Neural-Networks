@@ -1,0 +1,14 @@
+record_id,optimization_step,adapter_name,component_pair,gradient_cosine_similarity
+0,6,fixed,data_fit__vs__harmonic_shape,0.9999250769615173
+0,6,fixed,data_fit__vs__weak_physics,-0.9548378586769104
+0,6,fixed,harmonic_shape__vs__weak_physics,-0.9584037065505981
+1,6,gradient_statistics,data_fit__vs__harmonic_shape,0.9999250769615173
+1,6,gradient_statistics,data_fit__vs__weak_physics,-0.9548378586769104
+1,6,gradient_statistics,harmonic_shape__vs__weak_physics,-0.9584037065505981
+2,0,gradient_statistics,data_fit__vs__harmonic_shape,0.9999250769615173
+3,6,relobralo_style,data_fit__vs__harmonic_shape,0.9999250769615173
+3,6,relobralo_style,data_fit__vs__weak_physics,-0.9548378586769104
+3,6,relobralo_style,harmonic_shape__vs__weak_physics,-0.9584037065505981
+4,7,relobralo_style,data_fit__vs__harmonic_shape,0.9999250769615173
+4,7,relobralo_style,data_fit__vs__weak_physics,-0.9548379778862
+4,7,relobralo_style,harmonic_shape__vs__weak_physics,-0.9584037065505981

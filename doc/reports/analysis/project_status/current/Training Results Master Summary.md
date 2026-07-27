@@ -2,11 +2,12 @@
 
 ## Executive Snapshot
 
-- Generated At: `2026-07-27T17:01:22`
+- Generated At: `2026-07-27T22:10:58`
 - Program State: active.
 - Current Completed Wave: polished-dataset RCIM, early-wave, and full-wave
 - Current Focus: `Wave 5.2R` polished-setpoint `Fw` physics-guided reassessment;
-  Stages 0 and 1 of 16 are complete, Stage 2 instrumentation is next, and
+  Stages 0 through 2 of 16 are complete, Stage 3 analytical-anchor stress
+  testing is next, and
   completed Wave 5.2 Phases 0 through 15 remain closed evidence.
 - Active Campaign Status: `completed`
 - Active Campaign Name: `phase3_c1_fw_stability_repeat_2026_07_26`
