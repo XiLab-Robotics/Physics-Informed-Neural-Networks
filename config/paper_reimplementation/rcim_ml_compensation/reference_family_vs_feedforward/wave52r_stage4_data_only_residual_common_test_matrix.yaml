@@ -1,0 +1,203 @@
+paths:
+  dataset_config_path: config/datasets/transmission_error_dataset.yaml
+dataset:
+  name: polished_dataset
+  input_mode: setpoints
+  split_manifest_path: output/analysis/polynomial_fourier_benchmark/common_split_manifest.yaml
+  excluded_condition_id_list:
+  - speed_500rpm__torque_600Nm__temperature_35degC
+  - speed_800rpm__torque_200Nm__temperature_25degC
+  - speed_1400rpm__torque_800Nm__temperature_35degC
+  expected_curve_count_by_split:
+    train: 1350
+    validation: 388
+    test: 194
+experiment:
+  run_name: wave52r_stage4_data_only_residual_common_test_matrix
+  model_family: track2_reference_comparison
+  model_type: reference_family_vs_feedforward
+comparison:
+  comparison_mode: wave52r_stage4_bounded_forward_curve_first
+  lightweight_test_curve_records: true
+  percentage_error_denominator: peak_to_peak_truth
+  preview_curve_count: 3
+  candidate_list:
+  - candidate_id: stage4_c01_r1_compact
+    candidate_family: stage4_c01_r1_compact
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave52r_stage4_screening_campaign
+    candidate_surface: Fw
+    family_registry_path: output/training_campaigns/2026-07-28-10-01-40_wave52r_stage4_data_only_residual_capacity_2026_07_28/candidate_registries/001_c01_r1_compact.yaml
+    expected_dataset_name: polished_dataset
+    allowed_direction_list:
+    - forward
+  - candidate_id: stage4_c02_r1_deep
+    candidate_family: stage4_c02_r1_deep
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave52r_stage4_screening_campaign
+    candidate_surface: Fw
+    family_registry_path: output/training_campaigns/2026-07-28-10-01-40_wave52r_stage4_data_only_residual_capacity_2026_07_28/candidate_registries/002_c02_r1_deep.yaml
+    expected_dataset_name: polished_dataset
+    allowed_direction_list:
+    - forward
+  - candidate_id: stage4_c03_r1_compact
+    candidate_family: stage4_c03_r1_compact
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave52r_stage4_screening_campaign
+    candidate_surface: Fw
+    family_registry_path: output/training_campaigns/2026-07-28-10-01-40_wave52r_stage4_data_only_residual_capacity_2026_07_28/candidate_registries/003_c03_r1_compact.yaml
+    expected_dataset_name: polished_dataset
+    allowed_direction_list:
+    - forward
+  - candidate_id: stage4_c04_r1_deep
+    candidate_family: stage4_c04_r1_deep
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave52r_stage4_screening_campaign
+    candidate_surface: Fw
+    family_registry_path: output/training_campaigns/2026-07-28-10-01-40_wave52r_stage4_data_only_residual_capacity_2026_07_28/candidate_registries/004_c04_r1_deep.yaml
+    expected_dataset_name: polished_dataset
+    allowed_direction_list:
+    - forward
+  - candidate_id: stage4_c05_r1_compact
+    candidate_family: stage4_c05_r1_compact
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave52r_stage4_screening_campaign
+    candidate_surface: Fw
+    family_registry_path: output/training_campaigns/2026-07-28-10-01-40_wave52r_stage4_data_only_residual_capacity_2026_07_28/candidate_registries/005_c05_r1_compact.yaml
+    expected_dataset_name: polished_dataset
+    allowed_direction_list:
+    - forward
+  - candidate_id: stage4_c06_r1_deep
+    candidate_family: stage4_c06_r1_deep
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave52r_stage4_screening_campaign
+    candidate_surface: Fw
+    family_registry_path: output/training_campaigns/2026-07-28-10-01-40_wave52r_stage4_data_only_residual_capacity_2026_07_28/candidate_registries/006_c06_r1_deep.yaml
+    expected_dataset_name: polished_dataset
+    allowed_direction_list:
+    - forward
+  - candidate_id: stage4_h01_r2_compact
+    candidate_family: stage4_h01_r2_compact
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave52r_stage4_screening_campaign
+    candidate_surface: Fw
+    family_registry_path: output/training_campaigns/2026-07-28-10-01-40_wave52r_stage4_data_only_residual_capacity_2026_07_28/candidate_registries/007_h01_r2_compact.yaml
+    expected_dataset_name: polished_dataset
+    allowed_direction_list:
+    - forward
+  - candidate_id: stage4_h02_r2_deep
+    candidate_family: stage4_h02_r2_deep
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave52r_stage4_screening_campaign
+    candidate_surface: Fw
+    family_registry_path: output/training_campaigns/2026-07-28-10-01-40_wave52r_stage4_data_only_residual_capacity_2026_07_28/candidate_registries/008_h02_r2_deep.yaml
+    expected_dataset_name: polished_dataset
+    allowed_direction_list:
+    - forward
+  - candidate_id: stage4_h03_r3_compact
+    candidate_family: stage4_h03_r3_compact
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave52r_stage4_screening_campaign
+    candidate_surface: Fw
+    family_registry_path: output/training_campaigns/2026-07-28-10-01-40_wave52r_stage4_data_only_residual_capacity_2026_07_28/candidate_registries/009_h03_r3_compact.yaml
+    expected_dataset_name: polished_dataset
+    allowed_direction_list:
+    - forward
+  - candidate_id: stage4_h04_r3_deep
+    candidate_family: stage4_h04_r3_deep
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave52r_stage4_screening_campaign
+    candidate_surface: Fw
+    family_registry_path: output/training_campaigns/2026-07-28-10-01-40_wave52r_stage4_data_only_residual_capacity_2026_07_28/candidate_registries/010_h04_r3_deep.yaml
+    expected_dataset_name: polished_dataset
+    allowed_direction_list:
+    - forward
+  - candidate_id: stage4_h05_r4_compact
+    candidate_family: stage4_h05_r4_compact
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave52r_stage4_screening_campaign
+    candidate_surface: Fw
+    family_registry_path: output/training_campaigns/2026-07-28-10-01-40_wave52r_stage4_data_only_residual_capacity_2026_07_28/candidate_registries/011_h05_r4_compact.yaml
+    expected_dataset_name: polished_dataset
+    allowed_direction_list:
+    - forward
+  - candidate_id: stage4_h06_r4_deep
+    candidate_family: stage4_h06_r4_deep
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave52r_stage4_screening_campaign
+    candidate_surface: Fw
+    family_registry_path: output/training_campaigns/2026-07-28-10-01-40_wave52r_stage4_data_only_residual_capacity_2026_07_28/candidate_registries/012_h06_r4_deep.yaml
+    expected_dataset_name: polished_dataset
+    allowed_direction_list:
+    - forward
+  - candidate_id: stage4_h07_r5_compact
+    candidate_family: stage4_h07_r5_compact
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave52r_stage4_screening_campaign
+    candidate_surface: Fw
+    family_registry_path: output/training_campaigns/2026-07-28-10-01-40_wave52r_stage4_data_only_residual_capacity_2026_07_28/candidate_registries/013_h07_r5_compact.yaml
+    expected_dataset_name: polished_dataset
+    allowed_direction_list:
+    - forward
+  - candidate_id: stage4_h08_r5_deep
+    candidate_family: stage4_h08_r5_deep
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave52r_stage4_screening_campaign
+    candidate_surface: Fw
+    family_registry_path: output/training_campaigns/2026-07-28-10-01-40_wave52r_stage4_data_only_residual_capacity_2026_07_28/candidate_registries/014_h08_r5_deep.yaml
+    expected_dataset_name: polished_dataset
+    allowed_direction_list:
+    - forward
+  - candidate_id: stage4_a01_r2_compact
+    candidate_family: stage4_a01_r2_compact
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave52r_stage4_screening_campaign
+    candidate_surface: Fw
+    family_registry_path: output/training_campaigns/2026-07-28-10-01-40_wave52r_stage4_data_only_residual_capacity_2026_07_28/candidate_registries/015_a01_r2_compact.yaml
+    expected_dataset_name: polished_dataset
+    allowed_direction_list:
+    - forward
+  - candidate_id: stage4_a02_r2_compact
+    candidate_family: stage4_a02_r2_compact
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave52r_stage4_screening_campaign
+    candidate_surface: Fw
+    family_registry_path: output/training_campaigns/2026-07-28-10-01-40_wave52r_stage4_data_only_residual_capacity_2026_07_28/candidate_registries/016_a02_r2_compact.yaml
+    expected_dataset_name: polished_dataset
+    allowed_direction_list:
+    - forward
+  - candidate_id: stage4_a03_r5_compact
+    candidate_family: stage4_a03_r5_compact
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave52r_stage4_screening_campaign
+    candidate_surface: Fw
+    family_registry_path: output/training_campaigns/2026-07-28-10-01-40_wave52r_stage4_data_only_residual_capacity_2026_07_28/candidate_registries/017_a03_r5_compact.yaml
+    expected_dataset_name: polished_dataset
+    allowed_direction_list:
+    - forward
+  - candidate_id: stage4_a04_r5_compact
+    candidate_family: stage4_a04_r5_compact
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave52r_stage4_screening_campaign
+    candidate_surface: Fw
+    family_registry_path: output/training_campaigns/2026-07-28-10-01-40_wave52r_stage4_data_only_residual_capacity_2026_07_28/candidate_registries/018_a04_r5_compact.yaml
+    expected_dataset_name: polished_dataset
+    allowed_direction_list:
+    - forward
+evaluation:
+  selected_harmonics:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  decomposition_point_stride: 1
+metadata:
+  campaign_output_directory: output/training_campaigns/2026-07-28-10-01-40_wave52r_stage4_data_only_residual_capacity_2026_07_28
+  official_te_curve_verification_pipeline_refresh: false
+  usage: bounded Stage 4 campaign closeout comparison only

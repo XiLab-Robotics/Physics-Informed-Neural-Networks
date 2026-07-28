@@ -1,27 +1,14 @@
 status: completed
-prepared_at: '2026-07-26T19:50:44+02:00'
-started_at: '2026-07-26T19:52:29+02:00'
-completed_at: '2026-07-26T20:07:49+02:00'
-closed_at: '2026-07-26T20:20:07+02:00'
-campaign_name: phase3_c1_fw_stability_repeat_2026_07_26
-campaign_type: wave_5_2_phase_3_c1_fw_initialization_stability
-execution_mode: local_background
-background_process_id: 49068
-background_stdout_path: .temp/phase3_c1_fw_stability_repeat/campaign_stdout.log
-background_stderr_path: .temp/phase3_c1_fw_stability_repeat/campaign_stderr.log
-remote_host_alias: xilab-remote
-remote_conda_environment_name: pinns_env
-parent_campaign:
-  campaign_name: phase3_quasi_static_compliance_pinn_2026_07_26
-  status: completed_pending_phase_closeout
-  completed_run_count: 12
-  failed_run_count: 0
-  campaign_output_directory: output/training_campaigns/2026-07-26-17-46-18_phase3_quasi_static_compliance_pinn_2026_07_26
-  campaign_leaderboard_path: output/training_campaigns/2026-07-26-17-46-18_phase3_quasi_static_compliance_pinn_2026_07_26/campaign_leaderboard.yaml
-  campaign_best_run_path: output/training_campaigns/2026-07-26-17-46-18_phase3_quasi_static_compliance_pinn_2026_07_26/campaign_best_run.yaml
-  bounded_curve_first_summary_path: output/validation_checks/track2_reference_comparison/2026-07-26-19-30-10__phase3_quasi_static_compliance_pinn_common_test_matrix_phase3_closeout_retry/validation_summary.yaml
-  curve_payload_diagnostics_path: output/validation_checks/phase3_quasi_static_compliance_pinn_curve_payload_diagnostics/2026-07-26-19-39-21__track2c_curve_payload_diagnostics
-  retained_stability_candidate: phase3_pinn_c1_linear_compliance_soft_fw
+prepared_at: '2026-07-28T09:54:00+02:00'
+started_at: '2026-07-28T10:01:30+02:00'
+completed_at: '2026-07-28T11:20:22+02:00'
+closed_out_at: '2026-07-28T15:49:45+02:00'
+execution_mode: local
+background_process_id: 40176
+background_stdout_path: .temp/wave52r_stage4_campaign_retry/stdout.log
+background_stderr_path: .temp/wave52r_stage4_campaign_retry/stderr.log
+campaign_name: wave52r_stage4_data_only_residual_capacity_2026_07_28
+campaign_type: wave_5_2r_stage4_data_only_residual_capacity_ladder
 dataset_id: polished_dataset
 input_mode: setpoints
 dataset_schema: polished_setpoint_curve_v1
@@ -29,24 +16,35 @@ dataset_root: data/polished_dataset
 surface_list:
 - fw
 primary_surface: fw
-formulation: C1
-expected_run_count: 2
-completed_run_count: 2
+expected_run_count: 18
+completed_run_count: 18
 failed_run_count: 0
 random_seed_list:
 - 314159
+conditional_stability_random_seed_list:
 - 271828
-campaign_manifest_path: config/training/quasi_static_compliance_pinn/campaigns/2026-07-26_phase3_c1_fw_stability_repeat/campaign.yaml
-campaign_config_path_list:
-- config/training/quasi_static_compliance_pinn/campaigns/2026-07-26_phase3_c1_fw_stability_repeat/queue/001_c1_linear_compliance_soft_fw_seed_314159.yaml
-- config/training/quasi_static_compliance_pinn/campaigns/2026-07-26_phase3_c1_fw_stability_repeat/queue/002_c1_linear_compliance_soft_fw_seed_271828.yaml
-queue_root: config/training/queue/quasi_static_compliance_pinn/phase3_c1_fw_stability_repeat_2026_07_26
-launcher_path: scripts/campaigns/wave_5_2/run_phase3_c1_fw_stability_repeat_campaign.ps1
-launcher_note_path: doc/scripts/campaigns/wave_5_2/run_phase3_c1_fw_stability_repeat_campaign.md
-planning_report_path: doc/reports/campaign_plans/model_development_waves/wave_5_2/quasi_static_compliance_pinn/2026-07-26-17-16-41_phase3_quasi_static_compliance_pinn_campaign_plan_report.md
-technical_document_path: doc/technical/2026-07/2026-07-26/2026-07-26-17-14-40_phase_3_quasi_static_compliance_pinn.md
-model_report_path: doc/reports/analysis/model_development_waves/wave_5_2/quasi_static_compliance_pinn/[2026-07-26]/phase3_quasi_static_compliance_pinn_model_report.md
-audit_artifact_path: output/analysis/pinn_program_compliance/phase3_compliance_audit.yaml
+- 161803
+campaign_manifest_path: config/training/data_only_residual_capacity/campaigns/2026-07-28_wave52r_stage4_data_only_residual_capacity/campaign.yaml
+campaign_config_root: config/training/data_only_residual_capacity/campaigns/2026-07-28_wave52r_stage4_data_only_residual_capacity/queue
+queue_root: config/training/queue/data_only_residual_capacity/wave52r_stage4_data_only_residual_capacity_2026_07_28
+launcher_path: scripts/campaigns/wave_5_2/run_wave52r_stage4_data_only_residual_capacity_ladder.ps1
+launcher_note_path: doc/scripts/campaigns/wave_5_2/run_wave52r_stage4_data_only_residual_capacity_ladder.md
+planning_report_path: doc/reports/campaign_plans/model_development_waves/wave_5_2/data_only_residual_capacity_ladder/2026-07-27-22-39-42_wave52r_stage4_data_only_residual_capacity_ladder_campaign_plan_report.md
+technical_document_path: doc/technical/2026-07/2026-07-27/2026-07-27-22-37-41_wave52r_stage4_data_only_residual_capacity_ladder.md
+model_report_path: doc/reports/analysis/model_development_waves/wave_5_2/physics_guided_pinn_reassessment/[2026-07-28]/stage4_data_only_residual_capacity_ladder/stage4_data_only_residual_capacity_model_report.md
+causal_anchor_path: output/analysis/wave_5_2r/stage4_data_only_residual_capacity_ladder/stage4_causal_setpoint_pf_a_surface.yaml
+training_only_calibration_path: output/analysis/wave_5_2r/stage4_data_only_residual_capacity_ladder/stage4_training_only_calibration.yaml
+causal_validity_envelope_path: output/analysis/wave_5_2r/stage4_data_only_residual_capacity_ladder/stage4_causal_setpoint_validity_envelope.yaml
+causal_validity_condition_path: output/analysis/wave_5_2r/stage4_data_only_residual_capacity_ladder/stage4_causal_setpoint_validity_envelope_conditions.csv
+preflight_validation_summary_path: output/analysis/wave_5_2r/stage4_data_only_residual_capacity_ladder/stage4_preflight_validation_summary.json
+real_dataset_one_batch_summary_path: output/analysis/wave_5_2r/stage4_data_only_residual_capacity_ladder/stage4_real_dataset_one_batch_summary.yaml
+launcher_preflight_summary_path: output/analysis/wave_5_2r/stage4_data_only_residual_capacity_ladder/stage4_launcher_preflight_summary.yaml
+campaign_output_directory: output/training_campaigns/2026-07-28-10-01-40_wave52r_stage4_data_only_residual_capacity_2026_07_28
+campaign_best_run_path: output/training_campaigns/2026-07-28-10-01-40_wave52r_stage4_data_only_residual_capacity_2026_07_28/campaign_best_run.yaml
+curve_diagnostics_directory: output/validation_checks/wave52r_stage4_data_only_residual_curve_diagnostics/2026-07-28-15-44-59__track2c_curve_payload_diagnostics
+exit_gate_summary_path: output/analysis/wave_5_2r/stage4_data_only_residual_capacity_ladder/closeout/stage4_exit_gate_summary.yaml
+campaign_results_report_path: doc/reports/campaign_results/model_development_waves/wave_5_2/2026-07-28-11-26-08_wave52r_stage4_data_only_residual_capacity_ladder_results_report.md
+campaign_results_pdf_path: doc/reports/campaign_results/model_development_waves/wave_5_2/2026-07-28-11-26-08_wave52r_stage4_data_only_residual_capacity_ladder_results_report.pdf
 common_split_manifest_path: output/analysis/polynomial_fourier_benchmark/common_split_manifest.yaml
 common_split_signature: c1aa8718fb9bf88cc2021c121dc4f3b4010fc1d2e45ac90af5f4376aa64f8e16
 excluded_condition_id_list:
@@ -60,21 +58,23 @@ expected_curve_count_by_split:
 approval:
   status: approved
   scope: >
-    Phase 3 stability-repeat preparation, protected-file edits, preflight,
-    training, curve-first evaluation, closeout, and Phase 3 commit under the
-    approved sixteen-phase PINN roadmap.
-  approved_at: '2026-07-26T12:37:56+02:00'
-  expires_at: '2026-07-26T22:37:56+02:00'
-  source: user standing approval for the next ten hours
-local_preflight_command: .\scripts\campaigns\wave_5_2\run_phase3_c1_fw_stability_repeat_campaign.ps1 -PreflightOnly
-local_one_batch_validation_command: .\scripts\campaigns\wave_5_2\run_phase3_c1_fw_stability_repeat_campaign.ps1 -PreflightOnly -RunOneBatchValidation
-local_launch_command: .\scripts\campaigns\wave_5_2\run_phase3_c1_fw_stability_repeat_campaign.ps1
-remote_launch_command: .\scripts\campaigns\wave_5_2\run_phase3_c1_fw_stability_repeat_campaign.ps1 -Remote
+    All current and future technical documents, campaign plans, model reports,
+    launcher notes, campaign execution, closeout reports, and per-stage commits
+    required by the sixteen-stage Wave 5.2R roadmap.
+  approved_at: '2026-07-27T23:57:23+02:00'
+  expires_at: '2026-07-28T23:57:23+02:00'
+  source: user standing approval for the next twenty-four hours
+local_preflight_command: .\scripts\campaigns\wave_5_2\run_wave52r_stage4_data_only_residual_capacity_ladder.ps1 -PreflightOnly
+local_one_batch_validation_command: .\scripts\campaigns\wave_5_2\run_wave52r_stage4_data_only_residual_capacity_ladder.ps1 -PreflightOnly -RunOneBatchValidation
+remote_preflight_command: .\scripts\campaigns\wave_5_2\run_wave52r_stage4_data_only_residual_capacity_ladder.ps1 -Remote -PreflightOnly
+local_launch_command: .\scripts\campaigns\wave_5_2\run_wave52r_stage4_data_only_residual_capacity_ladder.ps1
+remote_launch_command: .\scripts\campaigns\wave_5_2\run_wave52r_stage4_data_only_residual_capacity_ladder.ps1 -Remote
 launch_command_list:
-- .\scripts\campaigns\wave_5_2\run_phase3_c1_fw_stability_repeat_campaign.ps1 -PreflightOnly
-- .\scripts\campaigns\wave_5_2\run_phase3_c1_fw_stability_repeat_campaign.ps1 -PreflightOnly -RunOneBatchValidation
-- .\scripts\campaigns\wave_5_2\run_phase3_c1_fw_stability_repeat_campaign.ps1
-- .\scripts\campaigns\wave_5_2\run_phase3_c1_fw_stability_repeat_campaign.ps1 -Remote
+- .\scripts\campaigns\wave_5_2\run_wave52r_stage4_data_only_residual_capacity_ladder.ps1 -PreflightOnly
+- .\scripts\campaigns\wave_5_2\run_wave52r_stage4_data_only_residual_capacity_ladder.ps1 -PreflightOnly -RunOneBatchValidation
+- .\scripts\campaigns\wave_5_2\run_wave52r_stage4_data_only_residual_capacity_ladder.ps1 -Remote -PreflightOnly
+- .\scripts\campaigns\wave_5_2\run_wave52r_stage4_data_only_residual_capacity_ladder.ps1
+- .\scripts\campaigns\wave_5_2\run_wave52r_stage4_data_only_residual_capacity_ladder.ps1 -Remote
 acceptance_gate:
   scalar_mae_only_promotion_allowed: false
   promotion_decision_requires_curve_first_evidence: true
@@ -82,37 +82,37 @@ acceptance_gate:
   - fw
   required_dataset: polished_dataset
   required_input_mode: setpoints
-  repeat_exit_rule: >
-    Retain C1-Fw as a Phase 3 physical ingredient only when its positive
-    bounded stiffness and multi-index held-out advantage are stable across the
-    initial run and both seeded repeats.
-campaign_output_directory: output/training_campaigns/2026-07-26-19-52-45_phase3_c1_fw_stability_repeat_2026_07_26
-campaign_leaderboard_path: output/training_campaigns/2026-07-26-19-52-45_phase3_c1_fw_stability_repeat_2026_07_26/campaign_leaderboard.yaml
-campaign_best_run_path: output/training_campaigns/2026-07-26-19-52-45_phase3_c1_fw_stability_repeat_2026_07_26/campaign_best_run.yaml
-campaign_best_run_report_path: output/training_campaigns/2026-07-26-19-52-45_phase3_c1_fw_stability_repeat_2026_07_26/campaign_best_run.md
-curve_first_comparison_summary_path: output/validation_checks/track2_reference_comparison/2026-07-26-20-09-09__phase3_c1_fw_stability_common_test_matrix_phase3_c1_fw_stability_closeout/validation_summary.yaml
-curve_payload_diagnostics_path: output/validation_checks/phase3_c1_fw_stability_curve_payload_diagnostics/2026-07-26-20-10-35__track2c_curve_payload_diagnostics
-stability_audit_path: output/analysis/pinn_program_compliance/phase3_c1_fw_stability_audit.yaml
-campaign_results_report_path: doc/reports/campaign_results/wave_5_2/2026-07-26-20-13-18_phase3_quasi_static_compliance_pinn_campaign_results_report.md
-campaign_results_pdf_path: doc/reports/campaign_results/wave_5_2/2026-07-26-20-13-18_phase3_quasi_static_compliance_pinn_campaign_results_report.pdf
+  primary_support_tier: supported_core
+  residual_to_anchor_rms_maximum: 0.5
+  first_screen_rule: >
+    A hybrid advances only when it beats both the causal frozen PF-A anchor and
+    its parameter-matched direct R1 control without material centered-shape,
+    offset, tail, derivative, amplitude, phase, support, boundedness, or
+    inspectability regression.
 protected_file_list:
 - doc/running/active_training_campaign.yaml
-- config/training/quasi_static_compliance_pinn/campaigns/2026-07-26_phase3_c1_fw_stability_repeat/
-- scripts/campaigns/wave_5_2/prepare_phase3_c1_fw_stability_repeat_campaign.py
-- scripts/campaigns/wave_5_2/run_phase3_c1_fw_stability_repeat_campaign.ps1
-- doc/scripts/campaigns/wave_5_2/run_phase3_c1_fw_stability_repeat_campaign.md
-- scripts/training/train_feedforward_network.py
-- scripts/models/quasi_static_compliance_pinn_network.py
+- config/training/data_only_residual_capacity/campaigns/2026-07-28_wave52r_stage4_data_only_residual_capacity/
+- scripts/campaigns/wave_5_2/prepare_wave52r_stage4_data_only_residual_capacity_ladder_campaign.py
+- scripts/campaigns/wave_5_2/run_wave52r_stage4_data_only_residual_capacity_ladder.ps1
+- doc/scripts/campaigns/wave_5_2/run_wave52r_stage4_data_only_residual_capacity_ladder.md
+- scripts/analysis/wave_5_2r/stage4_data_only_residual_capacity_ladder/
+- scripts/models/data_only_residual_capacity_network.py
+- scripts/models/model_factory.py
 - scripts/training/transmission_error_regression_module.py
+- output/analysis/wave_5_2r/stage4_data_only_residual_capacity_ladder/
 notes: >
-  The parent twelve-arm campaign completed without failures. Its bounded
-  curve-first comparison retained only C1-Fw for the campaign-plan stability
-  gate because it improved raw error, offset error, centered-shape error,
-  harmonic-amplitude error, and phase error over C0-Fw, despite a material
-  peak-to-peak regression. Both reproducibly seeded repeats completed without
-  queue failures. Seed 314159 reached test MAE 0.00147247 deg and seed 271828
-  reached 0.00189774 deg. The full-curve audit found stable bounded stiffness
-  with 2.48 percent population CV, but only two of three C1-Fw
-  initializations passed the joint curve-first gate. Phase 3 is closed as a
-  valid negative result with no promoted compliance residual and no accepted
-  reference change.
+  Preparation found that the legacy Stage 3 exact PF-A replay used measured
+  operating averages despite the declared setpoint-only scope. Stage 4
+  preserves that artifact for provenance but uses a new training-only causal
+  setpoint PF-A refit. The deterministic implementation preflight passes all
+  thirteen internal gates. Local and remote-compatible launcher preflights
+  pass, and all eighteen real-dataset one-batch validation checks completed
+  without failures. The first launch attempt stopped before training because
+  the central campaign runner lacked the new model-type dispatch entry. The
+  dispatch map and deterministic validator were corrected, the failed queue
+  was preserved under an explicit archive name, and the clean retry started
+  locally in the background. The retry completed all eighteen runs without a
+  failure. H08 was the scalar campaign winner, but all eight primary hybrids
+  failed the bounded curve-first and cancellation gates. No residual
+  architecture was promoted, no stability repeats were required, and the
+  official TE Curve Verification Pipeline decision remains unchanged.

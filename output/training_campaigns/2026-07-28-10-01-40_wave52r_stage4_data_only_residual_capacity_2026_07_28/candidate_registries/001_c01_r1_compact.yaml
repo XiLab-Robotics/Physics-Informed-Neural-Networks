@@ -1,0 +1,14 @@
+schema_version: 1
+campaign_name: wave52r_stage4_data_only_residual_capacity_2026_07_28
+selection_role: stage4_screening_checkpoint
+candidate_id: C01
+formulation: R1
+capacity_level: compact
+matched_candidate_id: H01,H03
+best_entry:
+  run_instance_id: 2026-07-28-10-01-40__te_stage4_c01_r1_compact__polished_setpoints_fw
+  model_family: stage4_c01_r1_compact
+  model_type: data_only_residual_capacity
+  dataset_id: polished_dataset
+  output_directory: output/training_runs/data_only_residual_capacity/2026-07-28-10-01-40__te_stage4_c01_r1_compact__polished_setpoints_fw
+  best_checkpoint_path: output/training_runs/data_only_residual_capacity/2026-07-28-10-01-40__te_stage4_c01_r1_compact__polished_setpoints_fw/checkpoints/data_only_residual_capacity-epoch=013-val_mae=0.00183508.ckpt

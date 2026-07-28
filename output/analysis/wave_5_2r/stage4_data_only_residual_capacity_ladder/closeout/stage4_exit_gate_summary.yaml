@@ -1,0 +1,28 @@
+schema_version: 1
+stage: wave_5_2r_stage4
+status: passed_negative
+diagnostics_directory: output\validation_checks\wave52r_stage4_data_only_residual_curve_diagnostics\2026-07-28-15-44-59__track2c_curve_payload_diagnostics
+causal_supported_core_test_curve_count: 96
+eligible_forward_curve_count: 966
+r0_supported_core_metrics:
+  curve_mae_deg: 0.0018245477844559567
+  centered_curve_mae_deg: 0.0013941871800693033
+  absolute_curve_mean_error_deg: 0.0009814581790279684
+  peak_to_peak_error_pct: 10.612202499117586
+  derivative_rmse_deg_per_deg: 0.014839075738094752
+  mean_harmonic_amplitude_error_pct: 17.570042946372933
+  mean_harmonic_phase_error_deg: 12.601600334097421
+  p95_curve_mae_deg: 0.003970490692119204
+  worst_curve_mae_deg: 0.009475512629013071
+primary_candidate_count: 8
+passing_candidate_id_list: []
+simplest_passing_candidate_id: null
+matched_control_id_for_repeat: null
+stability_repeat_required: false
+residual_to_anchor_rms_maximum: 0.5
+general_regression_multiplier: 1.05
+peak_to_peak_regression_multiplier: 1.1
+decision_matrix_path: output\analysis\wave_5_2r\stage4_data_only_residual_capacity_ladder\closeout\stage4_candidate_decision_matrix.csv
+decomposition_path: output\analysis\wave_5_2r\stage4_data_only_residual_capacity_ladder\closeout\stage4_residual_decomposition_metrics.csv
+audit_report_path: doc\reports\analysis\model_development_waves\wave_5_2\physics_guided_pinn_reassessment\[2026-07-28]\stage4_data_only_residual_capacity_ladder\stage4_curve_first_and_cancellation_audit.md
+official_te_curve_verification_pipeline_executed: false

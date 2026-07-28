@@ -294,6 +294,25 @@ This folder contains the internal project documents derived from the reference P
   coefficient stability, forward comparator, holdout, corruption, and
   deployable validity-envelope tests.
 
+- [technical/2026-07/2026-07-27/2026-07-27-22-37-41_wave52r_stage4_data_only_residual_capacity_ladder.md](./technical/2026-07/2026-07-27/2026-07-27-22-37-41_wave52r_stage4_data_only_residual_capacity_ladder.md)
+  Automatically approved Stage 4 design for a parameter-matched data-only
+  residual capacity ladder above the qualified PF-A analytical anchor.
+
+- [reports/campaign_plans/model_development_waves/wave_5_2/data_only_residual_capacity_ladder/2026-07-27-22-39-42_wave52r_stage4_data_only_residual_capacity_ladder_campaign_plan_report.md](./reports/campaign_plans/model_development_waves/wave_5_2/data_only_residual_capacity_ladder/2026-07-27-22-39-42_wave52r_stage4_data_only_residual_capacity_ladder_campaign_plan_report.md)
+  Approved Stage 4 plan for eighteen matched data-only screening runs and an
+  optional four-run stability continuation.
+
+- [reports/analysis/model_development_waves/wave_5_2/physics_guided_pinn_reassessment/[2026-07-28]/stage4_data_only_residual_capacity_ladder/stage4_data_only_residual_capacity_model_report.md](./reports/analysis/model_development_waves/wave_5_2/physics_guided_pinn_reassessment/%5B2026-07-28%5D/stage4_data_only_residual_capacity_ladder/stage4_data_only_residual_capacity_model_report.md)
+  Model report for the Stage 4 direct, pointwise-residual, bounded-residual,
+  low-rank, and coefficient-correction ladder, including the causal setpoint
+  PF-A anchor correction.
+
+- [reports/campaign_results/model_development_waves/wave_5_2/2026-07-28-11-26-08_wave52r_stage4_data_only_residual_capacity_ladder_results_report.md](./reports/campaign_results/model_development_waves/wave_5_2/2026-07-28-11-26-08_wave52r_stage4_data_only_residual_capacity_ladder_results_report.md)
+  Completed Stage 4 eighteen-run campaign, bounded full-curve cancellation
+  audit, negative promotion decision, and representation-aligned Stage 5 entry
+  contract.
+  [Validated PDF companion](./reports/campaign_results/model_development_waves/wave_5_2/2026-07-28-11-26-08_wave52r_stage4_data_only_residual_capacity_ladder_results_report.pdf).
+
 - [reports/analysis/model_development_waves/wave_5_2/physics_guided_pinn_reassessment/[2026-07-27]/physics_guided_pinn_reassessment_report.md](./reports/analysis/model_development_waves/wave_5_2/physics_guided_pinn_reassessment/%5B2026-07-27%5D/physics_guided_pinn_reassessment_report.md)
   Detailed reassessment of how analytical structure, weak physical priors,
   grey-box residuals, and modern PINN optimization can improve polished
@@ -345,6 +364,10 @@ This folder contains the internal project documents derived from the reference P
 - [scripts/campaigns/wave_5_2/run_phase3_c1_fw_stability_repeat_campaign.md](./scripts/campaigns/wave_5_2/run_phase3_c1_fw_stability_repeat_campaign.md)
   Local and remote commands for the two seeded C1-Fw stability repeats
   authorized by the Phase 3 multi-index gate.
+
+- [scripts/campaigns/wave_5_2/run_wave52r_stage4_data_only_residual_capacity_ladder.md](./scripts/campaigns/wave_5_2/run_wave52r_stage4_data_only_residual_capacity_ladder.md)
+  Local, remote, deterministic-preflight, one-batch-validation, and
+  enqueue-only commands for the eighteen-arm Stage 4 capacity ladder.
 
 - [reports/analysis/model_development_waves/wave_5_2/mmt_residual_explanatory_diagnostic/[2026-07-24]/wave52_mmt_residual_explanatory_diagnostic.md](./reports/analysis/model_development_waves/wave_5_2/mmt_residual_explanatory_diagnostic/%5B2026-07-24%5D/wave52_mmt_residual_explanatory_diagnostic.md)
   Completed non-training Wave 5.2 provenance audit. The selected residual

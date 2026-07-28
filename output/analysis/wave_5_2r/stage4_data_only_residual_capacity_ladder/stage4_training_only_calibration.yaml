@@ -1,0 +1,119 @@
+schema_version: 1
+stage: wave_5_2r_stage4
+split_signature: c1aa8718fb9bf88cc2021c121dc4f3b4010fc1d2e45ac90af5f4376aa64f8e16
+causal_anchor_path: output/analysis/wave_5_2r/stage4_data_only_residual_capacity_ladder/stage4_causal_setpoint_pf_a_surface.yaml
+legacy_anchor_causality_erratum:
+  finding: Stage 3 exact Phase 1 reproduction used measured operating averages despite the declared setpoint-only
+    scope.
+  resolution: Stage 4 uses a new training-only PF-A surface fit and evaluated exclusively with nominal
+    setpoints.
+  legacy_measured_test_metrics:
+    mae_deg: 0.0018070841658319636
+    rmse_deg: 0.002119728904142692
+    centered_mae_deg: 0.0013848160711092954
+    centered_rmse_deg: 0.0016680957239185866
+    offset_abs_error_deg: 0.0009650903815303466
+    peak_to_peak_abs_error_deg: 0.004693234043519542
+    derivative_mae_deg_per_sample: 0.000938593057749118
+    periodic_closure_error_deg: 0.000300207428333873
+  legacy_surface_replayed_on_setpoints_test_metrics:
+    mae_deg: 0.001801460937833928
+    rmse_deg: 0.0021173228684126665
+    centered_mae_deg: 0.0013827709486334834
+    centered_rmse_deg: 0.00166546720262172
+    offset_abs_error_deg: 0.0009807115925133869
+    peak_to_peak_abs_error_deg: 0.004749782675150856
+    derivative_mae_deg_per_sample: 0.0009381203693357889
+    periodic_closure_error_deg: 0.00029396237312070343
+  causal_setpoint_refit_test_metrics:
+    mae_deg: 0.0018089774868462563
+    rmse_deg: 0.002122186295518499
+    centered_mae_deg: 0.001381874821443183
+    centered_rmse_deg: 0.001665063928134127
+    offset_abs_error_deg: 0.0009752322939696415
+    peak_to_peak_abs_error_deg: 0.004724678014492219
+    derivative_mae_deg_per_sample: 0.0009372120162441359
+    periodic_closure_error_deg: 0.0002946244235513538
+training_only_residual_statistics:
+  training_residual_rms_deg: 0.0031516269896150755
+  training_residual_abs_p95_deg: 0.0061528181717673495
+  training_residual_abs_p995_deg: 0.01687377521368802
+  training_residual_abs_max_deg: 0.06313454961885627
+residual_basis_order_list:
+- 2
+- 80
+- 159
+- 237
+residual_bound_deg: 0.01687377521368802
+residual_energy_weight_map:
+  none: 0.0
+  weak: 0.01
+  moderate: 0.1
+parameter_count_by_candidate:
+  C01: 1825
+  C02: 7745
+  C03: 1485
+  C04: 6901
+  C05: 1825
+  C06: 7139
+  H01: 1825
+  H02: 7745
+  H03: 1825
+  H04: 7745
+  H05: 1513
+  H06: 6857
+  H07: 1843
+  H08: 7187
+  A01: 1825
+  A02: 1825
+  A03: 1843
+  A04: 1843
+parameter_match_row_list:
+- control_id: C01
+  hybrid_id: H01
+  control_parameter_count: 1825
+  hybrid_parameter_count: 1825
+  mismatch_fraction: 0.0
+  passes_five_percent_gate: true
+- control_id: C01
+  hybrid_id: H03
+  control_parameter_count: 1825
+  hybrid_parameter_count: 1825
+  mismatch_fraction: 0.0
+  passes_five_percent_gate: true
+- control_id: C02
+  hybrid_id: H02
+  control_parameter_count: 7745
+  hybrid_parameter_count: 7745
+  mismatch_fraction: 0.0
+  passes_five_percent_gate: true
+- control_id: C02
+  hybrid_id: H04
+  control_parameter_count: 7745
+  hybrid_parameter_count: 7745
+  mismatch_fraction: 0.0
+  passes_five_percent_gate: true
+- control_id: C03
+  hybrid_id: H05
+  control_parameter_count: 1485
+  hybrid_parameter_count: 1513
+  mismatch_fraction: 0.018506278916060808
+  passes_five_percent_gate: true
+- control_id: C04
+  hybrid_id: H06
+  control_parameter_count: 6901
+  hybrid_parameter_count: 6857
+  mismatch_fraction: 0.006416800350007292
+  passes_five_percent_gate: true
+- control_id: C05
+  hybrid_id: H07
+  control_parameter_count: 1825
+  hybrid_parameter_count: 1843
+  mismatch_fraction: 0.009766684753119913
+  passes_five_percent_gate: true
+- control_id: C06
+  hybrid_id: H08
+  control_parameter_count: 7139
+  hybrid_parameter_count: 7187
+  mismatch_fraction: 0.006678725476554891
+  passes_five_percent_gate: true

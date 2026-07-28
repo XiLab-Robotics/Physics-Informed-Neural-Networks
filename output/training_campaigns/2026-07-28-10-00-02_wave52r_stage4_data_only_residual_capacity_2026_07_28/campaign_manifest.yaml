@@ -1,0 +1,34 @@
+campaign_name: wave52r_stage4_data_only_residual_capacity_2026_07_28
+generated_at: '2026-07-28T10:00:02'
+queue_root: config/training/queue/data_only_residual_capacity/wave52r_stage4_data_only_residual_capacity_2026_07_28
+campaign_output_directory: output/training_campaigns/2026-07-28-10-00-02_wave52r_stage4_data_only_residual_capacity_2026_07_28
+planning_report_path: doc/reports/campaign_plans/model_development_waves/wave_5_2/data_only_residual_capacity_ladder/2026-07-27-22-39-42_wave52r_stage4_data_only_residual_capacity_ladder_campaign_plan_report.md
+run_list:
+- original_queue_config_path: config/training/queue/data_only_residual_capacity/wave52r_stage4_data_only_residual_capacity_2026_07_28/pending/2026-07-28-10-00-02_001_001_c01_r1_compact.yaml
+  final_queue_config_path: config/training/queue/data_only_residual_capacity/wave52r_stage4_data_only_residual_capacity_2026_07_28/failed/2026-07-28-10-00-02_001_001_c01_r1_compact.yaml
+  source_config_path: config/training/data_only_residual_capacity/campaigns/2026-07-28_wave52r_stage4_data_only_residual_capacity/queue/001_c01_r1_compact.yaml
+  run_name: te_stage4_c01_r1_compact__polished_setpoints_fw
+  run_instance_id: 2026-07-28-10-00-02__te_stage4_c01_r1_compact__polished_setpoints_fw
+  model_type: data_only_residual_capacity
+  queue_status: failed
+  start_time: '2026-07-28T10:00:02'
+  end_time: '2026-07-28T10:00:02'
+  duration_seconds: 0.001
+  process_return_code: null
+  output_directory: output/training_runs/data_only_residual_capacity/2026-07-28-10-00-02__te_stage4_c01_r1_compact__polished_setpoints_fw
+  config_snapshot_path: N/A
+  best_checkpoint_reference_path: N/A
+  best_checkpoint_path: null
+  metrics_path: N/A
+  training_report_path: N/A
+  log_path: output/training_campaigns/2026-07-28-10-00-02_wave52r_stage4_data_only_residual_capacity_2026_07_28/logs/001_te_stage4_c01_r1_compact__polished_setpoints_fw.log
+  planning_report_path: doc/reports/campaign_plans/model_development_waves/wave_5_2/data_only_residual_capacity_ladder/2026-07-27-22-39-42_wave52r_stage4_data_only_residual_capacity_ladder_campaign_plan_report.md
+  campaign_name: wave52r_stage4_data_only_residual_capacity_2026_07_28
+  error_message: 'Unsupported Model Type for Campaign Runner | data_only_residual_capacity
+    | Supported: [''curve_aware_harmonic_residual_offset_probe'', ''feedforward'',
+    ''gru_sequence'', ''harmonic_kinematic_pinn'', ''harmonic_regression'', ''harmonic_residual_offset_probe'',
+    ''hist_gradient_boosting'', ''latent_state_hysteresis_probe'', ''lstm_sequence'',
+    ''periodic_gru_sequence'', ''periodic_lstm_sequence'', ''periodic_mlp'', ''periodic_temporal_convolution'',
+    ''quasi_static_compliance_pinn'', ''random_forest'', ''residual_harmonic_gru_sequence'',
+    ''residual_harmonic_lstm_sequence'', ''residual_harmonic_mlp'', ''sequential_residual_offset_probe'',
+    ''temporal_convolution'', ''wave3_harmonic_prior_residual'', ''wave52b_offset_harmonic_guided'']'

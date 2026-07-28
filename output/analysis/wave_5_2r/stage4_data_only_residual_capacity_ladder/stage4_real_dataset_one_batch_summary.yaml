@@ -1,0 +1,22 @@
+schema_version: 1
+stage: wave_5_2r_stage4
+executed_at: '2026-07-28T09:59:14+02:00'
+command: .\scripts\campaigns\wave_5_2\run_wave52r_stage4_data_only_residual_capacity_ladder.ps1 -PreflightOnly -RunOneBatchValidation
+status: passed
+expected_configuration_count: 18
+started_configuration_count: 18
+completed_configuration_count: 18
+failed_configuration_count: 0
+dataset_name: polished_dataset
+input_mode: setpoints
+surface: fw
+validation_report_root: doc/reports/analysis/validation_checks
+validation_artifact_root: output/validation_checks
+launcher_log_path: .temp/wave52r_stage4_one_batch/stdout.log
+launcher_error_log_path: .temp/wave52r_stage4_one_batch/stderr.log
+non_blocking_warning_list:
+- PyTorch reported that Triton is unavailable for optional FLOP counting.
+notes: >
+  All eighteen real-dataset validation setup checks completed and wrote both
+  validation_summary.yaml and Markdown reports. No model, data, split,
+  normalization, loss, optimizer, or finite-value gate failed.

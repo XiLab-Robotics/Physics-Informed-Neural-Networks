@@ -1,0 +1,17 @@
+schema_version: 1
+stage: wave_5_2r_stage4
+status: passed
+local_preflight:
+  executed_at: '2026-07-28T09:55:14+02:00'
+  command: .\scripts\campaigns\wave_5_2\run_wave52r_stage4_data_only_residual_capacity_ladder.ps1 -PreflightOnly
+  exit_code: 0
+remote_compatible_preflight:
+  executed_at: '2026-07-28T09:55:19+02:00'
+  command: .\scripts\campaigns\wave_5_2\run_wave52r_stage4_data_only_residual_capacity_ladder.ps1 -Remote -PreflightOnly
+  exit_code: 0
+powershell_parse_status: passed
+training_executed: false
+notes: >
+  Both launcher branches resolved every protected dependency and completed the
+  deterministic Stage 4 model/package validator. The remote-compatible
+  preflight did not contact the remote workstation or launch training.

@@ -1,0 +1,133 @@
+schema_version: 1
+config_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\config\training\queue\data_only_residual_capacity\wave52r_stage4_data_only_residual_capacity_2026_07_28\running\2026-07-28-10-01-40_007_007_h01_r2_compact.yaml
+experiment:
+  model_family: stage4_h01_r2_compact
+  model_type: data_only_residual_capacity
+  run_name: te_stage4_h01_r2_compact__polished_setpoints_fw
+  output_run_name: te_stage4_h01_r2_compact__polished_setpoints_fw
+  run_instance_id: 2026-07-28-10-25-52__te_stage4_h01_r2_compact__polished_setpoints_fw
+  output_artifact_kind: training_run
+  base_model_family: stage4_h01_r2_compact
+  training_variant: fw
+  direction_scope_label: forward_only
+  use_forward_direction: true
+  use_backward_direction: false
+artifacts:
+  output_directory: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_runs\data_only_residual_capacity\2026-07-28-10-25-52__te_stage4_h01_r2_compact__polished_setpoints_fw
+  best_checkpoint_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_runs\data_only_residual_capacity\2026-07-28-10-25-52__te_stage4_h01_r2_compact__polished_setpoints_fw\checkpoints\data_only_residual_capacity-epoch=023-val_mae=0.00212284.ckpt
+dataset_split:
+  train_curve_count: 675
+  validation_curve_count: 194
+  test_curve_count: 97
+  dataset_name: polished_dataset
+  dataset_schema: polished_setpoint_curve_v1
+  input_mode: setpoints
+  input_feature_name_list:
+  - angular_position_deg
+  - input_speed_rpm
+  - input_torque_nm
+  - oil_temperature_deg
+  - direction_flag
+  target_feature_name_list:
+  - theta_TE
+  input_feature_dim: 5
+  target_feature_dim: 1
+dataset:
+  dataset_id: polished_dataset
+  dataset_schema: polished_setpoint_curve_v1
+  input_mode: setpoints
+  input_feature_names:
+  - angular_position_deg
+  - input_speed_rpm
+  - input_torque_nm
+  - oil_temperature_deg
+  - direction_flag
+  target_feature_names:
+  - theta_TE
+  input_feature_dim: 5
+  target_feature_dim: 1
+model_summary:
+  backbone_name: DataOnlyResidualCapacityNetwork
+  trainable_parameter_count: 1825
+  frozen_parameter_count: 190
+  total_parameter_count: 2015
+runtime_config:
+  accelerator: auto
+  devices: auto
+  precision: '32'
+  benchmark: false
+  use_non_blocking_transfer: true
+normalization_statistics:
+  input_feature_mean:
+  - 179.9701385498047
+  - 733.17431640625
+  - 916.5514526367188
+  - 29.96807098388672
+  - 1.0
+  input_feature_std:
+  - 103.93706512451172
+  - 488.6419372558594
+  - 549.6129150390625
+  - 4.113563537597656
+  - 9.999999974752427e-07
+  target_mean:
+  - -0.05610445886850357
+  target_std:
+  - 0.02406206727027893
+validation_metrics:
+  val_loss: 0.015269952826201916
+  val_mae: 0.002122835023328662
+  val_rmse: 0.002661575097590685
+  val_pointwise_loss: 0.015269952826201916
+  val_residual_energy_loss: 12.402090072631836
+  val_centered_curve_shape_loss: 0.007078247144818306
+  val_curve_offset_loss: 0.008116061799228191
+  val_curve_amplitude_loss: 0.04777063429355621
+  val_sparse_harmonic_shape_loss: 0.00011250450188526884
+  val_physics_oscillator_residual_loss: 0.0
+  val_physics_periodic_value_loss: 0.0
+  val_physics_periodic_slope_loss: 0.0
+  val_physics_analytical_anchor_loss: 0.0
+  val_physics_compliance_equation_loss: 0.0
+  val_physics_zero_torque_boundary_loss: 0.0
+  val_physics_compliance_monotonicity_loss: 0.0
+  val_physics_stiffness_bounds_loss: 0.0
+  val_physics_periodic_mean_loss: 0.0
+  val_analytical_prediction_deg_mean_abs: 0.025562403723597527
+  val_frozen_analytical_prediction_deg_mean_abs: 0.025562403723597527
+  val_residual_prediction_deg_mean_abs: 0.07306810468435287
+test_metrics:
+  test_loss: 0.012869088910520077
+  test_mae: 0.001939703244715929
+  test_rmse: 0.002396961208432913
+  test_pointwise_loss: 0.012869088910520077
+  test_residual_energy_loss: 9.299849510192871
+  test_centered_curve_shape_loss: 0.007276488002389669
+  test_curve_offset_loss: 0.005487007554620504
+  test_curve_amplitude_loss: 0.052217401564121246
+  test_sparse_harmonic_shape_loss: 0.0001293525710934773
+  test_physics_oscillator_residual_loss: 0.0
+  test_physics_periodic_value_loss: 0.0
+  test_physics_periodic_slope_loss: 0.0
+  test_physics_analytical_anchor_loss: 0.0
+  test_physics_compliance_equation_loss: 0.0
+  test_physics_zero_torque_boundary_loss: 0.0
+  test_physics_compliance_monotonicity_loss: 0.0
+  test_physics_stiffness_bounds_loss: 0.0
+  test_physics_periodic_mean_loss: 0.0
+  test_analytical_prediction_deg_mean_abs: 0.021735627204179764
+  test_frozen_analytical_prediction_deg_mean_abs: 0.021735627204179764
+  test_residual_prediction_deg_mean_abs: 0.060407016426324844
+comparison_payload:
+  model_family: stage4_h01_r2_compact
+  model_type: data_only_residual_capacity
+  run_name: te_stage4_h01_r2_compact__polished_setpoints_fw
+  backbone_name: DataOnlyResidualCapacityNetwork
+  trainable_parameter_count: 1825
+  total_parameter_count: 2015
+  val_mae: 0.002122835023328662
+  val_rmse: 0.002661575097590685
+  test_mae: 0.001939703244715929
+  test_rmse: 0.002396961208432913
+  deployment_notes: ''
+  interpretability_notes: ''

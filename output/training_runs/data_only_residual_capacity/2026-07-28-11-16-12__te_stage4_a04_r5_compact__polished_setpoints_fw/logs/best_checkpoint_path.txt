@@ -1,0 +1,1 @@
+C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_runs\data_only_residual_capacity\2026-07-28-11-16-12__te_stage4_a04_r5_compact__polished_setpoints_fw\checkpoints\data_only_residual_capacity-epoch=007-val_mae=0.00306547.ckpt

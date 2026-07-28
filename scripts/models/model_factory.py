@@ -14,6 +14,9 @@ import torch.nn as nn
 
 # Import Project Models
 from scripts.models.feedforward_network import FeedForwardNetwork
+from scripts.models.data_only_residual_capacity_network import (
+    DataOnlyResidualCapacityNetwork,
+)
 from scripts.models.harmonic_regression import HarmonicRegression
 from scripts.models.harmonic_kinematic_pinn_network import HarmonicKinematicPinnNetwork
 from scripts.models.harmonic_residual_offset_network import HarmonicResidualOffsetNetwork
@@ -53,8 +56,16 @@ def load_harmonic_analytical_anchor_configuration(
             "PF_A_LOCAL_QUADRATIC",
         )
     )
-    direction_label = str(model_configuration["analytical_anchor_direction"])
-    surface_payload = anchor_payload["surface_map"][model_id][direction_label]
+    if "surface" in anchor_payload:
+        assert anchor_payload["model_id"] == model_id
+        surface_payload = anchor_payload["surface"]
+    else:
+        direction_label = str(
+            model_configuration["analytical_anchor_direction"]
+        )
+        surface_payload = anchor_payload["surface_map"][model_id][
+            direction_label
+        ]
     assert list(surface_payload["harmonic_order_list"]) == list(
         model_configuration["harmonic_index_list"]
     ), "Analytical Anchor harmonic orders do not match the PINN configuration"
@@ -370,6 +381,80 @@ def create_model(model_type: str, model_configuration: dict[str, Any]) -> nn.Mod
                         "analytical_anchor_coefficient_matrix"
                     ),
                 )
+            ),
+        )
+
+    # Create Wave 5.2R Stage 4 Data-Only Residual Capacity Model
+    if normalized_model_type == "data_only_residual_capacity":
+        analytical_anchor_configuration = (
+            load_harmonic_analytical_anchor_configuration(
+                model_configuration
+            )
+        )
+        assert analytical_anchor_configuration, (
+            "Stage 4 requires the qualified PF-A analytical anchor"
+        )
+        return DataOnlyResidualCapacityNetwork(
+            input_size=int(model_configuration["input_size"]),
+            output_size=int(model_configuration.get("output_size", 1)),
+            hidden_size=list(model_configuration["hidden_size"]),
+            harmonic_index_list=list(
+                model_configuration["harmonic_index_list"]
+            ),
+            activation_name=str(
+                model_configuration.get("activation_name", "Tanh")
+            ),
+            dropout_probability=float(
+                model_configuration.get("dropout_probability", 0.0)
+            ),
+            use_layer_norm=bool(
+                model_configuration.get("use_layer_norm", False)
+            ),
+            formulation=str(model_configuration["formulation"]),
+            residual_bound_deg=float(
+                model_configuration.get("residual_bound_deg", 0.01)
+            ),
+            residual_basis_order_list=list(
+                model_configuration.get(
+                    "residual_basis_order_list",
+                    [],
+                )
+            ),
+            anchor_mode=str(
+                model_configuration.get("anchor_mode", "frozen")
+            ),
+            partial_unfreeze_harmonic_index_list=list(
+                model_configuration.get(
+                    "partial_unfreeze_harmonic_index_list",
+                    [1, 3],
+                )
+            ),
+            zero_initialize_residual=bool(
+                model_configuration.get(
+                    "zero_initialize_residual",
+                    True,
+                )
+            ),
+            include_raw_angle_feature=bool(
+                model_configuration.get(
+                    "include_raw_angle_feature",
+                    False,
+                )
+            ),
+            analytical_anchor_feature_mean=(
+                analytical_anchor_configuration[
+                    "analytical_anchor_feature_mean"
+                ]
+            ),
+            analytical_anchor_feature_scale=(
+                analytical_anchor_configuration[
+                    "analytical_anchor_feature_scale"
+                ]
+            ),
+            analytical_anchor_coefficient_matrix=(
+                analytical_anchor_configuration[
+                    "analytical_anchor_coefficient_matrix"
+                ]
             ),
         )
 

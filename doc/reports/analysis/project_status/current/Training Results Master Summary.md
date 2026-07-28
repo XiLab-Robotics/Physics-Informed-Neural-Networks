@@ -2,15 +2,16 @@
 
 ## Executive Snapshot
 
-- Generated At: `2026-07-27T22:36:02`
+- Generated At: `2026-07-28T15:49:45`
 - Program State: active.
 - Current Completed Wave: polished-dataset RCIM, early-wave, and full-wave
 - Current Focus: `Wave 5.2R` polished-setpoint `Fw` physics-guided reassessment;
-  Stages 0 through 3 of 16 are complete, Stage 4 data-only residual capacity
-  testing is next, and
+  Stages 0 through 4 of 16 are complete, Stage 4 closed as a valid negative
+  result with no promoted hybrid, Stage 5 complex harmonic coefficient
+  residuals are next, and
   completed Wave 5.2 Phases 0 through 15 remain closed evidence.
 - Active Campaign Status: `completed`
-- Active Campaign Name: `phase3_c1_fw_stability_repeat_2026_07_26`
+- Active Campaign Name: `wave52r_stage4_data_only_residual_capacity_2026_07_28`
 - Current Program Winner: `te_periodic_gru_sequence_bw` | Family `periodic_gru_sequence_bw` | Test MAE `0.001084`
 
 ## Main Takeaways

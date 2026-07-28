@@ -553,7 +553,7 @@ plan.
 
 Stage 2 authorizes Stage 3:
 
-**Analytical Anchor Reproduction And Stress Tests**
+### Analytical Anchor Reproduction And Stress Tests
 
 Stage 3 should use the instrumentation to distinguish:
 

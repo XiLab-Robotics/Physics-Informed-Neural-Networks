@@ -1,0 +1,139 @@
+paths:
+  dataset_config_path: config/datasets/transmission_error_dataset.yaml
+  output_root: output/training_runs/data_only_residual_capacity
+experiment:
+  run_name: te_stage4_h03_r3_compact__polished_setpoints_fw
+  model_family: stage4_h03_r3_compact
+  model_type: data_only_residual_capacity
+metadata:
+  campaign_name: wave52r_stage4_data_only_residual_capacity_2026_07_28
+  planning_report_path: doc/reports/campaign_plans/model_development_waves/wave_5_2/data_only_residual_capacity_ladder/2026-07-27-22-39-42_wave52r_stage4_data_only_residual_capacity_ladder_campaign_plan_report.md
+  technical_document_path: doc/technical/2026-07/2026-07-27/2026-07-27-22-37-41_wave52r_stage4_data_only_residual_capacity_ladder.md
+  model_report_path: doc/reports/analysis/model_development_waves/wave_5_2/physics_guided_pinn_reassessment/[2026-07-28]/stage4_data_only_residual_capacity_ladder/stage4_data_only_residual_capacity_model_report.md
+  phase_name: wave_5_2r_stage4_data_only_residual_capacity_ladder
+  campaign_config_id: stage4_h03_r3_compact
+  queue_index: 9
+  intervention: R3
+  probe_group: wave52r_stage4_first_screen
+  loss_profile: stage4_data_only
+  dataset_name: polished_dataset
+  input_mode: setpoints
+  dataset_schema: polished_setpoint_curve_v1
+  source_dataset_root: data/polished_dataset
+  training_variant: fw
+  direction_scope_label: forward_only
+  use_forward_direction: true
+  use_backward_direction: false
+  training_random_seed: 314159
+  common_split_signature: c1aa8718fb9bf88cc2021c121dc4f3b4010fc1d2e45ac90af5f4376aa64f8e16
+  analytical_anchor_contract: training-only causal setpoint PF-A refit
+  candidate_id: H03
+  capacity_level: compact
+  matched_candidate_id: C01
+  residual_energy_profile: none
+  trainable_parameter_count: 1825
+  output_artifact_kind: training_run
+  output_run_name: te_stage4_h03_r3_compact__polished_setpoints_fw
+  run_instance_id: 2026-07-28-10-36-11__te_stage4_h03_r3_compact__polished_setpoints_fw
+dataset:
+  curve_batch_size: 4
+  point_stride: 8
+  maximum_points_per_curve: 4096
+  num_workers: 2
+  pin_memory: true
+  name: polished_dataset
+  input_mode: setpoints
+  split_manifest_path: output/analysis/polynomial_fourier_benchmark/common_split_manifest.yaml
+  excluded_condition_id_list:
+  - speed_500rpm__torque_600Nm__temperature_35degC
+  - speed_800rpm__torque_200Nm__temperature_25degC
+  - speed_1400rpm__torque_800Nm__temperature_35degC
+  expected_curve_count_by_split:
+    train: 675
+    validation: 194
+    test: 97
+model:
+  input_size: auto
+  output_size: 1
+  hidden_size:
+  - 32
+  - 32
+  formulation: R3
+  harmonic_index_list:
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  activation_name: Tanh
+  dropout_probability: 0.0
+  use_layer_norm: false
+  analytical_anchor_path: output/analysis/wave_5_2r/stage4_data_only_residual_capacity_ladder/stage4_causal_setpoint_pf_a_surface.yaml
+  analytical_anchor_model_id: PF_A_SETPOINT_QUADRATIC
+  residual_bound_deg: 0.01687377521368802
+  residual_basis_order_list:
+  - 2
+  - 80
+  - 159
+  - 237
+  anchor_mode: frozen
+  partial_unfreeze_harmonic_index_list:
+  - 1
+  - 3
+  zero_initialize_residual: true
+  include_raw_angle_feature: false
+training:
+  learning_rate: 0.0005
+  weight_decay: 1.0e-05
+  min_epochs: 4
+  max_epochs: 24
+  patience: 5
+  min_delta: 1.0e-05
+  log_every_n_steps: 1
+  fast_dev_run: false
+  deterministic: true
+  random_seed: 314159
+  loss:
+    profile: stage4_data_only
+    pointwise_loss: mse
+    enable_physics_diagnostics: false
+    enable_optimization_instrumentation: true
+    optimization_instrumentation_ema_decay: 0.95
+    optimization_instrumentation_seed: 314159
+    weights:
+      point: 1.0
+      centered: 0.0
+      offset: 0.0
+      amplitude: 0.0
+      harmonic: 0.0
+      derivative: 0.0
+      residual_energy: 0.0
+      physics_oscillator: 0.0
+      physics_periodic_value: 0.0
+      physics_periodic_slope: 0.0
+      physics_analytical_anchor: 0.0
+      physics_compliance_equation: 0.0
+      physics_zero_torque_boundary: 0.0
+      physics_compliance_monotonicity: 0.0
+      physics_stiffness_bounds: 0.0
+      physics_periodic_mean: 0.0
+    harmonic_index_list:
+    - 1
+    - 3
+    - 39
+    - 40
+    - 78
+    - 81
+    - 156
+    - 162
+    - 240
+runtime:
+  accelerator: auto
+  devices: auto
+  precision: '32'
+  benchmark: false
+  use_non_blocking_transfer: true

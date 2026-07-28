@@ -80,6 +80,7 @@ The dark line is the measured TE curve and the blue line is the model
 prediction for the same operating condition.
 
 Shared operating conditions:
+
 - 200 rpm, 300 Nm, 25 C
 - 900 rpm, 200 Nm, 30 C
 - 700 rpm, 1400 Nm, 30 C

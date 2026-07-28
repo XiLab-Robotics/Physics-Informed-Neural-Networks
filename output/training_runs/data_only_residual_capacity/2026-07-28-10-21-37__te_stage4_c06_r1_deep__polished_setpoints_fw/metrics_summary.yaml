@@ -1,0 +1,129 @@
+schema_version: 1
+config_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\config\training\queue\data_only_residual_capacity\wave52r_stage4_data_only_residual_capacity_2026_07_28\running\2026-07-28-10-01-40_006_006_c06_r1_deep.yaml
+experiment:
+  model_family: stage4_c06_r1_deep
+  model_type: data_only_residual_capacity
+  run_name: te_stage4_c06_r1_deep__polished_setpoints_fw
+  output_run_name: te_stage4_c06_r1_deep__polished_setpoints_fw
+  run_instance_id: 2026-07-28-10-21-37__te_stage4_c06_r1_deep__polished_setpoints_fw
+  output_artifact_kind: training_run
+  base_model_family: stage4_c06_r1_deep
+  training_variant: fw
+  direction_scope_label: forward_only
+  use_forward_direction: true
+  use_backward_direction: false
+artifacts:
+  output_directory: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_runs\data_only_residual_capacity\2026-07-28-10-21-37__te_stage4_c06_r1_deep__polished_setpoints_fw
+  best_checkpoint_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_runs\data_only_residual_capacity\2026-07-28-10-21-37__te_stage4_c06_r1_deep__polished_setpoints_fw\checkpoints\data_only_residual_capacity-epoch=013-val_mae=0.00191477.ckpt
+dataset_split:
+  train_curve_count: 675
+  validation_curve_count: 194
+  test_curve_count: 97
+  dataset_name: polished_dataset
+  dataset_schema: polished_setpoint_curve_v1
+  input_mode: setpoints
+  input_feature_name_list:
+  - angular_position_deg
+  - input_speed_rpm
+  - input_torque_nm
+  - oil_temperature_deg
+  - direction_flag
+  target_feature_name_list:
+  - theta_TE
+  input_feature_dim: 5
+  target_feature_dim: 1
+dataset:
+  dataset_id: polished_dataset
+  dataset_schema: polished_setpoint_curve_v1
+  input_mode: setpoints
+  input_feature_names:
+  - angular_position_deg
+  - input_speed_rpm
+  - input_torque_nm
+  - oil_temperature_deg
+  - direction_flag
+  target_feature_names:
+  - theta_TE
+  input_feature_dim: 5
+  target_feature_dim: 1
+model_summary:
+  backbone_name: DataOnlyResidualCapacityNetwork
+  trainable_parameter_count: 7139
+  frozen_parameter_count: 190
+  total_parameter_count: 7329
+runtime_config:
+  accelerator: auto
+  devices: auto
+  precision: '32'
+  benchmark: false
+  use_non_blocking_transfer: true
+normalization_statistics:
+  input_feature_mean:
+  - 179.9701385498047
+  - 733.17431640625
+  - 916.5514526367188
+  - 29.96807098388672
+  - 1.0
+  input_feature_std:
+  - 103.93706512451172
+  - 488.6419372558594
+  - 549.6129150390625
+  - 4.113563537597656
+  - 9.999999974752427e-07
+  target_mean:
+  - -0.05610445886850357
+  target_std:
+  - 0.02406206727027893
+validation_metrics:
+  val_loss: 0.013932592235505581
+  val_mae: 0.0019147658022120595
+  val_rmse: 0.00245860917493701
+  val_pointwise_loss: 0.013932592235505581
+  val_residual_energy_loss: 0.0
+  val_centered_curve_shape_loss: 0.007415609899908304
+  val_curve_offset_loss: 0.006504768040031195
+  val_curve_amplitude_loss: 0.05897458642721176
+  val_sparse_harmonic_shape_loss: 0.00012788947788067162
+  val_physics_oscillator_residual_loss: 0.0
+  val_physics_periodic_value_loss: 0.0
+  val_physics_periodic_slope_loss: 0.0
+  val_physics_analytical_anchor_loss: 0.0
+  val_physics_compliance_equation_loss: 0.0
+  val_physics_zero_torque_boundary_loss: 0.0
+  val_physics_compliance_monotonicity_loss: 0.0
+  val_physics_stiffness_bounds_loss: 0.0
+  val_physics_periodic_mean_loss: 0.0
+  val_direct_prediction_deg_mean_abs: 0.05624547600746155
+test_metrics:
+  test_loss: 0.011223084293305874
+  test_mae: 0.0016647162847220898
+  test_rmse: 0.0021339920349419117
+  test_pointwise_loss: 0.011223084293305874
+  test_residual_energy_loss: 0.0
+  test_centered_curve_shape_loss: 0.0075774602591991425
+  test_curve_offset_loss: 0.0035822750069200993
+  test_curve_amplitude_loss: 0.05981926620006561
+  test_sparse_harmonic_shape_loss: 0.00014537230890709907
+  test_physics_oscillator_residual_loss: 0.0
+  test_physics_periodic_value_loss: 0.0
+  test_physics_periodic_slope_loss: 0.0
+  test_physics_analytical_anchor_loss: 0.0
+  test_physics_compliance_equation_loss: 0.0
+  test_physics_zero_torque_boundary_loss: 0.0
+  test_physics_compliance_monotonicity_loss: 0.0
+  test_physics_stiffness_bounds_loss: 0.0
+  test_physics_periodic_mean_loss: 0.0
+  test_direct_prediction_deg_mean_abs: 0.05074391886591911
+comparison_payload:
+  model_family: stage4_c06_r1_deep
+  model_type: data_only_residual_capacity
+  run_name: te_stage4_c06_r1_deep__polished_setpoints_fw
+  backbone_name: DataOnlyResidualCapacityNetwork
+  trainable_parameter_count: 7139
+  total_parameter_count: 7329
+  val_mae: 0.0019147658022120595
+  val_rmse: 0.00245860917493701
+  test_mae: 0.0016647162847220898
+  test_rmse: 0.0021339920349419117
+  deployment_notes: ''
+  interpretability_notes: ''

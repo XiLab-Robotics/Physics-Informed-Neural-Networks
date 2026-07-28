@@ -1,0 +1,30 @@
+schema_version: 1
+config_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\config\training\data_only_residual_capacity\campaigns\2026-07-28_wave52r_stage4_data_only_residual_capacity\queue\016_a02_r2_compact.yaml
+output_directory: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\validation_checks\stage4_a02_r2_compact\2026-07-28-09-58-58__te_stage4_a02_r2_compact__polished_setpoints_fw_validation_check
+experiment:
+  run_name: te_stage4_a02_r2_compact__polished_setpoints_fw
+  output_run_name: te_stage4_a02_r2_compact__polished_setpoints_fw_validation_check
+  run_instance_id: 2026-07-28-09-58-58__te_stage4_a02_r2_compact__polished_setpoints_fw_validation_check
+  model_family: stage4_a02_r2_compact
+  model_type: data_only_residual_capacity
+dataset_split:
+  train_curve_count: 675
+  validation_curve_count: 194
+  test_curve_count: 97
+batch_summary:
+  batch_mode: point
+  point_batch_size: 1350
+  sequence_batch_size: 0
+  sequence_length: 0
+  input_feature_dim: 5
+  target_feature_dim: 1
+  curve_count: 1
+checks:
+  finite_loss: true
+  finite_mae: true
+  finite_rmse: true
+  finite_prediction_tensor: true
+metrics:
+  loss: 38.22230911254883
+  mae: 0.0861387774348259
+  rmse: 0.08617231994867325

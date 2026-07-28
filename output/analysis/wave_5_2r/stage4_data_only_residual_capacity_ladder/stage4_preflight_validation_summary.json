@@ -1,0 +1,127 @@
+{
+  "schema_version": 1,
+  "stage": "wave_5_2r_stage4",
+  "status": "passed",
+  "validated_queue_count": 18,
+  "candidate_id_list": [
+    "C01",
+    "C02",
+    "C03",
+    "C04",
+    "C05",
+    "C06",
+    "H01",
+    "H02",
+    "H03",
+    "H04",
+    "H05",
+    "H06",
+    "H07",
+    "H08",
+    "A01",
+    "A02",
+    "A03",
+    "A04"
+  ],
+  "model_validation": {
+    "maximum_zero_initialization_error": 0.0,
+    "maximum_signed_torque_replay_error": 0.0,
+    "maximum_bounded_residual_deg": 0.01687377505004406,
+    "declared_residual_bound_deg": 0.01687377521368802,
+    "reconstruction_error_by_candidate": {
+      "H05": 2.3283064365386963e-10,
+      "H07": 1.3969838619232178e-09
+    },
+    "partial_unfreeze_column_set": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "frozen_surface_sha256": "ba0dac2baefa796f0747635f4f17415451ccdb3d664c3d9ed8be6ebfbc8b2e0d",
+    "finite_gradient_tensor_count": 6,
+    "frozen_parameters_absent_from_optimizer": true
+  },
+  "parameter_match_row_list": [
+    {
+      "control_id": "C01",
+      "hybrid_id": "H01",
+      "control_parameter_count": 1825,
+      "hybrid_parameter_count": 1825,
+      "mismatch_fraction": 0.0,
+      "passes": true
+    },
+    {
+      "control_id": "C01",
+      "hybrid_id": "H03",
+      "control_parameter_count": 1825,
+      "hybrid_parameter_count": 1825,
+      "mismatch_fraction": 0.0,
+      "passes": true
+    },
+    {
+      "control_id": "C02",
+      "hybrid_id": "H02",
+      "control_parameter_count": 7745,
+      "hybrid_parameter_count": 7745,
+      "mismatch_fraction": 0.0,
+      "passes": true
+    },
+    {
+      "control_id": "C02",
+      "hybrid_id": "H04",
+      "control_parameter_count": 7745,
+      "hybrid_parameter_count": 7745,
+      "mismatch_fraction": 0.0,
+      "passes": true
+    },
+    {
+      "control_id": "C03",
+      "hybrid_id": "H05",
+      "control_parameter_count": 1485,
+      "hybrid_parameter_count": 1513,
+      "mismatch_fraction": 0.018506278916060808,
+      "passes": true
+    },
+    {
+      "control_id": "C04",
+      "hybrid_id": "H06",
+      "control_parameter_count": 6901,
+      "hybrid_parameter_count": 6857,
+      "mismatch_fraction": 0.006416800350007292,
+      "passes": true
+    },
+    {
+      "control_id": "C05",
+      "hybrid_id": "H07",
+      "control_parameter_count": 1825,
+      "hybrid_parameter_count": 1843,
+      "mismatch_fraction": 0.009766684753119913,
+      "passes": true
+    },
+    {
+      "control_id": "C06",
+      "hybrid_id": "H08",
+      "control_parameter_count": 7139,
+      "hybrid_parameter_count": 7187,
+      "mismatch_fraction": 0.006678725476554891,
+      "passes": true
+    }
+  ],
+  "dataloader_fingerprint_map": {
+    "seed_314159_fingerprint": "2889ee028697510a3afa554a9d01a7e1aa8a2eea64d86f5c35d0560217cd7957",
+    "seed_314159_repeat_fingerprint": "2889ee028697510a3afa554a9d01a7e1aa8a2eea64d86f5c35d0560217cd7957",
+    "seed_271828_fingerprint": "71a2aacc78080c840cfab16195dd2364906f2db505402a9cc474bed1ae7786d6"
+  },
+  "external_gate_status": {
+    "real_dataset_one_batch_passed": true,
+    "local_launcher_preflight_passed": true,
+    "remote_launcher_preflight_passed": true
+  },
+  "gate_summary": {
+    "passed_gate_count": 16,
+    "failed_gate_count": 0,
+    "pending_external_gate_list": []
+  }
+}

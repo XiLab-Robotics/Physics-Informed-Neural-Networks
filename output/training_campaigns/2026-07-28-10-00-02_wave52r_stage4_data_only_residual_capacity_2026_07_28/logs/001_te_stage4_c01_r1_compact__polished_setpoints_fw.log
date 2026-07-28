@@ -1,0 +1,10 @@
+
+[RUNNER ERROR] Unsupported Model Type for Campaign Runner | data_only_residual_capacity | Supported: ['curve_aware_harmonic_residual_offset_probe', 'feedforward', 'gru_sequence', 'harmonic_kinematic_pinn', 'harmonic_regression', 'harmonic_residual_offset_probe', 'hist_gradient_boosting', 'latent_state_hysteresis_probe', 'lstm_sequence', 'periodic_gru_sequence', 'periodic_lstm_sequence', 'periodic_mlp', 'periodic_temporal_convolution', 'quasi_static_compliance_pinn', 'random_forest', 'residual_harmonic_gru_sequence', 'residual_harmonic_lstm_sequence', 'residual_harmonic_mlp', 'sequential_residual_offset_probe', 'temporal_convolution', 'wave3_harmonic_prior_residual', 'wave52b_offset_harmonic_guided']
+Traceback (most recent call last):
+  File "C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\scripts\training\run_training_campaign.py", line 770, in execute_queue_item
+    training_entrypoint_path = resolve_training_entrypoint_path(model_type)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\scripts\training\run_training_campaign.py", line 544, in resolve_training_entrypoint_path
+    assert normalized_model_type in SUPPORTED_MODEL_ENTRYPOINT_NAME_DICTIONARY, (
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Unsupported Model Type for Campaign Runner | data_only_residual_capacity | Supported: ['curve_aware_harmonic_residual_offset_probe', 'feedforward', 'gru_sequence', 'harmonic_kinematic_pinn', 'harmonic_regression', 'harmonic_residual_offset_probe', 'hist_gradient_boosting', 'latent_state_hysteresis_probe', 'lstm_sequence', 'periodic_gru_sequence', 'periodic_lstm_sequence', 'periodic_mlp', 'periodic_temporal_convolution', 'quasi_static_compliance_pinn', 'random_forest', 'residual_harmonic_gru_sequence', 'residual_harmonic_lstm_sequence', 'residual_harmonic_mlp', 'sequential_residual_offset_probe', 'temporal_convolution', 'wave3_harmonic_prior_residual', 'wave52b_offset_harmonic_guided']

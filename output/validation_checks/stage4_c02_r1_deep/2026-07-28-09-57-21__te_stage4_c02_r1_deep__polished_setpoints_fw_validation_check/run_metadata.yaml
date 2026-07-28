@@ -1,0 +1,22 @@
+schema_version: 1
+artifact_kind: validation_check
+model_family: stage4_c02_r1_deep
+base_model_family: stage4_c02_r1_deep
+training_variant: fw
+direction_scope_label: forward_only
+use_forward_direction: true
+use_backward_direction: false
+run_name: te_stage4_c02_r1_deep__polished_setpoints_fw_validation_check
+run_instance_id: 2026-07-28-09-57-21__te_stage4_c02_r1_deep__polished_setpoints_fw_validation_check
+output_directory: output\validation_checks\stage4_c02_r1_deep\2026-07-28-09-57-21__te_stage4_c02_r1_deep__polished_setpoints_fw_validation_check
+dataset_id: polished_dataset
+dataset_schema: polished_setpoint_curve_v1
+input_feature_names:
+- angular_position_deg
+- input_speed_rpm
+- input_torque_nm
+- oil_temperature_deg
+- direction_flag
+target_feature_names:
+- theta_TE
+input_feature_dim: 5

@@ -12,6 +12,18 @@ import torch.nn.functional as torch_functional
 
 # Import DataModule Utilities
 from scripts.training.transmission_error_datamodule import NormalizationStatistics
+from scripts.training.physics_guided_optimization_instrumentation import (
+    LossComponentConfiguration,
+)
+from scripts.training.physics_guided_optimization_instrumentation import (
+    PhysicsGuidedOptimizationInstrumentation,
+)
+from scripts.training.physics_guided_optimization_instrumentation import (
+    capture_trainable_parameter_vector,
+)
+from scripts.training.physics_guided_optimization_instrumentation import (
+    compute_update_to_parameter_ratio,
+)
 
 class TransmissionErrorRegressionModule(LightningModule):
 
@@ -55,6 +67,10 @@ class TransmissionErrorRegressionModule(LightningModule):
         # Save Model And Loss
         self.regression_model = regression_model
         self.loss_configuration = self._normalize_loss_configuration(loss_configuration or {})
+        self.optimization_instrumentation = (
+            self._build_optimization_instrumentation()
+        )
+        self._parameter_vector_before_step: torch.Tensor | None = None
 
         # Register Normalization Buffers
         self.register_buffer("input_feature_mean", torch.zeros(input_feature_dim, dtype=torch.float32))
@@ -100,6 +116,24 @@ class TransmissionErrorRegressionModule(LightningModule):
         mixture_log_sigma_max = float(loss_configuration.get("mixture_log_sigma_max", 5.0))
         mixture_sigma_min = float(loss_configuration.get("mixture_sigma_min", 1.0e-4))
         quantile_crossing_penalty_weight = float(loss_configuration.get("quantile_crossing_penalty_weight", 0.0))
+        enable_optimization_instrumentation = bool(
+            loss_configuration.get(
+                "enable_optimization_instrumentation",
+                False,
+            )
+        )
+        optimization_instrumentation_ema_decay = float(
+            loss_configuration.get(
+                "optimization_instrumentation_ema_decay",
+                0.95,
+            )
+        )
+        optimization_instrumentation_seed = int(
+            loss_configuration.get(
+                "optimization_instrumentation_seed",
+                314159,
+            )
+        )
 
         assert deterministic_output_index >= 0, f"Deterministic Output Index must be non-negative | {deterministic_output_index}"
         assert gaussian_log_sigma_min < gaussian_log_sigma_max, (
@@ -116,6 +150,7 @@ class TransmissionErrorRegressionModule(LightningModule):
         )
         assert physics_maximum_collocation_points > 0
         assert physics_maximum_boundary_conditions > 0
+        assert 0.0 <= optimization_instrumentation_ema_decay < 1.0
 
         return {
             "profile": loss_profile,
@@ -137,6 +172,9 @@ class TransmissionErrorRegressionModule(LightningModule):
             "amplitude_weight": float(weight_dictionary.get("amplitude", 0.0)),
             "harmonic_weight": float(weight_dictionary.get("harmonic", 0.0)),
             "derivative_weight": float(weight_dictionary.get("derivative", 0.0)),
+            "residual_energy_weight": float(
+                weight_dictionary.get("residual_energy", 0.0)
+            ),
             "physics_oscillator_weight": float(
                 weight_dictionary.get("physics_oscillator", 0.0)
             ),
@@ -174,8 +212,69 @@ class TransmissionErrorRegressionModule(LightningModule):
             "physics_maximum_boundary_conditions": (
                 physics_maximum_boundary_conditions
             ),
+            "enable_optimization_instrumentation": (
+                enable_optimization_instrumentation
+            ),
+            "optimization_instrumentation_ema_decay": (
+                optimization_instrumentation_ema_decay
+            ),
+            "optimization_instrumentation_seed": (
+                optimization_instrumentation_seed
+            ),
             "harmonic_index_list": [int(harmonic_index) for harmonic_index in harmonic_index_list if int(harmonic_index) > 0],
         }
+
+    def _build_optimization_instrumentation(
+        self,
+    ) -> PhysicsGuidedOptimizationInstrumentation | None:
+        """Build fixed-weight Stage 2 diagnostics when explicitly enabled."""
+
+        if not bool(
+            self.loss_configuration[
+                "enable_optimization_instrumentation"
+            ]
+        ):
+            return None
+
+        component_configuration_list = [
+            LossComponentConfiguration(
+                name="data_fit",
+                unit_label="normalized_te_squared",
+                normalization_scale=1.0,
+                fixed_weight=float(
+                    self.loss_configuration["point_weight"]
+                ),
+                role="main",
+            )
+        ]
+        stage4_formulation = str(
+            getattr(self.regression_model, "formulation", "")
+        ).upper()
+        if stage4_formulation in {"R2", "R3", "R4", "R5"}:
+            component_configuration_list.append(
+                LossComponentConfiguration(
+                    name="residual_energy",
+                    unit_label="normalized_residual_squared",
+                    normalization_scale=1.0,
+                    fixed_weight=float(
+                        self.loss_configuration["residual_energy_weight"]
+                    ),
+                    role="auxiliary",
+                )
+            )
+        return PhysicsGuidedOptimizationInstrumentation(
+            component_configuration_list=component_configuration_list,
+            ema_decay=float(
+                self.loss_configuration[
+                    "optimization_instrumentation_ema_decay"
+                ]
+            ),
+            random_seed=int(
+                self.loss_configuration[
+                    "optimization_instrumentation_seed"
+                ]
+            ),
+        )
 
     def compute_pointwise_prediction_loss(self, prediction_tensor: torch.Tensor, target_tensor: torch.Tensor) -> torch.Tensor:
 
@@ -433,6 +532,9 @@ class TransmissionErrorRegressionModule(LightningModule):
         amplitude_weight = float(self.loss_configuration["amplitude_weight"])
         harmonic_weight = float(self.loss_configuration["harmonic_weight"])
         derivative_weight = float(self.loss_configuration["derivative_weight"])
+        residual_energy_weight = float(
+            self.loss_configuration["residual_energy_weight"]
+        )
         physics_oscillator_weight = float(
             self.loss_configuration["physics_oscillator_weight"]
         )
@@ -471,6 +573,7 @@ class TransmissionErrorRegressionModule(LightningModule):
         curve_amplitude_loss = zero_loss
         sparse_harmonic_shape_loss = zero_loss
         curve_derivative_shape_loss = zero_loss
+        residual_energy_loss = zero_loss
         physics_oscillator_residual_loss = zero_loss
         physics_periodic_value_loss = zero_loss
         physics_periodic_slope_loss = zero_loss
@@ -482,6 +585,15 @@ class TransmissionErrorRegressionModule(LightningModule):
         physics_periodic_mean_loss = zero_loss
         physics_collocation_point_count = zero_loss
         physics_boundary_condition_count = zero_loss
+
+        # Compute The Only Stage 4 Auxiliary Objective When Available
+        residual_prediction_tensor = batch_output_dictionary.get(
+            "residual_prediction_tensor"
+        )
+        if isinstance(residual_prediction_tensor, torch.Tensor):
+            residual_energy_loss = torch.mean(
+                torch.square(residual_prediction_tensor)
+            )
 
         curve_count_tensor = batch_dictionary.get("curve_count", None)
         count_per_curve_tensor = batch_dictionary.get("sequence_count_per_curve", batch_dictionary.get("point_count_per_curve", None))
@@ -642,6 +754,7 @@ class TransmissionErrorRegressionModule(LightningModule):
             + amplitude_weight * curve_amplitude_loss
             + harmonic_weight * sparse_harmonic_shape_loss
             + derivative_weight * curve_derivative_shape_loss
+            + residual_energy_weight * residual_energy_loss
             + physics_oscillator_weight * physics_oscillator_residual_loss
             + physics_periodic_value_weight * physics_periodic_value_loss
             + physics_periodic_slope_weight * physics_periodic_slope_loss
@@ -665,6 +778,7 @@ class TransmissionErrorRegressionModule(LightningModule):
             "curve_amplitude_loss": curve_amplitude_loss,
             "sparse_harmonic_shape_loss": sparse_harmonic_shape_loss,
             "curve_derivative_shape_loss": curve_derivative_shape_loss,
+            "residual_energy_loss": residual_energy_loss,
             "physics_oscillator_residual_loss": (
                 physics_oscillator_residual_loss
             ),
@@ -870,6 +984,7 @@ class TransmissionErrorRegressionModule(LightningModule):
             batch_output_dictionary={
                 "prediction_tensor": normalized_prediction_tensor,
                 "target_tensor": normalized_target_tensor,
+                **auxiliary_output_dictionary,
             },
             pointwise_loss=pointwise_loss,
         )
@@ -893,7 +1008,12 @@ class TransmissionErrorRegressionModule(LightningModule):
         batch_output_dictionary.update(self.compute_probabilistic_metric_dictionary(normalized_model_output_tensor, normalized_target_tensor))
         return batch_output_dictionary
 
-    def compute_loss(self, batch_dictionary: dict[str, torch.Tensor], log_prefix: str) -> torch.Tensor:
+    def compute_loss(
+        self,
+        batch_dictionary: dict[str, torch.Tensor],
+        log_prefix: str,
+        batch_idx: int | None = None,
+    ) -> torch.Tensor:
 
         """Compute and log one split-specific loss bundle.
 
@@ -919,6 +1039,14 @@ class TransmissionErrorRegressionModule(LightningModule):
         self.log(f"{log_prefix}_mae", mae, on_step=False, on_epoch=True, prog_bar=(log_prefix != "train"), batch_size=batch_size)
         self.log(f"{log_prefix}_rmse", rmse, on_step=False, on_epoch=True, prog_bar=False, batch_size=batch_size)
         self.log(f"{log_prefix}_pointwise_loss", batch_output_dictionary["pointwise_loss"], on_step=False, on_epoch=True, prog_bar=False, batch_size=batch_size)
+        self.log(
+            f"{log_prefix}_residual_energy_loss",
+            batch_output_dictionary["residual_energy_loss"],
+            on_step=False,
+            on_epoch=True,
+            prog_bar=False,
+            batch_size=batch_size,
+        )
         self.log(f"{log_prefix}_centered_curve_shape_loss", batch_output_dictionary["centered_curve_shape_loss"], on_step=False, on_epoch=True, prog_bar=False, batch_size=batch_size)
         self.log(f"{log_prefix}_curve_offset_loss", batch_output_dictionary["curve_offset_loss"], on_step=False, on_epoch=True, prog_bar=False, batch_size=batch_size)
         self.log(f"{log_prefix}_curve_amplitude_loss", batch_output_dictionary["curve_amplitude_loss"], on_step=False, on_epoch=True, prog_bar=False, batch_size=batch_size)
@@ -1034,6 +1162,95 @@ class TransmissionErrorRegressionModule(LightningModule):
             residual_offset_mean_abs = torch.mean(torch.abs(residual_offset_denormalized))
             self.log(f"{log_prefix}_residual_offset_mean_abs", residual_offset_mean_abs, on_step=False, on_epoch=True, prog_bar=False, batch_size=batch_size)
 
+        # Log Stage 4 Physical-Unit Decomposition When Available
+        for auxiliary_name in [
+            "analytical_prediction_deg",
+            "frozen_analytical_prediction_deg",
+            "residual_prediction_deg",
+            "direct_prediction_deg",
+        ]:
+            auxiliary_tensor = batch_output_dictionary.get(auxiliary_name)
+            if isinstance(auxiliary_tensor, torch.Tensor):
+                self.log(
+                    f"{log_prefix}_{auxiliary_name}_mean_abs",
+                    torch.mean(torch.abs(auxiliary_tensor)),
+                    on_step=False,
+                    on_epoch=True,
+                    prog_bar=False,
+                    batch_size=batch_size,
+                )
+
+        # Record Per-Loss Gradients On The First Training Batch Of Each Epoch
+        if (
+            log_prefix == "train"
+            and batch_idx == 0
+            and self.optimization_instrumentation is not None
+        ):
+            raw_loss_dictionary = {
+                "data_fit": batch_output_dictionary["pointwise_loss"],
+            }
+            if "residual_energy" in (
+                self.optimization_instrumentation
+                .component_configuration_dictionary
+            ):
+                raw_loss_dictionary["residual_energy"] = (
+                    batch_output_dictionary["residual_energy_loss"]
+                )
+            diagnostic_record = (
+                self.optimization_instrumentation.build_diagnostic_record(
+                    raw_loss_dictionary=raw_loss_dictionary,
+                    shared_parameter_sequence=list(
+                        self.regression_model.parameters()
+                    ),
+                    adapter_name="fixed",
+                    optimization_step=int(self.global_step),
+                )
+            )
+            for component_name, component_value in diagnostic_record[
+                "raw_loss_dictionary"
+            ].items():
+                self.log(
+                    f"train_instrumentation_raw_{component_name}",
+                    float(component_value),
+                    on_step=True,
+                    on_epoch=False,
+                    prog_bar=False,
+                    batch_size=batch_size,
+                )
+            for component_name, component_value in diagnostic_record[
+                "loss_ema_dictionary"
+            ].items():
+                self.log(
+                    f"train_instrumentation_ema_{component_name}",
+                    float(component_value),
+                    on_step=True,
+                    on_epoch=False,
+                    prog_bar=False,
+                    batch_size=batch_size,
+                )
+            for component_name, component_value in diagnostic_record[
+                "gradient_norm_dictionary"
+            ].items():
+                self.log(
+                    f"train_instrumentation_gradient_norm_{component_name}",
+                    float(component_value),
+                    on_step=True,
+                    on_epoch=False,
+                    prog_bar=False,
+                    batch_size=batch_size,
+                )
+            for pair_name, cosine_value in diagnostic_record[
+                "pairwise_gradient_cosine_dictionary"
+            ].items():
+                self.log(
+                    f"train_instrumentation_gradient_cosine_{pair_name}",
+                    float(cosine_value),
+                    on_step=True,
+                    on_epoch=False,
+                    prog_bar=False,
+                    batch_size=batch_size,
+                )
+
         return loss
 
     def training_step(self, batch_dictionary: dict[str, torch.Tensor], batch_idx: int) -> torch.Tensor:
@@ -1041,7 +1258,11 @@ class TransmissionErrorRegressionModule(LightningModule):
         """Run one Lightning training step and return the loss tensor."""
 
         # Compute Loss And Metrics For Training Step
-        return self.compute_loss(batch_dictionary, "train")
+        return self.compute_loss(
+            batch_dictionary,
+            "train",
+            batch_idx=batch_idx,
+        )
 
     def validation_step(self, batch_dictionary: dict[str, torch.Tensor], batch_idx: int) -> torch.Tensor:
 
@@ -1061,5 +1282,60 @@ class TransmissionErrorRegressionModule(LightningModule):
 
         """Configure the AdamW optimizer for TE regression training."""
 
-        # Configure AdamW Optimizer
-        return torch.optim.AdamW(self.parameters(), lr=float(self.hparams.learning_rate), weight_decay=float(self.hparams.weight_decay))
+        # Exclude Explicitly Frozen Parameters From Optimizer State
+        trainable_parameter_list = [
+            parameter
+            for parameter in self.parameters()
+            if parameter.requires_grad
+        ]
+        assert trainable_parameter_list, (
+            "At least one trainable parameter is required"
+        )
+        return torch.optim.AdamW(
+            trainable_parameter_list,
+            lr=float(self.hparams.learning_rate),
+            weight_decay=float(self.hparams.weight_decay),
+        )
+
+    def optimizer_step(
+        self,
+        epoch: int,
+        batch_idx: int,
+        optimizer: torch.optim.Optimizer,
+        optimizer_closure,
+    ) -> None:
+        """Execute the normal optimizer step and record its relative size."""
+
+        if self.optimization_instrumentation is None:
+            return super().optimizer_step(
+                epoch,
+                batch_idx,
+                optimizer,
+                optimizer_closure,
+            )
+
+        self._parameter_vector_before_step = (
+            capture_trainable_parameter_vector(
+                list(self.regression_model.parameters())
+            )
+        )
+        super().optimizer_step(
+            epoch,
+            batch_idx,
+            optimizer,
+            optimizer_closure,
+        )
+        parameter_vector_after_step = capture_trainable_parameter_vector(
+            list(self.regression_model.parameters())
+        )
+        update_ratio = compute_update_to_parameter_ratio(
+            self._parameter_vector_before_step,
+            parameter_vector_after_step,
+        )
+        self.log(
+            "train_instrumentation_update_to_parameter_ratio",
+            update_ratio,
+            on_step=True,
+            on_epoch=False,
+            prog_bar=False,
+        )

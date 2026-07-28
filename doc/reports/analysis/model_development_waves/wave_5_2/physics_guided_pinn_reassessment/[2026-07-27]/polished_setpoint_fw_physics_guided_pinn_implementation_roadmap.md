@@ -49,7 +49,8 @@ The accepted forward references at roadmap entry are:
 | Stage 1: Extended Scientific Technique Discovery | completed | Thirty techniques and all thirteen search families are registered; thirteen techniques are active, eleven are conditional, and no real-data candidate requires a missing or target-derived runtime variable. Stage 2 is authorized. |
 | Stage 2: Evaluation And Optimization Instrumentation | completed | All twelve instrumentation checks pass. Named normalized losses, EMAs, per-loss gradients, pairwise cosines, update ratios, four adapters, schedules, deterministic loaders, and four matched controls are available. Stage 3 is authorized. |
 | Stage 3: Analytical Anchor Reproduction And Stress Tests | completed | PF-A exactly reproduces Phase 1, all twelve gates pass, all 966 forward predictions are finite, and the supported-core deployment envelope is frozen. Stage 4 is authorized. |
-| Stages 4 through 15 | planned | Continue in order; training stages retain their campaign approval gates. |
+| Stage 4: Data-Only Residual Capacity Ladder | completed negative | All 18 runs completed. H08 won the scalar campaign, but every primary hybrid failed the curve-first and cancellation gates. No residual architecture advanced and no stability repeats were required. |
+| Stages 5 through 15 | planned | Continue in order; training stages retain their campaign approval gates. |
 
 ## Non-Negotiable Experimental Contract
 
@@ -638,24 +639,28 @@ These recommendations remain outside the `Wave 5.2R` training scope.
 
 ## Governance And Execution Order
 
-Stages 0 through 3 are complete. The next executable project is:
+Stages 0 through 4 are complete. The next executable project is:
 
 ```text
-Stage 4:
-Data-Only Residual Capacity Ladder
+Stage 5:
+Complex Harmonic Coefficient Residuals
 ```
 
-Stage 3 qualified PF-A only inside its supported-core envelope. The first
-training package combines evidence from Stages 2 through 4:
+Stage 4 completed all eighteen runs but promoted no residual architecture.
+The scalar H08 result was rejected because its learned correction dominated
+and cancelled the analytical anchor on the canonical curve-first surface.
+Stage 5 must therefore align training and evaluation on the same uniformly
+resampled full-curve and complex-coefficient representation:
 
 ```text
 Instrumentation
-+ analytical anchor stress
-+ data-only residual capacity ladder
++ canonical full-curve reconstruction
++ complex sine/cosine coefficient targets
++ matched direct and anchored coefficient controls
 ```
 
-Physics-loss campaigns begin only after that ladder establishes whether the
-analytical residual architecture adds value.
+Physics-loss campaigns remain downstream of this representation-aligned
+coefficient test.
 
 This ordering prevents an improvement from being attributed to physics when
 it is actually caused by extra parameters or a better residual architecture.
