@@ -314,6 +314,11 @@ This folder contains the internal project documents derived from the reference P
   Approved Stage 8 design for train-only compliance bootstrap, weak sign and
   interval priors, shuffled controls, and hard-equation falsification.
 
+- [technical/2026-07/2026-07-29/2026-07-29-18-35-28_wave52r_stage9_temporal_analytical_residual_models.md](./technical/2026-07/2026-07-29/2026-07-29-18-35-28_wave52r_stage9_temporal_analytical_residual_models.md)
+  Approved Stage 9 design for causal angular-context GRUs, explicit hidden
+  state reset, analytical-residual anchors, matched controls, and temporal
+  specificity tests.
+
 - [reports/campaign_plans/model_development_waves/wave_5_2/data_only_residual_capacity_ladder/2026-07-27-22-39-42_wave52r_stage4_data_only_residual_capacity_ladder_campaign_plan_report.md](./reports/campaign_plans/model_development_waves/wave_5_2/data_only_residual_capacity_ladder/2026-07-27-22-39-42_wave52r_stage4_data_only_residual_capacity_ladder_campaign_plan_report.md)
   Approved Stage 4 plan for eighteen matched data-only screening runs and an
   optional four-run stability continuation.
@@ -335,6 +340,11 @@ This folder contains the internal project documents derived from the reference P
   confidence-weighted, temperature, curriculum, adaptive, shuffled, and hard
   compliance formulations.
 
+- [reports/campaign_plans/model_development_waves/wave_5_2/temporal_analytical_residual_models/2026-07-29-18-35-28_wave52r_stage9_temporal_analytical_residual_models_campaign_plan_report.md](./reports/campaign_plans/model_development_waves/wave_5_2/temporal_analytical_residual_models/2026-07-29-18-35-28_wave52r_stage9_temporal_analytical_residual_models_campaign_plan_report.md)
+  Stage 9 ten-candidate plan for causal angular-context GRUs, accepted temporal
+  replay, PF-A/H04 residual anchors, coefficient and mean/shape hybrids,
+  context curriculum, and shuffled-order controls.
+
 - [reports/analysis/model_development_waves/wave_5_2/physics_guided_pinn_reassessment/[2026-07-28]/stage5_complex_harmonic_coefficient_residuals/stage5_complex_harmonic_coefficient_residual_model_report.md](./reports/analysis/model_development_waves/wave_5_2/physics_guided_pinn_reassessment/%5B2026-07-28%5D/stage5_complex_harmonic_coefficient_residuals/stage5_complex_harmonic_coefficient_residual_model_report.md)
   Model report for representation-aligned direct-curve, direct-coefficient,
   PF-A-anchored, bounded, banded, and coefficient-surface candidates.
@@ -350,6 +360,11 @@ This folder contains the internal project documents derived from the reference P
 - [reports/analysis/model_development_waves/wave_5_2/physics_guided_pinn_reassessment/[2026-07-29]/stage8_weak_forward_compliance_priors/stage8_weak_forward_compliance_priors_model_report.md](./reports/analysis/model_development_waves/wave_5_2/physics_guided_pinn_reassessment/%5B2026-07-29%5D/stage8_weak_forward_compliance_priors/stage8_weak_forward_compliance_priors_model_report.md)
   Model report for H04-compatible weak sign, interval, confidence,
   temperature, curriculum, adaptive, shuffled, and hard compliance tests.
+
+- [reports/analysis/model_development_waves/wave_5_2/physics_guided_pinn_reassessment/[2026-07-29]/stage9_temporal_analytical_residual_models/stage9_temporal_analytical_residual_model_report.md](./reports/analysis/model_development_waves/wave_5_2/physics_guided_pinn_reassessment/%5B2026-07-29%5D/stage9_temporal_analytical_residual_models/stage9_temporal_analytical_residual_model_report.md)
+  Model report for explicit-state causal GRUs, point and coefficient
+  analytical residuals, accepted temporal replay, and shuffled-order
+  specificity controls.
 
 - [reports/analysis/model_development_waves/wave_5_2/physics_guided_pinn_reassessment/[2026-07-28]/stage4_data_only_residual_capacity_ladder/stage4_data_only_residual_capacity_model_report.md](./reports/analysis/model_development_waves/wave_5_2/physics_guided_pinn_reassessment/%5B2026-07-28%5D/stage4_data_only_residual_capacity_ladder/stage4_data_only_residual_capacity_model_report.md)
   Model report for the Stage 4 direct, pointwise-residual, bounded-residual,
@@ -386,6 +401,13 @@ This folder contains the internal project documents derived from the reference P
   preserving stable model-local derivatives; H04 remains qualified for Stage
   9.
   [Validated PDF companion](./reports/campaign_results/model_development_waves/wave_5_2/2026-07-29-18-22-31_wave52r_stage8_weak_forward_compliance_priors_results_report.pdf).
+
+- [reports/campaign_results/model_development_waves/wave_5_2/2026-07-29-19-52-39_wave52r_stage9_temporal_analytical_residual_models_results_report.md](./reports/campaign_results/model_development_waves/wave_5_2/2026-07-29-19-52-39_wave52r_stage9_temporal_analytical_residual_models_results_report.md)
+  Completed Stage 9 ten-entry causal temporal analytical-residual screen. K01
+  materially improves raw, mean, and centered-shape error, but no candidate
+  passes the complete closure, P95, and declared chunk-equivalence gate. K01
+  is retained as a qualified research component without promotion.
+  [Validated PDF companion](./reports/campaign_results/model_development_waves/wave_5_2/2026-07-29-19-52-39_wave52r_stage9_temporal_analytical_residual_models_results_report.pdf).
 
 - [reports/analysis/model_development_waves/wave_5_2/physics_guided_pinn_reassessment/[2026-07-27]/physics_guided_pinn_reassessment_report.md](./reports/analysis/model_development_waves/wave_5_2/physics_guided_pinn_reassessment/%5B2026-07-27%5D/physics_guided_pinn_reassessment_report.md)
   Detailed reassessment of how analytical structure, weak physical priors,

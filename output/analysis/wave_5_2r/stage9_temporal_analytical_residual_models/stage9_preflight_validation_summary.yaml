@@ -1,0 +1,27 @@
+schema_version: 1
+stage: wave_5_2r_stage9
+all_checks_passed: true
+curve_count: 966
+split_counts:
+  train: 675
+  validation: 194
+  test: 97
+split_signature: c1aa8718fb9bf88cc2021c121dc4f3b4010fc1d2e45ac90af5f4376aa64f8e16
+candidate_count: 10
+accepted_gru_replay_shape:
+- 97
+- 2048
+accepted_gru_historical_split_counts:
+- 1356
+- 388
+- 194
+accepted_gru_is_external_benchmark: true
+explicit_zero_state_shape:
+- 2
+- 2
+- 128
+reset_reproducibility_max_abs_deg: 0.0
+chunk_equivalence_max_abs_deg: 0.0
+finite_gradient_check_passed: true
+runtime_target_derived_input_count: 0
+device: cuda

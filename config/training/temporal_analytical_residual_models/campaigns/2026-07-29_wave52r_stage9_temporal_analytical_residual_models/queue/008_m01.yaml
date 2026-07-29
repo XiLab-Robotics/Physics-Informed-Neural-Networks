@@ -1,0 +1,30 @@
+schema_version: 1
+campaign_name: wave52r_stage9_temporal_analytical_residual_models_2026_07_29
+candidate:
+  queue_index: 8
+  candidate_id: M01
+  formulation: h04_static_mean_temporal_shape_gru
+  anchor_name: h04_mean
+  residual_mode: point
+  diagnostic_only: false
+  shuffled_training_order: false
+  curriculum_chunk_length: false
+dataset:
+  dataset_id: polished_dataset
+  input_mode: setpoints
+  surface: fw
+  curve_count: 966
+  split_counts:
+    train: 675
+    validation: 194
+    test: 97
+  split_signature: c1aa8718fb9bf88cc2021c121dc4f3b4010fc1d2e45ac90af5f4376aa64f8e16
+  angular_sample_count: 2048
+training:
+  first_screen_seed: 314159
+  conditional_stability_seed_list:
+  - 271828
+  - 161803
+  maximum_epoch_count: 48
+  curve_batch_size: 16
+  processing_chunk_length: 33

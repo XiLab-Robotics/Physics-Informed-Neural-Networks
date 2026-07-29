@@ -1,0 +1,21 @@
+schema_version: 1
+campaign_name: wave52r_stage9_temporal_analytical_residual_models_2026_07_29
+stage: wave_5_2r_stage9
+candidate_count: 10
+expected_first_screen_run_count: 10
+queue_path_list:
+- config/training/temporal_analytical_residual_models/campaigns/2026-07-29_wave52r_stage9_temporal_analytical_residual_models/queue/001_d00.yaml
+- config/training/temporal_analytical_residual_models/campaigns/2026-07-29_wave52r_stage9_temporal_analytical_residual_models/queue/002_g00.yaml
+- config/training/temporal_analytical_residual_models/campaigns/2026-07-29_wave52r_stage9_temporal_analytical_residual_models/queue/003_c00.yaml
+- config/training/temporal_analytical_residual_models/campaigns/2026-07-29_wave52r_stage9_temporal_analytical_residual_models/queue/004_r00.yaml
+- config/training/temporal_analytical_residual_models/campaigns/2026-07-29_wave52r_stage9_temporal_analytical_residual_models/queue/005_p01.yaml
+- config/training/temporal_analytical_residual_models/campaigns/2026-07-29_wave52r_stage9_temporal_analytical_residual_models/queue/006_h01.yaml
+- config/training/temporal_analytical_residual_models/campaigns/2026-07-29_wave52r_stage9_temporal_analytical_residual_models/queue/007_k01.yaml
+- config/training/temporal_analytical_residual_models/campaigns/2026-07-29_wave52r_stage9_temporal_analytical_residual_models/queue/008_m01.yaml
+- config/training/temporal_analytical_residual_models/campaigns/2026-07-29_wave52r_stage9_temporal_analytical_residual_models/queue/009_l01.yaml
+- config/training/temporal_analytical_residual_models/campaigns/2026-07-29_wave52r_stage9_temporal_analytical_residual_models/queue/010_n01.yaml
+conditional_stability_seed_list:
+- 271828
+- 161803
+technical_document_path: doc/technical/2026-07/2026-07-29/2026-07-29-18-35-28_wave52r_stage9_temporal_analytical_residual_models.md
+campaign_plan_path: doc/reports/campaign_plans/model_development_waves/wave_5_2/temporal_analytical_residual_models/2026-07-29-18-35-28_wave52r_stage9_temporal_analytical_residual_models_campaign_plan_report.md

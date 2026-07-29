@@ -707,6 +707,37 @@ derivative but materially underfit raw and mean TE. No Stage 8 candidate was
 promoted; Stage 5 H04 remains the qualified component for Stage 9 temporal
 analytical-residual modeling.
 
+## Wave 5.2R Stage 9 Temporal Analytical Residuals
+
+Validate or execute the completed ten-entry Stage 9 campaign:
+
+```powershell
+.\scripts\campaigns\wave_5_2\run_wave52r_stage9_temporal_analytical_residual_models.ps1 `
+  -PreflightOnly
+
+.\scripts\campaigns\wave_5_2\run_wave52r_stage9_temporal_analytical_residual_models.ps1 `
+  -Run
+
+.\scripts\campaigns\wave_5_2\run_wave52r_stage9_temporal_analytical_residual_models.ps1 `
+  -Remote -Run
+```
+
+All `10 / 10` entries completed. K01, a causal GRU that corrects H04 harmonic
+coefficients, improved H04 by `20.53%` raw, `43.93%` mean, and `9.46%`
+centered-shape MAE. It was not promoted because periodic closure, per-curve
+P95, and the declared chunk-equivalence threshold did not pass. K01 is
+retained as a qualified research component for later repair or integration.
+
+The accepted temporal comparator must use the canonical
+`polished_dataset/setpoints/periodic_gru_sequence/forward` archive. To refresh
+that replay and its gates without retraining Stage 9 candidates:
+
+```powershell
+conda run --no-capture-output -n pinns_env python -B `
+  scripts/campaigns/wave_5_2/run_wave52r_stage9_temporal_analytical_residual_models.py `
+  --refresh-accepted-replay
+```
+
 ## Phase 0 PINN Foundation Audit
 
 Run the full-population foundation audit:

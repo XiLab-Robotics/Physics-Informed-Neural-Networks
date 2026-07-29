@@ -2,12 +2,12 @@
 
 ## Executive Snapshot
 
-- Generated At: `2026-07-29T18:30:16`
+- Generated At: `2026-07-29T19:56:30`
 - Program State: active.
 - Current Completed Wave: polished-dataset RCIM, early-wave, and full-wave
 - Current Focus: `Wave 5.2R` physics-guided forward reassessment execution,
 - Active Campaign Status: `completed`
-- Active Campaign Name: `wave52r_stage8_weak_forward_compliance_priors_2026_07_29`
+- Active Campaign Name: `wave52r_stage9_temporal_analytical_residual_models_2026_07_29`
 - Current Program Winner: `te_periodic_gru_sequence_bw` | Family `periodic_gru_sequence_bw` | Test MAE `0.001084`
 
 ## Main Takeaways
@@ -1096,6 +1096,24 @@ At the current repository state, the comparison is explicitly `offline-only`. A 
 | 13 | `2026-07-29-15-34-15__stage6_si00` | `unknown` | N/A | N/A | N/A | N/A | N/A | N/A | Unknown | Unknown | `standalone_or_unknown` |
 | 14 | `2026-07-29-15-34-15__stage6_si01` | `unknown` | N/A | N/A | N/A | N/A | N/A | N/A | Unknown | Unknown | `standalone_or_unknown` |
 | 15 | `2026-07-29-15-34-16__stage6_w01` | `unknown` | N/A | N/A | N/A | N/A | N/A | N/A | Unknown | Unknown | `standalone_or_unknown` |
+
+#### temporal_analytical_residual_models
+
+- Best run: `N/A`
+- Best test MAE: `N/A`
+- Completed tracked runs: `8`
+- Known failed campaign attempts: `0`
+
+| Rank | Run | Model Type | Test MAE [deg] | Test RMSE [deg] | Val MAE [deg] | Params | Duration | Artifact Size | Model Complexity | Training Heaviness | Campaign |
+| --- | --- | --- | ---: | ---: | ---: | ---: | --- | --- | --- | --- | --- |
+| 1 | `2026-07-29-18-58-22__stage9_c00` | `unknown` | N/A | N/A | N/A | N/A | N/A | N/A | Unknown | Unknown | `standalone_or_unknown` |
+| 2 | `2026-07-29-19-03-40__stage9_r00` | `unknown` | N/A | N/A | N/A | N/A | N/A | N/A | Unknown | Unknown | `standalone_or_unknown` |
+| 3 | `2026-07-29-19-08-59__stage9_p01` | `unknown` | N/A | N/A | N/A | N/A | N/A | N/A | Unknown | Unknown | `standalone_or_unknown` |
+| 4 | `2026-07-29-19-14-33__stage9_h01` | `unknown` | N/A | N/A | N/A | N/A | N/A | N/A | Unknown | Unknown | `standalone_or_unknown` |
+| 5 | `2026-07-29-19-21-15__stage9_k01` | `unknown` | N/A | N/A | N/A | N/A | N/A | N/A | Unknown | Unknown | `standalone_or_unknown` |
+| 6 | `2026-07-29-19-24-41__stage9_m01` | `unknown` | N/A | N/A | N/A | N/A | N/A | N/A | Unknown | Unknown | `standalone_or_unknown` |
+| 7 | `2026-07-29-19-34-56__stage9_l01` | `unknown` | N/A | N/A | N/A | N/A | N/A | N/A | Unknown | Unknown | `standalone_or_unknown` |
+| 8 | `2026-07-29-19-40-16__stage9_n01` | `unknown` | N/A | N/A | N/A | N/A | N/A | N/A | Unknown | Unknown | `standalone_or_unknown` |
 
 #### track2f_bis_clean_sequential_residual_offset_global
 

@@ -1,0 +1,29 @@
+schema_version: 1
+stage: Wave 5.2R Stage 9
+status: completed_without_promotion
+first_screen_completed_count: 10
+first_screen_failed_count: 0
+stability_completed_count: 0
+raw_error_leader_id: K01
+recommended_candidate_id: null
+passing_candidate_id_list: []
+k01_metrics:
+  mae_deg: 0.0013715533536374368
+  mean_mae_deg: 0.0004958660145720023
+  centered_shape_mae_deg: 0.001227269761502764
+  sobolev_derivative_mae: 0.26880707044411084
+  periodic_closure_error_deg: 0.0006385078442465398
+  per_curve_mae_p95: 0.004148434427621059
+  chunk_equivalence_max_abs_deg: 2.8401613235473633e-05
+k01_improvement_percent_vs_h04:
+  raw_mae: 20.530399046233445
+  mean_mae: 43.93184908580758
+  shape_mae: 9.461878559678265
+accepted_gru_replay:
+  candidate_id: G00
+  mae_deg: 0.0019246894549618256
+  checkpoint_path: output/training_runs/periodic_gru_sequence/2026-07-08-22-57-44__te_periodic_gru_sequence_fw__polished_setpoints/checkpoints/periodic_gru_sequence-epoch=091-val_mae=0.00183161.ckpt
+  contract: polished_dataset setpoints forward
+decision: Retain K01 as a qualified research component, but do not promote it because closure, P95, and
+  declared chunk-equivalence gates failed.
+next_stage: Wave 5.2R Stage 10 sparse and symbolic formulation discovery
