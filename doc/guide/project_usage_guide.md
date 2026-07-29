@@ -738,6 +738,27 @@ conda run --no-capture-output -n pinns_env python -B `
   --refresh-accepted-replay
 ```
 
+## Wave 5.2R Stage 10 Sparse And Symbolic Discovery
+
+Validate or execute the completed ten-entry Stage 10 campaign:
+
+```powershell
+.\scripts\campaigns\wave_5_2\run_wave52r_stage10_sparse_symbolic_discovery.ps1 `
+  -PreflightOnly
+
+.\scripts\campaigns\wave_5_2\run_wave52r_stage10_sparse_symbolic_discovery.ps1 `
+  -Run
+
+.\scripts\campaigns\wave_5_2\run_wave52r_stage10_sparse_symbolic_discovery.ps1 `
+  -Remote -Run
+```
+
+All `10 / 10` entries completed. Dense extended-library R00 improved raw and
+mean error over the complete-quadratic Q00 control, confirming useful nonlinear
+condition interactions. No sparse or symbolic formulation simultaneously
+improved centered shape, met the `40%` active-slot limit, and preserved the
+required bootstrap sign stability. No explicit law was promoted.
+
 ## Phase 0 PINN Foundation Audit
 
 Run the full-population foundation audit:

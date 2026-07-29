@@ -1,0 +1,9 @@
+schema_version: 1
+campaign_name: wave52r_stage10_sparse_symbolic_discovery_2026_07_29
+queue_index: 2
+candidate_id: D01
+formulation: frozen_h04
+library_name: none
+fit_mode: replay
+diagnostic_only: true
+random_seed: 314159

@@ -1,0 +1,9 @@
+schema_version: 1
+campaign_name: wave52r_stage10_sparse_symbolic_discovery_2026_07_29
+queue_index: 10
+candidate_id: N01
+formulation: shuffled_label_stability_control
+library_name: extended
+fit_mode: shuffled
+diagnostic_only: false
+random_seed: 314159

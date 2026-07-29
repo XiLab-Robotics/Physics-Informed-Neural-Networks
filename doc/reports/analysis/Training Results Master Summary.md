@@ -2,12 +2,12 @@
 
 ## Executive Snapshot
 
-- Generated At: `2026-07-29T19:56:30`
+- Generated At: `2026-07-29T20:26:28`
 - Program State: active.
 - Current Completed Wave: polished-dataset RCIM, early-wave, and full-wave
 - Current Focus: `Wave 5.2R` physics-guided forward reassessment execution,
 - Active Campaign Status: `completed`
-- Active Campaign Name: `wave52r_stage9_temporal_analytical_residual_models_2026_07_29`
+- Active Campaign Name: `wave52r_stage10_sparse_symbolic_discovery_2026_07_29`
 - Current Program Winner: `te_periodic_gru_sequence_bw` | Family `periodic_gru_sequence_bw` | Test MAE `0.001084`
 
 ## Main Takeaways
@@ -1071,6 +1071,23 @@ At the current repository state, the comparison is explicitly `offline-only`. A 
 | Rank | Run | Model Type | Test MAE [deg] | Test RMSE [deg] | Val MAE [deg] | Params | Duration | Artifact Size | Model Complexity | Training Heaviness | Campaign |
 | --- | --- | --- | ---: | ---: | ---: | ---: | --- | --- | --- | --- | --- |
 | 1 | `te_sequential_residual_offset_probe_remote_global` | `sequential_residual_offset_probe` | 0.003537 | 0.004005 | 0.003783 | 92,802 | 9m 22s | 1.09 MB | High | Low | `track2f_offset_aware_probe_campaign_2026_06_03` |
+
+#### sparse_symbolic_formulation_discovery
+
+- Best run: `N/A`
+- Best test MAE: `N/A`
+- Completed tracked runs: `7`
+- Known failed campaign attempts: `0`
+
+| Rank | Run | Model Type | Test MAE [deg] | Test RMSE [deg] | Val MAE [deg] | Params | Duration | Artifact Size | Model Complexity | Training Heaviness | Campaign |
+| --- | --- | --- | ---: | ---: | ---: | ---: | --- | --- | --- | --- | --- |
+| 1 | `2026-07-29-20-21-49__stage10_q00` | `unknown` | N/A | N/A | N/A | N/A | N/A | N/A | Unknown | Unknown | `standalone_or_unknown` |
+| 2 | `2026-07-29-20-21-50__stage10_r00` | `unknown` | N/A | N/A | N/A | N/A | N/A | N/A | Unknown | Unknown | `standalone_or_unknown` |
+| 3 | `2026-07-29-20-21-54__stage10_s01` | `unknown` | N/A | N/A | N/A | N/A | N/A | N/A | Unknown | Unknown | `standalone_or_unknown` |
+| 4 | `2026-07-29-20-21-59__stage10_s02` | `unknown` | N/A | N/A | N/A | N/A | N/A | N/A | Unknown | Unknown | `standalone_or_unknown` |
+| 5 | `2026-07-29-20-22-03__stage10_s03` | `unknown` | N/A | N/A | N/A | N/A | N/A | N/A | Unknown | Unknown | `standalone_or_unknown` |
+| 6 | `2026-07-29-20-22-08__stage10_y01` | `unknown` | N/A | N/A | N/A | N/A | N/A | N/A | Unknown | Unknown | `standalone_or_unknown` |
+| 7 | `2026-07-29-20-22-12__stage10_n01` | `unknown` | N/A | N/A | N/A | N/A | N/A | N/A | Unknown | Unknown | `standalone_or_unknown` |
 
 #### spectral_sobolev_guidance
 

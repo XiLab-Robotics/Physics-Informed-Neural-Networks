@@ -29,14 +29,14 @@ closeout that changes any of these surfaces:
 | Current accepted forward curve-verified leader | `rcim_retuned_GBM19_Fw`; polished refreshed-source leader `polished_rcim_model_bank_reproduction_ET19_Fw`; polished model-development fallback `polished_periodic_gru_sequence_Fw` |
 | Current accepted backward curve-verified leader | `polished_periodic_gru_sequence_Bw` |
 | Current accepted global neural curve-verified leader | `polished_periodic_gru_sequence_global` |
-| Latest normal campaign closeout | Wave 5.2R Stage 9 temporal analytical-residual screen, `10 / 10` entries completed on `2026-07-29`; K01 materially improved raw, mean, and shape error, but no candidate passed closure, P95, and declared chunk-equivalence gates |
+| Latest normal campaign closeout | Wave 5.2R Stage 10 sparse-symbolic formulation discovery, `10 / 10` entries completed on `2026-07-29`; the extended dense library improved raw and mean error, but no compact stable law passed the complete gate |
 | Latest non-training PINN gate | Phase 15 audited four evidence files and all five physics-integrated Wave 6 prerequisites; all five fail, so the sixteen-phase roadmap closed without training or automatic advancement |
 | Latest official TE Curve Verification refresh | polished-dataset RCIM, early-wave, and full-wave refresh, dated `2026-07-03` |
 | Latest curve-verification decision | six-cell non-MMT reduced comparison closed on `2026-07-24`; periodic GRU recommended in four cells and periodic harmonic MLP in two; no official promotion |
 | Latest pruning decision | `2026-07-17` shape-first intermediate model-selection cleanup; `global` remains paused until final backlog stage |
 | Active report generation | six reduced selected-model reports completed for polished setpoints, simplified setpoints, and polished actual values, each split into `forward` and `backward` |
 | Current TE Curve Verification Pipeline selection policy | multi-index curve-first selection, dated `2026-06-16` |
-| Next modeling decision | Execute `Wave 5.2R` Stage 10 Sparse And Symbolic Formulation Discovery. Preserve H04 and Stage 9 K01 as qualified research components without official promotion; physics-integrated Wave 6 remains closed. |
+| Next modeling decision | Execute `Wave 5.2R` Stage 11 Uncertainty And Physics-Trust Calibration. Preserve H04 and Stage 9 K01 as qualified research components and Stage 10 dense-library gain as diagnostic evidence; physics-integrated Wave 6 remains closed. |
 
 The repository remains direction-parallel. `Fw`, `Bw`, and `global` are not a
 single destructive competition. Each surface keeps its own best candidate and
@@ -185,7 +185,7 @@ robustness, visual-evidence, and deployment-readiness axes visible.
 | Wave 5.2 Phase 15 Wave 6 entry | completed no-entry closeout | Four evidence files and five entry prerequisites were audited. All five physics-integrated prerequisites fail. | Authorize no physics-integrated Wave 6 campaign and no automatic phase advance. Empirical multi-task research remains separate. |
 | Wave 5.2 general full-PINN program | Phases 0 through 15 complete; evidence closeout | All mechanisms are preserved with explicit empirical, rejected, offline, synthetic, deferred, blocked, or no-entry decisions. | Reopen only when a recorded evidence gate changes. |
 | Wave 5.2 complete theory-validation program | completed 16 of 16 | The program covered foundations, isolated formulations, synthetic and offline oracles, causal reconstruction, instrumentation, tournament, integration, and Wave 6 entry. | Preserve the closeout; do not weaken full-PINN or Wave 6 entry definitions. |
-| Wave 5.2R polished-setpoint forward physics-guided reassessment | Stages 0 through 9 of 16 complete | Stage 9 completed 10 of 10 entries without failure. K01 improved H04 by 20.53% raw, 43.93% mean, and 9.46% centered-shape MAE, but failed closure, P95, and declared chunk-equivalence gates. | Promote no Stage 9 candidate. Retain K01 as a qualified research component and advance to Stage 10 sparse and symbolic formulation discovery. |
+| Wave 5.2R polished-setpoint forward physics-guided reassessment | Stages 0 through 10 of 16 complete | Stage 10 completed 10 of 10 entries without failure. Dense R00 improved raw and mean error over Q00, but no sparse or symbolic candidate improved centered shape while meeting complexity and bootstrap-stability gates. | Promote no explicit Stage 10 law. Preserve the dense-library gain as diagnostic evidence and advance to Stage 11 uncertainty and physics-trust calibration. |
 | Wave 5.2 paper-faithful MMT full PINN | deferred future TODO | MMT diagnostics, parameter inventory, `Wave 5.2B`, the post-causal-offset gate, exact-manifest replay, and leakage-safe explanatory rerun are complete. Contact geometry and causal observations for five equivalent-error groups remain unavailable. | Inactive without blocking the general full-PINN program. Reopen only after independent component-error measurements or validated causal contact-state reconstruction provides condition-varying physical inputs. |
 | Six-cell non-MMT reduced cross-wave comparison | closed diagnostic | Six remote selected-model reports and three direction-paired shape-gated reranks covered polished setpoints, simplified setpoints, and polished actual values. Forty-six curve collages were reviewed. | No official promotion. Periodic GRU wins four cells, periodic harmonic MLP wins two, Wave 4.1 remains the raw-error/offset ingredient, and sparse-RCIM temporal models remain reference-only. |
 | Wave 6 physics-integrated multi-task / multi-head model | entry not authorized | Intended to combine proven offset, low-frequency, centered-shape, uncertainty, mixture, and validated physics-informed mechanisms. | Reopen only after at least two complementary physical components pass isolated and integrated gates. |
@@ -309,11 +309,13 @@ models.
 9. Preserve the Stage 9 qualified-component result: K01 demonstrates that a
    causal coefficient residual can improve H04, but it is not promoted because
    closure, P95, and declared chunk-equivalence gates failed.
-10. Execute Stage 10 Sparse And Symbolic Formulation Discovery with train-only
-    identification and explicit complexity, boundary, and falsification gates.
-11. Keep physics-integrated Wave 6 closed until at least two complementary
+10. Preserve the Stage 10 negative qualification result: useful nonlinear
+    condition interactions exist, but no stable low-complexity law passed.
+11. Execute Stage 11 Uncertainty And Physics-Trust Calibration with explicit
+    error-localization and calibration gates.
+12. Keep physics-integrated Wave 6 closed until at least two complementary
    physical components pass isolated and integrated gates.
-12. Keep the paper-faithful MMT full PINN as an inactive future TODO. Reopen it
+13. Keep the paper-faithful MMT full PINN as an inactive future TODO. Reopen it
    only with new condition-varying causal physical inputs; do not let it block
    other physics-informed formulations.
 11. Do not expand the causal offset / mean calibration profile: its bounded

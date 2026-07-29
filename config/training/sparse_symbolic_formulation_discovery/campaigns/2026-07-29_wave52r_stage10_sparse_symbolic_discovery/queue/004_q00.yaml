@@ -1,0 +1,9 @@
+schema_version: 1
+campaign_name: wave52r_stage10_sparse_symbolic_discovery_2026_07_29
+queue_index: 4
+candidate_id: Q00
+formulation: complete_quadratic_coefficient_residual
+library_name: quadratic
+fit_mode: quadratic
+diagnostic_only: false
+random_seed: 314159

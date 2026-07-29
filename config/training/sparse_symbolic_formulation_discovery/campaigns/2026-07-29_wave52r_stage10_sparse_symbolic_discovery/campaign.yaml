@@ -1,0 +1,16 @@
+schema_version: 1
+campaign_name: wave52r_stage10_sparse_symbolic_discovery_2026_07_29
+stage: Wave 5.2R Stage 10
+dataset_id: polished_dataset
+input_mode: setpoints
+surface: Fw
+split_signature: c1aa8718fb9bf88cc2021c121dc4f3b4010fc1d2e45ac90af5f4376aa64f8e16
+split_counts:
+  train: 675
+  validation: 194
+  test: 97
+expected_entry_count: 10
+bootstrap_count: 96
+random_seed: 314159
+technical_document_path: doc/technical/2026-07/2026-07-29/2026-07-29-20-07-54_wave52r_stage10_sparse_and_symbolic_formulation_discovery.md
+campaign_plan_path: doc/reports/campaign_plans/model_development_waves/wave_5_2/sparse_symbolic_formulation_discovery/2026-07-29-20-07-54_wave52r_stage10_sparse_and_symbolic_formulation_discovery_campaign_plan_report.md

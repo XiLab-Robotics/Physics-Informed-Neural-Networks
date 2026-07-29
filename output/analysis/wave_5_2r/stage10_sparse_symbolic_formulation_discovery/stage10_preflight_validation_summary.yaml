@@ -1,0 +1,17 @@
+schema_version: 1
+stage: wave_5_2r_stage10
+all_checks_passed: true
+curve_count: 966
+split_counts:
+  train: 675
+  validation: 194
+  test: 97
+split_signature: c1aa8718fb9bf88cc2021c121dc4f3b4010fc1d2e45ac90af5f4376aa64f8e16
+candidate_count: 10
+quadratic_term_count: 10
+extended_term_count: 29
+symbolic_term_count: 17
+synthetic_recovery_max_abs: 1.0502709812953981e-13
+anchor_reconstruction_max_abs_deg: 3.469446951953614e-17
+periodic_endpoint_max_abs_deg: 0.0
+runtime_target_derived_input_count: 0

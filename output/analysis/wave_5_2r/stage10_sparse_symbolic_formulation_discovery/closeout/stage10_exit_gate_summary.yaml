@@ -1,0 +1,20 @@
+schema_version: 1
+stage: Wave 5.2R Stage 10
+status: completed_without_qualified_sparse_terms
+completed_entry_count: 10
+failed_entry_count: 0
+raw_error_leader_id: D02
+best_discovery_candidate_id: R00
+recommended_candidate_id: null
+passing_candidate_id_list: []
+r00_improvement_percent_vs_q00:
+  raw_mae: 8.970232975679416
+  mean_mae: 23.09855439640724
+  shape_mae: -2.050075275026688
+most_compact_real_candidate:
+  candidate_id: Y01
+  active_fraction: 0.46439628482972134
+  active_term_count: 150
+decision: The extended library contains predictive interactions, but no candidate is simultaneously stable,
+  low-complexity, and better than Q00 on raw and centered-shape error.
+next_stage: Wave 5.2R Stage 11 uncertainty and physics-trust calibration

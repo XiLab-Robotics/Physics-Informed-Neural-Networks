@@ -1,0 +1,89 @@
+schema_version: 1
+library_name: symbolic
+term_list:
+- name: one
+  expression: '1'
+  parent_name_list: []
+  library_group: quadratic
+- name: torque
+  expression: q
+  parent_name_list: []
+  library_group: quadratic
+- name: speed
+  expression: s
+  parent_name_list: []
+  library_group: quadratic
+- name: temperature
+  expression: u
+  parent_name_list: []
+  library_group: quadratic
+- name: torque_speed
+  expression: q*s
+  parent_name_list:
+  - torque
+  - speed
+  library_group: quadratic
+- name: torque_temperature
+  expression: q*u
+  parent_name_list:
+  - torque
+  - temperature
+  library_group: quadratic
+- name: speed_temperature
+  expression: s*u
+  parent_name_list:
+  - speed
+  - temperature
+  library_group: quadratic
+- name: torque_speed_temperature
+  expression: q*s*u
+  parent_name_list:
+  - torque
+  - speed
+  - temperature
+  library_group: extended
+- name: torque_signed_magnitude
+  expression: q*abs(q)
+  parent_name_list:
+  - torque
+  library_group: symbolic
+- name: speed_signed_magnitude
+  expression: s*abs(s)
+  parent_name_list:
+  - speed
+  library_group: symbolic
+- name: temperature_signed_magnitude
+  expression: u*abs(u)
+  parent_name_list:
+  - temperature
+  library_group: symbolic
+- name: torque_signed_log
+  expression: sign(q)*log1p(abs(q))
+  parent_name_list:
+  - torque
+  library_group: symbolic
+- name: speed_signed_log
+  expression: sign(s)*log1p(abs(s))
+  parent_name_list:
+  - speed
+  library_group: symbolic
+- name: temperature_signed_log
+  expression: sign(u)*log1p(abs(u))
+  parent_name_list:
+  - temperature
+  library_group: symbolic
+- name: torque_bounded
+  expression: q/(1+abs(q))
+  parent_name_list:
+  - torque
+  library_group: symbolic
+- name: speed_bounded
+  expression: s/(1+abs(s))
+  parent_name_list:
+  - speed
+  library_group: symbolic
+- name: temperature_bounded
+  expression: u/(1+abs(u))
+  parent_name_list:
+  - temperature
+  library_group: symbolic

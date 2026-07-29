@@ -1,0 +1,9 @@
+schema_version: 1
+campaign_name: wave52r_stage10_sparse_symbolic_discovery_2026_07_29
+queue_index: 5
+candidate_id: R00
+formulation: dense_ridge_extended_library
+library_name: extended
+fit_mode: ridge
+diagnostic_only: false
+random_seed: 314159

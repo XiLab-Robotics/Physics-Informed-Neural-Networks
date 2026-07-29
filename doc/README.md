@@ -319,6 +319,11 @@ This folder contains the internal project documents derived from the reference P
   state reset, analytical-residual anchors, matched controls, and temporal
   specificity tests.
 
+- [technical/2026-07/2026-07-29/2026-07-29-20-07-54_wave52r_stage10_sparse_and_symbolic_formulation_discovery.md](./technical/2026-07/2026-07-29/2026-07-29-20-07-54_wave52r_stage10_sparse_and_symbolic_formulation_discovery.md)
+  Approved Stage 10 design for train-only sparse condition-harmonic
+  identification, bootstrap stability selection, constrained symbolic
+  ablations, matched controls, and explicit complexity gates.
+
 - [reports/campaign_plans/model_development_waves/wave_5_2/data_only_residual_capacity_ladder/2026-07-27-22-39-42_wave52r_stage4_data_only_residual_capacity_ladder_campaign_plan_report.md](./reports/campaign_plans/model_development_waves/wave_5_2/data_only_residual_capacity_ladder/2026-07-27-22-39-42_wave52r_stage4_data_only_residual_capacity_ladder_campaign_plan_report.md)
   Approved Stage 4 plan for eighteen matched data-only screening runs and an
   optional four-run stability continuation.
@@ -345,6 +350,11 @@ This folder contains the internal project documents derived from the reference P
   replay, PF-A/H04 residual anchors, coefficient and mean/shape hybrids,
   context curriculum, and shuffled-order controls.
 
+- [reports/campaign_plans/model_development_waves/wave_5_2/sparse_symbolic_formulation_discovery/2026-07-29-20-07-54_wave52r_stage10_sparse_and_symbolic_formulation_discovery_campaign_plan_report.md](./reports/campaign_plans/model_development_waves/wave_5_2/sparse_symbolic_formulation_discovery/2026-07-29-20-07-54_wave52r_stage10_sparse_and_symbolic_formulation_discovery_campaign_plan_report.md)
+  Stage 10 ten-entry plan for complete-quadratic, ridge, thresholded-ridge,
+  bootstrap-stable, hierarchy-constrained, symbolic-library, and shuffled
+  coefficient-law comparisons.
+
 - [reports/analysis/model_development_waves/wave_5_2/physics_guided_pinn_reassessment/[2026-07-28]/stage5_complex_harmonic_coefficient_residuals/stage5_complex_harmonic_coefficient_residual_model_report.md](./reports/analysis/model_development_waves/wave_5_2/physics_guided_pinn_reassessment/%5B2026-07-28%5D/stage5_complex_harmonic_coefficient_residuals/stage5_complex_harmonic_coefficient_residual_model_report.md)
   Model report for representation-aligned direct-curve, direct-coefficient,
   PF-A-anchored, bounded, banded, and coefficient-surface candidates.
@@ -365,6 +375,11 @@ This folder contains the internal project documents derived from the reference P
   Model report for explicit-state causal GRUs, point and coefficient
   analytical residuals, accepted temporal replay, and shuffled-order
   specificity controls.
+
+- [reports/analysis/model_development_waves/wave_5_2/physics_guided_pinn_reassessment/[2026-07-29]/stage10_sparse_symbolic_formulation_discovery/stage10_sparse_symbolic_formulation_model_report.md](./reports/analysis/model_development_waves/wave_5_2/physics_guided_pinn_reassessment/%5B2026-07-29%5D/stage10_sparse_symbolic_formulation_discovery/stage10_sparse_symbolic_formulation_model_report.md)
+  Model report for named condition-term libraries, thresholded ridge,
+  bootstrap stability selection, hierarchy constraints, and deterministic
+  harmonic reconstruction.
 
 - [reports/analysis/model_development_waves/wave_5_2/physics_guided_pinn_reassessment/[2026-07-28]/stage4_data_only_residual_capacity_ladder/stage4_data_only_residual_capacity_model_report.md](./reports/analysis/model_development_waves/wave_5_2/physics_guided_pinn_reassessment/%5B2026-07-28%5D/stage4_data_only_residual_capacity_ladder/stage4_data_only_residual_capacity_model_report.md)
   Model report for the Stage 4 direct, pointwise-residual, bounded-residual,
@@ -408,6 +423,12 @@ This folder contains the internal project documents derived from the reference P
   passes the complete closure, P95, and declared chunk-equivalence gate. K01
   is retained as a qualified research component without promotion.
   [Validated PDF companion](./reports/campaign_results/model_development_waves/wave_5_2/2026-07-29-19-52-39_wave52r_stage9_temporal_analytical_residual_models_results_report.pdf).
+
+- [reports/campaign_results/model_development_waves/wave_5_2/2026-07-29-20-23-30_wave52r_stage10_sparse_and_symbolic_formulation_discovery_results_report.md](./reports/campaign_results/model_development_waves/wave_5_2/2026-07-29-20-23-30_wave52r_stage10_sparse_and_symbolic_formulation_discovery_results_report.md)
+  Completed Stage 10 ten-entry sparse and constrained-symbolic screen. The
+  extended dense library improves raw and mean error, but no compact law passes
+  centered-shape, complexity, and bootstrap-stability gates.
+  [Validated PDF companion](./reports/campaign_results/model_development_waves/wave_5_2/2026-07-29-20-23-30_wave52r_stage10_sparse_and_symbolic_formulation_discovery_results_report.pdf).
 
 - [reports/analysis/model_development_waves/wave_5_2/physics_guided_pinn_reassessment/[2026-07-27]/physics_guided_pinn_reassessment_report.md](./reports/analysis/model_development_waves/wave_5_2/physics_guided_pinn_reassessment/%5B2026-07-27%5D/physics_guided_pinn_reassessment_report.md)
   Detailed reassessment of how analytical structure, weak physical priors,

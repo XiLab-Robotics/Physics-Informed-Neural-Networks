@@ -1,0 +1,9 @@
+schema_version: 1
+campaign_name: wave52r_stage10_sparse_symbolic_discovery_2026_07_29
+queue_index: 9
+candidate_id: Y01
+formulation: bounded_separable_symbolic_library
+library_name: symbolic
+fit_mode: symbolic
+diagnostic_only: false
+random_seed: 314159
