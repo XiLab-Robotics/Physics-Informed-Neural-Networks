@@ -830,6 +830,27 @@ at least `256`, remained below threshold at `128` samples, and rejected
 wrong-order and shuffled-angle controls. These results certify implementation
 and detection power only; they do not promote a real-data model.
 
+## Wave 5.2R Stage 14 Cross-Formulation Forward Tournament
+
+Build the strict entry audit and tournament decision:
+
+```powershell
+conda run --no-capture-output -n pinns_env python -B `
+  scripts/analysis/wave_5_2r/stage14_cross_formulation_forward_tournament.py
+```
+
+Validate the persisted artifacts without rebuilding them:
+
+```powershell
+conda run --no-capture-output -n pinns_env python -B `
+  scripts/analysis/wave_5_2r/stage14_cross_formulation_forward_tournament.py `
+  --validate-only
+```
+
+H04 is the only eligible entrant. It is nominated for Stage 15 official
+forward verification only; the accepted GRU remains incumbent and no registry
+is changed.
+
 ## Phase 0 PINN Foundation Audit
 
 Run the full-population foundation audit:

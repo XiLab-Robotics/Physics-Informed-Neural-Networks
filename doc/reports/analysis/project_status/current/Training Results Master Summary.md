@@ -2,7 +2,7 @@
 
 ## Executive Snapshot
 
-- Generated At: `2026-07-29T23:34:07`
+- Generated At: `2026-07-29T23:46:39`
 - Program State: active.
 - Current Completed Wave: polished-dataset RCIM, early-wave, and full-wave
 - Current Focus: `Wave 5.2R` physics-guided forward reassessment execution,
@@ -16,9 +16,9 @@
 - Current plain MLP anchor: `te_feedforward_trial`
 - Active family-improvement branch count: `0`
 - Implemented and benchmarked family count: `254`
-- Wave 5.2R progress: Stages `0` through `13` of `16` complete. Stage 13
-  certified all ten synthetic oracle cases and the weak harmonic residual, but
-  changed no accepted model registry.
+- Wave 5.2R progress: Stages `0` through `14` of `16` complete. H04 is the sole
+  Stage 14 entrant and advances to official Stage 15 verification only. The
+  accepted GRU remains incumbent and registries are unchanged.
 
 ## Current Project Status
 

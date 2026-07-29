@@ -1,0 +1,233 @@
+schema_version: 1
+stage: wave52r_stage14_cross_formulation_forward_tournament
+generated_at: '2026-07-29T23:46:39+02:00'
+status: completed
+dataset_id: polished_dataset
+input_mode: setpoints
+surface: fw
+split_signature: c1aa8718fb9bf88cc2021c121dc4f3b4010fc1d2e45ac90af5f4376aa64f8e16
+audited_formulation_count: 11
+eligible_entrant_count: 1
+eligible_entrant_id_list:
+- H04
+tournament_structure: single_entrant_with_frozen_references
+balanced_nominee_id: H04
+nomination_scope: stage15_official_verification_only
+official_acceptance: false
+registry_update_authorized: false
+incumbent_forward_reference: accepted_periodic_gru_sequence_Fw
+incumbent_status: retained
+harmonic_cross_contract_ranking_permitted: false
+stage15_authorized: true
+stage15_required_work:
+- official common-surface forward curve-first verification
+- harmonic metric normalization
+- Python and ONNX numerical parity
+- TwinCAT inference graph and PLC numerical parity
+eligibility_record_list:
+- formulation_id: S4_PRIMARY
+  stage: Stage 4
+  formulation_name: PF-A residual capacity hybrids
+  isolated_gate_passed: false
+  three_seed_evaluation_completed: false
+  matched_control_beaten: false
+  leakage_and_causality_passed: true
+  complete_full_curve_payload_available: true
+  inference_path_inspectable: true
+  eligible: false
+  exclusion_reason: No primary hybrid passed the matched-control and cancellation gates.
+  primary_evidence_path: doc/reports/campaign_results/model_development_waves/wave_5_2/2026-07-28-11-26-08_wave52r_stage4_data_only_residual_capacity_ladder_results_report.md
+- formulation_id: H04
+  stage: Stage 5
+  formulation_name: bounded PF-A core-coefficient correction
+  isolated_gate_passed: true
+  three_seed_evaluation_completed: true
+  matched_control_beaten: true
+  leakage_and_causality_passed: true
+  complete_full_curve_payload_available: true
+  inference_path_inspectable: true
+  eligible: true
+  exclusion_reason: ''
+  primary_evidence_path: doc/reports/campaign_results/model_development_waves/wave_5_2/2026-07-28-16-20-55_wave52r_stage5_complex_harmonic_coefficient_residuals_results_report.md
+- formulation_id: H08
+  stage: Stage 5
+  formulation_name: broader data-selected harmonic correction
+  isolated_gate_passed: false
+  three_seed_evaluation_completed: false
+  matched_control_beaten: true
+  leakage_and_causality_passed: true
+  complete_full_curve_payload_available: true
+  inference_path_inspectable: true
+  eligible: false
+  exclusion_reason: Raw gain regressed closure and retained amplitude and phase gates.
+  primary_evidence_path: doc/reports/campaign_results/model_development_waves/wave_5_2/2026-07-28-16-20-55_wave52r_stage5_complex_harmonic_coefficient_residuals_results_report.md
+- formulation_id: S6_PRIMARY
+  stage: Stage 6
+  formulation_name: spectral, Sobolev, coordinate, and weak residuals
+  isolated_gate_passed: false
+  three_seed_evaluation_completed: false
+  matched_control_beaten: false
+  leakage_and_causality_passed: true
+  complete_full_curve_payload_available: true
+  inference_path_inspectable: true
+  eligible: false
+  exclusion_reason: No candidate passed derivative, harmonic, tail, and matched-control gates.
+  primary_evidence_path: doc/reports/campaign_results/model_development_waves/wave_5_2/2026-07-29-15-35-41_wave52r_stage6_spectral_sobolev_guidance_results_report.md
+- formulation_id: S7_PRIMARY
+  stage: Stage 7
+  formulation_name: mean and centered-shape multi-head models
+  isolated_gate_passed: false
+  three_seed_evaluation_completed: false
+  matched_control_beaten: false
+  leakage_and_causality_passed: true
+  complete_full_curve_payload_available: true
+  inference_path_inspectable: true
+  eligible: false
+  exclusion_reason: No predictive candidate passed the isolated multi-head gates.
+  primary_evidence_path: doc/reports/campaign_results/model_development_waves/wave_5_2/2026-07-29-17-47-24_wave52r_stage7_mean_centered_shape_multi_head_results_report.md
+- formulation_id: S8_PRIMARY
+  stage: Stage 8
+  formulation_name: weak forward compliance priors
+  isolated_gate_passed: false
+  three_seed_evaluation_completed: false
+  matched_control_beaten: false
+  leakage_and_causality_passed: true
+  complete_full_curve_payload_available: true
+  inference_path_inspectable: true
+  eligible: false
+  exclusion_reason: No weak prior beat data-only while preserving model-local derivatives.
+  primary_evidence_path: doc/reports/campaign_results/model_development_waves/wave_5_2/2026-07-29-18-22-31_wave52r_stage8_weak_forward_compliance_priors_results_report.md
+- formulation_id: K01
+  stage: Stage 9
+  formulation_name: causal coefficient-residual GRU
+  isolated_gate_passed: false
+  three_seed_evaluation_completed: false
+  matched_control_beaten: true
+  leakage_and_causality_passed: true
+  complete_full_curve_payload_available: true
+  inference_path_inspectable: true
+  eligible: false
+  exclusion_reason: Complete closure, P95, and chunk-equivalence gate failed; stability skipped.
+  primary_evidence_path: doc/reports/campaign_results/model_development_waves/wave_5_2/2026-07-29-19-52-39_wave52r_stage9_temporal_analytical_residual_models_results_report.md
+- formulation_id: S10_PRIMARY
+  stage: Stage 10
+  formulation_name: sparse and symbolic condition laws
+  isolated_gate_passed: false
+  three_seed_evaluation_completed: false
+  matched_control_beaten: false
+  leakage_and_causality_passed: true
+  complete_full_curve_payload_available: true
+  inference_path_inspectable: true
+  eligible: false
+  exclusion_reason: No compact law passed shape, complexity, and sign-stability gates.
+  primary_evidence_path: doc/reports/campaign_results/model_development_waves/wave_5_2/2026-07-29-20-23-30_wave52r_stage10_sparse_and_symbolic_formulation_discovery_results_report.md
+- formulation_id: S11_PRIMARY
+  stage: Stage 11
+  formulation_name: uncertainty and physics-trust calibration
+  isolated_gate_passed: false
+  three_seed_evaluation_completed: false
+  matched_control_beaten: false
+  leakage_and_causality_passed: true
+  complete_full_curve_payload_available: true
+  inference_path_inspectable: true
+  eligible: false
+  exclusion_reason: No trust component passed localization, selective-risk, and cost gates.
+  primary_evidence_path: doc/reports/campaign_results/model_development_waves/wave_5_2/2026-07-29-21-21-32_wave52r_stage11_uncertainty_and_physics_trust_calibration_results_report.md
+- formulation_id: S12_PRIMARY
+  stage: Stage 12
+  formulation_name: advanced constraint optimization
+  isolated_gate_passed: false
+  three_seed_evaluation_completed: false
+  matched_control_beaten: false
+  leakage_and_causality_passed: true
+  complete_full_curve_payload_available: true
+  inference_path_inspectable: true
+  eligible: false
+  exclusion_reason: No optimizer beat frozen K01 while preserving the complete gate.
+  primary_evidence_path: doc/reports/campaign_results/model_development_waves/wave_5_2/2026-07-29-23-10-48_wave52r_stage12_advanced_constraint_optimization_results_report.md
+- formulation_id: W01_ORACLE
+  stage: Stage 13
+  formulation_name: weak-form harmonic residual
+  isolated_gate_passed: false
+  three_seed_evaluation_completed: false
+  matched_control_beaten: false
+  leakage_and_causality_passed: true
+  complete_full_curve_payload_available: false
+  inference_path_inspectable: true
+  eligible: false
+  exclusion_reason: Synthetic certification cannot substitute for a real-data isolated gate.
+  primary_evidence_path: doc/reports/campaign_results/model_development_waves/wave_5_2/2026-07-29-23-34-07_wave52r_stage13_synthetic_weak_form_oracle_lane_results_report.md
+comparison_row_list:
+- candidate_id: H04
+  role: eligible_entrant
+  raw_mae_deg: 0.0017258842776965149
+  centered_mae_deg: 0.0013555282003006159
+  offset_abs_error_deg: 0.0008843988627133451
+  metric_contract: stage5_full_resolution_degree
+- candidate_id: PF_A_LOCAL_QUADRATIC
+  role: frozen_non_entrant_reference
+  raw_mae_deg: 0.0018070841658319636
+  centered_mae_deg: 0.0013848160711092954
+  offset_abs_error_deg: 0.0009650903815303466
+  metric_contract: phase1_full_resolution_degree
+- candidate_id: accepted_periodic_mlp_harmonic_Fw
+  role: frozen_non_entrant_reference
+  raw_mae_deg: 0.001694
+  centered_mae_deg: 0.00139
+  offset_abs_error_deg: 0.000825
+  metric_contract: cvp1.2_full_resolution_degree
+- candidate_id: accepted_periodic_gru_sequence_Fw
+  role: frozen_non_entrant_reference
+  raw_mae_deg: 0.001618
+  centered_mae_deg: 0.001382
+  offset_abs_error_deg: 0.00069
+  metric_contract: cvp1.2_full_resolution_degree
+category_row_list:
+- category: best_raw_error
+  entrant_leader: H04
+  reference_leader: accepted_periodic_gru_sequence_Fw
+  entrant_beats_reference: false
+  decision: incumbent_reference_retained
+- category: best_centered_shape
+  entrant_leader: H04
+  reference_leader: accepted_periodic_gru_sequence_Fw
+  entrant_beats_reference: true
+  decision: H04_has_compatible_shape_advantage
+- category: best_offset
+  entrant_leader: H04
+  reference_leader: accepted_periodic_gru_sequence_Fw
+  entrant_beats_reference: false
+  decision: incumbent_reference_retained
+- category: best_harmonic_fidelity
+  entrant_leader: H04
+  reference_leader: not_ranked
+  entrant_beats_reference: false
+  decision: defer_to_common_stage15_metric_contract
+- category: best_robustness
+  entrant_leader: H04
+  reference_leader: not_seed_matched
+  entrant_beats_reference: false
+  decision: H04_three_seed_gate_passed_cross_model_rank_deferred
+- category: best_interpretability
+  entrant_leader: H04
+  reference_leader: PF_A_LOCAL_QUADRATIC
+  entrant_beats_reference: false
+  decision: H04_inspectable_but_PF_A_remains_white_box_reference
+- category: best_twincat_readiness
+  entrant_leader: H04
+  reference_leader: PF_A_LOCAL_QUADRATIC
+  entrant_beats_reference: false
+  decision: H04_requires_export_and_parity_before_acceptance
+- category: recommended_balanced_candidate
+  entrant_leader: H04
+  reference_leader: accepted_periodic_gru_sequence_Fw
+  entrant_beats_reference: false
+  decision: nominate_H04_for_official_verification_not_acceptance
+h04_seed_mae_deg_list:
+- 0.0017258842776965149
+- 0.0017162401677233063
+- 0.0018051146880514754
+h04_seed_mae_mean_deg: 0.0017490797111570989
+h04_seed_mae_std_deg: 3.981784516988013e-05
+h04_checkpoint_path: output/training_runs/complex_harmonic_coefficient_residuals/2026-07-28-16-17-13__stage5_h04/best_model.pt
+h04_curve_payload_path: output/training_runs/complex_harmonic_coefficient_residuals/2026-07-28-16-17-13__stage5_h04/test_predictions.npz

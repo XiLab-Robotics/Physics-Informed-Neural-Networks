@@ -30,13 +30,14 @@ closeout that changes any of these surfaces:
 | Current accepted backward curve-verified leader | `polished_periodic_gru_sequence_Bw` |
 | Current accepted global neural curve-verified leader | `polished_periodic_gru_sequence_global` |
 | Latest normal campaign closeout | Wave 5.2R Stage 13 synthetic and weak-form oracle lane, `10 / 10` cases certified on `2026-07-29`; weak residual beat pointwise under every declared noisy comparison, but no real-data model was promoted |
+| Latest non-training tournament closeout | Wave 5.2R Stage 14 audited eleven formulation groups; H04 is the sole eligible entrant and is nominated for Stage 15 official verification only, while the accepted GRU remains incumbent |
 | Latest non-training PINN gate | Phase 15 audited four evidence files and all five physics-integrated Wave 6 prerequisites; all five fail, so the sixteen-phase roadmap closed without training or automatic advancement |
 | Latest official TE Curve Verification refresh | polished-dataset RCIM, early-wave, and full-wave refresh, dated `2026-07-03` |
 | Latest curve-verification decision | six-cell non-MMT reduced comparison closed on `2026-07-24`; periodic GRU recommended in four cells and periodic harmonic MLP in two; no official promotion |
 | Latest pruning decision | `2026-07-17` shape-first intermediate model-selection cleanup; `global` remains paused until final backlog stage |
 | Active report generation | six reduced selected-model reports completed for polished setpoints, simplified setpoints, and polished actual values, each split into `forward` and `backward` |
 | Current TE Curve Verification Pipeline selection policy | multi-index curve-first selection, dated `2026-06-16` |
-| Next modeling decision | Execute `Wave 5.2R` Stage 14 Cross-Formulation Forward Tournament. Admit only isolated real-data-qualified candidates; Stage 13 synthetic certification may support implementation and observability evidence but cannot create tournament eligibility. Physics-integrated Wave 6 remains closed. |
+| Next modeling decision | Execute `Wave 5.2R` Stage 15 Official Forward Verification And Deployment Preparation for H04 against PF-A, harmonic MLP, and GRU on one official curve-first contract. Require Python/ONNX and PLC parity before acceptance. Physics-integrated Wave 6 remains closed. |
 
 The repository remains direction-parallel. `Fw`, `Bw`, and `global` are not a
 single destructive competition. Each surface keeps its own best candidate and
@@ -185,7 +186,7 @@ robustness, visual-evidence, and deployment-readiness axes visible.
 | Wave 5.2 Phase 15 Wave 6 entry | completed no-entry closeout | Four evidence files and five entry prerequisites were audited. All five physics-integrated prerequisites fail. | Authorize no physics-integrated Wave 6 campaign and no automatic phase advance. Empirical multi-task research remains separate. |
 | Wave 5.2 general full-PINN program | Phases 0 through 15 complete; evidence closeout | All mechanisms are preserved with explicit empirical, rejected, offline, synthetic, deferred, blocked, or no-entry decisions. | Reopen only when a recorded evidence gate changes. |
 | Wave 5.2 complete theory-validation program | completed 16 of 16 | The program covered foundations, isolated formulations, synthetic and offline oracles, causal reconstruction, instrumentation, tournament, integration, and Wave 6 entry. | Preserve the closeout; do not weaken full-PINN or Wave 6 entry definitions. |
-| Wave 5.2R polished-setpoint forward physics-guided reassessment | Stages 0 through 13 of 16 complete | Stage 13 completed and certified 10 of 10 synthetic oracle cases. The weak harmonic residual remained below threshold down to 128 samples, beat pointwise residuals in all 12 noisy matched comparisons at density 256 or higher, and rejected wrong-law and shuffled controls by at least 141.08 times. | Promote no real-data model from synthetic evidence. Advance to Stage 14 and admit only candidates already qualified by isolated real-data gates. |
+| Wave 5.2R polished-setpoint forward physics-guided reassessment | Stages 0 through 14 of 16 complete | Stage 14 audited eleven formulation groups. H04 alone passed all six entry requirements. It improves PF-A and the incumbent GRU on centered shape, but the GRU remains better on raw and offset. Harmonic contracts are not yet comparable. | Nominate H04 for Stage 15 official verification only. Preserve the GRU incumbent, make no registry changes, and require common metrics plus deployment parity before acceptance. |
 | Wave 5.2 paper-faithful MMT full PINN | deferred future TODO | MMT diagnostics, parameter inventory, `Wave 5.2B`, the post-causal-offset gate, exact-manifest replay, and leakage-safe explanatory rerun are complete. Contact geometry and causal observations for five equivalent-error groups remain unavailable. | Inactive without blocking the general full-PINN program. Reopen only after independent component-error measurements or validated causal contact-state reconstruction provides condition-varying physical inputs. |
 | Six-cell non-MMT reduced cross-wave comparison | closed diagnostic | Six remote selected-model reports and three direction-paired shape-gated reranks covered polished setpoints, simplified setpoints, and polished actual values. Forty-six curve collages were reviewed. | No official promotion. Periodic GRU wins four cells, periodic harmonic MLP wins two, Wave 4.1 remains the raw-error/offset ingredient, and sparse-RCIM temporal models remain reference-only. |
 | Wave 6 physics-integrated multi-task / multi-head model | entry not authorized | Intended to combine proven offset, low-frequency, centered-shape, uncertainty, mixture, and validated physics-informed mechanisms. | Reopen only after at least two complementary physical components pass isolated and integrated gates. |
@@ -321,49 +322,52 @@ models.
 13. Preserve the completed Stage 13 synthetic certification: the weak harmonic
     residual is implementation-valid, noise-robust, and specific under its
     oracle contract, but it is not real-data promotion evidence.
-14. Execute Stage 14 Cross-Formulation Forward Tournament using only candidates
-    that already passed their isolated real-data gates.
-15. Keep physics-integrated Wave 6 closed until at least two complementary
+14. Preserve the Stage 14 entry result: H04 is the sole eligible entrant and is
+    nominated for Stage 15 verification only; K01 and synthetic weak-form
+    evidence do not satisfy tournament entry.
+15. Execute Stage 15 on one official forward curve-first contract and require
+    Python/ONNX and PLC parity before acceptance.
+16. Keep physics-integrated Wave 6 closed until at least two complementary
    physical components pass isolated and integrated gates.
-16. Keep the paper-faithful MMT full PINN as an inactive future TODO. Reopen it
+17. Keep the paper-faithful MMT full PINN as an inactive future TODO. Reopen it
    only with new condition-varying causal physical inputs; do not let it block
    other physics-informed formulations.
-17. Do not expand the causal offset / mean calibration profile: its bounded
+18. Do not expand the causal offset / mean calibration profile: its bounded
    `polished_dataset` setpoint `Fw` screen retained
    `polished_setpoints_periodic_gru_sequence_Fw` as the accepted forward
    recommendation, ranked the non-windowed causal MLP fourth, and rejected the
    time-windowed causal GRU through the shape gate.
-18. Do not expand the current shape-first distillation pilot: the bounded
+19. Do not expand the current shape-first distillation pilot: the bounded
    `polished_dataset` setpoint `Fw` screen retained
    `polished_setpoints_periodic_gru_sequence_Fw` as the accepted forward
    recommendation and ranked the distillation candidates behind both
    polished-setpoint baselines.
-19. Keep both time-windowed and non-windowed roads active as comparison
+20. Keep both time-windowed and non-windowed roads active as comparison
    categories for future designs, but require bounded curve-first evidence
    before promotion.
-20. Do not expand the current `shape_objective_periodic_mlp_harmonic_fw` pilot:
+21. Do not expand the current `shape_objective_periodic_mlp_harmonic_fw` pilot:
    the bounded `polished_dataset` setpoint `Fw` screen retained
    `polished_setpoints_periodic_gru_sequence_Fw` as the accepted forward
    recommendation and ranked the shape-objective candidate third.
-21. Do not expand the current shape-gate loss v2 checkpoint into a full matrix:
+22. Do not expand the current shape-gate loss v2 checkpoint into a full matrix:
    the bounded `polished_dataset` setpoint `Fw` screen retained
    `polished_setpoints_periodic_gru_sequence_Fw` as the accepted forward
    recommendation.
-22. Use Waves 3, 4, and 5.1 as formulation evidence for offset, centered shape,
+23. Use Waves 3, 4, and 5.1 as formulation evidence for offset, centered shape,
    robustness, uncertainty, state, harmonic structure, and residual learning;
    do not treat them as substitutes for a full PINN.
-23. Keep the shape-gated reranker as the gate before reopening any scalar
+24. Keep the shape-gated reranker as the gate before reopening any scalar
    leader: FFT
    amplitude similarity, dominant-harmonic retention, dominant-harmonic phase
    error, derivative correlation, and per-curve shape pass rate.
-24. Carry forward the temporal-window road (`periodic_gru_sequence`) as the
+25. Carry forward the temporal-window road (`periodic_gru_sequence`) as the
    current model-development recommendation. Keep non-windowed branches as
    controlled comparisons until they beat the GRU path on curve-first evidence.
-25. Keep `Wave 4.3`, `Wave 4.4`, and `Wave 5.1` branches as integration
+26. Keep `Wave 4.3`, `Wave 4.4`, and `Wave 5.1` branches as integration
    evidence only, not as current active candidates.
-26. Select one first full-PINN formulation only after equation, unit,
+27. Select one first full-PINN formulation only after equation, unit,
     observability, identifiability, causality, and analytical-oracle checks.
-27. Do not open the integrated multi-task / multi-head campaign until bounded
+28. Do not open the integrated multi-task / multi-head campaign until bounded
     PINN pilots and TE Curve Verification Pipeline evidence justify the chosen
     physics-informed ingredients.
 

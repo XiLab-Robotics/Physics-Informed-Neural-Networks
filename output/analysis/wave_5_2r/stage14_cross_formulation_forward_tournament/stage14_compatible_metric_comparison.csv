@@ -1,0 +1,5 @@
+candidate_id,role,raw_mae_deg,centered_mae_deg,offset_abs_error_deg,metric_contract
+H04,eligible_entrant,0.0017258842776965149,0.0013555282003006159,0.0008843988627133451,stage5_full_resolution_degree
+PF_A_LOCAL_QUADRATIC,frozen_non_entrant_reference,0.0018070841658319636,0.0013848160711092954,0.0009650903815303466,phase1_full_resolution_degree
+accepted_periodic_mlp_harmonic_Fw,frozen_non_entrant_reference,0.001694,0.00139,0.000825,cvp1.2_full_resolution_degree
+accepted_periodic_gru_sequence_Fw,frozen_non_entrant_reference,0.001618,0.001382,0.00069,cvp1.2_full_resolution_degree

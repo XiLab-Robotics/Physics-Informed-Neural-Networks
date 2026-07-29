@@ -29,5 +29,6 @@ repository reporting workflow.
    validate_phase5_bidirectional_identifiability_audit
    build_phase6_dynamic_observability_audit
    validate_phase6_dynamic_observability_audit
+   stage14_cross_formulation_forward_tournament
    build_physics_portfolio_feasibility_audit
    validate_physics_portfolio_feasibility_audit

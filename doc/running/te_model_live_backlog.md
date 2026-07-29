@@ -38,7 +38,7 @@ Historical rationale and approval history remain in:
 - Current Focus: `Wave 5.2R` physics-guided forward reassessment execution,
   restricted to `polished_dataset`, setpoint inputs, and `Fw`. The completed
   Phases 0 through 15 closeout remains valid and physics-integrated Wave 6
-  remains closed. Stages 0 through 13 are complete: the accepted periodic GRU,
+  remains closed. Stages 0 through 14 are complete: the accepted periodic GRU,
   periodic harmonic MLP, and `PF_A_LOCAL_QUADRATIC` are frozen as controls,
   a source-backed register separates thirteen active real-data
   techniques, eleven conditional techniques, three oracle-only techniques,
@@ -106,6 +106,11 @@ Historical rationale and approval history remain in:
   down to `128` samples, and rejected wrong-law and shuffled controls by at
   least `141.08` times. This certifies synthetic use only and promotes no
   real-data model.
+  Stage 14 then audited eleven formulation groups against six strict entry
+  requirements. H04 is the only eligible entrant. It beats PF-A across raw,
+  centered-shape, and offset metrics and passes three seeds, but the accepted
+  GRU remains better on raw and offset. H04 is nominated for Stage 15 official
+  verification only; no model is accepted and no registry changes.
 - Parallel Diagnostic Focus: component-offset, `CVP 1.4` h0 cross-check, and
   predicted-mean versus measured-h0 diagnostics are complete; `h0` is the
   correct mean-like channel to inspect, but not the confirmed sole cause of the
@@ -165,10 +170,10 @@ Historical rationale and approval history remain in:
   periodic harmonic MLP wins polished-setpoint `Bw` and simplified-setpoint
   `Fw`. Wave 4.1 remains the raw-error and offset diagnostic ingredient.
   Sparse-RCIM temporal candidates remain actual-values references only.
-- Current Next Branch: execute `Wave 5.2R` Stage 14, Cross-Formulation Forward
-  Tournament. Admit only candidates that passed isolated real-data gates.
-  Preserve Stage 13 as implementation and observability evidence only; do not
-  use synthetic certification to make an unqualified candidate eligible.
+- Current Next Branch: execute `Wave 5.2R` Stage 15, Official Forward
+  Verification And Deployment Preparation, for H04 against PF-A, the harmonic
+  MLP, and the incumbent GRU. Use one official curve-first metric contract and
+  require Python/ONNX and PLC parity before any acceptance.
 
 Current canonical status reports:
 
@@ -380,7 +385,7 @@ Next planned diagnostic and training decision branches:
 | `Wave 5.1` hybrid structured models | Combine harmonic structure, condition-conditioned residual learning, and explicit grouped treatment of stable and fragile harmonic bands. | first real `wave3_harmonic_prior_residual` campaign and official `TE Curve Verification Pipeline` verification refresh closed as a verified exploratory baseline, not promoted |
 | `Wave 5.2` general full-PINN program | Audit and test explicit differentiable physics formulations derived from harmonic behavior, the Polynomial Fourier Series law, Wave 3 through Wave 5.1 evidence, and additional references. | Phases 0 through 15 complete; no physical residual promoted and no automatic phase advance |
 | `Wave 5.2` complete theory-validation program | Preserve and falsify every ingested physical mechanism through direct-data, causal-state, offline-oracle, instrumentation, isolated-PINN, cross-formulation, and integration tests. | completed 16 of 16; physics-integrated Wave 6 entry not authorized |
-| `Wave 5.2R` polished-setpoint forward physics-guided reassessment | Reassess observable forward physics through Polynomial-Fourier residual learning, complex harmonic supervision, mean/shape heads, weak compliance, temporal residuals, adaptive loss balancing, and matched controls. | Stages 0 through 13 of 16 complete. Stage 13 certified all ten synthetic oracle cases, including a noise-robust and specific weak harmonic residual, but promoted no real-data model. Proceed to the Stage 14 tournament using isolated real-data qualification only. |
+| `Wave 5.2R` polished-setpoint forward physics-guided reassessment | Reassess observable forward physics through Polynomial-Fourier residual learning, complex harmonic supervision, mean/shape heads, weak compliance, temporal residuals, adaptive loss balancing, and matched controls. | Stages 0 through 14 of 16 complete. H04 is the only Stage 14 entrant and is nominated for Stage 15 official verification; the GRU remains incumbent and no registry changes. |
 | `Wave 5.2` paper-faithful MMT full PINN | Preserve the completed MMT evidence and reopen only if causal physical inputs become available. | deferred future TODO after the parameter-availability blocker; no MMT feature, auxiliary head, weak constraint, or MMT full PINN is authorized |
 | Intermediate shape-first model-selection cleanup | Reduce the post-retraining active set using raw error, P95, centered shape, P2P behavior, visual collage evidence, and actual-values stability. | completed; active set is `periodic_gru_sequence`, `wave4_1_mae_robust_loss`, `wave4_2_quantile_p10_p50_p90`, and `periodic_mlp_harmonic`; `periodic_lstm_sequence_Bw`, `Wave 4.3`, `Wave 4.4`, and `Wave 5.1` are closed as active branches |
 | Frequency-domain shape-gated reranker | Add measured/predicted FFT amplitude similarity, dominant-harmonic retention, dominant-harmonic phase error, robust derivative agreement, threshold sweep, and per-curve shape pass rate to future reduced reports. | completed across the six-cell non-MMT reduced pass; periodic GRU wins four cells, periodic harmonic MLP wins two, and the simplified tree scalar leader remains vetoed by weak shape retention |

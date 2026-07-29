@@ -338,6 +338,10 @@ This folder contains the internal project documents derived from the reference P
   Approved Stage 13 design for deterministic synthetic recovery,
   observability, and weak-form certification without real-data physical claims.
 
+- [technical/2026-07/2026-07-29/2026-07-29-23-43-42_wave52r_stage14_cross_formulation_forward_tournament.md](./technical/2026-07/2026-07-29/2026-07-29-23-43-42_wave52r_stage14_cross_formulation_forward_tournament.md)
+  Approved Stage 14 design for strict entrant eligibility, compatible-unit
+  tournament comparisons, and bounded Stage 15 nomination.
+
 - [reports/campaign_plans/model_development_waves/wave_5_2/data_only_residual_capacity_ladder/2026-07-27-22-39-42_wave52r_stage4_data_only_residual_capacity_ladder_campaign_plan_report.md](./reports/campaign_plans/model_development_waves/wave_5_2/data_only_residual_capacity_ladder/2026-07-27-22-39-42_wave52r_stage4_data_only_residual_capacity_ladder_campaign_plan_report.md)
   Approved Stage 4 plan for eighteen matched data-only screening runs and an
   optional four-run stability continuation.
@@ -502,6 +506,11 @@ This folder contains the internal project documents derived from the reference P
 - [reports/analysis/model_development_waves/wave_5_2/physics_guided_pinn_reassessment/[2026-07-29]/stage13_synthetic_weak_form_oracle_lane/stage13_synthetic_weak_form_oracle_model_report.md](./reports/analysis/model_development_waves/wave_5_2/physics_guided_pinn_reassessment/%5B2026-07-29%5D/stage13_synthetic_weak_form_oracle_lane/stage13_synthetic_weak_form_oracle_model_report.md)
   Analytical formulation, advantages, limitations, and implementation boundary
   for Stage 13 synthetic and weak-form certification.
+
+- [reports/analysis/model_development_waves/wave_5_2/cross_formulation_forward_tournament/[2026-07-29]/stage14_cross_formulation_forward_tournament_report.md](./reports/analysis/model_development_waves/wave_5_2/cross_formulation_forward_tournament/%5B2026-07-29%5D/stage14_cross_formulation_forward_tournament_report.md)
+  Completed Stage 14 strict-entry tournament. H04 is the sole entrant and is
+  nominated for Stage 15 verification only; the GRU remains incumbent.
+  [Validated PDF companion](./reports/analysis/model_development_waves/wave_5_2/cross_formulation_forward_tournament/%5B2026-07-29%5D/stage14_cross_formulation_forward_tournament_report.pdf).
 
 - [reports/analysis/model_development_waves/wave_5_2/physics_guided_pinn_reassessment/[2026-07-27]/physics_guided_pinn_reassessment_report.md](./reports/analysis/model_development_waves/wave_5_2/physics_guided_pinn_reassessment/%5B2026-07-27%5D/physics_guided_pinn_reassessment_report.md)
   Detailed reassessment of how analytical structure, weak physical priors,
