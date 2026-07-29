@@ -2,12 +2,12 @@
 
 ## Executive Snapshot
 
-- Generated At: `2026-07-28T16:28:34`
+- Generated At: `2026-07-29T15:40:04`
 - Program State: active.
 - Current Completed Wave: polished-dataset RCIM, early-wave, and full-wave
 - Current Focus: `Wave 5.2R` physics-guided forward reassessment execution,
 - Active Campaign Status: `completed`
-- Active Campaign Name: `wave52r_stage5_complex_harmonic_coefficient_residuals_2026_07_28`
+- Active Campaign Name: `wave52r_stage6_spectral_sobolev_guidance_2026_07_29`
 - Current Program Winner: `te_periodic_gru_sequence_bw` | Family `periodic_gru_sequence_bw` | Test MAE `0.001084`
 
 ## Main Takeaways
@@ -1054,6 +1054,31 @@ At the current repository state, the comparison is explicitly `offline-only`. A 
 | Rank | Run | Model Type | Test MAE [deg] | Test RMSE [deg] | Val MAE [deg] | Params | Duration | Artifact Size | Model Complexity | Training Heaviness | Campaign |
 | --- | --- | --- | ---: | ---: | ---: | ---: | --- | --- | --- | --- | --- |
 | 1 | `te_sequential_residual_offset_probe_remote_global` | `sequential_residual_offset_probe` | 0.003537 | 0.004005 | 0.003783 | 92,802 | 9m 22s | 1.09 MB | High | Low | `track2f_offset_aware_probe_campaign_2026_06_03` |
+
+#### spectral_sobolev_guidance
+
+- Best run: `N/A`
+- Best test MAE: `N/A`
+- Completed tracked runs: `15`
+- Known failed campaign attempts: `0`
+
+| Rank | Run | Model Type | Test MAE [deg] | Test RMSE [deg] | Val MAE [deg] | Params | Duration | Artifact Size | Model Complexity | Training Heaviness | Campaign |
+| --- | --- | --- | ---: | ---: | ---: | ---: | --- | --- | --- | --- | --- |
+| 1 | `2026-07-29-15-34-06__stage6_c01` | `unknown` | N/A | N/A | N/A | N/A | N/A | N/A | Unknown | Unknown | `standalone_or_unknown` |
+| 2 | `2026-07-29-15-34-07__stage6_c02` | `unknown` | N/A | N/A | N/A | N/A | N/A | N/A | Unknown | Unknown | `standalone_or_unknown` |
+| 3 | `2026-07-29-15-34-08__stage6_c03` | `unknown` | N/A | N/A | N/A | N/A | N/A | N/A | Unknown | Unknown | `standalone_or_unknown` |
+| 4 | `2026-07-29-15-34-08__stage6_c04` | `unknown` | N/A | N/A | N/A | N/A | N/A | N/A | Unknown | Unknown | `standalone_or_unknown` |
+| 5 | `2026-07-29-15-34-09__stage6_d01` | `unknown` | N/A | N/A | N/A | N/A | N/A | N/A | Unknown | Unknown | `standalone_or_unknown` |
+| 6 | `2026-07-29-15-34-10__stage6_s02` | `unknown` | N/A | N/A | N/A | N/A | N/A | N/A | Unknown | Unknown | `standalone_or_unknown` |
+| 7 | `2026-07-29-15-34-11__stage6_ds01` | `unknown` | N/A | N/A | N/A | N/A | N/A | N/A | Unknown | Unknown | `standalone_or_unknown` |
+| 8 | `2026-07-29-15-34-12__stage6_ds02` | `unknown` | N/A | N/A | N/A | N/A | N/A | N/A | Unknown | Unknown | `standalone_or_unknown` |
+| 9 | `2026-07-29-15-34-13__stage6_cu01` | `unknown` | N/A | N/A | N/A | N/A | N/A | N/A | Unknown | Unknown | `standalone_or_unknown` |
+| 10 | `2026-07-29-15-34-13__stage6_fi01` | `unknown` | N/A | N/A | N/A | N/A | N/A | N/A | Unknown | Unknown | `standalone_or_unknown` |
+| 11 | `2026-07-29-15-34-14__stage6_ff00` | `unknown` | N/A | N/A | N/A | N/A | N/A | N/A | Unknown | Unknown | `standalone_or_unknown` |
+| 12 | `2026-07-29-15-34-14__stage6_ff01` | `unknown` | N/A | N/A | N/A | N/A | N/A | N/A | Unknown | Unknown | `standalone_or_unknown` |
+| 13 | `2026-07-29-15-34-15__stage6_si00` | `unknown` | N/A | N/A | N/A | N/A | N/A | N/A | Unknown | Unknown | `standalone_or_unknown` |
+| 14 | `2026-07-29-15-34-15__stage6_si01` | `unknown` | N/A | N/A | N/A | N/A | N/A | N/A | Unknown | Unknown | `standalone_or_unknown` |
+| 15 | `2026-07-29-15-34-16__stage6_w01` | `unknown` | N/A | N/A | N/A | N/A | N/A | N/A | Unknown | Unknown | `standalone_or_unknown` |
 
 #### track2f_bis_clean_sequential_residual_offset_global
 

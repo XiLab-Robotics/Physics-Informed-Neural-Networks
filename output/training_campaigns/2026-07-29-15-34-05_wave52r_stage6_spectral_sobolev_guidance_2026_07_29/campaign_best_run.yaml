@@ -1,0 +1,9 @@
+schema_version: 1
+campaign_name: wave52r_stage6_spectral_sobolev_guidance_2026_07_29
+selection_basis: first_screen_test_raw_mae
+candidate_id: FI01
+run_instance_id: 2026-07-29-15-34-13__stage6_fi01
+test_mae_deg: 0.0017106383480172348
+checkpoint_path: output/training_runs/spectral_sobolev_guidance/2026-07-29-15-34-13__stage6_fi01/best_model.pt
+multi_index_recommended_candidate_id: null
+stability_passed: false

@@ -14,6 +14,7 @@ Models API
    quasi_static_compliance_pinn_network
    residual_harmonic_network
    residual_harmonic_temporal_sequence_network
+   spectral_sobolev_guided_residual_network
    temporal_sequence_network
    wave3_grouped_harmonic_heads_network
    wave3_harmonic_prior_residual_network

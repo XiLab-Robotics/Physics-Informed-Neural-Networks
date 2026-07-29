@@ -1,0 +1,27 @@
+schema_version: 1
+campaign_name: wave52r_stage6_spectral_sobolev_guidance_2026_07_29
+campaign_type: wave_5_2r_stage6_spectral_sobolev_guidance
+status: prepared
+prepared_at: '2026-07-29T15:34:04+02:00'
+expected_run_count: 15
+dataset: polished_dataset
+input_mode: setpoints
+surface: Fw
+split_signature: c1aa8718fb9bf88cc2021c121dc4f3b4010fc1d2e45ac90af5f4376aa64f8e16
+angular_sample_count: 2048
+queue_path_list:
+- config/training/spectral_sobolev_guidance/campaigns/2026-07-29_wave52r_stage6_spectral_sobolev_guidance/queue/001_c01.yaml
+- config/training/spectral_sobolev_guidance/campaigns/2026-07-29_wave52r_stage6_spectral_sobolev_guidance/queue/002_c02.yaml
+- config/training/spectral_sobolev_guidance/campaigns/2026-07-29_wave52r_stage6_spectral_sobolev_guidance/queue/003_c03.yaml
+- config/training/spectral_sobolev_guidance/campaigns/2026-07-29_wave52r_stage6_spectral_sobolev_guidance/queue/004_c04.yaml
+- config/training/spectral_sobolev_guidance/campaigns/2026-07-29_wave52r_stage6_spectral_sobolev_guidance/queue/005_d01.yaml
+- config/training/spectral_sobolev_guidance/campaigns/2026-07-29_wave52r_stage6_spectral_sobolev_guidance/queue/006_s02.yaml
+- config/training/spectral_sobolev_guidance/campaigns/2026-07-29_wave52r_stage6_spectral_sobolev_guidance/queue/007_ds01.yaml
+- config/training/spectral_sobolev_guidance/campaigns/2026-07-29_wave52r_stage6_spectral_sobolev_guidance/queue/008_ds02.yaml
+- config/training/spectral_sobolev_guidance/campaigns/2026-07-29_wave52r_stage6_spectral_sobolev_guidance/queue/009_cu01.yaml
+- config/training/spectral_sobolev_guidance/campaigns/2026-07-29_wave52r_stage6_spectral_sobolev_guidance/queue/010_fi01.yaml
+- config/training/spectral_sobolev_guidance/campaigns/2026-07-29_wave52r_stage6_spectral_sobolev_guidance/queue/011_ff00.yaml
+- config/training/spectral_sobolev_guidance/campaigns/2026-07-29_wave52r_stage6_spectral_sobolev_guidance/queue/012_ff01.yaml
+- config/training/spectral_sobolev_guidance/campaigns/2026-07-29_wave52r_stage6_spectral_sobolev_guidance/queue/013_si00.yaml
+- config/training/spectral_sobolev_guidance/campaigns/2026-07-29_wave52r_stage6_spectral_sobolev_guidance/queue/014_si01.yaml
+- config/training/spectral_sobolev_guidance/campaigns/2026-07-29_wave52r_stage6_spectral_sobolev_guidance/queue/015_w01.yaml

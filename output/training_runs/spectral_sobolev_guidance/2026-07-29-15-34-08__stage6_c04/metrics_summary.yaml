@@ -1,0 +1,27 @@
+schema_version: 1
+candidate_id: C04
+run_instance_id: 2026-07-29-15-34-08__stage6_c04
+random_seed: 314159
+best_epoch: 24
+validation_curve_mae_deg: 0.003043566597625613
+test_metrics:
+  mae_deg: 0.003026595362355314
+  rmse_deg: 0.0033384213397997676
+  centered_mae_deg: 0.0014187145600859654
+  centered_rmse_deg: 0.0017074395363638718
+  offset_abs_error_deg: 0.002389996476789737
+  peak_to_peak_abs_error_deg: 0.0032520752675433825
+  derivative_mae_deg_per_sample: 0.0009377106236435379
+  periodic_closure_error_deg: 0.000804249173241485
+  retained_amplitude_mae_deg: 0.00026347341434159285
+  retained_phase_mae_rad: 0.4228270061396967
+  sobolev_derivative_mae: 0.2850437361518393
+  sobolev_derivative_correlation: 0.352772746999608
+  per_curve_mae_p95: 0.009500541862213899
+  per_curve_mae_worst: 0.011296328934145856
+  unsupported_high_frequency_energy_ratio: 4.3944704108451517e-10
+correction_rms_deg: 0.05563869699835777
+anchor_rms_deg: 0.0
+correction_to_anchor_rms: 55638696998.35777
+device: cuda
+checkpoint_path: output/training_runs/spectral_sobolev_guidance/2026-07-29-15-34-08__stage6_c04/best_model.pt

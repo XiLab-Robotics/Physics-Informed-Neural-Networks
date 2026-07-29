@@ -1,0 +1,123 @@
+schema_version: 1
+stage_name: wave52r_stage6_spectral_sobolev_guidance
+validated_at: '2026-07-29T15:34:05+02:00'
+candidate_count: 15
+accepted_curve_count: 966
+train_curve_count: 675
+validation_curve_count: 194
+test_curve_count: 97
+derivative_window_length: 5
+derivative_parity_max_abs_error: 1.1802893862267183e-06
+second_derivative_gate_passed: false
+second_derivative_sensitivity: 0.29514708538215606
+failure_effective_sample_ratio: 0.9844840165644818
+fourier_control_parameter_ratio: 1.0004482294935007
+siren_control_parameter_ratio: 1.0
+runtime_target_or_derivative_input_count: 0
+all_checks_passed: true
+candidate_row_list:
+- candidate_id: C01
+  model_kind: coefficient_bounded
+  trainable_parameter_count: 7123
+  loss_finite: true
+  gradient_finite: true
+  coordinate_bound_passed: true
+  zero_replay_max_abs_error: .nan
+- candidate_id: C02
+  model_kind: coefficient_bounded
+  trainable_parameter_count: 7123
+  loss_finite: true
+  gradient_finite: true
+  coordinate_bound_passed: true
+  zero_replay_max_abs_error: .nan
+- candidate_id: C03
+  model_kind: coefficient_direct
+  trainable_parameter_count: 7123
+  loss_finite: true
+  gradient_finite: true
+  coordinate_bound_passed: true
+  zero_replay_max_abs_error: .nan
+- candidate_id: C04
+  model_kind: coefficient_direct
+  trainable_parameter_count: 7651
+  loss_finite: true
+  gradient_finite: true
+  coordinate_bound_passed: true
+  zero_replay_max_abs_error: .nan
+- candidate_id: D01
+  model_kind: coefficient_bounded
+  trainable_parameter_count: 7123
+  loss_finite: true
+  gradient_finite: true
+  coordinate_bound_passed: true
+  zero_replay_max_abs_error: .nan
+- candidate_id: S02
+  model_kind: coefficient_bounded
+  trainable_parameter_count: 7651
+  loss_finite: true
+  gradient_finite: true
+  coordinate_bound_passed: true
+  zero_replay_max_abs_error: .nan
+- candidate_id: DS01
+  model_kind: coefficient_bounded
+  trainable_parameter_count: 7123
+  loss_finite: true
+  gradient_finite: true
+  coordinate_bound_passed: true
+  zero_replay_max_abs_error: .nan
+- candidate_id: DS02
+  model_kind: coefficient_bounded
+  trainable_parameter_count: 7651
+  loss_finite: true
+  gradient_finite: true
+  coordinate_bound_passed: true
+  zero_replay_max_abs_error: .nan
+- candidate_id: CU01
+  model_kind: coefficient_bounded
+  trainable_parameter_count: 7123
+  loss_finite: true
+  gradient_finite: true
+  coordinate_bound_passed: true
+  zero_replay_max_abs_error: .nan
+- candidate_id: FI01
+  model_kind: coefficient_bounded
+  trainable_parameter_count: 7123
+  loss_finite: true
+  gradient_finite: true
+  coordinate_bound_passed: true
+  zero_replay_max_abs_error: .nan
+- candidate_id: FF00
+  model_kind: coordinate_raw
+  trainable_parameter_count: 6693
+  loss_finite: true
+  gradient_finite: true
+  coordinate_bound_passed: true
+  zero_replay_max_abs_error: 0.0
+- candidate_id: FF01
+  model_kind: coordinate_fourier
+  trainable_parameter_count: 6696
+  loss_finite: true
+  gradient_finite: true
+  coordinate_bound_passed: true
+  zero_replay_max_abs_error: 0.0
+- candidate_id: SI00
+  model_kind: coordinate_tanh
+  trainable_parameter_count: 6104
+  loss_finite: true
+  gradient_finite: true
+  coordinate_bound_passed: true
+  zero_replay_max_abs_error: 0.0
+- candidate_id: SI01
+  model_kind: coordinate_siren
+  trainable_parameter_count: 6104
+  loss_finite: true
+  gradient_finite: true
+  coordinate_bound_passed: true
+  zero_replay_max_abs_error: 0.0
+- candidate_id: W01
+  model_kind: coefficient_bounded
+  trainable_parameter_count: 7123
+  loss_finite: true
+  gradient_finite: true
+  coordinate_bound_passed: true
+  zero_replay_max_abs_error: .nan

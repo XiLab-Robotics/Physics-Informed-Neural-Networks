@@ -1,0 +1,19 @@
+schema_version: 1
+stage: wave_5_2r_stage6
+status: completed_negative_result
+closed_at: '2026-07-29T15:45:41+02:00'
+first_screen_run_count: 15
+stability_run_count: 0
+failed_run_count: 0
+raw_error_leader: FI01
+raw_error_leader_mae_deg: 0.0017106383480172348
+raw_error_improvement_vs_stage5_h04_percent: 0.8833691734899131
+multi_index_recommended_candidate: null
+all_exit_gates_passed: false
+failed_decision_reason: no eligible formulation simultaneously passed derivative MAE, derivative correlation,
+  harmonic, tail, and matched-control gates
+second_derivative_guidance_enabled: false
+second_derivative_gate_passed: false
+stage5_h04_disposition: retained as the qualified structured component entering Stage 7
+official_te_curve_verification_pipeline_run: false
+next_stage: Stage 7 Mean And Centered-Shape Multi-Head Model

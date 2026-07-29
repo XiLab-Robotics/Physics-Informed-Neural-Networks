@@ -1,0 +1,47 @@
+schema_version: 1
+stage_name: wave52r_stage6_spectral_sobolev_guidance
+generated_at: '2026-07-29T15:34:04+02:00'
+dataset: polished_dataset
+input_mode: setpoints
+surface: Fw
+split_signature: c1aa8718fb9bf88cc2021c121dc4f3b4010fc1d2e45ac90af5f4376aa64f8e16
+angular_sample_count: 2048
+angular_delta_radian: 0.0030679615757712823
+derivative:
+  implementation: scipy.signal.savgol_filter
+  window_length: 5
+  polyorder: 3
+  derivative_order: 1
+  delta: 0.0030679615757712823
+  mode: wrap
+  scale: 0.490934636069327
+  selection_scope: training_only
+second_derivative:
+  sensitivity: 0.29514708538215606
+  threshold: 0.2
+  gate_passed: false
+  activated: false
+  decision: blocked_by_window_sensitivity
+failure_weighting:
+  minimum_weight: 0.6893985184800491
+  maximum_weight: 1.4769090345062574
+  mean_weight: 1.0
+  effective_sample_ratio: 0.9844840165644818
+  selection_scope: training_only_pf_a_residual
+weak_form:
+  test_function_count: 80
+  angular_window_count: 8
+  harmonic_order_list:
+  - 1
+  - 40
+  - 81
+  - 162
+  - 240
+  selection_scope: fixed_before_training
+coordinate_residual_bound:
+  minimum_deg: 0.006228788953308531
+  maximum_deg: 0.027309304248867863
+  quantile: 0.995
+  multiplier: 1.25
+  selection_scope: training_only_pf_a_residual
+runtime_target_or_derivative_input_count: 0

@@ -302,6 +302,10 @@ This folder contains the internal project documents derived from the reference P
   Automatically approved Stage 5 design for representation-aligned uniform
   full-curve training and explicit sine/cosine coefficient corrections.
 
+- [technical/2026-07/2026-07-29/2026-07-29-14-41-07_wave52r_stage6_spectral_and_sobolev_guidance.md](./technical/2026-07/2026-07-29/2026-07-29-14-41-07_wave52r_stage6_spectral_and_sobolev_guidance.md)
+  Automatically approved Stage 6 design for circular derivative, complex
+  spectral, curriculum, sampling, coordinate-network, and weak-form guidance.
+
 - [reports/campaign_plans/model_development_waves/wave_5_2/data_only_residual_capacity_ladder/2026-07-27-22-39-42_wave52r_stage4_data_only_residual_capacity_ladder_campaign_plan_report.md](./reports/campaign_plans/model_development_waves/wave_5_2/data_only_residual_capacity_ladder/2026-07-27-22-39-42_wave52r_stage4_data_only_residual_capacity_ladder_campaign_plan_report.md)
   Approved Stage 4 plan for eighteen matched data-only screening runs and an
   optional four-run stability continuation.
@@ -310,9 +314,17 @@ This folder contains the internal project documents derived from the reference P
   Approved Stage 5 plan for eighteen matched curve/coefficient screening runs
   and conditional multi-seed stability continuation.
 
+- [reports/campaign_plans/model_development_waves/wave_5_2/spectral_sobolev_guidance/2026-07-29-14-41-07_wave52r_stage6_spectral_sobolev_guidance_campaign_plan_report.md](./reports/campaign_plans/model_development_waves/wave_5_2/spectral_sobolev_guidance/2026-07-29-14-41-07_wave52r_stage6_spectral_sobolev_guidance_campaign_plan_report.md)
+  Stage 6 matched-screen plan for derivative, spectral, curriculum,
+  failure-informed, coordinate-network, and weak-form guidance above H04.
+
 - [reports/analysis/model_development_waves/wave_5_2/physics_guided_pinn_reassessment/[2026-07-28]/stage5_complex_harmonic_coefficient_residuals/stage5_complex_harmonic_coefficient_residual_model_report.md](./reports/analysis/model_development_waves/wave_5_2/physics_guided_pinn_reassessment/%5B2026-07-28%5D/stage5_complex_harmonic_coefficient_residuals/stage5_complex_harmonic_coefficient_residual_model_report.md)
   Model report for representation-aligned direct-curve, direct-coefficient,
   PF-A-anchored, bounded, banded, and coefficient-surface candidates.
+
+- [reports/analysis/model_development_waves/wave_5_2/physics_guided_pinn_reassessment/[2026-07-29]/stage6_spectral_sobolev_guidance/stage6_spectral_sobolev_guided_residual_model_report.md](./reports/analysis/model_development_waves/wave_5_2/physics_guided_pinn_reassessment/%5B2026-07-29%5D/stage6_spectral_sobolev_guidance/stage6_spectral_sobolev_guided_residual_model_report.md)
+  Model report for Stage 6 circular derivative, complex spectral, weak-form,
+  Fourier-feature, and SIREN-guided residual candidates.
 
 - [reports/analysis/model_development_waves/wave_5_2/physics_guided_pinn_reassessment/[2026-07-28]/stage4_data_only_residual_capacity_ladder/stage4_data_only_residual_capacity_model_report.md](./reports/analysis/model_development_waves/wave_5_2/physics_guided_pinn_reassessment/%5B2026-07-28%5D/stage4_data_only_residual_capacity_ladder/stage4_data_only_residual_capacity_model_report.md)
   Model report for the Stage 4 direct, pointwise-residual, bounded-residual,
@@ -330,6 +342,12 @@ This folder contains the internal project documents derived from the reference P
   Bounded PF-A-anchored core-order H04 passes all ten isolated-component gates
   and advances to Stage 6; H08 remains a raw-error-only leader.
   [Validated PDF companion](./reports/campaign_results/model_development_waves/wave_5_2/2026-07-28-16-20-55_wave52r_stage5_complex_harmonic_coefficient_residuals_results_report.pdf).
+
+- [reports/campaign_results/model_development_waves/wave_5_2/2026-07-29-15-35-41_wave52r_stage6_spectral_sobolev_guidance_results_report.md](./reports/campaign_results/model_development_waves/wave_5_2/2026-07-29-15-35-41_wave52r_stage6_spectral_sobolev_guidance_results_report.md)
+  Completed Stage 6 fifteen-run spectral and Sobolev screen. FI01 improves raw
+  MAE, but no candidate passes the complete derivative, harmonic, tail, and
+  matched-control gate; H04 remains the qualified component for Stage 7.
+  [Validated PDF companion](./reports/campaign_results/model_development_waves/wave_5_2/2026-07-29-15-35-41_wave52r_stage6_spectral_sobolev_guidance_results_report.pdf).
 
 - [reports/analysis/model_development_waves/wave_5_2/physics_guided_pinn_reassessment/[2026-07-27]/physics_guided_pinn_reassessment_report.md](./reports/analysis/model_development_waves/wave_5_2/physics_guided_pinn_reassessment/%5B2026-07-27%5D/physics_guided_pinn_reassessment_report.md)
   Detailed reassessment of how analytical structure, weak physical priors,
@@ -386,6 +404,10 @@ This folder contains the internal project documents derived from the reference P
 - [scripts/campaigns/wave_5_2/run_wave52r_stage4_data_only_residual_capacity_ladder.md](./scripts/campaigns/wave_5_2/run_wave52r_stage4_data_only_residual_capacity_ladder.md)
   Local, remote, deterministic-preflight, one-batch-validation, and
   enqueue-only commands for the eighteen-arm Stage 4 capacity ladder.
+
+- [scripts/campaigns/wave_5_2/run_wave52r_stage6_spectral_sobolev_guidance.md](./scripts/campaigns/wave_5_2/run_wave52r_stage6_spectral_sobolev_guidance.md)
+  Local and remote preflight and execution commands for the fifteen-arm Stage
+  6 spectral, Sobolev, curriculum, coordinate, and weak-form campaign.
 
 - [reports/analysis/model_development_waves/wave_5_2/mmt_residual_explanatory_diagnostic/[2026-07-24]/wave52_mmt_residual_explanatory_diagnostic.md](./reports/analysis/model_development_waves/wave_5_2/mmt_residual_explanatory_diagnostic/%5B2026-07-24%5D/wave52_mmt_residual_explanatory_diagnostic.md)
   Completed non-training Wave 5.2 provenance audit. The selected residual

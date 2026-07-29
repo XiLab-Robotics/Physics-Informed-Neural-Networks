@@ -641,6 +641,27 @@ conda run --no-capture-output -n pinns_env python -B `
   --run-stability
 ```
 
+## Wave 5.2R Stage 6 Spectral And Sobolev Guidance
+
+Validate or execute the completed fifteen-run Stage 6 campaign:
+
+```powershell
+.\scripts\campaigns\wave_5_2\run_wave52r_stage6_spectral_sobolev_guidance.ps1 `
+  -PreflightOnly
+
+.\scripts\campaigns\wave_5_2\run_wave52r_stage6_spectral_sobolev_guidance.ps1 `
+  -Run
+```
+
+Both commands also accept `-Remote`. The launcher tests circular derivative,
+complex spectral, curriculum, failure-informed, coordinate-network, and
+weak-form guidance on `polished_dataset`, setpoint inputs, and `Fw`.
+
+The completed campaign ran all `15 / 15` candidates without failure. FI01
+improved raw MAE but failed the derivative gates, while W01 improved derivative
+behavior but regressed other curve-first indices. No Stage 6 candidate was
+promoted; Stage 5 H04 remains the qualified component for Stage 7.
+
 ## Phase 0 PINN Foundation Audit
 
 Run the full-population foundation audit:

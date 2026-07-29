@@ -51,7 +51,8 @@ The accepted forward references at roadmap entry are:
 | Stage 3: Analytical Anchor Reproduction And Stress Tests | completed | PF-A exactly reproduces Phase 1, all twelve gates pass, all 966 forward predictions are finite, and the supported-core deployment envelope is frozen. Stage 4 is authorized. |
 | Stage 4: Data-Only Residual Capacity Ladder | completed negative | All 18 runs completed. H08 won the scalar campaign, but every primary hybrid failed the curve-first and cancellation gates. No residual architecture advanced and no stability repeats were required. |
 | Stage 5: Complex Harmonic Coefficient Residuals | completed positive component | All 18 first-screen runs and all 4 H04 stability runs completed. H04 passed all ten isolated-component gates across three seeds and advances as a structured coefficient component; H08 remains a raw-error-only leader. |
-| Stages 6 through 15 | planned | Continue in order; training stages retain their campaign approval gates. |
+| Stage 6: Spectral And Sobolev Guidance | completed negative | All 15 candidates completed without failure. FI01 improved raw MAE by 0.88%, but no candidate passed the derivative, harmonic, tail, and matched-control gate together; stability was correctly skipped. |
+| Stages 7 through 15 | planned | Continue in order; training stages retain their campaign approval gates. |
 
 ## Non-Negotiable Experimental Contract
 
@@ -327,6 +328,15 @@ Directly address derivative and fragile-harmonic failures.
 
 The candidate must improve selected harmonic fidelity, derivative behavior,
 and P95 robustness without degrading raw error or offset.
+
+### Completed Decision
+
+All `15 / 15` candidates completed. FI01 was the raw-error leader at
+`0.001710638 deg`, `0.88%` below the frozen Stage 5 H04 seed, but slightly
+worsened Sobolev derivative MAE and derivative correlation. W01 improved the
+derivative metrics but regressed raw error, amplitude, P95, and its matched
+control comparison. No candidate passed all gates, so Stage 6 closed as a
+valid negative result without stability continuation or promotion.
 
 ## Stage 7: Mean And Centered-Shape Multi-Head Model
 
@@ -640,11 +650,11 @@ These recommendations remain outside the `Wave 5.2R` training scope.
 
 ## Governance And Execution Order
 
-Stages 0 through 5 are complete. The next executable project is:
+Stages 0 through 6 are complete. The next executable project is:
 
 ```text
-Stage 6:
-Spectral And Sobolev Guidance
+Stage 7:
+Mean And Centered-Shape Multi-Head Model
 ```
 
 Stage 5 corrected the representation mismatch exposed by Stage 4 and completed
@@ -659,8 +669,8 @@ H08 achieved the lowest single-seed raw MAE (`0.00169334 deg`) but regressed
 closure, harmonic amplitude, and phase against PF-A. It remains a
 raw-error-only diagnostic leader and does not advance.
 
-Stage 6 now tests whether explicit spectral and derivative-domain guidance
-adds value beyond the already qualified coefficient bottleneck:
+Stage 6 tested whether explicit spectral and derivative-domain guidance adds
+value beyond the already qualified coefficient bottleneck:
 
 ```text
 Instrumentation
@@ -670,5 +680,11 @@ Instrumentation
 + parameter-matched data-only controls
 ```
 
-This ordering prevents an improvement from being attributed to physics when
-it is actually caused by extra parameters or a better residual architecture.
+All fifteen candidates completed. FI01 achieved a modest raw-MAE gain, while
+W01 achieved the clearest derivative-domain gain, but neither satisfied the
+complete curve-first gate. Stage 6 therefore promotes no model and preserves
+H04 as the qualified structured component.
+
+Stage 7 now separates mean/offset from the exactly zero-mean periodic shape.
+This directly targets the offset-shape competition observed in Stage 6 while
+retaining matched controls and inspectable outputs.

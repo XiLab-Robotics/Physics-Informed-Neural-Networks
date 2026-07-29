@@ -1,0 +1,10 @@
+schema_version: 1
+status: completed
+completed_at: '2026-07-29T15:34:16+02:00'
+expected_run_count: 15
+completed_run_count: 15
+failed_run_count: 0
+stability_completed_run_count: 0
+stability_failed_run_count: 0
+raw_error_leader_id: FI01
+multi_index_recommended_candidate_id: null
