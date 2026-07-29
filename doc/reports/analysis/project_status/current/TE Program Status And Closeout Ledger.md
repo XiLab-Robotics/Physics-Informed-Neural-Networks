@@ -29,14 +29,14 @@ closeout that changes any of these surfaces:
 | Current accepted forward curve-verified leader | `rcim_retuned_GBM19_Fw`; polished refreshed-source leader `polished_rcim_model_bank_reproduction_ET19_Fw`; polished model-development fallback `polished_periodic_gru_sequence_Fw` |
 | Current accepted backward curve-verified leader | `polished_periodic_gru_sequence_Bw` |
 | Current accepted global neural curve-verified leader | `polished_periodic_gru_sequence_global` |
-| Latest normal campaign closeout | Wave 5.2R Stage 7 mean and centered-shape multi-head screen, `7 / 7` first-screen runs completed on `2026-07-29`; exact decomposition passed, no candidate passed the complete multi-index gate, and stability was correctly skipped |
+| Latest normal campaign closeout | Wave 5.2R Stage 8 weak forward-compliance screen, `10 / 10` first-screen runs completed on `2026-07-29`; the train-only population slope was positive, no weak prior beat data-only C00 with stable local derivatives, and stability was correctly skipped |
 | Latest non-training PINN gate | Phase 15 audited four evidence files and all five physics-integrated Wave 6 prerequisites; all five fail, so the sixteen-phase roadmap closed without training or automatic advancement |
 | Latest official TE Curve Verification refresh | polished-dataset RCIM, early-wave, and full-wave refresh, dated `2026-07-03` |
 | Latest curve-verification decision | six-cell non-MMT reduced comparison closed on `2026-07-24`; periodic GRU recommended in four cells and periodic harmonic MLP in two; no official promotion |
 | Latest pruning decision | `2026-07-17` shape-first intermediate model-selection cleanup; `global` remains paused until final backlog stage |
 | Active report generation | six reduced selected-model reports completed for polished setpoints, simplified setpoints, and polished actual values, each split into `forward` and `backward` |
 | Current TE Curve Verification Pipeline selection policy | multi-index curve-first selection, dated `2026-06-16` |
-| Next modeling decision | Execute `Wave 5.2R` Stage 8 Weak Forward Compliance Priors with H04 frozen as the qualified coefficient component. Stage 7 promoted no candidate; physics-integrated Wave 6 remains closed. |
+| Next modeling decision | Execute `Wave 5.2R` Stage 9 Temporal Analytical-Residual Models with H04 frozen as the qualified coefficient component and the accepted periodic GRU as the temporal benchmark. Stage 8 promoted no candidate; physics-integrated Wave 6 remains closed. |
 
 The repository remains direction-parallel. `Fw`, `Bw`, and `global` are not a
 single destructive competition. Each surface keeps its own best candidate and
@@ -185,7 +185,7 @@ robustness, visual-evidence, and deployment-readiness axes visible.
 | Wave 5.2 Phase 15 Wave 6 entry | completed no-entry closeout | Four evidence files and five entry prerequisites were audited. All five physics-integrated prerequisites fail. | Authorize no physics-integrated Wave 6 campaign and no automatic phase advance. Empirical multi-task research remains separate. |
 | Wave 5.2 general full-PINN program | Phases 0 through 15 complete; evidence closeout | All mechanisms are preserved with explicit empirical, rejected, offline, synthetic, deferred, blocked, or no-entry decisions. | Reopen only when a recorded evidence gate changes. |
 | Wave 5.2 complete theory-validation program | completed 16 of 16 | The program covered foundations, isolated formulations, synthetic and offline oracles, causal reconstruction, instrumentation, tournament, integration, and Wave 6 entry. | Preserve the closeout; do not weaken full-PINN or Wave 6 entry definitions. |
-| Wave 5.2R polished-setpoint forward physics-guided reassessment | Stages 0 through 7 of 16 complete | Stage 7 completed 7 of 7 candidates without failure. Exact mean-shape reconstruction passed, but no multi-head candidate improved the complete predictive surface. C01 improved raw and mean error while slightly worsening centered shape. | Promote no Stage 7 candidate. Preserve H04 as the qualified component and advance to Stage 8 weak forward compliance priors. |
+| Wave 5.2R polished-setpoint forward physics-guided reassessment | Stages 0 through 8 of 16 complete | Stage 8 completed 10 of 10 candidates without failure. All 512 train-only bootstraps supported a positive population torque slope, but no weak prior beat data-only C00 while preserving positive model-local derivatives. H01 enforced the sign only by underfitting raw and mean TE. | Promote no Stage 8 candidate. Preserve H04 as the qualified component and advance to Stage 9 temporal analytical-residual models. |
 | Wave 5.2 paper-faithful MMT full PINN | deferred future TODO | MMT diagnostics, parameter inventory, `Wave 5.2B`, the post-causal-offset gate, exact-manifest replay, and leakage-safe explanatory rerun are complete. Contact geometry and causal observations for five equivalent-error groups remain unavailable. | Inactive without blocking the general full-PINN program. Reopen only after independent component-error measurements or validated causal contact-state reconstruction provides condition-varying physical inputs. |
 | Six-cell non-MMT reduced cross-wave comparison | closed diagnostic | Six remote selected-model reports and three direction-paired shape-gated reranks covered polished setpoints, simplified setpoints, and polished actual values. Forty-six curve collages were reviewed. | No official promotion. Periodic GRU wins four cells, periodic harmonic MLP wins two, Wave 4.1 remains the raw-error/offset ingredient, and sparse-RCIM temporal models remain reference-only. |
 | Wave 6 physics-integrated multi-task / multi-head model | entry not authorized | Intended to combine proven offset, low-frequency, centered-shape, uncertainty, mixture, and validated physics-informed mechanisms. | Reopen only after at least two complementary physical components pass isolated and integrated gates. |
@@ -303,10 +303,12 @@ models.
 7. Preserve the Stage 7 negative result: exact decomposition improves
    interpretability, but no shared formulation improved the complete held-out
    curve surface and C01 did not improve centered shape.
-8. Execute Stage 8 Weak Forward Compliance Priors, starting with
-   diagnostic-only and sign-only formulations before broad bounds or a hard
-   equation.
-9. Keep physics-integrated Wave 6 closed until at least two complementary
+8. Preserve the Stage 8 negative result: the positive population slope does
+   not identify a pointwise stiffness residual, no weak prior beat data-only
+   C00, and the hard equation underfit raw and mean TE.
+9. Execute Stage 9 Temporal Analytical-Residual Models under a causal runtime
+   contract, with the accepted periodic GRU as the required temporal benchmark.
+10. Keep physics-integrated Wave 6 closed until at least two complementary
    physical components pass isolated and integrated gates.
 10. Keep the paper-faithful MMT full PINN as an inactive future TODO. Reopen it
    only with new condition-varying causal physical inputs; do not let it block

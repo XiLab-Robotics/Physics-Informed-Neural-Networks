@@ -2,12 +2,12 @@
 
 ## Executive Snapshot
 
-- Generated At: `2026-07-29T17:55:17`
+- Generated At: `2026-07-29T18:30:23`
 - Program State: active.
 - Current Completed Wave: polished-dataset RCIM, early-wave, and full-wave
 - Current Focus: `Wave 5.2R` physics-guided forward reassessment execution,
 - Active Campaign Status: `completed`
-- Active Campaign Name: `wave52r_stage7_mean_centered_shape_multi_head_2026_07_29`
+- Active Campaign Name: `wave52r_stage8_weak_forward_compliance_priors_2026_07_29`
 - Current Program Winner: `te_periodic_gru_sequence_bw` | Family `periodic_gru_sequence_bw` | Test MAE `0.001084`
 
 ## Main Takeaways
@@ -1467,6 +1467,25 @@ Known failed campaign attempts for this family:
 | 1 | `te_wave5_1_harmonic_prior_smooth_l1_structured_global` | `wave3_harmonic_prior_residual` | 0.002119 | 0.002712 | 0.001870 | 7,168 | 29m 36s | 0.10 MB | Low | Medium | `polished_dataset_full_wave_retraining_2026_06_22` |
 | 2 | `te_wave5_1_harmonic_prior_smooth_l1_structured_fw` | `wave3_harmonic_prior_residual` | 0.002151 | 0.002745 | 0.001912 | 7,168 | 28m 24s | 0.10 MB | Low | Medium | `polished_dataset_full_wave_retraining_2026_06_22` |
 | 3 | `te_wave5_1_harmonic_prior_smooth_l1_structured_bw` | `wave3_harmonic_prior_residual` | 0.002178 | 0.002776 | 0.001921 | 7,168 | 25m 05s | 0.10 MB | Low | Medium | `polished_dataset_full_wave_retraining_2026_06_22` |
+
+#### weak_forward_compliance_priors
+
+- Best run: `N/A`
+- Best test MAE: `N/A`
+- Completed tracked runs: `9`
+- Known failed campaign attempts: `0`
+
+| Rank | Run | Model Type | Test MAE [deg] | Test RMSE [deg] | Val MAE [deg] | Params | Duration | Artifact Size | Model Complexity | Training Heaviness | Campaign |
+| --- | --- | --- | ---: | ---: | ---: | ---: | --- | --- | --- | --- | --- |
+| 1 | `2026-07-29-18-19-22__stage8_c00` | `unknown` | N/A | N/A | N/A | N/A | N/A | N/A | Unknown | Unknown | `standalone_or_unknown` |
+| 2 | `2026-07-29-18-19-25__stage8_s01` | `unknown` | N/A | N/A | N/A | N/A | N/A | N/A | Unknown | Unknown | `standalone_or_unknown` |
+| 3 | `2026-07-29-18-19-26__stage8_b01` | `unknown` | N/A | N/A | N/A | N/A | N/A | N/A | Unknown | Unknown | `standalone_or_unknown` |
+| 4 | `2026-07-29-18-19-26__stage8_w01` | `unknown` | N/A | N/A | N/A | N/A | N/A | N/A | Unknown | Unknown | `standalone_or_unknown` |
+| 5 | `2026-07-29-18-19-27__stage8_t01` | `unknown` | N/A | N/A | N/A | N/A | N/A | N/A | Unknown | Unknown | `standalone_or_unknown` |
+| 6 | `2026-07-29-18-19-28__stage8_a01` | `unknown` | N/A | N/A | N/A | N/A | N/A | N/A | Unknown | Unknown | `standalone_or_unknown` |
+| 7 | `2026-07-29-18-19-29__stage8_r01` | `unknown` | N/A | N/A | N/A | N/A | N/A | N/A | Unknown | Unknown | `standalone_or_unknown` |
+| 8 | `2026-07-29-18-19-30__stage8_n01` | `unknown` | N/A | N/A | N/A | N/A | N/A | N/A | Unknown | Unknown | `standalone_or_unknown` |
+| 9 | `2026-07-29-18-19-31__stage8_h01` | `unknown` | N/A | N/A | N/A | N/A | N/A | N/A | Unknown | Unknown | `standalone_or_unknown` |
 
 ### Forward Models
 

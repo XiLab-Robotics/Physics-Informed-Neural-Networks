@@ -1,0 +1,27 @@
+schema_version: 1
+split_scope: training_only
+split_signature: c1aa8718fb9bf88cc2021c121dc4f3b4010fc1d2e45ac90af5f4376aa64f8e16
+training_curve_count: 675
+bootstrap_replicate_count: 512
+lower_derivative_deg_per_nm: 3.623920841172767e-05
+median_derivative_deg_per_nm: 3.665328292894992e-05
+upper_derivative_deg_per_nm: 3.713770981165579e-05
+sign_support_fraction: 1.0
+effective_stiffness_from_median_nm_per_deg: 27282.685753918333
+shuffled_lower_derivative_deg_per_nm: -3.6340597956343786e-06
+shuffled_upper_derivative_deg_per_nm: 4.142831322825486e-06
+shuffled_sign_support_fraction: 0.50390625
+temperature_edge_array_deg_c:
+- 24.5
+- 27.5
+- 32.5
+- 35.5
+temperature_lower_derivative_array_deg_per_nm:
+- 3.53305675433822e-05
+- 3.609382988758969e-05
+- 3.6716516326316885e-05
+temperature_upper_derivative_array_deg_per_nm:
+- 3.717297335228453e-05
+- 3.726319220108167e-05
+- 3.792111529745884e-05
+validation_or_test_target_used: false

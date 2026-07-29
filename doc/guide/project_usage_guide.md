@@ -684,6 +684,29 @@ curve-first surface. C01 improved raw and mean error while slightly worsening
 centered shape, so no Stage 7 candidate was promoted. Stage 8 proceeds with
 weak forward compliance priors.
 
+## Wave 5.2R Stage 8 Weak Forward Compliance Priors
+
+Validate or execute the completed ten-run Stage 8 campaign:
+
+```powershell
+.\scripts\campaigns\wave_5_2\run_wave52r_stage8_weak_forward_compliance_priors.ps1 `
+  -PreflightOnly
+
+.\scripts\campaigns\wave_5_2\run_wave52r_stage8_weak_forward_compliance_priors.ps1 `
+  -Run
+
+.\scripts\campaigns\wave_5_2\run_wave52r_stage8_weak_forward_compliance_priors.ps1 `
+  -Remote -Run
+```
+
+All `10 / 10` candidates completed. The train-only bootstrap supported a
+positive population torque slope in all `512` resamples, while shuffled torque
+returned `50.39%` positive support. No weak-prior arm beat data-only C00 while
+also preserving positive model-local derivatives. H01 enforced a positive
+derivative but materially underfit raw and mean TE. No Stage 8 candidate was
+promoted; Stage 5 H04 remains the qualified component for Stage 9 temporal
+analytical-residual modeling.
+
 ## Phase 0 PINN Foundation Audit
 
 Run the full-population foundation audit:

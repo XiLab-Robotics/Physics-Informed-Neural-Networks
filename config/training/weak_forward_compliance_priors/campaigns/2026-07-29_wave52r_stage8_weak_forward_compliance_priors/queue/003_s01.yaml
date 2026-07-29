@@ -1,0 +1,20 @@
+schema_version: 1
+stage: wave52r_stage8_weak_forward_compliance_priors
+campaign_name: wave52r_stage8_weak_forward_compliance_priors_2026_07_29
+candidate:
+  queue_index: 3
+  candidate_id: S01
+  formulation: sign_only
+  compliance_weight: 0.1
+  delayed_activation: false
+  adaptive_weight: false
+  hard_equation: false
+dataset: polished_dataset
+input_mode: setpoints
+surface: Fw
+split_signature: c1aa8718fb9bf88cc2021c121dc4f3b4010fc1d2e45ac90af5f4376aa64f8e16
+random_seed: 314159
+conditional_stability_seed_list:
+- 271828
+- 161803
+runtime_target_derived_input_count: 0

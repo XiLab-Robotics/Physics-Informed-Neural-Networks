@@ -20,4 +20,5 @@ Models API
    wave3_grouped_harmonic_heads_network
    wave3_harmonic_prior_residual_network
    wave4_mmt_diagnostic_adapter
+   weak_forward_compliance_residual_network
    model_factory

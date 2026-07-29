@@ -1,0 +1,26 @@
+schema_version: 1
+stage: wave_5_2r_stage8
+status: completed_negative_result
+closed_at: '2026-07-29T18:31:49+02:00'
+first_screen_run_count: 10
+stability_run_count: 0
+failed_run_count: 0
+train_only_bootstrap_sign_support_fraction: 1.0
+train_only_bootstrap_derivative_interval_deg_per_nm:
+- 3.623920841172767e-05
+- 3.713770981165579e-05
+shuffled_bootstrap_sign_support_fraction: 0.50390625
+raw_error_leader: C00
+raw_error_leader_mae_deg: 0.001716861714907553
+raw_error_improvement_vs_frozen_h04_percent: 0.5227794780178214
+multi_index_recommended_candidate: null
+all_exit_gates_passed: false
+failed_decision_reason: no weak compliance arm beat the data-only C00 control and preserved positive model-local
+  torque derivatives
+weak_prior_disposition: observable population compliance is supported, but the tested weak priors add
+  no predictive value over data-only fine-tuning
+hard_equation_disposition: positive derivatives are enforced, but the fixed compliance equation materially
+  underfits raw and mean TE
+stage5_h04_disposition: retained as the qualified structured component entering Stage 9
+official_te_curve_verification_pipeline_run: false
+next_stage: Stage 9 Temporal Analytical-Residual Models

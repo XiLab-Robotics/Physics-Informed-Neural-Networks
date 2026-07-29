@@ -310,6 +310,10 @@ This folder contains the internal project documents derived from the reference P
   Approved Stage 7 design for exact mean and zero-mean shape decomposition,
   matched sharing controls, and explicit gradient-conflict diagnostics.
 
+- [technical/2026-07/2026-07-29/2026-07-29-18-00-37_wave52r_stage8_weak_forward_compliance_priors.md](./technical/2026-07/2026-07-29/2026-07-29-18-00-37_wave52r_stage8_weak_forward_compliance_priors.md)
+  Approved Stage 8 design for train-only compliance bootstrap, weak sign and
+  interval priors, shuffled controls, and hard-equation falsification.
+
 - [reports/campaign_plans/model_development_waves/wave_5_2/data_only_residual_capacity_ladder/2026-07-27-22-39-42_wave52r_stage4_data_only_residual_capacity_ladder_campaign_plan_report.md](./reports/campaign_plans/model_development_waves/wave_5_2/data_only_residual_capacity_ladder/2026-07-27-22-39-42_wave52r_stage4_data_only_residual_capacity_ladder_campaign_plan_report.md)
   Approved Stage 4 plan for eighteen matched data-only screening runs and an
   optional four-run stability continuation.
@@ -326,6 +330,11 @@ This folder contains the internal project documents derived from the reference P
   Stage 7 matched screen for shared, partially shared, independent,
   gradient-conflict, analytical-mean, and analytical-shape decompositions.
 
+- [reports/campaign_plans/model_development_waves/wave_5_2/weak_forward_compliance_priors/2026-07-29-18-00-37_wave52r_stage8_weak_forward_compliance_priors_campaign_plan_report.md](./reports/campaign_plans/model_development_waves/wave_5_2/weak_forward_compliance_priors/2026-07-29-18-00-37_wave52r_stage8_weak_forward_compliance_priors_campaign_plan_report.md)
+  Stage 8 ten-candidate plan for diagnostic, sign-only, broad-bound,
+  confidence-weighted, temperature, curriculum, adaptive, shuffled, and hard
+  compliance formulations.
+
 - [reports/analysis/model_development_waves/wave_5_2/physics_guided_pinn_reassessment/[2026-07-28]/stage5_complex_harmonic_coefficient_residuals/stage5_complex_harmonic_coefficient_residual_model_report.md](./reports/analysis/model_development_waves/wave_5_2/physics_guided_pinn_reassessment/%5B2026-07-28%5D/stage5_complex_harmonic_coefficient_residuals/stage5_complex_harmonic_coefficient_residual_model_report.md)
   Model report for representation-aligned direct-curve, direct-coefficient,
   PF-A-anchored, bounded, banded, and coefficient-surface candidates.
@@ -337,6 +346,10 @@ This folder contains the internal project documents derived from the reference P
 - [reports/analysis/model_development_waves/wave_5_2/physics_guided_pinn_reassessment/[2026-07-29]/stage7_mean_centered_shape_multi_head/stage7_mean_centered_shape_multi_head_model_report.md](./reports/analysis/model_development_waves/wave_5_2/physics_guided_pinn_reassessment/%5B2026-07-29%5D/stage7_mean_centered_shape_multi_head/stage7_mean_centered_shape_multi_head_model_report.md)
   Model report for exact mean and centered-shape decomposition, matched sharing
   controls, analytical ablations, and gradient-conflict instrumentation.
+
+- [reports/analysis/model_development_waves/wave_5_2/physics_guided_pinn_reassessment/[2026-07-29]/stage8_weak_forward_compliance_priors/stage8_weak_forward_compliance_priors_model_report.md](./reports/analysis/model_development_waves/wave_5_2/physics_guided_pinn_reassessment/%5B2026-07-29%5D/stage8_weak_forward_compliance_priors/stage8_weak_forward_compliance_priors_model_report.md)
+  Model report for H04-compatible weak sign, interval, confidence,
+  temperature, curriculum, adaptive, shuffled, and hard compliance tests.
 
 - [reports/analysis/model_development_waves/wave_5_2/physics_guided_pinn_reassessment/[2026-07-28]/stage4_data_only_residual_capacity_ladder/stage4_data_only_residual_capacity_model_report.md](./reports/analysis/model_development_waves/wave_5_2/physics_guided_pinn_reassessment/%5B2026-07-28%5D/stage4_data_only_residual_capacity_ladder/stage4_data_only_residual_capacity_model_report.md)
   Model report for the Stage 4 direct, pointwise-residual, bounded-residual,
@@ -366,6 +379,13 @@ This folder contains the internal project documents derived from the reference P
   multi-head formulation passes the complete predictive gate; H04 remains the
   qualified component for Stage 8.
   [Validated PDF companion](./reports/campaign_results/model_development_waves/wave_5_2/2026-07-29-17-47-24_wave52r_stage7_mean_centered_shape_multi_head_results_report.pdf).
+
+- [reports/campaign_results/model_development_waves/wave_5_2/2026-07-29-18-22-31_wave52r_stage8_weak_forward_compliance_priors_results_report.md](./reports/campaign_results/model_development_waves/wave_5_2/2026-07-29-18-22-31_wave52r_stage8_weak_forward_compliance_priors_results_report.md)
+  Completed Stage 8 ten-run weak forward-compliance screen. The train-only
+  population slope is positive, but no weak prior beats data-only C00 while
+  preserving stable model-local derivatives; H04 remains qualified for Stage
+  9.
+  [Validated PDF companion](./reports/campaign_results/model_development_waves/wave_5_2/2026-07-29-18-22-31_wave52r_stage8_weak_forward_compliance_priors_results_report.pdf).
 
 - [reports/analysis/model_development_waves/wave_5_2/physics_guided_pinn_reassessment/[2026-07-27]/physics_guided_pinn_reassessment_report.md](./reports/analysis/model_development_waves/wave_5_2/physics_guided_pinn_reassessment/%5B2026-07-27%5D/physics_guided_pinn_reassessment_report.md)
   Detailed reassessment of how analytical structure, weak physical priors,

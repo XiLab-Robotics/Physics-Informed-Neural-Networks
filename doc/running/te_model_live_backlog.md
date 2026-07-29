@@ -22,8 +22,8 @@ Historical rationale and approval history remain in:
 ## Current Status
 
 - Program State: active.
-- Active Campaign State: none. The completed Wave 5.2R Stage 7 campaign and
-  its mean and centered-shape curve-first closeout are recorded in
+- Active Campaign State: none. The completed Wave 5.2R Stage 8 campaign and
+  its weak forward-compliance curve-first closeout are recorded in
   `doc/running/active_training_campaign.yaml`.
 - Current Completed Wave: polished-dataset RCIM, early-wave, and full-wave
   retraining closeouts plus the official `2026-07-03` TE Curve Verification
@@ -38,7 +38,7 @@ Historical rationale and approval history remain in:
 - Current Focus: `Wave 5.2R` physics-guided forward reassessment execution,
   restricted to `polished_dataset`, setpoint inputs, and `Fw`. The completed
   Phases 0 through 15 closeout remains valid and physics-integrated Wave 6
-  remains closed. Stages 0 through 7 are complete: the accepted periodic GRU,
+  remains closed. Stages 0 through 8 are complete: the accepted periodic GRU,
   periodic harmonic MLP, and `PF_A_LOCAL_QUADRATIC` are frozen as controls,
   a source-backed register separates thirteen active real-data
   techniques, eleven conditional techniques, three oracle-only techniques,
@@ -67,7 +67,12 @@ Historical rationale and approval history remain in:
   Every exact decomposition invariant passed, but shared and partially shared
   heads regressed the predictive gates. Monolithic C01 improved raw MAE by
   `0.76%` and mean MAE by `2.32%` while worsening centered-shape MAE by
-  `0.04%`; no candidate advanced and H04 remains the qualified component.
+  `0.04%`; no candidate advanced. Stage 8 then completed all `10 / 10`
+  weak-compliance candidates. Its training-only bootstrap supported a positive
+  population slope in `512 / 512` resamples, but no weak prior beat data-only
+  C00 while preserving positive model-local derivatives. H01 enforced the sign
+  only by materially underfitting raw and mean TE. No Stage 8 candidate
+  advanced and H04 remains the qualified component for Stage 9.
 - Parallel Diagnostic Focus: component-offset, `CVP 1.4` h0 cross-check, and
   predicted-mean versus measured-h0 diagnostics are complete; `h0` is the
   correct mean-like channel to inspect, but not the confirmed sole cause of the
@@ -127,10 +132,11 @@ Historical rationale and approval history remain in:
   periodic harmonic MLP wins polished-setpoint `Bw` and simplified-setpoint
   `Fw`. Wave 4.1 remains the raw-error and offset diagnostic ingredient.
   Sparse-RCIM temporal candidates remain actual-values references only.
-- Current Next Branch: execute `Wave 5.2R` Stage 8, Weak Forward Compliance
-  Priors. Freeze H04 as the qualified structured component and begin with a
-  diagnostic-only compliance head, sign-only monotonicity, and broad
-  confidence-weighted bounds before testing any hard equation.
+- Current Next Branch: execute `Wave 5.2R` Stage 9, Temporal
+  Analytical-Residual Models. Freeze H04 as the qualified structured component
+  and compare the accepted periodic GRU, parameter-matched temporal controls,
+  PF-A plus residual GRU, coefficient-residual GRU, and explicit mean-static
+  plus shape-temporal formulations under a causal runtime contract.
 
 Current canonical status reports:
 
@@ -342,7 +348,7 @@ Next planned diagnostic and training decision branches:
 | `Wave 5.1` hybrid structured models | Combine harmonic structure, condition-conditioned residual learning, and explicit grouped treatment of stable and fragile harmonic bands. | first real `wave3_harmonic_prior_residual` campaign and official `TE Curve Verification Pipeline` verification refresh closed as a verified exploratory baseline, not promoted |
 | `Wave 5.2` general full-PINN program | Audit and test explicit differentiable physics formulations derived from harmonic behavior, the Polynomial Fourier Series law, Wave 3 through Wave 5.1 evidence, and additional references. | Phases 0 through 15 complete; no physical residual promoted and no automatic phase advance |
 | `Wave 5.2` complete theory-validation program | Preserve and falsify every ingested physical mechanism through direct-data, causal-state, offline-oracle, instrumentation, isolated-PINN, cross-formulation, and integration tests. | completed 16 of 16; physics-integrated Wave 6 entry not authorized |
-| `Wave 5.2R` polished-setpoint forward physics-guided reassessment | Reassess observable forward physics through Polynomial-Fourier residual learning, complex harmonic supervision, mean/shape heads, weak compliance, temporal residuals, adaptive loss balancing, and matched controls. | Stages 0 through 7 of 16 complete; Stage 7 completed 7 of 7 runs but promoted no candidate because no multi-head formulation improved the complete raw, mean, centered-shape, harmonic, tail, and control surface. H04 remains the qualified component entering Stage 8 weak compliance. |
+| `Wave 5.2R` polished-setpoint forward physics-guided reassessment | Reassess observable forward physics through Polynomial-Fourier residual learning, complex harmonic supervision, mean/shape heads, weak compliance, temporal residuals, adaptive loss balancing, and matched controls. | Stages 0 through 8 of 16 complete; Stage 8 completed 10 of 10 runs and confirmed a positive population torque slope, but no weak compliance prior beat data-only C00 while preserving the complete curve and local-derivative gates. H04 remains the qualified component entering Stage 9 temporal analytical-residual modeling. |
 | `Wave 5.2` paper-faithful MMT full PINN | Preserve the completed MMT evidence and reopen only if causal physical inputs become available. | deferred future TODO after the parameter-availability blocker; no MMT feature, auxiliary head, weak constraint, or MMT full PINN is authorized |
 | Intermediate shape-first model-selection cleanup | Reduce the post-retraining active set using raw error, P95, centered shape, P2P behavior, visual collage evidence, and actual-values stability. | completed; active set is `periodic_gru_sequence`, `wave4_1_mae_robust_loss`, `wave4_2_quantile_p10_p50_p90`, and `periodic_mlp_harmonic`; `periodic_lstm_sequence_Bw`, `Wave 4.3`, `Wave 4.4`, and `Wave 5.1` are closed as active branches |
 | Frequency-domain shape-gated reranker | Add measured/predicted FFT amplitude similarity, dominant-harmonic retention, dominant-harmonic phase error, robust derivative agreement, threshold sweep, and per-curve shape pass rate to future reduced reports. | completed across the six-cell non-MMT reduced pass; periodic GRU wins four cells, periodic harmonic MLP wins two, and the simplified tree scalar leader remains vetoed by weak shape retention |

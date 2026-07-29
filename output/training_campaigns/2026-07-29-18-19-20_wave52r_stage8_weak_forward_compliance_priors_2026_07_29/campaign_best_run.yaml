@@ -1,0 +1,5 @@
+candidate_id: C00
+run_instance_id: 2026-07-29-18-19-22__stage8_c00
+checkpoint_path: output/training_runs/weak_forward_compliance_priors/2026-07-29-18-19-22__stage8_c00/best_model.pt
+mae_deg: 0.001716861714907553
+multi_index_recommended_candidate_id: null

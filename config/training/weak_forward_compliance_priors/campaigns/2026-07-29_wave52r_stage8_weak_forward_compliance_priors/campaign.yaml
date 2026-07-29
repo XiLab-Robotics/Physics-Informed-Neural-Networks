@@ -1,0 +1,25 @@
+schema_version: 1
+campaign_name: wave52r_stage8_weak_forward_compliance_priors_2026_07_29
+campaign_type: wave52r_stage8_weak_forward_compliance_priors
+model_family: weak_forward_compliance_priors
+dataset: polished_dataset
+input_mode: setpoints
+surface: Fw
+expected_first_screen_count: 10
+first_screen_seed: 314159
+conditional_stability_seed_list:
+- 271828
+- 161803
+queue_path_list:
+- config/training/weak_forward_compliance_priors/campaigns/2026-07-29_wave52r_stage8_weak_forward_compliance_priors/queue/001_d00.yaml
+- config/training/weak_forward_compliance_priors/campaigns/2026-07-29_wave52r_stage8_weak_forward_compliance_priors/queue/002_c00.yaml
+- config/training/weak_forward_compliance_priors/campaigns/2026-07-29_wave52r_stage8_weak_forward_compliance_priors/queue/003_s01.yaml
+- config/training/weak_forward_compliance_priors/campaigns/2026-07-29_wave52r_stage8_weak_forward_compliance_priors/queue/004_b01.yaml
+- config/training/weak_forward_compliance_priors/campaigns/2026-07-29_wave52r_stage8_weak_forward_compliance_priors/queue/005_w01.yaml
+- config/training/weak_forward_compliance_priors/campaigns/2026-07-29_wave52r_stage8_weak_forward_compliance_priors/queue/006_t01.yaml
+- config/training/weak_forward_compliance_priors/campaigns/2026-07-29_wave52r_stage8_weak_forward_compliance_priors/queue/007_a01.yaml
+- config/training/weak_forward_compliance_priors/campaigns/2026-07-29_wave52r_stage8_weak_forward_compliance_priors/queue/008_r01.yaml
+- config/training/weak_forward_compliance_priors/campaigns/2026-07-29_wave52r_stage8_weak_forward_compliance_priors/queue/009_n01.yaml
+- config/training/weak_forward_compliance_priors/campaigns/2026-07-29_wave52r_stage8_weak_forward_compliance_priors/queue/010_h01.yaml
+technical_document_path: doc/technical/2026-07/2026-07-29/2026-07-29-18-00-37_wave52r_stage8_weak_forward_compliance_priors.md
+campaign_plan_path: doc/reports/campaign_plans/model_development_waves/wave_5_2/weak_forward_compliance_priors/2026-07-29-18-00-37_wave52r_stage8_weak_forward_compliance_priors_campaign_plan_report.md

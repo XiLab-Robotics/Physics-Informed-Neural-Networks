@@ -417,6 +417,20 @@ constraints.
 At least three of three seeds must pass raw, offset, centered-shape, harmonic,
 and P95 gates. Stable stiffness alone is insufficient.
 
+### Completed Decision
+
+Stage 8 completed all `10 / 10` first-screen runs without failure. The
+training-only bootstrap established a positive population slope in all
+`512 / 512` resamples, while the shuffled-torque control returned `50.39%`
+positive support. This confirms an observable cross-sectional association,
+not an identified stiffness law.
+
+No weak-prior arm beat data-only C00 and preserved a positive model-local
+torque derivative. The weak formulations retained negative derivatives in
+`35.1%` to `44.3%` of test conditions. H01 enforced a positive derivative
+everywhere but materially underfit raw and mean TE. Stage 8 therefore closes
+as a valid negative result, promotes no candidate, and retains H04 for Stage 9.
+
 ## Stage 9: Temporal Analytical-Residual Models
 
 ### Objective
@@ -661,11 +675,11 @@ These recommendations remain outside the `Wave 5.2R` training scope.
 
 ## Governance And Execution Order
 
-Stages 0 through 7 are complete. The next executable project is:
+Stages 0 through 8 are complete. The next executable project is:
 
 ```text
-Stage 8:
-Weak Forward Compliance Priors
+Stage 9:
+Temporal Analytical-Residual Models
 ```
 
 Stage 5 corrected the representation mismatch exposed by Stage 4 and completed
@@ -701,5 +715,14 @@ The decomposition was exact and inspectable, but none of the multi-head
 formulations improved the complete held-out curve surface. The result rules
 out decomposition alone as a predictive gain under this bounded screen.
 
-Stage 8 now revisits forward compliance through diagnostics, sign-only
-monotonicity, and broad confidence-weighted bounds before any hard equation.
+Stage 8 confirmed a strong positive train-only population torque slope but
+found no predictive benefit from sign-only, interval, temperature-conditioned,
+curriculum, or adaptive compliance priors over data-only C00. The hard
+equation removed local sign violations only by underfitting raw and mean TE.
+The result closes compliance as a promoted Stage 8 component under the current
+setpoint-only evidence.
+
+Stage 9 now tests whether causal history supplies information missing from the
+static operating-condition surface. It compares the accepted periodic GRU,
+matched temporal controls, and PF-A-anchored residual GRU formulations under
+an explicit causal runtime contract.

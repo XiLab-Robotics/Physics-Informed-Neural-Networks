@@ -1,0 +1,18 @@
+schema_version: 1
+stage: wave52r_stage8_weak_forward_compliance_priors
+status: passed
+split_signature: c1aa8718fb9bf88cc2021c121dc4f3b4010fc1d2e45ac90af5f4376aa64f8e16
+curve_count: 966
+split_count:
+  train: 675
+  validation: 194
+  test: 97
+candidate_count: 10
+bootstrap_sign_support_fraction: 1.0
+bootstrap_interval_deg_per_nm:
+- 3.623920841172767e-05
+- 3.713770981165579e-05
+shuffled_sign_support_fraction: 0.50390625
+derivative_autograd_passed: true
+runtime_target_derived_input_count: 0
+all_checks_passed: true

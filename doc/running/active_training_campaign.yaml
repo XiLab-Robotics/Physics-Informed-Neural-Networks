@@ -1,41 +1,33 @@
 status: completed
-prepared_at: '2026-07-29T17:46:19+02:00'
-campaign_name: wave52r_stage7_mean_centered_shape_multi_head_2026_07_29
-campaign_type: wave52r_stage7_mean_centered_shape_multi_head
+prepared_at: '2026-07-29T18:19:18+02:00'
+campaign_name: wave52r_stage8_weak_forward_compliance_priors_2026_07_29
+campaign_type: wave52r_stage8_weak_forward_compliance_priors
 dataset_id: polished_dataset
 input_mode: setpoints
-dataset_schema: polished_setpoint_uniform_curve_v1
 surface_list:
 - fw
 primary_surface: fw
-expected_run_count: 7
-completed_run_count: 7
+expected_run_count: 10
+completed_run_count: 10
 failed_run_count: 0
 random_seed_list:
 - 314159
 conditional_stability_random_seed_list:
 - 271828
 - 161803
-campaign_manifest_path: config/training/mean_centered_shape_multi_head/campaigns/2026-07-29_wave52r_stage7_mean_centered_shape_multi_head/campaign.yaml
-campaign_config_root: config/training/mean_centered_shape_multi_head/campaigns/2026-07-29_wave52r_stage7_mean_centered_shape_multi_head
-launcher_path: scripts/campaigns/wave_5_2/run_wave52r_stage7_mean_centered_shape_multi_head.ps1
-launcher_note_path: doc/scripts/campaigns/wave_5_2/run_wave52r_stage7_mean_centered_shape_multi_head.md
-planning_report_path: doc/reports/campaign_plans/model_development_waves/wave_5_2/mean_centered_shape_multi_head/2026-07-29-15-52-21_wave52r_stage7_mean_centered_shape_multi_head_campaign_plan_report.md
-technical_document_path: doc/technical/2026-07/2026-07-29/2026-07-29-15-52-21_wave52r_stage7_mean_and_centered_shape_multi_head.md
-model_report_path: doc/reports/analysis/model_development_waves/wave_5_2/physics_guided_pinn_reassessment/[2026-07-29]/stage7_mean_centered_shape_multi_head/stage7_mean_centered_shape_multi_head_model_report.md
-local_preflight_command: .\scripts\campaigns\wave_5_2\run_wave52r_stage7_mean_centered_shape_multi_head.ps1
+campaign_manifest_path: config/training/weak_forward_compliance_priors/campaigns/2026-07-29_wave52r_stage8_weak_forward_compliance_priors/campaign.yaml
+launcher_path: scripts/campaigns/wave_5_2/run_wave52r_stage8_weak_forward_compliance_priors.ps1
+launcher_note_path: doc/scripts/campaigns/wave_5_2/run_wave52r_stage8_weak_forward_compliance_priors.md
+planning_report_path: doc/reports/campaign_plans/model_development_waves/wave_5_2/weak_forward_compliance_priors/2026-07-29-18-00-37_wave52r_stage8_weak_forward_compliance_priors_campaign_plan_report.md
+technical_document_path: doc/technical/2026-07/2026-07-29/2026-07-29-18-00-37_wave52r_stage8_weak_forward_compliance_priors.md
+local_preflight_command: .\scripts\campaigns\wave_5_2\run_wave52r_stage8_weak_forward_compliance_priors.ps1
   -PreflightOnly
-local_launch_command: .\scripts\campaigns\wave_5_2\run_wave52r_stage7_mean_centered_shape_multi_head.ps1
+local_launch_command: .\scripts\campaigns\wave_5_2\run_wave52r_stage8_weak_forward_compliance_priors.ps1
   -Run
-remote_preflight_command: .\scripts\campaigns\wave_5_2\run_wave52r_stage7_mean_centered_shape_multi_head.ps1
+remote_preflight_command: .\scripts\campaigns\wave_5_2\run_wave52r_stage8_weak_forward_compliance_priors.ps1
   -Remote -PreflightOnly
-remote_launch_command: .\scripts\campaigns\wave_5_2\run_wave52r_stage7_mean_centered_shape_multi_head.ps1
+remote_launch_command: .\scripts\campaigns\wave_5_2\run_wave52r_stage8_weak_forward_compliance_priors.ps1
   -Remote -Run
-launch_command_list:
-- .\scripts\campaigns\wave_5_2\run_wave52r_stage7_mean_centered_shape_multi_head.ps1 -PreflightOnly
-- .\scripts\campaigns\wave_5_2\run_wave52r_stage7_mean_centered_shape_multi_head.ps1 -Run
-- .\scripts\campaigns\wave_5_2\run_wave52r_stage7_mean_centered_shape_multi_head.ps1 -Remote -PreflightOnly
-- .\scripts\campaigns\wave_5_2\run_wave52r_stage7_mean_centered_shape_multi_head.ps1 -Remote -Run
 approval:
   technical_document_status: approved
   campaign_plan_status: approved
@@ -44,21 +36,20 @@ approval:
   approval_expires_at: '2026-07-30T15:30:41+02:00'
 protected_file_list:
 - doc/running/active_training_campaign.yaml
-- config/training/mean_centered_shape_multi_head/campaigns/2026-07-29_wave52r_stage7_mean_centered_shape_multi_head
-- scripts/campaigns/wave_5_2/run_wave52r_stage7_mean_centered_shape_multi_head.ps1
-- scripts/campaigns/wave_5_2/run_wave52r_stage7_mean_centered_shape_multi_head.py
-- scripts/models/mean_centered_shape_multi_head_network.py
-- output/analysis/wave_5_2r/stage7_mean_centered_shape_multi_head
-started_at: '2026-07-29T17:46:21+02:00'
-campaign_output_directory: output/training_campaigns/2026-07-29-17-46-21_wave52r_stage7_mean_centered_shape_multi_head_2026_07_29
-completed_at: '2026-07-29T17:46:30+02:00'
+- config/training/weak_forward_compliance_priors/campaigns/2026-07-29_wave52r_stage8_weak_forward_compliance_priors
+- scripts/campaigns/wave_5_2/run_wave52r_stage8_weak_forward_compliance_priors.py
+- scripts/models/weak_forward_compliance_residual_network.py
+- output/analysis/wave_5_2r/stage8_weak_forward_compliance_priors
+started_at: '2026-07-29T18:19:20+02:00'
+campaign_output_directory: output/training_campaigns/2026-07-29-18-19-20_wave52r_stage8_weak_forward_compliance_priors_2026_07_29
+completed_at: '2026-07-29T18:19:31+02:00'
 stability_completed_run_count: 0
-campaign_best_run_path: output/training_campaigns/2026-07-29-17-46-21_wave52r_stage7_mean_centered_shape_multi_head_2026_07_29/campaign_best_run.yaml
-raw_error_leader_id: C01
+campaign_best_run_path: output/training_campaigns/2026-07-29-18-19-20_wave52r_stage8_weak_forward_compliance_priors_2026_07_29/campaign_best_run.yaml
+raw_error_leader_id: C00
 multi_index_recommended_candidate_id: null
-closed_out_at: '2026-07-29T17:51:21+02:00'
+closed_out_at: '2026-07-29T18:31:49+02:00'
 recommended_candidate_id: null
-scalar_raw_error_leader_id: C01
+scalar_raw_error_leader_id: C00
 stage_decision: completed_negative_result
-exit_gate_summary_path: output/analysis/wave_5_2r/stage7_mean_centered_shape_multi_head/closeout/stage7_exit_gate_summary.yaml
-campaign_results_report_path: doc/reports/campaign_results/model_development_waves/wave_5_2/2026-07-29-17-47-24_wave52r_stage7_mean_centered_shape_multi_head_results_report.md
+exit_gate_summary_path: output/analysis/wave_5_2r/stage8_weak_forward_compliance_priors/closeout/stage8_exit_gate_summary.yaml
+campaign_results_report_path: doc/reports/campaign_results/model_development_waves/wave_5_2/2026-07-29-18-22-31_wave52r_stage8_weak_forward_compliance_priors_results_report.md
