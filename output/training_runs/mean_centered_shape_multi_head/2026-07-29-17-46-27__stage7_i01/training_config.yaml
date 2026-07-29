@@ -1,0 +1,21 @@
+queue_index: 4
+candidate_id: I01
+architecture: independent
+training_mode: joint
+shared_hidden_size_list:
+- 64
+- 64
+- 32
+branch_hidden_size_list:
+- 48
+learning_rate: 0.0005
+promotion_eligible: false
+matched_control_id: ''
+random_seed: 314159
+run_instance_id: 2026-07-29-17-46-27__stage7_i01
+parameter_count: 13619
+best_epoch: 64
+curve_scale: 0.023830418398509738
+mean_scale: 0.020298354407756545
+shape_scale: 0.012484616509334275
+split_signature: c1aa8718fb9bf88cc2021c121dc4f3b4010fc1d2e45ac90af5f4376aa64f8e16

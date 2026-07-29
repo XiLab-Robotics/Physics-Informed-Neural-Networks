@@ -1,0 +1,21 @@
+queue_index: 5
+candidate_id: G01
+architecture: shared
+training_mode: pcgrad
+shared_hidden_size_list:
+- 64
+- 64
+- 32
+branch_hidden_size_list:
+- 48
+learning_rate: 0.0005
+promotion_eligible: true
+matched_control_id: I01
+random_seed: 314159
+run_instance_id: 2026-07-29-17-46-28__stage7_g01
+parameter_count: 8179
+best_epoch: 13
+curve_scale: 0.023830418398509738
+mean_scale: 0.020298354407756545
+shape_scale: 0.012484616509334275
+split_signature: c1aa8718fb9bf88cc2021c121dc4f3b4010fc1d2e45ac90af5f4376aa64f8e16

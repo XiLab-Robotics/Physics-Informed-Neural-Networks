@@ -1,0 +1,9 @@
+schema_version: 1
+campaign_name: wave52r_stage7_mean_centered_shape_multi_head_2026_07_29
+selection_basis: first_screen_test_raw_mae
+candidate_id: C01
+run_instance_id: 2026-07-29-17-46-25__stage7_c01
+test_mae_deg: 0.001712730923096275
+checkpoint_path: output/training_runs/mean_centered_shape_multi_head/2026-07-29-17-46-25__stage7_c01/best_model.pt
+multi_index_recommended_candidate_id: null
+stability_run_count: 0

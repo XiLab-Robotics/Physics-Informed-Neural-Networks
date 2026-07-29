@@ -9,6 +9,7 @@ Models API
    harmonic_kinematic_pinn_network
    harmonic_residual_offset_network
    latent_state_hysteresis_network
+   mean_centered_shape_multi_head_network
    periodic_feature_network
    periodic_temporal_sequence_network
    quasi_static_compliance_pinn_network

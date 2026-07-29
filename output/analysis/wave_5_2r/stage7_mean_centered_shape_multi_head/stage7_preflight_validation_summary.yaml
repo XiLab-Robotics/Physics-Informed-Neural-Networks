@@ -1,0 +1,64 @@
+schema_version: 1
+stage_name: wave52r_stage7_mean_centered_shape_multi_head
+validated_at: '2026-07-29T17:46:21+02:00'
+candidate_count: 7
+accepted_curve_count: 966
+train_curve_count: 675
+validation_curve_count: 194
+test_curve_count: 97
+split_signature: c1aa8718fb9bf88cc2021c121dc4f3b4010fc1d2e45ac90af5f4376aa64f8e16
+parameter_count_map:
+  C01: 7123
+  S01: 8179
+  P01: 10259
+  I01: 13619
+  G01: 8179
+  A01: 7090
+  A02: 6529
+shared_parameter_ratio_vs_independent: 0.6005580439092444
+partial_parameter_ratio_vs_independent: 0.7532858506498274
+runtime_target_input_count: 0
+all_checks_passed: true
+check_row_list:
+- candidate_id: C01
+  output_shape_passed: true
+  shape_mean_max_abs_deg: 2.473825588822365e-10
+  reconstruction_identity_max_abs_deg: 0.0
+  finite_gradient_passed: true
+  parameter_count: 7123
+- candidate_id: S01
+  output_shape_passed: true
+  shape_mean_max_abs_deg: 2.473825588822365e-10
+  reconstruction_identity_max_abs_deg: 0.0
+  finite_gradient_passed: true
+  parameter_count: 8179
+- candidate_id: P01
+  output_shape_passed: true
+  shape_mean_max_abs_deg: 2.473825588822365e-10
+  reconstruction_identity_max_abs_deg: 0.0
+  finite_gradient_passed: true
+  parameter_count: 10259
+- candidate_id: I01
+  output_shape_passed: true
+  shape_mean_max_abs_deg: 2.473825588822365e-10
+  reconstruction_identity_max_abs_deg: 0.0
+  finite_gradient_passed: true
+  parameter_count: 13619
+- candidate_id: G01
+  output_shape_passed: true
+  shape_mean_max_abs_deg: 2.473825588822365e-10
+  reconstruction_identity_max_abs_deg: 0.0
+  finite_gradient_passed: true
+  parameter_count: 8179
+- candidate_id: A01
+  output_shape_passed: true
+  shape_mean_max_abs_deg: 2.473825588822365e-10
+  reconstruction_identity_max_abs_deg: 0.0
+  finite_gradient_passed: true
+  parameter_count: 7090
+- candidate_id: A02
+  output_shape_passed: true
+  shape_mean_max_abs_deg: 2.473825588822365e-10
+  reconstruction_identity_max_abs_deg: 0.0
+  finite_gradient_passed: true
+  parameter_count: 6529

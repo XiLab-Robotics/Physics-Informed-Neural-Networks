@@ -377,6 +377,17 @@ Multi-head sharing must beat independent heads or demonstrate a clear
 parameter-efficiency advantage. Negative gradient cosine between mean and
 shape must be reported, not hidden.
 
+### Completed Decision
+
+All `7 / 7` first-screen candidates completed without failure. The shared,
+partially shared, and gradient-projected heads passed the exact decomposition
+invariants but regressed every predictive gate. C01, the monolithic H04
+fine-tuning control, improved raw MAE by `0.76%` and mean MAE by `2.32%`, but
+centered-shape MAE worsened by `0.04%`; it is not a multi-head promotion.
+Gradient projection never activated for G01 because its measured shared
+mean-shape cosine remained non-negative. Stage 7 therefore closes as a valid
+negative result, promotes no candidate, and retains H04 for Stage 8.
+
 ## Stage 8: Weak Forward Compliance Priors
 
 ### Objective
@@ -650,11 +661,11 @@ These recommendations remain outside the `Wave 5.2R` training scope.
 
 ## Governance And Execution Order
 
-Stages 0 through 6 are complete. The next executable project is:
+Stages 0 through 7 are complete. The next executable project is:
 
 ```text
-Stage 7:
-Mean And Centered-Shape Multi-Head Model
+Stage 8:
+Weak Forward Compliance Priors
 ```
 
 Stage 5 corrected the representation mismatch exposed by Stage 4 and completed
@@ -685,6 +696,10 @@ W01 achieved the clearest derivative-domain gain, but neither satisfied the
 complete curve-first gate. Stage 6 therefore promotes no model and preserves
 H04 as the qualified structured component.
 
-Stage 7 now separates mean/offset from the exactly zero-mean periodic shape.
-This directly targets the offset-shape competition observed in Stage 6 while
-retaining matched controls and inspectable outputs.
+Stage 7 separated mean/offset from the exactly zero-mean periodic shape.
+The decomposition was exact and inspectable, but none of the multi-head
+formulations improved the complete held-out curve surface. The result rules
+out decomposition alone as a predictive gain under this bounded screen.
+
+Stage 8 now revisits forward compliance through diagnostics, sign-only
+monotonicity, and broad confidence-weighted bounds before any hard equation.

@@ -1,0 +1,19 @@
+schema_version: 1
+stage: wave_5_2r_stage7
+status: completed_negative_result
+closed_at: '2026-07-29T17:51:21+02:00'
+first_screen_run_count: 7
+stability_run_count: 0
+failed_run_count: 0
+raw_error_leader: C01
+raw_error_leader_mae_deg: 0.001712730923096275
+raw_error_improvement_vs_frozen_h04_percent: 0.7621226272363579
+multi_index_recommended_candidate: null
+all_exit_gates_passed: false
+failed_decision_reason: no shared or partially shared formulation improved both mean and centered shape
+  while preserving the complete curve gate
+c01_disposition: monolithic fine-tuning control only; raw and mean gains do not qualify because centered
+  shape did not improve
+stage5_h04_disposition: retained as the qualified structured component entering Stage 8
+official_te_curve_verification_pipeline_run: false
+next_stage: Stage 8 Weak Forward Compliance Priors

@@ -1,0 +1,20 @@
+queue_index: 1
+candidate_id: C01
+architecture: monolithic
+training_mode: joint
+shared_hidden_size_list:
+- 64
+- 64
+- 32
+branch_hidden_size_list:
+- 48
+learning_rate: 0.0002
+promotion_eligible: false
+matched_control_id: ''
+random_seed: 314159
+parameter_count: 7123
+dataset: polished_dataset
+input_mode: setpoints
+surface: Fw
+split_signature: c1aa8718fb9bf88cc2021c121dc4f3b4010fc1d2e45ac90af5f4376aa64f8e16
+angular_sample_count: 2048

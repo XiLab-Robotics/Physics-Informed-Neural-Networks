@@ -662,6 +662,28 @@ improved raw MAE but failed the derivative gates, while W01 improved derivative
 behavior but regressed other curve-first indices. No Stage 6 candidate was
 promoted; Stage 5 H04 remains the qualified component for Stage 7.
 
+## Wave 5.2R Stage 7 Mean And Centered-Shape Multi-Head
+
+Validate or execute the completed seven-run Stage 7 campaign:
+
+```powershell
+.\scripts\campaigns\wave_5_2\run_wave52r_stage7_mean_centered_shape_multi_head.ps1 `
+  -PreflightOnly
+
+.\scripts\campaigns\wave_5_2\run_wave52r_stage7_mean_centered_shape_multi_head.ps1 `
+  -Run
+```
+
+Both commands also accept `-Remote`. The launcher compares shared, partially
+shared, independent, gradient-projected, and analytical-ablation heads on the
+frozen Stage 5 H04 coefficient component.
+
+All `7 / 7` candidates completed. Exact zero-mean shape and reconstruction
+invariants passed, but no multi-head formulation improved the complete
+curve-first surface. C01 improved raw and mean error while slightly worsening
+centered shape, so no Stage 7 candidate was promoted. Stage 8 proceeds with
+weak forward compliance priors.
+
 ## Phase 0 PINN Foundation Audit
 
 Run the full-population foundation audit:

@@ -1,0 +1,28 @@
+schema_version: 1
+campaign_name: wave52r_stage7_mean_centered_shape_multi_head_2026_07_29
+stage: wave52r_stage7_mean_centered_shape_multi_head
+dataset: polished_dataset
+input_mode: setpoints
+surface: Fw
+split_signature: c1aa8718fb9bf88cc2021c121dc4f3b4010fc1d2e45ac90af5f4376aa64f8e16
+first_screen_seed: 314159
+stability_seed_list:
+- 271828
+- 161803
+expected_first_screen_run_count: 7
+candidate_id_list:
+- C01
+- S01
+- P01
+- I01
+- G01
+- A01
+- A02
+queue_path_list:
+- config/training/mean_centered_shape_multi_head/campaigns/2026-07-29_wave52r_stage7_mean_centered_shape_multi_head/queue/001_c01.yaml
+- config/training/mean_centered_shape_multi_head/campaigns/2026-07-29_wave52r_stage7_mean_centered_shape_multi_head/queue/002_s01.yaml
+- config/training/mean_centered_shape_multi_head/campaigns/2026-07-29_wave52r_stage7_mean_centered_shape_multi_head/queue/003_p01.yaml
+- config/training/mean_centered_shape_multi_head/campaigns/2026-07-29_wave52r_stage7_mean_centered_shape_multi_head/queue/004_i01.yaml
+- config/training/mean_centered_shape_multi_head/campaigns/2026-07-29_wave52r_stage7_mean_centered_shape_multi_head/queue/005_g01.yaml
+- config/training/mean_centered_shape_multi_head/campaigns/2026-07-29_wave52r_stage7_mean_centered_shape_multi_head/queue/006_a01.yaml
+- config/training/mean_centered_shape_multi_head/campaigns/2026-07-29_wave52r_stage7_mean_centered_shape_multi_head/queue/007_a02.yaml

@@ -1,0 +1,5 @@
+candidate_id=C01
+status=completed
+test_mae_deg=0.001712730923
+mean_mae_deg=0.000863844354
+centered_shape_mae_deg=0.001356064458

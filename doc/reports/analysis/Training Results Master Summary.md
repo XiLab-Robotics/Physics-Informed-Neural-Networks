@@ -2,12 +2,12 @@
 
 ## Executive Snapshot
 
-- Generated At: `2026-07-29T15:40:04`
+- Generated At: `2026-07-29T17:55:09`
 - Program State: active.
 - Current Completed Wave: polished-dataset RCIM, early-wave, and full-wave
 - Current Focus: `Wave 5.2R` physics-guided forward reassessment execution,
 - Active Campaign Status: `completed`
-- Active Campaign Name: `wave52r_stage6_spectral_sobolev_guidance_2026_07_29`
+- Active Campaign Name: `wave52r_stage7_mean_centered_shape_multi_head_2026_07_29`
 - Current Program Winner: `te_periodic_gru_sequence_bw` | Family `periodic_gru_sequence_bw` | Test MAE `0.001084`
 
 ## Main Takeaways
@@ -913,6 +913,23 @@ At the current repository state, the comparison is explicitly `offline-only`. A 
 | 15 | `te_gru_sequence_global__simplified_setpoints` | `gru_sequence` | 0.003590 | 0.004451 | 0.003777 | 151,041 | 6m 52s | 1.74 MB | Very High | Low | `dataset_input_mode_retraining__gru_sequence__simplified_setpoints` |
 | 16 | `te_gru_sequence_remote_global` | `gru_sequence` | 0.003591 | 0.004110 | 0.003707 | 151,041 | 8m 44s | 1.74 MB | Very High | Low | `wave2_temporal_model_entry_campaign_2026_05_24_11_01_15` |
 
+#### mean_centered_shape_multi_head
+
+- Best run: `N/A`
+- Best test MAE: `N/A`
+- Completed tracked runs: `7`
+- Known failed campaign attempts: `0`
+
+| Rank | Run | Model Type | Test MAE [deg] | Test RMSE [deg] | Val MAE [deg] | Params | Duration | Artifact Size | Model Complexity | Training Heaviness | Campaign |
+| --- | --- | --- | ---: | ---: | ---: | ---: | --- | --- | --- | --- | --- |
+| 1 | `2026-07-29-17-46-25__stage7_c01` | `unknown` | N/A | N/A | N/A | N/A | N/A | N/A | Unknown | Unknown | `standalone_or_unknown` |
+| 2 | `2026-07-29-17-46-26__stage7_p01` | `unknown` | N/A | N/A | N/A | N/A | N/A | N/A | Unknown | Unknown | `standalone_or_unknown` |
+| 3 | `2026-07-29-17-46-26__stage7_s01` | `unknown` | N/A | N/A | N/A | N/A | N/A | N/A | Unknown | Unknown | `standalone_or_unknown` |
+| 4 | `2026-07-29-17-46-27__stage7_i01` | `unknown` | N/A | N/A | N/A | N/A | N/A | N/A | Unknown | Unknown | `standalone_or_unknown` |
+| 5 | `2026-07-29-17-46-28__stage7_g01` | `unknown` | N/A | N/A | N/A | N/A | N/A | N/A | Unknown | Unknown | `standalone_or_unknown` |
+| 6 | `2026-07-29-17-46-29__stage7_a01` | `unknown` | N/A | N/A | N/A | N/A | N/A | N/A | Unknown | Unknown | `standalone_or_unknown` |
+| 7 | `2026-07-29-17-46-29__stage7_a02` | `unknown` | N/A | N/A | N/A | N/A | N/A | N/A | Unknown | Unknown | `standalone_or_unknown` |
+
 #### periodic_lstm_sequence
 
 - Best run: `te_periodic_lstm_sequence_remote_global`
@@ -1544,8 +1561,8 @@ Known failed campaign attempts for this family:
 
 Known failed campaign attempts for this family:
 
-- `te_phase2_pinn_h0_fourier_control_fw__polished_setpoints` | campaign `phase2_harmonic_kinematic_pinn_2026_07_26` | model type `harmonic_kinematic_pinn` | error `Unsupported Model Type for Campaign Runner | harmonic_kinematic_pinn | Supported: ['curve_aware_harmonic_residual_offset_probe', 'feedforward', 'gru_sequence', 'harmonic_regression', 'harmonic_residual_offset_probe', 'hist_gradient_boosting', 'latent_state_hysteresis_probe', 'lstm_sequence', 'periodic_gru_sequence', 'periodic_lstm_sequence', 'periodic_mlp', 'periodic_temporal_convolution', 'random_forest', 'residual_harmonic_gru_sequence', 'residual_harmonic_lstm_sequence', 'residual_harmonic_mlp', 'sequential_residual_offset_probe', 'temporal_convolution', 'wave3_harmonic_prior_residual', 'wave52b_offset_harmonic_guided']`
 - `te_phase2_pinn_h0_fourier_control_fw__polished_setpoints` | campaign `phase2_harmonic_kinematic_pinn_2026_07_26` | model type `harmonic_kinematic_pinn` | error `[Errno 22] Invalid argument`
+- `te_phase2_pinn_h0_fourier_control_fw__polished_setpoints` | campaign `phase2_harmonic_kinematic_pinn_2026_07_26` | model type `harmonic_kinematic_pinn` | error `Unsupported Model Type for Campaign Runner | harmonic_kinematic_pinn | Supported: ['curve_aware_harmonic_residual_offset_probe', 'feedforward', 'gru_sequence', 'harmonic_regression', 'harmonic_residual_offset_probe', 'hist_gradient_boosting', 'latent_state_hysteresis_probe', 'lstm_sequence', 'periodic_gru_sequence', 'periodic_lstm_sequence', 'periodic_mlp', 'periodic_temporal_convolution', 'random_forest', 'residual_harmonic_gru_sequence', 'residual_harmonic_lstm_sequence', 'residual_harmonic_mlp', 'sequential_residual_offset_probe', 'temporal_convolution', 'wave3_harmonic_prior_residual', 'wave52b_offset_harmonic_guided']`
 
 #### harmonic_regression
 
