@@ -1,0 +1,20 @@
+campaign_name: wave52r_stage11_uncertainty_trust_calibration_2026_07_29
+qualified_winner: null
+diagnostic_best_candidate:
+  candidate_id: D01
+  formulation: dense_r00_k01_disagreement
+  run_instance_id: 2026-07-29-20-49-33__stage11_d01
+  spearman_correlation: 0.28101988217967594
+  top_quintile_average_precision: 0.4988177138091082
+  top_20_percent_error_capture_rate: 0.4
+  normalized_area_under_risk_coverage: 0.6990225152145714
+  selective_curve_mae_80_percent_deg: 0.0012410928938143542
+  marginal_90_coverage: 0.9070050740979382
+  marginal_90_mean_width_deg: 0.006693086651177197
+  simultaneous_90_curve_coverage: 0.8865979381443299
+  checkpoint_cost_multiplier: 1.0
+  qualified_trust_component: false
+  deployment_ready: false
+  diagnostic_score: 0.48081508077421276
+official_mean_prediction_changed: false
+wave6_entry_authorized: false

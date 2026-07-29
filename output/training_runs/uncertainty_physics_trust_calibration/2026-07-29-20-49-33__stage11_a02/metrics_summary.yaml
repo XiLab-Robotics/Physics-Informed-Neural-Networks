@@ -1,0 +1,31 @@
+candidate_id: A02
+formulation: h04_k01_disagreement
+diagnostic_control: false
+localization:
+  spearman_correlation: 0.16689459288870184
+  spearman_pvalue: 0.10228117213018761
+  high_error_threshold_deg: 0.0017968123849386808
+  top_quintile_average_precision: 0.2651826637737853
+  top_20_percent_error_capture_rate: 0.3
+  normalized_area_under_risk_coverage: 0.8311594063374711
+  unfiltered_curve_mae_deg: 0.0013715533536374368
+  selective_curve_mae_95_percent_deg: 0.0013838660748202614
+  selective_curve_mae_90_percent_deg: 0.0013588411320918624
+  selective_curve_mae_80_percent_deg: 0.0013312968575915514
+  selective_curve_mae_60_percent_deg: 0.0014848515622251323
+interval:
+  marginal_50_coverage: 0.5509171633376289
+  marginal_50_mean_width_deg: 0.001754215591744901
+  marginal_80_coverage: 0.8060869039948454
+  marginal_80_mean_width_deg: 0.004052335031905945
+  marginal_90_coverage: 0.891455581507732
+  marginal_90_mean_width_deg: 0.006207838225406463
+  marginal_95_coverage: 0.9376761839561856
+  marginal_95_mean_width_deg: 0.009303137660168116
+  simultaneous_90_curve_coverage: 0.8762886597938144
+  simultaneous_90_mean_width_deg: 0.018997078618232632
+runtime_target_derived_input_count: 0
+finite_payload_pass: true
+checkpoint_cost_multiplier: 1.0
+checkpoint_size_bytes: 645621
+uncertainty_evaluation_seconds_per_curve: 1.7505155914683934e-08

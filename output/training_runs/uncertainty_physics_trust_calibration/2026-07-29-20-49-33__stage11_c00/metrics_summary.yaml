@@ -1,0 +1,31 @@
+candidate_id: C00
+formulation: constant_conformal_control
+diagnostic_control: true
+localization:
+  spearman_correlation: 0.0
+  spearman_pvalue: 1.0
+  high_error_threshold_deg: 0.0017968123849386808
+  top_quintile_average_precision: 0.20618556701030927
+  top_20_percent_error_capture_rate: 0.2
+  normalized_area_under_risk_coverage: 1.0
+  unfiltered_curve_mae_deg: 0.0013715533536374368
+  selective_curve_mae_95_percent_deg: 0.0013715533536374368
+  selective_curve_mae_90_percent_deg: 0.0013715533536374368
+  selective_curve_mae_80_percent_deg: 0.0013715533536374368
+  selective_curve_mae_60_percent_deg: 0.0013715533536374368
+interval:
+  marginal_50_coverage: 0.5856203688788659
+  marginal_50_mean_width_deg: 0.001718731732854972
+  marginal_80_coverage: 0.8319054043170103
+  marginal_80_mean_width_deg: 0.00413411188832123
+  marginal_90_coverage: 0.9071208521262887
+  marginal_90_mean_width_deg: 0.006831089810522578
+  marginal_95_coverage: 0.9485693862757731
+  marginal_95_mean_width_deg: 0.010655540182706563
+  simultaneous_90_curve_coverage: 0.9072164948453608
+  simultaneous_90_mean_width_deg: 0.02236411971945454
+runtime_target_derived_input_count: 0
+finite_payload_pass: true
+checkpoint_cost_multiplier: 1.0
+checkpoint_size_bytes: 0
+uncertainty_evaluation_seconds_per_curve: 1.618557023940627e-08

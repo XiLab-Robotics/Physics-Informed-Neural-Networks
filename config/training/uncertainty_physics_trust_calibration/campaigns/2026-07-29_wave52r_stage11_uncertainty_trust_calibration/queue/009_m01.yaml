@@ -1,0 +1,6 @@
+queue_index: 9
+candidate_id: M01
+formulation: composite_trust_estimator
+diagnostic_control: false
+ensemble_checkpoint_count: 1
+status: prepared

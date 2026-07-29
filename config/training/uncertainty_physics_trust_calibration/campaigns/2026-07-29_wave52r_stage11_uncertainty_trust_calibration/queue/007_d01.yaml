@@ -1,0 +1,6 @@
+queue_index: 7
+candidate_id: D01
+formulation: dense_r00_k01_disagreement
+diagnostic_control: false
+ensemble_checkpoint_count: 1
+status: prepared

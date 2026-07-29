@@ -1,0 +1,11 @@
+schema_version: 1
+stage: Wave 5.2R Stage 11
+status: completed_without_qualified_trust_component
+completed_entry_count: 10
+failed_entry_count: 0
+qualified_candidate_id_list: []
+selected_candidate_id: null
+diagnostic_best_candidate_id: D01
+official_mean_prediction_changed: false
+wave6_entry_authorized: false
+next_stage: Wave 5.2R Stage 12 advanced constraint optimization

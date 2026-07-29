@@ -1,0 +1,35 @@
+campaign_name: wave52r_stage11_uncertainty_trust_calibration_2026_07_29
+campaign_type: wave52r_stage11_uncertainty_trust_calibration
+status: prepared
+dataset_id: polished_dataset
+input_mode: setpoints
+surface_list:
+- fw
+primary_surface: fw
+expected_run_count: 10
+random_seed_list:
+- 314159
+- 271828
+- 161803
+- 141421
+- 173205
+split_signature: c1aa8718fb9bf88cc2021c121dc4f3b4010fc1d2e45ac90af5f4376aa64f8e16
+curve_count_by_split:
+  train: 675
+  validation: 194
+  test: 97
+candidate_id_list:
+- C00
+- S01
+- S02
+- A01
+- A02
+- A03
+- D01
+- E01
+- M01
+- N01
+technical_document_path: doc/technical/2026-07/2026-07-29/2026-07-29-20-33-38_wave52r_stage11_uncertainty_and_physics_trust_calibration.md
+planning_report_path: doc/reports/campaign_plans/model_development_waves/wave_5_2/uncertainty_physics_trust_calibration/2026-07-29-20-33-38_wave52r_stage11_uncertainty_and_physics_trust_calibration_campaign_plan_report.md
+launcher_path: scripts/campaigns/wave_5_2/run_wave52r_stage11_uncertainty_trust_calibration.ps1
+launcher_note_path: doc/scripts/campaigns/wave_5_2/run_wave52r_stage11_uncertainty_trust_calibration.md

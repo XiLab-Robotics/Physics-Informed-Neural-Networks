@@ -1,0 +1,6 @@
+queue_index: 8
+candidate_id: E01
+formulation: k01_five_seed_ensemble_spread
+diagnostic_control: false
+ensemble_checkpoint_count: 5
+status: prepared

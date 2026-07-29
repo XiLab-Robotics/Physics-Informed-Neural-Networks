@@ -1,0 +1,6 @@
+queue_index: 6
+candidate_id: A03
+formulation: pf_a_k01_disagreement
+diagnostic_control: false
+ensemble_checkpoint_count: 1
+status: prepared

@@ -1,0 +1,6 @@
+queue_index: 5
+candidate_id: A02
+formulation: h04_k01_disagreement
+diagnostic_control: false
+ensemble_checkpoint_count: 1
+status: prepared

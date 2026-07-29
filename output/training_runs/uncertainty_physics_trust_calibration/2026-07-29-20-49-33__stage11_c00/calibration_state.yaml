@@ -1,0 +1,14 @@
+candidate_id: C00
+calibration:
+  type: isotonic
+  state:
+    x_threshold_list: []
+    y_threshold_list: []
+    constant_value: 0.0014783123751297151
+conformal:
+  marginal_quantile_map:
+    '50': 0.5813154789778991
+    '80': 1.3982538325022407
+    '90': 2.310435171025062
+    '95': 3.603954198709724
+  simultaneous_90_quantile: 7.56407106363166

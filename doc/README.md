@@ -324,6 +324,11 @@ This folder contains the internal project documents derived from the reference P
   identification, bootstrap stability selection, constrained symbolic
   ablations, matched controls, and explicit complexity gates.
 
+- [technical/2026-07/2026-07-29/2026-07-29-20-33-38_wave52r_stage11_uncertainty_and_physics_trust_calibration.md](./technical/2026-07/2026-07-29/2026-07-29-20-33-38_wave52r_stage11_uncertainty_and_physics_trust_calibration.md)
+  Approved Stage 11 design for causal uncertainty signals, validation-only
+  calibration, error localization, operating-band audits, boundary behavior,
+  and explicit ensemble deployment cost.
+
 - [reports/campaign_plans/model_development_waves/wave_5_2/data_only_residual_capacity_ladder/2026-07-27-22-39-42_wave52r_stage4_data_only_residual_capacity_ladder_campaign_plan_report.md](./reports/campaign_plans/model_development_waves/wave_5_2/data_only_residual_capacity_ladder/2026-07-27-22-39-42_wave52r_stage4_data_only_residual_capacity_ladder_campaign_plan_report.md)
   Approved Stage 4 plan for eighteen matched data-only screening runs and an
   optional four-run stability continuation.
@@ -354,6 +359,15 @@ This folder contains the internal project documents derived from the reference P
   Stage 10 ten-entry plan for complete-quadratic, ridge, thresholded-ridge,
   bootstrap-stable, hierarchy-constrained, symbolic-library, and shuffled
   coefficient-law comparisons.
+
+- [reports/campaign_plans/model_development_waves/wave_5_2/uncertainty_physics_trust_calibration/2026-07-29-20-33-38_wave52r_stage11_uncertainty_and_physics_trust_calibration_campaign_plan_report.md](./reports/campaign_plans/model_development_waves/wave_5_2/uncertainty_physics_trust_calibration/2026-07-29-20-33-38_wave52r_stage11_uncertainty_and_physics_trust_calibration_campaign_plan_report.md)
+  Stage 11 ten-entry plan for condition support, anchor disagreement,
+  deep-ensemble spread, composite calibration, conformal intervals, and
+  matched constant and shuffled controls.
+
+- [scripts/campaigns/wave_5_2/run_wave52r_stage11_uncertainty_trust_calibration.md](./scripts/campaigns/wave_5_2/run_wave52r_stage11_uncertainty_trust_calibration.md)
+  Local and remote launcher contract for the Stage 11 uncertainty and
+  physics-trust calibration campaign.
 
 - [reports/analysis/model_development_waves/wave_5_2/physics_guided_pinn_reassessment/[2026-07-28]/stage5_complex_harmonic_coefficient_residuals/stage5_complex_harmonic_coefficient_residual_model_report.md](./reports/analysis/model_development_waves/wave_5_2/physics_guided_pinn_reassessment/%5B2026-07-28%5D/stage5_complex_harmonic_coefficient_residuals/stage5_complex_harmonic_coefficient_residual_model_report.md)
   Model report for representation-aligned direct-curve, direct-coefficient,
@@ -429,6 +443,18 @@ This folder contains the internal project documents derived from the reference P
   extended dense library improves raw and mean error, but no compact law passes
   centered-shape, complexity, and bootstrap-stability gates.
   [Validated PDF companion](./reports/campaign_results/model_development_waves/wave_5_2/2026-07-29-20-23-30_wave52r_stage10_sparse_and_symbolic_formulation_discovery_results_report.pdf).
+
+- [reports/campaign_results/model_development_waves/wave_5_2/2026-07-29-21-21-32_wave52r_stage11_uncertainty_and_physics_trust_calibration_results_report.md](./reports/campaign_results/model_development_waves/wave_5_2/2026-07-29-21-21-32_wave52r_stage11_uncertainty_and_physics_trust_calibration_results_report.md)
+  Completed Stage 11 ten-entry uncertainty and physics-trust calibration
+  screen. D01, M01, and E01 expose partial error-localization structure, but no
+  candidate passes the complete localization, selective-risk, interval,
+  subgroup, and cost gate.
+  [Validated PDF companion](./reports/campaign_results/model_development_waves/wave_5_2/2026-07-29-21-21-32_wave52r_stage11_uncertainty_and_physics_trust_calibration_results_report.pdf).
+
+- [reports/analysis/model_development_waves/wave_5_2/physics_guided_pinn_reassessment/[2026-07-29]/stage11_uncertainty_physics_trust_calibration/stage11_uncertainty_physics_trust_model_report.md](./reports/analysis/model_development_waves/wave_5_2/physics_guided_pinn_reassessment/%5B2026-07-29%5D/stage11_uncertainty_physics_trust_calibration/stage11_uncertainty_physics_trust_model_report.md)
+  Model-facing explanation of the Stage 11 causal trust signals, calibration
+  layer, conformal intervals, deployment tradeoffs, and interpretation
+  boundary.
 
 - [reports/analysis/model_development_waves/wave_5_2/physics_guided_pinn_reassessment/[2026-07-27]/physics_guided_pinn_reassessment_report.md](./reports/analysis/model_development_waves/wave_5_2/physics_guided_pinn_reassessment/%5B2026-07-27%5D/physics_guided_pinn_reassessment_report.md)
   Detailed reassessment of how analytical structure, weak physical priors,

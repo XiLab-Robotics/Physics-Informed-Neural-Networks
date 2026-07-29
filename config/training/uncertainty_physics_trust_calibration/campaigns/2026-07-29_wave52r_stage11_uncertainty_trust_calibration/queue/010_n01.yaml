@@ -1,0 +1,6 @@
+queue_index: 10
+candidate_id: N01
+formulation: shuffled_composite_control
+diagnostic_control: true
+ensemble_checkpoint_count: 1
+status: prepared

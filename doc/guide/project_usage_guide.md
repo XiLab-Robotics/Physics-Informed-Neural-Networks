@@ -759,6 +759,28 @@ condition interactions. No sparse or symbolic formulation simultaneously
 improved centered shape, met the `40%` active-slot limit, and preserved the
 required bootstrap sign stability. No explicit law was promoted.
 
+## Wave 5.2R Stage 11 Uncertainty And Physics-Trust Calibration
+
+Validate or execute the completed ten-entry Stage 11 campaign:
+
+```powershell
+.\scripts\campaigns\wave_5_2\run_wave52r_stage11_uncertainty_trust_calibration.ps1 `
+  -PreflightOnly
+
+.\scripts\campaigns\wave_5_2\run_wave52r_stage11_uncertainty_trust_calibration.ps1 `
+  -Run
+
+.\scripts\campaigns\wave_5_2\run_wave52r_stage11_uncertainty_trust_calibration.ps1 `
+  -Remote -Run
+```
+
+All `10 / 10` entries completed. D01 disagreement was the strongest overall
+diagnostic signal, M01 passed rank and average-precision localization, and E01
+passed rank localization. None passed the complete error-localization,
+selective-risk, interval, operating-band, and deployment-cost gate. The frozen
+K01 mean prediction was not moved, and no Stage 11 trust mechanism was
+promoted.
+
 ## Phase 0 PINN Foundation Audit
 
 Run the full-population foundation audit:

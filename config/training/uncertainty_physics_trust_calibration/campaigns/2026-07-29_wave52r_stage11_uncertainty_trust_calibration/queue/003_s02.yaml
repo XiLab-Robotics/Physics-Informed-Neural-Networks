@@ -1,0 +1,6 @@
+queue_index: 3
+candidate_id: S02
+formulation: support_boundary_score
+diagnostic_control: false
+ensemble_checkpoint_count: 1
+status: prepared

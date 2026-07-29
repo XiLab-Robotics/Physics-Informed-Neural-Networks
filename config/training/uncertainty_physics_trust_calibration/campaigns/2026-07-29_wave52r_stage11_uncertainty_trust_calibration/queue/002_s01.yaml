@@ -1,0 +1,6 @@
+queue_index: 2
+candidate_id: S01
+formulation: condition_distance
+diagnostic_control: false
+ensemble_checkpoint_count: 1
+status: prepared

@@ -1,0 +1,6 @@
+queue_index: 1
+candidate_id: C00
+formulation: constant_conformal_control
+diagnostic_control: true
+ensemble_checkpoint_count: 1
+status: prepared

@@ -2,7 +2,7 @@
 
 ## Executive Snapshot
 
-- Generated At: `2026-07-29T20:26:28`
+- Generated At: `2026-07-29T21:29:45`
 - Program State: active.
 - Current Completed Wave: polished-dataset RCIM, early-wave, and full-wave
 - Current Focus: `Wave 5.2R` physics-guided forward reassessment execution,

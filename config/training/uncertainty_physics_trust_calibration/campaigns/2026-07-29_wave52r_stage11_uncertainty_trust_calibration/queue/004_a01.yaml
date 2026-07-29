@@ -1,0 +1,6 @@
+queue_index: 4
+candidate_id: A01
+formulation: pf_a_h04_disagreement
+diagnostic_control: false
+ensemble_checkpoint_count: 1
+status: prepared
