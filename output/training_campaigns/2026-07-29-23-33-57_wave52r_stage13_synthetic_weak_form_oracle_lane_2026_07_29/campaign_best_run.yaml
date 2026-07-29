@@ -1,0 +1,5 @@
+schema_version: 1
+campaign_name: wave52r_stage13_synthetic_weak_form_oracle_lane_2026_07_29
+best_run_id: null
+reason: Stage 13 certifies independent analytical cases and does not rank or promote a real-data model.
+qualified_real_data_winner_id: null

@@ -17,6 +17,7 @@ Models API
    residual_harmonic_temporal_sequence_network
    spectral_sobolev_guided_residual_network
    sparse_harmonic_condition_model
+   synthetic_weak_form_oracle
    uncertainty_physics_trust_calibrator
    temporal_sequence_network
    wave3_grouped_harmonic_heads_network

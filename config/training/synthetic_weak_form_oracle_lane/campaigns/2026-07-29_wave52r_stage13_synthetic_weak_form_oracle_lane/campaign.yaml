@@ -1,0 +1,13 @@
+schema_version: 1
+campaign_name: wave52r_stage13_synthetic_weak_form_oracle_lane_2026_07_29
+stage: wave_5_2r_stage13
+dataset_id: polished_dataset
+input_mode: setpoints
+surface: fw
+oracle_seed: 314159
+candidate_count: 10
+angular_sample_count_list: [2048, 1024, 512, 256, 128]
+normalized_noise_level_list: [0.0, 0.001, 0.005, 0.01]
+technical_document_path: doc/technical/2026-07/2026-07-29/2026-07-29-23-21-24_wave52r_stage13_synthetic_weak_form_oracle_lane.md
+campaign_plan_path: doc/reports/campaign_plans/model_development_waves/wave_5_2/synthetic_weak_form_oracle_lane/2026-07-29-23-21-24_wave52r_stage13_synthetic_weak_form_oracle_lane_campaign_plan_report.md
+real_data_promotion_allowed: false

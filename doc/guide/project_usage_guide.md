@@ -809,6 +809,27 @@ P95, or closure metrics relative to the matched C01 retraining, but neither
 beat C00 while preserving mean fidelity, chunk equivalence, bounded correction,
 and the complete curve-first gate. No optimizer was promoted.
 
+## Wave 5.2R Stage 13 Synthetic Weak-Form Oracle Lane
+
+Validate or rerun the completed ten-entry analytical certification campaign:
+
+```powershell
+.\scripts\campaigns\wave_5_2\run_wave52r_stage13_synthetic_weak_form_oracle_lane.ps1 `
+  -PreflightOnly
+
+.\scripts\campaigns\wave_5_2\run_wave52r_stage13_synthetic_weak_form_oracle_lane.ps1 `
+  -Run
+
+.\scripts\campaigns\wave_5_2\run_wave52r_stage13_synthetic_weak_form_oracle_lane.ps1 `
+  -Remote -Run
+```
+
+All `10 / 10` synthetic cases passed. The weak oscillator residual beat the
+matched pointwise residual in all declared noisy comparisons at densities of
+at least `256`, remained below threshold at `128` samples, and rejected
+wrong-order and shuffled-angle controls. These results certify implementation
+and detection power only; they do not promote a real-data model.
+
 ## Phase 0 PINN Foundation Audit
 
 Run the full-population foundation audit:

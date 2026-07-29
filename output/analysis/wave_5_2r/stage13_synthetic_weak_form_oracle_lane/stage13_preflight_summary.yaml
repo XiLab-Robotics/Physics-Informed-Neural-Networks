@@ -1,0 +1,100 @@
+schema_version: 1
+stage: wave52r_stage13_synthetic_weak_form_oracle_lane
+checked_at: '2026-07-29T23:33:57+02:00'
+status: passed
+candidate_count: 10
+deterministic_replay_exact: true
+split_signature: c1aa8718fb9bf88cc2021c121dc4f3b4010fc1d2e45ac90af5f4376aa64f8e16
+test_label_dependence: false
+real_data_promotion_allowed: false
+preflight_result_list:
+- candidate_id: C00
+  experiment: exact_h04_reconstruction
+  primary_metric_name: maximum_absolute_curve_error
+  primary_metric: 1.5265566588595902e-16
+  gate_threshold: 1.0e-10
+  higher_is_better: false
+  gate_passed: true
+  decision: certified_for_synthetic_use
+  real_data_promotion_allowed: false
+- candidate_id: H01
+  experiment: controlled_harmonic_injection
+  primary_metric_name: normalized_injected_coefficient_rmse
+  primary_metric: 1.3643861530084843e-15
+  gate_threshold: 0.02
+  higher_is_better: false
+  gate_passed: true
+  decision: certified_for_synthetic_use
+  real_data_promotion_allowed: false
+- candidate_id: H02
+  experiment: controlled_harmonic_omission
+  primary_metric_name: omitted_to_complete_curve_error_ratio
+  primary_metric: 3629741190817.0996
+  gate_threshold: 5.0
+  higher_is_better: true
+  gate_passed: true
+  decision: certified_for_synthetic_use
+  real_data_promotion_allowed: false
+- candidate_id: C01
+  experiment: coefficient_surface_perturbation
+  primary_metric_name: normalized_correction_rmse
+  primary_metric: 1.8336688558129472e-14
+  gate_threshold: 0.02
+  higher_is_better: false
+  gate_passed: true
+  decision: certified_for_synthetic_use
+  real_data_promotion_allowed: false
+- candidate_id: M01
+  experiment: misspecified_anchor_recovery
+  primary_metric_name: normalized_anchor_correction_rmse
+  primary_metric: 2.5509501830598897e-14
+  gate_threshold: 0.02
+  higher_is_better: false
+  gate_passed: true
+  decision: certified_for_synthetic_use
+  real_data_promotion_allowed: false
+- candidate_id: Q01
+  experiment: synthetic_compliance_nonlinearity
+  primary_metric_name: normalized_compliance_parameter_rmse
+  primary_metric: 5.835029429209765e-16
+  gate_threshold: 0.05
+  higher_is_better: false
+  gate_passed: true
+  decision: certified_for_synthetic_use
+  real_data_promotion_allowed: false
+- candidate_id: P01
+  experiment: pointwise_oscillator_residual
+  primary_metric_name: maximum_normalized_pointwise_residual
+  primary_metric: 103.27257676240839
+  gate_threshold: .inf
+  higher_is_better: false
+  gate_passed: true
+  decision: certified_for_synthetic_use
+  real_data_promotion_allowed: false
+- candidate_id: W01
+  experiment: weak_form_oscillator_residual
+  primary_metric_name: weak_residual_density256_noise001
+  primary_metric: 0.0006400299936070868
+  gate_threshold: 0.02
+  higher_is_better: false
+  gate_passed: true
+  decision: certified_for_synthetic_use
+  real_data_promotion_allowed: false
+- candidate_id: D01
+  experiment: sampling_density_stress
+  primary_metric_name: minimum_passing_angular_sample_count
+  primary_metric: 128.0
+  gate_threshold: 256.0
+  higher_is_better: false
+  gate_passed: true
+  decision: certified_for_synthetic_use
+  real_data_promotion_allowed: false
+- candidate_id: N01
+  experiment: wrong_law_and_shuffled_controls
+  primary_metric_name: minimum_negative_control_rejection_ratio
+  primary_metric: 141.08166829825598
+  gate_threshold: 10.0
+  higher_is_better: true
+  gate_passed: true
+  decision: certified_for_synthetic_use
+  real_data_promotion_allowed: false
