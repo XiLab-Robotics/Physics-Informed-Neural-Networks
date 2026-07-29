@@ -1,0 +1,11 @@
+optimization_profile: self_adaptive_curve_weighting
+optimization_step_count: 1548
+lbfgs_evaluation_count: 0
+adaptive_curve_state:
+  minimum_weight: 0.5562723728222826
+  maximum_weight: 2.0
+  effective_sample_size: 539.8700976100272
+augmented_lagrangian_state:
+  closure_multiplier: 0.0
+  correction_multiplier: 0.0
+  penalty: 1.0

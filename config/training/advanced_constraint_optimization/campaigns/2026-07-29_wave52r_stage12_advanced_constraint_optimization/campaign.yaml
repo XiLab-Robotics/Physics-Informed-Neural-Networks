@@ -1,0 +1,21 @@
+schema_version: 1
+campaign_name: wave52r_stage12_advanced_constraint_optimization_2026_07_29
+stage: wave_5_2r_stage12
+candidate_count: 10
+expected_first_screen_run_count: 10
+queue_path_list:
+- config/training/advanced_constraint_optimization/campaigns/2026-07-29_wave52r_stage12_advanced_constraint_optimization/queue/001_c00.yaml
+- config/training/advanced_constraint_optimization/campaigns/2026-07-29_wave52r_stage12_advanced_constraint_optimization/queue/002_c01.yaml
+- config/training/advanced_constraint_optimization/campaigns/2026-07-29_wave52r_stage12_advanced_constraint_optimization/queue/003_g01.yaml
+- config/training/advanced_constraint_optimization/campaigns/2026-07-29_wave52r_stage12_advanced_constraint_optimization/queue/004_r01.yaml
+- config/training/advanced_constraint_optimization/campaigns/2026-07-29_wave52r_stage12_advanced_constraint_optimization/queue/005_p01.yaml
+- config/training/advanced_constraint_optimization/campaigns/2026-07-29_wave52r_stage12_advanced_constraint_optimization/queue/006_s01.yaml
+- config/training/advanced_constraint_optimization/campaigns/2026-07-29_wave52r_stage12_advanced_constraint_optimization/queue/007_a01.yaml
+- config/training/advanced_constraint_optimization/campaigns/2026-07-29_wave52r_stage12_advanced_constraint_optimization/queue/008_u01.yaml
+- config/training/advanced_constraint_optimization/campaigns/2026-07-29_wave52r_stage12_advanced_constraint_optimization/queue/009_f01.yaml
+- config/training/advanced_constraint_optimization/campaigns/2026-07-29_wave52r_stage12_advanced_constraint_optimization/queue/010_l01.yaml
+conditional_stability_seed_list:
+- 271828
+- 161803
+technical_document_path: doc/technical/2026-07/2026-07-29/2026-07-29-21-38-21_wave52r_stage12_advanced_constraint_optimization.md
+campaign_plan_path: doc/reports/campaign_plans/model_development_waves/wave_5_2/advanced_constraint_optimization/2026-07-29-21-38-21_wave52r_stage12_advanced_constraint_optimization_campaign_plan_report.md

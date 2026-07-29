@@ -1,0 +1,11 @@
+optimization_profile: failure_informed_resampling
+optimization_step_count: 1548
+lbfgs_evaluation_count: 0
+adaptive_curve_state:
+  minimum_weight: 0.5729660795400656
+  maximum_weight: 2.0
+  effective_sample_size: 583.8681700011836
+augmented_lagrangian_state:
+  closure_multiplier: 0.0
+  correction_multiplier: 0.0
+  penalty: 1.0

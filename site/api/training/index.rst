@@ -11,5 +11,6 @@ Training API
    transmission_error_datamodule
    transmission_error_regression_module
    physics_guided_optimization_instrumentation
+   advanced_constraint_optimization
    train_feedforward_network
    validate_training_setup

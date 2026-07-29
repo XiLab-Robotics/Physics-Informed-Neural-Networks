@@ -329,6 +329,11 @@ This folder contains the internal project documents derived from the reference P
   calibration, error localization, operating-band audits, boundary behavior,
   and explicit ensemble deployment cost.
 
+- [technical/2026-07/2026-07-29/2026-07-29-21-38-21_wave52r_stage12_advanced_constraint_optimization.md](./technical/2026-07/2026-07-29/2026-07-29-21-38-21_wave52r_stage12_advanced_constraint_optimization.md)
+  Approved Stage 12 design for applying advanced multi-objective and
+  constrained optimization only to the qualified H04 and K01 ingredients,
+  with matched controls and repeatability gates.
+
 - [reports/campaign_plans/model_development_waves/wave_5_2/data_only_residual_capacity_ladder/2026-07-27-22-39-42_wave52r_stage4_data_only_residual_capacity_ladder_campaign_plan_report.md](./reports/campaign_plans/model_development_waves/wave_5_2/data_only_residual_capacity_ladder/2026-07-27-22-39-42_wave52r_stage4_data_only_residual_capacity_ladder_campaign_plan_report.md)
   Approved Stage 4 plan for eighteen matched data-only screening runs and an
   optional four-run stability continuation.
@@ -365,9 +370,18 @@ This folder contains the internal project documents derived from the reference P
   deep-ensemble spread, composite calibration, conformal intervals, and
   matched constant and shuffled controls.
 
+- [reports/campaign_plans/model_development_waves/wave_5_2/advanced_constraint_optimization/2026-07-29-21-38-21_wave52r_stage12_advanced_constraint_optimization_campaign_plan_report.md](./reports/campaign_plans/model_development_waves/wave_5_2/advanced_constraint_optimization/2026-07-29-21-38-21_wave52r_stage12_advanced_constraint_optimization_campaign_plan_report.md)
+  Stage 12 ten-entry plan for gradient balancing, projected gradients,
+  adaptive curve weighting, augmented constraints, curricula, resampling, and
+  L-BFGS refinement on the qualified H04 and K01 components.
+
 - [scripts/campaigns/wave_5_2/run_wave52r_stage11_uncertainty_trust_calibration.md](./scripts/campaigns/wave_5_2/run_wave52r_stage11_uncertainty_trust_calibration.md)
   Local and remote launcher contract for the Stage 11 uncertainty and
   physics-trust calibration campaign.
+
+- [scripts/campaigns/wave_5_2/run_wave52r_stage12_advanced_constraint_optimization.md](./scripts/campaigns/wave_5_2/run_wave52r_stage12_advanced_constraint_optimization.md)
+  Local and remote launcher contract for the Stage 12 advanced constraint
+  optimization campaign.
 
 - [reports/analysis/model_development_waves/wave_5_2/physics_guided_pinn_reassessment/[2026-07-28]/stage5_complex_harmonic_coefficient_residuals/stage5_complex_harmonic_coefficient_residual_model_report.md](./reports/analysis/model_development_waves/wave_5_2/physics_guided_pinn_reassessment/%5B2026-07-28%5D/stage5_complex_harmonic_coefficient_residuals/stage5_complex_harmonic_coefficient_residual_model_report.md)
   Model report for representation-aligned direct-curve, direct-coefficient,
@@ -451,10 +465,21 @@ This folder contains the internal project documents derived from the reference P
   subgroup, and cost gate.
   [Validated PDF companion](./reports/campaign_results/model_development_waves/wave_5_2/2026-07-29-21-21-32_wave52r_stage11_uncertainty_and_physics_trust_calibration_results_report.pdf).
 
+- [reports/campaign_results/model_development_waves/wave_5_2/2026-07-29-23-10-48_wave52r_stage12_advanced_constraint_optimization_results_report.md](./reports/campaign_results/model_development_waves/wave_5_2/2026-07-29-23-10-48_wave52r_stage12_advanced_constraint_optimization_results_report.md)
+  Completed Stage 12 ten-entry advanced-optimization screen. Frozen K01
+  remains the raw leader; F01 and S01 expose useful hard-curve-emphasis
+  tradeoffs, but no optimizer passes the complete gate.
+  [Validated PDF companion](./reports/campaign_results/model_development_waves/wave_5_2/2026-07-29-23-10-48_wave52r_stage12_advanced_constraint_optimization_results_report.pdf).
+
 - [reports/analysis/model_development_waves/wave_5_2/physics_guided_pinn_reassessment/[2026-07-29]/stage11_uncertainty_physics_trust_calibration/stage11_uncertainty_physics_trust_model_report.md](./reports/analysis/model_development_waves/wave_5_2/physics_guided_pinn_reassessment/%5B2026-07-29%5D/stage11_uncertainty_physics_trust_calibration/stage11_uncertainty_physics_trust_model_report.md)
   Model-facing explanation of the Stage 11 causal trust signals, calibration
   layer, conformal intervals, deployment tradeoffs, and interpretation
   boundary.
+
+- [reports/analysis/model_development_waves/wave_5_2/physics_guided_pinn_reassessment/[2026-07-29]/stage12_advanced_constraint_optimization/stage12_advanced_constraint_optimization_model_report.md](./reports/analysis/model_development_waves/wave_5_2/physics_guided_pinn_reassessment/%5B2026-07-29%5D/stage12_advanced_constraint_optimization/stage12_advanced_constraint_optimization_model_report.md)
+  Model-facing explanation and completed evidence for Stage 12 gradient
+  balancing, adaptive weighting, augmented constraints, resampling, and
+  second-order refinement.
 
 - [reports/analysis/model_development_waves/wave_5_2/physics_guided_pinn_reassessment/[2026-07-27]/physics_guided_pinn_reassessment_report.md](./reports/analysis/model_development_waves/wave_5_2/physics_guided_pinn_reassessment/%5B2026-07-27%5D/physics_guided_pinn_reassessment_report.md)
   Detailed reassessment of how analytical structure, weak physical priors,

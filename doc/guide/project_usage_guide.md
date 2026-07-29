@@ -781,6 +781,34 @@ selective-risk, interval, operating-band, and deployment-cost gate. The frozen
 K01 mean prediction was not moved, and no Stage 11 trust mechanism was
 promoted.
 
+## Wave 5.2R Stage 12 Advanced Constraint Optimization
+
+Validate or execute the completed ten-entry Stage 12 campaign:
+
+```powershell
+.\scripts\campaigns\wave_5_2\run_wave52r_stage12_advanced_constraint_optimization.ps1 `
+  -PreflightOnly
+
+.\scripts\campaigns\wave_5_2\run_wave52r_stage12_advanced_constraint_optimization.ps1 `
+  -Run
+
+.\scripts\campaigns\wave_5_2\run_wave52r_stage12_advanced_constraint_optimization.ps1 `
+  -Remote -Run
+```
+
+Recover only failed local entries after a corrected implementation:
+
+```powershell
+.\scripts\campaigns\wave_5_2\run_wave52r_stage12_advanced_constraint_optimization.ps1 `
+  -ResumeFailed
+```
+
+All `10 / 10` entries completed after P01 and L01 recovery. Frozen K01 C00
+remained the raw-error leader. F01 and S01 improved selected raw, shape, mean,
+P95, or closure metrics relative to the matched C01 retraining, but neither
+beat C00 while preserving mean fidelity, chunk equivalence, bounded correction,
+and the complete curve-first gate. No optimizer was promoted.
+
 ## Phase 0 PINN Foundation Audit
 
 Run the full-population foundation audit:

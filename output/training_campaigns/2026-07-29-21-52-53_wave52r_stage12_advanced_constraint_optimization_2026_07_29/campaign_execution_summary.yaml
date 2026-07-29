@@ -1,0 +1,11 @@
+campaign_name: wave52r_stage12_advanced_constraint_optimization_2026_07_29
+status: completed
+completed_first_screen_count: 10
+failed_first_screen_count: 0
+initial_failure_count: 2
+recovered_candidate_id_list:
+- P01
+- L01
+recovery_failure_list: []
+conditional_stability_run_count: 0
+completed_at: '2026-07-29T23:10:10+02:00'

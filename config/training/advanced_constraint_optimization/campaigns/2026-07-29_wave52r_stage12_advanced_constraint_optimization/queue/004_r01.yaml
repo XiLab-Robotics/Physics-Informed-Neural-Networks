@@ -1,0 +1,21 @@
+schema_version: 1
+campaign_name: wave52r_stage12_advanced_constraint_optimization_2026_07_29
+candidate:
+  queue_index: 4
+  candidate_id: R01
+  optimization_profile: relobralo_style
+  diagnostic_only: false
+dataset:
+  dataset_id: polished_dataset
+  input_mode: setpoints
+  surface: fw
+  curve_count: 966
+  split_signature: c1aa8718fb9bf88cc2021c121dc4f3b4010fc1d2e45ac90af5f4376aa64f8e16
+training:
+  first_screen_seed: 314159
+  conditional_stability_seed_list:
+  - 271828
+  - 161803
+  maximum_epoch_count: 36
+  curve_batch_size: 16
+  chunk_length: 33

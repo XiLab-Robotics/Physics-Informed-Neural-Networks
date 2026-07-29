@@ -1,0 +1,3 @@
+candidate_id: L01
+error_type: RuntimeError
+error_message: cudnn RNN backward can only be called in training mode

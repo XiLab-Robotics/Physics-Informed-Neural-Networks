@@ -1,0 +1,14 @@
+status: pass
+checked_at: '2026-07-29T22:49:02+02:00'
+split_signature: c1aa8718fb9bf88cc2021c121dc4f3b4010fc1d2e45ac90af5f4376aa64f8e16
+curve_count: 966
+train_curve_count: 675
+validation_curve_count: 194
+test_curve_count: 97
+candidate_count: 10
+frozen_k01_checkpoint_path: output/training_runs/temporal_analytical_residual_models/2026-07-29-19-21-15__stage9_k01/best_model.pt
+frozen_k01_mae_deg: 0.0013715533536374368
+finite_gradient_component_count: 5
+deterministic_weighted_sampling_passed: true
+runtime_target_derived_input_count: 0
+device: cuda

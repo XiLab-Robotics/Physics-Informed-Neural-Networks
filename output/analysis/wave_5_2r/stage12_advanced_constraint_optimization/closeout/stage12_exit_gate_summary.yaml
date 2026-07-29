@@ -1,0 +1,18 @@
+schema_version: 1
+stage: wave_5_2r_stage12
+status: completed_no_qualified_optimizer
+campaign_output_directory: output/training_campaigns/2026-07-29-21-52-53_wave52r_stage12_advanced_constraint_optimization_2026_07_29
+completed_first_screen_count: 10
+failed_first_screen_count: 0
+recovered_candidate_id_list:
+- P01
+- L01
+raw_error_leader_id: C00
+qualified_winner_id: null
+conditional_stability_executed: false
+diagnostic_candidate_id_list:
+- F01
+- S01
+next_stage: stage13_synthetic_and_weak_form_oracle_lane
+report_path: doc/reports/campaign_results/model_development_waves/wave_5_2/2026-07-29-23-10-48_wave52r_stage12_advanced_constraint_optimization_results_report.md
+generated_at: '2026-07-29T23:14:16+02:00'

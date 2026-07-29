@@ -1,0 +1,11 @@
+optimization_profile: augmented_lagrangian
+optimization_step_count: 1548
+lbfgs_evaluation_count: 0
+adaptive_curve_state:
+  minimum_weight: 1.0
+  maximum_weight: 1.0
+  effective_sample_size: 675.0000000000001
+augmented_lagrangian_state:
+  closure_multiplier: 0.0
+  correction_multiplier: 0.0
+  penalty: 1.0
