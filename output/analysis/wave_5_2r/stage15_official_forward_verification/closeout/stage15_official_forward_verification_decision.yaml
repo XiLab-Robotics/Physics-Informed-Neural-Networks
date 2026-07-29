@@ -1,0 +1,40 @@
+schema_version: 1
+stage: wave52r_stage15_official_forward_verification
+status: completed_without_promotion
+official_surface: polished_dataset_setpoint_forward
+curve_count: 97
+challenger_candidate_id: wave52r_stage15_h04_bounded_coefficient_residual_Fw
+incumbent_candidate_id: accepted_periodic_gru_sequence_Fw
+registry_promotion: false
+decision: retain_periodic_gru_sequence_fw_incumbent_and_keep_h04_exploratory_export_prepared
+evidence:
+  h04_raw_mae_deg: 0.0017286438209558187
+  h04_vs_pf_a_raw_mae_improvement_pct: 4.587219319971645
+  h04_vs_gru_raw_mae_improvement_pct: -6.814363615408163
+  h04_centered_shape_mae_deg: 0.001359
+  h04_vs_gru_centered_shape_improvement_pct: 1.6642547033285107
+  h04_absolute_offset_error_deg: 0.000884
+  h04_vs_gru_offset_improvement_pct: -28.115942028985515
+  python_onnx_parity_passed: true
+  static_plc_reference_parity_passed: true
+  twincat_compile_status: pending
+  twincat_runtime_status: pending
+acceptance_gate_list:
+- gate_id: official_forward_curve_first_matrix_complete
+  passed: true
+- gate_id: challenger_improves_pf_a_raw_mae
+  passed: true
+- gate_id: challenger_improves_incumbent_raw_mae
+  passed: false
+- gate_id: challenger_improves_incumbent_centered_shape
+  passed: true
+- gate_id: challenger_improves_incumbent_offset
+  passed: false
+- gate_id: python_onnx_parity
+  passed: true
+- gate_id: static_plc_reference_parity
+  passed: true
+- gate_id: twincat_compile_and_runtime_parity
+  passed: false
+next_step: Close Wave 5.2R without H04 registry promotion. Preserve the export package
+  for a future TwinCAT runtime integration task.

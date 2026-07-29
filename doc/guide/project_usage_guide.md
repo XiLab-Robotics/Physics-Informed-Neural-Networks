@@ -851,6 +851,55 @@ H04 is the only eligible entrant. It is nominated for Stage 15 official
 forward verification only; the accepted GRU remains incumbent and no registry
 is changed.
 
+## Wave 5.2R Stage 15 Official Forward Verification
+
+Validate the hash-locked package without running the heavy matrix:
+
+```powershell
+.\scripts\campaigns\track_2\run_wave52r_stage15_official_forward_verification.ps1 `
+  -PreflightOnly
+```
+
+Run the official forward matrix on the remote LAN workstation:
+
+```powershell
+.\scripts\campaigns\track_2\run_wave52r_stage15_official_forward_verification.ps1 `
+  -Remote `
+  -Run
+```
+
+The matrix places H04, its PF-A analytical anchor, the accepted harmonic MLP,
+and the accepted GRU on one polished-setpoint forward test surface. The
+completed `2026-07-30` run evaluated 97 held-out curves. H04 improved PF-A and
+led centered shape, derivative, and mean harmonic phase, but the periodic GRU
+retained the better balanced raw, P95, offset, and peak-to-peak result. H04 was
+not promoted and no registry changed.
+
+Prepare and validate the H04 ONNX graph:
+
+```powershell
+conda run --no-capture-output -n pinns_env python -B `
+  scripts/export/wave_5_2r/export_stage15_h04_onnx_and_validate_parity.py
+```
+
+Generate the PLC-friendly parameter and Structured Text package:
+
+```powershell
+conda run --no-capture-output -n pinns_env python -B `
+  scripts/export/wave_5_2r/build_stage15_h04_plc_reference_package.py
+```
+
+Python/ONNX and independent float32 PLC-reference parity pass. TwinCAT
+compilation and runtime replay remain separate pending gates.
+
+Rebuild the canonical Stage 15 visual and analytical closeout from the frozen
+matrix, CVP 1.2 diagnostics, and deployment-parity artifacts:
+
+```powershell
+conda run --no-capture-output -n pinns_env python -B `
+  scripts/reports/closeout/wave_5_2/build_stage15_official_forward_verification_closeout.py
+```
+
 ## Phase 0 PINN Foundation Audit
 
 Run the full-population foundation audit:

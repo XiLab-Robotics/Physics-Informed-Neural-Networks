@@ -30,14 +30,14 @@ closeout that changes any of these surfaces:
 | Current accepted backward curve-verified leader | `polished_periodic_gru_sequence_Bw` |
 | Current accepted global neural curve-verified leader | `polished_periodic_gru_sequence_global` |
 | Latest normal campaign closeout | Wave 5.2R Stage 13 synthetic and weak-form oracle lane, `10 / 10` cases certified on `2026-07-29`; weak residual beat pointwise under every declared noisy comparison, but no real-data model was promoted |
-| Latest non-training tournament closeout | Wave 5.2R Stage 14 audited eleven formulation groups; H04 is the sole eligible entrant and is nominated for Stage 15 official verification only, while the accepted GRU remains incumbent |
+| Latest non-training tournament closeout | Wave 5.2R Stage 15 completed the official 97-curve forward comparison. H04 led centered shape, derivative, and mean harmonic phase, but the accepted GRU retained raw, P95, offset, and peak-to-peak leadership. H04 remains exploratory and no registry changed. |
 | Latest non-training PINN gate | Phase 15 audited four evidence files and all five physics-integrated Wave 6 prerequisites; all five fail, so the sixteen-phase roadmap closed without training or automatic advancement |
 | Latest official TE Curve Verification refresh | polished-dataset RCIM, early-wave, and full-wave refresh, dated `2026-07-03` |
-| Latest curve-verification decision | six-cell non-MMT reduced comparison closed on `2026-07-24`; periodic GRU recommended in four cells and periodic harmonic MLP in two; no official promotion |
+| Latest curve-verification decision | Wave 5.2R Stage 15 closed on `2026-07-30` without promotion. H04 improved PF-A and passed Python/ONNX plus static PLC-reference parity, but did not displace the accepted periodic GRU. |
 | Latest pruning decision | `2026-07-17` shape-first intermediate model-selection cleanup; `global` remains paused until final backlog stage |
 | Active report generation | six reduced selected-model reports completed for polished setpoints, simplified setpoints, and polished actual values, each split into `forward` and `backward` |
 | Current TE Curve Verification Pipeline selection policy | multi-index curve-first selection, dated `2026-06-16` |
-| Next modeling decision | Execute `Wave 5.2R` Stage 15 Official Forward Verification And Deployment Preparation for H04 against PF-A, harmonic MLP, and GRU on one official curve-first contract. Require Python/ONNX and PLC parity before acceptance. Physics-integrated Wave 6 remains closed. |
+| Next modeling decision | Preserve the completed Wave 5.2R evidence and H04 export package. Any TwinCAT runtime integration, empirical multi-task branch, or physics-integrated Wave 6 reopening requires its own technical and evidence gate. |
 
 The repository remains direction-parallel. `Fw`, `Bw`, and `global` are not a
 single destructive competition. Each surface keeps its own best candidate and
@@ -186,7 +186,7 @@ robustness, visual-evidence, and deployment-readiness axes visible.
 | Wave 5.2 Phase 15 Wave 6 entry | completed no-entry closeout | Four evidence files and five entry prerequisites were audited. All five physics-integrated prerequisites fail. | Authorize no physics-integrated Wave 6 campaign and no automatic phase advance. Empirical multi-task research remains separate. |
 | Wave 5.2 general full-PINN program | Phases 0 through 15 complete; evidence closeout | All mechanisms are preserved with explicit empirical, rejected, offline, synthetic, deferred, blocked, or no-entry decisions. | Reopen only when a recorded evidence gate changes. |
 | Wave 5.2 complete theory-validation program | completed 16 of 16 | The program covered foundations, isolated formulations, synthetic and offline oracles, causal reconstruction, instrumentation, tournament, integration, and Wave 6 entry. | Preserve the closeout; do not weaken full-PINN or Wave 6 entry definitions. |
-| Wave 5.2R polished-setpoint forward physics-guided reassessment | Stages 0 through 14 of 16 complete | Stage 14 audited eleven formulation groups. H04 alone passed all six entry requirements. It improves PF-A and the incumbent GRU on centered shape, but the GRU remains better on raw and offset. Harmonic contracts are not yet comparable. | Nominate H04 for Stage 15 official verification only. Preserve the GRU incumbent, make no registry changes, and require common metrics plus deployment parity before acceptance. |
+| Wave 5.2R polished-setpoint forward physics-guided reassessment | completed 16 of 16 without promotion | Stage 15 compared H04, PF-A, harmonic MLP, and periodic GRU on 97 held-out forward curves. H04 improved PF-A raw MAE by `4.59%` and led centered shape, derivative, and mean harmonic phase. The GRU remained `6.82%` better on raw MAE and retained P95, offset, and peak-to-peak leadership. Static export parity passed; TwinCAT runtime remains unclaimed. | Preserve H04 as an exploratory export-prepared grey-box candidate, retain the periodic GRU incumbent, and make no family or program registry changes. |
 | Wave 5.2 paper-faithful MMT full PINN | deferred future TODO | MMT diagnostics, parameter inventory, `Wave 5.2B`, the post-causal-offset gate, exact-manifest replay, and leakage-safe explanatory rerun are complete. Contact geometry and causal observations for five equivalent-error groups remain unavailable. | Inactive without blocking the general full-PINN program. Reopen only after independent component-error measurements or validated causal contact-state reconstruction provides condition-varying physical inputs. |
 | Six-cell non-MMT reduced cross-wave comparison | closed diagnostic | Six remote selected-model reports and three direction-paired shape-gated reranks covered polished setpoints, simplified setpoints, and polished actual values. Forty-six curve collages were reviewed. | No official promotion. Periodic GRU wins four cells, periodic harmonic MLP wins two, Wave 4.1 remains the raw-error/offset ingredient, and sparse-RCIM temporal models remain reference-only. |
 | Wave 6 physics-integrated multi-task / multi-head model | entry not authorized | Intended to combine proven offset, low-frequency, centered-shape, uncertainty, mixture, and validated physics-informed mechanisms. | Reopen only after at least two complementary physical components pass isolated and integrated gates. |
@@ -325,8 +325,10 @@ models.
 14. Preserve the Stage 14 entry result: H04 is the sole eligible entrant and is
     nominated for Stage 15 verification only; K01 and synthetic weak-form
     evidence do not satisfy tournament entry.
-15. Execute Stage 15 on one official forward curve-first contract and require
-    Python/ONNX and PLC parity before acceptance.
+15. Preserve the completed Stage 15 decision: H04 improves PF-A and selected
+    shape metrics, but the GRU remains the balanced forward incumbent.
+    Python/ONNX and static PLC-reference parity pass; TwinCAT runtime remains
+    a separate unclaimed deployment task.
 16. Keep physics-integrated Wave 6 closed until at least two complementary
    physical components pass isolated and integrated gates.
 17. Keep the paper-faithful MMT full PINN as an inactive future TODO. Reopen it

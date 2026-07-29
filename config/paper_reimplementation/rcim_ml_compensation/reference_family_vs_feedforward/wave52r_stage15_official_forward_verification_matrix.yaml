@@ -1,0 +1,88 @@
+paths:
+  dataset_config_path: config/datasets/transmission_error_dataset.yaml
+dataset:
+  name: polished_dataset
+  input_mode: setpoints
+  split_manifest_path: output/analysis/polynomial_fourier_benchmark/common_split_manifest.yaml
+  excluded_condition_id_list:
+  - speed_500rpm__torque_600Nm__temperature_35degC
+  - speed_800rpm__torque_200Nm__temperature_25degC
+  - speed_1400rpm__torque_800Nm__temperature_35degC
+  expected_curve_count_by_split:
+    train: 1350
+    validation: 388
+    test: 194
+experiment:
+  run_name: wave52r_stage15_official_forward_verification
+  model_family: track2_reference_comparison
+  model_type: reference_family_vs_feedforward
+comparison:
+  comparison_mode: wave52r_stage15_official_forward_curve_first
+  lightweight_test_curve_records: true
+  percentage_error_denominator: peak_to_peak_truth
+  preview_curve_count: 4
+  candidate_list:
+  - candidate_id: wave52r_stage15_h04_bounded_coefficient_residual_Fw
+    candidate_family: complex_harmonic_coefficient_residuals
+    candidate_kind: stage5_coefficient_residual
+    candidate_source_label: wave52r_stage14_nominee
+    candidate_surface: Fw
+    checkpoint_path: output/training_runs/complex_harmonic_coefficient_residuals/2026-07-28-16-17-13__stage5_h04/best_model.pt
+    training_config_path: output/training_runs/complex_harmonic_coefficient_residuals/2026-07-28-16-17-13__stage5_h04/training_config.yaml
+    analytical_anchor_path: output/analysis/wave_5_2r/stage4_data_only_residual_capacity_ladder/stage4_causal_setpoint_pf_a_surface.yaml
+    expected_checkpoint_sha256: 61732ac19b69dc2407268335c33a4605e06e9845a1c2c222b161cba968e36f48
+    expected_training_config_sha256: 04a1e1188363784002914166dec1669b9cff5a9a2605e0d4b543714eec33a557
+    expected_analytical_anchor_sha256: c53ae5619227b25051e74d12b280f0ef5cb912948bf265ae9f800652adc82309
+    expected_split_signature: c1aa8718fb9bf88cc2021c121dc4f3b4010fc1d2e45ac90af5f4376aa64f8e16
+    anchor_only: false
+    allowed_direction_list:
+    - forward
+  - candidate_id: wave52r_stage15_pf_a_setpoint_quadratic_Fw
+    candidate_family: polynomial_fourier_pf_a
+    candidate_kind: stage5_coefficient_residual
+    candidate_source_label: frozen_analytical_anchor
+    candidate_surface: Fw
+    checkpoint_path: output/training_runs/complex_harmonic_coefficient_residuals/2026-07-28-16-17-13__stage5_h04/best_model.pt
+    training_config_path: output/training_runs/complex_harmonic_coefficient_residuals/2026-07-28-16-17-13__stage5_h04/training_config.yaml
+    analytical_anchor_path: output/analysis/wave_5_2r/stage4_data_only_residual_capacity_ladder/stage4_causal_setpoint_pf_a_surface.yaml
+    expected_checkpoint_sha256: 61732ac19b69dc2407268335c33a4605e06e9845a1c2c222b161cba968e36f48
+    expected_training_config_sha256: 04a1e1188363784002914166dec1669b9cff5a9a2605e0d4b543714eec33a557
+    expected_analytical_anchor_sha256: c53ae5619227b25051e74d12b280f0ef5cb912948bf265ae9f800652adc82309
+    expected_split_signature: c1aa8718fb9bf88cc2021c121dc4f3b4010fc1d2e45ac90af5f4376aa64f8e16
+    anchor_only: true
+    allowed_direction_list:
+    - forward
+  - candidate_id: accepted_periodic_mlp_harmonic_Fw
+    candidate_family: periodic_mlp_harmonic
+    candidate_kind: wave1_exported_model
+    candidate_source_label: accepted_non_windowed_reference
+    candidate_surface: Fw
+    reference_inventory_path: models/polished_dataset/setpoints/periodic_mlp_harmonic/forward/reference_inventory.yaml
+    allowed_direction_list:
+    - forward
+  - candidate_id: accepted_periodic_gru_sequence_Fw
+    candidate_family: periodic_gru_sequence
+    candidate_kind: wave1_exported_model
+    candidate_source_label: accepted_time_windowed_incumbent
+    candidate_surface: Fw
+    reference_inventory_path: models/polished_dataset/setpoints/periodic_gru_sequence/forward/reference_inventory.yaml
+    allowed_direction_list:
+    - forward
+evaluation:
+  selected_harmonics:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  decomposition_point_stride: 1
+metadata:
+  roadmap_stage: wave52r_stage15
+  official_te_curve_verification_pipeline_refresh: true
+  acceptance_policy_path: doc/reports/analysis/te_curve_verification_pipeline/00_overview/multi_index_curve_first_selection_policy/[2026-06-16]/track2_multi_index_curve_first_selection_policy.md
+  registry_updates_before_acceptance: prohibited

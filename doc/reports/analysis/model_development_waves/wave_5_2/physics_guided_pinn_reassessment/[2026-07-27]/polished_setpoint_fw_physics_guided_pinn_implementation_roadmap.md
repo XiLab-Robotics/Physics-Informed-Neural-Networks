@@ -52,7 +52,9 @@ The accepted forward references at roadmap entry are:
 | Stage 4: Data-Only Residual Capacity Ladder | completed negative | All 18 runs completed. H08 won the scalar campaign, but every primary hybrid failed the curve-first and cancellation gates. No residual architecture advanced and no stability repeats were required. |
 | Stage 5: Complex Harmonic Coefficient Residuals | completed positive component | All 18 first-screen runs and all 4 H04 stability runs completed. H04 passed all ten isolated-component gates across three seeds and advances as a structured coefficient component; H08 remains a raw-error-only leader. |
 | Stage 6: Spectral And Sobolev Guidance | completed negative | All 15 candidates completed without failure. FI01 improved raw MAE by 0.88%, but no candidate passed the derivative, harmonic, tail, and matched-control gate together; stability was correctly skipped. |
-| Stages 7 through 15 | planned | Continue in order; training stages retain their campaign approval gates. |
+| Stages 7 through 13 | completed | Mean/shape heads, weak compliance, temporal residuals, sparse discovery, trust calibration, advanced optimization, and synthetic weak-form certification completed under their declared gates. K01 and H04 remain research components; no later-stage candidate earned promotion. |
+| Stage 14: Cross-Formulation Forward Tournament | completed bounded entry | H04 alone passed all six entrant requirements. K01 and the synthetic weak-form lane remained ineligible for official real-data comparison. |
+| Stage 15: Official Forward Verification And Deployment Preparation | completed without promotion | The 97-curve official forward matrix confirmed H04's centered-shape value and static export parity, but the periodic GRU retained better raw, P95, offset, and peak-to-peak behavior. H04 remains exploratory and the GRU remains incumbent. |
 
 ## Non-Negotiable Experimental Contract
 
@@ -675,11 +677,12 @@ These recommendations remain outside the `Wave 5.2R` training scope.
 
 ## Governance And Execution Order
 
-Stages 0 through 8 are complete. The next executable project is:
+Stages 0 through 15 are complete. Wave 5.2R is closed without a registry
+promotion:
 
 ```text
-Stage 9:
-Temporal Analytical-Residual Models
+Wave 5.2R:
+completed without H04 acceptance
 ```
 
 Stage 5 corrected the representation mismatch exposed by Stage 4 and completed
@@ -722,7 +725,21 @@ equation removed local sign violations only by underfitting raw and mean TE.
 The result closes compliance as a promoted Stage 8 component under the current
 setpoint-only evidence.
 
-Stage 9 now tests whether causal history supplies information missing from the
-static operating-condition surface. It compares the accepted periodic GRU,
-matched temporal controls, and PF-A-anchored residual GRU formulations under
-an explicit causal runtime contract.
+Stage 9 showed that causal coefficient-residual history can materially improve
+H04, but K01 failed closure, P95, and chunk-equivalence gates. Stages 10
+through 12 found useful nonlinear interactions, partial trust signals, and
+selected optimization gains without a fully qualified component. Stage 13
+certified the weak-form implementation only on deterministic synthetic
+oracles.
+
+Stage 14 admitted only H04 to official verification. Stage 15 then compared
+H04, PF-A, the harmonic MLP, and the periodic GRU on the same 97 held-out
+forward curves. H04 improved PF-A raw MAE and achieved the best centered-shape,
+derivative, and mean harmonic-phase metrics. It did not beat the GRU on raw,
+P95, offset, or peak-to-peak behavior. Python/ONNX and static PLC-reference
+parity passed, while TwinCAT compile and runtime evidence remain unclaimed.
+
+The final decision is therefore to preserve H04 as the strongest compact
+grey-box output of the wave, retain the periodic GRU as the accepted forward
+incumbent, make no registry changes, and keep physics-integrated Wave 6 closed
+until its separate evidence gate is satisfied.

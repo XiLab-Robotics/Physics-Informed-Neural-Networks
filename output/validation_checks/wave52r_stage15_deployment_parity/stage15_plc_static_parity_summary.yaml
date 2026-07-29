@@ -1,0 +1,20 @@
+schema_version: 1
+generated_at: '2026-07-30T00:18:33+02:00'
+status: passed
+condition_count: 97
+numeric_type: IEC_61131_3_REAL_float32_reference
+parameter_archive_path: output/validation_checks/wave52r_stage15_deployment_parity/stage15_h04_plc_parameter_archive.npz
+parameter_archive_sha256: 0b0359057ab62aea0937e34ac7963e0b05a6ba94f54b0f3b854fcccc367516c7
+global_parameter_st_path: output/validation_checks/wave52r_stage15_deployment_parity/GVL_Stage15H04Parameters.st
+global_parameter_st_sha256: 7d4e7603de062a68eec5130dd68287fd0e081b85ea22b543227ddebc0d487356
+function_block_st_path: output/validation_checks/wave52r_stage15_deployment_parity/FB_Stage15H04CoefficientResidual.st
+function_block_st_sha256: 09f4b1c4734ae434d540d34e2a567309719d8d455e74e0cea08863667547b116
+curve_max_abs_difference_deg: 2.9802322387695312e-08
+coefficient_max_abs_difference_deg: 7.450580596923828e-09
+correction_max_abs_difference_deg: 2.3283064365386963e-10
+curve_max_abs_tolerance_deg: 2.0e-06
+coefficient_max_abs_tolerance_deg: 1.0e-06
+static_plc_reference_parity_passed: true
+twincat_compile_status: pending
+twincat_runtime_status: pending
+deployment_claim: PLC-friendly reference package only; no TwinCAT runtime claim

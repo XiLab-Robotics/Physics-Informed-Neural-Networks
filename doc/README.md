@@ -342,6 +342,25 @@ This folder contains the internal project documents derived from the reference P
   Approved Stage 14 design for strict entrant eligibility, compatible-unit
   tournament comparisons, and bounded Stage 15 nomination.
 
+- [technical/2026-07/2026-07-29/2026-07-29-23-54-57_wave52r_stage15_official_forward_verification_and_deployment_preparation.md](./technical/2026-07/2026-07-29/2026-07-29-23-54-57_wave52r_stage15_official_forward_verification_and_deployment_preparation.md)
+  Approved Stage 15 design for official forward-only curve verification,
+  inspectable H04 inference, and Python/ONNX/PLC deployment preparation.
+
+- [scripts/campaigns/track_2/run_wave52r_stage15_official_forward_verification.md](./scripts/campaigns/track_2/run_wave52r_stage15_official_forward_verification.md)
+  Local and remote operator contract for the gated Stage 15 forward matrix.
+
+- [scripts/deployment/wave52r_stage15_h04_deployment_exports.md](./scripts/deployment/wave52r_stage15_h04_deployment_exports.md)
+  H04 ONNX export, Python parity, generated Structured Text, and static
+  PLC-reference validation workflow.
+
+- [reports/analysis/model_development_waves/wave_5_2/official_forward_verification_and_deployment_preparation/[2026-07-29]/stage15_twincat_deployment_preparation.md](./reports/analysis/model_development_waves/wave_5_2/official_forward_verification_and_deployment_preparation/%5B2026-07-29%5D/stage15_twincat_deployment_preparation.md)
+  Inspectable H04 TwinCAT graph, runtime safety contract, and strict
+  Python/ONNX/PLC parity gates.
+
+- [reports/analysis/model_development_waves/wave_5_2/official_forward_verification_and_deployment_preparation/[2026-07-30]/stage15_official_forward_verification_and_deployment_preparation_report.md](./reports/analysis/model_development_waves/wave_5_2/official_forward_verification_and_deployment_preparation/%5B2026-07-30%5D/stage15_official_forward_verification_and_deployment_preparation_report.md)
+  Completed 97-curve official forward comparison, CVP 1.2 multi-index
+  evidence, deployment parity, and no-promotion decision.
+
 - [reports/campaign_plans/model_development_waves/wave_5_2/data_only_residual_capacity_ladder/2026-07-27-22-39-42_wave52r_stage4_data_only_residual_capacity_ladder_campaign_plan_report.md](./reports/campaign_plans/model_development_waves/wave_5_2/data_only_residual_capacity_ladder/2026-07-27-22-39-42_wave52r_stage4_data_only_residual_capacity_ladder_campaign_plan_report.md)
   Approved Stage 4 plan for eighteen matched data-only screening runs and an
   optional four-run stability continuation.
@@ -511,6 +530,11 @@ This folder contains the internal project documents derived from the reference P
   Completed Stage 14 strict-entry tournament. H04 is the sole entrant and is
   nominated for Stage 15 verification only; the GRU remains incumbent.
   [Validated PDF companion](./reports/analysis/model_development_waves/wave_5_2/cross_formulation_forward_tournament/%5B2026-07-29%5D/stage14_cross_formulation_forward_tournament_report.pdf).
+
+- [reports/analysis/model_development_waves/wave_5_2/official_forward_verification_and_deployment_preparation/[2026-07-30]/stage15_official_forward_verification_and_deployment_preparation_report.md](./reports/analysis/model_development_waves/wave_5_2/official_forward_verification_and_deployment_preparation/%5B2026-07-30%5D/stage15_official_forward_verification_and_deployment_preparation_report.md)
+  Final Wave 5.2R closeout. H04 remains exploratory, the periodic GRU remains
+  incumbent, and no registry is promoted.
+  [Validated PDF companion](./reports/analysis/model_development_waves/wave_5_2/official_forward_verification_and_deployment_preparation/%5B2026-07-30%5D/stage15_official_forward_verification_and_deployment_preparation_report.pdf).
 
 - [reports/analysis/model_development_waves/wave_5_2/physics_guided_pinn_reassessment/[2026-07-27]/physics_guided_pinn_reassessment_report.md](./reports/analysis/model_development_waves/wave_5_2/physics_guided_pinn_reassessment/%5B2026-07-27%5D/physics_guided_pinn_reassessment_report.md)
   Detailed reassessment of how analytical structure, weak physical priors,

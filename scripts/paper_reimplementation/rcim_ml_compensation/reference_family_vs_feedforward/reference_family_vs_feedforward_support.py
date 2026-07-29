@@ -4,6 +4,7 @@ from __future__ import annotations
 
 # Import Python Utilities
 import csv
+import hashlib
 import pickle
 from dataclasses import dataclass
 from datetime import datetime
@@ -20,6 +21,12 @@ import torch
 
 # Import Project Utilities
 from scripts.datasets import transmission_error_dataset
+from scripts.analysis.polynomial_fourier_benchmark.polynomial_fourier_models import (
+    QuadraticCoefficientSurface,
+)
+from scripts.models.complex_harmonic_coefficient_residual_network import (
+    ComplexHarmonicCoefficientResidualNetwork,
+)
 from scripts.models.model_factory import create_model
 from scripts.paper_reimplementation.rcim_ml_compensation.harmonic_wise_comparison import harmonic_wise_support
 from scripts.training import shared_training_infrastructure
@@ -49,6 +56,9 @@ REFERENCE_CANDIDATE_KIND_SET = {
     "track1_reference_bank",
     "composite_reference_bank",
 }
+STAGE5_COEFFICIENT_RESIDUAL_CANDIDATE_KIND = (
+    "stage5_coefficient_residual"
+)
 TEMPORAL_SEQUENCE_MODEL_TYPE_SET = {
     "temporal_convolution",
     "gru_sequence",
@@ -114,6 +124,292 @@ def load_yaml_dictionary(yaml_path: Path) -> dict[str, Any]:
         loaded_dictionary = yaml.safe_load(yaml_file)
     assert isinstance(loaded_dictionary, dict), f"Expected YAML dictionary | {yaml_path}"
     return loaded_dictionary
+
+
+def compute_file_sha256(file_path: Path) -> str:
+
+    """Return the lowercase SHA-256 digest for one immutable artifact."""
+
+    sha256_digest = hashlib.sha256()
+    with file_path.open("rb") as input_file:
+        while byte_chunk := input_file.read(1024 * 1024):
+            sha256_digest.update(byte_chunk)
+    return sha256_digest.hexdigest()
+
+
+def assert_expected_file_sha256(
+    file_path: Path,
+    expected_sha256: str,
+    artifact_label: str,
+) -> None:
+
+    """Reject one Stage 5 artifact when its frozen digest has drifted."""
+
+    observed_sha256 = compute_file_sha256(file_path)
+    normalized_expected_sha256 = str(expected_sha256).strip().lower()
+    assert observed_sha256 == normalized_expected_sha256, (
+        f"{artifact_label} SHA-256 mismatch | "
+        f"path={file_path} | expected={normalized_expected_sha256} | "
+        f"observed={observed_sha256}"
+    )
+
+
+def build_quadratic_coefficient_surface_from_payload(
+    surface_payload: dict[str, Any],
+) -> QuadraticCoefficientSurface:
+
+    """Recreate the frozen causal PF-A coefficient surface."""
+
+    return QuadraticCoefficientSurface(
+        feature_mean=np.asarray(
+            surface_payload["feature_mean"],
+            dtype=np.float64,
+        ),
+        feature_scale=np.asarray(
+            surface_payload["feature_scale"],
+            dtype=np.float64,
+        ),
+        coefficient_matrix=np.asarray(
+            surface_payload["coefficient_matrix"],
+            dtype=np.float64,
+        ),
+        harmonic_order_list=tuple(
+            int(value)
+            for value in surface_payload["harmonic_order_list"]
+        ),
+        design_condition_number=float(
+            surface_payload["design_condition_number"]
+        ),
+    )
+
+
+def load_stage5_coefficient_residual_candidate(
+    candidate_configuration: dict[str, Any],
+) -> tuple[
+    ComplexHarmonicCoefficientResidualNetwork,
+    dict[str, Any],
+]:
+
+    """Load one hash-locked Stage 5 coefficient-residual inference graph."""
+
+    checkpoint_path = (
+        shared_training_infrastructure.resolve_runtime_project_relative_path(
+            candidate_configuration["checkpoint_path"]
+        )
+    )
+    training_config_path = (
+        shared_training_infrastructure.resolve_runtime_project_relative_path(
+            candidate_configuration["training_config_path"]
+        )
+    )
+    analytical_anchor_path = (
+        shared_training_infrastructure.resolve_runtime_project_relative_path(
+            candidate_configuration["analytical_anchor_path"]
+        )
+    )
+    for artifact_path, digest_key, artifact_label in [
+        (
+            checkpoint_path,
+            "expected_checkpoint_sha256",
+            "Stage 5 checkpoint",
+        ),
+        (
+            training_config_path,
+            "expected_training_config_sha256",
+            "Stage 5 training configuration",
+        ),
+        (
+            analytical_anchor_path,
+            "expected_analytical_anchor_sha256",
+            "Stage 5 analytical anchor",
+        ),
+    ]:
+        assert artifact_path.is_file(), (
+            f"{artifact_label} does not exist | {artifact_path}"
+        )
+        assert_expected_file_sha256(
+            artifact_path,
+            candidate_configuration[digest_key],
+            artifact_label,
+        )
+
+    stage5_training_config = load_yaml_dictionary(training_config_path)
+    analytical_anchor_payload = load_yaml_dictionary(analytical_anchor_path)
+    expected_split_signature = str(
+        candidate_configuration["expected_split_signature"]
+    )
+    assert (
+        stage5_training_config["split_signature"]
+        == expected_split_signature
+    )
+    assert (
+        analytical_anchor_payload["split_signature"]
+        == expected_split_signature
+    )
+    assert stage5_training_config["candidate_id"] == "H04"
+    assert stage5_training_config["formulation"] == "bounded_coefficient"
+    assert stage5_training_config["order_set_name"] == "core"
+
+    # The digest is validated above before trusted repository-owned pickle data
+    # is deserialized. The legacy Stage 5 checkpoint contains NumPy metadata
+    # that is not accepted by the restricted weights-only loader.
+    checkpoint_payload = torch.load(
+        checkpoint_path,
+        map_location="cpu",
+        weights_only=False,
+    )
+    harmonic_order_list = [
+        int(value)
+        for value in checkpoint_payload["harmonic_order_list"]
+    ]
+    assert harmonic_order_list == [
+        int(value)
+        for value in stage5_training_config["harmonic_order_list"]
+    ]
+    assert harmonic_order_list == [
+        int(value)
+        for value in analytical_anchor_payload["surface"][
+            "harmonic_order_list"
+        ]
+    ]
+
+    hidden_size_list = [
+        int(checkpoint_payload["state_dict"][
+            "condition_network.0.weight"
+        ].shape[0]),
+        int(checkpoint_payload["state_dict"][
+            "condition_network.2.weight"
+        ].shape[0]),
+        int(checkpoint_payload["state_dict"][
+            "condition_network.4.weight"
+        ].shape[0]),
+    ]
+    model_object = ComplexHarmonicCoefficientResidualNetwork(
+        condition_input_size=3,
+        hidden_size_list=hidden_size_list,
+        harmonic_order_list=harmonic_order_list,
+        angular_sample_count=int(
+            stage5_training_config["angular_sample_count"]
+        ),
+        formulation=str(stage5_training_config["formulation"]),
+        coefficient_correction_bound_list=checkpoint_payload[
+            "state_dict"
+        ]["coefficient_correction_bound"].tolist(),
+        zero_initialize_correction=False,
+    )
+    model_object.load_state_dict(
+        checkpoint_payload["state_dict"],
+        strict=True,
+    )
+    model_object.eval()
+
+    adapter_config = {
+        "stage5_training_config": stage5_training_config,
+        "feature_mean": np.asarray(
+            checkpoint_payload["feature_mean"],
+            dtype=np.float32,
+        ),
+        "feature_scale": np.asarray(
+            checkpoint_payload["feature_scale"],
+            dtype=np.float32,
+        ),
+        "analytical_surface": (
+            build_quadratic_coefficient_surface_from_payload(
+                analytical_anchor_payload["surface"]
+            )
+        ),
+        "anchor_only": bool(
+            candidate_configuration.get("anchor_only", False)
+        ),
+    }
+    assert np.all(adapter_config["feature_scale"] > 0.0)
+    return model_object, adapter_config
+
+
+def predict_stage5_coefficient_residual_curve(
+    model_object: ComplexHarmonicCoefficientResidualNetwork,
+    adapter_config: dict[str, Any],
+    curve_record: harmonic_wise_support.HarmonicCurveRecord,
+) -> np.ndarray:
+
+    """Predict one official curve with explicit H04 intermediate quantities."""
+
+    assert (
+        str(curve_record.direction_label).strip().lower() == "forward"
+    ), "The Stage 5 H04 adapter is valid only on the forward surface."
+    operating_feature_matrix = np.asarray(
+        [
+            [
+                -abs(float(curve_record.torque_nm)),
+                abs(float(curve_record.speed_rpm)),
+                float(curve_record.oil_temperature_deg),
+            ]
+        ],
+        dtype=np.float64,
+    )
+    analytical_coefficient_matrix = adapter_config[
+        "analytical_surface"
+    ].predict(operating_feature_matrix)
+
+    if adapter_config["anchor_only"]:
+        prediction_coefficient_matrix = analytical_coefficient_matrix
+    else:
+        normalized_condition_matrix = (
+            operating_feature_matrix.astype(np.float32)
+            - adapter_config["feature_mean"]
+        ) / adapter_config["feature_scale"]
+        condition_tensor = torch.as_tensor(
+            normalized_condition_matrix,
+            dtype=torch.float32,
+        )
+        anchor_coefficient_tensor = torch.as_tensor(
+            analytical_coefficient_matrix,
+            dtype=torch.float32,
+        )
+        with torch.inference_mode():
+            model_output = model_object(
+                condition_tensor,
+                anchor_coefficient_tensor,
+            )
+        prediction_coefficient_matrix = (
+            model_output["prediction_coefficients"]
+            .detach()
+            .cpu()
+            .numpy()
+        )
+
+    harmonic_order_list = [
+        int(value)
+        for value in adapter_config["stage5_training_config"][
+            "harmonic_order_list"
+        ]
+    ]
+    angular_position_rad = np.deg2rad(
+        np.asarray(curve_record.angular_position_deg, dtype=np.float64)
+    )
+    prediction_curve = np.full(
+        angular_position_rad.shape,
+        float(prediction_coefficient_matrix[0, 0]),
+        dtype=np.float64,
+    )
+    for harmonic_index, harmonic_order in enumerate(
+        harmonic_order_list
+    ):
+        sine_coefficient = prediction_coefficient_matrix[
+            0,
+            1 + (2 * harmonic_index),
+        ]
+        cosine_coefficient = prediction_coefficient_matrix[
+            0,
+            2 + (2 * harmonic_index),
+        ]
+        prediction_curve += (
+            sine_coefficient
+            * np.sin(float(harmonic_order) * angular_position_rad)
+            + cosine_coefficient
+            * np.cos(float(harmonic_order) * angular_position_rad)
+        )
+    return prediction_curve.astype(np.float32)
 
 
 def build_comparison_report_path(training_config: dict[str, Any]) -> Path:
@@ -1696,6 +1992,37 @@ def load_track2_candidate(candidate_configuration: dict[str, Any]) -> Track2Cand
             model_object=model_object,
         )
 
+    if candidate_kind == STAGE5_COEFFICIENT_RESIDUAL_CANDIDATE_KIND:
+        model_object, adapter_config = (
+            load_stage5_coefficient_residual_candidate(
+                candidate_configuration
+            )
+        )
+        return Track2Candidate(
+            candidate_id=candidate_id,
+            candidate_family=candidate_family,
+            candidate_kind=candidate_kind,
+            candidate_source_label=candidate_source_label,
+            candidate_surface=candidate_surface,
+            allowed_direction_list=allowed_direction_list,
+            source_path=(
+                shared_training_infrastructure
+                .resolve_runtime_project_relative_path(
+                    candidate_configuration["checkpoint_path"]
+                )
+            ),
+            selected_harmonic_list=list(
+                adapter_config["stage5_training_config"][
+                    "harmonic_order_list"
+                ]
+            ),
+            model_entry_list=None,
+            model_dictionary=None,
+            registry_entry=None,
+            training_config=adapter_config,
+            model_object=model_object,
+        )
+
     raise ValueError(f"Unsupported TE Curve Verification Pipeline candidate kind | {candidate_kind}")
 
 
@@ -1762,6 +2089,22 @@ def evaluate_track2_candidate(
                 curve_record.angular_position_deg,
                 candidate.selected_harmonic_list,
                 coefficient_dictionary,
+            )
+        elif (
+            candidate.candidate_kind
+            == STAGE5_COEFFICIENT_RESIDUAL_CANDIDATE_KIND
+        ):
+            assert isinstance(
+                candidate.model_object,
+                ComplexHarmonicCoefficientResidualNetwork,
+            )
+            assert candidate.training_config is not None
+            predicted_curve_deg = (
+                predict_stage5_coefficient_residual_curve(
+                    candidate.model_object,
+                    candidate.training_config,
+                    curve_record,
+                )
             )
         else:
             assert candidate.training_config is not None
