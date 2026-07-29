@@ -1,0 +1,49 @@
+schema_version: 1
+stage: wave_5_2r_stage5
+status: passed_positive_component
+closed_at: '2026-07-28T16:24:05+02:00'
+first_screen_run_count: 18
+stability_run_count: 4
+failed_run_count: 0
+scalar_raw_error_leader: H08
+recommended_multi_index_candidate: H04
+recommended_formulation: bounded_coefficient
+recommended_order_set: core
+anchor_metrics:
+  mae_deg: 0.0018089774868462563
+  rmse_deg: 0.0021221862955184993
+  centered_mae_deg: 0.001381874821443183
+  centered_rmse_deg: 0.0016650639281341273
+  offset_abs_error_deg: 0.0009752322939696418
+  peak_to_peak_abs_error_deg: 0.0047246780144922194
+  derivative_mae_deg_per_sample: 0.000937212016244136
+  periodic_closure_error_deg: 0.00029462442355142457
+  retained_amplitude_mae_deg: 0.00019454066244762057
+  retained_phase_mae_rad: 0.33714585315008505
+h04_first_seed_metrics:
+  queue_index: 12.0
+  best_epoch: 48.0
+  validation_curve_mae_deg: 0.0018176616868004203
+  mae_deg: 0.0017258842776965149
+  rmse_deg: 0.0020333838740526546
+  centered_mae_deg: 0.0013555282003006159
+  centered_rmse_deg: 0.0016330285245646932
+  offset_abs_error_deg: 0.0008843988627133451
+  peak_to_peak_abs_error_deg: 0.004714630209281829
+  derivative_mae_deg_per_sample: 0.0009283035330324238
+  periodic_closure_error_deg: 0.00029120176008028776
+  retained_amplitude_mae_deg: 0.00018156724497625935
+  retained_phase_mae_rad: 0.32101667110068927
+  correction_to_anchor_rms: 0.006915951448258805
+h04_stability_mae_deg:
+  mean: 0.0017490797111570989
+  standard_deviation: 3.981784516988013e-05
+  minimum: 0.0017162401677233063
+  maximum: 0.0018051146880514754
+h08_disposition: raw-error leader only; not recommended because closure, amplitude, and phase regress
+  versus PF-A
+h04_disposition: qualified structured coefficient component for Stage 6; not a new production or program-best
+  model
+all_exit_gates_passed: true
+official_te_curve_verification_pipeline_run: false
+next_stage: Stage 6 Spectral And Sobolev Guidance

@@ -1,18 +1,10 @@
 status: completed
-prepared_at: '2026-07-28T09:54:00+02:00'
-started_at: '2026-07-28T10:01:30+02:00'
-completed_at: '2026-07-28T11:20:22+02:00'
-closed_out_at: '2026-07-28T15:49:45+02:00'
-execution_mode: local
-background_process_id: 40176
-background_stdout_path: .temp/wave52r_stage4_campaign_retry/stdout.log
-background_stderr_path: .temp/wave52r_stage4_campaign_retry/stderr.log
-campaign_name: wave52r_stage4_data_only_residual_capacity_2026_07_28
-campaign_type: wave_5_2r_stage4_data_only_residual_capacity_ladder
+prepared_at: '2026-07-28T16:17:06+02:00'
+campaign_name: wave52r_stage5_complex_harmonic_coefficient_residuals_2026_07_28
+campaign_type: wave_5_2r_stage5_complex_harmonic_coefficients
 dataset_id: polished_dataset
 input_mode: setpoints
-dataset_schema: polished_setpoint_curve_v1
-dataset_root: data/polished_dataset
+dataset_schema: polished_setpoint_complex_curve_v1
 surface_list:
 - fw
 primary_surface: fw
@@ -24,95 +16,50 @@ random_seed_list:
 conditional_stability_random_seed_list:
 - 271828
 - 161803
-campaign_manifest_path: config/training/data_only_residual_capacity/campaigns/2026-07-28_wave52r_stage4_data_only_residual_capacity/campaign.yaml
-campaign_config_root: config/training/data_only_residual_capacity/campaigns/2026-07-28_wave52r_stage4_data_only_residual_capacity/queue
-queue_root: config/training/queue/data_only_residual_capacity/wave52r_stage4_data_only_residual_capacity_2026_07_28
-launcher_path: scripts/campaigns/wave_5_2/run_wave52r_stage4_data_only_residual_capacity_ladder.ps1
-launcher_note_path: doc/scripts/campaigns/wave_5_2/run_wave52r_stage4_data_only_residual_capacity_ladder.md
-planning_report_path: doc/reports/campaign_plans/model_development_waves/wave_5_2/data_only_residual_capacity_ladder/2026-07-27-22-39-42_wave52r_stage4_data_only_residual_capacity_ladder_campaign_plan_report.md
-technical_document_path: doc/technical/2026-07/2026-07-27/2026-07-27-22-37-41_wave52r_stage4_data_only_residual_capacity_ladder.md
-model_report_path: doc/reports/analysis/model_development_waves/wave_5_2/physics_guided_pinn_reassessment/[2026-07-28]/stage4_data_only_residual_capacity_ladder/stage4_data_only_residual_capacity_model_report.md
-causal_anchor_path: output/analysis/wave_5_2r/stage4_data_only_residual_capacity_ladder/stage4_causal_setpoint_pf_a_surface.yaml
-training_only_calibration_path: output/analysis/wave_5_2r/stage4_data_only_residual_capacity_ladder/stage4_training_only_calibration.yaml
-causal_validity_envelope_path: output/analysis/wave_5_2r/stage4_data_only_residual_capacity_ladder/stage4_causal_setpoint_validity_envelope.yaml
-causal_validity_condition_path: output/analysis/wave_5_2r/stage4_data_only_residual_capacity_ladder/stage4_causal_setpoint_validity_envelope_conditions.csv
-preflight_validation_summary_path: output/analysis/wave_5_2r/stage4_data_only_residual_capacity_ladder/stage4_preflight_validation_summary.json
-real_dataset_one_batch_summary_path: output/analysis/wave_5_2r/stage4_data_only_residual_capacity_ladder/stage4_real_dataset_one_batch_summary.yaml
-launcher_preflight_summary_path: output/analysis/wave_5_2r/stage4_data_only_residual_capacity_ladder/stage4_launcher_preflight_summary.yaml
-campaign_output_directory: output/training_campaigns/2026-07-28-10-01-40_wave52r_stage4_data_only_residual_capacity_2026_07_28
-campaign_best_run_path: output/training_campaigns/2026-07-28-10-01-40_wave52r_stage4_data_only_residual_capacity_2026_07_28/campaign_best_run.yaml
-curve_diagnostics_directory: output/validation_checks/wave52r_stage4_data_only_residual_curve_diagnostics/2026-07-28-15-44-59__track2c_curve_payload_diagnostics
-exit_gate_summary_path: output/analysis/wave_5_2r/stage4_data_only_residual_capacity_ladder/closeout/stage4_exit_gate_summary.yaml
-campaign_results_report_path: doc/reports/campaign_results/model_development_waves/wave_5_2/2026-07-28-11-26-08_wave52r_stage4_data_only_residual_capacity_ladder_results_report.md
-campaign_results_pdf_path: doc/reports/campaign_results/model_development_waves/wave_5_2/2026-07-28-11-26-08_wave52r_stage4_data_only_residual_capacity_ladder_results_report.pdf
-common_split_manifest_path: output/analysis/polynomial_fourier_benchmark/common_split_manifest.yaml
-common_split_signature: c1aa8718fb9bf88cc2021c121dc4f3b4010fc1d2e45ac90af5f4376aa64f8e16
-excluded_condition_id_list:
-- speed_500rpm__torque_600Nm__temperature_35degC
-- speed_800rpm__torque_200Nm__temperature_25degC
-- speed_1400rpm__torque_800Nm__temperature_35degC
-expected_curve_count_by_split:
-  train: 675
-  validation: 194
-  test: 97
+campaign_manifest_path: config/training/complex_harmonic_coefficient_residuals/campaigns/2026-07-28_wave52r_stage5_complex_harmonic_coefficient_residuals/campaign.yaml
+campaign_config_root: config/training/complex_harmonic_coefficient_residuals/campaigns/2026-07-28_wave52r_stage5_complex_harmonic_coefficient_residuals/queue
+launcher_path: scripts/campaigns/wave_5_2/run_wave52r_stage5_complex_harmonic_coefficient_residuals.ps1
+launcher_note_path: doc/scripts/campaigns/wave_5_2/run_wave52r_stage5_complex_harmonic_coefficient_residuals.md
+planning_report_path: doc/reports/campaign_plans/model_development_waves/wave_5_2/complex_harmonic_coefficient_residuals/2026-07-28-15-56-46_wave52r_stage5_complex_harmonic_coefficient_residuals_campaign_plan_report.md
+technical_document_path: doc/technical/2026-07/2026-07-28/2026-07-28-15-56-46_wave52r_stage5_complex_harmonic_coefficient_residuals.md
+representation_manifest_path: output/analysis/wave_5_2r/stage5_complex_harmonic_coefficient_residuals/stage5_uniform_curve_representation.yaml
+training_only_calibration_path: output/analysis/wave_5_2r/stage5_complex_harmonic_coefficient_residuals/stage5_training_only_calibration.yaml
+local_preflight_command: .\scripts\campaigns\wave_5_2\run_wave52r_stage5_complex_harmonic_coefficient_residuals.ps1
+  -PreflightOnly
+local_launch_command: .\scripts\campaigns\wave_5_2\run_wave52r_stage5_complex_harmonic_coefficient_residuals.ps1
+  -Run
+remote_preflight_command: .\scripts\campaigns\wave_5_2\run_wave52r_stage5_complex_harmonic_coefficient_residuals.ps1
+  -Remote -PreflightOnly
+remote_launch_command: .\scripts\campaigns\wave_5_2\run_wave52r_stage5_complex_harmonic_coefficient_residuals.ps1
+  -Remote -Run
+launch_command_list:
+- .\scripts\campaigns\wave_5_2\run_wave52r_stage5_complex_harmonic_coefficient_residuals.ps1 -PreflightOnly
+- .\scripts\campaigns\wave_5_2\run_wave52r_stage5_complex_harmonic_coefficient_residuals.ps1 -Run
+- .\scripts\campaigns\wave_5_2\run_wave52r_stage5_complex_harmonic_coefficient_residuals.ps1 -Remote -PreflightOnly
+- .\scripts\campaigns\wave_5_2\run_wave52r_stage5_complex_harmonic_coefficient_residuals.ps1 -Remote -Run
 approval:
   status: approved
-  scope: >
-    All current and future technical documents, campaign plans, model reports,
-    launcher notes, campaign execution, closeout reports, and per-stage commits
-    required by the sixteen-stage Wave 5.2R roadmap.
   approved_at: '2026-07-27T23:57:23+02:00'
   expires_at: '2026-07-28T23:57:23+02:00'
-  source: user standing approval for the next twenty-four hours
-local_preflight_command: .\scripts\campaigns\wave_5_2\run_wave52r_stage4_data_only_residual_capacity_ladder.ps1 -PreflightOnly
-local_one_batch_validation_command: .\scripts\campaigns\wave_5_2\run_wave52r_stage4_data_only_residual_capacity_ladder.ps1 -PreflightOnly -RunOneBatchValidation
-remote_preflight_command: .\scripts\campaigns\wave_5_2\run_wave52r_stage4_data_only_residual_capacity_ladder.ps1 -Remote -PreflightOnly
-local_launch_command: .\scripts\campaigns\wave_5_2\run_wave52r_stage4_data_only_residual_capacity_ladder.ps1
-remote_launch_command: .\scripts\campaigns\wave_5_2\run_wave52r_stage4_data_only_residual_capacity_ladder.ps1 -Remote
-launch_command_list:
-- .\scripts\campaigns\wave_5_2\run_wave52r_stage4_data_only_residual_capacity_ladder.ps1 -PreflightOnly
-- .\scripts\campaigns\wave_5_2\run_wave52r_stage4_data_only_residual_capacity_ladder.ps1 -PreflightOnly -RunOneBatchValidation
-- .\scripts\campaigns\wave_5_2\run_wave52r_stage4_data_only_residual_capacity_ladder.ps1 -Remote -PreflightOnly
-- .\scripts\campaigns\wave_5_2\run_wave52r_stage4_data_only_residual_capacity_ladder.ps1
-- .\scripts\campaigns\wave_5_2\run_wave52r_stage4_data_only_residual_capacity_ladder.ps1 -Remote
-acceptance_gate:
-  scalar_mae_only_promotion_allowed: false
-  promotion_decision_requires_curve_first_evidence: true
-  required_surface_list:
-  - fw
-  required_dataset: polished_dataset
-  required_input_mode: setpoints
-  primary_support_tier: supported_core
-  residual_to_anchor_rms_maximum: 0.5
-  first_screen_rule: >
-    A hybrid advances only when it beats both the causal frozen PF-A anchor and
-    its parameter-matched direct R1 control without material centered-shape,
-    offset, tail, derivative, amplitude, phase, support, boundedness, or
-    inspectability regression.
+  source: user standing approval for twenty-four hours
 protected_file_list:
 - doc/running/active_training_campaign.yaml
-- config/training/data_only_residual_capacity/campaigns/2026-07-28_wave52r_stage4_data_only_residual_capacity/
-- scripts/campaigns/wave_5_2/prepare_wave52r_stage4_data_only_residual_capacity_ladder_campaign.py
-- scripts/campaigns/wave_5_2/run_wave52r_stage4_data_only_residual_capacity_ladder.ps1
-- doc/scripts/campaigns/wave_5_2/run_wave52r_stage4_data_only_residual_capacity_ladder.md
-- scripts/analysis/wave_5_2r/stage4_data_only_residual_capacity_ladder/
-- scripts/models/data_only_residual_capacity_network.py
-- scripts/models/model_factory.py
-- scripts/training/transmission_error_regression_module.py
-- output/analysis/wave_5_2r/stage4_data_only_residual_capacity_ladder/
-notes: >
-  Preparation found that the legacy Stage 3 exact PF-A replay used measured
-  operating averages despite the declared setpoint-only scope. Stage 4
-  preserves that artifact for provenance but uses a new training-only causal
-  setpoint PF-A refit. The deterministic implementation preflight passes all
-  thirteen internal gates. Local and remote-compatible launcher preflights
-  pass, and all eighteen real-dataset one-batch validation checks completed
-  without failures. The first launch attempt stopped before training because
-  the central campaign runner lacked the new model-type dispatch entry. The
-  dispatch map and deterministic validator were corrected, the failed queue
-  was preserved under an explicit archive name, and the clean retry started
-  locally in the background. The retry completed all eighteen runs without a
-  failure. H08 was the scalar campaign winner, but all eight primary hybrids
-  failed the bounded curve-first and cancellation gates. No residual
-  architecture was promoted, no stability repeats were required, and the
-  official TE Curve Verification Pipeline decision remains unchanged.
+- config/training/complex_harmonic_coefficient_residuals/campaigns/2026-07-28_wave52r_stage5_complex_harmonic_coefficient_residuals
+- scripts/campaigns/wave_5_2/run_wave52r_stage5_complex_harmonic_coefficient_residuals.py
+- scripts/campaigns/wave_5_2/run_wave52r_stage5_complex_harmonic_coefficient_residuals.ps1
+- scripts/models/complex_harmonic_coefficient_residual_network.py
+- output/analysis/wave_5_2r/stage5_complex_harmonic_coefficient_residuals
+started_at: '2026-07-28T16:17:06+02:00'
+campaign_output_directory: output/training_campaigns/2026-07-28-16-17-06_wave52r_stage5_complex_harmonic_coefficient_residuals_2026_07_28
+completed_at: '2026-07-28T16:17:16+02:00'
+campaign_best_run_path: output/training_campaigns/2026-07-28-16-17-06_wave52r_stage5_complex_harmonic_coefficient_residuals_2026_07_28/campaign_best_run.yaml
+stability_completed_at: '2026-07-28T16:19:57+02:00'
+stability_completed_run_count: 4
+stability_failed_run_count: 0
+stability_summary_path: output/training_campaigns/2026-07-28-16-17-06_wave52r_stage5_complex_harmonic_coefficient_residuals_2026_07_28/campaign_stability_summary.yaml
+closed_out_at: '2026-07-28T16:24:06+02:00'
+recommended_candidate_id: H04
+scalar_raw_error_leader_id: H08
+exit_gate_summary_path: output/analysis/wave_5_2r/stage5_complex_harmonic_coefficient_residuals/closeout/stage5_exit_gate_summary.yaml
+campaign_results_report_path: doc/reports/campaign_results/model_development_waves/wave_5_2/2026-07-28-16-20-55_wave52r_stage5_complex_harmonic_coefficient_residuals_results_report.md
+campaign_results_pdf_path: doc/reports/campaign_results/model_development_waves/wave_5_2/2026-07-28-16-20-55_wave52r_stage5_complex_harmonic_coefficient_residuals_results_report.pdf

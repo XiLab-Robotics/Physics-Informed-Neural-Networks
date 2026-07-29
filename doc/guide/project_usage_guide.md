@@ -598,6 +598,49 @@ Use PF-A as a qualified analytical component only for `supported_core`.
 `supported_sparse_or_corner` is low-trust, while
 `unsupported_extrapolation` requires a fallback or explicit review.
 
+## Wave 5.2R Stage 4 Data-Only Capacity Ladder
+
+Validate or execute the eighteen-run Stage 4 matched-control campaign:
+
+```powershell
+.\scripts\campaigns\wave_5_2\run_wave52r_stage4_data_only_residual_capacity_ladder.ps1 `
+  -PreflightOnly
+
+.\scripts\campaigns\wave_5_2\run_wave52r_stage4_data_only_residual_capacity_ladder.ps1 `
+  -Run
+```
+
+The completed campaign is a negative result. Its scalar H08 candidate
+cancelled the PF-A anchor on the canonical full-curve surface, so no Stage 4
+residual architecture advanced.
+
+## Wave 5.2R Stage 5 Complex Harmonic Coefficients
+
+Validate or execute the representation-aligned eighteen-run Stage 5 campaign:
+
+```powershell
+.\scripts\campaigns\wave_5_2\run_wave52r_stage5_complex_harmonic_coefficient_residuals.ps1 `
+  -PreflightOnly
+
+.\scripts\campaigns\wave_5_2\run_wave52r_stage5_complex_harmonic_coefficient_residuals.ps1 `
+  -Run
+```
+
+The launcher also accepts `-Remote` for both commands. The completed campaign
+uses one canonical `2048`-point curve representation for coefficient targets,
+training reconstruction, and evaluation. Bounded PF-A-anchored core-order H04
+passed all ten isolated-component gates across three seeds and advances to
+Stage 6 as a qualified structured component, not as a production model or
+complete PINN.
+
+Run the completed conditional stability path directly with:
+
+```powershell
+conda run --no-capture-output -n pinns_env python -B `
+  scripts/campaigns/wave_5_2/run_wave52r_stage5_complex_harmonic_coefficient_residuals.py `
+  --run-stability
+```
+
 ## Phase 0 PINN Foundation Audit
 
 Run the full-population foundation audit:

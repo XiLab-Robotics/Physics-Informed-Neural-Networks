@@ -1,0 +1,98 @@
+schema_version: 1
+candidate_id_list:
+- C04
+- H04
+random_seed_list:
+- 271828
+- 161803
+completed_run_count: 4
+failed_run_count: 0
+row_list:
+- candidate_id: C04
+  queue_index: 4
+  formulation: direct_coefficient
+  order_set_name: core
+  capacity_name: deep
+  random_seed: 271828
+  run_instance_id: 2026-07-28-16-19-55__stage5_c04__seed_271828
+  run_directory: output/training_runs/complex_harmonic_coefficient_residuals/2026-07-28-16-19-55__stage5_c04__seed_271828
+  best_epoch: 48
+  validation_curve_mae_deg: 0.003595595946535468
+  mae_deg: 0.0031822183314271246
+  rmse_deg: 0.0035314812412948486
+  centered_mae_deg: 0.00154064913543631
+  centered_rmse_deg: 0.0018599673628270363
+  offset_abs_error_deg: 0.002526127824772589
+  peak_to_peak_abs_error_deg: 0.004697823078143563
+  derivative_mae_deg_per_sample: 0.0009413467677048487
+  periodic_closure_error_deg: 0.0003520503793795084
+  retained_amplitude_mae_deg: 0.00032807914652329323
+  retained_phase_mae_rad: 0.5611117768727263
+  correction_to_anchor_rms: .nan
+  status: completed
+- candidate_id: H04
+  queue_index: 12
+  formulation: bounded_coefficient
+  order_set_name: core
+  capacity_name: deep
+  random_seed: 271828
+  run_instance_id: 2026-07-28-16-19-56__stage5_h04__seed_271828
+  run_directory: output/training_runs/complex_harmonic_coefficient_residuals/2026-07-28-16-19-56__stage5_h04__seed_271828
+  best_epoch: 48
+  validation_curve_mae_deg: 0.0018104652408510447
+  mae_deg: 0.0017162401677233063
+  rmse_deg: 0.0020251594581685707
+  centered_mae_deg: 0.0013588807902670027
+  centered_rmse_deg: 0.001637388157436412
+  offset_abs_error_deg: 0.0008703450842404532
+  peak_to_peak_abs_error_deg: 0.004694262549423007
+  derivative_mae_deg_per_sample: 0.0009290391735421951
+  periodic_closure_error_deg: 0.00029682095124165423
+  retained_amplitude_mae_deg: 0.0001828695790504709
+  retained_phase_mae_rad: 0.3325600174681138
+  correction_to_anchor_rms: 0.007780772650747347
+  status: completed
+- candidate_id: C04
+  queue_index: 4
+  formulation: direct_coefficient
+  order_set_name: core
+  capacity_name: deep
+  random_seed: 161803
+  run_instance_id: 2026-07-28-16-19-56__stage5_c04__seed_161803
+  run_directory: output/training_runs/complex_harmonic_coefficient_residuals/2026-07-28-16-19-56__stage5_c04__seed_161803
+  best_epoch: 43
+  validation_curve_mae_deg: 0.00442397641018033
+  mae_deg: 0.00430225648093131
+  rmse_deg: 0.004643000514634737
+  centered_mae_deg: 0.0014796584060300629
+  centered_rmse_deg: 0.0017870386168320092
+  offset_abs_error_deg: 0.0039487501181606766
+  peak_to_peak_abs_error_deg: 0.00505121939772538
+  derivative_mae_deg_per_sample: 0.0009313400007067023
+  periodic_closure_error_deg: 0.000290383650205991
+  retained_amplitude_mae_deg: 0.00028311534590628535
+  retained_phase_mae_rad: 0.4651894816338983
+  correction_to_anchor_rms: .nan
+  status: completed
+- candidate_id: H04
+  queue_index: 12
+  formulation: bounded_coefficient
+  order_set_name: core
+  capacity_name: deep
+  random_seed: 161803
+  run_instance_id: 2026-07-28-16-19-56__stage5_h04__seed_161803
+  run_directory: output/training_runs/complex_harmonic_coefficient_residuals/2026-07-28-16-19-56__stage5_h04__seed_161803
+  best_epoch: 10
+  validation_curve_mae_deg: 0.0018580631585791707
+  mae_deg: 0.0018051146880514754
+  rmse_deg: 0.0021183666262235266
+  centered_mae_deg: 0.0013810328022032471
+  centered_rmse_deg: 0.0016640876159732954
+  offset_abs_error_deg: 0.0009714322829351296
+  peak_to_peak_abs_error_deg: 0.004721740559499844
+  derivative_mae_deg_per_sample: 0.0009368841467748868
+  periodic_closure_error_deg: 0.0002928727232015778
+  retained_amplitude_mae_deg: 0.00019416092932156442
+  retained_phase_mae_rad: 0.3323747623051655
+  correction_to_anchor_rms: 0.0006661876101450926
+  status: completed

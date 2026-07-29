@@ -2,14 +2,12 @@
 
 ## Executive Snapshot
 
-- Generated At: `2026-07-28T15:49:45`
+- Generated At: `2026-07-28T16:28:34`
 - Program State: active.
 - Current Completed Wave: polished-dataset RCIM, early-wave, and full-wave
-- Current Focus: `Wave 5.2R` physics-guided forward reassessment; Stage 4 is
-  complete negative and Stage 5 complex harmonic coefficient residuals are
-  next.
+- Current Focus: `Wave 5.2R` physics-guided forward reassessment execution,
 - Active Campaign Status: `completed`
-- Active Campaign Name: `wave52r_stage4_data_only_residual_capacity_2026_07_28`
+- Active Campaign Name: `wave52r_stage5_complex_harmonic_coefficient_residuals_2026_07_28`
 - Current Program Winner: `te_periodic_gru_sequence_bw` | Family `periodic_gru_sequence_bw` | Test MAE `0.001084`
 
 ## Main Takeaways
@@ -834,6 +832,38 @@ At the current repository state, the comparison is explicitly `offline-only`. A 
 - For multi-scope waves, family breakdowns are grouped by canonical reporting scope before the per-family ranking tables.
 
 ### Global Models
+
+#### complex_harmonic_coefficient_residuals
+
+- Best run: `N/A`
+- Best test MAE: `N/A`
+- Completed tracked runs: `22`
+- Known failed campaign attempts: `0`
+
+| Rank | Run | Model Type | Test MAE [deg] | Test RMSE [deg] | Val MAE [deg] | Params | Duration | Artifact Size | Model Complexity | Training Heaviness | Campaign |
+| --- | --- | --- | ---: | ---: | ---: | ---: | --- | --- | --- | --- | --- |
+| 1 | `2026-07-28-16-17-08__stage5_c01` | `unknown` | N/A | N/A | N/A | N/A | N/A | N/A | Unknown | Unknown | `standalone_or_unknown` |
+| 2 | `2026-07-28-16-17-08__stage5_c02` | `unknown` | N/A | N/A | N/A | N/A | N/A | N/A | Unknown | Unknown | `standalone_or_unknown` |
+| 3 | `2026-07-28-16-17-09__stage5_c03` | `unknown` | N/A | N/A | N/A | N/A | N/A | N/A | Unknown | Unknown | `standalone_or_unknown` |
+| 4 | `2026-07-28-16-17-09__stage5_c04` | `unknown` | N/A | N/A | N/A | N/A | N/A | N/A | Unknown | Unknown | `standalone_or_unknown` |
+| 5 | `2026-07-28-16-17-10__stage5_c05` | `unknown` | N/A | N/A | N/A | N/A | N/A | N/A | Unknown | Unknown | `standalone_or_unknown` |
+| 6 | `2026-07-28-16-17-10__stage5_c06` | `unknown` | N/A | N/A | N/A | N/A | N/A | N/A | Unknown | Unknown | `standalone_or_unknown` |
+| 7 | `2026-07-28-16-17-11__stage5_c07` | `unknown` | N/A | N/A | N/A | N/A | N/A | N/A | Unknown | Unknown | `standalone_or_unknown` |
+| 8 | `2026-07-28-16-17-11__stage5_c08` | `unknown` | N/A | N/A | N/A | N/A | N/A | N/A | Unknown | Unknown | `standalone_or_unknown` |
+| 9 | `2026-07-28-16-17-11__stage5_h01` | `unknown` | N/A | N/A | N/A | N/A | N/A | N/A | Unknown | Unknown | `standalone_or_unknown` |
+| 10 | `2026-07-28-16-17-12__stage5_h02` | `unknown` | N/A | N/A | N/A | N/A | N/A | N/A | Unknown | Unknown | `standalone_or_unknown` |
+| 11 | `2026-07-28-16-17-12__stage5_h03` | `unknown` | N/A | N/A | N/A | N/A | N/A | N/A | Unknown | Unknown | `standalone_or_unknown` |
+| 12 | `2026-07-28-16-17-13__stage5_h04` | `unknown` | N/A | N/A | N/A | N/A | N/A | N/A | Unknown | Unknown | `standalone_or_unknown` |
+| 13 | `2026-07-28-16-17-13__stage5_h05` | `unknown` | N/A | N/A | N/A | N/A | N/A | N/A | Unknown | Unknown | `standalone_or_unknown` |
+| 14 | `2026-07-28-16-17-14__stage5_h06` | `unknown` | N/A | N/A | N/A | N/A | N/A | N/A | Unknown | Unknown | `standalone_or_unknown` |
+| 15 | `2026-07-28-16-17-15__stage5_h07` | `unknown` | N/A | N/A | N/A | N/A | N/A | N/A | Unknown | Unknown | `standalone_or_unknown` |
+| 16 | `2026-07-28-16-17-15__stage5_h08` | `unknown` | N/A | N/A | N/A | N/A | N/A | N/A | Unknown | Unknown | `standalone_or_unknown` |
+| 17 | `2026-07-28-16-17-16__stage5_a01` | `unknown` | N/A | N/A | N/A | N/A | N/A | N/A | Unknown | Unknown | `standalone_or_unknown` |
+| 18 | `2026-07-28-16-17-16__stage5_a02` | `unknown` | N/A | N/A | N/A | N/A | N/A | N/A | Unknown | Unknown | `standalone_or_unknown` |
+| 19 | `2026-07-28-16-19-55__stage5_c04__seed_271828` | `unknown` | N/A | N/A | N/A | N/A | N/A | N/A | Unknown | Unknown | `standalone_or_unknown` |
+| 20 | `2026-07-28-16-19-56__stage5_c04__seed_161803` | `unknown` | N/A | N/A | N/A | N/A | N/A | N/A | Unknown | Unknown | `standalone_or_unknown` |
+| 21 | `2026-07-28-16-19-56__stage5_h04__seed_161803` | `unknown` | N/A | N/A | N/A | N/A | N/A | N/A | Unknown | Unknown | `standalone_or_unknown` |
+| 22 | `2026-07-28-16-19-56__stage5_h04__seed_271828` | `unknown` | N/A | N/A | N/A | N/A | N/A | N/A | Unknown | Unknown | `standalone_or_unknown` |
 
 #### feedforward_recovery_micro
 

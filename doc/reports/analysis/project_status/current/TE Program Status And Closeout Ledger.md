@@ -29,14 +29,14 @@ closeout that changes any of these surfaces:
 | Current accepted forward curve-verified leader | `rcim_retuned_GBM19_Fw`; polished refreshed-source leader `polished_rcim_model_bank_reproduction_ET19_Fw`; polished model-development fallback `polished_periodic_gru_sequence_Fw` |
 | Current accepted backward curve-verified leader | `polished_periodic_gru_sequence_Bw` |
 | Current accepted global neural curve-verified leader | `polished_periodic_gru_sequence_global` |
-| Latest normal campaign closeout | Phase 3 quasi-static compliance PINN, `12 / 12` main runs and `2 / 2` C1-Fw repeats completed on `2026-07-26`; no physics constraint promoted |
+| Latest normal campaign closeout | Wave 5.2R Stage 5 complex harmonic coefficient residuals, `18 / 18` first-screen runs and `4 / 4` H04 stability runs completed on `2026-07-28`; H04 qualified as an isolated structured component |
 | Latest non-training PINN gate | Phase 15 audited four evidence files and all five physics-integrated Wave 6 prerequisites; all five fail, so the sixteen-phase roadmap closed without training or automatic advancement |
 | Latest official TE Curve Verification refresh | polished-dataset RCIM, early-wave, and full-wave refresh, dated `2026-07-03` |
 | Latest curve-verification decision | six-cell non-MMT reduced comparison closed on `2026-07-24`; periodic GRU recommended in four cells and periodic harmonic MLP in two; no official promotion |
 | Latest pruning decision | `2026-07-17` shape-first intermediate model-selection cleanup; `global` remains paused until final backlog stage |
 | Active report generation | six reduced selected-model reports completed for polished setpoints, simplified setpoints, and polished actual values, each split into `forward` and `backward` |
 | Current TE Curve Verification Pipeline selection policy | multi-index curve-first selection, dated `2026-06-16` |
-| Next modeling decision | Execute `Wave 5.2R` Stage 5 Complex Harmonic Coefficient Residuals on a representation-aligned full-curve contract. Stage 4 completed all 18 runs but promoted no hybrid after every primary candidate failed the curve-first or cancellation gates; physics-integrated Wave 6 remains closed. |
+| Next modeling decision | Execute `Wave 5.2R` Stage 6 Spectral And Sobolev Guidance with H04 frozen as the qualified coefficient component. Stage 5 passed all ten isolated-component gates across three H04 seeds; H08 remains raw-error-only, and physics-integrated Wave 6 remains closed. |
 
 The repository remains direction-parallel. `Fw`, `Bw`, and `global` are not a
 single destructive competition. Each surface keeps its own best candidate and
@@ -185,7 +185,7 @@ robustness, visual-evidence, and deployment-readiness axes visible.
 | Wave 5.2 Phase 15 Wave 6 entry | completed no-entry closeout | Four evidence files and five entry prerequisites were audited. All five physics-integrated prerequisites fail. | Authorize no physics-integrated Wave 6 campaign and no automatic phase advance. Empirical multi-task research remains separate. |
 | Wave 5.2 general full-PINN program | Phases 0 through 15 complete; evidence closeout | All mechanisms are preserved with explicit empirical, rejected, offline, synthetic, deferred, blocked, or no-entry decisions. | Reopen only when a recorded evidence gate changes. |
 | Wave 5.2 complete theory-validation program | completed 16 of 16 | The program covered foundations, isolated formulations, synthetic and offline oracles, causal reconstruction, instrumentation, tournament, integration, and Wave 6 entry. | Preserve the closeout; do not weaken full-PINN or Wave 6 entry definitions. |
-| Wave 5.2R polished-setpoint forward physics-guided reassessment | Stages 0 through 4 of 16 complete | Stage 4 completed 18 of 18 runs. H08 was the scalar winner at 0.001454936 deg test MAE, but all eight primary hybrids failed the common full-curve and opaque-cancellation gates; no residual architecture or stability repeat was promoted. | Execute Stage 5 complex harmonic coefficient residuals with identical canonical curve representation for coefficient targets, reconstruction, and evaluation. |
+| Wave 5.2R polished-setpoint forward physics-guided reassessment | Stages 0 through 5 of 16 complete | Stage 5 completed 18 of 18 first-screen runs and 4 of 4 H04 stability runs. Bounded PF-A-anchored core-order H04 passed all ten gates across three seeds with `0.00174908 +/- 0.00003982 deg` test MAE; H08 reached `0.00169334 deg` but regressed closure, amplitude, and phase. | Advance H04 as an isolated structured component into Stage 6 spectral and Sobolev guidance. Do not treat H04 as production-ready, a program-best replacement, or a complete PINN. |
 | Wave 5.2 paper-faithful MMT full PINN | deferred future TODO | MMT diagnostics, parameter inventory, `Wave 5.2B`, the post-causal-offset gate, exact-manifest replay, and leakage-safe explanatory rerun are complete. Contact geometry and causal observations for five equivalent-error groups remain unavailable. | Inactive without blocking the general full-PINN program. Reopen only after independent component-error measurements or validated causal contact-state reconstruction provides condition-varying physical inputs. |
 | Six-cell non-MMT reduced cross-wave comparison | closed diagnostic | Six remote selected-model reports and three direction-paired shape-gated reranks covered polished setpoints, simplified setpoints, and polished actual values. Forty-six curve collages were reviewed. | No official promotion. Periodic GRU wins four cells, periodic harmonic MLP wins two, Wave 4.1 remains the raw-error/offset ingredient, and sparse-RCIM temporal models remain reference-only. |
 | Wave 6 physics-integrated multi-task / multi-head model | entry not authorized | Intended to combine proven offset, low-frequency, centered-shape, uncertainty, mixture, and validated physics-informed mechanisms. | Reopen only after at least two complementary physical components pass isolated and integrated gates. |
@@ -293,52 +293,54 @@ models.
 3. Preserve the completed Stage 0 forward freeze: `97` eligible test
    conditions and the accepted periodic GRU, periodic harmonic MLP, and
    `PF-A` references reproduce on one contract.
-4. Preserve the Stage 4 negative result: do not promote H08 from scalar MAE,
-   because its learned correction dominates and cancels the analytical anchor
-   on the canonical full-curve surface.
-5. Execute Stage 5 Complex Harmonic Coefficient Residuals with explicit
-   sine/cosine targets and matched direct and anchored coefficient controls.
-6. Keep physics-integrated Wave 6 closed until at least two complementary
+4. Preserve the Stage 4 negative result: do not promote its H08 from scalar
+   MAE because the learned correction cancels the analytical anchor.
+5. Preserve the Stage 5 positive component result: freeze bounded
+   PF-A-anchored core-order H04 as the qualified structured coefficient
+   component, and retain the Stage 5 H08 only as a raw-error diagnostic.
+6. Execute Stage 6 Spectral And Sobolev Guidance with matched data-only
+   controls on the same canonical `2048`-point forward curve surface.
+7. Keep physics-integrated Wave 6 closed until at least two complementary
    physical components pass isolated and integrated gates.
-7. Keep the paper-faithful MMT full PINN as an inactive future TODO. Reopen it
+8. Keep the paper-faithful MMT full PINN as an inactive future TODO. Reopen it
    only with new condition-varying causal physical inputs; do not let it block
    other physics-informed formulations.
-8. Do not expand the causal offset / mean calibration profile: its bounded
+9. Do not expand the causal offset / mean calibration profile: its bounded
    `polished_dataset` setpoint `Fw` screen retained
    `polished_setpoints_periodic_gru_sequence_Fw` as the accepted forward
    recommendation, ranked the non-windowed causal MLP fourth, and rejected the
    time-windowed causal GRU through the shape gate.
-9. Do not expand the current shape-first distillation pilot: the bounded
+10. Do not expand the current shape-first distillation pilot: the bounded
    `polished_dataset` setpoint `Fw` screen retained
    `polished_setpoints_periodic_gru_sequence_Fw` as the accepted forward
    recommendation and ranked the distillation candidates behind both
    polished-setpoint baselines.
-9. Keep both time-windowed and non-windowed roads active as comparison
+11. Keep both time-windowed and non-windowed roads active as comparison
    categories for future designs, but require bounded curve-first evidence
    before promotion.
-10. Do not expand the current `shape_objective_periodic_mlp_harmonic_fw` pilot:
+12. Do not expand the current `shape_objective_periodic_mlp_harmonic_fw` pilot:
    the bounded `polished_dataset` setpoint `Fw` screen retained
    `polished_setpoints_periodic_gru_sequence_Fw` as the accepted forward
    recommendation and ranked the shape-objective candidate third.
-11. Do not expand the current shape-gate loss v2 checkpoint into a full matrix:
+13. Do not expand the current shape-gate loss v2 checkpoint into a full matrix:
    the bounded `polished_dataset` setpoint `Fw` screen retained
    `polished_setpoints_periodic_gru_sequence_Fw` as the accepted forward
    recommendation.
-12. Use Waves 3, 4, and 5.1 as formulation evidence for offset, centered shape,
+14. Use Waves 3, 4, and 5.1 as formulation evidence for offset, centered shape,
    robustness, uncertainty, state, harmonic structure, and residual learning;
    do not treat them as substitutes for a full PINN.
-13. Keep the shape-gated reranker as the gate before reopening any scalar
+15. Keep the shape-gated reranker as the gate before reopening any scalar
    leader: FFT
    amplitude similarity, dominant-harmonic retention, dominant-harmonic phase
    error, derivative correlation, and per-curve shape pass rate.
-14. Carry forward the temporal-window road (`periodic_gru_sequence`) as the
+16. Carry forward the temporal-window road (`periodic_gru_sequence`) as the
    current model-development recommendation. Keep non-windowed branches as
    controlled comparisons until they beat the GRU path on curve-first evidence.
-15. Keep `Wave 4.3`, `Wave 4.4`, and `Wave 5.1` branches as integration
+17. Keep `Wave 4.3`, `Wave 4.4`, and `Wave 5.1` branches as integration
    evidence only, not as current active candidates.
-16. Select one first full-PINN formulation only after equation, unit,
+18. Select one first full-PINN formulation only after equation, unit,
     observability, identifiability, causality, and analytical-oracle checks.
-17. Do not open the integrated multi-task / multi-head campaign until bounded
+19. Do not open the integrated multi-task / multi-head campaign until bounded
     PINN pilots and TE Curve Verification Pipeline evidence justify the chosen
     physics-informed ingredients.
 

@@ -50,7 +50,8 @@ The accepted forward references at roadmap entry are:
 | Stage 2: Evaluation And Optimization Instrumentation | completed | All twelve instrumentation checks pass. Named normalized losses, EMAs, per-loss gradients, pairwise cosines, update ratios, four adapters, schedules, deterministic loaders, and four matched controls are available. Stage 3 is authorized. |
 | Stage 3: Analytical Anchor Reproduction And Stress Tests | completed | PF-A exactly reproduces Phase 1, all twelve gates pass, all 966 forward predictions are finite, and the supported-core deployment envelope is frozen. Stage 4 is authorized. |
 | Stage 4: Data-Only Residual Capacity Ladder | completed negative | All 18 runs completed. H08 won the scalar campaign, but every primary hybrid failed the curve-first and cancellation gates. No residual architecture advanced and no stability repeats were required. |
-| Stages 5 through 15 | planned | Continue in order; training stages retain their campaign approval gates. |
+| Stage 5: Complex Harmonic Coefficient Residuals | completed positive component | All 18 first-screen runs and all 4 H04 stability runs completed. H04 passed all ten isolated-component gates across three seeds and advances as a structured coefficient component; H08 remains a raw-error-only leader. |
+| Stages 6 through 15 | planned | Continue in order; training stages retain their campaign approval gates. |
 
 ## Non-Negotiable Experimental Contract
 
@@ -639,28 +640,35 @@ These recommendations remain outside the `Wave 5.2R` training scope.
 
 ## Governance And Execution Order
 
-Stages 0 through 4 are complete. The next executable project is:
+Stages 0 through 5 are complete. The next executable project is:
 
 ```text
-Stage 5:
-Complex Harmonic Coefficient Residuals
+Stage 6:
+Spectral And Sobolev Guidance
 ```
 
-Stage 4 completed all eighteen runs but promoted no residual architecture.
-The scalar H08 result was rejected because its learned correction dominated
-and cancelled the analytical anchor on the canonical curve-first surface.
-Stage 5 must therefore align training and evaluation on the same uniformly
-resampled full-curve and complex-coefficient representation:
+Stage 5 corrected the representation mismatch exposed by Stage 4 and completed
+all eighteen first-screen runs plus four stability continuations. The bounded
+PF-A-anchored core-order candidate H04 passed all ten isolated-component gates
+across seeds `314159`, `271828`, and `161803`. Its three-seed test MAE is
+`0.00174908 +/- 0.00003982 deg`, and every seed beats both PF-A and the
+parameter-matched C04 control. H04 therefore advances as a qualified
+structured component, not as a production model or a complete PINN.
+
+H08 achieved the lowest single-seed raw MAE (`0.00169334 deg`) but regressed
+closure, harmonic amplitude, and phase against PF-A. It remains a
+raw-error-only diagnostic leader and does not advance.
+
+Stage 6 now tests whether explicit spectral and derivative-domain guidance
+adds value beyond the already qualified coefficient bottleneck:
 
 ```text
 Instrumentation
-+ canonical full-curve reconstruction
-+ complex sine/cosine coefficient targets
-+ matched direct and anchored coefficient controls
++ frozen H04 coefficient component
++ spectral amplitude and phase-aware losses
++ Sobolev derivative losses
++ parameter-matched data-only controls
 ```
-
-Physics-loss campaigns remain downstream of this representation-aligned
-coefficient test.
 
 This ordering prevents an improvement from being attributed to physics when
 it is actually caused by extra parameters or a better residual architecture.
