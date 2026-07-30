@@ -2,7 +2,7 @@
 
 ## Executive Snapshot
 
-- Generated At: `2026-07-30T01:21:39+02:00`
+- Generated At: `2026-07-30T11:07:21+02:00`
 - Program State: active.
 - Current Completed Wave: polished-dataset RCIM, early-wave, and full-wave
 - Current Focus: `Wave 5.2R` physics-guided forward reassessment execution,
@@ -16,11 +16,12 @@
 - Current plain MLP anchor: `te_feedforward_trial`
 - Active family-improvement branch count: `0`
 - Implemented and benchmarked family count: `254`
-- Wave 5.2R progress: Stages `0` through `15` of `16` complete. The official
-  97-curve forward matrix confirmed H04's centered-shape value and static
-  export parity, but the accepted GRU retained better raw, P95, offset, and
-  peak-to-peak behavior. H04 remains exploratory, the GRU remains incumbent,
-  and registries are unchanged.
+- Wave 5.2R progress: all `16 / 16` stages and the subsequent full-candidate
+  forward verification are complete. The `98`-candidate, `97`-curve matrix
+  identifies K01 as the temporal offline leader and H08 as the balanced
+  non-temporal offline leader. The accepted periodic GRU and periodic harmonic
+  MLP remain the deployment references pending export, parity, runtime, causal
+  replay, and PLC-facing checks for the new leaders.
 
 ## Current Project Status
 

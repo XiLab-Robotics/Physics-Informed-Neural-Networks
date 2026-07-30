@@ -7,6 +7,14 @@ This report is the canonical `TE Curve Verification Pipeline` offline comparison
 repository-owned `Wave 1` and `Wave 2.1` model candidates. It starts from
 the current direction-aware comparison matrix.
 
+The latest bounded model-development refresh is the forward-only Wave 5.2R
+full-candidate decision dated `2026-07-30`. It evaluated 98 candidates on 97
+polished-setpoint curves and is intentionally separate from this historical
+full-directional simplified-dataset matrix. See
+`doc/reports/analysis/te_curve_verification_pipeline/01_official_decisions/`
+`official_model_verification_report/[2026-07-30]/`
+`track2_wave52r_full_candidate_official_model_verification_report.md`.
+
 ## Dataset And Split
 
 - dataset config: `config/datasets/transmission_error_dataset.yaml`;

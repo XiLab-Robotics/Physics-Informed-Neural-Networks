@@ -346,8 +346,16 @@ This folder contains the internal project documents derived from the reference P
   Approved Stage 15 design for official forward-only curve verification,
   inspectable H04 inference, and Python/ONNX/PLC deployment preparation.
 
+- [technical/2026-07/2026-07-30/2026-07-30-10-12-13_wave52r_full_candidate_track2_parallel_temporal_non_temporal_analysis.md](./technical/2026-07/2026-07-30/2026-07-30-10-12-13_wave52r_full_candidate_track2_parallel_temporal_non_temporal_analysis.md)
+  Approval-gated plan for a complete eligible Wave 5.2R forward Track 2
+  comparison with parallel temporal and non-temporal development lanes.
+
 - [scripts/campaigns/track_2/run_wave52r_stage15_official_forward_verification.md](./scripts/campaigns/track_2/run_wave52r_stage15_official_forward_verification.md)
   Local and remote operator contract for the gated Stage 15 forward matrix.
+
+- [scripts/campaigns/track_2/run_wave52r_full_candidate_track2_analysis.md](./scripts/campaigns/track_2/run_wave52r_full_candidate_track2_analysis.md)
+  Local and remote operator contract for the 98-candidate Wave 5.2R temporal
+  and non-temporal forward comparison.
 
 - [scripts/deployment/wave52r_stage15_h04_deployment_exports.md](./scripts/deployment/wave52r_stage15_h04_deployment_exports.md)
   H04 ONNX export, Python parity, generated Structured Text, and static
@@ -1297,6 +1305,11 @@ This folder contains the internal project documents derived from the reference P
   `polished_periodic_gru_sequence` as the model-development baseline while
   retaining `polished_rcim_model_bank_reproduction_ET19_Fw` as the polished
   forward reference-bank leader.
+
+- [reports/analysis/te_curve_verification_pipeline/01_official_decisions/official_model_verification_report/[2026-07-30]/track2_wave52r_full_candidate_official_model_verification_report.md](./reports/analysis/te_curve_verification_pipeline/01_official_decisions/official_model_verification_report/%5B2026-07-30%5D/track2_wave52r_full_candidate_official_model_verification_report.md)
+  Official forward-only Wave 5.2R full-candidate decision over 98 candidates
+  and 97 polished-setpoint curves, naming K01 and H08 as the temporal and
+  non-temporal offline lane leaders while preserving the deployable references.
 
 - [reports/analysis/model_development_waves/model_family_pruning/[2026-07-06]/te_model_family_pruning_decision_report.md](./reports/analysis/model_development_waves/model_family_pruning/%5B2026-07-06%5D/te_model_family_pruning_decision_report.md)
   Forward-led, backward-checked model-family pruning report that pauses

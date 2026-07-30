@@ -274,3 +274,26 @@ The launcher excludes MMT and ``global``. It synchronizes required code,
 configuration, documentation, and selected model archives before remote
 execution, then retrieves the generated reports, matrix artifacts, and logs.
 Official promotion remains a separate curve-first review step.
+
+Wave 5.2R full-candidate forward comparison
+-------------------------------------------
+
+The completed Wave 5.2R artifact inventory supports a forward-only comparison
+between every eligible trained candidate, the accepted periodic GRU, the
+accepted periodic harmonic MLP, and PF-A. Validate the package without running
+the matrix:
+
+.. code-block:: powershell
+
+   .\scripts\campaigns\track_2\run_wave52r_full_candidate_track2_analysis.ps1 `
+     -PreflightOnly
+
+Run the matrix locally or on the configured LAN workstation:
+
+.. code-block:: powershell
+
+   .\scripts\campaigns\track_2\run_wave52r_full_candidate_track2_analysis.ps1 -Run
+   .\scripts\campaigns\track_2\run_wave52r_full_candidate_track2_analysis.ps1 -Remote -Run
+
+The final decision keeps temporal and non-temporal rankings separate and uses
+the multi-index curve-first policy rather than scalar campaign rank alone.

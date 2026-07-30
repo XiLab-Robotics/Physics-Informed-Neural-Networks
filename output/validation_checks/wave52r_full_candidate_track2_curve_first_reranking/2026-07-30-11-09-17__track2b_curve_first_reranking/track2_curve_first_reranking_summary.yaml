@@ -1,0 +1,57 @@
+schema_version: 1
+run_instance_id: 2026-07-30-11-09-17__track2b_curve_first_reranking
+source_track2_run_directory: output\validation_checks\track2_reference_comparison\2026-07-30-10-45-46__wave52r_full_candidate_parallel_temporal_non_temporal_wave52r_full_candidate_parallel_temporal_non_temporal
+output_directory: output\validation_checks\wave52r_full_candidate_track2_curve_first_reranking\2026-07-30-11-09-17__track2b_curve_first_reranking
+report_path: doc\reports\analysis\te_curve_verification_pipeline\03_cvp_diagnostics\wave52r_full_candidate_curve_first_reranking_report\[2026-07-30]\track2_curve_first_reranking_report.md
+ranking_policy:
+  primary_metric: mean_percentage_error_pct
+  first_tie_breaker: p95_mean_percentage_error_pct
+  second_tie_breaker: worst_mean_percentage_error_pct
+  third_tie_breaker: mean_curve_mae_deg
+  direction: minimize
+  causal_input_contract: current point, optional short causal history, or derived
+    causal features only
+overall_best:
+  rank: 1
+  candidate_id: wave52r_stage9_k01
+  candidate_family: wave52r_stage9_h04_coefficient_residual_gru
+  candidate_kind: wave52r_precomputed_full_curve
+  candidate_source_label: wave52r_stage9_temporal
+  candidate_surface: Fw
+  ranking_scope: overall_valid_direction_surface
+  direction_label: all_valid
+  condition_count: 97
+  mean_curve_mae_deg: '0.001374'
+  mean_curve_rmse_deg: '0.001645'
+  mean_percentage_error_pct: '2.716282'
+  p95_mean_percentage_error_pct: '7.751271'
+  worst_mean_percentage_error_pct: '12.059574'
+  worst_curve_mae_deg: '0.009178'
+  worst_curve_rmse_deg: '0.010351'
+  std_mean_percentage_error_pct: '2.399960'
+  valid_direction_list: forward
+forward_best:
+  rank: 1
+  candidate_id: wave52r_stage9_k01
+  candidate_family: wave52r_stage9_h04_coefficient_residual_gru
+  candidate_kind: wave52r_precomputed_full_curve
+  candidate_source_label: wave52r_stage9_temporal
+  candidate_surface: Fw
+  ranking_scope: forward_only
+  direction_label: forward
+  condition_count: 97
+  mean_curve_mae_deg: '0.001374'
+  mean_curve_rmse_deg: '0.001645'
+  mean_percentage_error_pct: '2.716282'
+  p95_mean_percentage_error_pct: '7.751271'
+  worst_mean_percentage_error_pct: '12.059574'
+  worst_curve_mae_deg: '0.009178'
+  worst_curve_rmse_deg: '0.010351'
+  std_mean_percentage_error_pct: '2.399960'
+  valid_direction_list: forward
+backward_best: {}
+deferred_diagnostics:
+- harmonic_amplitude_error_by_order
+- harmonic_phase_error_by_order
+- derivative_or_slope_continuity_error
+- stitched_revolution_residual_drift

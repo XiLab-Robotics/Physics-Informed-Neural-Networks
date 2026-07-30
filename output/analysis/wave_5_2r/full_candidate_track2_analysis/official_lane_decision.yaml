@@ -1,0 +1,38 @@
+schema_version: 1
+decision_date: '2026-07-30'
+status: closed
+scope:
+  dataset: polished_dataset
+  input_mode: setpoints
+  surface: Fw
+  direction: forward
+  curve_count: 97
+  candidate_count: 98
+temporal_lane:
+  recommended_candidate_id: wave52r_stage9_k01
+  best_raw_error_candidate_id: wave52r_stage9_k01
+  best_shape_candidate_id: wave52r_stage12_f01
+  best_harmonic_candidate_id: wave52r_stage12_s01
+  accepted_deployment_reference_id: accepted_periodic_gru_sequence_Fw
+  deployment_baseline_changed: false
+non_temporal_lane:
+  recommended_candidate_id: wave52r_stage5_h08_seed_314159
+  best_raw_error_candidate_id: wave52r_stage10_r00
+  best_robustness_candidate_id: wave52r_stage10_s01
+  best_shape_candidate_id: wave52r_stage5_h04_seed_314159
+  accepted_deployment_reference_id: accepted_periodic_mlp_harmonic_Fw
+  deployment_baseline_changed: false
+cross_lane:
+  recommended_candidate_id: wave52r_stage9_k01
+  decision: temporal_lane_leads_forward_offline_verification
+surface_limitations:
+  backward_evaluated: false
+  global_evaluated: false
+deployment_gate:
+  status: pending
+  required:
+  - standalone_export
+  - numerical_parity
+  - runtime_and_memory_benchmark
+  - causal_replay_validation
+  - twincat_or_plc_integration_check

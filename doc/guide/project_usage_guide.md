@@ -892,6 +892,34 @@ conda run --no-capture-output -n pinns_env python -B `
 Python/ONNX and independent float32 PLC-reference parity pass. TwinCAT
 compilation and runtime replay remain separate pending gates.
 
+## Wave 5.2R Full-Candidate Temporal And Non-Temporal Track 2 Analysis
+
+Validate the complete package without running the heavy matrix:
+
+```powershell
+.\scripts\campaigns\track_2\run_wave52r_full_candidate_track2_analysis.ps1 `
+  -PreflightOnly
+```
+
+Run the 98-candidate matrix on the configured LAN workstation:
+
+```powershell
+.\scripts\campaigns\track_2\run_wave52r_full_candidate_track2_analysis.ps1 `
+  -Remote `
+  -Run
+```
+
+The inventory covers 125 Wave 5.2R and reference artifacts. Ninety-eight are
+eligible for the common 97-curve polished-setpoint forward matrix: 18 temporal
+candidates, 79 non-temporal candidates, and PF-A. The accepted periodic GRU
+and periodic harmonic MLP remain the temporal and non-temporal references.
+Replay-only, uncertainty-calibration, and synthetic-oracle artifacts retain
+explicit exclusion reasons.
+
+The launcher never promotes a model. After execution, the matrix must be
+reviewed under the multi-index curve-first policy with separate temporal,
+non-temporal, and cross-lane decisions.
+
 Rebuild the canonical Stage 15 visual and analytical closeout from the frozen
 matrix, CVP 1.2 diagnostics, and deployment-parity artifacts:
 

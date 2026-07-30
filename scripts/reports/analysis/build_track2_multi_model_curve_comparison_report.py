@@ -266,6 +266,16 @@ def build_argument_parser() -> argparse.ArgumentParser:
         help="Limit the overlay report to one dataset-surface report scope.",
     )
     argument_parser.add_argument(
+        "--candidate-id",
+        dest="candidate_id_list",
+        action="append",
+        default=[],
+        help=(
+            "Optional candidate id to include. May be repeated to build a "
+            "bounded visual shortlist from a compact matrix."
+        ),
+    )
+    argument_parser.add_argument(
         "--family-registry-root",
         type=Path,
         default=DEFAULT_FAMILY_REGISTRY_ROOT,
@@ -760,6 +770,15 @@ def resolve_report_candidate_configuration_list(
     all_candidate_configuration_list = (
         reference_family_vs_feedforward_support.resolve_track2_candidate_configuration_list(training_config)
     )
+    comparison_mode = str(
+        training_config.get("comparison", {}).get(
+            "comparison_mode",
+            "",
+        )
+    ).strip()
+    if comparison_mode.startswith("wave52r_full_candidate"):
+        return all_candidate_configuration_list
+
     wanted_reference_candidate_id_set = set(FORWARD_REFERENCE_CANDIDATE_ID_LIST + BACKWARD_REFERENCE_CANDIDATE_ID_LIST)
     reference_candidate_configuration_list = [
         candidate_configuration
@@ -862,8 +881,6 @@ def append_auto_registry_comparison_group_list(
 
     source_candidate_dictionary: dict[str, list[dict[str, Any]]] = {}
     for candidate_configuration in candidate_configuration_list:
-        if str(candidate_configuration.get("candidate_kind", "")).strip() != "wave1_registry_model":
-            continue
         source_label = str(candidate_configuration.get("candidate_source_label", "")).strip()
         if not source_label or source_label in covered_source_label_set:
             continue
@@ -1620,6 +1637,35 @@ def build_full_comparison_group_list(
             ),
         ]
     )
+    candidate_source_label_set = {
+        str(
+            candidate_configuration.get(
+                "candidate_source_label",
+                "",
+            )
+        ).strip()
+        for candidate_configuration in candidate_configuration_list
+    }
+    if (
+        2 <= len(candidate_configuration_list) <= 6
+        and len(candidate_source_label_set) >= 2
+        and any(
+            source_label.startswith("wave52r_")
+            for source_label in candidate_source_label_set
+        )
+    ):
+        group_list.append(
+            ReportComparisonGroup(
+                group_id="forward_wave52r_cross_lane_shortlist",
+                group_title="Forward Wave 5.2R Cross-Lane Finalist Overlay",
+                candidate_id_list=[
+                    str(candidate_configuration["candidate_id"])
+                    for candidate_configuration
+                    in candidate_configuration_list
+                ],
+                selection_mode="forward",
+            )
+        )
     return group_list
 
 
@@ -1699,6 +1745,26 @@ def run_track2_multi_model_curve_comparison_report(arguments: argparse.Namespace
         for candidate_configuration in candidate_configuration_list
         if candidate_configuration_matches_surface_scope(candidate_configuration, arguments.surface_scope)
     ]
+    requested_candidate_id_set = {
+        str(candidate_id).strip()
+        for candidate_id in arguments.candidate_id_list
+        if str(candidate_id).strip()
+    }
+    if requested_candidate_id_set:
+        candidate_configuration_list = [
+            candidate_configuration
+            for candidate_configuration in candidate_configuration_list
+            if str(candidate_configuration["candidate_id"])
+            in requested_candidate_id_set
+        ]
+        resolved_candidate_id_set = {
+            str(candidate_configuration["candidate_id"])
+            for candidate_configuration in candidate_configuration_list
+        }
+        assert resolved_candidate_id_set == requested_candidate_id_set, (
+            "Could not resolve every requested overlay candidate | "
+            f"missing={sorted(requested_candidate_id_set - resolved_candidate_id_set)}"
+        )
     assert candidate_configuration_list, (
         "No overlay candidates available for requested surface scope | "
         f"surface_scope={arguments.surface_scope}"

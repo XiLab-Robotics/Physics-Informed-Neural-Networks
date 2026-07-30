@@ -31,5 +31,6 @@ repository reporting workflow.
    validate_phase6_dynamic_observability_audit
    stage14_cross_formulation_forward_tournament
    validate_stage15_official_forward_verification_package
+   validate_wave52r_full_candidate_track2_package
    build_physics_portfolio_feasibility_audit
    validate_physics_portfolio_feasibility_audit

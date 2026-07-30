@@ -1,0 +1,35 @@
+schema_version: 1
+validated_at: '2026-07-30T10:45:41.263161+02:00'
+status: passed
+config_path: config/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/wave52r_full_candidate_parallel_temporal_non_temporal_matrix.yaml
+inventory_path: output/analysis/wave_5_2r/full_candidate_track2_analysis/candidate_inventory.yaml
+candidate_count: 98
+temporal_candidate_count: 18
+non_temporal_candidate_count: 79
+candidate_kind_count:
+  wave1_registry_model: 18
+  wave52r_precomputed_full_curve: 77
+  stage5_coefficient_residual: 1
+  wave1_exported_model: 2
+precomputed_prediction_candidate_count: 77
+real_forward_curve_record_count: 97
+precomputed_adapter_replay_count: 7469
+archived_truth_grid_replay_max_abs_difference_deg: 0.004908658564090729
+archived_truth_grid_replay_mae_deg: 0.0002786472726886606
+duplicate_prediction_group_count: 3
+duplicate_prediction_group_list:
+- prediction_sha256: 99692fdff104f7aa2efd64b60d76d659ab42c159d5b87fe9cb6e3bf8301d2deb
+  candidate_id_list:
+  - wave52r_stage8_c00
+  - wave52r_stage8_n01
+- prediction_sha256: aa60b9a64fc984a8f0950c61be173fcf256b92d2be33f66b5acd1ac0f1e2b882
+  candidate_id_list:
+  - wave52r_stage9_c00
+  - wave52r_stage9_r00
+- prediction_sha256: b6ce419cb9f1cab1aa3a4599cd35390c35f6d5711106023b286733bd4a408c11
+  candidate_id_list:
+  - wave52r_stage12_a01
+  - wave52r_stage12_c01
+  - wave52r_stage12_l01
+remote_source_path_count: 87
+heavy_matrix_executed: false

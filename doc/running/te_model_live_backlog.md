@@ -119,6 +119,13 @@ Historical rationale and approval history remain in:
   compile and runtime replay remain pending. Wave 5.2R therefore closes
   without promotion; H04 is preserved as an exploratory export-prepared
   grey-box candidate and the periodic GRU remains incumbent.
+  The subsequent full-candidate forward `TE Curve Verification Pipeline`
+  refresh evaluated all `98` eligible candidates on `97` curves. K01 is now
+  the verified offline temporal-lane leader, while H08 is the balanced
+  non-temporal lane leader after raw, centered-shape, offset, harmonic, phase,
+  robustness, and visual evidence were separated. The accepted periodic GRU
+  and periodic harmonic MLP remain the deployable references until K01 and H08
+  pass standalone export, parity, runtime, causal replay, and PLC-facing gates.
 - Parallel Diagnostic Focus: component-offset, `CVP 1.4` h0 cross-check, and
   predicted-mean versus measured-h0 diagnostics are complete; `h0` is the
   correct mean-like channel to inspect, but not the confirmed sole cause of the

@@ -6,6 +6,7 @@ from __future__ import annotations
 import csv
 import hashlib
 import pickle
+import re
 from dataclasses import dataclass
 from datetime import datetime
 from pathlib import Path
@@ -23,6 +24,7 @@ import torch
 from scripts.datasets import transmission_error_dataset
 from scripts.analysis.polynomial_fourier_benchmark.polynomial_fourier_models import (
     QuadraticCoefficientSurface,
+    periodic_resample_curve,
 )
 from scripts.models.complex_harmonic_coefficient_residual_network import (
     ComplexHarmonicCoefficientResidualNetwork,
@@ -59,6 +61,16 @@ REFERENCE_CANDIDATE_KIND_SET = {
 STAGE5_COEFFICIENT_RESIDUAL_CANDIDATE_KIND = (
     "stage5_coefficient_residual"
 )
+PRECOMPUTED_FULL_CURVE_CANDIDATE_KIND = (
+    "wave52r_precomputed_full_curve"
+)
+WAVE52R_CONDITION_ID_PATTERN = re.compile(
+    r"^speed_(?P<speed>[0-9]+)rpm__"
+    r"torque_(?P<torque>[0-9]+)Nm__"
+    r"temperature_(?P<temperature>[0-9]+)degC$"
+)
+WAVE52R_FULL_CURVE_PERIOD_DEG = 360.0
+WAVE52R_ARCHIVED_TRUTH_MAX_ABS_TOLERANCE_DEG = 1.0e-5
 TEMPORAL_SEQUENCE_MODEL_TYPE_SET = {
     "temporal_convolution",
     "gru_sequence",
@@ -1332,6 +1344,309 @@ def predict_feedforward_curve(
     return predicted_curve_tensor.detach().cpu().numpy().reshape(-1).astype(np.float32)
 
 
+def build_wave52r_condition_key_from_identifier(
+    condition_id: str,
+) -> tuple[float, float, float, str]:
+
+    """Convert one frozen Wave 5.2R condition identifier into a lookup key."""
+
+    condition_match = WAVE52R_CONDITION_ID_PATTERN.fullmatch(
+        str(condition_id).strip()
+    )
+    assert condition_match is not None, (
+        "Unsupported Wave 5.2R condition identifier | "
+        f"condition_id={condition_id}"
+    )
+    return (
+        float(condition_match.group("speed")),
+        float(condition_match.group("torque")),
+        float(condition_match.group("temperature")),
+        "forward",
+    )
+
+
+def build_wave52r_condition_key_from_curve_record(
+    curve_record: harmonic_wise_support.HarmonicCurveRecord,
+) -> tuple[float, float, float, str]:
+
+    """Build the stable operating-condition key for one Track 2 curve."""
+
+    return (
+        float(curve_record.speed_rpm),
+        float(abs(curve_record.torque_nm)),
+        float(curve_record.oil_temperature_deg),
+        str(curve_record.direction_label).strip().lower(),
+    )
+
+
+def load_wave52r_precomputed_full_curve_candidate(
+    candidate_configuration: dict[str, Any],
+) -> dict[str, Any]:
+
+    """Load and validate one immutable Wave 5.2R full-curve archive."""
+
+    prediction_archive_path = (
+        shared_training_infrastructure.resolve_runtime_project_relative_path(
+            candidate_configuration["prediction_archive_path"]
+        )
+    )
+    condition_reference_archive_path = (
+        shared_training_infrastructure.resolve_runtime_project_relative_path(
+            candidate_configuration["condition_reference_archive_path"]
+        )
+    )
+    for (
+        artifact_path,
+        digest_key,
+        artifact_label,
+    ) in [
+        (
+            prediction_archive_path,
+            "expected_prediction_archive_sha256",
+            "Wave 5.2R prediction archive",
+        ),
+        (
+            condition_reference_archive_path,
+            "expected_condition_reference_sha256",
+            "Wave 5.2R condition-reference archive",
+        ),
+    ]:
+        assert artifact_path.is_file(), (
+            f"{artifact_label} does not exist | {artifact_path}"
+        )
+        assert_expected_file_sha256(
+            artifact_path,
+            candidate_configuration[digest_key],
+            artifact_label,
+        )
+
+    # NumPy NpzFile instances are used as context managers so their underlying
+    # zip file descriptors are closed immediately after the arrays are copied.
+    with np.load(
+        condition_reference_archive_path,
+        allow_pickle=False,
+    ) as condition_reference_archive:
+        condition_id_array = np.asarray(
+            condition_reference_archive["condition_id"]
+        ).copy()
+        reference_measured_curve_matrix = np.asarray(
+            condition_reference_archive["measured_curve"],
+            dtype=np.float64,
+        ).copy()
+
+    with np.load(
+        prediction_archive_path,
+        allow_pickle=False,
+    ) as prediction_archive:
+        predicted_curve_matrix = np.asarray(
+            prediction_archive["predicted_curve"],
+            dtype=np.float32,
+        ).copy()
+        measured_curve_matrix = np.asarray(
+            prediction_archive["measured_curve"],
+            dtype=np.float64,
+        ).copy()
+        if "condition_id" in prediction_archive.files:
+            observed_condition_id_array = np.asarray(
+                prediction_archive["condition_id"]
+            )
+            assert np.array_equal(
+                observed_condition_id_array,
+                condition_id_array,
+            ), (
+                "Wave 5.2R prediction archive condition ordering differs "
+                "from the frozen reference | "
+                f"path={prediction_archive_path}"
+            )
+
+    expected_curve_count = int(
+        candidate_configuration.get("expected_curve_count", 97)
+    )
+    expected_angular_sample_count = int(
+        candidate_configuration.get(
+            "expected_angular_sample_count",
+            2048,
+        )
+    )
+    expected_matrix_shape = (
+        expected_curve_count,
+        expected_angular_sample_count,
+    )
+    assert predicted_curve_matrix.shape == expected_matrix_shape, (
+        "Wave 5.2R predicted-curve matrix shape mismatch | "
+        f"path={prediction_archive_path} | "
+        f"observed={predicted_curve_matrix.shape} | "
+        f"expected={expected_matrix_shape}"
+    )
+    assert measured_curve_matrix.shape == expected_matrix_shape
+    assert reference_measured_curve_matrix.shape == expected_matrix_shape
+    assert len(condition_id_array) == expected_curve_count
+    assert np.all(np.isfinite(predicted_curve_matrix))
+    assert np.all(np.isfinite(measured_curve_matrix))
+    measured_curve_max_abs_difference = float(
+        np.max(
+            np.abs(
+                measured_curve_matrix
+                - reference_measured_curve_matrix
+            )
+        )
+    )
+    assert measured_curve_max_abs_difference <= 1.0e-7, (
+        "Wave 5.2R prediction archive measured curves differ from the "
+        "frozen condition reference | "
+        f"path={prediction_archive_path} | "
+        f"max_abs_difference_deg={measured_curve_max_abs_difference:.12g}"
+    )
+
+    prediction_by_condition_key: dict[
+        tuple[float, float, float, str],
+        np.ndarray,
+    ] = {}
+    truth_by_condition_key: dict[
+        tuple[float, float, float, str],
+        np.ndarray,
+    ] = {}
+    condition_id_by_key: dict[
+        tuple[float, float, float, str],
+        str,
+    ] = {}
+    for curve_index, condition_id_value in enumerate(
+        condition_id_array.tolist()
+    ):
+        condition_id = str(condition_id_value)
+        condition_key = build_wave52r_condition_key_from_identifier(
+            condition_id
+        )
+        assert condition_key not in prediction_by_condition_key, (
+            "Duplicate Wave 5.2R operating-condition key | "
+            f"condition_id={condition_id}"
+        )
+        prediction_by_condition_key[condition_key] = (
+            predicted_curve_matrix[curve_index]
+        )
+        truth_by_condition_key[condition_key] = (
+            reference_measured_curve_matrix[curve_index]
+        )
+        condition_id_by_key[condition_key] = condition_id
+
+    return {
+        "prediction_by_condition_key": prediction_by_condition_key,
+        "truth_by_condition_key": truth_by_condition_key,
+        "condition_id_by_key": condition_id_by_key,
+        "uniform_angular_sample_count": expected_angular_sample_count,
+        "measured_curve_max_abs_difference_deg": (
+            measured_curve_max_abs_difference
+        ),
+    }
+
+
+def interpolate_wave52r_uniform_curve_to_track2_grid(
+    uniform_curve_deg: np.ndarray,
+    target_angular_position_deg: np.ndarray,
+) -> np.ndarray:
+
+    """Interpolate one uniform Wave 5.2R curve onto a Track 2 angle grid."""
+
+    source_curve_deg = np.asarray(
+        uniform_curve_deg,
+        dtype=np.float64,
+    ).reshape(-1)
+    target_angle_deg = np.asarray(
+        target_angular_position_deg,
+        dtype=np.float64,
+    )
+    assert source_curve_deg.size >= 2
+    assert np.all(np.isfinite(source_curve_deg))
+    assert np.all(np.isfinite(target_angle_deg))
+
+    source_angle_deg = np.linspace(
+        0.0,
+        WAVE52R_FULL_CURVE_PERIOD_DEG,
+        source_curve_deg.size,
+        endpoint=False,
+        dtype=np.float64,
+    )
+    extended_source_angle_deg = np.concatenate(
+        (
+            source_angle_deg,
+            np.asarray(
+                [WAVE52R_FULL_CURVE_PERIOD_DEG],
+                dtype=np.float64,
+            ),
+        )
+    )
+    extended_source_curve_deg = np.concatenate(
+        (
+            source_curve_deg,
+            source_curve_deg[:1],
+        )
+    )
+    wrapped_target_angle_deg = np.mod(
+        target_angle_deg,
+        WAVE52R_FULL_CURVE_PERIOD_DEG,
+    )
+    return np.interp(
+        wrapped_target_angle_deg,
+        extended_source_angle_deg,
+        extended_source_curve_deg,
+    ).astype(np.float32)
+
+
+def predict_wave52r_precomputed_full_curve(
+    candidate: Track2Candidate,
+    curve_record: harmonic_wise_support.HarmonicCurveRecord,
+) -> np.ndarray:
+
+    """Resolve one frozen Wave 5.2R prediction for a Track 2 curve."""
+
+    assert candidate.model_dictionary is not None
+    condition_key = build_wave52r_condition_key_from_curve_record(
+        curve_record
+    )
+    prediction_by_condition_key = candidate.model_dictionary[
+        "prediction_by_condition_key"
+    ]
+    truth_by_condition_key = candidate.model_dictionary[
+        "truth_by_condition_key"
+    ]
+    assert condition_key in prediction_by_condition_key, (
+        "Wave 5.2R archive has no prediction for Track 2 condition | "
+        f"candidate_id={candidate.candidate_id} | key={condition_key}"
+    )
+    predicted_curve_deg = interpolate_wave52r_uniform_curve_to_track2_grid(
+        prediction_by_condition_key[condition_key],
+        curve_record.angular_position_deg,
+    )
+    assert predicted_curve_deg.shape == curve_record.transmission_error_deg.shape
+    _, reconstructed_uniform_truth_curve_deg = periodic_resample_curve(
+        curve_record.angular_position_deg,
+        curve_record.transmission_error_deg,
+        int(candidate.model_dictionary["uniform_angular_sample_count"]),
+    )
+    archived_truth_max_abs_difference = float(
+        np.max(
+            np.abs(
+                np.asarray(
+                    truth_by_condition_key[condition_key],
+                    dtype=np.float64,
+                )
+                - reconstructed_uniform_truth_curve_deg
+            )
+        )
+    )
+    assert (
+        archived_truth_max_abs_difference
+        <= WAVE52R_ARCHIVED_TRUTH_MAX_ABS_TOLERANCE_DEG
+    ), (
+        "Wave 5.2R archived truth differs from the Track 2 dataset after "
+        "canonical periodic resampling | "
+        f"candidate_id={candidate.candidate_id} | "
+        f"key={condition_key} | "
+        f"max_abs_difference_deg={archived_truth_max_abs_difference:.12g}"
+    )
+    return predicted_curve_deg
+
+
 def predict_wave1_registry_curve(
     model_object: Any,
     training_config: dict[str, Any],
@@ -2023,6 +2338,44 @@ def load_track2_candidate(candidate_configuration: dict[str, Any]) -> Track2Cand
             model_object=model_object,
         )
 
+    if candidate_kind == PRECOMPUTED_FULL_CURVE_CANDIDATE_KIND:
+        prediction_archive_path = (
+            shared_training_infrastructure
+            .resolve_runtime_project_relative_path(
+                candidate_configuration["prediction_archive_path"]
+            )
+        )
+        model_dictionary = (
+            load_wave52r_precomputed_full_curve_candidate(
+                candidate_configuration
+            )
+        )
+        return Track2Candidate(
+            candidate_id=candidate_id,
+            candidate_family=candidate_family,
+            candidate_kind=candidate_kind,
+            candidate_source_label=candidate_source_label,
+            candidate_surface=candidate_surface,
+            allowed_direction_list=allowed_direction_list,
+            source_path=prediction_archive_path,
+            selected_harmonic_list=[],
+            model_entry_list=None,
+            model_dictionary=model_dictionary,
+            registry_entry={
+                "wave52r_stage": candidate_configuration[
+                    "wave52r_stage"
+                ],
+                "candidate_lane": candidate_configuration[
+                    "candidate_lane"
+                ],
+                "run_instance_id": candidate_configuration[
+                    "run_instance_id"
+                ],
+            },
+            training_config=None,
+            model_object=None,
+        )
+
     raise ValueError(f"Unsupported TE Curve Verification Pipeline candidate kind | {candidate_kind}")
 
 
@@ -2103,6 +2456,16 @@ def evaluate_track2_candidate(
                 predict_stage5_coefficient_residual_curve(
                     candidate.model_object,
                     candidate.training_config,
+                    curve_record,
+                )
+            )
+        elif (
+            candidate.candidate_kind
+            == PRECOMPUTED_FULL_CURVE_CANDIDATE_KIND
+        ):
+            predicted_curve_deg = (
+                predict_wave52r_precomputed_full_curve(
+                    candidate,
                     curve_record,
                 )
             )
