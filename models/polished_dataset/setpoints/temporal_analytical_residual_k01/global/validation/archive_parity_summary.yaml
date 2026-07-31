@@ -1,0 +1,11 @@
+schema_version: 1
+status: passed
+candidate_id: K01
+surface: global
+held_out_curve_count: 194
+fixed_chunk_length: 32
+checkpoint_replay_max_abs_difference_deg: 2.1867454051971436e-05
+reset_reproducibility_max_abs_deg: 0.0
+chunk_equivalence_max_abs_deg: 1.4901161193847656e-08
+onnx_curve_max_abs_difference_deg: 3.725290298461914e-08
+onnx_hidden_state_max_abs_difference: 1.1920928955078125e-06

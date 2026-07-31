@@ -1,14 +1,152 @@
 schema_version: 1
 dataset_id: polished_dataset
 input_mode: setpoints
-entry_count: 108
+entry_count: 113
 surface_counts:
-  global: 36
-  forward: 36
-  backward: 36
+  global: 37
+  forward: 39
+  backward: 37
 onnx_export_status_counts:
-  exported: 108
+  exported: 113
 entries:
+- schema_version: 1
+  dataset_id: polished_dataset
+  dataset_schema: polished_setpoint_curve_v1
+  input_mode: setpoints
+  model_family: complex_harmonic_coefficient_h04
+  model_type: complex_harmonic_coefficient_residual
+  candidate_id: H04
+  surface: forward
+  random_seed: 314159
+  run_instance_id: 2026-07-28-16-17-13__stage5_h04
+  source_output_directory: output/training_runs/complex_harmonic_coefficient_residuals/2026-07-28-16-17-13__stage5_h04
+  source_best_checkpoint_path: output/training_runs/complex_harmonic_coefficient_residuals/2026-07-28-16-17-13__stage5_h04/best_model.pt
+  python_model_path: models/polished_dataset/setpoints/complex_harmonic_coefficient_h04/forward/python/best_model.pt
+  onnx_model_path: models/polished_dataset/setpoints/complex_harmonic_coefficient_h04/forward/onnx/model.onnx
+  onnx_export_status: exported
+  onnx_export_error: ''
+  checkpoint_sha256: 61732ac19b69dc2407268335c33a4605e06e9845a1c2c222b161cba968e36f48
+  onnx_sha256: fadc9e5c0dde64ee28c830a78afc9bb313cbdfabb40dc62c3ee186be87df7b75
+  split_signature: c1aa8718fb9bf88cc2021c121dc4f3b4010fc1d2e45ac90af5f4376aa64f8e16
+  acceptance_status: exploratory_grey_box_specialist
+  archive_role: compact_interpretable_forward_grey_box
+  deployment_status: static_plc_reference_parity_passed_twincat_runtime_pending
+  known_limitations:
+  - does_not_beat_periodic_gru_on_raw_offset_p95_or_peak_to_peak
+  - twincat_compile_and_runtime_replay_pending
+  - backward_and_global_not_officially_verified_for_archive_promotion
+  source_run_snapshot_path_map:
+    metrics_summary.snapshot.yaml: models/polished_dataset/setpoints/complex_harmonic_coefficient_h04/forward/source_run/metrics_summary.snapshot.yaml
+    training_config.snapshot.yaml: models/polished_dataset/setpoints/complex_harmonic_coefficient_h04/forward/source_run/training_config.snapshot.yaml
+    training_history.snapshot.csv: models/polished_dataset/setpoints/complex_harmonic_coefficient_h04/forward/source_run/training_history.snapshot.csv
+    stage15_decision.snapshot.yaml: models/polished_dataset/setpoints/complex_harmonic_coefficient_h04/forward/source_run/stage15_decision.snapshot.yaml
+  parity:
+    python_onnx:
+      schema_version: 1
+      generated_at: '2026-07-30T00:13:12+02:00'
+      status: passed
+      candidate_id: wave52r_stage15_h04_bounded_coefficient_residual_Fw
+      condition_count: 97
+      angular_sample_count: 2048
+      onnx_opset_version: 17
+      onnx_path: output/validation_checks/wave52r_stage15_deployment_parity/h04_bounded_coefficient_residual.onnx
+      onnx_sha256: fadc9e5c0dde64ee28c830a78afc9bb313cbdfabb40dc62c3ee186be87df7b75
+      input_payload_path: output/validation_checks/wave52r_stage15_deployment_parity/stage15_parity_input_payload.npz
+      input_payload_sha256: e6eaddc1e4e670988be7d52d2f0be379afb4df62e1242c670fb29ab9a466cce7
+      maximum_absolute_difference_deg_by_output:
+        prediction_curve: 2.2351741790771484e-08
+        prediction_coefficients: 3.725290298461914e-09
+        coefficient_correction: 2.3283064365386963e-10
+        analytical_contribution_curve: 2.9802322387695312e-08
+      coefficient_max_abs_tolerance_deg: 1.0e-06
+      curve_max_abs_tolerance_deg: 2.0e-06
+      python_onnx_parity_passed: true
+      plc_parity_status: pending
+      deployment_acceptance_status: pending_official_curve_verification_and_plc_parity
+    plc_static_reference:
+      schema_version: 1
+      generated_at: '2026-07-30T00:18:33+02:00'
+      status: passed
+      condition_count: 97
+      numeric_type: IEC_61131_3_REAL_float32_reference
+      parameter_archive_path: output/validation_checks/wave52r_stage15_deployment_parity/stage15_h04_plc_parameter_archive.npz
+      parameter_archive_sha256: 0b0359057ab62aea0937e34ac7963e0b05a6ba94f54b0f3b854fcccc367516c7
+      global_parameter_st_path: output/validation_checks/wave52r_stage15_deployment_parity/GVL_Stage15H04Parameters.st
+      global_parameter_st_sha256: 7d4e7603de062a68eec5130dd68287fd0e081b85ea22b543227ddebc0d487356
+      function_block_st_path: output/validation_checks/wave52r_stage15_deployment_parity/FB_Stage15H04CoefficientResidual.st
+      function_block_st_sha256: 09f4b1c4734ae434d540d34e2a567309719d8d455e74e0cea08863667547b116
+      curve_max_abs_difference_deg: 2.9802322387695312e-08
+      coefficient_max_abs_difference_deg: 7.450580596923828e-09
+      correction_max_abs_difference_deg: 2.3283064365386963e-10
+      curve_max_abs_tolerance_deg: 2.0e-06
+      coefficient_max_abs_tolerance_deg: 1.0e-06
+      static_plc_reference_parity_passed: true
+      twincat_compile_status: pending
+      twincat_runtime_status: pending
+      deployment_claim: PLC-friendly reference package only; no TwinCAT runtime claim
+  metrics:
+    mae_deg: 0.0017258842776965149
+    rmse_deg: 0.0020333838740526546
+    centered_mae_deg: 0.0013555282003006159
+    centered_rmse_deg: 0.0016330285245646932
+    offset_abs_error_deg: 0.0008843988627133451
+    peak_to_peak_abs_error_deg: 0.004714630209281829
+    derivative_mae_deg_per_sample: 0.0009283035330324238
+    periodic_closure_error_deg: 0.00029120176008028776
+    retained_amplitude_mae_deg: 0.00018156724497625935
+    retained_phase_mae_rad: 0.32101667110068927
+- schema_version: 1
+  dataset_id: polished_dataset
+  dataset_schema: polished_setpoint_curve_v1
+  input_mode: setpoints
+  model_family: complex_harmonic_coefficient_h08
+  model_type: complex_harmonic_coefficient_residual
+  candidate_id: H08
+  surface: forward
+  random_seed: 161803
+  run_instance_id: 2026-07-31-10-45-42__stage5_h08__seed_161803
+  source_output_directory: output/training_runs/complex_harmonic_coefficient_residuals/2026-07-31-10-45-42__stage5_h08__seed_161803
+  source_best_checkpoint_path: output/training_runs/complex_harmonic_coefficient_residuals/2026-07-31-10-45-42__stage5_h08__seed_161803/best_model.pt
+  python_model_path: models/polished_dataset/setpoints/complex_harmonic_coefficient_h08/forward/python/best_model.pt
+  onnx_model_path: models/polished_dataset/setpoints/complex_harmonic_coefficient_h08/forward/onnx/model.onnx
+  onnx_export_status: exported
+  onnx_export_error: ''
+  checkpoint_sha256: 5167df19b729c93bead9d7b0f42c35372a488f89b07bc2581b0834fcb02330ad
+  onnx_sha256: d8c8fa5d86b7972a4c0cd2f7d764b30315980131a5387e587af61a49fd25f74f
+  split_signature: c1aa8718fb9bf88cc2021c121dc4f3b4010fc1d2e45ac90af5f4376aa64f8e16
+  acceptance_status: retained_forward_offline_specialist
+  archive_role: non_temporal_forward_specialist
+  deployment_status: export_prepared_host_qualified_twincat_runtime_pending
+  known_limitations:
+  - backward_not_archived_due_to_raw_offset_and_closure_regressions
+  - global_not_archived_due_to_raw_offset_shape_and_derivative_regressions
+  source_run_snapshot_path_map:
+    metrics_summary.snapshot.yaml: models/polished_dataset/setpoints/complex_harmonic_coefficient_h08/forward/source_run/metrics_summary.snapshot.yaml
+    promotion_metadata.snapshot.yaml: models/polished_dataset/setpoints/complex_harmonic_coefficient_h08/forward/source_run/promotion_metadata.snapshot.yaml
+    training_config.snapshot.yaml: models/polished_dataset/setpoints/complex_harmonic_coefficient_h08/forward/source_run/training_config.snapshot.yaml
+    training_history.snapshot.csv: models/polished_dataset/setpoints/complex_harmonic_coefficient_h08/forward/source_run/training_history.snapshot.csv
+    official_promotion_decision.snapshot.yaml: models/polished_dataset/setpoints/complex_harmonic_coefficient_h08/forward/source_run/official_promotion_decision.snapshot.yaml
+  parity:
+    schema_version: 1
+    status: passed
+    candidate_id: H08
+    surface: forward
+    held_out_curve_count: 97
+    checkpoint_curve_max_abs_difference_deg: 3.725290298461914e-08
+    checkpoint_coefficient_max_abs_difference_deg: 7.450580596923828e-09
+    onnx_curve_max_abs_difference_deg: 3.725290298461914e-08
+    onnx_coefficient_max_abs_difference_deg: 7.450580596923828e-09
+  metrics:
+    mae_deg: 0.00168643569109576
+    rmse_deg: 0.0019832134869883816
+    centered_mae_deg: 0.0013189083981186252
+    centered_rmse_deg: 0.0015859717713606145
+    offset_abs_error_deg: 0.0008618087441457528
+    peak_to_peak_abs_error_deg: 0.003541112207091117
+    derivative_mae_deg_per_sample: 0.000923483010907644
+    periodic_closure_error_deg: 0.0004723877213972131
+    retained_amplitude_mae_deg: 0.00020799129412285902
+    retained_phase_mae_rad: 0.3235291848977169
 - schema_version: 1
   dataset_id: polished_dataset
   dataset_schema: polished_setpoint_curve_v1
@@ -1209,6 +1347,148 @@ entries:
     val_mae: 0.0015820052940398455
     test_mae: 0.0017578094266355038
     test_rmse: 0.0023478383664041758
+- schema_version: 1
+  dataset_id: polished_dataset
+  dataset_schema: polished_setpoint_curve_v1
+  input_mode: setpoints
+  model_family: temporal_analytical_residual_k01
+  model_type: causal_temporal_analytical_residual
+  candidate_id: K01
+  surface: backward
+  random_seed: 271828
+  run_instance_id: 2026-07-31-10-55-28__stage9_k01__seed_271828
+  source_output_directory: output/training_runs/temporal_analytical_residual_models/2026-07-31-10-55-28__stage9_k01__seed_271828
+  source_best_checkpoint_path: output/training_runs/temporal_analytical_residual_models/2026-07-31-10-55-28__stage9_k01__seed_271828/best_model.pt
+  source_paired_h04_checkpoint_path: output/training_runs/complex_harmonic_coefficient_residuals/2026-07-31-10-52-12__stage5_h04__seed_271828/best_model.pt
+  python_model_path: models/polished_dataset/setpoints/temporal_analytical_residual_k01/backward/python/best_model.pt
+  onnx_model_path: models/polished_dataset/setpoints/temporal_analytical_residual_k01/backward/onnx/model.onnx
+  onnx_export_status: exported
+  onnx_export_error: ''
+  checkpoint_sha256: 0b35b4ef37bcead452cb02058fd132a898ba085a63936ae732a3fbedbfe3e835
+  onnx_sha256: fdbe29c35b8ee6fbf09451fbcd801152b664f4cb972c53e8175a676ac25a4e36
+  split_signature: c1aa8718fb9bf88cc2021c121dc4f3b4010fc1d2e45ac90af5f4376aa64f8e16
+  acceptance_status: promoted_cross_surface_offline_leader
+  archive_role: temporal_offline_leader
+  deployment_status: export_prepared_host_qualified_twincat_runtime_pending
+  known_limitations:
+  - backward_peak_to_peak_regression
+  source_run_snapshot_path_map:
+    metrics_summary.snapshot.yaml: models/polished_dataset/setpoints/temporal_analytical_residual_k01/backward/source_run/metrics_summary.snapshot.yaml
+    promotion_metadata.snapshot.yaml: models/polished_dataset/setpoints/temporal_analytical_residual_k01/backward/source_run/promotion_metadata.snapshot.yaml
+    training_history.snapshot.csv: models/polished_dataset/setpoints/temporal_analytical_residual_k01/backward/source_run/training_history.snapshot.csv
+    official_promotion_decision.snapshot.yaml: models/polished_dataset/setpoints/temporal_analytical_residual_k01/backward/source_run/official_promotion_decision.snapshot.yaml
+  parity:
+    schema_version: 1
+    status: passed
+    candidate_id: K01
+    surface: backward
+    held_out_curve_count: 97
+    fixed_chunk_length: 32
+    checkpoint_replay_max_abs_difference_deg: 1.5534460544586182e-06
+    reset_reproducibility_max_abs_deg: 0.0
+    chunk_equivalence_max_abs_deg: 7.450580596923828e-09
+    onnx_curve_max_abs_difference_deg: 1.4901161193847656e-08
+    onnx_hidden_state_max_abs_difference: 4.023313522338867e-07
+  metrics:
+    validation_mae_deg: 0.0015509708318859339
+    test_mae_deg: 0.0015797716337389665
+    test_rmse_deg: 0.0018651349994944005
+    centered_mae_deg: 0.0013363078342356
+    offset_abs_error_deg: 0.0005631960537674879
+- schema_version: 1
+  dataset_id: polished_dataset
+  dataset_schema: polished_setpoint_curve_v1
+  input_mode: setpoints
+  model_family: temporal_analytical_residual_k01
+  model_type: causal_temporal_analytical_residual
+  candidate_id: K01
+  surface: forward
+  random_seed: 271828
+  run_instance_id: 2026-07-31-10-45-41__stage9_k01__seed_271828
+  source_output_directory: output/training_runs/temporal_analytical_residual_models/2026-07-31-10-45-41__stage9_k01__seed_271828
+  source_best_checkpoint_path: output/training_runs/temporal_analytical_residual_models/2026-07-31-10-45-41__stage9_k01__seed_271828/best_model.pt
+  source_paired_h04_checkpoint_path: output/training_runs/complex_harmonic_coefficient_residuals/2026-07-31-10-42-28__stage5_h04__seed_271828/best_model.pt
+  python_model_path: models/polished_dataset/setpoints/temporal_analytical_residual_k01/forward/python/best_model.pt
+  onnx_model_path: models/polished_dataset/setpoints/temporal_analytical_residual_k01/forward/onnx/model.onnx
+  onnx_export_status: exported
+  onnx_export_error: ''
+  checkpoint_sha256: 970c667aa734eb3e0eab8b1c54c8bfd800a319a4a166c3b3a8c5c32e8a01164c
+  onnx_sha256: 250b62f9132fde47b849c8339e3772c60a3a731563b2584a4db5e33f44780739
+  split_signature: c1aa8718fb9bf88cc2021c121dc4f3b4010fc1d2e45ac90af5f4376aa64f8e16
+  acceptance_status: promoted_cross_surface_offline_leader
+  archive_role: temporal_offline_leader
+  deployment_status: export_prepared_host_qualified_twincat_runtime_pending
+  known_limitations: []
+  source_run_snapshot_path_map:
+    metrics_summary.snapshot.yaml: models/polished_dataset/setpoints/temporal_analytical_residual_k01/forward/source_run/metrics_summary.snapshot.yaml
+    promotion_metadata.snapshot.yaml: models/polished_dataset/setpoints/temporal_analytical_residual_k01/forward/source_run/promotion_metadata.snapshot.yaml
+    training_history.snapshot.csv: models/polished_dataset/setpoints/temporal_analytical_residual_k01/forward/source_run/training_history.snapshot.csv
+    official_promotion_decision.snapshot.yaml: models/polished_dataset/setpoints/temporal_analytical_residual_k01/forward/source_run/official_promotion_decision.snapshot.yaml
+  parity:
+    schema_version: 1
+    status: passed
+    candidate_id: K01
+    surface: forward
+    held_out_curve_count: 97
+    fixed_chunk_length: 32
+    checkpoint_replay_max_abs_difference_deg: 1.1846423149108887e-06
+    reset_reproducibility_max_abs_deg: 0.0
+    chunk_equivalence_max_abs_deg: 1.4901161193847656e-08
+    onnx_curve_max_abs_difference_deg: 2.9802322387695312e-08
+    onnx_hidden_state_max_abs_difference: 3.8743019104003906e-07
+  metrics:
+    validation_mae_deg: 0.0014354911400005221
+    test_mae_deg: 0.0013549609869682668
+    test_rmse_deg: 0.0016155168338283584
+    centered_mae_deg: 0.001205197618349857
+    offset_abs_error_deg: 0.0004908183563394363
+- schema_version: 1
+  dataset_id: polished_dataset
+  dataset_schema: polished_setpoint_curve_v1
+  input_mode: setpoints
+  model_family: temporal_analytical_residual_k01
+  model_type: causal_temporal_analytical_residual
+  candidate_id: K01
+  surface: global
+  random_seed: 271828
+  run_instance_id: 2026-07-31-11-11-39__stage9_k01__seed_271828
+  source_output_directory: output/training_runs/temporal_analytical_residual_models/2026-07-31-11-11-39__stage9_k01__seed_271828
+  source_best_checkpoint_path: output/training_runs/temporal_analytical_residual_models/2026-07-31-11-11-39__stage9_k01__seed_271828/best_model.pt
+  source_paired_h04_checkpoint_path: output/training_runs/complex_harmonic_coefficient_residuals/2026-07-31-11-05-16__stage5_h04__seed_271828/best_model.pt
+  python_model_path: models/polished_dataset/setpoints/temporal_analytical_residual_k01/global/python/best_model.pt
+  onnx_model_path: models/polished_dataset/setpoints/temporal_analytical_residual_k01/global/onnx/model.onnx
+  onnx_export_status: exported
+  onnx_export_error: ''
+  checkpoint_sha256: 9ebf48190775ec00c5a867998645b213396726c1d199a358f0b04157a386602d
+  onnx_sha256: 8858976d0533c9c55f4a76887c6991b30395082bae900b588bf6470f64cef02a
+  split_signature: c1aa8718fb9bf88cc2021c121dc4f3b4010fc1d2e45ac90af5f4376aa64f8e16
+  acceptance_status: promoted_cross_surface_offline_leader
+  archive_role: temporal_offline_leader
+  deployment_status: export_prepared_host_qualified_twincat_runtime_pending
+  known_limitations: []
+  source_run_snapshot_path_map:
+    metrics_summary.snapshot.yaml: models/polished_dataset/setpoints/temporal_analytical_residual_k01/global/source_run/metrics_summary.snapshot.yaml
+    promotion_metadata.snapshot.yaml: models/polished_dataset/setpoints/temporal_analytical_residual_k01/global/source_run/promotion_metadata.snapshot.yaml
+    training_history.snapshot.csv: models/polished_dataset/setpoints/temporal_analytical_residual_k01/global/source_run/training_history.snapshot.csv
+    official_promotion_decision.snapshot.yaml: models/polished_dataset/setpoints/temporal_analytical_residual_k01/global/source_run/official_promotion_decision.snapshot.yaml
+  parity:
+    schema_version: 1
+    status: passed
+    candidate_id: K01
+    surface: global
+    held_out_curve_count: 194
+    fixed_chunk_length: 32
+    checkpoint_replay_max_abs_difference_deg: 2.1867454051971436e-05
+    reset_reproducibility_max_abs_deg: 0.0
+    chunk_equivalence_max_abs_deg: 1.4901161193847656e-08
+    onnx_curve_max_abs_difference_deg: 3.725290298461914e-08
+    onnx_hidden_state_max_abs_difference: 1.1920928955078125e-06
+  metrics:
+    validation_mae_deg: 0.0015495566185563803
+    test_mae_deg: 0.0014601615324121985
+    test_rmse_deg: 0.0017330518046238179
+    centered_mae_deg: 0.0012207096962950992
+    offset_abs_error_deg: 0.0005771307384439182
 - schema_version: 1
   dataset_id: polished_dataset
   dataset_schema: polished_setpoint_curve_v1

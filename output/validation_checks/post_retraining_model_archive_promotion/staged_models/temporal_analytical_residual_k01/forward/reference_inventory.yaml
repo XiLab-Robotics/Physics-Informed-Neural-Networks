@@ -1,0 +1,47 @@
+schema_version: 1
+dataset_id: polished_dataset
+dataset_schema: polished_setpoint_curve_v1
+input_mode: setpoints
+model_family: temporal_analytical_residual_k01
+model_type: causal_temporal_analytical_residual
+candidate_id: K01
+surface: forward
+random_seed: 271828
+run_instance_id: 2026-07-31-10-45-41__stage9_k01__seed_271828
+source_output_directory: output/training_runs/temporal_analytical_residual_models/2026-07-31-10-45-41__stage9_k01__seed_271828
+source_best_checkpoint_path: output/training_runs/temporal_analytical_residual_models/2026-07-31-10-45-41__stage9_k01__seed_271828/best_model.pt
+source_paired_h04_checkpoint_path: output/training_runs/complex_harmonic_coefficient_residuals/2026-07-31-10-42-28__stage5_h04__seed_271828/best_model.pt
+python_model_path: models/polished_dataset/setpoints/temporal_analytical_residual_k01/forward/python/best_model.pt
+onnx_model_path: models/polished_dataset/setpoints/temporal_analytical_residual_k01/forward/onnx/model.onnx
+onnx_export_status: exported
+onnx_export_error: ''
+checkpoint_sha256: 970c667aa734eb3e0eab8b1c54c8bfd800a319a4a166c3b3a8c5c32e8a01164c
+onnx_sha256: 250b62f9132fde47b849c8339e3772c60a3a731563b2584a4db5e33f44780739
+split_signature: c1aa8718fb9bf88cc2021c121dc4f3b4010fc1d2e45ac90af5f4376aa64f8e16
+acceptance_status: promoted_cross_surface_offline_leader
+archive_role: temporal_offline_leader
+deployment_status: export_prepared_host_qualified_twincat_runtime_pending
+known_limitations: []
+source_run_snapshot_path_map:
+  metrics_summary.snapshot.yaml: models/polished_dataset/setpoints/temporal_analytical_residual_k01/forward/source_run/metrics_summary.snapshot.yaml
+  promotion_metadata.snapshot.yaml: models/polished_dataset/setpoints/temporal_analytical_residual_k01/forward/source_run/promotion_metadata.snapshot.yaml
+  training_history.snapshot.csv: models/polished_dataset/setpoints/temporal_analytical_residual_k01/forward/source_run/training_history.snapshot.csv
+  official_promotion_decision.snapshot.yaml: models/polished_dataset/setpoints/temporal_analytical_residual_k01/forward/source_run/official_promotion_decision.snapshot.yaml
+parity:
+  schema_version: 1
+  status: passed
+  candidate_id: K01
+  surface: forward
+  held_out_curve_count: 97
+  fixed_chunk_length: 32
+  checkpoint_replay_max_abs_difference_deg: 1.1846423149108887e-06
+  reset_reproducibility_max_abs_deg: 0.0
+  chunk_equivalence_max_abs_deg: 1.4901161193847656e-08
+  onnx_curve_max_abs_difference_deg: 2.9802322387695312e-08
+  onnx_hidden_state_max_abs_difference: 3.8743019104003906e-07
+metrics:
+  validation_mae_deg: 0.0014354911400005221
+  test_mae_deg: 0.0013549609869682668
+  test_rmse_deg: 0.0016155168338283584
+  centered_mae_deg: 0.001205197618349857
+  offset_abs_error_deg: 0.0004908183563394363

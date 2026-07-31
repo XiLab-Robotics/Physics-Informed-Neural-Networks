@@ -1,0 +1,24 @@
+schema_version: 1
+status: passed
+staged_leaf_count: 5
+staged_key_list:
+- model_family: temporal_analytical_residual_k01
+  surface: forward
+  checkpoint_sha256: 970c667aa734eb3e0eab8b1c54c8bfd800a319a4a166c3b3a8c5c32e8a01164c
+  onnx_sha256: 250b62f9132fde47b849c8339e3772c60a3a731563b2584a4db5e33f44780739
+- model_family: temporal_analytical_residual_k01
+  surface: backward
+  checkpoint_sha256: 0b35b4ef37bcead452cb02058fd132a898ba085a63936ae732a3fbedbfe3e835
+  onnx_sha256: fdbe29c35b8ee6fbf09451fbcd801152b664f4cb972c53e8175a676ac25a4e36
+- model_family: temporal_analytical_residual_k01
+  surface: global
+  checkpoint_sha256: 9ebf48190775ec00c5a867998645b213396726c1d199a358f0b04157a386602d
+  onnx_sha256: 8858976d0533c9c55f4a76887c6991b30395082bae900b588bf6470f64cef02a
+- model_family: complex_harmonic_coefficient_h08
+  surface: forward
+  checkpoint_sha256: 5167df19b729c93bead9d7b0f42c35372a488f89b07bc2581b0834fcb02330ad
+  onnx_sha256: d8c8fa5d86b7972a4c0cd2f7d764b30315980131a5387e587af61a49fd25f74f
+- model_family: complex_harmonic_coefficient_h04
+  surface: forward
+  checkpoint_sha256: 61732ac19b69dc2407268335c33a4605e06e9845a1c2c222b161cba968e36f48
+  onnx_sha256: fadc9e5c0dde64ee28c830a78afc9bb313cbdfabb40dc62c3ee186be87df7b75

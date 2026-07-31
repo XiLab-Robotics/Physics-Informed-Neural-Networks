@@ -359,6 +359,10 @@ This folder contains the internal project documents derived from the reference P
   Technical plan for rebuilding the TF3820 model catalog from every canonical
   forward polished-setpoint family and synchronizing all PLC prediction code.
 
+- [technical/2026-07/2026-07-31/2026-07-31-18-51-12_post_retraining_model_archive_promotion.md](./technical/2026-07/2026-07-31/2026-07-31-18-51-12_post_retraining_model_archive_promotion.md)
+  Approval-gated plan and persistent selection baseline for promoting the K01,
+  H08, and H04 post-retraining specialists into the canonical model archive.
+
 - [technical/2026-07/2026-07-30/2026-07-30-17-35-29_wave52r_offline_leader_global_promotion_and_four_leader_portfolio.md](./technical/2026-07/2026-07-30/2026-07-30-17-35-29_wave52r_offline_leader_global_promotion_and_four_leader_portfolio.md)
   Approval-gated plan for qualifying K01 and H08 through causal, export,
   runtime, PLC, and cross-surface tests while preserving both non-PINN

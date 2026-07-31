@@ -1,0 +1,23 @@
+schema_version: 1
+candidate_id: H04
+run_instance_id: 2026-07-28-16-17-13__stage5_h04
+best_epoch: 48
+validation_curve_mae_deg: 0.0018176616868004203
+test_metrics:
+  mae_deg: 0.0017258842776965149
+  rmse_deg: 0.0020333838740526546
+  centered_mae_deg: 0.0013555282003006159
+  centered_rmse_deg: 0.0016330285245646932
+  offset_abs_error_deg: 0.0008843988627133451
+  peak_to_peak_abs_error_deg: 0.004714630209281829
+  derivative_mae_deg_per_sample: 0.0009283035330324238
+  periodic_closure_error_deg: 0.00029120176008028776
+  retained_amplitude_mae_deg: 0.00018156724497625935
+  retained_phase_mae_rad: 0.32101667110068927
+correction_rms_deg: 0.00038226820994773157
+anchor_rms_deg: 0.05527340855522827
+correction_to_anchor_rms: 0.006915951448258805
+coefficient_correction_abs_max: 0.0007465187809430063
+prediction_coefficient_abs_max: 0.08832228928804398
+device: cuda
+checkpoint_path: output/training_runs/complex_harmonic_coefficient_residuals/2026-07-28-16-17-13__stage5_h04/best_model.pt

@@ -2,7 +2,7 @@
 
 ## Executive Snapshot
 
-- Generated At: `2026-07-31T13:42:13+02:00`
+- Generated At: `2026-07-31T19:13:33+02:00`
 - Program State: active.
 - Current Completed Wave: polished-dataset RCIM, early-wave, and full-wave
 - Current Focus: K01 TwinCAT qualification and H08 backward/global defect analysis.
@@ -27,7 +27,10 @@
   refresh promoted K01 as the cross-surface temporal offline leader. H08
   remains a forward non-temporal specialist because it regressed raw error and
   offset on `Bw` and `global`. Both non-PINN incumbents remain accepted and
-  unchanged; K01 TwinCAT runtime checks remain pending.
+  unchanged; K01 TwinCAT runtime checks remain pending. The curated polished
+  setpoint archive now preserves K01 seed `271828` on all three surfaces, H08
+  seed `161803` on `Fw`, and exploratory Stage 15 H04 on `Fw`. This archive
+  update does not change the accepted registries or deployment leaders.
 
 ## Current Project Status
 

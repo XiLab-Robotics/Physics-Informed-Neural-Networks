@@ -26,4 +26,5 @@ Models API
    wave4_mmt_diagnostic_adapter
    weak_forward_compliance_residual_network
    causal_temporal_analytical_residual_network
+   export_post_retraining_selected_model_archives
    model_factory

@@ -1572,6 +1572,12 @@ The current usage flow mainly relies on these folders:
   Smoke check for contiguous, sparse RCIM, dense `0..240`, and dense `0..360`
   harmonic-basis model configuration.
 
+- `scripts/models/export_post_retraining_selected_model_archives.py`
+  Rebuilds and validates the five approved Wave 5.2R archive leaves in a
+  staging area. Add `--promote` only when installing K01 seed `271828` on all
+  three surfaces, H08 seed `161803` on `Fw`, and Stage 15 H04 on `Fw` into an
+  archive where those family roots do not already exist.
+
 - `scripts/deployment/twincat_onnx_conversion/`
   TwinCAT-facing ONNX conversion helper for Beckhoff `TF38x0` XML/BML
   artifacts and optional `TF3820` Machine Learning Server preparation.

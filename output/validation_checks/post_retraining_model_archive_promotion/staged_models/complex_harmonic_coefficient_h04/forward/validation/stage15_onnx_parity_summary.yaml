@@ -1,0 +1,21 @@
+schema_version: 1
+generated_at: '2026-07-30T00:13:12+02:00'
+status: passed
+candidate_id: wave52r_stage15_h04_bounded_coefficient_residual_Fw
+condition_count: 97
+angular_sample_count: 2048
+onnx_opset_version: 17
+onnx_path: output/validation_checks/wave52r_stage15_deployment_parity/h04_bounded_coefficient_residual.onnx
+onnx_sha256: fadc9e5c0dde64ee28c830a78afc9bb313cbdfabb40dc62c3ee186be87df7b75
+input_payload_path: output/validation_checks/wave52r_stage15_deployment_parity/stage15_parity_input_payload.npz
+input_payload_sha256: e6eaddc1e4e670988be7d52d2f0be379afb4df62e1242c670fb29ab9a466cce7
+maximum_absolute_difference_deg_by_output:
+  prediction_curve: 2.2351741790771484e-08
+  prediction_coefficients: 3.725290298461914e-09
+  coefficient_correction: 2.3283064365386963e-10
+  analytical_contribution_curve: 2.9802322387695312e-08
+coefficient_max_abs_tolerance_deg: 1.0e-06
+curve_max_abs_tolerance_deg: 2.0e-06
+python_onnx_parity_passed: true
+plc_parity_status: pending
+deployment_acceptance_status: pending_official_curve_verification_and_plc_parity

@@ -1,0 +1,9 @@
+schema_version: 1
+status: passed
+candidate_id: H08
+surface: forward
+held_out_curve_count: 97
+checkpoint_curve_max_abs_difference_deg: 3.725290298461914e-08
+checkpoint_coefficient_max_abs_difference_deg: 7.450580596923828e-09
+onnx_curve_max_abs_difference_deg: 3.725290298461914e-08
+onnx_coefficient_max_abs_difference_deg: 7.450580596923828e-09
