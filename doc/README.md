@@ -355,6 +355,10 @@ This folder contains the internal project documents derived from the reference P
   predictor FB, decoupled manual and curve-replay harnesses, TestRig import,
   and normalized single-value TE output.
 
+- [technical/2026-07/2026-07-31/2026-07-31-15-54-24_forward_polished_setpoints_tf3820_model_catalog_refresh.md](./technical/2026-07/2026-07-31/2026-07-31-15-54-24_forward_polished_setpoints_tf3820_model_catalog_refresh.md)
+  Technical plan for rebuilding the TF3820 model catalog from every canonical
+  forward polished-setpoint family and synchronizing all PLC prediction code.
+
 - [scripts/campaigns/track_2/run_wave52r_stage15_official_forward_verification.md](./scripts/campaigns/track_2/run_wave52r_stage15_official_forward_verification.md)
   Local and remote operator contract for the gated Stage 15 forward matrix.
 

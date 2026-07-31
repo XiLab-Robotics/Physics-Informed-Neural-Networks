@@ -15,6 +15,7 @@ PROJECT_PATH = Path(__file__).resolve().parents[3]
 CONVERTER_PATH = Path(__file__).resolve().with_name("convert_onnx_for_twincat.py")
 DEFAULT_OUTPUT_ROOT = PROJECT_PATH / "output" / "deployment" / "twincat_onnx_conversion"
 DEFAULT_MATRIX_ROOT = DEFAULT_OUTPUT_ROOT / "family_matrix"
+DEFAULT_SOURCE_ROOT = PROJECT_PATH / "models" / "polished_dataset" / "setpoints"
 SURFACE_PRIORITY_LIST = ["forward", "global", "backward"]
 DATASET_BRANCH_PRIORITY_LIST = [
     PROJECT_PATH / "models" / "polished_dataset" / "actual_values" / "exported",
@@ -71,9 +72,30 @@ def parse_arguments() -> argparse.Namespace:
 
     argument_parser = argparse.ArgumentParser(description=__doc__)
     argument_parser.add_argument("--output-root", type=Path, default=DEFAULT_MATRIX_ROOT)
+    argument_parser.add_argument(
+        "--source-root",
+        type=Path,
+        default=None,
+        help="Optional canonical family root containing <family>/<surface>/onnx/model.onnx.",
+    )
+    argument_parser.add_argument(
+        "--surface",
+        default="forward",
+        help="Surface selected under --source-root. Defaults to forward.",
+    )
+    argument_parser.add_argument(
+        "--discover-families",
+        action="store_true",
+        help="Discover every immediate family directory under --source-root.",
+    )
     argument_parser.add_argument("--family", action="append", default=[], help="Limit execution to one family. Repeatable.")
     argument_parser.add_argument("--skip-onnxruntime-smoke", action="store_true")
     argument_parser.add_argument("--skip-tf3820-fallback", action="store_true")
+    argument_parser.add_argument(
+        "--tf3820-only",
+        action="store_true",
+        help="Prepare only TF3820 JSON and PLCopen artifacts, without the legacy TF38x0 route.",
+    )
     argument_parser.add_argument("--continue-existing", action="store_true")
     return argument_parser.parse_args()
 
@@ -98,9 +120,17 @@ def select_newest_model_path(path_list: list[Path]) -> Path | None:
     return sorted(path_list, key=lambda path: str(path.parent.parent), reverse=True)[0]
 
 
-def find_family_representative(family_name: str) -> Path | None:
+def find_family_representative(
+    family_name: str,
+    source_root: Path | None = None,
+    surface_name: str = "forward",
+) -> Path | None:
 
     """Find one ONNX representative for a model family."""
+
+    if source_root is not None:
+        canonical_model_path = source_root / family_name / surface_name / "onnx" / "model.onnx"
+        return canonical_model_path if canonical_model_path.exists() else None
 
     if family_name == "rcim_track1":
         candidate_list = list(RCIM_REPRESENTATIVE_ROOT.glob("*/onnx_export/MLP/MLPRegressor_ampl0.onnx"))
@@ -173,6 +203,7 @@ def run_family_conversion(
     output_root: Path,
     run_onnxruntime_smoke: bool,
     continue_existing: bool,
+    tf3820_only: bool,
 ) -> dict[str, Any]:
 
     """Run TF38x0 first and TF3820 fallback for one family."""
@@ -190,17 +221,25 @@ def run_family_conversion(
     if run_onnxruntime_smoke:
         common_argument_list.append("--run-onnxruntime-smoke")
 
-    if continue_existing and tf38x0_manifest_path.exists():
-        tf38x0_completed_process = None
+    tf38x0_manifest: dict[str, Any] = {}
+    if tf3820_only:
+        route_result_map["tf38x0"] = {
+            "return_code": None,
+            "manifest_path": None,
+            "status": "not_run",
+        }
     else:
-        tf38x0_completed_process = run_converter([*common_argument_list, "--run-name", tf38x0_run_name])
-    tf38x0_manifest = load_yaml(tf38x0_manifest_path)
-    tf38x0_payload = tf38x0_manifest.get("tf38x0", {}) if isinstance(tf38x0_manifest, dict) else {}
-    route_result_map["tf38x0"] = {
-        "return_code": tf38x0_completed_process.returncode if tf38x0_completed_process is not None else None,
-        "manifest_path": project_relative(tf38x0_manifest_path),
-        "status": tf38x0_payload.get("status", "missing_manifest"),
-    }
+        if continue_existing and tf38x0_manifest_path.exists():
+            tf38x0_completed_process = None
+        else:
+            tf38x0_completed_process = run_converter([*common_argument_list, "--run-name", tf38x0_run_name])
+        tf38x0_manifest = load_yaml(tf38x0_manifest_path)
+        tf38x0_payload = tf38x0_manifest.get("tf38x0", {}) if isinstance(tf38x0_manifest, dict) else {}
+        route_result_map["tf38x0"] = {
+            "return_code": tf38x0_completed_process.returncode if tf38x0_completed_process is not None else None,
+            "manifest_path": project_relative(tf38x0_manifest_path),
+            "status": tf38x0_payload.get("status", "missing_manifest"),
+        }
 
     tf3820_run_name = build_run_name("tf3820", family_name)
     tf3820_manifest_path = resolve_manifest_path(output_root, tf3820_run_name)
@@ -295,12 +334,34 @@ def main() -> int:
     arguments = parse_arguments()
     output_root = (PROJECT_PATH / arguments.output_root).resolve() if not arguments.output_root.is_absolute() else arguments.output_root
     output_root.mkdir(parents=True, exist_ok=True)
-    selected_family_list = arguments.family or MODEL_FAMILY_LIST
+    source_root_argument = arguments.source_root
+    if arguments.discover_families and source_root_argument is None:
+        source_root_argument = DEFAULT_SOURCE_ROOT
+    source_root = None
+    if source_root_argument is not None:
+        source_root = (
+            (PROJECT_PATH / source_root_argument).resolve()
+            if not source_root_argument.is_absolute()
+            else source_root_argument.resolve()
+        )
+        if not source_root.is_dir():
+            raise FileNotFoundError(f"Canonical source root does not exist: {source_root}")
+
+    if arguments.family:
+        selected_family_list = arguments.family
+    elif arguments.discover_families:
+        selected_family_list = sorted(path.name for path in source_root.iterdir() if path.is_dir())
+    else:
+        selected_family_list = MODEL_FAMILY_LIST
     family_result_list: list[dict[str, Any]] = []
     missing_family_list: list[str] = []
 
     for family_name in selected_family_list:
-        representative_path = find_family_representative(family_name)
+        representative_path = find_family_representative(
+            family_name,
+            source_root=source_root,
+            surface_name=arguments.surface,
+        )
         if representative_path is None:
             missing_family_list.append(family_name)
             family_result_list.append({
@@ -317,6 +378,7 @@ def main() -> int:
             output_root,
             run_onnxruntime_smoke=not arguments.skip_onnxruntime_smoke,
             continue_existing=arguments.continue_existing,
+            tf3820_only=arguments.tf3820_only,
         )
         family_result_list.append(family_result)
         print(
@@ -331,6 +393,8 @@ def main() -> int:
         "schema_version": 1,
         "created_at": datetime.now().isoformat(timespec="seconds"),
         "output_root": project_relative(output_root),
+        "source_root": project_relative(source_root) if source_root is not None else None,
+        "surface": arguments.surface if source_root is not None else None,
         "family_count": len(selected_family_list),
         "represented_family_count": len(selected_family_list) - len(missing_family_list),
         "missing_family_list": missing_family_list,
