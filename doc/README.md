@@ -350,6 +350,11 @@ This folder contains the internal project documents derived from the reference P
   Approval-gated plan for a complete eligible Wave 5.2R forward Track 2
   comparison with parallel temporal and non-temporal development lanes.
 
+- [technical/2026-07/2026-07-31/2026-07-31-13-23-57_tf3820_agnostic_te_predictor_and_curve_replay_refactor.md](./technical/2026-07/2026-07-31/2026-07-31-13-23-57_tf3820_agnostic_te_predictor_and_curve_replay_refactor.md)
+  Approved refactor plan for a model-agnostic TF3820 transmission-error
+  predictor FB, decoupled manual and curve-replay harnesses, TestRig import,
+  and normalized single-value TE output.
+
 - [scripts/campaigns/track_2/run_wave52r_stage15_official_forward_verification.md](./scripts/campaigns/track_2/run_wave52r_stage15_official_forward_verification.md)
   Local and remote operator contract for the gated Stage 15 forward matrix.
 

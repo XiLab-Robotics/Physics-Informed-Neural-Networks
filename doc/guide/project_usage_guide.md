@@ -373,24 +373,27 @@ Dry-run the dataset/surface `TE Curve Verification Pipeline` split:
 
 ## TwinCAT TF3820 Standalone Harness
 
-Regenerate the blank-target `TF3820` PLC model-test harness from the prepared
-family matrix:
-
-```powershell
-python -B scripts\deployment\twincat_onnx_conversion\build_tf3820_standalone_harness.py --clean
-```
-
-The generated solution is written to:
+The maintained blank-target `TF3820` PLC solution is located at:
 
 ```text
 reference/codes/TwinCAT_TF3820_StandaloneModelTest/
 ```
 
-The harness is independent from the full TestRig project. It contains one
-generated `FB_MlSvrPrediction` runner per prepared model family and the
-top-level program `P_TF3820StandaloneModelTest`, which can generate synthetic
-operating inputs for `theta`, `theta_dot`, `tau_load`, `T`, and
-`direction_flag`.
+The harness is independent from the full TestRig project. Its reusable
+`FB_TF3820TransmissionErrorPredictor` owns model selection, TF3820 lifecycle,
+33-sample temporal history, and model-specific output reconstruction. Callers
+always receive one normalized `fTE : REAL` value.
+
+Use `P_TF3820StandaloneModelTest` for fixed or online-edited operating-point
+smoke tests. Use `P_TF3820CurveReplay` for automatic CSV playback, measured
+versus predicted TE comparison, and Scope YT capture. The replay owns its own
+predictor instance and does not drive the manual program.
+
+The older generator under
+`scripts/deployment/twincat_onnx_conversion/build_tf3820_standalone_harness.py`
+describes the original generated baseline. Do not run it with `--clean` over
+the maintained standalone checkout unless its templates have first been
+synchronized with the current reusable-predictor architecture.
 
 Before runtime testing on a Beckhoff target, copy:
 
@@ -401,15 +404,28 @@ reference/codes/TwinCAT_TF3820_StandaloneModelTest/ML_models
 to the target folder expected by the PLC:
 
 ```text
-C:\TwinCAT\3.1\Boot\ML\tf3820\standalone
+C:\Users\Administrator\Documents\ML_Models
 ```
 
 Open
 `reference/codes/TwinCAT_TF3820_StandaloneModelTest/TwinCAT_TF3820_StandaloneModelTest.sln`
 in TwinCAT XAE, resolve `Tc3_MlServer`, build the PLC project, start
-`TcMlServer`, pulse `bLoadSelectedModel`, enable `bEnablePrediction`, and watch
-`bPredictionReady`, `bError`, `nErrorCode`, `nMaxInferenceDuration`, and
-`aPredictionOutput`.
+`TcMlServer`, select `eModel`, pulse `bInitializeModel`, wait for
+`bConfigured`, then enable `bStartPrediction` and read `fTE` when `bTEValid`
+is true.
+
+For curve replay, prepare sequential `curve_<index>.csv` files with
+`scripts/prepare_curve_replay_pack.py`, copy them to
+`C:\Users\Administrator\Documents\ML_TestCurves`, set `nAvailableCurves`, and
+leave `nCurvesToReplay = 0` to process every deployed curve. All rows enter the
+temporal history; `nInferenceStride` only controls which eligible rows request
+inference.
+
+For TestRig integration, import the predictor together with its enum, temporal
+history DUT, model tensor DUTs, and runner dependencies. Instantiate only the
+top-level predictor in the TestRig ML task, map angle, speed, torque,
+temperature, direction, and `DataValid`, and keep the final compensation and
+machine-safety logic outside the predictor.
 
 The current command-line build route through installed Visual Studio / XAE
 components can fail before useful PLC diagnostics are emitted. Treat XAE GUI or
