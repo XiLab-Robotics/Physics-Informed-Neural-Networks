@@ -1,0 +1,56 @@
+schema_version: 1
+decision_id: wave52r_offline_leader_cross_surface_track2_2026_07_31
+decided_at: '2026-07-31T13:42:13+02:00'
+status: completed_partial_promotion
+dataset: polished_dataset
+input_mode: setpoints
+surface_list:
+- Fw
+- Bw
+- global
+curve_count_by_surface:
+  Fw: 97
+  Bw: 97
+  global: 194
+candidate_count: 24
+policy: multi_index_curve_first
+temporal_lane:
+  candidate_family: wave52r_promotion_k01
+  selected_seed: 271828
+  decision: promoted_to_cross_surface_offline_leader
+  surface_decision:
+    Fw: pass
+    Bw: pass_with_peak_to_peak_caveat
+    global: pass
+  deployment_status: export_prepared_host_qualified_twincat_runtime_pending
+non_temporal_lane:
+  candidate_family: wave52r_promotion_h08
+  decision: retain_as_forward_offline_specialist_not_global_leader
+  surface_decision:
+    Fw: conditional_pass
+    Bw: fail_raw_offset_and_closure
+    global: fail_raw_offset_shape_and_derivative
+  deployment_status: export_prepared_host_qualified_twincat_runtime_pending
+incumbent_preservation:
+  periodic_gru_sequence: retained_accepted_non_pinn_temporal_reference
+  periodic_mlp_harmonic: retained_accepted_non_pinn_non_temporal_reference
+  artifact_deleted: false
+  registry_replaced: false
+four_global_leader_portfolio_achieved: false
+accepted_offline_portfolio:
+- wave52r_promotion_k01
+- periodic_gru_sequence
+- periodic_mlp_harmonic
+preserved_surface_specialists:
+- wave52r_promotion_h08
+evidence:
+  raw_forward_summary: output/validation_checks/track2_reference_comparison/2026-07-31-13-23-15__wave52r_offline_leader_cross_surface_track2_wave52r_offline_leader_cross_surface_promotion_forward/validation_summary.yaml
+  raw_backward_summary: output/validation_checks/track2_reference_comparison/2026-07-31-13-24-17__wave52r_offline_leader_cross_surface_track2_wave52r_offline_leader_cross_surface_promotion_backward/validation_summary.yaml
+  raw_global_summary: output/validation_checks/track2_reference_comparison/2026-07-31-13-25-20__wave52r_offline_leader_cross_surface_track2_wave52r_offline_leader_cross_surface_promotion_global/validation_summary.yaml
+  curve_payload_diagnostics: output/analysis/wave_5_2r/offline_leader_cross_surface_track2/curve_payload_diagnostics/2026-07-31-13-29-13__track2c_curve_payload_diagnostics/track2_curve_payload_diagnostics_summary.yaml
+  official_report: doc/reports/analysis/model_development_waves/wave_5_2/offline_leader_global_promotion/official_decision/[2026-07-31]/wave52r_cross_surface_offline_leader_promotion_decision.md
+next_step:
+- preserve all four candidate families and their artifacts
+- qualify K01 in the TwinCAT runtime before any deployable-leader claim
+- keep H08 as a forward specialist and investigate its backward/global offset defect
+- prepare a separate gated integrated-specialist technical roadmap

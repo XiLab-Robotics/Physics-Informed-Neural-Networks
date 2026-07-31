@@ -67,7 +67,8 @@ PRECOMPUTED_FULL_CURVE_CANDIDATE_KIND = (
 WAVE52R_CONDITION_ID_PATTERN = re.compile(
     r"^speed_(?P<speed>[0-9]+)rpm__"
     r"torque_(?P<torque>[0-9]+)Nm__"
-    r"temperature_(?P<temperature>[0-9]+)degC$"
+    r"temperature_(?P<temperature>[0-9]+)degC"
+    r"(?:__(?P<direction>Fw|Bw))?$"
 )
 WAVE52R_FULL_CURVE_PERIOD_DEG = 360.0
 WAVE52R_ARCHIVED_TRUTH_MAX_ABS_TOLERANCE_DEG = 1.0e-5
@@ -1346,6 +1347,7 @@ def predict_feedforward_curve(
 
 def build_wave52r_condition_key_from_identifier(
     condition_id: str,
+    default_direction_label: str = "forward",
 ) -> tuple[float, float, float, str]:
 
     """Convert one frozen Wave 5.2R condition identifier into a lookup key."""
@@ -1357,11 +1359,21 @@ def build_wave52r_condition_key_from_identifier(
         "Unsupported Wave 5.2R condition identifier | "
         f"condition_id={condition_id}"
     )
+    direction_suffix = condition_match.group("direction")
+    normalized_default_direction = str(
+        default_direction_label
+    ).strip().lower()
+    assert normalized_default_direction in {"forward", "backward"}
+    direction_label = (
+        {"Fw": "forward", "Bw": "backward"}[direction_suffix]
+        if direction_suffix is not None
+        else normalized_default_direction
+    )
     return (
         float(condition_match.group("speed")),
         float(condition_match.group("torque")),
         float(condition_match.group("temperature")),
-        "forward",
+        direction_label,
     )
 
 
@@ -1510,13 +1522,27 @@ def load_wave52r_precomputed_full_curve_candidate(
         tuple[float, float, float, str],
         str,
     ] = {}
+    candidate_surface = str(
+        candidate_configuration.get("candidate_surface", "Fw")
+    ).strip()
+    default_direction_label = {
+        "Fw": "forward",
+        "Bw": "backward",
+        "global": "forward",
+    }[candidate_surface]
     for curve_index, condition_id_value in enumerate(
         condition_id_array.tolist()
     ):
         condition_id = str(condition_id_value)
         condition_key = build_wave52r_condition_key_from_identifier(
-            condition_id
+            condition_id,
+            default_direction_label=default_direction_label,
         )
+        if candidate_surface == "global":
+            assert condition_id.endswith(("__Fw", "__Bw")), (
+                "Global Wave 5.2R archives require explicit direction suffixes | "
+                f"condition_id={condition_id}"
+            )
         assert condition_key not in prediction_by_condition_key, (
             "Duplicate Wave 5.2R operating-condition key | "
             f"condition_id={condition_id}"

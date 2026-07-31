@@ -1,0 +1,70 @@
+schema_version: 1
+campaign_name: wave52r_offline_leader_cross_surface_promotion_2026_07_30
+campaign_type: wave52r_offline_leader_cross_surface_promotion
+prepared_at: '2026-07-30T19:32:30+02:00'
+approval_recorded_at: '2026-07-30T19:32:30+02:00'
+approval_source: explicit user approval
+technical_document_path: doc/technical/2026-07/2026-07-30/2026-07-30-17-35-29_wave52r_offline_leader_global_promotion_and_four_leader_portfolio.md
+planning_report_path: doc/reports/campaign_plans/model_development_waves/wave_5_2/offline_leader_global_promotion/2026-07-30-17-35-29_wave52r_offline_leader_global_promotion_campaign_plan_report.md
+dataset_id: polished_dataset
+input_mode: setpoints
+surface_list:
+- Fw
+- Bw
+- global
+random_seed_list:
+- 314159
+- 271828
+- 161803
+candidate_list:
+- candidate_id: H08
+  lane: non_temporal
+  formulation: banded_coefficient
+  model_role: promotion_candidate
+- candidate_id: K01
+  lane: temporal
+  formulation: h04_coefficient_residual_gru
+  model_role: promotion_candidate
+- candidate_id: H04
+  lane: non_temporal
+  formulation: bounded_coefficient
+  model_role: internal_anchor_only
+incumbent_control_list:
+- periodic_gru_sequence
+- periodic_mlp_harmonic
+incumbent_mutation_allowed: false
+expected_promotion_run_count: 18
+expected_internal_anchor_run_count: 9
+expected_total_run_count: 27
+queue_file_list:
+- queue/001_fw_seed_314159.yaml
+- queue/002_fw_seed_271828.yaml
+- queue/003_fw_seed_161803.yaml
+- queue/004_bw_seed_314159.yaml
+- queue/005_bw_seed_271828.yaml
+- queue/006_bw_seed_161803.yaml
+- queue/007_global_seed_314159.yaml
+- queue/008_global_seed_271828.yaml
+- queue/009_global_seed_161803.yaml
+local_gate_summary_path: output/validation_checks/wave52r_offline_leader_promotion/2026-07-30-19-24-35__wave52r_offline_leader_promotion/promotion_gate_summary.yaml
+launcher_path: scripts/campaigns/wave_5_2/run_wave52r_offline_leader_cross_surface_promotion.ps1
+runner_path: scripts/campaigns/wave_5_2/run_wave52r_offline_leader_cross_surface_promotion.py
+launcher_note_path: doc/scripts/campaigns/wave_5_2/run_wave52r_offline_leader_cross_surface_promotion.md
+output_contract:
+  campaign_root: output/training_campaigns
+  training_run_root_list:
+  - output/training_runs/complex_harmonic_coefficient_residuals
+  - output/training_runs/temporal_analytical_residual_models
+  preflight_path: output/validation_checks/wave52r_offline_leader_cross_surface_promotion/campaign_preflight_summary.yaml
+promotion_boundary:
+  scalar_campaign_winner_is_official_leader: false
+  official_track2_required: true
+  twinCAT_runtime_required: true
+protected_file_list:
+- doc/running/active_training_campaign.yaml
+- config/training/wave52r_offline_leader_cross_surface_promotion/campaigns/2026-07-30_wave52r_offline_leader_cross_surface_promotion
+- scripts/campaigns/wave_5_2/run_wave52r_offline_leader_cross_surface_promotion.py
+- scripts/campaigns/wave_5_2/run_wave52r_offline_leader_cross_surface_promotion.ps1
+- scripts/campaigns/wave_5_2/run_wave52r_stage5_complex_harmonic_coefficient_residuals.py
+- scripts/models/causal_temporal_analytical_residual_network.py
+- output/validation_checks/wave52r_offline_leader_promotion/2026-07-30-19-24-35__wave52r_offline_leader_promotion

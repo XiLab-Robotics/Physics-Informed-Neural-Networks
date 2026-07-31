@@ -1,0 +1,21 @@
+queue_index: 91
+candidate_id: H04
+formulation: bounded_coefficient
+order_set_name: core
+capacity_name: deep
+complex_weight: 1.0
+band_weight: 0.0
+surface_weight: 0.0
+harmonic_order_list:
+- 1
+- 3
+- 39
+- 40
+- 78
+- 81
+- 156
+- 162
+- 240
+random_seed: 161803
+angular_sample_count: 2048
+split_signature: c1aa8718fb9bf88cc2021c121dc4f3b4010fc1d2e45ac90af5f4376aa64f8e16

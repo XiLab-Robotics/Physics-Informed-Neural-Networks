@@ -638,7 +638,7 @@ def build_model(
 
     order_list = dataset.order_set_map[specification.order_set_name]
     return ComplexHarmonicCoefficientResidualNetwork(
-        condition_input_size=3,
+        condition_input_size=int(dataset.feature_mean.size),
         hidden_size_list=candidate_hidden_size_list(
             specification.capacity_name
         ),

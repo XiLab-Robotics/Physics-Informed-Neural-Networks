@@ -1,0 +1,163 @@
+schema_version: 1
+generated_at: '2026-07-30T19:25:24+02:00'
+run_instance_id: 2026-07-30-19-24-35__wave52r_offline_leader_promotion
+overall_status: qualified_for_conditional_cross_surface_campaign
+scope:
+  dataset: polished_dataset
+  input_mode: setpoints
+  surface: Fw
+  condition_count: 97
+  angular_sample_count: 2048
+  split_signature: c1aa8718fb9bf88cc2021c121dc4f3b4010fc1d2e45ac90af5f4376aa64f8e16
+candidate_result_dictionary:
+  K01:
+    candidate_id: wave52r_stage9_k01
+    candidate_family: h04_coefficient_residual_gru
+    candidate_lane: temporal
+    surface: Fw
+    status: passed_local_promotion_gates
+    checkpoint_path: output/training_runs/temporal_analytical_residual_models/2026-07-29-19-21-15__stage9_k01/best_model.pt
+    checkpoint_sha256: 18601f188928c2c6febd00fce6c43190df0a7960bde33e233bdabf2a7d6a2d67
+    prediction_path: output/training_runs/temporal_analytical_residual_models/2026-07-29-19-21-15__stage9_k01/test_predictions.npz
+    prediction_sha256: 214c526686425d0e758a1945f36c2ac7c76212c9d4197f1f05a42b167be21768
+    split_signature: c1aa8718fb9bf88cc2021c121dc4f3b4010fc1d2e45ac90af5f4376aa64f8e16
+    condition_count: 97
+    angular_sample_count: 2048
+    checkpoint_replay:
+      curve_max_abs_difference_deg: 2.8625130653381348e-05
+      curve_mean_abs_difference_deg: 3.819575340457959e-07
+      curve_p99_abs_difference_deg: 3.2027310226112604e-06
+      cross_device_max_abs_tolerance_deg: 5.0e-05
+      reference_payload_device: cuda
+      replay_device: cpu
+      hidden_state_mean_norm: 3.227924653462001
+      hidden_state_max_batch_mean_norm: 4.733797073364258
+      reset_reproducibility_max_abs_deg: 0.0
+      chunk_equivalence_max_abs_deg: 7.450580596923828e-09
+      prefix_mutated_future_length: 129
+      prefix_invariance_max_abs_difference_deg: 0.0
+      passed: true
+    onnx_export:
+      onnx_path: output/validation_checks/wave52r_offline_leader_promotion/2026-07-30-19-24-35__wave52r_offline_leader_promotion/k01_stateful_chunk32.onnx
+      onnx_sha256: 6e49dafcafe8c5adcd3d840fe48a705a8e1dbed7f85df936f852ee7dc196a4c3
+      onnx_size_bytes: 647963
+      opset_version: 17
+      fixed_batch_size: 1
+      fixed_chunk_length: 32
+      curve_max_abs_difference_deg: 1.4901161193847656e-08
+      hidden_state_max_abs_difference: 5.960464477539062e-07
+      state_carry_effect_mae_deg: 0.0013447043020278215
+      passed: true
+    runtime:
+      scope: Windows CPU ONNX Runtime stateful streaming proxy
+      chunk:
+        mean_microseconds: 222.73500000000007
+        median_microseconds: 214.10000000000002
+        p95_microseconds: 271.84999999999997
+        p99_microseconds: 339.3530000000002
+        maximum_microseconds: 364.4
+      complete_2048_sample_curve:
+        mean_microseconds: 14652.420000000002
+        median_microseconds: 14650.1
+        p95_microseconds: 14959.125
+        p99_microseconds: 15028.785
+        maximum_microseconds: 15046.2
+      target_ml_task_period_microseconds: 500.0
+      chunk_p95_within_target_proxy: true
+      session_rss_delta_bytes: 552960
+      inference_rss_delta_bytes: 157278208
+      twincat_runtime_status: pending
+    model:
+      parameter_count: 159891
+      parameter_byte_count: 639564
+      buffer_byte_count: 136
+      static_tensor_byte_count: 639700
+    deployment_contract:
+      condition_input_order:
+      - signed_setpoint_torque_nm
+      - absolute_setpoint_speed_rpm
+      - setpoint_temperature_deg_c
+      state_input: float32[2,1,128]
+      state_reset_required_at_curve_start: true
+      state_carry_required_between_chunks: true
+      future_information_required: false
+      target_derived_runtime_input_count: 0
+      preferred_plc_form: fixed-chunk causal GRU with explicit hidden-state input and output
+  H08:
+    candidate_id: wave52r_stage5_h08_seed_314159
+    candidate_family: banded_coefficient_residual
+    candidate_lane: non_temporal
+    surface: Fw
+    status: passed_local_promotion_gates
+    checkpoint_path: output/training_runs/complex_harmonic_coefficient_residuals/2026-07-28-16-17-15__stage5_h08/best_model.pt
+    checkpoint_sha256: ef8d7898ea18bbb773181a66a7f099e8a45a45a3ccc00fcedf5cf1c24246a6c8
+    prediction_path: output/training_runs/complex_harmonic_coefficient_residuals/2026-07-28-16-17-15__stage5_h08/test_predictions.npz
+    prediction_sha256: 30cd6eb8c57d35bba767bbcd6a19691719969424f8418f483d81686d9a0a5f35
+    split_signature: c1aa8718fb9bf88cc2021c121dc4f3b4010fc1d2e45ac90af5f4376aa64f8e16
+    condition_count: 97
+    angular_sample_count: 2048
+    checkpoint_replay:
+      curve_max_abs_difference_deg: 2.9802322387695312e-08
+      coefficient_max_abs_difference_deg: 7.450580596923828e-09
+      deterministic_repeat_max_abs_difference_deg: 0.0
+      passed: true
+    onnx_export:
+      onnx_path: output/validation_checks/wave52r_offline_leader_promotion/2026-07-30-19-24-35__wave52r_offline_leader_promotion/h08_banded_coefficient_residual.onnx
+      onnx_sha256: e1988fa714db3538a11b594efd6868de0458c164c6c29439efe19d563c377acb
+      onnx_size_bytes: 320299
+      opset_version: 17
+      output_max_abs_difference:
+        prediction_curve: 2.9802322387695312e-08
+        prediction_coefficients: 7.450580596923828e-09
+        coefficient_correction: 1.3969838619232178e-09
+        analytical_contribution_curve: 1.4901161193847656e-08
+      passed: true
+    runtime:
+      scope: one condition-level coefficient and complete-curve reconstruction on Windows CPU
+      mean_microseconds: 26.15
+      median_microseconds: 18.2
+      p95_microseconds: 60.70499999999999
+      p99_microseconds: 113.84200000000043
+      maximum_microseconds: 197.2
+      session_rss_delta_bytes: 4993024
+      inference_rss_delta_bytes: 1990656
+      twincat_runtime_status: pending
+    model:
+      parameter_count: 7651
+      parameter_byte_count: 30604
+      buffer_byte_count: 286860
+      static_tensor_byte_count: 317464
+    deployment_contract:
+      condition_input_order:
+      - signed_setpoint_torque_nm
+      - absolute_setpoint_speed_rpm
+      - setpoint_temperature_deg_c
+      inspectable_outputs:
+      - prediction_coefficients
+      - coefficient_correction
+      - analytical_contribution_curve
+      - prediction_curve
+      future_information_required: false
+      target_derived_runtime_input_count: 0
+      preferred_plc_form: condition-to-coefficient graph plus explicit pointwise harmonic reconstruction
+validity_and_fallback:
+  validity_envelope_path: output/analysis/wave_5_2r/stage4_data_only_residual_capacity_ladder/stage4_causal_setpoint_validity_envelope.yaml
+  validity_envelope_sha256: a2adcb87fd4672719c58b556ad34ca4432f9fa2ef6af8e5a69956750d87b5de4
+  test_case_count: 5
+  accepted_case_count: 1
+  fallback_case_count: 4
+  finite_and_axis_bound_classification_passed: true
+  deployment_rule: Reject non-finite or outside-axis inputs before model execution and route them to the
+    incumbent or analytical fallback.
+incumbent_preservation:
+  temporal_incumbent: periodic_gru_sequence
+  non_temporal_incumbent: periodic_mlp_harmonic
+  artifact_or_registry_replacement_performed: false
+  required_operational_fallback: true
+promotion_boundary:
+  forward_local_export_gate_completed: true
+  twincat_runtime_completed: false
+  backward_evaluated: false
+  global_evaluated: false
+  global_leader_promotion_allowed: false
+  conditional_cross_surface_campaign_preparation_allowed: true

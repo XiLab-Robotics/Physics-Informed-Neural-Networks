@@ -2,12 +2,12 @@
 
 ## Executive Snapshot
 
-- Generated At: `2026-07-30T11:07:21+02:00`
+- Generated At: `2026-07-31T13:42:13+02:00`
 - Program State: active.
 - Current Completed Wave: polished-dataset RCIM, early-wave, and full-wave
-- Current Focus: `Wave 5.2R` physics-guided forward reassessment execution,
+- Current Focus: K01 TwinCAT qualification and H08 backward/global defect analysis.
 - Active Campaign Status: `completed`
-- Active Campaign Name: `wave52r_stage13_synthetic_weak_form_oracle_lane_2026_07_29`
+- Active Campaign Name: `wave52r_offline_leader_cross_surface_promotion_2026_07_30`
 - Current Program Winner: `te_periodic_gru_sequence_bw` | Family `periodic_gru_sequence_bw` | Test MAE `0.001084`
 
 ## Main Takeaways
@@ -20,8 +20,14 @@
   forward verification are complete. The `98`-candidate, `97`-curve matrix
   identifies K01 as the temporal offline leader and H08 as the balanced
   non-temporal offline leader. The accepted periodic GRU and periodic harmonic
-  MLP remain the deployment references pending export, parity, runtime, causal
-  replay, and PLC-facing checks for the new leaders.
+  MLP remain the deployment references. K01 and H08 have passed local replay,
+  causal/state, export-parity, fallback, and host-latency gates. The approved
+  `Fw`/`Bw`/`global` campaign completed `27 / 27` runs with zero failures; K01
+  led mean scalar MAE on every surface. The subsequent official multi-index
+  refresh promoted K01 as the cross-surface temporal offline leader. H08
+  remains a forward non-temporal specialist because it regressed raw error and
+  offset on `Bw` and `global`. Both non-PINN incumbents remain accepted and
+  unchanged; K01 TwinCAT runtime checks remain pending.
 
 ## Current Project Status
 
@@ -482,6 +488,7 @@ Low-priority exploratory families currently listed in the backlog:
 
 | Campaign | Generated At | Completed | Failed | Winner | Impact |
 | --- | --- | ---: | ---: | --- | --- |
+| `wave52r_offline_leader_cross_surface_promotion_2026_07_30` | `2026-07-31 11:18:11` | 27 | 0 | `K01`, provisional scalar `Fw` winner | No registry promotion; official `Fw`/`Bw`/`global` curve-first verification pending |
 | `wave52r_stage4_data_only_residual_capacity_2026_07_28` | `2026-07-28 11:19:25` | 18 | 0 | `te_stage4_h08_r5_deep__polished_setpoints_fw` | Updated stage4_h08_r5_deep family best |
 | `wave52r_stage4_data_only_residual_capacity_2026_07_28` | `2026-07-28 10:00:02` | 0 | 1 | N/A | No winner artifact |
 | `phase3_c1_fw_stability_repeat_2026_07_26` | `2026-07-26 20:07:49` | 2 | 0 | `te_phase3_pinn_c1_linear_compliance_soft_fw_seed_314159__polished_setpoints` | Updated phase3_pinn_c1_linear_compliance_soft_fw_seed_314159 family best |

@@ -1,0 +1,10 @@
+schema_version: 1
+campaign_name: wave52r_offline_leader_cross_surface_promotion_2026_07_30
+dataset_id: polished_dataset
+input_mode: setpoints
+surface: Fw
+model_role: internal_h04_anchor
+random_seed: 161803
+split_signature: c1aa8718fb9bf88cc2021c121dc4f3b4010fc1d2e45ac90af5f4376aa64f8e16
+checkpoint_path: output/training_runs/complex_harmonic_coefficient_residuals/2026-07-31-10-45-41__stage5_h04__seed_161803/best_model.pt
+checkpoint_sha256: bc31b205291c5d9199a33c38e767a32e379e3b605fe2e2cf3c3c1e7d806e29b4

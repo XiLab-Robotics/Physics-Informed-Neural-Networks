@@ -1,0 +1,13 @@
+{"band_loss": 0.0, "complex_loss": 0.43583929538726807, "curve_loss": 0.02687900699675083, "epoch": 1, "surface_loss": 0.0, "total_loss": 0.46271830797195435, "validation_curve_mae_deg": 0.002034456469118595}
+{"band_loss": 0.0, "complex_loss": 0.4357524812221527, "curve_loss": 0.02687653712928295, "epoch": 2, "surface_loss": 0.0, "total_loss": 0.4626290202140808, "validation_curve_mae_deg": 0.002033670898526907}
+{"band_loss": 0.0, "complex_loss": 0.43566372990608215, "curve_loss": 0.02687360905110836, "epoch": 3, "surface_loss": 0.0, "total_loss": 0.46253734827041626, "validation_curve_mae_deg": 0.0020328492391854525}
+{"band_loss": 0.0, "complex_loss": 0.43557125329971313, "curve_loss": 0.02687055803835392, "epoch": 4, "surface_loss": 0.0, "total_loss": 0.4624418020248413, "validation_curve_mae_deg": 0.0020323351491242647}
+{"band_loss": 0.0, "complex_loss": 0.435474693775177, "curve_loss": 0.026867257431149483, "epoch": 5, "surface_loss": 0.0, "total_loss": 0.46234196424484253, "validation_curve_mae_deg": 0.0020322082564234734}
+{"band_loss": 0.0, "complex_loss": 0.43537232279777527, "curve_loss": 0.02686357870697975, "epoch": 6, "surface_loss": 0.0, "total_loss": 0.4622358977794647, "validation_curve_mae_deg": 0.0020323339849710464}
+{"band_loss": 0.0, "complex_loss": 0.4352623224258423, "curve_loss": 0.02685956098139286, "epoch": 7, "surface_loss": 0.0, "total_loss": 0.4621218740940094, "validation_curve_mae_deg": 0.002032536081969738}
+{"band_loss": 0.0, "complex_loss": 0.4351445734500885, "curve_loss": 0.0268552266061306, "epoch": 8, "surface_loss": 0.0, "total_loss": 0.4619998037815094, "validation_curve_mae_deg": 0.0020326615776866674}
+{"band_loss": 0.0, "complex_loss": 0.43501776456832886, "curve_loss": 0.026850469410419464, "epoch": 9, "surface_loss": 0.0, "total_loss": 0.4618682265281677, "validation_curve_mae_deg": 0.0020326455123722553}
+{"band_loss": 0.0, "complex_loss": 0.4348800778388977, "curve_loss": 0.02684519998729229, "epoch": 10, "surface_loss": 0.0, "total_loss": 0.46172526478767395, "validation_curve_mae_deg": 0.002032526070252061}
+{"band_loss": 0.0, "complex_loss": 0.4347302317619324, "curve_loss": 0.026839401572942734, "epoch": 11, "surface_loss": 0.0, "total_loss": 0.4615696370601654, "validation_curve_mae_deg": 0.002032391494140029}
+{"band_loss": 0.0, "complex_loss": 0.43456780910491943, "curve_loss": 0.026833103969693184, "epoch": 12, "surface_loss": 0.0, "total_loss": 0.46140092611312866, "validation_curve_mae_deg": 0.002032335614785552}
+{"band_loss": 0.0, "complex_loss": 0.43439221382141113, "curve_loss": 0.026826296001672745, "epoch": 13, "surface_loss": 0.0, "total_loss": 0.4612185060977936, "validation_curve_mae_deg": 0.0020324266515672207}

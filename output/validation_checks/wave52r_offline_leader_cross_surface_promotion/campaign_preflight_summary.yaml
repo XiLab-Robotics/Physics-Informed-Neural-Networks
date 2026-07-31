@@ -1,0 +1,130 @@
+schema_version: 1
+generated_at: '2026-07-31T10:38:22+02:00'
+status: passed
+campaign_name: wave52r_offline_leader_cross_surface_promotion_2026_07_30
+local_gate_summary_path: output/validation_checks/wave52r_offline_leader_promotion/2026-07-30-19-24-35__wave52r_offline_leader_promotion/promotion_gate_summary.yaml
+local_gate_summary_sha256: 094cbc24c535d2a4ef53a638113564d86d7d21bcd9d1b50a5bfef07e675878ba
+surface_list:
+- Fw
+- Bw
+- global
+random_seed_list:
+- 314159
+- 271828
+- 161803
+expected_total_run_count: 27
+expected_promotion_run_count: 18
+expected_internal_anchor_run_count: 9
+dataset_contract_dictionary:
+  Fw:
+    surface: Fw
+    condition_feature_order:
+    - signed_setpoint_torque_nm
+    - absolute_setpoint_speed_rpm
+    - setpoint_temperature_deg_c
+    curve_count: 966
+    curve_count_by_split:
+      train: 675
+      validation: 194
+      test: 97
+    direction_count:
+      Fw: 966
+      Bw: 0
+    data_selected_order_list:
+    - 1
+    - 2
+    - 3
+    - 39
+    - 40
+    - 42
+    - 78
+    - 80
+    - 81
+    - 120
+    - 156
+    - 158
+    - 159
+    - 160
+    - 162
+    - 237
+    - 240
+    anchor_surface_sha256_by_direction:
+      Fw: a570b540d265c59dc66c052ef466f84810ac9a12cb60bfb064b6a7c5585fa01c
+    split_signature: c1aa8718fb9bf88cc2021c121dc4f3b4010fc1d2e45ac90af5f4376aa64f8e16
+    target_derived_runtime_input_count: 0
+  Bw:
+    surface: Bw
+    condition_feature_order:
+    - signed_setpoint_torque_nm
+    - absolute_setpoint_speed_rpm
+    - setpoint_temperature_deg_c
+    curve_count: 966
+    curve_count_by_split:
+      train: 675
+      validation: 194
+      test: 97
+    direction_count:
+      Fw: 0
+      Bw: 966
+    data_selected_order_list:
+    - 1
+    - 2
+    - 3
+    - 39
+    - 40
+    - 42
+    - 78
+    - 80
+    - 81
+    - 156
+    - 157
+    - 158
+    - 159
+    - 160
+    - 162
+    - 237
+    - 240
+    anchor_surface_sha256_by_direction:
+      Bw: dd1edbbf64416b982265cd706df5e670b68b964e6f74ddc5ae12486536fe0eaa
+    split_signature: c1aa8718fb9bf88cc2021c121dc4f3b4010fc1d2e45ac90af5f4376aa64f8e16
+    target_derived_runtime_input_count: 0
+  global:
+    surface: global
+    condition_feature_order:
+    - signed_setpoint_torque_nm
+    - absolute_setpoint_speed_rpm
+    - setpoint_temperature_deg_c
+    - direction_flag
+    curve_count: 1932
+    curve_count_by_split:
+      train: 1350
+      validation: 388
+      test: 194
+    direction_count:
+      Fw: 966
+      Bw: 966
+    data_selected_order_list:
+    - 1
+    - 2
+    - 3
+    - 39
+    - 40
+    - 42
+    - 78
+    - 80
+    - 81
+    - 120
+    - 156
+    - 158
+    - 159
+    - 160
+    - 162
+    - 237
+    - 240
+    anchor_surface_sha256_by_direction:
+      Fw: a570b540d265c59dc66c052ef466f84810ac9a12cb60bfb064b6a7c5585fa01c
+      Bw: dd1edbbf64416b982265cd706df5e670b68b964e6f74ddc5ae12486536fe0eaa
+    split_signature: c1aa8718fb9bf88cc2021c121dc4f3b4010fc1d2e45ac90af5f4376aa64f8e16
+    target_derived_runtime_input_count: 0
+incumbent_artifact_mutation_allowed: false
+training_execution_started: false

@@ -1,0 +1,10 @@
+{"band_loss": 0.0, "complex_loss": 0.43583929538726807, "curve_loss": 0.02687900699675083, "epoch": 1, "surface_loss": 0.0, "total_loss": 0.46271830797195435, "validation_curve_mae_deg": 0.0020347333047538996}
+{"band_loss": 0.0, "complex_loss": 0.43576058745384216, "curve_loss": 0.026876728981733322, "epoch": 2, "surface_loss": 0.0, "total_loss": 0.4626373052597046, "validation_curve_mae_deg": 0.0020342988427728415}
+{"band_loss": 0.0, "complex_loss": 0.43568068742752075, "curve_loss": 0.026874462142586708, "epoch": 3, "surface_loss": 0.0, "total_loss": 0.4625551402568817, "validation_curve_mae_deg": 0.002034601755440235}
+{"band_loss": 0.0, "complex_loss": 0.43560072779655457, "curve_loss": 0.02687232196331024, "epoch": 4, "surface_loss": 0.0, "total_loss": 0.4624730348587036, "validation_curve_mae_deg": 0.002035085577517748}
+{"band_loss": 0.0, "complex_loss": 0.43551549315452576, "curve_loss": 0.02686993032693863, "epoch": 5, "surface_loss": 0.0, "total_loss": 0.4623854160308838, "validation_curve_mae_deg": 0.002035534707829356}
+{"band_loss": 0.0, "complex_loss": 0.43542352318763733, "curve_loss": 0.02686726674437523, "epoch": 6, "surface_loss": 0.0, "total_loss": 0.46229079365730286, "validation_curve_mae_deg": 0.0020358467008918524}
+{"band_loss": 0.0, "complex_loss": 0.4353250563144684, "curve_loss": 0.026864327490329742, "epoch": 7, "surface_loss": 0.0, "total_loss": 0.46218937635421753, "validation_curve_mae_deg": 0.0020360101480036974}
+{"band_loss": 0.0, "complex_loss": 0.43521901965141296, "curve_loss": 0.02686106413602829, "epoch": 8, "surface_loss": 0.0, "total_loss": 0.46208009123802185, "validation_curve_mae_deg": 0.0020360429771244526}
+{"band_loss": 0.0, "complex_loss": 0.4351043403148651, "curve_loss": 0.02685743011534214, "epoch": 9, "surface_loss": 0.0, "total_loss": 0.4619617760181427, "validation_curve_mae_deg": 0.002035999670624733}
+{"band_loss": 0.0, "complex_loss": 0.4349806010723114, "curve_loss": 0.026853419840335846, "epoch": 10, "surface_loss": 0.0, "total_loss": 0.46183401346206665, "validation_curve_mae_deg": 0.002035959390923381}

@@ -1,0 +1,2 @@
+﻿W0731 13:47:56.981000 35308 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+[PASS] Cross-surface Track 2 preflight | surfaces=3 | candidates=24 | heavy_matrix=false

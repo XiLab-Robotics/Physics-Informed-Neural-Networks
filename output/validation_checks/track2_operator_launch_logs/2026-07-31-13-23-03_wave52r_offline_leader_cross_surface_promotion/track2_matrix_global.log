@@ -1,0 +1,80 @@
+﻿W0731 13:25:20.298000 41044 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+[INFO] Building TE Curve Verification Pipeline held-out curve records
+[INFO] Built TE Curve Verification Pipeline held-out curve records | curve_count=194 | dataset=polished_dataset | surface_scope=global
+System.Management.Automation.RemoteException
+TE matrix candidates:   0%|                        | 0/8 [00:00<?, ?candidate/s]
+                                                                                
+System.Management.Automation.RemoteException
+TE matrix candidates:   0%|                        | 0/8 [00:00<?, ?candidate/s]
+                                                                                
+System.Management.Automation.RemoteException
+TE matrix candidates:   0%|                        | 0/8 [00:00<?, ?candidate/s]
+TE matrix candidates:  12%|##              | 1/8 [00:00<00:04,  1.63candidate/s]
+                                                                                
+System.Management.Automation.RemoteException
+TE matrix candidates:  12%|##              | 1/8 [00:00<00:04,  1.63candidate/s]
+                                                                                
+System.Management.Automation.RemoteException
+TE matrix candidates:  12%|##              | 1/8 [00:00<00:04,  1.63candidate/s]
+TE matrix candidates:  25%|####            | 2/8 [00:01<00:03,  1.62candidate/s]
+                                                                                
+System.Management.Automation.RemoteException
+TE matrix candidates:  25%|####            | 2/8 [00:01<00:03,  1.62candidate/s]
+                                                                                
+System.Management.Automation.RemoteException
+TE matrix candidates:  25%|####            | 2/8 [00:01<00:03,  1.62candidate/s]
+TE matrix candidates:  38%|######          | 3/8 [00:01<00:03,  1.62candidate/s]
+                                                                                
+System.Management.Automation.RemoteException
+TE matrix candidates:  38%|######          | 3/8 [00:01<00:03,  1.62candidate/s]
+                                                                                
+System.Management.Automation.RemoteException
+TE matrix candidates:  38%|######          | 3/8 [00:01<00:03,  1.62candidate/s]
+TE matrix candidates:  50%|########        | 4/8 [00:02<00:02,  1.63candidate/s]
+                                                                                
+System.Management.Automation.RemoteException
+TE matrix candidates:  50%|########        | 4/8 [00:02<00:02,  1.63candidate/s]
+                                                                                
+System.Management.Automation.RemoteException
+TE matrix candidates:  50%|########        | 4/8 [00:02<00:02,  1.63candidate/s]
+TE matrix candidates:  62%|##########      | 5/8 [00:03<00:01,  1.63candidate/s]
+                                                                                
+System.Management.Automation.RemoteException
+TE matrix candidates:  62%|##########      | 5/8 [00:03<00:01,  1.63candidate/s]
+                                                                                
+System.Management.Automation.RemoteException
+TE matrix candidates:  62%|##########      | 5/8 [00:03<00:01,  1.63candidate/s]
+TE matrix candidates:  75%|############    | 6/8 [00:03<00:01,  1.64candidate/s]
+                                                                                
+System.Management.Automation.RemoteException
+TE matrix candidates:  75%|############    | 6/8 [00:03<00:01,  1.64candidate/s]
+                                                                                
+System.Management.Automation.RemoteException
+TE matrix candidates:  75%|############    | 6/8 [00:03<00:01,  1.64candidate/s]
+TE matrix candidates:  88%|##############  | 7/8 [00:50<00:15, 15.64s/candidate]
+                                                                                
+System.Management.Automation.RemoteException
+TE matrix candidates:  88%|##############  | 7/8 [00:50<00:15, 15.64s/candidate]
+                                                                                
+System.Management.Automation.RemoteException
+TE matrix candidates:  88%|##############  | 7/8 [00:50<00:15, 15.64s/candidate]
+TE matrix candidates: 100%|################| 8/8 [00:51<00:00, 10.92s/candidate]
+TE matrix candidates: 100%|################| 8/8 [00:51<00:00,  6.38s/candidate]
+[INFO] Loading TE Curve Verification Pipeline candidate | 1/8 | wave52r_promotion_h08_global_seed_314159
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 1/8 | wave52r_promotion_h08_global_seed_314159
+[INFO] Loading TE Curve Verification Pipeline candidate | 2/8 | wave52r_promotion_k01_global_seed_314159
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 2/8 | wave52r_promotion_k01_global_seed_314159
+[INFO] Loading TE Curve Verification Pipeline candidate | 3/8 | wave52r_promotion_h08_global_seed_271828
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 3/8 | wave52r_promotion_h08_global_seed_271828
+[INFO] Loading TE Curve Verification Pipeline candidate | 4/8 | wave52r_promotion_k01_global_seed_271828
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 4/8 | wave52r_promotion_k01_global_seed_271828
+[INFO] Loading TE Curve Verification Pipeline candidate | 5/8 | wave52r_promotion_h08_global_seed_161803
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 5/8 | wave52r_promotion_h08_global_seed_161803
+[INFO] Loading TE Curve Verification Pipeline candidate | 6/8 | wave52r_promotion_k01_global_seed_161803
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 6/8 | wave52r_promotion_k01_global_seed_161803
+[INFO] Loading TE Curve Verification Pipeline candidate | 7/8 | accepted_periodic_gru_sequence_global
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 7/8 | accepted_periodic_gru_sequence_global
+[INFO] Loading TE Curve Verification Pipeline candidate | 8/8 | accepted_periodic_mlp_harmonic_global
+[INFO] Evaluating TE Curve Verification Pipeline candidate | 8/8 | accepted_periodic_mlp_harmonic_global
+[DONE] Reference family comparison summary written | output\validation_checks\track2_reference_comparison\2026-07-31-13-25-20__wave52r_offline_leader_cross_surface_track2_wave52r_offline_leader_cross_surface_promotion_global\validation_summary.yaml
+[DONE] Reference family comparison report written | doc\reports\analysis\validation_checks\te_curve_verification_pipeline\2026-07-31-13-26-17_wave52r_offline_leader_cross_surface_track2_wave52r_offline_leader_cross_surface_promotion_global_report.md

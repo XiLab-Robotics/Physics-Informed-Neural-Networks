@@ -1,0 +1,14 @@
+﻿W0731 13:20:05.323000 22300 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+[INFO] Building TE Curve Verification Pipeline held-out curve records
+Traceback (most recent call last):
+  File "C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\scripts\paper_reimplementation\rcim_ml_compensation\reference_family_vs_feedforward\run_reference_family_vs_feedforward_comparison.py", line 603, in <module>
+    main()
+  File "C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\scripts\paper_reimplementation\rcim_ml_compensation\reference_family_vs_feedforward\run_reference_family_vs_feedforward_comparison.py", line 593, in main
+    run_reference_family_vs_feedforward_comparison(
+  File "C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\scripts\paper_reimplementation\rcim_ml_compensation\reference_family_vs_feedforward\run_reference_family_vs_feedforward_comparison.py", line 227, in run_reference_family_vs_feedforward_comparison
+    curve_record_list, _, _, dataset_root = reference_family_vs_feedforward_support.build_curve_record_list(
+                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\scripts\paper_reimplementation\rcim_ml_compensation\reference_family_vs_feedforward\reference_family_vs_feedforward_support.py", line 804, in build_curve_record_list
+    observed_curve_count_by_split
+AssertionError: TE Curve Verification Pipeline common split counts differ from the configured contract | observed={'train': 1356, 'validation': 388, 'test': 194} | expected={'train': 1350, 'validation': 388, 'test': 194}
+ERROR conda.cli.main_run:execute(142): `conda run python -B scripts\paper_reimplementation\rcim_ml_compensation\reference_family_vs_feedforward\run_reference_family_vs_feedforward_comparison.py --config-path config\paper_reimplementation\rcim_ml_compensation\reference_family_vs_feedforward\wave52r_offline_leader_cross_surface_promotion_matrix.yaml --output-suffix wave52r_offline_leader_cross_surface_promotion_forward --dataset polished_dataset --surface-scope forward --windows` failed. (See above for error)

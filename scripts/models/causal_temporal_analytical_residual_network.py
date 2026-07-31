@@ -48,7 +48,7 @@ class CausalTemporalAnalyticalResidualNetwork(nn.Module):
         )
         assert condition_feature_mean.ndim == 1
         assert condition_feature_scale.shape == condition_feature_mean.shape
-        assert condition_feature_mean.numel() == 3
+        assert condition_feature_mean.numel() >= 3
         assert torch.all(condition_feature_scale > 0.0)
         assert hidden_size > 0
         assert num_layers > 0
@@ -162,7 +162,10 @@ class CausalTemporalAnalyticalResidualNetwork(nn.Module):
         assert angular_position_deg.ndim == 2
         assert condition_tensor.ndim == 2
         assert condition_tensor.shape[0] == angular_position_deg.shape[0]
-        assert condition_tensor.shape[1] == 3
+        assert (
+            condition_tensor.shape[1]
+            == self.condition_feature_mean.numel()
+        )
         normalized_condition = (
             condition_tensor - self.condition_feature_mean
         ) / self.condition_feature_scale

@@ -936,6 +936,51 @@ The launcher never promotes a model. After execution, the matrix must be
 reviewed under the multi-index curve-first policy with separate temporal,
 non-temporal, and cross-lane decisions.
 
+## Wave 5.2R Offline-Leader Cross-Surface Promotion
+
+K01 and H08 passed their local replay, causal/state, ONNX-parity, fallback, and
+host-latency gates. The `27`-run campaign completed with zero failures on
+`2026-07-31`. The following remains the reproducibility preflight command:
+
+```powershell
+.\scripts\campaigns\wave_5_2\run_wave52r_offline_leader_cross_surface_promotion.ps1 `
+  -PreflightOnly
+```
+
+Run it locally or on the configured LAN workstation:
+
+```powershell
+.\scripts\campaigns\wave_5_2\run_wave52r_offline_leader_cross_surface_promotion.ps1 `
+  -Run
+
+.\scripts\campaigns\wave_5_2\run_wave52r_offline_leader_cross_surface_promotion.ps1 `
+  -Remote `
+  -Run
+```
+
+The completed queue evaluated K01, H08, and a matched H04 analytical anchor over
+`Fw`, `Bw`, and direction-aware `global`, using three seeds. Periodic GRU and
+periodic harmonic MLP remain the accepted non-PINN references irrespective of
+campaign rank. Global promotion requires the subsequent official curve-first
+review.
+
+Run the prepared 24-candidate official review on the configured LAN
+workstation:
+
+```powershell
+.\scripts\campaigns\track_2\run_wave52r_offline_leader_cross_surface_track2.ps1 `
+  -Remote `
+  -Run
+```
+
+The launcher executes separate `forward`, `backward`, and `global` matrices.
+The completed `2026-07-31` run evaluated all `24` candidates successfully.
+The subsequent CVP 1.2 and visual review promoted K01 seed `271828` as the
+cross-surface temporal offline leader. H08 remains a forward non-temporal
+specialist and was not promoted globally because its backward/global raw and
+offset errors regressed. Periodic GRU and periodic harmonic MLP remain the
+accepted non-PINN references.
+
 Rebuild the canonical Stage 15 visual and analytical closeout from the frozen
 matrix, CVP 1.2 diagnostics, and deployment-parity artifacts:
 

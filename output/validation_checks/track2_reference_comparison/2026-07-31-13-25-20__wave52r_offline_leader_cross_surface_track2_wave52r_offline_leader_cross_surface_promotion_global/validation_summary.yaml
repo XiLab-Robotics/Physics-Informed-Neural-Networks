@@ -1,0 +1,467 @@
+config_path: config\paper_reimplementation\rcim_ml_compensation\reference_family_vs_feedforward\wave52r_offline_leader_cross_surface_promotion_matrix.yaml
+output_directory: output\validation_checks\track2_reference_comparison\2026-07-31-13-25-20__wave52r_offline_leader_cross_surface_track2_wave52r_offline_leader_cross_surface_promotion_global
+dataset:
+  dataset_config_path: config/datasets/transmission_error_dataset.yaml
+  dataset_root: data\polished_dataset
+  source_contract: data\polished_dataset
+comparison_scope:
+  comparison_mode: wave52r_offline_leader_cross_surface_curve_first
+  percentage_error_denominator: peak_to_peak_truth
+  curve_count: 194
+  candidate_count: 8
+  directional_policy:
+    global:
+    - forward
+    - backward
+    Fw:
+    - forward
+    Bw:
+    - backward
+  reference_bank_compatibility_policy:
+    rcim_track1_Fw_h0_sign_multiplier: -1.0
+    reason: RCIM Model-Bank Reproduction forward reference banks store the constant
+      harmonic with the opposite sign convention relative to the TE Curve Verification
+      Pipeline TE-curve reconstruction contract.
+candidate_list:
+- candidate_id: wave52r_promotion_h08_global_seed_314159
+  candidate_family: wave52r_promotion_h08
+  candidate_kind: wave52r_precomputed_full_curve
+  candidate_source_label: wave52r_offline_leader_cross_surface_promotion
+  candidate_surface: global
+  allowed_direction_list:
+  - forward
+  - backward
+  source_path: output\training_runs\complex_harmonic_coefficient_residuals\2026-07-31-10-58-49__stage5_h08\test_predictions.npz
+  selected_harmonic_list: []
+  registry_run_instance_id: 2026-07-31-10-58-49__stage5_h08
+  model_file_path: null
+  composite_selection: null
+- candidate_id: wave52r_promotion_k01_global_seed_314159
+  candidate_family: wave52r_promotion_k01
+  candidate_kind: wave52r_precomputed_full_curve
+  candidate_source_label: wave52r_offline_leader_cross_surface_promotion
+  candidate_surface: global
+  allowed_direction_list:
+  - forward
+  - backward
+  source_path: output\training_runs\temporal_analytical_residual_models\2026-07-31-11-05-16__stage9_k01\test_predictions.npz
+  selected_harmonic_list: []
+  registry_run_instance_id: 2026-07-31-11-05-16__stage9_k01
+  model_file_path: null
+  composite_selection: null
+- candidate_id: wave52r_promotion_h08_global_seed_271828
+  candidate_family: wave52r_promotion_h08
+  candidate_kind: wave52r_precomputed_full_curve
+  candidate_source_label: wave52r_offline_leader_cross_surface_promotion
+  candidate_surface: global
+  allowed_direction_list:
+  - forward
+  - backward
+  source_path: output\training_runs\complex_harmonic_coefficient_residuals\2026-07-31-11-05-18__stage5_h08__seed_271828\test_predictions.npz
+  selected_harmonic_list: []
+  registry_run_instance_id: 2026-07-31-11-05-18__stage5_h08__seed_271828
+  model_file_path: null
+  composite_selection: null
+- candidate_id: wave52r_promotion_k01_global_seed_271828
+  candidate_family: wave52r_promotion_k01
+  candidate_kind: wave52r_precomputed_full_curve
+  candidate_source_label: wave52r_offline_leader_cross_surface_promotion
+  candidate_surface: global
+  allowed_direction_list:
+  - forward
+  - backward
+  source_path: output\training_runs\temporal_analytical_residual_models\2026-07-31-11-11-39__stage9_k01__seed_271828\test_predictions.npz
+  selected_harmonic_list: []
+  registry_run_instance_id: 2026-07-31-11-11-39__stage9_k01__seed_271828
+  model_file_path: null
+  composite_selection: null
+- candidate_id: wave52r_promotion_h08_global_seed_161803
+  candidate_family: wave52r_promotion_h08
+  candidate_kind: wave52r_precomputed_full_curve
+  candidate_source_label: wave52r_offline_leader_cross_surface_promotion
+  candidate_surface: global
+  allowed_direction_list:
+  - forward
+  - backward
+  source_path: output\training_runs\complex_harmonic_coefficient_residuals\2026-07-31-11-11-41__stage5_h08__seed_161803\test_predictions.npz
+  selected_harmonic_list: []
+  registry_run_instance_id: 2026-07-31-11-11-41__stage5_h08__seed_161803
+  model_file_path: null
+  composite_selection: null
+- candidate_id: wave52r_promotion_k01_global_seed_161803
+  candidate_family: wave52r_promotion_k01
+  candidate_kind: wave52r_precomputed_full_curve
+  candidate_source_label: wave52r_offline_leader_cross_surface_promotion
+  candidate_surface: global
+  allowed_direction_list:
+  - forward
+  - backward
+  source_path: output\training_runs\temporal_analytical_residual_models\2026-07-31-11-18-11__stage9_k01__seed_161803\test_predictions.npz
+  selected_harmonic_list: []
+  registry_run_instance_id: 2026-07-31-11-18-11__stage9_k01__seed_161803
+  model_file_path: null
+  composite_selection: null
+- candidate_id: accepted_periodic_gru_sequence_global
+  candidate_family: periodic_gru_sequence
+  candidate_kind: wave1_exported_model
+  candidate_source_label: accepted_non_pinn_incumbent
+  candidate_surface: global
+  allowed_direction_list:
+  - forward
+  - backward
+  source_path: models\polished_dataset\setpoints\periodic_gru_sequence\global\reference_inventory.yaml
+  selected_harmonic_list: []
+  registry_run_instance_id: 2026-07-08-22-43-56__te_periodic_gru_sequence_global__polished_setpoints
+  model_file_path: models/polished_dataset/setpoints/periodic_gru_sequence/global/python/periodic_gru_sequence-epoch=045-val_mae=0.00186736.ckpt
+  composite_selection: null
+- candidate_id: accepted_periodic_mlp_harmonic_global
+  candidate_family: periodic_mlp_harmonic
+  candidate_kind: wave1_exported_model
+  candidate_source_label: accepted_non_pinn_incumbent
+  candidate_surface: global
+  allowed_direction_list:
+  - forward
+  - backward
+  source_path: models\polished_dataset\setpoints\periodic_mlp_harmonic\global\reference_inventory.yaml
+  selected_harmonic_list: []
+  registry_run_instance_id: 2026-07-08-01-46-27__te_periodic_mlp_harmonic_global__polished_setpoints
+  model_file_path: models/polished_dataset/setpoints/periodic_mlp_harmonic/global/python/periodic_mlp-epoch=183-val_mae=0.00113740.ckpt
+  composite_selection: null
+candidate_target_metric_summary: {}
+candidate_metric_summary:
+  wave52r_promotion_h08_global_seed_314159:
+    mse: 1.0585880860559689e-05
+    mae: 0.0018707330146518495
+    rmse: 0.0022035014465487312
+    mean_percentage_error_pct: 3.7306375899110193
+    p95_mean_percentage_error_pct: 8.671876914297536
+  wave52r_promotion_k01_global_seed_314159:
+    mse: 9.688111327075913e-06
+    mae: 0.001590800984617732
+    rmse: 0.0018800959515436657
+    mean_percentage_error_pct: 3.0644243488447036
+    p95_mean_percentage_error_pct: 9.377654415130676
+  wave52r_promotion_h08_global_seed_271828:
+    mse: 1.0608041993081844e-05
+    mae: 0.0018674955608743635
+    rmse: 0.002203016305629752
+    mean_percentage_error_pct: 3.72197468009509
+    p95_mean_percentage_error_pct: 8.705878213566333
+  wave52r_promotion_k01_global_seed_271828:
+    mse: 7.438978163091169e-06
+    mae: 0.0014639597317326603
+    rmse: 0.0017376388943033034
+    mean_percentage_error_pct: 2.893177442643528
+    p95_mean_percentage_error_pct: 7.0572306405303085
+  wave52r_promotion_h08_global_seed_161803:
+    mse: 1.0566052259080232e-05
+    mae: 0.0018685794554373827
+    rmse: 0.0022014803961173074
+    mean_percentage_error_pct: 3.726649143286532
+    p95_mean_percentage_error_pct: 8.702359429038085
+  wave52r_promotion_k01_global_seed_161803:
+    mse: 1.06001613546084e-05
+    mae: 0.0016165278309437233
+    rmse: 0.0019016662226073813
+    mean_percentage_error_pct: 3.1055284572572273
+    p95_mean_percentage_error_pct: 9.202119815064616
+  accepted_periodic_gru_sequence_global:
+    mse: 1.0460475614391153e-05
+    mae: 0.0018103459163265833
+    rmse: 0.0021405118113075744
+    mean_percentage_error_pct: 3.567012126631882
+    p95_mean_percentage_error_pct: 9.193004512516458
+  accepted_periodic_mlp_harmonic_global:
+    mse: 1.0070068722733345e-05
+    mae: 0.0017338909629995504
+    rmse: 0.0020535211413798445
+    mean_percentage_error_pct: 3.3846445023346
+    p95_mean_percentage_error_pct: 8.907302996620553
+direction_breakdown:
+  forward:
+    wave52r_promotion_h08_global_seed_314159:
+      mse: 7.7856873115282e-06
+      mae: 0.0017599297502950764
+      rmse: 0.0020628441798219823
+      mean_percentage_error_pct: 3.633506359396167
+      p95_mean_percentage_error_pct: 7.746447181099194
+    wave52r_promotion_k01_global_seed_314159:
+      mse: 7.264501028307227e-06
+      mae: 0.0014915553069862807
+      rmse: 0.0017623084299445869
+      mean_percentage_error_pct: 2.981619628962199
+      p95_mean_percentage_error_pct: 9.335928632104203
+    wave52r_promotion_h08_global_seed_271828:
+      mse: 7.946844449187274e-06
+      mae: 0.0017665392086094478
+      rmse: 0.0020720595471907773
+      mean_percentage_error_pct: 3.6419300473944105
+      p95_mean_percentage_error_pct: 8.405447933924549
+    wave52r_promotion_k01_global_seed_271828:
+      mse: 5.787214803444286e-06
+      mae: 0.001404833168904203
+      rmse: 0.0016637991057326768
+      mean_percentage_error_pct: 2.8629605328225365
+      p95_mean_percentage_error_pct: 7.512886569530812
+    wave52r_promotion_h08_global_seed_161803:
+      mse: 7.73578871350999e-06
+      mae: 0.0017652486419588614
+      rmse: 0.002072320287636899
+      mean_percentage_error_pct: 3.6518760869208164
+      p95_mean_percentage_error_pct: 8.01117507773705
+    wave52r_promotion_k01_global_seed_161803:
+      mse: 6.889973973905013e-06
+      mae: 0.0014765993182744386
+      rmse: 0.0017417620100997266
+      mean_percentage_error_pct: 2.9670426430791337
+      p95_mean_percentage_error_pct: 8.915127609644479
+    accepted_periodic_gru_sequence_global:
+      mse: 7.911938160564653e-06
+      mae: 0.001741769091110393
+      rmse: 0.0020526841557837548
+      mean_percentage_error_pct: 3.5618135104981614
+      p95_mean_percentage_error_pct: 7.4160629486744085
+    accepted_periodic_mlp_harmonic_global:
+      mse: 7.598198660269924e-06
+      mae: 0.0016316085968635472
+      rmse: 0.0019251406446159321
+      mean_percentage_error_pct: 3.2975777204395404
+      p95_mean_percentage_error_pct: 8.144146433383941
+  backward:
+    wave52r_promotion_h08_global_seed_314159:
+      mse: 1.3386074409591178e-05
+      mae: 0.0019815362790086225
+      rmse: 0.0023441587132754823
+      mean_percentage_error_pct: 3.827768820425866
+      p95_mean_percentage_error_pct: 9.006257380193682
+    wave52r_promotion_k01_global_seed_314159:
+      mse: 1.21117216258446e-05
+      mae: 0.0016900466622491847
+      rmse: 0.0019978834731427457
+      mean_percentage_error_pct: 3.147229068727208
+      p95_mean_percentage_error_pct: 9.138078173002254
+    wave52r_promotion_h08_global_seed_271828:
+      mse: 1.3269239536976415e-05
+      mae: 0.00196845191313928
+      rmse: 0.0023339730640687248
+      mean_percentage_error_pct: 3.802019312795771
+      p95_mean_percentage_error_pct: 9.08023356014141
+    wave52r_promotion_k01_global_seed_271828:
+      mse: 9.090741522738052e-06
+      mae: 0.001523086294561118
+      rmse: 0.0018114786828739287
+      mean_percentage_error_pct: 2.9233943524645234
+      p95_mean_percentage_error_pct: 6.727416758635777
+    wave52r_promotion_h08_global_seed_161803:
+      mse: 1.3396315804650465e-05
+      mae: 0.001971910268915904
+      rmse: 0.0023306405045977158
+      mean_percentage_error_pct: 3.801422199652247
+      p95_mean_percentage_error_pct: 9.080585114697023
+    wave52r_promotion_k01_global_seed_161803:
+      mse: 1.4310348735311789e-05
+      mae: 0.0017564563436130074
+      rmse: 0.0020615704351150343
+      mean_percentage_error_pct: 3.2440142714353186
+      p95_mean_percentage_error_pct: 10.792875743067702
+    accepted_periodic_gru_sequence_global:
+      mse: 1.300901306821766e-05
+      mae: 0.001878922741542774
+      rmse: 0.002228339466831393
+      mean_percentage_error_pct: 3.5722107427656016
+      p95_mean_percentage_error_pct: 9.291883100299737
+    accepted_periodic_mlp_harmonic_global:
+      mse: 1.2541938785196762e-05
+      mae: 0.001836173329135553
+      rmse: 0.0021819016381437557
+      mean_percentage_error_pct: 3.4717112842296602
+      p95_mean_percentage_error_pct: 9.149994273000885
+temperature_breakdown:
+  '30.0':
+    wave52r_promotion_h08_global_seed_314159:
+      mse: 9.69932304441072e-06
+      mae: 0.0019395468381358384
+      rmse: 0.002306059490959325
+      mean_percentage_error_pct: 3.868454499783165
+      p95_mean_percentage_error_pct: 8.39041450434326
+    wave52r_promotion_k01_global_seed_314159:
+      mse: 9.217738239367737e-06
+      mae: 0.0017219147446946468
+      rmse: 0.002058590556082389
+      mean_percentage_error_pct: 3.3372985409343907
+      p95_mean_percentage_error_pct: 9.728001757436228
+    wave52r_promotion_h08_global_seed_271828:
+      mse: 9.624457621521999e-06
+      mae: 0.00191666579358496
+      rmse: 0.0022836623869038303
+      mean_percentage_error_pct: 3.811382657940507
+      p95_mean_percentage_error_pct: 8.69890652681579
+    wave52r_promotion_k01_global_seed_271828:
+      mse: 6.933210829552635e-06
+      mae: 0.001587337369016145
+      rmse: 0.0019032356179182986
+      mean_percentage_error_pct: 3.158415164327691
+      p95_mean_percentage_error_pct: 6.763438424468199
+    wave52r_promotion_h08_global_seed_161803:
+      mse: 9.529577084871165e-06
+      mae: 0.00191561465551684
+      rmse: 0.002278086812080974
+      mean_percentage_error_pct: 3.8104559678914076
+      p95_mean_percentage_error_pct: 8.648372493721872
+    wave52r_promotion_k01_global_seed_161803:
+      mse: 9.653790790095757e-06
+      mae: 0.0017302551491388963
+      rmse: 0.0020604693323328133
+      mean_percentage_error_pct: 3.3520291835563243
+      p95_mean_percentage_error_pct: 9.926228968813266
+    accepted_periodic_gru_sequence_global:
+      mse: 9.418908719554291e-06
+      mae: 0.001833253561051949
+      rmse: 0.0021985307229297215
+      mean_percentage_error_pct: 3.58574635163164
+      p95_mean_percentage_error_pct: 8.0321353927175
+    accepted_periodic_mlp_harmonic_global:
+      mse: 9.203247543898328e-06
+      mae: 0.001782782190351124
+      rmse: 0.0021421652536985068
+      mean_percentage_error_pct: 3.4601952069205466
+      p95_mean_percentage_error_pct: 8.336944098034195
+  '35.0':
+    wave52r_promotion_h08_global_seed_314159:
+      mse: 1.7040583650192073e-05
+      mae: 0.0022364517516269404
+      rmse: 0.0025966626738151166
+      mean_percentage_error_pct: 4.167070146445589
+      p95_mean_percentage_error_pct: 10.10166175274922
+    wave52r_promotion_k01_global_seed_314159:
+      mse: 1.619270659727676e-05
+      mae: 0.0019510848166098748
+      rmse: 0.0022664220053209253
+      mean_percentage_error_pct: 3.4806369319979744
+      p95_mean_percentage_error_pct: 9.885273114662297
+    wave52r_promotion_h08_global_seed_271828:
+      mse: 1.7046078367413825e-05
+      mae: 0.0022246573966834236
+      rmse: 0.002592060424321433
+      mean_percentage_error_pct: 4.140408540081857
+      p95_mean_percentage_error_pct: 10.024134208648425
+    wave52r_promotion_k01_global_seed_271828:
+      mse: 1.2276846349785835e-05
+      mae: 0.0017276386175516677
+      rmse: 0.0020183283501943364
+      mean_percentage_error_pct: 3.1657775075264496
+      p95_mean_percentage_error_pct: 9.355772041518458
+    wave52r_promotion_h08_global_seed_161803:
+      mse: 1.711326845838722e-05
+      mae: 0.002235534893622177
+      rmse: 0.002602361253467007
+      mean_percentage_error_pct: 4.165296729500802
+      p95_mean_percentage_error_pct: 10.098846605423203
+    wave52r_promotion_k01_global_seed_161803:
+      mse: 1.8234722479708938e-05
+      mae: 0.0019966054657471637
+      rmse: 0.0023040594899717145
+      mean_percentage_error_pct: 3.538812196086998
+      p95_mean_percentage_error_pct: 11.40848583842184
+    accepted_periodic_gru_sequence_global:
+      mse: 1.720169984952006e-05
+      mae: 0.0022161560088055647
+      rmse: 0.0025783224736439644
+      mean_percentage_error_pct: 4.093179026852175
+      p95_mean_percentage_error_pct: 9.818003140777058
+    accepted_periodic_mlp_harmonic_global:
+      mse: 1.612594388441951e-05
+      mae: 0.002043100209363062
+      rmse: 0.0023902207378359934
+      mean_percentage_error_pct: 3.6922922922811936
+      p95_mean_percentage_error_pct: 9.566252049850357
+  '25.0':
+    wave52r_promotion_h08_global_seed_314159:
+      mse: 3.155052947206072e-06
+      mae: 0.0012687585206700633
+      rmse: 0.0015129139499623467
+      mean_percentage_error_pct: 2.9276076100183372
+      p95_mean_percentage_error_pct: 6.632202299736695
+    wave52r_promotion_k01_global_seed_314159:
+      mse: 1.5568288529191948e-06
+      mae: 0.0009015220577915108
+      rmse: 0.001083380719507737
+      mean_percentage_error_pct: 2.0836064637799323
+      p95_mean_percentage_error_pct: 4.40428146439138
+    wave52r_promotion_h08_global_seed_271828:
+      mse: 3.3473607687613178e-06
+      mae: 0.0013070167104539362
+      rmse: 0.0015513342606724644
+      mean_percentage_error_pct: 3.0170045041880575
+      p95_mean_percentage_error_pct: 6.966616122120256
+    wave52r_promotion_k01_global_seed_271828:
+      mse: 1.6282437761649943e-06
+      mae: 0.0009178224383479147
+      rmse: 0.0011041942143967013
+      mean_percentage_error_pct: 2.119280017442832
+      p95_mean_percentage_error_pct: 4.389890365085937
+    wave52r_promotion_h08_global_seed_161803:
+      mse: 3.237280492820503e-06
+      mae: 0.0012980265553852858
+      rmse: 0.0015398406778569416
+      mean_percentage_error_pct: 3.0027020526357084
+      p95_mean_percentage_error_pct: 6.621626741050432
+    wave52r_promotion_k01_global_seed_161803:
+      mse: 1.6556414825308946e-06
+      mae: 0.0009267567239543798
+      rmse: 0.0011130306522092305
+      mean_percentage_error_pct: 2.1415814684741115
+      p95_mean_percentage_error_pct: 4.433670328460512
+    accepted_periodic_gru_sequence_global:
+      mse: 2.875592334767884e-06
+      mae: 0.0012236245705726128
+      rmse: 0.0014569005648644173
+      mean_percentage_error_pct: 2.82294912033265
+      p95_mean_percentage_error_pct: 6.013352233088946
+    accepted_periodic_mlp_harmonic_global:
+      mse: 3.1516466946693837e-06
+      mae: 0.0012390517223707816
+      rmse: 0.0014608706394751137
+      mean_percentage_error_pct: 2.851406437036593
+      p95_mean_percentage_error_pct: 7.119162502678081
+preview_plot_path_list: []
+report_plot_root: null
+report_plot_path_list: []
+report_plot_count: 0
+per_condition_metrics_csv_path: output\validation_checks\track2_reference_comparison\2026-07-31-13-25-20__wave52r_offline_leader_cross_surface_track2_wave52r_offline_leader_cross_surface_promotion_global\per_condition_metrics.csv
+sample_preview_list:
+- source_file_path: data\polished_dataset\forward\30degree\100rpm\100.0rpm100.0Nm30.0deg.csv
+  direction_label: forward
+  candidate_id: wave52r_promotion_h08_global_seed_314159
+  speed_rpm: 100.0
+  torque_nm: 100.0
+  oil_temperature_deg: 30.0
+  mean_percentage_error_pct: 1.1349043376165018
+- source_file_path: data\polished_dataset\backward\30degree\100rpm\100.0rpm100.0Nm30.0deg.csv
+  direction_label: backward
+  candidate_id: wave52r_promotion_h08_global_seed_314159
+  speed_rpm: 100.0
+  torque_nm: 100.0
+  oil_temperature_deg: 30.0
+  mean_percentage_error_pct: 6.865685545942354
+- source_file_path: data\polished_dataset\forward\35degree\100rpm\100.0rpm100.0Nm35.0deg.csv
+  direction_label: forward
+  candidate_id: wave52r_promotion_h08_global_seed_314159
+  speed_rpm: 100.0
+  torque_nm: 100.0
+  oil_temperature_deg: 35.0
+  mean_percentage_error_pct: 2.4252029246591635
+- source_file_path: data\polished_dataset\backward\35degree\100rpm\100.0rpm100.0Nm35.0deg.csv
+  direction_label: backward
+  candidate_id: wave52r_promotion_h08_global_seed_314159
+  speed_rpm: 100.0
+  torque_nm: 100.0
+  oil_temperature_deg: 35.0
+  mean_percentage_error_pct: 6.164262677432282
+- source_file_path: data\polished_dataset\forward\30degree\100rpm\100.0rpm300.0Nm30.0deg.csv
+  direction_label: forward
+  candidate_id: wave52r_promotion_h08_global_seed_314159
+  speed_rpm: 100.0
+  torque_nm: 300.0
+  oil_temperature_deg: 30.0
+  mean_percentage_error_pct: 3.92013338904415

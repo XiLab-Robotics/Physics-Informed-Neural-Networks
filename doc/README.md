@@ -359,6 +359,23 @@ This folder contains the internal project documents derived from the reference P
   Technical plan for rebuilding the TF3820 model catalog from every canonical
   forward polished-setpoint family and synchronizing all PLC prediction code.
 
+- [technical/2026-07/2026-07-30/2026-07-30-17-35-29_wave52r_offline_leader_global_promotion_and_four_leader_portfolio.md](./technical/2026-07/2026-07-30/2026-07-30-17-35-29_wave52r_offline_leader_global_promotion_and_four_leader_portfolio.md)
+  Approval-gated plan for qualifying K01 and H08 through causal, export,
+  runtime, PLC, and cross-surface tests while preserving both non-PINN
+  incumbents and recording the future integrated-model TODO.
+
+- [Wave 5.2R Offline Leader Local Promotion Gate Report](./reports/analysis/model_development_waves/wave_5_2/offline_leader_global_promotion/%5B2026-07-30%5D/wave52r_offline_leader_local_promotion_gate_report.md)
+  Canonical local replay, causal/state, ONNX-parity, latency, fallback, and
+  promotion-boundary evidence for K01 and H08.
+
+- [Wave 5.2R Cross-Surface Offline Leader Promotion Decision](./reports/analysis/model_development_waves/wave_5_2/offline_leader_global_promotion/official_decision/%5B2026-07-31%5D/wave52r_cross_surface_offline_leader_promotion_decision.md)
+  Official 24-candidate Fw, Bw, and global curve-first decision promoting K01
+  while retaining H08 as a forward specialist and preserving both incumbents.
+
+- [Wave 5.2R Offline Leader Cross-Surface Promotion Launcher](./scripts/campaigns/wave_5_2/run_wave52r_offline_leader_cross_surface_promotion.md)
+  Local and LAN-remote commands for the approved 27-run `Fw`, `Bw`, and
+  direction-aware `global` promotion campaign.
+
 - [scripts/campaigns/track_2/run_wave52r_stage15_official_forward_verification.md](./scripts/campaigns/track_2/run_wave52r_stage15_official_forward_verification.md)
   Local and remote operator contract for the gated Stage 15 forward matrix.
 
@@ -4792,3 +4809,10 @@ This folder contains the internal project documents derived from the reference P
 - Treat `reference_summaries/06_Programming_Style_Guide.md` as the style reference for new code written in this repository.
 - Use `reference_codes/` when a future implementation task needs repository-specific examples instead of only high-level style rules.
 - Keep this index updated whenever new project documents are added.
+
+- [Wave 5.2R Offline Leader Cross-Surface Promotion Campaign Results](reports/campaign_results/model_development_waves/wave_5_2/2026-07-31-11-18-11_wave52r_offline_leader_cross_surface_promotion_campaign_results_report.md)
+  Normal closeout for the completed 27-run K01/H08/H04 campaign over `Fw`, `Bw`, and direction-aware `global`.
+
+- [Wave 5.2R Offline-Leader Cross-Surface Track 2 Launcher](scripts/campaigns/track_2/run_wave52r_offline_leader_cross_surface_track2.md)
+  Operator workflow for the 24-candidate `Fw`, `Bw`, and `global` official
+  curve-first verification package.

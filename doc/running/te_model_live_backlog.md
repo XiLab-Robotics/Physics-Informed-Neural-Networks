@@ -22,9 +22,10 @@ Historical rationale and approval history remain in:
 ## Current Status
 
 - Program State: active.
-- Active Campaign State: none. The completed Wave 5.2R Stage 13 campaign and
-  its synthetic weak-form oracle closeout are recorded in
-  `doc/running/active_training_campaign.yaml`.
+- Active Campaign State: completed and normally closed out. The
+  `wave52r_offline_leader_cross_surface_promotion_2026_07_30` campaign finished
+  `27 / 27` K01, H08, and matched H04-anchor runs across `Fw`, `Bw`, and
+  direction-aware `global`, with zero failed queue entries.
 - Current Completed Wave: polished-dataset RCIM, early-wave, and full-wave
   retraining closeouts plus the official `2026-07-03` TE Curve Verification
   Pipeline refresh are complete.
@@ -35,8 +36,9 @@ Historical rationale and approval history remain in:
   offline model-verification
   report, closed as the canonical direction-aware verification surface for new
   model families.
-- Current Focus: `Wave 5.2R` physics-guided forward reassessment execution,
-  restricted to `polished_dataset`, setpoint inputs, and `Fw`. The completed
+- Current Focus: K01 TwinCAT qualification, H08 backward/global defect
+  analysis, and a separate future integrated-specialist roadmap. The official
+  K01/H08 cross-surface curve-first verification is complete. The completed
   Phases 0 through 15 closeout remains valid and physics-integrated Wave 6
   remains closed. Stages 0 through 15 are complete: the accepted periodic GRU,
   periodic harmonic MLP, and `PF_A_LOCAL_QUADRATIC` are frozen as controls,
@@ -126,6 +128,13 @@ Historical rationale and approval history remain in:
   robustness, and visual evidence were separated. The accepted periodic GRU
   and periodic harmonic MLP remain the deployable references until K01 and H08
   pass standalone export, parity, runtime, causal replay, and PLC-facing gates.
+  Both candidates have now passed local replay, causal/state, ONNX-parity,
+  validity/fallback, and host-latency gates. K01 reached `271.85 us` chunk P95
+  and H08 reached `60.705 us` condition P95. The `2026-07-31` 24-candidate
+  cross-surface refresh promoted K01 seed `271828` as the temporal offline
+  leader on `Fw`, `Bw`, and `global`. H08 remains a forward non-temporal
+  specialist because it regressed raw error and offset on `Bw` and `global`.
+  Both non-PINN incumbents remain unchanged; TwinCAT runtime remains pending.
 - Parallel Diagnostic Focus: component-offset, `CVP 1.4` h0 cross-check, and
   predicted-mean versus measured-h0 diagnostics are complete; `h0` is the
   correct mean-like channel to inspect, but not the confirmed sole cause of the
@@ -185,10 +194,12 @@ Historical rationale and approval history remain in:
   periodic harmonic MLP wins polished-setpoint `Bw` and simplified-setpoint
   `Fw`. Wave 4.1 remains the raw-error and offset diagnostic ingredient.
   Sparse-RCIM temporal candidates remain actual-values references only.
-- Current Next Branch: Wave 5.2R is complete. Preserve H04 for a future
-  TwinCAT runtime integration task without changing the accepted forward
-  registry. Select any later empirical multi-task or physics-integrated Wave 6
-  work through a new evidence and campaign gate.
+- Current Next Branch: operator-run the prepared 24-candidate official
+  multi-index curve-first verification on
+  distinct `Fw`, `Bw`, and `global` surfaces. Preserve periodic GRU and periodic
+  harmonic MLP regardless of the result. A separate future TODO will study an
+  integrated specialist model combining K01, H08, F01, S01, H04, Stage 10 R00,
+  and Stage 10 S01; it has no training authorization.
 
 Current canonical status reports:
 
@@ -400,7 +411,8 @@ Next planned diagnostic and training decision branches:
 | `Wave 5.1` hybrid structured models | Combine harmonic structure, condition-conditioned residual learning, and explicit grouped treatment of stable and fragile harmonic bands. | first real `wave3_harmonic_prior_residual` campaign and official `TE Curve Verification Pipeline` verification refresh closed as a verified exploratory baseline, not promoted |
 | `Wave 5.2` general full-PINN program | Audit and test explicit differentiable physics formulations derived from harmonic behavior, the Polynomial Fourier Series law, Wave 3 through Wave 5.1 evidence, and additional references. | Phases 0 through 15 complete; no physical residual promoted and no automatic phase advance |
 | `Wave 5.2` complete theory-validation program | Preserve and falsify every ingested physical mechanism through direct-data, causal-state, offline-oracle, instrumentation, isolated-PINN, cross-formulation, and integration tests. | completed 16 of 16; physics-integrated Wave 6 entry not authorized |
-| `Wave 5.2R` polished-setpoint forward physics-guided reassessment | Reassess observable forward physics through Polynomial-Fourier residual learning, complex harmonic supervision, mean/shape heads, weak compliance, temporal residuals, adaptive loss balancing, and matched controls. | Stages 0 through 15 of 16 complete. Official verification preserved H04 as an export-prepared exploratory grey-box candidate, retained the periodic GRU incumbent, and made no registry changes. |
+| `Wave 5.2R` polished-setpoint forward physics-guided reassessment | Reassess observable forward physics through Polynomial-Fourier residual learning, complex harmonic supervision, mean/shape heads, weak compliance, temporal residuals, adaptive loss balancing, and matched controls. | All 16 stages and the full-candidate forward verification are complete. K01 and H08 are the temporal and balanced non-temporal offline leaders; incumbents remain unchanged. |
+| `Wave 5.2R` four-leader promotion gate | Qualify K01 and H08 on local deployment gates and then across `Fw`, `Bw`, and direction-aware `global`. | completed partial promotion: K01 is the cross-surface temporal offline leader; H08 remains a forward specialist; both non-PINN incumbents are preserved; four-global-leader target not achieved |
 | `Wave 5.2` paper-faithful MMT full PINN | Preserve the completed MMT evidence and reopen only if causal physical inputs become available. | deferred future TODO after the parameter-availability blocker; no MMT feature, auxiliary head, weak constraint, or MMT full PINN is authorized |
 | Intermediate shape-first model-selection cleanup | Reduce the post-retraining active set using raw error, P95, centered shape, P2P behavior, visual collage evidence, and actual-values stability. | completed; active set is `periodic_gru_sequence`, `wave4_1_mae_robust_loss`, `wave4_2_quantile_p10_p50_p90`, and `periodic_mlp_harmonic`; `periodic_lstm_sequence_Bw`, `Wave 4.3`, `Wave 4.4`, and `Wave 5.1` are closed as active branches |
 | Frequency-domain shape-gated reranker | Add measured/predicted FFT amplitude similarity, dominant-harmonic retention, dominant-harmonic phase error, robust derivative agreement, threshold sweep, and per-curve shape pass rate to future reduced reports. | completed across the six-cell non-MMT reduced pass; periodic GRU wins four cells, periodic harmonic MLP wins two, and the simplified tree scalar leader remains vetoed by weak shape retention |
@@ -410,7 +422,7 @@ Next planned diagnostic and training decision branches:
 | Causal offset / mean calibration pilot | Test whether direct offset / curve-mean pressure improves the next `polished_dataset` setpoint `Fw` branch while preserving both time-windowed and non-windowed roads. | completed and bounded-screened; the non-windowed harmonic MLP won scalar selection but ranked fourth in the bounded curve-first screen, while the time-windowed residual-offset GRU failed the shape gate. Do not promote or expand this direct causal-offset profile. |
 | Post-causal-offset `Wave 5.2` decision gate | Decide whether MMT should remain diagnostic-only, become a feature or auxiliary-output path, or become a weak soft constraint. | completed; the follow-up replay and leakage-safe diagnostic selected `blocked_by_parameter_availability`. MMT is now an inactive future TODO and does not block non-MMT work. |
 | Wave 6 physics-integrated multi-task / multi-head branch | Shared causal trunk with separate offset, low-frequency, centered-shape, uncertainty or mixture, and validated physics-informed heads. | entry not authorized; reopen only after two complementary physical components pass isolated and integrated gates |
-| Future empirical multi-task / multi-head branch | Combine accepted empirical offset, shape, temporal, and uncertainty ingredients without a validated-physics claim. | separate future roadmap candidate; requires a new technical document and campaign gate |
+| Future integrated specialist model | Combine K01 temporal/offset control, H08 balanced harmonic behavior, F01 shape fidelity, S01 harmonic specialization, H04 interpretability, and Stage 10 R00/S01 sparse-symbolic corrections while explicitly preventing each source model's known regressions. | next-roadmap TODO only; requires a new technical document, ablation plan, inspectability review, and campaign gate |
 | Sequential residual calibration branch | Current best causal model plus second causal residual or offset calibrator trained on model error. | candidate after audit |
 
 The `CVP 1.5` offset-predictability feasibility diagnostic is complete in:

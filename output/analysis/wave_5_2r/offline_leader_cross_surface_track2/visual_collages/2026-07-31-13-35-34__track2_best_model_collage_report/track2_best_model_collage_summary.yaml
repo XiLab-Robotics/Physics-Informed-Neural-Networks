@@ -1,0 +1,284 @@
+schema_version: 1
+run_instance_id: 2026-07-31-13-35-34__track2_best_model_collage_report
+output_directory: output\analysis\wave_5_2r\offline_leader_cross_surface_track2\visual_collages\2026-07-31-13-35-34__track2_best_model_collage_report
+report_path: doc\reports\analysis\model_development_waves\wave_5_2\offline_leader_global_promotion\visual_collages\[2026-07-31]\track2_best_model_collage_report.md
+dataset:
+  config_path: config/datasets/transmission_error_dataset.yaml
+  dataset_name: polished_dataset
+  dataset_root: data\polished_dataset
+  surface_scope: forward
+  curve_count: 97
+  selected_harmonic_list:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+candidate_count: 4
+candidate_summary_list:
+- group_id: auto_forward_accepted_non_pinn_incumbent
+  candidate_id: accepted_periodic_gru_sequence_fw
+  canonical_candidate_id: accepted_periodic_gru_sequence_fw
+  legacy_candidate_id: accepted_periodic_gru_sequence_Fw
+  candidate_family: periodic_gru_sequence
+  canonical_candidate_family: periodic_gru_sequence
+  legacy_candidate_family: periodic_gru_sequence
+  candidate_kind: wave1_exported_model
+  candidate_source_label: accepted_non_pinn_incumbent
+  canonical_candidate_source_label: accepted_non_pinn_incumbent
+  legacy_candidate_source_label: accepted_non_pinn_incumbent
+  candidate_surface: Fw
+  direction_scope: forward
+  allowed_direction_list:
+  - forward
+  source_path: models\polished_dataset\setpoints\periodic_gru_sequence\forward\reference_inventory.yaml
+  metrics:
+    mse: 7.427667581001869e-06
+    mae: 0.0016183627018365335
+    rmse: 0.0019305818861007254
+    mean_percentage_error_pct: 3.278426689015875
+    p95_mean_percentage_error_pct: 7.224709479351243
+  collage_path: output\analysis\wave_5_2r\offline_leader_cross_surface_track2\visual_collages\2026-07-31-13-35-34__track2_best_model_collage_report\collages\auto_forward_accepted_non_pinn_incumbent\accepted_periodic_gru_sequence_fw.png
+  collage_markdown_path: assets/auto_forward_accepted_non_pinn_incumbent/accepted_periodic_gru_sequence_fw.png
+  selected_curve_list:
+  - source_file_path: data\polished_dataset\forward\25degree\1600rpm\1600.0rpm0.0Nm25.0deg.csv
+    direction_label: forward
+    speed_rpm: 1600.0
+    torque_nm: 0.0
+    oil_temperature_deg: 25.0
+    metrics:
+      mse: 6.977400542972486e-06
+      mae: 0.002287185288480215
+      rmse: 0.0026414769624156266
+      mean_percentage_error_pct: 5.064895053517345
+  - source_file_path: data\polished_dataset\forward\30degree\300rpm\300.0rpm200.0Nm30.0deg.csv
+    direction_label: forward
+    speed_rpm: 300.0
+    torque_nm: 200.0
+    oil_temperature_deg: 30.0
+    metrics:
+      mse: 3.0394032809100483e-07
+      mae: 0.0004427577904138116
+      rmse: 0.0005513078342369214
+      mean_percentage_error_pct: 1.1271966083661171
+  - source_file_path: data\polished_dataset\forward\35degree\100rpm\100.0rpm100.0Nm35.0deg.csv
+    direction_label: forward
+    speed_rpm: 100.0
+    torque_nm: 100.0
+    oil_temperature_deg: 35.0
+    metrics:
+      mse: 5.317268977011896e-06
+      mae: 0.001803111098304299
+      rmse: 0.002305920418620707
+      mean_percentage_error_pct: 4.653440979283844
+  - source_file_path: data\polished_dataset\forward\35degree\1700rpm\1700.0rpm1800.0Nm35.0deg.csv
+    direction_label: forward
+    speed_rpm: 1700.0
+    torque_nm: 1800.0
+    oil_temperature_deg: 35.0
+    metrics:
+      mse: 7.925327281560363e-05
+      mae: 0.007438114881398232
+      rmse: 0.008902430725122416
+      mean_percentage_error_pct: 10.282066685942768
+- group_id: auto_forward_accepted_non_pinn_incumbent
+  candidate_id: accepted_periodic_mlp_harmonic_fw
+  canonical_candidate_id: accepted_periodic_mlp_harmonic_fw
+  legacy_candidate_id: accepted_periodic_mlp_harmonic_Fw
+  candidate_family: periodic_mlp_harmonic
+  canonical_candidate_family: periodic_mlp_harmonic
+  legacy_candidate_family: periodic_mlp_harmonic
+  candidate_kind: wave1_exported_model
+  candidate_source_label: accepted_non_pinn_incumbent
+  canonical_candidate_source_label: accepted_non_pinn_incumbent
+  legacy_candidate_source_label: accepted_non_pinn_incumbent
+  candidate_surface: Fw
+  direction_scope: forward
+  allowed_direction_list:
+  - forward
+  source_path: models\polished_dataset\setpoints\periodic_mlp_harmonic\forward\reference_inventory.yaml
+  metrics:
+    mse: 8.014564382186649e-06
+    mae: 0.0016935390879788035
+    rmse: 0.002007653722969696
+    mean_percentage_error_pct: 3.438599793081549
+    p95_mean_percentage_error_pct: 7.651617731232104
+  collage_path: output\analysis\wave_5_2r\offline_leader_cross_surface_track2\visual_collages\2026-07-31-13-35-34__track2_best_model_collage_report\collages\auto_forward_accepted_non_pinn_incumbent\accepted_periodic_mlp_harmonic_fw.png
+  collage_markdown_path: assets/auto_forward_accepted_non_pinn_incumbent/accepted_periodic_mlp_harmonic_fw.png
+  selected_curve_list:
+  - source_file_path: data\polished_dataset\forward\25degree\1600rpm\1600.0rpm0.0Nm25.0deg.csv
+    direction_label: forward
+    speed_rpm: 1600.0
+    torque_nm: 0.0
+    oil_temperature_deg: 25.0
+    metrics:
+      mse: 1.0012799148646338e-05
+      mae: 0.0025762284545378395
+      rmse: 0.0031643007361258093
+      mean_percentage_error_pct: 5.704971443214235
+  - source_file_path: data\polished_dataset\forward\30degree\300rpm\300.0rpm200.0Nm30.0deg.csv
+    direction_label: forward
+    speed_rpm: 300.0
+    torque_nm: 200.0
+    oil_temperature_deg: 30.0
+    metrics:
+      mse: 6.454050905122496e-07
+      mae: 0.000623890291037107
+      rmse: 0.0008033710789618018
+      mean_percentage_error_pct: 1.5883334754930134
+  - source_file_path: data\polished_dataset\forward\35degree\100rpm\100.0rpm100.0Nm35.0deg.csv
+    direction_label: forward
+    speed_rpm: 100.0
+    torque_nm: 100.0
+    oil_temperature_deg: 35.0
+    metrics:
+      mse: 2.0155137139659433e-06
+      mae: 0.0012785973878282242
+      rmse: 0.0014196878931532603
+      mean_percentage_error_pct: 3.2997841819733593
+  - source_file_path: data\polished_dataset\forward\35degree\1700rpm\1700.0rpm1800.0Nm35.0deg.csv
+    direction_label: forward
+    speed_rpm: 1700.0
+    torque_nm: 1800.0
+    oil_temperature_deg: 35.0
+    metrics:
+      mse: 9.839379211342812e-05
+      mae: 0.008263965833758862
+      rmse: 0.009919364501490412
+      mean_percentage_error_pct: 11.423680481940645
+- group_id: auto_forward_wave52r_offline_leader_cross_surface_promotion
+  candidate_id: wave52r_promotion_k01_fw_seed_271828
+  canonical_candidate_id: wave52r_promotion_k01_fw_seed_271828
+  legacy_candidate_id: wave52r_promotion_k01_fw_seed_271828
+  candidate_family: wave52r_promotion_k01
+  canonical_candidate_family: wave52r_promotion_k01
+  legacy_candidate_family: wave52r_promotion_k01
+  candidate_kind: wave52r_precomputed_full_curve
+  candidate_source_label: wave52r_offline_leader_cross_surface_promotion
+  canonical_candidate_source_label: wave52r_offline_leader_cross_surface_promotion
+  legacy_candidate_source_label: wave52r_offline_leader_cross_surface_promotion
+  candidate_surface: Fw
+  direction_scope: forward
+  allowed_direction_list:
+  - forward
+  source_path: output\training_runs\temporal_analytical_residual_models\2026-07-31-10-45-41__stage9_k01__seed_271828\test_predictions.npz
+  metrics:
+    mse: 6.284411440589791e-06
+    mae: 0.0013583846526796363
+    rmse: 0.001620099222864717
+    mean_percentage_error_pct: 2.6813892953123437
+    p95_mean_percentage_error_pct: 7.103591886160485
+  collage_path: output\analysis\wave_5_2r\offline_leader_cross_surface_track2\visual_collages\2026-07-31-13-35-34__track2_best_model_collage_report\collages\auto_forward_wave52r_offline_leader_cross_surface_promotion\wave52r_promotion_k01_fw_seed_271828.png
+  collage_markdown_path: assets/a_fw_wave_offl_lead_cros_surf_prom_a3e3da2814/wave52r_promotion_k01_fw_seed_271828.png
+  selected_curve_list:
+  - source_file_path: data\polished_dataset\forward\25degree\1600rpm\1600.0rpm0.0Nm25.0deg.csv
+    direction_label: forward
+    speed_rpm: 1600.0
+    torque_nm: 0.0
+    oil_temperature_deg: 25.0
+    metrics:
+      mse: 7.459824465834683e-06
+      mae: 0.002315446107415778
+      rmse: 0.002731267922748459
+      mean_percentage_error_pct: 5.12747768849494
+  - source_file_path: data\polished_dataset\forward\30degree\300rpm\300.0rpm200.0Nm30.0deg.csv
+    direction_label: forward
+    speed_rpm: 300.0
+    torque_nm: 200.0
+    oil_temperature_deg: 30.0
+    metrics:
+      mse: 1.6270126290623162e-07
+      mae: 0.00032398314380523873
+      rmse: 0.0004033624460782531
+      mean_percentage_error_pct: 0.8248137215693925
+  - source_file_path: data\polished_dataset\forward\35degree\100rpm\100.0rpm100.0Nm35.0deg.csv
+    direction_label: forward
+    speed_rpm: 100.0
+    torque_nm: 100.0
+    oil_temperature_deg: 35.0
+    metrics:
+      mse: 5.109183165448298e-07
+      mae: 0.0005813246252280641
+      rmse: 0.0007147855038714969
+      mean_percentage_error_pct: 1.5002735193894108
+  - source_file_path: data\polished_dataset\forward\35degree\1700rpm\1700.0rpm1800.0Nm35.0deg.csv
+    direction_label: forward
+    speed_rpm: 1700.0
+    torque_nm: 1800.0
+    oil_temperature_deg: 35.0
+    metrics:
+      mse: 7.974667668382831e-05
+      mae: 0.007476268900377886
+      rmse: 0.008930099477823767
+      mean_percentage_error_pct: 10.334808835498244
+- group_id: auto_forward_wave52r_offline_leader_cross_surface_promotion
+  candidate_id: wave52r_promotion_h08_fw_seed_161803
+  canonical_candidate_id: wave52r_promotion_h08_fw_seed_161803
+  legacy_candidate_id: wave52r_promotion_h08_fw_seed_161803
+  candidate_family: wave52r_promotion_h08
+  canonical_candidate_family: wave52r_promotion_h08
+  legacy_candidate_family: wave52r_promotion_h08
+  candidate_kind: wave52r_precomputed_full_curve
+  candidate_source_label: wave52r_offline_leader_cross_surface_promotion
+  canonical_candidate_source_label: wave52r_offline_leader_cross_surface_promotion
+  legacy_candidate_source_label: wave52r_offline_leader_cross_surface_promotion
+  candidate_surface: Fw
+  direction_scope: forward
+  allowed_direction_list:
+  - forward
+  source_path: output\training_runs\complex_harmonic_coefficient_residuals\2026-07-31-10-45-42__stage5_h08__seed_161803\test_predictions.npz
+  metrics:
+    mse: 7.3259274162314585e-06
+    mae: 0.001687721694241309
+    rmse: 0.001984632909081134
+    mean_percentage_error_pct: 3.4772609626812074
+    p95_mean_percentage_error_pct: 7.595649767742147
+  collage_path: output\analysis\wave_5_2r\offline_leader_cross_surface_track2\visual_collages\2026-07-31-13-35-34__track2_best_model_collage_report\collages\auto_forward_wave52r_offline_leader_cross_surface_promotion\wave52r_promotion_h08_fw_seed_161803.png
+  collage_markdown_path: assets/a_fw_wave_offl_lead_cros_surf_prom_a3e3da2814/wave52r_promotion_h08_fw_seed_161803.png
+  selected_curve_list:
+  - source_file_path: data\polished_dataset\forward\25degree\1600rpm\1600.0rpm0.0Nm25.0deg.csv
+    direction_label: forward
+    speed_rpm: 1600.0
+    torque_nm: 0.0
+    oil_temperature_deg: 25.0
+    metrics:
+      mse: 1.015491232886033e-05
+      mae: 0.002607482189707631
+      rmse: 0.00318667731796935
+      mean_percentage_error_pct: 5.774181790737327
+  - source_file_path: data\polished_dataset\forward\30degree\300rpm\300.0rpm200.0Nm30.0deg.csv
+    direction_label: forward
+    speed_rpm: 300.0
+    torque_nm: 200.0
+    oil_temperature_deg: 30.0
+    metrics:
+      mse: 1.2428620691173597e-06
+      mae: 0.0010227758916997478
+      rmse: 0.0011148372388458145
+      mean_percentage_error_pct: 2.603837902355345
+  - source_file_path: data\polished_dataset\forward\35degree\100rpm\100.0rpm100.0Nm35.0deg.csv
+    direction_label: forward
+    speed_rpm: 100.0
+    torque_nm: 100.0
+    oil_temperature_deg: 35.0
+    metrics:
+      mse: 7.704256768862087e-07
+      mae: 0.0007294359229722562
+      rmse: 0.0008777389571428448
+      mean_percentage_error_pct: 1.882516844864976
+  - source_file_path: data\polished_dataset\forward\35degree\1700rpm\1700.0rpm1800.0Nm35.0deg.csv
+    direction_label: forward
+    speed_rpm: 1700.0
+    torque_nm: 1800.0
+    oil_temperature_deg: 35.0
+    metrics:
+      mse: 7.833437815155395e-05
+      mae: 0.007315232739668182
+      rmse: 0.008850671056567064
+      mean_percentage_error_pct: 10.112200745993434
+metrics_csv_path: output\analysis\wave_5_2r\offline_leader_cross_surface_track2\visual_collages\2026-07-31-13-35-34__track2_best_model_collage_report\track2_best_model_collage_metrics.csv

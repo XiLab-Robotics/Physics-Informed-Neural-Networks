@@ -297,3 +297,39 @@ Run the matrix locally or on the configured LAN workstation:
 
 The final decision keeps temporal and non-temporal rankings separate and uses
 the multi-index curve-first policy rather than scalar campaign rank alone.
+
+Wave 5.2R offline-leader cross-surface promotion
+------------------------------------------------
+
+K01 and H08 passed the local replay, causal/state, ONNX-parity, fallback, and
+host-latency gates. The 27-run campaign completed with zero failures on
+2026-07-31. Its reproducibility preflight command is:
+
+.. code-block:: powershell
+
+   .\scripts\campaigns\wave_5_2\run_wave52r_offline_leader_cross_surface_promotion.ps1 `
+     -PreflightOnly
+
+Run it locally or on the configured LAN workstation:
+
+.. code-block:: powershell
+
+   .\scripts\campaigns\wave_5_2\run_wave52r_offline_leader_cross_surface_promotion.ps1 -Run
+   .\scripts\campaigns\wave_5_2\run_wave52r_offline_leader_cross_surface_promotion.ps1 -Remote -Run
+
+The completed campaign keeps ``Fw``, ``Bw``, and direction-aware ``global`` distinct.
+Periodic GRU and periodic harmonic MLP remain accepted controls; campaign rank
+alone cannot promote K01 or H08.
+
+Run the prepared 24-candidate official review remotely:
+
+.. code-block:: powershell
+
+   .\scripts\campaigns\track_2\run_wave52r_offline_leader_cross_surface_track2.ps1 -Remote -Run
+
+The launcher evaluates ``forward``, ``backward``, and ``global`` separately.
+The completed 2026-07-31 run evaluated all 24 candidates, followed by CVP 1.2
+and visual review. K01 seed 271828 is the cross-surface temporal offline
+leader. H08 remains a forward non-temporal specialist because its backward and
+global raw and offset errors regressed. Periodic GRU and periodic harmonic MLP
+remain accepted unchanged.

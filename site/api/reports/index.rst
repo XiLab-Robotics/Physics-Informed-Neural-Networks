@@ -32,5 +32,6 @@ repository reporting workflow.
    stage14_cross_formulation_forward_tournament
    validate_stage15_official_forward_verification_package
    validate_wave52r_full_candidate_track2_package
+   validate_wave52r_offline_leader_promotion
    build_physics_portfolio_feasibility_audit
    validate_physics_portfolio_feasibility_audit

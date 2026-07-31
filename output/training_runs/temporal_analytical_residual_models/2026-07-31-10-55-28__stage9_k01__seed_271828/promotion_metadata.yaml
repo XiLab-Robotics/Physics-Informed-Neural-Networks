@@ -1,0 +1,10 @@
+schema_version: 1
+campaign_name: wave52r_offline_leader_cross_surface_promotion_2026_07_30
+dataset_id: polished_dataset
+input_mode: setpoints
+surface: Bw
+model_role: promotion_candidate
+random_seed: 271828
+split_signature: c1aa8718fb9bf88cc2021c121dc4f3b4010fc1d2e45ac90af5f4376aa64f8e16
+checkpoint_path: output/training_runs/temporal_analytical_residual_models/2026-07-31-10-55-28__stage9_k01__seed_271828/best_model.pt
+checkpoint_sha256: 0b35b4ef37bcead452cb02058fd132a898ba085a63936ae732a3fbedbfe3e835

@@ -1,0 +1,51 @@
+schema_version: 1
+campaign_name: wave52r_offline_leader_cross_surface_promotion_2026_07_30
+status: provisional_validation_winner
+best_run:
+  candidate_id: K01
+  formulation: h04_coefficient_residual_gru
+  random_seed: 271828
+  run_instance_id: 2026-07-31-10-45-41__stage9_k01__seed_271828
+  best_epoch: 47
+  best_validation_score: 0.0020413941238075495
+  best_validation_mae_deg: 0.0014354911400005221
+  checkpoint_path: output/training_runs/temporal_analytical_residual_models/2026-07-31-10-45-41__stage9_k01__seed_271828/best_model.pt
+  parameter_count: 159891
+  runtime_target_derived_input_count: 0
+  mae_deg: 0.0013549609869682668
+  rmse_deg: 0.0016155168338283584
+  centered_mae_deg: 0.001205197618349857
+  centered_rmse_deg: 0.0014442082144503047
+  offset_abs_error_deg: 0.0004908183563394363
+  peak_to_peak_abs_error_deg: 0.0031593354655154965
+  derivative_mae_deg_per_sample: 0.0008873257574203866
+  periodic_closure_error_deg: 0.0007354674342366838
+  retained_amplitude_mae_deg: 0.00016720692333051031
+  retained_phase_mae_rad: 0.2824454575145999
+  sobolev_derivative_mae: 0.2664257045861434
+  sobolev_derivative_correlation: 0.4373558495320331
+  per_curve_mae_p95: 0.0039327650718406
+  per_curve_mae_worst: 0.009294359642609488
+  unsupported_high_frequency_energy_ratio: 0.007937571610049052
+  mean_mae_deg: 0.0004908183563394363
+  centered_shape_mae_deg: 0.001205197618349857
+  residual_rms_deg: 0.0011810805881395936
+  residual_abs_max_deg: 0.009550154209136963
+  shuffled_order_prediction_difference_mae_deg: 0.0006074176635593176
+  hidden_state_mean_norm: 3.24595240184239
+  hidden_state_max_batch_mean_norm: 5.668481349945068
+  reset_reproducibility_max_abs_deg: 0.0
+  chunk_equivalence_max_abs_deg: 3.948807716369629e-07
+  prefix_1_mae_deg: 0.0015922781606129797
+  prefix_9_mae_deg: 0.0013690437092200626
+  prefix_17_mae_deg: 0.001361451444562214
+  prefix_33_mae_deg: 0.0013722195355614733
+  prefix_129_mae_deg: 0.0014155734058225533
+  prefix_512_mae_deg: 0.0013882156705361962
+  prefix_2048_mae_deg: 0.001354960986968267
+  surface: Fw
+  model_role: promotion_candidate
+  run_directory: output/training_runs/temporal_analytical_residual_models/2026-07-31-10-45-41__stage9_k01__seed_271828
+  status: completed
+promotion_authorized: false
+required_next_step: normal closeout followed by separate global/Fw/Bw TE Curve Verification Pipeline

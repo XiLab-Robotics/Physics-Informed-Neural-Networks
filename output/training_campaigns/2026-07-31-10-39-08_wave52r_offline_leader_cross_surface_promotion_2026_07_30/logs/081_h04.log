@@ -1,0 +1,12 @@
+{"band_loss": 0.0, "complex_loss": 0.3331151008605957, "curve_loss": 0.006145093124359846, "epoch": 1, "surface_loss": 0.0, "total_loss": 0.33926019072532654, "validation_curve_mae_deg": 0.0019467853708192706}
+{"band_loss": 0.0, "complex_loss": 0.3331000804901123, "curve_loss": 0.00614490220323205, "epoch": 2, "surface_loss": 0.0, "total_loss": 0.3392449915409088, "validation_curve_mae_deg": 0.0019465575460344553}
+{"band_loss": 0.0, "complex_loss": 0.33308762311935425, "curve_loss": 0.006144724320620298, "epoch": 3, "surface_loss": 0.0, "total_loss": 0.33923235535621643, "validation_curve_mae_deg": 0.0019463644130155444}
+{"band_loss": 0.0, "complex_loss": 0.33307117223739624, "curve_loss": 0.006144534330815077, "epoch": 4, "surface_loss": 0.0, "total_loss": 0.3392156958580017, "validation_curve_mae_deg": 0.0019463514909148216}
+{"band_loss": 0.0, "complex_loss": 0.33305624127388, "curve_loss": 0.006144344341009855, "epoch": 5, "surface_loss": 0.0, "total_loss": 0.33920058608055115, "validation_curve_mae_deg": 0.00194650050252676}
+{"band_loss": 0.0, "complex_loss": 0.3330395817756653, "curve_loss": 0.006144146900624037, "epoch": 6, "surface_loss": 0.0, "total_loss": 0.3391837179660797, "validation_curve_mae_deg": 0.0019466869998723269}
+{"band_loss": 0.0, "complex_loss": 0.3330213725566864, "curve_loss": 0.006143926177173853, "epoch": 7, "surface_loss": 0.0, "total_loss": 0.3391653001308441, "validation_curve_mae_deg": 0.0019468056270852685}
+{"band_loss": 0.0, "complex_loss": 0.33300212025642395, "curve_loss": 0.006143671460449696, "epoch": 8, "surface_loss": 0.0, "total_loss": 0.3391457796096802, "validation_curve_mae_deg": 0.001946820062585175}
+{"band_loss": 0.0, "complex_loss": 0.3329806327819824, "curve_loss": 0.006143384147435427, "epoch": 9, "surface_loss": 0.0, "total_loss": 0.33912402391433716, "validation_curve_mae_deg": 0.001946773030795157}
+{"band_loss": 0.0, "complex_loss": 0.33295711874961853, "curve_loss": 0.006143069826066494, "epoch": 10, "surface_loss": 0.0, "total_loss": 0.339100182056427, "validation_curve_mae_deg": 0.0019467327510938048}
+{"band_loss": 0.0, "complex_loss": 0.33293190598487854, "curve_loss": 0.006142725236713886, "epoch": 11, "surface_loss": 0.0, "total_loss": 0.33907464146614075, "validation_curve_mae_deg": 0.0019467513775452971}
+{"band_loss": 0.0, "complex_loss": 0.332904189825058, "curve_loss": 0.006142339203506708, "epoch": 12, "surface_loss": 0.0, "total_loss": 0.33904653787612915, "validation_curve_mae_deg": 0.0019468492828309536}

@@ -1,0 +1,24 @@
+schema_version: 1
+generated_at: '2026-07-31T13:47:58+02:00'
+status: passed
+config_path: config/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/wave52r_offline_leader_cross_surface_promotion_matrix.yaml
+candidate_count: 24
+promotion_candidate_count: 18
+incumbent_count: 6
+surface_candidate_count:
+  Fw: 8
+  Bw: 8
+  global: 8
+candidate_kind_count:
+  wave52r_precomputed_full_curve: 18
+  wave1_exported_model: 6
+excluded_condition_id_list:
+- speed_500rpm__torque_600Nm__temperature_35degC
+- speed_800rpm__torque_200Nm__temperature_25degC
+- speed_1400rpm__torque_800Nm__temperature_35degC
+curve_count_by_split:
+  train: 1350
+  validation: 388
+  test: 194
+heavy_matrix_executed: false
+promotion_authorized: false
