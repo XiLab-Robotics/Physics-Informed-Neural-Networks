@@ -153,12 +153,12 @@ separate commissioning gate on the Beckhoff target.
 
 The approved refresh was implemented on 2026-07-31.
 
-- The canonical source discovery found 36 forward polished-setpoint families.
-  No previously unknown family identifier was present; all 36 retained enum
-  identifiers already existed in the standalone project.
+- The initial canonical source discovery found 36 forward polished-setpoint
+  families. A 2026-08-01 incremental refresh added the promoted H04, H08, and
+  K01 forward families, bringing the maintained catalog to 39 models.
 - Every maintained ONNX package differed from its current canonical source and
   was regenerated through the Beckhoff TF3820 preparation route.
-- `ML_models` now contains exactly the 36 canonical families, each with
+- `ML_models` now contains exactly the 39 canonical families, each with
   `model.onnx`, `model.json`, and `model_plcopen.xml`.
 - The destination-only `rcim_track1` package, its enum member, tensor DUTs,
   runner, predictor dispatch, and compile items were removed. Retained enum
@@ -166,21 +166,26 @@ The approved refresh was implemented on 2026-07-31.
 - Seventeen refreshed temporal contracts changed from `[1, 33, 4]` to
   `[1, 33, 5]`. Their PLC input DUTs and runner tensor packing now include the
   aligned `direction_flag` history and fallback values.
-- All 30 temporal models now receive angle, speed, signed torque, temperature,
-  and direction through the predictor-owned real 33-sample history.
+- The original 30 temporal models receive angle, speed, signed torque,
+  temperature, and direction through the predictor-owned real 33-sample
+  history.
+- K01 is the thirty-first temporal model. Its dedicated runner preserves the
+  exported 32-point analytical-anchor and explicit hidden-state contract.
+- H04 and H08 use dedicated multi-input runners and expose their required
+  analytical coefficient anchors through the reusable predictor.
 - `model_catalog.json` records the canonical source path, source SHA-256,
   TF3820-prepared SHA-256, tensor shapes, enum, runner, and target JSON path for
   every family.
-- The TestRig predictor import pack was regenerated with 111 PLC source
+- The TestRig predictor import pack was regenerated with 120 PLC source
   objects.
 
 ## Validation Evidence
 
-- ONNX Runtime smoke inference passed for all 36 canonical source models.
-- Beckhoff `onnxprep` completed for all 36 models and generated JSON plus
+- ONNX Runtime smoke inference passed for all 39 canonical source models.
+- Beckhoff `onnxprep` completed for all 39 models and generated JSON plus
   PLCopen XML artifacts.
-- The maintained catalog validator passed with 36 source/package/catalog
-  families, 36 enum members, 36 runners, 30 temporal models, and 144 parsed
+- The maintained catalog validator passed with 39 source/package/catalog
+  families, 39 enum members, 39 runners, 31 temporal models, and 156 parsed
   family-local XML objects.
 - Source hashes, prepared hashes, JSON tensor shapes, PLCopen-derived DUT
   shapes, model paths, enum members, predictor branches, and PLC compile items
@@ -193,3 +198,11 @@ The isolated build is static integration evidence only. Target activation,
 TF3820 licensing, ADS communication, runtime model configuration, inference,
 Scope replay, and TestRig timing remain commissioning gates on the intended
 Beckhoff target.
+
+For the 2026-08-01 three-family increment, ONNX Runtime smoke inference,
+PLCopen/XML parsing, full multi-tensor contract validation, enum/dispatch
+coverage, project compile-item coverage, and import-pack regeneration passed.
+The isolated Visual Studio/TwinCAT automation instance did not complete project
+loading in command-line mode, so a fresh `LastBuildInfo=0` was not obtained for
+the 39-model revision. TwinCAT XAE compilation remains a pending verification
+gate for this increment and must not be inferred from the earlier 36-model TMC.
