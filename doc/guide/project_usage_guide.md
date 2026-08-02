@@ -981,6 +981,30 @@ specialist and was not promoted globally because its backward/global raw and
 offset errors regressed. Periodic GRU and periodic harmonic MLP remain the
 accepted non-PINN references.
 
+Rebuild the frozen-payload H08 backward/global defect diagnostic:
+
+```powershell
+conda run --no-capture-output -n pinns_env python -B `
+  scripts/reports/analysis/build_wave52r_h08_backward_global_defect_analysis.py `
+  --config config/analysis/wave52r_h08_backward_global_defect_analysis.yaml `
+  --run-id 2026-08-02-17-12-57
+```
+
+Validate the recorded package:
+
+```powershell
+conda run --no-capture-output -n pinns_env python -B `
+  scripts/reports/analysis/validate_wave52r_h08_backward_global_defect_analysis.py `
+  --config config/analysis/wave52r_h08_backward_global_defect_analysis.yaml `
+  --run-directory `
+    output/analysis/wave_5_2r/h08_backward_global_defect_analysis/2026-08-02-17-12-57
+```
+
+The diagnostic confirms an offset-dominant backward defect and global-fit
+interference on both directions. H08 remains frozen as the non-temporal `Fw`
+offline specialist. The result does not authorize retraining, registry
+promotion, or integrated-specialist implementation.
+
 Rebuild the canonical Stage 15 visual and analytical closeout from the frozen
 matrix, CVP 1.2 diagnostics, and deployment-parity artifacts:
 

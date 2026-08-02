@@ -1,0 +1,10 @@
+surface,metric_name,official_rounded_value,recomputed_value,absolute_difference
+Fw,raw_mae_deg,0.001688000,0.001687660,0.000000340
+Fw,absolute_offset_error_deg,0.000862000,0.000861660,0.000000340
+Fw,centered_mae_deg,0.001320000,0.001319608,0.000000392
+Bw,raw_mae_deg,0.001933000,0.001932701,0.000000299
+Bw,absolute_offset_error_deg,0.000704000,0.000703588,0.000000412
+Bw,centered_mae_deg,0.001658000,0.001657959,0.000000041
+global,raw_mae_deg,0.001871000,0.001870737,0.000000263
+global,absolute_offset_error_deg,0.000837000,0.000836598,0.000000402
+global,centered_mae_deg,0.001517000,0.001516845,0.000000155

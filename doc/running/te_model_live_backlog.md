@@ -37,9 +37,11 @@ Historical rationale and approval history remain in:
   report, closed as the canonical direction-aware verification surface for new
   model families.
 - Current Focus: manual PLC model testing proceeds independently and in
-  parallel through the published standalone TF3820 module. The next repository
-  modeling task is the H08 backward/global defect analysis; the separate
-  integrated-specialist roadmap follows only after that analysis is closed.
+  parallel through the published standalone TF3820 module. The H08
+  backward/global defect analysis is complete and confirms an offset-dominant,
+  direction-conditioned defect with global-fit interference. The next
+  repository modeling task is the separately approval-gated
+  integrated-specialist roadmap.
   The official K01/H08 cross-surface curve-first verification is complete. The
   completed Phases 0 through 15 closeout remains valid and physics-integrated
   Wave 6 remains closed. Stages 0 through 15 are complete: the accepted
@@ -197,16 +199,16 @@ Historical rationale and approval history remain in:
   periodic harmonic MLP wins polished-setpoint `Bw` and simplified-setpoint
   `Fw`. Wave 4.1 remains the raw-error and offset diagnostic ingredient.
   Sparse-RCIM temporal candidates remain actual-values references only.
-- Current Next Branch: prepare a separately approval-gated diagnostic of the
-  H08 raw-error, offset, and envelope regressions on `Bw` and `global`, while
-  preserving H08 as the current non-temporal `Fw` specialist. Manual PLC
-  testing through the standalone TF3820 module continues in parallel and does
-  not block this modeling queue. After the H08 analysis is closed, prepare a
-  separate integrated-specialist roadmap covering K01, H08, F01, S01, H04,
-  Stage 10 R00, and Stage 10 S01 with explicit ablations and inspectability
-  gates. This later roadmap has no current implementation or training
-  authorization. The paper-faithful MMT full PINN remains an inactive future
-  option and is not part of the active queue.
+- Current Next Branch: prepare a separate approval-gated integrated-specialist
+  roadmap covering K01, the forward-only H08 specialist, F01, S01, H04,
+  Stage 10 R00, and Stage 10 S01 with explicit ablations, direction-aware
+  surfaces, and inspectability gates. The current global H08 formulation must
+  not be transferred into that roadmap; its `a0`/offset defect is an exclusion
+  and ablation contract. Manual PLC testing through the standalone TF3820
+  module continues in parallel and does not block this modeling queue. This
+  roadmap has no current implementation or training authorization. The
+  paper-faithful MMT full PINN remains an inactive future option and is not
+  part of the active queue.
 
 Current canonical status reports:
 
@@ -420,6 +422,7 @@ Next planned diagnostic and training decision branches:
 | `Wave 5.2` complete theory-validation program | Preserve and falsify every ingested physical mechanism through direct-data, causal-state, offline-oracle, instrumentation, isolated-PINN, cross-formulation, and integration tests. | completed 16 of 16; physics-integrated Wave 6 entry not authorized |
 | `Wave 5.2R` polished-setpoint forward physics-guided reassessment | Reassess observable forward physics through Polynomial-Fourier residual learning, complex harmonic supervision, mean/shape heads, weak compliance, temporal residuals, adaptive loss balancing, and matched controls. | All 16 stages and the full-candidate forward verification are complete. K01 and H08 are the temporal and balanced non-temporal offline leaders; incumbents remain unchanged. |
 | `Wave 5.2R` four-leader promotion gate | Qualify K01 and H08 on local deployment gates and then across `Fw`, `Bw`, and direction-aware `global`. | completed partial promotion: K01 is the cross-surface temporal offline leader; H08 remains a forward specialist; both non-PINN incumbents are preserved; four-global-leader target not achieved |
+| `Wave 5.2R` H08 backward/global defect analysis | Attribute the H08 `Bw` and `global` regressions using frozen curve, condition, seed, and coefficient payloads without training. | completed: backward failure is offset-dominant, the combined model shows direction-aware global-fit interference, H08 remains the non-temporal `Fw` specialist, and the global formulation is excluded from later integration |
 | `Wave 5.2` paper-faithful MMT full PINN | Preserve the completed MMT evidence and reopen only if causal physical inputs become available. | deferred future TODO after the parameter-availability blocker; no MMT feature, auxiliary head, weak constraint, or MMT full PINN is authorized |
 | Intermediate shape-first model-selection cleanup | Reduce the post-retraining active set using raw error, P95, centered shape, P2P behavior, visual collage evidence, and actual-values stability. | completed; active set is `periodic_gru_sequence`, `wave4_1_mae_robust_loss`, `wave4_2_quantile_p10_p50_p90`, and `periodic_mlp_harmonic`; `periodic_lstm_sequence_Bw`, `Wave 4.3`, `Wave 4.4`, and `Wave 5.1` are closed as active branches |
 | Frequency-domain shape-gated reranker | Add measured/predicted FFT amplitude similarity, dominant-harmonic retention, dominant-harmonic phase error, robust derivative agreement, threshold sweep, and per-curve shape pass rate to future reduced reports. | completed across the six-cell non-MMT reduced pass; periodic GRU wins four cells, periodic harmonic MLP wins two, and the simplified tree scalar leader remains vetoed by weak shape retention |
@@ -429,7 +432,7 @@ Next planned diagnostic and training decision branches:
 | Causal offset / mean calibration pilot | Test whether direct offset / curve-mean pressure improves the next `polished_dataset` setpoint `Fw` branch while preserving both time-windowed and non-windowed roads. | completed and bounded-screened; the non-windowed harmonic MLP won scalar selection but ranked fourth in the bounded curve-first screen, while the time-windowed residual-offset GRU failed the shape gate. Do not promote or expand this direct causal-offset profile. |
 | Post-causal-offset `Wave 5.2` decision gate | Decide whether MMT should remain diagnostic-only, become a feature or auxiliary-output path, or become a weak soft constraint. | completed; the follow-up replay and leakage-safe diagnostic selected `blocked_by_parameter_availability`. MMT is now an inactive future TODO and does not block non-MMT work. |
 | Wave 6 physics-integrated multi-task / multi-head branch | Shared causal trunk with separate offset, low-frequency, centered-shape, uncertainty or mixture, and validated physics-informed heads. | entry not authorized; reopen only after two complementary physical components pass isolated and integrated gates |
-| Future integrated specialist model | Combine K01 temporal/offset control, H08 balanced harmonic behavior, F01 shape fidelity, S01 harmonic specialization, H04 interpretability, and Stage 10 R00/S01 sparse-symbolic corrections while explicitly preventing each source model's known regressions. | next-roadmap TODO only; requires a new technical document, ablation plan, inspectability review, and campaign gate |
+| Future integrated specialist model | Combine K01 temporal/offset control, forward-only H08 harmonic behavior, F01 shape fidelity, S01 harmonic specialization, H04 interpretability, and Stage 10 R00/S01 sparse-symbolic corrections while explicitly preventing each source model's known regressions. | next-roadmap TODO only; exclude the current global H08 formulation and treat its offset/global-interference defect as an ablation contract; requires a new technical document, ablation plan, inspectability review, and campaign gate |
 | Sequential residual calibration branch | Current best causal model plus second causal residual or offset calibrator trained on model error. | candidate after audit |
 
 The `CVP 1.5` offset-predictability feasibility diagnostic is complete in:

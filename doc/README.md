@@ -373,6 +373,11 @@ This folder contains the internal project documents derived from the reference P
   from the active queue and ordering parallel PLC work, H08 defect analysis,
   the integrated-specialist roadmap, and deferred MMT work.
 
+- [technical/2026-08/2026-08-02/2026-08-02-11-39-09_wave52r_h08_backward_global_defect_analysis.md](./technical/2026-08/2026-08-02/2026-08-02-11-39-09_wave52r_h08_backward_global_defect_analysis.md)
+  Approval-gated non-training diagnostic plan for attributing H08 backward and
+  global offset, envelope, direction, harmonic-band, condition, and seed
+  defects before any integrated-specialist roadmap is prepared.
+
 - [technical/2026-07/2026-07-30/2026-07-30-17-35-29_wave52r_offline_leader_global_promotion_and_four_leader_portfolio.md](./technical/2026-07/2026-07-30/2026-07-30-17-35-29_wave52r_offline_leader_global_promotion_and_four_leader_portfolio.md)
   Approval-gated plan for qualifying K01 and H08 through causal, export,
   runtime, PLC, and cross-surface tests while preserving both non-PINN
@@ -385,6 +390,11 @@ This folder contains the internal project documents derived from the reference P
 - [Wave 5.2R Cross-Surface Offline Leader Promotion Decision](./reports/analysis/model_development_waves/wave_5_2/offline_leader_global_promotion/official_decision/%5B2026-07-31%5D/wave52r_cross_surface_offline_leader_promotion_decision.md)
   Official 24-candidate Fw, Bw, and global curve-first decision promoting K01
   while retaining H08 as a forward specialist and preserving both incumbents.
+
+- [Wave 5.2R H08 Backward And Global Defect Analysis](./reports/analysis/model_development_waves/wave_5_2/h08_backward_global_defect_analysis/%5B2026-08-02%5D/wave52r_h08_backward_global_defect_analysis_report.md)
+  Frozen-payload diagnostic confirming an offset-dominant backward defect and
+  direction-aware global-fit interference while retaining H08 only as the
+  non-temporal forward offline specialist.
 
 - [Wave 5.2R Offline Leader Cross-Surface Promotion Launcher](./scripts/campaigns/wave_5_2/run_wave52r_offline_leader_cross_surface_promotion.md)
   Local and LAN-remote commands for the approved 27-run `Fw`, `Bw`, and
@@ -3888,6 +3898,10 @@ This folder contains the internal project documents derived from the reference P
 - [scripts/reports/analysis/build_track2e_offset_predictability_feasibility.md](./scripts/reports/analysis/build_track2e_offset_predictability_feasibility.md)
   Script-level documentation for the `CVP 1.5` offset-predictability
   feasibility report builder and its conservative causal correction baselines.
+
+- [scripts/reports/analysis/build_wave52r_h08_backward_global_defect_analysis.md](./scripts/reports/analysis/build_wave52r_h08_backward_global_defect_analysis.md)
+  Script-level documentation for the frozen-payload H08 backward and global
+  defect builder and its package validator.
 
 - [scripts/reports/analysis/generate_training_results_master_summary.md](./scripts/reports/analysis/generate_training_results_master_summary.md)
   Script-level documentation for the canonical training-results master-summary generator.

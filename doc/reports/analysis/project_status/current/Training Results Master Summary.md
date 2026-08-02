@@ -2,10 +2,10 @@
 
 ## Executive Snapshot
 
-- Generated At: `2026-07-31T19:13:33+02:00`
+- Generated At: `2026-08-02T17:15:58+02:00`
 - Program State: active.
 - Current Completed Wave: polished-dataset RCIM, early-wave, and full-wave
-- Current Focus: K01 TwinCAT qualification and H08 backward/global defect analysis.
+- Current Focus: parallel PLC qualification and the approval-gated integrated-specialist roadmap.
 - Active Campaign Status: `completed`
 - Active Campaign Name: `wave52r_offline_leader_cross_surface_promotion_2026_07_30`
 - Current Program Winner: `te_periodic_gru_sequence_bw` | Family `periodic_gru_sequence_bw` | Test MAE `0.001084`
@@ -30,7 +30,13 @@
   unchanged; K01 TwinCAT runtime checks remain pending. The curated polished
   setpoint archive now preserves K01 seed `271828` on all three surfaces, H08
   seed `161803` on `Fw`, and exploratory Stage 15 H04 on `Fw`. This archive
-  update does not change the accepted registries or deployment leaders.
+  update does not change the accepted registries or deployment leaders. The
+  subsequent frozen-payload H08 diagnostic confirms that the backward defect
+  is offset-dominant and that the combined global formulation is worse than
+  the corresponding directional H08 specialists on both directions. H08
+  therefore remains forward-only, and its current global formulation is an
+  explicit exclusion and ablation control for the next integrated-specialist
+  roadmap.
 
 ## Current Project Status
 

@@ -1,0 +1,109 @@
+schema_version: 1
+diagnostic_id: wave52r_h08_backward_global_defect_analysis
+run_id: 2026-08-02-17-12-57
+training_executed: false
+checkpoint_modified: false
+registry_updated: false
+h08_run_count: 9
+surface_list:
+- Fw
+- Bw
+- global
+seed_list:
+- 314159
+- 271828
+- 161803
+official_metric_max_abs_difference_deg: 4.1237113402074147e-07
+official_metric_reproduction_passed: true
+decision: offset_dominant_direction_conditioned_with_global_interference
+h08_role: forward_non_temporal_offline_specialist
+training_authorized: false
+integrated_specialist_authorized: false
+recommended_next_gate: direction_specific_causal_a0_calibration_plan_if_desired
+selected_comparison_list:
+- surface: Fw
+  direction_label: forward
+  h08_candidate_id: wave52r_promotion_h08_fw_seed_161803
+  incumbent_candidate_id: accepted_periodic_mlp_harmonic_Fw
+  curve_count: 97
+  h08_raw_mae_deg: 0.0016876597938144328
+  incumbent_raw_mae_deg: 0.001693536082474227
+  raw_improvement_pct: 0.34698337523514544
+  h08_absolute_offset_error_deg: 0.000861659793814433
+  incumbent_absolute_offset_error_deg: 0.0008253402061855669
+  offset_improvement_pct: -4.4005595942941484
+  h08_centered_mae_deg: 0.0013196082474226805
+  incumbent_centered_mae_deg: 0.0013905154639175259
+  shape_improvement_pct: 5.099347568208775
+  h08_peak_to_peak_error_pct: 7.958770092783506
+  incumbent_peak_to_peak_error_pct: 11.801784144329895
+  peak_to_peak_improvement_pct: 32.562992209891796
+- surface: Bw
+  direction_label: backward
+  h08_candidate_id: wave52r_promotion_h08_bw_seed_161803
+  incumbent_candidate_id: accepted_periodic_mlp_harmonic_Bw
+  curve_count: 97
+  h08_raw_mae_deg: 0.0019327010309278352
+  incumbent_raw_mae_deg: 0.0019121134020618556
+  raw_improvement_pct: -1.0766949723682526
+  h08_absolute_offset_error_deg: 0.0007035876288659792
+  incumbent_absolute_offset_error_deg: 0.0006121030927835051
+  offset_improvement_pct: -14.945935931552524
+  h08_centered_mae_deg: 0.0016579587628865978
+  incumbent_centered_mae_deg: 0.001676927835051546
+  shape_improvement_pct: 1.1311799928686361
+  h08_peak_to_peak_error_pct: 8.464419587628866
+  incumbent_peak_to_peak_error_pct: 11.62537825773196
+  peak_to_peak_improvement_pct: 27.190157601975333
+- surface: global
+  direction_label: all
+  h08_candidate_id: wave52r_promotion_h08_global_seed_314159
+  incumbent_candidate_id: accepted_periodic_mlp_harmonic_global
+  curve_count: 194
+  h08_raw_mae_deg: 0.0018707371134020618
+  incumbent_raw_mae_deg: 0.0017338917525773197
+  raw_improvement_pct: -7.892382014121132
+  h08_absolute_offset_error_deg: 0.0008365979381443297
+  incumbent_absolute_offset_error_deg: 0.0006864690721649484
+  offset_improvement_pct: -21.86972029284774
+  h08_centered_mae_deg: 0.0015168453608247422
+  incumbent_centered_mae_deg: 0.0014756907216494847
+  shape_improvement_pct: -2.7888390549244635
+  h08_peak_to_peak_error_pct: 8.06438650515464
+  incumbent_peak_to_peak_error_pct: 9.352660809278351
+  peak_to_peak_improvement_pct: 13.774414900684434
+global_interference_list:
+- direction_label: forward
+  global_candidate_id: wave52r_promotion_h08_global_seed_314159
+  specialist_candidate_id: wave52r_promotion_h08_fw_seed_161803
+  curve_count: 97
+  global_raw_mae_deg: 0.0017599278350515462
+  specialist_raw_mae_deg: 0.0016876597938144328
+  global_raw_penalty_pct: 4.282145104243664
+  global_offset_error_deg: 0.0009419793814432989
+  specialist_offset_error_deg: 0.000861659793814433
+  global_offset_penalty_pct: 9.321496512365247
+  global_centered_mae_deg: 0.0013441134020618557
+  specialist_centered_mae_deg: 0.0013196082474226805
+  global_shape_penalty_pct: 1.8570022343400787
+- direction_label: backward
+  global_candidate_id: wave52r_promotion_h08_global_seed_314159
+  specialist_candidate_id: wave52r_promotion_h08_bw_seed_161803
+  curve_count: 97
+  global_raw_mae_deg: 0.0019815463917525773
+  specialist_raw_mae_deg: 0.0019327010309278352
+  global_raw_penalty_pct: 2.527310745071255
+  global_offset_error_deg: 0.0007312164948453607
+  specialist_offset_error_deg: 0.0007035876288659792
+  global_offset_penalty_pct: 3.9268549994139024
+  global_centered_mae_deg: 0.001689577319587629
+  specialist_centered_mae_deg: 0.0016579587628865978
+  global_shape_penalty_pct: 1.907077389909355
+report_path: doc/reports/analysis/model_development_waves/wave_5_2/h08_backward_global_defect_analysis/[2026-08-02]/wave52r_h08_backward_global_defect_analysis_report.md
+plot_path_list:
+- doc/reports/analysis/model_development_waves/wave_5_2/h08_backward_global_defect_analysis/[2026-08-02]/assets/selected_metric_improvements.png
+- doc/reports/analysis/model_development_waves/wave_5_2/h08_backward_global_defect_analysis/[2026-08-02]/assets/global_direction_interference.png
+- doc/reports/analysis/model_development_waves/wave_5_2/h08_backward_global_defect_analysis/[2026-08-02]/assets/condition_offset_deltas.png
+- doc/reports/analysis/model_development_waves/wave_5_2/h08_backward_global_defect_analysis/[2026-08-02]/assets/coefficient_a0_decomposition.png
+- doc/reports/analysis/model_development_waves/wave_5_2/h08_backward_global_defect_analysis/[2026-08-02]/assets/harmonic_band_correction_ratios.png
+- doc/reports/analysis/model_development_waves/wave_5_2/h08_backward_global_defect_analysis/[2026-08-02]/assets/representative_h08_curves.png

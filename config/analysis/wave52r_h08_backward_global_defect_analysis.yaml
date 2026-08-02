@@ -1,0 +1,128 @@
+schema_version: 1
+metadata:
+  diagnostic_id: wave52r_h08_backward_global_defect_analysis
+  dataset_id: polished_dataset
+  input_mode: setpoints
+  split_signature: c1aa8718fb9bf88cc2021c121dc4f3b4010fc1d2e45ac90af5f4376aa64f8e16
+  training_allowed: false
+  checkpoint_modification_allowed: false
+  registry_update_allowed: false
+paths:
+  curve_metrics_path: output/analysis/wave_5_2r/offline_leader_cross_surface_track2/curve_payload_diagnostics/2026-07-31-13-29-13__track2c_curve_payload_diagnostics/curve_payload_diagnostics.csv
+  curve_payload_samples_path: output/analysis/wave_5_2r/offline_leader_cross_surface_track2/curve_payload_diagnostics/2026-07-31-13-29-13__track2c_curve_payload_diagnostics/curve_payload_samples.jsonl
+  official_decision_path: doc/reports/analysis/model_development_waves/wave_5_2/offline_leader_global_promotion/official_decision/[2026-07-31]/wave52r_cross_surface_offline_leader_promotion_decision.md
+  output_root: output/analysis/wave_5_2r/h08_backward_global_defect_analysis
+  report_path: doc/reports/analysis/model_development_waves/wave_5_2/h08_backward_global_defect_analysis/[2026-08-02]/wave52r_h08_backward_global_defect_analysis_report.md
+analysis:
+  expected_seed_list:
+  - 314159
+  - 271828
+  - 161803
+  expected_curve_count_by_surface:
+    Fw: 97
+    Bw: 97
+    global: 194
+  harmonic_order_list:
+  - 1
+  - 2
+  - 3
+  - 39
+  - 40
+  - 42
+  - 78
+  - 80
+  - 81
+  - 120
+  - 156
+  - 158
+  - 159
+  - 160
+  - 162
+  - 237
+  - 240
+  harmonic_band_dictionary:
+    order_1:
+    - 1
+    low_orders:
+    - 2
+    - 3
+    reducer_middle:
+    - 39
+    - 40
+    - 42
+    - 78
+    - 80
+    - 81
+    - 120
+    high_ripple:
+    - 156
+    - 158
+    - 159
+    - 160
+    - 162
+    - 237
+    - 240
+  official_reproduction_tolerance_deg: 0.000001
+selected_comparisons:
+- surface: Fw
+  direction_label: forward
+  h08_candidate_id: wave52r_promotion_h08_fw_seed_161803
+  incumbent_candidate_id: accepted_periodic_mlp_harmonic_Fw
+- surface: Bw
+  direction_label: backward
+  h08_candidate_id: wave52r_promotion_h08_bw_seed_161803
+  incumbent_candidate_id: accepted_periodic_mlp_harmonic_Bw
+- surface: global
+  direction_label: all
+  h08_candidate_id: wave52r_promotion_h08_global_seed_314159
+  incumbent_candidate_id: accepted_periodic_mlp_harmonic_global
+official_selected_metrics:
+  Fw:
+    raw_mae_deg: 0.001688
+    absolute_offset_error_deg: 0.000862
+    centered_mae_deg: 0.001320
+  Bw:
+    raw_mae_deg: 0.001933
+    absolute_offset_error_deg: 0.000704
+    centered_mae_deg: 0.001658
+  global:
+    raw_mae_deg: 0.001871
+    absolute_offset_error_deg: 0.000837
+    centered_mae_deg: 0.001517
+h08_runs:
+- surface: Fw
+  random_seed: 314159
+  candidate_id: wave52r_promotion_h08_fw_seed_314159
+  run_directory: output/training_runs/complex_harmonic_coefficient_residuals/2026-07-31-10-39-10__stage5_h08
+- surface: Fw
+  random_seed: 271828
+  candidate_id: wave52r_promotion_h08_fw_seed_271828
+  run_directory: output/training_runs/complex_harmonic_coefficient_residuals/2026-07-31-10-42-29__stage5_h08__seed_271828
+- surface: Fw
+  random_seed: 161803
+  candidate_id: wave52r_promotion_h08_fw_seed_161803
+  run_directory: output/training_runs/complex_harmonic_coefficient_residuals/2026-07-31-10-45-42__stage5_h08__seed_161803
+- surface: Bw
+  random_seed: 314159
+  candidate_id: wave52r_promotion_h08_bw_seed_314159
+  run_directory: output/training_runs/complex_harmonic_coefficient_residuals/2026-07-31-10-48-57__stage5_h08
+- surface: Bw
+  random_seed: 271828
+  candidate_id: wave52r_promotion_h08_bw_seed_271828
+  run_directory: output/training_runs/complex_harmonic_coefficient_residuals/2026-07-31-10-52-13__stage5_h08__seed_271828
+- surface: Bw
+  random_seed: 161803
+  candidate_id: wave52r_promotion_h08_bw_seed_161803
+  run_directory: output/training_runs/complex_harmonic_coefficient_residuals/2026-07-31-10-55-29__stage5_h08__seed_161803
+- surface: global
+  random_seed: 314159
+  candidate_id: wave52r_promotion_h08_global_seed_314159
+  run_directory: output/training_runs/complex_harmonic_coefficient_residuals/2026-07-31-10-58-49__stage5_h08
+- surface: global
+  random_seed: 271828
+  candidate_id: wave52r_promotion_h08_global_seed_271828
+  run_directory: output/training_runs/complex_harmonic_coefficient_residuals/2026-07-31-11-05-18__stage5_h08__seed_271828
+- surface: global
+  random_seed: 161803
+  candidate_id: wave52r_promotion_h08_global_seed_161803
+  run_directory: output/training_runs/complex_harmonic_coefficient_residuals/2026-07-31-11-11-41__stage5_h08__seed_161803

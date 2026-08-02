@@ -1,0 +1,3 @@
+direction_label,global_candidate_id,specialist_candidate_id,curve_count,global_raw_mae_deg,specialist_raw_mae_deg,global_raw_penalty_pct,global_offset_error_deg,specialist_offset_error_deg,global_offset_penalty_pct,global_centered_mae_deg,specialist_centered_mae_deg,global_shape_penalty_pct
+forward,wave52r_promotion_h08_global_seed_314159,wave52r_promotion_h08_fw_seed_161803,97,0.001759928,0.001687660,4.282145104,0.000941979,0.000861660,9.321496512,0.001344113,0.001319608,1.857002234
+backward,wave52r_promotion_h08_global_seed_314159,wave52r_promotion_h08_bw_seed_161803,97,0.001981546,0.001932701,2.527310745,0.000731216,0.000703588,3.926854999,0.001689577,0.001657959,1.907077390

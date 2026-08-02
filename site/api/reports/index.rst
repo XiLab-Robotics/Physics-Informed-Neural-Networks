@@ -33,5 +33,7 @@ repository reporting workflow.
    validate_stage15_official_forward_verification_package
    validate_wave52r_full_candidate_track2_package
    validate_wave52r_offline_leader_promotion
+   build_wave52r_h08_backward_global_defect_analysis
+   validate_wave52r_h08_backward_global_defect_analysis
    build_physics_portfolio_feasibility_audit
    validate_physics_portfolio_feasibility_audit

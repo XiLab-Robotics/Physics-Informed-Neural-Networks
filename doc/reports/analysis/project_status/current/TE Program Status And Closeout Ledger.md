@@ -34,12 +34,13 @@ closeout that changes any of these surfaces:
 | Latest non-training PINN gate | Phase 15 audited four evidence files and all five physics-integrated Wave 6 prerequisites; all five fail, so the sixteen-phase roadmap closed without training or automatic advancement |
 | Latest official TE Curve Verification refresh | Wave 5.2R K01/H08 cross-surface refresh, dated `2026-07-31`; `24` candidates evaluated separately on `97` Fw, `97` Bw, and `194` global curves, followed by CVP 1.2 diagnostics and visual review |
 | Latest curve-verification decision | K01 seed `271828` is promoted as the cross-surface temporal offline leader. H08 remains a forward non-temporal specialist and fails global promotion because of backward/global raw and offset regressions. Periodic GRU and periodic harmonic MLP remain accepted unchanged. |
+| Latest non-training defect diagnostic | The `2026-08-02` frozen-payload H08 analysis confirms an offset-dominant backward defect and global-fit interference on both direction subsets. H08 remains the non-temporal `Fw` offline specialist; no checkpoint or registry changed. |
 | Latest deployment-preparation gate | K01 and H08 passed local replay, causal/state, ONNX-parity, fallback, and host-latency gates. TwinCAT runtime and cross-surface acceptance remain pending. |
 | Latest curated model-archive refresh | Five Wave 5.2R leaves were added on `2026-07-31`: K01 seed `271828` for `Fw`, `Bw`, and `global`; H08 seed `161803` for `Fw`; and exploratory Stage 15 H04 for `Fw`. The polished-setpoint aggregate now contains `113` leaves. Archive preservation does not change accepted registries or deployment leaders. |
 | Latest pruning decision | `2026-07-17` shape-first intermediate model-selection cleanup; `global` remains paused until final backlog stage |
 | Active report generation | six reduced selected-model reports completed for polished setpoints, simplified setpoints, and polished actual values, each split into `forward` and `backward` |
 | Current TE Curve Verification Pipeline selection policy | multi-index curve-first selection, dated `2026-06-16` |
-| Next modeling decision | Qualify K01 in TwinCAT, preserve H08 for forward and integrated-model research, and prepare the separate approval-gated integrated-specialist roadmap. |
+| Next modeling decision | Continue K01/H08 PLC qualification in parallel and prepare the separate approval-gated integrated-specialist roadmap. Preserve H08 only as a forward specialist and exclude its current global formulation through an explicit ablation contract. |
 
 The repository remains direction-parallel. `Fw`, `Bw`, and `global` are not a
 single destructive competition. Each surface keeps its own best candidate and
@@ -193,10 +194,11 @@ robustness, visual-evidence, and deployment-readiness axes visible.
 | Wave 5.2R K01/H08 local promotion gate | qualified for conditional campaign | Both candidates passed deterministic replay, ONNX parity, validity/fallback, and local latency checks; K01 also passed reset, causal-prefix, state-carry, and chunk-equivalence checks. | Authorize only the prepared cross-surface campaign. Do not promote globally and do not replace periodic GRU or periodic harmonic MLP. |
 | Wave 5.2R K01/H08 cross-surface campaign | completed normal closeout | All `27` runs and checkpoints are present. K01 led mean scalar MAE on `Fw`, `Bw`, and `global`; H08 remained highly repeatable and beat its matched H04 raw-MAE anchor on all three surfaces. | Advance K01 and H08 to a separate official curve-first verification. Make no incumbent or accepted-registry change from scalar evidence alone. |
 | Wave 5.2R K01/H08 cross-surface Track 2 | completed partial promotion | Twenty-four candidates were evaluated over separate Fw, Bw, and global matrices, CVP 1.2 diagnostics, three visual shortlist bundles, and three seeds. K01 seed `271828` improved matched-GRU raw, offset, and shape metrics on every surface; H08 regressed matched-MLP raw and offset on Bw/global. | Promote K01 as cross-surface temporal offline leader. Retain H08 as forward specialist. Preserve periodic GRU and periodic harmonic MLP unchanged; do not claim the four-global-leader target. |
+| Wave 5.2R H08 backward/global defect analysis | completed non-training diagnostic | Nine frozen H08 payloads and official CVP 1.2 curve evidence separate raw, offset, centered shape, direction, condition, seed, coefficient `a0`, and harmonic-band behavior. Backward H08 retains a `1.13%` shape gain but has a `14.95%` offset regression; the global model is worse than the directional H08 specialists on both directions. | Keep H08 frozen as the non-temporal `Fw` specialist. Exclude the current global formulation from later integration; use its offset and global-interference findings as an ablation contract. Authorize no repair or training. |
 | Wave 5.2 paper-faithful MMT full PINN | deferred future TODO | MMT diagnostics, parameter inventory, `Wave 5.2B`, the post-causal-offset gate, exact-manifest replay, and leakage-safe explanatory rerun are complete. Contact geometry and causal observations for five equivalent-error groups remain unavailable. | Inactive without blocking the general full-PINN program. Reopen only after independent component-error measurements or validated causal contact-state reconstruction provides condition-varying physical inputs. |
 | Six-cell non-MMT reduced cross-wave comparison | closed diagnostic | Six remote selected-model reports and three direction-paired shape-gated reranks covered polished setpoints, simplified setpoints, and polished actual values. Forty-six curve collages were reviewed. | No official promotion. Periodic GRU wins four cells, periodic harmonic MLP wins two, Wave 4.1 remains the raw-error/offset ingredient, and sparse-RCIM temporal models remain reference-only. |
 | Wave 6 physics-integrated multi-task / multi-head model | entry not authorized | Intended to combine proven offset, low-frequency, centered-shape, uncertainty, mixture, and validated physics-informed mechanisms. | Reopen only after at least two complementary physical components pass isolated and integrated gates. |
-| Future integrated specialist model | next-roadmap TODO | Study whether K01, H08, F01, S01, H04, Stage 10 R00, and Stage 10 S01 can contribute complementary modules without transferring their known defects. | Require a new technical roadmap, ablation matrix, inspectability review, and campaign gate before implementation. |
+| Future integrated specialist model | next-roadmap TODO | Study whether K01, forward-only H08, F01, S01, H04, Stage 10 R00, and Stage 10 S01 can contribute complementary modules without transferring their known defects. | Require a new technical roadmap, ablation matrix, inspectability review, and campaign gate before implementation. Explicitly exclude the current global H08 formulation and test the H08 offset/global-interference contract. |
 
 ## CVP Modules And Waves 3.1 Through 4.4
 
@@ -378,10 +380,11 @@ models.
 28. Do not open the integrated multi-task / multi-head campaign until bounded
     PINN pilots and TE Curve Verification Pipeline evidence justify the chosen
     physics-informed ingredients.
-29. After the K01/H08 promotion decision, evaluate a gated integrated
-    specialist architecture using K01, H08, F01, S01, H04, Stage 10 R00, and
-    Stage 10 S01 as separately ablated ingredients. This TODO is not automatic
-    Wave 6 authorization.
+29. Prepare a gated integrated-specialist roadmap using K01, forward-only H08,
+    F01, S01, H04, Stage 10 R00, and Stage 10 S01 as separately ablated
+    ingredients. Exclude the current global H08 formulation and treat its
+    offset/global-interference defect as a mandatory negative-control contract.
+    This TODO is not automatic Wave 6 authorization.
 
 ## Closeout Update Rule
 
