@@ -36,11 +36,14 @@ Historical rationale and approval history remain in:
   offline model-verification
   report, closed as the canonical direction-aware verification surface for new
   model families.
-- Current Focus: K01 TwinCAT qualification, H08 backward/global defect
-  analysis, and a separate future integrated-specialist roadmap. The official
-  K01/H08 cross-surface curve-first verification is complete. The completed
-  Phases 0 through 15 closeout remains valid and physics-integrated Wave 6
-  remains closed. Stages 0 through 15 are complete: the accepted periodic GRU,
+- Current Focus: manual PLC model testing proceeds independently and in
+  parallel through the published standalone TF3820 module. The next repository
+  modeling task is the H08 backward/global defect analysis; the separate
+  integrated-specialist roadmap follows only after that analysis is closed.
+  The official K01/H08 cross-surface curve-first verification is complete. The
+  completed Phases 0 through 15 closeout remains valid and physics-integrated
+  Wave 6 remains closed. Stages 0 through 15 are complete: the accepted
+  periodic GRU,
   periodic harmonic MLP, and `PF_A_LOCAL_QUADRATIC` are frozen as controls,
   a source-backed register separates thirteen active real-data
   techniques, eleven conditional techniques, three oracle-only techniques,
@@ -194,12 +197,16 @@ Historical rationale and approval history remain in:
   periodic harmonic MLP wins polished-setpoint `Bw` and simplified-setpoint
   `Fw`. Wave 4.1 remains the raw-error and offset diagnostic ingredient.
   Sparse-RCIM temporal candidates remain actual-values references only.
-- Current Next Branch: operator-run the prepared 24-candidate official
-  multi-index curve-first verification on
-  distinct `Fw`, `Bw`, and `global` surfaces. Preserve periodic GRU and periodic
-  harmonic MLP regardless of the result. A separate future TODO will study an
-  integrated specialist model combining K01, H08, F01, S01, H04, Stage 10 R00,
-  and Stage 10 S01; it has no training authorization.
+- Current Next Branch: prepare a separately approval-gated diagnostic of the
+  H08 raw-error, offset, and envelope regressions on `Bw` and `global`, while
+  preserving H08 as the current non-temporal `Fw` specialist. Manual PLC
+  testing through the standalone TF3820 module continues in parallel and does
+  not block this modeling queue. After the H08 analysis is closed, prepare a
+  separate integrated-specialist roadmap covering K01, H08, F01, S01, H04,
+  Stage 10 R00, and Stage 10 S01 with explicit ablations and inspectability
+  gates. This later roadmap has no current implementation or training
+  authorization. The paper-faithful MMT full PINN remains an inactive future
+  option and is not part of the active queue.
 
 Current canonical status reports:
 

@@ -368,6 +368,11 @@ This folder contains the internal project documents derived from the reference P
   branch from the complete standalone solution while preserving the main
   development harness and its parent gitlink.
 
+- [technical/2026-08/2026-08-02/2026-08-02-11-30-54_live_backlog_priority_alignment.md](./technical/2026-08/2026-08-02/2026-08-02-11-30-54_live_backlog_priority_alignment.md)
+  Documentation-only plan for removing the completed Wave 5.2R verification
+  from the active queue and ordering parallel PLC work, H08 defect analysis,
+  the integrated-specialist roadmap, and deferred MMT work.
+
 - [technical/2026-07/2026-07-30/2026-07-30-17-35-29_wave52r_offline_leader_global_promotion_and_four_leader_portfolio.md](./technical/2026-07/2026-07-30/2026-07-30-17-35-29_wave52r_offline_leader_global_promotion_and_four_leader_portfolio.md)
   Approval-gated plan for qualifying K01 and H08 through causal, export,
   runtime, PLC, and cross-surface tests while preserving both non-PINN
