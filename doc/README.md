@@ -363,6 +363,11 @@ This folder contains the internal project documents derived from the reference P
   Approval-gated plan and persistent selection baseline for promoting the K01,
   H08, and H04 post-retraining specialists into the canonical model archive.
 
+- [technical/2026-08/2026-08-01/2026-08-01-20-54-14_tf3820_reusable_function_block_branch.md](./technical/2026-08/2026-08-01/2026-08-01-20-54-14_tf3820_reusable_function_block_branch.md)
+  Approval-gated design for deriving a reusable TF3820 predictor source-package
+  branch from the complete standalone solution while preserving the main
+  development harness and its parent gitlink.
+
 - [technical/2026-07/2026-07-30/2026-07-30-17-35-29_wave52r_offline_leader_global_promotion_and_four_leader_portfolio.md](./technical/2026-07/2026-07-30/2026-07-30-17-35-29_wave52r_offline_leader_global_promotion_and_four_leader_portfolio.md)
   Approval-gated plan for qualifying K01 and H08 through causal, export,
   runtime, PLC, and cross-surface tests while preserving both non-PINN
