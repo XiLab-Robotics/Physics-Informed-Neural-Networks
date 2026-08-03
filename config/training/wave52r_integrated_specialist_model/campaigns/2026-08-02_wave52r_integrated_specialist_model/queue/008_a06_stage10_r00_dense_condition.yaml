@@ -1,0 +1,7 @@
+queue_index: 8
+ablation_id: A06
+mode: train_single_branch
+branch: dense_condition_interaction
+hypothesis_source: stage10_r00_extended_library
+specialty_metric: mae_deg
+seed_list: [314159, 271828, 161803]

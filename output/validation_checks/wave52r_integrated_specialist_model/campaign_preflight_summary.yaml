@@ -1,0 +1,31 @@
+schema_version: 1
+generated_at: '2026-08-03T17:47:03+02:00'
+status: passed
+campaign_name: wave52r_integrated_specialist_model_2026_08_02
+campaign_plan_status: approved
+training_execution_started: false
+split_signature: c1aa8718fb9bf88cc2021c121dc4f3b4010fc1d2e45ac90af5f4376aa64f8e16
+surface_list:
+- Fw
+- Bw
+- global
+random_seed_list:
+- 314159
+- 271828
+- 161803
+maximum_run_count: 24
+queue_entry_count: 10
+protected_file_count: 23
+k01_decomposition_replay_max_abs_deg: 0.0
+backward_h08_residual_abs_max_deg: 0.0
+forward_h08_residual_abs_max_deg: 0.0011328138643875718
+checkpoint_sha256:
+  fw_h04: 916fe74b22a811d422c1f414bc28d1044af31e1892c0dee24b2d21bbccb962fc
+  fw_k01: 970c667aa734eb3e0eab8b1c54c8bfd800a319a4a166c3b3a8c5c32e8a01164c
+  bw_h04: 26abe036c05cf355089be6d147a1afb792a04a4e3d4d5131e81bca0601779807
+  bw_k01: 0b35b4ef37bcead452cb02058fd132a898ba085a63936ae732a3fbedbfe3e835
+  global_h04: c46397330fd871ec354cd631ba6c4f374f4828bb4df423258d2d4d22a88f7596
+  global_k01: 9ebf48190775ec00c5a867998645b213396726c1d199a358f0b04157a386602d
+  fw_h08: 5167df19b729c93bead9d7b0f42c35372a488f89b07bc2581b0834fcb02330ad
+runtime_target_derived_input_count: 0
+training_authorized: true

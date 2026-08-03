@@ -1,0 +1,110 @@
+schema_version: 1
+campaign_name: wave52r_integrated_specialist_model_2026_08_02
+campaign_type: wave52r_empirical_integrated_specialist
+dataset_id: polished_dataset
+input_mode: setpoints
+surface_list:
+  - Fw
+  - Bw
+  - global
+primary_surface: global
+split_signature: c1aa8718fb9bf88cc2021c121dc4f3b4010fc1d2e45ac90af5f4376aa64f8e16
+random_seed_list:
+  - 314159
+  - 271828
+  - 161803
+ablation_order:
+  - A00
+  - A00D
+  - A01
+  - A02
+  - A03
+  - A04
+  - A05
+  - A06
+  - A07
+  - A08
+replay_run_count: 3
+single_branch_run_count: 18
+conditional_integrated_run_count: 3
+maximum_run_count: 24
+baseline_topology_contract:
+  selected_specialist_attachment_topology: global_k01
+  comparison_control_topology: direction_specific_k01
+  selection_basis:
+    - official_cross_surface_k01_evidence
+    - explicit_direction_input
+    - single_checkpoint_and_single_state_path
+    - lower_initial_plc_routing_complexity
+  automatic_topology_replacement_allowed: false
+frozen_checkpoint_contract:
+  fw_h04: output/training_runs/complex_harmonic_coefficient_residuals/2026-07-31-10-42-28__stage5_h04__seed_271828/best_model.pt
+  fw_k01: output/training_runs/temporal_analytical_residual_models/2026-07-31-10-45-41__stage9_k01__seed_271828/best_model.pt
+  bw_h04: output/training_runs/complex_harmonic_coefficient_residuals/2026-07-31-10-52-12__stage5_h04__seed_271828/best_model.pt
+  bw_k01: output/training_runs/temporal_analytical_residual_models/2026-07-31-10-55-28__stage9_k01__seed_271828/best_model.pt
+  global_h04: output/training_runs/complex_harmonic_coefficient_residuals/2026-07-31-11-05-16__stage5_h04__seed_271828/best_model.pt
+  global_k01: output/training_runs/temporal_analytical_residual_models/2026-07-31-11-11-39__stage9_k01__seed_271828/best_model.pt
+  fw_h08: output/training_runs/complex_harmonic_coefficient_residuals/2026-07-31-10-45-42__stage5_h08__seed_161803/best_model.pt
+training_contract:
+  maximum_epochs: 40
+  curve_batch_size: 32
+  learning_rate: 0.001
+  weight_decay: 0.00001
+  gradient_clip_norm: 1.0
+  checkpoint_selection_split: validation
+  final_test_evaluation_count: 1
+  immutable_run_instance_directories: true
+acceptance_gate:
+  specialty_improvement_fraction: 0.01
+  non_regression_fraction: 0.01
+  minimum_passing_seed_count: 2
+  scalar_mae_only_selection_allowed: false
+  separate_surface_reporting_required: true
+execution_contract:
+  campaign_driver: scripts/campaigns/wave_5_2/run_wave52r_integrated_specialist_model.py
+  launcher: scripts/campaigns/wave_5_2/run_wave52r_integrated_specialist_model.ps1
+  local_preflight_command: .\scripts\campaigns\wave_5_2\run_wave52r_integrated_specialist_model.ps1 -PreflightOnly
+  local_launch_command: .\scripts\campaigns\wave_5_2\run_wave52r_integrated_specialist_model.ps1 -Run
+  remote_preflight_command: .\scripts\campaigns\wave_5_2\run_wave52r_integrated_specialist_model.ps1 -Remote -PreflightOnly
+  remote_launch_command: .\scripts\campaigns\wave_5_2\run_wave52r_integrated_specialist_model.ps1 -Remote -Run
+approval:
+  technical_document_status: approved
+  campaign_plan_status: approved
+  approval_source: explicit_user_approval_for_technical_document_and_campaign_plan
+  technical_document_approved_at: '2026-08-02T19:55:10+02:00'
+  campaign_plan_approved_at: '2026-08-03T17:15:01+02:00'
+persistent_state_contract:
+  campaign_name: wave52r_integrated_specialist_model_2026_08_02
+  campaign_type: wave52r_empirical_integrated_specialist
+  dataset_id: polished_dataset
+  input_mode: setpoints
+  surface_list:
+    - Fw
+    - Bw
+    - global
+  primary_surface: global
+  expected_run_count_maximum: 24
+  random_seed_list:
+    - 314159
+    - 271828
+    - 161803
+  campaign_manifest_path: config/training/wave52r_integrated_specialist_model/campaigns/2026-08-02_wave52r_integrated_specialist_model/campaign.yaml
+  launcher_path: scripts/campaigns/wave_5_2/run_wave52r_integrated_specialist_model.ps1
+  launcher_note_path: doc/scripts/campaigns/wave_5_2/run_wave52r_integrated_specialist_model.md
+  planning_report_path: doc/reports/campaign_plans/model_development_waves/wave_5_2/integrated_specialist_model/2026-08-02-19-55-10_wave52r_integrated_specialist_model_campaign_plan_report.md
+  technical_document_path: doc/technical/2026-08/2026-08-02/2026-08-02-19-27-36_wave52r_integrated_specialist_model_roadmap.md
+  local_preflight_command: .\scripts\campaigns\wave_5_2\run_wave52r_integrated_specialist_model.ps1 -PreflightOnly
+  local_launch_command: .\scripts\campaigns\wave_5_2\run_wave52r_integrated_specialist_model.ps1 -Run
+  remote_preflight_command: .\scripts\campaigns\wave_5_2\run_wave52r_integrated_specialist_model.ps1 -Remote -PreflightOnly
+  remote_launch_command: .\scripts\campaigns\wave_5_2\run_wave52r_integrated_specialist_model.ps1 -Remote -Run
+  approval:
+    technical_document_status: approved
+    campaign_plan_status: approved
+    approval_source: explicit_user_approval_for_technical_document_and_campaign_plan
+    campaign_plan_approved_at: '2026-08-03T17:15:01+02:00'
+  incumbent_preservation:
+    periodic_gru_sequence: frozen_control
+    periodic_mlp_harmonic: frozen_control
+    k01: frozen_offline_baseline
+    h08: forward_only_frozen_specialist
+    automatic_replacement_allowed: false

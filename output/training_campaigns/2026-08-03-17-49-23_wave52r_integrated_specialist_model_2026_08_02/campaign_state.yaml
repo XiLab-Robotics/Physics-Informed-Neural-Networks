@@ -1,0 +1,67 @@
+campaign_name: wave52r_integrated_specialist_model_2026_08_02
+campaign_type: wave52r_empirical_integrated_specialist
+dataset_id: polished_dataset
+input_mode: setpoints
+surface_list:
+- Fw
+- Bw
+- global
+primary_surface: global
+expected_run_count_maximum: 24
+random_seed_list:
+- 314159
+- 271828
+- 161803
+campaign_manifest_path: config/training/wave52r_integrated_specialist_model/campaigns/2026-08-02_wave52r_integrated_specialist_model/campaign.yaml
+launcher_path: scripts/campaigns/wave_5_2/run_wave52r_integrated_specialist_model.ps1
+launcher_note_path: doc/scripts/campaigns/wave_5_2/run_wave52r_integrated_specialist_model.md
+planning_report_path: doc/reports/campaign_plans/model_development_waves/wave_5_2/integrated_specialist_model/2026-08-02-19-55-10_wave52r_integrated_specialist_model_campaign_plan_report.md
+technical_document_path: doc/technical/2026-08/2026-08-02/2026-08-02-19-27-36_wave52r_integrated_specialist_model_roadmap.md
+local_preflight_command: .\scripts\campaigns\wave_5_2\run_wave52r_integrated_specialist_model.ps1 -PreflightOnly
+local_launch_command: .\scripts\campaigns\wave_5_2\run_wave52r_integrated_specialist_model.ps1 -Run
+remote_preflight_command: .\scripts\campaigns\wave_5_2\run_wave52r_integrated_specialist_model.ps1 -Remote
+  -PreflightOnly
+remote_launch_command: .\scripts\campaigns\wave_5_2\run_wave52r_integrated_specialist_model.ps1 -Remote
+  -Run
+approval:
+  technical_document_status: approved
+  campaign_plan_status: approved
+  approval_source: explicit_user_approval_for_technical_document_and_campaign_plan
+  campaign_plan_approved_at: '2026-08-03T17:15:01+02:00'
+incumbent_preservation:
+  periodic_gru_sequence: frozen_control
+  periodic_mlp_harmonic: frozen_control
+  k01: frozen_offline_baseline
+  h08: forward_only_frozen_specialist
+  automatic_replacement_allowed: false
+status: completed
+protected_file_list:
+- config/training/wave52r_integrated_specialist_model/campaigns/2026-08-02_wave52r_integrated_specialist_model/campaign.yaml
+- config/training/wave52r_integrated_specialist_model/campaigns/2026-08-02_wave52r_integrated_specialist_model/queue/001_a00_global_k01_replay.yaml
+- config/training/wave52r_integrated_specialist_model/campaigns/2026-08-02_wave52r_integrated_specialist_model/queue/002_a00d_directional_k01_replay.yaml
+- config/training/wave52r_integrated_specialist_model/campaigns/2026-08-02_wave52r_integrated_specialist_model/queue/003_a01_decomposed_k01_replay.yaml
+- config/training/wave52r_integrated_specialist_model/campaigns/2026-08-02_wave52r_integrated_specialist_model/queue/004_a02_h08_fw_centered.yaml
+- config/training/wave52r_integrated_specialist_model/campaigns/2026-08-02_wave52r_integrated_specialist_model/queue/005_a03_h04_shape_control.yaml
+- config/training/wave52r_integrated_specialist_model/campaigns/2026-08-02_wave52r_integrated_specialist_model/queue/006_a04_f01_shape_objective.yaml
+- config/training/wave52r_integrated_specialist_model/campaigns/2026-08-02_wave52r_integrated_specialist_model/queue/007_a05_stage12_s01_harmonic_closure.yaml
+- config/training/wave52r_integrated_specialist_model/campaigns/2026-08-02_wave52r_integrated_specialist_model/queue/008_a06_stage10_r00_dense_condition.yaml
+- config/training/wave52r_integrated_specialist_model/campaigns/2026-08-02_wave52r_integrated_specialist_model/queue/009_a07_stage10_s01_threshold_control.yaml
+- config/training/wave52r_integrated_specialist_model/campaigns/2026-08-02_wave52r_integrated_specialist_model/queue/010_a08_passed_branches.yaml
+- scripts/models/integrated_specialist_residual_network.py
+- scripts/campaigns/wave_5_2/run_wave52r_integrated_specialist_model.py
+- scripts/campaigns/wave_5_2/run_wave52r_integrated_specialist_model.ps1
+- doc/scripts/campaigns/wave_5_2/run_wave52r_integrated_specialist_model.md
+- doc/reports/campaign_plans/model_development_waves/wave_5_2/integrated_specialist_model/2026-08-02-19-55-10_wave52r_integrated_specialist_model_campaign_plan_report.md
+- doc/reports/analysis/model_development_waves/wave_5_2/integrated_specialist_model/[2026-08-02]/wave52r_integrated_specialist_model_report.md
+- doc/technical/2026-08/2026-08-02/2026-08-02-19-27-36_wave52r_integrated_specialist_model_roadmap.md
+- doc/running/te_model_live_backlog.md
+- doc/reports/analysis/project_status/current/Training Results Master Summary.md
+- doc/reports/analysis/project_status/current/TE Program Status And Closeout Ledger.md
+- output/validation_checks/wave52r_integrated_specialist_model/campaign_preflight_summary.yaml
+- doc/running/active_training_campaign.yaml
+campaign_output_directory: output/training_campaigns/2026-08-03-17-49-23_wave52r_integrated_specialist_model_2026_08_02
+started_at: '2026-08-03T17:49:23+02:00'
+completed_at: '2026-08-03T17:58:38+02:00'
+completed_run_count: 24
+campaign_best_run_path: output/training_campaigns/2026-08-03-17-49-23_wave52r_integrated_specialist_model_2026_08_02/campaign_best_run.yaml
+official_curve_verification_status: pending_separate_operator_step

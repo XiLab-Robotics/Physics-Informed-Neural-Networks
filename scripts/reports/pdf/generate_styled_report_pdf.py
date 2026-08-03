@@ -52,6 +52,7 @@ REPORT_SPECIFIC_SUBTITLE_DICTIONARY = {
     "2026-07-02-10-36-59_polished_full_wave_retraining_campaign_results_report": "Polished Full-Wave Retraining Closeout",
     "2026-07-22-15-20-49_shape_first_training_rule_distillation_pilot_campaign_results_report": "Shape-First Training-Rule Distillation Pilot Closeout",
     "2026-07-26-16-53-50_phase2_harmonic_kinematic_pinn_campaign_results_report": "Wave 5.2 Phase 2 Full-PINN Closeout",
+    "2026-08-03-17-58-38_wave52r_integrated_specialist_model_campaign_results_report": "Wave 5.2R Empirical Specialist Closeout",
 }
 FAMILYWISE_ONNX_REPORT_SUBTITLE = "TE Curve Verification Familywise ONNX Diagnostics"
 

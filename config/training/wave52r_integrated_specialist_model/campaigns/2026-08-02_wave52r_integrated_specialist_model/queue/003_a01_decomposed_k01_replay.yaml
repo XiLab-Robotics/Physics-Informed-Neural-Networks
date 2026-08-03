@@ -1,0 +1,6 @@
+queue_index: 3
+ablation_id: A01
+mode: identity_replay
+baseline_topology: global_k01
+required_max_abs_difference_deg: 0.0
+seed_list: [271828]

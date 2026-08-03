@@ -22,10 +22,11 @@ Historical rationale and approval history remain in:
 ## Current Status
 
 - Program State: active.
-- Active Campaign State: completed and normally closed out. The
-  `wave52r_offline_leader_cross_surface_promotion_2026_07_30` campaign finished
-  `27 / 27` K01, H08, and matched H04-anchor runs across `Fw`, `Bw`, and
-  direction-aware `global`, with zero failed queue entries.
+- Active Campaign State: none. The
+  `wave52r_integrated_specialist_model_2026_08_02` campaign completed `24 / 24`
+  entries and its normal closeout is complete. Its protected-file list is
+  cleared. The separate TE Curve Verification Pipeline refresh remains
+  pending explicit approval and operator execution.
 - Current Completed Wave: polished-dataset RCIM, early-wave, and full-wave
   retraining closeouts plus the official `2026-07-03` TE Curve Verification
   Pipeline refresh are complete.
@@ -37,11 +38,13 @@ Historical rationale and approval history remain in:
   report, closed as the canonical direction-aware verification surface for new
   model families.
 - Current Focus: manual PLC model testing proceeds independently and in
-  parallel through the published standalone TF3820 module. The H08
-  backward/global defect analysis is complete and confirms an offset-dominant,
-  direction-conditioned defect with global-fit interference. The next
-  repository modeling task is the separately approval-gated
-  integrated-specialist roadmap.
+  parallel through the published standalone TF3820 module. The empirical
+  integrated-specialist campaign and normal closeout are complete. Only A02,
+  the forward-gated centered H08 branch, passed its three-seed branch gate;
+  A08 therefore contains A02 alone and adds no distinct integration gain.
+  A04 is only the failed-gate scalar validation winner. The next optional
+  repository step is the separately approved and operator-run Fw/Bw/global
+  TE Curve Verification Pipeline refresh.
   The official K01/H08 cross-surface curve-first verification is complete. The
   completed Phases 0 through 15 closeout remains valid and physics-integrated
   Wave 6 remains closed. Stages 0 through 15 are complete: the accepted
@@ -199,16 +202,12 @@ Historical rationale and approval history remain in:
   periodic harmonic MLP wins polished-setpoint `Bw` and simplified-setpoint
   `Fw`. Wave 4.1 remains the raw-error and offset diagnostic ingredient.
   Sparse-RCIM temporal candidates remain actual-values references only.
-- Current Next Branch: prepare a separate approval-gated integrated-specialist
-  roadmap covering K01, the forward-only H08 specialist, F01, S01, H04,
-  Stage 10 R00, and Stage 10 S01 with explicit ablations, direction-aware
-  surfaces, and inspectability gates. The current global H08 formulation must
-  not be transferred into that roadmap; its `a0`/offset defect is an exclusion
-  and ablation contract. Manual PLC testing through the standalone TF3820
-  module continues in parallel and does not block this modeling queue. This
-  roadmap has no current implementation or training authorization. The
-  paper-faithful MMT full PINN remains an inactive future option and is not
-  part of the active queue.
+- Current Next Branch: optionally prepare the separate Fw/Bw/global TE Curve
+  Verification Pipeline refresh for the completed Wave 5.2R
+  integrated-specialist campaign. A02 is the only gate-qualified empirical
+  branch; A04 remains an unpromoted scalar validation winner.
+  Manual PLC testing through the standalone TF3820 module continues in
+  parallel. The paper-faithful MMT full PINN remains an inactive future option.
 
 Current canonical status reports:
 

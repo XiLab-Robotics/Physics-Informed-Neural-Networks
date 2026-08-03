@@ -1,0 +1,6 @@
+queue_index: 5
+ablation_id: A03
+mode: train_single_branch
+branch: h04_centered_analytical_control
+specialty_metric: centered_shape_mae_deg
+seed_list: [314159, 271828, 161803]

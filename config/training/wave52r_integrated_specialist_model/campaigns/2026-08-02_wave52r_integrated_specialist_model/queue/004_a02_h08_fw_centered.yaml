@@ -1,0 +1,7 @@
+queue_index: 4
+ablation_id: A02
+mode: train_single_branch
+branch: h08_forward_centered
+specialty_metric: retained_phase_mae_rad
+forbidden_behavior: h08_mean_or_backward_transfer
+seed_list: [314159, 271828, 161803]

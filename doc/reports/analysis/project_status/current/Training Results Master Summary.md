@@ -2,12 +2,13 @@
 
 ## Executive Snapshot
 
-- Generated At: `2026-08-02T17:15:58+02:00`
+- Generated At: `2026-08-03T18:37:05+02:00`
 - Program State: active.
 - Current Completed Wave: polished-dataset RCIM, early-wave, and full-wave
-- Current Focus: parallel PLC qualification and the approval-gated integrated-specialist roadmap.
-- Active Campaign Status: `completed`
-- Active Campaign Name: `wave52r_offline_leader_cross_surface_promotion_2026_07_30`
+- Current Focus: parallel PLC qualification and optional preparation of the
+  separate integrated-specialist TE Curve Verification Pipeline refresh.
+- Active Campaign Status: `none`
+- Active Campaign Name: `none`
 - Current Program Winner: `te_periodic_gru_sequence_bw` | Family `periodic_gru_sequence_bw` | Test MAE `0.001084`
 
 ## Main Takeaways
@@ -15,7 +16,7 @@
 - Strongest current neural family: `periodic_gru_sequence_bw`
 - Current plain MLP anchor: `te_feedforward_trial`
 - Active family-improvement branch count: `0`
-- Implemented and benchmarked family count: `254`
+- Implemented and benchmarked family count: `255`
 - Wave 5.2R progress: all `16 / 16` stages and the subsequent full-candidate
   forward verification are complete. The `98`-candidate, `97`-curve matrix
   identifies K01 as the temporal offline leader and H08 as the balanced
@@ -35,8 +36,14 @@
   is offset-dominant and that the combined global formulation is worse than
   the corresponding directional H08 specialists on both directions. H08
   therefore remains forward-only, and its current global formulation is an
-  explicit exclusion and ablation control for the next integrated-specialist
-  roadmap.
+  explicit exclusion and ablation control for the integrated-specialist
+  package. Its campaign completed `24 / 24` entries with no failure. A02 passed
+  the branch gate for all three seeds, so A08 contains only the forward-gated
+  centered H08 branch and is prediction-equivalent to A02. A04 seed `271828`
+  is the validation-only scalar winner at global test MAE `0.001457 deg`, but
+  it failed its specialty and multi-index gates. No incumbent or accepted
+  program registry changed; official curve-first verification remains a
+  separate pending operator step.
 
 ## Current Project Status
 
@@ -48,6 +55,7 @@
 
 | Family | Current Role | Best Run | Model Type | Test MAE [deg] | Params | Last Update |
 | --- | --- | --- | --- | ---: | ---: | --- |
+| `integrated_specialist_models` | Provisional Failed-Gate Scalar Winner | `2026-08-03-17-52-59__a04__seed_271828` | `integrated_specialist_residual_network` | 0.001457 | 1,022 | `2026-08-03 17:58:38` |
 | `periodic_gru_sequence_global` | Implemented Benchmark | `te_periodic_gru_sequence_global` | `periodic_gru_sequence` | 0.001159 | 157,569 | `2026-07-09 00:29:12` |
 | `periodic_lstm_sequence_global` | Implemented Benchmark | `te_periodic_lstm_sequence_global` | `periodic_lstm_sequence` | 0.001187 | 210,049 | `2026-07-09 05:06:07` |
 | `periodic_mlp_harmonic_global` | Implemented Benchmark | `te_periodic_mlp_harmonic_global` | `periodic_mlp` | 0.001264 | 28,417 | `2026-07-08 03:17:38` |

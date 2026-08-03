@@ -1,0 +1,7 @@
+queue_index: 9
+ablation_id: A07
+mode: train_single_branch
+branch: thresholded_condition_interaction_control
+hypothesis_source: stage10_s01_negative_control
+specialty_metric: mae_deg
+seed_list: [314159, 271828, 161803]

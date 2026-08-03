@@ -1,0 +1,7 @@
+queue_index: 6
+ablation_id: A04
+mode: train_single_branch
+branch: learned_centered_shape
+hypothesis_source: stage12_f01_objective_only
+specialty_metric: centered_shape_mae_deg
+seed_list: [314159, 271828, 161803]

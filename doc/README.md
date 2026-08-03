@@ -378,6 +378,27 @@ This folder contains the internal project documents derived from the reference P
   global offset, envelope, direction, harmonic-band, condition, and seed
   defects before any integrated-specialist roadmap is prepared.
 
+- [technical/2026-08/2026-08-02/2026-08-02-19-27-36_wave52r_integrated_specialist_model_roadmap.md](./technical/2026-08/2026-08-02/2026-08-02-19-27-36_wave52r_integrated_specialist_model_roadmap.md)
+  Approval-gated empirical integrated-specialist roadmap using K01 as the
+  causal base, H08 only as a forward centered-harmonic specialist, and bounded
+  ablations for F01, S01, H04, and Stage 10 condition-library evidence.
+
+- [Wave 5.2R Integrated Specialist Campaign Plan](./reports/campaign_plans/model_development_waves/wave_5_2/integrated_specialist_model/2026-08-02-19-55-10_wave52r_integrated_specialist_model_campaign_plan_report.md)
+  Approved plan for three frozen replays, eighteen single-branch runs, and up
+  to three passed-branch-only integrated runs.
+
+- [Wave 5.2R Integrated Specialist Campaign Results](./reports/campaign_results/model_development_waves/wave_5_2/2026-08-03-17-58-38_wave52r_integrated_specialist_model_campaign_results_report.md)
+  Completed `24 / 24` closeout: A02 is the only gate-qualified branch, A08
+  contains A02 alone, and failed-gate A04 remains a provisional scalar winner.
+  [Validated PDF companion](./reports/campaign_results/model_development_waves/wave_5_2/2026-08-03-17-58-38_wave52r_integrated_specialist_model_campaign_results_report.pdf).
+
+- [Wave 5.2R Integrated Specialist Model Report](./reports/analysis/model_development_waves/wave_5_2/integrated_specialist_model/%5B2026-08-02%5D/wave52r_integrated_specialist_model_report.md)
+  Architecture, operating principle, tradeoffs, and implementation map for the
+  bounded empirical K01 specialist residual model.
+
+- [Wave 5.2R Integrated Specialist Launcher](./scripts/campaigns/wave_5_2/run_wave52r_integrated_specialist_model.md)
+  Approval-aware local and LAN-remote preflight and execution commands.
+
 - [technical/2026-07/2026-07-30/2026-07-30-17-35-29_wave52r_offline_leader_global_promotion_and_four_leader_portfolio.md](./technical/2026-07/2026-07-30/2026-07-30-17-35-29_wave52r_offline_leader_global_promotion_and_four_leader_portfolio.md)
   Approval-gated plan for qualifying K01 and H08 through causal, export,
   runtime, PLC, and cross-surface tests while preserving both non-PINN

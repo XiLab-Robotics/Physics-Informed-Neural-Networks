@@ -1,0 +1,45 @@
+validation_only: true
+predeclared_specialist_attachment_topology: global_k01
+comparison_control_topology: direction_specific_k01
+selection_basis:
+- official_cross_surface_k01_evidence
+- explicit_direction_input
+- single_checkpoint_and_single_state_path
+- lower_initial_plc_routing_complexity
+global_k01_metrics:
+  mae_deg: 0.001549551996203936
+  rmse_deg: 0.0018395701675354371
+  centered_mae_deg: 0.0012705262776239177
+  centered_rmse_deg: 0.0015410504979193437
+  offset_abs_error_deg: 0.0006769982171419155
+  peak_to_peak_abs_error_deg: 0.0030650839501693197
+  derivative_mae_deg_per_sample: 0.0009141412462503635
+  periodic_closure_error_deg: 0.0009751311772186117
+  retained_amplitude_mae_deg: 0.0001873009615068886
+  retained_phase_mae_rad: 0.22269778579663504
+  sobolev_derivative_mae: 0.2756200487221884
+  sobolev_derivative_correlation: 0.5404891659430946
+  per_curve_mae_p95: 0.004896452587380461
+  per_curve_mae_worst: 0.016319170114694755
+  unsupported_high_frequency_energy_ratio: 0.02276617454241258
+  mean_mae_deg: 0.0006769982171419155
+  centered_shape_mae_deg: 0.0012705262776239177
+directional_k01_metrics:
+  mae_deg: 0.0014932338440393743
+  rmse_deg: 0.0017728333220521871
+  centered_mae_deg: 0.0012861077259840226
+  centered_rmse_deg: 0.0015459910253613983
+  offset_abs_error_deg: 0.0005761031747689012
+  peak_to_peak_abs_error_deg: 0.0034799869077880574
+  derivative_mae_deg_per_sample: 0.0009249172698666175
+  periodic_closure_error_deg: 0.0008330845187619789
+  retained_amplitude_mae_deg: 0.00018464026899305637
+  retained_phase_mae_rad: 0.21811463150009822
+  sobolev_derivative_mae: 0.2789805761431109
+  sobolev_derivative_correlation: 0.5381836880204247
+  per_curve_mae_p95: 0.004739084208867096
+  per_curve_mae_worst: 0.01780496831461705
+  unsupported_high_frequency_energy_ratio: 0.013029107820403413
+  mean_mae_deg: 0.0005761031747689012
+  centered_shape_mae_deg: 0.0012861077259840228
+deployment_topology_decision_authorized: false

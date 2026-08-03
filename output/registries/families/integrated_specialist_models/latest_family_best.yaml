@@ -1,0 +1,28 @@
+schema_version: 1
+model_family: integrated_specialist_models
+registry_status: provisional_validation_only
+selection_policy:
+  primary_metric: validation_global_mae_deg
+  direction: minimize
+  qualification_gate_required_for_promotion: true
+updated_at: '2026-08-03T18:37:05+02:00'
+best_entry:
+  ablation_id: A04
+  random_seed: 271828
+  run_instance_id: 2026-08-03-17-52-59__a04__seed_271828
+  model_type: integrated_specialist_residual_network
+  dataset_id: polished_dataset
+  input_mode: setpoints
+  direction_scope_label: bidirectional
+  validation_global_mae_deg: 0.0015390705244073004
+  test_global_mae_deg: 0.0014566545165512687
+  test_Fw_mae_deg: 0.001397443620177771
+  test_Bw_mae_deg: 0.0015158654129247661
+  trainable_parameter_count: 1022
+  gate_passed: false
+  promotion_authorized: false
+  output_directory: output/training_runs/integrated_specialist_models/2026-08-03-17-52-59__a04__seed_271828
+  best_checkpoint_path: output/training_runs/integrated_specialist_models/2026-08-03-17-52-59__a04__seed_271828/best_model.pt
+  metrics_path: output/training_runs/integrated_specialist_models/2026-08-03-17-52-59__a04__seed_271828/metrics_summary.yaml
+  campaign_best_run_path: output/training_campaigns/2026-08-03-17-49-23_wave52r_integrated_specialist_model_2026_08_02/campaign_best_run.yaml
+  selected_at: '2026-08-03T17:58:38+02:00'

@@ -518,6 +518,37 @@ Polynomial-Fourier model as the Phase 2 analytical reference and the reduced
 common-order variant as its alternative comparator. It does not train or claim
 a full PINN.
 
+## Wave 5.2R Integrated Specialist Campaign
+
+The empirical integrated-specialist package and campaign plan are approved.
+Run the local package, checkpoint, K01-identity, and backward-H08-gate
+validation without training:
+
+```powershell
+.\scripts\campaigns\wave_5_2\run_wave52r_integrated_specialist_model.ps1 `
+  -PreflightOnly
+```
+
+The equivalent LAN-remote preflight is:
+
+```powershell
+.\scripts\campaigns\wave_5_2\run_wave52r_integrated_specialist_model.ps1 `
+  -Remote -PreflightOnly
+```
+
+The approved remote campaign completed `24 / 24` entries on `2026-08-03`, and
+its normal closeout is complete. Use `-Run` locally or `-Remote -Run` only for
+a separately authorized reproducibility rerun. The package produces offline
+campaign evidence only; it does not promote a model or establish TwinCAT
+runtime readiness.
+
+The remote source bundle includes the latest local preflight evidence. The
+remote runner regenerates that summary before training and therefore does not
+require its own output file to pre-exist on a clean remote checkout.
+Generated Sphinx output is excluded from the remote training bundle.
+The launcher also sends only the protected campaign documents instead of the
+multi-gigabyte historical `doc/` archive.
+
 ## Wave 5.2R Stage 0 Forward Evidence Freeze
 
 Rebuild the immutable polished-setpoint `Fw` evidence contract after the

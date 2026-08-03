@@ -1,0 +1,7 @@
+queue_index: 7
+ablation_id: A05
+mode: train_single_branch
+branch: learned_centered_shape
+hypothesis_source: stage12_s01_harmonic_closure_objective_only
+specialty_metric: periodic_closure_error_deg
+seed_list: [314159, 271828, 161803]

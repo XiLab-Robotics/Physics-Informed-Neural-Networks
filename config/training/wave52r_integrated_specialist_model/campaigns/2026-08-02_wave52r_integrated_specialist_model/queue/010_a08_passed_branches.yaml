@@ -1,0 +1,7 @@
+queue_index: 10
+ablation_id: A08
+mode: conditional_train
+branch_selection: validation_gate_passed_branches_only
+minimum_passing_seed_count_per_branch: 2
+skip_when_no_branch_passes: true
+seed_list: [314159, 271828, 161803]
