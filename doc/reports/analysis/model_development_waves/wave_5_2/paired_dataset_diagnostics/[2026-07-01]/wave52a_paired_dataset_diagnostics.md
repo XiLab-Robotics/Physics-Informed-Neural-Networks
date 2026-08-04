@@ -1,5 +1,10 @@
 # Wave 5.2A Paired Dataset Diagnostics
 
+> Supersession note, `2026-08-04`: the dirty-to-clean implication below is an
+> intra-machine paired-dataset hypothesis. It is not the canonical future
+> Cross-Machine Backbone Adaptation workflow, which fine-tunes a
+> source-machine checkpoint on a smaller dataset from another target machine.
+
 ## Overview
 
 This diagnostic compares matched `simplified_dataset` and `polished_dataset`
@@ -99,10 +104,10 @@ not model-validation metrics.
 The full-matrix evidence keeps peak-to-peak and smoothness deltas near
 zero while exposing offset and nonzero-harmonic differences. The next
 model-design gate should therefore prioritize offset / mean heads,
-centered-shape loss, harmonic-consistency diagnostics, and
+centered-shape loss, harmonic-consistency diagnostics, and within-machine
 dirty-to-clean supervision before a heavy first PINN. Sampling anomalies
-remain isolated and should be handled as masks or exclusions, not as the
-main modeling target.
+remain isolated and should be handled as masks or exclusions, not as the main
+modeling target.
 
 ## Machine-Readable Artifacts
 

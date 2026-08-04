@@ -1,5 +1,9 @@
 # Causal Offset Mean Calibration Pilot
 
+> Supersession note, `2026-08-04`: the deferred dirty-to-clean `Wave 5.2C`
+> item is within-machine paired-dataset work, not the canonical Cross-Machine
+> Backbone Adaptation future extension.
+
 ## Overview
 
 This technical document defines the next approved-candidate branch after the
@@ -110,7 +114,7 @@ Deferred components:
 
 - official full `TE Curve Verification Pipeline` refresh;
 - global or backward expansion;
-- dirty-to-clean `Wave 5.2C` transfer;
+- within-machine dirty-to-clean `Wave 5.2C` supervision;
 - full PINN / MMT soft loss;
 - Wave 6 integrated multi-head architecture;
 - registry promotion.

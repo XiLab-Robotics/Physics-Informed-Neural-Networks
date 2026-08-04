@@ -371,10 +371,18 @@ modeling ideas, PINN-style soft constraints, and reduced-point sensitivity
 studies.
 
 Paired-dataset work should compare operating-condition aligned curves before
-training any dirty-to-clean or transfer model. The polishing workflow may guide
-offline diagnostics, masks, auxiliary heads, or train-time losses, but
+training any within-machine dirty-to-clean model. The polishing workflow may
+guide offline diagnostics, masks, auxiliary heads, or train-time losses, but
 non-causal or full-curve cleaning logic must not be copied into runtime
 inference.
+
+This paired-dataset hypothesis is not the canonical future backbone workflow.
+`Cross-Machine Backbone Adaptation` instead starts from a checkpoint trained
+on the current source machine and fine-tunes it with a smaller, independently
+split dataset measured on a different target machine. Its objective is to
+reduce new-machine measurement requirements, and it must compare zero-shot,
+same-budget scratch, fine-tuned, and larger-target-data controls under the
+direction-separated curve-first policy.
 
 ## Reproducing The Polished Export
 

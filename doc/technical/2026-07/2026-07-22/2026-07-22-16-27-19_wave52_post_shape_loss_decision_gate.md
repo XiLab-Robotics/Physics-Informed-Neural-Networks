@@ -1,5 +1,9 @@
 # Wave 5.2 Post-Shape-Loss Decision Gate
 
+> Supersession note, `2026-08-04`: dirty-to-clean `Wave 5.2C` references in
+> this historical plan are within-machine paired-dataset work, not the
+> canonical Cross-Machine Backbone Adaptation future extension.
+
 ## Overview
 
 This technical document defines the next step after the completed
@@ -18,7 +22,8 @@ The purpose is to decide which branch is worth implementing next:
 - a refreshed `Wave 5.2B` offset and harmonic guided branch only if it can
   target the observed raw-error, offset, harmonic-amplitude, and robustness
   regressions;
-- a `Wave 5.2C` weak physics or dirty-to-clean branch only if the existing
+- a `Wave 5.2C` weak physics or within-machine dirty-to-clean branch only if
+  the existing
   paired-dataset evidence justifies it;
 - no new training branch, if the evidence says the next useful work is a
   narrower diagnostic.

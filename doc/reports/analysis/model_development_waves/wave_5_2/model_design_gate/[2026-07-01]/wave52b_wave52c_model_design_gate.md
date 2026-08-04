@@ -1,5 +1,10 @@
 # Wave 5.2B And Wave 5.2C Model Design Gate
 
+> Supersession note, `2026-08-04`: `Wave 5.2C` below is retained as a
+> historical within-machine dirty-to-clean design. The canonical future
+> backbone extension instead adapts a source-machine checkpoint using a
+> smaller, independently split dataset measured on a different target machine.
+
 ## Overview
 
 This report translates the completed `Wave 5.2A` full paired-dataset matrix
@@ -62,7 +67,7 @@ The next model-design gate should prepare two bounded candidates:
 | Candidate | Decision |
 | --- | --- |
 | `Wave 5.2B` offset and harmonic guided model | Primary next implementation candidate after design approval. |
-| `Wave 5.2C` dirty-to-clean transfer model | Secondary candidate, only if its paired supervision is kept leakage-safe and diagnostic first. |
+| `Wave 5.2C` within-machine dirty-to-clean model | Secondary candidate; paired supervision must remain leakage-safe and diagnostic first. |
 
 `Wave 6` remains deferred. It should integrate only mechanisms that survive
 the `Wave 5.2B` and `Wave 5.2C` checks plus the synchronized full-wave
@@ -116,19 +121,20 @@ The first candidate loss should remain simple and auditable:
 
 ## Wave 5.2C Candidate Specification
 
-`Wave 5.2C` should remain a dirty-to-clean or transfer design, not the first
+`Wave 5.2C` should remain a within-machine dirty-to-clean design, not the first
 training branch.
 
 ### Objective
 
-Test whether the paired `simplified_dataset` surface can improve robustness or
-pretraining without importing polishing leakage into runtime inference.
+Test whether the paired `simplified_dataset` surface can improve robustness
+through train-time supervision without importing polishing leakage into
+runtime inference.
 
 ### Allowed Paired-Data Uses
 
 | Use | Status |
 | --- | --- |
-| Pretrain on `simplified_dataset`, fine-tune on `polished_dataset` | Allowed design candidate. |
+| Initialize on `simplified_dataset`, then adapt on `polished_dataset` | Historical within-machine design candidate. |
 | Auxiliary dirty-to-clean offset target | Allowed if target is train-only and not used as measured input at inference. |
 | Dirty-to-clean harmonic correction target | Allowed as diagnostic or auxiliary train-time target. |
 | Sampling-anomaly mask | Required for paired supervision. |
@@ -156,7 +162,8 @@ implementation requirements:
 - mixture-density heads;
 - latent-state / hysteresis heads;
 - integrated multi-task trunk with all auxiliary heads active;
-- reduced-point backbone adaptation;
+- cross-machine limited-data backbone adaptation, as a separately governed
+  future extension;
 - final deployable model packaging;
 - official `TE Curve Verification Pipeline` promotion.
 
@@ -170,5 +177,5 @@ before any training is run.
 
 Until then, this design gate should be treated as the current decision surface:
 start from lightweight offset / mean and nonzero-harmonic guidance, keep
-dirty-to-clean transfer secondary, and defer full PINN and integrated
-multi-head work.
+within-machine dirty-to-clean supervision secondary, and defer full PINN and
+integrated multi-head work.

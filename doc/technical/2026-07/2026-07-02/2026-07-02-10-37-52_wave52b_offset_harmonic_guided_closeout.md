@@ -1,5 +1,9 @@
 # Wave 5.2B Offset And Harmonic Guided Closeout
 
+> Supersession note, `2026-08-04`: the historical `Wave 5.2C` dirty-to-clean
+> package is within-machine paired-dataset supervision, not the canonical
+> Cross-Machine Backbone Adaptation future extension.
+
 ## Overview
 
 This technical document prepares the normal closeout for the completed
@@ -102,7 +106,7 @@ Deferred components:
 
 - any official `TE Curve Verification Pipeline` refresh;
 - any full-wave polished retraining closeout or interpretation;
-- any Wave 5.2C dirty-to-clean package;
+- any Wave 5.2C within-machine dirty-to-clean package;
 - any Wave 6 integrated multi-task package.
 
 ## Implementation Steps

@@ -1,5 +1,10 @@
 # Wave 5.2B And Wave 5.2C Model Design Gate
 
+> Supersession note, `2026-08-04`: `Wave 5.2C` in this historical design is a
+> within-machine dirty-to-clean hypothesis. It is separate from the canonical
+> Cross-Machine Backbone Adaptation extension, which uses a source-machine
+> checkpoint and a smaller dataset measured on a different target machine.
+
 ## Overview
 
 This technical document prepares the next step after the completed `Wave 5.2A`
@@ -44,11 +49,11 @@ The report should separate two implementation candidates:
 | Candidate | Purpose |
 | --- | --- |
 | `Wave 5.2B` offset and harmonic guided model | Test offset / mean supervision, centered-shape loss, and harmonic-consistency penalties on the clean `polished_dataset` branch. |
-| `Wave 5.2C` dirty-to-clean transfer model | Test whether paired `simplified_dataset` evidence can improve robustness through dirty-to-clean auxiliary supervision, pretraining, or fine-tuning. |
+| `Wave 5.2C` within-machine dirty-to-clean model | Test whether paired `simplified_dataset` evidence can improve robustness through dirty-to-clean auxiliary supervision or initialization. |
 
 The design gate must also define what is deferred to `Wave 6`: integrated
-multi-task / multi-head training, uncertainty heads, mixture heads,
-reduced-point backbone transfer, and final clean deployment comparison after
+multi-task / multi-head training, uncertainty heads, mixture heads, and final
+clean deployment comparison after
 the externally running full-wave `polished_dataset` retraining campaign is
 closed and synchronized.
 
@@ -103,8 +108,8 @@ Protected or deferred components:
    inputs, heads, losses, diagnostics, acceptance metrics, and deferred
    pieces.
 5. Draft the `Wave 5.2C` candidate specification:
-   paired-data usage, leakage-safe dirty-to-clean targets, pretraining or
-   fine-tuning boundary, diagnostics, and rejection criteria.
+   paired-data usage, leakage-safe within-machine dirty-to-clean targets,
+   initialization boundary, diagnostics, and rejection criteria.
 6. Define what remains blocked until the externally running full-wave
    `polished_dataset` campaign closes.
 7. Generate the model-design gate report and any compact design tables.

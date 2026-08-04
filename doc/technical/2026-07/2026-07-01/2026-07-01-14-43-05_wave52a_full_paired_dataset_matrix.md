@@ -59,8 +59,8 @@ The report should aggregate results by:
 The resulting evidence should answer what to do next:
 
 - if offset-shifted pairs dominate, prioritize offset / mean heads,
-  centered-shape loss, and dirty-to-clean offset supervision before a heavy
-  first PINN;
+  centered-shape loss, and within-machine dirty-to-clean offset supervision
+  before a heavy first PINN;
 - if shape or harmonic changes are material, keep MMT/PINN-style harmonic and
   smoothness constraints in `Wave 5.2B`;
 - if sampling anomalies are frequent, handle masks and reduced-point tests

@@ -41,6 +41,7 @@ closeout that changes any of these surfaces:
 | Active report generation | six reduced selected-model reports completed for polished setpoints, simplified setpoints, and polished actual values, each split into `forward` and `backward` |
 | Current TE Curve Verification Pipeline selection policy | multi-index curve-first selection, dated `2026-06-16` |
 | Next modeling decision | Run the dedicated A02 fixed-grid composer through TwinCAT XAE build and activated-target replay using exact upstream K01/H08 curves. Record license, ADS, latency, and TestRig evidence separately; do not promote A04 from scalar evidence. |
+| Future extension portfolio | Cross-Machine Backbone Adaptation is an inactive option for fine-tuning a source-machine checkpoint on a smaller dataset measured on a different target machine. It is separate from within-machine `simplified_dataset` to `polished_dataset` dirty-to-clean supervision and requires a new approved technical document and campaign plan before training. |
 
 The repository remains direction-parallel. `Fw`, `Bw`, and `global` are not a
 single destructive competition. Each surface keeps its own best candidate and
@@ -384,11 +385,18 @@ models.
 28. Do not open the integrated multi-task / multi-head campaign until bounded
     PINN pilots and TE Curve Verification Pipeline evidence justify the chosen
     physics-informed ingredients.
-29. Preserve the completed integrated-specialist decision: A02 is the only
-    gate-qualified branch, A08 contains A02 alone, and A04 remains a
-    failed-gate scalar winner. Prepare the separate Fw/Bw/global TE Curve
-    Verification Pipeline refresh only after explicit approval and operator
-    execution. This empirical result is not automatic Wave 6 authorization.
+29. Preserve the completed integrated-specialist and official curve-first
+    decision: A02 is the verified offline `Fw` and routed `global` candidate,
+    K01 remains the `Bw` recommendation, and A04 remains a failed-gate scalar
+    winner. A02 export and static TF3820 package validation are complete; XAE
+    build, activated-target replay, and commissioned runtime remain separate.
+30. Preserve Cross-Machine Backbone Adaptation as an inactive future option,
+    not an active Wave 5.2 or Wave 6 branch. When the current source-machine
+    program closes, the project may choose it from the future-extension
+    portfolio and test whether a source checkpoint reduces the target-machine
+    measurement budget relative to matched training from scratch. Keep it
+    separate from within-machine dirty-to-clean supervision and require a new
+    approved technical document and campaign plan before training.
 
 ## Closeout Update Rule
 

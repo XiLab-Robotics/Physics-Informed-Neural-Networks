@@ -198,6 +198,13 @@ Historical rationale and approval history remain in:
   Reopen it only after independent component-error measurements or a validated
   causal contact-state reconstruction provides condition-varying physical
   inputs.
+- Future Extension Portfolio: Cross-Machine Backbone Adaptation is an inactive
+  option for reusing a source-machine checkpoint and fine-tuning it on a
+  smaller, separately split dataset measured on a new physical machine. It is
+  distinct from the historical within-machine `simplified_dataset` to
+  `polished_dataset` dirty-to-clean hypothesis. Revisit this option only after
+  the current source-machine program points close and the project explicitly
+  selects one future extension.
 - Latest Reduced Decision: periodic GRU is recommended in four of six cells;
   periodic harmonic MLP wins polished-setpoint `Bw` and simplified-setpoint
   `Fw`. Wave 4.1 remains the raw-error and offset diagnostic ingredient.
@@ -221,6 +228,7 @@ Current canonical status reports:
 - `doc/reports/analysis/model_development_waves/intermediate_model_selection_cleanup/[2026-07-17]/te_intermediate_model_selection_cleanup_report.md`
 - `doc/reports/analysis/te_curve_verification_pipeline/03_cvp_diagnostics/non_mmt_cross_wave_comparison/[2026-07-24]/non_mmt_cross_wave_comparison_report.md`
 - `doc/reports/analysis/model_development_waves/wave_5_2/hysteresis_friction_memory_pinn/[2026-07-26]/phase4_hysteresis_friction_memory_feasibility_report.md`
+- `doc/reports/analysis/model_development_waves/future_extensions/cross_machine_backbone_adaptation/[2026-08-04]/cross_machine_backbone_adaptation_concept.md`
 - `doc/reports/analysis/te_curve_verification_pipeline/04_selected_model_reports/[2026-07-24]/`
 - `doc/scripts/campaigns/track_2/run_reduced_selected_track2_reports.md`
 - `doc/reports/analysis/te_curve_verification_pipeline/00_overview/multi_index_curve_first_selection_policy/[2026-06-16]/track2_multi_index_curve_first_selection_policy.md`
@@ -885,6 +893,65 @@ Required scope if promoted:
   experiments use explicit cache partitioning;
 - create a new Markdown comparison report that places full-dataset and
   restricted-dataset Tables `2`-`5` side by side.
+
+### Future Extension Selection Gate
+
+Status:
+
+- inactive until the current source-machine work points are closed;
+- no future option is preselected or authorized for implementation.
+
+When the current program is complete, review the available evidence,
+measurement resources, deployment needs, and new instrumentation before
+selecting one future extension. The portfolio includes Cross-Machine Backbone
+Adaptation, the paper-faithful MMT branch behind its physical-input reopening
+gate, the restricted-dataset RCIM rerun, and the explicitly low-priority model
+families. Each selected option requires its own technical document and, when
+training is involved, its own campaign planning report.
+
+### Cross-Machine Backbone Adaptation
+
+Status:
+
+- inactive future extension;
+- not an active campaign;
+- not the historical `simplified_dataset` to `polished_dataset`
+  dirty-to-clean branch.
+
+Objective:
+
+- use a provenance-complete checkpoint trained on the current source machine
+  as the initialization for a different target machine;
+- fine-tune on a smaller target-machine measurement set;
+- quantify whether the target machine can reach an acceptable curve-first
+  result with fewer measured operating conditions than training from scratch.
+
+Mandatory future controls:
+
+- frozen source-only zero-shot replay;
+- same-architecture, same-budget training from scratch on the target machine;
+- source-backbone fine-tuning with matched target data and optimization budget;
+- a larger target-data reference when measurement cost permits;
+- direction-separated `Fw`, `Bw`, and `global` evaluation;
+- measurement-budget curves over condition-balanced speed, torque,
+  temperature, direction, and operating-extreme coverage;
+- independent target-machine training, validation, and test partitions;
+- separate offline, export, TwinCAT build, activated-runtime, and commissioned
+  TestRig evidence.
+
+Entry rule:
+
+- finish the current source-machine program points first;
+- explicitly select this option from the future-extension portfolio;
+- identify a target machine and compatible measurement contract;
+- select a backbone only after its source-machine provenance and causal
+  inference contract are accepted for the proposed study;
+- create and approve a new technical document and campaign planning report
+  before any fine-tuning or training.
+
+Canonical concept note:
+
+- `doc/reports/analysis/model_development_waves/future_extensions/cross_machine_backbone_adaptation/[2026-08-04]/cross_machine_backbone_adaptation_concept.md`.
 
 ### Track 3. Online Compensation And Deployment Evaluation
 

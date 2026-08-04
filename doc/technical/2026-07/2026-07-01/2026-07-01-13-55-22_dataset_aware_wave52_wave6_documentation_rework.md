@@ -1,5 +1,11 @@
 # Dataset-Aware Wave 5.2 And Wave 6 Documentation Rework
 
+> Supersession note, `2026-08-04`: this historical plan conflated
+> within-machine `simplified_dataset` to `polished_dataset` supervision with
+> the intended backbone roadmap. The canonical future extension is now
+> Cross-Machine Backbone Adaptation: fine-tune a source-machine checkpoint on
+> a smaller dataset measured on a different target machine.
+
 ## Overview
 
 This technical document plans a documentation-only rework of the TE modeling
@@ -21,8 +27,8 @@ The new roadmap should distinguish three branches:
 - `simplified_dataset` noise-aware branch for stress-testing robust,
   structured, PINN-style, and multi-task mechanisms against the known dirty or
   disturbed surface;
-- cross-dataset transfer branch for backbone pretraining, fine-tuning on
-  `polished_dataset`, and reduced-point robustness studies.
+- within-machine paired-dataset branch for dirty-to-clean supervision and
+  reduced-point robustness studies.
 
 No subagent is planned for this work. If a later review subagent is useful, its
 name, task boundary, and approval requirement will be proposed before launch.
@@ -59,9 +65,9 @@ are:
   deployable runtime model.
 
 The revised `Wave 6` roadmap will become a later integrated multi-task /
-multi-head and transfer-learning branch. It should wait for evidence from the
-polished full-wave campaign, the dataset-pair diagnostics, and the
-dataset-aware `Wave 5.2` stages.
+multi-head branch. The separately defined Cross-Machine Backbone Adaptation
+extension may be considered after the current source-machine program closes;
+it is not an automatic Wave 6 continuation of the paired-dataset work.
 
 ## Involved Components
 

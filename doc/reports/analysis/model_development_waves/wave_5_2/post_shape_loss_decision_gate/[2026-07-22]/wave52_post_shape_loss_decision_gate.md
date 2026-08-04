@@ -1,5 +1,9 @@
 # Wave 5.2 Post-Shape-Loss Decision Gate
 
+> Supersession note, `2026-08-04`: the deferred `Wave 5.2C` item in this
+> historical decision is within-machine dirty-to-clean supervision. It is not
+> the separately governed Cross-Machine Backbone Adaptation extension.
+
 ## Overview
 
 This report closes the post-shape-loss decision gate after the completed
@@ -171,7 +175,7 @@ It is not enough to improve scalar test MAE or shape pass rate alone.
 | --- | --- | --- |
 | Continue shape-threshold loss directly | Reject for now | Three bounded screens failed to promote the candidates. |
 | Rerun `Wave 5.2B` unchanged | Reject for now | It is useful evidence, but the next branch needs a stricter baseline-anchored offset gate. |
-| Start `Wave 5.2C` dirty-to-clean transfer | Defer | Paired evidence is useful, but the immediate repeated failure mode is offset / mean plus harmonic amplitude, not noisy simplified-to-polished transfer. |
+| Start `Wave 5.2C` within-machine dirty-to-clean supervision | Defer | Paired evidence is useful, but the immediate repeated failure mode is offset / mean plus harmonic amplitude, not noisy simplified-to-polished supervision. |
 | Full PINN / MMT soft loss | Defer | Several MMT equivalent-error groups remain train-only calibratable and not safe runtime inputs. |
 | Wave 6 integrated multi-head model | Defer | Integration should wait until one narrow offset/harmonic mechanism beats the baseline. |
 

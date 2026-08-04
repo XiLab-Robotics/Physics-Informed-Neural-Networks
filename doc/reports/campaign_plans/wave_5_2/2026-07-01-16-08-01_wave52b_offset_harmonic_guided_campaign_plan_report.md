@@ -1,5 +1,9 @@
 # Wave 5.2B Offset And Harmonic Guided Campaign Plan
 
+> Supersession note, `2026-08-04`: references to `Wave 5.2C` in this completed
+> historical plan mean within-machine dirty-to-clean supervision. They do not
+> refer to the separately defined Cross-Machine Backbone Adaptation extension.
+
 ## Campaign Status
 
 Prepared package, not launched. Training must not start until the operator
@@ -15,8 +19,8 @@ mean supervision and nonzero-harmonic guidance improve TE curve readiness on
 `polished_dataset`.
 
 The campaign is intentionally small. It should answer whether the mechanism is
-useful before `Wave 5.2C` dirty-to-clean transfer or `Wave 6` integrated
-multi-head work is opened.
+useful before `Wave 5.2C` within-machine dirty-to-clean supervision or
+`Wave 6` integrated multi-head work is opened.
 
 ## Scope
 
@@ -99,7 +103,7 @@ Protected or deferred surfaces:
 - full-wave polished retraining manifest and launcher;
 - full-wave polished outputs and registries;
 - `TE Curve Verification Pipeline` refresh package;
-- `Wave 5.2C` dirty-to-clean transfer;
+- `Wave 5.2C` within-machine dirty-to-clean supervision;
 - `Wave 6` integrated multi-head work.
 
 ## Prepared Package

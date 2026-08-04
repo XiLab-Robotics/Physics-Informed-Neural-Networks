@@ -1,5 +1,10 @@
 # Wave 5.2B Offset And Harmonic Guided Campaign Results Report
 
+> Supersession note, `2026-08-04`: references to later `Wave 5.2C` transfer in
+> this completed closeout mean within-machine dirty-to-clean supervision. The
+> canonical Cross-Machine Backbone Adaptation extension instead uses a new
+> dataset measured on a different physical machine.
+
 ## Overview
 
 This report closes out the completed `Wave 5.2B` offset and harmonic guided
@@ -89,8 +94,9 @@ The internal ablation is clear:
   but it remains weaker than the best polished early-wave global models.
 
 This supports keeping harmonic structure in the candidate ingredient list for
-later `Wave 5.2C` or `Wave 6` integration. It does not prove that this
-lightweight model family should replace the stronger sequence backbones.
+later `Wave 5.2C` within-machine work or `Wave 6` integration. It does not
+prove that this lightweight model family should replace the stronger sequence
+backbones.
 
 ## Comparison Against Current Polished Leaders
 
@@ -131,6 +137,6 @@ Recommended next actions:
    a separate optional operator-approved step.
 3. Wait for the externally running full-wave polished retraining campaign
    before drawing final clean-branch conclusions.
-4. Use Wave 5.2B results to inform `Wave 5.2C` dirty-to-clean or transfer
+4. Use Wave 5.2B results to inform `Wave 5.2C` within-machine dirty-to-clean
    supervision only after curve-first evidence is available or explicitly
-   deferred.
+   deferred. Do not treat this result as cross-machine adaptation evidence.

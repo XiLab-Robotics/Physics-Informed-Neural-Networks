@@ -1,5 +1,9 @@
 # Wave 5.2B Offset And Harmonic Guided Model
 
+> Supersession note, `2026-08-04`: the historical `Wave 5.2C` continuation in
+> this report means within-machine dirty-to-clean supervision, not the
+> separately governed Cross-Machine Backbone Adaptation future extension.
+
 ## Model Description
 
 `Wave 5.2B` is the planned lightweight offset and nonzero-harmonic guided
@@ -92,8 +96,8 @@ architecture contest.
 - Keeps centered shape visible so offset improvement cannot hide waveform
   degradation.
 - Preserves `global`, `forward`, and `backward` surfaces.
-- Leaves `Wave 5.2C` dirty-to-clean transfer and `Wave 6` integration as
-  follow-up branches instead of mixing all mechanisms at once.
+- Leaves `Wave 5.2C` within-machine dirty-to-clean supervision and `Wave 6`
+  integration as follow-up branches instead of mixing all mechanisms at once.
 
 ## Disadvantages
 
@@ -103,8 +107,8 @@ architecture contest.
   reformulated as a causal predicted quantity.
 - The first campaign may show that offset/harmonic guidance helps only one
   direction surface.
-- It will not by itself answer reduced-point robustness or dirty-to-clean
-  transfer.
+- It will not by itself answer reduced-point robustness or within-machine
+  dirty-to-clean supervision.
 - It must wait for official polished full-wave evidence before final
   deployability decisions.
 

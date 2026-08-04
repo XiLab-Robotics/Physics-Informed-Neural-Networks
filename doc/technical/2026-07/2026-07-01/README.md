@@ -10,7 +10,7 @@
 - [2026-07-01-15-30-07_wave52b_wave52c_model_design_gate.md](./2026-07-01-15-30-07_wave52b_wave52c_model_design_gate.md)
   Technical plan for translating the completed `Wave 5.2A` full paired matrix
   into a `Wave 5.2B` offset/harmonic guided model-design gate and a `Wave
-  5.2C` dirty-to-clean transfer design gate.
+  5.2C` within-machine dirty-to-clean supervision design gate.
 
 - [2026-07-01-14-43-05_wave52a_full_paired_dataset_matrix.md](./2026-07-01-14-43-05_wave52a_full_paired_dataset_matrix.md)
   Technical plan for extending `Wave 5.2A` from bounded paired diagnostics to

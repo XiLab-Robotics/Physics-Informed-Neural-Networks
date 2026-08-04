@@ -1,5 +1,9 @@
 # Wave 5.2B Offset And Harmonic Guided Preparation
 
+> Supersession note, `2026-08-04`: the historical `Wave 5.2C` dirty-to-clean
+> package is within-machine paired-dataset supervision, not the canonical
+> Cross-Machine Backbone Adaptation future extension.
+
 ## Overview
 
 This technical document prepares the next actionable step after the approved
@@ -101,7 +105,7 @@ Protected or deferred components:
 - `scripts/campaigns/cross_wave/run_polished_dataset_full_wave_retraining_campaign.ps1`;
 - full-wave polished output, closeout, and registry artifacts;
 - any `TE Curve Verification Pipeline` refresh package;
-- `Wave 5.2C` dirty-to-clean transfer implementation;
+- `Wave 5.2C` within-machine dirty-to-clean supervision implementation;
 - `Wave 6` integrated multi-task / multi-head implementation.
 
 ## Implementation Steps

@@ -296,6 +296,12 @@
 
 - No campaign is currently in `prepared` or `running` state.
 - The next active implementation branch should therefore be read from the live backlog focus and the next approved campaign plan.
+- Cross-Machine Backbone Adaptation is recorded only as an inactive future
+  extension: a source-machine checkpoint may later be fine-tuned on a smaller,
+  independently split dataset from a different target machine and compared
+  with matched zero-shot and training-from-scratch controls. It is not the
+  historical within-machine `simplified_dataset` to `polished_dataset`
+  dirty-to-clean hypothesis.
 
 ### Roadmap And Planned Work
 

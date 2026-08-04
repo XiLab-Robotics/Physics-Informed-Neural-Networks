@@ -388,6 +388,16 @@ This folder contains the internal project documents derived from the reference P
   exporting and validating its K01/H08 composition, and qualifying the path in
   the standalone TF3820 harness without overstating runtime readiness.
 
+- [technical/2026-08/2026-08-04/2026-08-04-14-39-46_cross_machine_backbone_adaptation_documentation_correction.md](./technical/2026-08/2026-08-04/2026-08-04-14-39-46_cross_machine_backbone_adaptation_documentation_correction.md)
+  Technical plan for separating future cross-machine limited-data backbone
+  adaptation from the historical within-machine dirty-to-clean hypothesis and
+  synchronizing the corrected concept across canonical roadmap documents.
+
+- [Cross-Machine Backbone Adaptation](./reports/analysis/model_development_waves/future_extensions/cross_machine_backbone_adaptation/%5B2026-08-04%5D/cross_machine_backbone_adaptation_concept.md)
+  Canonical future-extension concept for adapting a source-machine TE
+  checkpoint to a new physical machine with a smaller, measurement-budgeted
+  target dataset and matched zero-shot and scratch controls.
+
 - [Wave 5.2R Integrated Specialist Campaign Plan](./reports/campaign_plans/model_development_waves/wave_5_2/integrated_specialist_model/2026-08-02-19-55-10_wave52r_integrated_specialist_model_campaign_plan_report.md)
   Approved plan for three frozen replays, eighteen single-branch runs, and up
   to three passed-branch-only integrated runs.

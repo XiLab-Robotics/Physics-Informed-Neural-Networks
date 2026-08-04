@@ -1,13 +1,19 @@
 # Wave 5.2A Paired Dataset Diagnostics
 
+> Supersession note, `2026-08-04`: the dirty-to-clean questions in this plan
+> concern two dataset surfaces from the existing machine. They do not define
+> the canonical future backbone workflow, which now means adapting a
+> source-machine checkpoint with a smaller dataset measured on a different
+> target machine.
+
 ## Overview
 
 This technical document plans the `Wave 5.2A` paired dataset diagnostic pass
 for `simplified_dataset` and `polished_dataset`.
 
 The goal is to establish an evidence base before any MMT/PINN-guided model,
-dirty-to-clean model, transfer-learning backbone, or reduced-point campaign is
-implemented. The diagnostic must show how the legacy simplified curve surface
+within-machine dirty-to-clean model, or reduced-point campaign is implemented.
+The diagnostic must show how the legacy simplified curve surface
 and the new polished point surface differ at matched operating conditions,
 directions, curve shapes, offsets, smoothness, harmonic content, and retained
 or removed samples.
@@ -53,8 +59,8 @@ answer these questions:
   auxiliary heads, masks, diagnostic metrics, or data-reduction tests?
 - Whether a dirty-to-clean target is well aligned enough to justify a later
   `Wave 5.2C` multi-task model.
-- Whether a backbone pretraining and fine-tuning experiment is justified for
-  `Wave 6`.
+- Which paired-dataset conclusions remain strictly within-machine and must not
+  be used as evidence for future cross-machine backbone adaptation.
 
 The first implementation after approval should be diagnostic/reporting code,
 not a training launcher. If code is needed, it should use repository-owned
@@ -111,7 +117,8 @@ Protected or deferred components:
    possible auxiliary-head targets, and runtime-unsafe leakage.
 6. Draft the future analysis report structure with separate conclusions for:
    clean-polished modeling, simplified noise-aware modeling,
-   dirty-to-clean modeling, transfer / fine-tuning, and reduced-point tests.
+   within-machine dirty-to-clean modeling and reduced-point tests, while
+   keeping cross-machine backbone adaptation as a separate future extension.
 7. After explicit approval, implement the diagnostic report builder and
    artifact writer. Do not add training campaigns, launchers, model classes, or
    registry updates in this first implementation pass.
