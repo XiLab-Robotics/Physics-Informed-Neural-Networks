@@ -1,0 +1,112 @@
+schema_version: 1
+dataset_id: polished_dataset
+dataset_schema: polished_setpoint_curve_v1
+input_mode: setpoints
+model_family: integrated_specialist_a02
+model_type: routed_k01_h08_curve_composition
+candidate_id: A02
+surface: global
+random_seed: 314159
+run_instance_id: 2026-08-03-17-49-51__a02__seed_314159
+source_output_directory: output/training_runs/integrated_specialist_models/2026-08-03-17-49-51__a02__seed_314159
+source_best_checkpoint_path: output/training_runs/integrated_specialist_models/2026-08-03-17-49-51__a02__seed_314159/best_model.pt
+python_model_path: models/polished_dataset/setpoints/integrated_specialist_a02/global/python/best_model.pt
+onnx_model_path: models/polished_dataset/setpoints/integrated_specialist_a02/global/onnx/model.onnx
+onnx_export_status: exported
+onnx_export_error: ''
+onnx_role: fixed_shape_curve_composer_requiring_k01_and_h08_curves
+checkpoint_sha256: ea55327fab5d8b2bf8e1e1f7991a1ef98c0795e0df5b2cee56ada94c66c3066f
+onnx_sha256: 105088bc888d0d4b01151ca5c28764f2627179ff89a926d0feb555796f1181b2
+split_signature: c1aa8718fb9bf88cc2021c121dc4f3b4010fc1d2e45ac90af5f4376aa64f8e16
+acceptance_status: verified_offline_candidate_not_registry_replacement
+archive_role: forward_specialist_routed_global_composition
+deployment_status: export_prepared_host_and_plc_reference_qualified_twincat_runtime_pending
+dependency_archive_path_map:
+  global_k01: models/polished_dataset/setpoints/temporal_analytical_residual_k01/global
+  forward_h08: models/polished_dataset/setpoints/complex_harmonic_coefficient_h08/forward
+surface_contract:
+  Fw: global_k01_plus_forward_centered_h08_residual
+  Bw: global_k01_exact_replay
+  global: direction_routed_Fw_and_Bw_contract
+input_shape:
+  condition:
+  - 1
+  - 4
+  k01_prediction_curve:
+  - 1
+  - 2048
+  h08_prediction_curve:
+  - 1
+  - 2048
+  direction_flag:
+  - 1
+  - 1
+known_limitations:
+- composer_requires_complete_2048_sample_k01_and_h08_curves
+- k01_requires_stateful_32_sample_chunk_execution_and_h04_anchor_inputs
+- fixed_grid_replay_is_not_continuously_varying_online_compensation
+- twincat_build_target_activation_ads_license_and_latency_pending
+- accepted_deployment_registries_unchanged
+source_run_snapshot_path_map:
+  a02_parity_per_condition.snapshot.csv: models/polished_dataset/setpoints/integrated_specialist_a02/global/source_run/a02_parity_per_condition.snapshot.csv
+  export_parity_summary.snapshot.yaml: models/polished_dataset/setpoints/integrated_specialist_a02/global/source_run/export_parity_summary.snapshot.yaml
+  metrics_summary.snapshot.yaml: models/polished_dataset/setpoints/integrated_specialist_a02/global/source_run/metrics_summary.snapshot.yaml
+  official_curve_verification_decision.snapshot.yaml: models/polished_dataset/setpoints/integrated_specialist_a02/global/source_run/official_curve_verification_decision.snapshot.yaml
+  training_history.snapshot.csv: models/polished_dataset/setpoints/integrated_specialist_a02/global/source_run/training_history.snapshot.csv
+deployment_artifact_path_map:
+  gate_parameters: models/polished_dataset/setpoints/integrated_specialist_a02/global/deployment/a02_gate_parameters.npz
+  plc_parameter_source: models/polished_dataset/setpoints/integrated_specialist_a02/global/plc_reference/GVL_Wave52rA02Parameters.st
+  plc_composer_source: models/polished_dataset/setpoints/integrated_specialist_a02/global/plc_reference/FB_Wave52rA02CurveComposer.st
+parity:
+  measured_alignment_max_abs_deg: 0.0
+  k01_replay_max_abs_deg: 7.450580596923828e-09
+  campaign_reconstruction_max_abs_deg: 1.4901161193847656e-08
+  campaign_residual_reconstruction_max_abs_deg: 8.858478395268321e-09
+  onnx_max_abs_by_output:
+    prediction_curve: 7.450580596923828e-09
+    k01_mean: 1.4901161193847656e-08
+    h08_mean: 2.2351741790771484e-08
+    k01_centered_curve: 1.4901161193847656e-08
+    h08_centered_difference: 2.2351741790771484e-08
+    learned_h08_gate: 5.960464477539063e-08
+    forward_gate: 0.0
+    h08_centered_residual: 6.170012056827545e-09
+  plc_reference_max_abs_by_output:
+    prediction_curve: 2.9802322387695312e-08
+    k01_mean: 1.4156103134155273e-07
+    h08_mean: 1.0058283805847168e-07
+    k01_centered_curve: 1.4156103134155273e-07
+    h08_centered_difference: 1.6391277313232422e-07
+    learned_h08_gate: 5.960464477539063e-08
+    forward_gate: 0.0
+    h08_centered_residual: 2.759043127298355e-08
+  backward_residual_abs_max_deg: 0.0
+  backward_prediction_k01_abs_max_deg: 0.0
+metrics:
+  Fw:
+    raw_mae_deg: 0.0014004494036549595
+    raw_rmse_deg: 0.0016583754158252973
+    mean_percentage_error_pct: 2.8558796341291033
+    p95_mean_percentage_error_pct: 7.462640787746469
+    centered_shape_mae_deg: 0.0011479690721649485
+    absolute_offset_error_deg: 0.0006092268041237113
+    harmonic_amplitude_error_pct: 4.750917329896907
+    harmonic_phase_error_deg: 3.272573845360825
+  Bw:
+    raw_mae_deg: 0.0015230876271396733
+    raw_rmse_deg: 0.001811477095168069
+    mean_percentage_error_pct: 2.9233948231549913
+    p95_mean_percentage_error_pct: 6.727190348267386
+    centered_shape_mae_deg: 0.0012964845360824743
+    absolute_offset_error_deg: 0.0005454742268041237
+    harmonic_amplitude_error_pct: 4.581624082474226
+    harmonic_phase_error_deg: 2.538672711340206
+  global:
+    raw_mae_deg: 0.001461768515397316
+    raw_rmse_deg: 0.0017349262554966834
+    mean_percentage_error_pct: 2.8896372286420484
+    p95_mean_percentage_error_pct: 7.055717468476878
+    centered_shape_mae_deg: 0.0012222268041237115
+    absolute_offset_error_deg: 0.0005773505154639174
+    harmonic_amplitude_error_pct: 4.666270706185567
+    harmonic_phase_error_deg: 2.9056232783505154

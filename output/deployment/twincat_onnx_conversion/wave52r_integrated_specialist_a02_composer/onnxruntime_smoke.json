@@ -1,0 +1,106 @@
+{
+  "inputs": [
+    {
+      "dtype": "float32",
+      "name": "condition",
+      "shape": [
+        1,
+        4
+      ]
+    },
+    {
+      "dtype": "float32",
+      "name": "k01_prediction_curve",
+      "shape": [
+        1,
+        2048
+      ]
+    },
+    {
+      "dtype": "float32",
+      "name": "h08_prediction_curve",
+      "shape": [
+        1,
+        2048
+      ]
+    },
+    {
+      "dtype": "float32",
+      "name": "direction_flag",
+      "shape": [
+        1,
+        1
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "dtype": "float32",
+      "index": 0,
+      "shape": [
+        1,
+        2048
+      ]
+    },
+    {
+      "dtype": "float32",
+      "index": 1,
+      "shape": [
+        1,
+        1
+      ]
+    },
+    {
+      "dtype": "float32",
+      "index": 2,
+      "shape": [
+        1,
+        1
+      ]
+    },
+    {
+      "dtype": "float32",
+      "index": 3,
+      "shape": [
+        1,
+        2048
+      ]
+    },
+    {
+      "dtype": "float32",
+      "index": 4,
+      "shape": [
+        1,
+        2048
+      ]
+    },
+    {
+      "dtype": "float32",
+      "index": 5,
+      "shape": [
+        1,
+        1
+      ]
+    },
+    {
+      "dtype": "float32",
+      "index": 6,
+      "shape": [
+        1,
+        1
+      ]
+    },
+    {
+      "dtype": "float32",
+      "index": 7,
+      "shape": [
+        1,
+        2048
+      ]
+    }
+  ],
+  "provider_list": [
+    "CPUExecutionProvider"
+  ],
+  "status": "passed"
+}

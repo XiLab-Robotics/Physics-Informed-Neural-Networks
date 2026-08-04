@@ -202,13 +202,15 @@ Historical rationale and approval history remain in:
   periodic harmonic MLP wins polished-setpoint `Bw` and simplified-setpoint
   `Fw`. Wave 4.1 remains the raw-error and offset diagnostic ingredient.
   Sparse-RCIM temporal candidates remain actual-values references only.
-- Current Next Branch: decide whether the verified offline A02 seed `314159`
-  path should advance into export and TwinCAT qualification. A02 is the `Fw`
-  and routed `global` recommendation; K01 seed `271828` remains the `Bw`
-  recommendation and frozen temporal backbone. A03-A07 remain failed-gate
-  diagnostics and accepted registries remain unchanged.
-  Manual PLC testing through the standalone TF3820 module continues in
-  parallel. The paper-faithful MMT full PINN remains an inactive future option.
+- Current Next Branch: A02 seed `314159` has passed exact campaign
+  reconstruction, ONNX Runtime, independent float32 PLC-reference, Beckhoff
+  TF3820 preparation, and static 40-package standalone-catalog validation. Its
+  curated archive is preserved without changing accepted registries. The next
+  gate is operator-side XAE build and activated-target replay of the dedicated
+  fixed-grid composer with exact upstream K01 and H08 curves, followed by
+  latency and TestRig evidence. Manual PLC testing through the standalone
+  TF3820 module continues in parallel. The paper-faithful MMT full PINN remains
+  an inactive future option.
 
 Current canonical status reports:
 

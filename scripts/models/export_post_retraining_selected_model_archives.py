@@ -898,13 +898,13 @@ def validate_existing_archive() -> None:
     aggregate_path = ARCHIVE_ROOT / "model_development_export_inventory.yaml"
     aggregate_payload = read_yaml(aggregate_path)
     inventory_path_list = sorted(ARCHIVE_ROOT.glob("*/*/reference_inventory.yaml"))
-    assert aggregate_payload["entry_count"] == len(inventory_path_list) == 113
+    assert aggregate_payload["entry_count"] == len(inventory_path_list) == 114
     assert aggregate_payload["surface_counts"] == {
-        "global": 37,
+        "global": 38,
         "forward": 39,
         "backward": 37,
     }
-    assert aggregate_payload["onnx_export_status_counts"] == {"exported": 113}
+    assert aggregate_payload["onnx_export_status_counts"] == {"exported": 114}
 
     hashed_artifact_count = 0
     for inventory_path in inventory_path_list:
@@ -920,7 +920,7 @@ def validate_existing_archive() -> None:
             assert compute_file_sha256(onnx_model_path) == inventory["onnx_sha256"]
             hashed_artifact_count += 1
 
-    assert hashed_artifact_count == 10
+    assert hashed_artifact_count == 12
     print(
         "[PASS] Existing archive inventory | "
         f"entry_count={len(inventory_path_list)} | "

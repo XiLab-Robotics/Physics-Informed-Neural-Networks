@@ -1,0 +1,262 @@
+{
+  "checker_error": "",
+  "checker_status": "passed",
+  "constant_nodes": [
+    {
+      "contains_int64_max": false,
+      "node_index": 6,
+      "node_name": "/Constant",
+      "numpy_dtype": "float32",
+      "onnx_dtype": "FLOAT",
+      "output": [
+        "/Constant_output_0"
+      ],
+      "preview": [
+        0.0
+      ],
+      "shape": []
+    },
+    {
+      "contains_int64_max": false,
+      "node_index": 16,
+      "node_name": "/Constant_1",
+      "numpy_dtype": "float32",
+      "onnx_dtype": "FLOAT",
+      "output": [
+        "/Constant_1_output_0"
+      ],
+      "preview": [
+        -0.019999999552965164
+      ],
+      "shape": []
+    },
+    {
+      "contains_int64_max": false,
+      "node_index": 17,
+      "node_name": "/Constant_2",
+      "numpy_dtype": "float32",
+      "onnx_dtype": "FLOAT",
+      "output": [
+        "/Constant_2_output_0"
+      ],
+      "preview": [
+        0.019999999552965164
+      ],
+      "shape": []
+    }
+  ],
+  "dynamic_shape_count": 0,
+  "initializer_count": 6,
+  "inputs": [
+    {
+      "element_type": 1,
+      "element_type_name": "FLOAT",
+      "name": "condition",
+      "shape": [
+        {
+          "kind": "static",
+          "value": 1
+        },
+        {
+          "kind": "static",
+          "value": 4
+        }
+      ]
+    },
+    {
+      "element_type": 1,
+      "element_type_name": "FLOAT",
+      "name": "k01_prediction_curve",
+      "shape": [
+        {
+          "kind": "static",
+          "value": 1
+        },
+        {
+          "kind": "static",
+          "value": 2048
+        }
+      ]
+    },
+    {
+      "element_type": 1,
+      "element_type_name": "FLOAT",
+      "name": "h08_prediction_curve",
+      "shape": [
+        {
+          "kind": "static",
+          "value": 1
+        },
+        {
+          "kind": "static",
+          "value": 2048
+        }
+      ]
+    },
+    {
+      "element_type": 1,
+      "element_type_name": "FLOAT",
+      "name": "direction_flag",
+      "shape": [
+        {
+          "kind": "static",
+          "value": 1
+        },
+        {
+          "kind": "static",
+          "value": 1
+        }
+      ]
+    }
+  ],
+  "int64_max_constant_count": 0,
+  "int64_max_constant_nodes": [],
+  "ir_version": 8,
+  "node_count": 20,
+  "operator_histogram": {
+    "Add": 1,
+    "Cast": 1,
+    "Clip": 1,
+    "Constant": 3,
+    "Div": 1,
+    "Gemm": 2,
+    "Greater": 1,
+    "Mul": 2,
+    "ReduceMean": 2,
+    "Sub": 4,
+    "Tanh": 2
+  },
+  "opset_imports": [
+    {
+      "domain": "ai.onnx",
+      "version": 17
+    }
+  ],
+  "outputs": [
+    {
+      "element_type": 1,
+      "element_type_name": "FLOAT",
+      "name": "prediction_curve",
+      "shape": [
+        {
+          "kind": "static",
+          "value": 1
+        },
+        {
+          "kind": "static",
+          "value": 2048
+        }
+      ]
+    },
+    {
+      "element_type": 1,
+      "element_type_name": "FLOAT",
+      "name": "k01_mean",
+      "shape": [
+        {
+          "kind": "static",
+          "value": 1
+        },
+        {
+          "kind": "static",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "element_type": 1,
+      "element_type_name": "FLOAT",
+      "name": "h08_mean",
+      "shape": [
+        {
+          "kind": "static",
+          "value": 1
+        },
+        {
+          "kind": "static",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "element_type": 1,
+      "element_type_name": "FLOAT",
+      "name": "k01_centered_curve",
+      "shape": [
+        {
+          "kind": "static",
+          "value": 1
+        },
+        {
+          "kind": "static",
+          "value": 2048
+        }
+      ]
+    },
+    {
+      "element_type": 1,
+      "element_type_name": "FLOAT",
+      "name": "h08_centered_difference",
+      "shape": [
+        {
+          "kind": "static",
+          "value": 1
+        },
+        {
+          "kind": "static",
+          "value": 2048
+        }
+      ]
+    },
+    {
+      "element_type": 1,
+      "element_type_name": "FLOAT",
+      "name": "learned_h08_gate",
+      "shape": [
+        {
+          "kind": "static",
+          "value": 1
+        },
+        {
+          "kind": "static",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "element_type": 1,
+      "element_type_name": "FLOAT",
+      "name": "forward_gate",
+      "shape": [
+        {
+          "kind": "static",
+          "value": 1
+        },
+        {
+          "kind": "static",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "element_type": 1,
+      "element_type_name": "FLOAT",
+      "name": "h08_centered_residual",
+      "shape": [
+        {
+          "kind": "static",
+          "value": 1
+        },
+        {
+          "kind": "static",
+          "value": 2048
+        }
+      ]
+    }
+  ],
+  "recommended_route": "tf38x0_candidate",
+  "route_notes": [],
+  "source_onnx_path": "output/deployment/twincat_onnx_conversion/wave52r_integrated_specialist_a02_composer/source_model.onnx",
+  "source_onnx_sha256": "105088bc888d0d4b01151ca5c28764f2627179ff89a926d0feb555796f1181b2",
+  "source_onnx_size_bytes": 2802
+}

@@ -81,6 +81,22 @@ contracts.
 
 ## Current Qualification State
 
-The implementation and campaign plan are approved, but no training has
-started. It has no trained result, does not change the model registries, and
-is not deployment-ready. Execution remains an explicit operator action.
+The approved campaign completed all `24 / 24` entries without failure. A02 was
+the only branch to pass its forward-specialty and multi-index non-regression
+gates at all three seeds. The separate official curve-first review recommends
+A02 seed `314159` on `Fw` and as the routed `global` candidate, while K01 seed
+`271828` remains recommended on `Bw`. Accepted deployment registries remain
+unchanged.
+
+The selected A02 path has now passed exact campaign reconstruction, ONNX
+Runtime, and independent float32 PLC-reference parity on all 194 official test
+conditions. The maximum errors were `1.4901161e-08 deg`, `5.9604645e-08 deg`,
+and `1.6391277e-07 deg`, respectively. Its backward residual and backward
+prediction-versus-K01 error were exactly zero.
+
+The curated archive contains the fixed-shape A02 curve composer and explicit
+K01/H08 dependencies. Beckhoff TF3820 preparation and the 40-package
+standalone catalog pass static validation. A02 has a dedicated full-curve
+runner and is not selectable through the generic 39-model pointwise predictor.
+TwinCAT XAE build, activated-target inference, timing, end-to-end upstream
+curve production, and commissioned TestRig compensation remain pending.

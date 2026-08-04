@@ -1,0 +1,86 @@
+schema_version: 1
+generated_at: '2026-08-04T13:38:20+02:00'
+status: passed
+candidate_id: wave52r_integrated_a02_seed_314159
+export_topology: explicit_k01_h08_a02_curve_composition
+surface_contract:
+  Fw: global_k01_plus_forward_centered_h08_residual
+  Bw: global_k01_exact_replay
+  global: direction_routed_Fw_and_Bw_contract
+condition_count: 194
+forward_condition_count: 97
+backward_condition_count: 97
+angular_sample_count: 2048
+input_shape:
+  condition:
+  - 1
+  - 4
+  k01_prediction_curve:
+  - 1
+  - 2048
+  h08_prediction_curve:
+  - 1
+  - 2048
+  direction_flag:
+  - 1
+  - 1
+onnx_opset_version: 17
+checkpoint_sha256:
+  a02: ea55327fab5d8b2bf8e1e1f7991a1ef98c0795e0df5b2cee56ada94c66c3066f
+  global_k01: 9ebf48190775ec00c5a867998645b213396726c1d199a358f0b04157a386602d
+  global_h04_anchor: c46397330fd871ec354cd631ba6c4f374f4828bb4df423258d2d4d22a88f7596
+  forward_h08: 5167df19b729c93bead9d7b0f42c35372a488f89b07bc2581b0834fcb02330ad
+artifact_path:
+  onnx: output/deployment/wave52r_integrated_specialist_a02/2026-08-04-13-39-00__a02_export_parity/wave52r_integrated_a02_curve_composer.onnx
+  test_vectors: output/deployment/wave52r_integrated_specialist_a02/2026-08-04-13-39-00__a02_export_parity/a02_export_test_vectors.npz
+  gate_parameters: output/deployment/wave52r_integrated_specialist_a02/2026-08-04-13-39-00__a02_export_parity/a02_gate_parameters.npz
+  parameter_st: output/deployment/wave52r_integrated_specialist_a02/2026-08-04-13-39-00__a02_export_parity/GVL_Wave52rA02Parameters.st
+  composer_st: output/deployment/wave52r_integrated_specialist_a02/2026-08-04-13-39-00__a02_export_parity/FB_Wave52rA02CurveComposer.st
+  per_condition_parity: output/deployment/wave52r_integrated_specialist_a02/2026-08-04-13-39-00__a02_export_parity/a02_parity_per_condition.csv
+artifact_sha256:
+  onnx: 105088bc888d0d4b01151ca5c28764f2627179ff89a926d0feb555796f1181b2
+  test_vectors: 79057db225bb466513076e218aa88be3ac71e1cccf884c0b4289eac659e38af1
+  gate_parameters: 276e38e3bc907f781d83f187251da934a3dfa66488c0519cdff2a15852e27f5e
+  parameter_st: fa25b9f24f990146abd96ffb917fa547dd5310848fff157b221a4703d11a6e38
+  composer_st: 991dcbfc6f357c2cd8154e057586024a6c26e9f42faab193d136052c3a14ca2f
+  per_condition_parity: 01c686e28d08c9de674ecb99507675eea6745115cac4ea0783e8101fc0689b8e
+parity:
+  measured_alignment_max_abs_deg: 0.0
+  k01_replay_max_abs_deg: 7.450580596923828e-09
+  campaign_reconstruction_max_abs_deg: 1.4901161193847656e-08
+  campaign_residual_reconstruction_max_abs_deg: 8.858478395268321e-09
+  onnx_max_abs_by_output:
+    prediction_curve: 7.450580596923828e-09
+    k01_mean: 1.4901161193847656e-08
+    h08_mean: 2.2351741790771484e-08
+    k01_centered_curve: 1.4901161193847656e-08
+    h08_centered_difference: 2.2351741790771484e-08
+    learned_h08_gate: 5.960464477539063e-08
+    forward_gate: 0.0
+    h08_centered_residual: 6.170012056827545e-09
+  plc_reference_max_abs_by_output:
+    prediction_curve: 2.9802322387695312e-08
+    k01_mean: 1.4156103134155273e-07
+    h08_mean: 1.0058283805847168e-07
+    k01_centered_curve: 1.4156103134155273e-07
+    h08_centered_difference: 1.6391277313232422e-07
+    learned_h08_gate: 5.960464477539063e-08
+    forward_gate: 0.0
+    h08_centered_residual: 2.759043127298355e-08
+  backward_residual_abs_max_deg: 0.0
+  backward_prediction_k01_abs_max_deg: 0.0
+tolerance_deg:
+  campaign_reconstruction: 1.0e-06
+  onnx: 2.0e-06
+  plc_reference: 5.0e-06
+qualification:
+  campaign_reconstruction_parity: passed
+  onnx_runtime_parity: passed
+  plc_float32_reference_parity: passed
+  backward_zero_residual: passed
+  twincat_static_integration: pending
+  twincat_xae_build: pending
+  activated_target_runtime: pending
+  commissioned_testrig_compensation: pending
+deployment_claim: Export-prepared fixed-grid full-curve composition only; no TwinCAT build, target, latency,
+  or commissioned-runtime claim.

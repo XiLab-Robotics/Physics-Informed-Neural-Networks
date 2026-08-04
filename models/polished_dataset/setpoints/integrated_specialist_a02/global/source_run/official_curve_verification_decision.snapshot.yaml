@@ -1,0 +1,46 @@
+schema_version: 1
+generated_at: '2026-08-04T00:46:17+02:00'
+policy:
+  policy_path: doc/reports/analysis/te_curve_verification_pipeline/00_overview/multi_index_curve_first_selection_policy/[2026-06-16]/track2_multi_index_curve_first_selection_policy.md
+  lower_score_is_better: true
+  block_weight_map:
+    shape_harmonic_fidelity: 0.35
+    raw_operating_error: 0.2
+    offset_continuity: 0.2
+    robustness: 0.15
+    deployment_readiness: 0.1
+  normalization: bounded_average_rank_loss_within_surface_shortlist
+  veto_policy: campaign gate failures and frozen H08 regression remain non-promotable
+evidence_scope:
+  matrix_candidate_count: 29
+  cvp_1_2_shortlist_candidate_count: 9
+  visual_shortlist_candidate_count: 15
+  duplicate_a08_note: A08 is prediction-equivalent to A02 and is not rescored as an independent candidate.
+surface_decision_list:
+- surface: Fw
+  best_raw_error: wave52r_integrated_a04_seed_161803
+  best_shape_fidelity: wave52r_integrated_a02_seed_314159
+  best_offset_behavior: wave52r_integrated_a07_seed_161803
+  best_robustness: wave52r_integrated_a07_seed_314159
+  best_unvetoed_composite: wave52r_integrated_a02_seed_314159
+  recommended_candidate: wave52r_integrated_a02_seed_314159
+  accepted_registry_changed: false
+- surface: Bw
+  best_raw_error: wave52r_integrated_a03_seed_161803
+  best_shape_fidelity: wave52r_integrated_a03_seed_161803
+  best_offset_behavior: wave52r_integrated_a07_seed_161803
+  best_robustness: wave52r_integrated_a07_seed_161803
+  best_unvetoed_composite: wave52r_promotion_k01_global_seed_271828
+  recommended_candidate: wave52r_promotion_k01_global_seed_271828
+  accepted_registry_changed: false
+- surface: global
+  best_raw_error: wave52r_integrated_a04_seed_161803
+  best_shape_fidelity: wave52r_integrated_a04_seed_161803
+  best_offset_behavior: wave52r_integrated_a07_seed_161803
+  best_robustness: wave52r_integrated_a06_seed_271828
+  best_unvetoed_composite: wave52r_integrated_a02_seed_314159
+  recommended_candidate: wave52r_integrated_a02_seed_314159
+  accepted_registry_changed: false
+accepted_registry_changed: false
+deployment_claim_authorized: false
+score_csv_path: output/analysis/wave_5_2r/integrated_specialist_track2_decision/multi_index_candidate_scores.csv

@@ -1044,6 +1044,27 @@ candidate. K01 seed `271828` remains recommended on `Bw` and remains the frozen
 temporal backbone. A03-A07 retain campaign-gate vetoes, accepted deployment
 registries are unchanged, and TwinCAT runtime readiness is not established.
 
+### Wave 5.2R A02 Export And TF3820 Qualification
+
+Rebuild the exact A02 fixed-grid curve composer and validate campaign, ONNX,
+and float32 PLC-reference parity over all 194 official test conditions:
+
+```powershell
+conda run --no-capture-output -n pinns_env python -B `
+  scripts/export/wave_5_2r/export_wave52r_a02_composition_and_validate_parity.py
+```
+
+Promote the passed export into the curated archive, prepare it with the
+Beckhoff TF3820 tooling, install the dedicated standalone runner, and validate
+the catalog using the commands in
+`doc/scripts/deployment/wave52r_a02_export_and_tf3820_qualification.md`.
+
+The package consumes complete K01 and H08 2048-sample curves. It is therefore
+a dedicated fixed-grid composer, not one of the generic pointwise predictor's
+39 selectable models. The current evidence covers host parity and static
+TF3820 preparation only; XAE build, activated-target inference, timing, and
+commissioned TestRig compensation remain operator-side gates.
+
 Rebuild the frozen-payload H08 backward/global defect diagnostic:
 
 ```powershell

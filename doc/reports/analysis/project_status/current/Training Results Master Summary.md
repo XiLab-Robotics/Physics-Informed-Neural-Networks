@@ -2,11 +2,11 @@
 
 ## Executive Snapshot
 
-- Generated At: `2026-08-04T00:48:35+02:00`
+- Generated At: `2026-08-04T13:42:30+02:00`
 - Program State: active.
 - Current Completed Wave: polished-dataset RCIM, early-wave, and full-wave
-- Current Focus: parallel PLC qualification and the decision whether verified
-  offline A02 should advance into export and TwinCAT qualification.
+- Current Focus: operator-side TwinCAT build and runtime qualification of the
+  export-prepared A02 fixed-grid composer, in parallel with manual PLC tests.
 - Active Campaign Status: `none`
 - Active Campaign Name: `none`
 - Current Program Winner: `te_periodic_gru_sequence_bw` | Family `periodic_gru_sequence_bw` | Test MAE `0.001084`
@@ -48,7 +48,15 @@
   curves. The official multi-index and visual review recommends A02 seed
   `314159` on `Fw` and routed `global`; K01 seed `271828` remains recommended
   on `Bw`. A03-A07 remain failed-gate diagnostics, accepted registries are
-  unchanged, and deployment readiness is not established.
+  unchanged, and deployment readiness is not established. A02 seed `314159`
+  has subsequently passed exact campaign reconstruction, ONNX Runtime, and
+  independent float32 PLC-reference parity on all 194 test conditions. Its
+  backward residual remains exactly zero. The curated polished-setpoint
+  archive now contains `114` leaves, including the A02 fixed-grid composer.
+  Beckhoff TF3820 preparation and static validation of the standalone catalog
+  pass with 40 packages and runners, of which 39 remain generic predictor enum
+  members. TwinCAT XAE build, activated-target inference, latency, and
+  commissioned TestRig compensation remain pending.
 
 ## Current Project Status
 

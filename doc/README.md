@@ -383,6 +383,11 @@ This folder contains the internal project documents derived from the reference P
   causal base, H08 only as a forward centered-harmonic specialist, and bounded
   ablations for F01, S01, H04, and Stage 10 condition-library evidence.
 
+- [technical/2026-08/2026-08-04/2026-08-04-13-23-47_wave52r_a02_export_and_twincat_qualification.md](./technical/2026-08/2026-08-04/2026-08-04-13-23-47_wave52r_a02_export_and_twincat_qualification.md)
+  Approval-gated plan for reconstructing the complete A02 inference contract,
+  exporting and validating its K01/H08 composition, and qualifying the path in
+  the standalone TF3820 harness without overstating runtime readiness.
+
 - [Wave 5.2R Integrated Specialist Campaign Plan](./reports/campaign_plans/model_development_waves/wave_5_2/integrated_specialist_model/2026-08-02-19-55-10_wave52r_integrated_specialist_model_campaign_plan_report.md)
   Approved plan for three frozen replays, eighteen single-branch runs, and up
   to three passed-branch-only integrated runs.
@@ -395,6 +400,10 @@ This folder contains the internal project documents derived from the reference P
 - [Wave 5.2R Integrated Specialist Model Report](./reports/analysis/model_development_waves/wave_5_2/integrated_specialist_model/%5B2026-08-02%5D/wave52r_integrated_specialist_model_report.md)
   Architecture, operating principle, tradeoffs, and implementation map for the
   bounded empirical K01 specialist residual model.
+
+- [Wave 5.2R A02 Export And TF3820 Qualification](./scripts/deployment/wave52r_a02_export_and_tf3820_qualification.md)
+  Reproducible export, 194-condition parity, curated-archive, Beckhoff TF3820
+  preparation, standalone-package installation, and remaining runtime gates.
 
 - [Wave 5.2R Integrated Specialist Launcher](./scripts/campaigns/wave_5_2/run_wave52r_integrated_specialist_model.md)
   Approval-aware local and LAN-remote preflight and execution commands.

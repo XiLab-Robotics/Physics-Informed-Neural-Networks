@@ -66,6 +66,18 @@ official_curve_verification_collage_report_path: doc/reports/analysis/te_curve_v
 official_curve_verification_overlay_report_path: doc/reports/analysis/te_curve_verification_pipeline/02_visual_reports/wave52r_integrated_specialist_multi_model_curve_comparison_report/[2026-08-04]/track2_multi_model_curve_comparison_report.md
 accepted_registry_changed: false
 deployment_claim_authorized: false
+deployment_preparation_status: export_prepared_static_tf3820_package_validated
+deployment_export_summary_path: output/deployment/wave52r_integrated_specialist_a02/2026-08-04-13-39-00__a02_export_parity/a02_export_parity_summary.yaml
+deployment_twincat_conversion_manifest_path: output/deployment/twincat_onnx_conversion/wave52r_integrated_specialist_a02_composer/conversion_manifest.yaml
+deployment_curated_archive_path: models/polished_dataset/setpoints/integrated_specialist_a02/global
+deployment_static_validation:
+  campaign_reconstruction_parity: passed
+  onnx_runtime_parity: passed
+  plc_float32_reference_parity: passed
+  standalone_catalog_validation: passed
+  twincat_xae_build: pending
+  activated_target_runtime: pending
+  commissioned_testrig_compensation: pending
 closeout_status: completed
 closeout_completed_at: '2026-08-03T18:37:05+02:00'
 closeout_report_path: doc/reports/campaign_results/model_development_waves/wave_5_2/2026-08-03-17-58-38_wave52r_integrated_specialist_model_campaign_results_report.md
@@ -75,6 +87,7 @@ qualified_branch_list:
 - A02
 provisional_validation_winner_id: 2026-08-03-17-52-59__a04__seed_271828
 promotion_authorized: false
-recommended_next_step: Decide whether to advance the selected A02 path into
-  export and TwinCAT qualification; continue manual standalone TF3820 PLC
-  qualification in parallel.
+recommended_next_step: Build and run the dedicated A02 fixed-grid composer in
+  TwinCAT with exact upstream K01 and H08 curves, then record target activation,
+  ADS, license, latency, replay, and TestRig evidence separately. Continue the
+  manual standalone TF3820 PLC qualification in parallel.

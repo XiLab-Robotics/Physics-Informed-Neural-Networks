@@ -1,0 +1,82 @@
+{
+	"MLlib_JSON_File": {
+		"MachineLearningModel": {
+			"str_modelName": "onnx_wrapper",
+			"CustomAttributes": {},
+			"AuxiliarySpecifications": {
+				"PTI": {
+					"str_producer": "Beckhoff MLlib",
+					"str_producerVersion": "3.1.251201.0",
+					"str_requiredVersion": "3.1.240927.1"
+				}
+			},
+			"Configuration": {
+				"str_onnxHash": "YX90MoZd2seeic7IRbb5+aYBsGyNDoANUqjvOn8vHwQ=",
+				"Inputs": {
+					"TensorDesc0": {
+						"str_name": "condition",
+						"str_dt": "fp32",
+						"int32_shape": [1, 4]
+					},
+					"TensorDesc1": {
+						"str_name": "direction_flag",
+						"str_dt": "fp32",
+						"int32_shape": [1, 1]
+					},
+					"TensorDesc2": {
+						"str_name": "h08_prediction_curve",
+						"str_dt": "fp32",
+						"int32_shape": [1, 2048]
+					},
+					"TensorDesc3": {
+						"str_name": "k01_prediction_curve",
+						"str_dt": "fp32",
+						"int32_shape": [1, 2048]
+					}
+				},
+				"Outputs": {
+					"TensorDesc0": {
+						"str_name": "forward_gate",
+						"str_dt": "fp32",
+						"int32_shape": [1, 1]
+					},
+					"TensorDesc1": {
+						"str_name": "h08_centered_difference",
+						"str_dt": "fp32",
+						"int32_shape": [1, 2048]
+					},
+					"TensorDesc2": {
+						"str_name": "h08_centered_residual",
+						"str_dt": "fp32",
+						"int32_shape": [1, 2048]
+					},
+					"TensorDesc3": {
+						"str_name": "h08_mean",
+						"str_dt": "fp32",
+						"int32_shape": [1, 1]
+					},
+					"TensorDesc4": {
+						"str_name": "k01_centered_curve",
+						"str_dt": "fp32",
+						"int32_shape": [1, 2048]
+					},
+					"TensorDesc5": {
+						"str_name": "k01_mean",
+						"str_dt": "fp32",
+						"int32_shape": [1, 1]
+					},
+					"TensorDesc6": {
+						"str_name": "learned_h08_gate",
+						"str_dt": "fp32",
+						"int32_shape": [1, 1]
+					},
+					"TensorDesc7": {
+						"str_name": "prediction_curve",
+						"str_dt": "fp32",
+						"int32_shape": [1, 2048]
+					}
+				}
+			}
+		}
+	}
+}
