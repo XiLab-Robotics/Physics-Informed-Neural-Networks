@@ -1,0 +1,263 @@
+schema_version: 1
+run_instance_id: 2026-08-04-00-31-50__track2c_curve_payload_diagnostics
+config_path: config\paper_reimplementation\rcim_ml_compensation\reference_family_vs_feedforward\wave52r_integrated_specialist_track2_matrix.yaml
+output_directory: output\validation_checks\wave52r_integrated_specialist_track2_curve_payload_diagnostics\2026-08-04-00-31-50__track2c_curve_payload_diagnostics
+report_path: doc\reports\analysis\te_curve_verification_pipeline\03_cvp_diagnostics\wave52r_integrated_specialist_curve_payload_diagnostics\[2026-08-04]\track2_curve_payload_diagnostics_report.md
+harmonic_order_list:
+- 1
+- 2
+- 3
+- 4
+- 5
+- 6
+- 8
+- 10
+- 12
+- 19
+ranking_policy:
+  diagnostic_score: mean_mpe + 0.10 * mean_harmonic_amplitude_error_pct + 0.05 * mean_harmonic_phase_error_deg
+    + 10.0 * derivative_rmse
+  direction: minimize
+  registry_promotion: not_automatic
+best_candidate:
+  rank: 1
+  candidate_id: wave52r_integrated_a02_seed_314159
+  candidate_family: wave52r_integrated_specialist_a02
+  candidate_source_label: wave52r_integrated_specialist_trained
+  candidate_surface: global
+  valid_direction_list: backward, forward
+  curve_count: 194
+  mean_percentage_error_pct: '2.889637'
+  mean_curve_mae_deg: '0.001462'
+  mean_signed_curve_mean_error_deg: '0.000024'
+  mean_absolute_curve_mean_error_deg: '0.000577'
+  mean_centered_curve_mae_deg: '0.001222'
+  mean_peak_to_peak_error_pct: '6.506941'
+  mean_residual_peak_to_peak_pct: '16.919397'
+  mean_derivative_rmse_deg_per_deg: '0.015090'
+  mean_residual_smoothness_deg_per_deg2: '1.127323'
+  mean_residual_lag1_autocorrelation: '0.965103'
+  mean_closure_mismatch_deg: '0.000872'
+  mean_stitched_boundary_mismatch_deg: '0.000780'
+  mean_harmonic_amplitude_error_pct: '4.666271'
+  mean_harmonic_phase_error_deg: '2.905623'
+  max_harmonic_amplitude_error_pct: '94.773023'
+  max_harmonic_phase_error_deg: '42.642290'
+  diagnostic_score: '3.652449'
+candidate_summary_list:
+- rank: 1
+  candidate_id: wave52r_integrated_a02_seed_314159
+  candidate_family: wave52r_integrated_specialist_a02
+  candidate_source_label: wave52r_integrated_specialist_trained
+  candidate_surface: global
+  valid_direction_list: backward, forward
+  curve_count: 194
+  mean_percentage_error_pct: '2.889637'
+  mean_curve_mae_deg: '0.001462'
+  mean_signed_curve_mean_error_deg: '0.000024'
+  mean_absolute_curve_mean_error_deg: '0.000577'
+  mean_centered_curve_mae_deg: '0.001222'
+  mean_peak_to_peak_error_pct: '6.506941'
+  mean_residual_peak_to_peak_pct: '16.919397'
+  mean_derivative_rmse_deg_per_deg: '0.015090'
+  mean_residual_smoothness_deg_per_deg2: '1.127323'
+  mean_residual_lag1_autocorrelation: '0.965103'
+  mean_closure_mismatch_deg: '0.000872'
+  mean_stitched_boundary_mismatch_deg: '0.000780'
+  mean_harmonic_amplitude_error_pct: '4.666271'
+  mean_harmonic_phase_error_deg: '2.905623'
+  max_harmonic_amplitude_error_pct: '94.773023'
+  max_harmonic_phase_error_deg: '42.642290'
+  diagnostic_score: '3.652449'
+- rank: 2
+  candidate_id: wave52r_integrated_a07_seed_314159
+  candidate_family: wave52r_integrated_specialist_a07
+  candidate_source_label: wave52r_integrated_specialist_trained
+  candidate_surface: global
+  valid_direction_list: backward, forward
+  curve_count: 194
+  mean_percentage_error_pct: '2.888332'
+  mean_curve_mae_deg: '0.001463'
+  mean_signed_curve_mean_error_deg: '0.000024'
+  mean_absolute_curve_mean_error_deg: '0.000577'
+  mean_centered_curve_mae_deg: '0.001223'
+  mean_peak_to_peak_error_pct: '6.563035'
+  mean_residual_peak_to_peak_pct: '16.909111'
+  mean_derivative_rmse_deg_per_deg: '0.015095'
+  mean_residual_smoothness_deg_per_deg2: '1.127323'
+  mean_residual_lag1_autocorrelation: '0.965033'
+  mean_closure_mismatch_deg: '0.000873'
+  mean_stitched_boundary_mismatch_deg: '0.000782'
+  mean_harmonic_amplitude_error_pct: '4.892993'
+  mean_harmonic_phase_error_deg: '2.816239'
+  max_harmonic_amplitude_error_pct: '93.122832'
+  max_harmonic_phase_error_deg: '38.305640'
+  diagnostic_score: '3.669398'
+- rank: 3
+  candidate_id: wave52r_promotion_k01_global_seed_271828
+  candidate_family: wave52r_promotion_k01
+  candidate_source_label: wave52r_offline_leader_cross_surface_promotion
+  candidate_surface: global
+  valid_direction_list: backward, forward
+  curve_count: 194
+  mean_percentage_error_pct: '2.893177'
+  mean_curve_mae_deg: '0.001464'
+  mean_signed_curve_mean_error_deg: '0.000024'
+  mean_absolute_curve_mean_error_deg: '0.000577'
+  mean_centered_curve_mae_deg: '0.001225'
+  mean_peak_to_peak_error_pct: '6.472221'
+  mean_residual_peak_to_peak_pct: '16.995683'
+  mean_derivative_rmse_deg_per_deg: '0.015095'
+  mean_residual_smoothness_deg_per_deg2: '1.127325'
+  mean_residual_lag1_autocorrelation: '0.965171'
+  mean_closure_mismatch_deg: '0.000872'
+  mean_stitched_boundary_mismatch_deg: '0.000779'
+  mean_harmonic_amplitude_error_pct: '4.838683'
+  mean_harmonic_phase_error_deg: '2.829332'
+  max_harmonic_amplitude_error_pct: '93.123956'
+  max_harmonic_phase_error_deg: '38.304923'
+  diagnostic_score: '3.669466'
+- rank: 4
+  candidate_id: wave52r_integrated_a06_seed_271828
+  candidate_family: wave52r_integrated_specialist_a06
+  candidate_source_label: wave52r_integrated_specialist_trained
+  candidate_surface: global
+  valid_direction_list: backward, forward
+  curve_count: 194
+  mean_percentage_error_pct: '2.888503'
+  mean_curve_mae_deg: '0.001463'
+  mean_signed_curve_mean_error_deg: '0.000024'
+  mean_absolute_curve_mean_error_deg: '0.000577'
+  mean_centered_curve_mae_deg: '0.001224'
+  mean_peak_to_peak_error_pct: '6.475306'
+  mean_residual_peak_to_peak_pct: '16.945873'
+  mean_derivative_rmse_deg_per_deg: '0.015093'
+  mean_residual_smoothness_deg_per_deg2: '1.127310'
+  mean_residual_lag1_autocorrelation: '0.965145'
+  mean_closure_mismatch_deg: '0.000870'
+  mean_stitched_boundary_mismatch_deg: '0.000783'
+  mean_harmonic_amplitude_error_pct: '4.869504'
+  mean_harmonic_phase_error_deg: '2.936109'
+  max_harmonic_amplitude_error_pct: '93.123000'
+  max_harmonic_phase_error_deg: '38.305477'
+  diagnostic_score: '3.673189'
+- rank: 5
+  candidate_id: wave52r_integrated_a04_seed_161803
+  candidate_family: wave52r_integrated_specialist_a04
+  candidate_source_label: wave52r_integrated_specialist_trained
+  candidate_surface: global
+  valid_direction_list: backward, forward
+  curve_count: 194
+  mean_percentage_error_pct: '2.877027'
+  mean_curve_mae_deg: '0.001457'
+  mean_signed_curve_mean_error_deg: '0.000024'
+  mean_absolute_curve_mean_error_deg: '0.000577'
+  mean_centered_curve_mae_deg: '0.001216'
+  mean_peak_to_peak_error_pct: '6.647853'
+  mean_residual_peak_to_peak_pct: '16.837346'
+  mean_derivative_rmse_deg_per_deg: '0.015085'
+  mean_residual_smoothness_deg_per_deg2: '1.127313'
+  mean_residual_lag1_autocorrelation: '0.964473'
+  mean_closure_mismatch_deg: '0.000872'
+  mean_stitched_boundary_mismatch_deg: '0.000782'
+  mean_harmonic_amplitude_error_pct: '5.054674'
+  mean_harmonic_phase_error_deg: '2.805877'
+  max_harmonic_amplitude_error_pct: '93.122658'
+  max_harmonic_phase_error_deg: '38.305600'
+  diagnostic_score: '3.673642'
+- rank: 6
+  candidate_id: wave52r_integrated_a05_seed_161803
+  candidate_family: wave52r_integrated_specialist_a05
+  candidate_source_label: wave52r_integrated_specialist_trained
+  candidate_surface: global
+  valid_direction_list: backward, forward
+  curve_count: 194
+  mean_percentage_error_pct: '2.883889'
+  mean_curve_mae_deg: '0.001461'
+  mean_signed_curve_mean_error_deg: '0.000024'
+  mean_absolute_curve_mean_error_deg: '0.000577'
+  mean_centered_curve_mae_deg: '0.001220'
+  mean_peak_to_peak_error_pct: '6.812446'
+  mean_residual_peak_to_peak_pct: '16.869040'
+  mean_derivative_rmse_deg_per_deg: '0.015089'
+  mean_residual_smoothness_deg_per_deg2: '1.127310'
+  mean_residual_lag1_autocorrelation: '0.965020'
+  mean_closure_mismatch_deg: '0.000873'
+  mean_stitched_boundary_mismatch_deg: '0.000780'
+  mean_harmonic_amplitude_error_pct: '5.130035'
+  mean_harmonic_phase_error_deg: '2.797664'
+  max_harmonic_amplitude_error_pct: '93.122424'
+  max_harmonic_phase_error_deg: '38.305584'
+  diagnostic_score: '3.687666'
+- rank: 7
+  candidate_id: wave52r_integrated_a07_seed_161803
+  candidate_family: wave52r_integrated_specialist_a07
+  candidate_source_label: wave52r_integrated_specialist_trained
+  candidate_surface: global
+  valid_direction_list: backward, forward
+  curve_count: 194
+  mean_percentage_error_pct: '2.890023'
+  mean_curve_mae_deg: '0.001463'
+  mean_signed_curve_mean_error_deg: '0.000024'
+  mean_absolute_curve_mean_error_deg: '0.000577'
+  mean_centered_curve_mae_deg: '0.001224'
+  mean_peak_to_peak_error_pct: '6.553092'
+  mean_residual_peak_to_peak_pct: '16.973951'
+  mean_derivative_rmse_deg_per_deg: '0.015094'
+  mean_residual_smoothness_deg_per_deg2: '1.127312'
+  mean_residual_lag1_autocorrelation: '0.965187'
+  mean_closure_mismatch_deg: '0.000869'
+  mean_stitched_boundary_mismatch_deg: '0.000783'
+  mean_harmonic_amplitude_error_pct: '5.135538'
+  mean_harmonic_phase_error_deg: '2.815074'
+  max_harmonic_amplitude_error_pct: '93.122574'
+  max_harmonic_phase_error_deg: '38.305522'
+  diagnostic_score: '3.695270'
+- rank: 8
+  candidate_id: wave52r_integrated_a03_seed_161803
+  candidate_family: wave52r_integrated_specialist_a03
+  candidate_source_label: wave52r_integrated_specialist_trained
+  candidate_surface: global
+  valid_direction_list: backward, forward
+  curve_count: 194
+  mean_percentage_error_pct: '2.885171'
+  mean_curve_mae_deg: '0.001457'
+  mean_signed_curve_mean_error_deg: '0.000024'
+  mean_absolute_curve_mean_error_deg: '0.000577'
+  mean_centered_curve_mae_deg: '0.001218'
+  mean_peak_to_peak_error_pct: '6.430037'
+  mean_residual_peak_to_peak_pct: '16.940526'
+  mean_derivative_rmse_deg_per_deg: '0.015082'
+  mean_residual_smoothness_deg_per_deg2: '1.127340'
+  mean_residual_lag1_autocorrelation: '0.965144'
+  mean_closure_mismatch_deg: '0.000873'
+  mean_stitched_boundary_mismatch_deg: '0.000786'
+  mean_harmonic_amplitude_error_pct: '6.277461'
+  mean_harmonic_phase_error_deg: '2.824242'
+  max_harmonic_amplitude_error_pct: '94.492858'
+  max_harmonic_phase_error_deg: '38.305653'
+  diagnostic_score: '3.804948'
+- rank: 9
+  candidate_id: wave52r_promotion_h08_fw_seed_161803
+  candidate_family: wave52r_promotion_h08
+  candidate_source_label: wave52r_offline_leader_cross_surface_promotion
+  candidate_surface: Fw
+  valid_direction_list: forward
+  curve_count: 97
+  mean_percentage_error_pct: '3.477261'
+  mean_curve_mae_deg: '0.001688'
+  mean_signed_curve_mean_error_deg: '0.000298'
+  mean_absolute_curve_mean_error_deg: '0.000862'
+  mean_centered_curve_mae_deg: '0.001320'
+  mean_peak_to_peak_error_pct: '7.958770'
+  mean_residual_peak_to_peak_pct: '18.312679'
+  mean_derivative_rmse_deg_per_deg: '0.014914'
+  mean_residual_smoothness_deg_per_deg2: '1.106052'
+  mean_residual_lag1_autocorrelation: '0.979793'
+  mean_closure_mismatch_deg: '0.000872'
+  mean_stitched_boundary_mismatch_deg: '0.000670'
+  mean_harmonic_amplitude_error_pct: '5.931030'
+  mean_harmonic_phase_error_deg: '4.713399'
+  max_harmonic_amplitude_error_pct: '99.889896'
+  max_harmonic_phase_error_deg: '96.451158'
+  diagnostic_score: '4.455170'

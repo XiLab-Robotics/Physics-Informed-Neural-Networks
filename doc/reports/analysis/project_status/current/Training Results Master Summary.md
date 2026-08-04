@@ -2,11 +2,11 @@
 
 ## Executive Snapshot
 
-- Generated At: `2026-08-03T18:37:05+02:00`
+- Generated At: `2026-08-04T00:48:35+02:00`
 - Program State: active.
 - Current Completed Wave: polished-dataset RCIM, early-wave, and full-wave
-- Current Focus: parallel PLC qualification and optional preparation of the
-  separate integrated-specialist TE Curve Verification Pipeline refresh.
+- Current Focus: parallel PLC qualification and the decision whether verified
+  offline A02 should advance into export and TwinCAT qualification.
 - Active Campaign Status: `none`
 - Active Campaign Name: `none`
 - Current Program Winner: `te_periodic_gru_sequence_bw` | Family `periodic_gru_sequence_bw` | Test MAE `0.001084`
@@ -42,8 +42,13 @@
   centered H08 branch and is prediction-equivalent to A02. A04 seed `271828`
   is the validation-only scalar winner at global test MAE `0.001457 deg`, but
   it failed its specialty and multi-index gates. No incumbent or accepted
-  program registry changed; official curve-first verification remains a
-  separate pending operator step.
+  program registry changed. The separate curve-first run completed and its
+  recovered packages contain `27` forward candidates over `97` curves, `26`
+  backward candidates over `97` curves, and `24` global candidates over `194`
+  curves. The official multi-index and visual review recommends A02 seed
+  `314159` on `Fw` and routed `global`; K01 seed `271828` remains recommended
+  on `Bw`. A03-A07 remain failed-gate diagnostics, accepted registries are
+  unchanged, and deployment readiness is not established.
 
 ## Current Project Status
 

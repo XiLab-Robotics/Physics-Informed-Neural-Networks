@@ -776,7 +776,7 @@ def resolve_report_candidate_configuration_list(
             "",
         )
     ).strip()
-    if comparison_mode.startswith("wave52r_full_candidate"):
+    if comparison_mode.startswith(("wave52r_full_candidate", "wave52r_integrated_specialist")):
         return all_candidate_configuration_list
 
     wanted_reference_candidate_id_set = set(FORWARD_REFERENCE_CANDIDATE_ID_LIST + BACKWARD_REFERENCE_CANDIDATE_ID_LIST)

@@ -7,13 +7,16 @@ This report is the canonical `TE Curve Verification Pipeline` offline comparison
 repository-owned `Wave 1` and `Wave 2.1` model candidates. It starts from
 the current direction-aware comparison matrix.
 
-The latest bounded model-development refresh is the forward-only Wave 5.2R
-full-candidate decision dated `2026-07-30`. It evaluated 98 candidates on 97
-polished-setpoint curves and is intentionally separate from this historical
-full-directional simplified-dataset matrix. See
+The latest bounded model-development refresh is the Wave 5.2R
+integrated-specialist decision dated `2026-08-04`. Its separate polished
+setpoint matrices evaluated `27` candidates on `Fw`, `26` on `Bw`, and `24` on
+direction-aware `global`. The review recommends A02 seed `314159` on `Fw` and
+routed `global`, retains K01 seed `271828` on `Bw`, and leaves accepted
+deployment registries unchanged. It is intentionally separate from this
+historical full-directional simplified-dataset matrix. See
 `doc/reports/analysis/te_curve_verification_pipeline/01_official_decisions/`
-`official_model_verification_report/[2026-07-30]/`
-`track2_wave52r_full_candidate_official_model_verification_report.md`.
+`official_model_verification_report/[2026-08-04]/`
+`wave52r_integrated_specialist_track2_official_decision.md`.
 
 ## Dataset And Split
 

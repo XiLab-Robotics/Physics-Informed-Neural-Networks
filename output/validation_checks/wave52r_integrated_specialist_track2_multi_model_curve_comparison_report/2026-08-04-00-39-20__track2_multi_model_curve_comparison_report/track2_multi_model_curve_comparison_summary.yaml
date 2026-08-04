@@ -1,0 +1,486 @@
+schema_version: 1
+run_instance_id: 2026-08-04-00-39-20__track2_multi_model_curve_comparison_report
+output_directory: output\validation_checks\wave52r_integrated_specialist_track2_multi_model_curve_comparison_report\2026-08-04-00-39-20__track2_multi_model_curve_comparison_report
+report_path: doc\reports\analysis\te_curve_verification_pipeline\02_visual_reports\wave52r_integrated_specialist_multi_model_curve_comparison_report\[2026-08-04]\track2_multi_model_curve_comparison_report.md
+dataset:
+  config_path: config/datasets/transmission_error_dataset.yaml
+  dataset_name: polished_dataset
+  dataset_root: data\polished_dataset
+  surface_scope: all
+  curve_count: 194
+  selected_harmonic_list:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+comparison_count: 6
+comparison_summary_list:
+- group_id: auto_forward_wave52r_integrated_specialist_trained
+  group_title: Forward Wave52r Integrated Specialist Trained Overlay
+  candidate_id_list: &id001
+  - wave52r_integrated_a02_seed_314159
+  - wave52r_integrated_a03_seed_161803
+  - wave52r_integrated_a04_seed_161803
+  - wave52r_integrated_a05_seed_161803
+  - wave52r_integrated_a06_seed_271828
+  - wave52r_integrated_a07_seed_314159
+  - wave52r_integrated_a07_seed_161803
+  direction_scope: forward
+  candidate_summary_list:
+  - candidate_id: wave52r_integrated_a02_seed_314159
+    candidate_family: wave52r_integrated_specialist_a02
+    candidate_kind: wave52r_precomputed_full_curve
+    candidate_source_label: wave52r_integrated_specialist_trained
+    candidate_surface: global
+    allowed_direction_list: &id002
+    - forward
+    - backward
+    source_path: output\training_runs\integrated_specialist_models\2026-08-03-17-49-51__a02__seed_314159\test_predictions.npz
+    metrics:
+      mse: 5.730497027266997e-06
+      mae: 0.0014004494036549589
+      rmse: 0.0016583754158252968
+      mean_percentage_error_pct: 2.855879634129103
+      p95_mean_percentage_error_pct: 7.462640787746469
+  - candidate_id: wave52r_integrated_a03_seed_161803
+    candidate_family: wave52r_integrated_specialist_a03
+    candidate_kind: wave52r_precomputed_full_curve
+    candidate_source_label: wave52r_integrated_specialist_trained
+    candidate_surface: global
+    allowed_direction_list: &id003
+    - forward
+    - backward
+    source_path: output\training_runs\integrated_specialist_models\2026-08-03-17-52-05__a03__seed_161803\test_predictions.npz
+    metrics:
+      mse: 5.736117386484722e-06
+      mae: 0.001402660433457222
+      rmse: 0.0016616782732826693
+      mean_percentage_error_pct: 2.8617394426566682
+      p95_mean_percentage_error_pct: 7.46248884822154
+  - candidate_id: wave52r_integrated_a04_seed_161803
+    candidate_family: wave52r_integrated_specialist_a04
+    candidate_kind: wave52r_precomputed_full_curve
+    candidate_source_label: wave52r_integrated_specialist_trained
+    candidate_surface: global
+    allowed_direction_list: &id004
+    - forward
+    - backward
+    source_path: output\training_runs\integrated_specialist_models\2026-08-03-17-53-25__a04__seed_161803\test_predictions.npz
+    metrics:
+      mse: 5.749683319455523e-06
+      mae: 0.001398251272540977
+      rmse: 0.0016551216713704606
+      mean_percentage_error_pct: 2.8475111347200994
+      p95_mean_percentage_error_pct: 7.308591963843361
+  - candidate_id: wave52r_integrated_a05_seed_161803
+    candidate_family: wave52r_integrated_specialist_a05
+    candidate_kind: wave52r_precomputed_full_curve
+    candidate_source_label: wave52r_integrated_specialist_trained
+    candidate_surface: global
+    allowed_direction_list: &id005
+    - forward
+    - backward
+    source_path: output\training_runs\integrated_specialist_models\2026-08-03-17-54-44__a05__seed_161803\test_predictions.npz
+    metrics:
+      mse: 5.756044606128414e-06
+      mae: 0.0014000554475976888
+      rmse: 0.0016576263078124226
+      mean_percentage_error_pct: 2.8515992883586336
+      p95_mean_percentage_error_pct: 7.27783834619324
+  - candidate_id: wave52r_integrated_a06_seed_271828
+    candidate_family: wave52r_integrated_specialist_a06
+    candidate_kind: wave52r_precomputed_full_curve
+    candidate_source_label: wave52r_integrated_specialist_trained
+    candidate_surface: global
+    allowed_direction_list: &id006
+    - forward
+    - backward
+    source_path: output\training_runs\integrated_specialist_models\2026-08-03-17-55-30__a06__seed_271828\test_predictions.npz
+    metrics:
+      mse: 5.795980275124278e-06
+      mae: 0.0014038171733464176
+      rmse: 0.0016623661404559717
+      mean_percentage_error_pct: 2.8583887001372963
+      p95_mean_percentage_error_pct: 7.229681840722115
+  - candidate_id: wave52r_integrated_a07_seed_314159
+    candidate_family: wave52r_integrated_specialist_a07
+    candidate_kind: wave52r_precomputed_full_curve
+    candidate_source_label: wave52r_integrated_specialist_trained
+    candidate_surface: global
+    allowed_direction_list: &id007
+    - forward
+    - backward
+    source_path: output\training_runs\integrated_specialist_models\2026-08-03-17-56-16__a07__seed_314159\test_predictions.npz
+    metrics:
+      mse: 5.784320341574249e-06
+      mae: 0.0014034457984614193
+      rmse: 0.0016609554587414253
+      mean_percentage_error_pct: 2.8577017994368177
+      p95_mean_percentage_error_pct: 7.196575052892122
+  - candidate_id: wave52r_integrated_a07_seed_161803
+    candidate_family: wave52r_integrated_specialist_a07
+    candidate_kind: wave52r_precomputed_full_curve
+    candidate_source_label: wave52r_integrated_specialist_trained
+    candidate_surface: global
+    allowed_direction_list: &id008
+    - forward
+    - backward
+    source_path: output\training_runs\integrated_specialist_models\2026-08-03-17-57-01__a07__seed_161803\test_predictions.npz
+    metrics:
+      mse: 5.7885419222566755e-06
+      mae: 0.0014048855502831275
+      rmse: 0.0016639861406388184
+      mean_percentage_error_pct: 2.8622648300255906
+      p95_mean_percentage_error_pct: 7.4906588267124805
+  comparison_path: output\validation_checks\wave52r_integrated_specialist_track2_multi_model_curve_comparison_report\2026-08-04-00-39-20__track2_multi_model_curve_comparison_report\comparisons\auto_forward_wave52r_integrated_specialist_trained.png
+  comparison_markdown_path: assets/comparisons/a_fw_wave_inte_spec_trai_6eb6f22a10.png
+  selected_curve_list:
+  - source_file_path: data\polished_dataset\forward\25degree\1600rpm\1600.0rpm0.0Nm25.0deg.csv
+    direction_label: forward
+    speed_rpm: 1600.0
+    torque_nm: 0.0
+    oil_temperature_deg: 25.0
+  - source_file_path: data\polished_dataset\forward\30degree\300rpm\300.0rpm200.0Nm30.0deg.csv
+    direction_label: forward
+    speed_rpm: 300.0
+    torque_nm: 200.0
+    oil_temperature_deg: 30.0
+  - source_file_path: data\polished_dataset\forward\35degree\100rpm\100.0rpm100.0Nm35.0deg.csv
+    direction_label: forward
+    speed_rpm: 100.0
+    torque_nm: 100.0
+    oil_temperature_deg: 35.0
+  - source_file_path: data\polished_dataset\forward\35degree\1700rpm\1700.0rpm1800.0Nm35.0deg.csv
+    direction_label: forward
+    speed_rpm: 1700.0
+    torque_nm: 1800.0
+    oil_temperature_deg: 35.0
+- group_id: auto_backward_wave52r_integrated_specialist_trained
+  group_title: Backward Wave52r Integrated Specialist Trained Overlay
+  candidate_id_list: *id001
+  direction_scope: backward
+  candidate_summary_list:
+  - candidate_id: wave52r_integrated_a02_seed_314159
+    candidate_family: wave52r_integrated_specialist_a02
+    candidate_kind: wave52r_precomputed_full_curve
+    candidate_source_label: wave52r_integrated_specialist_trained
+    candidate_surface: global
+    allowed_direction_list: *id002
+    source_path: output\training_runs\integrated_specialist_models\2026-08-03-17-49-51__a02__seed_314159\test_predictions.npz
+    metrics:
+      mse: 9.09074706139636e-06
+      mae: 0.0015230876271396735
+      rmse: 0.001811477095168069
+      mean_percentage_error_pct: 2.9233948231549913
+      p95_mean_percentage_error_pct: 6.727190348267386
+  - candidate_id: wave52r_integrated_a03_seed_161803
+    candidate_family: wave52r_integrated_specialist_a03
+    candidate_kind: wave52r_precomputed_full_curve
+    candidate_source_label: wave52r_integrated_specialist_trained
+    candidate_surface: global
+    allowed_direction_list: *id003
+    source_path: output\training_runs\integrated_specialist_models\2026-08-03-17-52-05__a03__seed_161803\test_predictions.npz
+    metrics:
+      mse: 8.939573059087166e-06
+      mae: 0.001512244549261927
+      rmse: 0.0018012339399103583
+      mean_percentage_error_pct: 2.9086016516716464
+      p95_mean_percentage_error_pct: 6.764459558591719
+  - candidate_id: wave52r_integrated_a04_seed_161803
+    candidate_family: wave52r_integrated_specialist_a04
+    candidate_kind: wave52r_precomputed_full_curve
+    candidate_source_label: wave52r_integrated_specialist_trained
+    candidate_surface: global
+    allowed_direction_list: *id004
+    source_path: output\training_runs\integrated_specialist_models\2026-08-03-17-53-25__a04__seed_161803\test_predictions.npz
+    metrics:
+      mse: 9.146989891009755e-06
+      mae: 0.0015166066739892765
+      rmse: 0.001801998265150028
+      mean_percentage_error_pct: 2.9065422826781835
+      p95_mean_percentage_error_pct: 6.67175519687821
+  - candidate_id: wave52r_integrated_a05_seed_161803
+    candidate_family: wave52r_integrated_specialist_a05
+    candidate_kind: wave52r_precomputed_full_curve
+    candidate_source_label: wave52r_integrated_specialist_trained
+    candidate_surface: global
+    allowed_direction_list: *id005
+    source_path: output\training_runs\integrated_specialist_models\2026-08-03-17-54-44__a05__seed_161803\test_predictions.npz
+    metrics:
+      mse: 9.180760655888444e-06
+      mae: 0.001520961931303176
+      rmse: 0.0018076570161910173
+      mean_percentage_error_pct: 2.916178111496391
+      p95_mean_percentage_error_pct: 6.72396702742301
+  - candidate_id: wave52r_integrated_a06_seed_271828
+    candidate_family: wave52r_integrated_specialist_a06
+    candidate_kind: wave52r_precomputed_full_curve
+    candidate_source_label: wave52r_integrated_specialist_trained
+    candidate_surface: global
+    allowed_direction_list: *id006
+    source_path: output\training_runs\integrated_specialist_models\2026-08-03-17-55-30__a06__seed_271828\test_predictions.npz
+    metrics:
+      mse: 9.122230826352601e-06
+      mae: 0.0015228791041152785
+      rmse: 0.0018091159117370021
+      mean_percentage_error_pct: 2.9186179985994647
+      p95_mean_percentage_error_pct: 6.6634854246139525
+  - candidate_id: wave52r_integrated_a07_seed_314159
+    candidate_family: wave52r_integrated_specialist_a07
+    candidate_kind: wave52r_precomputed_full_curve
+    candidate_source_label: wave52r_integrated_specialist_trained
+    candidate_surface: global
+    allowed_direction_list: *id007
+    source_path: output\training_runs\integrated_specialist_models\2026-08-03-17-56-16__a07__seed_314159\test_predictions.npz
+    metrics:
+      mse: 9.23572404635919e-06
+      mae: 0.001522995046845989
+      rmse: 0.0018104357722676405
+      mean_percentage_error_pct: 2.918962624782263
+      p95_mean_percentage_error_pct: 6.722021590046767
+  - candidate_id: wave52r_integrated_a07_seed_161803
+    candidate_family: wave52r_integrated_specialist_a07
+    candidate_kind: wave52r_precomputed_full_curve
+    candidate_source_label: wave52r_integrated_specialist_trained
+    candidate_surface: global
+    allowed_direction_list: *id008
+    source_path: output\training_runs\integrated_specialist_models\2026-08-03-17-57-01__a07__seed_161803\test_predictions.npz
+    metrics:
+      mse: 9.122392275564662e-06
+      mae: 0.0015212621762118487
+      rmse: 0.0018088014195654437
+      mean_percentage_error_pct: 2.9177805637997327
+      p95_mean_percentage_error_pct: 6.645493554933439
+  comparison_path: output\validation_checks\wave52r_integrated_specialist_track2_multi_model_curve_comparison_report\2026-08-04-00-39-20__track2_multi_model_curve_comparison_report\comparisons\auto_backward_wave52r_integrated_specialist_trained.png
+  comparison_markdown_path: assets/comparisons/a_bw_wave_inte_spec_trai_292e2b70b5.png
+  selected_curve_list:
+  - source_file_path: data\polished_dataset\backward\25degree\1600rpm\1600.0rpm0.0Nm25.0deg.csv
+    direction_label: backward
+    speed_rpm: 1600.0
+    torque_nm: 0.0
+    oil_temperature_deg: 25.0
+  - source_file_path: data\polished_dataset\backward\30degree\300rpm\300.0rpm200.0Nm30.0deg.csv
+    direction_label: backward
+    speed_rpm: 300.0
+    torque_nm: 200.0
+    oil_temperature_deg: 30.0
+  - source_file_path: data\polished_dataset\backward\35degree\100rpm\100.0rpm100.0Nm35.0deg.csv
+    direction_label: backward
+    speed_rpm: 100.0
+    torque_nm: 100.0
+    oil_temperature_deg: 35.0
+  - source_file_path: data\polished_dataset\backward\35degree\1700rpm\1700.0rpm1800.0Nm35.0deg.csv
+    direction_label: backward
+    speed_rpm: 1700.0
+    torque_nm: 1800.0
+    oil_temperature_deg: 35.0
+- group_id: auto_forward_wave52r_offline_leader_cross_surface_promotion
+  group_title: Forward Wave52r Offline Leader Cross Surface Promotion Overlay
+  candidate_id_list:
+  - wave52r_promotion_h08_fw_seed_161803
+  direction_scope: forward
+  candidate_summary_list:
+  - candidate_id: wave52r_promotion_h08_fw_seed_161803
+    candidate_family: wave52r_promotion_h08
+    candidate_kind: wave52r_precomputed_full_curve
+    candidate_source_label: wave52r_offline_leader_cross_surface_promotion
+    candidate_surface: Fw
+    allowed_direction_list:
+    - forward
+    source_path: output\training_runs\complex_harmonic_coefficient_residuals\2026-07-31-10-45-42__stage5_h08__seed_161803\test_predictions.npz
+    metrics:
+      mse: 7.3259274162314585e-06
+      mae: 0.001687721694241309
+      rmse: 0.001984632909081134
+      mean_percentage_error_pct: 3.4772609626812074
+      p95_mean_percentage_error_pct: 7.595649767742147
+  comparison_path: output\validation_checks\wave52r_integrated_specialist_track2_multi_model_curve_comparison_report\2026-08-04-00-39-20__track2_multi_model_curve_comparison_report\comparisons\auto_forward_wave52r_offline_leader_cross_surface_promotion.png
+  comparison_markdown_path: assets/comparisons/a_fw_wave_offl_lead_cros_surf_prom_a3e3da2814.png
+  selected_curve_list:
+  - source_file_path: data\polished_dataset\forward\25degree\1600rpm\1600.0rpm0.0Nm25.0deg.csv
+    direction_label: forward
+    speed_rpm: 1600.0
+    torque_nm: 0.0
+    oil_temperature_deg: 25.0
+  - source_file_path: data\polished_dataset\forward\30degree\300rpm\300.0rpm200.0Nm30.0deg.csv
+    direction_label: forward
+    speed_rpm: 300.0
+    torque_nm: 200.0
+    oil_temperature_deg: 30.0
+  - source_file_path: data\polished_dataset\forward\35degree\100rpm\100.0rpm100.0Nm35.0deg.csv
+    direction_label: forward
+    speed_rpm: 100.0
+    torque_nm: 100.0
+    oil_temperature_deg: 35.0
+  - source_file_path: data\polished_dataset\forward\35degree\1700rpm\1700.0rpm1800.0Nm35.0deg.csv
+    direction_label: forward
+    speed_rpm: 1700.0
+    torque_nm: 1800.0
+    oil_temperature_deg: 35.0
+- group_id: auto_backward_wave52r_offline_leader_cross_surface_promotion
+  group_title: Backward Wave52r Offline Leader Cross Surface Promotion Overlay
+  candidate_id_list:
+  - wave52r_promotion_k01_global_seed_271828
+  direction_scope: backward
+  candidate_summary_list:
+  - candidate_id: wave52r_promotion_k01_global_seed_271828
+    candidate_family: wave52r_promotion_k01
+    candidate_kind: wave52r_precomputed_full_curve
+    candidate_source_label: wave52r_offline_leader_cross_surface_promotion
+    candidate_surface: global
+    allowed_direction_list:
+    - forward
+    - backward
+    source_path: output\training_runs\temporal_analytical_residual_models\2026-07-31-11-11-39__stage9_k01__seed_271828\test_predictions.npz
+    metrics:
+      mse: 9.090741522738052e-06
+      mae: 0.001523086294561118
+      rmse: 0.001811478682873929
+      mean_percentage_error_pct: 2.923394352464522
+      p95_mean_percentage_error_pct: 6.727416758635777
+  comparison_path: output\validation_checks\wave52r_integrated_specialist_track2_multi_model_curve_comparison_report\2026-08-04-00-39-20__track2_multi_model_curve_comparison_report\comparisons\auto_backward_wave52r_offline_leader_cross_surface_promotion.png
+  comparison_markdown_path: assets/comparisons/a_bw_wave_offl_lead_cros_surf_prom_2a04589ebf.png
+  selected_curve_list:
+  - source_file_path: data\polished_dataset\backward\25degree\1600rpm\1600.0rpm0.0Nm25.0deg.csv
+    direction_label: backward
+    speed_rpm: 1600.0
+    torque_nm: 0.0
+    oil_temperature_deg: 25.0
+  - source_file_path: data\polished_dataset\backward\30degree\300rpm\300.0rpm200.0Nm30.0deg.csv
+    direction_label: backward
+    speed_rpm: 300.0
+    torque_nm: 200.0
+    oil_temperature_deg: 30.0
+  - source_file_path: data\polished_dataset\backward\35degree\100rpm\100.0rpm100.0Nm35.0deg.csv
+    direction_label: backward
+    speed_rpm: 100.0
+    torque_nm: 100.0
+    oil_temperature_deg: 35.0
+  - source_file_path: data\polished_dataset\backward\35degree\1700rpm\1700.0rpm1800.0Nm35.0deg.csv
+    direction_label: backward
+    speed_rpm: 1700.0
+    torque_nm: 1800.0
+    oil_temperature_deg: 35.0
+- group_id: auto_forward_accepted_non_pinn_incumbent
+  group_title: Forward Accepted Non PINN Incumbent Overlay
+  candidate_id_list:
+  - accepted_periodic_gru_sequence_Fw
+  - accepted_periodic_mlp_harmonic_Fw
+  direction_scope: forward
+  candidate_summary_list:
+  - candidate_id: accepted_periodic_gru_sequence_Fw
+    candidate_family: periodic_gru_sequence
+    candidate_kind: wave1_exported_model
+    candidate_source_label: accepted_non_pinn_incumbent
+    candidate_surface: Fw
+    allowed_direction_list:
+    - forward
+    source_path: models\polished_dataset\setpoints\periodic_gru_sequence\forward\reference_inventory.yaml
+    metrics:
+      mse: 7.427613737826046e-06
+      mae: 0.0016183567563272238
+      rmse: 0.0019305804038243655
+      mean_percentage_error_pct: 3.2784116272854584
+      p95_mean_percentage_error_pct: 7.224709479203755
+  - candidate_id: accepted_periodic_mlp_harmonic_Fw
+    candidate_family: periodic_mlp_harmonic
+    candidate_kind: wave1_exported_model
+    candidate_source_label: accepted_non_pinn_incumbent
+    candidate_surface: Fw
+    allowed_direction_list:
+    - forward
+    source_path: models\polished_dataset\setpoints\periodic_mlp_harmonic\forward\reference_inventory.yaml
+    metrics:
+      mse: 8.014564330318983e-06
+      mae: 0.0016935390832040684
+      rmse: 0.002007653718413881
+      mean_percentage_error_pct: 3.4385997834790034
+      p95_mean_percentage_error_pct: 7.6516175962190465
+  comparison_path: output\validation_checks\wave52r_integrated_specialist_track2_multi_model_curve_comparison_report\2026-08-04-00-39-20__track2_multi_model_curve_comparison_report\comparisons\auto_forward_accepted_non_pinn_incumbent.png
+  comparison_markdown_path: assets/comparisons/auto_forward_accepted_non_pinn_incumbent.png
+  selected_curve_list:
+  - source_file_path: data\polished_dataset\forward\25degree\1600rpm\1600.0rpm0.0Nm25.0deg.csv
+    direction_label: forward
+    speed_rpm: 1600.0
+    torque_nm: 0.0
+    oil_temperature_deg: 25.0
+  - source_file_path: data\polished_dataset\forward\30degree\300rpm\300.0rpm200.0Nm30.0deg.csv
+    direction_label: forward
+    speed_rpm: 300.0
+    torque_nm: 200.0
+    oil_temperature_deg: 30.0
+  - source_file_path: data\polished_dataset\forward\35degree\100rpm\100.0rpm100.0Nm35.0deg.csv
+    direction_label: forward
+    speed_rpm: 100.0
+    torque_nm: 100.0
+    oil_temperature_deg: 35.0
+  - source_file_path: data\polished_dataset\forward\35degree\1700rpm\1700.0rpm1800.0Nm35.0deg.csv
+    direction_label: forward
+    speed_rpm: 1700.0
+    torque_nm: 1800.0
+    oil_temperature_deg: 35.0
+- group_id: auto_backward_accepted_non_pinn_incumbent
+  group_title: Backward Accepted Non PINN Incumbent Overlay
+  candidate_id_list:
+  - accepted_periodic_gru_sequence_Bw
+  - accepted_periodic_mlp_harmonic_Bw
+  direction_scope: backward
+  candidate_summary_list:
+  - candidate_id: accepted_periodic_gru_sequence_Bw
+    candidate_family: periodic_gru_sequence
+    candidate_kind: wave1_exported_model
+    candidate_source_label: accepted_non_pinn_incumbent
+    candidate_surface: Bw
+    allowed_direction_list:
+    - backward
+    source_path: models\polished_dataset\setpoints\periodic_gru_sequence\backward\reference_inventory.yaml
+    metrics:
+      mse: 1.2231448201329966e-05
+      mae: 0.0018370479069200797
+      rmse: 0.002196461703264933
+      mean_percentage_error_pct: 3.4944241024374323
+      p95_mean_percentage_error_pct: 8.824262588453504
+  - candidate_id: accepted_periodic_mlp_harmonic_Bw
+    candidate_family: periodic_mlp_harmonic
+    candidate_kind: wave1_exported_model
+    candidate_source_label: accepted_non_pinn_incumbent
+    candidate_surface: Bw
+    allowed_direction_list:
+    - backward
+    source_path: models\polished_dataset\setpoints\periodic_mlp_harmonic\backward\reference_inventory.yaml
+    metrics:
+      mse: 1.4553027170488367e-05
+      mae: 0.0019121120349138029
+      rmse: 0.0022633449430178323
+      mean_percentage_error_pct: 3.5811633784859502
+      p95_mean_percentage_error_pct: 9.741981951611717
+  comparison_path: output\validation_checks\wave52r_integrated_specialist_track2_multi_model_curve_comparison_report\2026-08-04-00-39-20__track2_multi_model_curve_comparison_report\comparisons\auto_backward_accepted_non_pinn_incumbent.png
+  comparison_markdown_path: assets/comparisons/auto_backward_accepted_non_pinn_incumbent.png
+  selected_curve_list:
+  - source_file_path: data\polished_dataset\backward\25degree\1600rpm\1600.0rpm0.0Nm25.0deg.csv
+    direction_label: backward
+    speed_rpm: 1600.0
+    torque_nm: 0.0
+    oil_temperature_deg: 25.0
+  - source_file_path: data\polished_dataset\backward\30degree\300rpm\300.0rpm200.0Nm30.0deg.csv
+    direction_label: backward
+    speed_rpm: 300.0
+    torque_nm: 200.0
+    oil_temperature_deg: 30.0
+  - source_file_path: data\polished_dataset\backward\35degree\100rpm\100.0rpm100.0Nm35.0deg.csv
+    direction_label: backward
+    speed_rpm: 100.0
+    torque_nm: 100.0
+    oil_temperature_deg: 35.0
+  - source_file_path: data\polished_dataset\backward\35degree\1700rpm\1700.0rpm1800.0Nm35.0deg.csv
+    direction_label: backward
+    speed_rpm: 1700.0
+    torque_nm: 1800.0
+    oil_temperature_deg: 35.0
+metrics_csv_path: output\validation_checks\wave52r_integrated_specialist_track2_multi_model_curve_comparison_report\2026-08-04-00-39-20__track2_multi_model_curve_comparison_report\track2_multi_model_curve_comparison_metrics.csv

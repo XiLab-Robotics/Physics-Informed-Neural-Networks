@@ -1012,6 +1012,38 @@ specialist and was not promoted globally because its backward/global raw and
 offset errors regressed. Periodic GRU and periodic harmonic MLP remain the
 accepted non-PINN references.
 
+Prepare or execute the integrated-specialist 29-candidate review locally or on
+the configured LAN workstation:
+
+```powershell
+.\scripts\campaigns\track_2\run_wave52r_integrated_specialist_track2.ps1 `
+  -PreflightOnly
+
+.\scripts\campaigns\track_2\run_wave52r_integrated_specialist_track2.ps1 `
+  -Remote `
+  -Run
+```
+
+If all three remote matrices complete but only the final artifact transfer
+fails, recover the existing outputs without rerunning the matrices:
+
+```powershell
+.\scripts\campaigns\track_2\run_wave52r_integrated_specialist_track2.ps1 `
+  -Remote `
+  -SyncOnly
+```
+
+The package includes all 21 trained A02-A08 runs, frozen K01/H08 ingredient
+controls, and six accepted incumbents. It executes separate `forward`,
+`backward`, and `global` matrices and does not promote from campaign or matrix
+rank alone.
+
+The completed `2026-08-04` official review recommends A02 seed `314159` as the
+verified offline `Fw` specialist and preferred routed `global` integrated
+candidate. K01 seed `271828` remains recommended on `Bw` and remains the frozen
+temporal backbone. A03-A07 retain campaign-gate vetoes, accepted deployment
+registries are unchanged, and TwinCAT runtime readiness is not established.
+
 Rebuild the frozen-payload H08 backward/global defect diagnostic:
 
 ```powershell

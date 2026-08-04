@@ -1,0 +1,33 @@
+schema_version: 1
+generated_at: '2026-08-03T21:57:45+02:00'
+status: passed
+config_path: config/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/wave52r_integrated_specialist_track2_matrix.yaml
+candidate_count: 29
+trained_candidate_count: 21
+ingredient_control_count: 2
+incumbent_count: 6
+surface_candidate_count:
+  Fw: 3
+  Bw: 2
+  global: 24
+candidate_source_count:
+  wave52r_integrated_specialist_trained: 21
+  wave52r_offline_leader_cross_surface_promotion: 2
+  accepted_non_pinn_incumbent: 6
+candidate_kind_count:
+  wave52r_precomputed_full_curve: 23
+  wave1_exported_model: 6
+campaign_gate_passed_candidate_id_list:
+- wave52r_integrated_a02_seed_161803
+- wave52r_integrated_a02_seed_271828
+- wave52r_integrated_a02_seed_314159
+excluded_condition_id_list:
+- speed_500rpm__torque_600Nm__temperature_35degC
+- speed_800rpm__torque_200Nm__temperature_25degC
+- speed_1400rpm__torque_800Nm__temperature_35degC
+curve_count_by_split:
+  train: 1350
+  validation: 388
+  test: 194
+heavy_matrix_executed: false
+promotion_authorized: false

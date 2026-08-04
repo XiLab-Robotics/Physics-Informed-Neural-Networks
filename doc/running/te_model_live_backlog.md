@@ -25,8 +25,8 @@ Historical rationale and approval history remain in:
 - Active Campaign State: none. The
   `wave52r_integrated_specialist_model_2026_08_02` campaign completed `24 / 24`
   entries and its normal closeout is complete. Its protected-file list is
-  cleared. The separate TE Curve Verification Pipeline refresh remains
-  pending explicit approval and operator execution.
+  cleared. The separate TE Curve Verification Pipeline refresh and official
+  curve-first review are complete.
 - Current Completed Wave: polished-dataset RCIM, early-wave, and full-wave
   retraining closeouts plus the official `2026-07-03` TE Curve Verification
   Pipeline refresh are complete.
@@ -42,9 +42,9 @@ Historical rationale and approval history remain in:
   integrated-specialist campaign and normal closeout are complete. Only A02,
   the forward-gated centered H08 branch, passed its three-seed branch gate;
   A08 therefore contains A02 alone and adds no distinct integration gain.
-  A04 is only the failed-gate scalar validation winner. The next optional
-  repository step is the separately approved and operator-run Fw/Bw/global
-  TE Curve Verification Pipeline refresh.
+  A04 is only a failed-gate diagnostic axis winner. The completed Fw/Bw/global
+  review recommends A02 seed `314159` for `Fw` and routed `global`, while K01
+  seed `271828` remains the `Bw` recommendation and temporal backbone.
   The official K01/H08 cross-surface curve-first verification is complete. The
   completed Phases 0 through 15 closeout remains valid and physics-integrated
   Wave 6 remains closed. Stages 0 through 15 are complete: the accepted
@@ -202,10 +202,11 @@ Historical rationale and approval history remain in:
   periodic harmonic MLP wins polished-setpoint `Bw` and simplified-setpoint
   `Fw`. Wave 4.1 remains the raw-error and offset diagnostic ingredient.
   Sparse-RCIM temporal candidates remain actual-values references only.
-- Current Next Branch: optionally prepare the separate Fw/Bw/global TE Curve
-  Verification Pipeline refresh for the completed Wave 5.2R
-  integrated-specialist campaign. A02 is the only gate-qualified empirical
-  branch; A04 remains an unpromoted scalar validation winner.
+- Current Next Branch: decide whether the verified offline A02 seed `314159`
+  path should advance into export and TwinCAT qualification. A02 is the `Fw`
+  and routed `global` recommendation; K01 seed `271828` remains the `Bw`
+  recommendation and frozen temporal backbone. A03-A07 remain failed-gate
+  diagnostics and accepted registries remain unchanged.
   Manual PLC testing through the standalone TF3820 module continues in
   parallel. The paper-faithful MMT full PINN remains an inactive future option.
 
@@ -431,7 +432,7 @@ Next planned diagnostic and training decision branches:
 | Causal offset / mean calibration pilot | Test whether direct offset / curve-mean pressure improves the next `polished_dataset` setpoint `Fw` branch while preserving both time-windowed and non-windowed roads. | completed and bounded-screened; the non-windowed harmonic MLP won scalar selection but ranked fourth in the bounded curve-first screen, while the time-windowed residual-offset GRU failed the shape gate. Do not promote or expand this direct causal-offset profile. |
 | Post-causal-offset `Wave 5.2` decision gate | Decide whether MMT should remain diagnostic-only, become a feature or auxiliary-output path, or become a weak soft constraint. | completed; the follow-up replay and leakage-safe diagnostic selected `blocked_by_parameter_availability`. MMT is now an inactive future TODO and does not block non-MMT work. |
 | Wave 6 physics-integrated multi-task / multi-head branch | Shared causal trunk with separate offset, low-frequency, centered-shape, uncertainty or mixture, and validated physics-informed heads. | entry not authorized; reopen only after two complementary physical components pass isolated and integrated gates |
-| Future integrated specialist model | Combine K01 temporal/offset control, forward-only H08 harmonic behavior, F01 shape fidelity, S01 harmonic specialization, H04 interpretability, and Stage 10 R00/S01 sparse-symbolic corrections while explicitly preventing each source model's known regressions. | next-roadmap TODO only; exclude the current global H08 formulation and treat its offset/global-interference defect as an ablation contract; requires a new technical document, ablation plan, inspectability review, and campaign gate |
+| Wave 5.2R integrated specialist model | Combine K01 temporal/offset control with independently gated forward harmonic, shape, objective, and condition-interaction branches. | campaign and official Track 2 review complete; A02 seed `314159` is the verified offline `Fw` and routed `global` recommendation, K01 seed `271828` remains recommended on `Bw`, A03-A07 remain failed-gate diagnostics, and no accepted deployment registry changed |
 | Sequential residual calibration branch | Current best causal model plus second causal residual or offset calibrator trained on model error. | candidate after audit |
 
 The `CVP 1.5` offset-predictability feasibility diagnostic is complete in:

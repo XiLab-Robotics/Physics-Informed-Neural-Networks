@@ -4865,3 +4865,23 @@ This folder contains the internal project documents derived from the reference P
 - [Wave 5.2R Offline-Leader Cross-Surface Track 2 Launcher](scripts/campaigns/track_2/run_wave52r_offline_leader_cross_surface_track2.md)
   Operator workflow for the 24-candidate `Fw`, `Bw`, and `global` official
   curve-first verification package.
+
+- [Wave 5.2R Integrated-Specialist Track 2 Launcher](scripts/campaigns/track_2/run_wave52r_integrated_specialist_track2.md)
+  Operator workflow for the 29-candidate `Fw`, `Bw`, and `global` package built
+  from all trained A02-A08 runs plus frozen ingredient and incumbent controls.
+
+- [Wave 5.2R Integrated-Specialist Track 2 Official Decision](reports/analysis/te_curve_verification_pipeline/01_official_decisions/official_model_verification_report/%5B2026-08-04%5D/wave52r_integrated_specialist_track2_official_decision.md)
+  Multi-index curve-first decision recommending A02 seed `314159` on `Fw` and
+  routed `global`, while retaining K01 seed `271828` on `Bw`.
+
+- [Wave 5.2R Integrated-Specialist CVP 1.2 Diagnostics](reports/analysis/te_curve_verification_pipeline/03_cvp_diagnostics/wave52r_integrated_specialist_curve_payload_diagnostics/%5B2026-08-04%5D/track2_curve_payload_diagnostics_report.md)
+  Full-payload shape, offset, closure, harmonic, phase, and derivative evidence
+  for the nine-candidate decision shortlist.
+
+- [Wave 5.2R Integrated-Specialist Collage Report](reports/analysis/te_curve_verification_pipeline/02_visual_reports/wave52r_integrated_specialist_best_model_collage_report/%5B2026-08-04%5D/track2_best_model_collage_report.md)
+  Candidate-local four-curve visual review for the selected integrated and
+  incumbent evidence set.
+
+- [Wave 5.2R Integrated-Specialist Overlay Report](reports/analysis/te_curve_verification_pipeline/02_visual_reports/wave52r_integrated_specialist_multi_model_curve_comparison_report/%5B2026-08-04%5D/track2_multi_model_curve_comparison_report.md)
+  Direction-separated multi-model overlays for visual comparison of the
+  integrated shortlist, frozen controls, and accepted incumbents.
