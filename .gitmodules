@@ -13,10 +13,7 @@
 [submodule "reference/codes/TestRig"]
 	path = reference/codes/TestRig
 	url = https://github.com/XiLab-Robotics/TestRig.git
-[submodule "reference/codes/TestRig_TF3820_MachineLearningServer"]
-	path = reference/codes/TestRig_TF3820_MachineLearningServer
-	url = https://github.com/XiLab-Robotics/TestRig.git
-	branch = tf3820-machine-learning-server
+	branch = 4026
 [submodule "reference/codes/TwinCAT_TF3820_StandaloneModelTest"]
 	path = reference/codes/TwinCAT_TF3820_StandaloneModelTest
 	url = https://github.com/XiLab-Robotics/TwinCAT-TF3820-StandaloneModelTest.git
