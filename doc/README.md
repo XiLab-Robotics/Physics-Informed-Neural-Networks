@@ -1241,6 +1241,11 @@ This folder contains the internal project documents derived from the reference P
   implementing a side-by-side `TF3820` Machine Learning Server prediction
   path for later Beckhoff PLC validation.
 
+- [technical/2026-08/2026-08-25/2026-08-25-16-29-53_consolidate_testrig_tf3820_submodules.md](./technical/2026-08/2026-08-25/2026-08-25-16-29-53_consolidate_testrig_tf3820_submodules.md)
+  Technical plan for consolidating the parent repository onto the canonical
+  TestRig `4026` and standalone TF3820 `main` submodules while retiring the
+  superseded TestRig migration checkout.
+
 - [technical/2026-07/2026-07-11/2026-07-11-12-51-28_tf3820_standalone_plc_test_pipeline.md](./technical/2026-07/2026-07-11/2026-07-11-12-51-28_tf3820_standalone_plc_test_pipeline.md)
   Technical plan for building a standalone `TF3820` PLC test harness that can
   run prepared ONNX model artifacts on a blank Beckhoff target without the
