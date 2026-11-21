@@ -83,3 +83,13 @@ Correct the CI script so the explicit chunk list includes `config`, `models`, `d
 Previous full-hosted checkouts also materialized tens of thousands of files and the complete multi-gigabyte scientific archive even though this quality workflow checks only Markdown, Python syntax and the Sphinx portal. Use `actions/checkout@v5` **non-cone sparse-checkout** on both quality and Pages workflows, selecting root Markdown/lint configuration, all `site/` and `scripts/`, the lightweight `config/` tree, model Markdown and all `doc/**/*.md` plus site-embeddable PNG/SVG and small YAML/JSON assets. GitHub source trees and pinned submodules remain complete and unmodified; only the disposable runner working tree is sparse.
 
 A local throwaway Git sparse-checkout fixture confirms that the anchored patterns include root `doc/README.md`, nested technical notes, root/nested model Markdown, portal, scripts, config and referenced PNG, while excluding output archives and PDF. This is a source/build optimization, not a deletion or archival operation. Continue to require a new observed `Repository Quality Checks` result and separate Pages deployment evidence. If Sphinx shows missing referenced assets, extend only the necessary sparse patterns; do not weaken `-W` or disable validation.
+
+## HYG-01 CI iteration: run 44952932352
+
+The optimized [PR quality run 44952932352](https://github.com/XiLab-Robotics/Physics-Informed-Neural-Networks/actions/runs/44952932352) completed in approximately five and a half minutes. Checkout, dependency install, structural Markdown QA, all Markdownlint chunks, and Python syntax compilation **PASS**. The strict Sphinx build found five remaining warnings:
+
+- Three autodoc import failures due to missing `psutil`, imported from the existing `validate_wave52r_offline_leader_promotion.py` implementation.
+- One autodoc import failure for `data.generate_polished_dataset`, whose lightweight Python source file was omitted by the sparse-checkout patterns.
+- One MyST missing-target warning for the existing `reference/documentation_visual_references/ur_rtde_api_reference_example.pdf` link in `site/archives/ur_rtde_visual_reference.md`. The original PDF is present in the parent repository (17,645,730 bytes), not in the sparse runner.
+
+The bounded correction is `psutil>=6.0,<9.0` in docs requirements and two additional sparse checkout patterns in both workflows: `/data/**/*.py` and the exact reference PDF path. Data files and model artifacts remain excluded from the ephemeral runner. Do not edit the source modules, rewrite the links, disable warnings or broaden to the complete `data/` and `reference/` trees. Await another observed full quality check outcome for this new commit.

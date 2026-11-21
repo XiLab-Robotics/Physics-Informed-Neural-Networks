@@ -31,6 +31,8 @@ jobs:
             /site/
             /scripts/
             /config/
+            /data/**/*.py
+            /reference/documentation_visual_references/ur_rtde_api_reference_example.pdf
             /models/**/*.md
             /doc/**/*.md
             /doc/**/*.png
