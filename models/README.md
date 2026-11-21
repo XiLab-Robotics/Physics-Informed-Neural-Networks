@@ -24,7 +24,10 @@ mixed by path.
   Curated best model-development exports for the polished setpoint branch.
   Leaf folders use `<model_family>/<surface>/` directly and keep source-run
   provenance in `reference_inventory.yaml`. The aggregate inventory currently
-  contains 113 leaves: 39 forward, 37 backward, and 37 global.
+  contains 114 leaves: 39 forward, 37 backward, and 38 global.
+  These counts match `model_development_export_inventory.yaml`. The additional
+  `integrated_specialist_a02/global` leaf is an offline-verified composition
+  candidate, **not** an accepted deployment-registry replacement.
 - `polished_dataset/actual_values/`
   Curated best model-development exports for the polished actual-values branch.
   Leaf folders use `<model_family>/<surface>/` directly and keep source-run

@@ -4,6 +4,12 @@ This folder contains the internal project documents derived from the reference P
 
 ## Available Documents
 
+### Current Repository Maintenance
+
+- [2026-11-21 HYG-01 to HYG-04: Sphinx, documentation, models and submodules](./technical/2026-11/2026-11-21/2026-11-21-22-27-07_repository_hygiene_hyg01_04.md)
+  Scoped corrections preserving historical documents, model artifacts and
+  source provenance. CI and Pages publication require separate evidence.
+
 ### Reference Summaries
 
 - [reference_summaries/01_Dataset_Operations_Guide.md](./reference_summaries/01_Dataset_Operations_Guide.md)
