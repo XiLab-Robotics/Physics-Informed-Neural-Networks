@@ -23,8 +23,27 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # This check only needs authored docs, helper scripts and portal assets.
+      # The 24+ GB scientific archive (datasets, training outputs, ONNX, videos,
+      # PDFs, checkpoints and source references) stays in Git, but is not
+      # materialized on this disposable documentation runner.
       - name: Checkout Repository
         uses: actions/checkout@v5
+        with:
+          sparse-checkout: |
+            /README.md
+            /AGENTS.md
+            /.markdownlint-cli2.jsonc
+            /site/
+            /scripts/
+            /config/
+            /models/**/*.md
+            /doc/**/*.md
+            /doc/**/*.png
+            /doc/**/*.svg
+            /doc/**/*.yaml
+            /doc/**/*.json
+          sparse-checkout-cone-mode: false
 
       - name: Set Up Python
         uses: actions/setup-python@v6

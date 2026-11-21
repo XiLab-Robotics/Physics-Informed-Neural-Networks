@@ -73,3 +73,13 @@ Current, linear, source-confirmed gitlink baselines:
 - Require branch head/source-tree re-read and parent diff after each GitHub write.
 - Revert this branch through a normal reviewable Git commit/PR if any expected safety or compatibility check fails. Do not rewrite scientific history or force-push main.
 - Until tests are observed, label the remediation `APPLIED_SOURCE_ONLY`; only evidence-backed workflow results may advance the CI or Pages statuses.
+
+## HYG-01 CI runtime correction: source-backed finding
+
+Historical [quality run 32862898056](https://github.com/XiLab-Robotics/Physics-Informed-Neural-Networks/actions/runs/32862898056) took more than five hours. Its Markdownlint step included 244 invocations for 25-file chunks. The repository-wide `.markdownlint-cli2.jsonc` file includes `globs`; markdownlint-cli2 appends these to every command-line invocation unless `--no-globs` is passed. Each chunk therefore rescanned the complete globbed documentation set repeatedly. The existing repository-owned `run_markdownlint.py` already uses `--no-globs` when explicit paths are supplied, confirming this is the intended behavior.
+
+Correct the CI script so the explicit chunk list includes `config`, `models`, `doc` and `site` authored Markdown and each invocation passes `--no-globs`. This retains the configured canonical coverage and the existing 25-file memory-safe batching without repeated full-tree scans.
+
+Previous full-hosted checkouts also materialized tens of thousands of files and the complete multi-gigabyte scientific archive even though this quality workflow checks only Markdown, Python syntax and the Sphinx portal. Use `actions/checkout@v5` **non-cone sparse-checkout** on both quality and Pages workflows, selecting root Markdown/lint configuration, all `site/` and `scripts/`, the lightweight `config/` tree, model Markdown and all `doc/**/*.md` plus site-embeddable PNG/SVG and small YAML/JSON assets. GitHub source trees and pinned submodules remain complete and unmodified; only the disposable runner working tree is sparse.
+
+A local throwaway Git sparse-checkout fixture confirms that the anchored patterns include root `doc/README.md`, nested technical notes, root/nested model Markdown, portal, scripts, config and referenced PNG, while excluding output archives and PDF. This is a source/build optimization, not a deletion or archival operation. Continue to require a new observed `Repository Quality Checks` result and separate Pages deployment evidence. If Sphinx shows missing referenced assets, extend only the necessary sparse patterns; do not weaken `-W` or disable validation.
