@@ -3,7 +3,7 @@
 - **Prepared:** 2026-11-22 16:33:10 Europe/Rome from the local clock.
 - **Source:** `XiLab-Robotics/Physics-Informed-Neural-Networks/main@0ec0349eacdf60f1d4e726fba4aec124e5b86e9e`.
 - **Original requirements blob:** `32be1b18e8d3599c18692e02b2e1a0cf02626565`.
-- **Tracking issue:** https://github.com/XiLab-Robotics/Physics-Informed-Neural-Networks/issues/2
+- **Tracking issue:** [HYG issue #2](https://github.com/XiLab-Robotics/Physics-Informed-Neural-Networks/issues/2).
 - **Owner authorization:** Explicit approval to apply the prepared three-file HYG-06 change and commit it was given on 2026-11-22; protected-main PR, review, and CI gates remain in force.
 
 ## Overview
