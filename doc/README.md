@@ -6,6 +6,9 @@ This folder contains the internal project documents derived from the reference P
 
 ### Current Repository Maintenance
 
+- [2026-11-22 HYG-06: scientific dependency declaration alignment](./technical/2026-11/2026-11-22/2026-11-22-16-33-10_hyg06_scientific_dependency_declaration_alignment.md)
+  Minimal root requirements alignment; scientific resolver/installation and merge checks remain separate.
+
 - [2026-11-21 HYG-01 to HYG-04: Sphinx, documentation, models and submodules](./technical/2026-11/2026-11-21/2026-11-21-22-27-07_repository_hygiene_hyg01_04.md)
   Scoped corrections preserving historical documents, model artifacts and
   source provenance. CI and Pages publication require separate evidence.
