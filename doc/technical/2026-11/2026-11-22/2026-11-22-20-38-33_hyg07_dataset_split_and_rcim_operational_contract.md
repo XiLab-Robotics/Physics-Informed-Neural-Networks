@@ -1,6 +1,6 @@
 # HYG-07 Dataset Split and RCIM Operational Contract Alignment
 
-- **Prepared:** 2026-11-22 20:38:33 Europe/Rome (CET; local clock checked).
+- **Prepared:** 2026-11-22 (repository maintenance session; filename timestamp is a document identifier, not independent clock evidence).
 - **Baseline:** `XiLab-Robotics/Physics-Informed-Neural-Networks/main@cde3d7279fcb3ae5f5e91840da6a91a0c5134507`.
 - **Tracking:** [Repository hygiene issue #2](https://github.com/XiLab-Robotics/Physics-Informed-Neural-Networks/issues/2).
 - **Owner direction:** Continue the scoped HYG-07 cleanup; do not change historical experiment results, datasets, model weights, or PLC sources.
