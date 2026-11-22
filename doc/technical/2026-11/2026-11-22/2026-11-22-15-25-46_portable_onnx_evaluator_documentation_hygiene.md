@@ -1,10 +1,10 @@
 # Portable ONNX Evaluator — Documentation Hygiene (HYG-05)
 
-**Date:** 2026-11-22 (Europe/Rome).  
-**Repository:** `XiLab-Robotics/Physics-Informed-Neural-Networks`.  
-**Branch:** `track2-portable`; source baseline `965a45b9e26d3262bc5c77d36d40a2a341be9886`.  
-**Owner scope:** retain the standalone Track 2 evaluation branch and correct its documentation.  
-**State at plan creation:** PREPARED; source and model execution not requalified.
+- **Date:** 2026-11-22 (Europe/Rome).
+- **Repository:** `XiLab-Robotics/Physics-Informed-Neural-Networks`.
+- **Branch:** `track2-portable`; source baseline `965a45b9e26d3262bc5c77d36d40a2a341be9886`.
+- **Owner scope:** retain the standalone Track 2 evaluation branch and correct its documentation.
+- **State at plan creation:** PREPARED; source and model execution not requalified.
 
 ## Overview
 
