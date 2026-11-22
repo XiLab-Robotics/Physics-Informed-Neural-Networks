@@ -1,42 +1,33 @@
-# Polished Transmission Error CSV Export
+# Polished Transmission Error CSVs — Portable Evaluator Reference
 
-The polished CSV export converts raw measurement files from
-`data/original_dataset/` into direction-separated, time-ordered CSV files.
+This `track2-portable` branch **contains historical exported CSV files**, not
+the raw measurement archive or the scripts needed to regenerate the datasets.
+The source generation workflow converts raw measurements into direction-separated,
+time-ordered curves in canonical research `main`.
 
-The canonical dataset lineage, signal definitions, equations, audit results,
-and usage constraints are documented in the
-[Transmission Error Dataset Family Reference](../../doc/reference_summaries/08_Transmission_Error_Dataset_Family_Reference.md).
+The authoritative dataset lineage, signal definitions, equations, audited
+normalization and use constraints remain in the
+[research-main Transmission Error Dataset Family Reference](https://github.com/XiLab-Robotics/Physics-Informed-Neural-Networks/blob/main/doc/reference_summaries/08_Transmission_Error_Dataset_Family_Reference.md).
+This external link is deliberate: `doc/reference_summaries/` is **not**
+included in the portable branch. For packaged evaluator usage see the
+[portable README](../../README.md).
 
-## Folder Structure
+## Historical Generator and Packaged Folder Structure
 
-The standalone generator is stored one level above this dataset:
+In the **separate research-main branch**, the original standalone generator is
+[`data/generate_polished_dataset.py`](https://github.com/XiLab-Robotics/Physics-Informed-Neural-Networks/blob/main/data/generate_polished_dataset.py).
+It historically uses `data/original_dataset` as input and
+`data/polished_dataset` as output. The integrated generator is
+[`scripts/datasets/generate_polished_transmission_error_dataset.py`](https://github.com/XiLab-Robotics/Physics-Informed-Neural-Networks/blob/main/scripts/datasets/generate_polished_transmission_error_dataset.py),
+with a historical default output of `output/generated_polished_dataset/`.
+Both are **absent from this branch**; do not execute those paths from a
+portable checkout. Historical generator progress/overwrite behavior is not
+an execution receipt for this branch.
 
-```text
-data/generate_polished_dataset.py
-```
-
-Its defaults are:
-
-```text
-input  = data/original_dataset
-output = data/polished_dataset
-```
-
-The complete repository-integrated copy is:
-
-```text
-scripts/datasets/generate_polished_transmission_error_dataset.py
-```
-
-Its output defaults to `output/generated_polished_dataset/`. Both scripts show
-verbose startup information and a `tqdm` progress bar while processing source
-conditions.
-
-The script exports all selected source files into direction and
-operating-condition folders:
+Packaged data files here follow the direction/condition layout:
 
 ```text
-csv/
+data/polished_dataset/
   forward/
     25degree/
       1000rpm/
@@ -47,9 +38,9 @@ csv/
         1000.0rpm100.0Nm25.0deg.csv
 ```
 
-## Duplicate Conditions
+## Historical Duplicate Conditions
 
-Source files are grouped by the nominal speed, torque, and temperature parsed
+During the original generation, source files were grouped by the nominal speed, torque, and temperature parsed
 from the source filename. If multiple source files have the same conditions,
 the Python exporter emits a `RuntimeWarning`, keeps the first sorted source
 file, and skips later duplicates to avoid overwriting the same output path.
@@ -122,12 +113,20 @@ Direction comes from the parent `forward/` or `backward/` folder. Filename
 speed, torque, and temperature are nominal conditions; the CSV columns contain
 sample-level measured or derived values.
 
-## Safety
+## Safety and Provenance Boundary
 
-Existing destination files are not replaced unless
-`OVERWRITE_EXISTING_FILES = True`. Missing inputs, invalid paths, empty source
-inventories, and processing skips cause the run to fail visibly.
+The **historical generator**, not the packaged portable evaluator, was designed
+to preserve existing output files unless `OVERWRITE_EXISTING_FILES = True`.
+Its missing-input, invalid-path, empty-source and skipped-processing behavior
+belongs to that generator workflow.
 
-See
-`doc/scripts/datasets/generate_polished_transmission_error_dataset.md` for the
-standalone and repository commands and the exact verified differences.
+The portable script **reads the existing CSVs for offline inference** and can
+write predicted curves, plots and summary CSVs to `--output-dir`. Use a fresh
+output directory rather than overwriting tracked example results. Do not
+reinterpret generated TE offsets as independently validated physical encoder
+zeroing or approved machine compensation.
+
+For the original source-side run commands and generator details, consult the
+[research-main dataset-generator note](https://github.com/XiLab-Robotics/Physics-Informed-Neural-Networks/blob/main/doc/scripts/datasets/generate_polished_transmission_error_dataset.md).
+This reference is external to `track2-portable` by design. No raw data
+reprocessing or numerical parity test was performed during HYG-05.
