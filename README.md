@@ -1,4 +1,4 @@
-# StandardML - Codex
+# Physics-Informed Neural Networks
 
 Machine-learning workflows for rotational transmission error modeling in RV
 reducers, with a repository structure aimed at reproducible experiments,
@@ -43,6 +43,8 @@ Implemented today:
 - structured baselines for harmonic regression, periodic-feature MLP, and
   residual-harmonic MLP workflows;
 - tree-based baselines for comparison;
+- trained GRU, LSTM, and temporal-convolution candidates in the model-development
+  archive (archive availability is not PLC deployment qualification);
 - one-batch validation checks and smoke-test utilities;
 - batch campaign execution and artifact tracking;
 - styled report generation and PDF validation tooling;
@@ -70,8 +72,8 @@ Implemented today:
 
 Planned or future work:
 
-- broader sequence-aware models such as lagged-window, GRU, LSTM, and TCN
-  families;
+- broader validation and generalization of the existing sequence-aware
+  model families to new operating conditions;
 - additional hybrid TE model families;
 - export and deployment hardening for production-oriented inference;
 - full PINN formulation once the physics residual design is mature enough.
@@ -123,7 +125,7 @@ The most important folders for a new user are:
 - `reference/`
   External reference material and imported codebases kept outside the main
   canonical workflow.
-- `models/paper_reference/rcim_track1/`
+- `models/polished_dataset/paper_reference/rcim_track1/`
   Curated RCIM Model-Bank Reproduction forward/backward paper-reference model archives
   produced by the faithful exact-model-bank reimplementation.
 - `reference/video_guides/source_bundle/`
@@ -234,7 +236,7 @@ Tables `2`-`5` on the repository dataset lives here:
 
 Current accepted RCIM Model-Bank Reproduction model archives and benchmark tables live here:
 
-- `models/paper_reference/rcim_track1/`
+- `models/polished_dataset/paper_reference/rcim_track1/`
 - `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
 
 RCIM Model-Bank Reproduction is considered closed as the repository-owned paper-faithful full-bank
@@ -351,7 +353,11 @@ Recommended guide entry points:
 - [Periodic Feature Network](./doc/guide/Periodic%20Feature%20Network/Periodic%20Feature%20Network.md)
 - [Residual Harmonic Network](./doc/guide/Residual%20Harmonic%20Network/Residual%20Harmonic%20Network.md)
 
-## Main Implemented Model Families
+## Core Model Family Examples
+
+This section lists representative model families, not the full research bank.
+For the dataset-separated exported-model catalog, see
+[Model Artifact Folder](./models/README.md).
 
 - `feedforward`
   Point-wise MLP baseline for TE regression.
@@ -396,7 +402,8 @@ publication through the GitHub Pages workflow in:
 
 - `.github/workflows/publish-sphinx-pages.yml`
 
-The live public portal is available at:
+The configured public portal URL is below. Confirm actual deployment status
+from the GitHub Pages workflow:
 
 - `https://xilab-robotics.github.io/Physics-Informed-Neural-Networks/`
 
