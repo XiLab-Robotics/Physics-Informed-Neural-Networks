@@ -43,8 +43,9 @@ all-green optimized clone.
 
 Accepted model archives from those campaigns are promoted to:
 
-- `models/paper_reference/rcim_track1/forward/`
-- `models/paper_reference/rcim_track1/backward/`
+- `models/polished_dataset/paper_reference/rcim_track1/` with input-mode
+  folders `setpoints/` and `actual_values/`, each containing `forward/`,
+  `backward/`, and `global/` accepted archive surfaces.
 
 The canonical RCIM Tables `2`-`5` comparison surface is:
 
