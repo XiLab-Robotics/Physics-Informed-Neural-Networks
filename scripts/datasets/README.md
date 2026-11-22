@@ -2,7 +2,7 @@
 
 ## Canonical Split Export
 
-The script [export_dataset_split.py](/C:/Users/XiLabTRig/Documents/Physics-Informed%20Machine%20Learning/StandardML%20-%20Codex/scripts/datasets/export_dataset_split.py)
+The script [export_dataset_split.py](export_dataset_split.py)
 exports the canonical dataset split used by the repository for the current
 dataset configuration.
 
