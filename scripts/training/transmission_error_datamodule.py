@@ -659,6 +659,17 @@ class TransmissionErrorDataModule(LightningDataModule):
                 int(dataset_processing_config["split"]["random_seed"]),
             )
 
+        # Require Nonempty Test Split For Shared Training Consumers
+        # The low-level splitter permits test_split=0 for standalone callers,
+        # but this DataModule, shared training, and tree regression always
+        # build a test dataset and expose a test_dataloader.
+        if not test_directional_file_manifest:
+            raise ValueError(
+                "TransmissionErrorDataModule requires a nonempty test split; "
+                "set split.test_split > 0 or supply a common split manifest "
+                "containing test curves"
+            )
+
         # Validate Exact Post-Quarantine Split Counts
         if self.expected_curve_count_by_split is not None:
             observed_curve_count_by_split = {
