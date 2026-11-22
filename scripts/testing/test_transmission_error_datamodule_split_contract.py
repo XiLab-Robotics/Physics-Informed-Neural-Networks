@@ -89,7 +89,7 @@ class TransmissionErrorDataModuleSplitContractTests(unittest.TestCase):
     def test_default_dataset_split_remains_ten_percent(self) -> None:
         """The public training default remains 0.1 (not a zero-test setup)."""
         config_text = DATASET_CONFIG_PATH.read_text(encoding="utf-8")
-        self.assertRegex(config_text, r"(?m)^  test_split: 0\\.1\\s*$")
+        self.assertRegex(config_text, r"(?m)^  test_split: 0\.1\s*$")
 
 
 if __name__ == "__main__":
