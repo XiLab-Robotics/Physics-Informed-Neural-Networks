@@ -9,6 +9,9 @@ This folder contains the internal project documents derived from the reference P
 
 ### Current Repository Maintenance
 
+- [2026-11-23 PRE08-DOC: canonical index link reconciliation](./technical/2026-11/2026-11-23/2026-11-23-12-46-37_pre08_documentation_index_link_reconciliation.md)
+  Source-tree-verified repair of 67 moved/renamed links; historical reports retained.
+
 - [2026-11-22 HYG-06: scientific dependency declaration alignment](./technical/2026-11/2026-11-22/2026-11-22-16-33-10_hyg06_scientific_dependency_declaration_alignment.md)
   Minimal root requirements alignment; scientific resolver/installation and merge checks remain separate.
 
@@ -1310,7 +1313,7 @@ This folder contains the internal project documents derived from the reference P
   files. A styled PDF companion is available at
   `reports/analysis/Complete TE And Dataset Renaming Audit.pdf`.
 
-- [reports/analysis/mmt_te_modeling/MMT TE Modeling Equation Extraction And Reimplementation Plan.md](./reports/analysis/mmt_te_modeling/MMT%20TE%20Modeling%20Equation%20Extraction%20And%20Reimplementation%20Plan.md)
+- [reports/analysis/mmt_te_modeling/MMT TE Modeling Equation Extraction And Reimplementation Plan.md](./reports/analysis/te_modeling/analytical_mmt/MMT%20TE%20Modeling%20Equation%20Extraction%20And%20Reimplementation%20Plan.md)
   Equation extraction, implementation notes, MATLAB/Python reproduction entry
   points, and dataset-evaluation plan for the analytical `MMT_TEModeling`
   `RV` reducer transmission-error model.
@@ -1343,26 +1346,26 @@ This folder contains the internal project documents derived from the reference P
   current repository reimplementation, including runnable-stage boundaries and
   the main engineering divergences.
 
-- [reports/analysis/wave1/wave1_best_model_te_curve_prediction/[2026-04-25]/wave1_best_model_te_curve_prediction_report.md](./reports/analysis/wave1/wave1_best_model_te_curve_prediction/%5B2026-04-25%5D/wave1_best_model_te_curve_prediction_report.md)
+- [reports/analysis/wave1/wave1_best_model_te_curve_prediction/[2026-04-25]/wave1_best_model_te_curve_prediction_report.md](./reports/analysis/model_development_waves/wave_1/wave1_best_model_te_curve_prediction/%5B2026-04-25%5D/wave1_best_model_te_curve_prediction_report.md)
   Offline comparison report for the current Wave 1 family-best models on a
   deterministic 20% subset of the canonical held-out TE test curves, including
   aggregate metrics and plot artifact pointers.
 
-- [reports/analysis/wave2/Wave 2.1 Temporal Sequence Models.md](./reports/analysis/wave2/Wave%202%20Temporal%20Sequence%20Models.md)
+- [reports/analysis/wave2/Wave 2.1 Temporal Sequence Models.md](./reports/analysis/model_development_waves/wave_2/Wave%202%20Temporal%20Sequence%20Models.md)
   Explanatory report for the first `Wave 2.1` temporal sequence families:
   temporal convolution, `GRU`, and `LSTM` windowed TE regressors.
 
-- [reports/analysis/wave2/Wave 2.2 Harmonic Temporal Hybrid Models.md](./reports/analysis/wave2/Wave%202B%20Harmonic%20Temporal%20Hybrid%20Models.md)
+- [reports/analysis/wave2/Wave 2.2 Harmonic Temporal Hybrid Models.md](./reports/analysis/model_development_waves/wave_2/Wave%202B%20Harmonic%20Temporal%20Hybrid%20Models.md)
   Explanatory report for the `Wave 2.2` harmonic-temporal hybrid families that
   add explicit periodic harmonic features to temporal convolution, `GRU`, and
   `LSTM` sequence windows.
 
-- [reports/analysis/wave2/Wave 2.3 Residual Harmonic Temporal Hybrid Models.md](./reports/analysis/wave2/Wave%202C%20Residual%20Harmonic%20Temporal%20Hybrid%20Models.md)
+- [reports/analysis/wave2/Wave 2.3 Residual Harmonic Temporal Hybrid Models.md](./reports/analysis/model_development_waves/wave_2/Wave%202C%20Residual%20Harmonic%20Temporal%20Hybrid%20Models.md)
   Explanatory report for the `Wave 2.3` residual harmonic temporal hybrid
   families that add recurrent sequence residuals over a structured harmonic
   base.
 
-- [reports/analysis/wave2/Wave 3.1 Sequential Residual-Offset Probe Model.md](./reports/analysis/wave2/Track%202F%20Sequential%20Residual-Offset%20Probe%20Model.md)
+- [reports/analysis/wave2/Wave 3.1 Sequential Residual-Offset Probe Model.md](./reports/analysis/model_development_waves/wave_2/Track%202F%20Sequential%20Residual-Offset%20Probe%20Model.md)
   Explanatory report for the first learned `Wave 3.1`
   `sequential_residual_offset_probe` model, including branch structure,
   causal input boundary, implemented files, and verification status.
@@ -1395,7 +1398,7 @@ This folder contains the internal project documents derived from the reference P
   continuity, harmonic / phase, robustness, visual-evidence, and
   deployment-readiness axes instead of scalar `MAE` alone.
 
-- [reports/analysis/TE Program Status And Closeout Ledger.md](./reports/analysis/TE%20Program%20Status%20And%20Closeout%20Ledger.md)
+- [reports/analysis/TE Program Status And Closeout Ledger.md](./reports/analysis/project_status/current/TE%20Program%20Status%20And%20Closeout%20Ledger.md)
   Maintained official TE modeling status ledger covering `Wave 1` through
   `Wave 5.1`, `CVP 1.1` through `CVP 1.5` and Waves `3.1` through `4.4`, current direction-parallel leaders,
   and the required update rule for future campaign and `TE Curve Verification Pipeline` closeouts.
@@ -1523,7 +1526,7 @@ This folder contains the internal project documents derived from the reference P
   structured models, and `Wave 5.2` first-PINN work before the integrated
   multi-task / multi-head architecture.
 
-- [reports/analysis/te_curve_verification_pipeline/05_reference_and_legacy/Wave 4.4 Latent-State Hysteresis Probe Model.md](./reports/analysis/te_curve_verification_pipeline/05_reference_and_legacy/Track%202H-L%20Latent-State%20Hysteresis%20Probe%20Model.md)
+- [reports/analysis/te_curve_verification_pipeline/05_reference_and_legacy/Wave 4.4 Latent-State Hysteresis Probe Model.md](./reports/analysis/te_curve_verification_pipeline/05_reference_and_legacy/Wave%204.4%20Latent-State%20Hysteresis%20Probe%20Model.md)
   Explanatory report for the `Wave 4.4`
   `latent_state_hysteresis_probe` model, covering causal latent-state
   encoding, base/offset/residual heads, campaign profiles, risks, and
@@ -1615,50 +1618,50 @@ This folder contains the internal project documents derived from the reference P
   `Wave 5.1` harmonic-prior residual candidates, verified as an exploratory
   baseline and not promoted over the accepted direction-parallel leaders.
 
-- [reports/analysis/wave3/Wave 5.1 Hybrid Structured Models.md](./reports/analysis/wave3/Wave%203%20Hybrid%20Structured%20Models.md)
+- [reports/analysis/wave3/Wave 5.1 Hybrid Structured Models.md](./reports/analysis/model_development_waves/wave_3/Wave%203%20Hybrid%20Structured%20Models.md)
   Design report for `Wave 5.1` hybrid structured TE models, covering harmonic
   prior residual learners, grouped harmonic heads, condition-conditioned
   residual surfaces, and basis-constrained curve decoders.
 
-- [reports/analysis/wave4/Wave 5.2 PINN Formulation And First PINN.md](./reports/analysis/wave4/Wave%204%20PINN%20Formulation%20And%20First%20PINN.md)
+- [reports/analysis/wave4/Wave 5.2 PINN Formulation And First PINN.md](./reports/analysis/model_development_waves/wave_4/Wave%204%20PINN%20Formulation%20And%20First%20PINN.md)
   Design report for the first `Wave 5.2` soft-constraint PINN branch, covering
   TE data fit, periodicity, smoothness, harmonic consistency, condition-surface
   consistency, and residual regularization boundaries.
 
-- [reports/analysis/wave4/Wave 5.2A MMT Equation Diagnostic Design.md](./reports/analysis/wave4/Wave%204A%20MMT%20Equation%20Diagnostic%20Design.md)
+- [reports/analysis/wave4/Wave 5.2A MMT Equation Diagnostic Design.md](./reports/analysis/model_development_waves/wave_4/Wave%204A%20MMT%20Equation%20Diagnostic%20Design.md)
   Detailed design for using the repository-owned MMT equation reproduction as
   a TE Curve Verification Pipeline analytical diagnostic before feature or PINN integration.
 
-- [reports/analysis/wave4/Wave 5.2B MMT Feature Generator Design.md](./reports/analysis/wave4/Wave%204B%20MMT%20Feature%20Generator%20Design.md)
+- [reports/analysis/wave4/Wave 5.2B MMT Feature Generator Design.md](./reports/analysis/model_development_waves/wave_4/Wave%204B%20MMT%20Feature%20Generator%20Design.md)
   Detailed design for turning MMT subsystem terms, harmonic summaries, and
   calibrated analytical residuals into leakage-safe feature candidates.
 
-- [reports/analysis/wave4/Wave 5.2C MMT Soft Constraint PINN Design.md](./reports/analysis/wave4/Wave%204C%20MMT%20Soft%20Constraint%20PINN%20Design.md)
+- [reports/analysis/wave4/Wave 5.2C MMT Soft Constraint PINN Design.md](./reports/analysis/model_development_waves/wave_4/Wave%204C%20MMT%20Soft%20Constraint%20PINN%20Design.md)
   Detailed design for adding weak MMT equation residuals to a curve or
   harmonic-plus-residual neural model.
 
-- [reports/analysis/wave4/Wave 5.2D Mesh Stiffness Loaded TE PINN Design.md](./reports/analysis/wave4/Wave%204D%20Mesh%20Stiffness%20Loaded%20TE%20PINN%20Design.md)
+- [reports/analysis/wave4/Wave 5.2D Mesh Stiffness Loaded TE PINN Design.md](./reports/analysis/model_development_waves/wave_4/Wave%204D%20Mesh%20Stiffness%20Loaded%20TE%20PINN%20Design.md)
   Detailed design for exploratory time-varying mesh stiffness and loaded-static
   transmission-error constraints.
 
-- [reports/analysis/wave4/Wave 5.2E Backlash Preload State PINN Design.md](./reports/analysis/wave4/Wave%204E%20Backlash%20Preload%20State%20PINN%20Design.md)
+- [reports/analysis/wave4/Wave 5.2E Backlash Preload State PINN Design.md](./reports/analysis/model_development_waves/wave_4/Wave%204E%20Backlash%20Preload%20State%20PINN%20Design.md)
   Detailed design for backlash, preload, direction-transition, and latent-state
   constraints targeting local dispersion.
 
-- [reports/analysis/wave4/Wave 5.2F Cycloid Contact Force PINN Design.md](./reports/analysis/wave4/Wave%204F%20Cycloid%20Contact%20Force%20PINN%20Design.md)
+- [reports/analysis/wave4/Wave 5.2F Cycloid Contact Force PINN Design.md](./reports/analysis/model_development_waves/wave_4/Wave%204F%20Cycloid%20Contact%20Force%20PINN%20Design.md)
   Detailed design for cycloid-pin contact-force, profile-modification, and
   loaded-TE exploratory constraints.
 
-- [reports/analysis/wave4/Wave 5.2G Planetary Mesh Force LSTE PINN Design.md](./reports/analysis/wave4/Wave%204G%20Planetary%20Mesh%20Force%20LSTE%20PINN%20Design.md)
+- [reports/analysis/wave4/Wave 5.2G Planetary Mesh Force LSTE PINN Design.md](./reports/analysis/model_development_waves/wave_4/Wave%204G%20Planetary%20Mesh%20Force%20LSTE%20PINN%20Design.md)
   Detailed design for planetary-style mesh-force, load-sharing, and
   loaded-static-TE exploratory constraints.
 
-- [reports/analysis/wave4/mmt_equation_diagnostic/[2026-06-11]/wave4a_mmt_equation_diagnostic.md](./reports/analysis/wave4/mmt_equation_diagnostic/%5B2026-06-11%5D/wave4a_mmt_equation_diagnostic.md)
+- [reports/analysis/wave4/mmt_equation_diagnostic/[2026-06-11]/wave4a_mmt_equation_diagnostic.md](./reports/analysis/model_development_waves/wave_4/mmt_equation_diagnostic/%5B2026-06-11%5D/wave4a_mmt_equation_diagnostic.md)
   First `Wave 5.2A` MMT equation-chain diagnostic report, summarizing the
   demonstration `RTE` mean, peak-to-peak amplitude, dominant harmonics, and
   TE Curve Verification Pipeline suspicious-harmonic probe.
 
-- [reports/analysis/wave4/mmt_parameter_inventory/[2026-06-11]/wave4a_mmt_parameter_inventory.md](./reports/analysis/wave4/mmt_parameter_inventory/%5B2026-06-11%5D/wave4a_mmt_parameter_inventory.md)
+- [reports/analysis/wave4/mmt_parameter_inventory/[2026-06-11]/wave4a_mmt_parameter_inventory.md](./reports/analysis/model_development_waves/wave_4/mmt_parameter_inventory/%5B2026-06-11%5D/wave4a_mmt_parameter_inventory.md)
   `Wave 5.2A` MMT parameter-inventory report, classifying geometry constants,
   dataset metadata, train-only equivalent-error channels, blocked contact
   geometry, and target-only TE boundaries before `Wave 5.2B` or `Wave 5.2C`.
@@ -1707,7 +1710,7 @@ This folder contains the internal project documents derived from the reference P
   results, recent campaign changes, and family-by-family ranked outcomes across
   the TE training program.
 
-- [reports/analysis/Repository Status Wave Track Synthesis.md](./reports/analysis/Repository%20Status%20Wave%20Track%20Synthesis.md)
+- [reports/analysis/Repository Status Wave Track Synthesis.md](./reports/analysis/project_status/current/Repository%20Status%20Wave%20Track%20Synthesis.md)
   Consolidated state report covering the repository status, `Wave 1`,
   `Wave 2.1`, `Wave 2.2`, `Wave 2.3`, `TE Curve Verification Pipeline` outcomes, sparse `RCIM` versus
   dense harmonic-bank results, and the curve-first future plan introduced by
@@ -1715,16 +1718,16 @@ This folder contains the internal project documents derived from the reference P
   is available at
   `reports/analysis/Repository Status Wave Track Synthesis.pdf`.
 
-- [reports/analysis/wave1/Wave 1 - Closeout Status.md](./reports/analysis/wave1/Wave%201%20-%20Closeout%20Status.md)
+- [reports/analysis/wave1/Wave 1 - Closeout Status.md](./reports/analysis/model_development_waves/wave_1/Wave%201%20-%20Closeout%20Status.md)
   Consolidated closeout report for `Wave 1`, covering campaign completion status, compared families, family winners, and final ranking.
 
 - [reports/analysis/utilities/Skill and Subagent Operational Test.md](./reports/analysis/utilities/Skill%20and%20Subagent%20Operational%20Test.md)
   Operational test report for the second wave of repository-owned Codex skills and subagents.
 
-- [reports/analysis/te_modeling/Twincat-Friendly Structured TE Modeling.md](./reports/analysis/te_modeling/Twincat-Friendly%20Structured%20TE%20Modeling.md)
+- [reports/analysis/te_modeling/Twincat-Friendly Structured TE Modeling.md](./reports/analysis/te_modeling/strategy/Twincat-Friendly%20Structured%20TE%20Modeling.md)
   Reference-backed synthesis of TwinCAT-friendly structured TE modeling implications for the current repository direction.
 
-- [reports/analysis/te_modeling/Curve-First TE Training Strategy.md](./reports/analysis/te_modeling/Curve-First%20TE%20Training%20Strategy.md)
+- [reports/analysis/te_modeling/Curve-First TE Training Strategy.md](./reports/analysis/te_modeling/strategy/Curve-First%20TE%20Training%20Strategy.md)
   Strategy report for shifting TE model selection from scalar pointwise
   `MAE` toward TE Curve Verification Pipeline curve-following quality, harmonic/phase diagnostics,
   and continuous compensation readiness.
@@ -4162,16 +4165,16 @@ This folder contains the internal project documents derived from the reference P
 
 #### Analysis
 
-- [reports/analysis/2026-03-12-13-18-30_feedforward_trial_analytical_report.md](./reports/analysis/2026-03-12-13-18-30_feedforward_trial_analytical_report.md)
+- [reports/analysis/2026-03-12-13-18-30_feedforward_trial_analytical_report.md](./reports/analysis/te_modeling/analytical_studies/FeedForward%20Trial%20Analytical%20Report.md)
   Full analytical report for the executed feedforward proof run, including interpretation and comparison against the reference papers.
 
-- [reports/analysis/2026-03-12-13-38-17_training_configuration_analysis_report.md](./reports/analysis/2026-03-12-13-38-17_training_configuration_analysis_report.md)
+- [reports/analysis/2026-03-12-13-38-17_training_configuration_analysis_report.md](./reports/analysis/training_configuration/Training%20Configuration%20Analysis.md)
   Detailed explanation of the training configuration entries, their practical effects, and a comparison between trial, baseline, and heavier workstation-oriented variants.
 
-- [reports/analysis/2026-03-12-13-38-17_training_configuration_analysis_report.pdf](./reports/analysis/2026-03-12-13-38-17_training_configuration_analysis_report.pdf)
+- [reports/analysis/2026-03-12-13-38-17_training_configuration_analysis_report.pdf](./reports/analysis/training_configuration/Training%20Configuration%20Analysis.pdf)
   PDF export of the detailed training-configuration analysis report and the project golden standard for future styled analytical PDFs.
 
-- [reports/analysis/2026-03-17-15-46-01_te_model_family_analysis_report.md](./reports/analysis/2026-03-17-15-46-01_te_model_family_analysis_report.md)
+- [reports/analysis/2026-03-17-15-46-01_te_model_family_analysis_report.md](./reports/analysis/te_modeling/family_studies/TE%20Model%20Family%20Analysis.md)
   Detailed analytical report comparing standard, temporal, hybrid, and PINN model families for the TE case study, including priority and tradeoff analysis.
 
 - [reports/analysis/project_status/[2026-03-27]/Project Status Report.md](./reports/analysis/project_status/%5B2026-03-27%5D/Project%20Status%20Report.md)
@@ -4195,33 +4198,33 @@ This folder contains the internal project documents derived from the reference P
 - [reports/analysis/project_status/[2026-03-27]/notebook_lm_assets/notebooklm_presentation_prompt.md](./reports/analysis/project_status/%5B2026-03-27%5D/notebook_lm_assets/notebooklm_presentation_prompt.md)
   Ready-to-paste NotebookLM prompt for generating an English project-status presentation from the grounded repository source package stored under `notebook_lm_assets/`.
 
-- [reports/analysis/validation_checks/2026-03-30-10-46-47_feedforward_te_feedforward_trial_skill_operational_test_validation_setup_report.md](./reports/analysis/validation_checks/2026-03-30-10-46-47_feedforward_te_feedforward_trial_skill_operational_test_validation_setup_report.md)
+- [reports/analysis/validation_checks/2026-03-30-10-46-47_feedforward_te_feedforward_trial_skill_operational_test_validation_setup_report.md](./reports/analysis/validation_checks/infrastructure/2026-03-30-10-46-47_feedforward_te_feedforward_trial_skill_operational_test_validation_setup_report.md)
   Lightweight repository-owned validation-check report generated from the one-batch feedforward trial setup validation pass.
 
-- [reports/analysis/validation_checks/2026-03-30-10-46-47_feedforward_te_feedforward_trial_skill_operational_test_validation_setup_report.pdf](./reports/analysis/validation_checks/2026-03-30-10-46-47_feedforward_te_feedforward_trial_skill_operational_test_validation_setup_report.pdf)
+- [reports/analysis/validation_checks/2026-03-30-10-46-47_feedforward_te_feedforward_trial_skill_operational_test_validation_setup_report.pdf](./reports/analysis/validation_checks/infrastructure/2026-03-30-10-46-47_feedforward_te_feedforward_trial_skill_operational_test_validation_setup_report.pdf)
   Styled PDF export of the feedforward trial validation-check report.
 
-- [reports/analysis/validation_checks/2026-06-04-23-08-24_track2f_bi_2c54bdf1_te_track2f_bis_clean_residual_o_00ddc617_validation_setup_report.md](./reports/analysis/validation_checks/2026-06-04-23-08-24_track2f_bi_2c54bdf1_te_track2f_bis_clean_residual_o_00ddc617_validation_setup_report.md)
+- [reports/analysis/validation_checks/2026-06-04-23-08-24_track2f_bi_2c54bdf1_te_track2f_bis_clean_residual_o_00ddc617_validation_setup_report.md](./reports/analysis/validation_checks/model_development_waves/generated_setup_reports/2026-06-04-23-08-24_track2f_bi_2c54bdf1_te_track2f_bis_clean_residual_o_00ddc617_validation_setup_report.md)
   One-batch validation setup report for the Wave 3.2 clean non-harmonic
   control `global` entry.
 
-- [reports/analysis/validation_checks/2026-06-04-23-08-24_track2f_bi_da4c30ce_te_track2f_bis_harmonic_residua_7fa047ef_validation_setup_report.md](./reports/analysis/validation_checks/2026-06-04-23-08-24_track2f_bi_da4c30ce_te_track2f_bis_harmonic_residua_7fa047ef_validation_setup_report.md)
+- [reports/analysis/validation_checks/2026-06-04-23-08-24_track2f_bi_da4c30ce_te_track2f_bis_harmonic_residua_7fa047ef_validation_setup_report.md](./reports/analysis/validation_checks/model_development_waves/generated_setup_reports/2026-06-04-23-08-24_track2f_bi_da4c30ce_te_track2f_bis_harmonic_residua_7fa047ef_validation_setup_report.md)
   One-batch validation setup report for the Wave 3.2 harmonic-offset
   `global` entry.
 
-- [reports/analysis/validation_checks/2026-06-08-18-14-31_track2g_cu_ca617bbd_te_track2g_curve_aware_pointwis_239993a2_validation_setup_report.md](./reports/analysis/validation_checks/2026-06-08-18-14-31_track2g_cu_ca617bbd_te_track2g_curve_aware_pointwis_239993a2_validation_setup_report.md)
+- [reports/analysis/validation_checks/2026-06-08-18-14-31_track2g_cu_ca617bbd_te_track2g_curve_aware_pointwis_239993a2_validation_setup_report.md](./reports/analysis/validation_checks/model_development_waves/generated_setup_reports/2026-06-08-18-14-31_track2g_cu_ca617bbd_te_track2g_curve_aware_pointwis_239993a2_validation_setup_report.md)
   One-batch validation setup report for the Wave 3.3 pointwise-control
   `global` entry.
 
-- [reports/analysis/validation_checks/2026-06-08-18-14-31_track2g_cu_b85b1190_te_track2g_curve_aware_raw_cent_9365d702_validation_setup_report.md](./reports/analysis/validation_checks/2026-06-08-18-14-31_track2g_cu_b85b1190_te_track2g_curve_aware_raw_cent_9365d702_validation_setup_report.md)
+- [reports/analysis/validation_checks/2026-06-08-18-14-31_track2g_cu_b85b1190_te_track2g_curve_aware_raw_cent_9365d702_validation_setup_report.md](./reports/analysis/validation_checks/model_development_waves/generated_setup_reports/2026-06-08-18-14-31_track2g_cu_b85b1190_te_track2g_curve_aware_raw_cent_9365d702_validation_setup_report.md)
   One-batch validation setup report for the Wave 3.3 raw plus centered-shape
   `global` entry.
 
-- [reports/analysis/validation_checks/2026-06-08-18-14-31_track2g_cu_1430b431_te_track2g_curve_aware_raw_offs_951f470e_validation_setup_report.md](./reports/analysis/validation_checks/2026-06-08-18-14-31_track2g_cu_1430b431_te_track2g_curve_aware_raw_offs_951f470e_validation_setup_report.md)
+- [reports/analysis/validation_checks/2026-06-08-18-14-31_track2g_cu_1430b431_te_track2g_curve_aware_raw_offs_951f470e_validation_setup_report.md](./reports/analysis/validation_checks/model_development_waves/generated_setup_reports/2026-06-08-18-14-31_track2g_cu_1430b431_te_track2g_curve_aware_raw_offs_951f470e_validation_setup_report.md)
   One-batch validation setup report for the Wave 3.3 raw plus offset
   `global` entry.
 
-- [reports/analysis/validation_checks/2026-06-08-18-14-31_track2g_cu_3c0ce19b_te_track2g_curve_aware_full_cur_f7e39520_validation_setup_report.md](./reports/analysis/validation_checks/2026-06-08-18-14-31_track2g_cu_3c0ce19b_te_track2g_curve_aware_full_cur_f7e39520_validation_setup_report.md)
+- [reports/analysis/validation_checks/2026-06-08-18-14-31_track2g_cu_3c0ce19b_te_track2g_curve_aware_full_cur_f7e39520_validation_setup_report.md](./reports/analysis/validation_checks/model_development_waves/generated_setup_reports/2026-06-08-18-14-31_track2g_cu_3c0ce19b_te_track2g_curve_aware_full_cur_f7e39520_validation_setup_report.md)
   One-batch validation setup report for the Wave 3.3 full composite curve-loss
   `global` entry.
 
@@ -4231,10 +4234,10 @@ This folder contains the internal project documents derived from the reference P
 - [guide/Neural%20Network%20Foundations/Neural%20Network%20Foundations.pdf](./guide/Neural%20Network%20Foundations/Neural%20Network%20Foundations.pdf)
   Styled PDF export of the neural-network foundations learning guide.
 
-- [guide/Neural%20Network%20Foundations/concept_video_package/video_source_brief.md](./guide/Neural%20Network%20Foundations/concept_video_package/video_source_brief.md)
+- [guide/Neural%20Network%20Foundations/concept_video_package/video_source_brief.md](./guide/Neural%20Network%20Foundations/assets/concept_video_package/video_source_brief.md)
   Neutral NotebookLM-oriented source brief for the neural-network foundations concept video package.
 
-- [guide/Neural%20Network%20Foundations/project_video_package/video_source_brief.md](./guide/Neural%20Network%20Foundations/project_video_package/video_source_brief.md)
+- [guide/Neural%20Network%20Foundations/project_video_package/video_source_brief.md](./guide/Neural%20Network%20Foundations/assets/project_video_package/video_source_brief.md)
   Repository-specific NotebookLM-oriented source brief for the neural-network foundations project video package.
 
 - [guide/Training,%20Validation,%20And%20Testing/Training,%20Validation,%20And%20Testing.md](./guide/Training,%20Validation,%20And%20Testing/Training,%20Validation,%20And%20Testing.md)
@@ -4243,10 +4246,10 @@ This folder contains the internal project documents derived from the reference P
 - [guide/Training,%20Validation,%20And%20Testing/Training,%20Validation,%20And%20Testing.pdf](./guide/Training,%20Validation,%20And%20Testing/Training,%20Validation,%20And%20Testing.pdf)
   Styled PDF export of the training, validation, and testing learning guide.
 
-- [guide/Training,%20Validation,%20And%20Testing/concept_video_package/video_source_brief.md](./guide/Training,%20Validation,%20And%20Testing/concept_video_package/video_source_brief.md)
+- [guide/Training,%20Validation,%20And%20Testing/concept_video_package/video_source_brief.md](./guide/Training%2C%20Validation%2C%20And%20Testing/assets/concept_video_package/video_source_brief.md)
   Neutral NotebookLM-oriented source brief for the training, validation, and testing concept video package.
 
-- [guide/Training,%20Validation,%20And%20Testing/project_video_package/video_source_brief.md](./guide/Training,%20Validation,%20And%20Testing/project_video_package/video_source_brief.md)
+- [guide/Training,%20Validation,%20And%20Testing/project_video_package/video_source_brief.md](./guide/Training%2C%20Validation%2C%20And%20Testing/assets/project_video_package/video_source_brief.md)
   Repository-specific NotebookLM-oriented source brief for the training, validation, and testing project video package.
 
 - [guide/TE%20Model%20Curriculum/TE%20Model%20Curriculum.md](./guide/TE%20Model%20Curriculum/TE%20Model%20Curriculum.md)
@@ -4255,10 +4258,10 @@ This folder contains the internal project documents derived from the reference P
 - [guide/TE%20Model%20Curriculum/TE%20Model%20Curriculum.pdf](./guide/TE%20Model%20Curriculum/TE%20Model%20Curriculum.pdf)
   Styled PDF export of the TE model curriculum learning guide.
 
-- [guide/TE%20Model%20Curriculum/concept_video_package/video_source_brief.md](./guide/TE%20Model%20Curriculum/concept_video_package/video_source_brief.md)
+- [guide/TE%20Model%20Curriculum/concept_video_package/video_source_brief.md](./guide/TE%20Model%20Curriculum/assets/concept_video_package/video_source_brief.md)
   Neutral NotebookLM-oriented source brief for the TE model curriculum concept video package.
 
-- [guide/TE%20Model%20Curriculum/project_video_package/video_source_brief.md](./guide/TE%20Model%20Curriculum/project_video_package/video_source_brief.md)
+- [guide/TE%20Model%20Curriculum/project_video_package/video_source_brief.md](./guide/TE%20Model%20Curriculum/assets/project_video_package/video_source_brief.md)
   Repository-specific NotebookLM-oriented source brief for the TE model curriculum project video package.
 
 - [guide/FeedForward%20Network/FeedForward%20Network.md](./guide/FeedForward%20Network/FeedForward%20Network.md)
@@ -4267,10 +4270,10 @@ This folder contains the internal project documents derived from the reference P
 - [guide/FeedForward%20Network/FeedForward%20Network.pdf](./guide/FeedForward%20Network/FeedForward%20Network.pdf)
   Styled PDF export of the feedforward network learning guide.
 
-- [guide/FeedForward%20Network/concept_video_package/video_source_brief.md](./guide/FeedForward%20Network/concept_video_package/video_source_brief.md)
+- [guide/FeedForward%20Network/concept_video_package/video_source_brief.md](./guide/FeedForward%20Network/assets/concept_video_package/video_source_brief.md)
   Neutral NotebookLM-oriented source brief for the feedforward-network concept video package.
 
-- [guide/FeedForward%20Network/project_video_package/video_source_brief.md](./guide/FeedForward%20Network/project_video_package/video_source_brief.md)
+- [guide/FeedForward%20Network/project_video_package/video_source_brief.md](./guide/FeedForward%20Network/assets/project_video_package/video_source_brief.md)
   Repository-specific NotebookLM-oriented source brief for the feedforward-network project video package.
 
 - [guide/Harmonic%20Regression/Harmonic%20Regression.md](./guide/Harmonic%20Regression/Harmonic%20Regression.md)
@@ -4279,10 +4282,10 @@ This folder contains the internal project documents derived from the reference P
 - [guide/Harmonic%20Regression/Harmonic%20Regression.pdf](./guide/Harmonic%20Regression/Harmonic%20Regression.pdf)
   Styled PDF export of the harmonic regression learning guide.
 
-- [guide/Harmonic%20Regression/concept_video_package/video_source_brief.md](./guide/Harmonic%20Regression/concept_video_package/video_source_brief.md)
+- [guide/Harmonic%20Regression/concept_video_package/video_source_brief.md](./guide/Harmonic%20Regression/assets/concept_video_package/video_source_brief.md)
   Neutral NotebookLM-oriented source brief for the harmonic-regression concept video package.
 
-- [guide/Harmonic%20Regression/project_video_package/video_source_brief.md](./guide/Harmonic%20Regression/project_video_package/video_source_brief.md)
+- [guide/Harmonic%20Regression/project_video_package/video_source_brief.md](./guide/Harmonic%20Regression/assets/project_video_package/video_source_brief.md)
   Repository-specific NotebookLM-oriented source brief for the harmonic-regression project video package.
 
 - [guide/Periodic%20Feature%20Network/Periodic%20Feature%20Network.md](./guide/Periodic%20Feature%20Network/Periodic%20Feature%20Network.md)
@@ -4291,10 +4294,10 @@ This folder contains the internal project documents derived from the reference P
 - [guide/Periodic%20Feature%20Network/Periodic%20Feature%20Network.pdf](./guide/Periodic%20Feature%20Network/Periodic%20Feature%20Network.pdf)
   Styled PDF export of the periodic-feature network learning guide.
 
-- [guide/Periodic%20Feature%20Network/concept_video_package/video_source_brief.md](./guide/Periodic%20Feature%20Network/concept_video_package/video_source_brief.md)
+- [guide/Periodic%20Feature%20Network/concept_video_package/video_source_brief.md](./guide/Periodic%20Feature%20Network/assets/concept_video_package/video_source_brief.md)
   Neutral NotebookLM-oriented source brief for the periodic-feature-network concept video package.
 
-- [guide/Periodic%20Feature%20Network/project_video_package/video_source_brief.md](./guide/Periodic%20Feature%20Network/project_video_package/video_source_brief.md)
+- [guide/Periodic%20Feature%20Network/project_video_package/video_source_brief.md](./guide/Periodic%20Feature%20Network/assets/project_video_package/video_source_brief.md)
   Repository-specific NotebookLM-oriented source brief for the periodic-feature-network project video package.
 
 - [guide/Residual%20Harmonic%20Network/Residual%20Harmonic%20Network.md](./guide/Residual%20Harmonic%20Network/Residual%20Harmonic%20Network.md)
@@ -4303,16 +4306,16 @@ This folder contains the internal project documents derived from the reference P
 - [guide/Residual%20Harmonic%20Network/Residual%20Harmonic%20Network.pdf](./guide/Residual%20Harmonic%20Network/Residual%20Harmonic%20Network.pdf)
   Styled PDF export of the residual-harmonic network learning guide.
 
-- [guide/Residual%20Harmonic%20Network/concept_video_package/video_source_brief.md](./guide/Residual%20Harmonic%20Network/concept_video_package/video_source_brief.md)
+- [guide/Residual%20Harmonic%20Network/concept_video_package/video_source_brief.md](./guide/Residual%20Harmonic%20Network/assets/concept_video_package/video_source_brief.md)
   Neutral NotebookLM-oriented source brief for the residual-harmonic-network concept video package.
 
-- [guide/Residual%20Harmonic%20Network/project_video_package/video_source_brief.md](./guide/Residual%20Harmonic%20Network/project_video_package/video_source_brief.md)
+- [guide/Residual%20Harmonic%20Network/project_video_package/video_source_brief.md](./guide/Residual%20Harmonic%20Network/assets/project_video_package/video_source_brief.md)
   Repository-specific NotebookLM-oriented source brief for the residual-harmonic-network project video package.
 
-- [guide/Multilayer%20Perceptrons/concept_video_package/video_source_brief.md](./guide/Multilayer%20Perceptrons/concept_video_package/video_source_brief.md)
+- [guide/Multilayer%20Perceptrons/concept_video_package/video_source_brief.md](./guide/Multilayer%20Perceptrons/assets/concept_video_package/video_source_brief.md)
   Neutral NotebookLM-oriented source brief for the Multilayer Perceptrons concept video package.
 
-- [guide/Multilayer%20Perceptrons/project_video_package/video_source_brief.md](./guide/Multilayer%20Perceptrons/project_video_package/video_source_brief.md)
+- [guide/Multilayer%20Perceptrons/project_video_package/video_source_brief.md](./guide/Multilayer%20Perceptrons/assets/project_video_package/video_source_brief.md)
   Repository-specific NotebookLM-oriented source brief for the Multilayer Perceptrons bridge-topic project video package.
 
 - [guide/FeedForward%20Network/FeedForward%20Network.md](./guide/FeedForward%20Network/FeedForward%20Network.md)
@@ -4399,16 +4402,16 @@ This folder contains the internal project documents derived from the reference P
   campaign, comparing temporal convolution, `GRU`, and `LSTM` sequence
   baselines across `global`, `Fw`, and `Bw`.
 
-- [reports/campaign_plans/2026-03-12-15-32-28_mixed_training_campaign_plan_report.md](./reports/campaign_plans/2026-03-12-15-32-28_mixed_training_campaign_plan_report.md)
+- [reports/campaign_plans/2026-03-12-15-32-28_mixed_training_campaign_plan_report.md](./reports/campaign_plans/mixed_training/2026-03-12-15-32-28_mixed_training_campaign_plan_report.md)
   Planning report for the next mixed feedforward campaign that combines longer schedules, denser point sampling, larger batches, and larger models.
 
-- [reports/campaign_plans/2026-03-17-21-01-47_wave1_structured_baseline_campaign_plan_report.md](./reports/campaign_plans/2026-03-17-21-01-47_wave1_structured_baseline_campaign_plan_report.md)
+- [reports/campaign_plans/2026-03-17-21-01-47_wave1_structured_baseline_campaign_plan_report.md](./reports/campaign_plans/wave_1/2026-03-17-21-01-47_wave1_structured_baseline_campaign_plan_report.md)
   Planning report for the first Wave 1 structured-baseline exploratory campaign across harmonic, periodic-feature, residual, and tree-based model families.
 
-- [reports/campaign_plans/2026-03-20-15-40-42_wave1_structured_baseline_recovery_campaign_plan_report.md](./reports/campaign_plans/2026-03-20-15-40-42_wave1_structured_baseline_recovery_campaign_plan_report.md)
+- [reports/campaign_plans/2026-03-20-15-40-42_wave1_structured_baseline_recovery_campaign_plan_report.md](./reports/campaign_plans/wave_1/2026-03-20-15-40-42_wave1_structured_baseline_recovery_campaign_plan_report.md)
   Planning report for the Wave 1 recovery campaign that reruns the failed harmonic, residual, and random forest branches after the model-aware summary fix.
 
-- [reports/campaign_plans/2026-03-26-13-52-00_wave1_residual_harmonic_family_campaign_plan_report.md](./reports/campaign_plans/2026-03-26-13-52-00_wave1_residual_harmonic_family_campaign_plan_report.md)
+- [reports/campaign_plans/2026-03-26-13-52-00_wave1_residual_harmonic_family_campaign_plan_report.md](./reports/campaign_plans/wave_1/2026-03-26-13-52-00_wave1_residual_harmonic_family_campaign_plan_report.md)
   Historical-filename planning report for the Wave 1 residual-harmonic familywise follow-up campaign, focused on a broad hyperparameter search inside the residual harmonic MLP family.
 
 - [reports/campaign_plans/wave_1/2026-05-11-19-41-11_wave1_directional_best_hyperparameter_search_campaign_plan_report.md](./reports/campaign_plans/wave_1/2026-05-11-19-41-11_wave1_directional_best_hyperparameter_search_campaign_plan_report.md)
@@ -4651,7 +4654,7 @@ This folder contains the internal project documents derived from the reference P
   harmonic tracking campaign, including the 9-run leaderboard and
   registry-impact summary.
 
-- [reports/campaign_results/2026-04-17-18-33-39_track1_svm_exact_faithful_final_attempt_campaign_results_report.md](./reports/campaign_results/2026-04-17-18-33-39_track1_svm_exact_faithful_final_attempt_campaign_results_report.md)
+- [reports/campaign_results/2026-04-17-18-33-39_track1_svm_exact_faithful_final_attempt_campaign_results_report.md](./reports/campaign_results/track_1/svm/2026-04-17-18-33-39_track1_svm_exact_faithful_final_attempt_campaign_results_report.md)
   Final results report for the completed strict paper-faithful `SVR` final
   attempt on the residual `SVM` yellow cells, including the repeated plateau
   confirmation and the validated PDF closeout.
@@ -4661,27 +4664,27 @@ This folder contains the internal project documents derived from the reference P
   exact-paper subset closeout, including the paper-faithful search replay
   outcome, validated PDF export, and subset bookkeeping artifacts.
 
-- [reports/campaign_results/2026-04-10-19-54-02_exact_paper_model_bank_campaign_results_report.md](./reports/campaign_results/2026-04-10-19-54-02_exact_paper_model_bank_campaign_results_report.md)
+- [reports/campaign_results/2026-04-10-19-54-02_exact_paper_model_bank_campaign_results_report.md](./reports/campaign_results/track_1/exact_paper/forward/2026-04-10-19-54-02_exact_paper_model_bank_campaign_results_report.md)
   Final results report for the completed exact-paper RCIM family-bank campaign,
   including strict-reference promotion, `SVR` surrogate diagnostics, and the
   validated exact-paper export-status outcome.
 
-- [reports/campaign_results/2026-04-13-22-55-28_track1_exact_paper_open_cell_repair_campaign_results_report.md](./reports/campaign_results/2026-04-13-22-55-28_track1_exact_paper_open_cell_repair_campaign_results_report.md)
+- [reports/campaign_results/2026-04-13-22-55-28_track1_exact_paper_open_cell_repair_campaign_results_report.md](./reports/campaign_results/track_1/exact_paper/forward/2026-04-13-22-55-28_track1_exact_paper_open_cell_repair_campaign_results_report.md)
   Final results report for the completed `RCIM Model-Bank Reproduction` exact-paper open-cell
   repair campaign, including paper-table closure status, harmonic-state
   changes, and the explicit confirmation that no new numeric paper cells were
   closed.
 
-- [reports/campaign_results/2026-04-09-21-19-05_track1_second_iteration_harmonic_wise_campaign_results_report.md](./reports/campaign_results/2026-04-09-21-19-05_track1_second_iteration_harmonic_wise_campaign_results_report.md)
+- [reports/campaign_results/2026-04-09-21-19-05_track1_second_iteration_harmonic_wise_campaign_results_report.md](./reports/campaign_results/track_1/harmonic_wise/forward/2026-04-09-21-19-05_track1_second_iteration_harmonic_wise_campaign_results_report.md)
   Final results report for the completed second `RCIM Model-Bank Reproduction` paper-faithful harmonic-wise campaign, including reduced-set diagnostics, full-RCIM comparison, and the updated `Target A` status.
 
-- [reports/campaign_results/2026-03-12-15-04-34_feedforward_variant_comparison_report.md](./reports/campaign_results/2026-03-12-15-04-34_feedforward_variant_comparison_report.md)
+- [reports/campaign_results/2026-03-12-15-04-34_feedforward_variant_comparison_report.md](./reports/campaign_results/mixed_training/2026-03-12-15-04-34_feedforward_variant_comparison_report.md)
   Comparative results report for the executed baseline, high-density, high-epoch, and high-compute feedforward training campaign.
 
-- [reports/campaign_results/2026-03-13-20-54-54_mixed_training_campaign_results_report.md](./reports/campaign_results/2026-03-13-20-54-54_mixed_training_campaign_results_report.md)
+- [reports/campaign_results/2026-03-13-20-54-54_mixed_training_campaign_results_report.md](./reports/campaign_results/mixed_training/2026-03-13-20-54-54_mixed_training_campaign_results_report.md)
   Final results report for the completed mixed feedforward campaign, including the recommended best-training preset selection.
 
-- [reports/campaign_results/2026-03-24-15-49-42_wave1_structured_baseline_recovery_campaign_results_report.md](./reports/campaign_results/2026-03-24-15-49-42_wave1_structured_baseline_recovery_campaign_results_report.md)
+- [reports/campaign_results/2026-03-24-15-49-42_wave1_structured_baseline_recovery_campaign_results_report.md](./reports/campaign_results/wave_1/2026-03-24-15-49-42_wave1_structured_baseline_recovery_campaign_results_report.md)
   Final results report for the completed Wave 1 recovery campaign, including campaign ranking, family-level outcomes, and program-level context.
 
 - [reports/campaign_results/wave_1/2026-05-07-13-29-12_wave1_directional_retraining_campaign_results_report.md](./reports/campaign_results/wave_1/2026-05-07-13-29-12_wave1_directional_retraining_campaign_results_report.md)
@@ -4698,7 +4701,7 @@ This folder contains the internal project documents derived from the reference P
   campaign, including the `RCIM` sparse, dense `0..240`, and dense `0..360`
   harmonic-bank comparison and the validated closeout artifact set.
 
-- [reports/campaign_results/2026-03-27-11-50-27_wave1_residual_harmonic_family_campaign_results_report.md](./reports/campaign_results/2026-03-27-11-50-27_wave1_residual_harmonic_family_campaign_results_report.md)
+- [reports/campaign_results/2026-03-27-11-50-27_wave1_residual_harmonic_family_campaign_results_report.md](./reports/campaign_results/wave_1/2026-03-27-11-50-27_wave1_residual_harmonic_family_campaign_results_report.md)
   Final results report for the completed Wave 1 residual-harmonic family optimization campaign, including familywise ranking and the promoted residual-family winner.
 
 #### Campaign Plans
@@ -4769,21 +4772,21 @@ This folder contains the internal project documents derived from the reference P
   `0..360` harmonic banks for `harmonic_regression` and
   `residual_harmonic_mlp`.
 
-- [reports/campaign_plans/2026-04-17-11-44-20_track1_svm_exact_faithful_final_attempt_campaign_plan_report.md](./reports/campaign_plans/2026-04-17-11-44-20_track1_svm_exact_faithful_final_attempt_campaign_plan_report.md)
+- [reports/campaign_plans/2026-04-17-11-44-20_track1_svm_exact_faithful_final_attempt_campaign_plan_report.md](./reports/campaign_plans/track_1/svm/2026-04-17-11-44-20_track1_svm_exact_faithful_final_attempt_campaign_plan_report.md)
   Planning report for deciding whether one final exact-faithful `SVR` rerun
   package is still justified for the residual `SVM` yellow cells.
 
-- [reports/campaign_plans/2026-04-14-13-42-10_track1_full_matrix_family_reproduction_campaign_plan_report.md](./reports/campaign_plans/2026-04-14-13-42-10_track1_full_matrix_family_reproduction_campaign_plan_report.md)
+- [reports/campaign_plans/2026-04-14-13-42-10_track1_full_matrix_family_reproduction_campaign_plan_report.md](./reports/campaign_plans/track_1/exact_paper/2026-04-14-13-42-10_track1_full_matrix_family_reproduction_campaign_plan_report.md)
   Planning report for the next umbrella `RCIM Model-Bank Reproduction` campaign package, organized
   as family-by-family amplitude and phase reproduction runs for the full
   paper-matrix objective.
 
-- [reports/campaign_plans/2026-04-13-21-20-53_track1_exact_paper_open_cell_repair_campaign_plan_report.md](./reports/campaign_plans/2026-04-13-21-20-53_track1_exact_paper_open_cell_repair_campaign_plan_report.md)
+- [reports/campaign_plans/2026-04-13-21-20-53_track1_exact_paper_open_cell_repair_campaign_plan_report.md](./reports/campaign_plans/track_1/exact_paper/2026-04-13-21-20-53_track1_exact_paper_open_cell_repair_campaign_plan_report.md)
   Planning report for the next `RCIM Model-Bank Reproduction` exact-paper open-cell repair
   campaign, centered on the still-open cells and harmonic states in canonical
   Tables `3-6`.
 
-- [reports/campaign_plans/2026-04-10-17-04-41_exact_paper_model_bank_campaign_plan_report.md](./reports/campaign_plans/2026-04-10-17-04-41_exact_paper_model_bank_campaign_plan_report.md)
+- [reports/campaign_plans/2026-04-10-17-04-41_exact_paper_model_bank_campaign_plan_report.md](./reports/campaign_plans/track_1/exact_paper/2026-04-10-17-04-41_exact_paper_model_bank_campaign_plan_report.md)
   Planning report for the first exact-paper RCIM family-bank batch campaign,
   including diagnostic and strict-reference runs, export-failure handling
   strategy, and the intended PowerShell launcher workflow.
