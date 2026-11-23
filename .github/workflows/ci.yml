@@ -122,6 +122,10 @@ jobs:
               print(script_path.as_posix())
           PY
 
+      - name: Test DataModule Split Contract (Standard Library)
+        run: |
+          python -B -m unittest discover -s scripts/testing -p "test_transmission_error_datamodule_split_contract.py" -v
+
       - name: Build Sphinx Portal
         run: |
           python -m sphinx -W -b html site site/_build/html
