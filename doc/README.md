@@ -4,6 +4,9 @@ This folder contains the internal project documents derived from the reference P
 
 ## Available Documents
 
+- [2026-11-22 HYG-07: dataset split and RCIM operational contract](./technical/2026-11/2026-11-22/2026-11-22-20-38-33_hyg07_dataset_split_and_rcim_operational_contract.md)
+  Scoped documentation corrections and fail-fast mandatory-test contract; qualification gates remain separate.
+
 ### Current Repository Maintenance
 
 - [2026-11-22 HYG-06: scientific dependency declaration alignment](./technical/2026-11/2026-11-22/2026-11-22-16-33-10_hyg06_scientific_dependency_declaration_alignment.md)

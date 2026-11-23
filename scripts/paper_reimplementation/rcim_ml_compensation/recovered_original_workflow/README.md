@@ -39,7 +39,9 @@ as its protocol reference is separate and lives in:
 
 Accepted faithful RCIM Model-Bank Reproduction outputs from that reimplementation are promoted to:
 
-- `models/paper_reference/rcim_track1/`
+- `models/polished_dataset/paper_reference/rcim_track1/`, partitioned into
+  `setpoints/` and `actual_values/`, each with `forward/`, `backward/`,
+  and `global/` accepted archive surfaces.
 
 The benchmark tables that report those results against the paper and retuned
 reference surfaces live in:
