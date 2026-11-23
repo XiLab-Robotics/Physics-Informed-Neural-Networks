@@ -8,7 +8,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 import run
 
 
-class HumanLikeTests(unittest.TestCase):
+class PaperReproductionTests(unittest.TestCase):
     def test_model_restrictions(self):
         with self.assertRaises(ValueError):
             run.onnx_path("integrated_specialist_a02", "forward")

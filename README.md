@@ -1,4 +1,4 @@
-# Transmission Error Modeling — Human-Like
+# Transmission Error Modeling — Paper Reproduction
 
 A concise, publication-oriented reproduction branch of the XiLab RV reducer transmission-error research. The complete R&D code, experiments, Codex tooling and history remain in [main](https://github.com/XiLab-Robotics/Physics-Informed-Neural-Networks/tree/main). This branch deliberately contains **only two scientific pipelines**.
 
@@ -18,7 +18,7 @@ The entire canonical polished dataset is included at `data/polished_dataset/` (9
 
 **Legacy RCIM:** repository-owned faithful reimplementation of the harmonic model-bank protocol. The promoted model banks preserve ten families (SVR, MLP, RF, DT, ET, ERT, GBM, HGBM, XGBM and LGBM) with 19 amplitude/phase targets each, for both `forward` and `backward`, in both `setpoints` and `actual_values` modes. The source retains optional ELM support; no promoted ELM weights are claimed. The original imported paper-era scripts are intentionally excluded.
 
-**DirectML:** twelve selected model families, 23 directional pretrained ONNX files; includes the TestRig-observed HR12, PMH7, RHMLP16 and PMLP6 models, standard feedforward/GRU/LSTM/TCN/tree baselines, periodic GRU, and the K01/H08 offline specialists. **K01 and H08 are preserved as trained offline references; their specialized retraining/evaluation flows are not yet qualified as Human-Like commands.** H08 is forward-only.
+**DirectML:** twelve selected model families, 23 directional pretrained ONNX files; includes the TestRig-observed HR12, PMH7, RHMLP16 and PMLP6 models, standard feedforward/GRU/LSTM/TCN/tree baselines, periodic GRU, and the K01/H08 offline specialists. **K01 and H08 are preserved as trained offline references; their specialized retraining/evaluation flows are not yet qualified as Paper Reproduction commands.** H08 is forward-only.
 
 ## Usage
 

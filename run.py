@@ -1,4 +1,4 @@
-"""Paper-facing Human-Like launcher for Legacy RCIM and selected DirectML."""
+"""Paper-facing Paper Reproduction launcher for Legacy RCIM and selected DirectML."""
 
 from __future__ import annotations
 
@@ -116,7 +116,7 @@ def train(args: argparse.Namespace) -> None:
     for obsolete in ("run_instance_id", "source_config_path", "planning_report_path",
                      "technical_document_path"):
         meta.pop(obsolete, None)
-    meta["output_run_name"] = f"humanlike_{family}_{args.direction}"
+    meta["output_run_name"] = f"paper_reproduction_{family}_{args.direction}"
     if args.pipeline == "direct_ml" and args.profile == "paired":
         manifest = ROOT / "configs" / "splits" / "paired_conditions.yaml"
         if not manifest.is_file():
@@ -215,7 +215,7 @@ def evaluate(args: argparse.Namespace) -> None:
 
 
 def main() -> None:
-    p = argparse.ArgumentParser(description="Human-Like TE: Legacy RCIM and DirectML")
+    p = argparse.ArgumentParser(description="Paper Reproduction TE: Legacy RCIM and DirectML")
     sp = p.add_subparsers(dest="command", required=True)
     sp.add_parser("catalog")
     d = sp.add_parser("validate-data")

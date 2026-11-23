@@ -1,4 +1,4 @@
-"""Factory for the baseline DirectML architectures included in Human-Like."""
+"""Factory for the baseline DirectML architectures included in Paper Reproduction."""
 
 from __future__ import annotations
 from typing import Any
@@ -125,4 +125,4 @@ def create_model(model_type: str, model_configuration: dict[str, Any]) -> nn.Mod
             readout_position=str(model_configuration.get("readout_position", "center")),
         )
 
-    raise ValueError(f"Unsupported Human-Like model type: {model_type}")
+    raise ValueError(f"Unsupported Paper Reproduction model type: {model_type}")
