@@ -1,429 +1,64 @@
-# Physics-Informed Neural Networks
+# Transmission Error Modeling — Human-Like
 
-Machine-learning workflows for rotational transmission error modeling in RV
-reducers, with a repository structure aimed at reproducible experiments,
-engineering-oriented documentation, and future physics-informed extensions.
+A concise, publication-oriented reproduction branch of the XiLab RV reducer transmission-error research. The complete R&D code, experiments, Codex tooling and history remain in [main](https://github.com/XiLab-Robotics/Physics-Informed-Neural-Networks/tree/main). This branch deliberately contains **only two scientific pipelines**.
 
-## Overview
+## Install
 
-This repository studies **rotational transmission error (TE)** in RV reducers
-used in industrial robotics.
-
-The project combines:
-
-- experimental TE datasets from a dedicated test rig;
-- structured machine-learning baselines implemented in Python;
-- reproducible training, validation, and campaign workflows;
-- documentation aimed at both engineering use and future model extension;
-- a roadmap toward more structured hybrid models and later full PINN work.
-
-The repository name still reflects the long-term physics-informed direction, but
-the current implemented surface already includes practical feedforward,
-harmonic, periodic-feature, residual-harmonic, and tree-based baselines.
-
-## Why This Repository Exists
-
-Transmission error is a key indicator for reducer accuracy, vibration behavior,
-and final robot joint positioning quality.
-
-In this project, the goal is not only to fit data well. The goal is to build TE
-models that are:
-
-- accurate on measured operating conditions;
-- interpretable enough for engineering analysis;
-- structured enough to support future TwinCAT / PLC-friendly deployment;
-- extensible toward hybrid and later physics-informed formulations.
-
-## Current Status
-
-Implemented today:
-
-- validated TE dataset processing and visualization utilities;
-- feedforward TE regression training with PyTorch Lightning;
-- structured baselines for harmonic regression, periodic-feature MLP, and
-  residual-harmonic MLP workflows;
-- tree-based baselines for comparison;
-- trained GRU, LSTM, and temporal-convolution candidates in the model-development
-  archive (archive availability is not PLC deployment qualification);
-- one-batch validation checks and smoke-test utilities;
-- batch campaign execution and artifact tracking;
-- styled report generation and PDF validation tooling;
-- recovered RCIM original-pipeline documentation and a repository-owned
-  near-literal execution copy under
-  `scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/`;
-- a faithful RCIM Model-Bank Reproduction exact-model-bank reimplementation under
-  `scripts/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/`,
-  with completed forward/backward paper-reference campaigns, archived
-  per-target `Python + ONNX` model banks, and populated benchmark tables for
-  RCIM Tables `2`-`5`;
-- repository-owned TwinCAT/TestRig video-guide tooling for high-quality transcript extraction, evidence-driven snapshots, and OCR-assisted report synthesis through Google GenAI;
-- a repository-owned LAN AI node path for remote `LM Studio`, `faster-whisper`, and `PaddleOCR` integration while keeping repository orchestration on the current workstation;
-- explicit LAN OCR compatibility handling for current `PaddleOCR` versions, with clearer remote-node diagnostics instead of opaque OCR-side `500` crashes;
-- repository-owned per-video report generation for analyzed TwinCAT/TestRig video guides;
-- a formalized remote-strong TwinCAT/TestRig video-analysis pipeline with tracked reruns, promoted canonical artifacts, and cross-video knowledge synthesis;
-- dual `NotebookLM` source-package tracks for guide-local concept videos and
-  repository-specific project videos;
-- repository-owned isolated-mode and Markdown validation tooling.
-- a repository-owned remote LAN training campaign launcher that starts
-  approved campaigns from the local terminal while executing the heavy training
-  runtime on the stronger remote workstation and synchronizing the resulting
-  artifacts back into the canonical local repository state through
-  metadata-aware artifact recovery.
-
-Planned or future work:
-
-- broader validation and generalization of the existing sequence-aware
-  model families to new operating conditions;
-- additional hybrid TE model families;
-- export and deployment hardening for production-oriented inference;
-- full PINN formulation once the physics residual design is mature enough.
-
-## Program Naming
-
-The repository uses three separate naming layers:
-
-| Layer | Purpose |
-| --- | --- |
-| `RCIM Model-Bank Reproduction` | Paper-faithful harmonic model-bank reproduction formerly called `Track 1`. |
-| `Model Development Waves` | Training and experimental model families, numbered from Wave 1 through Wave 6. |
-| `TE Curve Verification Pipeline` | Offline curve evaluation, diagnostics, selection, visualization, and report generation formerly called `Track 2`. |
-
-The current model-development sequence is:
-
-- Wave 1: baseline models;
-- Waves 2.1-2.3: temporal and harmonic-temporal models;
-- Waves 3.1-3.3: residual-offset and curve-aware models;
-- Waves 4.1-4.4: robust, probabilistic, mixture-density, and stateful models;
-- Wave 5.1: harmonic-prior residual models;
-- Wave 5.2: MMT/PINN-guided models;
-- Wave 6: integrated multi-task and multi-head models.
-
-The TE Curve Verification Pipeline uses `CVP 1.1` through `CVP 1.5` for its
-curve-first reranking, curve-payload diagnostics, mean-centered decomposition,
-offset-and-shape audit, and causal-offset feasibility modules. Historical
-artifact IDs and paths containing `track1` or `track2` remain unchanged for
-reproducibility.
-
-## Repository At A Glance
-
-The most important folders for a new user are:
-
-- `scripts/`
-  Python entry points for training, reporting, and tooling.
-- `config/`
-  YAML configuration files for datasets, presets, and campaigns.
-- `data/simplified_dataset/`
-  Legacy validated TE curves retained for compatibility.
-- `data/original_dataset/`
-  Raw test-rig recordings used to reconstruct preprocessing and provenance.
-- `data/polished_dataset/`
-  Default direction-separated row-level dataset used by new training.
-- `output/`
-  Training runs, validation checks, smoke tests, campaigns, and registries.
-- `doc/`
-  Main human-authored documentation, guides, reports, and technical notes.
-- `reference/`
-  External reference material and imported codebases kept outside the main
-  canonical workflow.
-- `models/polished_dataset/paper_reference/rcim_track1/`
-  Curated RCIM Model-Bank Reproduction forward/backward paper-reference model archives
-  produced by the faithful exact-model-bank reimplementation.
-- `reference/video_guides/source_bundle/`
-  Canonical Git-tracked TwinCAT/TestRig video source bundle, with large media
-  files stored through Git LFS.
-
-If you only want to get started, begin with:
-
-- [Project Usage Guide](./doc/guide/project_usage_guide.md)
-- [Transmission Error Dataset Family Reference](./doc/reference_summaries/08_Transmission_Error_Dataset_Family_Reference.md)
-- [Polished Dataset Generator Guide](./doc/scripts/datasets/generate_polished_transmission_error_dataset.md)
-- [Documentation Index](./doc/README.md)
-- Public Documentation:
-
-  [https://xilab-robotics.github.io/Physics-Informed-Neural-Networks/](https://xilab-robotics.github.io/Physics-Informed-Neural-Networks/)
-- [LAN AI Node Server Setup Guide](./doc/scripts/tooling/lan_ai/lan_ai_node_server.md)
-
-## Quick Start
-
-### 0. Clone Safely On Windows
-
-Before cloning on Windows, enable Git long-path support from an elevated
-PowerShell prompt:
+Use Python 3.12. Install a PyTorch build matching your platform, then run:
 
 ```powershell
-git config --system core.longpaths true
-```
-
-Then clone the repository into a reasonably short path such as `C:\Work`.
-
-### 1. Create The Environment
-
-```powershell
-conda create -y -n pinns_env python=3.12
-conda activate pinns_env
-python -m pip install --upgrade pip
-python -m pip install torch --index-url https://download.pytorch.org/whl/cu130
 python -m pip install -r requirements.txt
+python run.py catalog
+python run.py validate-data
 ```
 
-### 2. Check The Dataset Root
+The entire canonical polished dataset is included at `data/polished_dataset/` (969 forward and 969 backward CSV). The original directory name is intentionally preserved for exact configuration compatibility. CSV columns: `theta,theta_dot,tau_load,T,theta_TE`. Raw and simplified datasets, all global-trained models, A02 and unused research models are absent.
 
-The default dataset location is configured in
-`config/datasets/transmission_error_dataset.yaml`:
+## The two methods
 
-```yaml
-paths:
-  dataset_root: data/polished_dataset
-dataset:
-  name: polished_dataset
-```
+**Legacy RCIM:** repository-owned faithful reimplementation of the harmonic model-bank protocol. The promoted model banks preserve ten families (SVR, MLP, RF, DT, ET, ERT, GBM, HGBM, XGBM and LGBM) with 19 amplitude/phase targets each, for both `forward` and `backward`, in both `setpoints` and `actual_values` modes. The source retains optional ELM support; no promoted ELM weights are claimed. The original imported paper-era scripts are intentionally excluded.
 
-Use `--dataset simplified_dataset` on dataset-aware entry points when a legacy
-five-feature run must be reproduced.
+**DirectML:** twelve selected model families, 23 directional pretrained ONNX files; includes the TestRig-observed HR12, PMH7, RHMLP16 and PMLP6 models, standard feedforward/GRU/LSTM/TCN/tree baselines, periodic GRU, and the K01/H08 offline specialists. **K01 and H08 are preserved as trained offline references; their specialized retraining/evaluation flows are not yet qualified as Human-Like commands.** H08 is forward-only.
 
-### 3. Run A First Training Command
-
-For a lightweight verification run:
+## Usage
 
 ```powershell
-conda run -n pinns_env python scripts/training/train_feedforward_network.py --config-path config/training/feedforward/presets/trial.yaml --dataset polished_dataset
+# Show available pretrained models and directions
+python run.py catalog
+
+# Fast structural validation (not a full numeric checksum audit)
+python run.py validate-data
+
+# Preview a new training run without doing computation
+python run.py train --pipeline direct_ml --model periodic_mlp_harmonic --direction forward --profile paired --dry-run
+
+# Explicitly train a selected DirectML baseline
+python run.py train --pipeline direct_ml --model feedforward --direction backward --profile paired
+
+# Exact historical RCIM reimplementation
+python run.py train --pipeline legacy --direction forward --input-mode setpoints --profile historical
+python run.py train --pipeline legacy --direction backward --input-mode actual_values --profile historical
+
+# Bounded pointwise ONNX evaluation of one polished CSV
+python run.py evaluate --model periodic_mlp_harmonic --direction forward --csv data/polished_dataset/forward/25degree/100rpm/100.0rpm0.0Nm25.0deg.csv
 ```
 
-For the default feedforward baseline:
+Legacy reproduces the historical paper-style training search protocol. DirectML's `historical` profile uses the archived training setup; `paired` uses the **separate** condition-paired split manifest stored under `configs/splits/`. Results obtained with these two profiles are not interchangeable. A new dataset requires a compatible replacement manifest/config, not blindly reusing the archived assignments.
 
-```powershell
-conda run -n pinns_env python scripts/training/train_feedforward_network.py
-```
+Each invocation prepares a non-overwriting `results/` run directory with resolved config and an execution receipt. Original backend code may still emit supplementary files under `results/` and `output/`; these are ignored by Git. Training is **never** started by `catalog` or `validate-data`.
 
-Artifacts are written under:
+## Files
 
-- `output/training_runs/<model_family>/<run_instance_id>/`
+- `configs/legacy/`, `configs/direct_ml/`: source-backed configurations for direction-specific training.
+- `scripts/paper_reimplementation/rcim_ml_compensation/`: faithful RCIM algorithm core with unchanged mathematical routines.
+- `scripts/training/`, `scripts/models/`: trimmed backend supporting baseline DirectML architectures.
+- `models/legacy/` and `models/direct_ml/`: published Python/ONNX artifacts and original provenance inventories.
+- `tests/`: bounded logic checks; no paper numerical or PLC guarantee.
 
-## Example Workflows
+Some Python checkpoints may be Git LFS pointer files until Git LFS objects are fetched. Always check the model input/output interface and preprocessing before inference; the generic evaluation command supports only **single-input pointwise ONNX tensors**. Sequence/stateful models require model-specific evaluation. Original archive inventory paths refer to **main** and are provenance, not absolute paths in this branch.
 
-### Run The Current Best Feedforward Preset
+## Reproducibility and limits
 
-```powershell
-conda run -n pinns_env python scripts/training/train_feedforward_network.py --config-path config/training/feedforward/presets/best_training.yaml
-```
+Use consistent encoder angle, signed TE offset/A0, units, direction flag and torque/speed/temperature input source. The polished setpoint input order is **angle, speed, torque, temperature, direction**. The dataset's five measured columns are not the RCIM coefficient-bank input contract. Historical observations and training metrics are preserved on main; this branch does not automatically recreate them without rerunning the matching environment and protocol.
 
-### Launch A Prepared Campaign
-
-```powershell
-python scripts/training/run_training_campaign.py
-```
-
-### Launch A Prepared Campaign On The LAN Workstation
-
-```powershell
-.\scripts\campaigns\infrastructure\run_remote_training_campaign.ps1 `
-  -CampaignConfigPathList @("config\training\...\candidate_a.yaml","config\training\...\candidate_b.yaml") `
-  -CampaignName "remote_example_campaign" `
-  -PlanningReportPath "doc\reports\campaign_plans\YOUR_PLAN.md"
-```
-
-### Inspect The RCIM Model-Bank Reproduction Paper-Faithful Baseline
-
-The recovered original RCIM pipeline is preserved as a near-literal
-repository-owned copy here:
-
-- `scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/`
-
-The campaign-ready faithful reimplementation that reproduces RCIM paper
-Tables `2`-`5` on the repository dataset lives here:
-
-- `scripts/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/`
-
-Current accepted RCIM Model-Bank Reproduction model archives and benchmark tables live here:
-
-- `models/polished_dataset/paper_reference/rcim_track1/`
-- `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
-
-RCIM Model-Bank Reproduction is considered closed as the repository-owned paper-faithful full-bank
-reproduction surface: both `forward` and `backward` grid-search campaigns were
-run, the accepted archives were refreshed, and Tables `2`-`5` were repopulated.
-The closure does not claim that every colored benchmark cell is green; later
-all-green or restricted-dataset studies must be tracked as separate
-optimization/comparison branches.
-
-### Use The Short Wave 1 Recovery Launcher
-
-```powershell
-.\scripts\campaigns\wave1\run_wave1_structured_baseline_recovery_campaign.ps1
-```
-
-### Use The Wave 1 Residual Launcher
-
-```powershell
-.\scripts\campaigns\wave1\run_wave1_residual_harmonic_family_campaign.ps1
-```
-
-### Check Markdown Quality For Repository Docs
-
-```powershell
-python -B scripts/tooling/markdown/run_markdownlint.py
-python -B scripts/tooling/markdown/markdown_style_check.py --fail-on-warning
-```
-
-### Analyze TwinCAT Video Guides
-
-```powershell
-python -B scripts/tooling/video_guides/analyze_video_guides.py
-```
-
-The canonical source media for this workflow now lives under:
-
-- `reference/video_guides/source_bundle/`
-
-### Extract High-Quality TwinCAT Video Knowledge
-
-```powershell
-python -B scripts/tooling/video_guides/extract_video_guide_knowledge.py --video-filter "Machine_Learning_2" --limit-videos 1
-```
-
-### Use The LAN AI Node For Video Knowledge Extraction
-
-```powershell
-python -B scripts/tooling/video_guides/extract_video_guide_knowledge.py --video-filter "Machine_Learning_2" --limit-videos 1 --transcript-provider lan --cleanup-provider lmstudio --report-provider lmstudio --ocr-provider lan
-```
-
-Before using the LAN path, complete:
-
-- [LAN AI Node Server Setup Guide](./doc/scripts/tooling/lan_ai/lan_ai_node_server.md)
-
-For the tracked remote high-quality rerun, use the repository-owned launcher:
-
-```powershell
-.\scripts\tooling\video_guides\run_remote_high_quality_video_rerun.ps1
-```
-
-This launcher processes one video at a time, writes persistent runtime
-tracking, and stops on the first failing video instead of silently skipping
-ahead.
-
-The remote-strong process and current campaign sum-up are documented in:
-
-- [Remote High-Quality TwinCAT Video Pipeline](./doc/scripts/tooling/video_guides/remote_high_quality_video_pipeline.md)
-- [Remote High-Quality TwinCAT Video Campaign Sum-Up](./doc/reports/analysis/twincat_video_guides/%5B2026-04-02%5D/remote_high_quality_video_campaign_sum_up.md)
-
-The remote node now uses its own dependency file:
-
-```powershell
-python -m pip install -r scripts/tooling/lan_ai/requirements-lan-ai-node.txt
-```
-
-For local-only validation on the current workstation, keep the remote
-environment variables untouched and add:
-
-```powershell
-[System.Environment]::SetEnvironmentVariable("LM_STUDIO_LOCAL_URL", "http://127.0.0.1:1234", "User")
-```
-
-Then run the workflow with explicit local overrides, for example:
-
-```powershell
-python -B scripts/tooling/video_guides/extract_video_guide_knowledge.py --video-filter "Machine_Learning_2" --limit-videos 1 --transcript-provider lan --cleanup-provider lmstudio --report-provider lmstudio --ocr-provider local --transcript-model tiny --cleanup-model "nvidia/nemotron-3-nano-4b" --report-model "nvidia/nemotron-3-nano-4b" --lan-ai-base-url "http://127.0.0.1:8765" --lm-studio-base-url "$env:LM_STUDIO_LOCAL_URL" --force
-```
-
-## Documentation For New Users
-
-If you are opening the repository for the first time, use this reading order:
-
-1. [Project Usage Guide](./doc/guide/project_usage_guide.md)
-   Main runnable-workflow reference.
-2. [Documentation Index](./doc/README.md)
-   Entry point for guides, reports, and technical notes.
-3. [LAN AI Node Server Setup Guide](./doc/scripts/tooling/lan_ai/lan_ai_node_server.md)
-   Full Windows-first setup for the remote `LM Studio` and LAN AI node
-   workstation.
-4. Model guides under `doc/guide/`
-   Best place to understand the implemented model families at a conceptual
-   level.
-5. Analysis reports under `doc/reports/analysis/`
-   Useful when you want deeper training or model-family interpretation.
-
-Recommended guide entry points:
-
-- [Transmission Error Foundations Bundle](./doc/guide/Transmission%20Error%20Foundations/README.md)
-- [Neural Network Foundations](./doc/guide/Neural%20Network%20Foundations/Neural%20Network%20Foundations.md)
-- [Training, Validation, And Testing](./doc/guide/Training,%20Validation,%20And%20Testing/Training,%20Validation,%20And%20Testing.md)
-- [TE Model Curriculum](./doc/guide/TE%20Model%20Curriculum/TE%20Model%20Curriculum.md)
-- [FeedForward Network](./doc/guide/FeedForward%20Network/FeedForward%20Network.md)
-- [Harmonic Regression](./doc/guide/Harmonic%20Regression/Harmonic%20Regression.md)
-- [Periodic Feature Network](./doc/guide/Periodic%20Feature%20Network/Periodic%20Feature%20Network.md)
-- [Residual Harmonic Network](./doc/guide/Residual%20Harmonic%20Network/Residual%20Harmonic%20Network.md)
-
-## Core Model Family Examples
-
-This section lists representative model families, not the full research bank.
-For the dataset-separated exported-model catalog, see
-[Model Artifact Folder](./models/README.md).
-
-- `feedforward`
-  Point-wise MLP baseline for TE regression.
-- `harmonic_regression`
-  Structured harmonic baseline with explicit periodic bias.
-- `periodic_mlp`
-  Hybrid model combining periodic features with neural regression.
-- `residual_harmonic_mlp`
-  Structured-plus-residual decomposition for TE prediction.
-- `tree`
-  Tabular baselines for honest comparison against neural approaches.
-
-## Output And Reproducibility
-
-The repository separates artifacts by workflow type instead of mixing everything
-into one flat output root.
-
-Important locations:
-
-- `output/training_runs/`
-- `output/validation_checks/`
-- `output/smoke_tests/`
-- `output/training_campaigns/`
-- `output/registries/families/`
-- `output/registries/program/`
-
-This keeps run identity, campaign outcomes, and best-result tracking explicit
-and inspectable.
-
-## Documentation Surface
-
-The repository keeps its canonical human-authored documentation under `doc/`.
-Use these entry points instead of treating `README.md` as an internal registry:
-
-- [Documentation Index](./doc/README.md)
-- [Tooling Documentation Index](./doc/scripts/tooling/README.md)
-- [Project Usage Guide](./doc/guide/project_usage_guide.md)
-- [LAN AI Node Server Setup Guide](./doc/scripts/tooling/lan_ai/lan_ai_node_server.md)
-
-The repository-owned Sphinx portal under `site/` is now also prepared for
-publication through the GitHub Pages workflow in:
-
-- `.github/workflows/publish-sphinx-pages.yml`
-
-The configured public portal URL is below. Confirm actual deployment status
-from the GitHub Pages workflow:
-
-- `https://xilab-robotics.github.io/Physics-Informed-Neural-Networks/`
-
-For the current TwinCAT/TestRig video-analysis stack, the key references are:
-
-- [Remote High-Quality TwinCAT Video Pipeline](./doc/scripts/tooling/video_guides/remote_high_quality_video_pipeline.md)
-- [Remote High-Quality TwinCAT Video Campaign Sum-Up](./doc/reports/analysis/twincat_video_guides/%5B2026-04-02%5D/remote_high_quality_video_campaign_sum_up.md)
-- [TwinCAT Video Guides Reference](./doc/reference_codes/testrig_twincat_video_guides_reference.md)
-
-Recent repository-structure decisions are tracked in:
-
-- [2026-04-02-14-40-15_skill_frontmatter_bom_compatibility_fix.md](./doc/technical/2026-04/2026-04-02/2026-04-02-14-40-15_skill_frontmatter_bom_compatibility_fix.md)
-- [2026-04-02-14-24-24_readme_landing_page_and_registry_separation_rule.md](./doc/technical/2026-04/2026-04-02/2026-04-02-14-24-24_readme_landing_page_and_registry_separation_rule.md)
-- [2026-04-02-13-15-32_readme_tooling_lan_ai_documentation_reorganization.md](./doc/technical/2026-04/2026-04-02/2026-04-02-13-15-32_readme_tooling_lan_ai_documentation_reorganization.md)
-- [2026-04-02-13-04-40_move_closed_video_rerun_tracking_into_analysis_bundle.md](./doc/technical/2026-04/2026-04-02/2026-04-02-13-04-40_move_closed_video_rerun_tracking_into_analysis_bundle.md)
-- [2026-04-02-12-42-24_lan_ai_node_ocr_500_regression_check_and_paddleocr_compatibility_fix.md](./doc/technical/2026-04/2026-04-02/2026-04-02-12-42-24_lan_ai_node_ocr_500_regression_check_and_paddleocr_compatibility_fix.md)
-
-## Next Steps
-
-The near-term direction of the repository is to strengthen structured TE
-baselines, keep the training/reporting workflow reliable, and progressively move
-toward richer hybrid and eventually physics-informed models once the formulation
-is technically justified.
+**A source/ONNX archive is not a TestRig or TwinCAT qualification.** Neither native XAE build, PLC RAM fingerprint, deterministic 500 Hz deadlines, nor physical encoder zero are established by this branch. No external machine experiment is automatically started. The publication should distinguish offline training, runtime feasibility and physical validation. Dataset and model rights should be checked before public redistribution.

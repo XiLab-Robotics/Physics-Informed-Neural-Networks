@@ -1,2 +1,0 @@
-0_method;best_parameters
-SVM;{'__rcim_svr_variant__': 'pragmatic_linear_fallback', '__rcim_svr_parameters__': {'C': 1, 'epsilon': 0.0001, 'tol': 0.0001, 'max_iter': 5000}}

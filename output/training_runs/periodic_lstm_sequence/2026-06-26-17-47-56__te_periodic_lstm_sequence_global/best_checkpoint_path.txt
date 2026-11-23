@@ -1,1 +1,0 @@
-C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_runs\periodic_lstm_sequence\2026-06-26-17-47-56__te_periodic_lstm_sequence_global\checkpoints\periodic_lstm_sequence-epoch=256-val_mae=0.00118477.ckpt

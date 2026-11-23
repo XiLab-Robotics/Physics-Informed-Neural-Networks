@@ -1,1 +1,0 @@
-C:\Users\Davide\Desktop\PINNs\Physics-Informed-Neural-Networks\output\training_runs\periodic_mlp\2026-05-15-00-16-09__te_periodic_mlp_h04_standard_global_optuna_t0006\checkpoints\periodic_mlp-epoch=075-val_mae=0.00296443.ckpt

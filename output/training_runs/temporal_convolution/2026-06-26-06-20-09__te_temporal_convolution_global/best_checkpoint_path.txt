@@ -1,1 +1,0 @@
-C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_runs\temporal_convolution\2026-06-26-06-20-09__te_temporal_convolution_global\checkpoints\temporal_convolution-epoch=080-val_mae=0.00230806.ckpt

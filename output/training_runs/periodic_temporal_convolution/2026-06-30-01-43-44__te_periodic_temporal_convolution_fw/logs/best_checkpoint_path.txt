@@ -1,1 +1,0 @@
-C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_runs\periodic_temporal_convolution\2026-06-30-01-43-44__te_periodic_temporal_convolution_fw\checkpoints\periodic_temporal_convolution-epoch=076-val_mae=0.00220865.ckpt

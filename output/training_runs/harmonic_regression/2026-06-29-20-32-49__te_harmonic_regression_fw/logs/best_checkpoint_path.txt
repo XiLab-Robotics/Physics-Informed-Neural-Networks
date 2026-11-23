@@ -1,1 +1,0 @@
-C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_runs\harmonic_regression\2026-06-29-20-32-49__te_harmonic_regression_fw\checkpoints\harmonic_regression-epoch=042-val_mae=0.00390024.ckpt
