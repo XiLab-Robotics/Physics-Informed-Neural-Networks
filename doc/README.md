@@ -9,6 +9,9 @@ This folder contains the internal project documents derived from the reference P
 
 ### Current Repository Maintenance
 
+- [2026-11-23 PRE08-QA: existing lightweight regressions in CI](./technical/2026-11/2026-11-23/2026-11-23-13-05-33_pre08_lightweight_split_contract_ci_gate.md)
+  Execute the three existing standard-library DataModule split-contract tests in the quality workflow.
+
 - [2026-11-23 PRE08-DOC: canonical index link reconciliation](./technical/2026-11/2026-11-23/2026-11-23-12-46-37_pre08_documentation_index_link_reconciliation.md)
   Source-tree-verified repair of 67 moved/renamed links; historical reports retained.
 
