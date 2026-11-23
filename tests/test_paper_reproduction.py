@@ -16,6 +16,20 @@ class PaperReproductionTests(unittest.TestCase):
             run.onnx_path("complex_harmonic_coefficient_h08", "backward")
         self.assertTrue(str(run.onnx_path("harmonic_regression", "forward")).endswith("model.onnx"))
 
+    def test_pretrained_checkpoints_are_binary(self):
+        """The selected Lightning checkpoints must not be text links or LFS pointers."""
+        directory = run.ROOT / "models" / "direct_ml"
+        checkpoints = list(directory.rglob("*.ckpt"))
+        self.assertEqual(18, len(checkpoints), "Expected 18 promoted Lightning checkpoints")
+        for file in checkpoints:
+            with self.subTest(file=str(file.relative_to(run.ROOT))):
+                self.assertGreater(file.stat().st_size, 4096, "Checkpoint is not a binary artifact")
+                with file.open("rb") as stream:
+                    prefix = stream.read(128)
+                self.assertFalse(prefix.startswith(b"../"), "Broken historical relative link")
+                self.assertFalse(prefix.startswith(b"version https://git-lfs.github.com/spec/v1"),
+                                 "Unmaterialized Git LFS pointer")
+
     def test_paired_dataset_header_and_count(self):
         with TemporaryDirectory() as t:
             root = Path(t)

@@ -5,4 +5,5 @@
 *.json text eol=lf
 *.csv text eol=lf
 *.txt text eol=lf
-models/direct_ml/**/python/*.ckpt filter=lfs diff=lfs merge=lfs -text
+# Archived checkpoints are original Git blobs (not LFS pointers).
+models/direct_ml/**/python/*.ckpt -filter -diff -merge -text

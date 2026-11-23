@@ -55,7 +55,7 @@ Each invocation prepares a non-overwriting `results/` run directory with resolve
 - `models/legacy/` and `models/direct_ml/`: published Python/ONNX artifacts and original provenance inventories.
 - `tests/`: bounded logic checks; no paper numerical or PLC guarantee.
 
-Some Python checkpoints may be Git LFS pointer files until Git LFS objects are fetched. Always check the model input/output interface and preprocessing before inference; the generic evaluation command supports only **single-input pointwise ONNX tensors**. Sequence/stateful models require model-specific evaluation. Original archive inventory paths refer to **main** and are provenance, not absolute paths in this branch.
+The 18 selected Lightning `.ckpt` model files are archived as actual Git blobs, restored from the original training runs in `main`; they are not Git LFS pointers or relative path placeholders. Always check the model input/output interface and preprocessing before inference; the generic evaluation command supports only **single-input pointwise ONNX tensors**. Sequence/stateful models require model-specific evaluation. Original archive inventory paths refer to **main** and are provenance, not absolute paths in this branch.
 
 ## Reproducibility and limits
 
