@@ -1,3 +1,5 @@
+> **HYG-08 active design:** [Human-Like technical plan](technical/2026-11/2026-11-23/2026-11-23-16-49-55-hyg08_human_like_reproducibility_branch.md). This file is retained only for the design-stage branch; the final Human-Like worktree has a single central README.
+
 # Project Documentation Index
 
 This folder contains the internal project documents derived from the reference PDFs and from the reference codebases used to define the coding style of this repository.
