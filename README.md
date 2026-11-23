@@ -43,7 +43,7 @@ python run.py train --pipeline legacy --direction backward --input-mode actual_v
 python run.py evaluate --model periodic_mlp_harmonic --direction forward --csv data/polished_dataset/forward/25degree/100rpm/100.0rpm0.0Nm25.0deg.csv
 ```
 
-Legacy reproduces the historical paper-style training search protocol. DirectML's `historical` profile uses the archived training setup; `paired` uses the **separate** condition-paired split manifest stored under `configs/splits/`. Results obtained with these two profiles are not interchangeable. A new dataset requires a compatible replacement manifest/config, not blindly reusing the archived assignments.
+Legacy reproduces the historical paper-style training search protocol. DirectML's `historical` profile uses the archived training setup; `paired` uses the **separate** condition-paired split manifest stored under `configs/splits/`. Results obtained with these two profiles are not interchangeable. For supported pointwise ONNX models, evaluation produces a compact `metrics.json`, `predictions.csv`, and two PNG overlays/errors under the ignored `results/` directory. A new dataset requires a compatible replacement manifest/config, not blindly reusing the archived assignments.
 
 Each invocation prepares a non-overwriting `results/` run directory with resolved config and an execution receipt. Original backend code may still emit supplementary files under `results/` and `output/`; these are ignored by Git. Training is **never** started by `catalog` or `validate-data`.
 

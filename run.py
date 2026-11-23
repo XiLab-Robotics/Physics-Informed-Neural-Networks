@@ -191,8 +191,27 @@ def evaluate(args: argparse.Namespace) -> None:
                "offset_deg": float(err.mean()), "centered_mae_deg": float(np.abs(err-err.mean()).mean())}
     out = new_run_directory("evaluation", args.model, args.direction)
     out.joinpath("metrics.json").write_text(json.dumps(metrics, indent=2) + "\n", encoding="utf-8")
+    pd.DataFrame({"theta_deg": df["theta"], "measured_te_deg": truth, "predicted_te_deg": pred,
+                  "error_deg": err}).to_csv(out / "predictions.csv", index=False)
+    from matplotlib import pyplot as plt
+    plotdir = out / "plots"
+    plotdir.mkdir()
+    fig, ax = plt.subplots(figsize=(10, 4))
+    ax.plot(df["theta"], truth, label="Measured TE")
+    ax.plot(df["theta"], pred, label="Predicted TE")
+    ax.set(xlabel="Angle (deg)", ylabel="Transmission error (deg)", title=f"{args.model} - {args.direction}")
+    ax.legend()
+    fig.tight_layout()
+    fig.savefig(plotdir / "prediction_vs_measurement.png", dpi=160)
+    plt.close(fig)
+    fig, ax = plt.subplots(figsize=(10, 3))
+    ax.plot(df["theta"], err)
+    ax.set(xlabel="Angle (deg)", ylabel="Prediction error (deg)", title="Pointwise error")
+    fig.tight_layout()
+    fig.savefig(plotdir / "error.png", dpi=160)
+    plt.close(fig)
     print(json.dumps(metrics, indent=2))
-    print("Metrics:", out / "metrics.json")
+    print("Results:", out)
 
 
 def main() -> None:

@@ -125,6 +125,4 @@ def create_model(model_type: str, model_configuration: dict[str, Any]) -> nn.Mod
             readout_position=str(model_configuration.get("readout_position", "center")),
         )
 
-    # Create Residual Harmonic LSTM Sequence Model
-
     raise ValueError(f"Unsupported Human-Like model type: {model_type}")
