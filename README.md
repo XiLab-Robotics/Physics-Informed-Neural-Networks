@@ -2,15 +2,28 @@
 
 A concise, publication-oriented reproduction branch of the XiLab RV reducer transmission-error research. The complete R&D code, experiments, Codex tooling and history remain in [main](https://github.com/XiLab-Robotics/Physics-Informed-Neural-Networks/tree/main). This branch deliberately contains **only two scientific pipelines**.
 
-## Install
+## Install — dedicated Conda environment
 
-Use Python 3.12. Install a PyTorch build matching your platform, then run:
+**Never execute research tests or training in the system Python.** Use one isolated Conda environment, including for standard-library smoke tests. The checked-in `environment.yml` is an intentionally lightweight bootstrap (Python 3.12, PyYAML, pip); it does **not** install PyTorch or launch any training.
 
 ```powershell
-python -m pip install -r requirements.txt
-python run.py catalog
-python run.py validate-data
+# Run in this repository directory, once:
+conda env create -f environment.yml
+
+# Works from Windows PowerShell without "conda activate":
+conda run --no-capture-output -n pinns-paper-repro python --version
+conda run --no-capture-output -n pinns-paper-repro python -m unittest discover -s tests -v
+conda run --no-capture-output -n pinns-paper-repro python run.py catalog
+conda run --no-capture-output -n pinns-paper-repro python run.py validate-data
 ```
+
+Alternatively, initialize PowerShell for Conda and activate `pinns-paper-repro` before using shorter `python ...` commands. Do not fall back to global Python 3.13. The full scientific dependency set in `requirements.txt` is **optional and separate** from this lightweight gate; install it inside the same environment only when validating inference or training, after checking platform compatibility:
+
+```powershell
+conda run --no-capture-output -n pinns-paper-repro python -m pip install -r requirements.txt
+```
+
+The above `pip` installation is **not** part of the first verification stage; do not start it until the scientific environment is intentionally being qualified.
 
 The entire canonical polished dataset is included at `data/polished_dataset/` (969 forward and 969 backward CSV). The original directory name is intentionally preserved for exact configuration compatibility. CSV columns: `theta,theta_dot,tau_load,T,theta_TE`. Raw and simplified datasets, all global-trained models, A02 and unused research models are absent.
 
@@ -24,23 +37,23 @@ The entire canonical polished dataset is included at `data/polished_dataset/` (9
 
 ```powershell
 # Show available pretrained models and directions
-python run.py catalog
+conda run --no-capture-output -n pinns-paper-repro python run.py catalog
 
 # Fast structural validation (not a full numeric checksum audit)
-python run.py validate-data
+conda run --no-capture-output -n pinns-paper-repro python run.py validate-data
 
 # Preview a new training run without doing computation
-python run.py train --pipeline direct_ml --model periodic_mlp_harmonic --direction forward --profile paired --dry-run
+conda run --no-capture-output -n pinns-paper-repro python run.py train --pipeline direct_ml --model periodic_mlp_harmonic --direction forward --profile paired --dry-run
 
 # Explicitly train a selected DirectML baseline
-python run.py train --pipeline direct_ml --model feedforward --direction backward --profile paired
+conda run --no-capture-output -n pinns-paper-repro python run.py train --pipeline direct_ml --model feedforward --direction backward --profile paired
 
 # Exact historical RCIM reimplementation
-python run.py train --pipeline legacy --direction forward --input-mode setpoints --profile historical
-python run.py train --pipeline legacy --direction backward --input-mode actual_values --profile historical
+conda run --no-capture-output -n pinns-paper-repro python run.py train --pipeline legacy --direction forward --input-mode setpoints --profile historical
+conda run --no-capture-output -n pinns-paper-repro python run.py train --pipeline legacy --direction backward --input-mode actual_values --profile historical
 
 # Bounded pointwise ONNX evaluation of one polished CSV
-python run.py evaluate --model periodic_mlp_harmonic --direction forward --csv data/polished_dataset/forward/25degree/100rpm/100.0rpm0.0Nm25.0deg.csv
+conda run --no-capture-output -n pinns-paper-repro python run.py evaluate --model periodic_mlp_harmonic --direction forward --csv data/polished_dataset/forward/25degree/100rpm/100.0rpm0.0Nm25.0deg.csv
 ```
 
 Legacy reproduces the historical paper-style training search protocol. DirectML's `historical` profile uses the archived training setup; `paired` uses the **separate** condition-paired split manifest stored under `configs/splits/`. Results obtained with these two profiles are not interchangeable. For supported pointwise ONNX models, evaluation produces a compact `metrics.json`, `predictions.csv`, and two PNG overlays/errors under the ignored `results/` directory. A new dataset requires a compatible replacement manifest/config, not blindly reusing the archived assignments.
