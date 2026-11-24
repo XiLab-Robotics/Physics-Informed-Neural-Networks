@@ -2,6 +2,23 @@
 
 A concise, publication-oriented reproduction branch of the XiLab RV reducer transmission-error research. The complete R&D code, experiments, Codex tooling and history remain in [main](https://github.com/XiLab-Robotics/Physics-Informed-Neural-Networks/tree/main). This branch deliberately contains **only two scientific pipelines**.
 
+## Clone — Paper Reproduction only
+
+Clone only this branch with a shallow history. A default clone of the full repository would download unnecessary research history and objects from other branches.
+
+```powershell
+git clone --branch paper-reproduction --single-branch --depth 1 --no-tags https://github.com/XiLab-Robotics/Physics-Informed-Neural-Networks.git PINNs-Paper-Reproduction
+cd PINNs-Paper-Reproduction
+
+# Verify the selected branch and shallow history.
+git branch --show-current
+git rev-parse --is-shallow-repository
+```
+
+The expected outputs are `paper-reproduction` and `true`. The command downloads the current Paper Reproduction snapshot, including its complete polished dataset and selected pretrained models, without fetching the full development history or other branch snapshots. The dataset itself still requires substantial disk space. Do not use `--recurse-submodules` or `--unshallow` for this workflow.
+
+To update an existing clone, run `git pull --ff-only` from the Paper Reproduction directory. No separate clone of `main` is required.
+
 ## Install — dedicated Conda environment
 
 **Never execute research tests or training in the system Python.** Use one isolated Conda environment, including for standard-library smoke tests. The checked-in `environment.yml` is an intentionally lightweight bootstrap (Python 3.12, PyYAML, pip); it does **not** install PyTorch or launch any training.
