@@ -4,7 +4,7 @@ from __future__ import annotations
 
 # Import Python Utilities
 import os
-import re, random
+import random
 from dataclasses import dataclass
 from functools import lru_cache
 from pathlib import Path
@@ -21,7 +21,11 @@ from torch.utils.data import DataLoader, Dataset
 
 # Import Project Utilities
 from scripts.tooling import repository_path_support
-from scripts.tooling.polished_path_support import resolve_polished_direction
+from scripts.tooling.polished_path_support import (
+    FILENAME_PATTERN,
+    parse_operating_condition_metadata,
+    resolve_polished_direction,
+)
 
 PACKAGE_PATH = Path(os.path.abspath(__file__)).parent
 PROJECT_PATH = PACKAGE_PATH.parents[1]
@@ -45,8 +49,6 @@ BACKWARD_DIRECTION = "backward"
 
 FORWARD_DIRECTION_FLAG = 1.0
 BACKWARD_DIRECTION_FLAG = -1.0
-
-FILENAME_PATTERN = re.compile(r"(?P<speed_rpm>[0-9.]+)rpm(?P<torque_nm>[0-9.]+)Nm(?P<temperature_deg>[0-9.]+)deg\.csv$")
 
 # Keep compatibility with the original dataset header typo while also accepting
 # the corrected spelling if a future normalized dataset version is introduced.
@@ -284,42 +286,6 @@ def collect_dataset_csv_paths(dataset_root: str | Path = DEFAULT_DATASET_PATH) -
     assert len(csv_file_paths) > 0, f"No CSV files found inside Dataset Root | {dataset_root_path}"
 
     return csv_file_paths
-
-def parse_operating_condition_metadata(csv_file_path: str | Path) -> dict[str, float]:
-
-    """ Parse Operating Condition Metadata """
-
-    # Resolve CSV Path
-    csv_file_path = Path(csv_file_path).resolve()
-
-    # Parse File Name Metadata
-    filename_match = FILENAME_PATTERN.search(csv_file_path.name)
-    assert filename_match is not None, f"Unable to parse Operating Conditions from file name | {csv_file_path.name}"
-
-    speed_rpm = float(filename_match.group("speed_rpm"))
-    torque_nm = float(filename_match.group("torque_nm"))
-    temperature_deg_from_filename = float(filename_match.group("temperature_deg"))
-
-    # Parse Parent Folder Metadata
-    normalized_path_text = csv_file_path.as_posix()
-    parent_folder_match = re.search(r"Test_(?P<temperature_deg>[0-9.]+)degree", normalized_path_text)
-    if parent_folder_match is None:
-        parent_folder_match = re.search(r"/(?P<temperature_deg>[0-9.]+)degree/", normalized_path_text)
-    assert parent_folder_match is not None, f"Unable to parse Test Temperature from folder path | {csv_file_path}"
-
-    temperature_deg_from_folder = float(parent_folder_match.group("temperature_deg"))
-
-    # Validate Temperature Consistency
-    assert temperature_deg_from_filename == temperature_deg_from_folder, (
-        f"Temperature mismatch between file name and folder | "
-        f"{temperature_deg_from_filename} vs {temperature_deg_from_folder} | {csv_file_path}"
-    )
-
-    return {
-        "speed_rpm": speed_rpm,
-        "torque_nm": torque_nm,
-        "oil_temperature_deg": temperature_deg_from_filename,
-    }
 
 @lru_cache(maxsize=32)
 def load_validated_te_dataframe(csv_file_path: str) -> pd.DataFrame:

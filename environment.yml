@@ -1,7 +1,13 @@
+# CPU inference, data validation and plotting only; no PyTorch or training stack.
 name: pinns-paper-repro
 channels:
   - conda-forge
 dependencies:
   - python=3.12
-  - pyyaml>=6,<7
   - pip
+  - pip:
+    - numpy==2.2.6
+    - pandas==2.3.3
+    - onnxruntime==1.23.2
+    - matplotlib==3.11.2
+    - PyYAML==6.0.3

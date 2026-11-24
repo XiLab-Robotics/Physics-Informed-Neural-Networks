@@ -1,0 +1,10 @@
+# Full scientific environment for supported training and Python model replay.
+# For a specific CPU/CUDA PyTorch build, use the alternative setup in README.md.
+name: pinns-paper-train
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+  - pip
+  - pip:
+    - -r requirements.txt

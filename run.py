@@ -157,7 +157,7 @@ def evaluate(args: argparse.Namespace) -> None:
     import numpy as np
     import pandas as pd
     import onnxruntime as ort
-    from scripts.datasets.transmission_error_dataset import parse_operating_condition_metadata
+    from scripts.tooling.polished_path_support import parse_operating_condition_metadata
     df = pd.read_csv(csvpath, nrows=args.max_points)
     if tuple(df.columns) != COLUMNS or df.empty:
         raise ValueError("Invalid or empty polished CSV")
