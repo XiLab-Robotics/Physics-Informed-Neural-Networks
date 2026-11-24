@@ -58,6 +58,33 @@ conda run --no-capture-output -n pinns-paper-repro python run.py evaluate --mode
 
 Legacy reproduces the historical paper-style training search protocol. DirectML's `historical` profile uses the archived training setup; `paired` uses the **separate** condition-paired split manifest stored under `configs/splits/`. Results obtained with these two profiles are not interchangeable. For supported pointwise ONNX models, evaluation produces a compact `metrics.json`, `predictions.csv`, and two PNG overlays/errors under the ignored `results/` directory. A new dataset requires a compatible replacement manifest/config, not blindly reusing the archived assignments.
 
+### Reduced dataset (one temperature and speed)
+
+The original dataset must remain unchanged. Copy the selected paired CSVs into
+a separate directory named `polished_dataset`, retaining the
+`forward/<temperature>degree/<speed>rpm/` and matching `backward/` paths.
+Set both `paths.dataset_root` and `paths.dataset_roots.polished_dataset` in
+a separate dataset YAML to the new root; do not overwrite the canonical YAML.
+For DirectML paired experiments, also create a matching split manifest with
+both directional paths for every selected condition and nonempty train,
+validation and test assignments. Use a separate training YAML pointing to
+these two files. Legacy uses a new historical-style split on the selected
+files, not the archived full-dataset split.
+
+The existing backend commands accept these explicit training configurations:
+
+```powershell
+# Prepare the config and inspect the backend options before any fitting.
+conda run --no-capture-output -n pinns-paper-repro python -m scripts.training.train_feedforward_network --help
+conda run --no-capture-output -n pinns-paper-repro python -m scripts.paper_reimplementation.rcim_ml_compensation.original_dataset_exact_model_bank.run_original_dataset_exact_model_bank_validation --help
+```
+
+The generic `run.py train` launcher still uses the checked-in configurations;
+it does not automatically select or copy a subset. Use the backend's
+`--config-path` with the explicitly prepared reduced training YAML only when
+intentionally starting a separate training run. Subset preparation is not a
+historical-paper result or permission to start a campaign.
+
 Each invocation prepares a non-overwriting `results/` run directory with resolved config and an execution receipt. Original backend code may still emit supplementary files under `results/` and `output/`; these are ignored by Git. Training is **never** started by `catalog` or `validate-data`.
 
 ## Files

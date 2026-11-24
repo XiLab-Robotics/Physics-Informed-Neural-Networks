@@ -21,6 +21,7 @@ from torch.utils.data import DataLoader, Dataset
 
 # Import Project Utilities
 from scripts.tooling import repository_path_support
+from scripts.tooling.polished_path_support import resolve_polished_direction
 
 PACKAGE_PATH = Path(os.path.abspath(__file__)).parent
 PROJECT_PATH = PACKAGE_PATH.parents[1]
@@ -368,17 +369,14 @@ def load_validated_polished_dataframe(csv_file_path: str) -> pd.DataFrame:
     assert len(polished_dataframe) > 0, f"Polished CSV contains no finite rows | {csv_file_path}"
     return polished_dataframe
 
-def resolve_direction_from_polished_path(csv_file_path: str | Path) -> str:
+def resolve_direction_from_polished_path(
+    csv_file_path: str | Path,
+    dataset_root: str | Path | None = None,
+) -> str:
 
-    """Resolve polished direction from the first-level dataset folder."""
+    """Resolve direction relative to the selected polished dataset root."""
 
-    resolved_csv_file_path = Path(csv_file_path).resolve()
-    relative_path = resolved_csv_file_path.relative_to(DATASET_ROOT_DICTIONARY[POLISHED_DATASET].resolve())
-    direction_label = relative_path.parts[0].lower()
-    assert direction_label in [FORWARD_DIRECTION, BACKWARD_DIRECTION], (
-        f"Polished direction folder must be forward or backward | {resolved_csv_file_path}"
-    )
-    return direction_label
+    return resolve_polished_direction(csv_file_path, dataset_root)
 
 def build_polished_directional_sample(
     csv_file_path: str | Path,
@@ -647,7 +645,7 @@ def build_directional_file_manifest(
 
         # Polished CSV Files Already Represent One Direction
         if normalized_dataset_name == POLISHED_DATASET:
-            direction_label = resolve_direction_from_polished_path(csv_file_path)
+            direction_label = resolve_direction_from_polished_path(csv_file_path, dataset_root)
             if direction_label == FORWARD_DIRECTION and use_forward_direction:
                 directional_file_manifest.append((csv_file_path, direction_label))
             if direction_label == BACKWARD_DIRECTION and use_backward_direction:
